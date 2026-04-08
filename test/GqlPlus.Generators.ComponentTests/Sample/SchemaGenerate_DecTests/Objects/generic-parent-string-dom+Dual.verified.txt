@@ -12,30 +12,15 @@ domain DomGnrcPrntStrDomDual { string /\w+/ }
 
 namespace Components.Gqlp_Schema_generic_parent_string_dom_Dual;
 
-public interface ICmptGnrcPrntStrDomDual
-  : ICmptFieldGnrcPrntStrDomDual<ICmptDomGnrcPrntStrDomDual>
-{
-  ICmptGnrcPrntStrDomDualObject? As_GnrcPrntStrDomDual { get; }
-}
-
-public interface ICmptGnrcPrntStrDomDualObject
-  : ICmptFieldGnrcPrntStrDomDualObject<ICmptDomGnrcPrntStrDomDual>
+internal class CmptGnrcPrntStrDomDualDecoder
 {
 }
 
-public interface ICmptFieldGnrcPrntStrDomDual<TRef>
-  // No Base because it's Class
+internal class CmptFieldGnrcPrntStrDomDualDecoder<TRef>
 {
-  ICmptFieldGnrcPrntStrDomDualObject<TRef>? As_FieldGnrcPrntStrDomDual { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ICmptFieldGnrcPrntStrDomDualObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public interface ICmptDomGnrcPrntStrDomDual
-  : IGqlpDomainString
+internal class CmptDomGnrcPrntStrDomDualDecoder
 {
 }

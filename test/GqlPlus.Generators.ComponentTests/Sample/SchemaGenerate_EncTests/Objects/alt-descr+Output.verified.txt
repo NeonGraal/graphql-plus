@@ -10,21 +10,6 @@ output AltDescrOutp { | "Test" "Descr" String }
 
 namespace Components.Gqlp_Schema_alt_descr_Output;
 
-public class CmptAltDescrOutp
-  : Schema_alt-descr+Output
-  , ICmptAltDescrOutp
+internal class CmptAltDescrOutpEncoder
 {
-  public string? AsString { get; set; }
-  public ICmptAltDescrOutpObject? As_AltDescrOutp { get; set; }
-}
-
-public class CmptAltDescrOutpObject
-  : Schema_alt-descr+Output
-  , ICmptAltDescrOutpObject
-{
-
-  public CmptAltDescrOutpObject
-    ()
-  {
-  }
 }

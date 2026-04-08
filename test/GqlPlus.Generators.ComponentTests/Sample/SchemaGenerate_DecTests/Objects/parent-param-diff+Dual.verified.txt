@@ -11,26 +11,11 @@ dual RefPrntParamDiffDual<$b:String> { | $b }
 
 namespace Components.Gqlp_Schema_parent_param_diff_Dual;
 
-public interface ICmptPrntParamDiffDual<TA>
-  : ICmptRefPrntParamDiffDual<TA>
+internal class CmptPrntParamDiffDualDecoder<TA>
 {
-  ICmptPrntParamDiffDualObject<TA>? As_PrntParamDiffDual { get; }
+  public TA Field { get; set; }
 }
 
-public interface ICmptPrntParamDiffDualObject<TA>
-  : ICmptRefPrntParamDiffDualObject<TA>
-{
-  TA Field { get; }
-}
-
-public interface ICmptRefPrntParamDiffDual<TB>
-  // No Base because it's Class
-{
-  TB? Asb { get; }
-  ICmptRefPrntParamDiffDualObject<TB>? As_RefPrntParamDiffDual { get; }
-}
-
-public interface ICmptRefPrntParamDiffDualObject<TB>
-  // No Base because it's Class
+internal class CmptRefPrntParamDiffDualDecoder<TB>
 {
 }

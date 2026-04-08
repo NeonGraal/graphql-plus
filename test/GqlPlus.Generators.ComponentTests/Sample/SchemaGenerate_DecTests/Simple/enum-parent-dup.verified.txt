@@ -11,15 +11,15 @@ enum PrntEnumPrntDup { prnt_enumPrntDup[enumPrntDup] }
 
 namespace Components.Gqlp_Schema_enum_parent_dup;
 
-public enum CmptEnumPrntDup
+internal class CmptEnumPrntDupDecoder
 {
-  prnt_enumPrntDup = CmptPrntEnumPrntDup.prnt_enumPrntDup,
-  enumPrntDup = CmptPrntEnumPrntDup.prnt_enumPrntDup,
-  enumPrntDup,
+  public string prnt_enumPrntDup { get; set; }
+  public string enumPrntDup { get; set; }
+  public string enumPrntDup { get; set; }
 }
 
-public enum CmptPrntEnumPrntDup
+internal class CmptPrntEnumPrntDupDecoder
 {
-  prnt_enumPrntDup,
-  enumPrntDup = prnt_enumPrntDup,
+  public string prnt_enumPrntDup { get; set; }
+  public string enumPrntDup { get; set; }
 }

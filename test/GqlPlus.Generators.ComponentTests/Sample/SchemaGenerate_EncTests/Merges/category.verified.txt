@@ -12,20 +12,6 @@ output Ctgr { }
 
 namespace Components.Gqlp_Schema_category;
 
-public class CmptCtgr
-  : Schema_category
-  , ICmptCtgr
+internal class CmptCtgrEncoder
 {
-  public ICmptCtgrObject? As_Ctgr { get; set; }
-}
-
-public class CmptCtgrObject
-  : Schema_category
-  , ICmptCtgrObject
-{
-
-  public CmptCtgrObject
-    ()
-  {
-  }
 }

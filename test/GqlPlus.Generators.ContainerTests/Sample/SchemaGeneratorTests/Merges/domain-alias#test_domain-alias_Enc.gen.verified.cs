@@ -7,8 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_alias;
 
-public class testDmnAlias
-  : GqlpDomainNumber
-  , ItestDmnAlias
+internal class testDmnAliasEncoder
 {
 }

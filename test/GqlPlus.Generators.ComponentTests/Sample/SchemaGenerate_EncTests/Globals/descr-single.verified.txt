@@ -11,20 +11,6 @@ output DescrSngl { }
 
 namespace Components.Gqlp_Schema_descr_single;
 
-public class CmptDescrSngl
-  : Schema_descr-single
-  , ICmptDescrSngl
+internal class CmptDescrSnglEncoder
 {
-  public ICmptDescrSnglObject? As_DescrSngl { get; set; }
-}
-
-public class CmptDescrSnglObject
-  : Schema_descr-single
-  , ICmptDescrSnglObject
-{
-
-  public CmptDescrSnglObject
-    ()
-  {
-  }
 }

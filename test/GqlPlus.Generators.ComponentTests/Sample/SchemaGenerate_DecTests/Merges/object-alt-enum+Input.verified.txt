@@ -11,15 +11,6 @@ input ObjAltEnumInp { ! false }
 
 namespace Components.Gqlp_Schema_object_alt_enum_Input;
 
-public interface ICmptObjAltEnumInp
-  // No Base because it's Class
-{
-  bool? AsBooleantrue { get; }
-  bool? AsBooleanfalse { get; }
-  ICmptObjAltEnumInpObject? As_ObjAltEnumInp { get; }
-}
-
-public interface ICmptObjAltEnumInpObject
-  // No Base because it's Class
+internal class CmptObjAltEnumInpDecoder
 {
 }

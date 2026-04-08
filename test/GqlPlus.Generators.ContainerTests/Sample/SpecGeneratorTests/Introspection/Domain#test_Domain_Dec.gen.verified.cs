@@ -7,180 +7,76 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Domain;
 
-public enum test_DomainKind
+internal class test_DomainKindDecoder
 {
-  Boolean,
-  Enum,
-  Number,
-  String,
+  public string Boolean { get; set; }
+  public string Enum { get; set; }
+  public string Number { get; set; }
+  public string String { get; set; }
 }
 
-public interface Itest_DomainRef<TDomainKind>
-  : Itest_TypeRef<Itest_TypeKind>
+internal class test_DomainRefDecoder<TDomainKind>
 {
-  Itest_DomainRefObject<TDomainKind>? As__DomainRef { get; }
+  public TDomainKind DomainKind { get; set; }
 }
 
-public interface Itest_DomainRefObject<TDomainKind>
-  : Itest_TypeRefObject<Itest_TypeKind>
+internal class test_BaseDomainDecoder<TDomainKind,TItem,TDomainItem>
 {
-  TDomainKind DomainKind { get; }
+  public TDomainKind DomainKind { get; set; }
 }
 
-public interface Itest_BaseDomain<TDomainKind,TItem,TDomainItem>
-  : Itest_ParentType<Itest_TypeKind, TItem, TDomainItem>
+internal class test_BaseDomainItemDecoder
 {
-  Itest_BaseDomainObject<TDomainKind,TItem,TDomainItem>? As__BaseDomain { get; }
+  public bool Exclude { get; set; }
 }
 
-public interface Itest_BaseDomainObject<TDomainKind,TItem,TDomainItem>
-  : Itest_ParentTypeObject<Itest_TypeKind, TItem, TDomainItem>
+internal class test_DomainItemDecoder<TItem>
 {
-  TDomainKind DomainKind { get; }
+  public Itest_Name Domain { get; set; }
 }
 
-public interface Itest_BaseDomainItem
-  : Itest_Described
+internal class test_DomainValueDecoder<TDomainKind,TValue>
 {
-  Itest_BaseDomainItemObject? As__BaseDomainItem { get; }
+  public TValue Value { get; set; }
 }
 
-public interface Itest_BaseDomainItemObject
-  : Itest_DescribedObject
-{
-  bool Exclude { get; }
-}
-
-public interface Itest_DomainItem<TItem>
-  // No Base because it's Class
-{
-  TItem? As_Parent { get; }
-  Itest_DomainItemObject<TItem>? As__DomainItem { get; }
-}
-
-public interface Itest_DomainItemObject<TItem>
-  // No Base because it's Class
-{
-  Itest_Name Domain { get; }
-}
-
-public interface Itest_DomainValue<TDomainKind,TValue>
-  : Itest_DomainRef<TDomainKind>
-{
-  TValue? Asvalue { get; }
-  Itest_DomainValueObject<TDomainKind,TValue>? As__DomainValue { get; }
-}
-
-public interface Itest_DomainValueObject<TDomainKind,TValue>
-  : Itest_DomainRefObject<TDomainKind>
-{
-  TValue Value { get; }
-}
-
-public interface Itest_BasicValue
-  // No Base because it's Class
-{
-  bool? AsBoolean { get; }
-  Itest_EnumValue? As_EnumValue { get; }
-  decimal? AsNumber { get; }
-  string? AsString { get; }
-  Itest_BasicValueObject? As__BasicValue { get; }
-}
-
-public interface Itest_BasicValueObject
-  // No Base because it's Class
+internal class test_BasicValueDecoder
 {
 }
 
-public interface Itest_DomainTrueFalse
-  : Itest_BaseDomainItem
+internal class test_DomainTrueFalseDecoder
 {
-  Itest_DomainTrueFalseObject? As__DomainTrueFalse { get; }
+  public bool Value { get; set; }
 }
 
-public interface Itest_DomainTrueFalseObject
-  : Itest_BaseDomainItemObject
-{
-  bool Value { get; }
-}
-
-public interface Itest_DomainItemTrueFalse
-  : Itest_DomainItem<Itest_DomainTrueFalse>
-{
-  Itest_DomainItemTrueFalseObject? As__DomainItemTrueFalse { get; }
-}
-
-public interface Itest_DomainItemTrueFalseObject
-  : Itest_DomainItemObject<Itest_DomainTrueFalse>
+internal class test_DomainItemTrueFalseDecoder
 {
 }
 
-public interface Itest_DomainLabel
-  : Itest_BaseDomainItem
+internal class test_DomainLabelDecoder
 {
-  Itest_DomainLabelObject? As__DomainLabel { get; }
+  public Itest_EnumValue Label { get; set; }
 }
 
-public interface Itest_DomainLabelObject
-  : Itest_BaseDomainItemObject
-{
-  Itest_EnumValue Label { get; }
-}
-
-public interface Itest_DomainItemLabel
-  : Itest_DomainItem<Itest_DomainLabel>
-{
-  Itest_DomainItemLabelObject? As__DomainItemLabel { get; }
-}
-
-public interface Itest_DomainItemLabelObject
-  : Itest_DomainItemObject<Itest_DomainLabel>
+internal class test_DomainItemLabelDecoder
 {
 }
 
-public interface Itest_DomainRange
-  : Itest_BaseDomainItem
+internal class test_DomainRangeDecoder
 {
-  Itest_DomainRangeObject? As__DomainRange { get; }
+  public decimal? Lower { get; set; }
+  public decimal? Upper { get; set; }
 }
 
-public interface Itest_DomainRangeObject
-  : Itest_BaseDomainItemObject
-{
-  decimal? Lower { get; }
-  decimal? Upper { get; }
-}
-
-public interface Itest_DomainItemRange
-  : Itest_DomainItem<Itest_DomainRange>
-{
-  Itest_DomainItemRangeObject? As__DomainItemRange { get; }
-}
-
-public interface Itest_DomainItemRangeObject
-  : Itest_DomainItemObject<Itest_DomainRange>
+internal class test_DomainItemRangeDecoder
 {
 }
 
-public interface Itest_DomainRegex
-  : Itest_BaseDomainItem
+internal class test_DomainRegexDecoder
 {
-  Itest_DomainRegexObject? As__DomainRegex { get; }
+  public string Pattern { get; set; }
 }
 
-public interface Itest_DomainRegexObject
-  : Itest_BaseDomainItemObject
-{
-  string Pattern { get; }
-}
-
-public interface Itest_DomainItemRegex
-  : Itest_DomainItem<Itest_DomainRegex>
-{
-  Itest_DomainItemRegexObject? As__DomainItemRegex { get; }
-}
-
-public interface Itest_DomainItemRegexObject
-  : Itest_DomainItemObject<Itest_DomainRegex>
+internal class test_DomainItemRegexDecoder
 {
 }

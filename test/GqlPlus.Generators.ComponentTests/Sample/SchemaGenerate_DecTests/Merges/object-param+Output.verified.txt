@@ -11,15 +11,8 @@ output ObjParamOutp<$type:String> { type: $type }
 
 namespace Components.Gqlp_Schema_object_param_Output;
 
-public interface ICmptObjParamOutp<TTest,TType>
-  // No Base because it's Class
+internal class CmptObjParamOutpDecoder<TTest,TType>
 {
-  ICmptObjParamOutpObject<TTest,TType>? As_ObjParamOutp { get; }
-}
-
-public interface ICmptObjParamOutpObject<TTest,TType>
-  // No Base because it's Class
-{
-  TTest Test { get; }
-  TType Type { get; }
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
 }

@@ -10,21 +10,6 @@ dual AltDescrDual { | "Test" "Descr" String }
 
 namespace Components.Gqlp_Schema_alt_descr_Dual;
 
-public class CmptAltDescrDual
-  : Schema_alt-descr+Dual
-  , ICmptAltDescrDual
+internal class CmptAltDescrDualEncoder
 {
-  public string? AsString { get; set; }
-  public ICmptAltDescrDualObject? As_AltDescrDual { get; set; }
-}
-
-public class CmptAltDescrDualObject
-  : Schema_alt-descr+Dual
-  , ICmptAltDescrDualObject
-{
-
-  public CmptAltDescrDualObject
-    ()
-  {
-  }
 }

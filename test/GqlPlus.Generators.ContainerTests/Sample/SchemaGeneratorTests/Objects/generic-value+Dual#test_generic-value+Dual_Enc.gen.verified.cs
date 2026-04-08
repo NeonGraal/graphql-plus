@@ -7,47 +7,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_value_Dual;
 
-public class testGnrcValueDual
-  : GqlpEncoderBase
-  , ItestGnrcValueDual
+internal class testGnrcValueDualEncoder
 {
-  public ItestRefGnrcValueDual<testEnumGnrcValueDual>? AsEnumGnrcValueDualgnrcValueDual { get; set; }
-  public ItestGnrcValueDualObject? As_GnrcValueDual { get; set; }
 }
 
-public class testGnrcValueDualObject
-  : GqlpEncoderBase
-  , ItestGnrcValueDualObject
-{
-
-  public testGnrcValueDualObject
-    ()
-  {
-  }
-}
-
-public class testRefGnrcValueDual<TType>
-  : GqlpEncoderBase
-  , ItestRefGnrcValueDual<TType>
-{
-  public ItestRefGnrcValueDualObject<TType>? As_RefGnrcValueDual { get; set; }
-}
-
-public class testRefGnrcValueDualObject<TType>
-  : GqlpEncoderBase
-  , ItestRefGnrcValueDualObject<TType>
+internal class testRefGnrcValueDualEncoder<TType>
 {
   public TType Field { get; set; }
-
-  public testRefGnrcValueDualObject
-    ( TType field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum testEnumGnrcValueDual
+internal class testEnumGnrcValueDualEncoder
 {
-  gnrcValueDual,
+  public string gnrcValueDual { get; set; }
 }

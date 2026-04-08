@@ -7,8 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_number_same;
 
-public class testDmnNmbrSame
-  : GqlpDomainNumber
-  , ItestDmnNmbrSame
+internal class testDmnNmbrSameEncoder
 {
 }

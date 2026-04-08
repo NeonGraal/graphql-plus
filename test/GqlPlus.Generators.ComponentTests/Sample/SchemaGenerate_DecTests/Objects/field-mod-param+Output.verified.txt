@@ -11,27 +11,12 @@ output FldFieldModParamOutp { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_mod_param_Output;
 
-public interface ICmptFieldModParamOutp<TMod>
-  // No Base because it's Class
+internal class CmptFieldModParamOutpDecoder<TMod>
 {
-  ICmptFieldModParamOutpObject<TMod>? As_FieldModParamOutp { get; }
+  public IDictionary<TMod, ICmptFldFieldModParamOutp> Field { get; set; }
 }
 
-public interface ICmptFieldModParamOutpObject<TMod>
-  // No Base because it's Class
+internal class CmptFldFieldModParamOutpDecoder
 {
-  IDictionary<TMod, ICmptFldFieldModParamOutp> Field { get; }
-}
-
-public interface ICmptFldFieldModParamOutp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ICmptFldFieldModParamOutpObject? As_FldFieldModParamOutp { get; }
-}
-
-public interface ICmptFldFieldModParamOutpObject
-  // No Base because it's Class
-{
-  decimal Field { get; }
+  public decimal Field { get; set; }
 }

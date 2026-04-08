@@ -7,9 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_diff;
 
-public class testUnionDiff
-  : GqlpEncoderBase
-  , ItestUnionDiff
+internal class testUnionDiffEncoder
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }

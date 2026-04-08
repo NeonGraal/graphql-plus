@@ -12,47 +12,16 @@ enum EnumCnstEnumDual { cnstEnumDual }
 
 namespace Components.Gqlp_Schema_constraint_enum_Dual;
 
-public class CmptCnstEnumDual
-  : Schema_constraint-enum+Dual
-  , ICmptCnstEnumDual
+internal class CmptCnstEnumDualEncoder
 {
-  public ICmptRefCnstEnumDual<CmptEnumCnstEnumDual>? AsEnumCnstEnumDualcnstEnumDual { get; set; }
-  public ICmptCnstEnumDualObject? As_CnstEnumDual { get; set; }
 }
 
-public class CmptCnstEnumDualObject
-  : Schema_constraint-enum+Dual
-  , ICmptCnstEnumDualObject
-{
-
-  public CmptCnstEnumDualObject
-    ()
-  {
-  }
-}
-
-public class CmptRefCnstEnumDual<TType>
-  : Schema_constraint-enum+Dual
-  , ICmptRefCnstEnumDual<TType>
-{
-  public ICmptRefCnstEnumDualObject<TType>? As_RefCnstEnumDual { get; set; }
-}
-
-public class CmptRefCnstEnumDualObject<TType>
-  : Schema_constraint-enum+Dual
-  , ICmptRefCnstEnumDualObject<TType>
+internal class CmptRefCnstEnumDualEncoder<TType>
 {
   public TType Field { get; set; }
-
-  public CmptRefCnstEnumDualObject
-    ( TType field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum CmptEnumCnstEnumDual
+internal class CmptEnumCnstEnumDualEncoder
 {
-  cnstEnumDual,
+  public string cnstEnumDual { get; set; }
 }

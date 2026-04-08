@@ -11,45 +11,12 @@ input FldFieldModParamInp { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_mod_param_Input;
 
-public class CmptFieldModParamInp<TMod>
-  : Schema_field-mod-param+Input
-  , ICmptFieldModParamInp<TMod>
-{
-  public ICmptFieldModParamInpObject<TMod>? As_FieldModParamInp { get; set; }
-}
-
-public class CmptFieldModParamInpObject<TMod>
-  : Schema_field-mod-param+Input
-  , ICmptFieldModParamInpObject<TMod>
+internal class CmptFieldModParamInpEncoder<TMod>
 {
   public IDictionary<TMod, ICmptFldFieldModParamInp> Field { get; set; }
-
-  public CmptFieldModParamInpObject
-    ( IDictionary<TMod, ICmptFldFieldModParamInp> field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptFldFieldModParamInp
-  : Schema_field-mod-param+Input
-  , ICmptFldFieldModParamInp
-{
-  public string? AsString { get; set; }
-  public ICmptFldFieldModParamInpObject? As_FldFieldModParamInp { get; set; }
-}
-
-public class CmptFldFieldModParamInpObject
-  : Schema_field-mod-param+Input
-  , ICmptFldFieldModParamInpObject
+internal class CmptFldFieldModParamInpEncoder
 {
   public decimal Field { get; set; }
-
-  public CmptFldFieldModParamInpObject
-    ( decimal field
-    )
-  {
-    Field = field;
-  }
 }

@@ -11,15 +11,8 @@ input ObjCnstInp<$type:String> { str: $type }
 
 namespace Components.Gqlp_Schema_object_constraint_Input;
 
-public interface ICmptObjCnstInp<TType>
-  // No Base because it's Class
+internal class CmptObjCnstInpDecoder<TType>
 {
-  ICmptObjCnstInpObject<TType>? As_ObjCnstInp { get; }
-}
-
-public interface ICmptObjCnstInpObject<TType>
-  // No Base because it's Class
-{
-  TType Field { get; }
-  TType Str { get; }
+  public TType Field { get; set; }
+  public TType Str { get; set; }
 }

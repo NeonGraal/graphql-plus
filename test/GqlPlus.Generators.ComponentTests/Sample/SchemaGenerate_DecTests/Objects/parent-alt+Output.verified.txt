@@ -11,27 +11,11 @@ output RefPrntAltOutp {  parent: Number | String }
 
 namespace Components.Gqlp_Schema_parent_alt_Output;
 
-public interface ICmptPrntAltOutp
-  : ICmptRefPrntAltOutp
-{
-  decimal? AsNumber { get; }
-  ICmptPrntAltOutpObject? As_PrntAltOutp { get; }
-}
-
-public interface ICmptPrntAltOutpObject
-  : ICmptRefPrntAltOutpObject
+internal class CmptPrntAltOutpDecoder
 {
 }
 
-public interface ICmptRefPrntAltOutp
-  // No Base because it's Class
+internal class CmptRefPrntAltOutpDecoder
 {
-  string? AsString { get; }
-  ICmptRefPrntAltOutpObject? As_RefPrntAltOutp { get; }
-}
-
-public interface ICmptRefPrntAltOutpObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
+  public decimal Parent { get; set; }
 }

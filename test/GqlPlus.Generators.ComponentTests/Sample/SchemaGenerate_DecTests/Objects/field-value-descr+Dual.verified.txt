@@ -11,19 +11,12 @@ enum EnumFieldValueDescrDual { fieldValueDescrDual }
 
 namespace Components.Gqlp_Schema_field_value_descr_Dual;
 
-public interface ICmptFieldValueDescrDual
-  // No Base because it's Class
+internal class CmptFieldValueDescrDualDecoder
 {
-  ICmptFieldValueDescrDualObject? As_FieldValueDescrDual { get; }
+  public CmptEnumFieldValueDescrDual Field { get; set; }
 }
 
-public interface ICmptFieldValueDescrDualObject
-  // No Base because it's Class
+internal class CmptEnumFieldValueDescrDualDecoder
 {
-  CmptEnumFieldValueDescrDual Field { get; }
-}
-
-public enum CmptEnumFieldValueDescrDual
-{
-  fieldValueDescrDual,
+  public string fieldValueDescrDual { get; set; }
 }

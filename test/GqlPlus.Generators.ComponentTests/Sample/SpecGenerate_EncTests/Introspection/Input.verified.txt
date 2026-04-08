@@ -17,39 +17,11 @@ output _InputFieldType {
 
 namespace Components.Gqlp_Spec_Input;
 
-public class Cmpt_InputField
-  : Cmpt_ObjField<ICmpt_InputFieldType>
-  , ICmpt_InputField
+internal class Cmpt_InputFieldEncoder
 {
-  public ICmpt_InputFieldObject? As__InputField { get; set; }
 }
 
-public class Cmpt_InputFieldObject
-  : Cmpt_ObjFieldObject<ICmpt_InputFieldType>
-  , ICmpt_InputFieldObject
-{
-
-  public Cmpt_InputFieldObject
-    ()
-  {
-  }
-}
-
-public class Cmpt_InputFieldType
-  : Cmpt_ObjFieldType
-  , ICmpt_InputFieldType
-{
-  public ICmpt_InputFieldTypeObject? As__InputFieldType { get; set; }
-}
-
-public class Cmpt_InputFieldTypeObject
-  : Cmpt_ObjFieldTypeObject
-  , ICmpt_InputFieldTypeObject
+internal class Cmpt_InputFieldTypeEncoder
 {
   public GqlpValue? DefaultValue { get; set; }
-
-  public Cmpt_InputFieldTypeObject
-    ()
-  {
-  }
 }

@@ -7,14 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_input_field_Number_descr;
 
-public interface ItestInpFieldNmbrDescr
-  // No Base because it's Class
+internal class testInpFieldNmbrDescrDecoder
 {
-  ItestInpFieldNmbrDescrObject? As_InpFieldNmbrDescr { get; }
-}
-
-public interface ItestInpFieldNmbrDescrObject
-  // No Base because it's Class
-{
-  decimal Field { get; }
+  public decimal Field { get; set; }
 }

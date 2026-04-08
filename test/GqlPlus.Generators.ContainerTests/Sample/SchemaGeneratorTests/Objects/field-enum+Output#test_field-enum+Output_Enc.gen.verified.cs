@@ -7,28 +7,12 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_enum_Output;
 
-public class testFieldEnumOutp
-  : GqlpEncoderBase
-  , ItestFieldEnumOutp
-{
-  public ItestFieldEnumOutpObject? As_FieldEnumOutp { get; set; }
-}
-
-public class testFieldEnumOutpObject
-  : GqlpEncoderBase
-  , ItestFieldEnumOutpObject
+internal class testFieldEnumOutpEncoder
 {
   public testEnumFieldEnumOutp Field { get; set; }
-
-  public testFieldEnumOutpObject
-    ( testEnumFieldEnumOutp field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum testEnumFieldEnumOutp
+internal class testEnumFieldEnumOutpEncoder
 {
-  fieldEnumOutp,
+  public string fieldEnumOutp { get; set; }
 }

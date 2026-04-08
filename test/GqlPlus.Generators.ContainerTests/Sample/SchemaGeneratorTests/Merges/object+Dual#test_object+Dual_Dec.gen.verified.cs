@@ -7,13 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_Dual;
 
-public interface ItestObjDual
-  // No Base because it's Class
-{
-  ItestObjDualObject? As_ObjDual { get; }
-}
-
-public interface ItestObjDualObject
-  // No Base because it's Class
+internal class testObjDualDecoder
 {
 }

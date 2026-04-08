@@ -7,20 +7,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_parent_descr;
 
-public class testDmnEnumPrntDescr
-  : testPrntDmnEnumPrntDescr
-  , ItestDmnEnumPrntDescr
+internal class testDmnEnumPrntDescrEncoder
 {
 }
 
-public class testPrntDmnEnumPrntDescr
-  : GqlpDomainEnum
-  , ItestPrntDmnEnumPrntDescr
+internal class testPrntDmnEnumPrntDescrEncoder
 {
 }
 
-public enum testEnumDmnEnumPrntDescr
+internal class testEnumDmnEnumPrntDescrEncoder
 {
-  enum_dmnEnumPrntDescr,
-  prnt_dmnEnumPrntDescr,
+  public string enum_dmnEnumPrntDescr { get; set; }
+  public string prnt_dmnEnumPrntDescr { get; set; }
 }

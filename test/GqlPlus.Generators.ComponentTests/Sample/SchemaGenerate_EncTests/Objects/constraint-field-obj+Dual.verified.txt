@@ -13,82 +13,20 @@ dual AltCnstFieldObjDual { :PrntCnstFieldObjDual alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_field_obj_Dual;
 
-public class CmptCnstFieldObjDual
-  : CmptRefCnstFieldObjDual<ICmptAltCnstFieldObjDual>
-  , ICmptCnstFieldObjDual
+internal class CmptCnstFieldObjDualEncoder
 {
-  public ICmptCnstFieldObjDualObject? As_CnstFieldObjDual { get; set; }
 }
 
-public class CmptCnstFieldObjDualObject
-  : CmptRefCnstFieldObjDualObject<ICmptAltCnstFieldObjDual>
-  , ICmptCnstFieldObjDualObject
-{
-
-  public CmptCnstFieldObjDualObject
-    ( ICmptAltCnstFieldObjDual field
-    ) : base(field)
-  {
-  }
-}
-
-public class CmptRefCnstFieldObjDual<TRef>
-  : Schema_constraint-field-obj+Dual
-  , ICmptRefCnstFieldObjDual<TRef>
-{
-  public ICmptRefCnstFieldObjDualObject<TRef>? As_RefCnstFieldObjDual { get; set; }
-}
-
-public class CmptRefCnstFieldObjDualObject<TRef>
-  : Schema_constraint-field-obj+Dual
-  , ICmptRefCnstFieldObjDualObject<TRef>
+internal class CmptRefCnstFieldObjDualEncoder<TRef>
 {
   public TRef Field { get; set; }
-
-  public CmptRefCnstFieldObjDualObject
-    ( TRef field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptPrntCnstFieldObjDual
-  : Schema_constraint-field-obj+Dual
-  , ICmptPrntCnstFieldObjDual
+internal class CmptPrntCnstFieldObjDualEncoder
 {
-  public string? AsString { get; set; }
-  public ICmptPrntCnstFieldObjDualObject? As_PrntCnstFieldObjDual { get; set; }
 }
 
-public class CmptPrntCnstFieldObjDualObject
-  : Schema_constraint-field-obj+Dual
-  , ICmptPrntCnstFieldObjDualObject
-{
-
-  public CmptPrntCnstFieldObjDualObject
-    ()
-  {
-  }
-}
-
-public class CmptAltCnstFieldObjDual
-  : CmptPrntCnstFieldObjDual
-  , ICmptAltCnstFieldObjDual
-{
-  public ICmptAltCnstFieldObjDualObject? As_AltCnstFieldObjDual { get; set; }
-}
-
-public class CmptAltCnstFieldObjDualObject
-  : CmptPrntCnstFieldObjDualObject
-  , ICmptAltCnstFieldObjDualObject
+internal class CmptAltCnstFieldObjDualEncoder
 {
   public decimal Alt { get; set; }
-
-  public CmptAltCnstFieldObjDualObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

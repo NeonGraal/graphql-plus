@@ -7,26 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_parent_param_same_Output;
 
-public interface ItestPrntParamSameOutp<TA>
-  : ItestRefPrntParamSameOutp<TA>
+internal class testPrntParamSameOutpDecoder<TA>
 {
-  ItestPrntParamSameOutpObject<TA>? As_PrntParamSameOutp { get; }
+  public TA Field { get; set; }
 }
 
-public interface ItestPrntParamSameOutpObject<TA>
-  : ItestRefPrntParamSameOutpObject<TA>
-{
-  TA Field { get; }
-}
-
-public interface ItestRefPrntParamSameOutp<TA>
-  // No Base because it's Class
-{
-  TA? Asa { get; }
-  ItestRefPrntParamSameOutpObject<TA>? As_RefPrntParamSameOutp { get; }
-}
-
-public interface ItestRefPrntParamSameOutpObject<TA>
-  // No Base because it's Class
+internal class testRefPrntParamSameOutpDecoder<TA>
 {
 }

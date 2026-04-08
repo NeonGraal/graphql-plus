@@ -11,15 +11,8 @@ dual ObjCnstDual<$type:String> { str: $type }
 
 namespace Components.Gqlp_Schema_object_constraint_Dual;
 
-public interface ICmptObjCnstDual<TType>
-  // No Base because it's Class
+internal class CmptObjCnstDualDecoder<TType>
 {
-  ICmptObjCnstDualObject<TType>? As_ObjCnstDual { get; }
-}
-
-public interface ICmptObjCnstDualObject<TType>
-  // No Base because it's Class
-{
-  TType Field { get; }
-  TType Str { get; }
+  public TType Field { get; set; }
+  public TType Str { get; set; }
 }

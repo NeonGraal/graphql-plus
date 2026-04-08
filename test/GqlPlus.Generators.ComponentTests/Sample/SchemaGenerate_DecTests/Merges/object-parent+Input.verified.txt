@@ -12,24 +12,10 @@ input RefObjPrntInp { }
 
 namespace Components.Gqlp_Schema_object_parent_Input;
 
-public interface ICmptObjPrntInp
-  : ICmptRefObjPrntInp
-{
-  ICmptObjPrntInpObject? As_ObjPrntInp { get; }
-}
-
-public interface ICmptObjPrntInpObject
-  : ICmptRefObjPrntInpObject
+internal class CmptObjPrntInpDecoder
 {
 }
 
-public interface ICmptRefObjPrntInp
-  // No Base because it's Class
-{
-  ICmptRefObjPrntInpObject? As_RefObjPrntInp { get; }
-}
-
-public interface ICmptRefObjPrntInpObject
-  // No Base because it's Class
+internal class CmptRefObjPrntInpDecoder
 {
 }

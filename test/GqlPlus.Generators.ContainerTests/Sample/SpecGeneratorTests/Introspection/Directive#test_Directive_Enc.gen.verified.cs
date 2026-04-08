@@ -7,59 +7,24 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Directive;
 
-public class test_Directives
-  : test_AndType
-  , Itest_Directives
-{
-  public Itest_Directive? As_Directive { get; set; }
-  public Itest_DirectivesObject? As__Directives { get; set; }
-}
-
-public class test_DirectivesObject
-  : test_AndTypeObject
-  , Itest_DirectivesObject
+internal class test_DirectivesEncoder
 {
   public Itest_Directive Directive { get; set; }
-
-  public test_DirectivesObject
-    ( Itest_Directive directive
-    )
-  {
-    Directive = directive;
-  }
 }
 
-public class test_Directive
-  : test_Aliased
-  , Itest_Directive
-{
-  public Itest_DirectiveObject? As__Directive { get; set; }
-}
-
-public class test_DirectiveObject
-  : test_AliasedObject
-  , Itest_DirectiveObject
+internal class test_DirectiveEncoder
 {
   public Itest_InputFieldType? Parameter { get; set; }
   public bool Repeatable { get; set; }
   public IDictionary<test_Location, GqlpUnit> Locations { get; set; }
-
-  public test_DirectiveObject
-    ( bool repeatable
-    , IDictionary<test_Location, GqlpUnit> locations
-    )
-  {
-    Repeatable = repeatable;
-    Locations = locations;
-  }
 }
 
-public enum test_Location
+internal class test_LocationEncoder
 {
-  Operation,
-  Variable,
-  Field,
-  Inline,
-  Spread,
-  Fragment,
+  public string Operation { get; set; }
+  public string Variable { get; set; }
+  public string Field { get; set; }
+  public string Inline { get; set; }
+  public string Spread { get; set; }
+  public string Fragment { get; set; }
 }

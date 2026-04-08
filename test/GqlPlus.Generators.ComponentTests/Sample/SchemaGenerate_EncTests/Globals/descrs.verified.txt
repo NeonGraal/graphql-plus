@@ -12,20 +12,6 @@ output Dscrs { }
 
 namespace Components.Gqlp_Schema_descrs;
 
-public class CmptDscrs
-  : Schema_descrs
-  , ICmptDscrs
+internal class CmptDscrsEncoder
 {
-  public ICmptDscrsObject? As_Dscrs { get; set; }
-}
-
-public class CmptDscrsObject
-  : Schema_descrs
-  , ICmptDscrsObject
-{
-
-  public CmptDscrsObject
-    ()
-  {
-  }
 }

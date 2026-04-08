@@ -7,162 +7,70 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Base;
 
-public interface Itest_ObjectKind
-  : IGqlpDomainEnum
+internal class test_ObjectKindDecoder
 {
 }
 
-public interface Itest_TypeObject<TObjectKind,TField>
-  : Itest_ChildType<TObjectKind, Itest_ObjBase>
+internal class test_TypeObjectDecoder<TObjectKind,TField>
 {
-  Itest_TypeObjectObject<TObjectKind,TField>? As__TypeObject { get; }
+  public ICollection<Itest_ObjTypeParam> TypeParams { get; set; }
+  public ICollection<TField> Fields { get; set; }
+  public ICollection<Itest_ObjAlternate> Alternates { get; set; }
+  public ICollection<Itest_ObjectFor<TField>> AllFields { get; set; }
+  public ICollection<Itest_ObjectFor<Itest_ObjAlternate>> AllAlternates { get; set; }
 }
 
-public interface Itest_TypeObjectObject<TObjectKind,TField>
-  : Itest_ChildTypeObject<TObjectKind, Itest_ObjBase>
+internal class test_ObjTypeParamDecoder
 {
-  ICollection<Itest_ObjTypeParam> TypeParams { get; }
-  ICollection<TField> Fields { get; }
-  ICollection<Itest_ObjAlternate> Alternates { get; }
-  ICollection<Itest_ObjectFor<TField>> AllFields { get; }
-  ICollection<Itest_ObjectFor<Itest_ObjAlternate>> AllAlternates { get; }
+  public Itest_TypeRef<Itest_TypeKind> Constraint { get; set; }
 }
 
-public interface Itest_ObjTypeParam
-  : Itest_Named
+internal class test_ObjBaseDecoder
 {
-  Itest_ObjTypeParamObject? As__ObjTypeParam { get; }
+  public ICollection<Itest_ObjTypeArg> TypeArgs { get; set; }
 }
 
-public interface Itest_ObjTypeParamObject
-  : Itest_NamedObject
+internal class test_ObjTypeArgDecoder
 {
-  Itest_TypeRef<Itest_TypeKind> Constraint { get; }
+  public Itest_Name? Label { get; set; }
 }
 
-public interface Itest_ObjBase
-  : Itest_Named
+internal class test_TypeParamDecoder
 {
-  Itest_TypeParam? As_TypeParam { get; }
-  Itest_ObjBaseObject? As__ObjBase { get; }
+  public Itest_Name TypeParam { get; set; }
 }
 
-public interface Itest_ObjBaseObject
-  : Itest_NamedObject
+internal class test_ObjAlternateDecoder
 {
-  ICollection<Itest_ObjTypeArg> TypeArgs { get; }
+  public Itest_ObjBase Type { get; set; }
+  public ICollection<Itest_Collections> Collections { get; set; }
 }
 
-public interface Itest_ObjTypeArg
-  : Itest_TypeRef<Itest_TypeKind>
+internal class test_ObjAlternateEnumDecoder
 {
-  Itest_TypeParam? As_TypeParam { get; }
-  Itest_ObjTypeArgObject? As__ObjTypeArg { get; }
+  public Itest_Name Label { get; set; }
 }
 
-public interface Itest_ObjTypeArgObject
-  : Itest_TypeRefObject<Itest_TypeKind>
+internal class test_ObjectForDecoder<TFor>
 {
-  Itest_Name? Label { get; }
+  public Itest_Name ObjectType { get; set; }
 }
 
-public interface Itest_TypeParam
-  : Itest_Described
+internal class test_ObjFieldDecoder<TType>
 {
-  Itest_TypeParamObject? As__TypeParam { get; }
+  public TType Type { get; set; }
 }
 
-public interface Itest_TypeParamObject
-  : Itest_DescribedObject
+internal class test_ObjFieldTypeDecoder
 {
-  Itest_Name TypeParam { get; }
+  public ICollection<Itest_Modifiers> Modifiers { get; set; }
 }
 
-public interface Itest_ObjAlternate
-  // No Base because it's Class
+internal class test_ObjFieldEnumDecoder
 {
-  Itest_ObjAlternateEnum? As_ObjAlternateEnum { get; }
-  Itest_ObjAlternateObject? As__ObjAlternate { get; }
+  public Itest_Name Label { get; set; }
 }
 
-public interface Itest_ObjAlternateObject
-  // No Base because it's Class
-{
-  Itest_ObjBase Type { get; }
-  ICollection<Itest_Collections> Collections { get; }
-}
-
-public interface Itest_ObjAlternateEnum
-  : Itest_TypeRef<Itest_TypeKind>
-{
-  Itest_ObjAlternateEnumObject? As__ObjAlternateEnum { get; }
-}
-
-public interface Itest_ObjAlternateEnumObject
-  : Itest_TypeRefObject<Itest_TypeKind>
-{
-  Itest_Name Label { get; }
-}
-
-public interface Itest_ObjectFor<TFor>
-  // No Base because it's Class
-{
-  TFor? As_Parent { get; }
-  Itest_ObjectForObject<TFor>? As__ObjectFor { get; }
-}
-
-public interface Itest_ObjectForObject<TFor>
-  // No Base because it's Class
-{
-  Itest_Name ObjectType { get; }
-}
-
-public interface Itest_ObjField<TType>
-  : Itest_Aliased
-{
-  Itest_ObjFieldObject<TType>? As__ObjField { get; }
-}
-
-public interface Itest_ObjFieldObject<TType>
-  : Itest_AliasedObject
-{
-  TType Type { get; }
-}
-
-public interface Itest_ObjFieldType
-  : Itest_ObjBase
-{
-  Itest_ObjFieldEnum? As_ObjFieldEnum { get; }
-  Itest_ObjFieldTypeObject? As__ObjFieldType { get; }
-}
-
-public interface Itest_ObjFieldTypeObject
-  : Itest_ObjBaseObject
-{
-  ICollection<Itest_Modifiers> Modifiers { get; }
-}
-
-public interface Itest_ObjFieldEnum
-  : Itest_TypeRef<Itest_TypeKind>
-{
-  Itest_ObjFieldEnumObject? As__ObjFieldEnum { get; }
-}
-
-public interface Itest_ObjFieldEnumObject
-  : Itest_TypeRefObject<Itest_TypeKind>
-{
-  Itest_Name Label { get; }
-}
-
-public interface Itest_ForParam<TType>
-  // No Base because it's Class
-{
-  Itest_ObjAlternate? As_ObjAlternate { get; }
-  Itest_ObjField<TType>? As_ObjField { get; }
-  Itest_ForParamObject<TType>? As__ForParam { get; }
-}
-
-public interface Itest_ForParamObject<TType>
-  // No Base because it's Class
+internal class test_ForParamDecoder<TType>
 {
 }

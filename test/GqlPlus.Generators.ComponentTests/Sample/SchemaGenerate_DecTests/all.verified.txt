@@ -34,59 +34,35 @@ output All {
 
 namespace Components.Gqlp_Schema_all;
 
-public interface ICmptGuid
-  : IGqlpDomainString
+internal class CmptGuidDecoder
 {
 }
 
-public enum CmptOne
+internal class CmptOneDecoder
 {
-  Two,
-  Three,
+  public string Two { get; set; }
+  public string Three { get; set; }
 }
 
-public interface ICmptMany
-  // No Base because it's Class
+internal class CmptManyDecoder
 {
-  Guid AsGuid { get; }
-  Number AsNumber { get; }
+  public Guid AsGuid { get; set; }
+  public Number AsNumber { get; set; }
 }
 
-public interface ICmptField
-  // No Base because it's Class
+internal class CmptFieldDecoder
 {
-  ICmptFieldObject? As_Field { get; }
+  public ICollection<string> Strings { get; set; }
 }
 
-public interface ICmptFieldObject
-  // No Base because it's Class
+internal class CmptParamDecoder
 {
-  ICollection<string> Strings { get; }
+  public ICmptMany? AfterId { get; set; }
+  public ICmptMany BeforeId { get; set; }
 }
 
-public interface ICmptParam
-  // No Base because it's Class
+internal class CmptAllDecoder
 {
-  string? AsString { get; }
-  ICmptParamObject? As_Param { get; }
-}
-
-public interface ICmptParamObject
-  // No Base because it's Class
-{
-  ICmptMany? AfterId { get; }
-  ICmptMany BeforeId { get; }
-}
-
-public interface ICmptAll
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ICmptAllObject? As_All { get; }
-}
-
-public interface ICmptAllObject
-  // No Base because it's Class
-{
-  ICmptField? Items(ICmptParam? parameter);
+  public ICmptField? Items(ICmptParam? parameter)
+    => null;
 }

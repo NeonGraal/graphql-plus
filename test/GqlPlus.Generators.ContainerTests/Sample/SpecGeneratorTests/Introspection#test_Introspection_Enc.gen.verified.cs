@@ -7,16 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Introspection;
 
-public class test_Schema
-  : test_Named
-  , Itest_Schema
-{
-  public Itest_SchemaObject? As__Schema { get; set; }
-}
-
-public class test_SchemaObject
-  : test_NamedObject
-  , Itest_SchemaObject
+internal class test_SchemaEncoder
 {
   public IDictionary<Itest_Name, Itest_Categories>? Categories(Itest_CategoryFilter? parameter)
     => null;
@@ -26,1424 +17,360 @@ public class test_SchemaObject
     => null;
   public IDictionary<Itest_Name, Itest_Setting>? Settings(Itest_Filter? parameter)
     => null;
-
-  public test_SchemaObject
-    ( ICollection<string> description
-    , Itest_Name name
-    ) : base(description, name)
-  {
-  }
 }
 
-public class test_Name
-  : GqlpDomainString
-  , Itest_Name
+internal class test_NameEncoder
 {
 }
 
-public class test_Filter
-  : GqlpEncoderBase
-  , Itest_Filter
-{
-  public ICollection<Itest_NameFilter>? As_NameFilter { get; set; }
-  public Itest_FilterObject? As__Filter { get; set; }
-}
-
-public class test_FilterObject
-  : GqlpEncoderBase
-  , Itest_FilterObject
+internal class test_FilterEncoder
 {
   public ICollection<Itest_NameFilter> Names { get; set; }
   public bool? MatchAliases { get; set; }
   public ICollection<Itest_NameFilter> Aliases { get; set; }
   public bool? ReturnByAlias { get; set; }
   public bool? ReturnReferencedTypes { get; set; }
-
-  public test_FilterObject
-    ( ICollection<Itest_NameFilter> names
-    , ICollection<Itest_NameFilter> aliases
-    )
-  {
-    Names = names;
-    Aliases = aliases;
-  }
 }
 
-public class test_NameFilter
-  : GqlpDomainString
-  , Itest_NameFilter
+internal class test_NameFilterEncoder
 {
 }
 
-public class test_CategoryFilter
-  : test_Filter
-  , Itest_CategoryFilter
-{
-  public Itest_CategoryFilterObject? As__CategoryFilter { get; set; }
-}
-
-public class test_CategoryFilterObject
-  : test_FilterObject
-  , Itest_CategoryFilterObject
+internal class test_CategoryFilterEncoder
 {
   public ICollection<test_Resolution> Resolutions { get; set; }
-
-  public test_CategoryFilterObject
-    ( ICollection<Itest_NameFilter> names
-    , ICollection<Itest_NameFilter> aliases
-    , ICollection<test_Resolution> resolutions
-    ) : base(names, aliases)
-  {
-    Resolutions = resolutions;
-  }
 }
 
-public class test_TypeFilter
-  : test_Filter
-  , Itest_TypeFilter
-{
-  public Itest_TypeFilterObject? As__TypeFilter { get; set; }
-}
-
-public class test_TypeFilterObject
-  : test_FilterObject
-  , Itest_TypeFilterObject
+internal class test_TypeFilterEncoder
 {
   public ICollection<test_TypeKind> Kinds { get; set; }
-
-  public test_TypeFilterObject
-    ( ICollection<Itest_NameFilter> names
-    , ICollection<Itest_NameFilter> aliases
-    , ICollection<test_TypeKind> kinds
-    ) : base(names, aliases)
-  {
-    Kinds = kinds;
-  }
 }
 
-public class test_Aliased
-  : test_Named
-  , Itest_Aliased
-{
-  public Itest_AliasedObject? As__Aliased { get; set; }
-}
-
-public class test_AliasedObject
-  : test_NamedObject
-  , Itest_AliasedObject
+internal class test_AliasedEncoder
 {
   public ICollection<Itest_Name> Aliases { get; set; }
-
-  public test_AliasedObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , ICollection<Itest_Name> aliases
-    ) : base(description, name)
-  {
-    Aliases = aliases;
-  }
 }
 
-public class test_Named
-  : test_Described
-  , Itest_Named
-{
-  public Itest_NamedObject? As__Named { get; set; }
-}
-
-public class test_NamedObject
-  : test_DescribedObject
-  , Itest_NamedObject
+internal class test_NamedEncoder
 {
   public Itest_Name Name { get; set; }
-
-  public test_NamedObject
-    ( ICollection<string> description
-    , Itest_Name name
-    ) : base(description)
-  {
-    Name = name;
-  }
 }
 
-public class test_Described
-  : GqlpEncoderBase
-  , Itest_Described
-{
-  public Itest_DescribedObject? As__Described { get; set; }
-}
-
-public class test_DescribedObject
-  : GqlpEncoderBase
-  , Itest_DescribedObject
+internal class test_DescribedEncoder
 {
   public ICollection<string> Description { get; set; }
-
-  public test_DescribedObject
-    ( ICollection<string> description
-    )
-  {
-    Description = description;
-  }
 }
 
-public class test_AndType
-  : test_Named
-  , Itest_AndType
-{
-  public Itest_Type? As_Type { get; set; }
-  public Itest_AndTypeObject? As__AndType { get; set; }
-}
-
-public class test_AndTypeObject
-  : test_NamedObject
-  , Itest_AndTypeObject
+internal class test_AndTypeEncoder
 {
   public Itest_Type Type { get; set; }
-
-  public test_AndTypeObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , Itest_Type type
-    ) : base(description, name)
-  {
-    Type = type;
-  }
 }
 
-public class test_Categories
-  : test_AndType
-  , Itest_Categories
-{
-  public Itest_Category? As_Category { get; set; }
-  public Itest_CategoriesObject? As__Categories { get; set; }
-}
-
-public class test_CategoriesObject
-  : test_AndTypeObject
-  , Itest_CategoriesObject
+internal class test_CategoriesEncoder
 {
   public Itest_Category Category { get; set; }
-
-  public test_CategoriesObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , Itest_Type type
-    , Itest_Category category
-    ) : base(description, name, type)
-  {
-    Category = category;
-  }
 }
 
-public class test_Category
-  : test_Aliased
-  , Itest_Category
-{
-  public Itest_CategoryObject? As__Category { get; set; }
-}
-
-public class test_CategoryObject
-  : test_AliasedObject
-  , Itest_CategoryObject
+internal class test_CategoryEncoder
 {
   public test_Resolution Resolution { get; set; }
   public Itest_TypeRef<test_TypeKind> Output { get; set; }
   public ICollection<Itest_Modifiers> Modifiers { get; set; }
-
-  public test_CategoryObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , ICollection<Itest_Name> aliases
-    , test_Resolution resolution
-    , Itest_TypeRef<test_TypeKind> output
-    , ICollection<Itest_Modifiers> modifiers
-    ) : base(description, name, aliases)
-  {
-    Resolution = resolution;
-    Output = output;
-    Modifiers = modifiers;
-  }
 }
 
-public enum test_Resolution
+internal class test_ResolutionEncoder
 {
-  Parallel,
-  Sequential,
-  Single,
+  public string Parallel { get; set; }
+  public string Sequential { get; set; }
+  public string Single { get; set; }
 }
 
-public class test_Directives
-  : test_AndType
-  , Itest_Directives
-{
-  public Itest_Directive? As_Directive { get; set; }
-  public Itest_DirectivesObject? As__Directives { get; set; }
-}
-
-public class test_DirectivesObject
-  : test_AndTypeObject
-  , Itest_DirectivesObject
+internal class test_DirectivesEncoder
 {
   public Itest_Directive Directive { get; set; }
-
-  public test_DirectivesObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , Itest_Type type
-    , Itest_Directive directive
-    ) : base(description, name, type)
-  {
-    Directive = directive;
-  }
 }
 
-public class test_Directive
-  : test_Aliased
-  , Itest_Directive
-{
-  public Itest_DirectiveObject? As__Directive { get; set; }
-}
-
-public class test_DirectiveObject
-  : test_AliasedObject
-  , Itest_DirectiveObject
+internal class test_DirectiveEncoder
 {
   public Itest_InputFieldType? Parameter { get; set; }
   public bool Repeatable { get; set; }
   public IDictionary<test_Location, GqlpUnit> Locations { get; set; }
-
-  public test_DirectiveObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , ICollection<Itest_Name> aliases
-    , bool repeatable
-    , IDictionary<test_Location, GqlpUnit> locations
-    ) : base(description, name, aliases)
-  {
-    Repeatable = repeatable;
-    Locations = locations;
-  }
 }
 
-public enum test_Location
+internal class test_LocationEncoder
 {
-  Operation,
-  Variable,
-  Field,
-  Inline,
-  Spread,
-  Fragment,
+  public string Operation { get; set; }
+  public string Variable { get; set; }
+  public string Field { get; set; }
+  public string Inline { get; set; }
+  public string Spread { get; set; }
+  public string Fragment { get; set; }
 }
 
-public class test_Setting
-  : test_Named
-  , Itest_Setting
-{
-  public Itest_SettingObject? As__Setting { get; set; }
-}
-
-public class test_SettingObject
-  : test_NamedObject
-  , Itest_SettingObject
+internal class test_SettingEncoder
 {
   public GqlpValue Value { get; set; }
-
-  public test_SettingObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , GqlpValue value
-    ) : base(description, name)
-  {
-    Value = value;
-  }
 }
 
-public class test_Type
-  : GqlpEncoderBase
-  , Itest_Type
+internal class test_TypeEncoder
 {
-  public Itest_BaseType<test_TypeKind>? As_TypeKindBasic { get; set; }
-  public Itest_BaseType<test_TypeKind>? As_TypeKindInternal { get; set; }
-  public Itest_BaseDomain<test_DomainKind, Itest_DomainTrueFalse, Itest_DomainItemTrueFalse>? As_DomainKindBoolean { get; set; }
-  public Itest_BaseDomain<test_DomainKind, Itest_DomainLabel, Itest_DomainItemLabel>? As_DomainKindEnum { get; set; }
-  public Itest_BaseDomain<test_DomainKind, Itest_DomainRange, Itest_DomainItemRange>? As_DomainKindNumber { get; set; }
-  public Itest_BaseDomain<test_DomainKind, Itest_DomainRegex, Itest_DomainItemRegex>? As_DomainKindString { get; set; }
-  public Itest_ParentType<test_TypeKind, Itest_Aliased, Itest_EnumLabel>? As_TypeKindEnum { get; set; }
-  public Itest_ParentType<test_TypeKind, Itest_UnionRef, Itest_UnionMember>? As_TypeKindUnion { get; set; }
-  public Itest_TypeObject<test_TypeKind, Itest_DualField>? As_TypeKindDual { get; set; }
-  public Itest_TypeObject<test_TypeKind, Itest_InputField>? As_TypeKindInput { get; set; }
-  public Itest_TypeObject<test_TypeKind, Itest_OutputField>? As_TypeKindOutput { get; set; }
-  public Itest_TypeObject? As__Type { get; set; }
 }
 
-public class test_TypeObject
-  : GqlpEncoderBase
-  , Itest_TypeObject
-{
-
-  public test_TypeObject
-    ()
-  {
-  }
-}
-
-public class test_BaseType<TTypeKind>
-  : test_Aliased
-  , Itest_BaseType<TTypeKind>
-{
-  public Itest_BaseTypeObject<TTypeKind>? As__BaseType { get; set; }
-}
-
-public class test_BaseTypeObject<TTypeKind>
-  : test_AliasedObject
-  , Itest_BaseTypeObject<TTypeKind>
+internal class test_BaseTypeEncoder<TTypeKind>
 {
   public TTypeKind TypeKind { get; set; }
-
-  public test_BaseTypeObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , ICollection<Itest_Name> aliases
-    , TTypeKind typeKind
-    ) : base(description, name, aliases)
-  {
-    TypeKind = typeKind;
-  }
 }
 
-public class test_ChildType<TTypeKind,TParent>
-  : test_BaseType<TTypeKind>
-  , Itest_ChildType<TTypeKind,TParent>
-{
-  public Itest_ChildTypeObject<TTypeKind,TParent>? As__ChildType { get; set; }
-}
-
-public class test_ChildTypeObject<TTypeKind,TParent>
-  : test_BaseTypeObject<TTypeKind>
-  , Itest_ChildTypeObject<TTypeKind,TParent>
+internal class test_ChildTypeEncoder<TTypeKind,TParent>
 {
   public TParent Parent { get; set; }
-
-  public test_ChildTypeObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , ICollection<Itest_Name> aliases
-    , TTypeKind typeKind
-    , TParent parent
-    ) : base(description, name, aliases, typeKind)
-  {
-    Parent = parent;
-  }
 }
 
-public class test_ParentType<TTypeKind,TItem,TAllItem>
-  : test_ChildType<TTypeKind, Itest_Named>
-  , Itest_ParentType<TTypeKind,TItem,TAllItem>
-{
-  public Itest_ParentTypeObject<TTypeKind,TItem,TAllItem>? As__ParentType { get; set; }
-}
-
-public class test_ParentTypeObject<TTypeKind,TItem,TAllItem>
-  : test_ChildTypeObject<TTypeKind, Itest_Named>
-  , Itest_ParentTypeObject<TTypeKind,TItem,TAllItem>
+internal class test_ParentTypeEncoder<TTypeKind,TItem,TAllItem>
 {
   public ICollection<TItem> Items { get; set; }
   public ICollection<TAllItem> AllItems { get; set; }
-
-  public test_ParentTypeObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , ICollection<Itest_Name> aliases
-    , TTypeKind typeKind
-    , Itest_Named parent
-    , ICollection<TItem> items
-    , ICollection<TAllItem> allItems
-    ) : base(description, name, aliases, typeKind, parent)
-  {
-    Items = items;
-    AllItems = allItems;
-  }
 }
 
-public enum test_SimpleKind
+internal class test_SimpleKindEncoder
 {
-  Basic,
-  Enum,
-  Internal,
-  Domain,
-  Union,
+  public string Basic { get; set; }
+  public string Enum { get; set; }
+  public string Internal { get; set; }
+  public string Domain { get; set; }
+  public string Union { get; set; }
 }
 
-public enum test_TypeKind
+internal class test_TypeKindEncoder
 {
-  Basic = test_SimpleKind.Basic,
-  Enum = test_SimpleKind.Enum,
-  Internal = test_SimpleKind.Internal,
-  Domain = test_SimpleKind.Domain,
-  Union = test_SimpleKind.Union,
-  Dual,
-  Input,
-  Output,
+  public string Basic { get; set; }
+  public string Enum { get; set; }
+  public string Internal { get; set; }
+  public string Domain { get; set; }
+  public string Union { get; set; }
+  public string Dual { get; set; }
+  public string Input { get; set; }
+  public string Output { get; set; }
 }
 
-public class test_TypeRef<TTypeKind>
-  : test_Named
-  , Itest_TypeRef<TTypeKind>
-{
-  public Itest_TypeRefObject<TTypeKind>? As__TypeRef { get; set; }
-}
-
-public class test_TypeRefObject<TTypeKind>
-  : test_NamedObject
-  , Itest_TypeRefObject<TTypeKind>
+internal class test_TypeRefEncoder<TTypeKind>
 {
   public TTypeKind TypeKind { get; set; }
-
-  public test_TypeRefObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , TTypeKind typeKind
-    ) : base(description, name)
-  {
-    TypeKind = typeKind;
-  }
 }
 
-public class test_TypeSimple
-  : GqlpEncoderBase
-  , Itest_TypeSimple
+internal class test_TypeSimpleEncoder
 {
-  public Itest_TypeRef<test_TypeKind>? As_TypeKindBasic { get; set; }
-  public Itest_TypeRef<test_TypeKind>? As_TypeKindEnum { get; set; }
-  public Itest_TypeRef<test_TypeKind>? As_TypeKindDomain { get; set; }
-  public Itest_TypeRef<test_TypeKind>? As_TypeKindUnion { get; set; }
-  public Itest_TypeSimpleObject? As__TypeSimple { get; set; }
 }
 
-public class test_TypeSimpleObject
-  : GqlpEncoderBase
-  , Itest_TypeSimpleObject
+internal class test_CollectionsEncoder
 {
-
-  public test_TypeSimpleObject
-    ()
-  {
-  }
 }
 
-public class test_Collections
-  : GqlpEncoderBase
-  , Itest_Collections
-{
-  public Itest_Modifier<test_ModifierKind>? As_ModifierKindList { get; set; }
-  public Itest_ModifierKeyed<test_ModifierKind>? As_ModifierKindDictionary { get; set; }
-  public Itest_ModifierKeyed<test_ModifierKind>? As_ModifierKindTypeParam { get; set; }
-  public Itest_CollectionsObject? As__Collections { get; set; }
-}
-
-public class test_CollectionsObject
-  : GqlpEncoderBase
-  , Itest_CollectionsObject
-{
-
-  public test_CollectionsObject
-    ()
-  {
-  }
-}
-
-public class test_ModifierKeyed<TModifierKind>
-  : test_Modifier<TModifierKind>
-  , Itest_ModifierKeyed<TModifierKind>
-{
-  public Itest_ModifierKeyedObject<TModifierKind>? As__ModifierKeyed { get; set; }
-}
-
-public class test_ModifierKeyedObject<TModifierKind>
-  : test_ModifierObject<TModifierKind>
-  , Itest_ModifierKeyedObject<TModifierKind>
+internal class test_ModifierKeyedEncoder<TModifierKind>
 {
   public Itest_TypeSimple By { get; set; }
   public bool IsOptional { get; set; }
-
-  public test_ModifierKeyedObject
-    ( TModifierKind modifierKind
-    , Itest_TypeSimple by
-    , bool isOptional
-    ) : base(modifierKind)
-  {
-    By = by;
-    IsOptional = isOptional;
-  }
 }
 
-public class test_Modifiers
-  : GqlpEncoderBase
-  , Itest_Modifiers
+internal class test_ModifiersEncoder
 {
-  public Itest_Modifier<test_ModifierKind>? As_ModifierKindOptional { get; set; }
-  public Itest_Collections? As_Collections { get; set; }
-  public Itest_ModifiersObject? As__Modifiers { get; set; }
 }
 
-public class test_ModifiersObject
-  : GqlpEncoderBase
-  , Itest_ModifiersObject
+internal class test_ModifierKindEncoder
 {
-
-  public test_ModifiersObject
-    ()
-  {
-  }
+  public string Opt { get; set; }
+  public string Optional { get; set; }
+  public string List { get; set; }
+  public string Dict { get; set; }
+  public string Dictionary { get; set; }
+  public string Param { get; set; }
+  public string TypeParam { get; set; }
 }
 
-public enum test_ModifierKind
-{
-  Opt,
-  Optional = Opt,
-  List,
-  Dict,
-  Dictionary = Dict,
-  Param,
-  TypeParam = Param,
-}
-
-public class test_Modifier<TModifierKind>
-  : GqlpEncoderBase
-  , Itest_Modifier<TModifierKind>
-{
-  public Itest_ModifierObject<TModifierKind>? As__Modifier { get; set; }
-}
-
-public class test_ModifierObject<TModifierKind>
-  : GqlpEncoderBase
-  , Itest_ModifierObject<TModifierKind>
+internal class test_ModifierEncoder<TModifierKind>
 {
   public TModifierKind ModifierKind { get; set; }
-
-  public test_ModifierObject
-    ( TModifierKind modifierKind
-    )
-  {
-    ModifierKind = modifierKind;
-  }
 }
 
-public enum test_DomainKind
+internal class test_DomainKindEncoder
 {
-  Boolean,
-  Enum,
-  Number,
-  String,
+  public string Boolean { get; set; }
+  public string Enum { get; set; }
+  public string Number { get; set; }
+  public string String { get; set; }
 }
 
-public class test_DomainRef<TDomainKind>
-  : test_TypeRef<test_TypeKind>
-  , Itest_DomainRef<TDomainKind>
-{
-  public Itest_DomainRefObject<TDomainKind>? As__DomainRef { get; set; }
-}
-
-public class test_DomainRefObject<TDomainKind>
-  : test_TypeRefObject<test_TypeKind>
-  , Itest_DomainRefObject<TDomainKind>
+internal class test_DomainRefEncoder<TDomainKind>
 {
   public TDomainKind DomainKind { get; set; }
-
-  public test_DomainRefObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , TDomainKind domainKind
-    ) : base(description, name, test_TypeKind.Domain)
-  {
-    DomainKind = domainKind;
-  }
 }
 
-public class test_BaseDomain<TDomainKind,TItem,TDomainItem>
-  : test_ParentType<test_TypeKind, TItem, TDomainItem>
-  , Itest_BaseDomain<TDomainKind,TItem,TDomainItem>
-{
-  public Itest_BaseDomainObject<TDomainKind,TItem,TDomainItem>? As__BaseDomain { get; set; }
-}
-
-public class test_BaseDomainObject<TDomainKind,TItem,TDomainItem>
-  : test_ParentTypeObject<test_TypeKind, TItem, TDomainItem>
-  , Itest_BaseDomainObject<TDomainKind,TItem,TDomainItem>
+internal class test_BaseDomainEncoder<TDomainKind,TItem,TDomainItem>
 {
   public TDomainKind DomainKind { get; set; }
-
-  public test_BaseDomainObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , ICollection<Itest_Name> aliases
-    , Itest_Named parent
-    , ICollection<TItem> items
-    , ICollection<TDomainItem> allItems
-    , TDomainKind domainKind
-    ) : base(description, name, aliases, test_TypeKind.Domain, parent, items, allItems)
-  {
-    DomainKind = domainKind;
-  }
 }
 
-public class test_BaseDomainItem
-  : test_Described
-  , Itest_BaseDomainItem
-{
-  public Itest_BaseDomainItemObject? As__BaseDomainItem { get; set; }
-}
-
-public class test_BaseDomainItemObject
-  : test_DescribedObject
-  , Itest_BaseDomainItemObject
+internal class test_BaseDomainItemEncoder
 {
   public bool Exclude { get; set; }
-
-  public test_BaseDomainItemObject
-    ( ICollection<string> description
-    , bool exclude
-    ) : base(description)
-  {
-    Exclude = exclude;
-  }
 }
 
-public class test_DomainItem<TItem>
-  : GqlpEncoderBase
-  , Itest_DomainItem<TItem>
-{
-  public TItem? As_Parent { get; set; }
-  public Itest_DomainItemObject<TItem>? As__DomainItem { get; set; }
-}
-
-public class test_DomainItemObject<TItem>
-  : GqlpEncoderBase
-  , Itest_DomainItemObject<TItem>
+internal class test_DomainItemEncoder<TItem>
 {
   public Itest_Name Domain { get; set; }
-
-  public test_DomainItemObject
-    ( Itest_Name domain
-    )
-  {
-    Domain = domain;
-  }
 }
 
-public class test_DomainValue<TDomainKind,TValue>
-  : test_DomainRef<TDomainKind>
-  , Itest_DomainValue<TDomainKind,TValue>
-{
-  public TValue? Asvalue { get; set; }
-  public Itest_DomainValueObject<TDomainKind,TValue>? As__DomainValue { get; set; }
-}
-
-public class test_DomainValueObject<TDomainKind,TValue>
-  : test_DomainRefObject<TDomainKind>
-  , Itest_DomainValueObject<TDomainKind,TValue>
+internal class test_DomainValueEncoder<TDomainKind,TValue>
 {
   public TValue Value { get; set; }
-
-  public test_DomainValueObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , TDomainKind domainKind
-    , TValue value
-    ) : base(description, name, domainKind)
-  {
-    Value = value;
-  }
 }
 
-public class test_BasicValue
-  : GqlpEncoderBase
-  , Itest_BasicValue
+internal class test_BasicValueEncoder
 {
-  public bool? AsBoolean { get; set; }
-  public Itest_EnumValue? As_EnumValue { get; set; }
-  public decimal? AsNumber { get; set; }
-  public string? AsString { get; set; }
-  public Itest_BasicValueObject? As__BasicValue { get; set; }
 }
 
-public class test_BasicValueObject
-  : GqlpEncoderBase
-  , Itest_BasicValueObject
-{
-
-  public test_BasicValueObject
-    ()
-  {
-  }
-}
-
-public class test_DomainTrueFalse
-  : test_BaseDomainItem
-  , Itest_DomainTrueFalse
-{
-  public Itest_DomainTrueFalseObject? As__DomainTrueFalse { get; set; }
-}
-
-public class test_DomainTrueFalseObject
-  : test_BaseDomainItemObject
-  , Itest_DomainTrueFalseObject
+internal class test_DomainTrueFalseEncoder
 {
   public bool Value { get; set; }
-
-  public test_DomainTrueFalseObject
-    ( ICollection<string> description
-    , bool exclude
-    , bool value
-    ) : base(description, exclude)
-  {
-    Value = value;
-  }
 }
 
-public class test_DomainItemTrueFalse
-  : test_DomainItem<Itest_DomainTrueFalse>
-  , Itest_DomainItemTrueFalse
+internal class test_DomainItemTrueFalseEncoder
 {
-  public Itest_DomainItemTrueFalseObject? As__DomainItemTrueFalse { get; set; }
 }
 
-public class test_DomainItemTrueFalseObject
-  : test_DomainItemObject<Itest_DomainTrueFalse>
-  , Itest_DomainItemTrueFalseObject
-{
-
-  public test_DomainItemTrueFalseObject
-    ( Itest_Name domain
-    ) : base(domain)
-  {
-  }
-}
-
-public class test_DomainLabel
-  : test_BaseDomainItem
-  , Itest_DomainLabel
-{
-  public Itest_DomainLabelObject? As__DomainLabel { get; set; }
-}
-
-public class test_DomainLabelObject
-  : test_BaseDomainItemObject
-  , Itest_DomainLabelObject
+internal class test_DomainLabelEncoder
 {
   public Itest_EnumValue Label { get; set; }
-
-  public test_DomainLabelObject
-    ( ICollection<string> description
-    , bool exclude
-    , Itest_EnumValue label
-    ) : base(description, exclude)
-  {
-    Label = label;
-  }
 }
 
-public class test_DomainItemLabel
-  : test_DomainItem<Itest_DomainLabel>
-  , Itest_DomainItemLabel
+internal class test_DomainItemLabelEncoder
 {
-  public Itest_DomainItemLabelObject? As__DomainItemLabel { get; set; }
 }
 
-public class test_DomainItemLabelObject
-  : test_DomainItemObject<Itest_DomainLabel>
-  , Itest_DomainItemLabelObject
-{
-
-  public test_DomainItemLabelObject
-    ( Itest_Name domain
-    ) : base(domain)
-  {
-  }
-}
-
-public class test_DomainRange
-  : test_BaseDomainItem
-  , Itest_DomainRange
-{
-  public Itest_DomainRangeObject? As__DomainRange { get; set; }
-}
-
-public class test_DomainRangeObject
-  : test_BaseDomainItemObject
-  , Itest_DomainRangeObject
+internal class test_DomainRangeEncoder
 {
   public decimal? Lower { get; set; }
   public decimal? Upper { get; set; }
-
-  public test_DomainRangeObject
-    ( ICollection<string> description
-    , bool exclude
-    ) : base(description, exclude)
-  {
-  }
 }
 
-public class test_DomainItemRange
-  : test_DomainItem<Itest_DomainRange>
-  , Itest_DomainItemRange
+internal class test_DomainItemRangeEncoder
 {
-  public Itest_DomainItemRangeObject? As__DomainItemRange { get; set; }
 }
 
-public class test_DomainItemRangeObject
-  : test_DomainItemObject<Itest_DomainRange>
-  , Itest_DomainItemRangeObject
-{
-
-  public test_DomainItemRangeObject
-    ( Itest_Name domain
-    ) : base(domain)
-  {
-  }
-}
-
-public class test_DomainRegex
-  : test_BaseDomainItem
-  , Itest_DomainRegex
-{
-  public Itest_DomainRegexObject? As__DomainRegex { get; set; }
-}
-
-public class test_DomainRegexObject
-  : test_BaseDomainItemObject
-  , Itest_DomainRegexObject
+internal class test_DomainRegexEncoder
 {
   public string Pattern { get; set; }
-
-  public test_DomainRegexObject
-    ( ICollection<string> description
-    , bool exclude
-    , string pattern
-    ) : base(description, exclude)
-  {
-    Pattern = pattern;
-  }
 }
 
-public class test_DomainItemRegex
-  : test_DomainItem<Itest_DomainRegex>
-  , Itest_DomainItemRegex
+internal class test_DomainItemRegexEncoder
 {
-  public Itest_DomainItemRegexObject? As__DomainItemRegex { get; set; }
 }
 
-public class test_DomainItemRegexObject
-  : test_DomainItemObject<Itest_DomainRegex>
-  , Itest_DomainItemRegexObject
-{
-
-  public test_DomainItemRegexObject
-    ( Itest_Name domain
-    ) : base(domain)
-  {
-  }
-}
-
-public class test_EnumLabel
-  : test_Aliased
-  , Itest_EnumLabel
-{
-  public Itest_EnumLabelObject? As__EnumLabel { get; set; }
-}
-
-public class test_EnumLabelObject
-  : test_AliasedObject
-  , Itest_EnumLabelObject
+internal class test_EnumLabelEncoder
 {
   public Itest_Name EnumType { get; set; }
-
-  public test_EnumLabelObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , ICollection<Itest_Name> aliases
-    , Itest_Name enumType
-    ) : base(description, name, aliases)
-  {
-    EnumType = enumType;
-  }
 }
 
-public class test_EnumValue
-  : test_TypeRef<test_TypeKind>
-  , Itest_EnumValue
-{
-  public Itest_EnumValueObject? As__EnumValue { get; set; }
-}
-
-public class test_EnumValueObject
-  : test_TypeRefObject<test_TypeKind>
-  , Itest_EnumValueObject
+internal class test_EnumValueEncoder
 {
   public Itest_Name Label { get; set; }
-
-  public test_EnumValueObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , Itest_Name label
-    ) : base(description, name, test_TypeKind.Enum)
-  {
-    Label = label;
-  }
 }
 
-public class test_UnionRef
-  : test_TypeRef<test_SimpleKind>
-  , Itest_UnionRef
+internal class test_UnionRefEncoder
 {
-  public Itest_UnionRefObject? As__UnionRef { get; set; }
 }
 
-public class test_UnionRefObject
-  : test_TypeRefObject<test_SimpleKind>
-  , Itest_UnionRefObject
-{
-
-  public test_UnionRefObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , test_SimpleKind typeKind
-    ) : base(description, name, typeKind)
-  {
-  }
-}
-
-public class test_UnionMember
-  : test_UnionRef
-  , Itest_UnionMember
-{
-  public Itest_UnionMemberObject? As__UnionMember { get; set; }
-}
-
-public class test_UnionMemberObject
-  : test_UnionRefObject
-  , Itest_UnionMemberObject
+internal class test_UnionMemberEncoder
 {
   public Itest_Name Union { get; set; }
-
-  public test_UnionMemberObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , test_SimpleKind typeKind
-    , Itest_Name union
-    ) : base(description, name, typeKind)
-  {
-    Union = union;
-  }
 }
 
-public class test_ObjectKind
-  : GqlpDomainEnum
-  , Itest_ObjectKind
+internal class test_ObjectKindEncoder
 {
 }
 
-public class test_TypeObject<TObjectKind,TField>
-  : test_ChildType<TObjectKind, Itest_ObjBase>
-  , Itest_TypeObject<TObjectKind,TField>
-{
-  public Itest_TypeObjectObject<TObjectKind,TField>? As__TypeObject { get; set; }
-}
-
-public class test_TypeObjectObject<TObjectKind,TField>
-  : test_ChildTypeObject<TObjectKind, Itest_ObjBase>
-  , Itest_TypeObjectObject<TObjectKind,TField>
+internal class test_TypeObjectEncoder<TObjectKind,TField>
 {
   public ICollection<Itest_ObjTypeParam> TypeParams { get; set; }
   public ICollection<TField> Fields { get; set; }
   public ICollection<Itest_ObjAlternate> Alternates { get; set; }
   public ICollection<Itest_ObjectFor<TField>> AllFields { get; set; }
   public ICollection<Itest_ObjectFor<Itest_ObjAlternate>> AllAlternates { get; set; }
-
-  public test_TypeObjectObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , ICollection<Itest_Name> aliases
-    , TObjectKind typeKind
-    , Itest_ObjBase parent
-    , ICollection<Itest_ObjTypeParam> typeParams
-    , ICollection<TField> fields
-    , ICollection<Itest_ObjAlternate> alternates
-    , ICollection<Itest_ObjectFor<TField>> allFields
-    , ICollection<Itest_ObjectFor<Itest_ObjAlternate>> allAlternates
-    ) : base(description, name, aliases, typeKind, parent)
-  {
-    TypeParams = typeParams;
-    Fields = fields;
-    Alternates = alternates;
-    AllFields = allFields;
-    AllAlternates = allAlternates;
-  }
 }
 
-public class test_ObjTypeParam
-  : test_Named
-  , Itest_ObjTypeParam
-{
-  public Itest_ObjTypeParamObject? As__ObjTypeParam { get; set; }
-}
-
-public class test_ObjTypeParamObject
-  : test_NamedObject
-  , Itest_ObjTypeParamObject
+internal class test_ObjTypeParamEncoder
 {
   public Itest_TypeRef<test_TypeKind> Constraint { get; set; }
-
-  public test_ObjTypeParamObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , Itest_TypeRef<test_TypeKind> constraint
-    ) : base(description, name)
-  {
-    Constraint = constraint;
-  }
 }
 
-public class test_ObjBase
-  : test_Named
-  , Itest_ObjBase
-{
-  public Itest_TypeParam? As_TypeParam { get; set; }
-  public Itest_ObjBaseObject? As__ObjBase { get; set; }
-}
-
-public class test_ObjBaseObject
-  : test_NamedObject
-  , Itest_ObjBaseObject
+internal class test_ObjBaseEncoder
 {
   public ICollection<Itest_ObjTypeArg> TypeArgs { get; set; }
-
-  public test_ObjBaseObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , ICollection<Itest_ObjTypeArg> typeArgs
-    ) : base(description, name)
-  {
-    TypeArgs = typeArgs;
-  }
 }
 
-public class test_ObjTypeArg
-  : test_TypeRef<test_TypeKind>
-  , Itest_ObjTypeArg
-{
-  public Itest_TypeParam? As_TypeParam { get; set; }
-  public Itest_ObjTypeArgObject? As__ObjTypeArg { get; set; }
-}
-
-public class test_ObjTypeArgObject
-  : test_TypeRefObject<test_TypeKind>
-  , Itest_ObjTypeArgObject
+internal class test_ObjTypeArgEncoder
 {
   public Itest_Name? Label { get; set; }
-
-  public test_ObjTypeArgObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , test_TypeKind typeKind
-    ) : base(description, name, typeKind)
-  {
-  }
 }
 
-public class test_TypeParam
-  : test_Described
-  , Itest_TypeParam
-{
-  public Itest_TypeParamObject? As__TypeParam { get; set; }
-}
-
-public class test_TypeParamObject
-  : test_DescribedObject
-  , Itest_TypeParamObject
+internal class test_TypeParamEncoder
 {
   public Itest_Name TypeParam { get; set; }
-
-  public test_TypeParamObject
-    ( ICollection<string> description
-    , Itest_Name typeParam
-    ) : base(description)
-  {
-    TypeParam = typeParam;
-  }
 }
 
-public class test_ObjAlternate
-  : GqlpEncoderBase
-  , Itest_ObjAlternate
-{
-  public Itest_ObjAlternateEnum? As_ObjAlternateEnum { get; set; }
-  public Itest_ObjAlternateObject? As__ObjAlternate { get; set; }
-}
-
-public class test_ObjAlternateObject
-  : GqlpEncoderBase
-  , Itest_ObjAlternateObject
+internal class test_ObjAlternateEncoder
 {
   public Itest_ObjBase Type { get; set; }
   public ICollection<Itest_Collections> Collections { get; set; }
-
-  public test_ObjAlternateObject
-    ( Itest_ObjBase type
-    , ICollection<Itest_Collections> collections
-    )
-  {
-    Type = type;
-    Collections = collections;
-  }
 }
 
-public class test_ObjAlternateEnum
-  : test_TypeRef<test_TypeKind>
-  , Itest_ObjAlternateEnum
-{
-  public Itest_ObjAlternateEnumObject? As__ObjAlternateEnum { get; set; }
-}
-
-public class test_ObjAlternateEnumObject
-  : test_TypeRefObject<test_TypeKind>
-  , Itest_ObjAlternateEnumObject
+internal class test_ObjAlternateEnumEncoder
 {
   public Itest_Name Label { get; set; }
-
-  public test_ObjAlternateEnumObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , Itest_Name label
-    ) : base(description, name, test_TypeKind.Enum)
-  {
-    Label = label;
-  }
 }
 
-public class test_ObjectFor<TFor>
-  : GqlpEncoderBase
-  , Itest_ObjectFor<TFor>
-{
-  public TFor? As_Parent { get; set; }
-  public Itest_ObjectForObject<TFor>? As__ObjectFor { get; set; }
-}
-
-public class test_ObjectForObject<TFor>
-  : GqlpEncoderBase
-  , Itest_ObjectForObject<TFor>
+internal class test_ObjectForEncoder<TFor>
 {
   public Itest_Name ObjectType { get; set; }
-
-  public test_ObjectForObject
-    ( Itest_Name objectType
-    )
-  {
-    ObjectType = objectType;
-  }
 }
 
-public class test_ObjField<TType>
-  : test_Aliased
-  , Itest_ObjField<TType>
-{
-  public Itest_ObjFieldObject<TType>? As__ObjField { get; set; }
-}
-
-public class test_ObjFieldObject<TType>
-  : test_AliasedObject
-  , Itest_ObjFieldObject<TType>
+internal class test_ObjFieldEncoder<TType>
 {
   public TType Type { get; set; }
-
-  public test_ObjFieldObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , ICollection<Itest_Name> aliases
-    , TType type
-    ) : base(description, name, aliases)
-  {
-    Type = type;
-  }
 }
 
-public class test_ObjFieldType
-  : test_ObjBase
-  , Itest_ObjFieldType
-{
-  public Itest_ObjFieldEnum? As_ObjFieldEnum { get; set; }
-  public Itest_ObjFieldTypeObject? As__ObjFieldType { get; set; }
-}
-
-public class test_ObjFieldTypeObject
-  : test_ObjBaseObject
-  , Itest_ObjFieldTypeObject
+internal class test_ObjFieldTypeEncoder
 {
   public ICollection<Itest_Modifiers> Modifiers { get; set; }
-
-  public test_ObjFieldTypeObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , ICollection<Itest_ObjTypeArg> typeArgs
-    , ICollection<Itest_Modifiers> modifiers
-    ) : base(description, name, typeArgs)
-  {
-    Modifiers = modifiers;
-  }
 }
 
-public class test_ObjFieldEnum
-  : test_TypeRef<test_TypeKind>
-  , Itest_ObjFieldEnum
-{
-  public Itest_ObjFieldEnumObject? As__ObjFieldEnum { get; set; }
-}
-
-public class test_ObjFieldEnumObject
-  : test_TypeRefObject<test_TypeKind>
-  , Itest_ObjFieldEnumObject
+internal class test_ObjFieldEnumEncoder
 {
   public Itest_Name Label { get; set; }
-
-  public test_ObjFieldEnumObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , Itest_Name label
-    ) : base(description, name, test_TypeKind.Enum)
-  {
-    Label = label;
-  }
 }
 
-public class test_ForParam<TType>
-  : GqlpEncoderBase
-  , Itest_ForParam<TType>
+internal class test_ForParamEncoder<TType>
 {
-  public Itest_ObjAlternate? As_ObjAlternate { get; set; }
-  public Itest_ObjField<TType>? As_ObjField { get; set; }
-  public Itest_ForParamObject<TType>? As__ForParam { get; set; }
 }
 
-public class test_ForParamObject<TType>
-  : GqlpEncoderBase
-  , Itest_ForParamObject<TType>
+internal class test_DualFieldEncoder
 {
-
-  public test_ForParamObject
-    ()
-  {
-  }
 }
 
-public class test_DualField
-  : test_ObjField<Itest_ObjFieldType>
-  , Itest_DualField
+internal class test_InputFieldEncoder
 {
-  public Itest_DualFieldObject? As__DualField { get; set; }
 }
 
-public class test_DualFieldObject
-  : test_ObjFieldObject<Itest_ObjFieldType>
-  , Itest_DualFieldObject
-{
-
-  public test_DualFieldObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , ICollection<Itest_Name> aliases
-    , Itest_ObjFieldType type
-    ) : base(description, name, aliases, type)
-  {
-  }
-}
-
-public class test_InputField
-  : test_ObjField<Itest_InputFieldType>
-  , Itest_InputField
-{
-  public Itest_InputFieldObject? As__InputField { get; set; }
-}
-
-public class test_InputFieldObject
-  : test_ObjFieldObject<Itest_InputFieldType>
-  , Itest_InputFieldObject
-{
-
-  public test_InputFieldObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , ICollection<Itest_Name> aliases
-    , Itest_InputFieldType type
-    ) : base(description, name, aliases, type)
-  {
-  }
-}
-
-public class test_InputFieldType
-  : test_ObjFieldType
-  , Itest_InputFieldType
-{
-  public Itest_InputFieldTypeObject? As__InputFieldType { get; set; }
-}
-
-public class test_InputFieldTypeObject
-  : test_ObjFieldTypeObject
-  , Itest_InputFieldTypeObject
+internal class test_InputFieldTypeEncoder
 {
   public GqlpValue? DefaultValue { get; set; }
-
-  public test_InputFieldTypeObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , ICollection<Itest_ObjTypeArg> typeArgs
-    , ICollection<Itest_Modifiers> modifiers
-    ) : base(description, name, typeArgs, modifiers)
-  {
-  }
 }
 
-public class test_OutputField
-  : test_ObjField<Itest_ObjFieldType>
-  , Itest_OutputField
+internal class test_OutputFieldEncoder
 {
-  public Itest_OutputFieldObject? As__OutputField { get; set; }
 }
 
-public class test_OutputFieldObject
-  : test_ObjFieldObject<Itest_ObjFieldType>
-  , Itest_OutputFieldObject
-{
-
-  public test_OutputFieldObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , ICollection<Itest_Name> aliases
-    , Itest_ObjFieldType type
-    ) : base(description, name, aliases, type)
-  {
-  }
-}
-
-public class test_OutputFieldType
-  : test_ObjFieldType
-  , Itest_OutputFieldType
-{
-  public Itest_OutputFieldTypeObject? As__OutputFieldType { get; set; }
-}
-
-public class test_OutputFieldTypeObject
-  : test_ObjFieldTypeObject
-  , Itest_OutputFieldTypeObject
+internal class test_OutputFieldTypeEncoder
 {
   public Itest_InputFieldType? Parameter { get; set; }
-
-  public test_OutputFieldTypeObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , ICollection<Itest_ObjTypeArg> typeArgs
-    , ICollection<Itest_Modifiers> modifiers
-    ) : base(description, name, typeArgs, modifiers)
-  {
-  }
 }

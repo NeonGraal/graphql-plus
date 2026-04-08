@@ -7,40 +7,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_arg_Input;
 
-public class testGnrcAltArgInp<TType>
-  : GqlpEncoderBase
-  , ItestGnrcAltArgInp<TType>
+internal class testGnrcAltArgInpEncoder<TType>
 {
-  public ItestRefGnrcAltArgInp<TType>? AsRefGnrcAltArgInp { get; set; }
-  public ItestGnrcAltArgInpObject<TType>? As_GnrcAltArgInp { get; set; }
 }
 
-public class testGnrcAltArgInpObject<TType>
-  : GqlpEncoderBase
-  , ItestGnrcAltArgInpObject<TType>
+internal class testRefGnrcAltArgInpEncoder<TRef>
 {
-
-  public testGnrcAltArgInpObject
-    ()
-  {
-  }
-}
-
-public class testRefGnrcAltArgInp<TRef>
-  : GqlpEncoderBase
-  , ItestRefGnrcAltArgInp<TRef>
-{
-  public TRef? Asref { get; set; }
-  public ItestRefGnrcAltArgInpObject<TRef>? As_RefGnrcAltArgInp { get; set; }
-}
-
-public class testRefGnrcAltArgInpObject<TRef>
-  : GqlpEncoderBase
-  , ItestRefGnrcAltArgInpObject<TRef>
-{
-
-  public testRefGnrcAltArgInpObject
-    ()
-  {
-  }
 }

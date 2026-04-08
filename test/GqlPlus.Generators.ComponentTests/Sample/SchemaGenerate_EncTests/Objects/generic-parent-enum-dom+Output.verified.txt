@@ -13,54 +13,21 @@ domain DomGnrcPrntEnumDomOutp { enum gnrcPrntEnumDomOutpLabel }
 
 namespace Components.Gqlp_Schema_generic_parent_enum_dom_Output;
 
-public class CmptGnrcPrntEnumDomOutp
-  : CmptFieldGnrcPrntEnumDomOutp<ICmptDomGnrcPrntEnumDomOutp>
-  , ICmptGnrcPrntEnumDomOutp
+internal class CmptGnrcPrntEnumDomOutpEncoder
 {
-  public ICmptGnrcPrntEnumDomOutpObject? As_GnrcPrntEnumDomOutp { get; set; }
 }
 
-public class CmptGnrcPrntEnumDomOutpObject
-  : CmptFieldGnrcPrntEnumDomOutpObject<ICmptDomGnrcPrntEnumDomOutp>
-  , ICmptGnrcPrntEnumDomOutpObject
-{
-
-  public CmptGnrcPrntEnumDomOutpObject
-    ( ICmptDomGnrcPrntEnumDomOutp field
-    ) : base(field)
-  {
-  }
-}
-
-public class CmptFieldGnrcPrntEnumDomOutp<TRef>
-  : Schema_generic-parent-enum-dom+Output
-  , ICmptFieldGnrcPrntEnumDomOutp<TRef>
-{
-  public ICmptFieldGnrcPrntEnumDomOutpObject<TRef>? As_FieldGnrcPrntEnumDomOutp { get; set; }
-}
-
-public class CmptFieldGnrcPrntEnumDomOutpObject<TRef>
-  : Schema_generic-parent-enum-dom+Output
-  , ICmptFieldGnrcPrntEnumDomOutpObject<TRef>
+internal class CmptFieldGnrcPrntEnumDomOutpEncoder<TRef>
 {
   public TRef Field { get; set; }
-
-  public CmptFieldGnrcPrntEnumDomOutpObject
-    ( TRef field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum CmptEnumGnrcPrntEnumDomOutp
+internal class CmptEnumGnrcPrntEnumDomOutpEncoder
 {
-  gnrcPrntEnumDomOutpLabel,
-  gnrcPrntEnumDomOutpOther,
+  public string gnrcPrntEnumDomOutpLabel { get; set; }
+  public string gnrcPrntEnumDomOutpOther { get; set; }
 }
 
-public class CmptDomGnrcPrntEnumDomOutp
-  : GqlpDomainEnum
-  , ICmptDomGnrcPrntEnumDomOutp
+internal class CmptDomGnrcPrntEnumDomOutpEncoder
 {
 }

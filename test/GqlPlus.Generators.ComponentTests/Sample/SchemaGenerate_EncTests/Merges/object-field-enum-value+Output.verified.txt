@@ -11,23 +11,7 @@ output ObjFieldEnumValueOutp { field = true }
 
 namespace Components.Gqlp_Schema_object_field_enum_value_Output;
 
-public class CmptObjFieldEnumValueOutp
-  : Schema_object-field-enum-value+Output
-  , ICmptObjFieldEnumValueOutp
-{
-  public ICmptObjFieldEnumValueOutpObject? As_ObjFieldEnumValueOutp { get; set; }
-}
-
-public class CmptObjFieldEnumValueOutpObject
-  : Schema_object-field-enum-value+Output
-  , ICmptObjFieldEnumValueOutpObject
+internal class CmptObjFieldEnumValueOutpEncoder
 {
   public bool Field { get; set; }
-
-  public CmptObjFieldEnumValueOutpObject
-    ( bool field
-    )
-  {
-    Field = field;
-  }
 }

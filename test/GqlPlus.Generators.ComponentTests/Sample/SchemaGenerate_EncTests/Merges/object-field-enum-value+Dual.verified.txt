@@ -11,23 +11,7 @@ dual ObjFieldEnumValueDual { field = true }
 
 namespace Components.Gqlp_Schema_object_field_enum_value_Dual;
 
-public class CmptObjFieldEnumValueDual
-  : Schema_object-field-enum-value+Dual
-  , ICmptObjFieldEnumValueDual
-{
-  public ICmptObjFieldEnumValueDualObject? As_ObjFieldEnumValueDual { get; set; }
-}
-
-public class CmptObjFieldEnumValueDualObject
-  : Schema_object-field-enum-value+Dual
-  , ICmptObjFieldEnumValueDualObject
+internal class CmptObjFieldEnumValueDualEncoder
 {
   public bool Field { get; set; }
-
-  public CmptObjFieldEnumValueDualObject
-    ( bool field
-    )
-  {
-    Field = field;
-  }
 }

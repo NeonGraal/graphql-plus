@@ -12,20 +12,6 @@ output _DualField {
 
 namespace Components.Gqlp_Spec_Dual;
 
-public class Cmpt_DualField
-  : Cmpt_ObjField<ICmpt_ObjFieldType>
-  , ICmpt_DualField
+internal class Cmpt_DualFieldEncoder
 {
-  public ICmpt_DualFieldObject? As__DualField { get; set; }
-}
-
-public class Cmpt_DualFieldObject
-  : Cmpt_ObjFieldObject<ICmpt_ObjFieldType>
-  , ICmpt_DualFieldObject
-{
-
-  public Cmpt_DualFieldObject
-    ()
-  {
-  }
 }

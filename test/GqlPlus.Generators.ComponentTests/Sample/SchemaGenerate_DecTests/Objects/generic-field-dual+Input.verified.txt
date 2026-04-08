@@ -12,39 +12,16 @@ dual AltGnrcFieldDualInp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_field_dual_Input;
 
-public interface ICmptGnrcFieldDualInp
-  // No Base because it's Class
+internal class CmptGnrcFieldDualInpDecoder
 {
-  ICmptGnrcFieldDualInpObject? As_GnrcFieldDualInp { get; }
+  public ICmptRefGnrcFieldDualInp<ICmptAltGnrcFieldDualInp> Field { get; set; }
 }
 
-public interface ICmptGnrcFieldDualInpObject
-  // No Base because it's Class
-{
-  ICmptRefGnrcFieldDualInp<ICmptAltGnrcFieldDualInp> Field { get; }
-}
-
-public interface ICmptRefGnrcFieldDualInp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ICmptRefGnrcFieldDualInpObject<TRef>? As_RefGnrcFieldDualInp { get; }
-}
-
-public interface ICmptRefGnrcFieldDualInpObject<TRef>
-  // No Base because it's Class
+internal class CmptRefGnrcFieldDualInpDecoder<TRef>
 {
 }
 
-public interface ICmptAltGnrcFieldDualInp
-  // No Base because it's Class
+internal class CmptAltGnrcFieldDualInpDecoder
 {
-  string? AsString { get; }
-  ICmptAltGnrcFieldDualInpObject? As_AltGnrcFieldDualInp { get; }
-}
-
-public interface ICmptAltGnrcFieldDualInpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

@@ -7,23 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_descr_Dual;
 
-public class testGnrcDescrDual<TType>
-  : GqlpEncoderBase
-  , ItestGnrcDescrDual<TType>
-{
-  public ItestGnrcDescrDualObject<TType>? As_GnrcDescrDual { get; set; }
-}
-
-public class testGnrcDescrDualObject<TType>
-  : GqlpEncoderBase
-  , ItestGnrcDescrDualObject<TType>
+internal class testGnrcDescrDualEncoder<TType>
 {
   public TType Field { get; set; }
-
-  public testGnrcDescrDualObject
-    ( TType field
-    )
-  {
-    Field = field;
-  }
 }

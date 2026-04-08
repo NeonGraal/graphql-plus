@@ -11,14 +11,10 @@ domain PrntDmnNmbrPrnt { Number <2 }
 
 namespace Components.Gqlp_Schema_domain_number_parent;
 
-public class CmptDmnNmbrPrnt
-  : CmptPrntDmnNmbrPrnt
-  , ICmptDmnNmbrPrnt
+internal class CmptDmnNmbrPrntEncoder
 {
 }
 
-public class CmptPrntDmnNmbrPrnt
-  : GqlpDomainNumber
-  , ICmptPrntDmnNmbrPrnt
+internal class CmptPrntDmnNmbrPrntEncoder
 {
 }

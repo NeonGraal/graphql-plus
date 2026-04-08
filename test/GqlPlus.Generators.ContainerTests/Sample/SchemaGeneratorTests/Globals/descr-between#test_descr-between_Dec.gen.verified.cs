@@ -7,13 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_descr_between;
 
-public interface ItestDescrBtwn
-  // No Base because it's Class
-{
-  ItestDescrBtwnObject? As_DescrBtwn { get; }
-}
-
-public interface ItestDescrBtwnObject
-  // No Base because it's Class
+internal class testDescrBtwnDecoder
 {
 }

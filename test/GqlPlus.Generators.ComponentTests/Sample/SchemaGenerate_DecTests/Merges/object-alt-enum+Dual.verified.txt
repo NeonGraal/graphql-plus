@@ -11,15 +11,6 @@ dual ObjAltEnumDual { ! false }
 
 namespace Components.Gqlp_Schema_object_alt_enum_Dual;
 
-public interface ICmptObjAltEnumDual
-  // No Base because it's Class
-{
-  bool? AsBooleantrue { get; }
-  bool? AsBooleanfalse { get; }
-  ICmptObjAltEnumDualObject? As_ObjAltEnumDual { get; }
-}
-
-public interface ICmptObjAltEnumDualObject
-  // No Base because it's Class
+internal class CmptObjAltEnumDualDecoder
 {
 }

@@ -7,13 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_category_alias;
 
-public interface ItestCtgrAlias
-  // No Base because it's Class
-{
-  ItestCtgrAliasObject? As_CtgrAlias { get; }
-}
-
-public interface ItestCtgrAliasObject
-  // No Base because it's Class
+internal class testCtgrAliasDecoder
 {
 }

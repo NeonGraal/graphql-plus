@@ -11,9 +11,8 @@ union UnionDiff { Number }
 
 namespace Components.Gqlp_Schema_union_diff;
 
-public interface ICmptUnionDiff
-  // No Base because it's Class
+internal class CmptUnionDiffDecoder
 {
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
+  public Boolean AsBoolean { get; set; }
+  public Number AsNumber { get; set; }
 }

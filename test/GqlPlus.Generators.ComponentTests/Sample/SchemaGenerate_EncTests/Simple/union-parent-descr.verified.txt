@@ -11,16 +11,12 @@ union PrntUnionPrntDescr { Number }
 
 namespace Components.Gqlp_Schema_union_parent_descr;
 
-public class CmptUnionPrntDescr
-  : CmptPrntUnionPrntDescr
-  , ICmptUnionPrntDescr
+internal class CmptUnionPrntDescrEncoder
 {
   public Number AsNumber { get; set; }
 }
 
-public class CmptPrntUnionPrntDescr
-  : Schema_union-parent-descr
-  , ICmptPrntUnionPrntDescr
+internal class CmptPrntUnionPrntDescrEncoder
 {
   public Number AsNumber { get; set; }
 }

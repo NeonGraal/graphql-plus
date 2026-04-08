@@ -13,14 +13,7 @@ output _Setting {
 
 namespace Components.Gqlp_Spec_Option;
 
-public interface ICmpt_Setting
-  : ICmpt_Named
+internal class Cmpt_SettingDecoder
 {
-  ICmpt_SettingObject? As__Setting { get; }
-}
-
-public interface ICmpt_SettingObject
-  : ICmpt_NamedObject
-{
-  GqlpValue Value { get; }
+  public GqlpValue Value { get; set; }
 }

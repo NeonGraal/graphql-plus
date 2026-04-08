@@ -7,47 +7,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_enum_Input;
 
-public class testGnrcEnumInp
-  : GqlpEncoderBase
-  , ItestGnrcEnumInp
+internal class testGnrcEnumInpEncoder
 {
-  public ItestRefGnrcEnumInp<testEnumGnrcEnumInp>? AsEnumGnrcEnumInpgnrcEnumInp { get; set; }
-  public ItestGnrcEnumInpObject? As_GnrcEnumInp { get; set; }
 }
 
-public class testGnrcEnumInpObject
-  : GqlpEncoderBase
-  , ItestGnrcEnumInpObject
-{
-
-  public testGnrcEnumInpObject
-    ()
-  {
-  }
-}
-
-public class testRefGnrcEnumInp<TType>
-  : GqlpEncoderBase
-  , ItestRefGnrcEnumInp<TType>
-{
-  public ItestRefGnrcEnumInpObject<TType>? As_RefGnrcEnumInp { get; set; }
-}
-
-public class testRefGnrcEnumInpObject<TType>
-  : GqlpEncoderBase
-  , ItestRefGnrcEnumInpObject<TType>
+internal class testRefGnrcEnumInpEncoder<TType>
 {
   public TType Field { get; set; }
-
-  public testRefGnrcEnumInpObject
-    ( TType field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum testEnumGnrcEnumInp
+internal class testEnumGnrcEnumInpEncoder
 {
-  gnrcEnumInp,
+  public string gnrcEnumInp { get; set; }
 }

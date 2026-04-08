@@ -14,104 +14,28 @@ input PrntOutpPrntParamIn { parent: Number | String }
 
 namespace Components.Gqlp_Schema_output_parent_param;
 
-public class CmptOutpPrntParam
-  : CmptPrntOutpPrntParam
-  , ICmptOutpPrntParam
-{
-  public ICmptOutpPrntParamObject? As_OutpPrntParam { get; set; }
-}
-
-public class CmptOutpPrntParamObject
-  : CmptPrntOutpPrntParamObject
-  , ICmptOutpPrntParamObject
+internal class CmptOutpPrntParamEncoder
 {
   public ICmptFldOutpPrntParam? Field(ICmptInOutpPrntParam parameter)
     => null;
-
-  public CmptOutpPrntParamObject
-    ()
-  {
-  }
 }
 
-public class CmptPrntOutpPrntParam
-  : Schema_output-parent-param
-  , ICmptPrntOutpPrntParam
-{
-  public ICmptPrntOutpPrntParamObject? As_PrntOutpPrntParam { get; set; }
-}
-
-public class CmptPrntOutpPrntParamObject
-  : Schema_output-parent-param
-  , ICmptPrntOutpPrntParamObject
+internal class CmptPrntOutpPrntParamEncoder
 {
   public ICmptFldOutpPrntParam? Field(ICmptPrntOutpPrntParamIn parameter)
     => null;
-
-  public CmptPrntOutpPrntParamObject
-    ()
-  {
-  }
 }
 
-public class CmptFldOutpPrntParam
-  : Schema_output-parent-param
-  , ICmptFldOutpPrntParam
+internal class CmptFldOutpPrntParamEncoder
 {
-  public ICmptFldOutpPrntParamObject? As_FldOutpPrntParam { get; set; }
 }
 
-public class CmptFldOutpPrntParamObject
-  : Schema_output-parent-param
-  , ICmptFldOutpPrntParamObject
-{
-
-  public CmptFldOutpPrntParamObject
-    ()
-  {
-  }
-}
-
-public class CmptInOutpPrntParam
-  : Schema_output-parent-param
-  , ICmptInOutpPrntParam
-{
-  public string? AsString { get; set; }
-  public ICmptInOutpPrntParamObject? As_InOutpPrntParam { get; set; }
-}
-
-public class CmptInOutpPrntParamObject
-  : Schema_output-parent-param
-  , ICmptInOutpPrntParamObject
+internal class CmptInOutpPrntParamEncoder
 {
   public decimal Param { get; set; }
-
-  public CmptInOutpPrntParamObject
-    ( decimal param
-    )
-  {
-    Param = param;
-  }
 }
 
-public class CmptPrntOutpPrntParamIn
-  : Schema_output-parent-param
-  , ICmptPrntOutpPrntParamIn
-{
-  public string? AsString { get; set; }
-  public ICmptPrntOutpPrntParamInObject? As_PrntOutpPrntParamIn { get; set; }
-}
-
-public class CmptPrntOutpPrntParamInObject
-  : Schema_output-parent-param
-  , ICmptPrntOutpPrntParamInObject
+internal class CmptPrntOutpPrntParamInEncoder
 {
   public decimal Parent { get; set; }
-
-  public CmptPrntOutpPrntParamInObject
-    ( decimal parent
-    )
-  {
-    Parent = parent;
-  }
 }

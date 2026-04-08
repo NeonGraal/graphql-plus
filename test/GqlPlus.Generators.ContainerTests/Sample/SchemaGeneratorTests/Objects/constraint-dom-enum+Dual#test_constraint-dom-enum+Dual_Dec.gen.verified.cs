@@ -7,37 +7,21 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_dom_enum_Dual;
 
-public interface ItestCnstDomEnumDual
-  // No Base because it's Class
-{
-  ItestRefCnstDomEnumDual<testEnumCnstDomEnumDual>? AsEnumCnstDomEnumDualcnstDomEnumDual { get; }
-  ItestCnstDomEnumDualObject? As_CnstDomEnumDual { get; }
-}
-
-public interface ItestCnstDomEnumDualObject
-  // No Base because it's Class
+internal class testCnstDomEnumDualDecoder
 {
 }
 
-public interface ItestRefCnstDomEnumDual<TType>
-  // No Base because it's Class
+internal class testRefCnstDomEnumDualDecoder<TType>
 {
-  ItestRefCnstDomEnumDualObject<TType>? As_RefCnstDomEnumDual { get; }
+  public TType Field { get; set; }
 }
 
-public interface ItestRefCnstDomEnumDualObject<TType>
-  // No Base because it's Class
+internal class testEnumCnstDomEnumDualDecoder
 {
-  TType Field { get; }
+  public string cnstDomEnumDual { get; set; }
+  public string other { get; set; }
 }
 
-public enum testEnumCnstDomEnumDual
-{
-  cnstDomEnumDual,
-  other,
-}
-
-public interface ItestJustCnstDomEnumDual
-  : IGqlpDomainEnum
+internal class testJustCnstDomEnumDualDecoder
 {
 }

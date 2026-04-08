@@ -7,65 +7,32 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Built_In;
 
-public interface Itest_Collections
-  // No Base because it's Class
-{
-  Itest_Modifier<test_ModifierKind>? As_ModifierKindList { get; }
-  Itest_ModifierKeyed<test_ModifierKind>? As_ModifierKindDictionary { get; }
-  Itest_ModifierKeyed<test_ModifierKind>? As_ModifierKindTypeParam { get; }
-  Itest_CollectionsObject? As__Collections { get; }
-}
-
-public interface Itest_CollectionsObject
-  // No Base because it's Class
+internal class test_CollectionsDecoder
 {
 }
 
-public interface Itest_ModifierKeyed<TModifierKind>
-  : Itest_Modifier<TModifierKind>
+internal class test_ModifierKeyedDecoder<TModifierKind>
 {
-  Itest_ModifierKeyedObject<TModifierKind>? As__ModifierKeyed { get; }
+  public Itest_TypeSimple By { get; set; }
+  public bool IsOptional { get; set; }
 }
 
-public interface Itest_ModifierKeyedObject<TModifierKind>
-  : Itest_ModifierObject<TModifierKind>
-{
-  Itest_TypeSimple By { get; }
-  bool IsOptional { get; }
-}
-
-public interface Itest_Modifiers
-  // No Base because it's Class
-{
-  Itest_Modifier<test_ModifierKind>? As_ModifierKindOptional { get; }
-  Itest_Collections? As_Collections { get; }
-  Itest_ModifiersObject? As__Modifiers { get; }
-}
-
-public interface Itest_ModifiersObject
-  // No Base because it's Class
+internal class test_ModifiersDecoder
 {
 }
 
-public enum test_ModifierKind
+internal class test_ModifierKindDecoder
 {
-  Opt,
-  Optional = Opt,
-  List,
-  Dict,
-  Dictionary = Dict,
-  Param,
-  TypeParam = Param,
+  public string Opt { get; set; }
+  public string Optional { get; set; }
+  public string List { get; set; }
+  public string Dict { get; set; }
+  public string Dictionary { get; set; }
+  public string Param { get; set; }
+  public string TypeParam { get; set; }
 }
 
-public interface Itest_Modifier<TModifierKind>
-  // No Base because it's Class
+internal class test_ModifierDecoder<TModifierKind>
 {
-  Itest_ModifierObject<TModifierKind>? As__Modifier { get; }
-}
-
-public interface Itest_ModifierObject<TModifierKind>
-  // No Base because it's Class
-{
-  TModifierKind ModifierKind { get; }
+  public TModifierKind ModifierKind { get; set; }
 }

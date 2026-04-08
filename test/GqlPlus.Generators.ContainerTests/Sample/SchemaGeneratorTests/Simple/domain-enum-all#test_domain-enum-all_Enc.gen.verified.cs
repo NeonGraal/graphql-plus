@@ -7,15 +7,13 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_all;
 
-public class testDmnEnumAll
-  : GqlpDomainEnum
-  , ItestDmnEnumAll
+internal class testDmnEnumAllEncoder
 {
 }
 
-public enum testEnumDmnEnumAll
+internal class testEnumDmnEnumAllEncoder
 {
-  dmnEnumAll,
-  enum_dmnEnumAll,
-  dmnEnumAllValue,
+  public string dmnEnumAll { get; set; }
+  public string enum_dmnEnumAll { get; set; }
+  public string dmnEnumAllValue { get; set; }
 }

@@ -7,25 +7,18 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_enum_parent_Input;
 
-public interface ItestFieldEnumPrntInp
-  // No Base because it's Class
+internal class testFieldEnumPrntInpDecoder
 {
-  ItestFieldEnumPrntInpObject? As_FieldEnumPrntInp { get; }
+  public testEnumFieldEnumPrntInp Field { get; set; }
 }
 
-public interface ItestFieldEnumPrntInpObject
-  // No Base because it's Class
+internal class testEnumFieldEnumPrntInpDecoder
 {
-  testEnumFieldEnumPrntInp Field { get; }
+  public string prnt_fieldEnumPrntInp { get; set; }
+  public string fieldEnumPrntInp { get; set; }
 }
 
-public enum testEnumFieldEnumPrntInp
+internal class testPrntFieldEnumPrntInpDecoder
 {
-  prnt_fieldEnumPrntInp = testPrntFieldEnumPrntInp.prnt_fieldEnumPrntInp,
-  fieldEnumPrntInp,
-}
-
-public enum testPrntFieldEnumPrntInp
-{
-  prnt_fieldEnumPrntInp,
+  public string prnt_fieldEnumPrntInp { get; set; }
 }

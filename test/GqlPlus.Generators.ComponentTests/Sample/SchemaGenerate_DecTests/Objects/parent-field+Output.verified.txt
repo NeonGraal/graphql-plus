@@ -11,27 +11,12 @@ output RefPrntFieldOutp { parent: Number | String }
 
 namespace Components.Gqlp_Schema_parent_field_Output;
 
-public interface ICmptPrntFieldOutp
-  : ICmptRefPrntFieldOutp
+internal class CmptPrntFieldOutpDecoder
 {
-  ICmptPrntFieldOutpObject? As_PrntFieldOutp { get; }
+  public decimal Field { get; set; }
 }
 
-public interface ICmptPrntFieldOutpObject
-  : ICmptRefPrntFieldOutpObject
+internal class CmptRefPrntFieldOutpDecoder
 {
-  decimal Field { get; }
-}
-
-public interface ICmptRefPrntFieldOutp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ICmptRefPrntFieldOutpObject? As_RefPrntFieldOutp { get; }
-}
-
-public interface ICmptRefPrntFieldOutpObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
+  public decimal Parent { get; set; }
 }

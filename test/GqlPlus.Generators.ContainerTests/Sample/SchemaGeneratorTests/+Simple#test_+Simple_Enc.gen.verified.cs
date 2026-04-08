@@ -7,426 +7,346 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp__Simple;
 
-public class testDmnBoolDescr
-  : GqlpDomainBoolean
-  , ItestDmnBoolDescr
+internal class testDmnBoolDescrEncoder
 {
 }
 
-public class testDmnBoolPrnt
-  : testPrntDmnBoolPrnt
-  , ItestDmnBoolPrnt
+internal class testDmnBoolPrntEncoder
 {
 }
 
-public class testPrntDmnBoolPrnt
-  : GqlpDomainBoolean
-  , ItestPrntDmnBoolPrnt
+internal class testPrntDmnBoolPrntEncoder
 {
 }
 
-public class testDmnBoolPrntDescr
-  : testPrntDmnBoolPrntDescr
-  , ItestDmnBoolPrntDescr
+internal class testDmnBoolPrntDescrEncoder
 {
 }
 
-public class testPrntDmnBoolPrntDescr
-  : GqlpDomainBoolean
-  , ItestPrntDmnBoolPrntDescr
+internal class testPrntDmnBoolPrntDescrEncoder
 {
 }
 
-public class testDmnEnumAll
-  : GqlpDomainEnum
-  , ItestDmnEnumAll
+internal class testDmnEnumAllEncoder
 {
 }
 
-public enum testEnumDmnEnumAll
+internal class testEnumDmnEnumAllEncoder
 {
-  dmnEnumAll,
-  enum_dmnEnumAll,
-  dmnEnumAllValue,
+  public string dmnEnumAll { get; set; }
+  public string enum_dmnEnumAll { get; set; }
+  public string dmnEnumAllValue { get; set; }
 }
 
-public class testDmnEnumAllDescr
-  : GqlpDomainEnum
-  , ItestDmnEnumAllDescr
+internal class testDmnEnumAllDescrEncoder
 {
 }
 
-public enum testEnumDmnEnumAllDescr
+internal class testEnumDmnEnumAllDescrEncoder
 {
-  dmnEnumAllDescr,
-  enum_dmnEnumAllDescr,
-  dmnEnumAllDescrValue,
+  public string dmnEnumAllDescr { get; set; }
+  public string enum_dmnEnumAllDescr { get; set; }
+  public string dmnEnumAllDescrValue { get; set; }
 }
 
-public class testDmnEnumAllPrnt
-  : GqlpDomainEnum
-  , ItestDmnEnumAllPrnt
+internal class testDmnEnumAllPrntEncoder
 {
 }
 
-public enum testEnumDmnEnumAllPrnt
+internal class testEnumDmnEnumAllPrntEncoder
 {
-  prnt_dmnEnumAllPrnt = testPrntDmnEnumAllPrnt.prnt_dmnEnumAllPrnt,
-  dmnEnumAllPrntPrnt = testPrntDmnEnumAllPrnt.dmnEnumAllPrntPrnt,
-  dmnEnumAllPrnt,
-  dmnEnumAllPrntValue,
+  public string prnt_dmnEnumAllPrnt { get; set; }
+  public string dmnEnumAllPrntPrnt { get; set; }
+  public string dmnEnumAllPrnt { get; set; }
+  public string dmnEnumAllPrntValue { get; set; }
 }
 
-public enum testPrntDmnEnumAllPrnt
+internal class testPrntDmnEnumAllPrntEncoder
 {
-  prnt_dmnEnumAllPrnt,
-  dmnEnumAllPrntPrnt,
+  public string prnt_dmnEnumAllPrnt { get; set; }
+  public string dmnEnumAllPrntPrnt { get; set; }
 }
 
-public class testDmnEnumDescr
-  : GqlpDomainEnum
-  , ItestDmnEnumDescr
+internal class testDmnEnumDescrEncoder
 {
 }
 
-public enum testEnumDmnEnumDescr
+internal class testEnumDmnEnumDescrEncoder
 {
-  dmnEnumDescr,
+  public string dmnEnumDescr { get; set; }
 }
 
-public class testDmnEnumExcl
-  : GqlpDomainEnum
-  , ItestDmnEnumExcl
+internal class testDmnEnumExclEncoder
 {
 }
 
-public enum testEnumDmnEnumExcl
+internal class testEnumDmnEnumExclEncoder
 {
-  dmnEnumExcl,
-  enum_dmnEnumExcl,
-  dmnEnumExclValue,
+  public string dmnEnumExcl { get; set; }
+  public string enum_dmnEnumExcl { get; set; }
+  public string dmnEnumExclValue { get; set; }
 }
 
-public class testDmnEnumExclPrnt
-  : GqlpDomainEnum
-  , ItestDmnEnumExclPrnt
+internal class testDmnEnumExclPrntEncoder
 {
 }
 
-public enum testEnumDmnEnumExclPrnt
+internal class testEnumDmnEnumExclPrntEncoder
 {
-  prnt_dmnEnumExclPrnt = testPrntDmnEnumExclPrnt.prnt_dmnEnumExclPrnt,
-  dmnEnumExclPrntPrnt = testPrntDmnEnumExclPrnt.dmnEnumExclPrntPrnt,
-  dmnEnumExclPrnt,
-  dmnEnumExclPrntValue,
+  public string prnt_dmnEnumExclPrnt { get; set; }
+  public string dmnEnumExclPrntPrnt { get; set; }
+  public string dmnEnumExclPrnt { get; set; }
+  public string dmnEnumExclPrntValue { get; set; }
 }
 
-public enum testPrntDmnEnumExclPrnt
+internal class testPrntDmnEnumExclPrntEncoder
 {
-  prnt_dmnEnumExclPrnt,
-  dmnEnumExclPrntPrnt,
+  public string prnt_dmnEnumExclPrnt { get; set; }
+  public string dmnEnumExclPrntPrnt { get; set; }
 }
 
-public class testDmnEnumLabel
-  : GqlpDomainEnum
-  , ItestDmnEnumLabel
+internal class testDmnEnumLabelEncoder
 {
 }
 
-public enum testEnumDmnEnumLabel
+internal class testEnumDmnEnumLabelEncoder
 {
-  dmnEnumLabel,
+  public string dmnEnumLabel { get; set; }
 }
 
-public class testDmnEnumPrnt
-  : testPrntDmnEnumPrnt
-  , ItestDmnEnumPrnt
+internal class testDmnEnumPrntEncoder
 {
 }
 
-public class testPrntDmnEnumPrnt
-  : GqlpDomainEnum
-  , ItestPrntDmnEnumPrnt
+internal class testPrntDmnEnumPrntEncoder
 {
 }
 
-public enum testEnumDmnEnumPrnt
+internal class testEnumDmnEnumPrntEncoder
 {
-  enum_dmnEnumPrnt,
-  prnt_dmnEnumPrnt,
+  public string enum_dmnEnumPrnt { get; set; }
+  public string prnt_dmnEnumPrnt { get; set; }
 }
 
-public class testDmnEnumPrntDescr
-  : testPrntDmnEnumPrntDescr
-  , ItestDmnEnumPrntDescr
+internal class testDmnEnumPrntDescrEncoder
 {
 }
 
-public class testPrntDmnEnumPrntDescr
-  : GqlpDomainEnum
-  , ItestPrntDmnEnumPrntDescr
+internal class testPrntDmnEnumPrntDescrEncoder
 {
 }
 
-public enum testEnumDmnEnumPrntDescr
+internal class testEnumDmnEnumPrntDescrEncoder
 {
-  enum_dmnEnumPrntDescr,
-  prnt_dmnEnumPrntDescr,
+  public string enum_dmnEnumPrntDescr { get; set; }
+  public string prnt_dmnEnumPrntDescr { get; set; }
 }
 
-public class testDmnEnumUnq
-  : GqlpDomainEnum
-  , ItestDmnEnumUnq
+internal class testDmnEnumUnqEncoder
 {
 }
 
-public enum testEnumDmnEnumUnq
+internal class testEnumDmnEnumUnqEncoder
 {
-  enum_dmnEnumUnq,
-  dmnEnumUnq,
-  dmnEnumUnqValue,
+  public string enum_dmnEnumUnq { get; set; }
+  public string dmnEnumUnq { get; set; }
+  public string dmnEnumUnqValue { get; set; }
 }
 
-public enum testDupDmnEnumUnq
+internal class testDupDmnEnumUnqEncoder
 {
-  dmnEnumUnq,
-  dup_dmnEnumUnq,
-  dmnEnumUnqDup,
+  public string dmnEnumUnq { get; set; }
+  public string dup_dmnEnumUnq { get; set; }
+  public string dmnEnumUnqDup { get; set; }
 }
 
-public class testDmnEnumUnqPrnt
-  : GqlpDomainEnum
-  , ItestDmnEnumUnqPrnt
+internal class testDmnEnumUnqPrntEncoder
 {
 }
 
-public enum testEnumDmnEnumUnqPrnt
+internal class testEnumDmnEnumUnqPrntEncoder
 {
-  dmnEnumUnqPrnt = testPrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
-  prnt_dmnEnumUnqPrnt = testPrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntPrnt = testPrntDmnEnumUnqPrnt.dmnEnumUnqPrntPrnt,
-  enum_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntValue,
+  public string dmnEnumUnqPrnt { get; set; }
+  public string prnt_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntPrnt { get; set; }
+  public string enum_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntValue { get; set; }
 }
 
-public enum testPrntDmnEnumUnqPrnt
+internal class testPrntDmnEnumUnqPrntEncoder
 {
-  dmnEnumUnqPrnt,
-  prnt_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntPrnt,
+  public string dmnEnumUnqPrnt { get; set; }
+  public string prnt_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntPrnt { get; set; }
 }
 
-public enum testDupDmnEnumUnqPrnt
+internal class testDupDmnEnumUnqPrntEncoder
 {
-  dmnEnumUnqPrnt,
-  dup_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntDup,
+  public string dmnEnumUnqPrnt { get; set; }
+  public string dup_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntDup { get; set; }
 }
 
-public class testDmnEnumValue
-  : GqlpDomainEnum
-  , ItestDmnEnumValue
+internal class testDmnEnumValueEncoder
 {
 }
 
-public enum testEnumDmnEnumValue
+internal class testEnumDmnEnumValueEncoder
 {
-  dmnEnumValue,
+  public string dmnEnumValue { get; set; }
 }
 
-public class testDmnEnumValuePrnt
-  : GqlpDomainEnum
-  , ItestDmnEnumValuePrnt
+internal class testDmnEnumValuePrntEncoder
 {
 }
 
-public enum testEnumDmnEnumValuePrnt
+internal class testEnumDmnEnumValuePrntEncoder
 {
-  prnt_dmnEnumValuePrnt = testPrntDmnEnumValuePrnt.prnt_dmnEnumValuePrnt,
-  dmnEnumValuePrnt,
+  public string prnt_dmnEnumValuePrnt { get; set; }
+  public string dmnEnumValuePrnt { get; set; }
 }
 
-public enum testPrntDmnEnumValuePrnt
+internal class testPrntDmnEnumValuePrntEncoder
 {
-  prnt_dmnEnumValuePrnt,
+  public string prnt_dmnEnumValuePrnt { get; set; }
 }
 
-public class testDmnNmbrDescr
-  : GqlpDomainNumber
-  , ItestDmnNmbrDescr
+internal class testDmnNmbrDescrEncoder
 {
 }
 
-public class testDmnNmbrPrnt
-  : testPrntDmnNmbrPrnt
-  , ItestDmnNmbrPrnt
+internal class testDmnNmbrPrntEncoder
 {
 }
 
-public class testPrntDmnNmbrPrnt
-  : GqlpDomainNumber
-  , ItestPrntDmnNmbrPrnt
+internal class testPrntDmnNmbrPrntEncoder
 {
 }
 
-public class testDmnNmbrPrntDescr
-  : testPrntDmnNmbrPrntDescr
-  , ItestDmnNmbrPrntDescr
+internal class testDmnNmbrPrntDescrEncoder
 {
 }
 
-public class testPrntDmnNmbrPrntDescr
-  : GqlpDomainNumber
-  , ItestPrntDmnNmbrPrntDescr
+internal class testPrntDmnNmbrPrntDescrEncoder
 {
 }
 
-public class testDmnNmbrPstv
-  : GqlpDomainNumber
-  , ItestDmnNmbrPstv
+internal class testDmnNmbrPstvEncoder
 {
 }
 
-public class testDmnNmbrRange
-  : GqlpDomainNumber
-  , ItestDmnNmbrRange
+internal class testDmnNmbrRangeEncoder
 {
 }
 
-public class testDmnStrDescr
-  : GqlpDomainString
-  , ItestDmnStrDescr
+internal class testDmnStrDescrEncoder
 {
 }
 
-public class testDmnStrNonEmpty
-  : GqlpDomainString
-  , ItestDmnStrNonEmpty
+internal class testDmnStrNonEmptyEncoder
 {
 }
 
-public class testDmnStrPrnt
-  : testPrntDmnStrPrnt
-  , ItestDmnStrPrnt
+internal class testDmnStrPrntEncoder
 {
 }
 
-public class testPrntDmnStrPrnt
-  : GqlpDomainString
-  , ItestPrntDmnStrPrnt
+internal class testPrntDmnStrPrntEncoder
 {
 }
 
-public class testDmnStrPrntDescr
-  : testPrntDmnStrPrntDescr
-  , ItestDmnStrPrntDescr
+internal class testDmnStrPrntDescrEncoder
 {
 }
 
-public class testPrntDmnStrPrntDescr
-  : GqlpDomainString
-  , ItestPrntDmnStrPrntDescr
+internal class testPrntDmnStrPrntDescrEncoder
 {
 }
 
-public enum testEnumDescr
+internal class testEnumDescrEncoder
 {
-  enumDescr,
+  public string enumDescr { get; set; }
 }
 
-public enum testEnumPrnt
+internal class testEnumPrntEncoder
 {
-  prnt_enumPrnt = testPrntEnumPrnt.prnt_enumPrnt,
-  enumPrnt,
+  public string prnt_enumPrnt { get; set; }
+  public string enumPrnt { get; set; }
 }
 
-public enum testPrntEnumPrnt
+internal class testPrntEnumPrntEncoder
 {
-  prnt_enumPrnt,
+  public string prnt_enumPrnt { get; set; }
 }
 
-public enum testEnumPrntAlias
+internal class testEnumPrntAliasEncoder
 {
-  prnt_enumPrntAlias = testPrntEnumPrntAlias.prnt_enumPrntAlias,
-  val_enumPrntAlias,
-  prnt_enumPrntAlias,
-  enumPrntAlias = prnt_enumPrntAlias,
+  public string prnt_enumPrntAlias { get; set; }
+  public string val_enumPrntAlias { get; set; }
+  public string prnt_enumPrntAlias { get; set; }
+  public string enumPrntAlias { get; set; }
 }
 
-public enum testPrntEnumPrntAlias
+internal class testPrntEnumPrntAliasEncoder
 {
-  prnt_enumPrntAlias,
+  public string prnt_enumPrntAlias { get; set; }
 }
 
-public enum testEnumPrntDescr
+internal class testEnumPrntDescrEncoder
 {
-  prnt_enumPrntDescr = testPrntEnumPrntDescr.prnt_enumPrntDescr,
-  enumPrntDescr,
+  public string prnt_enumPrntDescr { get; set; }
+  public string enumPrntDescr { get; set; }
 }
 
-public enum testPrntEnumPrntDescr
+internal class testPrntEnumPrntDescrEncoder
 {
-  prnt_enumPrntDescr,
+  public string prnt_enumPrntDescr { get; set; }
 }
 
-public enum testEnumPrntDup
+internal class testEnumPrntDupEncoder
 {
-  prnt_enumPrntDup = testPrntEnumPrntDup.prnt_enumPrntDup,
-  enumPrntDup = testPrntEnumPrntDup.prnt_enumPrntDup,
-  enumPrntDup,
+  public string prnt_enumPrntDup { get; set; }
+  public string enumPrntDup { get; set; }
+  public string enumPrntDup { get; set; }
 }
 
-public enum testPrntEnumPrntDup
+internal class testPrntEnumPrntDupEncoder
 {
-  prnt_enumPrntDup,
-  enumPrntDup = prnt_enumPrntDup,
+  public string prnt_enumPrntDup { get; set; }
+  public string enumPrntDup { get; set; }
 }
 
-public class testUnionDescr
-  : GqlpEncoderBase
-  , ItestUnionDescr
+internal class testUnionDescrEncoder
 {
   public Number AsNumber { get; set; }
 }
 
-public class testUnionPrnt
-  : testPrntUnionPrnt
-  , ItestUnionPrnt
+internal class testUnionPrntEncoder
 {
   public String AsString { get; set; }
 }
 
-public class testPrntUnionPrnt
-  : GqlpEncoderBase
-  , ItestPrntUnionPrnt
+internal class testPrntUnionPrntEncoder
 {
   public Number AsNumber { get; set; }
 }
 
-public class testUnionPrntDescr
-  : testPrntUnionPrntDescr
-  , ItestUnionPrntDescr
+internal class testUnionPrntDescrEncoder
 {
   public Number AsNumber { get; set; }
 }
 
-public class testPrntUnionPrntDescr
-  : GqlpEncoderBase
-  , ItestPrntUnionPrntDescr
+internal class testPrntUnionPrntDescrEncoder
 {
   public Number AsNumber { get; set; }
 }
 
-public class testUnionPrntDup
-  : testPrntUnionPrntDup
-  , ItestUnionPrntDup
+internal class testUnionPrntDupEncoder
 {
   public Number AsNumber { get; set; }
 }
 
-public class testPrntUnionPrntDup
-  : GqlpEncoderBase
-  , ItestPrntUnionPrntDup
+internal class testPrntUnionPrntDupEncoder
 {
   public Number AsNumber { get; set; }
 }

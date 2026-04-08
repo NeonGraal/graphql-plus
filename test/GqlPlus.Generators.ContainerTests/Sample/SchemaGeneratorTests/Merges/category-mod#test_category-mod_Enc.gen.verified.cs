@@ -7,20 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_category_mod;
 
-public class testCtgrMod
-  : GqlpEncoderBase
-  , ItestCtgrMod
+internal class testCtgrModEncoder
 {
-  public ItestCtgrModObject? As_CtgrMod { get; set; }
-}
-
-public class testCtgrModObject
-  : GqlpEncoderBase
-  , ItestCtgrModObject
-{
-
-  public testCtgrModObject
-    ()
-  {
-  }
 }

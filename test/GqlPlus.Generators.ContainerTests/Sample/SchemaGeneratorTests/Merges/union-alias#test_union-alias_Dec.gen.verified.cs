@@ -7,9 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_alias;
 
-public interface ItestUnionAlias
-  // No Base because it's Class
+internal class testUnionAliasDecoder
 {
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
+  public Boolean AsBoolean { get; set; }
+  public Number AsNumber { get; set; }
 }

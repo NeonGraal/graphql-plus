@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_enum_descr;
 
-public enum testEnumDescr
+internal class testEnumDescrDecoder
 {
-  enumDescr,
+  public string enumDescr { get; set; }
 }

@@ -7,53 +7,22 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_child_Dual;
 
-public class testGnrcPrntEnumChildDual
-  : testFieldGnrcPrntEnumChildDual<testParentGnrcPrntEnumChildDual>
-  , ItestGnrcPrntEnumChildDual
+internal class testGnrcPrntEnumChildDualEncoder
 {
-  public ItestGnrcPrntEnumChildDualObject? As_GnrcPrntEnumChildDual { get; set; }
 }
 
-public class testGnrcPrntEnumChildDualObject
-  : testFieldGnrcPrntEnumChildDualObject<testParentGnrcPrntEnumChildDual>
-  , ItestGnrcPrntEnumChildDualObject
-{
-
-  public testGnrcPrntEnumChildDualObject
-    ( testParentGnrcPrntEnumChildDual field
-    ) : base(field)
-  {
-  }
-}
-
-public class testFieldGnrcPrntEnumChildDual<TRef>
-  : GqlpEncoderBase
-  , ItestFieldGnrcPrntEnumChildDual<TRef>
-{
-  public ItestFieldGnrcPrntEnumChildDualObject<TRef>? As_FieldGnrcPrntEnumChildDual { get; set; }
-}
-
-public class testFieldGnrcPrntEnumChildDualObject<TRef>
-  : GqlpEncoderBase
-  , ItestFieldGnrcPrntEnumChildDualObject<TRef>
+internal class testFieldGnrcPrntEnumChildDualEncoder<TRef>
 {
   public TRef Field { get; set; }
-
-  public testFieldGnrcPrntEnumChildDualObject
-    ( TRef field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum testEnumGnrcPrntEnumChildDual
+internal class testEnumGnrcPrntEnumChildDualEncoder
 {
-  gnrcPrntEnumChildDualParent = testParentGnrcPrntEnumChildDual.gnrcPrntEnumChildDualParent,
-  gnrcPrntEnumChildDualLabel,
+  public string gnrcPrntEnumChildDualParent { get; set; }
+  public string gnrcPrntEnumChildDualLabel { get; set; }
 }
 
-public enum testParentGnrcPrntEnumChildDual
+internal class testParentGnrcPrntEnumChildDualEncoder
 {
-  gnrcPrntEnumChildDualParent,
+  public string gnrcPrntEnumChildDualParent { get; set; }
 }

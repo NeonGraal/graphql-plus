@@ -6,831 +6,386 @@
 
 namespace Components.Gqlp_Schema_Merges;
 
-public interface ICmptCtgr
-  // No Base because it's Class
+internal class CmptCtgrDecoder
 {
-  ICmptCtgrObject? As_Ctgr { get; }
 }
 
-public interface ICmptCtgrObject
-  // No Base because it's Class
+internal class CmptCtgrAliasDecoder
 {
 }
 
-public interface ICmptCtgrAlias
-  // No Base because it's Class
+internal class CmptCtgrDescrDecoder
 {
-  ICmptCtgrAliasObject? As_CtgrAlias { get; }
 }
 
-public interface ICmptCtgrAliasObject
-  // No Base because it's Class
+internal class CmptCtgrModDecoder
 {
 }
 
-public interface ICmptCtgrDescr
-  // No Base because it's Class
+internal class CmptInDrctParamDecoder
 {
-  ICmptCtgrDescrObject? As_CtgrDescr { get; }
 }
 
-public interface ICmptCtgrDescrObject
-  // No Base because it's Class
+internal class CmptDmnAliasDecoder
 {
 }
 
-public interface ICmptCtgrMod
-  // No Base because it's Class
+internal class CmptDmnBoolDecoder
 {
-  ICmptCtgrModObject? As_CtgrMod { get; }
 }
 
-public interface ICmptCtgrModObject
-  // No Base because it's Class
+internal class CmptDmnBoolDiffDecoder
 {
 }
 
-public interface ICmptInDrctParam
-  // No Base because it's Class
+internal class CmptDmnBoolSameDecoder
 {
-  ICmptInDrctParamObject? As_InDrctParam { get; }
 }
 
-public interface ICmptInDrctParamObject
-  // No Base because it's Class
+internal class CmptDmnEnumDiffDecoder
 {
 }
 
-public interface ICmptDmnAlias
-  : IGqlpDomainNumber
+internal class CmptDmnEnumSameDecoder
 {
 }
 
-public interface ICmptDmnBool
-  : IGqlpDomainBoolean
+internal class CmptDmnNmbrDecoder
 {
 }
 
-public interface ICmptDmnBoolDiff
-  : IGqlpDomainBoolean
+internal class CmptDmnNmbrDiffDecoder
 {
 }
 
-public interface ICmptDmnBoolSame
-  : IGqlpDomainBoolean
+internal class CmptDmnNmbrSameDecoder
 {
 }
 
-public interface ICmptDmnEnumDiff
-  : IGqlpDomainEnum
+internal class CmptDmnStrDecoder
 {
 }
 
-public interface ICmptDmnEnumSame
-  : IGqlpDomainEnum
+internal class CmptDmnStrDiffDecoder
 {
 }
 
-public interface ICmptDmnNmbr
-  : IGqlpDomainNumber
+internal class CmptDmnStrSameDecoder
 {
 }
 
-public interface ICmptDmnNmbrDiff
-  : IGqlpDomainNumber
+internal class CmptEnumAliasDecoder
 {
+  public string enumAlias { get; set; }
 }
 
-public interface ICmptDmnNmbrSame
-  : IGqlpDomainNumber
+internal class CmptEnumDiffDecoder
 {
+  public string one { get; set; }
+  public string two { get; set; }
 }
 
-public interface ICmptDmnStr
-  : IGqlpDomainString
+internal class CmptEnumSameDecoder
 {
+  public string enumSame { get; set; }
 }
 
-public interface ICmptDmnStrDiff
-  : IGqlpDomainString
+internal class CmptEnumSamePrntDecoder
 {
+  public string prnt_enumSamePrnt { get; set; }
+  public string enumSamePrnt { get; set; }
 }
 
-public interface ICmptDmnStrSame
-  : IGqlpDomainString
+internal class CmptPrntEnumSamePrntDecoder
 {
+  public string prnt_enumSamePrnt { get; set; }
 }
 
-public enum CmptEnumAlias
+internal class CmptEnumValueAliasDecoder
 {
-  enumAlias,
+  public string enumValueAlias { get; set; }
+  public string val1 { get; set; }
+  public string val2 { get; set; }
 }
 
-public enum CmptEnumDiff
+internal class CmptObjDualDecoder
 {
-  one,
-  two,
 }
 
-public enum CmptEnumSame
+internal class CmptObjInpDecoder
 {
-  enumSame,
 }
 
-public enum CmptEnumSamePrnt
+internal class CmptObjOutpDecoder
 {
-  prnt_enumSamePrnt = CmptPrntEnumSamePrnt.prnt_enumSamePrnt,
-  enumSamePrnt,
 }
 
-public enum CmptPrntEnumSamePrnt
+internal class CmptObjAliasDualDecoder
 {
-  prnt_enumSamePrnt,
 }
 
-public enum CmptEnumValueAlias
+internal class CmptObjAliasInpDecoder
 {
-  enumValueAlias,
-  val1 = enumValueAlias,
-  val2 = enumValueAlias,
 }
 
-public interface ICmptObjDual
-  // No Base because it's Class
+internal class CmptObjAliasOutpDecoder
 {
-  ICmptObjDualObject? As_ObjDual { get; }
 }
 
-public interface ICmptObjDualObject
-  // No Base because it's Class
+internal class CmptObjAltDualDecoder
 {
 }
 
-public interface ICmptObjInp
-  // No Base because it's Class
+internal class CmptObjAltDualTypeDecoder
 {
-  ICmptObjInpObject? As_ObjInp { get; }
 }
 
-public interface ICmptObjInpObject
-  // No Base because it's Class
+internal class CmptObjAltInpDecoder
 {
 }
 
-public interface ICmptObjOutp
-  // No Base because it's Class
+internal class CmptObjAltInpTypeDecoder
 {
-  ICmptObjOutpObject? As_ObjOutp { get; }
 }
 
-public interface ICmptObjOutpObject
-  // No Base because it's Class
+internal class CmptObjAltOutpDecoder
 {
 }
 
-public interface ICmptObjAliasDual
-  // No Base because it's Class
+internal class CmptObjAltOutpTypeDecoder
 {
-  ICmptObjAliasDualObject? As_ObjAliasDual { get; }
 }
 
-public interface ICmptObjAliasDualObject
-  // No Base because it's Class
+internal class CmptObjAltEnumDualDecoder
 {
 }
 
-public interface ICmptObjAliasInp
-  // No Base because it's Class
+internal class CmptObjAltEnumInpDecoder
 {
-  ICmptObjAliasInpObject? As_ObjAliasInp { get; }
 }
 
-public interface ICmptObjAliasInpObject
-  // No Base because it's Class
+internal class CmptObjAltEnumOutpDecoder
 {
 }
 
-public interface ICmptObjAliasOutp
-  // No Base because it's Class
+internal class CmptObjCnstDualDecoder<TType>
 {
-  ICmptObjAliasOutpObject? As_ObjAliasOutp { get; }
+  public TType Field { get; set; }
+  public TType Str { get; set; }
 }
 
-public interface ICmptObjAliasOutpObject
-  // No Base because it's Class
+internal class CmptObjCnstInpDecoder<TType>
 {
+  public TType Field { get; set; }
+  public TType Str { get; set; }
 }
 
-public interface ICmptObjAltDual
-  // No Base because it's Class
+internal class CmptObjCnstOutpDecoder<TType>
 {
-  ICmptObjAltDualType? AsObjAltDualType { get; }
-  ICmptObjAltDualObject? As_ObjAltDual { get; }
+  public TType Field { get; set; }
+  public TType Str { get; set; }
 }
 
-public interface ICmptObjAltDualObject
-  // No Base because it's Class
+internal class CmptObjFieldDualDecoder
 {
+  public ICmptFldObjFieldDual Field { get; set; }
 }
 
-public interface ICmptObjAltDualType
-  // No Base because it's Class
+internal class CmptFldObjFieldDualDecoder
 {
-  ICmptObjAltDualTypeObject? As_ObjAltDualType { get; }
 }
 
-public interface ICmptObjAltDualTypeObject
-  // No Base because it's Class
+internal class CmptObjFieldInpDecoder
 {
+  public ICmptFldObjFieldInp Field { get; set; }
 }
 
-public interface ICmptObjAltInp
-  // No Base because it's Class
+internal class CmptFldObjFieldInpDecoder
 {
-  ICmptObjAltInpType? AsObjAltInpType { get; }
-  ICmptObjAltInpObject? As_ObjAltInp { get; }
 }
 
-public interface ICmptObjAltInpObject
-  // No Base because it's Class
+internal class CmptObjFieldOutpDecoder
 {
+  public ICmptFldObjFieldOutp Field { get; set; }
 }
 
-public interface ICmptObjAltInpType
-  // No Base because it's Class
+internal class CmptFldObjFieldOutpDecoder
 {
-  ICmptObjAltInpTypeObject? As_ObjAltInpType { get; }
 }
 
-public interface ICmptObjAltInpTypeObject
-  // No Base because it's Class
+internal class CmptObjFieldAliasDualDecoder
 {
+  public ICmptFldObjFieldAliasDual Field { get; set; }
 }
 
-public interface ICmptObjAltOutp
-  // No Base because it's Class
+internal class CmptFldObjFieldAliasDualDecoder
 {
-  ICmptObjAltOutpType? AsObjAltOutpType { get; }
-  ICmptObjAltOutpObject? As_ObjAltOutp { get; }
 }
 
-public interface ICmptObjAltOutpObject
-  // No Base because it's Class
+internal class CmptObjFieldAliasInpDecoder
 {
+  public ICmptFldObjFieldAliasInp Field { get; set; }
 }
 
-public interface ICmptObjAltOutpType
-  // No Base because it's Class
+internal class CmptFldObjFieldAliasInpDecoder
 {
-  ICmptObjAltOutpTypeObject? As_ObjAltOutpType { get; }
 }
 
-public interface ICmptObjAltOutpTypeObject
-  // No Base because it's Class
+internal class CmptObjFieldAliasOutpDecoder
 {
+  public ICmptFldObjFieldAliasOutp Field { get; set; }
 }
 
-public interface ICmptObjAltEnumDual
-  // No Base because it's Class
+internal class CmptFldObjFieldAliasOutpDecoder
 {
-  bool? AsBooleantrue { get; }
-  bool? AsBooleanfalse { get; }
-  ICmptObjAltEnumDualObject? As_ObjAltEnumDual { get; }
 }
 
-public interface ICmptObjAltEnumDualObject
-  // No Base because it's Class
+internal class CmptObjFieldEnumAliasDualDecoder
 {
+  public bool Field { get; set; }
 }
 
-public interface ICmptObjAltEnumInp
-  // No Base because it's Class
+internal class CmptObjFieldEnumAliasInpDecoder
 {
-  bool? AsBooleantrue { get; }
-  bool? AsBooleanfalse { get; }
-  ICmptObjAltEnumInpObject? As_ObjAltEnumInp { get; }
+  public bool Field { get; set; }
 }
 
-public interface ICmptObjAltEnumInpObject
-  // No Base because it's Class
+internal class CmptObjFieldEnumAliasOutpDecoder
 {
+  public bool Field { get; set; }
 }
 
-public interface ICmptObjAltEnumOutp
-  // No Base because it's Class
+internal class CmptObjFieldEnumValueDualDecoder
 {
-  bool? AsBooleantrue { get; }
-  bool? AsBooleanfalse { get; }
-  ICmptObjAltEnumOutpObject? As_ObjAltEnumOutp { get; }
+  public bool Field { get; set; }
 }
 
-public interface ICmptObjAltEnumOutpObject
-  // No Base because it's Class
+internal class CmptObjFieldEnumValueInpDecoder
 {
+  public bool Field { get; set; }
 }
 
-public interface ICmptObjCnstDual<TType>
-  // No Base because it's Class
+internal class CmptObjFieldEnumValueOutpDecoder
 {
-  ICmptObjCnstDualObject<TType>? As_ObjCnstDual { get; }
+  public bool Field { get; set; }
 }
 
-public interface ICmptObjCnstDualObject<TType>
-  // No Base because it's Class
+internal class CmptObjFieldTypeAliasDualDecoder
 {
-  TType Field { get; }
-  TType Str { get; }
+  public string Field { get; set; }
 }
 
-public interface ICmptObjCnstInp<TType>
-  // No Base because it's Class
+internal class CmptObjFieldTypeAliasInpDecoder
 {
-  ICmptObjCnstInpObject<TType>? As_ObjCnstInp { get; }
+  public string Field { get; set; }
 }
 
-public interface ICmptObjCnstInpObject<TType>
-  // No Base because it's Class
+internal class CmptObjFieldTypeAliasOutpDecoder
 {
-  TType Field { get; }
-  TType Str { get; }
+  public string Field { get; set; }
 }
 
-public interface ICmptObjCnstOutp<TType>
-  // No Base because it's Class
+internal class CmptObjParamDualDecoder<TTest,TType>
 {
-  ICmptObjCnstOutpObject<TType>? As_ObjCnstOutp { get; }
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
 }
 
-public interface ICmptObjCnstOutpObject<TType>
-  // No Base because it's Class
+internal class CmptObjParamInpDecoder<TTest,TType>
 {
-  TType Field { get; }
-  TType Str { get; }
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
 }
 
-public interface ICmptObjFieldDual
-  // No Base because it's Class
+internal class CmptObjParamOutpDecoder<TTest,TType>
 {
-  ICmptObjFieldDualObject? As_ObjFieldDual { get; }
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
 }
 
-public interface ICmptObjFieldDualObject
-  // No Base because it's Class
+internal class CmptObjParamDupDualDecoder<TTest>
 {
-  ICmptFldObjFieldDual Field { get; }
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
 }
 
-public interface ICmptFldObjFieldDual
-  // No Base because it's Class
+internal class CmptObjParamDupInpDecoder<TTest>
 {
-  ICmptFldObjFieldDualObject? As_FldObjFieldDual { get; }
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
 }
 
-public interface ICmptFldObjFieldDualObject
-  // No Base because it's Class
+internal class CmptObjParamDupOutpDecoder<TTest>
 {
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
 }
 
-public interface ICmptObjFieldInp
-  // No Base because it's Class
+internal class CmptObjPrntDualDecoder
 {
-  ICmptObjFieldInpObject? As_ObjFieldInp { get; }
 }
 
-public interface ICmptObjFieldInpObject
-  // No Base because it's Class
+internal class CmptRefObjPrntDualDecoder
 {
-  ICmptFldObjFieldInp Field { get; }
 }
 
-public interface ICmptFldObjFieldInp
-  // No Base because it's Class
+internal class CmptObjPrntInpDecoder
 {
-  ICmptFldObjFieldInpObject? As_FldObjFieldInp { get; }
 }
 
-public interface ICmptFldObjFieldInpObject
-  // No Base because it's Class
+internal class CmptRefObjPrntInpDecoder
 {
 }
 
-public interface ICmptObjFieldOutp
-  // No Base because it's Class
+internal class CmptObjPrntOutpDecoder
 {
-  ICmptObjFieldOutpObject? As_ObjFieldOutp { get; }
 }
 
-public interface ICmptObjFieldOutpObject
-  // No Base because it's Class
+internal class CmptRefObjPrntOutpDecoder
 {
-  ICmptFldObjFieldOutp Field { get; }
 }
 
-public interface ICmptFldObjFieldOutp
-  // No Base because it's Class
+internal class CmptOutpFieldParamDecoder
 {
-  ICmptFldObjFieldOutpObject? As_FldObjFieldOutp { get; }
+  public ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter)
+    => null;
 }
 
-public interface ICmptFldObjFieldOutpObject
-  // No Base because it's Class
+internal class CmptOutpFieldParam1Decoder
 {
 }
 
-public interface ICmptObjFieldAliasDual
-  // No Base because it's Class
+internal class CmptOutpFieldParam2Decoder
 {
-  ICmptObjFieldAliasDualObject? As_ObjFieldAliasDual { get; }
 }
 
-public interface ICmptObjFieldAliasDualObject
-  // No Base because it's Class
+internal class CmptFldOutpFieldParamDecoder
 {
-  ICmptFldObjFieldAliasDual Field { get; }
 }
 
-public interface ICmptFldObjFieldAliasDual
-  // No Base because it's Class
+internal class CmptUnionAliasDecoder
 {
-  ICmptFldObjFieldAliasDualObject? As_FldObjFieldAliasDual { get; }
+  public Boolean AsBoolean { get; set; }
+  public Number AsNumber { get; set; }
 }
 
-public interface ICmptFldObjFieldAliasDualObject
-  // No Base because it's Class
+internal class CmptUnionDiffDecoder
 {
+  public Boolean AsBoolean { get; set; }
+  public Number AsNumber { get; set; }
 }
 
-public interface ICmptObjFieldAliasInp
-  // No Base because it's Class
+internal class CmptUnionSameDecoder
 {
-  ICmptObjFieldAliasInpObject? As_ObjFieldAliasInp { get; }
+  public Boolean AsBoolean { get; set; }
 }
 
-public interface ICmptObjFieldAliasInpObject
-  // No Base because it's Class
+internal class CmptUnionSamePrntDecoder
 {
-  ICmptFldObjFieldAliasInp Field { get; }
+  public Boolean AsBoolean { get; set; }
 }
 
-public interface ICmptFldObjFieldAliasInp
-  // No Base because it's Class
+internal class CmptPrntUnionSamePrntDecoder
 {
-  ICmptFldObjFieldAliasInpObject? As_FldObjFieldAliasInp { get; }
-}
-
-public interface ICmptFldObjFieldAliasInpObject
-  // No Base because it's Class
-{
-}
-
-public interface ICmptObjFieldAliasOutp
-  // No Base because it's Class
-{
-  ICmptObjFieldAliasOutpObject? As_ObjFieldAliasOutp { get; }
-}
-
-public interface ICmptObjFieldAliasOutpObject
-  // No Base because it's Class
-{
-  ICmptFldObjFieldAliasOutp Field { get; }
-}
-
-public interface ICmptFldObjFieldAliasOutp
-  // No Base because it's Class
-{
-  ICmptFldObjFieldAliasOutpObject? As_FldObjFieldAliasOutp { get; }
-}
-
-public interface ICmptFldObjFieldAliasOutpObject
-  // No Base because it's Class
-{
-}
-
-public interface ICmptObjFieldEnumAliasDual
-  // No Base because it's Class
-{
-  ICmptObjFieldEnumAliasDualObject? As_ObjFieldEnumAliasDual { get; }
-}
-
-public interface ICmptObjFieldEnumAliasDualObject
-  // No Base because it's Class
-{
-  bool Field { get; }
-}
-
-public interface ICmptObjFieldEnumAliasInp
-  // No Base because it's Class
-{
-  ICmptObjFieldEnumAliasInpObject? As_ObjFieldEnumAliasInp { get; }
-}
-
-public interface ICmptObjFieldEnumAliasInpObject
-  // No Base because it's Class
-{
-  bool Field { get; }
-}
-
-public interface ICmptObjFieldEnumAliasOutp
-  // No Base because it's Class
-{
-  ICmptObjFieldEnumAliasOutpObject? As_ObjFieldEnumAliasOutp { get; }
-}
-
-public interface ICmptObjFieldEnumAliasOutpObject
-  // No Base because it's Class
-{
-  bool Field { get; }
-}
-
-public interface ICmptObjFieldEnumValueDual
-  // No Base because it's Class
-{
-  ICmptObjFieldEnumValueDualObject? As_ObjFieldEnumValueDual { get; }
-}
-
-public interface ICmptObjFieldEnumValueDualObject
-  // No Base because it's Class
-{
-  bool Field { get; }
-}
-
-public interface ICmptObjFieldEnumValueInp
-  // No Base because it's Class
-{
-  ICmptObjFieldEnumValueInpObject? As_ObjFieldEnumValueInp { get; }
-}
-
-public interface ICmptObjFieldEnumValueInpObject
-  // No Base because it's Class
-{
-  bool Field { get; }
-}
-
-public interface ICmptObjFieldEnumValueOutp
-  // No Base because it's Class
-{
-  ICmptObjFieldEnumValueOutpObject? As_ObjFieldEnumValueOutp { get; }
-}
-
-public interface ICmptObjFieldEnumValueOutpObject
-  // No Base because it's Class
-{
-  bool Field { get; }
-}
-
-public interface ICmptObjFieldTypeAliasDual
-  // No Base because it's Class
-{
-  ICmptObjFieldTypeAliasDualObject? As_ObjFieldTypeAliasDual { get; }
-}
-
-public interface ICmptObjFieldTypeAliasDualObject
-  // No Base because it's Class
-{
-  string Field { get; }
-}
-
-public interface ICmptObjFieldTypeAliasInp
-  // No Base because it's Class
-{
-  ICmptObjFieldTypeAliasInpObject? As_ObjFieldTypeAliasInp { get; }
-}
-
-public interface ICmptObjFieldTypeAliasInpObject
-  // No Base because it's Class
-{
-  string Field { get; }
-}
-
-public interface ICmptObjFieldTypeAliasOutp
-  // No Base because it's Class
-{
-  ICmptObjFieldTypeAliasOutpObject? As_ObjFieldTypeAliasOutp { get; }
-}
-
-public interface ICmptObjFieldTypeAliasOutpObject
-  // No Base because it's Class
-{
-  string Field { get; }
-}
-
-public interface ICmptObjParamDual<TTest,TType>
-  // No Base because it's Class
-{
-  ICmptObjParamDualObject<TTest,TType>? As_ObjParamDual { get; }
-}
-
-public interface ICmptObjParamDualObject<TTest,TType>
-  // No Base because it's Class
-{
-  TTest Test { get; }
-  TType Type { get; }
-}
-
-public interface ICmptObjParamInp<TTest,TType>
-  // No Base because it's Class
-{
-  ICmptObjParamInpObject<TTest,TType>? As_ObjParamInp { get; }
-}
-
-public interface ICmptObjParamInpObject<TTest,TType>
-  // No Base because it's Class
-{
-  TTest Test { get; }
-  TType Type { get; }
-}
-
-public interface ICmptObjParamOutp<TTest,TType>
-  // No Base because it's Class
-{
-  ICmptObjParamOutpObject<TTest,TType>? As_ObjParamOutp { get; }
-}
-
-public interface ICmptObjParamOutpObject<TTest,TType>
-  // No Base because it's Class
-{
-  TTest Test { get; }
-  TType Type { get; }
-}
-
-public interface ICmptObjParamDupDual<TTest>
-  // No Base because it's Class
-{
-  ICmptObjParamDupDualObject<TTest>? As_ObjParamDupDual { get; }
-}
-
-public interface ICmptObjParamDupDualObject<TTest>
-  // No Base because it's Class
-{
-  TTest Test { get; }
-  TTest Type { get; }
-}
-
-public interface ICmptObjParamDupInp<TTest>
-  // No Base because it's Class
-{
-  ICmptObjParamDupInpObject<TTest>? As_ObjParamDupInp { get; }
-}
-
-public interface ICmptObjParamDupInpObject<TTest>
-  // No Base because it's Class
-{
-  TTest Test { get; }
-  TTest Type { get; }
-}
-
-public interface ICmptObjParamDupOutp<TTest>
-  // No Base because it's Class
-{
-  ICmptObjParamDupOutpObject<TTest>? As_ObjParamDupOutp { get; }
-}
-
-public interface ICmptObjParamDupOutpObject<TTest>
-  // No Base because it's Class
-{
-  TTest Test { get; }
-  TTest Type { get; }
-}
-
-public interface ICmptObjPrntDual
-  : ICmptRefObjPrntDual
-{
-  ICmptObjPrntDualObject? As_ObjPrntDual { get; }
-}
-
-public interface ICmptObjPrntDualObject
-  : ICmptRefObjPrntDualObject
-{
-}
-
-public interface ICmptRefObjPrntDual
-  // No Base because it's Class
-{
-  ICmptRefObjPrntDualObject? As_RefObjPrntDual { get; }
-}
-
-public interface ICmptRefObjPrntDualObject
-  // No Base because it's Class
-{
-}
-
-public interface ICmptObjPrntInp
-  : ICmptRefObjPrntInp
-{
-  ICmptObjPrntInpObject? As_ObjPrntInp { get; }
-}
-
-public interface ICmptObjPrntInpObject
-  : ICmptRefObjPrntInpObject
-{
-}
-
-public interface ICmptRefObjPrntInp
-  // No Base because it's Class
-{
-  ICmptRefObjPrntInpObject? As_RefObjPrntInp { get; }
-}
-
-public interface ICmptRefObjPrntInpObject
-  // No Base because it's Class
-{
-}
-
-public interface ICmptObjPrntOutp
-  : ICmptRefObjPrntOutp
-{
-  ICmptObjPrntOutpObject? As_ObjPrntOutp { get; }
-}
-
-public interface ICmptObjPrntOutpObject
-  : ICmptRefObjPrntOutpObject
-{
-}
-
-public interface ICmptRefObjPrntOutp
-  // No Base because it's Class
-{
-  ICmptRefObjPrntOutpObject? As_RefObjPrntOutp { get; }
-}
-
-public interface ICmptRefObjPrntOutpObject
-  // No Base because it's Class
-{
-}
-
-public interface ICmptOutpFieldParam
-  // No Base because it's Class
-{
-  ICmptOutpFieldParamObject? As_OutpFieldParam { get; }
-}
-
-public interface ICmptOutpFieldParamObject
-  // No Base because it's Class
-{
-  ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter);
-}
-
-public interface ICmptOutpFieldParam1
-  // No Base because it's Class
-{
-  ICmptOutpFieldParam1Object? As_OutpFieldParam1 { get; }
-}
-
-public interface ICmptOutpFieldParam1Object
-  // No Base because it's Class
-{
-}
-
-public interface ICmptOutpFieldParam2
-  // No Base because it's Class
-{
-  ICmptOutpFieldParam2Object? As_OutpFieldParam2 { get; }
-}
-
-public interface ICmptOutpFieldParam2Object
-  // No Base because it's Class
-{
-}
-
-public interface ICmptFldOutpFieldParam
-  // No Base because it's Class
-{
-  ICmptFldOutpFieldParamObject? As_FldOutpFieldParam { get; }
-}
-
-public interface ICmptFldOutpFieldParamObject
-  // No Base because it's Class
-{
-}
-
-public interface ICmptUnionAlias
-  // No Base because it's Class
-{
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
-}
-
-public interface ICmptUnionDiff
-  // No Base because it's Class
-{
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
-}
-
-public interface ICmptUnionSame
-  // No Base because it's Class
-{
-  Boolean AsBoolean { get; }
-}
-
-public interface ICmptUnionSamePrnt
-  : ICmptPrntUnionSamePrnt
-{
-  Boolean AsBoolean { get; }
-}
-
-public interface ICmptPrntUnionSamePrnt
-  // No Base because it's Class
-{
-  String AsString { get; }
+  public String AsString { get; set; }
 }

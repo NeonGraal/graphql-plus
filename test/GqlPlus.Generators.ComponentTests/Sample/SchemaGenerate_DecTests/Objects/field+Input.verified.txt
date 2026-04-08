@@ -10,14 +10,7 @@ input FieldInp { field: String }
 
 namespace Components.Gqlp_Schema_field_Input;
 
-public interface ICmptFieldInp
-  // No Base because it's Class
+internal class CmptFieldInpDecoder
 {
-  ICmptFieldInpObject? As_FieldInp { get; }
-}
-
-public interface ICmptFieldInpObject
-  // No Base because it's Class
-{
-  string Field { get; }
+  public string Field { get; set; }
 }

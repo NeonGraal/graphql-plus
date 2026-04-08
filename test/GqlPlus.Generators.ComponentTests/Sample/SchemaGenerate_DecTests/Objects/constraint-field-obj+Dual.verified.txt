@@ -13,49 +13,20 @@ dual AltCnstFieldObjDual { :PrntCnstFieldObjDual alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_field_obj_Dual;
 
-public interface ICmptCnstFieldObjDual
-  : ICmptRefCnstFieldObjDual<ICmptAltCnstFieldObjDual>
-{
-  ICmptCnstFieldObjDualObject? As_CnstFieldObjDual { get; }
-}
-
-public interface ICmptCnstFieldObjDualObject
-  : ICmptRefCnstFieldObjDualObject<ICmptAltCnstFieldObjDual>
+internal class CmptCnstFieldObjDualDecoder
 {
 }
 
-public interface ICmptRefCnstFieldObjDual<TRef>
-  // No Base because it's Class
+internal class CmptRefCnstFieldObjDualDecoder<TRef>
 {
-  ICmptRefCnstFieldObjDualObject<TRef>? As_RefCnstFieldObjDual { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ICmptRefCnstFieldObjDualObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public interface ICmptPrntCnstFieldObjDual
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ICmptPrntCnstFieldObjDualObject? As_PrntCnstFieldObjDual { get; }
-}
-
-public interface ICmptPrntCnstFieldObjDualObject
-  // No Base because it's Class
+internal class CmptPrntCnstFieldObjDualDecoder
 {
 }
 
-public interface ICmptAltCnstFieldObjDual
-  : ICmptPrntCnstFieldObjDual
+internal class CmptAltCnstFieldObjDualDecoder
 {
-  ICmptAltCnstFieldObjDualObject? As_AltCnstFieldObjDual { get; }
-}
-
-public interface ICmptAltCnstFieldObjDualObject
-  : ICmptPrntCnstFieldObjDualObject
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

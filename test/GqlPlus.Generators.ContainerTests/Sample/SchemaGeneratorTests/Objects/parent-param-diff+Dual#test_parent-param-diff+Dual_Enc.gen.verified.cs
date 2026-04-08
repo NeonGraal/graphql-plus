@@ -7,42 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_parent_param_diff_Dual;
 
-public class testPrntParamDiffDual<TA>
-  : testRefPrntParamDiffDual<TA>
-  , ItestPrntParamDiffDual<TA>
-{
-  public ItestPrntParamDiffDualObject<TA>? As_PrntParamDiffDual { get; set; }
-}
-
-public class testPrntParamDiffDualObject<TA>
-  : testRefPrntParamDiffDualObject<TA>
-  , ItestPrntParamDiffDualObject<TA>
+internal class testPrntParamDiffDualEncoder<TA>
 {
   public TA Field { get; set; }
-
-  public testPrntParamDiffDualObject
-    ( TA field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class testRefPrntParamDiffDual<TB>
-  : GqlpEncoderBase
-  , ItestRefPrntParamDiffDual<TB>
+internal class testRefPrntParamDiffDualEncoder<TB>
 {
-  public TB? Asb { get; set; }
-  public ItestRefPrntParamDiffDualObject<TB>? As_RefPrntParamDiffDual { get; set; }
-}
-
-public class testRefPrntParamDiffDualObject<TB>
-  : GqlpEncoderBase
-  , ItestRefPrntParamDiffDualObject<TB>
-{
-
-  public testRefPrntParamDiffDualObject
-    ()
-  {
-  }
 }

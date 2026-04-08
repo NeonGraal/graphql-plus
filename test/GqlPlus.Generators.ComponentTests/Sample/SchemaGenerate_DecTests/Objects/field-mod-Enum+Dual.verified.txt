@@ -11,19 +11,12 @@ enum EnumFieldModEnumDual { value }
 
 namespace Components.Gqlp_Schema_field_mod_Enum_Dual;
 
-public interface ICmptFieldModEnumDual
-  // No Base because it's Class
+internal class CmptFieldModEnumDualDecoder
 {
-  ICmptFieldModEnumDualObject? As_FieldModEnumDual { get; }
+  public IDictionary<CmptEnumFieldModEnumDual, string> Field { get; set; }
 }
 
-public interface ICmptFieldModEnumDualObject
-  // No Base because it's Class
+internal class CmptEnumFieldModEnumDualDecoder
 {
-  IDictionary<CmptEnumFieldModEnumDual, string> Field { get; }
-}
-
-public enum CmptEnumFieldModEnumDual
-{
-  value,
+  public string value { get; set; }
 }

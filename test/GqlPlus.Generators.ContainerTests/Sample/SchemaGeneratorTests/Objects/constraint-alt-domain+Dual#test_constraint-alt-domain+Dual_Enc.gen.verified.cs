@@ -7,46 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_domain_Dual;
 
-public class testCnstAltDmnDual
-  : GqlpEncoderBase
-  , ItestCnstAltDmnDual
+internal class testCnstAltDmnDualEncoder
 {
-  public ItestRefCnstAltDmnDual<ItestDomCnstAltDmnDual>? AsRefCnstAltDmnDual { get; set; }
-  public ItestCnstAltDmnDualObject? As_CnstAltDmnDual { get; set; }
 }
 
-public class testCnstAltDmnDualObject
-  : GqlpEncoderBase
-  , ItestCnstAltDmnDualObject
+internal class testRefCnstAltDmnDualEncoder<TRef>
 {
-
-  public testCnstAltDmnDualObject
-    ()
-  {
-  }
 }
 
-public class testRefCnstAltDmnDual<TRef>
-  : GqlpEncoderBase
-  , ItestRefCnstAltDmnDual<TRef>
-{
-  public TRef? Asref { get; set; }
-  public ItestRefCnstAltDmnDualObject<TRef>? As_RefCnstAltDmnDual { get; set; }
-}
-
-public class testRefCnstAltDmnDualObject<TRef>
-  : GqlpEncoderBase
-  , ItestRefCnstAltDmnDualObject<TRef>
-{
-
-  public testRefCnstAltDmnDualObject
-    ()
-  {
-  }
-}
-
-public class testDomCnstAltDmnDual
-  : GqlpDomainString
-  , ItestDomCnstAltDmnDual
+internal class testDomCnstAltDmnDualEncoder
 {
 }

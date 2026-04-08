@@ -11,44 +11,11 @@ input RefPrntAltInp {  parent: Number | String }
 
 namespace Components.Gqlp_Schema_parent_alt_Input;
 
-public class CmptPrntAltInp
-  : CmptRefPrntAltInp
-  , ICmptPrntAltInp
+internal class CmptPrntAltInpEncoder
 {
-  public decimal? AsNumber { get; set; }
-  public ICmptPrntAltInpObject? As_PrntAltInp { get; set; }
 }
 
-public class CmptPrntAltInpObject
-  : CmptRefPrntAltInpObject
-  , ICmptPrntAltInpObject
-{
-
-  public CmptPrntAltInpObject
-    ( decimal parent
-    ) : base(parent)
-  {
-  }
-}
-
-public class CmptRefPrntAltInp
-  : Schema_parent-alt+Input
-  , ICmptRefPrntAltInp
-{
-  public string? AsString { get; set; }
-  public ICmptRefPrntAltInpObject? As_RefPrntAltInp { get; set; }
-}
-
-public class CmptRefPrntAltInpObject
-  : Schema_parent-alt+Input
-  , ICmptRefPrntAltInpObject
+internal class CmptRefPrntAltInpEncoder
 {
   public decimal Parent { get; set; }
-
-  public CmptRefPrntAltInpObject
-    ( decimal parent
-    )
-  {
-    Parent = parent;
-  }
 }

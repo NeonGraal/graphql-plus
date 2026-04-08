@@ -7,15 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_param_Dual;
 
-public interface ItestObjParamDual<TTest,TType>
-  // No Base because it's Class
+internal class testObjParamDualDecoder<TTest,TType>
 {
-  ItestObjParamDualObject<TTest,TType>? As_ObjParamDual { get; }
-}
-
-public interface ItestObjParamDualObject<TTest,TType>
-  // No Base because it's Class
-{
-  TTest Test { get; }
-  TType Type { get; }
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
 }

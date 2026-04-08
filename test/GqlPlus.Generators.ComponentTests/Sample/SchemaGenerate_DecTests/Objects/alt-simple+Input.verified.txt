@@ -10,14 +10,6 @@ input AltSmplInp { | String }
 
 namespace Components.Gqlp_Schema_alt_simple_Input;
 
-public interface ICmptAltSmplInp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ICmptAltSmplInpObject? As_AltSmplInp { get; }
-}
-
-public interface ICmptAltSmplInpObject
-  // No Base because it's Class
+internal class CmptAltSmplInpDecoder
 {
 }

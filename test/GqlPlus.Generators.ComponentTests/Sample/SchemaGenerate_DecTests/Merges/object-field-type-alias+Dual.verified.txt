@@ -11,14 +11,7 @@ dual ObjFieldTypeAliasDual { field: String }
 
 namespace Components.Gqlp_Schema_object_field_type_alias_Dual;
 
-public interface ICmptObjFieldTypeAliasDual
-  // No Base because it's Class
+internal class CmptObjFieldTypeAliasDualDecoder
 {
-  ICmptObjFieldTypeAliasDualObject? As_ObjFieldTypeAliasDual { get; }
-}
-
-public interface ICmptObjFieldTypeAliasDualObject
-  // No Base because it's Class
-{
-  string Field { get; }
+  public string Field { get; set; }
 }

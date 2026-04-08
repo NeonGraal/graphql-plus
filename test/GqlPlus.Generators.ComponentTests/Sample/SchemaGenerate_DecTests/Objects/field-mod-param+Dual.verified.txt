@@ -11,27 +11,12 @@ dual FldFieldModParamDual { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_mod_param_Dual;
 
-public interface ICmptFieldModParamDual<TMod>
-  // No Base because it's Class
+internal class CmptFieldModParamDualDecoder<TMod>
 {
-  ICmptFieldModParamDualObject<TMod>? As_FieldModParamDual { get; }
+  public IDictionary<TMod, ICmptFldFieldModParamDual> Field { get; set; }
 }
 
-public interface ICmptFieldModParamDualObject<TMod>
-  // No Base because it's Class
+internal class CmptFldFieldModParamDualDecoder
 {
-  IDictionary<TMod, ICmptFldFieldModParamDual> Field { get; }
-}
-
-public interface ICmptFldFieldModParamDual
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ICmptFldFieldModParamDualObject? As_FldFieldModParamDual { get; }
-}
-
-public interface ICmptFldFieldModParamDualObject
-  // No Base because it's Class
-{
-  decimal Field { get; }
+  public decimal Field { get; set; }
 }

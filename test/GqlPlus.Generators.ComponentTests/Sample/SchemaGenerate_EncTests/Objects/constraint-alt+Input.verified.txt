@@ -10,21 +10,6 @@ input CnstAltInp<$type:Number> { | $type }
 
 namespace Components.Gqlp_Schema_constraint_alt_Input;
 
-public class CmptCnstAltInp<TType>
-  : Schema_constraint-alt+Input
-  , ICmptCnstAltInp<TType>
+internal class CmptCnstAltInpEncoder<TType>
 {
-  public TType? Astype { get; set; }
-  public ICmptCnstAltInpObject<TType>? As_CnstAltInp { get; set; }
-}
-
-public class CmptCnstAltInpObject<TType>
-  : Schema_constraint-alt+Input
-  , ICmptCnstAltInpObject<TType>
-{
-
-  public CmptCnstAltInpObject
-    ()
-  {
-  }
 }

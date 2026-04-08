@@ -7,25 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_Output;
 
-public interface ItestObjFieldOutp
-  // No Base because it's Class
+internal class testObjFieldOutpDecoder
 {
-  ItestObjFieldOutpObject? As_ObjFieldOutp { get; }
+  public ItestFldObjFieldOutp Field { get; set; }
 }
 
-public interface ItestObjFieldOutpObject
-  // No Base because it's Class
-{
-  ItestFldObjFieldOutp Field { get; }
-}
-
-public interface ItestFldObjFieldOutp
-  // No Base because it's Class
-{
-  ItestFldObjFieldOutpObject? As_FldObjFieldOutp { get; }
-}
-
-public interface ItestFldObjFieldOutpObject
-  // No Base because it's Class
+internal class testFldObjFieldOutpDecoder
 {
 }

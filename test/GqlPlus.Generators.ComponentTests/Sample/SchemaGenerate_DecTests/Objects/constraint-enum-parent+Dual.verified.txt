@@ -13,37 +13,22 @@ enum ParentCnstEnumPrntDual { parentCnstEnumPrntDual }
 
 namespace Components.Gqlp_Schema_constraint_enum_parent_Dual;
 
-public interface ICmptCnstEnumPrntDual
-  // No Base because it's Class
-{
-  ICmptRefCnstEnumPrntDual<CmptEnumCnstEnumPrntDual>? AsEnumCnstEnumPrntDualcnstEnumPrntDual { get; }
-  ICmptCnstEnumPrntDualObject? As_CnstEnumPrntDual { get; }
-}
-
-public interface ICmptCnstEnumPrntDualObject
-  // No Base because it's Class
+internal class CmptCnstEnumPrntDualDecoder
 {
 }
 
-public interface ICmptRefCnstEnumPrntDual<TType>
-  // No Base because it's Class
+internal class CmptRefCnstEnumPrntDualDecoder<TType>
 {
-  ICmptRefCnstEnumPrntDualObject<TType>? As_RefCnstEnumPrntDual { get; }
+  public TType Field { get; set; }
 }
 
-public interface ICmptRefCnstEnumPrntDualObject<TType>
-  // No Base because it's Class
+internal class CmptEnumCnstEnumPrntDualDecoder
 {
-  TType Field { get; }
+  public string parentCnstEnumPrntDual { get; set; }
+  public string cnstEnumPrntDual { get; set; }
 }
 
-public enum CmptEnumCnstEnumPrntDual
+internal class CmptParentCnstEnumPrntDualDecoder
 {
-  parentCnstEnumPrntDual = CmptParentCnstEnumPrntDual.parentCnstEnumPrntDual,
-  cnstEnumPrntDual,
-}
-
-public enum CmptParentCnstEnumPrntDual
-{
-  parentCnstEnumPrntDual,
+  public string parentCnstEnumPrntDual { get; set; }
 }

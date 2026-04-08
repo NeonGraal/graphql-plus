@@ -12,38 +12,10 @@ dual RefObjPrntDual { }
 
 namespace Components.Gqlp_Schema_object_parent_Dual;
 
-public class CmptObjPrntDual
-  : CmptRefObjPrntDual
-  , ICmptObjPrntDual
+internal class CmptObjPrntDualEncoder
 {
-  public ICmptObjPrntDualObject? As_ObjPrntDual { get; set; }
 }
 
-public class CmptObjPrntDualObject
-  : CmptRefObjPrntDualObject
-  , ICmptObjPrntDualObject
+internal class CmptRefObjPrntDualEncoder
 {
-
-  public CmptObjPrntDualObject
-    ()
-  {
-  }
-}
-
-public class CmptRefObjPrntDual
-  : Schema_object-parent+Dual
-  , ICmptRefObjPrntDual
-{
-  public ICmptRefObjPrntDualObject? As_RefObjPrntDual { get; set; }
-}
-
-public class CmptRefObjPrntDualObject
-  : Schema_object-parent+Dual
-  , ICmptRefObjPrntDualObject
-{
-
-  public CmptRefObjPrntDualObject
-    ()
-  {
-  }
 }

@@ -11,27 +11,12 @@ dual RefPrntFieldDual { parent: Number | String }
 
 namespace Components.Gqlp_Schema_parent_field_Dual;
 
-public interface ICmptPrntFieldDual
-  : ICmptRefPrntFieldDual
+internal class CmptPrntFieldDualDecoder
 {
-  ICmptPrntFieldDualObject? As_PrntFieldDual { get; }
+  public decimal Field { get; set; }
 }
 
-public interface ICmptPrntFieldDualObject
-  : ICmptRefPrntFieldDualObject
+internal class CmptRefPrntFieldDualDecoder
 {
-  decimal Field { get; }
-}
-
-public interface ICmptRefPrntFieldDual
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ICmptRefPrntFieldDualObject? As_RefPrntFieldDual { get; }
-}
-
-public interface ICmptRefPrntFieldDualObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
+  public decimal Parent { get; set; }
 }

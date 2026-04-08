@@ -7,15 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_constraint_Dual;
 
-public interface ItestObjCnstDual<TType>
-  // No Base because it's Class
+internal class testObjCnstDualDecoder<TType>
 {
-  ItestObjCnstDualObject<TType>? As_ObjCnstDual { get; }
-}
-
-public interface ItestObjCnstDualObject<TType>
-  // No Base because it's Class
-{
-  TType Field { get; }
-  TType Str { get; }
+  public TType Field { get; set; }
+  public TType Str { get; set; }
 }

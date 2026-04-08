@@ -13,36 +13,21 @@ domain DomGnrcPrntEnumDomDual { enum gnrcPrntEnumDomDualLabel }
 
 namespace Components.Gqlp_Schema_generic_parent_enum_dom_Dual;
 
-public interface ICmptGnrcPrntEnumDomDual
-  : ICmptFieldGnrcPrntEnumDomDual<ICmptDomGnrcPrntEnumDomDual>
-{
-  ICmptGnrcPrntEnumDomDualObject? As_GnrcPrntEnumDomDual { get; }
-}
-
-public interface ICmptGnrcPrntEnumDomDualObject
-  : ICmptFieldGnrcPrntEnumDomDualObject<ICmptDomGnrcPrntEnumDomDual>
+internal class CmptGnrcPrntEnumDomDualDecoder
 {
 }
 
-public interface ICmptFieldGnrcPrntEnumDomDual<TRef>
-  // No Base because it's Class
+internal class CmptFieldGnrcPrntEnumDomDualDecoder<TRef>
 {
-  ICmptFieldGnrcPrntEnumDomDualObject<TRef>? As_FieldGnrcPrntEnumDomDual { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ICmptFieldGnrcPrntEnumDomDualObject<TRef>
-  // No Base because it's Class
+internal class CmptEnumGnrcPrntEnumDomDualDecoder
 {
-  TRef Field { get; }
+  public string gnrcPrntEnumDomDualLabel { get; set; }
+  public string gnrcPrntEnumDomDualOther { get; set; }
 }
 
-public enum CmptEnumGnrcPrntEnumDomDual
-{
-  gnrcPrntEnumDomDualLabel,
-  gnrcPrntEnumDomDualOther,
-}
-
-public interface ICmptDomGnrcPrntEnumDomDual
-  : IGqlpDomainEnum
+internal class CmptDomGnrcPrntEnumDomDualDecoder
 {
 }

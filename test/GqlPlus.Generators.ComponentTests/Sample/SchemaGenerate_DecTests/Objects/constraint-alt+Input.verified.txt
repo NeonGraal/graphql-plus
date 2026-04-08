@@ -10,14 +10,6 @@ input CnstAltInp<$type:Number> { | $type }
 
 namespace Components.Gqlp_Schema_constraint_alt_Input;
 
-public interface ICmptCnstAltInp<TType>
-  // No Base because it's Class
-{
-  TType? Astype { get; }
-  ICmptCnstAltInpObject<TType>? As_CnstAltInp { get; }
-}
-
-public interface ICmptCnstAltInpObject<TType>
-  // No Base because it's Class
+internal class CmptCnstAltInpDecoder<TType>
 {
 }

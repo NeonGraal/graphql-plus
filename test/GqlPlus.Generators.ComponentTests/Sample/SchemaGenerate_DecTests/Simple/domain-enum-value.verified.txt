@@ -11,12 +11,11 @@ enum EnumDmnEnumValue { dmnEnumValue }
 
 namespace Components.Gqlp_Schema_domain_enum_value;
 
-public interface ICmptDmnEnumValue
-  : IGqlpDomainEnum
+internal class CmptDmnEnumValueDecoder
 {
 }
 
-public enum CmptEnumDmnEnumValue
+internal class CmptEnumDmnEnumValueDecoder
 {
-  dmnEnumValue,
+  public string dmnEnumValue { get; set; }
 }

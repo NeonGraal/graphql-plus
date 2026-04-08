@@ -7,43 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_Dual;
 
-public class testAltDual
-  : GqlpEncoderBase
-  , ItestAltDual
+internal class testAltDualEncoder
 {
-  public ItestAltAltDual? AsAltAltDual { get; set; }
-  public ItestAltDualObject? As_AltDual { get; set; }
 }
 
-public class testAltDualObject
-  : GqlpEncoderBase
-  , ItestAltDualObject
-{
-
-  public testAltDualObject
-    ()
-  {
-  }
-}
-
-public class testAltAltDual
-  : GqlpEncoderBase
-  , ItestAltAltDual
-{
-  public string? AsString { get; set; }
-  public ItestAltAltDualObject? As_AltAltDual { get; set; }
-}
-
-public class testAltAltDualObject
-  : GqlpEncoderBase
-  , ItestAltAltDualObject
+internal class testAltAltDualEncoder
 {
   public decimal Alt { get; set; }
-
-  public testAltAltDualObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

@@ -7,49 +7,20 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_dual_Output;
 
-public interface ItestCnstFieldDualOutp
-  : ItestRefCnstFieldDualOutp<ItestAltCnstFieldDualOutp>
-{
-  ItestCnstFieldDualOutpObject? As_CnstFieldDualOutp { get; }
-}
-
-public interface ItestCnstFieldDualOutpObject
-  : ItestRefCnstFieldDualOutpObject<ItestAltCnstFieldDualOutp>
+internal class testCnstFieldDualOutpDecoder
 {
 }
 
-public interface ItestRefCnstFieldDualOutp<TRef>
-  // No Base because it's Class
+internal class testRefCnstFieldDualOutpDecoder<TRef>
 {
-  ItestRefCnstFieldDualOutpObject<TRef>? As_RefCnstFieldDualOutp { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ItestRefCnstFieldDualOutpObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public interface ItestPrntCnstFieldDualOutp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestPrntCnstFieldDualOutpObject? As_PrntCnstFieldDualOutp { get; }
-}
-
-public interface ItestPrntCnstFieldDualOutpObject
-  // No Base because it's Class
+internal class testPrntCnstFieldDualOutpDecoder
 {
 }
 
-public interface ItestAltCnstFieldDualOutp
-  : ItestPrntCnstFieldDualOutp
+internal class testAltCnstFieldDualOutpDecoder
 {
-  ItestAltCnstFieldDualOutpObject? As_AltCnstFieldDualOutp { get; }
-}
-
-public interface ItestAltCnstFieldDualOutpObject
-  : ItestPrntCnstFieldDualOutpObject
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

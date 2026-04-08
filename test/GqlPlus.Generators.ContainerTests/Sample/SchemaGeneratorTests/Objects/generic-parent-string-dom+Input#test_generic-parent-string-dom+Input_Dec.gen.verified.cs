@@ -7,30 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_string_dom_Input;
 
-public interface ItestGnrcPrntStrDomInp
-  : ItestFieldGnrcPrntStrDomInp<ItestDomGnrcPrntStrDomInp>
-{
-  ItestGnrcPrntStrDomInpObject? As_GnrcPrntStrDomInp { get; }
-}
-
-public interface ItestGnrcPrntStrDomInpObject
-  : ItestFieldGnrcPrntStrDomInpObject<ItestDomGnrcPrntStrDomInp>
+internal class testGnrcPrntStrDomInpDecoder
 {
 }
 
-public interface ItestFieldGnrcPrntStrDomInp<TRef>
-  // No Base because it's Class
+internal class testFieldGnrcPrntStrDomInpDecoder<TRef>
 {
-  ItestFieldGnrcPrntStrDomInpObject<TRef>? As_FieldGnrcPrntStrDomInp { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ItestFieldGnrcPrntStrDomInpObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public interface ItestDomGnrcPrntStrDomInp
-  : IGqlpDomainString
+internal class testDomGnrcPrntStrDomInpDecoder
 {
 }

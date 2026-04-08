@@ -11,42 +11,11 @@ input RefPrntParamSameInp<$a:String> { | $a }
 
 namespace Components.Gqlp_Schema_parent_param_same_Input;
 
-public class CmptPrntParamSameInp<TA>
-  : CmptRefPrntParamSameInp<TA>
-  , ICmptPrntParamSameInp<TA>
-{
-  public ICmptPrntParamSameInpObject<TA>? As_PrntParamSameInp { get; set; }
-}
-
-public class CmptPrntParamSameInpObject<TA>
-  : CmptRefPrntParamSameInpObject<TA>
-  , ICmptPrntParamSameInpObject<TA>
+internal class CmptPrntParamSameInpEncoder<TA>
 {
   public TA Field { get; set; }
-
-  public CmptPrntParamSameInpObject
-    ( TA field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptRefPrntParamSameInp<TA>
-  : Schema_parent-param-same+Input
-  , ICmptRefPrntParamSameInp<TA>
+internal class CmptRefPrntParamSameInpEncoder<TA>
 {
-  public TA? Asa { get; set; }
-  public ICmptRefPrntParamSameInpObject<TA>? As_RefPrntParamSameInp { get; set; }
-}
-
-public class CmptRefPrntParamSameInpObject<TA>
-  : Schema_parent-param-same+Input
-  , ICmptRefPrntParamSameInpObject<TA>
-{
-
-  public CmptRefPrntParamSameInpObject
-    ()
-  {
-  }
 }

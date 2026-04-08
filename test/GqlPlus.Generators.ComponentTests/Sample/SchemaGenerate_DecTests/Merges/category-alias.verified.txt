@@ -12,13 +12,6 @@ output CtgrAlias { }
 
 namespace Components.Gqlp_Schema_category_alias;
 
-public interface ICmptCtgrAlias
-  // No Base because it's Class
-{
-  ICmptCtgrAliasObject? As_CtgrAlias { get; }
-}
-
-public interface ICmptCtgrAliasObject
-  // No Base because it's Class
+internal class CmptCtgrAliasDecoder
 {
 }

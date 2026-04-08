@@ -10,21 +10,6 @@ input AltSmplInp { | String }
 
 namespace Components.Gqlp_Schema_alt_simple_Input;
 
-public class CmptAltSmplInp
-  : Schema_alt-simple+Input
-  , ICmptAltSmplInp
+internal class CmptAltSmplInpEncoder
 {
-  public string? AsString { get; set; }
-  public ICmptAltSmplInpObject? As_AltSmplInp { get; set; }
-}
-
-public class CmptAltSmplInpObject
-  : Schema_alt-simple+Input
-  , ICmptAltSmplInpObject
-{
-
-  public CmptAltSmplInpObject
-    ()
-  {
-  }
 }

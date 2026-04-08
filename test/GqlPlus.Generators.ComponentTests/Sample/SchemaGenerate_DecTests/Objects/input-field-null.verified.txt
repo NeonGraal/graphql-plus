@@ -11,25 +11,11 @@ dual FldInpFieldNull { }
 
 namespace Components.Gqlp_Schema_input_field_null;
 
-public interface ICmptInpFieldNull
-  // No Base because it's Class
+internal class CmptInpFieldNullDecoder
 {
-  ICmptInpFieldNullObject? As_InpFieldNull { get; }
+  public ICmptFldInpFieldNull? Field { get; set; }
 }
 
-public interface ICmptInpFieldNullObject
-  // No Base because it's Class
-{
-  ICmptFldInpFieldNull? Field { get; }
-}
-
-public interface ICmptFldInpFieldNull
-  // No Base because it's Class
-{
-  ICmptFldInpFieldNullObject? As_FldInpFieldNull { get; }
-}
-
-public interface ICmptFldInpFieldNullObject
-  // No Base because it's Class
+internal class CmptFldInpFieldNullDecoder
 {
 }

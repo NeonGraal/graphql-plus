@@ -7,26 +7,12 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Enum;
 
-public interface Itest_EnumLabel
-  : Itest_Aliased
+internal class test_EnumLabelDecoder
 {
-  Itest_EnumLabelObject? As__EnumLabel { get; }
+  public Itest_Name EnumType { get; set; }
 }
 
-public interface Itest_EnumLabelObject
-  : Itest_AliasedObject
+internal class test_EnumValueDecoder
 {
-  Itest_Name EnumType { get; }
-}
-
-public interface Itest_EnumValue
-  : Itest_TypeRef<Itest_TypeKind>
-{
-  Itest_EnumValueObject? As__EnumValue { get; }
-}
-
-public interface Itest_EnumValueObject
-  : Itest_TypeRefObject<Itest_TypeKind>
-{
-  Itest_Name Label { get; }
+  public Itest_Name Label { get; set; }
 }

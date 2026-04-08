@@ -12,31 +12,16 @@ enum EnumGnrcEnumInp { gnrcEnumInp }
 
 namespace Components.Gqlp_Schema_generic_enum_Input;
 
-public interface ICmptGnrcEnumInp
-  // No Base because it's Class
-{
-  ICmptRefGnrcEnumInp<CmptEnumGnrcEnumInp>? AsEnumGnrcEnumInpgnrcEnumInp { get; }
-  ICmptGnrcEnumInpObject? As_GnrcEnumInp { get; }
-}
-
-public interface ICmptGnrcEnumInpObject
-  // No Base because it's Class
+internal class CmptGnrcEnumInpDecoder
 {
 }
 
-public interface ICmptRefGnrcEnumInp<TType>
-  // No Base because it's Class
+internal class CmptRefGnrcEnumInpDecoder<TType>
 {
-  ICmptRefGnrcEnumInpObject<TType>? As_RefGnrcEnumInp { get; }
+  public TType Field { get; set; }
 }
 
-public interface ICmptRefGnrcEnumInpObject<TType>
-  // No Base because it's Class
+internal class CmptEnumGnrcEnumInpDecoder
 {
-  TType Field { get; }
-}
-
-public enum CmptEnumGnrcEnumInp
-{
-  gnrcEnumInp,
+  public string gnrcEnumInp { get; set; }
 }

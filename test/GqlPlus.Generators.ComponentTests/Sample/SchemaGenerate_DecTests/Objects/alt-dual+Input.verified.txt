@@ -11,27 +11,11 @@ dual ObjDualAltDualInp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_dual_Input;
 
-public interface ICmptAltDualInp
-  // No Base because it's Class
-{
-  ICmptObjDualAltDualInp? AsObjDualAltDualInp { get; }
-  ICmptAltDualInpObject? As_AltDualInp { get; }
-}
-
-public interface ICmptAltDualInpObject
-  // No Base because it's Class
+internal class CmptAltDualInpDecoder
 {
 }
 
-public interface ICmptObjDualAltDualInp
-  // No Base because it's Class
+internal class CmptObjDualAltDualInpDecoder
 {
-  string? AsString { get; }
-  ICmptObjDualAltDualInpObject? As_ObjDualAltDualInp { get; }
-}
-
-public interface ICmptObjDualAltDualInpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

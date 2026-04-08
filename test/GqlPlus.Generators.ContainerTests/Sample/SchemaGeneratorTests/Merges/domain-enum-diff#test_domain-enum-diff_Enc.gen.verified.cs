@@ -7,8 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_diff;
 
-public class testDmnEnumDiff
-  : GqlpDomainEnum
-  , ItestDmnEnumDiff
+internal class testDmnEnumDiffEncoder
 {
 }

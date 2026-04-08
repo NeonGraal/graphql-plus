@@ -7,61 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_dual_parent_Dual;
 
-public class testGnrcPrntDualPrntDual
-  : testRefGnrcPrntDualPrntDual<ItestAltGnrcPrntDualPrntDual>
-  , ItestGnrcPrntDualPrntDual
+internal class testGnrcPrntDualPrntDualEncoder
 {
-  public ItestGnrcPrntDualPrntDualObject? As_GnrcPrntDualPrntDual { get; set; }
 }
 
-public class testGnrcPrntDualPrntDualObject
-  : testRefGnrcPrntDualPrntDualObject<ItestAltGnrcPrntDualPrntDual>
-  , ItestGnrcPrntDualPrntDualObject
+internal class testRefGnrcPrntDualPrntDualEncoder<TRef>
 {
-
-  public testGnrcPrntDualPrntDualObject
-    ()
-  {
-  }
 }
 
-public class testRefGnrcPrntDualPrntDual<TRef>
-  : GqlpEncoderBase
-  , ItestRefGnrcPrntDualPrntDual<TRef>
-{
-  public TRef? As_Parent { get; set; }
-  public ItestRefGnrcPrntDualPrntDualObject<TRef>? As_RefGnrcPrntDualPrntDual { get; set; }
-}
-
-public class testRefGnrcPrntDualPrntDualObject<TRef>
-  : GqlpEncoderBase
-  , ItestRefGnrcPrntDualPrntDualObject<TRef>
-{
-
-  public testRefGnrcPrntDualPrntDualObject
-    ()
-  {
-  }
-}
-
-public class testAltGnrcPrntDualPrntDual
-  : GqlpEncoderBase
-  , ItestAltGnrcPrntDualPrntDual
-{
-  public string? AsString { get; set; }
-  public ItestAltGnrcPrntDualPrntDualObject? As_AltGnrcPrntDualPrntDual { get; set; }
-}
-
-public class testAltGnrcPrntDualPrntDualObject
-  : GqlpEncoderBase
-  , ItestAltGnrcPrntDualPrntDualObject
+internal class testAltGnrcPrntDualPrntDualEncoder
 {
   public decimal Alt { get; set; }
-
-  public testAltGnrcPrntDualPrntDualObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

@@ -7,48 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_domain_Output;
 
-public class testCnstFieldDmnOutp
-  : testRefCnstFieldDmnOutp<ItestDomCnstFieldDmnOutp>
-  , ItestCnstFieldDmnOutp
+internal class testCnstFieldDmnOutpEncoder
 {
-  public ItestCnstFieldDmnOutpObject? As_CnstFieldDmnOutp { get; set; }
 }
 
-public class testCnstFieldDmnOutpObject
-  : testRefCnstFieldDmnOutpObject<ItestDomCnstFieldDmnOutp>
-  , ItestCnstFieldDmnOutpObject
-{
-
-  public testCnstFieldDmnOutpObject
-    ( ItestDomCnstFieldDmnOutp field
-    ) : base(field)
-  {
-  }
-}
-
-public class testRefCnstFieldDmnOutp<TRef>
-  : GqlpEncoderBase
-  , ItestRefCnstFieldDmnOutp<TRef>
-{
-  public ItestRefCnstFieldDmnOutpObject<TRef>? As_RefCnstFieldDmnOutp { get; set; }
-}
-
-public class testRefCnstFieldDmnOutpObject<TRef>
-  : GqlpEncoderBase
-  , ItestRefCnstFieldDmnOutpObject<TRef>
+internal class testRefCnstFieldDmnOutpEncoder<TRef>
 {
   public TRef Field { get; set; }
-
-  public testRefCnstFieldDmnOutpObject
-    ( TRef field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class testDomCnstFieldDmnOutp
-  : GqlpDomainString
-  , ItestDomCnstFieldDmnOutp
+internal class testDomCnstFieldDmnOutpEncoder
 {
 }

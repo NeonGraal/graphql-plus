@@ -11,26 +11,11 @@ dual RefPrntDualInp { parent: Number | String }
 
 namespace Components.Gqlp_Schema_parent_dual_Input;
 
-public interface ICmptPrntDualInp
-  : ICmptRefPrntDualInp
-{
-  ICmptPrntDualInpObject? As_PrntDualInp { get; }
-}
-
-public interface ICmptPrntDualInpObject
-  : ICmptRefPrntDualInpObject
+internal class CmptPrntDualInpDecoder
 {
 }
 
-public interface ICmptRefPrntDualInp
-  // No Base because it's Class
+internal class CmptRefPrntDualInpDecoder
 {
-  string? AsString { get; }
-  ICmptRefPrntDualInpObject? As_RefPrntDualInp { get; }
-}
-
-public interface ICmptRefPrntDualInpObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
+  public decimal Parent { get; set; }
 }

@@ -7,97 +7,23 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_dual_grandparent_Input;
 
-public class testCnstPrntDualGrndInp
-  : testRefCnstPrntDualGrndInp<ItestAltCnstPrntDualGrndInp>
-  , ItestCnstPrntDualGrndInp
+internal class testCnstPrntDualGrndInpEncoder
 {
-  public ItestCnstPrntDualGrndInpObject? As_CnstPrntDualGrndInp { get; set; }
 }
 
-public class testCnstPrntDualGrndInpObject
-  : testRefCnstPrntDualGrndInpObject<ItestAltCnstPrntDualGrndInp>
-  , ItestCnstPrntDualGrndInpObject
+internal class testRefCnstPrntDualGrndInpEncoder<TRef>
 {
-
-  public testCnstPrntDualGrndInpObject
-    ()
-  {
-  }
 }
 
-public class testRefCnstPrntDualGrndInp<TRef>
-  : GqlpEncoderBase
-  , ItestRefCnstPrntDualGrndInp<TRef>
+internal class testGrndCnstPrntDualGrndInpEncoder
 {
-  public TRef? As_Parent { get; set; }
-  public ItestRefCnstPrntDualGrndInpObject<TRef>? As_RefCnstPrntDualGrndInp { get; set; }
 }
 
-public class testRefCnstPrntDualGrndInpObject<TRef>
-  : GqlpEncoderBase
-  , ItestRefCnstPrntDualGrndInpObject<TRef>
+internal class testPrntCnstPrntDualGrndInpEncoder
 {
-
-  public testRefCnstPrntDualGrndInpObject
-    ()
-  {
-  }
 }
 
-public class testGrndCnstPrntDualGrndInp
-  : GqlpEncoderBase
-  , ItestGrndCnstPrntDualGrndInp
-{
-  public string? AsString { get; set; }
-  public ItestGrndCnstPrntDualGrndInpObject? As_GrndCnstPrntDualGrndInp { get; set; }
-}
-
-public class testGrndCnstPrntDualGrndInpObject
-  : GqlpEncoderBase
-  , ItestGrndCnstPrntDualGrndInpObject
-{
-
-  public testGrndCnstPrntDualGrndInpObject
-    ()
-  {
-  }
-}
-
-public class testPrntCnstPrntDualGrndInp
-  : testGrndCnstPrntDualGrndInp
-  , ItestPrntCnstPrntDualGrndInp
-{
-  public ItestPrntCnstPrntDualGrndInpObject? As_PrntCnstPrntDualGrndInp { get; set; }
-}
-
-public class testPrntCnstPrntDualGrndInpObject
-  : testGrndCnstPrntDualGrndInpObject
-  , ItestPrntCnstPrntDualGrndInpObject
-{
-
-  public testPrntCnstPrntDualGrndInpObject
-    ()
-  {
-  }
-}
-
-public class testAltCnstPrntDualGrndInp
-  : testPrntCnstPrntDualGrndInp
-  , ItestAltCnstPrntDualGrndInp
-{
-  public ItestAltCnstPrntDualGrndInpObject? As_AltCnstPrntDualGrndInp { get; set; }
-}
-
-public class testAltCnstPrntDualGrndInpObject
-  : testPrntCnstPrntDualGrndInpObject
-  , ItestAltCnstPrntDualGrndInpObject
+internal class testAltCnstPrntDualGrndInpEncoder
 {
   public decimal Alt { get; set; }
-
-  public testAltCnstPrntDualGrndInpObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

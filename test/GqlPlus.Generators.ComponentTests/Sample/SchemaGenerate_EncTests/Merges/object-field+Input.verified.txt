@@ -12,41 +12,11 @@ input FldObjFieldInp { }
 
 namespace Components.Gqlp_Schema_object_field_Input;
 
-public class CmptObjFieldInp
-  : Schema_object-field+Input
-  , ICmptObjFieldInp
-{
-  public ICmptObjFieldInpObject? As_ObjFieldInp { get; set; }
-}
-
-public class CmptObjFieldInpObject
-  : Schema_object-field+Input
-  , ICmptObjFieldInpObject
+internal class CmptObjFieldInpEncoder
 {
   public ICmptFldObjFieldInp Field { get; set; }
-
-  public CmptObjFieldInpObject
-    ( ICmptFldObjFieldInp field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptFldObjFieldInp
-  : Schema_object-field+Input
-  , ICmptFldObjFieldInp
+internal class CmptFldObjFieldInpEncoder
 {
-  public ICmptFldObjFieldInpObject? As_FldObjFieldInp { get; set; }
-}
-
-public class CmptFldObjFieldInpObject
-  : Schema_object-field+Input
-  , ICmptFldObjFieldInpObject
-{
-
-  public CmptFldObjFieldInpObject
-    ()
-  {
-  }
 }

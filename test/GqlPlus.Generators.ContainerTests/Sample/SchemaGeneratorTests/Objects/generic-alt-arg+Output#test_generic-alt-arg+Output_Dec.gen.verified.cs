@@ -7,26 +7,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_arg_Output;
 
-public interface ItestGnrcAltArgOutp<TType>
-  // No Base because it's Class
-{
-  ItestRefGnrcAltArgOutp<TType>? AsRefGnrcAltArgOutp { get; }
-  ItestGnrcAltArgOutpObject<TType>? As_GnrcAltArgOutp { get; }
-}
-
-public interface ItestGnrcAltArgOutpObject<TType>
-  // No Base because it's Class
+internal class testGnrcAltArgOutpDecoder<TType>
 {
 }
 
-public interface ItestRefGnrcAltArgOutp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcAltArgOutpObject<TRef>? As_RefGnrcAltArgOutp { get; }
-}
-
-public interface ItestRefGnrcAltArgOutpObject<TRef>
-  // No Base because it's Class
+internal class testRefGnrcAltArgOutpDecoder<TRef>
 {
 }

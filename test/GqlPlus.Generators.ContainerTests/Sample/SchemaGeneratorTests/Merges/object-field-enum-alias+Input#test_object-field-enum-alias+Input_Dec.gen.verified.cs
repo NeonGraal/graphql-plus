@@ -7,14 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_enum_alias_Input;
 
-public interface ItestObjFieldEnumAliasInp
-  // No Base because it's Class
+internal class testObjFieldEnumAliasInpDecoder
 {
-  ItestObjFieldEnumAliasInpObject? As_ObjFieldEnumAliasInp { get; }
-}
-
-public interface ItestObjFieldEnumAliasInpObject
-  // No Base because it's Class
-{
-  bool Field { get; }
+  public bool Field { get; set; }
 }

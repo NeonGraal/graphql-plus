@@ -12,30 +12,16 @@ enum EnumGnrcPrntSmplEnumDual { gnrcPrntSmplEnumDual }
 
 namespace Components.Gqlp_Schema_generic_parent_simple_enum_Dual;
 
-public interface ICmptGnrcPrntSmplEnumDual
-  : ICmptFieldGnrcPrntSmplEnumDual<CmptEnumGnrcPrntSmplEnumDual>
-{
-  ICmptGnrcPrntSmplEnumDualObject? As_GnrcPrntSmplEnumDual { get; }
-}
-
-public interface ICmptGnrcPrntSmplEnumDualObject
-  : ICmptFieldGnrcPrntSmplEnumDualObject<CmptEnumGnrcPrntSmplEnumDual>
+internal class CmptGnrcPrntSmplEnumDualDecoder
 {
 }
 
-public interface ICmptFieldGnrcPrntSmplEnumDual<TRef>
-  // No Base because it's Class
+internal class CmptFieldGnrcPrntSmplEnumDualDecoder<TRef>
 {
-  ICmptFieldGnrcPrntSmplEnumDualObject<TRef>? As_FieldGnrcPrntSmplEnumDual { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ICmptFieldGnrcPrntSmplEnumDualObject<TRef>
-  // No Base because it's Class
+internal class CmptEnumGnrcPrntSmplEnumDualDecoder
 {
-  TRef Field { get; }
-}
-
-public enum CmptEnumGnrcPrntSmplEnumDual
-{
-  gnrcPrntSmplEnumDual,
+  public string gnrcPrntSmplEnumDual { get; set; }
 }

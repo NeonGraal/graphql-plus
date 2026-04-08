@@ -11,19 +11,11 @@ enum EnumAltEnumInp { altEnumInp }
 
 namespace Components.Gqlp_Schema_alt_enum_Input;
 
-public interface ICmptAltEnumInp
-  // No Base because it's Class
-{
-  CmptEnumAltEnumInp? AsEnumAltEnumInpaltEnumInp { get; }
-  ICmptAltEnumInpObject? As_AltEnumInp { get; }
-}
-
-public interface ICmptAltEnumInpObject
-  // No Base because it's Class
+internal class CmptAltEnumInpDecoder
 {
 }
 
-public enum CmptEnumAltEnumInp
+internal class CmptEnumAltEnumInpDecoder
 {
-  altEnumInp,
+  public string altEnumInp { get; set; }
 }

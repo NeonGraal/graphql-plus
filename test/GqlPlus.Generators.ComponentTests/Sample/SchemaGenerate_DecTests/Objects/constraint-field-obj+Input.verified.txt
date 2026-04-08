@@ -13,49 +13,20 @@ input AltCnstFieldObjInp { :PrntCnstFieldObjInp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_field_obj_Input;
 
-public interface ICmptCnstFieldObjInp
-  : ICmptRefCnstFieldObjInp<ICmptAltCnstFieldObjInp>
-{
-  ICmptCnstFieldObjInpObject? As_CnstFieldObjInp { get; }
-}
-
-public interface ICmptCnstFieldObjInpObject
-  : ICmptRefCnstFieldObjInpObject<ICmptAltCnstFieldObjInp>
+internal class CmptCnstFieldObjInpDecoder
 {
 }
 
-public interface ICmptRefCnstFieldObjInp<TRef>
-  // No Base because it's Class
+internal class CmptRefCnstFieldObjInpDecoder<TRef>
 {
-  ICmptRefCnstFieldObjInpObject<TRef>? As_RefCnstFieldObjInp { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ICmptRefCnstFieldObjInpObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public interface ICmptPrntCnstFieldObjInp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ICmptPrntCnstFieldObjInpObject? As_PrntCnstFieldObjInp { get; }
-}
-
-public interface ICmptPrntCnstFieldObjInpObject
-  // No Base because it's Class
+internal class CmptPrntCnstFieldObjInpDecoder
 {
 }
 
-public interface ICmptAltCnstFieldObjInp
-  : ICmptPrntCnstFieldObjInp
+internal class CmptAltCnstFieldObjInpDecoder
 {
-  ICmptAltCnstFieldObjInpObject? As_AltCnstFieldObjInp { get; }
-}
-
-public interface ICmptAltCnstFieldObjInpObject
-  : ICmptPrntCnstFieldObjInpObject
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

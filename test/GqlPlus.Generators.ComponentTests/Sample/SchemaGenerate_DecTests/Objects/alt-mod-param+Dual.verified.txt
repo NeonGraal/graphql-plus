@@ -11,27 +11,11 @@ dual AltAltModParamDual { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_mod_param_Dual;
 
-public interface ICmptAltModParamDual<TMod>
-  // No Base because it's Class
-{
-  IDictionary<TMod, ICmptAltAltModParamDual>? AsAltAltModParamDual { get; }
-  ICmptAltModParamDualObject<TMod>? As_AltModParamDual { get; }
-}
-
-public interface ICmptAltModParamDualObject<TMod>
-  // No Base because it's Class
+internal class CmptAltModParamDualDecoder<TMod>
 {
 }
 
-public interface ICmptAltAltModParamDual
-  // No Base because it's Class
+internal class CmptAltAltModParamDualDecoder
 {
-  string? AsString { get; }
-  ICmptAltAltModParamDualObject? As_AltAltModParamDual { get; }
-}
-
-public interface ICmptAltAltModParamDualObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

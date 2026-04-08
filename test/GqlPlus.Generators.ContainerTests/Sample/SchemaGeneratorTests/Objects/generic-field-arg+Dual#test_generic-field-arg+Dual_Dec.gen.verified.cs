@@ -7,26 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_arg_Dual;
 
-public interface ItestGnrcFieldArgDual<TType>
-  // No Base because it's Class
+internal class testGnrcFieldArgDualDecoder<TType>
 {
-  ItestGnrcFieldArgDualObject<TType>? As_GnrcFieldArgDual { get; }
+  public ItestRefGnrcFieldArgDual<TType> Field { get; set; }
 }
 
-public interface ItestGnrcFieldArgDualObject<TType>
-  // No Base because it's Class
-{
-  ItestRefGnrcFieldArgDual<TType> Field { get; }
-}
-
-public interface ItestRefGnrcFieldArgDual<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcFieldArgDualObject<TRef>? As_RefGnrcFieldArgDual { get; }
-}
-
-public interface ItestRefGnrcFieldArgDualObject<TRef>
-  // No Base because it's Class
+internal class testRefGnrcFieldArgDualDecoder<TRef>
 {
 }

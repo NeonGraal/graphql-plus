@@ -11,43 +11,11 @@ output AltAltModParamOutp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_mod_param_Output;
 
-public class CmptAltModParamOutp<TMod>
-  : Schema_alt-mod-param+Output
-  , ICmptAltModParamOutp<TMod>
+internal class CmptAltModParamOutpEncoder<TMod>
 {
-  public IDictionary<TMod, ICmptAltAltModParamOutp>? AsAltAltModParamOutp { get; set; }
-  public ICmptAltModParamOutpObject<TMod>? As_AltModParamOutp { get; set; }
 }
 
-public class CmptAltModParamOutpObject<TMod>
-  : Schema_alt-mod-param+Output
-  , ICmptAltModParamOutpObject<TMod>
-{
-
-  public CmptAltModParamOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptAltAltModParamOutp
-  : Schema_alt-mod-param+Output
-  , ICmptAltAltModParamOutp
-{
-  public string? AsString { get; set; }
-  public ICmptAltAltModParamOutpObject? As_AltAltModParamOutp { get; set; }
-}
-
-public class CmptAltAltModParamOutpObject
-  : Schema_alt-mod-param+Output
-  , ICmptAltAltModParamOutpObject
+internal class CmptAltAltModParamOutpEncoder
 {
   public decimal Alt { get; set; }
-
-  public CmptAltAltModParamOutpObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

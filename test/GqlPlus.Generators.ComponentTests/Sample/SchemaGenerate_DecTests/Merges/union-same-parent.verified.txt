@@ -12,14 +12,12 @@ union PrntUnionSamePrnt { String }
 
 namespace Components.Gqlp_Schema_union_same_parent;
 
-public interface ICmptUnionSamePrnt
-  : ICmptPrntUnionSamePrnt
+internal class CmptUnionSamePrntDecoder
 {
-  Boolean AsBoolean { get; }
+  public Boolean AsBoolean { get; set; }
 }
 
-public interface ICmptPrntUnionSamePrnt
-  // No Base because it's Class
+internal class CmptPrntUnionSamePrntDecoder
 {
-  String AsString { get; }
+  public String AsString { get; set; }
 }

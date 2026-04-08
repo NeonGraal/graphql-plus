@@ -11,12 +11,10 @@ domain PrntDmnStrPrnt { String /b+/ }
 
 namespace Components.Gqlp_Schema_domain_string_parent;
 
-public interface ICmptDmnStrPrnt
-  : ICmptPrntDmnStrPrnt
+internal class CmptDmnStrPrntDecoder
 {
 }
 
-public interface ICmptPrntDmnStrPrnt
-  : IGqlpDomainString
+internal class CmptPrntDmnStrPrntDecoder
 {
 }

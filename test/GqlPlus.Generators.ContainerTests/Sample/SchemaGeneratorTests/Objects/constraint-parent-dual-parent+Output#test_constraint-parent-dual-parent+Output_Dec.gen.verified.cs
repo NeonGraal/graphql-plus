@@ -7,49 +7,19 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_dual_parent_Output;
 
-public interface ItestCnstPrntDualPrntOutp
-  : ItestRefCnstPrntDualPrntOutp<ItestAltCnstPrntDualPrntOutp>
-{
-  ItestCnstPrntDualPrntOutpObject? As_CnstPrntDualPrntOutp { get; }
-}
-
-public interface ItestCnstPrntDualPrntOutpObject
-  : ItestRefCnstPrntDualPrntOutpObject<ItestAltCnstPrntDualPrntOutp>
+internal class testCnstPrntDualPrntOutpDecoder
 {
 }
 
-public interface ItestRefCnstPrntDualPrntOutp<TRef>
-  // No Base because it's Class
-{
-  TRef? As_Parent { get; }
-  ItestRefCnstPrntDualPrntOutpObject<TRef>? As_RefCnstPrntDualPrntOutp { get; }
-}
-
-public interface ItestRefCnstPrntDualPrntOutpObject<TRef>
-  // No Base because it's Class
+internal class testRefCnstPrntDualPrntOutpDecoder<TRef>
 {
 }
 
-public interface ItestPrntCnstPrntDualPrntOutp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestPrntCnstPrntDualPrntOutpObject? As_PrntCnstPrntDualPrntOutp { get; }
-}
-
-public interface ItestPrntCnstPrntDualPrntOutpObject
-  // No Base because it's Class
+internal class testPrntCnstPrntDualPrntOutpDecoder
 {
 }
 
-public interface ItestAltCnstPrntDualPrntOutp
-  : ItestPrntCnstPrntDualPrntOutp
+internal class testAltCnstPrntDualPrntOutpDecoder
 {
-  ItestAltCnstPrntDualPrntOutpObject? As_AltCnstPrntDualPrntOutp { get; }
-}
-
-public interface ItestAltCnstPrntDualPrntOutpObject
-  : ItestPrntCnstPrntDualPrntOutpObject
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

@@ -12,13 +12,6 @@ output Ctgr { }
 
 namespace Components.Gqlp_Schema_category;
 
-public interface ICmptCtgr
-  // No Base because it's Class
-{
-  ICmptCtgrObject? As_Ctgr { get; }
-}
-
-public interface ICmptCtgrObject
-  // No Base because it's Class
+internal class CmptCtgrDecoder
 {
 }

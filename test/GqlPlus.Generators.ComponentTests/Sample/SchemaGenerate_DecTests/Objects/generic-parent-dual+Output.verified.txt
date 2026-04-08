@@ -12,38 +12,15 @@ dual AltGnrcPrntDualOutp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_parent_dual_Output;
 
-public interface ICmptGnrcPrntDualOutp
-  : ICmptRefGnrcPrntDualOutp<ICmptAltGnrcPrntDualOutp>
-{
-  ICmptGnrcPrntDualOutpObject? As_GnrcPrntDualOutp { get; }
-}
-
-public interface ICmptGnrcPrntDualOutpObject
-  : ICmptRefGnrcPrntDualOutpObject<ICmptAltGnrcPrntDualOutp>
+internal class CmptGnrcPrntDualOutpDecoder
 {
 }
 
-public interface ICmptRefGnrcPrntDualOutp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ICmptRefGnrcPrntDualOutpObject<TRef>? As_RefGnrcPrntDualOutp { get; }
-}
-
-public interface ICmptRefGnrcPrntDualOutpObject<TRef>
-  // No Base because it's Class
+internal class CmptRefGnrcPrntDualOutpDecoder<TRef>
 {
 }
 
-public interface ICmptAltGnrcPrntDualOutp
-  // No Base because it's Class
+internal class CmptAltGnrcPrntDualOutpDecoder
 {
-  string? AsString { get; }
-  ICmptAltGnrcPrntDualOutpObject? As_AltGnrcPrntDualOutp { get; }
-}
-
-public interface ICmptAltGnrcPrntDualOutpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

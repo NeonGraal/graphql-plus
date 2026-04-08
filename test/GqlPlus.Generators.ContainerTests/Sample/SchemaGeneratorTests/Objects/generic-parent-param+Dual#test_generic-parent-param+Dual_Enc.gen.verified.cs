@@ -7,61 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_param_Dual;
 
-public class testGnrcPrntParamDual
-  : testRefGnrcPrntParamDual<ItestAltGnrcPrntParamDual>
-  , ItestGnrcPrntParamDual
+internal class testGnrcPrntParamDualEncoder
 {
-  public ItestGnrcPrntParamDualObject? As_GnrcPrntParamDual { get; set; }
 }
 
-public class testGnrcPrntParamDualObject
-  : testRefGnrcPrntParamDualObject<ItestAltGnrcPrntParamDual>
-  , ItestGnrcPrntParamDualObject
+internal class testRefGnrcPrntParamDualEncoder<TRef>
 {
-
-  public testGnrcPrntParamDualObject
-    ()
-  {
-  }
 }
 
-public class testRefGnrcPrntParamDual<TRef>
-  : GqlpEncoderBase
-  , ItestRefGnrcPrntParamDual<TRef>
-{
-  public TRef? Asref { get; set; }
-  public ItestRefGnrcPrntParamDualObject<TRef>? As_RefGnrcPrntParamDual { get; set; }
-}
-
-public class testRefGnrcPrntParamDualObject<TRef>
-  : GqlpEncoderBase
-  , ItestRefGnrcPrntParamDualObject<TRef>
-{
-
-  public testRefGnrcPrntParamDualObject
-    ()
-  {
-  }
-}
-
-public class testAltGnrcPrntParamDual
-  : GqlpEncoderBase
-  , ItestAltGnrcPrntParamDual
-{
-  public string? AsString { get; set; }
-  public ItestAltGnrcPrntParamDualObject? As_AltGnrcPrntParamDual { get; set; }
-}
-
-public class testAltGnrcPrntParamDualObject
-  : GqlpEncoderBase
-  , ItestAltGnrcPrntParamDualObject
+internal class testAltGnrcPrntParamDualEncoder
 {
   public decimal Alt { get; set; }
-
-  public testAltGnrcPrntParamDualObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

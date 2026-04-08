@@ -12,39 +12,10 @@ output ObjAltOutpType { }
 
 namespace Components.Gqlp_Schema_object_alt_Output;
 
-public class CmptObjAltOutp
-  : Schema_object-alt+Output
-  , ICmptObjAltOutp
+internal class CmptObjAltOutpEncoder
 {
-  public ICmptObjAltOutpType? AsObjAltOutpType { get; set; }
-  public ICmptObjAltOutpObject? As_ObjAltOutp { get; set; }
 }
 
-public class CmptObjAltOutpObject
-  : Schema_object-alt+Output
-  , ICmptObjAltOutpObject
+internal class CmptObjAltOutpTypeEncoder
 {
-
-  public CmptObjAltOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjAltOutpType
-  : Schema_object-alt+Output
-  , ICmptObjAltOutpType
-{
-  public ICmptObjAltOutpTypeObject? As_ObjAltOutpType { get; set; }
-}
-
-public class CmptObjAltOutpTypeObject
-  : Schema_object-alt+Output
-  , ICmptObjAltOutpTypeObject
-{
-
-  public CmptObjAltOutpTypeObject
-    ()
-  {
-  }
 }

@@ -7,64 +7,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_param_Input;
 
-public class testGnrcFieldParamInp
-  : GqlpEncoderBase
-  , ItestGnrcFieldParamInp
-{
-  public ItestGnrcFieldParamInpObject? As_GnrcFieldParamInp { get; set; }
-}
-
-public class testGnrcFieldParamInpObject
-  : GqlpEncoderBase
-  , ItestGnrcFieldParamInpObject
+internal class testGnrcFieldParamInpEncoder
 {
   public ItestRefGnrcFieldParamInp<ItestAltGnrcFieldParamInp> Field { get; set; }
-
-  public testGnrcFieldParamInpObject
-    ( ItestRefGnrcFieldParamInp<ItestAltGnrcFieldParamInp> field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class testRefGnrcFieldParamInp<TRef>
-  : GqlpEncoderBase
-  , ItestRefGnrcFieldParamInp<TRef>
+internal class testRefGnrcFieldParamInpEncoder<TRef>
 {
-  public TRef? Asref { get; set; }
-  public ItestRefGnrcFieldParamInpObject<TRef>? As_RefGnrcFieldParamInp { get; set; }
 }
 
-public class testRefGnrcFieldParamInpObject<TRef>
-  : GqlpEncoderBase
-  , ItestRefGnrcFieldParamInpObject<TRef>
-{
-
-  public testRefGnrcFieldParamInpObject
-    ()
-  {
-  }
-}
-
-public class testAltGnrcFieldParamInp
-  : GqlpEncoderBase
-  , ItestAltGnrcFieldParamInp
-{
-  public string? AsString { get; set; }
-  public ItestAltGnrcFieldParamInpObject? As_AltGnrcFieldParamInp { get; set; }
-}
-
-public class testAltGnrcFieldParamInpObject
-  : GqlpEncoderBase
-  , ItestAltGnrcFieldParamInpObject
+internal class testAltGnrcFieldParamInpEncoder
 {
   public decimal Alt { get; set; }
-
-  public testAltGnrcFieldParamInpObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

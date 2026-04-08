@@ -7,54 +7,21 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_dom_Dual;
 
-public class testGnrcPrntEnumDomDual
-  : testFieldGnrcPrntEnumDomDual<ItestDomGnrcPrntEnumDomDual>
-  , ItestGnrcPrntEnumDomDual
+internal class testGnrcPrntEnumDomDualEncoder
 {
-  public ItestGnrcPrntEnumDomDualObject? As_GnrcPrntEnumDomDual { get; set; }
 }
 
-public class testGnrcPrntEnumDomDualObject
-  : testFieldGnrcPrntEnumDomDualObject<ItestDomGnrcPrntEnumDomDual>
-  , ItestGnrcPrntEnumDomDualObject
-{
-
-  public testGnrcPrntEnumDomDualObject
-    ( ItestDomGnrcPrntEnumDomDual field
-    ) : base(field)
-  {
-  }
-}
-
-public class testFieldGnrcPrntEnumDomDual<TRef>
-  : GqlpEncoderBase
-  , ItestFieldGnrcPrntEnumDomDual<TRef>
-{
-  public ItestFieldGnrcPrntEnumDomDualObject<TRef>? As_FieldGnrcPrntEnumDomDual { get; set; }
-}
-
-public class testFieldGnrcPrntEnumDomDualObject<TRef>
-  : GqlpEncoderBase
-  , ItestFieldGnrcPrntEnumDomDualObject<TRef>
+internal class testFieldGnrcPrntEnumDomDualEncoder<TRef>
 {
   public TRef Field { get; set; }
-
-  public testFieldGnrcPrntEnumDomDualObject
-    ( TRef field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum testEnumGnrcPrntEnumDomDual
+internal class testEnumGnrcPrntEnumDomDualEncoder
 {
-  gnrcPrntEnumDomDualLabel,
-  gnrcPrntEnumDomDualOther,
+  public string gnrcPrntEnumDomDualLabel { get; set; }
+  public string gnrcPrntEnumDomDualOther { get; set; }
 }
 
-public class testDomGnrcPrntEnumDomDual
-  : GqlpDomainEnum
-  , ItestDomGnrcPrntEnumDomDual
+internal class testDomGnrcPrntEnumDomDualEncoder
 {
 }

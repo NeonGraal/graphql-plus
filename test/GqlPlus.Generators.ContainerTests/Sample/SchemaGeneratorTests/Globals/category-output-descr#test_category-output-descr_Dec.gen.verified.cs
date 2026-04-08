@@ -7,13 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_category_output_descr;
 
-public interface ItestCtgrOutpDescr
-  // No Base because it's Class
-{
-  ItestCtgrOutpDescrObject? As_CtgrOutpDescr { get; }
-}
-
-public interface ItestCtgrOutpDescrObject
-  // No Base because it's Class
+internal class testCtgrOutpDescrDecoder
 {
 }

@@ -13,53 +13,22 @@ enum ParentCnstPrntEnumDual { parentCnstPrntEnumDual }
 
 namespace Components.Gqlp_Schema_constraint_parent_enum_Dual;
 
-public class CmptCnstPrntEnumDual
-  : Schema_constraint-parent-enum+Dual
-  , ICmptCnstPrntEnumDual
+internal class CmptCnstPrntEnumDualEncoder
 {
-  public ICmptRefCnstPrntEnumDual<CmptParentCnstPrntEnumDual>? AsParentCnstPrntEnumDualparentCnstPrntEnumDual { get; set; }
-  public ICmptCnstPrntEnumDualObject? As_CnstPrntEnumDual { get; set; }
 }
 
-public class CmptCnstPrntEnumDualObject
-  : Schema_constraint-parent-enum+Dual
-  , ICmptCnstPrntEnumDualObject
-{
-
-  public CmptCnstPrntEnumDualObject
-    ()
-  {
-  }
-}
-
-public class CmptRefCnstPrntEnumDual<TType>
-  : Schema_constraint-parent-enum+Dual
-  , ICmptRefCnstPrntEnumDual<TType>
-{
-  public ICmptRefCnstPrntEnumDualObject<TType>? As_RefCnstPrntEnumDual { get; set; }
-}
-
-public class CmptRefCnstPrntEnumDualObject<TType>
-  : Schema_constraint-parent-enum+Dual
-  , ICmptRefCnstPrntEnumDualObject<TType>
+internal class CmptRefCnstPrntEnumDualEncoder<TType>
 {
   public TType Field { get; set; }
-
-  public CmptRefCnstPrntEnumDualObject
-    ( TType field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum CmptEnumCnstPrntEnumDual
+internal class CmptEnumCnstPrntEnumDualEncoder
 {
-  parentCnstPrntEnumDual = CmptParentCnstPrntEnumDual.parentCnstPrntEnumDual,
-  cnstPrntEnumDual,
+  public string parentCnstPrntEnumDual { get; set; }
+  public string cnstPrntEnumDual { get; set; }
 }
 
-public enum CmptParentCnstPrntEnumDual
+internal class CmptParentCnstPrntEnumDualEncoder
 {
-  parentCnstPrntEnumDual,
+  public string parentCnstPrntEnumDual { get; set; }
 }

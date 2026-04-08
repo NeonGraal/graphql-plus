@@ -12,38 +12,10 @@ output RefObjPrntOutp { }
 
 namespace Components.Gqlp_Schema_object_parent_Output;
 
-public class CmptObjPrntOutp
-  : CmptRefObjPrntOutp
-  , ICmptObjPrntOutp
+internal class CmptObjPrntOutpEncoder
 {
-  public ICmptObjPrntOutpObject? As_ObjPrntOutp { get; set; }
 }
 
-public class CmptObjPrntOutpObject
-  : CmptRefObjPrntOutpObject
-  , ICmptObjPrntOutpObject
+internal class CmptRefObjPrntOutpEncoder
 {
-
-  public CmptObjPrntOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptRefObjPrntOutp
-  : Schema_object-parent+Output
-  , ICmptRefObjPrntOutp
-{
-  public ICmptRefObjPrntOutpObject? As_RefObjPrntOutp { get; set; }
-}
-
-public class CmptRefObjPrntOutpObject
-  : Schema_object-parent+Output
-  , ICmptRefObjPrntOutpObject
-{
-
-  public CmptRefObjPrntOutpObject
-    ()
-  {
-  }
 }

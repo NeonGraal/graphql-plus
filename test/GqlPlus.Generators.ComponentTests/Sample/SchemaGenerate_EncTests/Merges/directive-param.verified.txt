@@ -12,20 +12,6 @@ input InDrctParam { }
 
 namespace Components.Gqlp_Schema_directive_param;
 
-public class CmptInDrctParam
-  : Schema_directive-param
-  , ICmptInDrctParam
+internal class CmptInDrctParamEncoder
 {
-  public ICmptInDrctParamObject? As_InDrctParam { get; set; }
-}
-
-public class CmptInDrctParamObject
-  : Schema_directive-param
-  , ICmptInDrctParamObject
-{
-
-  public CmptInDrctParamObject
-    ()
-  {
-  }
 }

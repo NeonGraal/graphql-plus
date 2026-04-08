@@ -31,65 +31,32 @@ dual _Modifier<$modifierKind:_ModifierKind> {
 
 namespace Components.Gqlp_Spec_Built_In;
 
-public interface ICmpt_Collections
-  // No Base because it's Class
-{
-  ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindList { get; }
-  ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindDictionary { get; }
-  ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindTypeParam { get; }
-  ICmpt_CollectionsObject? As__Collections { get; }
-}
-
-public interface ICmpt_CollectionsObject
-  // No Base because it's Class
+internal class Cmpt_CollectionsDecoder
 {
 }
 
-public interface ICmpt_ModifierKeyed<TModifierKind>
-  : ICmpt_Modifier<TModifierKind>
+internal class Cmpt_ModifierKeyedDecoder<TModifierKind>
 {
-  ICmpt_ModifierKeyedObject<TModifierKind>? As__ModifierKeyed { get; }
+  public ICmpt_TypeSimple By { get; set; }
+  public bool IsOptional { get; set; }
 }
 
-public interface ICmpt_ModifierKeyedObject<TModifierKind>
-  : ICmpt_ModifierObject<TModifierKind>
-{
-  ICmpt_TypeSimple By { get; }
-  bool IsOptional { get; }
-}
-
-public interface ICmpt_Modifiers
-  // No Base because it's Class
-{
-  ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindOptional { get; }
-  ICmpt_Collections? As_Collections { get; }
-  ICmpt_ModifiersObject? As__Modifiers { get; }
-}
-
-public interface ICmpt_ModifiersObject
-  // No Base because it's Class
+internal class Cmpt_ModifiersDecoder
 {
 }
 
-public enum Cmpt_ModifierKind
+internal class Cmpt_ModifierKindDecoder
 {
-  Opt,
-  Optional = Opt,
-  List,
-  Dict,
-  Dictionary = Dict,
-  Param,
-  TypeParam = Param,
+  public string Opt { get; set; }
+  public string Optional { get; set; }
+  public string List { get; set; }
+  public string Dict { get; set; }
+  public string Dictionary { get; set; }
+  public string Param { get; set; }
+  public string TypeParam { get; set; }
 }
 
-public interface ICmpt_Modifier<TModifierKind>
-  // No Base because it's Class
+internal class Cmpt_ModifierDecoder<TModifierKind>
 {
-  ICmpt_ModifierObject<TModifierKind>? As__Modifier { get; }
-}
-
-public interface ICmpt_ModifierObject<TModifierKind>
-  // No Base because it's Class
-{
-  TModifierKind ModifierKind { get; }
+  public TModifierKind ModifierKind { get; set; }
 }

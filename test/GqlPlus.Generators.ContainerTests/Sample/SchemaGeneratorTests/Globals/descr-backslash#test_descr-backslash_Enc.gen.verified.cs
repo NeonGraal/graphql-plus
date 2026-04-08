@@ -7,20 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_descr_backslash;
 
-public class testDescrBcks
-  : GqlpEncoderBase
-  , ItestDescrBcks
+internal class testDescrBcksEncoder
 {
-  public ItestDescrBcksObject? As_DescrBcks { get; set; }
-}
-
-public class testDescrBcksObject
-  : GqlpEncoderBase
-  , ItestDescrBcksObject
-{
-
-  public testDescrBcksObject
-    ()
-  {
-  }
 }

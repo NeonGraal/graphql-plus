@@ -7,54 +7,21 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_dom_Input;
 
-public class testGnrcPrntEnumDomInp
-  : testFieldGnrcPrntEnumDomInp<ItestDomGnrcPrntEnumDomInp>
-  , ItestGnrcPrntEnumDomInp
+internal class testGnrcPrntEnumDomInpEncoder
 {
-  public ItestGnrcPrntEnumDomInpObject? As_GnrcPrntEnumDomInp { get; set; }
 }
 
-public class testGnrcPrntEnumDomInpObject
-  : testFieldGnrcPrntEnumDomInpObject<ItestDomGnrcPrntEnumDomInp>
-  , ItestGnrcPrntEnumDomInpObject
-{
-
-  public testGnrcPrntEnumDomInpObject
-    ( ItestDomGnrcPrntEnumDomInp field
-    ) : base(field)
-  {
-  }
-}
-
-public class testFieldGnrcPrntEnumDomInp<TRef>
-  : GqlpEncoderBase
-  , ItestFieldGnrcPrntEnumDomInp<TRef>
-{
-  public ItestFieldGnrcPrntEnumDomInpObject<TRef>? As_FieldGnrcPrntEnumDomInp { get; set; }
-}
-
-public class testFieldGnrcPrntEnumDomInpObject<TRef>
-  : GqlpEncoderBase
-  , ItestFieldGnrcPrntEnumDomInpObject<TRef>
+internal class testFieldGnrcPrntEnumDomInpEncoder<TRef>
 {
   public TRef Field { get; set; }
-
-  public testFieldGnrcPrntEnumDomInpObject
-    ( TRef field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum testEnumGnrcPrntEnumDomInp
+internal class testEnumGnrcPrntEnumDomInpEncoder
 {
-  gnrcPrntEnumDomInpLabel,
-  gnrcPrntEnumDomInpOther,
+  public string gnrcPrntEnumDomInpLabel { get; set; }
+  public string gnrcPrntEnumDomInpOther { get; set; }
 }
 
-public class testDomGnrcPrntEnumDomInp
-  : GqlpDomainEnum
-  , ItestDomGnrcPrntEnumDomInp
+internal class testDomGnrcPrntEnumDomInpEncoder
 {
 }

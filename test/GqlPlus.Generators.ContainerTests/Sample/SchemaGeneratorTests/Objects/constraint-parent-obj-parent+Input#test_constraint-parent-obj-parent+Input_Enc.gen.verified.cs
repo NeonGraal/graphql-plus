@@ -7,79 +7,19 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_obj_parent_Input;
 
-public class testCnstPrntObjPrntInp
-  : testRefCnstPrntObjPrntInp<ItestAltCnstPrntObjPrntInp>
-  , ItestCnstPrntObjPrntInp
+internal class testCnstPrntObjPrntInpEncoder
 {
-  public ItestCnstPrntObjPrntInpObject? As_CnstPrntObjPrntInp { get; set; }
 }
 
-public class testCnstPrntObjPrntInpObject
-  : testRefCnstPrntObjPrntInpObject<ItestAltCnstPrntObjPrntInp>
-  , ItestCnstPrntObjPrntInpObject
+internal class testRefCnstPrntObjPrntInpEncoder<TRef>
 {
-
-  public testCnstPrntObjPrntInpObject
-    ()
-  {
-  }
 }
 
-public class testRefCnstPrntObjPrntInp<TRef>
-  : GqlpEncoderBase
-  , ItestRefCnstPrntObjPrntInp<TRef>
+internal class testPrntCnstPrntObjPrntInpEncoder
 {
-  public TRef? As_Parent { get; set; }
-  public ItestRefCnstPrntObjPrntInpObject<TRef>? As_RefCnstPrntObjPrntInp { get; set; }
 }
 
-public class testRefCnstPrntObjPrntInpObject<TRef>
-  : GqlpEncoderBase
-  , ItestRefCnstPrntObjPrntInpObject<TRef>
-{
-
-  public testRefCnstPrntObjPrntInpObject
-    ()
-  {
-  }
-}
-
-public class testPrntCnstPrntObjPrntInp
-  : GqlpEncoderBase
-  , ItestPrntCnstPrntObjPrntInp
-{
-  public string? AsString { get; set; }
-  public ItestPrntCnstPrntObjPrntInpObject? As_PrntCnstPrntObjPrntInp { get; set; }
-}
-
-public class testPrntCnstPrntObjPrntInpObject
-  : GqlpEncoderBase
-  , ItestPrntCnstPrntObjPrntInpObject
-{
-
-  public testPrntCnstPrntObjPrntInpObject
-    ()
-  {
-  }
-}
-
-public class testAltCnstPrntObjPrntInp
-  : testPrntCnstPrntObjPrntInp
-  , ItestAltCnstPrntObjPrntInp
-{
-  public ItestAltCnstPrntObjPrntInpObject? As_AltCnstPrntObjPrntInp { get; set; }
-}
-
-public class testAltCnstPrntObjPrntInpObject
-  : testPrntCnstPrntObjPrntInpObject
-  , ItestAltCnstPrntObjPrntInpObject
+internal class testAltCnstPrntObjPrntInpEncoder
 {
   public decimal Alt { get; set; }
-
-  public testAltCnstPrntObjPrntInpObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

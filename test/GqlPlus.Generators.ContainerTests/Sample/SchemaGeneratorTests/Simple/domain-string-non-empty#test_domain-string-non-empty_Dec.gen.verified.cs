@@ -7,7 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_string_non_empty;
 
-public interface ItestDmnStrNonEmpty
-  : IGqlpDomainString
+internal class testDmnStrNonEmptyDecoder
 {
 }

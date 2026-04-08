@@ -7,8 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_enum_diff;
 
-public enum testEnumDiff
+internal class testEnumDiffEncoder
 {
-  one,
-  two,
+  public string one { get; set; }
+  public string two { get; set; }
 }

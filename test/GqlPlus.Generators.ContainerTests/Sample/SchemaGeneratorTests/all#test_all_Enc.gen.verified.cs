@@ -7,87 +7,35 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_all;
 
-public class testGuid
-  : GqlpDomainString
-  , ItestGuid
+internal class testGuidEncoder
 {
 }
 
-public enum testOne
+internal class testOneEncoder
 {
-  Two,
-  Three,
+  public string Two { get; set; }
+  public string Three { get; set; }
 }
 
-public class testMany
-  : GqlpEncoderBase
-  , ItestMany
+internal class testManyEncoder
 {
   public Guid AsGuid { get; set; }
   public Number AsNumber { get; set; }
 }
 
-public class testField
-  : GqlpEncoderBase
-  , ItestField
-{
-  public ItestFieldObject? As_Field { get; set; }
-}
-
-public class testFieldObject
-  : GqlpEncoderBase
-  , ItestFieldObject
+internal class testFieldEncoder
 {
   public ICollection<string> Strings { get; set; }
-
-  public testFieldObject
-    ( ICollection<string> strings
-    )
-  {
-    Strings = strings;
-  }
 }
 
-public class testParam
-  : GqlpEncoderBase
-  , ItestParam
-{
-  public string? AsString { get; set; }
-  public ItestParamObject? As_Param { get; set; }
-}
-
-public class testParamObject
-  : GqlpEncoderBase
-  , ItestParamObject
+internal class testParamEncoder
 {
   public ItestMany? AfterId { get; set; }
   public ItestMany BeforeId { get; set; }
-
-  public testParamObject
-    ( ItestMany beforeId
-    )
-  {
-    BeforeId = beforeId;
-  }
 }
 
-public class testAll
-  : GqlpEncoderBase
-  , ItestAll
-{
-  public string? AsString { get; set; }
-  public ItestAllObject? As_All { get; set; }
-}
-
-public class testAllObject
-  : GqlpEncoderBase
-  , ItestAllObject
+internal class testAllEncoder
 {
   public ItestField? Items(ItestParam? parameter)
     => null;
-
-  public testAllObject
-    ()
-  {
-  }
 }

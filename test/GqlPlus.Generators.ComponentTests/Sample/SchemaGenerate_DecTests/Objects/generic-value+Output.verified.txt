@@ -12,31 +12,16 @@ enum EnumGnrcValueOutp { gnrcValueOutp }
 
 namespace Components.Gqlp_Schema_generic_value_Output;
 
-public interface ICmptGnrcValueOutp
-  // No Base because it's Class
-{
-  ICmptRefGnrcValueOutp<CmptEnumGnrcValueOutp>? AsEnumGnrcValueOutpgnrcValueOutp { get; }
-  ICmptGnrcValueOutpObject? As_GnrcValueOutp { get; }
-}
-
-public interface ICmptGnrcValueOutpObject
-  // No Base because it's Class
+internal class CmptGnrcValueOutpDecoder
 {
 }
 
-public interface ICmptRefGnrcValueOutp<TType>
-  // No Base because it's Class
+internal class CmptRefGnrcValueOutpDecoder<TType>
 {
-  ICmptRefGnrcValueOutpObject<TType>? As_RefGnrcValueOutp { get; }
+  public TType Field { get; set; }
 }
 
-public interface ICmptRefGnrcValueOutpObject<TType>
-  // No Base because it's Class
+internal class CmptEnumGnrcValueOutpDecoder
 {
-  TType Field { get; }
-}
-
-public enum CmptEnumGnrcValueOutp
-{
-  gnrcValueOutp,
+  public string gnrcValueOutp { get; set; }
 }

@@ -12,39 +12,10 @@ dual ObjAltDualType { }
 
 namespace Components.Gqlp_Schema_object_alt_Dual;
 
-public class CmptObjAltDual
-  : Schema_object-alt+Dual
-  , ICmptObjAltDual
+internal class CmptObjAltDualEncoder
 {
-  public ICmptObjAltDualType? AsObjAltDualType { get; set; }
-  public ICmptObjAltDualObject? As_ObjAltDual { get; set; }
 }
 
-public class CmptObjAltDualObject
-  : Schema_object-alt+Dual
-  , ICmptObjAltDualObject
+internal class CmptObjAltDualTypeEncoder
 {
-
-  public CmptObjAltDualObject
-    ()
-  {
-  }
-}
-
-public class CmptObjAltDualType
-  : Schema_object-alt+Dual
-  , ICmptObjAltDualType
-{
-  public ICmptObjAltDualTypeObject? As_ObjAltDualType { get; set; }
-}
-
-public class CmptObjAltDualTypeObject
-  : Schema_object-alt+Dual
-  , ICmptObjAltDualTypeObject
-{
-
-  public CmptObjAltDualTypeObject
-    ()
-  {
-  }
 }

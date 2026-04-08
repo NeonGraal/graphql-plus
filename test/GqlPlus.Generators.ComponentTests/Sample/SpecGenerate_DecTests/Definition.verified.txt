@@ -38,123 +38,86 @@ union _Simple [Simple] { _Enum _Domain _Union }
 
 namespace Components.Gqlp_Spec_Definition;
 
-public enum bool
+internal class boolDecoder
 {
-  false,
-  true,
+  public string false { get; set; }
+  public string true { get; set; }
 }
 
-public enum GqlpNull
+internal class GqlpNullDecoder
 {
-  null,
+  public string null { get; set; }
 }
 
-public enum GqlpUnit
+internal class GqlpUnitDecoder
 {
-  _,
+  public string _ { get; set; }
 }
 
-public enum void
-{
-}
-
-public interface decimal
-  : IGqlpDomainNumber
+internal class voidDecoder
 {
 }
 
-public interface string
-  : IGqlpDomainString
+internal class decimalDecoder
 {
 }
 
-public interface ICmpt_Basic
-  // No Base because it's Class
-{
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
-  String AsString { get; }
-  Unit AsUnit { get; }
-}
-
-public interface ICmpt_Internal
-  // No Base because it's Class
-{
-  Null AsNull { get; }
-  Void AsVoid { get; }
-}
-
-public interface ICmpt_Key
-  // No Base because it's Class
-{
-  _Basic As_Basic { get; }
-  _Internal As_Internal { get; }
-  _Simple As_Simple { get; }
-}
-
-public interface ICmpt_Object
-  // No Base because it's Class
-{
-  ICmpt_ObjectObject? As__Object { get; }
-}
-
-public interface ICmpt_ObjectObject
-  // No Base because it's Class
+internal class stringDecoder
 {
 }
 
-public interface ICmpt_Domain
-  // No Base because it's Class
+internal class Cmpt_BasicDecoder
+{
+  public Boolean AsBoolean { get; set; }
+  public Number AsNumber { get; set; }
+  public String AsString { get; set; }
+  public Unit AsUnit { get; set; }
+}
+
+internal class Cmpt_InternalDecoder
+{
+  public Null AsNull { get; set; }
+  public Void AsVoid { get; set; }
+}
+
+internal class Cmpt_KeyDecoder
+{
+  public _Basic As_Basic { get; set; }
+  public _Internal As_Internal { get; set; }
+  public _Simple As_Simple { get; set; }
+}
+
+internal class Cmpt_ObjectDecoder
 {
 }
 
-public interface ICmpt_Dual
-  // No Base because it's Class
-{
-  ICmpt_DualObject? As__Dual { get; }
-}
-
-public interface ICmpt_DualObject
-  // No Base because it's Class
+internal class Cmpt_DomainDecoder
 {
 }
 
-public interface ICmpt_Enum
-  // No Base because it's Class
+internal class Cmpt_DualDecoder
 {
 }
 
-public interface ICmpt_Input
-  // No Base because it's Class
-{
-  ICmpt_InputObject? As__Input { get; }
-}
-
-public interface ICmpt_InputObject
-  // No Base because it's Class
+internal class Cmpt_EnumDecoder
 {
 }
 
-public interface ICmpt_Output
-  // No Base because it's Class
-{
-  ICmpt_OutputObject? As__Output { get; }
-}
-
-public interface ICmpt_OutputObject
-  // No Base because it's Class
+internal class Cmpt_InputDecoder
 {
 }
 
-public interface ICmpt_Union
-  // No Base because it's Class
+internal class Cmpt_OutputDecoder
 {
 }
 
-public interface ICmpt_Simple
-  // No Base because it's Class
+internal class Cmpt_UnionDecoder
 {
-  _Enum As_Enum { get; }
-  _Domain As_Domain { get; }
-  _Union As_Union { get; }
+}
+
+internal class Cmpt_SimpleDecoder
+{
+  public _Enum As_Enum { get; set; }
+  public _Domain As_Domain { get; set; }
+  public _Union As_Union { get; set; }
 }

@@ -7,14 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Option;
 
-public interface Itest_Setting
-  : Itest_Named
+internal class test_SettingDecoder
 {
-  Itest_SettingObject? As__Setting { get; }
-}
-
-public interface Itest_SettingObject
-  : Itest_NamedObject
-{
-  GqlpValue Value { get; }
+  public GqlpValue Value { get; set; }
 }

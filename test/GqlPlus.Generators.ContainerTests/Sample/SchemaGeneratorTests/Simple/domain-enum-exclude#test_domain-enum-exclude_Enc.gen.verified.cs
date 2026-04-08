@@ -7,15 +7,13 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_exclude;
 
-public class testDmnEnumExcl
-  : GqlpDomainEnum
-  , ItestDmnEnumExcl
+internal class testDmnEnumExclEncoder
 {
 }
 
-public enum testEnumDmnEnumExcl
+internal class testEnumDmnEnumExclEncoder
 {
-  dmnEnumExcl,
-  enum_dmnEnumExcl,
-  dmnEnumExclValue,
+  public string dmnEnumExcl { get; set; }
+  public string enum_dmnEnumExcl { get; set; }
+  public string dmnEnumExclValue { get; set; }
 }

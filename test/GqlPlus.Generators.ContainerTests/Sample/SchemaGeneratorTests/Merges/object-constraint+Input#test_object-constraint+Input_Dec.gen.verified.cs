@@ -7,15 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_constraint_Input;
 
-public interface ItestObjCnstInp<TType>
-  // No Base because it's Class
+internal class testObjCnstInpDecoder<TType>
 {
-  ItestObjCnstInpObject<TType>? As_ObjCnstInp { get; }
-}
-
-public interface ItestObjCnstInpObject<TType>
-  // No Base because it's Class
-{
-  TType Field { get; }
-  TType Str { get; }
+  public TType Field { get; set; }
+  public TType Str { get; set; }
 }

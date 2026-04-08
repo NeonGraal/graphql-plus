@@ -11,43 +11,11 @@ dual ObjDualAltDualOutp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_dual_Output;
 
-public class CmptAltDualOutp
-  : Schema_alt-dual+Output
-  , ICmptAltDualOutp
+internal class CmptAltDualOutpEncoder
 {
-  public ICmptObjDualAltDualOutp? AsObjDualAltDualOutp { get; set; }
-  public ICmptAltDualOutpObject? As_AltDualOutp { get; set; }
 }
 
-public class CmptAltDualOutpObject
-  : Schema_alt-dual+Output
-  , ICmptAltDualOutpObject
-{
-
-  public CmptAltDualOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjDualAltDualOutp
-  : Schema_alt-dual+Output
-  , ICmptObjDualAltDualOutp
-{
-  public string? AsString { get; set; }
-  public ICmptObjDualAltDualOutpObject? As_ObjDualAltDualOutp { get; set; }
-}
-
-public class CmptObjDualAltDualOutpObject
-  : Schema_alt-dual+Output
-  , ICmptObjDualAltDualOutpObject
+internal class CmptObjDualAltDualOutpEncoder
 {
   public decimal Alt { get; set; }
-
-  public CmptObjDualAltDualOutpObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

@@ -7,25 +7,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_alt_Input;
 
-public interface ItestObjAltInp
-  // No Base because it's Class
-{
-  ItestObjAltInpType? AsObjAltInpType { get; }
-  ItestObjAltInpObject? As_ObjAltInp { get; }
-}
-
-public interface ItestObjAltInpObject
-  // No Base because it's Class
+internal class testObjAltInpDecoder
 {
 }
 
-public interface ItestObjAltInpType
-  // No Base because it's Class
-{
-  ItestObjAltInpTypeObject? As_ObjAltInpType { get; }
-}
-
-public interface ItestObjAltInpTypeObject
-  // No Base because it's Class
+internal class testObjAltInpTypeDecoder
 {
 }

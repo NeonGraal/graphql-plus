@@ -7,23 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_type_alias_Output;
 
-public class testObjFieldTypeAliasOutp
-  : GqlpEncoderBase
-  , ItestObjFieldTypeAliasOutp
-{
-  public ItestObjFieldTypeAliasOutpObject? As_ObjFieldTypeAliasOutp { get; set; }
-}
-
-public class testObjFieldTypeAliasOutpObject
-  : GqlpEncoderBase
-  , ItestObjFieldTypeAliasOutpObject
+internal class testObjFieldTypeAliasOutpEncoder
 {
   public string Field { get; set; }
-
-  public testObjFieldTypeAliasOutpObject
-    ( string field
-    )
-  {
-    Field = field;
-  }
 }

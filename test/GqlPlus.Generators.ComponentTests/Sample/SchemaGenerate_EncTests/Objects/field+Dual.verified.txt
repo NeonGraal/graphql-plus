@@ -10,23 +10,7 @@ dual FieldDual { field: String }
 
 namespace Components.Gqlp_Schema_field_Dual;
 
-public class CmptFieldDual
-  : Schema_field+Dual
-  , ICmptFieldDual
-{
-  public ICmptFieldDualObject? As_FieldDual { get; set; }
-}
-
-public class CmptFieldDualObject
-  : Schema_field+Dual
-  , ICmptFieldDualObject
+internal class CmptFieldDualEncoder
 {
   public string Field { get; set; }
-
-  public CmptFieldDualObject
-    ( string field
-    )
-  {
-    Field = field;
-  }
 }

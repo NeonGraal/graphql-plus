@@ -7,13 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_descr_backslash;
 
-public interface ItestDescrBcks
-  // No Base because it's Class
-{
-  ItestDescrBcksObject? As_DescrBcks { get; }
-}
-
-public interface ItestDescrBcksObject
-  // No Base because it's Class
+internal class testDescrBcksDecoder
 {
 }

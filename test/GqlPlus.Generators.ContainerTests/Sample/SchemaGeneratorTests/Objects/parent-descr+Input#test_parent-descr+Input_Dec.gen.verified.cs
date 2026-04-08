@@ -7,26 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_parent_descr_Input;
 
-public interface ItestPrntDescrInp
-  : ItestRefPrntDescrInp
-{
-  ItestPrntDescrInpObject? As_PrntDescrInp { get; }
-}
-
-public interface ItestPrntDescrInpObject
-  : ItestRefPrntDescrInpObject
+internal class testPrntDescrInpDecoder
 {
 }
 
-public interface ItestRefPrntDescrInp
-  // No Base because it's Class
+internal class testRefPrntDescrInpDecoder
 {
-  string? AsString { get; }
-  ItestRefPrntDescrInpObject? As_RefPrntDescrInp { get; }
-}
-
-public interface ItestRefPrntDescrInpObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
+  public decimal Parent { get; set; }
 }

@@ -7,45 +7,12 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_dual_Output;
 
-public class testFieldDualOutp
-  : GqlpEncoderBase
-  , ItestFieldDualOutp
-{
-  public ItestFieldDualOutpObject? As_FieldDualOutp { get; set; }
-}
-
-public class testFieldDualOutpObject
-  : GqlpEncoderBase
-  , ItestFieldDualOutpObject
+internal class testFieldDualOutpEncoder
 {
   public ItestFldFieldDualOutp Field { get; set; }
-
-  public testFieldDualOutpObject
-    ( ItestFldFieldDualOutp field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class testFldFieldDualOutp
-  : GqlpEncoderBase
-  , ItestFldFieldDualOutp
-{
-  public string? AsString { get; set; }
-  public ItestFldFieldDualOutpObject? As_FldFieldDualOutp { get; set; }
-}
-
-public class testFldFieldDualOutpObject
-  : GqlpEncoderBase
-  , ItestFldFieldDualOutpObject
+internal class testFldFieldDualOutpEncoder
 {
   public decimal Field { get; set; }
-
-  public testFldFieldDualOutpObject
-    ( decimal field
-    )
-  {
-    Field = field;
-  }
 }

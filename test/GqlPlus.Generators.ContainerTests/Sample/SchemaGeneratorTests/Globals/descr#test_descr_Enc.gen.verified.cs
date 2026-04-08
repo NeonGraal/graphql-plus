@@ -7,20 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_descr;
 
-public class testDescr
-  : GqlpEncoderBase
-  , ItestDescr
+internal class testDescrEncoder
 {
-  public ItestDescrObject? As_Descr { get; set; }
-}
-
-public class testDescrObject
-  : GqlpEncoderBase
-  , ItestDescrObject
-{
-
-  public testDescrObject
-    ()
-  {
-  }
 }

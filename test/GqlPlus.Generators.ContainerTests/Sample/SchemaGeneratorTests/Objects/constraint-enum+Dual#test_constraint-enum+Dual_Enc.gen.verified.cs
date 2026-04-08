@@ -7,47 +7,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_enum_Dual;
 
-public class testCnstEnumDual
-  : GqlpEncoderBase
-  , ItestCnstEnumDual
+internal class testCnstEnumDualEncoder
 {
-  public ItestRefCnstEnumDual<testEnumCnstEnumDual>? AsEnumCnstEnumDualcnstEnumDual { get; set; }
-  public ItestCnstEnumDualObject? As_CnstEnumDual { get; set; }
 }
 
-public class testCnstEnumDualObject
-  : GqlpEncoderBase
-  , ItestCnstEnumDualObject
-{
-
-  public testCnstEnumDualObject
-    ()
-  {
-  }
-}
-
-public class testRefCnstEnumDual<TType>
-  : GqlpEncoderBase
-  , ItestRefCnstEnumDual<TType>
-{
-  public ItestRefCnstEnumDualObject<TType>? As_RefCnstEnumDual { get; set; }
-}
-
-public class testRefCnstEnumDualObject<TType>
-  : GqlpEncoderBase
-  , ItestRefCnstEnumDualObject<TType>
+internal class testRefCnstEnumDualEncoder<TType>
 {
   public TType Field { get; set; }
-
-  public testRefCnstEnumDualObject
-    ( TType field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum testEnumCnstEnumDual
+internal class testEnumCnstEnumDualEncoder
 {
-  cnstEnumDual,
+  public string cnstEnumDual { get; set; }
 }

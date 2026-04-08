@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_enum_alias;
 
-public enum testEnumAlias
+internal class testEnumAliasEncoder
 {
-  enumAlias,
+  public string enumAlias { get; set; }
 }

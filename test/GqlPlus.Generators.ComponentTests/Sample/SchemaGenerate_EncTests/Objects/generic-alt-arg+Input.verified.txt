@@ -11,40 +11,10 @@ input RefGnrcAltArgInp<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_alt_arg_Input;
 
-public class CmptGnrcAltArgInp<TType>
-  : Schema_generic-alt-arg+Input
-  , ICmptGnrcAltArgInp<TType>
+internal class CmptGnrcAltArgInpEncoder<TType>
 {
-  public ICmptRefGnrcAltArgInp<TType>? AsRefGnrcAltArgInp { get; set; }
-  public ICmptGnrcAltArgInpObject<TType>? As_GnrcAltArgInp { get; set; }
 }
 
-public class CmptGnrcAltArgInpObject<TType>
-  : Schema_generic-alt-arg+Input
-  , ICmptGnrcAltArgInpObject<TType>
+internal class CmptRefGnrcAltArgInpEncoder<TRef>
 {
-
-  public CmptGnrcAltArgInpObject
-    ()
-  {
-  }
-}
-
-public class CmptRefGnrcAltArgInp<TRef>
-  : Schema_generic-alt-arg+Input
-  , ICmptRefGnrcAltArgInp<TRef>
-{
-  public TRef? Asref { get; set; }
-  public ICmptRefGnrcAltArgInpObject<TRef>? As_RefGnrcAltArgInp { get; set; }
-}
-
-public class CmptRefGnrcAltArgInpObject<TRef>
-  : Schema_generic-alt-arg+Input
-  , ICmptRefGnrcAltArgInpObject<TRef>
-{
-
-  public CmptRefGnrcAltArgInpObject
-    ()
-  {
-  }
 }

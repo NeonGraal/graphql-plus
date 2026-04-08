@@ -7,13 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_descr;
 
-public class testDmnEnumDescr
-  : GqlpDomainEnum
-  , ItestDmnEnumDescr
+internal class testDmnEnumDescrEncoder
 {
 }
 
-public enum testEnumDmnEnumDescr
+internal class testEnumDmnEnumDescrEncoder
 {
-  dmnEnumDescr,
+  public string dmnEnumDescr { get; set; }
 }

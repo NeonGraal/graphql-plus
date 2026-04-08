@@ -7,38 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_dual_Dual;
 
-public interface ItestGnrcPrntDualDual
-  : ItestRefGnrcPrntDualDual<ItestAltGnrcPrntDualDual>
-{
-  ItestGnrcPrntDualDualObject? As_GnrcPrntDualDual { get; }
-}
-
-public interface ItestGnrcPrntDualDualObject
-  : ItestRefGnrcPrntDualDualObject<ItestAltGnrcPrntDualDual>
+internal class testGnrcPrntDualDualDecoder
 {
 }
 
-public interface ItestRefGnrcPrntDualDual<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcPrntDualDualObject<TRef>? As_RefGnrcPrntDualDual { get; }
-}
-
-public interface ItestRefGnrcPrntDualDualObject<TRef>
-  // No Base because it's Class
+internal class testRefGnrcPrntDualDualDecoder<TRef>
 {
 }
 
-public interface ItestAltGnrcPrntDualDual
-  // No Base because it's Class
+internal class testAltGnrcPrntDualDualDecoder
 {
-  string? AsString { get; }
-  ItestAltGnrcPrntDualDualObject? As_AltGnrcPrntDualDual { get; }
-}
-
-public interface ItestAltGnrcPrntDualDualObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

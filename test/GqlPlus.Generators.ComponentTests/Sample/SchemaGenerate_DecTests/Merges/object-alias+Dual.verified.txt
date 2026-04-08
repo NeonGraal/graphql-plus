@@ -11,13 +11,6 @@ dual ObjAliasDual [Dual2] { }
 
 namespace Components.Gqlp_Schema_object_alias_Dual;
 
-public interface ICmptObjAliasDual
-  // No Base because it's Class
-{
-  ICmptObjAliasDualObject? As_ObjAliasDual { get; }
-}
-
-public interface ICmptObjAliasDualObject
-  // No Base because it's Class
+internal class CmptObjAliasDualDecoder
 {
 }

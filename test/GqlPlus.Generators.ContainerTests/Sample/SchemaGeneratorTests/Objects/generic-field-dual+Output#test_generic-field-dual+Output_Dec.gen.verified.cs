@@ -7,39 +7,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_dual_Output;
 
-public interface ItestGnrcFieldDualOutp
-  // No Base because it's Class
+internal class testGnrcFieldDualOutpDecoder
 {
-  ItestGnrcFieldDualOutpObject? As_GnrcFieldDualOutp { get; }
+  public ItestRefGnrcFieldDualOutp<ItestAltGnrcFieldDualOutp> Field { get; set; }
 }
 
-public interface ItestGnrcFieldDualOutpObject
-  // No Base because it's Class
-{
-  ItestRefGnrcFieldDualOutp<ItestAltGnrcFieldDualOutp> Field { get; }
-}
-
-public interface ItestRefGnrcFieldDualOutp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcFieldDualOutpObject<TRef>? As_RefGnrcFieldDualOutp { get; }
-}
-
-public interface ItestRefGnrcFieldDualOutpObject<TRef>
-  // No Base because it's Class
+internal class testRefGnrcFieldDualOutpDecoder<TRef>
 {
 }
 
-public interface ItestAltGnrcFieldDualOutp
-  // No Base because it's Class
+internal class testAltGnrcFieldDualOutpDecoder
 {
-  string? AsString { get; }
-  ItestAltGnrcFieldDualOutpObject? As_AltGnrcFieldDualOutp { get; }
-}
-
-public interface ItestAltGnrcFieldDualOutpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

@@ -12,41 +12,11 @@ output FldObjFieldOutp { }
 
 namespace Components.Gqlp_Schema_object_field_Output;
 
-public class CmptObjFieldOutp
-  : Schema_object-field+Output
-  , ICmptObjFieldOutp
-{
-  public ICmptObjFieldOutpObject? As_ObjFieldOutp { get; set; }
-}
-
-public class CmptObjFieldOutpObject
-  : Schema_object-field+Output
-  , ICmptObjFieldOutpObject
+internal class CmptObjFieldOutpEncoder
 {
   public ICmptFldObjFieldOutp Field { get; set; }
-
-  public CmptObjFieldOutpObject
-    ( ICmptFldObjFieldOutp field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptFldObjFieldOutp
-  : Schema_object-field+Output
-  , ICmptFldObjFieldOutp
+internal class CmptFldObjFieldOutpEncoder
 {
-  public ICmptFldObjFieldOutpObject? As_FldObjFieldOutp { get; set; }
-}
-
-public class CmptFldObjFieldOutpObject
-  : Schema_object-field+Output
-  , ICmptFldObjFieldOutpObject
-{
-
-  public CmptFldObjFieldOutpObject
-    ()
-  {
-  }
 }

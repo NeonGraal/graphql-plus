@@ -11,13 +11,6 @@ output DescrBcks { }
 
 namespace Components.Gqlp_Schema_descr_backslash;
 
-public interface ICmptDescrBcks
-  // No Base because it's Class
-{
-  ICmptDescrBcksObject? As_DescrBcks { get; }
-}
-
-public interface ICmptDescrBcksObject
-  // No Base because it's Class
+internal class CmptDescrBcksDecoder
 {
 }

@@ -7,50 +7,19 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_dual_Dual;
 
-public interface ItestCnstAltDualDual
-  // No Base because it's Class
-{
-  ItestRefCnstAltDualDual<ItestAltCnstAltDualDual>? AsRefCnstAltDualDual { get; }
-  ItestCnstAltDualDualObject? As_CnstAltDualDual { get; }
-}
-
-public interface ItestCnstAltDualDualObject
-  // No Base because it's Class
+internal class testCnstAltDualDualDecoder
 {
 }
 
-public interface ItestRefCnstAltDualDual<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefCnstAltDualDualObject<TRef>? As_RefCnstAltDualDual { get; }
-}
-
-public interface ItestRefCnstAltDualDualObject<TRef>
-  // No Base because it's Class
+internal class testRefCnstAltDualDualDecoder<TRef>
 {
 }
 
-public interface ItestPrntCnstAltDualDual
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestPrntCnstAltDualDualObject? As_PrntCnstAltDualDual { get; }
-}
-
-public interface ItestPrntCnstAltDualDualObject
-  // No Base because it's Class
+internal class testPrntCnstAltDualDualDecoder
 {
 }
 
-public interface ItestAltCnstAltDualDual
-  : ItestPrntCnstAltDualDual
+internal class testAltCnstAltDualDualDecoder
 {
-  ItestAltCnstAltDualDualObject? As_AltCnstAltDualDual { get; }
-}
-
-public interface ItestAltCnstAltDualDualObject
-  : ItestPrntCnstAltDualDualObject
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

@@ -11,8 +11,6 @@ domain DmnStr { string }
 
 namespace Components.Gqlp_Schema_domain_string;
 
-public class CmptDmnStr
-  : GqlpDomainString
-  , ICmptDmnStr
+internal class CmptDmnStrEncoder
 {
 }

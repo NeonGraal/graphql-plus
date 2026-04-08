@@ -7,21 +7,20 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_unique;
 
-public interface ItestDmnEnumUnq
-  : IGqlpDomainEnum
+internal class testDmnEnumUnqDecoder
 {
 }
 
-public enum testEnumDmnEnumUnq
+internal class testEnumDmnEnumUnqDecoder
 {
-  enum_dmnEnumUnq,
-  dmnEnumUnq,
-  dmnEnumUnqValue,
+  public string enum_dmnEnumUnq { get; set; }
+  public string dmnEnumUnq { get; set; }
+  public string dmnEnumUnqValue { get; set; }
 }
 
-public enum testDupDmnEnumUnq
+internal class testDupDmnEnumUnqDecoder
 {
-  dmnEnumUnq,
-  dup_dmnEnumUnq,
-  dmnEnumUnqDup,
+  public string dmnEnumUnq { get; set; }
+  public string dup_dmnEnumUnq { get; set; }
+  public string dmnEnumUnqDup { get; set; }
 }

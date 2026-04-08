@@ -7,26 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_param_dup_Output;
 
-public class testObjParamDupOutp<TTest>
-  : GqlpEncoderBase
-  , ItestObjParamDupOutp<TTest>
-{
-  public ItestObjParamDupOutpObject<TTest>? As_ObjParamDupOutp { get; set; }
-}
-
-public class testObjParamDupOutpObject<TTest>
-  : GqlpEncoderBase
-  , ItestObjParamDupOutpObject<TTest>
+internal class testObjParamDupOutpEncoder<TTest>
 {
   public TTest Test { get; set; }
   public TTest Type { get; set; }
-
-  public testObjParamDupOutpObject
-    ( TTest test
-    , TTest type
-    )
-  {
-    Test = test;
-    Type = type;
-  }
 }

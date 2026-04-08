@@ -7,27 +7,12 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_dual_Input;
 
-public interface ItestFieldDualInp
-  // No Base because it's Class
+internal class testFieldDualInpDecoder
 {
-  ItestFieldDualInpObject? As_FieldDualInp { get; }
+  public ItestFldFieldDualInp Field { get; set; }
 }
 
-public interface ItestFieldDualInpObject
-  // No Base because it's Class
+internal class testFldFieldDualInpDecoder
 {
-  ItestFldFieldDualInp Field { get; }
-}
-
-public interface ItestFldFieldDualInp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestFldFieldDualInpObject? As_FldFieldDualInp { get; }
-}
-
-public interface ItestFldFieldDualInpObject
-  // No Base because it's Class
-{
-  decimal Field { get; }
+  public decimal Field { get; set; }
 }

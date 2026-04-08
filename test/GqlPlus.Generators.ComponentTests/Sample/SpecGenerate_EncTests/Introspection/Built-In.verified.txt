@@ -31,100 +31,32 @@ dual _Modifier<$modifierKind:_ModifierKind> {
 
 namespace Components.Gqlp_Spec_Built_In;
 
-public class Cmpt_Collections
-  : Spec_Built-In
-  , ICmpt_Collections
+internal class Cmpt_CollectionsEncoder
 {
-  public ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindList { get; set; }
-  public ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindDictionary { get; set; }
-  public ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindTypeParam { get; set; }
-  public ICmpt_CollectionsObject? As__Collections { get; set; }
 }
 
-public class Cmpt_CollectionsObject
-  : Spec_Built-In
-  , ICmpt_CollectionsObject
-{
-
-  public Cmpt_CollectionsObject
-    ()
-  {
-  }
-}
-
-public class Cmpt_ModifierKeyed<TModifierKind>
-  : Cmpt_Modifier<TModifierKind>
-  , ICmpt_ModifierKeyed<TModifierKind>
-{
-  public ICmpt_ModifierKeyedObject<TModifierKind>? As__ModifierKeyed { get; set; }
-}
-
-public class Cmpt_ModifierKeyedObject<TModifierKind>
-  : Cmpt_ModifierObject<TModifierKind>
-  , ICmpt_ModifierKeyedObject<TModifierKind>
+internal class Cmpt_ModifierKeyedEncoder<TModifierKind>
 {
   public ICmpt_TypeSimple By { get; set; }
   public bool IsOptional { get; set; }
-
-  public Cmpt_ModifierKeyedObject
-    ( TModifierKind modifierKind
-    , ICmpt_TypeSimple by
-    , bool isOptional
-    ) : base(modifierKind)
-  {
-    By = by;
-    IsOptional = isOptional;
-  }
 }
 
-public class Cmpt_Modifiers
-  : Spec_Built-In
-  , ICmpt_Modifiers
+internal class Cmpt_ModifiersEncoder
 {
-  public ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindOptional { get; set; }
-  public ICmpt_Collections? As_Collections { get; set; }
-  public ICmpt_ModifiersObject? As__Modifiers { get; set; }
 }
 
-public class Cmpt_ModifiersObject
-  : Spec_Built-In
-  , ICmpt_ModifiersObject
+internal class Cmpt_ModifierKindEncoder
 {
-
-  public Cmpt_ModifiersObject
-    ()
-  {
-  }
+  public string Opt { get; set; }
+  public string Optional { get; set; }
+  public string List { get; set; }
+  public string Dict { get; set; }
+  public string Dictionary { get; set; }
+  public string Param { get; set; }
+  public string TypeParam { get; set; }
 }
 
-public enum Cmpt_ModifierKind
-{
-  Opt,
-  Optional = Opt,
-  List,
-  Dict,
-  Dictionary = Dict,
-  Param,
-  TypeParam = Param,
-}
-
-public class Cmpt_Modifier<TModifierKind>
-  : Spec_Built-In
-  , ICmpt_Modifier<TModifierKind>
-{
-  public ICmpt_ModifierObject<TModifierKind>? As__Modifier { get; set; }
-}
-
-public class Cmpt_ModifierObject<TModifierKind>
-  : Spec_Built-In
-  , ICmpt_ModifierObject<TModifierKind>
+internal class Cmpt_ModifierEncoder<TModifierKind>
 {
   public TModifierKind ModifierKind { get; set; }
-
-  public Cmpt_ModifierObject
-    ( TModifierKind modifierKind
-    )
-  {
-    ModifierKind = modifierKind;
-  }
 }

@@ -7,21 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_simple_Dual;
 
-public class testAltSmplDual
-  : GqlpEncoderBase
-  , ItestAltSmplDual
+internal class testAltSmplDualEncoder
 {
-  public string? AsString { get; set; }
-  public ItestAltSmplDualObject? As_AltSmplDual { get; set; }
-}
-
-public class testAltSmplDualObject
-  : GqlpEncoderBase
-  , ItestAltSmplDualObject
-{
-
-  public testAltSmplDualObject
-    ()
-  {
-  }
 }

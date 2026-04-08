@@ -7,14 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_Input;
 
-public interface ItestGnrcPrntInp<TType>
-  // No Base because it's Class
-{
-  TType? As_Parent { get; }
-  ItestGnrcPrntInpObject<TType>? As_GnrcPrntInp { get; }
-}
-
-public interface ItestGnrcPrntInpObject<TType>
-  // No Base because it's Class
+internal class testGnrcPrntInpDecoder<TType>
 {
 }

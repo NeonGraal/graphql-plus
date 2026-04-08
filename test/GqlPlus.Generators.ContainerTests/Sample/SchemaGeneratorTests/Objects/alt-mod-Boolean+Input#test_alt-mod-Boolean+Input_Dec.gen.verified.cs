@@ -7,27 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_Boolean_Input;
 
-public interface ItestAltModBoolInp
-  // No Base because it's Class
-{
-  IDictionary<bool, ItestAltAltModBoolInp>? AsAltAltModBoolInp { get; }
-  ItestAltModBoolInpObject? As_AltModBoolInp { get; }
-}
-
-public interface ItestAltModBoolInpObject
-  // No Base because it's Class
+internal class testAltModBoolInpDecoder
 {
 }
 
-public interface ItestAltAltModBoolInp
-  // No Base because it's Class
+internal class testAltAltModBoolInpDecoder
 {
-  string? AsString { get; }
-  ItestAltAltModBoolInpObject? As_AltAltModBoolInp { get; }
-}
-
-public interface ItestAltAltModBoolInpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

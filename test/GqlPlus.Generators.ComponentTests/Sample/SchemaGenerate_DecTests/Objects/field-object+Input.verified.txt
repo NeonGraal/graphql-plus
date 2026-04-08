@@ -11,27 +11,12 @@ input FldFieldObjInp { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_object_Input;
 
-public interface ICmptFieldObjInp
-  // No Base because it's Class
+internal class CmptFieldObjInpDecoder
 {
-  ICmptFieldObjInpObject? As_FieldObjInp { get; }
+  public ICmptFldFieldObjInp Field { get; set; }
 }
 
-public interface ICmptFieldObjInpObject
-  // No Base because it's Class
+internal class CmptFldFieldObjInpDecoder
 {
-  ICmptFldFieldObjInp Field { get; }
-}
-
-public interface ICmptFldFieldObjInp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ICmptFldFieldObjInpObject? As_FldFieldObjInp { get; }
-}
-
-public interface ICmptFldFieldObjInpObject
-  // No Base because it's Class
-{
-  decimal Field { get; }
+  public decimal Field { get; set; }
 }

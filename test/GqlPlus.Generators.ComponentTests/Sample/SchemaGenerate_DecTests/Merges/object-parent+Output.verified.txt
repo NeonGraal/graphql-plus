@@ -12,24 +12,10 @@ output RefObjPrntOutp { }
 
 namespace Components.Gqlp_Schema_object_parent_Output;
 
-public interface ICmptObjPrntOutp
-  : ICmptRefObjPrntOutp
-{
-  ICmptObjPrntOutpObject? As_ObjPrntOutp { get; }
-}
-
-public interface ICmptObjPrntOutpObject
-  : ICmptRefObjPrntOutpObject
+internal class CmptObjPrntOutpDecoder
 {
 }
 
-public interface ICmptRefObjPrntOutp
-  // No Base because it's Class
-{
-  ICmptRefObjPrntOutpObject? As_RefObjPrntOutp { get; }
-}
-
-public interface ICmptRefObjPrntOutpObject
-  // No Base because it's Class
+internal class CmptRefObjPrntOutpDecoder
 {
 }

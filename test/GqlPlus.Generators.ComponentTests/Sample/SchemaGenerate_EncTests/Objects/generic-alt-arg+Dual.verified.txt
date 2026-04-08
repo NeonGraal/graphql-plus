@@ -11,40 +11,10 @@ dual RefGnrcAltArgDual<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_alt_arg_Dual;
 
-public class CmptGnrcAltArgDual<TType>
-  : Schema_generic-alt-arg+Dual
-  , ICmptGnrcAltArgDual<TType>
+internal class CmptGnrcAltArgDualEncoder<TType>
 {
-  public ICmptRefGnrcAltArgDual<TType>? AsRefGnrcAltArgDual { get; set; }
-  public ICmptGnrcAltArgDualObject<TType>? As_GnrcAltArgDual { get; set; }
 }
 
-public class CmptGnrcAltArgDualObject<TType>
-  : Schema_generic-alt-arg+Dual
-  , ICmptGnrcAltArgDualObject<TType>
+internal class CmptRefGnrcAltArgDualEncoder<TRef>
 {
-
-  public CmptGnrcAltArgDualObject
-    ()
-  {
-  }
-}
-
-public class CmptRefGnrcAltArgDual<TRef>
-  : Schema_generic-alt-arg+Dual
-  , ICmptRefGnrcAltArgDual<TRef>
-{
-  public TRef? Asref { get; set; }
-  public ICmptRefGnrcAltArgDualObject<TRef>? As_RefGnrcAltArgDual { get; set; }
-}
-
-public class CmptRefGnrcAltArgDualObject<TRef>
-  : Schema_generic-alt-arg+Dual
-  , ICmptRefGnrcAltArgDualObject<TRef>
-{
-
-  public CmptRefGnrcAltArgDualObject
-    ()
-  {
-  }
 }

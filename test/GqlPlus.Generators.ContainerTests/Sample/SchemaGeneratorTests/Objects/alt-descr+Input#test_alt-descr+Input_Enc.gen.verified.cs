@@ -7,21 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_descr_Input;
 
-public class testAltDescrInp
-  : GqlpEncoderBase
-  , ItestAltDescrInp
+internal class testAltDescrInpEncoder
 {
-  public string? AsString { get; set; }
-  public ItestAltDescrInpObject? As_AltDescrInp { get; set; }
-}
-
-public class testAltDescrInpObject
-  : GqlpEncoderBase
-  , ItestAltDescrInpObject
-{
-
-  public testAltDescrInpObject
-    ()
-  {
-  }
 }

@@ -11,13 +11,6 @@ input InDrctParamList { }
 
 namespace Components.Gqlp_Schema_directive_param_list;
 
-public interface ICmptInDrctParamList
-  // No Base because it's Class
-{
-  ICmptInDrctParamListObject? As_InDrctParamList { get; }
-}
-
-public interface ICmptInDrctParamListObject
-  // No Base because it's Class
+internal class CmptInDrctParamListDecoder
 {
 }

@@ -7,41 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_Dual;
 
-public class testObjFieldDual
-  : GqlpEncoderBase
-  , ItestObjFieldDual
-{
-  public ItestObjFieldDualObject? As_ObjFieldDual { get; set; }
-}
-
-public class testObjFieldDualObject
-  : GqlpEncoderBase
-  , ItestObjFieldDualObject
+internal class testObjFieldDualEncoder
 {
   public ItestFldObjFieldDual Field { get; set; }
-
-  public testObjFieldDualObject
-    ( ItestFldObjFieldDual field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class testFldObjFieldDual
-  : GqlpEncoderBase
-  , ItestFldObjFieldDual
+internal class testFldObjFieldDualEncoder
 {
-  public ItestFldObjFieldDualObject? As_FldObjFieldDual { get; set; }
-}
-
-public class testFldObjFieldDualObject
-  : GqlpEncoderBase
-  , ItestFldObjFieldDualObject
-{
-
-  public testFldObjFieldDualObject
-    ()
-  {
-  }
 }

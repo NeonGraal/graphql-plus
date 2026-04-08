@@ -7,28 +7,12 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_input_field_Enum;
 
-public class testInpFieldEnum
-  : GqlpEncoderBase
-  , ItestInpFieldEnum
-{
-  public ItestInpFieldEnumObject? As_InpFieldEnum { get; set; }
-}
-
-public class testInpFieldEnumObject
-  : GqlpEncoderBase
-  , ItestInpFieldEnumObject
+internal class testInpFieldEnumEncoder
 {
   public testEnumInpFieldEnum Field { get; set; }
-
-  public testInpFieldEnumObject
-    ( testEnumInpFieldEnum field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum testEnumInpFieldEnum
+internal class testEnumInpFieldEnumEncoder
 {
-  inpFieldEnum,
+  public string inpFieldEnum { get; set; }
 }

@@ -11,25 +11,10 @@ input RefGnrcPrntArgInp<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_parent_arg_Input;
 
-public interface ICmptGnrcPrntArgInp<TType>
-  : ICmptRefGnrcPrntArgInp<TType>
-{
-  ICmptGnrcPrntArgInpObject<TType>? As_GnrcPrntArgInp { get; }
-}
-
-public interface ICmptGnrcPrntArgInpObject<TType>
-  : ICmptRefGnrcPrntArgInpObject<TType>
+internal class CmptGnrcPrntArgInpDecoder<TType>
 {
 }
 
-public interface ICmptRefGnrcPrntArgInp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ICmptRefGnrcPrntArgInpObject<TRef>? As_RefGnrcPrntArgInp { get; }
-}
-
-public interface ICmptRefGnrcPrntArgInpObject<TRef>
-  // No Base because it's Class
+internal class CmptRefGnrcPrntArgInpDecoder<TRef>
 {
 }

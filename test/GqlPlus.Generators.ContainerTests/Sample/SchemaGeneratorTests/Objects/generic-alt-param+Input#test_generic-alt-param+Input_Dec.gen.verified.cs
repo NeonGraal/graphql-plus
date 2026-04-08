@@ -7,39 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_param_Input;
 
-public interface ItestGnrcAltParamInp
-  // No Base because it's Class
-{
-  ItestRefGnrcAltParamInp<ItestAltGnrcAltParamInp>? AsRefGnrcAltParamInp { get; }
-  ItestGnrcAltParamInpObject? As_GnrcAltParamInp { get; }
-}
-
-public interface ItestGnrcAltParamInpObject
-  // No Base because it's Class
+internal class testGnrcAltParamInpDecoder
 {
 }
 
-public interface ItestRefGnrcAltParamInp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcAltParamInpObject<TRef>? As_RefGnrcAltParamInp { get; }
-}
-
-public interface ItestRefGnrcAltParamInpObject<TRef>
-  // No Base because it's Class
+internal class testRefGnrcAltParamInpDecoder<TRef>
 {
 }
 
-public interface ItestAltGnrcAltParamInp
-  // No Base because it's Class
+internal class testAltGnrcAltParamInpDecoder
 {
-  string? AsString { get; }
-  ItestAltGnrcAltParamInpObject? As_AltGnrcAltParamInp { get; }
-}
-
-public interface ItestAltGnrcAltParamInpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

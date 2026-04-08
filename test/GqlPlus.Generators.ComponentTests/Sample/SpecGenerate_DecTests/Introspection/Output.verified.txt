@@ -17,25 +17,11 @@ output _OutputFieldType {
 
 namespace Components.Gqlp_Spec_Output;
 
-public interface ICmpt_OutputField
-  : ICmpt_ObjField<ICmpt_ObjFieldType>
-{
-  ICmpt_OutputFieldObject? As__OutputField { get; }
-}
-
-public interface ICmpt_OutputFieldObject
-  : ICmpt_ObjFieldObject<ICmpt_ObjFieldType>
+internal class Cmpt_OutputFieldDecoder
 {
 }
 
-public interface ICmpt_OutputFieldType
-  : ICmpt_ObjFieldType
+internal class Cmpt_OutputFieldTypeDecoder
 {
-  ICmpt_OutputFieldTypeObject? As__OutputFieldType { get; }
-}
-
-public interface ICmpt_OutputFieldTypeObject
-  : ICmpt_ObjFieldTypeObject
-{
-  ICmpt_InputFieldType? Parameter { get; }
+  public ICmpt_InputFieldType? Parameter { get; set; }
 }

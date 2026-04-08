@@ -12,61 +12,15 @@ dual AltGnrcPrntDualInp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_parent_dual_Input;
 
-public class CmptGnrcPrntDualInp
-  : CmptRefGnrcPrntDualInp<ICmptAltGnrcPrntDualInp>
-  , ICmptGnrcPrntDualInp
+internal class CmptGnrcPrntDualInpEncoder
 {
-  public ICmptGnrcPrntDualInpObject? As_GnrcPrntDualInp { get; set; }
 }
 
-public class CmptGnrcPrntDualInpObject
-  : CmptRefGnrcPrntDualInpObject<ICmptAltGnrcPrntDualInp>
-  , ICmptGnrcPrntDualInpObject
+internal class CmptRefGnrcPrntDualInpEncoder<TRef>
 {
-
-  public CmptGnrcPrntDualInpObject
-    ()
-  {
-  }
 }
 
-public class CmptRefGnrcPrntDualInp<TRef>
-  : Schema_generic-parent-dual+Input
-  , ICmptRefGnrcPrntDualInp<TRef>
-{
-  public TRef? Asref { get; set; }
-  public ICmptRefGnrcPrntDualInpObject<TRef>? As_RefGnrcPrntDualInp { get; set; }
-}
-
-public class CmptRefGnrcPrntDualInpObject<TRef>
-  : Schema_generic-parent-dual+Input
-  , ICmptRefGnrcPrntDualInpObject<TRef>
-{
-
-  public CmptRefGnrcPrntDualInpObject
-    ()
-  {
-  }
-}
-
-public class CmptAltGnrcPrntDualInp
-  : Schema_generic-parent-dual+Input
-  , ICmptAltGnrcPrntDualInp
-{
-  public string? AsString { get; set; }
-  public ICmptAltGnrcPrntDualInpObject? As_AltGnrcPrntDualInp { get; set; }
-}
-
-public class CmptAltGnrcPrntDualInpObject
-  : Schema_generic-parent-dual+Input
-  , ICmptAltGnrcPrntDualInpObject
+internal class CmptAltGnrcPrntDualInpEncoder
 {
   public decimal Alt { get; set; }
-
-  public CmptAltGnrcPrntDualInpObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

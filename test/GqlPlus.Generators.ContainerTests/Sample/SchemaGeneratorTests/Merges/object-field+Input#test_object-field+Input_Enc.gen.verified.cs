@@ -7,41 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_Input;
 
-public class testObjFieldInp
-  : GqlpEncoderBase
-  , ItestObjFieldInp
-{
-  public ItestObjFieldInpObject? As_ObjFieldInp { get; set; }
-}
-
-public class testObjFieldInpObject
-  : GqlpEncoderBase
-  , ItestObjFieldInpObject
+internal class testObjFieldInpEncoder
 {
   public ItestFldObjFieldInp Field { get; set; }
-
-  public testObjFieldInpObject
-    ( ItestFldObjFieldInp field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class testFldObjFieldInp
-  : GqlpEncoderBase
-  , ItestFldObjFieldInp
+internal class testFldObjFieldInpEncoder
 {
-  public ItestFldObjFieldInpObject? As_FldObjFieldInp { get; set; }
-}
-
-public class testFldObjFieldInpObject
-  : GqlpEncoderBase
-  , ItestFldObjFieldInpObject
-{
-
-  public testFldObjFieldInpObject
-    ()
-  {
-  }
 }

@@ -7,39 +7,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_alt_Dual;
 
-public class testObjAltDual
-  : GqlpEncoderBase
-  , ItestObjAltDual
+internal class testObjAltDualEncoder
 {
-  public ItestObjAltDualType? AsObjAltDualType { get; set; }
-  public ItestObjAltDualObject? As_ObjAltDual { get; set; }
 }
 
-public class testObjAltDualObject
-  : GqlpEncoderBase
-  , ItestObjAltDualObject
+internal class testObjAltDualTypeEncoder
 {
-
-  public testObjAltDualObject
-    ()
-  {
-  }
-}
-
-public class testObjAltDualType
-  : GqlpEncoderBase
-  , ItestObjAltDualType
-{
-  public ItestObjAltDualTypeObject? As_ObjAltDualType { get; set; }
-}
-
-public class testObjAltDualTypeObject
-  : GqlpEncoderBase
-  , ItestObjAltDualTypeObject
-{
-
-  public testObjAltDualTypeObject
-    ()
-  {
-  }
 }

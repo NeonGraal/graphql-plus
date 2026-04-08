@@ -11,19 +11,11 @@ enum EnumAltEnumDual { altEnumDual }
 
 namespace Components.Gqlp_Schema_alt_enum_Dual;
 
-public interface ICmptAltEnumDual
-  // No Base because it's Class
-{
-  CmptEnumAltEnumDual? AsEnumAltEnumDualaltEnumDual { get; }
-  ICmptAltEnumDualObject? As_AltEnumDual { get; }
-}
-
-public interface ICmptAltEnumDualObject
-  // No Base because it's Class
+internal class CmptAltEnumDualDecoder
 {
 }
 
-public enum CmptEnumAltEnumDual
+internal class CmptEnumAltEnumDualDecoder
 {
-  altEnumDual,
+  public string altEnumDual { get; set; }
 }

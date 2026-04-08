@@ -7,20 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_alias_Dual;
 
-public class testObjAliasDual
-  : GqlpEncoderBase
-  , ItestObjAliasDual
+internal class testObjAliasDualEncoder
 {
-  public ItestObjAliasDualObject? As_ObjAliasDual { get; set; }
-}
-
-public class testObjAliasDualObject
-  : GqlpEncoderBase
-  , ItestObjAliasDualObject
-{
-
-  public testObjAliasDualObject
-    ()
-  {
-  }
 }

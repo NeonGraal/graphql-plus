@@ -11,13 +11,6 @@ input InDrctParamDict { }
 
 namespace Components.Gqlp_Schema_directive_param_dict;
 
-public interface ICmptInDrctParamDict
-  // No Base because it's Class
-{
-  ICmptInDrctParamDictObject? As_InDrctParamDict { get; }
-}
-
-public interface ICmptInDrctParamDictObject
-  // No Base because it's Class
+internal class CmptInDrctParamDictDecoder
 {
 }

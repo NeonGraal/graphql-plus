@@ -7,63 +7,28 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_output_parent_param;
 
-public interface ItestOutpPrntParam
-  : ItestPrntOutpPrntParam
+internal class testOutpPrntParamDecoder
 {
-  ItestOutpPrntParamObject? As_OutpPrntParam { get; }
+  public ItestFldOutpPrntParam? Field(ItestInOutpPrntParam parameter)
+    => null;
 }
 
-public interface ItestOutpPrntParamObject
-  : ItestPrntOutpPrntParamObject
+internal class testPrntOutpPrntParamDecoder
 {
-  ItestFldOutpPrntParam? Field(ItestInOutpPrntParam parameter);
+  public ItestFldOutpPrntParam? Field(ItestPrntOutpPrntParamIn parameter)
+    => null;
 }
 
-public interface ItestPrntOutpPrntParam
-  // No Base because it's Class
-{
-  ItestPrntOutpPrntParamObject? As_PrntOutpPrntParam { get; }
-}
-
-public interface ItestPrntOutpPrntParamObject
-  // No Base because it's Class
-{
-  ItestFldOutpPrntParam? Field(ItestPrntOutpPrntParamIn parameter);
-}
-
-public interface ItestFldOutpPrntParam
-  // No Base because it's Class
-{
-  ItestFldOutpPrntParamObject? As_FldOutpPrntParam { get; }
-}
-
-public interface ItestFldOutpPrntParamObject
-  // No Base because it's Class
+internal class testFldOutpPrntParamDecoder
 {
 }
 
-public interface ItestInOutpPrntParam
-  // No Base because it's Class
+internal class testInOutpPrntParamDecoder
 {
-  string? AsString { get; }
-  ItestInOutpPrntParamObject? As_InOutpPrntParam { get; }
+  public decimal Param { get; set; }
 }
 
-public interface ItestInOutpPrntParamObject
-  // No Base because it's Class
+internal class testPrntOutpPrntParamInDecoder
 {
-  decimal Param { get; }
-}
-
-public interface ItestPrntOutpPrntParamIn
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestPrntOutpPrntParamInObject? As_PrntOutpPrntParamIn { get; }
-}
-
-public interface ItestPrntOutpPrntParamInObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
+  public decimal Parent { get; set; }
 }

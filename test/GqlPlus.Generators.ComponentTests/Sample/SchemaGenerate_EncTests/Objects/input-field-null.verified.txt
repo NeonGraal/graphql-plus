@@ -11,39 +11,11 @@ dual FldInpFieldNull { }
 
 namespace Components.Gqlp_Schema_input_field_null;
 
-public class CmptInpFieldNull
-  : Schema_input-field-null
-  , ICmptInpFieldNull
-{
-  public ICmptInpFieldNullObject? As_InpFieldNull { get; set; }
-}
-
-public class CmptInpFieldNullObject
-  : Schema_input-field-null
-  , ICmptInpFieldNullObject
+internal class CmptInpFieldNullEncoder
 {
   public ICmptFldInpFieldNull? Field { get; set; }
-
-  public CmptInpFieldNullObject
-    ()
-  {
-  }
 }
 
-public class CmptFldInpFieldNull
-  : Schema_input-field-null
-  , ICmptFldInpFieldNull
+internal class CmptFldInpFieldNullEncoder
 {
-  public ICmptFldInpFieldNullObject? As_FldInpFieldNull { get; set; }
-}
-
-public class CmptFldInpFieldNullObject
-  : Schema_input-field-null
-  , ICmptFldInpFieldNullObject
-{
-
-  public CmptFldInpFieldNullObject
-    ()
-  {
-  }
 }

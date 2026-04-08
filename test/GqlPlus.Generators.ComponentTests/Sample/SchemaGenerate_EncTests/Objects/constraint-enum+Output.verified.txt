@@ -12,47 +12,16 @@ enum EnumCnstEnumOutp { cnstEnumOutp }
 
 namespace Components.Gqlp_Schema_constraint_enum_Output;
 
-public class CmptCnstEnumOutp
-  : Schema_constraint-enum+Output
-  , ICmptCnstEnumOutp
+internal class CmptCnstEnumOutpEncoder
 {
-  public ICmptRefCnstEnumOutp<CmptEnumCnstEnumOutp>? AsEnumCnstEnumOutpcnstEnumOutp { get; set; }
-  public ICmptCnstEnumOutpObject? As_CnstEnumOutp { get; set; }
 }
 
-public class CmptCnstEnumOutpObject
-  : Schema_constraint-enum+Output
-  , ICmptCnstEnumOutpObject
-{
-
-  public CmptCnstEnumOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptRefCnstEnumOutp<TType>
-  : Schema_constraint-enum+Output
-  , ICmptRefCnstEnumOutp<TType>
-{
-  public ICmptRefCnstEnumOutpObject<TType>? As_RefCnstEnumOutp { get; set; }
-}
-
-public class CmptRefCnstEnumOutpObject<TType>
-  : Schema_constraint-enum+Output
-  , ICmptRefCnstEnumOutpObject<TType>
+internal class CmptRefCnstEnumOutpEncoder<TType>
 {
   public TType Field { get; set; }
-
-  public CmptRefCnstEnumOutpObject
-    ( TType field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum CmptEnumCnstEnumOutp
+internal class CmptEnumCnstEnumOutpEncoder
 {
-  cnstEnumOutp,
+  public string cnstEnumOutp { get; set; }
 }

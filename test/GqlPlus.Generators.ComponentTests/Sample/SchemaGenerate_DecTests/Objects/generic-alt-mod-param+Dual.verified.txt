@@ -10,14 +10,6 @@ dual RefGnrcAltModParamDual<$ref:String $mod:String> { | $ref[$mod] }
 
 namespace Components.Gqlp_Schema_generic_alt_mod_param_Dual;
 
-public interface ICmptRefGnrcAltModParamDual<TRef,TMod>
-  // No Base because it's Class
-{
-  IDictionary<TMod, TRef>? Asref { get; }
-  ICmptRefGnrcAltModParamDualObject<TRef,TMod>? As_RefGnrcAltModParamDual { get; }
-}
-
-public interface ICmptRefGnrcAltModParamDualObject<TRef,TMod>
-  // No Base because it's Class
+internal class CmptRefGnrcAltModParamDualDecoder<TRef,TMod>
 {
 }

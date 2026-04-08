@@ -11,45 +11,12 @@ dual FldFieldModParamDual { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_mod_param_Dual;
 
-public class CmptFieldModParamDual<TMod>
-  : Schema_field-mod-param+Dual
-  , ICmptFieldModParamDual<TMod>
-{
-  public ICmptFieldModParamDualObject<TMod>? As_FieldModParamDual { get; set; }
-}
-
-public class CmptFieldModParamDualObject<TMod>
-  : Schema_field-mod-param+Dual
-  , ICmptFieldModParamDualObject<TMod>
+internal class CmptFieldModParamDualEncoder<TMod>
 {
   public IDictionary<TMod, ICmptFldFieldModParamDual> Field { get; set; }
-
-  public CmptFieldModParamDualObject
-    ( IDictionary<TMod, ICmptFldFieldModParamDual> field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptFldFieldModParamDual
-  : Schema_field-mod-param+Dual
-  , ICmptFldFieldModParamDual
-{
-  public string? AsString { get; set; }
-  public ICmptFldFieldModParamDualObject? As_FldFieldModParamDual { get; set; }
-}
-
-public class CmptFldFieldModParamDualObject
-  : Schema_field-mod-param+Dual
-  , ICmptFldFieldModParamDualObject
+internal class CmptFldFieldModParamDualEncoder
 {
   public decimal Field { get; set; }
-
-  public CmptFldFieldModParamDualObject
-    ( decimal field
-    )
-  {
-    Field = field;
-  }
 }

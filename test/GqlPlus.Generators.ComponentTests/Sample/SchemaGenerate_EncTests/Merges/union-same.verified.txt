@@ -11,9 +11,7 @@ union UnionSame { Boolean }
 
 namespace Components.Gqlp_Schema_union_same;
 
-public class CmptUnionSame
-  : Schema_union-same
-  , ICmptUnionSame
+internal class CmptUnionSameEncoder
 {
   public Boolean AsBoolean { get; set; }
 }

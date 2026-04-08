@@ -11,8 +11,7 @@ union UnionSame { Boolean }
 
 namespace Components.Gqlp_Schema_union_same;
 
-public interface ICmptUnionSame
-  // No Base because it's Class
+internal class CmptUnionSameDecoder
 {
-  Boolean AsBoolean { get; }
+  public Boolean AsBoolean { get; set; }
 }

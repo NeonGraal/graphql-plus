@@ -7,13 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_descrs;
 
-public interface ItestDscrs
-  // No Base because it's Class
-{
-  ItestDscrsObject? As_Dscrs { get; }
-}
-
-public interface ItestDscrsObject
-  // No Base because it's Class
+internal class testDscrsDecoder
 {
 }

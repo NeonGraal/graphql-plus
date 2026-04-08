@@ -12,25 +12,10 @@ output ObjAltOutpType { }
 
 namespace Components.Gqlp_Schema_object_alt_Output;
 
-public interface ICmptObjAltOutp
-  // No Base because it's Class
-{
-  ICmptObjAltOutpType? AsObjAltOutpType { get; }
-  ICmptObjAltOutpObject? As_ObjAltOutp { get; }
-}
-
-public interface ICmptObjAltOutpObject
-  // No Base because it's Class
+internal class CmptObjAltOutpDecoder
 {
 }
 
-public interface ICmptObjAltOutpType
-  // No Base because it's Class
-{
-  ICmptObjAltOutpTypeObject? As_ObjAltOutpType { get; }
-}
-
-public interface ICmptObjAltOutpTypeObject
-  // No Base because it's Class
+internal class CmptObjAltOutpTypeDecoder
 {
 }

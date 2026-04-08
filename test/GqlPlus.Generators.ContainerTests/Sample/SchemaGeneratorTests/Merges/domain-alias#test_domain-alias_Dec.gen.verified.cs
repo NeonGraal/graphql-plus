@@ -7,7 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_alias;
 
-public interface ItestDmnAlias
-  : IGqlpDomainNumber
+internal class testDmnAliasDecoder
 {
 }

@@ -26,7 +26,7 @@ public class UnionConstraintMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsExpected_WhenMatchingUnionMemberParent(string constraint, string name, string parent, bool expected)
   {
-    this.SkipEqual3(constraint, name, parent);
+    this.SkipEqualAny([constraint, name, parent]);
 
     IGqlpUnion union = A.Union(constraint).WithMembers([name]).AsUnion;
     Types[constraint] = union;

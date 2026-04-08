@@ -7,82 +7,20 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_obj_Dual;
 
-public class testCnstFieldObjDual
-  : testRefCnstFieldObjDual<ItestAltCnstFieldObjDual>
-  , ItestCnstFieldObjDual
+internal class testCnstFieldObjDualEncoder
 {
-  public ItestCnstFieldObjDualObject? As_CnstFieldObjDual { get; set; }
 }
 
-public class testCnstFieldObjDualObject
-  : testRefCnstFieldObjDualObject<ItestAltCnstFieldObjDual>
-  , ItestCnstFieldObjDualObject
-{
-
-  public testCnstFieldObjDualObject
-    ( ItestAltCnstFieldObjDual field
-    ) : base(field)
-  {
-  }
-}
-
-public class testRefCnstFieldObjDual<TRef>
-  : GqlpEncoderBase
-  , ItestRefCnstFieldObjDual<TRef>
-{
-  public ItestRefCnstFieldObjDualObject<TRef>? As_RefCnstFieldObjDual { get; set; }
-}
-
-public class testRefCnstFieldObjDualObject<TRef>
-  : GqlpEncoderBase
-  , ItestRefCnstFieldObjDualObject<TRef>
+internal class testRefCnstFieldObjDualEncoder<TRef>
 {
   public TRef Field { get; set; }
-
-  public testRefCnstFieldObjDualObject
-    ( TRef field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class testPrntCnstFieldObjDual
-  : GqlpEncoderBase
-  , ItestPrntCnstFieldObjDual
+internal class testPrntCnstFieldObjDualEncoder
 {
-  public string? AsString { get; set; }
-  public ItestPrntCnstFieldObjDualObject? As_PrntCnstFieldObjDual { get; set; }
 }
 
-public class testPrntCnstFieldObjDualObject
-  : GqlpEncoderBase
-  , ItestPrntCnstFieldObjDualObject
-{
-
-  public testPrntCnstFieldObjDualObject
-    ()
-  {
-  }
-}
-
-public class testAltCnstFieldObjDual
-  : testPrntCnstFieldObjDual
-  , ItestAltCnstFieldObjDual
-{
-  public ItestAltCnstFieldObjDualObject? As_AltCnstFieldObjDual { get; set; }
-}
-
-public class testAltCnstFieldObjDualObject
-  : testPrntCnstFieldObjDualObject
-  , ItestAltCnstFieldObjDualObject
+internal class testAltCnstFieldObjDualEncoder
 {
   public decimal Alt { get; set; }
-
-  public testAltCnstFieldObjDualObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

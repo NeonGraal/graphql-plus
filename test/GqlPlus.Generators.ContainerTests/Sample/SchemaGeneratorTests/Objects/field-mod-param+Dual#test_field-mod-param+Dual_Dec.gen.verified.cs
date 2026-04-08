@@ -7,27 +7,12 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_mod_param_Dual;
 
-public interface ItestFieldModParamDual<TMod>
-  // No Base because it's Class
+internal class testFieldModParamDualDecoder<TMod>
 {
-  ItestFieldModParamDualObject<TMod>? As_FieldModParamDual { get; }
+  public IDictionary<TMod, ItestFldFieldModParamDual> Field { get; set; }
 }
 
-public interface ItestFieldModParamDualObject<TMod>
-  // No Base because it's Class
+internal class testFldFieldModParamDualDecoder
 {
-  IDictionary<TMod, ItestFldFieldModParamDual> Field { get; }
-}
-
-public interface ItestFldFieldModParamDual
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestFldFieldModParamDualObject? As_FldFieldModParamDual { get; }
-}
-
-public interface ItestFldFieldModParamDualObject
-  // No Base because it's Class
-{
-  decimal Field { get; }
+  public decimal Field { get; set; }
 }

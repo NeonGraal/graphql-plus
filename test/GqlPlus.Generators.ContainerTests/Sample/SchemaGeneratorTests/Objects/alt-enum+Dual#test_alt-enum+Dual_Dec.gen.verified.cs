@@ -7,19 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_enum_Dual;
 
-public interface ItestAltEnumDual
-  // No Base because it's Class
-{
-  testEnumAltEnumDual? AsEnumAltEnumDualaltEnumDual { get; }
-  ItestAltEnumDualObject? As_AltEnumDual { get; }
-}
-
-public interface ItestAltEnumDualObject
-  // No Base because it's Class
+internal class testAltEnumDualDecoder
 {
 }
 
-public enum testEnumAltEnumDual
+internal class testEnumAltEnumDualDecoder
 {
-  altEnumDual,
+  public string altEnumDual { get; set; }
 }

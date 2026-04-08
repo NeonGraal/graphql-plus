@@ -11,14 +11,12 @@ union PrntUnionPrnt { Number }
 
 namespace Components.Gqlp_Schema_union_parent;
 
-public interface ICmptUnionPrnt
-  : ICmptPrntUnionPrnt
+internal class CmptUnionPrntDecoder
 {
-  String AsString { get; }
+  public String AsString { get; set; }
 }
 
-public interface ICmptPrntUnionPrnt
-  // No Base because it's Class
+internal class CmptPrntUnionPrntDecoder
 {
-  Number AsNumber { get; }
+  public Number AsNumber { get; set; }
 }

@@ -10,14 +10,6 @@ input RefGnrcAltModStrInp<$ref:String> { | $ref[*] }
 
 namespace Components.Gqlp_Schema_generic_alt_mod_String_Input;
 
-public interface ICmptRefGnrcAltModStrInp<TRef>
-  // No Base because it's Class
-{
-  IDictionary<string, TRef>? Asref { get; }
-  ICmptRefGnrcAltModStrInpObject<TRef>? As_RefGnrcAltModStrInp { get; }
-}
-
-public interface ICmptRefGnrcAltModStrInpObject<TRef>
-  // No Base because it's Class
+internal class CmptRefGnrcAltModStrInpDecoder<TRef>
 {
 }

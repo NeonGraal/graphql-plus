@@ -11,14 +11,10 @@ domain PrntDmnBoolPrnt { Boolean true }
 
 namespace Components.Gqlp_Schema_domain_bool_parent;
 
-public class CmptDmnBoolPrnt
-  : CmptPrntDmnBoolPrnt
-  , ICmptDmnBoolPrnt
+internal class CmptDmnBoolPrntEncoder
 {
 }
 
-public class CmptPrntDmnBoolPrnt
-  : GqlpDomainBoolean
-  , ICmptPrntDmnBoolPrnt
+internal class CmptPrntDmnBoolPrntEncoder
 {
 }

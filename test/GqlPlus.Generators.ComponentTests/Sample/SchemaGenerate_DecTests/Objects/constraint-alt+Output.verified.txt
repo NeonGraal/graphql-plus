@@ -10,14 +10,6 @@ output CnstAltOutp<$type:Number> { | $type }
 
 namespace Components.Gqlp_Schema_constraint_alt_Output;
 
-public interface ICmptCnstAltOutp<TType>
-  // No Base because it's Class
-{
-  TType? Astype { get; }
-  ICmptCnstAltOutpObject<TType>? As_CnstAltOutp { get; }
-}
-
-public interface ICmptCnstAltOutpObject<TType>
-  // No Base because it's Class
+internal class CmptCnstAltOutpDecoder<TType>
 {
 }

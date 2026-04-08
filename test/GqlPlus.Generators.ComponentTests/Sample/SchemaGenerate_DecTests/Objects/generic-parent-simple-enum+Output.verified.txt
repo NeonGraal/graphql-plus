@@ -12,30 +12,16 @@ enum EnumGnrcPrntSmplEnumOutp { gnrcPrntSmplEnumOutp }
 
 namespace Components.Gqlp_Schema_generic_parent_simple_enum_Output;
 
-public interface ICmptGnrcPrntSmplEnumOutp
-  : ICmptFieldGnrcPrntSmplEnumOutp<CmptEnumGnrcPrntSmplEnumOutp>
-{
-  ICmptGnrcPrntSmplEnumOutpObject? As_GnrcPrntSmplEnumOutp { get; }
-}
-
-public interface ICmptGnrcPrntSmplEnumOutpObject
-  : ICmptFieldGnrcPrntSmplEnumOutpObject<CmptEnumGnrcPrntSmplEnumOutp>
+internal class CmptGnrcPrntSmplEnumOutpDecoder
 {
 }
 
-public interface ICmptFieldGnrcPrntSmplEnumOutp<TRef>
-  // No Base because it's Class
+internal class CmptFieldGnrcPrntSmplEnumOutpDecoder<TRef>
 {
-  ICmptFieldGnrcPrntSmplEnumOutpObject<TRef>? As_FieldGnrcPrntSmplEnumOutp { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ICmptFieldGnrcPrntSmplEnumOutpObject<TRef>
-  // No Base because it's Class
+internal class CmptEnumGnrcPrntSmplEnumOutpDecoder
 {
-  TRef Field { get; }
-}
-
-public enum CmptEnumGnrcPrntSmplEnumOutp
-{
-  gnrcPrntSmplEnumOutp,
+  public string gnrcPrntSmplEnumOutp { get; set; }
 }

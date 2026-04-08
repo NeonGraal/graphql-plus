@@ -7,19 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_enum_Input;
 
-public interface ItestAltEnumInp
-  // No Base because it's Class
-{
-  testEnumAltEnumInp? AsEnumAltEnumInpaltEnumInp { get; }
-  ItestAltEnumInpObject? As_AltEnumInp { get; }
-}
-
-public interface ItestAltEnumInpObject
-  // No Base because it's Class
+internal class testAltEnumInpDecoder
 {
 }
 
-public enum testEnumAltEnumInp
+internal class testEnumAltEnumInpDecoder
 {
-  altEnumInp,
+  public string altEnumInp { get; set; }
 }

@@ -12,61 +12,15 @@ dual AltGnrcPrntParamPrntDual { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_parent_param_parent_Dual;
 
-public class CmptGnrcPrntParamPrntDual
-  : CmptRefGnrcPrntParamPrntDual<ICmptAltGnrcPrntParamPrntDual>
-  , ICmptGnrcPrntParamPrntDual
+internal class CmptGnrcPrntParamPrntDualEncoder
 {
-  public ICmptGnrcPrntParamPrntDualObject? As_GnrcPrntParamPrntDual { get; set; }
 }
 
-public class CmptGnrcPrntParamPrntDualObject
-  : CmptRefGnrcPrntParamPrntDualObject<ICmptAltGnrcPrntParamPrntDual>
-  , ICmptGnrcPrntParamPrntDualObject
+internal class CmptRefGnrcPrntParamPrntDualEncoder<TRef>
 {
-
-  public CmptGnrcPrntParamPrntDualObject
-    ()
-  {
-  }
 }
 
-public class CmptRefGnrcPrntParamPrntDual<TRef>
-  : Schema_generic-parent-param-parent+Dual
-  , ICmptRefGnrcPrntParamPrntDual<TRef>
-{
-  public TRef? As_Parent { get; set; }
-  public ICmptRefGnrcPrntParamPrntDualObject<TRef>? As_RefGnrcPrntParamPrntDual { get; set; }
-}
-
-public class CmptRefGnrcPrntParamPrntDualObject<TRef>
-  : Schema_generic-parent-param-parent+Dual
-  , ICmptRefGnrcPrntParamPrntDualObject<TRef>
-{
-
-  public CmptRefGnrcPrntParamPrntDualObject
-    ()
-  {
-  }
-}
-
-public class CmptAltGnrcPrntParamPrntDual
-  : Schema_generic-parent-param-parent+Dual
-  , ICmptAltGnrcPrntParamPrntDual
-{
-  public string? AsString { get; set; }
-  public ICmptAltGnrcPrntParamPrntDualObject? As_AltGnrcPrntParamPrntDual { get; set; }
-}
-
-public class CmptAltGnrcPrntParamPrntDualObject
-  : Schema_generic-parent-param-parent+Dual
-  , ICmptAltGnrcPrntParamPrntDualObject
+internal class CmptAltGnrcPrntParamPrntDualEncoder
 {
   public decimal Alt { get; set; }
-
-  public CmptAltGnrcPrntParamPrntDualObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

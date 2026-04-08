@@ -12,21 +12,20 @@ enum DupDmnEnumUnq { dmnEnumUnq dup_dmnEnumUnq dmnEnumUnqDup }
 
 namespace Components.Gqlp_Schema_domain_enum_unique;
 
-public interface ICmptDmnEnumUnq
-  : IGqlpDomainEnum
+internal class CmptDmnEnumUnqDecoder
 {
 }
 
-public enum CmptEnumDmnEnumUnq
+internal class CmptEnumDmnEnumUnqDecoder
 {
-  enum_dmnEnumUnq,
-  dmnEnumUnq,
-  dmnEnumUnqValue,
+  public string enum_dmnEnumUnq { get; set; }
+  public string dmnEnumUnq { get; set; }
+  public string dmnEnumUnqValue { get; set; }
 }
 
-public enum CmptDupDmnEnumUnq
+internal class CmptDupDmnEnumUnqDecoder
 {
-  dmnEnumUnq,
-  dup_dmnEnumUnq,
-  dmnEnumUnqDup,
+  public string dmnEnumUnq { get; set; }
+  public string dup_dmnEnumUnq { get; set; }
+  public string dmnEnumUnqDup { get; set; }
 }

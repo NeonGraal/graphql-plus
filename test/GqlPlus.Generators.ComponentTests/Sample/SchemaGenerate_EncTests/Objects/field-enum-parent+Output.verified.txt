@@ -12,34 +12,18 @@ enum PrntFieldEnumPrntOutp { prnt_fieldEnumPrntOutp }
 
 namespace Components.Gqlp_Schema_field_enum_parent_Output;
 
-public class CmptFieldEnumPrntOutp
-  : Schema_field-enum-parent+Output
-  , ICmptFieldEnumPrntOutp
-{
-  public ICmptFieldEnumPrntOutpObject? As_FieldEnumPrntOutp { get; set; }
-}
-
-public class CmptFieldEnumPrntOutpObject
-  : Schema_field-enum-parent+Output
-  , ICmptFieldEnumPrntOutpObject
+internal class CmptFieldEnumPrntOutpEncoder
 {
   public CmptEnumFieldEnumPrntOutp Field { get; set; }
-
-  public CmptFieldEnumPrntOutpObject
-    ( CmptEnumFieldEnumPrntOutp field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum CmptEnumFieldEnumPrntOutp
+internal class CmptEnumFieldEnumPrntOutpEncoder
 {
-  prnt_fieldEnumPrntOutp = CmptPrntFieldEnumPrntOutp.prnt_fieldEnumPrntOutp,
-  fieldEnumPrntOutp,
+  public string prnt_fieldEnumPrntOutp { get; set; }
+  public string fieldEnumPrntOutp { get; set; }
 }
 
-public enum CmptPrntFieldEnumPrntOutp
+internal class CmptPrntFieldEnumPrntOutpEncoder
 {
-  prnt_fieldEnumPrntOutp,
+  public string prnt_fieldEnumPrntOutp { get; set; }
 }

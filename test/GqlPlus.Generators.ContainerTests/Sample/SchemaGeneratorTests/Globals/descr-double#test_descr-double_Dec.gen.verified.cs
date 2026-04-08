@@ -7,13 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_descr_double;
 
-public interface ItestDescrDbl
-  // No Base because it's Class
-{
-  ItestDescrDblObject? As_DescrDbl { get; }
-}
-
-public interface ItestDescrDblObject
-  // No Base because it's Class
+internal class testDescrDblDecoder
 {
 }

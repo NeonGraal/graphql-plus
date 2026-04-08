@@ -11,9 +11,7 @@ union UnionDiff { Number }
 
 namespace Components.Gqlp_Schema_union_diff;
 
-public class CmptUnionDiff
-  : Schema_union-diff
-  , ICmptUnionDiff
+internal class CmptUnionDiffEncoder
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }

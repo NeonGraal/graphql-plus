@@ -19,74 +19,18 @@ output _Schema { }
 
 namespace Components.Gqlp_Schema_default;
 
-public class CmptQuery
-  : Schema_default
-  , ICmptQuery
+internal class CmptQueryEncoder
 {
-  public ICmptQueryObject? As_Query { get; set; }
 }
 
-public class CmptQueryObject
-  : Schema_default
-  , ICmptQueryObject
+internal class CmptMutationEncoder
 {
-
-  public CmptQueryObject
-    ()
-  {
-  }
 }
 
-public class CmptMutation
-  : Schema_default
-  , ICmptMutation
+internal class CmptSubscriptionEncoder
 {
-  public ICmptMutationObject? As_Mutation { get; set; }
 }
 
-public class CmptMutationObject
-  : Schema_default
-  , ICmptMutationObject
+internal class Cmpt_SchemaEncoder
 {
-
-  public CmptMutationObject
-    ()
-  {
-  }
-}
-
-public class CmptSubscription
-  : Schema_default
-  , ICmptSubscription
-{
-  public ICmptSubscriptionObject? As_Subscription { get; set; }
-}
-
-public class CmptSubscriptionObject
-  : Schema_default
-  , ICmptSubscriptionObject
-{
-
-  public CmptSubscriptionObject
-    ()
-  {
-  }
-}
-
-public class Cmpt_Schema
-  : Schema_default
-  , ICmpt_Schema
-{
-  public ICmpt_SchemaObject? As__Schema { get; set; }
-}
-
-public class Cmpt_SchemaObject
-  : Schema_default
-  , ICmpt_SchemaObject
-{
-
-  public Cmpt_SchemaObject
-    ()
-  {
-  }
 }

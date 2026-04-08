@@ -7,43 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_param_Dual;
 
-public class testAltModParamDual<TMod>
-  : GqlpEncoderBase
-  , ItestAltModParamDual<TMod>
+internal class testAltModParamDualEncoder<TMod>
 {
-  public IDictionary<TMod, ItestAltAltModParamDual>? AsAltAltModParamDual { get; set; }
-  public ItestAltModParamDualObject<TMod>? As_AltModParamDual { get; set; }
 }
 
-public class testAltModParamDualObject<TMod>
-  : GqlpEncoderBase
-  , ItestAltModParamDualObject<TMod>
-{
-
-  public testAltModParamDualObject
-    ()
-  {
-  }
-}
-
-public class testAltAltModParamDual
-  : GqlpEncoderBase
-  , ItestAltAltModParamDual
-{
-  public string? AsString { get; set; }
-  public ItestAltAltModParamDualObject? As_AltAltModParamDual { get; set; }
-}
-
-public class testAltAltModParamDualObject
-  : GqlpEncoderBase
-  , ItestAltAltModParamDualObject
+internal class testAltAltModParamDualEncoder
 {
   public decimal Alt { get; set; }
-
-  public testAltAltModParamDualObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

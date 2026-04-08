@@ -7,27 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_dual_Dual;
 
-public interface ItestAltDualDual
-  // No Base because it's Class
-{
-  ItestObjDualAltDualDual? AsObjDualAltDualDual { get; }
-  ItestAltDualDualObject? As_AltDualDual { get; }
-}
-
-public interface ItestAltDualDualObject
-  // No Base because it's Class
+internal class testAltDualDualDecoder
 {
 }
 
-public interface ItestObjDualAltDualDual
-  // No Base because it's Class
+internal class testObjDualAltDualDualDecoder
 {
-  string? AsString { get; }
-  ItestObjDualAltDualDualObject? As_ObjDualAltDualDual { get; }
-}
-
-public interface ItestObjDualAltDualDualObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

@@ -11,15 +11,8 @@ dual ObjParamDual<$type:String> { type: $type }
 
 namespace Components.Gqlp_Schema_object_param_Dual;
 
-public interface ICmptObjParamDual<TTest,TType>
-  // No Base because it's Class
+internal class CmptObjParamDualDecoder<TTest,TType>
 {
-  ICmptObjParamDualObject<TTest,TType>? As_ObjParamDual { get; }
-}
-
-public interface ICmptObjParamDualObject<TTest,TType>
-  // No Base because it's Class
-{
-  TTest Test { get; }
-  TType Type { get; }
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
 }

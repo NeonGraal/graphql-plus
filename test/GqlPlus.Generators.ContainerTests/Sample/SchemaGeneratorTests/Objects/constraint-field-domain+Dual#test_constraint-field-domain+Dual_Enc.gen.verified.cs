@@ -7,48 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_domain_Dual;
 
-public class testCnstFieldDmnDual
-  : testRefCnstFieldDmnDual<ItestDomCnstFieldDmnDual>
-  , ItestCnstFieldDmnDual
+internal class testCnstFieldDmnDualEncoder
 {
-  public ItestCnstFieldDmnDualObject? As_CnstFieldDmnDual { get; set; }
 }
 
-public class testCnstFieldDmnDualObject
-  : testRefCnstFieldDmnDualObject<ItestDomCnstFieldDmnDual>
-  , ItestCnstFieldDmnDualObject
-{
-
-  public testCnstFieldDmnDualObject
-    ( ItestDomCnstFieldDmnDual field
-    ) : base(field)
-  {
-  }
-}
-
-public class testRefCnstFieldDmnDual<TRef>
-  : GqlpEncoderBase
-  , ItestRefCnstFieldDmnDual<TRef>
-{
-  public ItestRefCnstFieldDmnDualObject<TRef>? As_RefCnstFieldDmnDual { get; set; }
-}
-
-public class testRefCnstFieldDmnDualObject<TRef>
-  : GqlpEncoderBase
-  , ItestRefCnstFieldDmnDualObject<TRef>
+internal class testRefCnstFieldDmnDualEncoder<TRef>
 {
   public TRef Field { get; set; }
-
-  public testRefCnstFieldDmnDualObject
-    ( TRef field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class testDomCnstFieldDmnDual
-  : GqlpDomainString
-  , ItestDomCnstFieldDmnDual
+internal class testDomCnstFieldDmnDualEncoder
 {
 }

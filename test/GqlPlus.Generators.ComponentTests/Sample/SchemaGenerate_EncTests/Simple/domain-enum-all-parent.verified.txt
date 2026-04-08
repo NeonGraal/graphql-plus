@@ -12,22 +12,20 @@ enum PrntDmnEnumAllPrnt { prnt_dmnEnumAllPrnt dmnEnumAllPrntPrnt }
 
 namespace Components.Gqlp_Schema_domain_enum_all_parent;
 
-public class CmptDmnEnumAllPrnt
-  : GqlpDomainEnum
-  , ICmptDmnEnumAllPrnt
+internal class CmptDmnEnumAllPrntEncoder
 {
 }
 
-public enum CmptEnumDmnEnumAllPrnt
+internal class CmptEnumDmnEnumAllPrntEncoder
 {
-  prnt_dmnEnumAllPrnt = CmptPrntDmnEnumAllPrnt.prnt_dmnEnumAllPrnt,
-  dmnEnumAllPrntPrnt = CmptPrntDmnEnumAllPrnt.dmnEnumAllPrntPrnt,
-  dmnEnumAllPrnt,
-  dmnEnumAllPrntValue,
+  public string prnt_dmnEnumAllPrnt { get; set; }
+  public string dmnEnumAllPrntPrnt { get; set; }
+  public string dmnEnumAllPrnt { get; set; }
+  public string dmnEnumAllPrntValue { get; set; }
 }
 
-public enum CmptPrntDmnEnumAllPrnt
+internal class CmptPrntDmnEnumAllPrntEncoder
 {
-  prnt_dmnEnumAllPrnt,
-  dmnEnumAllPrntPrnt,
+  public string prnt_dmnEnumAllPrnt { get; set; }
+  public string dmnEnumAllPrntPrnt { get; set; }
 }

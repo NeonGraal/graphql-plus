@@ -11,27 +11,11 @@ input AltAltInp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_Input;
 
-public interface ICmptAltInp
-  // No Base because it's Class
-{
-  ICmptAltAltInp? AsAltAltInp { get; }
-  ICmptAltInpObject? As_AltInp { get; }
-}
-
-public interface ICmptAltInpObject
-  // No Base because it's Class
+internal class CmptAltInpDecoder
 {
 }
 
-public interface ICmptAltAltInp
-  // No Base because it's Class
+internal class CmptAltAltInpDecoder
 {
-  string? AsString { get; }
-  ICmptAltAltInpObject? As_AltAltInp { get; }
-}
-
-public interface ICmptAltAltInpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

@@ -10,23 +10,7 @@ output GnrcDescrOutp<"Test" "Descr" $type:String> { field: $type }
 
 namespace Components.Gqlp_Schema_generic_descr_Output;
 
-public class CmptGnrcDescrOutp<TType>
-  : Schema_generic-descr+Output
-  , ICmptGnrcDescrOutp<TType>
-{
-  public ICmptGnrcDescrOutpObject<TType>? As_GnrcDescrOutp { get; set; }
-}
-
-public class CmptGnrcDescrOutpObject<TType>
-  : Schema_generic-descr+Output
-  , ICmptGnrcDescrOutpObject<TType>
+internal class CmptGnrcDescrOutpEncoder<TType>
 {
   public TType Field { get; set; }
-
-  public CmptGnrcDescrOutpObject
-    ( TType field
-    )
-  {
-    Field = field;
-  }
 }

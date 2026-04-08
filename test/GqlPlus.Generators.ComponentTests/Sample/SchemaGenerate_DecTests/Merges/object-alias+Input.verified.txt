@@ -11,13 +11,6 @@ input ObjAliasInp [Input2] { }
 
 namespace Components.Gqlp_Schema_object_alias_Input;
 
-public interface ICmptObjAliasInp
-  // No Base because it's Class
-{
-  ICmptObjAliasInpObject? As_ObjAliasInp { get; }
-}
-
-public interface ICmptObjAliasInpObject
-  // No Base because it's Class
+internal class CmptObjAliasInpDecoder
 {
 }

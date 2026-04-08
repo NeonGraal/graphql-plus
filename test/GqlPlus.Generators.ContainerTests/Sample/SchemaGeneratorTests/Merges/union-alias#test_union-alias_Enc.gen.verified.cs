@@ -7,9 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_alias;
 
-public class testUnionAlias
-  : GqlpEncoderBase
-  , ItestUnionAlias
+internal class testUnionAliasEncoder
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }

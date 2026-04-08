@@ -7,21 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_Output;
 
-public class testGnrcAltOutp<TType>
-  : GqlpEncoderBase
-  , ItestGnrcAltOutp<TType>
+internal class testGnrcAltOutpEncoder<TType>
 {
-  public TType? Astype { get; set; }
-  public ItestGnrcAltOutpObject<TType>? As_GnrcAltOutp { get; set; }
-}
-
-public class testGnrcAltOutpObject<TType>
-  : GqlpEncoderBase
-  , ItestGnrcAltOutpObject<TType>
-{
-
-  public testGnrcAltOutpObject
-    ()
-  {
-  }
 }

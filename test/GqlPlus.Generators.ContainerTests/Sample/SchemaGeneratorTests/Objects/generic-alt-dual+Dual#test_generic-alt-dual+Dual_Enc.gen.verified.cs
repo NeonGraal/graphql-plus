@@ -7,62 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_dual_Dual;
 
-public class testGnrcAltDualDual
-  : GqlpEncoderBase
-  , ItestGnrcAltDualDual
+internal class testGnrcAltDualDualEncoder
 {
-  public ItestRefGnrcAltDualDual<ItestAltGnrcAltDualDual>? AsRefGnrcAltDualDual { get; set; }
-  public ItestGnrcAltDualDualObject? As_GnrcAltDualDual { get; set; }
 }
 
-public class testGnrcAltDualDualObject
-  : GqlpEncoderBase
-  , ItestGnrcAltDualDualObject
+internal class testRefGnrcAltDualDualEncoder<TRef>
 {
-
-  public testGnrcAltDualDualObject
-    ()
-  {
-  }
 }
 
-public class testRefGnrcAltDualDual<TRef>
-  : GqlpEncoderBase
-  , ItestRefGnrcAltDualDual<TRef>
-{
-  public TRef? Asref { get; set; }
-  public ItestRefGnrcAltDualDualObject<TRef>? As_RefGnrcAltDualDual { get; set; }
-}
-
-public class testRefGnrcAltDualDualObject<TRef>
-  : GqlpEncoderBase
-  , ItestRefGnrcAltDualDualObject<TRef>
-{
-
-  public testRefGnrcAltDualDualObject
-    ()
-  {
-  }
-}
-
-public class testAltGnrcAltDualDual
-  : GqlpEncoderBase
-  , ItestAltGnrcAltDualDual
-{
-  public string? AsString { get; set; }
-  public ItestAltGnrcAltDualDualObject? As_AltGnrcAltDualDual { get; set; }
-}
-
-public class testAltGnrcAltDualDualObject
-  : GqlpEncoderBase
-  , ItestAltGnrcAltDualDualObject
+internal class testAltGnrcAltDualDualEncoder
 {
   public decimal Alt { get; set; }
-
-  public testAltGnrcAltDualDualObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

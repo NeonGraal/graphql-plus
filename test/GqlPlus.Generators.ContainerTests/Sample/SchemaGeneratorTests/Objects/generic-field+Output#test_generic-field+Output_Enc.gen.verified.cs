@@ -7,23 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_Output;
 
-public class testGnrcFieldOutp<TType>
-  : GqlpEncoderBase
-  , ItestGnrcFieldOutp<TType>
-{
-  public ItestGnrcFieldOutpObject<TType>? As_GnrcFieldOutp { get; set; }
-}
-
-public class testGnrcFieldOutpObject<TType>
-  : GqlpEncoderBase
-  , ItestGnrcFieldOutpObject<TType>
+internal class testGnrcFieldOutpEncoder<TType>
 {
   public TType Field { get; set; }
-
-  public testGnrcFieldOutpObject
-    ( TType field
-    )
-  {
-    Field = field;
-  }
 }

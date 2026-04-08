@@ -11,27 +11,11 @@ input AltAltModBoolInp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_mod_Boolean_Input;
 
-public interface ICmptAltModBoolInp
-  // No Base because it's Class
-{
-  IDictionary<bool, ICmptAltAltModBoolInp>? AsAltAltModBoolInp { get; }
-  ICmptAltModBoolInpObject? As_AltModBoolInp { get; }
-}
-
-public interface ICmptAltModBoolInpObject
-  // No Base because it's Class
+internal class CmptAltModBoolInpDecoder
 {
 }
 
-public interface ICmptAltAltModBoolInp
-  // No Base because it's Class
+internal class CmptAltAltModBoolInpDecoder
 {
-  string? AsString { get; }
-  ICmptAltAltModBoolInpObject? As_AltAltModBoolInp { get; }
-}
-
-public interface ICmptAltAltModBoolInpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

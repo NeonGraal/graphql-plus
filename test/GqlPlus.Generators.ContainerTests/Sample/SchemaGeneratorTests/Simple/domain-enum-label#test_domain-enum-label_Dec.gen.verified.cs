@@ -7,12 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_label;
 
-public interface ItestDmnEnumLabel
-  : IGqlpDomainEnum
+internal class testDmnEnumLabelDecoder
 {
 }
 
-public enum testEnumDmnEnumLabel
+internal class testEnumDmnEnumLabelDecoder
 {
-  dmnEnumLabel,
+  public string dmnEnumLabel { get; set; }
 }

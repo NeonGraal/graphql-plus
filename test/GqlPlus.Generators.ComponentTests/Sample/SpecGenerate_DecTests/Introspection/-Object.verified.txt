@@ -99,219 +99,92 @@ output _OutputFieldType {
 
 namespace Components.Gqlp_Spec_Object;
 
-public interface ICmpt_ObjectKind
-  : IGqlpDomainEnum
+internal class Cmpt_ObjectKindDecoder
 {
 }
 
-public interface ICmpt_TypeObject<TObjectKind,TField>
-  : ICmpt_ChildType<TObjectKind, ICmpt_ObjBase>
+internal class Cmpt_TypeObjectDecoder<TObjectKind,TField>
 {
-  ICmpt_TypeObjectObject<TObjectKind,TField>? As__TypeObject { get; }
+  public ICollection<ICmpt_ObjTypeParam> TypeParams { get; set; }
+  public ICollection<TField> Fields { get; set; }
+  public ICollection<ICmpt_ObjAlternate> Alternates { get; set; }
+  public ICollection<ICmpt_ObjectFor<TField>> AllFields { get; set; }
+  public ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> AllAlternates { get; set; }
 }
 
-public interface ICmpt_TypeObjectObject<TObjectKind,TField>
-  : ICmpt_ChildTypeObject<TObjectKind, ICmpt_ObjBase>
+internal class Cmpt_ObjTypeParamDecoder
 {
-  ICollection<ICmpt_ObjTypeParam> TypeParams { get; }
-  ICollection<TField> Fields { get; }
-  ICollection<ICmpt_ObjAlternate> Alternates { get; }
-  ICollection<ICmpt_ObjectFor<TField>> AllFields { get; }
-  ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> AllAlternates { get; }
+  public ICmpt_TypeRef<ICmpt_TypeKind> Constraint { get; set; }
 }
 
-public interface ICmpt_ObjTypeParam
-  : ICmpt_Named
+internal class Cmpt_ObjBaseDecoder
 {
-  ICmpt_ObjTypeParamObject? As__ObjTypeParam { get; }
+  public ICollection<ICmpt_ObjTypeArg> TypeArgs { get; set; }
 }
 
-public interface ICmpt_ObjTypeParamObject
-  : ICmpt_NamedObject
+internal class Cmpt_ObjTypeArgDecoder
 {
-  ICmpt_TypeRef<ICmpt_TypeKind> Constraint { get; }
+  public ICmpt_Name? Label { get; set; }
 }
 
-public interface ICmpt_ObjBase
-  : ICmpt_Named
+internal class Cmpt_TypeParamDecoder
 {
-  ICmpt_TypeParam? As_TypeParam { get; }
-  ICmpt_ObjBaseObject? As__ObjBase { get; }
+  public ICmpt_Name TypeParam { get; set; }
 }
 
-public interface ICmpt_ObjBaseObject
-  : ICmpt_NamedObject
+internal class Cmpt_ObjAlternateDecoder
 {
-  ICollection<ICmpt_ObjTypeArg> TypeArgs { get; }
+  public ICmpt_ObjBase Type { get; set; }
+  public ICollection<ICmpt_Collections> Collections { get; set; }
 }
 
-public interface ICmpt_ObjTypeArg
-  : ICmpt_TypeRef<ICmpt_TypeKind>
+internal class Cmpt_ObjAlternateEnumDecoder
 {
-  ICmpt_TypeParam? As_TypeParam { get; }
-  ICmpt_ObjTypeArgObject? As__ObjTypeArg { get; }
+  public ICmpt_Name Label { get; set; }
 }
 
-public interface ICmpt_ObjTypeArgObject
-  : ICmpt_TypeRefObject<ICmpt_TypeKind>
+internal class Cmpt_ObjectForDecoder<TFor>
 {
-  ICmpt_Name? Label { get; }
+  public ICmpt_Name ObjectType { get; set; }
 }
 
-public interface ICmpt_TypeParam
-  : ICmpt_Described
+internal class Cmpt_ObjFieldDecoder<TType>
 {
-  ICmpt_TypeParamObject? As__TypeParam { get; }
+  public TType Type { get; set; }
 }
 
-public interface ICmpt_TypeParamObject
-  : ICmpt_DescribedObject
+internal class Cmpt_ObjFieldTypeDecoder
 {
-  ICmpt_Name TypeParam { get; }
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 }
 
-public interface ICmpt_ObjAlternate
-  // No Base because it's Class
+internal class Cmpt_ObjFieldEnumDecoder
 {
-  ICmpt_ObjAlternateEnum? As_ObjAlternateEnum { get; }
-  ICmpt_ObjAlternateObject? As__ObjAlternate { get; }
+  public ICmpt_Name Label { get; set; }
 }
 
-public interface ICmpt_ObjAlternateObject
-  // No Base because it's Class
-{
-  ICmpt_ObjBase Type { get; }
-  ICollection<ICmpt_Collections> Collections { get; }
-}
-
-public interface ICmpt_ObjAlternateEnum
-  : ICmpt_TypeRef<ICmpt_TypeKind>
-{
-  ICmpt_ObjAlternateEnumObject? As__ObjAlternateEnum { get; }
-}
-
-public interface ICmpt_ObjAlternateEnumObject
-  : ICmpt_TypeRefObject<ICmpt_TypeKind>
-{
-  ICmpt_Name Label { get; }
-}
-
-public interface ICmpt_ObjectFor<TFor>
-  // No Base because it's Class
-{
-  TFor? As_Parent { get; }
-  ICmpt_ObjectForObject<TFor>? As__ObjectFor { get; }
-}
-
-public interface ICmpt_ObjectForObject<TFor>
-  // No Base because it's Class
-{
-  ICmpt_Name ObjectType { get; }
-}
-
-public interface ICmpt_ObjField<TType>
-  : ICmpt_Aliased
-{
-  ICmpt_ObjFieldObject<TType>? As__ObjField { get; }
-}
-
-public interface ICmpt_ObjFieldObject<TType>
-  : ICmpt_AliasedObject
-{
-  TType Type { get; }
-}
-
-public interface ICmpt_ObjFieldType
-  : ICmpt_ObjBase
-{
-  ICmpt_ObjFieldEnum? As_ObjFieldEnum { get; }
-  ICmpt_ObjFieldTypeObject? As__ObjFieldType { get; }
-}
-
-public interface ICmpt_ObjFieldTypeObject
-  : ICmpt_ObjBaseObject
-{
-  ICollection<ICmpt_Modifiers> Modifiers { get; }
-}
-
-public interface ICmpt_ObjFieldEnum
-  : ICmpt_TypeRef<ICmpt_TypeKind>
-{
-  ICmpt_ObjFieldEnumObject? As__ObjFieldEnum { get; }
-}
-
-public interface ICmpt_ObjFieldEnumObject
-  : ICmpt_TypeRefObject<ICmpt_TypeKind>
-{
-  ICmpt_Name Label { get; }
-}
-
-public interface ICmpt_ForParam<TType>
-  // No Base because it's Class
-{
-  ICmpt_ObjAlternate? As_ObjAlternate { get; }
-  ICmpt_ObjField<TType>? As_ObjField { get; }
-  ICmpt_ForParamObject<TType>? As__ForParam { get; }
-}
-
-public interface ICmpt_ForParamObject<TType>
-  // No Base because it's Class
+internal class Cmpt_ForParamDecoder<TType>
 {
 }
 
-public interface ICmpt_DualField
-  : ICmpt_ObjField<ICmpt_ObjFieldType>
-{
-  ICmpt_DualFieldObject? As__DualField { get; }
-}
-
-public interface ICmpt_DualFieldObject
-  : ICmpt_ObjFieldObject<ICmpt_ObjFieldType>
+internal class Cmpt_DualFieldDecoder
 {
 }
 
-public interface ICmpt_InputField
-  : ICmpt_ObjField<ICmpt_InputFieldType>
-{
-  ICmpt_InputFieldObject? As__InputField { get; }
-}
-
-public interface ICmpt_InputFieldObject
-  : ICmpt_ObjFieldObject<ICmpt_InputFieldType>
+internal class Cmpt_InputFieldDecoder
 {
 }
 
-public interface ICmpt_InputFieldType
-  : ICmpt_ObjFieldType
+internal class Cmpt_InputFieldTypeDecoder
 {
-  ICmpt_InputFieldTypeObject? As__InputFieldType { get; }
+  public GqlpValue? DefaultValue { get; set; }
 }
 
-public interface ICmpt_InputFieldTypeObject
-  : ICmpt_ObjFieldTypeObject
-{
-  GqlpValue? DefaultValue { get; }
-}
-
-public interface ICmpt_OutputField
-  : ICmpt_ObjField<ICmpt_ObjFieldType>
-{
-  ICmpt_OutputFieldObject? As__OutputField { get; }
-}
-
-public interface ICmpt_OutputFieldObject
-  : ICmpt_ObjFieldObject<ICmpt_ObjFieldType>
+internal class Cmpt_OutputFieldDecoder
 {
 }
 
-public interface ICmpt_OutputFieldType
-  : ICmpt_ObjFieldType
+internal class Cmpt_OutputFieldTypeDecoder
 {
-  ICmpt_OutputFieldTypeObject? As__OutputFieldType { get; }
-}
-
-public interface ICmpt_OutputFieldTypeObject
-  : ICmpt_ObjFieldTypeObject
-{
-  ICmpt_InputFieldType? Parameter { get; }
+  public ICmpt_InputFieldType? Parameter { get; set; }
 }

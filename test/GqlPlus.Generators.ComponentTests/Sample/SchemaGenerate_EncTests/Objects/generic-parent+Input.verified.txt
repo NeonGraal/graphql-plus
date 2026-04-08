@@ -10,21 +10,6 @@ input GnrcPrntInp<$type:_Dual> { :$type }
 
 namespace Components.Gqlp_Schema_generic_parent_Input;
 
-public class CmptGnrcPrntInp<TType>
-  : Schema_generic-parent+Input
-  , ICmptGnrcPrntInp<TType>
+internal class CmptGnrcPrntInpEncoder<TType>
 {
-  public TType? As_Parent { get; set; }
-  public ICmptGnrcPrntInpObject<TType>? As_GnrcPrntInp { get; set; }
-}
-
-public class CmptGnrcPrntInpObject<TType>
-  : Schema_generic-parent+Input
-  , ICmptGnrcPrntInpObject<TType>
-{
-
-  public CmptGnrcPrntInpObject
-    ()
-  {
-  }
 }

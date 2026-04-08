@@ -7,21 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_Output;
 
-public class testGnrcPrntOutp<TType>
-  : GqlpEncoderBase
-  , ItestGnrcPrntOutp<TType>
+internal class testGnrcPrntOutpEncoder<TType>
 {
-  public TType? As_Parent { get; set; }
-  public ItestGnrcPrntOutpObject<TType>? As_GnrcPrntOutp { get; set; }
-}
-
-public class testGnrcPrntOutpObject<TType>
-  : GqlpEncoderBase
-  , ItestGnrcPrntOutpObject<TType>
-{
-
-  public testGnrcPrntOutpObject
-    ()
-  {
-  }
 }

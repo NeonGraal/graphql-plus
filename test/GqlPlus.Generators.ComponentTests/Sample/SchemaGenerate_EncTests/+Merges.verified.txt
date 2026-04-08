@@ -6,1335 +6,386 @@
 
 namespace Components.Gqlp_Schema_Merges;
 
-public class CmptCtgr
-  : Schema_+Merges
-  , ICmptCtgr
-{
-  public ICmptCtgrObject? As_Ctgr { get; set; }
-}
-
-public class CmptCtgrObject
-  : Schema_+Merges
-  , ICmptCtgrObject
-{
-
-  public CmptCtgrObject
-    ()
-  {
-  }
-}
-
-public class CmptCtgrAlias
-  : Schema_+Merges
-  , ICmptCtgrAlias
-{
-  public ICmptCtgrAliasObject? As_CtgrAlias { get; set; }
-}
-
-public class CmptCtgrAliasObject
-  : Schema_+Merges
-  , ICmptCtgrAliasObject
-{
-
-  public CmptCtgrAliasObject
-    ()
-  {
-  }
-}
-
-public class CmptCtgrDescr
-  : Schema_+Merges
-  , ICmptCtgrDescr
-{
-  public ICmptCtgrDescrObject? As_CtgrDescr { get; set; }
-}
-
-public class CmptCtgrDescrObject
-  : Schema_+Merges
-  , ICmptCtgrDescrObject
-{
-
-  public CmptCtgrDescrObject
-    ()
-  {
-  }
-}
-
-public class CmptCtgrMod
-  : Schema_+Merges
-  , ICmptCtgrMod
-{
-  public ICmptCtgrModObject? As_CtgrMod { get; set; }
-}
-
-public class CmptCtgrModObject
-  : Schema_+Merges
-  , ICmptCtgrModObject
-{
-
-  public CmptCtgrModObject
-    ()
-  {
-  }
-}
-
-public class CmptInDrctParam
-  : Schema_+Merges
-  , ICmptInDrctParam
-{
-  public ICmptInDrctParamObject? As_InDrctParam { get; set; }
-}
-
-public class CmptInDrctParamObject
-  : Schema_+Merges
-  , ICmptInDrctParamObject
-{
-
-  public CmptInDrctParamObject
-    ()
-  {
-  }
-}
-
-public class CmptDmnAlias
-  : GqlpDomainNumber
-  , ICmptDmnAlias
+internal class CmptCtgrEncoder
 {
 }
 
-public class CmptDmnBool
-  : GqlpDomainBoolean
-  , ICmptDmnBool
+internal class CmptCtgrAliasEncoder
 {
 }
 
-public class CmptDmnBoolDiff
-  : GqlpDomainBoolean
-  , ICmptDmnBoolDiff
+internal class CmptCtgrDescrEncoder
 {
 }
 
-public class CmptDmnBoolSame
-  : GqlpDomainBoolean
-  , ICmptDmnBoolSame
+internal class CmptCtgrModEncoder
 {
 }
 
-public class CmptDmnEnumDiff
-  : GqlpDomainEnum
-  , ICmptDmnEnumDiff
+internal class CmptInDrctParamEncoder
 {
 }
 
-public class CmptDmnEnumSame
-  : GqlpDomainEnum
-  , ICmptDmnEnumSame
+internal class CmptDmnAliasEncoder
 {
 }
 
-public class CmptDmnNmbr
-  : GqlpDomainNumber
-  , ICmptDmnNmbr
+internal class CmptDmnBoolEncoder
 {
 }
 
-public class CmptDmnNmbrDiff
-  : GqlpDomainNumber
-  , ICmptDmnNmbrDiff
+internal class CmptDmnBoolDiffEncoder
 {
 }
 
-public class CmptDmnNmbrSame
-  : GqlpDomainNumber
-  , ICmptDmnNmbrSame
+internal class CmptDmnBoolSameEncoder
 {
 }
 
-public class CmptDmnStr
-  : GqlpDomainString
-  , ICmptDmnStr
+internal class CmptDmnEnumDiffEncoder
 {
 }
 
-public class CmptDmnStrDiff
-  : GqlpDomainString
-  , ICmptDmnStrDiff
+internal class CmptDmnEnumSameEncoder
 {
 }
 
-public class CmptDmnStrSame
-  : GqlpDomainString
-  , ICmptDmnStrSame
+internal class CmptDmnNmbrEncoder
 {
 }
 
-public enum CmptEnumAlias
+internal class CmptDmnNmbrDiffEncoder
 {
-  enumAlias,
 }
 
-public enum CmptEnumDiff
+internal class CmptDmnNmbrSameEncoder
 {
-  one,
-  two,
 }
 
-public enum CmptEnumSame
+internal class CmptDmnStrEncoder
 {
-  enumSame,
 }
 
-public enum CmptEnumSamePrnt
+internal class CmptDmnStrDiffEncoder
 {
-  prnt_enumSamePrnt = CmptPrntEnumSamePrnt.prnt_enumSamePrnt,
-  enumSamePrnt,
 }
 
-public enum CmptPrntEnumSamePrnt
+internal class CmptDmnStrSameEncoder
 {
-  prnt_enumSamePrnt,
 }
 
-public enum CmptEnumValueAlias
+internal class CmptEnumAliasEncoder
 {
-  enumValueAlias,
-  val1 = enumValueAlias,
-  val2 = enumValueAlias,
+  public string enumAlias { get; set; }
 }
 
-public class CmptObjDual
-  : Schema_+Merges
-  , ICmptObjDual
+internal class CmptEnumDiffEncoder
 {
-  public ICmptObjDualObject? As_ObjDual { get; set; }
+  public string one { get; set; }
+  public string two { get; set; }
 }
 
-public class CmptObjDualObject
-  : Schema_+Merges
-  , ICmptObjDualObject
+internal class CmptEnumSameEncoder
 {
-
-  public CmptObjDualObject
-    ()
-  {
-  }
+  public string enumSame { get; set; }
 }
 
-public class CmptObjInp
-  : Schema_+Merges
-  , ICmptObjInp
+internal class CmptEnumSamePrntEncoder
 {
-  public ICmptObjInpObject? As_ObjInp { get; set; }
+  public string prnt_enumSamePrnt { get; set; }
+  public string enumSamePrnt { get; set; }
 }
 
-public class CmptObjInpObject
-  : Schema_+Merges
-  , ICmptObjInpObject
+internal class CmptPrntEnumSamePrntEncoder
 {
-
-  public CmptObjInpObject
-    ()
-  {
-  }
+  public string prnt_enumSamePrnt { get; set; }
 }
 
-public class CmptObjOutp
-  : Schema_+Merges
-  , ICmptObjOutp
+internal class CmptEnumValueAliasEncoder
 {
-  public ICmptObjOutpObject? As_ObjOutp { get; set; }
+  public string enumValueAlias { get; set; }
+  public string val1 { get; set; }
+  public string val2 { get; set; }
 }
 
-public class CmptObjOutpObject
-  : Schema_+Merges
-  , ICmptObjOutpObject
+internal class CmptObjDualEncoder
 {
-
-  public CmptObjOutpObject
-    ()
-  {
-  }
 }
 
-public class CmptObjAliasDual
-  : Schema_+Merges
-  , ICmptObjAliasDual
+internal class CmptObjInpEncoder
 {
-  public ICmptObjAliasDualObject? As_ObjAliasDual { get; set; }
 }
 
-public class CmptObjAliasDualObject
-  : Schema_+Merges
-  , ICmptObjAliasDualObject
+internal class CmptObjOutpEncoder
 {
-
-  public CmptObjAliasDualObject
-    ()
-  {
-  }
 }
 
-public class CmptObjAliasInp
-  : Schema_+Merges
-  , ICmptObjAliasInp
+internal class CmptObjAliasDualEncoder
 {
-  public ICmptObjAliasInpObject? As_ObjAliasInp { get; set; }
 }
 
-public class CmptObjAliasInpObject
-  : Schema_+Merges
-  , ICmptObjAliasInpObject
+internal class CmptObjAliasInpEncoder
 {
-
-  public CmptObjAliasInpObject
-    ()
-  {
-  }
 }
 
-public class CmptObjAliasOutp
-  : Schema_+Merges
-  , ICmptObjAliasOutp
+internal class CmptObjAliasOutpEncoder
 {
-  public ICmptObjAliasOutpObject? As_ObjAliasOutp { get; set; }
 }
 
-public class CmptObjAliasOutpObject
-  : Schema_+Merges
-  , ICmptObjAliasOutpObject
+internal class CmptObjAltDualEncoder
 {
-
-  public CmptObjAliasOutpObject
-    ()
-  {
-  }
 }
 
-public class CmptObjAltDual
-  : Schema_+Merges
-  , ICmptObjAltDual
+internal class CmptObjAltDualTypeEncoder
 {
-  public ICmptObjAltDualType? AsObjAltDualType { get; set; }
-  public ICmptObjAltDualObject? As_ObjAltDual { get; set; }
 }
 
-public class CmptObjAltDualObject
-  : Schema_+Merges
-  , ICmptObjAltDualObject
+internal class CmptObjAltInpEncoder
 {
-
-  public CmptObjAltDualObject
-    ()
-  {
-  }
 }
 
-public class CmptObjAltDualType
-  : Schema_+Merges
-  , ICmptObjAltDualType
+internal class CmptObjAltInpTypeEncoder
 {
-  public ICmptObjAltDualTypeObject? As_ObjAltDualType { get; set; }
 }
 
-public class CmptObjAltDualTypeObject
-  : Schema_+Merges
-  , ICmptObjAltDualTypeObject
+internal class CmptObjAltOutpEncoder
 {
-
-  public CmptObjAltDualTypeObject
-    ()
-  {
-  }
 }
 
-public class CmptObjAltInp
-  : Schema_+Merges
-  , ICmptObjAltInp
+internal class CmptObjAltOutpTypeEncoder
 {
-  public ICmptObjAltInpType? AsObjAltInpType { get; set; }
-  public ICmptObjAltInpObject? As_ObjAltInp { get; set; }
 }
 
-public class CmptObjAltInpObject
-  : Schema_+Merges
-  , ICmptObjAltInpObject
+internal class CmptObjAltEnumDualEncoder
 {
-
-  public CmptObjAltInpObject
-    ()
-  {
-  }
 }
 
-public class CmptObjAltInpType
-  : Schema_+Merges
-  , ICmptObjAltInpType
+internal class CmptObjAltEnumInpEncoder
 {
-  public ICmptObjAltInpTypeObject? As_ObjAltInpType { get; set; }
 }
 
-public class CmptObjAltInpTypeObject
-  : Schema_+Merges
-  , ICmptObjAltInpTypeObject
+internal class CmptObjAltEnumOutpEncoder
 {
-
-  public CmptObjAltInpTypeObject
-    ()
-  {
-  }
 }
 
-public class CmptObjAltOutp
-  : Schema_+Merges
-  , ICmptObjAltOutp
-{
-  public ICmptObjAltOutpType? AsObjAltOutpType { get; set; }
-  public ICmptObjAltOutpObject? As_ObjAltOutp { get; set; }
-}
-
-public class CmptObjAltOutpObject
-  : Schema_+Merges
-  , ICmptObjAltOutpObject
-{
-
-  public CmptObjAltOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjAltOutpType
-  : Schema_+Merges
-  , ICmptObjAltOutpType
-{
-  public ICmptObjAltOutpTypeObject? As_ObjAltOutpType { get; set; }
-}
-
-public class CmptObjAltOutpTypeObject
-  : Schema_+Merges
-  , ICmptObjAltOutpTypeObject
-{
-
-  public CmptObjAltOutpTypeObject
-    ()
-  {
-  }
-}
-
-public class CmptObjAltEnumDual
-  : Schema_+Merges
-  , ICmptObjAltEnumDual
-{
-  public bool? AsBooleantrue { get; set; }
-  public bool? AsBooleanfalse { get; set; }
-  public ICmptObjAltEnumDualObject? As_ObjAltEnumDual { get; set; }
-}
-
-public class CmptObjAltEnumDualObject
-  : Schema_+Merges
-  , ICmptObjAltEnumDualObject
-{
-
-  public CmptObjAltEnumDualObject
-    ()
-  {
-  }
-}
-
-public class CmptObjAltEnumInp
-  : Schema_+Merges
-  , ICmptObjAltEnumInp
-{
-  public bool? AsBooleantrue { get; set; }
-  public bool? AsBooleanfalse { get; set; }
-  public ICmptObjAltEnumInpObject? As_ObjAltEnumInp { get; set; }
-}
-
-public class CmptObjAltEnumInpObject
-  : Schema_+Merges
-  , ICmptObjAltEnumInpObject
-{
-
-  public CmptObjAltEnumInpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjAltEnumOutp
-  : Schema_+Merges
-  , ICmptObjAltEnumOutp
-{
-  public bool? AsBooleantrue { get; set; }
-  public bool? AsBooleanfalse { get; set; }
-  public ICmptObjAltEnumOutpObject? As_ObjAltEnumOutp { get; set; }
-}
-
-public class CmptObjAltEnumOutpObject
-  : Schema_+Merges
-  , ICmptObjAltEnumOutpObject
-{
-
-  public CmptObjAltEnumOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjCnstDual<TType>
-  : Schema_+Merges
-  , ICmptObjCnstDual<TType>
-{
-  public ICmptObjCnstDualObject<TType>? As_ObjCnstDual { get; set; }
-}
-
-public class CmptObjCnstDualObject<TType>
-  : Schema_+Merges
-  , ICmptObjCnstDualObject<TType>
+internal class CmptObjCnstDualEncoder<TType>
 {
   public TType Field { get; set; }
   public TType Str { get; set; }
-
-  public CmptObjCnstDualObject
-    ( TType field
-    , TType str
-    )
-  {
-    Field = field;
-    Str = str;
-  }
 }
 
-public class CmptObjCnstInp<TType>
-  : Schema_+Merges
-  , ICmptObjCnstInp<TType>
-{
-  public ICmptObjCnstInpObject<TType>? As_ObjCnstInp { get; set; }
-}
-
-public class CmptObjCnstInpObject<TType>
-  : Schema_+Merges
-  , ICmptObjCnstInpObject<TType>
+internal class CmptObjCnstInpEncoder<TType>
 {
   public TType Field { get; set; }
   public TType Str { get; set; }
-
-  public CmptObjCnstInpObject
-    ( TType field
-    , TType str
-    )
-  {
-    Field = field;
-    Str = str;
-  }
 }
 
-public class CmptObjCnstOutp<TType>
-  : Schema_+Merges
-  , ICmptObjCnstOutp<TType>
-{
-  public ICmptObjCnstOutpObject<TType>? As_ObjCnstOutp { get; set; }
-}
-
-public class CmptObjCnstOutpObject<TType>
-  : Schema_+Merges
-  , ICmptObjCnstOutpObject<TType>
+internal class CmptObjCnstOutpEncoder<TType>
 {
   public TType Field { get; set; }
   public TType Str { get; set; }
-
-  public CmptObjCnstOutpObject
-    ( TType field
-    , TType str
-    )
-  {
-    Field = field;
-    Str = str;
-  }
 }
 
-public class CmptObjFieldDual
-  : Schema_+Merges
-  , ICmptObjFieldDual
-{
-  public ICmptObjFieldDualObject? As_ObjFieldDual { get; set; }
-}
-
-public class CmptObjFieldDualObject
-  : Schema_+Merges
-  , ICmptObjFieldDualObject
+internal class CmptObjFieldDualEncoder
 {
   public ICmptFldObjFieldDual Field { get; set; }
-
-  public CmptObjFieldDualObject
-    ( ICmptFldObjFieldDual field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptFldObjFieldDual
-  : Schema_+Merges
-  , ICmptFldObjFieldDual
+internal class CmptFldObjFieldDualEncoder
 {
-  public ICmptFldObjFieldDualObject? As_FldObjFieldDual { get; set; }
 }
 
-public class CmptFldObjFieldDualObject
-  : Schema_+Merges
-  , ICmptFldObjFieldDualObject
-{
-
-  public CmptFldObjFieldDualObject
-    ()
-  {
-  }
-}
-
-public class CmptObjFieldInp
-  : Schema_+Merges
-  , ICmptObjFieldInp
-{
-  public ICmptObjFieldInpObject? As_ObjFieldInp { get; set; }
-}
-
-public class CmptObjFieldInpObject
-  : Schema_+Merges
-  , ICmptObjFieldInpObject
+internal class CmptObjFieldInpEncoder
 {
   public ICmptFldObjFieldInp Field { get; set; }
-
-  public CmptObjFieldInpObject
-    ( ICmptFldObjFieldInp field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptFldObjFieldInp
-  : Schema_+Merges
-  , ICmptFldObjFieldInp
+internal class CmptFldObjFieldInpEncoder
 {
-  public ICmptFldObjFieldInpObject? As_FldObjFieldInp { get; set; }
 }
 
-public class CmptFldObjFieldInpObject
-  : Schema_+Merges
-  , ICmptFldObjFieldInpObject
-{
-
-  public CmptFldObjFieldInpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjFieldOutp
-  : Schema_+Merges
-  , ICmptObjFieldOutp
-{
-  public ICmptObjFieldOutpObject? As_ObjFieldOutp { get; set; }
-}
-
-public class CmptObjFieldOutpObject
-  : Schema_+Merges
-  , ICmptObjFieldOutpObject
+internal class CmptObjFieldOutpEncoder
 {
   public ICmptFldObjFieldOutp Field { get; set; }
-
-  public CmptObjFieldOutpObject
-    ( ICmptFldObjFieldOutp field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptFldObjFieldOutp
-  : Schema_+Merges
-  , ICmptFldObjFieldOutp
+internal class CmptFldObjFieldOutpEncoder
 {
-  public ICmptFldObjFieldOutpObject? As_FldObjFieldOutp { get; set; }
 }
 
-public class CmptFldObjFieldOutpObject
-  : Schema_+Merges
-  , ICmptFldObjFieldOutpObject
-{
-
-  public CmptFldObjFieldOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjFieldAliasDual
-  : Schema_+Merges
-  , ICmptObjFieldAliasDual
-{
-  public ICmptObjFieldAliasDualObject? As_ObjFieldAliasDual { get; set; }
-}
-
-public class CmptObjFieldAliasDualObject
-  : Schema_+Merges
-  , ICmptObjFieldAliasDualObject
+internal class CmptObjFieldAliasDualEncoder
 {
   public ICmptFldObjFieldAliasDual Field { get; set; }
-
-  public CmptObjFieldAliasDualObject
-    ( ICmptFldObjFieldAliasDual field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptFldObjFieldAliasDual
-  : Schema_+Merges
-  , ICmptFldObjFieldAliasDual
+internal class CmptFldObjFieldAliasDualEncoder
 {
-  public ICmptFldObjFieldAliasDualObject? As_FldObjFieldAliasDual { get; set; }
 }
 
-public class CmptFldObjFieldAliasDualObject
-  : Schema_+Merges
-  , ICmptFldObjFieldAliasDualObject
-{
-
-  public CmptFldObjFieldAliasDualObject
-    ()
-  {
-  }
-}
-
-public class CmptObjFieldAliasInp
-  : Schema_+Merges
-  , ICmptObjFieldAliasInp
-{
-  public ICmptObjFieldAliasInpObject? As_ObjFieldAliasInp { get; set; }
-}
-
-public class CmptObjFieldAliasInpObject
-  : Schema_+Merges
-  , ICmptObjFieldAliasInpObject
+internal class CmptObjFieldAliasInpEncoder
 {
   public ICmptFldObjFieldAliasInp Field { get; set; }
-
-  public CmptObjFieldAliasInpObject
-    ( ICmptFldObjFieldAliasInp field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptFldObjFieldAliasInp
-  : Schema_+Merges
-  , ICmptFldObjFieldAliasInp
+internal class CmptFldObjFieldAliasInpEncoder
 {
-  public ICmptFldObjFieldAliasInpObject? As_FldObjFieldAliasInp { get; set; }
 }
 
-public class CmptFldObjFieldAliasInpObject
-  : Schema_+Merges
-  , ICmptFldObjFieldAliasInpObject
-{
-
-  public CmptFldObjFieldAliasInpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjFieldAliasOutp
-  : Schema_+Merges
-  , ICmptObjFieldAliasOutp
-{
-  public ICmptObjFieldAliasOutpObject? As_ObjFieldAliasOutp { get; set; }
-}
-
-public class CmptObjFieldAliasOutpObject
-  : Schema_+Merges
-  , ICmptObjFieldAliasOutpObject
+internal class CmptObjFieldAliasOutpEncoder
 {
   public ICmptFldObjFieldAliasOutp Field { get; set; }
-
-  public CmptObjFieldAliasOutpObject
-    ( ICmptFldObjFieldAliasOutp field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptFldObjFieldAliasOutp
-  : Schema_+Merges
-  , ICmptFldObjFieldAliasOutp
+internal class CmptFldObjFieldAliasOutpEncoder
 {
-  public ICmptFldObjFieldAliasOutpObject? As_FldObjFieldAliasOutp { get; set; }
 }
 
-public class CmptFldObjFieldAliasOutpObject
-  : Schema_+Merges
-  , ICmptFldObjFieldAliasOutpObject
-{
-
-  public CmptFldObjFieldAliasOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjFieldEnumAliasDual
-  : Schema_+Merges
-  , ICmptObjFieldEnumAliasDual
-{
-  public ICmptObjFieldEnumAliasDualObject? As_ObjFieldEnumAliasDual { get; set; }
-}
-
-public class CmptObjFieldEnumAliasDualObject
-  : Schema_+Merges
-  , ICmptObjFieldEnumAliasDualObject
+internal class CmptObjFieldEnumAliasDualEncoder
 {
   public bool Field { get; set; }
-
-  public CmptObjFieldEnumAliasDualObject
-    ( bool field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptObjFieldEnumAliasInp
-  : Schema_+Merges
-  , ICmptObjFieldEnumAliasInp
-{
-  public ICmptObjFieldEnumAliasInpObject? As_ObjFieldEnumAliasInp { get; set; }
-}
-
-public class CmptObjFieldEnumAliasInpObject
-  : Schema_+Merges
-  , ICmptObjFieldEnumAliasInpObject
+internal class CmptObjFieldEnumAliasInpEncoder
 {
   public bool Field { get; set; }
-
-  public CmptObjFieldEnumAliasInpObject
-    ( bool field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptObjFieldEnumAliasOutp
-  : Schema_+Merges
-  , ICmptObjFieldEnumAliasOutp
-{
-  public ICmptObjFieldEnumAliasOutpObject? As_ObjFieldEnumAliasOutp { get; set; }
-}
-
-public class CmptObjFieldEnumAliasOutpObject
-  : Schema_+Merges
-  , ICmptObjFieldEnumAliasOutpObject
+internal class CmptObjFieldEnumAliasOutpEncoder
 {
   public bool Field { get; set; }
-
-  public CmptObjFieldEnumAliasOutpObject
-    ( bool field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptObjFieldEnumValueDual
-  : Schema_+Merges
-  , ICmptObjFieldEnumValueDual
-{
-  public ICmptObjFieldEnumValueDualObject? As_ObjFieldEnumValueDual { get; set; }
-}
-
-public class CmptObjFieldEnumValueDualObject
-  : Schema_+Merges
-  , ICmptObjFieldEnumValueDualObject
+internal class CmptObjFieldEnumValueDualEncoder
 {
   public bool Field { get; set; }
-
-  public CmptObjFieldEnumValueDualObject
-    ( bool field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptObjFieldEnumValueInp
-  : Schema_+Merges
-  , ICmptObjFieldEnumValueInp
-{
-  public ICmptObjFieldEnumValueInpObject? As_ObjFieldEnumValueInp { get; set; }
-}
-
-public class CmptObjFieldEnumValueInpObject
-  : Schema_+Merges
-  , ICmptObjFieldEnumValueInpObject
+internal class CmptObjFieldEnumValueInpEncoder
 {
   public bool Field { get; set; }
-
-  public CmptObjFieldEnumValueInpObject
-    ( bool field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptObjFieldEnumValueOutp
-  : Schema_+Merges
-  , ICmptObjFieldEnumValueOutp
-{
-  public ICmptObjFieldEnumValueOutpObject? As_ObjFieldEnumValueOutp { get; set; }
-}
-
-public class CmptObjFieldEnumValueOutpObject
-  : Schema_+Merges
-  , ICmptObjFieldEnumValueOutpObject
+internal class CmptObjFieldEnumValueOutpEncoder
 {
   public bool Field { get; set; }
-
-  public CmptObjFieldEnumValueOutpObject
-    ( bool field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptObjFieldTypeAliasDual
-  : Schema_+Merges
-  , ICmptObjFieldTypeAliasDual
-{
-  public ICmptObjFieldTypeAliasDualObject? As_ObjFieldTypeAliasDual { get; set; }
-}
-
-public class CmptObjFieldTypeAliasDualObject
-  : Schema_+Merges
-  , ICmptObjFieldTypeAliasDualObject
+internal class CmptObjFieldTypeAliasDualEncoder
 {
   public string Field { get; set; }
-
-  public CmptObjFieldTypeAliasDualObject
-    ( string field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptObjFieldTypeAliasInp
-  : Schema_+Merges
-  , ICmptObjFieldTypeAliasInp
-{
-  public ICmptObjFieldTypeAliasInpObject? As_ObjFieldTypeAliasInp { get; set; }
-}
-
-public class CmptObjFieldTypeAliasInpObject
-  : Schema_+Merges
-  , ICmptObjFieldTypeAliasInpObject
+internal class CmptObjFieldTypeAliasInpEncoder
 {
   public string Field { get; set; }
-
-  public CmptObjFieldTypeAliasInpObject
-    ( string field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptObjFieldTypeAliasOutp
-  : Schema_+Merges
-  , ICmptObjFieldTypeAliasOutp
-{
-  public ICmptObjFieldTypeAliasOutpObject? As_ObjFieldTypeAliasOutp { get; set; }
-}
-
-public class CmptObjFieldTypeAliasOutpObject
-  : Schema_+Merges
-  , ICmptObjFieldTypeAliasOutpObject
+internal class CmptObjFieldTypeAliasOutpEncoder
 {
   public string Field { get; set; }
-
-  public CmptObjFieldTypeAliasOutpObject
-    ( string field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptObjParamDual<TTest,TType>
-  : Schema_+Merges
-  , ICmptObjParamDual<TTest,TType>
-{
-  public ICmptObjParamDualObject<TTest,TType>? As_ObjParamDual { get; set; }
-}
-
-public class CmptObjParamDualObject<TTest,TType>
-  : Schema_+Merges
-  , ICmptObjParamDualObject<TTest,TType>
+internal class CmptObjParamDualEncoder<TTest,TType>
 {
   public TTest Test { get; set; }
   public TType Type { get; set; }
-
-  public CmptObjParamDualObject
-    ( TTest test
-    , TType type
-    )
-  {
-    Test = test;
-    Type = type;
-  }
 }
 
-public class CmptObjParamInp<TTest,TType>
-  : Schema_+Merges
-  , ICmptObjParamInp<TTest,TType>
-{
-  public ICmptObjParamInpObject<TTest,TType>? As_ObjParamInp { get; set; }
-}
-
-public class CmptObjParamInpObject<TTest,TType>
-  : Schema_+Merges
-  , ICmptObjParamInpObject<TTest,TType>
+internal class CmptObjParamInpEncoder<TTest,TType>
 {
   public TTest Test { get; set; }
   public TType Type { get; set; }
-
-  public CmptObjParamInpObject
-    ( TTest test
-    , TType type
-    )
-  {
-    Test = test;
-    Type = type;
-  }
 }
 
-public class CmptObjParamOutp<TTest,TType>
-  : Schema_+Merges
-  , ICmptObjParamOutp<TTest,TType>
-{
-  public ICmptObjParamOutpObject<TTest,TType>? As_ObjParamOutp { get; set; }
-}
-
-public class CmptObjParamOutpObject<TTest,TType>
-  : Schema_+Merges
-  , ICmptObjParamOutpObject<TTest,TType>
+internal class CmptObjParamOutpEncoder<TTest,TType>
 {
   public TTest Test { get; set; }
   public TType Type { get; set; }
-
-  public CmptObjParamOutpObject
-    ( TTest test
-    , TType type
-    )
-  {
-    Test = test;
-    Type = type;
-  }
 }
 
-public class CmptObjParamDupDual<TTest>
-  : Schema_+Merges
-  , ICmptObjParamDupDual<TTest>
-{
-  public ICmptObjParamDupDualObject<TTest>? As_ObjParamDupDual { get; set; }
-}
-
-public class CmptObjParamDupDualObject<TTest>
-  : Schema_+Merges
-  , ICmptObjParamDupDualObject<TTest>
+internal class CmptObjParamDupDualEncoder<TTest>
 {
   public TTest Test { get; set; }
   public TTest Type { get; set; }
-
-  public CmptObjParamDupDualObject
-    ( TTest test
-    , TTest type
-    )
-  {
-    Test = test;
-    Type = type;
-  }
 }
 
-public class CmptObjParamDupInp<TTest>
-  : Schema_+Merges
-  , ICmptObjParamDupInp<TTest>
-{
-  public ICmptObjParamDupInpObject<TTest>? As_ObjParamDupInp { get; set; }
-}
-
-public class CmptObjParamDupInpObject<TTest>
-  : Schema_+Merges
-  , ICmptObjParamDupInpObject<TTest>
+internal class CmptObjParamDupInpEncoder<TTest>
 {
   public TTest Test { get; set; }
   public TTest Type { get; set; }
-
-  public CmptObjParamDupInpObject
-    ( TTest test
-    , TTest type
-    )
-  {
-    Test = test;
-    Type = type;
-  }
 }
 
-public class CmptObjParamDupOutp<TTest>
-  : Schema_+Merges
-  , ICmptObjParamDupOutp<TTest>
-{
-  public ICmptObjParamDupOutpObject<TTest>? As_ObjParamDupOutp { get; set; }
-}
-
-public class CmptObjParamDupOutpObject<TTest>
-  : Schema_+Merges
-  , ICmptObjParamDupOutpObject<TTest>
+internal class CmptObjParamDupOutpEncoder<TTest>
 {
   public TTest Test { get; set; }
   public TTest Type { get; set; }
-
-  public CmptObjParamDupOutpObject
-    ( TTest test
-    , TTest type
-    )
-  {
-    Test = test;
-    Type = type;
-  }
 }
 
-public class CmptObjPrntDual
-  : CmptRefObjPrntDual
-  , ICmptObjPrntDual
+internal class CmptObjPrntDualEncoder
 {
-  public ICmptObjPrntDualObject? As_ObjPrntDual { get; set; }
 }
 
-public class CmptObjPrntDualObject
-  : CmptRefObjPrntDualObject
-  , ICmptObjPrntDualObject
+internal class CmptRefObjPrntDualEncoder
 {
-
-  public CmptObjPrntDualObject
-    ()
-  {
-  }
 }
 
-public class CmptRefObjPrntDual
-  : Schema_+Merges
-  , ICmptRefObjPrntDual
+internal class CmptObjPrntInpEncoder
 {
-  public ICmptRefObjPrntDualObject? As_RefObjPrntDual { get; set; }
 }
 
-public class CmptRefObjPrntDualObject
-  : Schema_+Merges
-  , ICmptRefObjPrntDualObject
+internal class CmptRefObjPrntInpEncoder
 {
-
-  public CmptRefObjPrntDualObject
-    ()
-  {
-  }
 }
 
-public class CmptObjPrntInp
-  : CmptRefObjPrntInp
-  , ICmptObjPrntInp
+internal class CmptObjPrntOutpEncoder
 {
-  public ICmptObjPrntInpObject? As_ObjPrntInp { get; set; }
 }
 
-public class CmptObjPrntInpObject
-  : CmptRefObjPrntInpObject
-  , ICmptObjPrntInpObject
+internal class CmptRefObjPrntOutpEncoder
 {
-
-  public CmptObjPrntInpObject
-    ()
-  {
-  }
 }
 
-public class CmptRefObjPrntInp
-  : Schema_+Merges
-  , ICmptRefObjPrntInp
-{
-  public ICmptRefObjPrntInpObject? As_RefObjPrntInp { get; set; }
-}
-
-public class CmptRefObjPrntInpObject
-  : Schema_+Merges
-  , ICmptRefObjPrntInpObject
-{
-
-  public CmptRefObjPrntInpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjPrntOutp
-  : CmptRefObjPrntOutp
-  , ICmptObjPrntOutp
-{
-  public ICmptObjPrntOutpObject? As_ObjPrntOutp { get; set; }
-}
-
-public class CmptObjPrntOutpObject
-  : CmptRefObjPrntOutpObject
-  , ICmptObjPrntOutpObject
-{
-
-  public CmptObjPrntOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptRefObjPrntOutp
-  : Schema_+Merges
-  , ICmptRefObjPrntOutp
-{
-  public ICmptRefObjPrntOutpObject? As_RefObjPrntOutp { get; set; }
-}
-
-public class CmptRefObjPrntOutpObject
-  : Schema_+Merges
-  , ICmptRefObjPrntOutpObject
-{
-
-  public CmptRefObjPrntOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptOutpFieldParam
-  : Schema_+Merges
-  , ICmptOutpFieldParam
-{
-  public ICmptOutpFieldParamObject? As_OutpFieldParam { get; set; }
-}
-
-public class CmptOutpFieldParamObject
-  : Schema_+Merges
-  , ICmptOutpFieldParamObject
+internal class CmptOutpFieldParamEncoder
 {
   public ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter)
     => null;
-
-  public CmptOutpFieldParamObject
-    ()
-  {
-  }
 }
 
-public class CmptOutpFieldParam1
-  : Schema_+Merges
-  , ICmptOutpFieldParam1
+internal class CmptOutpFieldParam1Encoder
 {
-  public ICmptOutpFieldParam1Object? As_OutpFieldParam1 { get; set; }
 }
 
-public class CmptOutpFieldParam1Object
-  : Schema_+Merges
-  , ICmptOutpFieldParam1Object
+internal class CmptOutpFieldParam2Encoder
 {
-
-  public CmptOutpFieldParam1Object
-    ()
-  {
-  }
 }
 
-public class CmptOutpFieldParam2
-  : Schema_+Merges
-  , ICmptOutpFieldParam2
+internal class CmptFldOutpFieldParamEncoder
 {
-  public ICmptOutpFieldParam2Object? As_OutpFieldParam2 { get; set; }
 }
 
-public class CmptOutpFieldParam2Object
-  : Schema_+Merges
-  , ICmptOutpFieldParam2Object
-{
-
-  public CmptOutpFieldParam2Object
-    ()
-  {
-  }
-}
-
-public class CmptFldOutpFieldParam
-  : Schema_+Merges
-  , ICmptFldOutpFieldParam
-{
-  public ICmptFldOutpFieldParamObject? As_FldOutpFieldParam { get; set; }
-}
-
-public class CmptFldOutpFieldParamObject
-  : Schema_+Merges
-  , ICmptFldOutpFieldParamObject
-{
-
-  public CmptFldOutpFieldParamObject
-    ()
-  {
-  }
-}
-
-public class CmptUnionAlias
-  : Schema_+Merges
-  , ICmptUnionAlias
+internal class CmptUnionAliasEncoder
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }
 }
 
-public class CmptUnionDiff
-  : Schema_+Merges
-  , ICmptUnionDiff
+internal class CmptUnionDiffEncoder
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }
 }
 
-public class CmptUnionSame
-  : Schema_+Merges
-  , ICmptUnionSame
+internal class CmptUnionSameEncoder
 {
   public Boolean AsBoolean { get; set; }
 }
 
-public class CmptUnionSamePrnt
-  : CmptPrntUnionSamePrnt
-  , ICmptUnionSamePrnt
+internal class CmptUnionSamePrntEncoder
 {
   public Boolean AsBoolean { get; set; }
 }
 
-public class CmptPrntUnionSamePrnt
-  : Schema_+Merges
-  , ICmptPrntUnionSamePrnt
+internal class CmptPrntUnionSamePrntEncoder
 {
   public String AsString { get; set; }
 }

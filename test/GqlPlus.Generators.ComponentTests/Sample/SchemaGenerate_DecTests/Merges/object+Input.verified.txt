@@ -11,13 +11,6 @@ input ObjInp { }
 
 namespace Components.Gqlp_Schema_object_Input;
 
-public interface ICmptObjInp
-  // No Base because it's Class
-{
-  ICmptObjInpObject? As_ObjInp { get; }
-}
-
-public interface ICmptObjInpObject
-  // No Base because it's Class
+internal class CmptObjInpDecoder
 {
 }

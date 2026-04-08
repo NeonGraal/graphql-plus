@@ -7,25 +7,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_arg_Input;
 
-public interface ItestGnrcPrntArgInp<TType>
-  : ItestRefGnrcPrntArgInp<TType>
-{
-  ItestGnrcPrntArgInpObject<TType>? As_GnrcPrntArgInp { get; }
-}
-
-public interface ItestGnrcPrntArgInpObject<TType>
-  : ItestRefGnrcPrntArgInpObject<TType>
+internal class testGnrcPrntArgInpDecoder<TType>
 {
 }
 
-public interface ItestRefGnrcPrntArgInp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcPrntArgInpObject<TRef>? As_RefGnrcPrntArgInp { get; }
-}
-
-public interface ItestRefGnrcPrntArgInpObject<TRef>
-  // No Base because it's Class
+internal class testRefGnrcPrntArgInpDecoder<TRef>
 {
 }

@@ -7,20 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_category_output_optional;
 
-public class testCtgrOutpOptl
-  : GqlpEncoderBase
-  , ItestCtgrOutpOptl
+internal class testCtgrOutpOptlEncoder
 {
-  public ItestCtgrOutpOptlObject? As_CtgrOutpOptl { get; set; }
-}
-
-public class testCtgrOutpOptlObject
-  : GqlpEncoderBase
-  , ItestCtgrOutpOptlObject
-{
-
-  public testCtgrOutpOptlObject
-    ()
-  {
-  }
 }

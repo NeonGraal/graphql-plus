@@ -7,22 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_alt_enum_Dual;
 
-public class testObjAltEnumDual
-  : GqlpEncoderBase
-  , ItestObjAltEnumDual
+internal class testObjAltEnumDualEncoder
 {
-  public bool? AsBooleantrue { get; set; }
-  public bool? AsBooleanfalse { get; set; }
-  public ItestObjAltEnumDualObject? As_ObjAltEnumDual { get; set; }
-}
-
-public class testObjAltEnumDualObject
-  : GqlpEncoderBase
-  , ItestObjAltEnumDualObject
-{
-
-  public testObjAltEnumDualObject
-    ()
-  {
-  }
 }

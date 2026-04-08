@@ -7,41 +7,35 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Definition;
 
-public enum bool
+internal class boolEncoder
 {
-  false,
-  true,
+  public string false { get; set; }
+  public string true { get; set; }
 }
 
-public enum GqlpNull
+internal class GqlpNullEncoder
 {
-  null,
+  public string null { get; set; }
 }
 
-public enum GqlpUnit
+internal class GqlpUnitEncoder
 {
-  _,
+  public string _ { get; set; }
 }
 
-public enum void
-{
-}
-
-public class decimal
-  : GqlpDomainNumber
-  , decimal
+internal class voidEncoder
 {
 }
 
-public class string
-  : GqlpDomainString
-  , string
+internal class decimalEncoder
 {
 }
 
-public class test_Basic
-  : GqlpEncoderBase
-  , Itest_Basic
+internal class stringEncoder
+{
+}
+
+internal class test_BasicEncoder
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }
@@ -49,116 +43,48 @@ public class test_Basic
   public Unit AsUnit { get; set; }
 }
 
-public class test_Internal
-  : GqlpEncoderBase
-  , Itest_Internal
+internal class test_InternalEncoder
 {
   public Null AsNull { get; set; }
   public Void AsVoid { get; set; }
 }
 
-public class test_Key
-  : GqlpEncoderBase
-  , Itest_Key
+internal class test_KeyEncoder
 {
   public _Basic As_Basic { get; set; }
   public _Internal As_Internal { get; set; }
   public _Simple As_Simple { get; set; }
 }
 
-public class test_Object
-  : GqlpEncoderBase
-  , Itest_Object
-{
-  public Itest_ObjectObject? As__Object { get; set; }
-}
-
-public class test_ObjectObject
-  : GqlpEncoderBase
-  , Itest_ObjectObject
-{
-
-  public test_ObjectObject
-    ()
-  {
-  }
-}
-
-public class test_Domain
-  : GqlpEncoderBase
-  , Itest_Domain
+internal class test_ObjectEncoder
 {
 }
 
-public class test_Dual
-  : GqlpEncoderBase
-  , Itest_Dual
-{
-  public Itest_DualObject? As__Dual { get; set; }
-}
-
-public class test_DualObject
-  : GqlpEncoderBase
-  , Itest_DualObject
-{
-
-  public test_DualObject
-    ()
-  {
-  }
-}
-
-public class test_Enum
-  : GqlpEncoderBase
-  , Itest_Enum
+internal class test_DomainEncoder
 {
 }
 
-public class test_Input
-  : GqlpEncoderBase
-  , Itest_Input
-{
-  public Itest_InputObject? As__Input { get; set; }
-}
-
-public class test_InputObject
-  : GqlpEncoderBase
-  , Itest_InputObject
-{
-
-  public test_InputObject
-    ()
-  {
-  }
-}
-
-public class test_Output
-  : GqlpEncoderBase
-  , Itest_Output
-{
-  public Itest_OutputObject? As__Output { get; set; }
-}
-
-public class test_OutputObject
-  : GqlpEncoderBase
-  , Itest_OutputObject
-{
-
-  public test_OutputObject
-    ()
-  {
-  }
-}
-
-public class test_Union
-  : GqlpEncoderBase
-  , Itest_Union
+internal class test_DualEncoder
 {
 }
 
-public class test_Simple
-  : GqlpEncoderBase
-  , Itest_Simple
+internal class test_EnumEncoder
+{
+}
+
+internal class test_InputEncoder
+{
+}
+
+internal class test_OutputEncoder
+{
+}
+
+internal class test_UnionEncoder
+{
+}
+
+internal class test_SimpleEncoder
 {
   public _Enum As_Enum { get; set; }
   public _Domain As_Domain { get; set; }

@@ -11,26 +11,11 @@ output RefGnrcFieldArgOutp<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_field_arg_Output;
 
-public interface ICmptGnrcFieldArgOutp<TType>
-  // No Base because it's Class
+internal class CmptGnrcFieldArgOutpDecoder<TType>
 {
-  ICmptGnrcFieldArgOutpObject<TType>? As_GnrcFieldArgOutp { get; }
+  public ICmptRefGnrcFieldArgOutp<TType> Field { get; set; }
 }
 
-public interface ICmptGnrcFieldArgOutpObject<TType>
-  // No Base because it's Class
-{
-  ICmptRefGnrcFieldArgOutp<TType> Field { get; }
-}
-
-public interface ICmptRefGnrcFieldArgOutp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ICmptRefGnrcFieldArgOutpObject<TRef>? As_RefGnrcFieldArgOutp { get; }
-}
-
-public interface ICmptRefGnrcFieldArgOutpObject<TRef>
-  // No Base because it's Class
+internal class CmptRefGnrcFieldArgOutpDecoder<TRef>
 {
 }

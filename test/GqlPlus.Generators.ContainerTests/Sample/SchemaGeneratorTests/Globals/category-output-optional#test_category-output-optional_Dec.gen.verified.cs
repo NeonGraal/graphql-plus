@@ -7,13 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_category_output_optional;
 
-public interface ItestCtgrOutpOptl
-  // No Base because it's Class
-{
-  ItestCtgrOutpOptlObject? As_CtgrOutpOptl { get; }
-}
-
-public interface ItestCtgrOutpOptlObject
-  // No Base because it's Class
+internal class testCtgrOutpOptlDecoder
 {
 }

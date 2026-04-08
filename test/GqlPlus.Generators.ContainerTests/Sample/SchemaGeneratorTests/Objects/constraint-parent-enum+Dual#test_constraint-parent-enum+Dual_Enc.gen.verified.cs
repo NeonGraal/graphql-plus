@@ -7,53 +7,22 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_enum_Dual;
 
-public class testCnstPrntEnumDual
-  : GqlpEncoderBase
-  , ItestCnstPrntEnumDual
+internal class testCnstPrntEnumDualEncoder
 {
-  public ItestRefCnstPrntEnumDual<testParentCnstPrntEnumDual>? AsParentCnstPrntEnumDualparentCnstPrntEnumDual { get; set; }
-  public ItestCnstPrntEnumDualObject? As_CnstPrntEnumDual { get; set; }
 }
 
-public class testCnstPrntEnumDualObject
-  : GqlpEncoderBase
-  , ItestCnstPrntEnumDualObject
-{
-
-  public testCnstPrntEnumDualObject
-    ()
-  {
-  }
-}
-
-public class testRefCnstPrntEnumDual<TType>
-  : GqlpEncoderBase
-  , ItestRefCnstPrntEnumDual<TType>
-{
-  public ItestRefCnstPrntEnumDualObject<TType>? As_RefCnstPrntEnumDual { get; set; }
-}
-
-public class testRefCnstPrntEnumDualObject<TType>
-  : GqlpEncoderBase
-  , ItestRefCnstPrntEnumDualObject<TType>
+internal class testRefCnstPrntEnumDualEncoder<TType>
 {
   public TType Field { get; set; }
-
-  public testRefCnstPrntEnumDualObject
-    ( TType field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum testEnumCnstPrntEnumDual
+internal class testEnumCnstPrntEnumDualEncoder
 {
-  parentCnstPrntEnumDual = testParentCnstPrntEnumDual.parentCnstPrntEnumDual,
-  cnstPrntEnumDual,
+  public string parentCnstPrntEnumDual { get; set; }
+  public string cnstPrntEnumDual { get; set; }
 }
 
-public enum testParentCnstPrntEnumDual
+internal class testParentCnstPrntEnumDualEncoder
 {
-  parentCnstPrntEnumDual,
+  public string parentCnstPrntEnumDual { get; set; }
 }

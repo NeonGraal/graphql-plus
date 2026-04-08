@@ -12,38 +12,15 @@ input AltGnrcPrntParamPrntInp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_parent_param_parent_Input;
 
-public interface ICmptGnrcPrntParamPrntInp
-  : ICmptRefGnrcPrntParamPrntInp<ICmptAltGnrcPrntParamPrntInp>
-{
-  ICmptGnrcPrntParamPrntInpObject? As_GnrcPrntParamPrntInp { get; }
-}
-
-public interface ICmptGnrcPrntParamPrntInpObject
-  : ICmptRefGnrcPrntParamPrntInpObject<ICmptAltGnrcPrntParamPrntInp>
+internal class CmptGnrcPrntParamPrntInpDecoder
 {
 }
 
-public interface ICmptRefGnrcPrntParamPrntInp<TRef>
-  // No Base because it's Class
-{
-  TRef? As_Parent { get; }
-  ICmptRefGnrcPrntParamPrntInpObject<TRef>? As_RefGnrcPrntParamPrntInp { get; }
-}
-
-public interface ICmptRefGnrcPrntParamPrntInpObject<TRef>
-  // No Base because it's Class
+internal class CmptRefGnrcPrntParamPrntInpDecoder<TRef>
 {
 }
 
-public interface ICmptAltGnrcPrntParamPrntInp
-  // No Base because it's Class
+internal class CmptAltGnrcPrntParamPrntInpDecoder
 {
-  string? AsString { get; }
-  ICmptAltGnrcPrntParamPrntInpObject? As_AltGnrcPrntParamPrntInp { get; }
-}
-
-public interface ICmptAltGnrcPrntParamPrntInpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

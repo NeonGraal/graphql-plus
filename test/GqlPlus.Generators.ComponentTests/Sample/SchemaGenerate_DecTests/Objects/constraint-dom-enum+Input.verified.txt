@@ -13,37 +13,21 @@ domain JustCnstDomEnumInp { enum EnumCnstDomEnumInp.cnstDomEnumInp }
 
 namespace Components.Gqlp_Schema_constraint_dom_enum_Input;
 
-public interface ICmptCnstDomEnumInp
-  // No Base because it's Class
-{
-  ICmptRefCnstDomEnumInp<CmptEnumCnstDomEnumInp>? AsEnumCnstDomEnumInpcnstDomEnumInp { get; }
-  ICmptCnstDomEnumInpObject? As_CnstDomEnumInp { get; }
-}
-
-public interface ICmptCnstDomEnumInpObject
-  // No Base because it's Class
+internal class CmptCnstDomEnumInpDecoder
 {
 }
 
-public interface ICmptRefCnstDomEnumInp<TType>
-  // No Base because it's Class
+internal class CmptRefCnstDomEnumInpDecoder<TType>
 {
-  ICmptRefCnstDomEnumInpObject<TType>? As_RefCnstDomEnumInp { get; }
+  public TType Field { get; set; }
 }
 
-public interface ICmptRefCnstDomEnumInpObject<TType>
-  // No Base because it's Class
+internal class CmptEnumCnstDomEnumInpDecoder
 {
-  TType Field { get; }
+  public string cnstDomEnumInp { get; set; }
+  public string other { get; set; }
 }
 
-public enum CmptEnumCnstDomEnumInp
-{
-  cnstDomEnumInp,
-  other,
-}
-
-public interface ICmptJustCnstDomEnumInp
-  : IGqlpDomainEnum
+internal class CmptJustCnstDomEnumInpDecoder
 {
 }

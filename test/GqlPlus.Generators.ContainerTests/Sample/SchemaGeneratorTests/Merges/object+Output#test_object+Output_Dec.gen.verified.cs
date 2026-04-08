@@ -7,13 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_Output;
 
-public interface ItestObjOutp
-  // No Base because it's Class
-{
-  ItestObjOutpObject? As_ObjOutp { get; }
-}
-
-public interface ItestObjOutpObject
-  // No Base because it's Class
+internal class testObjOutpDecoder
 {
 }

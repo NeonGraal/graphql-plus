@@ -7,36 +7,21 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_dom_Output;
 
-public interface ItestGnrcPrntEnumDomOutp
-  : ItestFieldGnrcPrntEnumDomOutp<ItestDomGnrcPrntEnumDomOutp>
-{
-  ItestGnrcPrntEnumDomOutpObject? As_GnrcPrntEnumDomOutp { get; }
-}
-
-public interface ItestGnrcPrntEnumDomOutpObject
-  : ItestFieldGnrcPrntEnumDomOutpObject<ItestDomGnrcPrntEnumDomOutp>
+internal class testGnrcPrntEnumDomOutpDecoder
 {
 }
 
-public interface ItestFieldGnrcPrntEnumDomOutp<TRef>
-  // No Base because it's Class
+internal class testFieldGnrcPrntEnumDomOutpDecoder<TRef>
 {
-  ItestFieldGnrcPrntEnumDomOutpObject<TRef>? As_FieldGnrcPrntEnumDomOutp { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ItestFieldGnrcPrntEnumDomOutpObject<TRef>
-  // No Base because it's Class
+internal class testEnumGnrcPrntEnumDomOutpDecoder
 {
-  TRef Field { get; }
+  public string gnrcPrntEnumDomOutpLabel { get; set; }
+  public string gnrcPrntEnumDomOutpOther { get; set; }
 }
 
-public enum testEnumGnrcPrntEnumDomOutp
-{
-  gnrcPrntEnumDomOutpLabel,
-  gnrcPrntEnumDomOutpOther,
-}
-
-public interface ItestDomGnrcPrntEnumDomOutp
-  : IGqlpDomainEnum
+internal class testDomGnrcPrntEnumDomOutpDecoder
 {
 }

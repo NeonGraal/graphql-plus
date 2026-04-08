@@ -10,14 +10,7 @@ output FieldOutp { field: String }
 
 namespace Components.Gqlp_Schema_field_Output;
 
-public interface ICmptFieldOutp
-  // No Base because it's Class
+internal class CmptFieldOutpDecoder
 {
-  ICmptFieldOutpObject? As_FieldOutp { get; }
-}
-
-public interface ICmptFieldOutpObject
-  // No Base because it's Class
-{
-  string Field { get; }
+  public string Field { get; set; }
 }

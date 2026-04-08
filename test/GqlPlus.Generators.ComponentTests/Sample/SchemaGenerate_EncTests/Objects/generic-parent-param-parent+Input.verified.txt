@@ -12,61 +12,15 @@ input AltGnrcPrntParamPrntInp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_parent_param_parent_Input;
 
-public class CmptGnrcPrntParamPrntInp
-  : CmptRefGnrcPrntParamPrntInp<ICmptAltGnrcPrntParamPrntInp>
-  , ICmptGnrcPrntParamPrntInp
+internal class CmptGnrcPrntParamPrntInpEncoder
 {
-  public ICmptGnrcPrntParamPrntInpObject? As_GnrcPrntParamPrntInp { get; set; }
 }
 
-public class CmptGnrcPrntParamPrntInpObject
-  : CmptRefGnrcPrntParamPrntInpObject<ICmptAltGnrcPrntParamPrntInp>
-  , ICmptGnrcPrntParamPrntInpObject
+internal class CmptRefGnrcPrntParamPrntInpEncoder<TRef>
 {
-
-  public CmptGnrcPrntParamPrntInpObject
-    ()
-  {
-  }
 }
 
-public class CmptRefGnrcPrntParamPrntInp<TRef>
-  : Schema_generic-parent-param-parent+Input
-  , ICmptRefGnrcPrntParamPrntInp<TRef>
-{
-  public TRef? As_Parent { get; set; }
-  public ICmptRefGnrcPrntParamPrntInpObject<TRef>? As_RefGnrcPrntParamPrntInp { get; set; }
-}
-
-public class CmptRefGnrcPrntParamPrntInpObject<TRef>
-  : Schema_generic-parent-param-parent+Input
-  , ICmptRefGnrcPrntParamPrntInpObject<TRef>
-{
-
-  public CmptRefGnrcPrntParamPrntInpObject
-    ()
-  {
-  }
-}
-
-public class CmptAltGnrcPrntParamPrntInp
-  : Schema_generic-parent-param-parent+Input
-  , ICmptAltGnrcPrntParamPrntInp
-{
-  public string? AsString { get; set; }
-  public ICmptAltGnrcPrntParamPrntInpObject? As_AltGnrcPrntParamPrntInp { get; set; }
-}
-
-public class CmptAltGnrcPrntParamPrntInpObject
-  : Schema_generic-parent-param-parent+Input
-  , ICmptAltGnrcPrntParamPrntInpObject
+internal class CmptAltGnrcPrntParamPrntInpEncoder
 {
   public decimal Alt { get; set; }
-
-  public CmptAltGnrcPrntParamPrntInpObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

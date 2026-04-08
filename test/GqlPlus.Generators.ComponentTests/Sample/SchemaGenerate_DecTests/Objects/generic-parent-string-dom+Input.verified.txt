@@ -12,30 +12,15 @@ domain DomGnrcPrntStrDomInp { string /\w+/ }
 
 namespace Components.Gqlp_Schema_generic_parent_string_dom_Input;
 
-public interface ICmptGnrcPrntStrDomInp
-  : ICmptFieldGnrcPrntStrDomInp<ICmptDomGnrcPrntStrDomInp>
-{
-  ICmptGnrcPrntStrDomInpObject? As_GnrcPrntStrDomInp { get; }
-}
-
-public interface ICmptGnrcPrntStrDomInpObject
-  : ICmptFieldGnrcPrntStrDomInpObject<ICmptDomGnrcPrntStrDomInp>
+internal class CmptGnrcPrntStrDomInpDecoder
 {
 }
 
-public interface ICmptFieldGnrcPrntStrDomInp<TRef>
-  // No Base because it's Class
+internal class CmptFieldGnrcPrntStrDomInpDecoder<TRef>
 {
-  ICmptFieldGnrcPrntStrDomInpObject<TRef>? As_FieldGnrcPrntStrDomInp { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ICmptFieldGnrcPrntStrDomInpObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public interface ICmptDomGnrcPrntStrDomInp
-  : IGqlpDomainString
+internal class CmptDomGnrcPrntStrDomInpDecoder
 {
 }

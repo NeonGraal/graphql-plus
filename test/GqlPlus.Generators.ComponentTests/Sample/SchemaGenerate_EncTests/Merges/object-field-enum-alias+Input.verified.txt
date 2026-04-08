@@ -11,23 +11,7 @@ input ObjFieldEnumAliasInp { field [field2] = true }
 
 namespace Components.Gqlp_Schema_object_field_enum_alias_Input;
 
-public class CmptObjFieldEnumAliasInp
-  : Schema_object-field-enum-alias+Input
-  , ICmptObjFieldEnumAliasInp
-{
-  public ICmptObjFieldEnumAliasInpObject? As_ObjFieldEnumAliasInp { get; set; }
-}
-
-public class CmptObjFieldEnumAliasInpObject
-  : Schema_object-field-enum-alias+Input
-  , ICmptObjFieldEnumAliasInpObject
+internal class CmptObjFieldEnumAliasInpEncoder
 {
   public bool Field { get; set; }
-
-  public CmptObjFieldEnumAliasInpObject
-    ( bool field
-    )
-  {
-    Field = field;
-  }
 }

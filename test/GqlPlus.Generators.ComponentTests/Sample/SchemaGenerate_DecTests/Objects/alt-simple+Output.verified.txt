@@ -10,14 +10,6 @@ output AltSmplOutp { | String }
 
 namespace Components.Gqlp_Schema_alt_simple_Output;
 
-public interface ICmptAltSmplOutp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ICmptAltSmplOutpObject? As_AltSmplOutp { get; }
-}
-
-public interface ICmptAltSmplOutpObject
-  // No Base because it's Class
+internal class CmptAltSmplOutpDecoder
 {
 }

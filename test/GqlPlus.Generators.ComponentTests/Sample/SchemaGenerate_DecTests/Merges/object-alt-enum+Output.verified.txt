@@ -11,15 +11,6 @@ output ObjAltEnumOutp { ! false }
 
 namespace Components.Gqlp_Schema_object_alt_enum_Output;
 
-public interface ICmptObjAltEnumOutp
-  // No Base because it's Class
-{
-  bool? AsBooleantrue { get; }
-  bool? AsBooleanfalse { get; }
-  ICmptObjAltEnumOutpObject? As_ObjAltEnumOutp { get; }
-}
-
-public interface ICmptObjAltEnumOutpObject
-  // No Base because it's Class
+internal class CmptObjAltEnumOutpDecoder
 {
 }

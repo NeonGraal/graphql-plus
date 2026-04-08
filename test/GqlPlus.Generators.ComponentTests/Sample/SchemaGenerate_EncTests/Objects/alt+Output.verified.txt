@@ -11,43 +11,11 @@ output AltAltOutp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_Output;
 
-public class CmptAltOutp
-  : Schema_alt+Output
-  , ICmptAltOutp
+internal class CmptAltOutpEncoder
 {
-  public ICmptAltAltOutp? AsAltAltOutp { get; set; }
-  public ICmptAltOutpObject? As_AltOutp { get; set; }
 }
 
-public class CmptAltOutpObject
-  : Schema_alt+Output
-  , ICmptAltOutpObject
-{
-
-  public CmptAltOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptAltAltOutp
-  : Schema_alt+Output
-  , ICmptAltAltOutp
-{
-  public string? AsString { get; set; }
-  public ICmptAltAltOutpObject? As_AltAltOutp { get; set; }
-}
-
-public class CmptAltAltOutpObject
-  : Schema_alt+Output
-  , ICmptAltAltOutpObject
+internal class CmptAltAltOutpEncoder
 {
   public decimal Alt { get; set; }
-
-  public CmptAltAltOutpObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

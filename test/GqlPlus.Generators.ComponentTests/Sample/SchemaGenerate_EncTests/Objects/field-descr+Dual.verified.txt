@@ -10,23 +10,7 @@ dual FieldDescrDual { "Test" "Descr" field: String }
 
 namespace Components.Gqlp_Schema_field_descr_Dual;
 
-public class CmptFieldDescrDual
-  : Schema_field-descr+Dual
-  , ICmptFieldDescrDual
-{
-  public ICmptFieldDescrDualObject? As_FieldDescrDual { get; set; }
-}
-
-public class CmptFieldDescrDualObject
-  : Schema_field-descr+Dual
-  , ICmptFieldDescrDualObject
+internal class CmptFieldDescrDualEncoder
 {
   public string Field { get; set; }
-
-  public CmptFieldDescrDualObject
-    ( string field
-    )
-  {
-    Field = field;
-  }
 }

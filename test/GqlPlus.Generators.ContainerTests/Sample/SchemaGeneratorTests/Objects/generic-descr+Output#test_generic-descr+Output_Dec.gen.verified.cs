@@ -7,14 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_descr_Output;
 
-public interface ItestGnrcDescrOutp<TType>
-  // No Base because it's Class
+internal class testGnrcDescrOutpDecoder<TType>
 {
-  ItestGnrcDescrOutpObject<TType>? As_GnrcDescrOutp { get; }
-}
-
-public interface ItestGnrcDescrOutpObject<TType>
-  // No Base because it's Class
-{
-  TType Field { get; }
+  public TType Field { get; set; }
 }

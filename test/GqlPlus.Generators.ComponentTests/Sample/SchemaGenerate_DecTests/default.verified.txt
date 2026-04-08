@@ -19,46 +19,18 @@ output _Schema { }
 
 namespace Components.Gqlp_Schema_default;
 
-public interface ICmptQuery
-  // No Base because it's Class
-{
-  ICmptQueryObject? As_Query { get; }
-}
-
-public interface ICmptQueryObject
-  // No Base because it's Class
+internal class CmptQueryDecoder
 {
 }
 
-public interface ICmptMutation
-  // No Base because it's Class
-{
-  ICmptMutationObject? As_Mutation { get; }
-}
-
-public interface ICmptMutationObject
-  // No Base because it's Class
+internal class CmptMutationDecoder
 {
 }
 
-public interface ICmptSubscription
-  // No Base because it's Class
-{
-  ICmptSubscriptionObject? As_Subscription { get; }
-}
-
-public interface ICmptSubscriptionObject
-  // No Base because it's Class
+internal class CmptSubscriptionDecoder
 {
 }
 
-public interface ICmpt_Schema
-  // No Base because it's Class
-{
-  ICmpt_SchemaObject? As__Schema { get; }
-}
-
-public interface ICmpt_SchemaObject
-  // No Base because it's Class
+internal class Cmpt_SchemaDecoder
 {
 }

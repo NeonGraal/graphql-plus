@@ -7,27 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_param_Output;
 
-public interface ItestAltModParamOutp<TMod>
-  // No Base because it's Class
-{
-  IDictionary<TMod, ItestAltAltModParamOutp>? AsAltAltModParamOutp { get; }
-  ItestAltModParamOutpObject<TMod>? As_AltModParamOutp { get; }
-}
-
-public interface ItestAltModParamOutpObject<TMod>
-  // No Base because it's Class
+internal class testAltModParamOutpDecoder<TMod>
 {
 }
 
-public interface ItestAltAltModParamOutp
-  // No Base because it's Class
+internal class testAltAltModParamOutpDecoder
 {
-  string? AsString { get; }
-  ItestAltAltModParamOutpObject? As_AltAltModParamOutp { get; }
-}
-
-public interface ItestAltAltModParamOutpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

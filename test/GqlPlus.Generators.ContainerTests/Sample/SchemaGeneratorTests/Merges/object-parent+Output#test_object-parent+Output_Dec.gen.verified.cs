@@ -7,24 +7,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_parent_Output;
 
-public interface ItestObjPrntOutp
-  : ItestRefObjPrntOutp
-{
-  ItestObjPrntOutpObject? As_ObjPrntOutp { get; }
-}
-
-public interface ItestObjPrntOutpObject
-  : ItestRefObjPrntOutpObject
+internal class testObjPrntOutpDecoder
 {
 }
 
-public interface ItestRefObjPrntOutp
-  // No Base because it's Class
-{
-  ItestRefObjPrntOutpObject? As_RefObjPrntOutp { get; }
-}
-
-public interface ItestRefObjPrntOutpObject
-  // No Base because it's Class
+internal class testRefObjPrntOutpDecoder
 {
 }

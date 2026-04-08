@@ -12,30 +12,15 @@ domain DomCnstFieldDmnOutp { String /\w+/ }
 
 namespace Components.Gqlp_Schema_constraint_field_domain_Output;
 
-public interface ICmptCnstFieldDmnOutp
-  : ICmptRefCnstFieldDmnOutp<ICmptDomCnstFieldDmnOutp>
-{
-  ICmptCnstFieldDmnOutpObject? As_CnstFieldDmnOutp { get; }
-}
-
-public interface ICmptCnstFieldDmnOutpObject
-  : ICmptRefCnstFieldDmnOutpObject<ICmptDomCnstFieldDmnOutp>
+internal class CmptCnstFieldDmnOutpDecoder
 {
 }
 
-public interface ICmptRefCnstFieldDmnOutp<TRef>
-  // No Base because it's Class
+internal class CmptRefCnstFieldDmnOutpDecoder<TRef>
 {
-  ICmptRefCnstFieldDmnOutpObject<TRef>? As_RefCnstFieldDmnOutp { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ICmptRefCnstFieldDmnOutpObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public interface ICmptDomCnstFieldDmnOutp
-  : IGqlpDomainString
+internal class CmptDomCnstFieldDmnOutpDecoder
 {
 }

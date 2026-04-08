@@ -12,25 +12,10 @@ input ObjAltInpType { }
 
 namespace Components.Gqlp_Schema_object_alt_Input;
 
-public interface ICmptObjAltInp
-  // No Base because it's Class
-{
-  ICmptObjAltInpType? AsObjAltInpType { get; }
-  ICmptObjAltInpObject? As_ObjAltInp { get; }
-}
-
-public interface ICmptObjAltInpObject
-  // No Base because it's Class
+internal class CmptObjAltInpDecoder
 {
 }
 
-public interface ICmptObjAltInpType
-  // No Base because it's Class
-{
-  ICmptObjAltInpTypeObject? As_ObjAltInpType { get; }
-}
-
-public interface ICmptObjAltInpTypeObject
-  // No Base because it's Class
+internal class CmptObjAltInpTypeDecoder
 {
 }

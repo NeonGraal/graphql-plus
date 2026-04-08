@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_enum_same;
 
-public enum testEnumSame
+internal class testEnumSameEncoder
 {
-  enumSame,
+  public string enumSame { get; set; }
 }

@@ -11,19 +11,11 @@ enum EnumAltEnumOutp { altEnumOutp }
 
 namespace Components.Gqlp_Schema_alt_enum_Output;
 
-public interface ICmptAltEnumOutp
-  // No Base because it's Class
-{
-  CmptEnumAltEnumOutp? AsEnumAltEnumOutpaltEnumOutp { get; }
-  ICmptAltEnumOutpObject? As_AltEnumOutp { get; }
-}
-
-public interface ICmptAltEnumOutpObject
-  // No Base because it's Class
+internal class CmptAltEnumOutpDecoder
 {
 }
 
-public enum CmptEnumAltEnumOutp
+internal class CmptEnumAltEnumOutpDecoder
 {
-  altEnumOutp,
+  public string altEnumOutp { get; set; }
 }

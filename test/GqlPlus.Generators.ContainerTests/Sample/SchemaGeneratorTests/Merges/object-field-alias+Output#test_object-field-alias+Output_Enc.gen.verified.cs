@@ -7,41 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_alias_Output;
 
-public class testObjFieldAliasOutp
-  : GqlpEncoderBase
-  , ItestObjFieldAliasOutp
-{
-  public ItestObjFieldAliasOutpObject? As_ObjFieldAliasOutp { get; set; }
-}
-
-public class testObjFieldAliasOutpObject
-  : GqlpEncoderBase
-  , ItestObjFieldAliasOutpObject
+internal class testObjFieldAliasOutpEncoder
 {
   public ItestFldObjFieldAliasOutp Field { get; set; }
-
-  public testObjFieldAliasOutpObject
-    ( ItestFldObjFieldAliasOutp field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class testFldObjFieldAliasOutp
-  : GqlpEncoderBase
-  , ItestFldObjFieldAliasOutp
+internal class testFldObjFieldAliasOutpEncoder
 {
-  public ItestFldObjFieldAliasOutpObject? As_FldObjFieldAliasOutp { get; set; }
-}
-
-public class testFldObjFieldAliasOutpObject
-  : GqlpEncoderBase
-  , ItestFldObjFieldAliasOutpObject
-{
-
-  public testFldObjFieldAliasOutpObject
-    ()
-  {
-  }
 }

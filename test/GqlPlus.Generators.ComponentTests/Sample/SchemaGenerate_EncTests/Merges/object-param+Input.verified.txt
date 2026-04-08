@@ -11,26 +11,8 @@ input ObjParamInp<$type:String> { type: $type }
 
 namespace Components.Gqlp_Schema_object_param_Input;
 
-public class CmptObjParamInp<TTest,TType>
-  : Schema_object-param+Input
-  , ICmptObjParamInp<TTest,TType>
-{
-  public ICmptObjParamInpObject<TTest,TType>? As_ObjParamInp { get; set; }
-}
-
-public class CmptObjParamInpObject<TTest,TType>
-  : Schema_object-param+Input
-  , ICmptObjParamInpObject<TTest,TType>
+internal class CmptObjParamInpEncoder<TTest,TType>
 {
   public TTest Test { get; set; }
   public TType Type { get; set; }
-
-  public CmptObjParamInpObject
-    ( TTest test
-    , TType type
-    )
-  {
-    Test = test;
-    Type = type;
-  }
 }

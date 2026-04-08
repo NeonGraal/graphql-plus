@@ -7,64 +7,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_dual_Input;
 
-public class testGnrcFieldDualInp
-  : GqlpEncoderBase
-  , ItestGnrcFieldDualInp
-{
-  public ItestGnrcFieldDualInpObject? As_GnrcFieldDualInp { get; set; }
-}
-
-public class testGnrcFieldDualInpObject
-  : GqlpEncoderBase
-  , ItestGnrcFieldDualInpObject
+internal class testGnrcFieldDualInpEncoder
 {
   public ItestRefGnrcFieldDualInp<ItestAltGnrcFieldDualInp> Field { get; set; }
-
-  public testGnrcFieldDualInpObject
-    ( ItestRefGnrcFieldDualInp<ItestAltGnrcFieldDualInp> field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class testRefGnrcFieldDualInp<TRef>
-  : GqlpEncoderBase
-  , ItestRefGnrcFieldDualInp<TRef>
+internal class testRefGnrcFieldDualInpEncoder<TRef>
 {
-  public TRef? Asref { get; set; }
-  public ItestRefGnrcFieldDualInpObject<TRef>? As_RefGnrcFieldDualInp { get; set; }
 }
 
-public class testRefGnrcFieldDualInpObject<TRef>
-  : GqlpEncoderBase
-  , ItestRefGnrcFieldDualInpObject<TRef>
-{
-
-  public testRefGnrcFieldDualInpObject
-    ()
-  {
-  }
-}
-
-public class testAltGnrcFieldDualInp
-  : GqlpEncoderBase
-  , ItestAltGnrcFieldDualInp
-{
-  public string? AsString { get; set; }
-  public ItestAltGnrcFieldDualInpObject? As_AltGnrcFieldDualInp { get; set; }
-}
-
-public class testAltGnrcFieldDualInpObject
-  : GqlpEncoderBase
-  , ItestAltGnrcFieldDualInpObject
+internal class testAltGnrcFieldDualInpEncoder
 {
   public decimal Alt { get; set; }
-
-  public testAltGnrcFieldDualInpObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

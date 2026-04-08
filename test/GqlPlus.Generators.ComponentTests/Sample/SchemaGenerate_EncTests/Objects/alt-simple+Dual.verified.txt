@@ -10,21 +10,6 @@ dual AltSmplDual { | String }
 
 namespace Components.Gqlp_Schema_alt_simple_Dual;
 
-public class CmptAltSmplDual
-  : Schema_alt-simple+Dual
-  , ICmptAltSmplDual
+internal class CmptAltSmplDualEncoder
 {
-  public string? AsString { get; set; }
-  public ICmptAltSmplDualObject? As_AltSmplDual { get; set; }
-}
-
-public class CmptAltSmplDualObject
-  : Schema_alt-simple+Dual
-  , ICmptAltSmplDualObject
-{
-
-  public CmptAltSmplDualObject
-    ()
-  {
-  }
 }

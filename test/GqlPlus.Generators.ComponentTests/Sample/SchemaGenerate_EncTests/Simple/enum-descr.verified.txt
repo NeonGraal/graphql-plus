@@ -10,7 +10,7 @@ enum EnumDescr { "Enum" "Descr" enumDescr }
 
 namespace Components.Gqlp_Schema_enum_descr;
 
-public enum CmptEnumDescr
+internal class CmptEnumDescrEncoder
 {
-  enumDescr,
+  public string enumDescr { get; set; }
 }

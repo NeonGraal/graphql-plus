@@ -12,62 +12,17 @@ input InOutpParamDescr { param: Number | String }
 
 namespace Components.Gqlp_Schema_output_param_descr;
 
-public class CmptOutpParamDescr
-  : Schema_output-param-descr
-  , ICmptOutpParamDescr
-{
-  public ICmptOutpParamDescrObject? As_OutpParamDescr { get; set; }
-}
-
-public class CmptOutpParamDescrObject
-  : Schema_output-param-descr
-  , ICmptOutpParamDescrObject
+internal class CmptOutpParamDescrEncoder
 {
   public ICmptFldOutpParamDescr? Field(ICmptInOutpParamDescr parameter)
     => null;
-
-  public CmptOutpParamDescrObject
-    ()
-  {
-  }
 }
 
-public class CmptFldOutpParamDescr
-  : Schema_output-param-descr
-  , ICmptFldOutpParamDescr
+internal class CmptFldOutpParamDescrEncoder
 {
-  public ICmptFldOutpParamDescrObject? As_FldOutpParamDescr { get; set; }
 }
 
-public class CmptFldOutpParamDescrObject
-  : Schema_output-param-descr
-  , ICmptFldOutpParamDescrObject
-{
-
-  public CmptFldOutpParamDescrObject
-    ()
-  {
-  }
-}
-
-public class CmptInOutpParamDescr
-  : Schema_output-param-descr
-  , ICmptInOutpParamDescr
-{
-  public string? AsString { get; set; }
-  public ICmptInOutpParamDescrObject? As_InOutpParamDescr { get; set; }
-}
-
-public class CmptInOutpParamDescrObject
-  : Schema_output-param-descr
-  , ICmptInOutpParamDescrObject
+internal class CmptInOutpParamDescrEncoder
 {
   public decimal Param { get; set; }
-
-  public CmptInOutpParamDescrObject
-    ( decimal param
-    )
-  {
-    Param = param;
-  }
 }

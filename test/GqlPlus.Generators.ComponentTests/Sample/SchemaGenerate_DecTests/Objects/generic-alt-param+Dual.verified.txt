@@ -12,39 +12,15 @@ dual AltGnrcAltParamDual { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_alt_param_Dual;
 
-public interface ICmptGnrcAltParamDual
-  // No Base because it's Class
-{
-  ICmptRefGnrcAltParamDual<ICmptAltGnrcAltParamDual>? AsRefGnrcAltParamDual { get; }
-  ICmptGnrcAltParamDualObject? As_GnrcAltParamDual { get; }
-}
-
-public interface ICmptGnrcAltParamDualObject
-  // No Base because it's Class
+internal class CmptGnrcAltParamDualDecoder
 {
 }
 
-public interface ICmptRefGnrcAltParamDual<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ICmptRefGnrcAltParamDualObject<TRef>? As_RefGnrcAltParamDual { get; }
-}
-
-public interface ICmptRefGnrcAltParamDualObject<TRef>
-  // No Base because it's Class
+internal class CmptRefGnrcAltParamDualDecoder<TRef>
 {
 }
 
-public interface ICmptAltGnrcAltParamDual
-  // No Base because it's Class
+internal class CmptAltGnrcAltParamDualDecoder
 {
-  string? AsString { get; }
-  ICmptAltGnrcAltParamDualObject? As_AltGnrcAltParamDual { get; }
-}
-
-public interface ICmptAltGnrcAltParamDualObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

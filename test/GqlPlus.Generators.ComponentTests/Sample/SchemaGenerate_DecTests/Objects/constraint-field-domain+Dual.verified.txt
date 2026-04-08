@@ -12,30 +12,15 @@ domain DomCnstFieldDmnDual { String /\w+/ }
 
 namespace Components.Gqlp_Schema_constraint_field_domain_Dual;
 
-public interface ICmptCnstFieldDmnDual
-  : ICmptRefCnstFieldDmnDual<ICmptDomCnstFieldDmnDual>
-{
-  ICmptCnstFieldDmnDualObject? As_CnstFieldDmnDual { get; }
-}
-
-public interface ICmptCnstFieldDmnDualObject
-  : ICmptRefCnstFieldDmnDualObject<ICmptDomCnstFieldDmnDual>
+internal class CmptCnstFieldDmnDualDecoder
 {
 }
 
-public interface ICmptRefCnstFieldDmnDual<TRef>
-  // No Base because it's Class
+internal class CmptRefCnstFieldDmnDualDecoder<TRef>
 {
-  ICmptRefCnstFieldDmnDualObject<TRef>? As_RefCnstFieldDmnDual { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ICmptRefCnstFieldDmnDualObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public interface ICmptDomCnstFieldDmnDual
-  : IGqlpDomainString
+internal class CmptDomCnstFieldDmnDualDecoder
 {
 }

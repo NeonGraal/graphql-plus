@@ -7,20 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_directive_param_in;
 
-public class testInDrctParamIn
-  : GqlpEncoderBase
-  , ItestInDrctParamIn
+internal class testInDrctParamInEncoder
 {
-  public ItestInDrctParamInObject? As_InDrctParamIn { get; set; }
-}
-
-public class testInDrctParamInObject
-  : GqlpEncoderBase
-  , ItestInDrctParamInObject
-{
-
-  public testInDrctParamInObject
-    ()
-  {
-  }
 }

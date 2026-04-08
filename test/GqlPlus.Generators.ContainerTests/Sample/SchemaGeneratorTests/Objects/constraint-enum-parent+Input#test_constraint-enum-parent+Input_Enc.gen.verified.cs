@@ -7,53 +7,22 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_enum_parent_Input;
 
-public class testCnstEnumPrntInp
-  : GqlpEncoderBase
-  , ItestCnstEnumPrntInp
+internal class testCnstEnumPrntInpEncoder
 {
-  public ItestRefCnstEnumPrntInp<testEnumCnstEnumPrntInp>? AsEnumCnstEnumPrntInpcnstEnumPrntInp { get; set; }
-  public ItestCnstEnumPrntInpObject? As_CnstEnumPrntInp { get; set; }
 }
 
-public class testCnstEnumPrntInpObject
-  : GqlpEncoderBase
-  , ItestCnstEnumPrntInpObject
-{
-
-  public testCnstEnumPrntInpObject
-    ()
-  {
-  }
-}
-
-public class testRefCnstEnumPrntInp<TType>
-  : GqlpEncoderBase
-  , ItestRefCnstEnumPrntInp<TType>
-{
-  public ItestRefCnstEnumPrntInpObject<TType>? As_RefCnstEnumPrntInp { get; set; }
-}
-
-public class testRefCnstEnumPrntInpObject<TType>
-  : GqlpEncoderBase
-  , ItestRefCnstEnumPrntInpObject<TType>
+internal class testRefCnstEnumPrntInpEncoder<TType>
 {
   public TType Field { get; set; }
-
-  public testRefCnstEnumPrntInpObject
-    ( TType field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum testEnumCnstEnumPrntInp
+internal class testEnumCnstEnumPrntInpEncoder
 {
-  parentCnstEnumPrntInp = testParentCnstEnumPrntInp.parentCnstEnumPrntInp,
-  cnstEnumPrntInp,
+  public string parentCnstEnumPrntInp { get; set; }
+  public string cnstEnumPrntInp { get; set; }
 }
 
-public enum testParentCnstEnumPrntInp
+internal class testParentCnstEnumPrntInpEncoder
 {
-  parentCnstEnumPrntInp,
+  public string parentCnstEnumPrntInp { get; set; }
 }

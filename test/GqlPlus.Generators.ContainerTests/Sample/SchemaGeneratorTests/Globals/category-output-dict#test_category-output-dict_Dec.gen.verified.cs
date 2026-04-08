@@ -7,13 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_category_output_dict;
 
-public interface ItestCtgrOutpDict
-  // No Base because it's Class
-{
-  ItestCtgrOutpDictObject? As_CtgrOutpDict { get; }
-}
-
-public interface ItestCtgrOutpDictObject
-  // No Base because it's Class
+internal class testCtgrOutpDictDecoder
 {
 }

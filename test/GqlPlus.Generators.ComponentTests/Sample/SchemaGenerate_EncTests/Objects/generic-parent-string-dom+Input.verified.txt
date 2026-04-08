@@ -12,48 +12,15 @@ domain DomGnrcPrntStrDomInp { string /\w+/ }
 
 namespace Components.Gqlp_Schema_generic_parent_string_dom_Input;
 
-public class CmptGnrcPrntStrDomInp
-  : CmptFieldGnrcPrntStrDomInp<ICmptDomGnrcPrntStrDomInp>
-  , ICmptGnrcPrntStrDomInp
+internal class CmptGnrcPrntStrDomInpEncoder
 {
-  public ICmptGnrcPrntStrDomInpObject? As_GnrcPrntStrDomInp { get; set; }
 }
 
-public class CmptGnrcPrntStrDomInpObject
-  : CmptFieldGnrcPrntStrDomInpObject<ICmptDomGnrcPrntStrDomInp>
-  , ICmptGnrcPrntStrDomInpObject
-{
-
-  public CmptGnrcPrntStrDomInpObject
-    ( ICmptDomGnrcPrntStrDomInp field
-    ) : base(field)
-  {
-  }
-}
-
-public class CmptFieldGnrcPrntStrDomInp<TRef>
-  : Schema_generic-parent-string-dom+Input
-  , ICmptFieldGnrcPrntStrDomInp<TRef>
-{
-  public ICmptFieldGnrcPrntStrDomInpObject<TRef>? As_FieldGnrcPrntStrDomInp { get; set; }
-}
-
-public class CmptFieldGnrcPrntStrDomInpObject<TRef>
-  : Schema_generic-parent-string-dom+Input
-  , ICmptFieldGnrcPrntStrDomInpObject<TRef>
+internal class CmptFieldGnrcPrntStrDomInpEncoder<TRef>
 {
   public TRef Field { get; set; }
-
-  public CmptFieldGnrcPrntStrDomInpObject
-    ( TRef field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptDomGnrcPrntStrDomInp
-  : GqlpDomainString
-  , ICmptDomGnrcPrntStrDomInp
+internal class CmptDomGnrcPrntStrDomInpEncoder
 {
 }

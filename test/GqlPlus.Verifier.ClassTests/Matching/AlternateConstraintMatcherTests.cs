@@ -28,7 +28,7 @@ public class AlternateConstraintMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsExpected_WhenMatchingAlternateMemberParent(string constraint, string name, string parent, bool expected)
   {
-    this.SkipEqual3(name, constraint, parent);
+    this.SkipEqualAny([name, constraint, parent]);
 
     IGqlpObject constraintType = A.DualObj(constraint)
       .WithAlternate(name)

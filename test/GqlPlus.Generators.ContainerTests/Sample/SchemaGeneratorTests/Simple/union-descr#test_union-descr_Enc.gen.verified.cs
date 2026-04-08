@@ -7,9 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_descr;
 
-public class testUnionDescr
-  : GqlpEncoderBase
-  , ItestUnionDescr
+internal class testUnionDescrEncoder
 {
   public Number AsNumber { get; set; }
 }

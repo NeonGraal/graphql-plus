@@ -11,43 +11,11 @@ dual RefPrntDualDual { parent: Number | String }
 
 namespace Components.Gqlp_Schema_parent_dual_Dual;
 
-public class CmptPrntDualDual
-  : CmptRefPrntDualDual
-  , ICmptPrntDualDual
+internal class CmptPrntDualDualEncoder
 {
-  public ICmptPrntDualDualObject? As_PrntDualDual { get; set; }
 }
 
-public class CmptPrntDualDualObject
-  : CmptRefPrntDualDualObject
-  , ICmptPrntDualDualObject
-{
-
-  public CmptPrntDualDualObject
-    ( decimal parent
-    ) : base(parent)
-  {
-  }
-}
-
-public class CmptRefPrntDualDual
-  : Schema_parent-dual+Dual
-  , ICmptRefPrntDualDual
-{
-  public string? AsString { get; set; }
-  public ICmptRefPrntDualDualObject? As_RefPrntDualDual { get; set; }
-}
-
-public class CmptRefPrntDualDualObject
-  : Schema_parent-dual+Dual
-  , ICmptRefPrntDualDualObject
+internal class CmptRefPrntDualDualEncoder
 {
   public decimal Parent { get; set; }
-
-  public CmptRefPrntDualDualObject
-    ( decimal parent
-    )
-  {
-    Parent = parent;
-  }
 }

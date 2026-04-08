@@ -10,14 +10,6 @@ dual AltSmplDual { | String }
 
 namespace Components.Gqlp_Schema_alt_simple_Dual;
 
-public interface ICmptAltSmplDual
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ICmptAltSmplDualObject? As_AltSmplDual { get; }
-}
-
-public interface ICmptAltSmplDualObject
-  // No Base because it's Class
+internal class CmptAltSmplDualDecoder
 {
 }

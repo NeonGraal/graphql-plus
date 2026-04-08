@@ -7,14 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_Dual;
 
-public interface ItestGnrcFieldDual<TType>
-  // No Base because it's Class
+internal class testGnrcFieldDualDecoder<TType>
 {
-  ItestGnrcFieldDualObject<TType>? As_GnrcFieldDual { get; }
-}
-
-public interface ItestGnrcFieldDualObject<TType>
-  // No Base because it's Class
-{
-  TType Field { get; }
+  public TType Field { get; set; }
 }

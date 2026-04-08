@@ -7,61 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_param_Output;
 
-public class testGnrcPrntParamOutp
-  : testRefGnrcPrntParamOutp<ItestAltGnrcPrntParamOutp>
-  , ItestGnrcPrntParamOutp
+internal class testGnrcPrntParamOutpEncoder
 {
-  public ItestGnrcPrntParamOutpObject? As_GnrcPrntParamOutp { get; set; }
 }
 
-public class testGnrcPrntParamOutpObject
-  : testRefGnrcPrntParamOutpObject<ItestAltGnrcPrntParamOutp>
-  , ItestGnrcPrntParamOutpObject
+internal class testRefGnrcPrntParamOutpEncoder<TRef>
 {
-
-  public testGnrcPrntParamOutpObject
-    ()
-  {
-  }
 }
 
-public class testRefGnrcPrntParamOutp<TRef>
-  : GqlpEncoderBase
-  , ItestRefGnrcPrntParamOutp<TRef>
-{
-  public TRef? Asref { get; set; }
-  public ItestRefGnrcPrntParamOutpObject<TRef>? As_RefGnrcPrntParamOutp { get; set; }
-}
-
-public class testRefGnrcPrntParamOutpObject<TRef>
-  : GqlpEncoderBase
-  , ItestRefGnrcPrntParamOutpObject<TRef>
-{
-
-  public testRefGnrcPrntParamOutpObject
-    ()
-  {
-  }
-}
-
-public class testAltGnrcPrntParamOutp
-  : GqlpEncoderBase
-  , ItestAltGnrcPrntParamOutp
-{
-  public string? AsString { get; set; }
-  public ItestAltGnrcPrntParamOutpObject? As_AltGnrcPrntParamOutp { get; set; }
-}
-
-public class testAltGnrcPrntParamOutpObject
-  : GqlpEncoderBase
-  , ItestAltGnrcPrntParamOutpObject
+internal class testAltGnrcPrntParamOutpEncoder
 {
   public decimal Alt { get; set; }
-
-  public testAltGnrcPrntParamOutpObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

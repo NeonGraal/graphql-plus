@@ -11,7 +11,7 @@ enum EnumSame { enumSame }
 
 namespace Components.Gqlp_Schema_enum_same;
 
-public enum CmptEnumSame
+internal class CmptEnumSameEncoder
 {
-  enumSame,
+  public string enumSame { get; set; }
 }

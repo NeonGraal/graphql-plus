@@ -12,62 +12,15 @@ output AltGnrcAltParamOutp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_alt_param_Output;
 
-public class CmptGnrcAltParamOutp
-  : Schema_generic-alt-param+Output
-  , ICmptGnrcAltParamOutp
+internal class CmptGnrcAltParamOutpEncoder
 {
-  public ICmptRefGnrcAltParamOutp<ICmptAltGnrcAltParamOutp>? AsRefGnrcAltParamOutp { get; set; }
-  public ICmptGnrcAltParamOutpObject? As_GnrcAltParamOutp { get; set; }
 }
 
-public class CmptGnrcAltParamOutpObject
-  : Schema_generic-alt-param+Output
-  , ICmptGnrcAltParamOutpObject
+internal class CmptRefGnrcAltParamOutpEncoder<TRef>
 {
-
-  public CmptGnrcAltParamOutpObject
-    ()
-  {
-  }
 }
 
-public class CmptRefGnrcAltParamOutp<TRef>
-  : Schema_generic-alt-param+Output
-  , ICmptRefGnrcAltParamOutp<TRef>
-{
-  public TRef? Asref { get; set; }
-  public ICmptRefGnrcAltParamOutpObject<TRef>? As_RefGnrcAltParamOutp { get; set; }
-}
-
-public class CmptRefGnrcAltParamOutpObject<TRef>
-  : Schema_generic-alt-param+Output
-  , ICmptRefGnrcAltParamOutpObject<TRef>
-{
-
-  public CmptRefGnrcAltParamOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptAltGnrcAltParamOutp
-  : Schema_generic-alt-param+Output
-  , ICmptAltGnrcAltParamOutp
-{
-  public string? AsString { get; set; }
-  public ICmptAltGnrcAltParamOutpObject? As_AltGnrcAltParamOutp { get; set; }
-}
-
-public class CmptAltGnrcAltParamOutpObject
-  : Schema_generic-alt-param+Output
-  , ICmptAltGnrcAltParamOutpObject
+internal class CmptAltGnrcAltParamOutpEncoder
 {
   public decimal Alt { get; set; }
-
-  public CmptAltGnrcAltParamOutpObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

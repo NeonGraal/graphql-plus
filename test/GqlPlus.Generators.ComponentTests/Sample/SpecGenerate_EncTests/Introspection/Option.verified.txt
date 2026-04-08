@@ -13,23 +13,7 @@ output _Setting {
 
 namespace Components.Gqlp_Spec_Option;
 
-public class Cmpt_Setting
-  : Cmpt_Named
-  , ICmpt_Setting
-{
-  public ICmpt_SettingObject? As__Setting { get; set; }
-}
-
-public class Cmpt_SettingObject
-  : Cmpt_NamedObject
-  , ICmpt_SettingObject
+internal class Cmpt_SettingEncoder
 {
   public GqlpValue Value { get; set; }
-
-  public Cmpt_SettingObject
-    ( GqlpValue value
-    )
-  {
-    Value = value;
-  }
 }

@@ -7,42 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_arg_Input;
 
-public class testGnrcFieldArgInp<TType>
-  : GqlpEncoderBase
-  , ItestGnrcFieldArgInp<TType>
-{
-  public ItestGnrcFieldArgInpObject<TType>? As_GnrcFieldArgInp { get; set; }
-}
-
-public class testGnrcFieldArgInpObject<TType>
-  : GqlpEncoderBase
-  , ItestGnrcFieldArgInpObject<TType>
+internal class testGnrcFieldArgInpEncoder<TType>
 {
   public ItestRefGnrcFieldArgInp<TType> Field { get; set; }
-
-  public testGnrcFieldArgInpObject
-    ( ItestRefGnrcFieldArgInp<TType> field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class testRefGnrcFieldArgInp<TRef>
-  : GqlpEncoderBase
-  , ItestRefGnrcFieldArgInp<TRef>
+internal class testRefGnrcFieldArgInpEncoder<TRef>
 {
-  public TRef? Asref { get; set; }
-  public ItestRefGnrcFieldArgInpObject<TRef>? As_RefGnrcFieldArgInp { get; set; }
-}
-
-public class testRefGnrcFieldArgInpObject<TRef>
-  : GqlpEncoderBase
-  , ItestRefGnrcFieldArgInpObject<TRef>
-{
-
-  public testRefGnrcFieldArgInpObject
-    ()
-  {
-  }
 }

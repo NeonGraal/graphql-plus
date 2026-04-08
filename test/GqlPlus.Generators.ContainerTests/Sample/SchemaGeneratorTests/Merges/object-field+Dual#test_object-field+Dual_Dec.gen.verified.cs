@@ -7,25 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_Dual;
 
-public interface ItestObjFieldDual
-  // No Base because it's Class
+internal class testObjFieldDualDecoder
 {
-  ItestObjFieldDualObject? As_ObjFieldDual { get; }
+  public ItestFldObjFieldDual Field { get; set; }
 }
 
-public interface ItestObjFieldDualObject
-  // No Base because it's Class
-{
-  ItestFldObjFieldDual Field { get; }
-}
-
-public interface ItestFldObjFieldDual
-  // No Base because it's Class
-{
-  ItestFldObjFieldDualObject? As_FldObjFieldDual { get; }
-}
-
-public interface ItestFldObjFieldDualObject
-  // No Base because it's Class
+internal class testFldObjFieldDualDecoder
 {
 }

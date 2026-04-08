@@ -11,23 +11,7 @@ output ObjFieldEnumAliasOutp { field [field2] = true }
 
 namespace Components.Gqlp_Schema_object_field_enum_alias_Output;
 
-public class CmptObjFieldEnumAliasOutp
-  : Schema_object-field-enum-alias+Output
-  , ICmptObjFieldEnumAliasOutp
-{
-  public ICmptObjFieldEnumAliasOutpObject? As_ObjFieldEnumAliasOutp { get; set; }
-}
-
-public class CmptObjFieldEnumAliasOutpObject
-  : Schema_object-field-enum-alias+Output
-  , ICmptObjFieldEnumAliasOutpObject
+internal class CmptObjFieldEnumAliasOutpEncoder
 {
   public bool Field { get; set; }
-
-  public CmptObjFieldEnumAliasOutpObject
-    ( bool field
-    )
-  {
-    Field = field;
-  }
 }

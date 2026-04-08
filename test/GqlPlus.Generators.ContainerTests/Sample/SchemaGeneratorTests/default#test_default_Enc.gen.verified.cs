@@ -7,74 +7,18 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_default;
 
-public class testQuery
-  : GqlpEncoderBase
-  , ItestQuery
+internal class testQueryEncoder
 {
-  public ItestQueryObject? As_Query { get; set; }
 }
 
-public class testQueryObject
-  : GqlpEncoderBase
-  , ItestQueryObject
+internal class testMutationEncoder
 {
-
-  public testQueryObject
-    ()
-  {
-  }
 }
 
-public class testMutation
-  : GqlpEncoderBase
-  , ItestMutation
+internal class testSubscriptionEncoder
 {
-  public ItestMutationObject? As_Mutation { get; set; }
 }
 
-public class testMutationObject
-  : GqlpEncoderBase
-  , ItestMutationObject
+internal class test_SchemaEncoder
 {
-
-  public testMutationObject
-    ()
-  {
-  }
-}
-
-public class testSubscription
-  : GqlpEncoderBase
-  , ItestSubscription
-{
-  public ItestSubscriptionObject? As_Subscription { get; set; }
-}
-
-public class testSubscriptionObject
-  : GqlpEncoderBase
-  , ItestSubscriptionObject
-{
-
-  public testSubscriptionObject
-    ()
-  {
-  }
-}
-
-public class test_Schema
-  : GqlpEncoderBase
-  , Itest_Schema
-{
-  public Itest_SchemaObject? As__Schema { get; set; }
-}
-
-public class test_SchemaObject
-  : GqlpEncoderBase
-  , Itest_SchemaObject
-{
-
-  public test_SchemaObject
-    ()
-  {
-  }
 }

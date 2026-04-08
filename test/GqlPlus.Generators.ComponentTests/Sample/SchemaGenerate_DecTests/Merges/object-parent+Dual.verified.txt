@@ -12,24 +12,10 @@ dual RefObjPrntDual { }
 
 namespace Components.Gqlp_Schema_object_parent_Dual;
 
-public interface ICmptObjPrntDual
-  : ICmptRefObjPrntDual
-{
-  ICmptObjPrntDualObject? As_ObjPrntDual { get; }
-}
-
-public interface ICmptObjPrntDualObject
-  : ICmptRefObjPrntDualObject
+internal class CmptObjPrntDualDecoder
 {
 }
 
-public interface ICmptRefObjPrntDual
-  // No Base because it's Class
-{
-  ICmptRefObjPrntDualObject? As_RefObjPrntDual { get; }
-}
-
-public interface ICmptRefObjPrntDualObject
-  // No Base because it's Class
+internal class CmptRefObjPrntDualDecoder
 {
 }

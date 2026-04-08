@@ -11,12 +11,11 @@ enum EnumDmnEnumDescr { dmnEnumDescr }
 
 namespace Components.Gqlp_Schema_domain_enum_descr;
 
-public interface ICmptDmnEnumDescr
-  : IGqlpDomainEnum
+internal class CmptDmnEnumDescrDecoder
 {
 }
 
-public enum CmptEnumDmnEnumDescr
+internal class CmptEnumDmnEnumDescrDecoder
 {
-  dmnEnumDescr,
+  public string dmnEnumDescr { get; set; }
 }

@@ -7,5733 +7,2400 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp__Objects;
 
-public interface ItestAltDual
-  // No Base because it's Class
+internal class testAltDualDecoder
 {
-  ItestAltAltDual? AsAltAltDual { get; }
-  ItestAltDualObject? As_AltDual { get; }
 }
 
-public interface ItestAltDualObject
-  // No Base because it's Class
+internal class testAltAltDualDecoder
 {
+  public decimal Alt { get; set; }
 }
 
-public interface ItestAltAltDual
-  // No Base because it's Class
+internal class testAltInpDecoder
 {
-  string? AsString { get; }
-  ItestAltAltDualObject? As_AltAltDual { get; }
 }
 
-public interface ItestAltAltDualObject
-  // No Base because it's Class
+internal class testAltAltInpDecoder
 {
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestAltInp
-  // No Base because it's Class
+internal class testAltOutpDecoder
 {
-  ItestAltAltInp? AsAltAltInp { get; }
-  ItestAltInpObject? As_AltInp { get; }
 }
 
-public interface ItestAltInpObject
-  // No Base because it's Class
+internal class testAltAltOutpDecoder
 {
+  public decimal Alt { get; set; }
 }
 
-public interface ItestAltAltInp
-  // No Base because it's Class
+internal class testAltDescrDualDecoder
 {
-  string? AsString { get; }
-  ItestAltAltInpObject? As_AltAltInp { get; }
 }
 
-public interface ItestAltAltInpObject
-  // No Base because it's Class
+internal class testAltDescrInpDecoder
 {
-  decimal Alt { get; }
 }
 
-public interface ItestAltOutp
-  // No Base because it's Class
+internal class testAltDescrOutpDecoder
 {
-  ItestAltAltOutp? AsAltAltOutp { get; }
-  ItestAltOutpObject? As_AltOutp { get; }
 }
 
-public interface ItestAltOutpObject
-  // No Base because it's Class
+internal class testAltDualDualDecoder
 {
 }
 
-public interface ItestAltAltOutp
-  // No Base because it's Class
+internal class testObjDualAltDualDualDecoder
 {
-  string? AsString { get; }
-  ItestAltAltOutpObject? As_AltAltOutp { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestAltAltOutpObject
-  // No Base because it's Class
+internal class testAltDualInpDecoder
 {
-  decimal Alt { get; }
 }
 
-public interface ItestAltDescrDual
-  // No Base because it's Class
+internal class testObjDualAltDualInpDecoder
 {
-  string? AsString { get; }
-  ItestAltDescrDualObject? As_AltDescrDual { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestAltDescrDualObject
-  // No Base because it's Class
+internal class testAltDualOutpDecoder
 {
 }
 
-public interface ItestAltDescrInp
-  // No Base because it's Class
+internal class testObjDualAltDualOutpDecoder
 {
-  string? AsString { get; }
-  ItestAltDescrInpObject? As_AltDescrInp { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestAltDescrInpObject
-  // No Base because it's Class
+internal class testAltEnumDualDecoder
 {
 }
 
-public interface ItestAltDescrOutp
-  // No Base because it's Class
+internal class testEnumAltEnumDualDecoder
 {
-  string? AsString { get; }
-  ItestAltDescrOutpObject? As_AltDescrOutp { get; }
+  public string altEnumDual { get; set; }
 }
 
-public interface ItestAltDescrOutpObject
-  // No Base because it's Class
+internal class testAltEnumInpDecoder
 {
 }
 
-public interface ItestAltDualDual
-  // No Base because it's Class
+internal class testEnumAltEnumInpDecoder
 {
-  ItestObjDualAltDualDual? AsObjDualAltDualDual { get; }
-  ItestAltDualDualObject? As_AltDualDual { get; }
+  public string altEnumInp { get; set; }
 }
 
-public interface ItestAltDualDualObject
-  // No Base because it's Class
+internal class testAltEnumOutpDecoder
 {
 }
 
-public interface ItestObjDualAltDualDual
-  // No Base because it's Class
+internal class testEnumAltEnumOutpDecoder
 {
-  string? AsString { get; }
-  ItestObjDualAltDualDualObject? As_ObjDualAltDualDual { get; }
+  public string altEnumOutp { get; set; }
 }
 
-public interface ItestObjDualAltDualDualObject
-  // No Base because it's Class
+internal class testAltModBoolDualDecoder
 {
-  decimal Alt { get; }
 }
 
-public interface ItestAltDualInp
-  // No Base because it's Class
+internal class testAltAltModBoolDualDecoder
 {
-  ItestObjDualAltDualInp? AsObjDualAltDualInp { get; }
-  ItestAltDualInpObject? As_AltDualInp { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestAltDualInpObject
-  // No Base because it's Class
+internal class testAltModBoolInpDecoder
 {
 }
 
-public interface ItestObjDualAltDualInp
-  // No Base because it's Class
+internal class testAltAltModBoolInpDecoder
 {
-  string? AsString { get; }
-  ItestObjDualAltDualInpObject? As_ObjDualAltDualInp { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestObjDualAltDualInpObject
-  // No Base because it's Class
+internal class testAltModBoolOutpDecoder
 {
-  decimal Alt { get; }
 }
 
-public interface ItestAltDualOutp
-  // No Base because it's Class
+internal class testAltAltModBoolOutpDecoder
 {
-  ItestObjDualAltDualOutp? AsObjDualAltDualOutp { get; }
-  ItestAltDualOutpObject? As_AltDualOutp { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestAltDualOutpObject
-  // No Base because it's Class
+internal class testAltModParamDualDecoder<TMod>
 {
 }
 
-public interface ItestObjDualAltDualOutp
-  // No Base because it's Class
+internal class testAltAltModParamDualDecoder
 {
-  string? AsString { get; }
-  ItestObjDualAltDualOutpObject? As_ObjDualAltDualOutp { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestObjDualAltDualOutpObject
-  // No Base because it's Class
+internal class testAltModParamInpDecoder<TMod>
 {
-  decimal Alt { get; }
 }
 
-public interface ItestAltEnumDual
-  // No Base because it's Class
+internal class testAltAltModParamInpDecoder
 {
-  testEnumAltEnumDual? AsEnumAltEnumDualaltEnumDual { get; }
-  ItestAltEnumDualObject? As_AltEnumDual { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestAltEnumDualObject
-  // No Base because it's Class
+internal class testAltModParamOutpDecoder<TMod>
 {
 }
 
-public enum testEnumAltEnumDual
+internal class testAltAltModParamOutpDecoder
 {
-  altEnumDual,
+  public decimal Alt { get; set; }
 }
 
-public interface ItestAltEnumInp
-  // No Base because it's Class
+internal class testAltSmplDualDecoder
 {
-  testEnumAltEnumInp? AsEnumAltEnumInpaltEnumInp { get; }
-  ItestAltEnumInpObject? As_AltEnumInp { get; }
 }
 
-public interface ItestAltEnumInpObject
-  // No Base because it's Class
+internal class testAltSmplInpDecoder
 {
 }
 
-public enum testEnumAltEnumInp
+internal class testAltSmplOutpDecoder
 {
-  altEnumInp,
 }
 
-public interface ItestAltEnumOutp
-  // No Base because it's Class
+internal class testCnstAltDualDecoder<TType>
 {
-  testEnumAltEnumOutp? AsEnumAltEnumOutpaltEnumOutp { get; }
-  ItestAltEnumOutpObject? As_AltEnumOutp { get; }
 }
 
-public interface ItestAltEnumOutpObject
-  // No Base because it's Class
+internal class testCnstAltInpDecoder<TType>
 {
 }
 
-public enum testEnumAltEnumOutp
+internal class testCnstAltOutpDecoder<TType>
 {
-  altEnumOutp,
 }
 
-public interface ItestAltModBoolDual
-  // No Base because it's Class
+internal class testCnstAltDmnDualDecoder
 {
-  IDictionary<bool, ItestAltAltModBoolDual>? AsAltAltModBoolDual { get; }
-  ItestAltModBoolDualObject? As_AltModBoolDual { get; }
 }
 
-public interface ItestAltModBoolDualObject
-  // No Base because it's Class
+internal class testRefCnstAltDmnDualDecoder<TRef>
 {
 }
 
-public interface ItestAltAltModBoolDual
-  // No Base because it's Class
+internal class testDomCnstAltDmnDualDecoder
 {
-  string? AsString { get; }
-  ItestAltAltModBoolDualObject? As_AltAltModBoolDual { get; }
 }
 
-public interface ItestAltAltModBoolDualObject
-  // No Base because it's Class
+internal class testCnstAltDmnInpDecoder
 {
-  decimal Alt { get; }
 }
 
-public interface ItestAltModBoolInp
-  // No Base because it's Class
+internal class testRefCnstAltDmnInpDecoder<TRef>
 {
-  IDictionary<bool, ItestAltAltModBoolInp>? AsAltAltModBoolInp { get; }
-  ItestAltModBoolInpObject? As_AltModBoolInp { get; }
 }
 
-public interface ItestAltModBoolInpObject
-  // No Base because it's Class
+internal class testDomCnstAltDmnInpDecoder
 {
 }
 
-public interface ItestAltAltModBoolInp
-  // No Base because it's Class
+internal class testCnstAltDmnOutpDecoder
 {
-  string? AsString { get; }
-  ItestAltAltModBoolInpObject? As_AltAltModBoolInp { get; }
 }
 
-public interface ItestAltAltModBoolInpObject
-  // No Base because it's Class
+internal class testRefCnstAltDmnOutpDecoder<TRef>
 {
-  decimal Alt { get; }
 }
 
-public interface ItestAltModBoolOutp
-  // No Base because it's Class
+internal class testDomCnstAltDmnOutpDecoder
 {
-  IDictionary<bool, ItestAltAltModBoolOutp>? AsAltAltModBoolOutp { get; }
-  ItestAltModBoolOutpObject? As_AltModBoolOutp { get; }
 }
 
-public interface ItestAltModBoolOutpObject
-  // No Base because it's Class
+internal class testCnstAltDualDualDecoder
 {
 }
 
-public interface ItestAltAltModBoolOutp
-  // No Base because it's Class
+internal class testRefCnstAltDualDualDecoder<TRef>
 {
-  string? AsString { get; }
-  ItestAltAltModBoolOutpObject? As_AltAltModBoolOutp { get; }
 }
 
-public interface ItestAltAltModBoolOutpObject
-  // No Base because it's Class
+internal class testPrntCnstAltDualDualDecoder
 {
-  decimal Alt { get; }
 }
 
-public interface ItestAltModParamDual<TMod>
-  // No Base because it's Class
+internal class testAltCnstAltDualDualDecoder
 {
-  IDictionary<TMod, ItestAltAltModParamDual>? AsAltAltModParamDual { get; }
-  ItestAltModParamDualObject<TMod>? As_AltModParamDual { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestAltModParamDualObject<TMod>
-  // No Base because it's Class
+internal class testCnstAltDualInpDecoder
 {
 }
 
-public interface ItestAltAltModParamDual
-  // No Base because it's Class
+internal class testRefCnstAltDualInpDecoder<TRef>
 {
-  string? AsString { get; }
-  ItestAltAltModParamDualObject? As_AltAltModParamDual { get; }
 }
 
-public interface ItestAltAltModParamDualObject
-  // No Base because it's Class
+internal class testPrntCnstAltDualInpDecoder
 {
-  decimal Alt { get; }
 }
 
-public interface ItestAltModParamInp<TMod>
-  // No Base because it's Class
+internal class testAltCnstAltDualInpDecoder
 {
-  IDictionary<TMod, ItestAltAltModParamInp>? AsAltAltModParamInp { get; }
-  ItestAltModParamInpObject<TMod>? As_AltModParamInp { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestAltModParamInpObject<TMod>
-  // No Base because it's Class
+internal class testCnstAltDualOutpDecoder
 {
 }
 
-public interface ItestAltAltModParamInp
-  // No Base because it's Class
+internal class testRefCnstAltDualOutpDecoder<TRef>
 {
-  string? AsString { get; }
-  ItestAltAltModParamInpObject? As_AltAltModParamInp { get; }
 }
 
-public interface ItestAltAltModParamInpObject
-  // No Base because it's Class
+internal class testPrntCnstAltDualOutpDecoder
 {
-  decimal Alt { get; }
 }
 
-public interface ItestAltModParamOutp<TMod>
-  // No Base because it's Class
+internal class testAltCnstAltDualOutpDecoder
 {
-  IDictionary<TMod, ItestAltAltModParamOutp>? AsAltAltModParamOutp { get; }
-  ItestAltModParamOutpObject<TMod>? As_AltModParamOutp { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestAltModParamOutpObject<TMod>
-  // No Base because it's Class
+internal class testCnstAltObjDualDecoder
 {
 }
 
-public interface ItestAltAltModParamOutp
-  // No Base because it's Class
+internal class testRefCnstAltObjDualDecoder<TRef>
 {
-  string? AsString { get; }
-  ItestAltAltModParamOutpObject? As_AltAltModParamOutp { get; }
 }
 
-public interface ItestAltAltModParamOutpObject
-  // No Base because it's Class
+internal class testPrntCnstAltObjDualDecoder
 {
-  decimal Alt { get; }
 }
 
-public interface ItestAltSmplDual
-  // No Base because it's Class
+internal class testAltCnstAltObjDualDecoder
 {
-  string? AsString { get; }
-  ItestAltSmplDualObject? As_AltSmplDual { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestAltSmplDualObject
-  // No Base because it's Class
+internal class testCnstAltObjInpDecoder
 {
 }
 
-public interface ItestAltSmplInp
-  // No Base because it's Class
+internal class testRefCnstAltObjInpDecoder<TRef>
 {
-  string? AsString { get; }
-  ItestAltSmplInpObject? As_AltSmplInp { get; }
 }
 
-public interface ItestAltSmplInpObject
-  // No Base because it's Class
+internal class testPrntCnstAltObjInpDecoder
 {
 }
 
-public interface ItestAltSmplOutp
-  // No Base because it's Class
+internal class testAltCnstAltObjInpDecoder
 {
-  string? AsString { get; }
-  ItestAltSmplOutpObject? As_AltSmplOutp { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestAltSmplOutpObject
-  // No Base because it's Class
+internal class testCnstAltObjOutpDecoder
 {
 }
 
-public interface ItestCnstAltDual<TType>
-  // No Base because it's Class
+internal class testRefCnstAltObjOutpDecoder<TRef>
 {
-  TType? Astype { get; }
-  ItestCnstAltDualObject<TType>? As_CnstAltDual { get; }
 }
 
-public interface ItestCnstAltDualObject<TType>
-  // No Base because it's Class
+internal class testPrntCnstAltObjOutpDecoder
 {
 }
 
-public interface ItestCnstAltInp<TType>
-  // No Base because it's Class
+internal class testAltCnstAltObjOutpDecoder
 {
-  TType? Astype { get; }
-  ItestCnstAltInpObject<TType>? As_CnstAltInp { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestCnstAltInpObject<TType>
-  // No Base because it's Class
+internal class testCnstDomEnumDualDecoder
 {
 }
 
-public interface ItestCnstAltOutp<TType>
-  // No Base because it's Class
+internal class testRefCnstDomEnumDualDecoder<TType>
 {
-  TType? Astype { get; }
-  ItestCnstAltOutpObject<TType>? As_CnstAltOutp { get; }
+  public TType Field { get; set; }
 }
 
-public interface ItestCnstAltOutpObject<TType>
-  // No Base because it's Class
+internal class testEnumCnstDomEnumDualDecoder
 {
+  public string cnstDomEnumDual { get; set; }
+  public string other { get; set; }
 }
 
-public interface ItestCnstAltDmnDual
-  // No Base because it's Class
+internal class testJustCnstDomEnumDualDecoder
 {
-  ItestRefCnstAltDmnDual<ItestDomCnstAltDmnDual>? AsRefCnstAltDmnDual { get; }
-  ItestCnstAltDmnDualObject? As_CnstAltDmnDual { get; }
 }
 
-public interface ItestCnstAltDmnDualObject
-  // No Base because it's Class
+internal class testCnstDomEnumInpDecoder
 {
 }
 
-public interface ItestRefCnstAltDmnDual<TRef>
-  // No Base because it's Class
+internal class testRefCnstDomEnumInpDecoder<TType>
 {
-  TRef? Asref { get; }
-  ItestRefCnstAltDmnDualObject<TRef>? As_RefCnstAltDmnDual { get; }
+  public TType Field { get; set; }
 }
 
-public interface ItestRefCnstAltDmnDualObject<TRef>
-  // No Base because it's Class
+internal class testEnumCnstDomEnumInpDecoder
 {
+  public string cnstDomEnumInp { get; set; }
+  public string other { get; set; }
 }
 
-public interface ItestDomCnstAltDmnDual
-  : IGqlpDomainString
+internal class testJustCnstDomEnumInpDecoder
 {
 }
 
-public interface ItestCnstAltDmnInp
-  // No Base because it's Class
+internal class testCnstDomEnumOutpDecoder
 {
-  ItestRefCnstAltDmnInp<ItestDomCnstAltDmnInp>? AsRefCnstAltDmnInp { get; }
-  ItestCnstAltDmnInpObject? As_CnstAltDmnInp { get; }
 }
 
-public interface ItestCnstAltDmnInpObject
-  // No Base because it's Class
+internal class testRefCnstDomEnumOutpDecoder<TType>
 {
+  public TType Field { get; set; }
 }
 
-public interface ItestRefCnstAltDmnInp<TRef>
-  // No Base because it's Class
+internal class testEnumCnstDomEnumOutpDecoder
 {
-  TRef? Asref { get; }
-  ItestRefCnstAltDmnInpObject<TRef>? As_RefCnstAltDmnInp { get; }
+  public string cnstDomEnumOutp { get; set; }
+  public string other { get; set; }
 }
 
-public interface ItestRefCnstAltDmnInpObject<TRef>
-  // No Base because it's Class
+internal class testJustCnstDomEnumOutpDecoder
 {
 }
 
-public interface ItestDomCnstAltDmnInp
-  : IGqlpDomainString
+internal class testCnstEnumDualDecoder
 {
 }
 
-public interface ItestCnstAltDmnOutp
-  // No Base because it's Class
+internal class testRefCnstEnumDualDecoder<TType>
 {
-  ItestRefCnstAltDmnOutp<ItestDomCnstAltDmnOutp>? AsRefCnstAltDmnOutp { get; }
-  ItestCnstAltDmnOutpObject? As_CnstAltDmnOutp { get; }
+  public TType Field { get; set; }
 }
 
-public interface ItestCnstAltDmnOutpObject
-  // No Base because it's Class
+internal class testEnumCnstEnumDualDecoder
 {
+  public string cnstEnumDual { get; set; }
 }
 
-public interface ItestRefCnstAltDmnOutp<TRef>
-  // No Base because it's Class
+internal class testCnstEnumInpDecoder
 {
-  TRef? Asref { get; }
-  ItestRefCnstAltDmnOutpObject<TRef>? As_RefCnstAltDmnOutp { get; }
 }
 
-public interface ItestRefCnstAltDmnOutpObject<TRef>
-  // No Base because it's Class
+internal class testRefCnstEnumInpDecoder<TType>
 {
+  public TType Field { get; set; }
 }
 
-public interface ItestDomCnstAltDmnOutp
-  : IGqlpDomainString
+internal class testEnumCnstEnumInpDecoder
 {
+  public string cnstEnumInp { get; set; }
 }
 
-public interface ItestCnstAltDualDual
-  // No Base because it's Class
+internal class testCnstEnumOutpDecoder
 {
-  ItestRefCnstAltDualDual<ItestAltCnstAltDualDual>? AsRefCnstAltDualDual { get; }
-  ItestCnstAltDualDualObject? As_CnstAltDualDual { get; }
 }
 
-public interface ItestCnstAltDualDualObject
-  // No Base because it's Class
+internal class testRefCnstEnumOutpDecoder<TType>
 {
+  public TType Field { get; set; }
 }
 
-public interface ItestRefCnstAltDualDual<TRef>
-  // No Base because it's Class
+internal class testEnumCnstEnumOutpDecoder
 {
-  TRef? Asref { get; }
-  ItestRefCnstAltDualDualObject<TRef>? As_RefCnstAltDualDual { get; }
+  public string cnstEnumOutp { get; set; }
 }
 
-public interface ItestRefCnstAltDualDualObject<TRef>
-  // No Base because it's Class
+internal class testCnstEnumPrntDualDecoder
 {
 }
 
-public interface ItestPrntCnstAltDualDual
-  // No Base because it's Class
+internal class testRefCnstEnumPrntDualDecoder<TType>
 {
-  string? AsString { get; }
-  ItestPrntCnstAltDualDualObject? As_PrntCnstAltDualDual { get; }
+  public TType Field { get; set; }
 }
 
-public interface ItestPrntCnstAltDualDualObject
-  // No Base because it's Class
+internal class testEnumCnstEnumPrntDualDecoder
 {
+  public string parentCnstEnumPrntDual { get; set; }
+  public string cnstEnumPrntDual { get; set; }
 }
 
-public interface ItestAltCnstAltDualDual
-  : ItestPrntCnstAltDualDual
+internal class testParentCnstEnumPrntDualDecoder
 {
-  ItestAltCnstAltDualDualObject? As_AltCnstAltDualDual { get; }
+  public string parentCnstEnumPrntDual { get; set; }
 }
 
-public interface ItestAltCnstAltDualDualObject
-  : ItestPrntCnstAltDualDualObject
+internal class testCnstEnumPrntInpDecoder
 {
-  decimal Alt { get; }
 }
 
-public interface ItestCnstAltDualInp
-  // No Base because it's Class
+internal class testRefCnstEnumPrntInpDecoder<TType>
 {
-  ItestRefCnstAltDualInp<ItestAltCnstAltDualInp>? AsRefCnstAltDualInp { get; }
-  ItestCnstAltDualInpObject? As_CnstAltDualInp { get; }
+  public TType Field { get; set; }
 }
 
-public interface ItestCnstAltDualInpObject
-  // No Base because it's Class
+internal class testEnumCnstEnumPrntInpDecoder
 {
+  public string parentCnstEnumPrntInp { get; set; }
+  public string cnstEnumPrntInp { get; set; }
 }
 
-public interface ItestRefCnstAltDualInp<TRef>
-  // No Base because it's Class
+internal class testParentCnstEnumPrntInpDecoder
 {
-  TRef? Asref { get; }
-  ItestRefCnstAltDualInpObject<TRef>? As_RefCnstAltDualInp { get; }
+  public string parentCnstEnumPrntInp { get; set; }
 }
 
-public interface ItestRefCnstAltDualInpObject<TRef>
-  // No Base because it's Class
+internal class testCnstEnumPrntOutpDecoder
 {
 }
 
-public interface ItestPrntCnstAltDualInp
-  // No Base because it's Class
+internal class testRefCnstEnumPrntOutpDecoder<TType>
 {
-  string? AsString { get; }
-  ItestPrntCnstAltDualInpObject? As_PrntCnstAltDualInp { get; }
+  public TType Field { get; set; }
 }
 
-public interface ItestPrntCnstAltDualInpObject
-  // No Base because it's Class
+internal class testEnumCnstEnumPrntOutpDecoder
 {
+  public string parentCnstEnumPrntOutp { get; set; }
+  public string cnstEnumPrntOutp { get; set; }
 }
 
-public interface ItestAltCnstAltDualInp
-  : ItestPrntCnstAltDualInp
+internal class testParentCnstEnumPrntOutpDecoder
 {
-  ItestAltCnstAltDualInpObject? As_AltCnstAltDualInp { get; }
+  public string parentCnstEnumPrntOutp { get; set; }
 }
 
-public interface ItestAltCnstAltDualInpObject
-  : ItestPrntCnstAltDualInpObject
+internal class testCnstFieldDmnDualDecoder
 {
-  decimal Alt { get; }
 }
 
-public interface ItestCnstAltDualOutp
-  // No Base because it's Class
+internal class testRefCnstFieldDmnDualDecoder<TRef>
 {
-  ItestRefCnstAltDualOutp<ItestAltCnstAltDualOutp>? AsRefCnstAltDualOutp { get; }
-  ItestCnstAltDualOutpObject? As_CnstAltDualOutp { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ItestCnstAltDualOutpObject
-  // No Base because it's Class
+internal class testDomCnstFieldDmnDualDecoder
 {
 }
 
-public interface ItestRefCnstAltDualOutp<TRef>
-  // No Base because it's Class
+internal class testCnstFieldDmnInpDecoder
 {
-  TRef? Asref { get; }
-  ItestRefCnstAltDualOutpObject<TRef>? As_RefCnstAltDualOutp { get; }
 }
 
-public interface ItestRefCnstAltDualOutpObject<TRef>
-  // No Base because it's Class
+internal class testRefCnstFieldDmnInpDecoder<TRef>
 {
+  public TRef Field { get; set; }
 }
 
-public interface ItestPrntCnstAltDualOutp
-  // No Base because it's Class
+internal class testDomCnstFieldDmnInpDecoder
 {
-  string? AsString { get; }
-  ItestPrntCnstAltDualOutpObject? As_PrntCnstAltDualOutp { get; }
 }
 
-public interface ItestPrntCnstAltDualOutpObject
-  // No Base because it's Class
+internal class testCnstFieldDmnOutpDecoder
 {
 }
 
-public interface ItestAltCnstAltDualOutp
-  : ItestPrntCnstAltDualOutp
+internal class testRefCnstFieldDmnOutpDecoder<TRef>
 {
-  ItestAltCnstAltDualOutpObject? As_AltCnstAltDualOutp { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ItestAltCnstAltDualOutpObject
-  : ItestPrntCnstAltDualOutpObject
+internal class testDomCnstFieldDmnOutpDecoder
 {
-  decimal Alt { get; }
 }
 
-public interface ItestCnstAltObjDual
-  // No Base because it's Class
+internal class testCnstFieldDualDualDecoder
 {
-  ItestRefCnstAltObjDual<ItestAltCnstAltObjDual>? AsRefCnstAltObjDual { get; }
-  ItestCnstAltObjDualObject? As_CnstAltObjDual { get; }
 }
 
-public interface ItestCnstAltObjDualObject
-  // No Base because it's Class
+internal class testRefCnstFieldDualDualDecoder<TRef>
 {
+  public TRef Field { get; set; }
 }
 
-public interface ItestRefCnstAltObjDual<TRef>
-  // No Base because it's Class
+internal class testPrntCnstFieldDualDualDecoder
 {
-  TRef? Asref { get; }
-  ItestRefCnstAltObjDualObject<TRef>? As_RefCnstAltObjDual { get; }
 }
 
-public interface ItestRefCnstAltObjDualObject<TRef>
-  // No Base because it's Class
+internal class testAltCnstFieldDualDualDecoder
 {
+  public decimal Alt { get; set; }
 }
 
-public interface ItestPrntCnstAltObjDual
-  // No Base because it's Class
+internal class testCnstFieldDualInpDecoder
 {
-  string? AsString { get; }
-  ItestPrntCnstAltObjDualObject? As_PrntCnstAltObjDual { get; }
 }
 
-public interface ItestPrntCnstAltObjDualObject
-  // No Base because it's Class
+internal class testRefCnstFieldDualInpDecoder<TRef>
 {
+  public TRef Field { get; set; }
 }
 
-public interface ItestAltCnstAltObjDual
-  : ItestPrntCnstAltObjDual
+internal class testPrntCnstFieldDualInpDecoder
 {
-  ItestAltCnstAltObjDualObject? As_AltCnstAltObjDual { get; }
 }
 
-public interface ItestAltCnstAltObjDualObject
-  : ItestPrntCnstAltObjDualObject
+internal class testAltCnstFieldDualInpDecoder
 {
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestCnstAltObjInp
-  // No Base because it's Class
+internal class testCnstFieldDualOutpDecoder
 {
-  ItestRefCnstAltObjInp<ItestAltCnstAltObjInp>? AsRefCnstAltObjInp { get; }
-  ItestCnstAltObjInpObject? As_CnstAltObjInp { get; }
 }
 
-public interface ItestCnstAltObjInpObject
-  // No Base because it's Class
+internal class testRefCnstFieldDualOutpDecoder<TRef>
 {
+  public TRef Field { get; set; }
 }
 
-public interface ItestRefCnstAltObjInp<TRef>
-  // No Base because it's Class
+internal class testPrntCnstFieldDualOutpDecoder
 {
-  TRef? Asref { get; }
-  ItestRefCnstAltObjInpObject<TRef>? As_RefCnstAltObjInp { get; }
 }
 
-public interface ItestRefCnstAltObjInpObject<TRef>
-  // No Base because it's Class
+internal class testAltCnstFieldDualOutpDecoder
 {
+  public decimal Alt { get; set; }
 }
 
-public interface ItestPrntCnstAltObjInp
-  // No Base because it's Class
+internal class testCnstFieldObjDualDecoder
 {
-  string? AsString { get; }
-  ItestPrntCnstAltObjInpObject? As_PrntCnstAltObjInp { get; }
 }
 
-public interface ItestPrntCnstAltObjInpObject
-  // No Base because it's Class
+internal class testRefCnstFieldObjDualDecoder<TRef>
 {
+  public TRef Field { get; set; }
 }
 
-public interface ItestAltCnstAltObjInp
-  : ItestPrntCnstAltObjInp
+internal class testPrntCnstFieldObjDualDecoder
 {
-  ItestAltCnstAltObjInpObject? As_AltCnstAltObjInp { get; }
 }
 
-public interface ItestAltCnstAltObjInpObject
-  : ItestPrntCnstAltObjInpObject
+internal class testAltCnstFieldObjDualDecoder
 {
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestCnstAltObjOutp
-  // No Base because it's Class
+internal class testCnstFieldObjInpDecoder
 {
-  ItestRefCnstAltObjOutp<ItestAltCnstAltObjOutp>? AsRefCnstAltObjOutp { get; }
-  ItestCnstAltObjOutpObject? As_CnstAltObjOutp { get; }
 }
 
-public interface ItestCnstAltObjOutpObject
-  // No Base because it's Class
+internal class testRefCnstFieldObjInpDecoder<TRef>
 {
+  public TRef Field { get; set; }
 }
 
-public interface ItestRefCnstAltObjOutp<TRef>
-  // No Base because it's Class
+internal class testPrntCnstFieldObjInpDecoder
 {
-  TRef? Asref { get; }
-  ItestRefCnstAltObjOutpObject<TRef>? As_RefCnstAltObjOutp { get; }
 }
 
-public interface ItestRefCnstAltObjOutpObject<TRef>
-  // No Base because it's Class
+internal class testAltCnstFieldObjInpDecoder
 {
+  public decimal Alt { get; set; }
 }
 
-public interface ItestPrntCnstAltObjOutp
-  // No Base because it's Class
+internal class testCnstFieldObjOutpDecoder
 {
-  string? AsString { get; }
-  ItestPrntCnstAltObjOutpObject? As_PrntCnstAltObjOutp { get; }
 }
 
-public interface ItestPrntCnstAltObjOutpObject
-  // No Base because it's Class
+internal class testRefCnstFieldObjOutpDecoder<TRef>
 {
+  public TRef Field { get; set; }
 }
 
-public interface ItestAltCnstAltObjOutp
-  : ItestPrntCnstAltObjOutp
+internal class testPrntCnstFieldObjOutpDecoder
 {
-  ItestAltCnstAltObjOutpObject? As_AltCnstAltObjOutp { get; }
 }
 
-public interface ItestAltCnstAltObjOutpObject
-  : ItestPrntCnstAltObjOutpObject
+internal class testAltCnstFieldObjOutpDecoder
 {
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestCnstDomEnumDual
-  // No Base because it's Class
+internal class testCnstPrntDualGrndDualDecoder
 {
-  ItestRefCnstDomEnumDual<testEnumCnstDomEnumDual>? AsEnumCnstDomEnumDualcnstDomEnumDual { get; }
-  ItestCnstDomEnumDualObject? As_CnstDomEnumDual { get; }
 }
 
-public interface ItestCnstDomEnumDualObject
-  // No Base because it's Class
+internal class testRefCnstPrntDualGrndDualDecoder<TRef>
 {
 }
 
-public interface ItestRefCnstDomEnumDual<TType>
-  // No Base because it's Class
+internal class testGrndCnstPrntDualGrndDualDecoder
 {
-  ItestRefCnstDomEnumDualObject<TType>? As_RefCnstDomEnumDual { get; }
 }
 
-public interface ItestRefCnstDomEnumDualObject<TType>
-  // No Base because it's Class
+internal class testPrntCnstPrntDualGrndDualDecoder
 {
-  TType Field { get; }
 }
 
-public enum testEnumCnstDomEnumDual
+internal class testAltCnstPrntDualGrndDualDecoder
 {
-  cnstDomEnumDual,
-  other,
+  public decimal Alt { get; set; }
 }
 
-public interface ItestJustCnstDomEnumDual
-  : IGqlpDomainEnum
+internal class testCnstPrntDualGrndInpDecoder
 {
 }
 
-public interface ItestCnstDomEnumInp
-  // No Base because it's Class
+internal class testRefCnstPrntDualGrndInpDecoder<TRef>
 {
-  ItestRefCnstDomEnumInp<testEnumCnstDomEnumInp>? AsEnumCnstDomEnumInpcnstDomEnumInp { get; }
-  ItestCnstDomEnumInpObject? As_CnstDomEnumInp { get; }
 }
 
-public interface ItestCnstDomEnumInpObject
-  // No Base because it's Class
+internal class testGrndCnstPrntDualGrndInpDecoder
 {
 }
 
-public interface ItestRefCnstDomEnumInp<TType>
-  // No Base because it's Class
+internal class testPrntCnstPrntDualGrndInpDecoder
 {
-  ItestRefCnstDomEnumInpObject<TType>? As_RefCnstDomEnumInp { get; }
 }
 
-public interface ItestRefCnstDomEnumInpObject<TType>
-  // No Base because it's Class
+internal class testAltCnstPrntDualGrndInpDecoder
 {
-  TType Field { get; }
+  public decimal Alt { get; set; }
 }
 
-public enum testEnumCnstDomEnumInp
+internal class testCnstPrntDualGrndOutpDecoder
 {
-  cnstDomEnumInp,
-  other,
 }
 
-public interface ItestJustCnstDomEnumInp
-  : IGqlpDomainEnum
+internal class testRefCnstPrntDualGrndOutpDecoder<TRef>
 {
 }
 
-public interface ItestCnstDomEnumOutp
-  // No Base because it's Class
+internal class testGrndCnstPrntDualGrndOutpDecoder
 {
-  ItestRefCnstDomEnumOutp<testEnumCnstDomEnumOutp>? AsEnumCnstDomEnumOutpcnstDomEnumOutp { get; }
-  ItestCnstDomEnumOutpObject? As_CnstDomEnumOutp { get; }
 }
 
-public interface ItestCnstDomEnumOutpObject
-  // No Base because it's Class
+internal class testPrntCnstPrntDualGrndOutpDecoder
 {
 }
 
-public interface ItestRefCnstDomEnumOutp<TType>
-  // No Base because it's Class
+internal class testAltCnstPrntDualGrndOutpDecoder
 {
-  ItestRefCnstDomEnumOutpObject<TType>? As_RefCnstDomEnumOutp { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestRefCnstDomEnumOutpObject<TType>
-  // No Base because it's Class
+internal class testCnstPrntDualPrntDualDecoder
 {
-  TType Field { get; }
 }
 
-public enum testEnumCnstDomEnumOutp
+internal class testRefCnstPrntDualPrntDualDecoder<TRef>
 {
-  cnstDomEnumOutp,
-  other,
 }
 
-public interface ItestJustCnstDomEnumOutp
-  : IGqlpDomainEnum
+internal class testPrntCnstPrntDualPrntDualDecoder
 {
 }
 
-public interface ItestCnstEnumDual
-  // No Base because it's Class
+internal class testAltCnstPrntDualPrntDualDecoder
 {
-  ItestRefCnstEnumDual<testEnumCnstEnumDual>? AsEnumCnstEnumDualcnstEnumDual { get; }
-  ItestCnstEnumDualObject? As_CnstEnumDual { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestCnstEnumDualObject
-  // No Base because it's Class
+internal class testCnstPrntDualPrntInpDecoder
 {
 }
 
-public interface ItestRefCnstEnumDual<TType>
-  // No Base because it's Class
+internal class testRefCnstPrntDualPrntInpDecoder<TRef>
 {
-  ItestRefCnstEnumDualObject<TType>? As_RefCnstEnumDual { get; }
 }
 
-public interface ItestRefCnstEnumDualObject<TType>
-  // No Base because it's Class
+internal class testPrntCnstPrntDualPrntInpDecoder
 {
-  TType Field { get; }
 }
 
-public enum testEnumCnstEnumDual
+internal class testAltCnstPrntDualPrntInpDecoder
 {
-  cnstEnumDual,
+  public decimal Alt { get; set; }
 }
 
-public interface ItestCnstEnumInp
-  // No Base because it's Class
+internal class testCnstPrntDualPrntOutpDecoder
 {
-  ItestRefCnstEnumInp<testEnumCnstEnumInp>? AsEnumCnstEnumInpcnstEnumInp { get; }
-  ItestCnstEnumInpObject? As_CnstEnumInp { get; }
 }
 
-public interface ItestCnstEnumInpObject
-  // No Base because it's Class
+internal class testRefCnstPrntDualPrntOutpDecoder<TRef>
 {
 }
 
-public interface ItestRefCnstEnumInp<TType>
-  // No Base because it's Class
+internal class testPrntCnstPrntDualPrntOutpDecoder
 {
-  ItestRefCnstEnumInpObject<TType>? As_RefCnstEnumInp { get; }
 }
 
-public interface ItestRefCnstEnumInpObject<TType>
-  // No Base because it's Class
+internal class testAltCnstPrntDualPrntOutpDecoder
 {
-  TType Field { get; }
+  public decimal Alt { get; set; }
 }
 
-public enum testEnumCnstEnumInp
+internal class testCnstPrntEnumDualDecoder
 {
-  cnstEnumInp,
 }
 
-public interface ItestCnstEnumOutp
-  // No Base because it's Class
+internal class testRefCnstPrntEnumDualDecoder<TType>
 {
-  ItestRefCnstEnumOutp<testEnumCnstEnumOutp>? AsEnumCnstEnumOutpcnstEnumOutp { get; }
-  ItestCnstEnumOutpObject? As_CnstEnumOutp { get; }
+  public TType Field { get; set; }
 }
 
-public interface ItestCnstEnumOutpObject
-  // No Base because it's Class
+internal class testEnumCnstPrntEnumDualDecoder
 {
+  public string parentCnstPrntEnumDual { get; set; }
+  public string cnstPrntEnumDual { get; set; }
 }
 
-public interface ItestRefCnstEnumOutp<TType>
-  // No Base because it's Class
+internal class testParentCnstPrntEnumDualDecoder
 {
-  ItestRefCnstEnumOutpObject<TType>? As_RefCnstEnumOutp { get; }
+  public string parentCnstPrntEnumDual { get; set; }
 }
 
-public interface ItestRefCnstEnumOutpObject<TType>
-  // No Base because it's Class
+internal class testCnstPrntEnumInpDecoder
 {
-  TType Field { get; }
 }
 
-public enum testEnumCnstEnumOutp
+internal class testRefCnstPrntEnumInpDecoder<TType>
 {
-  cnstEnumOutp,
+  public TType Field { get; set; }
 }
 
-public interface ItestCnstEnumPrntDual
-  // No Base because it's Class
+internal class testEnumCnstPrntEnumInpDecoder
 {
-  ItestRefCnstEnumPrntDual<testEnumCnstEnumPrntDual>? AsEnumCnstEnumPrntDualcnstEnumPrntDual { get; }
-  ItestCnstEnumPrntDualObject? As_CnstEnumPrntDual { get; }
+  public string parentCnstPrntEnumInp { get; set; }
+  public string cnstPrntEnumInp { get; set; }
 }
 
-public interface ItestCnstEnumPrntDualObject
-  // No Base because it's Class
+internal class testParentCnstPrntEnumInpDecoder
 {
+  public string parentCnstPrntEnumInp { get; set; }
 }
 
-public interface ItestRefCnstEnumPrntDual<TType>
-  // No Base because it's Class
+internal class testCnstPrntEnumOutpDecoder
 {
-  ItestRefCnstEnumPrntDualObject<TType>? As_RefCnstEnumPrntDual { get; }
 }
 
-public interface ItestRefCnstEnumPrntDualObject<TType>
-  // No Base because it's Class
+internal class testRefCnstPrntEnumOutpDecoder<TType>
 {
-  TType Field { get; }
+  public TType Field { get; set; }
 }
 
-public enum testEnumCnstEnumPrntDual
+internal class testEnumCnstPrntEnumOutpDecoder
 {
-  parentCnstEnumPrntDual = testParentCnstEnumPrntDual.parentCnstEnumPrntDual,
-  cnstEnumPrntDual,
+  public string parentCnstPrntEnumOutp { get; set; }
+  public string cnstPrntEnumOutp { get; set; }
 }
 
-public enum testParentCnstEnumPrntDual
+internal class testParentCnstPrntEnumOutpDecoder
 {
-  parentCnstEnumPrntDual,
+  public string parentCnstPrntEnumOutp { get; set; }
 }
 
-public interface ItestCnstEnumPrntInp
-  // No Base because it's Class
+internal class testCnstPrntObjPrntDualDecoder
 {
-  ItestRefCnstEnumPrntInp<testEnumCnstEnumPrntInp>? AsEnumCnstEnumPrntInpcnstEnumPrntInp { get; }
-  ItestCnstEnumPrntInpObject? As_CnstEnumPrntInp { get; }
 }
 
-public interface ItestCnstEnumPrntInpObject
-  // No Base because it's Class
+internal class testRefCnstPrntObjPrntDualDecoder<TRef>
 {
 }
 
-public interface ItestRefCnstEnumPrntInp<TType>
-  // No Base because it's Class
+internal class testPrntCnstPrntObjPrntDualDecoder
 {
-  ItestRefCnstEnumPrntInpObject<TType>? As_RefCnstEnumPrntInp { get; }
 }
 
-public interface ItestRefCnstEnumPrntInpObject<TType>
-  // No Base because it's Class
+internal class testAltCnstPrntObjPrntDualDecoder
 {
-  TType Field { get; }
+  public decimal Alt { get; set; }
 }
 
-public enum testEnumCnstEnumPrntInp
+internal class testCnstPrntObjPrntInpDecoder
 {
-  parentCnstEnumPrntInp = testParentCnstEnumPrntInp.parentCnstEnumPrntInp,
-  cnstEnumPrntInp,
 }
 
-public enum testParentCnstEnumPrntInp
+internal class testRefCnstPrntObjPrntInpDecoder<TRef>
 {
-  parentCnstEnumPrntInp,
 }
 
-public interface ItestCnstEnumPrntOutp
-  // No Base because it's Class
+internal class testPrntCnstPrntObjPrntInpDecoder
 {
-  ItestRefCnstEnumPrntOutp<testEnumCnstEnumPrntOutp>? AsEnumCnstEnumPrntOutpcnstEnumPrntOutp { get; }
-  ItestCnstEnumPrntOutpObject? As_CnstEnumPrntOutp { get; }
 }
 
-public interface ItestCnstEnumPrntOutpObject
-  // No Base because it's Class
+internal class testAltCnstPrntObjPrntInpDecoder
 {
+  public decimal Alt { get; set; }
 }
 
-public interface ItestRefCnstEnumPrntOutp<TType>
-  // No Base because it's Class
+internal class testCnstPrntObjPrntOutpDecoder
 {
-  ItestRefCnstEnumPrntOutpObject<TType>? As_RefCnstEnumPrntOutp { get; }
 }
 
-public interface ItestRefCnstEnumPrntOutpObject<TType>
-  // No Base because it's Class
+internal class testRefCnstPrntObjPrntOutpDecoder<TRef>
 {
-  TType Field { get; }
 }
 
-public enum testEnumCnstEnumPrntOutp
+internal class testPrntCnstPrntObjPrntOutpDecoder
 {
-  parentCnstEnumPrntOutp = testParentCnstEnumPrntOutp.parentCnstEnumPrntOutp,
-  cnstEnumPrntOutp,
 }
 
-public enum testParentCnstEnumPrntOutp
+internal class testAltCnstPrntObjPrntOutpDecoder
 {
-  parentCnstEnumPrntOutp,
+  public decimal Alt { get; set; }
 }
 
-public interface ItestCnstFieldDmnDual
-  : ItestRefCnstFieldDmnDual<ItestDomCnstFieldDmnDual>
+internal class testFieldDualDecoder
 {
-  ItestCnstFieldDmnDualObject? As_CnstFieldDmnDual { get; }
+  public string Field { get; set; }
 }
 
-public interface ItestCnstFieldDmnDualObject
-  : ItestRefCnstFieldDmnDualObject<ItestDomCnstFieldDmnDual>
+internal class testFieldInpDecoder
 {
+  public string Field { get; set; }
 }
 
-public interface ItestRefCnstFieldDmnDual<TRef>
-  // No Base because it's Class
+internal class testFieldOutpDecoder
 {
-  ItestRefCnstFieldDmnDualObject<TRef>? As_RefCnstFieldDmnDual { get; }
+  public string Field { get; set; }
 }
 
-public interface ItestRefCnstFieldDmnDualObject<TRef>
-  // No Base because it's Class
+internal class testFieldDescrDualDecoder
 {
-  TRef Field { get; }
+  public string Field { get; set; }
 }
 
-public interface ItestDomCnstFieldDmnDual
-  : IGqlpDomainString
+internal class testFieldDescrInpDecoder
 {
+  public string Field { get; set; }
 }
 
-public interface ItestCnstFieldDmnInp
-  : ItestRefCnstFieldDmnInp<ItestDomCnstFieldDmnInp>
+internal class testFieldDescrOutpDecoder
 {
-  ItestCnstFieldDmnInpObject? As_CnstFieldDmnInp { get; }
+  public string Field { get; set; }
 }
 
-public interface ItestCnstFieldDmnInpObject
-  : ItestRefCnstFieldDmnInpObject<ItestDomCnstFieldDmnInp>
+internal class testFieldDualDualDecoder
 {
+  public ItestFldFieldDualDual Field { get; set; }
 }
 
-public interface ItestRefCnstFieldDmnInp<TRef>
-  // No Base because it's Class
+internal class testFldFieldDualDualDecoder
 {
-  ItestRefCnstFieldDmnInpObject<TRef>? As_RefCnstFieldDmnInp { get; }
+  public decimal Field { get; set; }
 }
 
-public interface ItestRefCnstFieldDmnInpObject<TRef>
-  // No Base because it's Class
+internal class testFieldDualInpDecoder
 {
-  TRef Field { get; }
+  public ItestFldFieldDualInp Field { get; set; }
 }
 
-public interface ItestDomCnstFieldDmnInp
-  : IGqlpDomainString
+internal class testFldFieldDualInpDecoder
 {
+  public decimal Field { get; set; }
 }
 
-public interface ItestCnstFieldDmnOutp
-  : ItestRefCnstFieldDmnOutp<ItestDomCnstFieldDmnOutp>
+internal class testFieldDualOutpDecoder
 {
-  ItestCnstFieldDmnOutpObject? As_CnstFieldDmnOutp { get; }
+  public ItestFldFieldDualOutp Field { get; set; }
 }
 
-public interface ItestCnstFieldDmnOutpObject
-  : ItestRefCnstFieldDmnOutpObject<ItestDomCnstFieldDmnOutp>
+internal class testFldFieldDualOutpDecoder
 {
+  public decimal Field { get; set; }
 }
 
-public interface ItestRefCnstFieldDmnOutp<TRef>
-  // No Base because it's Class
+internal class testFieldEnumDualDecoder
 {
-  ItestRefCnstFieldDmnOutpObject<TRef>? As_RefCnstFieldDmnOutp { get; }
+  public testEnumFieldEnumDual Field { get; set; }
 }
 
-public interface ItestRefCnstFieldDmnOutpObject<TRef>
-  // No Base because it's Class
+internal class testEnumFieldEnumDualDecoder
 {
-  TRef Field { get; }
+  public string fieldEnumDual { get; set; }
 }
 
-public interface ItestDomCnstFieldDmnOutp
-  : IGqlpDomainString
+internal class testFieldEnumInpDecoder
 {
+  public testEnumFieldEnumInp Field { get; set; }
 }
 
-public interface ItestCnstFieldDualDual
-  : ItestRefCnstFieldDualDual<ItestAltCnstFieldDualDual>
+internal class testEnumFieldEnumInpDecoder
 {
-  ItestCnstFieldDualDualObject? As_CnstFieldDualDual { get; }
+  public string fieldEnumInp { get; set; }
 }
 
-public interface ItestCnstFieldDualDualObject
-  : ItestRefCnstFieldDualDualObject<ItestAltCnstFieldDualDual>
+internal class testFieldEnumOutpDecoder
 {
+  public testEnumFieldEnumOutp Field { get; set; }
 }
 
-public interface ItestRefCnstFieldDualDual<TRef>
-  // No Base because it's Class
+internal class testEnumFieldEnumOutpDecoder
 {
-  ItestRefCnstFieldDualDualObject<TRef>? As_RefCnstFieldDualDual { get; }
+  public string fieldEnumOutp { get; set; }
 }
 
-public interface ItestRefCnstFieldDualDualObject<TRef>
-  // No Base because it's Class
+internal class testFieldEnumPrntDualDecoder
 {
-  TRef Field { get; }
+  public testEnumFieldEnumPrntDual Field { get; set; }
 }
 
-public interface ItestPrntCnstFieldDualDual
-  // No Base because it's Class
+internal class testEnumFieldEnumPrntDualDecoder
 {
-  string? AsString { get; }
-  ItestPrntCnstFieldDualDualObject? As_PrntCnstFieldDualDual { get; }
+  public string prnt_fieldEnumPrntDual { get; set; }
+  public string fieldEnumPrntDual { get; set; }
 }
 
-public interface ItestPrntCnstFieldDualDualObject
-  // No Base because it's Class
+internal class testPrntFieldEnumPrntDualDecoder
 {
+  public string prnt_fieldEnumPrntDual { get; set; }
 }
 
-public interface ItestAltCnstFieldDualDual
-  : ItestPrntCnstFieldDualDual
+internal class testFieldEnumPrntInpDecoder
 {
-  ItestAltCnstFieldDualDualObject? As_AltCnstFieldDualDual { get; }
+  public testEnumFieldEnumPrntInp Field { get; set; }
 }
 
-public interface ItestAltCnstFieldDualDualObject
-  : ItestPrntCnstFieldDualDualObject
+internal class testEnumFieldEnumPrntInpDecoder
 {
-  decimal Alt { get; }
+  public string prnt_fieldEnumPrntInp { get; set; }
+  public string fieldEnumPrntInp { get; set; }
 }
 
-public interface ItestCnstFieldDualInp
-  : ItestRefCnstFieldDualInp<ItestAltCnstFieldDualInp>
+internal class testPrntFieldEnumPrntInpDecoder
 {
-  ItestCnstFieldDualInpObject? As_CnstFieldDualInp { get; }
+  public string prnt_fieldEnumPrntInp { get; set; }
 }
 
-public interface ItestCnstFieldDualInpObject
-  : ItestRefCnstFieldDualInpObject<ItestAltCnstFieldDualInp>
+internal class testFieldEnumPrntOutpDecoder
 {
+  public testEnumFieldEnumPrntOutp Field { get; set; }
 }
 
-public interface ItestRefCnstFieldDualInp<TRef>
-  // No Base because it's Class
+internal class testEnumFieldEnumPrntOutpDecoder
 {
-  ItestRefCnstFieldDualInpObject<TRef>? As_RefCnstFieldDualInp { get; }
+  public string prnt_fieldEnumPrntOutp { get; set; }
+  public string fieldEnumPrntOutp { get; set; }
 }
 
-public interface ItestRefCnstFieldDualInpObject<TRef>
-  // No Base because it's Class
+internal class testPrntFieldEnumPrntOutpDecoder
 {
-  TRef Field { get; }
+  public string prnt_fieldEnumPrntOutp { get; set; }
 }
 
-public interface ItestPrntCnstFieldDualInp
-  // No Base because it's Class
+internal class testFieldModEnumDualDecoder
 {
-  string? AsString { get; }
-  ItestPrntCnstFieldDualInpObject? As_PrntCnstFieldDualInp { get; }
+  public IDictionary<testEnumFieldModEnumDual, string> Field { get; set; }
 }
 
-public interface ItestPrntCnstFieldDualInpObject
-  // No Base because it's Class
+internal class testEnumFieldModEnumDualDecoder
 {
+  public string value { get; set; }
 }
 
-public interface ItestAltCnstFieldDualInp
-  : ItestPrntCnstFieldDualInp
+internal class testFieldModEnumInpDecoder
 {
-  ItestAltCnstFieldDualInpObject? As_AltCnstFieldDualInp { get; }
+  public IDictionary<testEnumFieldModEnumInp, string> Field { get; set; }
 }
 
-public interface ItestAltCnstFieldDualInpObject
-  : ItestPrntCnstFieldDualInpObject
+internal class testEnumFieldModEnumInpDecoder
 {
-  decimal Alt { get; }
+  public string value { get; set; }
 }
 
-public interface ItestCnstFieldDualOutp
-  : ItestRefCnstFieldDualOutp<ItestAltCnstFieldDualOutp>
+internal class testFieldModEnumOutpDecoder
 {
-  ItestCnstFieldDualOutpObject? As_CnstFieldDualOutp { get; }
+  public IDictionary<testEnumFieldModEnumOutp, string> Field { get; set; }
 }
 
-public interface ItestCnstFieldDualOutpObject
-  : ItestRefCnstFieldDualOutpObject<ItestAltCnstFieldDualOutp>
+internal class testEnumFieldModEnumOutpDecoder
 {
+  public string value { get; set; }
 }
 
-public interface ItestRefCnstFieldDualOutp<TRef>
-  // No Base because it's Class
+internal class testFieldModParamDualDecoder<TMod>
 {
-  ItestRefCnstFieldDualOutpObject<TRef>? As_RefCnstFieldDualOutp { get; }
+  public IDictionary<TMod, ItestFldFieldModParamDual> Field { get; set; }
 }
 
-public interface ItestRefCnstFieldDualOutpObject<TRef>
-  // No Base because it's Class
+internal class testFldFieldModParamDualDecoder
 {
-  TRef Field { get; }
+  public decimal Field { get; set; }
 }
 
-public interface ItestPrntCnstFieldDualOutp
-  // No Base because it's Class
+internal class testFieldModParamInpDecoder<TMod>
 {
-  string? AsString { get; }
-  ItestPrntCnstFieldDualOutpObject? As_PrntCnstFieldDualOutp { get; }
+  public IDictionary<TMod, ItestFldFieldModParamInp> Field { get; set; }
 }
 
-public interface ItestPrntCnstFieldDualOutpObject
-  // No Base because it's Class
+internal class testFldFieldModParamInpDecoder
 {
+  public decimal Field { get; set; }
 }
 
-public interface ItestAltCnstFieldDualOutp
-  : ItestPrntCnstFieldDualOutp
+internal class testFieldModParamOutpDecoder<TMod>
 {
-  ItestAltCnstFieldDualOutpObject? As_AltCnstFieldDualOutp { get; }
+  public IDictionary<TMod, ItestFldFieldModParamOutp> Field { get; set; }
 }
 
-public interface ItestAltCnstFieldDualOutpObject
-  : ItestPrntCnstFieldDualOutpObject
+internal class testFldFieldModParamOutpDecoder
 {
-  decimal Alt { get; }
+  public decimal Field { get; set; }
 }
 
-public interface ItestCnstFieldObjDual
-  : ItestRefCnstFieldObjDual<ItestAltCnstFieldObjDual>
+internal class testFieldObjDualDecoder
 {
-  ItestCnstFieldObjDualObject? As_CnstFieldObjDual { get; }
+  public ItestFldFieldObjDual Field { get; set; }
 }
 
-public interface ItestCnstFieldObjDualObject
-  : ItestRefCnstFieldObjDualObject<ItestAltCnstFieldObjDual>
+internal class testFldFieldObjDualDecoder
 {
+  public decimal Field { get; set; }
 }
 
-public interface ItestRefCnstFieldObjDual<TRef>
-  // No Base because it's Class
+internal class testFieldObjInpDecoder
 {
-  ItestRefCnstFieldObjDualObject<TRef>? As_RefCnstFieldObjDual { get; }
+  public ItestFldFieldObjInp Field { get; set; }
 }
 
-public interface ItestRefCnstFieldObjDualObject<TRef>
-  // No Base because it's Class
+internal class testFldFieldObjInpDecoder
 {
-  TRef Field { get; }
+  public decimal Field { get; set; }
 }
 
-public interface ItestPrntCnstFieldObjDual
-  // No Base because it's Class
+internal class testFieldObjOutpDecoder
 {
-  string? AsString { get; }
-  ItestPrntCnstFieldObjDualObject? As_PrntCnstFieldObjDual { get; }
+  public ItestFldFieldObjOutp Field { get; set; }
 }
 
-public interface ItestPrntCnstFieldObjDualObject
-  // No Base because it's Class
+internal class testFldFieldObjOutpDecoder
 {
+  public decimal Field { get; set; }
 }
 
-public interface ItestAltCnstFieldObjDual
-  : ItestPrntCnstFieldObjDual
+internal class testFieldSmplDualDecoder
 {
-  ItestAltCnstFieldObjDualObject? As_AltCnstFieldObjDual { get; }
+  public decimal Field { get; set; }
 }
 
-public interface ItestAltCnstFieldObjDualObject
-  : ItestPrntCnstFieldObjDualObject
+internal class testFieldSmplInpDecoder
 {
-  decimal Alt { get; }
+  public decimal Field { get; set; }
 }
 
-public interface ItestCnstFieldObjInp
-  : ItestRefCnstFieldObjInp<ItestAltCnstFieldObjInp>
+internal class testFieldSmplOutpDecoder
 {
-  ItestCnstFieldObjInpObject? As_CnstFieldObjInp { get; }
+  public decimal Field { get; set; }
 }
 
-public interface ItestCnstFieldObjInpObject
-  : ItestRefCnstFieldObjInpObject<ItestAltCnstFieldObjInp>
+internal class testFieldTypeDescrDualDecoder
 {
+  public decimal Field { get; set; }
 }
 
-public interface ItestRefCnstFieldObjInp<TRef>
-  // No Base because it's Class
+internal class testFieldTypeDescrInpDecoder
 {
-  ItestRefCnstFieldObjInpObject<TRef>? As_RefCnstFieldObjInp { get; }
+  public decimal Field { get; set; }
 }
 
-public interface ItestRefCnstFieldObjInpObject<TRef>
-  // No Base because it's Class
+internal class testFieldTypeDescrOutpDecoder
 {
-  TRef Field { get; }
+  public decimal Field { get; set; }
 }
 
-public interface ItestPrntCnstFieldObjInp
-  // No Base because it's Class
+internal class testFieldValueDualDecoder
 {
-  string? AsString { get; }
-  ItestPrntCnstFieldObjInpObject? As_PrntCnstFieldObjInp { get; }
+  public testEnumFieldValueDual Field { get; set; }
 }
 
-public interface ItestPrntCnstFieldObjInpObject
-  // No Base because it's Class
+internal class testEnumFieldValueDualDecoder
 {
+  public string fieldValueDual { get; set; }
 }
 
-public interface ItestAltCnstFieldObjInp
-  : ItestPrntCnstFieldObjInp
+internal class testFieldValueInpDecoder
 {
-  ItestAltCnstFieldObjInpObject? As_AltCnstFieldObjInp { get; }
+  public testEnumFieldValueInp Field { get; set; }
 }
 
-public interface ItestAltCnstFieldObjInpObject
-  : ItestPrntCnstFieldObjInpObject
+internal class testEnumFieldValueInpDecoder
 {
-  decimal Alt { get; }
+  public string fieldValueInp { get; set; }
 }
 
-public interface ItestCnstFieldObjOutp
-  : ItestRefCnstFieldObjOutp<ItestAltCnstFieldObjOutp>
+internal class testFieldValueOutpDecoder
 {
-  ItestCnstFieldObjOutpObject? As_CnstFieldObjOutp { get; }
+  public testEnumFieldValueOutp Field { get; set; }
 }
 
-public interface ItestCnstFieldObjOutpObject
-  : ItestRefCnstFieldObjOutpObject<ItestAltCnstFieldObjOutp>
+internal class testEnumFieldValueOutpDecoder
 {
+  public string fieldValueOutp { get; set; }
 }
 
-public interface ItestRefCnstFieldObjOutp<TRef>
-  // No Base because it's Class
+internal class testFieldValueDescrDualDecoder
 {
-  ItestRefCnstFieldObjOutpObject<TRef>? As_RefCnstFieldObjOutp { get; }
+  public testEnumFieldValueDescrDual Field { get; set; }
 }
 
-public interface ItestRefCnstFieldObjOutpObject<TRef>
-  // No Base because it's Class
+internal class testEnumFieldValueDescrDualDecoder
 {
-  TRef Field { get; }
+  public string fieldValueDescrDual { get; set; }
 }
 
-public interface ItestPrntCnstFieldObjOutp
-  // No Base because it's Class
+internal class testFieldValueDescrInpDecoder
 {
-  string? AsString { get; }
-  ItestPrntCnstFieldObjOutpObject? As_PrntCnstFieldObjOutp { get; }
+  public testEnumFieldValueDescrInp Field { get; set; }
 }
 
-public interface ItestPrntCnstFieldObjOutpObject
-  // No Base because it's Class
+internal class testEnumFieldValueDescrInpDecoder
 {
+  public string fieldValueDescrInp { get; set; }
 }
 
-public interface ItestAltCnstFieldObjOutp
-  : ItestPrntCnstFieldObjOutp
+internal class testFieldValueDescrOutpDecoder
 {
-  ItestAltCnstFieldObjOutpObject? As_AltCnstFieldObjOutp { get; }
+  public testEnumFieldValueDescrOutp Field { get; set; }
 }
 
-public interface ItestAltCnstFieldObjOutpObject
-  : ItestPrntCnstFieldObjOutpObject
+internal class testEnumFieldValueDescrOutpDecoder
 {
-  decimal Alt { get; }
+  public string fieldValueDescrOutp { get; set; }
 }
 
-public interface ItestCnstPrntDualGrndDual
-  : ItestRefCnstPrntDualGrndDual<ItestAltCnstPrntDualGrndDual>
+internal class testGnrcAltDualDecoder<TType>
 {
-  ItestCnstPrntDualGrndDualObject? As_CnstPrntDualGrndDual { get; }
 }
 
-public interface ItestCnstPrntDualGrndDualObject
-  : ItestRefCnstPrntDualGrndDualObject<ItestAltCnstPrntDualGrndDual>
+internal class testGnrcAltInpDecoder<TType>
 {
 }
 
-public interface ItestRefCnstPrntDualGrndDual<TRef>
-  // No Base because it's Class
+internal class testGnrcAltOutpDecoder<TType>
 {
-  TRef? As_Parent { get; }
-  ItestRefCnstPrntDualGrndDualObject<TRef>? As_RefCnstPrntDualGrndDual { get; }
 }
 
-public interface ItestRefCnstPrntDualGrndDualObject<TRef>
-  // No Base because it's Class
+internal class testGnrcAltArgDualDecoder<TType>
 {
 }
 
-public interface ItestGrndCnstPrntDualGrndDual
-  // No Base because it's Class
+internal class testRefGnrcAltArgDualDecoder<TRef>
 {
-  string? AsString { get; }
-  ItestGrndCnstPrntDualGrndDualObject? As_GrndCnstPrntDualGrndDual { get; }
 }
 
-public interface ItestGrndCnstPrntDualGrndDualObject
-  // No Base because it's Class
+internal class testGnrcAltArgInpDecoder<TType>
 {
 }
 
-public interface ItestPrntCnstPrntDualGrndDual
-  : ItestGrndCnstPrntDualGrndDual
+internal class testRefGnrcAltArgInpDecoder<TRef>
 {
-  ItestPrntCnstPrntDualGrndDualObject? As_PrntCnstPrntDualGrndDual { get; }
 }
 
-public interface ItestPrntCnstPrntDualGrndDualObject
-  : ItestGrndCnstPrntDualGrndDualObject
+internal class testGnrcAltArgOutpDecoder<TType>
 {
 }
 
-public interface ItestAltCnstPrntDualGrndDual
-  : ItestPrntCnstPrntDualGrndDual
+internal class testRefGnrcAltArgOutpDecoder<TRef>
 {
-  ItestAltCnstPrntDualGrndDualObject? As_AltCnstPrntDualGrndDual { get; }
 }
 
-public interface ItestAltCnstPrntDualGrndDualObject
-  : ItestPrntCnstPrntDualGrndDualObject
+internal class testGnrcAltArgDescrDualDecoder<TType>
 {
-  decimal Alt { get; }
 }
 
-public interface ItestCnstPrntDualGrndInp
-  : ItestRefCnstPrntDualGrndInp<ItestAltCnstPrntDualGrndInp>
+internal class testRefGnrcAltArgDescrDualDecoder<TRef>
 {
-  ItestCnstPrntDualGrndInpObject? As_CnstPrntDualGrndInp { get; }
 }
 
-public interface ItestCnstPrntDualGrndInpObject
-  : ItestRefCnstPrntDualGrndInpObject<ItestAltCnstPrntDualGrndInp>
+internal class testGnrcAltArgDescrInpDecoder<TType>
 {
 }
 
-public interface ItestRefCnstPrntDualGrndInp<TRef>
-  // No Base because it's Class
+internal class testRefGnrcAltArgDescrInpDecoder<TRef>
 {
-  TRef? As_Parent { get; }
-  ItestRefCnstPrntDualGrndInpObject<TRef>? As_RefCnstPrntDualGrndInp { get; }
 }
 
-public interface ItestRefCnstPrntDualGrndInpObject<TRef>
-  // No Base because it's Class
+internal class testGnrcAltArgDescrOutpDecoder<TType>
 {
 }
 
-public interface ItestGrndCnstPrntDualGrndInp
-  // No Base because it's Class
+internal class testRefGnrcAltArgDescrOutpDecoder<TRef>
 {
-  string? AsString { get; }
-  ItestGrndCnstPrntDualGrndInpObject? As_GrndCnstPrntDualGrndInp { get; }
 }
 
-public interface ItestGrndCnstPrntDualGrndInpObject
-  // No Base because it's Class
+internal class testGnrcAltDualDualDecoder
 {
 }
 
-public interface ItestPrntCnstPrntDualGrndInp
-  : ItestGrndCnstPrntDualGrndInp
+internal class testRefGnrcAltDualDualDecoder<TRef>
 {
-  ItestPrntCnstPrntDualGrndInpObject? As_PrntCnstPrntDualGrndInp { get; }
 }
 
-public interface ItestPrntCnstPrntDualGrndInpObject
-  : ItestGrndCnstPrntDualGrndInpObject
+internal class testAltGnrcAltDualDualDecoder
 {
+  public decimal Alt { get; set; }
 }
 
-public interface ItestAltCnstPrntDualGrndInp
-  : ItestPrntCnstPrntDualGrndInp
+internal class testGnrcAltDualInpDecoder
 {
-  ItestAltCnstPrntDualGrndInpObject? As_AltCnstPrntDualGrndInp { get; }
 }
 
-public interface ItestAltCnstPrntDualGrndInpObject
-  : ItestPrntCnstPrntDualGrndInpObject
+internal class testRefGnrcAltDualInpDecoder<TRef>
 {
-  decimal Alt { get; }
 }
 
-public interface ItestCnstPrntDualGrndOutp
-  : ItestRefCnstPrntDualGrndOutp<ItestAltCnstPrntDualGrndOutp>
+internal class testAltGnrcAltDualInpDecoder
 {
-  ItestCnstPrntDualGrndOutpObject? As_CnstPrntDualGrndOutp { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestCnstPrntDualGrndOutpObject
-  : ItestRefCnstPrntDualGrndOutpObject<ItestAltCnstPrntDualGrndOutp>
+internal class testGnrcAltDualOutpDecoder
 {
 }
 
-public interface ItestRefCnstPrntDualGrndOutp<TRef>
-  // No Base because it's Class
+internal class testRefGnrcAltDualOutpDecoder<TRef>
 {
-  TRef? As_Parent { get; }
-  ItestRefCnstPrntDualGrndOutpObject<TRef>? As_RefCnstPrntDualGrndOutp { get; }
 }
 
-public interface ItestRefCnstPrntDualGrndOutpObject<TRef>
-  // No Base because it's Class
+internal class testAltGnrcAltDualOutpDecoder
 {
+  public decimal Alt { get; set; }
 }
 
-public interface ItestGrndCnstPrntDualGrndOutp
-  // No Base because it's Class
+internal class testRefGnrcAltModParamDualDecoder<TRef,TMod>
 {
-  string? AsString { get; }
-  ItestGrndCnstPrntDualGrndOutpObject? As_GrndCnstPrntDualGrndOutp { get; }
 }
 
-public interface ItestGrndCnstPrntDualGrndOutpObject
-  // No Base because it's Class
+internal class testRefGnrcAltModParamInpDecoder<TRef,TMod>
 {
 }
 
-public interface ItestPrntCnstPrntDualGrndOutp
-  : ItestGrndCnstPrntDualGrndOutp
+internal class testRefGnrcAltModParamOutpDecoder<TRef,TMod>
 {
-  ItestPrntCnstPrntDualGrndOutpObject? As_PrntCnstPrntDualGrndOutp { get; }
 }
 
-public interface ItestPrntCnstPrntDualGrndOutpObject
-  : ItestGrndCnstPrntDualGrndOutpObject
+internal class testRefGnrcAltModStrDualDecoder<TRef>
 {
 }
 
-public interface ItestAltCnstPrntDualGrndOutp
-  : ItestPrntCnstPrntDualGrndOutp
+internal class testRefGnrcAltModStrInpDecoder<TRef>
 {
-  ItestAltCnstPrntDualGrndOutpObject? As_AltCnstPrntDualGrndOutp { get; }
 }
 
-public interface ItestAltCnstPrntDualGrndOutpObject
-  : ItestPrntCnstPrntDualGrndOutpObject
+internal class testRefGnrcAltModStrOutpDecoder<TRef>
 {
-  decimal Alt { get; }
 }
 
-public interface ItestCnstPrntDualPrntDual
-  : ItestRefCnstPrntDualPrntDual<ItestAltCnstPrntDualPrntDual>
+internal class testGnrcAltParamDualDecoder
 {
-  ItestCnstPrntDualPrntDualObject? As_CnstPrntDualPrntDual { get; }
 }
 
-public interface ItestCnstPrntDualPrntDualObject
-  : ItestRefCnstPrntDualPrntDualObject<ItestAltCnstPrntDualPrntDual>
+internal class testRefGnrcAltParamDualDecoder<TRef>
 {
 }
 
-public interface ItestRefCnstPrntDualPrntDual<TRef>
-  // No Base because it's Class
+internal class testAltGnrcAltParamDualDecoder
 {
-  TRef? As_Parent { get; }
-  ItestRefCnstPrntDualPrntDualObject<TRef>? As_RefCnstPrntDualPrntDual { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestRefCnstPrntDualPrntDualObject<TRef>
-  // No Base because it's Class
+internal class testGnrcAltParamInpDecoder
 {
 }
 
-public interface ItestPrntCnstPrntDualPrntDual
-  // No Base because it's Class
+internal class testRefGnrcAltParamInpDecoder<TRef>
 {
-  string? AsString { get; }
-  ItestPrntCnstPrntDualPrntDualObject? As_PrntCnstPrntDualPrntDual { get; }
 }
 
-public interface ItestPrntCnstPrntDualPrntDualObject
-  // No Base because it's Class
+internal class testAltGnrcAltParamInpDecoder
 {
+  public decimal Alt { get; set; }
 }
 
-public interface ItestAltCnstPrntDualPrntDual
-  : ItestPrntCnstPrntDualPrntDual
+internal class testGnrcAltParamOutpDecoder
 {
-  ItestAltCnstPrntDualPrntDualObject? As_AltCnstPrntDualPrntDual { get; }
 }
 
-public interface ItestAltCnstPrntDualPrntDualObject
-  : ItestPrntCnstPrntDualPrntDualObject
+internal class testRefGnrcAltParamOutpDecoder<TRef>
 {
-  decimal Alt { get; }
 }
 
-public interface ItestCnstPrntDualPrntInp
-  : ItestRefCnstPrntDualPrntInp<ItestAltCnstPrntDualPrntInp>
+internal class testAltGnrcAltParamOutpDecoder
 {
-  ItestCnstPrntDualPrntInpObject? As_CnstPrntDualPrntInp { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestCnstPrntDualPrntInpObject
-  : ItestRefCnstPrntDualPrntInpObject<ItestAltCnstPrntDualPrntInp>
+internal class testGnrcAltSmplDualDecoder
 {
 }
 
-public interface ItestRefCnstPrntDualPrntInp<TRef>
-  // No Base because it's Class
+internal class testRefGnrcAltSmplDualDecoder<TRef>
 {
-  TRef? As_Parent { get; }
-  ItestRefCnstPrntDualPrntInpObject<TRef>? As_RefCnstPrntDualPrntInp { get; }
 }
 
-public interface ItestRefCnstPrntDualPrntInpObject<TRef>
-  // No Base because it's Class
+internal class testGnrcAltSmplInpDecoder
 {
 }
 
-public interface ItestPrntCnstPrntDualPrntInp
-  // No Base because it's Class
+internal class testRefGnrcAltSmplInpDecoder<TRef>
 {
-  string? AsString { get; }
-  ItestPrntCnstPrntDualPrntInpObject? As_PrntCnstPrntDualPrntInp { get; }
 }
 
-public interface ItestPrntCnstPrntDualPrntInpObject
-  // No Base because it's Class
+internal class testGnrcAltSmplOutpDecoder
 {
 }
 
-public interface ItestAltCnstPrntDualPrntInp
-  : ItestPrntCnstPrntDualPrntInp
+internal class testRefGnrcAltSmplOutpDecoder<TRef>
 {
-  ItestAltCnstPrntDualPrntInpObject? As_AltCnstPrntDualPrntInp { get; }
 }
 
-public interface ItestAltCnstPrntDualPrntInpObject
-  : ItestPrntCnstPrntDualPrntInpObject
+internal class testGnrcDescrDualDecoder<TType>
 {
-  decimal Alt { get; }
+  public TType Field { get; set; }
 }
 
-public interface ItestCnstPrntDualPrntOutp
-  : ItestRefCnstPrntDualPrntOutp<ItestAltCnstPrntDualPrntOutp>
+internal class testGnrcDescrInpDecoder<TType>
 {
-  ItestCnstPrntDualPrntOutpObject? As_CnstPrntDualPrntOutp { get; }
+  public TType Field { get; set; }
 }
 
-public interface ItestCnstPrntDualPrntOutpObject
-  : ItestRefCnstPrntDualPrntOutpObject<ItestAltCnstPrntDualPrntOutp>
+internal class testGnrcDescrOutpDecoder<TType>
 {
+  public TType Field { get; set; }
 }
 
-public interface ItestRefCnstPrntDualPrntOutp<TRef>
-  // No Base because it's Class
+internal class testGnrcEnumDualDecoder
 {
-  TRef? As_Parent { get; }
-  ItestRefCnstPrntDualPrntOutpObject<TRef>? As_RefCnstPrntDualPrntOutp { get; }
 }
 
-public interface ItestRefCnstPrntDualPrntOutpObject<TRef>
-  // No Base because it's Class
+internal class testRefGnrcEnumDualDecoder<TType>
 {
+  public TType Field { get; set; }
 }
 
-public interface ItestPrntCnstPrntDualPrntOutp
-  // No Base because it's Class
+internal class testEnumGnrcEnumDualDecoder
 {
-  string? AsString { get; }
-  ItestPrntCnstPrntDualPrntOutpObject? As_PrntCnstPrntDualPrntOutp { get; }
+  public string gnrcEnumDual { get; set; }
 }
 
-public interface ItestPrntCnstPrntDualPrntOutpObject
-  // No Base because it's Class
+internal class testGnrcEnumInpDecoder
 {
 }
 
-public interface ItestAltCnstPrntDualPrntOutp
-  : ItestPrntCnstPrntDualPrntOutp
+internal class testRefGnrcEnumInpDecoder<TType>
 {
-  ItestAltCnstPrntDualPrntOutpObject? As_AltCnstPrntDualPrntOutp { get; }
+  public TType Field { get; set; }
 }
 
-public interface ItestAltCnstPrntDualPrntOutpObject
-  : ItestPrntCnstPrntDualPrntOutpObject
+internal class testEnumGnrcEnumInpDecoder
 {
-  decimal Alt { get; }
+  public string gnrcEnumInp { get; set; }
 }
 
-public interface ItestCnstPrntEnumDual
-  // No Base because it's Class
+internal class testGnrcEnumOutpDecoder
 {
-  ItestRefCnstPrntEnumDual<testParentCnstPrntEnumDual>? AsParentCnstPrntEnumDualparentCnstPrntEnumDual { get; }
-  ItestCnstPrntEnumDualObject? As_CnstPrntEnumDual { get; }
 }
 
-public interface ItestCnstPrntEnumDualObject
-  // No Base because it's Class
+internal class testRefGnrcEnumOutpDecoder<TType>
 {
+  public TType Field { get; set; }
 }
 
-public interface ItestRefCnstPrntEnumDual<TType>
-  // No Base because it's Class
+internal class testEnumGnrcEnumOutpDecoder
 {
-  ItestRefCnstPrntEnumDualObject<TType>? As_RefCnstPrntEnumDual { get; }
+  public string gnrcEnumOutp { get; set; }
 }
 
-public interface ItestRefCnstPrntEnumDualObject<TType>
-  // No Base because it's Class
+internal class testGnrcFieldDualDecoder<TType>
 {
-  TType Field { get; }
+  public TType Field { get; set; }
 }
 
-public enum testEnumCnstPrntEnumDual
+internal class testGnrcFieldInpDecoder<TType>
 {
-  parentCnstPrntEnumDual = testParentCnstPrntEnumDual.parentCnstPrntEnumDual,
-  cnstPrntEnumDual,
+  public TType Field { get; set; }
 }
 
-public enum testParentCnstPrntEnumDual
+internal class testGnrcFieldOutpDecoder<TType>
 {
-  parentCnstPrntEnumDual,
+  public TType Field { get; set; }
 }
 
-public interface ItestCnstPrntEnumInp
-  // No Base because it's Class
+internal class testGnrcFieldArgDualDecoder<TType>
 {
-  ItestRefCnstPrntEnumInp<testParentCnstPrntEnumInp>? AsParentCnstPrntEnumInpparentCnstPrntEnumInp { get; }
-  ItestCnstPrntEnumInpObject? As_CnstPrntEnumInp { get; }
+  public ItestRefGnrcFieldArgDual<TType> Field { get; set; }
 }
 
-public interface ItestCnstPrntEnumInpObject
-  // No Base because it's Class
+internal class testRefGnrcFieldArgDualDecoder<TRef>
 {
 }
 
-public interface ItestRefCnstPrntEnumInp<TType>
-  // No Base because it's Class
+internal class testGnrcFieldArgInpDecoder<TType>
 {
-  ItestRefCnstPrntEnumInpObject<TType>? As_RefCnstPrntEnumInp { get; }
+  public ItestRefGnrcFieldArgInp<TType> Field { get; set; }
 }
 
-public interface ItestRefCnstPrntEnumInpObject<TType>
-  // No Base because it's Class
+internal class testRefGnrcFieldArgInpDecoder<TRef>
 {
-  TType Field { get; }
 }
 
-public enum testEnumCnstPrntEnumInp
+internal class testGnrcFieldArgOutpDecoder<TType>
 {
-  parentCnstPrntEnumInp = testParentCnstPrntEnumInp.parentCnstPrntEnumInp,
-  cnstPrntEnumInp,
+  public ItestRefGnrcFieldArgOutp<TType> Field { get; set; }
 }
 
-public enum testParentCnstPrntEnumInp
+internal class testRefGnrcFieldArgOutpDecoder<TRef>
 {
-  parentCnstPrntEnumInp,
 }
 
-public interface ItestCnstPrntEnumOutp
-  // No Base because it's Class
+internal class testGnrcFieldDualDualDecoder
 {
-  ItestRefCnstPrntEnumOutp<testParentCnstPrntEnumOutp>? AsParentCnstPrntEnumOutpparentCnstPrntEnumOutp { get; }
-  ItestCnstPrntEnumOutpObject? As_CnstPrntEnumOutp { get; }
+  public ItestRefGnrcFieldDualDual<ItestAltGnrcFieldDualDual> Field { get; set; }
 }
 
-public interface ItestCnstPrntEnumOutpObject
-  // No Base because it's Class
+internal class testRefGnrcFieldDualDualDecoder<TRef>
 {
 }
 
-public interface ItestRefCnstPrntEnumOutp<TType>
-  // No Base because it's Class
+internal class testAltGnrcFieldDualDualDecoder
 {
-  ItestRefCnstPrntEnumOutpObject<TType>? As_RefCnstPrntEnumOutp { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestRefCnstPrntEnumOutpObject<TType>
-  // No Base because it's Class
+internal class testGnrcFieldDualInpDecoder
 {
-  TType Field { get; }
+  public ItestRefGnrcFieldDualInp<ItestAltGnrcFieldDualInp> Field { get; set; }
 }
 
-public enum testEnumCnstPrntEnumOutp
+internal class testRefGnrcFieldDualInpDecoder<TRef>
 {
-  parentCnstPrntEnumOutp = testParentCnstPrntEnumOutp.parentCnstPrntEnumOutp,
-  cnstPrntEnumOutp,
 }
 
-public enum testParentCnstPrntEnumOutp
+internal class testAltGnrcFieldDualInpDecoder
 {
-  parentCnstPrntEnumOutp,
+  public decimal Alt { get; set; }
 }
 
-public interface ItestCnstPrntObjPrntDual
-  : ItestRefCnstPrntObjPrntDual<ItestAltCnstPrntObjPrntDual>
+internal class testGnrcFieldDualOutpDecoder
 {
-  ItestCnstPrntObjPrntDualObject? As_CnstPrntObjPrntDual { get; }
+  public ItestRefGnrcFieldDualOutp<ItestAltGnrcFieldDualOutp> Field { get; set; }
 }
 
-public interface ItestCnstPrntObjPrntDualObject
-  : ItestRefCnstPrntObjPrntDualObject<ItestAltCnstPrntObjPrntDual>
+internal class testRefGnrcFieldDualOutpDecoder<TRef>
 {
 }
 
-public interface ItestRefCnstPrntObjPrntDual<TRef>
-  // No Base because it's Class
+internal class testAltGnrcFieldDualOutpDecoder
 {
-  TRef? As_Parent { get; }
-  ItestRefCnstPrntObjPrntDualObject<TRef>? As_RefCnstPrntObjPrntDual { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestRefCnstPrntObjPrntDualObject<TRef>
-  // No Base because it's Class
+internal class testGnrcFieldParamDualDecoder
 {
+  public ItestRefGnrcFieldParamDual<ItestAltGnrcFieldParamDual> Field { get; set; }
 }
 
-public interface ItestPrntCnstPrntObjPrntDual
-  // No Base because it's Class
+internal class testRefGnrcFieldParamDualDecoder<TRef>
 {
-  string? AsString { get; }
-  ItestPrntCnstPrntObjPrntDualObject? As_PrntCnstPrntObjPrntDual { get; }
 }
 
-public interface ItestPrntCnstPrntObjPrntDualObject
-  // No Base because it's Class
+internal class testAltGnrcFieldParamDualDecoder
 {
+  public decimal Alt { get; set; }
 }
 
-public interface ItestAltCnstPrntObjPrntDual
-  : ItestPrntCnstPrntObjPrntDual
+internal class testGnrcFieldParamInpDecoder
 {
-  ItestAltCnstPrntObjPrntDualObject? As_AltCnstPrntObjPrntDual { get; }
+  public ItestRefGnrcFieldParamInp<ItestAltGnrcFieldParamInp> Field { get; set; }
 }
 
-public interface ItestAltCnstPrntObjPrntDualObject
-  : ItestPrntCnstPrntObjPrntDualObject
+internal class testRefGnrcFieldParamInpDecoder<TRef>
 {
-  decimal Alt { get; }
 }
 
-public interface ItestCnstPrntObjPrntInp
-  : ItestRefCnstPrntObjPrntInp<ItestAltCnstPrntObjPrntInp>
+internal class testAltGnrcFieldParamInpDecoder
 {
-  ItestCnstPrntObjPrntInpObject? As_CnstPrntObjPrntInp { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestCnstPrntObjPrntInpObject
-  : ItestRefCnstPrntObjPrntInpObject<ItestAltCnstPrntObjPrntInp>
+internal class testGnrcFieldParamOutpDecoder
 {
+  public ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> Field { get; set; }
 }
 
-public interface ItestRefCnstPrntObjPrntInp<TRef>
-  // No Base because it's Class
+internal class testRefGnrcFieldParamOutpDecoder<TRef>
 {
-  TRef? As_Parent { get; }
-  ItestRefCnstPrntObjPrntInpObject<TRef>? As_RefCnstPrntObjPrntInp { get; }
 }
 
-public interface ItestRefCnstPrntObjPrntInpObject<TRef>
-  // No Base because it's Class
+internal class testAltGnrcFieldParamOutpDecoder
 {
+  public decimal Alt { get; set; }
 }
 
-public interface ItestPrntCnstPrntObjPrntInp
-  // No Base because it's Class
+internal class testGnrcPrntDualDecoder<TType>
 {
-  string? AsString { get; }
-  ItestPrntCnstPrntObjPrntInpObject? As_PrntCnstPrntObjPrntInp { get; }
 }
 
-public interface ItestPrntCnstPrntObjPrntInpObject
-  // No Base because it's Class
+internal class testGnrcPrntInpDecoder<TType>
 {
 }
 
-public interface ItestAltCnstPrntObjPrntInp
-  : ItestPrntCnstPrntObjPrntInp
+internal class testGnrcPrntOutpDecoder<TType>
 {
-  ItestAltCnstPrntObjPrntInpObject? As_AltCnstPrntObjPrntInp { get; }
 }
 
-public interface ItestAltCnstPrntObjPrntInpObject
-  : ItestPrntCnstPrntObjPrntInpObject
+internal class testGnrcPrntArgDualDecoder<TType>
 {
-  decimal Alt { get; }
 }
 
-public interface ItestCnstPrntObjPrntOutp
-  : ItestRefCnstPrntObjPrntOutp<ItestAltCnstPrntObjPrntOutp>
+internal class testRefGnrcPrntArgDualDecoder<TRef>
 {
-  ItestCnstPrntObjPrntOutpObject? As_CnstPrntObjPrntOutp { get; }
 }
 
-public interface ItestCnstPrntObjPrntOutpObject
-  : ItestRefCnstPrntObjPrntOutpObject<ItestAltCnstPrntObjPrntOutp>
+internal class testGnrcPrntArgInpDecoder<TType>
 {
 }
 
-public interface ItestRefCnstPrntObjPrntOutp<TRef>
-  // No Base because it's Class
+internal class testRefGnrcPrntArgInpDecoder<TRef>
 {
-  TRef? As_Parent { get; }
-  ItestRefCnstPrntObjPrntOutpObject<TRef>? As_RefCnstPrntObjPrntOutp { get; }
 }
 
-public interface ItestRefCnstPrntObjPrntOutpObject<TRef>
-  // No Base because it's Class
+internal class testGnrcPrntArgOutpDecoder<TType>
 {
 }
 
-public interface ItestPrntCnstPrntObjPrntOutp
-  // No Base because it's Class
+internal class testRefGnrcPrntArgOutpDecoder<TRef>
 {
-  string? AsString { get; }
-  ItestPrntCnstPrntObjPrntOutpObject? As_PrntCnstPrntObjPrntOutp { get; }
 }
 
-public interface ItestPrntCnstPrntObjPrntOutpObject
-  // No Base because it's Class
+internal class testGnrcPrntDescrDualDecoder<TType>
 {
 }
 
-public interface ItestAltCnstPrntObjPrntOutp
-  : ItestPrntCnstPrntObjPrntOutp
+internal class testGnrcPrntDescrInpDecoder<TType>
 {
-  ItestAltCnstPrntObjPrntOutpObject? As_AltCnstPrntObjPrntOutp { get; }
 }
 
-public interface ItestAltCnstPrntObjPrntOutpObject
-  : ItestPrntCnstPrntObjPrntOutpObject
+internal class testGnrcPrntDescrOutpDecoder<TType>
 {
-  decimal Alt { get; }
 }
 
-public interface ItestFieldDual
-  // No Base because it's Class
+internal class testGnrcPrntDualDualDecoder
 {
-  ItestFieldDualObject? As_FieldDual { get; }
 }
 
-public interface ItestFieldDualObject
-  // No Base because it's Class
+internal class testRefGnrcPrntDualDualDecoder<TRef>
 {
-  string Field { get; }
 }
 
-public interface ItestFieldInp
-  // No Base because it's Class
+internal class testAltGnrcPrntDualDualDecoder
 {
-  ItestFieldInpObject? As_FieldInp { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestFieldInpObject
-  // No Base because it's Class
+internal class testGnrcPrntDualInpDecoder
 {
-  string Field { get; }
 }
 
-public interface ItestFieldOutp
-  // No Base because it's Class
+internal class testRefGnrcPrntDualInpDecoder<TRef>
 {
-  ItestFieldOutpObject? As_FieldOutp { get; }
 }
 
-public interface ItestFieldOutpObject
-  // No Base because it's Class
+internal class testAltGnrcPrntDualInpDecoder
 {
-  string Field { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestFieldDescrDual
-  // No Base because it's Class
+internal class testGnrcPrntDualOutpDecoder
 {
-  ItestFieldDescrDualObject? As_FieldDescrDual { get; }
 }
 
-public interface ItestFieldDescrDualObject
-  // No Base because it's Class
+internal class testRefGnrcPrntDualOutpDecoder<TRef>
 {
-  string Field { get; }
 }
 
-public interface ItestFieldDescrInp
-  // No Base because it's Class
+internal class testAltGnrcPrntDualOutpDecoder
 {
-  ItestFieldDescrInpObject? As_FieldDescrInp { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestFieldDescrInpObject
-  // No Base because it's Class
+internal class testGnrcPrntDualPrntDualDecoder
 {
-  string Field { get; }
 }
 
-public interface ItestFieldDescrOutp
-  // No Base because it's Class
+internal class testRefGnrcPrntDualPrntDualDecoder<TRef>
 {
-  ItestFieldDescrOutpObject? As_FieldDescrOutp { get; }
 }
 
-public interface ItestFieldDescrOutpObject
-  // No Base because it's Class
+internal class testAltGnrcPrntDualPrntDualDecoder
 {
-  string Field { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestFieldDualDual
-  // No Base because it's Class
+internal class testGnrcPrntDualPrntInpDecoder
 {
-  ItestFieldDualDualObject? As_FieldDualDual { get; }
 }
 
-public interface ItestFieldDualDualObject
-  // No Base because it's Class
+internal class testRefGnrcPrntDualPrntInpDecoder<TRef>
 {
-  ItestFldFieldDualDual Field { get; }
 }
 
-public interface ItestFldFieldDualDual
-  // No Base because it's Class
+internal class testAltGnrcPrntDualPrntInpDecoder
 {
-  string? AsString { get; }
-  ItestFldFieldDualDualObject? As_FldFieldDualDual { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestFldFieldDualDualObject
-  // No Base because it's Class
+internal class testGnrcPrntDualPrntOutpDecoder
 {
-  decimal Field { get; }
 }
 
-public interface ItestFieldDualInp
-  // No Base because it's Class
+internal class testRefGnrcPrntDualPrntOutpDecoder<TRef>
 {
-  ItestFieldDualInpObject? As_FieldDualInp { get; }
 }
 
-public interface ItestFieldDualInpObject
-  // No Base because it's Class
+internal class testAltGnrcPrntDualPrntOutpDecoder
 {
-  ItestFldFieldDualInp Field { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestFldFieldDualInp
-  // No Base because it's Class
+internal class testGnrcPrntEnumChildDualDecoder
 {
-  string? AsString { get; }
-  ItestFldFieldDualInpObject? As_FldFieldDualInp { get; }
 }
 
-public interface ItestFldFieldDualInpObject
-  // No Base because it's Class
+internal class testFieldGnrcPrntEnumChildDualDecoder<TRef>
 {
-  decimal Field { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ItestFieldDualOutp
-  // No Base because it's Class
+internal class testEnumGnrcPrntEnumChildDualDecoder
 {
-  ItestFieldDualOutpObject? As_FieldDualOutp { get; }
+  public string gnrcPrntEnumChildDualParent { get; set; }
+  public string gnrcPrntEnumChildDualLabel { get; set; }
 }
 
-public interface ItestFieldDualOutpObject
-  // No Base because it's Class
+internal class testParentGnrcPrntEnumChildDualDecoder
 {
-  ItestFldFieldDualOutp Field { get; }
+  public string gnrcPrntEnumChildDualParent { get; set; }
 }
 
-public interface ItestFldFieldDualOutp
-  // No Base because it's Class
+internal class testGnrcPrntEnumChildInpDecoder
 {
-  string? AsString { get; }
-  ItestFldFieldDualOutpObject? As_FldFieldDualOutp { get; }
 }
 
-public interface ItestFldFieldDualOutpObject
-  // No Base because it's Class
+internal class testFieldGnrcPrntEnumChildInpDecoder<TRef>
 {
-  decimal Field { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ItestFieldEnumDual
-  // No Base because it's Class
+internal class testEnumGnrcPrntEnumChildInpDecoder
 {
-  ItestFieldEnumDualObject? As_FieldEnumDual { get; }
+  public string gnrcPrntEnumChildInpParent { get; set; }
+  public string gnrcPrntEnumChildInpLabel { get; set; }
 }
 
-public interface ItestFieldEnumDualObject
-  // No Base because it's Class
+internal class testParentGnrcPrntEnumChildInpDecoder
 {
-  testEnumFieldEnumDual Field { get; }
+  public string gnrcPrntEnumChildInpParent { get; set; }
 }
 
-public enum testEnumFieldEnumDual
+internal class testGnrcPrntEnumChildOutpDecoder
 {
-  fieldEnumDual,
 }
 
-public interface ItestFieldEnumInp
-  // No Base because it's Class
+internal class testFieldGnrcPrntEnumChildOutpDecoder<TRef>
 {
-  ItestFieldEnumInpObject? As_FieldEnumInp { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ItestFieldEnumInpObject
-  // No Base because it's Class
+internal class testEnumGnrcPrntEnumChildOutpDecoder
 {
-  testEnumFieldEnumInp Field { get; }
+  public string gnrcPrntEnumChildOutpParent { get; set; }
+  public string gnrcPrntEnumChildOutpLabel { get; set; }
 }
 
-public enum testEnumFieldEnumInp
+internal class testParentGnrcPrntEnumChildOutpDecoder
 {
-  fieldEnumInp,
+  public string gnrcPrntEnumChildOutpParent { get; set; }
 }
 
-public interface ItestFieldEnumOutp
-  // No Base because it's Class
+internal class testGnrcPrntEnumDomDualDecoder
 {
-  ItestFieldEnumOutpObject? As_FieldEnumOutp { get; }
 }
 
-public interface ItestFieldEnumOutpObject
-  // No Base because it's Class
+internal class testFieldGnrcPrntEnumDomDualDecoder<TRef>
 {
-  testEnumFieldEnumOutp Field { get; }
+  public TRef Field { get; set; }
 }
 
-public enum testEnumFieldEnumOutp
+internal class testEnumGnrcPrntEnumDomDualDecoder
 {
-  fieldEnumOutp,
+  public string gnrcPrntEnumDomDualLabel { get; set; }
+  public string gnrcPrntEnumDomDualOther { get; set; }
 }
 
-public interface ItestFieldEnumPrntDual
-  // No Base because it's Class
+internal class testDomGnrcPrntEnumDomDualDecoder
 {
-  ItestFieldEnumPrntDualObject? As_FieldEnumPrntDual { get; }
 }
 
-public interface ItestFieldEnumPrntDualObject
-  // No Base because it's Class
+internal class testGnrcPrntEnumDomInpDecoder
 {
-  testEnumFieldEnumPrntDual Field { get; }
 }
 
-public enum testEnumFieldEnumPrntDual
+internal class testFieldGnrcPrntEnumDomInpDecoder<TRef>
 {
-  prnt_fieldEnumPrntDual = testPrntFieldEnumPrntDual.prnt_fieldEnumPrntDual,
-  fieldEnumPrntDual,
+  public TRef Field { get; set; }
 }
 
-public enum testPrntFieldEnumPrntDual
+internal class testEnumGnrcPrntEnumDomInpDecoder
 {
-  prnt_fieldEnumPrntDual,
+  public string gnrcPrntEnumDomInpLabel { get; set; }
+  public string gnrcPrntEnumDomInpOther { get; set; }
 }
 
-public interface ItestFieldEnumPrntInp
-  // No Base because it's Class
+internal class testDomGnrcPrntEnumDomInpDecoder
 {
-  ItestFieldEnumPrntInpObject? As_FieldEnumPrntInp { get; }
 }
 
-public interface ItestFieldEnumPrntInpObject
-  // No Base because it's Class
+internal class testGnrcPrntEnumDomOutpDecoder
 {
-  testEnumFieldEnumPrntInp Field { get; }
 }
 
-public enum testEnumFieldEnumPrntInp
+internal class testFieldGnrcPrntEnumDomOutpDecoder<TRef>
 {
-  prnt_fieldEnumPrntInp = testPrntFieldEnumPrntInp.prnt_fieldEnumPrntInp,
-  fieldEnumPrntInp,
+  public TRef Field { get; set; }
 }
 
-public enum testPrntFieldEnumPrntInp
+internal class testEnumGnrcPrntEnumDomOutpDecoder
 {
-  prnt_fieldEnumPrntInp,
+  public string gnrcPrntEnumDomOutpLabel { get; set; }
+  public string gnrcPrntEnumDomOutpOther { get; set; }
 }
 
-public interface ItestFieldEnumPrntOutp
-  // No Base because it's Class
+internal class testDomGnrcPrntEnumDomOutpDecoder
 {
-  ItestFieldEnumPrntOutpObject? As_FieldEnumPrntOutp { get; }
 }
 
-public interface ItestFieldEnumPrntOutpObject
-  // No Base because it's Class
+internal class testGnrcPrntEnumPrntDualDecoder
 {
-  testEnumFieldEnumPrntOutp Field { get; }
 }
 
-public enum testEnumFieldEnumPrntOutp
+internal class testFieldGnrcPrntEnumPrntDualDecoder<TRef>
 {
-  prnt_fieldEnumPrntOutp = testPrntFieldEnumPrntOutp.prnt_fieldEnumPrntOutp,
-  fieldEnumPrntOutp,
+  public TRef Field { get; set; }
 }
 
-public enum testPrntFieldEnumPrntOutp
+internal class testEnumGnrcPrntEnumPrntDualDecoder
 {
-  prnt_fieldEnumPrntOutp,
+  public string gnrcPrntEnumPrntDualParent { get; set; }
+  public string gnrcPrntEnumPrntDualLabel { get; set; }
 }
 
-public interface ItestFieldModEnumDual
-  // No Base because it's Class
+internal class testParentGnrcPrntEnumPrntDualDecoder
 {
-  ItestFieldModEnumDualObject? As_FieldModEnumDual { get; }
+  public string gnrcPrntEnumPrntDualParent { get; set; }
 }
 
-public interface ItestFieldModEnumDualObject
-  // No Base because it's Class
+internal class testGnrcPrntEnumPrntInpDecoder
 {
-  IDictionary<testEnumFieldModEnumDual, string> Field { get; }
 }
 
-public enum testEnumFieldModEnumDual
+internal class testFieldGnrcPrntEnumPrntInpDecoder<TRef>
 {
-  value,
+  public TRef Field { get; set; }
 }
 
-public interface ItestFieldModEnumInp
-  // No Base because it's Class
+internal class testEnumGnrcPrntEnumPrntInpDecoder
 {
-  ItestFieldModEnumInpObject? As_FieldModEnumInp { get; }
+  public string gnrcPrntEnumPrntInpParent { get; set; }
+  public string gnrcPrntEnumPrntInpLabel { get; set; }
 }
 
-public interface ItestFieldModEnumInpObject
-  // No Base because it's Class
+internal class testParentGnrcPrntEnumPrntInpDecoder
 {
-  IDictionary<testEnumFieldModEnumInp, string> Field { get; }
+  public string gnrcPrntEnumPrntInpParent { get; set; }
 }
 
-public enum testEnumFieldModEnumInp
+internal class testGnrcPrntEnumPrntOutpDecoder
 {
-  value,
 }
 
-public interface ItestFieldModEnumOutp
-  // No Base because it's Class
+internal class testFieldGnrcPrntEnumPrntOutpDecoder<TRef>
 {
-  ItestFieldModEnumOutpObject? As_FieldModEnumOutp { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ItestFieldModEnumOutpObject
-  // No Base because it's Class
+internal class testEnumGnrcPrntEnumPrntOutpDecoder
 {
-  IDictionary<testEnumFieldModEnumOutp, string> Field { get; }
+  public string gnrcPrntEnumPrntOutpParent { get; set; }
+  public string gnrcPrntEnumPrntOutpLabel { get; set; }
 }
 
-public enum testEnumFieldModEnumOutp
+internal class testParentGnrcPrntEnumPrntOutpDecoder
 {
-  value,
+  public string gnrcPrntEnumPrntOutpParent { get; set; }
 }
 
-public interface ItestFieldModParamDual<TMod>
-  // No Base because it's Class
+internal class testGnrcPrntParamDualDecoder
 {
-  ItestFieldModParamDualObject<TMod>? As_FieldModParamDual { get; }
 }
 
-public interface ItestFieldModParamDualObject<TMod>
-  // No Base because it's Class
+internal class testRefGnrcPrntParamDualDecoder<TRef>
 {
-  IDictionary<TMod, ItestFldFieldModParamDual> Field { get; }
 }
 
-public interface ItestFldFieldModParamDual
-  // No Base because it's Class
+internal class testAltGnrcPrntParamDualDecoder
 {
-  string? AsString { get; }
-  ItestFldFieldModParamDualObject? As_FldFieldModParamDual { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestFldFieldModParamDualObject
-  // No Base because it's Class
+internal class testGnrcPrntParamInpDecoder
 {
-  decimal Field { get; }
 }
 
-public interface ItestFieldModParamInp<TMod>
-  // No Base because it's Class
+internal class testRefGnrcPrntParamInpDecoder<TRef>
 {
-  ItestFieldModParamInpObject<TMod>? As_FieldModParamInp { get; }
 }
 
-public interface ItestFieldModParamInpObject<TMod>
-  // No Base because it's Class
+internal class testAltGnrcPrntParamInpDecoder
 {
-  IDictionary<TMod, ItestFldFieldModParamInp> Field { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestFldFieldModParamInp
-  // No Base because it's Class
+internal class testGnrcPrntParamOutpDecoder
 {
-  string? AsString { get; }
-  ItestFldFieldModParamInpObject? As_FldFieldModParamInp { get; }
 }
 
-public interface ItestFldFieldModParamInpObject
-  // No Base because it's Class
+internal class testRefGnrcPrntParamOutpDecoder<TRef>
 {
-  decimal Field { get; }
 }
 
-public interface ItestFieldModParamOutp<TMod>
-  // No Base because it's Class
+internal class testAltGnrcPrntParamOutpDecoder
 {
-  ItestFieldModParamOutpObject<TMod>? As_FieldModParamOutp { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestFieldModParamOutpObject<TMod>
-  // No Base because it's Class
+internal class testGnrcPrntParamPrntDualDecoder
 {
-  IDictionary<TMod, ItestFldFieldModParamOutp> Field { get; }
 }
 
-public interface ItestFldFieldModParamOutp
-  // No Base because it's Class
+internal class testRefGnrcPrntParamPrntDualDecoder<TRef>
 {
-  string? AsString { get; }
-  ItestFldFieldModParamOutpObject? As_FldFieldModParamOutp { get; }
 }
 
-public interface ItestFldFieldModParamOutpObject
-  // No Base because it's Class
+internal class testAltGnrcPrntParamPrntDualDecoder
 {
-  decimal Field { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestFieldObjDual
-  // No Base because it's Class
+internal class testGnrcPrntParamPrntInpDecoder
 {
-  ItestFieldObjDualObject? As_FieldObjDual { get; }
 }
 
-public interface ItestFieldObjDualObject
-  // No Base because it's Class
+internal class testRefGnrcPrntParamPrntInpDecoder<TRef>
 {
-  ItestFldFieldObjDual Field { get; }
 }
 
-public interface ItestFldFieldObjDual
-  // No Base because it's Class
+internal class testAltGnrcPrntParamPrntInpDecoder
 {
-  string? AsString { get; }
-  ItestFldFieldObjDualObject? As_FldFieldObjDual { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestFldFieldObjDualObject
-  // No Base because it's Class
+internal class testGnrcPrntParamPrntOutpDecoder
 {
-  decimal Field { get; }
 }
 
-public interface ItestFieldObjInp
-  // No Base because it's Class
+internal class testRefGnrcPrntParamPrntOutpDecoder<TRef>
 {
-  ItestFieldObjInpObject? As_FieldObjInp { get; }
 }
 
-public interface ItestFieldObjInpObject
-  // No Base because it's Class
+internal class testAltGnrcPrntParamPrntOutpDecoder
 {
-  ItestFldFieldObjInp Field { get; }
+  public decimal Alt { get; set; }
 }
 
-public interface ItestFldFieldObjInp
-  // No Base because it's Class
+internal class testGnrcPrntSmplEnumDualDecoder
 {
-  string? AsString { get; }
-  ItestFldFieldObjInpObject? As_FldFieldObjInp { get; }
 }
 
-public interface ItestFldFieldObjInpObject
-  // No Base because it's Class
+internal class testFieldGnrcPrntSmplEnumDualDecoder<TRef>
 {
-  decimal Field { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ItestFieldObjOutp
-  // No Base because it's Class
+internal class testEnumGnrcPrntSmplEnumDualDecoder
 {
-  ItestFieldObjOutpObject? As_FieldObjOutp { get; }
+  public string gnrcPrntSmplEnumDual { get; set; }
 }
 
-public interface ItestFieldObjOutpObject
-  // No Base because it's Class
+internal class testGnrcPrntSmplEnumInpDecoder
 {
-  ItestFldFieldObjOutp Field { get; }
 }
 
-public interface ItestFldFieldObjOutp
-  // No Base because it's Class
+internal class testFieldGnrcPrntSmplEnumInpDecoder<TRef>
 {
-  string? AsString { get; }
-  ItestFldFieldObjOutpObject? As_FldFieldObjOutp { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ItestFldFieldObjOutpObject
-  // No Base because it's Class
+internal class testEnumGnrcPrntSmplEnumInpDecoder
 {
-  decimal Field { get; }
+  public string gnrcPrntSmplEnumInp { get; set; }
 }
 
-public interface ItestFieldSmplDual
-  // No Base because it's Class
+internal class testGnrcPrntSmplEnumOutpDecoder
 {
-  ItestFieldSmplDualObject? As_FieldSmplDual { get; }
 }
 
-public interface ItestFieldSmplDualObject
-  // No Base because it's Class
+internal class testFieldGnrcPrntSmplEnumOutpDecoder<TRef>
 {
-  decimal Field { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ItestFieldSmplInp
-  // No Base because it's Class
+internal class testEnumGnrcPrntSmplEnumOutpDecoder
 {
-  ItestFieldSmplInpObject? As_FieldSmplInp { get; }
+  public string gnrcPrntSmplEnumOutp { get; set; }
 }
 
-public interface ItestFieldSmplInpObject
-  // No Base because it's Class
+internal class testGnrcPrntStrDomDualDecoder
 {
-  decimal Field { get; }
 }
 
-public interface ItestFieldSmplOutp
-  // No Base because it's Class
+internal class testFieldGnrcPrntStrDomDualDecoder<TRef>
 {
-  ItestFieldSmplOutpObject? As_FieldSmplOutp { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ItestFieldSmplOutpObject
-  // No Base because it's Class
+internal class testDomGnrcPrntStrDomDualDecoder
 {
-  decimal Field { get; }
 }
 
-public interface ItestFieldTypeDescrDual
-  // No Base because it's Class
+internal class testGnrcPrntStrDomInpDecoder
 {
-  ItestFieldTypeDescrDualObject? As_FieldTypeDescrDual { get; }
 }
 
-public interface ItestFieldTypeDescrDualObject
-  // No Base because it's Class
+internal class testFieldGnrcPrntStrDomInpDecoder<TRef>
 {
-  decimal Field { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ItestFieldTypeDescrInp
-  // No Base because it's Class
+internal class testDomGnrcPrntStrDomInpDecoder
 {
-  ItestFieldTypeDescrInpObject? As_FieldTypeDescrInp { get; }
 }
 
-public interface ItestFieldTypeDescrInpObject
-  // No Base because it's Class
+internal class testGnrcPrntStrDomOutpDecoder
 {
-  decimal Field { get; }
 }
 
-public interface ItestFieldTypeDescrOutp
-  // No Base because it's Class
+internal class testFieldGnrcPrntStrDomOutpDecoder<TRef>
 {
-  ItestFieldTypeDescrOutpObject? As_FieldTypeDescrOutp { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ItestFieldTypeDescrOutpObject
-  // No Base because it's Class
+internal class testDomGnrcPrntStrDomOutpDecoder
 {
-  decimal Field { get; }
 }
 
-public interface ItestFieldValueDual
-  // No Base because it's Class
+internal class testGnrcValueDualDecoder
 {
-  ItestFieldValueDualObject? As_FieldValueDual { get; }
 }
 
-public interface ItestFieldValueDualObject
-  // No Base because it's Class
+internal class testRefGnrcValueDualDecoder<TType>
 {
-  testEnumFieldValueDual Field { get; }
+  public TType Field { get; set; }
 }
 
-public enum testEnumFieldValueDual
+internal class testEnumGnrcValueDualDecoder
 {
-  fieldValueDual,
+  public string gnrcValueDual { get; set; }
 }
 
-public interface ItestFieldValueInp
-  // No Base because it's Class
+internal class testGnrcValueInpDecoder
 {
-  ItestFieldValueInpObject? As_FieldValueInp { get; }
 }
 
-public interface ItestFieldValueInpObject
-  // No Base because it's Class
+internal class testRefGnrcValueInpDecoder<TType>
 {
-  testEnumFieldValueInp Field { get; }
+  public TType Field { get; set; }
 }
 
-public enum testEnumFieldValueInp
+internal class testEnumGnrcValueInpDecoder
 {
-  fieldValueInp,
+  public string gnrcValueInp { get; set; }
 }
 
-public interface ItestFieldValueOutp
-  // No Base because it's Class
+internal class testGnrcValueOutpDecoder
 {
-  ItestFieldValueOutpObject? As_FieldValueOutp { get; }
 }
 
-public interface ItestFieldValueOutpObject
-  // No Base because it's Class
+internal class testRefGnrcValueOutpDecoder<TType>
 {
-  testEnumFieldValueOutp Field { get; }
+  public TType Field { get; set; }
 }
 
-public enum testEnumFieldValueOutp
+internal class testEnumGnrcValueOutpDecoder
 {
-  fieldValueOutp,
+  public string gnrcValueOutp { get; set; }
 }
 
-public interface ItestFieldValueDescrDual
-  // No Base because it's Class
+internal class testInpFieldDescrNmbrDecoder
 {
-  ItestFieldValueDescrDualObject? As_FieldValueDescrDual { get; }
+  public decimal Field { get; set; }
 }
 
-public interface ItestFieldValueDescrDualObject
-  // No Base because it's Class
+internal class testInpFieldEnumDecoder
 {
-  testEnumFieldValueDescrDual Field { get; }
+  public testEnumInpFieldEnum Field { get; set; }
 }
 
-public enum testEnumFieldValueDescrDual
+internal class testEnumInpFieldEnumDecoder
 {
-  fieldValueDescrDual,
+  public string inpFieldEnum { get; set; }
 }
 
-public interface ItestFieldValueDescrInp
-  // No Base because it's Class
+internal class testInpFieldNullDecoder
 {
-  ItestFieldValueDescrInpObject? As_FieldValueDescrInp { get; }
+  public ItestFldInpFieldNull? Field { get; set; }
 }
 
-public interface ItestFieldValueDescrInpObject
-  // No Base because it's Class
+internal class testFldInpFieldNullDecoder
 {
-  testEnumFieldValueDescrInp Field { get; }
 }
 
-public enum testEnumFieldValueDescrInp
+internal class testInpFieldNmbrDecoder
 {
-  fieldValueDescrInp,
+  public decimal Field { get; set; }
 }
 
-public interface ItestFieldValueDescrOutp
-  // No Base because it's Class
+internal class testInpFieldNmbrDescrDecoder
 {
-  ItestFieldValueDescrOutpObject? As_FieldValueDescrOutp { get; }
+  public decimal Field { get; set; }
 }
 
-public interface ItestFieldValueDescrOutpObject
-  // No Base because it's Class
+internal class testInpFieldStrDecoder
 {
-  testEnumFieldValueDescrOutp Field { get; }
+  public string Field { get; set; }
 }
 
-public enum testEnumFieldValueDescrOutp
+internal class testOutpDescrParamDecoder
 {
-  fieldValueDescrOutp,
+  public ItestFldOutpDescrParam? Field(ItestInOutpDescrParam parameter)
+    => null;
 }
 
-public interface ItestGnrcAltDual<TType>
-  // No Base because it's Class
+internal class testFldOutpDescrParamDecoder
 {
-  TType? Astype { get; }
-  ItestGnrcAltDualObject<TType>? As_GnrcAltDual { get; }
 }
 
-public interface ItestGnrcAltDualObject<TType>
-  // No Base because it's Class
+internal class testInOutpDescrParamDecoder
 {
+  public decimal Param { get; set; }
 }
 
-public interface ItestGnrcAltInp<TType>
-  // No Base because it's Class
+internal class testOutpParamDecoder
 {
-  TType? Astype { get; }
-  ItestGnrcAltInpObject<TType>? As_GnrcAltInp { get; }
+  public ItestFldOutpParam? Field(ItestInOutpParam parameter)
+    => null;
 }
 
-public interface ItestGnrcAltInpObject<TType>
-  // No Base because it's Class
+internal class testFldOutpParamDecoder
 {
 }
 
-public interface ItestGnrcAltOutp<TType>
-  // No Base because it's Class
+internal class testInOutpParamDecoder
 {
-  TType? Astype { get; }
-  ItestGnrcAltOutpObject<TType>? As_GnrcAltOutp { get; }
+  public decimal Param { get; set; }
 }
 
-public interface ItestGnrcAltOutpObject<TType>
-  // No Base because it's Class
+internal class testOutpParamDescrDecoder
 {
+  public ItestFldOutpParamDescr? Field(ItestInOutpParamDescr parameter)
+    => null;
 }
 
-public interface ItestGnrcAltArgDual<TType>
-  // No Base because it's Class
+internal class testFldOutpParamDescrDecoder
 {
-  ItestRefGnrcAltArgDual<TType>? AsRefGnrcAltArgDual { get; }
-  ItestGnrcAltArgDualObject<TType>? As_GnrcAltArgDual { get; }
 }
 
-public interface ItestGnrcAltArgDualObject<TType>
-  // No Base because it's Class
+internal class testInOutpParamDescrDecoder
 {
+  public decimal Param { get; set; }
 }
 
-public interface ItestRefGnrcAltArgDual<TRef>
-  // No Base because it's Class
+internal class testOutpParamModDmnDecoder
 {
-  TRef? Asref { get; }
-  ItestRefGnrcAltArgDualObject<TRef>? As_RefGnrcAltArgDual { get; }
+  public ItestDomOutpParamModDmn? Field(IDictionary<ItestDomOutpParamModDmn, ItestInOutpParamModDmn> parameter)
+    => null;
 }
 
-public interface ItestRefGnrcAltArgDualObject<TRef>
-  // No Base because it's Class
+internal class testInOutpParamModDmnDecoder
 {
+  public decimal Param { get; set; }
 }
 
-public interface ItestGnrcAltArgInp<TType>
-  // No Base because it's Class
+internal class testDomOutpParamModDmnDecoder
 {
-  ItestRefGnrcAltArgInp<TType>? AsRefGnrcAltArgInp { get; }
-  ItestGnrcAltArgInpObject<TType>? As_GnrcAltArgInp { get; }
 }
 
-public interface ItestGnrcAltArgInpObject<TType>
-  // No Base because it's Class
+internal class testOutpParamModParamDecoder<TMod>
 {
+  public ItestDomOutpParamModParam? Field(IDictionary<TMod, ItestInOutpParamModParam> parameter)
+    => null;
 }
 
-public interface ItestRefGnrcAltArgInp<TRef>
-  // No Base because it's Class
+internal class testInOutpParamModParamDecoder
 {
-  TRef? Asref { get; }
-  ItestRefGnrcAltArgInpObject<TRef>? As_RefGnrcAltArgInp { get; }
+  public decimal Param { get; set; }
 }
 
-public interface ItestRefGnrcAltArgInpObject<TRef>
-  // No Base because it's Class
+internal class testDomOutpParamModParamDecoder
 {
 }
 
-public interface ItestGnrcAltArgOutp<TType>
-  // No Base because it's Class
+internal class testOutpParamTypeDescrDecoder
 {
-  ItestRefGnrcAltArgOutp<TType>? AsRefGnrcAltArgOutp { get; }
-  ItestGnrcAltArgOutpObject<TType>? As_GnrcAltArgOutp { get; }
+  public ItestFldOutpParamTypeDescr? Field(ItestInOutpParamTypeDescr parameter)
+    => null;
 }
 
-public interface ItestGnrcAltArgOutpObject<TType>
-  // No Base because it's Class
+internal class testFldOutpParamTypeDescrDecoder
 {
 }
 
-public interface ItestRefGnrcAltArgOutp<TRef>
-  // No Base because it's Class
+internal class testInOutpParamTypeDescrDecoder
 {
-  TRef? Asref { get; }
-  ItestRefGnrcAltArgOutpObject<TRef>? As_RefGnrcAltArgOutp { get; }
+  public decimal Param { get; set; }
 }
 
-public interface ItestRefGnrcAltArgOutpObject<TRef>
-  // No Base because it's Class
+internal class testOutpPrntGnrcDecoder
 {
 }
 
-public interface ItestGnrcAltArgDescrDual<TType>
-  // No Base because it's Class
+internal class testRefOutpPrntGnrcDecoder<TType>
 {
-  ItestRefGnrcAltArgDescrDual<TType>? AsRefGnrcAltArgDescrDual { get; }
-  ItestGnrcAltArgDescrDualObject<TType>? As_GnrcAltArgDescrDual { get; }
+  public TType Field { get; set; }
 }
 
-public interface ItestGnrcAltArgDescrDualObject<TType>
-  // No Base because it's Class
+internal class testEnumOutpPrntGnrcDecoder
 {
+  public string prnt_outpPrntGnrc { get; set; }
+  public string outpPrntGnrc { get; set; }
 }
 
-public interface ItestRefGnrcAltArgDescrDual<TRef>
-  // No Base because it's Class
+internal class testPrntOutpPrntGnrcDecoder
 {
-  TRef? Asref { get; }
-  ItestRefGnrcAltArgDescrDualObject<TRef>? As_RefGnrcAltArgDescrDual { get; }
+  public string prnt_outpPrntGnrc { get; set; }
 }
 
-public interface ItestRefGnrcAltArgDescrDualObject<TRef>
-  // No Base because it's Class
+internal class testOutpPrntParamDecoder
 {
+  public ItestFldOutpPrntParam? Field(ItestInOutpPrntParam parameter)
+    => null;
 }
 
-public interface ItestGnrcAltArgDescrInp<TType>
-  // No Base because it's Class
+internal class testPrntOutpPrntParamDecoder
 {
-  ItestRefGnrcAltArgDescrInp<TType>? AsRefGnrcAltArgDescrInp { get; }
-  ItestGnrcAltArgDescrInpObject<TType>? As_GnrcAltArgDescrInp { get; }
+  public ItestFldOutpPrntParam? Field(ItestPrntOutpPrntParamIn parameter)
+    => null;
 }
 
-public interface ItestGnrcAltArgDescrInpObject<TType>
-  // No Base because it's Class
+internal class testFldOutpPrntParamDecoder
 {
 }
 
-public interface ItestRefGnrcAltArgDescrInp<TRef>
-  // No Base because it's Class
+internal class testInOutpPrntParamDecoder
 {
-  TRef? Asref { get; }
-  ItestRefGnrcAltArgDescrInpObject<TRef>? As_RefGnrcAltArgDescrInp { get; }
+  public decimal Param { get; set; }
 }
 
-public interface ItestRefGnrcAltArgDescrInpObject<TRef>
-  // No Base because it's Class
+internal class testPrntOutpPrntParamInDecoder
 {
+  public decimal Parent { get; set; }
 }
 
-public interface ItestGnrcAltArgDescrOutp<TType>
-  // No Base because it's Class
+internal class testPrntDualDecoder
 {
-  ItestRefGnrcAltArgDescrOutp<TType>? AsRefGnrcAltArgDescrOutp { get; }
-  ItestGnrcAltArgDescrOutpObject<TType>? As_GnrcAltArgDescrOutp { get; }
 }
 
-public interface ItestGnrcAltArgDescrOutpObject<TType>
-  // No Base because it's Class
+internal class testRefPrntDualDecoder
 {
+  public decimal Parent { get; set; }
 }
 
-public interface ItestRefGnrcAltArgDescrOutp<TRef>
-  // No Base because it's Class
+internal class testPrntInpDecoder
 {
-  TRef? Asref { get; }
-  ItestRefGnrcAltArgDescrOutpObject<TRef>? As_RefGnrcAltArgDescrOutp { get; }
 }
 
-public interface ItestRefGnrcAltArgDescrOutpObject<TRef>
-  // No Base because it's Class
+internal class testRefPrntInpDecoder
 {
+  public decimal Parent { get; set; }
 }
 
-public interface ItestGnrcAltDualDual
-  // No Base because it's Class
+internal class testPrntOutpDecoder
 {
-  ItestRefGnrcAltDualDual<ItestAltGnrcAltDualDual>? AsRefGnrcAltDualDual { get; }
-  ItestGnrcAltDualDualObject? As_GnrcAltDualDual { get; }
 }
 
-public interface ItestGnrcAltDualDualObject
-  // No Base because it's Class
+internal class testRefPrntOutpDecoder
 {
+  public decimal Parent { get; set; }
 }
 
-public interface ItestRefGnrcAltDualDual<TRef>
-  // No Base because it's Class
+internal class testPrntAltDualDecoder
 {
-  TRef? Asref { get; }
-  ItestRefGnrcAltDualDualObject<TRef>? As_RefGnrcAltDualDual { get; }
 }
 
-public interface ItestRefGnrcAltDualDualObject<TRef>
-  // No Base because it's Class
+internal class testRefPrntAltDualDecoder
 {
+  public decimal Parent { get; set; }
 }
 
-public interface ItestAltGnrcAltDualDual
-  // No Base because it's Class
+internal class testPrntAltInpDecoder
 {
-  string? AsString { get; }
-  ItestAltGnrcAltDualDualObject? As_AltGnrcAltDualDual { get; }
 }
 
-public interface ItestAltGnrcAltDualDualObject
-  // No Base because it's Class
+internal class testRefPrntAltInpDecoder
 {
-  decimal Alt { get; }
+  public decimal Parent { get; set; }
 }
 
-public interface ItestGnrcAltDualInp
-  // No Base because it's Class
+internal class testPrntAltOutpDecoder
 {
-  ItestRefGnrcAltDualInp<ItestAltGnrcAltDualInp>? AsRefGnrcAltDualInp { get; }
-  ItestGnrcAltDualInpObject? As_GnrcAltDualInp { get; }
 }
 
-public interface ItestGnrcAltDualInpObject
-  // No Base because it's Class
+internal class testRefPrntAltOutpDecoder
 {
+  public decimal Parent { get; set; }
 }
 
-public interface ItestRefGnrcAltDualInp<TRef>
-  // No Base because it's Class
+internal class testPrntDescrDualDecoder
 {
-  TRef? Asref { get; }
-  ItestRefGnrcAltDualInpObject<TRef>? As_RefGnrcAltDualInp { get; }
 }
 
-public interface ItestRefGnrcAltDualInpObject<TRef>
-  // No Base because it's Class
+internal class testRefPrntDescrDualDecoder
 {
+  public decimal Parent { get; set; }
 }
 
-public interface ItestAltGnrcAltDualInp
-  // No Base because it's Class
+internal class testPrntDescrInpDecoder
 {
-  string? AsString { get; }
-  ItestAltGnrcAltDualInpObject? As_AltGnrcAltDualInp { get; }
 }
 
-public interface ItestAltGnrcAltDualInpObject
-  // No Base because it's Class
+internal class testRefPrntDescrInpDecoder
 {
-  decimal Alt { get; }
+  public decimal Parent { get; set; }
 }
 
-public interface ItestGnrcAltDualOutp
-  // No Base because it's Class
+internal class testPrntDescrOutpDecoder
 {
-  ItestRefGnrcAltDualOutp<ItestAltGnrcAltDualOutp>? AsRefGnrcAltDualOutp { get; }
-  ItestGnrcAltDualOutpObject? As_GnrcAltDualOutp { get; }
 }
 
-public interface ItestGnrcAltDualOutpObject
-  // No Base because it's Class
+internal class testRefPrntDescrOutpDecoder
 {
+  public decimal Parent { get; set; }
 }
 
-public interface ItestRefGnrcAltDualOutp<TRef>
-  // No Base because it's Class
+internal class testPrntDualDualDecoder
 {
-  TRef? Asref { get; }
-  ItestRefGnrcAltDualOutpObject<TRef>? As_RefGnrcAltDualOutp { get; }
 }
 
-public interface ItestRefGnrcAltDualOutpObject<TRef>
-  // No Base because it's Class
+internal class testRefPrntDualDualDecoder
 {
+  public decimal Parent { get; set; }
 }
 
-public interface ItestAltGnrcAltDualOutp
-  // No Base because it's Class
+internal class testPrntDualInpDecoder
 {
-  string? AsString { get; }
-  ItestAltGnrcAltDualOutpObject? As_AltGnrcAltDualOutp { get; }
 }
 
-public interface ItestAltGnrcAltDualOutpObject
-  // No Base because it's Class
+internal class testRefPrntDualInpDecoder
 {
-  decimal Alt { get; }
+  public decimal Parent { get; set; }
 }
 
-public interface ItestRefGnrcAltModParamDual<TRef,TMod>
-  // No Base because it's Class
+internal class testPrntDualOutpDecoder
 {
-  IDictionary<TMod, TRef>? Asref { get; }
-  ItestRefGnrcAltModParamDualObject<TRef,TMod>? As_RefGnrcAltModParamDual { get; }
 }
 
-public interface ItestRefGnrcAltModParamDualObject<TRef,TMod>
-  // No Base because it's Class
+internal class testRefPrntDualOutpDecoder
 {
+  public decimal Parent { get; set; }
 }
 
-public interface ItestRefGnrcAltModParamInp<TRef,TMod>
-  // No Base because it's Class
+internal class testPrntFieldDualDecoder
 {
-  IDictionary<TMod, TRef>? Asref { get; }
-  ItestRefGnrcAltModParamInpObject<TRef,TMod>? As_RefGnrcAltModParamInp { get; }
+  public decimal Field { get; set; }
 }
 
-public interface ItestRefGnrcAltModParamInpObject<TRef,TMod>
-  // No Base because it's Class
+internal class testRefPrntFieldDualDecoder
 {
+  public decimal Parent { get; set; }
 }
 
-public interface ItestRefGnrcAltModParamOutp<TRef,TMod>
-  // No Base because it's Class
+internal class testPrntFieldInpDecoder
 {
-  IDictionary<TMod, TRef>? Asref { get; }
-  ItestRefGnrcAltModParamOutpObject<TRef,TMod>? As_RefGnrcAltModParamOutp { get; }
+  public decimal Field { get; set; }
 }
 
-public interface ItestRefGnrcAltModParamOutpObject<TRef,TMod>
-  // No Base because it's Class
+internal class testRefPrntFieldInpDecoder
 {
+  public decimal Parent { get; set; }
 }
 
-public interface ItestRefGnrcAltModStrDual<TRef>
-  // No Base because it's Class
+internal class testPrntFieldOutpDecoder
 {
-  IDictionary<string, TRef>? Asref { get; }
-  ItestRefGnrcAltModStrDualObject<TRef>? As_RefGnrcAltModStrDual { get; }
+  public decimal Field { get; set; }
 }
 
-public interface ItestRefGnrcAltModStrDualObject<TRef>
-  // No Base because it's Class
+internal class testRefPrntFieldOutpDecoder
 {
+  public decimal Parent { get; set; }
 }
 
-public interface ItestRefGnrcAltModStrInp<TRef>
-  // No Base because it's Class
+internal class testPrntParamDiffDualDecoder<TA>
 {
-  IDictionary<string, TRef>? Asref { get; }
-  ItestRefGnrcAltModStrInpObject<TRef>? As_RefGnrcAltModStrInp { get; }
+  public TA Field { get; set; }
 }
 
-public interface ItestRefGnrcAltModStrInpObject<TRef>
-  // No Base because it's Class
+internal class testRefPrntParamDiffDualDecoder<TB>
 {
 }
 
-public interface ItestRefGnrcAltModStrOutp<TRef>
-  // No Base because it's Class
+internal class testPrntParamDiffInpDecoder<TA>
 {
-  IDictionary<string, TRef>? Asref { get; }
-  ItestRefGnrcAltModStrOutpObject<TRef>? As_RefGnrcAltModStrOutp { get; }
+  public TA Field { get; set; }
 }
 
-public interface ItestRefGnrcAltModStrOutpObject<TRef>
-  // No Base because it's Class
+internal class testRefPrntParamDiffInpDecoder<TB>
 {
 }
 
-public interface ItestGnrcAltParamDual
-  // No Base because it's Class
+internal class testPrntParamDiffOutpDecoder<TA>
 {
-  ItestRefGnrcAltParamDual<ItestAltGnrcAltParamDual>? AsRefGnrcAltParamDual { get; }
-  ItestGnrcAltParamDualObject? As_GnrcAltParamDual { get; }
+  public TA Field { get; set; }
 }
 
-public interface ItestGnrcAltParamDualObject
-  // No Base because it's Class
+internal class testRefPrntParamDiffOutpDecoder<TB>
 {
 }
 
-public interface ItestRefGnrcAltParamDual<TRef>
-  // No Base because it's Class
+internal class testPrntParamSameDualDecoder<TA>
 {
-  TRef? Asref { get; }
-  ItestRefGnrcAltParamDualObject<TRef>? As_RefGnrcAltParamDual { get; }
+  public TA Field { get; set; }
 }
 
-public interface ItestRefGnrcAltParamDualObject<TRef>
-  // No Base because it's Class
+internal class testRefPrntParamSameDualDecoder<TA>
 {
 }
 
-public interface ItestAltGnrcAltParamDual
-  // No Base because it's Class
+internal class testPrntParamSameInpDecoder<TA>
 {
-  string? AsString { get; }
-  ItestAltGnrcAltParamDualObject? As_AltGnrcAltParamDual { get; }
+  public TA Field { get; set; }
 }
 
-public interface ItestAltGnrcAltParamDualObject
-  // No Base because it's Class
+internal class testRefPrntParamSameInpDecoder<TA>
 {
-  decimal Alt { get; }
 }
 
-public interface ItestGnrcAltParamInp
-  // No Base because it's Class
+internal class testPrntParamSameOutpDecoder<TA>
 {
-  ItestRefGnrcAltParamInp<ItestAltGnrcAltParamInp>? AsRefGnrcAltParamInp { get; }
-  ItestGnrcAltParamInpObject? As_GnrcAltParamInp { get; }
+  public TA Field { get; set; }
 }
 
-public interface ItestGnrcAltParamInpObject
-  // No Base because it's Class
-{
-}
-
-public interface ItestRefGnrcAltParamInp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcAltParamInpObject<TRef>? As_RefGnrcAltParamInp { get; }
-}
-
-public interface ItestRefGnrcAltParamInpObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestAltGnrcAltParamInp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestAltGnrcAltParamInpObject? As_AltGnrcAltParamInp { get; }
-}
-
-public interface ItestAltGnrcAltParamInpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
-}
-
-public interface ItestGnrcAltParamOutp
-  // No Base because it's Class
-{
-  ItestRefGnrcAltParamOutp<ItestAltGnrcAltParamOutp>? AsRefGnrcAltParamOutp { get; }
-  ItestGnrcAltParamOutpObject? As_GnrcAltParamOutp { get; }
-}
-
-public interface ItestGnrcAltParamOutpObject
-  // No Base because it's Class
-{
-}
-
-public interface ItestRefGnrcAltParamOutp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcAltParamOutpObject<TRef>? As_RefGnrcAltParamOutp { get; }
-}
-
-public interface ItestRefGnrcAltParamOutpObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestAltGnrcAltParamOutp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestAltGnrcAltParamOutpObject? As_AltGnrcAltParamOutp { get; }
-}
-
-public interface ItestAltGnrcAltParamOutpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
-}
-
-public interface ItestGnrcAltSmplDual
-  // No Base because it's Class
-{
-  ItestRefGnrcAltSmplDual<string>? AsRefGnrcAltSmplDual { get; }
-  ItestGnrcAltSmplDualObject? As_GnrcAltSmplDual { get; }
-}
-
-public interface ItestGnrcAltSmplDualObject
-  // No Base because it's Class
-{
-}
-
-public interface ItestRefGnrcAltSmplDual<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcAltSmplDualObject<TRef>? As_RefGnrcAltSmplDual { get; }
-}
-
-public interface ItestRefGnrcAltSmplDualObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestGnrcAltSmplInp
-  // No Base because it's Class
-{
-  ItestRefGnrcAltSmplInp<string>? AsRefGnrcAltSmplInp { get; }
-  ItestGnrcAltSmplInpObject? As_GnrcAltSmplInp { get; }
-}
-
-public interface ItestGnrcAltSmplInpObject
-  // No Base because it's Class
-{
-}
-
-public interface ItestRefGnrcAltSmplInp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcAltSmplInpObject<TRef>? As_RefGnrcAltSmplInp { get; }
-}
-
-public interface ItestRefGnrcAltSmplInpObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestGnrcAltSmplOutp
-  // No Base because it's Class
-{
-  ItestRefGnrcAltSmplOutp<string>? AsRefGnrcAltSmplOutp { get; }
-  ItestGnrcAltSmplOutpObject? As_GnrcAltSmplOutp { get; }
-}
-
-public interface ItestGnrcAltSmplOutpObject
-  // No Base because it's Class
-{
-}
-
-public interface ItestRefGnrcAltSmplOutp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcAltSmplOutpObject<TRef>? As_RefGnrcAltSmplOutp { get; }
-}
-
-public interface ItestRefGnrcAltSmplOutpObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestGnrcDescrDual<TType>
-  // No Base because it's Class
-{
-  ItestGnrcDescrDualObject<TType>? As_GnrcDescrDual { get; }
-}
-
-public interface ItestGnrcDescrDualObject<TType>
-  // No Base because it's Class
-{
-  TType Field { get; }
-}
-
-public interface ItestGnrcDescrInp<TType>
-  // No Base because it's Class
-{
-  ItestGnrcDescrInpObject<TType>? As_GnrcDescrInp { get; }
-}
-
-public interface ItestGnrcDescrInpObject<TType>
-  // No Base because it's Class
-{
-  TType Field { get; }
-}
-
-public interface ItestGnrcDescrOutp<TType>
-  // No Base because it's Class
-{
-  ItestGnrcDescrOutpObject<TType>? As_GnrcDescrOutp { get; }
-}
-
-public interface ItestGnrcDescrOutpObject<TType>
-  // No Base because it's Class
-{
-  TType Field { get; }
-}
-
-public interface ItestGnrcEnumDual
-  // No Base because it's Class
-{
-  ItestRefGnrcEnumDual<testEnumGnrcEnumDual>? AsEnumGnrcEnumDualgnrcEnumDual { get; }
-  ItestGnrcEnumDualObject? As_GnrcEnumDual { get; }
-}
-
-public interface ItestGnrcEnumDualObject
-  // No Base because it's Class
-{
-}
-
-public interface ItestRefGnrcEnumDual<TType>
-  // No Base because it's Class
-{
-  ItestRefGnrcEnumDualObject<TType>? As_RefGnrcEnumDual { get; }
-}
-
-public interface ItestRefGnrcEnumDualObject<TType>
-  // No Base because it's Class
-{
-  TType Field { get; }
-}
-
-public enum testEnumGnrcEnumDual
-{
-  gnrcEnumDual,
-}
-
-public interface ItestGnrcEnumInp
-  // No Base because it's Class
-{
-  ItestRefGnrcEnumInp<testEnumGnrcEnumInp>? AsEnumGnrcEnumInpgnrcEnumInp { get; }
-  ItestGnrcEnumInpObject? As_GnrcEnumInp { get; }
-}
-
-public interface ItestGnrcEnumInpObject
-  // No Base because it's Class
-{
-}
-
-public interface ItestRefGnrcEnumInp<TType>
-  // No Base because it's Class
-{
-  ItestRefGnrcEnumInpObject<TType>? As_RefGnrcEnumInp { get; }
-}
-
-public interface ItestRefGnrcEnumInpObject<TType>
-  // No Base because it's Class
-{
-  TType Field { get; }
-}
-
-public enum testEnumGnrcEnumInp
-{
-  gnrcEnumInp,
-}
-
-public interface ItestGnrcEnumOutp
-  // No Base because it's Class
-{
-  ItestRefGnrcEnumOutp<testEnumGnrcEnumOutp>? AsEnumGnrcEnumOutpgnrcEnumOutp { get; }
-  ItestGnrcEnumOutpObject? As_GnrcEnumOutp { get; }
-}
-
-public interface ItestGnrcEnumOutpObject
-  // No Base because it's Class
-{
-}
-
-public interface ItestRefGnrcEnumOutp<TType>
-  // No Base because it's Class
-{
-  ItestRefGnrcEnumOutpObject<TType>? As_RefGnrcEnumOutp { get; }
-}
-
-public interface ItestRefGnrcEnumOutpObject<TType>
-  // No Base because it's Class
-{
-  TType Field { get; }
-}
-
-public enum testEnumGnrcEnumOutp
-{
-  gnrcEnumOutp,
-}
-
-public interface ItestGnrcFieldDual<TType>
-  // No Base because it's Class
-{
-  ItestGnrcFieldDualObject<TType>? As_GnrcFieldDual { get; }
-}
-
-public interface ItestGnrcFieldDualObject<TType>
-  // No Base because it's Class
-{
-  TType Field { get; }
-}
-
-public interface ItestGnrcFieldInp<TType>
-  // No Base because it's Class
-{
-  ItestGnrcFieldInpObject<TType>? As_GnrcFieldInp { get; }
-}
-
-public interface ItestGnrcFieldInpObject<TType>
-  // No Base because it's Class
-{
-  TType Field { get; }
-}
-
-public interface ItestGnrcFieldOutp<TType>
-  // No Base because it's Class
-{
-  ItestGnrcFieldOutpObject<TType>? As_GnrcFieldOutp { get; }
-}
-
-public interface ItestGnrcFieldOutpObject<TType>
-  // No Base because it's Class
-{
-  TType Field { get; }
-}
-
-public interface ItestGnrcFieldArgDual<TType>
-  // No Base because it's Class
-{
-  ItestGnrcFieldArgDualObject<TType>? As_GnrcFieldArgDual { get; }
-}
-
-public interface ItestGnrcFieldArgDualObject<TType>
-  // No Base because it's Class
-{
-  ItestRefGnrcFieldArgDual<TType> Field { get; }
-}
-
-public interface ItestRefGnrcFieldArgDual<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcFieldArgDualObject<TRef>? As_RefGnrcFieldArgDual { get; }
-}
-
-public interface ItestRefGnrcFieldArgDualObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestGnrcFieldArgInp<TType>
-  // No Base because it's Class
-{
-  ItestGnrcFieldArgInpObject<TType>? As_GnrcFieldArgInp { get; }
-}
-
-public interface ItestGnrcFieldArgInpObject<TType>
-  // No Base because it's Class
-{
-  ItestRefGnrcFieldArgInp<TType> Field { get; }
-}
-
-public interface ItestRefGnrcFieldArgInp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcFieldArgInpObject<TRef>? As_RefGnrcFieldArgInp { get; }
-}
-
-public interface ItestRefGnrcFieldArgInpObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestGnrcFieldArgOutp<TType>
-  // No Base because it's Class
-{
-  ItestGnrcFieldArgOutpObject<TType>? As_GnrcFieldArgOutp { get; }
-}
-
-public interface ItestGnrcFieldArgOutpObject<TType>
-  // No Base because it's Class
-{
-  ItestRefGnrcFieldArgOutp<TType> Field { get; }
-}
-
-public interface ItestRefGnrcFieldArgOutp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcFieldArgOutpObject<TRef>? As_RefGnrcFieldArgOutp { get; }
-}
-
-public interface ItestRefGnrcFieldArgOutpObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestGnrcFieldDualDual
-  // No Base because it's Class
-{
-  ItestGnrcFieldDualDualObject? As_GnrcFieldDualDual { get; }
-}
-
-public interface ItestGnrcFieldDualDualObject
-  // No Base because it's Class
-{
-  ItestRefGnrcFieldDualDual<ItestAltGnrcFieldDualDual> Field { get; }
-}
-
-public interface ItestRefGnrcFieldDualDual<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcFieldDualDualObject<TRef>? As_RefGnrcFieldDualDual { get; }
-}
-
-public interface ItestRefGnrcFieldDualDualObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestAltGnrcFieldDualDual
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestAltGnrcFieldDualDualObject? As_AltGnrcFieldDualDual { get; }
-}
-
-public interface ItestAltGnrcFieldDualDualObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
-}
-
-public interface ItestGnrcFieldDualInp
-  // No Base because it's Class
-{
-  ItestGnrcFieldDualInpObject? As_GnrcFieldDualInp { get; }
-}
-
-public interface ItestGnrcFieldDualInpObject
-  // No Base because it's Class
-{
-  ItestRefGnrcFieldDualInp<ItestAltGnrcFieldDualInp> Field { get; }
-}
-
-public interface ItestRefGnrcFieldDualInp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcFieldDualInpObject<TRef>? As_RefGnrcFieldDualInp { get; }
-}
-
-public interface ItestRefGnrcFieldDualInpObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestAltGnrcFieldDualInp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestAltGnrcFieldDualInpObject? As_AltGnrcFieldDualInp { get; }
-}
-
-public interface ItestAltGnrcFieldDualInpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
-}
-
-public interface ItestGnrcFieldDualOutp
-  // No Base because it's Class
-{
-  ItestGnrcFieldDualOutpObject? As_GnrcFieldDualOutp { get; }
-}
-
-public interface ItestGnrcFieldDualOutpObject
-  // No Base because it's Class
-{
-  ItestRefGnrcFieldDualOutp<ItestAltGnrcFieldDualOutp> Field { get; }
-}
-
-public interface ItestRefGnrcFieldDualOutp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcFieldDualOutpObject<TRef>? As_RefGnrcFieldDualOutp { get; }
-}
-
-public interface ItestRefGnrcFieldDualOutpObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestAltGnrcFieldDualOutp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestAltGnrcFieldDualOutpObject? As_AltGnrcFieldDualOutp { get; }
-}
-
-public interface ItestAltGnrcFieldDualOutpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
-}
-
-public interface ItestGnrcFieldParamDual
-  // No Base because it's Class
-{
-  ItestGnrcFieldParamDualObject? As_GnrcFieldParamDual { get; }
-}
-
-public interface ItestGnrcFieldParamDualObject
-  // No Base because it's Class
-{
-  ItestRefGnrcFieldParamDual<ItestAltGnrcFieldParamDual> Field { get; }
-}
-
-public interface ItestRefGnrcFieldParamDual<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcFieldParamDualObject<TRef>? As_RefGnrcFieldParamDual { get; }
-}
-
-public interface ItestRefGnrcFieldParamDualObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestAltGnrcFieldParamDual
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestAltGnrcFieldParamDualObject? As_AltGnrcFieldParamDual { get; }
-}
-
-public interface ItestAltGnrcFieldParamDualObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
-}
-
-public interface ItestGnrcFieldParamInp
-  // No Base because it's Class
-{
-  ItestGnrcFieldParamInpObject? As_GnrcFieldParamInp { get; }
-}
-
-public interface ItestGnrcFieldParamInpObject
-  // No Base because it's Class
-{
-  ItestRefGnrcFieldParamInp<ItestAltGnrcFieldParamInp> Field { get; }
-}
-
-public interface ItestRefGnrcFieldParamInp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcFieldParamInpObject<TRef>? As_RefGnrcFieldParamInp { get; }
-}
-
-public interface ItestRefGnrcFieldParamInpObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestAltGnrcFieldParamInp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestAltGnrcFieldParamInpObject? As_AltGnrcFieldParamInp { get; }
-}
-
-public interface ItestAltGnrcFieldParamInpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
-}
-
-public interface ItestGnrcFieldParamOutp
-  // No Base because it's Class
-{
-  ItestGnrcFieldParamOutpObject? As_GnrcFieldParamOutp { get; }
-}
-
-public interface ItestGnrcFieldParamOutpObject
-  // No Base because it's Class
-{
-  ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> Field { get; }
-}
-
-public interface ItestRefGnrcFieldParamOutp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcFieldParamOutpObject<TRef>? As_RefGnrcFieldParamOutp { get; }
-}
-
-public interface ItestRefGnrcFieldParamOutpObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestAltGnrcFieldParamOutp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestAltGnrcFieldParamOutpObject? As_AltGnrcFieldParamOutp { get; }
-}
-
-public interface ItestAltGnrcFieldParamOutpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
-}
-
-public interface ItestGnrcPrntDual<TType>
-  // No Base because it's Class
-{
-  TType? As_Parent { get; }
-  ItestGnrcPrntDualObject<TType>? As_GnrcPrntDual { get; }
-}
-
-public interface ItestGnrcPrntDualObject<TType>
-  // No Base because it's Class
-{
-}
-
-public interface ItestGnrcPrntInp<TType>
-  // No Base because it's Class
-{
-  TType? As_Parent { get; }
-  ItestGnrcPrntInpObject<TType>? As_GnrcPrntInp { get; }
-}
-
-public interface ItestGnrcPrntInpObject<TType>
-  // No Base because it's Class
-{
-}
-
-public interface ItestGnrcPrntOutp<TType>
-  // No Base because it's Class
-{
-  TType? As_Parent { get; }
-  ItestGnrcPrntOutpObject<TType>? As_GnrcPrntOutp { get; }
-}
-
-public interface ItestGnrcPrntOutpObject<TType>
-  // No Base because it's Class
-{
-}
-
-public interface ItestGnrcPrntArgDual<TType>
-  : ItestRefGnrcPrntArgDual<TType>
-{
-  ItestGnrcPrntArgDualObject<TType>? As_GnrcPrntArgDual { get; }
-}
-
-public interface ItestGnrcPrntArgDualObject<TType>
-  : ItestRefGnrcPrntArgDualObject<TType>
-{
-}
-
-public interface ItestRefGnrcPrntArgDual<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcPrntArgDualObject<TRef>? As_RefGnrcPrntArgDual { get; }
-}
-
-public interface ItestRefGnrcPrntArgDualObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestGnrcPrntArgInp<TType>
-  : ItestRefGnrcPrntArgInp<TType>
-{
-  ItestGnrcPrntArgInpObject<TType>? As_GnrcPrntArgInp { get; }
-}
-
-public interface ItestGnrcPrntArgInpObject<TType>
-  : ItestRefGnrcPrntArgInpObject<TType>
-{
-}
-
-public interface ItestRefGnrcPrntArgInp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcPrntArgInpObject<TRef>? As_RefGnrcPrntArgInp { get; }
-}
-
-public interface ItestRefGnrcPrntArgInpObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestGnrcPrntArgOutp<TType>
-  : ItestRefGnrcPrntArgOutp<TType>
-{
-  ItestGnrcPrntArgOutpObject<TType>? As_GnrcPrntArgOutp { get; }
-}
-
-public interface ItestGnrcPrntArgOutpObject<TType>
-  : ItestRefGnrcPrntArgOutpObject<TType>
-{
-}
-
-public interface ItestRefGnrcPrntArgOutp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcPrntArgOutpObject<TRef>? As_RefGnrcPrntArgOutp { get; }
-}
-
-public interface ItestRefGnrcPrntArgOutpObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestGnrcPrntDescrDual<TType>
-  // No Base because it's Class
-{
-  TType? As_Parent { get; }
-  ItestGnrcPrntDescrDualObject<TType>? As_GnrcPrntDescrDual { get; }
-}
-
-public interface ItestGnrcPrntDescrDualObject<TType>
-  // No Base because it's Class
-{
-}
-
-public interface ItestGnrcPrntDescrInp<TType>
-  // No Base because it's Class
-{
-  TType? As_Parent { get; }
-  ItestGnrcPrntDescrInpObject<TType>? As_GnrcPrntDescrInp { get; }
-}
-
-public interface ItestGnrcPrntDescrInpObject<TType>
-  // No Base because it's Class
-{
-}
-
-public interface ItestGnrcPrntDescrOutp<TType>
-  // No Base because it's Class
-{
-  TType? As_Parent { get; }
-  ItestGnrcPrntDescrOutpObject<TType>? As_GnrcPrntDescrOutp { get; }
-}
-
-public interface ItestGnrcPrntDescrOutpObject<TType>
-  // No Base because it's Class
-{
-}
-
-public interface ItestGnrcPrntDualDual
-  : ItestRefGnrcPrntDualDual<ItestAltGnrcPrntDualDual>
-{
-  ItestGnrcPrntDualDualObject? As_GnrcPrntDualDual { get; }
-}
-
-public interface ItestGnrcPrntDualDualObject
-  : ItestRefGnrcPrntDualDualObject<ItestAltGnrcPrntDualDual>
-{
-}
-
-public interface ItestRefGnrcPrntDualDual<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcPrntDualDualObject<TRef>? As_RefGnrcPrntDualDual { get; }
-}
-
-public interface ItestRefGnrcPrntDualDualObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestAltGnrcPrntDualDual
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestAltGnrcPrntDualDualObject? As_AltGnrcPrntDualDual { get; }
-}
-
-public interface ItestAltGnrcPrntDualDualObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
-}
-
-public interface ItestGnrcPrntDualInp
-  : ItestRefGnrcPrntDualInp<ItestAltGnrcPrntDualInp>
-{
-  ItestGnrcPrntDualInpObject? As_GnrcPrntDualInp { get; }
-}
-
-public interface ItestGnrcPrntDualInpObject
-  : ItestRefGnrcPrntDualInpObject<ItestAltGnrcPrntDualInp>
-{
-}
-
-public interface ItestRefGnrcPrntDualInp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcPrntDualInpObject<TRef>? As_RefGnrcPrntDualInp { get; }
-}
-
-public interface ItestRefGnrcPrntDualInpObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestAltGnrcPrntDualInp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestAltGnrcPrntDualInpObject? As_AltGnrcPrntDualInp { get; }
-}
-
-public interface ItestAltGnrcPrntDualInpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
-}
-
-public interface ItestGnrcPrntDualOutp
-  : ItestRefGnrcPrntDualOutp<ItestAltGnrcPrntDualOutp>
-{
-  ItestGnrcPrntDualOutpObject? As_GnrcPrntDualOutp { get; }
-}
-
-public interface ItestGnrcPrntDualOutpObject
-  : ItestRefGnrcPrntDualOutpObject<ItestAltGnrcPrntDualOutp>
-{
-}
-
-public interface ItestRefGnrcPrntDualOutp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcPrntDualOutpObject<TRef>? As_RefGnrcPrntDualOutp { get; }
-}
-
-public interface ItestRefGnrcPrntDualOutpObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestAltGnrcPrntDualOutp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestAltGnrcPrntDualOutpObject? As_AltGnrcPrntDualOutp { get; }
-}
-
-public interface ItestAltGnrcPrntDualOutpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
-}
-
-public interface ItestGnrcPrntDualPrntDual
-  : ItestRefGnrcPrntDualPrntDual<ItestAltGnrcPrntDualPrntDual>
-{
-  ItestGnrcPrntDualPrntDualObject? As_GnrcPrntDualPrntDual { get; }
-}
-
-public interface ItestGnrcPrntDualPrntDualObject
-  : ItestRefGnrcPrntDualPrntDualObject<ItestAltGnrcPrntDualPrntDual>
-{
-}
-
-public interface ItestRefGnrcPrntDualPrntDual<TRef>
-  // No Base because it's Class
-{
-  TRef? As_Parent { get; }
-  ItestRefGnrcPrntDualPrntDualObject<TRef>? As_RefGnrcPrntDualPrntDual { get; }
-}
-
-public interface ItestRefGnrcPrntDualPrntDualObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestAltGnrcPrntDualPrntDual
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestAltGnrcPrntDualPrntDualObject? As_AltGnrcPrntDualPrntDual { get; }
-}
-
-public interface ItestAltGnrcPrntDualPrntDualObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
-}
-
-public interface ItestGnrcPrntDualPrntInp
-  : ItestRefGnrcPrntDualPrntInp<ItestAltGnrcPrntDualPrntInp>
-{
-  ItestGnrcPrntDualPrntInpObject? As_GnrcPrntDualPrntInp { get; }
-}
-
-public interface ItestGnrcPrntDualPrntInpObject
-  : ItestRefGnrcPrntDualPrntInpObject<ItestAltGnrcPrntDualPrntInp>
-{
-}
-
-public interface ItestRefGnrcPrntDualPrntInp<TRef>
-  // No Base because it's Class
-{
-  TRef? As_Parent { get; }
-  ItestRefGnrcPrntDualPrntInpObject<TRef>? As_RefGnrcPrntDualPrntInp { get; }
-}
-
-public interface ItestRefGnrcPrntDualPrntInpObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestAltGnrcPrntDualPrntInp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestAltGnrcPrntDualPrntInpObject? As_AltGnrcPrntDualPrntInp { get; }
-}
-
-public interface ItestAltGnrcPrntDualPrntInpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
-}
-
-public interface ItestGnrcPrntDualPrntOutp
-  : ItestRefGnrcPrntDualPrntOutp<ItestAltGnrcPrntDualPrntOutp>
-{
-  ItestGnrcPrntDualPrntOutpObject? As_GnrcPrntDualPrntOutp { get; }
-}
-
-public interface ItestGnrcPrntDualPrntOutpObject
-  : ItestRefGnrcPrntDualPrntOutpObject<ItestAltGnrcPrntDualPrntOutp>
-{
-}
-
-public interface ItestRefGnrcPrntDualPrntOutp<TRef>
-  // No Base because it's Class
-{
-  TRef? As_Parent { get; }
-  ItestRefGnrcPrntDualPrntOutpObject<TRef>? As_RefGnrcPrntDualPrntOutp { get; }
-}
-
-public interface ItestRefGnrcPrntDualPrntOutpObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestAltGnrcPrntDualPrntOutp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestAltGnrcPrntDualPrntOutpObject? As_AltGnrcPrntDualPrntOutp { get; }
-}
-
-public interface ItestAltGnrcPrntDualPrntOutpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
-}
-
-public interface ItestGnrcPrntEnumChildDual
-  : ItestFieldGnrcPrntEnumChildDual<testParentGnrcPrntEnumChildDual>
-{
-  ItestGnrcPrntEnumChildDualObject? As_GnrcPrntEnumChildDual { get; }
-}
-
-public interface ItestGnrcPrntEnumChildDualObject
-  : ItestFieldGnrcPrntEnumChildDualObject<testParentGnrcPrntEnumChildDual>
-{
-}
-
-public interface ItestFieldGnrcPrntEnumChildDual<TRef>
-  // No Base because it's Class
-{
-  ItestFieldGnrcPrntEnumChildDualObject<TRef>? As_FieldGnrcPrntEnumChildDual { get; }
-}
-
-public interface ItestFieldGnrcPrntEnumChildDualObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public enum testEnumGnrcPrntEnumChildDual
-{
-  gnrcPrntEnumChildDualParent = testParentGnrcPrntEnumChildDual.gnrcPrntEnumChildDualParent,
-  gnrcPrntEnumChildDualLabel,
-}
-
-public enum testParentGnrcPrntEnumChildDual
-{
-  gnrcPrntEnumChildDualParent,
-}
-
-public interface ItestGnrcPrntEnumChildInp
-  : ItestFieldGnrcPrntEnumChildInp<testParentGnrcPrntEnumChildInp>
-{
-  ItestGnrcPrntEnumChildInpObject? As_GnrcPrntEnumChildInp { get; }
-}
-
-public interface ItestGnrcPrntEnumChildInpObject
-  : ItestFieldGnrcPrntEnumChildInpObject<testParentGnrcPrntEnumChildInp>
-{
-}
-
-public interface ItestFieldGnrcPrntEnumChildInp<TRef>
-  // No Base because it's Class
-{
-  ItestFieldGnrcPrntEnumChildInpObject<TRef>? As_FieldGnrcPrntEnumChildInp { get; }
-}
-
-public interface ItestFieldGnrcPrntEnumChildInpObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public enum testEnumGnrcPrntEnumChildInp
-{
-  gnrcPrntEnumChildInpParent = testParentGnrcPrntEnumChildInp.gnrcPrntEnumChildInpParent,
-  gnrcPrntEnumChildInpLabel,
-}
-
-public enum testParentGnrcPrntEnumChildInp
-{
-  gnrcPrntEnumChildInpParent,
-}
-
-public interface ItestGnrcPrntEnumChildOutp
-  : ItestFieldGnrcPrntEnumChildOutp<testParentGnrcPrntEnumChildOutp>
-{
-  ItestGnrcPrntEnumChildOutpObject? As_GnrcPrntEnumChildOutp { get; }
-}
-
-public interface ItestGnrcPrntEnumChildOutpObject
-  : ItestFieldGnrcPrntEnumChildOutpObject<testParentGnrcPrntEnumChildOutp>
-{
-}
-
-public interface ItestFieldGnrcPrntEnumChildOutp<TRef>
-  // No Base because it's Class
-{
-  ItestFieldGnrcPrntEnumChildOutpObject<TRef>? As_FieldGnrcPrntEnumChildOutp { get; }
-}
-
-public interface ItestFieldGnrcPrntEnumChildOutpObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public enum testEnumGnrcPrntEnumChildOutp
-{
-  gnrcPrntEnumChildOutpParent = testParentGnrcPrntEnumChildOutp.gnrcPrntEnumChildOutpParent,
-  gnrcPrntEnumChildOutpLabel,
-}
-
-public enum testParentGnrcPrntEnumChildOutp
-{
-  gnrcPrntEnumChildOutpParent,
-}
-
-public interface ItestGnrcPrntEnumDomDual
-  : ItestFieldGnrcPrntEnumDomDual<ItestDomGnrcPrntEnumDomDual>
-{
-  ItestGnrcPrntEnumDomDualObject? As_GnrcPrntEnumDomDual { get; }
-}
-
-public interface ItestGnrcPrntEnumDomDualObject
-  : ItestFieldGnrcPrntEnumDomDualObject<ItestDomGnrcPrntEnumDomDual>
-{
-}
-
-public interface ItestFieldGnrcPrntEnumDomDual<TRef>
-  // No Base because it's Class
-{
-  ItestFieldGnrcPrntEnumDomDualObject<TRef>? As_FieldGnrcPrntEnumDomDual { get; }
-}
-
-public interface ItestFieldGnrcPrntEnumDomDualObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public enum testEnumGnrcPrntEnumDomDual
-{
-  gnrcPrntEnumDomDualLabel,
-  gnrcPrntEnumDomDualOther,
-}
-
-public interface ItestDomGnrcPrntEnumDomDual
-  : IGqlpDomainEnum
-{
-}
-
-public interface ItestGnrcPrntEnumDomInp
-  : ItestFieldGnrcPrntEnumDomInp<ItestDomGnrcPrntEnumDomInp>
-{
-  ItestGnrcPrntEnumDomInpObject? As_GnrcPrntEnumDomInp { get; }
-}
-
-public interface ItestGnrcPrntEnumDomInpObject
-  : ItestFieldGnrcPrntEnumDomInpObject<ItestDomGnrcPrntEnumDomInp>
-{
-}
-
-public interface ItestFieldGnrcPrntEnumDomInp<TRef>
-  // No Base because it's Class
-{
-  ItestFieldGnrcPrntEnumDomInpObject<TRef>? As_FieldGnrcPrntEnumDomInp { get; }
-}
-
-public interface ItestFieldGnrcPrntEnumDomInpObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public enum testEnumGnrcPrntEnumDomInp
-{
-  gnrcPrntEnumDomInpLabel,
-  gnrcPrntEnumDomInpOther,
-}
-
-public interface ItestDomGnrcPrntEnumDomInp
-  : IGqlpDomainEnum
-{
-}
-
-public interface ItestGnrcPrntEnumDomOutp
-  : ItestFieldGnrcPrntEnumDomOutp<ItestDomGnrcPrntEnumDomOutp>
-{
-  ItestGnrcPrntEnumDomOutpObject? As_GnrcPrntEnumDomOutp { get; }
-}
-
-public interface ItestGnrcPrntEnumDomOutpObject
-  : ItestFieldGnrcPrntEnumDomOutpObject<ItestDomGnrcPrntEnumDomOutp>
-{
-}
-
-public interface ItestFieldGnrcPrntEnumDomOutp<TRef>
-  // No Base because it's Class
-{
-  ItestFieldGnrcPrntEnumDomOutpObject<TRef>? As_FieldGnrcPrntEnumDomOutp { get; }
-}
-
-public interface ItestFieldGnrcPrntEnumDomOutpObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public enum testEnumGnrcPrntEnumDomOutp
-{
-  gnrcPrntEnumDomOutpLabel,
-  gnrcPrntEnumDomOutpOther,
-}
-
-public interface ItestDomGnrcPrntEnumDomOutp
-  : IGqlpDomainEnum
-{
-}
-
-public interface ItestGnrcPrntEnumPrntDual
-  : ItestFieldGnrcPrntEnumPrntDual<testEnumGnrcPrntEnumPrntDual>
-{
-  ItestGnrcPrntEnumPrntDualObject? As_GnrcPrntEnumPrntDual { get; }
-}
-
-public interface ItestGnrcPrntEnumPrntDualObject
-  : ItestFieldGnrcPrntEnumPrntDualObject<testEnumGnrcPrntEnumPrntDual>
-{
-}
-
-public interface ItestFieldGnrcPrntEnumPrntDual<TRef>
-  // No Base because it's Class
-{
-  ItestFieldGnrcPrntEnumPrntDualObject<TRef>? As_FieldGnrcPrntEnumPrntDual { get; }
-}
-
-public interface ItestFieldGnrcPrntEnumPrntDualObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public enum testEnumGnrcPrntEnumPrntDual
-{
-  gnrcPrntEnumPrntDualParent = testParentGnrcPrntEnumPrntDual.gnrcPrntEnumPrntDualParent,
-  gnrcPrntEnumPrntDualLabel,
-}
-
-public enum testParentGnrcPrntEnumPrntDual
-{
-  gnrcPrntEnumPrntDualParent,
-}
-
-public interface ItestGnrcPrntEnumPrntInp
-  : ItestFieldGnrcPrntEnumPrntInp<testEnumGnrcPrntEnumPrntInp>
-{
-  ItestGnrcPrntEnumPrntInpObject? As_GnrcPrntEnumPrntInp { get; }
-}
-
-public interface ItestGnrcPrntEnumPrntInpObject
-  : ItestFieldGnrcPrntEnumPrntInpObject<testEnumGnrcPrntEnumPrntInp>
-{
-}
-
-public interface ItestFieldGnrcPrntEnumPrntInp<TRef>
-  // No Base because it's Class
-{
-  ItestFieldGnrcPrntEnumPrntInpObject<TRef>? As_FieldGnrcPrntEnumPrntInp { get; }
-}
-
-public interface ItestFieldGnrcPrntEnumPrntInpObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public enum testEnumGnrcPrntEnumPrntInp
-{
-  gnrcPrntEnumPrntInpParent = testParentGnrcPrntEnumPrntInp.gnrcPrntEnumPrntInpParent,
-  gnrcPrntEnumPrntInpLabel,
-}
-
-public enum testParentGnrcPrntEnumPrntInp
-{
-  gnrcPrntEnumPrntInpParent,
-}
-
-public interface ItestGnrcPrntEnumPrntOutp
-  : ItestFieldGnrcPrntEnumPrntOutp<testEnumGnrcPrntEnumPrntOutp>
-{
-  ItestGnrcPrntEnumPrntOutpObject? As_GnrcPrntEnumPrntOutp { get; }
-}
-
-public interface ItestGnrcPrntEnumPrntOutpObject
-  : ItestFieldGnrcPrntEnumPrntOutpObject<testEnumGnrcPrntEnumPrntOutp>
-{
-}
-
-public interface ItestFieldGnrcPrntEnumPrntOutp<TRef>
-  // No Base because it's Class
-{
-  ItestFieldGnrcPrntEnumPrntOutpObject<TRef>? As_FieldGnrcPrntEnumPrntOutp { get; }
-}
-
-public interface ItestFieldGnrcPrntEnumPrntOutpObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public enum testEnumGnrcPrntEnumPrntOutp
-{
-  gnrcPrntEnumPrntOutpParent = testParentGnrcPrntEnumPrntOutp.gnrcPrntEnumPrntOutpParent,
-  gnrcPrntEnumPrntOutpLabel,
-}
-
-public enum testParentGnrcPrntEnumPrntOutp
-{
-  gnrcPrntEnumPrntOutpParent,
-}
-
-public interface ItestGnrcPrntParamDual
-  : ItestRefGnrcPrntParamDual<ItestAltGnrcPrntParamDual>
-{
-  ItestGnrcPrntParamDualObject? As_GnrcPrntParamDual { get; }
-}
-
-public interface ItestGnrcPrntParamDualObject
-  : ItestRefGnrcPrntParamDualObject<ItestAltGnrcPrntParamDual>
-{
-}
-
-public interface ItestRefGnrcPrntParamDual<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcPrntParamDualObject<TRef>? As_RefGnrcPrntParamDual { get; }
-}
-
-public interface ItestRefGnrcPrntParamDualObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestAltGnrcPrntParamDual
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestAltGnrcPrntParamDualObject? As_AltGnrcPrntParamDual { get; }
-}
-
-public interface ItestAltGnrcPrntParamDualObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
-}
-
-public interface ItestGnrcPrntParamInp
-  : ItestRefGnrcPrntParamInp<ItestAltGnrcPrntParamInp>
-{
-  ItestGnrcPrntParamInpObject? As_GnrcPrntParamInp { get; }
-}
-
-public interface ItestGnrcPrntParamInpObject
-  : ItestRefGnrcPrntParamInpObject<ItestAltGnrcPrntParamInp>
-{
-}
-
-public interface ItestRefGnrcPrntParamInp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcPrntParamInpObject<TRef>? As_RefGnrcPrntParamInp { get; }
-}
-
-public interface ItestRefGnrcPrntParamInpObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestAltGnrcPrntParamInp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestAltGnrcPrntParamInpObject? As_AltGnrcPrntParamInp { get; }
-}
-
-public interface ItestAltGnrcPrntParamInpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
-}
-
-public interface ItestGnrcPrntParamOutp
-  : ItestRefGnrcPrntParamOutp<ItestAltGnrcPrntParamOutp>
-{
-  ItestGnrcPrntParamOutpObject? As_GnrcPrntParamOutp { get; }
-}
-
-public interface ItestGnrcPrntParamOutpObject
-  : ItestRefGnrcPrntParamOutpObject<ItestAltGnrcPrntParamOutp>
-{
-}
-
-public interface ItestRefGnrcPrntParamOutp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcPrntParamOutpObject<TRef>? As_RefGnrcPrntParamOutp { get; }
-}
-
-public interface ItestRefGnrcPrntParamOutpObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestAltGnrcPrntParamOutp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestAltGnrcPrntParamOutpObject? As_AltGnrcPrntParamOutp { get; }
-}
-
-public interface ItestAltGnrcPrntParamOutpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
-}
-
-public interface ItestGnrcPrntParamPrntDual
-  : ItestRefGnrcPrntParamPrntDual<ItestAltGnrcPrntParamPrntDual>
-{
-  ItestGnrcPrntParamPrntDualObject? As_GnrcPrntParamPrntDual { get; }
-}
-
-public interface ItestGnrcPrntParamPrntDualObject
-  : ItestRefGnrcPrntParamPrntDualObject<ItestAltGnrcPrntParamPrntDual>
-{
-}
-
-public interface ItestRefGnrcPrntParamPrntDual<TRef>
-  // No Base because it's Class
-{
-  TRef? As_Parent { get; }
-  ItestRefGnrcPrntParamPrntDualObject<TRef>? As_RefGnrcPrntParamPrntDual { get; }
-}
-
-public interface ItestRefGnrcPrntParamPrntDualObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestAltGnrcPrntParamPrntDual
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestAltGnrcPrntParamPrntDualObject? As_AltGnrcPrntParamPrntDual { get; }
-}
-
-public interface ItestAltGnrcPrntParamPrntDualObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
-}
-
-public interface ItestGnrcPrntParamPrntInp
-  : ItestRefGnrcPrntParamPrntInp<ItestAltGnrcPrntParamPrntInp>
-{
-  ItestGnrcPrntParamPrntInpObject? As_GnrcPrntParamPrntInp { get; }
-}
-
-public interface ItestGnrcPrntParamPrntInpObject
-  : ItestRefGnrcPrntParamPrntInpObject<ItestAltGnrcPrntParamPrntInp>
-{
-}
-
-public interface ItestRefGnrcPrntParamPrntInp<TRef>
-  // No Base because it's Class
-{
-  TRef? As_Parent { get; }
-  ItestRefGnrcPrntParamPrntInpObject<TRef>? As_RefGnrcPrntParamPrntInp { get; }
-}
-
-public interface ItestRefGnrcPrntParamPrntInpObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestAltGnrcPrntParamPrntInp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestAltGnrcPrntParamPrntInpObject? As_AltGnrcPrntParamPrntInp { get; }
-}
-
-public interface ItestAltGnrcPrntParamPrntInpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
-}
-
-public interface ItestGnrcPrntParamPrntOutp
-  : ItestRefGnrcPrntParamPrntOutp<ItestAltGnrcPrntParamPrntOutp>
-{
-  ItestGnrcPrntParamPrntOutpObject? As_GnrcPrntParamPrntOutp { get; }
-}
-
-public interface ItestGnrcPrntParamPrntOutpObject
-  : ItestRefGnrcPrntParamPrntOutpObject<ItestAltGnrcPrntParamPrntOutp>
-{
-}
-
-public interface ItestRefGnrcPrntParamPrntOutp<TRef>
-  // No Base because it's Class
-{
-  TRef? As_Parent { get; }
-  ItestRefGnrcPrntParamPrntOutpObject<TRef>? As_RefGnrcPrntParamPrntOutp { get; }
-}
-
-public interface ItestRefGnrcPrntParamPrntOutpObject<TRef>
-  // No Base because it's Class
-{
-}
-
-public interface ItestAltGnrcPrntParamPrntOutp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestAltGnrcPrntParamPrntOutpObject? As_AltGnrcPrntParamPrntOutp { get; }
-}
-
-public interface ItestAltGnrcPrntParamPrntOutpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
-}
-
-public interface ItestGnrcPrntSmplEnumDual
-  : ItestFieldGnrcPrntSmplEnumDual<testEnumGnrcPrntSmplEnumDual>
-{
-  ItestGnrcPrntSmplEnumDualObject? As_GnrcPrntSmplEnumDual { get; }
-}
-
-public interface ItestGnrcPrntSmplEnumDualObject
-  : ItestFieldGnrcPrntSmplEnumDualObject<testEnumGnrcPrntSmplEnumDual>
-{
-}
-
-public interface ItestFieldGnrcPrntSmplEnumDual<TRef>
-  // No Base because it's Class
-{
-  ItestFieldGnrcPrntSmplEnumDualObject<TRef>? As_FieldGnrcPrntSmplEnumDual { get; }
-}
-
-public interface ItestFieldGnrcPrntSmplEnumDualObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public enum testEnumGnrcPrntSmplEnumDual
-{
-  gnrcPrntSmplEnumDual,
-}
-
-public interface ItestGnrcPrntSmplEnumInp
-  : ItestFieldGnrcPrntSmplEnumInp<testEnumGnrcPrntSmplEnumInp>
-{
-  ItestGnrcPrntSmplEnumInpObject? As_GnrcPrntSmplEnumInp { get; }
-}
-
-public interface ItestGnrcPrntSmplEnumInpObject
-  : ItestFieldGnrcPrntSmplEnumInpObject<testEnumGnrcPrntSmplEnumInp>
-{
-}
-
-public interface ItestFieldGnrcPrntSmplEnumInp<TRef>
-  // No Base because it's Class
-{
-  ItestFieldGnrcPrntSmplEnumInpObject<TRef>? As_FieldGnrcPrntSmplEnumInp { get; }
-}
-
-public interface ItestFieldGnrcPrntSmplEnumInpObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public enum testEnumGnrcPrntSmplEnumInp
-{
-  gnrcPrntSmplEnumInp,
-}
-
-public interface ItestGnrcPrntSmplEnumOutp
-  : ItestFieldGnrcPrntSmplEnumOutp<testEnumGnrcPrntSmplEnumOutp>
-{
-  ItestGnrcPrntSmplEnumOutpObject? As_GnrcPrntSmplEnumOutp { get; }
-}
-
-public interface ItestGnrcPrntSmplEnumOutpObject
-  : ItestFieldGnrcPrntSmplEnumOutpObject<testEnumGnrcPrntSmplEnumOutp>
-{
-}
-
-public interface ItestFieldGnrcPrntSmplEnumOutp<TRef>
-  // No Base because it's Class
-{
-  ItestFieldGnrcPrntSmplEnumOutpObject<TRef>? As_FieldGnrcPrntSmplEnumOutp { get; }
-}
-
-public interface ItestFieldGnrcPrntSmplEnumOutpObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public enum testEnumGnrcPrntSmplEnumOutp
-{
-  gnrcPrntSmplEnumOutp,
-}
-
-public interface ItestGnrcPrntStrDomDual
-  : ItestFieldGnrcPrntStrDomDual<ItestDomGnrcPrntStrDomDual>
-{
-  ItestGnrcPrntStrDomDualObject? As_GnrcPrntStrDomDual { get; }
-}
-
-public interface ItestGnrcPrntStrDomDualObject
-  : ItestFieldGnrcPrntStrDomDualObject<ItestDomGnrcPrntStrDomDual>
-{
-}
-
-public interface ItestFieldGnrcPrntStrDomDual<TRef>
-  // No Base because it's Class
-{
-  ItestFieldGnrcPrntStrDomDualObject<TRef>? As_FieldGnrcPrntStrDomDual { get; }
-}
-
-public interface ItestFieldGnrcPrntStrDomDualObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public interface ItestDomGnrcPrntStrDomDual
-  : IGqlpDomainString
-{
-}
-
-public interface ItestGnrcPrntStrDomInp
-  : ItestFieldGnrcPrntStrDomInp<ItestDomGnrcPrntStrDomInp>
-{
-  ItestGnrcPrntStrDomInpObject? As_GnrcPrntStrDomInp { get; }
-}
-
-public interface ItestGnrcPrntStrDomInpObject
-  : ItestFieldGnrcPrntStrDomInpObject<ItestDomGnrcPrntStrDomInp>
-{
-}
-
-public interface ItestFieldGnrcPrntStrDomInp<TRef>
-  // No Base because it's Class
-{
-  ItestFieldGnrcPrntStrDomInpObject<TRef>? As_FieldGnrcPrntStrDomInp { get; }
-}
-
-public interface ItestFieldGnrcPrntStrDomInpObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public interface ItestDomGnrcPrntStrDomInp
-  : IGqlpDomainString
-{
-}
-
-public interface ItestGnrcPrntStrDomOutp
-  : ItestFieldGnrcPrntStrDomOutp<ItestDomGnrcPrntStrDomOutp>
-{
-  ItestGnrcPrntStrDomOutpObject? As_GnrcPrntStrDomOutp { get; }
-}
-
-public interface ItestGnrcPrntStrDomOutpObject
-  : ItestFieldGnrcPrntStrDomOutpObject<ItestDomGnrcPrntStrDomOutp>
-{
-}
-
-public interface ItestFieldGnrcPrntStrDomOutp<TRef>
-  // No Base because it's Class
-{
-  ItestFieldGnrcPrntStrDomOutpObject<TRef>? As_FieldGnrcPrntStrDomOutp { get; }
-}
-
-public interface ItestFieldGnrcPrntStrDomOutpObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public interface ItestDomGnrcPrntStrDomOutp
-  : IGqlpDomainString
-{
-}
-
-public interface ItestGnrcValueDual
-  // No Base because it's Class
-{
-  ItestRefGnrcValueDual<testEnumGnrcValueDual>? AsEnumGnrcValueDualgnrcValueDual { get; }
-  ItestGnrcValueDualObject? As_GnrcValueDual { get; }
-}
-
-public interface ItestGnrcValueDualObject
-  // No Base because it's Class
-{
-}
-
-public interface ItestRefGnrcValueDual<TType>
-  // No Base because it's Class
-{
-  ItestRefGnrcValueDualObject<TType>? As_RefGnrcValueDual { get; }
-}
-
-public interface ItestRefGnrcValueDualObject<TType>
-  // No Base because it's Class
-{
-  TType Field { get; }
-}
-
-public enum testEnumGnrcValueDual
-{
-  gnrcValueDual,
-}
-
-public interface ItestGnrcValueInp
-  // No Base because it's Class
-{
-  ItestRefGnrcValueInp<testEnumGnrcValueInp>? AsEnumGnrcValueInpgnrcValueInp { get; }
-  ItestGnrcValueInpObject? As_GnrcValueInp { get; }
-}
-
-public interface ItestGnrcValueInpObject
-  // No Base because it's Class
-{
-}
-
-public interface ItestRefGnrcValueInp<TType>
-  // No Base because it's Class
-{
-  ItestRefGnrcValueInpObject<TType>? As_RefGnrcValueInp { get; }
-}
-
-public interface ItestRefGnrcValueInpObject<TType>
-  // No Base because it's Class
-{
-  TType Field { get; }
-}
-
-public enum testEnumGnrcValueInp
-{
-  gnrcValueInp,
-}
-
-public interface ItestGnrcValueOutp
-  // No Base because it's Class
-{
-  ItestRefGnrcValueOutp<testEnumGnrcValueOutp>? AsEnumGnrcValueOutpgnrcValueOutp { get; }
-  ItestGnrcValueOutpObject? As_GnrcValueOutp { get; }
-}
-
-public interface ItestGnrcValueOutpObject
-  // No Base because it's Class
-{
-}
-
-public interface ItestRefGnrcValueOutp<TType>
-  // No Base because it's Class
-{
-  ItestRefGnrcValueOutpObject<TType>? As_RefGnrcValueOutp { get; }
-}
-
-public interface ItestRefGnrcValueOutpObject<TType>
-  // No Base because it's Class
-{
-  TType Field { get; }
-}
-
-public enum testEnumGnrcValueOutp
-{
-  gnrcValueOutp,
-}
-
-public interface ItestInpFieldDescrNmbr
-  // No Base because it's Class
-{
-  ItestInpFieldDescrNmbrObject? As_InpFieldDescrNmbr { get; }
-}
-
-public interface ItestInpFieldDescrNmbrObject
-  // No Base because it's Class
-{
-  decimal Field { get; }
-}
-
-public interface ItestInpFieldEnum
-  // No Base because it's Class
-{
-  ItestInpFieldEnumObject? As_InpFieldEnum { get; }
-}
-
-public interface ItestInpFieldEnumObject
-  // No Base because it's Class
-{
-  testEnumInpFieldEnum Field { get; }
-}
-
-public enum testEnumInpFieldEnum
-{
-  inpFieldEnum,
-}
-
-public interface ItestInpFieldNull
-  // No Base because it's Class
-{
-  ItestInpFieldNullObject? As_InpFieldNull { get; }
-}
-
-public interface ItestInpFieldNullObject
-  // No Base because it's Class
-{
-  ItestFldInpFieldNull? Field { get; }
-}
-
-public interface ItestFldInpFieldNull
-  // No Base because it's Class
-{
-  ItestFldInpFieldNullObject? As_FldInpFieldNull { get; }
-}
-
-public interface ItestFldInpFieldNullObject
-  // No Base because it's Class
-{
-}
-
-public interface ItestInpFieldNmbr
-  // No Base because it's Class
-{
-  ItestInpFieldNmbrObject? As_InpFieldNmbr { get; }
-}
-
-public interface ItestInpFieldNmbrObject
-  // No Base because it's Class
-{
-  decimal Field { get; }
-}
-
-public interface ItestInpFieldNmbrDescr
-  // No Base because it's Class
-{
-  ItestInpFieldNmbrDescrObject? As_InpFieldNmbrDescr { get; }
-}
-
-public interface ItestInpFieldNmbrDescrObject
-  // No Base because it's Class
-{
-  decimal Field { get; }
-}
-
-public interface ItestInpFieldStr
-  // No Base because it's Class
-{
-  ItestInpFieldStrObject? As_InpFieldStr { get; }
-}
-
-public interface ItestInpFieldStrObject
-  // No Base because it's Class
-{
-  string Field { get; }
-}
-
-public interface ItestOutpDescrParam
-  // No Base because it's Class
-{
-  ItestOutpDescrParamObject? As_OutpDescrParam { get; }
-}
-
-public interface ItestOutpDescrParamObject
-  // No Base because it's Class
-{
-  ItestFldOutpDescrParam? Field(ItestInOutpDescrParam parameter);
-}
-
-public interface ItestFldOutpDescrParam
-  // No Base because it's Class
-{
-  ItestFldOutpDescrParamObject? As_FldOutpDescrParam { get; }
-}
-
-public interface ItestFldOutpDescrParamObject
-  // No Base because it's Class
-{
-}
-
-public interface ItestInOutpDescrParam
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestInOutpDescrParamObject? As_InOutpDescrParam { get; }
-}
-
-public interface ItestInOutpDescrParamObject
-  // No Base because it's Class
-{
-  decimal Param { get; }
-}
-
-public interface ItestOutpParam
-  // No Base because it's Class
-{
-  ItestOutpParamObject? As_OutpParam { get; }
-}
-
-public interface ItestOutpParamObject
-  // No Base because it's Class
-{
-  ItestFldOutpParam? Field(ItestInOutpParam parameter);
-}
-
-public interface ItestFldOutpParam
-  // No Base because it's Class
-{
-  ItestFldOutpParamObject? As_FldOutpParam { get; }
-}
-
-public interface ItestFldOutpParamObject
-  // No Base because it's Class
-{
-}
-
-public interface ItestInOutpParam
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestInOutpParamObject? As_InOutpParam { get; }
-}
-
-public interface ItestInOutpParamObject
-  // No Base because it's Class
-{
-  decimal Param { get; }
-}
-
-public interface ItestOutpParamDescr
-  // No Base because it's Class
-{
-  ItestOutpParamDescrObject? As_OutpParamDescr { get; }
-}
-
-public interface ItestOutpParamDescrObject
-  // No Base because it's Class
-{
-  ItestFldOutpParamDescr? Field(ItestInOutpParamDescr parameter);
-}
-
-public interface ItestFldOutpParamDescr
-  // No Base because it's Class
-{
-  ItestFldOutpParamDescrObject? As_FldOutpParamDescr { get; }
-}
-
-public interface ItestFldOutpParamDescrObject
-  // No Base because it's Class
-{
-}
-
-public interface ItestInOutpParamDescr
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestInOutpParamDescrObject? As_InOutpParamDescr { get; }
-}
-
-public interface ItestInOutpParamDescrObject
-  // No Base because it's Class
-{
-  decimal Param { get; }
-}
-
-public interface ItestOutpParamModDmn
-  // No Base because it's Class
-{
-  ItestOutpParamModDmnObject? As_OutpParamModDmn { get; }
-}
-
-public interface ItestOutpParamModDmnObject
-  // No Base because it's Class
-{
-  ItestDomOutpParamModDmn? Field(IDictionary<ItestDomOutpParamModDmn, ItestInOutpParamModDmn> parameter);
-}
-
-public interface ItestInOutpParamModDmn
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestInOutpParamModDmnObject? As_InOutpParamModDmn { get; }
-}
-
-public interface ItestInOutpParamModDmnObject
-  // No Base because it's Class
-{
-  decimal Param { get; }
-}
-
-public interface ItestDomOutpParamModDmn
-  : IGqlpDomainNumber
-{
-}
-
-public interface ItestOutpParamModParam<TMod>
-  // No Base because it's Class
-{
-  ItestOutpParamModParamObject<TMod>? As_OutpParamModParam { get; }
-}
-
-public interface ItestOutpParamModParamObject<TMod>
-  // No Base because it's Class
-{
-  ItestDomOutpParamModParam? Field(IDictionary<TMod, ItestInOutpParamModParam> parameter);
-}
-
-public interface ItestInOutpParamModParam
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestInOutpParamModParamObject? As_InOutpParamModParam { get; }
-}
-
-public interface ItestInOutpParamModParamObject
-  // No Base because it's Class
-{
-  decimal Param { get; }
-}
-
-public interface ItestDomOutpParamModParam
-  : IGqlpDomainNumber
-{
-}
-
-public interface ItestOutpParamTypeDescr
-  // No Base because it's Class
-{
-  ItestOutpParamTypeDescrObject? As_OutpParamTypeDescr { get; }
-}
-
-public interface ItestOutpParamTypeDescrObject
-  // No Base because it's Class
-{
-  ItestFldOutpParamTypeDescr? Field(ItestInOutpParamTypeDescr parameter);
-}
-
-public interface ItestFldOutpParamTypeDescr
-  // No Base because it's Class
-{
-  ItestFldOutpParamTypeDescrObject? As_FldOutpParamTypeDescr { get; }
-}
-
-public interface ItestFldOutpParamTypeDescrObject
-  // No Base because it's Class
-{
-}
-
-public interface ItestInOutpParamTypeDescr
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestInOutpParamTypeDescrObject? As_InOutpParamTypeDescr { get; }
-}
-
-public interface ItestInOutpParamTypeDescrObject
-  // No Base because it's Class
-{
-  decimal Param { get; }
-}
-
-public interface ItestOutpPrntGnrc
-  // No Base because it's Class
-{
-  ItestRefOutpPrntGnrc<testEnumOutpPrntGnrc>? AsEnumOutpPrntGnrcprnt_outpPrntGnrc { get; }
-  ItestOutpPrntGnrcObject? As_OutpPrntGnrc { get; }
-}
-
-public interface ItestOutpPrntGnrcObject
-  // No Base because it's Class
-{
-}
-
-public interface ItestRefOutpPrntGnrc<TType>
-  // No Base because it's Class
-{
-  ItestRefOutpPrntGnrcObject<TType>? As_RefOutpPrntGnrc { get; }
-}
-
-public interface ItestRefOutpPrntGnrcObject<TType>
-  // No Base because it's Class
-{
-  TType Field { get; }
-}
-
-public enum testEnumOutpPrntGnrc
-{
-  prnt_outpPrntGnrc = testPrntOutpPrntGnrc.prnt_outpPrntGnrc,
-  outpPrntGnrc,
-}
-
-public enum testPrntOutpPrntGnrc
-{
-  prnt_outpPrntGnrc,
-}
-
-public interface ItestOutpPrntParam
-  : ItestPrntOutpPrntParam
-{
-  ItestOutpPrntParamObject? As_OutpPrntParam { get; }
-}
-
-public interface ItestOutpPrntParamObject
-  : ItestPrntOutpPrntParamObject
-{
-  ItestFldOutpPrntParam? Field(ItestInOutpPrntParam parameter);
-}
-
-public interface ItestPrntOutpPrntParam
-  // No Base because it's Class
-{
-  ItestPrntOutpPrntParamObject? As_PrntOutpPrntParam { get; }
-}
-
-public interface ItestPrntOutpPrntParamObject
-  // No Base because it's Class
-{
-  ItestFldOutpPrntParam? Field(ItestPrntOutpPrntParamIn parameter);
-}
-
-public interface ItestFldOutpPrntParam
-  // No Base because it's Class
-{
-  ItestFldOutpPrntParamObject? As_FldOutpPrntParam { get; }
-}
-
-public interface ItestFldOutpPrntParamObject
-  // No Base because it's Class
-{
-}
-
-public interface ItestInOutpPrntParam
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestInOutpPrntParamObject? As_InOutpPrntParam { get; }
-}
-
-public interface ItestInOutpPrntParamObject
-  // No Base because it's Class
-{
-  decimal Param { get; }
-}
-
-public interface ItestPrntOutpPrntParamIn
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestPrntOutpPrntParamInObject? As_PrntOutpPrntParamIn { get; }
-}
-
-public interface ItestPrntOutpPrntParamInObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
-}
-
-public interface ItestPrntDual
-  : ItestRefPrntDual
-{
-  ItestPrntDualObject? As_PrntDual { get; }
-}
-
-public interface ItestPrntDualObject
-  : ItestRefPrntDualObject
-{
-}
-
-public interface ItestRefPrntDual
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestRefPrntDualObject? As_RefPrntDual { get; }
-}
-
-public interface ItestRefPrntDualObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
-}
-
-public interface ItestPrntInp
-  : ItestRefPrntInp
-{
-  ItestPrntInpObject? As_PrntInp { get; }
-}
-
-public interface ItestPrntInpObject
-  : ItestRefPrntInpObject
-{
-}
-
-public interface ItestRefPrntInp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestRefPrntInpObject? As_RefPrntInp { get; }
-}
-
-public interface ItestRefPrntInpObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
-}
-
-public interface ItestPrntOutp
-  : ItestRefPrntOutp
-{
-  ItestPrntOutpObject? As_PrntOutp { get; }
-}
-
-public interface ItestPrntOutpObject
-  : ItestRefPrntOutpObject
-{
-}
-
-public interface ItestRefPrntOutp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestRefPrntOutpObject? As_RefPrntOutp { get; }
-}
-
-public interface ItestRefPrntOutpObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
-}
-
-public interface ItestPrntAltDual
-  : ItestRefPrntAltDual
-{
-  decimal? AsNumber { get; }
-  ItestPrntAltDualObject? As_PrntAltDual { get; }
-}
-
-public interface ItestPrntAltDualObject
-  : ItestRefPrntAltDualObject
-{
-}
-
-public interface ItestRefPrntAltDual
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestRefPrntAltDualObject? As_RefPrntAltDual { get; }
-}
-
-public interface ItestRefPrntAltDualObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
-}
-
-public interface ItestPrntAltInp
-  : ItestRefPrntAltInp
-{
-  decimal? AsNumber { get; }
-  ItestPrntAltInpObject? As_PrntAltInp { get; }
-}
-
-public interface ItestPrntAltInpObject
-  : ItestRefPrntAltInpObject
-{
-}
-
-public interface ItestRefPrntAltInp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestRefPrntAltInpObject? As_RefPrntAltInp { get; }
-}
-
-public interface ItestRefPrntAltInpObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
-}
-
-public interface ItestPrntAltOutp
-  : ItestRefPrntAltOutp
-{
-  decimal? AsNumber { get; }
-  ItestPrntAltOutpObject? As_PrntAltOutp { get; }
-}
-
-public interface ItestPrntAltOutpObject
-  : ItestRefPrntAltOutpObject
-{
-}
-
-public interface ItestRefPrntAltOutp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestRefPrntAltOutpObject? As_RefPrntAltOutp { get; }
-}
-
-public interface ItestRefPrntAltOutpObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
-}
-
-public interface ItestPrntDescrDual
-  : ItestRefPrntDescrDual
-{
-  ItestPrntDescrDualObject? As_PrntDescrDual { get; }
-}
-
-public interface ItestPrntDescrDualObject
-  : ItestRefPrntDescrDualObject
-{
-}
-
-public interface ItestRefPrntDescrDual
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestRefPrntDescrDualObject? As_RefPrntDescrDual { get; }
-}
-
-public interface ItestRefPrntDescrDualObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
-}
-
-public interface ItestPrntDescrInp
-  : ItestRefPrntDescrInp
-{
-  ItestPrntDescrInpObject? As_PrntDescrInp { get; }
-}
-
-public interface ItestPrntDescrInpObject
-  : ItestRefPrntDescrInpObject
-{
-}
-
-public interface ItestRefPrntDescrInp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestRefPrntDescrInpObject? As_RefPrntDescrInp { get; }
-}
-
-public interface ItestRefPrntDescrInpObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
-}
-
-public interface ItestPrntDescrOutp
-  : ItestRefPrntDescrOutp
-{
-  ItestPrntDescrOutpObject? As_PrntDescrOutp { get; }
-}
-
-public interface ItestPrntDescrOutpObject
-  : ItestRefPrntDescrOutpObject
-{
-}
-
-public interface ItestRefPrntDescrOutp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestRefPrntDescrOutpObject? As_RefPrntDescrOutp { get; }
-}
-
-public interface ItestRefPrntDescrOutpObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
-}
-
-public interface ItestPrntDualDual
-  : ItestRefPrntDualDual
-{
-  ItestPrntDualDualObject? As_PrntDualDual { get; }
-}
-
-public interface ItestPrntDualDualObject
-  : ItestRefPrntDualDualObject
-{
-}
-
-public interface ItestRefPrntDualDual
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestRefPrntDualDualObject? As_RefPrntDualDual { get; }
-}
-
-public interface ItestRefPrntDualDualObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
-}
-
-public interface ItestPrntDualInp
-  : ItestRefPrntDualInp
-{
-  ItestPrntDualInpObject? As_PrntDualInp { get; }
-}
-
-public interface ItestPrntDualInpObject
-  : ItestRefPrntDualInpObject
-{
-}
-
-public interface ItestRefPrntDualInp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestRefPrntDualInpObject? As_RefPrntDualInp { get; }
-}
-
-public interface ItestRefPrntDualInpObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
-}
-
-public interface ItestPrntDualOutp
-  : ItestRefPrntDualOutp
-{
-  ItestPrntDualOutpObject? As_PrntDualOutp { get; }
-}
-
-public interface ItestPrntDualOutpObject
-  : ItestRefPrntDualOutpObject
-{
-}
-
-public interface ItestRefPrntDualOutp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestRefPrntDualOutpObject? As_RefPrntDualOutp { get; }
-}
-
-public interface ItestRefPrntDualOutpObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
-}
-
-public interface ItestPrntFieldDual
-  : ItestRefPrntFieldDual
-{
-  ItestPrntFieldDualObject? As_PrntFieldDual { get; }
-}
-
-public interface ItestPrntFieldDualObject
-  : ItestRefPrntFieldDualObject
-{
-  decimal Field { get; }
-}
-
-public interface ItestRefPrntFieldDual
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestRefPrntFieldDualObject? As_RefPrntFieldDual { get; }
-}
-
-public interface ItestRefPrntFieldDualObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
-}
-
-public interface ItestPrntFieldInp
-  : ItestRefPrntFieldInp
-{
-  ItestPrntFieldInpObject? As_PrntFieldInp { get; }
-}
-
-public interface ItestPrntFieldInpObject
-  : ItestRefPrntFieldInpObject
-{
-  decimal Field { get; }
-}
-
-public interface ItestRefPrntFieldInp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestRefPrntFieldInpObject? As_RefPrntFieldInp { get; }
-}
-
-public interface ItestRefPrntFieldInpObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
-}
-
-public interface ItestPrntFieldOutp
-  : ItestRefPrntFieldOutp
-{
-  ItestPrntFieldOutpObject? As_PrntFieldOutp { get; }
-}
-
-public interface ItestPrntFieldOutpObject
-  : ItestRefPrntFieldOutpObject
-{
-  decimal Field { get; }
-}
-
-public interface ItestRefPrntFieldOutp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestRefPrntFieldOutpObject? As_RefPrntFieldOutp { get; }
-}
-
-public interface ItestRefPrntFieldOutpObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
-}
-
-public interface ItestPrntParamDiffDual<TA>
-  : ItestRefPrntParamDiffDual<TA>
-{
-  ItestPrntParamDiffDualObject<TA>? As_PrntParamDiffDual { get; }
-}
-
-public interface ItestPrntParamDiffDualObject<TA>
-  : ItestRefPrntParamDiffDualObject<TA>
-{
-  TA Field { get; }
-}
-
-public interface ItestRefPrntParamDiffDual<TB>
-  // No Base because it's Class
-{
-  TB? Asb { get; }
-  ItestRefPrntParamDiffDualObject<TB>? As_RefPrntParamDiffDual { get; }
-}
-
-public interface ItestRefPrntParamDiffDualObject<TB>
-  // No Base because it's Class
-{
-}
-
-public interface ItestPrntParamDiffInp<TA>
-  : ItestRefPrntParamDiffInp<TA>
-{
-  ItestPrntParamDiffInpObject<TA>? As_PrntParamDiffInp { get; }
-}
-
-public interface ItestPrntParamDiffInpObject<TA>
-  : ItestRefPrntParamDiffInpObject<TA>
-{
-  TA Field { get; }
-}
-
-public interface ItestRefPrntParamDiffInp<TB>
-  // No Base because it's Class
-{
-  TB? Asb { get; }
-  ItestRefPrntParamDiffInpObject<TB>? As_RefPrntParamDiffInp { get; }
-}
-
-public interface ItestRefPrntParamDiffInpObject<TB>
-  // No Base because it's Class
-{
-}
-
-public interface ItestPrntParamDiffOutp<TA>
-  : ItestRefPrntParamDiffOutp<TA>
-{
-  ItestPrntParamDiffOutpObject<TA>? As_PrntParamDiffOutp { get; }
-}
-
-public interface ItestPrntParamDiffOutpObject<TA>
-  : ItestRefPrntParamDiffOutpObject<TA>
-{
-  TA Field { get; }
-}
-
-public interface ItestRefPrntParamDiffOutp<TB>
-  // No Base because it's Class
-{
-  TB? Asb { get; }
-  ItestRefPrntParamDiffOutpObject<TB>? As_RefPrntParamDiffOutp { get; }
-}
-
-public interface ItestRefPrntParamDiffOutpObject<TB>
-  // No Base because it's Class
-{
-}
-
-public interface ItestPrntParamSameDual<TA>
-  : ItestRefPrntParamSameDual<TA>
-{
-  ItestPrntParamSameDualObject<TA>? As_PrntParamSameDual { get; }
-}
-
-public interface ItestPrntParamSameDualObject<TA>
-  : ItestRefPrntParamSameDualObject<TA>
-{
-  TA Field { get; }
-}
-
-public interface ItestRefPrntParamSameDual<TA>
-  // No Base because it's Class
-{
-  TA? Asa { get; }
-  ItestRefPrntParamSameDualObject<TA>? As_RefPrntParamSameDual { get; }
-}
-
-public interface ItestRefPrntParamSameDualObject<TA>
-  // No Base because it's Class
-{
-}
-
-public interface ItestPrntParamSameInp<TA>
-  : ItestRefPrntParamSameInp<TA>
-{
-  ItestPrntParamSameInpObject<TA>? As_PrntParamSameInp { get; }
-}
-
-public interface ItestPrntParamSameInpObject<TA>
-  : ItestRefPrntParamSameInpObject<TA>
-{
-  TA Field { get; }
-}
-
-public interface ItestRefPrntParamSameInp<TA>
-  // No Base because it's Class
-{
-  TA? Asa { get; }
-  ItestRefPrntParamSameInpObject<TA>? As_RefPrntParamSameInp { get; }
-}
-
-public interface ItestRefPrntParamSameInpObject<TA>
-  // No Base because it's Class
-{
-}
-
-public interface ItestPrntParamSameOutp<TA>
-  : ItestRefPrntParamSameOutp<TA>
-{
-  ItestPrntParamSameOutpObject<TA>? As_PrntParamSameOutp { get; }
-}
-
-public interface ItestPrntParamSameOutpObject<TA>
-  : ItestRefPrntParamSameOutpObject<TA>
-{
-  TA Field { get; }
-}
-
-public interface ItestRefPrntParamSameOutp<TA>
-  // No Base because it's Class
-{
-  TA? Asa { get; }
-  ItestRefPrntParamSameOutpObject<TA>? As_RefPrntParamSameOutp { get; }
-}
-
-public interface ItestRefPrntParamSameOutpObject<TA>
-  // No Base because it's Class
+internal class testRefPrntParamSameOutpDecoder<TA>
 {
 }

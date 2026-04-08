@@ -7,48 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_string_dom_Output;
 
-public class testGnrcPrntStrDomOutp
-  : testFieldGnrcPrntStrDomOutp<ItestDomGnrcPrntStrDomOutp>
-  , ItestGnrcPrntStrDomOutp
+internal class testGnrcPrntStrDomOutpEncoder
 {
-  public ItestGnrcPrntStrDomOutpObject? As_GnrcPrntStrDomOutp { get; set; }
 }
 
-public class testGnrcPrntStrDomOutpObject
-  : testFieldGnrcPrntStrDomOutpObject<ItestDomGnrcPrntStrDomOutp>
-  , ItestGnrcPrntStrDomOutpObject
-{
-
-  public testGnrcPrntStrDomOutpObject
-    ( ItestDomGnrcPrntStrDomOutp field
-    ) : base(field)
-  {
-  }
-}
-
-public class testFieldGnrcPrntStrDomOutp<TRef>
-  : GqlpEncoderBase
-  , ItestFieldGnrcPrntStrDomOutp<TRef>
-{
-  public ItestFieldGnrcPrntStrDomOutpObject<TRef>? As_FieldGnrcPrntStrDomOutp { get; set; }
-}
-
-public class testFieldGnrcPrntStrDomOutpObject<TRef>
-  : GqlpEncoderBase
-  , ItestFieldGnrcPrntStrDomOutpObject<TRef>
+internal class testFieldGnrcPrntStrDomOutpEncoder<TRef>
 {
   public TRef Field { get; set; }
-
-  public testFieldGnrcPrntStrDomOutpObject
-    ( TRef field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class testDomGnrcPrntStrDomOutp
-  : GqlpDomainString
-  , ItestDomGnrcPrntStrDomOutp
+internal class testDomGnrcPrntStrDomOutpEncoder
 {
 }

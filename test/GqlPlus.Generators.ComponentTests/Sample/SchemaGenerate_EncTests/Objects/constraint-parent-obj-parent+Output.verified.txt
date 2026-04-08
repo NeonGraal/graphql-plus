@@ -13,79 +13,19 @@ output AltCnstPrntObjPrntOutp { :PrntCnstPrntObjPrntOutp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Output;
 
-public class CmptCnstPrntObjPrntOutp
-  : CmptRefCnstPrntObjPrntOutp<ICmptAltCnstPrntObjPrntOutp>
-  , ICmptCnstPrntObjPrntOutp
+internal class CmptCnstPrntObjPrntOutpEncoder
 {
-  public ICmptCnstPrntObjPrntOutpObject? As_CnstPrntObjPrntOutp { get; set; }
 }
 
-public class CmptCnstPrntObjPrntOutpObject
-  : CmptRefCnstPrntObjPrntOutpObject<ICmptAltCnstPrntObjPrntOutp>
-  , ICmptCnstPrntObjPrntOutpObject
+internal class CmptRefCnstPrntObjPrntOutpEncoder<TRef>
 {
-
-  public CmptCnstPrntObjPrntOutpObject
-    ()
-  {
-  }
 }
 
-public class CmptRefCnstPrntObjPrntOutp<TRef>
-  : Schema_constraint-parent-obj-parent+Output
-  , ICmptRefCnstPrntObjPrntOutp<TRef>
+internal class CmptPrntCnstPrntObjPrntOutpEncoder
 {
-  public TRef? As_Parent { get; set; }
-  public ICmptRefCnstPrntObjPrntOutpObject<TRef>? As_RefCnstPrntObjPrntOutp { get; set; }
 }
 
-public class CmptRefCnstPrntObjPrntOutpObject<TRef>
-  : Schema_constraint-parent-obj-parent+Output
-  , ICmptRefCnstPrntObjPrntOutpObject<TRef>
-{
-
-  public CmptRefCnstPrntObjPrntOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptPrntCnstPrntObjPrntOutp
-  : Schema_constraint-parent-obj-parent+Output
-  , ICmptPrntCnstPrntObjPrntOutp
-{
-  public string? AsString { get; set; }
-  public ICmptPrntCnstPrntObjPrntOutpObject? As_PrntCnstPrntObjPrntOutp { get; set; }
-}
-
-public class CmptPrntCnstPrntObjPrntOutpObject
-  : Schema_constraint-parent-obj-parent+Output
-  , ICmptPrntCnstPrntObjPrntOutpObject
-{
-
-  public CmptPrntCnstPrntObjPrntOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptAltCnstPrntObjPrntOutp
-  : CmptPrntCnstPrntObjPrntOutp
-  , ICmptAltCnstPrntObjPrntOutp
-{
-  public ICmptAltCnstPrntObjPrntOutpObject? As_AltCnstPrntObjPrntOutp { get; set; }
-}
-
-public class CmptAltCnstPrntObjPrntOutpObject
-  : CmptPrntCnstPrntObjPrntOutpObject
-  , ICmptAltCnstPrntObjPrntOutpObject
+internal class CmptAltCnstPrntObjPrntOutpEncoder
 {
   public decimal Alt { get; set; }
-
-  public CmptAltCnstPrntObjPrntOutpObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

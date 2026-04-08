@@ -7,9 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_diff;
 
-public interface ItestUnionDiff
-  // No Base because it's Class
+internal class testUnionDiffDecoder
 {
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
+  public Boolean AsBoolean { get; set; }
+  public Number AsNumber { get; set; }
 }

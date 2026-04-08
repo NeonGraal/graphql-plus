@@ -7,12 +7,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_string_parent;
 
-public interface ItestDmnStrPrnt
-  : ItestPrntDmnStrPrnt
+internal class testDmnStrPrntDecoder
 {
 }
 
-public interface ItestPrntDmnStrPrnt
-  : IGqlpDomainString
+internal class testPrntDmnStrPrntDecoder
 {
 }

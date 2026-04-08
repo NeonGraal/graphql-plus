@@ -12,39 +12,16 @@ input AltGnrcFieldParamInp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_field_param_Input;
 
-public interface ICmptGnrcFieldParamInp
-  // No Base because it's Class
+internal class CmptGnrcFieldParamInpDecoder
 {
-  ICmptGnrcFieldParamInpObject? As_GnrcFieldParamInp { get; }
+  public ICmptRefGnrcFieldParamInp<ICmptAltGnrcFieldParamInp> Field { get; set; }
 }
 
-public interface ICmptGnrcFieldParamInpObject
-  // No Base because it's Class
-{
-  ICmptRefGnrcFieldParamInp<ICmptAltGnrcFieldParamInp> Field { get; }
-}
-
-public interface ICmptRefGnrcFieldParamInp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ICmptRefGnrcFieldParamInpObject<TRef>? As_RefGnrcFieldParamInp { get; }
-}
-
-public interface ICmptRefGnrcFieldParamInpObject<TRef>
-  // No Base because it's Class
+internal class CmptRefGnrcFieldParamInpDecoder<TRef>
 {
 }
 
-public interface ICmptAltGnrcFieldParamInp
-  // No Base because it's Class
+internal class CmptAltGnrcFieldParamInpDecoder
 {
-  string? AsString { get; }
-  ICmptAltGnrcFieldParamInpObject? As_AltGnrcFieldParamInp { get; }
-}
-
-public interface ICmptAltGnrcFieldParamInpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

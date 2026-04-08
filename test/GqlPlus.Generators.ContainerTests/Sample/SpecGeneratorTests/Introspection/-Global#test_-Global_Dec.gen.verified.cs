@@ -7,98 +7,53 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp__Global;
 
-public interface Itest_AndType
-  : Itest_Named
+internal class test_AndTypeDecoder
 {
-  Itest_Type? As_Type { get; }
-  Itest_AndTypeObject? As__AndType { get; }
+  public Itest_Type Type { get; set; }
 }
 
-public interface Itest_AndTypeObject
-  : Itest_NamedObject
+internal class test_CategoriesDecoder
 {
-  Itest_Type Type { get; }
+  public Itest_Category Category { get; set; }
 }
 
-public interface Itest_Categories
-  : Itest_AndType
+internal class test_CategoryDecoder
 {
-  Itest_Category? As_Category { get; }
-  Itest_CategoriesObject? As__Categories { get; }
+  public test_Resolution Resolution { get; set; }
+  public Itest_TypeRef<Itest_TypeKind> Output { get; set; }
+  public ICollection<Itest_Modifiers> Modifiers { get; set; }
 }
 
-public interface Itest_CategoriesObject
-  : Itest_AndTypeObject
+internal class test_ResolutionDecoder
 {
-  Itest_Category Category { get; }
+  public string Parallel { get; set; }
+  public string Sequential { get; set; }
+  public string Single { get; set; }
 }
 
-public interface Itest_Category
-  : Itest_Aliased
+internal class test_DirectivesDecoder
 {
-  Itest_CategoryObject? As__Category { get; }
+  public Itest_Directive Directive { get; set; }
 }
 
-public interface Itest_CategoryObject
-  : Itest_AliasedObject
+internal class test_DirectiveDecoder
 {
-  test_Resolution Resolution { get; }
-  Itest_TypeRef<Itest_TypeKind> Output { get; }
-  ICollection<Itest_Modifiers> Modifiers { get; }
+  public Itest_InputFieldType? Parameter { get; set; }
+  public bool Repeatable { get; set; }
+  public IDictionary<test_Location, GqlpUnit> Locations { get; set; }
 }
 
-public enum test_Resolution
+internal class test_LocationDecoder
 {
-  Parallel,
-  Sequential,
-  Single,
+  public string Operation { get; set; }
+  public string Variable { get; set; }
+  public string Field { get; set; }
+  public string Inline { get; set; }
+  public string Spread { get; set; }
+  public string Fragment { get; set; }
 }
 
-public interface Itest_Directives
-  : Itest_AndType
+internal class test_SettingDecoder
 {
-  Itest_Directive? As_Directive { get; }
-  Itest_DirectivesObject? As__Directives { get; }
-}
-
-public interface Itest_DirectivesObject
-  : Itest_AndTypeObject
-{
-  Itest_Directive Directive { get; }
-}
-
-public interface Itest_Directive
-  : Itest_Aliased
-{
-  Itest_DirectiveObject? As__Directive { get; }
-}
-
-public interface Itest_DirectiveObject
-  : Itest_AliasedObject
-{
-  Itest_InputFieldType? Parameter { get; }
-  bool Repeatable { get; }
-  IDictionary<test_Location, GqlpUnit> Locations { get; }
-}
-
-public enum test_Location
-{
-  Operation,
-  Variable,
-  Field,
-  Inline,
-  Spread,
-  Fragment,
-}
-
-public interface Itest_Setting
-  : Itest_Named
-{
-  Itest_SettingObject? As__Setting { get; }
-}
-
-public interface Itest_SettingObject
-  : Itest_NamedObject
-{
-  GqlpValue Value { get; }
+  public GqlpValue Value { get; set; }
 }

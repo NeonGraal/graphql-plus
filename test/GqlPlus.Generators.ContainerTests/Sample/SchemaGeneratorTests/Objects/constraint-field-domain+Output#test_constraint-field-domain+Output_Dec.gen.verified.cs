@@ -7,30 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_domain_Output;
 
-public interface ItestCnstFieldDmnOutp
-  : ItestRefCnstFieldDmnOutp<ItestDomCnstFieldDmnOutp>
-{
-  ItestCnstFieldDmnOutpObject? As_CnstFieldDmnOutp { get; }
-}
-
-public interface ItestCnstFieldDmnOutpObject
-  : ItestRefCnstFieldDmnOutpObject<ItestDomCnstFieldDmnOutp>
+internal class testCnstFieldDmnOutpDecoder
 {
 }
 
-public interface ItestRefCnstFieldDmnOutp<TRef>
-  // No Base because it's Class
+internal class testRefCnstFieldDmnOutpDecoder<TRef>
 {
-  ItestRefCnstFieldDmnOutpObject<TRef>? As_RefCnstFieldDmnOutp { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ItestRefCnstFieldDmnOutpObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public interface ItestDomCnstFieldDmnOutp
-  : IGqlpDomainString
+internal class testDomCnstFieldDmnOutpDecoder
 {
 }

@@ -7,26 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_parent_dual_Output;
 
-public interface ItestPrntDualOutp
-  : ItestRefPrntDualOutp
-{
-  ItestPrntDualOutpObject? As_PrntDualOutp { get; }
-}
-
-public interface ItestPrntDualOutpObject
-  : ItestRefPrntDualOutpObject
+internal class testPrntDualOutpDecoder
 {
 }
 
-public interface ItestRefPrntDualOutp
-  // No Base because it's Class
+internal class testRefPrntDualOutpDecoder
 {
-  string? AsString { get; }
-  ItestRefPrntDualOutpObject? As_RefPrntDualOutp { get; }
-}
-
-public interface ItestRefPrntDualOutpObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
+  public decimal Parent { get; set; }
 }

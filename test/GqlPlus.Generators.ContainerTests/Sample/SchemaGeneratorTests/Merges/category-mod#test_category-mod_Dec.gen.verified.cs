@@ -7,13 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_category_mod;
 
-public interface ItestCtgrMod
-  // No Base because it's Class
-{
-  ItestCtgrModObject? As_CtgrMod { get; }
-}
-
-public interface ItestCtgrModObject
-  // No Base because it's Class
+internal class testCtgrModDecoder
 {
 }

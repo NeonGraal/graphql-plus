@@ -7,40 +7,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_simple_Output;
 
-public class testGnrcAltSmplOutp
-  : GqlpEncoderBase
-  , ItestGnrcAltSmplOutp
+internal class testGnrcAltSmplOutpEncoder
 {
-  public ItestRefGnrcAltSmplOutp<string>? AsRefGnrcAltSmplOutp { get; set; }
-  public ItestGnrcAltSmplOutpObject? As_GnrcAltSmplOutp { get; set; }
 }
 
-public class testGnrcAltSmplOutpObject
-  : GqlpEncoderBase
-  , ItestGnrcAltSmplOutpObject
+internal class testRefGnrcAltSmplOutpEncoder<TRef>
 {
-
-  public testGnrcAltSmplOutpObject
-    ()
-  {
-  }
-}
-
-public class testRefGnrcAltSmplOutp<TRef>
-  : GqlpEncoderBase
-  , ItestRefGnrcAltSmplOutp<TRef>
-{
-  public TRef? Asref { get; set; }
-  public ItestRefGnrcAltSmplOutpObject<TRef>? As_RefGnrcAltSmplOutp { get; set; }
-}
-
-public class testRefGnrcAltSmplOutpObject<TRef>
-  : GqlpEncoderBase
-  , ItestRefGnrcAltSmplOutpObject<TRef>
-{
-
-  public testRefGnrcAltSmplOutpObject
-    ()
-  {
-  }
 }

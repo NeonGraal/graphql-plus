@@ -11,26 +11,8 @@ dual ObjParamDual<$type:String> { type: $type }
 
 namespace Components.Gqlp_Schema_object_param_Dual;
 
-public class CmptObjParamDual<TTest,TType>
-  : Schema_object-param+Dual
-  , ICmptObjParamDual<TTest,TType>
-{
-  public ICmptObjParamDualObject<TTest,TType>? As_ObjParamDual { get; set; }
-}
-
-public class CmptObjParamDualObject<TTest,TType>
-  : Schema_object-param+Dual
-  , ICmptObjParamDualObject<TTest,TType>
+internal class CmptObjParamDualEncoder<TTest,TType>
 {
   public TTest Test { get; set; }
   public TType Type { get; set; }
-
-  public CmptObjParamDualObject
-    ( TTest test
-    , TType type
-    )
-  {
-    Test = test;
-    Type = type;
-  }
 }

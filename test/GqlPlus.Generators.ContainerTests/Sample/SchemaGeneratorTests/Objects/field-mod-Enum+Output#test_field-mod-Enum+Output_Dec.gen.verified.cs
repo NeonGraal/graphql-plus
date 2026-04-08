@@ -7,19 +7,12 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_mod_Enum_Output;
 
-public interface ItestFieldModEnumOutp
-  // No Base because it's Class
+internal class testFieldModEnumOutpDecoder
 {
-  ItestFieldModEnumOutpObject? As_FieldModEnumOutp { get; }
+  public IDictionary<testEnumFieldModEnumOutp, string> Field { get; set; }
 }
 
-public interface ItestFieldModEnumOutpObject
-  // No Base because it's Class
+internal class testEnumFieldModEnumOutpDecoder
 {
-  IDictionary<testEnumFieldModEnumOutp, string> Field { get; }
-}
-
-public enum testEnumFieldModEnumOutp
-{
-  value,
+  public string value { get; set; }
 }

@@ -6,386 +6,346 @@
 
 namespace Components.Gqlp_Schema_Simple;
 
-public interface ICmptDmnBoolDescr
-  : IGqlpDomainBoolean
+internal class CmptDmnBoolDescrDecoder
 {
 }
 
-public interface ICmptDmnBoolPrnt
-  : ICmptPrntDmnBoolPrnt
+internal class CmptDmnBoolPrntDecoder
 {
 }
 
-public interface ICmptPrntDmnBoolPrnt
-  : IGqlpDomainBoolean
+internal class CmptPrntDmnBoolPrntDecoder
 {
 }
 
-public interface ICmptDmnBoolPrntDescr
-  : ICmptPrntDmnBoolPrntDescr
+internal class CmptDmnBoolPrntDescrDecoder
 {
 }
 
-public interface ICmptPrntDmnBoolPrntDescr
-  : IGqlpDomainBoolean
+internal class CmptPrntDmnBoolPrntDescrDecoder
 {
 }
 
-public interface ICmptDmnEnumAll
-  : IGqlpDomainEnum
+internal class CmptDmnEnumAllDecoder
 {
 }
 
-public enum CmptEnumDmnEnumAll
+internal class CmptEnumDmnEnumAllDecoder
 {
-  dmnEnumAll,
-  enum_dmnEnumAll,
-  dmnEnumAllValue,
+  public string dmnEnumAll { get; set; }
+  public string enum_dmnEnumAll { get; set; }
+  public string dmnEnumAllValue { get; set; }
 }
 
-public interface ICmptDmnEnumAllDescr
-  : IGqlpDomainEnum
+internal class CmptDmnEnumAllDescrDecoder
 {
 }
 
-public enum CmptEnumDmnEnumAllDescr
+internal class CmptEnumDmnEnumAllDescrDecoder
 {
-  dmnEnumAllDescr,
-  enum_dmnEnumAllDescr,
-  dmnEnumAllDescrValue,
+  public string dmnEnumAllDescr { get; set; }
+  public string enum_dmnEnumAllDescr { get; set; }
+  public string dmnEnumAllDescrValue { get; set; }
 }
 
-public interface ICmptDmnEnumAllPrnt
-  : IGqlpDomainEnum
+internal class CmptDmnEnumAllPrntDecoder
 {
 }
 
-public enum CmptEnumDmnEnumAllPrnt
+internal class CmptEnumDmnEnumAllPrntDecoder
 {
-  prnt_dmnEnumAllPrnt = CmptPrntDmnEnumAllPrnt.prnt_dmnEnumAllPrnt,
-  dmnEnumAllPrntPrnt = CmptPrntDmnEnumAllPrnt.dmnEnumAllPrntPrnt,
-  dmnEnumAllPrnt,
-  dmnEnumAllPrntValue,
+  public string prnt_dmnEnumAllPrnt { get; set; }
+  public string dmnEnumAllPrntPrnt { get; set; }
+  public string dmnEnumAllPrnt { get; set; }
+  public string dmnEnumAllPrntValue { get; set; }
 }
 
-public enum CmptPrntDmnEnumAllPrnt
+internal class CmptPrntDmnEnumAllPrntDecoder
 {
-  prnt_dmnEnumAllPrnt,
-  dmnEnumAllPrntPrnt,
+  public string prnt_dmnEnumAllPrnt { get; set; }
+  public string dmnEnumAllPrntPrnt { get; set; }
 }
 
-public interface ICmptDmnEnumDescr
-  : IGqlpDomainEnum
+internal class CmptDmnEnumDescrDecoder
 {
 }
 
-public enum CmptEnumDmnEnumDescr
+internal class CmptEnumDmnEnumDescrDecoder
 {
-  dmnEnumDescr,
+  public string dmnEnumDescr { get; set; }
 }
 
-public interface ICmptDmnEnumExcl
-  : IGqlpDomainEnum
+internal class CmptDmnEnumExclDecoder
 {
 }
 
-public enum CmptEnumDmnEnumExcl
+internal class CmptEnumDmnEnumExclDecoder
 {
-  dmnEnumExcl,
-  enum_dmnEnumExcl,
-  dmnEnumExclValue,
+  public string dmnEnumExcl { get; set; }
+  public string enum_dmnEnumExcl { get; set; }
+  public string dmnEnumExclValue { get; set; }
 }
 
-public interface ICmptDmnEnumExclPrnt
-  : IGqlpDomainEnum
+internal class CmptDmnEnumExclPrntDecoder
 {
 }
 
-public enum CmptEnumDmnEnumExclPrnt
+internal class CmptEnumDmnEnumExclPrntDecoder
 {
-  prnt_dmnEnumExclPrnt = CmptPrntDmnEnumExclPrnt.prnt_dmnEnumExclPrnt,
-  dmnEnumExclPrntPrnt = CmptPrntDmnEnumExclPrnt.dmnEnumExclPrntPrnt,
-  dmnEnumExclPrnt,
-  dmnEnumExclPrntValue,
+  public string prnt_dmnEnumExclPrnt { get; set; }
+  public string dmnEnumExclPrntPrnt { get; set; }
+  public string dmnEnumExclPrnt { get; set; }
+  public string dmnEnumExclPrntValue { get; set; }
 }
 
-public enum CmptPrntDmnEnumExclPrnt
+internal class CmptPrntDmnEnumExclPrntDecoder
 {
-  prnt_dmnEnumExclPrnt,
-  dmnEnumExclPrntPrnt,
+  public string prnt_dmnEnumExclPrnt { get; set; }
+  public string dmnEnumExclPrntPrnt { get; set; }
 }
 
-public interface ICmptDmnEnumLabel
-  : IGqlpDomainEnum
+internal class CmptDmnEnumLabelDecoder
 {
 }
 
-public enum CmptEnumDmnEnumLabel
+internal class CmptEnumDmnEnumLabelDecoder
 {
-  dmnEnumLabel,
+  public string dmnEnumLabel { get; set; }
 }
 
-public interface ICmptDmnEnumPrnt
-  : ICmptPrntDmnEnumPrnt
+internal class CmptDmnEnumPrntDecoder
 {
 }
 
-public interface ICmptPrntDmnEnumPrnt
-  : IGqlpDomainEnum
+internal class CmptPrntDmnEnumPrntDecoder
 {
 }
 
-public enum CmptEnumDmnEnumPrnt
+internal class CmptEnumDmnEnumPrntDecoder
 {
-  enum_dmnEnumPrnt,
-  prnt_dmnEnumPrnt,
+  public string enum_dmnEnumPrnt { get; set; }
+  public string prnt_dmnEnumPrnt { get; set; }
 }
 
-public interface ICmptDmnEnumPrntDescr
-  : ICmptPrntDmnEnumPrntDescr
+internal class CmptDmnEnumPrntDescrDecoder
 {
 }
 
-public interface ICmptPrntDmnEnumPrntDescr
-  : IGqlpDomainEnum
+internal class CmptPrntDmnEnumPrntDescrDecoder
 {
 }
 
-public enum CmptEnumDmnEnumPrntDescr
+internal class CmptEnumDmnEnumPrntDescrDecoder
 {
-  enum_dmnEnumPrntDescr,
-  prnt_dmnEnumPrntDescr,
+  public string enum_dmnEnumPrntDescr { get; set; }
+  public string prnt_dmnEnumPrntDescr { get; set; }
 }
 
-public interface ICmptDmnEnumUnq
-  : IGqlpDomainEnum
+internal class CmptDmnEnumUnqDecoder
 {
 }
 
-public enum CmptEnumDmnEnumUnq
+internal class CmptEnumDmnEnumUnqDecoder
 {
-  enum_dmnEnumUnq,
-  dmnEnumUnq,
-  dmnEnumUnqValue,
+  public string enum_dmnEnumUnq { get; set; }
+  public string dmnEnumUnq { get; set; }
+  public string dmnEnumUnqValue { get; set; }
 }
 
-public enum CmptDupDmnEnumUnq
+internal class CmptDupDmnEnumUnqDecoder
 {
-  dmnEnumUnq,
-  dup_dmnEnumUnq,
-  dmnEnumUnqDup,
+  public string dmnEnumUnq { get; set; }
+  public string dup_dmnEnumUnq { get; set; }
+  public string dmnEnumUnqDup { get; set; }
 }
 
-public interface ICmptDmnEnumUnqPrnt
-  : IGqlpDomainEnum
+internal class CmptDmnEnumUnqPrntDecoder
 {
 }
 
-public enum CmptEnumDmnEnumUnqPrnt
+internal class CmptEnumDmnEnumUnqPrntDecoder
 {
-  dmnEnumUnqPrnt = CmptPrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
-  prnt_dmnEnumUnqPrnt = CmptPrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntPrnt = CmptPrntDmnEnumUnqPrnt.dmnEnumUnqPrntPrnt,
-  enum_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntValue,
+  public string dmnEnumUnqPrnt { get; set; }
+  public string prnt_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntPrnt { get; set; }
+  public string enum_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntValue { get; set; }
 }
 
-public enum CmptPrntDmnEnumUnqPrnt
+internal class CmptPrntDmnEnumUnqPrntDecoder
 {
-  dmnEnumUnqPrnt,
-  prnt_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntPrnt,
+  public string dmnEnumUnqPrnt { get; set; }
+  public string prnt_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntPrnt { get; set; }
 }
 
-public enum CmptDupDmnEnumUnqPrnt
+internal class CmptDupDmnEnumUnqPrntDecoder
 {
-  dmnEnumUnqPrnt,
-  dup_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntDup,
+  public string dmnEnumUnqPrnt { get; set; }
+  public string dup_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntDup { get; set; }
 }
 
-public interface ICmptDmnEnumValue
-  : IGqlpDomainEnum
+internal class CmptDmnEnumValueDecoder
 {
 }
 
-public enum CmptEnumDmnEnumValue
+internal class CmptEnumDmnEnumValueDecoder
 {
-  dmnEnumValue,
+  public string dmnEnumValue { get; set; }
 }
 
-public interface ICmptDmnEnumValuePrnt
-  : IGqlpDomainEnum
+internal class CmptDmnEnumValuePrntDecoder
 {
 }
 
-public enum CmptEnumDmnEnumValuePrnt
+internal class CmptEnumDmnEnumValuePrntDecoder
 {
-  prnt_dmnEnumValuePrnt = CmptPrntDmnEnumValuePrnt.prnt_dmnEnumValuePrnt,
-  dmnEnumValuePrnt,
+  public string prnt_dmnEnumValuePrnt { get; set; }
+  public string dmnEnumValuePrnt { get; set; }
 }
 
-public enum CmptPrntDmnEnumValuePrnt
+internal class CmptPrntDmnEnumValuePrntDecoder
 {
-  prnt_dmnEnumValuePrnt,
+  public string prnt_dmnEnumValuePrnt { get; set; }
 }
 
-public interface ICmptDmnNmbrDescr
-  : IGqlpDomainNumber
+internal class CmptDmnNmbrDescrDecoder
 {
 }
 
-public interface ICmptDmnNmbrPrnt
-  : ICmptPrntDmnNmbrPrnt
+internal class CmptDmnNmbrPrntDecoder
 {
 }
 
-public interface ICmptPrntDmnNmbrPrnt
-  : IGqlpDomainNumber
+internal class CmptPrntDmnNmbrPrntDecoder
 {
 }
 
-public interface ICmptDmnNmbrPrntDescr
-  : ICmptPrntDmnNmbrPrntDescr
+internal class CmptDmnNmbrPrntDescrDecoder
 {
 }
 
-public interface ICmptPrntDmnNmbrPrntDescr
-  : IGqlpDomainNumber
+internal class CmptPrntDmnNmbrPrntDescrDecoder
 {
 }
 
-public interface ICmptDmnNmbrPstv
-  : IGqlpDomainNumber
+internal class CmptDmnNmbrPstvDecoder
 {
 }
 
-public interface ICmptDmnNmbrRange
-  : IGqlpDomainNumber
+internal class CmptDmnNmbrRangeDecoder
 {
 }
 
-public interface ICmptDmnStrDescr
-  : IGqlpDomainString
+internal class CmptDmnStrDescrDecoder
 {
 }
 
-public interface ICmptDmnStrNonEmpty
-  : IGqlpDomainString
+internal class CmptDmnStrNonEmptyDecoder
 {
 }
 
-public interface ICmptDmnStrPrnt
-  : ICmptPrntDmnStrPrnt
+internal class CmptDmnStrPrntDecoder
 {
 }
 
-public interface ICmptPrntDmnStrPrnt
-  : IGqlpDomainString
+internal class CmptPrntDmnStrPrntDecoder
 {
 }
 
-public interface ICmptDmnStrPrntDescr
-  : ICmptPrntDmnStrPrntDescr
+internal class CmptDmnStrPrntDescrDecoder
 {
 }
 
-public interface ICmptPrntDmnStrPrntDescr
-  : IGqlpDomainString
+internal class CmptPrntDmnStrPrntDescrDecoder
 {
 }
 
-public enum CmptEnumDescr
+internal class CmptEnumDescrDecoder
 {
-  enumDescr,
+  public string enumDescr { get; set; }
 }
 
-public enum CmptEnumPrnt
+internal class CmptEnumPrntDecoder
 {
-  prnt_enumPrnt = CmptPrntEnumPrnt.prnt_enumPrnt,
-  enumPrnt,
+  public string prnt_enumPrnt { get; set; }
+  public string enumPrnt { get; set; }
 }
 
-public enum CmptPrntEnumPrnt
+internal class CmptPrntEnumPrntDecoder
 {
-  prnt_enumPrnt,
+  public string prnt_enumPrnt { get; set; }
 }
 
-public enum CmptEnumPrntAlias
+internal class CmptEnumPrntAliasDecoder
 {
-  prnt_enumPrntAlias = CmptPrntEnumPrntAlias.prnt_enumPrntAlias,
-  val_enumPrntAlias,
-  prnt_enumPrntAlias,
-  enumPrntAlias = prnt_enumPrntAlias,
+  public string prnt_enumPrntAlias { get; set; }
+  public string val_enumPrntAlias { get; set; }
+  public string prnt_enumPrntAlias { get; set; }
+  public string enumPrntAlias { get; set; }
 }
 
-public enum CmptPrntEnumPrntAlias
+internal class CmptPrntEnumPrntAliasDecoder
 {
-  prnt_enumPrntAlias,
+  public string prnt_enumPrntAlias { get; set; }
 }
 
-public enum CmptEnumPrntDescr
+internal class CmptEnumPrntDescrDecoder
 {
-  prnt_enumPrntDescr = CmptPrntEnumPrntDescr.prnt_enumPrntDescr,
-  enumPrntDescr,
+  public string prnt_enumPrntDescr { get; set; }
+  public string enumPrntDescr { get; set; }
 }
 
-public enum CmptPrntEnumPrntDescr
+internal class CmptPrntEnumPrntDescrDecoder
 {
-  prnt_enumPrntDescr,
+  public string prnt_enumPrntDescr { get; set; }
 }
 
-public enum CmptEnumPrntDup
+internal class CmptEnumPrntDupDecoder
 {
-  prnt_enumPrntDup = CmptPrntEnumPrntDup.prnt_enumPrntDup,
-  enumPrntDup = CmptPrntEnumPrntDup.prnt_enumPrntDup,
-  enumPrntDup,
+  public string prnt_enumPrntDup { get; set; }
+  public string enumPrntDup { get; set; }
+  public string enumPrntDup { get; set; }
 }
 
-public enum CmptPrntEnumPrntDup
+internal class CmptPrntEnumPrntDupDecoder
 {
-  prnt_enumPrntDup,
-  enumPrntDup = prnt_enumPrntDup,
+  public string prnt_enumPrntDup { get; set; }
+  public string enumPrntDup { get; set; }
 }
 
-public interface ICmptUnionDescr
-  // No Base because it's Class
+internal class CmptUnionDescrDecoder
 {
-  Number AsNumber { get; }
+  public Number AsNumber { get; set; }
 }
 
-public interface ICmptUnionPrnt
-  : ICmptPrntUnionPrnt
+internal class CmptUnionPrntDecoder
 {
-  String AsString { get; }
+  public String AsString { get; set; }
 }
 
-public interface ICmptPrntUnionPrnt
-  // No Base because it's Class
+internal class CmptPrntUnionPrntDecoder
 {
-  Number AsNumber { get; }
+  public Number AsNumber { get; set; }
 }
 
-public interface ICmptUnionPrntDescr
-  : ICmptPrntUnionPrntDescr
+internal class CmptUnionPrntDescrDecoder
 {
-  Number AsNumber { get; }
+  public Number AsNumber { get; set; }
 }
 
-public interface ICmptPrntUnionPrntDescr
-  // No Base because it's Class
+internal class CmptPrntUnionPrntDescrDecoder
 {
-  Number AsNumber { get; }
+  public Number AsNumber { get; set; }
 }
 
-public interface ICmptUnionPrntDup
-  : ICmptPrntUnionPrntDup
+internal class CmptUnionPrntDupDecoder
 {
-  Number AsNumber { get; }
+  public Number AsNumber { get; set; }
 }
 
-public interface ICmptPrntUnionPrntDup
-  // No Base because it's Class
+internal class CmptPrntUnionPrntDupDecoder
 {
-  Number AsNumber { get; }
+  public Number AsNumber { get; set; }
 }

@@ -80,303 +80,76 @@ output _DomainItemRegex {
 
 namespace Components.Gqlp_Spec_Domain;
 
-public enum Cmpt_DomainKind
+internal class Cmpt_DomainKindEncoder
 {
-  Boolean,
-  Enum,
-  Number,
-  String,
+  public string Boolean { get; set; }
+  public string Enum { get; set; }
+  public string Number { get; set; }
+  public string String { get; set; }
 }
 
-public class Cmpt_DomainRef<TDomainKind>
-  : Cmpt_TypeRef<ICmpt_TypeKind>
-  , ICmpt_DomainRef<TDomainKind>
-{
-  public ICmpt_DomainRefObject<TDomainKind>? As__DomainRef { get; set; }
-}
-
-public class Cmpt_DomainRefObject<TDomainKind>
-  : Cmpt_TypeRefObject<ICmpt_TypeKind>
-  , ICmpt_DomainRefObject<TDomainKind>
+internal class Cmpt_DomainRefEncoder<TDomainKind>
 {
   public TDomainKind DomainKind { get; set; }
-
-  public Cmpt_DomainRefObject
-    ( TDomainKind domainKind
-    )
-  {
-    DomainKind = domainKind;
-  }
 }
 
-public class Cmpt_BaseDomain<TDomainKind,TItem,TDomainItem>
-  : Cmpt_ParentType<ICmpt_TypeKind, TItem, TDomainItem>
-  , ICmpt_BaseDomain<TDomainKind,TItem,TDomainItem>
-{
-  public ICmpt_BaseDomainObject<TDomainKind,TItem,TDomainItem>? As__BaseDomain { get; set; }
-}
-
-public class Cmpt_BaseDomainObject<TDomainKind,TItem,TDomainItem>
-  : Cmpt_ParentTypeObject<ICmpt_TypeKind, TItem, TDomainItem>
-  , ICmpt_BaseDomainObject<TDomainKind,TItem,TDomainItem>
+internal class Cmpt_BaseDomainEncoder<TDomainKind,TItem,TDomainItem>
 {
   public TDomainKind DomainKind { get; set; }
-
-  public Cmpt_BaseDomainObject
-    ( TDomainKind domainKind
-    )
-  {
-    DomainKind = domainKind;
-  }
 }
 
-public class Cmpt_BaseDomainItem
-  : Cmpt_Described
-  , ICmpt_BaseDomainItem
-{
-  public ICmpt_BaseDomainItemObject? As__BaseDomainItem { get; set; }
-}
-
-public class Cmpt_BaseDomainItemObject
-  : Cmpt_DescribedObject
-  , ICmpt_BaseDomainItemObject
+internal class Cmpt_BaseDomainItemEncoder
 {
   public bool Exclude { get; set; }
-
-  public Cmpt_BaseDomainItemObject
-    ( bool exclude
-    )
-  {
-    Exclude = exclude;
-  }
 }
 
-public class Cmpt_DomainItem<TItem>
-  : Spec_Domain
-  , ICmpt_DomainItem<TItem>
-{
-  public TItem? As_Parent { get; set; }
-  public ICmpt_DomainItemObject<TItem>? As__DomainItem { get; set; }
-}
-
-public class Cmpt_DomainItemObject<TItem>
-  : Spec_Domain
-  , ICmpt_DomainItemObject<TItem>
+internal class Cmpt_DomainItemEncoder<TItem>
 {
   public ICmpt_Name Domain { get; set; }
-
-  public Cmpt_DomainItemObject
-    ( ICmpt_Name domain
-    )
-  {
-    Domain = domain;
-  }
 }
 
-public class Cmpt_DomainValue<TDomainKind,TValue>
-  : Cmpt_DomainRef<TDomainKind>
-  , ICmpt_DomainValue<TDomainKind,TValue>
-{
-  public TValue? Asvalue { get; set; }
-  public ICmpt_DomainValueObject<TDomainKind,TValue>? As__DomainValue { get; set; }
-}
-
-public class Cmpt_DomainValueObject<TDomainKind,TValue>
-  : Cmpt_DomainRefObject<TDomainKind>
-  , ICmpt_DomainValueObject<TDomainKind,TValue>
+internal class Cmpt_DomainValueEncoder<TDomainKind,TValue>
 {
   public TValue Value { get; set; }
-
-  public Cmpt_DomainValueObject
-    ( TDomainKind domainKind
-    , TValue value
-    ) : base(domainKind)
-  {
-    Value = value;
-  }
 }
 
-public class Cmpt_BasicValue
-  : Spec_Domain
-  , ICmpt_BasicValue
+internal class Cmpt_BasicValueEncoder
 {
-  public bool? AsBoolean { get; set; }
-  public ICmpt_EnumValue? As_EnumValue { get; set; }
-  public decimal? AsNumber { get; set; }
-  public string? AsString { get; set; }
-  public ICmpt_BasicValueObject? As__BasicValue { get; set; }
 }
 
-public class Cmpt_BasicValueObject
-  : Spec_Domain
-  , ICmpt_BasicValueObject
-{
-
-  public Cmpt_BasicValueObject
-    ()
-  {
-  }
-}
-
-public class Cmpt_DomainTrueFalse
-  : Cmpt_BaseDomainItem
-  , ICmpt_DomainTrueFalse
-{
-  public ICmpt_DomainTrueFalseObject? As__DomainTrueFalse { get; set; }
-}
-
-public class Cmpt_DomainTrueFalseObject
-  : Cmpt_BaseDomainItemObject
-  , ICmpt_DomainTrueFalseObject
+internal class Cmpt_DomainTrueFalseEncoder
 {
   public bool Value { get; set; }
-
-  public Cmpt_DomainTrueFalseObject
-    ( bool exclude
-    , bool value
-    ) : base(exclude)
-  {
-    Value = value;
-  }
 }
 
-public class Cmpt_DomainItemTrueFalse
-  : Cmpt_DomainItem<ICmpt_DomainTrueFalse>
-  , ICmpt_DomainItemTrueFalse
+internal class Cmpt_DomainItemTrueFalseEncoder
 {
-  public ICmpt_DomainItemTrueFalseObject? As__DomainItemTrueFalse { get; set; }
 }
 
-public class Cmpt_DomainItemTrueFalseObject
-  : Cmpt_DomainItemObject<ICmpt_DomainTrueFalse>
-  , ICmpt_DomainItemTrueFalseObject
-{
-
-  public Cmpt_DomainItemTrueFalseObject
-    ( ICmpt_Name domain
-    ) : base(domain)
-  {
-  }
-}
-
-public class Cmpt_DomainLabel
-  : Cmpt_BaseDomainItem
-  , ICmpt_DomainLabel
-{
-  public ICmpt_DomainLabelObject? As__DomainLabel { get; set; }
-}
-
-public class Cmpt_DomainLabelObject
-  : Cmpt_BaseDomainItemObject
-  , ICmpt_DomainLabelObject
+internal class Cmpt_DomainLabelEncoder
 {
   public ICmpt_EnumValue Label { get; set; }
-
-  public Cmpt_DomainLabelObject
-    ( bool exclude
-    , ICmpt_EnumValue label
-    ) : base(exclude)
-  {
-    Label = label;
-  }
 }
 
-public class Cmpt_DomainItemLabel
-  : Cmpt_DomainItem<ICmpt_DomainLabel>
-  , ICmpt_DomainItemLabel
+internal class Cmpt_DomainItemLabelEncoder
 {
-  public ICmpt_DomainItemLabelObject? As__DomainItemLabel { get; set; }
 }
 
-public class Cmpt_DomainItemLabelObject
-  : Cmpt_DomainItemObject<ICmpt_DomainLabel>
-  , ICmpt_DomainItemLabelObject
-{
-
-  public Cmpt_DomainItemLabelObject
-    ( ICmpt_Name domain
-    ) : base(domain)
-  {
-  }
-}
-
-public class Cmpt_DomainRange
-  : Cmpt_BaseDomainItem
-  , ICmpt_DomainRange
-{
-  public ICmpt_DomainRangeObject? As__DomainRange { get; set; }
-}
-
-public class Cmpt_DomainRangeObject
-  : Cmpt_BaseDomainItemObject
-  , ICmpt_DomainRangeObject
+internal class Cmpt_DomainRangeEncoder
 {
   public decimal? Lower { get; set; }
   public decimal? Upper { get; set; }
-
-  public Cmpt_DomainRangeObject
-    ( bool exclude
-    ) : base(exclude)
-  {
-  }
 }
 
-public class Cmpt_DomainItemRange
-  : Cmpt_DomainItem<ICmpt_DomainRange>
-  , ICmpt_DomainItemRange
+internal class Cmpt_DomainItemRangeEncoder
 {
-  public ICmpt_DomainItemRangeObject? As__DomainItemRange { get; set; }
 }
 
-public class Cmpt_DomainItemRangeObject
-  : Cmpt_DomainItemObject<ICmpt_DomainRange>
-  , ICmpt_DomainItemRangeObject
-{
-
-  public Cmpt_DomainItemRangeObject
-    ( ICmpt_Name domain
-    ) : base(domain)
-  {
-  }
-}
-
-public class Cmpt_DomainRegex
-  : Cmpt_BaseDomainItem
-  , ICmpt_DomainRegex
-{
-  public ICmpt_DomainRegexObject? As__DomainRegex { get; set; }
-}
-
-public class Cmpt_DomainRegexObject
-  : Cmpt_BaseDomainItemObject
-  , ICmpt_DomainRegexObject
+internal class Cmpt_DomainRegexEncoder
 {
   public string Pattern { get; set; }
-
-  public Cmpt_DomainRegexObject
-    ( bool exclude
-    , string pattern
-    ) : base(exclude)
-  {
-    Pattern = pattern;
-  }
 }
 
-public class Cmpt_DomainItemRegex
-  : Cmpt_DomainItem<ICmpt_DomainRegex>
-  , ICmpt_DomainItemRegex
+internal class Cmpt_DomainItemRegexEncoder
 {
-  public ICmpt_DomainItemRegexObject? As__DomainItemRegex { get; set; }
-}
-
-public class Cmpt_DomainItemRegexObject
-  : Cmpt_DomainItemObject<ICmpt_DomainRegex>
-  , ICmpt_DomainItemRegexObject
-{
-
-  public Cmpt_DomainItemRegexObject
-    ( ICmpt_Name domain
-    ) : base(domain)
-  {
-  }
 }

@@ -12,25 +12,11 @@ input FldObjFieldAliasInp { }
 
 namespace Components.Gqlp_Schema_object_field_alias_Input;
 
-public interface ICmptObjFieldAliasInp
-  // No Base because it's Class
+internal class CmptObjFieldAliasInpDecoder
 {
-  ICmptObjFieldAliasInpObject? As_ObjFieldAliasInp { get; }
+  public ICmptFldObjFieldAliasInp Field { get; set; }
 }
 
-public interface ICmptObjFieldAliasInpObject
-  // No Base because it's Class
-{
-  ICmptFldObjFieldAliasInp Field { get; }
-}
-
-public interface ICmptFldObjFieldAliasInp
-  // No Base because it's Class
-{
-  ICmptFldObjFieldAliasInpObject? As_FldObjFieldAliasInp { get; }
-}
-
-public interface ICmptFldObjFieldAliasInpObject
-  // No Base because it's Class
+internal class CmptFldObjFieldAliasInpDecoder
 {
 }

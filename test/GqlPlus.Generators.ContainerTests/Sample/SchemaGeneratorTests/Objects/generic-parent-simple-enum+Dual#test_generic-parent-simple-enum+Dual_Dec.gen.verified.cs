@@ -7,30 +7,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_simple_enum_Dual;
 
-public interface ItestGnrcPrntSmplEnumDual
-  : ItestFieldGnrcPrntSmplEnumDual<testEnumGnrcPrntSmplEnumDual>
-{
-  ItestGnrcPrntSmplEnumDualObject? As_GnrcPrntSmplEnumDual { get; }
-}
-
-public interface ItestGnrcPrntSmplEnumDualObject
-  : ItestFieldGnrcPrntSmplEnumDualObject<testEnumGnrcPrntSmplEnumDual>
+internal class testGnrcPrntSmplEnumDualDecoder
 {
 }
 
-public interface ItestFieldGnrcPrntSmplEnumDual<TRef>
-  // No Base because it's Class
+internal class testFieldGnrcPrntSmplEnumDualDecoder<TRef>
 {
-  ItestFieldGnrcPrntSmplEnumDualObject<TRef>? As_FieldGnrcPrntSmplEnumDual { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ItestFieldGnrcPrntSmplEnumDualObject<TRef>
-  // No Base because it's Class
+internal class testEnumGnrcPrntSmplEnumDualDecoder
 {
-  TRef Field { get; }
-}
-
-public enum testEnumGnrcPrntSmplEnumDual
-{
-  gnrcPrntSmplEnumDual,
+  public string gnrcPrntSmplEnumDual { get; set; }
 }

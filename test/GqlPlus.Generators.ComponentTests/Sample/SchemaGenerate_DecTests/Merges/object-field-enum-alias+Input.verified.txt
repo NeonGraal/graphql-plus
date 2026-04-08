@@ -11,14 +11,7 @@ input ObjFieldEnumAliasInp { field [field2] = true }
 
 namespace Components.Gqlp_Schema_object_field_enum_alias_Input;
 
-public interface ICmptObjFieldEnumAliasInp
-  // No Base because it's Class
+internal class CmptObjFieldEnumAliasInpDecoder
 {
-  ICmptObjFieldEnumAliasInpObject? As_ObjFieldEnumAliasInp { get; }
-}
-
-public interface ICmptObjFieldEnumAliasInpObject
-  // No Base because it's Class
-{
-  bool Field { get; }
+  public bool Field { get; set; }
 }

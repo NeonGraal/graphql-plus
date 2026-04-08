@@ -7,812 +7,370 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Introspection;
 
-public interface Itest_Schema
-  : Itest_Named
+internal class test_SchemaDecoder
 {
-  Itest_SchemaObject? As__Schema { get; }
+  public IDictionary<Itest_Name, Itest_Categories>? Categories(Itest_CategoryFilter? parameter)
+    => null;
+  public IDictionary<Itest_Name, Itest_Directives>? Directives(Itest_Filter? parameter)
+    => null;
+  public IDictionary<Itest_Name, Itest_Type>? Types(Itest_TypeFilter? parameter)
+    => null;
+  public IDictionary<Itest_Name, Itest_Setting>? Settings(Itest_Filter? parameter)
+    => null;
 }
 
-public interface Itest_SchemaObject
-  : Itest_NamedObject
+internal class test_NameDecoder
 {
-  IDictionary<Itest_Name, Itest_Categories>? Categories(Itest_CategoryFilter? parameter);
-  IDictionary<Itest_Name, Itest_Directives>? Directives(Itest_Filter? parameter);
-  IDictionary<Itest_Name, Itest_Type>? Types(Itest_TypeFilter? parameter);
-  IDictionary<Itest_Name, Itest_Setting>? Settings(Itest_Filter? parameter);
 }
 
-public interface Itest_Name
-  : IGqlpDomainString
+internal class test_FilterDecoder
 {
+  public ICollection<Itest_NameFilter> Names { get; set; }
+  public bool? MatchAliases { get; set; }
+  public ICollection<Itest_NameFilter> Aliases { get; set; }
+  public bool? ReturnByAlias { get; set; }
+  public bool? ReturnReferencedTypes { get; set; }
 }
 
-public interface Itest_Filter
-  // No Base because it's Class
+internal class test_NameFilterDecoder
 {
-  ICollection<Itest_NameFilter>? As_NameFilter { get; }
-  Itest_FilterObject? As__Filter { get; }
 }
 
-public interface Itest_FilterObject
-  // No Base because it's Class
+internal class test_CategoryFilterDecoder
 {
-  ICollection<Itest_NameFilter> Names { get; }
-  bool? MatchAliases { get; }
-  ICollection<Itest_NameFilter> Aliases { get; }
-  bool? ReturnByAlias { get; }
-  bool? ReturnReferencedTypes { get; }
+  public ICollection<test_Resolution> Resolutions { get; set; }
 }
 
-public interface Itest_NameFilter
-  : IGqlpDomainString
+internal class test_TypeFilterDecoder
 {
+  public ICollection<test_TypeKind> Kinds { get; set; }
 }
 
-public interface Itest_CategoryFilter
-  : Itest_Filter
+internal class test_AliasedDecoder
 {
-  Itest_CategoryFilterObject? As__CategoryFilter { get; }
+  public ICollection<Itest_Name> Aliases { get; set; }
 }
 
-public interface Itest_CategoryFilterObject
-  : Itest_FilterObject
+internal class test_NamedDecoder
 {
-  ICollection<test_Resolution> Resolutions { get; }
+  public Itest_Name Name { get; set; }
 }
 
-public interface Itest_TypeFilter
-  : Itest_Filter
+internal class test_DescribedDecoder
 {
-  Itest_TypeFilterObject? As__TypeFilter { get; }
+  public ICollection<string> Description { get; set; }
 }
 
-public interface Itest_TypeFilterObject
-  : Itest_FilterObject
+internal class test_AndTypeDecoder
 {
-  ICollection<test_TypeKind> Kinds { get; }
+  public Itest_Type Type { get; set; }
 }
 
-public interface Itest_Aliased
-  : Itest_Named
+internal class test_CategoriesDecoder
 {
-  Itest_AliasedObject? As__Aliased { get; }
+  public Itest_Category Category { get; set; }
 }
 
-public interface Itest_AliasedObject
-  : Itest_NamedObject
+internal class test_CategoryDecoder
 {
-  ICollection<Itest_Name> Aliases { get; }
+  public test_Resolution Resolution { get; set; }
+  public Itest_TypeRef<test_TypeKind> Output { get; set; }
+  public ICollection<Itest_Modifiers> Modifiers { get; set; }
 }
 
-public interface Itest_Named
-  : Itest_Described
+internal class test_ResolutionDecoder
 {
-  Itest_NamedObject? As__Named { get; }
+  public string Parallel { get; set; }
+  public string Sequential { get; set; }
+  public string Single { get; set; }
 }
 
-public interface Itest_NamedObject
-  : Itest_DescribedObject
+internal class test_DirectivesDecoder
 {
-  Itest_Name Name { get; }
+  public Itest_Directive Directive { get; set; }
 }
 
-public interface Itest_Described
-  // No Base because it's Class
+internal class test_DirectiveDecoder
 {
-  Itest_DescribedObject? As__Described { get; }
+  public Itest_InputFieldType? Parameter { get; set; }
+  public bool Repeatable { get; set; }
+  public IDictionary<test_Location, GqlpUnit> Locations { get; set; }
 }
 
-public interface Itest_DescribedObject
-  // No Base because it's Class
+internal class test_LocationDecoder
 {
-  ICollection<string> Description { get; }
+  public string Operation { get; set; }
+  public string Variable { get; set; }
+  public string Field { get; set; }
+  public string Inline { get; set; }
+  public string Spread { get; set; }
+  public string Fragment { get; set; }
 }
 
-public interface Itest_AndType
-  : Itest_Named
+internal class test_SettingDecoder
 {
-  Itest_Type? As_Type { get; }
-  Itest_AndTypeObject? As__AndType { get; }
+  public GqlpValue Value { get; set; }
 }
 
-public interface Itest_AndTypeObject
-  : Itest_NamedObject
+internal class test_TypeDecoder
 {
-  Itest_Type Type { get; }
 }
 
-public interface Itest_Categories
-  : Itest_AndType
+internal class test_BaseTypeDecoder<TTypeKind>
 {
-  Itest_Category? As_Category { get; }
-  Itest_CategoriesObject? As__Categories { get; }
+  public TTypeKind TypeKind { get; set; }
 }
 
-public interface Itest_CategoriesObject
-  : Itest_AndTypeObject
+internal class test_ChildTypeDecoder<TTypeKind,TParent>
 {
-  Itest_Category Category { get; }
+  public TParent Parent { get; set; }
 }
 
-public interface Itest_Category
-  : Itest_Aliased
+internal class test_ParentTypeDecoder<TTypeKind,TItem,TAllItem>
 {
-  Itest_CategoryObject? As__Category { get; }
+  public ICollection<TItem> Items { get; set; }
+  public ICollection<TAllItem> AllItems { get; set; }
 }
 
-public interface Itest_CategoryObject
-  : Itest_AliasedObject
+internal class test_SimpleKindDecoder
 {
-  test_Resolution Resolution { get; }
-  Itest_TypeRef<test_TypeKind> Output { get; }
-  ICollection<Itest_Modifiers> Modifiers { get; }
+  public string Basic { get; set; }
+  public string Enum { get; set; }
+  public string Internal { get; set; }
+  public string Domain { get; set; }
+  public string Union { get; set; }
 }
 
-public enum test_Resolution
+internal class test_TypeKindDecoder
 {
-  Parallel,
-  Sequential,
-  Single,
+  public string Basic { get; set; }
+  public string Enum { get; set; }
+  public string Internal { get; set; }
+  public string Domain { get; set; }
+  public string Union { get; set; }
+  public string Dual { get; set; }
+  public string Input { get; set; }
+  public string Output { get; set; }
 }
 
-public interface Itest_Directives
-  : Itest_AndType
+internal class test_TypeRefDecoder<TTypeKind>
 {
-  Itest_Directive? As_Directive { get; }
-  Itest_DirectivesObject? As__Directives { get; }
+  public TTypeKind TypeKind { get; set; }
 }
 
-public interface Itest_DirectivesObject
-  : Itest_AndTypeObject
+internal class test_TypeSimpleDecoder
 {
-  Itest_Directive Directive { get; }
 }
 
-public interface Itest_Directive
-  : Itest_Aliased
+internal class test_CollectionsDecoder
 {
-  Itest_DirectiveObject? As__Directive { get; }
 }
 
-public interface Itest_DirectiveObject
-  : Itest_AliasedObject
+internal class test_ModifierKeyedDecoder<TModifierKind>
 {
-  Itest_InputFieldType? Parameter { get; }
-  bool Repeatable { get; }
-  IDictionary<test_Location, GqlpUnit> Locations { get; }
+  public Itest_TypeSimple By { get; set; }
+  public bool IsOptional { get; set; }
 }
 
-public enum test_Location
+internal class test_ModifiersDecoder
 {
-  Operation,
-  Variable,
-  Field,
-  Inline,
-  Spread,
-  Fragment,
 }
 
-public interface Itest_Setting
-  : Itest_Named
+internal class test_ModifierKindDecoder
 {
-  Itest_SettingObject? As__Setting { get; }
+  public string Opt { get; set; }
+  public string Optional { get; set; }
+  public string List { get; set; }
+  public string Dict { get; set; }
+  public string Dictionary { get; set; }
+  public string Param { get; set; }
+  public string TypeParam { get; set; }
 }
 
-public interface Itest_SettingObject
-  : Itest_NamedObject
+internal class test_ModifierDecoder<TModifierKind>
 {
-  GqlpValue Value { get; }
+  public TModifierKind ModifierKind { get; set; }
 }
 
-public interface Itest_Type
-  // No Base because it's Class
+internal class test_DomainKindDecoder
 {
-  Itest_BaseType<test_TypeKind>? As_TypeKindBasic { get; }
-  Itest_BaseType<test_TypeKind>? As_TypeKindInternal { get; }
-  Itest_BaseDomain<test_DomainKind, Itest_DomainTrueFalse, Itest_DomainItemTrueFalse>? As_DomainKindBoolean { get; }
-  Itest_BaseDomain<test_DomainKind, Itest_DomainLabel, Itest_DomainItemLabel>? As_DomainKindEnum { get; }
-  Itest_BaseDomain<test_DomainKind, Itest_DomainRange, Itest_DomainItemRange>? As_DomainKindNumber { get; }
-  Itest_BaseDomain<test_DomainKind, Itest_DomainRegex, Itest_DomainItemRegex>? As_DomainKindString { get; }
-  Itest_ParentType<test_TypeKind, Itest_Aliased, Itest_EnumLabel>? As_TypeKindEnum { get; }
-  Itest_ParentType<test_TypeKind, Itest_UnionRef, Itest_UnionMember>? As_TypeKindUnion { get; }
-  Itest_TypeObject<test_TypeKind, Itest_DualField>? As_TypeKindDual { get; }
-  Itest_TypeObject<test_TypeKind, Itest_InputField>? As_TypeKindInput { get; }
-  Itest_TypeObject<test_TypeKind, Itest_OutputField>? As_TypeKindOutput { get; }
-  Itest_TypeObject? As__Type { get; }
+  public string Boolean { get; set; }
+  public string Enum { get; set; }
+  public string Number { get; set; }
+  public string String { get; set; }
 }
 
-public interface Itest_TypeObject
-  // No Base because it's Class
+internal class test_DomainRefDecoder<TDomainKind>
 {
+  public TDomainKind DomainKind { get; set; }
 }
 
-public interface Itest_BaseType<TTypeKind>
-  : Itest_Aliased
+internal class test_BaseDomainDecoder<TDomainKind,TItem,TDomainItem>
 {
-  Itest_BaseTypeObject<TTypeKind>? As__BaseType { get; }
+  public TDomainKind DomainKind { get; set; }
 }
 
-public interface Itest_BaseTypeObject<TTypeKind>
-  : Itest_AliasedObject
+internal class test_BaseDomainItemDecoder
 {
-  TTypeKind TypeKind { get; }
+  public bool Exclude { get; set; }
 }
 
-public interface Itest_ChildType<TTypeKind,TParent>
-  : Itest_BaseType<TTypeKind>
+internal class test_DomainItemDecoder<TItem>
 {
-  Itest_ChildTypeObject<TTypeKind,TParent>? As__ChildType { get; }
+  public Itest_Name Domain { get; set; }
 }
 
-public interface Itest_ChildTypeObject<TTypeKind,TParent>
-  : Itest_BaseTypeObject<TTypeKind>
+internal class test_DomainValueDecoder<TDomainKind,TValue>
 {
-  TParent Parent { get; }
+  public TValue Value { get; set; }
 }
 
-public interface Itest_ParentType<TTypeKind,TItem,TAllItem>
-  : Itest_ChildType<TTypeKind, Itest_Named>
+internal class test_BasicValueDecoder
 {
-  Itest_ParentTypeObject<TTypeKind,TItem,TAllItem>? As__ParentType { get; }
 }
 
-public interface Itest_ParentTypeObject<TTypeKind,TItem,TAllItem>
-  : Itest_ChildTypeObject<TTypeKind, Itest_Named>
+internal class test_DomainTrueFalseDecoder
 {
-  ICollection<TItem> Items { get; }
-  ICollection<TAllItem> AllItems { get; }
+  public bool Value { get; set; }
 }
 
-public enum test_SimpleKind
+internal class test_DomainItemTrueFalseDecoder
 {
-  Basic,
-  Enum,
-  Internal,
-  Domain,
-  Union,
 }
 
-public enum test_TypeKind
+internal class test_DomainLabelDecoder
 {
-  Basic = test_SimpleKind.Basic,
-  Enum = test_SimpleKind.Enum,
-  Internal = test_SimpleKind.Internal,
-  Domain = test_SimpleKind.Domain,
-  Union = test_SimpleKind.Union,
-  Dual,
-  Input,
-  Output,
+  public Itest_EnumValue Label { get; set; }
 }
 
-public interface Itest_TypeRef<TTypeKind>
-  : Itest_Named
+internal class test_DomainItemLabelDecoder
 {
-  Itest_TypeRefObject<TTypeKind>? As__TypeRef { get; }
 }
 
-public interface Itest_TypeRefObject<TTypeKind>
-  : Itest_NamedObject
+internal class test_DomainRangeDecoder
 {
-  TTypeKind TypeKind { get; }
+  public decimal? Lower { get; set; }
+  public decimal? Upper { get; set; }
 }
 
-public interface Itest_TypeSimple
-  // No Base because it's Class
+internal class test_DomainItemRangeDecoder
 {
-  Itest_TypeRef<test_TypeKind>? As_TypeKindBasic { get; }
-  Itest_TypeRef<test_TypeKind>? As_TypeKindEnum { get; }
-  Itest_TypeRef<test_TypeKind>? As_TypeKindDomain { get; }
-  Itest_TypeRef<test_TypeKind>? As_TypeKindUnion { get; }
-  Itest_TypeSimpleObject? As__TypeSimple { get; }
 }
 
-public interface Itest_TypeSimpleObject
-  // No Base because it's Class
+internal class test_DomainRegexDecoder
 {
+  public string Pattern { get; set; }
 }
 
-public interface Itest_Collections
-  // No Base because it's Class
+internal class test_DomainItemRegexDecoder
 {
-  Itest_Modifier<test_ModifierKind>? As_ModifierKindList { get; }
-  Itest_ModifierKeyed<test_ModifierKind>? As_ModifierKindDictionary { get; }
-  Itest_ModifierKeyed<test_ModifierKind>? As_ModifierKindTypeParam { get; }
-  Itest_CollectionsObject? As__Collections { get; }
 }
 
-public interface Itest_CollectionsObject
-  // No Base because it's Class
+internal class test_EnumLabelDecoder
 {
+  public Itest_Name EnumType { get; set; }
 }
 
-public interface Itest_ModifierKeyed<TModifierKind>
-  : Itest_Modifier<TModifierKind>
+internal class test_EnumValueDecoder
 {
-  Itest_ModifierKeyedObject<TModifierKind>? As__ModifierKeyed { get; }
+  public Itest_Name Label { get; set; }
 }
 
-public interface Itest_ModifierKeyedObject<TModifierKind>
-  : Itest_ModifierObject<TModifierKind>
+internal class test_UnionRefDecoder
 {
-  Itest_TypeSimple By { get; }
-  bool IsOptional { get; }
 }
 
-public interface Itest_Modifiers
-  // No Base because it's Class
+internal class test_UnionMemberDecoder
 {
-  Itest_Modifier<test_ModifierKind>? As_ModifierKindOptional { get; }
-  Itest_Collections? As_Collections { get; }
-  Itest_ModifiersObject? As__Modifiers { get; }
+  public Itest_Name Union { get; set; }
 }
 
-public interface Itest_ModifiersObject
-  // No Base because it's Class
+internal class test_ObjectKindDecoder
 {
 }
 
-public enum test_ModifierKind
+internal class test_TypeObjectDecoder<TObjectKind,TField>
 {
-  Opt,
-  Optional = Opt,
-  List,
-  Dict,
-  Dictionary = Dict,
-  Param,
-  TypeParam = Param,
+  public ICollection<Itest_ObjTypeParam> TypeParams { get; set; }
+  public ICollection<TField> Fields { get; set; }
+  public ICollection<Itest_ObjAlternate> Alternates { get; set; }
+  public ICollection<Itest_ObjectFor<TField>> AllFields { get; set; }
+  public ICollection<Itest_ObjectFor<Itest_ObjAlternate>> AllAlternates { get; set; }
 }
 
-public interface Itest_Modifier<TModifierKind>
-  // No Base because it's Class
+internal class test_ObjTypeParamDecoder
 {
-  Itest_ModifierObject<TModifierKind>? As__Modifier { get; }
+  public Itest_TypeRef<test_TypeKind> Constraint { get; set; }
 }
 
-public interface Itest_ModifierObject<TModifierKind>
-  // No Base because it's Class
+internal class test_ObjBaseDecoder
 {
-  TModifierKind ModifierKind { get; }
+  public ICollection<Itest_ObjTypeArg> TypeArgs { get; set; }
 }
 
-public enum test_DomainKind
+internal class test_ObjTypeArgDecoder
 {
-  Boolean,
-  Enum,
-  Number,
-  String,
+  public Itest_Name? Label { get; set; }
 }
 
-public interface Itest_DomainRef<TDomainKind>
-  : Itest_TypeRef<test_TypeKind>
+internal class test_TypeParamDecoder
 {
-  Itest_DomainRefObject<TDomainKind>? As__DomainRef { get; }
+  public Itest_Name TypeParam { get; set; }
 }
 
-public interface Itest_DomainRefObject<TDomainKind>
-  : Itest_TypeRefObject<test_TypeKind>
+internal class test_ObjAlternateDecoder
 {
-  TDomainKind DomainKind { get; }
+  public Itest_ObjBase Type { get; set; }
+  public ICollection<Itest_Collections> Collections { get; set; }
 }
 
-public interface Itest_BaseDomain<TDomainKind,TItem,TDomainItem>
-  : Itest_ParentType<test_TypeKind, TItem, TDomainItem>
+internal class test_ObjAlternateEnumDecoder
 {
-  Itest_BaseDomainObject<TDomainKind,TItem,TDomainItem>? As__BaseDomain { get; }
+  public Itest_Name Label { get; set; }
 }
 
-public interface Itest_BaseDomainObject<TDomainKind,TItem,TDomainItem>
-  : Itest_ParentTypeObject<test_TypeKind, TItem, TDomainItem>
+internal class test_ObjectForDecoder<TFor>
 {
-  TDomainKind DomainKind { get; }
+  public Itest_Name ObjectType { get; set; }
 }
 
-public interface Itest_BaseDomainItem
-  : Itest_Described
+internal class test_ObjFieldDecoder<TType>
 {
-  Itest_BaseDomainItemObject? As__BaseDomainItem { get; }
+  public TType Type { get; set; }
 }
 
-public interface Itest_BaseDomainItemObject
-  : Itest_DescribedObject
+internal class test_ObjFieldTypeDecoder
 {
-  bool Exclude { get; }
+  public ICollection<Itest_Modifiers> Modifiers { get; set; }
 }
 
-public interface Itest_DomainItem<TItem>
-  // No Base because it's Class
+internal class test_ObjFieldEnumDecoder
 {
-  TItem? As_Parent { get; }
-  Itest_DomainItemObject<TItem>? As__DomainItem { get; }
+  public Itest_Name Label { get; set; }
 }
 
-public interface Itest_DomainItemObject<TItem>
-  // No Base because it's Class
+internal class test_ForParamDecoder<TType>
 {
-  Itest_Name Domain { get; }
 }
 
-public interface Itest_DomainValue<TDomainKind,TValue>
-  : Itest_DomainRef<TDomainKind>
+internal class test_DualFieldDecoder
 {
-  TValue? Asvalue { get; }
-  Itest_DomainValueObject<TDomainKind,TValue>? As__DomainValue { get; }
 }
 
-public interface Itest_DomainValueObject<TDomainKind,TValue>
-  : Itest_DomainRefObject<TDomainKind>
+internal class test_InputFieldDecoder
 {
-  TValue Value { get; }
 }
 
-public interface Itest_BasicValue
-  // No Base because it's Class
+internal class test_InputFieldTypeDecoder
 {
-  bool? AsBoolean { get; }
-  Itest_EnumValue? As_EnumValue { get; }
-  decimal? AsNumber { get; }
-  string? AsString { get; }
-  Itest_BasicValueObject? As__BasicValue { get; }
+  public GqlpValue? DefaultValue { get; set; }
 }
 
-public interface Itest_BasicValueObject
-  // No Base because it's Class
+internal class test_OutputFieldDecoder
 {
 }
 
-public interface Itest_DomainTrueFalse
-  : Itest_BaseDomainItem
+internal class test_OutputFieldTypeDecoder
 {
-  Itest_DomainTrueFalseObject? As__DomainTrueFalse { get; }
-}
-
-public interface Itest_DomainTrueFalseObject
-  : Itest_BaseDomainItemObject
-{
-  bool Value { get; }
-}
-
-public interface Itest_DomainItemTrueFalse
-  : Itest_DomainItem<Itest_DomainTrueFalse>
-{
-  Itest_DomainItemTrueFalseObject? As__DomainItemTrueFalse { get; }
-}
-
-public interface Itest_DomainItemTrueFalseObject
-  : Itest_DomainItemObject<Itest_DomainTrueFalse>
-{
-}
-
-public interface Itest_DomainLabel
-  : Itest_BaseDomainItem
-{
-  Itest_DomainLabelObject? As__DomainLabel { get; }
-}
-
-public interface Itest_DomainLabelObject
-  : Itest_BaseDomainItemObject
-{
-  Itest_EnumValue Label { get; }
-}
-
-public interface Itest_DomainItemLabel
-  : Itest_DomainItem<Itest_DomainLabel>
-{
-  Itest_DomainItemLabelObject? As__DomainItemLabel { get; }
-}
-
-public interface Itest_DomainItemLabelObject
-  : Itest_DomainItemObject<Itest_DomainLabel>
-{
-}
-
-public interface Itest_DomainRange
-  : Itest_BaseDomainItem
-{
-  Itest_DomainRangeObject? As__DomainRange { get; }
-}
-
-public interface Itest_DomainRangeObject
-  : Itest_BaseDomainItemObject
-{
-  decimal? Lower { get; }
-  decimal? Upper { get; }
-}
-
-public interface Itest_DomainItemRange
-  : Itest_DomainItem<Itest_DomainRange>
-{
-  Itest_DomainItemRangeObject? As__DomainItemRange { get; }
-}
-
-public interface Itest_DomainItemRangeObject
-  : Itest_DomainItemObject<Itest_DomainRange>
-{
-}
-
-public interface Itest_DomainRegex
-  : Itest_BaseDomainItem
-{
-  Itest_DomainRegexObject? As__DomainRegex { get; }
-}
-
-public interface Itest_DomainRegexObject
-  : Itest_BaseDomainItemObject
-{
-  string Pattern { get; }
-}
-
-public interface Itest_DomainItemRegex
-  : Itest_DomainItem<Itest_DomainRegex>
-{
-  Itest_DomainItemRegexObject? As__DomainItemRegex { get; }
-}
-
-public interface Itest_DomainItemRegexObject
-  : Itest_DomainItemObject<Itest_DomainRegex>
-{
-}
-
-public interface Itest_EnumLabel
-  : Itest_Aliased
-{
-  Itest_EnumLabelObject? As__EnumLabel { get; }
-}
-
-public interface Itest_EnumLabelObject
-  : Itest_AliasedObject
-{
-  Itest_Name EnumType { get; }
-}
-
-public interface Itest_EnumValue
-  : Itest_TypeRef<test_TypeKind>
-{
-  Itest_EnumValueObject? As__EnumValue { get; }
-}
-
-public interface Itest_EnumValueObject
-  : Itest_TypeRefObject<test_TypeKind>
-{
-  Itest_Name Label { get; }
-}
-
-public interface Itest_UnionRef
-  : Itest_TypeRef<test_SimpleKind>
-{
-  Itest_UnionRefObject? As__UnionRef { get; }
-}
-
-public interface Itest_UnionRefObject
-  : Itest_TypeRefObject<test_SimpleKind>
-{
-}
-
-public interface Itest_UnionMember
-  : Itest_UnionRef
-{
-  Itest_UnionMemberObject? As__UnionMember { get; }
-}
-
-public interface Itest_UnionMemberObject
-  : Itest_UnionRefObject
-{
-  Itest_Name Union { get; }
-}
-
-public interface Itest_ObjectKind
-  : IGqlpDomainEnum
-{
-}
-
-public interface Itest_TypeObject<TObjectKind,TField>
-  : Itest_ChildType<TObjectKind, Itest_ObjBase>
-{
-  Itest_TypeObjectObject<TObjectKind,TField>? As__TypeObject { get; }
-}
-
-public interface Itest_TypeObjectObject<TObjectKind,TField>
-  : Itest_ChildTypeObject<TObjectKind, Itest_ObjBase>
-{
-  ICollection<Itest_ObjTypeParam> TypeParams { get; }
-  ICollection<TField> Fields { get; }
-  ICollection<Itest_ObjAlternate> Alternates { get; }
-  ICollection<Itest_ObjectFor<TField>> AllFields { get; }
-  ICollection<Itest_ObjectFor<Itest_ObjAlternate>> AllAlternates { get; }
-}
-
-public interface Itest_ObjTypeParam
-  : Itest_Named
-{
-  Itest_ObjTypeParamObject? As__ObjTypeParam { get; }
-}
-
-public interface Itest_ObjTypeParamObject
-  : Itest_NamedObject
-{
-  Itest_TypeRef<test_TypeKind> Constraint { get; }
-}
-
-public interface Itest_ObjBase
-  : Itest_Named
-{
-  Itest_TypeParam? As_TypeParam { get; }
-  Itest_ObjBaseObject? As__ObjBase { get; }
-}
-
-public interface Itest_ObjBaseObject
-  : Itest_NamedObject
-{
-  ICollection<Itest_ObjTypeArg> TypeArgs { get; }
-}
-
-public interface Itest_ObjTypeArg
-  : Itest_TypeRef<test_TypeKind>
-{
-  Itest_TypeParam? As_TypeParam { get; }
-  Itest_ObjTypeArgObject? As__ObjTypeArg { get; }
-}
-
-public interface Itest_ObjTypeArgObject
-  : Itest_TypeRefObject<test_TypeKind>
-{
-  Itest_Name? Label { get; }
-}
-
-public interface Itest_TypeParam
-  : Itest_Described
-{
-  Itest_TypeParamObject? As__TypeParam { get; }
-}
-
-public interface Itest_TypeParamObject
-  : Itest_DescribedObject
-{
-  Itest_Name TypeParam { get; }
-}
-
-public interface Itest_ObjAlternate
-  // No Base because it's Class
-{
-  Itest_ObjAlternateEnum? As_ObjAlternateEnum { get; }
-  Itest_ObjAlternateObject? As__ObjAlternate { get; }
-}
-
-public interface Itest_ObjAlternateObject
-  // No Base because it's Class
-{
-  Itest_ObjBase Type { get; }
-  ICollection<Itest_Collections> Collections { get; }
-}
-
-public interface Itest_ObjAlternateEnum
-  : Itest_TypeRef<test_TypeKind>
-{
-  Itest_ObjAlternateEnumObject? As__ObjAlternateEnum { get; }
-}
-
-public interface Itest_ObjAlternateEnumObject
-  : Itest_TypeRefObject<test_TypeKind>
-{
-  Itest_Name Label { get; }
-}
-
-public interface Itest_ObjectFor<TFor>
-  // No Base because it's Class
-{
-  TFor? As_Parent { get; }
-  Itest_ObjectForObject<TFor>? As__ObjectFor { get; }
-}
-
-public interface Itest_ObjectForObject<TFor>
-  // No Base because it's Class
-{
-  Itest_Name ObjectType { get; }
-}
-
-public interface Itest_ObjField<TType>
-  : Itest_Aliased
-{
-  Itest_ObjFieldObject<TType>? As__ObjField { get; }
-}
-
-public interface Itest_ObjFieldObject<TType>
-  : Itest_AliasedObject
-{
-  TType Type { get; }
-}
-
-public interface Itest_ObjFieldType
-  : Itest_ObjBase
-{
-  Itest_ObjFieldEnum? As_ObjFieldEnum { get; }
-  Itest_ObjFieldTypeObject? As__ObjFieldType { get; }
-}
-
-public interface Itest_ObjFieldTypeObject
-  : Itest_ObjBaseObject
-{
-  ICollection<Itest_Modifiers> Modifiers { get; }
-}
-
-public interface Itest_ObjFieldEnum
-  : Itest_TypeRef<test_TypeKind>
-{
-  Itest_ObjFieldEnumObject? As__ObjFieldEnum { get; }
-}
-
-public interface Itest_ObjFieldEnumObject
-  : Itest_TypeRefObject<test_TypeKind>
-{
-  Itest_Name Label { get; }
-}
-
-public interface Itest_ForParam<TType>
-  // No Base because it's Class
-{
-  Itest_ObjAlternate? As_ObjAlternate { get; }
-  Itest_ObjField<TType>? As_ObjField { get; }
-  Itest_ForParamObject<TType>? As__ForParam { get; }
-}
-
-public interface Itest_ForParamObject<TType>
-  // No Base because it's Class
-{
-}
-
-public interface Itest_DualField
-  : Itest_ObjField<Itest_ObjFieldType>
-{
-  Itest_DualFieldObject? As__DualField { get; }
-}
-
-public interface Itest_DualFieldObject
-  : Itest_ObjFieldObject<Itest_ObjFieldType>
-{
-}
-
-public interface Itest_InputField
-  : Itest_ObjField<Itest_InputFieldType>
-{
-  Itest_InputFieldObject? As__InputField { get; }
-}
-
-public interface Itest_InputFieldObject
-  : Itest_ObjFieldObject<Itest_InputFieldType>
-{
-}
-
-public interface Itest_InputFieldType
-  : Itest_ObjFieldType
-{
-  Itest_InputFieldTypeObject? As__InputFieldType { get; }
-}
-
-public interface Itest_InputFieldTypeObject
-  : Itest_ObjFieldTypeObject
-{
-  GqlpValue? DefaultValue { get; }
-}
-
-public interface Itest_OutputField
-  : Itest_ObjField<Itest_ObjFieldType>
-{
-  Itest_OutputFieldObject? As__OutputField { get; }
-}
-
-public interface Itest_OutputFieldObject
-  : Itest_ObjFieldObject<Itest_ObjFieldType>
-{
-}
-
-public interface Itest_OutputFieldType
-  : Itest_ObjFieldType
-{
-  Itest_OutputFieldTypeObject? As__OutputFieldType { get; }
-}
-
-public interface Itest_OutputFieldTypeObject
-  : Itest_ObjFieldTypeObject
-{
-  Itest_InputFieldType? Parameter { get; }
+  public Itest_InputFieldType? Parameter { get; set; }
 }

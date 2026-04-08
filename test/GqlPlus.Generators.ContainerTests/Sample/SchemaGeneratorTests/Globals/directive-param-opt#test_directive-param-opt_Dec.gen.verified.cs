@@ -7,13 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_directive_param_opt;
 
-public interface ItestInDrctParamOpt
-  // No Base because it's Class
-{
-  ItestInDrctParamOptObject? As_InDrctParamOpt { get; }
-}
-
-public interface ItestInDrctParamOptObject
-  // No Base because it's Class
+internal class testInDrctParamOptDecoder
 {
 }

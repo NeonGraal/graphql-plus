@@ -7,14 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_Input;
 
-public interface ItestCnstAltInp<TType>
-  // No Base because it's Class
-{
-  TType? Astype { get; }
-  ItestCnstAltInpObject<TType>? As_CnstAltInp { get; }
-}
-
-public interface ItestCnstAltInpObject<TType>
-  // No Base because it's Class
+internal class testCnstAltInpDecoder<TType>
 {
 }

@@ -11,26 +11,10 @@ input RefGnrcAltSmplInp<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_alt_simple_Input;
 
-public interface ICmptGnrcAltSmplInp
-  // No Base because it's Class
-{
-  ICmptRefGnrcAltSmplInp<string>? AsRefGnrcAltSmplInp { get; }
-  ICmptGnrcAltSmplInpObject? As_GnrcAltSmplInp { get; }
-}
-
-public interface ICmptGnrcAltSmplInpObject
-  // No Base because it's Class
+internal class CmptGnrcAltSmplInpDecoder
 {
 }
 
-public interface ICmptRefGnrcAltSmplInp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ICmptRefGnrcAltSmplInpObject<TRef>? As_RefGnrcAltSmplInp { get; }
-}
-
-public interface ICmptRefGnrcAltSmplInpObject<TRef>
-  // No Base because it's Class
+internal class CmptRefGnrcAltSmplInpDecoder<TRef>
 {
 }

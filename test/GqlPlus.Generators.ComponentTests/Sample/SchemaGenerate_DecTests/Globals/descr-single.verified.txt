@@ -11,13 +11,6 @@ output DescrSngl { }
 
 namespace Components.Gqlp_Schema_descr_single;
 
-public interface ICmptDescrSngl
-  // No Base because it's Class
-{
-  ICmptDescrSnglObject? As_DescrSngl { get; }
-}
-
-public interface ICmptDescrSnglObject
-  // No Base because it's Class
+internal class CmptDescrSnglDecoder
 {
 }

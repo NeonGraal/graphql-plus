@@ -11,7 +11,7 @@ enum EnumAlias [En2] { enumAlias }
 
 namespace Components.Gqlp_Schema_enum_alias;
 
-public enum CmptEnumAlias
+internal class CmptEnumAliasDecoder
 {
-  enumAlias,
+  public string enumAlias { get; set; }
 }

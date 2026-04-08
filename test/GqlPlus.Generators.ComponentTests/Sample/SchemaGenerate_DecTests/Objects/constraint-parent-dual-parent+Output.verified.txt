@@ -13,49 +13,19 @@ output AltCnstPrntDualPrntOutp { :PrntCnstPrntDualPrntOutp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_parent_dual_parent_Output;
 
-public interface ICmptCnstPrntDualPrntOutp
-  : ICmptRefCnstPrntDualPrntOutp<ICmptAltCnstPrntDualPrntOutp>
-{
-  ICmptCnstPrntDualPrntOutpObject? As_CnstPrntDualPrntOutp { get; }
-}
-
-public interface ICmptCnstPrntDualPrntOutpObject
-  : ICmptRefCnstPrntDualPrntOutpObject<ICmptAltCnstPrntDualPrntOutp>
+internal class CmptCnstPrntDualPrntOutpDecoder
 {
 }
 
-public interface ICmptRefCnstPrntDualPrntOutp<TRef>
-  // No Base because it's Class
-{
-  TRef? As_Parent { get; }
-  ICmptRefCnstPrntDualPrntOutpObject<TRef>? As_RefCnstPrntDualPrntOutp { get; }
-}
-
-public interface ICmptRefCnstPrntDualPrntOutpObject<TRef>
-  // No Base because it's Class
+internal class CmptRefCnstPrntDualPrntOutpDecoder<TRef>
 {
 }
 
-public interface ICmptPrntCnstPrntDualPrntOutp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ICmptPrntCnstPrntDualPrntOutpObject? As_PrntCnstPrntDualPrntOutp { get; }
-}
-
-public interface ICmptPrntCnstPrntDualPrntOutpObject
-  // No Base because it's Class
+internal class CmptPrntCnstPrntDualPrntOutpDecoder
 {
 }
 
-public interface ICmptAltCnstPrntDualPrntOutp
-  : ICmptPrntCnstPrntDualPrntOutp
+internal class CmptAltCnstPrntDualPrntOutpDecoder
 {
-  ICmptAltCnstPrntDualPrntOutpObject? As_AltCnstPrntDualPrntOutp { get; }
-}
-
-public interface ICmptAltCnstPrntDualPrntOutpObject
-  : ICmptPrntCnstPrntDualPrntOutpObject
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

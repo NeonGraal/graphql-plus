@@ -10,14 +10,7 @@ dual FieldTypeDescrDual { field: "Test" "Descr" Number }
 
 namespace Components.Gqlp_Schema_field_type_descr_Dual;
 
-public interface ICmptFieldTypeDescrDual
-  // No Base because it's Class
+internal class CmptFieldTypeDescrDualDecoder
 {
-  ICmptFieldTypeDescrDualObject? As_FieldTypeDescrDual { get; }
-}
-
-public interface ICmptFieldTypeDescrDualObject
-  // No Base because it's Class
-{
-  decimal Field { get; }
+  public decimal Field { get; set; }
 }

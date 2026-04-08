@@ -13,53 +13,22 @@ enum ParentGnrcPrntEnumChildDual { gnrcPrntEnumChildDualParent }
 
 namespace Components.Gqlp_Schema_generic_parent_enum_child_Dual;
 
-public class CmptGnrcPrntEnumChildDual
-  : CmptFieldGnrcPrntEnumChildDual<CmptParentGnrcPrntEnumChildDual>
-  , ICmptGnrcPrntEnumChildDual
+internal class CmptGnrcPrntEnumChildDualEncoder
 {
-  public ICmptGnrcPrntEnumChildDualObject? As_GnrcPrntEnumChildDual { get; set; }
 }
 
-public class CmptGnrcPrntEnumChildDualObject
-  : CmptFieldGnrcPrntEnumChildDualObject<CmptParentGnrcPrntEnumChildDual>
-  , ICmptGnrcPrntEnumChildDualObject
-{
-
-  public CmptGnrcPrntEnumChildDualObject
-    ( CmptParentGnrcPrntEnumChildDual field
-    ) : base(field)
-  {
-  }
-}
-
-public class CmptFieldGnrcPrntEnumChildDual<TRef>
-  : Schema_generic-parent-enum-child+Dual
-  , ICmptFieldGnrcPrntEnumChildDual<TRef>
-{
-  public ICmptFieldGnrcPrntEnumChildDualObject<TRef>? As_FieldGnrcPrntEnumChildDual { get; set; }
-}
-
-public class CmptFieldGnrcPrntEnumChildDualObject<TRef>
-  : Schema_generic-parent-enum-child+Dual
-  , ICmptFieldGnrcPrntEnumChildDualObject<TRef>
+internal class CmptFieldGnrcPrntEnumChildDualEncoder<TRef>
 {
   public TRef Field { get; set; }
-
-  public CmptFieldGnrcPrntEnumChildDualObject
-    ( TRef field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum CmptEnumGnrcPrntEnumChildDual
+internal class CmptEnumGnrcPrntEnumChildDualEncoder
 {
-  gnrcPrntEnumChildDualParent = CmptParentGnrcPrntEnumChildDual.gnrcPrntEnumChildDualParent,
-  gnrcPrntEnumChildDualLabel,
+  public string gnrcPrntEnumChildDualParent { get; set; }
+  public string gnrcPrntEnumChildDualLabel { get; set; }
 }
 
-public enum CmptParentGnrcPrntEnumChildDual
+internal class CmptParentGnrcPrntEnumChildDualEncoder
 {
-  gnrcPrntEnumChildDualParent,
+  public string gnrcPrntEnumChildDualParent { get; set; }
 }

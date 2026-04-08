@@ -7,47 +7,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_simple_enum_Input;
 
-public class testGnrcPrntSmplEnumInp
-  : testFieldGnrcPrntSmplEnumInp<testEnumGnrcPrntSmplEnumInp>
-  , ItestGnrcPrntSmplEnumInp
+internal class testGnrcPrntSmplEnumInpEncoder
 {
-  public ItestGnrcPrntSmplEnumInpObject? As_GnrcPrntSmplEnumInp { get; set; }
 }
 
-public class testGnrcPrntSmplEnumInpObject
-  : testFieldGnrcPrntSmplEnumInpObject<testEnumGnrcPrntSmplEnumInp>
-  , ItestGnrcPrntSmplEnumInpObject
-{
-
-  public testGnrcPrntSmplEnumInpObject
-    ( testEnumGnrcPrntSmplEnumInp field
-    ) : base(field)
-  {
-  }
-}
-
-public class testFieldGnrcPrntSmplEnumInp<TRef>
-  : GqlpEncoderBase
-  , ItestFieldGnrcPrntSmplEnumInp<TRef>
-{
-  public ItestFieldGnrcPrntSmplEnumInpObject<TRef>? As_FieldGnrcPrntSmplEnumInp { get; set; }
-}
-
-public class testFieldGnrcPrntSmplEnumInpObject<TRef>
-  : GqlpEncoderBase
-  , ItestFieldGnrcPrntSmplEnumInpObject<TRef>
+internal class testFieldGnrcPrntSmplEnumInpEncoder<TRef>
 {
   public TRef Field { get; set; }
-
-  public testFieldGnrcPrntSmplEnumInpObject
-    ( TRef field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum testEnumGnrcPrntSmplEnumInp
+internal class testEnumGnrcPrntSmplEnumInpEncoder
 {
-  gnrcPrntSmplEnumInp,
+  public string gnrcPrntSmplEnumInp { get; set; }
 }

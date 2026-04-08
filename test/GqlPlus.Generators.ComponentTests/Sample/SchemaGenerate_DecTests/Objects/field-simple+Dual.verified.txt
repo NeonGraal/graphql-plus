@@ -10,14 +10,7 @@ dual FieldSmplDual { field: Number }
 
 namespace Components.Gqlp_Schema_field_simple_Dual;
 
-public interface ICmptFieldSmplDual
-  // No Base because it's Class
+internal class CmptFieldSmplDualDecoder
 {
-  ICmptFieldSmplDualObject? As_FieldSmplDual { get; }
-}
-
-public interface ICmptFieldSmplDualObject
-  // No Base because it's Class
-{
-  decimal Field { get; }
+  public decimal Field { get; set; }
 }

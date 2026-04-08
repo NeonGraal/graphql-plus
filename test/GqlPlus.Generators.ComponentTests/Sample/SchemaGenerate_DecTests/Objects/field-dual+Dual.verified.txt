@@ -11,27 +11,12 @@ dual FldFieldDualDual { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_dual_Dual;
 
-public interface ICmptFieldDualDual
-  // No Base because it's Class
+internal class CmptFieldDualDualDecoder
 {
-  ICmptFieldDualDualObject? As_FieldDualDual { get; }
+  public ICmptFldFieldDualDual Field { get; set; }
 }
 
-public interface ICmptFieldDualDualObject
-  // No Base because it's Class
+internal class CmptFldFieldDualDualDecoder
 {
-  ICmptFldFieldDualDual Field { get; }
-}
-
-public interface ICmptFldFieldDualDual
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ICmptFldFieldDualDualObject? As_FldFieldDualDual { get; }
-}
-
-public interface ICmptFldFieldDualDualObject
-  // No Base because it's Class
-{
-  decimal Field { get; }
+  public decimal Field { get; set; }
 }

@@ -7,36 +7,21 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Category;
 
-public interface Itest_Categories
-  : Itest_AndType
+internal class test_CategoriesDecoder
 {
-  Itest_Category? As_Category { get; }
-  Itest_CategoriesObject? As__Categories { get; }
+  public Itest_Category Category { get; set; }
 }
 
-public interface Itest_CategoriesObject
-  : Itest_AndTypeObject
+internal class test_CategoryDecoder
 {
-  Itest_Category Category { get; }
+  public test_Resolution Resolution { get; set; }
+  public Itest_TypeRef<Itest_TypeKind> Output { get; set; }
+  public ICollection<Itest_Modifiers> Modifiers { get; set; }
 }
 
-public interface Itest_Category
-  : Itest_Aliased
+internal class test_ResolutionDecoder
 {
-  Itest_CategoryObject? As__Category { get; }
-}
-
-public interface Itest_CategoryObject
-  : Itest_AliasedObject
-{
-  test_Resolution Resolution { get; }
-  Itest_TypeRef<Itest_TypeKind> Output { get; }
-  ICollection<Itest_Modifiers> Modifiers { get; }
-}
-
-public enum test_Resolution
-{
-  Parallel,
-  Sequential,
-  Single,
+  public string Parallel { get; set; }
+  public string Sequential { get; set; }
+  public string Single { get; set; }
 }

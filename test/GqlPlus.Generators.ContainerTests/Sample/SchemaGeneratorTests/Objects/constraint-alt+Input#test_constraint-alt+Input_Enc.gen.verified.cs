@@ -7,21 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_Input;
 
-public class testCnstAltInp<TType>
-  : GqlpEncoderBase
-  , ItestCnstAltInp<TType>
+internal class testCnstAltInpEncoder<TType>
 {
-  public TType? Astype { get; set; }
-  public ItestCnstAltInpObject<TType>? As_CnstAltInp { get; set; }
-}
-
-public class testCnstAltInpObject<TType>
-  : GqlpEncoderBase
-  , ItestCnstAltInpObject<TType>
-{
-
-  public testCnstAltInpObject
-    ()
-  {
-  }
 }

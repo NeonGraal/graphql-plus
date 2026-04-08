@@ -7,54 +7,21 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_dom_enum_Output;
 
-public class testCnstDomEnumOutp
-  : GqlpEncoderBase
-  , ItestCnstDomEnumOutp
+internal class testCnstDomEnumOutpEncoder
 {
-  public ItestRefCnstDomEnumOutp<testEnumCnstDomEnumOutp>? AsEnumCnstDomEnumOutpcnstDomEnumOutp { get; set; }
-  public ItestCnstDomEnumOutpObject? As_CnstDomEnumOutp { get; set; }
 }
 
-public class testCnstDomEnumOutpObject
-  : GqlpEncoderBase
-  , ItestCnstDomEnumOutpObject
-{
-
-  public testCnstDomEnumOutpObject
-    ()
-  {
-  }
-}
-
-public class testRefCnstDomEnumOutp<TType>
-  : GqlpEncoderBase
-  , ItestRefCnstDomEnumOutp<TType>
-{
-  public ItestRefCnstDomEnumOutpObject<TType>? As_RefCnstDomEnumOutp { get; set; }
-}
-
-public class testRefCnstDomEnumOutpObject<TType>
-  : GqlpEncoderBase
-  , ItestRefCnstDomEnumOutpObject<TType>
+internal class testRefCnstDomEnumOutpEncoder<TType>
 {
   public TType Field { get; set; }
-
-  public testRefCnstDomEnumOutpObject
-    ( TType field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum testEnumCnstDomEnumOutp
+internal class testEnumCnstDomEnumOutpEncoder
 {
-  cnstDomEnumOutp,
-  other,
+  public string cnstDomEnumOutp { get; set; }
+  public string other { get; set; }
 }
 
-public class testJustCnstDomEnumOutp
-  : GqlpDomainEnum
-  , ItestJustCnstDomEnumOutp
+internal class testJustCnstDomEnumOutpEncoder
 {
 }

@@ -12,39 +12,15 @@ output AltGnrcAltParamOutp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_alt_param_Output;
 
-public interface ICmptGnrcAltParamOutp
-  // No Base because it's Class
-{
-  ICmptRefGnrcAltParamOutp<ICmptAltGnrcAltParamOutp>? AsRefGnrcAltParamOutp { get; }
-  ICmptGnrcAltParamOutpObject? As_GnrcAltParamOutp { get; }
-}
-
-public interface ICmptGnrcAltParamOutpObject
-  // No Base because it's Class
+internal class CmptGnrcAltParamOutpDecoder
 {
 }
 
-public interface ICmptRefGnrcAltParamOutp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ICmptRefGnrcAltParamOutpObject<TRef>? As_RefGnrcAltParamOutp { get; }
-}
-
-public interface ICmptRefGnrcAltParamOutpObject<TRef>
-  // No Base because it's Class
+internal class CmptRefGnrcAltParamOutpDecoder<TRef>
 {
 }
 
-public interface ICmptAltGnrcAltParamOutp
-  // No Base because it's Class
+internal class CmptAltGnrcAltParamOutpDecoder
 {
-  string? AsString { get; }
-  ICmptAltGnrcAltParamOutpObject? As_AltGnrcAltParamOutp { get; }
-}
-
-public interface ICmptAltGnrcAltParamOutpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

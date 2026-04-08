@@ -7,8 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_same;
 
-public interface ItestUnionSame
-  // No Base because it's Class
+internal class testUnionSameDecoder
 {
-  Boolean AsBoolean { get; }
+  public Boolean AsBoolean { get; set; }
 }

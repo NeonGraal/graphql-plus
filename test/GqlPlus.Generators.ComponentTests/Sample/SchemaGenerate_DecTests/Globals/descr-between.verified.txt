@@ -12,13 +12,6 @@ output DescrBtwn { }
 
 namespace Components.Gqlp_Schema_descr_between;
 
-public interface ICmptDescrBtwn
-  // No Base because it's Class
-{
-  ICmptDescrBtwnObject? As_DescrBtwn { get; }
-}
-
-public interface ICmptDescrBtwnObject
-  // No Base because it's Class
+internal class CmptDescrBtwnDecoder
 {
 }

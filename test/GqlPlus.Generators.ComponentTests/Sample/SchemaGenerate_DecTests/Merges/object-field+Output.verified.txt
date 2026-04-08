@@ -12,25 +12,11 @@ output FldObjFieldOutp { }
 
 namespace Components.Gqlp_Schema_object_field_Output;
 
-public interface ICmptObjFieldOutp
-  // No Base because it's Class
+internal class CmptObjFieldOutpDecoder
 {
-  ICmptObjFieldOutpObject? As_ObjFieldOutp { get; }
+  public ICmptFldObjFieldOutp Field { get; set; }
 }
 
-public interface ICmptObjFieldOutpObject
-  // No Base because it's Class
-{
-  ICmptFldObjFieldOutp Field { get; }
-}
-
-public interface ICmptFldObjFieldOutp
-  // No Base because it's Class
-{
-  ICmptFldObjFieldOutpObject? As_FldObjFieldOutp { get; }
-}
-
-public interface ICmptFldObjFieldOutpObject
-  // No Base because it's Class
+internal class CmptFldObjFieldOutpDecoder
 {
 }

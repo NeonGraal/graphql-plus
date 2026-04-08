@@ -7,27 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_Output;
 
-public interface ItestAltOutp
-  // No Base because it's Class
-{
-  ItestAltAltOutp? AsAltAltOutp { get; }
-  ItestAltOutpObject? As_AltOutp { get; }
-}
-
-public interface ItestAltOutpObject
-  // No Base because it's Class
+internal class testAltOutpDecoder
 {
 }
 
-public interface ItestAltAltOutp
-  // No Base because it's Class
+internal class testAltAltOutpDecoder
 {
-  string? AsString { get; }
-  ItestAltAltOutpObject? As_AltAltOutp { get; }
-}
-
-public interface ItestAltAltOutpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

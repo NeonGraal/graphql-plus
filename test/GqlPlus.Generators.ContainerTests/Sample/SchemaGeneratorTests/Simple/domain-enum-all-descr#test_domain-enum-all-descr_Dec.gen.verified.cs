@@ -7,14 +7,13 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_all_descr;
 
-public interface ItestDmnEnumAllDescr
-  : IGqlpDomainEnum
+internal class testDmnEnumAllDescrDecoder
 {
 }
 
-public enum testEnumDmnEnumAllDescr
+internal class testEnumDmnEnumAllDescrDecoder
 {
-  dmnEnumAllDescr,
-  enum_dmnEnumAllDescr,
-  dmnEnumAllDescrValue,
+  public string dmnEnumAllDescr { get; set; }
+  public string enum_dmnEnumAllDescr { get; set; }
+  public string dmnEnumAllDescrValue { get; set; }
 }

@@ -7,46 +7,18 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_default;
 
-public interface ItestQuery
-  // No Base because it's Class
-{
-  ItestQueryObject? As_Query { get; }
-}
-
-public interface ItestQueryObject
-  // No Base because it's Class
+internal class testQueryDecoder
 {
 }
 
-public interface ItestMutation
-  // No Base because it's Class
-{
-  ItestMutationObject? As_Mutation { get; }
-}
-
-public interface ItestMutationObject
-  // No Base because it's Class
+internal class testMutationDecoder
 {
 }
 
-public interface ItestSubscription
-  // No Base because it's Class
-{
-  ItestSubscriptionObject? As_Subscription { get; }
-}
-
-public interface ItestSubscriptionObject
-  // No Base because it's Class
+internal class testSubscriptionDecoder
 {
 }
 
-public interface Itest_Schema
-  // No Base because it's Class
-{
-  Itest_SchemaObject? As__Schema { get; }
-}
-
-public interface Itest_SchemaObject
-  // No Base because it's Class
+internal class test_SchemaDecoder
 {
 }

@@ -11,28 +11,12 @@ enum EnumFieldValueDescrDual { fieldValueDescrDual }
 
 namespace Components.Gqlp_Schema_field_value_descr_Dual;
 
-public class CmptFieldValueDescrDual
-  : Schema_field-value-descr+Dual
-  , ICmptFieldValueDescrDual
-{
-  public ICmptFieldValueDescrDualObject? As_FieldValueDescrDual { get; set; }
-}
-
-public class CmptFieldValueDescrDualObject
-  : Schema_field-value-descr+Dual
-  , ICmptFieldValueDescrDualObject
+internal class CmptFieldValueDescrDualEncoder
 {
   public CmptEnumFieldValueDescrDual Field { get; set; }
-
-  public CmptFieldValueDescrDualObject
-    ( CmptEnumFieldValueDescrDual field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum CmptEnumFieldValueDescrDual
+internal class CmptEnumFieldValueDescrDualEncoder
 {
-  fieldValueDescrDual,
+  public string fieldValueDescrDual { get; set; }
 }

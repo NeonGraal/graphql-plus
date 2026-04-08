@@ -11,26 +11,10 @@ dual RefGnrcAltArgDual<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_alt_arg_Dual;
 
-public interface ICmptGnrcAltArgDual<TType>
-  // No Base because it's Class
-{
-  ICmptRefGnrcAltArgDual<TType>? AsRefGnrcAltArgDual { get; }
-  ICmptGnrcAltArgDualObject<TType>? As_GnrcAltArgDual { get; }
-}
-
-public interface ICmptGnrcAltArgDualObject<TType>
-  // No Base because it's Class
+internal class CmptGnrcAltArgDualDecoder<TType>
 {
 }
 
-public interface ICmptRefGnrcAltArgDual<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ICmptRefGnrcAltArgDualObject<TRef>? As_RefGnrcAltArgDual { get; }
-}
-
-public interface ICmptRefGnrcAltArgDualObject<TRef>
-  // No Base because it's Class
+internal class CmptRefGnrcAltArgDualDecoder<TRef>
 {
 }

@@ -7,31 +7,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_value_Input;
 
-public interface ItestGnrcValueInp
-  // No Base because it's Class
-{
-  ItestRefGnrcValueInp<testEnumGnrcValueInp>? AsEnumGnrcValueInpgnrcValueInp { get; }
-  ItestGnrcValueInpObject? As_GnrcValueInp { get; }
-}
-
-public interface ItestGnrcValueInpObject
-  // No Base because it's Class
+internal class testGnrcValueInpDecoder
 {
 }
 
-public interface ItestRefGnrcValueInp<TType>
-  // No Base because it's Class
+internal class testRefGnrcValueInpDecoder<TType>
 {
-  ItestRefGnrcValueInpObject<TType>? As_RefGnrcValueInp { get; }
+  public TType Field { get; set; }
 }
 
-public interface ItestRefGnrcValueInpObject<TType>
-  // No Base because it's Class
+internal class testEnumGnrcValueInpDecoder
 {
-  TType Field { get; }
-}
-
-public enum testEnumGnrcValueInp
-{
-  gnrcValueInp,
+  public string gnrcValueInp { get; set; }
 }

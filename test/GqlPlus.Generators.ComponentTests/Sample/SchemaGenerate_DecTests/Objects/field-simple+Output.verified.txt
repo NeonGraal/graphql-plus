@@ -10,14 +10,7 @@ output FieldSmplOutp { field: Number }
 
 namespace Components.Gqlp_Schema_field_simple_Output;
 
-public interface ICmptFieldSmplOutp
-  // No Base because it's Class
+internal class CmptFieldSmplOutpDecoder
 {
-  ICmptFieldSmplOutpObject? As_FieldSmplOutp { get; }
-}
-
-public interface ICmptFieldSmplOutpObject
-  // No Base because it's Class
-{
-  decimal Field { get; }
+  public decimal Field { get; set; }
 }

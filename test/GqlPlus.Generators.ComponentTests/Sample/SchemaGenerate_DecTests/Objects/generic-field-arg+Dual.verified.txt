@@ -11,26 +11,11 @@ dual RefGnrcFieldArgDual<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_field_arg_Dual;
 
-public interface ICmptGnrcFieldArgDual<TType>
-  // No Base because it's Class
+internal class CmptGnrcFieldArgDualDecoder<TType>
 {
-  ICmptGnrcFieldArgDualObject<TType>? As_GnrcFieldArgDual { get; }
+  public ICmptRefGnrcFieldArgDual<TType> Field { get; set; }
 }
 
-public interface ICmptGnrcFieldArgDualObject<TType>
-  // No Base because it's Class
-{
-  ICmptRefGnrcFieldArgDual<TType> Field { get; }
-}
-
-public interface ICmptRefGnrcFieldArgDual<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ICmptRefGnrcFieldArgDualObject<TRef>? As_RefGnrcFieldArgDual { get; }
-}
-
-public interface ICmptRefGnrcFieldArgDualObject<TRef>
-  // No Base because it's Class
+internal class CmptRefGnrcFieldArgDualDecoder<TRef>
 {
 }

@@ -11,28 +11,12 @@ enum EnumFieldEnumOutp { fieldEnumOutp }
 
 namespace Components.Gqlp_Schema_field_enum_Output;
 
-public class CmptFieldEnumOutp
-  : Schema_field-enum+Output
-  , ICmptFieldEnumOutp
-{
-  public ICmptFieldEnumOutpObject? As_FieldEnumOutp { get; set; }
-}
-
-public class CmptFieldEnumOutpObject
-  : Schema_field-enum+Output
-  , ICmptFieldEnumOutpObject
+internal class CmptFieldEnumOutpEncoder
 {
   public CmptEnumFieldEnumOutp Field { get; set; }
-
-  public CmptFieldEnumOutpObject
-    ( CmptEnumFieldEnumOutp field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum CmptEnumFieldEnumOutp
+internal class CmptEnumFieldEnumOutpEncoder
 {
-  fieldEnumOutp,
+  public string fieldEnumOutp { get; set; }
 }

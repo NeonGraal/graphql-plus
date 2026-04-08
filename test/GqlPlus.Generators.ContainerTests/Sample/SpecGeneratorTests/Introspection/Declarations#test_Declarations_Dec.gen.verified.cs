@@ -7,68 +7,41 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Declarations;
 
-public interface Itest_Schema
-  : Itest_Named
+internal class test_SchemaDecoder
 {
-  Itest_SchemaObject? As__Schema { get; }
+  public IDictionary<Itest_Name, Itest_Categories>? Categories(Itest_CategoryFilter? parameter)
+    => null;
+  public IDictionary<Itest_Name, Itest_Directives>? Directives(Itest_Filter? parameter)
+    => null;
+  public IDictionary<Itest_Name, Itest_Type>? Types(Itest_TypeFilter? parameter)
+    => null;
+  public IDictionary<Itest_Name, Itest_Setting>? Settings(Itest_Filter? parameter)
+    => null;
 }
 
-public interface Itest_SchemaObject
-  : Itest_NamedObject
-{
-  IDictionary<Itest_Name, Itest_Categories>? Categories(Itest_CategoryFilter? parameter);
-  IDictionary<Itest_Name, Itest_Directives>? Directives(Itest_Filter? parameter);
-  IDictionary<Itest_Name, Itest_Type>? Types(Itest_TypeFilter? parameter);
-  IDictionary<Itest_Name, Itest_Setting>? Settings(Itest_Filter? parameter);
-}
-
-public interface Itest_Name
-  : IGqlpDomainString
+internal class test_NameDecoder
 {
 }
 
-public interface Itest_Filter
-  // No Base because it's Class
+internal class test_FilterDecoder
 {
-  ICollection<Itest_NameFilter>? As_NameFilter { get; }
-  Itest_FilterObject? As__Filter { get; }
+  public ICollection<Itest_NameFilter> Names { get; set; }
+  public bool? MatchAliases { get; set; }
+  public ICollection<Itest_NameFilter> Aliases { get; set; }
+  public bool? ReturnByAlias { get; set; }
+  public bool? ReturnReferencedTypes { get; set; }
 }
 
-public interface Itest_FilterObject
-  // No Base because it's Class
-{
-  ICollection<Itest_NameFilter> Names { get; }
-  bool? MatchAliases { get; }
-  ICollection<Itest_NameFilter> Aliases { get; }
-  bool? ReturnByAlias { get; }
-  bool? ReturnReferencedTypes { get; }
-}
-
-public interface Itest_NameFilter
-  : IGqlpDomainString
+internal class test_NameFilterDecoder
 {
 }
 
-public interface Itest_CategoryFilter
-  : Itest_Filter
+internal class test_CategoryFilterDecoder
 {
-  Itest_CategoryFilterObject? As__CategoryFilter { get; }
+  public ICollection<Itest_Resolution> Resolutions { get; set; }
 }
 
-public interface Itest_CategoryFilterObject
-  : Itest_FilterObject
+internal class test_TypeFilterDecoder
 {
-  ICollection<Itest_Resolution> Resolutions { get; }
-}
-
-public interface Itest_TypeFilter
-  : Itest_Filter
-{
-  Itest_TypeFilterObject? As__TypeFilter { get; }
-}
-
-public interface Itest_TypeFilterObject
-  : Itest_FilterObject
-{
-  ICollection<Itest_TypeKind> Kinds { get; }
+  public ICollection<Itest_TypeKind> Kinds { get; set; }
 }

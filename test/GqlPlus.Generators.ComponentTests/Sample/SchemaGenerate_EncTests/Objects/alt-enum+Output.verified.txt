@@ -11,26 +11,11 @@ enum EnumAltEnumOutp { altEnumOutp }
 
 namespace Components.Gqlp_Schema_alt_enum_Output;
 
-public class CmptAltEnumOutp
-  : Schema_alt-enum+Output
-  , ICmptAltEnumOutp
+internal class CmptAltEnumOutpEncoder
 {
-  public CmptEnumAltEnumOutp? AsEnumAltEnumOutpaltEnumOutp { get; set; }
-  public ICmptAltEnumOutpObject? As_AltEnumOutp { get; set; }
 }
 
-public class CmptAltEnumOutpObject
-  : Schema_alt-enum+Output
-  , ICmptAltEnumOutpObject
+internal class CmptEnumAltEnumOutpEncoder
 {
-
-  public CmptAltEnumOutpObject
-    ()
-  {
-  }
-}
-
-public enum CmptEnumAltEnumOutp
-{
-  altEnumOutp,
+  public string altEnumOutp { get; set; }
 }

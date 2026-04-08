@@ -50,160 +50,53 @@ output _Setting {
 
 namespace Components.Gqlp_Spec_Global;
 
-public class Cmpt_AndType
-  : Cmpt_Named
-  , ICmpt_AndType
-{
-  public ICmpt_Type? As_Type { get; set; }
-  public ICmpt_AndTypeObject? As__AndType { get; set; }
-}
-
-public class Cmpt_AndTypeObject
-  : Cmpt_NamedObject
-  , ICmpt_AndTypeObject
+internal class Cmpt_AndTypeEncoder
 {
   public ICmpt_Type Type { get; set; }
-
-  public Cmpt_AndTypeObject
-    ( ICmpt_Type type
-    )
-  {
-    Type = type;
-  }
 }
 
-public class Cmpt_Categories
-  : Cmpt_AndType
-  , ICmpt_Categories
-{
-  public ICmpt_Category? As_Category { get; set; }
-  public ICmpt_CategoriesObject? As__Categories { get; set; }
-}
-
-public class Cmpt_CategoriesObject
-  : Cmpt_AndTypeObject
-  , ICmpt_CategoriesObject
+internal class Cmpt_CategoriesEncoder
 {
   public ICmpt_Category Category { get; set; }
-
-  public Cmpt_CategoriesObject
-    ( ICmpt_Type type
-    , ICmpt_Category category
-    ) : base(type)
-  {
-    Category = category;
-  }
 }
 
-public class Cmpt_Category
-  : Cmpt_Aliased
-  , ICmpt_Category
-{
-  public ICmpt_CategoryObject? As__Category { get; set; }
-}
-
-public class Cmpt_CategoryObject
-  : Cmpt_AliasedObject
-  , ICmpt_CategoryObject
+internal class Cmpt_CategoryEncoder
 {
   public Cmpt_Resolution Resolution { get; set; }
   public ICmpt_TypeRef<ICmpt_TypeKind> Output { get; set; }
   public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
-
-  public Cmpt_CategoryObject
-    ( Cmpt_Resolution resolution
-    , ICmpt_TypeRef<ICmpt_TypeKind> output
-    , ICollection<ICmpt_Modifiers> modifiers
-    )
-  {
-    Resolution = resolution;
-    Output = output;
-    Modifiers = modifiers;
-  }
 }
 
-public enum Cmpt_Resolution
+internal class Cmpt_ResolutionEncoder
 {
-  Parallel,
-  Sequential,
-  Single,
+  public string Parallel { get; set; }
+  public string Sequential { get; set; }
+  public string Single { get; set; }
 }
 
-public class Cmpt_Directives
-  : Cmpt_AndType
-  , ICmpt_Directives
-{
-  public ICmpt_Directive? As_Directive { get; set; }
-  public ICmpt_DirectivesObject? As__Directives { get; set; }
-}
-
-public class Cmpt_DirectivesObject
-  : Cmpt_AndTypeObject
-  , ICmpt_DirectivesObject
+internal class Cmpt_DirectivesEncoder
 {
   public ICmpt_Directive Directive { get; set; }
-
-  public Cmpt_DirectivesObject
-    ( ICmpt_Type type
-    , ICmpt_Directive directive
-    ) : base(type)
-  {
-    Directive = directive;
-  }
 }
 
-public class Cmpt_Directive
-  : Cmpt_Aliased
-  , ICmpt_Directive
-{
-  public ICmpt_DirectiveObject? As__Directive { get; set; }
-}
-
-public class Cmpt_DirectiveObject
-  : Cmpt_AliasedObject
-  , ICmpt_DirectiveObject
+internal class Cmpt_DirectiveEncoder
 {
   public ICmpt_InputFieldType? Parameter { get; set; }
   public bool Repeatable { get; set; }
   public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
-
-  public Cmpt_DirectiveObject
-    ( bool repeatable
-    , IDictionary<Cmpt_Location, GqlpUnit> locations
-    )
-  {
-    Repeatable = repeatable;
-    Locations = locations;
-  }
 }
 
-public enum Cmpt_Location
+internal class Cmpt_LocationEncoder
 {
-  Operation,
-  Variable,
-  Field,
-  Inline,
-  Spread,
-  Fragment,
+  public string Operation { get; set; }
+  public string Variable { get; set; }
+  public string Field { get; set; }
+  public string Inline { get; set; }
+  public string Spread { get; set; }
+  public string Fragment { get; set; }
 }
 
-public class Cmpt_Setting
-  : Cmpt_Named
-  , ICmpt_Setting
-{
-  public ICmpt_SettingObject? As__Setting { get; set; }
-}
-
-public class Cmpt_SettingObject
-  : Cmpt_NamedObject
-  , ICmpt_SettingObject
+internal class Cmpt_SettingEncoder
 {
   public GqlpValue Value { get; set; }
-
-  public Cmpt_SettingObject
-    ( GqlpValue value
-    )
-  {
-    Value = value;
-  }
 }

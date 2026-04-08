@@ -12,31 +12,14 @@ domain DomCnstAltDmnInp { String /\w+/ }
 
 namespace Components.Gqlp_Schema_constraint_alt_domain_Input;
 
-public interface ICmptCnstAltDmnInp
-  // No Base because it's Class
-{
-  ICmptRefCnstAltDmnInp<ICmptDomCnstAltDmnInp>? AsRefCnstAltDmnInp { get; }
-  ICmptCnstAltDmnInpObject? As_CnstAltDmnInp { get; }
-}
-
-public interface ICmptCnstAltDmnInpObject
-  // No Base because it's Class
+internal class CmptCnstAltDmnInpDecoder
 {
 }
 
-public interface ICmptRefCnstAltDmnInp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ICmptRefCnstAltDmnInpObject<TRef>? As_RefCnstAltDmnInp { get; }
-}
-
-public interface ICmptRefCnstAltDmnInpObject<TRef>
-  // No Base because it's Class
+internal class CmptRefCnstAltDmnInpDecoder<TRef>
 {
 }
 
-public interface ICmptDomCnstAltDmnInp
-  : IGqlpDomainString
+internal class CmptDomCnstAltDmnInpDecoder
 {
 }

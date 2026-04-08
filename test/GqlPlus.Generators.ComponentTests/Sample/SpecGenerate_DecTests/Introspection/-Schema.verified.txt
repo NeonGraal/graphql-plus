@@ -55,104 +55,56 @@ dual _Described {
 
 namespace Components.Gqlp_Spec_Schema;
 
-public interface ICmpt_Schema
-  : ICmpt_Named
+internal class Cmpt_SchemaDecoder
 {
-  ICmpt_SchemaObject? As__Schema { get; }
+  public IDictionary<ICmpt_Name, ICmpt_Categories>? Categories(ICmpt_CategoryFilter? parameter)
+    => null;
+  public IDictionary<ICmpt_Name, ICmpt_Directives>? Directives(ICmpt_Filter? parameter)
+    => null;
+  public IDictionary<ICmpt_Name, ICmpt_Type>? Types(ICmpt_TypeFilter? parameter)
+    => null;
+  public IDictionary<ICmpt_Name, ICmpt_Setting>? Settings(ICmpt_Filter? parameter)
+    => null;
 }
 
-public interface ICmpt_SchemaObject
-  : ICmpt_NamedObject
-{
-  IDictionary<ICmpt_Name, ICmpt_Categories>? Categories(ICmpt_CategoryFilter? parameter);
-  IDictionary<ICmpt_Name, ICmpt_Directives>? Directives(ICmpt_Filter? parameter);
-  IDictionary<ICmpt_Name, ICmpt_Type>? Types(ICmpt_TypeFilter? parameter);
-  IDictionary<ICmpt_Name, ICmpt_Setting>? Settings(ICmpt_Filter? parameter);
-}
-
-public interface ICmpt_Name
-  : IGqlpDomainString
+internal class Cmpt_NameDecoder
 {
 }
 
-public interface ICmpt_Filter
-  // No Base because it's Class
+internal class Cmpt_FilterDecoder
 {
-  ICollection<ICmpt_NameFilter>? As_NameFilter { get; }
-  ICmpt_FilterObject? As__Filter { get; }
+  public ICollection<ICmpt_NameFilter> Names { get; set; }
+  public bool? MatchAliases { get; set; }
+  public ICollection<ICmpt_NameFilter> Aliases { get; set; }
+  public bool? ReturnByAlias { get; set; }
+  public bool? ReturnReferencedTypes { get; set; }
 }
 
-public interface ICmpt_FilterObject
-  // No Base because it's Class
-{
-  ICollection<ICmpt_NameFilter> Names { get; }
-  bool? MatchAliases { get; }
-  ICollection<ICmpt_NameFilter> Aliases { get; }
-  bool? ReturnByAlias { get; }
-  bool? ReturnReferencedTypes { get; }
-}
-
-public interface ICmpt_NameFilter
-  : IGqlpDomainString
+internal class Cmpt_NameFilterDecoder
 {
 }
 
-public interface ICmpt_CategoryFilter
-  : ICmpt_Filter
+internal class Cmpt_CategoryFilterDecoder
 {
-  ICmpt_CategoryFilterObject? As__CategoryFilter { get; }
+  public ICollection<ICmpt_Resolution> Resolutions { get; set; }
 }
 
-public interface ICmpt_CategoryFilterObject
-  : ICmpt_FilterObject
+internal class Cmpt_TypeFilterDecoder
 {
-  ICollection<ICmpt_Resolution> Resolutions { get; }
+  public ICollection<ICmpt_TypeKind> Kinds { get; set; }
 }
 
-public interface ICmpt_TypeFilter
-  : ICmpt_Filter
+internal class Cmpt_AliasedDecoder
 {
-  ICmpt_TypeFilterObject? As__TypeFilter { get; }
+  public ICollection<ICmpt_Name> Aliases { get; set; }
 }
 
-public interface ICmpt_TypeFilterObject
-  : ICmpt_FilterObject
+internal class Cmpt_NamedDecoder
 {
-  ICollection<ICmpt_TypeKind> Kinds { get; }
+  public ICmpt_Name Name { get; set; }
 }
 
-public interface ICmpt_Aliased
-  : ICmpt_Named
+internal class Cmpt_DescribedDecoder
 {
-  ICmpt_AliasedObject? As__Aliased { get; }
-}
-
-public interface ICmpt_AliasedObject
-  : ICmpt_NamedObject
-{
-  ICollection<ICmpt_Name> Aliases { get; }
-}
-
-public interface ICmpt_Named
-  : ICmpt_Described
-{
-  ICmpt_NamedObject? As__Named { get; }
-}
-
-public interface ICmpt_NamedObject
-  : ICmpt_DescribedObject
-{
-  ICmpt_Name Name { get; }
-}
-
-public interface ICmpt_Described
-  // No Base because it's Class
-{
-  ICmpt_DescribedObject? As__Described { get; }
-}
-
-public interface ICmpt_DescribedObject
-  // No Base because it's Class
-{
-  ICollection<string> Description { get; }
+  public ICollection<string> Description { get; set; }
 }

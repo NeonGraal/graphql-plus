@@ -7,45 +7,12 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_mod_param_Input;
 
-public class testFieldModParamInp<TMod>
-  : GqlpEncoderBase
-  , ItestFieldModParamInp<TMod>
-{
-  public ItestFieldModParamInpObject<TMod>? As_FieldModParamInp { get; set; }
-}
-
-public class testFieldModParamInpObject<TMod>
-  : GqlpEncoderBase
-  , ItestFieldModParamInpObject<TMod>
+internal class testFieldModParamInpEncoder<TMod>
 {
   public IDictionary<TMod, ItestFldFieldModParamInp> Field { get; set; }
-
-  public testFieldModParamInpObject
-    ( IDictionary<TMod, ItestFldFieldModParamInp> field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class testFldFieldModParamInp
-  : GqlpEncoderBase
-  , ItestFldFieldModParamInp
-{
-  public string? AsString { get; set; }
-  public ItestFldFieldModParamInpObject? As_FldFieldModParamInp { get; set; }
-}
-
-public class testFldFieldModParamInpObject
-  : GqlpEncoderBase
-  , ItestFldFieldModParamInpObject
+internal class testFldFieldModParamInpEncoder
 {
   public decimal Field { get; set; }
-
-  public testFldFieldModParamInpObject
-    ( decimal field
-    )
-  {
-    Field = field;
-  }
 }

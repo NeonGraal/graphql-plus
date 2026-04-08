@@ -7,26 +7,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_arg_descr_Dual;
 
-public interface ItestGnrcAltArgDescrDual<TType>
-  // No Base because it's Class
-{
-  ItestRefGnrcAltArgDescrDual<TType>? AsRefGnrcAltArgDescrDual { get; }
-  ItestGnrcAltArgDescrDualObject<TType>? As_GnrcAltArgDescrDual { get; }
-}
-
-public interface ItestGnrcAltArgDescrDualObject<TType>
-  // No Base because it's Class
+internal class testGnrcAltArgDescrDualDecoder<TType>
 {
 }
 
-public interface ItestRefGnrcAltArgDescrDual<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcAltArgDescrDualObject<TRef>? As_RefGnrcAltArgDescrDual { get; }
-}
-
-public interface ItestRefGnrcAltArgDescrDualObject<TRef>
-  // No Base because it's Class
+internal class testRefGnrcAltArgDescrDualDecoder<TRef>
 {
 }

@@ -7,14 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_mod_String_Input;
 
-public interface ItestRefGnrcAltModStrInp<TRef>
-  // No Base because it's Class
-{
-  IDictionary<string, TRef>? Asref { get; }
-  ItestRefGnrcAltModStrInpObject<TRef>? As_RefGnrcAltModStrInp { get; }
-}
-
-public interface ItestRefGnrcAltModStrInpObject<TRef>
-  // No Base because it's Class
+internal class testRefGnrcAltModStrInpDecoder<TRef>
 {
 }

@@ -7,36 +7,22 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_parent_Output;
 
-public interface ItestGnrcPrntEnumPrntOutp
-  : ItestFieldGnrcPrntEnumPrntOutp<testEnumGnrcPrntEnumPrntOutp>
-{
-  ItestGnrcPrntEnumPrntOutpObject? As_GnrcPrntEnumPrntOutp { get; }
-}
-
-public interface ItestGnrcPrntEnumPrntOutpObject
-  : ItestFieldGnrcPrntEnumPrntOutpObject<testEnumGnrcPrntEnumPrntOutp>
+internal class testGnrcPrntEnumPrntOutpDecoder
 {
 }
 
-public interface ItestFieldGnrcPrntEnumPrntOutp<TRef>
-  // No Base because it's Class
+internal class testFieldGnrcPrntEnumPrntOutpDecoder<TRef>
 {
-  ItestFieldGnrcPrntEnumPrntOutpObject<TRef>? As_FieldGnrcPrntEnumPrntOutp { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ItestFieldGnrcPrntEnumPrntOutpObject<TRef>
-  // No Base because it's Class
+internal class testEnumGnrcPrntEnumPrntOutpDecoder
 {
-  TRef Field { get; }
+  public string gnrcPrntEnumPrntOutpParent { get; set; }
+  public string gnrcPrntEnumPrntOutpLabel { get; set; }
 }
 
-public enum testEnumGnrcPrntEnumPrntOutp
+internal class testParentGnrcPrntEnumPrntOutpDecoder
 {
-  gnrcPrntEnumPrntOutpParent = testParentGnrcPrntEnumPrntOutp.gnrcPrntEnumPrntOutpParent,
-  gnrcPrntEnumPrntOutpLabel,
-}
-
-public enum testParentGnrcPrntEnumPrntOutp
-{
-  gnrcPrntEnumPrntOutpParent,
+  public string gnrcPrntEnumPrntOutpParent { get; set; }
 }

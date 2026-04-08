@@ -7,8 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_same;
 
-public class testDmnEnumSame
-  : GqlpDomainEnum
-  , ItestDmnEnumSame
+internal class testDmnEnumSameEncoder
 {
 }

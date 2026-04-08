@@ -12,31 +12,14 @@ domain DomCnstAltDmnDual { String /\w+/ }
 
 namespace Components.Gqlp_Schema_constraint_alt_domain_Dual;
 
-public interface ICmptCnstAltDmnDual
-  // No Base because it's Class
-{
-  ICmptRefCnstAltDmnDual<ICmptDomCnstAltDmnDual>? AsRefCnstAltDmnDual { get; }
-  ICmptCnstAltDmnDualObject? As_CnstAltDmnDual { get; }
-}
-
-public interface ICmptCnstAltDmnDualObject
-  // No Base because it's Class
+internal class CmptCnstAltDmnDualDecoder
 {
 }
 
-public interface ICmptRefCnstAltDmnDual<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ICmptRefCnstAltDmnDualObject<TRef>? As_RefCnstAltDmnDual { get; }
-}
-
-public interface ICmptRefCnstAltDmnDualObject<TRef>
-  // No Base because it's Class
+internal class CmptRefCnstAltDmnDualDecoder<TRef>
 {
 }
 
-public interface ICmptDomCnstAltDmnDual
-  : IGqlpDomainString
+internal class CmptDomCnstAltDmnDualDecoder
 {
 }

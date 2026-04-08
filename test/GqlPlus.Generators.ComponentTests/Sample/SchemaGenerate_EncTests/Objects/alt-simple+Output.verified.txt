@@ -10,21 +10,6 @@ output AltSmplOutp { | String }
 
 namespace Components.Gqlp_Schema_alt_simple_Output;
 
-public class CmptAltSmplOutp
-  : Schema_alt-simple+Output
-  , ICmptAltSmplOutp
+internal class CmptAltSmplOutpEncoder
 {
-  public string? AsString { get; set; }
-  public ICmptAltSmplOutpObject? As_AltSmplOutp { get; set; }
-}
-
-public class CmptAltSmplOutpObject
-  : Schema_alt-simple+Output
-  , ICmptAltSmplOutpObject
-{
-
-  public CmptAltSmplOutpObject
-    ()
-  {
-  }
 }

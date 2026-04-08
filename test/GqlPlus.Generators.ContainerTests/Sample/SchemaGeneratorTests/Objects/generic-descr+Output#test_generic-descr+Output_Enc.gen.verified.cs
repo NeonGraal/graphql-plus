@@ -7,23 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_descr_Output;
 
-public class testGnrcDescrOutp<TType>
-  : GqlpEncoderBase
-  , ItestGnrcDescrOutp<TType>
-{
-  public ItestGnrcDescrOutpObject<TType>? As_GnrcDescrOutp { get; set; }
-}
-
-public class testGnrcDescrOutpObject<TType>
-  : GqlpEncoderBase
-  , ItestGnrcDescrOutpObject<TType>
+internal class testGnrcDescrOutpEncoder<TType>
 {
   public TType Field { get; set; }
-
-  public testGnrcDescrOutpObject
-    ( TType field
-    )
-  {
-    Field = field;
-  }
 }

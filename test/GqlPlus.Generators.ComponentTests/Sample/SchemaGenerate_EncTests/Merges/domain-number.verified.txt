@@ -11,8 +11,6 @@ domain DmnNmbr { number }
 
 namespace Components.Gqlp_Schema_domain_number;
 
-public class CmptDmnNmbr
-  : GqlpDomainNumber
-  , ICmptDmnNmbr
+internal class CmptDmnNmbrEncoder
 {
 }

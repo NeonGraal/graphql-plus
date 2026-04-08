@@ -11,27 +11,11 @@ input RefPrntAltInp {  parent: Number | String }
 
 namespace Components.Gqlp_Schema_parent_alt_Input;
 
-public interface ICmptPrntAltInp
-  : ICmptRefPrntAltInp
-{
-  decimal? AsNumber { get; }
-  ICmptPrntAltInpObject? As_PrntAltInp { get; }
-}
-
-public interface ICmptPrntAltInpObject
-  : ICmptRefPrntAltInpObject
+internal class CmptPrntAltInpDecoder
 {
 }
 
-public interface ICmptRefPrntAltInp
-  // No Base because it's Class
+internal class CmptRefPrntAltInpDecoder
 {
-  string? AsString { get; }
-  ICmptRefPrntAltInpObject? As_RefPrntAltInp { get; }
-}
-
-public interface ICmptRefPrntAltInpObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
+  public decimal Parent { get; set; }
 }

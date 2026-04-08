@@ -7,14 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_Input;
 
-public interface ItestFieldInp
-  // No Base because it's Class
+internal class testFieldInpDecoder
 {
-  ItestFieldInpObject? As_FieldInp { get; }
-}
-
-public interface ItestFieldInpObject
-  // No Base because it's Class
-{
-  string Field { get; }
+  public string Field { get; set; }
 }

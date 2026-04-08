@@ -7,13 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_alias_Output;
 
-public interface ItestObjAliasOutp
-  // No Base because it's Class
-{
-  ItestObjAliasOutpObject? As_ObjAliasOutp { get; }
-}
-
-public interface ItestObjAliasOutpObject
-  // No Base because it's Class
+internal class testObjAliasOutpDecoder
 {
 }

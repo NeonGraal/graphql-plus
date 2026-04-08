@@ -34,87 +34,35 @@ output All {
 
 namespace Components.Gqlp_Schema_all;
 
-public class CmptGuid
-  : GqlpDomainString
-  , ICmptGuid
+internal class CmptGuidEncoder
 {
 }
 
-public enum CmptOne
+internal class CmptOneEncoder
 {
-  Two,
-  Three,
+  public string Two { get; set; }
+  public string Three { get; set; }
 }
 
-public class CmptMany
-  : Schema_all
-  , ICmptMany
+internal class CmptManyEncoder
 {
   public Guid AsGuid { get; set; }
   public Number AsNumber { get; set; }
 }
 
-public class CmptField
-  : Schema_all
-  , ICmptField
-{
-  public ICmptFieldObject? As_Field { get; set; }
-}
-
-public class CmptFieldObject
-  : Schema_all
-  , ICmptFieldObject
+internal class CmptFieldEncoder
 {
   public ICollection<string> Strings { get; set; }
-
-  public CmptFieldObject
-    ( ICollection<string> strings
-    )
-  {
-    Strings = strings;
-  }
 }
 
-public class CmptParam
-  : Schema_all
-  , ICmptParam
-{
-  public string? AsString { get; set; }
-  public ICmptParamObject? As_Param { get; set; }
-}
-
-public class CmptParamObject
-  : Schema_all
-  , ICmptParamObject
+internal class CmptParamEncoder
 {
   public ICmptMany? AfterId { get; set; }
   public ICmptMany BeforeId { get; set; }
-
-  public CmptParamObject
-    ( ICmptMany beforeId
-    )
-  {
-    BeforeId = beforeId;
-  }
 }
 
-public class CmptAll
-  : Schema_all
-  , ICmptAll
-{
-  public string? AsString { get; set; }
-  public ICmptAllObject? As_All { get; set; }
-}
-
-public class CmptAllObject
-  : Schema_all
-  , ICmptAllObject
+internal class CmptAllEncoder
 {
   public ICmptField? Items(ICmptParam? parameter)
     => null;
-
-  public CmptAllObject
-    ()
-  {
-  }
 }

@@ -7,43 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_Boolean_Input;
 
-public class testAltModBoolInp
-  : GqlpEncoderBase
-  , ItestAltModBoolInp
+internal class testAltModBoolInpEncoder
 {
-  public IDictionary<bool, ItestAltAltModBoolInp>? AsAltAltModBoolInp { get; set; }
-  public ItestAltModBoolInpObject? As_AltModBoolInp { get; set; }
 }
 
-public class testAltModBoolInpObject
-  : GqlpEncoderBase
-  , ItestAltModBoolInpObject
-{
-
-  public testAltModBoolInpObject
-    ()
-  {
-  }
-}
-
-public class testAltAltModBoolInp
-  : GqlpEncoderBase
-  , ItestAltAltModBoolInp
-{
-  public string? AsString { get; set; }
-  public ItestAltAltModBoolInpObject? As_AltAltModBoolInp { get; set; }
-}
-
-public class testAltAltModBoolInpObject
-  : GqlpEncoderBase
-  , ItestAltAltModBoolInpObject
+internal class testAltAltModBoolInpEncoder
 {
   public decimal Alt { get; set; }
-
-  public testAltAltModBoolInpObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

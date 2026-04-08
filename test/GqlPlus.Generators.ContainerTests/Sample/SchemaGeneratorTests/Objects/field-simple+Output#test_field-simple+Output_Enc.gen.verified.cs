@@ -7,23 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_simple_Output;
 
-public class testFieldSmplOutp
-  : GqlpEncoderBase
-  , ItestFieldSmplOutp
-{
-  public ItestFieldSmplOutpObject? As_FieldSmplOutp { get; set; }
-}
-
-public class testFieldSmplOutpObject
-  : GqlpEncoderBase
-  , ItestFieldSmplOutpObject
+internal class testFieldSmplOutpEncoder
 {
   public decimal Field { get; set; }
-
-  public testFieldSmplOutpObject
-    ( decimal field
-    )
-  {
-    Field = field;
-  }
 }

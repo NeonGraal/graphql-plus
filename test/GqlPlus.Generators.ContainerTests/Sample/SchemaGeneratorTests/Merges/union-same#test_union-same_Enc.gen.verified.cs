@@ -7,9 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_same;
 
-public class testUnionSame
-  : GqlpEncoderBase
-  , ItestUnionSame
+internal class testUnionSameEncoder
 {
   public Boolean AsBoolean { get; set; }
 }

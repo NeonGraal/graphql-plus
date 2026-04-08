@@ -13,54 +13,21 @@ domain JustCnstDomEnumDual { enum EnumCnstDomEnumDual.cnstDomEnumDual }
 
 namespace Components.Gqlp_Schema_constraint_dom_enum_Dual;
 
-public class CmptCnstDomEnumDual
-  : Schema_constraint-dom-enum+Dual
-  , ICmptCnstDomEnumDual
+internal class CmptCnstDomEnumDualEncoder
 {
-  public ICmptRefCnstDomEnumDual<CmptEnumCnstDomEnumDual>? AsEnumCnstDomEnumDualcnstDomEnumDual { get; set; }
-  public ICmptCnstDomEnumDualObject? As_CnstDomEnumDual { get; set; }
 }
 
-public class CmptCnstDomEnumDualObject
-  : Schema_constraint-dom-enum+Dual
-  , ICmptCnstDomEnumDualObject
-{
-
-  public CmptCnstDomEnumDualObject
-    ()
-  {
-  }
-}
-
-public class CmptRefCnstDomEnumDual<TType>
-  : Schema_constraint-dom-enum+Dual
-  , ICmptRefCnstDomEnumDual<TType>
-{
-  public ICmptRefCnstDomEnumDualObject<TType>? As_RefCnstDomEnumDual { get; set; }
-}
-
-public class CmptRefCnstDomEnumDualObject<TType>
-  : Schema_constraint-dom-enum+Dual
-  , ICmptRefCnstDomEnumDualObject<TType>
+internal class CmptRefCnstDomEnumDualEncoder<TType>
 {
   public TType Field { get; set; }
-
-  public CmptRefCnstDomEnumDualObject
-    ( TType field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum CmptEnumCnstDomEnumDual
+internal class CmptEnumCnstDomEnumDualEncoder
 {
-  cnstDomEnumDual,
-  other,
+  public string cnstDomEnumDual { get; set; }
+  public string other { get; set; }
 }
 
-public class CmptJustCnstDomEnumDual
-  : GqlpDomainEnum
-  , ICmptJustCnstDomEnumDual
+internal class CmptJustCnstDomEnumDualEncoder
 {
 }

@@ -7,62 +7,17 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_output_param_descr;
 
-public class testOutpParamDescr
-  : GqlpEncoderBase
-  , ItestOutpParamDescr
-{
-  public ItestOutpParamDescrObject? As_OutpParamDescr { get; set; }
-}
-
-public class testOutpParamDescrObject
-  : GqlpEncoderBase
-  , ItestOutpParamDescrObject
+internal class testOutpParamDescrEncoder
 {
   public ItestFldOutpParamDescr? Field(ItestInOutpParamDescr parameter)
     => null;
-
-  public testOutpParamDescrObject
-    ()
-  {
-  }
 }
 
-public class testFldOutpParamDescr
-  : GqlpEncoderBase
-  , ItestFldOutpParamDescr
+internal class testFldOutpParamDescrEncoder
 {
-  public ItestFldOutpParamDescrObject? As_FldOutpParamDescr { get; set; }
 }
 
-public class testFldOutpParamDescrObject
-  : GqlpEncoderBase
-  , ItestFldOutpParamDescrObject
-{
-
-  public testFldOutpParamDescrObject
-    ()
-  {
-  }
-}
-
-public class testInOutpParamDescr
-  : GqlpEncoderBase
-  , ItestInOutpParamDescr
-{
-  public string? AsString { get; set; }
-  public ItestInOutpParamDescrObject? As_InOutpParamDescr { get; set; }
-}
-
-public class testInOutpParamDescrObject
-  : GqlpEncoderBase
-  , ItestInOutpParamDescrObject
+internal class testInOutpParamDescrEncoder
 {
   public decimal Param { get; set; }
-
-  public testInOutpParamDescrObject
-    ( decimal param
-    )
-  {
-    Param = param;
-  }
 }

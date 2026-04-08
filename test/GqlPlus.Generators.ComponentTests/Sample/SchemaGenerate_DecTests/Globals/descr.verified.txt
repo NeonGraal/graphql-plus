@@ -11,13 +11,6 @@ output Descr { }
 
 namespace Components.Gqlp_Schema_descr;
 
-public interface ICmptDescr
-  // No Base because it's Class
-{
-  ICmptDescrObject? As_Descr { get; }
-}
-
-public interface ICmptDescrObject
-  // No Base because it's Class
+internal class CmptDescrDecoder
 {
 }

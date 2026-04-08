@@ -11,27 +11,11 @@ dual AltAltModBoolDual { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_mod_Boolean_Dual;
 
-public interface ICmptAltModBoolDual
-  // No Base because it's Class
-{
-  IDictionary<bool, ICmptAltAltModBoolDual>? AsAltAltModBoolDual { get; }
-  ICmptAltModBoolDualObject? As_AltModBoolDual { get; }
-}
-
-public interface ICmptAltModBoolDualObject
-  // No Base because it's Class
+internal class CmptAltModBoolDualDecoder
 {
 }
 
-public interface ICmptAltAltModBoolDual
-  // No Base because it's Class
+internal class CmptAltAltModBoolDualDecoder
 {
-  string? AsString { get; }
-  ICmptAltAltModBoolDualObject? As_AltAltModBoolDual { get; }
-}
-
-public interface ICmptAltAltModBoolDualObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

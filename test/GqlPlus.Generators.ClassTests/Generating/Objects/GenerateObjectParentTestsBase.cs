@@ -72,7 +72,7 @@ public abstract class GenerateObjectParentTestsBase<TObjField>(
   [Theory, RepeatData]
   public void GenerateType_WithParentFieldParam_GeneratesCorrectCode(string name, string parent, string parentArg, string fieldName, string fieldType)
   {
-    this.SkipEqual4(name, parent, parentArg, fieldType);
+    this.SkipEqualAny([name, parent, parentArg, fieldType]);
 
     // Arrange
     GqlpGeneratorContext context = Context(BaseType, GeneratorType);
@@ -100,7 +100,7 @@ public abstract class GenerateObjectParentTestsBase<TObjField>(
   [Theory, RepeatData]
   public void GenerateType_WithParentFieldParamEnum_GeneratesCorrectCode(string name, string parent, string parentArg, string fieldName, string enumName, string enumLabel)
   {
-    this.SkipEqual4(name, parent, parentArg, enumName);
+    this.SkipEqualAny([name, parent, parentArg, enumName]);
 
     // Arrange
     GqlpGeneratorContext context = Context(BaseType, GeneratorType);
@@ -129,7 +129,7 @@ public abstract class GenerateObjectParentTestsBase<TObjField>(
   [Theory, RepeatData]
   public void GenerateType_WithGrandParentFieldParamEnum_GeneratesCorrectCode(string name, string grandParent, string parent, string grandParentArg, string fieldName, string enumName, string enumLabel)
   {
-    this.SkipEqual4(name, parent, grandParentArg, enumName);
+    this.SkipEqualAny([name, parent, grandParent, enumName]);
 
     // Arrange
     GqlpGeneratorContext context = Context(BaseType, GeneratorType);
@@ -163,10 +163,10 @@ public abstract class GenerateObjectParentTestsBase<TObjField>(
       string parent, string parentField, string parentParam,
       string fieldName, string enumName, string enumLabel)
   {
-    this.SkipEqual4(name, deepParent, grandParent, enumName);
-    this.SkipEqual4(parent, kindParam, enumName, enumLabel);
-    this.SkipEqual4(kindParam, deepParam, grandParam, parentParam);
-    this.SkipEqual4(fieldName, deepField, grandField, parentField);
+    this.SkipEqualAny([name, parent, deepParent, grandParent, enumName]);
+    this.SkipEqualAny([parent, kindParam, enumName, enumLabel]);
+    this.SkipEqualAny([kindParam, deepParam, grandParam, parentParam]);
+    this.SkipEqualAny([fieldName, deepField, grandField, parentField]);
 
     // Arrange
     GqlpGeneratorContext context = Context(BaseType, GeneratorType);

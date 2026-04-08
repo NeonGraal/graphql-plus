@@ -7,23 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_input_field_String;
 
-public class testInpFieldStr
-  : GqlpEncoderBase
-  , ItestInpFieldStr
-{
-  public ItestInpFieldStrObject? As_InpFieldStr { get; set; }
-}
-
-public class testInpFieldStrObject
-  : GqlpEncoderBase
-  , ItestInpFieldStrObject
+internal class testInpFieldStrEncoder
 {
   public string Field { get; set; }
-
-  public testInpFieldStrObject
-    ( string field
-    )
-  {
-    Field = field;
-  }
 }

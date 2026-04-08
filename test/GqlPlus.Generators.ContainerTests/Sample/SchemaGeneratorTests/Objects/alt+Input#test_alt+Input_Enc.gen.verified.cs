@@ -7,43 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_Input;
 
-public class testAltInp
-  : GqlpEncoderBase
-  , ItestAltInp
+internal class testAltInpEncoder
 {
-  public ItestAltAltInp? AsAltAltInp { get; set; }
-  public ItestAltInpObject? As_AltInp { get; set; }
 }
 
-public class testAltInpObject
-  : GqlpEncoderBase
-  , ItestAltInpObject
-{
-
-  public testAltInpObject
-    ()
-  {
-  }
-}
-
-public class testAltAltInp
-  : GqlpEncoderBase
-  , ItestAltAltInp
-{
-  public string? AsString { get; set; }
-  public ItestAltAltInpObject? As_AltAltInp { get; set; }
-}
-
-public class testAltAltInpObject
-  : GqlpEncoderBase
-  , ItestAltAltInpObject
+internal class testAltAltInpEncoder
 {
   public decimal Alt { get; set; }
-
-  public testAltAltInpObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

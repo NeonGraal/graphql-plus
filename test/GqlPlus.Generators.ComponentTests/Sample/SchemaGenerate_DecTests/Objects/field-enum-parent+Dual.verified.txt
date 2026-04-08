@@ -12,25 +12,18 @@ enum PrntFieldEnumPrntDual { prnt_fieldEnumPrntDual }
 
 namespace Components.Gqlp_Schema_field_enum_parent_Dual;
 
-public interface ICmptFieldEnumPrntDual
-  // No Base because it's Class
+internal class CmptFieldEnumPrntDualDecoder
 {
-  ICmptFieldEnumPrntDualObject? As_FieldEnumPrntDual { get; }
+  public CmptEnumFieldEnumPrntDual Field { get; set; }
 }
 
-public interface ICmptFieldEnumPrntDualObject
-  // No Base because it's Class
+internal class CmptEnumFieldEnumPrntDualDecoder
 {
-  CmptEnumFieldEnumPrntDual Field { get; }
+  public string prnt_fieldEnumPrntDual { get; set; }
+  public string fieldEnumPrntDual { get; set; }
 }
 
-public enum CmptEnumFieldEnumPrntDual
+internal class CmptPrntFieldEnumPrntDualDecoder
 {
-  prnt_fieldEnumPrntDual = CmptPrntFieldEnumPrntDual.prnt_fieldEnumPrntDual,
-  fieldEnumPrntDual,
-}
-
-public enum CmptPrntFieldEnumPrntDual
-{
-  prnt_fieldEnumPrntDual,
+  public string prnt_fieldEnumPrntDual { get; set; }
 }

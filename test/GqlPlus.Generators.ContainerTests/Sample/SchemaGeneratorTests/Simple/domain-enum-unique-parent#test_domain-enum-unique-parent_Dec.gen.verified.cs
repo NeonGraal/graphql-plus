@@ -7,30 +7,29 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_unique_parent;
 
-public interface ItestDmnEnumUnqPrnt
-  : IGqlpDomainEnum
+internal class testDmnEnumUnqPrntDecoder
 {
 }
 
-public enum testEnumDmnEnumUnqPrnt
+internal class testEnumDmnEnumUnqPrntDecoder
 {
-  dmnEnumUnqPrnt = testPrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
-  prnt_dmnEnumUnqPrnt = testPrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntPrnt = testPrntDmnEnumUnqPrnt.dmnEnumUnqPrntPrnt,
-  enum_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntValue,
+  public string dmnEnumUnqPrnt { get; set; }
+  public string prnt_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntPrnt { get; set; }
+  public string enum_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntValue { get; set; }
 }
 
-public enum testPrntDmnEnumUnqPrnt
+internal class testPrntDmnEnumUnqPrntDecoder
 {
-  dmnEnumUnqPrnt,
-  prnt_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntPrnt,
+  public string dmnEnumUnqPrnt { get; set; }
+  public string prnt_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntPrnt { get; set; }
 }
 
-public enum testDupDmnEnumUnqPrnt
+internal class testDupDmnEnumUnqPrntDecoder
 {
-  dmnEnumUnqPrnt,
-  dup_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntDup,
+  public string dmnEnumUnqPrnt { get; set; }
+  public string dup_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntDup { get; set; }
 }

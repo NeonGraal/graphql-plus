@@ -7,39 +7,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_alt_Output;
 
-public class testObjAltOutp
-  : GqlpEncoderBase
-  , ItestObjAltOutp
+internal class testObjAltOutpEncoder
 {
-  public ItestObjAltOutpType? AsObjAltOutpType { get; set; }
-  public ItestObjAltOutpObject? As_ObjAltOutp { get; set; }
 }
 
-public class testObjAltOutpObject
-  : GqlpEncoderBase
-  , ItestObjAltOutpObject
+internal class testObjAltOutpTypeEncoder
 {
-
-  public testObjAltOutpObject
-    ()
-  {
-  }
-}
-
-public class testObjAltOutpType
-  : GqlpEncoderBase
-  , ItestObjAltOutpType
-{
-  public ItestObjAltOutpTypeObject? As_ObjAltOutpType { get; set; }
-}
-
-public class testObjAltOutpTypeObject
-  : GqlpEncoderBase
-  , ItestObjAltOutpTypeObject
-{
-
-  public testObjAltOutpTypeObject
-    ()
-  {
-  }
 }

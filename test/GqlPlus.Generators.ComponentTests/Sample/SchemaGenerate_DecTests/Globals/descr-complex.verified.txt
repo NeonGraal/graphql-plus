@@ -11,13 +11,6 @@ output DescrCmpl { }
 
 namespace Components.Gqlp_Schema_descr_complex;
 
-public interface ICmptDescrCmpl
-  // No Base because it's Class
-{
-  ICmptDescrCmplObject? As_DescrCmpl { get; }
-}
-
-public interface ICmptDescrCmplObject
-  // No Base because it's Class
+internal class CmptDescrCmplDecoder
 {
 }

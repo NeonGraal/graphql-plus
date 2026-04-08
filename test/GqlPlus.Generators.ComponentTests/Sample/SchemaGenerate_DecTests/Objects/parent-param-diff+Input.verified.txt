@@ -11,26 +11,11 @@ input RefPrntParamDiffInp<$b:String> { | $b }
 
 namespace Components.Gqlp_Schema_parent_param_diff_Input;
 
-public interface ICmptPrntParamDiffInp<TA>
-  : ICmptRefPrntParamDiffInp<TA>
+internal class CmptPrntParamDiffInpDecoder<TA>
 {
-  ICmptPrntParamDiffInpObject<TA>? As_PrntParamDiffInp { get; }
+  public TA Field { get; set; }
 }
 
-public interface ICmptPrntParamDiffInpObject<TA>
-  : ICmptRefPrntParamDiffInpObject<TA>
-{
-  TA Field { get; }
-}
-
-public interface ICmptRefPrntParamDiffInp<TB>
-  // No Base because it's Class
-{
-  TB? Asb { get; }
-  ICmptRefPrntParamDiffInpObject<TB>? As_RefPrntParamDiffInp { get; }
-}
-
-public interface ICmptRefPrntParamDiffInpObject<TB>
-  // No Base because it's Class
+internal class CmptRefPrntParamDiffInpDecoder<TB>
 {
 }

@@ -7,15 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_param_Output;
 
-public interface ItestObjParamOutp<TTest,TType>
-  // No Base because it's Class
+internal class testObjParamOutpDecoder<TTest,TType>
 {
-  ItestObjParamOutpObject<TTest,TType>? As_ObjParamOutp { get; }
-}
-
-public interface ItestObjParamOutpObject<TTest,TType>
-  // No Base because it's Class
-{
-  TTest Test { get; }
-  TType Type { get; }
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
 }

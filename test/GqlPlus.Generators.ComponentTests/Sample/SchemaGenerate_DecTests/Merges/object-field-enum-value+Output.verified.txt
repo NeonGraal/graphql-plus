@@ -11,14 +11,7 @@ output ObjFieldEnumValueOutp { field = true }
 
 namespace Components.Gqlp_Schema_object_field_enum_value_Output;
 
-public interface ICmptObjFieldEnumValueOutp
-  // No Base because it's Class
+internal class CmptObjFieldEnumValueOutpDecoder
 {
-  ICmptObjFieldEnumValueOutpObject? As_ObjFieldEnumValueOutp { get; }
-}
-
-public interface ICmptObjFieldEnumValueOutpObject
-  // No Base because it's Class
-{
-  bool Field { get; }
+  public bool Field { get; set; }
 }

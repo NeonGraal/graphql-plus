@@ -11,26 +11,11 @@ output RefPrntParamDiffOutp<$b:String> { | $b }
 
 namespace Components.Gqlp_Schema_parent_param_diff_Output;
 
-public interface ICmptPrntParamDiffOutp<TA>
-  : ICmptRefPrntParamDiffOutp<TA>
+internal class CmptPrntParamDiffOutpDecoder<TA>
 {
-  ICmptPrntParamDiffOutpObject<TA>? As_PrntParamDiffOutp { get; }
+  public TA Field { get; set; }
 }
 
-public interface ICmptPrntParamDiffOutpObject<TA>
-  : ICmptRefPrntParamDiffOutpObject<TA>
-{
-  TA Field { get; }
-}
-
-public interface ICmptRefPrntParamDiffOutp<TB>
-  // No Base because it's Class
-{
-  TB? Asb { get; }
-  ICmptRefPrntParamDiffOutpObject<TB>? As_RefPrntParamDiffOutp { get; }
-}
-
-public interface ICmptRefPrntParamDiffOutpObject<TB>
-  // No Base because it's Class
+internal class CmptRefPrntParamDiffOutpDecoder<TB>
 {
 }

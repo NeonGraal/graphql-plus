@@ -7,27 +7,12 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_mod_param_Input;
 
-public interface ItestFieldModParamInp<TMod>
-  // No Base because it's Class
+internal class testFieldModParamInpDecoder<TMod>
 {
-  ItestFieldModParamInpObject<TMod>? As_FieldModParamInp { get; }
+  public IDictionary<TMod, ItestFldFieldModParamInp> Field { get; set; }
 }
 
-public interface ItestFieldModParamInpObject<TMod>
-  // No Base because it's Class
+internal class testFldFieldModParamInpDecoder
 {
-  IDictionary<TMod, ItestFldFieldModParamInp> Field { get; }
-}
-
-public interface ItestFldFieldModParamInp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestFldFieldModParamInpObject? As_FldFieldModParamInp { get; }
-}
-
-public interface ItestFldFieldModParamInpObject
-  // No Base because it's Class
-{
-  decimal Field { get; }
+  public decimal Field { get; set; }
 }

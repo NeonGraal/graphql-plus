@@ -10,14 +10,6 @@ input AltDescrInp { | "Test" "Descr" String }
 
 namespace Components.Gqlp_Schema_alt_descr_Input;
 
-public interface ICmptAltDescrInp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ICmptAltDescrInpObject? As_AltDescrInp { get; }
-}
-
-public interface ICmptAltDescrInpObject
-  // No Base because it's Class
+internal class CmptAltDescrInpDecoder
 {
 }

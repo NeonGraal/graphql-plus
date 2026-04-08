@@ -12,38 +12,17 @@ input InOutpParamTypeDescr { param: Number | String }
 
 namespace Components.Gqlp_Schema_output_param_type_descr;
 
-public interface ICmptOutpParamTypeDescr
-  // No Base because it's Class
+internal class CmptOutpParamTypeDescrDecoder
 {
-  ICmptOutpParamTypeDescrObject? As_OutpParamTypeDescr { get; }
+  public ICmptFldOutpParamTypeDescr? Field(ICmptInOutpParamTypeDescr parameter)
+    => null;
 }
 
-public interface ICmptOutpParamTypeDescrObject
-  // No Base because it's Class
-{
-  ICmptFldOutpParamTypeDescr? Field(ICmptInOutpParamTypeDescr parameter);
-}
-
-public interface ICmptFldOutpParamTypeDescr
-  // No Base because it's Class
-{
-  ICmptFldOutpParamTypeDescrObject? As_FldOutpParamTypeDescr { get; }
-}
-
-public interface ICmptFldOutpParamTypeDescrObject
-  // No Base because it's Class
+internal class CmptFldOutpParamTypeDescrDecoder
 {
 }
 
-public interface ICmptInOutpParamTypeDescr
-  // No Base because it's Class
+internal class CmptInOutpParamTypeDescrDecoder
 {
-  string? AsString { get; }
-  ICmptInOutpParamTypeDescrObject? As_InOutpParamTypeDescr { get; }
-}
-
-public interface ICmptInOutpParamTypeDescrObject
-  // No Base because it's Class
-{
-  decimal Param { get; }
+  public decimal Param { get; set; }
 }

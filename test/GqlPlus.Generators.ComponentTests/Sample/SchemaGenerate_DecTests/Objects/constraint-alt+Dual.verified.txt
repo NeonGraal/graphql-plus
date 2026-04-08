@@ -10,14 +10,6 @@ dual CnstAltDual<$type:Number> { | $type }
 
 namespace Components.Gqlp_Schema_constraint_alt_Dual;
 
-public interface ICmptCnstAltDual<TType>
-  // No Base because it's Class
-{
-  TType? Astype { get; }
-  ICmptCnstAltDualObject<TType>? As_CnstAltDual { get; }
-}
-
-public interface ICmptCnstAltDualObject<TType>
-  // No Base because it's Class
+internal class CmptCnstAltDualDecoder<TType>
 {
 }

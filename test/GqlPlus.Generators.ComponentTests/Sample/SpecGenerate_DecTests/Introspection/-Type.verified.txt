@@ -77,172 +77,82 @@ dual _Modifier<$modifierKind:_ModifierKind> {
 
 namespace Components.Gqlp_Spec_Type;
 
-public interface ICmpt_Type
-  // No Base because it's Class
-{
-  ICmpt_BaseType<Cmpt_TypeKind>? As_TypeKindBasic { get; }
-  ICmpt_BaseType<Cmpt_TypeKind>? As_TypeKindInternal { get; }
-  ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainTrueFalse, ICmpt_DomainItemTrueFalse>? As_DomainKindBoolean { get; }
-  ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainLabel, ICmpt_DomainItemLabel>? As_DomainKindEnum { get; }
-  ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainRange, ICmpt_DomainItemRange>? As_DomainKindNumber { get; }
-  ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainRegex, ICmpt_DomainItemRegex>? As_DomainKindString { get; }
-  ICmpt_ParentType<Cmpt_TypeKind, ICmpt_Aliased, ICmpt_EnumLabel>? As_TypeKindEnum { get; }
-  ICmpt_ParentType<Cmpt_TypeKind, ICmpt_UnionRef, ICmpt_UnionMember>? As_TypeKindUnion { get; }
-  ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_DualField>? As_TypeKindDual { get; }
-  ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_InputField>? As_TypeKindInput { get; }
-  ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_OutputField>? As_TypeKindOutput { get; }
-  ICmpt_TypeObject? As__Type { get; }
-}
-
-public interface ICmpt_TypeObject
-  // No Base because it's Class
+internal class Cmpt_TypeDecoder
 {
 }
 
-public interface ICmpt_BaseType<TTypeKind>
-  : ICmpt_Aliased
+internal class Cmpt_BaseTypeDecoder<TTypeKind>
 {
-  ICmpt_BaseTypeObject<TTypeKind>? As__BaseType { get; }
+  public TTypeKind TypeKind { get; set; }
 }
 
-public interface ICmpt_BaseTypeObject<TTypeKind>
-  : ICmpt_AliasedObject
+internal class Cmpt_ChildTypeDecoder<TTypeKind,TParent>
 {
-  TTypeKind TypeKind { get; }
+  public TParent Parent { get; set; }
 }
 
-public interface ICmpt_ChildType<TTypeKind,TParent>
-  : ICmpt_BaseType<TTypeKind>
+internal class Cmpt_ParentTypeDecoder<TTypeKind,TItem,TAllItem>
 {
-  ICmpt_ChildTypeObject<TTypeKind,TParent>? As__ChildType { get; }
+  public ICollection<TItem> Items { get; set; }
+  public ICollection<TAllItem> AllItems { get; set; }
 }
 
-public interface ICmpt_ChildTypeObject<TTypeKind,TParent>
-  : ICmpt_BaseTypeObject<TTypeKind>
+internal class Cmpt_SimpleKindDecoder
 {
-  TParent Parent { get; }
+  public string Basic { get; set; }
+  public string Enum { get; set; }
+  public string Internal { get; set; }
+  public string Domain { get; set; }
+  public string Union { get; set; }
 }
 
-public interface ICmpt_ParentType<TTypeKind,TItem,TAllItem>
-  : ICmpt_ChildType<TTypeKind, ICmpt_Named>
+internal class Cmpt_TypeKindDecoder
 {
-  ICmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>? As__ParentType { get; }
+  public string Basic { get; set; }
+  public string Enum { get; set; }
+  public string Internal { get; set; }
+  public string Domain { get; set; }
+  public string Union { get; set; }
+  public string Dual { get; set; }
+  public string Input { get; set; }
+  public string Output { get; set; }
 }
 
-public interface ICmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>
-  : ICmpt_ChildTypeObject<TTypeKind, ICmpt_Named>
+internal class Cmpt_TypeRefDecoder<TTypeKind>
 {
-  ICollection<TItem> Items { get; }
-  ICollection<TAllItem> AllItems { get; }
+  public TTypeKind TypeKind { get; set; }
 }
 
-public enum Cmpt_SimpleKind
-{
-  Basic,
-  Enum,
-  Internal,
-  Domain,
-  Union,
-}
-
-public enum Cmpt_TypeKind
-{
-  Basic = Cmpt_SimpleKind.Basic,
-  Enum = Cmpt_SimpleKind.Enum,
-  Internal = Cmpt_SimpleKind.Internal,
-  Domain = Cmpt_SimpleKind.Domain,
-  Union = Cmpt_SimpleKind.Union,
-  Dual,
-  Input,
-  Output,
-}
-
-public interface ICmpt_TypeRef<TTypeKind>
-  : ICmpt_Named
-{
-  ICmpt_TypeRefObject<TTypeKind>? As__TypeRef { get; }
-}
-
-public interface ICmpt_TypeRefObject<TTypeKind>
-  : ICmpt_NamedObject
-{
-  TTypeKind TypeKind { get; }
-}
-
-public interface ICmpt_TypeSimple
-  // No Base because it's Class
-{
-  ICmpt_TypeRef<Cmpt_TypeKind>? As_TypeKindBasic { get; }
-  ICmpt_TypeRef<Cmpt_TypeKind>? As_TypeKindEnum { get; }
-  ICmpt_TypeRef<Cmpt_TypeKind>? As_TypeKindDomain { get; }
-  ICmpt_TypeRef<Cmpt_TypeKind>? As_TypeKindUnion { get; }
-  ICmpt_TypeSimpleObject? As__TypeSimple { get; }
-}
-
-public interface ICmpt_TypeSimpleObject
-  // No Base because it's Class
+internal class Cmpt_TypeSimpleDecoder
 {
 }
 
-public interface ICmpt_Collections
-  // No Base because it's Class
-{
-  ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindList { get; }
-  ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindDictionary { get; }
-  ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindTypeParam { get; }
-  ICmpt_CollectionsObject? As__Collections { get; }
-}
-
-public interface ICmpt_CollectionsObject
-  // No Base because it's Class
+internal class Cmpt_CollectionsDecoder
 {
 }
 
-public interface ICmpt_ModifierKeyed<TModifierKind>
-  : ICmpt_Modifier<TModifierKind>
+internal class Cmpt_ModifierKeyedDecoder<TModifierKind>
 {
-  ICmpt_ModifierKeyedObject<TModifierKind>? As__ModifierKeyed { get; }
+  public ICmpt_TypeSimple By { get; set; }
+  public bool IsOptional { get; set; }
 }
 
-public interface ICmpt_ModifierKeyedObject<TModifierKind>
-  : ICmpt_ModifierObject<TModifierKind>
-{
-  ICmpt_TypeSimple By { get; }
-  bool IsOptional { get; }
-}
-
-public interface ICmpt_Modifiers
-  // No Base because it's Class
-{
-  ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindOptional { get; }
-  ICmpt_Collections? As_Collections { get; }
-  ICmpt_ModifiersObject? As__Modifiers { get; }
-}
-
-public interface ICmpt_ModifiersObject
-  // No Base because it's Class
+internal class Cmpt_ModifiersDecoder
 {
 }
 
-public enum Cmpt_ModifierKind
+internal class Cmpt_ModifierKindDecoder
 {
-  Opt,
-  Optional = Opt,
-  List,
-  Dict,
-  Dictionary = Dict,
-  Param,
-  TypeParam = Param,
+  public string Opt { get; set; }
+  public string Optional { get; set; }
+  public string List { get; set; }
+  public string Dict { get; set; }
+  public string Dictionary { get; set; }
+  public string Param { get; set; }
+  public string TypeParam { get; set; }
 }
 
-public interface ICmpt_Modifier<TModifierKind>
-  // No Base because it's Class
+internal class Cmpt_ModifierDecoder<TModifierKind>
 {
-  ICmpt_ModifierObject<TModifierKind>? As__Modifier { get; }
-}
-
-public interface ICmpt_ModifierObject<TModifierKind>
-  // No Base because it's Class
-{
-  TModifierKind ModifierKind { get; }
+  public TModifierKind ModifierKind { get; set; }
 }

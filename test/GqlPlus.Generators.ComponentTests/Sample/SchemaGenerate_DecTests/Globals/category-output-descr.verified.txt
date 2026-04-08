@@ -11,13 +11,6 @@ output CtgrOutpDescr { }
 
 namespace Components.Gqlp_Schema_category_output_descr;
 
-public interface ICmptCtgrOutpDescr
-  // No Base because it's Class
-{
-  ICmptCtgrOutpDescrObject? As_CtgrOutpDescr { get; }
-}
-
-public interface ICmptCtgrOutpDescrObject
-  // No Base because it's Class
+internal class CmptCtgrOutpDescrDecoder
 {
 }

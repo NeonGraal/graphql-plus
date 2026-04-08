@@ -7,38 +7,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_parent_Output;
 
-public class testObjPrntOutp
-  : testRefObjPrntOutp
-  , ItestObjPrntOutp
+internal class testObjPrntOutpEncoder
 {
-  public ItestObjPrntOutpObject? As_ObjPrntOutp { get; set; }
 }
 
-public class testObjPrntOutpObject
-  : testRefObjPrntOutpObject
-  , ItestObjPrntOutpObject
+internal class testRefObjPrntOutpEncoder
 {
-
-  public testObjPrntOutpObject
-    ()
-  {
-  }
-}
-
-public class testRefObjPrntOutp
-  : GqlpEncoderBase
-  , ItestRefObjPrntOutp
-{
-  public ItestRefObjPrntOutpObject? As_RefObjPrntOutp { get; set; }
-}
-
-public class testRefObjPrntOutpObject
-  : GqlpEncoderBase
-  , ItestRefObjPrntOutpObject
-{
-
-  public testRefObjPrntOutpObject
-    ()
-  {
-  }
 }

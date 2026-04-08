@@ -11,19 +11,12 @@ enum EnumFieldEnumInp { fieldEnumInp }
 
 namespace Components.Gqlp_Schema_field_enum_Input;
 
-public interface ICmptFieldEnumInp
-  // No Base because it's Class
+internal class CmptFieldEnumInpDecoder
 {
-  ICmptFieldEnumInpObject? As_FieldEnumInp { get; }
+  public CmptEnumFieldEnumInp Field { get; set; }
 }
 
-public interface ICmptFieldEnumInpObject
-  // No Base because it's Class
+internal class CmptEnumFieldEnumInpDecoder
 {
-  CmptEnumFieldEnumInp Field { get; }
-}
-
-public enum CmptEnumFieldEnumInp
-{
-  fieldEnumInp,
+  public string fieldEnumInp { get; set; }
 }

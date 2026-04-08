@@ -12,32 +12,17 @@ domain DomOutpParamModParam { number 1 > 10 }
 
 namespace Components.Gqlp_Schema_output_param_mod_param;
 
-public interface ICmptOutpParamModParam<TMod>
-  // No Base because it's Class
+internal class CmptOutpParamModParamDecoder<TMod>
 {
-  ICmptOutpParamModParamObject<TMod>? As_OutpParamModParam { get; }
+  public ICmptDomOutpParamModParam? Field(IDictionary<TMod, ICmptInOutpParamModParam> parameter)
+    => null;
 }
 
-public interface ICmptOutpParamModParamObject<TMod>
-  // No Base because it's Class
+internal class CmptInOutpParamModParamDecoder
 {
-  ICmptDomOutpParamModParam? Field(IDictionary<TMod, ICmptInOutpParamModParam> parameter);
+  public decimal Param { get; set; }
 }
 
-public interface ICmptInOutpParamModParam
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ICmptInOutpParamModParamObject? As_InOutpParamModParam { get; }
-}
-
-public interface ICmptInOutpParamModParamObject
-  // No Base because it's Class
-{
-  decimal Param { get; }
-}
-
-public interface ICmptDomOutpParamModParam
-  : IGqlpDomainNumber
+internal class CmptDomOutpParamModParamDecoder
 {
 }

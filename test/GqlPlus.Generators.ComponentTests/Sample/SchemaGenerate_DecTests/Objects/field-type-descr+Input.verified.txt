@@ -10,14 +10,7 @@ input FieldTypeDescrInp { field: "Test" "Descr" Number }
 
 namespace Components.Gqlp_Schema_field_type_descr_Input;
 
-public interface ICmptFieldTypeDescrInp
-  // No Base because it's Class
+internal class CmptFieldTypeDescrInpDecoder
 {
-  ICmptFieldTypeDescrInpObject? As_FieldTypeDescrInp { get; }
-}
-
-public interface ICmptFieldTypeDescrInpObject
-  // No Base because it's Class
-{
-  decimal Field { get; }
+  public decimal Field { get; set; }
 }

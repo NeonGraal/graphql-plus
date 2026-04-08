@@ -12,20 +12,16 @@ enum EnumDmnEnumPrntDescr { enum_dmnEnumPrntDescr prnt_dmnEnumPrntDescr }
 
 namespace Components.Gqlp_Schema_domain_enum_parent_descr;
 
-public class CmptDmnEnumPrntDescr
-  : CmptPrntDmnEnumPrntDescr
-  , ICmptDmnEnumPrntDescr
+internal class CmptDmnEnumPrntDescrEncoder
 {
 }
 
-public class CmptPrntDmnEnumPrntDescr
-  : GqlpDomainEnum
-  , ICmptPrntDmnEnumPrntDescr
+internal class CmptPrntDmnEnumPrntDescrEncoder
 {
 }
 
-public enum CmptEnumDmnEnumPrntDescr
+internal class CmptEnumDmnEnumPrntDescrEncoder
 {
-  enum_dmnEnumPrntDescr,
-  prnt_dmnEnumPrntDescr,
+  public string enum_dmnEnumPrntDescr { get; set; }
+  public string prnt_dmnEnumPrntDescr { get; set; }
 }

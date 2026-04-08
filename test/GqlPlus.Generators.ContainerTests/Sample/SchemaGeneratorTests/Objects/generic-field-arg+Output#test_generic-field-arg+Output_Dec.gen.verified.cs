@@ -7,26 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_arg_Output;
 
-public interface ItestGnrcFieldArgOutp<TType>
-  // No Base because it's Class
+internal class testGnrcFieldArgOutpDecoder<TType>
 {
-  ItestGnrcFieldArgOutpObject<TType>? As_GnrcFieldArgOutp { get; }
+  public ItestRefGnrcFieldArgOutp<TType> Field { get; set; }
 }
 
-public interface ItestGnrcFieldArgOutpObject<TType>
-  // No Base because it's Class
-{
-  ItestRefGnrcFieldArgOutp<TType> Field { get; }
-}
-
-public interface ItestRefGnrcFieldArgOutp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcFieldArgOutpObject<TRef>? As_RefGnrcFieldArgOutp { get; }
-}
-
-public interface ItestRefGnrcFieldArgOutpObject<TRef>
-  // No Base because it's Class
+internal class testRefGnrcFieldArgOutpDecoder<TRef>
 {
 }

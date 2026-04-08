@@ -7,40 +7,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_arg_descr_Dual;
 
-public class testGnrcAltArgDescrDual<TType>
-  : GqlpEncoderBase
-  , ItestGnrcAltArgDescrDual<TType>
+internal class testGnrcAltArgDescrDualEncoder<TType>
 {
-  public ItestRefGnrcAltArgDescrDual<TType>? AsRefGnrcAltArgDescrDual { get; set; }
-  public ItestGnrcAltArgDescrDualObject<TType>? As_GnrcAltArgDescrDual { get; set; }
 }
 
-public class testGnrcAltArgDescrDualObject<TType>
-  : GqlpEncoderBase
-  , ItestGnrcAltArgDescrDualObject<TType>
+internal class testRefGnrcAltArgDescrDualEncoder<TRef>
 {
-
-  public testGnrcAltArgDescrDualObject
-    ()
-  {
-  }
-}
-
-public class testRefGnrcAltArgDescrDual<TRef>
-  : GqlpEncoderBase
-  , ItestRefGnrcAltArgDescrDual<TRef>
-{
-  public TRef? Asref { get; set; }
-  public ItestRefGnrcAltArgDescrDualObject<TRef>? As_RefGnrcAltArgDescrDual { get; set; }
-}
-
-public class testRefGnrcAltArgDescrDualObject<TRef>
-  : GqlpEncoderBase
-  , ItestRefGnrcAltArgDescrDualObject<TRef>
-{
-
-  public testRefGnrcAltArgDescrDualObject
-    ()
-  {
-  }
 }

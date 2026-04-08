@@ -13,53 +13,22 @@ enum ParentCnstEnumPrntInp { parentCnstEnumPrntInp }
 
 namespace Components.Gqlp_Schema_constraint_enum_parent_Input;
 
-public class CmptCnstEnumPrntInp
-  : Schema_constraint-enum-parent+Input
-  , ICmptCnstEnumPrntInp
+internal class CmptCnstEnumPrntInpEncoder
 {
-  public ICmptRefCnstEnumPrntInp<CmptEnumCnstEnumPrntInp>? AsEnumCnstEnumPrntInpcnstEnumPrntInp { get; set; }
-  public ICmptCnstEnumPrntInpObject? As_CnstEnumPrntInp { get; set; }
 }
 
-public class CmptCnstEnumPrntInpObject
-  : Schema_constraint-enum-parent+Input
-  , ICmptCnstEnumPrntInpObject
-{
-
-  public CmptCnstEnumPrntInpObject
-    ()
-  {
-  }
-}
-
-public class CmptRefCnstEnumPrntInp<TType>
-  : Schema_constraint-enum-parent+Input
-  , ICmptRefCnstEnumPrntInp<TType>
-{
-  public ICmptRefCnstEnumPrntInpObject<TType>? As_RefCnstEnumPrntInp { get; set; }
-}
-
-public class CmptRefCnstEnumPrntInpObject<TType>
-  : Schema_constraint-enum-parent+Input
-  , ICmptRefCnstEnumPrntInpObject<TType>
+internal class CmptRefCnstEnumPrntInpEncoder<TType>
 {
   public TType Field { get; set; }
-
-  public CmptRefCnstEnumPrntInpObject
-    ( TType field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum CmptEnumCnstEnumPrntInp
+internal class CmptEnumCnstEnumPrntInpEncoder
 {
-  parentCnstEnumPrntInp = CmptParentCnstEnumPrntInp.parentCnstEnumPrntInp,
-  cnstEnumPrntInp,
+  public string parentCnstEnumPrntInp { get; set; }
+  public string cnstEnumPrntInp { get; set; }
 }
 
-public enum CmptParentCnstEnumPrntInp
+internal class CmptParentCnstEnumPrntInpEncoder
 {
-  parentCnstEnumPrntInp,
+  public string parentCnstEnumPrntInp { get; set; }
 }

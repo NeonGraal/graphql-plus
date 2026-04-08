@@ -7,46 +7,12 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_parent_field_Dual;
 
-public class testPrntFieldDual
-  : testRefPrntFieldDual
-  , ItestPrntFieldDual
-{
-  public ItestPrntFieldDualObject? As_PrntFieldDual { get; set; }
-}
-
-public class testPrntFieldDualObject
-  : testRefPrntFieldDualObject
-  , ItestPrntFieldDualObject
+internal class testPrntFieldDualEncoder
 {
   public decimal Field { get; set; }
-
-  public testPrntFieldDualObject
-    ( decimal parent
-    , decimal field
-    ) : base(parent)
-  {
-    Field = field;
-  }
 }
 
-public class testRefPrntFieldDual
-  : GqlpEncoderBase
-  , ItestRefPrntFieldDual
-{
-  public string? AsString { get; set; }
-  public ItestRefPrntFieldDualObject? As_RefPrntFieldDual { get; set; }
-}
-
-public class testRefPrntFieldDualObject
-  : GqlpEncoderBase
-  , ItestRefPrntFieldDualObject
+internal class testRefPrntFieldDualEncoder
 {
   public decimal Parent { get; set; }
-
-  public testRefPrntFieldDualObject
-    ( decimal parent
-    )
-  {
-    Parent = parent;
-  }
 }

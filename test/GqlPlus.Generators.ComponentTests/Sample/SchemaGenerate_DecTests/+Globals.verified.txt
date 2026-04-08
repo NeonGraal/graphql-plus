@@ -6,189 +6,70 @@
 
 namespace Components.Gqlp_Schema_Globals;
 
-public interface ICmptCtgrDscrs
-  // No Base because it's Class
-{
-  ICmptCtgrDscrsObject? As_CtgrDscrs { get; }
-}
-
-public interface ICmptCtgrDscrsObject
-  // No Base because it's Class
+internal class CmptCtgrDscrsDecoder
 {
 }
 
-public interface ICmptCtgrOutp
-  // No Base because it's Class
-{
-  ICmptCtgrOutpObject? As_CtgrOutp { get; }
-}
-
-public interface ICmptCtgrOutpObject
-  // No Base because it's Class
+internal class CmptCtgrOutpDecoder
 {
 }
 
-public interface ICmptCtgrOutpDescr
-  // No Base because it's Class
-{
-  ICmptCtgrOutpDescrObject? As_CtgrOutpDescr { get; }
-}
-
-public interface ICmptCtgrOutpDescrObject
-  // No Base because it's Class
+internal class CmptCtgrOutpDescrDecoder
 {
 }
 
-public interface ICmptCtgrOutpDict
-  // No Base because it's Class
-{
-  ICmptCtgrOutpDictObject? As_CtgrOutpDict { get; }
-}
-
-public interface ICmptCtgrOutpDictObject
-  // No Base because it's Class
+internal class CmptCtgrOutpDictDecoder
 {
 }
 
-public interface ICmptCtgrOutpList
-  // No Base because it's Class
-{
-  ICmptCtgrOutpListObject? As_CtgrOutpList { get; }
-}
-
-public interface ICmptCtgrOutpListObject
-  // No Base because it's Class
+internal class CmptCtgrOutpListDecoder
 {
 }
 
-public interface ICmptCtgrOutpOptl
-  // No Base because it's Class
-{
-  ICmptCtgrOutpOptlObject? As_CtgrOutpOptl { get; }
-}
-
-public interface ICmptCtgrOutpOptlObject
-  // No Base because it's Class
+internal class CmptCtgrOutpOptlDecoder
 {
 }
 
-public interface ICmptDescr
-  // No Base because it's Class
-{
-  ICmptDescrObject? As_Descr { get; }
-}
-
-public interface ICmptDescrObject
-  // No Base because it's Class
+internal class CmptDescrDecoder
 {
 }
 
-public interface ICmptDescrBcks
-  // No Base because it's Class
-{
-  ICmptDescrBcksObject? As_DescrBcks { get; }
-}
-
-public interface ICmptDescrBcksObject
-  // No Base because it's Class
+internal class CmptDescrBcksDecoder
 {
 }
 
-public interface ICmptDescrBtwn
-  // No Base because it's Class
-{
-  ICmptDescrBtwnObject? As_DescrBtwn { get; }
-}
-
-public interface ICmptDescrBtwnObject
-  // No Base because it's Class
+internal class CmptDescrBtwnDecoder
 {
 }
 
-public interface ICmptDescrCmpl
-  // No Base because it's Class
-{
-  ICmptDescrCmplObject? As_DescrCmpl { get; }
-}
-
-public interface ICmptDescrCmplObject
-  // No Base because it's Class
+internal class CmptDescrCmplDecoder
 {
 }
 
-public interface ICmptDescrDbl
-  // No Base because it's Class
-{
-  ICmptDescrDblObject? As_DescrDbl { get; }
-}
-
-public interface ICmptDescrDblObject
-  // No Base because it's Class
+internal class CmptDescrDblDecoder
 {
 }
 
-public interface ICmptDescrSngl
-  // No Base because it's Class
-{
-  ICmptDescrSnglObject? As_DescrSngl { get; }
-}
-
-public interface ICmptDescrSnglObject
-  // No Base because it's Class
+internal class CmptDescrSnglDecoder
 {
 }
 
-public interface ICmptDscrs
-  // No Base because it's Class
-{
-  ICmptDscrsObject? As_Dscrs { get; }
-}
-
-public interface ICmptDscrsObject
-  // No Base because it's Class
+internal class CmptDscrsDecoder
 {
 }
 
-public interface ICmptInDrctParamDict
-  // No Base because it's Class
-{
-  ICmptInDrctParamDictObject? As_InDrctParamDict { get; }
-}
-
-public interface ICmptInDrctParamDictObject
-  // No Base because it's Class
+internal class CmptInDrctParamDictDecoder
 {
 }
 
-public interface ICmptInDrctParamIn
-  // No Base because it's Class
-{
-  ICmptInDrctParamInObject? As_InDrctParamIn { get; }
-}
-
-public interface ICmptInDrctParamInObject
-  // No Base because it's Class
+internal class CmptInDrctParamInDecoder
 {
 }
 
-public interface ICmptInDrctParamList
-  // No Base because it's Class
-{
-  ICmptInDrctParamListObject? As_InDrctParamList { get; }
-}
-
-public interface ICmptInDrctParamListObject
-  // No Base because it's Class
+internal class CmptInDrctParamListDecoder
 {
 }
 
-public interface ICmptInDrctParamOpt
-  // No Base because it's Class
-{
-  ICmptInDrctParamOptObject? As_InDrctParamOpt { get; }
-}
-
-public interface ICmptInDrctParamOptObject
-  // No Base because it's Class
+internal class CmptInDrctParamOptDecoder
 {
 }

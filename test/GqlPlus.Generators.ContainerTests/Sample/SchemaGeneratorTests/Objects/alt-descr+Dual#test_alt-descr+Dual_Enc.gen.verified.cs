@@ -7,21 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_descr_Dual;
 
-public class testAltDescrDual
-  : GqlpEncoderBase
-  , ItestAltDescrDual
+internal class testAltDescrDualEncoder
 {
-  public string? AsString { get; set; }
-  public ItestAltDescrDualObject? As_AltDescrDual { get; set; }
-}
-
-public class testAltDescrDualObject
-  : GqlpEncoderBase
-  , ItestAltDescrDualObject
-{
-
-  public testAltDescrDualObject
-    ()
-  {
-  }
 }

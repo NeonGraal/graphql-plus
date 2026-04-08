@@ -13,79 +13,19 @@ input AltCnstPrntObjPrntInp { :PrntCnstPrntObjPrntInp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Input;
 
-public class CmptCnstPrntObjPrntInp
-  : CmptRefCnstPrntObjPrntInp<ICmptAltCnstPrntObjPrntInp>
-  , ICmptCnstPrntObjPrntInp
+internal class CmptCnstPrntObjPrntInpEncoder
 {
-  public ICmptCnstPrntObjPrntInpObject? As_CnstPrntObjPrntInp { get; set; }
 }
 
-public class CmptCnstPrntObjPrntInpObject
-  : CmptRefCnstPrntObjPrntInpObject<ICmptAltCnstPrntObjPrntInp>
-  , ICmptCnstPrntObjPrntInpObject
+internal class CmptRefCnstPrntObjPrntInpEncoder<TRef>
 {
-
-  public CmptCnstPrntObjPrntInpObject
-    ()
-  {
-  }
 }
 
-public class CmptRefCnstPrntObjPrntInp<TRef>
-  : Schema_constraint-parent-obj-parent+Input
-  , ICmptRefCnstPrntObjPrntInp<TRef>
+internal class CmptPrntCnstPrntObjPrntInpEncoder
 {
-  public TRef? As_Parent { get; set; }
-  public ICmptRefCnstPrntObjPrntInpObject<TRef>? As_RefCnstPrntObjPrntInp { get; set; }
 }
 
-public class CmptRefCnstPrntObjPrntInpObject<TRef>
-  : Schema_constraint-parent-obj-parent+Input
-  , ICmptRefCnstPrntObjPrntInpObject<TRef>
-{
-
-  public CmptRefCnstPrntObjPrntInpObject
-    ()
-  {
-  }
-}
-
-public class CmptPrntCnstPrntObjPrntInp
-  : Schema_constraint-parent-obj-parent+Input
-  , ICmptPrntCnstPrntObjPrntInp
-{
-  public string? AsString { get; set; }
-  public ICmptPrntCnstPrntObjPrntInpObject? As_PrntCnstPrntObjPrntInp { get; set; }
-}
-
-public class CmptPrntCnstPrntObjPrntInpObject
-  : Schema_constraint-parent-obj-parent+Input
-  , ICmptPrntCnstPrntObjPrntInpObject
-{
-
-  public CmptPrntCnstPrntObjPrntInpObject
-    ()
-  {
-  }
-}
-
-public class CmptAltCnstPrntObjPrntInp
-  : CmptPrntCnstPrntObjPrntInp
-  , ICmptAltCnstPrntObjPrntInp
-{
-  public ICmptAltCnstPrntObjPrntInpObject? As_AltCnstPrntObjPrntInp { get; set; }
-}
-
-public class CmptAltCnstPrntObjPrntInpObject
-  : CmptPrntCnstPrntObjPrntInpObject
-  , ICmptAltCnstPrntObjPrntInpObject
+internal class CmptAltCnstPrntObjPrntInpEncoder
 {
   public decimal Alt { get; set; }
-
-  public CmptAltCnstPrntObjPrntInpObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

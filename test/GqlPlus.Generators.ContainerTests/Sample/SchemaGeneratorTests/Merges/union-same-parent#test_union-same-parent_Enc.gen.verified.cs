@@ -7,16 +7,12 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_same_parent;
 
-public class testUnionSamePrnt
-  : testPrntUnionSamePrnt
-  , ItestUnionSamePrnt
+internal class testUnionSamePrntEncoder
 {
   public Boolean AsBoolean { get; set; }
 }
 
-public class testPrntUnionSamePrnt
-  : GqlpEncoderBase
-  , ItestPrntUnionSamePrnt
+internal class testPrntUnionSamePrntEncoder
 {
   public String AsString { get; set; }
 }

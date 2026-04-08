@@ -7,31 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_domain_Dual;
 
-public interface ItestCnstAltDmnDual
-  // No Base because it's Class
-{
-  ItestRefCnstAltDmnDual<ItestDomCnstAltDmnDual>? AsRefCnstAltDmnDual { get; }
-  ItestCnstAltDmnDualObject? As_CnstAltDmnDual { get; }
-}
-
-public interface ItestCnstAltDmnDualObject
-  // No Base because it's Class
+internal class testCnstAltDmnDualDecoder
 {
 }
 
-public interface ItestRefCnstAltDmnDual<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefCnstAltDmnDualObject<TRef>? As_RefCnstAltDmnDual { get; }
-}
-
-public interface ItestRefCnstAltDmnDualObject<TRef>
-  // No Base because it's Class
+internal class testRefCnstAltDmnDualDecoder<TRef>
 {
 }
 
-public interface ItestDomCnstAltDmnDual
-  : IGqlpDomainString
+internal class testDomCnstAltDmnDualDecoder
 {
 }

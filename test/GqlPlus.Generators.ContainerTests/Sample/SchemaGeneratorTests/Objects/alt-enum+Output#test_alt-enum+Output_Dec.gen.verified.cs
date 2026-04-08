@@ -7,19 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_enum_Output;
 
-public interface ItestAltEnumOutp
-  // No Base because it's Class
-{
-  testEnumAltEnumOutp? AsEnumAltEnumOutpaltEnumOutp { get; }
-  ItestAltEnumOutpObject? As_AltEnumOutp { get; }
-}
-
-public interface ItestAltEnumOutpObject
-  // No Base because it's Class
+internal class testAltEnumOutpDecoder
 {
 }
 
-public enum testEnumAltEnumOutp
+internal class testEnumAltEnumOutpDecoder
 {
-  altEnumOutp,
+  public string altEnumOutp { get; set; }
 }

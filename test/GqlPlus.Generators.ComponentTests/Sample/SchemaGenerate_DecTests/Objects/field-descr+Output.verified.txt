@@ -10,14 +10,7 @@ output FieldDescrOutp { "Test" "Descr" field: String }
 
 namespace Components.Gqlp_Schema_field_descr_Output;
 
-public interface ICmptFieldDescrOutp
-  // No Base because it's Class
+internal class CmptFieldDescrOutpDecoder
 {
-  ICmptFieldDescrOutpObject? As_FieldDescrOutp { get; }
-}
-
-public interface ICmptFieldDescrOutpObject
-  // No Base because it's Class
-{
-  string Field { get; }
+  public string Field { get; set; }
 }

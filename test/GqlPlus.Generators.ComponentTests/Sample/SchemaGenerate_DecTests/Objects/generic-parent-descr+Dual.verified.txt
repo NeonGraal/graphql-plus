@@ -10,14 +10,6 @@ dual GnrcPrntDescrDual<$type:_Dual> { :"Parent comment"$type }
 
 namespace Components.Gqlp_Schema_generic_parent_descr_Dual;
 
-public interface ICmptGnrcPrntDescrDual<TType>
-  // No Base because it's Class
-{
-  TType? As_Parent { get; }
-  ICmptGnrcPrntDescrDualObject<TType>? As_GnrcPrntDescrDual { get; }
-}
-
-public interface ICmptGnrcPrntDescrDualObject<TType>
-  // No Base because it's Class
+internal class CmptGnrcPrntDescrDualDecoder<TType>
 {
 }

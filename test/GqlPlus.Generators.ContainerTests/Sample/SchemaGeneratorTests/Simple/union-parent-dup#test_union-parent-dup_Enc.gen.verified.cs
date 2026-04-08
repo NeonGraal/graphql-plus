@@ -7,16 +7,12 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_parent_dup;
 
-public class testUnionPrntDup
-  : testPrntUnionPrntDup
-  , ItestUnionPrntDup
+internal class testUnionPrntDupEncoder
 {
   public Number AsNumber { get; set; }
 }
 
-public class testPrntUnionPrntDup
-  : GqlpEncoderBase
-  , ItestPrntUnionPrntDup
+internal class testPrntUnionPrntDupEncoder
 {
   public Number AsNumber { get; set; }
 }

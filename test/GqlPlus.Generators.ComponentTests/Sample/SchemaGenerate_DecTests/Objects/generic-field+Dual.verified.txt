@@ -10,14 +10,7 @@ dual GnrcFieldDual<$type:String> { field: $type }
 
 namespace Components.Gqlp_Schema_generic_field_Dual;
 
-public interface ICmptGnrcFieldDual<TType>
-  // No Base because it's Class
+internal class CmptGnrcFieldDualDecoder<TType>
 {
-  ICmptGnrcFieldDualObject<TType>? As_GnrcFieldDual { get; }
-}
-
-public interface ICmptGnrcFieldDualObject<TType>
-  // No Base because it's Class
-{
-  TType Field { get; }
+  public TType Field { get; set; }
 }

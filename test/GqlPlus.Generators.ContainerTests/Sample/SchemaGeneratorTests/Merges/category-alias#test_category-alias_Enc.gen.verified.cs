@@ -7,20 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_category_alias;
 
-public class testCtgrAlias
-  : GqlpEncoderBase
-  , ItestCtgrAlias
+internal class testCtgrAliasEncoder
 {
-  public ItestCtgrAliasObject? As_CtgrAlias { get; set; }
-}
-
-public class testCtgrAliasObject
-  : GqlpEncoderBase
-  , ItestCtgrAliasObject
-{
-
-  public testCtgrAliasObject
-    ()
-  {
-  }
 }

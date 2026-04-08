@@ -7,26 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_enum_Dual;
 
-public class testAltEnumDual
-  : GqlpEncoderBase
-  , ItestAltEnumDual
+internal class testAltEnumDualEncoder
 {
-  public testEnumAltEnumDual? AsEnumAltEnumDualaltEnumDual { get; set; }
-  public ItestAltEnumDualObject? As_AltEnumDual { get; set; }
 }
 
-public class testAltEnumDualObject
-  : GqlpEncoderBase
-  , ItestAltEnumDualObject
+internal class testEnumAltEnumDualEncoder
 {
-
-  public testAltEnumDualObject
-    ()
-  {
-  }
-}
-
-public enum testEnumAltEnumDual
-{
-  altEnumDual,
+  public string altEnumDual { get; set; }
 }

@@ -7,39 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_input_field_null;
 
-public class testInpFieldNull
-  : GqlpEncoderBase
-  , ItestInpFieldNull
-{
-  public ItestInpFieldNullObject? As_InpFieldNull { get; set; }
-}
-
-public class testInpFieldNullObject
-  : GqlpEncoderBase
-  , ItestInpFieldNullObject
+internal class testInpFieldNullEncoder
 {
   public ItestFldInpFieldNull? Field { get; set; }
-
-  public testInpFieldNullObject
-    ()
-  {
-  }
 }
 
-public class testFldInpFieldNull
-  : GqlpEncoderBase
-  , ItestFldInpFieldNull
+internal class testFldInpFieldNullEncoder
 {
-  public ItestFldInpFieldNullObject? As_FldInpFieldNull { get; set; }
-}
-
-public class testFldInpFieldNullObject
-  : GqlpEncoderBase
-  , ItestFldInpFieldNullObject
-{
-
-  public testFldInpFieldNullObject
-    ()
-  {
-  }
 }

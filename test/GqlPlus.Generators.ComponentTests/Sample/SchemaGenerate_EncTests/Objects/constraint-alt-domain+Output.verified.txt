@@ -12,46 +12,14 @@ domain DomCnstAltDmnOutp { String /\w+/ }
 
 namespace Components.Gqlp_Schema_constraint_alt_domain_Output;
 
-public class CmptCnstAltDmnOutp
-  : Schema_constraint-alt-domain+Output
-  , ICmptCnstAltDmnOutp
+internal class CmptCnstAltDmnOutpEncoder
 {
-  public ICmptRefCnstAltDmnOutp<ICmptDomCnstAltDmnOutp>? AsRefCnstAltDmnOutp { get; set; }
-  public ICmptCnstAltDmnOutpObject? As_CnstAltDmnOutp { get; set; }
 }
 
-public class CmptCnstAltDmnOutpObject
-  : Schema_constraint-alt-domain+Output
-  , ICmptCnstAltDmnOutpObject
+internal class CmptRefCnstAltDmnOutpEncoder<TRef>
 {
-
-  public CmptCnstAltDmnOutpObject
-    ()
-  {
-  }
 }
 
-public class CmptRefCnstAltDmnOutp<TRef>
-  : Schema_constraint-alt-domain+Output
-  , ICmptRefCnstAltDmnOutp<TRef>
-{
-  public TRef? Asref { get; set; }
-  public ICmptRefCnstAltDmnOutpObject<TRef>? As_RefCnstAltDmnOutp { get; set; }
-}
-
-public class CmptRefCnstAltDmnOutpObject<TRef>
-  : Schema_constraint-alt-domain+Output
-  , ICmptRefCnstAltDmnOutpObject<TRef>
-{
-
-  public CmptRefCnstAltDmnOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptDomCnstAltDmnOutp
-  : GqlpDomainString
-  , ICmptDomCnstAltDmnOutp
+internal class CmptDomCnstAltDmnOutpEncoder
 {
 }

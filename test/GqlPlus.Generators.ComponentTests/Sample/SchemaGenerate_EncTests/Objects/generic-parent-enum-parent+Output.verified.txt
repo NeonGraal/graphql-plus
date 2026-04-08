@@ -13,53 +13,22 @@ enum ParentGnrcPrntEnumPrntOutp { gnrcPrntEnumPrntOutpParent }
 
 namespace Components.Gqlp_Schema_generic_parent_enum_parent_Output;
 
-public class CmptGnrcPrntEnumPrntOutp
-  : CmptFieldGnrcPrntEnumPrntOutp<CmptEnumGnrcPrntEnumPrntOutp>
-  , ICmptGnrcPrntEnumPrntOutp
+internal class CmptGnrcPrntEnumPrntOutpEncoder
 {
-  public ICmptGnrcPrntEnumPrntOutpObject? As_GnrcPrntEnumPrntOutp { get; set; }
 }
 
-public class CmptGnrcPrntEnumPrntOutpObject
-  : CmptFieldGnrcPrntEnumPrntOutpObject<CmptEnumGnrcPrntEnumPrntOutp>
-  , ICmptGnrcPrntEnumPrntOutpObject
-{
-
-  public CmptGnrcPrntEnumPrntOutpObject
-    ( CmptEnumGnrcPrntEnumPrntOutp field
-    ) : base(field)
-  {
-  }
-}
-
-public class CmptFieldGnrcPrntEnumPrntOutp<TRef>
-  : Schema_generic-parent-enum-parent+Output
-  , ICmptFieldGnrcPrntEnumPrntOutp<TRef>
-{
-  public ICmptFieldGnrcPrntEnumPrntOutpObject<TRef>? As_FieldGnrcPrntEnumPrntOutp { get; set; }
-}
-
-public class CmptFieldGnrcPrntEnumPrntOutpObject<TRef>
-  : Schema_generic-parent-enum-parent+Output
-  , ICmptFieldGnrcPrntEnumPrntOutpObject<TRef>
+internal class CmptFieldGnrcPrntEnumPrntOutpEncoder<TRef>
 {
   public TRef Field { get; set; }
-
-  public CmptFieldGnrcPrntEnumPrntOutpObject
-    ( TRef field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum CmptEnumGnrcPrntEnumPrntOutp
+internal class CmptEnumGnrcPrntEnumPrntOutpEncoder
 {
-  gnrcPrntEnumPrntOutpParent = CmptParentGnrcPrntEnumPrntOutp.gnrcPrntEnumPrntOutpParent,
-  gnrcPrntEnumPrntOutpLabel,
+  public string gnrcPrntEnumPrntOutpParent { get; set; }
+  public string gnrcPrntEnumPrntOutpLabel { get; set; }
 }
 
-public enum CmptParentGnrcPrntEnumPrntOutp
+internal class CmptParentGnrcPrntEnumPrntOutpEncoder
 {
-  gnrcPrntEnumPrntOutpParent,
+  public string gnrcPrntEnumPrntOutpParent { get; set; }
 }

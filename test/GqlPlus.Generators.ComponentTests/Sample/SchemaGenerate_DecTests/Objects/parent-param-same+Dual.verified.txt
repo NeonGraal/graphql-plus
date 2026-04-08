@@ -11,26 +11,11 @@ dual RefPrntParamSameDual<$a:String> { | $a }
 
 namespace Components.Gqlp_Schema_parent_param_same_Dual;
 
-public interface ICmptPrntParamSameDual<TA>
-  : ICmptRefPrntParamSameDual<TA>
+internal class CmptPrntParamSameDualDecoder<TA>
 {
-  ICmptPrntParamSameDualObject<TA>? As_PrntParamSameDual { get; }
+  public TA Field { get; set; }
 }
 
-public interface ICmptPrntParamSameDualObject<TA>
-  : ICmptRefPrntParamSameDualObject<TA>
-{
-  TA Field { get; }
-}
-
-public interface ICmptRefPrntParamSameDual<TA>
-  // No Base because it's Class
-{
-  TA? Asa { get; }
-  ICmptRefPrntParamSameDualObject<TA>? As_RefPrntParamSameDual { get; }
-}
-
-public interface ICmptRefPrntParamSameDualObject<TA>
-  // No Base because it's Class
+internal class CmptRefPrntParamSameDualDecoder<TA>
 {
 }

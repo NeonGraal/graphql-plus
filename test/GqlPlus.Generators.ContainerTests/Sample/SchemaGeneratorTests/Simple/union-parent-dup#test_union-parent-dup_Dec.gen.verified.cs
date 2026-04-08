@@ -7,14 +7,12 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_parent_dup;
 
-public interface ItestUnionPrntDup
-  : ItestPrntUnionPrntDup
+internal class testUnionPrntDupDecoder
 {
-  Number AsNumber { get; }
+  public Number AsNumber { get; set; }
 }
 
-public interface ItestPrntUnionPrntDup
-  // No Base because it's Class
+internal class testPrntUnionPrntDupDecoder
 {
-  Number AsNumber { get; }
+  public Number AsNumber { get; set; }
 }

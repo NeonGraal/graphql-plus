@@ -7,15 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_enum_parent_alias;
 
-public enum testEnumPrntAlias
+internal class testEnumPrntAliasDecoder
 {
-  prnt_enumPrntAlias = testPrntEnumPrntAlias.prnt_enumPrntAlias,
-  val_enumPrntAlias,
-  prnt_enumPrntAlias,
-  enumPrntAlias = prnt_enumPrntAlias,
+  public string prnt_enumPrntAlias { get; set; }
+  public string val_enumPrntAlias { get; set; }
+  public string prnt_enumPrntAlias { get; set; }
+  public string enumPrntAlias { get; set; }
 }
 
-public enum testPrntEnumPrntAlias
+internal class testPrntEnumPrntAliasDecoder
 {
-  prnt_enumPrntAlias,
+  public string prnt_enumPrntAlias { get; set; }
 }

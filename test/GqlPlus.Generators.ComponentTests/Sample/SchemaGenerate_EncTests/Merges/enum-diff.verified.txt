@@ -11,8 +11,8 @@ enum EnumDiff { two }
 
 namespace Components.Gqlp_Schema_enum_diff;
 
-public enum CmptEnumDiff
+internal class CmptEnumDiffEncoder
 {
-  one,
-  two,
+  public string one { get; set; }
+  public string two { get; set; }
 }

@@ -11,19 +11,12 @@ enum EnumFieldValueDescrOutp { fieldValueDescrOutp }
 
 namespace Components.Gqlp_Schema_field_value_descr_Output;
 
-public interface ICmptFieldValueDescrOutp
-  // No Base because it's Class
+internal class CmptFieldValueDescrOutpDecoder
 {
-  ICmptFieldValueDescrOutpObject? As_FieldValueDescrOutp { get; }
+  public CmptEnumFieldValueDescrOutp Field { get; set; }
 }
 
-public interface ICmptFieldValueDescrOutpObject
-  // No Base because it's Class
+internal class CmptEnumFieldValueDescrOutpDecoder
 {
-  CmptEnumFieldValueDescrOutp Field { get; }
-}
-
-public enum CmptEnumFieldValueDescrOutp
-{
-  fieldValueDescrOutp,
+  public string fieldValueDescrOutp { get; set; }
 }

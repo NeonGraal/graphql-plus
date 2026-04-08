@@ -10,14 +10,7 @@ input GnrcDescrInp<"Test" "Descr" $type:String> { field: $type }
 
 namespace Components.Gqlp_Schema_generic_descr_Input;
 
-public interface ICmptGnrcDescrInp<TType>
-  // No Base because it's Class
+internal class CmptGnrcDescrInpDecoder<TType>
 {
-  ICmptGnrcDescrInpObject<TType>? As_GnrcDescrInp { get; }
-}
-
-public interface ICmptGnrcDescrInpObject<TType>
-  // No Base because it's Class
-{
-  TType Field { get; }
+  public TType Field { get; set; }
 }

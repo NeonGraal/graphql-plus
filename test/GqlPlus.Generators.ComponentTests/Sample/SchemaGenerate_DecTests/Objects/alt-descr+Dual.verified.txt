@@ -10,14 +10,6 @@ dual AltDescrDual { | "Test" "Descr" String }
 
 namespace Components.Gqlp_Schema_alt_descr_Dual;
 
-public interface ICmptAltDescrDual
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ICmptAltDescrDualObject? As_AltDescrDual { get; }
-}
-
-public interface ICmptAltDescrDualObject
-  // No Base because it's Class
+internal class CmptAltDescrDualDecoder
 {
 }

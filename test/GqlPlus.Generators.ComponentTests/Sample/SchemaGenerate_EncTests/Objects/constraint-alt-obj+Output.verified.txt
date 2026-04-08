@@ -13,80 +13,19 @@ output AltCnstAltObjOutp { :PrntCnstAltObjOutp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_alt_obj_Output;
 
-public class CmptCnstAltObjOutp
-  : Schema_constraint-alt-obj+Output
-  , ICmptCnstAltObjOutp
+internal class CmptCnstAltObjOutpEncoder
 {
-  public ICmptRefCnstAltObjOutp<ICmptAltCnstAltObjOutp>? AsRefCnstAltObjOutp { get; set; }
-  public ICmptCnstAltObjOutpObject? As_CnstAltObjOutp { get; set; }
 }
 
-public class CmptCnstAltObjOutpObject
-  : Schema_constraint-alt-obj+Output
-  , ICmptCnstAltObjOutpObject
+internal class CmptRefCnstAltObjOutpEncoder<TRef>
 {
-
-  public CmptCnstAltObjOutpObject
-    ()
-  {
-  }
 }
 
-public class CmptRefCnstAltObjOutp<TRef>
-  : Schema_constraint-alt-obj+Output
-  , ICmptRefCnstAltObjOutp<TRef>
+internal class CmptPrntCnstAltObjOutpEncoder
 {
-  public TRef? Asref { get; set; }
-  public ICmptRefCnstAltObjOutpObject<TRef>? As_RefCnstAltObjOutp { get; set; }
 }
 
-public class CmptRefCnstAltObjOutpObject<TRef>
-  : Schema_constraint-alt-obj+Output
-  , ICmptRefCnstAltObjOutpObject<TRef>
-{
-
-  public CmptRefCnstAltObjOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptPrntCnstAltObjOutp
-  : Schema_constraint-alt-obj+Output
-  , ICmptPrntCnstAltObjOutp
-{
-  public string? AsString { get; set; }
-  public ICmptPrntCnstAltObjOutpObject? As_PrntCnstAltObjOutp { get; set; }
-}
-
-public class CmptPrntCnstAltObjOutpObject
-  : Schema_constraint-alt-obj+Output
-  , ICmptPrntCnstAltObjOutpObject
-{
-
-  public CmptPrntCnstAltObjOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptAltCnstAltObjOutp
-  : CmptPrntCnstAltObjOutp
-  , ICmptAltCnstAltObjOutp
-{
-  public ICmptAltCnstAltObjOutpObject? As_AltCnstAltObjOutp { get; set; }
-}
-
-public class CmptAltCnstAltObjOutpObject
-  : CmptPrntCnstAltObjOutpObject
-  , ICmptAltCnstAltObjOutpObject
+internal class CmptAltCnstAltObjOutpEncoder
 {
   public decimal Alt { get; set; }
-
-  public CmptAltCnstAltObjOutpObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

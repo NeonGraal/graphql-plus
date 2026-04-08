@@ -7,8 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_number_diff;
 
-public class testDmnNmbrDiff
-  : GqlpDomainNumber
-  , ItestDmnNmbrDiff
+internal class testDmnNmbrDiffEncoder
 {
 }

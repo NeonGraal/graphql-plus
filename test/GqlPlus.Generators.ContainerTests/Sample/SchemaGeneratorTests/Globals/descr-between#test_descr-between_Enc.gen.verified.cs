@@ -7,20 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_descr_between;
 
-public class testDescrBtwn
-  : GqlpEncoderBase
-  , ItestDescrBtwn
+internal class testDescrBtwnEncoder
 {
-  public ItestDescrBtwnObject? As_DescrBtwn { get; set; }
-}
-
-public class testDescrBtwnObject
-  : GqlpEncoderBase
-  , ItestDescrBtwnObject
-{
-
-  public testDescrBtwnObject
-    ()
-  {
-  }
 }

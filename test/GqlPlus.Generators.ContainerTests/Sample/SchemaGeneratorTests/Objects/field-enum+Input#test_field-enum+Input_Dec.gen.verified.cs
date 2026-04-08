@@ -7,19 +7,12 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_enum_Input;
 
-public interface ItestFieldEnumInp
-  // No Base because it's Class
+internal class testFieldEnumInpDecoder
 {
-  ItestFieldEnumInpObject? As_FieldEnumInp { get; }
+  public testEnumFieldEnumInp Field { get; set; }
 }
 
-public interface ItestFieldEnumInpObject
-  // No Base because it's Class
+internal class testEnumFieldEnumInpDecoder
 {
-  testEnumFieldEnumInp Field { get; }
-}
-
-public enum testEnumFieldEnumInp
-{
-  fieldEnumInp,
+  public string fieldEnumInp { get; set; }
 }

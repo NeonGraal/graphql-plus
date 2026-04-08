@@ -7,49 +7,20 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_obj_Input;
 
-public interface ItestCnstFieldObjInp
-  : ItestRefCnstFieldObjInp<ItestAltCnstFieldObjInp>
-{
-  ItestCnstFieldObjInpObject? As_CnstFieldObjInp { get; }
-}
-
-public interface ItestCnstFieldObjInpObject
-  : ItestRefCnstFieldObjInpObject<ItestAltCnstFieldObjInp>
+internal class testCnstFieldObjInpDecoder
 {
 }
 
-public interface ItestRefCnstFieldObjInp<TRef>
-  // No Base because it's Class
+internal class testRefCnstFieldObjInpDecoder<TRef>
 {
-  ItestRefCnstFieldObjInpObject<TRef>? As_RefCnstFieldObjInp { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ItestRefCnstFieldObjInpObject<TRef>
-  // No Base because it's Class
-{
-  TRef Field { get; }
-}
-
-public interface ItestPrntCnstFieldObjInp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestPrntCnstFieldObjInpObject? As_PrntCnstFieldObjInp { get; }
-}
-
-public interface ItestPrntCnstFieldObjInpObject
-  // No Base because it's Class
+internal class testPrntCnstFieldObjInpDecoder
 {
 }
 
-public interface ItestAltCnstFieldObjInp
-  : ItestPrntCnstFieldObjInp
+internal class testAltCnstFieldObjInpDecoder
 {
-  ItestAltCnstFieldObjInpObject? As_AltCnstFieldObjInp { get; }
-}
-
-public interface ItestAltCnstFieldObjInpObject
-  : ItestPrntCnstFieldObjInpObject
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

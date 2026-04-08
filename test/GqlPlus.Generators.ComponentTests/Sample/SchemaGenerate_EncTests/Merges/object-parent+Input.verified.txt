@@ -12,38 +12,10 @@ input RefObjPrntInp { }
 
 namespace Components.Gqlp_Schema_object_parent_Input;
 
-public class CmptObjPrntInp
-  : CmptRefObjPrntInp
-  , ICmptObjPrntInp
+internal class CmptObjPrntInpEncoder
 {
-  public ICmptObjPrntInpObject? As_ObjPrntInp { get; set; }
 }
 
-public class CmptObjPrntInpObject
-  : CmptRefObjPrntInpObject
-  , ICmptObjPrntInpObject
+internal class CmptRefObjPrntInpEncoder
 {
-
-  public CmptObjPrntInpObject
-    ()
-  {
-  }
-}
-
-public class CmptRefObjPrntInp
-  : Schema_object-parent+Input
-  , ICmptRefObjPrntInp
-{
-  public ICmptRefObjPrntInpObject? As_RefObjPrntInp { get; set; }
-}
-
-public class CmptRefObjPrntInpObject
-  : Schema_object-parent+Input
-  , ICmptRefObjPrntInpObject
-{
-
-  public CmptRefObjPrntInpObject
-    ()
-  {
-  }
 }

@@ -7,38 +7,17 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_output_param_type_descr;
 
-public interface ItestOutpParamTypeDescr
-  // No Base because it's Class
+internal class testOutpParamTypeDescrDecoder
 {
-  ItestOutpParamTypeDescrObject? As_OutpParamTypeDescr { get; }
+  public ItestFldOutpParamTypeDescr? Field(ItestInOutpParamTypeDescr parameter)
+    => null;
 }
 
-public interface ItestOutpParamTypeDescrObject
-  // No Base because it's Class
-{
-  ItestFldOutpParamTypeDescr? Field(ItestInOutpParamTypeDescr parameter);
-}
-
-public interface ItestFldOutpParamTypeDescr
-  // No Base because it's Class
-{
-  ItestFldOutpParamTypeDescrObject? As_FldOutpParamTypeDescr { get; }
-}
-
-public interface ItestFldOutpParamTypeDescrObject
-  // No Base because it's Class
+internal class testFldOutpParamTypeDescrDecoder
 {
 }
 
-public interface ItestInOutpParamTypeDescr
-  // No Base because it's Class
+internal class testInOutpParamTypeDescrDecoder
 {
-  string? AsString { get; }
-  ItestInOutpParamTypeDescrObject? As_InOutpParamTypeDescr { get; }
-}
-
-public interface ItestInOutpParamTypeDescrObject
-  // No Base because it's Class
-{
-  decimal Param { get; }
+  public decimal Param { get; set; }
 }

@@ -11,15 +11,13 @@ enum EnumDmnEnumExcl { dmnEnumExcl enum_dmnEnumExcl dmnEnumExclValue }
 
 namespace Components.Gqlp_Schema_domain_enum_exclude;
 
-public class CmptDmnEnumExcl
-  : GqlpDomainEnum
-  , ICmptDmnEnumExcl
+internal class CmptDmnEnumExclEncoder
 {
 }
 
-public enum CmptEnumDmnEnumExcl
+internal class CmptEnumDmnEnumExclEncoder
 {
-  dmnEnumExcl,
-  enum_dmnEnumExcl,
-  dmnEnumExclValue,
+  public string dmnEnumExcl { get; set; }
+  public string enum_dmnEnumExcl { get; set; }
+  public string dmnEnumExclValue { get; set; }
 }

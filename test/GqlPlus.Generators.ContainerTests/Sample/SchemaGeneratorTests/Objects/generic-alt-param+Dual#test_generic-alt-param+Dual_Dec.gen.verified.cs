@@ -7,39 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_param_Dual;
 
-public interface ItestGnrcAltParamDual
-  // No Base because it's Class
-{
-  ItestRefGnrcAltParamDual<ItestAltGnrcAltParamDual>? AsRefGnrcAltParamDual { get; }
-  ItestGnrcAltParamDualObject? As_GnrcAltParamDual { get; }
-}
-
-public interface ItestGnrcAltParamDualObject
-  // No Base because it's Class
+internal class testGnrcAltParamDualDecoder
 {
 }
 
-public interface ItestRefGnrcAltParamDual<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcAltParamDualObject<TRef>? As_RefGnrcAltParamDual { get; }
-}
-
-public interface ItestRefGnrcAltParamDualObject<TRef>
-  // No Base because it's Class
+internal class testRefGnrcAltParamDualDecoder<TRef>
 {
 }
 
-public interface ItestAltGnrcAltParamDual
-  // No Base because it's Class
+internal class testAltGnrcAltParamDualDecoder
 {
-  string? AsString { get; }
-  ItestAltGnrcAltParamDualObject? As_AltGnrcAltParamDual { get; }
-}
-
-public interface ItestAltGnrcAltParamDualObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

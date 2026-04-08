@@ -11,26 +11,10 @@ output RefGnrcAltArgDescrOutp<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_alt_arg_descr_Output;
 
-public interface ICmptGnrcAltArgDescrOutp<TType>
-  // No Base because it's Class
-{
-  ICmptRefGnrcAltArgDescrOutp<TType>? AsRefGnrcAltArgDescrOutp { get; }
-  ICmptGnrcAltArgDescrOutpObject<TType>? As_GnrcAltArgDescrOutp { get; }
-}
-
-public interface ICmptGnrcAltArgDescrOutpObject<TType>
-  // No Base because it's Class
+internal class CmptGnrcAltArgDescrOutpDecoder<TType>
 {
 }
 
-public interface ICmptRefGnrcAltArgDescrOutp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ICmptRefGnrcAltArgDescrOutpObject<TRef>? As_RefGnrcAltArgDescrOutp { get; }
-}
-
-public interface ICmptRefGnrcAltArgDescrOutpObject<TRef>
-  // No Base because it's Class
+internal class CmptRefGnrcAltArgDescrOutpDecoder<TRef>
 {
 }

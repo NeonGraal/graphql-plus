@@ -7,37 +7,22 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_output_parent_generic;
 
-public interface ItestOutpPrntGnrc
-  // No Base because it's Class
-{
-  ItestRefOutpPrntGnrc<testEnumOutpPrntGnrc>? AsEnumOutpPrntGnrcprnt_outpPrntGnrc { get; }
-  ItestOutpPrntGnrcObject? As_OutpPrntGnrc { get; }
-}
-
-public interface ItestOutpPrntGnrcObject
-  // No Base because it's Class
+internal class testOutpPrntGnrcDecoder
 {
 }
 
-public interface ItestRefOutpPrntGnrc<TType>
-  // No Base because it's Class
+internal class testRefOutpPrntGnrcDecoder<TType>
 {
-  ItestRefOutpPrntGnrcObject<TType>? As_RefOutpPrntGnrc { get; }
+  public TType Field { get; set; }
 }
 
-public interface ItestRefOutpPrntGnrcObject<TType>
-  // No Base because it's Class
+internal class testEnumOutpPrntGnrcDecoder
 {
-  TType Field { get; }
+  public string prnt_outpPrntGnrc { get; set; }
+  public string outpPrntGnrc { get; set; }
 }
 
-public enum testEnumOutpPrntGnrc
+internal class testPrntOutpPrntGnrcDecoder
 {
-  prnt_outpPrntGnrc = testPrntOutpPrntGnrc.prnt_outpPrntGnrc,
-  outpPrntGnrc,
-}
-
-public enum testPrntOutpPrntGnrc
-{
-  prnt_outpPrntGnrc,
+  public string prnt_outpPrntGnrc { get; set; }
 }

@@ -13,30 +13,29 @@ enum DupDmnEnumUnqPrnt { dmnEnumUnqPrnt dup_dmnEnumUnqPrnt dmnEnumUnqPrntDup }
 
 namespace Components.Gqlp_Schema_domain_enum_unique_parent;
 
-public interface ICmptDmnEnumUnqPrnt
-  : IGqlpDomainEnum
+internal class CmptDmnEnumUnqPrntDecoder
 {
 }
 
-public enum CmptEnumDmnEnumUnqPrnt
+internal class CmptEnumDmnEnumUnqPrntDecoder
 {
-  dmnEnumUnqPrnt = CmptPrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
-  prnt_dmnEnumUnqPrnt = CmptPrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntPrnt = CmptPrntDmnEnumUnqPrnt.dmnEnumUnqPrntPrnt,
-  enum_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntValue,
+  public string dmnEnumUnqPrnt { get; set; }
+  public string prnt_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntPrnt { get; set; }
+  public string enum_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntValue { get; set; }
 }
 
-public enum CmptPrntDmnEnumUnqPrnt
+internal class CmptPrntDmnEnumUnqPrntDecoder
 {
-  dmnEnumUnqPrnt,
-  prnt_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntPrnt,
+  public string dmnEnumUnqPrnt { get; set; }
+  public string prnt_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntPrnt { get; set; }
 }
 
-public enum CmptDupDmnEnumUnqPrnt
+internal class CmptDupDmnEnumUnqPrntDecoder
 {
-  dmnEnumUnqPrnt,
-  dup_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntDup,
+  public string dmnEnumUnqPrnt { get; set; }
+  public string dup_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntDup { get; set; }
 }

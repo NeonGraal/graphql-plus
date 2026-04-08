@@ -7,12 +7,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_bool_parent_descr;
 
-public interface ItestDmnBoolPrntDescr
-  : ItestPrntDmnBoolPrntDescr
+internal class testDmnBoolPrntDescrDecoder
 {
 }
 
-public interface ItestPrntDmnBoolPrntDescr
-  : IGqlpDomainBoolean
+internal class testPrntDmnBoolPrntDescrDecoder
 {
 }

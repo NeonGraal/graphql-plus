@@ -10,14 +10,6 @@ output RefGnrcAltModParamOutp<$ref:String $mod:String> { | $ref[$mod] }
 
 namespace Components.Gqlp_Schema_generic_alt_mod_param_Output;
 
-public interface ICmptRefGnrcAltModParamOutp<TRef,TMod>
-  // No Base because it's Class
-{
-  IDictionary<TMod, TRef>? Asref { get; }
-  ICmptRefGnrcAltModParamOutpObject<TRef,TMod>? As_RefGnrcAltModParamOutp { get; }
-}
-
-public interface ICmptRefGnrcAltModParamOutpObject<TRef,TMod>
-  // No Base because it's Class
+internal class CmptRefGnrcAltModParamOutpDecoder<TRef,TMod>
 {
 }

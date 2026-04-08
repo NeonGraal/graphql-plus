@@ -11,28 +11,12 @@ enum EnumFieldModEnumInp { value }
 
 namespace Components.Gqlp_Schema_field_mod_Enum_Input;
 
-public class CmptFieldModEnumInp
-  : Schema_field-mod-Enum+Input
-  , ICmptFieldModEnumInp
-{
-  public ICmptFieldModEnumInpObject? As_FieldModEnumInp { get; set; }
-}
-
-public class CmptFieldModEnumInpObject
-  : Schema_field-mod-Enum+Input
-  , ICmptFieldModEnumInpObject
+internal class CmptFieldModEnumInpEncoder
 {
   public IDictionary<CmptEnumFieldModEnumInp, string> Field { get; set; }
-
-  public CmptFieldModEnumInpObject
-    ( IDictionary<CmptEnumFieldModEnumInp, string> field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum CmptEnumFieldModEnumInp
+internal class CmptEnumFieldModEnumInpEncoder
 {
-  value,
+  public string value { get; set; }
 }

@@ -13,82 +13,20 @@ output AltCnstFieldDualOutp { :PrntCnstFieldDualOutp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_field_dual_Output;
 
-public class CmptCnstFieldDualOutp
-  : CmptRefCnstFieldDualOutp<ICmptAltCnstFieldDualOutp>
-  , ICmptCnstFieldDualOutp
+internal class CmptCnstFieldDualOutpEncoder
 {
-  public ICmptCnstFieldDualOutpObject? As_CnstFieldDualOutp { get; set; }
 }
 
-public class CmptCnstFieldDualOutpObject
-  : CmptRefCnstFieldDualOutpObject<ICmptAltCnstFieldDualOutp>
-  , ICmptCnstFieldDualOutpObject
-{
-
-  public CmptCnstFieldDualOutpObject
-    ( ICmptAltCnstFieldDualOutp field
-    ) : base(field)
-  {
-  }
-}
-
-public class CmptRefCnstFieldDualOutp<TRef>
-  : Schema_constraint-field-dual+Output
-  , ICmptRefCnstFieldDualOutp<TRef>
-{
-  public ICmptRefCnstFieldDualOutpObject<TRef>? As_RefCnstFieldDualOutp { get; set; }
-}
-
-public class CmptRefCnstFieldDualOutpObject<TRef>
-  : Schema_constraint-field-dual+Output
-  , ICmptRefCnstFieldDualOutpObject<TRef>
+internal class CmptRefCnstFieldDualOutpEncoder<TRef>
 {
   public TRef Field { get; set; }
-
-  public CmptRefCnstFieldDualOutpObject
-    ( TRef field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptPrntCnstFieldDualOutp
-  : Schema_constraint-field-dual+Output
-  , ICmptPrntCnstFieldDualOutp
+internal class CmptPrntCnstFieldDualOutpEncoder
 {
-  public string? AsString { get; set; }
-  public ICmptPrntCnstFieldDualOutpObject? As_PrntCnstFieldDualOutp { get; set; }
 }
 
-public class CmptPrntCnstFieldDualOutpObject
-  : Schema_constraint-field-dual+Output
-  , ICmptPrntCnstFieldDualOutpObject
-{
-
-  public CmptPrntCnstFieldDualOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptAltCnstFieldDualOutp
-  : CmptPrntCnstFieldDualOutp
-  , ICmptAltCnstFieldDualOutp
-{
-  public ICmptAltCnstFieldDualOutpObject? As_AltCnstFieldDualOutp { get; set; }
-}
-
-public class CmptAltCnstFieldDualOutpObject
-  : CmptPrntCnstFieldDualOutpObject
-  , ICmptAltCnstFieldDualOutpObject
+internal class CmptAltCnstFieldDualOutpEncoder
 {
   public decimal Alt { get; set; }
-
-  public CmptAltCnstFieldDualOutpObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

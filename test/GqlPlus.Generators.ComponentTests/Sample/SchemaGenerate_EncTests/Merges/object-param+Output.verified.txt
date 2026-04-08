@@ -11,26 +11,8 @@ output ObjParamOutp<$type:String> { type: $type }
 
 namespace Components.Gqlp_Schema_object_param_Output;
 
-public class CmptObjParamOutp<TTest,TType>
-  : Schema_object-param+Output
-  , ICmptObjParamOutp<TTest,TType>
-{
-  public ICmptObjParamOutpObject<TTest,TType>? As_ObjParamOutp { get; set; }
-}
-
-public class CmptObjParamOutpObject<TTest,TType>
-  : Schema_object-param+Output
-  , ICmptObjParamOutpObject<TTest,TType>
+internal class CmptObjParamOutpEncoder<TTest,TType>
 {
   public TTest Test { get; set; }
   public TType Type { get; set; }
-
-  public CmptObjParamOutpObject
-    ( TTest test
-    , TType type
-    )
-  {
-    Test = test;
-    Type = type;
-  }
 }

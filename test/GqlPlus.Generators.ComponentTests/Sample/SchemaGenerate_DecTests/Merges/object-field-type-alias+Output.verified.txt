@@ -11,14 +11,7 @@ output ObjFieldTypeAliasOutp { field: String }
 
 namespace Components.Gqlp_Schema_object_field_type_alias_Output;
 
-public interface ICmptObjFieldTypeAliasOutp
-  // No Base because it's Class
+internal class CmptObjFieldTypeAliasOutpDecoder
 {
-  ICmptObjFieldTypeAliasOutpObject? As_ObjFieldTypeAliasOutp { get; }
-}
-
-public interface ICmptObjFieldTypeAliasOutpObject
-  // No Base because it's Class
-{
-  string Field { get; }
+  public string Field { get; set; }
 }

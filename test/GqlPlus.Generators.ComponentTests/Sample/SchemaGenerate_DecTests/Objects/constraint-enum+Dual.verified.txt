@@ -12,31 +12,16 @@ enum EnumCnstEnumDual { cnstEnumDual }
 
 namespace Components.Gqlp_Schema_constraint_enum_Dual;
 
-public interface ICmptCnstEnumDual
-  // No Base because it's Class
-{
-  ICmptRefCnstEnumDual<CmptEnumCnstEnumDual>? AsEnumCnstEnumDualcnstEnumDual { get; }
-  ICmptCnstEnumDualObject? As_CnstEnumDual { get; }
-}
-
-public interface ICmptCnstEnumDualObject
-  // No Base because it's Class
+internal class CmptCnstEnumDualDecoder
 {
 }
 
-public interface ICmptRefCnstEnumDual<TType>
-  // No Base because it's Class
+internal class CmptRefCnstEnumDualDecoder<TType>
 {
-  ICmptRefCnstEnumDualObject<TType>? As_RefCnstEnumDual { get; }
+  public TType Field { get; set; }
 }
 
-public interface ICmptRefCnstEnumDualObject<TType>
-  // No Base because it's Class
+internal class CmptEnumCnstEnumDualDecoder
 {
-  TType Field { get; }
-}
-
-public enum CmptEnumCnstEnumDual
-{
-  cnstEnumDual,
+  public string cnstEnumDual { get; set; }
 }

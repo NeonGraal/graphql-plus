@@ -7,14 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_type_alias_Input;
 
-public interface ItestObjFieldTypeAliasInp
-  // No Base because it's Class
+internal class testObjFieldTypeAliasInpDecoder
 {
-  ItestObjFieldTypeAliasInpObject? As_ObjFieldTypeAliasInp { get; }
-}
-
-public interface ItestObjFieldTypeAliasInpObject
-  // No Base because it's Class
-{
-  string Field { get; }
+  public string Field { get; set; }
 }

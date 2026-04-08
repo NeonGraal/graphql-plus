@@ -7,42 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_arg_Dual;
 
-public class testGnrcFieldArgDual<TType>
-  : GqlpEncoderBase
-  , ItestGnrcFieldArgDual<TType>
-{
-  public ItestGnrcFieldArgDualObject<TType>? As_GnrcFieldArgDual { get; set; }
-}
-
-public class testGnrcFieldArgDualObject<TType>
-  : GqlpEncoderBase
-  , ItestGnrcFieldArgDualObject<TType>
+internal class testGnrcFieldArgDualEncoder<TType>
 {
   public ItestRefGnrcFieldArgDual<TType> Field { get; set; }
-
-  public testGnrcFieldArgDualObject
-    ( ItestRefGnrcFieldArgDual<TType> field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class testRefGnrcFieldArgDual<TRef>
-  : GqlpEncoderBase
-  , ItestRefGnrcFieldArgDual<TRef>
+internal class testRefGnrcFieldArgDualEncoder<TRef>
 {
-  public TRef? Asref { get; set; }
-  public ItestRefGnrcFieldArgDualObject<TRef>? As_RefGnrcFieldArgDual { get; set; }
-}
-
-public class testRefGnrcFieldArgDualObject<TRef>
-  : GqlpEncoderBase
-  , ItestRefGnrcFieldArgDualObject<TRef>
-{
-
-  public testRefGnrcFieldArgDualObject
-    ()
-  {
-  }
 }

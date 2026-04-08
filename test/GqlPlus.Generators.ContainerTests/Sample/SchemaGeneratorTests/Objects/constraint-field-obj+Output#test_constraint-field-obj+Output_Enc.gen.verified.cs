@@ -7,82 +7,20 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_obj_Output;
 
-public class testCnstFieldObjOutp
-  : testRefCnstFieldObjOutp<ItestAltCnstFieldObjOutp>
-  , ItestCnstFieldObjOutp
+internal class testCnstFieldObjOutpEncoder
 {
-  public ItestCnstFieldObjOutpObject? As_CnstFieldObjOutp { get; set; }
 }
 
-public class testCnstFieldObjOutpObject
-  : testRefCnstFieldObjOutpObject<ItestAltCnstFieldObjOutp>
-  , ItestCnstFieldObjOutpObject
-{
-
-  public testCnstFieldObjOutpObject
-    ( ItestAltCnstFieldObjOutp field
-    ) : base(field)
-  {
-  }
-}
-
-public class testRefCnstFieldObjOutp<TRef>
-  : GqlpEncoderBase
-  , ItestRefCnstFieldObjOutp<TRef>
-{
-  public ItestRefCnstFieldObjOutpObject<TRef>? As_RefCnstFieldObjOutp { get; set; }
-}
-
-public class testRefCnstFieldObjOutpObject<TRef>
-  : GqlpEncoderBase
-  , ItestRefCnstFieldObjOutpObject<TRef>
+internal class testRefCnstFieldObjOutpEncoder<TRef>
 {
   public TRef Field { get; set; }
-
-  public testRefCnstFieldObjOutpObject
-    ( TRef field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class testPrntCnstFieldObjOutp
-  : GqlpEncoderBase
-  , ItestPrntCnstFieldObjOutp
+internal class testPrntCnstFieldObjOutpEncoder
 {
-  public string? AsString { get; set; }
-  public ItestPrntCnstFieldObjOutpObject? As_PrntCnstFieldObjOutp { get; set; }
 }
 
-public class testPrntCnstFieldObjOutpObject
-  : GqlpEncoderBase
-  , ItestPrntCnstFieldObjOutpObject
-{
-
-  public testPrntCnstFieldObjOutpObject
-    ()
-  {
-  }
-}
-
-public class testAltCnstFieldObjOutp
-  : testPrntCnstFieldObjOutp
-  , ItestAltCnstFieldObjOutp
-{
-  public ItestAltCnstFieldObjOutpObject? As_AltCnstFieldObjOutp { get; set; }
-}
-
-public class testAltCnstFieldObjOutpObject
-  : testPrntCnstFieldObjOutpObject
-  , ItestAltCnstFieldObjOutpObject
+internal class testAltCnstFieldObjOutpEncoder
 {
   public decimal Alt { get; set; }
-
-  public testAltCnstFieldObjOutpObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

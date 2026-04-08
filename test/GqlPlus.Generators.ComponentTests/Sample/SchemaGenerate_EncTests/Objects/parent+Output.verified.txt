@@ -11,43 +11,11 @@ output RefPrntOutp { parent: Number | String }
 
 namespace Components.Gqlp_Schema_parent_Output;
 
-public class CmptPrntOutp
-  : CmptRefPrntOutp
-  , ICmptPrntOutp
+internal class CmptPrntOutpEncoder
 {
-  public ICmptPrntOutpObject? As_PrntOutp { get; set; }
 }
 
-public class CmptPrntOutpObject
-  : CmptRefPrntOutpObject
-  , ICmptPrntOutpObject
-{
-
-  public CmptPrntOutpObject
-    ( decimal parent
-    ) : base(parent)
-  {
-  }
-}
-
-public class CmptRefPrntOutp
-  : Schema_parent+Output
-  , ICmptRefPrntOutp
-{
-  public string? AsString { get; set; }
-  public ICmptRefPrntOutpObject? As_RefPrntOutp { get; set; }
-}
-
-public class CmptRefPrntOutpObject
-  : Schema_parent+Output
-  , ICmptRefPrntOutpObject
+internal class CmptRefPrntOutpEncoder
 {
   public decimal Parent { get; set; }
-
-  public CmptRefPrntOutpObject
-    ( decimal parent
-    )
-  {
-    Parent = parent;
-  }
 }

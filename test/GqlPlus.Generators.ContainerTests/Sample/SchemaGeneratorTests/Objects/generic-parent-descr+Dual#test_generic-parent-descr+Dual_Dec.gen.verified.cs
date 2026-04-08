@@ -7,14 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_descr_Dual;
 
-public interface ItestGnrcPrntDescrDual<TType>
-  // No Base because it's Class
-{
-  TType? As_Parent { get; }
-  ItestGnrcPrntDescrDualObject<TType>? As_GnrcPrntDescrDual { get; }
-}
-
-public interface ItestGnrcPrntDescrDualObject<TType>
-  // No Base because it's Class
+internal class testGnrcPrntDescrDualDecoder<TType>
 {
 }

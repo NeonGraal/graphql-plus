@@ -6,308 +6,70 @@
 
 namespace Components.Gqlp_Schema_Globals;
 
-public class CmptCtgrDscrs
-  : Schema_+Globals
-  , ICmptCtgrDscrs
+internal class CmptCtgrDscrsEncoder
 {
-  public ICmptCtgrDscrsObject? As_CtgrDscrs { get; set; }
 }
 
-public class CmptCtgrDscrsObject
-  : Schema_+Globals
-  , ICmptCtgrDscrsObject
+internal class CmptCtgrOutpEncoder
 {
-
-  public CmptCtgrDscrsObject
-    ()
-  {
-  }
 }
 
-public class CmptCtgrOutp
-  : Schema_+Globals
-  , ICmptCtgrOutp
+internal class CmptCtgrOutpDescrEncoder
 {
-  public ICmptCtgrOutpObject? As_CtgrOutp { get; set; }
 }
 
-public class CmptCtgrOutpObject
-  : Schema_+Globals
-  , ICmptCtgrOutpObject
+internal class CmptCtgrOutpDictEncoder
 {
-
-  public CmptCtgrOutpObject
-    ()
-  {
-  }
 }
 
-public class CmptCtgrOutpDescr
-  : Schema_+Globals
-  , ICmptCtgrOutpDescr
+internal class CmptCtgrOutpListEncoder
 {
-  public ICmptCtgrOutpDescrObject? As_CtgrOutpDescr { get; set; }
 }
 
-public class CmptCtgrOutpDescrObject
-  : Schema_+Globals
-  , ICmptCtgrOutpDescrObject
+internal class CmptCtgrOutpOptlEncoder
 {
-
-  public CmptCtgrOutpDescrObject
-    ()
-  {
-  }
 }
 
-public class CmptCtgrOutpDict
-  : Schema_+Globals
-  , ICmptCtgrOutpDict
+internal class CmptDescrEncoder
 {
-  public ICmptCtgrOutpDictObject? As_CtgrOutpDict { get; set; }
 }
 
-public class CmptCtgrOutpDictObject
-  : Schema_+Globals
-  , ICmptCtgrOutpDictObject
+internal class CmptDescrBcksEncoder
 {
-
-  public CmptCtgrOutpDictObject
-    ()
-  {
-  }
 }
 
-public class CmptCtgrOutpList
-  : Schema_+Globals
-  , ICmptCtgrOutpList
+internal class CmptDescrBtwnEncoder
 {
-  public ICmptCtgrOutpListObject? As_CtgrOutpList { get; set; }
 }
 
-public class CmptCtgrOutpListObject
-  : Schema_+Globals
-  , ICmptCtgrOutpListObject
+internal class CmptDescrCmplEncoder
 {
-
-  public CmptCtgrOutpListObject
-    ()
-  {
-  }
 }
 
-public class CmptCtgrOutpOptl
-  : Schema_+Globals
-  , ICmptCtgrOutpOptl
+internal class CmptDescrDblEncoder
 {
-  public ICmptCtgrOutpOptlObject? As_CtgrOutpOptl { get; set; }
 }
 
-public class CmptCtgrOutpOptlObject
-  : Schema_+Globals
-  , ICmptCtgrOutpOptlObject
+internal class CmptDescrSnglEncoder
 {
-
-  public CmptCtgrOutpOptlObject
-    ()
-  {
-  }
 }
 
-public class CmptDescr
-  : Schema_+Globals
-  , ICmptDescr
+internal class CmptDscrsEncoder
 {
-  public ICmptDescrObject? As_Descr { get; set; }
 }
 
-public class CmptDescrObject
-  : Schema_+Globals
-  , ICmptDescrObject
+internal class CmptInDrctParamDictEncoder
 {
-
-  public CmptDescrObject
-    ()
-  {
-  }
 }
 
-public class CmptDescrBcks
-  : Schema_+Globals
-  , ICmptDescrBcks
+internal class CmptInDrctParamInEncoder
 {
-  public ICmptDescrBcksObject? As_DescrBcks { get; set; }
 }
 
-public class CmptDescrBcksObject
-  : Schema_+Globals
-  , ICmptDescrBcksObject
+internal class CmptInDrctParamListEncoder
 {
-
-  public CmptDescrBcksObject
-    ()
-  {
-  }
 }
 
-public class CmptDescrBtwn
-  : Schema_+Globals
-  , ICmptDescrBtwn
+internal class CmptInDrctParamOptEncoder
 {
-  public ICmptDescrBtwnObject? As_DescrBtwn { get; set; }
-}
-
-public class CmptDescrBtwnObject
-  : Schema_+Globals
-  , ICmptDescrBtwnObject
-{
-
-  public CmptDescrBtwnObject
-    ()
-  {
-  }
-}
-
-public class CmptDescrCmpl
-  : Schema_+Globals
-  , ICmptDescrCmpl
-{
-  public ICmptDescrCmplObject? As_DescrCmpl { get; set; }
-}
-
-public class CmptDescrCmplObject
-  : Schema_+Globals
-  , ICmptDescrCmplObject
-{
-
-  public CmptDescrCmplObject
-    ()
-  {
-  }
-}
-
-public class CmptDescrDbl
-  : Schema_+Globals
-  , ICmptDescrDbl
-{
-  public ICmptDescrDblObject? As_DescrDbl { get; set; }
-}
-
-public class CmptDescrDblObject
-  : Schema_+Globals
-  , ICmptDescrDblObject
-{
-
-  public CmptDescrDblObject
-    ()
-  {
-  }
-}
-
-public class CmptDescrSngl
-  : Schema_+Globals
-  , ICmptDescrSngl
-{
-  public ICmptDescrSnglObject? As_DescrSngl { get; set; }
-}
-
-public class CmptDescrSnglObject
-  : Schema_+Globals
-  , ICmptDescrSnglObject
-{
-
-  public CmptDescrSnglObject
-    ()
-  {
-  }
-}
-
-public class CmptDscrs
-  : Schema_+Globals
-  , ICmptDscrs
-{
-  public ICmptDscrsObject? As_Dscrs { get; set; }
-}
-
-public class CmptDscrsObject
-  : Schema_+Globals
-  , ICmptDscrsObject
-{
-
-  public CmptDscrsObject
-    ()
-  {
-  }
-}
-
-public class CmptInDrctParamDict
-  : Schema_+Globals
-  , ICmptInDrctParamDict
-{
-  public ICmptInDrctParamDictObject? As_InDrctParamDict { get; set; }
-}
-
-public class CmptInDrctParamDictObject
-  : Schema_+Globals
-  , ICmptInDrctParamDictObject
-{
-
-  public CmptInDrctParamDictObject
-    ()
-  {
-  }
-}
-
-public class CmptInDrctParamIn
-  : Schema_+Globals
-  , ICmptInDrctParamIn
-{
-  public ICmptInDrctParamInObject? As_InDrctParamIn { get; set; }
-}
-
-public class CmptInDrctParamInObject
-  : Schema_+Globals
-  , ICmptInDrctParamInObject
-{
-
-  public CmptInDrctParamInObject
-    ()
-  {
-  }
-}
-
-public class CmptInDrctParamList
-  : Schema_+Globals
-  , ICmptInDrctParamList
-{
-  public ICmptInDrctParamListObject? As_InDrctParamList { get; set; }
-}
-
-public class CmptInDrctParamListObject
-  : Schema_+Globals
-  , ICmptInDrctParamListObject
-{
-
-  public CmptInDrctParamListObject
-    ()
-  {
-  }
-}
-
-public class CmptInDrctParamOpt
-  : Schema_+Globals
-  , ICmptInDrctParamOpt
-{
-  public ICmptInDrctParamOptObject? As_InDrctParamOpt { get; set; }
-}
-
-public class CmptInDrctParamOptObject
-  : Schema_+Globals
-  , ICmptInDrctParamOptObject
-{
-
-  public CmptInDrctParamOptObject
-    ()
-  {
-  }
 }

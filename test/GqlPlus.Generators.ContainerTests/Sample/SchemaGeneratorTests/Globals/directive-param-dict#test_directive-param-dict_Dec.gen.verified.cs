@@ -7,13 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_directive_param_dict;
 
-public interface ItestInDrctParamDict
-  // No Base because it's Class
-{
-  ItestInDrctParamDictObject? As_InDrctParamDict { get; }
-}
-
-public interface ItestInDrctParamDictObject
-  // No Base because it's Class
+internal class testInDrctParamDictDecoder
 {
 }

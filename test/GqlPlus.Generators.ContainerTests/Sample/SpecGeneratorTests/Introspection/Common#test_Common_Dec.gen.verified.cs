@@ -7,109 +7,52 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Common;
 
-public interface Itest_Type
-  // No Base because it's Class
-{
-  Itest_BaseType<test_TypeKind>? As_TypeKindBasic { get; }
-  Itest_BaseType<test_TypeKind>? As_TypeKindInternal { get; }
-  Itest_BaseDomain<Itest_DomainKind, Itest_DomainTrueFalse, Itest_DomainItemTrueFalse>? As_DomainKindBoolean { get; }
-  Itest_BaseDomain<Itest_DomainKind, Itest_DomainLabel, Itest_DomainItemLabel>? As_DomainKindEnum { get; }
-  Itest_BaseDomain<Itest_DomainKind, Itest_DomainRange, Itest_DomainItemRange>? As_DomainKindNumber { get; }
-  Itest_BaseDomain<Itest_DomainKind, Itest_DomainRegex, Itest_DomainItemRegex>? As_DomainKindString { get; }
-  Itest_ParentType<test_TypeKind, Itest_Aliased, Itest_EnumLabel>? As_TypeKindEnum { get; }
-  Itest_ParentType<test_TypeKind, Itest_UnionRef, Itest_UnionMember>? As_TypeKindUnion { get; }
-  Itest_TypeObject<test_TypeKind, Itest_DualField>? As_TypeKindDual { get; }
-  Itest_TypeObject<test_TypeKind, Itest_InputField>? As_TypeKindInput { get; }
-  Itest_TypeObject<test_TypeKind, Itest_OutputField>? As_TypeKindOutput { get; }
-  Itest_TypeObject? As__Type { get; }
-}
-
-public interface Itest_TypeObject
-  // No Base because it's Class
+internal class test_TypeDecoder
 {
 }
 
-public interface Itest_BaseType<TTypeKind>
-  : Itest_Aliased
+internal class test_BaseTypeDecoder<TTypeKind>
 {
-  Itest_BaseTypeObject<TTypeKind>? As__BaseType { get; }
+  public TTypeKind TypeKind { get; set; }
 }
 
-public interface Itest_BaseTypeObject<TTypeKind>
-  : Itest_AliasedObject
+internal class test_ChildTypeDecoder<TTypeKind,TParent>
 {
-  TTypeKind TypeKind { get; }
+  public TParent Parent { get; set; }
 }
 
-public interface Itest_ChildType<TTypeKind,TParent>
-  : Itest_BaseType<TTypeKind>
+internal class test_ParentTypeDecoder<TTypeKind,TItem,TAllItem>
 {
-  Itest_ChildTypeObject<TTypeKind,TParent>? As__ChildType { get; }
+  public ICollection<TItem> Items { get; set; }
+  public ICollection<TAllItem> AllItems { get; set; }
 }
 
-public interface Itest_ChildTypeObject<TTypeKind,TParent>
-  : Itest_BaseTypeObject<TTypeKind>
+internal class test_SimpleKindDecoder
 {
-  TParent Parent { get; }
+  public string Basic { get; set; }
+  public string Enum { get; set; }
+  public string Internal { get; set; }
+  public string Domain { get; set; }
+  public string Union { get; set; }
 }
 
-public interface Itest_ParentType<TTypeKind,TItem,TAllItem>
-  : Itest_ChildType<TTypeKind, Itest_Named>
+internal class test_TypeKindDecoder
 {
-  Itest_ParentTypeObject<TTypeKind,TItem,TAllItem>? As__ParentType { get; }
+  public string Basic { get; set; }
+  public string Enum { get; set; }
+  public string Internal { get; set; }
+  public string Domain { get; set; }
+  public string Union { get; set; }
+  public string Dual { get; set; }
+  public string Input { get; set; }
+  public string Output { get; set; }
 }
 
-public interface Itest_ParentTypeObject<TTypeKind,TItem,TAllItem>
-  : Itest_ChildTypeObject<TTypeKind, Itest_Named>
+internal class test_TypeRefDecoder<TTypeKind>
 {
-  ICollection<TItem> Items { get; }
-  ICollection<TAllItem> AllItems { get; }
+  public TTypeKind TypeKind { get; set; }
 }
 
-public enum test_SimpleKind
-{
-  Basic,
-  Enum,
-  Internal,
-  Domain,
-  Union,
-}
-
-public enum test_TypeKind
-{
-  Basic = test_SimpleKind.Basic,
-  Enum = test_SimpleKind.Enum,
-  Internal = test_SimpleKind.Internal,
-  Domain = test_SimpleKind.Domain,
-  Union = test_SimpleKind.Union,
-  Dual,
-  Input,
-  Output,
-}
-
-public interface Itest_TypeRef<TTypeKind>
-  : Itest_Named
-{
-  Itest_TypeRefObject<TTypeKind>? As__TypeRef { get; }
-}
-
-public interface Itest_TypeRefObject<TTypeKind>
-  : Itest_NamedObject
-{
-  TTypeKind TypeKind { get; }
-}
-
-public interface Itest_TypeSimple
-  // No Base because it's Class
-{
-  Itest_TypeRef<test_TypeKind>? As_TypeKindBasic { get; }
-  Itest_TypeRef<test_TypeKind>? As_TypeKindEnum { get; }
-  Itest_TypeRef<test_TypeKind>? As_TypeKindDomain { get; }
-  Itest_TypeRef<test_TypeKind>? As_TypeKindUnion { get; }
-  Itest_TypeSimpleObject? As__TypeSimple { get; }
-}
-
-public interface Itest_TypeSimpleObject
-  // No Base because it's Class
+internal class test_TypeSimpleDecoder
 {
 }

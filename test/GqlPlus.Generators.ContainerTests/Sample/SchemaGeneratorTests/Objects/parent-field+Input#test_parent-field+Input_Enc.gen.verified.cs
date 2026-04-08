@@ -7,46 +7,12 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_parent_field_Input;
 
-public class testPrntFieldInp
-  : testRefPrntFieldInp
-  , ItestPrntFieldInp
-{
-  public ItestPrntFieldInpObject? As_PrntFieldInp { get; set; }
-}
-
-public class testPrntFieldInpObject
-  : testRefPrntFieldInpObject
-  , ItestPrntFieldInpObject
+internal class testPrntFieldInpEncoder
 {
   public decimal Field { get; set; }
-
-  public testPrntFieldInpObject
-    ( decimal parent
-    , decimal field
-    ) : base(parent)
-  {
-    Field = field;
-  }
 }
 
-public class testRefPrntFieldInp
-  : GqlpEncoderBase
-  , ItestRefPrntFieldInp
-{
-  public string? AsString { get; set; }
-  public ItestRefPrntFieldInpObject? As_RefPrntFieldInp { get; set; }
-}
-
-public class testRefPrntFieldInpObject
-  : GqlpEncoderBase
-  , ItestRefPrntFieldInpObject
+internal class testRefPrntFieldInpEncoder
 {
   public decimal Parent { get; set; }
-
-  public testRefPrntFieldInpObject
-    ( decimal parent
-    )
-  {
-    Parent = parent;
-  }
 }

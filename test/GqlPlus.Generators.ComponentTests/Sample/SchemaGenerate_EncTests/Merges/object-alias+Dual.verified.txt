@@ -11,20 +11,6 @@ dual ObjAliasDual [Dual2] { }
 
 namespace Components.Gqlp_Schema_object_alias_Dual;
 
-public class CmptObjAliasDual
-  : Schema_object-alias+Dual
-  , ICmptObjAliasDual
+internal class CmptObjAliasDualEncoder
 {
-  public ICmptObjAliasDualObject? As_ObjAliasDual { get; set; }
-}
-
-public class CmptObjAliasDualObject
-  : Schema_object-alias+Dual
-  , ICmptObjAliasDualObject
-{
-
-  public CmptObjAliasDualObject
-    ()
-  {
-  }
 }

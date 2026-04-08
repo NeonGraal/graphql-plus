@@ -17,25 +17,11 @@ output _InputFieldType {
 
 namespace Components.Gqlp_Spec_Input;
 
-public interface ICmpt_InputField
-  : ICmpt_ObjField<ICmpt_InputFieldType>
-{
-  ICmpt_InputFieldObject? As__InputField { get; }
-}
-
-public interface ICmpt_InputFieldObject
-  : ICmpt_ObjFieldObject<ICmpt_InputFieldType>
+internal class Cmpt_InputFieldDecoder
 {
 }
 
-public interface ICmpt_InputFieldType
-  : ICmpt_ObjFieldType
+internal class Cmpt_InputFieldTypeDecoder
 {
-  ICmpt_InputFieldTypeObject? As__InputFieldType { get; }
-}
-
-public interface ICmpt_InputFieldTypeObject
-  : ICmpt_ObjFieldTypeObject
-{
-  GqlpValue? DefaultValue { get; }
+  public GqlpValue? DefaultValue { get; set; }
 }

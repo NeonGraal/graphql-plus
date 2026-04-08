@@ -7,20 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_category;
 
-public class testCtgr
-  : GqlpEncoderBase
-  , ItestCtgr
+internal class testCtgrEncoder
 {
-  public ItestCtgrObject? As_Ctgr { get; set; }
-}
-
-public class testCtgrObject
-  : GqlpEncoderBase
-  , ItestCtgrObject
-{
-
-  public testCtgrObject
-    ()
-  {
-  }
 }

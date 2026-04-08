@@ -7,13 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_category;
 
-public interface ItestCtgr
-  // No Base because it's Class
-{
-  ItestCtgrObject? As_Ctgr { get; }
-}
-
-public interface ItestCtgrObject
-  // No Base because it's Class
+internal class testCtgrDecoder
 {
 }

@@ -7,31 +7,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_enum_Input;
 
-public interface ItestGnrcEnumInp
-  // No Base because it's Class
-{
-  ItestRefGnrcEnumInp<testEnumGnrcEnumInp>? AsEnumGnrcEnumInpgnrcEnumInp { get; }
-  ItestGnrcEnumInpObject? As_GnrcEnumInp { get; }
-}
-
-public interface ItestGnrcEnumInpObject
-  // No Base because it's Class
+internal class testGnrcEnumInpDecoder
 {
 }
 
-public interface ItestRefGnrcEnumInp<TType>
-  // No Base because it's Class
+internal class testRefGnrcEnumInpDecoder<TType>
 {
-  ItestRefGnrcEnumInpObject<TType>? As_RefGnrcEnumInp { get; }
+  public TType Field { get; set; }
 }
 
-public interface ItestRefGnrcEnumInpObject<TType>
-  // No Base because it's Class
+internal class testEnumGnrcEnumInpDecoder
 {
-  TType Field { get; }
-}
-
-public enum testEnumGnrcEnumInp
-{
-  gnrcEnumInp,
+  public string gnrcEnumInp { get; set; }
 }

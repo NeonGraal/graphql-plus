@@ -10,14 +10,7 @@ input InpFieldNmbr { field: Number = 42 }
 
 namespace Components.Gqlp_Schema_input_field_Number;
 
-public interface ICmptInpFieldNmbr
-  // No Base because it's Class
+internal class CmptInpFieldNmbrDecoder
 {
-  ICmptInpFieldNmbrObject? As_InpFieldNmbr { get; }
-}
-
-public interface ICmptInpFieldNmbrObject
-  // No Base because it's Class
-{
-  decimal Field { get; }
+  public decimal Field { get; set; }
 }

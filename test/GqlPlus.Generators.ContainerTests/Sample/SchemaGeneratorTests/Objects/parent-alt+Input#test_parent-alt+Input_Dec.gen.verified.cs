@@ -7,27 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_parent_alt_Input;
 
-public interface ItestPrntAltInp
-  : ItestRefPrntAltInp
-{
-  decimal? AsNumber { get; }
-  ItestPrntAltInpObject? As_PrntAltInp { get; }
-}
-
-public interface ItestPrntAltInpObject
-  : ItestRefPrntAltInpObject
+internal class testPrntAltInpDecoder
 {
 }
 
-public interface ItestRefPrntAltInp
-  // No Base because it's Class
+internal class testRefPrntAltInpDecoder
 {
-  string? AsString { get; }
-  ItestRefPrntAltInpObject? As_RefPrntAltInp { get; }
-}
-
-public interface ItestRefPrntAltInpObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
+  public decimal Parent { get; set; }
 }

@@ -12,50 +12,17 @@ domain DomOutpParamModDmn { number 1 < 10 }
 
 namespace Components.Gqlp_Schema_output_param_mod_Domain;
 
-public class CmptOutpParamModDmn
-  : Schema_output-param-mod-Domain
-  , ICmptOutpParamModDmn
-{
-  public ICmptOutpParamModDmnObject? As_OutpParamModDmn { get; set; }
-}
-
-public class CmptOutpParamModDmnObject
-  : Schema_output-param-mod-Domain
-  , ICmptOutpParamModDmnObject
+internal class CmptOutpParamModDmnEncoder
 {
   public ICmptDomOutpParamModDmn? Field(IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter)
     => null;
-
-  public CmptOutpParamModDmnObject
-    ()
-  {
-  }
 }
 
-public class CmptInOutpParamModDmn
-  : Schema_output-param-mod-Domain
-  , ICmptInOutpParamModDmn
-{
-  public string? AsString { get; set; }
-  public ICmptInOutpParamModDmnObject? As_InOutpParamModDmn { get; set; }
-}
-
-public class CmptInOutpParamModDmnObject
-  : Schema_output-param-mod-Domain
-  , ICmptInOutpParamModDmnObject
+internal class CmptInOutpParamModDmnEncoder
 {
   public decimal Param { get; set; }
-
-  public CmptInOutpParamModDmnObject
-    ( decimal param
-    )
-  {
-    Param = param;
-  }
 }
 
-public class CmptDomOutpParamModDmn
-  : GqlpDomainNumber
-  , ICmptDomOutpParamModDmn
+internal class CmptDomOutpParamModDmnEncoder
 {
 }

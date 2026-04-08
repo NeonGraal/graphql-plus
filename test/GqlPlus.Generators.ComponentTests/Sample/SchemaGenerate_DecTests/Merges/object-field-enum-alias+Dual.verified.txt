@@ -11,14 +11,7 @@ dual ObjFieldEnumAliasDual { field [field2] = true }
 
 namespace Components.Gqlp_Schema_object_field_enum_alias_Dual;
 
-public interface ICmptObjFieldEnumAliasDual
-  // No Base because it's Class
+internal class CmptObjFieldEnumAliasDualDecoder
 {
-  ICmptObjFieldEnumAliasDualObject? As_ObjFieldEnumAliasDual { get; }
-}
-
-public interface ICmptObjFieldEnumAliasDualObject
-  // No Base because it's Class
-{
-  bool Field { get; }
+  public bool Field { get; set; }
 }

@@ -7,13 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_descr_complex;
 
-public interface ItestDescrCmpl
-  // No Base because it's Class
-{
-  ItestDescrCmplObject? As_DescrCmpl { get; }
-}
-
-public interface ItestDescrCmplObject
-  // No Base because it's Class
+internal class testDescrCmplDecoder
 {
 }

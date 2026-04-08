@@ -10,14 +10,7 @@ input InpFieldStr { field: String = 'default' }
 
 namespace Components.Gqlp_Schema_input_field_String;
 
-public interface ICmptInpFieldStr
-  // No Base because it's Class
+internal class CmptInpFieldStrDecoder
 {
-  ICmptInpFieldStrObject? As_InpFieldStr { get; }
-}
-
-public interface ICmptInpFieldStrObject
-  // No Base because it's Class
-{
-  string Field { get; }
+  public string Field { get; set; }
 }

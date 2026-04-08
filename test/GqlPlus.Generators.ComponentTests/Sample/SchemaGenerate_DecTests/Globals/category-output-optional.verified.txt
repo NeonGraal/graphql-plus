@@ -11,13 +11,6 @@ output CtgrOutpOptl { }
 
 namespace Components.Gqlp_Schema_category_output_optional;
 
-public interface ICmptCtgrOutpOptl
-  // No Base because it's Class
-{
-  ICmptCtgrOutpOptlObject? As_CtgrOutpOptl { get; }
-}
-
-public interface ICmptCtgrOutpOptlObject
-  // No Base because it's Class
+internal class CmptCtgrOutpOptlDecoder
 {
 }

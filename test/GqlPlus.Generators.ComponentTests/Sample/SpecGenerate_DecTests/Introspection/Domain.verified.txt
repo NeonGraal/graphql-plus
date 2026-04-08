@@ -80,180 +80,76 @@ output _DomainItemRegex {
 
 namespace Components.Gqlp_Spec_Domain;
 
-public enum Cmpt_DomainKind
+internal class Cmpt_DomainKindDecoder
 {
-  Boolean,
-  Enum,
-  Number,
-  String,
+  public string Boolean { get; set; }
+  public string Enum { get; set; }
+  public string Number { get; set; }
+  public string String { get; set; }
 }
 
-public interface ICmpt_DomainRef<TDomainKind>
-  : ICmpt_TypeRef<ICmpt_TypeKind>
+internal class Cmpt_DomainRefDecoder<TDomainKind>
 {
-  ICmpt_DomainRefObject<TDomainKind>? As__DomainRef { get; }
+  public TDomainKind DomainKind { get; set; }
 }
 
-public interface ICmpt_DomainRefObject<TDomainKind>
-  : ICmpt_TypeRefObject<ICmpt_TypeKind>
+internal class Cmpt_BaseDomainDecoder<TDomainKind,TItem,TDomainItem>
 {
-  TDomainKind DomainKind { get; }
+  public TDomainKind DomainKind { get; set; }
 }
 
-public interface ICmpt_BaseDomain<TDomainKind,TItem,TDomainItem>
-  : ICmpt_ParentType<ICmpt_TypeKind, TItem, TDomainItem>
+internal class Cmpt_BaseDomainItemDecoder
 {
-  ICmpt_BaseDomainObject<TDomainKind,TItem,TDomainItem>? As__BaseDomain { get; }
+  public bool Exclude { get; set; }
 }
 
-public interface ICmpt_BaseDomainObject<TDomainKind,TItem,TDomainItem>
-  : ICmpt_ParentTypeObject<ICmpt_TypeKind, TItem, TDomainItem>
+internal class Cmpt_DomainItemDecoder<TItem>
 {
-  TDomainKind DomainKind { get; }
+  public ICmpt_Name Domain { get; set; }
 }
 
-public interface ICmpt_BaseDomainItem
-  : ICmpt_Described
+internal class Cmpt_DomainValueDecoder<TDomainKind,TValue>
 {
-  ICmpt_BaseDomainItemObject? As__BaseDomainItem { get; }
+  public TValue Value { get; set; }
 }
 
-public interface ICmpt_BaseDomainItemObject
-  : ICmpt_DescribedObject
-{
-  bool Exclude { get; }
-}
-
-public interface ICmpt_DomainItem<TItem>
-  // No Base because it's Class
-{
-  TItem? As_Parent { get; }
-  ICmpt_DomainItemObject<TItem>? As__DomainItem { get; }
-}
-
-public interface ICmpt_DomainItemObject<TItem>
-  // No Base because it's Class
-{
-  ICmpt_Name Domain { get; }
-}
-
-public interface ICmpt_DomainValue<TDomainKind,TValue>
-  : ICmpt_DomainRef<TDomainKind>
-{
-  TValue? Asvalue { get; }
-  ICmpt_DomainValueObject<TDomainKind,TValue>? As__DomainValue { get; }
-}
-
-public interface ICmpt_DomainValueObject<TDomainKind,TValue>
-  : ICmpt_DomainRefObject<TDomainKind>
-{
-  TValue Value { get; }
-}
-
-public interface ICmpt_BasicValue
-  // No Base because it's Class
-{
-  bool? AsBoolean { get; }
-  ICmpt_EnumValue? As_EnumValue { get; }
-  decimal? AsNumber { get; }
-  string? AsString { get; }
-  ICmpt_BasicValueObject? As__BasicValue { get; }
-}
-
-public interface ICmpt_BasicValueObject
-  // No Base because it's Class
+internal class Cmpt_BasicValueDecoder
 {
 }
 
-public interface ICmpt_DomainTrueFalse
-  : ICmpt_BaseDomainItem
+internal class Cmpt_DomainTrueFalseDecoder
 {
-  ICmpt_DomainTrueFalseObject? As__DomainTrueFalse { get; }
+  public bool Value { get; set; }
 }
 
-public interface ICmpt_DomainTrueFalseObject
-  : ICmpt_BaseDomainItemObject
-{
-  bool Value { get; }
-}
-
-public interface ICmpt_DomainItemTrueFalse
-  : ICmpt_DomainItem<ICmpt_DomainTrueFalse>
-{
-  ICmpt_DomainItemTrueFalseObject? As__DomainItemTrueFalse { get; }
-}
-
-public interface ICmpt_DomainItemTrueFalseObject
-  : ICmpt_DomainItemObject<ICmpt_DomainTrueFalse>
+internal class Cmpt_DomainItemTrueFalseDecoder
 {
 }
 
-public interface ICmpt_DomainLabel
-  : ICmpt_BaseDomainItem
+internal class Cmpt_DomainLabelDecoder
 {
-  ICmpt_DomainLabelObject? As__DomainLabel { get; }
+  public ICmpt_EnumValue Label { get; set; }
 }
 
-public interface ICmpt_DomainLabelObject
-  : ICmpt_BaseDomainItemObject
-{
-  ICmpt_EnumValue Label { get; }
-}
-
-public interface ICmpt_DomainItemLabel
-  : ICmpt_DomainItem<ICmpt_DomainLabel>
-{
-  ICmpt_DomainItemLabelObject? As__DomainItemLabel { get; }
-}
-
-public interface ICmpt_DomainItemLabelObject
-  : ICmpt_DomainItemObject<ICmpt_DomainLabel>
+internal class Cmpt_DomainItemLabelDecoder
 {
 }
 
-public interface ICmpt_DomainRange
-  : ICmpt_BaseDomainItem
+internal class Cmpt_DomainRangeDecoder
 {
-  ICmpt_DomainRangeObject? As__DomainRange { get; }
+  public decimal? Lower { get; set; }
+  public decimal? Upper { get; set; }
 }
 
-public interface ICmpt_DomainRangeObject
-  : ICmpt_BaseDomainItemObject
-{
-  decimal? Lower { get; }
-  decimal? Upper { get; }
-}
-
-public interface ICmpt_DomainItemRange
-  : ICmpt_DomainItem<ICmpt_DomainRange>
-{
-  ICmpt_DomainItemRangeObject? As__DomainItemRange { get; }
-}
-
-public interface ICmpt_DomainItemRangeObject
-  : ICmpt_DomainItemObject<ICmpt_DomainRange>
+internal class Cmpt_DomainItemRangeDecoder
 {
 }
 
-public interface ICmpt_DomainRegex
-  : ICmpt_BaseDomainItem
+internal class Cmpt_DomainRegexDecoder
 {
-  ICmpt_DomainRegexObject? As__DomainRegex { get; }
+  public string Pattern { get; set; }
 }
 
-public interface ICmpt_DomainRegexObject
-  : ICmpt_BaseDomainItemObject
-{
-  string Pattern { get; }
-}
-
-public interface ICmpt_DomainItemRegex
-  : ICmpt_DomainItem<ICmpt_DomainRegex>
-{
-  ICmpt_DomainItemRegexObject? As__DomainItemRegex { get; }
-}
-
-public interface ICmpt_DomainItemRegexObject
-  : ICmpt_DomainItemObject<ICmpt_DomainRegex>
+internal class Cmpt_DomainItemRegexDecoder
 {
 }

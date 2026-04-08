@@ -7,14 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_Dual;
 
-public interface ItestGnrcAltDual<TType>
-  // No Base because it's Class
-{
-  TType? Astype { get; }
-  ItestGnrcAltDualObject<TType>? As_GnrcAltDual { get; }
-}
-
-public interface ItestGnrcAltDualObject<TType>
-  // No Base because it's Class
+internal class testGnrcAltDualDecoder<TType>
 {
 }

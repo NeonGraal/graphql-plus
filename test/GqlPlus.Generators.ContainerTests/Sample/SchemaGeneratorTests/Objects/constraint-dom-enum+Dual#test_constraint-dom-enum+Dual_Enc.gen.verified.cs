@@ -7,54 +7,21 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_dom_enum_Dual;
 
-public class testCnstDomEnumDual
-  : GqlpEncoderBase
-  , ItestCnstDomEnumDual
+internal class testCnstDomEnumDualEncoder
 {
-  public ItestRefCnstDomEnumDual<testEnumCnstDomEnumDual>? AsEnumCnstDomEnumDualcnstDomEnumDual { get; set; }
-  public ItestCnstDomEnumDualObject? As_CnstDomEnumDual { get; set; }
 }
 
-public class testCnstDomEnumDualObject
-  : GqlpEncoderBase
-  , ItestCnstDomEnumDualObject
-{
-
-  public testCnstDomEnumDualObject
-    ()
-  {
-  }
-}
-
-public class testRefCnstDomEnumDual<TType>
-  : GqlpEncoderBase
-  , ItestRefCnstDomEnumDual<TType>
-{
-  public ItestRefCnstDomEnumDualObject<TType>? As_RefCnstDomEnumDual { get; set; }
-}
-
-public class testRefCnstDomEnumDualObject<TType>
-  : GqlpEncoderBase
-  , ItestRefCnstDomEnumDualObject<TType>
+internal class testRefCnstDomEnumDualEncoder<TType>
 {
   public TType Field { get; set; }
-
-  public testRefCnstDomEnumDualObject
-    ( TType field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum testEnumCnstDomEnumDual
+internal class testEnumCnstDomEnumDualEncoder
 {
-  cnstDomEnumDual,
-  other,
+  public string cnstDomEnumDual { get; set; }
+  public string other { get; set; }
 }
 
-public class testJustCnstDomEnumDual
-  : GqlpDomainEnum
-  , ItestJustCnstDomEnumDual
+internal class testJustCnstDomEnumDualEncoder
 {
 }

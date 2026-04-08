@@ -7,49 +7,19 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_obj_parent_Output;
 
-public interface ItestCnstPrntObjPrntOutp
-  : ItestRefCnstPrntObjPrntOutp<ItestAltCnstPrntObjPrntOutp>
-{
-  ItestCnstPrntObjPrntOutpObject? As_CnstPrntObjPrntOutp { get; }
-}
-
-public interface ItestCnstPrntObjPrntOutpObject
-  : ItestRefCnstPrntObjPrntOutpObject<ItestAltCnstPrntObjPrntOutp>
+internal class testCnstPrntObjPrntOutpDecoder
 {
 }
 
-public interface ItestRefCnstPrntObjPrntOutp<TRef>
-  // No Base because it's Class
-{
-  TRef? As_Parent { get; }
-  ItestRefCnstPrntObjPrntOutpObject<TRef>? As_RefCnstPrntObjPrntOutp { get; }
-}
-
-public interface ItestRefCnstPrntObjPrntOutpObject<TRef>
-  // No Base because it's Class
+internal class testRefCnstPrntObjPrntOutpDecoder<TRef>
 {
 }
 
-public interface ItestPrntCnstPrntObjPrntOutp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestPrntCnstPrntObjPrntOutpObject? As_PrntCnstPrntObjPrntOutp { get; }
-}
-
-public interface ItestPrntCnstPrntObjPrntOutpObject
-  // No Base because it's Class
+internal class testPrntCnstPrntObjPrntOutpDecoder
 {
 }
 
-public interface ItestAltCnstPrntObjPrntOutp
-  : ItestPrntCnstPrntObjPrntOutp
+internal class testAltCnstPrntObjPrntOutpDecoder
 {
-  ItestAltCnstPrntObjPrntOutpObject? As_AltCnstPrntObjPrntOutp { get; }
-}
-
-public interface ItestAltCnstPrntObjPrntOutpObject
-  : ItestPrntCnstPrntObjPrntOutpObject
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

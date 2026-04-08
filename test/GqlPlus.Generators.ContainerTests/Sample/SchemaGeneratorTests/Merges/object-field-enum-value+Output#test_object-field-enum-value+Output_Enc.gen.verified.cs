@@ -7,23 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_enum_value_Output;
 
-public class testObjFieldEnumValueOutp
-  : GqlpEncoderBase
-  , ItestObjFieldEnumValueOutp
-{
-  public ItestObjFieldEnumValueOutpObject? As_ObjFieldEnumValueOutp { get; set; }
-}
-
-public class testObjFieldEnumValueOutpObject
-  : GqlpEncoderBase
-  , ItestObjFieldEnumValueOutpObject
+internal class testObjFieldEnumValueOutpEncoder
 {
   public bool Field { get; set; }
-
-  public testObjFieldEnumValueOutpObject
-    ( bool field
-    )
-  {
-    Field = field;
-  }
 }

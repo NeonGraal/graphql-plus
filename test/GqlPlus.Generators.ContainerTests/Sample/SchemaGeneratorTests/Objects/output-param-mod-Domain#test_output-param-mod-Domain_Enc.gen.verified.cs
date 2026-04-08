@@ -7,50 +7,17 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_output_param_mod_Domain;
 
-public class testOutpParamModDmn
-  : GqlpEncoderBase
-  , ItestOutpParamModDmn
-{
-  public ItestOutpParamModDmnObject? As_OutpParamModDmn { get; set; }
-}
-
-public class testOutpParamModDmnObject
-  : GqlpEncoderBase
-  , ItestOutpParamModDmnObject
+internal class testOutpParamModDmnEncoder
 {
   public ItestDomOutpParamModDmn? Field(IDictionary<ItestDomOutpParamModDmn, ItestInOutpParamModDmn> parameter)
     => null;
-
-  public testOutpParamModDmnObject
-    ()
-  {
-  }
 }
 
-public class testInOutpParamModDmn
-  : GqlpEncoderBase
-  , ItestInOutpParamModDmn
-{
-  public string? AsString { get; set; }
-  public ItestInOutpParamModDmnObject? As_InOutpParamModDmn { get; set; }
-}
-
-public class testInOutpParamModDmnObject
-  : GqlpEncoderBase
-  , ItestInOutpParamModDmnObject
+internal class testInOutpParamModDmnEncoder
 {
   public decimal Param { get; set; }
-
-  public testInOutpParamModDmnObject
-    ( decimal param
-    )
-  {
-    Param = param;
-  }
 }
 
-public class testDomOutpParamModDmn
-  : GqlpDomainNumber
-  , ItestDomOutpParamModDmn
+internal class testDomOutpParamModDmnEncoder
 {
 }

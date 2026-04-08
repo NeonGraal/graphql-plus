@@ -23,7 +23,7 @@ public class VerifyDomainEnumTests
   [Theory, RepeatData]
   public void Verify_Enum_WithDefinedLabels_ReturnsNoErrrors(string enumName, string enumLabel1, string enumLabel2, string alias1, string alias2)
   {
-    this.SkipEqual4(enumLabel1, enumLabel2, alias1, alias2);
+    this.SkipEqualAny([enumLabel1, enumLabel2, alias1, alias2]);
 
     IGqlpEnum enumType = A.Enum(enumName)
       .WithLabels(A.Aliased<IGqlpEnumLabel>(enumLabel1, [alias1]), A.Aliased<IGqlpEnumLabel>(enumLabel2, [alias2]))
@@ -129,8 +129,8 @@ public class VerifyDomainEnumTests
     string parentLabel2,
     string enumName2)
   {
-    this.SkipEqual3(enumName1, enumName2, parentName);
-    this.SkipEqual4(enumLabel1, enumLabel2, parentLabel1, parentLabel2);
+    this.SkipEqualAny([enumName1, enumName2, parentName]);
+    this.SkipEqualAny([enumLabel1, enumLabel2, parentLabel1, parentLabel2]);
 
     IGqlpEnum enum1 = A.Enum(enumName1).WithLabels([enumLabel1, enumLabel2]).WithParent(parentName).AsEnum;
     IGqlpEnum parent = A.Enum(parentName).WithLabels([parentLabel1, parentLabel2]).AsEnum;
@@ -150,7 +150,7 @@ public class VerifyDomainEnumTests
   [Theory, RepeatData]
   public void Verify_Enum_WithParentDuplicateLabel_ReturnsError(string enumName1, string enumName2, string labelName, string parentName)
   {
-    this.SkipEqual3(enumName1, enumName2, parentName);
+    this.SkipEqualAny([enumName1, enumName2, parentName]);
 
     IGqlpDomainLabel parentLabel = A.ItemLabel(enumName2, labelName);
     IGqlpDomain<IGqlpDomainLabel> parent = A.Domain(parentName, DomainKind.Enum, parentLabel);

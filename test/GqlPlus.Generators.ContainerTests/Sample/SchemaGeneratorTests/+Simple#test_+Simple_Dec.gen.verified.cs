@@ -7,386 +7,346 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp__Simple;
 
-public interface ItestDmnBoolDescr
-  : IGqlpDomainBoolean
+internal class testDmnBoolDescrDecoder
 {
 }
 
-public interface ItestDmnBoolPrnt
-  : ItestPrntDmnBoolPrnt
+internal class testDmnBoolPrntDecoder
 {
 }
 
-public interface ItestPrntDmnBoolPrnt
-  : IGqlpDomainBoolean
+internal class testPrntDmnBoolPrntDecoder
 {
 }
 
-public interface ItestDmnBoolPrntDescr
-  : ItestPrntDmnBoolPrntDescr
+internal class testDmnBoolPrntDescrDecoder
 {
 }
 
-public interface ItestPrntDmnBoolPrntDescr
-  : IGqlpDomainBoolean
+internal class testPrntDmnBoolPrntDescrDecoder
 {
 }
 
-public interface ItestDmnEnumAll
-  : IGqlpDomainEnum
+internal class testDmnEnumAllDecoder
 {
 }
 
-public enum testEnumDmnEnumAll
+internal class testEnumDmnEnumAllDecoder
 {
-  dmnEnumAll,
-  enum_dmnEnumAll,
-  dmnEnumAllValue,
+  public string dmnEnumAll { get; set; }
+  public string enum_dmnEnumAll { get; set; }
+  public string dmnEnumAllValue { get; set; }
 }
 
-public interface ItestDmnEnumAllDescr
-  : IGqlpDomainEnum
+internal class testDmnEnumAllDescrDecoder
 {
 }
 
-public enum testEnumDmnEnumAllDescr
+internal class testEnumDmnEnumAllDescrDecoder
 {
-  dmnEnumAllDescr,
-  enum_dmnEnumAllDescr,
-  dmnEnumAllDescrValue,
+  public string dmnEnumAllDescr { get; set; }
+  public string enum_dmnEnumAllDescr { get; set; }
+  public string dmnEnumAllDescrValue { get; set; }
 }
 
-public interface ItestDmnEnumAllPrnt
-  : IGqlpDomainEnum
+internal class testDmnEnumAllPrntDecoder
 {
 }
 
-public enum testEnumDmnEnumAllPrnt
+internal class testEnumDmnEnumAllPrntDecoder
 {
-  prnt_dmnEnumAllPrnt = testPrntDmnEnumAllPrnt.prnt_dmnEnumAllPrnt,
-  dmnEnumAllPrntPrnt = testPrntDmnEnumAllPrnt.dmnEnumAllPrntPrnt,
-  dmnEnumAllPrnt,
-  dmnEnumAllPrntValue,
+  public string prnt_dmnEnumAllPrnt { get; set; }
+  public string dmnEnumAllPrntPrnt { get; set; }
+  public string dmnEnumAllPrnt { get; set; }
+  public string dmnEnumAllPrntValue { get; set; }
 }
 
-public enum testPrntDmnEnumAllPrnt
+internal class testPrntDmnEnumAllPrntDecoder
 {
-  prnt_dmnEnumAllPrnt,
-  dmnEnumAllPrntPrnt,
+  public string prnt_dmnEnumAllPrnt { get; set; }
+  public string dmnEnumAllPrntPrnt { get; set; }
 }
 
-public interface ItestDmnEnumDescr
-  : IGqlpDomainEnum
+internal class testDmnEnumDescrDecoder
 {
 }
 
-public enum testEnumDmnEnumDescr
+internal class testEnumDmnEnumDescrDecoder
 {
-  dmnEnumDescr,
+  public string dmnEnumDescr { get; set; }
 }
 
-public interface ItestDmnEnumExcl
-  : IGqlpDomainEnum
+internal class testDmnEnumExclDecoder
 {
 }
 
-public enum testEnumDmnEnumExcl
+internal class testEnumDmnEnumExclDecoder
 {
-  dmnEnumExcl,
-  enum_dmnEnumExcl,
-  dmnEnumExclValue,
+  public string dmnEnumExcl { get; set; }
+  public string enum_dmnEnumExcl { get; set; }
+  public string dmnEnumExclValue { get; set; }
 }
 
-public interface ItestDmnEnumExclPrnt
-  : IGqlpDomainEnum
+internal class testDmnEnumExclPrntDecoder
 {
 }
 
-public enum testEnumDmnEnumExclPrnt
+internal class testEnumDmnEnumExclPrntDecoder
 {
-  prnt_dmnEnumExclPrnt = testPrntDmnEnumExclPrnt.prnt_dmnEnumExclPrnt,
-  dmnEnumExclPrntPrnt = testPrntDmnEnumExclPrnt.dmnEnumExclPrntPrnt,
-  dmnEnumExclPrnt,
-  dmnEnumExclPrntValue,
+  public string prnt_dmnEnumExclPrnt { get; set; }
+  public string dmnEnumExclPrntPrnt { get; set; }
+  public string dmnEnumExclPrnt { get; set; }
+  public string dmnEnumExclPrntValue { get; set; }
 }
 
-public enum testPrntDmnEnumExclPrnt
+internal class testPrntDmnEnumExclPrntDecoder
 {
-  prnt_dmnEnumExclPrnt,
-  dmnEnumExclPrntPrnt,
+  public string prnt_dmnEnumExclPrnt { get; set; }
+  public string dmnEnumExclPrntPrnt { get; set; }
 }
 
-public interface ItestDmnEnumLabel
-  : IGqlpDomainEnum
+internal class testDmnEnumLabelDecoder
 {
 }
 
-public enum testEnumDmnEnumLabel
+internal class testEnumDmnEnumLabelDecoder
 {
-  dmnEnumLabel,
+  public string dmnEnumLabel { get; set; }
 }
 
-public interface ItestDmnEnumPrnt
-  : ItestPrntDmnEnumPrnt
+internal class testDmnEnumPrntDecoder
 {
 }
 
-public interface ItestPrntDmnEnumPrnt
-  : IGqlpDomainEnum
+internal class testPrntDmnEnumPrntDecoder
 {
 }
 
-public enum testEnumDmnEnumPrnt
+internal class testEnumDmnEnumPrntDecoder
 {
-  enum_dmnEnumPrnt,
-  prnt_dmnEnumPrnt,
+  public string enum_dmnEnumPrnt { get; set; }
+  public string prnt_dmnEnumPrnt { get; set; }
 }
 
-public interface ItestDmnEnumPrntDescr
-  : ItestPrntDmnEnumPrntDescr
+internal class testDmnEnumPrntDescrDecoder
 {
 }
 
-public interface ItestPrntDmnEnumPrntDescr
-  : IGqlpDomainEnum
+internal class testPrntDmnEnumPrntDescrDecoder
 {
 }
 
-public enum testEnumDmnEnumPrntDescr
+internal class testEnumDmnEnumPrntDescrDecoder
 {
-  enum_dmnEnumPrntDescr,
-  prnt_dmnEnumPrntDescr,
+  public string enum_dmnEnumPrntDescr { get; set; }
+  public string prnt_dmnEnumPrntDescr { get; set; }
 }
 
-public interface ItestDmnEnumUnq
-  : IGqlpDomainEnum
+internal class testDmnEnumUnqDecoder
 {
 }
 
-public enum testEnumDmnEnumUnq
+internal class testEnumDmnEnumUnqDecoder
 {
-  enum_dmnEnumUnq,
-  dmnEnumUnq,
-  dmnEnumUnqValue,
+  public string enum_dmnEnumUnq { get; set; }
+  public string dmnEnumUnq { get; set; }
+  public string dmnEnumUnqValue { get; set; }
 }
 
-public enum testDupDmnEnumUnq
+internal class testDupDmnEnumUnqDecoder
 {
-  dmnEnumUnq,
-  dup_dmnEnumUnq,
-  dmnEnumUnqDup,
+  public string dmnEnumUnq { get; set; }
+  public string dup_dmnEnumUnq { get; set; }
+  public string dmnEnumUnqDup { get; set; }
 }
 
-public interface ItestDmnEnumUnqPrnt
-  : IGqlpDomainEnum
+internal class testDmnEnumUnqPrntDecoder
 {
 }
 
-public enum testEnumDmnEnumUnqPrnt
+internal class testEnumDmnEnumUnqPrntDecoder
 {
-  dmnEnumUnqPrnt = testPrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
-  prnt_dmnEnumUnqPrnt = testPrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntPrnt = testPrntDmnEnumUnqPrnt.dmnEnumUnqPrntPrnt,
-  enum_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntValue,
+  public string dmnEnumUnqPrnt { get; set; }
+  public string prnt_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntPrnt { get; set; }
+  public string enum_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntValue { get; set; }
 }
 
-public enum testPrntDmnEnumUnqPrnt
+internal class testPrntDmnEnumUnqPrntDecoder
 {
-  dmnEnumUnqPrnt,
-  prnt_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntPrnt,
+  public string dmnEnumUnqPrnt { get; set; }
+  public string prnt_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntPrnt { get; set; }
 }
 
-public enum testDupDmnEnumUnqPrnt
+internal class testDupDmnEnumUnqPrntDecoder
 {
-  dmnEnumUnqPrnt,
-  dup_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntDup,
+  public string dmnEnumUnqPrnt { get; set; }
+  public string dup_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntDup { get; set; }
 }
 
-public interface ItestDmnEnumValue
-  : IGqlpDomainEnum
+internal class testDmnEnumValueDecoder
 {
 }
 
-public enum testEnumDmnEnumValue
+internal class testEnumDmnEnumValueDecoder
 {
-  dmnEnumValue,
+  public string dmnEnumValue { get; set; }
 }
 
-public interface ItestDmnEnumValuePrnt
-  : IGqlpDomainEnum
+internal class testDmnEnumValuePrntDecoder
 {
 }
 
-public enum testEnumDmnEnumValuePrnt
+internal class testEnumDmnEnumValuePrntDecoder
 {
-  prnt_dmnEnumValuePrnt = testPrntDmnEnumValuePrnt.prnt_dmnEnumValuePrnt,
-  dmnEnumValuePrnt,
+  public string prnt_dmnEnumValuePrnt { get; set; }
+  public string dmnEnumValuePrnt { get; set; }
 }
 
-public enum testPrntDmnEnumValuePrnt
+internal class testPrntDmnEnumValuePrntDecoder
 {
-  prnt_dmnEnumValuePrnt,
+  public string prnt_dmnEnumValuePrnt { get; set; }
 }
 
-public interface ItestDmnNmbrDescr
-  : IGqlpDomainNumber
+internal class testDmnNmbrDescrDecoder
 {
 }
 
-public interface ItestDmnNmbrPrnt
-  : ItestPrntDmnNmbrPrnt
+internal class testDmnNmbrPrntDecoder
 {
 }
 
-public interface ItestPrntDmnNmbrPrnt
-  : IGqlpDomainNumber
+internal class testPrntDmnNmbrPrntDecoder
 {
 }
 
-public interface ItestDmnNmbrPrntDescr
-  : ItestPrntDmnNmbrPrntDescr
+internal class testDmnNmbrPrntDescrDecoder
 {
 }
 
-public interface ItestPrntDmnNmbrPrntDescr
-  : IGqlpDomainNumber
+internal class testPrntDmnNmbrPrntDescrDecoder
 {
 }
 
-public interface ItestDmnNmbrPstv
-  : IGqlpDomainNumber
+internal class testDmnNmbrPstvDecoder
 {
 }
 
-public interface ItestDmnNmbrRange
-  : IGqlpDomainNumber
+internal class testDmnNmbrRangeDecoder
 {
 }
 
-public interface ItestDmnStrDescr
-  : IGqlpDomainString
+internal class testDmnStrDescrDecoder
 {
 }
 
-public interface ItestDmnStrNonEmpty
-  : IGqlpDomainString
+internal class testDmnStrNonEmptyDecoder
 {
 }
 
-public interface ItestDmnStrPrnt
-  : ItestPrntDmnStrPrnt
+internal class testDmnStrPrntDecoder
 {
 }
 
-public interface ItestPrntDmnStrPrnt
-  : IGqlpDomainString
+internal class testPrntDmnStrPrntDecoder
 {
 }
 
-public interface ItestDmnStrPrntDescr
-  : ItestPrntDmnStrPrntDescr
+internal class testDmnStrPrntDescrDecoder
 {
 }
 
-public interface ItestPrntDmnStrPrntDescr
-  : IGqlpDomainString
+internal class testPrntDmnStrPrntDescrDecoder
 {
 }
 
-public enum testEnumDescr
+internal class testEnumDescrDecoder
 {
-  enumDescr,
+  public string enumDescr { get; set; }
 }
 
-public enum testEnumPrnt
+internal class testEnumPrntDecoder
 {
-  prnt_enumPrnt = testPrntEnumPrnt.prnt_enumPrnt,
-  enumPrnt,
+  public string prnt_enumPrnt { get; set; }
+  public string enumPrnt { get; set; }
 }
 
-public enum testPrntEnumPrnt
+internal class testPrntEnumPrntDecoder
 {
-  prnt_enumPrnt,
+  public string prnt_enumPrnt { get; set; }
 }
 
-public enum testEnumPrntAlias
+internal class testEnumPrntAliasDecoder
 {
-  prnt_enumPrntAlias = testPrntEnumPrntAlias.prnt_enumPrntAlias,
-  val_enumPrntAlias,
-  prnt_enumPrntAlias,
-  enumPrntAlias = prnt_enumPrntAlias,
+  public string prnt_enumPrntAlias { get; set; }
+  public string val_enumPrntAlias { get; set; }
+  public string prnt_enumPrntAlias { get; set; }
+  public string enumPrntAlias { get; set; }
 }
 
-public enum testPrntEnumPrntAlias
+internal class testPrntEnumPrntAliasDecoder
 {
-  prnt_enumPrntAlias,
+  public string prnt_enumPrntAlias { get; set; }
 }
 
-public enum testEnumPrntDescr
+internal class testEnumPrntDescrDecoder
 {
-  prnt_enumPrntDescr = testPrntEnumPrntDescr.prnt_enumPrntDescr,
-  enumPrntDescr,
+  public string prnt_enumPrntDescr { get; set; }
+  public string enumPrntDescr { get; set; }
 }
 
-public enum testPrntEnumPrntDescr
+internal class testPrntEnumPrntDescrDecoder
 {
-  prnt_enumPrntDescr,
+  public string prnt_enumPrntDescr { get; set; }
 }
 
-public enum testEnumPrntDup
+internal class testEnumPrntDupDecoder
 {
-  prnt_enumPrntDup = testPrntEnumPrntDup.prnt_enumPrntDup,
-  enumPrntDup = testPrntEnumPrntDup.prnt_enumPrntDup,
-  enumPrntDup,
+  public string prnt_enumPrntDup { get; set; }
+  public string enumPrntDup { get; set; }
+  public string enumPrntDup { get; set; }
 }
 
-public enum testPrntEnumPrntDup
+internal class testPrntEnumPrntDupDecoder
 {
-  prnt_enumPrntDup,
-  enumPrntDup = prnt_enumPrntDup,
+  public string prnt_enumPrntDup { get; set; }
+  public string enumPrntDup { get; set; }
 }
 
-public interface ItestUnionDescr
-  // No Base because it's Class
+internal class testUnionDescrDecoder
 {
-  Number AsNumber { get; }
+  public Number AsNumber { get; set; }
 }
 
-public interface ItestUnionPrnt
-  : ItestPrntUnionPrnt
+internal class testUnionPrntDecoder
 {
-  String AsString { get; }
+  public String AsString { get; set; }
 }
 
-public interface ItestPrntUnionPrnt
-  // No Base because it's Class
+internal class testPrntUnionPrntDecoder
 {
-  Number AsNumber { get; }
+  public Number AsNumber { get; set; }
 }
 
-public interface ItestUnionPrntDescr
-  : ItestPrntUnionPrntDescr
+internal class testUnionPrntDescrDecoder
 {
-  Number AsNumber { get; }
+  public Number AsNumber { get; set; }
 }
 
-public interface ItestPrntUnionPrntDescr
-  // No Base because it's Class
+internal class testPrntUnionPrntDescrDecoder
 {
-  Number AsNumber { get; }
+  public Number AsNumber { get; set; }
 }
 
-public interface ItestUnionPrntDup
-  : ItestPrntUnionPrntDup
+internal class testUnionPrntDupDecoder
 {
-  Number AsNumber { get; }
+  public Number AsNumber { get; set; }
 }
 
-public interface ItestPrntUnionPrntDup
-  // No Base because it's Class
+internal class testPrntUnionPrntDupDecoder
 {
-  Number AsNumber { get; }
+  public Number AsNumber { get; set; }
 }

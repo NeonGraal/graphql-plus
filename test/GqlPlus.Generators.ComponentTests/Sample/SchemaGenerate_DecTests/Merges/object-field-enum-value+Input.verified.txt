@@ -11,14 +11,7 @@ input ObjFieldEnumValueInp { field = true }
 
 namespace Components.Gqlp_Schema_object_field_enum_value_Input;
 
-public interface ICmptObjFieldEnumValueInp
-  // No Base because it's Class
+internal class CmptObjFieldEnumValueInpDecoder
 {
-  ICmptObjFieldEnumValueInpObject? As_ObjFieldEnumValueInp { get; }
-}
-
-public interface ICmptObjFieldEnumValueInpObject
-  // No Base because it's Class
-{
-  bool Field { get; }
+  public bool Field { get; set; }
 }

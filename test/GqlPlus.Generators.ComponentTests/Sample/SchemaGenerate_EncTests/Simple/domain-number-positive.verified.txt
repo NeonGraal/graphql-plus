@@ -10,8 +10,6 @@ domain DmnNmbrPstv { Number !<0 }
 
 namespace Components.Gqlp_Schema_domain_number_positive;
 
-public class CmptDmnNmbrPstv
-  : GqlpDomainNumber
-  , ICmptDmnNmbrPstv
+internal class CmptDmnNmbrPstvEncoder
 {
 }

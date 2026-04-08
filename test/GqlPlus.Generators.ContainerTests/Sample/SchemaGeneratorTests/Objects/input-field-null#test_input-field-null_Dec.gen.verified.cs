@@ -7,25 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_input_field_null;
 
-public interface ItestInpFieldNull
-  // No Base because it's Class
+internal class testInpFieldNullDecoder
 {
-  ItestInpFieldNullObject? As_InpFieldNull { get; }
+  public ItestFldInpFieldNull? Field { get; set; }
 }
 
-public interface ItestInpFieldNullObject
-  // No Base because it's Class
-{
-  ItestFldInpFieldNull? Field { get; }
-}
-
-public interface ItestFldInpFieldNull
-  // No Base because it's Class
-{
-  ItestFldInpFieldNullObject? As_FldInpFieldNull { get; }
-}
-
-public interface ItestFldInpFieldNullObject
-  // No Base because it's Class
+internal class testFldInpFieldNullDecoder
 {
 }

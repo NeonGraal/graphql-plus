@@ -11,27 +11,11 @@ dual RefPrntAltDual {  parent: Number | String }
 
 namespace Components.Gqlp_Schema_parent_alt_Dual;
 
-public interface ICmptPrntAltDual
-  : ICmptRefPrntAltDual
-{
-  decimal? AsNumber { get; }
-  ICmptPrntAltDualObject? As_PrntAltDual { get; }
-}
-
-public interface ICmptPrntAltDualObject
-  : ICmptRefPrntAltDualObject
+internal class CmptPrntAltDualDecoder
 {
 }
 
-public interface ICmptRefPrntAltDual
-  // No Base because it's Class
+internal class CmptRefPrntAltDualDecoder
 {
-  string? AsString { get; }
-  ICmptRefPrntAltDualObject? As_RefPrntAltDual { get; }
-}
-
-public interface ICmptRefPrntAltDualObject
-  // No Base because it's Class
-{
-  decimal Parent { get; }
+  public decimal Parent { get; set; }
 }

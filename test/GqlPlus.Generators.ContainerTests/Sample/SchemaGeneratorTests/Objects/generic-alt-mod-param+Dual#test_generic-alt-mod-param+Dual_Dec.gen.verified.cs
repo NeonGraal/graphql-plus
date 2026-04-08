@@ -7,14 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_mod_param_Dual;
 
-public interface ItestRefGnrcAltModParamDual<TRef,TMod>
-  // No Base because it's Class
-{
-  IDictionary<TMod, TRef>? Asref { get; }
-  ItestRefGnrcAltModParamDualObject<TRef,TMod>? As_RefGnrcAltModParamDual { get; }
-}
-
-public interface ItestRefGnrcAltModParamDualObject<TRef,TMod>
-  // No Base because it's Class
+internal class testRefGnrcAltModParamDualDecoder<TRef,TMod>
 {
 }

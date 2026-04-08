@@ -13,79 +13,19 @@ input AltCnstPrntDualPrntInp { :PrntCnstPrntDualPrntInp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_parent_dual_parent_Input;
 
-public class CmptCnstPrntDualPrntInp
-  : CmptRefCnstPrntDualPrntInp<ICmptAltCnstPrntDualPrntInp>
-  , ICmptCnstPrntDualPrntInp
+internal class CmptCnstPrntDualPrntInpEncoder
 {
-  public ICmptCnstPrntDualPrntInpObject? As_CnstPrntDualPrntInp { get; set; }
 }
 
-public class CmptCnstPrntDualPrntInpObject
-  : CmptRefCnstPrntDualPrntInpObject<ICmptAltCnstPrntDualPrntInp>
-  , ICmptCnstPrntDualPrntInpObject
+internal class CmptRefCnstPrntDualPrntInpEncoder<TRef>
 {
-
-  public CmptCnstPrntDualPrntInpObject
-    ()
-  {
-  }
 }
 
-public class CmptRefCnstPrntDualPrntInp<TRef>
-  : Schema_constraint-parent-dual-parent+Input
-  , ICmptRefCnstPrntDualPrntInp<TRef>
+internal class CmptPrntCnstPrntDualPrntInpEncoder
 {
-  public TRef? As_Parent { get; set; }
-  public ICmptRefCnstPrntDualPrntInpObject<TRef>? As_RefCnstPrntDualPrntInp { get; set; }
 }
 
-public class CmptRefCnstPrntDualPrntInpObject<TRef>
-  : Schema_constraint-parent-dual-parent+Input
-  , ICmptRefCnstPrntDualPrntInpObject<TRef>
-{
-
-  public CmptRefCnstPrntDualPrntInpObject
-    ()
-  {
-  }
-}
-
-public class CmptPrntCnstPrntDualPrntInp
-  : Schema_constraint-parent-dual-parent+Input
-  , ICmptPrntCnstPrntDualPrntInp
-{
-  public string? AsString { get; set; }
-  public ICmptPrntCnstPrntDualPrntInpObject? As_PrntCnstPrntDualPrntInp { get; set; }
-}
-
-public class CmptPrntCnstPrntDualPrntInpObject
-  : Schema_constraint-parent-dual-parent+Input
-  , ICmptPrntCnstPrntDualPrntInpObject
-{
-
-  public CmptPrntCnstPrntDualPrntInpObject
-    ()
-  {
-  }
-}
-
-public class CmptAltCnstPrntDualPrntInp
-  : CmptPrntCnstPrntDualPrntInp
-  , ICmptAltCnstPrntDualPrntInp
-{
-  public ICmptAltCnstPrntDualPrntInpObject? As_AltCnstPrntDualPrntInp { get; set; }
-}
-
-public class CmptAltCnstPrntDualPrntInpObject
-  : CmptPrntCnstPrntDualPrntInpObject
-  , ICmptAltCnstPrntDualPrntInpObject
+internal class CmptAltCnstPrntDualPrntInpEncoder
 {
   public decimal Alt { get; set; }
-
-  public CmptAltCnstPrntDualPrntInpObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

@@ -7,42 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_parent_param_same_Output;
 
-public class testPrntParamSameOutp<TA>
-  : testRefPrntParamSameOutp<TA>
-  , ItestPrntParamSameOutp<TA>
-{
-  public ItestPrntParamSameOutpObject<TA>? As_PrntParamSameOutp { get; set; }
-}
-
-public class testPrntParamSameOutpObject<TA>
-  : testRefPrntParamSameOutpObject<TA>
-  , ItestPrntParamSameOutpObject<TA>
+internal class testPrntParamSameOutpEncoder<TA>
 {
   public TA Field { get; set; }
-
-  public testPrntParamSameOutpObject
-    ( TA field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class testRefPrntParamSameOutp<TA>
-  : GqlpEncoderBase
-  , ItestRefPrntParamSameOutp<TA>
+internal class testRefPrntParamSameOutpEncoder<TA>
 {
-  public TA? Asa { get; set; }
-  public ItestRefPrntParamSameOutpObject<TA>? As_RefPrntParamSameOutp { get; set; }
-}
-
-public class testRefPrntParamSameOutpObject<TA>
-  : GqlpEncoderBase
-  , ItestRefPrntParamSameOutpObject<TA>
-{
-
-  public testRefPrntParamSameOutpObject
-    ()
-  {
-  }
 }

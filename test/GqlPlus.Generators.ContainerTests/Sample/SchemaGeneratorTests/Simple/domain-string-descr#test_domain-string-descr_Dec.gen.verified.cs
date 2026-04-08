@@ -7,7 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_string_descr;
 
-public interface ItestDmnStrDescr
-  : IGqlpDomainString
+internal class testDmnStrDescrDecoder
 {
 }

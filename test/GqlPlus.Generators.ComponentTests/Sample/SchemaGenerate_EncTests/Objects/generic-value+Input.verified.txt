@@ -12,47 +12,16 @@ enum EnumGnrcValueInp { gnrcValueInp }
 
 namespace Components.Gqlp_Schema_generic_value_Input;
 
-public class CmptGnrcValueInp
-  : Schema_generic-value+Input
-  , ICmptGnrcValueInp
+internal class CmptGnrcValueInpEncoder
 {
-  public ICmptRefGnrcValueInp<CmptEnumGnrcValueInp>? AsEnumGnrcValueInpgnrcValueInp { get; set; }
-  public ICmptGnrcValueInpObject? As_GnrcValueInp { get; set; }
 }
 
-public class CmptGnrcValueInpObject
-  : Schema_generic-value+Input
-  , ICmptGnrcValueInpObject
-{
-
-  public CmptGnrcValueInpObject
-    ()
-  {
-  }
-}
-
-public class CmptRefGnrcValueInp<TType>
-  : Schema_generic-value+Input
-  , ICmptRefGnrcValueInp<TType>
-{
-  public ICmptRefGnrcValueInpObject<TType>? As_RefGnrcValueInp { get; set; }
-}
-
-public class CmptRefGnrcValueInpObject<TType>
-  : Schema_generic-value+Input
-  , ICmptRefGnrcValueInpObject<TType>
+internal class CmptRefGnrcValueInpEncoder<TType>
 {
   public TType Field { get; set; }
-
-  public CmptRefGnrcValueInpObject
-    ( TType field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum CmptEnumGnrcValueInp
+internal class CmptEnumGnrcValueInpEncoder
 {
-  gnrcValueInp,
+  public string gnrcValueInp { get; set; }
 }

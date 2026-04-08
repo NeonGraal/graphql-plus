@@ -13,36 +13,21 @@ domain DomGnrcPrntEnumDomOutp { enum gnrcPrntEnumDomOutpLabel }
 
 namespace Components.Gqlp_Schema_generic_parent_enum_dom_Output;
 
-public interface ICmptGnrcPrntEnumDomOutp
-  : ICmptFieldGnrcPrntEnumDomOutp<ICmptDomGnrcPrntEnumDomOutp>
-{
-  ICmptGnrcPrntEnumDomOutpObject? As_GnrcPrntEnumDomOutp { get; }
-}
-
-public interface ICmptGnrcPrntEnumDomOutpObject
-  : ICmptFieldGnrcPrntEnumDomOutpObject<ICmptDomGnrcPrntEnumDomOutp>
+internal class CmptGnrcPrntEnumDomOutpDecoder
 {
 }
 
-public interface ICmptFieldGnrcPrntEnumDomOutp<TRef>
-  // No Base because it's Class
+internal class CmptFieldGnrcPrntEnumDomOutpDecoder<TRef>
 {
-  ICmptFieldGnrcPrntEnumDomOutpObject<TRef>? As_FieldGnrcPrntEnumDomOutp { get; }
+  public TRef Field { get; set; }
 }
 
-public interface ICmptFieldGnrcPrntEnumDomOutpObject<TRef>
-  // No Base because it's Class
+internal class CmptEnumGnrcPrntEnumDomOutpDecoder
 {
-  TRef Field { get; }
+  public string gnrcPrntEnumDomOutpLabel { get; set; }
+  public string gnrcPrntEnumDomOutpOther { get; set; }
 }
 
-public enum CmptEnumGnrcPrntEnumDomOutp
-{
-  gnrcPrntEnumDomOutpLabel,
-  gnrcPrntEnumDomOutpOther,
-}
-
-public interface ICmptDomGnrcPrntEnumDomOutp
-  : IGqlpDomainEnum
+internal class CmptDomGnrcPrntEnumDomOutpDecoder
 {
 }

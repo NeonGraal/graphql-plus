@@ -11,27 +11,11 @@ output AltAltOutp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_Output;
 
-public interface ICmptAltOutp
-  // No Base because it's Class
-{
-  ICmptAltAltOutp? AsAltAltOutp { get; }
-  ICmptAltOutpObject? As_AltOutp { get; }
-}
-
-public interface ICmptAltOutpObject
-  // No Base because it's Class
+internal class CmptAltOutpDecoder
 {
 }
 
-public interface ICmptAltAltOutp
-  // No Base because it's Class
+internal class CmptAltAltOutpDecoder
 {
-  string? AsString { get; }
-  ICmptAltAltOutpObject? As_AltAltOutp { get; }
-}
-
-public interface ICmptAltAltOutpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

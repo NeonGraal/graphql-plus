@@ -38,41 +38,35 @@ union _Simple [Simple] { _Enum _Domain _Union }
 
 namespace Components.Gqlp_Spec_Definition;
 
-public enum bool
+internal class boolEncoder
 {
-  false,
-  true,
+  public string false { get; set; }
+  public string true { get; set; }
 }
 
-public enum GqlpNull
+internal class GqlpNullEncoder
 {
-  null,
+  public string null { get; set; }
 }
 
-public enum GqlpUnit
+internal class GqlpUnitEncoder
 {
-  _,
+  public string _ { get; set; }
 }
 
-public enum void
-{
-}
-
-public class decimal
-  : GqlpDomainNumber
-  , decimal
+internal class voidEncoder
 {
 }
 
-public class string
-  : GqlpDomainString
-  , string
+internal class decimalEncoder
 {
 }
 
-public class Cmpt_Basic
-  : Spec_Definition
-  , ICmpt_Basic
+internal class stringEncoder
+{
+}
+
+internal class Cmpt_BasicEncoder
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }
@@ -80,116 +74,48 @@ public class Cmpt_Basic
   public Unit AsUnit { get; set; }
 }
 
-public class Cmpt_Internal
-  : Spec_Definition
-  , ICmpt_Internal
+internal class Cmpt_InternalEncoder
 {
   public Null AsNull { get; set; }
   public Void AsVoid { get; set; }
 }
 
-public class Cmpt_Key
-  : Spec_Definition
-  , ICmpt_Key
+internal class Cmpt_KeyEncoder
 {
   public _Basic As_Basic { get; set; }
   public _Internal As_Internal { get; set; }
   public _Simple As_Simple { get; set; }
 }
 
-public class Cmpt_Object
-  : Spec_Definition
-  , ICmpt_Object
-{
-  public ICmpt_ObjectObject? As__Object { get; set; }
-}
-
-public class Cmpt_ObjectObject
-  : Spec_Definition
-  , ICmpt_ObjectObject
-{
-
-  public Cmpt_ObjectObject
-    ()
-  {
-  }
-}
-
-public class Cmpt_Domain
-  : Spec_Definition
-  , ICmpt_Domain
+internal class Cmpt_ObjectEncoder
 {
 }
 
-public class Cmpt_Dual
-  : Spec_Definition
-  , ICmpt_Dual
-{
-  public ICmpt_DualObject? As__Dual { get; set; }
-}
-
-public class Cmpt_DualObject
-  : Spec_Definition
-  , ICmpt_DualObject
-{
-
-  public Cmpt_DualObject
-    ()
-  {
-  }
-}
-
-public class Cmpt_Enum
-  : Spec_Definition
-  , ICmpt_Enum
+internal class Cmpt_DomainEncoder
 {
 }
 
-public class Cmpt_Input
-  : Spec_Definition
-  , ICmpt_Input
-{
-  public ICmpt_InputObject? As__Input { get; set; }
-}
-
-public class Cmpt_InputObject
-  : Spec_Definition
-  , ICmpt_InputObject
-{
-
-  public Cmpt_InputObject
-    ()
-  {
-  }
-}
-
-public class Cmpt_Output
-  : Spec_Definition
-  , ICmpt_Output
-{
-  public ICmpt_OutputObject? As__Output { get; set; }
-}
-
-public class Cmpt_OutputObject
-  : Spec_Definition
-  , ICmpt_OutputObject
-{
-
-  public Cmpt_OutputObject
-    ()
-  {
-  }
-}
-
-public class Cmpt_Union
-  : Spec_Definition
-  , ICmpt_Union
+internal class Cmpt_DualEncoder
 {
 }
 
-public class Cmpt_Simple
-  : Spec_Definition
-  , ICmpt_Simple
+internal class Cmpt_EnumEncoder
+{
+}
+
+internal class Cmpt_InputEncoder
+{
+}
+
+internal class Cmpt_OutputEncoder
+{
+}
+
+internal class Cmpt_UnionEncoder
+{
+}
+
+internal class Cmpt_SimpleEncoder
 {
   public _Enum As_Enum { get; set; }
   public _Domain As_Domain { get; set; }

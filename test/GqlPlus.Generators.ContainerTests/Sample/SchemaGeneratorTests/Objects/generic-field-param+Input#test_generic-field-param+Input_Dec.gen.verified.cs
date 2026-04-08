@@ -7,39 +7,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_param_Input;
 
-public interface ItestGnrcFieldParamInp
-  // No Base because it's Class
+internal class testGnrcFieldParamInpDecoder
 {
-  ItestGnrcFieldParamInpObject? As_GnrcFieldParamInp { get; }
+  public ItestRefGnrcFieldParamInp<ItestAltGnrcFieldParamInp> Field { get; set; }
 }
 
-public interface ItestGnrcFieldParamInpObject
-  // No Base because it's Class
-{
-  ItestRefGnrcFieldParamInp<ItestAltGnrcFieldParamInp> Field { get; }
-}
-
-public interface ItestRefGnrcFieldParamInp<TRef>
-  // No Base because it's Class
-{
-  TRef? Asref { get; }
-  ItestRefGnrcFieldParamInpObject<TRef>? As_RefGnrcFieldParamInp { get; }
-}
-
-public interface ItestRefGnrcFieldParamInpObject<TRef>
-  // No Base because it's Class
+internal class testRefGnrcFieldParamInpDecoder<TRef>
 {
 }
 
-public interface ItestAltGnrcFieldParamInp
-  // No Base because it's Class
+internal class testAltGnrcFieldParamInpDecoder
 {
-  string? AsString { get; }
-  ItestAltGnrcFieldParamInpObject? As_AltGnrcFieldParamInp { get; }
-}
-
-public interface ItestAltGnrcFieldParamInpObject
-  // No Base because it's Class
-{
-  decimal Alt { get; }
+  public decimal Alt { get; set; }
 }

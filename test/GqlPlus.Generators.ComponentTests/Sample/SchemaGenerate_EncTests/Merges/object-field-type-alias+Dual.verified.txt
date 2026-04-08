@@ -11,23 +11,7 @@ dual ObjFieldTypeAliasDual { field: String }
 
 namespace Components.Gqlp_Schema_object_field_type_alias_Dual;
 
-public class CmptObjFieldTypeAliasDual
-  : Schema_object-field-type-alias+Dual
-  , ICmptObjFieldTypeAliasDual
-{
-  public ICmptObjFieldTypeAliasDualObject? As_ObjFieldTypeAliasDual { get; set; }
-}
-
-public class CmptObjFieldTypeAliasDualObject
-  : Schema_object-field-type-alias+Dual
-  , ICmptObjFieldTypeAliasDualObject
+internal class CmptObjFieldTypeAliasDualEncoder
 {
   public string Field { get; set; }
-
-  public CmptObjFieldTypeAliasDualObject
-    ( string field
-    )
-  {
-    Field = field;
-  }
 }

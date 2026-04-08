@@ -11,13 +11,6 @@ input InDrctParamOpt { }
 
 namespace Components.Gqlp_Schema_directive_param_opt;
 
-public interface ICmptInDrctParamOpt
-  // No Base because it's Class
-{
-  ICmptInDrctParamOptObject? As_InDrctParamOpt { get; }
-}
-
-public interface ICmptInDrctParamOptObject
-  // No Base because it's Class
+internal class CmptInDrctParamOptDecoder
 {
 }

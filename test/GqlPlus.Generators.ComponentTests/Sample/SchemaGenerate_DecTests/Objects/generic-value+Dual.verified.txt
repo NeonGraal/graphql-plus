@@ -12,31 +12,16 @@ enum EnumGnrcValueDual { gnrcValueDual }
 
 namespace Components.Gqlp_Schema_generic_value_Dual;
 
-public interface ICmptGnrcValueDual
-  // No Base because it's Class
-{
-  ICmptRefGnrcValueDual<CmptEnumGnrcValueDual>? AsEnumGnrcValueDualgnrcValueDual { get; }
-  ICmptGnrcValueDualObject? As_GnrcValueDual { get; }
-}
-
-public interface ICmptGnrcValueDualObject
-  // No Base because it's Class
+internal class CmptGnrcValueDualDecoder
 {
 }
 
-public interface ICmptRefGnrcValueDual<TType>
-  // No Base because it's Class
+internal class CmptRefGnrcValueDualDecoder<TType>
 {
-  ICmptRefGnrcValueDualObject<TType>? As_RefGnrcValueDual { get; }
+  public TType Field { get; set; }
 }
 
-public interface ICmptRefGnrcValueDualObject<TType>
-  // No Base because it's Class
+internal class CmptEnumGnrcValueDualDecoder
 {
-  TType Field { get; }
-}
-
-public enum CmptEnumGnrcValueDual
-{
-  gnrcValueDual,
+  public string gnrcValueDual { get; set; }
 }

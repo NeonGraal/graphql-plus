@@ -54,164 +54,52 @@ dual _TypeSimple {
 
 namespace Components.Gqlp_Spec_Common;
 
-public class Cmpt_Type
-  : Spec_Common
-  , ICmpt_Type
+internal class Cmpt_TypeEncoder
 {
-  public ICmpt_BaseType<Cmpt_TypeKind>? As_TypeKindBasic { get; set; }
-  public ICmpt_BaseType<Cmpt_TypeKind>? As_TypeKindInternal { get; set; }
-  public ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainTrueFalse, ICmpt_DomainItemTrueFalse>? As_DomainKindBoolean { get; set; }
-  public ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainLabel, ICmpt_DomainItemLabel>? As_DomainKindEnum { get; set; }
-  public ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainRange, ICmpt_DomainItemRange>? As_DomainKindNumber { get; set; }
-  public ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainRegex, ICmpt_DomainItemRegex>? As_DomainKindString { get; set; }
-  public ICmpt_ParentType<Cmpt_TypeKind, ICmpt_Aliased, ICmpt_EnumLabel>? As_TypeKindEnum { get; set; }
-  public ICmpt_ParentType<Cmpt_TypeKind, ICmpt_UnionRef, ICmpt_UnionMember>? As_TypeKindUnion { get; set; }
-  public ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_DualField>? As_TypeKindDual { get; set; }
-  public ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_InputField>? As_TypeKindInput { get; set; }
-  public ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_OutputField>? As_TypeKindOutput { get; set; }
-  public ICmpt_TypeObject? As__Type { get; set; }
 }
 
-public class Cmpt_TypeObject
-  : Spec_Common
-  , ICmpt_TypeObject
-{
-
-  public Cmpt_TypeObject
-    ()
-  {
-  }
-}
-
-public class Cmpt_BaseType<TTypeKind>
-  : Cmpt_Aliased
-  , ICmpt_BaseType<TTypeKind>
-{
-  public ICmpt_BaseTypeObject<TTypeKind>? As__BaseType { get; set; }
-}
-
-public class Cmpt_BaseTypeObject<TTypeKind>
-  : Cmpt_AliasedObject
-  , ICmpt_BaseTypeObject<TTypeKind>
+internal class Cmpt_BaseTypeEncoder<TTypeKind>
 {
   public TTypeKind TypeKind { get; set; }
-
-  public Cmpt_BaseTypeObject
-    ( TTypeKind typeKind
-    )
-  {
-    TypeKind = typeKind;
-  }
 }
 
-public class Cmpt_ChildType<TTypeKind,TParent>
-  : Cmpt_BaseType<TTypeKind>
-  , ICmpt_ChildType<TTypeKind,TParent>
-{
-  public ICmpt_ChildTypeObject<TTypeKind,TParent>? As__ChildType { get; set; }
-}
-
-public class Cmpt_ChildTypeObject<TTypeKind,TParent>
-  : Cmpt_BaseTypeObject<TTypeKind>
-  , ICmpt_ChildTypeObject<TTypeKind,TParent>
+internal class Cmpt_ChildTypeEncoder<TTypeKind,TParent>
 {
   public TParent Parent { get; set; }
-
-  public Cmpt_ChildTypeObject
-    ( TTypeKind typeKind
-    , TParent parent
-    ) : base(typeKind)
-  {
-    Parent = parent;
-  }
 }
 
-public class Cmpt_ParentType<TTypeKind,TItem,TAllItem>
-  : Cmpt_ChildType<TTypeKind, ICmpt_Named>
-  , ICmpt_ParentType<TTypeKind,TItem,TAllItem>
-{
-  public ICmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>? As__ParentType { get; set; }
-}
-
-public class Cmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>
-  : Cmpt_ChildTypeObject<TTypeKind, ICmpt_Named>
-  , ICmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>
+internal class Cmpt_ParentTypeEncoder<TTypeKind,TItem,TAllItem>
 {
   public ICollection<TItem> Items { get; set; }
   public ICollection<TAllItem> AllItems { get; set; }
-
-  public Cmpt_ParentTypeObject
-    ( TTypeKind typeKind
-    , ICmpt_Named parent
-    , ICollection<TItem> items
-    , ICollection<TAllItem> allItems
-    ) : base(typeKind, parent)
-  {
-    Items = items;
-    AllItems = allItems;
-  }
 }
 
-public enum Cmpt_SimpleKind
+internal class Cmpt_SimpleKindEncoder
 {
-  Basic,
-  Enum,
-  Internal,
-  Domain,
-  Union,
+  public string Basic { get; set; }
+  public string Enum { get; set; }
+  public string Internal { get; set; }
+  public string Domain { get; set; }
+  public string Union { get; set; }
 }
 
-public enum Cmpt_TypeKind
+internal class Cmpt_TypeKindEncoder
 {
-  Basic = Cmpt_SimpleKind.Basic,
-  Enum = Cmpt_SimpleKind.Enum,
-  Internal = Cmpt_SimpleKind.Internal,
-  Domain = Cmpt_SimpleKind.Domain,
-  Union = Cmpt_SimpleKind.Union,
-  Dual,
-  Input,
-  Output,
+  public string Basic { get; set; }
+  public string Enum { get; set; }
+  public string Internal { get; set; }
+  public string Domain { get; set; }
+  public string Union { get; set; }
+  public string Dual { get; set; }
+  public string Input { get; set; }
+  public string Output { get; set; }
 }
 
-public class Cmpt_TypeRef<TTypeKind>
-  : Cmpt_Named
-  , ICmpt_TypeRef<TTypeKind>
-{
-  public ICmpt_TypeRefObject<TTypeKind>? As__TypeRef { get; set; }
-}
-
-public class Cmpt_TypeRefObject<TTypeKind>
-  : Cmpt_NamedObject
-  , ICmpt_TypeRefObject<TTypeKind>
+internal class Cmpt_TypeRefEncoder<TTypeKind>
 {
   public TTypeKind TypeKind { get; set; }
-
-  public Cmpt_TypeRefObject
-    ( TTypeKind typeKind
-    )
-  {
-    TypeKind = typeKind;
-  }
 }
 
-public class Cmpt_TypeSimple
-  : Spec_Common
-  , ICmpt_TypeSimple
+internal class Cmpt_TypeSimpleEncoder
 {
-  public ICmpt_TypeRef<Cmpt_TypeKind>? As_TypeKindBasic { get; set; }
-  public ICmpt_TypeRef<Cmpt_TypeKind>? As_TypeKindEnum { get; set; }
-  public ICmpt_TypeRef<Cmpt_TypeKind>? As_TypeKindDomain { get; set; }
-  public ICmpt_TypeRef<Cmpt_TypeKind>? As_TypeKindUnion { get; set; }
-  public ICmpt_TypeSimpleObject? As__TypeSimple { get; set; }
-}
-
-public class Cmpt_TypeSimpleObject
-  : Spec_Common
-  , ICmpt_TypeSimpleObject
-{
-
-  public Cmpt_TypeSimpleObject
-    ()
-  {
-  }
 }

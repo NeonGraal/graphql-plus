@@ -13,37 +13,21 @@ domain JustCnstDomEnumDual { enum EnumCnstDomEnumDual.cnstDomEnumDual }
 
 namespace Components.Gqlp_Schema_constraint_dom_enum_Dual;
 
-public interface ICmptCnstDomEnumDual
-  // No Base because it's Class
-{
-  ICmptRefCnstDomEnumDual<CmptEnumCnstDomEnumDual>? AsEnumCnstDomEnumDualcnstDomEnumDual { get; }
-  ICmptCnstDomEnumDualObject? As_CnstDomEnumDual { get; }
-}
-
-public interface ICmptCnstDomEnumDualObject
-  // No Base because it's Class
+internal class CmptCnstDomEnumDualDecoder
 {
 }
 
-public interface ICmptRefCnstDomEnumDual<TType>
-  // No Base because it's Class
+internal class CmptRefCnstDomEnumDualDecoder<TType>
 {
-  ICmptRefCnstDomEnumDualObject<TType>? As_RefCnstDomEnumDual { get; }
+  public TType Field { get; set; }
 }
 
-public interface ICmptRefCnstDomEnumDualObject<TType>
-  // No Base because it's Class
+internal class CmptEnumCnstDomEnumDualDecoder
 {
-  TType Field { get; }
+  public string cnstDomEnumDual { get; set; }
+  public string other { get; set; }
 }
 
-public enum CmptEnumCnstDomEnumDual
-{
-  cnstDomEnumDual,
-  other,
-}
-
-public interface ICmptJustCnstDomEnumDual
-  : IGqlpDomainEnum
+internal class CmptJustCnstDomEnumDualDecoder
 {
 }

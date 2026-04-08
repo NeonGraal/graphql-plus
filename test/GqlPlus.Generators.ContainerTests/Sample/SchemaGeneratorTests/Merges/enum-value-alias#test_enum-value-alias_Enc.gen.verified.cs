@@ -7,9 +7,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_enum_value_alias;
 
-public enum testEnumValueAlias
+internal class testEnumValueAliasEncoder
 {
-  enumValueAlias,
-  val1 = enumValueAlias,
-  val2 = enumValueAlias,
+  public string enumValueAlias { get; set; }
+  public string val1 { get; set; }
+  public string val2 { get; set; }
 }

@@ -7,37 +7,22 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_enum_Output;
 
-public interface ItestCnstPrntEnumOutp
-  // No Base because it's Class
-{
-  ItestRefCnstPrntEnumOutp<testParentCnstPrntEnumOutp>? AsParentCnstPrntEnumOutpparentCnstPrntEnumOutp { get; }
-  ItestCnstPrntEnumOutpObject? As_CnstPrntEnumOutp { get; }
-}
-
-public interface ItestCnstPrntEnumOutpObject
-  // No Base because it's Class
+internal class testCnstPrntEnumOutpDecoder
 {
 }
 
-public interface ItestRefCnstPrntEnumOutp<TType>
-  // No Base because it's Class
+internal class testRefCnstPrntEnumOutpDecoder<TType>
 {
-  ItestRefCnstPrntEnumOutpObject<TType>? As_RefCnstPrntEnumOutp { get; }
+  public TType Field { get; set; }
 }
 
-public interface ItestRefCnstPrntEnumOutpObject<TType>
-  // No Base because it's Class
+internal class testEnumCnstPrntEnumOutpDecoder
 {
-  TType Field { get; }
+  public string parentCnstPrntEnumOutp { get; set; }
+  public string cnstPrntEnumOutp { get; set; }
 }
 
-public enum testEnumCnstPrntEnumOutp
+internal class testParentCnstPrntEnumOutpDecoder
 {
-  parentCnstPrntEnumOutp = testParentCnstPrntEnumOutp.parentCnstPrntEnumOutp,
-  cnstPrntEnumOutp,
-}
-
-public enum testParentCnstPrntEnumOutp
-{
-  parentCnstPrntEnumOutp,
+  public string parentCnstPrntEnumOutp { get; set; }
 }

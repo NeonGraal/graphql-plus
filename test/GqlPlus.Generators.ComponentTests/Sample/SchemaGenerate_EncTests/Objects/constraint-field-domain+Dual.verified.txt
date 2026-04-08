@@ -12,48 +12,15 @@ domain DomCnstFieldDmnDual { String /\w+/ }
 
 namespace Components.Gqlp_Schema_constraint_field_domain_Dual;
 
-public class CmptCnstFieldDmnDual
-  : CmptRefCnstFieldDmnDual<ICmptDomCnstFieldDmnDual>
-  , ICmptCnstFieldDmnDual
+internal class CmptCnstFieldDmnDualEncoder
 {
-  public ICmptCnstFieldDmnDualObject? As_CnstFieldDmnDual { get; set; }
 }
 
-public class CmptCnstFieldDmnDualObject
-  : CmptRefCnstFieldDmnDualObject<ICmptDomCnstFieldDmnDual>
-  , ICmptCnstFieldDmnDualObject
-{
-
-  public CmptCnstFieldDmnDualObject
-    ( ICmptDomCnstFieldDmnDual field
-    ) : base(field)
-  {
-  }
-}
-
-public class CmptRefCnstFieldDmnDual<TRef>
-  : Schema_constraint-field-domain+Dual
-  , ICmptRefCnstFieldDmnDual<TRef>
-{
-  public ICmptRefCnstFieldDmnDualObject<TRef>? As_RefCnstFieldDmnDual { get; set; }
-}
-
-public class CmptRefCnstFieldDmnDualObject<TRef>
-  : Schema_constraint-field-domain+Dual
-  , ICmptRefCnstFieldDmnDualObject<TRef>
+internal class CmptRefCnstFieldDmnDualEncoder<TRef>
 {
   public TRef Field { get; set; }
-
-  public CmptRefCnstFieldDmnDualObject
-    ( TRef field
-    )
-  {
-    Field = field;
-  }
 }
 
-public class CmptDomCnstFieldDmnDual
-  : GqlpDomainString
-  , ICmptDomCnstFieldDmnDual
+internal class CmptDomCnstFieldDmnDualEncoder
 {
 }

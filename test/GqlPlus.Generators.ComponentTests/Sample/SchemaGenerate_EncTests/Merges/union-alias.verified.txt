@@ -11,9 +11,7 @@ union UnionAlias [UnA2] { Number }
 
 namespace Components.Gqlp_Schema_union_alias;
 
-public class CmptUnionAlias
-  : Schema_union-alias
-  , ICmptUnionAlias
+internal class CmptUnionAliasEncoder
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }

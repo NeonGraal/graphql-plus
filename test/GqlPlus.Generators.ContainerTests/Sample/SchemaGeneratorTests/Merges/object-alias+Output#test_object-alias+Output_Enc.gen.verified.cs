@@ -7,20 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_alias_Output;
 
-public class testObjAliasOutp
-  : GqlpEncoderBase
-  , ItestObjAliasOutp
+internal class testObjAliasOutpEncoder
 {
-  public ItestObjAliasOutpObject? As_ObjAliasOutp { get; set; }
-}
-
-public class testObjAliasOutpObject
-  : GqlpEncoderBase
-  , ItestObjAliasOutpObject
-{
-
-  public testObjAliasOutpObject
-    ()
-  {
-  }
 }

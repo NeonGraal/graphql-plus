@@ -41,16 +41,7 @@ input _TypeFilter {
 
 namespace Components.Gqlp_Spec_Declarations;
 
-public class Cmpt_Schema
-  : Cmpt_Named
-  , ICmpt_Schema
-{
-  public ICmpt_SchemaObject? As__Schema { get; set; }
-}
-
-public class Cmpt_SchemaObject
-  : Cmpt_NamedObject
-  , ICmpt_SchemaObject
+internal class Cmpt_SchemaEncoder
 {
   public IDictionary<ICmpt_Name, ICmpt_Categories>? Categories(ICmpt_CategoryFilter? parameter)
     => null;
@@ -60,95 +51,31 @@ public class Cmpt_SchemaObject
     => null;
   public IDictionary<ICmpt_Name, ICmpt_Setting>? Settings(ICmpt_Filter? parameter)
     => null;
-
-  public Cmpt_SchemaObject
-    ()
-  {
-  }
 }
 
-public class Cmpt_Name
-  : GqlpDomainString
-  , ICmpt_Name
+internal class Cmpt_NameEncoder
 {
 }
 
-public class Cmpt_Filter
-  : Spec_Declarations
-  , ICmpt_Filter
-{
-  public ICollection<ICmpt_NameFilter>? As_NameFilter { get; set; }
-  public ICmpt_FilterObject? As__Filter { get; set; }
-}
-
-public class Cmpt_FilterObject
-  : Spec_Declarations
-  , ICmpt_FilterObject
+internal class Cmpt_FilterEncoder
 {
   public ICollection<ICmpt_NameFilter> Names { get; set; }
   public bool? MatchAliases { get; set; }
   public ICollection<ICmpt_NameFilter> Aliases { get; set; }
   public bool? ReturnByAlias { get; set; }
   public bool? ReturnReferencedTypes { get; set; }
-
-  public Cmpt_FilterObject
-    ( ICollection<ICmpt_NameFilter> names
-    , ICollection<ICmpt_NameFilter> aliases
-    )
-  {
-    Names = names;
-    Aliases = aliases;
-  }
 }
 
-public class Cmpt_NameFilter
-  : GqlpDomainString
-  , ICmpt_NameFilter
+internal class Cmpt_NameFilterEncoder
 {
 }
 
-public class Cmpt_CategoryFilter
-  : Cmpt_Filter
-  , ICmpt_CategoryFilter
-{
-  public ICmpt_CategoryFilterObject? As__CategoryFilter { get; set; }
-}
-
-public class Cmpt_CategoryFilterObject
-  : Cmpt_FilterObject
-  , ICmpt_CategoryFilterObject
+internal class Cmpt_CategoryFilterEncoder
 {
   public ICollection<ICmpt_Resolution> Resolutions { get; set; }
-
-  public Cmpt_CategoryFilterObject
-    ( ICollection<ICmpt_NameFilter> names
-    , ICollection<ICmpt_NameFilter> aliases
-    , ICollection<ICmpt_Resolution> resolutions
-    ) : base(names, aliases)
-  {
-    Resolutions = resolutions;
-  }
 }
 
-public class Cmpt_TypeFilter
-  : Cmpt_Filter
-  , ICmpt_TypeFilter
-{
-  public ICmpt_TypeFilterObject? As__TypeFilter { get; set; }
-}
-
-public class Cmpt_TypeFilterObject
-  : Cmpt_FilterObject
-  , ICmpt_TypeFilterObject
+internal class Cmpt_TypeFilterEncoder
 {
   public ICollection<ICmpt_TypeKind> Kinds { get; set; }
-
-  public Cmpt_TypeFilterObject
-    ( ICollection<ICmpt_NameFilter> names
-    , ICollection<ICmpt_NameFilter> aliases
-    , ICollection<ICmpt_TypeKind> kinds
-    ) : base(names, aliases)
-  {
-    Kinds = kinds;
-  }
 }

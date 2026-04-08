@@ -11,13 +11,6 @@ output ObjOutp { }
 
 namespace Components.Gqlp_Schema_object_Output;
 
-public interface ICmptObjOutp
-  // No Base because it's Class
-{
-  ICmptObjOutpObject? As_ObjOutp { get; }
-}
-
-public interface ICmptObjOutpObject
-  // No Base because it's Class
+internal class CmptObjOutpDecoder
 {
 }

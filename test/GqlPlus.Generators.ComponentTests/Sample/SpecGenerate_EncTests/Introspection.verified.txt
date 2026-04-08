@@ -348,16 +348,7 @@ output _OutputFieldType {
 
 namespace Components.Gqlp_Spec_Introspection;
 
-public class Cmpt_Schema
-  : Cmpt_Named
-  , ICmpt_Schema
-{
-  public ICmpt_SchemaObject? As__Schema { get; set; }
-}
-
-public class Cmpt_SchemaObject
-  : Cmpt_NamedObject
-  , ICmpt_SchemaObject
+internal class Cmpt_SchemaEncoder
 {
   public IDictionary<ICmpt_Name, ICmpt_Categories>? Categories(ICmpt_CategoryFilter? parameter)
     => null;
@@ -367,1424 +358,360 @@ public class Cmpt_SchemaObject
     => null;
   public IDictionary<ICmpt_Name, ICmpt_Setting>? Settings(ICmpt_Filter? parameter)
     => null;
-
-  public Cmpt_SchemaObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    ) : base(description, name)
-  {
-  }
 }
 
-public class Cmpt_Name
-  : GqlpDomainString
-  , ICmpt_Name
+internal class Cmpt_NameEncoder
 {
 }
 
-public class Cmpt_Filter
-  : Spec_Introspection
-  , ICmpt_Filter
-{
-  public ICollection<ICmpt_NameFilter>? As_NameFilter { get; set; }
-  public ICmpt_FilterObject? As__Filter { get; set; }
-}
-
-public class Cmpt_FilterObject
-  : Spec_Introspection
-  , ICmpt_FilterObject
+internal class Cmpt_FilterEncoder
 {
   public ICollection<ICmpt_NameFilter> Names { get; set; }
   public bool? MatchAliases { get; set; }
   public ICollection<ICmpt_NameFilter> Aliases { get; set; }
   public bool? ReturnByAlias { get; set; }
   public bool? ReturnReferencedTypes { get; set; }
-
-  public Cmpt_FilterObject
-    ( ICollection<ICmpt_NameFilter> names
-    , ICollection<ICmpt_NameFilter> aliases
-    )
-  {
-    Names = names;
-    Aliases = aliases;
-  }
 }
 
-public class Cmpt_NameFilter
-  : GqlpDomainString
-  , ICmpt_NameFilter
+internal class Cmpt_NameFilterEncoder
 {
 }
 
-public class Cmpt_CategoryFilter
-  : Cmpt_Filter
-  , ICmpt_CategoryFilter
-{
-  public ICmpt_CategoryFilterObject? As__CategoryFilter { get; set; }
-}
-
-public class Cmpt_CategoryFilterObject
-  : Cmpt_FilterObject
-  , ICmpt_CategoryFilterObject
+internal class Cmpt_CategoryFilterEncoder
 {
   public ICollection<Cmpt_Resolution> Resolutions { get; set; }
-
-  public Cmpt_CategoryFilterObject
-    ( ICollection<ICmpt_NameFilter> names
-    , ICollection<ICmpt_NameFilter> aliases
-    , ICollection<Cmpt_Resolution> resolutions
-    ) : base(names, aliases)
-  {
-    Resolutions = resolutions;
-  }
 }
 
-public class Cmpt_TypeFilter
-  : Cmpt_Filter
-  , ICmpt_TypeFilter
-{
-  public ICmpt_TypeFilterObject? As__TypeFilter { get; set; }
-}
-
-public class Cmpt_TypeFilterObject
-  : Cmpt_FilterObject
-  , ICmpt_TypeFilterObject
+internal class Cmpt_TypeFilterEncoder
 {
   public ICollection<Cmpt_TypeKind> Kinds { get; set; }
-
-  public Cmpt_TypeFilterObject
-    ( ICollection<ICmpt_NameFilter> names
-    , ICollection<ICmpt_NameFilter> aliases
-    , ICollection<Cmpt_TypeKind> kinds
-    ) : base(names, aliases)
-  {
-    Kinds = kinds;
-  }
 }
 
-public class Cmpt_Aliased
-  : Cmpt_Named
-  , ICmpt_Aliased
-{
-  public ICmpt_AliasedObject? As__Aliased { get; set; }
-}
-
-public class Cmpt_AliasedObject
-  : Cmpt_NamedObject
-  , ICmpt_AliasedObject
+internal class Cmpt_AliasedEncoder
 {
   public ICollection<ICmpt_Name> Aliases { get; set; }
-
-  public Cmpt_AliasedObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICollection<ICmpt_Name> aliases
-    ) : base(description, name)
-  {
-    Aliases = aliases;
-  }
 }
 
-public class Cmpt_Named
-  : Cmpt_Described
-  , ICmpt_Named
-{
-  public ICmpt_NamedObject? As__Named { get; set; }
-}
-
-public class Cmpt_NamedObject
-  : Cmpt_DescribedObject
-  , ICmpt_NamedObject
+internal class Cmpt_NamedEncoder
 {
   public ICmpt_Name Name { get; set; }
-
-  public Cmpt_NamedObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    ) : base(description)
-  {
-    Name = name;
-  }
 }
 
-public class Cmpt_Described
-  : Spec_Introspection
-  , ICmpt_Described
-{
-  public ICmpt_DescribedObject? As__Described { get; set; }
-}
-
-public class Cmpt_DescribedObject
-  : Spec_Introspection
-  , ICmpt_DescribedObject
+internal class Cmpt_DescribedEncoder
 {
   public ICollection<string> Description { get; set; }
-
-  public Cmpt_DescribedObject
-    ( ICollection<string> description
-    )
-  {
-    Description = description;
-  }
 }
 
-public class Cmpt_AndType
-  : Cmpt_Named
-  , ICmpt_AndType
-{
-  public ICmpt_Type? As_Type { get; set; }
-  public ICmpt_AndTypeObject? As__AndType { get; set; }
-}
-
-public class Cmpt_AndTypeObject
-  : Cmpt_NamedObject
-  , ICmpt_AndTypeObject
+internal class Cmpt_AndTypeEncoder
 {
   public ICmpt_Type Type { get; set; }
-
-  public Cmpt_AndTypeObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICmpt_Type type
-    ) : base(description, name)
-  {
-    Type = type;
-  }
 }
 
-public class Cmpt_Categories
-  : Cmpt_AndType
-  , ICmpt_Categories
-{
-  public ICmpt_Category? As_Category { get; set; }
-  public ICmpt_CategoriesObject? As__Categories { get; set; }
-}
-
-public class Cmpt_CategoriesObject
-  : Cmpt_AndTypeObject
-  , ICmpt_CategoriesObject
+internal class Cmpt_CategoriesEncoder
 {
   public ICmpt_Category Category { get; set; }
-
-  public Cmpt_CategoriesObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICmpt_Type type
-    , ICmpt_Category category
-    ) : base(description, name, type)
-  {
-    Category = category;
-  }
 }
 
-public class Cmpt_Category
-  : Cmpt_Aliased
-  , ICmpt_Category
-{
-  public ICmpt_CategoryObject? As__Category { get; set; }
-}
-
-public class Cmpt_CategoryObject
-  : Cmpt_AliasedObject
-  , ICmpt_CategoryObject
+internal class Cmpt_CategoryEncoder
 {
   public Cmpt_Resolution Resolution { get; set; }
   public ICmpt_TypeRef<Cmpt_TypeKind> Output { get; set; }
   public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
-
-  public Cmpt_CategoryObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICollection<ICmpt_Name> aliases
-    , Cmpt_Resolution resolution
-    , ICmpt_TypeRef<Cmpt_TypeKind> output
-    , ICollection<ICmpt_Modifiers> modifiers
-    ) : base(description, name, aliases)
-  {
-    Resolution = resolution;
-    Output = output;
-    Modifiers = modifiers;
-  }
 }
 
-public enum Cmpt_Resolution
+internal class Cmpt_ResolutionEncoder
 {
-  Parallel,
-  Sequential,
-  Single,
+  public string Parallel { get; set; }
+  public string Sequential { get; set; }
+  public string Single { get; set; }
 }
 
-public class Cmpt_Directives
-  : Cmpt_AndType
-  , ICmpt_Directives
-{
-  public ICmpt_Directive? As_Directive { get; set; }
-  public ICmpt_DirectivesObject? As__Directives { get; set; }
-}
-
-public class Cmpt_DirectivesObject
-  : Cmpt_AndTypeObject
-  , ICmpt_DirectivesObject
+internal class Cmpt_DirectivesEncoder
 {
   public ICmpt_Directive Directive { get; set; }
-
-  public Cmpt_DirectivesObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICmpt_Type type
-    , ICmpt_Directive directive
-    ) : base(description, name, type)
-  {
-    Directive = directive;
-  }
 }
 
-public class Cmpt_Directive
-  : Cmpt_Aliased
-  , ICmpt_Directive
-{
-  public ICmpt_DirectiveObject? As__Directive { get; set; }
-}
-
-public class Cmpt_DirectiveObject
-  : Cmpt_AliasedObject
-  , ICmpt_DirectiveObject
+internal class Cmpt_DirectiveEncoder
 {
   public ICmpt_InputFieldType? Parameter { get; set; }
   public bool Repeatable { get; set; }
   public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
-
-  public Cmpt_DirectiveObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICollection<ICmpt_Name> aliases
-    , bool repeatable
-    , IDictionary<Cmpt_Location, GqlpUnit> locations
-    ) : base(description, name, aliases)
-  {
-    Repeatable = repeatable;
-    Locations = locations;
-  }
 }
 
-public enum Cmpt_Location
+internal class Cmpt_LocationEncoder
 {
-  Operation,
-  Variable,
-  Field,
-  Inline,
-  Spread,
-  Fragment,
+  public string Operation { get; set; }
+  public string Variable { get; set; }
+  public string Field { get; set; }
+  public string Inline { get; set; }
+  public string Spread { get; set; }
+  public string Fragment { get; set; }
 }
 
-public class Cmpt_Setting
-  : Cmpt_Named
-  , ICmpt_Setting
-{
-  public ICmpt_SettingObject? As__Setting { get; set; }
-}
-
-public class Cmpt_SettingObject
-  : Cmpt_NamedObject
-  , ICmpt_SettingObject
+internal class Cmpt_SettingEncoder
 {
   public GqlpValue Value { get; set; }
-
-  public Cmpt_SettingObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , GqlpValue value
-    ) : base(description, name)
-  {
-    Value = value;
-  }
 }
 
-public class Cmpt_Type
-  : Spec_Introspection
-  , ICmpt_Type
+internal class Cmpt_TypeEncoder
 {
-  public ICmpt_BaseType<Cmpt_TypeKind>? As_TypeKindBasic { get; set; }
-  public ICmpt_BaseType<Cmpt_TypeKind>? As_TypeKindInternal { get; set; }
-  public ICmpt_BaseDomain<Cmpt_DomainKind, ICmpt_DomainTrueFalse, ICmpt_DomainItemTrueFalse>? As_DomainKindBoolean { get; set; }
-  public ICmpt_BaseDomain<Cmpt_DomainKind, ICmpt_DomainLabel, ICmpt_DomainItemLabel>? As_DomainKindEnum { get; set; }
-  public ICmpt_BaseDomain<Cmpt_DomainKind, ICmpt_DomainRange, ICmpt_DomainItemRange>? As_DomainKindNumber { get; set; }
-  public ICmpt_BaseDomain<Cmpt_DomainKind, ICmpt_DomainRegex, ICmpt_DomainItemRegex>? As_DomainKindString { get; set; }
-  public ICmpt_ParentType<Cmpt_TypeKind, ICmpt_Aliased, ICmpt_EnumLabel>? As_TypeKindEnum { get; set; }
-  public ICmpt_ParentType<Cmpt_TypeKind, ICmpt_UnionRef, ICmpt_UnionMember>? As_TypeKindUnion { get; set; }
-  public ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_DualField>? As_TypeKindDual { get; set; }
-  public ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_InputField>? As_TypeKindInput { get; set; }
-  public ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_OutputField>? As_TypeKindOutput { get; set; }
-  public ICmpt_TypeObject? As__Type { get; set; }
 }
 
-public class Cmpt_TypeObject
-  : Spec_Introspection
-  , ICmpt_TypeObject
-{
-
-  public Cmpt_TypeObject
-    ()
-  {
-  }
-}
-
-public class Cmpt_BaseType<TTypeKind>
-  : Cmpt_Aliased
-  , ICmpt_BaseType<TTypeKind>
-{
-  public ICmpt_BaseTypeObject<TTypeKind>? As__BaseType { get; set; }
-}
-
-public class Cmpt_BaseTypeObject<TTypeKind>
-  : Cmpt_AliasedObject
-  , ICmpt_BaseTypeObject<TTypeKind>
+internal class Cmpt_BaseTypeEncoder<TTypeKind>
 {
   public TTypeKind TypeKind { get; set; }
-
-  public Cmpt_BaseTypeObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICollection<ICmpt_Name> aliases
-    , TTypeKind typeKind
-    ) : base(description, name, aliases)
-  {
-    TypeKind = typeKind;
-  }
 }
 
-public class Cmpt_ChildType<TTypeKind,TParent>
-  : Cmpt_BaseType<TTypeKind>
-  , ICmpt_ChildType<TTypeKind,TParent>
-{
-  public ICmpt_ChildTypeObject<TTypeKind,TParent>? As__ChildType { get; set; }
-}
-
-public class Cmpt_ChildTypeObject<TTypeKind,TParent>
-  : Cmpt_BaseTypeObject<TTypeKind>
-  , ICmpt_ChildTypeObject<TTypeKind,TParent>
+internal class Cmpt_ChildTypeEncoder<TTypeKind,TParent>
 {
   public TParent Parent { get; set; }
-
-  public Cmpt_ChildTypeObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICollection<ICmpt_Name> aliases
-    , TTypeKind typeKind
-    , TParent parent
-    ) : base(description, name, aliases, typeKind)
-  {
-    Parent = parent;
-  }
 }
 
-public class Cmpt_ParentType<TTypeKind,TItem,TAllItem>
-  : Cmpt_ChildType<TTypeKind, ICmpt_Named>
-  , ICmpt_ParentType<TTypeKind,TItem,TAllItem>
-{
-  public ICmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>? As__ParentType { get; set; }
-}
-
-public class Cmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>
-  : Cmpt_ChildTypeObject<TTypeKind, ICmpt_Named>
-  , ICmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>
+internal class Cmpt_ParentTypeEncoder<TTypeKind,TItem,TAllItem>
 {
   public ICollection<TItem> Items { get; set; }
   public ICollection<TAllItem> AllItems { get; set; }
-
-  public Cmpt_ParentTypeObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICollection<ICmpt_Name> aliases
-    , TTypeKind typeKind
-    , ICmpt_Named parent
-    , ICollection<TItem> items
-    , ICollection<TAllItem> allItems
-    ) : base(description, name, aliases, typeKind, parent)
-  {
-    Items = items;
-    AllItems = allItems;
-  }
 }
 
-public enum Cmpt_SimpleKind
+internal class Cmpt_SimpleKindEncoder
 {
-  Basic,
-  Enum,
-  Internal,
-  Domain,
-  Union,
+  public string Basic { get; set; }
+  public string Enum { get; set; }
+  public string Internal { get; set; }
+  public string Domain { get; set; }
+  public string Union { get; set; }
 }
 
-public enum Cmpt_TypeKind
+internal class Cmpt_TypeKindEncoder
 {
-  Basic = Cmpt_SimpleKind.Basic,
-  Enum = Cmpt_SimpleKind.Enum,
-  Internal = Cmpt_SimpleKind.Internal,
-  Domain = Cmpt_SimpleKind.Domain,
-  Union = Cmpt_SimpleKind.Union,
-  Dual,
-  Input,
-  Output,
+  public string Basic { get; set; }
+  public string Enum { get; set; }
+  public string Internal { get; set; }
+  public string Domain { get; set; }
+  public string Union { get; set; }
+  public string Dual { get; set; }
+  public string Input { get; set; }
+  public string Output { get; set; }
 }
 
-public class Cmpt_TypeRef<TTypeKind>
-  : Cmpt_Named
-  , ICmpt_TypeRef<TTypeKind>
-{
-  public ICmpt_TypeRefObject<TTypeKind>? As__TypeRef { get; set; }
-}
-
-public class Cmpt_TypeRefObject<TTypeKind>
-  : Cmpt_NamedObject
-  , ICmpt_TypeRefObject<TTypeKind>
+internal class Cmpt_TypeRefEncoder<TTypeKind>
 {
   public TTypeKind TypeKind { get; set; }
-
-  public Cmpt_TypeRefObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , TTypeKind typeKind
-    ) : base(description, name)
-  {
-    TypeKind = typeKind;
-  }
 }
 
-public class Cmpt_TypeSimple
-  : Spec_Introspection
-  , ICmpt_TypeSimple
+internal class Cmpt_TypeSimpleEncoder
 {
-  public ICmpt_TypeRef<Cmpt_TypeKind>? As_TypeKindBasic { get; set; }
-  public ICmpt_TypeRef<Cmpt_TypeKind>? As_TypeKindEnum { get; set; }
-  public ICmpt_TypeRef<Cmpt_TypeKind>? As_TypeKindDomain { get; set; }
-  public ICmpt_TypeRef<Cmpt_TypeKind>? As_TypeKindUnion { get; set; }
-  public ICmpt_TypeSimpleObject? As__TypeSimple { get; set; }
 }
 
-public class Cmpt_TypeSimpleObject
-  : Spec_Introspection
-  , ICmpt_TypeSimpleObject
+internal class Cmpt_CollectionsEncoder
 {
-
-  public Cmpt_TypeSimpleObject
-    ()
-  {
-  }
 }
 
-public class Cmpt_Collections
-  : Spec_Introspection
-  , ICmpt_Collections
-{
-  public ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindList { get; set; }
-  public ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindDictionary { get; set; }
-  public ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindTypeParam { get; set; }
-  public ICmpt_CollectionsObject? As__Collections { get; set; }
-}
-
-public class Cmpt_CollectionsObject
-  : Spec_Introspection
-  , ICmpt_CollectionsObject
-{
-
-  public Cmpt_CollectionsObject
-    ()
-  {
-  }
-}
-
-public class Cmpt_ModifierKeyed<TModifierKind>
-  : Cmpt_Modifier<TModifierKind>
-  , ICmpt_ModifierKeyed<TModifierKind>
-{
-  public ICmpt_ModifierKeyedObject<TModifierKind>? As__ModifierKeyed { get; set; }
-}
-
-public class Cmpt_ModifierKeyedObject<TModifierKind>
-  : Cmpt_ModifierObject<TModifierKind>
-  , ICmpt_ModifierKeyedObject<TModifierKind>
+internal class Cmpt_ModifierKeyedEncoder<TModifierKind>
 {
   public ICmpt_TypeSimple By { get; set; }
   public bool IsOptional { get; set; }
-
-  public Cmpt_ModifierKeyedObject
-    ( TModifierKind modifierKind
-    , ICmpt_TypeSimple by
-    , bool isOptional
-    ) : base(modifierKind)
-  {
-    By = by;
-    IsOptional = isOptional;
-  }
 }
 
-public class Cmpt_Modifiers
-  : Spec_Introspection
-  , ICmpt_Modifiers
+internal class Cmpt_ModifiersEncoder
 {
-  public ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindOptional { get; set; }
-  public ICmpt_Collections? As_Collections { get; set; }
-  public ICmpt_ModifiersObject? As__Modifiers { get; set; }
 }
 
-public class Cmpt_ModifiersObject
-  : Spec_Introspection
-  , ICmpt_ModifiersObject
+internal class Cmpt_ModifierKindEncoder
 {
-
-  public Cmpt_ModifiersObject
-    ()
-  {
-  }
+  public string Opt { get; set; }
+  public string Optional { get; set; }
+  public string List { get; set; }
+  public string Dict { get; set; }
+  public string Dictionary { get; set; }
+  public string Param { get; set; }
+  public string TypeParam { get; set; }
 }
 
-public enum Cmpt_ModifierKind
-{
-  Opt,
-  Optional = Opt,
-  List,
-  Dict,
-  Dictionary = Dict,
-  Param,
-  TypeParam = Param,
-}
-
-public class Cmpt_Modifier<TModifierKind>
-  : Spec_Introspection
-  , ICmpt_Modifier<TModifierKind>
-{
-  public ICmpt_ModifierObject<TModifierKind>? As__Modifier { get; set; }
-}
-
-public class Cmpt_ModifierObject<TModifierKind>
-  : Spec_Introspection
-  , ICmpt_ModifierObject<TModifierKind>
+internal class Cmpt_ModifierEncoder<TModifierKind>
 {
   public TModifierKind ModifierKind { get; set; }
-
-  public Cmpt_ModifierObject
-    ( TModifierKind modifierKind
-    )
-  {
-    ModifierKind = modifierKind;
-  }
 }
 
-public enum Cmpt_DomainKind
+internal class Cmpt_DomainKindEncoder
 {
-  Boolean,
-  Enum,
-  Number,
-  String,
+  public string Boolean { get; set; }
+  public string Enum { get; set; }
+  public string Number { get; set; }
+  public string String { get; set; }
 }
 
-public class Cmpt_DomainRef<TDomainKind>
-  : Cmpt_TypeRef<Cmpt_TypeKind>
-  , ICmpt_DomainRef<TDomainKind>
-{
-  public ICmpt_DomainRefObject<TDomainKind>? As__DomainRef { get; set; }
-}
-
-public class Cmpt_DomainRefObject<TDomainKind>
-  : Cmpt_TypeRefObject<Cmpt_TypeKind>
-  , ICmpt_DomainRefObject<TDomainKind>
+internal class Cmpt_DomainRefEncoder<TDomainKind>
 {
   public TDomainKind DomainKind { get; set; }
-
-  public Cmpt_DomainRefObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , TDomainKind domainKind
-    ) : base(description, name, Cmpt_TypeKind.Domain)
-  {
-    DomainKind = domainKind;
-  }
 }
 
-public class Cmpt_BaseDomain<TDomainKind,TItem,TDomainItem>
-  : Cmpt_ParentType<Cmpt_TypeKind, TItem, TDomainItem>
-  , ICmpt_BaseDomain<TDomainKind,TItem,TDomainItem>
-{
-  public ICmpt_BaseDomainObject<TDomainKind,TItem,TDomainItem>? As__BaseDomain { get; set; }
-}
-
-public class Cmpt_BaseDomainObject<TDomainKind,TItem,TDomainItem>
-  : Cmpt_ParentTypeObject<Cmpt_TypeKind, TItem, TDomainItem>
-  , ICmpt_BaseDomainObject<TDomainKind,TItem,TDomainItem>
+internal class Cmpt_BaseDomainEncoder<TDomainKind,TItem,TDomainItem>
 {
   public TDomainKind DomainKind { get; set; }
-
-  public Cmpt_BaseDomainObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICollection<ICmpt_Name> aliases
-    , ICmpt_Named parent
-    , ICollection<TItem> items
-    , ICollection<TDomainItem> allItems
-    , TDomainKind domainKind
-    ) : base(description, name, aliases, Cmpt_TypeKind.Domain, parent, items, allItems)
-  {
-    DomainKind = domainKind;
-  }
 }
 
-public class Cmpt_BaseDomainItem
-  : Cmpt_Described
-  , ICmpt_BaseDomainItem
-{
-  public ICmpt_BaseDomainItemObject? As__BaseDomainItem { get; set; }
-}
-
-public class Cmpt_BaseDomainItemObject
-  : Cmpt_DescribedObject
-  , ICmpt_BaseDomainItemObject
+internal class Cmpt_BaseDomainItemEncoder
 {
   public bool Exclude { get; set; }
-
-  public Cmpt_BaseDomainItemObject
-    ( ICollection<string> description
-    , bool exclude
-    ) : base(description)
-  {
-    Exclude = exclude;
-  }
 }
 
-public class Cmpt_DomainItem<TItem>
-  : Spec_Introspection
-  , ICmpt_DomainItem<TItem>
-{
-  public TItem? As_Parent { get; set; }
-  public ICmpt_DomainItemObject<TItem>? As__DomainItem { get; set; }
-}
-
-public class Cmpt_DomainItemObject<TItem>
-  : Spec_Introspection
-  , ICmpt_DomainItemObject<TItem>
+internal class Cmpt_DomainItemEncoder<TItem>
 {
   public ICmpt_Name Domain { get; set; }
-
-  public Cmpt_DomainItemObject
-    ( ICmpt_Name domain
-    )
-  {
-    Domain = domain;
-  }
 }
 
-public class Cmpt_DomainValue<TDomainKind,TValue>
-  : Cmpt_DomainRef<TDomainKind>
-  , ICmpt_DomainValue<TDomainKind,TValue>
-{
-  public TValue? Asvalue { get; set; }
-  public ICmpt_DomainValueObject<TDomainKind,TValue>? As__DomainValue { get; set; }
-}
-
-public class Cmpt_DomainValueObject<TDomainKind,TValue>
-  : Cmpt_DomainRefObject<TDomainKind>
-  , ICmpt_DomainValueObject<TDomainKind,TValue>
+internal class Cmpt_DomainValueEncoder<TDomainKind,TValue>
 {
   public TValue Value { get; set; }
-
-  public Cmpt_DomainValueObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , TDomainKind domainKind
-    , TValue value
-    ) : base(description, name, domainKind)
-  {
-    Value = value;
-  }
 }
 
-public class Cmpt_BasicValue
-  : Spec_Introspection
-  , ICmpt_BasicValue
+internal class Cmpt_BasicValueEncoder
 {
-  public bool? AsBoolean { get; set; }
-  public ICmpt_EnumValue? As_EnumValue { get; set; }
-  public decimal? AsNumber { get; set; }
-  public string? AsString { get; set; }
-  public ICmpt_BasicValueObject? As__BasicValue { get; set; }
 }
 
-public class Cmpt_BasicValueObject
-  : Spec_Introspection
-  , ICmpt_BasicValueObject
-{
-
-  public Cmpt_BasicValueObject
-    ()
-  {
-  }
-}
-
-public class Cmpt_DomainTrueFalse
-  : Cmpt_BaseDomainItem
-  , ICmpt_DomainTrueFalse
-{
-  public ICmpt_DomainTrueFalseObject? As__DomainTrueFalse { get; set; }
-}
-
-public class Cmpt_DomainTrueFalseObject
-  : Cmpt_BaseDomainItemObject
-  , ICmpt_DomainTrueFalseObject
+internal class Cmpt_DomainTrueFalseEncoder
 {
   public bool Value { get; set; }
-
-  public Cmpt_DomainTrueFalseObject
-    ( ICollection<string> description
-    , bool exclude
-    , bool value
-    ) : base(description, exclude)
-  {
-    Value = value;
-  }
 }
 
-public class Cmpt_DomainItemTrueFalse
-  : Cmpt_DomainItem<ICmpt_DomainTrueFalse>
-  , ICmpt_DomainItemTrueFalse
+internal class Cmpt_DomainItemTrueFalseEncoder
 {
-  public ICmpt_DomainItemTrueFalseObject? As__DomainItemTrueFalse { get; set; }
 }
 
-public class Cmpt_DomainItemTrueFalseObject
-  : Cmpt_DomainItemObject<ICmpt_DomainTrueFalse>
-  , ICmpt_DomainItemTrueFalseObject
-{
-
-  public Cmpt_DomainItemTrueFalseObject
-    ( ICmpt_Name domain
-    ) : base(domain)
-  {
-  }
-}
-
-public class Cmpt_DomainLabel
-  : Cmpt_BaseDomainItem
-  , ICmpt_DomainLabel
-{
-  public ICmpt_DomainLabelObject? As__DomainLabel { get; set; }
-}
-
-public class Cmpt_DomainLabelObject
-  : Cmpt_BaseDomainItemObject
-  , ICmpt_DomainLabelObject
+internal class Cmpt_DomainLabelEncoder
 {
   public ICmpt_EnumValue Label { get; set; }
-
-  public Cmpt_DomainLabelObject
-    ( ICollection<string> description
-    , bool exclude
-    , ICmpt_EnumValue label
-    ) : base(description, exclude)
-  {
-    Label = label;
-  }
 }
 
-public class Cmpt_DomainItemLabel
-  : Cmpt_DomainItem<ICmpt_DomainLabel>
-  , ICmpt_DomainItemLabel
+internal class Cmpt_DomainItemLabelEncoder
 {
-  public ICmpt_DomainItemLabelObject? As__DomainItemLabel { get; set; }
 }
 
-public class Cmpt_DomainItemLabelObject
-  : Cmpt_DomainItemObject<ICmpt_DomainLabel>
-  , ICmpt_DomainItemLabelObject
-{
-
-  public Cmpt_DomainItemLabelObject
-    ( ICmpt_Name domain
-    ) : base(domain)
-  {
-  }
-}
-
-public class Cmpt_DomainRange
-  : Cmpt_BaseDomainItem
-  , ICmpt_DomainRange
-{
-  public ICmpt_DomainRangeObject? As__DomainRange { get; set; }
-}
-
-public class Cmpt_DomainRangeObject
-  : Cmpt_BaseDomainItemObject
-  , ICmpt_DomainRangeObject
+internal class Cmpt_DomainRangeEncoder
 {
   public decimal? Lower { get; set; }
   public decimal? Upper { get; set; }
-
-  public Cmpt_DomainRangeObject
-    ( ICollection<string> description
-    , bool exclude
-    ) : base(description, exclude)
-  {
-  }
 }
 
-public class Cmpt_DomainItemRange
-  : Cmpt_DomainItem<ICmpt_DomainRange>
-  , ICmpt_DomainItemRange
+internal class Cmpt_DomainItemRangeEncoder
 {
-  public ICmpt_DomainItemRangeObject? As__DomainItemRange { get; set; }
 }
 
-public class Cmpt_DomainItemRangeObject
-  : Cmpt_DomainItemObject<ICmpt_DomainRange>
-  , ICmpt_DomainItemRangeObject
-{
-
-  public Cmpt_DomainItemRangeObject
-    ( ICmpt_Name domain
-    ) : base(domain)
-  {
-  }
-}
-
-public class Cmpt_DomainRegex
-  : Cmpt_BaseDomainItem
-  , ICmpt_DomainRegex
-{
-  public ICmpt_DomainRegexObject? As__DomainRegex { get; set; }
-}
-
-public class Cmpt_DomainRegexObject
-  : Cmpt_BaseDomainItemObject
-  , ICmpt_DomainRegexObject
+internal class Cmpt_DomainRegexEncoder
 {
   public string Pattern { get; set; }
-
-  public Cmpt_DomainRegexObject
-    ( ICollection<string> description
-    , bool exclude
-    , string pattern
-    ) : base(description, exclude)
-  {
-    Pattern = pattern;
-  }
 }
 
-public class Cmpt_DomainItemRegex
-  : Cmpt_DomainItem<ICmpt_DomainRegex>
-  , ICmpt_DomainItemRegex
+internal class Cmpt_DomainItemRegexEncoder
 {
-  public ICmpt_DomainItemRegexObject? As__DomainItemRegex { get; set; }
 }
 
-public class Cmpt_DomainItemRegexObject
-  : Cmpt_DomainItemObject<ICmpt_DomainRegex>
-  , ICmpt_DomainItemRegexObject
-{
-
-  public Cmpt_DomainItemRegexObject
-    ( ICmpt_Name domain
-    ) : base(domain)
-  {
-  }
-}
-
-public class Cmpt_EnumLabel
-  : Cmpt_Aliased
-  , ICmpt_EnumLabel
-{
-  public ICmpt_EnumLabelObject? As__EnumLabel { get; set; }
-}
-
-public class Cmpt_EnumLabelObject
-  : Cmpt_AliasedObject
-  , ICmpt_EnumLabelObject
+internal class Cmpt_EnumLabelEncoder
 {
   public ICmpt_Name EnumType { get; set; }
-
-  public Cmpt_EnumLabelObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICollection<ICmpt_Name> aliases
-    , ICmpt_Name enumType
-    ) : base(description, name, aliases)
-  {
-    EnumType = enumType;
-  }
 }
 
-public class Cmpt_EnumValue
-  : Cmpt_TypeRef<Cmpt_TypeKind>
-  , ICmpt_EnumValue
-{
-  public ICmpt_EnumValueObject? As__EnumValue { get; set; }
-}
-
-public class Cmpt_EnumValueObject
-  : Cmpt_TypeRefObject<Cmpt_TypeKind>
-  , ICmpt_EnumValueObject
+internal class Cmpt_EnumValueEncoder
 {
   public ICmpt_Name Label { get; set; }
-
-  public Cmpt_EnumValueObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICmpt_Name label
-    ) : base(description, name, Cmpt_TypeKind.Enum)
-  {
-    Label = label;
-  }
 }
 
-public class Cmpt_UnionRef
-  : Cmpt_TypeRef<Cmpt_SimpleKind>
-  , ICmpt_UnionRef
+internal class Cmpt_UnionRefEncoder
 {
-  public ICmpt_UnionRefObject? As__UnionRef { get; set; }
 }
 
-public class Cmpt_UnionRefObject
-  : Cmpt_TypeRefObject<Cmpt_SimpleKind>
-  , ICmpt_UnionRefObject
-{
-
-  public Cmpt_UnionRefObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , Cmpt_SimpleKind typeKind
-    ) : base(description, name, typeKind)
-  {
-  }
-}
-
-public class Cmpt_UnionMember
-  : Cmpt_UnionRef
-  , ICmpt_UnionMember
-{
-  public ICmpt_UnionMemberObject? As__UnionMember { get; set; }
-}
-
-public class Cmpt_UnionMemberObject
-  : Cmpt_UnionRefObject
-  , ICmpt_UnionMemberObject
+internal class Cmpt_UnionMemberEncoder
 {
   public ICmpt_Name Union { get; set; }
-
-  public Cmpt_UnionMemberObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , Cmpt_SimpleKind typeKind
-    , ICmpt_Name union
-    ) : base(description, name, typeKind)
-  {
-    Union = union;
-  }
 }
 
-public class Cmpt_ObjectKind
-  : GqlpDomainEnum
-  , ICmpt_ObjectKind
+internal class Cmpt_ObjectKindEncoder
 {
 }
 
-public class Cmpt_TypeObject<TObjectKind,TField>
-  : Cmpt_ChildType<TObjectKind, ICmpt_ObjBase>
-  , ICmpt_TypeObject<TObjectKind,TField>
-{
-  public ICmpt_TypeObjectObject<TObjectKind,TField>? As__TypeObject { get; set; }
-}
-
-public class Cmpt_TypeObjectObject<TObjectKind,TField>
-  : Cmpt_ChildTypeObject<TObjectKind, ICmpt_ObjBase>
-  , ICmpt_TypeObjectObject<TObjectKind,TField>
+internal class Cmpt_TypeObjectEncoder<TObjectKind,TField>
 {
   public ICollection<ICmpt_ObjTypeParam> TypeParams { get; set; }
   public ICollection<TField> Fields { get; set; }
   public ICollection<ICmpt_ObjAlternate> Alternates { get; set; }
   public ICollection<ICmpt_ObjectFor<TField>> AllFields { get; set; }
   public ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> AllAlternates { get; set; }
-
-  public Cmpt_TypeObjectObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICollection<ICmpt_Name> aliases
-    , TObjectKind typeKind
-    , ICmpt_ObjBase parent
-    , ICollection<ICmpt_ObjTypeParam> typeParams
-    , ICollection<TField> fields
-    , ICollection<ICmpt_ObjAlternate> alternates
-    , ICollection<ICmpt_ObjectFor<TField>> allFields
-    , ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> allAlternates
-    ) : base(description, name, aliases, typeKind, parent)
-  {
-    TypeParams = typeParams;
-    Fields = fields;
-    Alternates = alternates;
-    AllFields = allFields;
-    AllAlternates = allAlternates;
-  }
 }
 
-public class Cmpt_ObjTypeParam
-  : Cmpt_Named
-  , ICmpt_ObjTypeParam
-{
-  public ICmpt_ObjTypeParamObject? As__ObjTypeParam { get; set; }
-}
-
-public class Cmpt_ObjTypeParamObject
-  : Cmpt_NamedObject
-  , ICmpt_ObjTypeParamObject
+internal class Cmpt_ObjTypeParamEncoder
 {
   public ICmpt_TypeRef<Cmpt_TypeKind> Constraint { get; set; }
-
-  public Cmpt_ObjTypeParamObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICmpt_TypeRef<Cmpt_TypeKind> constraint
-    ) : base(description, name)
-  {
-    Constraint = constraint;
-  }
 }
 
-public class Cmpt_ObjBase
-  : Cmpt_Named
-  , ICmpt_ObjBase
-{
-  public ICmpt_TypeParam? As_TypeParam { get; set; }
-  public ICmpt_ObjBaseObject? As__ObjBase { get; set; }
-}
-
-public class Cmpt_ObjBaseObject
-  : Cmpt_NamedObject
-  , ICmpt_ObjBaseObject
+internal class Cmpt_ObjBaseEncoder
 {
   public ICollection<ICmpt_ObjTypeArg> TypeArgs { get; set; }
-
-  public Cmpt_ObjBaseObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICollection<ICmpt_ObjTypeArg> typeArgs
-    ) : base(description, name)
-  {
-    TypeArgs = typeArgs;
-  }
 }
 
-public class Cmpt_ObjTypeArg
-  : Cmpt_TypeRef<Cmpt_TypeKind>
-  , ICmpt_ObjTypeArg
-{
-  public ICmpt_TypeParam? As_TypeParam { get; set; }
-  public ICmpt_ObjTypeArgObject? As__ObjTypeArg { get; set; }
-}
-
-public class Cmpt_ObjTypeArgObject
-  : Cmpt_TypeRefObject<Cmpt_TypeKind>
-  , ICmpt_ObjTypeArgObject
+internal class Cmpt_ObjTypeArgEncoder
 {
   public ICmpt_Name? Label { get; set; }
-
-  public Cmpt_ObjTypeArgObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , Cmpt_TypeKind typeKind
-    ) : base(description, name, typeKind)
-  {
-  }
 }
 
-public class Cmpt_TypeParam
-  : Cmpt_Described
-  , ICmpt_TypeParam
-{
-  public ICmpt_TypeParamObject? As__TypeParam { get; set; }
-}
-
-public class Cmpt_TypeParamObject
-  : Cmpt_DescribedObject
-  , ICmpt_TypeParamObject
+internal class Cmpt_TypeParamEncoder
 {
   public ICmpt_Name TypeParam { get; set; }
-
-  public Cmpt_TypeParamObject
-    ( ICollection<string> description
-    , ICmpt_Name typeParam
-    ) : base(description)
-  {
-    TypeParam = typeParam;
-  }
 }
 
-public class Cmpt_ObjAlternate
-  : Spec_Introspection
-  , ICmpt_ObjAlternate
-{
-  public ICmpt_ObjAlternateEnum? As_ObjAlternateEnum { get; set; }
-  public ICmpt_ObjAlternateObject? As__ObjAlternate { get; set; }
-}
-
-public class Cmpt_ObjAlternateObject
-  : Spec_Introspection
-  , ICmpt_ObjAlternateObject
+internal class Cmpt_ObjAlternateEncoder
 {
   public ICmpt_ObjBase Type { get; set; }
   public ICollection<ICmpt_Collections> Collections { get; set; }
-
-  public Cmpt_ObjAlternateObject
-    ( ICmpt_ObjBase type
-    , ICollection<ICmpt_Collections> collections
-    )
-  {
-    Type = type;
-    Collections = collections;
-  }
 }
 
-public class Cmpt_ObjAlternateEnum
-  : Cmpt_TypeRef<Cmpt_TypeKind>
-  , ICmpt_ObjAlternateEnum
-{
-  public ICmpt_ObjAlternateEnumObject? As__ObjAlternateEnum { get; set; }
-}
-
-public class Cmpt_ObjAlternateEnumObject
-  : Cmpt_TypeRefObject<Cmpt_TypeKind>
-  , ICmpt_ObjAlternateEnumObject
+internal class Cmpt_ObjAlternateEnumEncoder
 {
   public ICmpt_Name Label { get; set; }
-
-  public Cmpt_ObjAlternateEnumObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICmpt_Name label
-    ) : base(description, name, Cmpt_TypeKind.Enum)
-  {
-    Label = label;
-  }
 }
 
-public class Cmpt_ObjectFor<TFor>
-  : Spec_Introspection
-  , ICmpt_ObjectFor<TFor>
-{
-  public TFor? As_Parent { get; set; }
-  public ICmpt_ObjectForObject<TFor>? As__ObjectFor { get; set; }
-}
-
-public class Cmpt_ObjectForObject<TFor>
-  : Spec_Introspection
-  , ICmpt_ObjectForObject<TFor>
+internal class Cmpt_ObjectForEncoder<TFor>
 {
   public ICmpt_Name ObjectType { get; set; }
-
-  public Cmpt_ObjectForObject
-    ( ICmpt_Name objectType
-    )
-  {
-    ObjectType = objectType;
-  }
 }
 
-public class Cmpt_ObjField<TType>
-  : Cmpt_Aliased
-  , ICmpt_ObjField<TType>
-{
-  public ICmpt_ObjFieldObject<TType>? As__ObjField { get; set; }
-}
-
-public class Cmpt_ObjFieldObject<TType>
-  : Cmpt_AliasedObject
-  , ICmpt_ObjFieldObject<TType>
+internal class Cmpt_ObjFieldEncoder<TType>
 {
   public TType Type { get; set; }
-
-  public Cmpt_ObjFieldObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICollection<ICmpt_Name> aliases
-    , TType type
-    ) : base(description, name, aliases)
-  {
-    Type = type;
-  }
 }
 
-public class Cmpt_ObjFieldType
-  : Cmpt_ObjBase
-  , ICmpt_ObjFieldType
-{
-  public ICmpt_ObjFieldEnum? As_ObjFieldEnum { get; set; }
-  public ICmpt_ObjFieldTypeObject? As__ObjFieldType { get; set; }
-}
-
-public class Cmpt_ObjFieldTypeObject
-  : Cmpt_ObjBaseObject
-  , ICmpt_ObjFieldTypeObject
+internal class Cmpt_ObjFieldTypeEncoder
 {
   public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
-
-  public Cmpt_ObjFieldTypeObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICollection<ICmpt_ObjTypeArg> typeArgs
-    , ICollection<ICmpt_Modifiers> modifiers
-    ) : base(description, name, typeArgs)
-  {
-    Modifiers = modifiers;
-  }
 }
 
-public class Cmpt_ObjFieldEnum
-  : Cmpt_TypeRef<Cmpt_TypeKind>
-  , ICmpt_ObjFieldEnum
-{
-  public ICmpt_ObjFieldEnumObject? As__ObjFieldEnum { get; set; }
-}
-
-public class Cmpt_ObjFieldEnumObject
-  : Cmpt_TypeRefObject<Cmpt_TypeKind>
-  , ICmpt_ObjFieldEnumObject
+internal class Cmpt_ObjFieldEnumEncoder
 {
   public ICmpt_Name Label { get; set; }
-
-  public Cmpt_ObjFieldEnumObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICmpt_Name label
-    ) : base(description, name, Cmpt_TypeKind.Enum)
-  {
-    Label = label;
-  }
 }
 
-public class Cmpt_ForParam<TType>
-  : Spec_Introspection
-  , ICmpt_ForParam<TType>
+internal class Cmpt_ForParamEncoder<TType>
 {
-  public ICmpt_ObjAlternate? As_ObjAlternate { get; set; }
-  public ICmpt_ObjField<TType>? As_ObjField { get; set; }
-  public ICmpt_ForParamObject<TType>? As__ForParam { get; set; }
 }
 
-public class Cmpt_ForParamObject<TType>
-  : Spec_Introspection
-  , ICmpt_ForParamObject<TType>
+internal class Cmpt_DualFieldEncoder
 {
-
-  public Cmpt_ForParamObject
-    ()
-  {
-  }
 }
 
-public class Cmpt_DualField
-  : Cmpt_ObjField<ICmpt_ObjFieldType>
-  , ICmpt_DualField
+internal class Cmpt_InputFieldEncoder
 {
-  public ICmpt_DualFieldObject? As__DualField { get; set; }
 }
 
-public class Cmpt_DualFieldObject
-  : Cmpt_ObjFieldObject<ICmpt_ObjFieldType>
-  , ICmpt_DualFieldObject
-{
-
-  public Cmpt_DualFieldObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICollection<ICmpt_Name> aliases
-    , ICmpt_ObjFieldType type
-    ) : base(description, name, aliases, type)
-  {
-  }
-}
-
-public class Cmpt_InputField
-  : Cmpt_ObjField<ICmpt_InputFieldType>
-  , ICmpt_InputField
-{
-  public ICmpt_InputFieldObject? As__InputField { get; set; }
-}
-
-public class Cmpt_InputFieldObject
-  : Cmpt_ObjFieldObject<ICmpt_InputFieldType>
-  , ICmpt_InputFieldObject
-{
-
-  public Cmpt_InputFieldObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICollection<ICmpt_Name> aliases
-    , ICmpt_InputFieldType type
-    ) : base(description, name, aliases, type)
-  {
-  }
-}
-
-public class Cmpt_InputFieldType
-  : Cmpt_ObjFieldType
-  , ICmpt_InputFieldType
-{
-  public ICmpt_InputFieldTypeObject? As__InputFieldType { get; set; }
-}
-
-public class Cmpt_InputFieldTypeObject
-  : Cmpt_ObjFieldTypeObject
-  , ICmpt_InputFieldTypeObject
+internal class Cmpt_InputFieldTypeEncoder
 {
   public GqlpValue? DefaultValue { get; set; }
-
-  public Cmpt_InputFieldTypeObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICollection<ICmpt_ObjTypeArg> typeArgs
-    , ICollection<ICmpt_Modifiers> modifiers
-    ) : base(description, name, typeArgs, modifiers)
-  {
-  }
 }
 
-public class Cmpt_OutputField
-  : Cmpt_ObjField<ICmpt_ObjFieldType>
-  , ICmpt_OutputField
+internal class Cmpt_OutputFieldEncoder
 {
-  public ICmpt_OutputFieldObject? As__OutputField { get; set; }
 }
 
-public class Cmpt_OutputFieldObject
-  : Cmpt_ObjFieldObject<ICmpt_ObjFieldType>
-  , ICmpt_OutputFieldObject
-{
-
-  public Cmpt_OutputFieldObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICollection<ICmpt_Name> aliases
-    , ICmpt_ObjFieldType type
-    ) : base(description, name, aliases, type)
-  {
-  }
-}
-
-public class Cmpt_OutputFieldType
-  : Cmpt_ObjFieldType
-  , ICmpt_OutputFieldType
-{
-  public ICmpt_OutputFieldTypeObject? As__OutputFieldType { get; set; }
-}
-
-public class Cmpt_OutputFieldTypeObject
-  : Cmpt_ObjFieldTypeObject
-  , ICmpt_OutputFieldTypeObject
+internal class Cmpt_OutputFieldTypeEncoder
 {
   public ICmpt_InputFieldType? Parameter { get; set; }
-
-  public Cmpt_OutputFieldTypeObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICollection<ICmpt_ObjTypeArg> typeArgs
-    , ICollection<ICmpt_Modifiers> modifiers
-    ) : base(description, name, typeArgs, modifiers)
-  {
-  }
 }

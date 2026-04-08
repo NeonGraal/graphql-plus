@@ -7,8 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_string_non_empty;
 
-public class testDmnStrNonEmpty
-  : GqlpDomainString
-  , ItestDmnStrNonEmpty
+internal class testDmnStrNonEmptyEncoder
 {
 }

@@ -7,23 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_type_descr_Input;
 
-public class testFieldTypeDescrInp
-  : GqlpEncoderBase
-  , ItestFieldTypeDescrInp
-{
-  public ItestFieldTypeDescrInpObject? As_FieldTypeDescrInp { get; set; }
-}
-
-public class testFieldTypeDescrInpObject
-  : GqlpEncoderBase
-  , ItestFieldTypeDescrInpObject
+internal class testFieldTypeDescrInpEncoder
 {
   public decimal Field { get; set; }
-
-  public testFieldTypeDescrInpObject
-    ( decimal field
-    )
-  {
-    Field = field;
-  }
 }

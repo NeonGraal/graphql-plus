@@ -7,32 +7,17 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_output_param_mod_param;
 
-public interface ItestOutpParamModParam<TMod>
-  // No Base because it's Class
+internal class testOutpParamModParamDecoder<TMod>
 {
-  ItestOutpParamModParamObject<TMod>? As_OutpParamModParam { get; }
+  public ItestDomOutpParamModParam? Field(IDictionary<TMod, ItestInOutpParamModParam> parameter)
+    => null;
 }
 
-public interface ItestOutpParamModParamObject<TMod>
-  // No Base because it's Class
+internal class testInOutpParamModParamDecoder
 {
-  ItestDomOutpParamModParam? Field(IDictionary<TMod, ItestInOutpParamModParam> parameter);
+  public decimal Param { get; set; }
 }
 
-public interface ItestInOutpParamModParam
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestInOutpParamModParamObject? As_InOutpParamModParam { get; }
-}
-
-public interface ItestInOutpParamModParamObject
-  // No Base because it's Class
-{
-  decimal Param { get; }
-}
-
-public interface ItestDomOutpParamModParam
-  : IGqlpDomainNumber
+internal class testDomOutpParamModParamDecoder
 {
 }

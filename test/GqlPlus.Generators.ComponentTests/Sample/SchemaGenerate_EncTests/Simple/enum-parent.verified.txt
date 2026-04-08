@@ -11,13 +11,13 @@ enum PrntEnumPrnt { prnt_enumPrnt }
 
 namespace Components.Gqlp_Schema_enum_parent;
 
-public enum CmptEnumPrnt
+internal class CmptEnumPrntEncoder
 {
-  prnt_enumPrnt = CmptPrntEnumPrnt.prnt_enumPrnt,
-  enumPrnt,
+  public string prnt_enumPrnt { get; set; }
+  public string enumPrnt { get; set; }
 }
 
-public enum CmptPrntEnumPrnt
+internal class CmptPrntEnumPrntEncoder
 {
-  prnt_enumPrnt,
+  public string prnt_enumPrnt { get; set; }
 }

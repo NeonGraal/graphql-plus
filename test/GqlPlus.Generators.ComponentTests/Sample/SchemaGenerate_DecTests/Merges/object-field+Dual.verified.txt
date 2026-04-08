@@ -12,25 +12,11 @@ dual FldObjFieldDual { }
 
 namespace Components.Gqlp_Schema_object_field_Dual;
 
-public interface ICmptObjFieldDual
-  // No Base because it's Class
+internal class CmptObjFieldDualDecoder
 {
-  ICmptObjFieldDualObject? As_ObjFieldDual { get; }
+  public ICmptFldObjFieldDual Field { get; set; }
 }
 
-public interface ICmptObjFieldDualObject
-  // No Base because it's Class
-{
-  ICmptFldObjFieldDual Field { get; }
-}
-
-public interface ICmptFldObjFieldDual
-  // No Base because it's Class
-{
-  ICmptFldObjFieldDualObject? As_FldObjFieldDual { get; }
-}
-
-public interface ICmptFldObjFieldDualObject
-  // No Base because it's Class
+internal class CmptFldObjFieldDualDecoder
 {
 }

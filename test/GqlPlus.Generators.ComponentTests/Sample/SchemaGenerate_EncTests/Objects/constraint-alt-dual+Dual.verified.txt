@@ -13,80 +13,19 @@ dual AltCnstAltDualDual { :PrntCnstAltDualDual alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_alt_dual_Dual;
 
-public class CmptCnstAltDualDual
-  : Schema_constraint-alt-dual+Dual
-  , ICmptCnstAltDualDual
+internal class CmptCnstAltDualDualEncoder
 {
-  public ICmptRefCnstAltDualDual<ICmptAltCnstAltDualDual>? AsRefCnstAltDualDual { get; set; }
-  public ICmptCnstAltDualDualObject? As_CnstAltDualDual { get; set; }
 }
 
-public class CmptCnstAltDualDualObject
-  : Schema_constraint-alt-dual+Dual
-  , ICmptCnstAltDualDualObject
+internal class CmptRefCnstAltDualDualEncoder<TRef>
 {
-
-  public CmptCnstAltDualDualObject
-    ()
-  {
-  }
 }
 
-public class CmptRefCnstAltDualDual<TRef>
-  : Schema_constraint-alt-dual+Dual
-  , ICmptRefCnstAltDualDual<TRef>
+internal class CmptPrntCnstAltDualDualEncoder
 {
-  public TRef? Asref { get; set; }
-  public ICmptRefCnstAltDualDualObject<TRef>? As_RefCnstAltDualDual { get; set; }
 }
 
-public class CmptRefCnstAltDualDualObject<TRef>
-  : Schema_constraint-alt-dual+Dual
-  , ICmptRefCnstAltDualDualObject<TRef>
-{
-
-  public CmptRefCnstAltDualDualObject
-    ()
-  {
-  }
-}
-
-public class CmptPrntCnstAltDualDual
-  : Schema_constraint-alt-dual+Dual
-  , ICmptPrntCnstAltDualDual
-{
-  public string? AsString { get; set; }
-  public ICmptPrntCnstAltDualDualObject? As_PrntCnstAltDualDual { get; set; }
-}
-
-public class CmptPrntCnstAltDualDualObject
-  : Schema_constraint-alt-dual+Dual
-  , ICmptPrntCnstAltDualDualObject
-{
-
-  public CmptPrntCnstAltDualDualObject
-    ()
-  {
-  }
-}
-
-public class CmptAltCnstAltDualDual
-  : CmptPrntCnstAltDualDual
-  , ICmptAltCnstAltDualDual
-{
-  public ICmptAltCnstAltDualDualObject? As_AltCnstAltDualDual { get; set; }
-}
-
-public class CmptAltCnstAltDualDualObject
-  : CmptPrntCnstAltDualDualObject
-  , ICmptAltCnstAltDualDualObject
+internal class CmptAltCnstAltDualDualEncoder
 {
   public decimal Alt { get; set; }
-
-  public CmptAltCnstAltDualDualObject
-    ( decimal alt
-    )
-  {
-    Alt = alt;
-  }
 }

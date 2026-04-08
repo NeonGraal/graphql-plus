@@ -12,31 +12,16 @@ enum EnumCnstEnumInp { cnstEnumInp }
 
 namespace Components.Gqlp_Schema_constraint_enum_Input;
 
-public interface ICmptCnstEnumInp
-  // No Base because it's Class
-{
-  ICmptRefCnstEnumInp<CmptEnumCnstEnumInp>? AsEnumCnstEnumInpcnstEnumInp { get; }
-  ICmptCnstEnumInpObject? As_CnstEnumInp { get; }
-}
-
-public interface ICmptCnstEnumInpObject
-  // No Base because it's Class
+internal class CmptCnstEnumInpDecoder
 {
 }
 
-public interface ICmptRefCnstEnumInp<TType>
-  // No Base because it's Class
+internal class CmptRefCnstEnumInpDecoder<TType>
 {
-  ICmptRefCnstEnumInpObject<TType>? As_RefCnstEnumInp { get; }
+  public TType Field { get; set; }
 }
 
-public interface ICmptRefCnstEnumInpObject<TType>
-  // No Base because it's Class
+internal class CmptEnumCnstEnumInpDecoder
 {
-  TType Field { get; }
-}
-
-public enum CmptEnumCnstEnumInp
-{
-  cnstEnumInp,
+  public string cnstEnumInp { get; set; }
 }

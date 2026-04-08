@@ -7,37 +7,21 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_dom_enum_Input;
 
-public interface ItestCnstDomEnumInp
-  // No Base because it's Class
-{
-  ItestRefCnstDomEnumInp<testEnumCnstDomEnumInp>? AsEnumCnstDomEnumInpcnstDomEnumInp { get; }
-  ItestCnstDomEnumInpObject? As_CnstDomEnumInp { get; }
-}
-
-public interface ItestCnstDomEnumInpObject
-  // No Base because it's Class
+internal class testCnstDomEnumInpDecoder
 {
 }
 
-public interface ItestRefCnstDomEnumInp<TType>
-  // No Base because it's Class
+internal class testRefCnstDomEnumInpDecoder<TType>
 {
-  ItestRefCnstDomEnumInpObject<TType>? As_RefCnstDomEnumInp { get; }
+  public TType Field { get; set; }
 }
 
-public interface ItestRefCnstDomEnumInpObject<TType>
-  // No Base because it's Class
+internal class testEnumCnstDomEnumInpDecoder
 {
-  TType Field { get; }
+  public string cnstDomEnumInp { get; set; }
+  public string other { get; set; }
 }
 
-public enum testEnumCnstDomEnumInp
-{
-  cnstDomEnumInp,
-  other,
-}
-
-public interface ItestJustCnstDomEnumInp
-  : IGqlpDomainEnum
+internal class testJustCnstDomEnumInpDecoder
 {
 }

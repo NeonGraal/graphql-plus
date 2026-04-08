@@ -7,8 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_descr;
 
-public interface ItestUnionDescr
-  // No Base because it's Class
+internal class testUnionDescrDecoder
 {
-  Number AsNumber { get; }
+  public Number AsNumber { get; set; }
 }

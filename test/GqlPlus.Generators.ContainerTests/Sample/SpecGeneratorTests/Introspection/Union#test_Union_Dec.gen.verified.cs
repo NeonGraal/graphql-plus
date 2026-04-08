@@ -7,25 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Union;
 
-public interface Itest_UnionRef
-  : Itest_TypeRef<Itest_SimpleKind>
-{
-  Itest_UnionRefObject? As__UnionRef { get; }
-}
-
-public interface Itest_UnionRefObject
-  : Itest_TypeRefObject<Itest_SimpleKind>
+internal class test_UnionRefDecoder
 {
 }
 
-public interface Itest_UnionMember
-  : Itest_UnionRef
+internal class test_UnionMemberDecoder
 {
-  Itest_UnionMemberObject? As__UnionMember { get; }
-}
-
-public interface Itest_UnionMemberObject
-  : Itest_UnionRefObject
-{
-  Itest_Name Union { get; }
+  public Itest_Name Union { get; set; }
 }

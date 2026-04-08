@@ -10,9 +10,7 @@ union UnionDescr { "Union" "Descr" Number }
 
 namespace Components.Gqlp_Schema_union_descr;
 
-public class CmptUnionDescr
-  : Schema_union-descr
-  , ICmptUnionDescr
+internal class CmptUnionDescrEncoder
 {
   public Number AsNumber { get; set; }
 }

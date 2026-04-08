@@ -7,21 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_simple_Output;
 
-public class testAltSmplOutp
-  : GqlpEncoderBase
-  , ItestAltSmplOutp
+internal class testAltSmplOutpEncoder
 {
-  public string? AsString { get; set; }
-  public ItestAltSmplOutpObject? As_AltSmplOutp { get; set; }
-}
-
-public class testAltSmplOutpObject
-  : GqlpEncoderBase
-  , ItestAltSmplOutpObject
-{
-
-  public testAltSmplOutpObject
-    ()
-  {
-  }
 }

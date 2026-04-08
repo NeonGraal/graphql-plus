@@ -12,47 +12,16 @@ enum EnumGnrcPrntSmplEnumInp { gnrcPrntSmplEnumInp }
 
 namespace Components.Gqlp_Schema_generic_parent_simple_enum_Input;
 
-public class CmptGnrcPrntSmplEnumInp
-  : CmptFieldGnrcPrntSmplEnumInp<CmptEnumGnrcPrntSmplEnumInp>
-  , ICmptGnrcPrntSmplEnumInp
+internal class CmptGnrcPrntSmplEnumInpEncoder
 {
-  public ICmptGnrcPrntSmplEnumInpObject? As_GnrcPrntSmplEnumInp { get; set; }
 }
 
-public class CmptGnrcPrntSmplEnumInpObject
-  : CmptFieldGnrcPrntSmplEnumInpObject<CmptEnumGnrcPrntSmplEnumInp>
-  , ICmptGnrcPrntSmplEnumInpObject
-{
-
-  public CmptGnrcPrntSmplEnumInpObject
-    ( CmptEnumGnrcPrntSmplEnumInp field
-    ) : base(field)
-  {
-  }
-}
-
-public class CmptFieldGnrcPrntSmplEnumInp<TRef>
-  : Schema_generic-parent-simple-enum+Input
-  , ICmptFieldGnrcPrntSmplEnumInp<TRef>
-{
-  public ICmptFieldGnrcPrntSmplEnumInpObject<TRef>? As_FieldGnrcPrntSmplEnumInp { get; set; }
-}
-
-public class CmptFieldGnrcPrntSmplEnumInpObject<TRef>
-  : Schema_generic-parent-simple-enum+Input
-  , ICmptFieldGnrcPrntSmplEnumInpObject<TRef>
+internal class CmptFieldGnrcPrntSmplEnumInpEncoder<TRef>
 {
   public TRef Field { get; set; }
-
-  public CmptFieldGnrcPrntSmplEnumInpObject
-    ( TRef field
-    )
-  {
-    Field = field;
-  }
 }
 
-public enum CmptEnumGnrcPrntSmplEnumInp
+internal class CmptEnumGnrcPrntSmplEnumInpEncoder
 {
-  gnrcPrntSmplEnumInp,
+  public string gnrcPrntSmplEnumInp { get; set; }
 }

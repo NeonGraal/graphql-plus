@@ -23,59 +23,24 @@ enum _Location { Operation Variable Field Inline Spread Fragment }
 
 namespace Components.Gqlp_Spec_Directive;
 
-public class Cmpt_Directives
-  : Cmpt_AndType
-  , ICmpt_Directives
-{
-  public ICmpt_Directive? As_Directive { get; set; }
-  public ICmpt_DirectivesObject? As__Directives { get; set; }
-}
-
-public class Cmpt_DirectivesObject
-  : Cmpt_AndTypeObject
-  , ICmpt_DirectivesObject
+internal class Cmpt_DirectivesEncoder
 {
   public ICmpt_Directive Directive { get; set; }
-
-  public Cmpt_DirectivesObject
-    ( ICmpt_Directive directive
-    )
-  {
-    Directive = directive;
-  }
 }
 
-public class Cmpt_Directive
-  : Cmpt_Aliased
-  , ICmpt_Directive
-{
-  public ICmpt_DirectiveObject? As__Directive { get; set; }
-}
-
-public class Cmpt_DirectiveObject
-  : Cmpt_AliasedObject
-  , ICmpt_DirectiveObject
+internal class Cmpt_DirectiveEncoder
 {
   public ICmpt_InputFieldType? Parameter { get; set; }
   public bool Repeatable { get; set; }
   public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
-
-  public Cmpt_DirectiveObject
-    ( bool repeatable
-    , IDictionary<Cmpt_Location, GqlpUnit> locations
-    )
-  {
-    Repeatable = repeatable;
-    Locations = locations;
-  }
 }
 
-public enum Cmpt_Location
+internal class Cmpt_LocationEncoder
 {
-  Operation,
-  Variable,
-  Field,
-  Inline,
-  Spread,
-  Fragment,
+  public string Operation { get; set; }
+  public string Variable { get; set; }
+  public string Field { get; set; }
+  public string Inline { get; set; }
+  public string Spread { get; set; }
+  public string Fragment { get; set; }
 }

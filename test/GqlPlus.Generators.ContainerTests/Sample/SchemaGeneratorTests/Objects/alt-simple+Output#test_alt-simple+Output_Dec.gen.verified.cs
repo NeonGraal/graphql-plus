@@ -7,14 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_simple_Output;
 
-public interface ItestAltSmplOutp
-  // No Base because it's Class
-{
-  string? AsString { get; }
-  ItestAltSmplOutpObject? As_AltSmplOutp { get; }
-}
-
-public interface ItestAltSmplOutpObject
-  // No Base because it's Class
+internal class testAltSmplOutpDecoder
 {
 }

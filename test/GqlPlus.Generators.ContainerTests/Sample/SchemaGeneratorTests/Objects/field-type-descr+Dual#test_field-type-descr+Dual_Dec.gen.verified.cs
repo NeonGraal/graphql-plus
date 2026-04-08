@@ -7,14 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_type_descr_Dual;
 
-public interface ItestFieldTypeDescrDual
-  // No Base because it's Class
+internal class testFieldTypeDescrDualDecoder
 {
-  ItestFieldTypeDescrDualObject? As_FieldTypeDescrDual { get; }
-}
-
-public interface ItestFieldTypeDescrDualObject
-  // No Base because it's Class
-{
-  decimal Field { get; }
+  public decimal Field { get; set; }
 }

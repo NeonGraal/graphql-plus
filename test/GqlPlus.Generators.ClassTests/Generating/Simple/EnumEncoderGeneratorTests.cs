@@ -19,7 +19,7 @@ public class EnumEncoderGeneratorTests
     => ForGeneratedEncoder("public enum " + TestPrefix + name);
 
   internal override ForType ForGeneratedCodeParent(string parent)
-    => generatorType => r => { };
+    => _ => _ => { };
 
   protected override void MakeItems(SimpleBuilder<IGqlpEnum> builder, params string[] items)
     => ((EnumBuilder)builder).WithLabels(items);

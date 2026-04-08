@@ -1,6 +1,7 @@
 ﻿
 namespace GqlPlus.Generating.Simple;
 
+// Unsealed to allow EnumDecoderGenerator and EnumEncoderGenerator to extend it
 internal class EnumGenerator
   : GenerateForType<IGqlpEnum>
 {

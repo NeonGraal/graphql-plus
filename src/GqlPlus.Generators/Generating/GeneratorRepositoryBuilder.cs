@@ -14,6 +14,15 @@ internal class GeneratorRepositoryBuilder
     => AddTypeGenerator<TInterface>(GqlpGeneratorType.Interface)
       .AddTypeGenerator<TModel>(GqlpGeneratorType.Model);
 
+  public IGeneratorRepositoryBuilder AddAllFourTypeGenerators<TInterface, TModel, TDecoder, TEncoder>()
+    where TInterface : ITypeGenerator, new()
+    where TModel : ITypeGenerator, new()
+    where TDecoder : ITypeGenerator, new()
+    where TEncoder : ITypeGenerator, new()
+    => AddBothTypeGenerators<TInterface, TModel>()
+      .AddTypeGenerator<TDecoder>(GqlpGeneratorType.Dec)
+      .AddTypeGenerator<TEncoder>(GqlpGeneratorType.Enc);
+
   public IGeneratorRepositoryBuilder AddGenerator<TAst>(Factory<IGenerator<TAst>, IGeneratorRepository> factory)
     where TAst : IGqlpError
     => this.FluentAction(b => b.Generators[typeof(TAst)] = factory);

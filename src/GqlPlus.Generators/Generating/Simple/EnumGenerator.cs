@@ -1,7 +1,7 @@
 ﻿
 namespace GqlPlus.Generating.Simple;
 
-internal sealed class EnumGenerator
+internal class EnumGenerator
   : GenerateForType<IGqlpEnum>
 {
   protected override void Generate(IGqlpEnum ast, GqlpGeneratorContext context)
@@ -39,3 +39,11 @@ internal sealed class EnumGenerator
     return ParentItems(ast.Parent?.Name, context).Concat(members);
   }
 }
+
+internal sealed class EnumDecoderGenerator
+  : EnumGenerator
+{ }
+
+internal sealed class EnumEncoderGenerator
+  : EnumGenerator
+{ }

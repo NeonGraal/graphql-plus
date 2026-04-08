@@ -13,3 +13,17 @@ internal sealed class InputModelGenerator
   protected override void Generate(IGqlpObject<IGqlpInputField> ast, GqlpGeneratorContext context)
     => GenerateObjectClasses(ast, context);
 }
+
+internal sealed class InputDecoderGenerator
+  : GenerateForObject<IGqlpInputField>
+{
+  protected override void Generate(IGqlpObject<IGqlpInputField> ast, GqlpGeneratorContext context)
+    => GenerateObjectInterfaces(ast, context);
+}
+
+internal sealed class InputEncoderGenerator
+  : GenerateForObject<IGqlpInputField>
+{
+  protected override void Generate(IGqlpObject<IGqlpInputField> ast, GqlpGeneratorContext context)
+    => GenerateObjectClasses(ast, context);
+}

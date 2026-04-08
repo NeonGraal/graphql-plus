@@ -13,3 +13,17 @@ internal sealed class DomainEnumModelGenerator()
   protected override void Generate(IGqlpDomain<IGqlpDomainLabel> ast, GqlpGeneratorContext context)
     => GenerateBlock(ast, context, ClassHeader, TypeMembers, ClassMember, ClassTail);
 }
+
+internal sealed class DomainEnumDecoderGenerator()
+  : GenerateBaseDomain<IGqlpDomainLabel>(DomainKind.Enum)
+{
+  protected override void Generate(IGqlpDomain<IGqlpDomainLabel> ast, GqlpGeneratorContext context)
+    => GenerateBlock(ast, context, InterfaceHeader, TypeMembers, InterfaceMember);
+}
+
+internal sealed class DomainEnumEncoderGenerator()
+  : GenerateBaseDomain<IGqlpDomainLabel>(DomainKind.Enum)
+{
+  protected override void Generate(IGqlpDomain<IGqlpDomainLabel> ast, GqlpGeneratorContext context)
+    => GenerateBlock(ast, context, ClassHeader, TypeMembers, ClassMember, ClassTail);
+}

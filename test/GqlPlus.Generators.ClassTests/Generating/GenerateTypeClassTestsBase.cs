@@ -63,14 +63,24 @@ public abstract class GenerateTypeClassTestsBase
       ? r => r.ShouldContain(contains)
       : r => { };
 
+  internal virtual ForType ForGeneratedDecoder(string contains)
+    => generatorType => GqlpGeneratorType.Dec == generatorType
+      ? r => r.ShouldContain(contains)
+      : r => { };
+
+  internal virtual ForType ForGeneratedEncoder(string contains)
+    => generatorType => GqlpGeneratorType.Enc == generatorType
+      ? r => r.ShouldContain(contains)
+      : r => { };
+
   internal virtual ForType ForGeneratedBoth(string contains)
     => ForGeneratedEither(contains, contains);
 
   internal ForType ForGeneratedEither(string genIntf, string genImpl)
     => generatorType => generatorType switch {
-      GqlpGeneratorType.Interface
+      GqlpGeneratorType.Interface or GqlpGeneratorType.Dec
         => r => r.ShouldContain(genIntf),
-      GqlpGeneratorType.Model
+      GqlpGeneratorType.Model or GqlpGeneratorType.Enc
         => r => r.ShouldContain(genImpl),
       _ => result => { }
     };

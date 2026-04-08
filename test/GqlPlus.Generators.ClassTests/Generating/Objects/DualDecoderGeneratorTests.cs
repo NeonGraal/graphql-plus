@@ -1,0 +1,31 @@
+using GqlPlus.Building.Schema.Objects;
+
+namespace GqlPlus.Generating.Objects;
+
+public class DualDecoderGeneratorTests
+  : GenerateObjectTestsBase<IGqlpDualField>
+{
+  public DualDecoderGeneratorTests()
+    : base(TypeKind.Dual)
+  { }
+
+  internal override GenerateForType<IGqlpObject<IGqlpDualField>> TypeGenerator { get; }
+    = new DualDecoderGenerator();
+  internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Dec;
+  internal override GqlpBaseType BaseType => GqlpBaseType.Interface;
+
+  internal override ForType ForGeneratedCodeName(string name)
+    => ForGeneratedDecoder("public interface I" + TestPrefix + name);
+
+  internal override ForType ForGeneratedCodeParent(string parent)
+    => ForGeneratedDecoder(": I" + parent);
+
+  internal override ForType ForGeneratedBoth(string contains)
+    => ForGeneratedDecoder(contains);
+
+  internal override ForType ForGeneratedModel(string contains)
+    => _ => result => { };
+
+  protected override ObjFieldBuilder<IGqlpDualField> MakeField(string name, string type)
+    => new DualFieldBuilder(name, type);
+}

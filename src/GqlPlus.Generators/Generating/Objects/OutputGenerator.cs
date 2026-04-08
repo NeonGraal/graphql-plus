@@ -51,6 +51,20 @@ internal sealed class OutputModelGenerator
     => GenerateObjectClasses(ast, context);
 }
 
+internal sealed class OutputDecoderGenerator
+  : OutputGeneratorBase
+{
+  protected override void Generate(IGqlpObject<IGqlpOutputField> ast, GqlpGeneratorContext context)
+    => GenerateObjectInterfaces(ast, context);
+}
+
+internal sealed class OutputEncoderGenerator
+  : OutputGeneratorBase
+{
+  protected override void Generate(IGqlpObject<IGqlpOutputField> ast, GqlpGeneratorContext context)
+    => GenerateObjectClasses(ast, context);
+}
+
 internal class OutputField(string fieldName, string fieldType, string fieldParam)
 {
   public string Name { get; } = fieldName;

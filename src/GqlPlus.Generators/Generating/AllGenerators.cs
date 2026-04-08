@@ -32,16 +32,18 @@ public static class AllGenerators
 
   internal static IGeneratorRepositoryBuilder AddSchemaSimpleGenerators(this IGeneratorRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      .AddBothTypeGenerators<DomainBooleanInterfaceGenerator, DomainBooleanModelGenerator>()
-      .AddBothTypeGenerators<DomainEnumInterfaceGenerator, DomainEnumModelGenerator>()
-      .AddBothTypeGenerators<DomainNumberInterfaceGenerator, DomainNumberModelGenerator>()
-      .AddBothTypeGenerators<DomainStringInterfaceGenerator, DomainStringModelGenerator>()
+      .AddAllFourTypeGenerators<DomainBooleanInterfaceGenerator, DomainBooleanModelGenerator, DomainBooleanDecoderGenerator, DomainBooleanEncoderGenerator>()
+      .AddAllFourTypeGenerators<DomainEnumInterfaceGenerator, DomainEnumModelGenerator, DomainEnumDecoderGenerator, DomainEnumEncoderGenerator>()
+      .AddAllFourTypeGenerators<DomainNumberInterfaceGenerator, DomainNumberModelGenerator, DomainNumberDecoderGenerator, DomainNumberEncoderGenerator>()
+      .AddAllFourTypeGenerators<DomainStringInterfaceGenerator, DomainStringModelGenerator, DomainStringDecoderGenerator, DomainStringEncoderGenerator>()
       .AddTypeGenerator<EnumGenerator>(GqlpGeneratorType.Interface)
-      .AddBothTypeGenerators<UnionInterfaceGenerator, UnionModelGenerator>();
+      .AddTypeGenerator<EnumDecoderGenerator>(GqlpGeneratorType.Dec)
+      .AddTypeGenerator<EnumEncoderGenerator>(GqlpGeneratorType.Enc)
+      .AddAllFourTypeGenerators<UnionInterfaceGenerator, UnionModelGenerator, UnionDecoderGenerator, UnionEncoderGenerator>();
 
   internal static IGeneratorRepositoryBuilder AddSchemaObjectGenerators(this IGeneratorRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      .AddBothTypeGenerators<DualInterfaceGenerator, DualModelGenerator>()
-      .AddBothTypeGenerators<InputInterfaceGenerator, InputModelGenerator>()
-      .AddBothTypeGenerators<OutputInterfaceGenerator, OutputModelGenerator>();
+      .AddAllFourTypeGenerators<DualInterfaceGenerator, DualModelGenerator, DualDecoderGenerator, DualEncoderGenerator>()
+      .AddAllFourTypeGenerators<InputInterfaceGenerator, InputModelGenerator, InputDecoderGenerator, InputEncoderGenerator>()
+      .AddAllFourTypeGenerators<OutputInterfaceGenerator, OutputModelGenerator, OutputDecoderGenerator, OutputEncoderGenerator>();
 }

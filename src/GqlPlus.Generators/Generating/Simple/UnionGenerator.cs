@@ -26,3 +26,17 @@ internal sealed class UnionModelGenerator
   protected override void Generate(IGqlpUnion ast, GqlpGeneratorContext context)
     => GenerateBlock(ast, context, ClassHeader, TypeMembers, ClassMember, ClassTail);
 }
+
+internal sealed class UnionDecoderGenerator
+  : UnionGeneratorBase
+{
+  protected override void Generate(IGqlpUnion ast, GqlpGeneratorContext context)
+    => GenerateBlock(ast, context, DecoderHeader, TypeMembers, ClassMember);
+}
+
+internal sealed class UnionEncoderGenerator
+  : UnionGeneratorBase
+{
+  protected override void Generate(IGqlpUnion ast, GqlpGeneratorContext context)
+    => GenerateBlock(ast, context, EncoderHeader, TypeMembers, ClassMember);
+}

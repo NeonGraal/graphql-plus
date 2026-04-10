@@ -1,6 +1,6 @@
 ﻿//HintName: test_domain-enum-all-descr_Intf.gen.cs
 // Generated from {CurrentDirectory}domain-enum-all-descr.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */

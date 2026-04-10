@@ -1,0 +1,33 @@
+﻿/* constraint-dom-enum+Input
+input CnstDomEnumInp { | RefCnstDomEnumInp<cnstDomEnumInp> }
+input RefCnstDomEnumInp<$type:JustCnstDomEnumInp> { field: $type }
+enum EnumCnstDomEnumInp { cnstDomEnumInp other }
+domain JustCnstDomEnumInp { enum EnumCnstDomEnumInp.cnstDomEnumInp }
+*/
+
+// Generated from Schema constraint-dom-enum+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-dom-enum+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_dom_enum_Input;
+
+internal class CmptCnstDomEnumInpDecoder
+{
+}
+
+internal class CmptRefCnstDomEnumInpDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumCnstDomEnumInpDecoder
+{
+  public string cnstDomEnumInp { get; set; }
+  public string other { get; set; }
+}
+
+internal class CmptJustCnstDomEnumInpDecoder
+{
+}

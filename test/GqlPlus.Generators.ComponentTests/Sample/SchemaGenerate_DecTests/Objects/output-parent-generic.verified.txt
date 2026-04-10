@@ -1,0 +1,34 @@
+﻿/* output-parent-generic
+output OutpPrntGnrc { | RefOutpPrntGnrc<EnumOutpPrntGnrc.prnt_outpPrntGnrc> }
+output RefOutpPrntGnrc<$type:PrntOutpPrntGnrc> { field: $type }
+enum EnumOutpPrntGnrc { :PrntOutpPrntGnrc outpPrntGnrc }
+enum PrntOutpPrntGnrc { prnt_outpPrntGnrc }
+*/
+
+// Generated from Schema output-parent-generic
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_output-parent-generic, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_output_parent_generic;
+
+internal class CmptOutpPrntGnrcDecoder
+{
+}
+
+internal class CmptRefOutpPrntGnrcDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumOutpPrntGnrcDecoder
+{
+  public string prnt_outpPrntGnrc { get; set; }
+  public string outpPrntGnrc { get; set; }
+}
+
+internal class CmptPrntOutpPrntGnrcDecoder
+{
+  public string prnt_outpPrntGnrc { get; set; }
+}

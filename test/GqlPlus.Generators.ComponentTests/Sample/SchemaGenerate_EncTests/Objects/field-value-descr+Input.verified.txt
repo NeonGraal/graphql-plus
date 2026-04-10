@@ -1,0 +1,22 @@
+﻿/* field-value-descr+Input
+input FieldValueDescrInp { field = "Test" "Descr" fieldValueDescrInp }
+enum EnumFieldValueDescrInp { fieldValueDescrInp }
+*/
+
+// Generated from Schema field-value-descr+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-value-descr+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_value_descr_Input;
+
+internal class CmptFieldValueDescrInpEncoder
+{
+  public CmptEnumFieldValueDescrInp Field { get; set; }
+}
+
+internal class CmptEnumFieldValueDescrInpEncoder
+{
+  public string fieldValueDescrInp { get; set; }
+}

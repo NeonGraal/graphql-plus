@@ -1,0 +1,27 @@
+﻿/* generic-field-param+Input
+input GnrcFieldParamInp { field: RefGnrcFieldParamInp<AltGnrcFieldParamInp> }
+input RefGnrcFieldParamInp<$ref:_Input> { | $ref }
+input AltGnrcFieldParamInp { alt: Number | String }
+*/
+
+// Generated from Schema generic-field-param+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-field-param+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_field_param_Input;
+
+internal class CmptGnrcFieldParamInpDecoder
+{
+  public ICmptRefGnrcFieldParamInp<ICmptAltGnrcFieldParamInp> Field { get; set; }
+}
+
+internal class CmptRefGnrcFieldParamInpDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcFieldParamInpDecoder
+{
+  public decimal Alt { get; set; }
+}

@@ -63,21 +63,49 @@ public abstract class GenerateTypeClassTestsBase
       ? r => r.ShouldContain(contains)
       : r => { };
 
-  internal virtual ForType ForGeneratedBoth(string contains)
-    => ForGeneratedEither(contains, contains);
+  internal virtual ForType ForGeneratedDecoder(string contains)
+    => generatorType => GqlpGeneratorType.Dec == generatorType
+      ? r => r.ShouldContain(contains)
+      : r => { };
 
-  internal ForType ForGeneratedEither(string genIntf, string genImpl)
+  internal virtual ForType ForGeneratedEncoder(string contains)
+    => generatorType => GqlpGeneratorType.Enc == generatorType
+      ? r => r.ShouldContain(contains)
+      : r => { };
+
+  internal virtual ForType ForGeneratedBoth(string contains)
+    => generatorType => generatorType switch {
+      GqlpGeneratorType.Interface
+        => r => r.ShouldContain(contains),
+      GqlpGeneratorType.Model
+        => r => r.ShouldContain(contains),
+      _ => result => { }
+    };
+
+  internal ForType ForGeneratedAll(string genIntf, string genImpl, string genDec, string genEnc)
     => generatorType => generatorType switch {
       GqlpGeneratorType.Interface
         => r => r.ShouldContain(genIntf),
       GqlpGeneratorType.Model
         => r => r.ShouldContain(genImpl),
+      GqlpGeneratorType.Dec
+        => r => r.ShouldContain(genDec),
+      GqlpGeneratorType.Enc
+        => r => r.ShouldContain(genEnc),
       _ => result => { }
     };
 
   internal virtual ForType ForGeneratedCodeName(string name)
-    => ForGeneratedEither("public interface I" + TestPrefix + name, "public class " + TestPrefix + name);
+    => ForGeneratedAll(
+      "public interface I" + TestPrefix + name,
+      "public class " + TestPrefix + name,
+      "internal class " + TestPrefix + name + "Decoder",
+      "internal class " + TestPrefix + name + "Encoder");
 
   internal virtual ForType ForGeneratedCodeParent(string parent)
-    => ForGeneratedEither(": I" + parent, ": " + parent);
+    => ForGeneratedAll(
+      ": I" + parent,
+      ": " + parent,
+      ": " + parent + "Decoder",
+      ": " + parent + "Encoder");
 }

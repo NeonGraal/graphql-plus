@@ -1,0 +1,22 @@
+﻿/* field-value+Output
+output FieldValueOutp { field = fieldValueOutp }
+enum EnumFieldValueOutp { fieldValueOutp }
+*/
+
+// Generated from Schema field-value+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-value+Output, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_value_Output;
+
+internal class CmptFieldValueOutpDecoder
+{
+  public CmptEnumFieldValueOutp Field { get; set; }
+}
+
+internal class CmptEnumFieldValueOutpDecoder
+{
+  public string fieldValueOutp { get; set; }
+}

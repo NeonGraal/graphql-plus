@@ -15,4 +15,10 @@ internal interface IGeneratorRepositoryBuilder
 
   IGeneratorRepositoryBuilder AddBothTypeGenerators<TInterface, TModel>()
     where TInterface : ITypeGenerator, new() where TModel : ITypeGenerator, new();
+
+  IGeneratorRepositoryBuilder AddAllFourTypeGenerators<TInterface, TModel, TDecoder, TEncoder>()
+    where TInterface : ITypeGenerator, new()
+    where TModel : ITypeGenerator, new()
+    where TDecoder : ITypeGenerator, new()
+    where TEncoder : ITypeGenerator, new();
 }

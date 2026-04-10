@@ -1,0 +1,75 @@
+﻿// Generated from Schema +Globals
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_+Globals, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_Globals;
+
+internal class CmptCtgrDscrsDecoder
+{
+}
+
+internal class CmptCtgrOutpDecoder
+{
+}
+
+internal class CmptCtgrOutpDescrDecoder
+{
+}
+
+internal class CmptCtgrOutpDictDecoder
+{
+}
+
+internal class CmptCtgrOutpListDecoder
+{
+}
+
+internal class CmptCtgrOutpOptlDecoder
+{
+}
+
+internal class CmptDescrDecoder
+{
+}
+
+internal class CmptDescrBcksDecoder
+{
+}
+
+internal class CmptDescrBtwnDecoder
+{
+}
+
+internal class CmptDescrCmplDecoder
+{
+}
+
+internal class CmptDescrDblDecoder
+{
+}
+
+internal class CmptDescrSnglDecoder
+{
+}
+
+internal class CmptDscrsDecoder
+{
+}
+
+internal class CmptInDrctParamDictDecoder
+{
+}
+
+internal class CmptInDrctParamInDecoder
+{
+}
+
+internal class CmptInDrctParamListDecoder
+{
+}
+
+internal class CmptInDrctParamOptDecoder
+{
+}

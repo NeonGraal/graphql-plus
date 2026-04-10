@@ -1,0 +1,21 @@
+﻿/* parent-dual+Input
+input PrntDualInp { :RefPrntDualInp }
+dual RefPrntDualInp { parent: Number | String }
+*/
+
+// Generated from Schema parent-dual+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-dual+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_dual_Input;
+
+internal class CmptPrntDualInpDecoder
+{
+}
+
+internal class CmptRefPrntDualInpDecoder
+{
+  public decimal Parent { get; set; }
+}

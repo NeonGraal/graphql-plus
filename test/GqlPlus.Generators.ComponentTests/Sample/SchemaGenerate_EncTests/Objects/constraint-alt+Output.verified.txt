@@ -1,0 +1,15 @@
+﻿/* constraint-alt+Output
+output CnstAltOutp<$type:Number> { | $type }
+*/
+
+// Generated from Schema constraint-alt+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-alt+Output, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_Output;
+
+internal class CmptCnstAltOutpEncoder<TType>
+{
+}

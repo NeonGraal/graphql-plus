@@ -1,0 +1,22 @@
+﻿/* union-parent-descr
+union UnionPrntDescr { :"Parent comment"PrntUnionPrntDescr Number }
+union PrntUnionPrntDescr { Number }
+*/
+
+// Generated from Schema union-parent-descr
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_union-parent-descr, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_union_parent_descr;
+
+internal class CmptUnionPrntDescrEncoder
+{
+  public Number AsNumber { get; set; }
+}
+
+internal class CmptPrntUnionPrntDescrEncoder
+{
+  public Number AsNumber { get; set; }
+}

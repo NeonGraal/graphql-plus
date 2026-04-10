@@ -1,0 +1,21 @@
+﻿/* alt+Input
+input AltInp { | AltAltInp }
+input AltAltInp { alt: Number | String }
+*/
+
+// Generated from Schema alt+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_Input;
+
+internal class CmptAltInpDecoder
+{
+}
+
+internal class CmptAltAltInpDecoder
+{
+  public decimal Alt { get; set; }
+}

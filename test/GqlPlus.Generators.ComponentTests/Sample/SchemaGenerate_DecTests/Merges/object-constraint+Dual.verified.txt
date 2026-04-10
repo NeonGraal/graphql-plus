@@ -1,0 +1,18 @@
+﻿/* object-constraint+Dual
+dual ObjCnstDual<$type:String> { field: $type }
+dual ObjCnstDual<$type:String> { str: $type }
+*/
+
+// Generated from Schema object-constraint+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-constraint+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_constraint_Dual;
+
+internal class CmptObjCnstDualDecoder<TType>
+{
+  public TType Field { get; set; }
+  public TType Str { get; set; }
+}

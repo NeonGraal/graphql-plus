@@ -1,6 +1,6 @@
 ﻿//HintName: test_+Simple_Intf.gen.cs
 // Generated from {CurrentDirectory}+Simple.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -350,7 +350,7 @@ public enum testPrntEnumPrntDup
 }
 
 public interface ItestUnionDescr
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Number AsNumber { get; }
 }
@@ -362,7 +362,7 @@ public interface ItestUnionPrnt
 }
 
 public interface ItestPrntUnionPrnt
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Number AsNumber { get; }
 }
@@ -374,7 +374,7 @@ public interface ItestUnionPrntDescr
 }
 
 public interface ItestPrntUnionPrntDescr
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Number AsNumber { get; }
 }
@@ -386,7 +386,7 @@ public interface ItestUnionPrntDup
 }
 
 public interface ItestPrntUnionPrntDup
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Number AsNumber { get; }
 }

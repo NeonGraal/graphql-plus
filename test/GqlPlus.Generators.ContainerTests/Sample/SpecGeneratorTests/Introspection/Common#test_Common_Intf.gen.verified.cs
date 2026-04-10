@@ -1,6 +1,6 @@
 ﻿//HintName: test_Common_Intf.gen.cs
 // Generated from {CurrentDirectory}Common.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Common;
 
 public interface Itest_Type
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_BaseType<test_TypeKind>? As_TypeKindBasic { get; }
   Itest_BaseType<test_TypeKind>? As_TypeKindInternal { get; }
@@ -25,7 +25,7 @@ public interface Itest_Type
 }
 
 public interface Itest_TypeObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
@@ -100,7 +100,7 @@ public interface Itest_TypeRefObject<TTypeKind>
 }
 
 public interface Itest_TypeSimple
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_TypeRef<test_TypeKind>? As_TypeKindBasic { get; }
   Itest_TypeRef<test_TypeKind>? As_TypeKindEnum { get; }
@@ -110,6 +110,6 @@ public interface Itest_TypeSimple
 }
 
 public interface Itest_TypeSimpleObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }

@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-parent-dual-parent+Input_Model.gen.cs
 // Generated from {CurrentDirectory}generic-parent-dual-parent+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -26,7 +26,7 @@ public class testGnrcPrntDualPrntInpObject
 }
 
 public class testRefGnrcPrntDualPrntInp<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcPrntDualPrntInp<TRef>
 {
   public TRef? As_Parent { get; set; }
@@ -34,7 +34,7 @@ public class testRefGnrcPrntDualPrntInp<TRef>
 }
 
 public class testRefGnrcPrntDualPrntInpObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcPrntDualPrntInpObject<TRef>
 {
 
@@ -45,7 +45,7 @@ public class testRefGnrcPrntDualPrntInpObject<TRef>
 }
 
 public class testAltGnrcPrntDualPrntInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltGnrcPrntDualPrntInp
 {
   public string? AsString { get; set; }
@@ -53,7 +53,7 @@ public class testAltGnrcPrntDualPrntInp
 }
 
 public class testAltGnrcPrntDualPrntInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltGnrcPrntDualPrntInpObject
 {
   public decimal Alt { get; set; }

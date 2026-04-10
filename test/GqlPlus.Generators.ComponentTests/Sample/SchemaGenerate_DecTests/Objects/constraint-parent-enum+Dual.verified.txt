@@ -1,0 +1,34 @@
+﻿/* constraint-parent-enum+Dual
+dual CnstPrntEnumDual { | RefCnstPrntEnumDual<parentCnstPrntEnumDual> }
+dual RefCnstPrntEnumDual<$type:EnumCnstPrntEnumDual> { field: $type }
+enum EnumCnstPrntEnumDual { :ParentCnstPrntEnumDual cnstPrntEnumDual }
+enum ParentCnstPrntEnumDual { parentCnstPrntEnumDual }
+*/
+
+// Generated from Schema constraint-parent-enum+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-parent-enum+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_parent_enum_Dual;
+
+internal class CmptCnstPrntEnumDualDecoder
+{
+}
+
+internal class CmptRefCnstPrntEnumDualDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumCnstPrntEnumDualDecoder
+{
+  public string parentCnstPrntEnumDual { get; set; }
+  public string cnstPrntEnumDual { get; set; }
+}
+
+internal class CmptParentCnstPrntEnumDualDecoder
+{
+  public string parentCnstPrntEnumDual { get; set; }
+}

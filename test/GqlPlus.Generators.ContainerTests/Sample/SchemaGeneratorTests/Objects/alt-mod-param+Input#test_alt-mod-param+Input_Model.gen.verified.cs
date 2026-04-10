@@ -1,6 +1,6 @@
 ﻿//HintName: test_alt-mod-param+Input_Model.gen.cs
 // Generated from {CurrentDirectory}alt-mod-param+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_param_Input;
 
 public class testAltModParamInp<TMod>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltModParamInp<TMod>
 {
   public IDictionary<TMod, ItestAltAltModParamInp>? AsAltAltModParamInp { get; set; }
@@ -16,7 +16,7 @@ public class testAltModParamInp<TMod>
 }
 
 public class testAltModParamInpObject<TMod>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltModParamInpObject<TMod>
 {
 
@@ -27,7 +27,7 @@ public class testAltModParamInpObject<TMod>
 }
 
 public class testAltAltModParamInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltAltModParamInp
 {
   public string? AsString { get; set; }
@@ -35,7 +35,7 @@ public class testAltAltModParamInp
 }
 
 public class testAltAltModParamInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltAltModParamInpObject
 {
   public decimal Alt { get; set; }

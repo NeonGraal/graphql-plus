@@ -1,0 +1,33 @@
+﻿/* constraint-dom-enum+Output
+output CnstDomEnumOutp { | RefCnstDomEnumOutp<cnstDomEnumOutp> }
+output RefCnstDomEnumOutp<$type:JustCnstDomEnumOutp> { field: $type }
+enum EnumCnstDomEnumOutp { cnstDomEnumOutp other }
+domain JustCnstDomEnumOutp { enum EnumCnstDomEnumOutp.cnstDomEnumOutp }
+*/
+
+// Generated from Schema constraint-dom-enum+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-dom-enum+Output, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_dom_enum_Output;
+
+internal class CmptCnstDomEnumOutpEncoder
+{
+}
+
+internal class CmptRefCnstDomEnumOutpEncoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumCnstDomEnumOutpEncoder
+{
+  public string cnstDomEnumOutp { get; set; }
+  public string other { get; set; }
+}
+
+internal class CmptJustCnstDomEnumOutpEncoder
+{
+}

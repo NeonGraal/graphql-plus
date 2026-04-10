@@ -1,0 +1,27 @@
+﻿/* generic-field-param+Output
+output GnrcFieldParamOutp { field: RefGnrcFieldParamOutp<AltGnrcFieldParamOutp> }
+output RefGnrcFieldParamOutp<$ref:_Output> { | $ref }
+output AltGnrcFieldParamOutp { alt: Number | String }
+*/
+
+// Generated from Schema generic-field-param+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-field-param+Output, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_field_param_Output;
+
+internal class CmptGnrcFieldParamOutpEncoder
+{
+  public ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> Field { get; set; }
+}
+
+internal class CmptRefGnrcFieldParamOutpEncoder<TRef>
+{
+}
+
+internal class CmptAltGnrcFieldParamOutpEncoder
+{
+  public decimal Alt { get; set; }
+}

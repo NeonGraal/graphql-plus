@@ -1,6 +1,6 @@
 ﻿//HintName: test_constraint-alt-dual+Output_Model.gen.cs
 // Generated from {CurrentDirectory}constraint-alt-dual+Output.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_dual_Output;
 
 public class testCnstAltDualOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCnstAltDualOutp
 {
   public ItestRefCnstAltDualOutp<ItestAltCnstAltDualOutp>? AsRefCnstAltDualOutp { get; set; }
@@ -16,7 +16,7 @@ public class testCnstAltDualOutp
 }
 
 public class testCnstAltDualOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCnstAltDualOutpObject
 {
 
@@ -27,7 +27,7 @@ public class testCnstAltDualOutpObject
 }
 
 public class testRefCnstAltDualOutp<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstAltDualOutp<TRef>
 {
   public TRef? Asref { get; set; }
@@ -35,7 +35,7 @@ public class testRefCnstAltDualOutp<TRef>
 }
 
 public class testRefCnstAltDualOutpObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstAltDualOutpObject<TRef>
 {
 
@@ -46,7 +46,7 @@ public class testRefCnstAltDualOutpObject<TRef>
 }
 
 public class testPrntCnstAltDualOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestPrntCnstAltDualOutp
 {
   public string? AsString { get; set; }
@@ -54,7 +54,7 @@ public class testPrntCnstAltDualOutp
 }
 
 public class testPrntCnstAltDualOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestPrntCnstAltDualOutpObject
 {
 

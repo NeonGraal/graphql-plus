@@ -16,7 +16,7 @@ public abstract class GenerateSchemaTestBase(
     await result.AttachAndVerify($"{GeneratorType}_{test}.cs", CustomSettings(label, $"Generate_{GeneratorType}", test, section, scrubEmptyLines: false));
   }
 
-  public virtual GqlpBaseType BaseType => GqlpBaseType.Other;
+  public virtual GqlpBaseType BaseType => GqlpBaseType.Class;
   public abstract GqlpGeneratorType GeneratorType { get; }
 }
 

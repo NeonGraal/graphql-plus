@@ -4,7 +4,7 @@ using GqlPlus.Abstractions.Schema;
 namespace GqlPlus.Decoding;
 
 internal abstract class ObjectDecoder<TModel>
-  : DecoderBase<TModel>
+  : BaseDecoder<TModel>
   where TModel : class
 {
   protected delegate IMessages Decoder(IValue input, out TModel? output);

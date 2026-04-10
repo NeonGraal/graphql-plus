@@ -1,0 +1,27 @@
+﻿/* constraint-enum+Output
+output CnstEnumOutp { | RefCnstEnumOutp<cnstEnumOutp> }
+output RefCnstEnumOutp<$type:EnumCnstEnumOutp> { field: $type }
+enum EnumCnstEnumOutp { cnstEnumOutp }
+*/
+
+// Generated from Schema constraint-enum+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-enum+Output, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_enum_Output;
+
+internal class CmptCnstEnumOutpEncoder
+{
+}
+
+internal class CmptRefCnstEnumOutpEncoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumCnstEnumOutpEncoder
+{
+  public string cnstEnumOutp { get; set; }
+}

@@ -1,6 +1,6 @@
 ﻿//HintName: test_parent-alt+Output_Intf.gen.cs
 // Generated from {CurrentDirectory}parent-alt+Output.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -20,14 +20,14 @@ public interface ItestPrntAltOutpObject
 }
 
 public interface ItestRefPrntAltOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string? AsString { get; }
   ItestRefPrntAltOutpObject? As_RefPrntAltOutp { get; }
 }
 
 public interface ItestRefPrntAltOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   decimal Parent { get; }
 }

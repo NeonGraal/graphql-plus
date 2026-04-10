@@ -1,6 +1,6 @@
 ﻿//HintName: test_input-field-String_Intf.gen.cs
 // Generated from {CurrentDirectory}input-field-String.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,13 +8,13 @@
 namespace GqlPlus.GeneratorTests.Gqlp_input_field_String;
 
 public interface ItestInpFieldStr
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestInpFieldStrObject? As_InpFieldStr { get; }
 }
 
 public interface ItestInpFieldStrObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string Field { get; }
 }

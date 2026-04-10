@@ -1,0 +1,26 @@
+﻿/* generic-parent-dual+Input
+input GnrcPrntDualInp { :RefGnrcPrntDualInp<AltGnrcPrntDualInp> }
+input RefGnrcPrntDualInp<$ref:_Dual> { | $ref }
+dual AltGnrcPrntDualInp { alt: Number | String }
+*/
+
+// Generated from Schema generic-parent-dual+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-dual+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_dual_Input;
+
+internal class CmptGnrcPrntDualInpEncoder
+{
+}
+
+internal class CmptRefGnrcPrntDualInpEncoder<TRef>
+{
+}
+
+internal class CmptAltGnrcPrntDualInpEncoder
+{
+  public decimal Alt { get; set; }
+}

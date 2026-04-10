@@ -1,6 +1,6 @@
 ﻿//HintName: test_constraint-parent-enum+Input_Intf.gen.cs
 // Generated from {CurrentDirectory}constraint-parent-enum+Input.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,25 +8,25 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_enum_Input;
 
 public interface ItestCnstPrntEnumInp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestRefCnstPrntEnumInp<testParentCnstPrntEnumInp>? AsParentCnstPrntEnumInpparentCnstPrntEnumInp { get; }
   ItestCnstPrntEnumInpObject? As_CnstPrntEnumInp { get; }
 }
 
 public interface ItestCnstPrntEnumInpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestRefCnstPrntEnumInp<TType>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestRefCnstPrntEnumInpObject<TType>? As_RefCnstPrntEnumInp { get; }
 }
 
 public interface ItestRefCnstPrntEnumInpObject<TType>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TType Field { get; }
 }

@@ -1,0 +1,31 @@
+﻿/* constraint-alt-obj+Input
+input CnstAltObjInp { | RefCnstAltObjInp<AltCnstAltObjInp> }
+input RefCnstAltObjInp<$ref:PrntCnstAltObjInp> { | $ref }
+input PrntCnstAltObjInp { | String }
+input AltCnstAltObjInp { :PrntCnstAltObjInp alt: Number }
+*/
+
+// Generated from Schema constraint-alt-obj+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-alt-obj+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_obj_Input;
+
+internal class CmptCnstAltObjInpEncoder
+{
+}
+
+internal class CmptRefCnstAltObjInpEncoder<TRef>
+{
+}
+
+internal class CmptPrntCnstAltObjInpEncoder
+{
+}
+
+internal class CmptAltCnstAltObjInpEncoder
+{
+  public decimal Alt { get; set; }
+}

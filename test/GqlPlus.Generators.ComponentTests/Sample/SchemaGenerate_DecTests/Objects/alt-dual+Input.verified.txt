@@ -1,0 +1,21 @@
+﻿/* alt-dual+Input
+input AltDualInp { | ObjDualAltDualInp }
+dual ObjDualAltDualInp { alt: Number | String }
+*/
+
+// Generated from Schema alt-dual+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-dual+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_dual_Input;
+
+internal class CmptAltDualInpDecoder
+{
+}
+
+internal class CmptObjDualAltDualInpDecoder
+{
+  public decimal Alt { get; set; }
+}

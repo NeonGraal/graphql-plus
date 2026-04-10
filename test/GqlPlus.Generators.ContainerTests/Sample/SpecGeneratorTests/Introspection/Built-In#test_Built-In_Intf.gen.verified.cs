@@ -1,6 +1,6 @@
 ﻿//HintName: test_Built-In_Intf.gen.cs
 // Generated from {CurrentDirectory}Built-In.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Built_In;
 
 public interface Itest_Collections
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_Modifier<test_ModifierKind>? As_ModifierKindList { get; }
   Itest_ModifierKeyed<test_ModifierKind>? As_ModifierKindDictionary { get; }
@@ -17,7 +17,7 @@ public interface Itest_Collections
 }
 
 public interface Itest_CollectionsObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
@@ -35,7 +35,7 @@ public interface Itest_ModifierKeyedObject<TModifierKind>
 }
 
 public interface Itest_Modifiers
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_Modifier<test_ModifierKind>? As_ModifierKindOptional { get; }
   Itest_Collections? As_Collections { get; }
@@ -43,7 +43,7 @@ public interface Itest_Modifiers
 }
 
 public interface Itest_ModifiersObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
@@ -59,13 +59,13 @@ public enum test_ModifierKind
 }
 
 public interface Itest_Modifier<TModifierKind>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_ModifierObject<TModifierKind>? As__Modifier { get; }
 }
 
 public interface Itest_ModifierObject<TModifierKind>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TModifierKind ModifierKind { get; }
 }

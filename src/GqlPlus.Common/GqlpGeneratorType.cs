@@ -7,6 +7,10 @@ public enum GqlpGeneratorType
   Intf,
   Model,
   Test,
+  Dec,
+  Enc,
 
   Interface = Intf,
+  Decoder = Dec,
+  Encoder = Enc,
 }

@@ -1,0 +1,32 @@
+﻿/* constraint-field-obj+Output
+output CnstFieldObjOutp { :RefCnstFieldObjOutp<AltCnstFieldObjOutp> }
+output RefCnstFieldObjOutp<$ref:PrntCnstFieldObjOutp> { field: $ref }
+output PrntCnstFieldObjOutp { | String }
+output AltCnstFieldObjOutp { :PrntCnstFieldObjOutp alt: Number }
+*/
+
+// Generated from Schema constraint-field-obj+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-field-obj+Output, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_field_obj_Output;
+
+internal class CmptCnstFieldObjOutpEncoder
+{
+}
+
+internal class CmptRefCnstFieldObjOutpEncoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptPrntCnstFieldObjOutpEncoder
+{
+}
+
+internal class CmptAltCnstFieldObjOutpEncoder
+{
+  public decimal Alt { get; set; }
+}

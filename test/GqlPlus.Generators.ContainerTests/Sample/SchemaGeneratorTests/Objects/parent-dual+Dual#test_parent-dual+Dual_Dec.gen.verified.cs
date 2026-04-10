@@ -1,0 +1,17 @@
+﻿//HintName: test_parent-dual+Dual_Dec.gen.cs
+// Generated from {CurrentDirectory}parent-dual+Dual.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpDecoderBase, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+/*
+*/
+
+namespace GqlPlus.GeneratorTests.Gqlp_parent_dual_Dual;
+
+internal class testPrntDualDualDecoder
+{
+}
+
+internal class testRefPrntDualDualDecoder
+{
+  public decimal Parent { get; set; }
+}

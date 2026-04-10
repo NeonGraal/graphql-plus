@@ -1,0 +1,16 @@
+﻿/* directive-param-opt
+directive @DrctParamOpt(InDrctParamOpt?) { all }
+input InDrctParamOpt { }
+*/
+
+// Generated from Schema directive-param-opt
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_directive-param-opt, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_directive_param_opt;
+
+internal class CmptInDrctParamOptDecoder
+{
+}

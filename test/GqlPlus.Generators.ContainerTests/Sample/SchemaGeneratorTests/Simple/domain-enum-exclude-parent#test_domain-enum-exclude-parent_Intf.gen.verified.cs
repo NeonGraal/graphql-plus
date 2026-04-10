@@ -1,6 +1,6 @@
 ﻿//HintName: test_domain-enum-exclude-parent_Intf.gen.cs
 // Generated from {CurrentDirectory}domain-enum-exclude-parent.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */

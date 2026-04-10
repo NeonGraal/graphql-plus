@@ -47,9 +47,9 @@ public static class BuiltIn
       new SpecialTypeAst("Domain", TypeKind.Domain, t => t is IAstDomain),
       new SpecialTypeAst("Union", TypeKind.Union, t => t is IAstUnion),
       new SpecialTypeAst("Enum", TypeKind.Enum, t => t is IAstEnum),
-      new SpecialTypeAst("Dual", TypeKind.Dual, t => t is IGqlpObject<IGqlpDualField>),
-      new SpecialTypeAst("Input", TypeKind.Input, t => t is IGqlpObject<IGqlpInputField>),
-      new SpecialTypeAst("Output", TypeKind.Output, t => t is IGqlpObject<IGqlpOutputField>),
+      new SpecialTypeAst("Dual", TypeKind.Dual, t => t is IAstObject<IAstDualField>),
+      new SpecialTypeAst("Input", TypeKind.Input, t => t is IAstObject<IAstInputField>),
+      new SpecialTypeAst("Output", TypeKind.Output, t => t is IAstObject<IAstOutputField>),
       scalar, value,
     ];
     Internal = [.. InternalSimple, .. InternalObject, .. Special];
@@ -98,17 +98,17 @@ public static class BuiltIn
     [BooleanFalse] = BooleanType,
   };
 
-  private static AstObject<IGqlpDualField> DualObj(string label, ObjBaseAst parent, params string[] aliases)
+  private static AstObject<IAstDualField> DualObj(string label, ObjBaseAst parent, params string[] aliases)
     => new(TypeKind.Dual, AstNulls.At, label, "") { Aliases = aliases, Parent = parent };
 
-  private static AstObject<IGqlpDualField> DualObj(
+  private static AstObject<IAstDualField> DualObj(
     string label,
     ObjBaseAst? parent,
     TypeParamAst[] typeParams,
-    params IGqlpAlternate[] alternates
+    params IAstAlternate[] alternates
   ) => new(TypeKind.Dual, AstNulls.At, "_" + label, "") { Parent = parent, TypeParams = typeParams, Alternates = alternates };
 
-  private static AlternateAst DualType(string type, params IGqlpTypeArg[] args)
+  private static AlternateAst DualType(string type, params IAstTypeArg[] args)
     => new AlternateAst(AstNulls.At, type, "") with { Args = args };
 
   private static AlternateAst DualAlt(string? type, bool typeParam = true)
@@ -139,7 +139,7 @@ public static class BuiltIn
       }
     };
 
-  private static ObjBaseAst DualRef(string name, params IGqlpTypeArg[] args)
+  private static ObjBaseAst DualRef(string name, params IAstTypeArg[] args)
     => new ObjBaseAst(AstNulls.At, name, "") with { Args = args };
 
   private static TypeArgAst DualArg(string name)

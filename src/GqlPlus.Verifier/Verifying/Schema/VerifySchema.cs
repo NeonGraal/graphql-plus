@@ -17,8 +17,8 @@ internal class VerifySchema(IVerifierRepository verifiers) : IVerify<IAstSchema>
     IAstSchemaOption[] options = item.Declarations.ArrayOf<IAstSchemaOption>();
 
     IAstType[] astTypes = item.Declarations.ArrayOf<IAstType>();
-    IAstType[] outputTypes = [.. astTypes.Where(TypeIs<IGqlpObject<IGqlpOutputField>>), .. BuiltIn.Basic, .. BuiltIn.Internal];
-    IAstType[] inputTypes = [.. astTypes.Where(TypeIs<IGqlpObject<IGqlpInputField>>), .. BuiltIn.Basic, .. BuiltIn.Internal];
+    IAstType[] outputTypes = [.. astTypes.Where(TypeIs<IAstObject<IAstOutputField>>), .. BuiltIn.Basic, .. BuiltIn.Internal];
+    IAstType[] inputTypes = [.. astTypes.Where(TypeIs<IAstObject<IAstInputField>>), .. BuiltIn.Basic, .. BuiltIn.Internal];
 
     _categoryOutputs.Verify(new(categories, outputTypes), errors);
     _directiveInputs.Verify(new(directives, inputTypes), errors);

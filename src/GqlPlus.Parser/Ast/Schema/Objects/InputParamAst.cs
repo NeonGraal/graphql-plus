@@ -6,16 +6,16 @@ namespace GqlPlus.Ast.Schema.Objects;
 
 internal sealed record class InputParamAst(
   ITokenAt At,
-  IGqlpObjBase Type
+  IAstObjBase Type
 ) : AstAbbreviated(At)
-  , IGqlpInputParam
+  , IAstInputParam
 {
   public IAstModifier[] Modifiers { get; set; } = [];
   public IAstConstant? DefaultValue { get; set; }
   public IAstEnumValue? EnumValue { get; set; }
 
-  string IGqlpObjEnum.EnumTypeName => Type?.Name ?? "";
-  void IGqlpObjEnum.SetEnumType(string enumType)
+  string IAstObjEnum.EnumTypeName => Type?.Name ?? "";
+  void IAstObjEnum.SetEnumType(string enumType)
   {
     string enumLabel = EnumValue?.EnumLabel ?? Type.Name;
     Type.SetName(enumType);
@@ -32,11 +32,11 @@ internal sealed record class InputParamAst(
     : this(at, new ObjBaseAst(at, input, description)) { }
 
   public bool Equals(InputParamAst? other)
-    => other is IGqlpInputParam inputParam && Equals(inputParam);
+    => other is IAstInputParam inputParam && Equals(inputParam);
   [ExcludeFromCodeCoverage]
   public bool Equals(IAstDescribed? other)
-    => other is IGqlpInputParam inputParam && Equals(inputParam);
-  public bool Equals(IGqlpInputParam? other)
+    => other is IAstInputParam inputParam && Equals(inputParam);
+  public bool Equals(IAstInputParam? other)
     => Equals(other as IAstAbbreviated)
     && (Type?.Equals(other.Type) ?? other.Type is null)
     && Modifiers.SequenceEqual(other.Modifiers)

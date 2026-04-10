@@ -14,7 +14,7 @@ public class VerifyDirectiveInputTests
   {
     _verifier = new(VerifierRepo);
 
-    IGqlpInputParam input = A.InputParam("Type").AsInputParam;
+    IAstInputParam input = A.InputParam("Type").AsInputParam;
 
     _directive = A.Error<IAstSchemaDirective>();
     _directive.Parameter.Returns(input);
@@ -43,7 +43,7 @@ public class VerifyDirectiveInputTests
   [Fact]
   public void Verify_DefinedInput_ReturnsNoError()
   {
-    Define<IGqlpObject<IGqlpInputField>>("Type");
+    Define<IAstObject<IAstInputField>>("Type");
 
     Usages.Add(_directive);
 
@@ -55,7 +55,7 @@ public class VerifyDirectiveInputTests
   [Fact]
   public void Verify_WithAliases_ReturnsNoError()
   {
-    Define<IGqlpObject<IGqlpInputField>>("Type");
+    Define<IAstObject<IAstInputField>>("Type");
 
     _directive.Aliases.Returns(["Alias1", "Alias2"]);
     Usages.Add(_directive);
@@ -68,7 +68,7 @@ public class VerifyDirectiveInputTests
   [Fact]
   public void Verify_DefinedOutput_ReturnsError()
   {
-    Define<IGqlpObject<IGqlpOutputField>>("Type");
+    Define<IAstObject<IAstOutputField>>("Type");
 
     Usages.Add(_directive);
 

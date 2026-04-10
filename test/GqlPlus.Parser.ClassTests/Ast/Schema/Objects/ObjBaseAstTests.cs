@@ -111,21 +111,21 @@ internal sealed class ObjBaseAstChecks()
 
   public void FullType_WithIsTypeParam(string input)
   {
-    IGqlpObjBase objBase = CreateBase(input) with { IsTypeParam = true };
+    IAstObjBase objBase = CreateBase(input) with { IsTypeParam = true };
 
     objBase.FullType.ShouldBe("$" + input);
   }
 
   public void FullType_WithArgs(string input, string[] arguments)
   {
-    IGqlpObjBase objBase = CreateBase(input) with { Args = arguments.TypeArgs() };
+    IAstObjBase objBase = CreateBase(input) with { Args = arguments.TypeArgs() };
 
     objBase.FullType.ShouldBe(input + $" < {arguments.Joined()} >");
   }
 
   public void FullType_WithIsTypeParamAndArgs(string input, string[] arguments)
   {
-    IGqlpObjBase objBase = CreateBase(input) with {
+    IAstObjBase objBase = CreateBase(input) with {
       IsTypeParam = true,
       Args = arguments.TypeArgs(),
     };

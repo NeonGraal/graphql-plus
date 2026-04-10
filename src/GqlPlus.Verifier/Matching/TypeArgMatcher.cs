@@ -7,11 +7,11 @@ namespace GqlPlus.Matching;
 internal class TypeArgMatcher(
   IMatcherRepository matchers
 ) : MatchLogger(matchers)
-  , Matcher<IGqlpTypeArg>.I
+  , Matcher<IAstTypeArg>.I
 {
   private readonly Matcher<IAstType>.L _anyTypeMatcher = matchers.MatcherFor<IAstType>();
 
-  public bool Matches(IGqlpTypeArg arg, string constraint, EnumContext context)
+  public bool Matches(IAstTypeArg arg, string constraint, EnumContext context)
   {
     TryingMatch(arg, constraint);
 
@@ -28,7 +28,7 @@ internal class TypeArgMatcher(
     }
   }
 
-  private bool MatchArgLabel(IGqlpTypeArg arg, string constraint, EnumContext context)
+  private bool MatchArgLabel(IAstTypeArg arg, string constraint, EnumContext context)
   {
     if (context.GetType(constraint, out IAstDescribed? constraintType) && arg.EnumValue is not null) {
       if (constraintType is IAstEnum enumType) {

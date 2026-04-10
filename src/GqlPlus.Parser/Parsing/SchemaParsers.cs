@@ -91,7 +91,7 @@ public static class SchemaParsers
 
   [SuppressMessage("Globalization", "CA1308:Normalize strings to uppercase")]
   private static IParserRepositoryBuilder AddObjectParser<TObjField>(this IParserRepositoryBuilder builder, TypeKind fieldKind, Factory<Parser<TObjField>.I, IParserRepository> factory)
-    where TObjField : IGqlpObjField
+    where TObjField : IAstObjField
     => builder
       .AddSingle(factory)
       .AddSingle(p => new ParseObjectDefinition<TObjField>(p))

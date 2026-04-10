@@ -20,7 +20,7 @@ public interface IAstSchemaDirective
   : IAstDeclaration
   , IEquatable<IAstSchemaDirective>
 {
-  IGqlpInputParam? Parameter { get; }
+  IAstInputParam? Parameter { get; }
   DirectiveOption DirectiveOption { get; }
   DirectiveLocation Locations { get; }
 }

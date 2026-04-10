@@ -16,20 +16,20 @@ public class InputParamBuilder
   public InputParamBuilder(string type)
     : base()
   {
-    Add<IGqlpInputParam>();
-    Add<IGqlpInputFieldType>();
-    Add<IGqlpObjFieldType>();
+    Add<IAstInputParam>();
+    Add<IAstInputFieldType>();
+    Add<IAstObjFieldType>();
     Add<IAstModifiers>();
 
     BaseBuilder = new ObjBaseBuilder(type);
   }
 
   protected new T Build<T>()
-    where T : class, IGqlpInputParam
+    where T : class, IAstInputParam
   {
     T result = base.Build<T>();
 
-    IGqlpObjBase type = BaseBuilder.AsObjBase;
+    IAstObjBase type = BaseBuilder.AsObjBase;
     result.Type.Returns(type);
     string modifiedType = _modifiers.AsString().Prepend(type.FullType).Joined();
     result.Modifiers.Returns(_modifiers);
@@ -38,8 +38,8 @@ public class InputParamBuilder
     return result;
   }
 
-  public IGqlpInputParam AsInputParam
-    => Build<IGqlpInputParam>();
+  public IAstInputParam AsInputParam
+    => Build<IAstInputParam>();
 
   public void SetModifiers(IAstModifier[] modifiers)
     => _modifiers = modifiers;

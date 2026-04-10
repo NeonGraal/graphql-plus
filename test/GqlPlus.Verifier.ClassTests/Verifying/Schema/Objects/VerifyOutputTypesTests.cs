@@ -5,9 +5,9 @@ namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
 public class VerifyOutputTypesTests
-  : ObjectVerifierTestsBase<IGqlpOutputField>
+  : ObjectVerifierTestsBase<IAstOutputField>
 {
-  protected override IVerifyUsage<IGqlpObject<IGqlpOutputField>> Verifier { get; }
+  protected override IVerifyUsage<IAstObject<IAstOutputField>> Verifier { get; }
 
   public VerifyOutputTypesTests()
     : base(TypeKind.Output)
@@ -16,9 +16,9 @@ public class VerifyOutputTypesTests
 
 [TracePerTest]
 public class VerifyOutputAlternatesTests
-  : ObjectVerifierAlternatesTestsBase<IGqlpOutputField>
+  : ObjectVerifierAlternatesTestsBase<IAstOutputField>
 {
-  protected override IVerifyUsage<IGqlpObject<IGqlpOutputField>> Verifier { get; }
+  protected override IVerifyUsage<IAstObject<IAstOutputField>> Verifier { get; }
 
   public VerifyOutputAlternatesTests()
     : base(TypeKind.Output)
@@ -27,9 +27,9 @@ public class VerifyOutputAlternatesTests
 
 [TracePerTest]
 public class VerifyOutputFieldsTests
-  : ObjectVerifierFieldsTestsBase<IGqlpOutputField>
+  : ObjectVerifierFieldsTestsBase<IAstOutputField>
 {
-  protected override IVerifyUsage<IGqlpObject<IGqlpOutputField>> Verifier { get; }
+  protected override IVerifyUsage<IAstObject<IAstOutputField>> Verifier { get; }
 
   public VerifyOutputFieldsTests()
     : base(TypeKind.Output)
@@ -39,11 +39,11 @@ public class VerifyOutputFieldsTests
   public void Verify_Output_WithFieldParams_ReturnsNoErrors()
   {
     DefineObject("b");
-    IGqlpObject<IGqlpInputField> paramType = A.Obj<IGqlpInputField>(TypeKind.Input, "c").AsObject;
+    IAstObject<IAstInputField> paramType = A.Obj<IAstInputField>(TypeKind.Input, "c").AsObject;
     Define(paramType);
 
-    IGqlpInputParam param = A.InputParam("c").AsInputParam;
-    IGqlpOutputField field = A.OutputField("a", "b").WithParam(param).AsOutputField;
+    IAstInputParam param = A.InputParam("c").AsInputParam;
+    IAstOutputField field = A.OutputField("a", "b").WithParam(param).AsOutputField;
     TheBuilder.WithObjFields(field);
 
     Verify_NoErrors();
@@ -54,13 +54,13 @@ public class VerifyOutputFieldsTests
   {
     DefineObject("b");
 
-    IGqlpObject<IGqlpInputField> paramType = A.Obj<IGqlpInputField>(TypeKind.Input, "c").AsObject;
+    IAstObject<IAstInputField> paramType = A.Obj<IAstInputField>(TypeKind.Input, "c").AsObject;
     Define(paramType);
     Define<IAstEnum, IAstSimple>("d");
 
-    IGqlpInputParam param = A.InputParam("c").WithModifier(ModifierKind.Dict, "d").AsInputParam;
+    IAstInputParam param = A.InputParam("c").WithModifier(ModifierKind.Dict, "d").AsInputParam;
 
-    IGqlpOutputField field = A.OutputField("a", "b").WithParam(param).AsOutputField;
+    IAstOutputField field = A.OutputField("a", "b").WithParam(param).AsOutputField;
 
     TheObject.Fields.Returns([field]);
     TheObject.ObjFields.Returns([field]);
@@ -72,6 +72,6 @@ public class VerifyOutputFieldsTests
     Errors.ShouldBeEmpty();
   }
 
-  protected override ObjFieldBuilder<IGqlpOutputField> MakeField(string fieldName, string fieldType)
+  protected override ObjFieldBuilder<IAstOutputField> MakeField(string fieldName, string fieldType)
     => new OutputFieldBuilder(fieldName, fieldType);
 }

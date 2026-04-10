@@ -59,19 +59,19 @@ internal class MergeAllTypes(
 
   private static void FixupObjects(IAstType[] types, HashSet<string> typeNames, Map<string> enumValues)
   {
-    foreach (IGqlpObject output in types.OfType<IGqlpObject>()) {
-      foreach (IGqlpAlternate alternate in output.Alternates) {
+    foreach (IAstObject output in types.OfType<IAstObject>()) {
+      foreach (IAstAlternate alternate in output.Alternates) {
         FixupType(alternate, typeNames, enumValues);
 
-        foreach (IGqlpTypeArg argument in alternate.Args) {
+        foreach (IAstTypeArg argument in alternate.Args) {
           FixupType(argument, typeNames, enumValues);
         }
       }
 
-      foreach (IGqlpObjField field in output.Fields) {
+      foreach (IAstObjField field in output.Fields) {
         FixupType(field, typeNames, enumValues);
 
-        foreach (IGqlpTypeArg argument in field.Type.Args) {
+        foreach (IAstTypeArg argument in field.Type.Args) {
           FixupType(argument, typeNames, enumValues);
         }
       }
@@ -84,7 +84,7 @@ internal class MergeAllTypes(
       .Where(g => g.Count() == 1)
       .ToMap(e => e.Key, e => e.First());
 
-  private static void FixupType(IGqlpObjEnum type, HashSet<string> typeNames, Map<string> enumValues)
+  private static void FixupType(IAstObjEnum type, HashSet<string> typeNames, Map<string> enumValues)
   {
     string? enumType = null;
 

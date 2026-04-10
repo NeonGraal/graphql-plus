@@ -7,14 +7,14 @@ internal sealed class ObjectFactoriesChecks<TObjField, TObjFieldAst>(
   IObjectFactories<TObjField, TObjFieldAst> sut
 ) : SubstituteBase
   , IObjectFactoriesChecks
-  where TObjField : class, IGqlpObjField
+  where TObjField : class, IAstObjField
   where TObjFieldAst : AstObjField, TObjField
 {
   private readonly IObjectFactories<TObjField, TObjFieldAst> _sut = sut;
 
   public void ObjectField_Can_Be_Created(string name, string type, string description)
   {
-    IGqlpObjBase objType = A.ObjBase(type).AsObjBase;
+    IAstObjBase objType = A.ObjBase(type).AsObjBase;
     TObjFieldAst result = _sut.ObjField(AstNulls.At, name, objType, description);
 
     result.ShouldSatisfyAllConditions(

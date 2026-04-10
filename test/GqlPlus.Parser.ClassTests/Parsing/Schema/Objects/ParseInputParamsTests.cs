@@ -5,13 +5,13 @@ namespace GqlPlus.Parsing.Schema.Objects;
 public class ParseInputParamsTests
   : ModifiersClassTestBase
 {
-  private readonly Parser<IGqlpObjBase>.I _input;
+  private readonly Parser<IAstObjBase>.I _input;
   private readonly IParserDefault _defaultParser;
   private readonly ParseInputParams _parser;
 
   public ParseInputParamsTests()
   {
-    ConfigureRepo<IGqlpObjBase>(Parsers, out _input);
+    ConfigureRepo<IAstObjBase>(Parsers, out _input);
     ConfigureRepoInterface<IParserDefault, IAstConstant>(Parsers, out _defaultParser);
     _parser = new ParseInputParams(Parsers);
   }
@@ -26,10 +26,10 @@ public class ParseInputParamsTests
     TakeReturns(')', false, true);
 
     // Act
-    IResultArray<IGqlpInputParam> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IAstInputParam> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpInputParam>>();
+    result.ShouldBeAssignableTo<IResultArrayOk<IAstInputParam>>();
   }
 
   [Fact]
@@ -38,10 +38,10 @@ public class ParseInputParamsTests
     // Arrange
 
     // Act
-    IResultArray<IGqlpInputParam> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IAstInputParam> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayEmpty<IGqlpInputParam>>();
+    result.ShouldBeAssignableTo<IResultArrayEmpty<IAstInputParam>>();
   }
 
   [Fact]
@@ -50,13 +50,13 @@ public class ParseInputParamsTests
     // Arrange
     TakeReturns('(', true);
     ParseError(_input);
-    SetupError<IGqlpInputParam>();
+    SetupError<IAstInputParam>();
 
     // Act
-    IResultArray<IGqlpInputParam> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IAstInputParam> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayError<IGqlpInputParam>>();
+    result.ShouldBeAssignableTo<IResultArrayError<IAstInputParam>>();
   }
 
   [Fact]
@@ -66,13 +66,13 @@ public class ParseInputParamsTests
     TakeReturns('(', true);
     ParseOk(_input);
     ParseModifiersError();
-    SetupError<IGqlpInputParam>();
+    SetupError<IAstInputParam>();
 
     // Act
-    IResultArray<IGqlpInputParam> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IAstInputParam> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpInputParam>>();
+    result.ShouldBeAssignableTo<IResultArrayPartial<IAstInputParam>>();
   }
 
   [Fact]
@@ -82,12 +82,12 @@ public class ParseInputParamsTests
     TakeReturns('(', true);
     ParseOk(_input);
     ParseError(_defaultParser);
-    SetupError<IGqlpInputParam>();
+    SetupError<IAstInputParam>();
 
     // Act
-    IResultArray<IGqlpInputParam> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IAstInputParam> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpInputParam>>();
+    result.ShouldBeAssignableTo<IResultArrayPartial<IAstInputParam>>();
   }
 }

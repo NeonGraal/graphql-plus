@@ -106,10 +106,10 @@ public static class AllVerifiers
   private static IVerifierRepositoryBuilder AddVerifyObject<TField>(
     this IVerifierRepositoryBuilder builder,
     TypeKind fieldKind,
-    Factory<IVerifyUsage<IGqlpObject<TField>>, IVerifierRepository> usageFactory)
-    where TField : IGqlpObjField
+    Factory<IVerifyUsage<IAstObject<TField>>, IVerifierRepository> usageFactory)
+    where TField : IAstObjField
     => builder
       .AddAliased(v => new ObjectsAliasedVerifier<TField>(v, fieldKind))
       .AddUsage(usageFactory)
-      .TryAddVerify(v => new NullVerifierError<IGqlpObject<TField>>(v));
+      .TryAddVerify(v => new NullVerifierError<IAstObject<TField>>(v));
 }

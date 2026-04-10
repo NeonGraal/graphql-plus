@@ -7,7 +7,7 @@ namespace GqlPlus.Verifying.Schema.Objects;
 public abstract class ObjectVerifierFieldsTestsBase<TObjField>(
   TypeKind kind
 ) : ObjectVerifierTestsBase<TObjField>(kind)
-  where TObjField : class, IGqlpObjField
+  where TObjField : class, IAstObjField
 {
   [Theory, RepeatData]
   public void Verify_WithField_ReturnsNoErrors(string fieldName)
@@ -189,7 +189,7 @@ public abstract class ObjectVerifierFieldsTestsBase<TObjField>(
       .WithTypeParam(paramName, argType)
       .WithAlternate(paramName, a => a.IsTypeParam()));
 
-    IGqlpTypeArg arg = A.TypeArg(argType).AsTypeArg;
+    IAstTypeArg arg = A.TypeArg(argType).AsTypeArg;
     ObjectField(TheBuilder, fieldName, otherName, f => f.WithType(t => t.WithArgs(arg)));
     ArgMatcher.Matches(arg, argType, Arg.Any<EnumContext>()).Returns(true);
 
@@ -205,7 +205,7 @@ public abstract class ObjectVerifierFieldsTestsBase<TObjField>(
 
     DefineObject(otherName);
 
-    IGqlpTypeArg arg = A.TypeArg(argType).AsTypeArg;
+    IAstTypeArg arg = A.TypeArg(argType).AsTypeArg;
     ObjectField(TheBuilder, fieldName, otherName, f => f.WithType(t => t.WithArgs(arg)));
     ArgMatcher.Matches(arg, argType, Arg.Any<EnumContext>()).Returns(true);
 
@@ -223,7 +223,7 @@ public abstract class ObjectVerifierFieldsTestsBase<TObjField>(
       .WithTypeParam(paramName, "")
       .WithParent(paramName, p => p.IsTypeParam()));
 
-    IGqlpTypeArg arg = A.TypeArg(argType).AsTypeArg;
+    IAstTypeArg arg = A.TypeArg(argType).AsTypeArg;
     ObjectField(TheBuilder, fieldName, otherName, f => f.WithType(t => t.WithArgs(arg)));
     ArgMatcher.Matches(arg, argType, Arg.Any<EnumContext>()).Returns(true);
 
@@ -241,7 +241,7 @@ public abstract class ObjectVerifierFieldsTestsBase<TObjField>(
       .WithTypeParam(paramName, argType)
       .WithParent(paramName, p => p.IsTypeParam()));
 
-    IGqlpTypeArg arg = A.TypeArg(argType).AsTypeArg;
+    IAstTypeArg arg = A.TypeArg(argType).AsTypeArg;
     ObjectField(TheBuilder, fieldName, otherName, f => f.WithType(t => t.WithArgs(arg)));
     ArgMatcher.Matches(arg, argType, Arg.Any<EnumContext>()).Returns(false);
 
@@ -297,7 +297,7 @@ public abstract class ObjectVerifierFieldsTestsBase<TObjField>(
       .WithTypeParam(argName, enumType)
       .WithAlternate(argName, p => p.IsTypeParam()));
 
-    IGqlpTypeArg arg = A.TypeArg("").WithObjEnum(enumLabel).AsTypeArg;
+    IAstTypeArg arg = A.TypeArg("").WithObjEnum(enumLabel).AsTypeArg;
     ObjectField(TheBuilder, fieldName, typeName, f => f
       .WithType(t => t.WithArgs(arg)));
 

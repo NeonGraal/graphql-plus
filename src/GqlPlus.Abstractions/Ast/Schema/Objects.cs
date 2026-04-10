@@ -1,24 +1,24 @@
 ﻿namespace GqlPlus.Abstractions.Schema;
 
-public interface IGqlpObject
-  : IAstType<IGqlpObjBase>
+public interface IAstObject
+  : IAstType<IAstObjBase>
 {
-  IEnumerable<IGqlpTypeParam> TypeParams { get; }
-  IEnumerable<IGqlpObjField> Fields { get; }
-  IEnumerable<IGqlpAlternate> Alternates { get; }
+  IEnumerable<IAstTypeParam> TypeParams { get; }
+  IEnumerable<IAstObjField> Fields { get; }
+  IEnumerable<IAstAlternate> Alternates { get; }
 }
 
-public interface IGqlpObject<TField>
-  : IGqlpObject
-  , IEquatable<IGqlpObject<TField>>
-  where TField : IGqlpObjField
+public interface IAstObject<TField>
+  : IAstObject
+  , IEquatable<IAstObject<TField>>
+  where TField : IAstObjField
 {
   IEnumerable<TField> ObjFields { get; }
 }
 
-public interface IGqlpObjType
+public interface IAstObjType
   : IAstNamed
-  , IEquatable<IGqlpObjType>
+  , IEquatable<IAstObjType>
 {
   bool IsTypeParam { get; }
 
@@ -26,7 +26,7 @@ public interface IGqlpObjType
   string FullType { get; }
 }
 
-public interface IGqlpObjEnum
+public interface IAstObjEnum
   : IAstAbbreviated
 {
   string EnumTypeName { get; }
@@ -35,72 +35,72 @@ public interface IGqlpObjEnum
   void SetEnumType(string enumType);
 }
 
-public interface IGqlpTypeArg
-  : IGqlpObjType
-  , IGqlpObjEnum
-  , IEquatable<IGqlpTypeArg>
+public interface IAstTypeArg
+  : IAstObjType
+  , IAstObjEnum
+  , IEquatable<IAstTypeArg>
 { }
 
-public interface IGqlpObjBase
-  : IGqlpObjType
-  , IEquatable<IGqlpObjBase>
+public interface IAstObjBase
+  : IAstObjType
+  , IEquatable<IAstObjBase>
 {
-  IEnumerable<IGqlpTypeArg> Args { get; }
+  IEnumerable<IAstTypeArg> Args { get; }
 
   void SetName(string name);
 }
 
-public interface IGqlpObjFieldType
+public interface IAstObjFieldType
   : IAstError
   , IAstModifiers
-  , IGqlpObjEnum
+  , IAstObjEnum
 {
-  IGqlpObjBase Type { get; }
+  IAstObjBase Type { get; }
   string ModifiedType { get; }
 }
 
-public interface IGqlpObjField
+public interface IAstObjField
   : IAstAliased
-  , IGqlpObjFieldType
+  , IAstObjFieldType
 { }
 
-public interface IGqlpAlternate
-  : IGqlpObjBase
+public interface IAstAlternate
+  : IAstObjBase
   , IAstModifiers
-  , IGqlpObjEnum
+  , IAstObjEnum
 { }
 
-public interface IGqlpTypeParam
+public interface IAstTypeParam
   : IAstNamed
 {
   string Constraint { get; }
 }
 
-public interface IGqlpDualField
-  : IGqlpObjField
+public interface IAstDualField
+  : IAstObjField
 { }
 
-public interface IGqlpInputFieldType
-  : IGqlpObjFieldType
+public interface IAstInputFieldType
+  : IAstObjFieldType
 {
   IAstConstant? DefaultValue { get; }
 }
 
-public interface IGqlpInputField
-  : IGqlpObjField
-  , IGqlpInputFieldType
-  , IEquatable<IGqlpInputField>
+public interface IAstInputField
+  : IAstObjField
+  , IAstInputFieldType
+  , IEquatable<IAstInputField>
 { }
 
-public interface IGqlpOutputField
-  : IGqlpObjField
-  , IEquatable<IGqlpOutputField>
+public interface IAstOutputField
+  : IAstObjField
+  , IEquatable<IAstOutputField>
 {
-  IGqlpInputParam? Parameter { get; }
+  IAstInputParam? Parameter { get; }
 }
 
-public interface IGqlpInputParam
+public interface IAstInputParam
   : IAstDescribed
-  , IGqlpInputFieldType
-  , IEquatable<IGqlpInputParam>
+  , IAstInputFieldType
+  , IEquatable<IAstInputParam>
 { }

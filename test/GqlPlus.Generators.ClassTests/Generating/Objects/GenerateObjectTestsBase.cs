@@ -5,8 +5,8 @@ namespace GqlPlus.Generating.Objects;
 
 public abstract class GenerateObjectTestsBase<TObjField>(
   TypeKind kind
-) : GenerateTypeClassTestsBase<IGqlpObject<TObjField>, IGqlpObjBase, MapPair<string>>
-  where TObjField : class, IGqlpObjField
+) : GenerateTypeClassTestsBase<IAstObject<TObjField>, IAstObjBase, MapPair<string>>
+  where TObjField : class, IAstObjField
 {
   protected TypeKind Kind { get; } = kind;
 
@@ -15,7 +15,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
   {
     // Arrange
     GqlpGeneratorContext context = Context(BaseType, GeneratorType);
-    IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
+    IAstObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
       .WithObjFields(MakeField(fieldName, fieldType).AsObjField)
       .AsObject;
 
@@ -33,7 +33,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
   {
     // Arrange
     GqlpGeneratorContext context = Context(BaseType, GeneratorType);
-    IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
+    IAstObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
       .WithObjFields(MakeField(fieldName, fieldType)
         .WithModifier(ModifierKind.Optional)
         .AsObjField)
@@ -53,7 +53,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
   {
     // Arrange
     GqlpGeneratorContext context = Context(BaseType, GeneratorType);
-    IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
+    IAstObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
       .WithObjFields(MakeField(fieldName, fieldType)
         .WithModifier(ModifierKind.List)
         .AsObjField)
@@ -73,7 +73,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
   {
     // Arrange
     GqlpGeneratorContext context = Context(BaseType, GeneratorType);
-    IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
+    IAstObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
       .WithObjFields(MakeField(fieldName, fieldType)
         .WithModifier(ModifierKind.Dict, fieldKey)
         .AsObjField)
@@ -93,7 +93,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
   {
     // Arrange
     GqlpGeneratorContext context = Context(BaseType, GeneratorType);
-    IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
+    IAstObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
       .WithObjFields(MakeField(fieldName, fieldType)
         .WithModifier(ModifierKind.Param, fieldParam)
         .AsObjField)
@@ -113,7 +113,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
   {
     // Arrange
     GqlpGeneratorContext context = Context(BaseType, GeneratorType);
-    IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
+    IAstObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
       .WithAlternate(alternateType)
       .AsObject;
 
@@ -131,7 +131,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
   {
     // Arrange
     GqlpGeneratorContext context = Context(BaseType, GeneratorType);
-    IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
+    IAstObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
       .WithAlternate(alternateType, a => a.WithArg(argName))
       .AsObject;
 
@@ -149,7 +149,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
   {
     // Arrange
     GqlpGeneratorContext context = Context(BaseType, GeneratorType);
-    IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
+    IAstObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
       .WithAlternate(enumType, a => a.WithObjEnum(enumLabel))
       .AsObject;
 
@@ -171,7 +171,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     GqlpGeneratorContext context = Context(BaseType, GeneratorType);
     IAstEnum theEnum = A.Enum(enumType, [enumLabel1, enumLabel2]);
     context.AddTypes(theEnum);
-    IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
+    IAstObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
       .WithAlternates(
       A.Alternate(alternateType).WithArg(enumType, e => e.WithObjEnum(enumLabel1)),
       A.Alternate(alternateType).WithArg(enumType, e => e.WithObjEnum(enumLabel2))
@@ -193,7 +193,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
   {
     // Arrange
     GqlpGeneratorContext context = Context(BaseType, GeneratorType);
-    IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
+    IAstObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
       .WithTypeParam(alternateParam, "_Any")
       .WithAlternate(alternateParam, a => a.IsTypeParam())
       .AsObject;
@@ -212,7 +212,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
   {
     // Arrange
     GqlpGeneratorContext context = Context(BaseType, GeneratorType);
-    IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
+    IAstObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
       .WithObjFields(MakeField(fieldName, fieldType).AsObjField)
       .WithAlternate(alternateType)
       .AsObject;
@@ -232,7 +232,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
   {
     // Arrange
     GqlpGeneratorContext context = Context(BaseType, GeneratorType);
-    IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
+    IAstObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
       .WithTypeParams([.. parameters.Select(t => A.TypeParam(t, "String"))])
       .AsObject;
 

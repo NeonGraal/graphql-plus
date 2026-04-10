@@ -10,7 +10,7 @@ public class MergeAllTypesTests
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSameNameDifferentTypes_ReturnsErrors(string input)
     => CanMerge_Errors([MakeAst(input),
-      new AstObject<IGqlpDualField>(TypeKind.Dual, AstNulls.At, input, "")]);
+      new AstObject<IAstDualField>(TypeKind.Dual, AstNulls.At, input, "")]);
 
   [Theory, RepeatData]
   public void FixupType_WithDomainLabel_FixesType(string enumType, string enumLabel, string domainType)
@@ -45,7 +45,7 @@ public class MergeAllTypesTests
 
     IAstType[] types = [
       new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, enumLabel, "")]),
-      new AstObject < IGqlpOutputField > (TypeKind.Output, AstNulls.At, outputType, "") { ObjFields = [field] },
+      new AstObject < IAstOutputField > (TypeKind.Output, AstNulls.At, outputType, "") { ObjFields = [field] },
     ];
 
     // Act
@@ -73,7 +73,7 @@ public class MergeAllTypesTests
 
     IAstType[] types = [
       new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, enumLabel, "")]),
-      new AstObject<IGqlpOutputField>(TypeKind.Output, AstNulls.At, outputType, "") { ObjFields = [field] },
+      new AstObject<IAstOutputField>(TypeKind.Output, AstNulls.At, outputType, "") { ObjFields = [field] },
     ];
 
     // Act
@@ -97,7 +97,7 @@ public class MergeAllTypesTests
 
     IAstType[] types = [
       new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, enumLabel, "")]),
-      new AstObject<IGqlpOutputField>(TypeKind.Output, AstNulls.At, outputType, "") { Alternates = [alt] },
+      new AstObject<IAstOutputField>(TypeKind.Output, AstNulls.At, outputType, "") { Alternates = [alt] },
     ];
 
     // Act
@@ -124,7 +124,7 @@ public class MergeAllTypesTests
 
     IAstType[] types = [
       new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, enumLabel, "")]),
-      new AstObject<IGqlpOutputField>(TypeKind.Output, AstNulls.At, outputType, "") { Alternates = [alt] },
+      new AstObject<IAstOutputField>(TypeKind.Output, AstNulls.At, outputType, "") { Alternates = [alt] },
     ];
 
     // Act
@@ -147,7 +147,7 @@ public class MergeAllTypesTests
 
     IAstType[] types = [
       new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, BuiltIn.BooleanType, "")]),
-      new AstObject<IGqlpOutputField>(TypeKind.Output, AstNulls.At, outputType, "") { ObjFields = [field] },
+      new AstObject<IAstOutputField>(TypeKind.Output, AstNulls.At, outputType, "") { ObjFields = [field] },
     ];
 
     // Act

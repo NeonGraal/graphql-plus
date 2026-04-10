@@ -3,17 +3,17 @@
 namespace GqlPlus.Building.Schema.Objects;
 
 public class InputFieldBuilder
-  : ObjFieldBuilder<IGqlpInputField>
+  : ObjFieldBuilder<IAstInputField>
   , IInputTypeBuilder
 {
   private IAstConstant? _defaultValue;
 
   public InputFieldBuilder(string name, string type)
     : base(name, type)
-    => Add<IGqlpInputField>();
+    => Add<IAstInputField>();
 
   protected new T Build<T>()
-    where T : class, IGqlpInputField
+    where T : class, IAstInputField
   {
     T result = base.Build<T>();
 
@@ -22,10 +22,10 @@ public class InputFieldBuilder
     return result;
   }
 
-  public IGqlpInputField AsInputField
-    => Build<IGqlpInputField>();
+  public IAstInputField AsInputField
+    => Build<IAstInputField>();
 
-  public override IGqlpInputField AsObjField
+  public override IAstInputField AsObjField
     => AsInputField;
 
   public void SetDefaultValue(IAstConstant? defaultValue)

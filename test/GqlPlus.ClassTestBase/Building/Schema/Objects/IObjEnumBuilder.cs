@@ -19,7 +19,7 @@ public static class ObjEnumBuilderHelper
     where T : IObjEnumBuilder
     => builder.FluentAction(b => b.SetEnumValue(builder.EnumValue(b.Name, enumLabel)));
 
-  public static Action<CallInfo> MakeSetEnumValue(this IObjEnumBuilder _, IGqlpObjEnum result, IGqlpObjType type)
+  public static Action<CallInfo> MakeSetEnumValue(this IObjEnumBuilder _, IAstObjEnum result, IAstObjType type)
     => c => {
       string enumType = c.Arg<string>();
       IAstEnumValue? enumValue = result.EnumValue;
@@ -36,7 +36,7 @@ public static class ObjEnumBuilderHelper
         EnumValueBuilder.SetEnumValue(enumValue, enumType, enumLabel);
       }
 
-      if (type is IGqlpObjFieldType field) {
+      if (type is IAstObjFieldType field) {
         string modifiedType = field.Modifiers.AsString().Prepend(enumType).Joined();
         field.ModifiedType.Returns(modifiedType);
       }

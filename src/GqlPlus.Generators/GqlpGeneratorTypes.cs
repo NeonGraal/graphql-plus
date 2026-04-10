@@ -3,9 +3,9 @@
 internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
 {
   private readonly Map<IAstType> _types = [];
-  private readonly Map<IGqlpObjType> _args = [];
+  private readonly Map<IAstObjType> _args = [];
 
-  internal GqlpGeneratorTypes(GqlpGeneratorTypes parent, IEnumerable<IGqlpTypeArg>? typeArgs = null, IEnumerable<IGqlpTypeParam>? typeParams = null)
+  internal GqlpGeneratorTypes(GqlpGeneratorTypes parent, IEnumerable<IAstTypeArg>? typeArgs = null, IEnumerable<IAstTypeParam>? typeParams = null)
     : this(parent.ModelOptions)
   {
     _types = [.. parent._types];
@@ -39,20 +39,20 @@ internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
     [BuiltIn.BooleanAlias] = "bool",
   };
 
-  internal void AddArgs(IEnumerable<IGqlpTypeArg> typeArgs, IEnumerable<IGqlpTypeParam> typeParams)
+  internal void AddArgs(IEnumerable<IAstTypeArg> typeArgs, IEnumerable<IAstTypeParam> typeParams)
   {
-    IEnumerable<MapPair<IGqlpObjType>> args = typeArgs
-      ?.Zip(typeParams, (a, p) => a.ToPair<IGqlpObjType>(p.Name))
+    IEnumerable<MapPair<IAstObjType>> args = typeArgs
+      ?.Zip(typeParams, (a, p) => a.ToPair<IAstObjType>(p.Name))
       ?? [];
 
-    foreach ((string key, IGqlpObjType value) in args) {
+    foreach ((string key, IAstObjType value) in args) {
       AddArg(key, value);
     }
   }
 
-  private void AddArg(string key, IGqlpObjType value)
+  private void AddArg(string key, IAstObjType value)
   {
-    if (_args.TryGetValue(key, out IGqlpObjType arg)) {
+    if (_args.TryGetValue(key, out IAstObjType arg)) {
       if (arg.Name != value.Name && value.Name != key) {
         _args[key] = value;
       }
@@ -66,7 +66,7 @@ internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
   }
 
   /// <summary> Both params will be not null if result true but can't use NotNullWhen </summary>
-  internal bool GetArg(string? argName, out IGqlpObjType arg)
+  internal bool GetArg(string? argName, out IAstObjType arg)
     => _args.TryGetValue(argName.IfWhiteSpace(), out arg);
 
   internal void AddTypes(params IAstType[] types)

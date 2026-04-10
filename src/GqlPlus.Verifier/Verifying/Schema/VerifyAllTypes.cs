@@ -4,10 +4,10 @@ namespace GqlPlus.Verifying.Schema;
 
 internal class VerifyAllTypes(IVerifierRepository verifiers) : IVerify<IAstType[]>
 {
-  private readonly IVerifyUsage<IGqlpObject<IGqlpDualField>> _dualAllTypes = verifiers.UsageFor<IGqlpObject<IGqlpDualField>>();
+  private readonly IVerifyUsage<IAstObject<IAstDualField>> _dualAllTypes = verifiers.UsageFor<IAstObject<IAstDualField>>();
   private readonly IVerifyUsage<IAstEnum> _enumAllTypes = verifiers.UsageFor<IAstEnum>();
-  private readonly IVerifyUsage<IGqlpObject<IGqlpInputField>> _inputAllTypes = verifiers.UsageFor<IGqlpObject<IGqlpInputField>>();
-  private readonly IVerifyUsage<IGqlpObject<IGqlpOutputField>> _outputAllTypes = verifiers.UsageFor<IGqlpObject<IGqlpOutputField>>();
+  private readonly IVerifyUsage<IAstObject<IAstInputField>> _inputAllTypes = verifiers.UsageFor<IAstObject<IAstInputField>>();
+  private readonly IVerifyUsage<IAstObject<IAstOutputField>> _outputAllTypes = verifiers.UsageFor<IAstObject<IAstOutputField>>();
   private readonly IVerifyUsage<IAstDomain> _domainAllTypes = verifiers.UsageFor<IAstDomain>();
   private readonly IVerifyUsage<IAstUnion> _unionAllTypes = verifiers.UsageFor<IAstUnion>();
 
@@ -15,10 +15,10 @@ internal class VerifyAllTypes(IVerifierRepository verifiers) : IVerify<IAstType[
   {
     IAstType[] allTypes = [.. item, .. BuiltIn.Basic, .. BuiltIn.Internal];
 
-    IGqlpObject<IGqlpDualField>[] dualTypes = item.ArrayOf<IGqlpObject<IGqlpDualField>>();
+    IAstObject<IAstDualField>[] dualTypes = item.ArrayOf<IAstObject<IAstDualField>>();
     IAstEnum[] enumTypes = item.ArrayOf<IAstEnum>();
-    IGqlpObject<IGqlpInputField>[] inputTypes = item.ArrayOf<IGqlpObject<IGqlpInputField>>();
-    IGqlpObject<IGqlpOutputField>[] outputTypes = item.ArrayOf<IGqlpObject<IGqlpOutputField>>();
+    IAstObject<IAstInputField>[] inputTypes = item.ArrayOf<IAstObject<IAstInputField>>();
+    IAstObject<IAstOutputField>[] outputTypes = item.ArrayOf<IAstObject<IAstOutputField>>();
     IAstDomain[] domainTypes = item.ArrayOf<IAstDomain>();
     IAstUnion[] unionTypes = item.ArrayOf<IAstUnion>();
 

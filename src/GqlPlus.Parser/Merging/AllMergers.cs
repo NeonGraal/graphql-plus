@@ -76,10 +76,10 @@ public static class AllMergers
 
   public static IMergerRepositoryBuilder AddSchemaObjectMergeAlls(this IMergerRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      .AddMergeAll<IGqlpObject<IGqlpDualField>, IAstType, AstObjectsMerger<IGqlpDualField>>(
-        m => new AstObjectsMerger<IGqlpDualField>(m))
-      .AddMergeAll<IGqlpObject<IGqlpInputField>, IAstType, AstObjectsMerger<IGqlpInputField>>(
-        m => new AstObjectsMerger<IGqlpInputField>(m))
-      .AddMergeAll<IGqlpObject<IGqlpOutputField>, IAstType, AstObjectsMerger<IGqlpOutputField>>(
-        m => new AstObjectsMerger<IGqlpOutputField>(m));
+      .AddMergeAll<IAstObject<IAstDualField>, IAstType, AstObjectsMerger<IAstDualField>>(
+        m => new AstObjectsMerger<IAstDualField>(m))
+      .AddMergeAll<IAstObject<IAstInputField>, IAstType, AstObjectsMerger<IAstInputField>>(
+        m => new AstObjectsMerger<IAstInputField>(m))
+      .AddMergeAll<IAstObject<IAstOutputField>, IAstType, AstObjectsMerger<IAstOutputField>>(
+        m => new AstObjectsMerger<IAstOutputField>(m));
 }

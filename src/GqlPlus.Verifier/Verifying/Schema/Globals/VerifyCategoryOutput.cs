@@ -9,7 +9,7 @@ internal class VerifyCategoryOutput(IVerifierRepository verifiers) : UsageVerifi
 
   protected override void UsageValue(IAstSchemaCategory usage, UsageContext context)
   {
-    if (context.GetTyped(usage.Output.Name, out IGqlpObject<IGqlpOutputField>? output)) {
+    if (context.GetTyped(usage.Output.Name, out IAstObject<IAstOutputField>? output)) {
       context.AddError(usage, "Category Output", $"'{usage.Output.Name}' is a generic Output type", output.TypeParams.Any());
     } else {
       context.AddError(usage, "Category Output", $"'{usage.Output.Name}' not defined or not an Output type");

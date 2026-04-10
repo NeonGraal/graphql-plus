@@ -5,12 +5,12 @@ using GqlPlus.Building.Schema.Objects;
 namespace GqlPlus.Modelling.Objects;
 
 public class InputParamModellerTests
-  : ModellerClassTestBase<IGqlpInputParam, InputParamModel>
+  : ModellerClassTestBase<IAstInputParam, InputParamModel>
 {
   private readonly IModifierModeller _modifier;
   private readonly IModeller<IAstConstant, ConstantModel> _constant;
 
-  protected override IModeller<IGqlpInputParam, InputParamModel> Modeller { get; }
+  protected override IModeller<IAstInputParam, InputParamModel> Modeller { get; }
 
   public InputParamModellerTests()
   {
@@ -24,7 +24,7 @@ public class InputParamModellerTests
   public void ToModel_WithValidInputParam_ReturnsExpectedInputParamModel(string paramType, string content, string text)
   {
     // Arrange
-    IGqlpInputParam ast = A.InputParam(paramType)
+    IAstInputParam ast = A.InputParam(paramType)
       .WithDescr(content)
       .WithType(t => t.IsTypeParam())
       .WithModifier(ModifierKind.Opt)
@@ -55,7 +55,7 @@ public class InputParamModellerTests
   public void ToModel_WithNoModifiersOrDefaultValue_ReturnsInputParamModelWithoutModifiersOrDefaultValue(string paramType, string content)
   {
     // Arrange
-    IGqlpInputParam ast = A.InputParam(paramType).WithDescr(content).AsInputParam;
+    IAstInputParam ast = A.InputParam(paramType).WithDescr(content).AsInputParam;
     ast.Modifiers.Returns([]);
 
     // Act

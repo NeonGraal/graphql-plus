@@ -5,13 +5,13 @@ namespace GqlPlus.Merging.Objects;
 
 internal class MergeInputFields(
   IMergerRepository mergers
-) : AstObjectFieldsMerger<IGqlpInputField>(mergers)
+) : AstObjectFieldsMerger<IAstInputField>(mergers)
 {
-  protected override IMessages CanMergeGroup(IGrouping<string, IGqlpInputField> group)
+  protected override IMessages CanMergeGroup(IGrouping<string, IAstInputField> group)
     => base.CanMergeGroup(group)
       .Add(group.CanMerge(item => item.DefaultValue, mergers.MergerFor<IAstConstant>()));
 
-  protected override IGqlpInputField MergeGroup(IEnumerable<IGqlpInputField> group)
+  protected override IAstInputField MergeGroup(IEnumerable<IAstInputField> group)
     => (InputFieldAst)base.MergeGroup(group) with {
       DefaultValue = group.Merge(item => item.DefaultValue, mergers.MergerFor<IAstConstant>()).FirstOrDefault()
     };

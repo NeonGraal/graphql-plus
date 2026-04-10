@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Modelling.Globals;
 
 internal class DirectiveModeller(
-  IModeller<IGqlpInputParam, InputParamModel> parameter
+  IModeller<IAstInputParam, InputParamModel> parameter
 ) : ModellerBase<IAstSchemaDirective, DirectiveModel>
 {
   protected override DirectiveModel ToModel(IAstSchemaDirective ast, IMap<TypeKindModel> typeKinds)

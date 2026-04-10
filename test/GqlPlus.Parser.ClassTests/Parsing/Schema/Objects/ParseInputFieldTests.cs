@@ -3,11 +3,11 @@
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public class ParseInputFieldTests
-  : ObjectFieldParseTestBase<IGqlpInputField>
+  : ObjectFieldParseTestBase<IAstInputField>
 {
   private readonly IParserDefault _parseDefault;
 
-  protected override Parser<IGqlpInputField>.I Parser { get; }
+  protected override Parser<IAstInputField>.I Parser { get; }
 
   public ParseInputFieldTests()
   {
@@ -26,10 +26,10 @@ public class ParseInputFieldTests
     ParseOk(_parseDefault);
 
     // Act
-    IResult<IGqlpInputField> result = Parser.Parse(Tokenizer, "testLabel");
+    IResult<IAstInputField> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpInputField>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstInputField>>();
   }
 
   [Theory, RepeatData]
@@ -40,12 +40,12 @@ public class ParseInputFieldTests
     TakeReturns(':', true);
     ParseBaseOk();
     ParseError(_parseDefault);
-    SetupPartial<IGqlpInputField>();
+    SetupPartial<IAstInputField>();
 
     // Act
-    IResult<IGqlpInputField> result = Parser.Parse(Tokenizer, "testLabel");
+    IResult<IAstInputField> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpInputField>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstInputField>>();
   }
 }

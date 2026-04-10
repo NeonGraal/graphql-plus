@@ -3,7 +3,7 @@
 namespace GqlPlus.Modelling.Objects;
 
 public class TypeArgModellerTests
-  : ModellerClassTestBase<IGqlpTypeArg, TypeArgModel>
+  : ModellerClassTestBase<IAstTypeArg, TypeArgModel>
 {
   private readonly IModeller<IAstEnumValue, EnumValueModel> _enumValue;
 
@@ -14,13 +14,13 @@ public class TypeArgModellerTests
     Modeller = new TypeArgModeller(_enumValue);
   }
 
-  protected override IModeller<IGqlpTypeArg, TypeArgModel> Modeller { get; }
+  protected override IModeller<IAstTypeArg, TypeArgModel> Modeller { get; }
 
   [Theory, RepeatData]
   public void ToModel_WithValidArg_ReturnsExpectedOutputArgModel(string name)
   {
     // Arrange
-    IGqlpTypeArg ast = A.TypeArg(name).IsTypeParam().AsTypeArg;
+    IAstTypeArg ast = A.TypeArg(name).IsTypeParam().AsTypeArg;
 
     // Act
     TypeArgModel result = Modeller.ToModel(ast, TypeKinds);
@@ -37,7 +37,7 @@ public class TypeArgModellerTests
   public void ToModel_WithValidEnumArg_ReturnsExpectedOutputArgModel(string enumType, string enumLabel)
   {
     // Arrange
-    IGqlpTypeArg ast = A.TypeArg(enumType).AsTypeArg;
+    IAstTypeArg ast = A.TypeArg(enumType).AsTypeArg;
     IAstEnumValue enumValue = A.EnumValue(enumType, enumLabel);
     ast.EnumValue.Returns(enumValue);
 

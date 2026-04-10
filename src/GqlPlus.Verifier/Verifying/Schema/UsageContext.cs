@@ -121,7 +121,7 @@ internal static class UsageHelpers
     void CheckParam(string? paramName)
     {
       if (context.GetType("$" + paramName, out IAstDescribed? key)) {
-        if (key is IGqlpTypeParam typeParam) {
+        if (key is IAstTypeParam typeParam) {
           CheckKey(typeParam.Constraint, $"constraint '{typeParam.Constraint}' ");
         }
       } else {
@@ -132,7 +132,7 @@ internal static class UsageHelpers
     void CheckKey(string? keyName, string label = "")
     {
       if (context.GetType(keyName, out IAstDescribed? key)) {
-        context.AddError((IAstAbbreviated)modified, "Modifier", $"{label}'{keyName}' invalid type", key is not IAstSimple and not IGqlpTypeParam);
+        context.AddError((IAstAbbreviated)modified, "Modifier", $"{label}'{keyName}' invalid type", key is not IAstSimple and not IAstTypeParam);
       } else {
         context.AddError((IAstAbbreviated)modified, "Modifier", $"{label}'{keyName}' not defined");
       }

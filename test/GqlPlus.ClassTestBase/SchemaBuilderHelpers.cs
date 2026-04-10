@@ -48,7 +48,7 @@ public static class SchemaBuilderHelpers
     where T : class, IAstNamed
     => builder.ArrayOf((b, i) => b.Named<T>(i), names);
 
-  public static IGqlpTypeParam TypeParam(this IMockBuilder _, string paramName, string constraint)
+  public static IAstTypeParam TypeParam(this IMockBuilder _, string paramName, string constraint)
     => new TypeParamBuilder(paramName, constraint).AsTypeParam;
 
   public static InputParamBuilder InputParam(this IMockBuilder _, string typeName)

@@ -2,10 +2,10 @@
 
 internal class AlternateModeller(
   IModeller<IAstModifier, CollectionModel> collection,
-  IModeller<IGqlpObjBase, ObjBaseModel> objBase
-) : ModellerBase<IGqlpAlternate, AlternateModel>
+  IModeller<IAstObjBase, ObjBaseModel> objBase
+) : ModellerBase<IAstAlternate, AlternateModel>
 {
-  protected override AlternateModel ToModel(IGqlpAlternate ast, IMap<TypeKindModel> typeKinds)
+  protected override AlternateModel ToModel(IAstAlternate ast, IMap<TypeKindModel> typeKinds)
   {
     CollectionModel[] collections = collection.ToModels(ast.Modifiers, typeKinds);
     ObjBaseModel baseModel = objBase.ToModel(ast, typeKinds);

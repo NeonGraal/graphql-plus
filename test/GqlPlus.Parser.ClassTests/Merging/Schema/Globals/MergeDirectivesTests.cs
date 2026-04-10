@@ -45,14 +45,14 @@ public class MergeDirectivesTests
   }
 
   private readonly MergeDirectives _merger;
-  private readonly IMerge<IGqlpInputParam> _parameters;
+  private readonly IMerge<IAstInputParam> _parameters;
 
   public MergeDirectivesTests(ITestOutputHelper outputHelper)
   {
-    _parameters = Merger<IGqlpInputParam>();
+    _parameters = Merger<IAstInputParam>();
 
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.MergerFor<IGqlpInputParam>().Returns(_parameters);
+    mergers.MergerFor<IAstInputParam>().Returns(_parameters);
     _merger = new(mergers);
   }
 

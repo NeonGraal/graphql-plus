@@ -6,20 +6,20 @@ namespace GqlPlus.Verifying.Schema;
 public class VerifyAllTypesTests
   : VerifierTestsBase
 {
-  private readonly ForVU<IGqlpObject<IGqlpDualField>> _dualAllTypes = new();
+  private readonly ForVU<IAstObject<IAstDualField>> _dualAllTypes = new();
   private readonly ForVU<IAstEnum> _enumAllTypes = new();
-  private readonly ForVU<IGqlpObject<IGqlpInputField>> _inputAllTypes = new();
-  private readonly ForVU<IGqlpObject<IGqlpOutputField>> _outputAllTypes = new();
+  private readonly ForVU<IAstObject<IAstInputField>> _inputAllTypes = new();
+  private readonly ForVU<IAstObject<IAstOutputField>> _outputAllTypes = new();
   private readonly ForVU<IAstDomain> _domainAllTypes = new();
   private readonly ForVU<IAstUnion> _unionAllTypes = new();
   private readonly VerifyAllTypes _verifier;
 
   public VerifyAllTypesTests()
   {
-    VerifierRepo.UsageFor<IGqlpObject<IGqlpDualField>>().Returns(_dualAllTypes.Intf);
+    VerifierRepo.UsageFor<IAstObject<IAstDualField>>().Returns(_dualAllTypes.Intf);
     VerifierRepo.UsageFor<IAstEnum>().Returns(_enumAllTypes.Intf);
-    VerifierRepo.UsageFor<IGqlpObject<IGqlpInputField>>().Returns(_inputAllTypes.Intf);
-    VerifierRepo.UsageFor<IGqlpObject<IGqlpOutputField>>().Returns(_outputAllTypes.Intf);
+    VerifierRepo.UsageFor<IAstObject<IAstInputField>>().Returns(_inputAllTypes.Intf);
+    VerifierRepo.UsageFor<IAstObject<IAstOutputField>>().Returns(_outputAllTypes.Intf);
     VerifierRepo.UsageFor<IAstDomain>().Returns(_domainAllTypes.Intf);
     VerifierRepo.UsageFor<IAstUnion>().Returns(_unionAllTypes.Intf);
     _verifier = new(VerifierRepo);

@@ -30,7 +30,7 @@ internal abstract class MatchLogger
       return true;
     }
 
-    if (context.GetTyped(type, out IGqlpTypeParam? typeParam)) {
+    if (context.GetTyped(type, out IAstTypeParam? typeParam)) {
       return MatchArgOrType(typeParam.Constraint, constraint, context, action);
     }
 

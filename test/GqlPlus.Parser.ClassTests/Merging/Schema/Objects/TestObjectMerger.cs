@@ -5,8 +5,8 @@ using GqlPlus.Merging.Objects;
 namespace GqlPlus.Merging.Schema.Objects;
 
 public abstract class TestObjectMerger<TObjField>
-  : TestTypedMerger<IAstType, IGqlpObject<TObjField>, IGqlpObjBase, TObjField>
-  where TObjField : IGqlpObjField
+  : TestTypedMerger<IAstType, IAstObject<TObjField>, IAstObjBase, TObjField>
+  where TObjField : IAstObjField
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsTypeParamsCantMerge_ReturnsErrors(string name, string[] typeParams)
@@ -33,27 +33,27 @@ public abstract class TestObjectMerger<TObjField>
         MakeObject(name, fields: fields),
         MakeObject(name, fields: fields));
 
-  protected IMerge<IGqlpTypeParam> TypeParams { get; }
-  protected IMerge<IGqlpAlternate> Alternates { get; }
+  protected IMerge<IAstTypeParam> TypeParams { get; }
+  protected IMerge<IAstAlternate> Alternates { get; }
   protected IMerge<TObjField> Fields { get; }
 
   protected TestObjectMerger(TypeKind kind)
   {
     _kind = kind;
-    TypeParams = Merger<IGqlpTypeParam>();
-    Alternates = Merger<IGqlpAlternate>();
+    TypeParams = Merger<IAstTypeParam>();
+    Alternates = Merger<IAstAlternate>();
     Fields = Merger<TObjField>();
   }
 
   private readonly TypeKind _kind;
   internal abstract AstObjectsMerger<TObjField> MergerObject { get; }
-  internal override AstTypeMerger<IAstType, IGqlpObject<TObjField>, IGqlpObjBase, TObjField> MergerTyped => MergerObject;
+  internal override AstTypeMerger<IAstType, IAstObject<TObjField>, IAstObjBase, TObjField> MergerTyped => MergerObject;
 
-  protected IGqlpObject<TObjField> MakeObject(
+  protected IAstObject<TObjField> MakeObject(
     string name,
     string[]? aliases = null,
     string description = "",
-    IGqlpObjBase? parent = default,
+    IAstObjBase? parent = default,
     string[]? typeParams = null,
     FieldInput[]? fields = null,
     TypeInput[]? alternates = null)
@@ -65,13 +65,13 @@ public abstract class TestObjectMerger<TObjField>
       Alternates = alternates?.Alternates() ?? []
     };
 
-  protected IGqlpObjBase MakeBase(string type)
+  protected IAstObjBase MakeBase(string type)
     => new ObjBaseAst(AstNulls.At, type, "");
 
   protected abstract TObjField[] MakeFields(FieldInput[]? fields);
 
-  protected override IGqlpObject<TObjField> MakeTyped(string name, string[]? aliases = null, string description = "", IGqlpObjBase? parent = default)
+  protected override IAstObject<TObjField> MakeTyped(string name, string[]? aliases = null, string description = "", IAstObjBase? parent = default)
     => MakeObject(name, aliases, description, parent);
-  protected override IGqlpObjBase? MakeParent(string? parent)
+  protected override IAstObjBase? MakeParent(string? parent)
     => string.IsNullOrWhiteSpace(parent) ? null : MakeBase(parent!);
 }

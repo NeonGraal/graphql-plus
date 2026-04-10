@@ -30,20 +30,20 @@ public static class AllModellers
       .AddTypeModeller<IAstEnum, TypeEnumModel, EnumModeller>()
       .AddTypeModeller<IAstUnion, TypeUnionModel, UnionModeller>()
       // Object
-      .AddModeller<IGqlpTypeParam, TypeParamModel, TypeParamModeller>()
-      .AddModeller<IGqlpTypeArg, TypeArgModel, TypeArgModeller>()
-      .AddModeller<IGqlpObjBase, ObjBaseModel, ObjBaseModeller>()
-      .AddModeller<IGqlpAlternate, AlternateModel, AlternateModeller>()
+      .AddModeller<IAstTypeParam, TypeParamModel, TypeParamModeller>()
+      .AddModeller<IAstTypeArg, TypeArgModel, TypeArgModeller>()
+      .AddModeller<IAstObjBase, ObjBaseModel, ObjBaseModeller>()
+      .AddModeller<IAstAlternate, AlternateModel, AlternateModeller>()
 
-      .AddObjectModellers<IGqlpDualField, DualFieldModel, DualFieldModeller>()
-      .AddTypeModeller<IGqlpObject<IGqlpDualField>, TypeDualModel, DualModeller>()
+      .AddObjectModellers<IAstDualField, DualFieldModel, DualFieldModeller>()
+      .AddTypeModeller<IAstObject<IAstDualField>, TypeDualModel, DualModeller>()
 
-      .AddObjectModellers<IGqlpInputField, InputFieldModel, InputFieldModeller>()
-      .AddTypeModeller<IGqlpObject<IGqlpInputField>, TypeInputModel, InputModeller>()
-      .AddModeller<IGqlpInputParam, InputParamModel, InputParamModeller>()
+      .AddObjectModellers<IAstInputField, InputFieldModel, InputFieldModeller>()
+      .AddTypeModeller<IAstObject<IAstInputField>, TypeInputModel, InputModeller>()
+      .AddModeller<IAstInputParam, InputParamModel, InputParamModeller>()
 
-      .AddObjectModellers<IGqlpOutputField, OutputFieldModel, OutputFieldModeller>()
-      .AddTypeModeller<IGqlpObject<IGqlpOutputField>, TypeOutputModel, OutputModeller>()
+      .AddObjectModellers<IAstOutputField, OutputFieldModel, OutputFieldModeller>()
+      .AddTypeModeller<IAstObject<IAstOutputField>, TypeOutputModel, OutputModeller>()
     ;
 
   private static IServiceCollection AddModeller<TAst, TModel, TModeller>(this IServiceCollection services)
@@ -89,7 +89,7 @@ public static class AllModellers
   private static IServiceCollection AddObjectModellers<
       TObjFieldAst, TObjField, TFieldModeller
     >(this IServiceCollection services)
-      where TObjFieldAst : IGqlpObjField
+      where TObjFieldAst : IAstObjField
       where TObjField : IObjFieldModel
       where TFieldModeller : class, IModeller<TObjFieldAst, TObjField>
     => services

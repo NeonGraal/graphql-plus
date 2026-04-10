@@ -5,7 +5,7 @@ public class DirectiveModellerTests
 {
   public DirectiveModellerTests()
   {
-    IModeller<IGqlpInputParam, InputParamModel> parameter = MFor<IGqlpInputParam, InputParamModel>();
+    IModeller<IAstInputParam, InputParamModel> parameter = MFor<IAstInputParam, InputParamModel>();
 
     Modeller = new DirectiveModeller(parameter);
   }

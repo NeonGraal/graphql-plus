@@ -23,7 +23,7 @@ public partial class InputFieldAstTests
     CreateInput,
     (original, input) => original with { Name = input.Name });
 
-  internal static InputFieldAst CreateInput(FieldInput input, IGqlpObjBase objBase)
+  internal static InputFieldAst CreateInput(FieldInput input, IAstObjBase objBase)
     => new(AstNulls.At, input.Name, objBase);
 }
 

@@ -15,20 +15,20 @@ public class ObjFieldBuilder
   public ObjFieldBuilder(string name, string type)
     : base(name)
   {
-    Add<IGqlpObjField>();
-    Add<IGqlpObjFieldType>();
+    Add<IAstObjField>();
+    Add<IAstObjFieldType>();
     Add<IAstModifiers>();
-    Add<IGqlpObjEnum>();
+    Add<IAstObjEnum>();
 
     BaseBuilder = new ObjBaseBuilder(type);
   }
 
   protected new T Build<T>()
-    where T : class, IGqlpObjField
+    where T : class, IAstObjField
   {
     T result = base.Build<T>();
 
-    IGqlpObjBase type = BaseBuilder.AsObjBase;
+    IAstObjBase type = BaseBuilder.AsObjBase;
     result.Type.Returns(type);
     string modifiedType = _modifiers.AsString().Prepend(type.FullType).Joined();
     result.ModifiedType.Returns(modifiedType);
@@ -57,7 +57,7 @@ public class ObjFieldBuilder
 
 public abstract class ObjFieldBuilder<T>
   : ObjFieldBuilder
-  where T : class, IGqlpObjField
+  where T : class, IAstObjField
 {
   protected ObjFieldBuilder(string name, string type)
     : base(name, type)
@@ -74,7 +74,7 @@ public static class ObjFieldBuilderHelper
   public static T WithArgs<T>(this T builder, params TypeArgBuilder[] args)
     where T : ObjFieldBuilder
     => builder.WithArgs([.. args.Select(a => a.AsTypeArg)]);
-  public static T WithArgs<T>(this T builder, params IGqlpTypeArg[] args)
+  public static T WithArgs<T>(this T builder, params IAstTypeArg[] args)
     where T : ObjFieldBuilder
     => builder.FluentAction(b => b.BaseBuilder._args = args);
   public static T IsTypeParam<T>(this T builder, bool isTypeParam = true)

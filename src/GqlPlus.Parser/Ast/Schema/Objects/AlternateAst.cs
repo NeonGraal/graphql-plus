@@ -7,7 +7,7 @@ internal record class AlternateAst(
   string Name,
   string Description
 ) : ObjBaseAst(At, Name, Description)
-  , IGqlpAlternate
+  , IAstAlternate
 {
   internal override string Abbr => "OA";
   public IAstModifier[] Modifiers { get; set; } = [];
@@ -16,8 +16,8 @@ internal record class AlternateAst(
 
   IEnumerable<IAstModifier> IAstModifiers.Modifiers => Modifiers;
 
-  string IGqlpObjEnum.EnumTypeName => IsTypeParam ? "" : Name;
-  void IGqlpObjEnum.SetEnumType(string enumType)
+  string IAstObjEnum.EnumTypeName => IsTypeParam ? "" : Name;
+  void IAstObjEnum.SetEnumType(string enumType)
   {
     if (EnumValue == null) {
       EnumValue = new EnumValueAst(At, enumType, Name);
@@ -29,8 +29,8 @@ internal record class AlternateAst(
   }
 
   public virtual bool Equals(AlternateAst? other)
-    => other is IGqlpAlternate alternate && Equals(alternate);
-  public bool Equals(IGqlpAlternate? other)
+    => other is IAstAlternate alternate && Equals(alternate);
+  public bool Equals(IAstAlternate? other)
     => base.Equals(other)
     && Modifiers.SequenceEqual(other.Modifiers)
     && EnumValue.NullEqual(other.EnumValue);

@@ -34,7 +34,7 @@ public class EnumContext(
     return true;
   }
 
-  internal void CheckEnumValue(string label, IGqlpObjEnum output)
+  internal void CheckEnumValue(string label, IAstObjEnum output)
   {
     if (output.EnumValue is null) {
       return;

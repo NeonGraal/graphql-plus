@@ -6,7 +6,7 @@ namespace GqlPlus.Verifying.Schema.Objects;
 public abstract class ObjectVerifierAlternatesTestsBase<TObjField>(
   TypeKind kind
 ) : ObjectVerifierTestsBase<TObjField>(kind)
-  where TObjField : class, IGqlpObjField
+  where TObjField : class, IAstObjField
 {
   [Fact]
   public void Verify_WithAlternate_ReturnsNoErrors()

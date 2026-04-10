@@ -11,7 +11,7 @@ internal sealed record class DirectiveDeclAst(
   , IAstSchemaDirective
 {
   public DirectiveOption Option { get; set; } = DirectiveOption.Unique;
-  public IGqlpInputParam? Parameter { get; set; }
+  public IAstInputParam? Parameter { get; set; }
   public DirectiveLocation Locations { get; set; } = DirectiveLocation.None;
 
   internal override string Abbr => "Di";

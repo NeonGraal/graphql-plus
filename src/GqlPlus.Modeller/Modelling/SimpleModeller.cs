@@ -1,12 +1,12 @@
 ﻿namespace GqlPlus.Modelling;
 
 internal class SimpleModeller(
-  IModeller<IGqlpEnumValue, EnumValueModel> enumValue
-) : ModellerBase<IGqlpFieldKey, SimpleModel>
+  IModeller<IAstEnumValue, EnumValueModel> enumValue
+) : ModellerBase<IAstFieldKey, SimpleModel>
 {
-  protected override SimpleModel ToModel(IGqlpFieldKey ast, IMap<TypeKindModel> typeKinds)
+  protected override SimpleModel ToModel(IAstFieldKey ast, IMap<TypeKindModel> typeKinds)
     => ast switch {
-      null => throw new ModelTypeException<IGqlpFieldKey>("Null ast"),
+      null => throw new ModelTypeException<IAstFieldKey>("Null ast"),
       { Number: not null } => SimpleModel.Num(ast.Number.Value),
       { Text: not null } when !string.IsNullOrEmpty(ast.Text)
         => SimpleModel.Str(ast.Text),

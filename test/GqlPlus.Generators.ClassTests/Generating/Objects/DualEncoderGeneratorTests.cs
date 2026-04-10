@@ -3,13 +3,13 @@
 namespace GqlPlus.Generating.Objects;
 
 public class DualEncoderGeneratorTests
-  : GenerateObjectTestsBase<IGqlpDualField>
+  : GenerateObjectTestsBase<IAstDualField>
 {
   public DualEncoderGeneratorTests()
     : base(TypeKind.Dual)
   { }
 
-  internal override GenerateForType<IGqlpObject<IGqlpDualField>> TypeGenerator { get; }
+  internal override GenerateForType<IAstObject<IAstDualField>> TypeGenerator { get; }
     = new DualEncoderGenerator();
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Enc;
   internal override GqlpBaseType BaseType => GqlpBaseType.Class;
@@ -30,6 +30,6 @@ public class DualEncoderGeneratorTests
   internal override ForType ForGeneratedInterface(string contains)
     => _ => _ => { };
 
-  protected override ObjFieldBuilder<IGqlpDualField> MakeField(string name, string type)
+  protected override ObjFieldBuilder<IAstDualField> MakeField(string name, string type)
     => new DualFieldBuilder(name, type);
 }

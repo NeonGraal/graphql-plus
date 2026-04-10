@@ -2,8 +2,8 @@
 
 [TracePerTest]
 public class VerifyDirectiveAliasedTests
-  : AliasedVerifierTestsBase<IGqlpSchemaDirective>
+  : AliasedVerifierTestsBase<IAstSchemaDirective>
 {
-  internal override GroupedVerifier<IGqlpSchemaDirective> NewGroupedVerifier()
+  internal override GroupedVerifier<IAstSchemaDirective> NewGroupedVerifier()
     => new VerifyDirectiveAliased(VerifierRepo);
 }

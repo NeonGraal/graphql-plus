@@ -12,7 +12,7 @@ public class AllModellersTests
       .AddModellers()
       .BuildServiceProvider();
 
-    services.GetService<IModeller<IGqlpFieldKey>>()
+    services.GetService<IModeller<IAstFieldKey>>()
       .ShouldNotBeNull();
   }
 }

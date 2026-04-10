@@ -19,7 +19,7 @@ internal class GeneratorRepository
   }
 
   public IGenerator<TAst> GeneratorFor<TAst>()
-    where TAst : IGqlpError
+    where TAst : IAstError
     => Cached<TAst, IGenerator<TAst>>(_builder.Generators, "generator", this);
 
   public IDictionary<GqlpGeneratorType, IEnumerable<ITypeGenerator>> TypeGenerators => _typeGenerators.Value;

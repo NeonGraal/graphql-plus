@@ -5,7 +5,7 @@ using GqlPlus.Merging.Simple;
 namespace GqlPlus.Merging.Schema.Simple;
 
 public class MergeDomainRegexesTests(ITestOutputHelper outputHelper)
-    : TestDomainItemMerger<IGqlpDomainRegex, string>
+    : TestDomainItemMerger<IAstDomainRegex, string>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentExcludes_ReturnsErrors(string name)
@@ -13,8 +13,8 @@ public class MergeDomainRegexesTests(ITestOutputHelper outputHelper)
 
   private readonly MergeDomainRegexes _merger = new(MergeRepo(outputHelper.ToLoggerFactory()));
 
-  internal override GroupsMerger<IGqlpDomainRegex> MergerGroups => _merger;
+  internal override GroupsMerger<IAstDomainRegex> MergerGroups => _merger;
 
-  protected override IGqlpDomainRegex MakeItem(string input, bool excludes)
+  protected override IAstDomainRegex MakeItem(string input, bool excludes)
     => new DomainRegexAst(AstNulls.At, "", excludes, input);
 }

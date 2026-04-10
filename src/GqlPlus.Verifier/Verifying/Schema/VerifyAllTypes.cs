@@ -2,25 +2,25 @@
 
 namespace GqlPlus.Verifying.Schema;
 
-internal class VerifyAllTypes(IVerifierRepository verifiers) : IVerify<IGqlpType[]>
+internal class VerifyAllTypes(IVerifierRepository verifiers) : IVerify<IAstType[]>
 {
-  private readonly IVerifyUsage<IGqlpObject<IGqlpDualField>> _dualAllTypes = verifiers.UsageFor<IGqlpObject<IGqlpDualField>>();
-  private readonly IVerifyUsage<IGqlpEnum> _enumAllTypes = verifiers.UsageFor<IGqlpEnum>();
-  private readonly IVerifyUsage<IGqlpObject<IGqlpInputField>> _inputAllTypes = verifiers.UsageFor<IGqlpObject<IGqlpInputField>>();
-  private readonly IVerifyUsage<IGqlpObject<IGqlpOutputField>> _outputAllTypes = verifiers.UsageFor<IGqlpObject<IGqlpOutputField>>();
-  private readonly IVerifyUsage<IGqlpDomain> _domainAllTypes = verifiers.UsageFor<IGqlpDomain>();
-  private readonly IVerifyUsage<IGqlpUnion> _unionAllTypes = verifiers.UsageFor<IGqlpUnion>();
+  private readonly IVerifyUsage<IAstObject<IAstDualField>> _dualAllTypes = verifiers.UsageFor<IAstObject<IAstDualField>>();
+  private readonly IVerifyUsage<IAstEnum> _enumAllTypes = verifiers.UsageFor<IAstEnum>();
+  private readonly IVerifyUsage<IAstObject<IAstInputField>> _inputAllTypes = verifiers.UsageFor<IAstObject<IAstInputField>>();
+  private readonly IVerifyUsage<IAstObject<IAstOutputField>> _outputAllTypes = verifiers.UsageFor<IAstObject<IAstOutputField>>();
+  private readonly IVerifyUsage<IAstDomain> _domainAllTypes = verifiers.UsageFor<IAstDomain>();
+  private readonly IVerifyUsage<IAstUnion> _unionAllTypes = verifiers.UsageFor<IAstUnion>();
 
-  public void Verify(IGqlpType[] item, IMessages errors)
+  public void Verify(IAstType[] item, IMessages errors)
   {
-    IGqlpType[] allTypes = [.. item, .. BuiltIn.Basic, .. BuiltIn.Internal];
+    IAstType[] allTypes = [.. item, .. BuiltIn.Basic, .. BuiltIn.Internal];
 
-    IGqlpObject<IGqlpDualField>[] dualTypes = item.ArrayOf<IGqlpObject<IGqlpDualField>>();
-    IGqlpEnum[] enumTypes = item.ArrayOf<IGqlpEnum>();
-    IGqlpObject<IGqlpInputField>[] inputTypes = item.ArrayOf<IGqlpObject<IGqlpInputField>>();
-    IGqlpObject<IGqlpOutputField>[] outputTypes = item.ArrayOf<IGqlpObject<IGqlpOutputField>>();
-    IGqlpDomain[] domainTypes = item.ArrayOf<IGqlpDomain>();
-    IGqlpUnion[] unionTypes = item.ArrayOf<IGqlpUnion>();
+    IAstObject<IAstDualField>[] dualTypes = item.ArrayOf<IAstObject<IAstDualField>>();
+    IAstEnum[] enumTypes = item.ArrayOf<IAstEnum>();
+    IAstObject<IAstInputField>[] inputTypes = item.ArrayOf<IAstObject<IAstInputField>>();
+    IAstObject<IAstOutputField>[] outputTypes = item.ArrayOf<IAstObject<IAstOutputField>>();
+    IAstDomain[] domainTypes = item.ArrayOf<IAstDomain>();
+    IAstUnion[] unionTypes = item.ArrayOf<IAstUnion>();
 
     _dualAllTypes.Verify(new(dualTypes, allTypes), errors);
     _enumAllTypes.Verify(new(enumTypes, allTypes), errors);

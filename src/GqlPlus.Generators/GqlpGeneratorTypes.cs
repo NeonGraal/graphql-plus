@@ -2,10 +2,10 @@
 
 internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
 {
-  private readonly Map<IGqlpType> _types = [];
-  private readonly Map<IGqlpObjType> _args = [];
+  private readonly Map<IAstType> _types = [];
+  private readonly Map<IAstObjType> _args = [];
 
-  internal GqlpGeneratorTypes(GqlpGeneratorTypes parent, IEnumerable<IGqlpTypeArg>? typeArgs = null, IEnumerable<IGqlpTypeParam>? typeParams = null)
+  internal GqlpGeneratorTypes(GqlpGeneratorTypes parent, IEnumerable<IAstTypeArg>? typeArgs = null, IEnumerable<IAstTypeParam>? typeParams = null)
     : this(parent.ModelOptions)
   {
     _types = [.. parent._types];
@@ -39,20 +39,20 @@ internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
     [BuiltIn.BooleanAlias] = "bool",
   };
 
-  internal void AddArgs(IEnumerable<IGqlpTypeArg> typeArgs, IEnumerable<IGqlpTypeParam> typeParams)
+  internal void AddArgs(IEnumerable<IAstTypeArg> typeArgs, IEnumerable<IAstTypeParam> typeParams)
   {
-    IEnumerable<MapPair<IGqlpObjType>> args = typeArgs
-      ?.Zip(typeParams, (a, p) => a.ToPair<IGqlpObjType>(p.Name))
+    IEnumerable<MapPair<IAstObjType>> args = typeArgs
+      ?.Zip(typeParams, (a, p) => a.ToPair<IAstObjType>(p.Name))
       ?? [];
 
-    foreach ((string key, IGqlpObjType value) in args) {
+    foreach ((string key, IAstObjType value) in args) {
       AddArg(key, value);
     }
   }
 
-  private void AddArg(string key, IGqlpObjType value)
+  private void AddArg(string key, IAstObjType value)
   {
-    if (_args.TryGetValue(key, out IGqlpObjType arg)) {
+    if (_args.TryGetValue(key, out IAstObjType arg)) {
       if (arg.Name != value.Name && value.Name != key) {
         _args[key] = value;
       }
@@ -66,12 +66,12 @@ internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
   }
 
   /// <summary> Both params will be not null if result true but can't use NotNullWhen </summary>
-  internal bool GetArg(string? argName, out IGqlpObjType arg)
+  internal bool GetArg(string? argName, out IAstObjType arg)
     => _args.TryGetValue(argName.IfWhiteSpace(), out arg);
 
-  internal void AddTypes(params IGqlpType[] types)
+  internal void AddTypes(params IAstType[] types)
   {
-    foreach (IGqlpType type in types) {
+    foreach (IAstType type in types) {
       _types[type.Name] = type;
       foreach (string alias in type.Aliases) {
         if (!_types.ContainsKey(alias)) {
@@ -83,10 +83,10 @@ internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
 
   /// <summary> Both params will be not null if result true but can't use NotNullWhen </summary>
   internal bool GetTypeAst<TAst>(string? typeName, out TAst ast)
-    where TAst : class, IGqlpType
+    where TAst : class, IAstType
   {
     if (!string.IsNullOrWhiteSpace(typeName)
-        && _types.TryGetValue(typeName.IfWhiteSpace(), out IGqlpType type)
+        && _types.TryGetValue(typeName.IfWhiteSpace(), out IAstType type)
         && type is TAst astType) {
       ast = astType;
       return true;
@@ -96,7 +96,7 @@ internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
     return false;
   }
 
-  internal string TypeName(IGqlpNamed type, string prefix)
+  internal string TypeName(IAstNamed type, string prefix)
     => TypeName(type.Name, prefix);
 
   internal string TypeName(string typeName, string prefix)
@@ -105,8 +105,8 @@ internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
       return dotNetType;
     }
 
-    if (_types.TryGetValue(typeName, out IGqlpType theType)) {
-      return (theType is IGqlpEnum ? "" : prefix) + ModelOptions.TypePrefix + theType.Name;
+    if (_types.TryGetValue(typeName, out IAstType theType)) {
+      return (theType is IAstEnum ? "" : prefix) + ModelOptions.TypePrefix + theType.Name;
     } else {
       return prefix + ModelOptions.TypePrefix + typeName;
     }

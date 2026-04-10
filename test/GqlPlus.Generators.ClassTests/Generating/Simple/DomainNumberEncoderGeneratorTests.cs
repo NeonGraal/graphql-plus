@@ -1,10 +1,10 @@
 ﻿namespace GqlPlus.Generating.Simple;
 
 public class DomainNumberEncoderGeneratorTests
-  : GenerateDomainTestsBase<IGqlpDomainRange>
+  : GenerateDomainTestsBase<IAstDomainRange>
 {
   protected override DomainKind Kind => DomainKind.Number;
-  internal override GenerateBaseDomain<IGqlpDomainRange> Generator { get; }
+  internal override GenerateBaseDomain<IAstDomainRange> Generator { get; }
     = new DomainNumberEncoderGenerator();
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Enc;
   internal override GqlpBaseType BaseType => GqlpBaseType.Class;
@@ -18,6 +18,6 @@ public class DomainNumberEncoderGeneratorTests
   internal override ForType ForGeneratedBoth(string contains)
     => ForGeneratedEncoder(contains);
 
-  protected override IGqlpDomainRange MakeDomainItem(string item)
+  protected override IAstDomainRange MakeDomainItem(string item)
     => A.ItemRange(item?.Length ?? 0);
 }

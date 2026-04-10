@@ -4,7 +4,7 @@ using GqlPlus.Ast.Operation;
 namespace GqlPlus.Parser.Operation;
 
 public class ParseObjectTests(
-  IManyChecksParser<IGqlpSelection> checks
+  IManyChecksParser<IAstSelection> checks
 )
 {
   [Theory, RepeatData]

@@ -5,13 +5,13 @@ namespace GqlPlus.Building.Schema.Objects;
 public class ObjBaseBuilder
   : ObjTypeBuilder
 {
-  internal IGqlpTypeArg[] _args = [];
+  internal IAstTypeArg[] _args = [];
   public ObjBaseBuilder(string name)
     : base(name)
-    => Add<IGqlpObjBase>();
+    => Add<IAstObjBase>();
 
   protected new T Build<T>()
-    where T : class, IGqlpObjBase
+    where T : class, IAstObjBase
   {
     T result = base.Build<T>();
 
@@ -28,8 +28,8 @@ public class ObjBaseBuilder
     return result;
   }
 
-  public IGqlpObjBase AsObjBase
-    => Build<IGqlpObjBase>();
+  public IAstObjBase AsObjBase
+    => Build<IAstObjBase>();
 }
 
 public static class ObjBaseBuilderHelper
@@ -40,7 +40,7 @@ public static class ObjBaseBuilderHelper
   public static T WithArgs<T>(this T builder, params TypeArgBuilder[] args)
     where T : ObjBaseBuilder
     => builder.WithArgs([.. args.Select(a => a.AsTypeArg)]);
-  public static T WithArgs<T>(this T builder, params IGqlpTypeArg[] args)
+  public static T WithArgs<T>(this T builder, params IAstTypeArg[] args)
     where T : ObjBaseBuilder
     => builder.FluentAction(b => b._args = args);
 }

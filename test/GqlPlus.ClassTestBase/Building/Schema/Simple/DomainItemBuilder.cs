@@ -8,10 +8,10 @@ public class DomainItemBuilder
   internal bool _excludes;
 
   public DomainItemBuilder()
-    => Add<IGqlpDomainItem>();
+    => Add<IAstDomainItem>();
 
   protected new T Build<T>()
-    where T : class, IGqlpDomainItem
+    where T : class, IAstDomainItem
   {
     T result = base.Build<T>();
     result.Excludes.Returns(_excludes);

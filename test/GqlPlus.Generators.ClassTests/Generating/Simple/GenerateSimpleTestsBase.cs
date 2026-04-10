@@ -4,8 +4,8 @@ using GqlPlus.Building.Schema.Simple;
 namespace GqlPlus.Generating.Simple;
 
 public abstract class GenerateSimpleTestsBase<TSimple>
-  : GenerateTypeClassTestsBase<TSimple, IGqlpTypeRef, MapPair<string>>
-  where TSimple : class, IGqlpSimple
+  : GenerateTypeClassTestsBase<TSimple, IAstTypeRef, MapPair<string>>
+  where TSimple : class, IAstSimple
 {
   [Theory, RepeatData]
   public void GenerateType_WithParent_GeneratesCorrectCode(string name, string parent)

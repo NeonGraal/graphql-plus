@@ -3,14 +3,14 @@
 namespace GqlPlus.Generating.Simple;
 
 public class EnumDecoderGeneratorTests
-  : GenerateSimpleTestsBase<IGqlpEnum>
+  : GenerateSimpleTestsBase<IAstEnum>
 {
   private readonly EnumDecoderGenerator _generator;
 
   public EnumDecoderGeneratorTests()
     => _generator = new EnumDecoderGenerator();
 
-  internal override GenerateForType<IGqlpEnum> TypeGenerator => _generator;
+  internal override GenerateForType<IAstEnum> TypeGenerator => _generator;
 
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Dec;
   internal override GqlpBaseType BaseType => GqlpBaseType.Class;
@@ -21,8 +21,8 @@ public class EnumDecoderGeneratorTests
   internal override ForType ForGeneratedCodeParent(string parent)
     => _ => _ => { };
 
-  protected override void MakeItems(SimpleBuilder<IGqlpEnum> builder, params string[] items)
+  protected override void MakeItems(SimpleBuilder<IAstEnum> builder, params string[] items)
     => ((EnumBuilder)builder).WithLabels(items);
-  protected override SimpleBuilder<IGqlpEnum> MakeSimple(string name)
+  protected override SimpleBuilder<IAstEnum> MakeSimple(string name)
     => new EnumBuilder(name);
 }

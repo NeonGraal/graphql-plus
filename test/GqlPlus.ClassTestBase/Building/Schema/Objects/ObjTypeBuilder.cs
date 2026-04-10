@@ -9,10 +9,10 @@ public class ObjTypeBuilder
 
   public ObjTypeBuilder(string name)
     : base(name)
-    => Add<IGqlpObjType>();
+    => Add<IAstObjType>();
 
   protected new T Build<T>()
-    where T : class, IGqlpObjType
+    where T : class, IAstObjType
   {
     T result = base.Build<T>();
 

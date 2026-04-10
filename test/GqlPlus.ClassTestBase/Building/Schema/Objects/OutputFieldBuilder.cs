@@ -3,16 +3,16 @@
 namespace GqlPlus.Building.Schema.Objects;
 
 public class OutputFieldBuilder
-  : ObjFieldBuilder<IGqlpOutputField>
+  : ObjFieldBuilder<IAstOutputField>
 {
-  internal IGqlpInputParam? _inputParam;
+  internal IAstInputParam? _inputParam;
 
   public OutputFieldBuilder(string name, string type)
     : base(name, type)
-    => Add<IGqlpOutputField>();
+    => Add<IAstOutputField>();
 
   protected new T Build<T>()
-    where T : class, IGqlpOutputField
+    where T : class, IAstOutputField
   {
     T result = base.Build<T>();
 
@@ -21,15 +21,15 @@ public class OutputFieldBuilder
     return result;
   }
 
-  public IGqlpOutputField AsOutputField
-    => Build<IGqlpOutputField>();
+  public IAstOutputField AsOutputField
+    => Build<IAstOutputField>();
 
-  public override IGqlpOutputField AsObjField => AsOutputField;
+  public override IAstOutputField AsObjField => AsOutputField;
 }
 
 public static class OutputFieldBuilderHelper
 {
-  public static T WithParam<T>(this T builder, IGqlpInputParam? inputParam)
+  public static T WithParam<T>(this T builder, IAstInputParam? inputParam)
     where T : OutputFieldBuilder
     => builder.FluentAction(b => b._inputParam = inputParam);
 }

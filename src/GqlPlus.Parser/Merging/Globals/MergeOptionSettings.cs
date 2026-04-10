@@ -6,18 +6,18 @@ namespace GqlPlus.Merging.Globals;
 
 internal class MergeOptionSettings(
   IMergerRepository mergers
-) : GroupsMerger<IGqlpSchemaSetting>
+) : GroupsMerger<IAstSchemaSetting>
 {
-  protected override string ItemGroupKey(IGqlpSchemaSetting item) => item.Name;
+  protected override string ItemGroupKey(IAstSchemaSetting item) => item.Name;
 
-  protected override IMessages CanMergeGroup(IGrouping<string, IGqlpSchemaSetting> group)
-    => group.CanMerge(item => item.Value, mergers.MergerFor<IGqlpConstant>());
+  protected override IMessages CanMergeGroup(IGrouping<string, IAstSchemaSetting> group)
+    => group.CanMerge(item => item.Value, mergers.MergerFor<IAstConstant>());
 
-  protected override IGqlpSchemaSetting MergeGroup(IEnumerable<IGqlpSchemaSetting> group)
+  protected override IAstSchemaSetting MergeGroup(IEnumerable<IAstSchemaSetting> group)
   {
     OptionSettingAst ast = (OptionSettingAst)group.First();
     return ast with {
-      Value = (ConstantAst)group.Combine(item => item.Value, mergers.MergerFor<IGqlpConstant>())
+      Value = (ConstantAst)group.Combine(item => item.Value, mergers.MergerFor<IAstConstant>())
     };
   }
 }

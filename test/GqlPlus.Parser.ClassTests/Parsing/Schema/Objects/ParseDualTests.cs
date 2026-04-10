@@ -6,15 +6,15 @@ public class ParseDualTests
   : DeclarationClassTestBase
 {
 
-  private readonly Parser<IGqlpTypeParam>.IA _param;
-  private readonly Parser<ObjectDefinition<IGqlpDualField>>.I _definition;
-  private readonly ObjectParser<IGqlpDualField> _parser;
+  private readonly Parser<IAstTypeParam>.IA _param;
+  private readonly Parser<ObjectDefinition<IAstDualField>>.I _definition;
+  private readonly ObjectParser<IAstDualField> _parser;
 
   public ParseDualTests()
   {
-    ConfigureRepoArray<IGqlpTypeParam>(Parsers, out _param);
-    ConfigureRepo<ObjectDefinition<IGqlpDualField>>(Parsers, out _definition);
-    _parser = new ObjectParser<IGqlpDualField>(TypeKind.Dual, Parsers);
+    ConfigureRepoArray<IAstTypeParam>(Parsers, out _param);
+    ConfigureRepo<ObjectDefinition<IAstDualField>>(Parsers, out _definition);
+    _parser = new ObjectParser<IAstDualField>(TypeKind.Dual, Parsers);
   }
 
   [Theory, RepeatData]
@@ -22,13 +22,13 @@ public class ParseDualTests
   {
     // Arrange
     NameReturns(dualName);
-    ParseOk(_definition, new ObjectDefinition<IGqlpDualField>());
+    ParseOk(_definition, new ObjectDefinition<IAstDualField>());
 
     // Act
-    IResult<IGqlpObject<IGqlpDualField>> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstObject<IAstDualField>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpObject<IGqlpDualField>>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstObject<IAstDualField>>>();
   }
 
   [Fact]
@@ -36,10 +36,10 @@ public class ParseDualTests
   {
     // Arrange
     Tokenizer.Identifier(out _).Returns(false);
-    SetupError<IGqlpObject<IGqlpDualField>>();
+    SetupError<IAstObject<IAstDualField>>();
 
     // Act
-    IResult<IGqlpObject<IGqlpDualField>> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstObject<IAstDualField>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

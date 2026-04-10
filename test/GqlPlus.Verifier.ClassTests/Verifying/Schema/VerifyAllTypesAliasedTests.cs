@@ -2,8 +2,8 @@
 
 [TracePerTest]
 public class VerifyAllTypesAliasedTests
-  : GroupedVerifierTestsBase<IGqlpType>
+  : GroupedVerifierTestsBase<IAstType>
 {
-  internal override GroupedVerifier<IGqlpType> NewGroupedVerifier()
+  internal override GroupedVerifier<IAstType> NewGroupedVerifier()
     => new VerifyAllTypesAliased(VerifierRepo);
 }

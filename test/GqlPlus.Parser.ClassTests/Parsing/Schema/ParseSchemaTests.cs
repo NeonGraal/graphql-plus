@@ -29,10 +29,10 @@ public class ParseSchemaTests
     Tokenizer.AtEnd.Returns(true);
 
     // Act
-    IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstSchema> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpSchema>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstSchema>>()
       .Required().ShouldNotBeNull()
       .Result.ShouldBe(ParseResultKind.Success);
   }
@@ -44,13 +44,13 @@ public class ParseSchemaTests
     IdentifierReturns(OutString("unknown"));
     Tokenizer.AtEnd.Returns(true);
 
-    SetupError<IGqlpSchema>();
+    SetupError<IAstSchema>();
 
     // Act
-    IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstSchema> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpSchema>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstSchema>>()
       .Required().ShouldNotBeNull()
       .Result.ShouldBe(ParseResultKind.Failure);
   }
@@ -61,13 +61,13 @@ public class ParseSchemaTests
     // Arrange
     IdentifierReturns(OutString("category"));
 
-    SetupError<IGqlpSchema>();
+    SetupError<IAstSchema>();
 
     // Act
-    IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstSchema> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpSchema>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstSchema>>()
       .Required().ShouldNotBeNull()
       .Result.ShouldBe(ParseResultKind.Failure);
   }
@@ -78,10 +78,10 @@ public class ParseSchemaTests
     // Arrange
     Tokenizer.Read().Returns(false);
 
-    SetupError<IGqlpSchema>();
+    SetupError<IAstSchema>();
 
     // Act
-    IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstSchema> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

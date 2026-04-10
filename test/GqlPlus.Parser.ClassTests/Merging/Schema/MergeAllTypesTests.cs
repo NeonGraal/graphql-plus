@@ -5,12 +5,12 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Merging.Schema;
 
 public class MergeAllTypesTests
-  : TestAbbreviatedMerger<IGqlpType>
+  : TestAbbreviatedMerger<IAstType>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSameNameDifferentTypes_ReturnsErrors(string input)
     => CanMerge_Errors([MakeAst(input),
-      new AstObject<IGqlpDualField>(TypeKind.Dual, AstNulls.At, input, "")]);
+      new AstObject<IAstDualField>(TypeKind.Dual, AstNulls.At, input, "")]);
 
   [Theory, RepeatData]
   public void FixupType_WithDomainLabel_FixesType(string enumType, string enumLabel, string domainType)
@@ -20,9 +20,9 @@ public class MergeAllTypesTests
     // Arrange
     DomainLabelAst domainLabel = new(AstNulls.At, "", false, enumLabel);
 
-    IGqlpType[] types = [
+    IAstType[] types = [
       new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, enumLabel, "")]),
-      new AstDomain<DomainLabelAst, IGqlpDomainLabel>(AstNulls.At, domainType, DomainKind.Enum, [domainLabel]),
+      new AstDomain<DomainLabelAst, IAstDomainLabel>(AstNulls.At, domainType, DomainKind.Enum, [domainLabel]),
     ];
 
     // Act
@@ -43,9 +43,9 @@ public class MergeAllTypesTests
       EnumValue = new EnumValueAst(AstNulls.At, enumLabel)
     };
 
-    IGqlpType[] types = [
+    IAstType[] types = [
       new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, enumLabel, "")]),
-      new AstObject < IGqlpOutputField > (TypeKind.Output, AstNulls.At, outputType, "") { ObjFields = [field] },
+      new AstObject < IAstOutputField > (TypeKind.Output, AstNulls.At, outputType, "") { ObjFields = [field] },
     ];
 
     // Act
@@ -71,9 +71,9 @@ public class MergeAllTypesTests
       Args = [arg]
     });
 
-    IGqlpType[] types = [
+    IAstType[] types = [
       new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, enumLabel, "")]),
-      new AstObject<IGqlpOutputField>(TypeKind.Output, AstNulls.At, outputType, "") { ObjFields = [field] },
+      new AstObject<IAstOutputField>(TypeKind.Output, AstNulls.At, outputType, "") { ObjFields = [field] },
     ];
 
     // Act
@@ -95,9 +95,9 @@ public class MergeAllTypesTests
       EnumValue = new EnumValueAst(AstNulls.At, enumLabel)
     };
 
-    IGqlpType[] types = [
+    IAstType[] types = [
       new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, enumLabel, "")]),
-      new AstObject<IGqlpOutputField>(TypeKind.Output, AstNulls.At, outputType, "") { Alternates = [alt] },
+      new AstObject<IAstOutputField>(TypeKind.Output, AstNulls.At, outputType, "") { Alternates = [alt] },
     ];
 
     // Act
@@ -122,9 +122,9 @@ public class MergeAllTypesTests
       Args = [arg]
     };
 
-    IGqlpType[] types = [
+    IAstType[] types = [
       new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, enumLabel, "")]),
-      new AstObject<IGqlpOutputField>(TypeKind.Output, AstNulls.At, outputType, "") { Alternates = [alt] },
+      new AstObject<IAstOutputField>(TypeKind.Output, AstNulls.At, outputType, "") { Alternates = [alt] },
     ];
 
     // Act
@@ -145,9 +145,9 @@ public class MergeAllTypesTests
     // Arrange
     OutputFieldAst field = new(AstNulls.At, fieldName, new ObjBaseAst(AstNulls.At, BuiltIn.BooleanType, ""));
 
-    IGqlpType[] types = [
+    IAstType[] types = [
       new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, BuiltIn.BooleanType, "")]),
-      new AstObject<IGqlpOutputField>(TypeKind.Output, AstNulls.At, outputType, "") { ObjFields = [field] },
+      new AstObject<IAstOutputField>(TypeKind.Output, AstNulls.At, outputType, "") { ObjFields = [field] },
     ];
 
     // Act
@@ -162,17 +162,17 @@ public class MergeAllTypesTests
 
   public MergeAllTypesTests(ITestOutputHelper outputHelper)
   {
-    IMergeAll<IGqlpType> result = Substitute.For<IMergeAll<IGqlpType>>();
+    IMergeAll<IAstType> result = Substitute.For<IMergeAll<IAstType>>();
     result.CanMerge([]).ReturnsForAnyArgs(EmptyMessages);
-    result.Merge([]).ReturnsForAnyArgs(c => c.Arg<IEnumerable<IGqlpType>>());
+    result.Merge([]).ReturnsForAnyArgs(c => c.Arg<IEnumerable<IAstType>>());
 
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.AllMergersFor<IGqlpType>().Returns([result]);
+    mergers.AllMergersFor<IAstType>().Returns([result]);
     _merger = new(mergers);
   }
 
-  protected override IMerge<IGqlpType> MergerBase => _merger;
+  protected override IMerge<IAstType> MergerBase => _merger;
 
-  protected override IGqlpType MakeAst(string input)
+  protected override IAstType MakeAst(string input)
     => new EnumDeclAst(AstNulls.At, input, []);
 }

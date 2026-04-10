@@ -3,7 +3,7 @@
 namespace GqlPlus.Generating.Simple;
 
 public class UnionInterfaceGeneratorTests
-  : GenerateSimpleTestsBase<IGqlpUnion>
+  : GenerateSimpleTestsBase<IAstUnion>
 {
   private readonly UnionInterfaceGenerator _generator;
 
@@ -12,7 +12,7 @@ public class UnionInterfaceGeneratorTests
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
   internal override GqlpBaseType BaseType => GqlpBaseType.Interface;
 
-  internal override GenerateForType<IGqlpUnion> TypeGenerator => _generator;
+  internal override GenerateForType<IAstUnion> TypeGenerator => _generator;
 
   internal override ForType ForGeneratedCodeName(string name)
     => ForGeneratedInterface("public interface I" + TestPrefix + name);
@@ -31,8 +31,8 @@ public class UnionInterfaceGeneratorTests
   {
     // Arrange
     GqlpGeneratorContext context = Context();
-    IGqlpUnionMember member = A.Named<IGqlpUnionMember>(memberName);
-    IGqlpUnion unionType = A.Union(unionName).WithMembers(member).AsUnion;
+    IAstUnionMember member = A.Named<IAstUnionMember>(memberName);
+    IAstUnion unionType = A.Union(unionName).WithMembers(member).AsUnion;
 
     // Act
     MapPair<string>[] result = [.. _generator.TypeMembers(unionType, context)];
@@ -43,8 +43,8 @@ public class UnionInterfaceGeneratorTests
     result[0].Value.ShouldBe(memberName);
   }
 
-  protected override void MakeItems(SimpleBuilder<IGqlpUnion> builder, params string[] items)
+  protected override void MakeItems(SimpleBuilder<IAstUnion> builder, params string[] items)
     => ((UnionBuilder)builder).WithMembers(items);
-  protected override SimpleBuilder<IGqlpUnion> MakeSimple(string name)
+  protected override SimpleBuilder<IAstUnion> MakeSimple(string name)
     => new UnionBuilder(name);
 }

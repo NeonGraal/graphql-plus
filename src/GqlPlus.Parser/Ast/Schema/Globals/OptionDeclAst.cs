@@ -7,21 +7,21 @@ internal sealed record class OptionDeclAst(
   string Name,
   string Description
 ) : AstDeclaration(At, Name, Description)
-  , IGqlpSchemaOption
+  , IAstSchemaOption
 {
   public OptionSettingAst[] Settings { get; set; } = [];
 
   internal override string Abbr => "Op";
   public override string Label => "Option";
 
-  IEnumerable<IGqlpSchemaSetting> IGqlpSchemaOption.Settings => Settings;
+  IEnumerable<IAstSchemaSetting> IAstSchemaOption.Settings => Settings;
 
   public OptionDeclAst(ITokenAt at, string name)
     : this(at, name, "") { }
 
   public bool Equals(OptionDeclAst? other)
-    => other is IGqlpSchemaOption option && Equals(option);
-  public bool Equals(IGqlpSchemaOption? other)
+    => other is IAstSchemaOption option && Equals(option);
+  public bool Equals(IAstSchemaOption? other)
     => base.Equals(other)
     && Settings.SequenceEqual(other.Settings);
   public override int GetHashCode()

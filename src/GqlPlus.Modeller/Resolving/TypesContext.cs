@@ -3,10 +3,10 @@
 namespace GqlPlus.Resolving;
 
 internal class TypesContext(
-  IModeller<IGqlpType, BaseTypeModel> types
+  IModeller<IAstType, BaseTypeModel> types
 ) : ModelsContext
 {
-  internal static TypesContext WithBuiltins(IModeller<IGqlpType, BaseTypeModel> types)
+  internal static TypesContext WithBuiltins(IModeller<IAstType, BaseTypeModel> types)
   {
     TypesContext typeKinds = new(types);
 
@@ -16,9 +16,9 @@ internal class TypesContext(
     return typeKinds;
   }
 
-  internal void AddTypes(IGqlpType[] asts, TypeKindModel kind)
+  internal void AddTypes(IAstType[] asts, TypeKindModel kind)
   {
-    foreach (IGqlpType ast in asts) {
+    foreach (IAstType ast in asts) {
       this[ast.Name] = kind;
 
       foreach (string alias in ast.Aliases) {
@@ -26,7 +26,7 @@ internal class TypesContext(
       }
     }
 
-    foreach (IGqlpType ast in asts) {
+    foreach (IAstType ast in asts) {
       try {
         BaseTypeModel? model = types.TryModel(ast, this);
         if (model is not null) {

@@ -65,7 +65,7 @@ public class ParserClassTestBase
   }
 
   protected void SetupPartial<T>()
-    where T : class, IGqlpError
+    where T : class, IAstError
     => SetupPartial(AtFor<T>());
 
   protected void SetupPartial<T>(T result)
@@ -85,7 +85,7 @@ public class ParserClassTestBase
     => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(first, rest);
 
   protected T ParseOk<T>([NotNull] Parser<T>.I parser, int n = 1)
-    where T : class, IGqlpError
+    where T : class, IAstError
   {
     ArgumentOutOfRangeException.ThrowIfLessThan(n, 1);
 
@@ -108,7 +108,7 @@ public class ParserClassTestBase
     => Parse(parser, Error<T>(message.IfWhiteSpace("error for " + typeof(T).ExpandTypeName())));
 
   protected T ParseOkError<T>([NotNull] Parser<T>.I parser, int n = 1, string? message = null)
-    where T : class, IGqlpError
+    where T : class, IAstError
   {
     ArgumentOutOfRangeException.ThrowIfLessThan(n, 1);
 
@@ -125,7 +125,7 @@ public class ParserClassTestBase
   }
 
   protected T[] ParseOkA<T>([NotNull] Parser<T>.IA parser, int n = 1)
-    where T : class, IGqlpError
+    where T : class, IAstError
   {
     ArgumentOutOfRangeException.ThrowIfLessThan(n, 1);
 
@@ -154,7 +154,7 @@ public class ParserClassTestBase
     => ParseA(parser, ErrorA<T>(message.IfWhiteSpace("error for array of " + typeof(T).ExpandTypeName())));
 
   protected T[] ParseOkErrorA<T>([NotNull] Parser<T>.IA parser, int n = 1, string? message = null)
-    where T : class, IGqlpError
+    where T : class, IAstError
   {
     ArgumentOutOfRangeException.ThrowIfLessThan(n, 1);
 
@@ -166,11 +166,11 @@ public class ParserClassTestBase
     return result;
   }
 
-  protected void ParseOkField<T>([NotNull] Parser<IGqlpFields<T>>.I parser, string fieldName)
-    where T : class, IGqlpError
+  protected void ParseOkField<T>([NotNull] Parser<IAstFields<T>>.I parser, string fieldName)
+    where T : class, IAstError
   {
     T value = AtFor<T>();
-    IGqlpFields<T> objectResult = A.Fields(fieldName, value);
+    IAstFields<T> objectResult = A.Fields(fieldName, value);
     ParseOk(parser, objectResult);
   }
 
@@ -194,11 +194,11 @@ public class ParserClassTestBase
   }
 
   protected static T AtFor<T>()
-    where T : class, IGqlpError
+    where T : class, IAstError
   {
     T result = A.Error<T>();
-    if (typeof(T).IsAssignableTo(typeof(IGqlpAbbreviated))) {
-      ((IGqlpAbbreviated)result).At.Returns(AstNulls.At);
+    if (typeof(T).IsAssignableTo(typeof(IAstAbbreviated))) {
+      ((IAstAbbreviated)result).At.Returns(AstNulls.At);
     }
 
     return result;

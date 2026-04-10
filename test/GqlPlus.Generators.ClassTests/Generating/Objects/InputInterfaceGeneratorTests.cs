@@ -3,13 +3,13 @@
 namespace GqlPlus.Generating.Objects;
 
 public class InputInterfaceGeneratorTests
-  : GenerateObjectTestsBase<IGqlpInputField>
+  : GenerateObjectTestsBase<IAstInputField>
 {
   public InputInterfaceGeneratorTests()
     : base(TypeKind.Input)
   { }
 
-  internal override GenerateForType<IGqlpObject<IGqlpInputField>> TypeGenerator { get; }
+  internal override GenerateForType<IAstObject<IAstInputField>> TypeGenerator { get; }
     = new InputInterfaceGenerator();
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
   internal override GqlpBaseType BaseType => GqlpBaseType.Interface;
@@ -26,6 +26,6 @@ public class InputInterfaceGeneratorTests
   internal override ForType ForGeneratedModel(string contains)
     => _ => result => { };
 
-  protected override ObjFieldBuilder<IGqlpInputField> MakeField(string name, string type)
+  protected override ObjFieldBuilder<IAstInputField> MakeField(string name, string type)
     => new InputFieldBuilder(name, type);
 }

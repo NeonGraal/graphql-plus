@@ -1,10 +1,10 @@
 ﻿namespace GqlPlus.Generating.Simple;
 
 public class DomainBooleanDecoderGeneratorTests
-  : GenerateDomainTestsBase<IGqlpDomainTrueFalse>
+  : GenerateDomainTestsBase<IAstDomainTrueFalse>
 {
   protected override DomainKind Kind => DomainKind.Boolean;
-  internal override GenerateBaseDomain<IGqlpDomainTrueFalse> Generator { get; }
+  internal override GenerateBaseDomain<IAstDomainTrueFalse> Generator { get; }
     = new DomainBooleanDecoderGenerator();
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Dec;
   internal override GqlpBaseType BaseType => GqlpBaseType.Class;
@@ -21,6 +21,6 @@ public class DomainBooleanDecoderGeneratorTests
   internal override ForType ForGeneratedModel(string contains)
     => _ => result => { };
 
-  protected override IGqlpDomainTrueFalse MakeDomainItem(string item)
+  protected override IAstDomainTrueFalse MakeDomainItem(string item)
     => A.ItemTrueFalse(item?.Length % 2 == 1);
 }

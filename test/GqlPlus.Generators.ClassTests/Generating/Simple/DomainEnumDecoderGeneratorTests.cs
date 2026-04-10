@@ -1,10 +1,10 @@
 ﻿namespace GqlPlus.Generating.Simple;
 
 public class DomainEnumDecoderGeneratorTests
-  : GenerateDomainTestsBase<IGqlpDomainLabel>
+  : GenerateDomainTestsBase<IAstDomainLabel>
 {
   protected override DomainKind Kind => DomainKind.Enum;
-  internal override GenerateBaseDomain<IGqlpDomainLabel> Generator { get; }
+  internal override GenerateBaseDomain<IAstDomainLabel> Generator { get; }
     = new DomainEnumDecoderGenerator();
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Dec;
   internal override GqlpBaseType BaseType => GqlpBaseType.Class;
@@ -21,6 +21,6 @@ public class DomainEnumDecoderGeneratorTests
   internal override ForType ForGeneratedModel(string contains)
     => _ => result => { };
 
-  protected override IGqlpDomainLabel MakeDomainItem(string item)
+  protected override IAstDomainLabel MakeDomainItem(string item)
     => A.ItemLabel("", item);
 }

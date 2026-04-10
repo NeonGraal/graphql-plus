@@ -3,15 +3,15 @@
 namespace GqlPlus.Building.Schema.Objects;
 
 public class DualFieldBuilder
-  : ObjFieldBuilder<IGqlpDualField>
+  : ObjFieldBuilder<IAstDualField>
 {
   public DualFieldBuilder(string name, string type)
     : base(name, type)
-    => Add<IGqlpDualField>();
+    => Add<IAstDualField>();
 
-  public IGqlpDualField AsDualField
-    => Build<IGqlpDualField>();
+  public IAstDualField AsDualField
+    => Build<IAstDualField>();
 
-  public override IGqlpDualField AsObjField
+  public override IAstDualField AsObjField
     => AsDualField;
 }

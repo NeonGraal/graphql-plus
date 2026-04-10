@@ -12,7 +12,7 @@ public class AllGeneratorsTests
   [Fact]
   public void AllGenerators_GeneratorForSchema_IsRegistered()
     => _services.GetRequiredService<IGeneratorRepository>()
-      .GeneratorFor<IGqlpSchema>()
+      .GeneratorFor<IAstSchema>()
       .ShouldNotBeNull();
 
   [Fact]

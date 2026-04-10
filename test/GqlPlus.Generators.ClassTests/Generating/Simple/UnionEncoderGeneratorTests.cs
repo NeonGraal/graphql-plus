@@ -3,7 +3,7 @@
 namespace GqlPlus.Generating.Simple;
 
 public class UnionEncoderGeneratorTests
-  : GenerateSimpleTestsBase<IGqlpUnion>
+  : GenerateSimpleTestsBase<IAstUnion>
 {
   private readonly UnionEncoderGenerator _generator;
 
@@ -12,7 +12,7 @@ public class UnionEncoderGeneratorTests
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Enc;
   internal override GqlpBaseType BaseType => GqlpBaseType.Class;
 
-  internal override GenerateForType<IGqlpUnion> TypeGenerator => _generator;
+  internal override GenerateForType<IAstUnion> TypeGenerator => _generator;
 
   internal override ForType ForGeneratedCodeName(string name)
     => ForGeneratedEncoder("internal class " + TestPrefix + name + "Encoder");
@@ -26,8 +26,8 @@ public class UnionEncoderGeneratorTests
   internal override ForType ForGeneratedInterface(string contains)
     => _ => _ => { };
 
-  protected override void MakeItems(SimpleBuilder<IGqlpUnion> builder, params string[] items)
+  protected override void MakeItems(SimpleBuilder<IAstUnion> builder, params string[] items)
     => ((UnionBuilder)builder).WithMembers(items);
-  protected override SimpleBuilder<IGqlpUnion> MakeSimple(string name)
+  protected override SimpleBuilder<IAstUnion> MakeSimple(string name)
     => new UnionBuilder(name);
 }

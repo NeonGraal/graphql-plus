@@ -6,12 +6,12 @@ public class ParseEnumDefinitionTests
   : SimpleParserClassTestBase
 {
 
-  private readonly Parser<IGqlpEnumLabel>.I _enumLabelParser;
+  private readonly Parser<IAstEnumLabel>.I _enumLabelParser;
   private readonly ParseEnumDefinition _parser;
 
   public ParseEnumDefinitionTests()
   {
-    ConfigureRepo<IGqlpEnumLabel>(Parsers, out _enumLabelParser);
+    ConfigureRepo<IAstEnumLabel>(Parsers, out _enumLabelParser);
     _parser = new ParseEnumDefinition(Parsers);
   }
 

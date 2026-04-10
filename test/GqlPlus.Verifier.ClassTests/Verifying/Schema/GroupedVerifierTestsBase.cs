@@ -4,7 +4,7 @@ namespace GqlPlus.Verifying.Schema;
 
 public abstract class GroupedVerifierTestsBase<TAliased>
   : VerifierTestsBase
-  where TAliased : class, IGqlpAliased
+  where TAliased : class, IAstAliased
 {
   private readonly ForM<TAliased> _merger = new();
   internal IMerge<TAliased> Merger => _merger.Intf;

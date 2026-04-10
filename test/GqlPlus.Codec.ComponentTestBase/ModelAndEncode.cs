@@ -6,7 +6,7 @@ namespace GqlPlus;
 
 #pragma warning disable CA1812 // Instantiated via Dependency Injection
 internal sealed class ModelAndEncode(
-  IModeller<IGqlpSchema, SchemaModel> modeller,
+  IModeller<IAstSchema, SchemaModel> modeller,
   IResolver<SchemaModel> resolver,
   IEncoder<SchemaModel> encoder,
   ITypesModeller types
@@ -14,12 +14,12 @@ internal sealed class ModelAndEncode(
 {
   public IModelsContext Context() => new TypesContext(types);
 
-  public Structured EncodeAst(IGqlpSchema schema, IModelsContext context, IGqlpSchema? extras = null)
+  public Structured EncodeAst(IAstSchema schema, IModelsContext context, IAstSchema? extras = null)
     => EncodeModel(ModelAst(schema, context, extras), context);
 
-  public SchemaModel ModelAst(IGqlpSchema schema, IModelsContext context, IGqlpSchema? extras = null)
+  public SchemaModel ModelAst(IAstSchema schema, IModelsContext context, IAstSchema? extras = null)
   {
-    types.AddTypeKinds(schema.Declarations.ArrayOf<IGqlpType>(), context.TypeKinds);
+    types.AddTypeKinds(schema.Declarations.ArrayOf<IAstType>(), context.TypeKinds);
     if (extras is not null) {
       SchemaModel extraModel = modeller.ToModel(extras, context.TypeKinds);
       context.AddModels(extraModel.Types.Values);
@@ -50,7 +50,7 @@ public interface IModelAndEncode
 {
   IModelsContext Context();
   IModelsContext WithBuiltIns();
-  Structured EncodeAst(IGqlpSchema schema, IModelsContext context, IGqlpSchema? extras = null);
-  SchemaModel ModelAst(IGqlpSchema schema, IModelsContext context, IGqlpSchema? extras = null);
+  Structured EncodeAst(IAstSchema schema, IModelsContext context, IAstSchema? extras = null);
+  SchemaModel ModelAst(IAstSchema schema, IModelsContext context, IAstSchema? extras = null);
   Structured EncodeModel(SchemaModel model, IModelsContext context);
 }

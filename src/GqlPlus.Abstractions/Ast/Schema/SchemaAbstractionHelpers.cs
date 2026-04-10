@@ -5,7 +5,7 @@ namespace GqlPlus.Abstractions.Schema;
 public static class SchemaAbstractionHelpers
 {
   public static IEnumerable<IGrouping<string, TAliased>> AliasedGroup<TAliased>(this TAliased[] items)
-    where TAliased : IGqlpAliased
+    where TAliased : IAstAliased
   {
     HashSet<string> names = [.. items.Select(d => d.Name).Distinct()];
 
@@ -16,11 +16,11 @@ public static class SchemaAbstractionHelpers
   }
 
   public static IMap<TResult> AliasedMap<TAliased, TResult>(this TAliased[] items, Func<IEnumerable<TAliased>, TResult> element)
-    where TAliased : IGqlpAliased
+    where TAliased : IAstAliased
     => AliasedGroup(items)
       .ToMap(g => g.Key, g => element(g));
 
   public static IEnumerable<string> NameAndAliases<T>([NotNull] this T aliased)
-    where T : IGqlpAliased
+    where T : IAstAliased
     => aliased.Aliases.Prepend(aliased.Name).Distinct();
 }

@@ -38,7 +38,7 @@ public class ParseObjBaseTests(
 
 internal sealed class ParseObjBaseChecks(
   IParserRepository parsers
-) : OneChecksParser<IGqlpObjBase>(parsers)
+) : OneChecksParser<IAstObjBase>(parsers)
   , IParseObjBaseChecks
 {
   public void WithMinimum(string name)
@@ -71,7 +71,7 @@ internal sealed class ParseObjBaseChecks(
 }
 
 public interface IParseObjBaseChecks
-  : IOneChecksParser<IGqlpObjBase>
+  : IOneChecksParser<IAstObjBase>
 {
   void WithMinimum(string name);
   void WithTypeParam(string name);

@@ -46,7 +46,7 @@ internal sealed class TypeArgAstChecks()
 
   public void FullType_WithIsTypeParam(string input)
   {
-    IGqlpTypeArg objArg = CreateInput(input) with { IsTypeParam = true };
+    IAstTypeArg objArg = CreateInput(input) with { IsTypeParam = true };
 
     objArg.FullType.ShouldBe("$" + input);
   }

@@ -5,7 +5,7 @@ namespace GqlPlus.Merging;
 
 internal abstract class BaseMerger<TItem>
   : IMerge<TItem>
-  where TItem : IGqlpError
+  where TItem : IAstError
 {
   public virtual IMessages CanMerge(IEnumerable<TItem> items)
     => items.Any() ? Messages.New : new Messages(

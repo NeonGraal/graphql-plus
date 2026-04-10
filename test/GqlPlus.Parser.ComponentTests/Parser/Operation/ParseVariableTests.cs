@@ -4,7 +4,7 @@ using GqlPlus.Ast.Operation;
 namespace GqlPlus.Parser.Operation;
 
 public class ParseVariableTests(
-  IOneChecksParser<IGqlpVariable> checks
+  IOneChecksParser<IAstVariable> checks
 )
 {
   [Theory, RepeatData]

@@ -4,14 +4,14 @@ using NSubstitute.ExceptionExtensions;
 namespace GqlPlus.Resolving;
 
 public class TypesContextTests
-  : ModellerClassTestBase<IGqlpType, BaseTypeModel>
+  : ModellerClassTestBase<IAstType, BaseTypeModel>
 {
-  protected override IModeller<IGqlpType, BaseTypeModel> Modeller { get; }
+  protected override IModeller<IAstType, BaseTypeModel> Modeller { get; }
 
   public TypesContextTests()
   {
-    Modeller = A.Of<IModeller<IGqlpType, BaseTypeModel>>();
-    Modeller.ToModel(null, TypeKinds).Throws<ModelTypeException<IGqlpType>>();
+    Modeller = A.Of<IModeller<IAstType, BaseTypeModel>>();
+    Modeller.ToModel(null, TypeKinds).Throws<ModelTypeException<IAstType>>();
   }
 
   [Fact]

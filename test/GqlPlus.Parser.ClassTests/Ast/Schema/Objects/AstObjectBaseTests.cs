@@ -51,10 +51,10 @@ public abstract class AstObjectBaseTests
 
 internal abstract class AstObjectChecks<TObjField>(
   TypeKind kind,
-  AstTypeChecks<AstObject<TObjField>, IGqlpObjBase>.ParentCreator createParent
-) : AstTypeChecks<AstObject<TObjField>, IGqlpObjBase>(CreateObject(kind), createParent)
+  AstTypeChecks<AstObject<TObjField>, IAstObjBase>.ParentCreator createParent
+) : AstTypeChecks<AstObject<TObjField>, IAstObjBase>(CreateObject(kind), createParent)
   , IAstObjectChecks
-  where TObjField : IGqlpObjField
+  where TObjField : IAstObjField
 {
   public void Equality_WithAlternates(string name, TypeInput[] alternates)
     => Equality(() => CreateInput(name) with { Alternates = AstObjectChecks<TObjField>.CreateAlternates(alternates) });
@@ -97,7 +97,7 @@ internal abstract class AstObjectChecks<TObjField>(
       parameters => CreateInput(name) with { TypeParams = parameters.TypeParams() },
       typeParams1.SequenceEqual(typeParams2));
 
-  protected static IGqlpAlternate[] CreateAlternates(IEnumerable<TypeInput> alternates)
+  protected static IAstAlternate[] CreateAlternates(IEnumerable<TypeInput> alternates)
     => alternates.Alternates();
   protected string AlternateString(TypeInput input)
     => $"{input.Type} [] ?";

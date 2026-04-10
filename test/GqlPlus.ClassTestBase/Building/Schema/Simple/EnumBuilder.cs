@@ -3,19 +3,19 @@
 namespace GqlPlus.Building.Schema.Simple;
 
 public class EnumBuilder
-  : SimpleBuilder<IGqlpEnum>
+  : SimpleBuilder<IAstEnum>
 {
-  internal IGqlpEnumLabel[] _labels = [];
+  internal IAstEnumLabel[] _labels = [];
 
   public EnumBuilder(string name)
     : base(name)
   {
-    Add<IGqlpEnum>();
+    Add<IAstEnum>();
     _typeKind = TypeKind.Enum;
   }
 
   protected new T Build<T>()
-    where T : class, IGqlpEnum
+    where T : class, IAstEnum
   {
     T result = base.Build<T>();
     result.Items.Returns(_labels);
@@ -26,18 +26,18 @@ public class EnumBuilder
     return result;
   }
 
-  public IGqlpEnum AsEnum
-    => Build<IGqlpEnum>();
+  public IAstEnum AsEnum
+    => Build<IAstEnum>();
 
-  public override IGqlpEnum AsSimple => AsEnum;
+  public override IAstEnum AsSimple => AsEnum;
 }
 
 public static class EnumBuilderHelper
 {
-  public static T WithLabels<T>(this T builder, params IGqlpEnumLabel[] labels)
+  public static T WithLabels<T>(this T builder, params IAstEnumLabel[] labels)
     where T : EnumBuilder
     => builder.FluentAction(b => b._labels = labels);
   public static T WithLabels<T>(this T builder, string[] labels)
     where T : EnumBuilder
-    => builder.WithLabels(labels.AsArray(l => builder.Aliased<IGqlpEnumLabel>(l, [])));
+    => builder.WithLabels(labels.AsArray(l => builder.Aliased<IAstEnumLabel>(l, [])));
 }

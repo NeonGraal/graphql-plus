@@ -3,7 +3,7 @@
 namespace GqlPlus.Generating.Simple;
 
 public class UnionDecoderGeneratorTests
-  : GenerateSimpleTestsBase<IGqlpUnion>
+  : GenerateSimpleTestsBase<IAstUnion>
 {
   private readonly UnionDecoderGenerator _generator;
 
@@ -12,7 +12,7 @@ public class UnionDecoderGeneratorTests
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Dec;
   internal override GqlpBaseType BaseType => GqlpBaseType.Class;
 
-  internal override GenerateForType<IGqlpUnion> TypeGenerator => _generator;
+  internal override GenerateForType<IAstUnion> TypeGenerator => _generator;
 
   internal override ForType ForGeneratedCodeName(string name)
     => ForGeneratedDecoder("internal class " + TestPrefix + name + "Decoder");
@@ -26,8 +26,8 @@ public class UnionDecoderGeneratorTests
   internal override ForType ForGeneratedModel(string contains)
     => _ => result => { };
 
-  protected override void MakeItems(SimpleBuilder<IGqlpUnion> builder, params string[] items)
+  protected override void MakeItems(SimpleBuilder<IAstUnion> builder, params string[] items)
     => ((UnionBuilder)builder).WithMembers(items);
-  protected override SimpleBuilder<IGqlpUnion> MakeSimple(string name)
+  protected override SimpleBuilder<IAstUnion> MakeSimple(string name)
     => new UnionBuilder(name);
 }

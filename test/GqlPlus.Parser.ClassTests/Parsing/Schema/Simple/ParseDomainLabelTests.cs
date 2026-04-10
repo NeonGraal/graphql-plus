@@ -4,7 +4,7 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Parsing.Schema.Simple;
 
 public class ParseDomainLabelTests
-  : ParseDomainClassTestBase<IGqlpDomainLabel>
+  : ParseDomainClassTestBase<IAstDomainLabel>
 {
 
   [Theory, RepeatData]
@@ -14,10 +14,10 @@ public class ParseDomainLabelTests
     IdentifierReturns(OutString(enumLabel));
 
     // Act
-    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstDomainLabel> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpDomainLabel>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstDomainLabel>>();
   }
 
   [Theory, RepeatData]
@@ -28,10 +28,10 @@ public class ParseDomainLabelTests
     TakeReturns('.', true);
 
     // Act
-    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstDomainLabel> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpDomainLabel>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstDomainLabel>>();
   }
 
   [Theory, RepeatData]
@@ -43,10 +43,10 @@ public class ParseDomainLabelTests
     TakeReturns('*', true);
 
     // Act
-    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstDomainLabel> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpDomainLabel>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstDomainLabel>>();
   }
 
   [Theory, RepeatData]
@@ -55,13 +55,13 @@ public class ParseDomainLabelTests
     // Arrange
     IdentifierReturns(OutString(enumType));
     TakeReturns('.', true);
-    SetupPartial<IGqlpDomainLabel>();
+    SetupPartial<IAstDomainLabel>();
 
     // Act
-    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstDomainLabel> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpDomainLabel>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstDomainLabel>>();
   }
 
   [Fact]
@@ -70,23 +70,23 @@ public class ParseDomainLabelTests
     // Arrange
     TakeReturns('!', true);
     IdentifierReturns(OutFail);
-    SetupPartial<IGqlpDomainLabel>();
+    SetupPartial<IAstDomainLabel>();
 
     // Act
-    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstDomainLabel> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpDomainLabel>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstDomainLabel>>();
   }
 
   public ParseDomainLabelTests()
     : base(DomainKind.Enum)
   { }
 
-  internal override ParseDomainItem<IGqlpDomainLabel> MakeParser(IParserRepository parsers)
+  internal override ParseDomainItem<IAstDomainLabel> MakeParser(IParserRepository parsers)
     => new ParseDomainLabel(parsers);
 
-  protected override IGqlpDomainLabel NewItem()
+  protected override IAstDomainLabel NewItem()
     => new DomainLabelAst(AstNulls.At, string.Empty, false, _itemLabel);
 
   protected override void ArrangeValidItem()

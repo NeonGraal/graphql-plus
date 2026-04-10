@@ -2,7 +2,7 @@
 
 public abstract class TestGroupsMerger<TAst, TInput>
   : TestAbbreviatedMerger<TAst, TInput>
-  where TAst : IGqlpError
+  where TAst : IAstError
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentNames_ReturnsGood(TInput input1, TInput input2)

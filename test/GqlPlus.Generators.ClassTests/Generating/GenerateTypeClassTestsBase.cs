@@ -2,8 +2,8 @@
 
 public abstract class GenerateTypeClassTestsBase<TType, TParent, TMember>
   : GenerateTypeClassTestsBase
-  where TType : class, IGqlpType<TParent>
-  where TParent : class, IGqlpNamed
+  where TType : class, IAstType<TParent>
+  where TParent : class, IAstNamed
 {
   internal abstract GenerateForType<TType> TypeGenerator { get; }
   internal abstract GqlpGeneratorType GeneratorType { get; }
@@ -26,7 +26,7 @@ public abstract class GenerateTypeClassTestsBase<TType, TParent, TMember>
   public void ForType_WithNotType_ReturnsFalse()
   {
     // Arrange
-    IGqlpTypeSpecial type = A.Error<IGqlpTypeSpecial>();
+    IAstTypeSpecial type = A.Error<IAstTypeSpecial>();
 
     // Act
     bool result = TypeGenerator.ForType(type);

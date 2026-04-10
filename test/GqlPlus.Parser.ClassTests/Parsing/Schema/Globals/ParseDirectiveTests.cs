@@ -7,7 +7,7 @@ public class ParseDirectiveTests
 {
 
   private readonly ParseDirective _parser;
-  private readonly Parser<IGqlpInputParam>.IA _param;
+  private readonly Parser<IAstInputParam>.IA _param;
   private readonly IOptionParser<DirectiveOption> _option;
   private readonly Parser<DirectiveLocation>.I _definition;
 
@@ -16,7 +16,7 @@ public class ParseDirectiveTests
     IDirectiveName name = A.Of<IDirectiveName>();
     NameParser = name;
     Parsers.GetName<IDirectiveName>().Returns(name);
-    ConfigureRepoArray<IGqlpInputParam>(Parsers, out _param);
+    ConfigureRepoArray<IAstInputParam>(Parsers, out _param);
     ConfigureRepoInterface<IOptionParser<DirectiveOption>, DirectiveOption>(Parsers, out _option);
     ConfigureRepo<DirectiveLocation>(Parsers, out _definition);
     _parser = new ParseDirective(Parsers);
@@ -30,10 +30,10 @@ public class ParseDirectiveTests
     ParseOk(_definition, DirectiveLocation.Operation);
 
     // Act
-    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstSchemaDirective> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpSchemaDirective>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstSchemaDirective>>();
   }
 
   [Theory, RepeatData]
@@ -46,10 +46,10 @@ public class ParseDirectiveTests
     ParseOk(_definition, DirectiveLocation.Operation);
 
     // Act
-    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstSchemaDirective> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpSchemaDirective>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstSchemaDirective>>();
   }
 
   [Fact]
@@ -62,13 +62,13 @@ public class ParseDirectiveTests
     // Arrange
     NameReturns(directive);
     ParseErrorA(_param);
-    SetupError<IGqlpSchemaDirective>();
+    SetupError<IAstSchemaDirective>();
 
     // Act
-    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstSchemaDirective> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpSchemaDirective>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstSchemaDirective>>();
   }
 
   [Theory, RepeatData]
@@ -77,14 +77,14 @@ public class ParseDirectiveTests
     // Arrange
     NameReturns(directive);
     TakeReturns('{', false);
-    SetupPartial<IGqlpSchemaDirective>();
-    SetupError<IGqlpSchemaDirective>();
+    SetupPartial<IAstSchemaDirective>();
+    SetupError<IAstSchemaDirective>();
 
     // Act
-    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstSchemaDirective> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpSchemaDirective>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstSchemaDirective>>();
   }
 
   [Theory, RepeatData]
@@ -93,12 +93,12 @@ public class ParseDirectiveTests
     // Arrange
     NameReturns(directive);
     ParseError(_definition);
-    SetupError<IGqlpSchemaDirective>();
+    SetupError<IAstSchemaDirective>();
 
     // Act
-    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstSchemaDirective> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpSchemaDirective>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstSchemaDirective>>();
   }
 }

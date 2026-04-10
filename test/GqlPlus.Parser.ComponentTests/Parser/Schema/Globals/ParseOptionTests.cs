@@ -5,8 +5,8 @@ using GqlPlus.Ast.Schema.Globals;
 namespace GqlPlus.Parser.Schema.Globals;
 
 public sealed class ParseOptionTests(
-  IBaseAliasedChecks<string, IGqlpSchemaOption> checks
-) : BaseAliasedTests<string, IGqlpSchemaOption>(checks)
+  IBaseAliasedChecks<string, IAstSchemaOption> checks
+) : BaseAliasedTests<string, IAstSchemaOption>(checks)
 {
   [Theory, RepeatData]
   public void WithSettings_ReturnsCorrectAst(string name)
@@ -29,7 +29,7 @@ public sealed class ParseOptionTests(
 
 internal sealed class ParseOptionChecks(
   IParserRepository parsers
-) : BaseAliasedChecks<string, OptionDeclAst, IGqlpSchemaOption>(parsers)
+) : BaseAliasedChecks<string, OptionDeclAst, IAstSchemaOption>(parsers)
 {
   internal static readonly string[] Settings = ["setting"];
 

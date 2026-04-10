@@ -6,10 +6,10 @@ namespace GqlPlus.Verifying.Schema;
 internal abstract class AstParentItemVerifier<TAst, TParent, TContext, TItem>(
   IVerifierRepository verifiers
 ) : AstParentVerifier<TAst, TParent, TContext>(verifiers)
-  where TAst : IGqlpType<TParent>
-  where TParent : IGqlpDescribed, IEquatable<TParent>
+  where TAst : IAstType<TParent>
+  where TParent : IAstDescribed, IEquatable<TParent>
   where TContext : UsageContext
-  where TItem : IGqlpError
+  where TItem : IAstError
 {
   private readonly IMerge<TItem> _mergeItems = verifiers.MergerFor<TItem>();
 

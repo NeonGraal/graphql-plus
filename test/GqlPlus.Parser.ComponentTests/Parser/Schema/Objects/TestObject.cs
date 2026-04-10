@@ -6,8 +6,8 @@ namespace GqlPlus.Parser.Schema.Objects;
 
 public abstract class TestObject<TObjField>(
   ICheckObject<TObjField> objectChecks
-) : BaseAliasedTests<ObjectInput, IGqlpObject<TObjField>>(objectChecks)
-where TObjField : IGqlpObjField
+) : BaseAliasedTests<ObjectInput, IAstObject<TObjField>>(objectChecks)
+where TObjField : IAstObjField
 {
   [Theory, RepeatData]
   public void WithAlternates_ReturnsCorrectAst(string name, string[] others)
@@ -82,9 +82,9 @@ where TObjField : IGqlpObjField
 public record struct ObjectInput(string Name, string Other);
 
 internal class CheckObject<TObjField, TObjFieldAst>
-  : BaseAliasedChecks<ObjectInput, AstObject<TObjField>, IGqlpObject<TObjField>>
+  : BaseAliasedChecks<ObjectInput, AstObject<TObjField>, IAstObject<TObjField>>
   , ICheckObject<TObjField>
-  where TObjField : IGqlpObjField
+  where TObjField : IAstObjField
   where TObjFieldAst : AstObjField, TObjField
 {
   private readonly IObjectFactories<TObjField, TObjFieldAst> _factories;
@@ -192,7 +192,7 @@ internal class CheckObject<TObjField, TObjFieldAst>
   public TObjField ObjField(string field, string baseType)
     => _factories.ObjField(AstNulls.At, field, ObjBase(baseType));
 
-  public TObjField ObjField(string field, IGqlpObjBase baseType)
+  public TObjField ObjField(string field, IAstObjBase baseType)
     => _factories.ObjField(AstNulls.At, field, baseType);
 
   public static AlternateAst Alternate(string baseType)
@@ -201,7 +201,7 @@ internal class CheckObject<TObjField, TObjFieldAst>
   public static ObjBaseAst ObjBase(string type, string description = "")
     => new(AstNulls.At, type, description);
 
-  public static IGqlpObjBase ObjBaseWithArgs(string type, string subType)
+  public static IAstObjBase ObjBaseWithArgs(string type, string subType)
     => ObjBase(type) with { Args = [TypeArg(subType)] };
 
   public static TypeArgAst TypeArg(string type, string description = "")
@@ -216,8 +216,8 @@ internal class CheckObject<TObjField, TObjFieldAst>
 public record struct AlternateComment(string Content, string Alternate);
 
 public interface ICheckObject<TField>
-  : IBaseAliasedChecks<ObjectInput, IGqlpObject<TField>>
-where TField : IGqlpObjField
+  : IBaseAliasedChecks<ObjectInput, IAstObject<TField>>
+where TField : IAstObjField
 {
   void WithNameBad(decimal id, string[] others);
   void WithTypeParams(string name, string other, string[] typeParams);

@@ -5,27 +5,27 @@ using GqlPlus.Merging.Simple;
 namespace GqlPlus.Merging.Schema.Simple;
 
 public class MergeDomainAstBooleansTests
-  : TestDomainMerger<IGqlpDomainTrueFalse, bool>
+  : TestDomainMerger<IAstDomainTrueFalse, bool>
 {
-  internal override IDomainMerger<IGqlpDomainTrueFalse> Merger { get; }
-  internal override AstSimpleMerger<IGqlpDomain, IGqlpDomain<IGqlpDomainTrueFalse>, IGqlpDomainTrueFalse> MergerSimple { get; }
+  internal override IDomainMerger<IAstDomainTrueFalse> Merger { get; }
+  internal override AstSimpleMerger<IAstDomain, IAstDomain<IAstDomainTrueFalse>, IAstDomainTrueFalse> MergerSimple { get; }
 
   public MergeDomainAstBooleansTests(ITestOutputHelper outputHelper)
   {
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.MergerFor<IGqlpDomainTrueFalse>().Returns(MergeItems);
-    MergeDomains<DomainTrueFalseAst, IGqlpDomainTrueFalse> merger = new(mergers);
+    mergers.MergerFor<IAstDomainTrueFalse>().Returns(MergeItems);
+    MergeDomains<DomainTrueFalseAst, IAstDomainTrueFalse> merger = new(mergers);
     Merger = merger;
     MergerSimple = merger;
   }
 
-  protected override IGqlpDomain<IGqlpDomainTrueFalse> MakeDomain(string name, string[]? aliases = null, string description = "", IGqlpTypeRef? parent = null, DomainKind? kind = null, IEnumerable<IGqlpDomainTrueFalse>? items = null)
-    => new AstDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse>(AstNulls.At, name, description, kind ?? DomainKind.Boolean) {
+  protected override IAstDomain<IAstDomainTrueFalse> MakeDomain(string name, string[]? aliases = null, string description = "", IAstTypeRef? parent = null, DomainKind? kind = null, IEnumerable<IAstDomainTrueFalse>? items = null)
+    => new AstDomain<DomainTrueFalseAst, IAstDomainTrueFalse>(AstNulls.At, name, description, kind ?? DomainKind.Boolean) {
       Aliases = aliases ?? [],
       Parent = parent,
       Items = [.. items ?? []],
     };
 
-  protected override IGqlpDomainTrueFalse[] MakeItems(bool input)
+  protected override IAstDomainTrueFalse[] MakeItems(bool input)
     => new[] { input }.DomainTrueFalses();
 }

@@ -5,12 +5,12 @@ namespace GqlPlus.Ast.Schema;
 
 internal sealed record class SpecialTypeAst
   : AstSimple
-  , IGqlpTypeSpecial
+  , IAstTypeSpecial
 {
   public override TypeKind Kind => TypeKind.Special;
-  public new IGqlpTypeRef? Parent => null;
+  public new IAstTypeRef? Parent => null;
 
-  private readonly Func<IGqlpType, bool> _typeMatcher;
+  private readonly Func<IAstType, bool> _typeMatcher;
   private readonly Func<HashSet<TypeKind>, bool> _kindsMatcher;
 
   public SpecialTypeAst(string label)
@@ -19,22 +19,22 @@ internal sealed record class SpecialTypeAst
 
   public SpecialTypeAst(
     string label,
-    Func<IGqlpType, bool> typeMatcher
+    Func<IAstType, bool> typeMatcher
   ) : base(AstNulls.At, label, "")
     => (_abbr, Aliases, _label, _typeMatcher, _kindsMatcher) = ("TZ", ["_" + label], label, typeMatcher, h => h.Contains(TypeKind.Internal));
 
   public SpecialTypeAst(
     string label,
     TypeKind kind,
-    Func<IGqlpType, bool> typeMatcher
+    Func<IAstType, bool> typeMatcher
   ) : this(label)
     => (_typeMatcher, _kindsMatcher) = (typeMatcher, h => h.Contains(kind));
 
   public bool Equals(SpecialTypeAst? other)
-    => other is IGqlpType<IGqlpTypeRef> parented && Equals(parented);
+    => other is IAstType<IAstTypeRef> parented && Equals(parented);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Label);
-  public bool MatchesTypeSpecial(IGqlpType type)
+  public bool MatchesTypeSpecial(IAstType type)
     => _typeMatcher(type);
   public bool MatchesKindSpecial(HashSet<TypeKind> validKinds)
     => _kindsMatcher(validKinds);

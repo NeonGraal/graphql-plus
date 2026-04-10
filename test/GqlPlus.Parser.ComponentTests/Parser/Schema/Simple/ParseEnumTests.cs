@@ -5,8 +5,8 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Parser.Schema.Simple;
 
 public sealed class ParseEnumTests(
-  IBaseSimpleChecks<EnumInput, IGqlpEnum> checks
-) : BaseSimpleTests<EnumInput, IGqlpEnum>(checks)
+  IBaseSimpleChecks<EnumInput, IAstEnum> checks
+) : BaseSimpleTests<EnumInput, IAstEnum>(checks)
 {
   [Theory, RepeatData]
   public void WithEnumLabels_ReturnsCorrectAst(string name, string[] labels)
@@ -38,7 +38,7 @@ public sealed class ParseEnumTests(
 
 internal sealed class ParseEnumChecks(
   IParserRepository parsers
-) : BaseSimpleChecks<EnumInput, EnumDeclAst, IGqlpEnum>(parsers)
+) : BaseSimpleChecks<EnumInput, EnumDeclAst, IAstEnum>(parsers)
 {
   protected internal override EnumDeclAst NamedFactory(EnumInput input)
     => new(AstNulls.At, input.Type, new[] { input.Label }.EnumLabels());

@@ -1,9 +1,9 @@
 ﻿namespace GqlPlus.Modelling.Simple;
 
 public class DomainEnumModellerTests
-  : DomainModellerClassTestBase<IGqlpDomainLabel, DomainLabelModel>
+  : DomainModellerClassTestBase<IAstDomainLabel, DomainLabelModel>
 {
-  protected override IDomainModeller<IGqlpDomainLabel, DomainLabelModel> DomainModeller { get; }
+  protected override IDomainModeller<IAstDomainLabel, DomainLabelModel> DomainModeller { get; }
     = new DomainEnumModeller();
 
   protected override DomainKind Kind => DomainKind.Enum;

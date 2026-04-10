@@ -4,7 +4,7 @@ using GqlPlus.Merging;
 namespace GqlPlus.Verifying.Schema;
 
 internal abstract class GroupedVerifier<TAliased> : IVerifyAliased<TAliased>
- where TAliased : IAstAliased
+  where TAliased : IAstAliased
 {
   private readonly ILogger _logger;
   private readonly IMerge<TAliased> _merger;

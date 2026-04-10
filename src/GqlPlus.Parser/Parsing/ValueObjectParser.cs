@@ -6,19 +6,19 @@ namespace GqlPlus.Parsing;
 
 internal class ValueObjectParser<TValue>(
   IParserRepository parsers
-) : Parser<IGqlpFields<TValue>>.I
-  where TValue : IGqlpValue<TValue>
+) : Parser<IAstFields<TValue>>.I
+  where TValue : IAstValue<TValue>
 {
   private readonly Parser<KeyValue<TValue>>.L _field = parsers.ParserFor<KeyValue<TValue>>();
 
-  public IResult<IGqlpFields<TValue>> Parse(ITokenizer tokens, string label)
+  public IResult<IAstFields<TValue>> Parse(ITokenizer tokens, string label)
 
   {
     tokens.ThrowIfNull();
 
 #pragma warning disable CA1062 // Validate arguments of public methods
     if (!tokens.Take('{')) {
-      return default(IGqlpFields<TValue>).Empty();
+      return default(IAstFields<TValue>).Empty();
     }
 #pragma warning restore CA1062 // Validate arguments of public methods
 
@@ -26,12 +26,12 @@ internal class ValueObjectParser<TValue>(
     while (!tokens.Take('}')) {
       IResult<KeyValue<TValue>> field = _field.Parse(tokens, label);
       if (!field.Required(value => result.Add(value.Key, value.Value))) {
-        return tokens.Error<IGqlpFields<TValue>>(label, "a field in object", result);
+        return tokens.Error<IAstFields<TValue>>(label, "a field in object", result);
       }
 
       tokens.Take(',');
     }
 
-    return result.Ok<IGqlpFields<TValue>>();
+    return result.Ok<IAstFields<TValue>>();
   }
 }

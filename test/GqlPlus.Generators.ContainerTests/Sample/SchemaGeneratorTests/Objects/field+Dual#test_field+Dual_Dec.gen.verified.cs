@@ -1,0 +1,13 @@
+﻿//HintName: test_field+Dual_Dec.gen.cs
+// Generated from {CurrentDirectory}field+Dual.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpDecoderBase, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+/*
+*/
+
+namespace GqlPlus.GeneratorTests.Gqlp_field_Dual;
+
+internal class testFieldDualDecoder
+{
+  public string Field { get; set; }
+}

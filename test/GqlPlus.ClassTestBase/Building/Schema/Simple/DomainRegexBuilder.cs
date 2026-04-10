@@ -9,20 +9,20 @@ public class DomainRegexBuilder
 
   public DomainRegexBuilder(string? pattern = null)
   {
-    Add<IGqlpDomainRegex>();
+    Add<IAstDomainRegex>();
     _pattern = pattern;
   }
 
   protected new T Build<T>()
-    where T : class, IGqlpDomainRegex
+    where T : class, IAstDomainRegex
   {
     T result = base.Build<T>();
     result.Pattern.Returns(_pattern);
     return result;
   }
 
-  public IGqlpDomainRegex AsRegex
-    => Build<IGqlpDomainRegex>();
+  public IAstDomainRegex AsRegex
+    => Build<IAstDomainRegex>();
 }
 
 public static class DomainRegexBuilderHelper

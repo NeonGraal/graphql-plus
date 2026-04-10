@@ -6,7 +6,7 @@ namespace GqlPlus.Merging;
 
 internal abstract class AstAliasedMerger<TItem>
   : DistinctMerger<TItem>
-  where TItem : IGqlpAliased
+  where TItem : IAstAliased
 {
   private readonly ILogger _logger;
 

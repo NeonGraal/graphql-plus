@@ -5,11 +5,11 @@ namespace GqlPlus.Merging.Objects;
 
 internal class MergeAlternates(
   IMergerRepository mergers
-) : AstDescribedMerger<IGqlpAlternate>(mergers)
+) : AstDescribedMerger<IAstAlternate>(mergers)
 {
-  protected override IGqlpAlternate MergeGroup(IEnumerable<IGqlpAlternate> group)
+  protected override IAstAlternate MergeGroup(IEnumerable<IAstAlternate> group)
   {
-    IGqlpAlternate first = group.First();
+    IAstAlternate first = group.First();
     if (first is IAstSetDescription descrType) {
       descrType.MakeDescription(group);
     }
@@ -17,10 +17,10 @@ internal class MergeAlternates(
     return first;
   }
 
-  protected override string ItemGroupKey(IGqlpAlternate item)
+  protected override string ItemGroupKey(IAstAlternate item)
     => item.FullType + item.EnumValue?.EnumLabel.Prefixed(".");
 
   protected override string ItemMatchName => "Modifiers";
-  protected override string ItemMatchKey(IGqlpAlternate item)
+  protected override string ItemMatchKey(IAstAlternate item)
     => item.Modifiers.AsString().Joined();
 }

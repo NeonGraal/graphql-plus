@@ -25,7 +25,7 @@ internal abstract class ObjFieldTypeChecks<TInput, TObjType>(
   TypeBy<TInput, TObjType> createType
 ) : ObjEnumChecks<TInput, TObjType>(ToCreateBy(createType))
   , IObjFieldTypeChecks<TInput>
-  where TObjType : IGqlpObjFieldType
+  where TObjType : IAstObjFieldType
   where TInput : ITypeInput
 {
   private readonly TypeBy<TInput, TObjType> _createType = createType;
@@ -73,7 +73,7 @@ internal sealed class ObjFieldModifiersChecks<TInput, TObjType>(
   Func<TObjType, TObjType> addModifiers,
   [CallerArgumentExpression(nameof(createType))] string createExpression = ""
 ) : ModifiersChecks<TInput, TObjType>(ObjFieldTypeChecks<TInput, TObjType>.ToCreateBy(createType), addModifiers, createExpression)
-  where TObjType : IGqlpObjFieldType
+  where TObjType : IAstObjFieldType
   where TInput : ITypeInput
 { }
 
@@ -83,12 +83,12 @@ internal sealed class ObjFieldCloneChecks<TInput, TObjType>(
   [CallerArgumentExpression(nameof(createType))] string createExpression = "",
   [CallerArgumentExpression(nameof(cloneInput))] string cloneExpression = ""
 ) : CloneChecks<TInput, TObjType>(ObjFieldTypeChecks<TInput, TObjType>.ToCreateBy(createType), cloneInput, createExpression, cloneExpression)
-  where TObjType : IGqlpObjFieldType
+  where TObjType : IAstObjFieldType
   where TInput : ITypeInput
 { }
 
-internal delegate TObjType TypeBy<TInput, TObjType>(TInput input, IGqlpObjBase objBase)
-  where TObjType : IGqlpObjFieldType
+internal delegate TObjType TypeBy<TInput, TObjType>(TInput input, IAstObjBase objBase)
+  where TObjType : IAstObjFieldType
   where TInput : ITypeInput;
 
 internal interface IObjFieldTypeChecks<TInput>

@@ -1,0 +1,17 @@
+﻿/* descr-between
+category { DescrBtwn }
+"A description between"
+output DescrBtwn { }
+*/
+
+// Generated from Schema descr-between
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_descr-between, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_descr_between;
+
+internal class CmptDescrBtwnEncoder
+{
+}

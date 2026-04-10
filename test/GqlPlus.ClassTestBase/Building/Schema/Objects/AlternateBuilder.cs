@@ -7,19 +7,19 @@ public class AlternateBuilder
   , IModifiersBuilder
   , IObjEnumBuilder
 {
-  private IGqlpModifier[] _modifiers = [];
-  private IGqlpEnumValue? _enumValue;
+  private IAstModifier[] _modifiers = [];
+  private IAstEnumValue? _enumValue;
 
   public AlternateBuilder(string name)
     : base(name)
   {
-    Add<IGqlpAlternate>();
-    Add<IGqlpModifiers>();
-    Add<IGqlpObjEnum>();
+    Add<IAstAlternate>();
+    Add<IAstModifiers>();
+    Add<IAstObjEnum>();
   }
 
   protected new T Build<T>()
-    where T : class, IGqlpAlternate
+    where T : class, IAstAlternate
   {
     T result = base.Build<T>();
 
@@ -33,13 +33,13 @@ public class AlternateBuilder
     return result;
   }
 
-  public void SetModifiers(IGqlpModifier[] modifiers)
+  public void SetModifiers(IAstModifier[] modifiers)
     => _modifiers = modifiers;
-  public void SetEnumValue(IGqlpEnumValue enumValue)
+  public void SetEnumValue(IAstEnumValue enumValue)
     => _enumValue = enumValue;
 
-  public IGqlpAlternate AsAlternate
-    => Build<IGqlpAlternate>();
+  public IAstAlternate AsAlternate
+    => Build<IAstAlternate>();
 
   public string Name => _name;
 }

@@ -1,6 +1,6 @@
 ﻿//HintName: test_union-parent-dup_Intf.gen.cs
 // Generated from {CurrentDirectory}union-parent-dup.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -14,7 +14,7 @@ public interface ItestUnionPrntDup
 }
 
 public interface ItestPrntUnionPrntDup
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Number AsNumber { get; }
 }

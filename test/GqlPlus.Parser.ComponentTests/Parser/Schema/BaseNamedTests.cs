@@ -5,7 +5,7 @@ namespace GqlPlus.Parser.Schema;
 
 public abstract class BaseNamedTests<TInput, TParsed>(
   IBaseNamedChecks<TInput, TParsed> nameChecks
-) where TParsed : IGqlpNamed
+) where TParsed : IAstNamed
 {
   [Theory, RepeatData]
   public void WithMinimum_ReturnsCorrectAst(TInput input)
@@ -27,7 +27,7 @@ internal abstract class BaseNamedChecks<TInput, TNamed, TParsed>(
 ) : OneChecksParser<TParsed>(parsers)
   , IBaseNamedChecks<TInput, TParsed>
   where TNamed : AstNamed, TParsed
-  where TParsed : IGqlpNamed
+  where TParsed : IAstNamed
 {
   public void WithMinimum(TInput input)
     => TrueExpected(NameString(input), NamedFactory(input));
@@ -41,7 +41,7 @@ internal abstract class BaseNamedChecks<TInput, TNamed, TParsed>(
 
 public interface IBaseNamedChecks<TInput, TParsed>
   : IOneChecksParser<TParsed>
-  where TParsed : IGqlpNamed
+  where TParsed : IAstNamed
 {
   void WithMinimum(TInput input);
   void WithNameBad(decimal id);

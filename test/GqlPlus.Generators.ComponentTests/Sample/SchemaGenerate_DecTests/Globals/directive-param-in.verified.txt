@@ -1,0 +1,16 @@
+﻿/* directive-param-in
+directive @DrctParamIn(InDrctParamIn) { all }
+input InDrctParamIn { }
+*/
+
+// Generated from Schema directive-param-in
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_directive-param-in, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_directive_param_in;
+
+internal class CmptInDrctParamInDecoder
+{
+}

@@ -1,0 +1,21 @@
+﻿/* parent-alt+Dual
+dual PrntAltDual { :RefPrntAltDual | Number }
+dual RefPrntAltDual {  parent: Number | String }
+*/
+
+// Generated from Schema parent-alt+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-alt+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_alt_Dual;
+
+internal class CmptPrntAltDualDecoder
+{
+}
+
+internal class CmptRefPrntAltDualDecoder
+{
+  public decimal Parent { get; set; }
+}

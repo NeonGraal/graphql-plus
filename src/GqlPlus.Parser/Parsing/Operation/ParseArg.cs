@@ -10,14 +10,14 @@ internal class ParseArg(
   IParserRepository parsers
 ) : IParserArg
 {
-  private readonly Parser<IGqlpFieldKey>.L _fieldKey = parsers.ParserFor<IGqlpFieldKey>();
-  private readonly Parser<IValueParser<IGqlpArg>, IGqlpArg>.L _argument = parsers.ParserFor<IValueParser<IGqlpArg>, IGqlpArg>();
+  private readonly Parser<IAstFieldKey>.L _fieldKey = parsers.ParserFor<IAstFieldKey>();
+  private readonly Parser<IValueParser<IAstArg>, IAstArg>.L _argument = parsers.ParserFor<IValueParser<IAstArg>, IAstArg>();
 
-  public IResult<IGqlpArg> Parse(ITokenizer tokens, string label)
+  public IResult<IAstArg> Parse(ITokenizer tokens, string label)
 
   {
     if (!tokens.Take('(')) {
-      return default(IGqlpArg).Empty();
+      return default(IAstArg).Empty();
     }
 
     bool oldSeparators = tokens.IgnoreSeparators;
@@ -25,9 +25,9 @@ internal class ParseArg(
       tokens.IgnoreSeparators = false;
 
       TokenAt at = tokens.At;
-      IGqlpArg? value = new ArgAst(at);
+      IAstArg? value = new ArgAst(at);
 
-      IResult<IGqlpFieldKey> fieldKey = _fieldKey.Parse(tokens, label);
+      IResult<IAstFieldKey> fieldKey = _fieldKey.Parse(tokens, label);
       if (fieldKey.IsOk()) {
         return fieldKey.Map(key =>
           tokens.Take(':')
@@ -39,7 +39,7 @@ internal class ParseArg(
           : ParseArgEnd(tokens, at, new ArgAst(key)));
       }
 
-      IResult<IGqlpArg> argValue = _argument.I.Parse(tokens, label);
+      IResult<IAstArg> argValue = _argument.I.Parse(tokens, label);
 
       return argValue.MapOk(value => ParseArgEnd(tokens, at, value), () => argValue);
     } finally {
@@ -47,10 +47,10 @@ internal class ParseArg(
     }
   }
 
-  private IGqlpArg ParseArgValues(ITokenizer tokens, IGqlpArg initial)
+  private IAstArg ParseArgValues(ITokenizer tokens, IAstArg initial)
   {
     ITokenAt at = initial.At;
-    List<IGqlpArg> values = [initial];
+    List<IAstArg> values = [initial];
     while (tokens.Take(',')) {
       _argument.I.Parse(tokens, "Arg").Required(values.Add);
     }
@@ -60,16 +60,16 @@ internal class ParseArg(
       : initial;
   }
 
-  private IResult<IGqlpArg> ParseArgMid(ITokenizer tokens, TokenAt at, FieldsAst<IGqlpArg> fields)
+  private IResult<IAstArg> ParseArgMid(ITokenizer tokens, TokenAt at, FieldsAst<IAstArg> fields)
   {
     if (tokens.Take(',')) {
       return _argument.I
         .ParseFieldValues(tokens, "Arg", ')', fields)
-        .Select(result => new ArgAst(at, result) as IGqlpArg);
+        .Select(result => new ArgAst(at, result) as IAstArg);
     }
 
     while (!tokens.Take(')')) {
-      IResult<KeyValue<IGqlpArg>> field = _argument.I.KeyValueParser.Parse(tokens, "Arg");
+      IResult<KeyValue<IAstArg>> field = _argument.I.KeyValueParser.Parse(tokens, "Arg");
 
       if (!field.Required(value => fields.Add(value.Key, ParseArgValues(tokens, value.Value)))) {
         return field.IsEmpty()
@@ -80,21 +80,21 @@ internal class ParseArg(
 
     return Result().Ok();
 
-    IGqlpArg Result() => new ArgAst(at, fields);
+    IAstArg Result() => new ArgAst(at, fields);
   }
 
-  private IResult<IGqlpArg> ParseArgEnd(ITokenizer tokens, TokenAt at, IGqlpArg value)
+  private IResult<IAstArg> ParseArgEnd(ITokenizer tokens, TokenAt at, IAstArg value)
   {
-    IGqlpArg more = ParseArgValues(tokens, value);
+    IAstArg more = ParseArgValues(tokens, value);
     if (more.Values.Count() > 1) {
       return more.Ok();
     }
 
-    List<IGqlpArg> values = [value];
+    List<IAstArg> values = [value];
     while (_argument.I.Parse(tokens, "Arg").Required(values.Add)) { }
 
     if (tokens.Take(')')) {
-      IGqlpArg argument = values.Count > 1 ? new ArgAst(at, values) : value;
+      IAstArg argument = values.Count > 1 ? new ArgAst(at, values) : value;
       return argument.Ok();
     }
 
@@ -103,5 +103,5 @@ internal class ParseArg(
 }
 
 public interface IParserArg
-  : Parser<IGqlpArg>.I
+  : Parser<IAstArg>.I
 { }

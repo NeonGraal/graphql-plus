@@ -1,6 +1,6 @@
 ﻿//HintName: test_output-descr-param_Intf.gen.cs
 // Generated from {CurrentDirectory}output-descr-param.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,37 +8,37 @@
 namespace GqlPlus.GeneratorTests.Gqlp_output_descr_param;
 
 public interface ItestOutpDescrParam
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestOutpDescrParamObject? As_OutpDescrParam { get; }
 }
 
 public interface ItestOutpDescrParamObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldOutpDescrParam? Field(ItestInOutpDescrParam parameter);
 }
 
 public interface ItestFldOutpDescrParam
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldOutpDescrParamObject? As_FldOutpDescrParam { get; }
 }
 
 public interface ItestFldOutpDescrParamObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestInOutpDescrParam
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string? AsString { get; }
   ItestInOutpDescrParamObject? As_InOutpDescrParam { get; }
 }
 
 public interface ItestInOutpDescrParamObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   decimal Param { get; }
 }

@@ -1,6 +1,6 @@
 ﻿//HintName: test_Definition_Model.gen.cs
 // Generated from {CurrentDirectory}Definition.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -20,7 +20,7 @@ public class string
 }
 
 public class test_Basic
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Basic
 {
   public Boolean AsBoolean { get; set; }
@@ -30,7 +30,7 @@ public class test_Basic
 }
 
 public class test_Internal
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Internal
 {
   public Null AsNull { get; set; }
@@ -38,7 +38,7 @@ public class test_Internal
 }
 
 public class test_Key
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Key
 {
   public _Basic As_Basic { get; set; }
@@ -47,14 +47,14 @@ public class test_Key
 }
 
 public class test_Object
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Object
 {
   public Itest_ObjectObject? As__Object { get; set; }
 }
 
 public class test_ObjectObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_ObjectObject
 {
 
@@ -65,20 +65,20 @@ public class test_ObjectObject
 }
 
 public class test_Domain
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Domain
 {
 }
 
 public class test_Dual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Dual
 {
   public Itest_DualObject? As__Dual { get; set; }
 }
 
 public class test_DualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_DualObject
 {
 
@@ -89,20 +89,20 @@ public class test_DualObject
 }
 
 public class test_Enum
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Enum
 {
 }
 
 public class test_Input
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Input
 {
   public Itest_InputObject? As__Input { get; set; }
 }
 
 public class test_InputObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_InputObject
 {
 
@@ -113,14 +113,14 @@ public class test_InputObject
 }
 
 public class test_Output
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Output
 {
   public Itest_OutputObject? As__Output { get; set; }
 }
 
 public class test_OutputObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OutputObject
 {
 
@@ -131,13 +131,13 @@ public class test_OutputObject
 }
 
 public class test_Union
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Union
 {
 }
 
 public class test_Simple
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Simple
 {
   public _Enum As_Enum { get; set; }

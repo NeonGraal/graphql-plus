@@ -8,15 +8,15 @@ internal sealed record class DomainLabelAst(
   bool Excludes,
   string EnumItem
 ) : AstDomainItem(At, Description, Excludes)
-  , IGqlpDomainLabel
+  , IAstDomainLabel
 {
   public string EnumType { get; set; } = "";
 
   internal override string Abbr => "DE";
 
   public bool Equals(DomainLabelAst? other)
-    => other is IGqlpDomainLabel label && Equals(label);
-  public bool Equals(IGqlpDomainLabel? other)
+    => other is IAstDomainLabel label && Equals(label);
+  public bool Equals(IAstDomainLabel? other)
     => base.Equals(other)
       && EnumItem.NullEqual(other.EnumItem)
       && EnumType.NullEqual(other.EnumType);
@@ -27,7 +27,7 @@ internal sealed record class DomainLabelAst(
       .Append(EnumType)
       .Append((Excludes ? "!" : "") + EnumItem);
 
-  void IGqlpDomainLabel.SetEnumType(string enumType)
+  void IAstDomainLabel.SetEnumType(string enumType)
   {
     if (string.IsNullOrWhiteSpace(EnumType)) {
       EnumType = enumType;

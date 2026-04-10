@@ -1,0 +1,17 @@
+﻿/* object-field-enum-alias+Dual
+dual ObjFieldEnumAliasDual { field [field1] = Boolean.true }
+dual ObjFieldEnumAliasDual { field [field2] = true }
+*/
+
+// Generated from Schema object-field-enum-alias+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field-enum-alias+Dual, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_enum_alias_Dual;
+
+internal class CmptObjFieldEnumAliasDualEncoder
+{
+  public bool Field { get; set; }
+}

@@ -4,18 +4,18 @@ public class SchemaGeneratorTests
   : GenerateClassTestsBase
 {
   private readonly IGeneratorRepository _generators = A.Of<IGeneratorRepository>();
-  private readonly IGenerator<IGqlpSchemaCategory> _categoryGenerator = GFor<IGqlpSchemaCategory>();
-  private readonly IGenerator<IGqlpSchemaDirective> _directiveGenerator = GFor<IGqlpSchemaDirective>();
-  private readonly IGenerator<IGqlpSchemaOption> _optionGenerator = GFor<IGqlpSchemaOption>();
-  private readonly List<ITypeGenerator> _typeGenerators = [];
+  private readonly IGenerator<IAstSchemaCategory> _categoryGenerator = GFor<IAstSchemaCategory>();
+  private readonly IGenerator<IAstSchemaDirective> _directiveGenerator = GFor<IAstSchemaDirective>();
+  private readonly IGenerator<IAstSchemaOption> _optionGenerator = GFor<IAstSchemaOption>();
+  private readonly Dictionary<GqlpGeneratorType, IEnumerable<ITypeGenerator>> _typeGenerators = [];
 
   private readonly SchemaGenerator _generator;
 
   public SchemaGeneratorTests()
   {
-    _generators.GeneratorFor<IGqlpSchemaCategory>().Returns(_categoryGenerator);
-    _generators.GeneratorFor<IGqlpSchemaDirective>().Returns(_directiveGenerator);
-    _generators.GeneratorFor<IGqlpSchemaOption>().Returns(_optionGenerator);
+    _generators.GeneratorFor<IAstSchemaCategory>().Returns(_categoryGenerator);
+    _generators.GeneratorFor<IAstSchemaDirective>().Returns(_directiveGenerator);
+    _generators.GeneratorFor<IAstSchemaOption>().Returns(_optionGenerator);
     _generators.TypeGenerators.Returns(_typeGenerators);
     _generator = new SchemaGenerator(_generators);
   }
@@ -25,14 +25,14 @@ public class SchemaGeneratorTests
   {
     // Arrange
     GqlpGeneratorContext context = Context();
-    IGqlpSchema schema = A.Error<IGqlpSchema>();
-    IGqlpType type = A.Named<IGqlpType>(typeName);
+    IAstSchema schema = A.Error<IAstSchema>();
+    IAstType type = A.Named<IAstType>(typeName);
     schema.Declarations.Returns([type]);
 
     ITypeGenerator typeGenerator = A.Of<ITypeGenerator>();
     typeGenerator.ForType(type).Returns(true);
 
-    _typeGenerators.Add(typeGenerator);
+    _typeGenerators[GqlpGeneratorType.Model] = [typeGenerator];
 
     // Act
     _generator.Generate(schema, context);
@@ -42,17 +42,15 @@ public class SchemaGeneratorTests
   }
 
   [Theory, RepeatData]
-  public void Generate_WithNoMatchingGenerator_ThrowsInvalidOperationException(string typeName)
+  public void Generate_WithNoMatchingGenerator_DoesNotThrow(string typeName)
   {
     // Arrange
     GqlpGeneratorContext context = Context();
-    IGqlpSchema schema = A.Error<IGqlpSchema>();
-    IGqlpType type = A.Named<IGqlpType>(typeName);
+    IAstSchema schema = A.Error<IAstSchema>();
+    IAstType type = A.Named<IAstType>(typeName);
     schema.Declarations.Returns([type]);
 
     // Act & Assert
-    Should.Throw<InvalidOperationException>(() =>
-        _generator.Generate(schema, context))
-        .Message.ShouldContain("No Generator for");
+    Should.NotThrow(() => _generator.Generate(schema, context));
   }
 }

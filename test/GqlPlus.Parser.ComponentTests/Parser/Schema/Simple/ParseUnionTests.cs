@@ -5,8 +5,8 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Parser.Schema.Simple;
 
 public sealed class ParseUnionTests(
-  IBaseSimpleChecks<UnionInput, IGqlpUnion> checks
-) : BaseSimpleTests<UnionInput, IGqlpUnion>(checks)
+  IBaseSimpleChecks<UnionInput, IAstUnion> checks
+) : BaseSimpleTests<UnionInput, IAstUnion>(checks)
 {
   [Theory, RepeatData]
   public void WithUnionMembers_ReturnsCorrectAst(string name, string[] members)
@@ -33,7 +33,7 @@ public sealed class ParseUnionTests(
 
 internal sealed class ParseUnionChecks(
   IParserRepository parsers
-) : BaseSimpleChecks<UnionInput, UnionDeclAst, IGqlpUnion>(parsers)
+) : BaseSimpleChecks<UnionInput, UnionDeclAst, IAstUnion>(parsers)
 {
   protected internal override UnionDeclAst NamedFactory(UnionInput input)
     => new(AstNulls.At, input.Type, new[] { input.Member }.UnionMembers());

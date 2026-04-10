@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-parent-descr+Input_Model.gen.cs
 // Generated from {CurrentDirectory}generic-parent-descr+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_descr_Input;
 
 public class testGnrcPrntDescrInp<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcPrntDescrInp<TType>
 {
   public TType? As_Parent { get; set; }
@@ -16,7 +16,7 @@ public class testGnrcPrntDescrInp<TType>
 }
 
 public class testGnrcPrntDescrInpObject<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcPrntDescrInpObject<TType>
 {
 

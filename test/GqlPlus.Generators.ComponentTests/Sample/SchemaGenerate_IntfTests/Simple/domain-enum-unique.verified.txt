@@ -16,3 +16,17 @@ public interface ICmptDmnEnumUnq
   : IGqlpDomainEnum
 {
 }
+
+public enum CmptEnumDmnEnumUnq
+{
+  enum_dmnEnumUnq,
+  dmnEnumUnq,
+  dmnEnumUnqValue,
+}
+
+public enum CmptDupDmnEnumUnq
+{
+  dmnEnumUnq,
+  dup_dmnEnumUnq,
+  dmnEnumUnqDup,
+}

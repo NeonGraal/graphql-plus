@@ -4,12 +4,12 @@ namespace GqlPlus.Merging.Schema;
 
 public abstract class TestAbbreviatedMerger<TAst>
   : TestAbbreviatedMerger<TAst, string>
-  where TAst : IGqlpError
+  where TAst : IAstError
 { }
 
 [TracePerTest]
 public abstract class TestAbbreviatedMerger<TAst, TInput>
-  where TAst : IGqlpError
+  where TAst : IAstError
 {
   [Fact]
   public virtual void CanMerge_NoAsts_ReturnsErrors()
@@ -81,7 +81,7 @@ public abstract class TestAbbreviatedMerger<TAst, TInput>
   protected static IMessages EmptyMessages => Messages.New;
 
   protected IMerge<TResult> Merger<TResult>()
-    where TResult : IGqlpError
+    where TResult : IAstError
   {
     IMerge<TResult> result = Substitute.For<IMerge<TResult>>();
     result.CanMerge([]).ReturnsForAnyArgs(EmptyMessages);
@@ -95,7 +95,7 @@ public static class TestMergeHelper
   private static IMessages ErrorMessages => new Messages(new TokenMessage(AstNulls.At, "Error!"));
 
   public static TTests CanMergeReturnsError<TTests, TResult>(this TTests tests, IMerge<TResult> merger)
-    where TResult : IGqlpError
+    where TResult : IAstError
   {
     merger?.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
 
@@ -103,7 +103,7 @@ public static class TestMergeHelper
   }
 
   public static TTests MergeCalled<TTests, TResult>(this TTests tests, IMerge<TResult> merger, int times = 1)
-    where TResult : IGqlpError
+    where TResult : IAstError
   {
     merger?.ReceivedWithAnyArgs(times).Merge([]);
 

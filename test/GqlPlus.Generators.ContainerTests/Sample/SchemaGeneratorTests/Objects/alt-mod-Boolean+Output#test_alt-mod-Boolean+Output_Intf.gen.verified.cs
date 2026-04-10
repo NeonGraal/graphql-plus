@@ -1,6 +1,6 @@
 ﻿//HintName: test_alt-mod-Boolean+Output_Intf.gen.cs
 // Generated from {CurrentDirectory}alt-mod-Boolean+Output.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,26 +8,26 @@
 namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_Boolean_Output;
 
 public interface ItestAltModBoolOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   IDictionary<bool, ItestAltAltModBoolOutp>? AsAltAltModBoolOutp { get; }
   ItestAltModBoolOutpObject? As_AltModBoolOutp { get; }
 }
 
 public interface ItestAltModBoolOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestAltAltModBoolOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string? AsString { get; }
   ItestAltAltModBoolOutpObject? As_AltAltModBoolOutp { get; }
 }
 
 public interface ItestAltAltModBoolOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   decimal Alt { get; }
 }

@@ -8,16 +8,16 @@ namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseInputParams(
   IParserRepository parsers
-) : Parser<IGqlpInputParam>.IA
+) : Parser<IAstInputParam>.IA
 {
-  private readonly Parser<IGqlpObjBase>.L _input = parsers.ParserFor<IGqlpObjBase>();
-  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.ArrayFor<IGqlpModifier>();
-  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = parsers.ParserFor<IParserDefault, IGqlpConstant>();
+  private readonly Parser<IAstObjBase>.L _input = parsers.ParserFor<IAstObjBase>();
+  private readonly Parser<IAstModifier>.LA _modifiers = parsers.ArrayFor<IAstModifier>();
+  private readonly Parser<IParserDefault, IAstConstant>.L _default = parsers.ParserFor<IParserDefault, IAstConstant>();
 
-  public IResultArray<IGqlpInputParam> Parse(ITokenizer tokens, string label)
+  public IResultArray<IAstInputParam> Parse(ITokenizer tokens, string label)
 
   {
-    List<IGqlpInputParam> list = [];
+    List<IAstInputParam> list = [];
 
     if (!tokens.Take('(')) {
       return list.EmptyArray();
@@ -25,20 +25,20 @@ internal class ParseInputParams(
 
     while (!tokens.Take(')')) {
       TokenAt at = tokens.At;
-      IResult<IGqlpObjBase> input = _input.Parse(tokens, label);
+      IResult<IAstObjBase> input = _input.Parse(tokens, label);
       if (!input.IsOk()) {
         return tokens.ErrorArray("Param", "input reference after '('", list);
       }
 
       InputParamAst parameter = new(at, input.Required());
       list.Add(parameter);
-      IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, "Param");
+      IResultArray<IAstModifier> modifiers = _modifiers.Parse(tokens, "Param");
       if (modifiers.IsError()) {
         return modifiers.AsResultArray(list);
       }
 
       modifiers.Optional(value => parameter.Modifiers = value.ArrayOf<ModifierAst>());
-      IResult<IGqlpConstant> constant = _default.I.Parse(tokens, "Default");
+      IResult<IAstConstant> constant = _default.I.Parse(tokens, "Default");
       if (constant.IsError()) {
         return constant.AsResultArray(list);
       }

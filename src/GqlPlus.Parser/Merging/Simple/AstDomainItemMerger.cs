@@ -5,7 +5,7 @@ namespace GqlPlus.Merging.Simple;
 internal abstract class AstDomainItemMerger<TItem>(
   IMergerRepository mergers
 ) : DistinctMerger<TItem>(mergers)
-  where TItem : IGqlpDomainItem
+  where TItem : IAstDomainItem
 {
   protected override string ItemMatchName => "Excludes";
   protected override string ItemMatchKey(TItem item)

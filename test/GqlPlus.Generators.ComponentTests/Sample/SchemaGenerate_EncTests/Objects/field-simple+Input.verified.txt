@@ -1,0 +1,16 @@
+﻿/* field-simple+Input
+input FieldSmplInp { field: Number }
+*/
+
+// Generated from Schema field-simple+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-simple+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_simple_Input;
+
+internal class CmptFieldSmplInpEncoder
+{
+  public decimal Field { get; set; }
+}

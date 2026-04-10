@@ -1,0 +1,22 @@
+﻿/* object-field+Input
+input ObjFieldInp { field: FldObjFieldInp }
+input ObjFieldInp { field: FldObjFieldInp }
+input FldObjFieldInp { }
+*/
+
+// Generated from Schema object-field+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_Input;
+
+internal class CmptObjFieldInpDecoder
+{
+  public ICmptFldObjFieldInp Field { get; set; }
+}
+
+internal class CmptFldObjFieldInpDecoder
+{
+}

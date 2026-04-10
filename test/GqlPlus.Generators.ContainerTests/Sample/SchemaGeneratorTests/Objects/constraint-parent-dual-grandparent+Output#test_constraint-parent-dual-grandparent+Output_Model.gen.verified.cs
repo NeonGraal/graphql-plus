@@ -1,6 +1,6 @@
 ﻿//HintName: test_constraint-parent-dual-grandparent+Output_Model.gen.cs
 // Generated from {CurrentDirectory}constraint-parent-dual-grandparent+Output.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -26,7 +26,7 @@ public class testCnstPrntDualGrndOutpObject
 }
 
 public class testRefCnstPrntDualGrndOutp<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstPrntDualGrndOutp<TRef>
 {
   public TRef? As_Parent { get; set; }
@@ -34,7 +34,7 @@ public class testRefCnstPrntDualGrndOutp<TRef>
 }
 
 public class testRefCnstPrntDualGrndOutpObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstPrntDualGrndOutpObject<TRef>
 {
 
@@ -45,7 +45,7 @@ public class testRefCnstPrntDualGrndOutpObject<TRef>
 }
 
 public class testGrndCnstPrntDualGrndOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGrndCnstPrntDualGrndOutp
 {
   public string? AsString { get; set; }
@@ -53,7 +53,7 @@ public class testGrndCnstPrntDualGrndOutp
 }
 
 public class testGrndCnstPrntDualGrndOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGrndCnstPrntDualGrndOutpObject
 {
 

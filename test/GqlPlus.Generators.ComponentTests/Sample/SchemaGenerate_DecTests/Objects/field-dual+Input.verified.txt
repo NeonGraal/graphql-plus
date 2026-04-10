@@ -1,0 +1,22 @@
+﻿/* field-dual+Input
+input FieldDualInp { field: FldFieldDualInp }
+dual FldFieldDualInp { field: Number | String }
+*/
+
+// Generated from Schema field-dual+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-dual+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_dual_Input;
+
+internal class CmptFieldDualInpDecoder
+{
+  public ICmptFldFieldDualInp Field { get; set; }
+}
+
+internal class CmptFldFieldDualInpDecoder
+{
+  public decimal Field { get; set; }
+}

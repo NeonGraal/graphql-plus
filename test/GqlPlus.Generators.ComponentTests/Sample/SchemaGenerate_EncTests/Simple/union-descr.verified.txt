@@ -1,0 +1,16 @@
+﻿/* union-descr
+union UnionDescr { "Union" "Descr" Number }
+*/
+
+// Generated from Schema union-descr
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_union-descr, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_union_descr;
+
+internal class CmptUnionDescrEncoder
+{
+  public Number AsNumber { get; set; }
+}

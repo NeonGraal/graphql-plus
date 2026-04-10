@@ -7,7 +7,7 @@ internal abstract record class AstType(
   string Name,
   string Description
 ) : AstDeclaration(At, Name, Description)
-  , IGqlpType
+  , IAstType
 {
   protected string? _abbr;
   protected string? _label;
@@ -23,12 +23,12 @@ internal abstract record class AstType<TParent>(
   string Name,
   string Description
 ) : AstType(At, Name, Description)
-  , IGqlpType<TParent>
-  where TParent : IGqlpDescribed, IEquatable<TParent>
+  , IAstType<TParent>
+  where TParent : IAstDescribed, IEquatable<TParent>
 {
   public TParent? Parent { get; set; }
 
-  public virtual bool Equals(IGqlpType<TParent>? other)
+  public virtual bool Equals(IAstType<TParent>? other)
     => base.Equals(other)
       && Parent.NullEqual(other.Parent);
   public override int GetHashCode()

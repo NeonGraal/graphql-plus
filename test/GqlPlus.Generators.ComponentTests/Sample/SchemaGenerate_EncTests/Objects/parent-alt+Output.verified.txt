@@ -1,0 +1,21 @@
+﻿/* parent-alt+Output
+output PrntAltOutp { :RefPrntAltOutp | Number }
+output RefPrntAltOutp {  parent: Number | String }
+*/
+
+// Generated from Schema parent-alt+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-alt+Output, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_alt_Output;
+
+internal class CmptPrntAltOutpEncoder
+{
+}
+
+internal class CmptRefPrntAltOutpEncoder
+{
+  public decimal Parent { get; set; }
+}

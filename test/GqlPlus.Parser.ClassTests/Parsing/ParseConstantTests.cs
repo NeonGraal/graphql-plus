@@ -6,18 +6,18 @@ public class ParseConstantTests
 
   private readonly ParseConstant _parseConstant;
 
-  private readonly Parser<IGqlpFieldKey>.I _fieldKeyParser;
-  private readonly Parser<KeyValue<IGqlpConstant>>.I _keyValueParser;
-  private readonly Parser<IGqlpConstant>.IA _listParser;
-  private readonly Parser<IGqlpFields<IGqlpConstant>>.I _objectParser;
+  private readonly Parser<IAstFieldKey>.I _fieldKeyParser;
+  private readonly Parser<KeyValue<IAstConstant>>.I _keyValueParser;
+  private readonly Parser<IAstConstant>.IA _listParser;
+  private readonly Parser<IAstFields<IAstConstant>>.I _objectParser;
 
   public ParseConstantTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    ConfigureRepo<IGqlpFieldKey>(parsers, out _fieldKeyParser);
-    ConfigureRepo<KeyValue<IGqlpConstant>>(parsers, out _keyValueParser);
-    ConfigureRepoArray<IGqlpConstant>(parsers, out _listParser);
-    ConfigureRepo<IGqlpFields<IGqlpConstant>>(parsers, out _objectParser);
+    ConfigureRepo<IAstFieldKey>(parsers, out _fieldKeyParser);
+    ConfigureRepo<KeyValue<IAstConstant>>(parsers, out _keyValueParser);
+    ConfigureRepoArray<IAstConstant>(parsers, out _listParser);
+    ConfigureRepo<IAstFields<IAstConstant>>(parsers, out _objectParser);
     _parseConstant = new ParseConstant(parsers);
   }
 
@@ -28,10 +28,10 @@ public class ParseConstantTests
     ParseOk(_fieldKeyParser);
 
     // Act
-    IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, TestLabel);
+    IResult<IAstConstant> result = _parseConstant.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpConstant>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstConstant>>()
       .Required().ShouldSatisfyAllConditions(
         x => x.Value.ShouldNotBeNull(),
         x => x.Values.ShouldBeEmpty(),
@@ -46,10 +46,10 @@ public class ParseConstantTests
     ParseOkA(_listParser);
 
     // Act
-    IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, TestLabel);
+    IResult<IAstConstant> result = _parseConstant.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpConstant>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstConstant>>()
       .Required().ShouldSatisfyAllConditions(
         x => x.Value.ShouldBeNull(),
         x => x.Values.ShouldNotBeEmpty(),
@@ -65,10 +65,10 @@ public class ParseConstantTests
     ParseOkField(_objectParser, fieldName);
 
     // Act
-    IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, TestLabel);
+    IResult<IAstConstant> result = _parseConstant.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpConstant>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstConstant>>()
       .Required().ShouldSatisfyAllConditions(
         x => x.Value.ShouldBeNull(),
         x => x.Values.ShouldBeEmpty(),

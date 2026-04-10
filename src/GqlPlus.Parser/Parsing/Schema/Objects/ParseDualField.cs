@@ -7,22 +7,22 @@ namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseDualField(
   IParserRepository parsers
-) : ObjectFieldParser<IGqlpDualField, DualFieldAst>(parsers)
+) : ObjectFieldParser<IAstDualField, DualFieldAst>(parsers)
 {
   [ExcludeFromCodeCoverage]
-  protected override void ApplyFieldParams(DualFieldAst field, IGqlpInputParam[] parameters)
+  protected override void ApplyFieldParams(DualFieldAst field, IAstInputParam[] parameters)
     => throw new InvalidOperationException();
 
   protected override DualFieldAst ObjField(
     TokenAt at,
     string name,
     string description,
-    IGqlpObjBase typeBase
+    IAstObjBase typeBase
   ) => new(at, name, description, typeBase);
 
-  protected override IResult<IGqlpDualField> FieldDefault(ITokenizer tokens, DualFieldAst field)
-    => field.Ok<IGqlpDualField>();
+  protected override IResult<IAstDualField> FieldDefault(ITokenizer tokens, DualFieldAst field)
+    => field.Ok<IAstDualField>();
 
-  protected override IResultArray<IGqlpInputParam> FieldParam(ITokenizer tokens)
-    => 0.EmptyArray<IGqlpInputParam>();
+  protected override IResultArray<IAstInputParam> FieldParam(ITokenizer tokens)
+    => 0.EmptyArray<IAstInputParam>();
 }

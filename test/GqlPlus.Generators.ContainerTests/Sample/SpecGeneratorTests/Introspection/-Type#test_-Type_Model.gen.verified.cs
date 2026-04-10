@@ -1,6 +1,6 @@
 ﻿//HintName: test_-Type_Model.gen.cs
 // Generated from {CurrentDirectory}-Type.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp__Type;
 
 public class test_Type
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Type
 {
   public Itest_BaseType<test_TypeKind>? As_TypeKindBasic { get; set; }
@@ -26,7 +26,7 @@ public class test_Type
 }
 
 public class test_TypeObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_TypeObject
 {
 
@@ -127,7 +127,7 @@ public class test_TypeRefObject<TTypeKind>
 }
 
 public class test_TypeSimple
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_TypeSimple
 {
   public Itest_TypeRef<test_TypeKind>? As_TypeKindBasic { get; set; }
@@ -138,7 +138,7 @@ public class test_TypeSimple
 }
 
 public class test_TypeSimpleObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_TypeSimpleObject
 {
 
@@ -149,7 +149,7 @@ public class test_TypeSimpleObject
 }
 
 public class test_Collections
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Collections
 {
   public Itest_Modifier<test_ModifierKind>? As_ModifierKindList { get; set; }
@@ -159,7 +159,7 @@ public class test_Collections
 }
 
 public class test_CollectionsObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_CollectionsObject
 {
 
@@ -195,7 +195,7 @@ public class test_ModifierKeyedObject<TModifierKind>
 }
 
 public class test_Modifiers
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Modifiers
 {
   public Itest_Modifier<test_ModifierKind>? As_ModifierKindOptional { get; set; }
@@ -204,7 +204,7 @@ public class test_Modifiers
 }
 
 public class test_ModifiersObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_ModifiersObject
 {
 
@@ -215,14 +215,14 @@ public class test_ModifiersObject
 }
 
 public class test_Modifier<TModifierKind>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Modifier<TModifierKind>
 {
   public Itest_ModifierObject<TModifierKind>? As__Modifier { get; set; }
 }
 
 public class test_ModifierObject<TModifierKind>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_ModifierObject<TModifierKind>
 {
   public TModifierKind ModifierKind { get; set; }

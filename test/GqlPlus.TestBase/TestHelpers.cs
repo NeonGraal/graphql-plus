@@ -77,52 +77,14 @@ public static class TestHelpers
       ? enumerable1.SequenceEqual(enumerable2)
       : input1.Equals(input2), input1Expression + " != " + input2Expression);
 
-  public static TCheck SkipEqual3<TCheck>(
+  public static TCheck SkipEqualAny<TCheck>(
     this TCheck check,
-    string? input1,
-    string? input2,
-    string? input3,
-    [CallerArgumentExpression(nameof(input1))] string? input1Expression = null,
-    [CallerArgumentExpression(nameof(input2))] string? input2Expression = null,
-    [CallerArgumentExpression(nameof(input3))] string? input3Expression = null)
-    => check
-      .SkipEqual(input1, input2, input1Expression, input2Expression)
-      .SkipEqual(input1, input3, input1Expression, input3Expression)
-      .SkipEqual(input2, input3, input2Expression, input3Expression);
-
-  public static TCheck SkipEqual4<TCheck>(
-    this TCheck check,
-    string? input1,
-    string? input2,
-    string? input3,
-    string? input4,
-    [CallerArgumentExpression(nameof(input1))] string? input1Expression = null,
-    [CallerArgumentExpression(nameof(input2))] string? input2Expression = null,
-    [CallerArgumentExpression(nameof(input3))] string? input3Expression = null,
-    [CallerArgumentExpression(nameof(input4))] string? input4Expression = null)
-    => check
-      .SkipEqual3(input1, input2, input3, input1Expression, input2Expression, input3Expression)
-      .SkipEqual(input1, input4, input1Expression, input4Expression)
-      .SkipEqual(input2, input4, input2Expression, input4Expression)
-      .SkipEqual(input3, input4, input3Expression, input4Expression);
-  public static TCheck SkipEqual5<TCheck>(
-    this TCheck check,
-    string? input1,
-    string? input2,
-    string? input3,
-    string? input4,
-    string? input5,
-    [CallerArgumentExpression(nameof(input1))] string? input1Expression = null,
-    [CallerArgumentExpression(nameof(input2))] string? input2Expression = null,
-    [CallerArgumentExpression(nameof(input3))] string? input3Expression = null,
-    [CallerArgumentExpression(nameof(input4))] string? input4Expression = null,
-    [CallerArgumentExpression(nameof(input5))] string? input5Expression = null)
-    => check
-      .SkipEqual4(input1, input2, input3, input4, input1Expression, input2Expression, input3Expression, input4Expression)
-      .SkipEqual(input1, input5, input1Expression, input5Expression)
-      .SkipEqual(input2, input5, input2Expression, input5Expression)
-      .SkipEqual(input3, input5, input3Expression, input5Expression)
-      .SkipEqual(input4, input5, input4Expression, input5Expression);
+    string[] inputs,
+    [CallerArgumentExpression(nameof(inputs))] string? inputsExpression = null)
+    => check.SkipIf(inputs
+      .Select((s, x) => (Check: s, List: inputs.Where((_, y) => x != y)))
+      .Any(p => p.List.Contains(p.Check, StringComparer.Ordinal))
+      , inputsExpression);
 
   public static TCheck SkipNull<TCheck>(this TCheck check, [NotNull] object? obj, [CallerArgumentExpression(nameof(obj))] string? objExpression = null)
   {
@@ -138,7 +100,7 @@ public static class TestHelpers
     return check;
   }
 
-  public static TCheck SkipUnless<TCheck>(this TCheck check, [NotNull] string[]? array, [CallerArgumentExpression(nameof(array))] string? arrayExpression = null)
+  public static TCheck SkipShortArray<TCheck>(this TCheck check, [NotNull] string[]? array, [CallerArgumentExpression(nameof(array))] string? arrayExpression = null)
   {
     Assert.SkipWhen(array is null, arrayExpression + " is null");
     Assert.SkipWhen(array.Length < 2, arrayExpression + ".Length < 2");

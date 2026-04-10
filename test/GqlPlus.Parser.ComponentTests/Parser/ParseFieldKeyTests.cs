@@ -3,7 +3,7 @@
 namespace GqlPlus.Parser;
 
 public class ParseFieldKeyTests(
-  IOneChecksParser<IGqlpFieldKey> checks
+  IOneChecksParser<IAstFieldKey> checks
 )
 {
   [Theory, RepeatData]

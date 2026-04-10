@@ -1,6 +1,6 @@
 ﻿//HintName: test_object-parent+Input_Model.gen.cs
 // Generated from {CurrentDirectory}object-parent+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -26,14 +26,14 @@ public class testObjPrntInpObject
 }
 
 public class testRefObjPrntInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefObjPrntInp
 {
   public ItestRefObjPrntInpObject? As_RefObjPrntInp { get; set; }
 }
 
 public class testRefObjPrntInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefObjPrntInpObject
 {
 

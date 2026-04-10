@@ -1,22 +1,22 @@
 ﻿namespace GqlPlus.Modelling.Globals;
 
 public class DirectiveModellerTests
-  : ModellerClassTestBase<IGqlpSchemaDirective, DirectiveModel>
+  : ModellerClassTestBase<IAstSchemaDirective, DirectiveModel>
 {
   public DirectiveModellerTests()
   {
-    IModeller<IGqlpInputParam, InputParamModel> parameter = MFor<IGqlpInputParam, InputParamModel>();
+    IModeller<IAstInputParam, InputParamModel> parameter = MFor<IAstInputParam, InputParamModel>();
 
     Modeller = new DirectiveModeller(parameter);
   }
 
-  protected override IModeller<IGqlpSchemaDirective, DirectiveModel> Modeller { get; }
+  protected override IModeller<IAstSchemaDirective, DirectiveModel> Modeller { get; }
 
   [Theory, RepeatData]
   public void ToModel_WithValidDirective_ReturnsExpectedDirectiveModel(string name, string contents, string[] aliases)
   {
     // Arrange
-    IGqlpSchemaDirective ast = A.Named<IGqlpSchemaDirective>(name, contents);
+    IAstSchemaDirective ast = A.Named<IAstSchemaDirective>(name, contents);
     ast.Aliases.Returns(aliases);
     ast.DirectiveOption.Returns(DirectiveOption.Repeatable);
     ast.Locations.Returns(DirectiveLocation.Operation | DirectiveLocation.Fragment);

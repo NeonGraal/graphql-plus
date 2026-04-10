@@ -2,24 +2,24 @@
 
 public abstract class VerifyObjectsAliasedTests<TObjField>(
   TypeKind fieldKind
-) : AliasedVerifierTestsBase<IGqlpObject<TObjField>>
-  where TObjField : IGqlpObjField
+) : AliasedVerifierTestsBase<IAstObject<TObjField>>
+  where TObjField : IAstObjField
 {
-  internal override GroupedVerifier<IGqlpObject<TObjField>> NewGroupedVerifier()
+  internal override GroupedVerifier<IAstObject<TObjField>> NewGroupedVerifier()
     => new ObjectsAliasedVerifier<TObjField>(VerifierRepo, fieldKind);
 }
 
 [TracePerTest]
 public class VerifyDualsAliasedTests()
-  : VerifyObjectsAliasedTests<IGqlpDualField>(TypeKind.Dual)
+  : VerifyObjectsAliasedTests<IAstDualField>(TypeKind.Dual)
 { }
 
 [TracePerTest]
 public class VerifyInputsAliasedTests()
-  : VerifyObjectsAliasedTests<IGqlpInputField>(TypeKind.Input)
+  : VerifyObjectsAliasedTests<IAstInputField>(TypeKind.Input)
 { }
 
 [TracePerTest]
 public class VerifyOutputsAliasedTests()
-  : VerifyObjectsAliasedTests<IGqlpOutputField>(TypeKind.Output)
+  : VerifyObjectsAliasedTests<IAstOutputField>(TypeKind.Output)
 { }

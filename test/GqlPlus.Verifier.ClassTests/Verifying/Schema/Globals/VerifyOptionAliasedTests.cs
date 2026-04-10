@@ -2,21 +2,21 @@
 
 [TracePerTest]
 public class VerifyOptionAliasedTests
-  : AliasedVerifierTestsBase<IGqlpSchemaOption>
+  : AliasedVerifierTestsBase<IAstSchemaOption>
 {
 
   [Fact]
   public void Verify_DifferentSchemaNames_ReturnsErrors()
   {
-    GroupedVerifier<IGqlpSchemaOption> verifier = NewGroupedVerifier();
+    GroupedVerifier<IAstSchemaOption> verifier = NewGroupedVerifier();
 
-    IGqlpSchemaOption[] items = A.NamedArray<IGqlpSchemaOption>("Schema", "Name");
+    IAstSchemaOption[] items = A.NamedArray<IAstSchemaOption>("Schema", "Name");
 
     verifier.Verify(items, Errors);
 
     Errors.ShouldNotBeEmpty();
   }
 
-  internal override GroupedVerifier<IGqlpSchemaOption> NewGroupedVerifier()
+  internal override GroupedVerifier<IAstSchemaOption> NewGroupedVerifier()
     => new VerifyOptionAliased(VerifierRepo);
 }

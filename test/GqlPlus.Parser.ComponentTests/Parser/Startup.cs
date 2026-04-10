@@ -6,12 +6,12 @@ public static class Startup
 {
   public static void ConfigureServices(IServiceCollection services)
     => services
-      .AddManyChecks<IParserCollections, IGqlpModifier>()
-      .AddOneChecks<IGqlpConstant>()
-      .AddOneChecks<IParserDefault, IGqlpConstant>()
-      .AddOneChecks<IGqlpFieldKey>()
-      .AddOneChecks<KeyValue<IGqlpConstant>>()
-      .AddManyChecks<IGqlpModifier>()
+      .AddManyChecks<IParserCollections, IAstModifier>()
+      .AddOneChecks<IAstConstant>()
+      .AddOneChecks<IParserDefault, IAstConstant>()
+      .AddOneChecks<IAstFieldKey>()
+      .AddOneChecks<KeyValue<IAstConstant>>()
+      .AddManyChecks<IAstModifier>()
 
       .AddComponentTest();
 }

@@ -6,11 +6,11 @@ namespace GqlPlus.Ast;
 internal sealed record class FieldKeyAst(
   ITokenAt At
 ) : AstAbbreviated(At)
-  , IGqlpFieldKey
+  , IAstFieldKey
 {
   public decimal? Number { get; }
   public string? Text { get; internal init; }
-  public IGqlpEnumValue? EnumValue { get; }
+  public IAstEnumValue? EnumValue { get; }
 
   internal override string Abbr => "k";
 
@@ -27,18 +27,18 @@ internal sealed record class FieldKeyAst(
   )
     : this(at)
     => EnumValue = new EnumValueAst(at, enumType, enumLabel);
-  internal FieldKeyAst(IGqlpEnumValue enumValue)
+  internal FieldKeyAst(IAstEnumValue enumValue)
     : this(enumValue.At)
     => EnumValue = enumValue;
 
   public bool Equals(FieldKeyAst? other)
-    => other is IGqlpFieldKey fieldKey && Equals(fieldKey);
+    => other is IAstFieldKey fieldKey && Equals(fieldKey);
   public override int GetHashCode()
   => HashCode.Combine(base.GetHashCode(), EnumValue.NullHashCode(), Number, Text);
 
-  public bool Equals(IGqlpFieldKey? other)
+  public bool Equals(IAstFieldKey? other)
     => CompareTo(other) == 0;
-  public int CompareTo(IGqlpFieldKey? other)
+  public int CompareTo(IAstFieldKey? other)
     => Apply(
       e => e.CompareTo(other?.EnumValue),
       n => decimal.Compare(n, other?.Number ?? 0),
@@ -54,7 +54,7 @@ internal sealed record class FieldKeyAst(
         null));
 
   private T Apply<T>(
-    Func<IGqlpEnumValue, T> enumFunc,
+    Func<IAstEnumValue, T> enumFunc,
     Func<decimal, T> numberFunc,
     Func<string, T> textFunc,
     T empty)

@@ -1,6 +1,6 @@
 ﻿//HintName: test_field-object+Input_Model.gen.cs
 // Generated from {CurrentDirectory}field-object+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_field_object_Input;
 
 public class testFieldObjInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldObjInp
 {
   public ItestFieldObjInpObject? As_FieldObjInp { get; set; }
 }
 
 public class testFieldObjInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldObjInpObject
 {
   public ItestFldFieldObjInp Field { get; set; }
@@ -29,7 +29,7 @@ public class testFieldObjInpObject
 }
 
 public class testFldFieldObjInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldFieldObjInp
 {
   public string? AsString { get; set; }
@@ -37,7 +37,7 @@ public class testFldFieldObjInp
 }
 
 public class testFldFieldObjInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldFieldObjInpObject
 {
   public decimal Field { get; set; }

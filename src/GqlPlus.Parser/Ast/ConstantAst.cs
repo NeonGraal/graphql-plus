@@ -4,28 +4,28 @@ namespace GqlPlus.Ast;
 
 internal sealed record class ConstantAst(
   ITokenAt At
-) : AstValue<IGqlpConstant>(At)
-  , IGqlpConstant
+) : AstValue<IAstConstant>(At)
+  , IAstConstant
 {
-  public IGqlpFieldKey? Value { get; set; }
+  public IAstFieldKey? Value { get; set; }
 
   internal override string Abbr => "c";
 
-  internal ConstantAst(IGqlpFieldKey value)
+  internal ConstantAst(IAstFieldKey value)
     : this((TokenAt)value.At)
     => Value = value;
 
-  internal ConstantAst(ITokenAt at, IEnumerable<IGqlpConstant> values)
+  internal ConstantAst(ITokenAt at, IEnumerable<IAstConstant> values)
     : this(at)
     => Values = [.. values];
 
-  internal ConstantAst(ITokenAt at, IGqlpFields<IGqlpConstant> fields)
+  internal ConstantAst(ITokenAt at, IAstFields<IAstConstant> fields)
     : this(at)
     => Fields = fields;
 
   public bool Equals(ConstantAst? other)
-    => other is IGqlpConstant constant && Equals(constant);
-  public bool Equals(IGqlpConstant? other)
+    => other is IAstConstant constant && Equals(constant);
+  public bool Equals(IAstConstant? other)
     => base.Equals(other)
     && Value.NullEqual(other.Value);
   public override int GetHashCode()

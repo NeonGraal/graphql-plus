@@ -7,16 +7,16 @@ public class ParseVariablesTests
 {
 
   private readonly ParseVariables _parseVariables;
-  private readonly Parser<IGqlpVariable>.I _variableParser;
+  private readonly Parser<IAstVariable>.I _variableParser;
 
   public ParseVariablesTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    ConfigureRepo<IGqlpVariable>(parsers, out _variableParser);
+    ConfigureRepo<IAstVariable>(parsers, out _variableParser);
     _parseVariables = new ParseVariables(parsers);
 
-    SetupError<IGqlpVariable>();
-    SetupPartial<IGqlpVariable>();
+    SetupError<IAstVariable>();
+    SetupPartial<IAstVariable>();
   }
 
   [Theory, RepeatData]
@@ -26,15 +26,15 @@ public class ParseVariablesTests
     TakeReturns('(', true);
     TakeReturns(')', true);
 
-    IGqlpVariable variable = A.Variable(name);
-    variable.Equals(Arg.Any<IGqlpVariable>()).Returns(c => c[0] == variable);
+    IAstVariable variable = A.Variable(name);
+    variable.Equals(Arg.Any<IAstVariable>()).Returns(c => c[0] == variable);
     ParseOk(_variableParser, variable);
 
     // Act
-    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstVariable> result = _parseVariables.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpVariable>>()
+    result.ShouldBeAssignableTo<IResultArrayOk<IAstVariable>>()
       .Required().ShouldContain(variable);
   }
 
@@ -46,10 +46,10 @@ public class ParseVariablesTests
     ParseError(_variableParser);
 
     // Act
-    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstVariable> result = _parseVariables.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpVariable>>();
+    result.ShouldBeAssignableTo<IResultArrayPartial<IAstVariable>>();
   }
 
   [Theory, RepeatData]
@@ -58,14 +58,14 @@ public class ParseVariablesTests
     // Arrange
     TakeReturns('(', true);
     TakeReturns(')', false);
-    IGqlpVariable variable = A.Variable(name);
+    IAstVariable variable = A.Variable(name);
     Parse(_variableParser, variable.Ok(), variable.Empty());
 
     // Act
-    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstVariable> result = _parseVariables.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpVariable>>();
+    result.ShouldBeAssignableTo<IResultArrayPartial<IAstVariable>>();
   }
 
   [Fact]
@@ -75,10 +75,10 @@ public class ParseVariablesTests
     TakeReturns('(', false);
 
     // Act
-    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstVariable> result = _parseVariables.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayEmpty<IGqlpVariable>>();
+    result.ShouldBeAssignableTo<IResultArrayEmpty<IAstVariable>>();
   }
 
   [Fact]
@@ -90,9 +90,9 @@ public class ParseVariablesTests
     ParseEmpty(_variableParser);
 
     // Act
-    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstVariable> result = _parseVariables.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayError<IGqlpVariable>>();
+    result.ShouldBeAssignableTo<IResultArrayError<IAstVariable>>();
   }
 }

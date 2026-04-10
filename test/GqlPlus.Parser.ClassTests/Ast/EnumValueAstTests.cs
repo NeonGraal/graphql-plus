@@ -117,7 +117,7 @@ public partial class EnumValueAstTests
   {
     EnumValueAst enumValue = CreateEnumValue(enumLabel);
 
-    ((IGqlpEnumValue)enumValue).EnumType.ShouldBeEmpty();
+    ((IAstEnumValue)enumValue).EnumType.ShouldBeEmpty();
   }
 
   [Theory, RepeatData]
@@ -125,7 +125,7 @@ public partial class EnumValueAstTests
   {
     EnumValueAst enumValue = CreateEnumValue(enumType, enumLabel);
 
-    ((IGqlpEnumValue)enumValue).EnumType.ShouldBe(enumType);
+    ((IAstEnumValue)enumValue).EnumType.ShouldBe(enumType);
   }
 
   [Theory, RepeatData]
@@ -133,7 +133,7 @@ public partial class EnumValueAstTests
   {
     EnumValueAst enumValue = CreateEnumValue(enumLabel);
 
-    ((IGqlpEnumValue)enumValue).EnumLabel.ShouldBe(enumLabel);
+    ((IAstEnumValue)enumValue).EnumLabel.ShouldBe(enumLabel);
   }
 
   [Theory, RepeatData]
@@ -141,7 +141,7 @@ public partial class EnumValueAstTests
   {
     EnumValueAst enumValue = CreateEnumValue(enumType, enumLabel);
 
-    ((IGqlpEnumValue)enumValue).EnumLabel.ShouldBe(enumLabel);
+    ((IAstEnumValue)enumValue).EnumLabel.ShouldBe(enumLabel);
   }
 
   [Theory, RepeatData]
@@ -150,7 +150,7 @@ public partial class EnumValueAstTests
     EnumValueAst enumValue1 = CreateEnumValue(enumType, enumLabel);
     EnumValueAst enumValue2 = CreateEnumValue(enumType, enumLabel);
 
-    enumValue1.Equals((IGqlpEnumValue)enumValue2).ShouldBeTrue();
+    enumValue1.Equals((IAstEnumValue)enumValue2).ShouldBeTrue();
   }
 
   [Theory, RepeatData]
@@ -163,7 +163,7 @@ public partial class EnumValueAstTests
     EnumValueAst enumValue1 = CreateEnumValue(enumType1, enumLabel);
     EnumValueAst enumValue2 = CreateEnumValue(enumType2, enumLabel);
 
-    enumValue1.Equals((IGqlpEnumValue)enumValue2).ShouldBeFalse();
+    enumValue1.Equals((IAstEnumValue)enumValue2).ShouldBeFalse();
   }
 
   internal AstAbbreviatedChecks<string, EnumValueAst> _checks

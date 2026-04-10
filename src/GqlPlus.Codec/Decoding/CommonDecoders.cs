@@ -22,7 +22,7 @@ internal class BooleanDecoder
 }
 
 internal class ConstantDecoder
-  : DecoderBase<ConstantModel>
+  : BaseDecoder<ConstantModel>
 {
   public override IMessages Decode(IValue input, out ConstantModel? output)
   {

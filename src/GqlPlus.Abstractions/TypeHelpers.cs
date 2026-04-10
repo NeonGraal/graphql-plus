@@ -10,8 +10,8 @@ public static class TypeHelpers
 
   public static string TidyTypeName(this Type type)
     => type.ExpandTypeName()
+      .Replace("IAst", "")
       .Replace("Ast", "")
-      .Replace("IGqlp", "")
       .Replace("Model", "");
 
   public static string ExpandTypeName(this Type? type)

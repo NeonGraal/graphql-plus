@@ -2,7 +2,7 @@
 
 internal abstract record class AstAbbreviated(ITokenAt At)
   : AstBase(At)
-  , IGqlpAbbreviated
+  , IAstAbbreviated
 {
   internal abstract string Abbr { get; }
 
@@ -17,11 +17,11 @@ internal abstract record class AstAbbreviated(ITokenAt At)
   internal virtual IEnumerable<string?> GetFields()
     => [AbbrAt];
 
-  public bool Equals(IGqlpAbbreviated? other)
+  public bool Equals(IAstAbbreviated? other)
     => other is not null;
   public override int GetHashCode() => 0;
 
-  ITokenAt IGqlpAbbreviated.At => At;
+  ITokenAt IAstAbbreviated.At => At;
 
-  IEnumerable<string?> IGqlpAbbreviated.GetFields() => GetFields();
+  IEnumerable<string?> IAstAbbreviated.GetFields() => GetFields();
 }

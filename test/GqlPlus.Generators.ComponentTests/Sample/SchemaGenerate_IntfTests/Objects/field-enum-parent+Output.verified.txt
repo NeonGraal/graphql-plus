@@ -23,3 +23,14 @@ public interface ICmptFieldEnumPrntOutpObject
 {
   CmptEnumFieldEnumPrntOutp Field { get; }
 }
+
+public enum CmptEnumFieldEnumPrntOutp
+{
+  prnt_fieldEnumPrntOutp = CmptPrntFieldEnumPrntOutp.prnt_fieldEnumPrntOutp,
+  fieldEnumPrntOutp,
+}
+
+public enum CmptPrntFieldEnumPrntOutp
+{
+  prnt_fieldEnumPrntOutp,
+}

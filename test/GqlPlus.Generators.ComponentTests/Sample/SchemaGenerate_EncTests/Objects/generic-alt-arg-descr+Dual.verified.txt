@@ -1,0 +1,20 @@
+﻿/* generic-alt-arg-descr+Dual
+dual GnrcAltArgDescrDual<$type:String> { | RefGnrcAltArgDescrDual<"Test" "Descr"$type> }
+dual RefGnrcAltArgDescrDual<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-alt-arg-descr+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-arg-descr+Dual, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_arg_descr_Dual;
+
+internal class CmptGnrcAltArgDescrDualEncoder<TType>
+{
+}
+
+internal class CmptRefGnrcAltArgDescrDualEncoder<TRef>
+{
+}

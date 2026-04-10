@@ -1,6 +1,6 @@
 ﻿//HintName: test_union-parent-dup_Model.gen.cs
 // Generated from {CurrentDirectory}union-parent-dup.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -15,7 +15,7 @@ public class testUnionPrntDup
 }
 
 public class testPrntUnionPrntDup
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestPrntUnionPrntDup
 {
   public Number AsNumber { get; set; }

@@ -9,10 +9,10 @@ public class TypeBuilder
 
   public TypeBuilder(string name)
     : base(name)
-    => Add<IGqlpType>();
+    => Add<IAstType>();
 
   protected new T Build<T>()
-    where T : class, IGqlpType
+    where T : class, IAstType
   {
     T result = base.Build<T>();
     result.Kind.Returns(_typeKind);

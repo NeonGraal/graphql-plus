@@ -1,0 +1,16 @@
+﻿/* input-field-String
+input InpFieldStr { field: String = 'default' }
+*/
+
+// Generated from Schema input-field-String
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_input-field-String, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_input_field_String;
+
+internal class CmptInpFieldStrEncoder
+{
+  public string Field { get; set; }
+}

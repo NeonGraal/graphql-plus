@@ -7,13 +7,13 @@ internal abstract record class AstNamed(
   string Name,
   string Description
 ) : AstDescribed(At, Description)
-  , IGqlpNamed
+  , IAstNamed
 {
   public string Name { get; set; } = Name;
 
   public virtual bool Equals(AstNamed? other)
-    => other is IGqlpNamed named && Equals(named);
-  public bool Equals(IGqlpNamed? other)
+    => other is IAstNamed named && Equals(named);
+  public bool Equals(IAstNamed? other)
     => base.Equals(other)
     && string.Equals(Name, other.Name, StringComparison.Ordinal);
   public override int GetHashCode()

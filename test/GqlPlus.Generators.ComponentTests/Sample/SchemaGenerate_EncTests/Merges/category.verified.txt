@@ -1,0 +1,17 @@
+﻿/* category
+category { Ctgr }
+category ctgr { Ctgr }
+output Ctgr { }
+*/
+
+// Generated from Schema category
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_category, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_category;
+
+internal class CmptCtgrEncoder
+{
+}

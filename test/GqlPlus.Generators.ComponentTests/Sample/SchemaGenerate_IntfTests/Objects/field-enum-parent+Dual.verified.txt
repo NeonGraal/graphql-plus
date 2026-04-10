@@ -23,3 +23,14 @@ public interface ICmptFieldEnumPrntDualObject
 {
   CmptEnumFieldEnumPrntDual Field { get; }
 }
+
+public enum CmptEnumFieldEnumPrntDual
+{
+  prnt_fieldEnumPrntDual = CmptPrntFieldEnumPrntDual.prnt_fieldEnumPrntDual,
+  fieldEnumPrntDual,
+}
+
+public enum CmptPrntFieldEnumPrntDual
+{
+  prnt_fieldEnumPrntDual,
+}

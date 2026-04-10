@@ -7,7 +7,7 @@ namespace GqlPlus.Parser.Schema.Objects;
 public abstract class TestObjectField<TObjField>(
   ICheckObjectField<TObjField> fieldChecks
 ) : BaseAliasedTests<FieldInput, TObjField>(fieldChecks)
-  where TObjField : IGqlpObjField
+  where TObjField : IAstObjField
 {
   [Theory, RepeatClassData<ObjTypeTestData>]
   public void WithSimple_ReturnsCorrectAst(string fieldType, string name)
@@ -25,7 +25,7 @@ public abstract class TestObjectField<TObjField>(
 internal class CheckObjectField<TObjField, TObjFieldAst>
   : BaseAliasedChecks<FieldInput, TObjFieldAst, TObjField>
   , ICheckObjectField<TObjField>
-  where TObjField : IGqlpObjField
+  where TObjField : IAstObjField
   where TObjFieldAst : AstObjField, TObjField
 {
   private readonly IObjectFieldFactories<TObjFieldAst> _factories;
@@ -59,7 +59,7 @@ internal class CheckObjectField<TObjField, TObjFieldAst>
 
 public interface ICheckObjectField<TObjField>
   : IBaseAliasedChecks<FieldInput, TObjField>
-  where TObjField : IGqlpObjField
+  where TObjField : IAstObjField
 {
   void WithMinimum(string name, string fieldType);
   void WithModifiers(string name, string fieldType);

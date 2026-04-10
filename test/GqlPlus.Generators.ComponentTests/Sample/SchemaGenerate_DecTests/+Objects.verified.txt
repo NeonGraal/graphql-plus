@@ -1,0 +1,2405 @@
+﻿// Generated from Schema +Objects
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_+Objects, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_Objects;
+
+internal class CmptAltDualDecoder
+{
+}
+
+internal class CmptAltAltDualDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptAltInpDecoder
+{
+}
+
+internal class CmptAltAltInpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptAltOutpDecoder
+{
+}
+
+internal class CmptAltAltOutpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptAltDescrDualDecoder
+{
+}
+
+internal class CmptAltDescrInpDecoder
+{
+}
+
+internal class CmptAltDescrOutpDecoder
+{
+}
+
+internal class CmptAltDualDualDecoder
+{
+}
+
+internal class CmptObjDualAltDualDualDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptAltDualInpDecoder
+{
+}
+
+internal class CmptObjDualAltDualInpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptAltDualOutpDecoder
+{
+}
+
+internal class CmptObjDualAltDualOutpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptAltEnumDualDecoder
+{
+}
+
+internal class CmptEnumAltEnumDualDecoder
+{
+  public string altEnumDual { get; set; }
+}
+
+internal class CmptAltEnumInpDecoder
+{
+}
+
+internal class CmptEnumAltEnumInpDecoder
+{
+  public string altEnumInp { get; set; }
+}
+
+internal class CmptAltEnumOutpDecoder
+{
+}
+
+internal class CmptEnumAltEnumOutpDecoder
+{
+  public string altEnumOutp { get; set; }
+}
+
+internal class CmptAltModBoolDualDecoder
+{
+}
+
+internal class CmptAltAltModBoolDualDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptAltModBoolInpDecoder
+{
+}
+
+internal class CmptAltAltModBoolInpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptAltModBoolOutpDecoder
+{
+}
+
+internal class CmptAltAltModBoolOutpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptAltModParamDualDecoder<TMod>
+{
+}
+
+internal class CmptAltAltModParamDualDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptAltModParamInpDecoder<TMod>
+{
+}
+
+internal class CmptAltAltModParamInpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptAltModParamOutpDecoder<TMod>
+{
+}
+
+internal class CmptAltAltModParamOutpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptAltSmplDualDecoder
+{
+}
+
+internal class CmptAltSmplInpDecoder
+{
+}
+
+internal class CmptAltSmplOutpDecoder
+{
+}
+
+internal class CmptCnstAltDualDecoder<TType>
+{
+}
+
+internal class CmptCnstAltInpDecoder<TType>
+{
+}
+
+internal class CmptCnstAltOutpDecoder<TType>
+{
+}
+
+internal class CmptCnstAltDmnDualDecoder
+{
+}
+
+internal class CmptRefCnstAltDmnDualDecoder<TRef>
+{
+}
+
+internal class CmptDomCnstAltDmnDualDecoder
+{
+}
+
+internal class CmptCnstAltDmnInpDecoder
+{
+}
+
+internal class CmptRefCnstAltDmnInpDecoder<TRef>
+{
+}
+
+internal class CmptDomCnstAltDmnInpDecoder
+{
+}
+
+internal class CmptCnstAltDmnOutpDecoder
+{
+}
+
+internal class CmptRefCnstAltDmnOutpDecoder<TRef>
+{
+}
+
+internal class CmptDomCnstAltDmnOutpDecoder
+{
+}
+
+internal class CmptCnstAltDualDualDecoder
+{
+}
+
+internal class CmptRefCnstAltDualDualDecoder<TRef>
+{
+}
+
+internal class CmptPrntCnstAltDualDualDecoder
+{
+}
+
+internal class CmptAltCnstAltDualDualDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptCnstAltDualInpDecoder
+{
+}
+
+internal class CmptRefCnstAltDualInpDecoder<TRef>
+{
+}
+
+internal class CmptPrntCnstAltDualInpDecoder
+{
+}
+
+internal class CmptAltCnstAltDualInpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptCnstAltDualOutpDecoder
+{
+}
+
+internal class CmptRefCnstAltDualOutpDecoder<TRef>
+{
+}
+
+internal class CmptPrntCnstAltDualOutpDecoder
+{
+}
+
+internal class CmptAltCnstAltDualOutpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptCnstAltObjDualDecoder
+{
+}
+
+internal class CmptRefCnstAltObjDualDecoder<TRef>
+{
+}
+
+internal class CmptPrntCnstAltObjDualDecoder
+{
+}
+
+internal class CmptAltCnstAltObjDualDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptCnstAltObjInpDecoder
+{
+}
+
+internal class CmptRefCnstAltObjInpDecoder<TRef>
+{
+}
+
+internal class CmptPrntCnstAltObjInpDecoder
+{
+}
+
+internal class CmptAltCnstAltObjInpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptCnstAltObjOutpDecoder
+{
+}
+
+internal class CmptRefCnstAltObjOutpDecoder<TRef>
+{
+}
+
+internal class CmptPrntCnstAltObjOutpDecoder
+{
+}
+
+internal class CmptAltCnstAltObjOutpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptCnstDomEnumDualDecoder
+{
+}
+
+internal class CmptRefCnstDomEnumDualDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumCnstDomEnumDualDecoder
+{
+  public string cnstDomEnumDual { get; set; }
+  public string other { get; set; }
+}
+
+internal class CmptJustCnstDomEnumDualDecoder
+{
+}
+
+internal class CmptCnstDomEnumInpDecoder
+{
+}
+
+internal class CmptRefCnstDomEnumInpDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumCnstDomEnumInpDecoder
+{
+  public string cnstDomEnumInp { get; set; }
+  public string other { get; set; }
+}
+
+internal class CmptJustCnstDomEnumInpDecoder
+{
+}
+
+internal class CmptCnstDomEnumOutpDecoder
+{
+}
+
+internal class CmptRefCnstDomEnumOutpDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumCnstDomEnumOutpDecoder
+{
+  public string cnstDomEnumOutp { get; set; }
+  public string other { get; set; }
+}
+
+internal class CmptJustCnstDomEnumOutpDecoder
+{
+}
+
+internal class CmptCnstEnumDualDecoder
+{
+}
+
+internal class CmptRefCnstEnumDualDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumCnstEnumDualDecoder
+{
+  public string cnstEnumDual { get; set; }
+}
+
+internal class CmptCnstEnumInpDecoder
+{
+}
+
+internal class CmptRefCnstEnumInpDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumCnstEnumInpDecoder
+{
+  public string cnstEnumInp { get; set; }
+}
+
+internal class CmptCnstEnumOutpDecoder
+{
+}
+
+internal class CmptRefCnstEnumOutpDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumCnstEnumOutpDecoder
+{
+  public string cnstEnumOutp { get; set; }
+}
+
+internal class CmptCnstEnumPrntDualDecoder
+{
+}
+
+internal class CmptRefCnstEnumPrntDualDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumCnstEnumPrntDualDecoder
+{
+  public string parentCnstEnumPrntDual { get; set; }
+  public string cnstEnumPrntDual { get; set; }
+}
+
+internal class CmptParentCnstEnumPrntDualDecoder
+{
+  public string parentCnstEnumPrntDual { get; set; }
+}
+
+internal class CmptCnstEnumPrntInpDecoder
+{
+}
+
+internal class CmptRefCnstEnumPrntInpDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumCnstEnumPrntInpDecoder
+{
+  public string parentCnstEnumPrntInp { get; set; }
+  public string cnstEnumPrntInp { get; set; }
+}
+
+internal class CmptParentCnstEnumPrntInpDecoder
+{
+  public string parentCnstEnumPrntInp { get; set; }
+}
+
+internal class CmptCnstEnumPrntOutpDecoder
+{
+}
+
+internal class CmptRefCnstEnumPrntOutpDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumCnstEnumPrntOutpDecoder
+{
+  public string parentCnstEnumPrntOutp { get; set; }
+  public string cnstEnumPrntOutp { get; set; }
+}
+
+internal class CmptParentCnstEnumPrntOutpDecoder
+{
+  public string parentCnstEnumPrntOutp { get; set; }
+}
+
+internal class CmptCnstFieldDmnDualDecoder
+{
+}
+
+internal class CmptRefCnstFieldDmnDualDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptDomCnstFieldDmnDualDecoder
+{
+}
+
+internal class CmptCnstFieldDmnInpDecoder
+{
+}
+
+internal class CmptRefCnstFieldDmnInpDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptDomCnstFieldDmnInpDecoder
+{
+}
+
+internal class CmptCnstFieldDmnOutpDecoder
+{
+}
+
+internal class CmptRefCnstFieldDmnOutpDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptDomCnstFieldDmnOutpDecoder
+{
+}
+
+internal class CmptCnstFieldDualDualDecoder
+{
+}
+
+internal class CmptRefCnstFieldDualDualDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptPrntCnstFieldDualDualDecoder
+{
+}
+
+internal class CmptAltCnstFieldDualDualDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptCnstFieldDualInpDecoder
+{
+}
+
+internal class CmptRefCnstFieldDualInpDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptPrntCnstFieldDualInpDecoder
+{
+}
+
+internal class CmptAltCnstFieldDualInpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptCnstFieldDualOutpDecoder
+{
+}
+
+internal class CmptRefCnstFieldDualOutpDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptPrntCnstFieldDualOutpDecoder
+{
+}
+
+internal class CmptAltCnstFieldDualOutpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptCnstFieldObjDualDecoder
+{
+}
+
+internal class CmptRefCnstFieldObjDualDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptPrntCnstFieldObjDualDecoder
+{
+}
+
+internal class CmptAltCnstFieldObjDualDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptCnstFieldObjInpDecoder
+{
+}
+
+internal class CmptRefCnstFieldObjInpDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptPrntCnstFieldObjInpDecoder
+{
+}
+
+internal class CmptAltCnstFieldObjInpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptCnstFieldObjOutpDecoder
+{
+}
+
+internal class CmptRefCnstFieldObjOutpDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptPrntCnstFieldObjOutpDecoder
+{
+}
+
+internal class CmptAltCnstFieldObjOutpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptCnstPrntDualGrndDualDecoder
+{
+}
+
+internal class CmptRefCnstPrntDualGrndDualDecoder<TRef>
+{
+}
+
+internal class CmptGrndCnstPrntDualGrndDualDecoder
+{
+}
+
+internal class CmptPrntCnstPrntDualGrndDualDecoder
+{
+}
+
+internal class CmptAltCnstPrntDualGrndDualDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptCnstPrntDualGrndInpDecoder
+{
+}
+
+internal class CmptRefCnstPrntDualGrndInpDecoder<TRef>
+{
+}
+
+internal class CmptGrndCnstPrntDualGrndInpDecoder
+{
+}
+
+internal class CmptPrntCnstPrntDualGrndInpDecoder
+{
+}
+
+internal class CmptAltCnstPrntDualGrndInpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptCnstPrntDualGrndOutpDecoder
+{
+}
+
+internal class CmptRefCnstPrntDualGrndOutpDecoder<TRef>
+{
+}
+
+internal class CmptGrndCnstPrntDualGrndOutpDecoder
+{
+}
+
+internal class CmptPrntCnstPrntDualGrndOutpDecoder
+{
+}
+
+internal class CmptAltCnstPrntDualGrndOutpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptCnstPrntDualPrntDualDecoder
+{
+}
+
+internal class CmptRefCnstPrntDualPrntDualDecoder<TRef>
+{
+}
+
+internal class CmptPrntCnstPrntDualPrntDualDecoder
+{
+}
+
+internal class CmptAltCnstPrntDualPrntDualDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptCnstPrntDualPrntInpDecoder
+{
+}
+
+internal class CmptRefCnstPrntDualPrntInpDecoder<TRef>
+{
+}
+
+internal class CmptPrntCnstPrntDualPrntInpDecoder
+{
+}
+
+internal class CmptAltCnstPrntDualPrntInpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptCnstPrntDualPrntOutpDecoder
+{
+}
+
+internal class CmptRefCnstPrntDualPrntOutpDecoder<TRef>
+{
+}
+
+internal class CmptPrntCnstPrntDualPrntOutpDecoder
+{
+}
+
+internal class CmptAltCnstPrntDualPrntOutpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptCnstPrntEnumDualDecoder
+{
+}
+
+internal class CmptRefCnstPrntEnumDualDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumCnstPrntEnumDualDecoder
+{
+  public string parentCnstPrntEnumDual { get; set; }
+  public string cnstPrntEnumDual { get; set; }
+}
+
+internal class CmptParentCnstPrntEnumDualDecoder
+{
+  public string parentCnstPrntEnumDual { get; set; }
+}
+
+internal class CmptCnstPrntEnumInpDecoder
+{
+}
+
+internal class CmptRefCnstPrntEnumInpDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumCnstPrntEnumInpDecoder
+{
+  public string parentCnstPrntEnumInp { get; set; }
+  public string cnstPrntEnumInp { get; set; }
+}
+
+internal class CmptParentCnstPrntEnumInpDecoder
+{
+  public string parentCnstPrntEnumInp { get; set; }
+}
+
+internal class CmptCnstPrntEnumOutpDecoder
+{
+}
+
+internal class CmptRefCnstPrntEnumOutpDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumCnstPrntEnumOutpDecoder
+{
+  public string parentCnstPrntEnumOutp { get; set; }
+  public string cnstPrntEnumOutp { get; set; }
+}
+
+internal class CmptParentCnstPrntEnumOutpDecoder
+{
+  public string parentCnstPrntEnumOutp { get; set; }
+}
+
+internal class CmptCnstPrntObjPrntDualDecoder
+{
+}
+
+internal class CmptRefCnstPrntObjPrntDualDecoder<TRef>
+{
+}
+
+internal class CmptPrntCnstPrntObjPrntDualDecoder
+{
+}
+
+internal class CmptAltCnstPrntObjPrntDualDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptCnstPrntObjPrntInpDecoder
+{
+}
+
+internal class CmptRefCnstPrntObjPrntInpDecoder<TRef>
+{
+}
+
+internal class CmptPrntCnstPrntObjPrntInpDecoder
+{
+}
+
+internal class CmptAltCnstPrntObjPrntInpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptCnstPrntObjPrntOutpDecoder
+{
+}
+
+internal class CmptRefCnstPrntObjPrntOutpDecoder<TRef>
+{
+}
+
+internal class CmptPrntCnstPrntObjPrntOutpDecoder
+{
+}
+
+internal class CmptAltCnstPrntObjPrntOutpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptFieldDualDecoder
+{
+  public string Field { get; set; }
+}
+
+internal class CmptFieldInpDecoder
+{
+  public string Field { get; set; }
+}
+
+internal class CmptFieldOutpDecoder
+{
+  public string Field { get; set; }
+}
+
+internal class CmptFieldDescrDualDecoder
+{
+  public string Field { get; set; }
+}
+
+internal class CmptFieldDescrInpDecoder
+{
+  public string Field { get; set; }
+}
+
+internal class CmptFieldDescrOutpDecoder
+{
+  public string Field { get; set; }
+}
+
+internal class CmptFieldDualDualDecoder
+{
+  public ICmptFldFieldDualDual Field { get; set; }
+}
+
+internal class CmptFldFieldDualDualDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptFieldDualInpDecoder
+{
+  public ICmptFldFieldDualInp Field { get; set; }
+}
+
+internal class CmptFldFieldDualInpDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptFieldDualOutpDecoder
+{
+  public ICmptFldFieldDualOutp Field { get; set; }
+}
+
+internal class CmptFldFieldDualOutpDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptFieldEnumDualDecoder
+{
+  public CmptEnumFieldEnumDual Field { get; set; }
+}
+
+internal class CmptEnumFieldEnumDualDecoder
+{
+  public string fieldEnumDual { get; set; }
+}
+
+internal class CmptFieldEnumInpDecoder
+{
+  public CmptEnumFieldEnumInp Field { get; set; }
+}
+
+internal class CmptEnumFieldEnumInpDecoder
+{
+  public string fieldEnumInp { get; set; }
+}
+
+internal class CmptFieldEnumOutpDecoder
+{
+  public CmptEnumFieldEnumOutp Field { get; set; }
+}
+
+internal class CmptEnumFieldEnumOutpDecoder
+{
+  public string fieldEnumOutp { get; set; }
+}
+
+internal class CmptFieldEnumPrntDualDecoder
+{
+  public CmptEnumFieldEnumPrntDual Field { get; set; }
+}
+
+internal class CmptEnumFieldEnumPrntDualDecoder
+{
+  public string prnt_fieldEnumPrntDual { get; set; }
+  public string fieldEnumPrntDual { get; set; }
+}
+
+internal class CmptPrntFieldEnumPrntDualDecoder
+{
+  public string prnt_fieldEnumPrntDual { get; set; }
+}
+
+internal class CmptFieldEnumPrntInpDecoder
+{
+  public CmptEnumFieldEnumPrntInp Field { get; set; }
+}
+
+internal class CmptEnumFieldEnumPrntInpDecoder
+{
+  public string prnt_fieldEnumPrntInp { get; set; }
+  public string fieldEnumPrntInp { get; set; }
+}
+
+internal class CmptPrntFieldEnumPrntInpDecoder
+{
+  public string prnt_fieldEnumPrntInp { get; set; }
+}
+
+internal class CmptFieldEnumPrntOutpDecoder
+{
+  public CmptEnumFieldEnumPrntOutp Field { get; set; }
+}
+
+internal class CmptEnumFieldEnumPrntOutpDecoder
+{
+  public string prnt_fieldEnumPrntOutp { get; set; }
+  public string fieldEnumPrntOutp { get; set; }
+}
+
+internal class CmptPrntFieldEnumPrntOutpDecoder
+{
+  public string prnt_fieldEnumPrntOutp { get; set; }
+}
+
+internal class CmptFieldModEnumDualDecoder
+{
+  public IDictionary<CmptEnumFieldModEnumDual, string> Field { get; set; }
+}
+
+internal class CmptEnumFieldModEnumDualDecoder
+{
+  public string value { get; set; }
+}
+
+internal class CmptFieldModEnumInpDecoder
+{
+  public IDictionary<CmptEnumFieldModEnumInp, string> Field { get; set; }
+}
+
+internal class CmptEnumFieldModEnumInpDecoder
+{
+  public string value { get; set; }
+}
+
+internal class CmptFieldModEnumOutpDecoder
+{
+  public IDictionary<CmptEnumFieldModEnumOutp, string> Field { get; set; }
+}
+
+internal class CmptEnumFieldModEnumOutpDecoder
+{
+  public string value { get; set; }
+}
+
+internal class CmptFieldModParamDualDecoder<TMod>
+{
+  public IDictionary<TMod, ICmptFldFieldModParamDual> Field { get; set; }
+}
+
+internal class CmptFldFieldModParamDualDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptFieldModParamInpDecoder<TMod>
+{
+  public IDictionary<TMod, ICmptFldFieldModParamInp> Field { get; set; }
+}
+
+internal class CmptFldFieldModParamInpDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptFieldModParamOutpDecoder<TMod>
+{
+  public IDictionary<TMod, ICmptFldFieldModParamOutp> Field { get; set; }
+}
+
+internal class CmptFldFieldModParamOutpDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptFieldObjDualDecoder
+{
+  public ICmptFldFieldObjDual Field { get; set; }
+}
+
+internal class CmptFldFieldObjDualDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptFieldObjInpDecoder
+{
+  public ICmptFldFieldObjInp Field { get; set; }
+}
+
+internal class CmptFldFieldObjInpDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptFieldObjOutpDecoder
+{
+  public ICmptFldFieldObjOutp Field { get; set; }
+}
+
+internal class CmptFldFieldObjOutpDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptFieldSmplDualDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptFieldSmplInpDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptFieldSmplOutpDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptFieldTypeDescrDualDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptFieldTypeDescrInpDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptFieldTypeDescrOutpDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptFieldValueDualDecoder
+{
+  public CmptEnumFieldValueDual Field { get; set; }
+}
+
+internal class CmptEnumFieldValueDualDecoder
+{
+  public string fieldValueDual { get; set; }
+}
+
+internal class CmptFieldValueInpDecoder
+{
+  public CmptEnumFieldValueInp Field { get; set; }
+}
+
+internal class CmptEnumFieldValueInpDecoder
+{
+  public string fieldValueInp { get; set; }
+}
+
+internal class CmptFieldValueOutpDecoder
+{
+  public CmptEnumFieldValueOutp Field { get; set; }
+}
+
+internal class CmptEnumFieldValueOutpDecoder
+{
+  public string fieldValueOutp { get; set; }
+}
+
+internal class CmptFieldValueDescrDualDecoder
+{
+  public CmptEnumFieldValueDescrDual Field { get; set; }
+}
+
+internal class CmptEnumFieldValueDescrDualDecoder
+{
+  public string fieldValueDescrDual { get; set; }
+}
+
+internal class CmptFieldValueDescrInpDecoder
+{
+  public CmptEnumFieldValueDescrInp Field { get; set; }
+}
+
+internal class CmptEnumFieldValueDescrInpDecoder
+{
+  public string fieldValueDescrInp { get; set; }
+}
+
+internal class CmptFieldValueDescrOutpDecoder
+{
+  public CmptEnumFieldValueDescrOutp Field { get; set; }
+}
+
+internal class CmptEnumFieldValueDescrOutpDecoder
+{
+  public string fieldValueDescrOutp { get; set; }
+}
+
+internal class CmptGnrcAltDualDecoder<TType>
+{
+}
+
+internal class CmptGnrcAltInpDecoder<TType>
+{
+}
+
+internal class CmptGnrcAltOutpDecoder<TType>
+{
+}
+
+internal class CmptGnrcAltArgDualDecoder<TType>
+{
+}
+
+internal class CmptRefGnrcAltArgDualDecoder<TRef>
+{
+}
+
+internal class CmptGnrcAltArgInpDecoder<TType>
+{
+}
+
+internal class CmptRefGnrcAltArgInpDecoder<TRef>
+{
+}
+
+internal class CmptGnrcAltArgOutpDecoder<TType>
+{
+}
+
+internal class CmptRefGnrcAltArgOutpDecoder<TRef>
+{
+}
+
+internal class CmptGnrcAltArgDescrDualDecoder<TType>
+{
+}
+
+internal class CmptRefGnrcAltArgDescrDualDecoder<TRef>
+{
+}
+
+internal class CmptGnrcAltArgDescrInpDecoder<TType>
+{
+}
+
+internal class CmptRefGnrcAltArgDescrInpDecoder<TRef>
+{
+}
+
+internal class CmptGnrcAltArgDescrOutpDecoder<TType>
+{
+}
+
+internal class CmptRefGnrcAltArgDescrOutpDecoder<TRef>
+{
+}
+
+internal class CmptGnrcAltDualDualDecoder
+{
+}
+
+internal class CmptRefGnrcAltDualDualDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcAltDualDualDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcAltDualInpDecoder
+{
+}
+
+internal class CmptRefGnrcAltDualInpDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcAltDualInpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcAltDualOutpDecoder
+{
+}
+
+internal class CmptRefGnrcAltDualOutpDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcAltDualOutpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptRefGnrcAltModParamDualDecoder<TRef,TMod>
+{
+}
+
+internal class CmptRefGnrcAltModParamInpDecoder<TRef,TMod>
+{
+}
+
+internal class CmptRefGnrcAltModParamOutpDecoder<TRef,TMod>
+{
+}
+
+internal class CmptRefGnrcAltModStrDualDecoder<TRef>
+{
+}
+
+internal class CmptRefGnrcAltModStrInpDecoder<TRef>
+{
+}
+
+internal class CmptRefGnrcAltModStrOutpDecoder<TRef>
+{
+}
+
+internal class CmptGnrcAltParamDualDecoder
+{
+}
+
+internal class CmptRefGnrcAltParamDualDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcAltParamDualDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcAltParamInpDecoder
+{
+}
+
+internal class CmptRefGnrcAltParamInpDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcAltParamInpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcAltParamOutpDecoder
+{
+}
+
+internal class CmptRefGnrcAltParamOutpDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcAltParamOutpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcAltSmplDualDecoder
+{
+}
+
+internal class CmptRefGnrcAltSmplDualDecoder<TRef>
+{
+}
+
+internal class CmptGnrcAltSmplInpDecoder
+{
+}
+
+internal class CmptRefGnrcAltSmplInpDecoder<TRef>
+{
+}
+
+internal class CmptGnrcAltSmplOutpDecoder
+{
+}
+
+internal class CmptRefGnrcAltSmplOutpDecoder<TRef>
+{
+}
+
+internal class CmptGnrcDescrDualDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptGnrcDescrInpDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptGnrcDescrOutpDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptGnrcEnumDualDecoder
+{
+}
+
+internal class CmptRefGnrcEnumDualDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumGnrcEnumDualDecoder
+{
+  public string gnrcEnumDual { get; set; }
+}
+
+internal class CmptGnrcEnumInpDecoder
+{
+}
+
+internal class CmptRefGnrcEnumInpDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumGnrcEnumInpDecoder
+{
+  public string gnrcEnumInp { get; set; }
+}
+
+internal class CmptGnrcEnumOutpDecoder
+{
+}
+
+internal class CmptRefGnrcEnumOutpDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumGnrcEnumOutpDecoder
+{
+  public string gnrcEnumOutp { get; set; }
+}
+
+internal class CmptGnrcFieldDualDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptGnrcFieldInpDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptGnrcFieldOutpDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptGnrcFieldArgDualDecoder<TType>
+{
+  public ICmptRefGnrcFieldArgDual<TType> Field { get; set; }
+}
+
+internal class CmptRefGnrcFieldArgDualDecoder<TRef>
+{
+}
+
+internal class CmptGnrcFieldArgInpDecoder<TType>
+{
+  public ICmptRefGnrcFieldArgInp<TType> Field { get; set; }
+}
+
+internal class CmptRefGnrcFieldArgInpDecoder<TRef>
+{
+}
+
+internal class CmptGnrcFieldArgOutpDecoder<TType>
+{
+  public ICmptRefGnrcFieldArgOutp<TType> Field { get; set; }
+}
+
+internal class CmptRefGnrcFieldArgOutpDecoder<TRef>
+{
+}
+
+internal class CmptGnrcFieldDualDualDecoder
+{
+  public ICmptRefGnrcFieldDualDual<ICmptAltGnrcFieldDualDual> Field { get; set; }
+}
+
+internal class CmptRefGnrcFieldDualDualDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcFieldDualDualDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcFieldDualInpDecoder
+{
+  public ICmptRefGnrcFieldDualInp<ICmptAltGnrcFieldDualInp> Field { get; set; }
+}
+
+internal class CmptRefGnrcFieldDualInpDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcFieldDualInpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcFieldDualOutpDecoder
+{
+  public ICmptRefGnrcFieldDualOutp<ICmptAltGnrcFieldDualOutp> Field { get; set; }
+}
+
+internal class CmptRefGnrcFieldDualOutpDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcFieldDualOutpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcFieldParamDualDecoder
+{
+  public ICmptRefGnrcFieldParamDual<ICmptAltGnrcFieldParamDual> Field { get; set; }
+}
+
+internal class CmptRefGnrcFieldParamDualDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcFieldParamDualDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcFieldParamInpDecoder
+{
+  public ICmptRefGnrcFieldParamInp<ICmptAltGnrcFieldParamInp> Field { get; set; }
+}
+
+internal class CmptRefGnrcFieldParamInpDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcFieldParamInpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcFieldParamOutpDecoder
+{
+  public ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> Field { get; set; }
+}
+
+internal class CmptRefGnrcFieldParamOutpDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcFieldParamOutpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcPrntDualDecoder<TType>
+{
+}
+
+internal class CmptGnrcPrntInpDecoder<TType>
+{
+}
+
+internal class CmptGnrcPrntOutpDecoder<TType>
+{
+}
+
+internal class CmptGnrcPrntArgDualDecoder<TType>
+{
+}
+
+internal class CmptRefGnrcPrntArgDualDecoder<TRef>
+{
+}
+
+internal class CmptGnrcPrntArgInpDecoder<TType>
+{
+}
+
+internal class CmptRefGnrcPrntArgInpDecoder<TRef>
+{
+}
+
+internal class CmptGnrcPrntArgOutpDecoder<TType>
+{
+}
+
+internal class CmptRefGnrcPrntArgOutpDecoder<TRef>
+{
+}
+
+internal class CmptGnrcPrntDescrDualDecoder<TType>
+{
+}
+
+internal class CmptGnrcPrntDescrInpDecoder<TType>
+{
+}
+
+internal class CmptGnrcPrntDescrOutpDecoder<TType>
+{
+}
+
+internal class CmptGnrcPrntDualDualDecoder
+{
+}
+
+internal class CmptRefGnrcPrntDualDualDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcPrntDualDualDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcPrntDualInpDecoder
+{
+}
+
+internal class CmptRefGnrcPrntDualInpDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcPrntDualInpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcPrntDualOutpDecoder
+{
+}
+
+internal class CmptRefGnrcPrntDualOutpDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcPrntDualOutpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcPrntDualPrntDualDecoder
+{
+}
+
+internal class CmptRefGnrcPrntDualPrntDualDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcPrntDualPrntDualDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcPrntDualPrntInpDecoder
+{
+}
+
+internal class CmptRefGnrcPrntDualPrntInpDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcPrntDualPrntInpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcPrntDualPrntOutpDecoder
+{
+}
+
+internal class CmptRefGnrcPrntDualPrntOutpDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcPrntDualPrntOutpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcPrntEnumChildDualDecoder
+{
+}
+
+internal class CmptFieldGnrcPrntEnumChildDualDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptEnumGnrcPrntEnumChildDualDecoder
+{
+  public string gnrcPrntEnumChildDualParent { get; set; }
+  public string gnrcPrntEnumChildDualLabel { get; set; }
+}
+
+internal class CmptParentGnrcPrntEnumChildDualDecoder
+{
+  public string gnrcPrntEnumChildDualParent { get; set; }
+}
+
+internal class CmptGnrcPrntEnumChildInpDecoder
+{
+}
+
+internal class CmptFieldGnrcPrntEnumChildInpDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptEnumGnrcPrntEnumChildInpDecoder
+{
+  public string gnrcPrntEnumChildInpParent { get; set; }
+  public string gnrcPrntEnumChildInpLabel { get; set; }
+}
+
+internal class CmptParentGnrcPrntEnumChildInpDecoder
+{
+  public string gnrcPrntEnumChildInpParent { get; set; }
+}
+
+internal class CmptGnrcPrntEnumChildOutpDecoder
+{
+}
+
+internal class CmptFieldGnrcPrntEnumChildOutpDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptEnumGnrcPrntEnumChildOutpDecoder
+{
+  public string gnrcPrntEnumChildOutpParent { get; set; }
+  public string gnrcPrntEnumChildOutpLabel { get; set; }
+}
+
+internal class CmptParentGnrcPrntEnumChildOutpDecoder
+{
+  public string gnrcPrntEnumChildOutpParent { get; set; }
+}
+
+internal class CmptGnrcPrntEnumDomDualDecoder
+{
+}
+
+internal class CmptFieldGnrcPrntEnumDomDualDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptEnumGnrcPrntEnumDomDualDecoder
+{
+  public string gnrcPrntEnumDomDualLabel { get; set; }
+  public string gnrcPrntEnumDomDualOther { get; set; }
+}
+
+internal class CmptDomGnrcPrntEnumDomDualDecoder
+{
+}
+
+internal class CmptGnrcPrntEnumDomInpDecoder
+{
+}
+
+internal class CmptFieldGnrcPrntEnumDomInpDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptEnumGnrcPrntEnumDomInpDecoder
+{
+  public string gnrcPrntEnumDomInpLabel { get; set; }
+  public string gnrcPrntEnumDomInpOther { get; set; }
+}
+
+internal class CmptDomGnrcPrntEnumDomInpDecoder
+{
+}
+
+internal class CmptGnrcPrntEnumDomOutpDecoder
+{
+}
+
+internal class CmptFieldGnrcPrntEnumDomOutpDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptEnumGnrcPrntEnumDomOutpDecoder
+{
+  public string gnrcPrntEnumDomOutpLabel { get; set; }
+  public string gnrcPrntEnumDomOutpOther { get; set; }
+}
+
+internal class CmptDomGnrcPrntEnumDomOutpDecoder
+{
+}
+
+internal class CmptGnrcPrntEnumPrntDualDecoder
+{
+}
+
+internal class CmptFieldGnrcPrntEnumPrntDualDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptEnumGnrcPrntEnumPrntDualDecoder
+{
+  public string gnrcPrntEnumPrntDualParent { get; set; }
+  public string gnrcPrntEnumPrntDualLabel { get; set; }
+}
+
+internal class CmptParentGnrcPrntEnumPrntDualDecoder
+{
+  public string gnrcPrntEnumPrntDualParent { get; set; }
+}
+
+internal class CmptGnrcPrntEnumPrntInpDecoder
+{
+}
+
+internal class CmptFieldGnrcPrntEnumPrntInpDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptEnumGnrcPrntEnumPrntInpDecoder
+{
+  public string gnrcPrntEnumPrntInpParent { get; set; }
+  public string gnrcPrntEnumPrntInpLabel { get; set; }
+}
+
+internal class CmptParentGnrcPrntEnumPrntInpDecoder
+{
+  public string gnrcPrntEnumPrntInpParent { get; set; }
+}
+
+internal class CmptGnrcPrntEnumPrntOutpDecoder
+{
+}
+
+internal class CmptFieldGnrcPrntEnumPrntOutpDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptEnumGnrcPrntEnumPrntOutpDecoder
+{
+  public string gnrcPrntEnumPrntOutpParent { get; set; }
+  public string gnrcPrntEnumPrntOutpLabel { get; set; }
+}
+
+internal class CmptParentGnrcPrntEnumPrntOutpDecoder
+{
+  public string gnrcPrntEnumPrntOutpParent { get; set; }
+}
+
+internal class CmptGnrcPrntParamDualDecoder
+{
+}
+
+internal class CmptRefGnrcPrntParamDualDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcPrntParamDualDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcPrntParamInpDecoder
+{
+}
+
+internal class CmptRefGnrcPrntParamInpDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcPrntParamInpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcPrntParamOutpDecoder
+{
+}
+
+internal class CmptRefGnrcPrntParamOutpDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcPrntParamOutpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcPrntParamPrntDualDecoder
+{
+}
+
+internal class CmptRefGnrcPrntParamPrntDualDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcPrntParamPrntDualDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcPrntParamPrntInpDecoder
+{
+}
+
+internal class CmptRefGnrcPrntParamPrntInpDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcPrntParamPrntInpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcPrntParamPrntOutpDecoder
+{
+}
+
+internal class CmptRefGnrcPrntParamPrntOutpDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcPrntParamPrntOutpDecoder
+{
+  public decimal Alt { get; set; }
+}
+
+internal class CmptGnrcPrntSmplEnumDualDecoder
+{
+}
+
+internal class CmptFieldGnrcPrntSmplEnumDualDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptEnumGnrcPrntSmplEnumDualDecoder
+{
+  public string gnrcPrntSmplEnumDual { get; set; }
+}
+
+internal class CmptGnrcPrntSmplEnumInpDecoder
+{
+}
+
+internal class CmptFieldGnrcPrntSmplEnumInpDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptEnumGnrcPrntSmplEnumInpDecoder
+{
+  public string gnrcPrntSmplEnumInp { get; set; }
+}
+
+internal class CmptGnrcPrntSmplEnumOutpDecoder
+{
+}
+
+internal class CmptFieldGnrcPrntSmplEnumOutpDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptEnumGnrcPrntSmplEnumOutpDecoder
+{
+  public string gnrcPrntSmplEnumOutp { get; set; }
+}
+
+internal class CmptGnrcPrntStrDomDualDecoder
+{
+}
+
+internal class CmptFieldGnrcPrntStrDomDualDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptDomGnrcPrntStrDomDualDecoder
+{
+}
+
+internal class CmptGnrcPrntStrDomInpDecoder
+{
+}
+
+internal class CmptFieldGnrcPrntStrDomInpDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptDomGnrcPrntStrDomInpDecoder
+{
+}
+
+internal class CmptGnrcPrntStrDomOutpDecoder
+{
+}
+
+internal class CmptFieldGnrcPrntStrDomOutpDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptDomGnrcPrntStrDomOutpDecoder
+{
+}
+
+internal class CmptGnrcValueDualDecoder
+{
+}
+
+internal class CmptRefGnrcValueDualDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumGnrcValueDualDecoder
+{
+  public string gnrcValueDual { get; set; }
+}
+
+internal class CmptGnrcValueInpDecoder
+{
+}
+
+internal class CmptRefGnrcValueInpDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumGnrcValueInpDecoder
+{
+  public string gnrcValueInp { get; set; }
+}
+
+internal class CmptGnrcValueOutpDecoder
+{
+}
+
+internal class CmptRefGnrcValueOutpDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumGnrcValueOutpDecoder
+{
+  public string gnrcValueOutp { get; set; }
+}
+
+internal class CmptInpFieldDescrNmbrDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptInpFieldEnumDecoder
+{
+  public CmptEnumInpFieldEnum Field { get; set; }
+}
+
+internal class CmptEnumInpFieldEnumDecoder
+{
+  public string inpFieldEnum { get; set; }
+}
+
+internal class CmptInpFieldNullDecoder
+{
+  public ICmptFldInpFieldNull? Field { get; set; }
+}
+
+internal class CmptFldInpFieldNullDecoder
+{
+}
+
+internal class CmptInpFieldNmbrDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptInpFieldNmbrDescrDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptInpFieldStrDecoder
+{
+  public string Field { get; set; }
+}
+
+internal class CmptOutpDescrParamDecoder
+{
+  public ICmptFldOutpDescrParam? Field(ICmptInOutpDescrParam parameter)
+    => null;
+}
+
+internal class CmptFldOutpDescrParamDecoder
+{
+}
+
+internal class CmptInOutpDescrParamDecoder
+{
+  public decimal Param { get; set; }
+}
+
+internal class CmptOutpParamDecoder
+{
+  public ICmptFldOutpParam? Field(ICmptInOutpParam parameter)
+    => null;
+}
+
+internal class CmptFldOutpParamDecoder
+{
+}
+
+internal class CmptInOutpParamDecoder
+{
+  public decimal Param { get; set; }
+}
+
+internal class CmptOutpParamDescrDecoder
+{
+  public ICmptFldOutpParamDescr? Field(ICmptInOutpParamDescr parameter)
+    => null;
+}
+
+internal class CmptFldOutpParamDescrDecoder
+{
+}
+
+internal class CmptInOutpParamDescrDecoder
+{
+  public decimal Param { get; set; }
+}
+
+internal class CmptOutpParamModDmnDecoder
+{
+  public ICmptDomOutpParamModDmn? Field(IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter)
+    => null;
+}
+
+internal class CmptInOutpParamModDmnDecoder
+{
+  public decimal Param { get; set; }
+}
+
+internal class CmptDomOutpParamModDmnDecoder
+{
+}
+
+internal class CmptOutpParamModParamDecoder<TMod>
+{
+  public ICmptDomOutpParamModParam? Field(IDictionary<TMod, ICmptInOutpParamModParam> parameter)
+    => null;
+}
+
+internal class CmptInOutpParamModParamDecoder
+{
+  public decimal Param { get; set; }
+}
+
+internal class CmptDomOutpParamModParamDecoder
+{
+}
+
+internal class CmptOutpParamTypeDescrDecoder
+{
+  public ICmptFldOutpParamTypeDescr? Field(ICmptInOutpParamTypeDescr parameter)
+    => null;
+}
+
+internal class CmptFldOutpParamTypeDescrDecoder
+{
+}
+
+internal class CmptInOutpParamTypeDescrDecoder
+{
+  public decimal Param { get; set; }
+}
+
+internal class CmptOutpPrntGnrcDecoder
+{
+}
+
+internal class CmptRefOutpPrntGnrcDecoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumOutpPrntGnrcDecoder
+{
+  public string prnt_outpPrntGnrc { get; set; }
+  public string outpPrntGnrc { get; set; }
+}
+
+internal class CmptPrntOutpPrntGnrcDecoder
+{
+  public string prnt_outpPrntGnrc { get; set; }
+}
+
+internal class CmptOutpPrntParamDecoder
+{
+  public ICmptFldOutpPrntParam? Field(ICmptInOutpPrntParam parameter)
+    => null;
+}
+
+internal class CmptPrntOutpPrntParamDecoder
+{
+  public ICmptFldOutpPrntParam? Field(ICmptPrntOutpPrntParamIn parameter)
+    => null;
+}
+
+internal class CmptFldOutpPrntParamDecoder
+{
+}
+
+internal class CmptInOutpPrntParamDecoder
+{
+  public decimal Param { get; set; }
+}
+
+internal class CmptPrntOutpPrntParamInDecoder
+{
+  public decimal Parent { get; set; }
+}
+
+internal class CmptPrntDualDecoder
+{
+}
+
+internal class CmptRefPrntDualDecoder
+{
+  public decimal Parent { get; set; }
+}
+
+internal class CmptPrntInpDecoder
+{
+}
+
+internal class CmptRefPrntInpDecoder
+{
+  public decimal Parent { get; set; }
+}
+
+internal class CmptPrntOutpDecoder
+{
+}
+
+internal class CmptRefPrntOutpDecoder
+{
+  public decimal Parent { get; set; }
+}
+
+internal class CmptPrntAltDualDecoder
+{
+}
+
+internal class CmptRefPrntAltDualDecoder
+{
+  public decimal Parent { get; set; }
+}
+
+internal class CmptPrntAltInpDecoder
+{
+}
+
+internal class CmptRefPrntAltInpDecoder
+{
+  public decimal Parent { get; set; }
+}
+
+internal class CmptPrntAltOutpDecoder
+{
+}
+
+internal class CmptRefPrntAltOutpDecoder
+{
+  public decimal Parent { get; set; }
+}
+
+internal class CmptPrntDescrDualDecoder
+{
+}
+
+internal class CmptRefPrntDescrDualDecoder
+{
+  public decimal Parent { get; set; }
+}
+
+internal class CmptPrntDescrInpDecoder
+{
+}
+
+internal class CmptRefPrntDescrInpDecoder
+{
+  public decimal Parent { get; set; }
+}
+
+internal class CmptPrntDescrOutpDecoder
+{
+}
+
+internal class CmptRefPrntDescrOutpDecoder
+{
+  public decimal Parent { get; set; }
+}
+
+internal class CmptPrntDualDualDecoder
+{
+}
+
+internal class CmptRefPrntDualDualDecoder
+{
+  public decimal Parent { get; set; }
+}
+
+internal class CmptPrntDualInpDecoder
+{
+}
+
+internal class CmptRefPrntDualInpDecoder
+{
+  public decimal Parent { get; set; }
+}
+
+internal class CmptPrntDualOutpDecoder
+{
+}
+
+internal class CmptRefPrntDualOutpDecoder
+{
+  public decimal Parent { get; set; }
+}
+
+internal class CmptPrntFieldDualDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptRefPrntFieldDualDecoder
+{
+  public decimal Parent { get; set; }
+}
+
+internal class CmptPrntFieldInpDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptRefPrntFieldInpDecoder
+{
+  public decimal Parent { get; set; }
+}
+
+internal class CmptPrntFieldOutpDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptRefPrntFieldOutpDecoder
+{
+  public decimal Parent { get; set; }
+}
+
+internal class CmptPrntParamDiffDualDecoder<TA>
+{
+  public TA Field { get; set; }
+}
+
+internal class CmptRefPrntParamDiffDualDecoder<TB>
+{
+}
+
+internal class CmptPrntParamDiffInpDecoder<TA>
+{
+  public TA Field { get; set; }
+}
+
+internal class CmptRefPrntParamDiffInpDecoder<TB>
+{
+}
+
+internal class CmptPrntParamDiffOutpDecoder<TA>
+{
+  public TA Field { get; set; }
+}
+
+internal class CmptRefPrntParamDiffOutpDecoder<TB>
+{
+}
+
+internal class CmptPrntParamSameDualDecoder<TA>
+{
+  public TA Field { get; set; }
+}
+
+internal class CmptRefPrntParamSameDualDecoder<TA>
+{
+}
+
+internal class CmptPrntParamSameInpDecoder<TA>
+{
+  public TA Field { get; set; }
+}
+
+internal class CmptRefPrntParamSameInpDecoder<TA>
+{
+}
+
+internal class CmptPrntParamSameOutpDecoder<TA>
+{
+  public TA Field { get; set; }
+}
+
+internal class CmptRefPrntParamSameOutpDecoder<TA>
+{
+}

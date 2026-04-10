@@ -3,8 +3,8 @@
 namespace GqlPlus.Building.Schema.Simple;
 
 public class DomainBuilder<TItem>
-  : SimpleBuilder<IGqlpDomain<TItem>>
-  where TItem : IGqlpDomainItem
+  : SimpleBuilder<IAstDomain<TItem>>
+  where TItem : IAstDomainItem
 {
   internal TItem[] _items = [];
   private readonly DomainKind _kind;
@@ -12,15 +12,15 @@ public class DomainBuilder<TItem>
   public DomainBuilder(string name, DomainKind kind)
     : base(name)
   {
-    Add<IGqlpDomain<TItem>>();
-    Add<IGqlpDomain>();
+    Add<IAstDomain<TItem>>();
+    Add<IAstDomain>();
     _typeKind = TypeKind.Domain;
 
     _kind = kind;
   }
 
   protected new T Build<T>()
-    where T : class, IGqlpDomain<TItem>
+    where T : class, IAstDomain<TItem>
   {
     T result = base.Build<T>();
     result.DomainKind.Returns(_kind);
@@ -28,16 +28,16 @@ public class DomainBuilder<TItem>
     return result;
   }
 
-  public IGqlpDomain<TItem> AsDomain
-    => Build<IGqlpDomain<TItem>>();
+  public IAstDomain<TItem> AsDomain
+    => Build<IAstDomain<TItem>>();
 
-  public override IGqlpDomain<TItem> AsSimple => AsDomain;
+  public override IAstDomain<TItem> AsSimple => AsDomain;
 }
 
 public static class DomainBuilderHelper
 {
   public static TBuild WithItems<TBuild, TItem>(this TBuild builder, params TItem[] items)
     where TBuild : DomainBuilder<TItem>
-    where TItem : IGqlpDomainItem
+    where TItem : IAstDomainItem
     => builder.FluentAction(b => b._items = items);
 }

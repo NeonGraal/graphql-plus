@@ -1,6 +1,6 @@
 ﻿//HintName: test_field-dual+Output_Intf.gen.cs
 // Generated from {CurrentDirectory}field-dual+Output.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,26 +8,26 @@
 namespace GqlPlus.GeneratorTests.Gqlp_field_dual_Output;
 
 public interface ItestFieldDualOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFieldDualOutpObject? As_FieldDualOutp { get; }
 }
 
 public interface ItestFieldDualOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldFieldDualOutp Field { get; }
 }
 
 public interface ItestFldFieldDualOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string? AsString { get; }
   ItestFldFieldDualOutpObject? As_FldFieldDualOutp { get; }
 }
 
 public interface ItestFldFieldDualOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   decimal Field { get; }
 }

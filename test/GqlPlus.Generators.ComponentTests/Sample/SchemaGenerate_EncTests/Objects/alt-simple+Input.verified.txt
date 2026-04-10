@@ -1,0 +1,15 @@
+﻿/* alt-simple+Input
+input AltSmplInp { | String }
+*/
+
+// Generated from Schema alt-simple+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-simple+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_simple_Input;
+
+internal class CmptAltSmplInpEncoder
+{
+}

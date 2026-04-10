@@ -1,6 +1,6 @@
 ﻿//HintName: test_all_Intf.gen.cs
 // Generated from {CurrentDirectory}all.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -12,48 +12,54 @@ public interface ItestGuid
 {
 }
 
+public enum testOne
+{
+  Two,
+  Three,
+}
+
 public interface ItestMany
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Guid AsGuid { get; }
   Number AsNumber { get; }
 }
 
 public interface ItestField
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFieldObject? As_Field { get; }
 }
 
 public interface ItestFieldObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ICollection<string> Strings { get; }
 }
 
 public interface ItestParam
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string? AsString { get; }
   ItestParamObject? As_Param { get; }
 }
 
 public interface ItestParamObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestMany? AfterId { get; }
   ItestMany BeforeId { get; }
 }
 
 public interface ItestAll
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string? AsString { get; }
   ItestAllObject? As_All { get; }
 }
 
 public interface ItestAllObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestField? Items(ItestParam? parameter);
 }

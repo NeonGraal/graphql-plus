@@ -1,0 +1,27 @@
+﻿/* Union
+output _UnionRef {
+    : _TypeRef<_SimpleKind>
+    }
+
+output _UnionMember {
+    : _UnionRef
+        union: _Name
+    }
+*/
+
+// Generated from Spec Union
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Union, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Union;
+
+internal class Cmpt_UnionRefEncoder
+{
+}
+
+internal class Cmpt_UnionMemberEncoder
+{
+  public ICmpt_Name Union { get; set; }
+}

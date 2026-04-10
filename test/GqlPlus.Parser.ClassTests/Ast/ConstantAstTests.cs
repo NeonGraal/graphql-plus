@@ -123,12 +123,12 @@ public class ConstantAstTests
   public void Contains_WithFields(string key, string value)
   {
     ConstantAst constant = new(AstNulls.At, value.ConstantObject(key));
-    IGqlpFields<IGqlpConstant> fields = constant.Fields;
+    IAstFields<IAstConstant> fields = constant.Fields;
 
     bool result = fields.Contains(key.FieldKey(), new ConstantAst(value.FieldKey()));
 
     result.ShouldBeTrue();
   }
 
-  internal BaseAstChecks<IGqlpConstant> _checks = new();
+  internal BaseAstChecks<IAstConstant> _checks = new();
 }

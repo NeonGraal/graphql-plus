@@ -11,16 +11,16 @@ public interface IAstOperation
   IEnumerable<IAstVariable> Variables { get; }
 
   string? ResultType { get; }
-  IGqlpArg? Arg { get; }
-  IEnumerable<IGqlpSelection>? ResultObject { get; }
+  IAstArg? Arg { get; }
+  IEnumerable<IAstSelection>? ResultObject { get; }
 
   IEnumerable<IAstFragment> Fragments { get; }
 
   ParseResultKind Result { get; }
   IMessages Errors { get; }
 
-  IEnumerable<IGqlpArg> Usages { get; }
-  IEnumerable<IGqlpSpread> Spreads { get; }
+  IEnumerable<IAstArg> Usages { get; }
+  IEnumerable<IAstSpread> Spreads { get; }
 }
 
 public interface IAstIdentified
@@ -49,12 +49,12 @@ public interface IAstDirectives
 public interface IAstDirective
   : IAstIdentified
 {
-  IGqlpArg? Arg { get; }
+  IAstArg? Arg { get; }
 }
 
 public interface IAstSelections
 {
-  IEnumerable<IGqlpSelection> Selections { get; }
+  IEnumerable<IAstSelection> Selections { get; }
 }
 
 public interface IAstFragment

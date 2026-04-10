@@ -6,28 +6,28 @@ namespace GqlPlus.Parsing.Operation;
 
 internal class ParseObject(
   IParserRepository parsers
-) : Parser<IGqlpSelection>.IA
+) : Parser<IAstSelection>.IA
 {
-  private readonly Parser<IGqlpField>.L _field = parsers.ParserFor<IGqlpField>();
-  private readonly Parser<IGqlpSelection>.L _selection = parsers.ParserFor<IGqlpSelection>();
+  private readonly Parser<IAstField>.L _field = parsers.ParserFor<IAstField>();
+  private readonly Parser<IAstSelection>.L _selection = parsers.ParserFor<IAstSelection>();
 
-  public IResultArray<IGqlpSelection> Parse(ITokenizer tokens, string label)
+  public IResultArray<IAstSelection> Parse(ITokenizer tokens, string label)
 
   {
-    List<IGqlpSelection> fields = [];
+    List<IAstSelection> fields = [];
     if (!tokens.Take('{')) {
       return fields.EmptyArray();
     }
 
     while (!tokens.Take('}')) {
-      IResult<IGqlpSelection> selection = _selection.Parse(tokens, label);
+      IResult<IAstSelection> selection = _selection.Parse(tokens, label);
       if (selection.IsError()) {
         return selection.AsResultArray(fields);
       } else if (selection.Required(fields.Add)) {
         continue;
       }
 
-      IResult<IGqlpField> field = _field.Parse(tokens, label);
+      IResult<IAstField> field = _field.Parse(tokens, label);
       if (field.IsError()) {
         return field.AsResultArray(fields);
       }

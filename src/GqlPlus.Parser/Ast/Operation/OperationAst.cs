@@ -16,27 +16,27 @@ internal sealed record class OperationAst(
   public string Category { get; set; } = "query";
 
   public IAstVariable[] Variables { get; set; } = [];
-  public IGqlpArg[] Usages { get; init; } = [];
+  public IAstArg[] Usages { get; init; } = [];
 
   public string? ResultType { get; set; }
-  public IGqlpArg? Arg { get; set; }
-  public IGqlpSelection[]? ResultObject { get; set; }
+  public IAstArg? Arg { get; set; }
+  public IAstSelection[]? ResultObject { get; set; }
   public IAstModifier[] Modifiers { get; set; } = [];
 
   public IAstFragment[] Fragments { get; set; } = [];
-  public IGqlpSpread[] Spreads { get; set; } = [];
+  public IAstSpread[] Spreads { get; set; } = [];
 
   internal override string Abbr => "g";
 
   IEnumerable<IAstModifier> IAstModifiers.Modifiers => Modifiers;
   IEnumerable<IAstVariable> IAstOperation.Variables => Variables;
-  IGqlpArg? IAstOperation.Arg => Arg;
-  IEnumerable<IGqlpSelection>? IAstOperation.ResultObject => ResultObject;
+  IAstArg? IAstOperation.Arg => Arg;
+  IEnumerable<IAstSelection>? IAstOperation.ResultObject => ResultObject;
   IEnumerable<IAstFragment> IAstOperation.Fragments => Fragments;
   IMessages IAstOperation.Errors => Errors;
 
-  IEnumerable<IGqlpArg> IAstOperation.Usages => Usages;
-  IEnumerable<IGqlpSpread> IAstOperation.Spreads => Spreads;
+  IEnumerable<IAstArg> IAstOperation.Usages => Usages;
+  IEnumerable<IAstSpread> IAstOperation.Spreads => Spreads;
 
   public OperationAst(TokenAt at)
     : this(at, "") { }

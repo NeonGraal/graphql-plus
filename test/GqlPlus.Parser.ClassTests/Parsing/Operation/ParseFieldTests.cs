@@ -9,17 +9,17 @@ public class ParseFieldTests
   private readonly ParseField _parseField;
   private readonly Parser<IAstDirective>.IA _directivesParser;
   private readonly IParserArg _argumentParser;
-  private readonly Parser<IGqlpSelection>.IA _objectParser;
+  private readonly Parser<IAstSelection>.IA _objectParser;
 
   public ParseFieldTests()
   {
     ConfigureRepoArray<IAstDirective>(Parsers, out _directivesParser);
-    ConfigureRepoInterface<IParserArg, IGqlpArg>(Parsers, out _argumentParser);
-    ConfigureRepoArray<IGqlpSelection>(Parsers, out _objectParser);
+    ConfigureRepoInterface<IParserArg, IAstArg>(Parsers, out _argumentParser);
+    ConfigureRepoArray<IAstSelection>(Parsers, out _objectParser);
     _parseField = new ParseField(Parsers);
 
-    SetupError<IGqlpField>();
-    SetupPartial<IGqlpField>();
+    SetupError<IAstField>();
+    SetupPartial<IAstField>();
   }
 
   [Theory, RepeatData]
@@ -29,16 +29,16 @@ public class ParseFieldTests
     IdentifierReturns(OutString(alias), OutString(name));
     TakeReturns(':', true);
 
-    IGqlpArg argument = ParseOk(_argumentParser);
+    IAstArg argument = ParseOk(_argumentParser);
     IAstModifier[] modifiers = ParseAModifier();
     IAstDirective[] directives = ParseOkA(_directivesParser);
-    IGqlpSelection[] selections = ParseOkA(_objectParser);
+    IAstSelection[] selections = ParseOkA(_objectParser);
 
     // Act
-    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, TestLabel);
+    IResult<IAstField> result = _parseField.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpField>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstField>>()
       .Required().ShouldSatisfyAllConditions(
         x => x.FieldAlias.ShouldBe(alias),
         x => x.Identifier.ShouldBe(name),
@@ -56,7 +56,7 @@ public class ParseFieldTests
     IdentifierReturns(OutFail);
 
     // Act
-    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, TestLabel);
+    IResult<IAstField> result = _parseField.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -70,7 +70,7 @@ public class ParseFieldTests
     TakeReturns(':', true);
 
     // Act
-    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, TestLabel);
+    IResult<IAstField> result = _parseField.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -84,10 +84,10 @@ public class ParseFieldTests
     ParseModifiersError();
 
     // Act
-    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, TestLabel);
+    IResult<IAstField> result = _parseField.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpField>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstField>>();
   }
 
   [Theory, RepeatData]
@@ -98,10 +98,10 @@ public class ParseFieldTests
     ParseErrorA(_objectParser);
 
     // Act
-    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, TestLabel);
+    IResult<IAstField> result = _parseField.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpField>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstField>>();
   }
 
   [Theory, RepeatData]
@@ -112,9 +112,9 @@ public class ParseFieldTests
     ParseErrorA(_directivesParser);
 
     // Act
-    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, TestLabel);
+    IResult<IAstField> result = _parseField.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpField>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstField>>();
   }
 }

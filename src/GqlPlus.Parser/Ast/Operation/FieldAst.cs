@@ -7,20 +7,20 @@ internal sealed record class FieldAst(
   ITokenAt At,
   string Identifier
 ) : AstDirectives(At, Identifier)
-  , IGqlpField
+  , IAstField
 {
   public string? FieldAlias { get; init; }
-  public IGqlpArg? Arg { get; set; }
+  public IAstArg? Arg { get; set; }
   public IAstModifier[] Modifiers { get; set; } = [];
-  public IGqlpSelection[] Selections { get; set; } = [];
+  public IAstSelection[] Selections { get; set; } = [];
 
   internal override string Abbr => "f";
 
-  IGqlpArg? IGqlpField.Arg => Arg;
+  IAstArg? IAstField.Arg => Arg;
 
   IEnumerable<IAstModifier> IAstModifiers.Modifiers => Modifiers;
 
-  IEnumerable<IGqlpSelection> IAstSelections.Selections => Selections;
+  IEnumerable<IAstSelection> IAstSelections.Selections => Selections;
 
   public bool Equals(FieldAst? other)
     => base.Equals(other)

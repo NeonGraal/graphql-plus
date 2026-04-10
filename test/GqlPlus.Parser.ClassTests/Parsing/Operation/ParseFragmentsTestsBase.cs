@@ -13,7 +13,7 @@ public abstract class ParseFragmentsTestsBase
 
   protected abstract Parser<IAstFragment>.IA Parser { get; }
   protected abstract Parser<IAstDirective>.IA DirectivesParser { get; }
-  protected abstract Parser<IGqlpSelection>.IA ObjectParser { get; }
+  protected abstract Parser<IAstSelection>.IA ObjectParser { get; }
 
   [Theory, RepeatData]
   public void Parse_ShouldReturnFragmentsArray_WhenFragmentsAreParsed(string fragmentName, string onType)
@@ -25,7 +25,7 @@ public abstract class ParseFragmentsTestsBase
     IdentifierReturns(OutString(fragmentName), OutString(onType));
 
     IAstDirective[] directives = ParseOkA(DirectivesParser);
-    IGqlpSelection[] selections = ParseOkA(ObjectParser);
+    IAstSelection[] selections = ParseOkA(ObjectParser);
 
     // Act
     IResultArray<IAstFragment> result = Parser.Parse(Tokenizer, "testLabel");

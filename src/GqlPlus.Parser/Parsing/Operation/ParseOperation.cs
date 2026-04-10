@@ -9,12 +9,12 @@ internal class ParseOperation(
   IParserRepository parsers
 ) : Parser<IAstOperation>.I
 {
-  private readonly Parser<IParserArg, IGqlpArg>.L _argument = parsers.ParserFor<IParserArg, IGqlpArg>();
+  private readonly Parser<IParserArg, IAstArg>.L _argument = parsers.ParserFor<IParserArg, IAstArg>();
   private readonly Parser<IAstDirective>.LA _directives = parsers.ArrayFor<IAstDirective>();
   private readonly ParserArray<IParserStartFragments, IAstFragment>.LA _startFragments = parsers.ArrayFor<IParserStartFragments, IAstFragment>();
   private readonly ParserArray<IParserEndFragments, IAstFragment>.LA _endFragments = parsers.ArrayFor<IParserEndFragments, IAstFragment>();
   private readonly Parser<IAstModifier>.LA _modifiers = parsers.ArrayFor<IAstModifier>();
-  private readonly Parser<IGqlpSelection>.LA _object = parsers.ArrayFor<IGqlpSelection>();
+  private readonly Parser<IAstSelection>.LA _object = parsers.ArrayFor<IAstSelection>();
   private readonly Parser<IAstVariable>.LA _variables = parsers.ArrayFor<IAstVariable>();
 
   public IResult<IAstOperation> Parse(ITokenizer tokens, string label)
@@ -61,7 +61,7 @@ internal class ParseOperation(
 
     if (!string.IsNullOrWhiteSpace(result)) {
       ast.ResultType = result;
-      IResult<IGqlpArg> argument = _argument.I.Parse(tokens, "Arg");
+      IResult<IAstArg> argument = _argument.I.Parse(tokens, "Arg");
       if (!argument.Optional(arg => ast.Arg = arg)) {
         return argument.AsPartial(Final(tokens, ast));
       }

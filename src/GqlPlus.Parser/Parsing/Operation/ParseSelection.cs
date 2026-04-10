@@ -7,35 +7,35 @@ namespace GqlPlus.Parsing.Operation;
 
 internal class ParseSelection(
   IParserRepository parsers
-) : Parser<IGqlpSelection>.I
+) : Parser<IAstSelection>.I
 {
   private readonly Parser<IAstDirective>.LA _directives = parsers.ArrayFor<IAstDirective>();
-  private readonly Parser<IGqlpSelection>.LA _object = parsers.ArrayFor<IGqlpSelection>();
+  private readonly Parser<IAstSelection>.LA _object = parsers.ArrayFor<IAstSelection>();
 
-  public IResult<IGqlpSelection> Parse(ITokenizer tokens, string label)
+  public IResult<IAstSelection> Parse(ITokenizer tokens, string label)
 
   {
     if (tokens.Take("...") || tokens.Take('|')) {
       TokenAt at = tokens.At;
       string? onType = null;
-      IResult<IGqlpSelection>? value = ParseTypeOrSpread(tokens, at, ref onType);
+      IResult<IAstSelection>? value = ParseTypeOrSpread(tokens, at, ref onType);
       if (value is not null) {
         return value;
       }
 
       IResultArray<IAstDirective> directives = _directives.Parse(tokens, "Inline");
-      IResultArray<IGqlpSelection> selections = _object.Parse(tokens, "Object");
+      IResultArray<IAstSelection> selections = _object.Parse(tokens, "Object");
       if (selections.IsOk()) {
         return selections.Select(MakeInline(at, directives, onType));
       }
 
-      return tokens.Error<IGqlpSelection>("Inline", "an object");
+      return tokens.Error<IAstSelection>("Inline", "an object");
     }
 
-    return default(IGqlpSelection).Empty();
+    return default(IAstSelection).Empty();
   }
 
-  private Func<IEnumerable<IGqlpSelection>, IGqlpSelection> MakeInline(TokenAt at, IResultArray<IAstDirective> directives, string? onType)
+  private Func<IEnumerable<IAstSelection>, IAstSelection> MakeInline(TokenAt at, IResultArray<IAstDirective> directives, string? onType)
     => values => {
       InlineAst selection = new(at, [.. values]) {
         OnType = onType,
@@ -44,11 +44,11 @@ internal class ParseSelection(
       return selection;
     };
 
-  private IResult<IGqlpSelection>? ParseTypeOrSpread(ITokenizer tokens, TokenAt at, ref string? onType)
+  private IResult<IAstSelection>? ParseTypeOrSpread(ITokenizer tokens, TokenAt at, ref string? onType)
   {
     if (tokens.Take("on") || tokens.Take(':')) {
       if (!tokens.Identifier(out onType)) {
-        return tokens.Error<IGqlpSelection>("Spread", "a type");
+        return tokens.Error<IAstSelection>("Spread", "a type");
       }
     } else {
       if (tokens.Identifier(out string? name)) {
@@ -59,7 +59,7 @@ internal class ParseSelection(
           context.AddSpread(selection);
         }
 
-        return selection.Ok<IGqlpSelection>();
+        return selection.Ok<IAstSelection>();
       }
     }
 

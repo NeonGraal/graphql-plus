@@ -9,10 +9,10 @@ public class VerifyOperationTests
   [Fact]
   public void Verify_CallsVerifiersAndCombinesErrors()
   {
-    IVerifyIdentified<IGqlpArg, IAstVariable> usages = A.Of<IVerifyIdentified<IGqlpArg, IAstVariable>>();
-    IVerifyIdentified<IGqlpSpread, IAstFragment> spreads = A.Of<IVerifyIdentified<IGqlpSpread, IAstFragment>>();
-    VerifierRepo.IdentifiedFor<IGqlpArg, IAstVariable>().Returns(usages);
-    VerifierRepo.IdentifiedFor<IGqlpSpread, IAstFragment>().Returns(spreads);
+    IVerifyIdentified<IAstArg, IAstVariable> usages = A.Of<IVerifyIdentified<IAstArg, IAstVariable>>();
+    IVerifyIdentified<IAstSpread, IAstFragment> spreads = A.Of<IVerifyIdentified<IAstSpread, IAstFragment>>();
+    VerifierRepo.IdentifiedFor<IAstArg, IAstVariable>().Returns(usages);
+    VerifierRepo.IdentifiedFor<IAstSpread, IAstFragment>().Returns(spreads);
     VerifyOperation verifier = new(VerifierRepo);
 
     IAstOperation item = A.Of<IAstOperation>();
@@ -23,8 +23,8 @@ public class VerifyOperationTests
     verifier.Verify(item, Errors);
 
     verifier.ShouldSatisfyAllConditions(
-      () => usages.ReceivedWithAnyArgs().Verify(Arg.Any<UsageIdentified<IGqlpArg, IAstVariable>>(), Errors),
-      () => spreads.ReceivedWithAnyArgs().Verify(Arg.Any<UsageIdentified<IGqlpSpread, IAstFragment>>(), Errors),
+      () => usages.ReceivedWithAnyArgs().Verify(Arg.Any<UsageIdentified<IAstArg, IAstVariable>>(), Errors),
+      () => spreads.ReceivedWithAnyArgs().Verify(Arg.Any<UsageIdentified<IAstSpread, IAstFragment>>(), Errors),
       () => Errors.Select(e => e.Message).ShouldBe(["error", "item"]));
   }
 }

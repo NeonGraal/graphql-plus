@@ -4,7 +4,7 @@ using GqlPlus.Ast.Operation;
 namespace GqlPlus.Parser.Operation;
 
 public class ParseArgValueTests(
-  IOneChecksParser<IGqlpArg> checks
+  IOneChecksParser<IAstArg> checks
 )
 {
   [Theory, RepeatData]
@@ -71,6 +71,6 @@ public class ParseArgValueTests(
         '{' + key + ':' + enumValue + ':' + enumValue + ':' + key + '}',
         CheckNull);
 
-  private void CheckNull(IGqlpArg? result)
+  private void CheckNull(IAstArg? result)
     => result.ShouldBeNull();
 }

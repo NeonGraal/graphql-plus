@@ -8,9 +8,9 @@ public class ParseArgValueTests
 
   private readonly ParseArgValue _parseArgValue;
   private readonly Parser<IAstFieldKey>.I _fieldKeyParser;
-  private readonly Parser<KeyValue<IGqlpArg>>.I _keyValueParser;
-  private readonly Parser<IGqlpArg>.IA _listParser;
-  private readonly Parser<IAstFields<IGqlpArg>>.I _objectParser;
+  private readonly Parser<KeyValue<IAstArg>>.I _keyValueParser;
+  private readonly Parser<IAstArg>.IA _listParser;
+  private readonly Parser<IAstFields<IAstArg>>.I _objectParser;
   private readonly Parser<IAstConstant>.I _constantParser;
 
   public ParseArgValueTests()
@@ -18,14 +18,14 @@ public class ParseArgValueTests
   {
     IParserRepository parsers = A.Of<IParserRepository>();
     ConfigureRepo<IAstFieldKey>(parsers, out _fieldKeyParser);
-    ConfigureRepo<KeyValue<IGqlpArg>>(parsers, out _keyValueParser);
-    ConfigureRepoArray<IGqlpArg>(parsers, out _listParser);
-    ConfigureRepo<IAstFields<IGqlpArg>>(parsers, out _objectParser);
+    ConfigureRepo<KeyValue<IAstArg>>(parsers, out _keyValueParser);
+    ConfigureRepoArray<IAstArg>(parsers, out _listParser);
+    ConfigureRepo<IAstFields<IAstArg>>(parsers, out _objectParser);
     ConfigureRepo<IAstConstant>(parsers, out _constantParser);
     _parseArgValue = new ParseArgValue(parsers);
 
     PrefixReturns('$', OutPass);
-    SetupError<IGqlpArg>();
+    SetupError<IAstArg>();
   }
 
   [Theory, RepeatData]
@@ -35,10 +35,10 @@ public class ParseArgValueTests
     PrefixReturns('$', OutStringAt(variable));
 
     // Act
-    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, TestLabel);
+    IResult<IAstArg> result = _parseArgValue.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpArg>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstArg>>()
       .Required().Variable.ShouldBe(variable);
   }
 
@@ -49,10 +49,10 @@ public class ParseArgValueTests
     ParseOkA(_listParser);
 
     // Act
-    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, TestLabel);
+    IResult<IAstArg> result = _parseArgValue.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpArg>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstArg>>()
       .Required().Values.ShouldNotBeEmpty();
   }
 
@@ -63,10 +63,10 @@ public class ParseArgValueTests
     ParseOkField(_objectParser, fieldName);
 
     // Act
-    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, TestLabel);
+    IResult<IAstArg> result = _parseArgValue.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpArg>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstArg>>()
       .Required().Fields.ShouldNotBeEmpty();
   }
 
@@ -77,10 +77,10 @@ public class ParseArgValueTests
     ParseOk(_constantParser);
 
     // Act
-    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, TestLabel);
+    IResult<IAstArg> result = _parseArgValue.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpArg>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstArg>>()
       .Required().Constant.ShouldNotBeNull();
   }
 
@@ -91,7 +91,7 @@ public class ParseArgValueTests
     PrefixReturns('$', OutFail);
 
     // Act
-    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, TestLabel);
+    IResult<IAstArg> result = _parseArgValue.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -106,7 +106,7 @@ public class ParseArgValueTests
     ParseEmpty(_constantParser);
 
     // Act
-    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, TestLabel);
+    IResult<IAstArg> result = _parseArgValue.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

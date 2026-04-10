@@ -12,7 +12,7 @@ public class ParseDirectivesTests
   public ParseDirectivesTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    ConfigureRepoInterface<IParserArg, IGqlpArg>(parsers, out _argumentParser);
+    ConfigureRepoInterface<IParserArg, IAstArg>(parsers, out _argumentParser);
     _parseDirectives = new ParseDirectives(parsers);
 
     SetupError<IAstDirective>();
@@ -24,7 +24,7 @@ public class ParseDirectivesTests
   {
     // Arrange
     PrefixReturns('@', OutStringAt(directiveName), OutStringAt(null));
-    IGqlpArg argument = ParseOk(_argumentParser);
+    IAstArg argument = ParseOk(_argumentParser);
 
     // Act
     IResultArray<IAstDirective> result = _parseDirectives.Parse(Tokenizer, TestLabel);
@@ -43,7 +43,7 @@ public class ParseDirectivesTests
   {
     // Arrange
     PrefixReturns('@', OutStringAt(directiveName), OutFail);
-    IGqlpArg argument = ParseOk(_argumentParser);
+    IAstArg argument = ParseOk(_argumentParser);
 
     // Act
     IResultArray<IAstDirective> result = _parseDirectives.Parse(Tokenizer, TestLabel);

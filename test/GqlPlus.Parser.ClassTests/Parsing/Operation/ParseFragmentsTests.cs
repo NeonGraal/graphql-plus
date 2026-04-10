@@ -9,7 +9,7 @@ public class ParseEndFragmentsTests
   {
     IParserRepository parsers = A.Of<IParserRepository>();
     ConfigureRepoArray<IAstDirective>(parsers, out Parser<IAstDirective>.IA directivesParser);
-    ConfigureRepoArray<IGqlpSelection>(parsers, out Parser<IGqlpSelection>.IA objectParser);
+    ConfigureRepoArray<IAstSelection>(parsers, out Parser<IAstSelection>.IA objectParser);
     DirectivesParser = directivesParser;
     ObjectParser = objectParser;
     Parser = new ParseEndFragments(parsers);
@@ -17,7 +17,7 @@ public class ParseEndFragmentsTests
 
   protected override Parser<IAstFragment>.IA Parser { get; }
   protected override Parser<IAstDirective>.IA DirectivesParser { get; }
-  protected override Parser<IGqlpSelection>.IA ObjectParser { get; }
+  protected override Parser<IAstSelection>.IA ObjectParser { get; }
 
   protected override void SetupFragmentPrefix(bool value)
     => TakeReturns("fragment", value, false);
@@ -33,7 +33,7 @@ public class ParseStartFragmentsTests
   {
     IParserRepository parsers = A.Of<IParserRepository>();
     ConfigureRepoArray<IAstDirective>(parsers, out Parser<IAstDirective>.IA directivesParser);
-    ConfigureRepoArray<IGqlpSelection>(parsers, out Parser<IGqlpSelection>.IA objectParser);
+    ConfigureRepoArray<IAstSelection>(parsers, out Parser<IAstSelection>.IA objectParser);
     DirectivesParser = directivesParser;
     ObjectParser = objectParser;
     Parser = new ParseStartFragments(parsers);
@@ -41,7 +41,7 @@ public class ParseStartFragmentsTests
 
   protected override Parser<IAstFragment>.IA Parser { get; }
   protected override Parser<IAstDirective>.IA DirectivesParser { get; }
-  protected override Parser<IGqlpSelection>.IA ObjectParser { get; }
+  protected override Parser<IAstSelection>.IA ObjectParser { get; }
 
   protected override void SetupFragmentPrefix(bool value)
     => TakeReturns('&', value, false);

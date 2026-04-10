@@ -9,7 +9,7 @@ internal class ParseDirectives(
   IParserRepository parsers
 ) : Parser<IAstDirective>.IA
 {
-  private readonly Parser<IParserArg, IGqlpArg>.L _argument = parsers.ParserFor<IParserArg, IGqlpArg>();
+  private readonly Parser<IParserArg, IAstArg>.L _argument = parsers.ParserFor<IParserArg, IAstArg>();
 
   public IResultArray<IAstDirective> Parse(ITokenizer tokens, string label)
 
@@ -24,7 +24,7 @@ internal class ParseDirectives(
       DirectiveAst directive = new(at, name!);
       result.Add(directive);
 
-      IResult<IGqlpArg> argument = _argument.I.Parse(tokens, "Arg");
+      IResult<IAstArg> argument = _argument.I.Parse(tokens, "Arg");
       if (!argument.Required(value => directive.Arg = value)) {
         if (argument.IsError()) {
           return argument.AsResultArray(result);

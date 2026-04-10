@@ -1,37 +1,37 @@
 ﻿namespace GqlPlus.Abstractions.Operation;
 
-public interface IGqlpSelection
+public interface IAstSelection
   : IAstError
   , IAstDirectives
 { }
 
-public interface IGqlpField
+public interface IAstField
   : IAstIdentified
-  , IGqlpSelection
+  , IAstSelection
   , IAstModifiers
   , IAstSelections
 {
   string? FieldAlias { get; }
-  IGqlpArg? Arg { get; }
+  IAstArg? Arg { get; }
 }
 
-public interface IGqlpInline
+public interface IAstInline
   : IAstAbbreviated
-  , IGqlpSelection
+  , IAstSelection
   , IAstSelections
-  , IEquatable<IGqlpInline>
+  , IEquatable<IAstInline>
 {
   string? OnType { get; }
 }
 
-public interface IGqlpSpread
+public interface IAstSpread
   : IAstIdentified
-  , IGqlpSelection
+  , IAstSelection
 { }
 
-public interface IGqlpArg
-  : IAstValue<IGqlpArg>
-  , IEquatable<IGqlpArg>
+public interface IAstArg
+  : IAstValue<IAstArg>
+  , IEquatable<IAstArg>
 {
   string? Variable { get; }
   IAstConstant? Constant { get; }

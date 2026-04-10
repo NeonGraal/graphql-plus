@@ -10,7 +10,7 @@ internal abstract class ParseFragments(
 ) : Parser<IAstFragment>.IA
 {
   private readonly Parser<IAstDirective>.LA _directives = parsers.ArrayFor<IAstDirective>();
-  private readonly Parser<IGqlpSelection>.LA _object = parsers.ArrayFor<IGqlpSelection>();
+  private readonly Parser<IAstSelection>.LA _object = parsers.ArrayFor<IAstSelection>();
 
   protected abstract bool FragmentPrefix(ref ITokenizer tokens);
   protected abstract bool TypePrefix(ref ITokenizer tokens);
@@ -40,12 +40,12 @@ internal abstract class ParseFragments(
         return directives.AsResultArray(definitions);
       }
 
-      IResultArray<IGqlpSelection> fields = _object.Parse(tokens, "Fragment");
+      IResultArray<IAstSelection> fields = _object.Parse(tokens, "Fragment");
       if (!fields.Required(NewFragment)) {
         return fields.AsResultArray(definitions);
       }
 
-      void NewFragment(IEnumerable<IGqlpSelection> selections)
+      void NewFragment(IEnumerable<IAstSelection> selections)
         => definitions.Add(
           new FragmentAst(at, name, onType, [.. selections]) {
             Directives = [.. directives.Optional()]

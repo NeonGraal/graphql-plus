@@ -11,7 +11,7 @@ public class ParseOperationTests
   private readonly Parser<IAstDirective>.IA _directivesParser;
   private readonly IParserStartFragments _startFragmentsParser;
   private readonly IParserEndFragments _endFragmentsParser;
-  private readonly Parser<IGqlpSelection>.IA _objectParser;
+  private readonly Parser<IAstSelection>.IA _objectParser;
   private readonly Parser<IAstVariable>.IA _variablesParser;
 
   public ParseOperationTests()
@@ -22,11 +22,11 @@ public class ParseOperationTests
       operation.Spreads.Returns([]);
     }
 
-    ConfigureRepoInterface<IParserArg, IGqlpArg>(Parsers, out _argumentParser);
+    ConfigureRepoInterface<IParserArg, IAstArg>(Parsers, out _argumentParser);
     ConfigureRepoArray<IAstDirective>(Parsers, out _directivesParser);
     ConfigureRepoArrayInterface<IParserStartFragments, IAstFragment>(Parsers, out _startFragmentsParser);
     ConfigureRepoArrayInterface<IParserEndFragments, IAstFragment>(Parsers, out _endFragmentsParser);
-    ConfigureRepoArray<IGqlpSelection>(Parsers, out _objectParser);
+    ConfigureRepoArray<IAstSelection>(Parsers, out _objectParser);
     ConfigureRepoArray<IAstVariable>(Parsers, out _variablesParser);
     _parseOperation = new ParseOperation(Parsers);
 
@@ -48,7 +48,7 @@ public class ParseOperationTests
 
     PrefixReturns(':', OutStringAt(resultType));
 
-    IGqlpArg argument = ParseOk(_argumentParser);
+    IAstArg argument = ParseOk(_argumentParser);
     IAstModifier[] modifiers = ParseAModifier();
     IAstFragment[] endFragments = ParseOkA(_endFragmentsParser);
 
@@ -81,7 +81,7 @@ public class ParseOperationTests
 
     PrefixReturns(':', OutStringAt(null));
 
-    IGqlpSelection[] obj = ParseOkA(_objectParser);
+    IAstSelection[] obj = ParseOkA(_objectParser);
 
     IAstModifier[] modifiers = ParseAModifier();
     IAstFragment[] endFragments = ParseOkA(_endFragmentsParser);
@@ -114,7 +114,7 @@ public class ParseOperationTests
 
     PrefixReturns(':', OutStringAt(resultType));
 
-    IGqlpArg argument = ParseOk(_argumentParser);
+    IAstArg argument = ParseOk(_argumentParser);
     IAstModifier[] modifiers = ParseAModifier();
     IAstFragment[] endFragments = ParseOkA(_endFragmentsParser);
 
@@ -139,7 +139,7 @@ public class ParseOperationTests
 
     PrefixReturns(':', OutStringAt(resultType));
 
-    IGqlpArg argument = ParseOk(_argumentParser);
+    IAstArg argument = ParseOk(_argumentParser);
     ParseModifiersError();
 
     // Act

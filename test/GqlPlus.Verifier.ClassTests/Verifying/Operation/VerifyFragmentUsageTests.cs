@@ -3,11 +3,11 @@
 namespace GqlPlus.Verifying.Operation;
 
 public class VerifyFragmentUsageTests
-  : IdentifiedVerifierTestsBase<IGqlpSpread, IGqlpFragment>
+  : IdentifiedVerifierTestsBase<IGqlpSpread, IAstFragment>
 {
-  protected override IEnumerable<IGqlpFragment> OneDefinition(string name)
+  protected override IEnumerable<IAstFragment> OneDefinition(string name)
   {
-    IGqlpFragment definition = A.Error<IGqlpFragment>();
+    IAstFragment definition = A.Error<IAstFragment>();
     definition.Identifier.Returns(name);
 
     return [definition];
@@ -21,6 +21,6 @@ public class VerifyFragmentUsageTests
     return [usage];
   }
 
-  internal override IdentifiedVerifier<IGqlpSpread, IGqlpFragment> NewVerifier()
+  internal override IdentifiedVerifier<IGqlpSpread, IAstFragment> NewVerifier()
     => new VerifyFragmentUsage(VerifierRepo);
 }

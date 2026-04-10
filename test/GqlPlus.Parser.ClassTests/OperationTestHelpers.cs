@@ -5,7 +5,7 @@ namespace GqlPlus;
 
 public static class OperationTestHelpers
 {
-  public static IGqlpDirective[] Directives(this string[] directives)
+  public static IAstDirective[] Directives(this string[] directives)
     => [.. directives.Select(d => new DirectiveAst(AstNulls.At, d))];
 
   public static IGqlpSelection[] Fields(this string[] fields)

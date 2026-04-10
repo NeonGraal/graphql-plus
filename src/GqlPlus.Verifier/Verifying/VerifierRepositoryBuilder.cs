@@ -35,7 +35,7 @@ internal class VerifierRepositoryBuilder
 
   public IVerifierRepositoryBuilder AddIdentified<TUsage, TIdentified>(Factory<IVerifyIdentified<TUsage, TIdentified>, IVerifierRepository> factory)
     where TUsage : IAstError
-    where TIdentified : IGqlpIdentified
+    where TIdentified : IAstIdentified
     => this.FluentAction(b => b.Identified[typeof((TUsage, TIdentified))] = factory);
 
   public IVerifierRepositoryBuilder AddDomain(Factory<IVerifyDomain, IVerifierRepository> factory)

@@ -15,8 +15,8 @@ public class ParseDirectivesTests
     ConfigureRepoInterface<IParserArg, IGqlpArg>(parsers, out _argumentParser);
     _parseDirectives = new ParseDirectives(parsers);
 
-    SetupError<IGqlpDirective>();
-    SetupPartial<IGqlpDirective>();
+    SetupError<IAstDirective>();
+    SetupPartial<IAstDirective>();
   }
 
   [Theory, RepeatData]
@@ -27,10 +27,10 @@ public class ParseDirectivesTests
     IGqlpArg argument = ParseOk(_argumentParser);
 
     // Act
-    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstDirective> result = _parseDirectives.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpDirective>>()
+    result.ShouldBeAssignableTo<IResultArrayOk<IAstDirective>>()
       .Required().ShouldHaveSingleItem()
       .ShouldSatisfyAllConditions(
         x => x.Identifier.ShouldBe(directiveName),
@@ -46,10 +46,10 @@ public class ParseDirectivesTests
     IGqlpArg argument = ParseOk(_argumentParser);
 
     // Act
-    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstDirective> result = _parseDirectives.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpDirective>>();
+    result.ShouldBeAssignableTo<IResultArrayPartial<IAstDirective>>();
   }
 
   [Fact]
@@ -59,7 +59,7 @@ public class ParseDirectivesTests
     PrefixReturns('@', OutFail);
 
     // Act
-    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstDirective> result = _parseDirectives.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -73,10 +73,10 @@ public class ParseDirectivesTests
     ParseError(_argumentParser, error);
 
     // Act
-    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstDirective> result = _parseDirectives.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpDirective>>()
+    result.ShouldBeAssignableTo<IResultArrayPartial<IAstDirective>>()
       .Result.ShouldHaveSingleItem()
       .Identifier.ShouldBe(directiveName);
   }
@@ -88,10 +88,10 @@ public class ParseDirectivesTests
     PrefixReturns('@', OutStringAt(null));
 
     // Act
-    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstDirective> result = _parseDirectives.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpDirective>>()
+    result.ShouldBeAssignableTo<IResultArrayOk<IAstDirective>>()
       .Required().ShouldBeEmpty();
   }
 }

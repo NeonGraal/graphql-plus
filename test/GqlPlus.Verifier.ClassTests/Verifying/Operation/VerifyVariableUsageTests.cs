@@ -3,11 +3,11 @@
 namespace GqlPlus.Verifying.Operation;
 
 public class VerifyVariableUsageTests
-  : IdentifiedVerifierTestsBase<IGqlpArg, IGqlpVariable>
+  : IdentifiedVerifierTestsBase<IGqlpArg, IAstVariable>
 {
-  protected override IEnumerable<IGqlpVariable> OneDefinition(string name)
+  protected override IEnumerable<IAstVariable> OneDefinition(string name)
   {
-    IGqlpVariable definition = A.Variable(name);
+    IAstVariable definition = A.Variable(name);
 
     return [definition];
   }
@@ -20,6 +20,6 @@ public class VerifyVariableUsageTests
     return [usage];
   }
 
-  internal override IdentifiedVerifier<IGqlpArg, IGqlpVariable> NewVerifier()
+  internal override IdentifiedVerifier<IGqlpArg, IAstVariable> NewVerifier()
     => new VerifyVariableUsage(VerifierRepo);
 }

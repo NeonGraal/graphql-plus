@@ -79,7 +79,7 @@ public static class AllVerifiers
     this IVerifierRepositoryBuilder builder,
     Factory<IVerifyIdentified<TUsage, TIdentified>, IVerifierRepository> identifiedFactory)
     where TUsage : IAstError
-    where TIdentified : IGqlpIdentified
+    where TIdentified : IAstIdentified
     => builder
       .AddIdentified(identifiedFactory)
       .TryAddVerify(v => new NullVerifierError<TUsage>(v))

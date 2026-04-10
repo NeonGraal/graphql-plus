@@ -8,14 +8,14 @@ internal sealed record class OperationAst(
   ITokenAt At,
   string Identifier
 ) : AstDirectives(At, Identifier)
-  , IGqlpOperation
+  , IAstOperation
 {
   public ParseResultKind Result { get; set; }
   internal IMessages Errors { get; set; } = Messages.New;
 
   public string Category { get; set; } = "query";
 
-  public IGqlpVariable[] Variables { get; set; } = [];
+  public IAstVariable[] Variables { get; set; } = [];
   public IGqlpArg[] Usages { get; init; } = [];
 
   public string? ResultType { get; set; }
@@ -23,27 +23,27 @@ internal sealed record class OperationAst(
   public IGqlpSelection[]? ResultObject { get; set; }
   public IAstModifier[] Modifiers { get; set; } = [];
 
-  public IGqlpFragment[] Fragments { get; set; } = [];
+  public IAstFragment[] Fragments { get; set; } = [];
   public IGqlpSpread[] Spreads { get; set; } = [];
 
   internal override string Abbr => "g";
 
   IEnumerable<IAstModifier> IAstModifiers.Modifiers => Modifiers;
-  IEnumerable<IGqlpVariable> IGqlpOperation.Variables => Variables;
-  IGqlpArg? IGqlpOperation.Arg => Arg;
-  IEnumerable<IGqlpSelection>? IGqlpOperation.ResultObject => ResultObject;
-  IEnumerable<IGqlpFragment> IGqlpOperation.Fragments => Fragments;
-  IMessages IGqlpOperation.Errors => Errors;
+  IEnumerable<IAstVariable> IAstOperation.Variables => Variables;
+  IGqlpArg? IAstOperation.Arg => Arg;
+  IEnumerable<IGqlpSelection>? IAstOperation.ResultObject => ResultObject;
+  IEnumerable<IAstFragment> IAstOperation.Fragments => Fragments;
+  IMessages IAstOperation.Errors => Errors;
 
-  IEnumerable<IGqlpArg> IGqlpOperation.Usages => Usages;
-  IEnumerable<IGqlpSpread> IGqlpOperation.Spreads => Spreads;
+  IEnumerable<IGqlpArg> IAstOperation.Usages => Usages;
+  IEnumerable<IGqlpSpread> IAstOperation.Spreads => Spreads;
 
   public OperationAst(TokenAt at)
     : this(at, "") { }
 
   public bool Equals(OperationAst? other)
-    => other is IGqlpOperation operation && Equals(operation);
-  public bool Equals(IGqlpOperation other)
+    => other is IAstOperation operation && Equals(operation);
+  public bool Equals(IAstOperation other)
     => base.Equals(other)
     && Result == other.Result
     && Modifiers.SequenceEqual(other.Modifiers);

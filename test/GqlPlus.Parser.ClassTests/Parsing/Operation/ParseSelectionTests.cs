@@ -7,14 +7,14 @@ public class ParseSelectionTests
 {
 
   private readonly ParseSelection _parseSelection;
-  private readonly Parser<IGqlpDirective>.IA _directivesParser;
+  private readonly Parser<IAstDirective>.IA _directivesParser;
   private readonly Parser<IGqlpSelection>.IA _objectParser;
 
   public ParseSelectionTests()
     : base(A.Of<ITokenizer, IOperationContext>())
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    ConfigureRepoArray<IGqlpDirective>(parsers, out _directivesParser);
+    ConfigureRepoArray<IAstDirective>(parsers, out _directivesParser);
     ConfigureRepoArray<IGqlpSelection>(parsers, out _objectParser);
     _parseSelection = new ParseSelection(parsers);
 
@@ -28,7 +28,7 @@ public class ParseSelectionTests
     TakeReturns("...", true);
     IdentifierReturns(OutString(spreadName));
 
-    IGqlpDirective[] directives = ParseOkA(_directivesParser);
+    IAstDirective[] directives = ParseOkA(_directivesParser);
 
     // Act
     IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
@@ -50,7 +50,7 @@ public class ParseSelectionTests
     TakeReturns("on", true);
     IdentifierReturns(OutString(onType));
 
-    IGqlpDirective[] directives = ParseOkA(_directivesParser);
+    IAstDirective[] directives = ParseOkA(_directivesParser);
     IGqlpSelection[] selections = ParseOkA(_objectParser);
 
     // Act

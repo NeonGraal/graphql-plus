@@ -1,20 +1,20 @@
 ﻿namespace GqlPlus.Abstractions.Operation;
 
-public interface IGqlpOperation
-  : IGqlpIdentified
-  , IGqlpDirectives
+public interface IAstOperation
+  : IAstIdentified
+  , IAstDirectives
   , IAstModifiers
-  , IEquatable<IGqlpOperation>
+  , IEquatable<IAstOperation>
 {
   string Category { get; }
 
-  IEnumerable<IGqlpVariable> Variables { get; }
+  IEnumerable<IAstVariable> Variables { get; }
 
   string? ResultType { get; }
   IGqlpArg? Arg { get; }
   IEnumerable<IGqlpSelection>? ResultObject { get; }
 
-  IEnumerable<IGqlpFragment> Fragments { get; }
+  IEnumerable<IAstFragment> Fragments { get; }
 
   ParseResultKind Result { get; }
   IMessages Errors { get; }
@@ -23,45 +23,45 @@ public interface IGqlpOperation
   IEnumerable<IGqlpSpread> Spreads { get; }
 }
 
-public interface IGqlpIdentified
+public interface IAstIdentified
   : IAstAbbreviated
-  , IEquatable<IGqlpIdentified>
+  , IEquatable<IAstIdentified>
 {
   string Identifier { get; }
 }
 
-public interface IGqlpVariable
-  : IGqlpIdentified
-  , IGqlpDirectives
+public interface IAstVariable
+  : IAstIdentified
+  , IAstDirectives
   , IAstModifiers
-  , IEquatable<IGqlpVariable>
+  , IEquatable<IAstVariable>
 {
   string? Type { get; }
   IAstConstant? DefaultValue { get; }
 }
 
-public interface IGqlpDirectives
+public interface IAstDirectives
   : IAstAbbreviated
 {
-  IEnumerable<IGqlpDirective> Directives { get; }
+  IEnumerable<IAstDirective> Directives { get; }
 }
 
-public interface IGqlpDirective
-  : IGqlpIdentified
+public interface IAstDirective
+  : IAstIdentified
 {
   IGqlpArg? Arg { get; }
 }
 
-public interface IGqlpSelections
+public interface IAstSelections
 {
   IEnumerable<IGqlpSelection> Selections { get; }
 }
 
-public interface IGqlpFragment
-  : IGqlpIdentified
-  , IGqlpDirectives
-  , IGqlpSelections
-  , IEquatable<IGqlpFragment>
+public interface IAstFragment
+  : IAstIdentified
+  , IAstDirectives
+  , IAstSelections
+  , IEquatable<IAstFragment>
 {
   string OnType { get; }
 }

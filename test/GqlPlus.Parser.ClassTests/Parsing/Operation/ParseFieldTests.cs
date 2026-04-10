@@ -7,13 +7,13 @@ public class ParseFieldTests
 {
 
   private readonly ParseField _parseField;
-  private readonly Parser<IGqlpDirective>.IA _directivesParser;
+  private readonly Parser<IAstDirective>.IA _directivesParser;
   private readonly IParserArg _argumentParser;
   private readonly Parser<IGqlpSelection>.IA _objectParser;
 
   public ParseFieldTests()
   {
-    ConfigureRepoArray<IGqlpDirective>(Parsers, out _directivesParser);
+    ConfigureRepoArray<IAstDirective>(Parsers, out _directivesParser);
     ConfigureRepoInterface<IParserArg, IGqlpArg>(Parsers, out _argumentParser);
     ConfigureRepoArray<IGqlpSelection>(Parsers, out _objectParser);
     _parseField = new ParseField(Parsers);
@@ -31,7 +31,7 @@ public class ParseFieldTests
 
     IGqlpArg argument = ParseOk(_argumentParser);
     IAstModifier[] modifiers = ParseAModifier();
-    IGqlpDirective[] directives = ParseOkA(_directivesParser);
+    IAstDirective[] directives = ParseOkA(_directivesParser);
     IGqlpSelection[] selections = ParseOkA(_objectParser);
 
     // Act

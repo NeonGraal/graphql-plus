@@ -8,15 +8,15 @@ internal sealed record class FragmentAst(
   string OnType,
   params IGqlpSelection[] Selections
 ) : AstDirectives(At, Identifier)
-  , IGqlpFragment
+  , IAstFragment
 {
   internal override string Abbr => "t";
 
-  IEnumerable<IGqlpSelection> IGqlpSelections.Selections => Selections;
+  IEnumerable<IGqlpSelection> IAstSelections.Selections => Selections;
 
   public bool Equals(FragmentAst? other)
-    => other is IGqlpFragment fragment && Equals(fragment);
-  public bool Equals(IGqlpFragment? other)
+    => other is IAstFragment fragment && Equals(fragment);
+  public bool Equals(IAstFragment? other)
     => base.Equals(other)
     && OnType.NullEqual(other?.OnType)
     && Selections.SequenceEqual(other?.Selections);

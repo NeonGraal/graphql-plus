@@ -7,14 +7,14 @@ namespace GqlPlus.Parsing.Operation;
 
 internal class ParseDirectives(
   IParserRepository parsers
-) : Parser<IGqlpDirective>.IA
+) : Parser<IAstDirective>.IA
 {
   private readonly Parser<IParserArg, IGqlpArg>.L _argument = parsers.ParserFor<IParserArg, IGqlpArg>();
 
-  public IResultArray<IGqlpDirective> Parse(ITokenizer tokens, string label)
+  public IResultArray<IAstDirective> Parse(ITokenizer tokens, string label)
 
   {
-    List<IGqlpDirective> result = [];
+    List<IAstDirective> result = [];
 
     if (!tokens.Prefix('@', out string? name, out TokenAt at)) {
       return tokens.ErrorArray(label, "identifier after '@'", result);

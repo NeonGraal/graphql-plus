@@ -9,7 +9,7 @@ internal class ParseSelection(
   IParserRepository parsers
 ) : Parser<IGqlpSelection>.I
 {
-  private readonly Parser<IGqlpDirective>.LA _directives = parsers.ArrayFor<IGqlpDirective>();
+  private readonly Parser<IAstDirective>.LA _directives = parsers.ArrayFor<IAstDirective>();
   private readonly Parser<IGqlpSelection>.LA _object = parsers.ArrayFor<IGqlpSelection>();
 
   public IResult<IGqlpSelection> Parse(ITokenizer tokens, string label)
@@ -23,7 +23,7 @@ internal class ParseSelection(
         return value;
       }
 
-      IResultArray<IGqlpDirective> directives = _directives.Parse(tokens, "Inline");
+      IResultArray<IAstDirective> directives = _directives.Parse(tokens, "Inline");
       IResultArray<IGqlpSelection> selections = _object.Parse(tokens, "Object");
       if (selections.IsOk()) {
         return selections.Select(MakeInline(at, directives, onType));
@@ -35,7 +35,7 @@ internal class ParseSelection(
     return default(IGqlpSelection).Empty();
   }
 
-  private Func<IEnumerable<IGqlpSelection>, IGqlpSelection> MakeInline(TokenAt at, IResultArray<IGqlpDirective> directives, string? onType)
+  private Func<IEnumerable<IGqlpSelection>, IGqlpSelection> MakeInline(TokenAt at, IResultArray<IAstDirective> directives, string? onType)
     => values => {
       InlineAst selection = new(at, [.. values]) {
         OnType = onType,

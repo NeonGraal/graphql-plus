@@ -8,11 +8,11 @@ public class ParseOperationTests
 
   private readonly ParseOperation _parseOperation;
   private readonly IParserArg _argumentParser;
-  private readonly Parser<IGqlpDirective>.IA _directivesParser;
+  private readonly Parser<IAstDirective>.IA _directivesParser;
   private readonly IParserStartFragments _startFragmentsParser;
   private readonly IParserEndFragments _endFragmentsParser;
   private readonly Parser<IGqlpSelection>.IA _objectParser;
-  private readonly Parser<IGqlpVariable>.IA _variablesParser;
+  private readonly Parser<IAstVariable>.IA _variablesParser;
 
   public ParseOperationTests()
     : base(A.Of<IOperationContext>())
@@ -23,15 +23,15 @@ public class ParseOperationTests
     }
 
     ConfigureRepoInterface<IParserArg, IGqlpArg>(Parsers, out _argumentParser);
-    ConfigureRepoArray<IGqlpDirective>(Parsers, out _directivesParser);
-    ConfigureRepoArrayInterface<IParserStartFragments, IGqlpFragment>(Parsers, out _startFragmentsParser);
-    ConfigureRepoArrayInterface<IParserEndFragments, IGqlpFragment>(Parsers, out _endFragmentsParser);
+    ConfigureRepoArray<IAstDirective>(Parsers, out _directivesParser);
+    ConfigureRepoArrayInterface<IParserStartFragments, IAstFragment>(Parsers, out _startFragmentsParser);
+    ConfigureRepoArrayInterface<IParserEndFragments, IAstFragment>(Parsers, out _endFragmentsParser);
     ConfigureRepoArray<IGqlpSelection>(Parsers, out _objectParser);
-    ConfigureRepoArray<IGqlpVariable>(Parsers, out _variablesParser);
+    ConfigureRepoArray<IAstVariable>(Parsers, out _variablesParser);
     _parseOperation = new ParseOperation(Parsers);
 
-    SetupError<IGqlpOperation>();
-    SetupPartial<IGqlpOperation>();
+    SetupError<IAstOperation>();
+    SetupPartial<IAstOperation>();
   }
 
   [Theory, RepeatData]
@@ -42,21 +42,21 @@ public class ParseOperationTests
     Tokenizer.Read().Returns(true);
     Tokenizer.AtEnd.Returns(true);
 
-    IGqlpVariable[] variables = ParseOkA(_variablesParser);
-    IGqlpDirective[] directives = ParseOkA(_directivesParser);
-    IGqlpFragment[] startFragments = ParseOkA(_startFragmentsParser);
+    IAstVariable[] variables = ParseOkA(_variablesParser);
+    IAstDirective[] directives = ParseOkA(_directivesParser);
+    IAstFragment[] startFragments = ParseOkA(_startFragmentsParser);
 
     PrefixReturns(':', OutStringAt(resultType));
 
     IGqlpArg argument = ParseOk(_argumentParser);
     IAstModifier[] modifiers = ParseAModifier();
-    IGqlpFragment[] endFragments = ParseOkA(_endFragmentsParser);
+    IAstFragment[] endFragments = ParseOkA(_endFragmentsParser);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
+    IResult<IAstOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpOperation>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstOperation>>()
       .Required().ShouldSatisfyAllConditions(
         x => x.Variables.ShouldBe(variables),
         x => x.Directives.ShouldBe(directives),
@@ -75,22 +75,22 @@ public class ParseOperationTests
     Tokenizer.Read().Returns(true);
     Tokenizer.AtEnd.Returns(true);
 
-    IGqlpVariable[] variables = ParseOkA(_variablesParser);
-    IGqlpDirective[] directives = ParseOkA(_directivesParser);
-    IGqlpFragment[] startFragments = ParseOkA(_startFragmentsParser);
+    IAstVariable[] variables = ParseOkA(_variablesParser);
+    IAstDirective[] directives = ParseOkA(_directivesParser);
+    IAstFragment[] startFragments = ParseOkA(_startFragmentsParser);
 
     PrefixReturns(':', OutStringAt(null));
 
     IGqlpSelection[] obj = ParseOkA(_objectParser);
 
     IAstModifier[] modifiers = ParseAModifier();
-    IGqlpFragment[] endFragments = ParseOkA(_endFragmentsParser);
+    IAstFragment[] endFragments = ParseOkA(_endFragmentsParser);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
+    IResult<IAstOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpOperation>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstOperation>>()
       .Required().ShouldSatisfyAllConditions(
         x => x.Variables.ShouldBe(variables),
         x => x.Directives.ShouldBe(directives),
@@ -108,21 +108,21 @@ public class ParseOperationTests
     Tokenizer.Read().Returns(true);
     Tokenizer.AtEnd.Returns(false);
 
-    IGqlpVariable[] variables = ParseOkA(_variablesParser);
-    IGqlpDirective[] directives = ParseOkA(_directivesParser);
-    IGqlpFragment[] startFragments = ParseOkA(_startFragmentsParser);
+    IAstVariable[] variables = ParseOkA(_variablesParser);
+    IAstDirective[] directives = ParseOkA(_directivesParser);
+    IAstFragment[] startFragments = ParseOkA(_startFragmentsParser);
 
     PrefixReturns(':', OutStringAt(resultType));
 
     IGqlpArg argument = ParseOk(_argumentParser);
     IAstModifier[] modifiers = ParseAModifier();
-    IGqlpFragment[] endFragments = ParseOkA(_endFragmentsParser);
+    IAstFragment[] endFragments = ParseOkA(_endFragmentsParser);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
+    IResult<IAstOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpOperation>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstOperation>>();
   }
 
   [Theory, RepeatData]
@@ -133,9 +133,9 @@ public class ParseOperationTests
     Tokenizer.Read().Returns(true);
     Tokenizer.AtEnd.Returns(false);
 
-    IGqlpVariable[] variables = ParseOkA(_variablesParser);
-    IGqlpDirective[] directives = ParseOkA(_directivesParser);
-    IGqlpFragment[] startFragments = ParseOkA(_startFragmentsParser);
+    IAstVariable[] variables = ParseOkA(_variablesParser);
+    IAstDirective[] directives = ParseOkA(_directivesParser);
+    IAstFragment[] startFragments = ParseOkA(_startFragmentsParser);
 
     PrefixReturns(':', OutStringAt(resultType));
 
@@ -143,10 +143,10 @@ public class ParseOperationTests
     ParseModifiersError();
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
+    IResult<IAstOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpOperation>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstOperation>>();
   }
 
   [Theory, RepeatData]
@@ -157,19 +157,19 @@ public class ParseOperationTests
     Tokenizer.Read().Returns(true);
     Tokenizer.AtEnd.Returns(false);
 
-    IGqlpVariable[] variables = ParseOkA(_variablesParser);
-    IGqlpDirective[] directives = ParseOkA(_directivesParser);
-    IGqlpFragment[] startFragments = ParseOkA(_startFragmentsParser);
+    IAstVariable[] variables = ParseOkA(_variablesParser);
+    IAstDirective[] directives = ParseOkA(_directivesParser);
+    IAstFragment[] startFragments = ParseOkA(_startFragmentsParser);
 
     PrefixReturns(':', OutStringAt(resultType));
 
     ParseError(_argumentParser);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
+    IResult<IAstOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpOperation>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstOperation>>();
   }
 
   [Fact]
@@ -180,7 +180,7 @@ public class ParseOperationTests
     Tokenizer.Read().Returns(false);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
+    IResult<IAstOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -195,10 +195,10 @@ public class ParseOperationTests
     ParseErrorA(_variablesParser);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
+    IResult<IAstOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpOperation>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstOperation>>();
   }
 
   [Fact]
@@ -207,14 +207,14 @@ public class ParseOperationTests
     // Arrange
     Tokenizer.AtStart.Returns(true);
     Tokenizer.Read().Returns(true);
-    IGqlpVariable[] variables = ParseOkA(_variablesParser);
+    IAstVariable[] variables = ParseOkA(_variablesParser);
     PrefixReturns(':', OutFail);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
+    IResult<IAstOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpOperation>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstOperation>>();
   }
 
   [Fact]
@@ -223,15 +223,15 @@ public class ParseOperationTests
     // Arrange
     Tokenizer.AtStart.Returns(true);
     Tokenizer.Read().Returns(true);
-    IGqlpVariable[] variables = ParseOkA(_variablesParser);
+    IAstVariable[] variables = ParseOkA(_variablesParser);
     PrefixReturns(':', OutPass);
     ParseErrorA(_objectParser);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
+    IResult<IAstOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpOperation>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstOperation>>();
   }
 
   [Fact]
@@ -243,9 +243,9 @@ public class ParseOperationTests
     PrefixReturns(':', OutPass);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
+    IResult<IAstOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpOperation>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstOperation>>();
   }
 }

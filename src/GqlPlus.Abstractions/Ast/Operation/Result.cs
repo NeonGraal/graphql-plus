@@ -2,14 +2,14 @@
 
 public interface IGqlpSelection
   : IAstError
-  , IGqlpDirectives
+  , IAstDirectives
 { }
 
 public interface IGqlpField
-  : IGqlpIdentified
+  : IAstIdentified
   , IGqlpSelection
   , IAstModifiers
-  , IGqlpSelections
+  , IAstSelections
 {
   string? FieldAlias { get; }
   IGqlpArg? Arg { get; }
@@ -18,14 +18,14 @@ public interface IGqlpField
 public interface IGqlpInline
   : IAstAbbreviated
   , IGqlpSelection
-  , IGqlpSelections
+  , IAstSelections
   , IEquatable<IGqlpInline>
 {
   string? OnType { get; }
 }
 
 public interface IGqlpSpread
-  : IGqlpIdentified
+  : IAstIdentified
   , IGqlpSelection
 { }
 

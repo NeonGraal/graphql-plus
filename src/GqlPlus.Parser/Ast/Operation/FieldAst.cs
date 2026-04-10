@@ -20,7 +20,7 @@ internal sealed record class FieldAst(
 
   IEnumerable<IAstModifier> IAstModifiers.Modifiers => Modifiers;
 
-  IEnumerable<IGqlpSelection> IGqlpSelections.Selections => Selections;
+  IEnumerable<IGqlpSelection> IAstSelections.Selections => Selections;
 
   public bool Equals(FieldAst? other)
     => base.Equals(other)

@@ -10,7 +10,7 @@ public class VerifyVariableTests
   private readonly IAstConstant _defValue = A.Error<IAstConstant>();
   private readonly IAstConstant _constant = A.Constant("constant");
 
-  private readonly IGqlpVariable _item = A.Variable("item");
+  private readonly IAstVariable _item = A.Variable("item");
   private readonly IAstFieldKey _keyField = A.EnumFieldKey(BuiltIn.NullType, BuiltIn.NullValue);
 
   private readonly VerifyVariable _verifier = new();

@@ -7,19 +7,19 @@ public class ParseVariableTests
 {
 
   private readonly ParseVariable _parseVariable;
-  private readonly Parser<IGqlpDirective>.IA _directivesParser;
+  private readonly Parser<IAstDirective>.IA _directivesParser;
   private readonly IParserDefault _defaultParser;
   private readonly IParserVarType _varTypeParser;
 
   public ParseVariableTests()
   {
-    ConfigureRepoArray<IGqlpDirective>(Parsers, out _directivesParser);
+    ConfigureRepoArray<IAstDirective>(Parsers, out _directivesParser);
     ConfigureRepoInterface<IParserDefault, IAstConstant>(Parsers, out _defaultParser);
     ConfigureRepoInterface<IParserVarType, string>(Parsers, out _varTypeParser);
     _parseVariable = new ParseVariable(Parsers);
 
-    SetupError<IGqlpVariable>();
-    SetupPartial<IGqlpVariable>();
+    SetupError<IAstVariable>();
+    SetupPartial<IAstVariable>();
   }
 
   [Theory, RepeatData]
@@ -33,13 +33,13 @@ public class ParseVariableTests
     IAstModifier[] modifiers = ParseAModifier();
     IAstConstant constant = ParseOk(_defaultParser);
 
-    IGqlpDirective[] directives = ParseOkA(_directivesParser);
+    IAstDirective[] directives = ParseOkA(_directivesParser);
 
     // Act
-    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, TestLabel);
+    IResult<IAstVariable> result = _parseVariable.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpVariable>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstVariable>>()
       .Required().ShouldSatisfyAllConditions(
         x => x.Identifier.ShouldBe(variableName),
         x => x.Type.ShouldBe(varType),
@@ -58,13 +58,13 @@ public class ParseVariableTests
     IAstModifier[] modifiers = ParseAModifier();
     IAstConstant constant = ParseOk(_defaultParser);
 
-    IGqlpDirective[] directives = ParseOkA(_directivesParser);
+    IAstDirective[] directives = ParseOkA(_directivesParser);
 
     // Act
-    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, TestLabel);
+    IResult<IAstVariable> result = _parseVariable.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpVariable>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstVariable>>()
       .Required().ShouldSatisfyAllConditions(
         x => x.Identifier.ShouldBe(variableName),
         x => x.Type.ShouldBeNull(),
@@ -81,10 +81,10 @@ public class ParseVariableTests
     PrefixReturns('$', OutFail);
 
     // Act
-    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, TestLabel);
+    IResult<IAstVariable> result = _parseVariable.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpVariable>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstVariable>>();
   }
 
   [Theory, RepeatData]
@@ -96,10 +96,10 @@ public class ParseVariableTests
     ParseEmpty(_varTypeParser);
 
     // Act
-    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, TestLabel);
+    IResult<IAstVariable> result = _parseVariable.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpVariable>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstVariable>>();
   }
 
   [Theory, RepeatData]
@@ -110,7 +110,7 @@ public class ParseVariableTests
     ParseModifiersError();
 
     // Act
-    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, TestLabel);
+    IResult<IAstVariable> result = _parseVariable.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -126,7 +126,7 @@ public class ParseVariableTests
     ParseError(_defaultParser);
 
     // Act
-    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, TestLabel);
+    IResult<IAstVariable> result = _parseVariable.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -139,7 +139,7 @@ public class ParseVariableTests
     PrefixReturns('$', OutPass);
 
     // Act
-    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, TestLabel);
+    IResult<IAstVariable> result = _parseVariable.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

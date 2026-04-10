@@ -3,9 +3,9 @@
 namespace GqlPlus.Verifying.Operation;
 
 internal class VerifyVariable
-  : IVerify<IGqlpVariable>
+  : IVerify<IAstVariable>
 {
-  public void Verify(IGqlpVariable item, IMessages errors)
+  public void Verify(IAstVariable item, IMessages errors)
   {
     IAstConstant? def = item.DefaultValue;
     if (def is null) {

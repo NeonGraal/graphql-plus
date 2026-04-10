@@ -7,18 +7,18 @@ namespace GqlPlus.Parsing.Operation;
 
 internal abstract class ParseFragments(
   IParserRepository parsers
-) : Parser<IGqlpFragment>.IA
+) : Parser<IAstFragment>.IA
 {
-  private readonly Parser<IGqlpDirective>.LA _directives = parsers.ArrayFor<IGqlpDirective>();
+  private readonly Parser<IAstDirective>.LA _directives = parsers.ArrayFor<IAstDirective>();
   private readonly Parser<IGqlpSelection>.LA _object = parsers.ArrayFor<IGqlpSelection>();
 
   protected abstract bool FragmentPrefix(ref ITokenizer tokens);
   protected abstract bool TypePrefix(ref ITokenizer tokens);
 
-  public IResultArray<IGqlpFragment> Parse(ITokenizer tokens, string label)
+  public IResultArray<IAstFragment> Parse(ITokenizer tokens, string label)
 
   {
-    List<IGqlpFragment> definitions = [];
+    List<IAstFragment> definitions = [];
 
     while (FragmentPrefix(ref tokens)) {
       TokenAt at = tokens.At;
@@ -34,7 +34,7 @@ internal abstract class ParseFragments(
         return tokens.ErrorArray("Fragment", "type after ':' or 'on'", definitions);
       }
 
-      IResultArray<IGqlpDirective> directives = _directives.Parse(tokens, "Fragment");
+      IResultArray<IAstDirective> directives = _directives.Parse(tokens, "Fragment");
 
       if (directives.IsError()) {
         return directives.AsResultArray(definitions);
@@ -77,9 +77,9 @@ internal class ParseEndFragments(
 }
 
 public interface IParserStartFragments
-  : Parser<IGqlpFragment>.IA
+  : Parser<IAstFragment>.IA
 { }
 
 public interface IParserEndFragments
-  : Parser<IGqlpFragment>.IA
+  : Parser<IAstFragment>.IA
 { }

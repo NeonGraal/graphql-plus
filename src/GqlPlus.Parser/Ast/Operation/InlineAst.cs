@@ -10,12 +10,12 @@ internal sealed record class InlineAst(
 {
   public string? OnType { get; set; }
 
-  public IGqlpDirective[] Directives { get; set; } = [];
+  public IAstDirective[] Directives { get; set; } = [];
 
   internal override string Abbr => "i";
 
-  IEnumerable<IGqlpDirective> IGqlpDirectives.Directives => Directives;
-  IEnumerable<IGqlpSelection> IGqlpSelections.Selections => Selections;
+  IEnumerable<IAstDirective> IAstDirectives.Directives => Directives;
+  IEnumerable<IGqlpSelection> IAstSelections.Selections => Selections;
 
   public bool Equals(InlineAst? other)
     => other is IGqlpInline inline && Equals(inline);

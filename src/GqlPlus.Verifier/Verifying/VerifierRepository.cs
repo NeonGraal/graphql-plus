@@ -46,7 +46,7 @@ internal class VerifierRepository
 
   public IVerifyIdentified<TUsage, TIdentified> IdentifiedFor<TUsage, TIdentified>()
     where TUsage : IAstError
-    where TIdentified : IGqlpIdentified
+    where TIdentified : IAstIdentified
     => Cached<(TUsage, TIdentified), IVerifyIdentified<TUsage, TIdentified>>(
       _state.Identified,
       "identified", this);

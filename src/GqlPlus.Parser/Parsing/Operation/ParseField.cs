@@ -10,7 +10,7 @@ internal class ParseField(
 ) : Parser<IGqlpField>.I
 {
   private readonly Parser<IAstModifier>.LA _modifiers = parsers.ArrayFor<IAstModifier>();
-  private readonly Parser<IGqlpDirective>.LA _directives = parsers.ArrayFor<IGqlpDirective>();
+  private readonly Parser<IAstDirective>.LA _directives = parsers.ArrayFor<IAstDirective>();
   private readonly Parser<IParserArg, IGqlpArg>.L _argument = parsers.ParserFor<IParserArg, IGqlpArg>();
   private readonly Parser<IGqlpSelection>.LA _object = parsers.ArrayFor<IGqlpSelection>();
 
@@ -40,7 +40,7 @@ internal class ParseField(
       return modifiers.AsPartial<IGqlpField>(result);
     }
 
-    IResultArray<IGqlpDirective> directives = _directives.Parse(tokens, label);
+    IResultArray<IAstDirective> directives = _directives.Parse(tokens, label);
     if (!directives.Optional(value => result.Directives = [.. value])) {
       return directives.AsPartial<IGqlpField>(result);
     }

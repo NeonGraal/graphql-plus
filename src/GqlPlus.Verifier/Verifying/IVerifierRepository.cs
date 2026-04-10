@@ -20,7 +20,7 @@ public interface IVerifierRepository
 
   IVerifyIdentified<TUsage, TIdentified> IdentifiedFor<TUsage, TIdentified>()
     where TUsage : IAstError
-    where TIdentified : IGqlpIdentified;
+    where TIdentified : IAstIdentified;
 
   IEnumerable<IVerifyDomain> GetDomains();
 

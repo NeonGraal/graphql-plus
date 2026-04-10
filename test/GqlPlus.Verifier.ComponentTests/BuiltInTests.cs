@@ -9,7 +9,7 @@ public class BuiltInTests(
   IVerifierRepository verifierRepository
 )
 {
-  private readonly IVerify<IGqlpSchema> _verifier = verifierRepository.VerifierFor<IGqlpSchema>();
+  private readonly IVerify<IAstSchema> _verifier = verifierRepository.VerifierFor<IAstSchema>();
   private readonly VerifySettings _settings = new VerifySettings().CheckAutoVerify();
 
   [Fact]
@@ -46,16 +46,16 @@ public class BuiltInTests(
 
   private sealed class TestSchema(
     IGqlpType type
-  ) : IGqlpSchema
+  ) : IAstSchema
   {
-    public IEnumerable<IGqlpDeclaration> Declarations { get; } = [type];
+    public IEnumerable<IAstDeclaration> Declarations { get; } = [type];
     public ParseResultKind Result { get; } = ParseResultKind.Success;
     public IMessages Errors { get; } = new Messages();
     public ITokenAt At { get; } = new TokenAt(TokenKind.Start, 0, 0, string.Empty);
     public string Abbr { get; } = "testSchema";
 
     public bool Equals(IAstAbbreviated? other) => false;
-    public bool Equals(IGqlpSchema? other) => false;
+    public bool Equals(IAstSchema? other) => false;
     public IEnumerable<string?> GetFields() => throw new NotImplementedException();
     public IMessages MakeError(string message) => throw new NotImplementedException();
   }

@@ -6,7 +6,7 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Merging.Schema;
 
 public class MergeSchemasTests
-  : TestAbbreviatedMerger<IGqlpSchema>
+  : TestAbbreviatedMerger<IAstSchema>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentDeclarations_ReturnsGood(string category, string option)
@@ -60,9 +60,9 @@ public class MergeSchemasTests
     _merger = new(mergers);
   }
 
-  protected override IMerge<IGqlpSchema> MergerBase => _merger;
+  protected override IMerge<IAstSchema> MergerBase => _merger;
 
-  protected override IGqlpSchema MakeAst(string input)
+  protected override IAstSchema MakeAst(string input)
     => new SchemaAst(AstNulls.At);
 
   private static AstDeclaration[] CategoryDeclarations(string category)

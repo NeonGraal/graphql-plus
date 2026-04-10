@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifying.Schema.Objects;
 
 public class ObjectContext(
-  IMap<IGqlpDescribed> types,
+  IMap<IAstDescribed> types,
   IMessages errors,
   IMap<string> enumValues,
   TypeKind kind

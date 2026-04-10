@@ -11,7 +11,7 @@ internal class VerifyDomainTypes(IVerifierRepository verifiers) : AstParentVerif
 
   protected override EnumContext MakeContext(IGqlpDomain usage, IGqlpType[] aliased, IMessages errors)
   {
-    IMap<IGqlpDescribed> validTypes = aliased.AliasedMap(p => (IGqlpDescribed)p.First());
+    IMap<IAstDescribed> validTypes = aliased.AliasedMap(p => (IAstDescribed)p.First());
 
     return new(validTypes, errors, aliased.MakeEnumValues());
   }

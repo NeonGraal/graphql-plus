@@ -18,7 +18,7 @@ internal abstract record class AstSimple<TItemAst>(
   TItemAst[] Items
 ) : AstSimple(At, Name, Description)
   , IGqlpSimple<TItemAst>
-  where TItemAst : IGqlpNamed
+  where TItemAst : IAstNamed
 {
   IEnumerable<TItemAst> IGqlpSimple<TItemAst>.Items => Items;
 

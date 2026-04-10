@@ -30,7 +30,7 @@ public interface IGqlpDomain<TItem>
 { }
 
 public interface IGqlpDomainItem
-  : IGqlpDescribed
+  : IAstDescribed
   , IEquatable<IGqlpDomainItem>
 {
   bool Excludes { get; }
@@ -85,7 +85,7 @@ public interface IGqlpEnum
 { }
 
 public interface IGqlpEnumLabel
-  : IGqlpAliased
+  : IAstAliased
 { }
 
 public interface IGqlpUnion
@@ -93,5 +93,5 @@ public interface IGqlpUnion
 { }
 
 public interface IGqlpUnionMember
-  : IGqlpNamed
+  : IAstNamed
 { }

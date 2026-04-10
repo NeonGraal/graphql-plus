@@ -18,13 +18,13 @@ public class HtmlBuiltInTests(IModelAndEncode encoder)
   public async Task HtmlInternalTypes(string type)
     => await RenderTypeHtml("Internal", BuiltInData.InternalMap[type], BuiltIn.Internal);
 
-  private readonly IGqlpSchema _basicSchema = BuiltIn.Basic.Schema();
+  private readonly IAstSchema _basicSchema = BuiltIn.Basic.Schema();
 
   [Fact]
   public async Task HtmlAllBasicTypes()
     => await RenderSchemaHtml(_basicSchema, "!Basic");
 
-  private readonly IGqlpSchema _internalSchema = BuiltIn.Internal.Schema();
+  private readonly IAstSchema _internalSchema = BuiltIn.Internal.Schema();
 
   [Fact]
   public async Task HtmlAllInternalTypes()
@@ -85,9 +85,9 @@ public class HtmlBuiltInTests(IModelAndEncode encoder)
   {
     Assert.SkipWhen(type is null, "type is null");
 
-    IGqlpSchema schema = type.Schema();
+    IAstSchema schema = type.Schema();
 
-    IGqlpSchema extrasSchema = extras.Where(e => e != type).Schema();
+    IAstSchema extrasSchema = extras.Where(e => e != type).Schema();
 
     IModelsContext context = encoder.Context();
     Structured result = encoder.EncodeAst(schema, context, extrasSchema);
@@ -99,14 +99,14 @@ public class HtmlBuiltInTests(IModelAndEncode encoder)
   {
     Assert.SkipWhen(type is null, "type is null");
 
-    IGqlpSchema schema = type.Schema();
+    IAstSchema schema = type.Schema();
 
-    IGqlpSchema extrasSchema = extras.Where(e => e != type).Schema();
+    IAstSchema extrasSchema = extras.Where(e => e != type).Schema();
 
     await RenderSchemaHtml(schema, type.Name, section, extrasSchema);
   }
 
-  private async Task RenderSchemaHtml(IGqlpSchema schema, string filename, string section = "", IGqlpSchema? extras = null)
+  private async Task RenderSchemaHtml(IAstSchema schema, string filename, string section = "", IAstSchema? extras = null)
   {
     Structured result = encoder.EncodeAst(schema, encoder.Context(), extras);
 

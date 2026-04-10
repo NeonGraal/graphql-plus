@@ -96,7 +96,7 @@ internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
     return false;
   }
 
-  internal string TypeName(IGqlpNamed type, string prefix)
+  internal string TypeName(IAstNamed type, string prefix)
     => TypeName(type.Name, prefix);
 
   internal string TypeName(string typeName, string prefix)

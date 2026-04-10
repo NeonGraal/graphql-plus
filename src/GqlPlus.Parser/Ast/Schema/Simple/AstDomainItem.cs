@@ -10,9 +10,9 @@ internal abstract record class AstDomainItem(
   , IGqlpDomainItem
 {
   public bool Equals(IGqlpDomainItem? other)
-  => Equals(other as IGqlpDescribed)
+  => Equals(other as IAstDescribed)
       && Excludes.NullEqual(other.Excludes);
-  public bool Equals(IGqlpDescribed? other)
+  public bool Equals(IAstDescribed? other)
   => base.Equals(other)
     && Description.NullEqual(other.Description);
   public override int GetHashCode()

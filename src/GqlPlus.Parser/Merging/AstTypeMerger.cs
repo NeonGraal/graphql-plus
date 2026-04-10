@@ -8,7 +8,7 @@ internal abstract class AstTypeMerger<TAst, TType, TParent, TItem>(
   , IMergeAll<TAst>
   where TAst : IGqlpType
   where TType : IGqlpType<TParent>, TAst
-  where TParent : IGqlpDescribed, IEquatable<TParent>
+  where TParent : IAstDescribed, IEquatable<TParent>
   where TItem : IAstError
 {
   private readonly IMerge<TItem> _mergeItems = mergers.MergerFor<TItem>();

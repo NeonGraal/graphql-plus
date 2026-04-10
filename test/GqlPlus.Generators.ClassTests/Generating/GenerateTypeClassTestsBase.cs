@@ -3,7 +3,7 @@
 public abstract class GenerateTypeClassTestsBase<TType, TParent, TMember>
   : GenerateTypeClassTestsBase
   where TType : class, IGqlpType<TParent>
-  where TParent : class, IGqlpNamed
+  where TParent : class, IAstNamed
 {
   internal abstract GenerateForType<TType> TypeGenerator { get; }
   internal abstract GqlpGeneratorType GeneratorType { get; }

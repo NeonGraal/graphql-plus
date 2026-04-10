@@ -184,7 +184,7 @@ internal static class MergeExtensions
 
   internal static TDescr MakeDescription<TDescr, TItem>(this TDescr descr, IEnumerable<TItem> items)
     where TDescr : IAstSetDescription
-    where TItem : IGqlpDescribed
+    where TItem : IAstDescribed
   {
     string description = items.Select(item => item.Description).Joined(" ");
     if (!string.IsNullOrWhiteSpace(description)) {

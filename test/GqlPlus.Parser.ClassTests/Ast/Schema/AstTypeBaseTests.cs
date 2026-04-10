@@ -44,7 +44,7 @@ internal class AstTypeChecks<TType, TParent>(
 ) : AstAliasedChecks<TType>(createInput, createExpression)
   , IAstTypeChecks
   where TType : AstType<TParent>
-  where TParent : IGqlpDescribed, IEquatable<TParent>
+  where TParent : IAstDescribed, IEquatable<TParent>
 {
   internal readonly ParentCreator CreateParent = createParent;
 

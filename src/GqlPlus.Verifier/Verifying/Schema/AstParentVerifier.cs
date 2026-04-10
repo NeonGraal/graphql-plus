@@ -8,7 +8,7 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
   IVerifierRepository verifiers
 ) : UsageVerifier<TAst, TContext>(verifiers)
   where TAst : IGqlpType<TParent>
-  where TParent : IGqlpDescribed, IEquatable<TParent>
+  where TParent : IAstDescribed, IEquatable<TParent>
   where TContext : UsageContext
 {
   protected override void UsageValue(TAst usage, TContext context)
@@ -36,7 +36,7 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
 
     string outcome = "not defined";
 
-    if (context.GetType(input.Current, out IGqlpDescribed? defined)) {
+    if (context.GetType(input.Current, out IAstDescribed? defined)) {
       if (defined is IGqlpType astType) {
         CheckTypedParentType(input, context, top, onParent, astType);
         return;

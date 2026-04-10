@@ -24,7 +24,7 @@ internal abstract record class AstType<TParent>(
   string Description
 ) : AstType(At, Name, Description)
   , IGqlpType<TParent>
-  where TParent : IGqlpDescribed, IEquatable<TParent>
+  where TParent : IAstDescribed, IEquatable<TParent>
 {
   public TParent? Parent { get; set; }
 

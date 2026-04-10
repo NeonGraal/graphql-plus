@@ -88,7 +88,7 @@ public static class AllVerifiers
   private static IVerifierRepositoryBuilder AddVerifyAliased<TAliased>(
     this IVerifierRepositoryBuilder builder,
     Factory<IVerifyAliased<TAliased>, IVerifierRepository> aliasedFactory)
-    where TAliased : IGqlpAliased
+    where TAliased : IAstAliased
     => builder
       .AddAliased(aliasedFactory)
       .TryAddVerify(v => new NullVerifierError<TAliased>(v));
@@ -97,7 +97,7 @@ public static class AllVerifiers
     this IVerifierRepositoryBuilder builder,
     Factory<IVerifyAliased<TUsage>, IVerifierRepository> aliasedFactory,
     Factory<IVerifyUsage<TUsage>, IVerifierRepository> usageFactory)
-    where TUsage : IGqlpAliased
+    where TUsage : IAstAliased
     => builder
       .AddAliased(aliasedFactory)
       .AddUsage(usageFactory)

@@ -2,7 +2,7 @@
 namespace GqlPlus.Abstractions.Schema;
 
 public interface IGqlpType
-  : IGqlpDeclaration
+  : IAstDeclaration
 {
   TypeKind Kind { get; }
 }
@@ -10,7 +10,7 @@ public interface IGqlpType
 public interface IGqlpType<TParent>
   : IGqlpType
   , IEquatable<IGqlpType<TParent>>
-  where TParent : IGqlpDescribed
+  where TParent : IAstDescribed
 {
   TParent? Parent { get; }
 }
@@ -20,7 +20,7 @@ public interface IGqlpSimple
 { }
 
 public interface IGqlpTypeRef
-  : IGqlpNamed
+  : IAstNamed
   , IEquatable<IGqlpTypeRef>
 { }
 

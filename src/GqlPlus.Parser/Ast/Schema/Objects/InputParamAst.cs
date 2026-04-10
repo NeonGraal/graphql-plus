@@ -26,7 +26,7 @@ internal sealed record class InputParamAst(
   public string ModifiedType => Type.GetFields().Skip(2).Concat(Modifiers.AsString()).Joined();
 
   IEnumerable<IAstModifier> IAstModifiers.Modifiers => Modifiers;
-  string IGqlpDescribed.Description => Type.Description;
+  string IAstDescribed.Description => Type.Description;
 
   internal InputParamAst(TokenAt at, string input, string description = "")
     : this(at, new ObjBaseAst(at, input, description)) { }
@@ -34,7 +34,7 @@ internal sealed record class InputParamAst(
   public bool Equals(InputParamAst? other)
     => other is IGqlpInputParam inputParam && Equals(inputParam);
   [ExcludeFromCodeCoverage]
-  public bool Equals(IGqlpDescribed? other)
+  public bool Equals(IAstDescribed? other)
     => other is IGqlpInputParam inputParam && Equals(inputParam);
   public bool Equals(IGqlpInputParam? other)
     => Equals(other as IAstAbbreviated)

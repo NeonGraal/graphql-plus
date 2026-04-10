@@ -37,11 +37,11 @@ internal class VerifierRepository
     => Cached<T, IVerify<T>>(_state.Verifiers, "verify", this);
 
   public IVerifyAliased<T> AliasedFor<T>()
-    where T : IGqlpAliased
+    where T : IAstAliased
     => Cached<T, IVerifyAliased<T>>(_state.Aliased, "aliased", this);
 
   public IVerifyUsage<T> UsageFor<T>()
-    where T : IGqlpAliased
+    where T : IAstAliased
     => Cached<T, IVerifyUsage<T>>(_state.Usages, "usage", this);
 
   public IVerifyIdentified<TUsage, TIdentified> IdentifiedFor<TUsage, TIdentified>()

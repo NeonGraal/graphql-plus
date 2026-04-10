@@ -26,11 +26,11 @@ internal class VerifierRepositoryBuilder
     });
 
   public IVerifierRepositoryBuilder AddAliased<T>(Factory<IVerifyAliased<T>, IVerifierRepository> factory)
-    where T : IGqlpAliased
+    where T : IAstAliased
     => this.FluentAction(b => b.Aliased[typeof(T)] = factory);
 
   public IVerifierRepositoryBuilder AddUsage<T>(Factory<IVerifyUsage<T>, IVerifierRepository> factory)
-    where T : IGqlpAliased
+    where T : IAstAliased
     => this.FluentAction(b => b.Usages[typeof(T)] = factory);
 
   public IVerifierRepositoryBuilder AddIdentified<TUsage, TIdentified>(Factory<IVerifyIdentified<TUsage, TIdentified>, IVerifierRepository> factory)

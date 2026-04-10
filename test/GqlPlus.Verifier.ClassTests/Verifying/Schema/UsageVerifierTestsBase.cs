@@ -4,7 +4,7 @@ namespace GqlPlus.Verifying.Schema;
 
 public abstract class UsageVerifierTestsBase<TUsage>
   : VerifierTypeTestsBase
-  where TUsage : class, IGqlpAliased
+  where TUsage : class, IAstAliased
 {
   internal ForVA<TUsage> Aliased { get; } = new();
   protected Collection<TUsage> Usages { get; } = [];

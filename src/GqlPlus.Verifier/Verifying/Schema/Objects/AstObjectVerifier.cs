@@ -39,7 +39,7 @@ internal class AstObjectVerifier<TObjField>(
   private static void UsageTypeParams(string label, IEnumerable<IGqlpTypeParam> typeParams, ObjectContext context)
   {
     foreach (IGqlpTypeParam param in typeParams) {
-      if (!context.GetType(param.Constraint, out IGqlpDescribed? value)) {
+      if (!context.GetType(param.Constraint, out IAstDescribed? value)) {
         context.AddError(param, label + " Type Param", $"Constraint '{param.Constraint}' not defined");
       }
     }
@@ -127,7 +127,7 @@ internal class AstObjectVerifier<TObjField>(
   {
     string typeName = (reference.IsTypeParam ? "$" : "") + reference.Name;
     validKinds ??= context.FieldKinds;
-    if (context.GetType(typeName, out IGqlpDescribed? definition)) {
+    if (context.GetType(typeName, out IAstDescribed? definition)) {
       CheckTypeDefinition(error, context, reference, validKinds, check, definition);
     } else {
       error("Invalid reference on ", $"'{typeName}' not defined", check);
@@ -146,7 +146,7 @@ internal class AstObjectVerifier<TObjField>(
     IGqlpObjType reference,
     HashSet<TypeKind> validKinds,
     bool check,
-    IGqlpDescribed? definition)
+    IAstDescribed? definition)
   {
     if (definition is IGqlpTypeParam typeParam) {
       if (!context.GetType(typeParam.Constraint, out definition)) {
@@ -178,7 +178,7 @@ internal class AstObjectVerifier<TObjField>(
     }
 
     IAstEnumValue enumValue = arg.EnumValue;
-    if (!context.GetType(enumValue.EnumType, out IGqlpDescribed? type)
+    if (!context.GetType(enumValue.EnumType, out IAstDescribed? type)
       && context.GetEnumValue(enumValue.EnumLabel, out string? enumType)) {
       arg.SetEnumType(enumType);
     }
@@ -214,7 +214,7 @@ internal class AstObjectVerifier<TObjField>(
     CheckError error,
     ObjectContext context,
     IGqlpObjType reference,
-    IGqlpDescribed? definition)
+    IAstDescribed? definition)
   {
     int numArgs = reference is IGqlpObjBase baseNum ? baseNum.Args.Count() : 0;
     if (definition is IGqlpObject objectDef) {
@@ -335,9 +335,9 @@ internal class AstObjectVerifier<TObjField>(
 
   protected override ObjectContext MakeContext(IGqlpObject<TObjField> usage, IGqlpType[] aliased, IMessages errors)
   {
-    Map<IGqlpDescribed> validTypes = aliased.AliasedGroup()
-      .Select(p => (Id: p.Key, Type: (IGqlpDescribed)p.First()))
-      .Concat(usage.TypeParams.Select(p => (Id: "$" + p.Name, Type: (IGqlpDescribed)p)))
+    Map<IAstDescribed> validTypes = aliased.AliasedGroup()
+      .Select(p => (Id: p.Key, Type: (IAstDescribed)p.First()))
+      .Concat(usage.TypeParams.Select(p => (Id: "$" + p.Name, Type: (IAstDescribed)p)))
       .ToMap(p => p.Id, p => p.Type);
 
     return new(validTypes, errors, aliased.MakeEnumValues(), fieldKind);

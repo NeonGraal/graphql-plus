@@ -7,9 +7,9 @@ internal class SchemaModeller(
   IModeller<IGqlpSchemaDirective, DirectiveModel> directive,
   IModeller<IGqlpSchemaSetting, SettingModel> setting,
   ITypesModeller types
-) : ModellerBase<IGqlpSchema, SchemaModel>
+) : ModellerBase<IAstSchema, SchemaModel>
 {
-  protected override SchemaModel ToModel(IGqlpSchema ast, IMap<TypeKindModel> typeKinds)
+  protected override SchemaModel ToModel(IAstSchema ast, IMap<TypeKindModel> typeKinds)
   {
     IGqlpType[] typeDeclarations = ast.Declarations.ArrayOf<IGqlpType>();
     IMessages errors = ast.Errors;
@@ -36,7 +36,7 @@ internal class SchemaModeller(
   }
 
   private IEnumerable<TModel> DeclarationModel<TAst, TModel>(
-    IGqlpSchema ast,
+    IAstSchema ast,
     IModeller<TAst, TModel> modeller,
     IMap<TypeKindModel> typeKinds
   )

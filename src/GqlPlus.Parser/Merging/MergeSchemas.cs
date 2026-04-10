@@ -5,12 +5,12 @@ namespace GqlPlus.Merging;
 
 internal class MergeSchemas(
   IMergerRepository mergers
-) : GroupsMerger<IGqlpSchema>
+) : GroupsMerger<IAstSchema>
 {
-  protected override string ItemGroupKey(IGqlpSchema item)
+  protected override string ItemGroupKey(IAstSchema item)
     => "Schema";
 
-  protected override IMessages CanMergeGroup(IGrouping<string, IGqlpSchema> group)
+  protected override IMessages CanMergeGroup(IGrouping<string, IAstSchema> group)
   {
     IGqlpSchemaCategory[] categories = Just<IGqlpSchemaCategory>(group);
     IGqlpSchemaDirective[] directives = Just<IGqlpSchemaDirective>(group);
@@ -28,10 +28,10 @@ internal class MergeSchemas(
       .Add(astTypesCanMerge);
   }
 
-  private static TItem[] Just<TItem>(IEnumerable<IGqlpSchema> group)
+  private static TItem[] Just<TItem>(IEnumerable<IAstSchema> group)
     => [.. group.SelectMany(item => item.Declarations.OfType<TItem>())];
 
-  protected override IGqlpSchema MergeGroup(IEnumerable<IGqlpSchema> group)
+  protected override IAstSchema MergeGroup(IEnumerable<IAstSchema> group)
   {
     IGqlpSchemaCategory[] categories = Just<IGqlpSchemaCategory>(group);
     IGqlpSchemaDirective[] directives = Just<IGqlpSchemaDirective>(group);
@@ -39,7 +39,7 @@ internal class MergeSchemas(
     IGqlpType[] astTypes = Just<IGqlpType>(group);
 
     IEnumerable<AstDeclaration> declarations = mergers.MergerFor<IGqlpSchemaCategory>()
-      .Merge(categories).Cast<IGqlpDeclaration>()
+      .Merge(categories).Cast<IAstDeclaration>()
       .Concat(mergers.MergerFor<IGqlpSchemaDirective>().Merge(directives))
       .Concat(mergers.MergerFor<IGqlpSchemaOption>().Merge(options))
       .Concat(mergers.MergerFor<IGqlpType>().Merge(astTypes))

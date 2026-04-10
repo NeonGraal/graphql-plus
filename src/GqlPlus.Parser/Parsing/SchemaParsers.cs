@@ -98,7 +98,7 @@ public static class SchemaParsers
       .AddDeclarationParser(fieldKind.ToString().ToLowerInvariant(), p => new ObjectParser<TObjField>(fieldKind, p));
 
   private static IParserRepositoryBuilder AddDeclarationParser<TObject>(this IParserRepositoryBuilder builder, string selector, Factory<Parser<TObject>.I, IParserRepository> factory)
-    where TObject : IGqlpDeclaration
+    where TObject : IAstDeclaration
     => builder
       .AddSingle(factory)
       .AddDeclaration<TObject>(p => new ParseDeclaration<TObject>(selector, p));

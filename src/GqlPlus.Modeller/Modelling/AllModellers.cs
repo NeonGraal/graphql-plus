@@ -15,7 +15,7 @@ public static class AllModellers
       .AddModeller<IAstFieldKey, SimpleModel, SimpleModeller>()
       .AddModifierModeller()
       // Schema
-      .AddModeller<IGqlpSchema, SchemaModel, SchemaModeller>()
+      .AddModeller<IAstSchema, SchemaModel, SchemaModeller>()
       .AddModeller<IGqlpSchemaCategory, CategoryModel, CategoryModeller>()
       .AddModeller<IGqlpSchemaDirective, DirectiveModel, DirectiveModeller>()
       .AddModeller<IGqlpSchemaSetting, SettingModel, SettingModeller>()

@@ -3,7 +3,7 @@
 namespace GqlPlus.Modelling;
 
 public class SchemaModellerTests
-  : ModellerClassTestBase<IGqlpSchema, SchemaModel>
+  : ModellerClassTestBase<IAstSchema, SchemaModel>
 {
   private readonly IModeller<IGqlpSchemaCategory, CategoryModel> _category = MFor<IGqlpSchemaCategory, CategoryModel>();
   private readonly IModeller<IGqlpSchemaDirective, DirectiveModel> _directive = MFor<IGqlpSchemaDirective, DirectiveModel>();
@@ -13,7 +13,7 @@ public class SchemaModellerTests
   public SchemaModellerTests()
     => Modeller = new SchemaModeller(_category, _directive, _setting, _types);
 
-  protected override IModeller<IGqlpSchema, SchemaModel> Modeller { get; }
+  protected override IModeller<IAstSchema, SchemaModel> Modeller { get; }
 
   [Theory, RepeatData]
   public void ToModel_WithValidSchema_ReturnsExpectedSchemaModel(
@@ -33,7 +33,7 @@ public class SchemaModellerTests
     option.Settings.Returns([setting]);
     IGqlpType type = A.Named<IGqlpType>(typeName, string.Empty);
 
-    IGqlpSchema ast = A.Error<IGqlpSchema>();
+    IAstSchema ast = A.Error<IAstSchema>();
     ast.Declarations.Returns([category, directive, option, type]);
 
     CategoryModel categoryModel = new(categoryName, new(TypeKindModel.Output, typeName, string.Empty), string.Empty);

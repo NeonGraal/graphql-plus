@@ -6,7 +6,7 @@ public abstract class TestTypedMerger<TBase, TType, TParent, TItem>
   : TestAliasedMerger<TType>
   where TBase : IGqlpType
   where TType : IGqlpType<TParent>, TBase
-  where TParent : IGqlpDescribed, IEquatable<TParent>
+  where TParent : IAstDescribed, IEquatable<TParent>
   where TItem : IAstError
 {
   [Theory, RepeatData]

@@ -30,7 +30,7 @@ public class SchemaAbstractionTests
 }
 
 public class TestAliased(string name, string[] aliases)
-  : IGqlpAliased
+  : IAstAliased
 {
   private static readonly ITokenAt s_at = Substitute.For<ITokenAt>();
 
@@ -40,10 +40,10 @@ public class TestAliased(string name, string[] aliases)
   public string Abbr { get; } = "Tt";
   public string Description { get; } = "";
 
-  public bool Equals(IAstAbbreviated? other) => Equals(other as IGqlpAliased);
-  public bool Equals(IGqlpDescribed? other) => Equals(other as IGqlpAliased);
-  public bool Equals(IGqlpNamed? other) => Equals(other as IGqlpAliased);
-  public bool Equals(IGqlpAliased? other)
+  public bool Equals(IAstAbbreviated? other) => Equals(other as IAstAliased);
+  public bool Equals(IAstDescribed? other) => Equals(other as IAstAliased);
+  public bool Equals(IAstNamed? other) => Equals(other as IAstAliased);
+  public bool Equals(IAstAliased? other)
     => other is not null
     && Name == other.Name;
   public IEnumerable<string?> GetFields() => throw new NotImplementedException();

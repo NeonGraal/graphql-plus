@@ -4,7 +4,7 @@ using GqlPlus.Abstractions.Schema;
 namespace GqlPlus.Verifying.Schema;
 
 public class EnumContext(
-  IMap<IGqlpDescribed> types,
+  IMap<IAstDescribed> types,
   IMessages errors,
   IMap<string> enumValues
 ) : UsageContext(types, errors)

@@ -7,7 +7,7 @@ internal abstract class AstParentItemVerifier<TAst, TParent, TContext, TItem>(
   IVerifierRepository verifiers
 ) : AstParentVerifier<TAst, TParent, TContext>(verifiers)
   where TAst : IGqlpType<TParent>
-  where TParent : IGqlpDescribed, IEquatable<TParent>
+  where TParent : IAstDescribed, IEquatable<TParent>
   where TContext : UsageContext
   where TItem : IAstError
 {

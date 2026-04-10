@@ -25,7 +25,7 @@ public class SchemaGeneratorTests
   {
     // Arrange
     GqlpGeneratorContext context = Context();
-    IGqlpSchema schema = A.Error<IGqlpSchema>();
+    IAstSchema schema = A.Error<IAstSchema>();
     IGqlpType type = A.Named<IGqlpType>(typeName);
     schema.Declarations.Returns([type]);
 
@@ -46,7 +46,7 @@ public class SchemaGeneratorTests
   {
     // Arrange
     GqlpGeneratorContext context = Context();
-    IGqlpSchema schema = A.Error<IGqlpSchema>();
+    IAstSchema schema = A.Error<IAstSchema>();
     IGqlpType type = A.Named<IGqlpType>(typeName);
     schema.Declarations.Returns([type]);
 

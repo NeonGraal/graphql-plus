@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifying.Schema;
 
-internal class VerifySchema(IVerifierRepository verifiers) : IVerify<IGqlpSchema>
+internal class VerifySchema(IVerifierRepository verifiers) : IVerify<IAstSchema>
 {
   private readonly IVerifyUsage<IGqlpSchemaCategory> _categoryOutputs = verifiers.UsageFor<IGqlpSchemaCategory>();
   private readonly IVerifyUsage<IGqlpSchemaDirective> _directiveInputs = verifiers.UsageFor<IGqlpSchemaDirective>();
@@ -10,7 +10,7 @@ internal class VerifySchema(IVerifierRepository verifiers) : IVerify<IGqlpSchema
   private readonly IVerifyAliased<IGqlpType> _typesAliased = verifiers.AliasedFor<IGqlpType>();
   private readonly IVerify<IGqlpType[]> _types = verifiers.VerifierFor<IGqlpType[]>();
 
-  public void Verify(IGqlpSchema item, IMessages errors)
+  public void Verify(IAstSchema item, IMessages errors)
   {
     IGqlpSchemaCategory[] categories = item.Declarations.ArrayOf<IGqlpSchemaCategory>();
     IGqlpSchemaDirective[] directives = item.Declarations.ArrayOf<IGqlpSchemaDirective>();

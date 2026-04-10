@@ -17,7 +17,7 @@ public interface IGqlpObject<TField>
 }
 
 public interface IGqlpObjType
-  : IGqlpNamed
+  : IAstNamed
   , IEquatable<IGqlpObjType>
 {
   bool IsTypeParam { get; }
@@ -60,7 +60,7 @@ public interface IGqlpObjFieldType
 }
 
 public interface IGqlpObjField
-  : IGqlpAliased
+  : IAstAliased
   , IGqlpObjFieldType
 { }
 
@@ -71,7 +71,7 @@ public interface IGqlpAlternate
 { }
 
 public interface IGqlpTypeParam
-  : IGqlpNamed
+  : IAstNamed
 {
   string Constraint { get; }
 }
@@ -100,7 +100,7 @@ public interface IGqlpOutputField
 }
 
 public interface IGqlpInputParam
-  : IGqlpDescribed
+  : IAstDescribed
   , IGqlpInputFieldType
   , IEquatable<IGqlpInputParam>
 { }

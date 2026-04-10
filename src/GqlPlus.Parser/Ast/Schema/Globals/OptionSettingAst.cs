@@ -19,7 +19,7 @@ internal sealed record class OptionSettingAst(
   public bool Equals(OptionSettingAst? other)
     => other is IGqlpSchemaSetting setting && Equals(setting);
   public bool Equals(IGqlpSchemaSetting? other)
-    => base.Equals(other as IGqlpAliased)
+    => base.Equals(other as IAstAliased)
     && Value.Equals(other.Value);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Value.NullHashCode());

@@ -1,40 +1,40 @@
 ﻿namespace GqlPlus.Abstractions.Schema;
 
-public interface IGqlpSchema
+public interface IAstSchema
   : IAstAbbreviated
-  , IEquatable<IGqlpSchema>
+  , IEquatable<IAstSchema>
 {
-  IEnumerable<IGqlpDeclaration> Declarations { get; }
+  IEnumerable<IAstDeclaration> Declarations { get; }
 
   ParseResultKind Result { get; }
   IMessages Errors { get; }
 }
 
-public interface IGqlpDeclaration
-  : IGqlpAliased
+public interface IAstDeclaration
+  : IAstAliased
 {
   string Label { get; }
 }
 
-public interface IGqlpAliased
-  : IGqlpNamed
-  , IEquatable<IGqlpAliased>
+public interface IAstAliased
+  : IAstNamed
+  , IEquatable<IAstAliased>
 {
   IEnumerable<string> Aliases { get; }
 
   bool IsNameOrAlias(string id);
 }
 
-public interface IGqlpDescribed
+public interface IAstDescribed
   : IAstAbbreviated
-  , IEquatable<IGqlpDescribed>
+  , IEquatable<IAstDescribed>
 {
   string Description { get; }
 }
 
-public interface IGqlpNamed
-  : IGqlpDescribed
-  , IEquatable<IGqlpNamed>
+public interface IAstNamed
+  : IAstDescribed
+  , IEquatable<IAstNamed>
 {
   string Name { get; }
 }

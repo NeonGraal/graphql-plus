@@ -2,9 +2,9 @@
 
 internal sealed class SchemaGenerator(
   IGeneratorRepository generators
-) : IGenerator<IGqlpSchema>
+) : IGenerator<IAstSchema>
 {
-  public void Generate(IGqlpSchema ast, GqlpGeneratorContext context)
+  public void Generate(IAstSchema ast, GqlpGeneratorContext context)
   {
     IGqlpType[] types = Typed<IGqlpType>(ast);
     context.AddTypes(types);
@@ -38,6 +38,6 @@ internal sealed class SchemaGenerator(
     }
   }
 
-  private static TAst[] Typed<TAst>(IGqlpSchema ast)
+  private static TAst[] Typed<TAst>(IAstSchema ast)
     => ast.Declarations.ArrayOf<TAst>();
 }

@@ -11,7 +11,7 @@ public class VerifySchemaTests
   private readonly ForV<IGqlpType[]> _types = new();
   private readonly VerifySchema _verifier;
 
-  private readonly IGqlpSchema _schema;
+  private readonly IAstSchema _schema;
 
   public VerifySchemaTests()
   {
@@ -22,7 +22,7 @@ public class VerifySchemaTests
     VerifierRepo.VerifierFor<IGqlpType[]>().Returns(_types.Intf);
     _verifier = new(VerifierRepo);
 
-    _schema = A.Error<IGqlpSchema>();
+    _schema = A.Error<IAstSchema>();
   }
 
   [Fact]

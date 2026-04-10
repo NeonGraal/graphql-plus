@@ -52,7 +52,7 @@ internal readonly struct ForVU<TResult>
 }
 
 internal readonly struct ForVA<TResult>
-  where TResult : class, IGqlpAliased
+  where TResult : class, IAstAliased
 {
   internal IVerifyAliased<TResult> Intf { get; }
 

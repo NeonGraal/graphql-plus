@@ -30,7 +30,7 @@ internal class TypeArgMatcher(
 
   private bool MatchArgLabel(IGqlpTypeArg arg, string constraint, EnumContext context)
   {
-    if (context.GetType(constraint, out IGqlpDescribed? constraintType) && arg.EnumValue is not null) {
+    if (context.GetType(constraint, out IAstDescribed? constraintType) && arg.EnumValue is not null) {
       if (constraintType is IGqlpEnum enumType) {
         if (EnumHasLabel(context, enumType, arg.EnumValue.EnumLabel)) {
           return true;

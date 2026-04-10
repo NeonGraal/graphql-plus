@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Abstractions.Schema;
 
 public interface IGqlpSchemaCategory
-  : IGqlpDeclaration
+  : IAstDeclaration
   , IAstModifiers
   , IEquatable<IGqlpSchemaCategory>
 {
@@ -17,7 +17,7 @@ public enum CategoryOption
 }
 
 public interface IGqlpSchemaDirective
-  : IGqlpDeclaration
+  : IAstDeclaration
   , IEquatable<IGqlpSchemaDirective>
 {
   IGqlpInputParam? Parameter { get; }
@@ -46,14 +46,14 @@ public enum DirectiveLocation
 }
 
 public interface IGqlpSchemaOption
-  : IGqlpDeclaration
+  : IAstDeclaration
   , IEquatable<IGqlpSchemaOption>
 {
   IEnumerable<IGqlpSchemaSetting> Settings { get; }
 }
 
 public interface IGqlpSchemaSetting
-  : IGqlpNamed
+  : IAstNamed
   , IEquatable<IGqlpSchemaSetting>
 {
   IAstConstant Value { get; }

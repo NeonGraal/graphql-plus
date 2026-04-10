@@ -8,9 +8,9 @@ namespace GqlPlus.Parsing.Schema.Globals;
 
 internal class ParseDirective(
   IParserRepository parsers
-) : DeclarationParser<IDirectiveName, IGqlpInputParam, DirectiveOption, DirectiveLocation, IGqlpSchemaDirective>(parsers)
+) : DeclarationParser<IDirectiveName, IGqlpInputParam, DirectiveOption, DirectiveLocation, IAstSchemaDirective>(parsers)
 {
-  protected override IGqlpSchemaDirective MakeResult(AstPartial<IGqlpInputParam, DirectiveOption> partial, DirectiveLocation value)
+  protected override IAstSchemaDirective MakeResult(AstPartial<IGqlpInputParam, DirectiveOption> partial, DirectiveLocation value)
     => new DirectiveDeclAst(partial.At, partial.Name, partial.Description) {
       Aliases = partial.Aliases,
       Parameter = partial.Params.FirstOrDefault(),
@@ -18,7 +18,7 @@ internal class ParseDirective(
       Locations = value,
     };
 
-  protected override IGqlpSchemaDirective ToResult(AstPartial<IGqlpInputParam, DirectiveOption> partial)
+  protected override IAstSchemaDirective ToResult(AstPartial<IGqlpInputParam, DirectiveOption> partial)
     => new DirectiveDeclAst(partial.At, partial.Name, partial.Description) {
       Aliases = partial.Aliases,
       Parameter = partial.Params.FirstOrDefault(),

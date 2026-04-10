@@ -4,18 +4,18 @@ public class SchemaGeneratorTests
   : GenerateClassTestsBase
 {
   private readonly IGeneratorRepository _generators = A.Of<IGeneratorRepository>();
-  private readonly IGenerator<IGqlpSchemaCategory> _categoryGenerator = GFor<IGqlpSchemaCategory>();
-  private readonly IGenerator<IGqlpSchemaDirective> _directiveGenerator = GFor<IGqlpSchemaDirective>();
-  private readonly IGenerator<IGqlpSchemaOption> _optionGenerator = GFor<IGqlpSchemaOption>();
+  private readonly IGenerator<IAstSchemaCategory> _categoryGenerator = GFor<IAstSchemaCategory>();
+  private readonly IGenerator<IAstSchemaDirective> _directiveGenerator = GFor<IAstSchemaDirective>();
+  private readonly IGenerator<IAstSchemaOption> _optionGenerator = GFor<IAstSchemaOption>();
   private readonly Dictionary<GqlpGeneratorType, IEnumerable<ITypeGenerator>> _typeGenerators = [];
 
   private readonly SchemaGenerator _generator;
 
   public SchemaGeneratorTests()
   {
-    _generators.GeneratorFor<IGqlpSchemaCategory>().Returns(_categoryGenerator);
-    _generators.GeneratorFor<IGqlpSchemaDirective>().Returns(_directiveGenerator);
-    _generators.GeneratorFor<IGqlpSchemaOption>().Returns(_optionGenerator);
+    _generators.GeneratorFor<IAstSchemaCategory>().Returns(_categoryGenerator);
+    _generators.GeneratorFor<IAstSchemaDirective>().Returns(_directiveGenerator);
+    _generators.GeneratorFor<IAstSchemaOption>().Returns(_optionGenerator);
     _generators.TypeGenerators.Returns(_typeGenerators);
     _generator = new SchemaGenerator(_generators);
   }

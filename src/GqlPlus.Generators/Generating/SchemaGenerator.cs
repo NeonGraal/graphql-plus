@@ -10,9 +10,9 @@ internal sealed class SchemaGenerator(
     context.AddTypes(types);
 
     context.WritePrefixLine("/*");
-    Typed<IGqlpSchemaCategory>(ast).Generate(generators.GeneratorFor<IGqlpSchemaCategory>(), context);
-    Typed<IGqlpSchemaDirective>(ast).Generate(generators.GeneratorFor<IGqlpSchemaDirective>(), context);
-    Typed<IGqlpSchemaOption>(ast).Generate(generators.GeneratorFor<IGqlpSchemaOption>(), context);
+    Typed<IAstSchemaCategory>(ast).Generate(generators.GeneratorFor<IAstSchemaCategory>(), context);
+    Typed<IAstSchemaDirective>(ast).Generate(generators.GeneratorFor<IAstSchemaDirective>(), context);
+    Typed<IAstSchemaOption>(ast).Generate(generators.GeneratorFor<IAstSchemaOption>(), context);
     context.WritePrefixLine("*/");
     context.WritePrefixLine("");
     string nameSpace = context.GeneratorOptions.NameSpace.IfWhiteSpace(context.ModelOptions.BaseNamespace);

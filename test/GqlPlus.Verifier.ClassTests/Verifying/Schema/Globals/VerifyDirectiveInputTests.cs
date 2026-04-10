@@ -2,13 +2,13 @@
 
 [TracePerTest]
 public class VerifyDirectiveInputTests
-  : UsageVerifierTestsBase<IGqlpSchemaDirective>
+  : UsageVerifierTestsBase<IAstSchemaDirective>
 {
   private readonly VerifyDirectiveInput _verifier;
-  private readonly IGqlpSchemaDirective _directive;
+  private readonly IAstSchemaDirective _directive;
 
-  protected override IGqlpSchemaDirective TheUsage => _directive;
-  protected override IVerifyUsage<IGqlpSchemaDirective> Verifier => _verifier;
+  protected override IAstSchemaDirective TheUsage => _directive;
+  protected override IVerifyUsage<IAstSchemaDirective> Verifier => _verifier;
 
   public VerifyDirectiveInputTests()
   {
@@ -16,7 +16,7 @@ public class VerifyDirectiveInputTests
 
     IGqlpInputParam input = A.InputParam("Type").AsInputParam;
 
-    _directive = A.Error<IGqlpSchemaDirective>();
+    _directive = A.Error<IAstSchemaDirective>();
     _directive.Parameter.Returns(input);
   }
 

@@ -5,7 +5,7 @@ using GqlPlus.Merging.Globals;
 namespace GqlPlus.Merging.Schema.Globals;
 
 public class MergeOptionSettingsTests
-  : TestGroupsMerger<IGqlpSchemaSetting, string>
+  : TestGroupsMerger<IAstSchemaSetting, string>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsValuesCantMerge_ReturnsErrors(string name)
@@ -29,8 +29,8 @@ public class MergeOptionSettingsTests
     _merger = new(mergers);
   }
 
-  internal override GroupsMerger<IGqlpSchemaSetting> MergerGroups => _merger;
+  internal override GroupsMerger<IAstSchemaSetting> MergerGroups => _merger;
 
-  protected override IGqlpSchemaSetting MakeAst(string input)
+  protected override IAstSchemaSetting MakeAst(string input)
     => new OptionSettingAst(AstNulls.At, input, new ConstantAst(new FieldKeyAst(AstNulls.At, input)));
 }

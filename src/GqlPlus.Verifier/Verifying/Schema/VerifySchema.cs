@@ -4,17 +4,17 @@ namespace GqlPlus.Verifying.Schema;
 
 internal class VerifySchema(IVerifierRepository verifiers) : IVerify<IAstSchema>
 {
-  private readonly IVerifyUsage<IGqlpSchemaCategory> _categoryOutputs = verifiers.UsageFor<IGqlpSchemaCategory>();
-  private readonly IVerifyUsage<IGqlpSchemaDirective> _directiveInputs = verifiers.UsageFor<IGqlpSchemaDirective>();
-  private readonly IVerifyAliased<IGqlpSchemaOption> _optionsAliased = verifiers.AliasedFor<IGqlpSchemaOption>();
+  private readonly IVerifyUsage<IAstSchemaCategory> _categoryOutputs = verifiers.UsageFor<IAstSchemaCategory>();
+  private readonly IVerifyUsage<IAstSchemaDirective> _directiveInputs = verifiers.UsageFor<IAstSchemaDirective>();
+  private readonly IVerifyAliased<IAstSchemaOption> _optionsAliased = verifiers.AliasedFor<IAstSchemaOption>();
   private readonly IVerifyAliased<IAstType> _typesAliased = verifiers.AliasedFor<IAstType>();
   private readonly IVerify<IAstType[]> _types = verifiers.VerifierFor<IAstType[]>();
 
   public void Verify(IAstSchema item, IMessages errors)
   {
-    IGqlpSchemaCategory[] categories = item.Declarations.ArrayOf<IGqlpSchemaCategory>();
-    IGqlpSchemaDirective[] directives = item.Declarations.ArrayOf<IGqlpSchemaDirective>();
-    IGqlpSchemaOption[] options = item.Declarations.ArrayOf<IGqlpSchemaOption>();
+    IAstSchemaCategory[] categories = item.Declarations.ArrayOf<IAstSchemaCategory>();
+    IAstSchemaDirective[] directives = item.Declarations.ArrayOf<IAstSchemaDirective>();
+    IAstSchemaOption[] options = item.Declarations.ArrayOf<IAstSchemaOption>();
 
     IAstType[] astTypes = item.Declarations.ArrayOf<IAstType>();
     IAstType[] outputTypes = [.. astTypes.Where(TypeIs<IGqlpObject<IGqlpOutputField>>), .. BuiltIn.Basic, .. BuiltIn.Internal];

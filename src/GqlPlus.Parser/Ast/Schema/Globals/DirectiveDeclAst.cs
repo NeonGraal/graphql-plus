@@ -8,7 +8,7 @@ internal sealed record class DirectiveDeclAst(
   string Name,
   string Description
 ) : AstDeclaration(At, Name, Description)
-  , IGqlpSchemaDirective
+  , IAstSchemaDirective
 {
   public DirectiveOption Option { get; set; } = DirectiveOption.Unique;
   public IGqlpInputParam? Parameter { get; set; }
@@ -17,15 +17,15 @@ internal sealed record class DirectiveDeclAst(
   internal override string Abbr => "Di";
   public override string Label => "Directive";
 
-  DirectiveOption IGqlpSchemaDirective.DirectiveOption => Option;
-  DirectiveLocation IGqlpSchemaDirective.Locations => Locations;
+  DirectiveOption IAstSchemaDirective.DirectiveOption => Option;
+  DirectiveLocation IAstSchemaDirective.Locations => Locations;
 
   public DirectiveDeclAst(TokenAt at, string name)
     : this(at, name, "") { }
 
   public bool Equals(DirectiveDeclAst? other)
-    => other is IGqlpSchemaDirective directive && Equals(directive);
-  public bool Equals(IGqlpSchemaDirective? other)
+    => other is IAstSchemaDirective directive && Equals(directive);
+  public bool Equals(IAstSchemaDirective? other)
     => base.Equals(other)
     && Option == other.DirectiveOption
     && Parameter.NullEqual(other.Parameter)

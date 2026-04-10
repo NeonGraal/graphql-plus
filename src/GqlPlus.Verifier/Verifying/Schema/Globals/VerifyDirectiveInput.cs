@@ -2,12 +2,12 @@
 
 namespace GqlPlus.Verifying.Schema.Globals;
 
-internal class VerifyDirectiveInput(IVerifierRepository verifiers) : UsageVerifier<IGqlpSchemaDirective, UsageContext>(verifiers)
+internal class VerifyDirectiveInput(IVerifierRepository verifiers) : UsageVerifier<IAstSchemaDirective, UsageContext>(verifiers)
 {
-  protected override UsageContext MakeContext(IGqlpSchemaDirective usage, IAstType[] aliased, IMessages errors)
+  protected override UsageContext MakeContext(IAstSchemaDirective usage, IAstType[] aliased, IMessages errors)
     => MakeUsageContext(aliased, errors);
 
-  protected override void UsageValue(IGqlpSchemaDirective usage, UsageContext context)
+  protected override void UsageValue(IAstSchemaDirective usage, UsageContext context)
   {
     if (usage?.Parameter is null) {
       return;

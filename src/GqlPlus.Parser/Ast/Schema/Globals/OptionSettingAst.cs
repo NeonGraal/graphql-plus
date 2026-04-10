@@ -9,7 +9,7 @@ internal sealed record class OptionSettingAst(
   string Description,
   IAstConstant Value)
   : AstAliased(At, Name, Description)
-  , IGqlpSchemaSetting
+  , IAstSchemaSetting
 {
   internal override string Abbr => "OS";
 
@@ -17,8 +17,8 @@ internal sealed record class OptionSettingAst(
     : this(at, name, "", value) { }
 
   public bool Equals(OptionSettingAst? other)
-    => other is IGqlpSchemaSetting setting && Equals(setting);
-  public bool Equals(IGqlpSchemaSetting? other)
+    => other is IAstSchemaSetting setting && Equals(setting);
+  public bool Equals(IAstSchemaSetting? other)
     => base.Equals(other as IAstAliased)
     && Value.Equals(other.Value);
   public override int GetHashCode()

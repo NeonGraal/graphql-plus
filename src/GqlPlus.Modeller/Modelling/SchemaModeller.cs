@@ -3,9 +3,9 @@
 namespace GqlPlus.Modelling;
 
 internal class SchemaModeller(
-  IModeller<IGqlpSchemaCategory, CategoryModel> category,
-  IModeller<IGqlpSchemaDirective, DirectiveModel> directive,
-  IModeller<IGqlpSchemaSetting, SettingModel> setting,
+  IModeller<IAstSchemaCategory, CategoryModel> category,
+  IModeller<IAstSchemaDirective, DirectiveModel> directive,
+  IModeller<IAstSchemaSetting, SettingModel> setting,
   ITypesModeller types
 ) : ModellerBase<IAstSchema, SchemaModel>
 {
@@ -21,7 +21,7 @@ internal class SchemaModeller(
 
     types.AddTypeKinds(typeDeclarations, typeKinds);
 
-    IGqlpSchemaOption[] options = ast.Declarations.ArrayOf<IGqlpSchemaOption>();
+    IAstSchemaOption[] options = ast.Declarations.ArrayOf<IAstSchemaOption>();
     string? name = options.LastOrDefault(options => !string.IsNullOrWhiteSpace(options.Name))?.Name;
     IEnumerable<string> aliases = options.SelectMany(a => a.Aliases);
     IEnumerable<SettingModel> settings = options.SelectMany(o => setting.ToModels(o.Settings, typeKinds));

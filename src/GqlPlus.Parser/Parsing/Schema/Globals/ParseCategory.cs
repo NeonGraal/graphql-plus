@@ -9,9 +9,9 @@ namespace GqlPlus.Parsing.Schema.Globals;
 
 internal class ParseCategory(
   IParserRepository parsers
-) : DeclarationParser<ICategoryName, NullAst, CategoryOption, CategoryOutput, IGqlpSchemaCategory>(parsers)
+) : DeclarationParser<ICategoryName, NullAst, CategoryOption, CategoryOutput, IAstSchemaCategory>(parsers)
 {
-  protected override IGqlpSchemaCategory MakeResult(AstPartial<NullAst, CategoryOption> partial, CategoryOutput value)
+  protected override IAstSchemaCategory MakeResult(AstPartial<NullAst, CategoryOption> partial, CategoryOutput value)
   {
     string name = string.IsNullOrWhiteSpace(partial.Name)
       ? value.Output.Name.Camelize() : partial.Name;
@@ -23,7 +23,7 @@ internal class ParseCategory(
     };
   }
 
-  protected override IGqlpSchemaCategory ToResult(AstPartial<NullAst, CategoryOption> partial)
+  protected override IAstSchemaCategory ToResult(AstPartial<NullAst, CategoryOption> partial)
     => new CategoryDeclAst(partial.At, partial.Name, partial.Description, new TypeRefAst(partial.At, partial.Name, "")) {
       Aliases = partial.Aliases,
       Option = partial.Option ?? CategoryOption.Parallel,

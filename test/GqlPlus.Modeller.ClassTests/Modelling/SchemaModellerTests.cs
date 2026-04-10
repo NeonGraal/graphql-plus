@@ -5,9 +5,9 @@ namespace GqlPlus.Modelling;
 public class SchemaModellerTests
   : ModellerClassTestBase<IAstSchema, SchemaModel>
 {
-  private readonly IModeller<IGqlpSchemaCategory, CategoryModel> _category = MFor<IGqlpSchemaCategory, CategoryModel>();
-  private readonly IModeller<IGqlpSchemaDirective, DirectiveModel> _directive = MFor<IGqlpSchemaDirective, DirectiveModel>();
-  private readonly IModeller<IGqlpSchemaSetting, SettingModel> _setting = MFor<IGqlpSchemaSetting, SettingModel>();
+  private readonly IModeller<IAstSchemaCategory, CategoryModel> _category = MFor<IAstSchemaCategory, CategoryModel>();
+  private readonly IModeller<IAstSchemaDirective, DirectiveModel> _directive = MFor<IAstSchemaDirective, DirectiveModel>();
+  private readonly IModeller<IAstSchemaSetting, SettingModel> _setting = MFor<IAstSchemaSetting, SettingModel>();
   private readonly ITypesModeller _types = A.Of<ITypesModeller>();
 
   public SchemaModellerTests()
@@ -26,10 +26,10 @@ public class SchemaModellerTests
     string typeName)
   {
     // Arrange
-    IGqlpSchemaCategory category = A.Named<IGqlpSchemaCategory>(categoryName, string.Empty);
-    IGqlpSchemaDirective directive = A.Named<IGqlpSchemaDirective>(directiveName, string.Empty);
-    IGqlpSchemaOption option = A.Aliased<IGqlpSchemaOption>(name, aliases, contents);
-    IGqlpSchemaSetting setting = A.Named<IGqlpSchemaSetting>(settingName, string.Empty);
+    IAstSchemaCategory category = A.Named<IAstSchemaCategory>(categoryName, string.Empty);
+    IAstSchemaDirective directive = A.Named<IAstSchemaDirective>(directiveName, string.Empty);
+    IAstSchemaOption option = A.Aliased<IAstSchemaOption>(name, aliases, contents);
+    IAstSchemaSetting setting = A.Named<IAstSchemaSetting>(settingName, string.Empty);
     option.Settings.Returns([setting]);
     IAstType type = A.Named<IAstType>(typeName, string.Empty);
 

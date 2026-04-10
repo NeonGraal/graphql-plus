@@ -30,10 +30,10 @@ public class ParseCategoryTests
     ParseOk(_definition, new CategoryOutput(typeRef));
 
     // Act
-    IResult<IGqlpSchemaCategory> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstSchemaCategory> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpSchemaCategory>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstSchemaCategory>>();
   }
 
   [Fact]
@@ -44,9 +44,9 @@ public class ParseCategoryTests
     ParseEmpty(_definition);
 
     // Act
-    IResult<IGqlpSchemaCategory> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstSchemaCategory> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpSchemaCategory>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstSchemaCategory>>();
   }
 }

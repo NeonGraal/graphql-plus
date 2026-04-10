@@ -1,21 +1,21 @@
 ﻿namespace GqlPlus.Modelling.Globals;
 
 public class SettingModellerTests
-  : ModellerClassTestBase<IGqlpSchemaSetting, SettingModel>
+  : ModellerClassTestBase<IAstSchemaSetting, SettingModel>
 {
   private readonly IModeller<IAstConstant, ConstantModel> _constant = MFor<IAstConstant, ConstantModel>();
 
   public SettingModellerTests()
     => Modeller = new SettingModeller(_constant);
 
-  protected override IModeller<IGqlpSchemaSetting, SettingModel> Modeller { get; }
+  protected override IModeller<IAstSchemaSetting, SettingModel> Modeller { get; }
 
   [Theory, RepeatData]
   public void ToModel_WithValidSetting_ReturnsExpectedSettingModel(string name, string contents, string value)
   {
     // Arrange
     IAstConstant constant = A.Constant(value);
-    IGqlpSchemaSetting ast = A.Named<IGqlpSchemaSetting>(name, contents);
+    IAstSchemaSetting ast = A.Named<IAstSchemaSetting>(name, contents);
     ast.Value.Returns(constant);
 
     ToModelReturns(_constant, constant, new ConstantModel(SimpleModel.Str(value)));

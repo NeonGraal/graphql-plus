@@ -10,11 +10,11 @@ public static class Startup
 {
   public static void ConfigureServices(IServiceCollection services)
     => services
-      .AddTransient<IBaseAliasedChecks<string, IGqlpSchemaCategory>, ParseCategoryChecks>()
+      .AddTransient<IBaseAliasedChecks<string, IAstSchemaCategory>, ParseCategoryChecks>()
 
-      .AddTransient<IBaseAliasedChecks<string, IGqlpSchemaDirective>, ParseDirectiveChecks>()
-      .AddOneChecks<IGqlpSchemaSetting>()
-      .AddTransient<IBaseAliasedChecks<string, IGqlpSchemaOption>, ParseOptionChecks>()
+      .AddTransient<IBaseAliasedChecks<string, IAstSchemaDirective>, ParseDirectiveChecks>()
+      .AddOneChecks<IAstSchemaSetting>()
+      .AddTransient<IBaseAliasedChecks<string, IAstSchemaOption>, ParseOptionChecks>()
 
       .AddTransient<IBaseDomainChecks<string, IGqlpDomain<IGqlpDomainTrueFalse>>, ParseDomainBooleanChecks>()
       .AddTransient<IBaseDomainChecks<DomainEnumInput, IGqlpDomain<IGqlpDomainLabel>>, ParseDomainEnumChecks>()

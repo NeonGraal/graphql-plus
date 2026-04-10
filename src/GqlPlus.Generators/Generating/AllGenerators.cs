@@ -26,9 +26,9 @@ public static class AllGenerators
 
   internal static IGeneratorRepositoryBuilder AddSchemaGlobalGenerators(this IGeneratorRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      .AddGenerator<IGqlpSchemaCategory, CategoryGenerator>()
-      .AddGenerator<IGqlpSchemaDirective, DirectiveGenerator>()
-      .AddGenerator<IGqlpSchemaOption, OptionGenerator>();
+      .AddGenerator<IAstSchemaCategory, CategoryGenerator>()
+      .AddGenerator<IAstSchemaDirective, DirectiveGenerator>()
+      .AddGenerator<IAstSchemaOption, OptionGenerator>();
 
   internal static IGeneratorRepositoryBuilder AddSchemaSimpleGenerators(this IGeneratorRepositoryBuilder builder)
     => builder.ThrowIfNull()

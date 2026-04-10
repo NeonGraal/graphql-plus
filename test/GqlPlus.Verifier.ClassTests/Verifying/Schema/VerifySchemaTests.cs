@@ -4,9 +4,9 @@
 public class VerifySchemaTests
   : VerifierTestsBase
 {
-  private readonly ForVU<IGqlpSchemaCategory> _categoryOutputs = new();
-  private readonly ForVU<IGqlpSchemaDirective> _directiveInputs = new();
-  private readonly ForVA<IGqlpSchemaOption> _optionsAliased = new();
+  private readonly ForVU<IAstSchemaCategory> _categoryOutputs = new();
+  private readonly ForVU<IAstSchemaDirective> _directiveInputs = new();
+  private readonly ForVA<IAstSchemaOption> _optionsAliased = new();
   private readonly ForVA<IAstType> _typesAliased = new();
   private readonly ForV<IAstType[]> _types = new();
   private readonly VerifySchema _verifier;
@@ -15,9 +15,9 @@ public class VerifySchemaTests
 
   public VerifySchemaTests()
   {
-    VerifierRepo.UsageFor<IGqlpSchemaCategory>().Returns(_categoryOutputs.Intf);
-    VerifierRepo.UsageFor<IGqlpSchemaDirective>().Returns(_directiveInputs.Intf);
-    VerifierRepo.AliasedFor<IGqlpSchemaOption>().Returns(_optionsAliased.Intf);
+    VerifierRepo.UsageFor<IAstSchemaCategory>().Returns(_categoryOutputs.Intf);
+    VerifierRepo.UsageFor<IAstSchemaDirective>().Returns(_directiveInputs.Intf);
+    VerifierRepo.AliasedFor<IAstSchemaOption>().Returns(_optionsAliased.Intf);
     VerifierRepo.AliasedFor<IAstType>().Returns(_typesAliased.Intf);
     VerifierRepo.VerifierFor<IAstType[]>().Returns(_types.Intf);
     _verifier = new(VerifierRepo);

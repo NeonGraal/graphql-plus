@@ -7,21 +7,21 @@ namespace GqlPlus.Parsing.Schema.Globals;
 
 internal class ParseOptionSetting(
   IParserRepository parsers
-) : Parser<IGqlpSchemaSetting>.I
+) : Parser<IAstSchemaSetting>.I
 {
   private readonly Parser<IParserDefault, IAstConstant>.L _default = parsers.ParserFor<IParserDefault, IAstConstant>();
 
-  public IResult<IGqlpSchemaSetting> Parse(ITokenizer tokens, string label)
+  public IResult<IAstSchemaSetting> Parse(ITokenizer tokens, string label)
   {
     Token.TokenAt at = tokens.At;
     string description = tokens.Description();
     if (!tokens.Identifier(out string? name)) {
-      return default(IGqlpSchemaSetting).Empty();
+      return default(IAstSchemaSetting).Empty();
     }
 
     IResult<IAstConstant> constant = _default.I.Parse(tokens, label);
     return constant.SelectOk(
       value => new OptionSettingAst(at, name, description, value),
-      () => tokens.Error<IGqlpSchemaSetting>(label, "Value"));
+      () => tokens.Error<IAstSchemaSetting>(label, "Value"));
   }
 }

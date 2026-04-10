@@ -9,7 +9,7 @@ internal sealed record class CategoryDeclAst(
   string Description,
   IAstTypeRef Output
 ) : AstDeclaration(At, Name, Description)
-  , IGqlpSchemaCategory
+  , IAstSchemaCategory
 {
   public IAstModifier[] Modifiers { get; set; } = [];
 
@@ -20,7 +20,7 @@ internal sealed record class CategoryDeclAst(
 
   public CategoryOption Option { get; set; } = CategoryOption.Parallel;
 
-  CategoryOption IGqlpSchemaCategory.CategoryOption => Option;
+  CategoryOption IAstSchemaCategory.CategoryOption => Option;
   IEnumerable<IAstModifier> IAstModifiers.Modifiers => Modifiers;
 
   public CategoryDeclAst(TokenAt at, IAstTypeRef output)
@@ -30,8 +30,8 @@ internal sealed record class CategoryDeclAst(
     : this(at, name, "", output) { }
 
   public bool Equals(CategoryDeclAst? other)
-    => other is IGqlpSchemaCategory category && Equals(category);
-  public bool Equals(IGqlpSchemaCategory? other)
+    => other is IAstSchemaCategory category && Equals(category);
+  public bool Equals(IAstSchemaCategory? other)
     => base.Equals(other)
     && Option == other.CategoryOption
     && Output.Equals(other.Output)

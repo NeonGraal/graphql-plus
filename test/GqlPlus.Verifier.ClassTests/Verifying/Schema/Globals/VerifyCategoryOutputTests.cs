@@ -2,13 +2,13 @@
 
 [TracePerTest]
 public class VerifyCategoryOutputTests
-  : UsageVerifierTestsBase<IGqlpSchemaCategory>
+  : UsageVerifierTestsBase<IAstSchemaCategory>
 {
   private readonly VerifyCategoryOutput _verifier;
-  private readonly IGqlpSchemaCategory _category;
+  private readonly IAstSchemaCategory _category;
 
-  protected override IGqlpSchemaCategory TheUsage => _category;
-  protected override IVerifyUsage<IGqlpSchemaCategory> Verifier => _verifier;
+  protected override IAstSchemaCategory TheUsage => _category;
+  protected override IVerifyUsage<IAstSchemaCategory> Verifier => _verifier;
 
   public VerifyCategoryOutputTests()
   {
@@ -16,7 +16,7 @@ public class VerifyCategoryOutputTests
 
     IAstTypeRef output = A.Named<IAstTypeRef>("Type");
 
-    _category = A.Error<IGqlpSchemaCategory>();
+    _category = A.Error<IAstSchemaCategory>();
     _category.Output.Returns(output);
   }
 

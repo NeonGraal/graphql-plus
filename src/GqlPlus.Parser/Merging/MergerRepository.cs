@@ -10,7 +10,7 @@ internal class MergerRepository(
 {
 
   public IMerge<T> MergerFor<T>()
-    where T : IGqlpError
+    where T : IAstError
     => Cached<T, IMerge<T>>(builder.Mergers, "merger", this);
 
   public IEnumerable<IMergeAll<T>> AllMergersFor<T>()

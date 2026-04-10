@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 internal class AlternateModeller(
-  IModeller<IGqlpModifier, CollectionModel> collection,
+  IModeller<IAstModifier, CollectionModel> collection,
   IModeller<IGqlpObjBase, ObjBaseModel> objBase
 ) : ModellerBase<IGqlpAlternate, AlternateModel>
 {

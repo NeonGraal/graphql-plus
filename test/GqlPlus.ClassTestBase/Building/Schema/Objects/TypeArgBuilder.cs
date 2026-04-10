@@ -6,7 +6,7 @@ public class TypeArgBuilder
   : ObjTypeBuilder
   , IObjEnumBuilder
 {
-  internal IGqlpEnumValue? _enumValue;
+  internal IAstEnumValue? _enumValue;
 
   public TypeArgBuilder(string name)
     : base(name)
@@ -28,7 +28,7 @@ public class TypeArgBuilder
     return result;
   }
 
-  public void SetEnumValue(IGqlpEnumValue enumValue)
+  public void SetEnumValue(IAstEnumValue enumValue)
     => _enumValue = enumValue;
 
   public IGqlpTypeArg AsTypeArg

@@ -4,13 +4,13 @@ public class FieldKeyBuilder
   : ErrorBuilder
 {
   internal string? _text;
-  internal IGqlpEnumValue? _enumValue;
+  internal IAstEnumValue? _enumValue;
 
   public FieldKeyBuilder()
-    => Add<IGqlpFieldKey>();
+    => Add<IAstFieldKey>();
 
   protected new T Build<T>()
-    where T : class, IGqlpFieldKey
+    where T : class, IAstFieldKey
   {
     T result = base.Build<T>();
     result.Text.Returns(_text);
@@ -18,8 +18,8 @@ public class FieldKeyBuilder
     return result;
   }
 
-  public IGqlpFieldKey AsFieldKey
-    => Build<IGqlpFieldKey>();
+  public IAstFieldKey AsFieldKey
+    => Build<IAstFieldKey>();
 }
 
 public static class FieldKeyBuilderHelper
@@ -28,7 +28,7 @@ public static class FieldKeyBuilderHelper
     where T : FieldKeyBuilder
     => builder.FluentAction(b => b._text = text);
 
-  public static T WithEnumValue<T>(this T builder, IGqlpEnumValue enumValue)
+  public static T WithEnumValue<T>(this T builder, IAstEnumValue enumValue)
     where T : FieldKeyBuilder
     => builder.FluentAction(b => b._enumValue = enumValue);
   public static T WithEnumValue<T>(this T builder, string enumType, string enumLabel)

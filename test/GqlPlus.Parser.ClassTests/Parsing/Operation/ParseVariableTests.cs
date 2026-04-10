@@ -14,7 +14,7 @@ public class ParseVariableTests
   public ParseVariableTests()
   {
     ConfigureRepoArray<IGqlpDirective>(Parsers, out _directivesParser);
-    ConfigureRepoInterface<IParserDefault, IGqlpConstant>(Parsers, out _defaultParser);
+    ConfigureRepoInterface<IParserDefault, IAstConstant>(Parsers, out _defaultParser);
     ConfigureRepoInterface<IParserVarType, string>(Parsers, out _varTypeParser);
     _parseVariable = new ParseVariable(Parsers);
 
@@ -30,8 +30,8 @@ public class ParseVariableTests
     TakeReturns(':', true);
     ParseOk(_varTypeParser, varType);
 
-    IGqlpModifier[] modifiers = ParseAModifier();
-    IGqlpConstant constant = ParseOk(_defaultParser);
+    IAstModifier[] modifiers = ParseAModifier();
+    IAstConstant constant = ParseOk(_defaultParser);
 
     IGqlpDirective[] directives = ParseOkA(_directivesParser);
 
@@ -55,8 +55,8 @@ public class ParseVariableTests
     // Arrange
     PrefixReturns('$', OutStringAt(variableName));
 
-    IGqlpModifier[] modifiers = ParseAModifier();
-    IGqlpConstant constant = ParseOk(_defaultParser);
+    IAstModifier[] modifiers = ParseAModifier();
+    IAstConstant constant = ParseOk(_defaultParser);
 
     IGqlpDirective[] directives = ParseOkA(_directivesParser);
 

@@ -9,7 +9,7 @@ internal class ParseOptionSetting(
   IParserRepository parsers
 ) : Parser<IGqlpSchemaSetting>.I
 {
-  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = parsers.ParserFor<IParserDefault, IGqlpConstant>();
+  private readonly Parser<IParserDefault, IAstConstant>.L _default = parsers.ParserFor<IParserDefault, IAstConstant>();
 
   public IResult<IGqlpSchemaSetting> Parse(ITokenizer tokens, string label)
   {
@@ -19,7 +19,7 @@ internal class ParseOptionSetting(
       return default(IGqlpSchemaSetting).Empty();
     }
 
-    IResult<IGqlpConstant> constant = _default.I.Parse(tokens, label);
+    IResult<IAstConstant> constant = _default.I.Parse(tokens, label);
     return constant.SelectOk(
       value => new OptionSettingAst(at, name, description, value),
       () => tokens.Error<IGqlpSchemaSetting>(label, "Value"));

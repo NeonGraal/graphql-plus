@@ -3,7 +3,7 @@
 public class SettingModellerTests
   : ModellerClassTestBase<IGqlpSchemaSetting, SettingModel>
 {
-  private readonly IModeller<IGqlpConstant, ConstantModel> _constant = MFor<IGqlpConstant, ConstantModel>();
+  private readonly IModeller<IAstConstant, ConstantModel> _constant = MFor<IAstConstant, ConstantModel>();
 
   public SettingModellerTests()
     => Modeller = new SettingModeller(_constant);
@@ -14,7 +14,7 @@ public class SettingModellerTests
   public void ToModel_WithValidSetting_ReturnsExpectedSettingModel(string name, string contents, string value)
   {
     // Arrange
-    IGqlpConstant constant = A.Constant(value);
+    IAstConstant constant = A.Constant(value);
     IGqlpSchemaSetting ast = A.Named<IGqlpSchemaSetting>(name, contents);
     ast.Value.Returns(constant);
 

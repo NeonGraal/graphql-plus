@@ -5,11 +5,11 @@ namespace GqlPlus.Modelling.Objects;
 public class TypeArgModellerTests
   : ModellerClassTestBase<IGqlpTypeArg, TypeArgModel>
 {
-  private readonly IModeller<IGqlpEnumValue, EnumValueModel> _enumValue;
+  private readonly IModeller<IAstEnumValue, EnumValueModel> _enumValue;
 
   public TypeArgModellerTests()
   {
-    _enumValue = MFor<IGqlpEnumValue, EnumValueModel>();
+    _enumValue = MFor<IAstEnumValue, EnumValueModel>();
 
     Modeller = new TypeArgModeller(_enumValue);
   }
@@ -38,7 +38,7 @@ public class TypeArgModellerTests
   {
     // Arrange
     IGqlpTypeArg ast = A.TypeArg(enumType).AsTypeArg;
-    IGqlpEnumValue enumValue = A.EnumValue(enumType, enumLabel);
+    IAstEnumValue enumValue = A.EnumValue(enumType, enumLabel);
     ast.EnumValue.Returns(enumValue);
 
     EnumValueModel enumModel = new(enumType, enumLabel, "");

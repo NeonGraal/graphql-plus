@@ -4,7 +4,7 @@ namespace GqlPlus.Verifying.Operation;
 
 public abstract class IdentifiedVerifierTestsBase<TUsage, TIdentified>
   : VerifierTestsBase
-  where TUsage : class, IGqlpError
+  where TUsage : class, IAstError
   where TIdentified : class, IGqlpIdentified
 {
   private readonly ForV<TUsage> _usage = new();

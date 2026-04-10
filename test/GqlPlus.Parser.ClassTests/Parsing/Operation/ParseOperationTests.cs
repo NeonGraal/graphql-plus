@@ -49,7 +49,7 @@ public class ParseOperationTests
     PrefixReturns(':', OutStringAt(resultType));
 
     IGqlpArg argument = ParseOk(_argumentParser);
-    IGqlpModifier[] modifiers = ParseAModifier();
+    IAstModifier[] modifiers = ParseAModifier();
     IGqlpFragment[] endFragments = ParseOkA(_endFragmentsParser);
 
     // Act
@@ -83,7 +83,7 @@ public class ParseOperationTests
 
     IGqlpSelection[] obj = ParseOkA(_objectParser);
 
-    IGqlpModifier[] modifiers = ParseAModifier();
+    IAstModifier[] modifiers = ParseAModifier();
     IGqlpFragment[] endFragments = ParseOkA(_endFragmentsParser);
 
     // Act
@@ -115,7 +115,7 @@ public class ParseOperationTests
     PrefixReturns(':', OutStringAt(resultType));
 
     IGqlpArg argument = ParseOk(_argumentParser);
-    IGqlpModifier[] modifiers = ParseAModifier();
+    IAstModifier[] modifiers = ParseAModifier();
     IGqlpFragment[] endFragments = ParseOkA(_endFragmentsParser);
 
     // Act

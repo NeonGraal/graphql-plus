@@ -21,14 +21,14 @@ internal sealed record class OperationAst(
   public string? ResultType { get; set; }
   public IGqlpArg? Arg { get; set; }
   public IGqlpSelection[]? ResultObject { get; set; }
-  public IGqlpModifier[] Modifiers { get; set; } = [];
+  public IAstModifier[] Modifiers { get; set; } = [];
 
   public IGqlpFragment[] Fragments { get; set; } = [];
   public IGqlpSpread[] Spreads { get; set; } = [];
 
   internal override string Abbr => "g";
 
-  IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
+  IEnumerable<IAstModifier> IAstModifiers.Modifiers => Modifiers;
   IEnumerable<IGqlpVariable> IGqlpOperation.Variables => Variables;
   IGqlpArg? IGqlpOperation.Arg => Arg;
   IEnumerable<IGqlpSelection>? IGqlpOperation.ResultObject => ResultObject;

@@ -30,7 +30,7 @@ public class ParseFieldTests
     TakeReturns(':', true);
 
     IGqlpArg argument = ParseOk(_argumentParser);
-    IGqlpModifier[] modifiers = ParseAModifier();
+    IAstModifier[] modifiers = ParseAModifier();
     IGqlpDirective[] directives = ParseOkA(_directivesParser);
     IGqlpSelection[] selections = ParseOkA(_objectParser);
 

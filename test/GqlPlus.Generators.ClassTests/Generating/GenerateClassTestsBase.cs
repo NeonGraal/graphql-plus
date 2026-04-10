@@ -18,6 +18,6 @@ public class GenerateClassTestsBase
   }
 
   internal static IGenerator<T> GFor<T>()
-    where T : IGqlpError
+    where T : IAstError
     => A.Of<IGenerator<T>>();
 }

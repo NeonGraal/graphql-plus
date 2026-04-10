@@ -11,7 +11,7 @@ public class ParseInputFieldTests
 
   public ParseInputFieldTests()
   {
-    ConfigureRepoInterface<IParserDefault, IGqlpConstant>(Parsers, out _parseDefault);
+    ConfigureRepoInterface<IParserDefault, IAstConstant>(Parsers, out _parseDefault);
     Parser = new ParseInputField(Parsers);
     ParseEmpty(_parseDefault);
   }

@@ -3,14 +3,14 @@
 public interface IGqlpSimple<TItem>
   : IGqlpSimple
   , IEquatable<IGqlpSimple<TItem>>
-  where TItem : IGqlpError
+  where TItem : IAstError
 {
   IEnumerable<TItem> Items { get; }
 }
 
 public interface IGqlpValued<TItem>
   : IGqlpSimple<TItem>
-  where TItem : IGqlpError
+  where TItem : IAstError
 {
   bool HasValue(string value);
 }

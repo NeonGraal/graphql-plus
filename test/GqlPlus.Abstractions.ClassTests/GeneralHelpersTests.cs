@@ -91,7 +91,7 @@ public class GeneralHelpersTests
   [Fact]
   public void Show_Null_ReturnsCorrect()
   {
-    IGqlpAbbreviated? input = null;
+    IAstAbbreviated? input = null;
 
     string result = input.Show();
 
@@ -101,7 +101,7 @@ public class GeneralHelpersTests
   [Theory, RepeatData]
   public void Show_Various_ReturnsCorrect(string field1, string field2, string field3)
   {
-    IGqlpAbbreviated input = Substitute.For<IGqlpAbbreviated>();
+    IAstAbbreviated input = Substitute.For<IAstAbbreviated>();
     input.GetFields().Returns([field1, "(", field2, ")", string.Empty, field3]);
 
     string result = input.Show();

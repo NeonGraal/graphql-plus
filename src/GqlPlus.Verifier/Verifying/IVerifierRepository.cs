@@ -19,7 +19,7 @@ public interface IVerifierRepository
     where T : IGqlpAliased;
 
   IVerifyIdentified<TUsage, TIdentified> IdentifiedFor<TUsage, TIdentified>()
-    where TUsage : IGqlpError
+    where TUsage : IAstError
     where TIdentified : IGqlpIdentified;
 
   IEnumerable<IVerifyDomain> GetDomains();
@@ -29,5 +29,5 @@ public interface IVerifierRepository
   Matcher<T>.D MatcherFor<T>();
 
   IMerge<T> MergerFor<T>()
-    where T : IGqlpError;
+    where T : IAstError;
 }

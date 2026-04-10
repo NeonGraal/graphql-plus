@@ -75,7 +75,7 @@ internal class AstObjectVerifier<TObjField>(
       return;
     }
 
-    IGqlpEnumValue enumValue = objEnum.EnumValue;
+    IAstEnumValue enumValue = objEnum.EnumValue;
 
     if (!string.IsNullOrWhiteSpace(enumValue.EnumType)) {
       context.CheckEnumValue(label, objEnum);
@@ -177,7 +177,7 @@ internal class AstObjectVerifier<TObjField>(
       return;
     }
 
-    IGqlpEnumValue enumValue = arg.EnumValue;
+    IAstEnumValue enumValue = arg.EnumValue;
     if (!context.GetType(enumValue.EnumType, out IGqlpDescribed? type)
       && context.GetEnumValue(enumValue.EnumLabel, out string? enumType)) {
       arg.SetEnumType(enumType);

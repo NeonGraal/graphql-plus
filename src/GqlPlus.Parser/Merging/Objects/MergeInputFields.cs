@@ -9,10 +9,10 @@ internal class MergeInputFields(
 {
   protected override IMessages CanMergeGroup(IGrouping<string, IGqlpInputField> group)
     => base.CanMergeGroup(group)
-      .Add(group.CanMerge(item => item.DefaultValue, mergers.MergerFor<IGqlpConstant>()));
+      .Add(group.CanMerge(item => item.DefaultValue, mergers.MergerFor<IAstConstant>()));
 
   protected override IGqlpInputField MergeGroup(IEnumerable<IGqlpInputField> group)
     => (InputFieldAst)base.MergeGroup(group) with {
-      DefaultValue = group.Merge(item => item.DefaultValue, mergers.MergerFor<IGqlpConstant>()).FirstOrDefault()
+      DefaultValue = group.Merge(item => item.DefaultValue, mergers.MergerFor<IAstConstant>()).FirstOrDefault()
     };
 }

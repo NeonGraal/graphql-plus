@@ -10,11 +10,11 @@ internal record class AlternateAst(
   , IGqlpAlternate
 {
   internal override string Abbr => "OA";
-  public IGqlpModifier[] Modifiers { get; set; } = [];
+  public IAstModifier[] Modifiers { get; set; } = [];
 
-  public IGqlpEnumValue? EnumValue { get; set; }
+  public IAstEnumValue? EnumValue { get; set; }
 
-  IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
+  IEnumerable<IAstModifier> IAstModifiers.Modifiers => Modifiers;
 
   string IGqlpObjEnum.EnumTypeName => IsTypeParam ? "" : Name;
   void IGqlpObjEnum.SetEnumType(string enumType)

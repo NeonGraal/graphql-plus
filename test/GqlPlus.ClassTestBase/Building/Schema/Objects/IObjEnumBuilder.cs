@@ -7,12 +7,12 @@ public interface IObjEnumBuilder
   : IMockBuilder
 {
   string Name { get; }
-  void SetEnumValue(IGqlpEnumValue enumValue);
+  void SetEnumValue(IAstEnumValue enumValue);
 }
 
 public static class ObjEnumBuilderHelper
 {
-  public static T WithObjEnum<T>(this T builder, IGqlpEnumValue enumValue)
+  public static T WithObjEnum<T>(this T builder, IAstEnumValue enumValue)
     where T : IObjEnumBuilder
     => builder.FluentAction(b => b.SetEnumValue(enumValue));
   public static T WithObjEnum<T>(this T builder, string enumLabel)
@@ -22,7 +22,7 @@ public static class ObjEnumBuilderHelper
   public static Action<CallInfo> MakeSetEnumValue(this IObjEnumBuilder _, IGqlpObjEnum result, IGqlpObjType type)
     => c => {
       string enumType = c.Arg<string>();
-      IGqlpEnumValue? enumValue = result.EnumValue;
+      IAstEnumValue? enumValue = result.EnumValue;
       string enumLabel = enumValue?.EnumLabel ?? type.TypeName;
 
       type.Name.Returns(enumType);

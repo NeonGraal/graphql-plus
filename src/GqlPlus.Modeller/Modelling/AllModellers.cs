@@ -10,9 +10,9 @@ public static class AllModellers
 {
   public static IServiceCollection AddModellers(this IServiceCollection services)
     => services
-      .AddModeller<IGqlpConstant, ConstantModel, ConstantModeller>()
-      .AddModeller<IGqlpEnumValue, EnumValueModel, EnumValueModeller>()
-      .AddModeller<IGqlpFieldKey, SimpleModel, SimpleModeller>()
+      .AddModeller<IAstConstant, ConstantModel, ConstantModeller>()
+      .AddModeller<IAstEnumValue, EnumValueModel, EnumValueModeller>()
+      .AddModeller<IAstFieldKey, SimpleModel, SimpleModeller>()
       .AddModifierModeller()
       // Schema
       .AddModeller<IGqlpSchema, SchemaModel, SchemaModeller>()
@@ -47,7 +47,7 @@ public static class AllModellers
     ;
 
   private static IServiceCollection AddModeller<TAst, TModel, TModeller>(this IServiceCollection services)
-    where TAst : IGqlpError
+    where TAst : IAstError
     where TModel : IModelBase
     where TModeller : class, IModeller<TAst, TModel>
     => services
@@ -61,7 +61,7 @@ public static class AllModellers
       .AddProvider<ITypesModeller, IModeller<IGqlpType, BaseTypeModel>>();
 
   private static IServiceCollection AddTypeModeller<TAst, TModel, TModeller>(this IServiceCollection services)
-    where TAst : IGqlpError
+    where TAst : IAstError
     where TModel : IModelBase
     where TModeller : class, IModeller<TAst, TModel>, ITypeModeller
     => services
@@ -82,9 +82,9 @@ public static class AllModellers
   private static IServiceCollection AddModifierModeller(this IServiceCollection services)
     => services
       .AddSingleton<IModifierModeller, ModifierModeller>()
-      .AddProvider<IModifierModeller, IModeller<IGqlpModifier>>()
-      .AddProvider<IModifierModeller, IModeller<IGqlpModifier, ModifierModel>>()
-      .AddProvider<IModifierModeller, IModeller<IGqlpModifier, CollectionModel>>();
+      .AddProvider<IModifierModeller, IModeller<IAstModifier>>()
+      .AddProvider<IModifierModeller, IModeller<IAstModifier, ModifierModel>>()
+      .AddProvider<IModifierModeller, IModeller<IAstModifier, CollectionModel>>();
 
   private static IServiceCollection AddObjectModellers<
       TObjFieldAst, TObjField, TFieldModeller

@@ -9,7 +9,7 @@ internal abstract class AstSimpleVerifier<TAst, TContext, TItem>(
 ) : AstParentItemVerifier<TAst, IGqlpTypeRef, TContext, TItem>(verifiers)
   where TAst : IGqlpSimple
   where TContext : UsageContext
-  where TItem : IGqlpError
+  where TItem : IAstError
 {
   protected sealed override string GetParent(IGqlpType<IGqlpTypeRef> usage)
     => (usage.Parent?.Name).IfWhiteSpace();

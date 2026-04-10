@@ -2,7 +2,7 @@
 
 public interface IGqlpSchemaCategory
   : IGqlpDeclaration
-  , IGqlpModifiers
+  , IAstModifiers
   , IEquatable<IGqlpSchemaCategory>
 {
   CategoryOption CategoryOption { get; }
@@ -56,5 +56,5 @@ public interface IGqlpSchemaSetting
   : IGqlpNamed
   , IEquatable<IGqlpSchemaSetting>
 {
-  IGqlpConstant Value { get; }
+  IAstConstant Value { get; }
 }

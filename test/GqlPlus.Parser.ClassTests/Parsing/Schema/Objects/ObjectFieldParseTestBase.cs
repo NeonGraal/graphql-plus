@@ -73,7 +73,7 @@ public abstract class ObjectFieldParseTestBase<TField>
     IdentifierReturns(OutString(fieldName));
     TakeReturns(':', true);
     ParseOk(_parseBase);
-    IGqlpModifier modifer = A.Modifier(ModifierKind.List);
+    IAstModifier modifer = A.Modifier(ModifierKind.List);
     ParseModifiersOk(modifer);
 
     // Act

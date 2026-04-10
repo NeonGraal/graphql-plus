@@ -4,7 +4,7 @@ namespace GqlPlus.Modelling.Objects;
 
 public abstract class ModellerObjectBaseTestBase<TAst, TModel, TBaseModel>
   : ModellerClassTestBase<TAst, TModel>
-  where TAst : IGqlpError
+  where TAst : IAstError
   where TModel : IModelBase
   where TBaseModel : IObjBaseModel
 {

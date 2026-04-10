@@ -7,8 +7,8 @@ public class ObjFieldBuilder
   , IObjTypeBuilder
   , IObjEnumBuilder
 {
-  private IGqlpModifier[] _modifiers = [];
-  private IGqlpEnumValue? _enumValue;
+  private IAstModifier[] _modifiers = [];
+  private IAstEnumValue? _enumValue;
 
   public ObjBaseBuilder BaseBuilder { get; }
 
@@ -17,7 +17,7 @@ public class ObjFieldBuilder
   {
     Add<IGqlpObjField>();
     Add<IGqlpObjFieldType>();
-    Add<IGqlpModifiers>();
+    Add<IAstModifiers>();
     Add<IGqlpObjEnum>();
 
     BaseBuilder = new ObjBaseBuilder(type);
@@ -47,9 +47,9 @@ public class ObjFieldBuilder
     return result;
   }
 
-  public void SetModifiers(IGqlpModifier[] modifiers)
+  public void SetModifiers(IAstModifier[] modifiers)
     => _modifiers = modifiers;
-  public void SetEnumValue(IGqlpEnumValue enumValue)
+  public void SetEnumValue(IAstEnumValue enumValue)
     => _enumValue = enumValue;
 
   public string Name => BaseBuilder._name;

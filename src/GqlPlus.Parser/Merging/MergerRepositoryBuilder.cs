@@ -10,7 +10,7 @@ internal class MergerRepositoryBuilder
   internal readonly Dictionary<Type, List<Type>> AllMergerTypes = [];
 
   public IMergerRepositoryBuilder AddMerge<T>(Factory<IMerge<T>, IMergerRepository> factory)
-    where T : IGqlpError
+    where T : IAstError
     => this.FluentAction(b => b.Mergers[typeof(T)] = factory);
 
   public IMergerRepositoryBuilder AddMergeAll<TAst, TType, TService>(Factory<TService, IMergerRepository> factory)

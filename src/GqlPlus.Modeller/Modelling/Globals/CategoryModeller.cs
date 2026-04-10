@@ -3,7 +3,7 @@
 // ResolutionModel => CategoryOption
 
 internal class CategoryModeller(
-  IModeller<IGqlpModifier, ModifierModel> modifier
+  IModeller<IAstModifier, ModifierModel> modifier
 ) : ModellerBase<IGqlpSchemaCategory, CategoryModel>
 {
   protected override CategoryModel ToModel(IGqlpSchemaCategory ast, IMap<TypeKindModel> typeKinds)

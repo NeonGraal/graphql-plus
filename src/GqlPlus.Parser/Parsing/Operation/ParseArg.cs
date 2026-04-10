@@ -10,7 +10,7 @@ internal class ParseArg(
   IParserRepository parsers
 ) : IParserArg
 {
-  private readonly Parser<IGqlpFieldKey>.L _fieldKey = parsers.ParserFor<IGqlpFieldKey>();
+  private readonly Parser<IAstFieldKey>.L _fieldKey = parsers.ParserFor<IAstFieldKey>();
   private readonly Parser<IValueParser<IGqlpArg>, IGqlpArg>.L _argument = parsers.ParserFor<IValueParser<IGqlpArg>, IGqlpArg>();
 
   public IResult<IGqlpArg> Parse(ITokenizer tokens, string label)
@@ -27,7 +27,7 @@ internal class ParseArg(
       TokenAt at = tokens.At;
       IGqlpArg? value = new ArgAst(at);
 
-      IResult<IGqlpFieldKey> fieldKey = _fieldKey.Parse(tokens, label);
+      IResult<IAstFieldKey> fieldKey = _fieldKey.Parse(tokens, label);
       if (fieldKey.IsOk()) {
         return fieldKey.Map(key =>
           tokens.Take(':')

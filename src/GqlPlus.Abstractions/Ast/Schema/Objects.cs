@@ -27,10 +27,10 @@ public interface IGqlpObjType
 }
 
 public interface IGqlpObjEnum
-  : IGqlpAbbreviated
+  : IAstAbbreviated
 {
   string EnumTypeName { get; }
-  IGqlpEnumValue? EnumValue { get; }
+  IAstEnumValue? EnumValue { get; }
 
   void SetEnumType(string enumType);
 }
@@ -51,8 +51,8 @@ public interface IGqlpObjBase
 }
 
 public interface IGqlpObjFieldType
-  : IGqlpError
-  , IGqlpModifiers
+  : IAstError
+  , IAstModifiers
   , IGqlpObjEnum
 {
   IGqlpObjBase Type { get; }
@@ -66,7 +66,7 @@ public interface IGqlpObjField
 
 public interface IGqlpAlternate
   : IGqlpObjBase
-  , IGqlpModifiers
+  , IAstModifiers
   , IGqlpObjEnum
 { }
 
@@ -83,7 +83,7 @@ public interface IGqlpDualField
 public interface IGqlpInputFieldType
   : IGqlpObjFieldType
 {
-  IGqlpConstant? DefaultValue { get; }
+  IAstConstant? DefaultValue { get; }
 }
 
 public interface IGqlpInputField

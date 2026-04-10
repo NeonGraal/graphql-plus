@@ -3,7 +3,7 @@
 namespace GqlPlus.Merging;
 
 public interface IMerge<TItem>
-  where TItem : IGqlpError
+  where TItem : IAstError
 {
   IMessages CanMerge(IEnumerable<TItem> items);
   IEnumerable<TItem> Merge(IEnumerable<TItem> items);

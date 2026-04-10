@@ -5,9 +5,9 @@ namespace GqlPlus.Generating;
 internal interface IGeneratorRepositoryBuilder
 {
   IGeneratorRepositoryBuilder AddGenerator<TAst>(Factory<IGenerator<TAst>, IGeneratorRepository> factory)
-    where TAst : IGqlpError;
+    where TAst : IAstError;
   IGeneratorRepositoryBuilder AddGenerator<TAst, TGenerator>()
-    where TAst : IGqlpError
+    where TAst : IAstError
     where TGenerator : IGenerator<TAst>, new();
 
   IGeneratorRepositoryBuilder AddTypeGenerator<TGenerator>(GqlpGeneratorType generatorType)

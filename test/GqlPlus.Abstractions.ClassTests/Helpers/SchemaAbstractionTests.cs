@@ -40,7 +40,7 @@ public class TestAliased(string name, string[] aliases)
   public string Abbr { get; } = "Tt";
   public string Description { get; } = "";
 
-  public bool Equals(IGqlpAbbreviated? other) => Equals(other as IGqlpAliased);
+  public bool Equals(IAstAbbreviated? other) => Equals(other as IGqlpAliased);
   public bool Equals(IGqlpDescribed? other) => Equals(other as IGqlpAliased);
   public bool Equals(IGqlpNamed? other) => Equals(other as IGqlpAliased);
   public bool Equals(IGqlpAliased? other)

@@ -7,7 +7,7 @@ internal abstract class AstSimpleMerger<TAst, TType, TItem>(
 ) : AstTypeMerger<TAst, TType, IGqlpTypeRef, TItem>(mergers)
   where TAst : IGqlpType
   where TType : IGqlpSimple<TItem>, TAst
-  where TItem : IGqlpError
+  where TItem : IAstError
 {
   protected override string ItemMatchName => "Parent";
   protected override string ItemMatchKey(TType item)

@@ -40,7 +40,7 @@ internal class SchemaModeller(
     IModeller<TAst, TModel> modeller,
     IMap<TypeKindModel> typeKinds
   )
-    where TAst : IGqlpError
+    where TAst : IAstError
     where TModel : IModelBase
     => ast.Declarations.OfType<TAst>().Select(m => modeller.ToModel(m, typeKinds));
 }

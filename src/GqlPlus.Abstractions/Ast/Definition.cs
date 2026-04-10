@@ -2,42 +2,42 @@
 
 namespace GqlPlus.Abstractions;
 
-public interface IGqlpError
+public interface IAstError
 {
   IMessages MakeError(string message);
 }
 
-public interface IGqlpAbbreviated
-  : IGqlpError
-  , IEquatable<IGqlpAbbreviated>
+public interface IAstAbbreviated
+  : IAstError
+  , IEquatable<IAstAbbreviated>
 {
   ITokenAt At { get; }
   IEnumerable<string?> GetFields();
 }
 
-public interface IGqlpEnumValue
-  : IGqlpAbbreviated
-  , IEquatable<IGqlpEnumValue?>
-  , IComparable<IGqlpEnumValue?>
+public interface IAstEnumValue
+  : IAstAbbreviated
+  , IEquatable<IAstEnumValue?>
+  , IComparable<IAstEnumValue?>
 {
   string EnumType { get; }
   string EnumLabel { get; }
   string EnumValue { get; }
 }
 
-public interface IGqlpFieldKey
-  : IGqlpAbbreviated
-  , IEquatable<IGqlpFieldKey?>
-  , IComparable<IGqlpFieldKey?>
+public interface IAstFieldKey
+  : IAstAbbreviated
+  , IEquatable<IAstFieldKey?>
+  , IComparable<IAstFieldKey?>
 {
   decimal? Number { get; }
   string? Text { get; }
-  IGqlpEnumValue? EnumValue { get; }
+  IAstEnumValue? EnumValue { get; }
 }
 
-public interface IGqlpModifier
-  : IGqlpError
-  , IEquatable<IGqlpModifier>
+public interface IAstModifier
+  : IAstError
+  , IEquatable<IAstModifier>
 {
   ModifierKind ModifierKind { get; }
   string Key { get; }
@@ -55,28 +55,28 @@ public enum ModifierKind
   TypeParam = Param,
 }
 
-public interface IGqlpModifiers
-  : IGqlpAbbreviated
+public interface IAstModifiers
+  : IAstAbbreviated
 {
-  IEnumerable<IGqlpModifier> Modifiers { get; }
+  IEnumerable<IAstModifier> Modifiers { get; }
 }
 
-public interface IGqlpConstant
-  : IGqlpValue<IGqlpConstant>
-  , IEquatable<IGqlpConstant>
+public interface IAstConstant
+  : IAstValue<IAstConstant>
+  , IEquatable<IAstConstant>
 {
-  IGqlpFieldKey? Value { get; }
+  IAstFieldKey? Value { get; }
 }
 
-public interface IGqlpValue<TValue>
-  : IGqlpAbbreviated
-  , IEquatable<IGqlpValue<TValue>>
+public interface IAstValue<TValue>
+  : IAstAbbreviated
+  , IEquatable<IAstValue<TValue>>
 {
   IEnumerable<TValue> Values { get; }
-  IGqlpFields<TValue> Fields { get; }
+  IAstFields<TValue> Fields { get; }
 }
 
-public interface IGqlpFields<TValue>
-  : IImmutableDictionary<IGqlpFieldKey, TValue>
-  , IEquatable<IGqlpFields<TValue>>
+public interface IAstFields<TValue>
+  : IImmutableDictionary<IAstFieldKey, TValue>
+  , IEquatable<IAstFields<TValue>>
 { }

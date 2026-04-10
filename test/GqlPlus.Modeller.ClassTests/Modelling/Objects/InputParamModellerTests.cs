@@ -8,14 +8,14 @@ public class InputParamModellerTests
   : ModellerClassTestBase<IGqlpInputParam, InputParamModel>
 {
   private readonly IModifierModeller _modifier;
-  private readonly IModeller<IGqlpConstant, ConstantModel> _constant;
+  private readonly IModeller<IAstConstant, ConstantModel> _constant;
 
   protected override IModeller<IGqlpInputParam, InputParamModel> Modeller { get; }
 
   public InputParamModellerTests()
   {
     _modifier = A.Of<IModifierModeller>();
-    _constant = MFor<IGqlpConstant, ConstantModel>();
+    _constant = MFor<IAstConstant, ConstantModel>();
 
     Modeller = new InputParamModeller(_modifier, _constant);
   }
@@ -29,7 +29,7 @@ public class InputParamModellerTests
       .WithType(t => t.IsTypeParam())
       .WithModifier(ModifierKind.Opt)
       .AsInputParam;
-    IGqlpConstant constant = A.Constant(text);
+    IAstConstant constant = A.Constant(text);
     ast.DefaultValue.Returns(constant);
 
     ModifierModel[] modifiers = [new(ModifierKind.Optional)];

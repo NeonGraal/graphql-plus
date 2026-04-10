@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Abstractions.Schema;
 
 public interface IGqlpSchema
-  : IGqlpAbbreviated
+  : IAstAbbreviated
   , IEquatable<IGqlpSchema>
 {
   IEnumerable<IGqlpDeclaration> Declarations { get; }
@@ -26,7 +26,7 @@ public interface IGqlpAliased
 }
 
 public interface IGqlpDescribed
-  : IGqlpAbbreviated
+  : IAstAbbreviated
   , IEquatable<IGqlpDescribed>
 {
   string Description { get; }

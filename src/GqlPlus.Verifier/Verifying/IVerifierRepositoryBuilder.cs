@@ -19,7 +19,7 @@ public interface IVerifierRepositoryBuilder
     where T : IGqlpAliased;
 
   IVerifierRepositoryBuilder AddIdentified<TUsage, TIdentified>(Factory<IVerifyIdentified<TUsage, TIdentified>, IVerifierRepository> factory)
-    where TUsage : IGqlpError
+    where TUsage : IAstError
     where TIdentified : IGqlpIdentified;
 
   IVerifierRepositoryBuilder AddDomain(Factory<IVerifyDomain, IVerifierRepository> factory);

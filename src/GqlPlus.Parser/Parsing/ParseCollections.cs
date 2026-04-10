@@ -7,10 +7,10 @@ namespace GqlPlus.Parsing;
 internal class ParseCollections
   : IParserCollections
 {
-  public IResultArray<IGqlpModifier> Parse(ITokenizer tokens, string label)
+  public IResultArray<IAstModifier> Parse(ITokenizer tokens, string label)
 
   {
-    List<IGqlpModifier> list = [];
+    List<IAstModifier> list = [];
 
     TokenAt at = tokens.At;
     while (tokens.Take('[')) {
@@ -40,11 +40,11 @@ internal class ParseCollections
 
     return list.OkArray();
 
-    IEnumerable<IGqlpModifier> ReturnList()
+    IEnumerable<IAstModifier> ReturnList()
       => list;
   }
 }
 
 public interface IParserCollections
-  : Parser<IGqlpModifier>.IA
+  : Parser<IAstModifier>.IA
 { }

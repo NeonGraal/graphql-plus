@@ -45,7 +45,7 @@ internal class VerifierRepository
     => Cached<T, IVerifyUsage<T>>(_state.Usages, "usage", this);
 
   public IVerifyIdentified<TUsage, TIdentified> IdentifiedFor<TUsage, TIdentified>()
-    where TUsage : IGqlpError
+    where TUsage : IAstError
     where TIdentified : IGqlpIdentified
     => Cached<(TUsage, TIdentified), IVerifyIdentified<TUsage, TIdentified>>(
       _state.Identified,
@@ -58,6 +58,6 @@ internal class VerifierRepository
     => _matchers.MatcherFor<T>();
 
   public IMerge<T> MergerFor<T>()
-    where T : IGqlpError
+    where T : IAstError
     => _mergers.MergerFor<T>();
 }

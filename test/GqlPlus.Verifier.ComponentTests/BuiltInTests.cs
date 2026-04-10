@@ -54,7 +54,7 @@ public class BuiltInTests(
     public ITokenAt At { get; } = new TokenAt(TokenKind.Start, 0, 0, string.Empty);
     public string Abbr { get; } = "testSchema";
 
-    public bool Equals(IGqlpAbbreviated? other) => false;
+    public bool Equals(IAstAbbreviated? other) => false;
     public bool Equals(IGqlpSchema? other) => false;
     public IEnumerable<string?> GetFields() => throw new NotImplementedException();
     public IMessages MakeError(string message) => throw new NotImplementedException();

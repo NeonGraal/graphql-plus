@@ -10,9 +10,9 @@ internal sealed record class InputParamAst(
 ) : AstAbbreviated(At)
   , IGqlpInputParam
 {
-  public IGqlpModifier[] Modifiers { get; set; } = [];
-  public IGqlpConstant? DefaultValue { get; set; }
-  public IGqlpEnumValue? EnumValue { get; set; }
+  public IAstModifier[] Modifiers { get; set; } = [];
+  public IAstConstant? DefaultValue { get; set; }
+  public IAstEnumValue? EnumValue { get; set; }
 
   string IGqlpObjEnum.EnumTypeName => Type?.Name ?? "";
   void IGqlpObjEnum.SetEnumType(string enumType)
@@ -25,7 +25,7 @@ internal sealed record class InputParamAst(
   internal override string Abbr => "Pa";
   public string ModifiedType => Type.GetFields().Skip(2).Concat(Modifiers.AsString()).Joined();
 
-  IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
+  IEnumerable<IAstModifier> IAstModifiers.Modifiers => Modifiers;
   string IGqlpDescribed.Description => Type.Description;
 
   internal InputParamAst(TokenAt at, string input, string description = "")
@@ -37,7 +37,7 @@ internal sealed record class InputParamAst(
   public bool Equals(IGqlpDescribed? other)
     => other is IGqlpInputParam inputParam && Equals(inputParam);
   public bool Equals(IGqlpInputParam? other)
-    => Equals(other as IGqlpAbbreviated)
+    => Equals(other as IAstAbbreviated)
     && (Type?.Equals(other.Type) ?? other.Type is null)
     && Modifiers.SequenceEqual(other.Modifiers)
     && EnumValue.NullEqual(other.EnumValue)

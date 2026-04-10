@@ -8,8 +8,8 @@ public class InputParamBuilder
   , IModifiersBuilder
   , IInputTypeBuilder
 {
-  private IGqlpModifier[] _modifiers = [];
-  private IGqlpConstant? _defaultValue;
+  private IAstModifier[] _modifiers = [];
+  private IAstConstant? _defaultValue;
 
   public ObjBaseBuilder BaseBuilder { get; }
 
@@ -19,7 +19,7 @@ public class InputParamBuilder
     Add<IGqlpInputParam>();
     Add<IGqlpInputFieldType>();
     Add<IGqlpObjFieldType>();
-    Add<IGqlpModifiers>();
+    Add<IAstModifiers>();
 
     BaseBuilder = new ObjBaseBuilder(type);
   }
@@ -41,9 +41,9 @@ public class InputParamBuilder
   public IGqlpInputParam AsInputParam
     => Build<IGqlpInputParam>();
 
-  public void SetModifiers(IGqlpModifier[] modifiers)
+  public void SetModifiers(IAstModifier[] modifiers)
     => _modifiers = modifiers;
-  public void SetDefaultValue(IGqlpConstant? defaultValue)
+  public void SetDefaultValue(IAstConstant? defaultValue)
     => _defaultValue = defaultValue;
 }
 
@@ -63,12 +63,12 @@ public static class ObjTypeBuilderHelper
 public interface IInputTypeBuilder
   : IObjTypeBuilder
 {
-  void SetDefaultValue(IGqlpConstant? defaultValue);
+  void SetDefaultValue(IAstConstant? defaultValue);
 }
 
 public static class InputTypeBuilderHelper
 {
-  public static T WithDefault<T>(this T builder, IGqlpConstant? defaultValue)
+  public static T WithDefault<T>(this T builder, IAstConstant? defaultValue)
     where T : IInputTypeBuilder
     => builder.FluentAction(b => b.SetDefaultValue(defaultValue));
 }

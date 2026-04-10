@@ -24,7 +24,7 @@ public static class CommonBuilderHelpers
     => [.. input.Select(i => build(builder, i))];
 
   public static T Error<T>(this IMockBuilder builder)
-    where T : class, IGqlpError
+    where T : class, IAstError
   {
     T result = builder.Of<T>();
     result.MakeError("").ReturnsForAnyArgs(c => MakeMessages(c.ThrowIfNull().Arg<string>()));
@@ -32,7 +32,7 @@ public static class CommonBuilderHelpers
   }
   public static T Error<T, T1>(this IMockBuilder builder)
     where T : class, T1
-    where T1 : class, IGqlpError
+    where T1 : class, IAstError
   {
     T result = builder.Of<T, T1>();
     result.MakeError("").ReturnsForAnyArgs(c => MakeMessages(c.ThrowIfNull().Arg<string>()));
@@ -41,7 +41,7 @@ public static class CommonBuilderHelpers
   public static T Error<T, T1, T2>(this IMockBuilder builder)
     where T : class, T1
     where T1 : class, T2
-    where T2 : class, IGqlpError
+    where T2 : class, IAstError
   {
     T result = builder.Of<T, T1, T2>();
     result.MakeError("").ReturnsForAnyArgs(c => MakeMessages(c.ThrowIfNull().Arg<string>()));
@@ -53,32 +53,32 @@ public static class CommonBuilderHelpers
 
   public static FieldKeyBuilder FieldKey(this IMockBuilder _) => new();
 
-  public static IGqlpFieldKey FieldKey(this IMockBuilder _, string text)
+  public static IAstFieldKey FieldKey(this IMockBuilder _, string text)
     => _.FieldKey().WithText(text).AsFieldKey;
 
-  public static IGqlpFieldKey EnumFieldKey(this IMockBuilder _, string enumType, string enumLabel)
+  public static IAstFieldKey EnumFieldKey(this IMockBuilder _, string enumType, string enumLabel)
     => _.FieldKey().WithEnumValue(enumType, enumLabel).AsFieldKey;
 
-  public static IGqlpEnumValue EnumValue(this IMockBuilder _, string enumType, string enumLabel)
+  public static IAstEnumValue EnumValue(this IMockBuilder _, string enumType, string enumLabel)
     => new EnumValueBuilder(enumType, enumLabel).AsEnumValue;
 
-  public static IGqlpFields<T> Fields<T>(this IMockBuilder _, string key, T value)
+  public static IAstFields<T> Fields<T>(this IMockBuilder _, string key, T value)
     => new FieldsBuilder<T>().WithField(key, value).AsFields;
 
   public static ConstantBuilder Constant(this IMockBuilder _) => new();
 
-  public static IGqlpConstant Constant(this IMockBuilder _, string text)
+  public static IAstConstant Constant(this IMockBuilder _, string text)
     => _.Constant().WithText(text).AsConstant;
 
-  public static IGqlpConstant Constant(this IMockBuilder _, IGqlpFieldKey value)
+  public static IAstConstant Constant(this IMockBuilder _, IAstFieldKey value)
     => _.Constant().WithValue(value).AsConstant;
 
-  public static IGqlpConstant Constant(this IMockBuilder _, string[] values)
+  public static IAstConstant Constant(this IMockBuilder _, string[] values)
     => _.Constant().WithValues(values).AsConstant;
 
-  public static IGqlpConstant Constant(this IMockBuilder _, string key, IGqlpConstant value)
+  public static IAstConstant Constant(this IMockBuilder _, string key, IAstConstant value)
     => _.Constant().WithField(key, value).AsConstant;
 
-  public static IGqlpModifier Modifier(this IMockBuilder _, ModifierKind kind, string key = "")
+  public static IAstModifier Modifier(this IMockBuilder _, ModifierKind kind, string key = "")
     => new ModifierBuilder(kind, key).AsModifier;
 }

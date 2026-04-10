@@ -10,12 +10,12 @@ internal sealed record class VariableAst(
   , IGqlpVariable
 {
   public string? Type { get; set; }
-  public IGqlpModifier[] Modifiers { get; set; } = [];
-  public IGqlpConstant? DefaultValue { get; set; }
+  public IAstModifier[] Modifiers { get; set; } = [];
+  public IAstConstant? DefaultValue { get; set; }
 
   internal override string Abbr => "v";
 
-  IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
+  IEnumerable<IAstModifier> IAstModifiers.Modifiers => Modifiers;
 
   public bool Equals(VariableAst? other)
     => other is IGqlpVariable variable && Equals(variable);

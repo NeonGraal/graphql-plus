@@ -6,7 +6,7 @@ public class InputFieldBuilder
   : ObjFieldBuilder<IGqlpInputField>
   , IInputTypeBuilder
 {
-  private IGqlpConstant? _defaultValue;
+  private IAstConstant? _defaultValue;
 
   public InputFieldBuilder(string name, string type)
     : base(name, type)
@@ -28,6 +28,6 @@ public class InputFieldBuilder
   public override IGqlpInputField AsObjField
     => AsInputField;
 
-  public void SetDefaultValue(IGqlpConstant? defaultValue)
+  public void SetDefaultValue(IAstConstant? defaultValue)
     => _defaultValue = defaultValue;
 }

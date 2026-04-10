@@ -9,9 +9,9 @@ internal class ParseVariable(
   IParserRepository parsers
 ) : Parser<IGqlpVariable>.I
 {
-  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.ArrayFor<IGqlpModifier>();
+  private readonly Parser<IAstModifier>.LA _modifiers = parsers.ArrayFor<IAstModifier>();
   private readonly Parser<IGqlpDirective>.LA _directives = parsers.ArrayFor<IGqlpDirective>();
-  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = parsers.ParserFor<IParserDefault, IGqlpConstant>();
+  private readonly Parser<IParserDefault, IAstConstant>.L _default = parsers.ParserFor<IParserDefault, IAstConstant>();
   private readonly Parser<IParserVarType, string>.L _varTypeParser = parsers.ParserFor<IParserVarType, string>();
 
   public IResult<IGqlpVariable> Parse(ITokenizer tokens, string label)
@@ -33,12 +33,12 @@ internal class ParseVariable(
       }
     }
 
-    IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, label);
+    IResultArray<IAstModifier> modifiers = _modifiers.Parse(tokens, label);
     if (!modifiers.Optional(value => variable.Modifiers = [.. value])) {
       return modifiers.AsResult<IGqlpVariable>(variable);
     }
 
-    IResult<IGqlpConstant> constant = _default.I.Parse(tokens, label);
+    IResult<IAstConstant> constant = _default.I.Parse(tokens, label);
     if (!constant.Optional(value => variable.DefaultValue = value)) {
       return constant.AsResult<IGqlpVariable>(variable);
     }

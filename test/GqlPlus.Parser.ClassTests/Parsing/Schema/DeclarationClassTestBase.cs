@@ -39,7 +39,7 @@ public class DeclarationClassTestBase
     => NameParser.ParseName(default!, out string? _, out TokenAt _).ReturnsForAnyArgs(OutStringAt(name));
 
   public void Check_ShouldReturnError_WhenNoName<T>([NotNull] Parser<T>.I parser)
-    where T : class, IGqlpError
+    where T : class, IAstError
   {
     // Arrange
     NameFails();

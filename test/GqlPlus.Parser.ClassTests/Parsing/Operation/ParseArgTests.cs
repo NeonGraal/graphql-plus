@@ -7,16 +7,16 @@ public class ParseArgTests
 {
 
   private readonly ParseArg _parseArg;
-  private readonly Parser<IGqlpFieldKey>.I _fieldKeyParser;
+  private readonly Parser<IAstFieldKey>.I _fieldKeyParser;
   private readonly IValueParser<IGqlpArg> _argumentParser;
 
-  private readonly IGqlpFieldKey _fieldKey = AtFor<IGqlpFieldKey>();
+  private readonly IAstFieldKey _fieldKey = AtFor<IAstFieldKey>();
   private readonly IGqlpArg _arg = AtFor<IGqlpArg>();
 
   public ParseArgTests(string fieldKey = "fieldKey", string arg = "arg")
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    ConfigureRepo<IGqlpFieldKey>(parsers, out _fieldKeyParser);
+    ConfigureRepo<IAstFieldKey>(parsers, out _fieldKeyParser);
     ConfigureRepoInterface<IValueParser<IGqlpArg>, IGqlpArg>(parsers, out _argumentParser);
     _parseArg = new ParseArg(parsers);
     _fieldKey.Text.Returns(fieldKey);
@@ -65,7 +65,7 @@ public class ParseArgTests
 
     ParseOk(_fieldKeyParser, _fieldKey);
     ParseOk(_argumentParser, _arg);
-    IGqlpFields<IGqlpArg> keyValuePairs = A.Of<IGqlpFields<IGqlpArg>>();
+    IAstFields<IGqlpArg> keyValuePairs = A.Of<IAstFields<IGqlpArg>>();
     _argumentParser.ParseFieldValues(Tokenizer, argLabel, ')', default!).ReturnsForAnyArgs(keyValuePairs.Ok());
 
     // Act

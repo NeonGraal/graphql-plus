@@ -3,7 +3,7 @@
 public interface IGqlpOperation
   : IGqlpIdentified
   , IGqlpDirectives
-  , IGqlpModifiers
+  , IAstModifiers
   , IEquatable<IGqlpOperation>
 {
   string Category { get; }
@@ -24,7 +24,7 @@ public interface IGqlpOperation
 }
 
 public interface IGqlpIdentified
-  : IGqlpAbbreviated
+  : IAstAbbreviated
   , IEquatable<IGqlpIdentified>
 {
   string Identifier { get; }
@@ -33,15 +33,15 @@ public interface IGqlpIdentified
 public interface IGqlpVariable
   : IGqlpIdentified
   , IGqlpDirectives
-  , IGqlpModifiers
+  , IAstModifiers
   , IEquatable<IGqlpVariable>
 {
   string? Type { get; }
-  IGqlpConstant? DefaultValue { get; }
+  IAstConstant? DefaultValue { get; }
 }
 
 public interface IGqlpDirectives
-  : IGqlpAbbreviated
+  : IAstAbbreviated
 {
   IEnumerable<IGqlpDirective> Directives { get; }
 }

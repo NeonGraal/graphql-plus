@@ -7,7 +7,7 @@ public abstract class TestTypedMerger<TBase, TType, TParent, TItem>
   where TBase : IGqlpType
   where TType : IGqlpType<TParent>, TBase
   where TParent : IGqlpDescribed, IEquatable<TParent>
-  where TItem : IGqlpError
+  where TItem : IAstError
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSameParent_ReturnsGood(string name, string type)

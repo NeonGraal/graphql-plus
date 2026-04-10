@@ -10,9 +10,9 @@ internal class ParseAlternates(
   IParserRepository parsers
 ) : Parser<IGqlpAlternate>.IA
 {
-  private readonly ParserArray<IParserCollections, IGqlpModifier>.LA _collections = parsers.ArrayFor<IParserCollections, IGqlpModifier>();
+  private readonly ParserArray<IParserCollections, IAstModifier>.LA _collections = parsers.ArrayFor<IParserCollections, IAstModifier>();
   private readonly Parser<IGqlpObjBase>.L _parseBase = parsers.ParserFor<IGqlpObjBase>();
-  private readonly Parser<IGqlpEnumValue>.L _parseEnum = parsers.ParserFor<IGqlpEnumValue>();
+  private readonly Parser<IAstEnumValue>.L _parseEnum = parsers.ParserFor<IAstEnumValue>();
 
   public IResultArray<IGqlpAlternate> Parse(ITokenizer tokens, string label)
   {
@@ -49,7 +49,7 @@ internal class ParseAlternates(
       Args = baseObject.Args.ArrayOf<IGqlpTypeArg>(),
     };
     result.Add(alternate);
-    IResultArray<IGqlpModifier> collections = _collections.Value.Parse(tokens, label);
+    IResultArray<IAstModifier> collections = _collections.Value.Parse(tokens, label);
     if (!collections.Optional(value => alternate.Modifiers = value.ArrayOf<ModifierAst>())) {
       return collections.AsPartialArray(result);
     }
@@ -60,14 +60,14 @@ internal class ParseAlternates(
   private IResultArray<IGqlpAlternate>? ParseEnum(ITokenizer tokens, string label, List<IGqlpAlternate> result)
   {
     TokenAt at = tokens.At;
-    IResult<IGqlpEnumValue> enumResult = _parseEnum.Parse(tokens, label);
+    IResult<IAstEnumValue> enumResult = _parseEnum.Parse(tokens, label);
     if (!enumResult.IsOk()) {
       return enumResult.IsError()
         ? result.PartialArray(enumResult.Message())
         : result.PartialArray(tokens.Error(label, "enum missing after '!'"));
     }
 
-    IGqlpEnumValue enumValue = enumResult.Required();
+    IAstEnumValue enumValue = enumResult.Required();
     AlternateAst alternate = new(at, enumValue.EnumType, "") {
       EnumValue = enumValue,
     };

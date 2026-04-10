@@ -100,10 +100,10 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
   protected void AlternateInterfaceMember(MapPair<string> item, GqlpGeneratorContext context)
     => context.Write($"  {item.Value}? As{item.Key} {{ get; }}");
 
-  protected string ModifiedTypeString(IGqlpObjType type, IGqlpModifiers modifiers, GqlpGeneratorTypes types)
+  protected string ModifiedTypeString(IGqlpObjType type, IAstModifiers modifiers, GqlpGeneratorTypes types)
     => modifiers.Modifiers.Aggregate(TypeString(type, types, "I"), (s, m) => ModifyTypeString(s, m, types));
 
-  protected string ModifyTypeString(string typeStr, IGqlpModifier modifier, GqlpGeneratorTypes types)
+  protected string ModifyTypeString(string typeStr, IAstModifier modifier, GqlpGeneratorTypes types)
     => modifier.ModifierKind switch {
       ModifierKind.Optional => typeStr + "?",
       ModifierKind.List => $"ICollection<{typeStr}>",

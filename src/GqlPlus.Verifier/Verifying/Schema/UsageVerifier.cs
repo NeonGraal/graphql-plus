@@ -33,9 +33,9 @@ public record class UsageAliased<TUsage>(
   TUsage[] Usages,
   IGqlpType[] Definitions
 )
-  where TUsage : IGqlpError;
+  where TUsage : IAstError;
 
 public interface IVerifyUsage<TUsage>
   : IVerify<UsageAliased<TUsage>>
-  where TUsage : IGqlpError
+  where TUsage : IAstError
 { }

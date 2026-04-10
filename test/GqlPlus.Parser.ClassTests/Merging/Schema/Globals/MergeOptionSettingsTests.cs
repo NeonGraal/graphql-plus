@@ -19,13 +19,13 @@ public class MergeOptionSettingsTests
       .MergeCalled(_values);
 
   private readonly MergeOptionSettings _merger;
-  private readonly IMerge<IGqlpConstant> _values;
+  private readonly IMerge<IAstConstant> _values;
 
   public MergeOptionSettingsTests()
   {
-    _values = Merger<IGqlpConstant>();
+    _values = Merger<IAstConstant>();
     IMergerRepository mergers = Substitute.For<IMergerRepository>();
-    mergers.MergerFor<IGqlpConstant>().Returns(_values);
+    mergers.MergerFor<IAstConstant>().Returns(_values);
     _merger = new(mergers);
   }
 

@@ -8,7 +8,7 @@ public abstract class TestSimpleMerger<TBase, TType, TItem, TItemInput>
   : TestTypedMerger<TBase, TType, IGqlpTypeRef, TItem>
   where TBase : IGqlpType
   where TType : IGqlpSimple<TItem>, TBase
-  where TItem : IGqlpError
+  where TItem : IAstError
 {
   [Theory, RepeatData]
   public void CanMerge_ItemsCantMerge_ReturnsErrors(string name, TItemInput input)

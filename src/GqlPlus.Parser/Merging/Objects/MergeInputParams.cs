@@ -17,7 +17,7 @@ internal class MergeInputParams(
 
   protected override IMessages CanMergeGroup(IGrouping<string, IGqlpInputParam> group)
     => base.CanMergeGroup(group)
-      .Add(group.CanMerge(item => item.DefaultValue, mergers.MergerFor<IGqlpConstant>()));
+      .Add(group.CanMerge(item => item.DefaultValue, mergers.MergerFor<IAstConstant>()));
 
   protected override IGqlpInputParam MergeGroup(IEnumerable<IGqlpInputParam> group)
   {
@@ -27,7 +27,7 @@ internal class MergeInputParams(
     }
 
     return first with {
-      DefaultValue = group.Merge(item => item.DefaultValue, mergers.MergerFor<IGqlpConstant>()).FirstOrDefault(),
+      DefaultValue = group.Merge(item => item.DefaultValue, mergers.MergerFor<IAstConstant>()).FirstOrDefault(),
     };
   }
 }

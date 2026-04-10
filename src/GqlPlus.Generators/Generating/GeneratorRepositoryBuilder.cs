@@ -24,10 +24,10 @@ internal class GeneratorRepositoryBuilder
       .AddTypeGenerator<TEncoder>(GqlpGeneratorType.Enc);
 
   public IGeneratorRepositoryBuilder AddGenerator<TAst>(Factory<IGenerator<TAst>, IGeneratorRepository> factory)
-    where TAst : IGqlpError
+    where TAst : IAstError
     => this.FluentAction(b => b.Generators[typeof(TAst)] = factory);
   public IGeneratorRepositoryBuilder AddGenerator<TAst, TGenerator>()
-    where TAst : IGqlpError
+    where TAst : IAstError
     where TGenerator : IGenerator<TAst>, new()
     => AddGenerator(_ => new TGenerator());
 

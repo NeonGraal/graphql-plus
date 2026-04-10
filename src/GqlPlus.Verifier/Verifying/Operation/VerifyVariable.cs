@@ -7,15 +7,15 @@ internal class VerifyVariable
 {
   public void Verify(IGqlpVariable item, IMessages errors)
   {
-    IGqlpConstant? def = item.DefaultValue;
+    IAstConstant? def = item.DefaultValue;
     if (def is null) {
       return;
     }
 
-    IGqlpModifier? lastModifier = item.Modifiers.LastOrDefault();
+    IAstModifier? lastModifier = item.Modifiers.LastOrDefault();
     if (lastModifier?.ModifierKind == ModifierKind.Optional) {
       int count = item.Modifiers.Count();
-      IGqlpModifier? secondLastModifier = count > 1 ? item.Modifiers.Skip(count - 2).First() : null;
+      IAstModifier? secondLastModifier = count > 1 ? item.Modifiers.Skip(count - 2).First() : null;
       VerifyVariableDefault("Optional ", secondLastModifier, def, errors);
       return;
     }
@@ -26,8 +26,8 @@ internal class VerifyVariable
 
   private static void VerifyVariableDefault(
     string label,
-    IGqlpModifier? lastModifier,
-    IGqlpConstant def,
+    IAstModifier? lastModifier,
+    IAstConstant def,
     IMessages errors)
   {
     if (lastModifier?.ModifierKind == ModifierKind.Dict && (def.Values.Any() || def.Value is not null)) {
@@ -39,7 +39,7 @@ internal class VerifyVariable
     }
   }
 
-  private static void VerifyVariableNullDefault(IGqlpConstant def, IMessages errors)
+  private static void VerifyVariableNullDefault(IAstConstant def, IMessages errors)
   {
     if (def.Value?.EnumValue?.EnumValue == "Null.null") {
       errors.Add(def.MakeError("Invalid Variable definition. Default of 'null' must be on Optional Type."));

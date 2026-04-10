@@ -11,14 +11,14 @@ internal sealed record class FieldAst(
 {
   public string? FieldAlias { get; init; }
   public IGqlpArg? Arg { get; set; }
-  public IGqlpModifier[] Modifiers { get; set; } = [];
+  public IAstModifier[] Modifiers { get; set; } = [];
   public IGqlpSelection[] Selections { get; set; } = [];
 
   internal override string Abbr => "f";
 
   IGqlpArg? IGqlpField.Arg => Arg;
 
-  IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
+  IEnumerable<IAstModifier> IAstModifiers.Modifiers => Modifiers;
 
   IEnumerable<IGqlpSelection> IGqlpSelections.Selections => Selections;
 

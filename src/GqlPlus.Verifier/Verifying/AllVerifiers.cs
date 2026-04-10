@@ -78,7 +78,7 @@ public static class AllVerifiers
   private static IVerifierRepositoryBuilder AddVerifyUsageIdentified<TUsage, TIdentified>(
     this IVerifierRepositoryBuilder builder,
     Factory<IVerifyIdentified<TUsage, TIdentified>, IVerifierRepository> identifiedFactory)
-    where TUsage : IGqlpError
+    where TUsage : IAstError
     where TIdentified : IGqlpIdentified
     => builder
       .AddIdentified(identifiedFactory)

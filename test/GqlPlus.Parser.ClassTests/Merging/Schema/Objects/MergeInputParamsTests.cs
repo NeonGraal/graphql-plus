@@ -36,15 +36,15 @@ public class MergeInputParamsTests
       [MakeDescribed(input), MakeDefault(input, value)],
       MakeDefault(input, value));
 
-  private readonly IMerge<IGqlpConstant> _constant;
+  private readonly IMerge<IAstConstant> _constant;
   private readonly MergeInputParams _merger;
 
   public MergeInputParamsTests(ITestOutputHelper outputHelper)
   {
-    _constant = Merger<IGqlpConstant>();
+    _constant = Merger<IAstConstant>();
 
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.MergerFor<IGqlpConstant>().Returns(_constant);
+    mergers.MergerFor<IAstConstant>().Returns(_constant);
     _merger = new(mergers);
   }
 

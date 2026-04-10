@@ -13,10 +13,10 @@ public class ParseCollectionsTests
     TakeReturns('[', false);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeOfType<ResultArrayOk<IGqlpModifier>>()
+    result.ShouldBeOfType<ResultArrayOk<IAstModifier>>()
       .Required().ShouldBeEmpty();
   }
 
@@ -28,10 +28,10 @@ public class ParseCollectionsTests
     TakeReturns(']', true);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeOfType<ResultArrayOk<IGqlpModifier>>()
+    result.ShouldBeOfType<ResultArrayOk<IAstModifier>>()
       .Required().ShouldHaveSingleItem()
       .ShouldBeOfType<ModifierAst>()
       .Kind.ShouldBe(ModifierKind.List);
@@ -46,10 +46,10 @@ public class ParseCollectionsTests
     TakeReturns(']', true);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeOfType<ResultArrayOk<IGqlpModifier>>()
+    result.ShouldBeOfType<ResultArrayOk<IAstModifier>>()
       .Required().ShouldHaveSingleItem()
       .ShouldBeOfType<ModifierAst>()
       .ShouldSatisfyAllConditions(
@@ -71,10 +71,10 @@ public class ParseCollectionsTests
     TakeReturns(']', true);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeOfType<ResultArrayOk<IGqlpModifier>>()
+    result.ShouldBeOfType<ResultArrayOk<IAstModifier>>()
       .Required().ShouldHaveSingleItem()
       .ShouldBeOfType<ModifierAst>()
       .ShouldSatisfyAllConditions(
@@ -94,10 +94,10 @@ public class ParseCollectionsTests
     TakeReturns(']', true);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpModifier>>()
+    result.ShouldBeAssignableTo<IResultArrayOk<IAstModifier>>()
       .Required().ShouldHaveSingleItem()
       .ShouldBeOfType<ModifierAst>()
       .ShouldSatisfyAllConditions(
@@ -117,10 +117,10 @@ public class ParseCollectionsTests
     TakeReturns(']', true);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeOfType<ResultArrayOk<IGqlpModifier>>()
+    result.ShouldBeOfType<ResultArrayOk<IAstModifier>>()
       .Required().ShouldHaveSingleItem()
       .ShouldBeOfType<ModifierAst>()
       .ShouldSatisfyAllConditions(
@@ -137,13 +137,13 @@ public class ParseCollectionsTests
     TakeReturns('[', true);
     TakeReturns('$', true);
     IdentifierReturns(OutFail);
-    SetupPartial<IGqlpModifier>();
+    SetupPartial<IAstModifier>();
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpModifier>>()
+    result.ShouldBeAssignableTo<IResultArrayPartial<IAstModifier>>()
       .Result.ShouldHaveSingleItem();
   }
 
@@ -152,12 +152,12 @@ public class ParseCollectionsTests
   {
     // Arrange
     TakeReturns('[', true);
-    SetupPartial<IGqlpModifier>();
+    SetupPartial<IAstModifier>();
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeOfType<ResultArrayPartial<IGqlpModifier>>();
+    result.ShouldBeOfType<ResultArrayPartial<IAstModifier>>();
   }
 }

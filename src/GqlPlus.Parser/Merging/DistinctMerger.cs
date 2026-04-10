@@ -2,7 +2,7 @@
 
 internal abstract class DistinctMerger<TItem>
   : GroupsMerger<TItem>
-  where TItem : IGqlpError
+  where TItem : IAstError
 {
   private readonly ILogger _logger;
 

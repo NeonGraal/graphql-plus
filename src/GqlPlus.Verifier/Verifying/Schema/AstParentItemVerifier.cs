@@ -9,7 +9,7 @@ internal abstract class AstParentItemVerifier<TAst, TParent, TContext, TItem>(
   where TAst : IGqlpType<TParent>
   where TParent : IGqlpDescribed, IEquatable<TParent>
   where TContext : UsageContext
-  where TItem : IGqlpError
+  where TItem : IAstError
 {
   private readonly IMerge<TItem> _mergeItems = verifiers.MergerFor<TItem>();
 

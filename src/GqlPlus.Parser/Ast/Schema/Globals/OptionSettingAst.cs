@@ -7,13 +7,13 @@ internal sealed record class OptionSettingAst(
   ITokenAt At,
   string Name,
   string Description,
-  IGqlpConstant Value)
+  IAstConstant Value)
   : AstAliased(At, Name, Description)
   , IGqlpSchemaSetting
 {
   internal override string Abbr => "OS";
 
-  public OptionSettingAst(TokenAt at, string name, IGqlpConstant value)
+  public OptionSettingAst(TokenAt at, string name, IAstConstant value)
     : this(at, name, "", value) { }
 
   public bool Equals(OptionSettingAst? other)

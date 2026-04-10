@@ -14,10 +14,10 @@ public static class OperationTestHelpers
   public static IGqlpArg[] ArgList(this string value)
     => [new ArgAst(AstNulls.At, value), new ArgAst(value.FieldKey())];
 
-  public static IGqlpFields<IGqlpArg> ArgObject(this string value, string key)
+  public static IAstFields<IGqlpArg> ArgObject(this string value, string key)
   {
-    IGqlpFieldKey keyAst = key.FieldKey();
-    IGqlpFieldKey valueAst = value.FieldKey();
+    IAstFieldKey keyAst = key.FieldKey();
+    IAstFieldKey valueAst = value.FieldKey();
 
     return key == value
       ? new FieldsAst<IGqlpArg>(keyAst, new ArgAst(AstNulls.At, value))

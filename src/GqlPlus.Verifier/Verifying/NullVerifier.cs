@@ -2,7 +2,7 @@
 
 internal class NullVerifierError<TGqlp>
   : IVerify<TGqlp>
-  where TGqlp : IGqlpError
+  where TGqlp : IAstError
 {
   private readonly ILogger _logger;
 

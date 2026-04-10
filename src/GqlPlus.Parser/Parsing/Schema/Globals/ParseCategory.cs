@@ -32,7 +32,7 @@ internal class ParseCategory(
 
 internal record CategoryOutput(IGqlpTypeRef Output)
 {
-  public IGqlpModifier[] Modifiers { get; set; } = [];
+  public IAstModifier[] Modifiers { get; set; } = [];
 }
 
 internal class CategoryName
@@ -56,7 +56,7 @@ internal class ParseCategoryDefinition(
 ) : Parser<CategoryOutput>.I
 {
   private readonly Parser<IGqlpTypeRef>.L _typeRef = parsers.ParserFor<IGqlpTypeRef>();
-  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.ArrayFor<IGqlpModifier>();
+  private readonly Parser<IAstModifier>.LA _modifiers = parsers.ArrayFor<IAstModifier>();
 
   public IResult<CategoryOutput> Parse(ITokenizer tokens, string label)
   {
@@ -66,7 +66,7 @@ internal class ParseCategoryDefinition(
     }
 
     CategoryOutput result = new(output.Required());
-    IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, "Param");
+    IResultArray<IAstModifier> modifiers = _modifiers.Parse(tokens, "Param");
     if (modifiers.IsError()) {
       return modifiers.AsPartial(result);
     }

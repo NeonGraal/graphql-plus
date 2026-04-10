@@ -11,7 +11,7 @@ internal sealed record class TypeArgAst(
 {
   internal override string Abbr => "OR";
 
-  public IGqlpEnumValue? EnumValue { get; set; }
+  public IAstEnumValue? EnumValue { get; set; }
 
   string IGqlpObjEnum.EnumTypeName => IsTypeParam ? "" : Name;
   void IGqlpObjEnum.SetEnumType(string enumType)

@@ -16,7 +16,7 @@ internal class OutputModeller(
 
 internal class OutputFieldModeller(
   IModifierModeller modifier,
-  // IModeller<IGqlpEnumValue, EnumValueModel> enumValue,
+  // IModeller<IAstEnumValue, EnumValueModel> enumValue,
   IModeller<IGqlpInputParam, InputParamModel> parameter,
   IModeller<IGqlpObjBase, ObjBaseModel> objBase
 ) : ModellerObjField<IGqlpOutputField, OutputFieldModel>(modifier, objBase)

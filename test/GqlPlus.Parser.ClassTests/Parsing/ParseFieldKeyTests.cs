@@ -6,14 +6,14 @@ public class ParseFieldKeyTests
 
   private readonly ParseFieldKey _parseFieldKey;
 
-  private readonly Parser<IGqlpEnumValue>.I _parseEnumValue;
+  private readonly Parser<IAstEnumValue>.I _parseEnumValue;
 
   public ParseFieldKeyTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    ConfigureRepo<IGqlpEnumValue>(parsers, out _parseEnumValue);
+    ConfigureRepo<IAstEnumValue>(parsers, out _parseEnumValue);
     _parseFieldKey = new ParseFieldKey(parsers);
-    SetupError<IGqlpFieldKey>();
+    SetupError<IAstFieldKey>();
   }
 
   [Theory, RepeatData]
@@ -23,10 +23,10 @@ public class ParseFieldKeyTests
     Tokenizer.Number(out decimal _).Returns(OutNumber(value));
 
     // Act
-    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
+    IResult<IAstFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpFieldKey>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstFieldKey>>()
       .Required().Number.ShouldBe(value);
   }
 
@@ -37,10 +37,10 @@ public class ParseFieldKeyTests
     Tokenizer.String(out string? _).Returns(OutString(contents));
 
     // Act
-    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
+    IResult<IAstFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpFieldKey>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstFieldKey>>()
       .Required().Text.ShouldBe(contents);
   }
 
@@ -51,10 +51,10 @@ public class ParseFieldKeyTests
     Tokenizer.String(out string? _).Returns(OutString(string.Empty));
 
     // Act
-    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
+    IResult<IAstFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpFieldKey>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstFieldKey>>()
       .Required().Text.ShouldBe(string.Empty);
   }
 
@@ -67,10 +67,10 @@ public class ParseFieldKeyTests
     ParseOk(_parseEnumValue);
 
     // Act
-    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
+    IResult<IAstFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpFieldKey>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstFieldKey>>()
       .Required().EnumValue.ShouldNotBeNull();
   }
 
@@ -83,7 +83,7 @@ public class ParseFieldKeyTests
     ParseError(_parseEnumValue);
 
     // Act
-    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
+    IResult<IAstFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -98,7 +98,7 @@ public class ParseFieldKeyTests
     ParseEmpty(_parseEnumValue);
 
     // Act
-    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
+    IResult<IAstFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

@@ -3,7 +3,7 @@
 public class CategoryModellerTests
   : ModellerClassTestBase<IGqlpSchemaCategory, CategoryModel>
 {
-  private readonly IModeller<IGqlpModifier, ModifierModel> _modifier = MFor<IGqlpModifier, ModifierModel>();
+  private readonly IModeller<IAstModifier, ModifierModel> _modifier = MFor<IAstModifier, ModifierModel>();
 
   public CategoryModellerTests()
     => Modeller = new CategoryModeller(_modifier);
@@ -18,7 +18,7 @@ public class CategoryModellerTests
     IGqlpTypeRef output = A.Named<IGqlpTypeRef>(outputName);
     ast.Output.Returns(output);
     ast.CategoryOption.Returns(CategoryOption.Parallel);
-    IEnumerable<IGqlpModifier> modifiers = [A.Modifier(ModifierKind.List), A.Modifier(ModifierKind.Opt)];
+    IEnumerable<IAstModifier> modifiers = [A.Modifier(ModifierKind.List), A.Modifier(ModifierKind.Opt)];
     ast.Modifiers.Returns(modifiers);
 
     _modifier.ToModels(modifiers, TypeKinds)

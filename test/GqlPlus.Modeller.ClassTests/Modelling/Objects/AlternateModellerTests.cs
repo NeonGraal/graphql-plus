@@ -6,7 +6,7 @@ namespace GqlPlus.Modelling.Objects;
 public class AlternateModellerTests
   : ModellerObjectBaseTestBase<IGqlpAlternate, AlternateModel, ObjBaseModel>
 {
-  private readonly IModeller<IGqlpModifier, CollectionModel> _collection = MFor<IGqlpModifier, CollectionModel>();
+  private readonly IModeller<IAstModifier, CollectionModel> _collection = MFor<IAstModifier, CollectionModel>();
 
   public AlternateModellerTests()
     => Modeller = new AlternateModeller(_collection, ObjBase);

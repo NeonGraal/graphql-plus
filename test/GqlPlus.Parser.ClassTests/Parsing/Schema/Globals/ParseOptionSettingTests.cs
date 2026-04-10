@@ -11,7 +11,7 @@ public class ParseOptionSettingTests : ParserClassTestBase
   public ParseOptionSettingTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    ConfigureRepoInterface<IParserDefault, IGqlpConstant>(parsers, out _defaultParser);
+    ConfigureRepoInterface<IParserDefault, IAstConstant>(parsers, out _defaultParser);
     _parser = new ParseOptionSetting(parsers);
   }
 

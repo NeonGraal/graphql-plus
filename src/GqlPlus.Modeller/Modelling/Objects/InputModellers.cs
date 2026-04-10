@@ -17,7 +17,7 @@ internal class InputModeller(
 internal class InputFieldModeller(
   IModifierModeller modifier,
   IModeller<IGqlpObjBase, ObjBaseModel> objBase,
-  IModeller<IGqlpConstant, ConstantModel> constant
+  IModeller<IAstConstant, ConstantModel> constant
 ) : ModellerObjField<IGqlpInputField, InputFieldModel>(modifier, objBase)
 {
   protected override InputFieldModel FieldModel(IGqlpInputField ast, ObjBaseModel type, IMap<TypeKindModel> typeKinds)
@@ -28,7 +28,7 @@ internal class InputFieldModeller(
 
 internal class InputParamModeller(
   IModifierModeller modifier,
-  IModeller<IGqlpConstant, ConstantModel> constant
+  IModeller<IAstConstant, ConstantModel> constant
 ) : ModellerBase<IGqlpInputParam, InputParamModel>
 {
   protected override InputParamModel ToModel(IGqlpInputParam ast, IMap<TypeKindModel> typeKinds)

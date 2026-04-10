@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 internal class TypeArgModeller(
-  IModeller<IGqlpEnumValue, EnumValueModel> enumValue
+  IModeller<IAstEnumValue, EnumValueModel> enumValue
 ) : ModellerBase<IGqlpTypeArg, TypeArgModel>
 {
   protected override TypeArgModel ToModel(IGqlpTypeArg ast, IMap<TypeKindModel> typeKinds)

@@ -5,7 +5,7 @@ namespace GqlPlus.Modelling.Objects;
 public class InputFieldModellerTests
   : ModellerObjectBaseTestBase<IGqlpInputField, InputFieldModel, ObjBaseModel>
 {
-  private readonly IModeller<IGqlpConstant, ConstantModel> _constant = MFor<IGqlpConstant, ConstantModel>();
+  private readonly IModeller<IAstConstant, ConstantModel> _constant = MFor<IAstConstant, ConstantModel>();
 
   public InputFieldModellerTests()
   {

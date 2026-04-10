@@ -12,7 +12,7 @@ internal sealed record class InputFieldAst(
 ) : AstObjField(At, Name, Description, Type)
   , IGqlpInputField
 {
-  public IGqlpConstant? DefaultValue { get; set; }
+  public IAstConstant? DefaultValue { get; set; }
 
   public InputFieldAst(TokenAt at, string name, IGqlpObjBase type)
     : this(at, name, "", type) { }

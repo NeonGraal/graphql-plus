@@ -9,7 +9,7 @@ internal class ParseArgValue(
   IParserRepository parsers
 ) : ValueParser<IGqlpArg>(parsers)
 {
-  private readonly Parser<IGqlpConstant>.L _constant = parsers.ParserFor<IGqlpConstant>();
+  private readonly Parser<IAstConstant>.L _constant = parsers.ParserFor<IAstConstant>();
 
   public override IResult<IGqlpArg> Parse([NotNull] ITokenizer tokens, string label)
   {
@@ -36,7 +36,7 @@ internal class ParseArgValue(
       : baseValue;
   }
 
-  protected override Func<IGqlpFields<IGqlpArg>, IGqlpArg> NewFields(ITokenAt at)
+  protected override Func<IAstFields<IGqlpArg>, IGqlpArg> NewFields(ITokenAt at)
     => fields => new ArgAst(at, fields);
   protected override Func<IEnumerable<IGqlpArg>, IGqlpArg> NewList(ITokenAt at)
     => list => new ArgAst(at, list);

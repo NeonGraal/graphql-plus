@@ -7,21 +7,21 @@ public class ParseArgValueTests
 {
 
   private readonly ParseArgValue _parseArgValue;
-  private readonly Parser<IGqlpFieldKey>.I _fieldKeyParser;
+  private readonly Parser<IAstFieldKey>.I _fieldKeyParser;
   private readonly Parser<KeyValue<IGqlpArg>>.I _keyValueParser;
   private readonly Parser<IGqlpArg>.IA _listParser;
-  private readonly Parser<IGqlpFields<IGqlpArg>>.I _objectParser;
-  private readonly Parser<IGqlpConstant>.I _constantParser;
+  private readonly Parser<IAstFields<IGqlpArg>>.I _objectParser;
+  private readonly Parser<IAstConstant>.I _constantParser;
 
   public ParseArgValueTests()
     : base(A.Of<ITokenizer, IOperationContext>())
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    ConfigureRepo<IGqlpFieldKey>(parsers, out _fieldKeyParser);
+    ConfigureRepo<IAstFieldKey>(parsers, out _fieldKeyParser);
     ConfigureRepo<KeyValue<IGqlpArg>>(parsers, out _keyValueParser);
     ConfigureRepoArray<IGqlpArg>(parsers, out _listParser);
-    ConfigureRepo<IGqlpFields<IGqlpArg>>(parsers, out _objectParser);
-    ConfigureRepo<IGqlpConstant>(parsers, out _constantParser);
+    ConfigureRepo<IAstFields<IGqlpArg>>(parsers, out _objectParser);
+    ConfigureRepo<IAstConstant>(parsers, out _constantParser);
     _parseArgValue = new ParseArgValue(parsers);
 
     PrefixReturns('$', OutPass);

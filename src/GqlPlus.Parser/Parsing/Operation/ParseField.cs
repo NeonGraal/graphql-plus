@@ -9,7 +9,7 @@ internal class ParseField(
   IParserRepository parsers
 ) : Parser<IGqlpField>.I
 {
-  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.ArrayFor<IGqlpModifier>();
+  private readonly Parser<IAstModifier>.LA _modifiers = parsers.ArrayFor<IAstModifier>();
   private readonly Parser<IGqlpDirective>.LA _directives = parsers.ArrayFor<IGqlpDirective>();
   private readonly Parser<IParserArg, IGqlpArg>.L _argument = parsers.ParserFor<IParserArg, IGqlpArg>();
   private readonly Parser<IGqlpSelection>.LA _object = parsers.ArrayFor<IGqlpSelection>();
@@ -35,7 +35,7 @@ internal class ParseField(
 
     _argument.I.Parse(tokens, "Arg").Required(argument => result.Arg = argument);
 
-    IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, label);
+    IResultArray<IAstModifier> modifiers = _modifiers.Parse(tokens, label);
     if (!modifiers.Optional(value => result.Modifiers = [.. value])) {
       return modifiers.AsPartial<IGqlpField>(result);
     }

@@ -11,8 +11,8 @@ internal class ParseInputParams(
 ) : Parser<IGqlpInputParam>.IA
 {
   private readonly Parser<IGqlpObjBase>.L _input = parsers.ParserFor<IGqlpObjBase>();
-  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.ArrayFor<IGqlpModifier>();
-  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = parsers.ParserFor<IParserDefault, IGqlpConstant>();
+  private readonly Parser<IAstModifier>.LA _modifiers = parsers.ArrayFor<IAstModifier>();
+  private readonly Parser<IParserDefault, IAstConstant>.L _default = parsers.ParserFor<IParserDefault, IAstConstant>();
 
   public IResultArray<IGqlpInputParam> Parse(ITokenizer tokens, string label)
 
@@ -32,13 +32,13 @@ internal class ParseInputParams(
 
       InputParamAst parameter = new(at, input.Required());
       list.Add(parameter);
-      IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, "Param");
+      IResultArray<IAstModifier> modifiers = _modifiers.Parse(tokens, "Param");
       if (modifiers.IsError()) {
         return modifiers.AsResultArray(list);
       }
 
       modifiers.Optional(value => parameter.Modifiers = value.ArrayOf<ModifierAst>());
-      IResult<IGqlpConstant> constant = _default.I.Parse(tokens, "Default");
+      IResult<IAstConstant> constant = _default.I.Parse(tokens, "Default");
       if (constant.IsError()) {
         return constant.AsResultArray(list);
       }

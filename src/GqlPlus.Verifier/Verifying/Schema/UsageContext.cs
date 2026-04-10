@@ -14,7 +14,7 @@ public class UsageContext(
     => errors.Add(messages);
 
   internal void AddError<TAst>(TAst item, string label, string message)
-      where TAst : IGqlpError
+      where TAst : IAstError
     => errors.Add(item.MakeError($"Invalid {label}. {message}."));
 
   internal void AddError<TAst>(
@@ -23,7 +23,7 @@ public class UsageContext(
     FormattableString message,
     bool addError
   )
-      where TAst : IGqlpError
+      where TAst : IAstError
   {
     if (addError) {
       errors.Add(item.MakeError($"Invalid {label}. {message}."));
@@ -100,10 +100,10 @@ internal record struct SelfUsage<TAst>(string Head, TAst Usage, string Label)
 
 internal static class UsageHelpers
 {
-  internal static TContext CheckModifiers<TContext>(this TContext context, IGqlpModifiers modified)
+  internal static TContext CheckModifiers<TContext>(this TContext context, IAstModifiers modified)
     where TContext : UsageContext
   {
-    foreach (IGqlpModifier modifier in modified.Modifiers) {
+    foreach (IAstModifier modifier in modified.Modifiers) {
       switch (modifier.ModifierKind) {
         case ModifierKind.Param:
           CheckParam(modifier.Key);
@@ -125,16 +125,16 @@ internal static class UsageHelpers
           CheckKey(typeParam.Constraint, $"constraint '{typeParam.Constraint}' ");
         }
       } else {
-        context.AddError((IGqlpAbbreviated)modified, "Modifier", $"'{paramName}' not defined");
+        context.AddError((IAstAbbreviated)modified, "Modifier", $"'{paramName}' not defined");
       }
     }
 
     void CheckKey(string? keyName, string label = "")
     {
       if (context.GetType(keyName, out IGqlpDescribed? key)) {
-        context.AddError((IGqlpAbbreviated)modified, "Modifier", $"{label}'{keyName}' invalid type", key is not IGqlpSimple and not IGqlpTypeParam);
+        context.AddError((IAstAbbreviated)modified, "Modifier", $"{label}'{keyName}' invalid type", key is not IGqlpSimple and not IGqlpTypeParam);
       } else {
-        context.AddError((IGqlpAbbreviated)modified, "Modifier", $"{label}'{keyName}' not defined");
+        context.AddError((IAstAbbreviated)modified, "Modifier", $"{label}'{keyName}' not defined");
       }
     }
   }

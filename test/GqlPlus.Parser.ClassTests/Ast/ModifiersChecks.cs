@@ -6,7 +6,7 @@ internal class ModifiersChecks<TInput, TAst>(
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
 ) : AstAbbreviatedChecks<TInput, TAst>(createInput, createExpression)
   , IModifiersChecks<TInput>
-  where TAst : IGqlpModifiers
+  where TAst : IAstModifiers
 {
   public void Equality_WithModifiers(TInput input)
     => Equality(() => addModifiers(CreateInput(input)));

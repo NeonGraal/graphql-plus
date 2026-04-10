@@ -6,13 +6,13 @@ public class ParseAlternatesTests
   : ModifiersClassTestBase
 {
   private readonly Parser<IGqlpObjBase>.I _parseBase;
-  private readonly Parser<IGqlpEnumValue>.I _parseEnum;
+  private readonly Parser<IAstEnumValue>.I _parseEnum;
   private readonly ParseAlternates _parser;
 
   public ParseAlternatesTests()
   {
     ConfigureRepo<IGqlpObjBase>(Parsers, out _parseBase);
-    ConfigureRepo<IGqlpEnumValue>(Parsers, out _parseEnum);
+    ConfigureRepo<IAstEnumValue>(Parsers, out _parseEnum);
     _parser = new ParseAlternates(Parsers);
   }
 

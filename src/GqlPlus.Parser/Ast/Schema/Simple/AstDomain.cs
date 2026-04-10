@@ -11,7 +11,7 @@ internal record class AstDomain<TItemAst, TItem>(
 ) : AstDomain(At, Name, Description, DomainKind)
   , IGqlpDomain<TItem>
   where TItemAst : AstBase, TItem
-  where TItem : IGqlpDomainItem, IGqlpError
+  where TItem : IGqlpDomainItem, IAstError
 {
   public TItem[] Items { get; set; } = [];
 

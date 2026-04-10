@@ -5,7 +5,7 @@ namespace GqlPlus.Generating;
 internal interface IGeneratorRepository
 {
   IGenerator<TAst> GeneratorFor<TAst>()
-    where TAst : IGqlpError;
+    where TAst : IAstError;
 
   IDictionary<GqlpGeneratorType, IEnumerable<ITypeGenerator>> TypeGenerators { get; }
 }

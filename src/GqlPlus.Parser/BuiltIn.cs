@@ -161,7 +161,7 @@ public static class BuiltIn
 
   private static AstDomain<TAst, TLabel> Domain<TAst, TLabel>(string type, DomainKind kind, params string[] aliases)
     where TAst : AstBase, TLabel
-    where TLabel : IGqlpDomainItem, IGqlpError
+    where TLabel : IGqlpDomainItem, IAstError
     => new(AstNulls.At, type, kind, []) { Aliases = aliases };
 
   private static TypeParamAst KeyParam()

@@ -12,7 +12,7 @@ public class ParseInputParamsTests
   public ParseInputParamsTests()
   {
     ConfigureRepo<IGqlpObjBase>(Parsers, out _input);
-    ConfigureRepoInterface<IParserDefault, IGqlpConstant>(Parsers, out _defaultParser);
+    ConfigureRepoInterface<IParserDefault, IAstConstant>(Parsers, out _defaultParser);
     _parser = new ParseInputParams(Parsers);
   }
 

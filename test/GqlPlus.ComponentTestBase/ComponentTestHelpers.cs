@@ -21,7 +21,7 @@ public class TestSchema(IEnumerable<IGqlpDeclaration> declarations)
   public ITokenAt At { get; } = AstNulls.At;
   public string Abbr { get; } = "S";
 
-  public bool Equals(IGqlpAbbreviated? other) => false;
+  public bool Equals(IAstAbbreviated? other) => false;
   public bool Equals(IGqlpSchema? other) => false;
   public IEnumerable<string?> GetFields() => throw new NotImplementedException();
   public IMessages MakeError(string message) => throw new NotImplementedException();

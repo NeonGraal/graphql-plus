@@ -13,7 +13,7 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst>(
   where TObjFieldAst : AstObjField, TObjField
 {
   private readonly Parser<string>.LA _aliases = parsers.ArrayFor<string>();
-  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.ArrayFor<IGqlpModifier>();
+  private readonly Parser<IAstModifier>.LA _modifiers = parsers.ArrayFor<IAstModifier>();
   private readonly Parser<IGqlpObjBase>.L _parseBase = parsers.ParserFor<IGqlpObjBase>();
 
   public IResult<TObjField> Parse(ITokenizer tokens, string label)
@@ -43,7 +43,7 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst>(
           => field = ObjField(at, name, description, fieldType))) {
         hasAliases.WithResult(aliases => field.Aliases = [.. aliases]);
         hasParam.WithResult(parameter => ApplyFieldParams(field, [.. parameter]));
-        IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, label);
+        IResultArray<IAstModifier> modifiers = _modifiers.Parse(tokens, label);
         if (modifiers.IsError()) {
           return modifiers.AsPartial<TObjField>(field);
         }

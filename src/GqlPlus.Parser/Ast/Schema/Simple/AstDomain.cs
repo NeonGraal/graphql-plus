@@ -9,9 +9,9 @@ internal record class AstDomain<TItemAst, TItem>(
   string Description,
   DomainKind DomainKind
 ) : AstDomain(At, Name, Description, DomainKind)
-  , IGqlpDomain<TItem>
+  , IAstDomain<TItem>
   where TItemAst : AstBase, TItem
-  where TItem : IGqlpDomainItem, IAstError
+  where TItem : IAstDomainItem, IAstError
 {
   public TItem[] Items { get; set; } = [];
 
@@ -27,7 +27,7 @@ internal record class AstDomain<TItemAst, TItem>(
 
   public virtual bool Equals(AstDomain<TItemAst, TItem>? other)
     => other is IAstSimple<TItem> simple && Equals(simple);
-  public bool Equals(IGqlpDomain<TItem> other)
+  public bool Equals(IAstDomain<TItem> other)
     => Equals(other as IAstSimple<TItem>);
   public bool Equals(IAstSimple<TItem> other)
     => base.Equals(other)
@@ -47,11 +47,11 @@ internal abstract record class AstDomain(
   string Description,
   DomainKind DomainKind
 ) : AstSimple(At, Name, Description)
-  , IGqlpDomain
+  , IAstDomain
 {
   public override TypeKind Kind => TypeKind.Domain;
 
-  public bool Equals(IGqlpDomain? other)
+  public bool Equals(IAstDomain? other)
     => base.Equals(other)
     && DomainKind == other.DomainKind;
   public override int GetHashCode() => base.GetHashCode();

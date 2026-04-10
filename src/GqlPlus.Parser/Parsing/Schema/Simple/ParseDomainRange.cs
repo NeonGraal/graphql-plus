@@ -7,18 +7,18 @@ namespace GqlPlus.Parsing.Schema.Simple;
 
 internal class ParseDomainRange(
   IParserRepository parsers
-) : ParseDomainItem<IGqlpDomainRange>(parsers)
+) : ParseDomainItem<IAstDomainRange>(parsers)
 {
   public override DomainKind Kind => DomainKind.Number;
 
-  public override IResult<IGqlpDomainRange> Parse(ITokenizer tokens, string label)
+  public override IResult<IAstDomainRange> Parse(ITokenizer tokens, string label)
   {
     string description = tokens.Description();
     TokenAt at = tokens.At;
     bool excludes = tokens.Take('!');
 
     DomainRangeAst value = new(at, description, excludes);
-    IGqlpDomainRange range = value;
+    IAstDomainRange range = value;
     bool hasFirstChar = tokens.TakeAny(out char firstChar, '<', '>');
     bool hasFirst = tokens.Number(out decimal first);
 
@@ -56,10 +56,10 @@ internal class ParseDomainRange(
 
     return range.Ok();
 
-    IResult<IGqlpDomainRange> RangeError(string message)
+    IResult<IAstDomainRange> RangeError(string message)
       => tokens.Error(label, message, range);
 
-    IResult<IGqlpDomainRange> FirstOr(Func<IResult<IGqlpDomainRange>> error)
+    IResult<IAstDomainRange> FirstOr(Func<IResult<IAstDomainRange>> error)
       => hasFirst
         ? range.Ok()
         : error();
@@ -69,6 +69,6 @@ internal class ParseDomainRange(
     ITokenizer tokens,
     string label,
     DomainDefinition result,
-    IGqlpDomainRange[] items
+    IAstDomainRange[] items
   ) => result.Numbers = items.ArrayOf<DomainRangeAst>();
 }

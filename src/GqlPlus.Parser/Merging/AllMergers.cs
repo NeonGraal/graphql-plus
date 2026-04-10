@@ -41,9 +41,9 @@ public static class AllMergers
       .AddSchemaDomainMergers()
       .AddSchemaDomainMergeAlls()
       .AddMerge(m => new MergeEnumLabels(m))
-      .AddMergeAll<IGqlpEnum, IAstType, MergeEnums>(m => new MergeEnums(m))
+      .AddMergeAll<IAstEnum, IAstType, MergeEnums>(m => new MergeEnums(m))
       .AddMerge(_ => new MergeUnionMembers())
-      .AddMergeAll<IGqlpUnion, IAstType, MergeUnions>(m => new MergeUnions(m));
+      .AddMergeAll<IAstUnion, IAstType, MergeUnions>(m => new MergeUnions(m));
 
   public static IMergerRepositoryBuilder AddSchemaDomainMergers(this IMergerRepositoryBuilder builder)
     => builder.ThrowIfNull()
@@ -54,15 +54,15 @@ public static class AllMergers
 
   public static IMergerRepositoryBuilder AddSchemaDomainMergeAlls(this IMergerRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      .AddMergeAll<IGqlpDomain, IAstType, MergeAllDomains>(m => new MergeAllDomains(m))
-      .AddMergeAll<IGqlpDomain<IGqlpDomainLabel>, IGqlpDomain, MergeDomains<DomainLabelAst, IGqlpDomainLabel>>(
-        m => new MergeDomains<DomainLabelAst, IGqlpDomainLabel>(m))
-      .AddMergeAll<IGqlpDomain<IGqlpDomainRange>, IGqlpDomain, MergeDomains<DomainRangeAst, IGqlpDomainRange>>(
-        m => new MergeDomains<DomainRangeAst, IGqlpDomainRange>(m))
-      .AddMergeAll<IGqlpDomain<IGqlpDomainRegex>, IGqlpDomain, MergeDomains<DomainRegexAst, IGqlpDomainRegex>>(
-        m => new MergeDomains<DomainRegexAst, IGqlpDomainRegex>(m))
-      .AddMergeAll<IGqlpDomain<IGqlpDomainTrueFalse>, IGqlpDomain, MergeDomains<DomainTrueFalseAst, IGqlpDomainTrueFalse>>(
-        m => new MergeDomains<DomainTrueFalseAst, IGqlpDomainTrueFalse>(m));
+      .AddMergeAll<IAstDomain, IAstType, MergeAllDomains>(m => new MergeAllDomains(m))
+      .AddMergeAll<IAstDomain<IAstDomainLabel>, IAstDomain, MergeDomains<DomainLabelAst, IAstDomainLabel>>(
+        m => new MergeDomains<DomainLabelAst, IAstDomainLabel>(m))
+      .AddMergeAll<IAstDomain<IAstDomainRange>, IAstDomain, MergeDomains<DomainRangeAst, IAstDomainRange>>(
+        m => new MergeDomains<DomainRangeAst, IAstDomainRange>(m))
+      .AddMergeAll<IAstDomain<IAstDomainRegex>, IAstDomain, MergeDomains<DomainRegexAst, IAstDomainRegex>>(
+        m => new MergeDomains<DomainRegexAst, IAstDomainRegex>(m))
+      .AddMergeAll<IAstDomain<IAstDomainTrueFalse>, IAstDomain, MergeDomains<DomainTrueFalseAst, IAstDomainTrueFalse>>(
+        m => new MergeDomains<DomainTrueFalseAst, IAstDomainTrueFalse>(m));
 
   public static IMergerRepositoryBuilder AddSchemaObjectMergers(this IMergerRepositoryBuilder builder)
     => builder.ThrowIfNull()

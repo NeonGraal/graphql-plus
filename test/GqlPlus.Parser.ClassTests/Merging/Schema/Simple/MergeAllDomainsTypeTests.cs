@@ -12,12 +12,12 @@ public class MergeAllDomainsTypeTests
 
   public MergeAllDomainsTypeTests(ITestOutputHelper outputHelper)
   {
-    IMergeAll<IGqlpDomain> result = Substitute.For<IMergeAll<IGqlpDomain>>();
+    IMergeAll<IAstDomain> result = Substitute.For<IMergeAll<IAstDomain>>();
     result.CanMerge([]).ReturnsForAnyArgs(EmptyMessages);
-    result.Merge([]).ReturnsForAnyArgs(c => c.Arg<IEnumerable<IGqlpDomain>>());
+    result.Merge([]).ReturnsForAnyArgs(c => c.Arg<IEnumerable<IAstDomain>>());
 
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.AllMergersFor<IGqlpDomain>().Returns([result]);
+    mergers.AllMergersFor<IAstDomain>().Returns([result]);
     _merger = new(mergers);
   }
 
@@ -27,7 +27,7 @@ public class MergeAllDomainsTypeTests
     => CanMerge_Good([]);
 
   protected override IAstType MakeAst(string input)
-    => new AstDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse>(AstNulls.At, input, DomainKind.Boolean, [
+    => new AstDomain<DomainTrueFalseAst, IAstDomainTrueFalse>(AstNulls.At, input, DomainKind.Boolean, [
         new DomainTrueFalseAst(AstNulls.At, "", false, true)
       ]);
 }

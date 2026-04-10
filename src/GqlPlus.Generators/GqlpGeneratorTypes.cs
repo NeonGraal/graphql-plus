@@ -106,7 +106,7 @@ internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
     }
 
     if (_types.TryGetValue(typeName, out IAstType theType)) {
-      return (theType is IGqlpEnum ? "" : prefix) + ModelOptions.TypePrefix + theType.Name;
+      return (theType is IAstEnum ? "" : prefix) + ModelOptions.TypePrefix + theType.Name;
     } else {
       return prefix + ModelOptions.TypePrefix + typeName;
     }

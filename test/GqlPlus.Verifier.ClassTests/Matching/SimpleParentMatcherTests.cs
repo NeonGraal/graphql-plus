@@ -51,22 +51,22 @@ public abstract class SimpleParentMatcherTests<TSimple>
 }
 
 public class DomainParentMatcherTests
-  : SimpleParentMatcherTests<IGqlpDomain<IGqlpDomainLabel>>
+  : SimpleParentMatcherTests<IAstDomain<IAstDomainLabel>>
 {
-  protected override SimpleBuilder<IGqlpDomain<IGqlpDomainLabel>> MakeSimple(string name)
-    => new DomainBuilder<IGqlpDomainLabel>(name, DomainKind.Enum);
+  protected override SimpleBuilder<IAstDomain<IAstDomainLabel>> MakeSimple(string name)
+    => new DomainBuilder<IAstDomainLabel>(name, DomainKind.Enum);
 }
 
 public class EnumParentMatcherTests
-  : SimpleParentMatcherTests<IGqlpEnum>
+  : SimpleParentMatcherTests<IAstEnum>
 {
-  protected override SimpleBuilder<IGqlpEnum> MakeSimple(string name)
+  protected override SimpleBuilder<IAstEnum> MakeSimple(string name)
     => new EnumBuilder(name);
 }
 
 public class UnionParentMatcherTests
-  : SimpleParentMatcherTests<IGqlpUnion>
+  : SimpleParentMatcherTests<IAstUnion>
 {
-  protected override SimpleBuilder<IGqlpUnion> MakeSimple(string name)
+  protected override SimpleBuilder<IAstUnion> MakeSimple(string name)
     => new UnionBuilder(name);
 }

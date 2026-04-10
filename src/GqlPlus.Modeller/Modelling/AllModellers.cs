@@ -23,12 +23,12 @@ public static class AllModellers
       .AddTypesModeller()
       .AddTypeModeller<IAstTypeSpecial, SpecialTypeModel, SpecialTypeModeller>()
       // Simple
-      .AddDomainModeller<IGqlpDomainLabel, DomainLabelModel, DomainEnumModeller>()
-      .AddDomainModeller<IGqlpDomainRange, DomainRangeModel, DomainNumberModeller>()
-      .AddDomainModeller<IGqlpDomainRegex, DomainRegexModel, DomainStringModeller>()
-      .AddDomainModeller<IGqlpDomainTrueFalse, DomainTrueFalseModel, DomainBooleanModeller>()
-      .AddTypeModeller<IGqlpEnum, TypeEnumModel, EnumModeller>()
-      .AddTypeModeller<IGqlpUnion, TypeUnionModel, UnionModeller>()
+      .AddDomainModeller<IAstDomainLabel, DomainLabelModel, DomainEnumModeller>()
+      .AddDomainModeller<IAstDomainRange, DomainRangeModel, DomainNumberModeller>()
+      .AddDomainModeller<IAstDomainRegex, DomainRegexModel, DomainStringModeller>()
+      .AddDomainModeller<IAstDomainTrueFalse, DomainTrueFalseModel, DomainBooleanModeller>()
+      .AddTypeModeller<IAstEnum, TypeEnumModel, EnumModeller>()
+      .AddTypeModeller<IAstUnion, TypeUnionModel, UnionModeller>()
       // Object
       .AddModeller<IGqlpTypeParam, TypeParamModel, TypeParamModeller>()
       .AddModeller<IGqlpTypeArg, TypeArgModel, TypeArgModeller>()
@@ -71,7 +71,7 @@ public static class AllModellers
       .AddProvider<TModeller, ITypeModeller>();
 
   private static IServiceCollection AddDomainModeller<TItemAst, TItemModel, TModeller>(this IServiceCollection services)
-    where TItemAst : IGqlpDomainItem
+    where TItemAst : IAstDomainItem
     where TItemModel : BaseDomainItemModel
     where TModeller : class, IDomainModeller<TItemAst, TItemModel>, ITypeModeller
     => services

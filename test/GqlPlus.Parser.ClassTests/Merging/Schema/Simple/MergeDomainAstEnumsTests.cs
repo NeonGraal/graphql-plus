@@ -5,27 +5,27 @@ using GqlPlus.Merging.Simple;
 namespace GqlPlus.Merging.Schema.Simple;
 
 public class MergeDomainAstEnumsTests
-  : TestDomainMerger<IGqlpDomainLabel, string>
+  : TestDomainMerger<IAstDomainLabel, string>
 {
-  internal override IDomainMerger<IGqlpDomainLabel> Merger { get; }
-  internal override AstSimpleMerger<IGqlpDomain, IGqlpDomain<IGqlpDomainLabel>, IGqlpDomainLabel> MergerSimple { get; }
+  internal override IDomainMerger<IAstDomainLabel> Merger { get; }
+  internal override AstSimpleMerger<IAstDomain, IAstDomain<IAstDomainLabel>, IAstDomainLabel> MergerSimple { get; }
 
   public MergeDomainAstEnumsTests(ITestOutputHelper outputHelper)
   {
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.MergerFor<IGqlpDomainLabel>().Returns(MergeItems);
-    MergeDomains<DomainLabelAst, IGqlpDomainLabel> merger = new(mergers);
+    mergers.MergerFor<IAstDomainLabel>().Returns(MergeItems);
+    MergeDomains<DomainLabelAst, IAstDomainLabel> merger = new(mergers);
     MergerSimple = merger;
     Merger = merger;
   }
 
-  protected override IGqlpDomain<IGqlpDomainLabel> MakeDomain(string name, string[]? aliases = null, string description = "", IAstTypeRef? parent = null, DomainKind? kind = null, IEnumerable<IGqlpDomainLabel>? items = null)
-    => new AstDomain<DomainLabelAst, IGqlpDomainLabel>(AstNulls.At, name, description, kind ?? DomainKind.Enum) {
+  protected override IAstDomain<IAstDomainLabel> MakeDomain(string name, string[]? aliases = null, string description = "", IAstTypeRef? parent = null, DomainKind? kind = null, IEnumerable<IAstDomainLabel>? items = null)
+    => new AstDomain<DomainLabelAst, IAstDomainLabel>(AstNulls.At, name, description, kind ?? DomainKind.Enum) {
       Aliases = aliases ?? [],
       Parent = parent,
       Items = [.. items ?? []],
     };
 
-  protected override IGqlpDomainLabel[] MakeItems(string input)
+  protected override IAstDomainLabel[] MakeItems(string input)
     => new[] { input }.DomainLabels();
 }

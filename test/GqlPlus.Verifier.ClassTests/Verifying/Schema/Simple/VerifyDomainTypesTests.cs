@@ -2,16 +2,16 @@
 
 [TracePerTest]
 public class VerifyDomainTypesTests
-  : UsageVerifierTestsBase<IGqlpDomain>
+  : UsageVerifierTestsBase<IAstDomain>
 {
   private readonly IVerifyDomain _domainVerify = A.Of<IVerifyDomain>();
   private readonly VerifyDomainTypes _verifier;
 
-  private readonly IGqlpDomain _domain;
-  private readonly IGqlpDomainRegex _domainRegex = A.Error<IGqlpDomainRegex>();
+  private readonly IAstDomain _domain;
+  private readonly IAstDomainRegex _domainRegex = A.Error<IAstDomainRegex>();
 
-  protected override IGqlpDomain TheUsage => _domain;
-  protected override IVerifyUsage<IGqlpDomain> Verifier => _verifier;
+  protected override IAstDomain TheUsage => _domain;
+  protected override IVerifyUsage<IAstDomain> Verifier => _verifier;
 
   public VerifyDomainTypesTests()
   {
@@ -44,7 +44,7 @@ public class VerifyDomainTypesTests
   [Fact]
   public void Verify_Domain_WithSameParent_ReturnsNoErrors()
   {
-    IGqlpDomain parent = A.Domain("Parent", DomainKind.String, _domainRegex);
+    IAstDomain parent = A.Domain("Parent", DomainKind.String, _domainRegex);
     Definitions.Add(parent);
 
     IAstTypeRef parentRef = A.Named<IAstTypeRef>("Parent");
@@ -60,7 +60,7 @@ public class VerifyDomainTypesTests
   [Fact]
   public void Verify_Domain_WithSameParentMergeErrors_ReturnsMoreErrors()
   {
-    IGqlpDomain parent = A.Domain("Parent", DomainKind.String, _domainRegex);
+    IAstDomain parent = A.Domain("Parent", DomainKind.String, _domainRegex);
     Definitions.Add(parent);
 
     IAstTypeRef parentRef = A.Named<IAstTypeRef>("Parent");
@@ -78,7 +78,7 @@ public class VerifyDomainTypesTests
   [Fact]
   public void Verify_Domain_WithDiffKindParent_ReturnsError()
   {
-    IGqlpDomain parent = A.Domain<IGqlpDomainRange>("Parent", DomainKind.Number).AsDomain;
+    IAstDomain parent = A.Domain<IAstDomainRange>("Parent", DomainKind.Number).AsDomain;
     Definitions.Add(parent);
 
     _domain.DomainKind.Returns(DomainKind.String);

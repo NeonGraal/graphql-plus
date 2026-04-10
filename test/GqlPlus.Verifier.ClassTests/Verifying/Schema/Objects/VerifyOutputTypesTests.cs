@@ -56,7 +56,7 @@ public class VerifyOutputFieldsTests
 
     IGqlpObject<IGqlpInputField> paramType = A.Obj<IGqlpInputField>(TypeKind.Input, "c").AsObject;
     Define(paramType);
-    Define<IGqlpEnum, IAstSimple>("d");
+    Define<IAstEnum, IAstSimple>("d");
 
     IGqlpInputParam param = A.InputParam("c").WithModifier(ModifierKind.Dict, "d").AsInputParam;
 

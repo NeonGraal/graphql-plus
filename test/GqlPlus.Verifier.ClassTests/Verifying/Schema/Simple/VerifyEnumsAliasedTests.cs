@@ -2,8 +2,8 @@
 
 [TracePerTest]
 public class VerifyEnumsAliasedTests
-  : AliasedVerifierTestsBase<IGqlpEnum>
+  : AliasedVerifierTestsBase<IAstEnum>
 {
-  internal override GroupedVerifier<IGqlpEnum> NewGroupedVerifier()
+  internal override GroupedVerifier<IAstEnum> NewGroupedVerifier()
     => new VerifyEnumsAliased(VerifierRepo);
 }

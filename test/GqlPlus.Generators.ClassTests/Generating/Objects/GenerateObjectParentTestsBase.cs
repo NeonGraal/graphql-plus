@@ -104,7 +104,7 @@ public abstract class GenerateObjectParentTestsBase<TObjField>(
 
     // Arrange
     GqlpGeneratorContext context = Context(BaseType, GeneratorType);
-    IGqlpEnum enumType = A.Enum(enumName, [enumLabel]);
+    IAstEnum enumType = A.Enum(enumName, [enumLabel]);
     IGqlpObject<TObjField> parentType = A.Obj<TObjField>(Kind, parent)
       .WithTypeParam(parentArg, "_Enum")
       .WithObjFields(MakeField(fieldName, parentArg).IsTypeParam().AsObjField)
@@ -133,7 +133,7 @@ public abstract class GenerateObjectParentTestsBase<TObjField>(
 
     // Arrange
     GqlpGeneratorContext context = Context(BaseType, GeneratorType);
-    IGqlpEnum enumType = A.Enum(enumName, [enumLabel]);
+    IAstEnum enumType = A.Enum(enumName, [enumLabel]);
     IGqlpObject<TObjField> grandParentType = A.Obj<TObjField>(Kind, grandParent)
       .WithTypeParam(grandParentArg, "_Enum")
       .WithObjFields(MakeField(fieldName, grandParentArg).IsTypeParam().AsObjField)
@@ -170,7 +170,7 @@ public abstract class GenerateObjectParentTestsBase<TObjField>(
 
     // Arrange
     GqlpGeneratorContext context = Context(BaseType, GeneratorType);
-    IGqlpEnum enumType = A.Enum(enumName, [enumLabel]);
+    IAstEnum enumType = A.Enum(enumName, [enumLabel]);
     // deepParent<$kindParam> with required field kindField: $kindParam
     IGqlpObject<TObjField> deepParentType = A.Obj<TObjField>(Kind, deepParent)
       .WithTypeParams(A.TypeParam(kindParam, "_Enum"), A.TypeParam(deepParam, "_Any"))

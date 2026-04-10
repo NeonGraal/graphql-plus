@@ -13,7 +13,7 @@ public class UnionConstraintMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenMatchingUnionMember(string name, string constraint)
   {
-    IGqlpUnion union = A.Union(constraint).WithMembers([name]).AsUnion;
+    IAstUnion union = A.Union(constraint).WithMembers([name]).AsUnion;
     Types[constraint] = union;
 
     IAstType type = A.Named<IAstType>(name);
@@ -28,7 +28,7 @@ public class UnionConstraintMatcherTests
   {
     this.SkipEqualAny([constraint, name, parent]);
 
-    IGqlpUnion union = A.Union(constraint).WithMembers([name]).AsUnion;
+    IAstUnion union = A.Union(constraint).WithMembers([name]).AsUnion;
     Types[constraint] = union;
 
     IAstSimple simple = A.Union(name).WithParent(parent).AsSimple;

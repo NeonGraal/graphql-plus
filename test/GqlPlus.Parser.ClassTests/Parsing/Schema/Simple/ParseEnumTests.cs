@@ -23,10 +23,10 @@ public class ParseEnumTests
     ParseOk(_definition, new EnumDefinition());
 
     // Act
-    IResult<IGqlpEnum> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstEnum> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpEnum>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstEnum>>();
   }
 
   [Fact]
@@ -39,12 +39,12 @@ public class ParseEnumTests
     // Arrange
     NameReturns(enumName);
     ParseError(_definition);
-    SetupError<IGqlpEnum>();
+    SetupError<IAstEnum>();
 
     // Act
-    IResult<IGqlpEnum> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstEnum> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpEnum>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstEnum>>();
   }
 }

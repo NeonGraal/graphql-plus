@@ -169,7 +169,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
 
     // Arrange
     GqlpGeneratorContext context = Context(BaseType, GeneratorType);
-    IGqlpEnum theEnum = A.Enum(enumType, [enumLabel1, enumLabel2]);
+    IAstEnum theEnum = A.Enum(enumType, [enumLabel1, enumLabel2]);
     context.AddTypes(theEnum);
     IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
       .WithAlternates(

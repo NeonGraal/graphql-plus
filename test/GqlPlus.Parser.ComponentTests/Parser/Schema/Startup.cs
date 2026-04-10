@@ -16,15 +16,15 @@ public static class Startup
       .AddOneChecks<IAstSchemaSetting>()
       .AddTransient<IBaseAliasedChecks<string, IAstSchemaOption>, ParseOptionChecks>()
 
-      .AddTransient<IBaseDomainChecks<string, IGqlpDomain<IGqlpDomainTrueFalse>>, ParseDomainBooleanChecks>()
-      .AddTransient<IBaseDomainChecks<DomainEnumInput, IGqlpDomain<IGqlpDomainLabel>>, ParseDomainEnumChecks>()
-      .AddTransient<IBaseDomainChecks<string, IGqlpDomain<IGqlpDomainRange>>, ParseDomainNumberChecks>()
-      .AddTransient<IBaseDomainChecks<DomainStringInput, IGqlpDomain<IGqlpDomainRegex>>, ParseDomainStringChecks>()
+      .AddTransient<IBaseDomainChecks<string, IAstDomain<IAstDomainTrueFalse>>, ParseDomainBooleanChecks>()
+      .AddTransient<IBaseDomainChecks<DomainEnumInput, IAstDomain<IAstDomainLabel>>, ParseDomainEnumChecks>()
+      .AddTransient<IBaseDomainChecks<string, IAstDomain<IAstDomainRange>>, ParseDomainNumberChecks>()
+      .AddTransient<IBaseDomainChecks<DomainStringInput, IAstDomain<IAstDomainRegex>>, ParseDomainStringChecks>()
 
-      .AddTransient<IBaseAliasedChecks<string, IGqlpEnumLabel>, ParseEnumLabelChecks>()
-      .AddTransient<IBaseSimpleChecks<EnumInput, IGqlpEnum>, ParseEnumChecks>()
-      .AddTransient<IBaseNamedChecks<string, IGqlpUnionMember>, ParseUnionMemberChecks>()
-      .AddTransient<IBaseSimpleChecks<UnionInput, IGqlpUnion>, ParseUnionChecks>()
+      .AddTransient<IBaseAliasedChecks<string, IAstEnumLabel>, ParseEnumLabelChecks>()
+      .AddTransient<IBaseSimpleChecks<EnumInput, IAstEnum>, ParseEnumChecks>()
+      .AddTransient<IBaseNamedChecks<string, IAstUnionMember>, ParseUnionMemberChecks>()
+      .AddTransient<IBaseSimpleChecks<UnionInput, IAstUnion>, ParseUnionChecks>()
 
       .AddTransient<IParseTypeArgChecks, ParseTypeArgChecks>()
       .AddTransient<IParseObjBaseChecks, ParseObjBaseChecks>()

@@ -2,8 +2,8 @@
 
 [TracePerTest]
 public class VerifyDomainsAliasedTests
-  : AliasedVerifierTestsBase<IGqlpDomain>
+  : AliasedVerifierTestsBase<IAstDomain>
 {
-  internal override GroupedVerifier<IGqlpDomain> NewGroupedVerifier()
+  internal override GroupedVerifier<IAstDomain> NewGroupedVerifier()
     => new VerifyDomainsAliased(VerifierRepo);
 }

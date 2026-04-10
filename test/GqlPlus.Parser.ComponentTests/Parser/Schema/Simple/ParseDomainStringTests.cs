@@ -4,8 +4,8 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Parser.Schema.Simple;
 
 public sealed class ParseDomainStringTests(
-  IBaseDomainChecks<DomainStringInput, IGqlpDomain<IGqlpDomainRegex>> checks
-) : BaseDomainTests<DomainStringInput, IGqlpDomain<IGqlpDomainRegex>>(checks)
+  IBaseDomainChecks<DomainStringInput, IAstDomain<IAstDomainRegex>> checks
+) : BaseDomainTests<DomainStringInput, IAstDomain<IAstDomainRegex>>(checks)
 {
   [Theory, RepeatData]
   public void WithRegexes_ReturnsCorrectAst(DomainStringInput input, string regex)
@@ -21,15 +21,15 @@ public sealed class ParseDomainStringTests(
   public void WithRegexesSecondBad_ReturnsFalse(DomainStringInput input, string regex)
     => checks.FalseExpected(input.Name + "{string/" + input.Regex + "/!/" + regex + "}");
 
-  private static AstDomain<DomainRegexAst, IGqlpDomainRegex> NewDomain(string name, DomainRegexAst[] regexes)
+  private static AstDomain<DomainRegexAst, IAstDomainRegex> NewDomain(string name, DomainRegexAst[] regexes)
     => new(AstNulls.At, name, DomainKind.String, regexes);
 }
 
 internal sealed class ParseDomainStringChecks(
   IParserRepository parsers
-) : BaseDomainChecks<DomainStringInput, AstDomain<DomainRegexAst, IGqlpDomainRegex>, IGqlpDomain<IGqlpDomainRegex>>(parsers, DomainKind.String)
+) : BaseDomainChecks<DomainStringInput, AstDomain<DomainRegexAst, IAstDomainRegex>, IAstDomain<IAstDomainRegex>>(parsers, DomainKind.String)
 {
-  protected internal override AstDomain<DomainRegexAst, IGqlpDomainRegex> NamedFactory(DomainStringInput input)
+  protected internal override AstDomain<DomainRegexAst, IAstDomainRegex> NamedFactory(DomainStringInput input)
     => new(AstNulls.At, input.Name, DomainKind.String, new[] { input.Regex }.DomainRegexes());
 
   protected internal override string AliasesString(DomainStringInput input, string aliases)

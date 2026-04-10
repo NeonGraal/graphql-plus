@@ -47,7 +47,7 @@ internal class MergeAllTypes(
 
   private static void FixupEnumDomains(IAstType[] types, Map<string> enumValues)
   {
-    foreach (AstDomain<DomainLabelAst, IGqlpDomainLabel> domain in types.OfType<AstDomain<DomainLabelAst, IGqlpDomainLabel>>()) {
+    foreach (AstDomain<DomainLabelAst, IAstDomainLabel> domain in types.OfType<AstDomain<DomainLabelAst, IAstDomainLabel>>()) {
       foreach ((DomainLabelAst item, string enumType) in domain.Items
           .Cast<DomainLabelAst>()
           .Where(l => string.IsNullOrEmpty(l.EnumType))

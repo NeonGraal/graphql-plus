@@ -5,7 +5,7 @@ using GqlPlus.Merging.Simple;
 namespace GqlPlus.Merging.Schema.Simple;
 
 public class MergeDomainLabelsTests(ITestOutputHelper outputHelper)
-    : TestDomainItemMerger<IGqlpDomainLabel, string>
+    : TestDomainItemMerger<IAstDomainLabel, string>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentExcludes_ReturnsErrors(string name)
@@ -27,9 +27,9 @@ public class MergeDomainLabelsTests(ITestOutputHelper outputHelper)
 
   private readonly MergeDomainLabels _merger = new(MergeRepo(outputHelper.ToLoggerFactory()));
 
-  internal override GroupsMerger<IGqlpDomainLabel> MergerGroups => _merger;
+  internal override GroupsMerger<IAstDomainLabel> MergerGroups => _merger;
 
-  protected override IGqlpDomainLabel MakeItem(string input, bool excludes)
+  protected override IAstDomainLabel MakeItem(string input, bool excludes)
     => new DomainLabelAst(AstNulls.At, "", excludes, input);
   private DomainLabelAst MakeLabel(string item, string type)
     => new(AstNulls.At, "", false, item) { EnumType = type };

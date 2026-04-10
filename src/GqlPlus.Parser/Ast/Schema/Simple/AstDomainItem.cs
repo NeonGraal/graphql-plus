@@ -7,9 +7,9 @@ internal abstract record class AstDomainItem(
   string Description,
   bool Excludes
 ) : AstAbbreviated(At)
-  , IGqlpDomainItem
+  , IAstDomainItem
 {
-  public bool Equals(IGqlpDomainItem? other)
+  public bool Equals(IAstDomainItem? other)
   => Equals(other as IAstDescribed)
       && Excludes.NullEqual(other.Excludes);
   public bool Equals(IAstDescribed? other)

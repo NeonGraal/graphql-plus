@@ -3,14 +3,14 @@
 namespace GqlPlus.Generating.Simple;
 
 public class EnumGeneratorTests
-  : GenerateSimpleTestsBase<IGqlpEnum>
+  : GenerateSimpleTestsBase<IAstEnum>
 {
   private readonly EnumGenerator _generator;
 
   public EnumGeneratorTests()
     => _generator = new EnumGenerator();
 
-  internal override GenerateForType<IGqlpEnum> TypeGenerator => _generator;
+  internal override GenerateForType<IAstEnum> TypeGenerator => _generator;
 
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
   internal override GqlpBaseType BaseType => GqlpBaseType.Interface;
@@ -20,7 +20,7 @@ public class EnumGeneratorTests
   {
     // Arrange
     GqlpGeneratorContext context = Context();
-    IGqlpEnum enumType = A.Enum(enumName, [labelName]);
+    IAstEnum enumType = A.Enum(enumName, [labelName]);
 
     MapPair<string> expected = new(labelName, "");
 
@@ -36,11 +36,11 @@ public class EnumGeneratorTests
   {
     // Arrange
     GqlpGeneratorContext context = Context();
-    IGqlpEnum enumType = A.Enum(enumName)
+    IAstEnum enumType = A.Enum(enumName)
       .WithParent(parentName)
       .AsEnum;
 
-    IGqlpEnum parentType = A.Enum(parentName, [labelName]);
+    IAstEnum parentType = A.Enum(parentName, [labelName]);
     context.AddTypes(parentType);
 
     MapPair<string> expected = new(labelName, $" = {TestPrefix}{parentName}.{labelName}");
@@ -57,7 +57,7 @@ public class EnumGeneratorTests
   {
     // Arrange
     GqlpGeneratorContext context = Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
-    IGqlpEnum enumType = A.Enum(enumName, [labelName]);
+    IAstEnum enumType = A.Enum(enumName, [labelName]);
 
     // Act
     TypeGenerator.GenerateType(enumType, context);
@@ -73,8 +73,8 @@ public class EnumGeneratorTests
   {
     // Arrange
     GqlpGeneratorContext context = Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
-    IGqlpEnumLabel label = A.Aliased<IGqlpEnumLabel>(labelName, [alias]);
-    IGqlpEnum enumType = A.Enum(enumName)
+    IAstEnumLabel label = A.Aliased<IAstEnumLabel>(labelName, [alias]);
+    IAstEnum enumType = A.Enum(enumName)
       .WithLabels(label)
       .AsEnum;
 
@@ -93,11 +93,11 @@ public class EnumGeneratorTests
   {
     // Arrange
     GqlpGeneratorContext context = Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
-    IGqlpEnum enumType = A.Enum(enumName)
+    IAstEnum enumType = A.Enum(enumName)
       .WithParent(parentName)
       .AsEnum;
 
-    IGqlpEnum parentType = A.Enum(parentName, [labelName]);
+    IAstEnum parentType = A.Enum(parentName, [labelName]);
     context.AddTypes(parentType);
 
     // Act
@@ -114,12 +114,12 @@ public class EnumGeneratorTests
   {
     // Arrange
     GqlpGeneratorContext context = Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
-    IGqlpEnum enumType = A.Enum(enumName)
+    IAstEnum enumType = A.Enum(enumName)
       .WithParent(parentName)
       .AsEnum;
 
-    IGqlpEnumLabel label = A.Aliased<IGqlpEnumLabel>(labelName, [alias]);
-    IGqlpEnum parentType = A.Enum(parentName)
+    IAstEnumLabel label = A.Aliased<IAstEnumLabel>(labelName, [alias]);
+    IAstEnum parentType = A.Enum(parentName)
       .WithLabels(label)
       .AsEnum;
 
@@ -141,8 +141,8 @@ public class EnumGeneratorTests
   internal override ForType ForGeneratedCodeParent(string parent)
     => _ => _ => { };
 
-  protected override void MakeItems(SimpleBuilder<IGqlpEnum> builder, params string[] items)
+  protected override void MakeItems(SimpleBuilder<IAstEnum> builder, params string[] items)
     => ((EnumBuilder)builder).WithLabels(items);
-  protected override SimpleBuilder<IGqlpEnum> MakeSimple(string name)
+  protected override SimpleBuilder<IAstEnum> MakeSimple(string name)
     => new EnumBuilder(name);
 }

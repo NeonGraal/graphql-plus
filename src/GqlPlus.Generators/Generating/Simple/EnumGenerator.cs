@@ -3,12 +3,12 @@ namespace GqlPlus.Generating.Simple;
 
 // Unsealed to allow EnumDecoderGenerator and EnumEncoderGenerator to extend it
 internal class EnumGenerator
-  : GenerateForType<IGqlpEnum>
+  : GenerateForType<IAstEnum>
 {
-  protected override void Generate(IGqlpEnum ast, GqlpGeneratorContext context)
+  protected override void Generate(IAstEnum ast, GqlpGeneratorContext context)
     => GenerateBlock(ast, context, EnumHeader, EnumMembers, EnumMember);
 
-  private void EnumHeader(IGqlpEnum ast, GqlpGeneratorContext context)
+  private void EnumHeader(IAstEnum ast, GqlpGeneratorContext context)
     => context.Write($"public enum " + context.TypeName(ast, ""));
 
   private void EnumMember(MapPair<string> item, GqlpGeneratorContext context)
@@ -19,7 +19,7 @@ internal class EnumGenerator
 
   private static IEnumerable<MapPair<string>> ParentItems(string? parent, GqlpGeneratorTypes types)
   {
-    if (!types.GetTypeAst(parent, out IGqlpEnum ast)) {
+    if (!types.GetTypeAst(parent, out IAstEnum ast)) {
       return [];
     }
 
@@ -33,7 +33,7 @@ internal class EnumGenerator
     return ParentItems(ast.Parent?.Name, types).Concat(members);
   }
 
-  internal IEnumerable<MapPair<string>> EnumMembers(IGqlpEnum ast, GqlpGeneratorContext context)
+  internal IEnumerable<MapPair<string>> EnumMembers(IAstEnum ast, GqlpGeneratorContext context)
   {
     IEnumerable<MapPair<string>> members = ast.Items.SelectMany(item =>
       item.Aliases
@@ -47,13 +47,13 @@ internal class EnumGenerator
 internal sealed class EnumDecoderGenerator
   : EnumGenerator
 {
-  protected override void Generate(IGqlpEnum ast, GqlpGeneratorContext context)
+  protected override void Generate(IAstEnum ast, GqlpGeneratorContext context)
     => GenerateBlock(ast, context, DecoderHeader, EnumMembers, EnumClassMember);
 }
 
 internal sealed class EnumEncoderGenerator
   : EnumGenerator
 {
-  protected override void Generate(IGqlpEnum ast, GqlpGeneratorContext context)
+  protected override void Generate(IAstEnum ast, GqlpGeneratorContext context)
     => GenerateBlock(ast, context, EncoderHeader, EnumMembers, EnumClassMember);
 }

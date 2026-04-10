@@ -48,9 +48,9 @@ public static class AllVerifiers
         .AddVerifyUsageAliased(
           v => new VerifyDomainsAliased(v),
           v => new VerifyDomainTypes(v))
-        .AddDomain(v => new AstDomainVerifier<IGqlpDomainRange>(v))
-        .AddDomain(v => new AstDomainVerifier<IGqlpDomainRegex>(v))
-        .AddDomain(v => new AstDomainVerifier<IGqlpDomainTrueFalse>(v))
+        .AddDomain(v => new AstDomainVerifier<IAstDomainRange>(v))
+        .AddDomain(v => new AstDomainVerifier<IAstDomainRegex>(v))
+        .AddDomain(v => new AstDomainVerifier<IAstDomainTrueFalse>(v))
         .AddDomain(v => new VerifyDomainEnum(v));
 
   public static IVerifierRepositoryBuilder AddSchemaObjectVerifiers([NotNull] this IVerifierRepositoryBuilder builder)

@@ -33,7 +33,7 @@ internal abstract class AstDomainChecks<TInput, TItemAst, TItem>(
   , IAstDomainChecks<TInput>
   where TInput : IEquatable<TInput>
   where TItemAst : AstAbbreviated, TItem
-  where TItem : IGqlpDomainItem
+  where TItem : IAstDomainItem
 {
   public DomainKind Kind { get; } = kind;
 

@@ -28,8 +28,8 @@ public static class BuiltIn
     Enum(BooleanType, [BooleanAlias, "_" + BooleanType], BooleanFalse, BooleanTrue),
     Enum(UnitType, [UnitValue, "_" + UnitType], UnitValue),
 
-    Domain<DomainRangeAst, IGqlpDomainRange>(NumberType, DomainKind.Number, NumberAlias, "_" + NumberType),
-    Domain<DomainRegexAst, IGqlpDomainRegex>(StringType, DomainKind.String, StringAlias, "_" + StringType),
+    Domain<DomainRangeAst, IAstDomainRange>(NumberType, DomainKind.Number, NumberAlias, "_" + NumberType),
+    Domain<DomainRegexAst, IAstDomainRegex>(StringType, DomainKind.String, StringAlias, "_" + StringType),
   ];
 
   private static readonly string[] s_basicMembers = [BooleanType, NumberType, StringType, UnitType];
@@ -44,9 +44,9 @@ public static class BuiltIn
 
     Special = [
       new SpecialTypeAst("Any"),
-      new SpecialTypeAst("Domain", TypeKind.Domain, t => t is IGqlpDomain),
-      new SpecialTypeAst("Union", TypeKind.Union, t => t is IGqlpUnion),
-      new SpecialTypeAst("Enum", TypeKind.Enum, t => t is IGqlpEnum),
+      new SpecialTypeAst("Domain", TypeKind.Domain, t => t is IAstDomain),
+      new SpecialTypeAst("Union", TypeKind.Union, t => t is IAstUnion),
+      new SpecialTypeAst("Enum", TypeKind.Enum, t => t is IAstEnum),
       new SpecialTypeAst("Dual", TypeKind.Dual, t => t is IGqlpObject<IGqlpDualField>),
       new SpecialTypeAst("Input", TypeKind.Input, t => t is IGqlpObject<IGqlpInputField>),
       new SpecialTypeAst("Output", TypeKind.Output, t => t is IGqlpObject<IGqlpOutputField>),
@@ -161,7 +161,7 @@ public static class BuiltIn
 
   private static AstDomain<TAst, TLabel> Domain<TAst, TLabel>(string type, DomainKind kind, params string[] aliases)
     where TAst : AstBase, TLabel
-    where TLabel : IGqlpDomainItem, IAstError
+    where TLabel : IAstDomainItem, IAstError
     => new(AstNulls.At, type, kind, []) { Aliases = aliases };
 
   private static TypeParamAst KeyParam()

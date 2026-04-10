@@ -22,7 +22,7 @@ public class MergeAllTypesTests
 
     IAstType[] types = [
       new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, enumLabel, "")]),
-      new AstDomain<DomainLabelAst, IGqlpDomainLabel>(AstNulls.At, domainType, DomainKind.Enum, [domainLabel]),
+      new AstDomain<DomainLabelAst, IAstDomainLabel>(AstNulls.At, domainType, DomainKind.Enum, [domainLabel]),
     ];
 
     // Act

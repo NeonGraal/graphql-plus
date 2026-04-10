@@ -1,10 +1,10 @@
 ﻿namespace GqlPlus.Generating.Simple;
 
 public class DomainStringEncoderGeneratorTests
-  : GenerateDomainTestsBase<IGqlpDomainRegex>
+  : GenerateDomainTestsBase<IAstDomainRegex>
 {
   protected override DomainKind Kind => DomainKind.String;
-  internal override GenerateBaseDomain<IGqlpDomainRegex> Generator { get; }
+  internal override GenerateBaseDomain<IAstDomainRegex> Generator { get; }
     = new DomainStringEncoderGenerator();
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Enc;
   internal override GqlpBaseType BaseType => GqlpBaseType.Class;
@@ -18,6 +18,6 @@ public class DomainStringEncoderGeneratorTests
   internal override ForType ForGeneratedBoth(string contains)
     => ForGeneratedEncoder(contains);
 
-  protected override IGqlpDomainRegex MakeDomainItem(string item)
+  protected override IAstDomainRegex MakeDomainItem(string item)
     => A.ItemRegex(item);
 }

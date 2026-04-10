@@ -8,30 +8,30 @@ public interface IAstSimple<TItem>
   IEnumerable<TItem> Items { get; }
 }
 
-public interface IGqlpValued<TItem>
+public interface IAstValued<TItem>
   : IAstSimple<TItem>
   where TItem : IAstError
 {
   bool HasValue(string value);
 }
 
-public interface IGqlpDomain
+public interface IAstDomain
   : IAstSimple
-  , IEquatable<IGqlpDomain>
+  , IEquatable<IAstDomain>
 {
   DomainKind DomainKind { get; }
 }
 
-public interface IGqlpDomain<TItem>
-  : IGqlpDomain
+public interface IAstDomain<TItem>
+  : IAstDomain
   , IAstSimple<TItem>
-  , IEquatable<IGqlpDomain<TItem>>
-  where TItem : IGqlpDomainItem
+  , IEquatable<IAstDomain<TItem>>
+  where TItem : IAstDomainItem
 { }
 
-public interface IGqlpDomainItem
+public interface IAstDomainItem
   : IAstDescribed
-  , IEquatable<IGqlpDomainItem>
+  , IEquatable<IAstDomainItem>
 {
   bool Excludes { get; }
 }
@@ -44,15 +44,15 @@ public enum DomainKind
   String,
 }
 
-public interface IGqlpDomainTrueFalse
-  : IGqlpDomainItem
+public interface IAstDomainTrueFalse
+  : IAstDomainItem
 {
   bool IsTrue { get; }
 }
 
-public interface IGqlpDomainLabel
-  : IGqlpDomainItem
-  , IEquatable<IGqlpDomainLabel>
+public interface IAstDomainLabel
+  : IAstDomainItem
+  , IEquatable<IAstDomainLabel>
 {
   string EnumType { get; }
   string EnumItem { get; }
@@ -65,33 +65,33 @@ public static class GqlpDomainLabelConstants
   public const string All = "*";
 }
 
-public interface IGqlpDomainRange
-  : IGqlpDomainItem
-  , IEquatable<IGqlpDomainRange>
+public interface IAstDomainRange
+  : IAstDomainItem
+  , IEquatable<IAstDomainRange>
 {
   decimal? Lower { get; }
   decimal? Upper { get; }
 }
 
-public interface IGqlpDomainRegex
-  : IGqlpDomainItem
-  , IEquatable<IGqlpDomainRegex>
+public interface IAstDomainRegex
+  : IAstDomainItem
+  , IEquatable<IAstDomainRegex>
 {
   string Pattern { get; }
 }
 
-public interface IGqlpEnum
-  : IGqlpValued<IGqlpEnumLabel>
+public interface IAstEnum
+  : IAstValued<IAstEnumLabel>
 { }
 
-public interface IGqlpEnumLabel
+public interface IAstEnumLabel
   : IAstAliased
 { }
 
-public interface IGqlpUnion
-  : IGqlpValued<IGqlpUnionMember>
+public interface IAstUnion
+  : IAstValued<IAstUnionMember>
 { }
 
-public interface IGqlpUnionMember
+public interface IAstUnionMember
   : IAstNamed
 { }

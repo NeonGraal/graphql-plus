@@ -2,19 +2,19 @@
 
 namespace GqlPlus.Verifying.Schema.Simple;
 
-internal class VerifyUnionTypes(IVerifierRepository verifiers) : AstSimpleVerifier<IGqlpUnion, UsageContext, IGqlpUnionMember>(verifiers)
+internal class VerifyUnionTypes(IVerifierRepository verifiers) : AstSimpleVerifier<IAstUnion, UsageContext, IAstUnionMember>(verifiers)
 {
-  protected override IEnumerable<IGqlpUnionMember> GetItems(IGqlpUnion usage)
+  protected override IEnumerable<IAstUnionMember> GetItems(IAstUnion usage)
     => usage.Items;
 
-  protected override UsageContext MakeContext(IGqlpUnion usage, IAstType[] aliased, IMessages errors)
+  protected override UsageContext MakeContext(IAstUnion usage, IAstType[] aliased, IMessages errors)
     => MakeUsageContext(aliased, errors);
 
-  protected override void UsageValue(IGqlpUnion usage, UsageContext context)
+  protected override void UsageValue(IAstUnion usage, UsageContext context)
   {
     base.UsageValue(usage, context);
 
-    foreach (IGqlpUnionMember member in usage.Items) {
+    foreach (IAstUnionMember member in usage.Items) {
       context.AddError(usage, "Union", $"'{member.Name}' not defined", CheckMember(usage.Name, member, context, CheckTypeLabel));
     }
 
@@ -28,7 +28,7 @@ internal class VerifyUnionTypes(IVerifierRepository verifiers) : AstSimpleVerifi
 
   private bool CheckMember(
     string name,
-    IGqlpUnionMember member,
+    IAstUnionMember member,
     UsageContext context,
     Action<string, IAstType>? checkType = null)
   {
@@ -36,7 +36,7 @@ internal class VerifyUnionTypes(IVerifierRepository verifiers) : AstSimpleVerifi
       context.AddError(member, "Union Member", $"'{name}' cannot refer to " + (checkType is null ? "self, even recursively" : "self"));
       return false;
     } else if (context.GetTyped(member.Name, out IAstType? type)) {
-      if (type is IGqlpUnion typeUnion) {
+      if (type is IAstUnion typeUnion) {
         CheckSelfMember(name, typeUnion, context);
       } else {
         checkType?.Invoke(member.Name, type);
@@ -48,11 +48,11 @@ internal class VerifyUnionTypes(IVerifierRepository verifiers) : AstSimpleVerifi
     return true;
   }
 
-  protected override void CheckSelfMember(string name, IGqlpUnion usage, UsageContext context)
+  protected override void CheckSelfMember(string name, IAstUnion usage, UsageContext context)
   {
     base.CheckSelfMember(name, usage, context);
 
-    foreach (IGqlpUnionMember member in usage.Items) {
+    foreach (IAstUnionMember member in usage.Items) {
       CheckMember(name, member, context);
     }
   }

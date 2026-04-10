@@ -31,12 +31,12 @@ internal class TypeArgMatcher(
   private bool MatchArgLabel(IGqlpTypeArg arg, string constraint, EnumContext context)
   {
     if (context.GetType(constraint, out IAstDescribed? constraintType) && arg.EnumValue is not null) {
-      if (constraintType is IGqlpEnum enumType) {
+      if (constraintType is IAstEnum enumType) {
         if (EnumHasLabel(context, enumType, arg.EnumValue.EnumLabel)) {
           return true;
         }
-      } else if (constraintType is IGqlpDomain<IGqlpDomainLabel> domType) {
-        IGqlpDomainLabel? domLabel = DomainHasLabel(context, domType, arg.EnumValue.EnumLabel);
+      } else if (constraintType is IAstDomain<IAstDomainLabel> domType) {
+        IAstDomainLabel? domLabel = DomainHasLabel(context, domType, arg.EnumValue.EnumLabel);
         return domLabel?.Excludes == false;
       }
     }
@@ -44,17 +44,17 @@ internal class TypeArgMatcher(
     return false;
   }
 
-  private IGqlpDomainLabel? DomainHasLabel(UsageContext context, IGqlpDomain<IGqlpDomainLabel> domType, string label)
+  private IAstDomainLabel? DomainHasLabel(UsageContext context, IAstDomain<IAstDomainLabel> domType, string label)
   {
-    foreach (IGqlpDomainLabel item in domType.Items.Where(i => i.EnumItem == label || i.EnumItem == GqlpDomainLabelConstants.All)) {
-      if (context.GetTyped(item.EnumType, out IGqlpEnum? enumType)) {
+    foreach (IAstDomainLabel item in domType.Items.Where(i => i.EnumItem == label || i.EnumItem == GqlpDomainLabelConstants.All)) {
+      if (context.GetTyped(item.EnumType, out IAstEnum? enumType)) {
         if (EnumHasLabel(context, enumType, label)) {
           return item;
         }
       }
     }
 
-    if (context.GetTyped(domType.Parent?.Name, out IGqlpDomain<IGqlpDomainLabel>? parentType)) {
+    if (context.GetTyped(domType.Parent?.Name, out IAstDomain<IAstDomainLabel>? parentType)) {
       return DomainHasLabel(context, parentType, label);
     }
 
@@ -62,13 +62,13 @@ internal class TypeArgMatcher(
   }
 
   [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Todo")]
-  internal bool EnumHasLabel(UsageContext context, IGqlpEnum enumType, string label)
+  internal bool EnumHasLabel(UsageContext context, IAstEnum enumType, string label)
   {
     if (enumType.HasValue(label)) {
       return true;
     }
 
-    if (context.GetTyped(enumType.Parent?.Name, out IGqlpEnum? parentType)) {
+    if (context.GetTyped(enumType.Parent?.Name, out IAstEnum? parentType)) {
       return EnumHasLabel(context, parentType, label);
     }
 

@@ -14,11 +14,11 @@ public static class AllMatchers
 
           .AddConstraintMatchers()
 
-          .AddTypeMatcher<IGqlpDomain, DomainMatcher>(m => new DomainMatcher(m))
-          .AddSimpleMatcher<IGqlpDomain>()
-          .AddSimpleMatcher<IGqlpEnum>()
+          .AddTypeMatcher<IAstDomain, DomainMatcher>(m => new DomainMatcher(m))
+          .AddSimpleMatcher<IAstDomain>()
+          .AddSimpleMatcher<IAstEnum>()
           .AddSimpleMatcher<IAstTypeSpecial>()
-          .AddSimpleMatcher<IGqlpUnion>()
+          .AddSimpleMatcher<IAstUnion>()
 
           .AddObjectMatcher<IGqlpDualField, ObjectParentMatcher<IGqlpDualField>>(m => new ObjectParentMatcher<IGqlpDualField>(m))
           .AddObjectDualMatcher<IGqlpInputField>()

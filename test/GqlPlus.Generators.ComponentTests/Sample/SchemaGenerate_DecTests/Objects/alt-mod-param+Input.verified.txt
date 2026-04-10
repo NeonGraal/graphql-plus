@@ -1,0 +1,21 @@
+﻿/* alt-mod-param+Input
+input AltModParamInp<$mod:String> { | AltAltModParamInp[$mod] }
+input AltAltModParamInp { alt: Number | String }
+*/
+
+// Generated from Schema alt-mod-param+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-mod-param+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_mod_param_Input;
+
+internal class CmptAltModParamInpDecoder<TMod>
+{
+}
+
+internal class CmptAltAltModParamInpDecoder
+{
+  public decimal Alt { get; set; }
+}

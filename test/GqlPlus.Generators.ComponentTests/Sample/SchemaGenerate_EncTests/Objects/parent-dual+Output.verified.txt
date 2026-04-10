@@ -1,0 +1,21 @@
+﻿/* parent-dual+Output
+output PrntDualOutp { :RefPrntDualOutp }
+dual RefPrntDualOutp { parent: Number | String }
+*/
+
+// Generated from Schema parent-dual+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-dual+Output, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_dual_Output;
+
+internal class CmptPrntDualOutpEncoder
+{
+}
+
+internal class CmptRefPrntDualOutpEncoder
+{
+  public decimal Parent { get; set; }
+}

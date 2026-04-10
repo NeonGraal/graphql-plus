@@ -22,3 +22,8 @@ public interface ICmptInpFieldEnumObject
 {
   CmptEnumInpFieldEnum Field { get; }
 }
+
+public enum CmptEnumInpFieldEnum
+{
+  inpFieldEnum,
+}

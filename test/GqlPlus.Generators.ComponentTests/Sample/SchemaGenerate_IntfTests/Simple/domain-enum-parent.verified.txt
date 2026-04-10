@@ -21,3 +21,9 @@ public interface ICmptPrntDmnEnumPrnt
   : IGqlpDomainEnum
 {
 }
+
+public enum CmptEnumDmnEnumPrnt
+{
+  enum_dmnEnumPrnt,
+  prnt_dmnEnumPrnt,
+}

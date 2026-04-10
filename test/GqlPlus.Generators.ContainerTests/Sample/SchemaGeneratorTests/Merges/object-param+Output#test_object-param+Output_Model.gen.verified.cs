@@ -1,6 +1,6 @@
 ﻿//HintName: test_object-param+Output_Model.gen.cs
 // Generated from {CurrentDirectory}object-param+Output.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_object_param_Output;
 
 public class testObjParamOutp<TTest,TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjParamOutp<TTest,TType>
 {
   public ItestObjParamOutpObject<TTest,TType>? As_ObjParamOutp { get; set; }
 }
 
 public class testObjParamOutpObject<TTest,TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjParamOutpObject<TTest,TType>
 {
   public TTest Test { get; set; }

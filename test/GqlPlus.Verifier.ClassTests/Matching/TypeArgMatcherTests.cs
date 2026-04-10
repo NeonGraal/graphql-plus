@@ -82,7 +82,7 @@ public class TypeArgMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenConstraintEnumParent_WithArgLabel(string enumName, string enumParent, string enumLabel, string constraint)
   {
-    this.SkipEqual3(enumName, enumParent, constraint);
+    this.SkipEqualAny([enumName, enumParent, constraint]);
 
     IGqlpTypeArg arg = A.TypeArg(enumParent).WithObjEnum(enumLabel).AsTypeArg;
     IGqlpEnum parentType = A.Enum(enumParent, [enumLabel]);
@@ -106,7 +106,7 @@ public class TypeArgMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsFalse_WhenConstraintEnumNotLabel_WithArgType(string name, string enumLabel, string constraint)
   {
-    this.SkipEqual3(enumLabel, name, constraint);
+    this.SkipEqualAny([enumLabel, name, constraint]);
 
     IGqlpTypeArg arg = A.TypeArg("").WithObjEnum(enumLabel).AsTypeArg;
     IGqlpEnum enumConstraint = A.Enum(constraint).AsEnum;
@@ -137,7 +137,7 @@ public class TypeArgMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenConstraintDomParentOfEnum_WithArgLabel(string enumName, string enumLabel, string domName, string constraint)
   {
-    this.SkipEqual3(enumName, domName, constraint);
+    this.SkipEqualAny([enumName, domName, constraint]);
 
     IGqlpTypeArg arg = A.TypeArg(enumName).WithObjEnum(enumLabel).AsTypeArg;
     IGqlpEnum enumParent = A.Enum(enumName, [enumLabel]);
@@ -157,7 +157,7 @@ public class TypeArgMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsFalse_WhenConstraintDomNotLabel_WithArgType(string name, string enumLabel, string constraint)
   {
-    this.SkipEqual3(enumLabel, name, constraint);
+    this.SkipEqualAny([enumLabel, name, constraint]);
 
     IGqlpTypeArg arg = A.TypeArg("").WithObjEnum(enumLabel).AsTypeArg;
     IGqlpDomain<IGqlpDomainLabel> domConstraint = A.DomainEnum(constraint).AsDomain;

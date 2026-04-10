@@ -1,6 +1,6 @@
 ﻿//HintName: test_Option_Model.gen.cs
 // Generated from {CurrentDirectory}Option.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */

@@ -1,0 +1,23 @@
+﻿/* enum-parent
+enum EnumPrnt { :PrntEnumPrnt enumPrnt }
+enum PrntEnumPrnt { prnt_enumPrnt }
+*/
+
+// Generated from Schema enum-parent
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_enum-parent, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_enum_parent;
+
+internal class CmptEnumPrntEncoder
+{
+  public string prnt_enumPrnt { get; set; }
+  public string enumPrnt { get; set; }
+}
+
+internal class CmptPrntEnumPrntEncoder
+{
+  public string prnt_enumPrnt { get; set; }
+}

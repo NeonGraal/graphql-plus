@@ -15,3 +15,8 @@ public interface ICmptDmnEnumDescr
   : IGqlpDomainEnum
 {
 }
+
+public enum CmptEnumDmnEnumDescr
+{
+  dmnEnumDescr,
+}

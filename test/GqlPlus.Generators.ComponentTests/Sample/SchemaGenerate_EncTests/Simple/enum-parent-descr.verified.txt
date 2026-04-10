@@ -1,0 +1,23 @@
+﻿/* enum-parent-descr
+enum EnumPrntDescr { : "Parent comment" PrntEnumPrntDescr enumPrntDescr  }
+enum PrntEnumPrntDescr { prnt_enumPrntDescr }
+*/
+
+// Generated from Schema enum-parent-descr
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_enum-parent-descr, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_enum_parent_descr;
+
+internal class CmptEnumPrntDescrEncoder
+{
+  public string prnt_enumPrntDescr { get; set; }
+  public string enumPrntDescr { get; set; }
+}
+
+internal class CmptPrntEnumPrntDescrEncoder
+{
+  public string prnt_enumPrntDescr { get; set; }
+}

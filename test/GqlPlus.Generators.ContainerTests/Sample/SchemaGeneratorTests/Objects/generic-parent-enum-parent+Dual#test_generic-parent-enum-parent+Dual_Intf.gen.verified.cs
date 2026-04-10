@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-parent-enum-parent+Dual_Intf.gen.cs
 // Generated from {CurrentDirectory}generic-parent-enum-parent+Dual.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -19,13 +19,24 @@ public interface ItestGnrcPrntEnumPrntDualObject
 }
 
 public interface ItestFieldGnrcPrntEnumPrntDual<TRef>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFieldGnrcPrntEnumPrntDualObject<TRef>? As_FieldGnrcPrntEnumPrntDual { get; }
 }
 
 public interface ItestFieldGnrcPrntEnumPrntDualObject<TRef>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TRef Field { get; }
+}
+
+public enum testEnumGnrcPrntEnumPrntDual
+{
+  gnrcPrntEnumPrntDualParent = testParentGnrcPrntEnumPrntDual.gnrcPrntEnumPrntDualParent,
+  gnrcPrntEnumPrntDualLabel,
+}
+
+public enum testParentGnrcPrntEnumPrntDual
+{
+  gnrcPrntEnumPrntDualParent,
 }

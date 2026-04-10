@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-alt-mod-String+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}generic-alt-mod-String+Dual.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_mod_String_Dual;
 
 public class testRefGnrcAltModStrDual<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcAltModStrDual<TRef>
 {
   public IDictionary<string, TRef>? Asref { get; set; }
@@ -16,7 +16,7 @@ public class testRefGnrcAltModStrDual<TRef>
 }
 
 public class testRefGnrcAltModStrDualObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcAltModStrDualObject<TRef>
 {
 

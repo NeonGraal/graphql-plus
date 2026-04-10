@@ -1,6 +1,6 @@
 ﻿//HintName: test_field+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}field+Dual.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_field_Dual;
 
 public class testFieldDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldDual
 {
   public ItestFieldDualObject? As_FieldDual { get; set; }
 }
 
 public class testFieldDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldDualObject
 {
   public string Field { get; set; }

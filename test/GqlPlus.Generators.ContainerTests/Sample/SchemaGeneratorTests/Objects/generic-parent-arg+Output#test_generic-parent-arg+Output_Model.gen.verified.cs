@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-parent-arg+Output_Model.gen.cs
 // Generated from {CurrentDirectory}generic-parent-arg+Output.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -26,7 +26,7 @@ public class testGnrcPrntArgOutpObject<TType>
 }
 
 public class testRefGnrcPrntArgOutp<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcPrntArgOutp<TRef>
 {
   public TRef? Asref { get; set; }
@@ -34,7 +34,7 @@ public class testRefGnrcPrntArgOutp<TRef>
 }
 
 public class testRefGnrcPrntArgOutpObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcPrntArgOutpObject<TRef>
 {
 

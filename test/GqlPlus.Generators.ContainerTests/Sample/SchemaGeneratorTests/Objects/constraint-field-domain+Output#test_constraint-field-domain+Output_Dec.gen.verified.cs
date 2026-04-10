@@ -1,0 +1,21 @@
+﻿//HintName: test_constraint-field-domain+Output_Dec.gen.cs
+// Generated from {CurrentDirectory}constraint-field-domain+Output.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpDecoderBase, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+/*
+*/
+
+namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_domain_Output;
+
+internal class testCnstFieldDmnOutpDecoder
+{
+}
+
+internal class testRefCnstFieldDmnOutpDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class testDomCnstFieldDmnOutpDecoder
+{
+}

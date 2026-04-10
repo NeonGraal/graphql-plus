@@ -7,11 +7,11 @@ public abstract class GenerateObjectParentTestsBase<TObjField>(
 ) : GenerateObjectTestsBase<TObjField>(kind)
   where TObjField : class, IGqlpObjField
 {
-  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithParent_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string parent)
+  [Theory, RepeatData]
+  public void GenerateType_WithParent_GeneratesCorrectCode(string name, string parent)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(baseType, generatorType);
+    GqlpGeneratorContext context = Context(BaseType, GeneratorType);
     IGqlpObject<TObjField> type = A.Obj<TObjField>(Kind, name)
       .WithParent(parent)
       .AsObject;
@@ -25,11 +25,11 @@ public abstract class GenerateObjectParentTestsBase<TObjField>(
       ForGeneratedCodeParent(TestPrefix + parent));
   }
 
-  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithParentArg_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string parent, string parentArg)
+  [Theory, RepeatData]
+  public void GenerateType_WithParentArg_GeneratesCorrectCode(string name, string parent, string parentArg)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(baseType, generatorType);
+    GqlpGeneratorContext context = Context(BaseType, GeneratorType);
     IGqlpObject<TObjField> type = A.Obj<TObjField>(Kind, name)
       .WithParent(parent, p => p.WithArg(parentArg))
       .AsObject;
@@ -43,13 +43,13 @@ public abstract class GenerateObjectParentTestsBase<TObjField>(
       ForGeneratedCodeParent(TestPrefix + parent));
   }
 
-  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithParentField_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string parent, string fieldName, string fieldType)
+  [Theory, RepeatData]
+  public void GenerateType_WithParentField_GeneratesCorrectCode(string name, string parent, string fieldName, string fieldType)
   {
     SkipBuiltInTypes(name, parent, fieldType);
 
     // Arrange
-    GqlpGeneratorContext context = Context(baseType, generatorType);
+    GqlpGeneratorContext context = Context(BaseType, GeneratorType);
     IGqlpObject<TObjField> parentType = A.Obj<TObjField>(Kind, parent)
       .WithObjFields(MakeField(fieldName, fieldType).AsObjField)
       .AsObject;
@@ -65,17 +65,17 @@ public abstract class GenerateObjectParentTestsBase<TObjField>(
     context.CheckFor(
       ForGeneratedCodeName(name),
       ForGeneratedCodeParent(TestPrefix + parent),
-      ForGeneratedImplementation("I" + TestPrefix + fieldType + " " + fieldName),
-      ForGeneratedImplementation(": base(" + fieldName + ")"));
+      ForGeneratedModel("I" + TestPrefix + fieldType + " " + fieldName),
+      ForGeneratedModel(": base(" + fieldName + ")"));
   }
 
-  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithParentFieldParam_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string parent, string parentArg, string fieldName, string fieldType)
+  [Theory, RepeatData]
+  public void GenerateType_WithParentFieldParam_GeneratesCorrectCode(string name, string parent, string parentArg, string fieldName, string fieldType)
   {
-    this.SkipEqual4(name, parent, parentArg, fieldType);
+    this.SkipEqualAny([name, parent, parentArg, fieldType]);
 
     // Arrange
-    GqlpGeneratorContext context = Context(baseType, generatorType);
+    GqlpGeneratorContext context = Context(BaseType, GeneratorType);
     IGqlpObject<TObjField> parentType = A.Obj<TObjField>(Kind, parent)
       .WithTypeParam(parentArg, "_All")
       .WithObjFields(MakeField(fieldName, parentArg).IsTypeParam().AsObjField)
@@ -93,17 +93,17 @@ public abstract class GenerateObjectParentTestsBase<TObjField>(
     context.CheckFor(
       ForGeneratedCodeName(name),
       ForGeneratedCodeParent(TestPrefix + parent),
-      ForGeneratedImplementation("I" + TestPrefix + fieldType + " " + fieldName),
-      ForGeneratedImplementation(") : base(" + fieldName + ")"));
+      ForGeneratedModel("I" + TestPrefix + fieldType + " " + fieldName),
+      ForGeneratedModel(") : base(" + fieldName + ")"));
   }
 
-  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithParentFieldParamEnum_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string parent, string parentArg, string fieldName, string enumName, string enumLabel)
+  [Theory, RepeatData]
+  public void GenerateType_WithParentFieldParamEnum_GeneratesCorrectCode(string name, string parent, string parentArg, string fieldName, string enumName, string enumLabel)
   {
-    this.SkipEqual4(name, parent, parentArg, enumName);
+    this.SkipEqualAny([name, parent, parentArg, enumName]);
 
     // Arrange
-    GqlpGeneratorContext context = Context(baseType, generatorType);
+    GqlpGeneratorContext context = Context(BaseType, GeneratorType);
     IGqlpEnum enumType = A.Enum(enumName, [enumLabel]);
     IGqlpObject<TObjField> parentType = A.Obj<TObjField>(Kind, parent)
       .WithTypeParam(parentArg, "_Enum")
@@ -122,17 +122,17 @@ public abstract class GenerateObjectParentTestsBase<TObjField>(
     context.CheckFor(
       ForGeneratedCodeName(name),
       ForGeneratedCodeParent(TestPrefix + parent),
-      ForGeneratedImplementation("()"),
-      ForGeneratedImplementation(": base(" + TestPrefix + enumName + "." + enumLabel + ")"));
+      ForGeneratedModel("()"),
+      ForGeneratedModel(": base(" + TestPrefix + enumName + "." + enumLabel + ")"));
   }
 
-  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithGrandParentFieldParamEnum_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string grandParent, string parent, string grandParentArg, string fieldName, string enumName, string enumLabel)
+  [Theory, RepeatData]
+  public void GenerateType_WithGrandParentFieldParamEnum_GeneratesCorrectCode(string name, string grandParent, string parent, string grandParentArg, string fieldName, string enumName, string enumLabel)
   {
-    this.SkipEqual4(name, parent, grandParentArg, enumName);
+    this.SkipEqualAny([name, parent, grandParent, enumName]);
 
     // Arrange
-    GqlpGeneratorContext context = Context(baseType, generatorType);
+    GqlpGeneratorContext context = Context(BaseType, GeneratorType);
     IGqlpEnum enumType = A.Enum(enumName, [enumLabel]);
     IGqlpObject<TObjField> grandParentType = A.Obj<TObjField>(Kind, grandParent)
       .WithTypeParam(grandParentArg, "_Enum")
@@ -156,21 +156,20 @@ public abstract class GenerateObjectParentTestsBase<TObjField>(
       ForGeneratedCodeParent(TestPrefix + parent));
   }
 
-  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithDeepParentFieldParamEnum_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType,
-      string name, string kindParam,
+  [Theory, RepeatData]
+  public void GenerateType_WithDeepParentFieldParamEnum_GeneratesCorrectCode(string name, string kindParam,
       string deepParent, string deepField, string deepParam,
       string grandParent, string grandField, string grandParam,
       string parent, string parentField, string parentParam,
       string fieldName, string enumName, string enumLabel)
   {
-    this.SkipEqual4(name, deepParent, grandParent, enumName);
-    this.SkipEqual4(parent, kindParam, enumName, enumLabel);
-    this.SkipEqual4(kindParam, deepParam, grandParam, parentParam);
-    this.SkipEqual4(fieldName, deepField, grandField, parentField);
+    this.SkipEqualAny([name, parent, deepParent, grandParent, enumName]);
+    this.SkipEqualAny([parent, kindParam, enumName, enumLabel]);
+    this.SkipEqualAny([kindParam, deepParam, grandParam, parentParam]);
+    this.SkipEqualAny([fieldName, deepField, grandField, parentField]);
 
     // Arrange
-    GqlpGeneratorContext context = Context(baseType, generatorType);
+    GqlpGeneratorContext context = Context(BaseType, GeneratorType);
     IGqlpEnum enumType = A.Enum(enumName, [enumLabel]);
     // deepParent<$kindParam> with required field kindField: $kindParam
     IGqlpObject<TObjField> deepParentType = A.Obj<TObjField>(Kind, deepParent)
@@ -204,14 +203,14 @@ public abstract class GenerateObjectParentTestsBase<TObjField>(
     context.CheckFor(
       ForGeneratedCodeName(name),
       ForGeneratedCodeParent(TestPrefix + parent),
-      ForGeneratedImplementation(": base(" + TestPrefix + enumName + "." + enumLabel + ","));
+      ForGeneratedModel(": base(" + TestPrefix + enumName + "." + enumLabel + ","));
   }
 
-  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithParentParam_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string parent)
+  [Theory, RepeatData]
+  public void GenerateType_WithParentParam_GeneratesCorrectCode(string name, string parent)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(baseType, generatorType);
+    GqlpGeneratorContext context = Context(BaseType, GeneratorType);
     IGqlpObject<TObjField> type = A.Obj<TObjField>(Kind, name)
       .WithTypeParam(parent, "_Any")
       .WithParent(parent, p => p.IsTypeParam())
@@ -223,6 +222,6 @@ public abstract class GenerateObjectParentTestsBase<TObjField>(
     // Assert
     context.CheckFor(
       ForGeneratedCodeName(name),
-      ForGeneratedImplementation("T" + parent + "? As_Parent"));
+      ForGeneratedModel("T" + parent + "? As_Parent"));
   }
 }

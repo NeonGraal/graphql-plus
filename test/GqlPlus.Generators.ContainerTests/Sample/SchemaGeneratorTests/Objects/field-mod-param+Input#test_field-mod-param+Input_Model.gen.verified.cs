@@ -1,6 +1,6 @@
 ﻿//HintName: test_field-mod-param+Input_Model.gen.cs
 // Generated from {CurrentDirectory}field-mod-param+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_field_mod_param_Input;
 
 public class testFieldModParamInp<TMod>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldModParamInp<TMod>
 {
   public ItestFieldModParamInpObject<TMod>? As_FieldModParamInp { get; set; }
 }
 
 public class testFieldModParamInpObject<TMod>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldModParamInpObject<TMod>
 {
   public IDictionary<TMod, ItestFldFieldModParamInp> Field { get; set; }
@@ -29,7 +29,7 @@ public class testFieldModParamInpObject<TMod>
 }
 
 public class testFldFieldModParamInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldFieldModParamInp
 {
   public string? AsString { get; set; }
@@ -37,7 +37,7 @@ public class testFldFieldModParamInp
 }
 
 public class testFldFieldModParamInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldFieldModParamInpObject
 {
   public decimal Field { get; set; }

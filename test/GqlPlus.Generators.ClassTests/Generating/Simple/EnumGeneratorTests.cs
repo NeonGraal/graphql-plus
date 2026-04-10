@@ -12,6 +12,9 @@ public class EnumGeneratorTests
 
   internal override GenerateForType<IGqlpEnum> TypeGenerator => _generator;
 
+  internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
+  internal override GqlpBaseType BaseType => GqlpBaseType.Interface;
+
   [Theory, RepeatData]
   public void TypeMembers_WithEnumItems_ReturnsAsNamePairs(string enumName, string labelName)
   {
@@ -49,11 +52,11 @@ public class EnumGeneratorTests
     result.ShouldBe([expected]);
   }
 
-  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithEnumItems_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string enumName, string labelName)
+  [Theory, RepeatData]
+  public void GenerateType_WithEnumItems_GeneratesCorrectCode(string enumName, string labelName)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(baseType, generatorType);
+    GqlpGeneratorContext context = Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
     IGqlpEnum enumType = A.Enum(enumName, [labelName]);
 
     // Act
@@ -62,14 +65,14 @@ public class EnumGeneratorTests
     // Assert
     context.CheckFor(
       ForGeneratedCodeName(enumName),
-      ForGeneratedEnum(labelName + ","));
+      ForGeneratedInterface(labelName + ","));
   }
 
-  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithEnumAlias_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string enumName, string labelName, string alias)
+  [Theory, RepeatData]
+  public void GenerateType_WithEnumAlias_GeneratesCorrectCode(string enumName, string labelName, string alias)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(baseType, generatorType);
+    GqlpGeneratorContext context = Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
     IGqlpEnumLabel label = A.Aliased<IGqlpEnumLabel>(labelName, [alias]);
     IGqlpEnum enumType = A.Enum(enumName)
       .WithLabels(label)
@@ -81,15 +84,15 @@ public class EnumGeneratorTests
     // Assert
     context.CheckFor(
       ForGeneratedCodeName(enumName),
-      ForGeneratedEnum(labelName),
-      ForGeneratedEnum($"{alias} = {labelName}"));
+      ForGeneratedInterface(labelName),
+      ForGeneratedInterface($"{alias} = {labelName}"));
   }
 
-  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithParentItems_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string enumName, string parentName, string labelName)
+  [Theory, RepeatData]
+  public void GenerateType_WithParentItems_GeneratesCorrectCode(string enumName, string parentName, string labelName)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(baseType, generatorType);
+    GqlpGeneratorContext context = Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
     IGqlpEnum enumType = A.Enum(enumName)
       .WithParent(parentName)
       .AsEnum;
@@ -103,14 +106,14 @@ public class EnumGeneratorTests
     // Assert
     context.CheckFor(
       ForGeneratedCodeName(enumName),
-      ForGeneratedEnum($"{labelName} = {TestPrefix}{parentName}.{labelName},"));
+      ForGeneratedInterface($"{labelName} = {TestPrefix}{parentName}.{labelName},"));
   }
 
-  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithParentAlias_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string enumName, string parentName, string labelName, string alias)
+  [Theory, RepeatData]
+  public void GenerateType_WithParentAlias_GeneratesCorrectCode(string enumName, string parentName, string labelName, string alias)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(baseType, generatorType);
+    GqlpGeneratorContext context = Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
     IGqlpEnum enumType = A.Enum(enumName)
       .WithParent(parentName)
       .AsEnum;
@@ -127,16 +130,16 @@ public class EnumGeneratorTests
 
     // Assert
     context.CheckFor(
-      ForGeneratedEnum("public enum " + TestPrefix + enumName),
-      ForGeneratedEnum($"{labelName} = {TestPrefix}{parentName}.{labelName},"),
-      ForGeneratedEnum($"{alias} = {TestPrefix}{parentName}.{labelName}"));
+      ForGeneratedInterface("public enum " + TestPrefix + enumName),
+      ForGeneratedInterface($"{labelName} = {TestPrefix}{parentName}.{labelName},"),
+      ForGeneratedInterface($"{alias} = {TestPrefix}{parentName}.{labelName}"));
   }
 
   internal override ForType ForGeneratedCodeName(string name)
-    => ForGeneratedEnum("public enum " + TestPrefix + name);
+    => ForGeneratedInterface("public enum " + TestPrefix + name);
 
   internal override ForType ForGeneratedCodeParent(string parent)
-    => generatorType => r => { };
+    => _ => _ => { };
 
   protected override void MakeItems(SimpleBuilder<IGqlpEnum> builder, params string[] items)
     => ((EnumBuilder)builder).WithLabels(items);

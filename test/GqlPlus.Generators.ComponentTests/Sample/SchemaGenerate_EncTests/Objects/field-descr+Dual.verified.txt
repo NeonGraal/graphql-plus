@@ -1,0 +1,16 @@
+﻿/* field-descr+Dual
+dual FieldDescrDual { "Test" "Descr" field: String }
+*/
+
+// Generated from Schema field-descr+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-descr+Dual, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_descr_Dual;
+
+internal class CmptFieldDescrDualEncoder
+{
+  public string Field { get; set; }
+}

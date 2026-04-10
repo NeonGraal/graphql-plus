@@ -1,6 +1,6 @@
 ﻿//HintName: test_constraint-alt-obj+Input_Model.gen.cs
 // Generated from {CurrentDirectory}constraint-alt-obj+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_obj_Input;
 
 public class testCnstAltObjInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCnstAltObjInp
 {
   public ItestRefCnstAltObjInp<ItestAltCnstAltObjInp>? AsRefCnstAltObjInp { get; set; }
@@ -16,7 +16,7 @@ public class testCnstAltObjInp
 }
 
 public class testCnstAltObjInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCnstAltObjInpObject
 {
 
@@ -27,7 +27,7 @@ public class testCnstAltObjInpObject
 }
 
 public class testRefCnstAltObjInp<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstAltObjInp<TRef>
 {
   public TRef? Asref { get; set; }
@@ -35,7 +35,7 @@ public class testRefCnstAltObjInp<TRef>
 }
 
 public class testRefCnstAltObjInpObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstAltObjInpObject<TRef>
 {
 
@@ -46,7 +46,7 @@ public class testRefCnstAltObjInpObject<TRef>
 }
 
 public class testPrntCnstAltObjInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestPrntCnstAltObjInp
 {
   public string? AsString { get; set; }
@@ -54,7 +54,7 @@ public class testPrntCnstAltObjInp
 }
 
 public class testPrntCnstAltObjInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestPrntCnstAltObjInpObject
 {
 

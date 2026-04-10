@@ -1,6 +1,6 @@
 ﻿//HintName: test_+Merges_Model.gen.cs
 // Generated from {CurrentDirectory}+Merges.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp__Merges;
 
 public class testCtgr
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCtgr
 {
   public ItestCtgrObject? As_Ctgr { get; set; }
 }
 
 public class testCtgrObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCtgrObject
 {
 
@@ -26,14 +26,14 @@ public class testCtgrObject
 }
 
 public class testCtgrAlias
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCtgrAlias
 {
   public ItestCtgrAliasObject? As_CtgrAlias { get; set; }
 }
 
 public class testCtgrAliasObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCtgrAliasObject
 {
 
@@ -44,14 +44,14 @@ public class testCtgrAliasObject
 }
 
 public class testCtgrDescr
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCtgrDescr
 {
   public ItestCtgrDescrObject? As_CtgrDescr { get; set; }
 }
 
 public class testCtgrDescrObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCtgrDescrObject
 {
 
@@ -62,14 +62,14 @@ public class testCtgrDescrObject
 }
 
 public class testCtgrMod
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCtgrMod
 {
   public ItestCtgrModObject? As_CtgrMod { get; set; }
 }
 
 public class testCtgrModObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCtgrModObject
 {
 
@@ -80,14 +80,14 @@ public class testCtgrModObject
 }
 
 public class testInDrctParam
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestInDrctParam
 {
   public ItestInDrctParamObject? As_InDrctParam { get; set; }
 }
 
 public class testInDrctParamObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestInDrctParamObject
 {
 
@@ -170,14 +170,14 @@ public class testDmnStrSame
 }
 
 public class testObjDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjDual
 {
   public ItestObjDualObject? As_ObjDual { get; set; }
 }
 
 public class testObjDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjDualObject
 {
 
@@ -188,14 +188,14 @@ public class testObjDualObject
 }
 
 public class testObjInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjInp
 {
   public ItestObjInpObject? As_ObjInp { get; set; }
 }
 
 public class testObjInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjInpObject
 {
 
@@ -206,14 +206,14 @@ public class testObjInpObject
 }
 
 public class testObjOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjOutp
 {
   public ItestObjOutpObject? As_ObjOutp { get; set; }
 }
 
 public class testObjOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjOutpObject
 {
 
@@ -224,14 +224,14 @@ public class testObjOutpObject
 }
 
 public class testObjAliasDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAliasDual
 {
   public ItestObjAliasDualObject? As_ObjAliasDual { get; set; }
 }
 
 public class testObjAliasDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAliasDualObject
 {
 
@@ -242,14 +242,14 @@ public class testObjAliasDualObject
 }
 
 public class testObjAliasInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAliasInp
 {
   public ItestObjAliasInpObject? As_ObjAliasInp { get; set; }
 }
 
 public class testObjAliasInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAliasInpObject
 {
 
@@ -260,14 +260,14 @@ public class testObjAliasInpObject
 }
 
 public class testObjAliasOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAliasOutp
 {
   public ItestObjAliasOutpObject? As_ObjAliasOutp { get; set; }
 }
 
 public class testObjAliasOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAliasOutpObject
 {
 
@@ -278,7 +278,7 @@ public class testObjAliasOutpObject
 }
 
 public class testObjAltDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAltDual
 {
   public ItestObjAltDualType? AsObjAltDualType { get; set; }
@@ -286,7 +286,7 @@ public class testObjAltDual
 }
 
 public class testObjAltDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAltDualObject
 {
 
@@ -297,14 +297,14 @@ public class testObjAltDualObject
 }
 
 public class testObjAltDualType
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAltDualType
 {
   public ItestObjAltDualTypeObject? As_ObjAltDualType { get; set; }
 }
 
 public class testObjAltDualTypeObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAltDualTypeObject
 {
 
@@ -315,7 +315,7 @@ public class testObjAltDualTypeObject
 }
 
 public class testObjAltInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAltInp
 {
   public ItestObjAltInpType? AsObjAltInpType { get; set; }
@@ -323,7 +323,7 @@ public class testObjAltInp
 }
 
 public class testObjAltInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAltInpObject
 {
 
@@ -334,14 +334,14 @@ public class testObjAltInpObject
 }
 
 public class testObjAltInpType
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAltInpType
 {
   public ItestObjAltInpTypeObject? As_ObjAltInpType { get; set; }
 }
 
 public class testObjAltInpTypeObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAltInpTypeObject
 {
 
@@ -352,7 +352,7 @@ public class testObjAltInpTypeObject
 }
 
 public class testObjAltOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAltOutp
 {
   public ItestObjAltOutpType? AsObjAltOutpType { get; set; }
@@ -360,7 +360,7 @@ public class testObjAltOutp
 }
 
 public class testObjAltOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAltOutpObject
 {
 
@@ -371,14 +371,14 @@ public class testObjAltOutpObject
 }
 
 public class testObjAltOutpType
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAltOutpType
 {
   public ItestObjAltOutpTypeObject? As_ObjAltOutpType { get; set; }
 }
 
 public class testObjAltOutpTypeObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAltOutpTypeObject
 {
 
@@ -389,7 +389,7 @@ public class testObjAltOutpTypeObject
 }
 
 public class testObjAltEnumDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAltEnumDual
 {
   public bool? AsBooleantrue { get; set; }
@@ -398,7 +398,7 @@ public class testObjAltEnumDual
 }
 
 public class testObjAltEnumDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAltEnumDualObject
 {
 
@@ -409,7 +409,7 @@ public class testObjAltEnumDualObject
 }
 
 public class testObjAltEnumInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAltEnumInp
 {
   public bool? AsBooleantrue { get; set; }
@@ -418,7 +418,7 @@ public class testObjAltEnumInp
 }
 
 public class testObjAltEnumInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAltEnumInpObject
 {
 
@@ -429,7 +429,7 @@ public class testObjAltEnumInpObject
 }
 
 public class testObjAltEnumOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAltEnumOutp
 {
   public bool? AsBooleantrue { get; set; }
@@ -438,7 +438,7 @@ public class testObjAltEnumOutp
 }
 
 public class testObjAltEnumOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAltEnumOutpObject
 {
 
@@ -449,14 +449,14 @@ public class testObjAltEnumOutpObject
 }
 
 public class testObjCnstDual<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjCnstDual<TType>
 {
   public ItestObjCnstDualObject<TType>? As_ObjCnstDual { get; set; }
 }
 
 public class testObjCnstDualObject<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjCnstDualObject<TType>
 {
   public TType Field { get; set; }
@@ -473,14 +473,14 @@ public class testObjCnstDualObject<TType>
 }
 
 public class testObjCnstInp<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjCnstInp<TType>
 {
   public ItestObjCnstInpObject<TType>? As_ObjCnstInp { get; set; }
 }
 
 public class testObjCnstInpObject<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjCnstInpObject<TType>
 {
   public TType Field { get; set; }
@@ -497,14 +497,14 @@ public class testObjCnstInpObject<TType>
 }
 
 public class testObjCnstOutp<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjCnstOutp<TType>
 {
   public ItestObjCnstOutpObject<TType>? As_ObjCnstOutp { get; set; }
 }
 
 public class testObjCnstOutpObject<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjCnstOutpObject<TType>
 {
   public TType Field { get; set; }
@@ -521,14 +521,14 @@ public class testObjCnstOutpObject<TType>
 }
 
 public class testObjFieldDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldDual
 {
   public ItestObjFieldDualObject? As_ObjFieldDual { get; set; }
 }
 
 public class testObjFieldDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldDualObject
 {
   public ItestFldObjFieldDual Field { get; set; }
@@ -542,14 +542,14 @@ public class testObjFieldDualObject
 }
 
 public class testFldObjFieldDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldObjFieldDual
 {
   public ItestFldObjFieldDualObject? As_FldObjFieldDual { get; set; }
 }
 
 public class testFldObjFieldDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldObjFieldDualObject
 {
 
@@ -560,14 +560,14 @@ public class testFldObjFieldDualObject
 }
 
 public class testObjFieldInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldInp
 {
   public ItestObjFieldInpObject? As_ObjFieldInp { get; set; }
 }
 
 public class testObjFieldInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldInpObject
 {
   public ItestFldObjFieldInp Field { get; set; }
@@ -581,14 +581,14 @@ public class testObjFieldInpObject
 }
 
 public class testFldObjFieldInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldObjFieldInp
 {
   public ItestFldObjFieldInpObject? As_FldObjFieldInp { get; set; }
 }
 
 public class testFldObjFieldInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldObjFieldInpObject
 {
 
@@ -599,14 +599,14 @@ public class testFldObjFieldInpObject
 }
 
 public class testObjFieldOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldOutp
 {
   public ItestObjFieldOutpObject? As_ObjFieldOutp { get; set; }
 }
 
 public class testObjFieldOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldOutpObject
 {
   public ItestFldObjFieldOutp Field { get; set; }
@@ -620,14 +620,14 @@ public class testObjFieldOutpObject
 }
 
 public class testFldObjFieldOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldObjFieldOutp
 {
   public ItestFldObjFieldOutpObject? As_FldObjFieldOutp { get; set; }
 }
 
 public class testFldObjFieldOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldObjFieldOutpObject
 {
 
@@ -638,14 +638,14 @@ public class testFldObjFieldOutpObject
 }
 
 public class testObjFieldAliasDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldAliasDual
 {
   public ItestObjFieldAliasDualObject? As_ObjFieldAliasDual { get; set; }
 }
 
 public class testObjFieldAliasDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldAliasDualObject
 {
   public ItestFldObjFieldAliasDual Field { get; set; }
@@ -659,14 +659,14 @@ public class testObjFieldAliasDualObject
 }
 
 public class testFldObjFieldAliasDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldObjFieldAliasDual
 {
   public ItestFldObjFieldAliasDualObject? As_FldObjFieldAliasDual { get; set; }
 }
 
 public class testFldObjFieldAliasDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldObjFieldAliasDualObject
 {
 
@@ -677,14 +677,14 @@ public class testFldObjFieldAliasDualObject
 }
 
 public class testObjFieldAliasInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldAliasInp
 {
   public ItestObjFieldAliasInpObject? As_ObjFieldAliasInp { get; set; }
 }
 
 public class testObjFieldAliasInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldAliasInpObject
 {
   public ItestFldObjFieldAliasInp Field { get; set; }
@@ -698,14 +698,14 @@ public class testObjFieldAliasInpObject
 }
 
 public class testFldObjFieldAliasInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldObjFieldAliasInp
 {
   public ItestFldObjFieldAliasInpObject? As_FldObjFieldAliasInp { get; set; }
 }
 
 public class testFldObjFieldAliasInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldObjFieldAliasInpObject
 {
 
@@ -716,14 +716,14 @@ public class testFldObjFieldAliasInpObject
 }
 
 public class testObjFieldAliasOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldAliasOutp
 {
   public ItestObjFieldAliasOutpObject? As_ObjFieldAliasOutp { get; set; }
 }
 
 public class testObjFieldAliasOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldAliasOutpObject
 {
   public ItestFldObjFieldAliasOutp Field { get; set; }
@@ -737,14 +737,14 @@ public class testObjFieldAliasOutpObject
 }
 
 public class testFldObjFieldAliasOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldObjFieldAliasOutp
 {
   public ItestFldObjFieldAliasOutpObject? As_FldObjFieldAliasOutp { get; set; }
 }
 
 public class testFldObjFieldAliasOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldObjFieldAliasOutpObject
 {
 
@@ -755,14 +755,14 @@ public class testFldObjFieldAliasOutpObject
 }
 
 public class testObjFieldEnumAliasDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldEnumAliasDual
 {
   public ItestObjFieldEnumAliasDualObject? As_ObjFieldEnumAliasDual { get; set; }
 }
 
 public class testObjFieldEnumAliasDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldEnumAliasDualObject
 {
   public bool Field { get; set; }
@@ -776,14 +776,14 @@ public class testObjFieldEnumAliasDualObject
 }
 
 public class testObjFieldEnumAliasInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldEnumAliasInp
 {
   public ItestObjFieldEnumAliasInpObject? As_ObjFieldEnumAliasInp { get; set; }
 }
 
 public class testObjFieldEnumAliasInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldEnumAliasInpObject
 {
   public bool Field { get; set; }
@@ -797,14 +797,14 @@ public class testObjFieldEnumAliasInpObject
 }
 
 public class testObjFieldEnumAliasOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldEnumAliasOutp
 {
   public ItestObjFieldEnumAliasOutpObject? As_ObjFieldEnumAliasOutp { get; set; }
 }
 
 public class testObjFieldEnumAliasOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldEnumAliasOutpObject
 {
   public bool Field { get; set; }
@@ -818,14 +818,14 @@ public class testObjFieldEnumAliasOutpObject
 }
 
 public class testObjFieldEnumValueDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldEnumValueDual
 {
   public ItestObjFieldEnumValueDualObject? As_ObjFieldEnumValueDual { get; set; }
 }
 
 public class testObjFieldEnumValueDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldEnumValueDualObject
 {
   public bool Field { get; set; }
@@ -839,14 +839,14 @@ public class testObjFieldEnumValueDualObject
 }
 
 public class testObjFieldEnumValueInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldEnumValueInp
 {
   public ItestObjFieldEnumValueInpObject? As_ObjFieldEnumValueInp { get; set; }
 }
 
 public class testObjFieldEnumValueInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldEnumValueInpObject
 {
   public bool Field { get; set; }
@@ -860,14 +860,14 @@ public class testObjFieldEnumValueInpObject
 }
 
 public class testObjFieldEnumValueOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldEnumValueOutp
 {
   public ItestObjFieldEnumValueOutpObject? As_ObjFieldEnumValueOutp { get; set; }
 }
 
 public class testObjFieldEnumValueOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldEnumValueOutpObject
 {
   public bool Field { get; set; }
@@ -881,14 +881,14 @@ public class testObjFieldEnumValueOutpObject
 }
 
 public class testObjFieldTypeAliasDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldTypeAliasDual
 {
   public ItestObjFieldTypeAliasDualObject? As_ObjFieldTypeAliasDual { get; set; }
 }
 
 public class testObjFieldTypeAliasDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldTypeAliasDualObject
 {
   public string Field { get; set; }
@@ -902,14 +902,14 @@ public class testObjFieldTypeAliasDualObject
 }
 
 public class testObjFieldTypeAliasInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldTypeAliasInp
 {
   public ItestObjFieldTypeAliasInpObject? As_ObjFieldTypeAliasInp { get; set; }
 }
 
 public class testObjFieldTypeAliasInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldTypeAliasInpObject
 {
   public string Field { get; set; }
@@ -923,14 +923,14 @@ public class testObjFieldTypeAliasInpObject
 }
 
 public class testObjFieldTypeAliasOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldTypeAliasOutp
 {
   public ItestObjFieldTypeAliasOutpObject? As_ObjFieldTypeAliasOutp { get; set; }
 }
 
 public class testObjFieldTypeAliasOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldTypeAliasOutpObject
 {
   public string Field { get; set; }
@@ -944,14 +944,14 @@ public class testObjFieldTypeAliasOutpObject
 }
 
 public class testObjParamDual<TTest,TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjParamDual<TTest,TType>
 {
   public ItestObjParamDualObject<TTest,TType>? As_ObjParamDual { get; set; }
 }
 
 public class testObjParamDualObject<TTest,TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjParamDualObject<TTest,TType>
 {
   public TTest Test { get; set; }
@@ -968,14 +968,14 @@ public class testObjParamDualObject<TTest,TType>
 }
 
 public class testObjParamInp<TTest,TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjParamInp<TTest,TType>
 {
   public ItestObjParamInpObject<TTest,TType>? As_ObjParamInp { get; set; }
 }
 
 public class testObjParamInpObject<TTest,TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjParamInpObject<TTest,TType>
 {
   public TTest Test { get; set; }
@@ -992,14 +992,14 @@ public class testObjParamInpObject<TTest,TType>
 }
 
 public class testObjParamOutp<TTest,TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjParamOutp<TTest,TType>
 {
   public ItestObjParamOutpObject<TTest,TType>? As_ObjParamOutp { get; set; }
 }
 
 public class testObjParamOutpObject<TTest,TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjParamOutpObject<TTest,TType>
 {
   public TTest Test { get; set; }
@@ -1016,14 +1016,14 @@ public class testObjParamOutpObject<TTest,TType>
 }
 
 public class testObjParamDupDual<TTest>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjParamDupDual<TTest>
 {
   public ItestObjParamDupDualObject<TTest>? As_ObjParamDupDual { get; set; }
 }
 
 public class testObjParamDupDualObject<TTest>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjParamDupDualObject<TTest>
 {
   public TTest Test { get; set; }
@@ -1040,14 +1040,14 @@ public class testObjParamDupDualObject<TTest>
 }
 
 public class testObjParamDupInp<TTest>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjParamDupInp<TTest>
 {
   public ItestObjParamDupInpObject<TTest>? As_ObjParamDupInp { get; set; }
 }
 
 public class testObjParamDupInpObject<TTest>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjParamDupInpObject<TTest>
 {
   public TTest Test { get; set; }
@@ -1064,14 +1064,14 @@ public class testObjParamDupInpObject<TTest>
 }
 
 public class testObjParamDupOutp<TTest>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjParamDupOutp<TTest>
 {
   public ItestObjParamDupOutpObject<TTest>? As_ObjParamDupOutp { get; set; }
 }
 
 public class testObjParamDupOutpObject<TTest>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjParamDupOutpObject<TTest>
 {
   public TTest Test { get; set; }
@@ -1106,14 +1106,14 @@ public class testObjPrntDualObject
 }
 
 public class testRefObjPrntDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefObjPrntDual
 {
   public ItestRefObjPrntDualObject? As_RefObjPrntDual { get; set; }
 }
 
 public class testRefObjPrntDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefObjPrntDualObject
 {
 
@@ -1142,14 +1142,14 @@ public class testObjPrntInpObject
 }
 
 public class testRefObjPrntInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefObjPrntInp
 {
   public ItestRefObjPrntInpObject? As_RefObjPrntInp { get; set; }
 }
 
 public class testRefObjPrntInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefObjPrntInpObject
 {
 
@@ -1178,14 +1178,14 @@ public class testObjPrntOutpObject
 }
 
 public class testRefObjPrntOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefObjPrntOutp
 {
   public ItestRefObjPrntOutpObject? As_RefObjPrntOutp { get; set; }
 }
 
 public class testRefObjPrntOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefObjPrntOutpObject
 {
 
@@ -1196,14 +1196,14 @@ public class testRefObjPrntOutpObject
 }
 
 public class testOutpFieldParam
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestOutpFieldParam
 {
   public ItestOutpFieldParamObject? As_OutpFieldParam { get; set; }
 }
 
 public class testOutpFieldParamObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestOutpFieldParamObject
 {
   public ItestFldOutpFieldParam? Field(ItestOutpFieldParam1 parameter)
@@ -1216,14 +1216,14 @@ public class testOutpFieldParamObject
 }
 
 public class testOutpFieldParam1
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestOutpFieldParam1
 {
   public ItestOutpFieldParam1Object? As_OutpFieldParam1 { get; set; }
 }
 
 public class testOutpFieldParam1Object
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestOutpFieldParam1Object
 {
 
@@ -1234,14 +1234,14 @@ public class testOutpFieldParam1Object
 }
 
 public class testOutpFieldParam2
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestOutpFieldParam2
 {
   public ItestOutpFieldParam2Object? As_OutpFieldParam2 { get; set; }
 }
 
 public class testOutpFieldParam2Object
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestOutpFieldParam2Object
 {
 
@@ -1252,14 +1252,14 @@ public class testOutpFieldParam2Object
 }
 
 public class testFldOutpFieldParam
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldOutpFieldParam
 {
   public ItestFldOutpFieldParamObject? As_FldOutpFieldParam { get; set; }
 }
 
 public class testFldOutpFieldParamObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldOutpFieldParamObject
 {
 
@@ -1270,7 +1270,7 @@ public class testFldOutpFieldParamObject
 }
 
 public class testUnionAlias
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestUnionAlias
 {
   public Boolean AsBoolean { get; set; }
@@ -1278,7 +1278,7 @@ public class testUnionAlias
 }
 
 public class testUnionDiff
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestUnionDiff
 {
   public Boolean AsBoolean { get; set; }
@@ -1286,7 +1286,7 @@ public class testUnionDiff
 }
 
 public class testUnionSame
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestUnionSame
 {
   public Boolean AsBoolean { get; set; }
@@ -1300,7 +1300,7 @@ public class testUnionSamePrnt
 }
 
 public class testPrntUnionSamePrnt
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestPrntUnionSamePrnt
 {
   public String AsString { get; set; }

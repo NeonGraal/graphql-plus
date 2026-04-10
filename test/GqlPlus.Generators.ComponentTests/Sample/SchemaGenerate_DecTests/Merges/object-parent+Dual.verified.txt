@@ -1,0 +1,21 @@
+﻿/* object-parent+Dual
+dual ObjPrntDual { :RefObjPrntDual }
+dual ObjPrntDual { :RefObjPrntDual }
+dual RefObjPrntDual { }
+*/
+
+// Generated from Schema object-parent+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-parent+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_parent_Dual;
+
+internal class CmptObjPrntDualDecoder
+{
+}
+
+internal class CmptRefObjPrntDualDecoder
+{
+}

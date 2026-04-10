@@ -1,6 +1,6 @@
 ﻿//HintName: test_parent-param-diff+Input_Intf.gen.cs
 // Generated from {CurrentDirectory}parent-param-diff+Input.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -20,13 +20,13 @@ public interface ItestPrntParamDiffInpObject<TA>
 }
 
 public interface ItestRefPrntParamDiffInp<TB>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TB? Asb { get; }
   ItestRefPrntParamDiffInpObject<TB>? As_RefPrntParamDiffInp { get; }
 }
 
 public interface ItestRefPrntParamDiffInpObject<TB>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }

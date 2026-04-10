@@ -1,6 +1,6 @@
 ﻿//HintName: test_alt-simple+Input_Intf.gen.cs
 // Generated from {CurrentDirectory}alt-simple+Input.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,13 +8,13 @@
 namespace GqlPlus.GeneratorTests.Gqlp_alt_simple_Input;
 
 public interface ItestAltSmplInp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string? AsString { get; }
   ItestAltSmplInpObject? As_AltSmplInp { get; }
 }
 
 public interface ItestAltSmplInpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }

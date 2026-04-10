@@ -1,0 +1,62 @@
+﻿/* Built-In
+dual _Collections {
+    | _Modifier<_ModifierKind.List>
+    | _ModifierKeyed<_ModifierKind.Dictionary>
+    | _ModifierKeyed<_ModifierKind.TypeParam>
+    }
+
+dual _ModifierKeyed<$modifierKind:_ModifierKind> {
+    : _Modifier<$modifierKind>
+        by: _TypeSimple
+        isOptional: Boolean
+    }
+
+dual _Modifiers {
+    | _Modifier<_ModifierKind.Optional>
+    | _Collections
+    }
+
+enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+
+dual _Modifier<$modifierKind:_ModifierKind> {
+        modifierKind: $modifierKind
+    }
+*/
+
+// Generated from Spec Built-In
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Built-In, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Built_In;
+
+internal class Cmpt_CollectionsEncoder
+{
+}
+
+internal class Cmpt_ModifierKeyedEncoder<TModifierKind>
+{
+  public ICmpt_TypeSimple By { get; set; }
+  public bool IsOptional { get; set; }
+}
+
+internal class Cmpt_ModifiersEncoder
+{
+}
+
+internal class Cmpt_ModifierKindEncoder
+{
+  public string Opt { get; set; }
+  public string Optional { get; set; }
+  public string List { get; set; }
+  public string Dict { get; set; }
+  public string Dictionary { get; set; }
+  public string Param { get; set; }
+  public string TypeParam { get; set; }
+}
+
+internal class Cmpt_ModifierEncoder<TModifierKind>
+{
+  public TModifierKind ModifierKind { get; set; }
+}

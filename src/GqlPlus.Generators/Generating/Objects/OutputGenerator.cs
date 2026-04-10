@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Generating.Objects;
 
-internal class OutputGenerator
+internal abstract class OutputGeneratorBase
   : GenerateForObject<IGqlpOutputField, OutputField>
 {
   protected override void ClassMember(OutputField item, GqlpGeneratorContext context)
@@ -35,6 +35,34 @@ internal class OutputGenerator
       .Where(f => f.Modifiers.LastOrDefault()?.ModifierKind != ModifierKind.Opt
         && !(f is IGqlpOutputField outF && outF.Parameter is not null))
       .Select(RequiredMember(types))];
+}
+
+internal sealed class OutputInterfaceGenerator
+  : OutputGeneratorBase
+{
+  protected override void Generate(IGqlpObject<IGqlpOutputField> ast, GqlpGeneratorContext context)
+    => GenerateObjectInterfaces(ast, context);
+}
+
+internal sealed class OutputModelGenerator
+  : OutputGeneratorBase
+{
+  protected override void Generate(IGqlpObject<IGqlpOutputField> ast, GqlpGeneratorContext context)
+    => GenerateObjectClasses(ast, context);
+}
+
+internal sealed class OutputDecoderGenerator
+  : OutputGeneratorBase
+{
+  protected override void Generate(IGqlpObject<IGqlpOutputField> ast, GqlpGeneratorContext context)
+    => GenerateBlock(ast, context, DecoderHeader, TypeMembers, ClassMember);
+}
+
+internal sealed class OutputEncoderGenerator
+  : OutputGeneratorBase
+{
+  protected override void Generate(IGqlpObject<IGqlpOutputField> ast, GqlpGeneratorContext context)
+    => GenerateBlock(ast, context, EncoderHeader, TypeMembers, ClassMember);
 }
 
 internal class OutputField(string fieldName, string fieldType, string fieldParam)

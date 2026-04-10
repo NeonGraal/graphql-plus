@@ -1,0 +1,26 @@
+﻿/* generic-alt-param+Dual
+dual GnrcAltParamDual { | RefGnrcAltParamDual<AltGnrcAltParamDual> }
+dual RefGnrcAltParamDual<$ref:_Dual> { | $ref }
+dual AltGnrcAltParamDual { alt: Number | String }
+*/
+
+// Generated from Schema generic-alt-param+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-param+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_param_Dual;
+
+internal class CmptGnrcAltParamDualDecoder
+{
+}
+
+internal class CmptRefGnrcAltParamDualDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcAltParamDualDecoder
+{
+  public decimal Alt { get; set; }
+}

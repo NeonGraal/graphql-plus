@@ -1,0 +1,193 @@
+﻿/* -Simple
+enum _DomainKind { Boolean Enum Number String }
+
+output _DomainRef<$domainKind:_DomainKind> {
+    : _TypeRef<_TypeKind.Domain>
+        domainKind: $domainKind
+    }
+
+output _BaseDomain<$domainKind:_DomainKind $item:_BaseDomainItem $domainItem:_DomainItem> {
+    : _ParentType<_TypeKind.Domain $item $domainItem>
+        domainKind: $domainKind
+    }
+
+dual _BaseDomainItem {
+    : _Described
+        exclude: Boolean
+    }
+
+output _DomainItem<$item:_BaseDomainItem> {
+    : $item
+        domain: _Name
+    }
+
+output _DomainValue<$domainKind:_DomainKind $value:_BasicValue> {
+    : _DomainRef<$domainKind>
+        value: $value
+    | $value
+    }
+
+output _BasicValue {
+    | Boolean
+    | _EnumValue
+    | Number
+    | String
+    }
+
+dual _DomainTrueFalse {
+    : _BaseDomainItem
+        value: Boolean
+    }
+
+output _DomainItemTrueFalse {
+    : _DomainItem<_DomainTrueFalse>
+    }
+
+output _DomainLabel {
+    : _BaseDomainItem
+        label: _EnumValue
+    }
+
+output _DomainItemLabel {
+    : _DomainItem<_DomainLabel>
+    }
+
+dual _DomainRange {
+    : _BaseDomainItem
+        lower: Number?
+        upper: Number?
+    }
+
+output _DomainItemRange {
+    : _DomainItem<_DomainRange>
+    }
+
+dual _DomainRegex {
+    : _BaseDomainItem
+        pattern: String
+    }
+
+output _DomainItemRegex {
+    : _DomainItem<_DomainRegex>
+    }
+
+dual _EnumLabel {
+    : _Aliased
+        enumType: _Name
+    }
+
+output _EnumValue {
+    : _TypeRef<_TypeKind.Enum>
+        label: _Name
+    }
+
+output _UnionRef {
+    : _TypeRef<_SimpleKind>
+    }
+
+output _UnionMember {
+    : _UnionRef
+        union: _Name
+    }
+*/
+
+// Generated from Spec -Simple
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_-Simple, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Simple;
+
+internal class Cmpt_DomainKindDecoder
+{
+  public string Boolean { get; set; }
+  public string Enum { get; set; }
+  public string Number { get; set; }
+  public string String { get; set; }
+}
+
+internal class Cmpt_DomainRefDecoder<TDomainKind>
+{
+  public TDomainKind DomainKind { get; set; }
+}
+
+internal class Cmpt_BaseDomainDecoder<TDomainKind,TItem,TDomainItem>
+{
+  public TDomainKind DomainKind { get; set; }
+}
+
+internal class Cmpt_BaseDomainItemDecoder
+{
+  public bool Exclude { get; set; }
+}
+
+internal class Cmpt_DomainItemDecoder<TItem>
+{
+  public ICmpt_Name Domain { get; set; }
+}
+
+internal class Cmpt_DomainValueDecoder<TDomainKind,TValue>
+{
+  public TValue Value { get; set; }
+}
+
+internal class Cmpt_BasicValueDecoder
+{
+}
+
+internal class Cmpt_DomainTrueFalseDecoder
+{
+  public bool Value { get; set; }
+}
+
+internal class Cmpt_DomainItemTrueFalseDecoder
+{
+}
+
+internal class Cmpt_DomainLabelDecoder
+{
+  public ICmpt_EnumValue Label { get; set; }
+}
+
+internal class Cmpt_DomainItemLabelDecoder
+{
+}
+
+internal class Cmpt_DomainRangeDecoder
+{
+  public decimal? Lower { get; set; }
+  public decimal? Upper { get; set; }
+}
+
+internal class Cmpt_DomainItemRangeDecoder
+{
+}
+
+internal class Cmpt_DomainRegexDecoder
+{
+  public string Pattern { get; set; }
+}
+
+internal class Cmpt_DomainItemRegexDecoder
+{
+}
+
+internal class Cmpt_EnumLabelDecoder
+{
+  public ICmpt_Name EnumType { get; set; }
+}
+
+internal class Cmpt_EnumValueDecoder
+{
+  public ICmpt_Name Label { get; set; }
+}
+
+internal class Cmpt_UnionRefDecoder
+{
+}
+
+internal class Cmpt_UnionMemberDecoder
+{
+  public ICmpt_Name Union { get; set; }
+}

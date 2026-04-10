@@ -1,6 +1,6 @@
 ﻿//HintName: test_field-mod-param+Output_Intf.gen.cs
 // Generated from {CurrentDirectory}field-mod-param+Output.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,26 +8,26 @@
 namespace GqlPlus.GeneratorTests.Gqlp_field_mod_param_Output;
 
 public interface ItestFieldModParamOutp<TMod>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFieldModParamOutpObject<TMod>? As_FieldModParamOutp { get; }
 }
 
 public interface ItestFieldModParamOutpObject<TMod>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   IDictionary<TMod, ItestFldFieldModParamOutp> Field { get; }
 }
 
 public interface ItestFldFieldModParamOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string? AsString { get; }
   ItestFldFieldModParamOutpObject? As_FldFieldModParamOutp { get; }
 }
 
 public interface ItestFldFieldModParamOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   decimal Field { get; }
 }

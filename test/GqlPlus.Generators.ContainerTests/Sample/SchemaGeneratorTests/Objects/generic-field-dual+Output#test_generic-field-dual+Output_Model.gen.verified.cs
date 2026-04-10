@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-field-dual+Output_Model.gen.cs
 // Generated from {CurrentDirectory}generic-field-dual+Output.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_dual_Output;
 
 public class testGnrcFieldDualOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcFieldDualOutp
 {
   public ItestGnrcFieldDualOutpObject? As_GnrcFieldDualOutp { get; set; }
 }
 
 public class testGnrcFieldDualOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcFieldDualOutpObject
 {
   public ItestRefGnrcFieldDualOutp<ItestAltGnrcFieldDualOutp> Field { get; set; }
@@ -29,7 +29,7 @@ public class testGnrcFieldDualOutpObject
 }
 
 public class testRefGnrcFieldDualOutp<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcFieldDualOutp<TRef>
 {
   public TRef? Asref { get; set; }
@@ -37,7 +37,7 @@ public class testRefGnrcFieldDualOutp<TRef>
 }
 
 public class testRefGnrcFieldDualOutpObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcFieldDualOutpObject<TRef>
 {
 
@@ -48,7 +48,7 @@ public class testRefGnrcFieldDualOutpObject<TRef>
 }
 
 public class testAltGnrcFieldDualOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltGnrcFieldDualOutp
 {
   public string? AsString { get; set; }
@@ -56,7 +56,7 @@ public class testAltGnrcFieldDualOutp
 }
 
 public class testAltGnrcFieldDualOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltGnrcFieldDualOutpObject
 {
   public decimal Alt { get; set; }

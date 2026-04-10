@@ -1,0 +1,21 @@
+﻿/* alt-mod-Boolean+Input
+input AltModBoolInp { | AltAltModBoolInp[^] }
+input AltAltModBoolInp { alt: Number | String }
+*/
+
+// Generated from Schema alt-mod-Boolean+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-mod-Boolean+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_mod_Boolean_Input;
+
+internal class CmptAltModBoolInpDecoder
+{
+}
+
+internal class CmptAltAltModBoolInpDecoder
+{
+  public decimal Alt { get; set; }
+}

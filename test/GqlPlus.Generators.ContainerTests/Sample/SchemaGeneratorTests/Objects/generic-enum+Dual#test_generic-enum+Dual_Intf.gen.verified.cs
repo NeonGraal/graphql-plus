@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-enum+Dual_Intf.gen.cs
 // Generated from {CurrentDirectory}generic-enum+Dual.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,25 +8,30 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_enum_Dual;
 
 public interface ItestGnrcEnumDual
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestRefGnrcEnumDual<testEnumGnrcEnumDual>? AsEnumGnrcEnumDualgnrcEnumDual { get; }
   ItestGnrcEnumDualObject? As_GnrcEnumDual { get; }
 }
 
 public interface ItestGnrcEnumDualObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestRefGnrcEnumDual<TType>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestRefGnrcEnumDualObject<TType>? As_RefGnrcEnumDual { get; }
 }
 
 public interface ItestRefGnrcEnumDualObject<TType>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TType Field { get; }
+}
+
+public enum testEnumGnrcEnumDual
+{
+  gnrcEnumDual,
 }

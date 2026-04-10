@@ -1,5 +1,29 @@
 ﻿namespace GqlPlus.Generating.Simple;
 
-internal sealed class DomainNumberGenerator()
+internal sealed class DomainNumberInterfaceGenerator()
   : GenerateBaseDomain<IGqlpDomainRange>(DomainKind.Number)
-{ }
+{
+  protected override void Generate(IGqlpDomain<IGqlpDomainRange> ast, GqlpGeneratorContext context)
+    => GenerateBlock(ast, context, InterfaceHeader, TypeMembers, InterfaceMember);
+}
+
+internal sealed class DomainNumberModelGenerator()
+  : GenerateBaseDomain<IGqlpDomainRange>(DomainKind.Number)
+{
+  protected override void Generate(IGqlpDomain<IGqlpDomainRange> ast, GqlpGeneratorContext context)
+    => GenerateBlock(ast, context, ClassHeader, TypeMembers, ClassMember, ClassTail);
+}
+
+internal sealed class DomainNumberDecoderGenerator()
+  : GenerateBaseDomain<IGqlpDomainRange>(DomainKind.Number)
+{
+  protected override void Generate(IGqlpDomain<IGqlpDomainRange> ast, GqlpGeneratorContext context)
+    => GenerateBlock(ast, context, DecoderHeader, TypeMembers, ClassMember);
+}
+
+internal sealed class DomainNumberEncoderGenerator()
+  : GenerateBaseDomain<IGqlpDomainRange>(DomainKind.Number)
+{
+  protected override void Generate(IGqlpDomain<IGqlpDomainRange> ast, GqlpGeneratorContext context)
+    => GenerateBlock(ast, context, EncoderHeader, TypeMembers, ClassMember);
+}

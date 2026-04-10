@@ -80,6 +80,14 @@ output _DomainItemRegex {
 
 namespace Components.Gqlp_Spec_Domain;
 
+public enum Cmpt_DomainKind
+{
+  Boolean,
+  Enum,
+  Number,
+  String,
+}
+
 public interface ICmpt_DomainRef<TDomainKind>
   : ICmpt_TypeRef<ICmpt_TypeKind>
 {

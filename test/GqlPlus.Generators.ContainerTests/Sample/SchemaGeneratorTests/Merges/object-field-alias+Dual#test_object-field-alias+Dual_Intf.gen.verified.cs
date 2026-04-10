@@ -1,6 +1,6 @@
 ﻿//HintName: test_object-field-alias+Dual_Intf.gen.cs
 // Generated from {CurrentDirectory}object-field-alias+Dual.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,24 +8,24 @@
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_alias_Dual;
 
 public interface ItestObjFieldAliasDual
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjFieldAliasDualObject? As_ObjFieldAliasDual { get; }
 }
 
 public interface ItestObjFieldAliasDualObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldObjFieldAliasDual Field { get; }
 }
 
 public interface ItestFldObjFieldAliasDual
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldObjFieldAliasDualObject? As_FldObjFieldAliasDual { get; }
 }
 
 public interface ItestFldObjFieldAliasDualObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }

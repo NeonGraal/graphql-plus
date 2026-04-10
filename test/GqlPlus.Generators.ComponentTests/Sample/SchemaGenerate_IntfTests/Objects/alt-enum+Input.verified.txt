@@ -22,3 +22,8 @@ public interface ICmptAltEnumInpObject
   : Schema_alt-enum+Input
 {
 }
+
+public enum CmptEnumAltEnumInp
+{
+  altEnumInp,
+}

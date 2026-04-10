@@ -1,6 +1,6 @@
 ﻿//HintName: test_parent-param-same+Output_Intf.gen.cs
 // Generated from {CurrentDirectory}parent-param-same+Output.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -20,13 +20,13 @@ public interface ItestPrntParamSameOutpObject<TA>
 }
 
 public interface ItestRefPrntParamSameOutp<TA>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TA? Asa { get; }
   ItestRefPrntParamSameOutpObject<TA>? As_RefPrntParamSameOutp { get; }
 }
 
 public interface ItestRefPrntParamSameOutpObject<TA>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }

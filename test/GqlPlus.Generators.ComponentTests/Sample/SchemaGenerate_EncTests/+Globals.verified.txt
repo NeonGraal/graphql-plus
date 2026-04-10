@@ -1,0 +1,75 @@
+﻿// Generated from Schema +Globals
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_+Globals, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_Globals;
+
+internal class CmptCtgrDscrsEncoder
+{
+}
+
+internal class CmptCtgrOutpEncoder
+{
+}
+
+internal class CmptCtgrOutpDescrEncoder
+{
+}
+
+internal class CmptCtgrOutpDictEncoder
+{
+}
+
+internal class CmptCtgrOutpListEncoder
+{
+}
+
+internal class CmptCtgrOutpOptlEncoder
+{
+}
+
+internal class CmptDescrEncoder
+{
+}
+
+internal class CmptDescrBcksEncoder
+{
+}
+
+internal class CmptDescrBtwnEncoder
+{
+}
+
+internal class CmptDescrCmplEncoder
+{
+}
+
+internal class CmptDescrDblEncoder
+{
+}
+
+internal class CmptDescrSnglEncoder
+{
+}
+
+internal class CmptDscrsEncoder
+{
+}
+
+internal class CmptInDrctParamDictEncoder
+{
+}
+
+internal class CmptInDrctParamInEncoder
+{
+}
+
+internal class CmptInDrctParamListEncoder
+{
+}
+
+internal class CmptInDrctParamOptEncoder
+{
+}

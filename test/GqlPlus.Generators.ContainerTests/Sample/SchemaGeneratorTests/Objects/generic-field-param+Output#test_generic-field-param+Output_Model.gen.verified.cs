@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-field-param+Output_Model.gen.cs
 // Generated from {CurrentDirectory}generic-field-param+Output.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_param_Output;
 
 public class testGnrcFieldParamOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcFieldParamOutp
 {
   public ItestGnrcFieldParamOutpObject? As_GnrcFieldParamOutp { get; set; }
 }
 
 public class testGnrcFieldParamOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcFieldParamOutpObject
 {
   public ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> Field { get; set; }
@@ -29,7 +29,7 @@ public class testGnrcFieldParamOutpObject
 }
 
 public class testRefGnrcFieldParamOutp<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcFieldParamOutp<TRef>
 {
   public TRef? Asref { get; set; }
@@ -37,7 +37,7 @@ public class testRefGnrcFieldParamOutp<TRef>
 }
 
 public class testRefGnrcFieldParamOutpObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcFieldParamOutpObject<TRef>
 {
 
@@ -48,7 +48,7 @@ public class testRefGnrcFieldParamOutpObject<TRef>
 }
 
 public class testAltGnrcFieldParamOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltGnrcFieldParamOutp
 {
   public string? AsString { get; set; }
@@ -56,7 +56,7 @@ public class testAltGnrcFieldParamOutp
 }
 
 public class testAltGnrcFieldParamOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltGnrcFieldParamOutpObject
 {
   public decimal Alt { get; set; }

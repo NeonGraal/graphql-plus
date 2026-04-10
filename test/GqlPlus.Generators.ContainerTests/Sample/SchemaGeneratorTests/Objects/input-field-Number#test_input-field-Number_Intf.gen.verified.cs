@@ -1,6 +1,6 @@
 ﻿//HintName: test_input-field-Number_Intf.gen.cs
 // Generated from {CurrentDirectory}input-field-Number.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,13 +8,13 @@
 namespace GqlPlus.GeneratorTests.Gqlp_input_field_Number;
 
 public interface ItestInpFieldNmbr
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestInpFieldNmbrObject? As_InpFieldNmbr { get; }
 }
 
 public interface ItestInpFieldNmbrObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   decimal Field { get; }
 }

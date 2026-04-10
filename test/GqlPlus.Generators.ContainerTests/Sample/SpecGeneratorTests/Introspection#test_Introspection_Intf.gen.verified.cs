@@ -1,6 +1,6 @@
 ﻿//HintName: test_Introspection_Intf.gen.cs
 // Generated from {CurrentDirectory}Introspection.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -28,14 +28,14 @@ public interface Itest_Name
 }
 
 public interface Itest_Filter
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ICollection<Itest_NameFilter>? As_NameFilter { get; }
   Itest_FilterObject? As__Filter { get; }
 }
 
 public interface Itest_FilterObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ICollection<Itest_NameFilter> Names { get; }
   bool? MatchAliases { get; }
@@ -98,13 +98,13 @@ public interface Itest_NamedObject
 }
 
 public interface Itest_Described
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_DescribedObject? As__Described { get; }
 }
 
 public interface Itest_DescribedObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ICollection<string> Description { get; }
 }
@@ -149,6 +149,13 @@ public interface Itest_CategoryObject
   ICollection<Itest_Modifiers> Modifiers { get; }
 }
 
+public enum test_Resolution
+{
+  Parallel,
+  Sequential,
+  Single,
+}
+
 public interface Itest_Directives
   : Itest_AndType
 {
@@ -176,6 +183,16 @@ public interface Itest_DirectiveObject
   IDictionary<test_Location, GqlpUnit> Locations { get; }
 }
 
+public enum test_Location
+{
+  Operation,
+  Variable,
+  Field,
+  Inline,
+  Spread,
+  Fragment,
+}
+
 public interface Itest_Setting
   : Itest_Named
 {
@@ -189,7 +206,7 @@ public interface Itest_SettingObject
 }
 
 public interface Itest_Type
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_BaseType<test_TypeKind>? As_TypeKindBasic { get; }
   Itest_BaseType<test_TypeKind>? As_TypeKindInternal { get; }
@@ -206,7 +223,7 @@ public interface Itest_Type
 }
 
 public interface Itest_TypeObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
@@ -247,6 +264,27 @@ public interface Itest_ParentTypeObject<TTypeKind,TItem,TAllItem>
   ICollection<TAllItem> AllItems { get; }
 }
 
+public enum test_SimpleKind
+{
+  Basic,
+  Enum,
+  Internal,
+  Domain,
+  Union,
+}
+
+public enum test_TypeKind
+{
+  Basic = test_SimpleKind.Basic,
+  Enum = test_SimpleKind.Enum,
+  Internal = test_SimpleKind.Internal,
+  Domain = test_SimpleKind.Domain,
+  Union = test_SimpleKind.Union,
+  Dual,
+  Input,
+  Output,
+}
+
 public interface Itest_TypeRef<TTypeKind>
   : Itest_Named
 {
@@ -260,7 +298,7 @@ public interface Itest_TypeRefObject<TTypeKind>
 }
 
 public interface Itest_TypeSimple
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_TypeRef<test_TypeKind>? As_TypeKindBasic { get; }
   Itest_TypeRef<test_TypeKind>? As_TypeKindEnum { get; }
@@ -270,12 +308,12 @@ public interface Itest_TypeSimple
 }
 
 public interface Itest_TypeSimpleObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface Itest_Collections
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_Modifier<test_ModifierKind>? As_ModifierKindList { get; }
   Itest_ModifierKeyed<test_ModifierKind>? As_ModifierKindDictionary { get; }
@@ -284,7 +322,7 @@ public interface Itest_Collections
 }
 
 public interface Itest_CollectionsObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
@@ -302,7 +340,7 @@ public interface Itest_ModifierKeyedObject<TModifierKind>
 }
 
 public interface Itest_Modifiers
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_Modifier<test_ModifierKind>? As_ModifierKindOptional { get; }
   Itest_Collections? As_Collections { get; }
@@ -310,20 +348,39 @@ public interface Itest_Modifiers
 }
 
 public interface Itest_ModifiersObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
+public enum test_ModifierKind
+{
+  Opt,
+  Optional = Opt,
+  List,
+  Dict,
+  Dictionary = Dict,
+  Param,
+  TypeParam = Param,
+}
+
 public interface Itest_Modifier<TModifierKind>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_ModifierObject<TModifierKind>? As__Modifier { get; }
 }
 
 public interface Itest_ModifierObject<TModifierKind>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TModifierKind ModifierKind { get; }
+}
+
+public enum test_DomainKind
+{
+  Boolean,
+  Enum,
+  Number,
+  String,
 }
 
 public interface Itest_DomainRef<TDomainKind>
@@ -363,14 +420,14 @@ public interface Itest_BaseDomainItemObject
 }
 
 public interface Itest_DomainItem<TItem>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TItem? As_Parent { get; }
   Itest_DomainItemObject<TItem>? As__DomainItem { get; }
 }
 
 public interface Itest_DomainItemObject<TItem>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_Name Domain { get; }
 }
@@ -389,7 +446,7 @@ public interface Itest_DomainValueObject<TDomainKind,TValue>
 }
 
 public interface Itest_BasicValue
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   bool? AsBoolean { get; }
   Itest_EnumValue? As_EnumValue { get; }
@@ -399,7 +456,7 @@ public interface Itest_BasicValue
 }
 
 public interface Itest_BasicValueObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
@@ -615,14 +672,14 @@ public interface Itest_TypeParamObject
 }
 
 public interface Itest_ObjAlternate
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_ObjAlternateEnum? As_ObjAlternateEnum { get; }
   Itest_ObjAlternateObject? As__ObjAlternate { get; }
 }
 
 public interface Itest_ObjAlternateObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_ObjBase Type { get; }
   ICollection<Itest_Collections> Collections { get; }
@@ -641,14 +698,14 @@ public interface Itest_ObjAlternateEnumObject
 }
 
 public interface Itest_ObjectFor<TFor>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TFor? As_Parent { get; }
   Itest_ObjectForObject<TFor>? As__ObjectFor { get; }
 }
 
 public interface Itest_ObjectForObject<TFor>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_Name ObjectType { get; }
 }
@@ -691,7 +748,7 @@ public interface Itest_ObjFieldEnumObject
 }
 
 public interface Itest_ForParam<TType>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_ObjAlternate? As_ObjAlternate { get; }
   Itest_ObjField<TType>? As_ObjField { get; }
@@ -699,7 +756,7 @@ public interface Itest_ForParam<TType>
 }
 
 public interface Itest_ForParamObject<TType>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 

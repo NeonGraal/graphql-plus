@@ -1,6 +1,6 @@
 ﻿//HintName: test_constraint-field-obj+Input_Intf.gen.cs
 // Generated from {CurrentDirectory}constraint-field-obj+Input.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -19,26 +19,26 @@ public interface ItestCnstFieldObjInpObject
 }
 
 public interface ItestRefCnstFieldObjInp<TRef>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestRefCnstFieldObjInpObject<TRef>? As_RefCnstFieldObjInp { get; }
 }
 
 public interface ItestRefCnstFieldObjInpObject<TRef>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TRef Field { get; }
 }
 
 public interface ItestPrntCnstFieldObjInp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string? AsString { get; }
   ItestPrntCnstFieldObjInpObject? As_PrntCnstFieldObjInp { get; }
 }
 
 public interface ItestPrntCnstFieldObjInpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 

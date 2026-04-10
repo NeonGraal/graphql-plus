@@ -29,11 +29,11 @@ public abstract class GenerateDomainTestsBase<TItem>
     //result[0].Value.ShouldBe(memberName);
   }
 
-  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithoutParent_GeneratesDefaultParent(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name)
+  [Theory, RepeatData]
+  public void GenerateType_WithoutParent_GeneratesDefaultParent(string name)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(baseType, generatorType);
+    GqlpGeneratorContext context = Context(BaseType, GeneratorType);
     IGqlpDomain<TItem> type = A.Domain<TItem>(name, Kind).AsDomain;
 
     // Act

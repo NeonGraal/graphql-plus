@@ -1,6 +1,6 @@
 ﻿//HintName: test_output-parent-generic_Model.gen.cs
 // Generated from {CurrentDirectory}output-parent-generic.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_output_parent_generic;
 
 public class testOutpPrntGnrc
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestOutpPrntGnrc
 {
   public ItestRefOutpPrntGnrc<testEnumOutpPrntGnrc>? AsEnumOutpPrntGnrcprnt_outpPrntGnrc { get; set; }
@@ -16,7 +16,7 @@ public class testOutpPrntGnrc
 }
 
 public class testOutpPrntGnrcObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestOutpPrntGnrcObject
 {
 
@@ -27,14 +27,14 @@ public class testOutpPrntGnrcObject
 }
 
 public class testRefOutpPrntGnrc<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefOutpPrntGnrc<TType>
 {
   public ItestRefOutpPrntGnrcObject<TType>? As_RefOutpPrntGnrc { get; set; }
 }
 
 public class testRefOutpPrntGnrcObject<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefOutpPrntGnrcObject<TType>
 {
   public TType Field { get; set; }

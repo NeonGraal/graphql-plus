@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-field-param+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}generic-field-param+Dual.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_param_Dual;
 
 public class testGnrcFieldParamDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcFieldParamDual
 {
   public ItestGnrcFieldParamDualObject? As_GnrcFieldParamDual { get; set; }
 }
 
 public class testGnrcFieldParamDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcFieldParamDualObject
 {
   public ItestRefGnrcFieldParamDual<ItestAltGnrcFieldParamDual> Field { get; set; }
@@ -29,7 +29,7 @@ public class testGnrcFieldParamDualObject
 }
 
 public class testRefGnrcFieldParamDual<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcFieldParamDual<TRef>
 {
   public TRef? Asref { get; set; }
@@ -37,7 +37,7 @@ public class testRefGnrcFieldParamDual<TRef>
 }
 
 public class testRefGnrcFieldParamDualObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcFieldParamDualObject<TRef>
 {
 
@@ -48,7 +48,7 @@ public class testRefGnrcFieldParamDualObject<TRef>
 }
 
 public class testAltGnrcFieldParamDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltGnrcFieldParamDual
 {
   public string? AsString { get; set; }
@@ -56,7 +56,7 @@ public class testAltGnrcFieldParamDual
 }
 
 public class testAltGnrcFieldParamDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltGnrcFieldParamDualObject
 {
   public decimal Alt { get; set; }

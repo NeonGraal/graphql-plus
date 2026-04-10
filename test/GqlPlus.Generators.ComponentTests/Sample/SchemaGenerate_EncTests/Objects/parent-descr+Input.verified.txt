@@ -1,0 +1,21 @@
+﻿/* parent-descr+Input
+input PrntDescrInp { : "Test" "Descr" RefPrntDescrInp }
+input RefPrntDescrInp { parent: Number | String }
+*/
+
+// Generated from Schema parent-descr+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-descr+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_descr_Input;
+
+internal class CmptPrntDescrInpEncoder
+{
+}
+
+internal class CmptRefPrntDescrInpEncoder
+{
+  public decimal Parent { get; set; }
+}

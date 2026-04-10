@@ -1,0 +1,16 @@
+﻿/* object-alt-enum+Output
+output ObjAltEnumOutp { ! true }
+output ObjAltEnumOutp { ! false }
+*/
+
+// Generated from Schema object-alt-enum+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alt-enum+Output, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alt_enum_Output;
+
+internal class CmptObjAltEnumOutpDecoder
+{
+}

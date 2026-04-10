@@ -1,6 +1,6 @@
 ﻿//HintName: test_object-alt+Dual_Intf.gen.cs
 // Generated from {CurrentDirectory}object-alt+Dual.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,24 +8,24 @@
 namespace GqlPlus.GeneratorTests.Gqlp_object_alt_Dual;
 
 public interface ItestObjAltDual
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjAltDualType? AsObjAltDualType { get; }
   ItestObjAltDualObject? As_ObjAltDual { get; }
 }
 
 public interface ItestObjAltDualObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestObjAltDualType
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjAltDualTypeObject? As_ObjAltDualType { get; }
 }
 
 public interface ItestObjAltDualTypeObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }

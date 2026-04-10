@@ -1,6 +1,6 @@
 ﻿//HintName: test_default_Intf.gen.cs
 // Generated from {CurrentDirectory}default.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,45 +8,45 @@
 namespace GqlPlus.GeneratorTests.Gqlp_default;
 
 public interface ItestQuery
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestQueryObject? As_Query { get; }
 }
 
 public interface ItestQueryObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestMutation
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestMutationObject? As_Mutation { get; }
 }
 
 public interface ItestMutationObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestSubscription
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestSubscriptionObject? As_Subscription { get; }
 }
 
 public interface ItestSubscriptionObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface Itest_Schema
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_SchemaObject? As__Schema { get; }
 }
 
 public interface Itest_SchemaObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }

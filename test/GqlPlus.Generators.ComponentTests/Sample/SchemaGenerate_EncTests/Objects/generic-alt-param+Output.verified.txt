@@ -1,0 +1,26 @@
+﻿/* generic-alt-param+Output
+output GnrcAltParamOutp { | RefGnrcAltParamOutp<AltGnrcAltParamOutp> }
+output RefGnrcAltParamOutp<$ref:_Output> { | $ref }
+output AltGnrcAltParamOutp { alt: Number | String }
+*/
+
+// Generated from Schema generic-alt-param+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-param+Output, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_param_Output;
+
+internal class CmptGnrcAltParamOutpEncoder
+{
+}
+
+internal class CmptRefGnrcAltParamOutpEncoder<TRef>
+{
+}
+
+internal class CmptAltGnrcAltParamOutpEncoder
+{
+  public decimal Alt { get; set; }
+}

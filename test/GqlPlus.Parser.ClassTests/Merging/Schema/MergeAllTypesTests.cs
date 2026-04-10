@@ -60,7 +60,7 @@ public class MergeAllTypesTests
   [Theory, RepeatData]
   public void FixupType_WithFieldArgLabel_FixesType(string enumType, string enumLabel, string outputType, string fieldName, string fieldType)
   {
-    this.SkipEqual3(outputType, fieldType, enumType);
+    this.SkipEqualAny([outputType, fieldType, enumType]);
 
     // Arrange
     TypeArgAst arg = new(AstNulls.At, "", "") {
@@ -112,7 +112,7 @@ public class MergeAllTypesTests
   [Theory, RepeatData]
   public void FixupType_WithAltArgLabel_FixesType(string enumType, string enumLabel, string outputType, string altType)
   {
-    this.SkipEqual3(outputType, enumType, altType);
+    this.SkipEqualAny([outputType, enumType, altType]);
 
     // Arrange
     TypeArgAst arg = new(AstNulls.At, "", "") {

@@ -1,11 +1,19 @@
 ﻿//HintName: test_Domain_Intf.gen.cs
 // Generated from {CurrentDirectory}Domain.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
 namespace GqlPlus.GeneratorTests.Gqlp_Domain;
+
+public enum test_DomainKind
+{
+  Boolean,
+  Enum,
+  Number,
+  String,
+}
 
 public interface Itest_DomainRef<TDomainKind>
   : Itest_TypeRef<Itest_TypeKind>
@@ -44,14 +52,14 @@ public interface Itest_BaseDomainItemObject
 }
 
 public interface Itest_DomainItem<TItem>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TItem? As_Parent { get; }
   Itest_DomainItemObject<TItem>? As__DomainItem { get; }
 }
 
 public interface Itest_DomainItemObject<TItem>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_Name Domain { get; }
 }
@@ -70,7 +78,7 @@ public interface Itest_DomainValueObject<TDomainKind,TValue>
 }
 
 public interface Itest_BasicValue
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   bool? AsBoolean { get; }
   Itest_EnumValue? As_EnumValue { get; }
@@ -80,7 +88,7 @@ public interface Itest_BasicValue
 }
 
 public interface Itest_BasicValueObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 

@@ -1,13 +1,13 @@
 ﻿namespace GqlPlus.Decoding;
 
-internal abstract class DecoderBase<TOutput>
+internal abstract class BaseDecoder<TOutput>
   : IDecoder<TOutput>
 {
   private string? _tag;
 
-  protected DecoderBase() { }
+  protected BaseDecoder() { }
 
-  protected DecoderBase(string tag)
+  protected BaseDecoder(string tag)
     => _tag = tag;
 
   internal virtual string Tag => _tag ??= typeof(TOutput).TypeTag();
@@ -89,7 +89,7 @@ internal abstract class DecoderBase<TOutput>
 }
 
 internal class EnumDecoder<T>
-  : DecoderBase<T?>
+  : BaseDecoder<T?>
   where T : struct, Enum
 {
   public EnumDecoder()
@@ -143,7 +143,7 @@ internal class EnumDecoder<T>
 }
 
 internal abstract class ScalarDecoder<TModel>
-  : DecoderBase<TModel>
+  : BaseDecoder<TModel>
 {
   public override IMessages Decode(IValue input, out TModel? output)
   {

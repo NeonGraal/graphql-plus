@@ -1,4 +1,4 @@
-using GqlPlus.Building.Schema.Simple;
+﻿using GqlPlus.Building.Schema.Simple;
 
 namespace GqlPlus.Generating.Simple;
 

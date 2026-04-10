@@ -1,6 +1,4 @@
-﻿using GqlPlus.Structures;
-
-namespace GqlPlus.Abstractions;
+﻿namespace GqlPlus.Structures;
 
 public interface IEncoder<TInput>
 {

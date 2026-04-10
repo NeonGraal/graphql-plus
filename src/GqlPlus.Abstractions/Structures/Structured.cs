@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions;
+﻿using GqlPlus.Structures;
 
 namespace GqlPlus.Structures;
 

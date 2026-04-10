@@ -5,19 +5,19 @@ namespace GqlPlus.Merging;
 
 internal class MergeAllTypes(
   IMergerRepository mergers
-) : AllMerger<IGqlpType>(mergers)
+) : AllMerger<IAstType>(mergers)
 {
   protected override string ItemMatchName => "Type";
-  protected override string ItemMatchKey(IGqlpType item) => item.Label;
+  protected override string ItemMatchKey(IAstType item) => item.Label;
 
-  public override IMessages CanMerge(IEnumerable<IGqlpType> items)
+  public override IMessages CanMerge(IEnumerable<IAstType> items)
   {
     FixupEnums(items);
 
     return base.CanMerge(items);
   }
 
-  public override IEnumerable<IGqlpType> Merge(IEnumerable<IGqlpType> items)
+  public override IEnumerable<IAstType> Merge(IEnumerable<IAstType> items)
   {
     if (items is null) {
       return [];
@@ -28,9 +28,9 @@ internal class MergeAllTypes(
     return base.Merge(items);
   }
 
-  private static void FixupEnums(IEnumerable<IGqlpType> items)
+  private static void FixupEnums(IEnumerable<IAstType> items)
   {
-    IGqlpType[] types = [.. items];
+    IAstType[] types = [.. items];
     HashSet<string> typeNames = [.. types
       .Concat(BuiltIn.Basic)
       .Concat(BuiltIn.Internal)
@@ -45,7 +45,7 @@ internal class MergeAllTypes(
     FixupEnumDomains(types, enumValues);
   }
 
-  private static void FixupEnumDomains(IGqlpType[] types, Map<string> enumValues)
+  private static void FixupEnumDomains(IAstType[] types, Map<string> enumValues)
   {
     foreach (AstDomain<DomainLabelAst, IGqlpDomainLabel> domain in types.OfType<AstDomain<DomainLabelAst, IGqlpDomainLabel>>()) {
       foreach ((DomainLabelAst item, string enumType) in domain.Items
@@ -57,7 +57,7 @@ internal class MergeAllTypes(
     }
   }
 
-  private static void FixupObjects(IGqlpType[] types, HashSet<string> typeNames, Map<string> enumValues)
+  private static void FixupObjects(IAstType[] types, HashSet<string> typeNames, Map<string> enumValues)
   {
     foreach (IGqlpObject output in types.OfType<IGqlpObject>()) {
       foreach (IGqlpAlternate alternate in output.Alternates) {

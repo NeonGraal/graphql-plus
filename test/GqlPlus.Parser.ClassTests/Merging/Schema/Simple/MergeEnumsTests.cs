@@ -6,7 +6,7 @@ using GqlPlus.Merging.Simple;
 namespace GqlPlus.Merging.Schema.Simple;
 
 public class MergeEnumsTests
-  : TestSimpleMerger<IGqlpType, IGqlpEnum, IGqlpEnumLabel, string>
+  : TestSimpleMerger<IAstType, IGqlpEnum, IGqlpEnumLabel, string>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsValuesCantMerge_ReturnsErrors(string name, string[] values)
@@ -37,11 +37,11 @@ public class MergeEnumsTests
     _merger = new(mergers);
   }
 
-  internal override AstSimpleMerger<IGqlpType, IGqlpEnum, IGqlpEnumLabel> MergerSimple => _merger;
+  internal override AstSimpleMerger<IAstType, IGqlpEnum, IGqlpEnumLabel> MergerSimple => _merger;
 
   protected override IGqlpEnumLabel[] MakeItems(string input)
     => new[] { input }.EnumLabels();
-  protected override IGqlpEnum MakeSimple(string name, string[]? aliases = null, string description = "", IGqlpTypeRef? parent = null, IEnumerable<IGqlpEnumLabel>? items = null)
+  protected override IGqlpEnum MakeSimple(string name, string[]? aliases = null, string description = "", IAstTypeRef? parent = null, IEnumerable<IGqlpEnumLabel>? items = null)
     => new EnumDeclAst(AstNulls.At, name, description, [.. items ?? []]) {
       Aliases = aliases ?? [],
       Parent = parent,

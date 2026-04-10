@@ -7,12 +7,12 @@ internal class UnionConstraintMatcher(
   IMatcherRepository matchers
 ) : MatchConstraintBase<IGqlpUnion>(matchers)
 {
-  private readonly Matcher<IGqlpType>.L _anyTypeMatcher = matchers.MatcherFor<IGqlpType>();
+  private readonly Matcher<IAstType>.L _anyTypeMatcher = matchers.MatcherFor<IAstType>();
 
-  public override bool MatchesConstraint(IGqlpType type, IGqlpUnion constraint, EnumContext context)
+  public override bool MatchesConstraint(IAstType type, IGqlpUnion constraint, EnumContext context)
     => base.MatchesConstraint(type, constraint, context)
       || constraint.Items.Any(MatchesUnionMember(type, context));
 
-  private Func<IGqlpUnionMember, bool> MatchesUnionMember(IGqlpType type, EnumContext context)
-    => member => MatchArgOrType<IGqlpType, EnumContext>(type.Name, member.Name, context, _anyTypeMatcher.Matches);
+  private Func<IGqlpUnionMember, bool> MatchesUnionMember(IAstType type, EnumContext context)
+    => member => MatchArgOrType<IAstType, EnumContext>(type.Name, member.Name, context, _anyTypeMatcher.Matches);
 }

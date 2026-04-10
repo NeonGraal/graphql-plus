@@ -47,7 +47,7 @@ public class VerifyDomainTypesTests
     IGqlpDomain parent = A.Domain("Parent", DomainKind.String, _domainRegex);
     Definitions.Add(parent);
 
-    IGqlpTypeRef parentRef = A.Named<IGqlpTypeRef>("Parent");
+    IAstTypeRef parentRef = A.Named<IAstTypeRef>("Parent");
     _domain.Parent.Returns(parentRef);
 
     Usages.Add(_domain);
@@ -63,7 +63,7 @@ public class VerifyDomainTypesTests
     IGqlpDomain parent = A.Domain("Parent", DomainKind.String, _domainRegex);
     Definitions.Add(parent);
 
-    IGqlpTypeRef parentRef = A.Named<IGqlpTypeRef>("Parent");
+    IAstTypeRef parentRef = A.Named<IAstTypeRef>("Parent");
     _domain.Parent.Returns(parentRef);
 
     _domainVerify.CanMergeItems(_domain, Arg.Any<EnumContext>()).Returns("merge error".MakeMessages());
@@ -82,7 +82,7 @@ public class VerifyDomainTypesTests
     Definitions.Add(parent);
 
     _domain.DomainKind.Returns(DomainKind.String);
-    IGqlpTypeRef parentRef = A.Named<IGqlpTypeRef>("Parent");
+    IAstTypeRef parentRef = A.Named<IAstTypeRef>("Parent");
     _domain.Parent.Returns(parentRef);
 
     Usages.Add(_domain);

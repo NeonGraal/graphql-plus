@@ -40,7 +40,7 @@ internal abstract class BaseAliasedChecks<TInput, TAliasedAst, TAliased>(
     => FalseExpected(AliasesString(input, "[]"));
 
   [SuppressMessage("Performance", "CA1822:Mark members as static")]
-  public IGqlpTypeRef ParentFactory(string parent)
+  public IAstTypeRef ParentFactory(string parent)
     => new TypeRefAst(AstNulls.At, parent);
 
   protected internal abstract string AliasesString(TInput input, string aliases);

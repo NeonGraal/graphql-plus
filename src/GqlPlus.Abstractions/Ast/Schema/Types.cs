@@ -1,34 +1,34 @@
 ﻿
 namespace GqlPlus.Abstractions.Schema;
 
-public interface IGqlpType
+public interface IAstType
   : IAstDeclaration
 {
   TypeKind Kind { get; }
 }
 
-public interface IGqlpType<TParent>
-  : IGqlpType
-  , IEquatable<IGqlpType<TParent>>
+public interface IAstType<TParent>
+  : IAstType
+  , IEquatable<IAstType<TParent>>
   where TParent : IAstDescribed
 {
   TParent? Parent { get; }
 }
 
-public interface IGqlpSimple
-  : IGqlpType<IGqlpTypeRef>
+public interface IAstSimple
+  : IAstType<IAstTypeRef>
 { }
 
-public interface IGqlpTypeRef
+public interface IAstTypeRef
   : IAstNamed
-  , IEquatable<IGqlpTypeRef>
+  , IEquatable<IAstTypeRef>
 { }
 
-public interface IGqlpTypeSpecial
-  : IGqlpSimple
+public interface IAstTypeSpecial
+  : IAstSimple
 {
   bool MatchesKindSpecial(HashSet<TypeKind> validKinds);
-  bool MatchesTypeSpecial(IGqlpType type);
+  bool MatchesTypeSpecial(IAstType type);
 }
 
 public enum TypeKind

@@ -6,7 +6,7 @@ using GqlPlus.Merging.Simple;
 namespace GqlPlus.Merging.Schema.Simple;
 
 public class MergeUnionsTests
-  : TestSimpleMerger<IGqlpType, IGqlpUnion, IGqlpUnionMember, string>
+  : TestSimpleMerger<IAstType, IGqlpUnion, IGqlpUnionMember, string>
 {
   private readonly MergeUnions _merger;
 
@@ -17,11 +17,11 @@ public class MergeUnionsTests
     _merger = new(mergers);
   }
 
-  internal override AstSimpleMerger<IGqlpType, IGqlpUnion, IGqlpUnionMember> MergerSimple => _merger;
+  internal override AstSimpleMerger<IAstType, IGqlpUnion, IGqlpUnionMember> MergerSimple => _merger;
 
   protected override IGqlpUnionMember[] MakeItems(string input)
     => new[] { input }.UnionMembers();
-  protected override IGqlpUnion MakeSimple(string name, string[]? aliases = null, string description = "", IGqlpTypeRef? parent = null, IEnumerable<IGqlpUnionMember>? items = null)
+  protected override IGqlpUnion MakeSimple(string name, string[]? aliases = null, string description = "", IAstTypeRef? parent = null, IEnumerable<IGqlpUnionMember>? items = null)
     => new UnionDeclAst(AstNulls.At, name, description, [.. items ?? []]) {
       Aliases = aliases ?? [],
       Parent = parent,

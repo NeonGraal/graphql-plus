@@ -43,20 +43,20 @@ public class MergeSchemasTests
   private readonly IMerge<IGqlpSchemaCategory> _categories;
   private readonly IMerge<IGqlpSchemaDirective> _directives;
   private readonly IMerge<IGqlpSchemaOption> _options;
-  private readonly IMerge<IGqlpType> _astTypes;
+  private readonly IMerge<IAstType> _astTypes;
 
   public MergeSchemasTests()
   {
     _categories = Merger<IGqlpSchemaCategory>();
     _directives = Merger<IGqlpSchemaDirective>();
     _options = Merger<IGqlpSchemaOption>();
-    _astTypes = Merger<IGqlpType>();
+    _astTypes = Merger<IAstType>();
 
     IMergerRepository mergers = Substitute.For<IMergerRepository>();
     mergers.MergerFor<IGqlpSchemaCategory>().Returns(_categories);
     mergers.MergerFor<IGqlpSchemaDirective>().Returns(_directives);
     mergers.MergerFor<IGqlpSchemaOption>().Returns(_options);
-    mergers.MergerFor<IGqlpType>().Returns(_astTypes);
+    mergers.MergerFor<IAstType>().Returns(_astTypes);
     _merger = new(mergers);
   }
 

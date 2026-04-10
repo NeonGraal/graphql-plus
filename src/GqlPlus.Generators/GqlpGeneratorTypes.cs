@@ -2,7 +2,7 @@
 
 internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
 {
-  private readonly Map<IGqlpType> _types = [];
+  private readonly Map<IAstType> _types = [];
   private readonly Map<IGqlpObjType> _args = [];
 
   internal GqlpGeneratorTypes(GqlpGeneratorTypes parent, IEnumerable<IGqlpTypeArg>? typeArgs = null, IEnumerable<IGqlpTypeParam>? typeParams = null)
@@ -69,9 +69,9 @@ internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
   internal bool GetArg(string? argName, out IGqlpObjType arg)
     => _args.TryGetValue(argName.IfWhiteSpace(), out arg);
 
-  internal void AddTypes(params IGqlpType[] types)
+  internal void AddTypes(params IAstType[] types)
   {
-    foreach (IGqlpType type in types) {
+    foreach (IAstType type in types) {
       _types[type.Name] = type;
       foreach (string alias in type.Aliases) {
         if (!_types.ContainsKey(alias)) {
@@ -83,10 +83,10 @@ internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
 
   /// <summary> Both params will be not null if result true but can't use NotNullWhen </summary>
   internal bool GetTypeAst<TAst>(string? typeName, out TAst ast)
-    where TAst : class, IGqlpType
+    where TAst : class, IAstType
   {
     if (!string.IsNullOrWhiteSpace(typeName)
-        && _types.TryGetValue(typeName.IfWhiteSpace(), out IGqlpType type)
+        && _types.TryGetValue(typeName.IfWhiteSpace(), out IAstType type)
         && type is TAst astType) {
       ast = astType;
       return true;
@@ -105,7 +105,7 @@ internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
       return dotNetType;
     }
 
-    if (_types.TryGetValue(typeName, out IGqlpType theType)) {
+    if (_types.TryGetValue(typeName, out IAstType theType)) {
       return (theType is IGqlpEnum ? "" : prefix) + ModelOptions.TypePrefix + theType.Name;
     } else {
       return prefix + ModelOptions.TypePrefix + typeName;

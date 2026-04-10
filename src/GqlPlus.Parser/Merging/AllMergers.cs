@@ -41,9 +41,9 @@ public static class AllMergers
       .AddSchemaDomainMergers()
       .AddSchemaDomainMergeAlls()
       .AddMerge(m => new MergeEnumLabels(m))
-      .AddMergeAll<IGqlpEnum, IGqlpType, MergeEnums>(m => new MergeEnums(m))
+      .AddMergeAll<IGqlpEnum, IAstType, MergeEnums>(m => new MergeEnums(m))
       .AddMerge(_ => new MergeUnionMembers())
-      .AddMergeAll<IGqlpUnion, IGqlpType, MergeUnions>(m => new MergeUnions(m));
+      .AddMergeAll<IGqlpUnion, IAstType, MergeUnions>(m => new MergeUnions(m));
 
   public static IMergerRepositoryBuilder AddSchemaDomainMergers(this IMergerRepositoryBuilder builder)
     => builder.ThrowIfNull()
@@ -54,7 +54,7 @@ public static class AllMergers
 
   public static IMergerRepositoryBuilder AddSchemaDomainMergeAlls(this IMergerRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      .AddMergeAll<IGqlpDomain, IGqlpType, MergeAllDomains>(m => new MergeAllDomains(m))
+      .AddMergeAll<IGqlpDomain, IAstType, MergeAllDomains>(m => new MergeAllDomains(m))
       .AddMergeAll<IGqlpDomain<IGqlpDomainLabel>, IGqlpDomain, MergeDomains<DomainLabelAst, IGqlpDomainLabel>>(
         m => new MergeDomains<DomainLabelAst, IGqlpDomainLabel>(m))
       .AddMergeAll<IGqlpDomain<IGqlpDomainRange>, IGqlpDomain, MergeDomains<DomainRangeAst, IGqlpDomainRange>>(
@@ -76,10 +76,10 @@ public static class AllMergers
 
   public static IMergerRepositoryBuilder AddSchemaObjectMergeAlls(this IMergerRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      .AddMergeAll<IGqlpObject<IGqlpDualField>, IGqlpType, AstObjectsMerger<IGqlpDualField>>(
+      .AddMergeAll<IGqlpObject<IGqlpDualField>, IAstType, AstObjectsMerger<IGqlpDualField>>(
         m => new AstObjectsMerger<IGqlpDualField>(m))
-      .AddMergeAll<IGqlpObject<IGqlpInputField>, IGqlpType, AstObjectsMerger<IGqlpInputField>>(
+      .AddMergeAll<IGqlpObject<IGqlpInputField>, IAstType, AstObjectsMerger<IGqlpInputField>>(
         m => new AstObjectsMerger<IGqlpInputField>(m))
-      .AddMergeAll<IGqlpObject<IGqlpOutputField>, IGqlpType, AstObjectsMerger<IGqlpOutputField>>(
+      .AddMergeAll<IGqlpObject<IGqlpOutputField>, IAstType, AstObjectsMerger<IGqlpOutputField>>(
         m => new AstObjectsMerger<IGqlpOutputField>(m));
 }

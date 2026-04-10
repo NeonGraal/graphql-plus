@@ -6,7 +6,7 @@ internal sealed class SchemaGenerator(
 {
   public void Generate(IAstSchema ast, GqlpGeneratorContext context)
   {
-    IGqlpType[] types = Typed<IGqlpType>(ast);
+    IAstType[] types = Typed<IAstType>(ast);
     context.AddTypes(types);
 
     context.WritePrefixLine("/*");
@@ -20,7 +20,7 @@ internal sealed class SchemaGenerator(
 
     GqlpGeneratorType generatorType = context.GeneratorOptions.GeneratorType;
     if (generators.TypeGenerators.TryGetValue(generatorType, out IEnumerable<ITypeGenerator>? typeGenerators)) {
-      foreach (IGqlpType type in types) {
+      foreach (IAstType type in types) {
         ITypeGenerator? typeGenerator = typeGenerators.FirstOrDefault(IsForType);
         if (typeGenerator is null) {
           if (generators.TypeGenerators.TryGetValue(GqlpGeneratorType.Interface, out IEnumerable<ITypeGenerator>? interfaceGenerators)) {

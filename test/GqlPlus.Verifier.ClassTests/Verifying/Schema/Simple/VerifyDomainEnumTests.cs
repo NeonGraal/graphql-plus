@@ -31,7 +31,7 @@ public class VerifyDomainEnumTests
     AddTypes(enumType);
     EnumValues[enumLabel1] = enumName;
 
-    _context = new(Types, Errors, Types.Values.ArrayOf<IGqlpType>().MakeEnumValues());
+    _context = new(Types, Errors, Types.Values.ArrayOf<IAstType>().MakeEnumValues());
 
     IGqlpDomainLabel label1 = A.ItemLabel("", enumLabel1);
     IGqlpDomainLabel label2 = A.ItemLabel(enumName, enumLabel2);

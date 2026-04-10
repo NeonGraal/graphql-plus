@@ -5,7 +5,7 @@ using GqlPlus.Merging.Objects;
 namespace GqlPlus.Merging.Schema.Objects;
 
 public abstract class TestObjectMerger<TObjField>
-  : TestTypedMerger<IGqlpType, IGqlpObject<TObjField>, IGqlpObjBase, TObjField>
+  : TestTypedMerger<IAstType, IGqlpObject<TObjField>, IGqlpObjBase, TObjField>
   where TObjField : IGqlpObjField
 {
   [Theory, RepeatData]
@@ -47,7 +47,7 @@ public abstract class TestObjectMerger<TObjField>
 
   private readonly TypeKind _kind;
   internal abstract AstObjectsMerger<TObjField> MergerObject { get; }
-  internal override AstTypeMerger<IGqlpType, IGqlpObject<TObjField>, IGqlpObjBase, TObjField> MergerTyped => MergerObject;
+  internal override AstTypeMerger<IAstType, IGqlpObject<TObjField>, IGqlpObjBase, TObjField> MergerTyped => MergerObject;
 
   protected IGqlpObject<TObjField> MakeObject(
     string name,

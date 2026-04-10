@@ -26,7 +26,7 @@ public class ParseCategoryTests
   {
     // Arrange
     IdentifierReturns(OutString(category));
-    IGqlpTypeRef typeRef = A.Named<IGqlpTypeRef>(category);
+    IAstTypeRef typeRef = A.Named<IAstTypeRef>(category);
     ParseOk(_definition, new CategoryOutput(typeRef));
 
     // Act

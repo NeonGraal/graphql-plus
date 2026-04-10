@@ -118,7 +118,7 @@ public abstract class ObjectVerifierAlternatesTestsBase<TObjField>(
   {
     this.SkipEqual(argType, altType);
 
-    Define<IGqlpSimple>(argType);
+    Define<IAstSimple>(argType);
 
     DefineObject(altType, o => o
       .WithTypeParam(paramName, argType)

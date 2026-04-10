@@ -6,8 +6,8 @@ internal abstract class AstTypeMerger<TAst, TType, TParent, TItem>(
   IMergerRepository mergers
 ) : AstAliasedMerger<TType>(mergers)
   , IMergeAll<TAst>
-  where TAst : IGqlpType
-  where TType : IGqlpType<TParent>, TAst
+  where TAst : IAstType
+  where TType : IAstType<TParent>, TAst
   where TParent : IAstDescribed, IEquatable<TParent>
   where TItem : IAstError
 {

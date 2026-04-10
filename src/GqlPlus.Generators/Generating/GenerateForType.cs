@@ -3,12 +3,12 @@ namespace GqlPlus.Generating;
 
 internal abstract class GenerateForType<TType>
   : ITypeGenerator
-  where TType : IGqlpType
+  where TType : IAstType
 {
-  public bool ForType(IGqlpType ast)
+  public bool ForType(IAstType ast)
     => ast is TType;
 
-  public void GenerateType(IGqlpType ast, GqlpGeneratorContext context)
+  public void GenerateType(IAstType ast, GqlpGeneratorContext context)
   {
     if (ast is TType type) {
       Generate(type, context);

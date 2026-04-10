@@ -19,7 +19,7 @@ public class MergeDomainAstEnumsTests
     Merger = merger;
   }
 
-  protected override IGqlpDomain<IGqlpDomainLabel> MakeDomain(string name, string[]? aliases = null, string description = "", IGqlpTypeRef? parent = null, DomainKind? kind = null, IEnumerable<IGqlpDomainLabel>? items = null)
+  protected override IGqlpDomain<IGqlpDomainLabel> MakeDomain(string name, string[]? aliases = null, string description = "", IAstTypeRef? parent = null, DomainKind? kind = null, IEnumerable<IGqlpDomainLabel>? items = null)
     => new AstDomain<DomainLabelAst, IGqlpDomainLabel>(AstNulls.At, name, description, kind ?? DomainKind.Enum) {
       Aliases = aliases ?? [],
       Parent = parent,

@@ -5,7 +5,7 @@ using GqlPlus.Merging.Simple;
 namespace GqlPlus.Merging.Schema.Simple;
 
 public class MergeUnionsTypeTests
-  : TestAbbreviatedMerger<IGqlpType>
+  : TestAbbreviatedMerger<IAstType>
 {
 
   private readonly MergeUnions _merger;
@@ -21,11 +21,11 @@ public class MergeUnionsTypeTests
     _merger = new(mergers);
   }
 
-  protected override IMerge<IGqlpType> MergerBase => _merger;
+  protected override IMerge<IAstType> MergerBase => _merger;
 
   public override void CanMerge_NoAsts_ReturnsErrors()
     => CanMerge_Good([]);
 
-  protected override IGqlpType MakeAst(string input)
+  protected override IAstType MakeAst(string input)
     => new UnionDeclAst(AstNulls.At, input, "", []);
 }

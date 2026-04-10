@@ -38,10 +38,10 @@ public abstract class TestDomainMerger<TItem, TItemInput>
     string name,
     string[]? aliases = null,
     string description = "",
-    IGqlpTypeRef? parent = default,
+    IAstTypeRef? parent = default,
     DomainKind? kind = null,
     IEnumerable<TItem>? items = null
   );
-  protected override IGqlpDomain<TItem> MakeSimple(string name, string[]? aliases = null, string description = "", IGqlpTypeRef? parent = null, IEnumerable<TItem>? items = null)
+  protected override IGqlpDomain<TItem> MakeSimple(string name, string[]? aliases = null, string description = "", IAstTypeRef? parent = null, IEnumerable<TItem>? items = null)
     => MakeDomain(name, aliases, description, parent, null, items);
 }

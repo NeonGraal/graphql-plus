@@ -7,7 +7,7 @@ namespace GqlPlus.Verifying.Schema;
 internal abstract class AstParentVerifier<TAst, TParent, TContext>(
   IVerifierRepository verifiers
 ) : UsageVerifier<TAst, TContext>(verifiers)
-  where TAst : IGqlpType<TParent>
+  where TAst : IAstType<TParent>
   where TParent : IAstDescribed, IEquatable<TParent>
   where TContext : UsageContext
 {
@@ -37,7 +37,7 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
     string outcome = "not defined";
 
     if (context.GetType(input.Current, out IAstDescribed? defined)) {
-      if (defined is IGqlpType astType) {
+      if (defined is IAstType astType) {
         CheckTypedParentType(input, context, top, onParent, astType);
         return;
       }
@@ -53,7 +53,7 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
     TContext context,
     bool top,
     Action<TAst>? onParent,
-    IGqlpType astType)
+    IAstType astType)
   {
     if (CheckAstParentType(input, astType)) {
       if (astType is TAst parentType) {
@@ -68,7 +68,7 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
     context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Current}' invalid type. Found '{astType.Label}'", top);
   }
 
-  protected virtual bool CheckAstParentType(SelfUsage<TAst> input, IGqlpType astType)
+  protected virtual bool CheckAstParentType(SelfUsage<TAst> input, IAstType astType)
     => astType.Kind == input.Kind;
 
   protected virtual bool CheckAstParent(TAst usage, [NotNullWhen(true)] TAst? parent, TContext context)
@@ -76,7 +76,7 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
 
   protected void CheckParent(
     SelfUsage<TAst> input,
-    IGqlpType<TParent> child,
+    IAstType<TParent> child,
     TContext context,
     bool top)
   {
@@ -107,6 +107,6 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
         top && parentType.Kind != input.Kind);
   }
 
-  protected abstract string GetParent(IGqlpType<TParent> usage);
+  protected abstract string GetParent(IAstType<TParent> usage);
   protected abstract void CheckMergeParent(SelfUsage<TAst> input, TContext context);
 }

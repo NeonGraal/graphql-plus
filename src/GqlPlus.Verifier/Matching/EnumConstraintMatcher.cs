@@ -9,7 +9,7 @@ internal class EnumConstraintMatcher(
 {
   private readonly Matcher<IGqlpEnum>.L _enumMatcher = matchers.MatcherFor<IGqlpEnum>();
 
-  public override bool MatchesConstraint(IGqlpType type, IGqlpEnum constraint, EnumContext context)
+  public override bool MatchesConstraint(IAstType type, IGqlpEnum constraint, EnumContext context)
     => base.MatchesConstraint(type, constraint, context)
       || _enumMatcher.Matches(constraint, type.Name, context);
 }

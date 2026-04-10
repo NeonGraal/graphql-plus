@@ -11,7 +11,7 @@ internal abstract class UsageVerifier<TUsage, TContext>(
   private readonly IVerifyAliased<TUsage> _aliased = verifiers.AliasedFor<TUsage>();
 
   protected abstract void UsageValue(TUsage usage, TContext context);
-  protected abstract TContext MakeContext(TUsage usage, IGqlpType[] aliased, IMessages errors);
+  protected abstract TContext MakeContext(TUsage usage, IAstType[] aliased, IMessages errors);
 
   public virtual void Verify(UsageAliased<TUsage> item, IMessages errors)
   {
@@ -23,7 +23,7 @@ internal abstract class UsageVerifier<TUsage, TContext>(
     _aliased.Verify(item.Usages, errors);
   }
 
-  protected static UsageContext MakeUsageContext(IGqlpType[] aliased, IMessages errors)
+  protected static UsageContext MakeUsageContext(IAstType[] aliased, IMessages errors)
     => new(
       aliased.AliasedMap(p => (IAstDescribed)p.First())
       , errors);
@@ -31,7 +31,7 @@ internal abstract class UsageVerifier<TUsage, TContext>(
 
 public record class UsageAliased<TUsage>(
   TUsage[] Usages,
-  IGqlpType[] Definitions
+  IAstType[] Definitions
 )
   where TUsage : IAstError;
 

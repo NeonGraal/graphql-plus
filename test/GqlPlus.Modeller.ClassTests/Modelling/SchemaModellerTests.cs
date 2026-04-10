@@ -31,7 +31,7 @@ public class SchemaModellerTests
     IGqlpSchemaOption option = A.Aliased<IGqlpSchemaOption>(name, aliases, contents);
     IGqlpSchemaSetting setting = A.Named<IGqlpSchemaSetting>(settingName, string.Empty);
     option.Settings.Returns([setting]);
-    IGqlpType type = A.Named<IGqlpType>(typeName, string.Empty);
+    IAstType type = A.Named<IAstType>(typeName, string.Empty);
 
     IAstSchema ast = A.Error<IAstSchema>();
     ast.Declarations.Returns([category, directive, option, type]);

@@ -7,7 +7,7 @@ internal class VerifyUnionTypes(IVerifierRepository verifiers) : AstSimpleVerifi
   protected override IEnumerable<IGqlpUnionMember> GetItems(IGqlpUnion usage)
     => usage.Items;
 
-  protected override UsageContext MakeContext(IGqlpUnion usage, IGqlpType[] aliased, IMessages errors)
+  protected override UsageContext MakeContext(IGqlpUnion usage, IAstType[] aliased, IMessages errors)
     => MakeUsageContext(aliased, errors);
 
   protected override void UsageValue(IGqlpUnion usage, UsageContext context)
@@ -18,24 +18,24 @@ internal class VerifyUnionTypes(IVerifierRepository verifiers) : AstSimpleVerifi
       context.AddError(usage, "Union", $"'{member.Name}' not defined", CheckMember(usage.Name, member, context, CheckTypeLabel));
     }
 
-    void CheckTypeLabel(string name, IGqlpType type)
+    void CheckTypeLabel(string name, IAstType type)
       => context.AddError(
         usage,
         "union",
         $"Invalid Kind for {name}. Found {type?.Kind}",
-        type is not IGqlpSimple);
+        type is not IAstSimple);
   }
 
   private bool CheckMember(
     string name,
     IGqlpUnionMember member,
     UsageContext context,
-    Action<string, IGqlpType>? checkType = null)
+    Action<string, IAstType>? checkType = null)
   {
     if (member.Name == name) {
       context.AddError(member, "Union Member", $"'{name}' cannot refer to " + (checkType is null ? "self, even recursively" : "self"));
       return false;
-    } else if (context.GetTyped(member.Name, out IGqlpType? type)) {
+    } else if (context.GetTyped(member.Name, out IAstType? type)) {
       if (type is IGqlpUnion typeUnion) {
         CheckSelfMember(name, typeUnion, context);
       } else {

@@ -4,7 +4,7 @@ namespace GqlPlus.Matching;
 
 public abstract class SimpleParentMatcherTests<TSimple>
   : MatchTestsBase
-  where TSimple : class, IGqlpSimple
+  where TSimple : class, IAstSimple
 {
   private readonly SimpleParentMatcher<TSimple> _sut;
 

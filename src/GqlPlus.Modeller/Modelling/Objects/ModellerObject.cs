@@ -4,7 +4,7 @@ internal abstract class ModellerObject<TAst, TObjFieldAst, TModel, TObjField>(
   TypeKindModel kind,
   ObjectModellers<TObjFieldAst, TObjField> modellers
 ) : ModellerType<TAst, IGqlpObjBase, TModel>(kind)
-  where TAst : IGqlpType<IGqlpObjBase>
+  where TAst : IAstType<IGqlpObjBase>
   where TObjFieldAst : IGqlpObjField
   where TModel : BaseTypeModel
   where TObjField : IObjFieldModel

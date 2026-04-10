@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Modelling.Simple;
 
 internal class UnionModeller
-  : ModellerType<IGqlpUnion, IGqlpTypeRef, TypeUnionModel>
+  : ModellerType<IGqlpUnion, IAstTypeRef, TypeUnionModel>
 {
   public UnionModeller()
     : base(TypeKindModel.Union)

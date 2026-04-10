@@ -7,7 +7,7 @@ internal sealed record class CategoryDeclAst(
   ITokenAt At,
   string Name,
   string Description,
-  IGqlpTypeRef Output
+  IAstTypeRef Output
 ) : AstDeclaration(At, Name, Description)
   , IGqlpSchemaCategory
 {
@@ -16,17 +16,17 @@ internal sealed record class CategoryDeclAst(
   internal override string Abbr => "Ca";
   public override string Label => "Category";
 
-  public IGqlpTypeRef Output { get; set; } = Output;
+  public IAstTypeRef Output { get; set; } = Output;
 
   public CategoryOption Option { get; set; } = CategoryOption.Parallel;
 
   CategoryOption IGqlpSchemaCategory.CategoryOption => Option;
   IEnumerable<IAstModifier> IAstModifiers.Modifiers => Modifiers;
 
-  public CategoryDeclAst(TokenAt at, IGqlpTypeRef output)
+  public CategoryDeclAst(TokenAt at, IAstTypeRef output)
     : this(at, output.Name.Camelize(), "", output) { }
 
-  public CategoryDeclAst(TokenAt at, string name, IGqlpTypeRef output)
+  public CategoryDeclAst(TokenAt at, string name, IAstTypeRef output)
     : this(at, name, "", output) { }
 
   public bool Equals(CategoryDeclAst? other)

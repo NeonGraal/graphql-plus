@@ -8,7 +8,7 @@ public interface IMergerRepositoryBuilder
     where T : IAstError;
 
   IMergerRepositoryBuilder AddMergeAll<TAst, TType, TService>(Factory<TService, IMergerRepository> factory)
-    where TAst : IGqlpType
-    where TType : IGqlpType
+    where TAst : IAstType
+    where TType : IAstType
     where TService : class, IMergeAll<TType>, IMerge<TAst>;
 }

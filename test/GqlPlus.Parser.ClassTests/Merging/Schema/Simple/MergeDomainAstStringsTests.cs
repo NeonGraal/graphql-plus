@@ -19,7 +19,7 @@ public class MergeDomainAstStringsTests
     Merger = merger;
   }
 
-  protected override IGqlpDomain<IGqlpDomainRegex> MakeDomain(string name, string[]? aliases = null, string description = "", IGqlpTypeRef? parent = null, DomainKind? kind = null, IEnumerable<IGqlpDomainRegex>? items = null)
+  protected override IGqlpDomain<IGqlpDomainRegex> MakeDomain(string name, string[]? aliases = null, string description = "", IAstTypeRef? parent = null, DomainKind? kind = null, IEnumerable<IGqlpDomainRegex>? items = null)
     => new AstDomain<DomainRegexAst, IGqlpDomainRegex>(AstNulls.At, name, description, kind ?? DomainKind.String) {
       Aliases = aliases ?? [],
       Parent = parent,

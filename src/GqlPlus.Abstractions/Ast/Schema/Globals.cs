@@ -6,7 +6,7 @@ public interface IGqlpSchemaCategory
   , IEquatable<IGqlpSchemaCategory>
 {
   CategoryOption CategoryOption { get; }
-  IGqlpTypeRef Output { get; }
+  IAstTypeRef Output { get; }
 }
 
 public enum CategoryOption

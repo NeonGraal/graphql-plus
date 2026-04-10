@@ -14,7 +14,7 @@ public class VerifyCategoryOutputTests
   {
     _verifier = new(VerifierRepo);
 
-    IGqlpTypeRef output = A.Named<IGqlpTypeRef>("Type");
+    IAstTypeRef output = A.Named<IAstTypeRef>("Type");
 
     _category = A.Error<IGqlpSchemaCategory>();
     _category.Output.Returns(output);

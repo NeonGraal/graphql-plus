@@ -156,9 +156,9 @@ internal class AstObjectVerifier<TObjField>(
       CheckTypeArgs(error, context, reference, definition);
     }
 
-    if (definition is IGqlpTypeSpecial specialType) {
+    if (definition is IAstTypeSpecial specialType) {
       error("Invalid Kind for", $"{specialType.Name} not one of [{string.Join(",", validKinds)}]", !specialType.MatchesKindSpecial(validKinds));
-    } else if (definition is IGqlpType typeDef) {
+    } else if (definition is IAstType typeDef) {
       error("Invalid Kind for", $"{typeDef.Kind}({typeDef.Name}) not one of [{string.Join(",", validKinds)}]", !validKinds.Contains(typeDef.Kind));
     }
   }
@@ -219,7 +219,7 @@ internal class AstObjectVerifier<TObjField>(
     int numArgs = reference is IGqlpObjBase baseNum ? baseNum.Args.Count() : 0;
     if (definition is IGqlpObject objectDef) {
       CheckTypeArgsDefBase(error, context, reference, numArgs, objectDef, objectDef.TypeParams.Count());
-    } else if (definition is IGqlpSimple simple) {
+    } else if (definition is IAstSimple simple) {
       error("Args mismatch on", $"Expected none, given {numArgs}", numArgs != 0);
     }
   }
@@ -246,7 +246,7 @@ internal class AstObjectVerifier<TObjField>(
     }
   }
 
-  protected override string GetParent(IGqlpType<IGqlpObjBase> usage)
+  protected override string GetParent(IAstType<IGqlpObjBase> usage)
   {
     IGqlpObjBase? parent = usage.Parent;
     if (parent is null) {
@@ -276,7 +276,7 @@ internal class AstObjectVerifier<TObjField>(
     base.CheckParentType(input, context, top, onParent);
   }
 
-  protected override bool CheckAstParentType(SelfUsage<IGqlpObject<TObjField>> input, IGqlpType astType)
+  protected override bool CheckAstParentType(SelfUsage<IGqlpObject<TObjField>> input, IAstType astType)
     => true; // Allow any type as parent, checks are done in CheckTypeRef
 
   protected override IEnumerable<TObjField> GetItems(IGqlpObject<TObjField> usage)
@@ -333,7 +333,7 @@ internal class AstObjectVerifier<TObjField>(
     }
   }
 
-  protected override ObjectContext MakeContext(IGqlpObject<TObjField> usage, IGqlpType[] aliased, IMessages errors)
+  protected override ObjectContext MakeContext(IGqlpObject<TObjField> usage, IAstType[] aliased, IMessages errors)
   {
     Map<IAstDescribed> validTypes = aliased.AliasedGroup()
       .Select(p => (Id: p.Key, Type: (IAstDescribed)p.First()))

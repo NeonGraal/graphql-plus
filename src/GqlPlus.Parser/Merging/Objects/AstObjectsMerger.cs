@@ -5,7 +5,7 @@ namespace GqlPlus.Merging.Objects;
 
 internal class AstObjectsMerger<TObjField>(
   IMergerRepository mergers
-) : AstTypeMerger<IGqlpType, IGqlpObject<TObjField>, IGqlpObjBase, TObjField>(mergers)
+) : AstTypeMerger<IAstType, IGqlpObject<TObjField>, IGqlpObjBase, TObjField>(mergers)
   where TObjField : IGqlpObjField
 {
   private readonly IMerge<IGqlpTypeParam> _typeParams = mergers.MergerFor<IGqlpTypeParam>();

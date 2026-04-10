@@ -15,12 +15,12 @@ internal class MergeSchemas(
     IGqlpSchemaCategory[] categories = Just<IGqlpSchemaCategory>(group);
     IGqlpSchemaDirective[] directives = Just<IGqlpSchemaDirective>(group);
     IGqlpSchemaOption[] options = Just<IGqlpSchemaOption>(group);
-    IGqlpType[] astTypes = Just<IGqlpType>(group);
+    IAstType[] astTypes = Just<IAstType>(group);
 
     IMessages categoriesCanMerge = categories.Length > 0 ? mergers.MergerFor<IGqlpSchemaCategory>().CanMerge(categories) : Messages.New;
     IMessages directivesCanMerge = directives.Length > 0 ? mergers.MergerFor<IGqlpSchemaDirective>().CanMerge(directives) : Messages.New;
     IMessages optionsCanMerge = options.Length > 0 ? mergers.MergerFor<IGqlpSchemaOption>().CanMerge(options) : Messages.New;
-    IMessages astTypesCanMerge = astTypes.Length > 0 ? mergers.MergerFor<IGqlpType>().CanMerge(astTypes) : Messages.New;
+    IMessages astTypesCanMerge = astTypes.Length > 0 ? mergers.MergerFor<IAstType>().CanMerge(astTypes) : Messages.New;
 
     return categoriesCanMerge
       .Add(directivesCanMerge)
@@ -36,13 +36,13 @@ internal class MergeSchemas(
     IGqlpSchemaCategory[] categories = Just<IGqlpSchemaCategory>(group);
     IGqlpSchemaDirective[] directives = Just<IGqlpSchemaDirective>(group);
     IGqlpSchemaOption[] options = Just<IGqlpSchemaOption>(group);
-    IGqlpType[] astTypes = Just<IGqlpType>(group);
+    IAstType[] astTypes = Just<IAstType>(group);
 
     IEnumerable<AstDeclaration> declarations = mergers.MergerFor<IGqlpSchemaCategory>()
       .Merge(categories).Cast<IAstDeclaration>()
       .Concat(mergers.MergerFor<IGqlpSchemaDirective>().Merge(directives))
       .Concat(mergers.MergerFor<IGqlpSchemaOption>().Merge(options))
-      .Concat(mergers.MergerFor<IGqlpType>().Merge(astTypes))
+      .Concat(mergers.MergerFor<IAstType>().Merge(astTypes))
       .Cast<AstDeclaration>();
 
     SchemaAst ast = (SchemaAst)group.First();

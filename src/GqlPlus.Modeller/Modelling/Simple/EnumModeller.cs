@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Modelling.Simple;
 
 internal class EnumModeller
-  : ModellerType<IGqlpEnum, IGqlpTypeRef, TypeEnumModel>
+  : ModellerType<IGqlpEnum, IAstTypeRef, TypeEnumModel>
 {
   public EnumModeller()
     : base(TypeKindModel.Enum)

@@ -81,7 +81,7 @@ public class HtmlBuiltInTests(IModelAndEncode encoder)
   public void ModelsFluidFiles_WhenChecked_AreValid()
     => RenderFluid.CheckFluidFiles();
 
-  private void ModelType(IGqlpType type, IGqlpType[] extras)
+  private void ModelType(IAstType type, IAstType[] extras)
   {
     Assert.SkipWhen(type is null, "type is null");
 
@@ -95,7 +95,7 @@ public class HtmlBuiltInTests(IModelAndEncode encoder)
     context.Errors.ShouldBeEmpty(type?.Label);
   }
 
-  private async Task RenderTypeHtml(string section, IGqlpType type, IGqlpType[] extras)
+  private async Task RenderTypeHtml(string section, IAstType type, IAstType[] extras)
   {
     Assert.SkipWhen(type is null, "type is null");
 

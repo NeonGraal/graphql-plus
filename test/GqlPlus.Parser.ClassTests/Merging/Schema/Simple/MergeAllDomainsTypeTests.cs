@@ -5,7 +5,7 @@ using GqlPlus.Merging.Simple;
 namespace GqlPlus.Merging.Schema.Simple;
 
 public class MergeAllDomainsTypeTests
-  : TestAbbreviatedMerger<IGqlpType>
+  : TestAbbreviatedMerger<IAstType>
 {
 
   private readonly MergeAllDomains _merger;
@@ -21,12 +21,12 @@ public class MergeAllDomainsTypeTests
     _merger = new(mergers);
   }
 
-  protected override IMerge<IGqlpType> MergerBase => _merger;
+  protected override IMerge<IAstType> MergerBase => _merger;
 
   public override void CanMerge_NoAsts_ReturnsErrors()
     => CanMerge_Good([]);
 
-  protected override IGqlpType MakeAst(string input)
+  protected override IAstType MakeAst(string input)
     => new AstDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse>(AstNulls.At, input, DomainKind.Boolean, [
         new DomainTrueFalseAst(AstNulls.At, "", false, true)
       ]);

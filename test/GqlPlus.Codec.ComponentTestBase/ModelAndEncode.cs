@@ -19,7 +19,7 @@ internal sealed class ModelAndEncode(
 
   public SchemaModel ModelAst(IAstSchema schema, IModelsContext context, IAstSchema? extras = null)
   {
-    types.AddTypeKinds(schema.Declarations.ArrayOf<IGqlpType>(), context.TypeKinds);
+    types.AddTypeKinds(schema.Declarations.ArrayOf<IAstType>(), context.TypeKinds);
     if (extras is not null) {
       SchemaModel extraModel = modeller.ToModel(extras, context.TypeKinds);
       context.AddModels(extraModel.Types.Values);

@@ -32,7 +32,7 @@ public class BuiltInTests(
       .SkipIf(type == "Void")
       .Verify_Valid(BuiltInData.InternalMap[type]);
 
-  private void Verify_Valid(IGqlpType type)
+  private void Verify_Valid(IAstType type)
   {
     Assert.SkipWhen(type is null, "type is null");
 
@@ -45,7 +45,7 @@ public class BuiltInTests(
   }
 
   private sealed class TestSchema(
-    IGqlpType type
+    IAstType type
   ) : IAstSchema
   {
     public IEnumerable<IAstDeclaration> Declarations { get; } = [type];

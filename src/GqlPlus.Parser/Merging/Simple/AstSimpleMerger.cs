@@ -4,9 +4,9 @@ namespace GqlPlus.Merging.Simple;
 
 internal abstract class AstSimpleMerger<TAst, TType, TItem>(
   IMergerRepository mergers
-) : AstTypeMerger<TAst, TType, IGqlpTypeRef, TItem>(mergers)
-  where TAst : IGqlpType
-  where TType : IGqlpSimple<TItem>, TAst
+) : AstTypeMerger<TAst, TType, IAstTypeRef, TItem>(mergers)
+  where TAst : IAstType
+  where TType : IAstSimple<TItem>, TAst
   where TItem : IAstError
 {
   protected override string ItemMatchName => "Parent";

@@ -2,7 +2,7 @@
 
 internal abstract class GenerateForClass<TClass, TMember>
   : GenerateForType<TClass>
-  where TClass : IGqlpType
+  where TClass : IAstType
 {
   protected virtual void ClassHeader(TClass ast, GqlpGeneratorContext context)
   {

@@ -1,22 +1,22 @@
 ﻿namespace GqlPlus.Abstractions.Schema;
 
-public interface IGqlpSimple<TItem>
-  : IGqlpSimple
-  , IEquatable<IGqlpSimple<TItem>>
+public interface IAstSimple<TItem>
+  : IAstSimple
+  , IEquatable<IAstSimple<TItem>>
   where TItem : IAstError
 {
   IEnumerable<TItem> Items { get; }
 }
 
 public interface IGqlpValued<TItem>
-  : IGqlpSimple<TItem>
+  : IAstSimple<TItem>
   where TItem : IAstError
 {
   bool HasValue(string value);
 }
 
 public interface IGqlpDomain
-  : IGqlpSimple
+  : IAstSimple
   , IEquatable<IGqlpDomain>
 {
   DomainKind DomainKind { get; }
@@ -24,7 +24,7 @@ public interface IGqlpDomain
 
 public interface IGqlpDomain<TItem>
   : IGqlpDomain
-  , IGqlpSimple<TItem>
+  , IAstSimple<TItem>
   , IEquatable<IGqlpDomain<TItem>>
   where TItem : IGqlpDomainItem
 { }

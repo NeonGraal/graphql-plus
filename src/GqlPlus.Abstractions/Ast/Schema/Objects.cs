@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Abstractions.Schema;
 
 public interface IGqlpObject
-  : IGqlpType<IGqlpObjBase>
+  : IAstType<IGqlpObjBase>
 {
   IEnumerable<IGqlpTypeParam> TypeParams { get; }
   IEnumerable<IGqlpObjField> Fields { get; }

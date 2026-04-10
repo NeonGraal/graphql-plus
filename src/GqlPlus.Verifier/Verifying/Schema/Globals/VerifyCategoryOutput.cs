@@ -4,7 +4,7 @@ namespace GqlPlus.Verifying.Schema.Globals;
 
 internal class VerifyCategoryOutput(IVerifierRepository verifiers) : UsageVerifier<IGqlpSchemaCategory, UsageContext>(verifiers)
 {
-  protected override UsageContext MakeContext(IGqlpSchemaCategory usage, IGqlpType[] aliased, IMessages errors)
+  protected override UsageContext MakeContext(IGqlpSchemaCategory usage, IAstType[] aliased, IMessages errors)
     => MakeUsageContext(aliased, errors);
 
   protected override void UsageValue(IGqlpSchemaCategory usage, UsageContext context)

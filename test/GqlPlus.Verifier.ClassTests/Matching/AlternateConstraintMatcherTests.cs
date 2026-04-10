@@ -18,7 +18,7 @@ public class AlternateConstraintMatcherTests
       .AsObject;
     Types[constraint] = objectType;
 
-    IGqlpType type = A.DualObj(name).AsObject;
+    IAstType type = A.DualObj(name).AsObject;
 
     bool result = _sut.MatchesTypeConstraint(type, constraint, Context);
 
@@ -40,7 +40,7 @@ public class AlternateConstraintMatcherTests
       .AsObject;
     Types[name] = namedType;
 
-    IGqlpType type = A.DualObj(parent).AsObject;
+    IAstType type = A.DualObj(parent).AsObject;
     Types[parent] = type;
     AnyTypeMatches(expected);
 

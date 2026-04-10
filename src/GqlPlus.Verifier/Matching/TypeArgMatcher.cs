@@ -9,15 +9,15 @@ internal class TypeArgMatcher(
 ) : MatchLogger(matchers)
   , Matcher<IGqlpTypeArg>.I
 {
-  private readonly Matcher<IGqlpType>.L _anyTypeMatcher = matchers.MatcherFor<IGqlpType>();
+  private readonly Matcher<IAstType>.L _anyTypeMatcher = matchers.MatcherFor<IAstType>();
 
   public bool Matches(IGqlpTypeArg arg, string constraint, EnumContext context)
   {
     TryingMatch(arg, constraint);
 
-    return MatchArgOrType<IGqlpType, EnumContext>(arg.FullType, constraint, context, ArgAction);
+    return MatchArgOrType<IAstType, EnumContext>(arg.FullType, constraint, context, ArgAction);
 
-    bool ArgAction(IGqlpType t, string c, EnumContext ctx)
+    bool ArgAction(IAstType t, string c, EnumContext ctx)
     {
       if (arg.EnumValue is not null
         && MatchArgLabel(arg, constraint, context)) {

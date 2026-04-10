@@ -24,7 +24,7 @@ public static class BuiltIn
   public const string ValueType = "Value";
   public const string VoidType = "Void";
 
-  public static IGqlpType[] Basic { get; } = [
+  public static IAstType[] Basic { get; } = [
     Enum(BooleanType, [BooleanAlias, "_" + BooleanType], BooleanFalse, BooleanTrue),
     Enum(UnitType, [UnitValue, "_" + UnitType], UnitValue),
 
@@ -57,9 +57,9 @@ public static class BuiltIn
     Value = value;
   }
 
-  public static IGqlpType[] Internal { get; }
+  public static IAstType[] Internal { get; }
 
-  internal static IGqlpType[] InternalSimple { get; } = [
+  internal static IAstType[] InternalSimple { get; } = [
     Enum(VoidType, ["_Void"]),
     Enum(NullType, [NullValue, "_Null"], NullValue),
     new UnionDeclAst(AstNulls.At, "_Basic", s_basicMembers.UnionMembers()) { Aliases = ["Basic"]},
@@ -68,7 +68,7 @@ public static class BuiltIn
     new UnionDeclAst(AstNulls.At, "_Key", s_keyMembers.UnionMembers()) { Aliases = ["Key"]},
   ];
 
-  internal static IGqlpType[] InternalObject { get; } = [
+  internal static IAstType[] InternalObject { get; } = [
     DualObj("Object", DualRef("_Map", DualArg("_Any")), ["%", "_Object"]),
 
     DualObj("Opt", null, [TypeParam()], DualAlt(null), DualType(NullType)),
@@ -86,10 +86,10 @@ public static class BuiltIn
     DualObj("MostDictionary", null, [TypeParam()], DualMost("Simple", true)),
   ];
 
-  internal static IGqlpType Scalar { get; }
-  internal static IGqlpType Value { get; }
+  internal static IAstType Scalar { get; }
+  internal static IAstType Value { get; }
 
-  internal static IGqlpTypeSpecial[] Special { get; }
+  internal static IAstTypeSpecial[] Special { get; }
 
   internal static Map<string> EnumValues = new() {
     [UnitValue] = UnitType,

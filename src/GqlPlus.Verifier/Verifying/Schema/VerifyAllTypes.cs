@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifying.Schema;
 
-internal class VerifyAllTypes(IVerifierRepository verifiers) : IVerify<IGqlpType[]>
+internal class VerifyAllTypes(IVerifierRepository verifiers) : IVerify<IAstType[]>
 {
   private readonly IVerifyUsage<IGqlpObject<IGqlpDualField>> _dualAllTypes = verifiers.UsageFor<IGqlpObject<IGqlpDualField>>();
   private readonly IVerifyUsage<IGqlpEnum> _enumAllTypes = verifiers.UsageFor<IGqlpEnum>();
@@ -11,9 +11,9 @@ internal class VerifyAllTypes(IVerifierRepository verifiers) : IVerify<IGqlpType
   private readonly IVerifyUsage<IGqlpDomain> _domainAllTypes = verifiers.UsageFor<IGqlpDomain>();
   private readonly IVerifyUsage<IGqlpUnion> _unionAllTypes = verifiers.UsageFor<IGqlpUnion>();
 
-  public void Verify(IGqlpType[] item, IMessages errors)
+  public void Verify(IAstType[] item, IMessages errors)
   {
-    IGqlpType[] allTypes = [.. item, .. BuiltIn.Basic, .. BuiltIn.Internal];
+    IAstType[] allTypes = [.. item, .. BuiltIn.Basic, .. BuiltIn.Internal];
 
     IGqlpObject<IGqlpDualField>[] dualTypes = item.ArrayOf<IGqlpObject<IGqlpDualField>>();
     IGqlpEnum[] enumTypes = item.ArrayOf<IGqlpEnum>();

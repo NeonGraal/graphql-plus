@@ -15,7 +15,7 @@ public class CategoryModellerTests
   {
     // Arrange
     IGqlpSchemaCategory ast = A.Named<IGqlpSchemaCategory>(categoryName, contents);
-    IGqlpTypeRef output = A.Named<IGqlpTypeRef>(outputName);
+    IAstTypeRef output = A.Named<IAstTypeRef>(outputName);
     ast.Output.Returns(output);
     ast.CategoryOption.Returns(CategoryOption.Parallel);
     IEnumerable<IAstModifier> modifiers = [A.Modifier(ModifierKind.List), A.Modifier(ModifierKind.Opt)];

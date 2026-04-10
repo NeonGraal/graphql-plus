@@ -11,5 +11,5 @@ public interface IMerge<TItem>
 
 public interface IMergeAll<TItem>
   : IMerge<TItem>
-  where TItem : IGqlpType
+  where TItem : IAstType
 { }

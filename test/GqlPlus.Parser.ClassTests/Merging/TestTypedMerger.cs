@@ -4,8 +4,8 @@ namespace GqlPlus.Merging;
 
 public abstract class TestTypedMerger<TBase, TType, TParent, TItem>
   : TestAliasedMerger<TType>
-  where TBase : IGqlpType
-  where TType : IGqlpType<TParent>, TBase
+  where TBase : IAstType
+  where TType : IAstType<TParent>, TBase
   where TParent : IAstDescribed, IEquatable<TParent>
   where TItem : IAstError
 {

@@ -53,7 +53,7 @@ public class UsageContext(
   }
 
   internal bool DifferentName<TAst>(SelfUsage<TAst> input, string? current)
-    where TAst : IGqlpType
+    where TAst : IAstType
   {
     if (input.DifferentName) {
       return true;
@@ -70,7 +70,7 @@ public class UsageContext(
 }
 
 internal record struct SelfUsage<TAst>(string Head, TAst Usage, string Label)
-  where TAst : IGqlpType
+  where TAst : IAstType
 {
   private List<string> _chain = [Head];
 
@@ -132,7 +132,7 @@ internal static class UsageHelpers
     void CheckKey(string? keyName, string label = "")
     {
       if (context.GetType(keyName, out IAstDescribed? key)) {
-        context.AddError((IAstAbbreviated)modified, "Modifier", $"{label}'{keyName}' invalid type", key is not IGqlpSimple and not IGqlpTypeParam);
+        context.AddError((IAstAbbreviated)modified, "Modifier", $"{label}'{keyName}' invalid type", key is not IAstSimple and not IGqlpTypeParam);
       } else {
         context.AddError((IAstAbbreviated)modified, "Modifier", $"{label}'{keyName}' not defined");
       }

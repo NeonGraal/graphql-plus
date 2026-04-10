@@ -15,7 +15,7 @@ internal record class AstDomain<TItemAst, TItem>(
 {
   public TItem[] Items { get; set; } = [];
 
-  IEnumerable<TItem> IGqlpSimple<TItem>.Items => Items;
+  IEnumerable<TItem> IAstSimple<TItem>.Items => Items;
 
   public AstDomain(
     ITokenAt at,
@@ -26,10 +26,10 @@ internal record class AstDomain<TItemAst, TItem>(
     => Items = items;
 
   public virtual bool Equals(AstDomain<TItemAst, TItem>? other)
-    => other is IGqlpSimple<TItem> simple && Equals(simple);
+    => other is IAstSimple<TItem> simple && Equals(simple);
   public bool Equals(IGqlpDomain<TItem> other)
-    => Equals(other as IGqlpSimple<TItem>);
-  public bool Equals(IGqlpSimple<TItem> other)
+    => Equals(other as IAstSimple<TItem>);
+  public bool Equals(IAstSimple<TItem> other)
     => base.Equals(other)
       && Items.SequenceEqual(other.Items);
   public override int GetHashCode()

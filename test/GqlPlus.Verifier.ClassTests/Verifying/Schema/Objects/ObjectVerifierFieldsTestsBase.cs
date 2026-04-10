@@ -179,7 +179,7 @@ public abstract class ObjectVerifierFieldsTestsBase<TObjField>(
       .SkipEqual(otherName, argParam)
       .SkipEqual(otherName, paramName);
 
-    Define<IGqlpSimple>(argParam);
+    Define<IAstSimple>(argParam);
 
     DefineObject(argType, o => o
       .WithTypeParam(argParam, argParam)
@@ -201,7 +201,7 @@ public abstract class ObjectVerifierFieldsTestsBase<TObjField>(
   {
     this.SkipEqual(argType, otherName);
 
-    Define<IGqlpSimple>(argType);
+    Define<IAstSimple>(argType);
 
     DefineObject(otherName);
 
@@ -217,7 +217,7 @@ public abstract class ObjectVerifierFieldsTestsBase<TObjField>(
   {
     this.SkipEqual(argType, otherName);
 
-    Define<IGqlpSimple>(argType);
+    Define<IAstSimple>(argType);
 
     DefineObject(otherName, o => o
       .WithTypeParam(paramName, "")
@@ -235,7 +235,7 @@ public abstract class ObjectVerifierFieldsTestsBase<TObjField>(
   {
     this.SkipEqual(argType, otherName);
 
-    Define<IGqlpSimple>(argType);
+    Define<IAstSimple>(argType);
 
     DefineObject(otherName, o => o
       .WithTypeParam(paramName, argType)

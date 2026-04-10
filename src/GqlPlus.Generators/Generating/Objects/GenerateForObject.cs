@@ -64,7 +64,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
 
     string AlternameName(IGqlpAlternate alt)
     {
-      string name = (types.GetTypeAst(alt.Name, out IGqlpType type)
+      string name = (types.GetTypeAst(alt.Name, out IAstType type)
         ? type.Name : "").IfWhiteSpace(alt.Name);
 
       if (alt.EnumValue is not null) {

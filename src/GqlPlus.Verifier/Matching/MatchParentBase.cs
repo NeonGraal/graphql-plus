@@ -7,7 +7,7 @@ internal abstract class MatchParentBase<TParent, TType>(
   IMatcherRepository matchers
 ) : MatchTypeBase<TType>(matchers)
   where TParent : IAstNamed
-  where TType : IGqlpType<TParent>
+  where TType : IAstType<TParent>
 {
   public override bool Matches(TType type, string constraint, EnumContext context)
   {

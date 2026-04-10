@@ -19,7 +19,7 @@ public class EnumConstraintMatcherTests
     IGqlpEnum enumType = A.Enum(constraint).AsEnum;
     Types[constraint] = enumType;
 
-    IGqlpType type = A.Named<IGqlpType>(name);
+    IAstType type = A.Named<IAstType>(name);
     _enumMatcher.Matches(enumType, name, Context).Returns(expected);
 
     bool result = _sut.MatchesTypeConstraint(type, constraint, Context);

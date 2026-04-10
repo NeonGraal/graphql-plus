@@ -7,6 +7,6 @@ internal class VerifyEnumTypes(IVerifierRepository verifiers) : AstSimpleVerifie
   protected override IEnumerable<IGqlpEnumLabel> GetItems(IGqlpEnum usage)
     => usage.Items;
 
-  protected override UsageContext MakeContext(IGqlpEnum usage, IGqlpType[] aliased, IMessages errors)
+  protected override UsageContext MakeContext(IGqlpEnum usage, IAstType[] aliased, IMessages errors)
     => MakeUsageContext(aliased, errors);
 }

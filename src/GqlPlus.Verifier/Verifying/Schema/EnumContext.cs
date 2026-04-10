@@ -53,7 +53,7 @@ public class EnumContext(
 
 public static class EnumContextHelper
 {
-  public static IMap<string> MakeEnumValues(this IGqlpType[] aliased)
+  public static IMap<string> MakeEnumValues(this IAstType[] aliased)
   {
     IGqlpEnum[] enumTypes = aliased.ArrayOf<IGqlpEnum>();
     IEnumerable<IGrouping<string, string>> enums = GroupLabels(EnumLabels);

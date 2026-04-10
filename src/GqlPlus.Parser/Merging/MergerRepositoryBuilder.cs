@@ -14,8 +14,8 @@ internal class MergerRepositoryBuilder
     => this.FluentAction(b => b.Mergers[typeof(T)] = factory);
 
   public IMergerRepositoryBuilder AddMergeAll<TAst, TType, TService>(Factory<TService, IMergerRepository> factory)
-    where TAst : IGqlpType
-    where TType : IGqlpType
+    where TAst : IAstType
+    where TType : IAstType
     where TService : class, IMergeAll<TType>, IMerge<TAst>
     => this.FluentAction(b => {
       b.Mergers[typeof(TAst)] = factory;

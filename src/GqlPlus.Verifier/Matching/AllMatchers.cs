@@ -17,7 +17,7 @@ public static class AllMatchers
           .AddTypeMatcher<IGqlpDomain, DomainMatcher>(m => new DomainMatcher(m))
           .AddSimpleMatcher<IGqlpDomain>()
           .AddSimpleMatcher<IGqlpEnum>()
-          .AddSimpleMatcher<IGqlpTypeSpecial>()
+          .AddSimpleMatcher<IAstTypeSpecial>()
           .AddSimpleMatcher<IGqlpUnion>()
 
           .AddObjectMatcher<IGqlpDualField, ObjectParentMatcher<IGqlpDualField>>(m => new ObjectParentMatcher<IGqlpDualField>(m))
@@ -41,7 +41,7 @@ public static class AllMatchers
   }
 
   private static IMatcherRepositoryBuilder AddSimpleMatcher<TType>(this IMatcherRepositoryBuilder builder)
-    where TType : IGqlpSimple
+    where TType : IAstSimple
     => builder.AddTypeMatcher<TType, SimpleParentMatcher<TType>>(m => new SimpleParentMatcher<TType>(m));
 
   private static IMatcherRepositoryBuilder AddObjectMatcher<TField, TMatcher>(this IMatcherRepositoryBuilder builder, Factory<TMatcher, IMatcherRepository> factory)

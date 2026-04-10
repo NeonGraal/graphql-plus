@@ -6,7 +6,7 @@ namespace GqlPlus.Verifying.Schema;
 internal abstract class AstParentItemVerifier<TAst, TParent, TContext, TItem>(
   IVerifierRepository verifiers
 ) : AstParentVerifier<TAst, TParent, TContext>(verifiers)
-  where TAst : IGqlpType<TParent>
+  where TAst : IAstType<TParent>
   where TParent : IAstDescribed, IEquatable<TParent>
   where TContext : UsageContext
   where TItem : IAstError

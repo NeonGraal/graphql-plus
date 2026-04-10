@@ -8,13 +8,13 @@ public class TypeArgMatcherTests
 {
   internal TypeArgMatcher Matcher { get; set; }
 
-  internal Matcher<IGqlpType>.I AnyType { get; set; }
+  internal Matcher<IAstType>.I AnyType { get; set; }
 
   public TypeArgMatcherTests()
   {
-    Matcher<IGqlpType>.D anyDelegate = MatcherFor(out Matcher<IGqlpType>.I anyInterface);
+    Matcher<IAstType>.D anyDelegate = MatcherFor(out Matcher<IAstType>.I anyInterface);
     AnyType = anyInterface;
-    MatcherRepo.MatcherFor<IGqlpType>().Returns(anyDelegate);
+    MatcherRepo.MatcherFor<IAstType>().Returns(anyDelegate);
     Matcher = new(MatcherRepo);
   }
 
@@ -35,7 +35,7 @@ public class TypeArgMatcherTests
 
     IGqlpTypeArg arg = A.TypeArg(name).IsTypeParam().AsTypeArg;
 
-    IGqlpType typeParam = A.Named<IGqlpType>(constraint);
+    IAstType typeParam = A.Named<IAstType>(constraint);
     Types[arg.FullType] = typeParam;
 
     bool result = Matcher.Matches(arg, constraint, Context);
@@ -50,7 +50,7 @@ public class TypeArgMatcherTests
 
     IGqlpTypeArg arg = A.TypeArg(name).AsTypeArg;
 
-    IGqlpType baseType = A.Named<IGqlpType>(name);
+    IAstType baseType = A.Named<IAstType>(name);
     Types[name] = baseType;
 
     AnyTypeReturns(baseType, constraint, expected);
@@ -203,6 +203,6 @@ public class TypeArgMatcherTests
     result.ShouldBe(expected);
   }
 
-  protected void AnyTypeReturns(IGqlpType type, string constraint, bool expected)
+  protected void AnyTypeReturns(IAstType type, string constraint, bool expected)
     => AnyType.Matches(type, constraint, Context).Returns(expected);
 }

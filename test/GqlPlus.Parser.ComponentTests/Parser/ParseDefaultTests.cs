@@ -3,7 +3,7 @@
 namespace GqlPlus.Parser;
 
 public class ParseDefaultTests(
-  IOneChecksParser<IParserDefault, IGqlpConstant> checks
+  IOneChecksParser<IParserDefault, IAstConstant> checks
 )
 {
   [Fact]
@@ -74,6 +74,6 @@ public class ParseDefaultTests(
         "=" + '{' + key + ':' + enumValue + ':' + key + '}',
         CheckNull);
 
-  private void CheckNull(IGqlpConstant? result)
+  private void CheckNull(IAstConstant? result)
     => result.ShouldBeNull();
 }

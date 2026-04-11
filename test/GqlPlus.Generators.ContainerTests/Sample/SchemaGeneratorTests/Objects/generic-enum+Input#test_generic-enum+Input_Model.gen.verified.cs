@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-enum+Input_Model.gen.cs
 // Generated from {CurrentDirectory}generic-enum+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_enum_Input;
 
 public class testGnrcEnumInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcEnumInp
 {
   public ItestRefGnrcEnumInp<testEnumGnrcEnumInp>? AsEnumGnrcEnumInpgnrcEnumInp { get; set; }
@@ -16,20 +16,25 @@ public class testGnrcEnumInp
 }
 
 public class testGnrcEnumInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcEnumInpObject
 {
+
+  public testGnrcEnumInpObject
+    ()
+  {
+  }
 }
 
 public class testRefGnrcEnumInp<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcEnumInp<TType>
 {
   public ItestRefGnrcEnumInpObject<TType>? As_RefGnrcEnumInp { get; set; }
 }
 
 public class testRefGnrcEnumInpObject<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcEnumInpObject<TType>
 {
   public TType Field { get; set; }

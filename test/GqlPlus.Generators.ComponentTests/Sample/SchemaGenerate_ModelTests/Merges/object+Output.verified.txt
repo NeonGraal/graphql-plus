@@ -22,4 +22,9 @@ public class CmptObjOutpObject
   : Schema_object+Output
   , ICmptObjOutpObject
 {
+
+  public CmptObjOutpObject
+    ()
+  {
+  }
 }

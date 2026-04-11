@@ -1,6 +1,6 @@
 ﻿//HintName: test_alt-simple+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}alt-simple+Dual.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_alt_simple_Dual;
 
 public class testAltSmplDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltSmplDual
 {
   public string? AsString { get; set; }
@@ -16,7 +16,12 @@ public class testAltSmplDual
 }
 
 public class testAltSmplDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltSmplDualObject
 {
+
+  public testAltSmplDualObject
+    ()
+  {
+  }
 }

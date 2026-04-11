@@ -44,4 +44,9 @@ public class CmptRefPrntParamSameInpObject<TA>
   : Schema_parent-param-same+Input
   , ICmptRefPrntParamSameInpObject<TA>
 {
+
+  public CmptRefPrntParamSameInpObject
+    ()
+  {
+  }
 }

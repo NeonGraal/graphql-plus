@@ -23,6 +23,11 @@ public class CmptGnrcPrntDualInpObject
   : CmptRefGnrcPrntDualInpObject<ICmptAltGnrcPrntDualInp>
   , ICmptGnrcPrntDualInpObject
 {
+
+  public CmptGnrcPrntDualInpObject
+    ()
+  {
+  }
 }
 
 public class CmptRefGnrcPrntDualInp<TRef>
@@ -37,6 +42,11 @@ public class CmptRefGnrcPrntDualInpObject<TRef>
   : Schema_generic-parent-dual+Input
   , ICmptRefGnrcPrntDualInpObject<TRef>
 {
+
+  public CmptRefGnrcPrntDualInpObject
+    ()
+  {
+  }
 }
 
 public class CmptAltGnrcPrntDualInp

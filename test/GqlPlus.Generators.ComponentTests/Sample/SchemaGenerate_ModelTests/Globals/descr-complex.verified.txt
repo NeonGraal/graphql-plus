@@ -22,4 +22,9 @@ public class CmptDescrCmplObject
   : Schema_descr-complex
   , ICmptDescrCmplObject
 {
+
+  public CmptDescrCmplObject
+    ()
+  {
+  }
 }

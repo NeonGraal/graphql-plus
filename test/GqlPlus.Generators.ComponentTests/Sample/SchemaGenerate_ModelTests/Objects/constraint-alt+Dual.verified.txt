@@ -22,4 +22,9 @@ public class CmptCnstAltDualObject<TType>
   : Schema_constraint-alt+Dual
   , ICmptCnstAltDualObject<TType>
 {
+
+  public CmptCnstAltDualObject
+    ()
+  {
+  }
 }

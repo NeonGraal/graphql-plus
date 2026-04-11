@@ -24,6 +24,11 @@ public class CmptGnrcEnumInpObject
   : Schema_generic-enum+Input
   , ICmptGnrcEnumInpObject
 {
+
+  public CmptGnrcEnumInpObject
+    ()
+  {
+  }
 }
 
 public class CmptRefGnrcEnumInp<TType>

@@ -7,17 +7,17 @@ namespace GqlPlus.Parsing.Operation;
 
 internal class ParseOperation(
   IParserRepository parsers
-) : Parser<IGqlpOperation>.I
+) : Parser<IAstOperation>.I
 {
-  private readonly Parser<IParserArg, IGqlpArg>.L _argument = parsers.ParserFor<IParserArg, IGqlpArg>();
-  private readonly Parser<IGqlpDirective>.LA _directives = parsers.ArrayFor<IGqlpDirective>();
-  private readonly ParserArray<IParserStartFragments, IGqlpFragment>.LA _startFragments = parsers.ArrayFor<IParserStartFragments, IGqlpFragment>();
-  private readonly ParserArray<IParserEndFragments, IGqlpFragment>.LA _endFragments = parsers.ArrayFor<IParserEndFragments, IGqlpFragment>();
-  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.ArrayFor<IGqlpModifier>();
-  private readonly Parser<IGqlpSelection>.LA _object = parsers.ArrayFor<IGqlpSelection>();
-  private readonly Parser<IGqlpVariable>.LA _variables = parsers.ArrayFor<IGqlpVariable>();
+  private readonly Parser<IParserArg, IAstArg>.L _argument = parsers.ParserFor<IParserArg, IAstArg>();
+  private readonly Parser<IAstDirective>.LA _directives = parsers.ArrayFor<IAstDirective>();
+  private readonly ParserArray<IParserStartFragments, IAstFragment>.LA _startFragments = parsers.ArrayFor<IParserStartFragments, IAstFragment>();
+  private readonly ParserArray<IParserEndFragments, IAstFragment>.LA _endFragments = parsers.ArrayFor<IParserEndFragments, IAstFragment>();
+  private readonly Parser<IAstModifier>.LA _modifiers = parsers.ArrayFor<IAstModifier>();
+  private readonly Parser<IAstSelection>.LA _object = parsers.ArrayFor<IAstSelection>();
+  private readonly Parser<IAstVariable>.LA _variables = parsers.ArrayFor<IAstVariable>();
 
-  public IResult<IGqlpOperation> Parse(ITokenizer tokens, string label)
+  public IResult<IAstOperation> Parse(ITokenizer tokens, string label)
   {
     if (tokens is not IOperationContext) {
       tokens = new OperationContext(tokens);
@@ -25,13 +25,13 @@ internal class ParseOperation(
 
     if (tokens.AtStart) {
       if (!tokens.Read()) {
-        return tokens.Error<IGqlpOperation>(label, "text");
+        return tokens.Error<IAstOperation>(label, "text");
       }
     }
 
     OperationAst ast = ParseCategory(tokens);
 
-    IResult<IGqlpOperation>? value = ErrorParsingStart(tokens, label, ast);
+    IResult<IAstOperation>? value = ErrorParsingStart(tokens, label, ast);
     if (value is not null) {
       return value;
     }
@@ -53,7 +53,7 @@ internal class ParseOperation(
     return Final(tokens, ast).Ok();
   }
 
-  private IResult<IGqlpOperation>? ErrorParsingResult(ITokenizer tokens, string label, OperationAst ast)
+  private IResult<IAstOperation>? ErrorParsingResult(ITokenizer tokens, string label, OperationAst ast)
   {
     if (!tokens.Prefix(':', out string? result, out _)) {
       return tokens.Partial(label, "identifier to follow ':'", () => Final(tokens, ast));
@@ -61,7 +61,7 @@ internal class ParseOperation(
 
     if (!string.IsNullOrWhiteSpace(result)) {
       ast.ResultType = result;
-      IResult<IGqlpArg> argument = _argument.I.Parse(tokens, "Arg");
+      IResult<IAstArg> argument = _argument.I.Parse(tokens, "Arg");
       if (!argument.Optional(arg => ast.Arg = arg)) {
         return argument.AsPartial(Final(tokens, ast));
       }
@@ -69,7 +69,7 @@ internal class ParseOperation(
       return tokens.Partial(label, "Object or Type", () => Final(tokens, ast));
     }
 
-    IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, label);
+    IResultArray<IAstModifier> modifiers = _modifiers.Parse(tokens, label);
 
     if (modifiers.IsError()) {
       return modifiers.AsPartial(Final(tokens, ast));
@@ -80,9 +80,9 @@ internal class ParseOperation(
     return null;
   }
 
-  private IResult<IGqlpOperation>? ErrorParsingStart(ITokenizer tokens, string label, OperationAst ast)
+  private IResult<IAstOperation>? ErrorParsingStart(ITokenizer tokens, string label, OperationAst ast)
   {
-    IResultArray<IGqlpVariable> variables = _variables.Parse(tokens, label);
+    IResultArray<IAstVariable> variables = _variables.Parse(tokens, label);
     if (!variables.Optional(vars => ast.Variables = [.. vars])) {
       return variables.AsPartial(Final(tokens, ast));
     }
@@ -93,7 +93,7 @@ internal class ParseOperation(
     return null;
   }
 
-  private static IGqlpOperation Final(ITokenizer tokens, OperationAst ast)
+  private static IAstOperation Final(ITokenizer tokens, OperationAst ast)
     => tokens is IOperationContext context
       ? ast with {
         Errors = tokens.Errors,

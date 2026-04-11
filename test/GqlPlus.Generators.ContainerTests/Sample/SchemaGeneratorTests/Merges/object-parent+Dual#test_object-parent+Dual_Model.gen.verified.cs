@@ -1,6 +1,6 @@
 ﻿//HintName: test_object-parent+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}object-parent+Dual.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -18,17 +18,27 @@ public class testObjPrntDualObject
   : testRefObjPrntDualObject
   , ItestObjPrntDualObject
 {
+
+  public testObjPrntDualObject
+    ()
+  {
+  }
 }
 
 public class testRefObjPrntDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefObjPrntDual
 {
   public ItestRefObjPrntDualObject? As_RefObjPrntDual { get; set; }
 }
 
 public class testRefObjPrntDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefObjPrntDualObject
 {
+
+  public testRefObjPrntDualObject
+    ()
+  {
+  }
 }

@@ -1,0 +1,25 @@
+﻿/* enum-parent-alias
+enum EnumPrntAlias { :PrntEnumPrntAlias val_enumPrntAlias prnt_enumPrntAlias[enumPrntAlias] }
+enum PrntEnumPrntAlias { prnt_enumPrntAlias }
+*/
+
+// Generated from Schema enum-parent-alias
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_enum-parent-alias, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_enum_parent_alias;
+
+internal class CmptEnumPrntAliasEncoder
+{
+  public string prnt_enumPrntAlias { get; set; }
+  public string val_enumPrntAlias { get; set; }
+  public string prnt_enumPrntAlias { get; set; }
+  public string enumPrntAlias { get; set; }
+}
+
+internal class CmptPrntEnumPrntAliasEncoder
+{
+  public string prnt_enumPrntAlias { get; set; }
+}

@@ -6,12 +6,12 @@ using GqlPlus.Merging.Simple;
 namespace GqlPlus.Merging.Schema.Simple;
 
 public class MergeEnumsTests
-  : TestSimpleMerger<IGqlpType, IGqlpEnum, IGqlpEnumLabel, string>
+  : TestSimpleMerger<IAstType, IAstEnum, IAstEnumLabel, string>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsValuesCantMerge_ReturnsErrors(string name, string[] values)
     => this
-      .SkipUnless(values)
+      .SkipShortArray(values)
       .CanMergeReturnsError(MergeItems)
       .CanMerge_Errors(
         new EnumDeclAst(AstNulls.At, name, values.EnumLabels()),
@@ -33,15 +33,15 @@ public class MergeEnumsTests
   public MergeEnumsTests(ITestOutputHelper outputHelper)
   {
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.MergerFor<IGqlpEnumLabel>().Returns(MergeItems);
+    mergers.MergerFor<IAstEnumLabel>().Returns(MergeItems);
     _merger = new(mergers);
   }
 
-  internal override AstSimpleMerger<IGqlpType, IGqlpEnum, IGqlpEnumLabel> MergerSimple => _merger;
+  internal override AstSimpleMerger<IAstType, IAstEnum, IAstEnumLabel> MergerSimple => _merger;
 
-  protected override IGqlpEnumLabel[] MakeItems(string input)
+  protected override IAstEnumLabel[] MakeItems(string input)
     => new[] { input }.EnumLabels();
-  protected override IGqlpEnum MakeSimple(string name, string[]? aliases = null, string description = "", IGqlpTypeRef? parent = null, IEnumerable<IGqlpEnumLabel>? items = null)
+  protected override IAstEnum MakeSimple(string name, string[]? aliases = null, string description = "", IAstTypeRef? parent = null, IEnumerable<IAstEnumLabel>? items = null)
     => new EnumDeclAst(AstNulls.At, name, description, [.. items ?? []]) {
       Aliases = aliases ?? [],
       Parent = parent,

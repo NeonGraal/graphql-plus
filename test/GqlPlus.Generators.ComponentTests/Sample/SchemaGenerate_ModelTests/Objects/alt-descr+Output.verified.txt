@@ -22,4 +22,9 @@ public class CmptAltDescrOutpObject
   : Schema_alt-descr+Output
   , ICmptAltDescrOutpObject
 {
+
+  public CmptAltDescrOutpObject
+    ()
+  {
+  }
 }

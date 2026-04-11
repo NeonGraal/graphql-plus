@@ -6,9 +6,9 @@ namespace GqlPlus.Parsing;
 internal class ValueKeyValueParser<TValue>(
   IParserRepository parsers
 ) : Parser<KeyValue<TValue>>.I
-  where TValue : IGqlpValue<TValue>
+  where TValue : IAstValue<TValue>
 {
-  private readonly Parser<IGqlpFieldKey>.L _key = parsers.ParserFor<IGqlpFieldKey>();
+  private readonly Parser<IAstFieldKey>.L _key = parsers.ParserFor<IAstFieldKey>();
   private readonly Parser<TValue>.L _value = parsers.ParserFor<TValue>();
 
   public IResult<KeyValue<TValue>> Parse(ITokenizer tokens, string label)
@@ -16,7 +16,7 @@ internal class ValueKeyValueParser<TValue>(
   {
     tokens.ThrowIfNull();
 
-    IResult<IGqlpFieldKey> fieldKey = _key.Parse(tokens, label);
+    IResult<IAstFieldKey> fieldKey = _key.Parse(tokens, label);
     if (fieldKey.IsError()) {
       return fieldKey.AsResult<KeyValue<TValue>>();
     }
@@ -37,6 +37,6 @@ internal class ValueKeyValueParser<TValue>(
 }
 
 public record struct KeyValue<TValue>(
-  IGqlpFieldKey Key,
+  IAstFieldKey Key,
   TValue Value
-) where TValue : IGqlpValue<TValue>;
+) where TValue : IAstValue<TValue>;

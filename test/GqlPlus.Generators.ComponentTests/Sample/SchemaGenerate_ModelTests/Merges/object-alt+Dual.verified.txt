@@ -24,6 +24,11 @@ public class CmptObjAltDualObject
   : Schema_object-alt+Dual
   , ICmptObjAltDualObject
 {
+
+  public CmptObjAltDualObject
+    ()
+  {
+  }
 }
 
 public class CmptObjAltDualType
@@ -37,4 +42,9 @@ public class CmptObjAltDualTypeObject
   : Schema_object-alt+Dual
   , ICmptObjAltDualTypeObject
 {
+
+  public CmptObjAltDualTypeObject
+    ()
+  {
+  }
 }

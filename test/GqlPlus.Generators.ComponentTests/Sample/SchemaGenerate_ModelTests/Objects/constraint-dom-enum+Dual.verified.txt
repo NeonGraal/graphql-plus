@@ -25,6 +25,11 @@ public class CmptCnstDomEnumDualObject
   : Schema_constraint-dom-enum+Dual
   , ICmptCnstDomEnumDualObject
 {
+
+  public CmptCnstDomEnumDualObject
+    ()
+  {
+  }
 }
 
 public class CmptRefCnstDomEnumDual<TType>

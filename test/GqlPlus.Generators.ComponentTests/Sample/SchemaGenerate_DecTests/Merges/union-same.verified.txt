@@ -1,0 +1,17 @@
+﻿/* union-same
+union UnionSame { Boolean }
+union UnionSame { Boolean }
+*/
+
+// Generated from Schema union-same
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_union-same, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_union_same;
+
+internal class CmptUnionSameDecoder
+{
+  public Boolean AsBoolean { get; set; }
+}

@@ -7,19 +7,19 @@ namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseObjBase(
   IParserRepository parsers
-) : Parser<IGqlpObjBase>.I
+) : Parser<IAstObjBase>.I
 {
-  private readonly Parser<IGqlpTypeArg>.LA _parseArgs = parsers.ArrayFor<IGqlpTypeArg>();
+  private readonly Parser<IAstTypeArg>.LA _parseArgs = parsers.ArrayFor<IAstTypeArg>();
 
-  public IResult<IGqlpObjBase> Parse(ITokenizer tokens, string label)
+  public IResult<IAstObjBase> Parse(ITokenizer tokens, string label)
   {
     string description = tokens.Description();
     if (!tokens.Prefix('$', out string? param, out TokenAt at)) {
-      return tokens.Error<IGqlpObjBase>(label, "identifier after '$'");
+      return tokens.Error<IAstObjBase>(label, "identifier after '$'");
     }
 
     if (!string.IsNullOrWhiteSpace(param)) {
-      IGqlpObjBase objBase = new ObjBaseAst(at, param!, description) {
+      IAstObjBase objBase = new ObjBaseAst(at, param!, description) {
         IsTypeParam = true,
       };
       return objBase.Ok();
@@ -38,14 +38,14 @@ internal class ParseObjBase(
 
     if (hasName) {
       ObjBaseAst objBase = new(at, name!, description);
-      IResultArray<IGqlpTypeArg> arguments = _parseArgs.Parse(tokens, label);
+      IResultArray<IAstTypeArg> arguments = _parseArgs.Parse(tokens, label);
       if (!arguments.Optional(values => objBase.Args = [.. values])) {
-        return arguments.AsResult<IGqlpObjBase>(objBase);
+        return arguments.AsResult<IAstObjBase>(objBase);
       }
 
-      return objBase.Ok<IGqlpObjBase>();
+      return objBase.Ok<IAstObjBase>();
     }
 
-    return default(IGqlpObjBase).Empty();
+    return default(IAstObjBase).Empty();
   }
 }

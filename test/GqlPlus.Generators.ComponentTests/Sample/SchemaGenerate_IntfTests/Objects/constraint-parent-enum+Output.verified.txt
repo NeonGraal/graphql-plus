@@ -36,3 +36,14 @@ public interface ICmptRefCnstPrntEnumOutpObject<TType>
 {
   TType Field { get; }
 }
+
+public enum CmptEnumCnstPrntEnumOutp
+{
+  parentCnstPrntEnumOutp = CmptParentCnstPrntEnumOutp.parentCnstPrntEnumOutp,
+  cnstPrntEnumOutp,
+}
+
+public enum CmptParentCnstPrntEnumOutp
+{
+  parentCnstPrntEnumOutp,
+}

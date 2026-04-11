@@ -25,6 +25,11 @@ public class CmptCnstDomEnumInpObject
   : Schema_constraint-dom-enum+Input
   , ICmptCnstDomEnumInpObject
 {
+
+  public CmptCnstDomEnumInpObject
+    ()
+  {
+  }
 }
 
 public class CmptRefCnstDomEnumInp<TType>

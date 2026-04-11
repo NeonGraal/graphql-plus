@@ -705,6 +705,11 @@ public class Cmpt_TypeObject
   : Spec_Introspection
   , ICmpt_TypeObject
 {
+
+  public Cmpt_TypeObject
+    ()
+  {
+  }
 }
 
 public class Cmpt_BaseType<TTypeKind>
@@ -823,6 +828,11 @@ public class Cmpt_TypeSimpleObject
   : Spec_Introspection
   , ICmpt_TypeSimpleObject
 {
+
+  public Cmpt_TypeSimpleObject
+    ()
+  {
+  }
 }
 
 public class Cmpt_Collections
@@ -839,6 +849,11 @@ public class Cmpt_CollectionsObject
   : Spec_Introspection
   , ICmpt_CollectionsObject
 {
+
+  public Cmpt_CollectionsObject
+    ()
+  {
+  }
 }
 
 public class Cmpt_ModifierKeyed<TModifierKind>
@@ -879,6 +894,11 @@ public class Cmpt_ModifiersObject
   : Spec_Introspection
   , ICmpt_ModifiersObject
 {
+
+  public Cmpt_ModifiersObject
+    ()
+  {
+  }
 }
 
 public class Cmpt_Modifier<TModifierKind>
@@ -1036,6 +1056,11 @@ public class Cmpt_BasicValueObject
   : Spec_Introspection
   , ICmpt_BasicValueObject
 {
+
+  public Cmpt_BasicValueObject
+    ()
+  {
+  }
 }
 
 public class Cmpt_DomainTrueFalse
@@ -1588,6 +1613,11 @@ public class Cmpt_ForParamObject<TType>
   : Spec_Introspection
   , ICmpt_ForParamObject<TType>
 {
+
+  public Cmpt_ForParamObject
+    ()
+  {
+  }
 }
 
 public class Cmpt_DualField

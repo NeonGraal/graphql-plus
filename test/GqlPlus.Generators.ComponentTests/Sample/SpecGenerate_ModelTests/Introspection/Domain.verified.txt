@@ -203,6 +203,11 @@ public class Cmpt_BasicValueObject
   : Spec_Domain
   , ICmpt_BasicValueObject
 {
+
+  public Cmpt_BasicValueObject
+    ()
+  {
+  }
 }
 
 public class Cmpt_DomainTrueFalse

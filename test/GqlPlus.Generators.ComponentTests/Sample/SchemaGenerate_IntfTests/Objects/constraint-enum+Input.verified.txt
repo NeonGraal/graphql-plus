@@ -35,3 +35,8 @@ public interface ICmptRefCnstEnumInpObject<TType>
 {
   TType Field { get; }
 }
+
+public enum CmptEnumCnstEnumInp
+{
+  cnstEnumInp,
+}

@@ -45,6 +45,11 @@ public class CmptRefGnrcFieldParamOutpObject<TRef>
   : Schema_generic-field-param+Output
   , ICmptRefGnrcFieldParamOutpObject<TRef>
 {
+
+  public CmptRefGnrcFieldParamOutpObject
+    ()
+  {
+  }
 }
 
 public class CmptAltGnrcFieldParamOutp

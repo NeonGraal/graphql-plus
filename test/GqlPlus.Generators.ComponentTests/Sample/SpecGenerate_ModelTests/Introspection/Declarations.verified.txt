@@ -60,6 +60,11 @@ public class Cmpt_SchemaObject
     => null;
   public IDictionary<ICmpt_Name, ICmpt_Setting>? Settings(ICmpt_Filter? parameter)
     => null;
+
+  public Cmpt_SchemaObject
+    ()
+  {
+  }
 }
 
 public class Cmpt_Name

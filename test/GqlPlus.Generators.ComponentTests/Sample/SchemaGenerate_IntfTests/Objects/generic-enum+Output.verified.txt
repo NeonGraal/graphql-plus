@@ -35,3 +35,8 @@ public interface ICmptRefGnrcEnumOutpObject<TType>
 {
   TType Field { get; }
 }
+
+public enum CmptEnumGnrcEnumOutp
+{
+  gnrcEnumOutp,
+}

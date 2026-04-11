@@ -9,20 +9,20 @@ public class DomainTrueFalseBuilder
 
   public DomainTrueFalseBuilder(bool isTrue)
   {
-    Add<IGqlpDomainTrueFalse>();
+    Add<IAstDomainTrueFalse>();
     _isTrue = isTrue;
   }
 
   protected new T Build<T>()
-    where T : class, IGqlpDomainTrueFalse
+    where T : class, IAstDomainTrueFalse
   {
     T result = base.Build<T>();
     result.IsTrue.Returns(_isTrue);
     return result;
   }
 
-  public IGqlpDomainTrueFalse AsTrueFalse
-    => Build<IGqlpDomainTrueFalse>();
+  public IAstDomainTrueFalse AsTrueFalse
+    => Build<IAstDomainTrueFalse>();
 }
 
 public static class DomainTrueFalseBuilderHelper

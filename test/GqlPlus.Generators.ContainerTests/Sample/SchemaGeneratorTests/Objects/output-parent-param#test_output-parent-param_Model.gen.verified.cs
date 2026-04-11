@@ -1,6 +1,6 @@
 ﻿//HintName: test_output-parent-param_Model.gen.cs
 // Generated from {CurrentDirectory}output-parent-param.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -20,38 +20,53 @@ public class testOutpPrntParamObject
 {
   public ItestFldOutpPrntParam? Field(ItestInOutpPrntParam parameter)
     => null;
+
+  public testOutpPrntParamObject
+    ()
+  {
+  }
 }
 
 public class testPrntOutpPrntParam
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestPrntOutpPrntParam
 {
   public ItestPrntOutpPrntParamObject? As_PrntOutpPrntParam { get; set; }
 }
 
 public class testPrntOutpPrntParamObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestPrntOutpPrntParamObject
 {
   public ItestFldOutpPrntParam? Field(ItestPrntOutpPrntParamIn parameter)
     => null;
+
+  public testPrntOutpPrntParamObject
+    ()
+  {
+  }
 }
 
 public class testFldOutpPrntParam
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldOutpPrntParam
 {
   public ItestFldOutpPrntParamObject? As_FldOutpPrntParam { get; set; }
 }
 
 public class testFldOutpPrntParamObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldOutpPrntParamObject
 {
+
+  public testFldOutpPrntParamObject
+    ()
+  {
+  }
 }
 
 public class testInOutpPrntParam
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestInOutpPrntParam
 {
   public string? AsString { get; set; }
@@ -59,7 +74,7 @@ public class testInOutpPrntParam
 }
 
 public class testInOutpPrntParamObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestInOutpPrntParamObject
 {
   public decimal Param { get; set; }
@@ -73,7 +88,7 @@ public class testInOutpPrntParamObject
 }
 
 public class testPrntOutpPrntParamIn
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestPrntOutpPrntParamIn
 {
   public string? AsString { get; set; }
@@ -81,7 +96,7 @@ public class testPrntOutpPrntParamIn
 }
 
 public class testPrntOutpPrntParamInObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestPrntOutpPrntParamInObject
 {
   public decimal Parent { get; set; }

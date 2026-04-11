@@ -88,6 +88,11 @@ public class Cmpt_ObjectObject
   : Spec_Definition
   , ICmpt_ObjectObject
 {
+
+  public Cmpt_ObjectObject
+    ()
+  {
+  }
 }
 
 public class Cmpt_Domain
@@ -107,6 +112,11 @@ public class Cmpt_DualObject
   : Spec_Definition
   , ICmpt_DualObject
 {
+
+  public Cmpt_DualObject
+    ()
+  {
+  }
 }
 
 public class Cmpt_Enum
@@ -126,6 +136,11 @@ public class Cmpt_InputObject
   : Spec_Definition
   , ICmpt_InputObject
 {
+
+  public Cmpt_InputObject
+    ()
+  {
+  }
 }
 
 public class Cmpt_Output
@@ -139,6 +154,11 @@ public class Cmpt_OutputObject
   : Spec_Definition
   , ICmpt_OutputObject
 {
+
+  public Cmpt_OutputObject
+    ()
+  {
+  }
 }
 
 public class Cmpt_Union

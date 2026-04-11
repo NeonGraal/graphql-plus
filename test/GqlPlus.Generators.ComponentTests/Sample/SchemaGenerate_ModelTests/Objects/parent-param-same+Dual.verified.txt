@@ -44,4 +44,9 @@ public class CmptRefPrntParamSameDualObject<TA>
   : Schema_parent-param-same+Dual
   , ICmptRefPrntParamSameDualObject<TA>
 {
+
+  public CmptRefPrntParamSameDualObject
+    ()
+  {
+  }
 }

@@ -25,6 +25,11 @@ public class CmptCnstDomEnumOutpObject
   : Schema_constraint-dom-enum+Output
   , ICmptCnstDomEnumOutpObject
 {
+
+  public CmptCnstDomEnumOutpObject
+    ()
+  {
+  }
 }
 
 public class CmptRefCnstDomEnumOutp<TType>

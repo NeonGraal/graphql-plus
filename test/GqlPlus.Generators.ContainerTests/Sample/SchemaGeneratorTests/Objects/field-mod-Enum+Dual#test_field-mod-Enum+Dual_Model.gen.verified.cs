@@ -1,6 +1,6 @@
 ﻿//HintName: test_field-mod-Enum+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}field-mod-Enum+Dual.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_field_mod_Enum_Dual;
 
 public class testFieldModEnumDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldModEnumDual
 {
   public ItestFieldModEnumDualObject? As_FieldModEnumDual { get; set; }
 }
 
 public class testFieldModEnumDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldModEnumDualObject
 {
   public IDictionary<testEnumFieldModEnumDual, string> Field { get; set; }

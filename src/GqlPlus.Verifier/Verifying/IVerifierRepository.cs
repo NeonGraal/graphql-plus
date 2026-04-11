@@ -13,14 +13,14 @@ public interface IVerifierRepository
   IVerify<T> VerifierFor<T>();
 
   IVerifyAliased<T> AliasedFor<T>()
-    where T : IGqlpAliased;
+    where T : IAstAliased;
 
   IVerifyUsage<T> UsageFor<T>()
-    where T : IGqlpAliased;
+    where T : IAstAliased;
 
   IVerifyIdentified<TUsage, TIdentified> IdentifiedFor<TUsage, TIdentified>()
-    where TUsage : IGqlpError
-    where TIdentified : IGqlpIdentified;
+    where TUsage : IAstError
+    where TIdentified : IAstIdentified;
 
   IEnumerable<IVerifyDomain> GetDomains();
 
@@ -29,5 +29,5 @@ public interface IVerifierRepository
   Matcher<T>.D MatcherFor<T>();
 
   IMerge<T> MergerFor<T>()
-    where T : IGqlpError;
+    where T : IAstError;
 }

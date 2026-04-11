@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifying.Schema.Globals;
 
-internal class VerifyCategoryAliased(IVerifierRepository verifiers) : AliasedVerifier<IGqlpSchemaCategory>(verifiers)
+internal class VerifyCategoryAliased(IVerifierRepository verifiers) : AliasedVerifier<IAstSchemaCategory>(verifiers)
 {
   public override string Label => "Categories";
 }

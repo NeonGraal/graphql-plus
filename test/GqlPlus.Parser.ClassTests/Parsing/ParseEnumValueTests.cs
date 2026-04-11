@@ -10,7 +10,7 @@ public class ParseEnumValueTests
   {
     _parseEnumValue = new ParseEnumValue();
 
-    SetupError<IGqlpEnumValue>();
+    SetupError<IAstEnumValue>();
   }
 
   [Theory, RepeatData]
@@ -21,10 +21,10 @@ public class ParseEnumValueTests
     IdentifierReturns(OutString(enumType), OutString(enumLabel));
 
     // Act
-    IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
+    IResult<IAstEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpEnumValue>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstEnumValue>>()
       .Required().ShouldSatisfyAllConditions(
         e => e.EnumType.ShouldBe(enumType),
         e => e.EnumLabel.ShouldBe(enumLabel),
@@ -39,10 +39,10 @@ public class ParseEnumValueTests
     IdentifierReturns(OutString(enumLabel));
 
     // Act
-    IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
+    IResult<IAstEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpEnumValue>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstEnumValue>>()
       .Required().ShouldSatisfyAllConditions(
         e => e.EnumType.ShouldBeEmpty(),
         e => e.EnumLabel.ShouldBe(enumLabel),
@@ -61,10 +61,10 @@ public class ParseEnumValueTests
     IdentifierReturns(OutString(enumLabel));
 
     // Act
-    IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
+    IResult<IAstEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpEnumValue>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstEnumValue>>()
       .Required().ShouldSatisfyAllConditions(
         e => e.EnumType.ShouldBe(expectedType),
         e => e.EnumLabel.ShouldBe(enumLabel),
@@ -80,7 +80,7 @@ public class ParseEnumValueTests
     TakeReturns('.', true);
 
     // Act
-    IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
+    IResult<IAstEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -90,7 +90,7 @@ public class ParseEnumValueTests
   public void Parse_ShouldReturnEmptyResult_WhenNoValidTokenIsParsed()
   {
     // Act
-    IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
+    IResult<IAstEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();
@@ -104,7 +104,7 @@ public class ParseEnumValueTests
     TakeReturns('.', true);
 
     // Act
-    IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
+    IResult<IAstEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -118,10 +118,10 @@ public class ParseEnumValueTests
     TakeReturns('.', false);
 
     // Act
-    IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
+    IResult<IAstEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpEnumValue>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstEnumValue>>()
       .Required().ShouldSatisfyAllConditions(
         e => e.EnumType.ShouldBeEmpty(),
         e => e.EnumLabel.ShouldBe(enumLabel),
@@ -145,10 +145,10 @@ public class ParseEnumValueTests
       IdentifierReturns(OutString(builtInLabel));
 
       // Act
-      IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
+      IResult<IAstEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
 
       // Assert
-      result.ShouldBeAssignableTo<IResultOk<IGqlpEnumValue>>()
+      result.ShouldBeAssignableTo<IResultOk<IAstEnumValue>>()
         .Required().ShouldSatisfyAllConditions(
           e => e.EnumType.ShouldBe(expectedType),
           e => e.EnumLabel.ShouldBe(builtInLabel),

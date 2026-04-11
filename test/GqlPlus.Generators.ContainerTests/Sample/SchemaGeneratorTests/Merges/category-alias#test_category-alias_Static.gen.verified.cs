@@ -1,6 +1,6 @@
 ﻿//HintName: test_category-alias_Static.gen.cs
 // Generated from {CurrentDirectory}category-alias.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Static
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Static
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 

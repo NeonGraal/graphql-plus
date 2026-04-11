@@ -1,6 +1,6 @@
 ﻿//HintName: test_all_Model.gen.cs
 // Generated from {CurrentDirectory}all.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -14,7 +14,7 @@ public class testGuid
 }
 
 public class testMany
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestMany
 {
   public Guid AsGuid { get; set; }
@@ -22,14 +22,14 @@ public class testMany
 }
 
 public class testField
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestField
 {
   public ItestFieldObject? As_Field { get; set; }
 }
 
 public class testFieldObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldObject
 {
   public ICollection<string> Strings { get; set; }
@@ -43,7 +43,7 @@ public class testFieldObject
 }
 
 public class testParam
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestParam
 {
   public string? AsString { get; set; }
@@ -51,7 +51,7 @@ public class testParam
 }
 
 public class testParamObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestParamObject
 {
   public ItestMany? AfterId { get; set; }
@@ -66,7 +66,7 @@ public class testParamObject
 }
 
 public class testAll
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAll
 {
   public string? AsString { get; set; }
@@ -74,9 +74,14 @@ public class testAll
 }
 
 public class testAllObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAllObject
 {
   public ItestField? Items(ItestParam? parameter)
     => null;
+
+  public testAllObject
+    ()
+  {
+  }
 }

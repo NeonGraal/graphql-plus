@@ -15,3 +15,8 @@ public interface ICmptDmnEnumValue
   : IGqlpDomainEnum
 {
 }
+
+public enum CmptEnumDmnEnumValue
+{
+  dmnEnumValue,
+}

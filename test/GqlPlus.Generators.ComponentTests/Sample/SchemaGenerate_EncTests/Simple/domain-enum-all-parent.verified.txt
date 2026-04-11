@@ -1,0 +1,31 @@
+﻿/* domain-enum-all-parent
+domain DmnEnumAllPrnt { enum EnumDmnEnumAllPrnt.* }
+enum EnumDmnEnumAllPrnt { :PrntDmnEnumAllPrnt dmnEnumAllPrnt dmnEnumAllPrntValue }
+enum PrntDmnEnumAllPrnt { prnt_dmnEnumAllPrnt dmnEnumAllPrntPrnt }
+*/
+
+// Generated from Schema domain-enum-all-parent
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-enum-all-parent, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_enum_all_parent;
+
+internal class CmptDmnEnumAllPrntEncoder
+{
+}
+
+internal class CmptEnumDmnEnumAllPrntEncoder
+{
+  public string prnt_dmnEnumAllPrnt { get; set; }
+  public string dmnEnumAllPrntPrnt { get; set; }
+  public string dmnEnumAllPrnt { get; set; }
+  public string dmnEnumAllPrntValue { get; set; }
+}
+
+internal class CmptPrntDmnEnumAllPrntEncoder
+{
+  public string prnt_dmnEnumAllPrnt { get; set; }
+  public string dmnEnumAllPrntPrnt { get; set; }
+}

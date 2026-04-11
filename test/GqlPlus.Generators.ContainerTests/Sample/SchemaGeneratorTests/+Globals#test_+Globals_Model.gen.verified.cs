@@ -1,6 +1,6 @@
 ﻿//HintName: test_+Globals_Model.gen.cs
 // Generated from {CurrentDirectory}+Globals.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,222 +8,307 @@
 namespace GqlPlus.GeneratorTests.Gqlp__Globals;
 
 public class testCtgrDscrs
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCtgrDscrs
 {
   public ItestCtgrDscrsObject? As_CtgrDscrs { get; set; }
 }
 
 public class testCtgrDscrsObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCtgrDscrsObject
 {
+
+  public testCtgrDscrsObject
+    ()
+  {
+  }
 }
 
 public class testCtgrOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCtgrOutp
 {
   public ItestCtgrOutpObject? As_CtgrOutp { get; set; }
 }
 
 public class testCtgrOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCtgrOutpObject
 {
+
+  public testCtgrOutpObject
+    ()
+  {
+  }
 }
 
 public class testCtgrOutpDescr
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCtgrOutpDescr
 {
   public ItestCtgrOutpDescrObject? As_CtgrOutpDescr { get; set; }
 }
 
 public class testCtgrOutpDescrObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCtgrOutpDescrObject
 {
+
+  public testCtgrOutpDescrObject
+    ()
+  {
+  }
 }
 
 public class testCtgrOutpDict
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCtgrOutpDict
 {
   public ItestCtgrOutpDictObject? As_CtgrOutpDict { get; set; }
 }
 
 public class testCtgrOutpDictObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCtgrOutpDictObject
 {
+
+  public testCtgrOutpDictObject
+    ()
+  {
+  }
 }
 
 public class testCtgrOutpList
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCtgrOutpList
 {
   public ItestCtgrOutpListObject? As_CtgrOutpList { get; set; }
 }
 
 public class testCtgrOutpListObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCtgrOutpListObject
 {
+
+  public testCtgrOutpListObject
+    ()
+  {
+  }
 }
 
 public class testCtgrOutpOptl
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCtgrOutpOptl
 {
   public ItestCtgrOutpOptlObject? As_CtgrOutpOptl { get; set; }
 }
 
 public class testCtgrOutpOptlObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCtgrOutpOptlObject
 {
+
+  public testCtgrOutpOptlObject
+    ()
+  {
+  }
 }
 
 public class testDescr
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestDescr
 {
   public ItestDescrObject? As_Descr { get; set; }
 }
 
 public class testDescrObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestDescrObject
 {
+
+  public testDescrObject
+    ()
+  {
+  }
 }
 
 public class testDescrBcks
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestDescrBcks
 {
   public ItestDescrBcksObject? As_DescrBcks { get; set; }
 }
 
 public class testDescrBcksObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestDescrBcksObject
 {
+
+  public testDescrBcksObject
+    ()
+  {
+  }
 }
 
 public class testDescrBtwn
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestDescrBtwn
 {
   public ItestDescrBtwnObject? As_DescrBtwn { get; set; }
 }
 
 public class testDescrBtwnObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestDescrBtwnObject
 {
+
+  public testDescrBtwnObject
+    ()
+  {
+  }
 }
 
 public class testDescrCmpl
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestDescrCmpl
 {
   public ItestDescrCmplObject? As_DescrCmpl { get; set; }
 }
 
 public class testDescrCmplObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestDescrCmplObject
 {
+
+  public testDescrCmplObject
+    ()
+  {
+  }
 }
 
 public class testDescrDbl
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestDescrDbl
 {
   public ItestDescrDblObject? As_DescrDbl { get; set; }
 }
 
 public class testDescrDblObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestDescrDblObject
 {
+
+  public testDescrDblObject
+    ()
+  {
+  }
 }
 
 public class testDescrSngl
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestDescrSngl
 {
   public ItestDescrSnglObject? As_DescrSngl { get; set; }
 }
 
 public class testDescrSnglObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestDescrSnglObject
 {
+
+  public testDescrSnglObject
+    ()
+  {
+  }
 }
 
 public class testDscrs
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestDscrs
 {
   public ItestDscrsObject? As_Dscrs { get; set; }
 }
 
 public class testDscrsObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestDscrsObject
 {
+
+  public testDscrsObject
+    ()
+  {
+  }
 }
 
 public class testInDrctParamDict
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestInDrctParamDict
 {
   public ItestInDrctParamDictObject? As_InDrctParamDict { get; set; }
 }
 
 public class testInDrctParamDictObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestInDrctParamDictObject
 {
+
+  public testInDrctParamDictObject
+    ()
+  {
+  }
 }
 
 public class testInDrctParamIn
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestInDrctParamIn
 {
   public ItestInDrctParamInObject? As_InDrctParamIn { get; set; }
 }
 
 public class testInDrctParamInObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestInDrctParamInObject
 {
+
+  public testInDrctParamInObject
+    ()
+  {
+  }
 }
 
 public class testInDrctParamList
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestInDrctParamList
 {
   public ItestInDrctParamListObject? As_InDrctParamList { get; set; }
 }
 
 public class testInDrctParamListObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestInDrctParamListObject
 {
+
+  public testInDrctParamListObject
+    ()
+  {
+  }
 }
 
 public class testInDrctParamOpt
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestInDrctParamOpt
 {
   public ItestInDrctParamOptObject? As_InDrctParamOpt { get; set; }
 }
 
 public class testInDrctParamOptObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestInDrctParamOptObject
 {
+
+  public testInDrctParamOptObject
+    ()
+  {
+  }
 }

@@ -1,6 +1,6 @@
 ﻿//HintName: test_parent-param-same+Input_Model.gen.cs
 // Generated from {CurrentDirectory}parent-param-same+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -29,7 +29,7 @@ public class testPrntParamSameInpObject<TA>
 }
 
 public class testRefPrntParamSameInp<TA>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefPrntParamSameInp<TA>
 {
   public TA? Asa { get; set; }
@@ -37,7 +37,12 @@ public class testRefPrntParamSameInp<TA>
 }
 
 public class testRefPrntParamSameInpObject<TA>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefPrntParamSameInpObject<TA>
 {
+
+  public testRefPrntParamSameInpObject
+    ()
+  {
+  }
 }

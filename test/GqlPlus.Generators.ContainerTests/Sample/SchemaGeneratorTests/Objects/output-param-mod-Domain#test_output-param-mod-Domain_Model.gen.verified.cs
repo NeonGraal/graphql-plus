@@ -1,6 +1,6 @@
 ﻿//HintName: test_output-param-mod-Domain_Model.gen.cs
 // Generated from {CurrentDirectory}output-param-mod-Domain.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,22 +8,27 @@
 namespace GqlPlus.GeneratorTests.Gqlp_output_param_mod_Domain;
 
 public class testOutpParamModDmn
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestOutpParamModDmn
 {
   public ItestOutpParamModDmnObject? As_OutpParamModDmn { get; set; }
 }
 
 public class testOutpParamModDmnObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestOutpParamModDmnObject
 {
   public ItestDomOutpParamModDmn? Field(IDictionary<ItestDomOutpParamModDmn, ItestInOutpParamModDmn> parameter)
     => null;
+
+  public testOutpParamModDmnObject
+    ()
+  {
+  }
 }
 
 public class testInOutpParamModDmn
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestInOutpParamModDmn
 {
   public string? AsString { get; set; }
@@ -31,7 +36,7 @@ public class testInOutpParamModDmn
 }
 
 public class testInOutpParamModDmnObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestInOutpParamModDmnObject
 {
   public decimal Param { get; set; }

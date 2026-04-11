@@ -22,4 +22,9 @@ public class CmptRefGnrcAltModStrInpObject<TRef>
   : Schema_generic-alt-mod-String+Input
   , ICmptRefGnrcAltModStrInpObject<TRef>
 {
+
+  public CmptRefGnrcAltModStrInpObject
+    ()
+  {
+  }
 }

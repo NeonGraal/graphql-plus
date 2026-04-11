@@ -45,6 +45,11 @@ public class Cmpt_CollectionsObject
   : Spec_Built-In
   , ICmpt_CollectionsObject
 {
+
+  public Cmpt_CollectionsObject
+    ()
+  {
+  }
 }
 
 public class Cmpt_ModifierKeyed<TModifierKind>
@@ -85,6 +90,11 @@ public class Cmpt_ModifiersObject
   : Spec_Built-In
   , ICmpt_ModifiersObject
 {
+
+  public Cmpt_ModifiersObject
+    ()
+  {
+  }
 }
 
 public class Cmpt_Modifier<TModifierKind>

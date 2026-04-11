@@ -1,0 +1,16 @@
+﻿/* descr
+"A simple description"
+output Descr { }
+*/
+
+// Generated from Schema descr
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_descr, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_descr;
+
+internal class CmptDescrDecoder
+{
+}

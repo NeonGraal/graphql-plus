@@ -1,6 +1,6 @@
 ﻿//HintName: test_constraint-dom-enum+Input_Model.gen.cs
 // Generated from {CurrentDirectory}constraint-dom-enum+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_dom_enum_Input;
 
 public class testCnstDomEnumInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCnstDomEnumInp
 {
   public ItestRefCnstDomEnumInp<testEnumCnstDomEnumInp>? AsEnumCnstDomEnumInpcnstDomEnumInp { get; set; }
@@ -16,20 +16,25 @@ public class testCnstDomEnumInp
 }
 
 public class testCnstDomEnumInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCnstDomEnumInpObject
 {
+
+  public testCnstDomEnumInpObject
+    ()
+  {
+  }
 }
 
 public class testRefCnstDomEnumInp<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstDomEnumInp<TType>
 {
   public ItestRefCnstDomEnumInpObject<TType>? As_RefCnstDomEnumInp { get; set; }
 }
 
 public class testRefCnstDomEnumInpObject<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstDomEnumInpObject<TType>
 {
   public TType Field { get; set; }

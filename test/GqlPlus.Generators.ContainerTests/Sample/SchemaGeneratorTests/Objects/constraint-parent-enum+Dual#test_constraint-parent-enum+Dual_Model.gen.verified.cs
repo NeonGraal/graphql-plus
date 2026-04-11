@@ -1,6 +1,6 @@
 ﻿//HintName: test_constraint-parent-enum+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}constraint-parent-enum+Dual.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_enum_Dual;
 
 public class testCnstPrntEnumDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCnstPrntEnumDual
 {
   public ItestRefCnstPrntEnumDual<testParentCnstPrntEnumDual>? AsParentCnstPrntEnumDualparentCnstPrntEnumDual { get; set; }
@@ -16,20 +16,25 @@ public class testCnstPrntEnumDual
 }
 
 public class testCnstPrntEnumDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCnstPrntEnumDualObject
 {
+
+  public testCnstPrntEnumDualObject
+    ()
+  {
+  }
 }
 
 public class testRefCnstPrntEnumDual<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstPrntEnumDual<TType>
 {
   public ItestRefCnstPrntEnumDualObject<TType>? As_RefCnstPrntEnumDual { get; set; }
 }
 
 public class testRefCnstPrntEnumDualObject<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstPrntEnumDualObject<TType>
 {
   public TType Field { get; set; }

@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-parent-arg+Input_Model.gen.cs
 // Generated from {CurrentDirectory}generic-parent-arg+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -18,10 +18,15 @@ public class testGnrcPrntArgInpObject<TType>
   : testRefGnrcPrntArgInpObject<TType>
   , ItestGnrcPrntArgInpObject<TType>
 {
+
+  public testGnrcPrntArgInpObject
+    ()
+  {
+  }
 }
 
 public class testRefGnrcPrntArgInp<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcPrntArgInp<TRef>
 {
   public TRef? Asref { get; set; }
@@ -29,7 +34,12 @@ public class testRefGnrcPrntArgInp<TRef>
 }
 
 public class testRefGnrcPrntArgInpObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcPrntArgInpObject<TRef>
 {
+
+  public testRefGnrcPrntArgInpObject
+    ()
+  {
+  }
 }

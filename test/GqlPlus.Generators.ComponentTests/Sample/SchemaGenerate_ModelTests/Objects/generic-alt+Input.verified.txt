@@ -22,4 +22,9 @@ public class CmptGnrcAltInpObject<TType>
   : Schema_generic-alt+Input
   , ICmptGnrcAltInpObject<TType>
 {
+
+  public CmptGnrcAltInpObject
+    ()
+  {
+  }
 }

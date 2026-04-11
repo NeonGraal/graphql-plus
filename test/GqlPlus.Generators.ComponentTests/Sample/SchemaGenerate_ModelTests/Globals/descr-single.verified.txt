@@ -22,4 +22,9 @@ public class CmptDescrSnglObject
   : Schema_descr-single
   , ICmptDescrSnglObject
 {
+
+  public CmptDescrSnglObject
+    ()
+  {
+  }
 }

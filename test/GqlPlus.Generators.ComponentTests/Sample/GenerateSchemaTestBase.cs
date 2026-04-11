@@ -9,14 +9,14 @@ public abstract class GenerateSchemaTestBase(
   ISchemaGeneratorChecks checks
 ) : TestSchemaAsts(checks)
 {
-  protected override async Task Test_Asts(IEnumerable<IGqlpSchema> asts, string test, string label, string[] dirs, string section, string input = "")
+  protected override async Task Test_Asts(IEnumerable<IAstSchema> asts, string test, string label, string[] dirs, string section, string input = "")
   {
     string result = checks.Generate_ForAsts(BaseType, GeneratorType, asts, test, label, input);
 
     await result.AttachAndVerify($"{GeneratorType}_{test}.cs", CustomSettings(label, $"Generate_{GeneratorType}", test, section, scrubEmptyLines: false));
   }
 
-  public virtual GqlpBaseType BaseType => GqlpBaseType.Other;
+  public virtual GqlpBaseType BaseType => GqlpBaseType.Class;
   public abstract GqlpGeneratorType GeneratorType { get; }
 }
 
@@ -27,16 +27,16 @@ internal sealed class SchemaGeneratorChecks(
 ) : SchemaParseChecks(parsers)
   , ISchemaGeneratorChecks
 {
-  private readonly IMerge<IGqlpSchema> _schemaMerger = mergers.MergerFor<IGqlpSchema>();
-  private readonly IGenerator<IGqlpSchema> _schemaGenerator = generators.GeneratorFor<IGqlpSchema>();
+  private readonly IMerge<IAstSchema> _schemaMerger = mergers.MergerFor<IAstSchema>();
+  private readonly IGenerator<IAstSchema> _schemaGenerator = generators.GeneratorFor<IAstSchema>();
 
-  public string Generate_ForAsts(GqlpBaseType baseType, GqlpGeneratorType type, IEnumerable<IGqlpSchema> asts, string test, string label, string input = "")
+  public string Generate_ForAsts(GqlpBaseType baseType, GqlpGeneratorType type, IEnumerable<IAstSchema> asts, string test, string label, string input = "")
   {
-    IGqlpSchema schema = _schemaMerger.Merge(asts).First();
+    IAstSchema schema = _schemaMerger.Merge(asts).First();
 
     GqlpGeneratorContext context = new(label + " " + test,
       new($"Components.{label}_{test}", baseType, type),
-      new GqlpModelOptions("ComponentTests", "Cmpt", true));
+      new GqlpModelOptions("ComponentTests", "Cmpt"));
 
     _schemaGenerator.Generate(schema, context);
 
@@ -52,5 +52,5 @@ internal sealed class SchemaGeneratorChecks(
 public interface ISchemaGeneratorChecks
   : ISchemaParseChecks
 {
-  string Generate_ForAsts(GqlpBaseType baseType, GqlpGeneratorType type, IEnumerable<IGqlpSchema> asts, string test, string label, string input = "");
+  string Generate_ForAsts(GqlpBaseType baseType, GqlpGeneratorType type, IEnumerable<IAstSchema> asts, string test, string label, string input = "");
 }

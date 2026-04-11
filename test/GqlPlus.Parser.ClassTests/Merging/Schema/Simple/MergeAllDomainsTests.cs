@@ -5,30 +5,30 @@ using GqlPlus.Merging.Simple;
 namespace GqlPlus.Merging.Schema.Simple;
 
 public class MergeAllDomainsTests
-  : TestDescriptionsMerger<IGqlpDomain>
+  : TestDescriptionsMerger<IAstDomain>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSameNameDifferentTypes_ReturnsErrors(string input)
     => CanMerge_Errors([MakeAst(input),
-      new AstDomain<DomainRegexAst, IGqlpDomainRegex>(AstNulls.At, input, DomainKind.String, [])]);
+      new AstDomain<DomainRegexAst, IAstDomainRegex>(AstNulls.At, input, DomainKind.String, [])]);
 
   private readonly MergeAllDomains _merger;
 
   public MergeAllDomainsTests(ITestOutputHelper outputHelper)
   {
-    IMergeAll<IGqlpDomain> result = Substitute.For<IMergeAll<IGqlpDomain>>();
+    IMergeAll<IAstDomain> result = Substitute.For<IMergeAll<IAstDomain>>();
     result.CanMerge([]).ReturnsForAnyArgs(EmptyMessages);
-    result.Merge([]).ReturnsForAnyArgs(c => c.Arg<IEnumerable<IGqlpDomain>>());
+    result.Merge([]).ReturnsForAnyArgs(c => c.Arg<IEnumerable<IAstDomain>>());
 
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.AllMergersFor<IGqlpDomain>().Returns([result]);
+    mergers.AllMergersFor<IAstDomain>().Returns([result]);
     _merger = new(mergers);
   }
 
-  internal override GroupsMerger<IGqlpDomain> MergerGroups => _merger;
+  internal override GroupsMerger<IAstDomain> MergerGroups => _merger;
 
-  protected override IGqlpDomain MakeDescribed(string name, string description = "")
-    => new AstDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse>(AstNulls.At, name, DomainKind.Boolean, [
+  protected override IAstDomain MakeDescribed(string name, string description = "")
+    => new AstDomain<DomainTrueFalseAst, IAstDomainTrueFalse>(AstNulls.At, name, DomainKind.Boolean, [
         new DomainTrueFalseAst(AstNulls.At, "", false, true)
       ]);
 }

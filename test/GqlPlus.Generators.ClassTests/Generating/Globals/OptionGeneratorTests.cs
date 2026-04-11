@@ -10,7 +10,7 @@ public class OptionGeneratorTests
   {
     // Arrange
     GqlpGeneratorContext context = Context(GqlpBaseType.Other, GqlpGeneratorType.Static);
-    IGqlpSchemaOption option = A.Named<IGqlpSchemaOption>(name);
+    IAstSchemaOption option = A.Named<IAstSchemaOption>(name);
 
     // Act
     _generator.Generate(option, context);

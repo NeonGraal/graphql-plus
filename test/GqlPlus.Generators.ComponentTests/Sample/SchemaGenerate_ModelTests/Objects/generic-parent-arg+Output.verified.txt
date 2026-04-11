@@ -22,6 +22,11 @@ public class CmptGnrcPrntArgOutpObject<TType>
   : CmptRefGnrcPrntArgOutpObject<TType>
   , ICmptGnrcPrntArgOutpObject<TType>
 {
+
+  public CmptGnrcPrntArgOutpObject
+    ()
+  {
+  }
 }
 
 public class CmptRefGnrcPrntArgOutp<TRef>
@@ -36,4 +41,9 @@ public class CmptRefGnrcPrntArgOutpObject<TRef>
   : Schema_generic-parent-arg+Output
   , ICmptRefGnrcPrntArgOutpObject<TRef>
 {
+
+  public CmptRefGnrcPrntArgOutpObject
+    ()
+  {
+  }
 }

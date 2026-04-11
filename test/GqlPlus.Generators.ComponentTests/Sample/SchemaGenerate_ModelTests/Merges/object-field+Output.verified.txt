@@ -44,4 +44,9 @@ public class CmptFldObjFieldOutpObject
   : Schema_object-field+Output
   , ICmptFldObjFieldOutpObject
 {
+
+  public CmptFldObjFieldOutpObject
+    ()
+  {
+  }
 }

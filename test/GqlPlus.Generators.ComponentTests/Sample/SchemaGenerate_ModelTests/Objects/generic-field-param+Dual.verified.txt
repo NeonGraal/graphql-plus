@@ -45,6 +45,11 @@ public class CmptRefGnrcFieldParamDualObject<TRef>
   : Schema_generic-field-param+Dual
   , ICmptRefGnrcFieldParamDualObject<TRef>
 {
+
+  public CmptRefGnrcFieldParamDualObject
+    ()
+  {
+  }
 }
 
 public class CmptAltGnrcFieldParamDual

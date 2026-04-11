@@ -3,23 +3,23 @@
 internal abstract record class AstValue<TValue>(
   ITokenAt At
 ) : AstAbbreviated(At)
-  , IGqlpValue<TValue>
-  where TValue : IGqlpValue<TValue>
+  , IAstValue<TValue>
+  where TValue : IAstValue<TValue>
 {
   public TValue[] Values { get; init; } = [];
-  public IGqlpFields<TValue> Fields { get; init; } = new FieldsAst<TValue>();
+  public IAstFields<TValue> Fields { get; init; } = new FieldsAst<TValue>();
 
-  IEnumerable<TValue> IGqlpValue<TValue>.Values => Values;
-  IGqlpFields<TValue> IGqlpValue<TValue>.Fields => Fields;
+  IEnumerable<TValue> IAstValue<TValue>.Values => Values;
+  IAstFields<TValue> IAstValue<TValue>.Fields => Fields;
 
   internal AstValue(ITokenAt at, IEnumerable<TValue> values)
     : this(at)
     => Values = [.. values];
-  internal AstValue(ITokenAt at, IGqlpFields<TValue> fields)
+  internal AstValue(ITokenAt at, IAstFields<TValue> fields)
     : this(at)
     => Fields = fields;
 
-  public bool Equals(IGqlpValue<TValue>? other)
+  public bool Equals(IAstValue<TValue>? other)
     => other is not null
     && Values.SequenceEqual(other.Values)
     && Fields.Equals(other.Fields);

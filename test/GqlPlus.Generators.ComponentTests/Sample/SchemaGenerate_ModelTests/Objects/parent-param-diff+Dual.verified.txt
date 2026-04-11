@@ -44,4 +44,9 @@ public class CmptRefPrntParamDiffDualObject<TB>
   : Schema_parent-param-diff+Dual
   , ICmptRefPrntParamDiffDualObject<TB>
 {
+
+  public CmptRefPrntParamDiffDualObject
+    ()
+  {
+  }
 }

@@ -22,4 +22,9 @@ public class CmptRefGnrcAltModParamDualObject<TRef,TMod>
   : Schema_generic-alt-mod-param+Dual
   , ICmptRefGnrcAltModParamDualObject<TRef,TMod>
 {
+
+  public CmptRefGnrcAltModParamDualObject
+    ()
+  {
+  }
 }

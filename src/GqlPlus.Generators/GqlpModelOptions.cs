@@ -1,7 +1,10 @@
 ﻿
 namespace GqlPlus;
 
-public sealed class GqlpModelOptions(string baseNamespace, string typePrefix, bool namespaceIncludesBaseName)
+public sealed class GqlpModelOptions(
+  string baseNamespace,
+  string typePrefix,
+  bool namespaceIncludesBaseName = true)
   : IEquatable<GqlpModelOptions>
 {
   public string BaseNamespace { get; } = baseNamespace;

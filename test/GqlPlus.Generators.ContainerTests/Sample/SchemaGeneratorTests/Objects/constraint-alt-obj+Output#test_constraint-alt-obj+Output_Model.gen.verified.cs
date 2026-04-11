@@ -1,6 +1,6 @@
 ﻿//HintName: test_constraint-alt-obj+Output_Model.gen.cs
 // Generated from {CurrentDirectory}constraint-alt-obj+Output.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_obj_Output;
 
 public class testCnstAltObjOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCnstAltObjOutp
 {
   public ItestRefCnstAltObjOutp<ItestAltCnstAltObjOutp>? AsRefCnstAltObjOutp { get; set; }
@@ -16,13 +16,18 @@ public class testCnstAltObjOutp
 }
 
 public class testCnstAltObjOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCnstAltObjOutpObject
 {
+
+  public testCnstAltObjOutpObject
+    ()
+  {
+  }
 }
 
 public class testRefCnstAltObjOutp<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstAltObjOutp<TRef>
 {
   public TRef? Asref { get; set; }
@@ -30,13 +35,18 @@ public class testRefCnstAltObjOutp<TRef>
 }
 
 public class testRefCnstAltObjOutpObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstAltObjOutpObject<TRef>
 {
+
+  public testRefCnstAltObjOutpObject
+    ()
+  {
+  }
 }
 
 public class testPrntCnstAltObjOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestPrntCnstAltObjOutp
 {
   public string? AsString { get; set; }
@@ -44,9 +54,14 @@ public class testPrntCnstAltObjOutp
 }
 
 public class testPrntCnstAltObjOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestPrntCnstAltObjOutpObject
 {
+
+  public testPrntCnstAltObjOutpObject
+    ()
+  {
+  }
 }
 
 public class testAltCnstAltObjOutp

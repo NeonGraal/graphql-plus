@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-alt-param+Input_Model.gen.cs
 // Generated from {CurrentDirectory}generic-alt-param+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_param_Input;
 
 public class testGnrcAltParamInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcAltParamInp
 {
   public ItestRefGnrcAltParamInp<ItestAltGnrcAltParamInp>? AsRefGnrcAltParamInp { get; set; }
@@ -16,13 +16,18 @@ public class testGnrcAltParamInp
 }
 
 public class testGnrcAltParamInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcAltParamInpObject
 {
+
+  public testGnrcAltParamInpObject
+    ()
+  {
+  }
 }
 
 public class testRefGnrcAltParamInp<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcAltParamInp<TRef>
 {
   public TRef? Asref { get; set; }
@@ -30,13 +35,18 @@ public class testRefGnrcAltParamInp<TRef>
 }
 
 public class testRefGnrcAltParamInpObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcAltParamInpObject<TRef>
 {
+
+  public testRefGnrcAltParamInpObject
+    ()
+  {
+  }
 }
 
 public class testAltGnrcAltParamInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltGnrcAltParamInp
 {
   public string? AsString { get; set; }
@@ -44,7 +54,7 @@ public class testAltGnrcAltParamInp
 }
 
 public class testAltGnrcAltParamInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltGnrcAltParamInpObject
 {
   public decimal Alt { get; set; }

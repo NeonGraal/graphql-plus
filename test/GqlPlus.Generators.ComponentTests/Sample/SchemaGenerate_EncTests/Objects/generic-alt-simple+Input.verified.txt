@@ -1,0 +1,20 @@
+﻿/* generic-alt-simple+Input
+input GnrcAltSmplInp { | RefGnrcAltSmplInp<String> }
+input RefGnrcAltSmplInp<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-alt-simple+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-simple+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_simple_Input;
+
+internal class CmptGnrcAltSmplInpEncoder
+{
+}
+
+internal class CmptRefGnrcAltSmplInpEncoder<TRef>
+{
+}

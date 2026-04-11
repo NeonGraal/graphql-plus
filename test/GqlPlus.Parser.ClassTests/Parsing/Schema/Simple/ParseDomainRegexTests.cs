@@ -4,7 +4,7 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Parsing.Schema.Simple;
 
 public class ParseDomainRegexTests
-  : ParseDomainClassTestBase<IGqlpDomainRegex>
+  : ParseDomainClassTestBase<IAstDomainRegex>
 {
   public ParseDomainRegexTests()
     : base(DomainKind.String)
@@ -13,9 +13,9 @@ public class ParseDomainRegexTests
   protected override void ArrangeValidItem()
     => Tokenizer.Regex(out _).Returns(OutString(".*"));
 
-  protected override IGqlpDomainRegex NewItem()
+  protected override IAstDomainRegex NewItem()
     => new DomainRegexAst(AstNulls.At, string.Empty, false, "*");
 
-  internal override ParseDomainItem<IGqlpDomainRegex> MakeParser(IParserRepository parsers)
+  internal override ParseDomainItem<IAstDomainRegex> MakeParser(IParserRepository parsers)
     => new ParseDomainRegex(parsers);
 }

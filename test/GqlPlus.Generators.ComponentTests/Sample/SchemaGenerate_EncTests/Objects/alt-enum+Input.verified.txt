@@ -1,0 +1,21 @@
+﻿/* alt-enum+Input
+input AltEnumInp { ! EnumAltEnumInp.altEnumInp }
+enum EnumAltEnumInp { altEnumInp }
+*/
+
+// Generated from Schema alt-enum+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-enum+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_enum_Input;
+
+internal class CmptAltEnumInpEncoder
+{
+}
+
+internal class CmptEnumAltEnumInpEncoder
+{
+  public string altEnumInp { get; set; }
+}

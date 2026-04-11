@@ -1,6 +1,6 @@
 ﻿//HintName: test_object-field-enum-alias+Input_Model.gen.cs
 // Generated from {CurrentDirectory}object-field-enum-alias+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_enum_alias_Input;
 
 public class testObjFieldEnumAliasInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldEnumAliasInp
 {
   public ItestObjFieldEnumAliasInpObject? As_ObjFieldEnumAliasInp { get; set; }
 }
 
 public class testObjFieldEnumAliasInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjFieldEnumAliasInpObject
 {
   public bool Field { get; set; }

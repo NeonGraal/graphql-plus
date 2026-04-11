@@ -25,6 +25,11 @@ public class CmptOutpParamTypeDescrObject
 {
   public ICmptFldOutpParamTypeDescr? Field(ICmptInOutpParamTypeDescr parameter)
     => null;
+
+  public CmptOutpParamTypeDescrObject
+    ()
+  {
+  }
 }
 
 public class CmptFldOutpParamTypeDescr
@@ -38,6 +43,11 @@ public class CmptFldOutpParamTypeDescrObject
   : Schema_output-param-type-descr
   , ICmptFldOutpParamTypeDescrObject
 {
+
+  public CmptFldOutpParamTypeDescrObject
+    ()
+  {
+  }
 }
 
 public class CmptInOutpParamTypeDescr

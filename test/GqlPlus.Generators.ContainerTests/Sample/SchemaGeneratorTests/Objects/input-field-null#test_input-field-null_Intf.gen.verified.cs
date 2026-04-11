@@ -1,6 +1,6 @@
 ﻿//HintName: test_input-field-null_Intf.gen.cs
 // Generated from {CurrentDirectory}input-field-null.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,24 +8,24 @@
 namespace GqlPlus.GeneratorTests.Gqlp_input_field_null;
 
 public interface ItestInpFieldNull
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestInpFieldNullObject? As_InpFieldNull { get; }
 }
 
 public interface ItestInpFieldNullObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldInpFieldNull? Field { get; }
 }
 
 public interface ItestFldInpFieldNull
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldInpFieldNullObject? As_FldInpFieldNull { get; }
 }
 
 public interface ItestFldInpFieldNullObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }

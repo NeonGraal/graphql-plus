@@ -1,6 +1,6 @@
 ﻿//HintName: test_constraint-field-obj+Input_Model.gen.cs
 // Generated from {CurrentDirectory}constraint-field-obj+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -27,14 +27,14 @@ public class testCnstFieldObjInpObject
 }
 
 public class testRefCnstFieldObjInp<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstFieldObjInp<TRef>
 {
   public ItestRefCnstFieldObjInpObject<TRef>? As_RefCnstFieldObjInp { get; set; }
 }
 
 public class testRefCnstFieldObjInpObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstFieldObjInpObject<TRef>
 {
   public TRef Field { get; set; }
@@ -48,7 +48,7 @@ public class testRefCnstFieldObjInpObject<TRef>
 }
 
 public class testPrntCnstFieldObjInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestPrntCnstFieldObjInp
 {
   public string? AsString { get; set; }
@@ -56,9 +56,14 @@ public class testPrntCnstFieldObjInp
 }
 
 public class testPrntCnstFieldObjInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestPrntCnstFieldObjInpObject
 {
+
+  public testPrntCnstFieldObjInpObject
+    ()
+  {
+  }
 }
 
 public class testAltCnstFieldObjInp

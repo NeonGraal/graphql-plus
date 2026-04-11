@@ -222,6 +222,11 @@ public class Cmpt_BasicValueObject
   : Spec_-Simple
   , ICmpt_BasicValueObject
 {
+
+  public Cmpt_BasicValueObject
+    ()
+  {
+  }
 }
 
 public class Cmpt_DomainTrueFalse
@@ -440,6 +445,11 @@ public class Cmpt_UnionRefObject
   : Cmpt_TypeRefObject<ICmpt_SimpleKind>
   , ICmpt_UnionRefObject
 {
+
+  public Cmpt_UnionRefObject
+    ()
+  {
+  }
 }
 
 public class Cmpt_UnionMember

@@ -44,4 +44,9 @@ public class CmptFldObjFieldAliasOutpObject
   : Schema_object-field-alias+Output
   , ICmptFldObjFieldAliasOutpObject
 {
+
+  public CmptFldObjFieldAliasOutpObject
+    ()
+  {
+  }
 }

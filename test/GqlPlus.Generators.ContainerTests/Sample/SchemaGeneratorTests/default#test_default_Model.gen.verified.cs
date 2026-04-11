@@ -1,6 +1,6 @@
 ﻿//HintName: test_default_Model.gen.cs
 // Generated from {CurrentDirectory}default.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,53 +8,73 @@
 namespace GqlPlus.GeneratorTests.Gqlp_default;
 
 public class testQuery
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestQuery
 {
   public ItestQueryObject? As_Query { get; set; }
 }
 
 public class testQueryObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestQueryObject
 {
+
+  public testQueryObject
+    ()
+  {
+  }
 }
 
 public class testMutation
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestMutation
 {
   public ItestMutationObject? As_Mutation { get; set; }
 }
 
 public class testMutationObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestMutationObject
 {
+
+  public testMutationObject
+    ()
+  {
+  }
 }
 
 public class testSubscription
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestSubscription
 {
   public ItestSubscriptionObject? As_Subscription { get; set; }
 }
 
 public class testSubscriptionObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestSubscriptionObject
 {
+
+  public testSubscriptionObject
+    ()
+  {
+  }
 }
 
 public class test_Schema
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Schema
 {
   public Itest_SchemaObject? As__Schema { get; set; }
 }
 
 public class test_SchemaObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_SchemaObject
 {
+
+  public test_SchemaObject
+    ()
+  {
+  }
 }

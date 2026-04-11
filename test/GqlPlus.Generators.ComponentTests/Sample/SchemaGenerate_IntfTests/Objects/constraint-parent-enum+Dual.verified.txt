@@ -36,3 +36,14 @@ public interface ICmptRefCnstPrntEnumDualObject<TType>
 {
   TType Field { get; }
 }
+
+public enum CmptEnumCnstPrntEnumDual
+{
+  parentCnstPrntEnumDual = CmptParentCnstPrntEnumDual.parentCnstPrntEnumDual,
+  cnstPrntEnumDual,
+}
+
+public enum CmptParentCnstPrntEnumDual
+{
+  parentCnstPrntEnumDual,
+}

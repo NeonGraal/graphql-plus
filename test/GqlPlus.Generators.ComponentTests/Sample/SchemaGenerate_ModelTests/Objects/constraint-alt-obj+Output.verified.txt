@@ -25,6 +25,11 @@ public class CmptCnstAltObjOutpObject
   : Schema_constraint-alt-obj+Output
   , ICmptCnstAltObjOutpObject
 {
+
+  public CmptCnstAltObjOutpObject
+    ()
+  {
+  }
 }
 
 public class CmptRefCnstAltObjOutp<TRef>
@@ -39,6 +44,11 @@ public class CmptRefCnstAltObjOutpObject<TRef>
   : Schema_constraint-alt-obj+Output
   , ICmptRefCnstAltObjOutpObject<TRef>
 {
+
+  public CmptRefCnstAltObjOutpObject
+    ()
+  {
+  }
 }
 
 public class CmptPrntCnstAltObjOutp
@@ -53,6 +63,11 @@ public class CmptPrntCnstAltObjOutpObject
   : Schema_constraint-alt-obj+Output
   , ICmptPrntCnstAltObjOutpObject
 {
+
+  public CmptPrntCnstAltObjOutpObject
+    ()
+  {
+  }
 }
 
 public class CmptAltCnstAltObjOutp

@@ -1,18 +1,18 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 public class TypeParamModellerTests
-  : ModellerClassTestBase<IGqlpTypeParam, TypeParamModel>
+  : ModellerClassTestBase<IAstTypeParam, TypeParamModel>
 {
   public TypeParamModellerTests()
     => Modeller = new TypeParamModeller();
 
-  protected override IModeller<IGqlpTypeParam, TypeParamModel> Modeller { get; }
+  protected override IModeller<IAstTypeParam, TypeParamModel> Modeller { get; }
 
   [Theory, RepeatData]
   public void ToModel_WithValidConstraint_ReturnsExpectedTypeParamModel(string name, string constraint)
   {
     // Arrange
-    IGqlpTypeParam ast = A.TypeParam(name, constraint);
+    IAstTypeParam ast = A.TypeParam(name, constraint);
     TypeKinds.TryGetValue(constraint, out TypeKindModel _).Returns(OutValue(TypeKindModel.Special, 1));
 
     // Act
@@ -30,13 +30,13 @@ public class TypeParamModellerTests
   public void ToModel_WithInvalidConstraint_ThrowsException(string name, string constraint)
   {
     // Arrange
-    IGqlpTypeParam ast = A.TypeParam(name, constraint);
+    IAstTypeParam ast = A.TypeParam(name, constraint);
 
     // Act
     Action action = () => Modeller.ToModel(ast, TypeKinds);
 
     // Assert
-    action.ShouldThrow<ModelTypeException<IGqlpTypeParam>>()
+    action.ShouldThrow<ModelTypeException<IAstTypeParam>>()
       .Message.ShouldContain($"Kind of {constraint} not found");
   }
 }

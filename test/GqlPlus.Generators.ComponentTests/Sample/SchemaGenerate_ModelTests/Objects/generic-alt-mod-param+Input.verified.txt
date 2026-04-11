@@ -22,4 +22,9 @@ public class CmptRefGnrcAltModParamInpObject<TRef,TMod>
   : Schema_generic-alt-mod-param+Input
   , ICmptRefGnrcAltModParamInpObject<TRef,TMod>
 {
+
+  public CmptRefGnrcAltModParamInpObject
+    ()
+  {
+  }
 }

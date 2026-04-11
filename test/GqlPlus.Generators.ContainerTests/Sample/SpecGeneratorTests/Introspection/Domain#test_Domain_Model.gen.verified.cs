@@ -1,6 +1,6 @@
 ﻿//HintName: test_Domain_Model.gen.cs
 // Generated from {CurrentDirectory}Domain.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -71,7 +71,7 @@ public class test_BaseDomainItemObject
 }
 
 public class test_DomainItem<TItem>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_DomainItem<TItem>
 {
   public TItem? As_Parent { get; set; }
@@ -79,7 +79,7 @@ public class test_DomainItem<TItem>
 }
 
 public class test_DomainItemObject<TItem>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_DomainItemObject<TItem>
 {
   public Itest_Name Domain { get; set; }
@@ -116,7 +116,7 @@ public class test_DomainValueObject<TDomainKind,TValue>
 }
 
 public class test_BasicValue
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_BasicValue
 {
   public bool? AsBoolean { get; set; }
@@ -127,9 +127,14 @@ public class test_BasicValue
 }
 
 public class test_BasicValueObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_BasicValueObject
 {
+
+  public test_BasicValueObject
+    ()
+  {
+  }
 }
 
 public class test_DomainTrueFalse

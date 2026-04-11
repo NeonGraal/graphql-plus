@@ -22,4 +22,9 @@ public class CmptObjDualObject
   : Schema_object+Dual
   , ICmptObjDualObject
 {
+
+  public CmptObjDualObject
+    ()
+  {
+  }
 }

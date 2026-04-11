@@ -99,6 +99,11 @@ public class Cmpt_TypeObject
   : Spec_-Type
   , ICmpt_TypeObject
 {
+
+  public Cmpt_TypeObject
+    ()
+  {
+  }
 }
 
 public class Cmpt_BaseType<TTypeKind>
@@ -206,6 +211,11 @@ public class Cmpt_TypeSimpleObject
   : Spec_-Type
   , ICmpt_TypeSimpleObject
 {
+
+  public Cmpt_TypeSimpleObject
+    ()
+  {
+  }
 }
 
 public class Cmpt_Collections
@@ -222,6 +232,11 @@ public class Cmpt_CollectionsObject
   : Spec_-Type
   , ICmpt_CollectionsObject
 {
+
+  public Cmpt_CollectionsObject
+    ()
+  {
+  }
 }
 
 public class Cmpt_ModifierKeyed<TModifierKind>
@@ -262,6 +277,11 @@ public class Cmpt_ModifiersObject
   : Spec_-Type
   , ICmpt_ModifiersObject
 {
+
+  public Cmpt_ModifiersObject
+    ()
+  {
+  }
 }
 
 public class Cmpt_Modifier<TModifierKind>

@@ -22,4 +22,9 @@ public class CmptDescrObject
   : Schema_descr
   , ICmptDescrObject
 {
+
+  public CmptDescrObject
+    ()
+  {
+  }
 }

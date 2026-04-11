@@ -27,6 +27,11 @@ public class CmptOutpFieldParamObject
 {
   public ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter)
     => null;
+
+  public CmptOutpFieldParamObject
+    ()
+  {
+  }
 }
 
 public class CmptOutpFieldParam1
@@ -40,6 +45,11 @@ public class CmptOutpFieldParam1Object
   : Schema_output-field-param
   , ICmptOutpFieldParam1Object
 {
+
+  public CmptOutpFieldParam1Object
+    ()
+  {
+  }
 }
 
 public class CmptOutpFieldParam2
@@ -53,6 +63,11 @@ public class CmptOutpFieldParam2Object
   : Schema_output-field-param
   , ICmptOutpFieldParam2Object
 {
+
+  public CmptOutpFieldParam2Object
+    ()
+  {
+  }
 }
 
 public class CmptFldOutpFieldParam
@@ -66,4 +81,9 @@ public class CmptFldOutpFieldParamObject
   : Schema_output-field-param
   , ICmptFldOutpFieldParamObject
 {
+
+  public CmptFldOutpFieldParamObject
+    ()
+  {
+  }
 }

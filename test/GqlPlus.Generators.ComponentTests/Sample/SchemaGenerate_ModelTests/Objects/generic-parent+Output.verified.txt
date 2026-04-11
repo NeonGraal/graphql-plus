@@ -22,4 +22,9 @@ public class CmptGnrcPrntOutpObject<TType>
   : Schema_generic-parent+Output
   , ICmptGnrcPrntOutpObject<TType>
 {
+
+  public CmptGnrcPrntOutpObject
+    ()
+  {
+  }
 }

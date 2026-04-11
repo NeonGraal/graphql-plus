@@ -23,6 +23,11 @@ public class CmptGnrcAltArgDualObject<TType>
   : Schema_generic-alt-arg+Dual
   , ICmptGnrcAltArgDualObject<TType>
 {
+
+  public CmptGnrcAltArgDualObject
+    ()
+  {
+  }
 }
 
 public class CmptRefGnrcAltArgDual<TRef>
@@ -37,4 +42,9 @@ public class CmptRefGnrcAltArgDualObject<TRef>
   : Schema_generic-alt-arg+Dual
   , ICmptRefGnrcAltArgDualObject<TRef>
 {
+
+  public CmptRefGnrcAltArgDualObject
+    ()
+  {
+  }
 }

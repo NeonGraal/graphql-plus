@@ -1,0 +1,31 @@
+﻿/* constraint-alt-dual+Dual
+dual CnstAltDualDual { | RefCnstAltDualDual<AltCnstAltDualDual> }
+dual RefCnstAltDualDual<$ref:PrntCnstAltDualDual> { | $ref }
+dual PrntCnstAltDualDual { | String }
+dual AltCnstAltDualDual { :PrntCnstAltDualDual alt: Number }
+*/
+
+// Generated from Schema constraint-alt-dual+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-alt-dual+Dual, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_dual_Dual;
+
+internal class CmptCnstAltDualDualEncoder
+{
+}
+
+internal class CmptRefCnstAltDualDualEncoder<TRef>
+{
+}
+
+internal class CmptPrntCnstAltDualDualEncoder
+{
+}
+
+internal class CmptAltCnstAltDualDualEncoder
+{
+  public decimal Alt { get; set; }
+}

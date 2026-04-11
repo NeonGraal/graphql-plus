@@ -22,4 +22,9 @@ public class CmptInDrctParamDictObject
   : Schema_directive-param-dict
   , ICmptInDrctParamDictObject
 {
+
+  public CmptInDrctParamDictObject
+    ()
+  {
+  }
 }

@@ -24,6 +24,11 @@ public class CmptGnrcValueOutpObject
   : Schema_generic-value+Output
   , ICmptGnrcValueOutpObject
 {
+
+  public CmptGnrcValueOutpObject
+    ()
+  {
+  }
 }
 
 public class CmptRefGnrcValueOutp<TType>

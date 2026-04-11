@@ -22,4 +22,9 @@ public class CmptGnrcPrntDescrInpObject<TType>
   : Schema_generic-parent-descr+Input
   , ICmptGnrcPrntDescrInpObject<TType>
 {
+
+  public CmptGnrcPrntDescrInpObject
+    ()
+  {
+  }
 }

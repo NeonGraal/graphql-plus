@@ -22,6 +22,11 @@ public class CmptGnrcPrntArgDualObject<TType>
   : CmptRefGnrcPrntArgDualObject<TType>
   , ICmptGnrcPrntArgDualObject<TType>
 {
+
+  public CmptGnrcPrntArgDualObject
+    ()
+  {
+  }
 }
 
 public class CmptRefGnrcPrntArgDual<TRef>
@@ -36,4 +41,9 @@ public class CmptRefGnrcPrntArgDualObject<TRef>
   : Schema_generic-parent-arg+Dual
   , ICmptRefGnrcPrntArgDualObject<TRef>
 {
+
+  public CmptRefGnrcPrntArgDualObject
+    ()
+  {
+  }
 }

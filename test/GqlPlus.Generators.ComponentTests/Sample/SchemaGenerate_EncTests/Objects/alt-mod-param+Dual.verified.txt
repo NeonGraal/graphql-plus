@@ -1,0 +1,21 @@
+﻿/* alt-mod-param+Dual
+dual AltModParamDual<$mod:String> { | AltAltModParamDual[$mod] }
+dual AltAltModParamDual { alt: Number | String }
+*/
+
+// Generated from Schema alt-mod-param+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-mod-param+Dual, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_mod_param_Dual;
+
+internal class CmptAltModParamDualEncoder<TMod>
+{
+}
+
+internal class CmptAltAltModParamDualEncoder
+{
+  public decimal Alt { get; set; }
+}

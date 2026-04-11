@@ -1,0 +1,31 @@
+﻿/* constraint-parent-dual-parent+Output
+output CnstPrntDualPrntOutp { :RefCnstPrntDualPrntOutp<AltCnstPrntDualPrntOutp> }
+output RefCnstPrntDualPrntOutp<$ref:PrntCnstPrntDualPrntOutp> { :$ref }
+dual PrntCnstPrntDualPrntOutp { | String }
+output AltCnstPrntDualPrntOutp { :PrntCnstPrntDualPrntOutp alt: Number }
+*/
+
+// Generated from Schema constraint-parent-dual-parent+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-parent-dual-parent+Output, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_parent_dual_parent_Output;
+
+internal class CmptCnstPrntDualPrntOutpEncoder
+{
+}
+
+internal class CmptRefCnstPrntDualPrntOutpEncoder<TRef>
+{
+}
+
+internal class CmptPrntCnstPrntDualPrntOutpEncoder
+{
+}
+
+internal class CmptAltCnstPrntDualPrntOutpEncoder
+{
+  public decimal Alt { get; set; }
+}

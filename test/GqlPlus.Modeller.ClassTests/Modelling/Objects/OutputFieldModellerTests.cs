@@ -3,23 +3,23 @@
 namespace GqlPlus.Modelling.Objects;
 
 public class OutputFieldModellerTests
-  : ModellerObjectBaseTestBase<IGqlpOutputField, OutputFieldModel, ObjBaseModel>
+  : ModellerObjectBaseTestBase<IAstOutputField, OutputFieldModel, ObjBaseModel>
 {
   public OutputFieldModellerTests()
   {
     IModifierModeller modifier = A.Of<IModifierModeller>();
-    IModeller<IGqlpInputParam, InputParamModel> parameter = MFor<IGqlpInputParam, InputParamModel>();
+    IModeller<IAstInputParam, InputParamModel> parameter = MFor<IAstInputParam, InputParamModel>();
 
     Modeller = new OutputFieldModeller(modifier, parameter, ObjBase);
   }
 
-  protected override IModeller<IGqlpOutputField, OutputFieldModel> Modeller { get; }
+  protected override IModeller<IAstOutputField, OutputFieldModel> Modeller { get; }
 
   [Theory, RepeatData]
   public void FieldModel_WithValidField_ReturnsExpectedOutputFieldModel(string name, string contents, string typeName)
   {
     // Arrange
-    IGqlpOutputField ast = A.OutputField(name, typeName).WithDescr(contents).AsOutputField;
+    IAstOutputField ast = A.OutputField(name, typeName).WithDescr(contents).AsOutputField;
 
     ObjBaseModel outputType = new(typeName, "");
     ToModelReturns(ObjBase, outputType);

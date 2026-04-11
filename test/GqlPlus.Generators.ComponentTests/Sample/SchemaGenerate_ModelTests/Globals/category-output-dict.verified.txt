@@ -22,4 +22,9 @@ public class CmptCtgrOutpDictObject
   : Schema_category-output-dict
   , ICmptCtgrOutpDictObject
 {
+
+  public CmptCtgrOutpDictObject
+    ()
+  {
+  }
 }

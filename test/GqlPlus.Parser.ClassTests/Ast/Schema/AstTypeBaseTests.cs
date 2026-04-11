@@ -44,7 +44,7 @@ internal class AstTypeChecks<TType, TParent>(
 ) : AstAliasedChecks<TType>(createInput, createExpression)
   , IAstTypeChecks
   where TType : AstType<TParent>
-  where TParent : IGqlpDescribed, IEquatable<TParent>
+  where TParent : IAstDescribed, IEquatable<TParent>
 {
   internal readonly ParentCreator CreateParent = createParent;
 
@@ -76,11 +76,11 @@ internal class AstTypeChecks<TType, TParent>(
 internal class AstTypeChecks<TType>(
   BaseAstChecks<TType>.CreateBy<string> createInput,
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
-) : AstTypeChecks<TType, IGqlpTypeRef>(createInput, MakeParent, createExpression)
+) : AstTypeChecks<TType, IAstTypeRef>(createInput, MakeParent, createExpression)
   , IAstTypeChecks
-  where TType : AstType<IGqlpTypeRef>
+  where TType : AstType<IAstTypeRef>
 {
-  internal static IGqlpTypeRef MakeParent(string parent)
+  internal static IAstTypeRef MakeParent(string parent)
     => new TypeRefAst(AstNulls.At, parent);
 }
 

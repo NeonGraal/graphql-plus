@@ -17,3 +17,26 @@ public interface ICmptDmnEnumUnqPrnt
   : IGqlpDomainEnum
 {
 }
+
+public enum CmptEnumDmnEnumUnqPrnt
+{
+  dmnEnumUnqPrnt = CmptPrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
+  prnt_dmnEnumUnqPrnt = CmptPrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntPrnt = CmptPrntDmnEnumUnqPrnt.dmnEnumUnqPrntPrnt,
+  enum_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntValue,
+}
+
+public enum CmptPrntDmnEnumUnqPrnt
+{
+  dmnEnumUnqPrnt,
+  prnt_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntPrnt,
+}
+
+public enum CmptDupDmnEnumUnqPrnt
+{
+  dmnEnumUnqPrnt,
+  dup_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntDup,
+}

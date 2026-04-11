@@ -39,6 +39,12 @@ public interface ICmptGuid
 {
 }
 
+public enum CmptOne
+{
+  Two,
+  Three,
+}
+
 public interface ICmptMany
   : Schema_all
 {

@@ -6,11 +6,11 @@ public abstract class VerifierTypeTestsBase
   : VerifierTestsBase
 {
   protected IMap<string> EnumValues { get; } = new Map<string>();
-  protected IMap<IGqlpDescribed> Types { get; } = new Map<IGqlpDescribed>();
+  protected IMap<IAstDescribed> Types { get; } = new Map<IAstDescribed>();
 
-  protected void AddTypes([NotNull] params IGqlpNamed[] types)
+  protected void AddTypes([NotNull] params IAstNamed[] types)
   {
-    foreach (IGqlpNamed type in types) {
+    foreach (IAstNamed type in types) {
       Types[type.Name] = type;
     }
   }

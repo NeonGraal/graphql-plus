@@ -1,6 +1,6 @@
 ﻿//HintName: test_parent-param-diff+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}parent-param-diff+Dual.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -29,7 +29,7 @@ public class testPrntParamDiffDualObject<TA>
 }
 
 public class testRefPrntParamDiffDual<TB>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefPrntParamDiffDual<TB>
 {
   public TB? Asb { get; set; }
@@ -37,7 +37,12 @@ public class testRefPrntParamDiffDual<TB>
 }
 
 public class testRefPrntParamDiffDualObject<TB>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefPrntParamDiffDualObject<TB>
 {
+
+  public testRefPrntParamDiffDualObject
+    ()
+  {
+  }
 }

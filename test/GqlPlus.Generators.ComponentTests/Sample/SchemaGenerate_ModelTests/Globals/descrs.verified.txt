@@ -23,4 +23,9 @@ public class CmptDscrsObject
   : Schema_descrs
   , ICmptDscrsObject
 {
+
+  public CmptDscrsObject
+    ()
+  {
+  }
 }

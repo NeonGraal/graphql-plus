@@ -90,6 +90,13 @@ public interface ICmpt_CategoryObject
   ICollection<ICmpt_Modifiers> Modifiers { get; }
 }
 
+public enum Cmpt_Resolution
+{
+  Parallel,
+  Sequential,
+  Single,
+}
+
 public interface ICmpt_Directives
   : ICmpt_AndType
 {
@@ -115,6 +122,16 @@ public interface ICmpt_DirectiveObject
   ICmpt_InputFieldType? Parameter { get; }
   bool Repeatable { get; }
   IDictionary<Cmpt_Location, GqlpUnit> Locations { get; }
+}
+
+public enum Cmpt_Location
+{
+  Operation,
+  Variable,
+  Field,
+  Inline,
+  Spread,
+  Fragment,
 }
 
 public interface ICmpt_Setting

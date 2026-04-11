@@ -22,4 +22,9 @@ public class CmptInDrctParamListObject
   : Schema_directive-param-list
   , ICmptInDrctParamListObject
 {
+
+  public CmptInDrctParamListObject
+    ()
+  {
+  }
 }

@@ -6,9 +6,9 @@ namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
 public class VerifyInputTypesTests
-  : ObjectVerifierTestsBase<IGqlpInputField>
+  : ObjectVerifierTestsBase<IAstInputField>
 {
-  protected override IVerifyUsage<IGqlpObject<IGqlpInputField>> Verifier { get; }
+  protected override IVerifyUsage<IAstObject<IAstInputField>> Verifier { get; }
 
   public VerifyInputTypesTests()
     : base(TypeKind.Input)
@@ -17,9 +17,9 @@ public class VerifyInputTypesTests
 
 [TracePerTest]
 public class VerifyInputAlternatesTests
-  : ObjectVerifierAlternatesTestsBase<IGqlpInputField>
+  : ObjectVerifierAlternatesTestsBase<IAstInputField>
 {
-  protected override IVerifyUsage<IGqlpObject<IGqlpInputField>> Verifier { get; }
+  protected override IVerifyUsage<IAstObject<IAstInputField>> Verifier { get; }
 
   public VerifyInputAlternatesTests()
     : base(TypeKind.Input)
@@ -28,9 +28,9 @@ public class VerifyInputAlternatesTests
 
 [TracePerTest]
 public class VerifyInputFieldsTests
-  : ObjectVerifierFieldsTestsBase<IGqlpInputField>
+  : ObjectVerifierFieldsTestsBase<IAstInputField>
 {
-  protected override IVerifyUsage<IGqlpObject<IGqlpInputField>> Verifier { get; }
+  protected override IVerifyUsage<IAstObject<IAstInputField>> Verifier { get; }
 
   public VerifyInputFieldsTests()
     : base(TypeKind.Input)
@@ -41,10 +41,10 @@ public class VerifyInputFieldsTests
   {
     DefineObject(fieldType);
 
-    IGqlpFieldKey nullLabel = A.EnumFieldKey(BuiltIn.NullType, BuiltIn.NullValue);
-    IGqlpConstant nullValue = A.Constant(nullLabel);
+    IAstFieldKey nullLabel = A.EnumFieldKey(BuiltIn.NullType, BuiltIn.NullValue);
+    IAstConstant nullValue = A.Constant(nullLabel);
 
-    IGqlpInputField field = A.InputField(fieldName, fieldType).WithDefault(nullValue).AsInputField;
+    IAstInputField field = A.InputField(fieldName, fieldType).WithDefault(nullValue).AsInputField;
     TheBuilder.WithObjFields(field);
 
     Verify_Errors("'null' default requires Optional type");
@@ -55,10 +55,10 @@ public class VerifyInputFieldsTests
   {
     DefineObject(fieldType);
 
-    IGqlpFieldKey nullLabel = A.EnumFieldKey(BuiltIn.NullType, BuiltIn.NullValue);
-    IGqlpConstant nullValue = A.Constant(nullLabel);
+    IAstFieldKey nullLabel = A.EnumFieldKey(BuiltIn.NullType, BuiltIn.NullValue);
+    IAstConstant nullValue = A.Constant(nullLabel);
 
-    IGqlpInputField field = A.InputField(fieldName, fieldType)
+    IAstInputField field = A.InputField(fieldName, fieldType)
       .WithModifier(ModifierKind.Opt)
       .WithDefault(nullValue)
       .AsInputField;
@@ -68,6 +68,6 @@ public class VerifyInputFieldsTests
     Verify_NoErrors();
   }
 
-  protected override ObjFieldBuilder<IGqlpInputField> MakeField(string fieldName, string fieldType)
+  protected override ObjFieldBuilder<IAstInputField> MakeField(string fieldName, string fieldType)
     => new InputFieldBuilder(fieldName, fieldType);
 }

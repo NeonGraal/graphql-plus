@@ -1,6 +1,6 @@
 ﻿//HintName: test_Common_Model.gen.cs
 // Generated from {CurrentDirectory}Common.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Common;
 
 public class test_Type
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Type
 {
   public Itest_BaseType<test_TypeKind>? As_TypeKindBasic { get; set; }
@@ -26,9 +26,14 @@ public class test_Type
 }
 
 public class test_TypeObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_TypeObject
 {
+
+  public test_TypeObject
+    ()
+  {
+  }
 }
 
 public class test_BaseType<TTypeKind>
@@ -122,7 +127,7 @@ public class test_TypeRefObject<TTypeKind>
 }
 
 public class test_TypeSimple
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_TypeSimple
 {
   public Itest_TypeRef<test_TypeKind>? As_TypeKindBasic { get; set; }
@@ -133,7 +138,12 @@ public class test_TypeSimple
 }
 
 public class test_TypeSimpleObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_TypeSimpleObject
 {
+
+  public test_TypeSimpleObject
+    ()
+  {
+  }
 }

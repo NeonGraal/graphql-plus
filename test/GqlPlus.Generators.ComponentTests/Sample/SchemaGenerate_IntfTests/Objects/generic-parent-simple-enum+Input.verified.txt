@@ -34,3 +34,8 @@ public interface ICmptFieldGnrcPrntSmplEnumInpObject<TRef>
 {
   TRef Field { get; }
 }
+
+public enum CmptEnumGnrcPrntSmplEnumInp
+{
+  gnrcPrntSmplEnumInp,
+}

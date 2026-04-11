@@ -92,5 +92,5 @@ public class ModifierAstTests
       key => ModifierAst.Param(AstNulls.At, key, false),
       key1 == key2);
 
-  internal BaseAstChecks<IGqlpModifier> _checks = new();
+  internal BaseAstChecks<IAstModifier> _checks = new();
 }

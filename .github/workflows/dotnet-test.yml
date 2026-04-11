@@ -83,7 +83,7 @@ jobs:
           list-tests: failed
           use-actions-summary: false
       - name: Coverage Report
-        uses: LouisBrunner/checks-action@v3.0.0
+        uses: LouisBrunner/checks-action@v3.1.0
         if: always()
         with:
           token: ${{ secrets.GITHUB_TOKEN }}

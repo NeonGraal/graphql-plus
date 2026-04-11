@@ -1,9 +1,9 @@
 ﻿namespace GqlPlus.Modelling.Simple;
 
 public class DomainNumberModellerTests
-  : DomainModellerClassTestBase<IGqlpDomainRange, DomainRangeModel>
+  : DomainModellerClassTestBase<IAstDomainRange, DomainRangeModel>
 {
-  protected override IDomainModeller<IGqlpDomainRange, DomainRangeModel> DomainModeller { get; }
+  protected override IDomainModeller<IAstDomainRange, DomainRangeModel> DomainModeller { get; }
     = new DomainNumberModeller();
 
   protected override DomainKind Kind => DomainKind.Number;

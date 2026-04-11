@@ -4,10 +4,10 @@ namespace GqlPlus;
 
 public static class BuiltInData
 {
-  public static Map<IGqlpType> BasicMap { get; }
+  public static Map<IAstType> BasicMap { get; }
       = BuiltIn.Basic.ToMap(m => m.Name);
 
-  public static Map<IGqlpType> InternalMap { get; }
+  public static Map<IAstType> InternalMap { get; }
       = BuiltIn.Internal.ToMap(m => m.Name);
 }
 

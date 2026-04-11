@@ -1,6 +1,6 @@
 ﻿//HintName: test_constraint-enum-parent+Output_Model.gen.cs
 // Generated from {CurrentDirectory}constraint-enum-parent+Output.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_enum_parent_Output;
 
 public class testCnstEnumPrntOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCnstEnumPrntOutp
 {
   public ItestRefCnstEnumPrntOutp<testEnumCnstEnumPrntOutp>? AsEnumCnstEnumPrntOutpcnstEnumPrntOutp { get; set; }
@@ -16,20 +16,25 @@ public class testCnstEnumPrntOutp
 }
 
 public class testCnstEnumPrntOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCnstEnumPrntOutpObject
 {
+
+  public testCnstEnumPrntOutpObject
+    ()
+  {
+  }
 }
 
 public class testRefCnstEnumPrntOutp<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstEnumPrntOutp<TType>
 {
   public ItestRefCnstEnumPrntOutpObject<TType>? As_RefCnstEnumPrntOutp { get; set; }
 }
 
 public class testRefCnstEnumPrntOutpObject<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstEnumPrntOutpObject<TType>
 {
   public TType Field { get; set; }

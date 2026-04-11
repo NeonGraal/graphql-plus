@@ -1,0 +1,16 @@
+﻿/* object+Output
+output ObjOutp { }
+output ObjOutp { }
+*/
+
+// Generated from Schema object+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object+Output, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_Output;
+
+internal class CmptObjOutpEncoder
+{
+}

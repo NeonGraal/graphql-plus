@@ -45,6 +45,11 @@ public class CmptRefGnrcFieldDualOutpObject<TRef>
   : Schema_generic-field-dual+Output
   , ICmptRefGnrcFieldDualOutpObject<TRef>
 {
+
+  public CmptRefGnrcFieldDualOutpObject
+    ()
+  {
+  }
 }
 
 public class CmptAltGnrcFieldDualOutp

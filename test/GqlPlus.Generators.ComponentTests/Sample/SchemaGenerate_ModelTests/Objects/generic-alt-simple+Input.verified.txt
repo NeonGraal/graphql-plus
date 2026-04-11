@@ -23,6 +23,11 @@ public class CmptGnrcAltSmplInpObject
   : Schema_generic-alt-simple+Input
   , ICmptGnrcAltSmplInpObject
 {
+
+  public CmptGnrcAltSmplInpObject
+    ()
+  {
+  }
 }
 
 public class CmptRefGnrcAltSmplInp<TRef>
@@ -37,4 +42,9 @@ public class CmptRefGnrcAltSmplInpObject<TRef>
   : Schema_generic-alt-simple+Input
   , ICmptRefGnrcAltSmplInpObject<TRef>
 {
+
+  public CmptRefGnrcAltSmplInpObject
+    ()
+  {
+  }
 }

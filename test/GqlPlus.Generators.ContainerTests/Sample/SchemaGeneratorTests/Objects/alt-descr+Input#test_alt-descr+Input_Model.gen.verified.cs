@@ -1,6 +1,6 @@
 ﻿//HintName: test_alt-descr+Input_Model.gen.cs
 // Generated from {CurrentDirectory}alt-descr+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_alt_descr_Input;
 
 public class testAltDescrInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltDescrInp
 {
   public string? AsString { get; set; }
@@ -16,7 +16,12 @@ public class testAltDescrInp
 }
 
 public class testAltDescrInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltDescrInpObject
 {
+
+  public testAltDescrInpObject
+    ()
+  {
+  }
 }

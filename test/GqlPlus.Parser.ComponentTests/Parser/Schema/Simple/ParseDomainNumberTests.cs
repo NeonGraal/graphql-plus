@@ -4,8 +4,8 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Parser.Schema.Simple;
 
 public sealed class ParseDomainNumberTests(
-  IBaseDomainChecks<string, IGqlpDomain<IGqlpDomainRange>> checks
-) : BaseDomainTests<string, IGqlpDomain<IGqlpDomainRange>>(checks)
+  IBaseDomainChecks<string, IAstDomain<IAstDomainRange>> checks
+) : BaseDomainTests<string, IAstDomain<IAstDomainRange>>(checks)
 {
   [Theory, RepeatData]
   public void WithRangeNoBounds_ReturnsFalse(string name)
@@ -43,7 +43,7 @@ public sealed class ParseDomainNumberTests(
         name + $"{{number {min}<{max}}}",
         NewDomain(name, [NewRange(min, max)]));
 
-  private static AstDomain<DomainRangeAst, IGqlpDomainRange> NewDomain(string name, DomainRangeAst[] ranges)
+  private static AstDomain<DomainRangeAst, IAstDomainRange> NewDomain(string name, DomainRangeAst[] ranges)
     => new(AstNulls.At, name, DomainKind.Number, ranges);
 
   private static DomainRangeAst NewRange(decimal? min, decimal? max)
@@ -52,9 +52,9 @@ public sealed class ParseDomainNumberTests(
 
 internal sealed class ParseDomainNumberChecks(
   IParserRepository parsers
-) : BaseDomainChecks<string, AstDomain<DomainRangeAst, IGqlpDomainRange>, IGqlpDomain<IGqlpDomainRange>>(parsers, DomainKind.Number)
+) : BaseDomainChecks<string, AstDomain<DomainRangeAst, IAstDomainRange>, IAstDomain<IAstDomainRange>>(parsers, DomainKind.Number)
 {
-  protected internal override AstDomain<DomainRangeAst, IGqlpDomainRange> NamedFactory(string input)
+  protected internal override AstDomain<DomainRangeAst, IAstDomainRange> NamedFactory(string input)
     => new(AstNulls.At, input, DomainKind.Number, []);
 
   protected internal override string AliasesString(string input, string aliases)

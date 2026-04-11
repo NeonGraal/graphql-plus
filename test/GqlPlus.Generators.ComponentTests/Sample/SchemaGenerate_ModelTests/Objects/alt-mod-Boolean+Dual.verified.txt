@@ -23,6 +23,11 @@ public class CmptAltModBoolDualObject
   : Schema_alt-mod-Boolean+Dual
   , ICmptAltModBoolDualObject
 {
+
+  public CmptAltModBoolDualObject
+    ()
+  {
+  }
 }
 
 public class CmptAltAltModBoolDual

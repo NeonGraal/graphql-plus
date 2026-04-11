@@ -44,4 +44,9 @@ public class CmptRefGnrcFieldArgDualObject<TRef>
   : Schema_generic-field-arg+Dual
   , ICmptRefGnrcFieldArgDualObject<TRef>
 {
+
+  public CmptRefGnrcFieldArgDualObject
+    ()
+  {
+  }
 }

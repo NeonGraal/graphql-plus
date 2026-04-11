@@ -22,4 +22,9 @@ public class CmptInDrctParamOptObject
   : Schema_directive-param-opt
   , ICmptInDrctParamOptObject
 {
+
+  public CmptInDrctParamOptObject
+    ()
+  {
+  }
 }

@@ -23,6 +23,11 @@ public class CmptObjPrntDualObject
   : CmptRefObjPrntDualObject
   , ICmptObjPrntDualObject
 {
+
+  public CmptObjPrntDualObject
+    ()
+  {
+  }
 }
 
 public class CmptRefObjPrntDual
@@ -36,4 +41,9 @@ public class CmptRefObjPrntDualObject
   : Schema_object-parent+Dual
   , ICmptRefObjPrntDualObject
 {
+
+  public CmptRefObjPrntDualObject
+    ()
+  {
+  }
 }

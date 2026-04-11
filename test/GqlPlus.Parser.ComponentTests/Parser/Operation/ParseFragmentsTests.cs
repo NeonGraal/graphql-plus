@@ -5,8 +5,8 @@ using GqlPlus.Parsing.Operation;
 namespace GqlPlus.Parser.Operation;
 
 public class ParseFragmentsTests(
-  IManyChecksParser<IParserStartFragments, IGqlpFragment> startChecks,
-  IManyChecksParser<IParserEndFragments, IGqlpFragment> endChecks
+  IManyChecksParser<IParserStartFragments, IAstFragment> startChecks,
+  IManyChecksParser<IParserEndFragments, IAstFragment> endChecks
 )
 {
   [Theory, RepeatData]

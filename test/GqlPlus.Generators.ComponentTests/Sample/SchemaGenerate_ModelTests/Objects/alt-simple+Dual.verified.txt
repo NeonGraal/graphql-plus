@@ -22,4 +22,9 @@ public class CmptAltSmplDualObject
   : Schema_alt-simple+Dual
   , ICmptAltSmplDualObject
 {
+
+  public CmptAltSmplDualObject
+    ()
+  {
+  }
 }

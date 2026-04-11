@@ -1,6 +1,6 @@
 ﻿//HintName: test_alt+Output_Model.gen.cs
 // Generated from {CurrentDirectory}alt+Output.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_alt_Output;
 
 public class testAltOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltOutp
 {
   public ItestAltAltOutp? AsAltAltOutp { get; set; }
@@ -16,13 +16,18 @@ public class testAltOutp
 }
 
 public class testAltOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltOutpObject
 {
+
+  public testAltOutpObject
+    ()
+  {
+  }
 }
 
 public class testAltAltOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltAltOutp
 {
   public string? AsString { get; set; }
@@ -30,7 +35,7 @@ public class testAltAltOutp
 }
 
 public class testAltAltOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltAltOutpObject
 {
   public decimal Alt { get; set; }

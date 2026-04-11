@@ -65,6 +65,11 @@ public class CmptPrntCnstFieldObjOutpObject
   : Schema_constraint-field-obj+Output
   , ICmptPrntCnstFieldObjOutpObject
 {
+
+  public CmptPrntCnstFieldObjOutpObject
+    ()
+  {
+  }
 }
 
 public class CmptAltCnstFieldObjOutp

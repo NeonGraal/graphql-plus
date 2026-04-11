@@ -22,4 +22,9 @@ public class CmptCnstAltOutpObject<TType>
   : Schema_constraint-alt+Output
   , ICmptCnstAltOutpObject<TType>
 {
+
+  public CmptCnstAltOutpObject
+    ()
+  {
+  }
 }

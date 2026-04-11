@@ -1,6 +1,6 @@
 ﻿//HintName: test_Output_Model.gen.cs
 // Generated from {CurrentDirectory}Output.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -18,6 +18,11 @@ public class test_OutputFieldObject
   : test_ObjFieldObject<Itest_ObjFieldType>
   , Itest_OutputFieldObject
 {
+
+  public test_OutputFieldObject
+    ()
+  {
+  }
 }
 
 public class test_OutputFieldType
@@ -32,4 +37,9 @@ public class test_OutputFieldTypeObject
   , Itest_OutputFieldTypeObject
 {
   public Itest_InputFieldType? Parameter { get; set; }
+
+  public test_OutputFieldTypeObject
+    ()
+  {
+  }
 }

@@ -24,6 +24,11 @@ public class CmptCnstPrntObjPrntInpObject
   : CmptRefCnstPrntObjPrntInpObject<ICmptAltCnstPrntObjPrntInp>
   , ICmptCnstPrntObjPrntInpObject
 {
+
+  public CmptCnstPrntObjPrntInpObject
+    ()
+  {
+  }
 }
 
 public class CmptRefCnstPrntObjPrntInp<TRef>
@@ -38,6 +43,11 @@ public class CmptRefCnstPrntObjPrntInpObject<TRef>
   : Schema_constraint-parent-obj-parent+Input
   , ICmptRefCnstPrntObjPrntInpObject<TRef>
 {
+
+  public CmptRefCnstPrntObjPrntInpObject
+    ()
+  {
+  }
 }
 
 public class CmptPrntCnstPrntObjPrntInp
@@ -52,6 +62,11 @@ public class CmptPrntCnstPrntObjPrntInpObject
   : Schema_constraint-parent-obj-parent+Input
   , ICmptPrntCnstPrntObjPrntInpObject
 {
+
+  public CmptPrntCnstPrntObjPrntInpObject
+    ()
+  {
+  }
 }
 
 public class CmptAltCnstPrntObjPrntInp

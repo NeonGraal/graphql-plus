@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-alt-dual+Output_Intf.gen.cs
 // Generated from {CurrentDirectory}generic-alt-dual+Output.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,38 +8,38 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_dual_Output;
 
 public interface ItestGnrcAltDualOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestRefGnrcAltDualOutp<ItestAltGnrcAltDualOutp>? AsRefGnrcAltDualOutp { get; }
   ItestGnrcAltDualOutpObject? As_GnrcAltDualOutp { get; }
 }
 
 public interface ItestGnrcAltDualOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestRefGnrcAltDualOutp<TRef>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TRef? Asref { get; }
   ItestRefGnrcAltDualOutpObject<TRef>? As_RefGnrcAltDualOutp { get; }
 }
 
 public interface ItestRefGnrcAltDualOutpObject<TRef>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestAltGnrcAltDualOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string? AsString { get; }
   ItestAltGnrcAltDualOutpObject? As_AltGnrcAltDualOutp { get; }
 }
 
 public interface ItestAltGnrcAltDualOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   decimal Alt { get; }
 }

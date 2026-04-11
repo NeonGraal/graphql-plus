@@ -1,6 +1,6 @@
 ﻿//HintName: test_parent-param-same+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}parent-param-same+Dual.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -29,7 +29,7 @@ public class testPrntParamSameDualObject<TA>
 }
 
 public class testRefPrntParamSameDual<TA>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefPrntParamSameDual<TA>
 {
   public TA? Asa { get; set; }
@@ -37,7 +37,12 @@ public class testRefPrntParamSameDual<TA>
 }
 
 public class testRefPrntParamSameDualObject<TA>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefPrntParamSameDualObject<TA>
 {
+
+  public testRefPrntParamSameDualObject
+    ()
+  {
+  }
 }

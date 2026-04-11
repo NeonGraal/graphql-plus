@@ -2,17 +2,17 @@
 
 internal sealed class SchemaGenerator(
   IGeneratorRepository generators
-) : IGenerator<IGqlpSchema>
+) : IGenerator<IAstSchema>
 {
-  public void Generate(IGqlpSchema ast, GqlpGeneratorContext context)
+  public void Generate(IAstSchema ast, GqlpGeneratorContext context)
   {
-    IGqlpType[] types = Typed<IGqlpType>(ast);
+    IAstType[] types = Typed<IAstType>(ast);
     context.AddTypes(types);
 
     context.WritePrefixLine("/*");
-    Typed<IGqlpSchemaCategory>(ast).Generate(generators.GeneratorFor<IGqlpSchemaCategory>(), context);
-    Typed<IGqlpSchemaDirective>(ast).Generate(generators.GeneratorFor<IGqlpSchemaDirective>(), context);
-    Typed<IGqlpSchemaOption>(ast).Generate(generators.GeneratorFor<IGqlpSchemaOption>(), context);
+    Typed<IAstSchemaCategory>(ast).Generate(generators.GeneratorFor<IAstSchemaCategory>(), context);
+    Typed<IAstSchemaDirective>(ast).Generate(generators.GeneratorFor<IAstSchemaDirective>(), context);
+    Typed<IAstSchemaOption>(ast).Generate(generators.GeneratorFor<IAstSchemaOption>(), context);
     context.WritePrefixLine("*/");
     context.WritePrefixLine("");
     string nameSpace = context.GeneratorOptions.NameSpace.IfWhiteSpace(context.ModelOptions.BaseNamespace);
@@ -22,16 +22,26 @@ internal sealed class SchemaGenerator(
 
     context.WritePrefixLine($"namespace {nameSpace};");
 
-    foreach (IGqlpType type in types) {
-      ITypeGenerator? generator = generators.TypeGenerators.FirstOrDefault(g => g.ForType(type));
-      if (generator is null) {
+    GqlpGeneratorType generatorType = context.GeneratorOptions.GeneratorType;
+    if (generators.TypeGenerators.TryGetValue(generatorType, out IEnumerable<ITypeGenerator>? typeGenerators)) {
+      foreach (IAstType type in types) {
+        ITypeGenerator? typeGenerator = typeGenerators.FirstOrDefault(IsForType);
+        if (typeGenerator is null) {
+          if (generators.TypeGenerators.TryGetValue(GqlpGeneratorType.Interface, out IEnumerable<ITypeGenerator>? interfaceGenerators)) {
+            if (!interfaceGenerators.Any(IsForType)) {
         throw new InvalidOperationException("No Generator for " + type.GetType().ExpandTypeName());
+            }
+          }
       } else {
-        generator.GenerateType(type, context);
+          typeGenerator!.GenerateType(type, context);
+        }
+
+        bool IsForType(ITypeGenerator typeGenerator)
+          => typeGenerator.ForType(type);
       }
     }
   }
 
-  private static TAst[] Typed<TAst>(IGqlpSchema ast)
+  private static TAst[] Typed<TAst>(IAstSchema ast)
     => ast.Declarations.ArrayOf<TAst>();
 }

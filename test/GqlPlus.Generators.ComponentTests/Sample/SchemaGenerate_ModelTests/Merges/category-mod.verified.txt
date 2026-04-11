@@ -23,4 +23,9 @@ public class CmptCtgrModObject
   : Schema_category-mod
   , ICmptCtgrModObject
 {
+
+  public CmptCtgrModObject
+    ()
+  {
+  }
 }

@@ -10,7 +10,7 @@ public class DirectiveGeneratorTests
   {
     // Arrange
     GqlpGeneratorContext context = Context(GqlpBaseType.Other, GqlpGeneratorType.Static);
-    IGqlpSchemaDirective directive = A.Named<IGqlpSchemaDirective>(name);
+    IAstSchemaDirective directive = A.Named<IAstSchemaDirective>(name);
 
     // Act
     _generator.Generate(directive, context);

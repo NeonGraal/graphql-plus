@@ -1,6 +1,6 @@
 ﻿//HintName: test_constraint-alt-domain+Input_Model.gen.cs
 // Generated from {CurrentDirectory}constraint-alt-domain+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_domain_Input;
 
 public class testCnstAltDmnInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCnstAltDmnInp
 {
   public ItestRefCnstAltDmnInp<ItestDomCnstAltDmnInp>? AsRefCnstAltDmnInp { get; set; }
@@ -16,13 +16,18 @@ public class testCnstAltDmnInp
 }
 
 public class testCnstAltDmnInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCnstAltDmnInpObject
 {
+
+  public testCnstAltDmnInpObject
+    ()
+  {
+  }
 }
 
 public class testRefCnstAltDmnInp<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstAltDmnInp<TRef>
 {
   public TRef? Asref { get; set; }
@@ -30,9 +35,14 @@ public class testRefCnstAltDmnInp<TRef>
 }
 
 public class testRefCnstAltDmnInpObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstAltDmnInpObject<TRef>
 {
+
+  public testRefCnstAltDmnInpObject
+    ()
+  {
+  }
 }
 
 public class testDomCnstAltDmnInp

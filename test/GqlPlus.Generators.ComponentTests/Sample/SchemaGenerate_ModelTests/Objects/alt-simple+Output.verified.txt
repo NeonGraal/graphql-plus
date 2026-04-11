@@ -22,4 +22,9 @@ public class CmptAltSmplOutpObject
   : Schema_alt-simple+Output
   , ICmptAltSmplOutpObject
 {
+
+  public CmptAltSmplOutpObject
+    ()
+  {
+  }
 }

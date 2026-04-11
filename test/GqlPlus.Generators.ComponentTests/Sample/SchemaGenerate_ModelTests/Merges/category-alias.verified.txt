@@ -23,4 +23,9 @@ public class CmptCtgrAliasObject
   : Schema_category-alias
   , ICmptCtgrAliasObject
 {
+
+  public CmptCtgrAliasObject
+    ()
+  {
+  }
 }

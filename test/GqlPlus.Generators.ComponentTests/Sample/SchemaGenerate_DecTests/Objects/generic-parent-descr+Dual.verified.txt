@@ -1,0 +1,15 @@
+﻿/* generic-parent-descr+Dual
+dual GnrcPrntDescrDual<$type:_Dual> { :"Parent comment"$type }
+*/
+
+// Generated from Schema generic-parent-descr+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-descr+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_descr_Dual;
+
+internal class CmptGnrcPrntDescrDualDecoder<TType>
+{
+}

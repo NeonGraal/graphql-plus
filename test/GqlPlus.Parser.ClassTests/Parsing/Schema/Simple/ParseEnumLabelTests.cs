@@ -19,10 +19,10 @@ public class ParseEnumLabelTests
     ParseAliasesOk(aliases);
 
     // Act
-    IResult<IGqlpEnumLabel> result = _parser.Parse(Tokenizer, parseLabel);
+    IResult<IAstEnumLabel> result = _parser.Parse(Tokenizer, parseLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpEnumLabel>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstEnumLabel>>();
   }
 
   [Theory, RepeatData]
@@ -30,10 +30,10 @@ public class ParseEnumLabelTests
   {
     // Arrange
     IdentifierReturns(OutFail);
-    SetupError<IGqlpEnumLabel>();
+    SetupError<IAstEnumLabel>();
 
     // Act
-    IResult<IGqlpEnumLabel> result = _parser.Parse(Tokenizer, parseLabel);
+    IResult<IAstEnumLabel> result = _parser.Parse(Tokenizer, parseLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -45,12 +45,12 @@ public class ParseEnumLabelTests
     // Arrange
     IdentifierReturns(OutString(TestLabel));
     ParseAliasesError();
-    SetupPartial<IGqlpEnumLabel>();
+    SetupPartial<IAstEnumLabel>();
 
     // Act
-    IResult<IGqlpEnumLabel> result = _parser.Parse(Tokenizer, parseLabel);
+    IResult<IAstEnumLabel> result = _parser.Parse(Tokenizer, parseLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpEnumLabel>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstEnumLabel>>();
   }
 }

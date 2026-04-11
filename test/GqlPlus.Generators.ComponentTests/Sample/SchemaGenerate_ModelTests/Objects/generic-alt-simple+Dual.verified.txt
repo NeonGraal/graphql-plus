@@ -23,6 +23,11 @@ public class CmptGnrcAltSmplDualObject
   : Schema_generic-alt-simple+Dual
   , ICmptGnrcAltSmplDualObject
 {
+
+  public CmptGnrcAltSmplDualObject
+    ()
+  {
+  }
 }
 
 public class CmptRefGnrcAltSmplDual<TRef>
@@ -37,4 +42,9 @@ public class CmptRefGnrcAltSmplDualObject<TRef>
   : Schema_generic-alt-simple+Dual
   , ICmptRefGnrcAltSmplDualObject<TRef>
 {
+
+  public CmptRefGnrcAltSmplDualObject
+    ()
+  {
+  }
 }

@@ -78,9 +78,9 @@ public class GqlpGenerator : IIncrementalGenerator
       typePrefix = "Gqlp";
     }
 
-    bool namespaceIncludesBaseName = provider.GlobalOptions
+    bool namespaceIncludesBaseName = !provider.GlobalOptions
       .TryGetValue("build_property.GqlPlus_NamespaceIncludesBaseName", out string? includesBaseNameString)
-        && bool.TryParse(includesBaseNameString, out bool includesBaseName) ? includesBaseName : true;
+        || !bool.TryParse(includesBaseNameString, out bool includesBaseName) || includesBaseName;
 
     return new GqlpModelOptions(baseNamespace, typePrefix, namespaceIncludesBaseName);
   }
@@ -128,11 +128,11 @@ public class GqlpGenerator : IIncrementalGenerator
       .AddGenerators()
       .BuildServiceProvider();
 
-    Parser<IGqlpSchema>.L schemaParser = services.GetRequiredService<IParserRepository>().ParserFor<IGqlpSchema>();
-    IMerge<IGqlpSchema> schemaMerger = services.GetRequiredService<IMergerRepository>().MergerFor<IGqlpSchema>();
-    IGenerator<IGqlpSchema> schemaGenerator = services.GetRequiredService<IGeneratorRepository>().GeneratorFor<IGqlpSchema>();
+    Parser<IAstSchema>.L schemaParser = services.GetRequiredService<IParserRepository>().ParserFor<IAstSchema>();
+    IMerge<IAstSchema> schemaMerger = services.GetRequiredService<IMergerRepository>().MergerFor<IAstSchema>();
+    IGenerator<IAstSchema> schemaGenerator = services.GetRequiredService<IGeneratorRepository>().GeneratorFor<IAstSchema>();
 
-    Map<IGqlpSchema> schemas = [];
+    Map<IAstSchema> schemas = [];
 
     foreach (AdditionalText text in array) {
       string? lines = text.GetText()?.ToString();
@@ -142,16 +142,16 @@ public class GqlpGenerator : IIncrementalGenerator
 
       string path = Path.GetFullPath(text.Path);
       Tokenizer tokens = new(lines);
-      IGqlpSchema parsed = schemaParser.Parse(tokens, "Schema").Required();
+      IAstSchema parsed = schemaParser.Parse(tokens, "Schema").Required();
       schemas[path] = schemaMerger.Merge([parsed]).Single();
     }
 
     foreach (string path in schemas.Keys) {
       GqlpGeneratorContext context = new(path, generatorOptions, modelOptions);
 
-      foreach (MapPair<IGqlpSchema> other in schemas) {
+      foreach (MapPair<IAstSchema> other in schemas) {
         if (other.Key != path) {
-          context.AddTypes(other.Value.Declarations.ArrayOf<IGqlpType>());
+          context.AddTypes(other.Value.Declarations.ArrayOf<IAstType>());
         }
       }
 

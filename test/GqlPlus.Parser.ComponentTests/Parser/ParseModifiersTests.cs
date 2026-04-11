@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Parser;
 
 public class ParseModifiersTests(
-  IManyChecksParser<IGqlpModifier> checks
+  IManyChecksParser<IAstModifier> checks
 )
 {
   [Theory]

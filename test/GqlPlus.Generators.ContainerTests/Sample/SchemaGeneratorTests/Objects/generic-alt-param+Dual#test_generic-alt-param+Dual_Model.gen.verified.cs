@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-alt-param+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}generic-alt-param+Dual.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_param_Dual;
 
 public class testGnrcAltParamDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcAltParamDual
 {
   public ItestRefGnrcAltParamDual<ItestAltGnrcAltParamDual>? AsRefGnrcAltParamDual { get; set; }
@@ -16,13 +16,18 @@ public class testGnrcAltParamDual
 }
 
 public class testGnrcAltParamDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcAltParamDualObject
 {
+
+  public testGnrcAltParamDualObject
+    ()
+  {
+  }
 }
 
 public class testRefGnrcAltParamDual<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcAltParamDual<TRef>
 {
   public TRef? Asref { get; set; }
@@ -30,13 +35,18 @@ public class testRefGnrcAltParamDual<TRef>
 }
 
 public class testRefGnrcAltParamDualObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcAltParamDualObject<TRef>
 {
+
+  public testRefGnrcAltParamDualObject
+    ()
+  {
+  }
 }
 
 public class testAltGnrcAltParamDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltGnrcAltParamDual
 {
   public string? AsString { get; set; }
@@ -44,7 +54,7 @@ public class testAltGnrcAltParamDual
 }
 
 public class testAltGnrcAltParamDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltGnrcAltParamDualObject
 {
   public decimal Alt { get; set; }

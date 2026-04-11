@@ -25,6 +25,11 @@ public class CmptCnstPrntEnumInpObject
   : Schema_constraint-parent-enum+Input
   , ICmptCnstPrntEnumInpObject
 {
+
+  public CmptCnstPrntEnumInpObject
+    ()
+  {
+  }
 }
 
 public class CmptRefCnstPrntEnumInp<TType>

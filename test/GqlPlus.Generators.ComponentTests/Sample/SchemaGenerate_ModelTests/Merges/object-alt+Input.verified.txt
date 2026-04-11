@@ -24,6 +24,11 @@ public class CmptObjAltInpObject
   : Schema_object-alt+Input
   , ICmptObjAltInpObject
 {
+
+  public CmptObjAltInpObject
+    ()
+  {
+  }
 }
 
 public class CmptObjAltInpType
@@ -37,4 +42,9 @@ public class CmptObjAltInpTypeObject
   : Schema_object-alt+Input
   , ICmptObjAltInpTypeObject
 {
+
+  public CmptObjAltInpTypeObject
+    ()
+  {
+  }
 }

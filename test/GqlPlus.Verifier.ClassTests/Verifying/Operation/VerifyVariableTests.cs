@@ -7,14 +7,14 @@ namespace GqlPlus.Verifying.Operation;
 public class VerifyVariableTests
   : VerifierTestsBase
 {
-  private readonly IGqlpConstant _defValue = A.Error<IGqlpConstant>();
-  private readonly IGqlpConstant _constant = A.Constant("constant");
+  private readonly IAstConstant _defValue = A.Error<IAstConstant>();
+  private readonly IAstConstant _constant = A.Constant("constant");
 
-  private readonly IGqlpVariable _item = A.Variable("item");
-  private readonly IGqlpFieldKey _keyField = A.EnumFieldKey(BuiltIn.NullType, BuiltIn.NullValue);
+  private readonly IAstVariable _item = A.Variable("item");
+  private readonly IAstFieldKey _keyField = A.EnumFieldKey(BuiltIn.NullType, BuiltIn.NullValue);
 
   private readonly VerifyVariable _verifier = new();
-  private readonly List<IGqlpModifier> _modifiers = [];
+  private readonly List<IAstModifier> _modifiers = [];
 
   public VerifyVariableTests()
   {
@@ -77,7 +77,7 @@ public class VerifyVariableTests
   [Fact]
   public void Verify_ObjectListDefault()
   {
-    IGqlpFields<IGqlpConstant> fields = A.Fields<IGqlpConstant>("", default!);
+    IAstFields<IAstConstant> fields = A.Fields<IAstConstant>("", default!);
     _defValue.Fields.Returns(fields);
 
     AddModifier(ModifierKind.List);
@@ -127,8 +127,8 @@ public class VerifyVariableTests
   [Theory, RepeatData]
   public void Verify_ObjectOptionalListDefault(string key, string value)
   {
-    IGqlpConstant constant = A.Constant(value);
-    IGqlpFields<IGqlpConstant> fields = A.Fields(key, constant);
+    IAstConstant constant = A.Constant(value);
+    IAstFields<IAstConstant> fields = A.Fields(key, constant);
     _defValue.Fields.Returns(fields);
 
     AddModifier(ModifierKind.List);
@@ -167,7 +167,7 @@ public class VerifyVariableTests
 
   private void AddModifier(ModifierKind kind)
   {
-    IGqlpModifier modifier = A.Modifier(kind);
+    IAstModifier modifier = A.Modifier(kind);
     _modifiers.Add(modifier);
   }
 }

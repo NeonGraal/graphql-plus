@@ -23,6 +23,11 @@ public class CmptGnrcAltArgOutpObject<TType>
   : Schema_generic-alt-arg+Output
   , ICmptGnrcAltArgOutpObject<TType>
 {
+
+  public CmptGnrcAltArgOutpObject
+    ()
+  {
+  }
 }
 
 public class CmptRefGnrcAltArgOutp<TRef>
@@ -37,4 +42,9 @@ public class CmptRefGnrcAltArgOutpObject<TRef>
   : Schema_generic-alt-arg+Output
   , ICmptRefGnrcAltArgOutpObject<TRef>
 {
+
+  public CmptRefGnrcAltArgOutpObject
+    ()
+  {
+  }
 }

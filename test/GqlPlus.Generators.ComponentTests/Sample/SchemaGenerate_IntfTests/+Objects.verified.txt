@@ -204,6 +204,11 @@ public interface ICmptAltEnumDualObject
 {
 }
 
+public enum CmptEnumAltEnumDual
+{
+  altEnumDual,
+}
+
 public interface ICmptAltEnumInp
   : Schema_+Objects
 {
@@ -216,6 +221,11 @@ public interface ICmptAltEnumInpObject
 {
 }
 
+public enum CmptEnumAltEnumInp
+{
+  altEnumInp,
+}
+
 public interface ICmptAltEnumOutp
   : Schema_+Objects
 {
@@ -226,6 +236,11 @@ public interface ICmptAltEnumOutp
 public interface ICmptAltEnumOutpObject
   : Schema_+Objects
 {
+}
+
+public enum CmptEnumAltEnumOutp
+{
+  altEnumOutp,
 }
 
 public interface ICmptAltModBoolDual
@@ -849,6 +864,12 @@ public interface ICmptRefCnstDomEnumDualObject<TType>
   TType Field { get; }
 }
 
+public enum CmptEnumCnstDomEnumDual
+{
+  cnstDomEnumDual,
+  other,
+}
+
 public interface ICmptJustCnstDomEnumDual
   : IGqlpDomainEnum
 {
@@ -876,6 +897,12 @@ public interface ICmptRefCnstDomEnumInpObject<TType>
   : Schema_+Objects
 {
   TType Field { get; }
+}
+
+public enum CmptEnumCnstDomEnumInp
+{
+  cnstDomEnumInp,
+  other,
 }
 
 public interface ICmptJustCnstDomEnumInp
@@ -907,6 +934,12 @@ public interface ICmptRefCnstDomEnumOutpObject<TType>
   TType Field { get; }
 }
 
+public enum CmptEnumCnstDomEnumOutp
+{
+  cnstDomEnumOutp,
+  other,
+}
+
 public interface ICmptJustCnstDomEnumOutp
   : IGqlpDomainEnum
 {
@@ -936,6 +969,11 @@ public interface ICmptRefCnstEnumDualObject<TType>
   TType Field { get; }
 }
 
+public enum CmptEnumCnstEnumDual
+{
+  cnstEnumDual,
+}
+
 public interface ICmptCnstEnumInp
   : Schema_+Objects
 {
@@ -958,6 +996,11 @@ public interface ICmptRefCnstEnumInpObject<TType>
   : Schema_+Objects
 {
   TType Field { get; }
+}
+
+public enum CmptEnumCnstEnumInp
+{
+  cnstEnumInp,
 }
 
 public interface ICmptCnstEnumOutp
@@ -984,6 +1027,11 @@ public interface ICmptRefCnstEnumOutpObject<TType>
   TType Field { get; }
 }
 
+public enum CmptEnumCnstEnumOutp
+{
+  cnstEnumOutp,
+}
+
 public interface ICmptCnstEnumPrntDual
   : Schema_+Objects
 {
@@ -1006,6 +1054,17 @@ public interface ICmptRefCnstEnumPrntDualObject<TType>
   : Schema_+Objects
 {
   TType Field { get; }
+}
+
+public enum CmptEnumCnstEnumPrntDual
+{
+  parentCnstEnumPrntDual = CmptParentCnstEnumPrntDual.parentCnstEnumPrntDual,
+  cnstEnumPrntDual,
+}
+
+public enum CmptParentCnstEnumPrntDual
+{
+  parentCnstEnumPrntDual,
 }
 
 public interface ICmptCnstEnumPrntInp
@@ -1032,6 +1091,17 @@ public interface ICmptRefCnstEnumPrntInpObject<TType>
   TType Field { get; }
 }
 
+public enum CmptEnumCnstEnumPrntInp
+{
+  parentCnstEnumPrntInp = CmptParentCnstEnumPrntInp.parentCnstEnumPrntInp,
+  cnstEnumPrntInp,
+}
+
+public enum CmptParentCnstEnumPrntInp
+{
+  parentCnstEnumPrntInp,
+}
+
 public interface ICmptCnstEnumPrntOutp
   : Schema_+Objects
 {
@@ -1054,6 +1124,17 @@ public interface ICmptRefCnstEnumPrntOutpObject<TType>
   : Schema_+Objects
 {
   TType Field { get; }
+}
+
+public enum CmptEnumCnstEnumPrntOutp
+{
+  parentCnstEnumPrntOutp = CmptParentCnstEnumPrntOutp.parentCnstEnumPrntOutp,
+  cnstEnumPrntOutp,
+}
+
+public enum CmptParentCnstEnumPrntOutp
+{
+  parentCnstEnumPrntOutp,
 }
 
 public interface ICmptCnstFieldDmnDual
@@ -1761,6 +1842,17 @@ public interface ICmptRefCnstPrntEnumDualObject<TType>
   TType Field { get; }
 }
 
+public enum CmptEnumCnstPrntEnumDual
+{
+  parentCnstPrntEnumDual = CmptParentCnstPrntEnumDual.parentCnstPrntEnumDual,
+  cnstPrntEnumDual,
+}
+
+public enum CmptParentCnstPrntEnumDual
+{
+  parentCnstPrntEnumDual,
+}
+
 public interface ICmptCnstPrntEnumInp
   : Schema_+Objects
 {
@@ -1785,6 +1877,17 @@ public interface ICmptRefCnstPrntEnumInpObject<TType>
   TType Field { get; }
 }
 
+public enum CmptEnumCnstPrntEnumInp
+{
+  parentCnstPrntEnumInp = CmptParentCnstPrntEnumInp.parentCnstPrntEnumInp,
+  cnstPrntEnumInp,
+}
+
+public enum CmptParentCnstPrntEnumInp
+{
+  parentCnstPrntEnumInp,
+}
+
 public interface ICmptCnstPrntEnumOutp
   : Schema_+Objects
 {
@@ -1807,6 +1910,17 @@ public interface ICmptRefCnstPrntEnumOutpObject<TType>
   : Schema_+Objects
 {
   TType Field { get; }
+}
+
+public enum CmptEnumCnstPrntEnumOutp
+{
+  parentCnstPrntEnumOutp = CmptParentCnstPrntEnumOutp.parentCnstPrntEnumOutp,
+  cnstPrntEnumOutp,
+}
+
+public enum CmptParentCnstPrntEnumOutp
+{
+  parentCnstPrntEnumOutp,
 }
 
 public interface ICmptCnstPrntObjPrntDual
@@ -2109,6 +2223,11 @@ public interface ICmptFieldEnumDualObject
   CmptEnumFieldEnumDual Field { get; }
 }
 
+public enum CmptEnumFieldEnumDual
+{
+  fieldEnumDual,
+}
+
 public interface ICmptFieldEnumInp
   : Schema_+Objects
 {
@@ -2119,6 +2238,11 @@ public interface ICmptFieldEnumInpObject
   : Schema_+Objects
 {
   CmptEnumFieldEnumInp Field { get; }
+}
+
+public enum CmptEnumFieldEnumInp
+{
+  fieldEnumInp,
 }
 
 public interface ICmptFieldEnumOutp
@@ -2133,6 +2257,11 @@ public interface ICmptFieldEnumOutpObject
   CmptEnumFieldEnumOutp Field { get; }
 }
 
+public enum CmptEnumFieldEnumOutp
+{
+  fieldEnumOutp,
+}
+
 public interface ICmptFieldEnumPrntDual
   : Schema_+Objects
 {
@@ -2143,6 +2272,17 @@ public interface ICmptFieldEnumPrntDualObject
   : Schema_+Objects
 {
   CmptEnumFieldEnumPrntDual Field { get; }
+}
+
+public enum CmptEnumFieldEnumPrntDual
+{
+  prnt_fieldEnumPrntDual = CmptPrntFieldEnumPrntDual.prnt_fieldEnumPrntDual,
+  fieldEnumPrntDual,
+}
+
+public enum CmptPrntFieldEnumPrntDual
+{
+  prnt_fieldEnumPrntDual,
 }
 
 public interface ICmptFieldEnumPrntInp
@@ -2157,6 +2297,17 @@ public interface ICmptFieldEnumPrntInpObject
   CmptEnumFieldEnumPrntInp Field { get; }
 }
 
+public enum CmptEnumFieldEnumPrntInp
+{
+  prnt_fieldEnumPrntInp = CmptPrntFieldEnumPrntInp.prnt_fieldEnumPrntInp,
+  fieldEnumPrntInp,
+}
+
+public enum CmptPrntFieldEnumPrntInp
+{
+  prnt_fieldEnumPrntInp,
+}
+
 public interface ICmptFieldEnumPrntOutp
   : Schema_+Objects
 {
@@ -2167,6 +2318,17 @@ public interface ICmptFieldEnumPrntOutpObject
   : Schema_+Objects
 {
   CmptEnumFieldEnumPrntOutp Field { get; }
+}
+
+public enum CmptEnumFieldEnumPrntOutp
+{
+  prnt_fieldEnumPrntOutp = CmptPrntFieldEnumPrntOutp.prnt_fieldEnumPrntOutp,
+  fieldEnumPrntOutp,
+}
+
+public enum CmptPrntFieldEnumPrntOutp
+{
+  prnt_fieldEnumPrntOutp,
 }
 
 public interface ICmptFieldModEnumDual
@@ -2181,6 +2343,11 @@ public interface ICmptFieldModEnumDualObject
   IDictionary<CmptEnumFieldModEnumDual, string> Field { get; }
 }
 
+public enum CmptEnumFieldModEnumDual
+{
+  value,
+}
+
 public interface ICmptFieldModEnumInp
   : Schema_+Objects
 {
@@ -2193,6 +2360,11 @@ public interface ICmptFieldModEnumInpObject
   IDictionary<CmptEnumFieldModEnumInp, string> Field { get; }
 }
 
+public enum CmptEnumFieldModEnumInp
+{
+  value,
+}
+
 public interface ICmptFieldModEnumOutp
   : Schema_+Objects
 {
@@ -2203,6 +2375,11 @@ public interface ICmptFieldModEnumOutpObject
   : Schema_+Objects
 {
   IDictionary<CmptEnumFieldModEnumOutp, string> Field { get; }
+}
+
+public enum CmptEnumFieldModEnumOutp
+{
+  value,
 }
 
 public interface ICmptFieldModParamDual<TMod>
@@ -2439,6 +2616,11 @@ public interface ICmptFieldValueDualObject
   CmptEnumFieldValueDual Field { get; }
 }
 
+public enum CmptEnumFieldValueDual
+{
+  fieldValueDual,
+}
+
 public interface ICmptFieldValueInp
   : Schema_+Objects
 {
@@ -2449,6 +2631,11 @@ public interface ICmptFieldValueInpObject
   : Schema_+Objects
 {
   CmptEnumFieldValueInp Field { get; }
+}
+
+public enum CmptEnumFieldValueInp
+{
+  fieldValueInp,
 }
 
 public interface ICmptFieldValueOutp
@@ -2463,6 +2650,11 @@ public interface ICmptFieldValueOutpObject
   CmptEnumFieldValueOutp Field { get; }
 }
 
+public enum CmptEnumFieldValueOutp
+{
+  fieldValueOutp,
+}
+
 public interface ICmptFieldValueDescrDual
   : Schema_+Objects
 {
@@ -2473,6 +2665,11 @@ public interface ICmptFieldValueDescrDualObject
   : Schema_+Objects
 {
   CmptEnumFieldValueDescrDual Field { get; }
+}
+
+public enum CmptEnumFieldValueDescrDual
+{
+  fieldValueDescrDual,
 }
 
 public interface ICmptFieldValueDescrInp
@@ -2487,6 +2684,11 @@ public interface ICmptFieldValueDescrInpObject
   CmptEnumFieldValueDescrInp Field { get; }
 }
 
+public enum CmptEnumFieldValueDescrInp
+{
+  fieldValueDescrInp,
+}
+
 public interface ICmptFieldValueDescrOutp
   : Schema_+Objects
 {
@@ -2497,6 +2699,11 @@ public interface ICmptFieldValueDescrOutpObject
   : Schema_+Objects
 {
   CmptEnumFieldValueDescrOutp Field { get; }
+}
+
+public enum CmptEnumFieldValueDescrOutp
+{
+  fieldValueDescrOutp,
 }
 
 public interface ICmptGnrcAltDual<TType>
@@ -3105,6 +3312,11 @@ public interface ICmptRefGnrcEnumDualObject<TType>
   TType Field { get; }
 }
 
+public enum CmptEnumGnrcEnumDual
+{
+  gnrcEnumDual,
+}
+
 public interface ICmptGnrcEnumInp
   : Schema_+Objects
 {
@@ -3129,6 +3341,11 @@ public interface ICmptRefGnrcEnumInpObject<TType>
   TType Field { get; }
 }
 
+public enum CmptEnumGnrcEnumInp
+{
+  gnrcEnumInp,
+}
+
 public interface ICmptGnrcEnumOutp
   : Schema_+Objects
 {
@@ -3151,6 +3368,11 @@ public interface ICmptRefGnrcEnumOutpObject<TType>
   : Schema_+Objects
 {
   TType Field { get; }
+}
+
+public enum CmptEnumGnrcEnumOutp
+{
+  gnrcEnumOutp,
 }
 
 public interface ICmptGnrcFieldDual<TType>
@@ -3863,6 +4085,17 @@ public interface ICmptFieldGnrcPrntEnumChildDualObject<TRef>
   TRef Field { get; }
 }
 
+public enum CmptEnumGnrcPrntEnumChildDual
+{
+  gnrcPrntEnumChildDualParent = CmptParentGnrcPrntEnumChildDual.gnrcPrntEnumChildDualParent,
+  gnrcPrntEnumChildDualLabel,
+}
+
+public enum CmptParentGnrcPrntEnumChildDual
+{
+  gnrcPrntEnumChildDualParent,
+}
+
 public interface ICmptGnrcPrntEnumChildInp
   : ICmptFieldGnrcPrntEnumChildInp<CmptParentGnrcPrntEnumChildInp>
 {
@@ -3884,6 +4117,17 @@ public interface ICmptFieldGnrcPrntEnumChildInpObject<TRef>
   : Schema_+Objects
 {
   TRef Field { get; }
+}
+
+public enum CmptEnumGnrcPrntEnumChildInp
+{
+  gnrcPrntEnumChildInpParent = CmptParentGnrcPrntEnumChildInp.gnrcPrntEnumChildInpParent,
+  gnrcPrntEnumChildInpLabel,
+}
+
+public enum CmptParentGnrcPrntEnumChildInp
+{
+  gnrcPrntEnumChildInpParent,
 }
 
 public interface ICmptGnrcPrntEnumChildOutp
@@ -3909,6 +4153,17 @@ public interface ICmptFieldGnrcPrntEnumChildOutpObject<TRef>
   TRef Field { get; }
 }
 
+public enum CmptEnumGnrcPrntEnumChildOutp
+{
+  gnrcPrntEnumChildOutpParent = CmptParentGnrcPrntEnumChildOutp.gnrcPrntEnumChildOutpParent,
+  gnrcPrntEnumChildOutpLabel,
+}
+
+public enum CmptParentGnrcPrntEnumChildOutp
+{
+  gnrcPrntEnumChildOutpParent,
+}
+
 public interface ICmptGnrcPrntEnumDomDual
   : ICmptFieldGnrcPrntEnumDomDual<ICmptDomGnrcPrntEnumDomDual>
 {
@@ -3930,6 +4185,12 @@ public interface ICmptFieldGnrcPrntEnumDomDualObject<TRef>
   : Schema_+Objects
 {
   TRef Field { get; }
+}
+
+public enum CmptEnumGnrcPrntEnumDomDual
+{
+  gnrcPrntEnumDomDualLabel,
+  gnrcPrntEnumDomDualOther,
 }
 
 public interface ICmptDomGnrcPrntEnumDomDual
@@ -3960,6 +4221,12 @@ public interface ICmptFieldGnrcPrntEnumDomInpObject<TRef>
   TRef Field { get; }
 }
 
+public enum CmptEnumGnrcPrntEnumDomInp
+{
+  gnrcPrntEnumDomInpLabel,
+  gnrcPrntEnumDomInpOther,
+}
+
 public interface ICmptDomGnrcPrntEnumDomInp
   : IGqlpDomainEnum
 {
@@ -3986,6 +4253,12 @@ public interface ICmptFieldGnrcPrntEnumDomOutpObject<TRef>
   : Schema_+Objects
 {
   TRef Field { get; }
+}
+
+public enum CmptEnumGnrcPrntEnumDomOutp
+{
+  gnrcPrntEnumDomOutpLabel,
+  gnrcPrntEnumDomOutpOther,
 }
 
 public interface ICmptDomGnrcPrntEnumDomOutp
@@ -4016,6 +4289,17 @@ public interface ICmptFieldGnrcPrntEnumPrntDualObject<TRef>
   TRef Field { get; }
 }
 
+public enum CmptEnumGnrcPrntEnumPrntDual
+{
+  gnrcPrntEnumPrntDualParent = CmptParentGnrcPrntEnumPrntDual.gnrcPrntEnumPrntDualParent,
+  gnrcPrntEnumPrntDualLabel,
+}
+
+public enum CmptParentGnrcPrntEnumPrntDual
+{
+  gnrcPrntEnumPrntDualParent,
+}
+
 public interface ICmptGnrcPrntEnumPrntInp
   : ICmptFieldGnrcPrntEnumPrntInp<CmptEnumGnrcPrntEnumPrntInp>
 {
@@ -4039,6 +4323,17 @@ public interface ICmptFieldGnrcPrntEnumPrntInpObject<TRef>
   TRef Field { get; }
 }
 
+public enum CmptEnumGnrcPrntEnumPrntInp
+{
+  gnrcPrntEnumPrntInpParent = CmptParentGnrcPrntEnumPrntInp.gnrcPrntEnumPrntInpParent,
+  gnrcPrntEnumPrntInpLabel,
+}
+
+public enum CmptParentGnrcPrntEnumPrntInp
+{
+  gnrcPrntEnumPrntInpParent,
+}
+
 public interface ICmptGnrcPrntEnumPrntOutp
   : ICmptFieldGnrcPrntEnumPrntOutp<CmptEnumGnrcPrntEnumPrntOutp>
 {
@@ -4060,6 +4355,17 @@ public interface ICmptFieldGnrcPrntEnumPrntOutpObject<TRef>
   : Schema_+Objects
 {
   TRef Field { get; }
+}
+
+public enum CmptEnumGnrcPrntEnumPrntOutp
+{
+  gnrcPrntEnumPrntOutpParent = CmptParentGnrcPrntEnumPrntOutp.gnrcPrntEnumPrntOutpParent,
+  gnrcPrntEnumPrntOutpLabel,
+}
+
+public enum CmptParentGnrcPrntEnumPrntOutp
+{
+  gnrcPrntEnumPrntOutpParent,
 }
 
 public interface ICmptGnrcPrntParamDual
@@ -4301,6 +4607,11 @@ public interface ICmptFieldGnrcPrntSmplEnumDualObject<TRef>
   TRef Field { get; }
 }
 
+public enum CmptEnumGnrcPrntSmplEnumDual
+{
+  gnrcPrntSmplEnumDual,
+}
+
 public interface ICmptGnrcPrntSmplEnumInp
   : ICmptFieldGnrcPrntSmplEnumInp<CmptEnumGnrcPrntSmplEnumInp>
 {
@@ -4324,6 +4635,11 @@ public interface ICmptFieldGnrcPrntSmplEnumInpObject<TRef>
   TRef Field { get; }
 }
 
+public enum CmptEnumGnrcPrntSmplEnumInp
+{
+  gnrcPrntSmplEnumInp,
+}
+
 public interface ICmptGnrcPrntSmplEnumOutp
   : ICmptFieldGnrcPrntSmplEnumOutp<CmptEnumGnrcPrntSmplEnumOutp>
 {
@@ -4345,6 +4661,11 @@ public interface ICmptFieldGnrcPrntSmplEnumOutpObject<TRef>
   : Schema_+Objects
 {
   TRef Field { get; }
+}
+
+public enum CmptEnumGnrcPrntSmplEnumOutp
+{
+  gnrcPrntSmplEnumOutp,
 }
 
 public interface ICmptGnrcPrntStrDomDual
@@ -4455,6 +4776,11 @@ public interface ICmptRefGnrcValueDualObject<TType>
   TType Field { get; }
 }
 
+public enum CmptEnumGnrcValueDual
+{
+  gnrcValueDual,
+}
+
 public interface ICmptGnrcValueInp
   : Schema_+Objects
 {
@@ -4477,6 +4803,11 @@ public interface ICmptRefGnrcValueInpObject<TType>
   : Schema_+Objects
 {
   TType Field { get; }
+}
+
+public enum CmptEnumGnrcValueInp
+{
+  gnrcValueInp,
 }
 
 public interface ICmptGnrcValueOutp
@@ -4503,6 +4834,11 @@ public interface ICmptRefGnrcValueOutpObject<TType>
   TType Field { get; }
 }
 
+public enum CmptEnumGnrcValueOutp
+{
+  gnrcValueOutp,
+}
+
 public interface ICmptInpFieldDescrNmbr
   : Schema_+Objects
 {
@@ -4525,6 +4861,11 @@ public interface ICmptInpFieldEnumObject
   : Schema_+Objects
 {
   CmptEnumInpFieldEnum Field { get; }
+}
+
+public enum CmptEnumInpFieldEnum
+{
+  inpFieldEnum,
 }
 
 public interface ICmptInpFieldNull
@@ -4812,6 +5153,17 @@ public interface ICmptRefOutpPrntGnrcObject<TType>
   : Schema_+Objects
 {
   TType Field { get; }
+}
+
+public enum CmptEnumOutpPrntGnrc
+{
+  prnt_outpPrntGnrc = CmptPrntOutpPrntGnrc.prnt_outpPrntGnrc,
+  outpPrntGnrc,
+}
+
+public enum CmptPrntOutpPrntGnrc
+{
+  prnt_outpPrntGnrc,
 }
 
 public interface ICmptOutpPrntParam

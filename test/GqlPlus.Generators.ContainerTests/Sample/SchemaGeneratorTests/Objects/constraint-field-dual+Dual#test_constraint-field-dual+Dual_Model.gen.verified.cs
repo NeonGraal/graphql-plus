@@ -1,6 +1,6 @@
 ﻿//HintName: test_constraint-field-dual+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}constraint-field-dual+Dual.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -27,14 +27,14 @@ public class testCnstFieldDualDualObject
 }
 
 public class testRefCnstFieldDualDual<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstFieldDualDual<TRef>
 {
   public ItestRefCnstFieldDualDualObject<TRef>? As_RefCnstFieldDualDual { get; set; }
 }
 
 public class testRefCnstFieldDualDualObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstFieldDualDualObject<TRef>
 {
   public TRef Field { get; set; }
@@ -48,7 +48,7 @@ public class testRefCnstFieldDualDualObject<TRef>
 }
 
 public class testPrntCnstFieldDualDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestPrntCnstFieldDualDual
 {
   public string? AsString { get; set; }
@@ -56,9 +56,14 @@ public class testPrntCnstFieldDualDual
 }
 
 public class testPrntCnstFieldDualDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestPrntCnstFieldDualDualObject
 {
+
+  public testPrntCnstFieldDualDualObject
+    ()
+  {
+  }
 }
 
 public class testAltCnstFieldDualDual

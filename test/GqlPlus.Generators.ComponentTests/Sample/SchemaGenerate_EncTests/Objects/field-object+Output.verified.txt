@@ -1,0 +1,22 @@
+﻿/* field-object+Output
+output FieldObjOutp { field: FldFieldObjOutp }
+output FldFieldObjOutp { field: Number | String }
+*/
+
+// Generated from Schema field-object+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-object+Output, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_object_Output;
+
+internal class CmptFieldObjOutpEncoder
+{
+  public ICmptFldFieldObjOutp Field { get; set; }
+}
+
+internal class CmptFldFieldObjOutpEncoder
+{
+  public decimal Field { get; set; }
+}

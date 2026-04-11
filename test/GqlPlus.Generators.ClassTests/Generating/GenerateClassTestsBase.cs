@@ -10,7 +10,7 @@ public class GenerateClassTestsBase
     GqlpGeneratorType generatorType = GqlpGeneratorType.Model
   ) => new("testPath",
     new("testNamespace.testClass", baseType, generatorType),
-    new("testNamespace", TestPrefix, true));
+    new("testNamespace", TestPrefix));
 
   internal void SkipBuiltInTypes(params string[] typeNames)
   {
@@ -20,6 +20,6 @@ public class GenerateClassTestsBase
   }
 
   internal static IGenerator<T> GFor<T>()
-    where T : IGqlpError
+    where T : IAstError
     => A.Of<IGenerator<T>>();
 }

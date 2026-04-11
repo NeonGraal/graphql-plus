@@ -1,0 +1,49 @@
+﻿/* Names
+dual _Aliased {
+    : _Named
+        aliases: _Name[]
+    }
+
+dual _Named {
+    : _Described
+        name: _Name
+    }
+
+dual _Described {
+        description: String[]
+    }
+
+output _AndType {
+    : _Named
+        type: _Type
+    | _Type
+    }
+*/
+
+// Generated from Spec Names
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Names, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Names;
+
+internal class Cmpt_AliasedDecoder
+{
+  public ICollection<ICmpt_Name> Aliases { get; set; }
+}
+
+internal class Cmpt_NamedDecoder
+{
+  public ICmpt_Name Name { get; set; }
+}
+
+internal class Cmpt_DescribedDecoder
+{
+  public ICollection<string> Description { get; set; }
+}
+
+internal class Cmpt_AndTypeDecoder
+{
+  public ICmpt_Type Type { get; set; }
+}

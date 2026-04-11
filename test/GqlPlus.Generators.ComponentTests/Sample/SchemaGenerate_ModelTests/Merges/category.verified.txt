@@ -23,4 +23,9 @@ public class CmptCtgrObject
   : Schema_category
   , ICmptCtgrObject
 {
+
+  public CmptCtgrObject
+    ()
+  {
+  }
 }

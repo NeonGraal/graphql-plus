@@ -22,4 +22,9 @@ public class CmptObjAliasInpObject
   : Schema_object-alias+Input
   , ICmptObjAliasInpObject
 {
+
+  public CmptObjAliasInpObject
+    ()
+  {
+  }
 }

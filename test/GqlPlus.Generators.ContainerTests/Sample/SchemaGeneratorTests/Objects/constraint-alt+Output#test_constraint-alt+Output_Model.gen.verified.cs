@@ -1,6 +1,6 @@
 ﻿//HintName: test_constraint-alt+Output_Model.gen.cs
 // Generated from {CurrentDirectory}constraint-alt+Output.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_Output;
 
 public class testCnstAltOutp<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCnstAltOutp<TType>
 {
   public TType? Astype { get; set; }
@@ -16,7 +16,12 @@ public class testCnstAltOutp<TType>
 }
 
 public class testCnstAltOutpObject<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCnstAltOutpObject<TType>
 {
+
+  public testCnstAltOutpObject
+    ()
+  {
+  }
 }

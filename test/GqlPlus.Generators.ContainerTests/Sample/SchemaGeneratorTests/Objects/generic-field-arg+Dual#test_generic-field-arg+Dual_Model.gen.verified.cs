@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-field-arg+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}generic-field-arg+Dual.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_arg_Dual;
 
 public class testGnrcFieldArgDual<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcFieldArgDual<TType>
 {
   public ItestGnrcFieldArgDualObject<TType>? As_GnrcFieldArgDual { get; set; }
 }
 
 public class testGnrcFieldArgDualObject<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcFieldArgDualObject<TType>
 {
   public ItestRefGnrcFieldArgDual<TType> Field { get; set; }
@@ -29,7 +29,7 @@ public class testGnrcFieldArgDualObject<TType>
 }
 
 public class testRefGnrcFieldArgDual<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcFieldArgDual<TRef>
 {
   public TRef? Asref { get; set; }
@@ -37,7 +37,12 @@ public class testRefGnrcFieldArgDual<TRef>
 }
 
 public class testRefGnrcFieldArgDualObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcFieldArgDualObject<TRef>
 {
+
+  public testRefGnrcFieldArgDualObject
+    ()
+  {
+  }
 }

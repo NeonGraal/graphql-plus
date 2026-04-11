@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-alt-mod-param+Input_Model.gen.cs
 // Generated from {CurrentDirectory}generic-alt-mod-param+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_mod_param_Input;
 
 public class testRefGnrcAltModParamInp<TRef,TMod>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcAltModParamInp<TRef,TMod>
 {
   public IDictionary<TMod, TRef>? Asref { get; set; }
@@ -16,7 +16,12 @@ public class testRefGnrcAltModParamInp<TRef,TMod>
 }
 
 public class testRefGnrcAltModParamInpObject<TRef,TMod>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcAltModParamInpObject<TRef,TMod>
 {
+
+  public testRefGnrcAltModParamInpObject
+    ()
+  {
+  }
 }

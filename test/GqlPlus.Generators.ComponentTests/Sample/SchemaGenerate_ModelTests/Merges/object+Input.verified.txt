@@ -22,4 +22,9 @@ public class CmptObjInpObject
   : Schema_object+Input
   , ICmptObjInpObject
 {
+
+  public CmptObjInpObject
+    ()
+  {
+  }
 }

@@ -1,0 +1,22 @@
+﻿/* parent-field+Dual
+dual PrntFieldDual { :RefPrntFieldDual field: Number }
+dual RefPrntFieldDual { parent: Number | String }
+*/
+
+// Generated from Schema parent-field+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-field+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_field_Dual;
+
+internal class CmptPrntFieldDualDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptRefPrntFieldDualDecoder
+{
+  public decimal Parent { get; set; }
+}

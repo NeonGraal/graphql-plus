@@ -44,4 +44,9 @@ public class CmptFldObjFieldDualObject
   : Schema_object-field+Dual
   , ICmptFldObjFieldDualObject
 {
+
+  public CmptFldObjFieldDualObject
+    ()
+  {
+  }
 }

@@ -7,7 +7,7 @@ internal sealed record class UnionMemberAst(
   string Name,
   string Description
 ) : AstNamed(At, Name, Description)
-  , IGqlpUnionMember
+  , IAstUnionMember
 {
   internal override string Abbr => "UM";
 }

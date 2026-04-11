@@ -25,6 +25,11 @@ public class CmptOutpParamModDmnObject
 {
   public ICmptDomOutpParamModDmn? Field(IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter)
     => null;
+
+  public CmptOutpParamModDmnObject
+    ()
+  {
+  }
 }
 
 public class CmptInOutpParamModDmn

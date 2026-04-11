@@ -1,6 +1,6 @@
 ﻿//HintName: test_Schema_Model.gen.cs
 // Generated from {CurrentDirectory}Schema.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Schema;
 
 public class test_Opt<TT>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Opt<TT>
 {
   public TT? AsT { get; set; }
@@ -17,13 +17,18 @@ public class test_Opt<TT>
 }
 
 public class test_OptObject<TT>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OptObject<TT>
 {
+
+  public test_OptObject
+    ()
+  {
+  }
 }
 
 public class test_List<TT>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_List<TT>
 {
   public ICollection<TT>? AsT { get; set; }
@@ -31,13 +36,18 @@ public class test_List<TT>
 }
 
 public class test_ListObject<TT>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_ListObject<TT>
 {
+
+  public test_ListObject
+    ()
+  {
+  }
 }
 
 public class test_Dict<TK,TT>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Dict<TK,TT>
 {
   public IDictionary<TK, TT>? AsT { get; set; }
@@ -45,13 +55,18 @@ public class test_Dict<TK,TT>
 }
 
 public class test_DictObject<TK,TT>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_DictObject<TK,TT>
 {
+
+  public test_DictObject
+    ()
+  {
+  }
 }
 
 public class test_Map<TT>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Map<TT>
 {
   public IDictionary<string, TT>? AsT { get; set; }
@@ -59,13 +74,18 @@ public class test_Map<TT>
 }
 
 public class test_MapObject<TT>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_MapObject<TT>
 {
+
+  public test_MapObject
+    ()
+  {
+  }
 }
 
 public class test_Array<TT>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Array<TT>
 {
   public IDictionary<decimal, TT>? AsT { get; set; }
@@ -73,13 +93,18 @@ public class test_Array<TT>
 }
 
 public class test_ArrayObject<TT>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_ArrayObject<TT>
 {
+
+  public test_ArrayObject
+    ()
+  {
+  }
 }
 
 public class test_IfElse<TT>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_IfElse<TT>
 {
   public IDictionary<bool, TT>? AsT { get; set; }
@@ -87,13 +112,18 @@ public class test_IfElse<TT>
 }
 
 public class test_IfElseObject<TT>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_IfElseObject<TT>
 {
+
+  public test_IfElseObject
+    ()
+  {
+  }
 }
 
 public class test_Set<TK>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Set<TK>
 {
   public IDictionary<TK, GqlpUnit>? AsUnit { get; set; }
@@ -101,13 +131,18 @@ public class test_Set<TK>
 }
 
 public class test_SetObject<TK>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_SetObject<TK>
 {
+
+  public test_SetObject
+    ()
+  {
+  }
 }
 
 public class test_Mask<TK>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Mask<TK>
 {
   public IDictionary<TK, bool>? AsBoolean { get; set; }
@@ -115,26 +150,36 @@ public class test_Mask<TK>
 }
 
 public class test_MaskObject<TK>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_MaskObject<TK>
 {
+
+  public test_MaskObject
+    ()
+  {
+  }
 }
 
 public class test_Key
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Key
 {
 }
 
 public class test_Any
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Any
 {
   public Itest_AnyObject? As__Any { get; set; }
 }
 
 public class test_AnyObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_AnyObject
 {
+
+  public test_AnyObject
+    ()
+  {
+  }
 }

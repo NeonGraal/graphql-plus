@@ -24,6 +24,11 @@ public class CmptGnrcAltParamInpObject
   : Schema_generic-alt-param+Input
   , ICmptGnrcAltParamInpObject
 {
+
+  public CmptGnrcAltParamInpObject
+    ()
+  {
+  }
 }
 
 public class CmptRefGnrcAltParamInp<TRef>
@@ -38,6 +43,11 @@ public class CmptRefGnrcAltParamInpObject<TRef>
   : Schema_generic-alt-param+Input
   , ICmptRefGnrcAltParamInpObject<TRef>
 {
+
+  public CmptRefGnrcAltParamInpObject
+    ()
+  {
+  }
 }
 
 public class CmptAltGnrcAltParamInp

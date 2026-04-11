@@ -1,6 +1,6 @@
 ﻿//HintName: test_Union_Model.gen.cs
 // Generated from {CurrentDirectory}Union.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -18,6 +18,11 @@ public class test_UnionRefObject
   : test_TypeRefObject<Itest_SimpleKind>
   , Itest_UnionRefObject
 {
+
+  public test_UnionRefObject
+    ()
+  {
+  }
 }
 
 public class test_UnionMember

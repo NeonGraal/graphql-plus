@@ -1,0 +1,34 @@
+﻿/* generic-parent-enum-parent+Input
+input GnrcPrntEnumPrntInp { :FieldGnrcPrntEnumPrntInp<EnumGnrcPrntEnumPrntInp> }
+input FieldGnrcPrntEnumPrntInp<$ref:ParentGnrcPrntEnumPrntInp> { field: $ref }
+enum EnumGnrcPrntEnumPrntInp { :ParentGnrcPrntEnumPrntInp gnrcPrntEnumPrntInpLabel }
+enum ParentGnrcPrntEnumPrntInp { gnrcPrntEnumPrntInpParent }
+*/
+
+// Generated from Schema generic-parent-enum-parent+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-enum-parent+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_enum_parent_Input;
+
+internal class CmptGnrcPrntEnumPrntInpEncoder
+{
+}
+
+internal class CmptFieldGnrcPrntEnumPrntInpEncoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptEnumGnrcPrntEnumPrntInpEncoder
+{
+  public string gnrcPrntEnumPrntInpParent { get; set; }
+  public string gnrcPrntEnumPrntInpLabel { get; set; }
+}
+
+internal class CmptParentGnrcPrntEnumPrntInpEncoder
+{
+  public string gnrcPrntEnumPrntInpParent { get; set; }
+}

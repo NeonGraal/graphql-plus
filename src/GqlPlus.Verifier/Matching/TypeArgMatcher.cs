@@ -7,17 +7,17 @@ namespace GqlPlus.Matching;
 internal class TypeArgMatcher(
   IMatcherRepository matchers
 ) : MatchLogger(matchers)
-  , Matcher<IGqlpTypeArg>.I
+  , Matcher<IAstTypeArg>.I
 {
-  private readonly Matcher<IGqlpType>.L _anyTypeMatcher = matchers.MatcherFor<IGqlpType>();
+  private readonly Matcher<IAstType>.L _anyTypeMatcher = matchers.MatcherFor<IAstType>();
 
-  public bool Matches(IGqlpTypeArg arg, string constraint, EnumContext context)
+  public bool Matches(IAstTypeArg arg, string constraint, EnumContext context)
   {
     TryingMatch(arg, constraint);
 
-    return MatchArgOrType<IGqlpType, EnumContext>(arg.FullType, constraint, context, ArgAction);
+    return MatchArgOrType<IAstType, EnumContext>(arg.FullType, constraint, context, ArgAction);
 
-    bool ArgAction(IGqlpType t, string c, EnumContext ctx)
+    bool ArgAction(IAstType t, string c, EnumContext ctx)
     {
       if (arg.EnumValue is not null
         && MatchArgLabel(arg, constraint, context)) {
@@ -28,15 +28,15 @@ internal class TypeArgMatcher(
     }
   }
 
-  private bool MatchArgLabel(IGqlpTypeArg arg, string constraint, EnumContext context)
+  private bool MatchArgLabel(IAstTypeArg arg, string constraint, EnumContext context)
   {
-    if (context.GetType(constraint, out IGqlpDescribed? constraintType) && arg.EnumValue is not null) {
-      if (constraintType is IGqlpEnum enumType) {
+    if (context.GetType(constraint, out IAstDescribed? constraintType) && arg.EnumValue is not null) {
+      if (constraintType is IAstEnum enumType) {
         if (EnumHasLabel(context, enumType, arg.EnumValue.EnumLabel)) {
           return true;
         }
-      } else if (constraintType is IGqlpDomain<IGqlpDomainLabel> domType) {
-        IGqlpDomainLabel? domLabel = DomainHasLabel(context, domType, arg.EnumValue.EnumLabel);
+      } else if (constraintType is IAstDomain<IAstDomainLabel> domType) {
+        IAstDomainLabel? domLabel = DomainHasLabel(context, domType, arg.EnumValue.EnumLabel);
         return domLabel?.Excludes == false;
       }
     }
@@ -44,17 +44,17 @@ internal class TypeArgMatcher(
     return false;
   }
 
-  private IGqlpDomainLabel? DomainHasLabel(UsageContext context, IGqlpDomain<IGqlpDomainLabel> domType, string label)
+  private IAstDomainLabel? DomainHasLabel(UsageContext context, IAstDomain<IAstDomainLabel> domType, string label)
   {
-    foreach (IGqlpDomainLabel item in domType.Items.Where(i => i.EnumItem == label || i.EnumItem == GqlpDomainLabelConstants.All)) {
-      if (context.GetTyped(item.EnumType, out IGqlpEnum? enumType)) {
+    foreach (IAstDomainLabel item in domType.Items.Where(i => i.EnumItem == label || i.EnumItem == GqlpDomainLabelConstants.All)) {
+      if (context.GetTyped(item.EnumType, out IAstEnum? enumType)) {
         if (EnumHasLabel(context, enumType, label)) {
           return item;
         }
       }
     }
 
-    if (context.GetTyped(domType.Parent?.Name, out IGqlpDomain<IGqlpDomainLabel>? parentType)) {
+    if (context.GetTyped(domType.Parent?.Name, out IAstDomain<IAstDomainLabel>? parentType)) {
       return DomainHasLabel(context, parentType, label);
     }
 
@@ -62,13 +62,13 @@ internal class TypeArgMatcher(
   }
 
   [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Todo")]
-  internal bool EnumHasLabel(UsageContext context, IGqlpEnum enumType, string label)
+  internal bool EnumHasLabel(UsageContext context, IAstEnum enumType, string label)
   {
     if (enumType.HasValue(label)) {
       return true;
     }
 
-    if (context.GetTyped(enumType.Parent?.Name, out IGqlpEnum? parentType)) {
+    if (context.GetTyped(enumType.Parent?.Name, out IAstEnum? parentType)) {
       return EnumHasLabel(context, parentType, label);
     }
 

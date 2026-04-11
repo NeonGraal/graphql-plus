@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Generating.Objects;
 
-internal class OutputGenerator
-  : GenerateForObject<IGqlpOutputField, OutputField>
+internal abstract class OutputGeneratorBase
+  : GenerateForObject<IAstOutputField, OutputField>
 {
   protected override void ClassMember(OutputField item, GqlpGeneratorContext context)
   {
@@ -24,17 +24,45 @@ internal class OutputGenerator
     }
   }
 
-  internal override IEnumerable<OutputField> TypeMembers(IGqlpObject<IGqlpOutputField> ast, GqlpGeneratorTypes types)
+  internal override IEnumerable<OutputField> TypeMembers(IAstObject<IAstOutputField> ast, GqlpGeneratorTypes types)
     => ast.ObjFields.Select(f => new OutputField(
       f.Name.Capitalize(),
       ModifiedTypeString(f.Type, f, types),
       f.Parameter is null ? "" : ModifiedTypeString(f.Parameter.Type, f.Parameter, types)));
 
-  internal override MapPair<RequiredField>[] RequiredMembers(IGqlpObject ast, GqlpGeneratorTypes types)
+  internal override MapPair<RequiredField>[] RequiredMembers(IAstObject ast, GqlpGeneratorTypes types)
     => [.. ast.Fields
       .Where(f => f.Modifiers.LastOrDefault()?.ModifierKind != ModifierKind.Opt
-        && !(f is IGqlpOutputField outF && outF.Parameter is not null))
+        && !(f is IAstOutputField outF && outF.Parameter is not null))
       .Select(RequiredMember(types))];
+}
+
+internal sealed class OutputInterfaceGenerator
+  : OutputGeneratorBase
+{
+  protected override void Generate(IAstObject<IAstOutputField> ast, GqlpGeneratorContext context)
+    => GenerateObjectInterfaces(ast, context);
+}
+
+internal sealed class OutputModelGenerator
+  : OutputGeneratorBase
+{
+  protected override void Generate(IAstObject<IAstOutputField> ast, GqlpGeneratorContext context)
+    => GenerateObjectClasses(ast, context);
+}
+
+internal sealed class OutputDecoderGenerator
+  : OutputGeneratorBase
+{
+  protected override void Generate(IAstObject<IAstOutputField> ast, GqlpGeneratorContext context)
+    => GenerateBlock(ast, context, DecoderHeader, TypeMembers, ClassMember);
+}
+
+internal sealed class OutputEncoderGenerator
+  : OutputGeneratorBase
+{
+  protected override void Generate(IAstObject<IAstOutputField> ast, GqlpGeneratorContext context)
+    => GenerateBlock(ast, context, EncoderHeader, TypeMembers, ClassMember);
 }
 
 internal class OutputField(string fieldName, string fieldType, string fieldParam)

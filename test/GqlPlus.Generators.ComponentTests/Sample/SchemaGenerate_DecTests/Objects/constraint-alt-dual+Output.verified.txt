@@ -1,0 +1,31 @@
+﻿/* constraint-alt-dual+Output
+output CnstAltDualOutp { | RefCnstAltDualOutp<AltCnstAltDualOutp> }
+output RefCnstAltDualOutp<$ref:PrntCnstAltDualOutp> { | $ref }
+dual PrntCnstAltDualOutp { | String }
+output AltCnstAltDualOutp { :PrntCnstAltDualOutp alt: Number }
+*/
+
+// Generated from Schema constraint-alt-dual+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-alt-dual+Output, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_dual_Output;
+
+internal class CmptCnstAltDualOutpDecoder
+{
+}
+
+internal class CmptRefCnstAltDualOutpDecoder<TRef>
+{
+}
+
+internal class CmptPrntCnstAltDualOutpDecoder
+{
+}
+
+internal class CmptAltCnstAltDualOutpDecoder
+{
+  public decimal Alt { get; set; }
+}

@@ -3,12 +3,12 @@
 public sealed class FieldsBuilder<T>
   : IMockBuilder
 {
-  internal Dictionary<IGqlpFieldKey, T> _fields = [];
+  internal Dictionary<IAstFieldKey, T> _fields = [];
 
-  public IGqlpFields<T> AsFields
+  public IAstFields<T> AsFields
   {
     get {
-      IGqlpFields<T> fields = Substitute.For<IGqlpFields<T>>();
+      IAstFields<T> fields = Substitute.For<IAstFields<T>>();
       fields.Count.Returns(_fields.Count);
       fields.GetEnumerator().Returns(_fields.GetEnumerator());
       return fields;

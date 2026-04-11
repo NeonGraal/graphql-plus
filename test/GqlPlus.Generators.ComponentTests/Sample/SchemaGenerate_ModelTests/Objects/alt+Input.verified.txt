@@ -23,6 +23,11 @@ public class CmptAltInpObject
   : Schema_alt+Input
   , ICmptAltInpObject
 {
+
+  public CmptAltInpObject
+    ()
+  {
+  }
 }
 
 public class CmptAltAltInp

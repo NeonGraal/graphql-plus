@@ -1,6 +1,6 @@
 ﻿//HintName: test_object-alt+Input_Model.gen.cs
 // Generated from {CurrentDirectory}object-alt+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_object_alt_Input;
 
 public class testObjAltInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAltInp
 {
   public ItestObjAltInpType? AsObjAltInpType { get; set; }
@@ -16,20 +16,30 @@ public class testObjAltInp
 }
 
 public class testObjAltInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAltInpObject
 {
+
+  public testObjAltInpObject
+    ()
+  {
+  }
 }
 
 public class testObjAltInpType
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAltInpType
 {
   public ItestObjAltInpTypeObject? As_ObjAltInpType { get; set; }
 }
 
 public class testObjAltInpTypeObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjAltInpTypeObject
 {
+
+  public testObjAltInpTypeObject
+    ()
+  {
+  }
 }

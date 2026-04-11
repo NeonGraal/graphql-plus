@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-alt-arg+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}generic-alt-arg+Dual.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_arg_Dual;
 
 public class testGnrcAltArgDual<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcAltArgDual<TType>
 {
   public ItestRefGnrcAltArgDual<TType>? AsRefGnrcAltArgDual { get; set; }
@@ -16,13 +16,18 @@ public class testGnrcAltArgDual<TType>
 }
 
 public class testGnrcAltArgDualObject<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcAltArgDualObject<TType>
 {
+
+  public testGnrcAltArgDualObject
+    ()
+  {
+  }
 }
 
 public class testRefGnrcAltArgDual<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcAltArgDual<TRef>
 {
   public TRef? Asref { get; set; }
@@ -30,7 +35,12 @@ public class testRefGnrcAltArgDual<TRef>
 }
 
 public class testRefGnrcAltArgDualObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcAltArgDualObject<TRef>
 {
+
+  public testRefGnrcAltArgDualObject
+    ()
+  {
+  }
 }

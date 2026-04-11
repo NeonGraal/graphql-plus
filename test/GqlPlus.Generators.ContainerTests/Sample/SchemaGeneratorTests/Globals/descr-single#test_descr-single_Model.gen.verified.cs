@@ -1,6 +1,6 @@
 ﻿//HintName: test_descr-single_Model.gen.cs
 // Generated from {CurrentDirectory}descr-single.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,19 @@
 namespace GqlPlus.GeneratorTests.Gqlp_descr_single;
 
 public class testDescrSngl
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestDescrSngl
 {
   public ItestDescrSnglObject? As_DescrSngl { get; set; }
 }
 
 public class testDescrSnglObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestDescrSnglObject
 {
+
+  public testDescrSnglObject
+    ()
+  {
+  }
 }

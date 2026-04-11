@@ -1,0 +1,31 @@
+﻿/* domain-enum-exclude-parent
+domain DmnEnumExclPrnt { enum EnumDmnEnumExclPrnt.* !PrntDmnEnumExclPrnt.* }
+enum EnumDmnEnumExclPrnt { :PrntDmnEnumExclPrnt dmnEnumExclPrnt dmnEnumExclPrntValue }
+enum PrntDmnEnumExclPrnt { prnt_dmnEnumExclPrnt dmnEnumExclPrntPrnt }
+*/
+
+// Generated from Schema domain-enum-exclude-parent
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-enum-exclude-parent, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_enum_exclude_parent;
+
+internal class CmptDmnEnumExclPrntDecoder
+{
+}
+
+internal class CmptEnumDmnEnumExclPrntDecoder
+{
+  public string prnt_dmnEnumExclPrnt { get; set; }
+  public string dmnEnumExclPrntPrnt { get; set; }
+  public string dmnEnumExclPrnt { get; set; }
+  public string dmnEnumExclPrntValue { get; set; }
+}
+
+internal class CmptPrntDmnEnumExclPrntDecoder
+{
+  public string prnt_dmnEnumExclPrnt { get; set; }
+  public string dmnEnumExclPrntPrnt { get; set; }
+}

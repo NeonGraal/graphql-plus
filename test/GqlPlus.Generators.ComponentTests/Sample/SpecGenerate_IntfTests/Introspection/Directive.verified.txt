@@ -49,3 +49,13 @@ public interface ICmpt_DirectiveObject
   bool Repeatable { get; }
   IDictionary<Cmpt_Location, GqlpUnit> Locations { get; }
 }
+
+public enum Cmpt_Location
+{
+  Operation,
+  Variable,
+  Field,
+  Inline,
+  Spread,
+  Fragment,
+}

@@ -7,11 +7,11 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseTypeArgs
-  : Parser<IGqlpTypeArg>.IA
+  : Parser<IAstTypeArg>.IA
 {
-  public IResultArray<IGqlpTypeArg> Parse(ITokenizer tokens, string label)
+  public IResultArray<IAstTypeArg> Parse(ITokenizer tokens, string label)
   {
-    List<IGqlpTypeArg> list = [];
+    List<IAstTypeArg> list = [];
 
     if (!tokens.Take('<')) {
       return list.EmptyArray();

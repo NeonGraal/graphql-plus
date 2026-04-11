@@ -5,8 +5,8 @@ public class GqlpModelOptionsTests
   [Theory, RepeatData]
   public void Equals_SameProperties_ReturnsTrue(string baseNamespace, string typePrefix)
   {
-    GqlpModelOptions a = new(baseNamespace, typePrefix, true);
-    GqlpModelOptions b = new(baseNamespace, typePrefix, true);
+    GqlpModelOptions a = new(baseNamespace, typePrefix);
+    GqlpModelOptions b = new(baseNamespace, typePrefix);
 
     a.Equals(b).ShouldBeTrue();
     a.Equals((object)b).ShouldBeTrue();
@@ -17,8 +17,8 @@ public class GqlpModelOptionsTests
   [Theory, RepeatData]
   public void Equals_DifferentBaseNamespace_ReturnsFalse(string baseNamespace, string typePrefix)
   {
-    GqlpModelOptions a = new(baseNamespace, typePrefix, true);
-    GqlpModelOptions b = new(baseNamespace + "_diff", typePrefix, true);
+    GqlpModelOptions a = new(baseNamespace, typePrefix);
+    GqlpModelOptions b = new(baseNamespace + "_diff", typePrefix);
 
     a.Equals(b).ShouldBeFalse();
     a.Equals((object)b).ShouldBeFalse();
@@ -27,8 +27,8 @@ public class GqlpModelOptionsTests
   [Theory, RepeatData]
   public void Equals_DifferentTypePrefix_ReturnsFalse(string baseNamespace, string typePrefix)
   {
-    GqlpModelOptions a = new(baseNamespace, typePrefix, true);
-    GqlpModelOptions b = new(baseNamespace, typePrefix + "_diff", true);
+    GqlpModelOptions a = new(baseNamespace, typePrefix);
+    GqlpModelOptions b = new(baseNamespace, typePrefix + "_diff");
 
     a.Equals(b).ShouldBeFalse();
     a.Equals((object)b).ShouldBeFalse();
@@ -37,7 +37,7 @@ public class GqlpModelOptionsTests
   [Theory, RepeatData]
   public void Equals_Null_ReturnsFalse(string baseNamespace, string typePrefix)
   {
-    GqlpModelOptions a = new(baseNamespace, typePrefix, true);
+    GqlpModelOptions a = new(baseNamespace, typePrefix);
     GqlpModelOptions? b = null;
 
 #pragma warning disable CA1508 // Avoid dead conditional code
@@ -51,7 +51,7 @@ public class GqlpModelOptionsTests
   [Theory, RepeatData]
   public void GetHashCode_ConsistentForSameInstance(string baseNamespace, string typePrefix)
   {
-    GqlpModelOptions a = new(baseNamespace, typePrefix, true);
+    GqlpModelOptions a = new(baseNamespace, typePrefix);
 
     int h1 = a.GetHashCode();
     int h2 = a.GetHashCode();

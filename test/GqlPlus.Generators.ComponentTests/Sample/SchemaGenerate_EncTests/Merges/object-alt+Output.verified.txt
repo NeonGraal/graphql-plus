@@ -1,0 +1,21 @@
+﻿/* object-alt+Output
+output ObjAltOutp { | ObjAltOutpType }
+output ObjAltOutp { | ObjAltOutpType }
+output ObjAltOutpType { }
+*/
+
+// Generated from Schema object-alt+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alt+Output, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alt_Output;
+
+internal class CmptObjAltOutpEncoder
+{
+}
+
+internal class CmptObjAltOutpTypeEncoder
+{
+}

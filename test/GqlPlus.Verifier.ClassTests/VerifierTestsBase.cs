@@ -41,7 +41,7 @@ public class VerifierTestsBase
 }
 
 internal readonly struct ForVU<TResult>
-  where TResult : class, IGqlpError
+  where TResult : class, IAstError
 {
   internal IVerifyUsage<TResult> Intf { get; }
 
@@ -52,7 +52,7 @@ internal readonly struct ForVU<TResult>
 }
 
 internal readonly struct ForVA<TResult>
-  where TResult : class, IGqlpAliased
+  where TResult : class, IAstAliased
 {
   internal IVerifyAliased<TResult> Intf { get; }
 
@@ -73,7 +73,7 @@ internal readonly struct ForV<TResult>
 }
 
 internal readonly struct ForM<TItem>
-  where TItem : IGqlpError
+  where TItem : IAstError
 {
   internal IMerge<TItem> Intf { get; }
 

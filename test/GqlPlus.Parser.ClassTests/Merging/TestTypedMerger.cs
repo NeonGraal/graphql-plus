@@ -4,10 +4,10 @@ namespace GqlPlus.Merging;
 
 public abstract class TestTypedMerger<TBase, TType, TParent, TItem>
   : TestAliasedMerger<TType>
-  where TBase : IGqlpType
-  where TType : IGqlpType<TParent>, TBase
-  where TParent : IGqlpDescribed, IEquatable<TParent>
-  where TItem : IGqlpError
+  where TBase : IAstType
+  where TType : IAstType<TParent>, TBase
+  where TParent : IAstDescribed, IEquatable<TParent>
+  where TItem : IAstError
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSameParent_ReturnsGood(string name, string type)

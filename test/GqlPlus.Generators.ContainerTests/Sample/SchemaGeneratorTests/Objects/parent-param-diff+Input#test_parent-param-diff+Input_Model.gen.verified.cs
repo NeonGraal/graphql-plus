@@ -1,6 +1,6 @@
 ﻿//HintName: test_parent-param-diff+Input_Model.gen.cs
 // Generated from {CurrentDirectory}parent-param-diff+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -29,7 +29,7 @@ public class testPrntParamDiffInpObject<TA>
 }
 
 public class testRefPrntParamDiffInp<TB>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefPrntParamDiffInp<TB>
 {
   public TB? Asb { get; set; }
@@ -37,7 +37,12 @@ public class testRefPrntParamDiffInp<TB>
 }
 
 public class testRefPrntParamDiffInpObject<TB>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefPrntParamDiffInpObject<TB>
 {
+
+  public testRefPrntParamDiffInpObject
+    ()
+  {
+  }
 }

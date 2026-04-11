@@ -22,4 +22,9 @@ public class CmptDescrDblObject
   : Schema_descr-double
   , ICmptDescrDblObject
 {
+
+  public CmptDescrDblObject
+    ()
+  {
+  }
 }

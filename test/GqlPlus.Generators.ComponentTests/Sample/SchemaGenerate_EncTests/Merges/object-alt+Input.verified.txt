@@ -1,0 +1,21 @@
+﻿/* object-alt+Input
+input ObjAltInp { | ObjAltInpType }
+input ObjAltInp { | ObjAltInpType }
+input ObjAltInpType { }
+*/
+
+// Generated from Schema object-alt+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alt+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alt_Input;
+
+internal class CmptObjAltInpEncoder
+{
+}
+
+internal class CmptObjAltInpTypeEncoder
+{
+}

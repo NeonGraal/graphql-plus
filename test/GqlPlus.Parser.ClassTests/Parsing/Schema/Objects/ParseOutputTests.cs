@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -6,15 +6,15 @@ public class ParseOutputTests
   : DeclarationClassTestBase
 {
 
-  private readonly Parser<IGqlpTypeParam>.IA _param;
-  private readonly Parser<ObjectDefinition<IGqlpOutputField>>.I _definition;
-  private readonly ObjectParser<IGqlpOutputField> _parser;
+  private readonly Parser<IAstTypeParam>.IA _param;
+  private readonly Parser<ObjectDefinition<IAstOutputField>>.I _definition;
+  private readonly ObjectParser<IAstOutputField> _parser;
 
   public ParseOutputTests()
   {
-    ConfigureRepoArray<IGqlpTypeParam>(Parsers, out _param);
-    ConfigureRepo<ObjectDefinition<IGqlpOutputField>>(Parsers, out _definition);
-    _parser = new ObjectParser<IGqlpOutputField>(TypeKind.Output, Parsers);
+    ConfigureRepoArray<IAstTypeParam>(Parsers, out _param);
+    ConfigureRepo<ObjectDefinition<IAstOutputField>>(Parsers, out _definition);
+    _parser = new ObjectParser<IAstOutputField>(TypeKind.Output, Parsers);
   }
 
   [Theory, RepeatData]
@@ -22,13 +22,13 @@ public class ParseOutputTests
   {
     // Arrange
     NameReturns(outputName);
-    ParseOk(_definition, new ObjectDefinition<IGqlpOutputField>());
+    ParseOk(_definition, new ObjectDefinition<IAstOutputField>());
 
     // Act
-    IResult<IGqlpObject<IGqlpOutputField>> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstObject<IAstOutputField>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpObject<IGqlpOutputField>>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstObject<IAstOutputField>>>();
   }
 
   [Fact]
@@ -36,10 +36,10 @@ public class ParseOutputTests
   {
     // Arrange
     Tokenizer.Identifier(out _).Returns(false);
-    SetupError<IGqlpObject<IGqlpOutputField>>();
+    SetupError<IAstObject<IAstOutputField>>();
 
     // Act
-    IResult<IGqlpObject<IGqlpOutputField>> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstObject<IAstOutputField>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

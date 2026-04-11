@@ -1,6 +1,6 @@
 ﻿//HintName: test_field-simple+Input_Model.gen.cs
 // Generated from {CurrentDirectory}field-simple+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_field_simple_Input;
 
 public class testFieldSmplInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldSmplInp
 {
   public ItestFieldSmplInpObject? As_FieldSmplInp { get; set; }
 }
 
 public class testFieldSmplInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldSmplInpObject
 {
   public decimal Field { get; set; }

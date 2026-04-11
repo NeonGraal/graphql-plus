@@ -1,22 +1,24 @@
-﻿namespace GqlPlus.Verifying.Schema.Globals;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Verifying.Schema.Globals;
 
 [TracePerTest]
 public class VerifyDirectiveInputTests
-  : UsageVerifierTestsBase<IGqlpSchemaDirective>
+  : UsageVerifierTestsBase<IAstSchemaDirective>
 {
   private readonly VerifyDirectiveInput _verifier;
-  private readonly IGqlpSchemaDirective _directive;
+  private readonly IAstSchemaDirective _directive;
 
-  protected override IGqlpSchemaDirective TheUsage => _directive;
-  protected override IVerifyUsage<IGqlpSchemaDirective> Verifier => _verifier;
+  protected override IAstSchemaDirective TheUsage => _directive;
+  protected override IVerifyUsage<IAstSchemaDirective> Verifier => _verifier;
 
   public VerifyDirectiveInputTests()
   {
     _verifier = new(VerifierRepo);
 
-    IGqlpInputParam input = A.InputParam("Type").AsInputParam;
+    IAstInputParam input = A.InputParam("Type").AsInputParam;
 
-    _directive = A.Error<IGqlpSchemaDirective>();
+    _directive = A.Error<IAstSchemaDirective>();
     _directive.Parameter.Returns(input);
   }
 
@@ -43,7 +45,7 @@ public class VerifyDirectiveInputTests
   [Fact]
   public void Verify_DefinedInput_ReturnsNoError()
   {
-    Define<IGqlpObject<IGqlpInputField>>("Type");
+    Define<IAstObject<IAstInputField>>("Type");
 
     Usages.Add(_directive);
 
@@ -55,7 +57,7 @@ public class VerifyDirectiveInputTests
   [Fact]
   public void Verify_WithAliases_ReturnsNoError()
   {
-    Define<IGqlpObject<IGqlpInputField>>("Type");
+    Define<IAstObject<IAstInputField>>("Type");
 
     _directive.Aliases.Returns(["Alias1", "Alias2"]);
     Usages.Add(_directive);
@@ -68,7 +70,7 @@ public class VerifyDirectiveInputTests
   [Fact]
   public void Verify_DefinedOutput_ReturnsError()
   {
-    Define<IGqlpObject<IGqlpOutputField>>("Type");
+    Define<IAstObject<IAstOutputField>>("Type");
 
     Usages.Add(_directive);
 

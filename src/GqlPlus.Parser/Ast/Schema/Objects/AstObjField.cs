@@ -1,28 +1,26 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Ast.Schema.Objects;
+﻿namespace GqlPlus.Ast.Schema.Objects;
 
 internal abstract record class AstObjField(
   ITokenAt At,
   string Name,
   string Description,
-  IGqlpObjBase Type
+  IAstObjBase Type
 ) : AstAliased(At, Name, Description)
-  , IGqlpObjField
+  , IAstObjField
 {
-  public IGqlpObjBase Type { get; set; } = Type;
-  public IGqlpModifier[] Modifiers { get; set; } = [];
-  public IGqlpEnumValue? EnumValue { get; set; }
+  public IAstObjBase Type { get; set; } = Type;
+  public IAstModifier[] Modifiers { get; set; } = [];
+  public IAstEnumValue? EnumValue { get; set; }
 
-  string IGqlpObjEnum.EnumTypeName => Type.Name;
-  void IGqlpObjEnum.SetEnumType(string enumType)
+  string IAstObjEnum.EnumTypeName => Type.Name;
+  void IAstObjEnum.SetEnumType(string enumType)
   {
     string enumLabel = EnumValue?.EnumLabel ?? Type.Name;
     Type.SetName(enumType);
     EnumValue = new EnumValueAst(At, enumType, enumLabel);
   }
 
-  IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
+  IEnumerable<IAstModifier> IAstModifiers.Modifiers => Modifiers;
 
   protected internal IEnumerable<string?> TypeFields(string suffix = "")
     => string.IsNullOrWhiteSpace(EnumValue?.EnumLabel)
@@ -32,8 +30,8 @@ internal abstract record class AstObjField(
   public string ModifiedType => Type.GetFields().Skip(2).Concat(Modifiers.AsString()).Joined();
 
   public virtual bool Equals(AstObjField? other)
-    => other is IGqlpObjField field && Equals(field);
-  public bool Equals(IGqlpObjField? other)
+    => other is IAstObjField field && Equals(field);
+  public bool Equals(IAstObjField? other)
     => base.Equals(other)
     && Type.Equals(other!.Type)
     && Modifiers.SequenceEqual(other.Modifiers)

@@ -1,0 +1,31 @@
+﻿/* domain-enum-unique
+domain DmnEnumUnq { enum EnumDmnEnumUnq.* !EnumDmnEnumUnq.dmnEnumUnq DupDmnEnumUnq.dmnEnumUnq }
+enum EnumDmnEnumUnq { enum_dmnEnumUnq dmnEnumUnq dmnEnumUnqValue }
+enum DupDmnEnumUnq { dmnEnumUnq dup_dmnEnumUnq dmnEnumUnqDup }
+*/
+
+// Generated from Schema domain-enum-unique
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-enum-unique, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_enum_unique;
+
+internal class CmptDmnEnumUnqEncoder
+{
+}
+
+internal class CmptEnumDmnEnumUnqEncoder
+{
+  public string enum_dmnEnumUnq { get; set; }
+  public string dmnEnumUnq { get; set; }
+  public string dmnEnumUnqValue { get; set; }
+}
+
+internal class CmptDupDmnEnumUnqEncoder
+{
+  public string dmnEnumUnq { get; set; }
+  public string dup_dmnEnumUnq { get; set; }
+  public string dmnEnumUnqDup { get; set; }
+}

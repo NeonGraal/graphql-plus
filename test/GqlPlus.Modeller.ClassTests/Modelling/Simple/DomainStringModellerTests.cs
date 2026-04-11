@@ -1,9 +1,11 @@
-﻿namespace GqlPlus.Modelling.Simple;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Modelling.Simple;
 
 public class DomainStringModellerTests
-  : DomainModellerClassTestBase<IGqlpDomainRegex, DomainRegexModel>
+  : DomainModellerClassTestBase<IAstDomainRegex, DomainRegexModel>
 {
-  protected override IDomainModeller<IGqlpDomainRegex, DomainRegexModel> DomainModeller { get; }
+  protected override IDomainModeller<IAstDomainRegex, DomainRegexModel> DomainModeller { get; }
     = new DomainStringModeller();
 
   protected override DomainKind Kind => DomainKind.String;

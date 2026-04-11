@@ -1,6 +1,6 @@
 ﻿//HintName: test_Directive_Model.gen.cs
 // Generated from {CurrentDirectory}Directive.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */

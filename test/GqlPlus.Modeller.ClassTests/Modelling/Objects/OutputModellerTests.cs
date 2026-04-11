@@ -1,24 +1,26 @@
-﻿namespace GqlPlus.Modelling.Objects;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Modelling.Objects;
 
 public class OutputModellerTests
-  : ModellerObjectBaseTestBase<IGqlpObject<IGqlpOutputField>, TypeOutputModel, ObjBaseModel>
+  : ModellerObjectBaseTestBase<IAstObject<IAstOutputField>, TypeOutputModel, ObjBaseModel>
 {
   public OutputModellerTests()
   {
-    IModeller<IGqlpTypeParam, TypeParamModel> typeParam = MFor<IGqlpTypeParam, TypeParamModel>();
-    IModeller<IGqlpAlternate, AlternateModel> alternate = MFor<IGqlpAlternate, AlternateModel>();
-    IModeller<IGqlpOutputField, OutputFieldModel> objField = MFor<IGqlpOutputField, OutputFieldModel>();
+    IModeller<IAstTypeParam, TypeParamModel> typeParam = MFor<IAstTypeParam, TypeParamModel>();
+    IModeller<IAstAlternate, AlternateModel> alternate = MFor<IAstAlternate, AlternateModel>();
+    IModeller<IAstOutputField, OutputFieldModel> objField = MFor<IAstOutputField, OutputFieldModel>();
 
     Modeller = new OutputModeller(new(typeParam, alternate, objField, ObjBase));
   }
 
-  protected override IModeller<IGqlpObject<IGqlpOutputField>, TypeOutputModel> Modeller { get; }
+  protected override IModeller<IAstObject<IAstOutputField>, TypeOutputModel> Modeller { get; }
 
   [Theory, RepeatData]
   public void ToModel_WithValidObject_ReturnsExpectedTypeOutputModel(string name, string[] aliases, string content)
   {
     // Arrange
-    IGqlpObject<IGqlpOutputField> ast = A.Aliased<IGqlpObject<IGqlpOutputField>>(name, aliases, content);
+    IAstObject<IAstOutputField> ast = A.Aliased<IAstObject<IAstOutputField>>(name, aliases, content);
 
     // Act
     TypeOutputModel result = Modeller.ToModel(ast, TypeKinds);

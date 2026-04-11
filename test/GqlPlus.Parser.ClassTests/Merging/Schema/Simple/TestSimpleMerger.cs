@@ -1,14 +1,13 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Merging.Simple;
 
 namespace GqlPlus.Merging.Schema.Simple;
 
 public abstract class TestSimpleMerger<TBase, TType, TItem, TItemInput>
-  : TestTypedMerger<TBase, TType, IGqlpTypeRef, TItem>
-  where TBase : IGqlpType
-  where TType : IGqlpSimple<TItem>, TBase
-  where TItem : IGqlpError
+  : TestTypedMerger<TBase, TType, IAstTypeRef, TItem>
+  where TBase : IAstType
+  where TType : IAstSimple<TItem>, TBase
+  where TItem : IAstError
 {
   [Theory, RepeatData]
   public void CanMerge_ItemsCantMerge_ReturnsErrors(string name, TItemInput input)
@@ -37,7 +36,7 @@ public abstract class TestSimpleMerger<TBase, TType, TItem, TItemInput>
   }
 
   internal readonly IMerge<TItem> MergeItems;
-  internal sealed override AstTypeMerger<TBase, TType, IGqlpTypeRef, TItem> MergerTyped => MergerSimple;
+  internal sealed override AstTypeMerger<TBase, TType, IAstTypeRef, TItem> MergerTyped => MergerSimple;
   internal abstract AstSimpleMerger<TBase, TType, TItem> MergerSimple { get; }
 
   protected TestSimpleMerger()
@@ -48,13 +47,13 @@ public abstract class TestSimpleMerger<TBase, TType, TItem, TItemInput>
     string name,
     string[]? aliases = null,
     string description = "",
-    IGqlpTypeRef? parent = default,
+    IAstTypeRef? parent = default,
     IEnumerable<TItem>? items = null
   );
 
-  protected sealed override TType MakeTyped(string name, string[]? aliases = null, string description = "", IGqlpTypeRef? parent = null)
+  protected sealed override TType MakeTyped(string name, string[]? aliases = null, string description = "", IAstTypeRef? parent = null)
     => MakeSimple(name, aliases, description, parent, []);
 
-  protected sealed override IGqlpTypeRef? MakeParent(string? parent)
+  protected sealed override IAstTypeRef? MakeParent(string? parent)
     => string.IsNullOrWhiteSpace(parent) ? null : new TypeRefAst(AstNulls.At, parent!);
 }

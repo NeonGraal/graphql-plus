@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema;
 
@@ -15,7 +15,7 @@ public class ParseTypeRefTests
     IdentifierReturns(OutString(typeName));
 
     // Act
-    IResult<IGqlpTypeRef> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstTypeRef> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldSatisfyAllConditions(
@@ -29,10 +29,10 @@ public class ParseTypeRefTests
   public void Parse_ShouldReturnError_WhenIdentifierIsInvalid()
   {
     // Arrange
-    SetupError<IGqlpTypeRef>();
+    SetupError<IAstTypeRef>();
 
     // Act
-    IResult<IGqlpTypeRef> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstTypeRef> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

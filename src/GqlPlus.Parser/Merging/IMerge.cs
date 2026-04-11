@@ -1,9 +1,10 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Merging;
 
 public interface IMerge<TItem>
-  where TItem : IGqlpError
+  where TItem : IAstError
 {
   IMessages CanMerge(IEnumerable<TItem> items);
   IEnumerable<TItem> Merge(IEnumerable<TItem> items);
@@ -11,5 +12,5 @@ public interface IMerge<TItem>
 
 public interface IMergeAll<TItem>
   : IMerge<TItem>
-  where TItem : IGqlpType
+  where TItem : IAstType
 { }

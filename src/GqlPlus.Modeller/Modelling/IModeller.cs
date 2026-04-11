@@ -1,7 +1,9 @@
-﻿namespace GqlPlus.Modelling;
+﻿using GqlPlus.Ast;
+
+namespace GqlPlus.Modelling;
 
 public interface IModeller<TAst>
-  where TAst : IGqlpError
+  where TAst : IAstError
 {
   /*
   T? TryModel<T>(TAst? ast, IMap<TypeKindModel> typeKinds);
@@ -13,7 +15,7 @@ public interface IModeller<TAst>
 
 public interface IModeller<TAst, TModel>
   : IModeller<TAst>
-  where TAst : IGqlpError
+  where TAst : IAstError
   where TModel : IModelBase
 {
   TModel? TryModel(TAst? ast, IMap<TypeKindModel> typeKinds);

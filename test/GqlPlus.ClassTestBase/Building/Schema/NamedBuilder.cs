@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Building.Schema;
 
@@ -9,12 +9,12 @@ public class NamedBuilder
 
   public NamedBuilder(string name)
   {
-    Add<IGqlpNamed>();
+    Add<IAstNamed>();
     _name = name;
   }
 
   protected new T Build<T>()
-    where T : class, IGqlpNamed
+    where T : class, IAstNamed
   {
     T result = base.Build<T>();
     result.Name.Returns(_name);
@@ -24,7 +24,7 @@ public class NamedBuilder
 
 public class NamedBuilder<T>
   : NamedBuilder
-    where T : class, IGqlpNamed
+    where T : class, IAstNamed
 {
   public NamedBuilder(string name)
     : base(name)

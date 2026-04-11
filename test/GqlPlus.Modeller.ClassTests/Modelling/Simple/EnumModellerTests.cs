@@ -1,15 +1,16 @@
-﻿using GqlPlus.Building.Schema.Simple;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Building.Schema.Simple;
 
 namespace GqlPlus.Modelling.Simple;
 
 public class EnumModellerTests
-  : TypeModellerTests<IGqlpEnum, TypeEnumModel>
+  : TypeModellerTests<IAstEnum, TypeEnumModel>
 {
   public EnumModellerTests()
     : base(TypeKindModel.Enum)
   { }
 
-  protected override IModeller<IGqlpEnum, TypeEnumModel> Modeller { get; } = new EnumModeller();
+  protected override IModeller<IAstEnum, TypeEnumModel> Modeller { get; } = new EnumModeller();
 
   [Theory, RepeatData]
   public void ToModel_WithValidEnum_ReturnsExpectedTypeEnumModel(
@@ -19,8 +20,8 @@ public class EnumModellerTests
     string[] aliases)
   {
     // Arrange
-    IGqlpEnumLabel label = A.Aliased<IGqlpEnumLabel>(labelName, aliases, contents);
-    IGqlpEnum ast = A.Enum(name).WithLabels(label).AsEnum;
+    IAstEnumLabel label = A.Aliased<IAstEnumLabel>(labelName, aliases, contents);
+    IAstEnum ast = A.Enum(name).WithLabels(label).AsEnum;
 
     // Act
     TypeEnumModel result = Modeller.ToModel(ast, TypeKinds);

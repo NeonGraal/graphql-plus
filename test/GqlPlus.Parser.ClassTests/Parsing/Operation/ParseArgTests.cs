@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
+﻿using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
@@ -7,17 +7,17 @@ public class ParseArgTests
 {
 
   private readonly ParseArg _parseArg;
-  private readonly Parser<IGqlpFieldKey>.I _fieldKeyParser;
-  private readonly IValueParser<IGqlpArg> _argumentParser;
+  private readonly Parser<IAstFieldKey>.I _fieldKeyParser;
+  private readonly IValueParser<IAstArg> _argumentParser;
 
-  private readonly IGqlpFieldKey _fieldKey = AtFor<IGqlpFieldKey>();
-  private readonly IGqlpArg _arg = AtFor<IGqlpArg>();
+  private readonly IAstFieldKey _fieldKey = AtFor<IAstFieldKey>();
+  private readonly IAstArg _arg = AtFor<IAstArg>();
 
   public ParseArgTests(string fieldKey = "fieldKey", string arg = "arg")
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    ConfigureRepo<IGqlpFieldKey>(parsers, out _fieldKeyParser);
-    ConfigureRepoInterface<IValueParser<IGqlpArg>, IGqlpArg>(parsers, out _argumentParser);
+    ConfigureRepo<IAstFieldKey>(parsers, out _fieldKeyParser);
+    ConfigureRepoInterface<IValueParser<IAstArg>, IAstArg>(parsers, out _argumentParser);
     _parseArg = new ParseArg(parsers);
     _fieldKey.Text.Returns(fieldKey);
     _arg.Variable.Returns(arg);
@@ -30,7 +30,7 @@ public class ParseArgTests
     TakeReturns('(', false);
 
     // Act
-    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, TestLabel);
+    IResult<IAstArg> result = _parseArg.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();
@@ -48,7 +48,7 @@ public class ParseArgTests
     ParseOk(_argumentParser, _arg);
 
     // Act
-    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, TestLabel);
+    IResult<IAstArg> result = _parseArg.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk>();
@@ -65,11 +65,11 @@ public class ParseArgTests
 
     ParseOk(_fieldKeyParser, _fieldKey);
     ParseOk(_argumentParser, _arg);
-    IGqlpFields<IGqlpArg> keyValuePairs = A.Of<IGqlpFields<IGqlpArg>>();
+    IAstFields<IAstArg> keyValuePairs = A.Of<IAstFields<IAstArg>>();
     _argumentParser.ParseFieldValues(Tokenizer, argLabel, ')', default!).ReturnsForAnyArgs(keyValuePairs.Ok());
 
     // Act
-    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, TestLabel);
+    IResult<IAstArg> result = _parseArg.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk>();
@@ -86,12 +86,12 @@ public class ParseArgTests
     ParseOk(_fieldKeyParser, _fieldKey);
     ParseOk(_argumentParser, _arg);
 
-    Parser<KeyValue<IGqlpArg>>.D keyValueDelegate = ParserFor(out Parser<KeyValue<IGqlpArg>>.I keyValueParser);
+    Parser<KeyValue<IAstArg>>.D keyValueDelegate = ParserFor(out Parser<KeyValue<IAstArg>>.I keyValueParser);
     _argumentParser.KeyValueParser.Returns(keyValueDelegate);
-    ParseOk(keyValueParser, new KeyValue<IGqlpArg>(_fieldKey, _arg));
+    ParseOk(keyValueParser, new KeyValue<IAstArg>(_fieldKey, _arg));
 
     // Act
-    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, TestLabel);
+    IResult<IAstArg> result = _parseArg.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk>();
@@ -109,12 +109,12 @@ public class ParseArgTests
     ParseOk(_fieldKeyParser, _fieldKey);
     Parse(_argumentParser, _arg.Ok(), _arg.Ok(), _arg.Empty());
 
-    Parser<KeyValue<IGqlpArg>>.D keyValueDelegate = ParserFor(out Parser<KeyValue<IGqlpArg>>.I keyValueParser);
+    Parser<KeyValue<IAstArg>>.D keyValueDelegate = ParserFor(out Parser<KeyValue<IAstArg>>.I keyValueParser);
     _argumentParser.KeyValueParser.Returns(keyValueDelegate);
-    ParseOk(keyValueParser, new KeyValue<IGqlpArg>(_fieldKey, _arg));
+    ParseOk(keyValueParser, new KeyValue<IAstArg>(_fieldKey, _arg));
 
     // Act
-    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, TestLabel);
+    IResult<IAstArg> result = _parseArg.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk>();
@@ -131,12 +131,12 @@ public class ParseArgTests
     ParseOk(_fieldKeyParser, _fieldKey);
     ParseOk(_argumentParser, _arg);
 
-    Parser<KeyValue<IGqlpArg>>.D keyValueDelegate = ParserFor(out Parser<KeyValue<IGqlpArg>>.I keyValueParser);
+    Parser<KeyValue<IAstArg>>.D keyValueDelegate = ParserFor(out Parser<KeyValue<IAstArg>>.I keyValueParser);
     _argumentParser.KeyValueParser.Returns(keyValueDelegate);
     ParseError(keyValueParser);
 
     // Act
-    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, TestLabel);
+    IResult<IAstArg> result = _parseArg.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -153,10 +153,10 @@ public class ParseArgTests
     ParseOk(_fieldKeyParser, _fieldKey);
     ParseError(_argumentParser);
 
-    SetupError<IGqlpArg>();
+    SetupError<IAstArg>();
 
     // Act
-    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, TestLabel);
+    IResult<IAstArg> result = _parseArg.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -172,7 +172,7 @@ public class ParseArgTests
     ParseOk(_fieldKeyParser, _fieldKey);
 
     // Act
-    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, TestLabel);
+    IResult<IAstArg> result = _parseArg.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk>();
@@ -189,7 +189,7 @@ public class ParseArgTests
     ParseOk(_argumentParser, _arg);
 
     // Act
-    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, TestLabel);
+    IResult<IAstArg> result = _parseArg.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk>();
@@ -205,10 +205,10 @@ public class ParseArgTests
     ParseOk(_fieldKeyParser, _fieldKey);
     ParseEmpty(_argumentParser);
 
-    SetupError<IGqlpArg>();
+    SetupError<IAstArg>();
 
     // Act
-    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, TestLabel);
+    IResult<IAstArg> result = _parseArg.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

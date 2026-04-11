@@ -1,0 +1,19 @@
+﻿/* Option
+output _Setting {
+    : _Named
+        value: Value
+    }
+*/
+
+// Generated from Spec Option
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Option, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Option;
+
+internal class Cmpt_SettingDecoder
+{
+  public GqlpValue Value { get; set; }
+}

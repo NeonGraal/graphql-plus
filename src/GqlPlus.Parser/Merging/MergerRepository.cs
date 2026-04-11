@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Merging;
 
@@ -10,11 +11,11 @@ internal class MergerRepository(
 {
 
   public IMerge<T> MergerFor<T>()
-    where T : IGqlpError
+    where T : IAstError
     => Cached<T, IMerge<T>>(builder.Mergers, "merger", this);
 
   public IEnumerable<IMergeAll<T>> AllMergersFor<T>()
-    where T : IGqlpType
+    where T : IAstType
   {
     if (builder.AllMergerTypes.TryGetValue(typeof(T), out List<Type>? serviceTypes)) {
       return serviceTypes.Select(st => (IMergeAll<T>)Cached(builder.AllMergers, st, st, "allMerger", this));

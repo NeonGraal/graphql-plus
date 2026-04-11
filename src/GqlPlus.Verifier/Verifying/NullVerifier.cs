@@ -1,15 +1,17 @@
-﻿namespace GqlPlus.Verifying;
+﻿using GqlPlus.Ast;
 
-internal class NullVerifierError<TGqlp>
-  : IVerify<TGqlp>
-  where TGqlp : IGqlpError
+namespace GqlPlus.Verifying;
+
+internal class NullVerifierError<TError>
+  : IVerify<TError>
+  where TError : IAstError
 {
   private readonly ILogger _logger;
 
   public NullVerifierError(IVerifierRepository verifiers)
     => _logger = verifiers.LoggerFactory.CreateTypedLogger(this);
 
-  public void Verify(TGqlp item, IMessages errors)
+  public void Verify(TError item, IMessages errors)
     => _logger.NullVerification(item);
 }
 

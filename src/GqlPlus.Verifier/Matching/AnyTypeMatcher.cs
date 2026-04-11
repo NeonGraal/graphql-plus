@@ -1,13 +1,13 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Verifying.Schema;
 
 namespace GqlPlus.Matching;
 
 internal class AnyTypeMatcher(
   IMatcherRepository matchers
-) : MatchBase<IGqlpType>(matchers)
+) : MatchBase<IAstType>(matchers)
 {
-  public override bool Matches(IGqlpType type, string constraint, EnumContext context)
+  public override bool Matches(IAstType type, string constraint, EnumContext context)
   {
     TryingMatch(type, constraint);
 

@@ -1,12 +1,12 @@
 ﻿using System.Data;
-using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Merging.Objects;
 
 namespace GqlPlus.Merging.Schema.Objects;
 
 public class MergeTypeParamsTests
-  : TestDescriptionsMerger<IGqlpTypeParam>
+  : TestDescriptionsMerger<IAstTypeParam>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsOneConstraintCanMerge_ReturnsGood(string name, string constraint)
@@ -36,17 +36,17 @@ public class MergeTypeParamsTests
   [Theory, RepeatData]
   public void Merge_ManyItems_ReturnsItem(string name)
   {
-    IGqlpTypeParam[] items = [.. Enumerable.Range(1, 5).Select(i => MakeAst(name))];
+    IAstTypeParam[] items = [.. Enumerable.Range(1, 5).Select(i => MakeAst(name))];
 
-    IEnumerable<IGqlpTypeParam> result = MergerGroups.Merge(items);
+    IEnumerable<IAstTypeParam> result = MergerGroups.Merge(items);
 
-    result.ShouldBeAssignableTo<IEnumerable<IGqlpTypeParam>>();
+    result.ShouldBeAssignableTo<IEnumerable<IAstTypeParam>>();
   }
 
   private readonly MergeTypeParams _merger = new();
 
-  internal override GroupsMerger<IGqlpTypeParam> MergerGroups => _merger;
+  internal override GroupsMerger<IAstTypeParam> MergerGroups => _merger;
 
-  protected override IGqlpTypeParam MakeDescribed(string name, string description = "")
+  protected override IAstTypeParam MakeDescribed(string name, string description = "")
     => new TypeParamAst(AstNulls.At, name, description, "");
 }

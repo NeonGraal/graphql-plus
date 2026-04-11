@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using GqlPlus.Abstractions;
+using GqlPlus.Ast;
 using GqlPlus.Structures;
 
 namespace GqlPlus;
@@ -66,7 +66,7 @@ public static class GeneralHelpers
   public static string TrueFalse(this bool value)
     => value ? GqlpStrings.BoolTrue : GqlpStrings.BoolFalse;
 
-  public static string Show(this IGqlpAbbreviated? abbr)
+  public static string Show(this IAstAbbreviated? abbr)
   {
     if (abbr is null) {
       return "";

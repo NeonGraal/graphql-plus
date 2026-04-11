@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Result;
 using GqlPlus.Verifying;
@@ -12,10 +12,10 @@ public class VerifySchemaTests(
 ) : TestSchemaResult(checks)
 
 {
-  private readonly IMerge<IGqlpSchema> _schemaMerger = mergers.MergerFor<IGqlpSchema>();
-  private readonly IVerify<IGqlpSchema> _schemaVerifier = verifierRepository.VerifierFor<IGqlpSchema>();
+  private readonly IMerge<IAstSchema> _schemaMerger = mergers.MergerFor<IAstSchema>();
+  private readonly IVerify<IAstSchema> _schemaVerifier = verifierRepository.VerifierFor<IAstSchema>();
 
-  protected override async Task Result_Valid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
+  protected override async Task Result_Valid(IResult<IAstSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {
     this.SkipIf(SchemaValidData.ExcludeSpecsForBuiltIn(test));
 
@@ -23,7 +23,7 @@ public class VerifySchemaTests(
       error.Message.ShouldBeNull(section.Prefixed(" ") + test);
     }
 
-    IEnumerable<IGqlpSchema> merged = _schemaMerger.Merge([result.Required()]);
+    IEnumerable<IAstSchema> merged = _schemaMerger.Merge([result.Required()]);
 
     IMessages errors = Messages.New;
 
@@ -32,7 +32,7 @@ public class VerifySchemaTests(
     await CheckErrors(dirs, test, errors, "verify", "parse");
   }
 
-  protected override async Task Result_Invalid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
+  protected override async Task Result_Invalid(IResult<IAstSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {
     IMessages errors = Messages.New;
     if (result.IsOk()) {

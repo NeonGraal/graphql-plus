@@ -1,10 +1,10 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Verifying.Schema.Simple;
 
-internal class VerifyDomainEnum(IVerifierRepository verifiers) : AstDomainVerifier<IGqlpDomainLabel>(verifiers)
+internal class VerifyDomainEnum(IVerifierRepository verifiers) : AstDomainVerifier<IAstDomainLabel>(verifiers)
 {
-  protected override void VerifyDomain(IGqlpDomain<IGqlpDomainLabel> domain, EnumContext context)
+  protected override void VerifyDomain(IAstDomain<IAstDomainLabel> domain, EnumContext context)
   {
     EnumLabels labels = new();
 
@@ -22,23 +22,23 @@ internal class VerifyDomainEnum(IVerifierRepository verifiers) : AstDomainVerifi
   }
 }
 
-internal record struct EnumLabel(IGqlpEnum Enum, string Label);
+internal record struct EnumLabel(IAstEnum Enum, string Label);
 
 internal class EnumLabels
 {
   private readonly List<EnumLabel> _includes = [];
   private readonly List<EnumLabel> _excludes = [];
 
-  internal void Add(IGqlpDomain<IGqlpDomainLabel> domain, EnumContext context)
+  internal void Add(IAstDomain<IAstDomainLabel> domain, EnumContext context)
   {
-    if (context.GetTyped(domain.Parent?.Name, out IGqlpDomain<IGqlpDomainLabel>? domainParent)) {
+    if (context.GetTyped(domain.Parent?.Name, out IAstDomain<IAstDomainLabel>? domainParent)) {
       Add(domainParent, context);
     }
 
-    foreach (IGqlpDomainLabel label in domain.Items) {
+    foreach (IAstDomainLabel label in domain.Items) {
       if (string.IsNullOrWhiteSpace(label.EnumType)) {
         AddUntypedLabel(context, label);
-      } else if (context.GetTyped(label.EnumType, out IGqlpEnum? theType)) {
+      } else if (context.GetTyped(label.EnumType, out IAstEnum? theType)) {
         AddTypedLabel(context, label, theType);
       } else {
         context.AddError(label, "Domain Enum", $"'{label.EnumType}' not an Enum type");
@@ -46,20 +46,20 @@ internal class EnumLabels
     }
   }
 
-  private void AddTypedLabel(EnumContext context, IGqlpDomainLabel label, IGqlpEnum theType)
+  private void AddTypedLabel(EnumContext context, IAstDomainLabel label, IAstEnum theType)
   {
     if (label.EnumItem == GqlpDomainLabelConstants.All) {
       AddAllLabels(context, label.Excludes, theType);
-    } else if (context.GetEnumLabelType(theType, label.EnumItem, out IGqlpEnum? enumType)) {
+    } else if (context.GetEnumLabelType(theType, label.EnumItem, out IAstEnum? enumType)) {
       Add(label.Excludes, enumType, label.EnumItem);
     } else {
       context.AddError(label, "Domain Enum Label", $"'{label.EnumItem}' not a Label of '{label.EnumType}'");
     }
   }
 
-  private void AddUntypedLabel(EnumContext context, IGqlpDomainLabel label)
+  private void AddUntypedLabel(EnumContext context, IAstDomainLabel label)
   {
-    if (context.GetEnumValueType(label.EnumItem, out IGqlpEnum? enumType)) {
+    if (context.GetEnumValueType(label.EnumItem, out IAstEnum? enumType)) {
       label.SetEnumType(enumType.Name);
       Add(label.Excludes, enumType, label.EnumItem);
     } else {
@@ -67,20 +67,20 @@ internal class EnumLabels
     }
   }
 
-  private void AddAllLabels(EnumContext context, bool excludes, IGqlpEnum enumType)
+  private void AddAllLabels(EnumContext context, bool excludes, IAstEnum enumType)
   {
-    foreach (IGqlpEnumLabel enumLabel in enumType.Items) {
+    foreach (IAstEnumLabel enumLabel in enumType.Items) {
       Add(excludes, enumType, enumLabel.Name);
     }
 
-    if (context.GetTyped(enumType.Parent?.Name, out IGqlpEnum? parentType)) {
+    if (context.GetTyped(enumType.Parent?.Name, out IAstEnum? parentType)) {
       AddAllLabels(context, excludes, parentType);
     }
   }
 
-  internal void Add(bool excluded, IGqlpEnum theEnum, string theLabel)
+  internal void Add(bool excluded, IAstEnum theEnum, string theLabel)
   {
-    IGqlpEnumLabel enumLabel = theEnum.Items.First(m => m.IsNameOrAlias(theLabel));
+    IAstEnumLabel enumLabel = theEnum.Items.First(m => m.IsNameOrAlias(theLabel));
     if (excluded) {
       _excludes.Add(new(theEnum, enumLabel.Name));
     } else {

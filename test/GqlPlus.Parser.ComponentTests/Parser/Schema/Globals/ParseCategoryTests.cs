@@ -1,12 +1,11 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 
 namespace GqlPlus.Parser.Schema.Globals;
 
 public sealed class ParseCategoryTests(
-  IBaseAliasedChecks<string, IGqlpSchemaCategory> checks
-) : BaseAliasedTests<string, IGqlpSchemaCategory>(checks)
+  IBaseAliasedChecks<string, IAstSchemaCategory> checks
+) : BaseAliasedTests<string, IAstSchemaCategory>(checks)
 {
   [Theory, RepeatData]
   public void WithOption_ReturnsCorrectAst(string output, CategoryOption option)
@@ -59,7 +58,7 @@ public sealed class ParseCategoryTests(
 
 internal sealed class ParseCategoryChecks(
   IParserRepository parsers
-) : BaseAliasedChecks<string, CategoryDeclAst, IGqlpSchemaCategory>(parsers)
+) : BaseAliasedChecks<string, CategoryDeclAst, IAstSchemaCategory>(parsers)
 {
   protected internal override CategoryDeclAst NamedFactory(string input)
     => new(AstNulls.At, new TypeRefAst(AstNulls.At, input));

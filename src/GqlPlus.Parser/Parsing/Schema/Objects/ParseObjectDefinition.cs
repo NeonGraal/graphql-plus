@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
@@ -7,11 +7,11 @@ namespace GqlPlus.Parsing.Schema.Objects;
 internal class ParseObjectDefinition<TObjField>(
   IParserRepository parsers
 ) : Parser<ObjectDefinition<TObjField>>.I
-  where TObjField : IGqlpObjField
+  where TObjField : IAstObjField
 {
-  private readonly Parser<IGqlpAlternate>.LA _alternates = parsers.ArrayFor<IGqlpAlternate>();
+  private readonly Parser<IAstAlternate>.LA _alternates = parsers.ArrayFor<IAstAlternate>();
   private readonly Parser<TObjField>.L _parseField = parsers.ParserFor<TObjField>();
-  private readonly Parser<IGqlpObjBase>.L _parseBase = parsers.ParserFor<IGqlpObjBase>();
+  private readonly Parser<IAstObjBase>.L _parseBase = parsers.ParserFor<IAstObjBase>();
 
   public IResult<ObjectDefinition<TObjField>> Parse(ITokenizer tokens, string label)
 
@@ -19,7 +19,7 @@ internal class ParseObjectDefinition<TObjField>(
     tokens.ThrowIfNull();
     ObjectDefinition<TObjField> result = new();
     if (tokens.Take(':')) {
-      IResult<IGqlpObjBase> objBase = _parseBase.Parse(tokens, label);
+      IResult<IAstObjBase> objBase = _parseBase.Parse(tokens, label);
       if (objBase.IsError()) {
         return objBase.AsResult(result);
       }
@@ -42,7 +42,7 @@ internal class ParseObjectDefinition<TObjField>(
     }
 
     result.Fields = [.. fields];
-    IResultArray<IGqlpAlternate> objectAlternates = _alternates.Parse(tokens, label);
+    IResultArray<IAstAlternate> objectAlternates = _alternates.Parse(tokens, label);
     return !objectAlternates.Optional(alternates => result.Alternates = [.. alternates])
       ? objectAlternates.AsPartial(result)
       : tokens.End(label, () => result);

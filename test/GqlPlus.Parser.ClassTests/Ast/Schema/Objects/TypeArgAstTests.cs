@@ -1,6 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Ast.Schema.Objects;
+﻿namespace GqlPlus.Ast.Schema.Objects;
 
 public partial class TypeArgAstTests
 {
@@ -46,7 +44,7 @@ internal sealed class TypeArgAstChecks()
 
   public void FullType_WithIsTypeParam(string input)
   {
-    IGqlpTypeArg objArg = CreateInput(input) with { IsTypeParam = true };
+    IAstTypeArg objArg = CreateInput(input) with { IsTypeParam = true };
 
     objArg.FullType.ShouldBe("$" + input);
   }

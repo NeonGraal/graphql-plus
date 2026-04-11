@@ -1,6 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Ast.Schema.Simple;
+﻿namespace GqlPlus.Ast.Schema.Simple;
 
 public abstract class AstDomainBaseTests<TInput>
   : AstTypeBaseTests
@@ -33,7 +31,7 @@ internal abstract class AstDomainChecks<TInput, TItemAst, TItem>(
   , IAstDomainChecks<TInput>
   where TInput : IEquatable<TInput>
   where TItemAst : AstAbbreviated, TItem
-  where TItem : IGqlpDomainItem
+  where TItem : IAstDomainItem
 {
   public DomainKind Kind { get; } = kind;
 

@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Generating.Globals;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Generating.Globals;
 
 public class DirectiveGeneratorTests
   : GenerateClassTestsBase
@@ -10,7 +12,7 @@ public class DirectiveGeneratorTests
   {
     // Arrange
     GqlpGeneratorContext context = Context(GqlpBaseType.Other, GqlpGeneratorType.Static);
-    IGqlpSchemaDirective directive = A.Named<IGqlpSchemaDirective>(name);
+    IAstSchemaDirective directive = A.Named<IAstSchemaDirective>(name);
 
     // Act
     _generator.Generate(directive, context);

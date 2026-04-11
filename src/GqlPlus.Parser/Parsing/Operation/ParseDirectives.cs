@@ -1,5 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Ast.Operation;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
@@ -7,14 +6,14 @@ namespace GqlPlus.Parsing.Operation;
 
 internal class ParseDirectives(
   IParserRepository parsers
-) : Parser<IGqlpDirective>.IA
+) : Parser<IAstDirective>.IA
 {
-  private readonly Parser<IParserArg, IGqlpArg>.L _argument = parsers.ParserFor<IParserArg, IGqlpArg>();
+  private readonly Parser<IParserArg, IAstArg>.L _argument = parsers.ParserFor<IParserArg, IAstArg>();
 
-  public IResultArray<IGqlpDirective> Parse(ITokenizer tokens, string label)
+  public IResultArray<IAstDirective> Parse(ITokenizer tokens, string label)
 
   {
-    List<IGqlpDirective> result = [];
+    List<IAstDirective> result = [];
 
     if (!tokens.Prefix('@', out string? name, out TokenAt at)) {
       return tokens.ErrorArray(label, "identifier after '@'", result);
@@ -24,7 +23,7 @@ internal class ParseDirectives(
       DirectiveAst directive = new(at, name!);
       result.Add(directive);
 
-      IResult<IGqlpArg> argument = _argument.I.Parse(tokens, "Arg");
+      IResult<IAstArg> argument = _argument.I.Parse(tokens, "Arg");
       if (!argument.Required(value => directive.Arg = value)) {
         if (argument.IsError()) {
           return argument.AsResultArray(result);

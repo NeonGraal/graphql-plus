@@ -1,9 +1,11 @@
-﻿namespace GqlPlus.Generating.Globals;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Generating.Globals;
 
 internal class DirectiveGenerator
-  : IGenerator<IGqlpSchemaDirective>
+  : IGenerator<IAstSchemaDirective>
 {
-  public void Generate(IGqlpSchemaDirective ast, GqlpGeneratorContext context)
+  public void Generate(IAstSchemaDirective ast, GqlpGeneratorContext context)
   {
     if (context.GeneratorOptions.GeneratorType == GqlpGeneratorType.Static) {
       context.Write(ast.Label + " " + ast.Name);

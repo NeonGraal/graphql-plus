@@ -1,5 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
+﻿using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Ast.Schema.Simple;
@@ -24,12 +23,12 @@ public static class BuiltIn
   public const string ValueType = "Value";
   public const string VoidType = "Void";
 
-  public static IGqlpType[] Basic { get; } = [
+  public static IAstType[] Basic { get; } = [
     Enum(BooleanType, [BooleanAlias, "_" + BooleanType], BooleanFalse, BooleanTrue),
     Enum(UnitType, [UnitValue, "_" + UnitType], UnitValue),
 
-    Domain<DomainRangeAst, IGqlpDomainRange>(NumberType, DomainKind.Number, NumberAlias, "_" + NumberType),
-    Domain<DomainRegexAst, IGqlpDomainRegex>(StringType, DomainKind.String, StringAlias, "_" + StringType),
+    Domain<DomainRangeAst, IAstDomainRange>(NumberType, DomainKind.Number, NumberAlias, "_" + NumberType),
+    Domain<DomainRegexAst, IAstDomainRegex>(StringType, DomainKind.String, StringAlias, "_" + StringType),
   ];
 
   private static readonly string[] s_basicMembers = [BooleanType, NumberType, StringType, UnitType];
@@ -44,12 +43,12 @@ public static class BuiltIn
 
     Special = [
       new SpecialTypeAst("Any"),
-      new SpecialTypeAst("Domain", TypeKind.Domain, t => t is IGqlpDomain),
-      new SpecialTypeAst("Union", TypeKind.Union, t => t is IGqlpUnion),
-      new SpecialTypeAst("Enum", TypeKind.Enum, t => t is IGqlpEnum),
-      new SpecialTypeAst("Dual", TypeKind.Dual, t => t is IGqlpObject<IGqlpDualField>),
-      new SpecialTypeAst("Input", TypeKind.Input, t => t is IGqlpObject<IGqlpInputField>),
-      new SpecialTypeAst("Output", TypeKind.Output, t => t is IGqlpObject<IGqlpOutputField>),
+      new SpecialTypeAst("Domain", TypeKind.Domain, t => t is IAstDomain),
+      new SpecialTypeAst("Union", TypeKind.Union, t => t is IAstUnion),
+      new SpecialTypeAst("Enum", TypeKind.Enum, t => t is IAstEnum),
+      new SpecialTypeAst("Dual", TypeKind.Dual, t => t is IAstObject<IAstDualField>),
+      new SpecialTypeAst("Input", TypeKind.Input, t => t is IAstObject<IAstInputField>),
+      new SpecialTypeAst("Output", TypeKind.Output, t => t is IAstObject<IAstOutputField>),
       scalar, value,
     ];
     Internal = [.. InternalSimple, .. InternalObject, .. Special];
@@ -57,9 +56,9 @@ public static class BuiltIn
     Value = value;
   }
 
-  public static IGqlpType[] Internal { get; }
+  public static IAstType[] Internal { get; }
 
-  internal static IGqlpType[] InternalSimple { get; } = [
+  internal static IAstType[] InternalSimple { get; } = [
     Enum(VoidType, ["_Void"]),
     Enum(NullType, [NullValue, "_Null"], NullValue),
     new UnionDeclAst(AstNulls.At, "_Basic", s_basicMembers.UnionMembers()) { Aliases = ["Basic"]},
@@ -68,7 +67,7 @@ public static class BuiltIn
     new UnionDeclAst(AstNulls.At, "_Key", s_keyMembers.UnionMembers()) { Aliases = ["Key"]},
   ];
 
-  internal static IGqlpType[] InternalObject { get; } = [
+  internal static IAstType[] InternalObject { get; } = [
     DualObj("Object", DualRef("_Map", DualArg("_Any")), ["%", "_Object"]),
 
     DualObj("Opt", null, [TypeParam()], DualAlt(null), DualType(NullType)),
@@ -86,10 +85,10 @@ public static class BuiltIn
     DualObj("MostDictionary", null, [TypeParam()], DualMost("Simple", true)),
   ];
 
-  internal static IGqlpType Scalar { get; }
-  internal static IGqlpType Value { get; }
+  internal static IAstType Scalar { get; }
+  internal static IAstType Value { get; }
 
-  internal static IGqlpTypeSpecial[] Special { get; }
+  internal static IAstTypeSpecial[] Special { get; }
 
   internal static Map<string> EnumValues = new() {
     [UnitValue] = UnitType,
@@ -98,17 +97,17 @@ public static class BuiltIn
     [BooleanFalse] = BooleanType,
   };
 
-  private static AstObject<IGqlpDualField> DualObj(string label, ObjBaseAst parent, params string[] aliases)
+  private static AstObject<IAstDualField> DualObj(string label, ObjBaseAst parent, params string[] aliases)
     => new(TypeKind.Dual, AstNulls.At, label, "") { Aliases = aliases, Parent = parent };
 
-  private static AstObject<IGqlpDualField> DualObj(
+  private static AstObject<IAstDualField> DualObj(
     string label,
     ObjBaseAst? parent,
     TypeParamAst[] typeParams,
-    params IGqlpAlternate[] alternates
+    params IAstAlternate[] alternates
   ) => new(TypeKind.Dual, AstNulls.At, "_" + label, "") { Parent = parent, TypeParams = typeParams, Alternates = alternates };
 
-  private static AlternateAst DualType(string type, params IGqlpTypeArg[] args)
+  private static AlternateAst DualType(string type, params IAstTypeArg[] args)
     => new AlternateAst(AstNulls.At, type, "") with { Args = args };
 
   private static AlternateAst DualAlt(string? type, bool typeParam = true)
@@ -139,7 +138,7 @@ public static class BuiltIn
       }
     };
 
-  private static ObjBaseAst DualRef(string name, params IGqlpTypeArg[] args)
+  private static ObjBaseAst DualRef(string name, params IAstTypeArg[] args)
     => new ObjBaseAst(AstNulls.At, name, "") with { Args = args };
 
   private static TypeArgAst DualArg(string name)
@@ -161,7 +160,7 @@ public static class BuiltIn
 
   private static AstDomain<TAst, TLabel> Domain<TAst, TLabel>(string type, DomainKind kind, params string[] aliases)
     where TAst : AstBase, TLabel
-    where TLabel : IGqlpDomainItem, IGqlpError
+    where TLabel : IAstDomainItem, IAstError
     => new(AstNulls.At, type, kind, []) { Aliases = aliases };
 
   private static TypeParamAst KeyParam()

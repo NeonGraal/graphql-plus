@@ -1,24 +1,24 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
 public class SimpleParserClassTestBase
   : DeclarationClassTestBase
 {
-  private readonly Parser<IGqlpTypeRef>.I _typeRef;
+  private readonly Parser<IAstTypeRef>.I _typeRef;
 
   public SimpleParserClassTestBase()
   {
-    _typeRef = A.Of<Parser<IGqlpTypeRef>.I>();
+    _typeRef = A.Of<Parser<IAstTypeRef>.I>();
     _typeRef.Parse(default!, default!)
-      .ReturnsForAnyArgs(default(IGqlpTypeRef).Empty());
-    Parser<IGqlpTypeRef>.L typeRefLazy = new(() => _typeRef);
-    Parsers.ParserFor<IGqlpTypeRef>().Returns(typeRefLazy);
+      .ReturnsForAnyArgs(default(IAstTypeRef).Empty());
+    Parser<IAstTypeRef>.L typeRefLazy = new(() => _typeRef);
+    Parsers.ParserFor<IAstTypeRef>().Returns(typeRefLazy);
   }
 
   internal void ParseTypeRefOk(string input)
   {
-    IGqlpTypeRef typeRef = AtFor<IGqlpTypeRef>();
+    IAstTypeRef typeRef = AtFor<IAstTypeRef>();
     typeRef.Name.Returns(input);
     ParseOk(_typeRef, typeRef);
   }

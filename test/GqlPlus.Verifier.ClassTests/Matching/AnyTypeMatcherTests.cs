@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Matching;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Matching;
 
 public class AnyTypeMatcherTests
   : MatchTestsBase
@@ -17,7 +19,7 @@ public class AnyTypeMatcherTests
   public void Matches_ReturnsTrue_WhenMatchingConstraint(string constraint)
   {
     // Arrange
-    IGqlpType type = A.Named<IGqlpType>(constraint);
+    IAstType type = A.Named<IAstType>(constraint);
     _matcher.MatchesTypeConstraint(type, constraint, Context).Returns(true);
 
     _matchers.Add(_matcher);
@@ -33,7 +35,7 @@ public class AnyTypeMatcherTests
   public void Matches_ReturnsFalse_WhenNoConstraintMatcher(string constraint)
   {
     // Arrange
-    IGqlpType type = A.Named<IGqlpType>(constraint);
+    IAstType type = A.Named<IAstType>(constraint);
     _matcher.MatchesTypeConstraint(type, constraint, Context).Returns(false);
     _matchers.Add(_matcher);
 
@@ -48,7 +50,7 @@ public class AnyTypeMatcherTests
   public void Matches_Throws_WhenNoMatchers(string constraint)
   {
     // _matchers is empty
-    IGqlpType type = A.Named<IGqlpType>(constraint);
+    IAstType type = A.Named<IAstType>(constraint);
 
     // Act
     Action action = () => _sut.Matches(type, constraint, Context);

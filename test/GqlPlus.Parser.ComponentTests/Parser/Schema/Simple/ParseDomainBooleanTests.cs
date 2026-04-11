@@ -1,18 +1,18 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parser.Schema.Simple;
 
 public sealed class ParseDomainBooleanTests(
-  IBaseDomainChecks<string, IGqlpDomain<IGqlpDomainTrueFalse>> domainChecks
-) : BaseDomainTests<string, IGqlpDomain<IGqlpDomainTrueFalse>>(domainChecks)
+  IBaseDomainChecks<string, IAstDomain<IAstDomainTrueFalse>> domainChecks
+) : BaseDomainTests<string, IAstDomain<IAstDomainTrueFalse>>(domainChecks)
 { }
 
 internal sealed class ParseDomainBooleanChecks(
   IParserRepository parsers
-) : BaseDomainChecks<string, AstDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse>, IGqlpDomain<IGqlpDomainTrueFalse>>(parsers, DomainKind.Boolean)
+) : BaseDomainChecks<string, AstDomain<DomainTrueFalseAst, IAstDomainTrueFalse>, IAstDomain<IAstDomainTrueFalse>>(parsers, DomainKind.Boolean)
 {
-  protected internal override AstDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse> NamedFactory(string input)
+  protected internal override AstDomain<DomainTrueFalseAst, IAstDomainTrueFalse> NamedFactory(string input)
     => new(AstNulls.At, input, DomainKind.Boolean, [new DomainTrueFalseAst(AstNulls.At, "", false, false), new DomainTrueFalseAst(AstNulls.At, "", false, true)]);
 
   protected internal override string AliasesString(string input, string aliases)

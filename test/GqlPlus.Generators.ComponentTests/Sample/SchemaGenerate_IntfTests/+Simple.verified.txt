@@ -36,9 +36,23 @@ public interface ICmptDmnEnumAll
 {
 }
 
+public enum CmptEnumDmnEnumAll
+{
+  dmnEnumAll,
+  enum_dmnEnumAll,
+  dmnEnumAllValue,
+}
+
 public interface ICmptDmnEnumAllDescr
   : IGqlpDomainEnum
 {
+}
+
+public enum CmptEnumDmnEnumAllDescr
+{
+  dmnEnumAllDescr,
+  enum_dmnEnumAllDescr,
+  dmnEnumAllDescrValue,
 }
 
 public interface ICmptDmnEnumAllPrnt
@@ -46,9 +60,28 @@ public interface ICmptDmnEnumAllPrnt
 {
 }
 
+public enum CmptEnumDmnEnumAllPrnt
+{
+  prnt_dmnEnumAllPrnt = CmptPrntDmnEnumAllPrnt.prnt_dmnEnumAllPrnt,
+  dmnEnumAllPrntPrnt = CmptPrntDmnEnumAllPrnt.dmnEnumAllPrntPrnt,
+  dmnEnumAllPrnt,
+  dmnEnumAllPrntValue,
+}
+
+public enum CmptPrntDmnEnumAllPrnt
+{
+  prnt_dmnEnumAllPrnt,
+  dmnEnumAllPrntPrnt,
+}
+
 public interface ICmptDmnEnumDescr
   : IGqlpDomainEnum
 {
+}
+
+public enum CmptEnumDmnEnumDescr
+{
+  dmnEnumDescr,
 }
 
 public interface ICmptDmnEnumExcl
@@ -56,14 +89,40 @@ public interface ICmptDmnEnumExcl
 {
 }
 
+public enum CmptEnumDmnEnumExcl
+{
+  dmnEnumExcl,
+  enum_dmnEnumExcl,
+  dmnEnumExclValue,
+}
+
 public interface ICmptDmnEnumExclPrnt
   : IGqlpDomainEnum
 {
 }
 
+public enum CmptEnumDmnEnumExclPrnt
+{
+  prnt_dmnEnumExclPrnt = CmptPrntDmnEnumExclPrnt.prnt_dmnEnumExclPrnt,
+  dmnEnumExclPrntPrnt = CmptPrntDmnEnumExclPrnt.dmnEnumExclPrntPrnt,
+  dmnEnumExclPrnt,
+  dmnEnumExclPrntValue,
+}
+
+public enum CmptPrntDmnEnumExclPrnt
+{
+  prnt_dmnEnumExclPrnt,
+  dmnEnumExclPrntPrnt,
+}
+
 public interface ICmptDmnEnumLabel
   : IGqlpDomainEnum
 {
+}
+
+public enum CmptEnumDmnEnumLabel
+{
+  dmnEnumLabel,
 }
 
 public interface ICmptDmnEnumPrnt
@@ -76,6 +135,12 @@ public interface ICmptPrntDmnEnumPrnt
 {
 }
 
+public enum CmptEnumDmnEnumPrnt
+{
+  enum_dmnEnumPrnt,
+  prnt_dmnEnumPrnt,
+}
+
 public interface ICmptDmnEnumPrntDescr
   : ICmptPrntDmnEnumPrntDescr
 {
@@ -86,9 +151,29 @@ public interface ICmptPrntDmnEnumPrntDescr
 {
 }
 
+public enum CmptEnumDmnEnumPrntDescr
+{
+  enum_dmnEnumPrntDescr,
+  prnt_dmnEnumPrntDescr,
+}
+
 public interface ICmptDmnEnumUnq
   : IGqlpDomainEnum
 {
+}
+
+public enum CmptEnumDmnEnumUnq
+{
+  enum_dmnEnumUnq,
+  dmnEnumUnq,
+  dmnEnumUnqValue,
+}
+
+public enum CmptDupDmnEnumUnq
+{
+  dmnEnumUnq,
+  dup_dmnEnumUnq,
+  dmnEnumUnqDup,
 }
 
 public interface ICmptDmnEnumUnqPrnt
@@ -96,14 +181,53 @@ public interface ICmptDmnEnumUnqPrnt
 {
 }
 
+public enum CmptEnumDmnEnumUnqPrnt
+{
+  dmnEnumUnqPrnt = CmptPrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
+  prnt_dmnEnumUnqPrnt = CmptPrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntPrnt = CmptPrntDmnEnumUnqPrnt.dmnEnumUnqPrntPrnt,
+  enum_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntValue,
+}
+
+public enum CmptPrntDmnEnumUnqPrnt
+{
+  dmnEnumUnqPrnt,
+  prnt_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntPrnt,
+}
+
+public enum CmptDupDmnEnumUnqPrnt
+{
+  dmnEnumUnqPrnt,
+  dup_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntDup,
+}
+
 public interface ICmptDmnEnumValue
   : IGqlpDomainEnum
 {
 }
 
+public enum CmptEnumDmnEnumValue
+{
+  dmnEnumValue,
+}
+
 public interface ICmptDmnEnumValuePrnt
   : IGqlpDomainEnum
 {
+}
+
+public enum CmptEnumDmnEnumValuePrnt
+{
+  prnt_dmnEnumValuePrnt = CmptPrntDmnEnumValuePrnt.prnt_dmnEnumValuePrnt,
+  dmnEnumValuePrnt,
+}
+
+public enum CmptPrntDmnEnumValuePrnt
+{
+  prnt_dmnEnumValuePrnt,
 }
 
 public interface ICmptDmnNmbrDescr
@@ -169,6 +293,59 @@ public interface ICmptDmnStrPrntDescr
 public interface ICmptPrntDmnStrPrntDescr
   : IGqlpDomainString
 {
+}
+
+public enum CmptEnumDescr
+{
+  enumDescr,
+}
+
+public enum CmptEnumPrnt
+{
+  prnt_enumPrnt = CmptPrntEnumPrnt.prnt_enumPrnt,
+  enumPrnt,
+}
+
+public enum CmptPrntEnumPrnt
+{
+  prnt_enumPrnt,
+}
+
+public enum CmptEnumPrntAlias
+{
+  prnt_enumPrntAlias = CmptPrntEnumPrntAlias.prnt_enumPrntAlias,
+  val_enumPrntAlias,
+  prnt_enumPrntAlias,
+  enumPrntAlias = prnt_enumPrntAlias,
+}
+
+public enum CmptPrntEnumPrntAlias
+{
+  prnt_enumPrntAlias,
+}
+
+public enum CmptEnumPrntDescr
+{
+  prnt_enumPrntDescr = CmptPrntEnumPrntDescr.prnt_enumPrntDescr,
+  enumPrntDescr,
+}
+
+public enum CmptPrntEnumPrntDescr
+{
+  prnt_enumPrntDescr,
+}
+
+public enum CmptEnumPrntDup
+{
+  prnt_enumPrntDup = CmptPrntEnumPrntDup.prnt_enumPrntDup,
+  enumPrntDup = CmptPrntEnumPrntDup.prnt_enumPrntDup,
+  enumPrntDup,
+}
+
+public enum CmptPrntEnumPrntDup
+{
+  prnt_enumPrntDup,
+  enumPrntDup = prnt_enumPrntDup,
 }
 
 public interface ICmptUnionDescr

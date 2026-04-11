@@ -1,6 +1,6 @@
 ﻿//HintName: test_Schema_Intf.gen.cs
 // Generated from {CurrentDirectory}Schema.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Schema;
 
 public interface Itest_Opt<TT>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TT? AsT { get; }
   GqlpNull? AsNull { get; }
@@ -16,106 +16,106 @@ public interface Itest_Opt<TT>
 }
 
 public interface Itest_OptObject<TT>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface Itest_List<TT>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ICollection<TT>? AsT { get; }
   Itest_ListObject<TT>? As__List { get; }
 }
 
 public interface Itest_ListObject<TT>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface Itest_Dict<TK,TT>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   IDictionary<TK, TT>? AsT { get; }
   Itest_DictObject<TK,TT>? As__Dict { get; }
 }
 
 public interface Itest_DictObject<TK,TT>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface Itest_Map<TT>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   IDictionary<string, TT>? AsT { get; }
   Itest_MapObject<TT>? As__Map { get; }
 }
 
 public interface Itest_MapObject<TT>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface Itest_Array<TT>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   IDictionary<decimal, TT>? AsT { get; }
   Itest_ArrayObject<TT>? As__Array { get; }
 }
 
 public interface Itest_ArrayObject<TT>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface Itest_IfElse<TT>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   IDictionary<bool, TT>? AsT { get; }
   Itest_IfElseObject<TT>? As__IfElse { get; }
 }
 
 public interface Itest_IfElseObject<TT>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface Itest_Set<TK>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   IDictionary<TK, GqlpUnit>? AsUnit { get; }
   Itest_SetObject<TK>? As__Set { get; }
 }
 
 public interface Itest_SetObject<TK>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface Itest_Mask<TK>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   IDictionary<TK, bool>? AsBoolean { get; }
   Itest_MaskObject<TK>? As__Mask { get; }
 }
 
 public interface Itest_MaskObject<TK>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface Itest_Key
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface Itest_Any
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_AnyObject? As__Any { get; }
 }
 
 public interface Itest_AnyObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }

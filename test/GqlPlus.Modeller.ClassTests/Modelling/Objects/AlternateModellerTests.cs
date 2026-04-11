@@ -1,23 +1,25 @@
-﻿using GqlPlus.Building;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
+using GqlPlus.Building;
 using GqlPlus.Building.Schema;
 
 namespace GqlPlus.Modelling.Objects;
 
 public class AlternateModellerTests
-  : ModellerObjectBaseTestBase<IGqlpAlternate, AlternateModel, ObjBaseModel>
+  : ModellerObjectBaseTestBase<IAstAlternate, AlternateModel, ObjBaseModel>
 {
-  private readonly IModeller<IGqlpModifier, CollectionModel> _collection = MFor<IGqlpModifier, CollectionModel>();
+  private readonly IModeller<IAstModifier, CollectionModel> _collection = MFor<IAstModifier, CollectionModel>();
 
   public AlternateModellerTests()
     => Modeller = new AlternateModeller(_collection, ObjBase);
 
-  protected override IModeller<IGqlpAlternate, AlternateModel> Modeller { get; }
+  protected override IModeller<IAstAlternate, AlternateModel> Modeller { get; }
 
   [Theory, RepeatData]
   public void AlternateModel_WithValidAlternate_ReturnsExpectedAlternateModel(string name, string contents)
   {
     // Arrange
-    IGqlpAlternate ast = A.Alternate(name)
+    IAstAlternate ast = A.Alternate(name)
       .WithDescr(contents)
       .WithModifier(ModifierKind.List)
       .AsAlternate;

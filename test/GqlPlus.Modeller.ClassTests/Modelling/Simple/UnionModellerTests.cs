@@ -1,15 +1,16 @@
-﻿using GqlPlus.Building.Schema.Simple;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Building.Schema.Simple;
 
 namespace GqlPlus.Modelling.Simple;
 
 public class UnionModellerTests
-  : TypeModellerTests<IGqlpUnion, TypeUnionModel>
+  : TypeModellerTests<IAstUnion, TypeUnionModel>
 {
   public UnionModellerTests()
     : base(TypeKindModel.Union)
   { }
 
-  protected override IModeller<IGqlpUnion, TypeUnionModel> Modeller { get; } = new UnionModeller();
+  protected override IModeller<IAstUnion, TypeUnionModel> Modeller { get; } = new UnionModeller();
 
   [Theory, RepeatData]
   public void ToModel_WithValidUnion_ReturnsExpectedTypeUnionModel(
@@ -18,8 +19,8 @@ public class UnionModellerTests
     string contents)
   {
     // Arrange
-    IGqlpUnionMember member = A.Named<IGqlpUnionMember>(memberName, contents);
-    IGqlpUnion ast = A.Union(name).WithMembers(member).AsUnion;
+    IAstUnionMember member = A.Named<IAstUnionMember>(memberName, contents);
+    IAstUnion ast = A.Union(name).WithMembers(member).AsUnion;
 
     // Act
     TypeUnionModel result = Modeller.ToModel(ast, TypeKinds);

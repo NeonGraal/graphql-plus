@@ -1,21 +1,23 @@
-﻿using GqlPlus.Building;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
+using GqlPlus.Building;
 using GqlPlus.Building.Schema;
 using GqlPlus.Building.Schema.Objects;
 
 namespace GqlPlus.Modelling.Objects;
 
 public class InputParamModellerTests
-  : ModellerClassTestBase<IGqlpInputParam, InputParamModel>
+  : ModellerClassTestBase<IAstInputParam, InputParamModel>
 {
   private readonly IModifierModeller _modifier;
-  private readonly IModeller<IGqlpConstant, ConstantModel> _constant;
+  private readonly IModeller<IAstConstant, ConstantModel> _constant;
 
-  protected override IModeller<IGqlpInputParam, InputParamModel> Modeller { get; }
+  protected override IModeller<IAstInputParam, InputParamModel> Modeller { get; }
 
   public InputParamModellerTests()
   {
     _modifier = A.Of<IModifierModeller>();
-    _constant = MFor<IGqlpConstant, ConstantModel>();
+    _constant = MFor<IAstConstant, ConstantModel>();
 
     Modeller = new InputParamModeller(_modifier, _constant);
   }
@@ -24,12 +26,12 @@ public class InputParamModellerTests
   public void ToModel_WithValidInputParam_ReturnsExpectedInputParamModel(string paramType, string content, string text)
   {
     // Arrange
-    IGqlpInputParam ast = A.InputParam(paramType)
+    IAstInputParam ast = A.InputParam(paramType)
       .WithDescr(content)
       .WithType(t => t.IsTypeParam())
       .WithModifier(ModifierKind.Opt)
       .AsInputParam;
-    IGqlpConstant constant = A.Constant(text);
+    IAstConstant constant = A.Constant(text);
     ast.DefaultValue.Returns(constant);
 
     ModifierModel[] modifiers = [new(ModifierKind.Optional)];
@@ -55,7 +57,7 @@ public class InputParamModellerTests
   public void ToModel_WithNoModifiersOrDefaultValue_ReturnsInputParamModelWithoutModifiersOrDefaultValue(string paramType, string content)
   {
     // Arrange
-    IGqlpInputParam ast = A.InputParam(paramType).WithDescr(content).AsInputParam;
+    IAstInputParam ast = A.InputParam(paramType).WithDescr(content).AsInputParam;
     ast.Modifiers.Returns([]);
 
     // Act

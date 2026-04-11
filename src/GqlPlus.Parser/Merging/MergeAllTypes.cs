@@ -1,23 +1,23 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Merging;
 
 internal class MergeAllTypes(
   IMergerRepository mergers
-) : AllMerger<IGqlpType>(mergers)
+) : AllMerger<IAstType>(mergers)
 {
   protected override string ItemMatchName => "Type";
-  protected override string ItemMatchKey(IGqlpType item) => item.Label;
+  protected override string ItemMatchKey(IAstType item) => item.Label;
 
-  public override IMessages CanMerge(IEnumerable<IGqlpType> items)
+  public override IMessages CanMerge(IEnumerable<IAstType> items)
   {
     FixupEnums(items);
 
     return base.CanMerge(items);
   }
 
-  public override IEnumerable<IGqlpType> Merge(IEnumerable<IGqlpType> items)
+  public override IEnumerable<IAstType> Merge(IEnumerable<IAstType> items)
   {
     if (items is null) {
       return [];
@@ -28,9 +28,9 @@ internal class MergeAllTypes(
     return base.Merge(items);
   }
 
-  private static void FixupEnums(IEnumerable<IGqlpType> items)
+  private static void FixupEnums(IEnumerable<IAstType> items)
   {
-    IGqlpType[] types = [.. items];
+    IAstType[] types = [.. items];
     HashSet<string> typeNames = [.. types
       .Concat(BuiltIn.Basic)
       .Concat(BuiltIn.Internal)
@@ -45,9 +45,9 @@ internal class MergeAllTypes(
     FixupEnumDomains(types, enumValues);
   }
 
-  private static void FixupEnumDomains(IGqlpType[] types, Map<string> enumValues)
+  private static void FixupEnumDomains(IAstType[] types, Map<string> enumValues)
   {
-    foreach (AstDomain<DomainLabelAst, IGqlpDomainLabel> domain in types.OfType<AstDomain<DomainLabelAst, IGqlpDomainLabel>>()) {
+    foreach (AstDomain<DomainLabelAst, IAstDomainLabel> domain in types.OfType<AstDomain<DomainLabelAst, IAstDomainLabel>>()) {
       foreach ((DomainLabelAst item, string enumType) in domain.Items
           .Cast<DomainLabelAst>()
           .Where(l => string.IsNullOrEmpty(l.EnumType))
@@ -57,21 +57,21 @@ internal class MergeAllTypes(
     }
   }
 
-  private static void FixupObjects(IGqlpType[] types, HashSet<string> typeNames, Map<string> enumValues)
+  private static void FixupObjects(IAstType[] types, HashSet<string> typeNames, Map<string> enumValues)
   {
-    foreach (IGqlpObject output in types.OfType<IGqlpObject>()) {
-      foreach (IGqlpAlternate alternate in output.Alternates) {
+    foreach (IAstObject output in types.OfType<IAstObject>()) {
+      foreach (IAstAlternate alternate in output.Alternates) {
         FixupType(alternate, typeNames, enumValues);
 
-        foreach (IGqlpTypeArg argument in alternate.Args) {
+        foreach (IAstTypeArg argument in alternate.Args) {
           FixupType(argument, typeNames, enumValues);
         }
       }
 
-      foreach (IGqlpObjField field in output.Fields) {
+      foreach (IAstObjField field in output.Fields) {
         FixupType(field, typeNames, enumValues);
 
-        foreach (IGqlpTypeArg argument in field.Type.Args) {
+        foreach (IAstTypeArg argument in field.Type.Args) {
           FixupType(argument, typeNames, enumValues);
         }
       }
@@ -84,7 +84,7 @@ internal class MergeAllTypes(
       .Where(g => g.Count() == 1)
       .ToMap(e => e.Key, e => e.First());
 
-  private static void FixupType(IGqlpObjEnum type, HashSet<string> typeNames, Map<string> enumValues)
+  private static void FixupType(IAstObjEnum type, HashSet<string> typeNames, Map<string> enumValues)
   {
     string? enumType = null;
 

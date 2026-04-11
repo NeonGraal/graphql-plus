@@ -1,9 +1,12 @@
-﻿namespace GqlPlus.Modelling.Globals;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Modelling.Globals;
 
 internal class SettingModeller(
-  IModeller<IGqlpConstant, ConstantModel> constant
-) : ModellerBase<IGqlpSchemaSetting, SettingModel>
+  IModeller<IAstConstant, ConstantModel> constant
+) : ModellerBase<IAstSchemaSetting, SettingModel>
 {
-  protected override SettingModel ToModel(IGqlpSchemaSetting ast, IMap<TypeKindModel> typeKinds)
+  protected override SettingModel ToModel(IAstSchemaSetting ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, constant.ToModel(ast.Value, typeKinds), ast.Description);
 }

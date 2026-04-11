@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Globals;
 
@@ -6,13 +6,13 @@ public class ParseOptionDefinitionTests
   : ParserClassTestBase
 {
 
-  private readonly Parser<IGqlpSchemaSetting>.I _settingParser;
+  private readonly Parser<IAstSchemaSetting>.I _settingParser;
   private readonly ParseOptionDefinition _parser;
 
   public ParseOptionDefinitionTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    ConfigureRepo(parsers, out _settingParser);
+    ConfigureRepo<IAstSchemaSetting>(parsers, out _settingParser);
     _parser = new ParseOptionDefinition(parsers);
     SetupError<OptionDefinition>();
     TakeReturns('}', false, true);

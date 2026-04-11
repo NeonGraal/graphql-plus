@@ -1,17 +1,19 @@
-﻿namespace GqlPlus.Matching;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Matching;
 
 public abstract class MatchObjectParentDualTestsBase<TObjField>(TypeKind kind)
   : ObjectParentMatcherTests<TObjField>(kind)
-  where TObjField : class, IGqlpObjField
+  where TObjField : class, IAstObjField
 {
   [Theory, RepeatData]
   public void Object_Matches_DualParent_ReturnsTrue(string name, string parent, string constraint)
   {
     this.SkipEqual(name, parent);
 
-    IGqlpObject<TObjField> type = A.Obj<TObjField>(Kind, name, parent);
+    IAstObject<TObjField> type = A.Obj<TObjField>(Kind, name, parent);
 
-    IGqlpObject<IGqlpDualField> parentType = A.Obj<IGqlpDualField>(Kind, parent, constraint);
+    IAstObject<IAstDualField> parentType = A.Obj<IAstDualField>(Kind, parent, constraint);
     Types[parent] = parentType;
 
     bool result = Sut.Matches(type, constraint, Context);
@@ -24,21 +26,21 @@ public abstract class MatchObjectParentDualTestsBase<TObjField>(TypeKind kind)
 }
 
 public class InputParentMatcherTests
-  : MatchObjectParentDualTestsBase<IGqlpInputField>
+  : MatchObjectParentDualTestsBase<IAstInputField>
 {
   public InputParentMatcherTests()
     : base(TypeKind.Input)
     => DualSut = new(MatcherRepo);
 
-  internal override MatchObjectParentDualBase<IGqlpInputField> DualSut { get; }
+  internal override MatchObjectParentDualBase<IAstInputField> DualSut { get; }
 }
 
 public class OutputParentMatcherTests
-  : MatchObjectParentDualTestsBase<IGqlpOutputField>
+  : MatchObjectParentDualTestsBase<IAstOutputField>
 {
   public OutputParentMatcherTests()
     : base(TypeKind.Output)
     => DualSut = new(MatcherRepo);
 
-  internal override MatchObjectParentDualBase<IGqlpOutputField> DualSut { get; }
+  internal override MatchObjectParentDualBase<IAstOutputField> DualSut { get; }
 }

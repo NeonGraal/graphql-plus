@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Globals;
 
@@ -26,14 +26,14 @@ public class ParseCategoryTests
   {
     // Arrange
     IdentifierReturns(OutString(category));
-    IGqlpTypeRef typeRef = A.Named<IGqlpTypeRef>(category);
+    IAstTypeRef typeRef = A.Named<IAstTypeRef>(category);
     ParseOk(_definition, new CategoryOutput(typeRef));
 
     // Act
-    IResult<IGqlpSchemaCategory> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstSchemaCategory> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpSchemaCategory>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstSchemaCategory>>();
   }
 
   [Fact]
@@ -44,9 +44,9 @@ public class ParseCategoryTests
     ParseEmpty(_definition);
 
     // Act
-    IResult<IGqlpSchemaCategory> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstSchemaCategory> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpSchemaCategory>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstSchemaCategory>>();
   }
 }

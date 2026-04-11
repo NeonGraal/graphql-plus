@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parser.Schema;
@@ -7,7 +6,7 @@ namespace GqlPlus.Parser.Schema;
 public abstract class BaseAliasedTests<TInput, TParsed>(
   IBaseAliasedChecks<TInput, TParsed> aliasChecks
 ) : BaseNamedTests<TInput, TParsed>(aliasChecks)
-  where TParsed : IGqlpAliased
+  where TParsed : IAstAliased
 {
   [Theory, RepeatData]
   public void WithAliases_ReturnsCorrectAst(TInput input, string[] aliases)
@@ -27,7 +26,7 @@ internal abstract class BaseAliasedChecks<TInput, TAliasedAst, TAliased>(
 ) : BaseNamedChecks<TInput, TAliasedAst, TAliased>(parsers)
   , IBaseAliasedChecks<TInput, TAliased>
   where TAliasedAst : AstAliased, TAliased
-  where TAliased : IGqlpAliased
+  where TAliased : IAstAliased
 {
   public void WithAliases(TInput input, string[] aliases)
   => TrueExpected(AliasesString(input, "[" + aliases.Joined() + "]"),
@@ -40,7 +39,7 @@ internal abstract class BaseAliasedChecks<TInput, TAliasedAst, TAliased>(
     => FalseExpected(AliasesString(input, "[]"));
 
   [SuppressMessage("Performance", "CA1822:Mark members as static")]
-  public IGqlpTypeRef ParentFactory(string parent)
+  public IAstTypeRef ParentFactory(string parent)
     => new TypeRefAst(AstNulls.At, parent);
 
   protected internal abstract string AliasesString(TInput input, string aliases);
@@ -51,7 +50,7 @@ internal abstract class BaseAliasedChecks<TInput, TAliasedAst, TAliased>(
 
 public interface IBaseAliasedChecks<TInput, TParsed>
   : IBaseNamedChecks<TInput, TParsed>
-  where TParsed : IGqlpAliased
+  where TParsed : IAstAliased
 {
   void WithAliases(TInput input, string[] aliases);
   void WithAliasesBad(TInput input, string[] aliases);

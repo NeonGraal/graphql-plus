@@ -1,0 +1,21 @@
+﻿/* alt+Dual
+dual AltDual { | AltAltDual }
+dual AltAltDual { alt: Number | String }
+*/
+
+// Generated from Schema alt+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_Dual;
+
+internal class CmptAltDualDecoder
+{
+}
+
+internal class CmptAltAltDualDecoder
+{
+  public decimal Alt { get; set; }
+}

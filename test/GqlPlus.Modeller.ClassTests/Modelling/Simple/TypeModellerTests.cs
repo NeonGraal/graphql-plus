@@ -1,9 +1,11 @@
-﻿namespace GqlPlus.Modelling.Simple;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Modelling.Simple;
 
 public abstract class TypeModellerTests<TAst, TModel>(
   TypeKindModel kind
 ) : ModellerClassTestBase<TAst, TModel>
-  where TAst : class, IGqlpSimple
+  where TAst : class, IAstSimple
   where TModel : BaseTypeModel
 {
   private ITypeModeller TypeModeller => (ITypeModeller)Modeller;
@@ -50,7 +52,7 @@ public abstract class TypeModellerTests<TAst, TModel>(
   [Fact]
   public void ForTypeValid_ReturnsTrue()
   {
-    IGqlpType ast = A.Error<TAst>();
+    IAstType ast = A.Error<TAst>();
 
     bool result = TypeModeller.ForType(ast);
 
@@ -60,7 +62,7 @@ public abstract class TypeModellerTests<TAst, TModel>(
   [Fact]
   public void ForTypeInvalid_ReturnsTrue()
   {
-    IGqlpType ast = A.Error<IGqlpType>();
+    IAstType ast = A.Error<IAstType>();
 
     bool result = TypeModeller.ForType(ast);
 

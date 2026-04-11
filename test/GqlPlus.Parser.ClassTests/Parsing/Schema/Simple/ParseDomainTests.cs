@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
@@ -25,15 +25,15 @@ public class ParseDomainTests
   {
     // Arrange
     NameReturns(domainName);
-    IGqlpDomainLabel domainLabel = A.ItemLabel(enumType, enumLabel);
+    IAstDomainLabel domainLabel = A.ItemLabel(enumType, enumLabel);
     DomainDefinition definition = new() { Kind = domainKind, Labels = [domainLabel] };
     ParseOk(_definition, definition);
 
     // Act
-    IResult<IGqlpDomain> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstDomain> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpDomain>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstDomain>>();
   }
 
   [Fact]
@@ -41,10 +41,10 @@ public class ParseDomainTests
   {
     // Arrange
     NameFails();
-    SetupError<IGqlpDomain>();
+    SetupError<IAstDomain>();
 
     // Act
-    IResult<IGqlpDomain> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstDomain> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

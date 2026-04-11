@@ -1,10 +1,9 @@
-﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parser.Operation;
 
 public class ParseSelectionTests(
-  IOneChecksParser<IGqlpSelection> checks
+  IOneChecksParser<IAstSelection> checks
 )
 {
   [Theory]
@@ -68,6 +67,6 @@ public class ParseSelectionTests(
   public void WithInvalidSpread_ReturnsFalse()
     => checks.FalseExpected("|:?", CheckNull);
 
-  private void CheckNull(IGqlpSelection? result)
+  private void CheckNull(IAstSelection? result)
     => result.ShouldBeNull();
 }

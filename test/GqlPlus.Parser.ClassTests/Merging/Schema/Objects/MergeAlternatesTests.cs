@@ -1,11 +1,11 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Merging.Objects;
 
 namespace GqlPlus.Merging.Schema.Objects;
 
 public class MergeAlternatesTests(ITestOutputHelper outputHelper)
-    : TestDescriptionsMerger<IGqlpAlternate>
+    : TestDescriptionsMerger<IAstAlternate>
 {
 
   [Theory, RepeatData]
@@ -62,20 +62,20 @@ public class MergeAlternatesTests(ITestOutputHelper outputHelper)
 
   internal CheckAlternatesMerger CheckAlternates { get; } = new();
   internal MergeAlternates MergerAlternate { get; } = new(MergeRepo(outputHelper.ToLoggerFactory()));
-  internal override GroupsMerger<IGqlpAlternate> MergerGroups => MergerAlternate;
+  internal override GroupsMerger<IAstAlternate> MergerGroups => MergerAlternate;
 
-  protected override IGqlpAlternate MakeDescribed(string name, string description = "")
+  protected override IAstAlternate MakeDescribed(string name, string description = "")
     => CheckAlternates.MakeAlternate(name, false, description);
 }
 
 internal sealed class CheckAlternatesMerger
   : ICheckAlternatesMerger
 {
-  public IGqlpAlternate MakeAltEnum(string type, string label)
+  public IAstAlternate MakeAltEnum(string type, string label)
     => new AlternateAst(AstNulls.At, type, "") {
       EnumValue = new EnumValueAst(AstNulls.At, type, label)
     };
-  public IGqlpAlternate MakeAlternate(string input, bool withModifiers = false, string description = "")
+  public IAstAlternate MakeAlternate(string input, bool withModifiers = false, string description = "")
     => new AlternateAst(AstNulls.At, input, description) {
       Modifiers = withModifiers ? TestMods() : []
     };
@@ -83,6 +83,6 @@ internal sealed class CheckAlternatesMerger
 
 internal interface ICheckAlternatesMerger
 {
-  IGqlpAlternate MakeAlternate(string input, bool withModifiers = false, string description = "");
-  IGqlpAlternate MakeAltEnum(string type, string label);
+  IAstAlternate MakeAlternate(string input, bool withModifiers = false, string description = "");
+  IAstAlternate MakeAltEnum(string type, string label);
 }

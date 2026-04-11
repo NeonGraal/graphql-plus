@@ -2,7 +2,7 @@
 
 public abstract class TestGroupsMerger<TAst>
   : TestGroupsMerger<TAst, string>
-  where TAst : IGqlpError
+  where TAst : IAstError
 {
   protected override bool InputEquals(string? input1, string? input2)
     => string.Equals(input1, input2, StringComparison.Ordinal);
@@ -10,7 +10,7 @@ public abstract class TestGroupsMerger<TAst>
 
 public abstract class TestGroupsMerger<TAst, TInput>
   : TestAbbreviatedMerger<TAst, TInput>
-  where TAst : IGqlpError
+  where TAst : IAstError
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentNames_ReturnsGood(TInput input1, TInput input2)

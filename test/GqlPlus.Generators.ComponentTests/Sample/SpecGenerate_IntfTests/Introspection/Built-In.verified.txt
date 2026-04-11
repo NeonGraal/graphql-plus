@@ -71,6 +71,17 @@ public interface ICmpt_ModifiersObject
 {
 }
 
+public enum Cmpt_ModifierKind
+{
+  Opt,
+  Optional = Opt,
+  List,
+  Dict,
+  Dictionary = Dict,
+  Param,
+  TypeParam = Param,
+}
+
 public interface ICmpt_Modifier<TModifierKind>
   : Spec_Built-In
 {

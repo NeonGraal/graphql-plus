@@ -1,6 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Ast.Schema.Globals;
+﻿namespace GqlPlus.Ast.Schema.Globals;
 
 public partial class DirectiveDeclAstTests
 {

@@ -1,6 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Ast.Schema.Objects;
+﻿namespace GqlPlus.Ast.Schema.Objects;
 
 public partial class OutputFieldAstTests
 {
@@ -46,7 +44,7 @@ public partial class OutputFieldAstTests
     CreateOutput,
     (original, input) => original with { Name = input.Name });
 
-  internal static OutputFieldAst CreateOutput(FieldInput input, IGqlpObjBase objBase)
+  internal static OutputFieldAst CreateOutput(FieldInput input, IAstObjBase objBase)
     => new(AstNulls.At, input.Name, objBase);
 }
 

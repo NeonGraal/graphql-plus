@@ -1,6 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Ast.Schema.Objects;
+﻿namespace GqlPlus.Ast.Schema.Objects;
 
 public partial class DualFieldAstTests
 {
@@ -23,7 +21,7 @@ public partial class DualFieldAstTests
     CreateDual,
     (original, input) => original with { Name = input.Name });
 
-  internal static DualFieldAst CreateDual(FieldInput input, IGqlpObjBase objBase)
+  internal static DualFieldAst CreateDual(FieldInput input, IAstObjBase objBase)
     => new(AstNulls.At, input.Name, objBase);
 }
 

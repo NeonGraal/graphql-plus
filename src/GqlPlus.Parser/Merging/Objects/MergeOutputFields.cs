@@ -1,17 +1,17 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
 
 internal class MergeOutputFields(
   IMergerRepository mergers
-) : AstObjectFieldsMerger<IGqlpOutputField>(mergers)
+) : AstObjectFieldsMerger<IAstOutputField>(mergers)
 {
-  protected override IMessages CanMergeGroup(IGrouping<string, IGqlpOutputField> group)
+  protected override IMessages CanMergeGroup(IGrouping<string, IAstOutputField> group)
     => base.CanMergeGroup(group)
-      .Add(group.CanMerge(item => item.Parameter, mergers.MergerFor<IGqlpInputParam>()));
-  protected override IGqlpOutputField MergeGroup(IEnumerable<IGqlpOutputField> group)
+      .Add(group.CanMerge(item => item.Parameter, mergers.MergerFor<IAstInputParam>()));
+  protected override IAstOutputField MergeGroup(IEnumerable<IAstOutputField> group)
     => (OutputFieldAst)base.MergeGroup(group) with {
-      Parameter = group.Merge(item => item.Parameter, mergers.MergerFor<IGqlpInputParam>()).FirstOrDefault(),
+      Parameter = group.Merge(item => item.Parameter, mergers.MergerFor<IAstInputParam>()).FirstOrDefault(),
     };
 }

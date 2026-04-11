@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using GqlPlus.Ast.Schema;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Generating;
 
@@ -12,7 +13,7 @@ public class AllGeneratorsTests
   [Fact]
   public void AllGenerators_GeneratorForSchema_IsRegistered()
     => _services.GetRequiredService<IGeneratorRepository>()
-      .GeneratorFor<IGqlpSchema>()
+      .GeneratorFor<IAstSchema>()
       .ShouldNotBeNull();
 
   [Fact]
@@ -35,7 +36,9 @@ public class AllGeneratorsTests
     IGeneratorRepository repo = _services.GetRequiredService<IGeneratorRepository>();
     GeneratorRepositoryBuilder builder = _services.GetRequiredService<GeneratorRepositoryBuilder>();
 
-    repo.ShouldSatisfyAllConditions([.. builder.TypeGenerators.Select(CheckGenerator)]);
+    repo.ShouldSatisfyAllConditions([.. builder.TypeGenerators.Values
+      .SelectMany(fs => fs)
+      .Select(CheckGenerator)]);
   }
 
   private static Action<IGeneratorRepository> CheckGenerator(Factory<object, IGeneratorRepository> factory)

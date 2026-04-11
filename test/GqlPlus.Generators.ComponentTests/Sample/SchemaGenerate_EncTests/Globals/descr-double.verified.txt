@@ -1,0 +1,16 @@
+﻿/* descr-double
+"A 'double-quoted' description"
+output DescrDbl { }
+*/
+
+// Generated from Schema descr-double
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_descr-double, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_descr_double;
+
+internal class CmptDescrDblEncoder
+{
+}

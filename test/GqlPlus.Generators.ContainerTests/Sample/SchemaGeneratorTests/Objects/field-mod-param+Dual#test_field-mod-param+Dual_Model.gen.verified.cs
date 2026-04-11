@@ -1,6 +1,6 @@
 ﻿//HintName: test_field-mod-param+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}field-mod-param+Dual.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_field_mod_param_Dual;
 
 public class testFieldModParamDual<TMod>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldModParamDual<TMod>
 {
   public ItestFieldModParamDualObject<TMod>? As_FieldModParamDual { get; set; }
 }
 
 public class testFieldModParamDualObject<TMod>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldModParamDualObject<TMod>
 {
   public IDictionary<TMod, ItestFldFieldModParamDual> Field { get; set; }
@@ -29,7 +29,7 @@ public class testFieldModParamDualObject<TMod>
 }
 
 public class testFldFieldModParamDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldFieldModParamDual
 {
   public string? AsString { get; set; }
@@ -37,7 +37,7 @@ public class testFldFieldModParamDual
 }
 
 public class testFldFieldModParamDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldFieldModParamDualObject
 {
   public decimal Field { get; set; }

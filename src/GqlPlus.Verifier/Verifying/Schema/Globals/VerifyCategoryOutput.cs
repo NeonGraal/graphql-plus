@@ -1,15 +1,15 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Verifying.Schema.Globals;
 
-internal class VerifyCategoryOutput(IVerifierRepository verifiers) : UsageVerifier<IGqlpSchemaCategory, UsageContext>(verifiers)
+internal class VerifyCategoryOutput(IVerifierRepository verifiers) : UsageVerifier<IAstSchemaCategory, UsageContext>(verifiers)
 {
-  protected override UsageContext MakeContext(IGqlpSchemaCategory usage, IGqlpType[] aliased, IMessages errors)
+  protected override UsageContext MakeContext(IAstSchemaCategory usage, IAstType[] aliased, IMessages errors)
     => MakeUsageContext(aliased, errors);
 
-  protected override void UsageValue(IGqlpSchemaCategory usage, UsageContext context)
+  protected override void UsageValue(IAstSchemaCategory usage, UsageContext context)
   {
-    if (context.GetTyped(usage.Output.Name, out IGqlpObject<IGqlpOutputField>? output)) {
+    if (context.GetTyped(usage.Output.Name, out IAstObject<IAstOutputField>? output)) {
       context.AddError(usage, "Category Output", $"'{usage.Output.Name}' is a generic Output type", output.TypeParams.Any());
     } else {
       context.AddError(usage, "Category Output", $"'{usage.Output.Name}' not defined or not an Output type");

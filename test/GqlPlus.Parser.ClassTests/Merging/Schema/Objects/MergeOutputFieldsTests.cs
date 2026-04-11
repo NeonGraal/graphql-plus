@@ -1,11 +1,11 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Merging.Objects;
 
 namespace GqlPlus.Merging.Schema.Objects;
 
 public class MergeOutputFieldsTests
-  : TestObjectFieldMerger<IGqlpOutputField>
+  : TestObjectFieldMerger<IAstOutputField>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsParamsCantMerge_ReturnsErrors(string name, string type, string parameter)
@@ -24,20 +24,20 @@ public class MergeOutputFieldsTests
       .MergeCalled(_parameters);
 
   private readonly MergeOutputFields _merger;
-  private readonly IMerge<IGqlpInputParam> _parameters;
+  private readonly IMerge<IAstInputParam> _parameters;
 
   public MergeOutputFieldsTests(ITestOutputHelper outputHelper)
   {
-    _parameters = Merger<IGqlpInputParam>();
+    _parameters = Merger<IAstInputParam>();
 
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.MergerFor<IGqlpInputParam>().Returns(_parameters);
+    mergers.MergerFor<IAstInputParam>().Returns(_parameters);
     _merger = new(mergers);
   }
 
-  internal override AstObjectFieldsMerger<IGqlpOutputField> MergerField => _merger;
+  internal override AstObjectFieldsMerger<IAstOutputField> MergerField => _merger;
 
-  protected override IGqlpOutputField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "", string[]? aliases = null)
+  protected override IAstOutputField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "", string[]? aliases = null)
     => new OutputFieldAst(AstNulls.At, name, fieldDescription, new ObjBaseAst(AstNulls.At, type, typeDescription)) {
       Aliases = aliases ?? [],
     };
@@ -45,11 +45,11 @@ public class MergeOutputFieldsTests
     => new(AstNulls.At, name, new ObjBaseAst(AstNulls.At, type, "")) {
       Parameter = parameter.Parameter(),
     };
-  protected override IGqlpOutputField MakeFieldModifiers(string name)
+  protected override IAstOutputField MakeFieldModifiers(string name)
     => new OutputFieldAst(AstNulls.At, name, new ObjBaseAst(AstNulls.At, name, "")) {
       Modifiers = TestMods(),
     };
-  protected override IGqlpOutputField MakeFieldEnum(string name, string enumType, string enumLabel, string fieldDescription = "", string typeDescription = "", string[]? aliases = null)
+  protected override IAstOutputField MakeFieldEnum(string name, string enumType, string enumLabel, string fieldDescription = "", string typeDescription = "", string[]? aliases = null)
     => new OutputFieldAst(AstNulls.At, name, fieldDescription, new ObjBaseAst(AstNulls.At, enumType, typeDescription)) {
       Aliases = aliases ?? [],
       EnumValue = new EnumValueAst(AstNulls.At, enumType, enumLabel),

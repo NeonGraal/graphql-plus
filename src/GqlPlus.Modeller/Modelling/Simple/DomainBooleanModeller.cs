@@ -1,9 +1,11 @@
-﻿namespace GqlPlus.Modelling.Simple;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Modelling.Simple;
 
 internal class DomainBooleanModeller
-  : ModellerDomain<IGqlpDomainTrueFalse, DomainTrueFalseModel>
+  : ModellerDomain<IAstDomainTrueFalse, DomainTrueFalseModel>
 {
-  protected override BaseDomainModel<DomainTrueFalseModel> ToModel(IGqlpDomain<IGqlpDomainTrueFalse> ast, IMap<TypeKindModel> typeKinds)
+  protected override BaseDomainModel<DomainTrueFalseModel> ToModel(IAstDomain<IAstDomainTrueFalse> ast, IMap<TypeKindModel> typeKinds)
     => new(DomainKindModel.Boolean, ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
       Parent = ast.Parent.TypeRef(SimpleKindModel.Domain),
@@ -11,6 +13,6 @@ internal class DomainBooleanModeller
       AllItems = ToAllItems(ast, typeKinds),
     };
 
-  protected override DomainTrueFalseModel ToItem(IGqlpDomainTrueFalse ast, IMap<TypeKindModel> typeKinds)
+  protected override DomainTrueFalseModel ToItem(IAstDomainTrueFalse ast, IMap<TypeKindModel> typeKinds)
     => new(ast.IsTrue, ast.Excludes, ast.Description);
 }

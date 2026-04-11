@@ -1,11 +1,11 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging.Simple;
 
 namespace GqlPlus.Merging.Schema.Simple;
 
 public class MergeDomainRegexesTests(ITestOutputHelper outputHelper)
-    : TestDomainItemMerger<IGqlpDomainRegex, string>
+    : TestDomainItemMerger<IAstDomainRegex, string>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentExcludes_ReturnsErrors(string name)
@@ -13,9 +13,9 @@ public class MergeDomainRegexesTests(ITestOutputHelper outputHelper)
 
   private readonly MergeDomainRegexes _merger = new(MergeRepo(outputHelper.ToLoggerFactory()));
 
-  internal override GroupsMerger<IGqlpDomainRegex> MergerGroups => _merger;
+  internal override GroupsMerger<IAstDomainRegex> MergerGroups => _merger;
 
-  protected override IGqlpDomainRegex MakeItem(string input, bool excludes)
+  protected override IAstDomainRegex MakeItem(string input, bool excludes)
     => new DomainRegexAst(AstNulls.At, "", excludes, input);
   protected override bool InputEquals(string? input1, string? input2)
     => string.Equals(input1, input2, StringComparison.Ordinal);

@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
+﻿using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
@@ -19,8 +19,8 @@ public class OperationContextTests
   public void AddVariable_Recorded(string variable)
   {
     // Arrange
-    IGqlpArg arg = AtFor<IGqlpArg>();
-    arg.Equals(Arg.Any<IGqlpArg>()).Returns(c => c[0] == arg);
+    IAstArg arg = AtFor<IAstArg>();
+    arg.Equals(Arg.Any<IAstArg>()).Returns(c => c[0] == arg);
     arg.Variable.Returns(variable);
 
     // Act
@@ -34,7 +34,7 @@ public class OperationContextTests
   public void AddSpread_Recorded(string name)
   {
     // Arrange
-    IGqlpSpread spread = AtFor<IGqlpSpread>();
+    IAstSpread spread = AtFor<IAstSpread>();
     spread.Identifier.Returns(name);
 
     // Act

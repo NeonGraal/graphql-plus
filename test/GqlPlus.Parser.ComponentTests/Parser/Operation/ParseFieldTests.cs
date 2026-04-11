@@ -1,10 +1,9 @@
-﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parser.Operation;
 
 public class ParseFieldTests(
-  IOneChecksParser<IGqlpField> checks
+  IOneChecksParser<IAstField> checks
 )
 {
   [Theory, RepeatData]
@@ -67,6 +66,6 @@ public class ParseFieldTests(
   public void WithJustAlias_ReturnsFalse(string alias)
     => checks.FalseExpected(alias + ":", DefaultNull);
 
-  private void DefaultNull(IGqlpSelection? result)
+  private void DefaultNull(IAstSelection? result)
     => result.ShouldBeNull();
 }

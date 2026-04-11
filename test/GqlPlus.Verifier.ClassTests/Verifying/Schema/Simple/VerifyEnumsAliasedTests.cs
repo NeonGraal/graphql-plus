@@ -1,9 +1,11 @@
-﻿namespace GqlPlus.Verifying.Schema.Simple;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Verifying.Schema.Simple;
 
 [TracePerTest]
 public class VerifyEnumsAliasedTests
-  : AliasedVerifierTestsBase<IGqlpEnum>
+  : AliasedVerifierTestsBase<IAstEnum>
 {
-  internal override GroupedVerifier<IGqlpEnum> NewGroupedVerifier()
+  internal override GroupedVerifier<IAstEnum> NewGroupedVerifier()
     => new VerifyEnumsAliased(VerifierRepo);
 }

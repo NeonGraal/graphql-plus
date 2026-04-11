@@ -1,10 +1,11 @@
-﻿using GqlPlus.Building.Schema.Simple;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Building.Schema.Simple;
 
 namespace GqlPlus.Verifying.Schema.Simple;
 
 public abstract class AstDomainVerifierTestsBase<TItem>
   : VerifierTypeTestsBase
-  where TItem : class, IGqlpDomainItem
+  where TItem : class, IAstDomainItem
 {
   private readonly DomainKind _kind;
   internal ForM<TItem> ItemsMerger { get; } = new();
@@ -23,7 +24,7 @@ public abstract class AstDomainVerifierTestsBase<TItem>
     EnumContext context = new(Types, Errors, EnumValues);
 
     TItem item = NewItem();
-    IGqlpDomain<TItem> domain = A.Domain("", _kind, item);
+    IAstDomain<TItem> domain = A.Domain("", _kind, item);
 
     verifier.Verify(domain, context);
 
@@ -36,10 +37,10 @@ public abstract class AstDomainVerifierTestsBase<TItem>
   public void CanMerge_WithParentIems_WithoutErrors()
   {
     TItem parentItem = A.Error<TItem>();
-    IGqlpDomain<TItem> parent = A.Domain("parent", _kind, parentItem);
+    IAstDomain<TItem> parent = A.Domain("parent", _kind, parentItem);
     AddTypes(parent);
 
-    IGqlpDomain<TItem> domain = A.Domain<TItem>("domain", _kind)
+    IAstDomain<TItem> domain = A.Domain<TItem>("domain", _kind)
       .WithParent("parent").AsDomain;
 
     EnumContext context = new(Types, Errors, EnumValues);

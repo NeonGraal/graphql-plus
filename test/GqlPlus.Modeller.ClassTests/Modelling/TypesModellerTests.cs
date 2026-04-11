@@ -1,4 +1,5 @@
-﻿using NSubstitute.ReceivedExtensions;
+﻿using GqlPlus.Ast.Schema;
+using NSubstitute.ReceivedExtensions;
 
 namespace GqlPlus.Modelling;
 
@@ -8,7 +9,7 @@ public class TypesModellerTests
   [Theory, RepeatData]
   public void ToModel_ForType_CallsToTypeModel(string name)
   {
-    IGqlpType ast = A.Of<IGqlpType>();
+    IAstType ast = A.Of<IAstType>();
     Map<TypeKindModel> typeKinds = [];
 
     ITypeModeller modeller = A.Of<ITypeModeller>();
@@ -27,7 +28,7 @@ public class TypesModellerTests
   [Theory, RepeatData]
   public void AddTypeKind_ForType_CallsToTypeModel(string name)
   {
-    IGqlpType ast = A.Named<IGqlpType>(name, string.Empty);
+    IAstType ast = A.Named<IAstType>(name, string.Empty);
     Map<TypeKindModel> typeKinds = [];
 
     ITypeModeller modeller = A.Of<ITypeModeller>();

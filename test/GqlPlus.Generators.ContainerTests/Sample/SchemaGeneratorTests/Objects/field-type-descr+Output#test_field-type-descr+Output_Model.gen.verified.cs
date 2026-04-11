@@ -1,6 +1,6 @@
 ﻿//HintName: test_field-type-descr+Output_Model.gen.cs
 // Generated from {CurrentDirectory}field-type-descr+Output.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_field_type_descr_Output;
 
 public class testFieldTypeDescrOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldTypeDescrOutp
 {
   public ItestFieldTypeDescrOutpObject? As_FieldTypeDescrOutp { get; set; }
 }
 
 public class testFieldTypeDescrOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldTypeDescrOutpObject
 {
   public decimal Field { get; set; }

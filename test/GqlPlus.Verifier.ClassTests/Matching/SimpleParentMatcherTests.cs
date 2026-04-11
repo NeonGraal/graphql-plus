@@ -1,10 +1,11 @@
-﻿using GqlPlus.Building.Schema.Simple;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Building.Schema.Simple;
 
 namespace GqlPlus.Matching;
 
 public abstract class SimpleParentMatcherTests<TSimple>
   : MatchTestsBase
-  where TSimple : class, IGqlpSimple
+  where TSimple : class, IAstSimple
 {
   private readonly SimpleParentMatcher<TSimple> _sut;
 
@@ -51,22 +52,22 @@ public abstract class SimpleParentMatcherTests<TSimple>
 }
 
 public class DomainParentMatcherTests
-  : SimpleParentMatcherTests<IGqlpDomain<IGqlpDomainLabel>>
+  : SimpleParentMatcherTests<IAstDomain<IAstDomainLabel>>
 {
-  protected override SimpleBuilder<IGqlpDomain<IGqlpDomainLabel>> MakeSimple(string name)
-    => new DomainBuilder<IGqlpDomainLabel>(name, DomainKind.Enum);
+  protected override SimpleBuilder<IAstDomain<IAstDomainLabel>> MakeSimple(string name)
+    => new DomainBuilder<IAstDomainLabel>(name, DomainKind.Enum);
 }
 
 public class EnumParentMatcherTests
-  : SimpleParentMatcherTests<IGqlpEnum>
+  : SimpleParentMatcherTests<IAstEnum>
 {
-  protected override SimpleBuilder<IGqlpEnum> MakeSimple(string name)
+  protected override SimpleBuilder<IAstEnum> MakeSimple(string name)
     => new EnumBuilder(name);
 }
 
 public class UnionParentMatcherTests
-  : SimpleParentMatcherTests<IGqlpUnion>
+  : SimpleParentMatcherTests<IAstUnion>
 {
-  protected override SimpleBuilder<IGqlpUnion> MakeSimple(string name)
+  protected override SimpleBuilder<IAstUnion> MakeSimple(string name)
     => new UnionBuilder(name);
 }

@@ -1,8 +1,10 @@
-﻿namespace GqlPlus.Modelling;
+﻿using GqlPlus.Ast;
+
+namespace GqlPlus.Modelling;
 
 internal class EnumValueModeller
-  : ModellerBase<IGqlpEnumValue, EnumValueModel>
+  : ModellerBase<IAstEnumValue, EnumValueModel>
 {
-  protected override EnumValueModel ToModel(IGqlpEnumValue ast, IMap<TypeKindModel> typeKinds)
+  protected override EnumValueModel ToModel(IAstEnumValue ast, IMap<TypeKindModel> typeKinds)
     => new(ast.EnumType, ast.EnumLabel, "");
 }

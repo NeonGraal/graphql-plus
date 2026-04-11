@@ -1,4 +1,6 @@
-﻿using GqlPlus.Building;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
+using GqlPlus.Building;
 using GqlPlus.Building.Schema.Objects;
 
 namespace GqlPlus.Verifying.Schema.Objects;
@@ -6,7 +8,7 @@ namespace GqlPlus.Verifying.Schema.Objects;
 public abstract class ObjectVerifierAlternatesTestsBase<TObjField>(
   TypeKind kind
 ) : ObjectVerifierTestsBase<TObjField>(kind)
-  where TObjField : class, IGqlpObjField
+  where TObjField : class, IAstObjField
 {
   [Fact]
   public void Verify_WithAlternate_ReturnsNoErrors()
@@ -118,7 +120,7 @@ public abstract class ObjectVerifierAlternatesTestsBase<TObjField>(
   {
     this.SkipEqual(argType, altType);
 
-    Define<IGqlpSimple>(argType);
+    Define<IAstSimple>(argType);
 
     DefineObject(altType, o => o
       .WithTypeParam(paramName, argType)

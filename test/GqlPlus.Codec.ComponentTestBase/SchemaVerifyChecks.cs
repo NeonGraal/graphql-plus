@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Parsing;
 using GqlPlus.Resolving;
@@ -12,11 +12,11 @@ internal sealed class SchemaVerifyChecks(
 ) : SchemaParseChecks(parsers)
   , ISchemaVerifyChecks
 {
-  private readonly IMerge<IGqlpSchema> _schemaMerger = mergers.MergerFor<IGqlpSchema>();
+  private readonly IMerge<IAstSchema> _schemaMerger = mergers.MergerFor<IAstSchema>();
 
-  public (SchemaModel, IModelsContext) Model_Asts(IEnumerable<IGqlpSchema> asts, bool withBuiltIns, bool addDescribed)
+  public (SchemaModel, IModelsContext) Model_Asts(IEnumerable<IAstSchema> asts, bool withBuiltIns, bool addDescribed)
   {
-    IGqlpSchema schema = _schemaMerger.Merge(asts).First();
+    IAstSchema schema = _schemaMerger.Merge(asts).First();
 
     IModelsContext context = withBuiltIns ? schemaEncoder.WithBuiltIns() : schemaEncoder.Context();
     if (addDescribed) {
@@ -37,6 +37,6 @@ internal sealed class SchemaVerifyChecks(
 public interface ISchemaVerifyChecks
   : ISchemaParseChecks
 {
-  (SchemaModel, IModelsContext) Model_Asts(IEnumerable<IGqlpSchema> asts, bool withBuiltIns, bool addDescribed);
+  (SchemaModel, IModelsContext) Model_Asts(IEnumerable<IAstSchema> asts, bool withBuiltIns, bool addDescribed);
   Structured Encode_Model(SchemaModel model, IModelsContext context);
 }

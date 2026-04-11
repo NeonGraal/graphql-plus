@@ -1,6 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Ast.Schema.Objects;
+﻿namespace GqlPlus.Ast.Schema.Objects;
 
 public class OutputDeclAstTests
   : AstObjectBaseTests
@@ -11,13 +9,13 @@ public class OutputDeclAstTests
 }
 
 internal sealed class OutputDeclAstChecks
-  : AstObjectChecks<IGqlpOutputField>
+  : AstObjectChecks<IAstOutputField>
 {
   public OutputDeclAstChecks()
     : base(TypeKind.Output, parent => new ObjBaseAst(AstNulls.At, parent, string.Empty))
   { }
 
-  protected override IGqlpOutputField[] CreateFields(IEnumerable<FieldInput> fields)
+  protected override IAstOutputField[] CreateFields(IEnumerable<FieldInput> fields)
     => fields.OutputFields();
   protected override string FieldString(FieldInput input)
     => $"!OF {input.Name} : {input.Type}";

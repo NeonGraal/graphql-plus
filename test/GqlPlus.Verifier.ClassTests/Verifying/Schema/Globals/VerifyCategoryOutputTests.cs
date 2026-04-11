@@ -1,22 +1,24 @@
-﻿namespace GqlPlus.Verifying.Schema.Globals;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Verifying.Schema.Globals;
 
 [TracePerTest]
 public class VerifyCategoryOutputTests
-  : UsageVerifierTestsBase<IGqlpSchemaCategory>
+  : UsageVerifierTestsBase<IAstSchemaCategory>
 {
   private readonly VerifyCategoryOutput _verifier;
-  private readonly IGqlpSchemaCategory _category;
+  private readonly IAstSchemaCategory _category;
 
-  protected override IGqlpSchemaCategory TheUsage => _category;
-  protected override IVerifyUsage<IGqlpSchemaCategory> Verifier => _verifier;
+  protected override IAstSchemaCategory TheUsage => _category;
+  protected override IVerifyUsage<IAstSchemaCategory> Verifier => _verifier;
 
   public VerifyCategoryOutputTests()
   {
     _verifier = new(VerifierRepo);
 
-    IGqlpTypeRef output = A.Named<IGqlpTypeRef>("Type");
+    IAstTypeRef output = A.Named<IAstTypeRef>("Type");
 
-    _category = A.Error<IGqlpSchemaCategory>();
+    _category = A.Error<IAstSchemaCategory>();
     _category.Output.Returns(output);
   }
 
@@ -43,7 +45,7 @@ public class VerifyCategoryOutputTests
   [Fact]
   public void Verify_DefinedOutput_ReturnsNoError()
   {
-    Define<IGqlpObject<IGqlpOutputField>>("Type");
+    Define<IAstObject<IAstOutputField>>("Type");
 
     Usages.Add(_category);
 
@@ -55,7 +57,7 @@ public class VerifyCategoryOutputTests
   [Fact]
   public void Verify_WithAliases_ReturnsNoError()
   {
-    Define<IGqlpObject<IGqlpOutputField>>("Type");
+    Define<IAstObject<IAstOutputField>>("Type");
     _category.Aliases.Returns(["Alias1", "Alias2"]);
     Usages.Add(_category);
 
@@ -67,8 +69,8 @@ public class VerifyCategoryOutputTests
   [Fact]
   public void Verify_DefinedGenericOutput_ReturnsError()
   {
-    IGqlpObject<IGqlpOutputField> outputType = A.Named<IGqlpObject<IGqlpOutputField>>("Type");
-    IGqlpTypeParam typeParam = A.TypeParam("a", "b");
+    IAstObject<IAstOutputField> outputType = A.Named<IAstObject<IAstOutputField>>("Type");
+    IAstTypeParam typeParam = A.TypeParam("a", "b");
     outputType.TypeParams.Returns([typeParam]);
     Definitions.Add(outputType);
 
@@ -82,7 +84,7 @@ public class VerifyCategoryOutputTests
   [Fact]
   public void Verify_DefinedInput_ReturnsError()
   {
-    Define<IGqlpObject<IGqlpInputField>>("Type");
+    Define<IAstObject<IAstInputField>>("Type");
 
     Usages.Add(_category);
 

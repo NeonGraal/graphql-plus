@@ -1,0 +1,22 @@
+﻿/* field-mod-param+Dual
+dual FieldModParamDual<$mod:String> { field: FldFieldModParamDual[$mod] }
+dual FldFieldModParamDual { field: Number | String }
+*/
+
+// Generated from Schema field-mod-param+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-mod-param+Dual, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_mod_param_Dual;
+
+internal class CmptFieldModParamDualEncoder<TMod>
+{
+  public IDictionary<TMod, ICmptFldFieldModParamDual> Field { get; set; }
+}
+
+internal class CmptFldFieldModParamDualEncoder
+{
+  public decimal Field { get; set; }
+}

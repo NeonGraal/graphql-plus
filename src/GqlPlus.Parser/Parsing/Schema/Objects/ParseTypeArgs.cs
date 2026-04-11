@@ -1,5 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -7,11 +7,11 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseTypeArgs
-  : Parser<IGqlpTypeArg>.IA
+  : Parser<IAstTypeArg>.IA
 {
-  public IResultArray<IGqlpTypeArg> Parse(ITokenizer tokens, string label)
+  public IResultArray<IAstTypeArg> Parse(ITokenizer tokens, string label)
   {
-    List<IGqlpTypeArg> list = [];
+    List<IAstTypeArg> list = [];
 
     if (!tokens.Take('<')) {
       return list.EmptyArray();

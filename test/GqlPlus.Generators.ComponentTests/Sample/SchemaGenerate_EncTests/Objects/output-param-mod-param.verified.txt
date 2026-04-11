@@ -1,0 +1,28 @@
+﻿/* output-param-mod-param
+output OutpParamModParam<$mod:String> { field(InOutpParamModParam[$mod]): DomOutpParamModParam }
+input InOutpParamModParam { param: Number | String }
+domain DomOutpParamModParam { number 1 > 10 }
+*/
+
+// Generated from Schema output-param-mod-param
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_output-param-mod-param, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_output_param_mod_param;
+
+internal class CmptOutpParamModParamEncoder<TMod>
+{
+  public ICmptDomOutpParamModParam? Field(IDictionary<TMod, ICmptInOutpParamModParam> parameter)
+    => null;
+}
+
+internal class CmptInOutpParamModParamEncoder
+{
+  public decimal Param { get; set; }
+}
+
+internal class CmptDomOutpParamModParamEncoder
+{
+}

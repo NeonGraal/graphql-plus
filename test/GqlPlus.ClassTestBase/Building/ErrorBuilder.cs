@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Building;
+﻿using GqlPlus.Ast;
+
+namespace GqlPlus.Building;
 
 public class ErrorBuilder
   : IMockBuilder
@@ -9,10 +11,10 @@ public class ErrorBuilder
     => Types.Add(typeof(T));
 
   public ErrorBuilder()
-    => Add<IGqlpError>();
+    => Add<IAstError>();
 
   protected T Build<T>()
-    where T : class, IGqlpError
+    where T : class, IAstError
   {
     T result = (T)Substitute.For([.. Types], []);
 

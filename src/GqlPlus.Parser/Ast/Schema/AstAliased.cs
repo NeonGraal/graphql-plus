@@ -1,21 +1,19 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Ast.Schema;
+﻿namespace GqlPlus.Ast.Schema;
 
 internal abstract record class AstAliased(
   ITokenAt At,
   string Name,
   string Description
 ) : AstNamed(At, Name, Description)
-  , IGqlpAliased
+  , IAstAliased
   , IAstSetAliases
 {
   public string[] Aliases { get; set; } = [];
-  IEnumerable<string> IGqlpAliased.Aliases => Aliases;
+  IEnumerable<string> IAstAliased.Aliases => Aliases;
 
   public virtual bool Equals(AstAliased? other)
-    => other is IGqlpAliased aliased && Equals(aliased);
-  public bool Equals(IGqlpAliased? other)
+    => other is IAstAliased aliased && Equals(aliased);
+  public bool Equals(IAstAliased? other)
     => base.Equals(other)
     && Aliases.OrderedEqual(other.Aliases);
   public override int GetHashCode()

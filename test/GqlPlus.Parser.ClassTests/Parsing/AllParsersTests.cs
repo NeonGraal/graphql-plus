@@ -14,28 +14,28 @@ public class AllParsersTests
   public void AllParsers_ParserForConstant_IsRegistered()
     => Services
     .GetRequiredService<IParserRepository>()
-    .ParserFor<IGqlpConstant>()
+    .ParserFor<IAstConstant>()
     .ShouldNotBeNull();
 
   [Fact]
   public void AllParsers_ArrayForModifier_IsRegistered()
     => Services
     .GetRequiredService<IParserRepository>()
-    .ArrayFor<IGqlpModifier>()
+    .ArrayFor<IAstModifier>()
     .ShouldNotBeNull();
 
   [Fact]
   public void AllParsers_ParserForDefault_IsRegistered()
     => Services
     .GetRequiredService<IParserRepository>()
-    .ParserFor<IParserDefault, IGqlpConstant>()
+    .ParserFor<IParserDefault, IAstConstant>()
     .ShouldNotBeNull();
 
   [Fact]
   public void AllParsers_ArrayForCollections_IsRegistered()
     => Services
     .GetRequiredService<IParserRepository>()
-    .ArrayFor<IParserCollections, IGqlpModifier>()
+    .ArrayFor<IParserCollections, IAstModifier>()
     .ShouldNotBeNull();
 
   [Fact]

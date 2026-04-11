@@ -1,5 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Token;
+﻿using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
@@ -8,7 +7,7 @@ internal sealed record class EnumLabelAst(
   string Name,
   string Description
 ) : AstAliased(At, Name, Description)
-  , IGqlpEnumLabel
+  , IAstEnumLabel
 {
   public EnumLabelAst(TokenAt at, string name)
     : this(at, name, "") { }

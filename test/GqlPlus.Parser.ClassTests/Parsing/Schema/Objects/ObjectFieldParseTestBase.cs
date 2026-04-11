@@ -1,22 +1,22 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public abstract class ObjectFieldParseTestBase<TField>
   : AliasesClassTestBase
-  where TField : class, IGqlpObjField
+  where TField : class, IAstObjField
 {
 
-  private readonly Parser<IGqlpObjBase>.I _parseBase;
+  private readonly Parser<IAstObjBase>.I _parseBase;
   protected abstract Parser<TField>.I Parser { get; }
 
   protected ObjectFieldParseTestBase()
   {
-    _parseBase = A.Of<Parser<IGqlpObjBase>.I>();
+    _parseBase = A.Of<Parser<IAstObjBase>.I>();
     _parseBase.Parse(default!, default!)
-      .ReturnsForAnyArgs(default(IGqlpObjBase).Empty());
-    Parser<IGqlpObjBase>.L parseBaseLazy = new(() => _parseBase);
-    Parsers.ParserFor<IGqlpObjBase>().Returns(parseBaseLazy);
+      .ReturnsForAnyArgs(default(IAstObjBase).Empty());
+    Parser<IAstObjBase>.L parseBaseLazy = new(() => _parseBase);
+    Parsers.ParserFor<IAstObjBase>().Returns(parseBaseLazy);
   }
 
   [Theory, RepeatData]
@@ -73,7 +73,7 @@ public abstract class ObjectFieldParseTestBase<TField>
     IdentifierReturns(OutString(fieldName));
     TakeReturns(':', true);
     ParseOk(_parseBase);
-    IGqlpModifier modifer = A.Modifier(ModifierKind.List);
+    IAstModifier modifer = A.Modifier(ModifierKind.List);
     ParseModifiersOk(modifer);
 
     // Act

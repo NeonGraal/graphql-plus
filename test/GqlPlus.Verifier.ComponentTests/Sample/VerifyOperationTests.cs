@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
+﻿using GqlPlus.Ast.Operation;
 using GqlPlus.Parsing;
 using GqlPlus.Parsing.Operation;
 using GqlPlus.Result;
@@ -11,15 +11,15 @@ public class VerifyOperationTests(
     IVerifierRepository verifierRepository
 ) : SampleChecks
 {
-  private readonly Parser<IGqlpOperation>.L _parser = parsers.ParserFor<IGqlpOperation>();
-  private readonly IVerify<IGqlpOperation> _operationVerifier = verifierRepository.VerifierFor<IGqlpOperation>();
+  private readonly Parser<IAstOperation>.L _parser = parsers.ParserFor<IAstOperation>();
+  private readonly IVerify<IAstOperation> _operationVerifier = verifierRepository.VerifierFor<IAstOperation>();
 
   [Theory]
   [ClassData(typeof(SamplesOperationData))]
   public async Task Verify_ValidOperations_ReturnsValid(string operation)
   {
-    IResult<IGqlpOperation> parse = await Parse("", operation);
-    if (parse is IResultError<IGqlpOperation> error) {
+    IResult<IAstOperation> parse = await Parse("", operation);
+    if (parse is IResultError<IAstOperation> error) {
       error.Message.ShouldBeNull();
     }
 
@@ -34,7 +34,7 @@ public class VerifyOperationTests(
   [ClassData(typeof(SamplesOperationInvalidData))]
   public async Task Verify_InvalidOperations_ReturnsInvalid(string operation)
   {
-    IResult<IGqlpOperation> parse = await Parse("Invalid", operation);
+    IResult<IAstOperation> parse = await Parse("Invalid", operation);
 
     Messages result = Messages.Empty;
     if (parse.IsOk()) {
@@ -46,7 +46,7 @@ public class VerifyOperationTests(
     await CheckErrors(["Operation", "Invalid"], operation, result, "verify", "parse");
   }
 
-  private async Task<IResult<IGqlpOperation>> Parse(string category, string operation)
+  private async Task<IResult<IAstOperation>> Parse(string category, string operation)
   {
     string input = await ReadFile(operation, "gql+", ["Operation", category]);
     OperationContext tokens = new(input);

@@ -1,0 +1,22 @@
+﻿/* parent-field+Input
+input PrntFieldInp { :RefPrntFieldInp field: Number }
+input RefPrntFieldInp { parent: Number | String }
+*/
+
+// Generated from Schema parent-field+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-field+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_field_Input;
+
+internal class CmptPrntFieldInpDecoder
+{
+  public decimal Field { get; set; }
+}
+
+internal class CmptRefPrntFieldInpDecoder
+{
+  public decimal Parent { get; set; }
+}

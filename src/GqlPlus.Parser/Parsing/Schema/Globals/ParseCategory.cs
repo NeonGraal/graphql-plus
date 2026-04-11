@@ -1,5 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
+﻿using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Result;
@@ -9,9 +8,9 @@ namespace GqlPlus.Parsing.Schema.Globals;
 
 internal class ParseCategory(
   IParserRepository parsers
-) : DeclarationParser<ICategoryName, NullAst, CategoryOption, CategoryOutput, IGqlpSchemaCategory>(parsers)
+) : DeclarationParser<ICategoryName, NullAst, CategoryOption, CategoryOutput, IAstSchemaCategory>(parsers)
 {
-  protected override IGqlpSchemaCategory MakeResult(AstPartial<NullAst, CategoryOption> partial, CategoryOutput value)
+  protected override IAstSchemaCategory MakeResult(AstPartial<NullAst, CategoryOption> partial, CategoryOutput value)
   {
     string name = string.IsNullOrWhiteSpace(partial.Name)
       ? value.Output.Name.Camelize() : partial.Name;
@@ -23,16 +22,16 @@ internal class ParseCategory(
     };
   }
 
-  protected override IGqlpSchemaCategory ToResult(AstPartial<NullAst, CategoryOption> partial)
+  protected override IAstSchemaCategory ToResult(AstPartial<NullAst, CategoryOption> partial)
     => new CategoryDeclAst(partial.At, partial.Name, partial.Description, new TypeRefAst(partial.At, partial.Name, "")) {
       Aliases = partial.Aliases,
       Option = partial.Option ?? CategoryOption.Parallel,
     };
 }
 
-internal record CategoryOutput(IGqlpTypeRef Output)
+internal record CategoryOutput(IAstTypeRef Output)
 {
-  public IGqlpModifier[] Modifiers { get; set; } = [];
+  public IAstModifier[] Modifiers { get; set; } = [];
 }
 
 internal class CategoryName
@@ -55,18 +54,18 @@ internal class ParseCategoryDefinition(
   IParserRepository parsers
 ) : Parser<CategoryOutput>.I
 {
-  private readonly Parser<IGqlpTypeRef>.L _typeRef = parsers.ParserFor<IGqlpTypeRef>();
-  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.ArrayFor<IGqlpModifier>();
+  private readonly Parser<IAstTypeRef>.L _typeRef = parsers.ParserFor<IAstTypeRef>();
+  private readonly Parser<IAstModifier>.LA _modifiers = parsers.ArrayFor<IAstModifier>();
 
   public IResult<CategoryOutput> Parse(ITokenizer tokens, string label)
   {
-    IResult<IGqlpTypeRef> output = _typeRef.Parse(tokens, "Category Output");
+    IResult<IAstTypeRef> output = _typeRef.Parse(tokens, "Category Output");
     if (output.IsError()) {
       return tokens.Error<CategoryOutput>(label, "output type");
     }
 
     CategoryOutput result = new(output.Required());
-    IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, "Param");
+    IResultArray<IAstModifier> modifiers = _modifiers.Parse(tokens, "Param");
     if (modifiers.IsError()) {
       return modifiers.AsPartial(result);
     }

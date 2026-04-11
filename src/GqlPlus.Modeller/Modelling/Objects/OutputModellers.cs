@@ -1,10 +1,12 @@
-﻿namespace GqlPlus.Modelling.Objects;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Modelling.Objects;
 
 internal class OutputModeller(
-  ObjectModellers<IGqlpOutputField, OutputFieldModel> modellers
-) : ModellerObject<IGqlpObject<IGqlpOutputField>, IGqlpOutputField, TypeOutputModel, OutputFieldModel>(TypeKindModel.Output, modellers)
+  ObjectModellers<IAstOutputField, OutputFieldModel> modellers
+) : ModellerObject<IAstObject<IAstOutputField>, IAstOutputField, TypeOutputModel, OutputFieldModel>(TypeKindModel.Output, modellers)
 {
-  protected override TypeOutputModel ToModel(IGqlpObject<IGqlpOutputField> ast, IMap<TypeKindModel> typeKinds)
+  protected override TypeOutputModel ToModel(IAstObject<IAstOutputField> ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
       Parent = ParentModel(ast.Parent, typeKinds),
@@ -16,12 +18,12 @@ internal class OutputModeller(
 
 internal class OutputFieldModeller(
   IModifierModeller modifier,
-  // IModeller<IGqlpEnumValue, EnumValueModel> enumValue,
-  IModeller<IGqlpInputParam, InputParamModel> parameter,
-  IModeller<IGqlpObjBase, ObjBaseModel> objBase
-) : ModellerObjField<IGqlpOutputField, OutputFieldModel>(modifier, objBase)
+  // IModeller<IAstEnumValue, EnumValueModel> enumValue,
+  IModeller<IAstInputParam, InputParamModel> parameter,
+  IModeller<IAstObjBase, ObjBaseModel> objBase
+) : ModellerObjField<IAstOutputField, OutputFieldModel>(modifier, objBase)
 {
-  protected override OutputFieldModel FieldModel(IGqlpOutputField field, ObjBaseModel type, IMap<TypeKindModel> typeKinds)
+  protected override OutputFieldModel FieldModel(IAstOutputField field, ObjBaseModel type, IMap<TypeKindModel> typeKinds)
     => field.EnumValue is null
       ? new(field.Name, type, field.Description) {
         Parameter = parameter.TryModel(field.Parameter, typeKinds),

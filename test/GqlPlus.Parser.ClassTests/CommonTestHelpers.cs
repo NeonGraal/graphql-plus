@@ -2,28 +2,28 @@
 
 public static class CommonTestHelpers
 {
-  public static IGqlpFieldKey FieldKey(this string value)
+  public static IAstFieldKey FieldKey(this string value)
     => new FieldKeyAst(AstNulls.At, "", value);
 
-  public static IGqlpConstant[] ConstantList(this string value)
+  public static IAstConstant[] ConstantList(this string value)
     => [
       new ConstantAst(value.FieldKey()),
       new ConstantAst(value.FieldKey())
     ];
 
-  public static IGqlpFields<IGqlpConstant> ConstantObject(this string value, string key)
+  public static IAstFields<IAstConstant> ConstantObject(this string value, string key)
   {
-    IGqlpFieldKey keyAst = key.FieldKey();
-    IGqlpFieldKey valueAst = value.FieldKey();
+    IAstFieldKey keyAst = key.FieldKey();
+    IAstFieldKey valueAst = value.FieldKey();
 
     return key == value
-      ? new FieldsAst<IGqlpConstant>(keyAst, new ConstantAst(valueAst))
-      : new FieldsAst<IGqlpConstant>() { [keyAst] = new ConstantAst(valueAst), [valueAst] = new ConstantAst(keyAst) };
+      ? new FieldsAst<IAstConstant>(keyAst, new ConstantAst(valueAst))
+      : new FieldsAst<IAstConstant>() { [keyAst] = new ConstantAst(valueAst), [valueAst] = new ConstantAst(keyAst) };
   }
 
   public static TokenMessage ParseMessage(this string message)
     => new(AstNulls.At, message);
 
-  public static IGqlpModifier[] TestMods()
+  public static IAstModifier[] TestMods()
     => [ModifierAst.List(AstNulls.At), ModifierAst.Optional(AstNulls.At)];
 }

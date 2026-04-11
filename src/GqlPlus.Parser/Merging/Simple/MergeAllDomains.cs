@@ -1,22 +1,22 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Merging.Simple;
 
 internal class MergeAllDomains(
   IMergerRepository mergers
-) : AllMerger<IGqlpDomain>(mergers)
-  , IMergeAll<IGqlpType>
+) : AllMerger<IAstDomain>(mergers)
+  , IMergeAll<IAstType>
 {
   protected override string ItemMatchName => "Domain";
-  protected override string ItemMatchKey(IGqlpDomain item) => item.DomainKind.ToString();
+  protected override string ItemMatchKey(IAstDomain item) => item.DomainKind.ToString();
 
-  IMessages IMerge<IGqlpType>.CanMerge(IEnumerable<IGqlpType> items)
+  IMessages IMerge<IAstType>.CanMerge(IEnumerable<IAstType> items)
   {
-    IEnumerable<IGqlpDomain> domains = items?.OfType<IGqlpDomain>() ?? [];
+    IEnumerable<IAstDomain> domains = items?.OfType<IAstDomain>() ?? [];
 
     return domains.Any() ? base.CanMerge(domains) : Messages.New;
   }
 
-  IEnumerable<IGqlpType> IMerge<IGqlpType>.Merge(IEnumerable<IGqlpType> items)
-      => Merge(items?.OfType<IGqlpDomain>() ?? []).Cast<IGqlpType>();
+  IEnumerable<IAstType> IMerge<IAstType>.Merge(IEnumerable<IAstType> items)
+      => Merge(items?.OfType<IAstDomain>() ?? []).Cast<IAstType>();
 }

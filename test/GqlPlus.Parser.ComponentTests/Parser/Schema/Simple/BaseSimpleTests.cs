@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parser.Schema.Simple;
@@ -6,7 +6,7 @@ namespace GqlPlus.Parser.Schema.Simple;
 public abstract class BaseSimpleTests<TInput, TSimple>(
   IBaseSimpleChecks<TInput, TSimple> simpleChecks
 ) : BaseAliasedTests<TInput, TSimple>(simpleChecks)
-  where TSimple : IGqlpSimple
+  where TSimple : IAstSimple
 {
   [Theory, RepeatData]
   public void WithParent_ReturnsCorrectAst(TInput input, string parent)
@@ -22,7 +22,7 @@ internal abstract class BaseSimpleChecks<TInput, TSimpleAst, TSimple>(
 ) : BaseAliasedChecks<TInput, TSimpleAst, TSimple>(parsers)
   , IBaseSimpleChecks<TInput, TSimple>
   where TSimpleAst : AstSimple, TSimple
-  where TSimple : IGqlpSimple
+  where TSimple : IAstSimple
 {
   public void WithParent(TInput input, string parent)
     //    => TrueExpected(input.Type + "{:" + parent + " " + input.Member + "}",
@@ -39,8 +39,8 @@ internal abstract class BaseSimpleChecks<TInput, TSimpleAst, TSimple>(
 
 public interface IBaseSimpleChecks<TInput, TSimple>
   : IBaseAliasedChecks<TInput, TSimple>
-  where TSimple : IGqlpSimple
+  where TSimple : IAstSimple
 {
   void WithParent(TInput input, string parent);
-  IGqlpTypeRef ParentFactory(string parent);
+  IAstTypeRef ParentFactory(string parent);
 }

@@ -1,16 +1,18 @@
-﻿namespace GqlPlus.Modelling;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Modelling;
 
 internal class TypesModeller(
   IEnumerable<ITypeModeller> types
-) : ModellerBase<IGqlpType, BaseTypeModel>
+) : ModellerBase<IAstType, BaseTypeModel>
   , ITypesModeller
 {
-  public void AddTypeKinds(IEnumerable<IGqlpType> asts, IMap<TypeKindModel> typeKinds)
+  public void AddTypeKinds(IEnumerable<IAstType> asts, IMap<TypeKindModel> typeKinds)
   {
-    foreach (IGqlpType ast in asts) {
+    foreach (IAstType ast in asts) {
       if (typeKinds.TryGetValue(ast.Name, out TypeKindModel kind)) {
         if (kind != GetTypeKind(ast)) {
-          throw new ModelTypeException<IGqlpType>($"Type '{ast.Name}' has multiple kinds: {kind} and {GetTypeKind(ast)}.");
+          throw new ModelTypeException<IAstType>($"Type '{ast.Name}' has multiple kinds: {kind} and {GetTypeKind(ast)}.");
         }
       } else {
         typeKinds.Add(ast.Name, GetTypeKind(ast));
@@ -18,16 +20,16 @@ internal class TypesModeller(
     }
   }
 
-  public TypeKindModel GetTypeKind(IGqlpType ast)
+  public TypeKindModel GetTypeKind(IAstType ast)
     => types.Single(t => t.ForType(ast)).Kind;
 
-  protected override BaseTypeModel ToModel(IGqlpType ast, IMap<TypeKindModel> typeKinds)
+  protected override BaseTypeModel ToModel(IAstType ast, IMap<TypeKindModel> typeKinds)
     => types.Single(t => t.ForType(ast)).ToTypeModel(ast, typeKinds);
 }
 
 public interface ITypesModeller
-  : IModeller<IGqlpType, BaseTypeModel>
+  : IModeller<IAstType, BaseTypeModel>
 {
-  void AddTypeKinds(IEnumerable<IGqlpType> asts, IMap<TypeKindModel> typeKinds);
-  TypeKindModel GetTypeKind(IGqlpType ast);
+  void AddTypeKinds(IEnumerable<IAstType> asts, IMap<TypeKindModel> typeKinds);
+  TypeKindModel GetTypeKind(IAstType ast);
 }

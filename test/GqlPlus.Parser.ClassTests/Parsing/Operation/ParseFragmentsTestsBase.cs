@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
+﻿using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
@@ -7,13 +7,13 @@ public abstract class ParseFragmentsTestsBase
 {
   protected ParseFragmentsTestsBase()
   {
-    SetupError<IGqlpFragment>();
-    SetupPartial<IGqlpFragment>();
+    SetupError<IAstFragment>();
+    SetupPartial<IAstFragment>();
   }
 
-  protected abstract Parser<IGqlpFragment>.IA Parser { get; }
-  protected abstract Parser<IGqlpDirective>.IA DirectivesParser { get; }
-  protected abstract Parser<IGqlpSelection>.IA ObjectParser { get; }
+  protected abstract Parser<IAstFragment>.IA Parser { get; }
+  protected abstract Parser<IAstDirective>.IA DirectivesParser { get; }
+  protected abstract Parser<IAstSelection>.IA ObjectParser { get; }
 
   [Theory, RepeatData]
   public void Parse_ShouldReturnFragmentsArray_WhenFragmentsAreParsed(string fragmentName, string onType)
@@ -24,14 +24,14 @@ public abstract class ParseFragmentsTestsBase
 
     IdentifierReturns(OutString(fragmentName), OutString(onType));
 
-    IGqlpDirective[] directives = ParseOkA(DirectivesParser);
-    IGqlpSelection[] selections = ParseOkA(ObjectParser);
+    IAstDirective[] directives = ParseOkA(DirectivesParser);
+    IAstSelection[] selections = ParseOkA(ObjectParser);
 
     // Act
-    IResultArray<IGqlpFragment> result = Parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IAstFragment> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpFragment>>()
+    result.ShouldBeAssignableTo<IResultArrayOk<IAstFragment>>()
       .Required().ShouldSatisfyAllConditions(
         x => x.ShouldHaveSingleItem(),
         x => x.First().Identifier.ShouldBe(fragmentName),
@@ -49,10 +49,10 @@ public abstract class ParseFragmentsTestsBase
     IdentifierReturns(OutFail);
 
     // Act
-    IResultArray<IGqlpFragment> result = Parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IAstFragment> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayError<IGqlpFragment>>();
+    result.ShouldBeAssignableTo<IResultArrayError<IAstFragment>>();
   }
 
   [Theory, RepeatData]
@@ -64,10 +64,10 @@ public abstract class ParseFragmentsTestsBase
     SetupTypePrefix(false);
 
     // Act
-    IResultArray<IGqlpFragment> result = Parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IAstFragment> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayError<IGqlpFragment>>();
+    result.ShouldBeAssignableTo<IResultArrayError<IAstFragment>>();
   }
 
   [Theory, RepeatData]
@@ -82,10 +82,10 @@ public abstract class ParseFragmentsTestsBase
     ParseErrorA(DirectivesParser);
 
     // Act
-    IResultArray<IGqlpFragment> result = Parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IAstFragment> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpFragment>>();
+    result.ShouldBeAssignableTo<IResultArrayPartial<IAstFragment>>();
   }
 
   [Fact]
@@ -95,10 +95,10 @@ public abstract class ParseFragmentsTestsBase
     SetupFragmentPrefix(false);
 
     // Act
-    IResultArray<IGqlpFragment> result = Parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IAstFragment> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpFragment>>()
+    result.ShouldBeAssignableTo<IResultArrayOk<IAstFragment>>()
       .Required().ShouldBeEmpty();
   }
 

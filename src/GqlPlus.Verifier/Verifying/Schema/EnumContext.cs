@@ -1,17 +1,17 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Verifying.Schema;
 
 public class EnumContext(
-  IMap<IGqlpDescribed> types,
+  IMap<IAstDescribed> types,
   IMessages errors,
   IMap<string> enumValues
 ) : UsageContext(types, errors)
 {
   internal bool GetEnumValue(string value, [NotNullWhen(true)] out string? type)
     => enumValues.TryGetValue(value, out type);
-  internal bool GetEnumValueType(string value, [NotNullWhen(true)] out IGqlpEnum? type)
+  internal bool GetEnumValueType(string value, [NotNullWhen(true)] out IAstEnum? type)
   {
     if (!enumValues.TryGetValue(value, out string? enumType)) {
       type = null;
@@ -21,7 +21,7 @@ public class EnumContext(
     return GetTyped(enumType, out type);
   }
 
-  internal bool GetEnumLabelType(IGqlpEnum enumType, string label, [NotNullWhen(true)] out IGqlpEnum? valueType)
+  internal bool GetEnumLabelType(IAstEnum enumType, string label, [NotNullWhen(true)] out IAstEnum? valueType)
   {
     valueType = enumType;
     while (!valueType.HasValue(label)) {
@@ -34,15 +34,15 @@ public class EnumContext(
     return true;
   }
 
-  internal void CheckEnumValue(string label, IGqlpObjEnum output)
+  internal void CheckEnumValue(string label, IAstObjEnum output)
   {
     if (output.EnumValue is null) {
       return;
     }
 
     string enumType = output.EnumValue.EnumType;
-    if (GetTyped(enumType, out IGqlpEnum? theType)) {
-      if (!GetEnumLabelType(theType, output.EnumValue.EnumLabel, out IGqlpEnum? _)) {
+    if (GetTyped(enumType, out IAstEnum? theType)) {
+      if (!GetEnumLabelType(theType, output.EnumValue.EnumLabel, out IAstEnum? _)) {
         AddError(output, $"Output {label} Enum Label", $"'{output.EnumValue.EnumLabel}' not a Label of '{enumType}'");
       }
     } else {
@@ -53,9 +53,9 @@ public class EnumContext(
 
 public static class EnumContextHelper
 {
-  public static IMap<string> MakeEnumValues(this IGqlpType[] aliased)
+  public static IMap<string> MakeEnumValues(this IAstType[] aliased)
   {
-    IGqlpEnum[] enumTypes = aliased.ArrayOf<IGqlpEnum>();
+    IAstEnum[] enumTypes = aliased.ArrayOf<IAstEnum>();
     IEnumerable<IGrouping<string, string>> enums = GroupLabels(EnumLabels);
 
     HashSet<string> enumNames = [.. enums.Select(GKey)];
@@ -65,15 +65,15 @@ public static class EnumContextHelper
         .Where(IsUniqueGroup)
         .ToMap(GKey, e => e.First());
 
-    IEnumerable<IGrouping<string, string>> GroupLabels(Func<IGqlpEnum, IEnumerable<(string, string)>> mapper)
+    IEnumerable<IGrouping<string, string>> GroupLabels(Func<IAstEnum, IEnumerable<(string, string)>> mapper)
       => enumTypes.SelectMany(mapper).GroupBy(e => e.Item1, e => e.Item2);
 
-    static IEnumerable<(string, string)> EnumLabels(IGqlpEnum e)
+    static IEnumerable<(string, string)> EnumLabels(IAstEnum e)
       => e.Items.Select(v => (v.Name, e.Name));
 
     static string GKey(IGrouping<string, string> e) => e.Key;
 
-    IEnumerable<(string, string)> EnumAliases(IGqlpEnum e)
+    IEnumerable<(string, string)> EnumAliases(IAstEnum e)
       => e.Items
           .SelectMany(v => v.Aliases
             .Where(a => !enumNames.Contains(a))

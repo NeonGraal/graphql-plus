@@ -1,6 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Ast.Schema.Objects;
+﻿namespace GqlPlus.Ast.Schema.Objects;
 
 public class DualDeclAstTests
   : AstObjectBaseTests
@@ -11,13 +9,13 @@ public class DualDeclAstTests
 }
 
 internal sealed class DualDeclAstChecks
-  : AstObjectChecks<IGqlpDualField>
+  : AstObjectChecks<IAstDualField>
 {
   public DualDeclAstChecks()
     : base(TypeKind.Dual, parent => new ObjBaseAst(AstNulls.At, parent, string.Empty))
   { }
 
-  protected override IGqlpDualField[] CreateFields(IEnumerable<FieldInput> fields)
+  protected override IAstDualField[] CreateFields(IEnumerable<FieldInput> fields)
     => fields.DualFields();
   protected override string FieldString(FieldInput input)
     => $"!DF {input.Name} : {input.Type}";

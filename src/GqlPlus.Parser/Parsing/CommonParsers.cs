@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using GqlPlus.Ast;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace GqlPlus.Parsing;
@@ -28,7 +29,7 @@ public static class CommonParsers
   }
 
   internal static IParserRepositoryBuilder AddValueParsers<TValue>(this IParserRepositoryBuilder builder, Factory<ValueParser<TValue>, IParserRepository> factory)
-    where TValue : IGqlpValue<TValue>
+    where TValue : IAstValue<TValue>
     => builder
       .AddSingle(factory)
       .AddInterfaceSingle<IValueParser<TValue>>(factory)

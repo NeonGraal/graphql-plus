@@ -1,10 +1,11 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Verifying.Schema;
 
 public class UsageContext(
-  IMap<IGqlpDescribed> types,
+  IMap<IAstDescribed> types,
   IMessages errors
 )
 {
@@ -14,7 +15,7 @@ public class UsageContext(
     => errors.Add(messages);
 
   internal void AddError<TAst>(TAst item, string label, string message)
-      where TAst : IGqlpError
+      where TAst : IAstError
     => errors.Add(item.MakeError($"Invalid {label}. {message}."));
 
   internal void AddError<TAst>(
@@ -23,14 +24,14 @@ public class UsageContext(
     FormattableString message,
     bool addError
   )
-      where TAst : IGqlpError
+      where TAst : IAstError
   {
     if (addError) {
       errors.Add(item.MakeError($"Invalid {label}. {message}."));
     }
   }
 
-  internal bool GetType(string? type, [NotNullWhen(true)] out IGqlpDescribed? value)
+  internal bool GetType(string? type, [NotNullWhen(true)] out IAstDescribed? value)
   {
     if (types.TryGetValue(type.IfWhiteSpace(), out value)) {
       Used.Add(type!);
@@ -43,7 +44,7 @@ public class UsageContext(
 
   internal bool GetTyped<T>(string? type, [NotNullWhen(true)] out T? value)
   {
-    if (GetType(type, out IGqlpDescribed? descr) && descr is T t) {
+    if (GetType(type, out IAstDescribed? descr) && descr is T t) {
       value = t;
       return true;
     }
@@ -53,7 +54,7 @@ public class UsageContext(
   }
 
   internal bool DifferentName<TAst>(SelfUsage<TAst> input, string? current)
-    where TAst : IGqlpType
+    where TAst : IAstType
   {
     if (input.DifferentName) {
       return true;
@@ -70,7 +71,7 @@ public class UsageContext(
 }
 
 internal record struct SelfUsage<TAst>(string Head, TAst Usage, string Label)
-  where TAst : IGqlpType
+  where TAst : IAstType
 {
   private List<string> _chain = [Head];
 
@@ -100,10 +101,10 @@ internal record struct SelfUsage<TAst>(string Head, TAst Usage, string Label)
 
 internal static class UsageHelpers
 {
-  internal static TContext CheckModifiers<TContext>(this TContext context, IGqlpModifiers modified)
+  internal static TContext CheckModifiers<TContext>(this TContext context, IAstModifiers modified)
     where TContext : UsageContext
   {
-    foreach (IGqlpModifier modifier in modified.Modifiers) {
+    foreach (IAstModifier modifier in modified.Modifiers) {
       switch (modifier.ModifierKind) {
         case ModifierKind.Param:
           CheckParam(modifier.Key);
@@ -120,21 +121,21 @@ internal static class UsageHelpers
 
     void CheckParam(string? paramName)
     {
-      if (context.GetType("$" + paramName, out IGqlpDescribed? key)) {
-        if (key is IGqlpTypeParam typeParam) {
+      if (context.GetType("$" + paramName, out IAstDescribed? key)) {
+        if (key is IAstTypeParam typeParam) {
           CheckKey(typeParam.Constraint, $"constraint '{typeParam.Constraint}' ");
         }
       } else {
-        context.AddError((IGqlpAbbreviated)modified, "Modifier", $"'{paramName}' not defined");
+        context.AddError((IAstAbbreviated)modified, "Modifier", $"'{paramName}' not defined");
       }
     }
 
     void CheckKey(string? keyName, string label = "")
     {
-      if (context.GetType(keyName, out IGqlpDescribed? key)) {
-        context.AddError((IGqlpAbbreviated)modified, "Modifier", $"{label}'{keyName}' invalid type", key is not IGqlpSimple and not IGqlpTypeParam);
+      if (context.GetType(keyName, out IAstDescribed? key)) {
+        context.AddError((IAstAbbreviated)modified, "Modifier", $"{label}'{keyName}' invalid type", key is not IAstSimple and not IAstTypeParam);
       } else {
-        context.AddError((IGqlpAbbreviated)modified, "Modifier", $"{label}'{keyName}' not defined");
+        context.AddError((IAstAbbreviated)modified, "Modifier", $"{label}'{keyName}' not defined");
       }
     }
   }

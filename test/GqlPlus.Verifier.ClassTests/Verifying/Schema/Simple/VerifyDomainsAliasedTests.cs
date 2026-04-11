@@ -1,9 +1,11 @@
-﻿namespace GqlPlus.Verifying.Schema.Simple;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Verifying.Schema.Simple;
 
 [TracePerTest]
 public class VerifyDomainsAliasedTests
-  : AliasedVerifierTestsBase<IGqlpDomain>
+  : AliasedVerifierTestsBase<IAstDomain>
 {
-  internal override GroupedVerifier<IGqlpDomain> NewGroupedVerifier()
+  internal override GroupedVerifier<IAstDomain> NewGroupedVerifier()
     => new VerifyDomainsAliased(VerifierRepo);
 }

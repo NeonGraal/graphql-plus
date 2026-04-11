@@ -1,40 +1,41 @@
-﻿using GqlPlus.Building.Schema.Objects;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Building.Schema.Objects;
 using GqlPlus.Matching;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
 public abstract class ObjectVerifierTestsBase<TObjField>
-  : UsageVerifierTestsBase<IGqlpObject<TObjField>>
-  where TObjField : class, IGqlpObjField
+  : UsageVerifierTestsBase<IAstObject<TObjField>>
+  where TObjField : class, IAstObjField
 {
   internal readonly ForM<TObjField> MergeFields = new();
-  internal readonly ForM<IGqlpAlternate> MergeAlternates = new();
+  internal readonly ForM<IAstAlternate> MergeAlternates = new();
   protected TypeKind Kind { get; }
 
   protected ObjectVerifierTestsBase(TypeKind kind)
   {
     Kind = kind;
 
-    ArgMatcher = A.Of<Matcher<IGqlpTypeArg>.I>();
+    ArgMatcher = A.Of<Matcher<IAstTypeArg>.I>();
 
-    ArgDelegate = A.Of<Matcher<IGqlpTypeArg>.D>();
+    ArgDelegate = A.Of<Matcher<IAstTypeArg>.D>();
     ArgDelegate().Returns(ArgMatcher);
 
-    VerifierRepo.MatcherFor<IGqlpTypeArg>().Returns(ArgDelegate);
+    VerifierRepo.MatcherFor<IAstTypeArg>().Returns(ArgDelegate);
 
     VerifierRepo.MergerFor<TObjField>().Returns(MergeFields.Intf);
-    VerifierRepo.MergerFor<IGqlpAlternate>().Returns(MergeAlternates.Intf);
+    VerifierRepo.MergerFor<IAstAlternate>().Returns(MergeAlternates.Intf);
 
     TheBuilder = new(kind.ToString(), kind);
   }
 
-  protected Matcher<IGqlpTypeArg>.I ArgMatcher { get; }
-  protected Matcher<IGqlpTypeArg>.D ArgDelegate { get; }
+  protected Matcher<IAstTypeArg>.I ArgMatcher { get; }
+  protected Matcher<IAstTypeArg>.D ArgDelegate { get; }
 
-  protected sealed override IGqlpObject<TObjField> TheUsage => TheObject;
+  protected sealed override IAstObject<TObjField> TheUsage => TheObject;
 
   protected ObjectBuilder<TObjField> TheBuilder { get; }
-  protected IGqlpObject<TObjField> TheObject { get => field ??= TheBuilder.AsObject; private set; }
+  protected IAstObject<TObjField> TheObject { get => field ??= TheBuilder.AsObject; private set; }
 
   [Fact]
   public void Verify_CallsMergeFieldsAndAlternates_WithoutErrors()
@@ -142,7 +143,7 @@ public abstract class ObjectVerifierTestsBase<TObjField>
   {
     ObjectBuilder<TObjField> builder = A.Obj<TObjField>(Kind, name);
     config?.Invoke(builder);
-    IGqlpObject<TObjField> obj = builder.AsObject;
+    IAstObject<TObjField> obj = builder.AsObject;
     Definitions.Add(obj);
     Usages.Add(obj);
   }

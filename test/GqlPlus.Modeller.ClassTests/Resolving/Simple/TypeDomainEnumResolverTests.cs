@@ -1,4 +1,6 @@
 ﻿
+using GqlPlus.Ast.Schema;
+
 namespace GqlPlus.Resolving.Simple;
 
 public class TypeDomainEnumResolverTests
@@ -63,7 +65,7 @@ public class TypeDomainEnumResolverTests
   [Theory, RepeatData]
   public void CreatesModel_WithParentEnum(string name, string enumType, string parentEnum, string[] labels)
   {
-    this.SkipEqual3(name, enumType, parentEnum);
+    this.SkipEqualAny([name, enumType, parentEnum]);
 
     TypeEnumModel parentModel = new(parentEnum, "") {
       Items = [.. labels.Select(label => new AliasedModel(label, ""))],
@@ -93,7 +95,7 @@ public class TypeDomainEnumResolverTests
   [Theory, RepeatData]
   public void CreatesModel_WithParentExcludes(string name, string parentName, string enumType, string[] labels)
   {
-    this.SkipEqual3(name, enumType, parentName);
+    this.SkipEqualAny([name, enumType, parentName]);
     this.SkipIf(labels.ThrowIfNull().Length < 2);
 
     TypeEnumModel enumModel = new(enumType, "") {

@@ -1,10 +1,10 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
 public abstract class ParseDomainClassTestBase<TItem>
   : ParserClassTestBase
-  where TItem : IGqlpDomainItem
+  where TItem : IAstDomainItem
 {
   [Fact]
   public void Kind_ShouldReturnDomainKind()

@@ -1,7 +1,9 @@
-﻿namespace GqlPlus.Generating;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Generating;
 
 internal interface ITypeGenerator
 {
-  bool ForType(IGqlpType ast);
-  void GenerateType(IGqlpType ast, GqlpGeneratorContext context);
+  bool ForType(IAstType ast);
+  void GenerateType(IAstType ast, GqlpGeneratorContext context);
 }

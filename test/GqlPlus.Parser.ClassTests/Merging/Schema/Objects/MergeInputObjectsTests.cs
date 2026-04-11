@@ -1,23 +1,23 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Merging.Objects;
 
 namespace GqlPlus.Merging.Schema.Objects;
 
 public class MergeInputObjectsTests
-  : TestObjectMerger<IGqlpInputField>
+  : TestObjectMerger<IAstInputField>
 {
   public MergeInputObjectsTests(ITestOutputHelper outputHelper)
     : base(TypeKind.Input)
   {
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.MergerFor<IGqlpInputField>().Returns(Fields);
-    mergers.MergerFor<IGqlpTypeParam>().Returns(TypeParams);
-    mergers.MergerFor<IGqlpAlternate>().Returns(Alternates);
+    mergers.MergerFor<IAstInputField>().Returns(Fields);
+    mergers.MergerFor<IAstTypeParam>().Returns(TypeParams);
+    mergers.MergerFor<IAstAlternate>().Returns(Alternates);
     MergerObject = new(mergers);
   }
 
-  internal override AstObjectsMerger<IGqlpInputField> MergerObject { get; }
+  internal override AstObjectsMerger<IAstInputField> MergerObject { get; }
 
-  protected override IGqlpInputField[] MakeFields(FieldInput[]? fields)
+  protected override IAstInputField[] MakeFields(FieldInput[]? fields)
     => fields?.InputFields() ?? [];
 }

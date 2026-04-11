@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
+﻿using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
@@ -7,18 +7,18 @@ public class ParseSelectionTests
 {
 
   private readonly ParseSelection _parseSelection;
-  private readonly Parser<IGqlpDirective>.IA _directivesParser;
-  private readonly Parser<IGqlpSelection>.IA _objectParser;
+  private readonly Parser<IAstDirective>.IA _directivesParser;
+  private readonly Parser<IAstSelection>.IA _objectParser;
 
   public ParseSelectionTests()
     : base(A.Of<ITokenizer, IOperationContext>())
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    ConfigureRepoArray<IGqlpDirective>(parsers, out _directivesParser);
-    ConfigureRepoArray<IGqlpSelection>(parsers, out _objectParser);
+    ConfigureRepoArray<IAstDirective>(parsers, out _directivesParser);
+    ConfigureRepoArray<IAstSelection>(parsers, out _objectParser);
     _parseSelection = new ParseSelection(parsers);
 
-    SetupError<IGqlpSelection>();
+    SetupError<IAstSelection>();
   }
 
   [Theory, RepeatData]
@@ -28,14 +28,14 @@ public class ParseSelectionTests
     TakeReturns("...", true);
     IdentifierReturns(OutString(spreadName));
 
-    IGqlpDirective[] directives = ParseOkA(_directivesParser);
+    IAstDirective[] directives = ParseOkA(_directivesParser);
 
     // Act
-    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
+    IResult<IAstSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpSelection>>()
-      .Required().ShouldBeAssignableTo<IGqlpSpread>()
+    result.ShouldBeAssignableTo<IResultOk<IAstSelection>>()
+      .Required().ShouldBeAssignableTo<IAstSpread>()
       .ShouldSatisfyAllConditions(
         x => x.Identifier.ShouldBe(spreadName),
         x => x.Directives.ShouldBe(directives)
@@ -50,15 +50,15 @@ public class ParseSelectionTests
     TakeReturns("on", true);
     IdentifierReturns(OutString(onType));
 
-    IGqlpDirective[] directives = ParseOkA(_directivesParser);
-    IGqlpSelection[] selections = ParseOkA(_objectParser);
+    IAstDirective[] directives = ParseOkA(_directivesParser);
+    IAstSelection[] selections = ParseOkA(_objectParser);
 
     // Act
-    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
+    IResult<IAstSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpSelection>>()
-      .Required().ShouldBeAssignableTo<IGqlpInline>()
+    result.ShouldBeAssignableTo<IResultOk<IAstSelection>>()
+      .Required().ShouldBeAssignableTo<IAstInline>()
       .ShouldSatisfyAllConditions(
         x => x.OnType.ShouldBe(onType),
         x => x.Directives.ShouldBe(directives),
@@ -75,7 +75,7 @@ public class ParseSelectionTests
     Tokenizer.Identifier(out string? type).Returns(false);
 
     // Act
-    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
+    IResult<IAstSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -91,7 +91,7 @@ public class ParseSelectionTests
     ParseErrorA(_objectParser);
 
     // Act
-    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
+    IResult<IAstSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -105,7 +105,7 @@ public class ParseSelectionTests
     TakeReturns('|', false);
 
     // Act
-    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
+    IResult<IAstSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

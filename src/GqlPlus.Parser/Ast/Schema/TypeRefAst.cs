@@ -1,5 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Token;
+﻿using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema;
 
@@ -8,7 +7,7 @@ internal record class TypeRefAst(
   string Name,
   string Description
 ) : AstNamed(At, Name, Description)
-  , IGqlpTypeRef
+  , IAstTypeRef
 {
   public TypeRefAst(TokenAt at, string name)
     : this(at, name, "")
@@ -16,7 +15,7 @@ internal record class TypeRefAst(
 
   internal override string Abbr => "Tr";
 
-  public bool Equals(IGqlpTypeRef other)
+  public bool Equals(IAstTypeRef other)
     => base.Equals(other);
   public override int GetHashCode()
     => base.GetHashCode();

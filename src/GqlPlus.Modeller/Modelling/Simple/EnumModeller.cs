@@ -1,20 +1,22 @@
-﻿namespace GqlPlus.Modelling.Simple;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Modelling.Simple;
 
 internal class EnumModeller
-  : ModellerType<IGqlpEnum, IGqlpTypeRef, TypeEnumModel>
+  : ModellerType<IAstEnum, IAstTypeRef, TypeEnumModel>
 {
   public EnumModeller()
     : base(TypeKindModel.Enum)
   { }
 
-  protected override TypeEnumModel ToModel(IGqlpEnum ast, IMap<TypeKindModel> typeKinds)
+  protected override TypeEnumModel ToModel(IAstEnum ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
       Parent = ast.Parent.TypeRef(SimpleKindModel.Enum),
       Items = [.. ast.Items.Select(ToLabel)],
     };
 
-  internal static AliasedModel ToLabel(IGqlpEnumLabel ast)
+  internal static AliasedModel ToLabel(IAstEnumLabel ast)
     => new(ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
     };

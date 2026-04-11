@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Generating.Globals;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Generating.Globals;
 
 public class OptionGeneratorTests
   : GenerateClassTestsBase
@@ -10,7 +12,7 @@ public class OptionGeneratorTests
   {
     // Arrange
     GqlpGeneratorContext context = Context(GqlpBaseType.Other, GqlpGeneratorType.Static);
-    IGqlpSchemaOption option = A.Named<IGqlpSchemaOption>(name);
+    IAstSchemaOption option = A.Named<IAstSchemaOption>(name);
 
     // Act
     _generator.Generate(option, context);

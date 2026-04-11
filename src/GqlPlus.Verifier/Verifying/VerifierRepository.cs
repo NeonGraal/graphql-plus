@@ -1,5 +1,6 @@
-﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Matching;
 using GqlPlus.Merging;
 using GqlPlus.Verifying.Operation;
@@ -37,16 +38,16 @@ internal class VerifierRepository
     => Cached<T, IVerify<T>>(_state.Verifiers, "verify", this);
 
   public IVerifyAliased<T> AliasedFor<T>()
-    where T : IGqlpAliased
+    where T : IAstAliased
     => Cached<T, IVerifyAliased<T>>(_state.Aliased, "aliased", this);
 
   public IVerifyUsage<T> UsageFor<T>()
-    where T : IGqlpAliased
+    where T : IAstAliased
     => Cached<T, IVerifyUsage<T>>(_state.Usages, "usage", this);
 
   public IVerifyIdentified<TUsage, TIdentified> IdentifiedFor<TUsage, TIdentified>()
-    where TUsage : IGqlpError
-    where TIdentified : IGqlpIdentified
+    where TUsage : IAstError
+    where TIdentified : IAstIdentified
     => Cached<(TUsage, TIdentified), IVerifyIdentified<TUsage, TIdentified>>(
       _state.Identified,
       "identified", this);
@@ -58,6 +59,6 @@ internal class VerifierRepository
     => _matchers.MatcherFor<T>();
 
   public IMerge<T> MergerFor<T>()
-    where T : IGqlpError
+    where T : IAstError
     => _mergers.MergerFor<T>();
 }

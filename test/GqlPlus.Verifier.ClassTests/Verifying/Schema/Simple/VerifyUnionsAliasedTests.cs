@@ -1,9 +1,11 @@
-﻿namespace GqlPlus.Verifying.Schema.Simple;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Verifying.Schema.Simple;
 
 [TracePerTest]
 public class VerifyUnionsAliasedTests
-  : AliasedVerifierTestsBase<IGqlpUnion>
+  : AliasedVerifierTestsBase<IAstUnion>
 {
-  internal override GroupedVerifier<IGqlpUnion> NewGroupedVerifier()
+  internal override GroupedVerifier<IAstUnion> NewGroupedVerifier()
     => new VerifyUnionsAliased(VerifierRepo);
 }

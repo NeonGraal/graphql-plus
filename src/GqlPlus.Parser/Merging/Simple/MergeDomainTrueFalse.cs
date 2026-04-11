@@ -1,11 +1,11 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Merging.Simple;
 
 internal class MergeDomainTrueFalse(
   IMergerRepository mergers
-) : AstDomainItemMerger<IGqlpDomainTrueFalse>(mergers)
+) : AstDomainItemMerger<IAstDomainTrueFalse>(mergers)
 {
-  protected override string ItemGroupKey(IGqlpDomainTrueFalse item)
+  protected override string ItemGroupKey(IAstDomainTrueFalse item)
     => $"{item.IsTrue}";
 }

@@ -1,11 +1,11 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
 internal class VerifyOutputTypes(IVerifierRepository verifiers)
-  : AstObjectVerifier<IGqlpOutputField>(verifiers, TypeKind.Output)
+  : AstObjectVerifier<IAstOutputField>(verifiers, TypeKind.Output)
 {
-  protected override void UsageField(IGqlpOutputField field, IGqlpObject<IGqlpOutputField> usage, ObjectContext context)
+  protected override void UsageField(IAstOutputField field, IAstObject<IAstOutputField> usage, ObjectContext context)
   {
     base.UsageField(field, usage, context);
 

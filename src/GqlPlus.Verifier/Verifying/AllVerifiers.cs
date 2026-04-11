@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Abstractions.Operation;
-using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
+using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Verifying.Operation;
 using GqlPlus.Verifying.Schema;
 using GqlPlus.Verifying.Schema.Globals;
@@ -48,9 +49,9 @@ public static class AllVerifiers
         .AddVerifyUsageAliased(
           v => new VerifyDomainsAliased(v),
           v => new VerifyDomainTypes(v))
-        .AddDomain(v => new AstDomainVerifier<IGqlpDomainRange>(v))
-        .AddDomain(v => new AstDomainVerifier<IGqlpDomainRegex>(v))
-        .AddDomain(v => new AstDomainVerifier<IGqlpDomainTrueFalse>(v))
+        .AddDomain(v => new AstDomainVerifier<IAstDomainRange>(v))
+        .AddDomain(v => new AstDomainVerifier<IAstDomainRegex>(v))
+        .AddDomain(v => new AstDomainVerifier<IAstDomainTrueFalse>(v))
         .AddDomain(v => new VerifyDomainEnum(v));
 
   public static IVerifierRepositoryBuilder AddSchemaObjectVerifiers([NotNull] this IVerifierRepositoryBuilder builder)
@@ -78,8 +79,8 @@ public static class AllVerifiers
   private static IVerifierRepositoryBuilder AddVerifyUsageIdentified<TUsage, TIdentified>(
     this IVerifierRepositoryBuilder builder,
     Factory<IVerifyIdentified<TUsage, TIdentified>, IVerifierRepository> identifiedFactory)
-    where TUsage : IGqlpError
-    where TIdentified : IGqlpIdentified
+    where TUsage : IAstError
+    where TIdentified : IAstIdentified
     => builder
       .AddIdentified(identifiedFactory)
       .TryAddVerify(v => new NullVerifierError<TUsage>(v))
@@ -88,7 +89,7 @@ public static class AllVerifiers
   private static IVerifierRepositoryBuilder AddVerifyAliased<TAliased>(
     this IVerifierRepositoryBuilder builder,
     Factory<IVerifyAliased<TAliased>, IVerifierRepository> aliasedFactory)
-    where TAliased : IGqlpAliased
+    where TAliased : IAstAliased
     => builder
       .AddAliased(aliasedFactory)
       .TryAddVerify(v => new NullVerifierError<TAliased>(v));
@@ -97,7 +98,7 @@ public static class AllVerifiers
     this IVerifierRepositoryBuilder builder,
     Factory<IVerifyAliased<TUsage>, IVerifierRepository> aliasedFactory,
     Factory<IVerifyUsage<TUsage>, IVerifierRepository> usageFactory)
-    where TUsage : IGqlpAliased
+    where TUsage : IAstAliased
     => builder
       .AddAliased(aliasedFactory)
       .AddUsage(usageFactory)
@@ -106,10 +107,10 @@ public static class AllVerifiers
   private static IVerifierRepositoryBuilder AddVerifyObject<TField>(
     this IVerifierRepositoryBuilder builder,
     TypeKind fieldKind,
-    Factory<IVerifyUsage<IGqlpObject<TField>>, IVerifierRepository> usageFactory)
-    where TField : IGqlpObjField
+    Factory<IVerifyUsage<IAstObject<TField>>, IVerifierRepository> usageFactory)
+    where TField : IAstObjField
     => builder
       .AddAliased(v => new ObjectsAliasedVerifier<TField>(v, fieldKind))
       .AddUsage(usageFactory)
-      .TryAddVerify(v => new NullVerifierError<IGqlpObject<TField>>(v));
+      .TryAddVerify(v => new NullVerifierError<IAstObject<TField>>(v));
 }

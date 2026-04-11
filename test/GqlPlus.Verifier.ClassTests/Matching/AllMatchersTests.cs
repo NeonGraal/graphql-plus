@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using GqlPlus.Ast.Schema;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Matching;
 
@@ -12,7 +13,7 @@ public class AllMatchersTests
   [Fact]
   public void AllMatchers_MatcherForType_IsRegistered()
     => _services.GetRequiredService<IMatcherRepository>()
-      .MatcherFor<IGqlpType>()
+      .MatcherFor<IAstType>()
       .ShouldNotBeNull();
 
   [Fact]

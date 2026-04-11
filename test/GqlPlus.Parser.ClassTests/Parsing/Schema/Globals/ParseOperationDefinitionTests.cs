@@ -1,5 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Ast.Operation;
 using GqlPlus.Parsing.Operation;
 
 namespace GqlPlus.Parsing.Schema.Globals;
@@ -9,16 +8,16 @@ public class ParseOperationDefinitionTests
 {
   private readonly ParseOperationDefinition _parser;
   private readonly IParserArg _argumentParser;
-  private readonly Parser<IGqlpDirective>.IA _directivesParser;
+  private readonly Parser<IAstDirective>.IA _directivesParser;
   private readonly IParserStartFragments _fragmentsParser;
-  private readonly Parser<IGqlpSelection>.IA _objectParser;
-  private readonly Parser<IGqlpVariable>.IA _variablesParser;
+  private readonly Parser<IAstSelection>.IA _objectParser;
+  private readonly Parser<IAstVariable>.IA _variablesParser;
 
   public ParseOperationDefinitionTests()
   {
-    ConfigureRepoInterface<IParserArg, IGqlpArg>(Parsers, out _argumentParser);
+    ConfigureRepoInterface<IParserArg, IAstArg>(Parsers, out _argumentParser);
     ConfigureRepoArray(Parsers, out _directivesParser);
-    ConfigureRepoArrayInterface<IParserStartFragments, IGqlpFragment>(Parsers, out _fragmentsParser);
+    ConfigureRepoArrayInterface<IParserStartFragments, IAstFragment>(Parsers, out _fragmentsParser);
     ConfigureRepoArray(Parsers, out _objectParser);
     ConfigureRepoArray(Parsers, out _variablesParser);
     _parser = new ParseOperationDefinition(Parsers);

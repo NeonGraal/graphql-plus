@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Verifying.Schema;
 
 namespace GqlPlus.Matching;
@@ -6,8 +6,8 @@ namespace GqlPlus.Matching;
 internal abstract class MatchParentBase<TParent, TType>(
   IMatcherRepository matchers
 ) : MatchTypeBase<TType>(matchers)
-  where TParent : IGqlpNamed
-  where TType : IGqlpType<TParent>
+  where TParent : IAstNamed
+  where TType : IAstType<TParent>
 {
   public override bool Matches(TType type, string constraint, EnumContext context)
   {

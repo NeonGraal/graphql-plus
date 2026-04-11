@@ -1,5 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Operation;
 using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Globals;
@@ -11,18 +10,18 @@ internal sealed record class OperationDeclAst(
   string Category
 ) : AstDeclaration(At, Name, Description)
   , IEquatable<OperationDeclAst>
-  , IGqlpSchemaOperation
+  , IAstSchemaOperation
 {
   internal override string Abbr => "SO";
   public override string Label => "Operation";
 
   public string Category { get; } = Category;
-  public IEnumerable<IGqlpVariable> Variables { get; } = [];
-  public IGqlpArg? Arg { get; }
-  public IEnumerable<IGqlpSelection>? Selections { get; } = [];
-  public IEnumerable<IGqlpFragment> Fragments { get; } = [];
-  public IEnumerable<IGqlpDirective> Directives { get; init; } = [];
-  public IEnumerable<IGqlpModifier> Modifiers { get; } = [];
+  public IEnumerable<IAstVariable> Variables { get; } = [];
+  public IAstArg? Arg { get; }
+  public IEnumerable<IAstSelection>? Selections { get; } = [];
+  public IEnumerable<IAstFragment> Fragments { get; } = [];
+  public IEnumerable<IAstDirective> Directives { get; init; } = [];
+  public IEnumerable<IAstModifier> Modifiers { get; } = [];
 
   public OperationDeclAst(TokenAt at, string name, string category)
     : this(at, name, "", category) { }
@@ -30,7 +29,7 @@ internal sealed record class OperationDeclAst(
   public bool Equals(OperationDeclAst? other)
     => base.Equals(other)
     && Category == other.Category;
-  public bool Equals(IGqlpDirectives other)
+  public bool Equals(IAstDirectives other)
     => Equals(other as OperationDeclAst);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Category);

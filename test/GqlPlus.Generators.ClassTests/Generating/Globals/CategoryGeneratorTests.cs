@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Generating.Globals;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Generating.Globals;
 
 public class CategoryGeneratorTests
   : GenerateClassTestsBase
@@ -10,7 +12,7 @@ public class CategoryGeneratorTests
   {
     // Arrange
     GqlpGeneratorContext context = Context(GqlpBaseType.Other, GqlpGeneratorType.Static);
-    IGqlpSchemaCategory category = A.Named<IGqlpSchemaCategory>(name);
+    IAstSchemaCategory category = A.Named<IAstSchemaCategory>(name);
 
     // Act
     _generator.Generate(category, context);

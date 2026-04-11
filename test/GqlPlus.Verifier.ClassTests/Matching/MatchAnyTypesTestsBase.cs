@@ -1,16 +1,18 @@
-﻿namespace GqlPlus.Matching;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Matching;
 
 public class MatchAnyTypesTestsBase
   : MatchTestsBase
 {
-  protected Matcher<IGqlpType>.D AnyTypeMatcher { get; }
+  protected Matcher<IAstType>.D AnyTypeMatcher { get; }
 
-  private readonly Matcher<IGqlpType>.I _anyTypeMatcher;
+  private readonly Matcher<IAstType>.I _anyTypeMatcher;
 
   protected MatchAnyTypesTestsBase()
   {
     AnyTypeMatcher = MatcherFor(out _anyTypeMatcher);
-    MatcherRepo.MatcherFor<IGqlpType>().Returns(AnyTypeMatcher);
+    MatcherRepo.MatcherFor<IAstType>().Returns(AnyTypeMatcher);
   }
 
   protected void AnyTypeMatches(bool result)

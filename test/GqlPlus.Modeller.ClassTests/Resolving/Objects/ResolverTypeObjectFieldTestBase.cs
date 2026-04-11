@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Resolving.Objects;
+﻿using GqlPlus.Ast;
+
+namespace GqlPlus.Resolving.Objects;
 
 public abstract class ResolverTypeObjectFieldTestBase<TModel, TField>
   : ResolverTypeObjectTypeTestBase<TModel, TField>
@@ -100,6 +102,8 @@ public abstract class ResolverTypeObjectFieldTestBase<TModel, TField>
   [Theory, RepeatData]
   public void ModelWithParentWithFieldArgModifier_ResolvesCorrectly(string name, string parent, FieldInput field, string key)
   {
+    this.SkipEqual(name, parent);
+
     ModifierModel modifier = new(ModifierKind.Param) { Key = key };
     TModel parentModel = NewModel(parent, "") with {
       TypeParams = [new(key, "", default!)],

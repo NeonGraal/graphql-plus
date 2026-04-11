@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Building.Schema.Objects;
 
 namespace GqlPlus.Building.Schema;
@@ -8,28 +9,28 @@ public class InputParamBuilder
   , IModifiersBuilder
   , IInputTypeBuilder
 {
-  private IGqlpModifier[] _modifiers = [];
-  private IGqlpConstant? _defaultValue;
+  private IAstModifier[] _modifiers = [];
+  private IAstConstant? _defaultValue;
 
   public ObjBaseBuilder BaseBuilder { get; }
 
   public InputParamBuilder(string type)
     : base()
   {
-    Add<IGqlpInputParam>();
-    Add<IGqlpInputFieldType>();
-    Add<IGqlpObjFieldType>();
-    Add<IGqlpModifiers>();
+    Add<IAstInputParam>();
+    Add<IAstInputFieldType>();
+    Add<IAstObjFieldType>();
+    Add<IAstModifiers>();
 
     BaseBuilder = new ObjBaseBuilder(type);
   }
 
   protected new T Build<T>()
-    where T : class, IGqlpInputParam
+    where T : class, IAstInputParam
   {
     T result = base.Build<T>();
 
-    IGqlpObjBase type = BaseBuilder.AsObjBase;
+    IAstObjBase type = BaseBuilder.AsObjBase;
     result.Type.Returns(type);
     string modifiedType = _modifiers.AsString().Prepend(type.FullType).Joined();
     result.Modifiers.Returns(_modifiers);
@@ -38,12 +39,12 @@ public class InputParamBuilder
     return result;
   }
 
-  public IGqlpInputParam AsInputParam
-    => Build<IGqlpInputParam>();
+  public IAstInputParam AsInputParam
+    => Build<IAstInputParam>();
 
-  public void SetModifiers(IGqlpModifier[] modifiers)
+  public void SetModifiers(IAstModifier[] modifiers)
     => _modifiers = modifiers;
-  public void SetDefaultValue(IGqlpConstant? defaultValue)
+  public void SetDefaultValue(IAstConstant? defaultValue)
     => _defaultValue = defaultValue;
 }
 
@@ -63,12 +64,12 @@ public static class ObjTypeBuilderHelper
 public interface IInputTypeBuilder
   : IObjTypeBuilder
 {
-  void SetDefaultValue(IGqlpConstant? defaultValue);
+  void SetDefaultValue(IAstConstant? defaultValue);
 }
 
 public static class InputTypeBuilderHelper
 {
-  public static T WithDefault<T>(this T builder, IGqlpConstant? defaultValue)
+  public static T WithDefault<T>(this T builder, IAstConstant? defaultValue)
     where T : IInputTypeBuilder
     => builder.FluentAction(b => b.SetDefaultValue(defaultValue));
 }

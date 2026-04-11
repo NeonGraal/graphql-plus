@@ -1,5 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Token;
+﻿using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Globals;
 
@@ -7,31 +6,31 @@ internal sealed record class CategoryDeclAst(
   ITokenAt At,
   string Name,
   string Description,
-  IGqlpTypeRef Output
+  IAstTypeRef Output
 ) : AstDeclaration(At, Name, Description)
-  , IGqlpSchemaCategory
+  , IAstSchemaCategory
 {
-  public IGqlpModifier[] Modifiers { get; set; } = [];
+  public IAstModifier[] Modifiers { get; set; } = [];
 
   internal override string Abbr => "Ca";
   public override string Label => "Category";
 
-  public IGqlpTypeRef Output { get; set; } = Output;
+  public IAstTypeRef Output { get; set; } = Output;
 
   public CategoryOption Option { get; set; } = CategoryOption.Parallel;
 
-  CategoryOption IGqlpSchemaCategory.CategoryOption => Option;
-  IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
+  CategoryOption IAstSchemaCategory.CategoryOption => Option;
+  IEnumerable<IAstModifier> IAstModifiers.Modifiers => Modifiers;
 
-  public CategoryDeclAst(TokenAt at, IGqlpTypeRef output)
+  public CategoryDeclAst(TokenAt at, IAstTypeRef output)
     : this(at, output.Name.Camelize(), "", output) { }
 
-  public CategoryDeclAst(TokenAt at, string name, IGqlpTypeRef output)
+  public CategoryDeclAst(TokenAt at, string name, IAstTypeRef output)
     : this(at, name, "", output) { }
 
   public bool Equals(CategoryDeclAst? other)
-    => other is IGqlpSchemaCategory category && Equals(category);
-  public bool Equals(IGqlpSchemaCategory? other)
+    => other is IAstSchemaCategory category && Equals(category);
+  public bool Equals(IAstSchemaCategory? other)
     => base.Equals(other)
     && Option == other.CategoryOption
     && Output.Equals(other.Output)

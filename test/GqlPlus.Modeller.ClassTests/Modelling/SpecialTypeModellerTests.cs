@@ -1,14 +1,15 @@
-﻿using GqlPlus.Modelling.Simple;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Modelling.Simple;
 
 namespace GqlPlus.Modelling;
 
 public class SpecialTypeModellerTests
-  : TypeModellerTests<IGqlpTypeSpecial, SpecialTypeModel>
+  : TypeModellerTests<IAstTypeSpecial, SpecialTypeModel>
 {
   public SpecialTypeModellerTests()
     : base(TypeKindModel.Special)
   { }
 
-  protected override IModeller<IGqlpTypeSpecial, SpecialTypeModel> Modeller { get; }
+  protected override IModeller<IAstTypeSpecial, SpecialTypeModel> Modeller { get; }
     = new SpecialTypeModeller();
 }

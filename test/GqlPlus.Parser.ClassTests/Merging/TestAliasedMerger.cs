@@ -1,19 +1,16 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Merging.Schema;
 
 namespace GqlPlus.Merging;
 
 public abstract class TestAliasedMerger<TAst>
   : TestAliasedMerger<TAst, string>
-  where TAst : IGqlpAliased
-{
-  protected override bool InputEquals(string? input1, string? input2)
-    => string.Equals(input1, input2, StringComparison.Ordinal);
-}
+  where TAst : IAstAliased
+{ }
 
 public abstract class TestAliasedMerger<TAst, TInput>
   : TestDescriptionsMerger<TAst, TInput>
-  where TAst : IGqlpAliased
+  where TAst : IAstAliased
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsOneAlias_ReturnsGood(TInput input, string alias)

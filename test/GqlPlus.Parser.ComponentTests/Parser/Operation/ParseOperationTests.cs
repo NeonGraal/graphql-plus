@@ -1,5 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Ast.Operation;
 using GqlPlus.Parsing.Operation;
 using GqlPlus.Result;
 
@@ -23,7 +22,7 @@ public class ParseOperationTests(
   {
     OperationContext context = new(input);
 
-    IGqlpOperation result = _parser.Parse(context, "Operation").Required();
+    IAstOperation result = _parser.Parse(context, "Operation").Required();
 
     result.ShouldSatisfyAllConditions(
       r => r.ShouldBeOfType<OperationAst>(),
@@ -37,7 +36,7 @@ public class ParseOperationTests(
   {
     OperationContext context = new(input);
 
-    IResult<IGqlpOperation> result = _parser.Parse(context, "Operation");
+    IResult<IAstOperation> result = _parser.Parse(context, "Operation");
     result.Optional(ast =>
       result.ShouldSatisfyAllConditions(
         () => ast.ShouldBeNull(),
@@ -66,7 +65,7 @@ public class ParseOperationTests(
   {
     OperationContext context = new(input);
 
-    IGqlpOperation? ast = _parser.Parse(context, "Operation").Optional();
+    IAstOperation? ast = _parser.Parse(context, "Operation").Optional();
 
     ast.ShouldSatisfyAllConditions(
       a => a.ShouldBeOfType<OperationAst>()
@@ -74,5 +73,5 @@ public class ParseOperationTests(
       a => a.ThrowIfNull().Errors.ShouldNotBeEmpty());
   }
 
-  private readonly Parser<IGqlpOperation>.L _parser = parsers.ParserFor<IGqlpOperation>();
+  private readonly Parser<IAstOperation>.L _parser = parsers.ParserFor<IAstOperation>();
 }

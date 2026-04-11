@@ -1,11 +1,11 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Merging.Objects;
 
 namespace GqlPlus.Merging.Schema.Objects;
 
 public class MergeInputFieldsTests
-  : TestObjectFieldMerger<IGqlpInputField>
+  : TestObjectFieldMerger<IAstInputField>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsOneDefault_ReturnsGood(string name, string type, string value)
@@ -31,33 +31,33 @@ public class MergeInputFieldsTests
       [MakeField(name, type), MakeFieldDefault(name, type, value)],
       MakeFieldDefault(name, type, value));
 
-  private readonly IMerge<IGqlpConstant> _constant;
+  private readonly IMerge<IAstConstant> _constant;
   private readonly MergeInputFields _merger;
 
   public MergeInputFieldsTests(ITestOutputHelper outputHelper)
   {
-    _constant = Merger<IGqlpConstant>();
+    _constant = Merger<IAstConstant>();
 
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.MergerFor<IGqlpConstant>().Returns(_constant);
+    mergers.MergerFor<IAstConstant>().Returns(_constant);
     _merger = new(mergers);
   }
 
-  internal override AstObjectFieldsMerger<IGqlpInputField> MergerField => _merger;
+  internal override AstObjectFieldsMerger<IAstInputField> MergerField => _merger;
 
-  protected override IGqlpInputField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "", string[]? aliases = null)
+  protected override IAstInputField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "", string[]? aliases = null)
     => new InputFieldAst(AstNulls.At, name, fieldDescription, new ObjBaseAst(AstNulls.At, type, typeDescription)) {
       Aliases = aliases ?? [],
     };
-  internal static IGqlpInputField MakeFieldDefault(string name, string type, string defaultValue)
+  internal static IAstInputField MakeFieldDefault(string name, string type, string defaultValue)
     => new InputFieldAst(AstNulls.At, name, new ObjBaseAst(AstNulls.At, type, "")) {
       DefaultValue = new ConstantAst(defaultValue.FieldKey()),
     };
-  protected override IGqlpInputField MakeFieldModifiers(string name)
+  protected override IAstInputField MakeFieldModifiers(string name)
     => new InputFieldAst(AstNulls.At, name, new ObjBaseAst(AstNulls.At, name, "")) {
       Modifiers = TestMods(),
     };
-  protected override IGqlpInputField MakeFieldEnum(string name, string enumType, string enumLabel, string fieldDescription = "", string typeDescription = "", string[]? aliases = null)
+  protected override IAstInputField MakeFieldEnum(string name, string enumType, string enumLabel, string fieldDescription = "", string typeDescription = "", string[]? aliases = null)
     => new InputFieldAst(AstNulls.At, name, fieldDescription, new ObjBaseAst(AstNulls.At, enumType, typeDescription)) {
       Aliases = aliases ?? [],
       EnumValue = new EnumValueAst(AstNulls.At, enumType, enumLabel),

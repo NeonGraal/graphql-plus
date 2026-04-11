@@ -1,12 +1,10 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Ast.Schema.Objects;
+﻿namespace GqlPlus.Ast.Schema.Objects;
 
 internal abstract class InputFieldTypeChecks<TInput, TObjType>(
   TypeBy<TInput, TObjType> createType
 ) : ObjFieldTypeChecks<TInput, TObjType>(createType)
   , IInputFieldTypeChecks<TInput>
-  where TObjType : IGqlpInputFieldType
+  where TObjType : IAstInputFieldType
   where TInput : ITypeInput
 {
   public void HashCode_WithDefault(TInput input, string def)

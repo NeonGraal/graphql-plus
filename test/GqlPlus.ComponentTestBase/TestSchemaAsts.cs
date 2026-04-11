@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus;
 
@@ -9,7 +9,7 @@ public abstract class TestSchemaAsts(
 
   protected override async Task Label_Input(string label, string input, string[] dirs, string test, string section)
   {
-    IGqlpSchema asts = checks.ParseInput(input, label);
+    IAstSchema asts = checks.ParseInput(input, label);
 
     await Test_Asts([asts], test, label, dirs, section, input);
   }
@@ -18,10 +18,10 @@ public abstract class TestSchemaAsts(
   {
     TestContext.Current.AddAttachment("Inputs " + test, inputs.Joined(Environment.NewLine));
 
-    IEnumerable<IGqlpSchema> asts = inputs.Select(input => checks.ParseInput(input, label));
+    IEnumerable<IAstSchema> asts = inputs.Select(input => checks.ParseInput(input, label));
 
     await Test_Asts(asts, test, label, [label], "");
   }
 
-  protected abstract Task Test_Asts(IEnumerable<IGqlpSchema> asts, string test, string label, string[] dirs, string section, string input = "");
+  protected abstract Task Test_Asts(IEnumerable<IAstSchema> asts, string test, string label, string[] dirs, string section, string input = "");
 }

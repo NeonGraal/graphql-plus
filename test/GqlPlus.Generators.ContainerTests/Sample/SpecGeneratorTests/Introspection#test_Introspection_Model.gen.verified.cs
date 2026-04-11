@@ -1,6 +1,6 @@
 ﻿//HintName: test_Introspection_Model.gen.cs
 // Generated from {CurrentDirectory}Introspection.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -44,7 +44,7 @@ public class test_Name
 }
 
 public class test_Filter
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Filter
 {
   public ICollection<Itest_NameFilter>? As_NameFilter { get; set; }
@@ -52,7 +52,7 @@ public class test_Filter
 }
 
 public class test_FilterObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_FilterObject
 {
   public ICollection<Itest_NameFilter> Names { get; set; }
@@ -169,14 +169,14 @@ public class test_NamedObject
 }
 
 public class test_Described
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Described
 {
   public Itest_DescribedObject? As__Described { get; set; }
 }
 
 public class test_DescribedObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_DescribedObject
 {
   public ICollection<string> Description { get; set; }
@@ -712,7 +712,7 @@ public class test_SettingObject
 }
 
 public class test_Type
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Type
 {
   public Itest_BaseType<test_TypeKind>? As_TypeKindBasic { get; set; }
@@ -730,7 +730,7 @@ public class test_Type
 }
 
 public class test_TypeObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_TypeObject
 {
 
@@ -842,7 +842,7 @@ public class test_TypeRefObject<TTypeKind>
 }
 
 public class test_TypeSimple
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_TypeSimple
 {
   public Itest_TypeRef<test_TypeKind>? As_TypeKindBasic { get; set; }
@@ -853,7 +853,7 @@ public class test_TypeSimple
 }
 
 public class test_TypeSimpleObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_TypeSimpleObject
 {
 
@@ -864,7 +864,7 @@ public class test_TypeSimpleObject
 }
 
 public class test_Collections
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Collections
 {
   public Itest_Modifier<test_ModifierKind>? As_ModifierKindList { get; set; }
@@ -874,7 +874,7 @@ public class test_Collections
 }
 
 public class test_CollectionsObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_CollectionsObject
 {
 
@@ -910,7 +910,7 @@ public class test_ModifierKeyedObject<TModifierKind>
 }
 
 public class test_Modifiers
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Modifiers
 {
   public Itest_Modifier<test_ModifierKind>? As_ModifierKindOptional { get; set; }
@@ -919,7 +919,7 @@ public class test_Modifiers
 }
 
 public class test_ModifiersObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_ModifiersObject
 {
 
@@ -930,14 +930,14 @@ public class test_ModifiersObject
 }
 
 public class test_Modifier<TModifierKind>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Modifier<TModifierKind>
 {
   public Itest_ModifierObject<TModifierKind>? As__Modifier { get; set; }
 }
 
 public class test_ModifierObject<TModifierKind>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_ModifierObject<TModifierKind>
 {
   public TModifierKind ModifierKind { get; set; }
@@ -1023,7 +1023,7 @@ public class test_BaseDomainItemObject
 }
 
 public class test_DomainItem<TItem>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_DomainItem<TItem>
 {
   public TItem? As_Parent { get; set; }
@@ -1031,7 +1031,7 @@ public class test_DomainItem<TItem>
 }
 
 public class test_DomainItemObject<TItem>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_DomainItemObject<TItem>
 {
   public Itest_Name Domain { get; set; }
@@ -1070,7 +1070,7 @@ public class test_DomainValueObject<TDomainKind,TValue>
 }
 
 public class test_BasicValue
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_BasicValue
 {
   public bool? AsBoolean { get; set; }
@@ -1081,7 +1081,7 @@ public class test_BasicValue
 }
 
 public class test_BasicValueObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_BasicValueObject
 {
 
@@ -1487,7 +1487,7 @@ public class test_TypeParamObject
 }
 
 public class test_ObjAlternate
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_ObjAlternate
 {
   public Itest_ObjAlternateEnum? As_ObjAlternateEnum { get; set; }
@@ -1495,7 +1495,7 @@ public class test_ObjAlternate
 }
 
 public class test_ObjAlternateObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_ObjAlternateObject
 {
   public Itest_ObjBase Type { get; set; }
@@ -1535,7 +1535,7 @@ public class test_ObjAlternateEnumObject
 }
 
 public class test_ObjectFor<TFor>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_ObjectFor<TFor>
 {
   public TFor? As_Parent { get; set; }
@@ -1543,7 +1543,7 @@ public class test_ObjectFor<TFor>
 }
 
 public class test_ObjectForObject<TFor>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_ObjectForObject<TFor>
 {
   public Itest_Name ObjectType { get; set; }
@@ -1629,7 +1629,7 @@ public class test_ObjFieldEnumObject
 }
 
 public class test_ForParam<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_ForParam<TType>
 {
   public Itest_ObjAlternate? As_ObjAlternate { get; set; }
@@ -1638,7 +1638,7 @@ public class test_ForParam<TType>
 }
 
 public class test_ForParamObject<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_ForParamObject<TType>
 {
 

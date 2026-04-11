@@ -1,8 +1,10 @@
-﻿namespace GqlPlus.Modelling;
+﻿using GqlPlus.Ast;
+
+namespace GqlPlus.Modelling;
 
 internal abstract class ModellerBase<TAst, TModel>
   : IModeller<TAst, TModel>
-  where TAst : IGqlpError
+  where TAst : IAstError
   where TModel : IModelBase
 {
   public T ToModel<T>(TAst? ast, IMap<TypeKindModel> typeKinds)

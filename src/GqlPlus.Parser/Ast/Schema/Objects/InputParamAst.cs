@@ -1,21 +1,20 @@
 ﻿using GqlPlus;
-using GqlPlus.Abstractions.Schema;
 using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
 internal sealed record class InputParamAst(
   ITokenAt At,
-  IGqlpObjBase Type
+  IAstObjBase Type
 ) : AstAbbreviated(At)
-  , IGqlpInputParam
+  , IAstInputParam
 {
-  public IGqlpModifier[] Modifiers { get; set; } = [];
-  public IGqlpConstant? DefaultValue { get; set; }
-  public IGqlpEnumValue? EnumValue { get; set; }
+  public IAstModifier[] Modifiers { get; set; } = [];
+  public IAstConstant? DefaultValue { get; set; }
+  public IAstEnumValue? EnumValue { get; set; }
 
-  string IGqlpObjEnum.EnumTypeName => Type?.Name ?? "";
-  void IGqlpObjEnum.SetEnumType(string enumType)
+  string IAstObjEnum.EnumTypeName => Type?.Name ?? "";
+  void IAstObjEnum.SetEnumType(string enumType)
   {
     string enumLabel = EnumValue?.EnumLabel ?? Type.Name;
     Type.SetName(enumType);
@@ -25,19 +24,19 @@ internal sealed record class InputParamAst(
   internal override string Abbr => "Pa";
   public string ModifiedType => Type.GetFields().Skip(2).Concat(Modifiers.AsString()).Joined();
 
-  IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
-  string IGqlpDescribed.Description => Type.Description;
+  IEnumerable<IAstModifier> IAstModifiers.Modifiers => Modifiers;
+  string IAstDescribed.Description => Type.Description;
 
   internal InputParamAst(TokenAt at, string input, string description = "")
     : this(at, new ObjBaseAst(at, input, description)) { }
 
   public bool Equals(InputParamAst? other)
-    => other is IGqlpInputParam inputParam && Equals(inputParam);
+    => other is IAstInputParam inputParam && Equals(inputParam);
   [ExcludeFromCodeCoverage]
-  public bool Equals(IGqlpDescribed? other)
-    => other is IGqlpInputParam inputParam && Equals(inputParam);
-  public bool Equals(IGqlpInputParam? other)
-    => Equals(other as IGqlpAbbreviated)
+  public bool Equals(IAstDescribed? other)
+    => other is IAstInputParam inputParam && Equals(inputParam);
+  public bool Equals(IAstInputParam? other)
+    => Equals(other as IAstAbbreviated)
     && (Type?.Equals(other.Type) ?? other.Type is null)
     && Modifiers.SequenceEqual(other.Modifiers)
     && EnumValue.NullEqual(other.EnumValue)

@@ -1,12 +1,11 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Merging.Globals;
 
 namespace GqlPlus.Merging.Schema.Globals;
 
 public class MergeCategoriesTests(ITestOutputHelper outputHelper)
-    : TestAliasedMerger<IGqlpSchemaCategory>
+    : TestAliasedMerger<IAstSchemaCategory>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSameOutput_ReturnsGood(string category)
@@ -34,9 +33,9 @@ public class MergeCategoriesTests(ITestOutputHelper outputHelper)
 
   private readonly MergeCategories _merger = new(MergeRepo(outputHelper.ToLoggerFactory()));
 
-  internal override GroupsMerger<IGqlpSchemaCategory> MergerGroups => _merger;
+  internal override GroupsMerger<IAstSchemaCategory> MergerGroups => _merger;
 
-  protected override IGqlpSchemaCategory MakeAliased(string name, string[]? aliases = null, string description = "")
+  protected override IAstSchemaCategory MakeAliased(string name, string[]? aliases = null, string description = "")
     => new CategoryDeclAst(AstNulls.At, name, description, new TypeRefAst(AstNulls.At, name)) { Aliases = aliases ?? [] };
 
   private static CategoryDeclAst MakeCategory(string name)

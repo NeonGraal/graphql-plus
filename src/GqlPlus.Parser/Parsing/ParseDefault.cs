@@ -1,4 +1,5 @@
-﻿using GqlPlus.Result;
+﻿using GqlPlus.Ast;
+using GqlPlus.Result;
 using GqlPlus.Token;
 
 namespace GqlPlus.Parsing;
@@ -7,15 +8,15 @@ internal class ParseDefault(
   IParserRepository parsers
 ) : IParserDefault
 {
-  private readonly Parser<IGqlpConstant>.L _constant = parsers.ParserFor<IGqlpConstant>();
+  private readonly Parser<IAstConstant>.L _constant = parsers.ParserFor<IAstConstant>();
 
-  public IResult<IGqlpConstant> Parse(ITokenizer tokens, string label)
+  public IResult<IAstConstant> Parse(ITokenizer tokens, string label)
 
     => tokens.Take('=') ? _constant.Parse(tokens, "Default").MapEmpty(
-          () => tokens.Error<IGqlpConstant>("Default", "value after '='")
-        ) : default(IGqlpConstant).Empty();
+          () => tokens.Error<IAstConstant>("Default", "value after '='")
+        ) : default(IAstConstant).Empty();
 }
 
 public interface IParserDefault
-  : Parser<IGqlpConstant>.I
+  : Parser<IAstConstant>.I
 { }

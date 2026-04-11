@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
@@ -23,10 +23,10 @@ public class ParseUnionTests
     ParseOk(_definition, new UnionDefinition());
 
     // Act
-    IResult<IGqlpUnion> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstUnion> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpUnion>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstUnion>>();
   }
 
   [Fact]
@@ -34,10 +34,10 @@ public class ParseUnionTests
   {
     // Arrange
     NameFails();
-    SetupError<IGqlpUnion>();
+    SetupError<IAstUnion>();
 
     // Act
-    IResult<IGqlpUnion> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstUnion> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

@@ -1,36 +1,33 @@
 ﻿
+using GqlPlus.Ast.Schema;
+
 namespace GqlPlus.Generating;
 
 internal abstract class GenerateForType<TType>
   : ITypeGenerator
-  where TType : IGqlpType
+  where TType : IAstType
 {
-  public bool ForType(IGqlpType ast)
-  => ast is TType;
+  public bool ForType(IAstType ast)
+    => ast is TType;
 
-  public void GenerateType(IGqlpType ast, GqlpGeneratorContext context)
-    => Generate((TType)ast, context);
+  public void GenerateType(IAstType ast, GqlpGeneratorContext context)
+  {
+    if (ast is TType type) {
+      Generate(type, context);
+    }
+  }
+
+  protected abstract void Generate(TType ast, GqlpGeneratorContext context);
+
+  protected virtual void DecoderHeader(TType ast, GqlpGeneratorContext context)
+    => context.Write("internal class " + context.TypeName(ast, "") + "Decoder");
+
+  protected virtual void EncoderHeader(TType ast, GqlpGeneratorContext context)
+    => context.Write("internal class " + context.TypeName(ast, "") + "Encoder");
 
   protected delegate void GenerateDelegate(TType ast, GqlpGeneratorContext context);
   protected delegate IEnumerable<TItem> GenerateMembers<TItem>(TType ast, GqlpGeneratorContext context);
   protected delegate void GenerateMember<TItem>(TItem item, GqlpGeneratorContext context);
-
-  protected Dictionary<GqlpGeneratorType, GenerateDelegate> _generators = [];
-
-  private void Generate(TType ast, GqlpGeneratorContext context)
-  {
-    if (_generators.TryGetValue(context.GeneratorOptions.GeneratorType, out GenerateDelegate? generator)) {
-      generator(ast, context);
-    }
-  }
-
-  protected void AddGenerator<TItem>(
-    GqlpGeneratorType type,
-    GenerateDelegate head,
-    GenerateMembers<TItem> members,
-    GenerateMember<TItem> member,
-    GenerateDelegate? tail = null)
-    => _generators[type] = (ast, context) => GenerateBlock(ast, context, head, members, member, tail);
 
   protected static void GenerateBlock<TItem>(
     TType ast,

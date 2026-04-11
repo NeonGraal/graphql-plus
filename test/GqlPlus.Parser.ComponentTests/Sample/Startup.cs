@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Parser;
 using GqlPlus.Parser.Schema;
 using GqlPlus.Parser.Schema.Globals;
@@ -12,33 +12,33 @@ public static class Startup
 {
   public static void ConfigureServices(IServiceCollection services)
     => services
-      .AddTransient<IBaseAliasedChecks<string, IGqlpSchemaCategory>, ParseCategoryChecks>()
+      .AddTransient<IBaseAliasedChecks<string, IAstSchemaCategory>, ParseCategoryChecks>()
 
-      .AddTransient<IBaseAliasedChecks<string, IGqlpSchemaDirective>, ParseDirectiveChecks>()
-      .AddOneChecks<IGqlpSchemaSetting>()
-      .AddTransient<IBaseAliasedChecks<string, IGqlpSchemaOption>, ParseOptionChecks>()
+      .AddTransient<IBaseAliasedChecks<string, IAstSchemaDirective>, ParseDirectiveChecks>()
+      .AddOneChecks<IAstSchemaSetting>()
+      .AddTransient<IBaseAliasedChecks<string, IAstSchemaOption>, ParseOptionChecks>()
 
-      .AddTransient<IBaseDomainChecks<string, IGqlpDomain<IGqlpDomainTrueFalse>>, ParseDomainBooleanChecks>()
-      .AddTransient<IBaseDomainChecks<DomainEnumInput, IGqlpDomain<IGqlpDomainLabel>>, ParseDomainEnumChecks>()
-      .AddTransient<IBaseDomainChecks<string, IGqlpDomain<IGqlpDomainRange>>, ParseDomainNumberChecks>()
-      .AddTransient<IBaseDomainChecks<DomainStringInput, IGqlpDomain<IGqlpDomainRegex>>, ParseDomainStringChecks>()
+      .AddTransient<IBaseDomainChecks<string, IAstDomain<IAstDomainTrueFalse>>, ParseDomainBooleanChecks>()
+      .AddTransient<IBaseDomainChecks<DomainEnumInput, IAstDomain<IAstDomainLabel>>, ParseDomainEnumChecks>()
+      .AddTransient<IBaseDomainChecks<string, IAstDomain<IAstDomainRange>>, ParseDomainNumberChecks>()
+      .AddTransient<IBaseDomainChecks<DomainStringInput, IAstDomain<IAstDomainRegex>>, ParseDomainStringChecks>()
 
-      .AddTransient<IBaseAliasedChecks<string, IGqlpEnumLabel>, ParseEnumLabelChecks>()
-      .AddTransient<IBaseSimpleChecks<EnumInput, IGqlpEnum>, ParseEnumChecks>()
-      .AddTransient<IBaseNamedChecks<string, IGqlpUnionMember>, ParseUnionMemberChecks>()
-      .AddTransient<IBaseSimpleChecks<UnionInput, IGqlpUnion>, ParseUnionChecks>()
+      .AddTransient<IBaseAliasedChecks<string, IAstEnumLabel>, ParseEnumLabelChecks>()
+      .AddTransient<IBaseSimpleChecks<EnumInput, IAstEnum>, ParseEnumChecks>()
+      .AddTransient<IBaseNamedChecks<string, IAstUnionMember>, ParseUnionMemberChecks>()
+      .AddTransient<IBaseSimpleChecks<UnionInput, IAstUnion>, ParseUnionChecks>()
 
       .AddTransient<IParseTypeArgChecks, ParseTypeArgChecks>()
       .AddTransient<IParseObjBaseChecks, ParseObjBaseChecks>()
 
-      .AddTransient<ICheckObjectField<IGqlpDualField>, ParseDualFieldChecks>()
-      .AddTransient<ICheckObject<IGqlpDualField>, ParseDualChecks>()
+      .AddTransient<ICheckObjectField<IAstDualField>, ParseDualFieldChecks>()
+      .AddTransient<ICheckObject<IAstDualField>, ParseDualChecks>()
 
-      .AddTransient<ICheckObjectField<IGqlpInputField>, ParseInputFieldChecks>()
-      .AddTransient<ICheckObject<IGqlpInputField>, ParseInputChecks>()
+      .AddTransient<ICheckObjectField<IAstInputField>, ParseInputFieldChecks>()
+      .AddTransient<ICheckObject<IAstInputField>, ParseInputChecks>()
 
-      .AddTransient<ICheckObjectField<IGqlpOutputField>, ParseOutputFieldChecks>()
-      .AddTransient<ICheckObject<IGqlpOutputField>, ParseOutputChecks>()
+      .AddTransient<ICheckObjectField<IAstOutputField>, ParseOutputFieldChecks>()
+      .AddTransient<ICheckObject<IAstOutputField>, ParseOutputChecks>()
 
       .AddTransient<ISchemaParseChecks, SchemaParseChecks>()
 

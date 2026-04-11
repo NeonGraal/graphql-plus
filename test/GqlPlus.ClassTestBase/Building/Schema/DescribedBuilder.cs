@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Building.Schema;
 
@@ -8,10 +8,10 @@ public class DescribedBuilder
   internal string? _description;
 
   public DescribedBuilder()
-    => Add<IGqlpDescribed>();
+    => Add<IAstDescribed>();
 
   protected new T Build<T>()
-    where T : class, IGqlpDescribed
+    where T : class, IAstDescribed
   {
     T result = base.Build<T>();
     result.Description.Returns(_description);

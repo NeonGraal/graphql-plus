@@ -1,6 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Ast.Schema.Objects;
+﻿namespace GqlPlus.Ast.Schema.Objects;
 
 public abstract class ObjEnumBaseTests<TInput>
   : AstAbbreviatedBaseTests<TInput>
@@ -34,7 +32,7 @@ internal abstract class ObjEnumChecks<TInput, TObjType>(
   BaseAstChecks<TObjType>.CreateBy<TInput> createInput
 ) : AstAbbreviatedChecks<TInput, TObjType>(createInput)
   , IObjEnumChecks<TInput>
-  where TObjType : IGqlpObjEnum
+  where TObjType : IAstObjEnum
 {
   public void HashCode_WithEnumValue(TInput input, string enumLabel)
       => HashCode(() => CreateEnum(input, enumLabel));

@@ -1,17 +1,18 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Verifying.Schema;
 
 internal abstract class UsageVerifier<TUsage, TContext>(
   IVerifierRepository verifiers
 ) : IVerifyUsage<TUsage>
-  where TUsage : IGqlpAliased
+  where TUsage : IAstAliased
   where TContext : UsageContext
 {
   private readonly IVerifyAliased<TUsage> _aliased = verifiers.AliasedFor<TUsage>();
 
   protected abstract void UsageValue(TUsage usage, TContext context);
-  protected abstract TContext MakeContext(TUsage usage, IGqlpType[] aliased, IMessages errors);
+  protected abstract TContext MakeContext(TUsage usage, IAstType[] aliased, IMessages errors);
 
   public virtual void Verify(UsageAliased<TUsage> item, IMessages errors)
   {
@@ -23,19 +24,19 @@ internal abstract class UsageVerifier<TUsage, TContext>(
     _aliased.Verify(item.Usages, errors);
   }
 
-  protected static UsageContext MakeUsageContext(IGqlpType[] aliased, IMessages errors)
+  protected static UsageContext MakeUsageContext(IAstType[] aliased, IMessages errors)
     => new(
-      aliased.AliasedMap(p => (IGqlpDescribed)p.First())
+      aliased.AliasedMap(p => (IAstDescribed)p.First())
       , errors);
 }
 
 public record class UsageAliased<TUsage>(
   TUsage[] Usages,
-  IGqlpType[] Definitions
+  IAstType[] Definitions
 )
-  where TUsage : IGqlpError;
+  where TUsage : IAstError;
 
 public interface IVerifyUsage<TUsage>
   : IVerify<UsageAliased<TUsage>>
-  where TUsage : IGqlpError
+  where TUsage : IAstError
 { }

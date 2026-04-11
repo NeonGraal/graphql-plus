@@ -1,28 +1,28 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Building.Schema.Objects;
 
 public class ObjectBuilder
   : TypeBuilder
 {
-  internal IGqlpTypeParam[] _typeParams = [];
-  internal IGqlpAlternate[] _alternates = [];
+  internal IAstTypeParam[] _typeParams = [];
+  internal IAstAlternate[] _alternates = [];
 
   public ObjBaseBuilder? BaseBuilder { get; internal set; }
 
   public ObjectBuilder(string name, TypeKind kind)
     : base(name)
   {
-    Add<IGqlpObject>();
+    Add<IAstObject>();
     _typeKind = kind;
   }
 
   protected new T Build<T>()
-    where T : class, IGqlpObject
+    where T : class, IAstObject
   {
     T result = base.Build<T>();
 
-    IGqlpObjBase? parent = BaseBuilder?.AsObjBase;
+    IAstObjBase? parent = BaseBuilder?.AsObjBase;
 
     result.Label.Returns(_typeKind.ToString());
     result.Parent.Returns(parent);
@@ -35,20 +35,20 @@ public class ObjectBuilder
 
 public class ObjectBuilder<TField>
   : ObjectBuilder
-  where TField : class, IGqlpObjField
+  where TField : class, IAstObjField
 {
   internal TField[] _fields = [];
 
   public ObjectBuilder(string name, TypeKind kind)
     : base(name, kind)
-    => Add<IGqlpObject<TField>>();
+    => Add<IAstObject<TField>>();
 
   protected new T Build<T>()
-    where T : class, IGqlpObject<TField>
+    where T : class, IAstObject<TField>
   {
     T result = base.Build<T>();
 
-    IGqlpObjBase? parent = BaseBuilder?.AsObjBase;
+    IAstObjBase? parent = BaseBuilder?.AsObjBase;
 
     result.Fields.Returns(_fields);
     result.ObjFields.Returns(_fields);
@@ -56,8 +56,8 @@ public class ObjectBuilder<TField>
     return result;
   }
 
-  public IGqlpObject<TField> AsObject
-    => Build<IGqlpObject<TField>>();
+  public IAstObject<TField> AsObject
+    => Build<IAstObject<TField>>();
 }
 
 public static class ObjectBuilderHelper
@@ -73,13 +73,13 @@ public static class ObjectBuilderHelper
   public static T WithTypeParam<T>(this T builder, string paramName, string constraint)
     where T : ObjectBuilder
     => builder.WithTypeParams(builder.TypeParam(paramName, constraint));
-  public static T WithTypeParams<T>(this T builder, params IGqlpTypeParam[] typeParams)
+  public static T WithTypeParams<T>(this T builder, params IAstTypeParam[] typeParams)
     where T : ObjectBuilder
     => builder.FluentAction(b => b._typeParams = typeParams);
 
   public static T WithObjFields<T, TField>(this T builder, params TField[] fields)
     where T : ObjectBuilder<TField>
-    where TField : class, IGqlpObjField
+    where TField : class, IAstObjField
     => builder.FluentAction(b => b._fields = fields);
 
   public static T WithAlternate<T>(this T builder, string typeName, Action<AlternateBuilder>? config = null)
@@ -88,7 +88,7 @@ public static class ObjectBuilderHelper
   public static T WithAlternates<T>(this T builder, params AlternateBuilder[] alternates)
     where T : ObjectBuilder
     => builder.WithAlternates([.. alternates.Select(a => a.AsAlternate)]);
-  public static T WithAlternates<T>(this T builder, params IGqlpAlternate[] alternates)
+  public static T WithAlternates<T>(this T builder, params IAstAlternate[] alternates)
     where T : ObjectBuilder
     => builder.FluentAction(b => b._alternates = alternates);
 }

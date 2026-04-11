@@ -1,0 +1,23 @@
+﻿/* union-same-parent
+union UnionSamePrnt { :PrntUnionSamePrnt Boolean }
+union UnionSamePrnt { :PrntUnionSamePrnt Boolean }
+union PrntUnionSamePrnt { String }
+*/
+
+// Generated from Schema union-same-parent
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_union-same-parent, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_union_same_parent;
+
+internal class CmptUnionSamePrntEncoder
+{
+  public Boolean AsBoolean { get; set; }
+}
+
+internal class CmptPrntUnionSamePrntEncoder
+{
+  public String AsString { get; set; }
+}

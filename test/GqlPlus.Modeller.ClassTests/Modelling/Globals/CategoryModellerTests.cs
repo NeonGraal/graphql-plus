@@ -1,24 +1,27 @@
-﻿namespace GqlPlus.Modelling.Globals;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Modelling.Globals;
 
 public class CategoryModellerTests
-  : ModellerClassTestBase<IGqlpSchemaCategory, CategoryModel>
+  : ModellerClassTestBase<IAstSchemaCategory, CategoryModel>
 {
-  private readonly IModeller<IGqlpModifier, ModifierModel> _modifier = MFor<IGqlpModifier, ModifierModel>();
+  private readonly IModeller<IAstModifier, ModifierModel> _modifier = MFor<IAstModifier, ModifierModel>();
 
   public CategoryModellerTests()
     => Modeller = new CategoryModeller(_modifier);
 
-  protected override IModeller<IGqlpSchemaCategory, CategoryModel> Modeller { get; }
+  protected override IModeller<IAstSchemaCategory, CategoryModel> Modeller { get; }
 
   [Theory, RepeatData]
   public void ToModel_WithValidCategory_ReturnsExpectedCategoryModel(string categoryName, string outputName, string contents)
   {
     // Arrange
-    IGqlpSchemaCategory ast = A.Named<IGqlpSchemaCategory>(categoryName, contents);
-    IGqlpTypeRef output = A.Named<IGqlpTypeRef>(outputName);
+    IAstSchemaCategory ast = A.Named<IAstSchemaCategory>(categoryName, contents);
+    IAstTypeRef output = A.Named<IAstTypeRef>(outputName);
     ast.Output.Returns(output);
     ast.CategoryOption.Returns(CategoryOption.Parallel);
-    IEnumerable<IGqlpModifier> modifiers = [A.Modifier(ModifierKind.List), A.Modifier(ModifierKind.Opt)];
+    IEnumerable<IAstModifier> modifiers = [A.Modifier(ModifierKind.List), A.Modifier(ModifierKind.Opt)];
     ast.Modifiers.Returns(modifiers);
 
     _modifier.ToModels(modifiers, TypeKinds)

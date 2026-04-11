@@ -1,11 +1,11 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Merging.Objects;
 
 namespace GqlPlus.Merging.Schema.Objects;
 
 public class MergeInputParamsTests
-  : TestDescriptionsMerger<IGqlpInputParam>
+  : TestDescriptionsMerger<IAstInputParam>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSameNameDifferentModifiers_ReturnsErrors(string input)
@@ -36,21 +36,21 @@ public class MergeInputParamsTests
       [MakeDescribed(input), MakeDefault(input, value)],
       MakeDefault(input, value));
 
-  private readonly IMerge<IGqlpConstant> _constant;
+  private readonly IMerge<IAstConstant> _constant;
   private readonly MergeInputParams _merger;
 
   public MergeInputParamsTests(ITestOutputHelper outputHelper)
   {
-    _constant = Merger<IGqlpConstant>();
+    _constant = Merger<IAstConstant>();
 
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.MergerFor<IGqlpConstant>().Returns(_constant);
+    mergers.MergerFor<IAstConstant>().Returns(_constant);
     _merger = new(mergers);
   }
 
-  internal override GroupsMerger<IGqlpInputParam> MergerGroups => _merger;
+  internal override GroupsMerger<IAstInputParam> MergerGroups => _merger;
 
-  protected override IGqlpInputParam MakeDescribed(string name, string description = "")
+  protected override IAstInputParam MakeDescribed(string name, string description = "")
     => new InputParamAst(AstNulls.At, new ObjBaseAst(AstNulls.At, name, description));
   private static InputParamAst MakeDefault(string name, string value)
     => new(AstNulls.At, new ObjBaseAst(AstNulls.At, name, "")) {

@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
@@ -6,12 +6,12 @@ public class ParseUnionDefinitionTests
   : SimpleParserClassTestBase
 {
 
-  private readonly Parser<IGqlpUnionMember>.I _unionMemberParser;
+  private readonly Parser<IAstUnionMember>.I _unionMemberParser;
   private readonly ParseUnionDefinition _parser;
 
   public ParseUnionDefinitionTests()
   {
-    ConfigureRepo<IGqlpUnionMember>(Parsers, out _unionMemberParser);
+    ConfigureRepo<IAstUnionMember>(Parsers, out _unionMemberParser);
     _parser = new ParseUnionDefinition(Parsers);
   }
 

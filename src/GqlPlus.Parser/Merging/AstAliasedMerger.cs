@@ -1,12 +1,11 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
 
 namespace GqlPlus.Merging;
 
 internal abstract class AstAliasedMerger<TItem>
   : DistinctMerger<TItem>
-  where TItem : IGqlpAliased
+  where TItem : IAstAliased
 {
   private readonly ILogger _logger;
 

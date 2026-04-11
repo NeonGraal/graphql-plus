@@ -1,18 +1,20 @@
-﻿using GqlPlus.Resolving;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
+using GqlPlus.Resolving;
 
 namespace GqlPlus.Modelling;
 
 internal class SchemaModeller(
-  IModeller<IGqlpSchemaCategory, CategoryModel> category,
-  IModeller<IGqlpSchemaDirective, DirectiveModel> directive,
-  IModeller<IGqlpSchemaOperation, OperationModel> operation,
-  IModeller<IGqlpSchemaSetting, SettingModel> setting,
+  IModeller<IAstSchemaCategory, CategoryModel> category,
+  IModeller<IAstSchemaDirective, DirectiveModel> directive,
+  IModeller<IAstSchemaOperation, OperationModel> operation,
+  IModeller<IAstSchemaSetting, SettingModel> setting,
   ITypesModeller types
-) : ModellerBase<IGqlpSchema, SchemaModel>
+) : ModellerBase<IAstSchema, SchemaModel>
 {
-  protected override SchemaModel ToModel(IGqlpSchema ast, IMap<TypeKindModel> typeKinds)
+  protected override SchemaModel ToModel(IAstSchema ast, IMap<TypeKindModel> typeKinds)
   {
-    IGqlpType[] typeDeclarations = ast.Declarations.ArrayOf<IGqlpType>();
+    IAstType[] typeDeclarations = ast.Declarations.ArrayOf<IAstType>();
     IMessages errors = ast.Errors;
     if (typeKinds is IModelsContext collection) {
       errors = collection.Errors;
@@ -25,10 +27,10 @@ internal class SchemaModeller(
     IEnumerable<CategoryModel> categories = DeclarationModel(ast, category, typeKinds);
     IEnumerable<DirectiveModel> directives = DeclarationModel(ast, directive, typeKinds);
     IEnumerable<OperationModel> operations = DeclarationModel(ast, operation, typeKinds);
-    IGqlpSchemaOption[] options = ast.Declarations.ArrayOf<IGqlpSchemaOption>();
-    IEnumerable<SettingModel> settings = options.SelectMany(o => setting.ToModels(o.Settings, typeKinds));
+    IAstSchemaOption[] options = ast.Declarations.ArrayOf<IAstSchemaOption>();
     string name = options.LastOrDefault(options => !string.IsNullOrWhiteSpace(options.Name))?.Name ?? "";
     IEnumerable<string> aliases = options.SelectMany(a => a.Aliases);
+    IEnumerable<SettingModel> settings = options.SelectMany(o => setting.ToModels(o.Settings, typeKinds));
 
     return new(name,
         categories,
@@ -41,11 +43,11 @@ internal class SchemaModeller(
   }
 
   private IEnumerable<TModel> DeclarationModel<TAst, TModel>(
-    IGqlpSchema ast,
+    IAstSchema ast,
     IModeller<TAst, TModel> modeller,
     IMap<TypeKindModel> typeKinds
   )
-    where TAst : IGqlpError
+    where TAst : IAstError
     where TModel : IModelBase
     => ast.Declarations.OfType<TAst>().Select(m => modeller.ToModel(m, typeKinds));
 }

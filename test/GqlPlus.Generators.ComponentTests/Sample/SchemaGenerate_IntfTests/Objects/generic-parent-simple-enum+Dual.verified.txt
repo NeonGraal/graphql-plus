@@ -34,3 +34,8 @@ public interface ICmptFieldGnrcPrntSmplEnumDualObject<TRef>
 {
   TRef Field { get; }
 }
+
+public enum CmptEnumGnrcPrntSmplEnumDual
+{
+  gnrcPrntSmplEnumDual,
+}

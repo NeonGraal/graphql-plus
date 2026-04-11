@@ -1,16 +1,16 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Merging.Simple;
 
 namespace GqlPlus.Merging.Schema.Simple;
 
 public abstract class TestDomainMerger<TItem, TItemInput>
-  : TestSimpleMerger<IGqlpDomain, IGqlpDomain<TItem>, TItem, TItemInput>
-  where TItem : class, IGqlpDomainItem
+  : TestSimpleMerger<IAstDomain, IAstDomain<TItem>, TItem, TItemInput>
+  where TItem : class, IAstDomainItem
 {
   [Theory, RepeatData]
   public void CanMerge_SameKinds_ReturnsGood(string name)
   {
-    IGqlpDomain<TItem>[] items = [MakeDomain(name), MakeDomain(name)];
+    IAstDomain<TItem>[] items = [MakeDomain(name), MakeDomain(name)];
 
     IMessages result = Merger.CanMerge(items);
 
@@ -23,7 +23,7 @@ public abstract class TestDomainMerger<TItem, TItemInput>
     DomainKind domainKind = MakeDescribed(name).DomainKind == DomainKind.String
       ? DomainKind.Number
       : DomainKind.String;
-    IGqlpDomain<TItem>[] items = [MakeDomain(name, kind: domainKind), MakeDomain(name)];
+    IAstDomain<TItem>[] items = [MakeDomain(name, kind: domainKind), MakeDomain(name)];
 
     IMessages result = Merger.CanMerge(items);
 
@@ -32,16 +32,16 @@ public abstract class TestDomainMerger<TItem, TItemInput>
 
   internal abstract IDomainMerger<TItem> Merger { get; }
 
-  // internal override AstTypeMerger<IGqlpDomain, IGqlpDomain<TItem>, string, TItem> MergerTyped => Merger;
+  // internal override AstTypeMerger<IAstDomain, IAstDomain<TItem>, string, TItem> MergerTyped => Merger;
 
-  protected abstract IGqlpDomain<TItem> MakeDomain(
+  protected abstract IAstDomain<TItem> MakeDomain(
     string name,
     string[]? aliases = null,
     string description = "",
-    IGqlpTypeRef? parent = default,
+    IAstTypeRef? parent = default,
     DomainKind? kind = null,
     IEnumerable<TItem>? items = null
   );
-  protected override IGqlpDomain<TItem> MakeSimple(string name, string[]? aliases = null, string description = "", IGqlpTypeRef? parent = null, IEnumerable<TItem>? items = null)
+  protected override IAstDomain<TItem> MakeSimple(string name, string[]? aliases = null, string description = "", IAstTypeRef? parent = null, IEnumerable<TItem>? items = null)
     => MakeDomain(name, aliases, description, parent, null, items);
 }

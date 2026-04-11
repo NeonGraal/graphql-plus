@@ -1,14 +1,14 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Verifying.Schema;
 
 namespace GqlPlus.Matching;
 
 internal class SimpleParentMatcher<TType>(
   IMatcherRepository matchers
-) : MatchParentBase<IGqlpTypeRef, TType>(matchers)
-  where TType : IGqlpSimple
+) : MatchParentBase<IAstTypeRef, TType>(matchers)
+  where TType : IAstSimple
 {
-  protected override bool MatchParent(IGqlpTypeRef parent, string constraint, UsageContext context)
+  protected override bool MatchParent(IAstTypeRef parent, string constraint, UsageContext context)
     => !string.IsNullOrWhiteSpace(parent.Name)
       && (parent.Name.Equals(constraint, StringComparison.Ordinal)
         || MatchParentType(parent.Name, constraint, context));

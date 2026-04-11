@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
+﻿using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
@@ -8,16 +8,16 @@ public class ParseEndFragmentsTests
   public ParseEndFragmentsTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    ConfigureRepoArray<IGqlpDirective>(parsers, out Parser<IGqlpDirective>.IA directivesParser);
-    ConfigureRepoArray<IGqlpSelection>(parsers, out Parser<IGqlpSelection>.IA objectParser);
+    ConfigureRepoArray<IAstDirective>(parsers, out Parser<IAstDirective>.IA directivesParser);
+    ConfigureRepoArray<IAstSelection>(parsers, out Parser<IAstSelection>.IA objectParser);
     DirectivesParser = directivesParser;
     ObjectParser = objectParser;
     Parser = new ParseEndFragments(parsers);
   }
 
-  protected override Parser<IGqlpFragment>.IA Parser { get; }
-  protected override Parser<IGqlpDirective>.IA DirectivesParser { get; }
-  protected override Parser<IGqlpSelection>.IA ObjectParser { get; }
+  protected override Parser<IAstFragment>.IA Parser { get; }
+  protected override Parser<IAstDirective>.IA DirectivesParser { get; }
+  protected override Parser<IAstSelection>.IA ObjectParser { get; }
 
   protected override void SetupFragmentPrefix(bool value)
     => TakeReturns("fragment", value, false);
@@ -32,16 +32,16 @@ public class ParseStartFragmentsTests
   public ParseStartFragmentsTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    ConfigureRepoArray<IGqlpDirective>(parsers, out Parser<IGqlpDirective>.IA directivesParser);
-    ConfigureRepoArray<IGqlpSelection>(parsers, out Parser<IGqlpSelection>.IA objectParser);
+    ConfigureRepoArray<IAstDirective>(parsers, out Parser<IAstDirective>.IA directivesParser);
+    ConfigureRepoArray<IAstSelection>(parsers, out Parser<IAstSelection>.IA objectParser);
     DirectivesParser = directivesParser;
     ObjectParser = objectParser;
     Parser = new ParseStartFragments(parsers);
   }
 
-  protected override Parser<IGqlpFragment>.IA Parser { get; }
-  protected override Parser<IGqlpDirective>.IA DirectivesParser { get; }
-  protected override Parser<IGqlpSelection>.IA ObjectParser { get; }
+  protected override Parser<IAstFragment>.IA Parser { get; }
+  protected override Parser<IAstDirective>.IA DirectivesParser { get; }
+  protected override Parser<IAstSelection>.IA ObjectParser { get; }
 
   protected override void SetupFragmentPrefix(bool value)
     => TakeReturns('&', value, false);

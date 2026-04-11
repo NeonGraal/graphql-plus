@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Operation;
+﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Matching;
 using GqlPlus.Merging;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,7 +16,7 @@ public class AllVerifiersTests
   [Fact]
   public void AllVerifiers_VerifierForSchema_IsRegistered()
     => _services.GetRequiredService<IVerifierRepository>()
-      .VerifierFor<IGqlpSchema>()
+      .VerifierFor<IAstSchema>()
       .ShouldNotBeNull();
 
   [Fact]

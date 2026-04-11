@@ -1,0 +1,21 @@
+﻿/* parent-param-same+Dual
+dual PrntParamSameDual<$a:String> { :RefPrntParamSameDual<$a> field: $a }
+dual RefPrntParamSameDual<$a:String> { | $a }
+*/
+
+// Generated from Schema parent-param-same+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-param-same+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_param_same_Dual;
+
+internal class CmptPrntParamSameDualDecoder<TA>
+{
+  public TA Field { get; set; }
+}
+
+internal class CmptRefPrntParamSameDualDecoder<TA>
+{
+}

@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Building;
+﻿using GqlPlus.Ast;
+
+namespace GqlPlus.Building;
 
 public class EnumValueBuilder
   : ErrorBuilder
@@ -8,13 +10,13 @@ public class EnumValueBuilder
 
   public EnumValueBuilder(string enumType, string enumLabel)
   {
-    Add<IGqlpEnumValue>();
+    Add<IAstEnumValue>();
 
     _enumType = enumType;
     _enumLabel = enumLabel;
   }
 
-  internal static void SetEnumValue(IGqlpEnumValue enumValue, string enumType, string enumLabel)
+  internal static void SetEnumValue(IAstEnumValue enumValue, string enumType, string enumLabel)
   {
     enumValue.EnumType.Returns(enumType);
     enumValue.EnumLabel.Returns(enumLabel);
@@ -22,13 +24,13 @@ public class EnumValueBuilder
   }
 
   protected new T Build<T>()
-    where T : class, IGqlpEnumValue
+    where T : class, IAstEnumValue
   {
     T result = base.Build<T>();
     SetEnumValue(result, _enumType, _enumLabel);
     return result;
   }
 
-  public IGqlpEnumValue AsEnumValue
-    => Build<IGqlpEnumValue>();
+  public IAstEnumValue AsEnumValue
+    => Build<IAstEnumValue>();
 }

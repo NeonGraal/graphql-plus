@@ -1,4 +1,7 @@
-﻿namespace GqlPlus.Generating;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Generating;
 
 public class GenerateClassTestsBase
   : SubstituteBase
@@ -18,6 +21,6 @@ public class GenerateClassTestsBase
   }
 
   internal static IGenerator<T> GFor<T>()
-    where T : IGqlpError
+    where T : IAstError
     => A.Of<IGenerator<T>>();
 }

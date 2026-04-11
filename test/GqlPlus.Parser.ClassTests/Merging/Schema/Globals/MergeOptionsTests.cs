@@ -1,17 +1,16 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Merging.Globals;
 
 namespace GqlPlus.Merging.Schema.Globals;
 
 public class MergeOptionsTests
-  : TestAliasedMerger<IGqlpSchemaOption>
+  : TestAliasedMerger<IAstSchemaOption>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSettingsCantMerge_ReturnsErrors(string name, string[] settings)
     => this
-      .SkipUnless(settings)
+      .SkipShortArray(settings)
       .CanMergeReturnsError(_settings)
       .CanMerge_Errors(
         new OptionDeclAst(AstNulls.At, name) with { Settings = settings.OptionSettings() },
@@ -37,21 +36,21 @@ public class MergeOptionsTests
       .MergeCalled(_settings, settings1.Concat(settings2).Distinct().Count());
 
   private readonly MergeOptions _merger;
-  private readonly IMerge<IGqlpSchemaSetting> _settings;
+  private readonly IMerge<IAstSchemaSetting> _settings;
 
   public MergeOptionsTests(ITestOutputHelper outputHelper)
   {
-    _settings = Merger<IGqlpSchemaSetting>();
+    _settings = Merger<IAstSchemaSetting>();
 
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.MergerFor<IGqlpSchemaSetting>().Returns(_settings);
+    mergers.MergerFor<IAstSchemaSetting>().Returns(_settings);
     _merger = new(mergers);
   }
 
   protected override bool SkipDifferentInput => true;
 
-  internal override GroupsMerger<IGqlpSchemaOption> MergerGroups => _merger;
+  internal override GroupsMerger<IAstSchemaOption> MergerGroups => _merger;
 
-  protected override IGqlpSchemaOption MakeAliased(string name, string[]? aliases = null, string description = "")
+  protected override IAstSchemaOption MakeAliased(string name, string[]? aliases = null, string description = "")
     => new OptionDeclAst(AstNulls.At, name, description) { Aliases = aliases ?? [] };
 }

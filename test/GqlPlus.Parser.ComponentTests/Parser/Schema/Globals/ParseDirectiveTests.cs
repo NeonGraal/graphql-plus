@@ -1,11 +1,11 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 
 namespace GqlPlus.Parser.Schema.Globals;
 
 public sealed class ParseDirectiveTests(
-  IBaseAliasedChecks<string, IGqlpSchemaDirective> checks
-) : BaseAliasedTests<string, IGqlpSchemaDirective>(checks)
+  IBaseAliasedChecks<string, IAstSchemaDirective> checks
+) : BaseAliasedTests<string, IAstSchemaDirective>(checks)
 {
   [Theory, RepeatData]
   public void WithRepeatable_ReturnsCorrectAst(string name)
@@ -60,7 +60,7 @@ public sealed class ParseDirectiveTests(
 
 internal sealed class ParseDirectiveChecks(
   IParserRepository parsers
-) : BaseAliasedChecks<string, DirectiveDeclAst, IGqlpSchemaDirective>(parsers)
+) : BaseAliasedChecks<string, DirectiveDeclAst, IAstSchemaDirective>(parsers)
 {
   protected internal override DirectiveDeclAst NamedFactory(string input)
     => new(AstNulls.At, input) { Locations = DirectiveLocation.Operation };

@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -6,12 +6,12 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseTypeParams
-  : Parser<IGqlpTypeParam>.IA
+  : Parser<IAstTypeParam>.IA
 {
-  public IResultArray<IGqlpTypeParam> Parse(ITokenizer tokens, string label)
+  public IResultArray<IAstTypeParam> Parse(ITokenizer tokens, string label)
 
   {
-    List<IGqlpTypeParam> list = [];
+    List<IAstTypeParam> list = [];
 
     if (!tokens.Take('<')) {
       return list.EmptyArray();

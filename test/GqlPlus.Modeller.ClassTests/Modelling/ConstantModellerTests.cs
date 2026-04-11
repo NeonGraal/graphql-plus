@@ -1,17 +1,18 @@
-﻿using GqlPlus.Building;
+﻿using GqlPlus.Ast;
+using GqlPlus.Building;
 
 namespace GqlPlus.Modelling;
 
 public class ConstantModellerTests
-  : ModellerClassTestBase<IGqlpConstant, ConstantModel>
+  : ModellerClassTestBase<IAstConstant, ConstantModel>
 {
-  private readonly IModeller<IGqlpFieldKey, SimpleModel> _fieldKeyModeller;
+  private readonly IModeller<IAstFieldKey, SimpleModel> _fieldKeyModeller;
 
-  protected override IModeller<IGqlpConstant, ConstantModel> Modeller { get; }
+  protected override IModeller<IAstConstant, ConstantModel> Modeller { get; }
 
   public ConstantModellerTests()
   {
-    _fieldKeyModeller = MFor<IGqlpFieldKey, SimpleModel>();
+    _fieldKeyModeller = MFor<IAstFieldKey, SimpleModel>();
     Modeller = new ConstantModeller(_fieldKeyModeller);
   }
 
@@ -19,9 +20,9 @@ public class ConstantModellerTests
   public void ToModel_WithFields_ReturnsExpectedConstantModel(string key, string value)
   {
     // Arrange
-    IGqlpConstant ast = A.Constant().WithField(key, value).AsConstant;
+    IAstConstant ast = A.Constant().WithField(key, value).AsConstant;
 
-    _fieldKeyModeller.ToModel(Arg.Any<IGqlpFieldKey>(), TypeKinds)
+    _fieldKeyModeller.ToModel(Arg.Any<IAstFieldKey>(), TypeKinds)
         .Returns(SimpleModel.Str(value));
 
     // Act
@@ -35,7 +36,7 @@ public class ConstantModellerTests
   public void ToModel_WithValues_ReturnsExpectedConstantModel(string[] values)
   {
     // Arrange
-    IGqlpConstant ast = A.Constant(values);
+    IAstConstant ast = A.Constant(values);
 
     // Act
     ConstantModel result = Modeller.ToModel<ConstantModel>(ast, TypeKinds);
@@ -48,7 +49,7 @@ public class ConstantModellerTests
   public void ToModel_WithNullValue_ReturnsDefaultConstantModel(string value)
   {
     // Arrange
-    IGqlpConstant ast = A.Constant(value);
+    IAstConstant ast = A.Constant(value);
 
     // Act
     ConstantModel result = Modeller.ToModel<ConstantModel>(ast, TypeKinds);

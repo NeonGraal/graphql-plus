@@ -1,15 +1,17 @@
-﻿namespace GqlPlus.Matching;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Matching;
 
 public class DomainMatcherTests
   : MatchTestsBase
 {
-  private readonly Matcher<IGqlpEnum>.I _enumMatcher;
+  private readonly Matcher<IAstEnum>.I _enumMatcher;
   private readonly DomainMatcher _sut;
 
   public DomainMatcherTests()
   {
-    Matcher<IGqlpEnum>.D enumMatcher = MatcherFor(out _enumMatcher);
-    MatcherRepo.MatcherFor<IGqlpEnum>().Returns(enumMatcher);
+    Matcher<IAstEnum>.D enumMatcher = MatcherFor(out _enumMatcher);
+    MatcherRepo.MatcherFor<IAstEnum>().Returns(enumMatcher);
     _sut = new DomainMatcher(MatcherRepo);
   }
 
@@ -17,7 +19,7 @@ public class DomainMatcherTests
   public void Matches_ReturnsFalse_WhenMatchingUnknownKind()
   {
     // Arrange
-    IGqlpDomain type = A.Domain<IGqlpDomainItem>("Unknown", (DomainKind)99).AsDomain;
+    IAstDomain type = A.Domain<IAstDomainItem>("Unknown", (DomainKind)99).AsDomain;
 
     // Act
     bool result = _sut.Matches(type, "Unknown", Context);
@@ -32,7 +34,7 @@ public class DomainMatcherTests
     this.SkipEqual(kind, DomainKind.Enum, "Enum kind requires specific label matching logic.");
 
     // Arrange
-    IGqlpDomain type = A.Domain<IGqlpDomainLabel>(name, kind).AsDomain;
+    IAstDomain type = A.Domain<IAstDomainLabel>(name, kind).AsDomain;
 
     // Act
     bool result = _sut.Matches(type, $"{kind}", Context);
@@ -45,7 +47,7 @@ public class DomainMatcherTests
   public void Matches_ReturnsTrue_WhenMatchingEnumByName(string domain, string constraint)
   {
     // Arrange
-    IGqlpDomain<IGqlpDomainLabel> type = A.DomainEnum(domain, constraint, "");
+    IAstDomain<IAstDomainLabel> type = A.DomainEnum(domain, constraint, "");
 
     // Act
     bool result = _sut.Matches(type, constraint, Context);
@@ -58,9 +60,9 @@ public class DomainMatcherTests
   public void Matches_ReturnsTrue_WhenMatchingEnumByMatcher(string domain, string constraint, string enumName)
   {
     // Arrange
-    IGqlpDomain<IGqlpDomainLabel> type = A.DomainEnum(domain, enumName, "");
+    IAstDomain<IAstDomainLabel> type = A.DomainEnum(domain, enumName, "");
 
-    IGqlpEnum enumType = A.Enum(enumName).AsEnum;
+    IAstEnum enumType = A.Enum(enumName).AsEnum;
     Types[enumName] = enumType;
 
     _enumMatcher.Matches(enumType, constraint, Context).Returns(true);
@@ -76,9 +78,9 @@ public class DomainMatcherTests
   public void Matches_ReturnsTrue_WhenMatchingLabelDomain(string domain, string constraint, string enumLabel)
   {
     // Arrange
-    IGqlpDomain<IGqlpDomainLabel> type = A.DomainEnum(domain, "", enumLabel);
+    IAstDomain<IAstDomainLabel> type = A.DomainEnum(domain, "", enumLabel);
 
-    IGqlpEnum enumType = A.Enum(constraint, [enumLabel]);
+    IAstEnum enumType = A.Enum(constraint, [enumLabel]);
     EnumValues[enumLabel] = constraint;
 
     // Act

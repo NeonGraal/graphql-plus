@@ -1,6 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
-
-using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
 
@@ -13,7 +12,7 @@ internal static class MergeExtensions
       this IEnumerable<TItem> items,
       Func<TItem, TObjField> field,
       [CallerArgumentExpression(nameof(field))] string? fieldExpr = null)
-    where TItem : IGqlpError
+    where TItem : IAstError
     where TObjField : struct
   {
     items.ThrowIfNull();
@@ -46,7 +45,7 @@ internal static class MergeExtensions
       this IEnumerable<TItem> items,
       Func<TItem, string?> field,
       [CallerArgumentExpression(nameof(field))] string? fieldExpr = null)
-    where TItem : IGqlpError
+    where TItem : IAstError
   {
     items.ThrowIfNull();
     field.ThrowIfNull();
@@ -78,7 +77,7 @@ internal static class MergeExtensions
       this IEnumerable<TItem> items,
       Func<TItem, TObjField?> field,
       IMerge<TObjField> merger)
-    where TObjField : IGqlpError
+    where TObjField : IAstError
   {
     merger.ThrowIfNull();
 
@@ -93,7 +92,7 @@ internal static class MergeExtensions
       this IEnumerable<TItem> items,
       Func<TItem, IEnumerable<TGroup>> many,
       IMerge<TGroup> merger)
-    where TGroup : IGqlpError
+    where TGroup : IAstError
   {
     merger.ThrowIfNull();
 
@@ -108,7 +107,7 @@ internal static class MergeExtensions
       this IEnumerable<TItem> items,
       Func<TItem, TObjField?> field,
       IMerge<TObjField> merger)
-    where TObjField : IGqlpError
+    where TObjField : IAstError
   {
     merger.ThrowIfNull();
 
@@ -123,7 +122,7 @@ internal static class MergeExtensions
       this IEnumerable<TItem> items,
       Func<TItem, IEnumerable<TGroup>> many,
       IMerge<TGroup> merger)
-    where TGroup : IGqlpError
+    where TGroup : IAstError
   {
     merger.ThrowIfNull();
 
@@ -137,7 +136,7 @@ internal static class MergeExtensions
       Func<TItem, IEnumerable<TGroup>> many,
       Func<TGroup, string> key,
       IMerge<TGroup> merger)
-    where TGroup : IGqlpError
+    where TGroup : IAstError
     => Messages.New
       .Add(items
         .SelectMany(many).GroupBy(key)
@@ -148,7 +147,7 @@ internal static class MergeExtensions
       Func<TItem, IEnumerable<TGroup>> many,
       Func<TGroup, string> key,
       IMerge<TGroup> merger)
-    where TGroup : IGqlpError
+    where TGroup : IAstError
   {
     List<Indexed<TGroup>> result = [];
     IEnumerable<IGrouping<string, Indexed<TGroup>>> groups = items.SelectMany(many).Select(Indexed<TGroup>.To).GroupBy(i => key(i.Item));
@@ -184,7 +183,7 @@ internal static class MergeExtensions
 
   internal static TDescr MakeDescription<TDescr, TItem>(this TDescr descr, IEnumerable<TItem> items)
     where TDescr : IAstSetDescription
-    where TItem : IGqlpDescribed
+    where TItem : IAstDescribed
   {
     string description = items.Select(item => item.Description).Joined(" ");
     if (!string.IsNullOrWhiteSpace(description)) {
@@ -199,7 +198,7 @@ internal static class MergeExtensions
     Func<TItem, TObjField> field,
     IMerge<TObjField> merger
   )
-    where TObjField : IGqlpError
+    where TObjField : IAstError
   {
     merger.ThrowIfNull();
 

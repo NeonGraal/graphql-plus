@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Building.Schema.Simple;
 
@@ -10,13 +10,13 @@ public class DomainRangeBuilder
 
   public DomainRangeBuilder(decimal? value = null)
   {
-    Add<IGqlpDomainRange>();
+    Add<IAstDomainRange>();
     _lower = value;
     _upper = value;
   }
 
   protected new T Build<T>()
-    where T : class, IGqlpDomainRange
+    where T : class, IAstDomainRange
   {
     T result = base.Build<T>();
     result.Lower.Returns(_lower);
@@ -24,8 +24,8 @@ public class DomainRangeBuilder
     return result;
   }
 
-  public IGqlpDomainRange AsRange
-    => Build<IGqlpDomainRange>();
+  public IAstDomainRange AsRange
+    => Build<IAstDomainRange>();
 }
 
 public static class DomainRangeBuilderHelper

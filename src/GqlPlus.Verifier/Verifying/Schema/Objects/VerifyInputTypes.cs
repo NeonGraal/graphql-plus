@@ -1,11 +1,12 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
 internal class VerifyInputTypes(IVerifierRepository verifiers)
-  : AstObjectVerifier<IGqlpInputField>(verifiers, TypeKind.Input)
+  : AstObjectVerifier<IAstInputField>(verifiers, TypeKind.Input)
 {
-  protected override void UsageField(IGqlpInputField field, IGqlpObject<IGqlpInputField> usage, ObjectContext context)
+  protected override void UsageField(IAstInputField field, IAstObject<IAstInputField> usage, ObjectContext context)
   {
     base.UsageField(field, usage, context);
 

@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
+﻿using GqlPlus.Ast.Operation;
 using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Operation;
@@ -13,23 +13,23 @@ public class OperationContext
   public OperationContext(string operation)
     : base(operation) { }
 
-  private readonly List<IGqlpArg> _variables = [];
-  private readonly List<IGqlpSpread> _spreads = [];
+  private readonly List<IAstArg> _variables = [];
+  private readonly List<IAstSpread> _spreads = [];
 
-  public IEnumerable<IGqlpArg> Variables => _variables;
-  public IEnumerable<IGqlpSpread> Spreads => _spreads;
+  public IEnumerable<IAstArg> Variables => _variables;
+  public IEnumerable<IAstSpread> Spreads => _spreads;
 
-  public void AddVariable(IGqlpArg variable)
+  public void AddVariable(IAstArg variable)
     => _variables.Add(variable);
-  public void AddSpread(IGqlpSpread spread)
+  public void AddSpread(IAstSpread spread)
     => _spreads.Add(spread);
 }
 
 internal interface IOperationContext
   : ITokenizer
 {
-  void AddVariable(IGqlpArg variable);
-  void AddSpread(IGqlpSpread spread);
-  IEnumerable<IGqlpArg> Variables { get; }
-  IEnumerable<IGqlpSpread> Spreads { get; }
+  void AddVariable(IAstArg variable);
+  void AddSpread(IAstSpread spread);
+  IEnumerable<IAstArg> Variables { get; }
+  IEnumerable<IAstSpread> Spreads { get; }
 }

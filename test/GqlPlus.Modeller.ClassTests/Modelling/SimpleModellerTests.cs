@@ -1,15 +1,17 @@
-﻿namespace GqlPlus.Modelling;
+﻿using GqlPlus.Ast;
+
+namespace GqlPlus.Modelling;
 
 public class SimpleModellerTests
-  : ModellerClassTestBase<IGqlpFieldKey, SimpleModel>
+  : ModellerClassTestBase<IAstFieldKey, SimpleModel>
 {
-  private readonly IModeller<IGqlpEnumValue, EnumValueModel> _enumValueModeller;
+  private readonly IModeller<IAstEnumValue, EnumValueModel> _enumValueModeller;
 
-  protected override IModeller<IGqlpFieldKey, SimpleModel> Modeller { get; }
+  protected override IModeller<IAstFieldKey, SimpleModel> Modeller { get; }
 
   public SimpleModellerTests()
   {
-    _enumValueModeller = MFor<IGqlpEnumValue, EnumValueModel>();
+    _enumValueModeller = MFor<IAstEnumValue, EnumValueModel>();
     Modeller = new SimpleModeller(_enumValueModeller);
   }
 
@@ -19,7 +21,7 @@ public class SimpleModellerTests
   public void ToModel_WithNothing_ReturnsExpectedSimpleModel(string? value)
   {
     // Arrange
-    IGqlpFieldKey ast = A.Error<IGqlpFieldKey>();
+    IAstFieldKey ast = A.Error<IAstFieldKey>();
     ast.Text.Returns(value);
 
     // Act
@@ -38,7 +40,7 @@ public class SimpleModellerTests
   public void ToModel_WithBoolean_ReturnsExpectedSimpleModel(string type, string label, bool expected)
   {
     // Arrange
-    IGqlpFieldKey ast = A.EnumFieldKey(type, label);
+    IAstFieldKey ast = A.EnumFieldKey(type, label);
 
     // Act
     SimpleModel result = Modeller.ToModel(ast, TypeKinds);
@@ -52,9 +54,9 @@ public class SimpleModellerTests
   public void ToModel_WithEnum_ReturnsExpectedSimpleModel(string enumType, string enumLabel)
   {
     // Arrange
-    IGqlpFieldKey ast = A.EnumFieldKey(enumType, enumLabel);
+    IAstFieldKey ast = A.EnumFieldKey(enumType, enumLabel);
     EnumValueModel expected = new(enumType, enumLabel, "");
-    _enumValueModeller.ToModel(Arg.Any<IGqlpEnumValue>(), TypeKinds)
+    _enumValueModeller.ToModel(Arg.Any<IAstEnumValue>(), TypeKinds)
         .Returns(expected);
 
     // Act
@@ -69,7 +71,7 @@ public class SimpleModellerTests
   public void ToModel_WithNumber_ReturnsExpectedSimpleModel(decimal value)
   {
     // Arrange
-    IGqlpFieldKey ast = A.FieldKey(null!);
+    IAstFieldKey ast = A.FieldKey(null!);
     ast.Number.Returns(value);
 
     // Act
@@ -84,7 +86,7 @@ public class SimpleModellerTests
   public void ToModel_WithText_ReturnsExpectedSimpleModel(string value)
   {
     // Arrange
-    IGqlpFieldKey ast = A.FieldKey(value);
+    IAstFieldKey ast = A.FieldKey(value);
 
     // Act
     SimpleModel result = Modeller.ToModel(ast, TypeKinds);

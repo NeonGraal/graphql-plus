@@ -1,17 +1,17 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-
-using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Verifying.Schema.Simple;
 
 internal abstract class AstSimpleVerifier<TAst, TContext, TItem>(
   IVerifierRepository verifiers
-) : AstParentItemVerifier<TAst, IGqlpTypeRef, TContext, TItem>(verifiers)
-  where TAst : IGqlpSimple
+) : AstParentItemVerifier<TAst, IAstTypeRef, TContext, TItem>(verifiers)
+  where TAst : IAstSimple
   where TContext : UsageContext
-  where TItem : IGqlpError
+  where TItem : IAstError
 {
-  protected sealed override string GetParent(IGqlpType<IGqlpTypeRef> usage)
+  protected sealed override string GetParent(IAstType<IAstTypeRef> usage)
     => (usage.Parent?.Name).IfWhiteSpace();
 
   protected override void UsageValue(TAst usage, TContext context)

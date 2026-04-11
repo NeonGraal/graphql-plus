@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Globals;
 
@@ -6,12 +6,12 @@ public class ParseCategoryDefinitionTests
   : ModifiersClassTestBase
 {
 
-  private readonly Parser<IGqlpTypeRef>.I _typeRefParser;
+  private readonly Parser<IAstTypeRef>.I _typeRefParser;
   private readonly ParseCategoryDefinition _parser;
 
   public ParseCategoryDefinitionTests()
   {
-    ConfigureRepo(Parsers, out _typeRefParser);
+    ConfigureRepo<IAstTypeRef>(Parsers, out _typeRefParser);
     _parser = new ParseCategoryDefinition(Parsers);
     SetupError<CategoryOutput>();
     SetupPartial<CategoryOutput>(new(default!));

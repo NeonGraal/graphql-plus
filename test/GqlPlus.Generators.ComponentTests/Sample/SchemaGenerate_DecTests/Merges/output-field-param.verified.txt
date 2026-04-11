@@ -1,0 +1,33 @@
+﻿/* output-field-param
+output OutpFieldParam { field(OutpFieldParam1): FldOutpFieldParam }
+output OutpFieldParam { field(OutpFieldParam2): FldOutpFieldParam }
+input OutpFieldParam1 { }
+input OutpFieldParam2 { }
+dual FldOutpFieldParam { }
+*/
+
+// Generated from Schema output-field-param
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_output-field-param, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_output_field_param;
+
+internal class CmptOutpFieldParamDecoder
+{
+  public ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter)
+    => null;
+}
+
+internal class CmptOutpFieldParam1Decoder
+{
+}
+
+internal class CmptOutpFieldParam2Decoder
+{
+}
+
+internal class CmptFldOutpFieldParamDecoder
+{
+}

@@ -1,12 +1,11 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Merging.Objects;
 
 internal class AstObjectFieldsMerger<TObjField>(
   IMergerRepository mergers
 ) : AstAliasedMerger<TObjField>(mergers)
-  where TObjField : IGqlpObjField
+  where TObjField : IAstObjField
 {
   protected override string ItemMatchName => "ModifiedType_Label";
   protected override string ItemMatchKey(TObjField item)

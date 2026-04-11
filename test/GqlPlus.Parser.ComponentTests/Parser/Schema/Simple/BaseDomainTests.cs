@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parser.Schema.Simple;
@@ -6,7 +6,7 @@ namespace GqlPlus.Parser.Schema.Simple;
 public abstract class BaseDomainTests<TInput, TDomain>(
   IBaseDomainChecks<TInput, TDomain> domainChecks
 ) : BaseAliasedTests<TInput, TDomain>(domainChecks)
-  where TDomain : IGqlpDomain
+  where TDomain : IAstDomain
 {
   [Theory, RepeatData]
   public void WithKindBad_ReturnsFalse(TInput input, string kind)
@@ -24,9 +24,9 @@ public abstract class BaseDomainTests<TInput, TDomain>(
 internal abstract class BaseDomainChecks<TInput, TDomainAst, TDomain>(
   IParserRepository parsers,
   DomainKind kind
-) : BaseAliasedChecks<TInput, TDomainAst, IGqlpDomain>(parsers)
+) : BaseAliasedChecks<TInput, TDomainAst, IAstDomain>(parsers)
   , IBaseDomainChecks<TInput, TDomain>
-  where TDomain : IGqlpDomain
+  where TDomain : IAstDomain
   where TDomainAst : AstDomain, TDomain
 {
   private readonly DomainKind _kind = kind;
@@ -66,7 +66,7 @@ internal abstract class BaseDomainChecks<TInput, TDomainAst, TDomain>(
 
 public interface IBaseDomainChecks<TInput, TDomain>
   : IBaseAliasedChecks<TInput, TDomain>
-  where TDomain : IGqlpDomain
+  where TDomain : IAstDomain
 {
   void WithKindBad(TInput input, string kind);
   void WithParent(TInput input, string parent);

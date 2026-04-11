@@ -1,6 +1,6 @@
 ﻿//HintName: test_Declarations_Intf.gen.cs
 // Generated from {CurrentDirectory}Declarations.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -29,14 +29,14 @@ public interface Itest_Name
 }
 
 public interface Itest_Filter
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ICollection<Itest_NameFilter>? As_NameFilter { get; }
   Itest_FilterObject? As__Filter { get; }
 }
 
 public interface Itest_FilterObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ICollection<Itest_NameFilter> Names { get; }
   bool? MatchAliases { get; }

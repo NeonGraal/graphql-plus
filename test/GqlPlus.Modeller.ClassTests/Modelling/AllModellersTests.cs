@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using GqlPlus.Ast;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Modelling;
 
@@ -12,7 +13,7 @@ public class AllModellersTests
       .AddModellers()
       .BuildServiceProvider();
 
-    services.GetService<IModeller<IGqlpFieldKey>>()
+    services.GetService<IModeller<IAstFieldKey>>()
       .ShouldNotBeNull();
   }
 }

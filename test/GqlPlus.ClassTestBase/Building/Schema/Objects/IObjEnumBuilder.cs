@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
 using NSubstitute.Core;
 
 namespace GqlPlus.Building.Schema.Objects;
@@ -7,22 +8,22 @@ public interface IObjEnumBuilder
   : IMockBuilder
 {
   string Name { get; }
-  void SetEnumValue(IGqlpEnumValue enumValue);
+  void SetEnumValue(IAstEnumValue enumValue);
 }
 
 public static class ObjEnumBuilderHelper
 {
-  public static T WithObjEnum<T>(this T builder, IGqlpEnumValue enumValue)
+  public static T WithObjEnum<T>(this T builder, IAstEnumValue enumValue)
     where T : IObjEnumBuilder
     => builder.FluentAction(b => b.SetEnumValue(enumValue));
   public static T WithObjEnum<T>(this T builder, string enumLabel)
     where T : IObjEnumBuilder
     => builder.FluentAction(b => b.SetEnumValue(builder.EnumValue(b.Name, enumLabel)));
 
-  public static Action<CallInfo> MakeSetEnumValue(this IObjEnumBuilder _, IGqlpObjEnum result, IGqlpObjType type)
+  public static Action<CallInfo> MakeSetEnumValue(this IObjEnumBuilder _, IAstObjEnum result, IAstObjType type)
     => c => {
       string enumType = c.Arg<string>();
-      IGqlpEnumValue? enumValue = result.EnumValue;
+      IAstEnumValue? enumValue = result.EnumValue;
       string enumLabel = enumValue?.EnumLabel ?? type.TypeName;
 
       type.Name.Returns(enumType);
@@ -36,7 +37,7 @@ public static class ObjEnumBuilderHelper
         EnumValueBuilder.SetEnumValue(enumValue, enumType, enumLabel);
       }
 
-      if (type is IGqlpObjFieldType field) {
+      if (type is IAstObjFieldType field) {
         string modifiedType = field.Modifiers.AsString().Prepend(enumType).Joined();
         field.ModifiedType.Returns(modifiedType);
       }

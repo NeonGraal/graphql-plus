@@ -1,0 +1,102 @@
+﻿/* -Global
+output _AndType {
+    : _Named
+        type: _Type
+    | _Type
+    }
+
+output _Categories {
+    : _AndType
+        category: _Category
+    | _Category
+    }
+
+output _Category {
+    : _Aliased
+        resolution: _Resolution
+        output: _TypeRef<_TypeKind.Output>
+        modifiers: _Modifiers[]
+    }
+
+enum _Resolution { Parallel Sequential Single }
+
+output _Directives {
+    : _AndType
+        directive: _Directive
+    | _Directive
+    }
+
+output _Directive {
+    : _Aliased
+        parameter: _InputFieldType?
+        repeatable: Boolean
+        locations: _[_Location]
+    }
+
+enum _Location { Operation Variable Field Inline Spread Fragment }
+
+
+output _Setting {
+    : _Named
+        value: Value
+    }
+*/
+
+// Generated from Spec -Global
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_-Global, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Global;
+
+internal class Cmpt_AndTypeDecoder
+{
+  public ICmpt_Type Type { get; set; }
+}
+
+internal class Cmpt_CategoriesDecoder
+{
+  public ICmpt_Category Category { get; set; }
+}
+
+internal class Cmpt_CategoryDecoder
+{
+  public Cmpt_Resolution Resolution { get; set; }
+  public ICmpt_TypeRef<ICmpt_TypeKind> Output { get; set; }
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
+}
+
+internal class Cmpt_ResolutionDecoder
+{
+  public string Parallel { get; set; }
+  public string Sequential { get; set; }
+  public string Single { get; set; }
+}
+
+internal class Cmpt_DirectivesDecoder
+{
+  public ICmpt_Directive Directive { get; set; }
+}
+
+internal class Cmpt_DirectiveDecoder
+{
+  public ICmpt_InputFieldType? Parameter { get; set; }
+  public bool Repeatable { get; set; }
+  public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
+}
+
+internal class Cmpt_LocationDecoder
+{
+  public string Operation { get; set; }
+  public string Variable { get; set; }
+  public string Field { get; set; }
+  public string Inline { get; set; }
+  public string Spread { get; set; }
+  public string Fragment { get; set; }
+}
+
+internal class Cmpt_SettingDecoder
+{
+  public GqlpValue Value { get; set; }
+}

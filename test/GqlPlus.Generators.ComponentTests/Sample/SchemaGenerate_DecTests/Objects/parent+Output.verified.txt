@@ -1,0 +1,21 @@
+﻿/* parent+Output
+output PrntOutp { :RefPrntOutp }
+output RefPrntOutp { parent: Number | String }
+*/
+
+// Generated from Schema parent+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent+Output, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_Output;
+
+internal class CmptPrntOutpDecoder
+{
+}
+
+internal class CmptRefPrntOutpDecoder
+{
+  public decimal Parent { get; set; }
+}

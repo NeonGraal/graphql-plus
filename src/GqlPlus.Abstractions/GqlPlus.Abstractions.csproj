@@ -10,4 +10,8 @@
     <ProjectReference Include="..\GqlPlus.PolyFill\GqlPlus.PolyFill.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Abstractions\Schema\" />
+  </ItemGroup>
+
 </Project>

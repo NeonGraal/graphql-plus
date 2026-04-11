@@ -1,7 +1,6 @@
-﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
+﻿using GqlPlus.Ast;
 using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Parsing.Operation;
 using GqlPlus.Result;
@@ -11,14 +10,14 @@ namespace GqlPlus.Parsing.Schema.Globals;
 
 internal class ParseOperationDecl(
   IParserRepository parsers
-) : DeclarationParser<OperationDefinition, IGqlpSchemaOperation>(parsers)
+) : DeclarationParser<OperationDefinition, IAstSchemaOperation>(parsers)
 {
-  protected override IGqlpSchemaOperation MakeResult(AstPartial<NullAst, NullOption> partial, OperationDefinition value)
+  protected override IAstSchemaOperation MakeResult(AstPartial<NullAst, NullOption> partial, OperationDefinition value)
         => new OperationDeclAst(partial.At, partial.Name, partial.Description, value.Category) {
           Aliases = partial.Aliases,
         };
 
-  protected override IGqlpSchemaOperation ToResult(AstPartial<NullAst, NullOption> partial)
+  protected override IAstSchemaOperation ToResult(AstPartial<NullAst, NullOption> partial)
     => new OperationDeclAst(partial.At, partial.Name, partial.Description, partial.Name) {
       Aliases = partial.Aliases,
     };
@@ -26,25 +25,25 @@ internal class ParseOperationDecl(
 
 internal record OperationDefinition(string Category)
 {
-  public IEnumerable<IGqlpVariable> Variables { get; set; } = [];
-  public IGqlpArg? Argument { get; set; }
+  public IEnumerable<IAstVariable> Variables { get; set; } = [];
+  public IAstArg? Argument { get; set; }
   public string? ResultType { get; set; }
-  public IEnumerable<IGqlpSelection>? ResultObject { get; set; } = [];
-  public IEnumerable<IGqlpFragment> Fragments { get; set; } = [];
-  public IEnumerable<IGqlpDirective> Directives { get; set; } = [];
-  public IEnumerable<IGqlpModifier> Modifiers { get; set; } = [];
+  public IEnumerable<IAstSelection>? ResultObject { get; set; } = [];
+  public IEnumerable<IAstFragment> Fragments { get; set; } = [];
+  public IEnumerable<IAstDirective> Directives { get; set; } = [];
+  public IEnumerable<IAstModifier> Modifiers { get; set; } = [];
 }
 
 internal class ParseOperationDefinition(
   IParserRepository parsers
 ) : Parser<OperationDefinition>.I
 {
-  private readonly Parser<IParserArg, IGqlpArg>.L _argument = parsers.ParserFor<IParserArg, IGqlpArg>();
-  private readonly Parser<IGqlpDirective>.LA _directives = parsers.ArrayFor<IGqlpDirective>();
-  private readonly ParserArray<IParserStartFragments, IGqlpFragment>.LA _fragments = parsers.ArrayFor<IParserStartFragments, IGqlpFragment>();
-  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.ArrayFor<IGqlpModifier>();
-  private readonly Parser<IGqlpSelection>.LA _object = parsers.ArrayFor<IGqlpSelection>();
-  private readonly Parser<IGqlpVariable>.LA _variables = parsers.ArrayFor<IGqlpVariable>();
+  private readonly Parser<IParserArg, IAstArg>.L _argument = parsers.ParserFor<IParserArg, IAstArg>();
+  private readonly Parser<IAstDirective>.LA _directives = parsers.ArrayFor<IAstDirective>();
+  private readonly ParserArray<IParserStartFragments, IAstFragment>.LA _fragments = parsers.ArrayFor<IParserStartFragments, IAstFragment>();
+  private readonly Parser<IAstModifier>.LA _modifiers = parsers.ArrayFor<IAstModifier>();
+  private readonly Parser<IAstSelection>.LA _object = parsers.ArrayFor<IAstSelection>();
+  private readonly Parser<IAstVariable>.LA _variables = parsers.ArrayFor<IAstVariable>();
 
   public IResult<OperationDefinition> Parse(ITokenizer tokens, string label)
   {
@@ -54,7 +53,7 @@ internal class ParseOperationDefinition(
 
     OperationDefinition result = new(category);
 
-    IResultArray<IGqlpVariable> variables = _variables.Parse(tokens, label);
+    IResultArray<IAstVariable> variables = _variables.Parse(tokens, label);
     if (!variables.Optional(value => result.Variables = [.. value])) {
       return variables.AsPartial(result);
     }
@@ -68,7 +67,7 @@ internal class ParseOperationDefinition(
 
     if (resultType is not null) {
       result.ResultType = resultType;
-      IResult<IGqlpArg> argument = _argument.I.Parse(tokens, "Arg");
+      IResult<IAstArg> argument = _argument.I.Parse(tokens, "Arg");
       if (!argument.Optional(value => result.Argument = value)) {
         return argument.AsPartial(result);
       }
@@ -76,7 +75,7 @@ internal class ParseOperationDefinition(
       return tokens.Partial(label, "Object or Type", () => result);
     }
 
-    IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, label);
+    IResultArray<IAstModifier> modifiers = _modifiers.Parse(tokens, label);
 
     if (modifiers.IsError()) {
       return modifiers.AsPartial(result);

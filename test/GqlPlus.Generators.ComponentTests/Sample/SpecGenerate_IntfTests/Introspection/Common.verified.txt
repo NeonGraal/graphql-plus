@@ -113,6 +113,27 @@ public interface ICmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>
   ICollection<TAllItem> AllItems { get; }
 }
 
+public enum Cmpt_SimpleKind
+{
+  Basic,
+  Enum,
+  Internal,
+  Domain,
+  Union,
+}
+
+public enum Cmpt_TypeKind
+{
+  Basic = Cmpt_SimpleKind.Basic,
+  Enum = Cmpt_SimpleKind.Enum,
+  Internal = Cmpt_SimpleKind.Internal,
+  Domain = Cmpt_SimpleKind.Domain,
+  Union = Cmpt_SimpleKind.Union,
+  Dual,
+  Input,
+  Output,
+}
+
 public interface ICmpt_TypeRef<TTypeKind>
   : ICmpt_Named
 {

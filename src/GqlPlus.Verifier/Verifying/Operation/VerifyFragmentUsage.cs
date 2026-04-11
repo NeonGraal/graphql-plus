@@ -1,10 +1,10 @@
-﻿using GqlPlus.Abstractions.Operation;
+﻿using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Verifying.Operation;
 
-internal class VerifyFragmentUsage(IVerifierRepository verifiers) : IdentifiedVerifier<IGqlpSpread, IGqlpFragment>(verifiers)
+internal class VerifyFragmentUsage(IVerifierRepository verifiers) : IdentifiedVerifier<IAstSpread, IAstFragment>(verifiers)
 {
   public override string Label => "Spread";
 
-  public override string UsageKey(IGqlpSpread item) => item.Identifier;
+  public override string UsageKey(IAstSpread item) => item.Identifier;
 }

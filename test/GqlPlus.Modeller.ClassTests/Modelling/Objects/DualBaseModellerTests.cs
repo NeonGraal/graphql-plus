@@ -1,20 +1,22 @@
-﻿namespace GqlPlus.Modelling.Objects;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Modelling.Objects;
 
 public class ObjBaseModellerTests
-  : ModellerClassTestBase<IGqlpObjBase, ObjBaseModel>
+  : ModellerClassTestBase<IAstObjBase, ObjBaseModel>
 {
-  private readonly IModeller<IGqlpTypeArg, TypeArgModel> _objArg = MFor<IGqlpTypeArg, TypeArgModel>();
+  private readonly IModeller<IAstTypeArg, TypeArgModel> _objArg = MFor<IAstTypeArg, TypeArgModel>();
 
   public ObjBaseModellerTests()
     => Modeller = new ObjBaseModeller(_objArg);
 
-  protected override IModeller<IGqlpObjBase, ObjBaseModel> Modeller { get; }
+  protected override IModeller<IAstObjBase, ObjBaseModel> Modeller { get; }
 
   [Theory, RepeatData]
   public void ToModel_WithValidBase_ReturnsExpectedObjBaseModel(string name, string contents)
   {
     // Arrange
-    IGqlpObjBase ast = A.Named<IGqlpObjBase>(name, contents);
+    IAstObjBase ast = A.Named<IAstObjBase>(name, contents);
     ast.IsTypeParam.Returns(true);
 
     // Act
@@ -33,8 +35,8 @@ public class ObjBaseModellerTests
   public void ToModel_WithArgs_ReturnsExpectedObjBaseModel(string name, string argName)
   {
     // Arrange
-    IGqlpObjBase ast = A.Named<IGqlpObjBase>(name);
-    IGqlpTypeArg arg = A.Named<IGqlpTypeArg>(argName);
+    IAstObjBase ast = A.Named<IAstObjBase>(name);
+    IAstTypeArg arg = A.Named<IAstTypeArg>(argName);
     ast.Args.Returns([arg]);
 
     TypeArgModel argModel = new(TypeKindModel.Dual, argName, string.Empty);

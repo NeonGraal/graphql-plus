@@ -1,6 +1,6 @@
 ﻿//HintName: test_field-mod-param+Dual_Intf.gen.cs
 // Generated from {CurrentDirectory}field-mod-param+Dual.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,26 +8,26 @@
 namespace GqlPlus.GeneratorTests.Gqlp_field_mod_param_Dual;
 
 public interface ItestFieldModParamDual<TMod>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFieldModParamDualObject<TMod>? As_FieldModParamDual { get; }
 }
 
 public interface ItestFieldModParamDualObject<TMod>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   IDictionary<TMod, ItestFldFieldModParamDual> Field { get; }
 }
 
 public interface ItestFldFieldModParamDual
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string? AsString { get; }
   ItestFldFieldModParamDualObject? As_FldFieldModParamDual { get; }
 }
 
 public interface ItestFldFieldModParamDualObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   decimal Field { get; }
 }

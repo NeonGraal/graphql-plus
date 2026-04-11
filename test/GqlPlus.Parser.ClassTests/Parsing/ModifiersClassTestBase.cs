@@ -3,7 +3,7 @@
 public class ModifiersClassTestBase
   : ParserClassTestBase
 {
-  private readonly Parser<IGqlpModifier>.IA _modifiers;
+  private readonly Parser<IAstModifier>.IA _modifiers;
 
   protected IParserRepository Parsers { get; }
 
@@ -16,25 +16,25 @@ public class ModifiersClassTestBase
   {
     Parsers = A.Of<IParserRepository>();
 
-    _modifiers = A.Of<Parser<IGqlpModifier>.IA, IParserCollections>();
+    _modifiers = A.Of<Parser<IAstModifier>.IA, IParserCollections>();
     _modifiers.Parse(default!, default!)
-      .ReturnsForAnyArgs(0.EmptyArray<IGqlpModifier>());
+      .ReturnsForAnyArgs(0.EmptyArray<IAstModifier>());
 
-    Parser<IGqlpModifier>.LA modifiersLazy = new(() => _modifiers);
-    Parsers.ArrayFor<IGqlpModifier>().Returns(modifiersLazy);
+    Parser<IAstModifier>.LA modifiersLazy = new(() => _modifiers);
+    Parsers.ArrayFor<IAstModifier>().Returns(modifiersLazy);
 
-    ParserArray<IParserCollections, IGqlpModifier>.LA collectionsLazy = new(() => (IParserCollections)_modifiers);
-    Parsers.ArrayFor<IParserCollections, IGqlpModifier>().Returns(collectionsLazy);
+    ParserArray<IParserCollections, IAstModifier>.LA collectionsLazy = new(() => (IParserCollections)_modifiers);
+    Parsers.ArrayFor<IParserCollections, IAstModifier>().Returns(collectionsLazy);
   }
 
-  internal IGqlpModifier[] ParseAModifier()
+  internal IAstModifier[] ParseAModifier()
   {
-    IGqlpModifier result = AtFor<IGqlpModifier>();
+    IAstModifier result = AtFor<IAstModifier>();
     ParseModifiersOk(result);
     return [result];
   }
 
-  internal void ParseModifiersOk(params IGqlpModifier[] modifiers)
+  internal void ParseModifiersOk(params IAstModifier[] modifiers)
     => ParseOkA(_modifiers, modifiers);
   internal void ParseModifiersEmpty()
     => ParseEmptyA(_modifiers);

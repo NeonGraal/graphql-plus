@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -7,17 +7,17 @@ namespace GqlPlus.Parsing.Schema.Simple;
 
 internal class ParseDomainLabel(
   IParserRepository parsers
-) : ParseDomainItem<IGqlpDomainLabel>(parsers)
+) : ParseDomainItem<IAstDomainLabel>(parsers)
 {
   public override DomainKind Kind => DomainKind.Enum;
 
-  public override IResult<IGqlpDomainLabel> Parse(ITokenizer tokens, string label)
+  public override IResult<IAstDomainLabel> Parse(ITokenizer tokens, string label)
   {
     string description = tokens.Description();
     TokenAt at = tokens.At;
     bool excluded = tokens.Take('!');
     bool hasType = tokens.Identifier(out string? enumType);
-    IGqlpDomainLabel result = new DomainLabelAst(at, description, excluded, enumType.IfWhiteSpace());
+    IAstDomainLabel result = new DomainLabelAst(at, description, excluded, enumType.IfWhiteSpace());
     if (!hasType) {
       return excluded
         ? tokens.Partial(label, "identifier after '!'", () => result)
@@ -41,10 +41,10 @@ internal class ParseDomainLabel(
     ITokenizer tokens,
     string label,
     DomainDefinition result,
-    IGqlpDomainLabel[] items)
+    IAstDomainLabel[] items)
   {
     if (items.Length == 0) {
-      tokens.Error<IGqlpDomainLabel>(label, "enum Labels");
+      tokens.Error<IAstDomainLabel>(label, "enum Labels");
     }
 
     result.Labels = items.ArrayOf<DomainLabelAst>();

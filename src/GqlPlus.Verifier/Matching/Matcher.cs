@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Verifying.Schema;
 
 namespace GqlPlus.Matching;
@@ -25,12 +25,12 @@ public static class Matcher<T>
 
 public interface ITypeMatcher
 {
-  bool MatchesTypeConstraint(IGqlpType type, string constraint, EnumContext context);
+  bool MatchesTypeConstraint(IAstType type, string constraint, EnumContext context);
 }
 
 public interface IConstraintMatcher<TType>
   : ITypeMatcher
-  where TType : IGqlpType
+  where TType : IAstType
 {
-  bool MatchesConstraint(IGqlpType type, TType constraint, EnumContext context);
+  bool MatchesConstraint(IAstType type, TType constraint, EnumContext context);
 }

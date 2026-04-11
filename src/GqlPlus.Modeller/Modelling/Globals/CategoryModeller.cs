@@ -1,12 +1,15 @@
-﻿namespace GqlPlus.Modelling.Globals;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Modelling.Globals;
 
 // ResolutionModel => CategoryOption
 
 internal class CategoryModeller(
-  IModeller<IGqlpModifier, ModifierModel> modifier
-) : ModellerBase<IGqlpSchemaCategory, CategoryModel>
+  IModeller<IAstModifier, ModifierModel> modifier
+) : ModellerBase<IAstSchemaCategory, CategoryModel>
 {
-  protected override CategoryModel ToModel(IGqlpSchemaCategory ast, IMap<TypeKindModel> typeKinds)
+  protected override CategoryModel ToModel(IAstSchemaCategory ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, ast.Output.TypeRef(TypeKindModel.Output), ast.Description) {
       Aliases = [.. ast.Aliases],
       Resolution = ast.CategoryOption,

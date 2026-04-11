@@ -1,19 +1,19 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
 
 internal class MergeTypeParams
-  : GroupsMerger<IGqlpTypeParam>
+  : GroupsMerger<IAstTypeParam>
 {
-  protected override IMessages CanMergeGroup(IGrouping<string, IGqlpTypeParam> group)
+  protected override IMessages CanMergeGroup(IGrouping<string, IAstTypeParam> group)
     => group.CanMergeString(p => p.Constraint);
 
-  protected override string ItemGroupKey(IGqlpTypeParam item) => item.Name;
+  protected override string ItemGroupKey(IAstTypeParam item) => item.Name;
 
-  protected override IGqlpTypeParam MergeGroup(IEnumerable<IGqlpTypeParam> group)
+  protected override IAstTypeParam MergeGroup(IEnumerable<IAstTypeParam> group)
   {
-    IGqlpTypeParam[] asts = [.. group];
+    IAstTypeParam[] asts = [.. group];
     TypeParamAst ast = (TypeParamAst)asts.First();
     string[] constraint = [.. asts
       .Select(p => p.Constraint)

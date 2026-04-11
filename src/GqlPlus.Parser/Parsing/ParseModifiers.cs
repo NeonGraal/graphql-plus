@@ -6,18 +6,18 @@ namespace GqlPlus.Parsing;
 
 internal class ParseModifiers(
     IParserRepository parsers
-) : Parser<IGqlpModifier>.IA
+) : Parser<IAstModifier>.IA
 {
-  private readonly ParserArray<IParserCollections, IGqlpModifier>.LA _collections = parsers.ArrayFor<IParserCollections, IGqlpModifier>();
+  private readonly ParserArray<IParserCollections, IAstModifier>.LA _collections = parsers.ArrayFor<IParserCollections, IAstModifier>();
 
-  public IResultArray<IGqlpModifier> Parse(ITokenizer tokens, string label)
+  public IResultArray<IAstModifier> Parse(ITokenizer tokens, string label)
 
   {
-    List<IGqlpModifier> list = [];
-    IResultArray<IGqlpModifier> collections = _collections.I.Parse(tokens, label);
+    List<IAstModifier> list = [];
+    IResultArray<IAstModifier> collections = _collections.I.Parse(tokens, label);
 
     if (!collections.Optional(list.AddRange)) {
-      return collections.AsResultArray<IGqlpModifier>();
+      return collections.AsResultArray<IAstModifier>();
     }
 
     TokenAt at = tokens.At;

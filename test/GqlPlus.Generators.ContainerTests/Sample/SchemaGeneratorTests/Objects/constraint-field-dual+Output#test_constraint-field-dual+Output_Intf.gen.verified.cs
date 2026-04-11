@@ -1,6 +1,6 @@
 ﻿//HintName: test_constraint-field-dual+Output_Intf.gen.cs
 // Generated from {CurrentDirectory}constraint-field-dual+Output.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -19,26 +19,26 @@ public interface ItestCnstFieldDualOutpObject
 }
 
 public interface ItestRefCnstFieldDualOutp<TRef>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestRefCnstFieldDualOutpObject<TRef>? As_RefCnstFieldDualOutp { get; }
 }
 
 public interface ItestRefCnstFieldDualOutpObject<TRef>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TRef Field { get; }
 }
 
 public interface ItestPrntCnstFieldDualOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string? AsString { get; }
   ItestPrntCnstFieldDualOutpObject? As_PrntCnstFieldDualOutp { get; }
 }
 
 public interface ItestPrntCnstFieldDualOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 

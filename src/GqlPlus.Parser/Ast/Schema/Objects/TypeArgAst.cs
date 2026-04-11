@@ -1,20 +1,18 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Ast.Schema.Objects;
+﻿namespace GqlPlus.Ast.Schema.Objects;
 
 internal sealed record class TypeArgAst(
   ITokenAt At,
   string Name,
   string Description
 ) : AstObjType(At, Name, Description)
-  , IGqlpTypeArg
+  , IAstTypeArg
 {
   internal override string Abbr => "OR";
 
-  public IGqlpEnumValue? EnumValue { get; set; }
+  public IAstEnumValue? EnumValue { get; set; }
 
-  string IGqlpObjEnum.EnumTypeName => IsTypeParam ? "" : Name;
-  void IGqlpObjEnum.SetEnumType(string enumType)
+  string IAstObjEnum.EnumTypeName => IsTypeParam ? "" : Name;
+  void IAstObjEnum.SetEnumType(string enumType)
   {
     if (EnumValue == null) {
       EnumValue = new EnumValueAst(At, enumType, Name);
@@ -30,7 +28,7 @@ internal sealed record class TypeArgAst(
     ? base.GetFields()
     : DescriptionAt.Append(EnumValue.EnumValue);
 
-  bool IEquatable<IGqlpTypeArg>.Equals(IGqlpTypeArg? other)
+  bool IEquatable<IAstTypeArg>.Equals(IAstTypeArg? other)
     => Equals(other as AstObjType);
   public bool Equals(TypeArgAst? other)
     => base.Equals(other)

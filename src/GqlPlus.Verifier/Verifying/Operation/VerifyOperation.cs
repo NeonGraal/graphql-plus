@@ -1,13 +1,13 @@
-﻿using GqlPlus.Abstractions.Operation;
+﻿using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Verifying.Operation;
 
-internal class VerifyOperation(IVerifierRepository verifiers) : IVerify<IGqlpOperation>
+internal class VerifyOperation(IVerifierRepository verifiers) : IVerify<IAstOperation>
 {
-  private readonly IVerifyIdentified<IGqlpArg, IGqlpVariable> _usages = verifiers.IdentifiedFor<IGqlpArg, IGqlpVariable>();
-  private readonly IVerifyIdentified<IGqlpSpread, IGqlpFragment> _spreads = verifiers.IdentifiedFor<IGqlpSpread, IGqlpFragment>();
+  private readonly IVerifyIdentified<IAstArg, IAstVariable> _usages = verifiers.IdentifiedFor<IAstArg, IAstVariable>();
+  private readonly IVerifyIdentified<IAstSpread, IAstFragment> _spreads = verifiers.IdentifiedFor<IAstSpread, IAstFragment>();
 
-  public void Verify(IGqlpOperation item, IMessages errors)
+  public void Verify(IAstOperation item, IMessages errors)
   {
     _usages.Verify(new(item.Usages, item.Variables), errors);
     _spreads.Verify(new(item.Spreads, item.Fragments), errors);

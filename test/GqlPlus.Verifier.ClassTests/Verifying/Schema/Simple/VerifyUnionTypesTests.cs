@@ -1,23 +1,24 @@
-﻿using GqlPlus.Building.Schema.Simple;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Building.Schema.Simple;
 
 namespace GqlPlus.Verifying.Schema.Simple;
 
 [TracePerTest]
 public class VerifyUnionTypesTests
-  : UsageVerifierTestsBase<IGqlpUnion>
+  : UsageVerifierTestsBase<IAstUnion>
 {
-  private readonly ForM<IGqlpUnionMember> _mergeMembers = new();
+  private readonly ForM<IAstUnionMember> _mergeMembers = new();
   private readonly VerifyUnionTypes _verifier;
 
   private readonly UnionBuilder _union;
-  private IGqlpUnion? _usage;
+  private IAstUnion? _usage;
 
-  protected override IGqlpUnion TheUsage => _usage ??= _union.AsUnion;
-  protected override IVerifyUsage<IGqlpUnion> Verifier => _verifier;
+  protected override IAstUnion TheUsage => _usage ??= _union.AsUnion;
+  protected override IVerifyUsage<IAstUnion> Verifier => _verifier;
 
   public VerifyUnionTypesTests()
   {
-    VerifierRepo.MergerFor<IGqlpUnionMember>().Returns(_mergeMembers.Intf);
+    VerifierRepo.MergerFor<IAstUnionMember>().Returns(_mergeMembers.Intf);
     _verifier = new(VerifierRepo);
 
     _union = new("Union");
@@ -59,7 +60,7 @@ public class VerifyUnionTypesTests
   [Fact]
   public void Verify_Union_WithDefinedMembers_ReturnsNoErrors()
   {
-    Define<IGqlpEnum>("Member1", "Member2");
+    Define<IAstEnum>("Member1", "Member2");
 
     _union.WithMembers(["Member1", "Member2"]);
 
@@ -97,9 +98,9 @@ public class VerifyUnionTypesTests
   [Fact]
   public void Verify_Union_WithParentMembers_ReturnsNoErrors()
   {
-    Define<IGqlpEnum>("Member1", "Member2", "Member3", "Member4");
+    Define<IAstEnum>("Member1", "Member2", "Member3", "Member4");
 
-    IGqlpUnion parent = A.Union("Parent").WithMembers(["Member3", "Member4"]).AsUnion;
+    IAstUnion parent = A.Union("Parent").WithMembers(["Member3", "Member4"]).AsUnion;
     Definitions.Add(parent);
 
     _union.WithMembers(["Member1", "Member2"]);
@@ -117,9 +118,9 @@ public class VerifyUnionTypesTests
   [Fact]
   public void Verify_Union_WithUnionMember_ReturnsNoErrors()
   {
-    Define<IGqlpEnum>("Member1", "Member2", "Member3", "Member4");
+    Define<IAstEnum>("Member1", "Member2", "Member3", "Member4");
 
-    IGqlpUnion member = A.Union("Member").WithMembers(["Member3", "Member4"]).AsUnion;
+    IAstUnion member = A.Union("Member").WithMembers(["Member3", "Member4"]).AsUnion;
     Definitions.Add(member);
 
     _union.WithMembers(["Member1", "Member2", "Member"]);
@@ -134,9 +135,9 @@ public class VerifyUnionTypesTests
   [Fact]
   public void Verify_Union_WithUnionMemberWithSelfMember_ReturnsError()
   {
-    Define<IGqlpEnum>("Member1", "Member2", "Member3", "Member4");
+    Define<IAstEnum>("Member1", "Member2", "Member3", "Member4");
 
-    IGqlpUnion member = A.Union("Member").WithMembers(["Member3", "Member4", "Union"]).AsUnion;
+    IAstUnion member = A.Union("Member").WithMembers(["Member3", "Member4", "Union"]).AsUnion;
     Definitions.Add(member);
 
     _union.WithMembers(["Member1", "Member2", "Member"]);
@@ -151,12 +152,12 @@ public class VerifyUnionTypesTests
   [Fact]
   public void Verify_Union_WithUnionMemberWithSelfParent_ReturnsError()
   {
-    Define<IGqlpEnum>("Member1", "Member2");
+    Define<IAstEnum>("Member1", "Member2");
 
-    IGqlpUnion parent = A.Union("Parent").WithMembers(["Member2", "Union"]).AsUnion;
+    IAstUnion parent = A.Union("Parent").WithMembers(["Member2", "Union"]).AsUnion;
     Definitions.Add(parent);
 
-    IGqlpUnion member = A.Union("Member").WithParent("Parent").AsUnion;
+    IAstUnion member = A.Union("Member").WithParent("Parent").AsUnion;
     Definitions.Add(member);
 
     _union.WithMembers(["Member1", "Member"]);

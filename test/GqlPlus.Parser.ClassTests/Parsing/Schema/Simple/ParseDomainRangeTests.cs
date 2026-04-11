@@ -1,10 +1,10 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
 public class ParseDomainRangeTests
-  : ParseDomainClassTestBase<IGqlpDomainRange>
+  : ParseDomainClassTestBase<IAstDomainRange>
 {
   [Theory, RepeatData]
   public void Parse_ValidSingleRange_ReturnsCorrect(decimal value)
@@ -13,10 +13,10 @@ public class ParseDomainRangeTests
     NumberReturns(OutNumber(value));
 
     // Act
-    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpDomainRange>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstDomainRange>>()
       .Required().ShouldSatisfyAllConditions(
         r => r.Lower.ShouldBe(value),
         r => r.Upper.ShouldBe(value),
@@ -31,10 +31,10 @@ public class ParseDomainRangeTests
     TakeAnyReturns(OutChar('>'));
 
     // Act
-    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpDomainRange>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstDomainRange>>()
       .Required().ShouldSatisfyAllConditions(
         r => r.Lower.ShouldBe(value),
         r => r.Upper.ShouldBeNull(),
@@ -46,10 +46,10 @@ public class ParseDomainRangeTests
   {
     // Arrange
     TakeAnyReturns(OutChar('>'));
-    SetupError<IGqlpDomainRange>();
+    SetupError<IAstDomainRange>();
 
     // Act
-    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, "testLabel");
+    IResult<IAstDomainRange> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -63,10 +63,10 @@ public class ParseDomainRangeTests
     TakeAnyReturns(OutFail, OutChar('<'));
 
     // Act
-    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpDomainRange>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstDomainRange>>()
       .Required().ShouldSatisfyAllConditions(
         r => r.Lower.ShouldBe(value),
         r => r.Upper.ShouldBeNull(),
@@ -78,10 +78,10 @@ public class ParseDomainRangeTests
   {
     // Arrange
     TakeAnyReturns(OutFail, OutChar('<'));
-    SetupError<IGqlpDomainRange>();
+    SetupError<IAstDomainRange>();
 
     // Act
-    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, "testLabel");
+    IResult<IAstDomainRange> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -95,10 +95,10 @@ public class ParseDomainRangeTests
     TakeAnyReturns(OutChar('<'));
 
     // Act
-    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpDomainRange>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstDomainRange>>()
       .Required().ShouldSatisfyAllConditions(
         r => r.Lower.ShouldBeNull(),
         r => r.Upper.ShouldBe(value),
@@ -110,10 +110,10 @@ public class ParseDomainRangeTests
   {
     // Arrange
     TakeAnyReturns(OutChar('<'));
-    SetupError<IGqlpDomainRange>();
+    SetupError<IAstDomainRange>();
 
     // Act
-    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, "testLabel");
+    IResult<IAstDomainRange> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -127,10 +127,10 @@ public class ParseDomainRangeTests
     TakeAnyReturns(OutFail, OutChar('>'));
 
     // Act
-    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpDomainRange>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstDomainRange>>()
       .Required().ShouldSatisfyAllConditions(
         r => r.Lower.ShouldBeNull(),
         r => r.Upper.ShouldBe(value),
@@ -142,10 +142,10 @@ public class ParseDomainRangeTests
   {
     // Arrange
     TakeAnyReturns(OutFail, OutChar('>'));
-    SetupError<IGqlpDomainRange>();
+    SetupError<IAstDomainRange>();
 
     // Act
-    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, "testLabel");
+    IResult<IAstDomainRange> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -166,10 +166,10 @@ public class ParseDomainRangeTests
     NumberReturns(OutNumber(lower), OutNumber(upper));
 
     // Act
-    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpDomainRange>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstDomainRange>>()
       .Required().ShouldSatisfyAllConditions(
         r => r.Lower.ShouldBe(lower),
         r => r.Upper.ShouldBe(upper),
@@ -191,10 +191,10 @@ public class ParseDomainRangeTests
     NumberReturns(OutNumber(lower), OutNumber(upper));
 
     // Act
-    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpDomainRange>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstDomainRange>>()
       .Required().ShouldSatisfyAllConditions(
         r => r.Lower.ShouldBe(upper),
         r => r.Upper.ShouldBe(lower),
@@ -209,10 +209,10 @@ public class ParseDomainRangeTests
     NumberReturns(OutNumber(value));
 
     // Act
-    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpDomainRange>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstDomainRange>>()
       .Required().ShouldSatisfyAllConditions(
         r => r.Lower.ShouldBe(value),
         r => r.Upper.ShouldBe(value),
@@ -224,10 +224,10 @@ public class ParseDomainRangeTests
   {
     // Arrange
     TakeReturns('!', true);
-    SetupError<IGqlpDomainRange>();
+    SetupError<IAstDomainRange>();
 
     // Act
-    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -237,10 +237,10 @@ public class ParseDomainRangeTests
     : base(DomainKind.Number)
   { }
 
-  internal override ParseDomainItem<IGqlpDomainRange> MakeParser(IParserRepository parsers)
+  internal override ParseDomainItem<IAstDomainRange> MakeParser(IParserRepository parsers)
     => new ParseDomainRange(parsers);
 
-  protected override IGqlpDomainRange NewItem()
+  protected override IAstDomainRange NewItem()
     => new DomainRangeAst(AstNulls.At, string.Empty, false);
 
   protected override void ArrangeValidItem()

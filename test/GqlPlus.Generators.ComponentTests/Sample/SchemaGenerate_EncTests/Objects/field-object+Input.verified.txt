@@ -1,0 +1,22 @@
+﻿/* field-object+Input
+input FieldObjInp { field: FldFieldObjInp }
+input FldFieldObjInp { field: Number | String }
+*/
+
+// Generated from Schema field-object+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-object+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_object_Input;
+
+internal class CmptFieldObjInpEncoder
+{
+  public ICmptFldFieldObjInp Field { get; set; }
+}
+
+internal class CmptFldFieldObjInpEncoder
+{
+  public decimal Field { get; set; }
+}

@@ -1,10 +1,10 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 
 namespace GqlPlus.Parser.Schema.Globals;
 
 public class ParseOptionSettingTests(
-  IOneChecksParser<IGqlpSchemaSetting> checks
+  IOneChecksParser<IAstSchemaSetting> checks
 )
 {
   [Theory, RepeatData]
@@ -25,7 +25,7 @@ public class ParseOptionSettingTests(
   public void WithNoValue_ReturnsFalse(string name)
     => checks.FalseExpected(name + '=', CheckNull);
 
-  private void CheckNull(IGqlpSchemaSetting? ast)
+  private void CheckNull(IAstSchemaSetting? ast)
     => ast.ShouldBeNull();
 
   private static OptionSettingAst Setting(string name, string value)

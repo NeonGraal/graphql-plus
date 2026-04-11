@@ -1,18 +1,19 @@
 ﻿using System.Collections.ObjectModel;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Verifying.Schema;
 
 public abstract class UsageVerifierTestsBase<TUsage>
   : VerifierTypeTestsBase
-  where TUsage : class, IGqlpAliased
+  where TUsage : class, IAstAliased
 {
   internal ForVA<TUsage> Aliased { get; } = new();
   protected Collection<TUsage> Usages { get; } = [];
-  protected ICollection<IGqlpType> Definitions => _definitions;
+  protected ICollection<IAstType> Definitions => _definitions;
 
-  private readonly List<IGqlpType> _definitions = [];
+  private readonly List<IAstType> _definitions = [];
 
-  protected UsageAliased<TUsage> UsageAliased => new([.. Usages], [.. _definitions, .. Types.Values.OfType<IGqlpType>()]);
+  protected UsageAliased<TUsage> UsageAliased => new([.. Usages], [.. _definitions, .. Types.Values.OfType<IAstType>()]);
 
   protected abstract TUsage TheUsage { get; }
   protected abstract IVerifyUsage<TUsage> Verifier { get; }
@@ -30,24 +31,24 @@ public abstract class UsageVerifierTestsBase<TUsage>
       () => Errors.ShouldBeEmpty());
   }
 
-  internal void Define(params IGqlpType[] types)
+  internal void Define(params IAstType[] types)
   {
     AddTypes(types);
     _definitions.AddRange(types);
   }
 
   internal void Define<T>(params string[] names)
-    where T : class, IGqlpType
+    where T : class, IAstType
   {
-    IGqlpType[] types = A.NamedArray<T>(names);
+    IAstType[] types = A.NamedArray<T>(names);
     Define(types);
   }
 
   internal void Define<T, T1>(string name)
-    where T : class, IGqlpType
-    where T1 : class, IGqlpType
+    where T : class, IAstType
+    where T1 : class, IAstType
   {
-    IGqlpType type = A.Of<T, T1>();
+    IAstType type = A.Of<T, T1>();
     type.Name.Returns(name);
     type.MakeError("").ReturnsForAnyArgs(c => c.ThrowIfNull().Arg<string>().MakeMessages());
     Define(type);

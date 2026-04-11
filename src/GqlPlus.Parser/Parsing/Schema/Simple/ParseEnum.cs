@@ -1,5 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -8,15 +8,15 @@ namespace GqlPlus.Parsing.Schema.Simple;
 
 internal class ParseEnum(
   IParserRepository parsers
-) : SimpleParser<EnumDefinition, IGqlpEnum>(parsers)
+) : SimpleParser<EnumDefinition, IAstEnum>(parsers)
 {
-  protected override IGqlpEnum MakeResult(AstPartial<NullAst, NullOption> partial, EnumDefinition value)
+  protected override IAstEnum MakeResult(AstPartial<NullAst, NullOption> partial, EnumDefinition value)
     => new EnumDeclAst(partial.At, partial.Name, partial.Description, value.Values) {
       Aliases = partial.Aliases,
       Parent = value.Parent,
     };
 
-  protected override IGqlpEnum ToResult(AstPartial<NullAst, NullOption> partial)
+  protected override IAstEnum ToResult(AstPartial<NullAst, NullOption> partial)
     => new EnumDeclAst(partial.At, partial.Name, partial.Description, []) {
       Aliases = partial.Aliases,
     };
@@ -32,7 +32,7 @@ internal class ParseEnumDefinition(
   IParserRepository parsers
 ) : SimpleDefinitionParser<EnumDefinition>(parsers)
 {
-  private readonly Parser<IGqlpEnumLabel>.L _enumLabel = parsers.ParserFor<IGqlpEnumLabel>();
+  private readonly Parser<IAstEnumLabel>.L _enumLabel = parsers.ParserFor<IAstEnumLabel>();
 
   public override IResult<EnumDefinition> Parse(ITokenizer tokens, string label)
   {
@@ -42,9 +42,9 @@ internal class ParseEnumDefinition(
       return tokens.Error(label, "parent type after ':'", result);
     }
 
-    List<IGqlpEnumLabel> labels = [];
+    List<IAstEnumLabel> labels = [];
     while (!tokens.Take('}')) {
-      IResult<IGqlpEnumLabel> enumLabel = _enumLabel.Parse(tokens, "Enum Label");
+      IResult<IAstEnumLabel> enumLabel = _enumLabel.Parse(tokens, "Enum Label");
       if (!enumLabel.Required(labels.Add)) {
         result.Values = labels.ArrayOf<EnumLabelAst>();
         return result.Partial(enumLabel.Message());

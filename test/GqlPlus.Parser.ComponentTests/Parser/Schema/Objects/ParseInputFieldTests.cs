@@ -1,12 +1,12 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Parsing.Schema.Objects;
 
 namespace GqlPlus.Parser.Schema.Objects;
 
 public class ParseInputFieldTests(
-  ICheckObjectField<IGqlpInputField> checks
-) : TestObjectField<IGqlpInputField>(checks)
+  ICheckObjectField<IAstInputField> checks
+) : TestObjectField<IAstInputField>(checks)
 {
   [Theory, RepeatData]
   public void WithDefault_ReturnsCorrectAst(string name, string fieldType, string content)
@@ -19,5 +19,5 @@ public class ParseInputFieldTests(
 
 internal sealed class ParseInputFieldChecks(
   IParserRepository parsers
-) : CheckObjectField<IGqlpInputField, InputFieldAst>(new InputFactories(), parsers)
+) : CheckObjectField<IAstInputField, InputFieldAst>(new InputFactories(), parsers)
 { }

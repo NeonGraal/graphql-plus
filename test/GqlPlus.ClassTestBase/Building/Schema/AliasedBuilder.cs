@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using NSubstitute.Core;
 
 namespace GqlPlus.Building.Schema;
@@ -10,10 +10,10 @@ public class AliasedBuilder
 
   public AliasedBuilder(string name)
     : base(name)
-    => Add<IGqlpAliased>();
+    => Add<IAstAliased>();
 
   protected new T Build<T>()
-    where T : class, IGqlpAliased
+    where T : class, IAstAliased
   {
     T result = base.Build<T>();
     result.Aliases.Returns(_aliases);
@@ -31,7 +31,7 @@ public class AliasedBuilder
 
 public class AliasedBuilder<T>
   : AliasedBuilder
-    where T : class, IGqlpAliased
+    where T : class, IAstAliased
 {
   public AliasedBuilder(string name)
     : base(name)

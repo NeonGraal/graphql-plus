@@ -1,5 +1,6 @@
-﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Verifying.Operation;
 using GqlPlus.Verifying.Schema;
 using GqlPlus.Verifying.Schema.Simple;
@@ -13,14 +14,14 @@ public interface IVerifierRepositoryBuilder
   IVerifierRepositoryBuilder TryAddVerify<T>(Factory<IVerify<T>, IVerifierRepository> factory);
 
   IVerifierRepositoryBuilder AddAliased<T>(Factory<IVerifyAliased<T>, IVerifierRepository> factory)
-    where T : IGqlpAliased;
+    where T : IAstAliased;
 
   IVerifierRepositoryBuilder AddUsage<T>(Factory<IVerifyUsage<T>, IVerifierRepository> factory)
-    where T : IGqlpAliased;
+    where T : IAstAliased;
 
   IVerifierRepositoryBuilder AddIdentified<TUsage, TIdentified>(Factory<IVerifyIdentified<TUsage, TIdentified>, IVerifierRepository> factory)
-    where TUsage : IGqlpError
-    where TIdentified : IGqlpIdentified;
+    where TUsage : IAstError
+    where TIdentified : IAstIdentified;
 
   IVerifierRepositoryBuilder AddDomain(Factory<IVerifyDomain, IVerifierRepository> factory);
 }

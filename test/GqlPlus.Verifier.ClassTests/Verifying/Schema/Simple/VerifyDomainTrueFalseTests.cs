@@ -1,5 +1,7 @@
-﻿namespace GqlPlus.Verifying.Schema.Simple;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Verifying.Schema.Simple;
 
 public class VerifyDomainTrueFalseTests()
-  : AstDomainVerifierTestsBase<IGqlpDomainTrueFalse>(DomainKind.Boolean)
+  : AstDomainVerifierTestsBase<IAstDomainTrueFalse>(DomainKind.Boolean)
 { }

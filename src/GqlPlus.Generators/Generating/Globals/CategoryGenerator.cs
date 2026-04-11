@@ -1,9 +1,11 @@
-﻿namespace GqlPlus.Generating.Globals;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Generating.Globals;
 
 internal class CategoryGenerator
-  : IGenerator<IGqlpSchemaCategory>
+  : IGenerator<IAstSchemaCategory>
 {
-  public void Generate(IGqlpSchemaCategory ast, GqlpGeneratorContext context)
+  public void Generate(IAstSchemaCategory ast, GqlpGeneratorContext context)
   {
     if (context.GeneratorOptions.GeneratorType == GqlpGeneratorType.Static) {
       context.Write(ast.Label + " " + ast.Name);

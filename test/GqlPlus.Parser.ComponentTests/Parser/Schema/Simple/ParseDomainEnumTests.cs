@@ -1,11 +1,11 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parser.Schema.Simple;
 
 public sealed class ParseDomainEnumTests(
-  IBaseDomainChecks<DomainEnumInput, IGqlpDomain<IGqlpDomainLabel>> checks
-) : BaseDomainTests<DomainEnumInput, IGqlpDomain<IGqlpDomainLabel>>(checks)
+  IBaseDomainChecks<DomainEnumInput, IAstDomain<IAstDomainLabel>> checks
+) : BaseDomainTests<DomainEnumInput, IAstDomain<IAstDomainLabel>>(checks)
 {
   [Theory, RepeatData]
   public void WithEnumType_ReturnsCorrectAst(DomainEnumInput input, string enumType)
@@ -37,15 +37,15 @@ public sealed class ParseDomainEnumTests(
   public void WithLabelsSecondBad_ReturnsFalse(DomainEnumInput input, string label)
     => checks.FalseExpected(input.Name + "{enum " + input.Label + "!" + label + ".}");
 
-  private static AstDomain<DomainLabelAst, IGqlpDomainLabel> NewDomain(DomainEnumInput input, DomainLabelAst[] labels)
+  private static AstDomain<DomainLabelAst, IAstDomainLabel> NewDomain(DomainEnumInput input, DomainLabelAst[] labels)
     => new(AstNulls.At, input.Name, DomainKind.Enum, labels);
 }
 
 internal sealed class ParseDomainEnumChecks(
   IParserRepository parsers
-) : BaseDomainChecks<DomainEnumInput, AstDomain<DomainLabelAst, IGqlpDomainLabel>, IGqlpDomain<IGqlpDomainLabel>>(parsers, DomainKind.Enum)
+) : BaseDomainChecks<DomainEnumInput, AstDomain<DomainLabelAst, IAstDomainLabel>, IAstDomain<IAstDomainLabel>>(parsers, DomainKind.Enum)
 {
-  protected internal override AstDomain<DomainLabelAst, IGqlpDomainLabel> NamedFactory(DomainEnumInput input)
+  protected internal override AstDomain<DomainLabelAst, IAstDomainLabel> NamedFactory(DomainEnumInput input)
     => new(AstNulls.At, input.Name, DomainKind.Enum, input.DomainLabels());
 
   protected internal override string AliasesString(DomainEnumInput input, string aliases)

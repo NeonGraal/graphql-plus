@@ -1,0 +1,28 @@
+﻿/* output-param
+output OutpParam { field(InOutpParam): FldOutpParam }
+dual FldOutpParam { }
+input InOutpParam { param: Number | String }
+*/
+
+// Generated from Schema output-param
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_output-param, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_output_param;
+
+internal class CmptOutpParamEncoder
+{
+  public ICmptFldOutpParam? Field(ICmptInOutpParam parameter)
+    => null;
+}
+
+internal class CmptFldOutpParamEncoder
+{
+}
+
+internal class CmptInOutpParamEncoder
+{
+  public decimal Param { get; set; }
+}

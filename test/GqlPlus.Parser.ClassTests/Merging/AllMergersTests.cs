@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Merging;
@@ -13,7 +13,7 @@ public class AllMergersTests
   [Fact]
   public void AllMergers_MergerForSchema_IsRegistered()
     => _services.GetRequiredService<IMergerRepository>()
-      .MergerFor<IGqlpSchema>()
+      .MergerFor<IAstSchema>()
       .ShouldNotBeNull();
 
   [Fact]

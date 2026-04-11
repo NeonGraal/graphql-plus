@@ -1,11 +1,11 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Merging.Globals;
 
 namespace GqlPlus.Merging.Schema.Globals;
 
 public class MergeOperationsTests
-  : TestAliasedMerger<IGqlpSchemaOperation, OperationInput>
+  : TestAliasedMerger<IAstSchemaOperation, OperationInput>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameCategory_ReturnsGood(OperationInput input)
@@ -29,9 +29,9 @@ public class MergeOperationsTests
     _merger = new(mergers);
   }
 
-  internal override GroupsMerger<IGqlpSchemaOperation> MergerGroups => _merger;
+  internal override GroupsMerger<IAstSchemaOperation> MergerGroups => _merger;
 
-  protected override IGqlpSchemaOperation MakeAliased(OperationInput input, string[]? aliases = null, string description = "")
+  protected override IAstSchemaOperation MakeAliased(OperationInput input, string[]? aliases = null, string description = "")
     => new OperationDeclAst(AstNulls.At, input.Name, description, input.Category) { Aliases = aliases ?? [] };
 
   protected override bool InputEquals(OperationInput input1, OperationInput input2)

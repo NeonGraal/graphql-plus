@@ -1,13 +1,11 @@
-﻿using GqlPlus.Abstractions.Operation;
-
-namespace GqlPlus.Ast.Operation;
+﻿namespace GqlPlus.Ast.Operation;
 
 public partial class OperationAstTests
 {
   [Theory, RepeatData]
   public void Initial_Lists_Empty(string input)
   {
-    IGqlpOperation ast = CreateOperation(input);
+    IAstOperation ast = CreateOperation(input);
 
     ast.ShouldSatisfyAllConditions(
       a => a.Fragments.ShouldBeEmpty(),

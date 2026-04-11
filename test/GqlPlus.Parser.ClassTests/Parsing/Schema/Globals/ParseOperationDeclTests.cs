@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Globals;
 
@@ -23,10 +23,10 @@ public class ParseOperationDeclTests
     ParseOk(_definition, new OperationDefinition(category));
 
     // Act
-    IResult<IGqlpSchemaOperation> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstSchemaOperation> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpSchemaOperation>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstSchemaOperation>>();
   }
 
   [Theory, RepeatData]
@@ -34,13 +34,13 @@ public class ParseOperationDeclTests
   {
     // Arrange
     NameReturns(option);
-    SetupError<IGqlpSchemaOperation>();
+    SetupError<IAstSchemaOperation>();
 
     // Act
-    IResult<IGqlpSchemaOperation> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstSchemaOperation> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<IGqlpSchemaOperation>>();
+    result.ShouldBeAssignableTo<IResultPartial<IAstSchemaOperation>>();
   }
 
   [Fact]

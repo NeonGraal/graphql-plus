@@ -1,6 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Ast.Schema.Simple;
+﻿namespace GqlPlus.Ast.Schema.Simple;
 
 public class DomainAstBooleanTests
   : AstDomainBaseTests<bool>
@@ -11,7 +9,7 @@ public class DomainAstBooleanTests
 }
 
 internal sealed class DomainAstBooleanChecks()
- : AstDomainChecks<bool, DomainTrueFalseAst, IGqlpDomainTrueFalse>(DomainKind.Boolean)
+ : AstDomainChecks<bool, DomainTrueFalseAst, IAstDomainTrueFalse>(DomainKind.Boolean)
 {
   protected override DomainTrueFalseAst[] DomainItems(bool input)
     => [new(AstNulls.At, string.Empty, false, input)];
@@ -19,6 +17,6 @@ internal sealed class DomainAstBooleanChecks()
   protected override string ItemsString(string name, bool input)
     => $"( !Do {name} Boolean !DT {input} )";
 
-  protected override AstDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse> NewDomain(string name, DomainTrueFalseAst[] list)
+  protected override AstDomain<DomainTrueFalseAst, IAstDomainTrueFalse> NewDomain(string name, DomainTrueFalseAst[] list)
     => new(AstNulls.At, name, Kind, list);
 }

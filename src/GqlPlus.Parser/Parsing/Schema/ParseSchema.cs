@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -6,9 +6,9 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema;
 
 internal class ParseSchema
-  : Parser<IGqlpSchema>.I
+  : Parser<IAstSchema>.I
 {
-  private delegate IResult<IGqlpDeclaration> Parser(ITokenizer tokens, string label);
+  private delegate IResult<IAstDeclaration> Parser(ITokenizer tokens, string label);
   private readonly Dictionary<string, Parser> _parsers = [];
 
   public ParseSchema(IParserRepository parsers)
@@ -18,35 +18,35 @@ internal class ParseSchema
     }
   }
 
-  public IResult<IGqlpSchema> Parse(ITokenizer tokens, string label)
+  public IResult<IAstSchema> Parse(ITokenizer tokens, string label)
 
   {
     if (tokens.AtStart) {
       if (!tokens.Read()) {
-        return tokens.Error<IGqlpSchema>(label, "text");
+        return tokens.Error<IAstSchema>(label, "text");
       }
     }
 
     TokenAt at = tokens.At;
     SchemaAst ast = new(at);
 
-    List<IGqlpDeclaration> declarations = [];
+    List<IAstDeclaration> declarations = [];
 
     tokens.TakeDescription();
     while (tokens.Identifier(out string? selector)) {
       if (_parsers.TryGetValue(selector, out Parser? parser)) {
-        IResult<IGqlpDeclaration> declaration = parser(tokens, selector.Capitalize());
+        IResult<IAstDeclaration> declaration = parser(tokens, selector.Capitalize());
         declaration.WithResult(declarations.Add);
       } else {
         tokens.GetDescription();
-        tokens.Error<IGqlpSchema>(label, $"declaration selector. '{selector}' unknown");
+        tokens.Error<IAstSchema>(label, $"declaration selector. '{selector}' unknown");
       }
 
       tokens.TakeDescription();
     }
 
     if (!tokens.AtEnd) {
-      tokens.Error<IGqlpSchema>(label, "no more text");
+      tokens.Error<IAstSchema>(label, "no more text");
     }
 
     if (tokens.Errors.Count == 0) {
@@ -58,6 +58,6 @@ internal class ParseSchema
       Errors = tokens.Errors,
     };
 
-    return ast.Ok<IGqlpSchema>();
+    return ast.Ok<IAstSchema>();
   }
 }

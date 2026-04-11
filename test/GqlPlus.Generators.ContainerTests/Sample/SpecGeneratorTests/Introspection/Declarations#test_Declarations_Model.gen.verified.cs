@@ -1,6 +1,6 @@
 ﻿//HintName: test_Declarations_Model.gen.cs
 // Generated from {CurrentDirectory}Declarations.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -42,7 +42,7 @@ public class test_Name
 }
 
 public class test_Filter
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Filter
 {
   public ICollection<Itest_NameFilter>? As_NameFilter { get; set; }
@@ -50,7 +50,7 @@ public class test_Filter
 }
 
 public class test_FilterObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_FilterObject
 {
   public ICollection<Itest_NameFilter> Names { get; set; }

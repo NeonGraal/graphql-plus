@@ -1,10 +1,10 @@
 ﻿using System.Runtime.CompilerServices;
-using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Decoding;
 
 internal abstract class ObjectDecoder<TModel>
-  : DecoderBase<TModel>
+  : BaseDecoder<TModel>
   where TModel : class
 {
   protected delegate IMessages Decoder(IValue input, out TModel? output);

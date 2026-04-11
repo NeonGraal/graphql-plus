@@ -1,5 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Token;
+﻿using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
@@ -9,7 +8,7 @@ internal sealed record class TypeParamAst(
   string Description,
   string Constraint
 ) : AstNamed(At, Name, Description)
-  , IGqlpTypeParam
+  , IAstTypeParam
 {
   internal override string Abbr => "TP";
 

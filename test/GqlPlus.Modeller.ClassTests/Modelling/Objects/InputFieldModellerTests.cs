@@ -1,11 +1,13 @@
-﻿using GqlPlus.Building.Schema;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
+using GqlPlus.Building.Schema;
 
 namespace GqlPlus.Modelling.Objects;
 
 public class InputFieldModellerTests
-  : ModellerObjectBaseTestBase<IGqlpInputField, InputFieldModel, ObjBaseModel>
+  : ModellerObjectBaseTestBase<IAstInputField, InputFieldModel, ObjBaseModel>
 {
-  private readonly IModeller<IGqlpConstant, ConstantModel> _constant = MFor<IGqlpConstant, ConstantModel>();
+  private readonly IModeller<IAstConstant, ConstantModel> _constant = MFor<IAstConstant, ConstantModel>();
 
   public InputFieldModellerTests()
   {
@@ -14,13 +16,13 @@ public class InputFieldModellerTests
     Modeller = new InputFieldModeller(modifier, ObjBase, _constant);
   }
 
-  protected override IModeller<IGqlpInputField, InputFieldModel> Modeller { get; }
+  protected override IModeller<IAstInputField, InputFieldModel> Modeller { get; }
 
   [Theory, RepeatData]
   public void FieldModel_WithValidField_ReturnsExpectedInputFieldModel(string name, string contents, string typeName)
   {
     // Arrange
-    IGqlpInputField ast = A.InputField(name, typeName).WithDescr(contents).AsInputField;
+    IAstInputField ast = A.InputField(name, typeName).WithDescr(contents).AsInputField;
 
     ObjBaseModel typeModel = new(typeName, "");
     ToModelReturns(ObjBase, typeModel);
@@ -42,7 +44,7 @@ public class InputFieldModellerTests
   public void FieldModel_WithValidDefault_ReturnsExpectedInputFieldModel(string name, string contents, string typeName, string defaultValue)
   {
     // Arrange
-    IGqlpInputField ast = A.InputField(name, typeName)
+    IAstInputField ast = A.InputField(name, typeName)
       .WithDescr(contents)
       .WithDefault(A.Constant(defaultValue))
       .AsInputField;

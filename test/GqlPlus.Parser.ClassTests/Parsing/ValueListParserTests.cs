@@ -4,15 +4,15 @@ public class ValueListParserTests
   : ParserClassTestBase
 {
 
-  private readonly ValueListParser<IGqlpConstant> _parser;
-  private readonly Parser<IGqlpConstant>.I _valueParser;
+  private readonly ValueListParser<IAstConstant> _parser;
+  private readonly Parser<IAstConstant>.I _valueParser;
 
   public ValueListParserTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    ConfigureRepo<IGqlpConstant>(parsers, out _valueParser);
-    _parser = new ValueListParser<IGqlpConstant>(parsers);
-    SetupError<IGqlpConstant>();
+    ConfigureRepo<IAstConstant>(parsers, out _valueParser);
+    _parser = new ValueListParser<IAstConstant>(parsers);
+    SetupError<IAstConstant>();
   }
 
   [Fact]
@@ -20,14 +20,14 @@ public class ValueListParserTests
   {
     // Arrange
     TakeReturns('[', true);
-    ParseOk(_valueParser, AtFor<IGqlpConstant>());
+    ParseOk(_valueParser, AtFor<IAstConstant>());
     TakeReturns(']', true);
 
     // Act
-    IResultArray<IGqlpConstant> result = _parser.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstConstant> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpConstant>>();
+    result.ShouldBeAssignableTo<IResultArrayOk<IAstConstant>>();
   }
 
   [Fact]
@@ -37,10 +37,10 @@ public class ValueListParserTests
     TakeReturns('[', false);
 
     // Act
-    IResultArray<IGqlpConstant> result = _parser.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstConstant> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayEmpty<IGqlpConstant>>();
+    result.ShouldBeAssignableTo<IResultArrayEmpty<IAstConstant>>();
   }
 
   [Theory, RepeatData]
@@ -51,7 +51,7 @@ public class ValueListParserTests
     ParseError(_valueParser, error);
 
     // Act
-    IResultArray<IGqlpConstant> result = _parser.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstConstant> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -62,13 +62,13 @@ public class ValueListParserTests
   {
     // Arrange
     TakeReturns('[', true);
-    ParseOk(_valueParser, AtFor<IGqlpConstant>());
+    ParseOk(_valueParser, AtFor<IAstConstant>());
     TakeReturns(']', false);
 
     // Act
-    IResultArray<IGqlpConstant> result = _parser.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstConstant> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayError<IGqlpConstant>>();
+    result.ShouldBeAssignableTo<IResultArrayError<IAstConstant>>();
   }
 }

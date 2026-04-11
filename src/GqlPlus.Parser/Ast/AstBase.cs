@@ -4,7 +4,7 @@ namespace GqlPlus.Ast;
 
 internal abstract record class AstBase(
   ITokenAt At
-) : IGqlpError
+) : IAstError
 {
   internal TokenMessage Error(string message)
     => new(At, message);

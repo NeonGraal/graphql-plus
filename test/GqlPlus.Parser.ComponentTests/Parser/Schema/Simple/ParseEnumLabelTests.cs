@@ -1,8 +1,8 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parser.Schema.Simple;
 
 public sealed class ParseEnumLabelTests(
-  IBaseAliasedChecks<string, IGqlpEnumLabel> checks
-) : BaseAliasedTests<string, IGqlpEnumLabel>(checks)
+  IBaseAliasedChecks<string, IAstEnumLabel> checks
+) : BaseAliasedTests<string, IAstEnumLabel>(checks)
 { }

@@ -1,11 +1,10 @@
-﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Ast.Operation;
 using GqlPlus.Parsing.Operation;
 
 namespace GqlPlus.Parser.Operation;
 
 public class ParseArgTests(
-  IOneChecksParser<IParserArg, IGqlpArg> checks
+  IOneChecksParser<IParserArg, IAstArg> checks
 )
 {
   [Theory, RepeatData]
@@ -90,6 +89,6 @@ public class ParseArgTests(
         '(' + key + ':' + enumValue + ';' + enumValue + ':' + key + ')',
         CheckNull);
 
-  private void CheckNull(IGqlpArg? result)
+  private void CheckNull(IAstArg? result)
     => result.ShouldBeNull();
 }

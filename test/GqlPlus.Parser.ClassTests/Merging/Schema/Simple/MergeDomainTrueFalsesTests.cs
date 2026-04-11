@@ -1,11 +1,11 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging.Simple;
 
 namespace GqlPlus.Merging.Schema.Simple;
 
 public class MergeDomainTrueFalsesTests(ITestOutputHelper outputHelper)
-    : TestDomainItemMerger<IGqlpDomainTrueFalse, bool>
+    : TestDomainItemMerger<IAstDomainTrueFalse, bool>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSameExcludes_ReturnsGood(bool input)
@@ -17,9 +17,9 @@ public class MergeDomainTrueFalsesTests(ITestOutputHelper outputHelper)
 
   private readonly MergeDomainTrueFalse _merger = new(MergeRepo(outputHelper.ToLoggerFactory()));
 
-  internal override GroupsMerger<IGqlpDomainTrueFalse> MergerGroups => _merger;
+  internal override GroupsMerger<IAstDomainTrueFalse> MergerGroups => _merger;
 
-  protected override IGqlpDomainTrueFalse MakeItem(bool input, bool excludes)
+  protected override IAstDomainTrueFalse MakeItem(bool input, bool excludes)
     => new DomainTrueFalseAst(AstNulls.At, "", excludes, input);
   protected override bool InputEquals(bool input1, bool input2)
     => input1 == input2;

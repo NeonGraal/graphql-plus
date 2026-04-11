@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
 
 namespace GqlPlus;
@@ -32,7 +32,7 @@ public abstract class TestSchemaResult(
   {
     TestContext.Current.AddAttachment("Input " + test, input);
 
-    IResult<IGqlpSchema> parse = checks.Parse(input, "Schema");
+    IResult<IAstSchema> parse = checks.Parse(input, "Schema");
     if (parse.Required(s => s.Errors.ShouldBeEmpty())) {
       await Result_Invalid(parse, test, "Sample", ["Schema", section], test, section);
     } else {
@@ -42,11 +42,11 @@ public abstract class TestSchemaResult(
 
   protected override async Task Label_Input(string label, string input, string[] dirs, string test, string section)
   {
-    IResult<IGqlpSchema> result = checks.Parse(input, label);
+    IResult<IAstSchema> result = checks.Parse(input, label);
 
     await Result_Valid(result, test, label, dirs, section, input);
   }
 
-  protected abstract Task Result_Valid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "");
-  protected abstract Task Result_Invalid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "");
+  protected abstract Task Result_Valid(IResult<IAstSchema> result, string test, string label, string[] dirs, string section, string input = "");
+  protected abstract Task Result_Invalid(IResult<IAstSchema> result, string test, string label, string[] dirs, string section, string input = "");
 }

@@ -1,9 +1,10 @@
-﻿using GqlPlus.Building.Schema;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Building.Schema;
 
 namespace GqlPlus.Modelling.Objects;
 
 public class DualFieldModellerTests
-  : ModellerObjectBaseTestBase<IGqlpDualField, DualFieldModel, ObjBaseModel>
+  : ModellerObjectBaseTestBase<IAstDualField, DualFieldModel, ObjBaseModel>
 {
   public DualFieldModellerTests()
   {
@@ -12,13 +13,13 @@ public class DualFieldModellerTests
     Modeller = new DualFieldModeller(modifier, ObjBase);
   }
 
-  protected override IModeller<IGqlpDualField, DualFieldModel> Modeller { get; }
+  protected override IModeller<IAstDualField, DualFieldModel> Modeller { get; }
 
   [Theory, RepeatData]
   public void FieldModel_WithValidField_ReturnsExpectedDualFieldModel(string name, string contents, string typeName)
   {
     // Arrange
-    IGqlpDualField ast = A.DualField(name, typeName).WithDescr(contents).AsDualField;
+    IAstDualField ast = A.DualField(name, typeName).WithDescr(contents).AsDualField;
     ObjBaseModel dualType = new(typeName, "");
     ToModelReturns(ObjBase, dualType);
 

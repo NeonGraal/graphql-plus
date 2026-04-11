@@ -1,6 +1,6 @@
 ﻿//HintName: test_Category_Intf.gen.cs
 // Generated from {CurrentDirectory}Category.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -32,4 +32,11 @@ public interface Itest_CategoryObject
   test_Resolution Resolution { get; }
   Itest_TypeRef<Itest_TypeKind> Output { get; }
   ICollection<Itest_Modifiers> Modifiers { get; }
+}
+
+public enum test_Resolution
+{
+  Parallel,
+  Sequential,
+  Single,
 }

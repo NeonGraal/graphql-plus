@@ -1,17 +1,15 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Ast.Schema;
+﻿namespace GqlPlus.Ast.Schema;
 
 internal abstract record class AstDescribed(
   ITokenAt At,
   string Description
 ) : AstAbbreviated(At)
-  , IGqlpDescribed
+  , IAstDescribed
   , IAstSetDescription
 {
   public string Description { get; internal set; } = Description;
 
-  public bool Equals(IGqlpDescribed? other)
+  public bool Equals(IAstDescribed? other)
     => base.Equals(other)
     && Description.Equals(other.Description, StringComparison.Ordinal);
   public override int GetHashCode()

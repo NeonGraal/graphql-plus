@@ -1,26 +1,25 @@
 ﻿using GqlPlus;
-using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Ast.Schema;
 
 internal sealed record class SchemaAst(
   ITokenAt At
 ) : AstAbbreviated(At)
-  , IGqlpSchema
+  , IAstSchema
 {
   public ParseResultKind Result { get; set; }
   internal IMessages Errors { get; set; } = Messages.New;
 
-  public IGqlpDeclaration[] Declarations { get; set; } = [];
+  public IAstDeclaration[] Declarations { get; set; } = [];
 
   internal override string Abbr => "Sc";
 
-  IEnumerable<IGqlpDeclaration> IGqlpSchema.Declarations => Declarations;
-  IMessages IGqlpSchema.Errors => Errors;
+  IEnumerable<IAstDeclaration> IAstSchema.Declarations => Declarations;
+  IMessages IAstSchema.Errors => Errors;
 
   public bool Equals(SchemaAst? other)
-    => other is IGqlpSchema schema && Equals(schema);
-  public bool Equals(IGqlpSchema? other)
+    => other is IAstSchema schema && Equals(schema);
+  public bool Equals(IAstSchema? other)
     => base.Equals(other)
       && Result == other.Result
       && Declarations.OrderedEqual(other.Declarations, s_comparer)
@@ -36,9 +35,9 @@ internal sealed record class SchemaAst(
 
   private static readonly DeclarationComparer s_comparer = new();
 
-  private class DeclarationComparer : IComparer<IGqlpDeclaration>
+  private class DeclarationComparer : IComparer<IAstDeclaration>
   {
-    public int Compare(IGqlpDeclaration? x, IGqlpDeclaration? y)
+    public int Compare(IAstDeclaration? x, IAstDeclaration? y)
     {
       if (x is null || y is null) {
         return x is null ? y is null ? 0 : -1 : 1;

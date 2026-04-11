@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -7,17 +7,17 @@ namespace GqlPlus.Parsing.Schema.Simple;
 
 internal class ParseDomainTrueFalse(
   IParserRepository parsers
-) : ParseDomainItem<IGqlpDomainTrueFalse>(parsers)
+) : ParseDomainItem<IAstDomainTrueFalse>(parsers)
 {
   public override DomainKind Kind => DomainKind.Boolean;
 
-  public override IResult<IGqlpDomainTrueFalse> Parse(ITokenizer tokens, string label)
+  public override IResult<IAstDomainTrueFalse> Parse(ITokenizer tokens, string label)
   {
     string description = tokens.Description();
     TokenAt at = tokens.At;
     bool excluded = tokens.Take('!');
     bool hasType = tokens.Identifier(out string? type);
-    IGqlpDomainTrueFalse result = new DomainTrueFalseAst(at, description, excluded, BuiltIn.BooleanTrue.Equals(type, StringComparison.Ordinal));
+    IAstDomainTrueFalse result = new DomainTrueFalseAst(at, description, excluded, BuiltIn.BooleanTrue.Equals(type, StringComparison.Ordinal));
 
     return hasType && (result.IsTrue || BuiltIn.BooleanFalse.Equals(type, StringComparison.Ordinal))
       ? result.Ok()
@@ -32,7 +32,7 @@ internal class ParseDomainTrueFalse(
     ITokenizer tokens,
     string label,
     DomainDefinition result,
-    IGqlpDomainTrueFalse[] items
+    IAstDomainTrueFalse[] items
   )
     => result.Values = items.Length > 0 ? items.ArrayOf<DomainTrueFalseAst>()
     : [DefaultTrueFalse(tokens, false), DefaultTrueFalse(tokens, true)];

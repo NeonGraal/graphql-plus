@@ -1,12 +1,12 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Merging.Simple;
 
 internal class MergeDomainRanges(
   IMergerRepository mergers
-) : AstDomainItemMerger<IGqlpDomainRange>(mergers)
+) : AstDomainItemMerger<IAstDomainRange>(mergers)
 {
-  protected override string ItemGroupKey(IGqlpDomainRange item)
+  protected override string ItemGroupKey(IAstDomainRange item)
     => ((DomainRangeAst)item).AsString;
 }

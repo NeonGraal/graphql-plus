@@ -1,5 +1,7 @@
-﻿namespace GqlPlus.Verifying.Schema.Simple;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Verifying.Schema.Simple;
 
 public class VerifyDomainRegexTests()
-  : AstDomainVerifierTestsBase<IGqlpDomainRegex>(DomainKind.String)
+  : AstDomainVerifierTestsBase<IAstDomainRegex>(DomainKind.String)
 { }

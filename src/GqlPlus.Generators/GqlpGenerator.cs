@@ -1,6 +1,6 @@
 ﻿using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Abstractions;
+using GqlPlus.Ast;
 using GqlPlus.Generating;
 using GqlPlus.Merging;
 using GqlPlus.Parsing;
@@ -126,9 +126,9 @@ public class GqlpGenerator : IIncrementalGenerator
       .AddGenerators()
       .BuildServiceProvider();
 
-    Parser<IGqlpSchema>.L schemaParser = services.GetRequiredService<IParserRepository>().ParserFor<IGqlpSchema>();
-    IMerge<IGqlpSchema> schemaMerger = services.GetRequiredService<IMergerRepository>().MergerFor<IGqlpSchema>();
-    IGenerator<IGqlpSchema> schemaGenerator = services.GetRequiredService<IGeneratorRepository>().GeneratorFor<IGqlpSchema>();
+    Parser<IAstSchema>.L schemaParser = services.GetRequiredService<IParserRepository>().ParserFor<IAstSchema>();
+    IMerge<IAstSchema> schemaMerger = services.GetRequiredService<IMergerRepository>().MergerFor<IAstSchema>();
+    IGenerator<IAstSchema> schemaGenerator = services.GetRequiredService<IGeneratorRepository>().GeneratorFor<IAstSchema>();
 
     foreach (AdditionalText text in array) {
       string? lines = text.GetText()?.ToString();
@@ -138,8 +138,8 @@ public class GqlpGenerator : IIncrementalGenerator
 
       string path = Path.GetFullPath(text.Path);
       Tokenizer tokens = new(lines);
-      IGqlpSchema parsed = schemaParser.Parse(tokens, "Schema").Required();
-      IGqlpSchema merged = schemaMerger.Merge([parsed]).Single();
+      IAstSchema parsed = schemaParser.Parse(tokens, "Schema").Required();
+      IAstSchema merged = schemaMerger.Merge([parsed]).Single();
 
       GqlpGeneratorContext context = new(path, generatorOptions, modelOptions);
       schemaGenerator.Generate(merged, context);

@@ -346,6 +346,10 @@ internal class testRefObjPrntOutpEncoder
 {
 }
 
+internal class testOpEncoder
+{
+}
+
 internal class testOutpFieldParamEncoder
 {
   public ItestFldOutpFieldParam? Field(ItestOutpFieldParam1 parameter)

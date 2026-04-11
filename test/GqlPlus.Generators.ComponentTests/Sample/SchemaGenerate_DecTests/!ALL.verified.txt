@@ -74,6 +74,24 @@ internal class CmptInDrctParamOptDecoder
 {
 }
 
+internal class CmptCatOprCtgrDecoder
+{
+}
+
+internal class CmptCatOprTypeDecoder
+{
+  public string First { get; set; }
+  public string Last { get; set; }
+  public ICmptAddrOprType Address { get; set; }
+}
+
+internal class CmptAddrOprTypeDecoder
+{
+  public string Street { get; set; }
+  public string City { get; set; }
+  public string Country { get; set; }
+}
+
 internal class CmptAltDualDecoder
 {
 }
@@ -2808,6 +2826,10 @@ internal class CmptObjPrntOutpDecoder
 }
 
 internal class CmptRefObjPrntOutpDecoder
+{
+}
+
+internal class CmptOpDecoder
 {
 }
 

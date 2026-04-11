@@ -1196,14 +1196,14 @@ public class testRefObjPrntOutpObject
 }
 
 public class testOp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestOp
 {
   public ItestOpObject? As_Op { get; set; }
 }
 
 public class testOpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestOpObject
 {
 

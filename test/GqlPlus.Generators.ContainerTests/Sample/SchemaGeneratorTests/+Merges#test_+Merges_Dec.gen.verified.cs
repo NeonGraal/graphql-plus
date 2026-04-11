@@ -346,6 +346,10 @@ internal class testRefObjPrntOutpDecoder
 {
 }
 
+internal class testOpDecoder
+{
+}
+
 internal class testOutpFieldParamDecoder
 {
   public ItestFldOutpFieldParam? Field(ItestOutpFieldParam1 parameter)

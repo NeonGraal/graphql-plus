@@ -1,6 +1,6 @@
 ﻿//HintName: test_operation-type_Model.gen.cs
 // Generated from {CurrentDirectory}operation-type.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_operation_type;
 
 public class testCatOprType
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCatOprType
 {
   public ItestCatOprTypeObject? As_CatOprType { get; set; }
 }
 
 public class testCatOprTypeObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCatOprTypeObject
 {
   public string First { get; set; }
@@ -35,14 +35,14 @@ public class testCatOprTypeObject
 }
 
 public class testAddrOprType
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAddrOprType
 {
   public ItestAddrOprTypeObject? As_AddrOprType { get; set; }
 }
 
 public class testAddrOprTypeObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAddrOprTypeObject
 {
   public string Street { get; set; }

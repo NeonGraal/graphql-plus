@@ -1,1 +1,1 @@
-c7cdd96  (HEAD -> operation) 2026-03-06 Rename fields to avoid .Net reserved words
+29ac335  (HEAD -> operation, origin/operation) 2026-04-01 Improve convert.ps1

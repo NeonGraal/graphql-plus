@@ -74,3 +74,21 @@ internal class testInDrctParamListDecoder
 internal class testInDrctParamOptDecoder
 {
 }
+
+internal class testCatOprCtgrDecoder
+{
+}
+
+internal class testCatOprTypeDecoder
+{
+  public string First { get; set; }
+  public string Last { get; set; }
+  public ItestAddrOprType Address { get; set; }
+}
+
+internal class testAddrOprTypeDecoder
+{
+  public string Street { get; set; }
+  public string City { get; set; }
+  public string Country { get; set; }
+}

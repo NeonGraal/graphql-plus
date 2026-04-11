@@ -1,6 +1,6 @@
 ﻿//HintName: test_operation-type_Intf.gen.cs
 // Generated from {CurrentDirectory}operation-type.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,13 +8,13 @@
 namespace GqlPlus.GeneratorTests.Gqlp_operation_type;
 
 public interface ItestCatOprType
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestCatOprTypeObject? As_CatOprType { get; }
 }
 
 public interface ItestCatOprTypeObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string First { get; }
   string Last { get; }
@@ -22,13 +22,13 @@ public interface ItestCatOprTypeObject
 }
 
 public interface ItestAddrOprType
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestAddrOprTypeObject? As_AddrOprType { get; }
 }
 
 public interface ItestAddrOprTypeObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string Street { get; }
   string City { get; }

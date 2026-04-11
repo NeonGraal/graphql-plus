@@ -13,6 +13,8 @@ internal class test_SchemaEncoder
     => null;
   public IDictionary<Itest_Name, Itest_Directives>? Directives(Itest_Filter? parameter)
     => null;
+  public IDictionary<Itest_Name, Itest_Operations>? Operations(Itest_Filter? parameter)
+    => null;
   public IDictionary<Itest_Name, Itest_Type>? Types(Itest_TypeFilter? parameter)
     => null;
   public IDictionary<Itest_Name, Itest_Setting>? Settings(Itest_Filter? parameter)

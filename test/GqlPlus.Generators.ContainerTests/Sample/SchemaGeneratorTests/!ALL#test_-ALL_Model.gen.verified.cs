@@ -314,14 +314,14 @@ public class testInDrctParamOptObject
 }
 
 public class testCatOprCtgr
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCatOprCtgr
 {
   public ItestCatOprCtgrObject? As_CatOprCtgr { get; set; }
 }
 
 public class testCatOprCtgrObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCatOprCtgrObject
 {
 
@@ -332,14 +332,14 @@ public class testCatOprCtgrObject
 }
 
 public class testCatOprType
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCatOprType
 {
   public ItestCatOprTypeObject? As_CatOprType { get; set; }
 }
 
 public class testCatOprTypeObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCatOprTypeObject
 {
   public string First { get; set; }
@@ -359,14 +359,14 @@ public class testCatOprTypeObject
 }
 
 public class testAddrOprType
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAddrOprType
 {
   public ItestAddrOprTypeObject? As_AddrOprType { get; set; }
 }
 
 public class testAddrOprTypeObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAddrOprTypeObject
 {
   public string Street { get; set; }
@@ -10498,14 +10498,14 @@ public class testRefObjPrntOutpObject
 }
 
 public class testOp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestOp
 {
   public ItestOpObject? As_Op { get; set; }
 }
 
 public class testOpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestOpObject
 {
 

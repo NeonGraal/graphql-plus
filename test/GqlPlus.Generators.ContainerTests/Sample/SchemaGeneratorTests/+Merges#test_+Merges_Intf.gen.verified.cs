@@ -760,13 +760,13 @@ public interface ItestRefObjPrntOutpObject
 }
 
 public interface ItestOp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestOpObject? As_Op { get; }
 }
 
 public interface ItestOpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 

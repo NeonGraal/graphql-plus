@@ -13,6 +13,8 @@ internal class test_SchemaEncoder
     => null;
   public IDictionary<Itest_Name, Itest_Directives>? Directives(Itest_Filter? parameter)
     => null;
+  public IDictionary<Itest_Name, Itest_Operations>? Operations(Itest_Filter? parameter)
+    => null;
   public IDictionary<Itest_Name, Itest_Type>? Types(Itest_TypeFilter? parameter)
     => null;
   public IDictionary<Itest_Name, Itest_Setting>? Settings(Itest_Filter? parameter)
@@ -105,6 +107,95 @@ internal class test_LocationEncoder
   public string Inline { get; set; }
   public string Spread { get; set; }
   public string Fragment { get; set; }
+}
+
+internal class test_OperationsEncoder
+{
+  public Itest_Operation Operation { get; set; }
+  public Itest_Type Type { get; set; }
+}
+
+internal class test_OpDirectivesEncoder
+{
+  public ICollection<Itest_OpDirective> Directives { get; set; }
+}
+
+internal class test_OperationEncoder
+{
+  public Itest_Name Category { get; set; }
+  public IDictionary<Itest_Name, Itest_OpVariable> Variables { get; set; }
+  public ICollection<Itest_OpDirective> Directives { get; set; }
+  public IDictionary<Itest_Name, Itest_OpFragment> Fragments { get; set; }
+  public Itest_OpResult Result { get; set; }
+  public IDictionary<Itest_Path, ICollection<Itest_OpSelection>> Selections { get; set; }
+}
+
+internal class test_OpVariableEncoder
+{
+  public Itest_TypeRef<test_TypeKind> Type { get; set; }
+  public ICollection<Itest_Modifiers> Modifiers { get; set; }
+  public GqlpValue? DefaultValue { get; set; }
+}
+
+internal class test_OpDirectiveEncoder
+{
+  public Itest_OpArgument? Argument { get; set; }
+}
+
+internal class test_OpFragmentEncoder
+{
+  public Itest_TypeRef<test_TypeKind> Type { get; set; }
+}
+
+internal class test_OpArgumentEncoder
+{
+}
+
+internal class test_OpArgValueEncoder
+{
+  public Itest_Name Variable { get; set; }
+}
+
+internal class test_OpArgListEncoder
+{
+}
+
+internal class test_OpArgMapEncoder
+{
+  public Itest_OpArgValue Value { get; set; }
+  public Itest_Name ByVariable { get; set; }
+}
+
+internal class test_OpResultEncoder
+{
+  public Itest_OpArgument? Argument { get; set; }
+}
+
+internal class test_PathEncoder
+{
+}
+
+internal class test_OpSelectionEncoder
+{
+}
+
+internal class test_OpFieldEncoder
+{
+  public string? FieldAlias { get; set; }
+  public Itest_OpArgument? Argument { get; set; }
+  public ICollection<Itest_Modifiers> Modifiers { get; set; }
+}
+
+internal class test_OpInlineEncoder
+{
+  public Itest_TypeRef<test_TypeKind>? Type { get; set; }
+  public ICollection<Itest_OpDirective> Directives { get; set; }
+}
+
+internal class test_OpSpreadEncoder
+{
+  public string Fragment { get; set; }
+  public ICollection<Itest_OpDirective> Directives { get; set; }
 }
 
 internal class test_SettingEncoder

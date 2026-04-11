@@ -345,6 +345,10 @@ internal class CmptRefObjPrntOutpEncoder
 {
 }
 
+internal class CmptOpEncoder
+{
+}
+
 internal class CmptOutpFieldParamEncoder
 {
   public ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter)

@@ -28,12 +28,12 @@ public abstract class TypeObjectEncoderBase<TObject, TBase, TField, TAlt>
     TypeParam = RFor<TypeParamModel>();
 
     IEncoderRepository encoders = A.Of<IEncoderRepository>();
-    encoders.EncoderFor<ObjBaseModel>().Returns(ObjBase);
+    encoders.EncoderFor<ObjBaseModel>().Returns((IEncoder<ObjBaseModel>)(object)ObjBase);
     encoders.EncoderFor<TField>().Returns(Field);
     encoders.EncoderFor<ObjectForModel<TField>>().Returns(ForField);
     encoders.EncoderFor<ObjectForModel<DualFieldModel>>().Returns(DualField);
     encoders.EncoderFor<TAlt>().Returns(Alternate);
-    encoders.EncoderFor<ObjectForModel<AlternateModel>>().Returns(ForAlternate);
+    encoders.EncoderFor<ObjectForModel<AlternateModel>>().Returns((IEncoder<ObjectForModel<AlternateModel>>)(object)ForAlternate);
     encoders.EncoderFor<TypeParamModel>().Returns(TypeParam);
     Encoders = encoders;
   }

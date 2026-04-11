@@ -283,21 +283,11 @@ dotnet_diagnostic.CA1725.severity = warning
 dotnet_diagnostic.CA1727.severity = warning
 dotnet_diagnostic.CA1805.severity = warning
 dotnet_diagnostic.CA1812.severity = none
-
-# CA1852: Type can be sealed
 dotnet_diagnostic.CA1852.severity = warning
-
-# CA1720: Identifiers should not contain type names
 dotnet_diagnostic.CA1720.severity = suggestion
-
 dotnet_diagnostic.CS9107.severity = none
-
-# IDE0060: Remove unused parameter
 dotnet_diagnostic.IDE0060.severity = warning
-
-# IDE2001: Embedded statements must be on their own line
+dotnet_diagnostic.IDE0370.severity = warning
 dotnet_diagnostic.IDE2001.severity = none
-
-# IDE0045: Convert to conditional expression
 dotnet_diagnostic.IDE0045.severity = none
 dotnet_diagnostic.IDE0046.severity = none

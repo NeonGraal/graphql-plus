@@ -27,6 +27,6 @@ internal class OutputFieldModeller(
         Parameter = parameter.TryModel(field.Parameter, typeKinds),
       }
       : new(field.Name, type, field.Description) {
-        Enum = new(field.Name, type.Name, field.EnumValue.EnumLabel!, type.Description)
+        Enum = new(field.Name, type.Name, field.EnumValue.EnumLabel, type.Description)
       };
 }

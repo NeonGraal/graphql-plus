@@ -47,7 +47,7 @@ internal class ParseTypeArgs
       return default(TypeArgAst).Empty();
     }
 
-    TypeArgAst argument = new(at, name!, description);
+    TypeArgAst argument = new(at, name, description);
 
     if (tokens.Take('.')) {
       if (argument.IsTypeParam) {

@@ -1,52 +1,35 @@
 ﻿using GqlPlus.Resolving.Objects;
 using GqlPlus.Resolving.Simple;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace GqlPlus.Resolving;
 
 public static class AllResolvers
 {
   public static IServiceCollection AddResolvers(this IServiceCollection services)
-  => services
+  {
+    ResolverRepositoryBuilder builder = new();
+    builder.AddSchemaResolvers();
+    services.AddSingleton(builder);
+    services.TryAddSingleton<IResolverRepository, ResolverRepository>();
+    return services;
+  }
+
+  internal static IResolverRepositoryBuilder AddSchemaResolvers(this IResolverRepositoryBuilder builder)
+    => builder.ThrowIfNull()
       // Schema
-      .AddResolver<SchemaModel, SchemaResolver>()
-      .AddResolver<BaseTypeModel, AllTypesResolver>()
+      .AddResolver<SchemaModel>(r => new SchemaResolver(r.ResolverFor<BaseTypeModel>()))
+      .AddResolver<BaseTypeModel>(r => new AllTypesResolver(r.TypeResolvers))
       // Simple
-      .AddDomainResolver<DomainLabelModel, TypeDomainEnumResolver>()
-      .AddDomainResolver<DomainRangeModel>()
-      .AddDomainResolver<DomainRegexModel>()
-      .AddDomainResolver<DomainTrueFalseModel>()
-      .AddTypeResolver<TypeEnumModel, TypeEnumResolver>()
-      .AddTypeResolver<TypeUnionModel, TypeUnionResolver>()
+      .AddTypeResolver<BaseDomainModel<DomainLabelModel>>(_ => new TypeDomainEnumResolver())
+      .AddTypeResolver<BaseDomainModel<DomainRangeModel>>(_ => new ResolverDomainType<DomainRangeModel>())
+      .AddTypeResolver<BaseDomainModel<DomainRegexModel>>(_ => new ResolverDomainType<DomainRegexModel>())
+      .AddTypeResolver<BaseDomainModel<DomainTrueFalseModel>>(_ => new ResolverDomainType<DomainTrueFalseModel>())
+      .AddTypeResolver<TypeEnumModel>(_ => new TypeEnumResolver())
+      .AddTypeResolver<TypeUnionModel>(_ => new TypeUnionResolver())
       // Object
-      .AddTypeResolver<TypeDualModel, TypeDualResolver>()
-      .AddTypeResolver<TypeInputModel, TypeInputResolver>()
-      .AddTypeResolver<TypeOutputModel, TypeOutputResolver>()
-    ;
-
-  private static IServiceCollection AddResolver<TModel, TResolver>(this IServiceCollection services)
-    where TModel : IModelBase
-    where TResolver : class, IResolver<TModel>
-    => services.AddSingleton<IResolver<TModel>, TResolver>();
-
-  private static IServiceCollection AddTypeResolver<TModel, TResolver>(this IServiceCollection services)
-    where TModel : IModelBase
-    where TResolver : class, IResolver<TModel>, ITypeResolver
-  => services
-      .AddSingleton<TResolver>()
-      .AddProvider<TResolver, IResolver<TModel>>()
-      .AddProvider<TResolver, ITypeResolver>();
-
-  private static IServiceCollection AddDomainResolver<TDomain, TResolver>(this IServiceCollection services)
-    where TDomain : BaseDomainItemModel
-    where TResolver : ResolverType<BaseDomainModel<TDomain>>
-  => services
-      .AddSingleton<TResolver>()
-      .AddProvider<TResolver, IResolver<BaseDomainModel<TDomain>>>()
-      .AddProvider<TResolver, ITypeResolver>();
-
-  private static IServiceCollection AddDomainResolver<TDomain>(this IServiceCollection services)
-    where TDomain : BaseDomainItemModel
-  => services
-      .AddDomainResolver<TDomain, ResolverDomainType<TDomain>>();
+      .AddTypeResolver<TypeDualModel>(_ => new TypeDualResolver())
+      .AddTypeResolver<TypeInputModel>(r => new TypeInputResolver(r.ResolverFor<TypeDualModel>()))
+      .AddTypeResolver<TypeOutputModel>(r => new TypeOutputResolver(r.ResolverFor<TypeDualModel>()));
 }

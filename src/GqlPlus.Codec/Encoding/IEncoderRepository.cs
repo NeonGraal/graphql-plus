@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Encoding;
 
-internal interface IEncoderRepository
+public interface IEncoderRepository
 {
   IEncoder<T> EncoderFor<T>()
     where T : IModelBase;

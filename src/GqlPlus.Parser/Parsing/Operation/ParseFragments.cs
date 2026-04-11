@@ -7,18 +7,18 @@ namespace GqlPlus.Parsing.Operation;
 
 internal abstract class ParseFragments(
   IParserRepository parsers
-) : Parser<IGqlpFragment>.IA
+) : Parser<IAstFragment>.IA
 {
-  private readonly Parser<IGqlpDirective>.LA _directives = parsers.ArrayFor<IGqlpDirective>();
-  private readonly Parser<IGqlpSelection>.LA _object = parsers.ArrayFor<IGqlpSelection>();
+  private readonly Parser<IAstDirective>.LA _directives = parsers.ArrayFor<IAstDirective>();
+  private readonly Parser<IAstSelection>.LA _object = parsers.ArrayFor<IAstSelection>();
 
   protected abstract bool FragmentPrefix(ref ITokenizer tokens);
   protected abstract bool TypePrefix(ref ITokenizer tokens);
 
-  public IResultArray<IGqlpFragment> Parse(ITokenizer tokens, string label)
+  public IResultArray<IAstFragment> Parse(ITokenizer tokens, string label)
 
   {
-    List<IGqlpFragment> definitions = [];
+    List<IAstFragment> definitions = [];
 
     while (FragmentPrefix(ref tokens)) {
       TokenAt at = tokens.At;
@@ -34,18 +34,18 @@ internal abstract class ParseFragments(
         return tokens.ErrorArray("Fragment", "type after ':' or 'on'", definitions);
       }
 
-      IResultArray<IGqlpDirective> directives = _directives.Parse(tokens, "Fragment");
+      IResultArray<IAstDirective> directives = _directives.Parse(tokens, "Fragment");
 
       if (directives.IsError()) {
         return directives.AsResultArray(definitions);
       }
 
-      IResultArray<IGqlpSelection> fields = _object.Parse(tokens, "Fragment");
+      IResultArray<IAstSelection> fields = _object.Parse(tokens, "Fragment");
       if (!fields.Required(NewFragment)) {
         return fields.AsResultArray(definitions);
       }
 
-      void NewFragment(IEnumerable<IGqlpSelection> selections)
+      void NewFragment(IEnumerable<IAstSelection> selections)
         => definitions.Add(
           new FragmentAst(at, name, onType, [.. selections]) {
             Directives = [.. directives.Optional()]
@@ -77,9 +77,9 @@ internal class ParseEndFragments(
 }
 
 public interface IParserStartFragments
-  : Parser<IGqlpFragment>.IA
+  : Parser<IAstFragment>.IA
 { }
 
 public interface IParserEndFragments
-  : Parser<IGqlpFragment>.IA
+  : Parser<IAstFragment>.IA
 { }

@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-parent-enum-child+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}generic-parent-enum-child+Dual.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -27,14 +27,14 @@ public class testGnrcPrntEnumChildDualObject
 }
 
 public class testFieldGnrcPrntEnumChildDual<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldGnrcPrntEnumChildDual<TRef>
 {
   public ItestFieldGnrcPrntEnumChildDualObject<TRef>? As_FieldGnrcPrntEnumChildDual { get; set; }
 }
 
 public class testFieldGnrcPrntEnumChildDualObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldGnrcPrntEnumChildDualObject<TRef>
 {
   public TRef Field { get; set; }

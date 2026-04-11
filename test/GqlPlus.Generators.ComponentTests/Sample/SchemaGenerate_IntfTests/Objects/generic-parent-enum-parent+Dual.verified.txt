@@ -35,3 +35,14 @@ public interface ICmptFieldGnrcPrntEnumPrntDualObject<TRef>
 {
   TRef Field { get; }
 }
+
+public enum CmptEnumGnrcPrntEnumPrntDual
+{
+  gnrcPrntEnumPrntDualParent = CmptParentGnrcPrntEnumPrntDual.gnrcPrntEnumPrntDualParent,
+  gnrcPrntEnumPrntDualLabel,
+}
+
+public enum CmptParentGnrcPrntEnumPrntDual
+{
+  gnrcPrntEnumPrntDualParent,
+}

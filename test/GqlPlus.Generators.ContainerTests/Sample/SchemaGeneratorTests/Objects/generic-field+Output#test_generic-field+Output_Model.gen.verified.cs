@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-field+Output_Model.gen.cs
 // Generated from {CurrentDirectory}generic-field+Output.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_Output;
 
 public class testGnrcFieldOutp<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcFieldOutp<TType>
 {
   public ItestGnrcFieldOutpObject<TType>? As_GnrcFieldOutp { get; set; }
 }
 
 public class testGnrcFieldOutpObject<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcFieldOutpObject<TType>
 {
   public TType Field { get; set; }

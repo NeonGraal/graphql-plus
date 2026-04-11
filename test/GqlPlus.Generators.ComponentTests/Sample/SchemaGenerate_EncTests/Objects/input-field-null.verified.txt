@@ -1,0 +1,21 @@
+﻿/* input-field-null
+input InpFieldNull { field: FldInpFieldNull? = null }
+dual FldInpFieldNull { }
+*/
+
+// Generated from Schema input-field-null
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_input-field-null, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_input_field_null;
+
+internal class CmptInpFieldNullEncoder
+{
+  public ICmptFldInpFieldNull? Field { get; set; }
+}
+
+internal class CmptFldInpFieldNullEncoder
+{
+}

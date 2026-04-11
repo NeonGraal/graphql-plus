@@ -5,17 +5,17 @@ namespace GqlPlus.Merging.Objects;
 
 internal class AstObjectsMerger<TObjField>(
   IMergerRepository mergers
-) : AstTypeMerger<IGqlpType, IGqlpObject<TObjField>, IGqlpObjBase, TObjField>(mergers)
-  where TObjField : IGqlpObjField
+) : AstTypeMerger<IAstType, IAstObject<TObjField>, IAstObjBase, TObjField>(mergers)
+  where TObjField : IAstObjField
 {
-  private readonly IMerge<IGqlpTypeParam> _typeParams = mergers.MergerFor<IGqlpTypeParam>();
-  private readonly IMerge<IGqlpAlternate> _alternates = mergers.MergerFor<IGqlpAlternate>();
+  private readonly IMerge<IAstTypeParam> _typeParams = mergers.MergerFor<IAstTypeParam>();
+  private readonly IMerge<IAstAlternate> _alternates = mergers.MergerFor<IAstAlternate>();
 
   protected override string ItemMatchName => "Parent";
-  protected override string ItemMatchKey(IGqlpObject<TObjField> item)
+  protected override string ItemMatchKey(IAstObject<TObjField> item)
     => (item.Parent?.FullType).IfWhiteSpace();
 
-  protected override IMessages CanMergeGroup(IGrouping<string, IGqlpObject<TObjField>> group)
+  protected override IMessages CanMergeGroup(IGrouping<string, IAstObject<TObjField>> group)
   {
     IMessages baseCanMerge = base.CanMergeGroup(group);
     IMessages typeParamsCanMerge = group.ManyCanMerge(item => item.TypeParams, _typeParams);
@@ -24,25 +24,25 @@ internal class AstObjectsMerger<TObjField>(
     return baseCanMerge.Add(typeParamsCanMerge).Add(alternatesCanMerge);
   }
 
-  protected override IGqlpObject<TObjField> MergeGroup(IEnumerable<IGqlpObject<TObjField>> group)
+  protected override IAstObject<TObjField> MergeGroup(IEnumerable<IAstObject<TObjField>> group)
   {
-    IEnumerable<IGqlpTypeParam> typeParamsAsts = group.ManyMerge(item => item.TypeParams, _typeParams);
-    IEnumerable<IGqlpAlternate> alternateAsts = group.ManyMerge(item => item.Alternates, _alternates);
+    IEnumerable<IAstTypeParam> typeParamsAsts = group.ManyMerge(item => item.TypeParams, _typeParams);
+    IEnumerable<IAstAlternate> alternateAsts = group.ManyMerge(item => item.Alternates, _alternates);
 
     return SetAlternates(base.MergeGroup(group), typeParamsAsts, alternateAsts);
   }
 
   [SuppressMessage("Performance", "CA1822:Mark members as static")]
-  protected AstObject<TObjField> SetAlternates(IGqlpObject<TObjField> obj, IEnumerable<IGqlpTypeParam> typeParams, IEnumerable<IGqlpAlternate> alternates)
+  protected AstObject<TObjField> SetAlternates(IAstObject<TObjField> obj, IEnumerable<IAstTypeParam> typeParams, IEnumerable<IAstAlternate> alternates)
     => (AstObject<TObjField>)obj with {
       TypeParams = typeParams.ArrayOf<TypeParamAst>(),
       Alternates = [.. alternates],
     };
 
-  internal override IEnumerable<TObjField> GetItems(IGqlpObject<TObjField> type)
+  internal override IEnumerable<TObjField> GetItems(IAstObject<TObjField> type)
     => type.ObjFields;
 
-  internal override IGqlpObject<TObjField> SetItems(IGqlpObject<TObjField> input, IEnumerable<TObjField> items)
+  internal override IAstObject<TObjField> SetItems(IAstObject<TObjField> input, IEnumerable<TObjField> items)
     => (AstObject<TObjField>)input with {
       ObjFields = [.. items],
     };

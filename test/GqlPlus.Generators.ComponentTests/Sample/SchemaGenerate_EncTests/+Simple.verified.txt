@@ -1,0 +1,351 @@
+﻿// Generated from Schema +Simple
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_+Simple, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_Simple;
+
+internal class CmptDmnBoolDescrEncoder
+{
+}
+
+internal class CmptDmnBoolPrntEncoder
+{
+}
+
+internal class CmptPrntDmnBoolPrntEncoder
+{
+}
+
+internal class CmptDmnBoolPrntDescrEncoder
+{
+}
+
+internal class CmptPrntDmnBoolPrntDescrEncoder
+{
+}
+
+internal class CmptDmnEnumAllEncoder
+{
+}
+
+internal class CmptEnumDmnEnumAllEncoder
+{
+  public string dmnEnumAll { get; set; }
+  public string enum_dmnEnumAll { get; set; }
+  public string dmnEnumAllValue { get; set; }
+}
+
+internal class CmptDmnEnumAllDescrEncoder
+{
+}
+
+internal class CmptEnumDmnEnumAllDescrEncoder
+{
+  public string dmnEnumAllDescr { get; set; }
+  public string enum_dmnEnumAllDescr { get; set; }
+  public string dmnEnumAllDescrValue { get; set; }
+}
+
+internal class CmptDmnEnumAllPrntEncoder
+{
+}
+
+internal class CmptEnumDmnEnumAllPrntEncoder
+{
+  public string prnt_dmnEnumAllPrnt { get; set; }
+  public string dmnEnumAllPrntPrnt { get; set; }
+  public string dmnEnumAllPrnt { get; set; }
+  public string dmnEnumAllPrntValue { get; set; }
+}
+
+internal class CmptPrntDmnEnumAllPrntEncoder
+{
+  public string prnt_dmnEnumAllPrnt { get; set; }
+  public string dmnEnumAllPrntPrnt { get; set; }
+}
+
+internal class CmptDmnEnumDescrEncoder
+{
+}
+
+internal class CmptEnumDmnEnumDescrEncoder
+{
+  public string dmnEnumDescr { get; set; }
+}
+
+internal class CmptDmnEnumExclEncoder
+{
+}
+
+internal class CmptEnumDmnEnumExclEncoder
+{
+  public string dmnEnumExcl { get; set; }
+  public string enum_dmnEnumExcl { get; set; }
+  public string dmnEnumExclValue { get; set; }
+}
+
+internal class CmptDmnEnumExclPrntEncoder
+{
+}
+
+internal class CmptEnumDmnEnumExclPrntEncoder
+{
+  public string prnt_dmnEnumExclPrnt { get; set; }
+  public string dmnEnumExclPrntPrnt { get; set; }
+  public string dmnEnumExclPrnt { get; set; }
+  public string dmnEnumExclPrntValue { get; set; }
+}
+
+internal class CmptPrntDmnEnumExclPrntEncoder
+{
+  public string prnt_dmnEnumExclPrnt { get; set; }
+  public string dmnEnumExclPrntPrnt { get; set; }
+}
+
+internal class CmptDmnEnumLabelEncoder
+{
+}
+
+internal class CmptEnumDmnEnumLabelEncoder
+{
+  public string dmnEnumLabel { get; set; }
+}
+
+internal class CmptDmnEnumPrntEncoder
+{
+}
+
+internal class CmptPrntDmnEnumPrntEncoder
+{
+}
+
+internal class CmptEnumDmnEnumPrntEncoder
+{
+  public string enum_dmnEnumPrnt { get; set; }
+  public string prnt_dmnEnumPrnt { get; set; }
+}
+
+internal class CmptDmnEnumPrntDescrEncoder
+{
+}
+
+internal class CmptPrntDmnEnumPrntDescrEncoder
+{
+}
+
+internal class CmptEnumDmnEnumPrntDescrEncoder
+{
+  public string enum_dmnEnumPrntDescr { get; set; }
+  public string prnt_dmnEnumPrntDescr { get; set; }
+}
+
+internal class CmptDmnEnumUnqEncoder
+{
+}
+
+internal class CmptEnumDmnEnumUnqEncoder
+{
+  public string enum_dmnEnumUnq { get; set; }
+  public string dmnEnumUnq { get; set; }
+  public string dmnEnumUnqValue { get; set; }
+}
+
+internal class CmptDupDmnEnumUnqEncoder
+{
+  public string dmnEnumUnq { get; set; }
+  public string dup_dmnEnumUnq { get; set; }
+  public string dmnEnumUnqDup { get; set; }
+}
+
+internal class CmptDmnEnumUnqPrntEncoder
+{
+}
+
+internal class CmptEnumDmnEnumUnqPrntEncoder
+{
+  public string dmnEnumUnqPrnt { get; set; }
+  public string prnt_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntPrnt { get; set; }
+  public string enum_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntValue { get; set; }
+}
+
+internal class CmptPrntDmnEnumUnqPrntEncoder
+{
+  public string dmnEnumUnqPrnt { get; set; }
+  public string prnt_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntPrnt { get; set; }
+}
+
+internal class CmptDupDmnEnumUnqPrntEncoder
+{
+  public string dmnEnumUnqPrnt { get; set; }
+  public string dup_dmnEnumUnqPrnt { get; set; }
+  public string dmnEnumUnqPrntDup { get; set; }
+}
+
+internal class CmptDmnEnumValueEncoder
+{
+}
+
+internal class CmptEnumDmnEnumValueEncoder
+{
+  public string dmnEnumValue { get; set; }
+}
+
+internal class CmptDmnEnumValuePrntEncoder
+{
+}
+
+internal class CmptEnumDmnEnumValuePrntEncoder
+{
+  public string prnt_dmnEnumValuePrnt { get; set; }
+  public string dmnEnumValuePrnt { get; set; }
+}
+
+internal class CmptPrntDmnEnumValuePrntEncoder
+{
+  public string prnt_dmnEnumValuePrnt { get; set; }
+}
+
+internal class CmptDmnNmbrDescrEncoder
+{
+}
+
+internal class CmptDmnNmbrPrntEncoder
+{
+}
+
+internal class CmptPrntDmnNmbrPrntEncoder
+{
+}
+
+internal class CmptDmnNmbrPrntDescrEncoder
+{
+}
+
+internal class CmptPrntDmnNmbrPrntDescrEncoder
+{
+}
+
+internal class CmptDmnNmbrPstvEncoder
+{
+}
+
+internal class CmptDmnNmbrRangeEncoder
+{
+}
+
+internal class CmptDmnStrDescrEncoder
+{
+}
+
+internal class CmptDmnStrNonEmptyEncoder
+{
+}
+
+internal class CmptDmnStrPrntEncoder
+{
+}
+
+internal class CmptPrntDmnStrPrntEncoder
+{
+}
+
+internal class CmptDmnStrPrntDescrEncoder
+{
+}
+
+internal class CmptPrntDmnStrPrntDescrEncoder
+{
+}
+
+internal class CmptEnumDescrEncoder
+{
+  public string enumDescr { get; set; }
+}
+
+internal class CmptEnumPrntEncoder
+{
+  public string prnt_enumPrnt { get; set; }
+  public string enumPrnt { get; set; }
+}
+
+internal class CmptPrntEnumPrntEncoder
+{
+  public string prnt_enumPrnt { get; set; }
+}
+
+internal class CmptEnumPrntAliasEncoder
+{
+  public string prnt_enumPrntAlias { get; set; }
+  public string val_enumPrntAlias { get; set; }
+  public string prnt_enumPrntAlias { get; set; }
+  public string enumPrntAlias { get; set; }
+}
+
+internal class CmptPrntEnumPrntAliasEncoder
+{
+  public string prnt_enumPrntAlias { get; set; }
+}
+
+internal class CmptEnumPrntDescrEncoder
+{
+  public string prnt_enumPrntDescr { get; set; }
+  public string enumPrntDescr { get; set; }
+}
+
+internal class CmptPrntEnumPrntDescrEncoder
+{
+  public string prnt_enumPrntDescr { get; set; }
+}
+
+internal class CmptEnumPrntDupEncoder
+{
+  public string prnt_enumPrntDup { get; set; }
+  public string enumPrntDup { get; set; }
+  public string enumPrntDup { get; set; }
+}
+
+internal class CmptPrntEnumPrntDupEncoder
+{
+  public string prnt_enumPrntDup { get; set; }
+  public string enumPrntDup { get; set; }
+}
+
+internal class CmptUnionDescrEncoder
+{
+  public Number AsNumber { get; set; }
+}
+
+internal class CmptUnionPrntEncoder
+{
+  public String AsString { get; set; }
+}
+
+internal class CmptPrntUnionPrntEncoder
+{
+  public Number AsNumber { get; set; }
+}
+
+internal class CmptUnionPrntDescrEncoder
+{
+  public Number AsNumber { get; set; }
+}
+
+internal class CmptPrntUnionPrntDescrEncoder
+{
+  public Number AsNumber { get; set; }
+}
+
+internal class CmptUnionPrntDupEncoder
+{
+  public Number AsNumber { get; set; }
+}
+
+internal class CmptPrntUnionPrntDupEncoder
+{
+  public Number AsNumber { get; set; }
+}

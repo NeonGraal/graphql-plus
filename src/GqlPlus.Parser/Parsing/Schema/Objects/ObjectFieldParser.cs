@@ -9,12 +9,12 @@ namespace GqlPlus.Parsing.Schema.Objects;
 internal abstract class ObjectFieldParser<TObjField, TObjFieldAst>(
   IParserRepository parsers
 ) : Parser<TObjField>.I
-  where TObjField : IGqlpObjField
+  where TObjField : IAstObjField
   where TObjFieldAst : AstObjField, TObjField
 {
   private readonly Parser<string>.LA _aliases = parsers.ArrayFor<string>();
-  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.ArrayFor<IGqlpModifier>();
-  private readonly Parser<IGqlpObjBase>.L _parseBase = parsers.ParserFor<IGqlpObjBase>();
+  private readonly Parser<IAstModifier>.LA _modifiers = parsers.ArrayFor<IAstModifier>();
+  private readonly Parser<IAstObjBase>.L _parseBase = parsers.ParserFor<IAstObjBase>();
 
   public IResult<TObjField> Parse(ITokenizer tokens, string label)
 
@@ -26,7 +26,7 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst>(
       return default(TObjField).Empty();
     }
 
-    IResultArray<IGqlpInputParam> hasParam = FieldParam(tokens);
+    IResultArray<IAstInputParam> hasParam = FieldParam(tokens);
     if (hasParam.IsError()) {
       return hasParam.AsResult<TObjField>();
     }
@@ -43,7 +43,7 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst>(
           => field = ObjField(at, name, description, fieldType))) {
         hasAliases.WithResult(aliases => field.Aliases = [.. aliases]);
         hasParam.WithResult(parameter => ApplyFieldParams(field, [.. parameter]));
-        IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, label);
+        IResultArray<IAstModifier> modifiers = _modifiers.Parse(tokens, label);
         if (modifiers.IsError()) {
           return modifiers.AsPartial<TObjField>(field);
         }
@@ -87,13 +87,13 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst>(
     return tokens.Partial<TObjField>("Output", "':' or '='", () => field);
   }
 
-  protected abstract void ApplyFieldParams(TObjFieldAst field, IGqlpInputParam[] parameters);
+  protected abstract void ApplyFieldParams(TObjFieldAst field, IAstInputParam[] parameters);
   protected abstract TObjFieldAst ObjField(
     TokenAt at,
     string name,
     string description,
-    IGqlpObjBase typeBase
+    IAstObjBase typeBase
   );
   protected abstract IResult<TObjField> FieldDefault(ITokenizer tokens, TObjFieldAst field);
-  protected abstract IResultArray<IGqlpInputParam> FieldParam(ITokenizer tokens);
+  protected abstract IResultArray<IAstInputParam> FieldParam(ITokenizer tokens);
 }

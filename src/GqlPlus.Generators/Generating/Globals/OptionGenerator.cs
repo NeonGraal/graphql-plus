@@ -1,9 +1,9 @@
 ﻿namespace GqlPlus.Generating.Globals;
 
 internal class OptionGenerator
-  : IGenerator<IGqlpSchemaOption>
+  : IGenerator<IAstSchemaOption>
 {
-  public void Generate(IGqlpSchemaOption ast, GqlpGeneratorContext context)
+  public void Generate(IAstSchemaOption ast, GqlpGeneratorContext context)
   {
     if (context.GeneratorOptions.GeneratorType == GqlpGeneratorType.Static) {
       context.Write(ast.Label + " " + ast.Name);

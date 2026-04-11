@@ -6,30 +6,30 @@ namespace GqlPlus.Verifying.Schema;
 public class VerifyAllTypesTests
   : VerifierTestsBase
 {
-  private readonly ForVU<IGqlpObject<IGqlpDualField>> _dualAllTypes = new();
-  private readonly ForVU<IGqlpEnum> _enumAllTypes = new();
-  private readonly ForVU<IGqlpObject<IGqlpInputField>> _inputAllTypes = new();
-  private readonly ForVU<IGqlpObject<IGqlpOutputField>> _outputAllTypes = new();
-  private readonly ForVU<IGqlpDomain> _domainAllTypes = new();
-  private readonly ForVU<IGqlpUnion> _unionAllTypes = new();
+  private readonly ForVU<IAstObject<IAstDualField>> _dualAllTypes = new();
+  private readonly ForVU<IAstEnum> _enumAllTypes = new();
+  private readonly ForVU<IAstObject<IAstInputField>> _inputAllTypes = new();
+  private readonly ForVU<IAstObject<IAstOutputField>> _outputAllTypes = new();
+  private readonly ForVU<IAstDomain> _domainAllTypes = new();
+  private readonly ForVU<IAstUnion> _unionAllTypes = new();
   private readonly VerifyAllTypes _verifier;
 
   public VerifyAllTypesTests()
   {
-    VerifierRepo.UsageFor<IGqlpObject<IGqlpDualField>>().Returns(_dualAllTypes.Intf);
-    VerifierRepo.UsageFor<IGqlpEnum>().Returns(_enumAllTypes.Intf);
-    VerifierRepo.UsageFor<IGqlpObject<IGqlpInputField>>().Returns(_inputAllTypes.Intf);
-    VerifierRepo.UsageFor<IGqlpObject<IGqlpOutputField>>().Returns(_outputAllTypes.Intf);
-    VerifierRepo.UsageFor<IGqlpDomain>().Returns(_domainAllTypes.Intf);
-    VerifierRepo.UsageFor<IGqlpUnion>().Returns(_unionAllTypes.Intf);
+    VerifierRepo.UsageFor<IAstObject<IAstDualField>>().Returns(_dualAllTypes.Intf);
+    VerifierRepo.UsageFor<IAstEnum>().Returns(_enumAllTypes.Intf);
+    VerifierRepo.UsageFor<IAstObject<IAstInputField>>().Returns(_inputAllTypes.Intf);
+    VerifierRepo.UsageFor<IAstObject<IAstOutputField>>().Returns(_outputAllTypes.Intf);
+    VerifierRepo.UsageFor<IAstDomain>().Returns(_domainAllTypes.Intf);
+    VerifierRepo.UsageFor<IAstUnion>().Returns(_unionAllTypes.Intf);
     _verifier = new(VerifierRepo);
   }
 
   [Fact]
   public void Verify_CallsVerifierAndMergerWithoutErrors()
   {
-    IGqlpType item1 = A.Error<IGqlpType>();
-    IGqlpType item2 = A.Error<IGqlpType>();
+    IAstType item1 = A.Error<IAstType>();
+    IAstType item2 = A.Error<IAstType>();
 
     _verifier.Verify([item1, item2], Errors);
 
@@ -54,7 +54,7 @@ public class VerifyAllTypesTests
   [Fact]
   public void Verify_Schema_WithAliasedDeclarations_ReturnsNoErrors()
   {
-    IGqlpType type = A.Enum("Enum").WithLabels(["Alias"]).AsEnum;
+    IAstType type = A.Enum("Enum").WithLabels(["Alias"]).AsEnum;
 
     _verifier.Verify([type], Errors);
 
@@ -64,9 +64,9 @@ public class VerifyAllTypesTests
   [Fact]
   public void Verify_Schema_WithAliasDuplicates_ReturnsError()
   {
-    IGqlpType type1 = A.Enum("Enum").WithLabels(["Alias"]).AsEnum;
+    IAstType type1 = A.Enum("Enum").WithLabels(["Alias"]).AsEnum;
 
-    IGqlpType type2 = A.Union("Union").WithMembers(["Alias"]).AsUnion;
+    IAstType type2 = A.Union("Union").WithMembers(["Alias"]).AsUnion;
 
     _verifier.Verify([type1, type2], Errors);
 

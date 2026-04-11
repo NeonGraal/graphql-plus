@@ -1,6 +1,6 @@
 ﻿//HintName: test_Full_Model.gen.cs
 // Generated from {CurrentDirectory}Full.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Full;
 
 public class test_Request
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Request
 {
   public string? AsString { get; set; }
@@ -16,7 +16,7 @@ public class test_Request
 }
 
 public class test_RequestObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_RequestObject
 {
   public Itest_Identifier? Category { get; set; }

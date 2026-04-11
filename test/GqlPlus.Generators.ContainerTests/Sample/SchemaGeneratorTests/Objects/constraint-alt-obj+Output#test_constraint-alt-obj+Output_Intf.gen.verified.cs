@@ -1,6 +1,6 @@
 ﻿//HintName: test_constraint-alt-obj+Output_Intf.gen.cs
 // Generated from {CurrentDirectory}constraint-alt-obj+Output.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,38 +8,38 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_obj_Output;
 
 public interface ItestCnstAltObjOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestRefCnstAltObjOutp<ItestAltCnstAltObjOutp>? AsRefCnstAltObjOutp { get; }
   ItestCnstAltObjOutpObject? As_CnstAltObjOutp { get; }
 }
 
 public interface ItestCnstAltObjOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestRefCnstAltObjOutp<TRef>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TRef? Asref { get; }
   ItestRefCnstAltObjOutpObject<TRef>? As_RefCnstAltObjOutp { get; }
 }
 
 public interface ItestRefCnstAltObjOutpObject<TRef>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestPrntCnstAltObjOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string? AsString { get; }
   ItestPrntCnstAltObjOutpObject? As_PrntCnstAltObjOutp { get; }
 }
 
 public interface ItestPrntCnstAltObjOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 

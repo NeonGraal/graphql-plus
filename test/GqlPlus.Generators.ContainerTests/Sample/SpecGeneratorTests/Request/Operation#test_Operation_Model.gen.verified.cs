@@ -1,6 +1,6 @@
 ﻿//HintName: test_Operation_Model.gen.cs
 // Generated from {CurrentDirectory}Operation.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Operation;
 
 public class test_Operation
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Operation
 {
   public string? AsString { get; set; }
@@ -16,7 +16,7 @@ public class test_Operation
 }
 
 public class test_OperationObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OperationObject
 {
   public ICollection<Itest_OpVariable> Variables { get; set; }
@@ -39,14 +39,14 @@ public class test_OperationObject
 }
 
 public class test_OpVariable
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpVariable
 {
   public Itest_OpVariableObject? As__OpVariable { get; set; }
 }
 
 public class test_OpVariableObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpVariableObject
 {
   public Itest_Identifier Name { get; set; }
@@ -68,14 +68,14 @@ public class test_OpVariableObject
 }
 
 public class test_OpDirective
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpDirective
 {
   public Itest_OpDirectiveObject? As__OpDirective { get; set; }
 }
 
 public class test_OpDirectiveObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpDirectiveObject
 {
   public Itest_Identifier Name { get; set; }
@@ -90,14 +90,14 @@ public class test_OpDirectiveObject
 }
 
 public class test_OpFragment
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpFragment
 {
   public Itest_OpFragmentObject? As__OpFragment { get; set; }
 }
 
 public class test_OpFragmentObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpFragmentObject
 {
   public Itest_Identifier Name { get; set; }
@@ -118,14 +118,14 @@ public class test_OpFragmentObject
 }
 
 public class test_Modifier
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Modifier
 {
   public Itest_ModifierObject? As__Modifier { get; set; }
 }
 
 public class test_ModifierObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_ModifierObject
 {
   public test_ModifierKind ModifierKind { get; set; }
@@ -141,7 +141,7 @@ public class test_ModifierObject
 }
 
 public class test_OpArgument
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpArgument
 {
   public Itest_OpArgValue? As_OpArgValue { get; set; }
@@ -151,7 +151,7 @@ public class test_OpArgument
 }
 
 public class test_OpArgumentObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpArgumentObject
 {
 
@@ -162,7 +162,7 @@ public class test_OpArgumentObject
 }
 
 public class test_OpArgValue
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpArgValue
 {
   public GqlpValue? AsValue { get; set; }
@@ -170,7 +170,7 @@ public class test_OpArgValue
 }
 
 public class test_OpArgValueObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpArgValueObject
 {
   public Itest_Identifier Variable { get; set; }
@@ -184,7 +184,7 @@ public class test_OpArgValueObject
 }
 
 public class test_OpArgList
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpArgList
 {
   public ICollection<Itest_OpArgValue>? As_OpArgValue { get; set; }
@@ -192,7 +192,7 @@ public class test_OpArgList
 }
 
 public class test_OpArgListObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpArgListObject
 {
 
@@ -203,7 +203,7 @@ public class test_OpArgListObject
 }
 
 public class test_OpArgMap
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpArgMap
 {
   public IDictionary<GqlpScalar, Itest_OpArgValue>? As_OpArgValue { get; set; }
@@ -211,7 +211,7 @@ public class test_OpArgMap
 }
 
 public class test_OpArgMapObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpArgMapObject
 {
   public Itest_OpArgValue Value { get; set; }

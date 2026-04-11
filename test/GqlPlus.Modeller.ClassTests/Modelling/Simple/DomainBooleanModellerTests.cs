@@ -3,9 +3,9 @@
 namespace GqlPlus.Modelling.Simple;
 
 public class DomainBooleanModellerTests
-  : DomainModellerClassTestBase<IGqlpDomainTrueFalse, DomainTrueFalseModel>
+  : DomainModellerClassTestBase<IAstDomainTrueFalse, DomainTrueFalseModel>
 {
-  protected override IDomainModeller<IGqlpDomainTrueFalse, DomainTrueFalseModel> DomainModeller { get; }
+  protected override IDomainModeller<IAstDomainTrueFalse, DomainTrueFalseModel> DomainModeller { get; }
     = new DomainBooleanModeller();
 
   protected override DomainKind Kind => DomainKind.Boolean;
@@ -23,9 +23,9 @@ public class DomainBooleanModellerTests
     ArgumentNullException.ThrowIfNull(excludeValues);
     this.SkipIf(boolValues.Length != excludeValues.Length);
 
-    IGqlpDomainTrueFalse[] items = [.. boolValues.Zip(excludeValues, A.ItemTrueFalse)];
+    IAstDomainTrueFalse[] items = [.. boolValues.Zip(excludeValues, A.ItemTrueFalse)];
 
-    IGqlpDomain<IGqlpDomainTrueFalse> ast = A.Domain<IGqlpDomainTrueFalse>(name, Kind)
+    IAstDomain<IAstDomainTrueFalse> ast = A.Domain<IAstDomainTrueFalse>(name, Kind)
       .WithItems(items).WithParent(parent).AsDomain;
 
     // Act
@@ -59,7 +59,7 @@ public class DomainBooleanModellerTests
     string parent)
   {
     // Arrange
-    IGqlpDomain<IGqlpDomainTrueFalse> ast = A.Domain<IGqlpDomainTrueFalse>(name, Kind)
+    IAstDomain<IAstDomainTrueFalse> ast = A.Domain<IAstDomainTrueFalse>(name, Kind)
       .WithParent(parent).AsDomain;
 
     // Act
@@ -79,11 +79,11 @@ public class DomainBooleanModellerTests
   public void ToModel_WithMixedTrueFalseValues_ReturnsCorrectModels()
   {
     // Arrange
-    IGqlpDomainTrueFalse trueItem = A.ItemTrueFalse(true, false);
-    IGqlpDomainTrueFalse falseItem = A.ItemTrueFalse(false, true);
-    IGqlpDomainTrueFalse excludedTrueItem = A.ItemTrueFalse(true, true);
+    IAstDomainTrueFalse trueItem = A.ItemTrueFalse(true, false);
+    IAstDomainTrueFalse falseItem = A.ItemTrueFalse(false, true);
+    IAstDomainTrueFalse excludedTrueItem = A.ItemTrueFalse(true, true);
 
-    IGqlpDomain<IGqlpDomainTrueFalse> ast = A.Domain<IGqlpDomainTrueFalse>("TestDomain", Kind)
+    IAstDomain<IAstDomainTrueFalse> ast = A.Domain<IAstDomainTrueFalse>("TestDomain", Kind)
       .WithItems(trueItem, falseItem, excludedTrueItem)
       .WithParent("parent")
       .AsDomain;

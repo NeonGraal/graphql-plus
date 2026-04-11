@@ -4,11 +4,11 @@ using GqlPlus.Token;
 namespace GqlPlus.Ast.Operation;
 
 internal sealed record class ArgAst
-  : AstValue<IGqlpArg>
-  , IGqlpArg
+  : AstValue<IAstArg>
+  , IAstArg
 {
   public string? Variable { get; internal init; }
-  public IGqlpConstant? Constant { get; }
+  public IAstConstant? Constant { get; }
 
   internal override string Abbr => "a";
 
@@ -16,18 +16,18 @@ internal sealed record class ArgAst
     : base(at) { }
   internal ArgAst(ITokenAt at, string variable)
     : base(at) => Variable = variable;
-  internal ArgAst(IGqlpFieldKey field)
+  internal ArgAst(IAstFieldKey field)
     : base((TokenAt)field.At) => Constant = new ConstantAst(field);
-  internal ArgAst(IGqlpConstant constant)
+  internal ArgAst(IAstConstant constant)
     : base(constant.At) => Constant = constant;
-  internal ArgAst(ITokenAt at, IEnumerable<IGqlpArg> values)
+  internal ArgAst(ITokenAt at, IEnumerable<IAstArg> values)
     : base(at, values) { }
-  internal ArgAst(ITokenAt at, IGqlpFields<IGqlpArg> fields)
+  internal ArgAst(ITokenAt at, IAstFields<IAstArg> fields)
     : base(at, fields) { }
 
   public bool Equals(ArgAst? other)
-    => other is IGqlpArg arg && Equals(arg);
-  public bool Equals(IGqlpArg? other)
+    => other is IAstArg arg && Equals(arg);
+  public bool Equals(IAstArg? other)
     => base.Equals(other)
     && Variable.NullEqual(other.Variable)
     && Constant.NullEqual(other.Constant);

@@ -11,7 +11,7 @@ public class ParseOptionSettingTests : ParserClassTestBase
   public ParseOptionSettingTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    ConfigureRepoInterface<IParserDefault, IGqlpConstant>(parsers, out _defaultParser);
+    ConfigureRepoInterface<IParserDefault, IAstConstant>(parsers, out _defaultParser);
     _parser = new ParseOptionSetting(parsers);
   }
 
@@ -23,10 +23,10 @@ public class ParseOptionSettingTests : ParserClassTestBase
     ParseOk(_defaultParser);
 
     // Act
-    IResult<IGqlpSchemaSetting> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstSchemaSetting> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpSchemaSetting>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstSchemaSetting>>();
   }
 
   [Theory, RepeatData]
@@ -35,10 +35,10 @@ public class ParseOptionSettingTests : ParserClassTestBase
     // Arrange
     IdentifierReturns(OutString(setting));
     ParseEmpty(_defaultParser);
-    SetupError<IGqlpSchemaSetting>();
+    SetupError<IAstSchemaSetting>();
 
     // Act
-    IResult<IGqlpSchemaSetting> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstSchemaSetting> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -50,10 +50,10 @@ public class ParseOptionSettingTests : ParserClassTestBase
     // Arrange
     IdentifierReturns(OutString(setting));
     ParseError(_defaultParser);
-    SetupError<IGqlpSchemaSetting>();
+    SetupError<IAstSchemaSetting>();
 
     // Act
-    IResult<IGqlpSchemaSetting> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstSchemaSetting> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -66,7 +66,7 @@ public class ParseOptionSettingTests : ParserClassTestBase
     IdentifierReturns(OutFail);
 
     // Act
-    IResult<IGqlpSchemaSetting> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstSchemaSetting> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

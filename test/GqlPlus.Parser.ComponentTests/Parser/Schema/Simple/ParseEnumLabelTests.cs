@@ -3,6 +3,6 @@
 namespace GqlPlus.Parser.Schema.Simple;
 
 public sealed class ParseEnumLabelTests(
-  IBaseAliasedChecks<string, IGqlpEnumLabel> checks
-) : BaseAliasedTests<string, IGqlpEnumLabel>(checks)
+  IBaseAliasedChecks<string, IAstEnumLabel> checks
+) : BaseAliasedTests<string, IAstEnumLabel>(checks)
 { }

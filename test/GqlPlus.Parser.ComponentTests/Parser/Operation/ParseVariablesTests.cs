@@ -4,7 +4,7 @@ using GqlPlus.Ast.Operation;
 namespace GqlPlus.Parser.Operation;
 
 public class ParseVariablesTests(
-  IManyChecksParser<IGqlpVariable> checks
+  IManyChecksParser<IAstVariable> checks
 )
 {
   private static VariableAst TestVar(string variable)

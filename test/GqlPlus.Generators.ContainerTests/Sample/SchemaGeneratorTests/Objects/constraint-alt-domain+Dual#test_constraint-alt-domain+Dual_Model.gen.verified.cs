@@ -1,6 +1,6 @@
 ﻿//HintName: test_constraint-alt-domain+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}constraint-alt-domain+Dual.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_domain_Dual;
 
 public class testCnstAltDmnDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCnstAltDmnDual
 {
   public ItestRefCnstAltDmnDual<ItestDomCnstAltDmnDual>? AsRefCnstAltDmnDual { get; set; }
@@ -16,7 +16,7 @@ public class testCnstAltDmnDual
 }
 
 public class testCnstAltDmnDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCnstAltDmnDualObject
 {
 
@@ -27,7 +27,7 @@ public class testCnstAltDmnDualObject
 }
 
 public class testRefCnstAltDmnDual<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstAltDmnDual<TRef>
 {
   public TRef? Asref { get; set; }
@@ -35,7 +35,7 @@ public class testRefCnstAltDmnDual<TRef>
 }
 
 public class testRefCnstAltDmnDualObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstAltDmnDualObject<TRef>
 {
 

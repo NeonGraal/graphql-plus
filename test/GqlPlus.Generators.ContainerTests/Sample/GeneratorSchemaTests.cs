@@ -32,10 +32,13 @@ public class GeneratorSchemaTests
     namespace GqlPlus.GeneratorTests;
     [GqlpGenerator(GqlpGeneratorType.Static)] 
     [GqlpGenerator(GqlpGeneratorType.Interface)] 
-    public interface IGqlpModelImplementationBase {}
-    [GqlpGenerator(GqlpGeneratorType.Enum)] 
+    public interface IGqlpInterfaceBase {}
     [GqlpGenerator(GqlpGeneratorType.Model)] 
-    public class GqlpModelImplementationBase {}
+    public class GqlpModelBase {}
+    [GqlpGenerator(GqlpGeneratorType.Decoder)] 
+    public class GqlpDecoderBase {}
+    [GqlpGenerator(GqlpGeneratorType.Encoder)] 
+    public class GqlpEncoderBase {}
 ";
 }
 

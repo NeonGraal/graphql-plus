@@ -107,5 +107,5 @@ public class ArgAstTests
       () => new ArgAst(AstNulls.At, enumValue.ArgObject(key)),
       () => new ArgAst(AstNulls.At, enumValue));
 
-  internal BaseAstChecks<IGqlpArg> _checks = new();
+  internal BaseAstChecks<IAstArg> _checks = new();
 }

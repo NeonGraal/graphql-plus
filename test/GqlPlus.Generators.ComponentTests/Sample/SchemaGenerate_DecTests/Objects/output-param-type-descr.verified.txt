@@ -1,0 +1,28 @@
+﻿/* output-param-type-descr
+output OutpParamTypeDescr { field(InOutpParamTypeDescr): "Test" "Descr" FldOutpParamTypeDescr }
+dual FldOutpParamTypeDescr { }
+input InOutpParamTypeDescr { param: Number | String }
+*/
+
+// Generated from Schema output-param-type-descr
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_output-param-type-descr, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_output_param_type_descr;
+
+internal class CmptOutpParamTypeDescrDecoder
+{
+  public ICmptFldOutpParamTypeDescr? Field(ICmptInOutpParamTypeDescr parameter)
+    => null;
+}
+
+internal class CmptFldOutpParamTypeDescrDecoder
+{
+}
+
+internal class CmptInOutpParamTypeDescrDecoder
+{
+  public decimal Param { get; set; }
+}

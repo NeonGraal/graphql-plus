@@ -1,6 +1,6 @@
 ﻿//HintName: test_parent-field+Output_Model.gen.cs
 // Generated from {CurrentDirectory}parent-field+Output.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -30,7 +30,7 @@ public class testPrntFieldOutpObject
 }
 
 public class testRefPrntFieldOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefPrntFieldOutp
 {
   public string? AsString { get; set; }
@@ -38,7 +38,7 @@ public class testRefPrntFieldOutp
 }
 
 public class testRefPrntFieldOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefPrntFieldOutpObject
 {
   public decimal Parent { get; set; }

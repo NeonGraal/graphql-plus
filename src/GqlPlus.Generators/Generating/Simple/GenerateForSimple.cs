@@ -3,7 +3,7 @@ namespace GqlPlus.Generating.Simple;
 
 internal abstract class GenerateForSimple<TSimple>
   : GenerateForClass<TSimple, MapPair<string>>
-  where TSimple : IGqlpSimple
+  where TSimple : IAstSimple
 {
   protected override void ClassMember(MapPair<string> item, GqlpGeneratorContext context)
     => context.Write($"  public {item.Value} {item.Key} {{ get; set; }}");

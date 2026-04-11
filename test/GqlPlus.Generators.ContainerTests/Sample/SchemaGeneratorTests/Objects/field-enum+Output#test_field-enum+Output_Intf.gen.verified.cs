@@ -1,6 +1,6 @@
 ﻿//HintName: test_field-enum+Output_Intf.gen.cs
 // Generated from {CurrentDirectory}field-enum+Output.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,13 +8,18 @@
 namespace GqlPlus.GeneratorTests.Gqlp_field_enum_Output;
 
 public interface ItestFieldEnumOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFieldEnumOutpObject? As_FieldEnumOutp { get; }
 }
 
 public interface ItestFieldEnumOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   testEnumFieldEnumOutp Field { get; }
+}
+
+public enum testEnumFieldEnumOutp
+{
+  fieldEnumOutp,
 }

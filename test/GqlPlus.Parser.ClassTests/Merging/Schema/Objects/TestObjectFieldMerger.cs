@@ -5,7 +5,7 @@ namespace GqlPlus.Merging.Schema.Objects;
 
 public abstract class TestObjectFieldMerger<TObjField>
   : TestAliasedMerger<TObjField>
-  where TObjField : IGqlpObjField
+  where TObjField : IAstObjField
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSameModifers_ReturnsGood(string input)

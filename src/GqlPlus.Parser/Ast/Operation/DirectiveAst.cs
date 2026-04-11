@@ -6,13 +6,13 @@ internal sealed record class DirectiveAst(
   ITokenAt At,
   string Identifier
 ) : AstIdentified(At, Identifier)
-  , IGqlpDirective
+  , IAstDirective
 {
-  public IGqlpArg? Arg { get; set; }
+  public IAstArg? Arg { get; set; }
 
   internal override string Abbr => "d";
 
-  IGqlpArg? IGqlpDirective.Arg => Arg;
+  IAstArg? IAstDirective.Arg => Arg;
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields().Concat(Arg.Bracket("(", ")"));

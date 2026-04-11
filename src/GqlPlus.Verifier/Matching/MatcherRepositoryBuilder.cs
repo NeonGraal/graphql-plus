@@ -13,7 +13,7 @@ internal class MatcherRepositoryBuilder
     => this.FluentAction(b => b.Matchers[typeof(T)] = factory);
 
   public IMatcherRepositoryBuilder AddTypeMatcher<T, TMatcher>(Factory<TMatcher, IMatcherRepository> factory)
-    where T : IGqlpType
+    where T : IAstType
     where TMatcher : class, Matcher<T>.I, ITypeMatcher
     => this.FluentAction(b => {
       b.Matchers[typeof(T)] = factory;

@@ -1,9 +1,9 @@
 ﻿namespace GqlPlus.Modelling.Simple;
 
 internal class DomainNumberModeller
-  : ModellerDomain<IGqlpDomainRange, DomainRangeModel>
+  : ModellerDomain<IAstDomainRange, DomainRangeModel>
 {
-  protected override BaseDomainModel<DomainRangeModel> ToModel(IGqlpDomain<IGqlpDomainRange> ast, IMap<TypeKindModel> typeKinds)
+  protected override BaseDomainModel<DomainRangeModel> ToModel(IAstDomain<IAstDomainRange> ast, IMap<TypeKindModel> typeKinds)
     => new(DomainKindModel.Number, ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
       Parent = ast.Parent.TypeRef(SimpleKindModel.Domain),
@@ -11,6 +11,6 @@ internal class DomainNumberModeller
       AllItems = ToAllItems(ast, typeKinds),
     };
 
-  protected override DomainRangeModel ToItem(IGqlpDomainRange ast, IMap<TypeKindModel> typeKinds)
+  protected override DomainRangeModel ToItem(IAstDomainRange ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Lower, ast.Upper, ast.Excludes, ast.Description);
 }

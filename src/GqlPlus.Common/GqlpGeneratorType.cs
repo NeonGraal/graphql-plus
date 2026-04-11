@@ -5,9 +5,12 @@ public enum GqlpGeneratorType
   None,
   Static,
   Intf,
-  Enum,
   Model,
   Test,
+  Dec,
+  Enc,
 
   Interface = Intf,
+  Decoder = Dec,
+  Encoder = Enc,
 }

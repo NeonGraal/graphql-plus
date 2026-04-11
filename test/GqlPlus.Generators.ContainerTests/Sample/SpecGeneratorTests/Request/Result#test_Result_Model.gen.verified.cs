@@ -1,6 +1,6 @@
 ﻿//HintName: test_Result_Model.gen.cs
 // Generated from {CurrentDirectory}Result.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Result;
 
 public class test_OpResult
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpResult
 {
   public Itest_OpResultObject? As__OpResult { get; set; }
 }
 
 public class test_OpResultObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpResultObject
 {
   public Itest_Identifier? Domain { get; set; }
@@ -31,7 +31,7 @@ public class test_OpResultObject
 }
 
 public class test_OpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpObject
 {
   public Itest_OpField? As_OpField { get; set; }
@@ -41,7 +41,7 @@ public class test_OpObject
 }
 
 public class test_OpObjectObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpObjectObject
 {
 
@@ -52,14 +52,14 @@ public class test_OpObjectObject
 }
 
 public class test_OpField
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpField
 {
   public Itest_OpFieldObject? As__OpField { get; set; }
 }
 
 public class test_OpFieldObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpFieldObject
 {
   public Itest_Identifier? Alias { get; set; }
@@ -84,14 +84,14 @@ public class test_OpFieldObject
 }
 
 public class test_OpInline
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpInline
 {
   public Itest_OpInlineObject? As__OpInline { get; set; }
 }
 
 public class test_OpInlineObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpInlineObject
 {
   public Itest_Identifier? Type { get; set; }
@@ -109,14 +109,14 @@ public class test_OpInlineObject
 }
 
 public class test_OpSpread
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpSpread
 {
   public Itest_OpSpreadObject? As__OpSpread { get; set; }
 }
 
 public class test_OpSpreadObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpSpreadObject
 {
   public Itest_Identifier Fragment { get; set; }

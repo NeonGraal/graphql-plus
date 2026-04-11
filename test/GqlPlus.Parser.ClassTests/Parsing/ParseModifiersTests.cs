@@ -13,13 +13,13 @@ public class ParseModifiersTests
   public void Parse_ShouldReturnModifiersArray_WhenCollectionsParserSucceeds()
   {
     // Arrange
-    IGqlpModifier[] modifiers = ParseAModifier();
+    IAstModifier[] modifiers = ParseAModifier();
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstModifier> result = _parseModifiers.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpModifier>>()
+    result.ShouldBeAssignableTo<IResultArrayOk<IAstModifier>>()
       .Required().ShouldBe(modifiers);
   }
 
@@ -30,10 +30,10 @@ public class ParseModifiersTests
     TakeReturns('?', true);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstModifier> result = _parseModifiers.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpModifier>>()
+    result.ShouldBeAssignableTo<IResultArrayOk<IAstModifier>>()
       .Required().ShouldHaveSingleItem()
       .ModifierKind.ShouldBe(ModifierKind.Opt);
   }
@@ -45,7 +45,7 @@ public class ParseModifiersTests
     ParseModifiersError();
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstModifier> result = _parseModifiers.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -59,10 +59,10 @@ public class ParseModifiersTests
     TakeReturns('?', false);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, TestLabel);
+    IResultArray<IAstModifier> result = _parseModifiers.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpModifier>>()
+    result.ShouldBeAssignableTo<IResultArrayOk<IAstModifier>>()
       .Required().ShouldBeEmpty();
   }
 }

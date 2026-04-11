@@ -37,7 +37,7 @@ public class ParseTypeArgTests(
 
 internal sealed class ParseTypeArgChecks(
   IParserRepository parsers
-) : ManyChecksParser<IGqlpTypeArg>(parsers)
+) : ManyChecksParser<IAstTypeArg>(parsers)
   , IParseTypeArgChecks
 {
   public void WithMinimum(string name)
@@ -57,7 +57,7 @@ internal sealed class ParseTypeArgChecks(
 }
 
 public interface IParseTypeArgChecks
-  : IManyChecksParser<IGqlpTypeArg>
+  : IManyChecksParser<IAstTypeArg>
 {
   void WithMinimum(string name);
   void WithMany(string[] names);

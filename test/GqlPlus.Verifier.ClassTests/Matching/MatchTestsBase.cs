@@ -3,7 +3,7 @@
 public class MatchTestsBase
   : VerifierTestsBase
 {
-  protected Map<IGqlpDescribed> Types { get; } = [];
+  protected Map<IAstDescribed> Types { get; } = [];
   protected Map<string> EnumValues { get; } = [];
   protected EnumContext Context { get; }
 

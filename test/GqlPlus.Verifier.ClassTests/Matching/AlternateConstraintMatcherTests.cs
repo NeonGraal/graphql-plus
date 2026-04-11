@@ -13,12 +13,12 @@ public class AlternateConstraintMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenMatchingAlternateMember(string name, string constraint)
   {
-    IGqlpObject objectType = A.DualObj(constraint)
+    IAstObject objectType = A.DualObj(constraint)
       .WithAlternate(name)
       .AsObject;
     Types[constraint] = objectType;
 
-    IGqlpType type = A.DualObj(name).AsObject;
+    IAstType type = A.DualObj(name).AsObject;
 
     bool result = _sut.MatchesTypeConstraint(type, constraint, Context);
 
@@ -28,19 +28,19 @@ public class AlternateConstraintMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsExpected_WhenMatchingAlternateMemberParent(string constraint, string name, string parent, bool expected)
   {
-    this.SkipEqual3(name, constraint, parent);
+    this.SkipEqualAny([name, constraint, parent]);
 
-    IGqlpObject constraintType = A.DualObj(constraint)
+    IAstObject constraintType = A.DualObj(constraint)
       .WithAlternate(name)
       .AsObject;
     Types[constraint] = constraintType;
 
-    IGqlpObject namedType = A.DualObj(name)
+    IAstObject namedType = A.DualObj(name)
       .WithParent(parent)
       .AsObject;
     Types[name] = namedType;
 
-    IGqlpType type = A.DualObj(parent).AsObject;
+    IAstType type = A.DualObj(parent).AsObject;
     Types[parent] = type;
     AnyTypeMatches(expected);
 

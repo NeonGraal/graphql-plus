@@ -2,7 +2,7 @@
 
 public abstract class ModellerClassTestBase<TAst, TModel>
   : SubstituteBase
-  where TAst : IGqlpError
+  where TAst : IAstError
   where TModel : IModelBase
 {
   [Fact]
@@ -19,12 +19,12 @@ public abstract class ModellerClassTestBase<TAst, TModel>
   protected IMap<TypeKindModel> TypeKinds { get; } = A.Of<IMap<TypeKindModel>>();
 
   internal static IModeller<TA, TM> MFor<TA, TM>()
-    where TA : IGqlpError
+    where TA : IAstError
     where TM : IModelBase
     => A.Of<IModeller<TA, TM>>();
 
   internal void ToModelReturns<TA, TM>(IModeller<TA, TM> modeller, TM result)
-    where TA : IGqlpError
+    where TA : IAstError
     where TM : IModelBase
   {
     modeller.ToModel(default, TypeKinds).ReturnsForAnyArgs(result);
@@ -32,7 +32,7 @@ public abstract class ModellerClassTestBase<TAst, TModel>
   }
 
   internal void ToModelReturns<TA, TM>(IModeller<TA, TM> modeller, TA arg, TM result)
-    where TA : IGqlpError
+    where TA : IAstError
     where TM : IModelBase
   {
     modeller.ToModel(arg, TypeKinds).Returns(result);
@@ -40,7 +40,7 @@ public abstract class ModellerClassTestBase<TAst, TModel>
   }
 
   internal void ToModelsReturns<TA, TM>(IModeller<TA, TM> modeller, TM[] results)
-    where TA : IGqlpError
+    where TA : IAstError
     where TM : IModelBase
   {
     modeller.ToModels(default, TypeKinds).ReturnsForAnyArgs(results);
@@ -49,7 +49,7 @@ public abstract class ModellerClassTestBase<TAst, TModel>
 
   internal void ToModelsReturns<TI, TA, TM>(TI modeller, IEnumerable<TA> args, TM[] results)
     where TI : IModeller<TA, TM>
-    where TA : IGqlpError
+    where TA : IAstError
     where TM : IModelBase
   {
     modeller.ToModels(args, TypeKinds).Returns(results);
@@ -57,12 +57,12 @@ public abstract class ModellerClassTestBase<TAst, TModel>
   }
 
   internal void TryModelReturns<TA, TM>(IModeller<TA, TM> modeller, TM result)
-    where TA : IGqlpError
+    where TA : IAstError
     where TM : IModelBase
     => modeller.TryModel(default, TypeKinds).ReturnsForAnyArgs(result);
 
   internal void TryModelReturns<TA, TM>(IModeller<TA, TM> modeller, TA arg, TM result)
-    where TA : IGqlpError
+    where TA : IAstError
     where TM : IModelBase
     => modeller.TryModel(arg, TypeKinds).Returns(result);
 

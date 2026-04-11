@@ -7,15 +7,15 @@ public class ParseDeclarationTests
 {
 
   private readonly string _selector = "category";
-  private readonly Parser<IGqlpDeclaration>.I _declaration;
-  private readonly ParseDeclaration<IGqlpDeclaration> _parser;
+  private readonly Parser<IAstDeclaration>.I _declaration;
+  private readonly ParseDeclaration<IAstDeclaration> _parser;
   private readonly IParserRepository _parsers;
 
   public ParseDeclarationTests()
   {
     _parsers = A.Of<IParserRepository>();
-    ConfigureRepo<IGqlpDeclaration>(_parsers, out _declaration);
-    _parser = new ParseDeclaration<IGqlpDeclaration>(_selector, _parsers);
+    ConfigureRepo<IAstDeclaration>(_parsers, out _declaration);
+    _parser = new ParseDeclaration<IAstDeclaration>(_selector, _parsers);
   }
 
   [Fact]
@@ -25,10 +25,10 @@ public class ParseDeclarationTests
     ParseOk(_declaration);
 
     // Act
-    IResult<IGqlpDeclaration> result = _parser.Parser(Tokenizer, TestLabel);
+    IResult<IAstDeclaration> result = _parser.Parser(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpDeclaration>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstDeclaration>>();
   }
 
   [Fact]
@@ -36,20 +36,20 @@ public class ParseDeclarationTests
   {
     // Arrange
     ParseError(_declaration);
-    SetupError<IGqlpDeclaration>();
+    SetupError<IAstDeclaration>();
 
     // Act
-    IResult<IGqlpDeclaration> result = _parser.Parser(Tokenizer, TestLabel);
+    IResult<IAstDeclaration> result = _parser.Parser(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultError<IGqlpDeclaration>>();
+    result.ShouldBeAssignableTo<IResultError<IAstDeclaration>>();
   }
 
   [Theory, RepeatData]
   public void Selector_ShouldReturnCorrectValue(string token)
   {
     // Arrange
-    ParseDeclaration<IGqlpDeclaration> parser = new(token, _parsers);
+    ParseDeclaration<IAstDeclaration> parser = new(token, _parsers);
 
     // Act
     string result = parser.Selector;

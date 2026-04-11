@@ -49,3 +49,10 @@ public interface ICmpt_CategoryObject
   ICmpt_TypeRef<ICmpt_TypeKind> Output { get; }
   ICollection<ICmpt_Modifiers> Modifiers { get; }
 }
+
+public enum Cmpt_Resolution
+{
+  Parallel,
+  Sequential,
+  Single,
+}

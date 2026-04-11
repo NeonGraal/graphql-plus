@@ -14,15 +14,15 @@ public static class AllMatchers
 
           .AddConstraintMatchers()
 
-          .AddTypeMatcher<IGqlpDomain, DomainMatcher>(m => new DomainMatcher(m))
-          .AddSimpleMatcher<IGqlpDomain>()
-          .AddSimpleMatcher<IGqlpEnum>()
-          .AddSimpleMatcher<IGqlpTypeSpecial>()
-          .AddSimpleMatcher<IGqlpUnion>()
+          .AddTypeMatcher<IAstDomain, DomainMatcher>(m => new DomainMatcher(m))
+          .AddSimpleMatcher<IAstDomain>()
+          .AddSimpleMatcher<IAstEnum>()
+          .AddSimpleMatcher<IAstTypeSpecial>()
+          .AddSimpleMatcher<IAstUnion>()
 
-          .AddObjectMatcher<IGqlpDualField, ObjectParentMatcher<IGqlpDualField>>(m => new ObjectParentMatcher<IGqlpDualField>(m))
-          .AddObjectDualMatcher<IGqlpInputField>()
-          .AddObjectDualMatcher<IGqlpOutputField>();
+          .AddObjectMatcher<IAstDualField, ObjectParentMatcher<IAstDualField>>(m => new ObjectParentMatcher<IAstDualField>(m))
+          .AddObjectDualMatcher<IAstInputField>()
+          .AddObjectDualMatcher<IAstOutputField>();
 
   public static IMatcherRepositoryBuilder AddConstraintMatchers([NotNull] this IMatcherRepositoryBuilder builder)
     => builder
@@ -41,15 +41,15 @@ public static class AllMatchers
   }
 
   private static IMatcherRepositoryBuilder AddSimpleMatcher<TType>(this IMatcherRepositoryBuilder builder)
-    where TType : IGqlpSimple
+    where TType : IAstSimple
     => builder.AddTypeMatcher<TType, SimpleParentMatcher<TType>>(m => new SimpleParentMatcher<TType>(m));
 
   private static IMatcherRepositoryBuilder AddObjectMatcher<TField, TMatcher>(this IMatcherRepositoryBuilder builder, Factory<TMatcher, IMatcherRepository> factory)
-    where TField : IGqlpObjField
-    where TMatcher : class, Matcher<IGqlpObject<TField>>.I, ITypeMatcher
-    => builder.AddTypeMatcher<IGqlpObject<TField>, TMatcher>(factory);
+    where TField : IAstObjField
+    where TMatcher : class, Matcher<IAstObject<TField>>.I, ITypeMatcher
+    => builder.AddTypeMatcher<IAstObject<TField>, TMatcher>(factory);
 
   private static IMatcherRepositoryBuilder AddObjectDualMatcher<TField>(this IMatcherRepositoryBuilder builder)
-    where TField : class, IGqlpObjField
+    where TField : class, IAstObjField
     => builder.AddObjectMatcher<TField, MatchObjectParentDualBase<TField>>(m => new MatchObjectParentDualBase<TField>(m));
 }

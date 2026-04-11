@@ -1,6 +1,6 @@
 ﻿//HintName: test_Full_Intf.gen.cs
 // Generated from {CurrentDirectory}Full.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Full;
 
 public interface Itest_Request
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string? AsString { get; }
   Itest_RequestObject? As__Request { get; }
 }
 
 public interface Itest_RequestObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_Identifier? Category { get; }
   Itest_Identifier? Operation { get; }

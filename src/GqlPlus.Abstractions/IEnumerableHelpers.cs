@@ -11,8 +11,8 @@ public static class IEnumerableHelpers
     => [.. items?.Select(mapper) ?? []];
 
   private static IEnumerable<string?>? AsFields<T>(IEnumerable<T>? items)
-    => items?.Any(i => i is IGqlpAbbreviated) == true
-    ? items.OfType<IGqlpAbbreviated>().SelectMany(i => i.GetFields())
+    => items?.Any(i => i is IAstAbbreviated) == true
+    ? items.OfType<IAstAbbreviated>().SelectMany(i => i.GetFields())
     : items?.Any() == true
       ? items.Select(i => $"{i}")
       : null;

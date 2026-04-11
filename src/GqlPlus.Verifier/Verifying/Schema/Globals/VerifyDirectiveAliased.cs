@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifying.Schema.Globals;
 
-internal class VerifyDirectiveAliased(IVerifierRepository verifiers) : AliasedVerifier<IGqlpSchemaDirective>(verifiers)
+internal class VerifyDirectiveAliased(IVerifierRepository verifiers) : AliasedVerifier<IAstSchemaDirective>(verifiers)
 {
   public override string Label => "Directives";
 }

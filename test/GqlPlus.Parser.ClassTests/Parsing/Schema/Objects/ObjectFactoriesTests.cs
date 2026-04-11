@@ -7,19 +7,19 @@ public partial class DualFactoriesTests
 {
   [CheckTests]
   private IObjectFactoriesChecks Checks { get; }
-    = new ObjectFactoriesChecks<IGqlpDualField, DualFieldAst>(new DualFactories());
+    = new ObjectFactoriesChecks<IAstDualField, DualFieldAst>(new DualFactories());
 }
 
 public partial class InputFactoriesTests
 {
   [CheckTests]
   private IObjectFactoriesChecks Checks { get; }
-    = new ObjectFactoriesChecks<IGqlpInputField, InputFieldAst>(new InputFactories());
+    = new ObjectFactoriesChecks<IAstInputField, InputFieldAst>(new InputFactories());
 }
 
 public partial class OutputFactoriesTests
 {
   [CheckTests]
   private IObjectFactoriesChecks Checks { get; }
-    = new ObjectFactoriesChecks<IGqlpOutputField, OutputFieldAst>(new OutputFactories());
+    = new ObjectFactoriesChecks<IAstOutputField, OutputFieldAst>(new OutputFactories());
 }

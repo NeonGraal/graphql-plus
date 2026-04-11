@@ -1,6 +1,4 @@
-﻿using GqlPlus.Abstractions;
-
-namespace GqlPlus.Structures;
+﻿namespace GqlPlus.Structures;
 
 public class Structured
   : ComplexValue<StructureValue, Structured>

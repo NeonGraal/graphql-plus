@@ -10,13 +10,13 @@ public class DomainLabelBuilder
 
   public DomainLabelBuilder(string enumType, string enumLabel)
   {
-    Add<IGqlpDomainLabel>();
+    Add<IAstDomainLabel>();
     _enumType = enumType;
     _enumLabel = enumLabel;
   }
 
   protected new T Build<T>()
-    where T : class, IGqlpDomainLabel
+    where T : class, IAstDomainLabel
   {
     T result = base.Build<T>();
     result.EnumType.Returns(_enumType);
@@ -26,8 +26,8 @@ public class DomainLabelBuilder
     return result;
   }
 
-  public IGqlpDomainLabel AsLabel
-    => Build<IGqlpDomainLabel>();
+  public IAstDomainLabel AsLabel
+    => Build<IAstDomainLabel>();
 }
 
 public static class DomainLabelBuilderHelper

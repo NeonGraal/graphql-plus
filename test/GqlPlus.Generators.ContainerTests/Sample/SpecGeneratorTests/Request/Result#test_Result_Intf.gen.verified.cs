@@ -1,6 +1,6 @@
 ﻿//HintName: test_Result_Intf.gen.cs
 // Generated from {CurrentDirectory}Result.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,13 +8,13 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Result;
 
 public interface Itest_OpResult
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_OpResultObject? As__OpResult { get; }
 }
 
 public interface Itest_OpResultObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_Identifier? Domain { get; }
   Itest_OpArgument? Argument { get; }
@@ -22,7 +22,7 @@ public interface Itest_OpResultObject
 }
 
 public interface Itest_OpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_OpField? As_OpField { get; }
   Itest_OpSpread? As_OpSpread { get; }
@@ -31,18 +31,18 @@ public interface Itest_OpObject
 }
 
 public interface Itest_OpObjectObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface Itest_OpField
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_OpFieldObject? As__OpField { get; }
 }
 
 public interface Itest_OpFieldObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_Identifier? Alias { get; }
   Itest_Identifier Field { get; }
@@ -53,13 +53,13 @@ public interface Itest_OpFieldObject
 }
 
 public interface Itest_OpInline
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_OpInlineObject? As__OpInline { get; }
 }
 
 public interface Itest_OpInlineObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_Identifier? Type { get; }
   ICollection<Itest_OpDirective> Directives { get; }
@@ -67,13 +67,13 @@ public interface Itest_OpInlineObject
 }
 
 public interface Itest_OpSpread
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_OpSpreadObject? As__OpSpread { get; }
 }
 
 public interface Itest_OpSpreadObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_Identifier Fragment { get; }
   ICollection<Itest_OpDirective> Directives { get; }

@@ -1,6 +1,6 @@
 ﻿//HintName: test_parent+Input_Model.gen.cs
 // Generated from {CurrentDirectory}parent+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -27,7 +27,7 @@ public class testPrntInpObject
 }
 
 public class testRefPrntInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefPrntInp
 {
   public string? AsString { get; set; }
@@ -35,7 +35,7 @@ public class testRefPrntInp
 }
 
 public class testRefPrntInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefPrntInpObject
 {
   public decimal Parent { get; set; }

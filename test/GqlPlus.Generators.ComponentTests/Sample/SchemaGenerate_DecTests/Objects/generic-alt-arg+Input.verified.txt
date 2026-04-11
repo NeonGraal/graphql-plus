@@ -1,0 +1,20 @@
+﻿/* generic-alt-arg+Input
+input GnrcAltArgInp<$type:String> { | RefGnrcAltArgInp<$type> }
+input RefGnrcAltArgInp<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-alt-arg+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-arg+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_arg_Input;
+
+internal class CmptGnrcAltArgInpDecoder<TType>
+{
+}
+
+internal class CmptRefGnrcAltArgInpDecoder<TRef>
+{
+}

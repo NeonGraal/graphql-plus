@@ -1,0 +1,224 @@
+﻿/* Request
+input _Request {
+        category: _Identifier? = null
+        operation: _Identifier? = null
+        definition: _Operation
+        parameters: Any? = null
+    |   "Parsed into definition" String
+    }
+
+domain _Identifier { String /[A-Za-z_][A-Za-z0-9_]*/ }
+
+input _Operation {
+        variables: _OpVariable[]
+        directives: _OpDirective[]
+        fragments: _OpFragment[]
+        result: _OpResult
+    | "Parsed into above fields, plus Request category and operation" String
+    }
+
+input _OpVariable {
+        name: _Identifier
+        type: _Identifier? = null
+        modifiers: _Modifier[]
+        default: Value?
+        directives: _OpDirective[]
+    }
+
+dual _OpDirective {
+        name: _Identifier
+        argument: _OpArgument?
+    }
+
+input _OpFragment {
+        name: _Identifier
+        type: _Identifier? = null
+        directives: _OpDirective[]
+        body: _OpObject[]
+    }
+
+enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+
+input _Modifier {
+        modifierKind: _ModifierKind
+        by: _Identifier?
+        optional: Boolean?
+    }
+
+dual _OpArgument {
+    |   _OpArgValue
+    |   _OpArgList
+    |   _OpArgMap
+    }
+
+dual _OpArgValue {
+        variable: _Identifier
+    |   Value
+    }
+
+dual _OpArgList {
+    | _OpArgValue[]
+    }
+
+dual _OpArgMap {
+        value: _OpArgValue
+        byVariable: _Identifier
+    | _OpArgValue[Scalar]
+    }
+
+input _OpResult {
+        domain: _Identifier? = null
+        argument: _OpArgument?
+        body: _OpObject[]
+    }
+
+input _OpObject {
+    |   _OpField
+    |   _OpSpread
+    |   _OpInline
+    }
+
+input _OpField {
+        alias: _Identifier? = null
+        field: _Identifier
+        argument: _OpArgument?
+        modifiers: _Modifier[]
+        directives: _OpDirective[]
+        "The body as a string as we can't have nested objects."
+        body: String
+    }
+
+input _OpInline {
+        type: _Identifier? = null
+        directives: _OpDirective[]
+        "The body as a string as we can't have nested objects."
+        body: String
+    }
+
+dual _OpSpread {
+        fragment: _Identifier
+        directives: _OpDirective[]
+    }
+*/
+
+// Generated from Spec Request
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Request, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Request;
+
+internal class Cmpt_RequestDecoder
+{
+  public ICmpt_Identifier? Category { get; set; }
+  public ICmpt_Identifier? Operation { get; set; }
+  public ICmpt_Operation Definition { get; set; }
+  public ICmpt_Any? Parameters { get; set; }
+}
+
+internal class Cmpt_IdentifierDecoder
+{
+}
+
+internal class Cmpt_OperationDecoder
+{
+  public ICollection<ICmpt_OpVariable> Variables { get; set; }
+  public ICollection<ICmpt_OpDirective> Directives { get; set; }
+  public ICollection<ICmpt_OpFragment> Fragments { get; set; }
+  public ICmpt_OpResult Result { get; set; }
+}
+
+internal class Cmpt_OpVariableDecoder
+{
+  public ICmpt_Identifier Name { get; set; }
+  public ICmpt_Identifier? Type { get; set; }
+  public ICollection<ICmpt_Modifier> Modifiers { get; set; }
+  public GqlpValue? Default { get; set; }
+  public ICollection<ICmpt_OpDirective> Directives { get; set; }
+}
+
+internal class Cmpt_OpDirectiveDecoder
+{
+  public ICmpt_Identifier Name { get; set; }
+  public ICmpt_OpArgument? Argument { get; set; }
+}
+
+internal class Cmpt_OpFragmentDecoder
+{
+  public ICmpt_Identifier Name { get; set; }
+  public ICmpt_Identifier? Type { get; set; }
+  public ICollection<ICmpt_OpDirective> Directives { get; set; }
+  public ICollection<ICmpt_OpObject> Body { get; set; }
+}
+
+internal class Cmpt_ModifierKindDecoder
+{
+  public string Opt { get; set; }
+  public string Optional { get; set; }
+  public string List { get; set; }
+  public string Dict { get; set; }
+  public string Dictionary { get; set; }
+  public string Param { get; set; }
+  public string TypeParam { get; set; }
+}
+
+internal class Cmpt_ModifierDecoder
+{
+  public Cmpt_ModifierKind ModifierKind { get; set; }
+  public ICmpt_Identifier? By { get; set; }
+  public bool? Optional { get; set; }
+}
+
+internal class Cmpt_OpArgumentDecoder
+{
+}
+
+internal class Cmpt_OpArgValueDecoder
+{
+  public ICmpt_Identifier Variable { get; set; }
+}
+
+internal class Cmpt_OpArgListDecoder
+{
+}
+
+internal class Cmpt_OpArgMapDecoder
+{
+  public ICmpt_OpArgValue Value { get; set; }
+  public ICmpt_Identifier ByVariable { get; set; }
+}
+
+internal class Cmpt_OpResultDecoder
+{
+  public ICmpt_Identifier? Domain { get; set; }
+  public ICmpt_OpArgument? Argument { get; set; }
+  public ICollection<ICmpt_OpObject> Body { get; set; }
+}
+
+internal class Cmpt_OpObjectDecoder
+{
+}
+
+internal class Cmpt_OpFieldDecoder
+{
+  public ICmpt_Identifier? Alias { get; set; }
+  public ICmpt_Identifier Field { get; set; }
+  public ICmpt_OpArgument? Argument { get; set; }
+  public ICollection<ICmpt_Modifier> Modifiers { get; set; }
+  public ICollection<ICmpt_OpDirective> Directives { get; set; }
+  public string Body { get; set; }
+}
+
+internal class Cmpt_OpInlineDecoder
+{
+  public ICmpt_Identifier? Type { get; set; }
+  public ICollection<ICmpt_OpDirective> Directives { get; set; }
+  public string Body { get; set; }
+}
+
+internal class Cmpt_OpSpreadDecoder
+{
+  public ICmpt_Identifier Fragment { get; set; }
+  public ICollection<ICmpt_OpDirective> Directives { get; set; }
+}

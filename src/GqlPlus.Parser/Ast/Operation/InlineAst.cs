@@ -4,22 +4,22 @@ namespace GqlPlus.Ast.Operation;
 
 internal sealed record class InlineAst(
   ITokenAt At,
-  params IGqlpSelection[] Selections
+  params IAstSelection[] Selections
 ) : AstAbbreviated(At)
-  , IGqlpInline
+  , IAstInline
 {
   public string? OnType { get; set; }
 
-  public IGqlpDirective[] Directives { get; set; } = [];
+  public IAstDirective[] Directives { get; set; } = [];
 
   internal override string Abbr => "i";
 
-  IEnumerable<IGqlpDirective> IGqlpDirectives.Directives => Directives;
-  IEnumerable<IGqlpSelection> IGqlpSelections.Selections => Selections;
+  IEnumerable<IAstDirective> IAstDirectives.Directives => Directives;
+  IEnumerable<IAstSelection> IAstSelections.Selections => Selections;
 
   public bool Equals(InlineAst? other)
-    => other is IGqlpInline inline && Equals(inline);
-  public bool Equals(IGqlpInline? other)
+    => other is IAstInline inline && Equals(inline);
+  public bool Equals(IAstInline? other)
     => base.Equals(other)
     && Directives.SequenceEqual(other.Directives)
     && OnType.NullEqual(other.OnType)

@@ -14,7 +14,7 @@ internal abstract class MatchLogger
     => _logger.TryingMatch(type, constraint);
 
   protected delegate bool MatchAction<TType, TContext>(TType type, string constraint, TContext context)
-    where TType : class, IGqlpNamed
+    where TType : class, IAstNamed
     where TContext : UsageContext;
 
   protected bool MatchArgOrType<TType, TContext>(
@@ -23,14 +23,14 @@ internal abstract class MatchLogger
     TContext context,
     MatchAction<TType, TContext> action
   )
-    where TType : class, IGqlpNamed
+    where TType : class, IAstNamed
     where TContext : UsageContext
   {
     if (type.Equals(constraint, StringComparison.Ordinal)) {
       return true;
     }
 
-    if (context.GetTyped(type, out IGqlpTypeParam? typeParam)) {
+    if (context.GetTyped(type, out IAstTypeParam? typeParam)) {
       return MatchArgOrType(typeParam.Constraint, constraint, context, action);
     }
 

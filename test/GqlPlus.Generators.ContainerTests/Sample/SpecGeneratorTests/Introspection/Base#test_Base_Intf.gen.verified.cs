@@ -1,6 +1,6 @@
 ﻿//HintName: test_Base_Intf.gen.cs
 // Generated from {CurrentDirectory}Base.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -79,14 +79,14 @@ public interface Itest_TypeParamObject
 }
 
 public interface Itest_ObjAlternate
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_ObjAlternateEnum? As_ObjAlternateEnum { get; }
   Itest_ObjAlternateObject? As__ObjAlternate { get; }
 }
 
 public interface Itest_ObjAlternateObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_ObjBase Type { get; }
   ICollection<Itest_Collections> Collections { get; }
@@ -105,14 +105,14 @@ public interface Itest_ObjAlternateEnumObject
 }
 
 public interface Itest_ObjectFor<TFor>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TFor? As_Parent { get; }
   Itest_ObjectForObject<TFor>? As__ObjectFor { get; }
 }
 
 public interface Itest_ObjectForObject<TFor>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_Name ObjectType { get; }
 }
@@ -155,7 +155,7 @@ public interface Itest_ObjFieldEnumObject
 }
 
 public interface Itest_ForParam<TType>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_ObjAlternate? As_ObjAlternate { get; }
   Itest_ObjField<TType>? As_ObjField { get; }
@@ -163,6 +163,6 @@ public interface Itest_ForParam<TType>
 }
 
 public interface Itest_ForParamObject<TType>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }

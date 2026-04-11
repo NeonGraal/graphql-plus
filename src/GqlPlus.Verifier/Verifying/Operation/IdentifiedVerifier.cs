@@ -5,8 +5,8 @@ namespace GqlPlus.Verifying.Operation;
 internal abstract class IdentifiedVerifier<TUsage, TIdentified>(
     IVerifierRepository verifiers
 ) : IVerifyIdentified<TUsage, TIdentified>
-  where TUsage : IGqlpError
-  where TIdentified : IGqlpIdentified
+  where TUsage : IAstError
+  where TIdentified : IAstIdentified
 {
   private readonly IVerify<TUsage> _usage = verifiers.VerifierFor<TUsage>();
   private readonly IVerify<TIdentified> _definition = verifiers.VerifierFor<TIdentified>();
@@ -45,7 +45,7 @@ internal abstract class IdentifiedVerifier<TUsage, TIdentified>(
     }
   }
 
-  private void CheckContained<T>(Map<T> map, string key, IGqlpError value, IMessages errors, string error1, string error2)
+  private void CheckContained<T>(Map<T> map, string key, IAstError value, IMessages errors, string error1, string error2)
   {
     if (!map.ContainsKey(key)) {
       errors.Add(value.MakeError($"Invalid {Label} {error1}. '{key}' not {error2}."));
@@ -57,8 +57,8 @@ internal abstract class IdentifiedVerifier<TUsage, TIdentified>(
 }
 
 public record class UsageIdentified<TUsage, TIdentified>(IEnumerable<TUsage> Usages, IEnumerable<TIdentified> Definitions)
-  where TUsage : IGqlpError where TIdentified : IGqlpIdentified;
+  where TUsage : IAstError where TIdentified : IAstIdentified;
 
 public interface IVerifyIdentified<TUsage, TIdentified> : IVerify<UsageIdentified<TUsage, TIdentified>>
-    where TUsage : IGqlpError where TIdentified : IGqlpIdentified
+    where TUsage : IAstError where TIdentified : IAstIdentified
 { }

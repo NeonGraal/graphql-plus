@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-alt-simple+Output_Model.gen.cs
 // Generated from {CurrentDirectory}generic-alt-simple+Output.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_simple_Output;
 
 public class testGnrcAltSmplOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcAltSmplOutp
 {
   public ItestRefGnrcAltSmplOutp<string>? AsRefGnrcAltSmplOutp { get; set; }
@@ -16,7 +16,7 @@ public class testGnrcAltSmplOutp
 }
 
 public class testGnrcAltSmplOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcAltSmplOutpObject
 {
 
@@ -27,7 +27,7 @@ public class testGnrcAltSmplOutpObject
 }
 
 public class testRefGnrcAltSmplOutp<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcAltSmplOutp<TRef>
 {
   public TRef? Asref { get; set; }
@@ -35,7 +35,7 @@ public class testRefGnrcAltSmplOutp<TRef>
 }
 
 public class testRefGnrcAltSmplOutpObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcAltSmplOutpObject<TRef>
 {
 

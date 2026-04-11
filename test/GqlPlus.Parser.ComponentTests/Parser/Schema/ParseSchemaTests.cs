@@ -9,7 +9,7 @@ public class ParseSchemaTests(
   IParserRepository parsers
 )
 {
-  private readonly Parser<IGqlpSchema>.L _parser = parsers.ParserFor<IGqlpSchema>();
+  private readonly Parser<IAstSchema>.L _parser = parsers.ParserFor<IAstSchema>();
 
   [Theory]
   [InlineData("category { Query }")]
@@ -21,7 +21,7 @@ public class ParseSchemaTests(
   {
     Tokenizer tokens = new(input);
 
-    IGqlpSchema result = _parser.Parse(tokens, "Schema").Required();
+    IAstSchema result = _parser.Parse(tokens, "Schema").Required();
 
     result.ShouldSatisfyAllConditions(
       r => r.ShouldBeOfType<SchemaAst>()
@@ -35,7 +35,7 @@ public class ParseSchemaTests(
   {
     Tokenizer tokens = new(input);
 
-    IResult<IGqlpSchema> result = _parser.Parse(tokens, "Schema");
+    IResult<IAstSchema> result = _parser.Parse(tokens, "Schema");
     result.Optional(ast =>
       result.ShouldSatisfyAllConditions(
         () => ast.ShouldBeNull(),
@@ -49,7 +49,7 @@ public class ParseSchemaTests(
   {
     Tokenizer tokens = new(input);
 
-    IGqlpSchema? ast = _parser.Parse(tokens, "Schema").Optional();
+    IAstSchema? ast = _parser.Parse(tokens, "Schema").Optional();
 
     ast.ShouldSatisfyAllConditions(
       a => a.ShouldBeOfType<SchemaAst>()

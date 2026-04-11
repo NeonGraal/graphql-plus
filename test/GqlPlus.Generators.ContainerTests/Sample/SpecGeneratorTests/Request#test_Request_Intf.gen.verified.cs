@@ -1,6 +1,6 @@
 ﻿//HintName: test_Request_Intf.gen.cs
 // Generated from {CurrentDirectory}Request.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Request;
 
 public interface Itest_Request
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string? AsString { get; }
   Itest_RequestObject? As__Request { get; }
 }
 
 public interface Itest_RequestObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_Identifier? Category { get; }
   Itest_Identifier? Operation { get; }
@@ -29,14 +29,14 @@ public interface Itest_Identifier
 }
 
 public interface Itest_Operation
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string? AsString { get; }
   Itest_OperationObject? As__Operation { get; }
 }
 
 public interface Itest_OperationObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ICollection<Itest_OpVariable> Variables { get; }
   ICollection<Itest_OpDirective> Directives { get; }
@@ -45,13 +45,13 @@ public interface Itest_OperationObject
 }
 
 public interface Itest_OpVariable
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_OpVariableObject? As__OpVariable { get; }
 }
 
 public interface Itest_OpVariableObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_Identifier Name { get; }
   Itest_Identifier? Type { get; }
@@ -61,26 +61,26 @@ public interface Itest_OpVariableObject
 }
 
 public interface Itest_OpDirective
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_OpDirectiveObject? As__OpDirective { get; }
 }
 
 public interface Itest_OpDirectiveObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_Identifier Name { get; }
   Itest_OpArgument? Argument { get; }
 }
 
 public interface Itest_OpFragment
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_OpFragmentObject? As__OpFragment { get; }
 }
 
 public interface Itest_OpFragmentObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_Identifier Name { get; }
   Itest_Identifier? Type { get; }
@@ -88,14 +88,25 @@ public interface Itest_OpFragmentObject
   ICollection<Itest_OpObject> Body { get; }
 }
 
+public enum test_ModifierKind
+{
+  Opt,
+  Optional = Opt,
+  List,
+  Dict,
+  Dictionary = Dict,
+  Param,
+  TypeParam = Param,
+}
+
 public interface Itest_Modifier
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_ModifierObject? As__Modifier { get; }
 }
 
 public interface Itest_ModifierObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   test_ModifierKind ModifierKind { get; }
   Itest_Identifier? By { get; }
@@ -103,7 +114,7 @@ public interface Itest_ModifierObject
 }
 
 public interface Itest_OpArgument
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_OpArgValue? As_OpArgValue { get; }
   Itest_OpArgList? As_OpArgList { get; }
@@ -112,57 +123,57 @@ public interface Itest_OpArgument
 }
 
 public interface Itest_OpArgumentObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface Itest_OpArgValue
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   GqlpValue? AsValue { get; }
   Itest_OpArgValueObject? As__OpArgValue { get; }
 }
 
 public interface Itest_OpArgValueObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_Identifier Variable { get; }
 }
 
 public interface Itest_OpArgList
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ICollection<Itest_OpArgValue>? As_OpArgValue { get; }
   Itest_OpArgListObject? As__OpArgList { get; }
 }
 
 public interface Itest_OpArgListObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface Itest_OpArgMap
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   IDictionary<GqlpScalar, Itest_OpArgValue>? As_OpArgValue { get; }
   Itest_OpArgMapObject? As__OpArgMap { get; }
 }
 
 public interface Itest_OpArgMapObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_OpArgValue Value { get; }
   Itest_Identifier ByVariable { get; }
 }
 
 public interface Itest_OpResult
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_OpResultObject? As__OpResult { get; }
 }
 
 public interface Itest_OpResultObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_Identifier? Domain { get; }
   Itest_OpArgument? Argument { get; }
@@ -170,7 +181,7 @@ public interface Itest_OpResultObject
 }
 
 public interface Itest_OpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_OpField? As_OpField { get; }
   Itest_OpSpread? As_OpSpread { get; }
@@ -179,18 +190,18 @@ public interface Itest_OpObject
 }
 
 public interface Itest_OpObjectObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface Itest_OpField
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_OpFieldObject? As__OpField { get; }
 }
 
 public interface Itest_OpFieldObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_Identifier? Alias { get; }
   Itest_Identifier Field { get; }
@@ -201,13 +212,13 @@ public interface Itest_OpFieldObject
 }
 
 public interface Itest_OpInline
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_OpInlineObject? As__OpInline { get; }
 }
 
 public interface Itest_OpInlineObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_Identifier? Type { get; }
   ICollection<Itest_OpDirective> Directives { get; }
@@ -215,13 +226,13 @@ public interface Itest_OpInlineObject
 }
 
 public interface Itest_OpSpread
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_OpSpreadObject? As__OpSpread { get; }
 }
 
 public interface Itest_OpSpreadObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_Identifier Fragment { get; }
   ICollection<Itest_OpDirective> Directives { get; }

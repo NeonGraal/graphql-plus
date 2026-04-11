@@ -190,6 +190,17 @@ public interface ICmpt_OpFragmentObject
   ICollection<ICmpt_OpObject> Body { get; }
 }
 
+public enum Cmpt_ModifierKind
+{
+  Opt,
+  Optional = Opt,
+  List,
+  Dict,
+  Dictionary = Dict,
+  Param,
+  TypeParam = Param,
+}
+
 public interface ICmpt_Modifier
   : Spec_Request
 {

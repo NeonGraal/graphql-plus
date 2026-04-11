@@ -8,19 +8,19 @@ internal class GeneratorRepository
   , IGeneratorRepository
 {
   private readonly GeneratorRepositoryBuilder _builder;
-  private readonly Lazy<IEnumerable<ITypeGenerator>> _typeGenerators;
+  private readonly Lazy<IDictionary<GqlpGeneratorType, IEnumerable<ITypeGenerator>>> _typeGenerators;
 
   public GeneratorRepository(GeneratorRepositoryBuilder builder, ILoggerFactory loggerFactory)
     : base(loggerFactory)
   {
     _builder = builder;
-    _typeGenerators = new(() =>
-      [.. builder.TypeGenerators.Select(f => (ITypeGenerator)f(this))]);
+    _typeGenerators = new(() => builder.TypeGenerators
+      .ToDictionary(kv => kv.Key, kv => (IEnumerable<ITypeGenerator>)[.. kv.Value.Select(f => f(this))]));
   }
 
   public IGenerator<TAst> GeneratorFor<TAst>()
-    where TAst : IGqlpError
+    where TAst : IAstError
     => Cached<TAst, IGenerator<TAst>>(_builder.Generators, "generator", this);
 
-  public IEnumerable<ITypeGenerator> TypeGenerators => _typeGenerators.Value;
+  public IDictionary<GqlpGeneratorType, IEnumerable<ITypeGenerator>> TypeGenerators => _typeGenerators.Value;
 }

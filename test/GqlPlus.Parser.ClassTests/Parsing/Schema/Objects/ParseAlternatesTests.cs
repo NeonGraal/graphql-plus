@@ -5,14 +5,14 @@ namespace GqlPlus.Parsing.Schema.Objects;
 public class ParseAlternatesTests
   : ModifiersClassTestBase
 {
-  private readonly Parser<IGqlpObjBase>.I _parseBase;
-  private readonly Parser<IGqlpEnumValue>.I _parseEnum;
+  private readonly Parser<IAstObjBase>.I _parseBase;
+  private readonly Parser<IAstEnumValue>.I _parseEnum;
   private readonly ParseAlternates _parser;
 
   public ParseAlternatesTests()
   {
-    ConfigureRepo<IGqlpObjBase>(Parsers, out _parseBase);
-    ConfigureRepo<IGqlpEnumValue>(Parsers, out _parseEnum);
+    ConfigureRepo<IAstObjBase>(Parsers, out _parseBase);
+    ConfigureRepo<IAstEnumValue>(Parsers, out _parseEnum);
     _parser = new ParseAlternates(Parsers);
   }
 
@@ -24,10 +24,10 @@ public class ParseAlternatesTests
     ParseOk(_parseBase);
 
     // Act
-    IResultArray<IGqlpAlternate> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IAstAlternate> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpAlternate>>()
+    result.ShouldBeAssignableTo<IResultArrayOk<IAstAlternate>>()
       .Required().ShouldNotBeEmpty();
   }
 
@@ -39,10 +39,10 @@ public class ParseAlternatesTests
     ParseOk(_parseEnum);
 
     // Act
-    IResultArray<IGqlpAlternate> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IAstAlternate> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpAlternate>>()
+    result.ShouldBeAssignableTo<IResultArrayOk<IAstAlternate>>()
       .Required().ShouldNotBeEmpty();
   }
 
@@ -53,10 +53,10 @@ public class ParseAlternatesTests
     TakeAnyReturns(OutFail);
 
     // Act
-    IResultArray<IGqlpAlternate> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IAstAlternate> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpAlternate>>()
+    result.ShouldBeAssignableTo<IResultArrayOk<IAstAlternate>>()
       .Required().ShouldBeEmpty();
   }
 
@@ -66,13 +66,13 @@ public class ParseAlternatesTests
     // Arrange
     TakeAnyReturns(OutChar('|'));
     ParseError(_parseBase);
-    SetupPartial<IGqlpAlternate>();
+    SetupPartial<IAstAlternate>();
 
     // Act
-    IResultArray<IGqlpAlternate> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IAstAlternate> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpAlternate>>();
+    result.ShouldBeAssignableTo<IResultArrayPartial<IAstAlternate>>();
   }
 
   [Fact]
@@ -81,12 +81,12 @@ public class ParseAlternatesTests
     // Arrange
     TakeAnyReturns(OutChar('!'));
     ParseError(_parseEnum);
-    SetupPartial<IGqlpAlternate>();
+    SetupPartial<IAstAlternate>();
 
     // Act
-    IResultArray<IGqlpAlternate> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IAstAlternate> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpAlternate>>();
+    result.ShouldBeAssignableTo<IResultArrayPartial<IAstAlternate>>();
   }
 }

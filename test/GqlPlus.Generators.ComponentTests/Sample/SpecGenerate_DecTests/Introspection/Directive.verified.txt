@@ -1,0 +1,46 @@
+﻿/* Directive
+output _Directives {
+    : _AndType
+        directive: _Directive
+    | _Directive
+    }
+
+output _Directive {
+    : _Aliased
+        parameter: _InputFieldType?
+        repeatable: Boolean
+        locations: _[_Location]
+    }
+
+enum _Location { Operation Variable Field Inline Spread Fragment }
+*/
+
+// Generated from Spec Directive
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Directive, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Directive;
+
+internal class Cmpt_DirectivesDecoder
+{
+  public ICmpt_Directive Directive { get; set; }
+}
+
+internal class Cmpt_DirectiveDecoder
+{
+  public ICmpt_InputFieldType? Parameter { get; set; }
+  public bool Repeatable { get; set; }
+  public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
+}
+
+internal class Cmpt_LocationDecoder
+{
+  public string Operation { get; set; }
+  public string Variable { get; set; }
+  public string Field { get; set; }
+  public string Inline { get; set; }
+  public string Spread { get; set; }
+  public string Fragment { get; set; }
+}

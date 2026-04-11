@@ -1,6 +1,6 @@
 ﻿//HintName: test_parent-descr+Input_Intf.gen.cs
 // Generated from {CurrentDirectory}parent-descr+Input.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -19,14 +19,14 @@ public interface ItestPrntDescrInpObject
 }
 
 public interface ItestRefPrntDescrInp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string? AsString { get; }
   ItestRefPrntDescrInpObject? As_RefPrntDescrInp { get; }
 }
 
 public interface ItestRefPrntDescrInpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   decimal Parent { get; }
 }

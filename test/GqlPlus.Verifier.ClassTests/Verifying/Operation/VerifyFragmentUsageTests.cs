@@ -3,40 +3,40 @@
 namespace GqlPlus.Verifying.Operation;
 
 public class VerifyFragmentUsageTests
-  : IdentifiedVerifierTestsBase<IGqlpSpread, IGqlpFragment>
+  : IdentifiedVerifierTestsBase<IAstSpread, IAstFragment>
 {
   [Fact]
   public void Verify_WithCycle()
   {
-    IEnumerable<IGqlpSpread> usage1 = OneUsage("frag1");
-    IEnumerable<IGqlpSpread> usage2 = OneUsage("frag2");
+    IEnumerable<IAstSpread> usage1 = OneUsage("frag1");
+    IEnumerable<IAstSpread> usage2 = OneUsage("frag2");
 
-    IGqlpFragment definition1 = OneDefinition("frag1").First();
-    definition1.Selections.Returns(usage2.Cast<IGqlpSelection>());
-    IGqlpFragment definition2 = OneDefinition("frag2").First();
-    definition2.Selections.Returns(usage1.Cast<IGqlpSelection>());
+    IAstFragment definition1 = OneDefinition("frag1").First();
+    definition1.Selections.Returns(usage2.Cast<IAstSelection>());
+    IAstFragment definition2 = OneDefinition("frag2").First();
+    definition2.Selections.Returns(usage1.Cast<IAstSelection>());
 
-    UsageIdentified<IGqlpSpread, IGqlpFragment> item = new(usage1.Concat(usage2), [definition1, definition2]);
+    UsageIdentified<IAstSpread, IAstFragment> item = new(usage1.Concat(usage2), [definition1, definition2]);
 
     VerifyWithErrors(item, 1);
   }
 
-  protected override IEnumerable<IGqlpFragment> OneDefinition(string name)
+  protected override IEnumerable<IAstFragment> OneDefinition(string name)
   {
-    IGqlpFragment definition = A.Error<IGqlpFragment>();
+    IAstFragment definition = A.Error<IAstFragment>();
     definition.Identifier.Returns(name);
 
     return [definition];
   }
 
-  protected override IEnumerable<IGqlpSpread> OneUsage(string key)
+  protected override IEnumerable<IAstSpread> OneUsage(string key)
   {
-    IGqlpSpread usage = A.Error<IGqlpSpread>();
+    IAstSpread usage = A.Error<IAstSpread>();
     usage.Identifier.Returns(key);
 
     return [usage];
   }
 
-  internal override IdentifiedVerifier<IGqlpSpread, IGqlpFragment> NewVerifier()
+  internal override IdentifiedVerifier<IAstSpread, IAstFragment> NewVerifier()
     => new VerifyFragmentUsage(VerifierRepo);
 }

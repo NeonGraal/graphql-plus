@@ -5,8 +5,8 @@ using GqlPlus.Building.Schema.Simple;
 namespace GqlPlus.Modelling.Simple;
 
 public abstract class DomainModellerClassTestBase<TItemAst, TItemModel>
-  : TypeModellerTests<IGqlpDomain<TItemAst>, BaseDomainModel<TItemModel>>
-  where TItemAst : class, IGqlpDomainItem
+  : TypeModellerTests<IAstDomain<TItemAst>, BaseDomainModel<TItemModel>>
+  where TItemAst : class, IAstDomainItem
   where TItemModel : BaseDomainItemModel
 {
   protected DomainModellerClassTestBase()
@@ -22,7 +22,7 @@ public abstract class DomainModellerClassTestBase<TItemAst, TItemModel>
   {
     // Arrange
     TItemAst item = A.Error<TItemAst>();
-    IGqlpDomain<TItemAst> ast = A.Domain<TItemAst>(name, Kind)
+    IAstDomain<TItemAst> ast = A.Domain<TItemAst>(name, Kind)
       .WithParent(parent)
       .WithAliases(aliases)
       .WithDescr(contents)
@@ -52,7 +52,7 @@ public abstract class DomainModellerClassTestBase<TItemAst, TItemModel>
   {
     // Arrange
     TItemAst item = A.Descr<TItemAst>(contents);
-    IGqlpDomain<TItemAst> ast = A.Domain<TItemAst>(name, Kind)
+    IAstDomain<TItemAst> ast = A.Domain<TItemAst>(name, Kind)
       .WithDescr(contents)
       .WithItems(item)
       .AsDomain;
@@ -74,7 +74,7 @@ public abstract class DomainModellerClassTestBase<TItemAst, TItemModel>
   public void ToModel_WithNullParent_ReturnsBaseDomainModelWithNullParent(string name)
   {
     // Arrange
-    IGqlpDomain<TItemAst> ast = A.Domain<TItemAst>(name, Kind).AsDomain;
+    IAstDomain<TItemAst> ast = A.Domain<TItemAst>(name, Kind).AsDomain;
 
     // Act
     BaseDomainModel<TItemModel> result = DomainModeller.ToModel(ast, TypeKinds);
@@ -89,5 +89,5 @@ public abstract class DomainModellerClassTestBase<TItemAst, TItemModel>
   protected abstract DomainKind Kind { get; }
   protected abstract DomainKindModel KindModel { get; }
   protected abstract IDomainModeller<TItemAst, TItemModel> DomainModeller { get; }
-  protected sealed override IModeller<IGqlpDomain<TItemAst>, BaseDomainModel<TItemModel>> Modeller => DomainModeller;
+  protected sealed override IModeller<IAstDomain<TItemAst>, BaseDomainModel<TItemModel>> Modeller => DomainModeller;
 }

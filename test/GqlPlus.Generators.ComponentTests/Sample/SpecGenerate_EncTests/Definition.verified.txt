@@ -1,0 +1,123 @@
+﻿/* Definition
+enum Boolean [bool, ^] { false true }
+
+enum Null [null] { null }
+
+enum Unit [_] { _ }
+
+"No valid value"enum Void { }
+
+domain Number [int, 0] { Number }
+
+domain String [str, *] { String }
+
+union _Basic [Basic] { Boolean Number String Unit }
+
+union _Internal [Internal] { Null Void }
+
+union _Key [Key] { _Basic _Internal _Simple }
+
+"%"
+dual _Object [Object, obj, %] { }
+
+"All user defined Domain types" union _Domain [Domain] { }
+"All user defined Dual types" dual _Dual [Dual] { }
+"All user defined Enum types" union _Enum [Enum] { }
+"All user defined Input types" input _Input [Input] { }
+"All user defined Output types" output _Output [Output] { }
+"All user defined Union types" union _Union [Union] { }
+
+union _Simple [Simple] { _Enum _Domain _Union }
+*/
+
+// Generated from Spec Definition
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Definition, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Definition;
+
+internal class boolEncoder
+{
+  public string false { get; set; }
+  public string true { get; set; }
+}
+
+internal class GqlpNullEncoder
+{
+  public string null { get; set; }
+}
+
+internal class GqlpUnitEncoder
+{
+  public string _ { get; set; }
+}
+
+internal class voidEncoder
+{
+}
+
+internal class decimalEncoder
+{
+}
+
+internal class stringEncoder
+{
+}
+
+internal class Cmpt_BasicEncoder
+{
+  public Boolean AsBoolean { get; set; }
+  public Number AsNumber { get; set; }
+  public String AsString { get; set; }
+  public Unit AsUnit { get; set; }
+}
+
+internal class Cmpt_InternalEncoder
+{
+  public Null AsNull { get; set; }
+  public Void AsVoid { get; set; }
+}
+
+internal class Cmpt_KeyEncoder
+{
+  public _Basic As_Basic { get; set; }
+  public _Internal As_Internal { get; set; }
+  public _Simple As_Simple { get; set; }
+}
+
+internal class Cmpt_ObjectEncoder
+{
+}
+
+internal class Cmpt_DomainEncoder
+{
+}
+
+internal class Cmpt_DualEncoder
+{
+}
+
+internal class Cmpt_EnumEncoder
+{
+}
+
+internal class Cmpt_InputEncoder
+{
+}
+
+internal class Cmpt_OutputEncoder
+{
+}
+
+internal class Cmpt_UnionEncoder
+{
+}
+
+internal class Cmpt_SimpleEncoder
+{
+  public _Enum As_Enum { get; set; }
+  public _Domain As_Domain { get; set; }
+  public _Union As_Union { get; set; }
+}

@@ -1,6 +1,6 @@
 ﻿//HintName: test_Request_Model.gen.cs
 // Generated from {CurrentDirectory}Request.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Request;
 
 public class test_Request
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Request
 {
   public string? AsString { get; set; }
@@ -16,7 +16,7 @@ public class test_Request
 }
 
 public class test_RequestObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_RequestObject
 {
   public Itest_Identifier? Category { get; set; }
@@ -39,7 +39,7 @@ public class test_Identifier
 }
 
 public class test_Operation
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Operation
 {
   public string? AsString { get; set; }
@@ -47,7 +47,7 @@ public class test_Operation
 }
 
 public class test_OperationObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OperationObject
 {
   public ICollection<Itest_OpVariable> Variables { get; set; }
@@ -70,14 +70,14 @@ public class test_OperationObject
 }
 
 public class test_OpVariable
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpVariable
 {
   public Itest_OpVariableObject? As__OpVariable { get; set; }
 }
 
 public class test_OpVariableObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpVariableObject
 {
   public Itest_Identifier Name { get; set; }
@@ -99,14 +99,14 @@ public class test_OpVariableObject
 }
 
 public class test_OpDirective
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpDirective
 {
   public Itest_OpDirectiveObject? As__OpDirective { get; set; }
 }
 
 public class test_OpDirectiveObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpDirectiveObject
 {
   public Itest_Identifier Name { get; set; }
@@ -121,14 +121,14 @@ public class test_OpDirectiveObject
 }
 
 public class test_OpFragment
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpFragment
 {
   public Itest_OpFragmentObject? As__OpFragment { get; set; }
 }
 
 public class test_OpFragmentObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpFragmentObject
 {
   public Itest_Identifier Name { get; set; }
@@ -149,14 +149,14 @@ public class test_OpFragmentObject
 }
 
 public class test_Modifier
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_Modifier
 {
   public Itest_ModifierObject? As__Modifier { get; set; }
 }
 
 public class test_ModifierObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_ModifierObject
 {
   public test_ModifierKind ModifierKind { get; set; }
@@ -172,7 +172,7 @@ public class test_ModifierObject
 }
 
 public class test_OpArgument
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpArgument
 {
   public Itest_OpArgValue? As_OpArgValue { get; set; }
@@ -182,7 +182,7 @@ public class test_OpArgument
 }
 
 public class test_OpArgumentObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpArgumentObject
 {
 
@@ -193,7 +193,7 @@ public class test_OpArgumentObject
 }
 
 public class test_OpArgValue
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpArgValue
 {
   public GqlpValue? AsValue { get; set; }
@@ -201,7 +201,7 @@ public class test_OpArgValue
 }
 
 public class test_OpArgValueObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpArgValueObject
 {
   public Itest_Identifier Variable { get; set; }
@@ -215,7 +215,7 @@ public class test_OpArgValueObject
 }
 
 public class test_OpArgList
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpArgList
 {
   public ICollection<Itest_OpArgValue>? As_OpArgValue { get; set; }
@@ -223,7 +223,7 @@ public class test_OpArgList
 }
 
 public class test_OpArgListObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpArgListObject
 {
 
@@ -234,7 +234,7 @@ public class test_OpArgListObject
 }
 
 public class test_OpArgMap
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpArgMap
 {
   public IDictionary<GqlpScalar, Itest_OpArgValue>? As_OpArgValue { get; set; }
@@ -242,7 +242,7 @@ public class test_OpArgMap
 }
 
 public class test_OpArgMapObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpArgMapObject
 {
   public Itest_OpArgValue Value { get; set; }
@@ -259,14 +259,14 @@ public class test_OpArgMapObject
 }
 
 public class test_OpResult
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpResult
 {
   public Itest_OpResultObject? As__OpResult { get; set; }
 }
 
 public class test_OpResultObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpResultObject
 {
   public Itest_Identifier? Domain { get; set; }
@@ -282,7 +282,7 @@ public class test_OpResultObject
 }
 
 public class test_OpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpObject
 {
   public Itest_OpField? As_OpField { get; set; }
@@ -292,7 +292,7 @@ public class test_OpObject
 }
 
 public class test_OpObjectObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpObjectObject
 {
 
@@ -303,14 +303,14 @@ public class test_OpObjectObject
 }
 
 public class test_OpField
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpField
 {
   public Itest_OpFieldObject? As__OpField { get; set; }
 }
 
 public class test_OpFieldObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpFieldObject
 {
   public Itest_Identifier? Alias { get; set; }
@@ -335,14 +335,14 @@ public class test_OpFieldObject
 }
 
 public class test_OpInline
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpInline
 {
   public Itest_OpInlineObject? As__OpInline { get; set; }
 }
 
 public class test_OpInlineObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpInlineObject
 {
   public Itest_Identifier? Type { get; set; }
@@ -360,14 +360,14 @@ public class test_OpInlineObject
 }
 
 public class test_OpSpread
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpSpread
 {
   public Itest_OpSpreadObject? As__OpSpread { get; set; }
 }
 
 public class test_OpSpreadObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_OpSpreadObject
 {
   public Itest_Identifier Fragment { get; set; }

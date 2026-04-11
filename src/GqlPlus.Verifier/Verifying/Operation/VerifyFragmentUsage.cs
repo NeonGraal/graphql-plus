@@ -2,14 +2,15 @@
 
 namespace GqlPlus.Verifying.Operation;
 
-internal class VerifyFragmentUsage(IVerifierRepository verifiers) : IdentifiedVerifier<IGqlpSpread, IGqlpFragment>(verifiers)
+internal class VerifyFragmentUsage(IVerifierRepository verifiers) : IdentifiedVerifier<IAstSpread, IAstFragment>(verifiers)
 {
   public override string Label => "Spread";
 
-  public override string UsageKey(IGqlpSpread item) => item.Identifier;
-  protected override void VerifyDefinitions(Map<IGqlpFragment> defined, IMessages errors)
+  public override string UsageKey(IAstSpread item) => item.Identifier;
+
+  protected override void VerifyDefinitions(Map<IAstFragment> defined, IMessages errors)
   {
-    foreach (MapPair<IGqlpFragment> def in defined) {
+    foreach (MapPair<IAstFragment> def in defined) {
       HashSet<string> visited = [];
       if (HasCycle(def.Value, defined, visited)) {
         errors.Add(def.Value.MakeError("Invalid Fragment definition. Fragment has cyclic dependency."));
@@ -17,14 +18,14 @@ internal class VerifyFragmentUsage(IVerifierRepository verifiers) : IdentifiedVe
     }
   }
 
-  private bool HasCycle(IGqlpFragment value, Map<IGqlpFragment> defined, HashSet<string> visited)
+  private bool HasCycle(IAstFragment value, Map<IAstFragment> defined, HashSet<string> visited)
   {
-    foreach (IGqlpSpread spread in value.Selections.OfType<IGqlpSpread>()) {
+    foreach (IAstSpread spread in value.Selections.OfType<IAstSpread>()) {
       if (visited.Contains(spread.Identifier)) {
         return true;
       }
 
-      if (defined.TryGetValue(spread.Identifier, out IGqlpFragment? fragment)) {
+      if (defined.TryGetValue(spread.Identifier, out IAstFragment? fragment)) {
         visited.Add(spread.Identifier);
         if (HasCycle(fragment, defined, visited)) {
           return true;

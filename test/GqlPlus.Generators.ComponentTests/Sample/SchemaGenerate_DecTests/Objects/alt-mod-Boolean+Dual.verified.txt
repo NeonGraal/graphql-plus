@@ -1,0 +1,21 @@
+﻿/* alt-mod-Boolean+Dual
+dual AltModBoolDual { | AltAltModBoolDual[^] }
+dual AltAltModBoolDual { alt: Number | String }
+*/
+
+// Generated from Schema alt-mod-Boolean+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-mod-Boolean+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_mod_Boolean_Dual;
+
+internal class CmptAltModBoolDualDecoder
+{
+}
+
+internal class CmptAltAltModBoolDualDecoder
+{
+  public decimal Alt { get; set; }
+}

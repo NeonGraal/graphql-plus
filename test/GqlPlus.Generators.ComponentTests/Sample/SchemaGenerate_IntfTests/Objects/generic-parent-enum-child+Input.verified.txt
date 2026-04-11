@@ -35,3 +35,14 @@ public interface ICmptFieldGnrcPrntEnumChildInpObject<TRef>
 {
   TRef Field { get; }
 }
+
+public enum CmptEnumGnrcPrntEnumChildInp
+{
+  gnrcPrntEnumChildInpParent = CmptParentGnrcPrntEnumChildInp.gnrcPrntEnumChildInpParent,
+  gnrcPrntEnumChildInpLabel,
+}
+
+public enum CmptParentGnrcPrntEnumChildInp
+{
+  gnrcPrntEnumChildInpParent,
+}

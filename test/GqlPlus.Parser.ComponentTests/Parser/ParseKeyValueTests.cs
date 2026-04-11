@@ -1,14 +1,14 @@
 ﻿namespace GqlPlus.Parser;
 
 public class ParseKeyValueTests(
-  IOneChecksParser<KeyValue<IGqlpConstant>> checks
+  IOneChecksParser<KeyValue<IAstConstant>> checks
 )
 {
   [Theory, RepeatData]
   public void WithKeyValueValid_ReturnsCorrectAst(string key, string value)
     => checks.TrueExpected(
       key + ':' + value,
-      new KeyValue<IGqlpConstant>(key.FieldKey(), new ConstantAst(value.FieldKey())));
+      new KeyValue<IAstConstant>(key.FieldKey(), new ConstantAst(value.FieldKey())));
 
   [Theory, RepeatData]
   public void WithKeyValueKeyNoEnumValue_ReturnsFalse(string key, string value)
@@ -32,6 +32,6 @@ public class ParseKeyValueTests(
   public void WithKeyValueNoValue_ReturnsFalse(string key)
     => checks.FalseExpected(key + ' ', CheckNull);
 
-  private void CheckNull(KeyValue<IGqlpConstant> result)
+  private void CheckNull(KeyValue<IAstConstant> result)
     => result.ShouldBe(default);
 }

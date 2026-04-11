@@ -4,24 +4,24 @@ public class ValueParserTests
   : ParserClassTestBase
 {
 
-  private readonly ValueParser<IGqlpConstant> _valueParser;
-  private readonly Parser<IGqlpFieldKey>.I _fieldKeyParser;
-  private readonly Parser<KeyValue<IGqlpConstant>>.I _keyValueParser;
-  private readonly Parser<IGqlpConstant>.IA _listParser;
-  private readonly Parser<IGqlpFields<IGqlpConstant>>.I _objectParser;
+  private readonly ValueParser<IAstConstant> _valueParser;
+  private readonly Parser<IAstFieldKey>.I _fieldKeyParser;
+  private readonly Parser<KeyValue<IAstConstant>>.I _keyValueParser;
+  private readonly Parser<IAstConstant>.IA _listParser;
+  private readonly Parser<IAstFields<IAstConstant>>.I _objectParser;
 
   public ValueParserTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    ConfigureRepo<IGqlpFieldKey>(parsers, out _fieldKeyParser);
-    ConfigureRepo<KeyValue<IGqlpConstant>>(parsers, out _keyValueParser);
-    ConfigureRepoArray<IGqlpConstant>(parsers, out _listParser);
-    ConfigureRepo<IGqlpFields<IGqlpConstant>>(parsers, out _objectParser);
+    ConfigureRepo<IAstFieldKey>(parsers, out _fieldKeyParser);
+    ConfigureRepo<KeyValue<IAstConstant>>(parsers, out _keyValueParser);
+    ConfigureRepoArray<IAstConstant>(parsers, out _listParser);
+    ConfigureRepo<IAstFields<IAstConstant>>(parsers, out _objectParser);
 
     _valueParser = new TestValueParser(parsers);
 
-    SetupError<IGqlpConstant>();
-    SetupError<IGqlpFields<IGqlpConstant>>();
+    SetupError<IAstConstant>();
+    SetupError<IAstFields<IAstConstant>>();
   }
 
   [Fact]
@@ -31,10 +31,10 @@ public class ValueParserTests
     ParseOkA(_listParser);
 
     // Act
-    IResult<IGqlpConstant> result = _valueParser.Parse(Tokenizer, TestLabel);
+    IResult<IAstConstant> result = _valueParser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpConstant>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstConstant>>();
   }
 
   [Fact]
@@ -44,7 +44,7 @@ public class ValueParserTests
     ParseErrorA(_listParser);
 
     // Act
-    IResult<IGqlpConstant> result = _valueParser.Parse(Tokenizer, TestLabel);
+    IResult<IAstConstant> result = _valueParser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -54,16 +54,16 @@ public class ValueParserTests
   public void ParseFieldValues_ShouldReturnFields_WhenSuccessful()
   {
     // Arrange
-    FieldsAst<IGqlpConstant> fields = new(AtFor<IGqlpFieldKey>(), AtFor<IGqlpConstant>());
-    KeyValue<IGqlpConstant> keyValue = new(AtFor<IGqlpFieldKey>(), AtFor<IGqlpConstant>());
+    FieldsAst<IAstConstant> fields = new(AtFor<IAstFieldKey>(), AtFor<IAstConstant>());
+    KeyValue<IAstConstant> keyValue = new(AtFor<IAstFieldKey>(), AtFor<IAstConstant>());
     ParseOk(_keyValueParser, keyValue);
     TakeReturns('}', false, true);
 
     // Act
-    IResult<IGqlpFields<IGqlpConstant>> result = _valueParser.ParseFieldValues(Tokenizer, TestLabel, '}', fields);
+    IResult<IAstFields<IAstConstant>> result = _valueParser.ParseFieldValues(Tokenizer, TestLabel, '}', fields);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpFields<IGqlpConstant>>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstFields<IAstConstant>>>();
   }
 
   [Theory, RepeatData]
@@ -73,7 +73,7 @@ public class ValueParserTests
     ParseError(_keyValueParser, error);
 
     // Act
-    IResult<IGqlpFields<IGqlpConstant>> result = _valueParser.ParseFieldValues(Tokenizer, TestLabel, '}', new FieldsAst<IGqlpConstant>());
+    IResult<IAstFields<IAstConstant>> result = _valueParser.ParseFieldValues(Tokenizer, TestLabel, '}', new FieldsAst<IAstConstant>());
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -81,11 +81,11 @@ public class ValueParserTests
 
   private sealed class TestValueParser(
     IParserRepository parsers
-  ) : ValueParser<IGqlpConstant>(parsers)
+  ) : ValueParser<IAstConstant>(parsers)
   {
-    protected override Func<IGqlpFields<IGqlpConstant>, IGqlpConstant> NewFields(ITokenAt at)
+    protected override Func<IAstFields<IAstConstant>, IAstConstant> NewFields(ITokenAt at)
       => fields => new ConstantAst(at, fields);
-    protected override Func<IEnumerable<IGqlpConstant>, IGqlpConstant> NewList(ITokenAt at)
+    protected override Func<IEnumerable<IAstConstant>, IAstConstant> NewList(ITokenAt at)
       => list => new ConstantAst(at, list);
   }
 }

@@ -1,0 +1,25 @@
+﻿/* constraint-alt-domain+Input
+input CnstAltDmnInp { | RefCnstAltDmnInp<DomCnstAltDmnInp> }
+input RefCnstAltDmnInp<$ref:String> { | $ref }
+domain DomCnstAltDmnInp { String /\w+/ }
+*/
+
+// Generated from Schema constraint-alt-domain+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-alt-domain+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_domain_Input;
+
+internal class CmptCnstAltDmnInpEncoder
+{
+}
+
+internal class CmptRefCnstAltDmnInpEncoder<TRef>
+{
+}
+
+internal class CmptDomCnstAltDmnInpEncoder
+{
+}

@@ -22,3 +22,8 @@ public interface ICmptFieldValueDescrInpObject
 {
   CmptEnumFieldValueDescrInp Field { get; }
 }
+
+public enum CmptEnumFieldValueDescrInp
+{
+  fieldValueDescrInp,
+}

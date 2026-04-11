@@ -1,0 +1,15 @@
+﻿/* generic-alt-mod-param+Dual
+dual RefGnrcAltModParamDual<$ref:String $mod:String> { | $ref[$mod] }
+*/
+
+// Generated from Schema generic-alt-mod-param+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-mod-param+Dual, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_mod_param_Dual;
+
+internal class CmptRefGnrcAltModParamDualEncoder<TRef,TMod>
+{
+}

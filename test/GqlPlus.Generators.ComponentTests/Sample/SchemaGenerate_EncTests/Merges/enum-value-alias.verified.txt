@@ -1,0 +1,19 @@
+﻿/* enum-value-alias
+enum EnumValueAlias { enumValueAlias [val1] }
+enum EnumValueAlias { enumValueAlias [val2] }
+*/
+
+// Generated from Schema enum-value-alias
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_enum-value-alias, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_enum_value_alias;
+
+internal class CmptEnumValueAliasEncoder
+{
+  public string enumValueAlias { get; set; }
+  public string val1 { get; set; }
+  public string val2 { get; set; }
+}

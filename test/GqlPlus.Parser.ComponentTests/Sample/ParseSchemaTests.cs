@@ -8,16 +8,16 @@ public class ParseSchemaTests(
 ) : TestSchemaResult(checks)
 {
 
-  protected override async Task Result_Valid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
+  protected override async Task Result_Valid(IResult<IAstSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {
-    IGqlpSchema ast = result.Required();
+    IAstSchema ast = result.Required();
 
     await CheckErrors(dirs, test, ast.Errors, "parse");
 
     await ast.Show().AttachAndVerify("Result " + test, CustomSettings(label, "Parse", test, section));
   }
 
-  protected override async Task Result_Invalid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
+  protected override async Task Result_Invalid(IResult<IAstSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {
     IMessages errors = Messages.New;
     if (!result.IsOk()) {

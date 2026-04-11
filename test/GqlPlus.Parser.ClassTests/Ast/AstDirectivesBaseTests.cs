@@ -38,14 +38,14 @@ internal class AstDirectivesChecks<TAst>(
   AstDirectivesChecks<string, TAst>.CreateDirectives<string> createDirectives
 ) : AstDirectivesChecks<string, TAst>(createDirectives)
   , IAstDirectivesChecks
-  where TAst : IGqlpDirectives
+  where TAst : IAstDirectives
 { }
 
 internal class AstDirectivesChecks<TInput, TAst>(
   AstDirectivesChecks<TInput, TAst>.CreateDirectives<TInput> createDirectives
 ) : AstAbbreviatedChecks<TInput, TAst>(i => createDirectives(i, []))
   , IAstDirectivesChecks<TInput>
-  where TAst : IGqlpDirectives
+  where TAst : IAstDirectives
 {
   internal delegate TAst CreateDirectives<TBy>(TBy input, string[] directives);
 
@@ -100,13 +100,13 @@ internal class AstDirectivesChecks<TInput, TAst>(
 
   private sealed record class TestDirectives
     : AstAbbreviated
-    , IGqlpDirectives
+    , IAstDirectives
   {
     public TestDirectives(string[] directives)
       : base(AstNulls.At)
       => Directives = directives.Directives();
 
-    public IEnumerable<IGqlpDirective> Directives { get; }
+    public IEnumerable<IAstDirective> Directives { get; }
     internal override string Abbr => "Te";
   }
 }

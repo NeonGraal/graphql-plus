@@ -91,14 +91,14 @@ public static class SchemaParsers
 
   [SuppressMessage("Globalization", "CA1308:Normalize strings to uppercase")]
   private static IParserRepositoryBuilder AddObjectParser<TObjField>(this IParserRepositoryBuilder builder, TypeKind fieldKind, Factory<Parser<TObjField>.I, IParserRepository> factory)
-    where TObjField : IGqlpObjField
+    where TObjField : IAstObjField
     => builder
       .AddSingle(factory)
       .AddSingle(p => new ParseObjectDefinition<TObjField>(p))
       .AddDeclarationParser(fieldKind.ToString().ToLowerInvariant(), p => new ObjectParser<TObjField>(fieldKind, p));
 
   private static IParserRepositoryBuilder AddDeclarationParser<TObject>(this IParserRepositoryBuilder builder, string selector, Factory<Parser<TObject>.I, IParserRepository> factory)
-    where TObject : IGqlpDeclaration
+    where TObject : IAstDeclaration
     => builder
       .AddSingle(factory)
       .AddDeclaration<TObject>(p => new ParseDeclaration<TObject>(selector, p));

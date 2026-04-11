@@ -1,6 +1,6 @@
 ﻿//HintName: test_object-param-dup+Output_Model.gen.cs
 // Generated from {CurrentDirectory}object-param-dup+Output.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_object_param_dup_Output;
 
 public class testObjParamDupOutp<TTest>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjParamDupOutp<TTest>
 {
   public ItestObjParamDupOutpObject<TTest>? As_ObjParamDupOutp { get; set; }
 }
 
 public class testObjParamDupOutpObject<TTest>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjParamDupOutpObject<TTest>
 {
   public TTest Test { get; set; }

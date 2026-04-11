@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-parent-param+Input_Intf.gen.cs
 // Generated from {CurrentDirectory}generic-parent-param+Input.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -19,26 +19,26 @@ public interface ItestGnrcPrntParamInpObject
 }
 
 public interface ItestRefGnrcPrntParamInp<TRef>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TRef? Asref { get; }
   ItestRefGnrcPrntParamInpObject<TRef>? As_RefGnrcPrntParamInp { get; }
 }
 
 public interface ItestRefGnrcPrntParamInpObject<TRef>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestAltGnrcPrntParamInp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string? AsString { get; }
   ItestAltGnrcPrntParamInpObject? As_AltGnrcPrntParamInp { get; }
 }
 
 public interface ItestAltGnrcPrntParamInpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   decimal Alt { get; }
 }

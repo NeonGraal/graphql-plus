@@ -6,22 +6,22 @@ namespace GqlPlus.Parsing;
 
 internal class ParseFieldKey(
   IParserRepository parsers
-) : Parser<IGqlpFieldKey>.I
+) : Parser<IAstFieldKey>.I
 {
-  private readonly Parser<IGqlpEnumValue>.L _parseEnumValue = parsers.ParserFor<IGqlpEnumValue>();
+  private readonly Parser<IAstEnumValue>.L _parseEnumValue = parsers.ParserFor<IAstEnumValue>();
 
-  public IResult<IGqlpFieldKey> Parse(ITokenizer tokens, string label)
+  public IResult<IAstFieldKey> Parse(ITokenizer tokens, string label)
   {
     TokenAt at = tokens.At;
     if (tokens.Number(out decimal number)) {
-      return new FieldKeyAst(at, number).Ok<IGqlpFieldKey>();
+      return new FieldKeyAst(at, number).Ok<IAstFieldKey>();
     }
 
     if (tokens.String(out string? contents)) {
-      return new FieldKeyAst(at, contents).Ok<IGqlpFieldKey>();
+      return new FieldKeyAst(at, contents).Ok<IAstFieldKey>();
     }
 
-    IResult<IGqlpEnumValue> enumResult = _parseEnumValue.Parse(tokens, label);
-    return enumResult.SelectOk(e => new FieldKeyAst(e) as IGqlpFieldKey);
+    IResult<IAstEnumValue> enumResult = _parseEnumValue.Parse(tokens, label);
+    return enumResult.SelectOk(e => new FieldKeyAst(e) as IAstFieldKey);
   }
 }

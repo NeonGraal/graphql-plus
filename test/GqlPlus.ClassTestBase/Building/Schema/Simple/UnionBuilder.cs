@@ -3,37 +3,37 @@
 namespace GqlPlus.Building.Schema.Simple;
 
 public class UnionBuilder
-  : SimpleBuilder<IGqlpUnion>
+  : SimpleBuilder<IAstUnion>
 {
-  internal IGqlpUnionMember[] _members = [];
+  internal IAstUnionMember[] _members = [];
 
   public UnionBuilder(string name)
     : base(name)
   {
-    Add<IGqlpUnion>();
+    Add<IAstUnion>();
     _typeKind = TypeKind.Union;
   }
 
   protected new T Build<T>()
-    where T : class, IGqlpUnion
+    where T : class, IAstUnion
   {
     T result = base.Build<T>();
     result.Items.Returns(_members);
     return result;
   }
 
-  public IGqlpUnion AsUnion
-    => Build<IGqlpUnion>();
+  public IAstUnion AsUnion
+    => Build<IAstUnion>();
 
-  public override IGqlpUnion AsSimple => AsUnion;
+  public override IAstUnion AsSimple => AsUnion;
 }
 
 public static class UnionBuilderHelper
 {
-  public static T WithMembers<T>(this T builder, params IGqlpUnionMember[] members)
+  public static T WithMembers<T>(this T builder, params IAstUnionMember[] members)
     where T : UnionBuilder
     => builder.FluentAction(b => b._members = members);
   public static T WithMembers<T>(this T builder, string[] members)
     where T : UnionBuilder
-    => builder.WithMembers(members.AsArray(builder.Named<IGqlpUnionMember>));
+    => builder.WithMembers(members.AsArray(builder.Named<IAstUnionMember>));
 }

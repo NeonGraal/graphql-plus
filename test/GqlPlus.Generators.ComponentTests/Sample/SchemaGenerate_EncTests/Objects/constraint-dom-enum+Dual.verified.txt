@@ -1,0 +1,33 @@
+﻿/* constraint-dom-enum+Dual
+dual CnstDomEnumDual { | RefCnstDomEnumDual<cnstDomEnumDual> }
+dual RefCnstDomEnumDual<$type:JustCnstDomEnumDual> { field: $type }
+enum EnumCnstDomEnumDual { cnstDomEnumDual other }
+domain JustCnstDomEnumDual { enum EnumCnstDomEnumDual.cnstDomEnumDual }
+*/
+
+// Generated from Schema constraint-dom-enum+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-dom-enum+Dual, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_dom_enum_Dual;
+
+internal class CmptCnstDomEnumDualEncoder
+{
+}
+
+internal class CmptRefCnstDomEnumDualEncoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumCnstDomEnumDualEncoder
+{
+  public string cnstDomEnumDual { get; set; }
+  public string other { get; set; }
+}
+
+internal class CmptJustCnstDomEnumDualEncoder
+{
+}

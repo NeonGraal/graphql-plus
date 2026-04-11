@@ -7,12 +7,12 @@ internal abstract record class AstDomainItem(
   string Description,
   bool Excludes
 ) : AstAbbreviated(At)
-  , IGqlpDomainItem
+  , IAstDomainItem
 {
-  public bool Equals(IGqlpDomainItem? other)
-  => Equals(other as IGqlpDescribed)
+  public bool Equals(IAstDomainItem? other)
+  => Equals(other as IAstDescribed)
       && Excludes.NullEqual(other.Excludes);
-  public bool Equals(IGqlpDescribed? other)
+  public bool Equals(IAstDescribed? other)
   => base.Equals(other)
     && Description.NullEqual(other.Description);
   public override int GetHashCode()

@@ -77,3 +77,4 @@ public static class AllEncoders
       .AddEncoder<OutputFieldModel>(r => new OutputFieldEncoder(r))
       .AddEncoder<ObjectForModel<OutputFieldModel>>(r => new ObjectForEncoder<OutputFieldModel>(r))
       .AddTypeEncoder<TypeOutputModel>(r => new TypeOutputEncoder(r));
+}

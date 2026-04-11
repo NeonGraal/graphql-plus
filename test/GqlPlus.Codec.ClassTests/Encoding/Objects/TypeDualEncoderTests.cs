@@ -4,7 +4,7 @@ public class TypeDualEncoderTests
   : TypeObjectEncoderBase<TypeDualModel, ObjBaseModel, DualFieldModel, AlternateModel>
 {
   public TypeDualEncoderTests()
-    => Encoder = new TypeDualEncoder(new(ObjBase, Field, ForField, DualField, Alternate, ForAlternate, DualAlternate, TypeParam));
+    => Encoder = new TypeDualEncoder(Encoders);
 
   protected override IEncoder<TypeDualModel> Encoder { get; }
 

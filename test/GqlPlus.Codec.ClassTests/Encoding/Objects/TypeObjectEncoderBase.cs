@@ -15,6 +15,8 @@ public abstract class TypeObjectEncoderBase<TObject, TBase, TField, TAlt>
   protected IEncoder<ObjectForModel<AlternateModel>> DualAlternate { get; }
   protected IEncoder<TypeParamModel> TypeParam { get; }
 
+  internal IEncoderRepository Encoders { get; }
+
   protected TypeObjectEncoderBase()
   {
     Field = RFor<TField>();
@@ -24,5 +26,15 @@ public abstract class TypeObjectEncoderBase<TObject, TBase, TField, TAlt>
     ForAlternate = RFor<ObjectForModel<TAlt>>();
     DualAlternate = RFor<ObjectForModel<AlternateModel>>();
     TypeParam = RFor<TypeParamModel>();
+
+    IEncoderRepository encoders = A.Of<IEncoderRepository>();
+    encoders.EncoderFor<ObjBaseModel>().Returns(ObjBase);
+    encoders.EncoderFor<TField>().Returns(Field);
+    encoders.EncoderFor<ObjectForModel<TField>>().Returns(ForField);
+    encoders.EncoderFor<ObjectForModel<DualFieldModel>>().Returns(DualField);
+    encoders.EncoderFor<TAlt>().Returns(Alternate);
+    encoders.EncoderFor<ObjectForModel<AlternateModel>>().Returns(ForAlternate);
+    encoders.EncoderFor<TypeParamModel>().Returns(TypeParam);
+    Encoders = encoders;
   }
 }

@@ -10,8 +10,11 @@ public class InputFieldModellerTests
   public InputFieldModellerTests()
   {
     IModifierModeller modifier = A.Of<IModifierModeller>();
-
-    Modeller = new InputFieldModeller(modifier, ObjBase, _constant);
+    IModellerRepository modellers = A.Of<IModellerRepository>();
+    modellers.ModifierModeller.Returns(modifier);
+    modellers.ModellerFor<IAstObjBase, ObjBaseModel>().Returns(ObjBase);
+    modellers.ModellerFor<IAstConstant, ConstantModel>().Returns(_constant);
+    Modeller = new InputFieldModeller(modellers);
   }
 
   protected override IModeller<IAstInputField, InputFieldModel> Modeller { get; }

@@ -27,7 +27,7 @@ public static class AllDecoders
       .AddDecoder(_ => new EnumDecoder<CategoryOption>())
       .AddDecoder(_ => new EnumDecoder<TypeKindModel>())
       .AddNameFilter(_ => new NameFilterModelDecoder())
-      .AddDecoder(r => new FilterModelDecoder(r.DecoderFor<bool?>(), r.NameFilterDecoder))
-      .AddDecoder(r => new CategoryFilterModelDecoder(r.DecoderFor<bool?>(), r.NameFilterDecoder, r.DecoderFor<CategoryOption?>()))
-      .AddDecoder(r => new TypeFilterModelDecoder(r.DecoderFor<bool?>(), r.NameFilterDecoder, r.DecoderFor<TypeKindModel?>()));
+      .AddDecoder(r => new FilterModelDecoder(r))
+      .AddDecoder(r => new CategoryFilterModelDecoder(r))
+      .AddDecoder(r => new TypeFilterModelDecoder(r));
 }

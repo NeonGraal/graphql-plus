@@ -1,7 +1,7 @@
-﻿namespace GqlPlus.Modelling.Objects;
+namespace GqlPlus.Modelling.Objects;
 
 internal class OutputModeller(
-  ObjectModellers<IAstOutputField, OutputFieldModel> modellers
+  IModellerRepository modellers
 ) : ModellerObject<IAstObject<IAstOutputField>, IAstOutputField, TypeOutputModel, OutputFieldModel>(TypeKindModel.Output, modellers)
 {
   protected override TypeOutputModel ToModel(IAstObject<IAstOutputField> ast, IMap<TypeKindModel> typeKinds)
@@ -15,16 +15,15 @@ internal class OutputModeller(
 }
 
 internal class OutputFieldModeller(
-  IModifierModeller modifier,
-  // IModeller<IAstEnumValue, EnumValueModel> enumValue,
-  IModeller<IAstInputParam, InputParamModel> parameter,
-  IModeller<IAstObjBase, ObjBaseModel> objBase
-) : ModellerObjField<IAstOutputField, OutputFieldModel>(modifier, objBase)
+  IModellerRepository modellers
+) : ModellerObjField<IAstOutputField, OutputFieldModel>(modellers)
 {
+  private readonly IModeller<IAstInputParam, InputParamModel> _parameter = modellers.ModellerFor<IAstInputParam, InputParamModel>();
+
   protected override OutputFieldModel FieldModel(IAstOutputField field, ObjBaseModel type, IMap<TypeKindModel> typeKinds)
     => field.EnumValue is null
       ? new(field.Name, type, field.Description) {
-        Parameter = parameter.TryModel(field.Parameter, typeKinds),
+        Parameter = _parameter.TryModel(field.Parameter, typeKinds),
       }
       : new(field.Name, type, field.Description) {
         Enum = new(field.Name, type.Name, field.EnumValue.EnumLabel, type.Description)

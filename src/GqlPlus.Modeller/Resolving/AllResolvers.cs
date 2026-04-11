@@ -19,8 +19,8 @@ public static class AllResolvers
   internal static IResolverRepositoryBuilder AddSchemaResolvers(this IResolverRepositoryBuilder builder)
     => builder.ThrowIfNull()
       // Schema
-      .AddResolver<SchemaModel>(r => new SchemaResolver(r.ResolverFor<BaseTypeModel>()))
-      .AddResolver<BaseTypeModel>(r => new AllTypesResolver(r.TypeResolvers))
+      .AddResolver<SchemaModel>(r => new SchemaResolver(r))
+      .AddResolver<BaseTypeModel>(r => new AllTypesResolver(r))
       // Simple
       .AddTypeResolver<BaseDomainModel<DomainLabelModel>>(_ => new TypeDomainEnumResolver())
       .AddTypeResolver<BaseDomainModel<DomainRangeModel>>(_ => new ResolverDomainType<DomainRangeModel>())
@@ -30,6 +30,6 @@ public static class AllResolvers
       .AddTypeResolver<TypeUnionModel>(_ => new TypeUnionResolver())
       // Object
       .AddTypeResolver<TypeDualModel>(_ => new TypeDualResolver())
-      .AddTypeResolver<TypeInputModel>(r => new TypeInputResolver(r.ResolverFor<TypeDualModel>()))
-      .AddTypeResolver<TypeOutputModel>(r => new TypeOutputResolver(r.ResolverFor<TypeDualModel>()));
+      .AddTypeResolver<TypeInputModel>(r => new TypeInputResolver(r))
+      .AddTypeResolver<TypeOutputModel>(r => new TypeOutputResolver(r));
 }

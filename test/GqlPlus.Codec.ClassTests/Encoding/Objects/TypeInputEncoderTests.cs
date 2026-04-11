@@ -4,7 +4,7 @@ public class TypeInputEncoderTests
   : TypeObjectEncoderBase<TypeInputModel, ObjBaseModel, InputFieldModel, AlternateModel>
 {
   public TypeInputEncoderTests()
-    => Encoder = new TypeInputEncoder(new(ObjBase, Field, ForField, DualField, Alternate, ForAlternate, DualAlternate, TypeParam));
+    => Encoder = new TypeInputEncoder(Encoders);
 
   protected override IEncoder<TypeInputModel> Encoder { get; }
 

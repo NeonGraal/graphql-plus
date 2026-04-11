@@ -10,7 +10,10 @@ public class ObjectAlternateEncoderTests
   {
     _collection = RFor<CollectionModel>();
     _objBaseEncoder = A.Of<IEncoder<ObjBaseModel>>();
-    Encoder = new ObjectAlternateEncoder(new(_collection, _objBaseEncoder));
+    IEncoderRepository encoders = A.Of<IEncoderRepository>();
+    encoders.EncoderFor<CollectionModel>().Returns(_collection);
+    encoders.EncoderFor<ObjBaseModel>().Returns(_objBaseEncoder);
+    Encoder = new ObjectAlternateEncoder(encoders);
   }
 
   protected override IEncoder<AlternateModel> Encoder { get; }

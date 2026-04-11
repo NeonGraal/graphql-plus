@@ -4,7 +4,7 @@ public class TypeOutputEncoderTests
   : TypeObjectEncoderBase<TypeOutputModel, ObjBaseModel, OutputFieldModel, AlternateModel>
 {
   public TypeOutputEncoderTests()
-    => Encoder = new TypeOutputEncoder(new(ObjBase, Field, ForField, DualField, Alternate, ForAlternate, DualAlternate, TypeParam));
+    => Encoder = new TypeOutputEncoder(Encoders);
 
   protected override IEncoder<TypeOutputModel> Encoder { get; }
 

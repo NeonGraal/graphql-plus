@@ -20,7 +20,7 @@ internal class ModellerRepository
       : new ModifierModeller());
     _types = new(() => builder.TypesFactory is not null
       ? builder.TypesFactory(this)
-      : new TypesModeller(TypeModellers));
+      : new TypesModeller(this));
     _typeModellers = new(() => [.. builder.TypeModellerFactories.Select(f => (ITypeModeller)f(this))]);
   }
 

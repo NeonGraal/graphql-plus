@@ -1,7 +1,7 @@
-﻿namespace GqlPlus.Encoding;
+namespace GqlPlus.Encoding;
 
 internal class BaseDomainEncoder<TItem>(
-  ParentTypeEncoders<TItem, DomainItemModel<TItem>> encoders
+  IEncoderRepository encoders
 ) : ParentTypeEncoder<BaseDomainModel<TItem>, TItem, DomainItemModel<TItem>>(encoders)
   where TItem : BaseDomainItemModel
 {
@@ -20,23 +20,27 @@ internal class BaseDomainItemEncoder<TItem>
 }
 
 internal class DomainItemEncoder<TItem>(
-  IEncoder<TItem> item
+  IEncoderRepository encoders
 ) : BaseEncoder<DomainItemModel<TItem>>
   where TItem : BaseDomainItemModel
 {
+  private readonly IEncoder<TItem> _item = encoders.EncoderFor<TItem>();
+
   internal override Structured Encode(DomainItemModel<TItem> model)
     => base.Encode(model)
-      .IncludeEncoded(model.Item, item)
+      .IncludeEncoded(model.Item, _item)
       .Add("domain", model.Domain);
 }
 
 internal class DomainLabelEncoder(
-  IEncoder<EnumValueModel> enumValue
+  IEncoderRepository encoders
 ) : BaseDomainItemEncoder<DomainLabelModel>
 {
+  private readonly IEncoder<EnumValueModel> _enumValue = encoders.EncoderFor<EnumValueModel>();
+
   internal override Structured Encode(DomainLabelModel model)
     => base.Encode(model)
-      .AddEncoded("value", model.EnumValue, enumValue);
+      .AddEncoded("value", model.EnumValue, _enumValue);
 }
 
 internal class DomainRangeEncoder
@@ -65,7 +69,7 @@ internal class DomainTrueFalseEncoder
 }
 
 internal class TypeEnumEncoder(
-  ParentTypeEncoders<AliasedModel, EnumLabelModel> encoders
+  IEncoderRepository encoders
 ) : ParentTypeEncoder<TypeEnumModel, AliasedModel, EnumLabelModel>(encoders)
 { }
 
@@ -86,7 +90,7 @@ internal class EnumValueEncoder
 }
 
 internal class TypeUnionEncoder(
-  ParentTypeEncoders<NamedModel, UnionMemberModel> encoders
+  IEncoderRepository encoders
 ) : ParentTypeEncoder<TypeUnionModel, NamedModel, UnionMemberModel>(encoders)
 { }
 

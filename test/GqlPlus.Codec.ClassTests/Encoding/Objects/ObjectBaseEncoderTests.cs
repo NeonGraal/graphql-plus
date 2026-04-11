@@ -4,7 +4,11 @@ public class ObjectBaseEncoderTests
   : ObjectArgEncoderBase<ObjBaseModel>
 {
   public ObjectBaseEncoderTests()
-    => Encoder = new ObjectBaseEncoder<ObjBaseModel>(TypeArg);
+  {
+    IEncoderRepository encoders = A.Of<IEncoderRepository>();
+    encoders.EncoderFor<TypeArgModel>().Returns(TypeArg);
+    Encoder = new ObjectBaseEncoder<ObjBaseModel>(encoders);
+  }
 
   protected override IEncoder<ObjBaseModel> Encoder { get; }
 

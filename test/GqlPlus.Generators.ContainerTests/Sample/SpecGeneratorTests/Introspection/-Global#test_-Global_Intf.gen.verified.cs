@@ -1,6 +1,6 @@
 ﻿//HintName: test_-Global_Intf.gen.cs
 // Generated from {CurrentDirectory}-Global.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -47,6 +47,13 @@ public interface Itest_CategoryObject
   ICollection<Itest_Modifiers> Modifiers { get; }
 }
 
+public enum test_Resolution
+{
+  Parallel,
+  Sequential,
+  Single,
+}
+
 public interface Itest_Directives
   : Itest_AndType
 {
@@ -72,6 +79,16 @@ public interface Itest_DirectiveObject
   Itest_InputFieldType? Parameter { get; }
   bool Repeatable { get; }
   IDictionary<test_Location, GqlpUnit> Locations { get; }
+}
+
+public enum test_Location
+{
+  Operation,
+  Variable,
+  Field,
+  Inline,
+  Spread,
+  Fragment,
 }
 
 public interface Itest_Setting

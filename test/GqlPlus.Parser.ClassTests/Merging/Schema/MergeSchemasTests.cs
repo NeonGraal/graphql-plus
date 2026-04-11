@@ -6,7 +6,7 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Merging.Schema;
 
 public class MergeSchemasTests
-  : TestAbbreviatedMerger<IGqlpSchema>
+  : TestAbbreviatedMerger<IAstSchema>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentDeclarations_ReturnsGood(string category, string option)
@@ -40,35 +40,35 @@ public class MergeSchemasTests
   }
 
   private readonly MergeSchemas _merger;
-  private readonly IMerge<IGqlpSchemaCategory> _categories;
-  private readonly IMerge<IGqlpSchemaDirective> _directives;
-  private readonly IMerge<IGqlpSchemaOption> _options;
-  private readonly IMerge<IGqlpType> _astTypes;
+  private readonly IMerge<IAstSchemaCategory> _categories;
+  private readonly IMerge<IAstSchemaDirective> _directives;
+  private readonly IMerge<IAstSchemaOption> _options;
+  private readonly IMerge<IAstType> _astTypes;
 
   public MergeSchemasTests()
   {
-    _categories = Merger<IGqlpSchemaCategory>();
-    _directives = Merger<IGqlpSchemaDirective>();
-    _options = Merger<IGqlpSchemaOption>();
-    _astTypes = Merger<IGqlpType>();
+    _categories = Merger<IAstSchemaCategory>();
+    _directives = Merger<IAstSchemaDirective>();
+    _options = Merger<IAstSchemaOption>();
+    _astTypes = Merger<IAstType>();
 
     IMergerRepository mergers = Substitute.For<IMergerRepository>();
-    mergers.MergerFor<IGqlpSchemaCategory>().Returns(_categories);
-    mergers.MergerFor<IGqlpSchemaDirective>().Returns(_directives);
-    mergers.MergerFor<IGqlpSchemaOption>().Returns(_options);
-    mergers.MergerFor<IGqlpType>().Returns(_astTypes);
+    mergers.MergerFor<IAstSchemaCategory>().Returns(_categories);
+    mergers.MergerFor<IAstSchemaDirective>().Returns(_directives);
+    mergers.MergerFor<IAstSchemaOption>().Returns(_options);
+    mergers.MergerFor<IAstType>().Returns(_astTypes);
     _merger = new(mergers);
   }
 
-  protected override IMerge<IGqlpSchema> MergerBase => _merger;
+  protected override IMerge<IAstSchema> MergerBase => _merger;
 
-  protected override IGqlpSchema MakeAst(string input)
+  protected override IAstSchema MakeAst(string input)
     => new SchemaAst(AstNulls.At);
 
   private static AstDeclaration[] CategoryDeclarations(string category)
     => [
       new CategoryDeclAst(AstNulls.At, new TypeRefAst(AstNulls.At, category)),
-      new AstObject<IGqlpOutputField>(TypeKind.Output, AstNulls.At, category, ""),
+      new AstObject<IAstOutputField>(TypeKind.Output, AstNulls.At, category, ""),
       ];
 
   private static AstDeclaration[] OptionDeclarations(string option)

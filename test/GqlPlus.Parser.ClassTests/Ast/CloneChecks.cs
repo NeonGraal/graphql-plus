@@ -7,7 +7,7 @@ internal class CloneChecks<TInput, TAst>(
   [CallerArgumentExpression(nameof(cloneInput))] string cloneExpression = ""
 ) : AstBaseChecks<TInput, TAst>(createInput, createExpression)
   , ICloneChecks<TInput>
-  where TAst : IGqlpError
+  where TAst : IAstError
 {
   private readonly CloneBy<TInput> _cloneInput = cloneInput;
   private readonly string _cloneExpression = cloneExpression;

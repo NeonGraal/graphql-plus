@@ -1,0 +1,21 @@
+﻿/* alt-dual+Dual
+dual AltDualDual { | ObjDualAltDualDual }
+dual ObjDualAltDualDual { alt: Number | String }
+*/
+
+// Generated from Schema alt-dual+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-dual+Dual, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_dual_Dual;
+
+internal class CmptAltDualDualEncoder
+{
+}
+
+internal class CmptObjDualAltDualDualEncoder
+{
+  public decimal Alt { get; set; }
+}

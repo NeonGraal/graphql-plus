@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-parent-string-dom+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}generic-parent-string-dom+Dual.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -27,14 +27,14 @@ public class testGnrcPrntStrDomDualObject
 }
 
 public class testFieldGnrcPrntStrDomDual<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldGnrcPrntStrDomDual<TRef>
 {
   public ItestFieldGnrcPrntStrDomDualObject<TRef>? As_FieldGnrcPrntStrDomDual { get; set; }
 }
 
 public class testFieldGnrcPrntStrDomDualObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldGnrcPrntStrDomDualObject<TRef>
 {
   public TRef Field { get; set; }

@@ -7,45 +7,45 @@ namespace GqlPlus.Parsing.Operation;
 
 internal class ParseVariable(
   IParserRepository parsers
-) : Parser<IGqlpVariable>.I
+) : Parser<IAstVariable>.I
 {
-  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.ArrayFor<IGqlpModifier>();
-  private readonly Parser<IGqlpDirective>.LA _directives = parsers.ArrayFor<IGqlpDirective>();
-  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = parsers.ParserFor<IParserDefault, IGqlpConstant>();
+  private readonly Parser<IAstModifier>.LA _modifiers = parsers.ArrayFor<IAstModifier>();
+  private readonly Parser<IAstDirective>.LA _directives = parsers.ArrayFor<IAstDirective>();
+  private readonly Parser<IParserDefault, IAstConstant>.L _default = parsers.ParserFor<IParserDefault, IAstConstant>();
   private readonly Parser<IParserVarType, string>.L _varTypeParser = parsers.ParserFor<IParserVarType, string>();
 
-  public IResult<IGqlpVariable> Parse(ITokenizer tokens, string label)
+  public IResult<IAstVariable> Parse(ITokenizer tokens, string label)
 
   {
     bool prefix = tokens.Prefix('$', out string? name, out TokenAt at);
     VariableAst variable = new(at, name.IfWhiteSpace());
     if (!prefix) {
-      return tokens.Partial<IGqlpVariable>(label, "identifier after '$'", () => variable);
+      return tokens.Partial<IAstVariable>(label, "identifier after '$'", () => variable);
     }
 
     if (name is null) {
-      return variable.Empty<IGqlpVariable>();
+      return variable.Empty<IAstVariable>();
     }
 
     if (tokens.Take(':')) {
       if (!_varTypeParser.I.Parse(tokens, "Variable Type").Required(varType => variable.Type = varType)) {
-        return tokens.Partial<IGqlpVariable>(label, "type after ':'", () => variable);
+        return tokens.Partial<IAstVariable>(label, "type after ':'", () => variable);
       }
     }
 
-    IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, label);
+    IResultArray<IAstModifier> modifiers = _modifiers.Parse(tokens, label);
     if (!modifiers.Optional(value => variable.Modifiers = [.. value])) {
-      return modifiers.AsResult<IGqlpVariable>(variable);
+      return modifiers.AsResult<IAstVariable>(variable);
     }
 
-    IResult<IGqlpConstant> constant = _default.I.Parse(tokens, label);
+    IResult<IAstConstant> constant = _default.I.Parse(tokens, label);
     if (!constant.Optional(value => variable.DefaultValue = value)) {
-      return constant.AsResult<IGqlpVariable>(variable);
+      return constant.AsResult<IAstVariable>(variable);
     }
 
-    IResultArray<IGqlpDirective> directives = _directives.Parse(tokens, label);
+    IResultArray<IAstDirective> directives = _directives.Parse(tokens, label);
     return directives.Optional(value => variable.Directives = [.. value])
-      ? variable.Ok<IGqlpVariable>()
-      : directives.AsResult<IGqlpVariable>(variable);
+      ? variable.Ok<IAstVariable>()
+      : directives.AsResult<IAstVariable>(variable);
   }
 }

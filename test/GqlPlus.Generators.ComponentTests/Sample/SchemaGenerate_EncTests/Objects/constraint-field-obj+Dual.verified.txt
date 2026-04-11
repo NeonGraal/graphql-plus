@@ -1,0 +1,32 @@
+﻿/* constraint-field-obj+Dual
+dual CnstFieldObjDual { :RefCnstFieldObjDual<AltCnstFieldObjDual> }
+dual RefCnstFieldObjDual<$ref:PrntCnstFieldObjDual> { field: $ref }
+dual PrntCnstFieldObjDual { | String }
+dual AltCnstFieldObjDual { :PrntCnstFieldObjDual alt: Number }
+*/
+
+// Generated from Schema constraint-field-obj+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-field-obj+Dual, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_field_obj_Dual;
+
+internal class CmptCnstFieldObjDualEncoder
+{
+}
+
+internal class CmptRefCnstFieldObjDualEncoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptPrntCnstFieldObjDualEncoder
+{
+}
+
+internal class CmptAltCnstFieldObjDualEncoder
+{
+  public decimal Alt { get; set; }
+}

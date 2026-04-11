@@ -11,7 +11,7 @@ public class DomainAstNumberTests
 }
 
 internal sealed class DomainAstNumberChecks()
- : AstDomainChecks<DomainRangeInput, DomainRangeAst, IGqlpDomainRange>(DomainKind.Number)
+ : AstDomainChecks<DomainRangeInput, DomainRangeAst, IAstDomainRange>(DomainKind.Number)
 {
   protected override DomainRangeAst[] DomainItems(DomainRangeInput input)
   => [new(AstNulls.At, string.Empty, false, null, input.Lower),
@@ -21,6 +21,6 @@ internal sealed class DomainAstNumberChecks()
   protected override string ItemsString(string name, DomainRangeInput input)
     => $"( !Do {name} Number !DN <{input.Lower:0.#####} !DN !{input.Lower:0.#####}<{input.Upper:0.#####} !DN {input.Upper:0.#####}< )";
 
-  protected override AstDomain<DomainRangeAst, IGqlpDomainRange> NewDomain(string name, DomainRangeAst[] list)
+  protected override AstDomain<DomainRangeAst, IAstDomainRange> NewDomain(string name, DomainRangeAst[] list)
     => new(AstNulls.At, name, Kind, list);
 }

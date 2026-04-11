@@ -5,13 +5,13 @@ namespace GqlPlus.Parsing.Schema.Objects;
 public class ParseObjBaseTest
   : ParserClassTestBase
 {
-  private readonly Parser<IGqlpTypeArg>.IA _parseArgs;
-  protected Parser<IGqlpObjBase>.I BaseParser { get; }
+  private readonly Parser<IAstTypeArg>.IA _parseArgs;
+  protected Parser<IAstObjBase>.I BaseParser { get; }
 
   public ParseObjBaseTest()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    ConfigureRepoArray<IGqlpTypeArg>(parsers, out _parseArgs);
+    ConfigureRepoArray<IAstTypeArg>(parsers, out _parseArgs);
     BaseParser = new ParseObjBase(parsers);
     PrefixReturns('$', OutPass);
   }
@@ -23,10 +23,10 @@ public class ParseObjBaseTest
     PrefixReturns('$', OutStringAt(paramName));
 
     // Act
-    IResult<IGqlpObjBase> result = BaseParser.Parse(Tokenizer, "testLabel");
+    IResult<IAstObjBase> result = BaseParser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpObjBase>>()
+    result.ShouldBeAssignableTo<IResultOk<IAstObjBase>>()
       .Required().ShouldSatisfyAllConditions(
         r => r.IsTypeParam.ShouldBeTrue(),
         r => r.Name.ShouldBe(paramName)
@@ -38,10 +38,10 @@ public class ParseObjBaseTest
   {
     // Arrange
     PrefixReturns('$', OutFail);
-    SetupError<IGqlpObjBase>();
+    SetupError<IAstObjBase>();
 
     // Act
-    IResult<IGqlpObjBase> result = BaseParser.Parse(Tokenizer, "testLabel");
+    IResult<IAstObjBase> result = BaseParser.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -55,10 +55,10 @@ public class ParseObjBaseTest
     ParseEmptyA(_parseArgs);
 
     // Act
-    IResult<IGqlpObjBase> result = BaseParser.Parse(Tokenizer, "testLabel");
+    IResult<IAstObjBase> result = BaseParser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpObjBase>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstObjBase>>();
   }
 
   [Fact]
@@ -69,10 +69,10 @@ public class ParseObjBaseTest
     ParseEmptyA(_parseArgs);
 
     // Act
-    IResult<IGqlpObjBase> result = BaseParser.Parse(Tokenizer, "testLabel");
+    IResult<IAstObjBase> result = BaseParser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpObjBase>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstObjBase>>();
   }
 
   [Theory, InlineData('^'), InlineData('_'), InlineData('*')]
@@ -83,10 +83,10 @@ public class ParseObjBaseTest
     ParseEmptyA(_parseArgs);
 
     // Act
-    IResult<IGqlpObjBase> result = BaseParser.Parse(Tokenizer, "testLabel");
+    IResult<IAstObjBase> result = BaseParser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpObjBase>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstObjBase>>();
   }
 
   [Fact]
@@ -96,7 +96,7 @@ public class ParseObjBaseTest
     IdentifierReturns(OutFail);
 
     // Act
-    IResult<IGqlpObjBase> result = BaseParser.Parse(Tokenizer, "testLabel");
+    IResult<IAstObjBase> result = BaseParser.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

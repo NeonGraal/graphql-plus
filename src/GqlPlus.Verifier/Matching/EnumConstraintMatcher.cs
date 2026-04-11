@@ -5,11 +5,11 @@ namespace GqlPlus.Matching;
 
 internal class EnumConstraintMatcher(
   IMatcherRepository matchers
-) : MatchConstraintBase<IGqlpEnum>(matchers)
+) : MatchConstraintBase<IAstEnum>(matchers)
 {
-  private readonly Matcher<IGqlpEnum>.L _enumMatcher = matchers.MatcherFor<IGqlpEnum>();
+  private readonly Matcher<IAstEnum>.L _enumMatcher = matchers.MatcherFor<IAstEnum>();
 
-  public override bool MatchesConstraint(IGqlpType type, IGqlpEnum constraint, EnumContext context)
+  public override bool MatchesConstraint(IAstType type, IAstEnum constraint, EnumContext context)
     => base.MatchesConstraint(type, constraint, context)
       || _enumMatcher.Matches(constraint, type.Name, context);
 }

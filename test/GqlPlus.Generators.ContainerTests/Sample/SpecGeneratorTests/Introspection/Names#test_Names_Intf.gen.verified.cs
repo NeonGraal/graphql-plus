@@ -1,6 +1,6 @@
 ﻿//HintName: test_Names_Intf.gen.cs
 // Generated from {CurrentDirectory}Names.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -32,13 +32,13 @@ public interface Itest_NamedObject
 }
 
 public interface Itest_Described
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Itest_DescribedObject? As__Described { get; }
 }
 
 public interface Itest_DescribedObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ICollection<string> Description { get; }
 }

@@ -7,7 +7,7 @@ public partial class DomainLabelAstTests
   [Theory, RepeatData]
   public void SetEnumType_WhenCurrentlyEmpty_SetsValue(string enumType, string enumLabel)
   {
-    IGqlpDomainLabel ast = new DomainLabelAst(AstNulls.At, string.Empty, false, enumLabel);
+    IAstDomainLabel ast = new DomainLabelAst(AstNulls.At, string.Empty, false, enumLabel);
 
     ast.SetEnumType(enumType);
 
@@ -19,7 +19,7 @@ public partial class DomainLabelAstTests
   {
     this.SkipEqual(enumType, newType);
 
-    IGqlpDomainLabel ast = new DomainLabelAst(AstNulls.At, string.Empty, false, enumLabel) { EnumType = enumType };
+    IAstDomainLabel ast = new DomainLabelAst(AstNulls.At, string.Empty, false, enumLabel) { EnumType = enumType };
 
     ast.SetEnumType(newType);
 

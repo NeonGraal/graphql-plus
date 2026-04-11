@@ -1,6 +1,6 @@
 ﻿//HintName: test_output-descr-param_Model.gen.cs
 // Generated from {CurrentDirectory}output-descr-param.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_output_descr_param;
 
 public class testOutpDescrParam
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestOutpDescrParam
 {
   public ItestOutpDescrParamObject? As_OutpDescrParam { get; set; }
 }
 
 public class testOutpDescrParamObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestOutpDescrParamObject
 {
   public ItestFldOutpDescrParam? Field(ItestInOutpDescrParam parameter)
@@ -28,14 +28,14 @@ public class testOutpDescrParamObject
 }
 
 public class testFldOutpDescrParam
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldOutpDescrParam
 {
   public ItestFldOutpDescrParamObject? As_FldOutpDescrParam { get; set; }
 }
 
 public class testFldOutpDescrParamObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFldOutpDescrParamObject
 {
 
@@ -46,7 +46,7 @@ public class testFldOutpDescrParamObject
 }
 
 public class testInOutpDescrParam
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestInOutpDescrParam
 {
   public string? AsString { get; set; }
@@ -54,7 +54,7 @@ public class testInOutpDescrParam
 }
 
 public class testInOutpDescrParamObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestInOutpDescrParamObject
 {
   public decimal Param { get; set; }

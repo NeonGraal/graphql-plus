@@ -19,7 +19,7 @@ public partial class InputParamAstTests
     CreateInput,
     (original, input) => original with { Type = ObjFieldTypeChecks<TypeInput, InputParamAst>.CreateBase(input) });
 
-  internal static InputParamAst CreateInput(TypeInput input, IGqlpObjBase objBase)
+  internal static InputParamAst CreateInput(TypeInput input, IAstObjBase objBase)
     => new(AstNulls.At, objBase);
 }
 

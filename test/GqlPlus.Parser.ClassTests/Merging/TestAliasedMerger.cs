@@ -5,12 +5,12 @@ namespace GqlPlus.Merging;
 
 public abstract class TestAliasedMerger<TAst>
   : TestAliasedMerger<TAst, string>
-  where TAst : IGqlpAliased
+  where TAst : IAstAliased
 { }
 
 public abstract class TestAliasedMerger<TAst, TInput>
   : TestDescriptionsMerger<TAst, TInput>
-  where TAst : IGqlpAliased
+  where TAst : IAstAliased
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsOneAlias_ReturnsGood(TInput input, string alias)

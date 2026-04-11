@@ -1,0 +1,34 @@
+﻿/* constraint-parent-enum+Input
+input CnstPrntEnumInp { | RefCnstPrntEnumInp<parentCnstPrntEnumInp> }
+input RefCnstPrntEnumInp<$type:EnumCnstPrntEnumInp> { field: $type }
+enum EnumCnstPrntEnumInp { :ParentCnstPrntEnumInp cnstPrntEnumInp }
+enum ParentCnstPrntEnumInp { parentCnstPrntEnumInp }
+*/
+
+// Generated from Schema constraint-parent-enum+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-parent-enum+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_parent_enum_Input;
+
+internal class CmptCnstPrntEnumInpEncoder
+{
+}
+
+internal class CmptRefCnstPrntEnumInpEncoder<TType>
+{
+  public TType Field { get; set; }
+}
+
+internal class CmptEnumCnstPrntEnumInpEncoder
+{
+  public string parentCnstPrntEnumInp { get; set; }
+  public string cnstPrntEnumInp { get; set; }
+}
+
+internal class CmptParentCnstPrntEnumInpEncoder
+{
+  public string parentCnstPrntEnumInp { get; set; }
+}

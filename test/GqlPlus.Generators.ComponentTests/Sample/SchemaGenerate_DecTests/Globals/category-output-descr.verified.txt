@@ -1,0 +1,16 @@
+﻿/* category-output-descr
+category { "Output comment" CtgrOutpDescr }
+output CtgrOutpDescr { }
+*/
+
+// Generated from Schema category-output-descr
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_category-output-descr, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_category_output_descr;
+
+internal class CmptCtgrOutpDescrDecoder
+{
+}

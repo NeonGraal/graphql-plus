@@ -1,0 +1,31 @@
+﻿/* constraint-parent-obj-parent+Output
+output CnstPrntObjPrntOutp { :RefCnstPrntObjPrntOutp<AltCnstPrntObjPrntOutp> }
+output RefCnstPrntObjPrntOutp<$ref:PrntCnstPrntObjPrntOutp> { :$ref }
+output PrntCnstPrntObjPrntOutp { | String }
+output AltCnstPrntObjPrntOutp { :PrntCnstPrntObjPrntOutp alt: Number }
+*/
+
+// Generated from Schema constraint-parent-obj-parent+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-parent-obj-parent+Output, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Output;
+
+internal class CmptCnstPrntObjPrntOutpEncoder
+{
+}
+
+internal class CmptRefCnstPrntObjPrntOutpEncoder<TRef>
+{
+}
+
+internal class CmptPrntCnstPrntObjPrntOutpEncoder
+{
+}
+
+internal class CmptAltCnstPrntObjPrntOutpEncoder
+{
+  public decimal Alt { get; set; }
+}

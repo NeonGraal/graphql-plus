@@ -1,26 +1,26 @@
 ﻿namespace GqlPlus.Modelling.Simple;
 
 internal abstract class ModellerDomain<TItemAst, TItemModel>
-  : ModellerType<IGqlpDomain<TItemAst>, IGqlpTypeRef, BaseDomainModel<TItemModel>>
+  : ModellerType<IAstDomain<TItemAst>, IAstTypeRef, BaseDomainModel<TItemModel>>
   , IDomainModeller<TItemAst, TItemModel>
-  where TItemAst : IGqlpDomainItem
+  where TItemAst : IAstDomainItem
   where TItemModel : BaseDomainItemModel
 {
   protected ModellerDomain()
     : base(TypeKindModel.Domain)
   { }
 
-  internal TItemModel[] ToItems(IGqlpDomain<TItemAst> ast, IMap<TypeKindModel> typeKinds)
+  internal TItemModel[] ToItems(IAstDomain<TItemAst> ast, IMap<TypeKindModel> typeKinds)
     => [.. ast.Items.Select(ast => ToItem(ast, typeKinds))];
 
-  internal DomainItemModel<TItemModel>[] ToAllItems(IGqlpDomain<TItemAst> ast, IMap<TypeKindModel> typeKinds)
+  internal DomainItemModel<TItemModel>[] ToAllItems(IAstDomain<TItemAst> ast, IMap<TypeKindModel> typeKinds)
     => [.. ast.Items.Select(item => new DomainItemModel<TItemModel>(ToItem(item, typeKinds), ast.Name))];
 
   protected abstract TItemModel ToItem(TItemAst ast, IMap<TypeKindModel> typeKinds);
 }
 
 public interface IDomainModeller<TItemAst, TItemModel>
-  : IModeller<IGqlpDomain<TItemAst>, BaseDomainModel<TItemModel>>
-  where TItemAst : IGqlpDomainItem
+  : IModeller<IAstDomain<TItemAst>, BaseDomainModel<TItemModel>>
+  where TItemAst : IAstDomainItem
   where TItemModel : BaseDomainItemModel
 { }

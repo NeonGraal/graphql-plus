@@ -6,17 +6,17 @@ public class TypeArgBuilder
   : ObjTypeBuilder
   , IObjEnumBuilder
 {
-  internal IGqlpEnumValue? _enumValue;
+  internal IAstEnumValue? _enumValue;
 
   public TypeArgBuilder(string name)
     : base(name)
   {
-    Add<IGqlpTypeArg>();
-    Add<IGqlpObjEnum>();
+    Add<IAstTypeArg>();
+    Add<IAstObjEnum>();
   }
 
   protected new T Build<T>()
-    where T : class, IGqlpTypeArg
+    where T : class, IAstTypeArg
   {
     T result = base.Build<T>();
     result.EnumValue.Returns(_enumValue);
@@ -28,11 +28,11 @@ public class TypeArgBuilder
     return result;
   }
 
-  public void SetEnumValue(IGqlpEnumValue enumValue)
+  public void SetEnumValue(IAstEnumValue enumValue)
     => _enumValue = enumValue;
 
-  public IGqlpTypeArg AsTypeArg
-    => Build<IGqlpTypeArg>();
+  public IAstTypeArg AsTypeArg
+    => Build<IAstTypeArg>();
 
   public string Name
     => _name;

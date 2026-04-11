@@ -1,6 +1,6 @@
 ﻿//HintName: test_constraint-dom-enum+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}constraint-dom-enum+Dual.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_dom_enum_Dual;
 
 public class testCnstDomEnumDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCnstDomEnumDual
 {
   public ItestRefCnstDomEnumDual<testEnumCnstDomEnumDual>? AsEnumCnstDomEnumDualcnstDomEnumDual { get; set; }
@@ -16,7 +16,7 @@ public class testCnstDomEnumDual
 }
 
 public class testCnstDomEnumDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCnstDomEnumDualObject
 {
 
@@ -27,14 +27,14 @@ public class testCnstDomEnumDualObject
 }
 
 public class testRefCnstDomEnumDual<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstDomEnumDual<TType>
 {
   public ItestRefCnstDomEnumDualObject<TType>? As_RefCnstDomEnumDual { get; set; }
 }
 
 public class testRefCnstDomEnumDualObject<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstDomEnumDualObject<TType>
 {
   public TType Field { get; set; }

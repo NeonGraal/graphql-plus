@@ -13,7 +13,7 @@ public class AllMergersTests
   [Fact]
   public void AllMergers_MergerForSchema_IsRegistered()
     => _services.GetRequiredService<IMergerRepository>()
-      .MergerFor<IGqlpSchema>()
+      .MergerFor<IAstSchema>()
       .ShouldNotBeNull();
 
   [Fact]

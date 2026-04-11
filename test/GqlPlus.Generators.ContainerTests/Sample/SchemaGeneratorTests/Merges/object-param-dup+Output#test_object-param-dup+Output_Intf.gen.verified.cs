@@ -1,6 +1,6 @@
 ﻿//HintName: test_object-param-dup+Output_Intf.gen.cs
 // Generated from {CurrentDirectory}object-param-dup+Output.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,13 +8,13 @@
 namespace GqlPlus.GeneratorTests.Gqlp_object_param_dup_Output;
 
 public interface ItestObjParamDupOutp<TTest>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjParamDupOutpObject<TTest>? As_ObjParamDupOutp { get; }
 }
 
 public interface ItestObjParamDupOutpObject<TTest>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TTest Test { get; }
   TTest Type { get; }

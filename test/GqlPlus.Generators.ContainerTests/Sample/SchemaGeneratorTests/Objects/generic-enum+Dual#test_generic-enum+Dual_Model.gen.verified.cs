@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-enum+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}generic-enum+Dual.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_enum_Dual;
 
 public class testGnrcEnumDual
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcEnumDual
 {
   public ItestRefGnrcEnumDual<testEnumGnrcEnumDual>? AsEnumGnrcEnumDualgnrcEnumDual { get; set; }
@@ -16,7 +16,7 @@ public class testGnrcEnumDual
 }
 
 public class testGnrcEnumDualObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcEnumDualObject
 {
 
@@ -27,14 +27,14 @@ public class testGnrcEnumDualObject
 }
 
 public class testRefGnrcEnumDual<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcEnumDual<TType>
 {
   public ItestRefGnrcEnumDualObject<TType>? As_RefGnrcEnumDual { get; set; }
 }
 
 public class testRefGnrcEnumDualObject<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcEnumDualObject<TType>
 {
   public TType Field { get; set; }

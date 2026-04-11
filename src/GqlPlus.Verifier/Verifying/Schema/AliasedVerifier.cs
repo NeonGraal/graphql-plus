@@ -5,7 +5,7 @@ namespace GqlPlus.Verifying.Schema;
 internal abstract class AliasedVerifier<TAliased>(
   IVerifierRepository verifiers
 ) : GroupedVerifier<TAliased>(verifiers)
- where TAliased : IGqlpAliased
+ where TAliased : IAstAliased
 {
   private readonly IVerify<TAliased> _verifier = verifiers.VerifierFor<TAliased>();
 

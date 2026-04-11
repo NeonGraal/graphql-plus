@@ -8,11 +8,11 @@ internal sealed record class DomainTrueFalseAst(
   bool Excludes,
   bool Value
 ) : AstDomainItem(At, Description, Excludes)
-  , IGqlpDomainTrueFalse
+  , IAstDomainTrueFalse
 {
   internal override string Abbr => "DT";
 
-  bool IGqlpDomainTrueFalse.IsTrue => Value;
+  bool IAstDomainTrueFalse.IsTrue => Value;
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()

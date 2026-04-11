@@ -16,3 +16,8 @@ public interface ICmptDmnEnumLabel
 {
   new CmptEnumDmnEnumLabel? Value { get; }
 }
+
+public enum CmptEnumDmnEnumLabel
+{
+  dmnEnumLabel,
+}

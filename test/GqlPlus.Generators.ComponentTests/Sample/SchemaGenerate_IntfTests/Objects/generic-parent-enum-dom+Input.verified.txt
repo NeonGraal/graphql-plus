@@ -36,6 +36,12 @@ public interface ICmptFieldGnrcPrntEnumDomInpObject<TRef>
   TRef Field { get; }
 }
 
+public enum CmptEnumGnrcPrntEnumDomInp
+{
+  gnrcPrntEnumDomInpLabel,
+  gnrcPrntEnumDomInpOther,
+}
+
 public interface ICmptDomGnrcPrntEnumDomInp
   : IGqlpDomainEnum
 {

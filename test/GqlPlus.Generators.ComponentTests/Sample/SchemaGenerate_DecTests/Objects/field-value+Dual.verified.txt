@@ -1,0 +1,22 @@
+﻿/* field-value+Dual
+dual FieldValueDual { field = fieldValueDual }
+enum EnumFieldValueDual { fieldValueDual }
+*/
+
+// Generated from Schema field-value+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-value+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_value_Dual;
+
+internal class CmptFieldValueDualDecoder
+{
+  public CmptEnumFieldValueDual Field { get; set; }
+}
+
+internal class CmptEnumFieldValueDualDecoder
+{
+  public string fieldValueDual { get; set; }
+}

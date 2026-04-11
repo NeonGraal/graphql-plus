@@ -8,7 +8,7 @@ public abstract class TestSchemaVerify(
   ISchemaVerifyChecks checks
 ) : TestSchemaAsts(checks)
 {
-  protected override async Task Test_Asts(IEnumerable<IGqlpSchema> asts, string test, string label, string[] dirs, string section, string input = "")
+  protected override async Task Test_Asts(IEnumerable<IAstSchema> asts, string test, string label, string[] dirs, string section, string input = "")
   {
     (SchemaModel model, IModelsContext context) = checks.Model_Asts(asts, !SchemaValidData.ExcludeSpecsForBuiltIn(test), section == "Introspection");
 

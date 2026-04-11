@@ -23,3 +23,9 @@ public interface ICmptPrntDmnEnumPrntDescr
 {
   new CmptEnumDmnEnumPrntDescr? Value { get; }
 }
+
+public enum CmptEnumDmnEnumPrntDescr
+{
+  enum_dmnEnumPrntDescr,
+  prnt_dmnEnumPrntDescr,
+}

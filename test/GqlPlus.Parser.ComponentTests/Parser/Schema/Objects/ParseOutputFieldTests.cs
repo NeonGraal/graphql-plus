@@ -5,8 +5,8 @@ using GqlPlus.Parsing.Schema.Objects;
 namespace GqlPlus.Parser.Schema.Objects;
 
 public class ParseOutputFieldTests(
-  ICheckObjectField<IGqlpOutputField> checks
-) : TestObjectField<IGqlpOutputField>(checks)
+  ICheckObjectField<IAstOutputField> checks
+) : TestObjectField<IAstOutputField>(checks)
 {
   [Theory, RepeatData]
   public void WithParams_ReturnsCorrectAst(string name, string fieldType, string parameter)
@@ -87,5 +87,5 @@ public class ParseOutputFieldTests(
 
 internal sealed class ParseOutputFieldChecks(
   IParserRepository parsers
-) : CheckObjectField<IGqlpOutputField, OutputFieldAst>(new OutputFactories(), parsers)
+) : CheckObjectField<IAstOutputField, OutputFieldAst>(new OutputFactories(), parsers)
 { }

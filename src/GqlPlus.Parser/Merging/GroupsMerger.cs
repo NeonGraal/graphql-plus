@@ -2,7 +2,7 @@
 
 internal abstract class GroupsMerger<TItem>
   : BaseMerger<TItem>
-  where TItem : IGqlpError
+  where TItem : IAstError
 {
   protected abstract string ItemGroupKey(TItem item);
   protected abstract IMessages CanMergeGroup(IGrouping<string, TItem> group);

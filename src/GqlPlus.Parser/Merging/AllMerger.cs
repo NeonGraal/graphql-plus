@@ -5,7 +5,7 @@ namespace GqlPlus.Merging;
 internal abstract class AllMerger<TItem>(
   IMergerRepository mergers
 ) : DistinctMerger<TItem>(mergers)
-  where TItem : IGqlpType
+  where TItem : IAstType
 {
   private readonly IEnumerable<IMergeAll<TItem>> _all = mergers.AllMergersFor<TItem>();
 

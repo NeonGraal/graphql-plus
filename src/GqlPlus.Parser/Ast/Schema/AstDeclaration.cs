@@ -7,7 +7,7 @@ internal abstract record class AstDeclaration(
   string Name,
   string Description
 ) : AstAliased(At, Name, Description)
-  , IGqlpDeclaration
+  , IAstDeclaration
 {
   public abstract string Label { get; }
 }

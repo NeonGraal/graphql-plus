@@ -1,0 +1,18 @@
+﻿/* object-constraint+Input
+input ObjCnstInp<$type:String> { field: $type }
+input ObjCnstInp<$type:String> { str: $type }
+*/
+
+// Generated from Schema object-constraint+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-constraint+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_constraint_Input;
+
+internal class CmptObjCnstInpDecoder<TType>
+{
+  public TType Field { get; set; }
+  public TType Str { get; set; }
+}

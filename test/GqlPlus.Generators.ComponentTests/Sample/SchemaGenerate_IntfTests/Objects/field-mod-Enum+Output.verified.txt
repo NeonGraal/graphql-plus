@@ -22,3 +22,8 @@ public interface ICmptFieldModEnumOutpObject
 {
   IDictionary<CmptEnumFieldModEnumOutp, string> Field { get; }
 }
+
+public enum CmptEnumFieldModEnumOutp
+{
+  value,
+}

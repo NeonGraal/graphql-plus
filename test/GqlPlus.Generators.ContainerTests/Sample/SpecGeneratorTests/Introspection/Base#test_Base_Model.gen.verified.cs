@@ -1,6 +1,6 @@
 ﻿//HintName: test_Base_Model.gen.cs
 // Generated from {CurrentDirectory}Base.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -132,7 +132,7 @@ public class test_TypeParamObject
 }
 
 public class test_ObjAlternate
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_ObjAlternate
 {
   public Itest_ObjAlternateEnum? As_ObjAlternateEnum { get; set; }
@@ -140,7 +140,7 @@ public class test_ObjAlternate
 }
 
 public class test_ObjAlternateObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_ObjAlternateObject
 {
   public Itest_ObjBase Type { get; set; }
@@ -178,7 +178,7 @@ public class test_ObjAlternateEnumObject
 }
 
 public class test_ObjectFor<TFor>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_ObjectFor<TFor>
 {
   public TFor? As_Parent { get; set; }
@@ -186,7 +186,7 @@ public class test_ObjectFor<TFor>
 }
 
 public class test_ObjectForObject<TFor>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_ObjectForObject<TFor>
 {
   public Itest_Name ObjectType { get; set; }
@@ -265,7 +265,7 @@ public class test_ObjFieldEnumObject
 }
 
 public class test_ForParam<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_ForParam<TType>
 {
   public Itest_ObjAlternate? As_ObjAlternate { get; set; }
@@ -274,7 +274,7 @@ public class test_ForParam<TType>
 }
 
 public class test_ForParamObject<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , Itest_ForParamObject<TType>
 {
 

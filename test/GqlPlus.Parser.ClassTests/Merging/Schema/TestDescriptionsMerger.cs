@@ -4,12 +4,12 @@ namespace GqlPlus.Merging.Schema;
 
 public abstract class TestDescriptionsMerger<TAst>
   : TestDescriptionsMerger<TAst, string>
-  where TAst : IGqlpError, IGqlpDescribed
+  where TAst : IAstError, IAstDescribed
 { }
 
 public abstract class TestDescriptionsMerger<TAst, TInput>
   : TestGroupsMerger<TAst, TInput>
-  where TAst : IGqlpError, IGqlpDescribed
+  where TAst : IAstError, IAstDescribed
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsOneDescription_ReturnsGood(TInput input, string description)

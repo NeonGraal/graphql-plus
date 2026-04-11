@@ -1,0 +1,18 @@
+﻿/* object-param-dup+Input
+input ObjParamDupInp<$test:String> { test: $test }
+input ObjParamDupInp<$test:String> { type: $test }
+*/
+
+// Generated from Schema object-param-dup+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-param-dup+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_param_dup_Input;
+
+internal class CmptObjParamDupInpEncoder<TTest>
+{
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
+}

@@ -37,6 +37,12 @@ public interface ICmptRefCnstDomEnumInpObject<TType>
   TType Field { get; }
 }
 
+public enum CmptEnumCnstDomEnumInp
+{
+  cnstDomEnumInp,
+  other,
+}
+
 public interface ICmptJustCnstDomEnumInp
   : IGqlpDomainEnum
 {

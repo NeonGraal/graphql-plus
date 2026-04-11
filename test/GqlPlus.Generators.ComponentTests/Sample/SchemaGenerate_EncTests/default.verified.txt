@@ -1,0 +1,36 @@
+﻿/* default
+category { Query }
+output Query { }
+
+category { (sequential) Mutation }
+output Mutation { }
+
+category { (single) Subscription }
+output Subscription { }
+
+output _Schema { }
+*/
+
+// Generated from Schema default
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_default, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_default;
+
+internal class CmptQueryEncoder
+{
+}
+
+internal class CmptMutationEncoder
+{
+}
+
+internal class CmptSubscriptionEncoder
+{
+}
+
+internal class Cmpt_SchemaEncoder
+{
+}

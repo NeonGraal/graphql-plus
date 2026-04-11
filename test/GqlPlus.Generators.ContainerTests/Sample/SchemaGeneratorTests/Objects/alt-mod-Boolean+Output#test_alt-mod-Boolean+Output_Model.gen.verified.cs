@@ -1,6 +1,6 @@
 ﻿//HintName: test_alt-mod-Boolean+Output_Model.gen.cs
 // Generated from {CurrentDirectory}alt-mod-Boolean+Output.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_Boolean_Output;
 
 public class testAltModBoolOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltModBoolOutp
 {
   public IDictionary<bool, ItestAltAltModBoolOutp>? AsAltAltModBoolOutp { get; set; }
@@ -16,7 +16,7 @@ public class testAltModBoolOutp
 }
 
 public class testAltModBoolOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltModBoolOutpObject
 {
 
@@ -27,7 +27,7 @@ public class testAltModBoolOutpObject
 }
 
 public class testAltAltModBoolOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltAltModBoolOutp
 {
   public string? AsString { get; set; }
@@ -35,7 +35,7 @@ public class testAltAltModBoolOutp
 }
 
 public class testAltAltModBoolOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltAltModBoolOutpObject
 {
   public decimal Alt { get; set; }

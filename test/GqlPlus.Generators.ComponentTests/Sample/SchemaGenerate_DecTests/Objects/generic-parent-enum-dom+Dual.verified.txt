@@ -1,0 +1,33 @@
+﻿/* generic-parent-enum-dom+Dual
+dual GnrcPrntEnumDomDual { :FieldGnrcPrntEnumDomDual<DomGnrcPrntEnumDomDual> }
+dual FieldGnrcPrntEnumDomDual<$ref:EnumGnrcPrntEnumDomDual> { field: $ref }
+enum EnumGnrcPrntEnumDomDual { gnrcPrntEnumDomDualLabel gnrcPrntEnumDomDualOther }
+domain DomGnrcPrntEnumDomDual { enum gnrcPrntEnumDomDualLabel }
+*/
+
+// Generated from Schema generic-parent-enum-dom+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-enum-dom+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_enum_dom_Dual;
+
+internal class CmptGnrcPrntEnumDomDualDecoder
+{
+}
+
+internal class CmptFieldGnrcPrntEnumDomDualDecoder<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+internal class CmptEnumGnrcPrntEnumDomDualDecoder
+{
+  public string gnrcPrntEnumDomDualLabel { get; set; }
+  public string gnrcPrntEnumDomDualOther { get; set; }
+}
+
+internal class CmptDomGnrcPrntEnumDomDualDecoder
+{
+}

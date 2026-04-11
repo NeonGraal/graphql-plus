@@ -6,13 +6,13 @@ namespace GqlPlus.Matching;
 internal class MatchObjectParentDualBase<TField>(
   IMatcherRepository matchers
 ) : ObjectParentMatcher<TField>(matchers)
-  where TField : class, IGqlpObjField
+  where TField : class, IAstObjField
 {
-  protected override bool MatchParent(IGqlpObjBase parent, string constraint, UsageContext context)
+  protected override bool MatchParent(IAstObjBase parent, string constraint, UsageContext context)
     => parent is not null && (
-      MatchArgOrType<IGqlpObject<TField>, UsageContext>(parent.TypeName, constraint, context, MatchObject)
-    || MatchArgOrType<IGqlpObject<IGqlpDualField>, UsageContext>(parent.TypeName, constraint, context, MatchDual));
+      MatchArgOrType<IAstObject<TField>, UsageContext>(parent.TypeName, constraint, context, MatchObject)
+    || MatchArgOrType<IAstObject<IAstDualField>, UsageContext>(parent.TypeName, constraint, context, MatchDual));
 
-  private bool MatchDual(IGqlpObject<IGqlpDualField> dual, string constraint, UsageContext context)
+  private bool MatchDual(IAstObject<IAstDualField> dual, string constraint, UsageContext context)
     => MatchObject(dual, constraint, context);
 }

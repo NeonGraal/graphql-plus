@@ -1,6 +1,6 @@
 ﻿//HintName: test_field-value+Input_Model.gen.cs
 // Generated from {CurrentDirectory}field-value+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_field_value_Input;
 
 public class testFieldValueInp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldValueInp
 {
   public ItestFieldValueInpObject? As_FieldValueInp { get; set; }
 }
 
 public class testFieldValueInpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldValueInpObject
 {
   public testEnumFieldValueInp Field { get; set; }

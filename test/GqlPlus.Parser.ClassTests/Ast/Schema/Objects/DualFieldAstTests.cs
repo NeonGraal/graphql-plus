@@ -23,7 +23,7 @@ public partial class DualFieldAstTests
     CreateDual,
     (original, input) => original with { Name = input.Name });
 
-  internal static DualFieldAst CreateDual(FieldInput input, IGqlpObjBase objBase)
+  internal static DualFieldAst CreateDual(FieldInput input, IAstObjBase objBase)
     => new(AstNulls.At, input.Name, objBase);
 }
 

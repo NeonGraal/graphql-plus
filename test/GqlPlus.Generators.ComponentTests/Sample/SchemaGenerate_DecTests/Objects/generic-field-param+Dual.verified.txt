@@ -1,0 +1,27 @@
+﻿/* generic-field-param+Dual
+dual GnrcFieldParamDual { field: RefGnrcFieldParamDual<AltGnrcFieldParamDual> }
+dual RefGnrcFieldParamDual<$ref:_Dual> { | $ref }
+dual AltGnrcFieldParamDual { alt: Number | String }
+*/
+
+// Generated from Schema generic-field-param+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-field-param+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_field_param_Dual;
+
+internal class CmptGnrcFieldParamDualDecoder
+{
+  public ICmptRefGnrcFieldParamDual<ICmptAltGnrcFieldParamDual> Field { get; set; }
+}
+
+internal class CmptRefGnrcFieldParamDualDecoder<TRef>
+{
+}
+
+internal class CmptAltGnrcFieldParamDualDecoder
+{
+  public decimal Alt { get; set; }
+}

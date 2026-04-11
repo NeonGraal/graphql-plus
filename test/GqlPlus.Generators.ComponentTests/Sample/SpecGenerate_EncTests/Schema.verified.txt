@@ -1,0 +1,69 @@
+﻿/* Schema
+"$T?"
+dual _Opt<$T:_Any> [Opt] { | $T | Null }
+
+dual _List<$T:_Any> [List] { | $T[] }
+
+dual _Dict<$K:_Key $T:_Any> [Dict] { | $T[$K] }
+
+dual _Map<$T:_Any> [Map] { | $T[*] }
+
+dual _Array<$T:_Any> [Array] { | $T[0] }
+
+dual _IfElse<$T:_Any> [IfElse] { | $T[^] }
+
+dual _Set<$K:_Key> [Set] { | _[$K] }
+
+dual _Mask<$K:_Key> [Mask] { | ^[$K] }
+
+union _Key { }
+dual _Any { }
+*/
+
+// Generated from Spec Schema
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Schema, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Schema;
+
+internal class Cmpt_OptEncoder<TT>
+{
+}
+
+internal class Cmpt_ListEncoder<TT>
+{
+}
+
+internal class Cmpt_DictEncoder<TK,TT>
+{
+}
+
+internal class Cmpt_MapEncoder<TT>
+{
+}
+
+internal class Cmpt_ArrayEncoder<TT>
+{
+}
+
+internal class Cmpt_IfElseEncoder<TT>
+{
+}
+
+internal class Cmpt_SetEncoder<TK>
+{
+}
+
+internal class Cmpt_MaskEncoder<TK>
+{
+}
+
+internal class Cmpt_KeyEncoder
+{
+}
+
+internal class Cmpt_AnyEncoder
+{
+}

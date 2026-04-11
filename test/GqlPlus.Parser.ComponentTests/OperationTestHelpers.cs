@@ -5,22 +5,22 @@ namespace GqlPlus;
 
 public static class OperationTestHelpers
 {
-  public static IGqlpDirective[] Directives(this string[] directives)
+  public static IAstDirective[] Directives(this string[] directives)
     => [.. directives.Select(d => new DirectiveAst(AstNulls.At, d))];
 
-  public static IGqlpSelection[] Fields(this string[] fields)
+  public static IAstSelection[] Fields(this string[] fields)
     => [.. fields.Select(f => new FieldAst(AstNulls.At, f))];
 
-  public static IGqlpArg[] ArgList(this string value)
+  public static IAstArg[] ArgList(this string value)
     => [new ArgAst(AstNulls.At, value), new ArgAst(value.FieldKey())];
 
-  public static IGqlpFields<IGqlpArg> ArgObject(this string value, string key)
+  public static IAstFields<IAstArg> ArgObject(this string value, string key)
   {
-    IGqlpFieldKey keyAst = key.FieldKey();
-    IGqlpFieldKey valueAst = value.FieldKey();
+    IAstFieldKey keyAst = key.FieldKey();
+    IAstFieldKey valueAst = value.FieldKey();
 
     return key == value
-      ? new FieldsAst<IGqlpArg>(keyAst, new ArgAst(AstNulls.At, value))
-      : new FieldsAst<IGqlpArg>() { [keyAst] = new ArgAst(AstNulls.At, value), [valueAst] = new ArgAst(keyAst) };
+      ? new FieldsAst<IAstArg>(keyAst, new ArgAst(AstNulls.At, value))
+      : new FieldsAst<IAstArg>() { [keyAst] = new ArgAst(AstNulls.At, value), [valueAst] = new ArgAst(keyAst) };
   }
 }

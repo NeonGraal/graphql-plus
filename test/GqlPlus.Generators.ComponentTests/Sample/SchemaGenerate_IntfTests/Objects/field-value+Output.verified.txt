@@ -22,3 +22,8 @@ public interface ICmptFieldValueOutpObject
 {
   CmptEnumFieldValueOutp Field { get; }
 }
+
+public enum CmptEnumFieldValueOutp
+{
+  fieldValueOutp,
+}

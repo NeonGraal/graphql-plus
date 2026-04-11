@@ -1,0 +1,20 @@
+﻿/* generic-alt-simple+Output
+output GnrcAltSmplOutp { | RefGnrcAltSmplOutp<String> }
+output RefGnrcAltSmplOutp<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-alt-simple+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-simple+Output, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_simple_Output;
+
+internal class CmptGnrcAltSmplOutpEncoder
+{
+}
+
+internal class CmptRefGnrcAltSmplOutpEncoder<TRef>
+{
+}

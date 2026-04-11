@@ -8,15 +8,15 @@ namespace GqlPlus.Parsing.Schema.Globals;
 
 internal class ParseOption(
   IParserRepository parsers
-) : DeclarationParser<OptionDefinition, IGqlpSchemaOption>(parsers)
+) : DeclarationParser<OptionDefinition, IAstSchemaOption>(parsers)
 {
-  protected override IGqlpSchemaOption MakeResult(AstPartial<NullAst, NullOption> partial, OptionDefinition value)
+  protected override IAstSchemaOption MakeResult(AstPartial<NullAst, NullOption> partial, OptionDefinition value)
         => new OptionDeclAst(partial.At, partial.Name, partial.Description) {
           Aliases = partial.Aliases,
           Settings = value.Settings,
         };
 
-  protected override IGqlpSchemaOption ToResult(AstPartial<NullAst, NullOption> partial)
+  protected override IAstSchemaOption ToResult(AstPartial<NullAst, NullOption> partial)
     => new OptionDeclAst(partial.At, partial.Name, partial.Description) {
       Aliases = partial.Aliases,
     };
@@ -31,16 +31,16 @@ internal class ParseOptionDefinition(
   IParserRepository parsers
 ) : Parser<OptionDefinition>.I
 {
-  private readonly Parser<IGqlpSchemaSetting>.L _setting = parsers.ParserFor<IGqlpSchemaSetting>();
+  private readonly Parser<IAstSchemaSetting>.L _setting = parsers.ParserFor<IAstSchemaSetting>();
 
   public IResult<OptionDefinition> Parse(ITokenizer tokens, string label)
 
   {
     OptionDefinition result = new();
 
-    List<IGqlpSchemaSetting> values = [];
+    List<IAstSchemaSetting> values = [];
     while (!tokens.Take('}')) {
-      IResult<IGqlpSchemaSetting> setting = _setting.Parse(tokens, "Option Setting");
+      IResult<IAstSchemaSetting> setting = _setting.Parse(tokens, "Option Setting");
       if (!setting.Required(values.Add)) {
         result.Settings = values.ArrayOf<OptionSettingAst>();
         return result.Partial(setting.Message());

@@ -1,6 +1,6 @@
 ﻿//HintName: test_constraint-alt+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}constraint-alt+Dual.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_Dual;
 
 public class testCnstAltDual<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCnstAltDual<TType>
 {
   public TType? Astype { get; set; }
@@ -16,7 +16,7 @@ public class testCnstAltDual<TType>
 }
 
 public class testCnstAltDualObject<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestCnstAltDualObject<TType>
 {
 

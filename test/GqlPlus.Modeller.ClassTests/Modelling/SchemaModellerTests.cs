@@ -3,17 +3,17 @@
 namespace GqlPlus.Modelling;
 
 public class SchemaModellerTests
-  : ModellerClassTestBase<IGqlpSchema, SchemaModel>
+  : ModellerClassTestBase<IAstSchema, SchemaModel>
 {
-  private readonly IModeller<IGqlpSchemaCategory, CategoryModel> _category = MFor<IGqlpSchemaCategory, CategoryModel>();
-  private readonly IModeller<IGqlpSchemaDirective, DirectiveModel> _directive = MFor<IGqlpSchemaDirective, DirectiveModel>();
-  private readonly IModeller<IGqlpSchemaSetting, SettingModel> _setting = MFor<IGqlpSchemaSetting, SettingModel>();
+  private readonly IModeller<IAstSchemaCategory, CategoryModel> _category = MFor<IAstSchemaCategory, CategoryModel>();
+  private readonly IModeller<IAstSchemaDirective, DirectiveModel> _directive = MFor<IAstSchemaDirective, DirectiveModel>();
+  private readonly IModeller<IAstSchemaSetting, SettingModel> _setting = MFor<IAstSchemaSetting, SettingModel>();
   private readonly ITypesModeller _types = A.Of<ITypesModeller>();
 
   public SchemaModellerTests()
     => Modeller = new SchemaModeller(_category, _directive, _setting, _types);
 
-  protected override IModeller<IGqlpSchema, SchemaModel> Modeller { get; }
+  protected override IModeller<IAstSchema, SchemaModel> Modeller { get; }
 
   [Theory, RepeatData]
   public void ToModel_WithValidSchema_ReturnsExpectedSchemaModel(
@@ -26,14 +26,14 @@ public class SchemaModellerTests
     string typeName)
   {
     // Arrange
-    IGqlpSchemaCategory category = A.Named<IGqlpSchemaCategory>(categoryName, string.Empty);
-    IGqlpSchemaDirective directive = A.Named<IGqlpSchemaDirective>(directiveName, string.Empty);
-    IGqlpSchemaOption option = A.Aliased<IGqlpSchemaOption>(name, aliases, contents);
-    IGqlpSchemaSetting setting = A.Named<IGqlpSchemaSetting>(settingName, string.Empty);
+    IAstSchemaCategory category = A.Named<IAstSchemaCategory>(categoryName, string.Empty);
+    IAstSchemaDirective directive = A.Named<IAstSchemaDirective>(directiveName, string.Empty);
+    IAstSchemaOption option = A.Aliased<IAstSchemaOption>(name, aliases, contents);
+    IAstSchemaSetting setting = A.Named<IAstSchemaSetting>(settingName, string.Empty);
     option.Settings.Returns([setting]);
-    IGqlpType type = A.Named<IGqlpType>(typeName, string.Empty);
+    IAstType type = A.Named<IAstType>(typeName, string.Empty);
 
-    IGqlpSchema ast = A.Error<IGqlpSchema>();
+    IAstSchema ast = A.Error<IAstSchema>();
     ast.Declarations.Returns([category, directive, option, type]);
 
     CategoryModel categoryModel = new(categoryName, new(TypeKindModel.Output, typeName, string.Empty), string.Empty);

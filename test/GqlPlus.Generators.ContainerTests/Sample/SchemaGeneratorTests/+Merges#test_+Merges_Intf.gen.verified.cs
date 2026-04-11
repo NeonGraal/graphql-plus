@@ -1,6 +1,6 @@
 ﻿//HintName: test_+Merges_Intf.gen.cs
 // Generated from {CurrentDirectory}+Merges.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,57 +8,57 @@
 namespace GqlPlus.GeneratorTests.Gqlp__Merges;
 
 public interface ItestCtgr
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestCtgrObject? As_Ctgr { get; }
 }
 
 public interface ItestCtgrObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestCtgrAlias
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestCtgrAliasObject? As_CtgrAlias { get; }
 }
 
 public interface ItestCtgrAliasObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestCtgrDescr
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestCtgrDescrObject? As_CtgrDescr { get; }
 }
 
 public interface ItestCtgrDescrObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestCtgrMod
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestCtgrModObject? As_CtgrMod { get; }
 }
 
 public interface ItestCtgrModObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestInDrctParam
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestInDrctParamObject? As_InDrctParam { get; }
 }
 
 public interface ItestInDrctParamObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
@@ -124,143 +124,177 @@ public interface ItestDmnStrSame
 {
 }
 
+public enum testEnumAlias
+{
+  enumAlias,
+}
+
+public enum testEnumDiff
+{
+  one,
+  two,
+}
+
+public enum testEnumSame
+{
+  enumSame,
+}
+
+public enum testEnumSamePrnt
+{
+  prnt_enumSamePrnt = testPrntEnumSamePrnt.prnt_enumSamePrnt,
+  enumSamePrnt,
+}
+
+public enum testPrntEnumSamePrnt
+{
+  prnt_enumSamePrnt,
+}
+
+public enum testEnumValueAlias
+{
+  enumValueAlias,
+  val1 = enumValueAlias,
+  val2 = enumValueAlias,
+}
+
 public interface ItestObjDual
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjDualObject? As_ObjDual { get; }
 }
 
 public interface ItestObjDualObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestObjInp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjInpObject? As_ObjInp { get; }
 }
 
 public interface ItestObjInpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestObjOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjOutpObject? As_ObjOutp { get; }
 }
 
 public interface ItestObjOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestObjAliasDual
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjAliasDualObject? As_ObjAliasDual { get; }
 }
 
 public interface ItestObjAliasDualObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestObjAliasInp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjAliasInpObject? As_ObjAliasInp { get; }
 }
 
 public interface ItestObjAliasInpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestObjAliasOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjAliasOutpObject? As_ObjAliasOutp { get; }
 }
 
 public interface ItestObjAliasOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestObjAltDual
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjAltDualType? AsObjAltDualType { get; }
   ItestObjAltDualObject? As_ObjAltDual { get; }
 }
 
 public interface ItestObjAltDualObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestObjAltDualType
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjAltDualTypeObject? As_ObjAltDualType { get; }
 }
 
 public interface ItestObjAltDualTypeObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestObjAltInp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjAltInpType? AsObjAltInpType { get; }
   ItestObjAltInpObject? As_ObjAltInp { get; }
 }
 
 public interface ItestObjAltInpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestObjAltInpType
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjAltInpTypeObject? As_ObjAltInpType { get; }
 }
 
 public interface ItestObjAltInpTypeObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestObjAltOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjAltOutpType? AsObjAltOutpType { get; }
   ItestObjAltOutpObject? As_ObjAltOutp { get; }
 }
 
 public interface ItestObjAltOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestObjAltOutpType
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjAltOutpTypeObject? As_ObjAltOutpType { get; }
 }
 
 public interface ItestObjAltOutpTypeObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestObjAltEnumDual
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   bool? AsBooleantrue { get; }
   bool? AsBooleanfalse { get; }
@@ -268,12 +302,12 @@ public interface ItestObjAltEnumDual
 }
 
 public interface ItestObjAltEnumDualObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestObjAltEnumInp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   bool? AsBooleantrue { get; }
   bool? AsBooleanfalse { get; }
@@ -281,12 +315,12 @@ public interface ItestObjAltEnumInp
 }
 
 public interface ItestObjAltEnumInpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestObjAltEnumOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   bool? AsBooleantrue { get; }
   bool? AsBooleanfalse { get; }
@@ -294,368 +328,368 @@ public interface ItestObjAltEnumOutp
 }
 
 public interface ItestObjAltEnumOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestObjCnstDual<TType>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjCnstDualObject<TType>? As_ObjCnstDual { get; }
 }
 
 public interface ItestObjCnstDualObject<TType>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TType Field { get; }
   TType Str { get; }
 }
 
 public interface ItestObjCnstInp<TType>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjCnstInpObject<TType>? As_ObjCnstInp { get; }
 }
 
 public interface ItestObjCnstInpObject<TType>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TType Field { get; }
   TType Str { get; }
 }
 
 public interface ItestObjCnstOutp<TType>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjCnstOutpObject<TType>? As_ObjCnstOutp { get; }
 }
 
 public interface ItestObjCnstOutpObject<TType>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TType Field { get; }
   TType Str { get; }
 }
 
 public interface ItestObjFieldDual
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjFieldDualObject? As_ObjFieldDual { get; }
 }
 
 public interface ItestObjFieldDualObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldObjFieldDual Field { get; }
 }
 
 public interface ItestFldObjFieldDual
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldObjFieldDualObject? As_FldObjFieldDual { get; }
 }
 
 public interface ItestFldObjFieldDualObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestObjFieldInp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjFieldInpObject? As_ObjFieldInp { get; }
 }
 
 public interface ItestObjFieldInpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldObjFieldInp Field { get; }
 }
 
 public interface ItestFldObjFieldInp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldObjFieldInpObject? As_FldObjFieldInp { get; }
 }
 
 public interface ItestFldObjFieldInpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestObjFieldOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjFieldOutpObject? As_ObjFieldOutp { get; }
 }
 
 public interface ItestObjFieldOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldObjFieldOutp Field { get; }
 }
 
 public interface ItestFldObjFieldOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldObjFieldOutpObject? As_FldObjFieldOutp { get; }
 }
 
 public interface ItestFldObjFieldOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestObjFieldAliasDual
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjFieldAliasDualObject? As_ObjFieldAliasDual { get; }
 }
 
 public interface ItestObjFieldAliasDualObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldObjFieldAliasDual Field { get; }
 }
 
 public interface ItestFldObjFieldAliasDual
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldObjFieldAliasDualObject? As_FldObjFieldAliasDual { get; }
 }
 
 public interface ItestFldObjFieldAliasDualObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestObjFieldAliasInp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjFieldAliasInpObject? As_ObjFieldAliasInp { get; }
 }
 
 public interface ItestObjFieldAliasInpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldObjFieldAliasInp Field { get; }
 }
 
 public interface ItestFldObjFieldAliasInp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldObjFieldAliasInpObject? As_FldObjFieldAliasInp { get; }
 }
 
 public interface ItestFldObjFieldAliasInpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestObjFieldAliasOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjFieldAliasOutpObject? As_ObjFieldAliasOutp { get; }
 }
 
 public interface ItestObjFieldAliasOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldObjFieldAliasOutp Field { get; }
 }
 
 public interface ItestFldObjFieldAliasOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldObjFieldAliasOutpObject? As_FldObjFieldAliasOutp { get; }
 }
 
 public interface ItestFldObjFieldAliasOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestObjFieldEnumAliasDual
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjFieldEnumAliasDualObject? As_ObjFieldEnumAliasDual { get; }
 }
 
 public interface ItestObjFieldEnumAliasDualObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   bool Field { get; }
 }
 
 public interface ItestObjFieldEnumAliasInp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjFieldEnumAliasInpObject? As_ObjFieldEnumAliasInp { get; }
 }
 
 public interface ItestObjFieldEnumAliasInpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   bool Field { get; }
 }
 
 public interface ItestObjFieldEnumAliasOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjFieldEnumAliasOutpObject? As_ObjFieldEnumAliasOutp { get; }
 }
 
 public interface ItestObjFieldEnumAliasOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   bool Field { get; }
 }
 
 public interface ItestObjFieldEnumValueDual
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjFieldEnumValueDualObject? As_ObjFieldEnumValueDual { get; }
 }
 
 public interface ItestObjFieldEnumValueDualObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   bool Field { get; }
 }
 
 public interface ItestObjFieldEnumValueInp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjFieldEnumValueInpObject? As_ObjFieldEnumValueInp { get; }
 }
 
 public interface ItestObjFieldEnumValueInpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   bool Field { get; }
 }
 
 public interface ItestObjFieldEnumValueOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjFieldEnumValueOutpObject? As_ObjFieldEnumValueOutp { get; }
 }
 
 public interface ItestObjFieldEnumValueOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   bool Field { get; }
 }
 
 public interface ItestObjFieldTypeAliasDual
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjFieldTypeAliasDualObject? As_ObjFieldTypeAliasDual { get; }
 }
 
 public interface ItestObjFieldTypeAliasDualObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string Field { get; }
 }
 
 public interface ItestObjFieldTypeAliasInp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjFieldTypeAliasInpObject? As_ObjFieldTypeAliasInp { get; }
 }
 
 public interface ItestObjFieldTypeAliasInpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string Field { get; }
 }
 
 public interface ItestObjFieldTypeAliasOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjFieldTypeAliasOutpObject? As_ObjFieldTypeAliasOutp { get; }
 }
 
 public interface ItestObjFieldTypeAliasOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string Field { get; }
 }
 
 public interface ItestObjParamDual<TTest,TType>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjParamDualObject<TTest,TType>? As_ObjParamDual { get; }
 }
 
 public interface ItestObjParamDualObject<TTest,TType>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TTest Test { get; }
   TType Type { get; }
 }
 
 public interface ItestObjParamInp<TTest,TType>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjParamInpObject<TTest,TType>? As_ObjParamInp { get; }
 }
 
 public interface ItestObjParamInpObject<TTest,TType>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TTest Test { get; }
   TType Type { get; }
 }
 
 public interface ItestObjParamOutp<TTest,TType>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjParamOutpObject<TTest,TType>? As_ObjParamOutp { get; }
 }
 
 public interface ItestObjParamOutpObject<TTest,TType>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TTest Test { get; }
   TType Type { get; }
 }
 
 public interface ItestObjParamDupDual<TTest>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjParamDupDualObject<TTest>? As_ObjParamDupDual { get; }
 }
 
 public interface ItestObjParamDupDualObject<TTest>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TTest Test { get; }
   TTest Type { get; }
 }
 
 public interface ItestObjParamDupInp<TTest>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjParamDupInpObject<TTest>? As_ObjParamDupInp { get; }
 }
 
 public interface ItestObjParamDupInpObject<TTest>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TTest Test { get; }
   TTest Type { get; }
 }
 
 public interface ItestObjParamDupOutp<TTest>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestObjParamDupOutpObject<TTest>? As_ObjParamDupOutp { get; }
 }
 
 public interface ItestObjParamDupOutpObject<TTest>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TTest Test { get; }
   TTest Type { get; }
@@ -673,13 +707,13 @@ public interface ItestObjPrntDualObject
 }
 
 public interface ItestRefObjPrntDual
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestRefObjPrntDualObject? As_RefObjPrntDual { get; }
 }
 
 public interface ItestRefObjPrntDualObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
@@ -695,13 +729,13 @@ public interface ItestObjPrntInpObject
 }
 
 public interface ItestRefObjPrntInp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestRefObjPrntInpObject? As_RefObjPrntInp { get; }
 }
 
 public interface ItestRefObjPrntInpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
@@ -717,77 +751,77 @@ public interface ItestObjPrntOutpObject
 }
 
 public interface ItestRefObjPrntOutp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestRefObjPrntOutpObject? As_RefObjPrntOutp { get; }
 }
 
 public interface ItestRefObjPrntOutpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestOutpFieldParam
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestOutpFieldParamObject? As_OutpFieldParam { get; }
 }
 
 public interface ItestOutpFieldParamObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldOutpFieldParam? Field(ItestOutpFieldParam1 parameter);
 }
 
 public interface ItestOutpFieldParam1
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestOutpFieldParam1Object? As_OutpFieldParam1 { get; }
 }
 
 public interface ItestOutpFieldParam1Object
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestOutpFieldParam2
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestOutpFieldParam2Object? As_OutpFieldParam2 { get; }
 }
 
 public interface ItestOutpFieldParam2Object
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestFldOutpFieldParam
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldOutpFieldParamObject? As_FldOutpFieldParam { get; }
 }
 
 public interface ItestFldOutpFieldParamObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestUnionAlias
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Boolean AsBoolean { get; }
   Number AsNumber { get; }
 }
 
 public interface ItestUnionDiff
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Boolean AsBoolean { get; }
   Number AsNumber { get; }
 }
 
 public interface ItestUnionSame
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   Boolean AsBoolean { get; }
 }
@@ -799,7 +833,7 @@ public interface ItestUnionSamePrnt
 }
 
 public interface ItestPrntUnionSamePrnt
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   String AsString { get; }
 }

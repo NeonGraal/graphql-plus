@@ -5,7 +5,7 @@ using GqlPlus.Merging.Globals;
 namespace GqlPlus.Merging.Schema.Globals;
 
 public class MergeDirectivesTests
-  : TestAliasedMerger<IGqlpSchemaDirective>
+  : TestAliasedMerger<IAstSchemaDirective>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSameOption_ReturnsGood(string name)
@@ -45,19 +45,19 @@ public class MergeDirectivesTests
   }
 
   private readonly MergeDirectives _merger;
-  private readonly IMerge<IGqlpInputParam> _parameters;
+  private readonly IMerge<IAstInputParam> _parameters;
 
   public MergeDirectivesTests(ITestOutputHelper outputHelper)
   {
-    _parameters = Merger<IGqlpInputParam>();
+    _parameters = Merger<IAstInputParam>();
 
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.MergerFor<IGqlpInputParam>().Returns(_parameters);
+    mergers.MergerFor<IAstInputParam>().Returns(_parameters);
     _merger = new(mergers);
   }
 
-  internal override GroupsMerger<IGqlpSchemaDirective> MergerGroups => _merger;
+  internal override GroupsMerger<IAstSchemaDirective> MergerGroups => _merger;
 
-  protected override IGqlpSchemaDirective MakeAliased(string name, string[]? aliases = null, string description = "")
+  protected override IAstSchemaDirective MakeAliased(string name, string[]? aliases = null, string description = "")
     => new DirectiveDeclAst(AstNulls.At, name, description) { Aliases = aliases ?? [] };
 }

@@ -1,6 +1,6 @@
 ﻿//HintName: test_+Simple_Model.gen.cs
 // Generated from {CurrentDirectory}+Simple.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -218,7 +218,7 @@ public class testPrntDmnStrPrntDescr
 }
 
 public class testUnionDescr
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestUnionDescr
 {
   public Number AsNumber { get; set; }
@@ -232,7 +232,7 @@ public class testUnionPrnt
 }
 
 public class testPrntUnionPrnt
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestPrntUnionPrnt
 {
   public Number AsNumber { get; set; }
@@ -246,7 +246,7 @@ public class testUnionPrntDescr
 }
 
 public class testPrntUnionPrntDescr
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestPrntUnionPrntDescr
 {
   public Number AsNumber { get; set; }
@@ -260,7 +260,7 @@ public class testUnionPrntDup
 }
 
 public class testPrntUnionPrntDup
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestPrntUnionPrntDup
 {
   public Number AsNumber { get; set; }

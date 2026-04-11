@@ -1,6 +1,6 @@
 ﻿//HintName: test_domain-string-non-empty_Intf.gen.cs
 // Generated from {CurrentDirectory}domain-string-non-empty.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */

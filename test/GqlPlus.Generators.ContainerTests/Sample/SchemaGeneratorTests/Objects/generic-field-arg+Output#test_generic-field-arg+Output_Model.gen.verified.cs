@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-field-arg+Output_Model.gen.cs
 // Generated from {CurrentDirectory}generic-field-arg+Output.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_arg_Output;
 
 public class testGnrcFieldArgOutp<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcFieldArgOutp<TType>
 {
   public ItestGnrcFieldArgOutpObject<TType>? As_GnrcFieldArgOutp { get; set; }
 }
 
 public class testGnrcFieldArgOutpObject<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcFieldArgOutpObject<TType>
 {
   public ItestRefGnrcFieldArgOutp<TType> Field { get; set; }
@@ -29,7 +29,7 @@ public class testGnrcFieldArgOutpObject<TType>
 }
 
 public class testRefGnrcFieldArgOutp<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcFieldArgOutp<TRef>
 {
   public TRef? Asref { get; set; }
@@ -37,7 +37,7 @@ public class testRefGnrcFieldArgOutp<TRef>
 }
 
 public class testRefGnrcFieldArgOutpObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcFieldArgOutpObject<TRef>
 {
 

@@ -1,0 +1,391 @@
+﻿// Generated from Schema +Merges
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_+Merges, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_Merges;
+
+internal class CmptCtgrEncoder
+{
+}
+
+internal class CmptCtgrAliasEncoder
+{
+}
+
+internal class CmptCtgrDescrEncoder
+{
+}
+
+internal class CmptCtgrModEncoder
+{
+}
+
+internal class CmptInDrctParamEncoder
+{
+}
+
+internal class CmptDmnAliasEncoder
+{
+}
+
+internal class CmptDmnBoolEncoder
+{
+}
+
+internal class CmptDmnBoolDiffEncoder
+{
+}
+
+internal class CmptDmnBoolSameEncoder
+{
+}
+
+internal class CmptDmnEnumDiffEncoder
+{
+}
+
+internal class CmptDmnEnumSameEncoder
+{
+}
+
+internal class CmptDmnNmbrEncoder
+{
+}
+
+internal class CmptDmnNmbrDiffEncoder
+{
+}
+
+internal class CmptDmnNmbrSameEncoder
+{
+}
+
+internal class CmptDmnStrEncoder
+{
+}
+
+internal class CmptDmnStrDiffEncoder
+{
+}
+
+internal class CmptDmnStrSameEncoder
+{
+}
+
+internal class CmptEnumAliasEncoder
+{
+  public string enumAlias { get; set; }
+}
+
+internal class CmptEnumDiffEncoder
+{
+  public string one { get; set; }
+  public string two { get; set; }
+}
+
+internal class CmptEnumSameEncoder
+{
+  public string enumSame { get; set; }
+}
+
+internal class CmptEnumSamePrntEncoder
+{
+  public string prnt_enumSamePrnt { get; set; }
+  public string enumSamePrnt { get; set; }
+}
+
+internal class CmptPrntEnumSamePrntEncoder
+{
+  public string prnt_enumSamePrnt { get; set; }
+}
+
+internal class CmptEnumValueAliasEncoder
+{
+  public string enumValueAlias { get; set; }
+  public string val1 { get; set; }
+  public string val2 { get; set; }
+}
+
+internal class CmptObjDualEncoder
+{
+}
+
+internal class CmptObjInpEncoder
+{
+}
+
+internal class CmptObjOutpEncoder
+{
+}
+
+internal class CmptObjAliasDualEncoder
+{
+}
+
+internal class CmptObjAliasInpEncoder
+{
+}
+
+internal class CmptObjAliasOutpEncoder
+{
+}
+
+internal class CmptObjAltDualEncoder
+{
+}
+
+internal class CmptObjAltDualTypeEncoder
+{
+}
+
+internal class CmptObjAltInpEncoder
+{
+}
+
+internal class CmptObjAltInpTypeEncoder
+{
+}
+
+internal class CmptObjAltOutpEncoder
+{
+}
+
+internal class CmptObjAltOutpTypeEncoder
+{
+}
+
+internal class CmptObjAltEnumDualEncoder
+{
+}
+
+internal class CmptObjAltEnumInpEncoder
+{
+}
+
+internal class CmptObjAltEnumOutpEncoder
+{
+}
+
+internal class CmptObjCnstDualEncoder<TType>
+{
+  public TType Field { get; set; }
+  public TType Str { get; set; }
+}
+
+internal class CmptObjCnstInpEncoder<TType>
+{
+  public TType Field { get; set; }
+  public TType Str { get; set; }
+}
+
+internal class CmptObjCnstOutpEncoder<TType>
+{
+  public TType Field { get; set; }
+  public TType Str { get; set; }
+}
+
+internal class CmptObjFieldDualEncoder
+{
+  public ICmptFldObjFieldDual Field { get; set; }
+}
+
+internal class CmptFldObjFieldDualEncoder
+{
+}
+
+internal class CmptObjFieldInpEncoder
+{
+  public ICmptFldObjFieldInp Field { get; set; }
+}
+
+internal class CmptFldObjFieldInpEncoder
+{
+}
+
+internal class CmptObjFieldOutpEncoder
+{
+  public ICmptFldObjFieldOutp Field { get; set; }
+}
+
+internal class CmptFldObjFieldOutpEncoder
+{
+}
+
+internal class CmptObjFieldAliasDualEncoder
+{
+  public ICmptFldObjFieldAliasDual Field { get; set; }
+}
+
+internal class CmptFldObjFieldAliasDualEncoder
+{
+}
+
+internal class CmptObjFieldAliasInpEncoder
+{
+  public ICmptFldObjFieldAliasInp Field { get; set; }
+}
+
+internal class CmptFldObjFieldAliasInpEncoder
+{
+}
+
+internal class CmptObjFieldAliasOutpEncoder
+{
+  public ICmptFldObjFieldAliasOutp Field { get; set; }
+}
+
+internal class CmptFldObjFieldAliasOutpEncoder
+{
+}
+
+internal class CmptObjFieldEnumAliasDualEncoder
+{
+  public bool Field { get; set; }
+}
+
+internal class CmptObjFieldEnumAliasInpEncoder
+{
+  public bool Field { get; set; }
+}
+
+internal class CmptObjFieldEnumAliasOutpEncoder
+{
+  public bool Field { get; set; }
+}
+
+internal class CmptObjFieldEnumValueDualEncoder
+{
+  public bool Field { get; set; }
+}
+
+internal class CmptObjFieldEnumValueInpEncoder
+{
+  public bool Field { get; set; }
+}
+
+internal class CmptObjFieldEnumValueOutpEncoder
+{
+  public bool Field { get; set; }
+}
+
+internal class CmptObjFieldTypeAliasDualEncoder
+{
+  public string Field { get; set; }
+}
+
+internal class CmptObjFieldTypeAliasInpEncoder
+{
+  public string Field { get; set; }
+}
+
+internal class CmptObjFieldTypeAliasOutpEncoder
+{
+  public string Field { get; set; }
+}
+
+internal class CmptObjParamDualEncoder<TTest,TType>
+{
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
+}
+
+internal class CmptObjParamInpEncoder<TTest,TType>
+{
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
+}
+
+internal class CmptObjParamOutpEncoder<TTest,TType>
+{
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
+}
+
+internal class CmptObjParamDupDualEncoder<TTest>
+{
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
+}
+
+internal class CmptObjParamDupInpEncoder<TTest>
+{
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
+}
+
+internal class CmptObjParamDupOutpEncoder<TTest>
+{
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
+}
+
+internal class CmptObjPrntDualEncoder
+{
+}
+
+internal class CmptRefObjPrntDualEncoder
+{
+}
+
+internal class CmptObjPrntInpEncoder
+{
+}
+
+internal class CmptRefObjPrntInpEncoder
+{
+}
+
+internal class CmptObjPrntOutpEncoder
+{
+}
+
+internal class CmptRefObjPrntOutpEncoder
+{
+}
+
+internal class CmptOutpFieldParamEncoder
+{
+  public ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter)
+    => null;
+}
+
+internal class CmptOutpFieldParam1Encoder
+{
+}
+
+internal class CmptOutpFieldParam2Encoder
+{
+}
+
+internal class CmptFldOutpFieldParamEncoder
+{
+}
+
+internal class CmptUnionAliasEncoder
+{
+  public Boolean AsBoolean { get; set; }
+  public Number AsNumber { get; set; }
+}
+
+internal class CmptUnionDiffEncoder
+{
+  public Boolean AsBoolean { get; set; }
+  public Number AsNumber { get; set; }
+}
+
+internal class CmptUnionSameEncoder
+{
+  public Boolean AsBoolean { get; set; }
+}
+
+internal class CmptUnionSamePrntEncoder
+{
+  public Boolean AsBoolean { get; set; }
+}
+
+internal class CmptPrntUnionSamePrntEncoder
+{
+  public String AsString { get; set; }
+}

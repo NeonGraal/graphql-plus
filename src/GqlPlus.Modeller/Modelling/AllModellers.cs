@@ -10,44 +10,44 @@ public static class AllModellers
 {
   public static IServiceCollection AddModellers(this IServiceCollection services)
     => services
-      .AddModeller<IGqlpConstant, ConstantModel, ConstantModeller>()
-      .AddModeller<IGqlpEnumValue, EnumValueModel, EnumValueModeller>()
-      .AddModeller<IGqlpFieldKey, SimpleModel, SimpleModeller>()
+      .AddModeller<IAstConstant, ConstantModel, ConstantModeller>()
+      .AddModeller<IAstEnumValue, EnumValueModel, EnumValueModeller>()
+      .AddModeller<IAstFieldKey, SimpleModel, SimpleModeller>()
       .AddModifierModeller()
       // Schema
-      .AddModeller<IGqlpSchema, SchemaModel, SchemaModeller>()
-      .AddModeller<IGqlpSchemaCategory, CategoryModel, CategoryModeller>()
-      .AddModeller<IGqlpSchemaDirective, DirectiveModel, DirectiveModeller>()
-      .AddModeller<IGqlpSchemaSetting, SettingModel, SettingModeller>()
+      .AddModeller<IAstSchema, SchemaModel, SchemaModeller>()
+      .AddModeller<IAstSchemaCategory, CategoryModel, CategoryModeller>()
+      .AddModeller<IAstSchemaDirective, DirectiveModel, DirectiveModeller>()
+      .AddModeller<IAstSchemaSetting, SettingModel, SettingModeller>()
       // Types
       .AddTypesModeller()
-      .AddTypeModeller<IGqlpTypeSpecial, SpecialTypeModel, SpecialTypeModeller>()
+      .AddTypeModeller<IAstTypeSpecial, SpecialTypeModel, SpecialTypeModeller>()
       // Simple
-      .AddDomainModeller<IGqlpDomainLabel, DomainLabelModel, DomainEnumModeller>()
-      .AddDomainModeller<IGqlpDomainRange, DomainRangeModel, DomainNumberModeller>()
-      .AddDomainModeller<IGqlpDomainRegex, DomainRegexModel, DomainStringModeller>()
-      .AddDomainModeller<IGqlpDomainTrueFalse, DomainTrueFalseModel, DomainBooleanModeller>()
-      .AddTypeModeller<IGqlpEnum, TypeEnumModel, EnumModeller>()
-      .AddTypeModeller<IGqlpUnion, TypeUnionModel, UnionModeller>()
+      .AddDomainModeller<IAstDomainLabel, DomainLabelModel, DomainEnumModeller>()
+      .AddDomainModeller<IAstDomainRange, DomainRangeModel, DomainNumberModeller>()
+      .AddDomainModeller<IAstDomainRegex, DomainRegexModel, DomainStringModeller>()
+      .AddDomainModeller<IAstDomainTrueFalse, DomainTrueFalseModel, DomainBooleanModeller>()
+      .AddTypeModeller<IAstEnum, TypeEnumModel, EnumModeller>()
+      .AddTypeModeller<IAstUnion, TypeUnionModel, UnionModeller>()
       // Object
-      .AddModeller<IGqlpTypeParam, TypeParamModel, TypeParamModeller>()
-      .AddModeller<IGqlpTypeArg, TypeArgModel, TypeArgModeller>()
-      .AddModeller<IGqlpObjBase, ObjBaseModel, ObjBaseModeller>()
-      .AddModeller<IGqlpAlternate, AlternateModel, AlternateModeller>()
+      .AddModeller<IAstTypeParam, TypeParamModel, TypeParamModeller>()
+      .AddModeller<IAstTypeArg, TypeArgModel, TypeArgModeller>()
+      .AddModeller<IAstObjBase, ObjBaseModel, ObjBaseModeller>()
+      .AddModeller<IAstAlternate, AlternateModel, AlternateModeller>()
 
-      .AddObjectModellers<IGqlpDualField, DualFieldModel, DualFieldModeller>()
-      .AddTypeModeller<IGqlpObject<IGqlpDualField>, TypeDualModel, DualModeller>()
+      .AddObjectModellers<IAstDualField, DualFieldModel, DualFieldModeller>()
+      .AddTypeModeller<IAstObject<IAstDualField>, TypeDualModel, DualModeller>()
 
-      .AddObjectModellers<IGqlpInputField, InputFieldModel, InputFieldModeller>()
-      .AddTypeModeller<IGqlpObject<IGqlpInputField>, TypeInputModel, InputModeller>()
-      .AddModeller<IGqlpInputParam, InputParamModel, InputParamModeller>()
+      .AddObjectModellers<IAstInputField, InputFieldModel, InputFieldModeller>()
+      .AddTypeModeller<IAstObject<IAstInputField>, TypeInputModel, InputModeller>()
+      .AddModeller<IAstInputParam, InputParamModel, InputParamModeller>()
 
-      .AddObjectModellers<IGqlpOutputField, OutputFieldModel, OutputFieldModeller>()
-      .AddTypeModeller<IGqlpObject<IGqlpOutputField>, TypeOutputModel, OutputModeller>()
+      .AddObjectModellers<IAstOutputField, OutputFieldModel, OutputFieldModeller>()
+      .AddTypeModeller<IAstObject<IAstOutputField>, TypeOutputModel, OutputModeller>()
     ;
 
   private static IServiceCollection AddModeller<TAst, TModel, TModeller>(this IServiceCollection services)
-    where TAst : IGqlpError
+    where TAst : IAstError
     where TModel : IModelBase
     where TModeller : class, IModeller<TAst, TModel>
     => services
@@ -58,10 +58,10 @@ public static class AllModellers
   private static IServiceCollection AddTypesModeller(this IServiceCollection services)
     => services
       .AddSingleton<ITypesModeller, TypesModeller>()
-      .AddProvider<ITypesModeller, IModeller<IGqlpType, BaseTypeModel>>();
+      .AddProvider<ITypesModeller, IModeller<IAstType, BaseTypeModel>>();
 
   private static IServiceCollection AddTypeModeller<TAst, TModel, TModeller>(this IServiceCollection services)
-    where TAst : IGqlpError
+    where TAst : IAstError
     where TModel : IModelBase
     where TModeller : class, IModeller<TAst, TModel>, ITypeModeller
     => services
@@ -71,7 +71,7 @@ public static class AllModellers
       .AddProvider<TModeller, ITypeModeller>();
 
   private static IServiceCollection AddDomainModeller<TItemAst, TItemModel, TModeller>(this IServiceCollection services)
-    where TItemAst : IGqlpDomainItem
+    where TItemAst : IAstDomainItem
     where TItemModel : BaseDomainItemModel
     where TModeller : class, IDomainModeller<TItemAst, TItemModel>, ITypeModeller
     => services
@@ -82,14 +82,14 @@ public static class AllModellers
   private static IServiceCollection AddModifierModeller(this IServiceCollection services)
     => services
       .AddSingleton<IModifierModeller, ModifierModeller>()
-      .AddProvider<IModifierModeller, IModeller<IGqlpModifier>>()
-      .AddProvider<IModifierModeller, IModeller<IGqlpModifier, ModifierModel>>()
-      .AddProvider<IModifierModeller, IModeller<IGqlpModifier, CollectionModel>>();
+      .AddProvider<IModifierModeller, IModeller<IAstModifier>>()
+      .AddProvider<IModifierModeller, IModeller<IAstModifier, ModifierModel>>()
+      .AddProvider<IModifierModeller, IModeller<IAstModifier, CollectionModel>>();
 
   private static IServiceCollection AddObjectModellers<
       TObjFieldAst, TObjField, TFieldModeller
     >(this IServiceCollection services)
-      where TObjFieldAst : IGqlpObjField
+      where TObjFieldAst : IAstObjField
       where TObjField : IObjFieldModel
       where TFieldModeller : class, IModeller<TObjFieldAst, TObjField>
     => services

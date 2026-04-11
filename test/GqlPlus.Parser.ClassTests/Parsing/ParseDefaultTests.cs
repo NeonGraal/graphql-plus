@@ -5,12 +5,12 @@ public class ParseDefaultTests
 {
 
   private readonly ParseDefault _parser;
-  private readonly Parser<IGqlpConstant>.I _constantParser;
+  private readonly Parser<IAstConstant>.I _constantParser;
 
   public ParseDefaultTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    ConfigureRepo<IGqlpConstant>(parsers, out _constantParser);
+    ConfigureRepo<IAstConstant>(parsers, out _constantParser);
     _parser = new ParseDefault(parsers);
   }
 
@@ -22,10 +22,10 @@ public class ParseDefaultTests
     ParseOk(_constantParser);
 
     // Act
-    IResult<IGqlpConstant> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstConstant> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpConstant>>();
+    result.ShouldBeAssignableTo<IResultOk<IAstConstant>>();
   }
 
   [Fact]
@@ -35,7 +35,7 @@ public class ParseDefaultTests
     TakeReturns('=', false);
 
     // Act
-    IResult<IGqlpConstant> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstConstant> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();
@@ -49,7 +49,7 @@ public class ParseDefaultTests
     ParseError(_constantParser, error);
 
     // Act
-    IResult<IGqlpConstant> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstConstant> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -61,10 +61,10 @@ public class ParseDefaultTests
     // Arrange
     TakeReturns('=', true);
     ParseEmpty(_constantParser);
-    SetupError<IGqlpConstant>();
+    SetupError<IAstConstant>();
 
     // Act
-    IResult<IGqlpConstant> result = _parser.Parse(Tokenizer, TestLabel);
+    IResult<IAstConstant> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

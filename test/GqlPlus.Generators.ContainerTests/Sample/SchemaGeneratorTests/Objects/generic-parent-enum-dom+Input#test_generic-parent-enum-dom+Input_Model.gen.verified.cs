@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-parent-enum-dom+Input_Model.gen.cs
 // Generated from {CurrentDirectory}generic-parent-enum-dom+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -27,14 +27,14 @@ public class testGnrcPrntEnumDomInpObject
 }
 
 public class testFieldGnrcPrntEnumDomInp<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldGnrcPrntEnumDomInp<TRef>
 {
   public ItestFieldGnrcPrntEnumDomInpObject<TRef>? As_FieldGnrcPrntEnumDomInp { get; set; }
 }
 
 public class testFieldGnrcPrntEnumDomInpObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldGnrcPrntEnumDomInpObject<TRef>
 {
   public TRef Field { get; set; }

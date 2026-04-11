@@ -1,24 +1,24 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 public class InputModellerTests
-  : ModellerObjectBaseTestBase<IGqlpObject<IGqlpInputField>, TypeInputModel, ObjBaseModel>
+  : ModellerObjectBaseTestBase<IAstObject<IAstInputField>, TypeInputModel, ObjBaseModel>
 {
   public InputModellerTests()
   {
-    IModeller<IGqlpTypeParam, TypeParamModel> typeParam = MFor<IGqlpTypeParam, TypeParamModel>();
-    IModeller<IGqlpAlternate, AlternateModel> alternate = MFor<IGqlpAlternate, AlternateModel>();
-    IModeller<IGqlpInputField, InputFieldModel> objField = MFor<IGqlpInputField, InputFieldModel>();
+    IModeller<IAstTypeParam, TypeParamModel> typeParam = MFor<IAstTypeParam, TypeParamModel>();
+    IModeller<IAstAlternate, AlternateModel> alternate = MFor<IAstAlternate, AlternateModel>();
+    IModeller<IAstInputField, InputFieldModel> objField = MFor<IAstInputField, InputFieldModel>();
 
     Modeller = new InputModeller(new(typeParam, alternate, objField, ObjBase));
   }
 
-  protected override IModeller<IGqlpObject<IGqlpInputField>, TypeInputModel> Modeller { get; }
+  protected override IModeller<IAstObject<IAstInputField>, TypeInputModel> Modeller { get; }
 
   [Theory, RepeatData]
   public void ToModel_WithValidObject_ReturnsExpectedTypeInputModel(string name, string[] aliases, string content)
   {
     // Arrange
-    IGqlpObject<IGqlpInputField> ast = A.Aliased<IGqlpObject<IGqlpInputField>>(name, aliases, content);
+    IAstObject<IAstInputField> ast = A.Aliased<IAstObject<IAstInputField>>(name, aliases, content);
 
     // Act
     TypeInputModel result = Modeller.ToModel(ast, TypeKinds);

@@ -1,6 +1,6 @@
 ﻿//HintName: test_domain-enum-value_Intf.gen.cs
 // Generated from {CurrentDirectory}domain-enum-value.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -11,4 +11,9 @@ public interface ItestDmnEnumValue
   : IGqlpDomainEnum
 {
   new testEnumDmnEnumValue? Value { get; }
+}
+
+public enum testEnumDmnEnumValue
+{
+  dmnEnumValue,
 }

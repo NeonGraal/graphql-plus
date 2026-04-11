@@ -3,20 +3,38 @@
 namespace GqlPlus.Generating.Simple;
 
 public abstract class GenerateDomainTestsBase<TItem>
-  : GenerateSimpleTestsBase<IGqlpDomain<TItem>>
-  where TItem : class, IGqlpDomainItem
+  : GenerateSimpleTestsBase<IAstDomain<TItem>>
+  where TItem : class, IAstDomainItem
 {
   internal abstract GenerateBaseDomain<TItem> Generator { get; }
   protected abstract DomainKind Kind { get; }
 
-  internal override GenerateForType<IGqlpDomain<TItem>> TypeGenerator => Generator;
+  internal override GenerateForType<IAstDomain<TItem>> TypeGenerator => Generator;
 
-  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithoutParent_GeneratesDefaultParent(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name)
+  [Theory, RepeatData]
+  public void TypeMembers_WithDomainItems_ReturnsAsNamePairs(string domainName, string _)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(baseType, generatorType);
-    IGqlpDomain<TItem> type = A.Domain<TItem>(name, Kind).AsDomain;
+    GqlpGeneratorContext context = Context();
+    IAstDomain<TItem> domainType = A.Named<IAstDomain<TItem>>(domainName);
+    TItem item = A.Error<TItem>();
+    domainType.Items.Returns([item]);
+
+    // Act
+    MapPair<string>[] result = [.. Generator.TypeMembers(domainType, context)];
+
+    // Assert
+    result.Length.ShouldBe(0);
+    //result[0].Key.ShouldBe("As" + memberName);
+    //result[0].Value.ShouldBe(memberName);
+  }
+
+  [Theory, RepeatData]
+  public void GenerateType_WithoutParent_GeneratesDefaultParent(string name)
+  {
+    // Arrange
+    GqlpGeneratorContext context = Context(BaseType, GeneratorType);
+    IAstDomain<TItem> type = A.Domain<TItem>(name, Kind).AsDomain;
 
     // Act
     TypeGenerator.GenerateType(type, context);
@@ -27,9 +45,9 @@ public abstract class GenerateDomainTestsBase<TItem>
       ForGeneratedCodeParent($"GqlpDomain{Kind}"));
   }
 
-  protected override SimpleBuilder<IGqlpDomain<TItem>> MakeSimple(string name)
+  protected override SimpleBuilder<IAstDomain<TItem>> MakeSimple(string name)
     => new DomainBuilder<TItem>(name, Kind);
-  protected override void MakeItems(SimpleBuilder<IGqlpDomain<TItem>> builder, params string[] items)
+  protected override void MakeItems(SimpleBuilder<IAstDomain<TItem>> builder, params string[] items)
     => ((DomainBuilder<TItem>)builder).WithItems([.. items.Select(MakeDomainItem)]);
   protected abstract TItem MakeDomainItem(string item);
 }

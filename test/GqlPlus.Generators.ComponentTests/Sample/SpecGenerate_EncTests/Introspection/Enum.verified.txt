@@ -1,0 +1,29 @@
+﻿/* Enum
+dual _EnumLabel {
+    : _Aliased
+        enumType: _Name
+    }
+
+output _EnumValue {
+    : _TypeRef<_TypeKind.Enum>
+        label: _Name
+    }
+*/
+
+// Generated from Spec Enum
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Enum, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Enum;
+
+internal class Cmpt_EnumLabelEncoder
+{
+  public ICmpt_Name EnumType { get; set; }
+}
+
+internal class Cmpt_EnumValueEncoder
+{
+  public ICmpt_Name Label { get; set; }
+}

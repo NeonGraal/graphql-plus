@@ -1,6 +1,6 @@
 ﻿//HintName: test_constraint-field-domain+Input_Model.gen.cs
 // Generated from {CurrentDirectory}constraint-field-domain+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -27,14 +27,14 @@ public class testCnstFieldDmnInpObject
 }
 
 public class testRefCnstFieldDmnInp<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstFieldDmnInp<TRef>
 {
   public ItestRefCnstFieldDmnInpObject<TRef>? As_RefCnstFieldDmnInp { get; set; }
 }
 
 public class testRefCnstFieldDmnInpObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstFieldDmnInpObject<TRef>
 {
   public TRef Field { get; set; }

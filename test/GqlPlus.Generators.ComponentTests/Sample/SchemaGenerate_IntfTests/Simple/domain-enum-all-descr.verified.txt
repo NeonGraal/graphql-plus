@@ -16,3 +16,10 @@ public interface ICmptDmnEnumAllDescr
 {
   new CmptEnumDmnEnumAllDescr? Value { get; }
 }
+
+public enum CmptEnumDmnEnumAllDescr
+{
+  dmnEnumAllDescr,
+  enum_dmnEnumAllDescr,
+  dmnEnumAllDescrValue,
+}

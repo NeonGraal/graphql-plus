@@ -9,7 +9,12 @@ public class InputModellerTests
     IModeller<IAstAlternate, AlternateModel> alternate = MFor<IAstAlternate, AlternateModel>();
     IModeller<IAstInputField, InputFieldModel> objField = MFor<IAstInputField, InputFieldModel>();
 
-    Modeller = new InputModeller(new(typeParam, alternate, objField, ObjBase));
+    IModellerRepository modellers = A.Of<IModellerRepository>();
+    modellers.ModellerFor<IAstTypeParam, TypeParamModel>().Returns(typeParam);
+    modellers.ModellerFor<IAstAlternate, AlternateModel>().Returns(alternate);
+    modellers.ModellerFor<IAstInputField, InputFieldModel>().Returns(objField);
+    modellers.ModellerFor<IAstObjBase, ObjBaseModel>().Returns(ObjBase);
+    Modeller = new InputModeller(modellers);
   }
 
   protected override IModeller<IAstObject<IAstInputField>, TypeInputModel> Modeller { get; }

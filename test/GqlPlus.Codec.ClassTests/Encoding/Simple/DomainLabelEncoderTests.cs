@@ -8,7 +8,9 @@ public class DomainLabelEncoderTests
   public DomainLabelEncoderTests()
   {
     _enumValueEncoder = RFor<EnumValueModel>();
-    Encoder = new DomainLabelEncoder(_enumValueEncoder);
+    IEncoderRepository encoders = A.Of<IEncoderRepository>();
+    encoders.EncoderFor<EnumValueModel>().Returns(_enumValueEncoder);
+    Encoder = new DomainLabelEncoder(encoders);
   }
 
   protected override IEncoder<DomainLabelModel> Encoder { get; }

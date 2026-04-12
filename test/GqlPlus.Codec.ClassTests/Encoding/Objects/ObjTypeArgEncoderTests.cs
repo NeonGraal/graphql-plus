@@ -8,8 +8,9 @@ public class TypeArgEncoderTests
   public TypeArgEncoderTests()
   {
     _enumValue = RFor<EnumValueModel>();
-
-    Encoder = new TypeArgEncoder(_enumValue);
+    IEncoderRepository encoders = A.Of<IEncoderRepository>();
+    encoders.EncoderFor<EnumValueModel>().Returns(_enumValue);
+    Encoder = new TypeArgEncoder(encoders);
   }
 
   protected override IEncoder<TypeArgModel> Encoder { get; }

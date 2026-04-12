@@ -8,7 +8,9 @@ public class TypeOutputResolverParentTests
   public TypeOutputResolverParentTests()
   {
     IResolver<TypeDualModel> dualResolver = RFor<TypeDualModel>();
-    Resolver = new TypeOutputResolver(dualResolver);
+    IResolverRepository resolvers = A.Of<IResolverRepository>();
+    resolvers.ResolverFor<TypeDualModel>().Returns(dualResolver);
+    Resolver = new TypeOutputResolver(resolvers);
   }
 
   protected override ObjBaseModel MakeBase(string name, string description = "", params TypeArgModel[] args)

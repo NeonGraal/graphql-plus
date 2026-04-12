@@ -8,7 +8,7 @@ internal class ModifierModeller
     => new(ast.ModifierKind) {
       Key = ast.Key,
       KeyType = !string.IsNullOrWhiteSpace(ast.Key)
-          && typeKinds.TryGetValue(ast.Key!, out TypeKindModel keyType)
+          && typeKinds.TryGetValue(ast.Key, out TypeKindModel keyType)
           && keyType < TypeKindModel.LastSimple
         ? (SimpleKindModel)keyType : null,
       IsOptional = ast.IsOptional,

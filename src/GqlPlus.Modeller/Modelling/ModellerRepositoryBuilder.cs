@@ -6,15 +6,15 @@ internal class ModellerRepositoryBuilder
   // Keyed by typeof(IModeller<TAst, TModel>)
   internal readonly FactoryDict Modellers = [];
   internal readonly FactoryList TypeModellerFactories = [];
-  internal Factory<IModifierModeller, IModellerRepository>? ModifierFactory;
-  internal Factory<ITypesModeller, IModellerRepository>? TypesFactory;
+  internal Factory<IModifierModeller, IModellerRepository>? _modifierFactory;
+  internal Factory<ITypesModeller, IModellerRepository>? _typesFactory;
 
   public IModellerRepositoryBuilder AddModeller<TAst, TModel>(Factory<IModeller<TAst, TModel>, IModellerRepository> factory)
     where TAst : IAstError
     where TModel : IModelBase
     => this.FluentAction(b => b.Modellers[typeof(IModeller<TAst, TModel>)] = factory);
 
-  public IModellerRepositoryBuilder AddTypeModeller<TAst, TModel>(Factory<ITypeModeller, IModellerRepository> factory)
+  public IModellerRepositoryBuilder AddTypeModeller<TAst, TModel>(Factory<ITypeModeller<TAst, TModel>, IModellerRepository> factory)
     where TAst : IAstError
     where TModel : IModelBase
     => this.FluentAction(b => {
@@ -23,8 +23,8 @@ internal class ModellerRepositoryBuilder
     });
 
   public IModellerRepositoryBuilder AddModifierModeller(Factory<IModifierModeller, IModellerRepository> factory)
-    => this.FluentAction(b => b.ModifierFactory = factory);
+    => this.FluentAction(b => b._modifierFactory = factory);
 
   public IModellerRepositoryBuilder AddTypesModeller(Factory<ITypesModeller, IModellerRepository> factory)
-    => this.FluentAction(b => b.TypesFactory = factory);
+    => this.FluentAction(b => b._typesFactory = factory);
 }

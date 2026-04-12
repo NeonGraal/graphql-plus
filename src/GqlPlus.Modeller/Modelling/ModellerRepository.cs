@@ -15,11 +15,11 @@ internal class ModellerRepository
     : base(loggerFactory)
   {
     _builder = builder;
-    _modifier = new(() => builder.ModifierFactory is not null
-      ? builder.ModifierFactory(this)
+    _modifier = new(() => builder._modifierFactory is not null
+      ? builder._modifierFactory(this)
       : new ModifierModeller());
-    _types = new(() => builder.TypesFactory is not null
-      ? builder.TypesFactory(this)
+    _types = new(() => builder._typesFactory is not null
+      ? builder._typesFactory(this)
       : new TypesModeller(this));
     _typeModellers = new(() => [.. builder.TypeModellerFactories.Select(f => (ITypeModeller)f(this))]);
   }

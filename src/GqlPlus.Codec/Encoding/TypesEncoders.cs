@@ -2,7 +2,7 @@
 
 internal class BaseTypeEncoder<TModel>
   : AliasedEncoder<TModel>
-  , ITypeEncoder
+  , ITypeEncoder<TModel>
   where TModel : BaseTypeModel
 {
   public bool ForType(BaseTypeModel model)
@@ -61,6 +61,12 @@ public interface ITypeEncoder
   bool ForType(BaseTypeModel model);
   Structured TypeEncode(BaseTypeModel model);
 }
+
+public interface ITypeEncoder<TModel>
+  : ITypeEncoder
+  , IEncoder<TModel>
+  where TModel : IModelBase
+{ }
 
 internal class TypeRefEncoder<TModel, TKind>
   : NamedEncoder<TModel>

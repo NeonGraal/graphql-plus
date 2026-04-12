@@ -13,8 +13,8 @@ internal class DecoderRepository
     : base(loggerFactory)
   {
     _builder = builder;
-    _nameFilter = new(() => builder.NameFilter is not null
-      ? builder.NameFilter(this)
+    _nameFilter = new(() => builder._nameFilter is not null
+      ? builder._nameFilter(this)
       : new NameFilterModelDecoder());
   }
 

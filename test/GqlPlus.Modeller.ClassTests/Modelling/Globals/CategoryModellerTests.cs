@@ -9,7 +9,11 @@ public class CategoryModellerTests
   private readonly IModeller<IAstModifier, ModifierModel> _modifier = MFor<IAstModifier, ModifierModel>();
 
   public CategoryModellerTests()
-    => Modeller = new CategoryModeller(_modifier);
+  {
+    IModellerRepository modellers = A.Of<IModellerRepository>();
+    modellers.ModellerFor<IAstModifier, ModifierModel>().Returns(_modifier);
+    Modeller = new CategoryModeller(modellers);
+  }
 
   protected override IModeller<IAstSchemaCategory, CategoryModel> Modeller { get; }
 

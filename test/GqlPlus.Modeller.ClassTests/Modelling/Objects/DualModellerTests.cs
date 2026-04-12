@@ -11,7 +11,12 @@ public class DualModellerTests
     IModeller<IAstAlternate, AlternateModel> alternate = MFor<IAstAlternate, AlternateModel>();
     IModeller<IAstDualField, DualFieldModel> objField = MFor<IAstDualField, DualFieldModel>();
 
-    Modeller = new DualModeller(new(typeParam, alternate, objField, ObjBase));
+    IModellerRepository modellers = A.Of<IModellerRepository>();
+    modellers.ModellerFor<IAstTypeParam, TypeParamModel>().Returns(typeParam);
+    modellers.ModellerFor<IAstAlternate, AlternateModel>().Returns(alternate);
+    modellers.ModellerFor<IAstDualField, DualFieldModel>().Returns(objField);
+    modellers.ModellerFor<IAstObjBase, ObjBaseModel>().Returns(ObjBase);
+    Modeller = new DualModeller(modellers);
   }
 
   protected override IModeller<IAstObject<IAstDualField>, TypeDualModel> Modeller { get; }

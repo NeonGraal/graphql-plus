@@ -11,7 +11,12 @@ public class AlternateModellerTests
   private readonly IModeller<IAstModifier, CollectionModel> _collection = MFor<IAstModifier, CollectionModel>();
 
   public AlternateModellerTests()
-    => Modeller = new AlternateModeller(_collection, ObjBase);
+  {
+    IModellerRepository modellers = A.Of<IModellerRepository>();
+    modellers.ModellerFor<IAstModifier, CollectionModel>().Returns(_collection);
+    modellers.ModellerFor<IAstObjBase, ObjBaseModel>().Returns(ObjBase);
+    Modeller = new AlternateModeller(modellers);
+  }
 
   protected override IModeller<IAstAlternate, AlternateModel> Modeller { get; }
 

@@ -10,7 +10,10 @@ public class CategoriesEncoderTests
   {
     _category = RFor<CategoryModel>();
     _baseType = RFor<BaseTypeModel>();
-    Encoder = new CategoriesEncoder(new(_category, _baseType));
+    IEncoderRepository repo = A.Of<IEncoderRepository>();
+    repo.EncoderFor<CategoryModel>().Returns(_category);
+    repo.EncoderFor<BaseTypeModel>().Returns(_baseType);
+    Encoder = new CategoriesEncoder(repo);
   }
 
   protected override IEncoder<CategoriesModel> Encoder { get; }

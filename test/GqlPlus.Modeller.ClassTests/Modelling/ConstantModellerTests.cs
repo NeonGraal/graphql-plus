@@ -13,7 +13,9 @@ public class ConstantModellerTests
   public ConstantModellerTests()
   {
     _fieldKeyModeller = MFor<IAstFieldKey, SimpleModel>();
-    Modeller = new ConstantModeller(_fieldKeyModeller);
+    IModellerRepository modellers = A.Of<IModellerRepository>();
+    modellers.ModellerFor<IAstFieldKey, SimpleModel>().Returns(_fieldKeyModeller);
+    Modeller = new ConstantModeller(modellers);
   }
 
   [Theory, RepeatData]

@@ -3,19 +3,21 @@
 namespace GqlPlus.Encoding;
 
 internal class ConstantEncoder(
-  IEncoder<SimpleModel> simple
+  IEncoderRepository encoders
 ) : IEncoder<ConstantModel>
 {
+  private readonly IEncoder<SimpleModel> _simple = encoders.EncoderFor<SimpleModel>();
+
   public Structured Encode(ConstantModel model)
     => model switch {
       { Map.Count: > 0 }
         => new Structured(model.Map.ToDictionary(
-          p => simple.Encode(p.Key).Value!,
+          p => _simple.Encode(p.Key).Value!,
           p => Encode(p.Value)), "_ConstantMap"),
       { List.Count: > 0 }
         => new(model.List.Select(Encode), "_ConstantList"),
       { Value: not null }
-        => simple.Encode(model.Value),
+        => _simple.Encode(model.Value),
       _ => new(""),
     };
 }

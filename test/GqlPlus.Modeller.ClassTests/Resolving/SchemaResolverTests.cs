@@ -8,7 +8,9 @@ public class SchemaResolverTests
   public SchemaResolverTests()
   {
     _typeResolver = RFor<BaseTypeModel>();
-    Resolver = new SchemaResolver(_typeResolver);
+    IResolverRepository resolvers = A.Of<IResolverRepository>();
+    resolvers.ResolverFor<BaseTypeModel>().Returns(_typeResolver);
+    Resolver = new SchemaResolver(resolvers);
   }
 
   protected override IResolver<SchemaModel> Resolver { get; }

@@ -10,7 +10,13 @@ public class CategoryFilterModelDecoderTests
     = DFor<CategoryOption?>();
 
   public CategoryFilterModelDecoderTests()
-    => Decoder = new CategoryFilterModelDecoder(Boolean, NameFilter, Resolution);
+  {
+    IDecoderRepository decoders = A.Of<IDecoderRepository>();
+    decoders.DecoderFor<bool?>().Returns(Boolean);
+    decoders.NameFilterDecoder.Returns(NameFilter);
+    decoders.DecoderFor<CategoryOption?>().Returns(Resolution);
+    Decoder = new CategoryFilterModelDecoder(decoders);
+  }
 
   protected override IDecoder<CategoryFilterModel> Decoder { get; }
 

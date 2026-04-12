@@ -17,7 +17,7 @@ internal abstract record class AstObjType(
     => other is IAstObjType objType && Equals(objType);
   public bool Equals(IAstObjType? other)
     => base.Equals(other)
-    && IsTypeParam == other!.IsTypeParam;
+    && IsTypeParam == other.IsTypeParam;
   public override int GetHashCode()
   => HashCode.Combine(base.GetHashCode(), IsTypeParam);
 

@@ -4,9 +4,11 @@ using GqlPlus.Ast.Schema;
 namespace GqlPlus.Modelling.Globals;
 
 internal class SettingModeller(
-  IModeller<IAstConstant, ConstantModel> constant
+  IModellerRepository modellers
 ) : ModellerBase<IAstSchemaSetting, SettingModel>
 {
+  private readonly IModeller<IAstConstant, ConstantModel> _constant = modellers.ModellerFor<IAstConstant, ConstantModel>();
+
   protected override SettingModel ToModel(IAstSchemaSetting ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name, constant.ToModel(ast.Value, typeKinds), ast.Description);
+    => new(ast.Name, _constant.ToModel(ast.Value, typeKinds), ast.Description);
 }

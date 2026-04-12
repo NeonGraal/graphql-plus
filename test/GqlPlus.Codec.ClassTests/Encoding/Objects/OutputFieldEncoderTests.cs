@@ -12,8 +12,12 @@ public class OutputFieldEncoderTests
     _outputEnum = RFor<OutputEnumModel>();
     _modifer = RFor<ModifierModel>();
     _parameter = RFor<InputParamModel>();
-
-    Encoder = new OutputFieldEncoder(_outputEnum, new(_modifer, ObjBase), _parameter);
+    IEncoderRepository encoders = A.Of<IEncoderRepository>();
+    encoders.EncoderFor<OutputEnumModel>().Returns(_outputEnum);
+    encoders.EncoderFor<ModifierModel>().Returns(_modifer);
+    encoders.EncoderFor<ObjBaseModel>().Returns(ObjBase);
+    encoders.EncoderFor<InputParamModel>().Returns(_parameter);
+    Encoder = new OutputFieldEncoder(encoders);
   }
 
   protected override IEncoder<OutputFieldModel> Encoder { get; }

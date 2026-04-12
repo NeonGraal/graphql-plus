@@ -20,8 +20,13 @@ public class SchemaEncoderTests
     _operations = RFor<OperationsModel>();
     _types = RFor<BaseTypeModel>();
     _settings = RFor<SettingModel>();
-
-    Encoder = new SchemaEncoder(_categories, _directives, _operations, _types, _settings);
+    IEncoderRepository encoders = A.Of<IEncoderRepository>();
+    encoders.EncoderFor<CategoriesModel>().Returns(_categories);
+    encoders.EncoderFor<DirectivesModel>().Returns(_directives);
+    encoders.EncoderFor<OperationsModel>().Returns(_operations);
+    encoders.EncoderFor<BaseTypeModel>().Returns(_types);
+    encoders.EncoderFor<SettingModel>().Returns(_settings);
+    Encoder = new SchemaEncoder(encoders);
   }
 
   protected override IEncoder<SchemaModel> Encoder { get; }

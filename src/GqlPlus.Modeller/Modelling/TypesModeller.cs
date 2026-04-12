@@ -3,10 +3,12 @@
 namespace GqlPlus.Modelling;
 
 internal class TypesModeller(
-  IEnumerable<ITypeModeller> types
+  IModellerRepository modellers
 ) : ModellerBase<IAstType, BaseTypeModel>
   , ITypesModeller
 {
+  private readonly IModellerRepository _modellers = modellers;
+
   public void AddTypeKinds(IEnumerable<IAstType> asts, IMap<TypeKindModel> typeKinds)
   {
     foreach (IAstType ast in asts) {
@@ -21,10 +23,10 @@ internal class TypesModeller(
   }
 
   public TypeKindModel GetTypeKind(IAstType ast)
-    => types.Single(t => t.ForType(ast)).Kind;
+    => _modellers.TypeModellers.Single(t => t.ForType(ast)).Kind;
 
   protected override BaseTypeModel ToModel(IAstType ast, IMap<TypeKindModel> typeKinds)
-    => types.Single(t => t.ForType(ast)).ToTypeModel(ast, typeKinds);
+    => _modellers.TypeModellers.Single(t => t.ForType(ast)).ToTypeModel(ast, typeKinds);
 }
 
 public interface ITypesModeller

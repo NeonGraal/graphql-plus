@@ -8,7 +8,9 @@ public class DirectiveEncoderTests
   public DirectiveEncoderTests()
   {
     _parameter = RFor<InputParamModel>();
-    Encoder = new DirectiveEncoder(_parameter);
+    IEncoderRepository encoders = A.Of<IEncoderRepository>();
+    encoders.EncoderFor<InputParamModel>().Returns(_parameter);
+    Encoder = new DirectiveEncoder(encoders);
   }
 
   private readonly IEncoder<InputParamModel> _parameter;

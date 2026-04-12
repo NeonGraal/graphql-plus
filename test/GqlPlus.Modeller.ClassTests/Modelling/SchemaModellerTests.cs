@@ -13,7 +13,15 @@ public class SchemaModellerTests
   private readonly ITypesModeller _types = A.Of<ITypesModeller>();
 
   public SchemaModellerTests()
-    => Modeller = new SchemaModeller(_category, _directive, _operation, _setting, _types);
+  {
+    IModellerRepository modellers = A.Of<IModellerRepository>();
+    modellers.ModellerFor<IAstSchemaCategory, CategoryModel>().Returns(_category);
+    modellers.ModellerFor<IAstSchemaDirective, DirectiveModel>().Returns(_directive);
+    modellers.ModellerFor<IAstSchemaOperation, OperationModel>().Returns(_operation);
+    modellers.ModellerFor<IAstSchemaSetting, SettingModel>().Returns(_setting);
+    modellers.TypesModeller.Returns(_types);
+    Modeller = new SchemaModeller(modellers);
+  }
 
   protected override IModeller<IAstSchema, SchemaModel> Modeller { get; }
 

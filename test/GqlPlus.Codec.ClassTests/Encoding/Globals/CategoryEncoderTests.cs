@@ -12,7 +12,10 @@ public class CategoryEncoderTests
   {
     _modifiers = RFor<ModifierModel>();
     _output = RFor<TypeRefModel<TypeKindModel>>();
-    Encoder = new CategoryEncoder(_modifiers, _output);
+    IEncoderRepository encoders = A.Of<IEncoderRepository>();
+    encoders.EncoderFor<ModifierModel>().Returns(_modifiers);
+    encoders.EncoderFor<TypeRefModel<TypeKindModel>>().Returns(_output);
+    Encoder = new CategoryEncoder(encoders);
   }
 
   protected override IEncoder<CategoryModel> Encoder { get; }

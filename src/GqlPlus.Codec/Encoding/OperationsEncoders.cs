@@ -1,26 +1,28 @@
 ﻿namespace GqlPlus.Encoding;
 
 internal class OperationsEncoder(
-  AndBaseTypeEncoders<OperationModel> and
-) : AndTypeEncoder<OperationsModel, OperationModel>("operation", and)
+  IEncoderRepository encoders
+) : AndTypeEncoder<OperationsModel, OperationModel>("operation", encoders)
 { }
 
 internal class OperationEncoder(
-  IEncoder<OpDirectiveModel> directives,
-  IEncoder<OpFragmentModel> fragments,
-  IEncoder<OpResultModel> result,
-  IEncoder<OpSelectionModel[]> selections,
-  IEncoder<OpVariableModel> variables
-) : AliasedEncoder<OperationModel>
+  IEncoderRepository encoders
+) : AliasedEncoder<OperationModel>()
 {
+  private readonly IEncoder<OpDirectiveModel> _directives = encoders.EncoderFor<OpDirectiveModel>();
+  private readonly IEncoder<OpFragmentModel> _fragments = encoders.EncoderFor<OpFragmentModel>();
+  private readonly IEncoder<OpResultModel> _result = encoders.EncoderFor<OpResultModel>();
+  // private readonly IEncoder<OpSelectionModel> _selections = encoders.EncoderFor<OpSelectionModel>();
+  private readonly IEncoder<OpVariableModel> _variables = encoders.EncoderFor<OpVariableModel>();
+
   internal override Structured Encode(OperationModel model)
     => base.Encode(model)
       .Add("category", model.Category)
-      .AddList("directives", model.Directives, directives)
-      .AddMap("fragments", model.Fragments, fragments, "_Fragments")
-      .AddEncoded("result", model.Result, result)
-      .AddMap("selections", model.Selections, selections, "_Selections")
-      .AddMap("variables", model.Variables, variables, "_Variables");
+      .AddList("directives", model.Directives, _directives)
+      .AddMap("fragments", model.Fragments, _fragments, "_Fragments")
+      .AddEncoded("result", model.Result, _result)
+      // .AddList("selections", model.Selections, _selections)
+      .AddMap("variables", model.Variables, _variables, "_Variables");
 }
 
 internal class OpDirectiveEncoder

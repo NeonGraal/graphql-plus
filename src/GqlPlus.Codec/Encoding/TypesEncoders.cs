@@ -2,7 +2,7 @@
 
 internal class BaseTypeEncoder<TModel>
   : AliasedEncoder<TModel>
-  , ITypeEncoder
+  , ITypeEncoder<TModel>
   where TModel : BaseTypeModel
 {
   public bool ForType(BaseTypeModel model)
@@ -17,42 +17,40 @@ internal class BaseTypeEncoder<TModel>
 }
 
 internal abstract class ChildTypeEncoder<TModel, TParent>(
-  IEncoder<TParent> parent
+  IEncoderRepository encoders
 ) : BaseTypeEncoder<TModel>
   where TModel : ChildTypeModel<TParent>
   where TParent : IModelBase
 {
+  private readonly IEncoder<TParent> _parent = encoders.EncoderFor<TParent>();
+
   internal override Structured Encode(TModel model)
     => base.Encode(model)
-      .AddEncoded("parent", model.Parent, parent);
+      .AddEncoded("parent", model.Parent, _parent);
 }
 
-internal record class ParentTypeEncoders<TItem, TAll>(
-  IEncoder<TypeRefModel<SimpleKindModel>> Parent,
-  IEncoder<TItem> Item,
-  IEncoder<TAll> All
-  ) where TItem : IModelBase
-    where TAll : IModelBase;
-
 internal abstract class ParentTypeEncoder<TModel, TItem, TAll>(
-  ParentTypeEncoders<TItem, TAll> encoders
-) : ChildTypeEncoder<TModel, TypeRefModel<SimpleKindModel>>(encoders.Parent)
+  IEncoderRepository encoders
+) : ChildTypeEncoder<TModel, TypeRefModel<SimpleKindModel>>(encoders)
   where TModel : ParentTypeModel<TItem, TAll>
   where TItem : IModelBase
   where TAll : IModelBase
 {
+  private readonly IEncoder<TItem> _item = encoders.EncoderFor<TItem>();
+  private readonly IEncoder<TAll> _all = encoders.EncoderFor<TAll>();
+
   internal override Structured Encode(TModel model)
     => base.Encode(model)
-        .AddList("items", model.Items, encoders.Item)
-        .AddList("allItems", model.AllItems, encoders.All);
+        .AddList("items", model.Items, _item)
+        .AddList("allItems", model.AllItems, _all);
 }
 
 internal class AllTypesEncoder(
-  IEnumerable<ITypeEncoder> types
+  IEncoderRepository encoders
 ) : IEncoder<BaseTypeModel>
 {
   Structured IEncoder<BaseTypeModel>.Encode(BaseTypeModel model)
-    => types
+    => encoders.TypeEncoders
     .SingleOrDefault(t => t.ForType(model))
     ?.TypeEncode(model)
     ?? throw new InvalidOperationException("Unable to find Encoder for " + model.GetType().ExpandTypeName());
@@ -63,6 +61,12 @@ public interface ITypeEncoder
   bool ForType(BaseTypeModel model);
   Structured TypeEncode(BaseTypeModel model);
 }
+
+public interface ITypeEncoder<TModel>
+  : ITypeEncoder
+  , IEncoder<TModel>
+  where TModel : IModelBase
+{ }
 
 internal class TypeRefEncoder<TModel, TKind>
   : NamedEncoder<TModel>

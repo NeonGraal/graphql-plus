@@ -10,7 +10,9 @@ public class AllTypesResolverTests
   public AllTypesResolverTests()
   {
     _typeResolvers = [];
-    Resolver = new AllTypesResolver(_typeResolvers);
+    IResolverRepository resolvers = A.Of<IResolverRepository>();
+    resolvers.TypeResolvers.Returns(_typeResolvers);
+    Resolver = new AllTypesResolver(resolvers);
   }
 
   [Theory, RepeatData]

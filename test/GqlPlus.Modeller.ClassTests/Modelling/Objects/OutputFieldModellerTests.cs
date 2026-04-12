@@ -10,8 +10,11 @@ public class OutputFieldModellerTests
   {
     IModifierModeller modifier = A.Of<IModifierModeller>();
     IModeller<IAstInputParam, InputParamModel> parameter = MFor<IAstInputParam, InputParamModel>();
-
-    Modeller = new OutputFieldModeller(modifier, parameter, ObjBase);
+    IModellerRepository modellers = A.Of<IModellerRepository>();
+    modellers.ModifierModeller.Returns(modifier);
+    modellers.ModellerFor<IAstInputParam, InputParamModel>().Returns(parameter);
+    modellers.ModellerFor<IAstObjBase, ObjBaseModel>().Returns(ObjBase);
+    Modeller = new OutputFieldModeller(modellers);
   }
 
   protected override IModeller<IAstOutputField, OutputFieldModel> Modeller { get; }

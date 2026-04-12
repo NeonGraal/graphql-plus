@@ -1,119 +1,90 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace GqlPlus.Encoding;
 
 public static class AllEncoders
 {
   public static IServiceCollection AddEncoders(this IServiceCollection services)
-  => services
+  {
+    EncoderRepositoryBuilder builder = new();
+    builder.AddSchemaEncoders();
+    services.AddSingleton(builder);
+    services.TryAddSingleton<IEncoderRepository, EncoderRepository>();
+    return services;
+  }
+
+  internal static IEncoderRepositoryBuilder AddSchemaEncoders(this IEncoderRepositoryBuilder builder)
+    => builder.ThrowIfNull()
       // Common
-      .AddEncoder<AliasedModel, AliasedEncoder<AliasedModel>>()
-      .AddEncoder<DescribedModel, DescribedEncoder<DescribedModel>>()
-      .AddEncoder<NamedModel, NamedEncoder<NamedModel>>()
-      .AddEncoder<ConstantModel, ConstantEncoder>()
-      .AddEncoder<SimpleModel, SimpleEncoder>()
-      .AddEncoder<CollectionModel, CollectionEncoder>()
-      .AddEncoder<ModifierModel, ModifierEncoder>()
+      .AddEncoder<AliasedModel>(_ => new AliasedEncoder<AliasedModel>())
+      .AddEncoder<DescribedModel>(_ => new DescribedEncoder<DescribedModel>())
+      .AddEncoder<NamedModel>(_ => new NamedEncoder<NamedModel>())
+      .AddEncoder<ConstantModel>(r => new ConstantEncoder(r))
+      .AddEncoder<SimpleModel>(_ => new SimpleEncoder())
+      .AddEncoder<CollectionModel>(_ => new CollectionEncoder())
+      .AddEncoder<ModifierModel>(_ => new ModifierEncoder())
       // Schema
-      .AddEncoder<SchemaModel, SchemaEncoder>()
-      .AddEncoder<CategoriesModel, CategoriesEncoder>()
-      .AddEncoder<CategoryModel, CategoryEncoder>()
-      .AddSingleton<AndBaseTypeEncoders<CategoryModel>>()
-      .AddEncoder<DirectivesModel, DirectivesEncoder>()
-      .AddEncoder<DirectiveModel, DirectiveEncoder>()
-      .AddSingleton<AndBaseTypeEncoders<DirectiveModel>>()
-      .AddEncoder<SettingModel, SettingEncoder>()
+      .AddEncoder<SchemaModel>(r => new SchemaEncoder(r))
+      .AddEncoder<CategoriesModel>(r => new CategoriesEncoder(r))
+      .AddEncoder<CategoryModel>(r => new CategoryEncoder(r))
+      .AddEncoder<DirectivesModel>(r => new DirectivesEncoder(r))
+      .AddEncoder<DirectiveModel>(r => new DirectiveEncoder(r))
+      .AddEncoder<SettingModel>(r => new SettingEncoder(r))
       // Operation
-      .AddEncoder<OperationsModel, OperationsEncoder>()
-      .AddEncoder<OperationModel, OperationEncoder>()
-      .AddSingleton<AndBaseTypeEncoders<OperationModel>>()
-      .AddEncoder<OpDirectiveModel, OpDirectiveEncoder>()
-      .AddEncoder<OpFragmentModel, OpFragmentEncoder>()
-      .AddEncoder<OpResultModel, OpResultEncoder>()
-      .AddEncoder<OpSelectionModel, OpSelectionEncoder>()
-      .AddSingleton<IEncoder<OpSelectionModel[]>, OpSelectionsEncoder>()
-      .AddEncoder<OpVariableModel, OpVariableEncoder>()
+      .AddEncoder<OperationsModel>(r => new OperationsEncoder(r))
+      .AddEncoder<OperationModel>(r => new OperationEncoder(r))
+      // .AddSingleton<AndBaseTypeEncoders<OperationModel>>()
+      .AddEncoder<OpDirectiveModel>(r => new OpDirectiveEncoder())
+      .AddEncoder<OpFragmentModel>(r => new OpFragmentEncoder())
+      .AddEncoder<OpResultModel>(r => new OpResultEncoder())
+      .AddEncoder<OpSelectionModel>(r => new OpSelectionEncoder())
+      // .AddEncoder<OpSelectionModel[]>(r => new OpSelectionsEncoder())
+      .AddEncoder<OpVariableModel>(r => new OpVariableEncoder())
       // Types
-      .AddEncoder<BaseTypeModel, AllTypesEncoder>()
-      .AddEncoder<DomainRefModel, DomainRefEncoder>()
-      .AddEncoder<TypeRefModel<SimpleKindModel>, TypeRefEncoder<TypeRefModel<SimpleKindModel>, SimpleKindModel>>()
-      .AddEncoder<TypeRefModel<TypeKindModel>, TypeRefEncoder<TypeRefModel<TypeKindModel>, TypeKindModel>>()
-      .AddTypeEncoder<SpecialTypeModel, SpecialTypeEncoder>()
-      // Simple
+      .AddEncoder<BaseTypeModel>(r => new AllTypesEncoder(r))
+      .AddEncoder<DomainRefModel>(_ => new DomainRefEncoder())
+      .AddEncoder<TypeRefModel<SimpleKindModel>>(_ => new TypeRefEncoder<TypeRefModel<SimpleKindModel>, SimpleKindModel>())
+      .AddEncoder<TypeRefModel<TypeKindModel>>(_ => new TypeRefEncoder<TypeRefModel<TypeKindModel>, TypeKindModel>())
+      .AddTypeEncoder<SpecialTypeModel>(_ => new SpecialTypeEncoder())
       // Domain
-      .AddDomainEncoder<DomainLabelModel, DomainLabelEncoder>()
-      .AddDomainEncoder<DomainRangeModel, DomainRangeEncoder>()
-      .AddDomainEncoder<DomainRegexModel, DomainRegexEncoder>()
-      .AddDomainEncoder<DomainTrueFalseModel, DomainTrueFalseEncoder>()
+      .AddEncoder<DomainLabelModel>(r => new DomainLabelEncoder(r))
+      .AddEncoder<DomainItemModel<DomainLabelModel>>(r => new DomainItemEncoder<DomainLabelModel>(r))
+      .AddTypeEncoder<BaseDomainModel<DomainLabelModel>>(r => new BaseDomainEncoder<DomainLabelModel>(r))
+      .AddEncoder<DomainRangeModel>(_ => new DomainRangeEncoder())
+      .AddEncoder<DomainItemModel<DomainRangeModel>>(r => new DomainItemEncoder<DomainRangeModel>(r))
+      .AddTypeEncoder<BaseDomainModel<DomainRangeModel>>(r => new BaseDomainEncoder<DomainRangeModel>(r))
+      .AddEncoder<DomainRegexModel>(_ => new DomainRegexEncoder())
+      .AddEncoder<DomainItemModel<DomainRegexModel>>(r => new DomainItemEncoder<DomainRegexModel>(r))
+      .AddTypeEncoder<BaseDomainModel<DomainRegexModel>>(r => new BaseDomainEncoder<DomainRegexModel>(r))
+      .AddEncoder<DomainTrueFalseModel>(_ => new DomainTrueFalseEncoder())
+      .AddEncoder<DomainItemModel<DomainTrueFalseModel>>(r => new DomainItemEncoder<DomainTrueFalseModel>(r))
+      .AddTypeEncoder<BaseDomainModel<DomainTrueFalseModel>>(r => new BaseDomainEncoder<DomainTrueFalseModel>(r))
       // Enum
-      .AddTypeEncoder<TypeEnumModel, TypeEnumEncoder>()
-      .AddItemEncoder<AliasedModel, EnumLabelModel, EnumLabelEncoder>()
-      .AddEncoder<EnumValueModel, EnumValueEncoder>()
+      .AddEncoder<EnumLabelModel>(_ => new EnumLabelEncoder())
+      .AddTypeEncoder<TypeEnumModel>(r => new TypeEnumEncoder(r))
+      .AddEncoder<EnumValueModel>(_ => new EnumValueEncoder())
       // Union
-      .AddTypeEncoder<TypeUnionModel, TypeUnionEncoder>()
-      .AddItemEncoder<NamedModel, UnionMemberModel, UnionMemberEncoder>()
+      .AddEncoder<UnionMemberModel>(_ => new UnionMemberEncoder())
+      .AddTypeEncoder<TypeUnionModel>(r => new TypeUnionEncoder(r))
       // Object
-      .AddBaseEncoder<ObjBaseModel>()
-      .AddEncoder<TypeParamModel, TypeParamEncoder>()
-      .AddEncoder<AlternateModel, ObjectAlternateEncoder>()
-      .AddEncoder<ObjectForModel<AlternateModel>, ObjectForEncoder<AlternateModel>>()
-      .AddEncoder<TypeArgModel, TypeArgEncoder>()
+      .AddEncoder<ObjBaseModel>(r => new ObjectBaseEncoder<ObjBaseModel>(r))
+      .AddEncoder<TypeParamModel>(r => new TypeParamEncoder(r))
+      .AddEncoder<AlternateModel>(r => new ObjectAlternateEncoder(r))
+      .AddEncoder<ObjectForModel<AlternateModel>>(r => new ObjectForEncoder<AlternateModel>(r))
+      .AddEncoder<TypeArgModel>(r => new TypeArgEncoder(r))
       // Dual
-      .AddEncoder<DualFieldModel, DualFieldEncoder>()
-      .AddTypeEncoder<TypeDualModel, TypeDualEncoder>()
-      .AddObjectEncoders<DualFieldModel>()
+      .AddEncoder<DualFieldModel>(r => new DualFieldEncoder(r))
+      .AddEncoder<ObjectForModel<DualFieldModel>>(r => new ObjectForEncoder<DualFieldModel>(r))
+      .AddTypeEncoder<TypeDualModel>(r => new TypeDualEncoder(r))
       // Input
-      .AddEncoder<InputFieldModel, InputFieldEncoder>()
-      .AddEncoder<InputParamModel, InputParamEncoder>()
-      .AddTypeEncoder<TypeInputModel, TypeInputEncoder>()
-      .AddObjectEncoders<InputFieldModel>()
+      .AddEncoder<InputFieldModel>(r => new InputFieldEncoder(r))
+      .AddEncoder<InputParamModel>(r => new InputParamEncoder(r))
+      .AddEncoder<ObjectForModel<InputFieldModel>>(r => new ObjectForEncoder<InputFieldModel>(r))
+      .AddTypeEncoder<TypeInputModel>(r => new TypeInputEncoder(r))
       // Output
-      .AddEncoder<OutputEnumModel, OutputEnumEncoder>()
-      .AddEncoder<OutputFieldModel, OutputFieldEncoder>()
-      .AddTypeEncoder<TypeOutputModel, TypeOutputEncoder>()
-      .AddObjectEncoders<OutputFieldModel>()
-    ;
-
-  private static IServiceCollection AddEncoder<TModel, TEncoder>(this IServiceCollection services)
-    where TModel : IModelBase
-    where TEncoder : class, IEncoder<TModel>
-    => services.AddSingleton<IEncoder<TModel>, TEncoder>();
-
-  private static IServiceCollection AddDomainEncoder<TItem, TEncoder>(this IServiceCollection services)
-    where TItem : BaseDomainItemModel
-    where TEncoder : class, IEncoder<TItem>
-    => services
-      .AddEncoder<TItem, TEncoder>()
-      .AddSingleton<ParentTypeEncoders<TItem, DomainItemModel<TItem>>>()
-      .AddTypeEncoder<BaseDomainModel<TItem>, BaseDomainEncoder<TItem>>()
-      .AddEncoder<DomainItemModel<TItem>, DomainItemEncoder<TItem>>();
-
-  private static IServiceCollection AddItemEncoder<TItem, TAll, TEncoder>(this IServiceCollection services)
-    where TItem : NamedModel
-    where TAll : NamedModel
-    where TEncoder : class, IEncoder<TAll>
-    => services
-      .AddEncoder<TAll, TEncoder>()
-      .AddSingleton<ParentTypeEncoders<TItem, TAll>>();
-
-  private static IServiceCollection AddTypeEncoder<TModel, TEncoder>(this IServiceCollection services)
-    where TModel : IModelBase
-    where TEncoder : class, IEncoder<TModel>, ITypeEncoder
-    => services
-      .AddSingleton<TEncoder>()
-      .AddProvider<TEncoder, IEncoder<TModel>>()
-      .AddProvider<TEncoder, ITypeEncoder>();
-
-  private static IServiceCollection AddObjectEncoders<TField>(this IServiceCollection services)
-    where TField : IObjFieldModel
-    => services
-      .AddEncoder<ObjectForModel<TField>, ObjectForEncoder<TField>>()
-      .AddSingleton<TypeObjectEncoders<TField>>();
-
-  private static IServiceCollection AddBaseEncoder<TBase>(this IServiceCollection services)
-    where TBase : ModelBase, IObjBaseModel
-    => services
-      .AddEncoder<ObjBaseModel, ObjectBaseEncoder<ObjBaseModel>>()
-      .AddSingleton<FieldEncoders<TBase>>()
-      .AddSingleton<AlternateEncoders<TBase>>();
+      .AddEncoder<OutputEnumModel>(_ => new OutputEnumEncoder())
+      .AddEncoder<OutputFieldModel>(r => new OutputFieldEncoder(r))
+      .AddEncoder<ObjectForModel<OutputFieldModel>>(r => new ObjectForEncoder<OutputFieldModel>(r))
+      .AddTypeEncoder<TypeOutputModel>(r => new TypeOutputEncoder(r));
 }

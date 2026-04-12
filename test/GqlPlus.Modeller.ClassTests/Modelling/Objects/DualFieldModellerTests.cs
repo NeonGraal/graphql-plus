@@ -9,8 +9,10 @@ public class DualFieldModellerTests
   public DualFieldModellerTests()
   {
     IModifierModeller modifier = A.Of<IModifierModeller>();
-
-    Modeller = new DualFieldModeller(modifier, ObjBase);
+    IModellerRepository modellers = A.Of<IModellerRepository>();
+    modellers.ModifierModeller.Returns(modifier);
+    modellers.ModellerFor<IAstObjBase, ObjBaseModel>().Returns(ObjBase);
+    Modeller = new DualFieldModeller(modellers);
   }
 
   protected override IModeller<IAstDualField, DualFieldModel> Modeller { get; }

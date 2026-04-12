@@ -11,7 +11,12 @@ public class OutputModellerTests
     IModeller<IAstAlternate, AlternateModel> alternate = MFor<IAstAlternate, AlternateModel>();
     IModeller<IAstOutputField, OutputFieldModel> objField = MFor<IAstOutputField, OutputFieldModel>();
 
-    Modeller = new OutputModeller(new(typeParam, alternate, objField, ObjBase));
+    IModellerRepository modellers = A.Of<IModellerRepository>();
+    modellers.ModellerFor<IAstTypeParam, TypeParamModel>().Returns(typeParam);
+    modellers.ModellerFor<IAstAlternate, AlternateModel>().Returns(alternate);
+    modellers.ModellerFor<IAstOutputField, OutputFieldModel>().Returns(objField);
+    modellers.ModellerFor<IAstObjBase, ObjBaseModel>().Returns(ObjBase);
+    Modeller = new OutputModeller(modellers);
   }
 
   protected override IModeller<IAstObject<IAstOutputField>, TypeOutputModel> Modeller { get; }

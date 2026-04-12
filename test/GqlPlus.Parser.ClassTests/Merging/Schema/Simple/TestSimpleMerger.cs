@@ -55,5 +55,5 @@ public abstract class TestSimpleMerger<TBase, TType, TItem, TItemInput>
     => MakeSimple(name, aliases, description, parent, []);
 
   protected sealed override IAstTypeRef? MakeParent(string? parent)
-    => string.IsNullOrWhiteSpace(parent) ? null : new TypeRefAst(AstNulls.At, parent!);
+    => string.IsNullOrWhiteSpace(parent) ? null : new TypeRefAst(AstNulls.At, parent);
 }

@@ -31,7 +31,7 @@ internal sealed class SchemaGenerator(
             }
           }
         } else {
-          typeGenerator!.GenerateType(type, context);
+          typeGenerator.GenerateType(type, context);
         }
 
         bool IsForType(ITypeGenerator typeGenerator)

@@ -12,7 +12,9 @@ public class SimpleModellerTests
   public SimpleModellerTests()
   {
     _enumValueModeller = MFor<IAstEnumValue, EnumValueModel>();
-    Modeller = new SimpleModeller(_enumValueModeller);
+    IModellerRepository modellers = A.Of<IModellerRepository>();
+    modellers.ModellerFor<IAstEnumValue, EnumValueModel>().Returns(_enumValueModeller);
+    Modeller = new SimpleModeller(modellers);
   }
 
   [Theory]

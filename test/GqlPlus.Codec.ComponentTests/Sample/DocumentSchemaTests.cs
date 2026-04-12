@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus;
 using GqlPlus.Convert;
+using GqlPlus.Encoding;
 using GqlPlus.Resolving;
 
 namespace GqlPlus.Sample;
@@ -8,9 +9,10 @@ namespace GqlPlus.Sample;
 [Trait("Generate", "Html")]
 public class DocumentSchemaTests(
   ISchemaVerifyChecks checks,
-  IEncoder<BaseTypeModel> types
+  IEncoderRepository encoders
 ) : TestSchemaVerify(checks)
 {
+  private IEncoder<BaseTypeModel> Types => encoders.EncoderFor<BaseTypeModel>();
 
   [Fact]
   public async Task Index_Schema()
@@ -64,12 +66,12 @@ public class DocumentSchemaTests(
     IMap<BaseTypeModel> outputs = Just<TypeOutputModel>();
 
     Structured groups = new Structured("")
-      .AddMap("Domain", domains, types, "_Type")
-      .AddMap("Enum", enums, types, "_Type")
-      .AddMap("Union", unions, types, "_Type")
-      .AddMap("Dual", duals, types, "_Type")
-      .AddMap("Input", inputs, types, "_Type")
-      .AddMap("Output", outputs, types, "_Type");
+      .AddMap("Domain", domains, Types, "_Type")
+      .AddMap("Enum", enums, Types, "_Type")
+      .AddMap("Union", unions, Types, "_Type")
+      .AddMap("Dual", duals, Types, "_Type")
+      .AddMap("Input", inputs, Types, "_Type")
+      .AddMap("Output", outputs, Types, "_Type");
 
     IEnumerable<CategoryModel> categories = model.GetCategories(null).Values.Select(c => c.And).Where(c => c is not null).Cast<CategoryModel>();
     IEnumerable<DirectiveModel> directives = model.GetDirectives(null).Values.Select(c => c.And).Where(c => c is not null).Cast<DirectiveModel>();

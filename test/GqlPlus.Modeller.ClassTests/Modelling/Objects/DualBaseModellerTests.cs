@@ -6,7 +6,11 @@ public class ObjBaseModellerTests
   private readonly IModeller<IAstTypeArg, TypeArgModel> _objArg = MFor<IAstTypeArg, TypeArgModel>();
 
   public ObjBaseModellerTests()
-    => Modeller = new ObjBaseModeller(_objArg);
+  {
+    IModellerRepository modellers = A.Of<IModellerRepository>();
+    modellers.ModellerFor<IAstTypeArg, TypeArgModel>().Returns(_objArg);
+    Modeller = new ObjBaseModeller(modellers);
+  }
 
   protected override IModeller<IAstObjBase, ObjBaseModel> Modeller { get; }
 

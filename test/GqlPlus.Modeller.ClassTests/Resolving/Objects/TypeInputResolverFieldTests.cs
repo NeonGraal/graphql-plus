@@ -8,7 +8,9 @@ public class TypeInputResolverFieldTests
   public TypeInputResolverFieldTests()
   {
     IResolver<TypeDualModel> dualResolver = RFor<TypeDualModel>();
-    Resolver = new TypeInputResolver(dualResolver);
+    IResolverRepository resolvers = A.Of<IResolverRepository>();
+    resolvers.ResolverFor<TypeDualModel>().Returns(dualResolver);
+    Resolver = new TypeInputResolver(resolvers);
   }
 
   protected override ObjBaseModel MakeBase(string name, string description = "", params TypeArgModel[] args)

@@ -6,7 +6,11 @@ public class SettingModellerTests
   private readonly IModeller<IAstConstant, ConstantModel> _constant = MFor<IAstConstant, ConstantModel>();
 
   public SettingModellerTests()
-    => Modeller = new SettingModeller(_constant);
+  {
+    IModellerRepository modellers = A.Of<IModellerRepository>();
+    modellers.ModellerFor<IAstConstant, ConstantModel>().Returns(_constant);
+    Modeller = new SettingModeller(modellers);
+  }
 
   protected override IModeller<IAstSchemaSetting, SettingModel> Modeller { get; }
 

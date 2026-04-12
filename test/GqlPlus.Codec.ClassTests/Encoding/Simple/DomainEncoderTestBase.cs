@@ -51,8 +51,9 @@ public abstract class DomainAllEncoderTestBase<TItem, TInput>
   protected DomainAllEncoderTestBase()
   {
     Item = RFor<TItem>();
-
-    Encoder = new DomainItemEncoder<TItem>(Item);
+    IEncoderRepository encoders = A.Of<IEncoderRepository>();
+    encoders.EncoderFor<TItem>().Returns(Item);
+    Encoder = new DomainItemEncoder<TItem>(encoders);
   }
 
   protected override IEncoder<DomainItemModel<TItem>> Encoder { get; }

@@ -10,7 +10,7 @@ internal class ResolverRepositoryBuilder
     where TModel : IModelBase
     => this.FluentAction(b => b.Resolvers[typeof(TModel)] = factory);
 
-  public IResolverRepositoryBuilder AddTypeResolver<TModel>(Factory<IResolver<TModel>, IResolverRepository> factory)
+  public IResolverRepositoryBuilder AddTypeResolver<TModel>(Factory<ITypeResolver, IResolverRepository> factory)
     where TModel : IModelBase
     => this.FluentAction(b => {
       b.Resolvers[typeof(TModel)] = factory;

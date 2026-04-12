@@ -10,7 +10,7 @@ internal class EncoderRepositoryBuilder
     where TModel : IModelBase
     => this.FluentAction(b => b.Encoders[typeof(TModel)] = factory);
 
-  public IEncoderRepositoryBuilder AddTypeEncoder<TModel>(Factory<IEncoder<TModel>, IEncoderRepository> factory)
+  public IEncoderRepositoryBuilder AddTypeEncoder<TModel>(Factory<ITypeEncoder, IEncoderRepository> factory)
     where TModel : IModelBase
     => this.FluentAction(b => {
       b.Encoders[typeof(TModel)] = factory;

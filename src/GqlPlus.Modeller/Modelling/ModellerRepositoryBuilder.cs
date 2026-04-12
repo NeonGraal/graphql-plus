@@ -14,7 +14,7 @@ internal class ModellerRepositoryBuilder
     where TModel : IModelBase
     => this.FluentAction(b => b.Modellers[typeof(IModeller<TAst, TModel>)] = factory);
 
-  public IModellerRepositoryBuilder AddTypeModeller<TAst, TModel>(Factory<IModeller<TAst, TModel>, IModellerRepository> factory)
+  public IModellerRepositoryBuilder AddTypeModeller<TAst, TModel>(Factory<ITypeModeller, IModellerRepository> factory)
     where TAst : IAstError
     where TModel : IModelBase
     => this.FluentAction(b => {

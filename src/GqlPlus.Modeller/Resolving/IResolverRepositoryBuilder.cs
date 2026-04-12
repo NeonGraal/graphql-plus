@@ -5,6 +5,6 @@ internal interface IResolverRepositoryBuilder
   IResolverRepositoryBuilder AddResolver<TModel>(Factory<IResolver<TModel>, IResolverRepository> factory)
     where TModel : IModelBase;
 
-  IResolverRepositoryBuilder AddTypeResolver<TModel>(Factory<IResolver<TModel>, IResolverRepository> factory)
+  IResolverRepositoryBuilder AddTypeResolver<TModel>(Factory<ITypeResolver, IResolverRepository> factory)
     where TModel : IModelBase;
 }

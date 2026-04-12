@@ -6,7 +6,7 @@ internal interface IModellerRepositoryBuilder
     where TAst : IAstError
     where TModel : IModelBase;
 
-  IModellerRepositoryBuilder AddTypeModeller<TAst, TModel>(Factory<IModeller<TAst, TModel>, IModellerRepository> factory)
+  IModellerRepositoryBuilder AddTypeModeller<TAst, TModel>(Factory<ITypeModeller, IModellerRepository> factory)
     where TAst : IAstError
     where TModel : IModelBase;
 

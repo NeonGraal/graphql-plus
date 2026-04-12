@@ -1,9 +1,11 @@
 ﻿namespace GqlPlus.Resolving;
 
 internal class AllTypesResolver(
-  IEnumerable<ITypeResolver> types
+  IResolverRepository resolvers
 ) : IResolver<BaseTypeModel>
 {
+  private readonly IResolverRepository _resolvers = resolvers;
+
   public BaseTypeModel Resolve(BaseTypeModel model, IResolveContext context)
-    => types.SingleOrDefault(t => t.ForType(model))?.ResolveType(model, context) ?? model;
+    => _resolvers.TypeResolvers.SingleOrDefault(t => t.ForType(model))?.ResolveType(model, context) ?? model;
 }

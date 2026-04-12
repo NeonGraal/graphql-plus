@@ -12,8 +12,11 @@ public class InputParamEncoderTests
     _objArg = RFor<TypeArgModel>();
     _modifier = RFor<ModifierModel>();
     _constant = RFor<ConstantModel>();
-
-    Encoder = new InputParamEncoder(_objArg, _modifier, _constant);
+    IEncoderRepository encoders = A.Of<IEncoderRepository>();
+    encoders.EncoderFor<TypeArgModel>().Returns(_objArg);
+    encoders.EncoderFor<ModifierModel>().Returns(_modifier);
+    encoders.EncoderFor<ConstantModel>().Returns(_constant);
+    Encoder = new InputParamEncoder(encoders);
   }
 
   protected override IEncoder<InputParamModel> Encoder { get; }

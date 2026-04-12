@@ -29,11 +29,11 @@ internal sealed class SchemaGenerator(
         if (typeGenerator is null) {
           if (generators.TypeGenerators.TryGetValue(GqlpGeneratorType.Interface, out IEnumerable<ITypeGenerator>? interfaceGenerators)) {
             if (!interfaceGenerators.Any(IsForType)) {
-        throw new InvalidOperationException("No Generator for " + type.GetType().ExpandTypeName());
+              throw new InvalidOperationException("No Generator for " + type.GetType().ExpandTypeName());
             }
           }
-      } else {
-          typeGenerator!.GenerateType(type, context);
+        } else {
+          typeGenerator.GenerateType(type, context);
         }
 
         bool IsForType(ITypeGenerator typeGenerator)

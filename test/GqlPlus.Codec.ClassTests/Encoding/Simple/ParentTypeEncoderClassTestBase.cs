@@ -10,7 +10,7 @@ public abstract class ParentTypeEncoderClassTestBase<TModel, TItem, TAll, TInput
   protected IEncoder<TItem> Item { get; }
   protected IEncoder<TAll> All { get; }
 
-  internal ParentTypeEncoders<TItem, TAll> Encoders { get; }
+  internal IEncoderRepository Encoders { get; }
 
   protected abstract SimpleKindModel Kind { get; }
 
@@ -20,7 +20,11 @@ public abstract class ParentTypeEncoderClassTestBase<TModel, TItem, TAll, TInput
     Item = RFor<TItem>();
     All = RFor<TAll>();
 
-    Encoders = new(Parent, Item, All);
+    IEncoderRepository encoders = A.Of<IEncoderRepository>();
+    encoders.EncoderFor<TypeRefModel<SimpleKindModel>>().Returns(Parent);
+    encoders.EncoderFor<TItem>().Returns(Item);
+    encoders.EncoderFor<TAll>().Returns(All);
+    Encoders = encoders;
   }
 
   [Theory, RepeatData]

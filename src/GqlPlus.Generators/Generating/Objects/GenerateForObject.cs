@@ -183,9 +183,9 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
   private RequiredParents DetermineParentAndGrandParent(IAstObject<TObjField> ast, GqlpGeneratorContext context)
   {
     if (context.GetTypeAst(ast.Parent?.Name, out IAstObject parentObject) && ast.Parent?.IsTypeParam == false) {
-      GqlpGeneratorTypes parentTypes = new(context, ast.Parent.Args, parentObject!.TypeParams);
-      RequiredSplit split = ParentRequiredSplit(parentObject!, parentTypes);
-      return new(RequiredMembers(parentObject!, parentTypes), split);
+      GqlpGeneratorTypes parentTypes = new(context, ast.Parent.Args, parentObject.TypeParams);
+      RequiredSplit split = ParentRequiredSplit(parentObject, parentTypes);
+      return new(RequiredMembers(parentObject, parentTypes), split);
     }
 
     return new([], new());
@@ -201,10 +201,10 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
       return new();
     }
 
-    GqlpGeneratorTypes parentTypes = new(types, ast.Parent.Args, parentObject!.TypeParams);
+    GqlpGeneratorTypes parentTypes = new(types, ast.Parent.Args, parentObject.TypeParams);
 
-    MapPair<RequiredField>[] deep = ParentRequired(parentObject!, parentTypes);
-    MapPair<RequiredField>[] shallow = RequiredMembers(parentObject!, parentTypes);
+    MapPair<RequiredField>[] deep = ParentRequired(parentObject, parentTypes);
+    MapPair<RequiredField>[] shallow = RequiredMembers(parentObject, parentTypes);
 
     return new(deep, shallow);
   }
@@ -244,7 +244,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
       return [];
     }
 
-    GqlpGeneratorTypes parentTypes = new(types, ast.Parent.Args, parentObject!.TypeParams);
+    GqlpGeneratorTypes parentTypes = new(types, ast.Parent.Args, parentObject.TypeParams);
 
     MapPair<RequiredField>[] grandRequired = ParentRequired(parentObject, parentTypes);
     MapPair<RequiredField>[] parentRequired = RequiredMembers(parentObject, parentTypes);

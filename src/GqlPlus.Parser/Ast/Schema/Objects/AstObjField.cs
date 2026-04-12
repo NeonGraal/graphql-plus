@@ -35,7 +35,7 @@ internal abstract record class AstObjField(
     => other is IAstObjField field && Equals(field);
   public bool Equals(IAstObjField? other)
     => base.Equals(other)
-    && Type.Equals(other!.Type)
+    && Type.Equals(other.Type)
     && Modifiers.SequenceEqual(other.Modifiers)
     && EnumValue.NullEqual(other.EnumValue);
   public override int GetHashCode()

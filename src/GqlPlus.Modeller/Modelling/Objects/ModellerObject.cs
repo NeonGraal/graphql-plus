@@ -2,33 +2,30 @@
 
 internal abstract class ModellerObject<TAst, TObjFieldAst, TModel, TObjField>(
   TypeKindModel kind,
-  ObjectModellers<TObjFieldAst, TObjField> modellers
+  IModellerRepository modellers
 ) : ModellerType<TAst, IAstObjBase, TModel>(kind)
   where TAst : IAstType<IAstObjBase>
   where TObjFieldAst : IAstObjField
   where TModel : BaseTypeModel
   where TObjField : IObjFieldModel
 {
+  private readonly IModeller<IAstAlternate, AlternateModel> _alternate = modellers.ModellerFor<IAstAlternate, AlternateModel>();
+  private readonly IModeller<TObjFieldAst, TObjField> _field = modellers.ModellerFor<TObjFieldAst, TObjField>();
+  private readonly IModeller<IAstTypeParam, TypeParamModel> _typeParams = modellers.ModellerFor<IAstTypeParam, TypeParamModel>();
+  private readonly IModeller<IAstObjBase, ObjBaseModel> _base = modellers.ModellerFor<IAstObjBase, ObjBaseModel>();
+
   internal ObjBaseModel? ParentModel(IAstObjBase? parent, IMap<TypeKindModel> typeKinds)
     => parent is null ? default : BaseModel(parent, typeKinds);
 
   internal AlternateModel[] AlternatesModels(IEnumerable<IAstAlternate> alternates, IMap<TypeKindModel> typeKinds)
-    => modellers.Alternate.ToModels(alternates, typeKinds);
+    => _alternate.ToModels(alternates, typeKinds);
 
   internal TObjField[] FieldsModels(IEnumerable<TObjFieldAst> fields, IMap<TypeKindModel> typeKinds)
-    => modellers.Field.ToModels(fields, typeKinds);
+    => _field.ToModels(fields, typeKinds);
 
   internal TypeParamModel[] TypeParamsModels(IEnumerable<IAstTypeParam> typeParams, IMap<TypeKindModel> typeKinds)
-    => modellers.TypeParams.ToModels(typeParams, typeKinds);
+    => _typeParams.ToModels(typeParams, typeKinds);
 
   protected ObjBaseModel BaseModel(IAstObjBase ast, IMap<TypeKindModel> typeKinds)
-    => modellers.Base.ToModel<ObjBaseModel>(ast, typeKinds);
+    => _base.ToModel<ObjBaseModel>(ast, typeKinds);
 }
-
-internal record class ObjectModellers<TObjFieldAst, TObjField>(
-  IModeller<IAstTypeParam, TypeParamModel> TypeParams,
-  IModeller<IAstAlternate, AlternateModel> Alternate,
-  IModeller<TObjFieldAst, TObjField> Field,
-  IModeller<IAstObjBase, ObjBaseModel> Base)
-  where TObjFieldAst : IAstObjField
-  where TObjField : IObjFieldModel;

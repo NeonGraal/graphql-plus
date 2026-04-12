@@ -6,23 +6,13 @@ public class TypeDualEncoderTests
   public TypeDualEncoderTests()
     => Encoder = new TypeDualEncoder(Encoders);
 
-  protected override IEncoder<TypeDualModel> Encoder { get; }
-
   [Theory, RepeatData]
-  public void Encode_WithValidModel_ReturnsStructured(string name, string contents)
-    => EncodeAndCheck(new(name, contents),
-      TagAll("_TypeDual",
-      ":description=" + contents.QuotedIdentifier(),
-      ":name=" + name,
-      ":typeKind=[_TypeKind]Dual"));
-
-  [Theory, RepeatData]
-  public void Encode_WithAllModel_ReturnsStructured(string name, string parentType, string alternateType, string fieldName, string paramName)
+  public void Encode_WithAll_ReturnsStructured(string name, string parentType, string alternateType, string fieldName, string fieldType, string paramName)
   {
     ObjBaseModel parent = new(parentType, string.Empty);
     AlternateModel alternate = new(new ObjBaseModel(alternateType, string.Empty));
     ObjectForModel<AlternateModel> alternateFor = new(alternate, name);
-    DualFieldModel field = new(fieldName, null, string.Empty);
+    DualFieldModel field = new(fieldName, new(fieldType, string.Empty), string.Empty);
     ObjectForModel<DualFieldModel> fieldFor = new(field, name);
     TypeParamModel typeParam = new(paramName, string.Empty, default!);
 
@@ -40,6 +30,7 @@ public class TypeDualEncoderTests
     EncodeReturnsMap(ForAlternate, "_AlternateFor", alternateType);
     EncodeReturnsMap(Field, "_Field", fieldName);
     EncodeReturnsMap(ForField, "_FieldFor", fieldName);
+    EncodeReturnsMap(DualField, "_FieldFor", fieldName);
     EncodeReturnsMap(TypeParam, "_TypeParam", paramName);
 
     EncodeAndCheck(model,
@@ -72,4 +63,10 @@ public class TypeDualEncoderTests
 
     act.ShouldThrow<InvalidCastException>();
   }
+
+  protected override IEncoder<TypeDualModel> Encoder { get; }
+  protected override TypeKind ObjectKind => TypeKind.Dual;
+
+  protected override TypeDualModel NewObject(string name, string description)
+    => new(name, description);
 }

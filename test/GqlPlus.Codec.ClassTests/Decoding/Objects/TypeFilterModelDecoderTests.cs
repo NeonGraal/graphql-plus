@@ -9,7 +9,13 @@ public class TypeFilterModelDecoderTests
     = DFor<TypeKindModel?>();
 
   public TypeFilterModelDecoderTests()
-    => Decoder = new TypeFilterModelDecoder(Boolean, NameFilter, Kind);
+  {
+    IDecoderRepository decoders = A.Of<IDecoderRepository>();
+    decoders.DecoderFor<bool?>().Returns(Boolean);
+    decoders.NameFilterDecoder.Returns(NameFilter);
+    decoders.DecoderFor<TypeKindModel?>().Returns(Kind);
+    Decoder = new TypeFilterModelDecoder(decoders);
+  }
 
   protected override IDecoder<TypeFilterModel> Decoder { get; }
 

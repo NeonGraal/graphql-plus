@@ -8,7 +8,9 @@ public class AllTypesEncoderTests
   public AllTypesEncoderTests()
   {
     _typeEncoder = A.Of<ITypeEncoder>();
-    Encoder = new AllTypesEncoder([_typeEncoder]);
+    IEncoderRepository repo = A.Of<IEncoderRepository>();
+    repo.TypeEncoders.Returns([_typeEncoder]);
+    Encoder = new AllTypesEncoder(repo);
   }
 
   protected override IEncoder<BaseTypeModel> Encoder { get; }

@@ -8,7 +8,9 @@ public class TypeInputResolverAlternateTests
   public TypeInputResolverAlternateTests()
   {
     IResolver<TypeDualModel> dualResolver = RFor<TypeDualModel>();
-    Resolver = new TypeInputResolver(dualResolver);
+    IResolverRepository resolvers = A.Of<IResolverRepository>();
+    resolvers.ResolverFor<TypeDualModel>().Returns(dualResolver);
+    Resolver = new TypeInputResolver(resolvers);
   }
 
   protected override AlternateModel MakeAlternate(string alternate)

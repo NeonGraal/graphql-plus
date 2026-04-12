@@ -78,7 +78,7 @@ public class ModifierAstTests
 
   [Fact]
   public void Inequality_WithNull()
-    => _checks.Inequality(() => ModifierAst.List(AstNulls.At), () => default!);
+    => _checks.Inequality(() => ModifierAst.List(AstNulls.At), () => default);
 
   [Theory, RepeatData]
   public void Inequality_BetweenKeys(string key1, string key2)

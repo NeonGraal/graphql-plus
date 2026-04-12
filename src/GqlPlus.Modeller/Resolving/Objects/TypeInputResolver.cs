@@ -3,9 +3,11 @@
 namespace GqlPlus.Resolving.Objects;
 
 internal class TypeInputResolver(
-  IResolver<TypeDualModel> dualResolver
+  IResolverRepository resolvers
 ) : ResolverTypeObjectType<TypeInputModel, InputFieldModel>
 {
+  private readonly IResolver<TypeDualModel> _dualResolver = resolvers.ResolverFor<TypeDualModel>();
+
   protected override TResult Apply<TResult>(TResult result, ArgumentsContext arguments)
   {
     if (result is TypeDualModel dual) {
@@ -54,7 +56,7 @@ internal class TypeInputResolver(
   {
     if (model.ParentModel is null && model.Parent?.IsTypeParam == false) {
       if (context.TryGetType(model.Name, ParentName(model), out TypeDualModel? parentDual, canError: false)) {
-        model.ParentModel = dualResolver.Resolve(parentDual, context);
+        model.ParentModel = _dualResolver.Resolve(parentDual, context);
       }
     }
 

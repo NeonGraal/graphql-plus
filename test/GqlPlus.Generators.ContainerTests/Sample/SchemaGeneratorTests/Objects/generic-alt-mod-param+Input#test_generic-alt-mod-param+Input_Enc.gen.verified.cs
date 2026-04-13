@@ -7,6 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_mod_param_Input;
 
-internal class testRefGnrcAltModParamInpEncoder<TRef,TMod>
+internal class testRefGnrcAltModParamInpEncoder : IEncoder<ItestRefGnrcAltModParamInpObject<TRef,TMod>>
 {
+  public Structured Encode(ItestRefGnrcAltModParamInpObject<TRef,TMod> input)
+    => Structured.Empty();
 }

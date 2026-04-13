@@ -7,8 +7,13 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_constraint_Dual;
 
-internal class testObjCnstDualEncoder<TType>
+internal class testObjCnstDualEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestObjCnstDualObject<TType>>
 {
-  public TType Field { get; set; }
-  public TType Str { get; set; }
+  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  public Structured Encode(ItestObjCnstDualObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _type)
+      .AddEncoded("str", input.Str, _type);
 }

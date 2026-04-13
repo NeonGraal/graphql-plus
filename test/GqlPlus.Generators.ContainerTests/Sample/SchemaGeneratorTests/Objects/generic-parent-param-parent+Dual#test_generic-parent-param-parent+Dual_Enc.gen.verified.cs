@@ -7,15 +7,24 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_param_parent_Dual;
 
-internal class testGnrcPrntParamPrntDualEncoder
+internal class testGnrcPrntParamPrntDualEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestGnrcPrntParamPrntDualObject>
 {
+  private readonly IEncoder<ItestRefGnrcPrntParamPrntDualObject<ItestAltGnrcPrntParamPrntDual>> _itestRefGnrcPrntParamPrntDualObject<ItestAltGnrcPrntParamPrntDual> = encoders.EncoderFor<ItestRefGnrcPrntParamPrntDualObject<ItestAltGnrcPrntParamPrntDual>>();
+  public Structured Encode(ItestGnrcPrntParamPrntDualObject input)
+    => _itestRefGnrcPrntParamPrntDualObject<ItestAltGnrcPrntParamPrntDual>.Encode(input);
 }
 
-internal class testRefGnrcPrntParamPrntDualEncoder<TRef>
+internal class testRefGnrcPrntParamPrntDualEncoder : IEncoder<ItestRefGnrcPrntParamPrntDualObject<TRef>>
 {
+  public Structured Encode(ItestRefGnrcPrntParamPrntDualObject<TRef> input)
+    => Structured.Empty();
 }
 
-internal class testAltGnrcPrntParamPrntDualEncoder
+internal class testAltGnrcPrntParamPrntDualEncoder : IEncoder<ItestAltGnrcPrntParamPrntDualObject>
 {
-  public decimal Alt { get; set; }
+  public Structured Encode(ItestAltGnrcPrntParamPrntDualObject input)
+    => Structured.Empty()
+      .Add("alt", input.Alt);
 }

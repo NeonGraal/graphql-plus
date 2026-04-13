@@ -11,11 +11,15 @@ dual AltAltModParamDual { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_mod_param_Dual;
 
-internal class CmptAltModParamDualEncoder<TMod>
+internal class CmptAltModParamDualEncoder : IEncoder<ICmptAltModParamDualObject<TMod>>
 {
+  public Structured Encode(ICmptAltModParamDualObject<TMod> input)
+    => Structured.Empty();
 }
 
-internal class CmptAltAltModParamDualEncoder
+internal class CmptAltAltModParamDualEncoder : IEncoder<ICmptAltAltModParamDualObject>
 {
-  public decimal Alt { get; set; }
+  public Structured Encode(ICmptAltAltModParamDualObject input)
+    => Structured.Empty()
+      .Add("alt", input.Alt);
 }

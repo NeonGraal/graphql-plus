@@ -7,12 +7,24 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Enum;
 
-internal class test_EnumLabelEncoder
+internal class test_EnumLabelEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_EnumLabelObject>
 {
-  public Itest_Name EnumType { get; set; }
+  private readonly IEncoder<Itest_AliasedObject> _itest_Aliased = encoders.EncoderFor<Itest_AliasedObject>();
+  private readonly IEncoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  public Structured Encode(Itest_EnumLabelObject input)
+    => _itest_Aliased.Encode(input)
+      .AddEncoded("enumType", input.EnumType, _itest_Name);
 }
 
-internal class test_EnumValueEncoder
+internal class test_EnumValueEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_EnumValueObject>
 {
-  public Itest_Name Label { get; set; }
+  private readonly IEncoder<Itest_TypeRefObject<Itest_TypeKind>> _itest_TypeRefObject<Itest_TypeKind> = encoders.EncoderFor<Itest_TypeRefObject<Itest_TypeKind>>();
+  private readonly IEncoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  public Structured Encode(Itest_EnumValueObject input)
+    => _itest_TypeRefObject<Itest_TypeKind>.Encode(input)
+      .AddEncoded("label", input.Label, _itest_Name);
 }

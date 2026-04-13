@@ -12,17 +12,25 @@ domain DomOutpParamModParam { number 1 > 10 }
 
 namespace Components.Gqlp_Schema_output_param_mod_param;
 
-internal class CmptOutpParamModParamEncoder<TMod>
+internal class CmptOutpParamModParamEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptOutpParamModParamObject<TMod>>
 {
-  public ICmptDomOutpParamModParam? Field(IDictionary<TMod, ICmptInOutpParamModParam> parameter)
-    => null;
+  private readonly IEncoder<ICmptDomOutpParamModParam> _domOutpParamModParam = encoders.EncoderFor<ICmptDomOutpParamModParam>();
+  public Structured Encode(ICmptOutpParamModParamObject<TMod> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field(null), _domOutpParamModParam);
 }
 
-internal class CmptInOutpParamModParamEncoder
+internal class CmptInOutpParamModParamEncoder : IEncoder<ICmptInOutpParamModParamObject>
 {
-  public decimal Param { get; set; }
+  public Structured Encode(ICmptInOutpParamModParamObject input)
+    => Structured.Empty()
+      .Add("param", input.Param);
 }
 
-internal class CmptDomOutpParamModParamEncoder
+internal class CmptDomOutpParamModParamEncoder : IEncoder<ICmptDomOutpParamModParam>
 {
+  public Structured Encode(ICmptDomOutpParamModParam input)
+    => new(input.Value);
 }

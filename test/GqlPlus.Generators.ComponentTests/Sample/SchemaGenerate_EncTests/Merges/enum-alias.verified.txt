@@ -11,7 +11,8 @@ enum EnumAlias [En2] { enumAlias }
 
 namespace Components.Gqlp_Schema_enum_alias;
 
-internal class CmptEnumAliasEncoder
+internal class CmptEnumAliasEncoder : IEncoder<CmptEnumAlias>
 {
-  public string enumAlias { get; set; }
+  public Structured Encode(CmptEnumAlias input)
+    => new(input.ToString(), "_EnumAlias");
 }

@@ -54,52 +54,72 @@ dual _TypeSimple {
 
 namespace Components.Gqlp_Spec_Common;
 
-internal class Cmpt_TypeEncoder
+internal class Cmpt_TypeEncoder : IEncoder<ICmpt_TypeObject>
 {
+  public Structured Encode(ICmpt_TypeObject input)
+    => Structured.Empty();
 }
 
-internal class Cmpt_BaseTypeEncoder<TTypeKind>
+internal class Cmpt_BaseTypeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_BaseTypeObject<TTypeKind>>
 {
-  public TTypeKind TypeKind { get; set; }
+  private readonly IEncoder<ICmpt_AliasedObject> _aliased = encoders.EncoderFor<ICmpt_AliasedObject>();
+  private readonly IEncoder<TTypeKind> _typeKind = encoders.EncoderFor<TTypeKind>();
+  public Structured Encode(ICmpt_BaseTypeObject<TTypeKind> input)
+    => _aliased.Encode(input)
+      .AddEncoded("typeKind", input.TypeKind, _typeKind);
 }
 
-internal class Cmpt_ChildTypeEncoder<TTypeKind,TParent>
+internal class Cmpt_ChildTypeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_ChildTypeObject<TTypeKind,TParent>>
 {
-  public TParent Parent { get; set; }
+  private readonly IEncoder<ICmpt_BaseTypeObject<TTypeKind>> _baseTypeObject<TTypeKind> = encoders.EncoderFor<ICmpt_BaseTypeObject<TTypeKind>>();
+  private readonly IEncoder<TParent> _parent = encoders.EncoderFor<TParent>();
+  public Structured Encode(ICmpt_ChildTypeObject<TTypeKind,TParent> input)
+    => _baseTypeObject<TTypeKind>.Encode(input)
+      .AddEncoded("parent", input.Parent, _parent);
 }
 
-internal class Cmpt_ParentTypeEncoder<TTypeKind,TItem,TAllItem>
+internal class Cmpt_ParentTypeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>>
 {
-  public ICollection<TItem> Items { get; set; }
-  public ICollection<TAllItem> AllItems { get; set; }
+  private readonly IEncoder<ICmpt_ChildTypeObject<TTypeKind, ICmpt_Named>> _childTypeObject<TTypeKind, ICmpt_Named> = encoders.EncoderFor<ICmpt_ChildTypeObject<TTypeKind, ICmpt_Named>>();
+  private readonly IEncoder<TItem> _item = encoders.EncoderFor<TItem>();
+  private readonly IEncoder<TAllItem> _allItem = encoders.EncoderFor<TAllItem>();
+  public Structured Encode(ICmpt_ParentTypeObject<TTypeKind,TItem,TAllItem> input)
+    => _childTypeObject<TTypeKind, ICmpt_Named>.Encode(input)
+      .AddList("items", input.Items, _item)
+      .AddList("allItems", input.AllItems, _allItem);
 }
 
-internal class Cmpt_SimpleKindEncoder
+internal class Cmpt_SimpleKindEncoder : IEncoder<Cmpt_SimpleKind>
 {
-  public string Basic { get; set; }
-  public string Enum { get; set; }
-  public string Internal { get; set; }
-  public string Domain { get; set; }
-  public string Union { get; set; }
+  public Structured Encode(Cmpt_SimpleKind input)
+    => new(input.ToString(), "_SimpleKind");
 }
 
-internal class Cmpt_TypeKindEncoder
+internal class Cmpt_TypeKindEncoder : IEncoder<Cmpt_TypeKind>
 {
-  public string Basic { get; set; }
-  public string Enum { get; set; }
-  public string Internal { get; set; }
-  public string Domain { get; set; }
-  public string Union { get; set; }
-  public string Dual { get; set; }
-  public string Input { get; set; }
-  public string Output { get; set; }
+  public Structured Encode(Cmpt_TypeKind input)
+    => new(input.ToString(), "_TypeKind");
 }
 
-internal class Cmpt_TypeRefEncoder<TTypeKind>
+internal class Cmpt_TypeRefEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_TypeRefObject<TTypeKind>>
 {
-  public TTypeKind TypeKind { get; set; }
+  private readonly IEncoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
+  private readonly IEncoder<TTypeKind> _typeKind = encoders.EncoderFor<TTypeKind>();
+  public Structured Encode(ICmpt_TypeRefObject<TTypeKind> input)
+    => _named.Encode(input)
+      .AddEncoded("typeKind", input.TypeKind, _typeKind);
 }
 
-internal class Cmpt_TypeSimpleEncoder
+internal class Cmpt_TypeSimpleEncoder : IEncoder<ICmpt_TypeSimpleObject>
 {
+  public Structured Encode(ICmpt_TypeSimpleObject input)
+    => Structured.Empty();
 }

@@ -10,7 +10,9 @@ input FieldSmplInp { field: Number }
 
 namespace Components.Gqlp_Schema_field_simple_Input;
 
-internal class CmptFieldSmplInpEncoder
+internal class CmptFieldSmplInpEncoder : IEncoder<ICmptFieldSmplInpObject>
 {
-  public decimal Field { get; set; }
+  public Structured Encode(ICmptFieldSmplInpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

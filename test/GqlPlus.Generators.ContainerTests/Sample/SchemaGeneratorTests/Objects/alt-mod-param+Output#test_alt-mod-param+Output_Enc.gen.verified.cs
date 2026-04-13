@@ -7,11 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_param_Output;
 
-internal class testAltModParamOutpEncoder<TMod>
+internal class testAltModParamOutpEncoder : IEncoder<ItestAltModParamOutpObject<TMod>>
 {
+  public Structured Encode(ItestAltModParamOutpObject<TMod> input)
+    => Structured.Empty();
 }
 
-internal class testAltAltModParamOutpEncoder
+internal class testAltAltModParamOutpEncoder : IEncoder<ItestAltAltModParamOutpObject>
 {
-  public decimal Alt { get; set; }
+  public Structured Encode(ItestAltAltModParamOutpObject input)
+    => Structured.Empty()
+      .Add("alt", input.Alt);
 }

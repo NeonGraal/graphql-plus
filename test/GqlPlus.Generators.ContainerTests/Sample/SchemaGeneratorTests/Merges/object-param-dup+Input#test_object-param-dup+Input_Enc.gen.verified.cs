@@ -7,8 +7,13 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_param_dup_Input;
 
-internal class testObjParamDupInpEncoder<TTest>
+internal class testObjParamDupInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestObjParamDupInpObject<TTest>>
 {
-  public TTest Test { get; set; }
-  public TTest Type { get; set; }
+  private readonly IEncoder<TTest> _test = encoders.EncoderFor<TTest>();
+  public Structured Encode(ItestObjParamDupInpObject<TTest> input)
+    => Structured.Empty()
+      .AddEncoded("test", input.Test, _test)
+      .AddEncoded("type", input.Type, _test);
 }

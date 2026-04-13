@@ -11,12 +11,15 @@ input FldFieldModParamInp { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_mod_param_Input;
 
-internal class CmptFieldModParamInpEncoder<TMod>
+internal class CmptFieldModParamInpEncoder : IEncoder<ICmptFieldModParamInpObject<TMod>>
 {
-  public IDictionary<TMod, ICmptFldFieldModParamInp> Field { get; set; }
+  public Structured Encode(ICmptFieldModParamInpObject<TMod> input)
+    => Structured.Empty();
 }
 
-internal class CmptFldFieldModParamInpEncoder
+internal class CmptFldFieldModParamInpEncoder : IEncoder<ICmptFldFieldModParamInpObject>
 {
-  public decimal Field { get; set; }
+  public Structured Encode(ICmptFldFieldModParamInpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

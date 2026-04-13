@@ -7,7 +7,12 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_descr_Dual;
 
-internal class testGnrcDescrDualEncoder<TType>
+internal class testGnrcDescrDualEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestGnrcDescrDualObject<TType>>
 {
-  public TType Field { get; set; }
+  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  public Structured Encode(ItestGnrcDescrDualObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _type);
 }

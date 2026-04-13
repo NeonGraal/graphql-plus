@@ -12,16 +12,24 @@ enum EnumGnrcValueInp { gnrcValueInp }
 
 namespace Components.Gqlp_Schema_generic_value_Input;
 
-internal class CmptGnrcValueInpEncoder
+internal class CmptGnrcValueInpEncoder : IEncoder<ICmptGnrcValueInpObject>
 {
+  public Structured Encode(ICmptGnrcValueInpObject input)
+    => Structured.Empty();
 }
 
-internal class CmptRefGnrcValueInpEncoder<TType>
+internal class CmptRefGnrcValueInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptRefGnrcValueInpObject<TType>>
 {
-  public TType Field { get; set; }
+  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  public Structured Encode(ICmptRefGnrcValueInpObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _type);
 }
 
-internal class CmptEnumGnrcValueInpEncoder
+internal class CmptEnumGnrcValueInpEncoder : IEncoder<CmptEnumGnrcValueInp>
 {
-  public string gnrcValueInp { get; set; }
+  public Structured Encode(CmptEnumGnrcValueInp input)
+    => new(input.ToString(), "_EnumGnrcValueInp");
 }

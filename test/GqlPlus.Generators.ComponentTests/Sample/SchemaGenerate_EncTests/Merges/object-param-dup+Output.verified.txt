@@ -11,8 +11,13 @@ output ObjParamDupOutp<$test:String> { type: $test }
 
 namespace Components.Gqlp_Schema_object_param_dup_Output;
 
-internal class CmptObjParamDupOutpEncoder<TTest>
+internal class CmptObjParamDupOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptObjParamDupOutpObject<TTest>>
 {
-  public TTest Test { get; set; }
-  public TTest Type { get; set; }
+  private readonly IEncoder<TTest> _test = encoders.EncoderFor<TTest>();
+  public Structured Encode(ICmptObjParamDupOutpObject<TTest> input)
+    => Structured.Empty()
+      .AddEncoded("test", input.Test, _test)
+      .AddEncoded("type", input.Type, _test);
 }

@@ -10,7 +10,9 @@ dual FieldTypeDescrDual { field: "Test" "Descr" Number }
 
 namespace Components.Gqlp_Schema_field_type_descr_Dual;
 
-internal class CmptFieldTypeDescrDualEncoder
+internal class CmptFieldTypeDescrDualEncoder : IEncoder<ICmptFieldTypeDescrDualObject>
 {
-  public decimal Field { get; set; }
+  public Structured Encode(ICmptFieldTypeDescrDualObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

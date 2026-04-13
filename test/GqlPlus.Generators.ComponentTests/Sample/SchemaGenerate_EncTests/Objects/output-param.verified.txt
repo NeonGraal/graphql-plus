@@ -12,17 +12,25 @@ input InOutpParam { param: Number | String }
 
 namespace Components.Gqlp_Schema_output_param;
 
-internal class CmptOutpParamEncoder
+internal class CmptOutpParamEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptOutpParamObject>
 {
-  public ICmptFldOutpParam? Field(ICmptInOutpParam parameter)
-    => null;
+  private readonly IEncoder<ICmptFldOutpParam> _fldOutpParam = encoders.EncoderFor<ICmptFldOutpParam>();
+  public Structured Encode(ICmptOutpParamObject input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field(null), _fldOutpParam);
 }
 
-internal class CmptFldOutpParamEncoder
+internal class CmptFldOutpParamEncoder : IEncoder<ICmptFldOutpParamObject>
 {
+  public Structured Encode(ICmptFldOutpParamObject input)
+    => Structured.Empty();
 }
 
-internal class CmptInOutpParamEncoder
+internal class CmptInOutpParamEncoder : IEncoder<ICmptInOutpParamObject>
 {
-  public decimal Param { get; set; }
+  public Structured Encode(ICmptInOutpParamObject input)
+    => Structured.Empty()
+      .Add("param", input.Param);
 }

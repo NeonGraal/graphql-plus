@@ -7,16 +7,24 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_enum_Output;
 
-internal class testGnrcEnumOutpEncoder
+internal class testGnrcEnumOutpEncoder : IEncoder<ItestGnrcEnumOutpObject>
 {
+  public Structured Encode(ItestGnrcEnumOutpObject input)
+    => Structured.Empty();
 }
 
-internal class testRefGnrcEnumOutpEncoder<TType>
+internal class testRefGnrcEnumOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestRefGnrcEnumOutpObject<TType>>
 {
-  public TType Field { get; set; }
+  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  public Structured Encode(ItestRefGnrcEnumOutpObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _type);
 }
 
-internal class testEnumGnrcEnumOutpEncoder
+internal class testEnumGnrcEnumOutpEncoder : IEncoder<testEnumGnrcEnumOutp>
 {
-  public string gnrcEnumOutp { get; set; }
+  public Structured Encode(testEnumGnrcEnumOutp input)
+    => new(input.ToString(), "_EnumGnrcEnumOutp");
 }

@@ -11,11 +11,19 @@ input RefPrntParamDiffInp<$b:String> { | $b }
 
 namespace Components.Gqlp_Schema_parent_param_diff_Input;
 
-internal class CmptPrntParamDiffInpEncoder<TA>
+internal class CmptPrntParamDiffInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptPrntParamDiffInpObject<TA>>
 {
-  public TA Field { get; set; }
+  private readonly IEncoder<ICmptRefPrntParamDiffInpObject<TA>> _refPrntParamDiffInpObject<TA> = encoders.EncoderFor<ICmptRefPrntParamDiffInpObject<TA>>();
+  private readonly IEncoder<TA> _a = encoders.EncoderFor<TA>();
+  public Structured Encode(ICmptPrntParamDiffInpObject<TA> input)
+    => _refPrntParamDiffInpObject<TA>.Encode(input)
+      .AddEncoded("field", input.Field, _a);
 }
 
-internal class CmptRefPrntParamDiffInpEncoder<TB>
+internal class CmptRefPrntParamDiffInpEncoder : IEncoder<ICmptRefPrntParamDiffInpObject<TB>>
 {
+  public Structured Encode(ICmptRefPrntParamDiffInpObject<TB> input)
+    => Structured.Empty();
 }

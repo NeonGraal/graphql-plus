@@ -12,6 +12,8 @@ output Dscrs { }
 
 namespace Components.Gqlp_Schema_descrs;
 
-internal class CmptDscrsEncoder
+internal class CmptDscrsEncoder : IEncoder<ICmptDscrsObject>
 {
+  public Structured Encode(ICmptDscrsObject input)
+    => Structured.Empty();
 }

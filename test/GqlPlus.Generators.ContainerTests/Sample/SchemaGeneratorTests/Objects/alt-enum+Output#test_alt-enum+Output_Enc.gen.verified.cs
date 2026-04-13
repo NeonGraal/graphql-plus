@@ -7,11 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_enum_Output;
 
-internal class testAltEnumOutpEncoder
+internal class testAltEnumOutpEncoder : IEncoder<ItestAltEnumOutpObject>
 {
+  public Structured Encode(ItestAltEnumOutpObject input)
+    => Structured.Empty();
 }
 
-internal class testEnumAltEnumOutpEncoder
+internal class testEnumAltEnumOutpEncoder : IEncoder<testEnumAltEnumOutp>
 {
-  public string altEnumOutp { get; set; }
+  public Structured Encode(testEnumAltEnumOutp input)
+    => new(input.ToString(), "_EnumAltEnumOutp");
 }

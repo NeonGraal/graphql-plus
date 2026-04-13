@@ -7,6 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_descr_backslash;
 
-internal class testDescrBcksEncoder
+internal class testDescrBcksEncoder : IEncoder<ItestDescrBcksObject>
 {
+  public Structured Encode(ItestDescrBcksObject input)
+    => Structured.Empty();
 }

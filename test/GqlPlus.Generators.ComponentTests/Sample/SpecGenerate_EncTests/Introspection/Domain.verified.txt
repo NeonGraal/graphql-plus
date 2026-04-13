@@ -80,76 +80,145 @@ output _DomainItemRegex {
 
 namespace Components.Gqlp_Spec_Domain;
 
-internal class Cmpt_DomainKindEncoder
+internal class Cmpt_DomainKindEncoder : IEncoder<Cmpt_DomainKind>
 {
-  public string Boolean { get; set; }
-  public string Enum { get; set; }
-  public string Number { get; set; }
-  public string String { get; set; }
+  public Structured Encode(Cmpt_DomainKind input)
+    => new(input.ToString(), "_DomainKind");
 }
 
-internal class Cmpt_DomainRefEncoder<TDomainKind>
+internal class Cmpt_DomainRefEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_DomainRefObject<TDomainKind>>
 {
-  public TDomainKind DomainKind { get; set; }
+  private readonly IEncoder<ICmpt_TypeRefObject<ICmpt_TypeKind>> _typeRefObject<ICmpt_TypeKind> = encoders.EncoderFor<ICmpt_TypeRefObject<ICmpt_TypeKind>>();
+  private readonly IEncoder<TDomainKind> _domainKind = encoders.EncoderFor<TDomainKind>();
+  public Structured Encode(ICmpt_DomainRefObject<TDomainKind> input)
+    => _typeRefObject<ICmpt_TypeKind>.Encode(input)
+      .AddEncoded("domainKind", input.DomainKind, _domainKind);
 }
 
-internal class Cmpt_BaseDomainEncoder<TDomainKind,TItem,TDomainItem>
+internal class Cmpt_BaseDomainEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_BaseDomainObject<TDomainKind,TItem,TDomainItem>>
 {
-  public TDomainKind DomainKind { get; set; }
+  private readonly IEncoder<ICmpt_ParentTypeObject<ICmpt_TypeKind, TItem, TDomainItem>> _parentTypeObject<ICmpt_TypeKind, TItem, TDomainItem> = encoders.EncoderFor<ICmpt_ParentTypeObject<ICmpt_TypeKind, TItem, TDomainItem>>();
+  private readonly IEncoder<TDomainKind> _domainKind = encoders.EncoderFor<TDomainKind>();
+  public Structured Encode(ICmpt_BaseDomainObject<TDomainKind,TItem,TDomainItem> input)
+    => _parentTypeObject<ICmpt_TypeKind, TItem, TDomainItem>.Encode(input)
+      .AddEncoded("domainKind", input.DomainKind, _domainKind);
 }
 
-internal class Cmpt_BaseDomainItemEncoder
+internal class Cmpt_BaseDomainItemEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_BaseDomainItemObject>
 {
-  public bool Exclude { get; set; }
+  private readonly IEncoder<ICmpt_DescribedObject> _described = encoders.EncoderFor<ICmpt_DescribedObject>();
+  public Structured Encode(ICmpt_BaseDomainItemObject input)
+    => _described.Encode(input)
+      .Add("exclude", input.Exclude);
 }
 
-internal class Cmpt_DomainItemEncoder<TItem>
+internal class Cmpt_DomainItemEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_DomainItemObject<TItem>>
 {
-  public ICmpt_Name Domain { get; set; }
+  private readonly IEncoder<ICmpt_Name> _name = encoders.EncoderFor<ICmpt_Name>();
+  public Structured Encode(ICmpt_DomainItemObject<TItem> input)
+    => Structured.Empty()
+      .AddEncoded("domain", input.Domain, _name);
 }
 
-internal class Cmpt_DomainValueEncoder<TDomainKind,TValue>
+internal class Cmpt_DomainValueEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_DomainValueObject<TDomainKind,TValue>>
 {
-  public TValue Value { get; set; }
+  private readonly IEncoder<ICmpt_DomainRefObject<TDomainKind>> _domainRefObject<TDomainKind> = encoders.EncoderFor<ICmpt_DomainRefObject<TDomainKind>>();
+  private readonly IEncoder<TValue> _value = encoders.EncoderFor<TValue>();
+  public Structured Encode(ICmpt_DomainValueObject<TDomainKind,TValue> input)
+    => _domainRefObject<TDomainKind>.Encode(input)
+      .AddEncoded("value", input.Value, _value);
 }
 
-internal class Cmpt_BasicValueEncoder
+internal class Cmpt_BasicValueEncoder : IEncoder<ICmpt_BasicValueObject>
 {
+  public Structured Encode(ICmpt_BasicValueObject input)
+    => Structured.Empty();
 }
 
-internal class Cmpt_DomainTrueFalseEncoder
+internal class Cmpt_DomainTrueFalseEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_DomainTrueFalseObject>
 {
-  public bool Value { get; set; }
+  private readonly IEncoder<ICmpt_BaseDomainItemObject> _baseDomainItem = encoders.EncoderFor<ICmpt_BaseDomainItemObject>();
+  public Structured Encode(ICmpt_DomainTrueFalseObject input)
+    => _baseDomainItem.Encode(input)
+      .Add("value", input.Value);
 }
 
-internal class Cmpt_DomainItemTrueFalseEncoder
+internal class Cmpt_DomainItemTrueFalseEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_DomainItemTrueFalseObject>
 {
+  private readonly IEncoder<ICmpt_DomainItemObject<ICmpt_DomainTrueFalse>> _domainItemObject<ICmpt_DomainTrueFalse> = encoders.EncoderFor<ICmpt_DomainItemObject<ICmpt_DomainTrueFalse>>();
+  public Structured Encode(ICmpt_DomainItemTrueFalseObject input)
+    => _domainItemObject<ICmpt_DomainTrueFalse>.Encode(input);
 }
 
-internal class Cmpt_DomainLabelEncoder
+internal class Cmpt_DomainLabelEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_DomainLabelObject>
 {
-  public ICmpt_EnumValue Label { get; set; }
+  private readonly IEncoder<ICmpt_BaseDomainItemObject> _baseDomainItem = encoders.EncoderFor<ICmpt_BaseDomainItemObject>();
+  private readonly IEncoder<ICmpt_EnumValue> _enumValue = encoders.EncoderFor<ICmpt_EnumValue>();
+  public Structured Encode(ICmpt_DomainLabelObject input)
+    => _baseDomainItem.Encode(input)
+      .AddEncoded("label", input.Label, _enumValue);
 }
 
-internal class Cmpt_DomainItemLabelEncoder
+internal class Cmpt_DomainItemLabelEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_DomainItemLabelObject>
 {
+  private readonly IEncoder<ICmpt_DomainItemObject<ICmpt_DomainLabel>> _domainItemObject<ICmpt_DomainLabel> = encoders.EncoderFor<ICmpt_DomainItemObject<ICmpt_DomainLabel>>();
+  public Structured Encode(ICmpt_DomainItemLabelObject input)
+    => _domainItemObject<ICmpt_DomainLabel>.Encode(input);
 }
 
-internal class Cmpt_DomainRangeEncoder
+internal class Cmpt_DomainRangeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_DomainRangeObject>
 {
-  public decimal? Lower { get; set; }
-  public decimal? Upper { get; set; }
+  private readonly IEncoder<ICmpt_BaseDomainItemObject> _baseDomainItem = encoders.EncoderFor<ICmpt_BaseDomainItemObject>();
+  public Structured Encode(ICmpt_DomainRangeObject input)
+    => _baseDomainItem.Encode(input)
+      .Add("lower", input.Lower)
+      .Add("upper", input.Upper);
 }
 
-internal class Cmpt_DomainItemRangeEncoder
+internal class Cmpt_DomainItemRangeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_DomainItemRangeObject>
 {
+  private readonly IEncoder<ICmpt_DomainItemObject<ICmpt_DomainRange>> _domainItemObject<ICmpt_DomainRange> = encoders.EncoderFor<ICmpt_DomainItemObject<ICmpt_DomainRange>>();
+  public Structured Encode(ICmpt_DomainItemRangeObject input)
+    => _domainItemObject<ICmpt_DomainRange>.Encode(input);
 }
 
-internal class Cmpt_DomainRegexEncoder
+internal class Cmpt_DomainRegexEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_DomainRegexObject>
 {
-  public string Pattern { get; set; }
+  private readonly IEncoder<ICmpt_BaseDomainItemObject> _baseDomainItem = encoders.EncoderFor<ICmpt_BaseDomainItemObject>();
+  public Structured Encode(ICmpt_DomainRegexObject input)
+    => _baseDomainItem.Encode(input)
+      .Add("pattern", input.Pattern);
 }
 
-internal class Cmpt_DomainItemRegexEncoder
+internal class Cmpt_DomainItemRegexEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_DomainItemRegexObject>
 {
+  private readonly IEncoder<ICmpt_DomainItemObject<ICmpt_DomainRegex>> _domainItemObject<ICmpt_DomainRegex> = encoders.EncoderFor<ICmpt_DomainItemObject<ICmpt_DomainRegex>>();
+  public Structured Encode(ICmpt_DomainItemRegexObject input)
+    => _domainItemObject<ICmpt_DomainRegex>.Encode(input);
 }

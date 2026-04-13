@@ -13,21 +13,33 @@ domain DomGnrcPrntEnumDomOutp { enum gnrcPrntEnumDomOutpLabel }
 
 namespace Components.Gqlp_Schema_generic_parent_enum_dom_Output;
 
-internal class CmptGnrcPrntEnumDomOutpEncoder
+internal class CmptGnrcPrntEnumDomOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptGnrcPrntEnumDomOutpObject>
 {
+  private readonly IEncoder<ICmptFieldGnrcPrntEnumDomOutpObject<ICmptDomGnrcPrntEnumDomOutp>> _fieldGnrcPrntEnumDomOutpObject<ICmptDomGnrcPrntEnumDomOutp> = encoders.EncoderFor<ICmptFieldGnrcPrntEnumDomOutpObject<ICmptDomGnrcPrntEnumDomOutp>>();
+  public Structured Encode(ICmptGnrcPrntEnumDomOutpObject input)
+    => _fieldGnrcPrntEnumDomOutpObject<ICmptDomGnrcPrntEnumDomOutp>.Encode(input);
 }
 
-internal class CmptFieldGnrcPrntEnumDomOutpEncoder<TRef>
+internal class CmptFieldGnrcPrntEnumDomOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptFieldGnrcPrntEnumDomOutpObject<TRef>>
 {
-  public TRef Field { get; set; }
+  private readonly IEncoder<TRef> _ref = encoders.EncoderFor<TRef>();
+  public Structured Encode(ICmptFieldGnrcPrntEnumDomOutpObject<TRef> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _ref);
 }
 
-internal class CmptEnumGnrcPrntEnumDomOutpEncoder
+internal class CmptEnumGnrcPrntEnumDomOutpEncoder : IEncoder<CmptEnumGnrcPrntEnumDomOutp>
 {
-  public string gnrcPrntEnumDomOutpLabel { get; set; }
-  public string gnrcPrntEnumDomOutpOther { get; set; }
+  public Structured Encode(CmptEnumGnrcPrntEnumDomOutp input)
+    => new(input.ToString(), "_EnumGnrcPrntEnumDomOutp");
 }
 
-internal class CmptDomGnrcPrntEnumDomOutpEncoder
+internal class CmptDomGnrcPrntEnumDomOutpEncoder : IEncoder<ICmptDomGnrcPrntEnumDomOutp>
 {
+  public Structured Encode(ICmptDomGnrcPrntEnumDomOutp input)
+    => new((decimal?)input.Value);
 }

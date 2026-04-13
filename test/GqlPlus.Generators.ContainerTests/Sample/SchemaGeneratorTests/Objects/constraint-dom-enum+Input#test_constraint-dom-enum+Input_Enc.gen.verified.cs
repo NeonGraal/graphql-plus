@@ -7,21 +7,30 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_dom_enum_Input;
 
-internal class testCnstDomEnumInpEncoder
+internal class testCnstDomEnumInpEncoder : IEncoder<ItestCnstDomEnumInpObject>
 {
+  public Structured Encode(ItestCnstDomEnumInpObject input)
+    => Structured.Empty();
 }
 
-internal class testRefCnstDomEnumInpEncoder<TType>
+internal class testRefCnstDomEnumInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestRefCnstDomEnumInpObject<TType>>
 {
-  public TType Field { get; set; }
+  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  public Structured Encode(ItestRefCnstDomEnumInpObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _type);
 }
 
-internal class testEnumCnstDomEnumInpEncoder
+internal class testEnumCnstDomEnumInpEncoder : IEncoder<testEnumCnstDomEnumInp>
 {
-  public string cnstDomEnumInp { get; set; }
-  public string other { get; set; }
+  public Structured Encode(testEnumCnstDomEnumInp input)
+    => new(input.ToString(), "_EnumCnstDomEnumInp");
 }
 
-internal class testJustCnstDomEnumInpEncoder
+internal class testJustCnstDomEnumInpEncoder : IEncoder<ItestJustCnstDomEnumInp>
 {
+  public Structured Encode(ItestJustCnstDomEnumInp input)
+    => new((decimal?)input.Value);
 }

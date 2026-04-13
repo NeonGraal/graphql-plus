@@ -7,12 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_mod_param_Dual;
 
-internal class testFieldModParamDualEncoder<TMod>
+internal class testFieldModParamDualEncoder : IEncoder<ItestFieldModParamDualObject<TMod>>
 {
-  public IDictionary<TMod, ItestFldFieldModParamDual> Field { get; set; }
+  public Structured Encode(ItestFieldModParamDualObject<TMod> input)
+    => Structured.Empty();
 }
 
-internal class testFldFieldModParamDualEncoder
+internal class testFldFieldModParamDualEncoder : IEncoder<ItestFldFieldModParamDualObject>
 {
-  public decimal Field { get; set; }
+  public Structured Encode(ItestFldFieldModParamDualObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

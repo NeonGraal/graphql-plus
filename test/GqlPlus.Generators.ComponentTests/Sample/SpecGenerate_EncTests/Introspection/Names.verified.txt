@@ -28,22 +28,42 @@ output _AndType {
 
 namespace Components.Gqlp_Spec_Names;
 
-internal class Cmpt_AliasedEncoder
+internal class Cmpt_AliasedEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_AliasedObject>
 {
-  public ICollection<ICmpt_Name> Aliases { get; set; }
+  private readonly IEncoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
+  private readonly IEncoder<ICmpt_Name> _name = encoders.EncoderFor<ICmpt_Name>();
+  public Structured Encode(ICmpt_AliasedObject input)
+    => _named.Encode(input)
+      .AddList("aliases", input.Aliases, _name);
 }
 
-internal class Cmpt_NamedEncoder
+internal class Cmpt_NamedEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_NamedObject>
 {
-  public ICmpt_Name Name { get; set; }
+  private readonly IEncoder<ICmpt_DescribedObject> _described = encoders.EncoderFor<ICmpt_DescribedObject>();
+  private readonly IEncoder<ICmpt_Name> _name = encoders.EncoderFor<ICmpt_Name>();
+  public Structured Encode(ICmpt_NamedObject input)
+    => _described.Encode(input)
+      .AddEncoded("name", input.Name, _name);
 }
 
-internal class Cmpt_DescribedEncoder
+internal class Cmpt_DescribedEncoder : IEncoder<ICmpt_DescribedObject>
 {
-  public ICollection<string> Description { get; set; }
+  public Structured Encode(ICmpt_DescribedObject input)
+    => Structured.Empty()
+      .Add("description", input.Description.Encode());
 }
 
-internal class Cmpt_AndTypeEncoder
+internal class Cmpt_AndTypeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_AndTypeObject>
 {
-  public ICmpt_Type Type { get; set; }
+  private readonly IEncoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
+  private readonly IEncoder<ICmpt_Type> _type = encoders.EncoderFor<ICmpt_Type>();
+  public Structured Encode(ICmpt_AndTypeObject input)
+    => _named.Encode(input)
+      .AddEncoded("type", input.Type, _type);
 }

@@ -10,7 +10,9 @@ input FieldDescrInp { "Test" "Descr" field: String }
 
 namespace Components.Gqlp_Schema_field_descr_Input;
 
-internal class CmptFieldDescrInpEncoder
+internal class CmptFieldDescrInpEncoder : IEncoder<ICmptFieldDescrInpObject>
 {
-  public string Field { get; set; }
+  public Structured Encode(ICmptFieldDescrInpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

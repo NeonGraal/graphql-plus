@@ -7,23 +7,42 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_dual_grandparent_Dual;
 
-internal class testCnstPrntDualGrndDualEncoder
+internal class testCnstPrntDualGrndDualEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestCnstPrntDualGrndDualObject>
 {
+  private readonly IEncoder<ItestRefCnstPrntDualGrndDualObject<ItestAltCnstPrntDualGrndDual>> _itestRefCnstPrntDualGrndDualObject<ItestAltCnstPrntDualGrndDual> = encoders.EncoderFor<ItestRefCnstPrntDualGrndDualObject<ItestAltCnstPrntDualGrndDual>>();
+  public Structured Encode(ItestCnstPrntDualGrndDualObject input)
+    => _itestRefCnstPrntDualGrndDualObject<ItestAltCnstPrntDualGrndDual>.Encode(input);
 }
 
-internal class testRefCnstPrntDualGrndDualEncoder<TRef>
+internal class testRefCnstPrntDualGrndDualEncoder : IEncoder<ItestRefCnstPrntDualGrndDualObject<TRef>>
 {
+  public Structured Encode(ItestRefCnstPrntDualGrndDualObject<TRef> input)
+    => Structured.Empty();
 }
 
-internal class testGrndCnstPrntDualGrndDualEncoder
+internal class testGrndCnstPrntDualGrndDualEncoder : IEncoder<ItestGrndCnstPrntDualGrndDualObject>
 {
+  public Structured Encode(ItestGrndCnstPrntDualGrndDualObject input)
+    => Structured.Empty();
 }
 
-internal class testPrntCnstPrntDualGrndDualEncoder
+internal class testPrntCnstPrntDualGrndDualEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestPrntCnstPrntDualGrndDualObject>
 {
+  private readonly IEncoder<ItestGrndCnstPrntDualGrndDualObject> _itestGrndCnstPrntDualGrndDual = encoders.EncoderFor<ItestGrndCnstPrntDualGrndDualObject>();
+  public Structured Encode(ItestPrntCnstPrntDualGrndDualObject input)
+    => _itestGrndCnstPrntDualGrndDual.Encode(input);
 }
 
-internal class testAltCnstPrntDualGrndDualEncoder
+internal class testAltCnstPrntDualGrndDualEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestAltCnstPrntDualGrndDualObject>
 {
-  public decimal Alt { get; set; }
+  private readonly IEncoder<ItestPrntCnstPrntDualGrndDualObject> _itestPrntCnstPrntDualGrndDual = encoders.EncoderFor<ItestPrntCnstPrntDualGrndDualObject>();
+  public Structured Encode(ItestAltCnstPrntDualGrndDualObject input)
+    => _itestPrntCnstPrntDualGrndDual.Encode(input)
+      .Add("alt", input.Alt);
 }

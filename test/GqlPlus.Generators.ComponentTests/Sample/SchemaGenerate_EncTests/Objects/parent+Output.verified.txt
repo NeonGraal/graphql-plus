@@ -11,11 +11,18 @@ output RefPrntOutp { parent: Number | String }
 
 namespace Components.Gqlp_Schema_parent_Output;
 
-internal class CmptPrntOutpEncoder
+internal class CmptPrntOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptPrntOutpObject>
 {
+  private readonly IEncoder<ICmptRefPrntOutpObject> _refPrntOutp = encoders.EncoderFor<ICmptRefPrntOutpObject>();
+  public Structured Encode(ICmptPrntOutpObject input)
+    => _refPrntOutp.Encode(input);
 }
 
-internal class CmptRefPrntOutpEncoder
+internal class CmptRefPrntOutpEncoder : IEncoder<ICmptRefPrntOutpObject>
 {
-  public decimal Parent { get; set; }
+  public Structured Encode(ICmptRefPrntOutpObject input)
+    => Structured.Empty()
+      .Add("parent", input.Parent);
 }

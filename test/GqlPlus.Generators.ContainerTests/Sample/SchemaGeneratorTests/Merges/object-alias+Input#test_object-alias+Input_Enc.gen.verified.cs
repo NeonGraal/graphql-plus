@@ -7,6 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_alias_Input;
 
-internal class testObjAliasInpEncoder
+internal class testObjAliasInpEncoder : IEncoder<ItestObjAliasInpObject>
 {
+  public Structured Encode(ItestObjAliasInpObject input)
+    => Structured.Empty();
 }

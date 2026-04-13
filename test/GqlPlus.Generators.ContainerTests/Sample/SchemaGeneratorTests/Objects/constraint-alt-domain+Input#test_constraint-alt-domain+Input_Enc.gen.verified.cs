@@ -7,14 +7,20 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_domain_Input;
 
-internal class testCnstAltDmnInpEncoder
+internal class testCnstAltDmnInpEncoder : IEncoder<ItestCnstAltDmnInpObject>
 {
+  public Structured Encode(ItestCnstAltDmnInpObject input)
+    => Structured.Empty();
 }
 
-internal class testRefCnstAltDmnInpEncoder<TRef>
+internal class testRefCnstAltDmnInpEncoder : IEncoder<ItestRefCnstAltDmnInpObject<TRef>>
 {
+  public Structured Encode(ItestRefCnstAltDmnInpObject<TRef> input)
+    => Structured.Empty();
 }
 
-internal class testDomCnstAltDmnInpEncoder
+internal class testDomCnstAltDmnInpEncoder : IEncoder<ItestDomCnstAltDmnInp>
 {
+  public Structured Encode(ItestDomCnstAltDmnInp input)
+    => new(input.Value);
 }

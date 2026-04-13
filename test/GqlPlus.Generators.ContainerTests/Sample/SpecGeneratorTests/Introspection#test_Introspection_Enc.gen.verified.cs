@@ -7,370 +7,653 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Introspection;
 
-internal class test_SchemaEncoder
+internal class test_SchemaEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_SchemaObject>
 {
-  public IDictionary<Itest_Name, Itest_Categories>? Categories(Itest_CategoryFilter? parameter)
-    => null;
-  public IDictionary<Itest_Name, Itest_Directives>? Directives(Itest_Filter? parameter)
-    => null;
-  public IDictionary<Itest_Name, Itest_Type>? Types(Itest_TypeFilter? parameter)
-    => null;
-  public IDictionary<Itest_Name, Itest_Setting>? Settings(Itest_Filter? parameter)
-    => null;
+  private readonly IEncoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
+  public Structured Encode(Itest_SchemaObject input)
+    => _itest_Named.Encode(input);
 }
 
-internal class test_NameEncoder
+internal class test_NameEncoder : IEncoder<Itest_Name>
 {
+  public Structured Encode(Itest_Name input)
+    => new(input.Value);
 }
 
-internal class test_FilterEncoder
+internal class test_FilterEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_FilterObject>
 {
-  public ICollection<Itest_NameFilter> Names { get; set; }
-  public bool? MatchAliases { get; set; }
-  public ICollection<Itest_NameFilter> Aliases { get; set; }
-  public bool? ReturnByAlias { get; set; }
-  public bool? ReturnReferencedTypes { get; set; }
+  private readonly IEncoder<Itest_NameFilter> _itest_NameFilter = encoders.EncoderFor<Itest_NameFilter>();
+  public Structured Encode(Itest_FilterObject input)
+    => Structured.Empty()
+      .AddList("names", input.Names, _itest_NameFilter)
+      .Add("matchAliases", input.MatchAliases)
+      .AddList("aliases", input.Aliases, _itest_NameFilter)
+      .Add("returnByAlias", input.ReturnByAlias)
+      .Add("returnReferencedTypes", input.ReturnReferencedTypes);
 }
 
-internal class test_NameFilterEncoder
+internal class test_NameFilterEncoder : IEncoder<Itest_NameFilter>
 {
+  public Structured Encode(Itest_NameFilter input)
+    => new(input.Value);
 }
 
-internal class test_CategoryFilterEncoder
+internal class test_CategoryFilterEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_CategoryFilterObject>
 {
-  public ICollection<test_Resolution> Resolutions { get; set; }
+  private readonly IEncoder<Itest_FilterObject> _itest_Filter = encoders.EncoderFor<Itest_FilterObject>();
+  public Structured Encode(Itest_CategoryFilterObject input)
+    => _itest_Filter.Encode(input)
+      .Add("resolutions", input.Resolutions.Encode());
 }
 
-internal class test_TypeFilterEncoder
+internal class test_TypeFilterEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_TypeFilterObject>
 {
-  public ICollection<test_TypeKind> Kinds { get; set; }
+  private readonly IEncoder<Itest_FilterObject> _itest_Filter = encoders.EncoderFor<Itest_FilterObject>();
+  public Structured Encode(Itest_TypeFilterObject input)
+    => _itest_Filter.Encode(input)
+      .Add("kinds", input.Kinds.Encode());
 }
 
-internal class test_AliasedEncoder
+internal class test_AliasedEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_AliasedObject>
 {
-  public ICollection<Itest_Name> Aliases { get; set; }
+  private readonly IEncoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
+  private readonly IEncoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  public Structured Encode(Itest_AliasedObject input)
+    => _itest_Named.Encode(input)
+      .AddList("aliases", input.Aliases, _itest_Name);
 }
 
-internal class test_NamedEncoder
+internal class test_NamedEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_NamedObject>
 {
-  public Itest_Name Name { get; set; }
+  private readonly IEncoder<Itest_DescribedObject> _itest_Described = encoders.EncoderFor<Itest_DescribedObject>();
+  private readonly IEncoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  public Structured Encode(Itest_NamedObject input)
+    => _itest_Described.Encode(input)
+      .AddEncoded("name", input.Name, _itest_Name);
 }
 
-internal class test_DescribedEncoder
+internal class test_DescribedEncoder : IEncoder<Itest_DescribedObject>
 {
-  public ICollection<string> Description { get; set; }
+  public Structured Encode(Itest_DescribedObject input)
+    => Structured.Empty()
+      .Add("description", input.Description.Encode());
 }
 
-internal class test_AndTypeEncoder
+internal class test_AndTypeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_AndTypeObject>
 {
-  public Itest_Type Type { get; set; }
+  private readonly IEncoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
+  private readonly IEncoder<Itest_Type> _itest_Type = encoders.EncoderFor<Itest_Type>();
+  public Structured Encode(Itest_AndTypeObject input)
+    => _itest_Named.Encode(input)
+      .AddEncoded("type", input.Type, _itest_Type);
 }
 
-internal class test_CategoriesEncoder
+internal class test_CategoriesEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_CategoriesObject>
 {
-  public Itest_Category Category { get; set; }
+  private readonly IEncoder<Itest_AndTypeObject> _itest_AndType = encoders.EncoderFor<Itest_AndTypeObject>();
+  private readonly IEncoder<Itest_Category> _itest_Category = encoders.EncoderFor<Itest_Category>();
+  public Structured Encode(Itest_CategoriesObject input)
+    => _itest_AndType.Encode(input)
+      .AddEncoded("category", input.Category, _itest_Category);
 }
 
-internal class test_CategoryEncoder
+internal class test_CategoryEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_CategoryObject>
 {
-  public test_Resolution Resolution { get; set; }
-  public Itest_TypeRef<test_TypeKind> Output { get; set; }
-  public ICollection<Itest_Modifiers> Modifiers { get; set; }
+  private readonly IEncoder<Itest_AliasedObject> _itest_Aliased = encoders.EncoderFor<Itest_AliasedObject>();
+  private readonly IEncoder<Itest_TypeRef<test_TypeKind>> _itest_TypeRef<test_TypeKind> = encoders.EncoderFor<Itest_TypeRef<test_TypeKind>>();
+  private readonly IEncoder<Itest_Modifiers> _itest_Modifiers = encoders.EncoderFor<Itest_Modifiers>();
+  public Structured Encode(Itest_CategoryObject input)
+    => _itest_Aliased.Encode(input)
+      .AddEnum("resolution", input.Resolution)
+      .AddEncoded("output", input.Output, _itest_TypeRef<test_TypeKind>)
+      .AddList("modifiers", input.Modifiers, _itest_Modifiers);
 }
 
-internal class test_ResolutionEncoder
+internal class test_ResolutionEncoder : IEncoder<test_Resolution>
 {
-  public string Parallel { get; set; }
-  public string Sequential { get; set; }
-  public string Single { get; set; }
+  public Structured Encode(test_Resolution input)
+    => new(input.ToString(), "_Resolution");
 }
 
-internal class test_DirectivesEncoder
+internal class test_DirectivesEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_DirectivesObject>
 {
-  public Itest_Directive Directive { get; set; }
+  private readonly IEncoder<Itest_AndTypeObject> _itest_AndType = encoders.EncoderFor<Itest_AndTypeObject>();
+  private readonly IEncoder<Itest_Directive> _itest_Directive = encoders.EncoderFor<Itest_Directive>();
+  public Structured Encode(Itest_DirectivesObject input)
+    => _itest_AndType.Encode(input)
+      .AddEncoded("directive", input.Directive, _itest_Directive);
 }
 
-internal class test_DirectiveEncoder
+internal class test_DirectiveEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_DirectiveObject>
 {
-  public Itest_InputFieldType? Parameter { get; set; }
-  public bool Repeatable { get; set; }
-  public IDictionary<test_Location, GqlpUnit> Locations { get; set; }
+  private readonly IEncoder<Itest_AliasedObject> _itest_Aliased = encoders.EncoderFor<Itest_AliasedObject>();
+  private readonly IEncoder<Itest_InputFieldType> _itest_InputFieldType = encoders.EncoderFor<Itest_InputFieldType>();
+  public Structured Encode(Itest_DirectiveObject input)
+    => _itest_Aliased.Encode(input)
+      .AddEncoded("parameter", input.Parameter, _itest_InputFieldType)
+      .Add("repeatable", input.Repeatable);
 }
 
-internal class test_LocationEncoder
+internal class test_LocationEncoder : IEncoder<test_Location>
 {
-  public string Operation { get; set; }
-  public string Variable { get; set; }
-  public string Field { get; set; }
-  public string Inline { get; set; }
-  public string Spread { get; set; }
-  public string Fragment { get; set; }
+  public Structured Encode(test_Location input)
+    => new(input.ToString(), "_Location");
 }
 
-internal class test_SettingEncoder
+internal class test_SettingEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_SettingObject>
 {
-  public GqlpValue Value { get; set; }
+  private readonly IEncoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
+  private readonly IEncoder<GqlpValue> _gqlpValue = encoders.EncoderFor<GqlpValue>();
+  public Structured Encode(Itest_SettingObject input)
+    => _itest_Named.Encode(input)
+      .AddEncoded("value", input.Value, _gqlpValue);
 }
 
-internal class test_TypeEncoder
+internal class test_TypeEncoder : IEncoder<Itest_TypeObject>
 {
+  public Structured Encode(Itest_TypeObject input)
+    => Structured.Empty();
 }
 
-internal class test_BaseTypeEncoder<TTypeKind>
+internal class test_BaseTypeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_BaseTypeObject<TTypeKind>>
 {
-  public TTypeKind TypeKind { get; set; }
+  private readonly IEncoder<Itest_AliasedObject> _itest_Aliased = encoders.EncoderFor<Itest_AliasedObject>();
+  private readonly IEncoder<TTypeKind> _typeKind = encoders.EncoderFor<TTypeKind>();
+  public Structured Encode(Itest_BaseTypeObject<TTypeKind> input)
+    => _itest_Aliased.Encode(input)
+      .AddEncoded("typeKind", input.TypeKind, _typeKind);
 }
 
-internal class test_ChildTypeEncoder<TTypeKind,TParent>
+internal class test_ChildTypeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_ChildTypeObject<TTypeKind,TParent>>
 {
-  public TParent Parent { get; set; }
+  private readonly IEncoder<Itest_BaseTypeObject<TTypeKind>> _itest_BaseTypeObject<TTypeKind> = encoders.EncoderFor<Itest_BaseTypeObject<TTypeKind>>();
+  private readonly IEncoder<TParent> _parent = encoders.EncoderFor<TParent>();
+  public Structured Encode(Itest_ChildTypeObject<TTypeKind,TParent> input)
+    => _itest_BaseTypeObject<TTypeKind>.Encode(input)
+      .AddEncoded("parent", input.Parent, _parent);
 }
 
-internal class test_ParentTypeEncoder<TTypeKind,TItem,TAllItem>
+internal class test_ParentTypeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_ParentTypeObject<TTypeKind,TItem,TAllItem>>
 {
-  public ICollection<TItem> Items { get; set; }
-  public ICollection<TAllItem> AllItems { get; set; }
+  private readonly IEncoder<Itest_ChildTypeObject<TTypeKind, Itest_Named>> _itest_ChildTypeObject<TTypeKind, Itest_Named> = encoders.EncoderFor<Itest_ChildTypeObject<TTypeKind, Itest_Named>>();
+  private readonly IEncoder<TItem> _item = encoders.EncoderFor<TItem>();
+  private readonly IEncoder<TAllItem> _allItem = encoders.EncoderFor<TAllItem>();
+  public Structured Encode(Itest_ParentTypeObject<TTypeKind,TItem,TAllItem> input)
+    => _itest_ChildTypeObject<TTypeKind, Itest_Named>.Encode(input)
+      .AddList("items", input.Items, _item)
+      .AddList("allItems", input.AllItems, _allItem);
 }
 
-internal class test_SimpleKindEncoder
+internal class test_SimpleKindEncoder : IEncoder<test_SimpleKind>
 {
-  public string Basic { get; set; }
-  public string Enum { get; set; }
-  public string Internal { get; set; }
-  public string Domain { get; set; }
-  public string Union { get; set; }
+  public Structured Encode(test_SimpleKind input)
+    => new(input.ToString(), "_SimpleKind");
 }
 
-internal class test_TypeKindEncoder
+internal class test_TypeKindEncoder : IEncoder<test_TypeKind>
 {
-  public string Basic { get; set; }
-  public string Enum { get; set; }
-  public string Internal { get; set; }
-  public string Domain { get; set; }
-  public string Union { get; set; }
-  public string Dual { get; set; }
-  public string Input { get; set; }
-  public string Output { get; set; }
+  public Structured Encode(test_TypeKind input)
+    => new(input.ToString(), "_TypeKind");
 }
 
-internal class test_TypeRefEncoder<TTypeKind>
+internal class test_TypeRefEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_TypeRefObject<TTypeKind>>
 {
-  public TTypeKind TypeKind { get; set; }
+  private readonly IEncoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
+  private readonly IEncoder<TTypeKind> _typeKind = encoders.EncoderFor<TTypeKind>();
+  public Structured Encode(Itest_TypeRefObject<TTypeKind> input)
+    => _itest_Named.Encode(input)
+      .AddEncoded("typeKind", input.TypeKind, _typeKind);
 }
 
-internal class test_TypeSimpleEncoder
+internal class test_TypeSimpleEncoder : IEncoder<Itest_TypeSimpleObject>
 {
+  public Structured Encode(Itest_TypeSimpleObject input)
+    => Structured.Empty();
 }
 
-internal class test_CollectionsEncoder
+internal class test_CollectionsEncoder : IEncoder<Itest_CollectionsObject>
 {
+  public Structured Encode(Itest_CollectionsObject input)
+    => Structured.Empty();
 }
 
-internal class test_ModifierKeyedEncoder<TModifierKind>
+internal class test_ModifierKeyedEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_ModifierKeyedObject<TModifierKind>>
 {
-  public Itest_TypeSimple By { get; set; }
-  public bool IsOptional { get; set; }
+  private readonly IEncoder<Itest_ModifierObject<TModifierKind>> _itest_ModifierObject<TModifierKind> = encoders.EncoderFor<Itest_ModifierObject<TModifierKind>>();
+  private readonly IEncoder<Itest_TypeSimple> _itest_TypeSimple = encoders.EncoderFor<Itest_TypeSimple>();
+  public Structured Encode(Itest_ModifierKeyedObject<TModifierKind> input)
+    => _itest_ModifierObject<TModifierKind>.Encode(input)
+      .AddEncoded("by", input.By, _itest_TypeSimple)
+      .Add("isOptional", input.IsOptional);
 }
 
-internal class test_ModifiersEncoder
+internal class test_ModifiersEncoder : IEncoder<Itest_ModifiersObject>
 {
+  public Structured Encode(Itest_ModifiersObject input)
+    => Structured.Empty();
 }
 
-internal class test_ModifierKindEncoder
+internal class test_ModifierKindEncoder : IEncoder<test_ModifierKind>
 {
-  public string Opt { get; set; }
-  public string Optional { get; set; }
-  public string List { get; set; }
-  public string Dict { get; set; }
-  public string Dictionary { get; set; }
-  public string Param { get; set; }
-  public string TypeParam { get; set; }
+  public Structured Encode(test_ModifierKind input)
+    => new(input.ToString(), "_ModifierKind");
 }
 
-internal class test_ModifierEncoder<TModifierKind>
+internal class test_ModifierEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_ModifierObject<TModifierKind>>
 {
-  public TModifierKind ModifierKind { get; set; }
+  private readonly IEncoder<TModifierKind> _modifierKind = encoders.EncoderFor<TModifierKind>();
+  public Structured Encode(Itest_ModifierObject<TModifierKind> input)
+    => Structured.Empty()
+      .AddEncoded("modifierKind", input.ModifierKind, _modifierKind);
 }
 
-internal class test_DomainKindEncoder
+internal class test_DomainKindEncoder : IEncoder<test_DomainKind>
 {
-  public string Boolean { get; set; }
-  public string Enum { get; set; }
-  public string Number { get; set; }
-  public string String { get; set; }
+  public Structured Encode(test_DomainKind input)
+    => new(input.ToString(), "_DomainKind");
 }
 
-internal class test_DomainRefEncoder<TDomainKind>
+internal class test_DomainRefEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_DomainRefObject<TDomainKind>>
 {
-  public TDomainKind DomainKind { get; set; }
+  private readonly IEncoder<Itest_TypeRefObject<test_TypeKind>> _itest_TypeRefObject<test_TypeKind> = encoders.EncoderFor<Itest_TypeRefObject<test_TypeKind>>();
+  private readonly IEncoder<TDomainKind> _domainKind = encoders.EncoderFor<TDomainKind>();
+  public Structured Encode(Itest_DomainRefObject<TDomainKind> input)
+    => _itest_TypeRefObject<test_TypeKind>.Encode(input)
+      .AddEncoded("domainKind", input.DomainKind, _domainKind);
 }
 
-internal class test_BaseDomainEncoder<TDomainKind,TItem,TDomainItem>
+internal class test_BaseDomainEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_BaseDomainObject<TDomainKind,TItem,TDomainItem>>
 {
-  public TDomainKind DomainKind { get; set; }
+  private readonly IEncoder<Itest_ParentTypeObject<test_TypeKind, TItem, TDomainItem>> _itest_ParentTypeObject<test_TypeKind, TItem, TDomainItem> = encoders.EncoderFor<Itest_ParentTypeObject<test_TypeKind, TItem, TDomainItem>>();
+  private readonly IEncoder<TDomainKind> _domainKind = encoders.EncoderFor<TDomainKind>();
+  public Structured Encode(Itest_BaseDomainObject<TDomainKind,TItem,TDomainItem> input)
+    => _itest_ParentTypeObject<test_TypeKind, TItem, TDomainItem>.Encode(input)
+      .AddEncoded("domainKind", input.DomainKind, _domainKind);
 }
 
-internal class test_BaseDomainItemEncoder
+internal class test_BaseDomainItemEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_BaseDomainItemObject>
 {
-  public bool Exclude { get; set; }
+  private readonly IEncoder<Itest_DescribedObject> _itest_Described = encoders.EncoderFor<Itest_DescribedObject>();
+  public Structured Encode(Itest_BaseDomainItemObject input)
+    => _itest_Described.Encode(input)
+      .Add("exclude", input.Exclude);
 }
 
-internal class test_DomainItemEncoder<TItem>
+internal class test_DomainItemEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_DomainItemObject<TItem>>
 {
-  public Itest_Name Domain { get; set; }
+  private readonly IEncoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  public Structured Encode(Itest_DomainItemObject<TItem> input)
+    => Structured.Empty()
+      .AddEncoded("domain", input.Domain, _itest_Name);
 }
 
-internal class test_DomainValueEncoder<TDomainKind,TValue>
+internal class test_DomainValueEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_DomainValueObject<TDomainKind,TValue>>
 {
-  public TValue Value { get; set; }
+  private readonly IEncoder<Itest_DomainRefObject<TDomainKind>> _itest_DomainRefObject<TDomainKind> = encoders.EncoderFor<Itest_DomainRefObject<TDomainKind>>();
+  private readonly IEncoder<TValue> _value = encoders.EncoderFor<TValue>();
+  public Structured Encode(Itest_DomainValueObject<TDomainKind,TValue> input)
+    => _itest_DomainRefObject<TDomainKind>.Encode(input)
+      .AddEncoded("value", input.Value, _value);
 }
 
-internal class test_BasicValueEncoder
+internal class test_BasicValueEncoder : IEncoder<Itest_BasicValueObject>
 {
+  public Structured Encode(Itest_BasicValueObject input)
+    => Structured.Empty();
 }
 
-internal class test_DomainTrueFalseEncoder
+internal class test_DomainTrueFalseEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_DomainTrueFalseObject>
 {
-  public bool Value { get; set; }
+  private readonly IEncoder<Itest_BaseDomainItemObject> _itest_BaseDomainItem = encoders.EncoderFor<Itest_BaseDomainItemObject>();
+  public Structured Encode(Itest_DomainTrueFalseObject input)
+    => _itest_BaseDomainItem.Encode(input)
+      .Add("value", input.Value);
 }
 
-internal class test_DomainItemTrueFalseEncoder
+internal class test_DomainItemTrueFalseEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_DomainItemTrueFalseObject>
 {
+  private readonly IEncoder<Itest_DomainItemObject<Itest_DomainTrueFalse>> _itest_DomainItemObject<Itest_DomainTrueFalse> = encoders.EncoderFor<Itest_DomainItemObject<Itest_DomainTrueFalse>>();
+  public Structured Encode(Itest_DomainItemTrueFalseObject input)
+    => _itest_DomainItemObject<Itest_DomainTrueFalse>.Encode(input);
 }
 
-internal class test_DomainLabelEncoder
+internal class test_DomainLabelEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_DomainLabelObject>
 {
-  public Itest_EnumValue Label { get; set; }
+  private readonly IEncoder<Itest_BaseDomainItemObject> _itest_BaseDomainItem = encoders.EncoderFor<Itest_BaseDomainItemObject>();
+  private readonly IEncoder<Itest_EnumValue> _itest_EnumValue = encoders.EncoderFor<Itest_EnumValue>();
+  public Structured Encode(Itest_DomainLabelObject input)
+    => _itest_BaseDomainItem.Encode(input)
+      .AddEncoded("label", input.Label, _itest_EnumValue);
 }
 
-internal class test_DomainItemLabelEncoder
+internal class test_DomainItemLabelEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_DomainItemLabelObject>
 {
+  private readonly IEncoder<Itest_DomainItemObject<Itest_DomainLabel>> _itest_DomainItemObject<Itest_DomainLabel> = encoders.EncoderFor<Itest_DomainItemObject<Itest_DomainLabel>>();
+  public Structured Encode(Itest_DomainItemLabelObject input)
+    => _itest_DomainItemObject<Itest_DomainLabel>.Encode(input);
 }
 
-internal class test_DomainRangeEncoder
+internal class test_DomainRangeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_DomainRangeObject>
 {
-  public decimal? Lower { get; set; }
-  public decimal? Upper { get; set; }
+  private readonly IEncoder<Itest_BaseDomainItemObject> _itest_BaseDomainItem = encoders.EncoderFor<Itest_BaseDomainItemObject>();
+  public Structured Encode(Itest_DomainRangeObject input)
+    => _itest_BaseDomainItem.Encode(input)
+      .Add("lower", input.Lower)
+      .Add("upper", input.Upper);
 }
 
-internal class test_DomainItemRangeEncoder
+internal class test_DomainItemRangeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_DomainItemRangeObject>
 {
+  private readonly IEncoder<Itest_DomainItemObject<Itest_DomainRange>> _itest_DomainItemObject<Itest_DomainRange> = encoders.EncoderFor<Itest_DomainItemObject<Itest_DomainRange>>();
+  public Structured Encode(Itest_DomainItemRangeObject input)
+    => _itest_DomainItemObject<Itest_DomainRange>.Encode(input);
 }
 
-internal class test_DomainRegexEncoder
+internal class test_DomainRegexEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_DomainRegexObject>
 {
-  public string Pattern { get; set; }
+  private readonly IEncoder<Itest_BaseDomainItemObject> _itest_BaseDomainItem = encoders.EncoderFor<Itest_BaseDomainItemObject>();
+  public Structured Encode(Itest_DomainRegexObject input)
+    => _itest_BaseDomainItem.Encode(input)
+      .Add("pattern", input.Pattern);
 }
 
-internal class test_DomainItemRegexEncoder
+internal class test_DomainItemRegexEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_DomainItemRegexObject>
 {
+  private readonly IEncoder<Itest_DomainItemObject<Itest_DomainRegex>> _itest_DomainItemObject<Itest_DomainRegex> = encoders.EncoderFor<Itest_DomainItemObject<Itest_DomainRegex>>();
+  public Structured Encode(Itest_DomainItemRegexObject input)
+    => _itest_DomainItemObject<Itest_DomainRegex>.Encode(input);
 }
 
-internal class test_EnumLabelEncoder
+internal class test_EnumLabelEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_EnumLabelObject>
 {
-  public Itest_Name EnumType { get; set; }
+  private readonly IEncoder<Itest_AliasedObject> _itest_Aliased = encoders.EncoderFor<Itest_AliasedObject>();
+  private readonly IEncoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  public Structured Encode(Itest_EnumLabelObject input)
+    => _itest_Aliased.Encode(input)
+      .AddEncoded("enumType", input.EnumType, _itest_Name);
 }
 
-internal class test_EnumValueEncoder
+internal class test_EnumValueEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_EnumValueObject>
 {
-  public Itest_Name Label { get; set; }
+  private readonly IEncoder<Itest_TypeRefObject<test_TypeKind>> _itest_TypeRefObject<test_TypeKind> = encoders.EncoderFor<Itest_TypeRefObject<test_TypeKind>>();
+  private readonly IEncoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  public Structured Encode(Itest_EnumValueObject input)
+    => _itest_TypeRefObject<test_TypeKind>.Encode(input)
+      .AddEncoded("label", input.Label, _itest_Name);
 }
 
-internal class test_UnionRefEncoder
+internal class test_UnionRefEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_UnionRefObject>
 {
+  private readonly IEncoder<Itest_TypeRefObject<test_SimpleKind>> _itest_TypeRefObject<test_SimpleKind> = encoders.EncoderFor<Itest_TypeRefObject<test_SimpleKind>>();
+  public Structured Encode(Itest_UnionRefObject input)
+    => _itest_TypeRefObject<test_SimpleKind>.Encode(input);
 }
 
-internal class test_UnionMemberEncoder
+internal class test_UnionMemberEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_UnionMemberObject>
 {
-  public Itest_Name Union { get; set; }
+  private readonly IEncoder<Itest_UnionRefObject> _itest_UnionRef = encoders.EncoderFor<Itest_UnionRefObject>();
+  private readonly IEncoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  public Structured Encode(Itest_UnionMemberObject input)
+    => _itest_UnionRef.Encode(input)
+      .AddEncoded("union", input.Union, _itest_Name);
 }
 
-internal class test_ObjectKindEncoder
+internal class test_ObjectKindEncoder : IEncoder<Itest_ObjectKind>
 {
+  public Structured Encode(Itest_ObjectKind input)
+    => new((decimal?)input.Value);
 }
 
-internal class test_TypeObjectEncoder<TObjectKind,TField>
+internal class test_TypeObjectEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_TypeObjectObject<TObjectKind,TField>>
 {
-  public ICollection<Itest_ObjTypeParam> TypeParams { get; set; }
-  public ICollection<TField> Fields { get; set; }
-  public ICollection<Itest_ObjAlternate> Alternates { get; set; }
-  public ICollection<Itest_ObjectFor<TField>> AllFields { get; set; }
-  public ICollection<Itest_ObjectFor<Itest_ObjAlternate>> AllAlternates { get; set; }
+  private readonly IEncoder<Itest_ChildTypeObject<TObjectKind, Itest_ObjBase>> _itest_ChildTypeObject<TObjectKind, Itest_ObjBase> = encoders.EncoderFor<Itest_ChildTypeObject<TObjectKind, Itest_ObjBase>>();
+  private readonly IEncoder<Itest_ObjTypeParam> _itest_ObjTypeParam = encoders.EncoderFor<Itest_ObjTypeParam>();
+  private readonly IEncoder<TField> _field = encoders.EncoderFor<TField>();
+  private readonly IEncoder<Itest_ObjAlternate> _itest_ObjAlternate = encoders.EncoderFor<Itest_ObjAlternate>();
+  private readonly IEncoder<Itest_ObjectFor<TField>> _itest_ObjectFor<TField> = encoders.EncoderFor<Itest_ObjectFor<TField>>();
+  private readonly IEncoder<Itest_ObjectFor<Itest_ObjAlternate>> _itest_ObjectFor<Itest_ObjAlternate> = encoders.EncoderFor<Itest_ObjectFor<Itest_ObjAlternate>>();
+  public Structured Encode(Itest_TypeObjectObject<TObjectKind,TField> input)
+    => _itest_ChildTypeObject<TObjectKind, Itest_ObjBase>.Encode(input)
+      .AddList("typeParams", input.TypeParams, _itest_ObjTypeParam)
+      .AddList("fields", input.Fields, _field)
+      .AddList("alternates", input.Alternates, _itest_ObjAlternate)
+      .AddList("allFields", input.AllFields, _itest_ObjectFor<TField>)
+      .AddList("allAlternates", input.AllAlternates, _itest_ObjectFor<Itest_ObjAlternate>);
 }
 
-internal class test_ObjTypeParamEncoder
+internal class test_ObjTypeParamEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_ObjTypeParamObject>
 {
-  public Itest_TypeRef<test_TypeKind> Constraint { get; set; }
+  private readonly IEncoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
+  private readonly IEncoder<Itest_TypeRef<test_TypeKind>> _itest_TypeRef<test_TypeKind> = encoders.EncoderFor<Itest_TypeRef<test_TypeKind>>();
+  public Structured Encode(Itest_ObjTypeParamObject input)
+    => _itest_Named.Encode(input)
+      .AddEncoded("constraint", input.Constraint, _itest_TypeRef<test_TypeKind>);
 }
 
-internal class test_ObjBaseEncoder
+internal class test_ObjBaseEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_ObjBaseObject>
 {
-  public ICollection<Itest_ObjTypeArg> TypeArgs { get; set; }
+  private readonly IEncoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
+  private readonly IEncoder<Itest_ObjTypeArg> _itest_ObjTypeArg = encoders.EncoderFor<Itest_ObjTypeArg>();
+  public Structured Encode(Itest_ObjBaseObject input)
+    => _itest_Named.Encode(input)
+      .AddList("typeArgs", input.TypeArgs, _itest_ObjTypeArg);
 }
 
-internal class test_ObjTypeArgEncoder
+internal class test_ObjTypeArgEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_ObjTypeArgObject>
 {
-  public Itest_Name? Label { get; set; }
+  private readonly IEncoder<Itest_TypeRefObject<test_TypeKind>> _itest_TypeRefObject<test_TypeKind> = encoders.EncoderFor<Itest_TypeRefObject<test_TypeKind>>();
+  private readonly IEncoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  public Structured Encode(Itest_ObjTypeArgObject input)
+    => _itest_TypeRefObject<test_TypeKind>.Encode(input)
+      .AddEncoded("label", input.Label, _itest_Name);
 }
 
-internal class test_TypeParamEncoder
+internal class test_TypeParamEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_TypeParamObject>
 {
-  public Itest_Name TypeParam { get; set; }
+  private readonly IEncoder<Itest_DescribedObject> _itest_Described = encoders.EncoderFor<Itest_DescribedObject>();
+  private readonly IEncoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  public Structured Encode(Itest_TypeParamObject input)
+    => _itest_Described.Encode(input)
+      .AddEncoded("typeParam", input.TypeParam, _itest_Name);
 }
 
-internal class test_ObjAlternateEncoder
+internal class test_ObjAlternateEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_ObjAlternateObject>
 {
-  public Itest_ObjBase Type { get; set; }
-  public ICollection<Itest_Collections> Collections { get; set; }
+  private readonly IEncoder<Itest_ObjBase> _itest_ObjBase = encoders.EncoderFor<Itest_ObjBase>();
+  private readonly IEncoder<Itest_Collections> _itest_Collections = encoders.EncoderFor<Itest_Collections>();
+  public Structured Encode(Itest_ObjAlternateObject input)
+    => Structured.Empty()
+      .AddEncoded("type", input.Type, _itest_ObjBase)
+      .AddList("collections", input.Collections, _itest_Collections);
 }
 
-internal class test_ObjAlternateEnumEncoder
+internal class test_ObjAlternateEnumEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_ObjAlternateEnumObject>
 {
-  public Itest_Name Label { get; set; }
+  private readonly IEncoder<Itest_TypeRefObject<test_TypeKind>> _itest_TypeRefObject<test_TypeKind> = encoders.EncoderFor<Itest_TypeRefObject<test_TypeKind>>();
+  private readonly IEncoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  public Structured Encode(Itest_ObjAlternateEnumObject input)
+    => _itest_TypeRefObject<test_TypeKind>.Encode(input)
+      .AddEncoded("label", input.Label, _itest_Name);
 }
 
-internal class test_ObjectForEncoder<TFor>
+internal class test_ObjectForEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_ObjectForObject<TFor>>
 {
-  public Itest_Name ObjectType { get; set; }
+  private readonly IEncoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  public Structured Encode(Itest_ObjectForObject<TFor> input)
+    => Structured.Empty()
+      .AddEncoded("objectType", input.ObjectType, _itest_Name);
 }
 
-internal class test_ObjFieldEncoder<TType>
+internal class test_ObjFieldEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_ObjFieldObject<TType>>
 {
-  public TType Type { get; set; }
+  private readonly IEncoder<Itest_AliasedObject> _itest_Aliased = encoders.EncoderFor<Itest_AliasedObject>();
+  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  public Structured Encode(Itest_ObjFieldObject<TType> input)
+    => _itest_Aliased.Encode(input)
+      .AddEncoded("type", input.Type, _type);
 }
 
-internal class test_ObjFieldTypeEncoder
+internal class test_ObjFieldTypeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_ObjFieldTypeObject>
 {
-  public ICollection<Itest_Modifiers> Modifiers { get; set; }
+  private readonly IEncoder<Itest_ObjBaseObject> _itest_ObjBase = encoders.EncoderFor<Itest_ObjBaseObject>();
+  private readonly IEncoder<Itest_Modifiers> _itest_Modifiers = encoders.EncoderFor<Itest_Modifiers>();
+  public Structured Encode(Itest_ObjFieldTypeObject input)
+    => _itest_ObjBase.Encode(input)
+      .AddList("modifiers", input.Modifiers, _itest_Modifiers);
 }
 
-internal class test_ObjFieldEnumEncoder
+internal class test_ObjFieldEnumEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_ObjFieldEnumObject>
 {
-  public Itest_Name Label { get; set; }
+  private readonly IEncoder<Itest_TypeRefObject<test_TypeKind>> _itest_TypeRefObject<test_TypeKind> = encoders.EncoderFor<Itest_TypeRefObject<test_TypeKind>>();
+  private readonly IEncoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  public Structured Encode(Itest_ObjFieldEnumObject input)
+    => _itest_TypeRefObject<test_TypeKind>.Encode(input)
+      .AddEncoded("label", input.Label, _itest_Name);
 }
 
-internal class test_ForParamEncoder<TType>
+internal class test_ForParamEncoder : IEncoder<Itest_ForParamObject<TType>>
 {
+  public Structured Encode(Itest_ForParamObject<TType> input)
+    => Structured.Empty();
 }
 
-internal class test_DualFieldEncoder
+internal class test_DualFieldEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_DualFieldObject>
 {
+  private readonly IEncoder<Itest_ObjFieldObject<Itest_ObjFieldType>> _itest_ObjFieldObject<Itest_ObjFieldType> = encoders.EncoderFor<Itest_ObjFieldObject<Itest_ObjFieldType>>();
+  public Structured Encode(Itest_DualFieldObject input)
+    => _itest_ObjFieldObject<Itest_ObjFieldType>.Encode(input);
 }
 
-internal class test_InputFieldEncoder
+internal class test_InputFieldEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_InputFieldObject>
 {
+  private readonly IEncoder<Itest_ObjFieldObject<Itest_InputFieldType>> _itest_ObjFieldObject<Itest_InputFieldType> = encoders.EncoderFor<Itest_ObjFieldObject<Itest_InputFieldType>>();
+  public Structured Encode(Itest_InputFieldObject input)
+    => _itest_ObjFieldObject<Itest_InputFieldType>.Encode(input);
 }
 
-internal class test_InputFieldTypeEncoder
+internal class test_InputFieldTypeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_InputFieldTypeObject>
 {
-  public GqlpValue? DefaultValue { get; set; }
+  private readonly IEncoder<Itest_ObjFieldTypeObject> _itest_ObjFieldType = encoders.EncoderFor<Itest_ObjFieldTypeObject>();
+  private readonly IEncoder<GqlpValue> _gqlpValue = encoders.EncoderFor<GqlpValue>();
+  public Structured Encode(Itest_InputFieldTypeObject input)
+    => _itest_ObjFieldType.Encode(input)
+      .AddEncoded("defaultValue", input.DefaultValue, _gqlpValue);
 }
 
-internal class test_OutputFieldEncoder
+internal class test_OutputFieldEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_OutputFieldObject>
 {
+  private readonly IEncoder<Itest_ObjFieldObject<Itest_ObjFieldType>> _itest_ObjFieldObject<Itest_ObjFieldType> = encoders.EncoderFor<Itest_ObjFieldObject<Itest_ObjFieldType>>();
+  public Structured Encode(Itest_OutputFieldObject input)
+    => _itest_ObjFieldObject<Itest_ObjFieldType>.Encode(input);
 }
 
-internal class test_OutputFieldTypeEncoder
+internal class test_OutputFieldTypeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_OutputFieldTypeObject>
 {
-  public Itest_InputFieldType? Parameter { get; set; }
+  private readonly IEncoder<Itest_ObjFieldTypeObject> _itest_ObjFieldType = encoders.EncoderFor<Itest_ObjFieldTypeObject>();
+  private readonly IEncoder<Itest_InputFieldType> _itest_InputFieldType = encoders.EncoderFor<Itest_InputFieldType>();
+  public Structured Encode(Itest_OutputFieldTypeObject input)
+    => _itest_ObjFieldType.Encode(input)
+      .AddEncoded("parameter", input.Parameter, _itest_InputFieldType);
 }

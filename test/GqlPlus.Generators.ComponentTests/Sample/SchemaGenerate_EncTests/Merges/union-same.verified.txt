@@ -11,7 +11,14 @@ union UnionSame { Boolean }
 
 namespace Components.Gqlp_Schema_union_same;
 
-internal class CmptUnionSameEncoder
+internal class CmptUnionSameEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptUnionSame>
 {
-  public Boolean AsBoolean { get; set; }
+  private readonly IEncoder<bool> _boolean = encoders.EncoderFor<bool>();
+  public Structured Encode(ICmptUnionSame input)
+    => input switch {
+      { AsBoolean: { } m } => _boolean.Encode(m),
+      _ => Structured.Empty()
+    };
 }

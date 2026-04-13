@@ -11,12 +11,15 @@ output FldFieldModParamOutp { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_mod_param_Output;
 
-internal class CmptFieldModParamOutpEncoder<TMod>
+internal class CmptFieldModParamOutpEncoder : IEncoder<ICmptFieldModParamOutpObject<TMod>>
 {
-  public IDictionary<TMod, ICmptFldFieldModParamOutp> Field { get; set; }
+  public Structured Encode(ICmptFieldModParamOutpObject<TMod> input)
+    => Structured.Empty();
 }
 
-internal class CmptFldFieldModParamOutpEncoder
+internal class CmptFldFieldModParamOutpEncoder : IEncoder<ICmptFldFieldModParamOutpObject>
 {
-  public decimal Field { get; set; }
+  public Structured Encode(ICmptFldFieldModParamOutpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

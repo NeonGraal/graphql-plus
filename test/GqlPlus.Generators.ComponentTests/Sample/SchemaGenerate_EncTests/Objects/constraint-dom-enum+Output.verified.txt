@@ -13,21 +13,30 @@ domain JustCnstDomEnumOutp { enum EnumCnstDomEnumOutp.cnstDomEnumOutp }
 
 namespace Components.Gqlp_Schema_constraint_dom_enum_Output;
 
-internal class CmptCnstDomEnumOutpEncoder
+internal class CmptCnstDomEnumOutpEncoder : IEncoder<ICmptCnstDomEnumOutpObject>
 {
+  public Structured Encode(ICmptCnstDomEnumOutpObject input)
+    => Structured.Empty();
 }
 
-internal class CmptRefCnstDomEnumOutpEncoder<TType>
+internal class CmptRefCnstDomEnumOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptRefCnstDomEnumOutpObject<TType>>
 {
-  public TType Field { get; set; }
+  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  public Structured Encode(ICmptRefCnstDomEnumOutpObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _type);
 }
 
-internal class CmptEnumCnstDomEnumOutpEncoder
+internal class CmptEnumCnstDomEnumOutpEncoder : IEncoder<CmptEnumCnstDomEnumOutp>
 {
-  public string cnstDomEnumOutp { get; set; }
-  public string other { get; set; }
+  public Structured Encode(CmptEnumCnstDomEnumOutp input)
+    => new(input.ToString(), "_EnumCnstDomEnumOutp");
 }
 
-internal class CmptJustCnstDomEnumOutpEncoder
+internal class CmptJustCnstDomEnumOutpEncoder : IEncoder<ICmptJustCnstDomEnumOutp>
 {
+  public Structured Encode(ICmptJustCnstDomEnumOutp input)
+    => new((decimal?)input.Value);
 }

@@ -14,23 +14,42 @@ dual AltCnstPrntDualGrndDual { :PrntCnstPrntDualGrndDual alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Dual;
 
-internal class CmptCnstPrntDualGrndDualEncoder
+internal class CmptCnstPrntDualGrndDualEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptCnstPrntDualGrndDualObject>
 {
+  private readonly IEncoder<ICmptRefCnstPrntDualGrndDualObject<ICmptAltCnstPrntDualGrndDual>> _refCnstPrntDualGrndDualObject<ICmptAltCnstPrntDualGrndDual> = encoders.EncoderFor<ICmptRefCnstPrntDualGrndDualObject<ICmptAltCnstPrntDualGrndDual>>();
+  public Structured Encode(ICmptCnstPrntDualGrndDualObject input)
+    => _refCnstPrntDualGrndDualObject<ICmptAltCnstPrntDualGrndDual>.Encode(input);
 }
 
-internal class CmptRefCnstPrntDualGrndDualEncoder<TRef>
+internal class CmptRefCnstPrntDualGrndDualEncoder : IEncoder<ICmptRefCnstPrntDualGrndDualObject<TRef>>
 {
+  public Structured Encode(ICmptRefCnstPrntDualGrndDualObject<TRef> input)
+    => Structured.Empty();
 }
 
-internal class CmptGrndCnstPrntDualGrndDualEncoder
+internal class CmptGrndCnstPrntDualGrndDualEncoder : IEncoder<ICmptGrndCnstPrntDualGrndDualObject>
 {
+  public Structured Encode(ICmptGrndCnstPrntDualGrndDualObject input)
+    => Structured.Empty();
 }
 
-internal class CmptPrntCnstPrntDualGrndDualEncoder
+internal class CmptPrntCnstPrntDualGrndDualEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptPrntCnstPrntDualGrndDualObject>
 {
+  private readonly IEncoder<ICmptGrndCnstPrntDualGrndDualObject> _grndCnstPrntDualGrndDual = encoders.EncoderFor<ICmptGrndCnstPrntDualGrndDualObject>();
+  public Structured Encode(ICmptPrntCnstPrntDualGrndDualObject input)
+    => _grndCnstPrntDualGrndDual.Encode(input);
 }
 
-internal class CmptAltCnstPrntDualGrndDualEncoder
+internal class CmptAltCnstPrntDualGrndDualEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptAltCnstPrntDualGrndDualObject>
 {
-  public decimal Alt { get; set; }
+  private readonly IEncoder<ICmptPrntCnstPrntDualGrndDualObject> _prntCnstPrntDualGrndDual = encoders.EncoderFor<ICmptPrntCnstPrntDualGrndDualObject>();
+  public Structured Encode(ICmptAltCnstPrntDualGrndDualObject input)
+    => _prntCnstPrntDualGrndDual.Encode(input)
+      .Add("alt", input.Alt);
 }

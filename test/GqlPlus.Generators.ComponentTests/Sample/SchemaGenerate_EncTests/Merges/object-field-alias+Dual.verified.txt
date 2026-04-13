@@ -12,11 +12,18 @@ dual FldObjFieldAliasDual { }
 
 namespace Components.Gqlp_Schema_object_field_alias_Dual;
 
-internal class CmptObjFieldAliasDualEncoder
+internal class CmptObjFieldAliasDualEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptObjFieldAliasDualObject>
 {
-  public ICmptFldObjFieldAliasDual Field { get; set; }
+  private readonly IEncoder<ICmptFldObjFieldAliasDual> _fldObjFieldAliasDual = encoders.EncoderFor<ICmptFldObjFieldAliasDual>();
+  public Structured Encode(ICmptObjFieldAliasDualObject input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _fldObjFieldAliasDual);
 }
 
-internal class CmptFldObjFieldAliasDualEncoder
+internal class CmptFldObjFieldAliasDualEncoder : IEncoder<ICmptFldObjFieldAliasDualObject>
 {
+  public Structured Encode(ICmptFldObjFieldAliasDualObject input)
+    => Structured.Empty();
 }

@@ -12,6 +12,11 @@ output _DualField {
 
 namespace Components.Gqlp_Spec_Dual;
 
-internal class Cmpt_DualFieldEncoder
+internal class Cmpt_DualFieldEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_DualFieldObject>
 {
+  private readonly IEncoder<ICmpt_ObjFieldObject<ICmpt_ObjFieldType>> _objFieldObject<ICmpt_ObjFieldType> = encoders.EncoderFor<ICmpt_ObjFieldObject<ICmpt_ObjFieldType>>();
+  public Structured Encode(ICmpt_DualFieldObject input)
+    => _objFieldObject<ICmpt_ObjFieldType>.Encode(input);
 }

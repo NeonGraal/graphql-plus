@@ -7,13 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_enum_same_parent;
 
-internal class testEnumSamePrntEncoder
+internal class testEnumSamePrntEncoder : IEncoder<testEnumSamePrnt>
 {
-  public string prnt_enumSamePrnt { get; set; }
-  public string enumSamePrnt { get; set; }
+  public Structured Encode(testEnumSamePrnt input)
+    => new(input.ToString(), "_EnumSamePrnt");
 }
 
-internal class testPrntEnumSamePrntEncoder
+internal class testPrntEnumSamePrntEncoder : IEncoder<testPrntEnumSamePrnt>
 {
-  public string prnt_enumSamePrnt { get; set; }
+  public Structured Encode(testPrntEnumSamePrnt input)
+    => new(input.ToString(), "_PrntEnumSamePrnt");
 }

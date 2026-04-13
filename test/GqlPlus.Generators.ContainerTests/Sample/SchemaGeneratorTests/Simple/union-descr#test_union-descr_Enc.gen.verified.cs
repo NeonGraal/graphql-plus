@@ -7,7 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_descr;
 
-internal class testUnionDescrEncoder
+internal class testUnionDescrEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestUnionDescr>
 {
-  public Number AsNumber { get; set; }
+  private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
+  public Structured Encode(ItestUnionDescr input)
+    => input switch {
+      { AsNumber: { } m } => _number.Encode(m),
+      _ => Structured.Empty()
+    };
 }

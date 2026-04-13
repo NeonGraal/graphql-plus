@@ -11,12 +11,26 @@ union PrntUnionPrntDup { Number }
 
 namespace Components.Gqlp_Schema_union_parent_dup;
 
-internal class CmptUnionPrntDupEncoder
+internal class CmptUnionPrntDupEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptUnionPrntDup>
 {
-  public Number AsNumber { get; set; }
+  private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
+  public Structured Encode(ICmptUnionPrntDup input)
+    => input switch {
+      { AsNumber: { } m } => _number.Encode(m),
+      _ => Structured.Empty()
+    };
 }
 
-internal class CmptPrntUnionPrntDupEncoder
+internal class CmptPrntUnionPrntDupEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptPrntUnionPrntDup>
 {
-  public Number AsNumber { get; set; }
+  private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
+  public Structured Encode(ICmptPrntUnionPrntDup input)
+    => input switch {
+      { AsNumber: { } m } => _number.Encode(m),
+      _ => Structured.Empty()
+    };
 }

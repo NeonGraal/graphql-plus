@@ -7,7 +7,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_type_alias_Input;
 
-internal class testObjFieldTypeAliasInpEncoder
+internal class testObjFieldTypeAliasInpEncoder : IEncoder<ItestObjFieldTypeAliasInpObject>
 {
-  public string Field { get; set; }
+  public Structured Encode(ItestObjFieldTypeAliasInpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

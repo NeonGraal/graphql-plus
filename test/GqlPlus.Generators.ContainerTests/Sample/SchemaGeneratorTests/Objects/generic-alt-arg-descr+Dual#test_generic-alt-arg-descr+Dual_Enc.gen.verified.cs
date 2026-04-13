@@ -7,10 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_arg_descr_Dual;
 
-internal class testGnrcAltArgDescrDualEncoder<TType>
+internal class testGnrcAltArgDescrDualEncoder : IEncoder<ItestGnrcAltArgDescrDualObject<TType>>
 {
+  public Structured Encode(ItestGnrcAltArgDescrDualObject<TType> input)
+    => Structured.Empty();
 }
 
-internal class testRefGnrcAltArgDescrDualEncoder<TRef>
+internal class testRefGnrcAltArgDescrDualEncoder : IEncoder<ItestRefGnrcAltArgDescrDualObject<TRef>>
 {
+  public Structured Encode(ItestRefGnrcAltArgDescrDualObject<TRef> input)
+    => Structured.Empty();
 }

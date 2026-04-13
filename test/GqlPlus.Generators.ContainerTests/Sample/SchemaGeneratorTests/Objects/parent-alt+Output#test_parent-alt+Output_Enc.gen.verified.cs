@@ -7,11 +7,18 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_parent_alt_Output;
 
-internal class testPrntAltOutpEncoder
+internal class testPrntAltOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestPrntAltOutpObject>
 {
+  private readonly IEncoder<ItestRefPrntAltOutpObject> _itestRefPrntAltOutp = encoders.EncoderFor<ItestRefPrntAltOutpObject>();
+  public Structured Encode(ItestPrntAltOutpObject input)
+    => _itestRefPrntAltOutp.Encode(input);
 }
 
-internal class testRefPrntAltOutpEncoder
+internal class testRefPrntAltOutpEncoder : IEncoder<ItestRefPrntAltOutpObject>
 {
-  public decimal Parent { get; set; }
+  public Structured Encode(ItestRefPrntAltOutpObject input)
+    => Structured.Empty()
+      .Add("parent", input.Parent);
 }

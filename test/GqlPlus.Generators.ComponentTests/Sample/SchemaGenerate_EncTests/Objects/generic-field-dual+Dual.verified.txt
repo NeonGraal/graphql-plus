@@ -12,16 +12,25 @@ dual AltGnrcFieldDualDual { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_field_dual_Dual;
 
-internal class CmptGnrcFieldDualDualEncoder
+internal class CmptGnrcFieldDualDualEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptGnrcFieldDualDualObject>
 {
-  public ICmptRefGnrcFieldDualDual<ICmptAltGnrcFieldDualDual> Field { get; set; }
+  private readonly IEncoder<ICmptRefGnrcFieldDualDual<ICmptAltGnrcFieldDualDual>> _refGnrcFieldDualDual<ICmptAltGnrcFieldDualDual> = encoders.EncoderFor<ICmptRefGnrcFieldDualDual<ICmptAltGnrcFieldDualDual>>();
+  public Structured Encode(ICmptGnrcFieldDualDualObject input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _refGnrcFieldDualDual<ICmptAltGnrcFieldDualDual>);
 }
 
-internal class CmptRefGnrcFieldDualDualEncoder<TRef>
+internal class CmptRefGnrcFieldDualDualEncoder : IEncoder<ICmptRefGnrcFieldDualDualObject<TRef>>
 {
+  public Structured Encode(ICmptRefGnrcFieldDualDualObject<TRef> input)
+    => Structured.Empty();
 }
 
-internal class CmptAltGnrcFieldDualDualEncoder
+internal class CmptAltGnrcFieldDualDualEncoder : IEncoder<ICmptAltGnrcFieldDualDualObject>
 {
-  public decimal Alt { get; set; }
+  public Structured Encode(ICmptAltGnrcFieldDualDualObject input)
+    => Structured.Empty()
+      .Add("alt", input.Alt);
 }

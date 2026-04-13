@@ -31,32 +31,42 @@ dual _Modifier<$modifierKind:_ModifierKind> {
 
 namespace Components.Gqlp_Spec_Built_In;
 
-internal class Cmpt_CollectionsEncoder
+internal class Cmpt_CollectionsEncoder : IEncoder<ICmpt_CollectionsObject>
 {
+  public Structured Encode(ICmpt_CollectionsObject input)
+    => Structured.Empty();
 }
 
-internal class Cmpt_ModifierKeyedEncoder<TModifierKind>
+internal class Cmpt_ModifierKeyedEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_ModifierKeyedObject<TModifierKind>>
 {
-  public ICmpt_TypeSimple By { get; set; }
-  public bool IsOptional { get; set; }
+  private readonly IEncoder<ICmpt_ModifierObject<TModifierKind>> _modifierObject<TModifierKind> = encoders.EncoderFor<ICmpt_ModifierObject<TModifierKind>>();
+  private readonly IEncoder<ICmpt_TypeSimple> _typeSimple = encoders.EncoderFor<ICmpt_TypeSimple>();
+  public Structured Encode(ICmpt_ModifierKeyedObject<TModifierKind> input)
+    => _modifierObject<TModifierKind>.Encode(input)
+      .AddEncoded("by", input.By, _typeSimple)
+      .Add("isOptional", input.IsOptional);
 }
 
-internal class Cmpt_ModifiersEncoder
+internal class Cmpt_ModifiersEncoder : IEncoder<ICmpt_ModifiersObject>
 {
+  public Structured Encode(ICmpt_ModifiersObject input)
+    => Structured.Empty();
 }
 
-internal class Cmpt_ModifierKindEncoder
+internal class Cmpt_ModifierKindEncoder : IEncoder<Cmpt_ModifierKind>
 {
-  public string Opt { get; set; }
-  public string Optional { get; set; }
-  public string List { get; set; }
-  public string Dict { get; set; }
-  public string Dictionary { get; set; }
-  public string Param { get; set; }
-  public string TypeParam { get; set; }
+  public Structured Encode(Cmpt_ModifierKind input)
+    => new(input.ToString(), "_ModifierKind");
 }
 
-internal class Cmpt_ModifierEncoder<TModifierKind>
+internal class Cmpt_ModifierEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_ModifierObject<TModifierKind>>
 {
-  public TModifierKind ModifierKind { get; set; }
+  private readonly IEncoder<TModifierKind> _modifierKind = encoders.EncoderFor<TModifierKind>();
+  public Structured Encode(ICmpt_ModifierObject<TModifierKind> input)
+    => Structured.Empty()
+      .AddEncoded("modifierKind", input.ModifierKind, _modifierKind);
 }

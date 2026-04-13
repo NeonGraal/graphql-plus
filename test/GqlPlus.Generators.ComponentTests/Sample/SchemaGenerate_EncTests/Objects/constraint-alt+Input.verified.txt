@@ -10,6 +10,8 @@ input CnstAltInp<$type:Number> { | $type }
 
 namespace Components.Gqlp_Schema_constraint_alt_Input;
 
-internal class CmptCnstAltInpEncoder<TType>
+internal class CmptCnstAltInpEncoder : IEncoder<ICmptCnstAltInpObject<TType>>
 {
+  public Structured Encode(ICmptCnstAltInpObject<TType> input)
+    => Structured.Empty();
 }

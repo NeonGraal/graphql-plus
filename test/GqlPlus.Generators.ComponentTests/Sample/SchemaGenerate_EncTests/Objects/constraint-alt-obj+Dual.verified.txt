@@ -13,19 +13,30 @@ dual AltCnstAltObjDual { :PrntCnstAltObjDual alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_alt_obj_Dual;
 
-internal class CmptCnstAltObjDualEncoder
+internal class CmptCnstAltObjDualEncoder : IEncoder<ICmptCnstAltObjDualObject>
 {
+  public Structured Encode(ICmptCnstAltObjDualObject input)
+    => Structured.Empty();
 }
 
-internal class CmptRefCnstAltObjDualEncoder<TRef>
+internal class CmptRefCnstAltObjDualEncoder : IEncoder<ICmptRefCnstAltObjDualObject<TRef>>
 {
+  public Structured Encode(ICmptRefCnstAltObjDualObject<TRef> input)
+    => Structured.Empty();
 }
 
-internal class CmptPrntCnstAltObjDualEncoder
+internal class CmptPrntCnstAltObjDualEncoder : IEncoder<ICmptPrntCnstAltObjDualObject>
 {
+  public Structured Encode(ICmptPrntCnstAltObjDualObject input)
+    => Structured.Empty();
 }
 
-internal class CmptAltCnstAltObjDualEncoder
+internal class CmptAltCnstAltObjDualEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptAltCnstAltObjDualObject>
 {
-  public decimal Alt { get; set; }
+  private readonly IEncoder<ICmptPrntCnstAltObjDualObject> _prntCnstAltObjDual = encoders.EncoderFor<ICmptPrntCnstAltObjDualObject>();
+  public Structured Encode(ICmptAltCnstAltObjDualObject input)
+    => _prntCnstAltObjDual.Encode(input)
+      .Add("alt", input.Alt);
 }

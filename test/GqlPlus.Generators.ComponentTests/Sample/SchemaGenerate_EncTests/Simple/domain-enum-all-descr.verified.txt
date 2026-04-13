@@ -11,13 +11,14 @@ enum EnumDmnEnumAllDescr { dmnEnumAllDescr enum_dmnEnumAllDescr dmnEnumAllDescrV
 
 namespace Components.Gqlp_Schema_domain_enum_all_descr;
 
-internal class CmptDmnEnumAllDescrEncoder
+internal class CmptDmnEnumAllDescrEncoder : IEncoder<ICmptDmnEnumAllDescr>
 {
+  public Structured Encode(ICmptDmnEnumAllDescr input)
+    => new((decimal?)input.Value);
 }
 
-internal class CmptEnumDmnEnumAllDescrEncoder
+internal class CmptEnumDmnEnumAllDescrEncoder : IEncoder<CmptEnumDmnEnumAllDescr>
 {
-  public string dmnEnumAllDescr { get; set; }
-  public string enum_dmnEnumAllDescr { get; set; }
-  public string dmnEnumAllDescrValue { get; set; }
+  public Structured Encode(CmptEnumDmnEnumAllDescr input)
+    => new(input.ToString(), "_EnumDmnEnumAllDescr");
 }

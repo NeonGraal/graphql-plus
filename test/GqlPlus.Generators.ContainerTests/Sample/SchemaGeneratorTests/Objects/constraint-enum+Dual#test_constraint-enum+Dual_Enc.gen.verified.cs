@@ -7,16 +7,24 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_enum_Dual;
 
-internal class testCnstEnumDualEncoder
+internal class testCnstEnumDualEncoder : IEncoder<ItestCnstEnumDualObject>
 {
+  public Structured Encode(ItestCnstEnumDualObject input)
+    => Structured.Empty();
 }
 
-internal class testRefCnstEnumDualEncoder<TType>
+internal class testRefCnstEnumDualEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestRefCnstEnumDualObject<TType>>
 {
-  public TType Field { get; set; }
+  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  public Structured Encode(ItestRefCnstEnumDualObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _type);
 }
 
-internal class testEnumCnstEnumDualEncoder
+internal class testEnumCnstEnumDualEncoder : IEncoder<testEnumCnstEnumDual>
 {
-  public string cnstEnumDual { get; set; }
+  public Structured Encode(testEnumCnstEnumDual input)
+    => new(input.ToString(), "_EnumCnstEnumDual");
 }

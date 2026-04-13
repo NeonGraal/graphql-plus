@@ -13,20 +13,37 @@ output AltCnstFieldDualOutp { :PrntCnstFieldDualOutp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_field_dual_Output;
 
-internal class CmptCnstFieldDualOutpEncoder
+internal class CmptCnstFieldDualOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptCnstFieldDualOutpObject>
 {
+  private readonly IEncoder<ICmptRefCnstFieldDualOutpObject<ICmptAltCnstFieldDualOutp>> _refCnstFieldDualOutpObject<ICmptAltCnstFieldDualOutp> = encoders.EncoderFor<ICmptRefCnstFieldDualOutpObject<ICmptAltCnstFieldDualOutp>>();
+  public Structured Encode(ICmptCnstFieldDualOutpObject input)
+    => _refCnstFieldDualOutpObject<ICmptAltCnstFieldDualOutp>.Encode(input);
 }
 
-internal class CmptRefCnstFieldDualOutpEncoder<TRef>
+internal class CmptRefCnstFieldDualOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptRefCnstFieldDualOutpObject<TRef>>
 {
-  public TRef Field { get; set; }
+  private readonly IEncoder<TRef> _ref = encoders.EncoderFor<TRef>();
+  public Structured Encode(ICmptRefCnstFieldDualOutpObject<TRef> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _ref);
 }
 
-internal class CmptPrntCnstFieldDualOutpEncoder
+internal class CmptPrntCnstFieldDualOutpEncoder : IEncoder<ICmptPrntCnstFieldDualOutpObject>
 {
+  public Structured Encode(ICmptPrntCnstFieldDualOutpObject input)
+    => Structured.Empty();
 }
 
-internal class CmptAltCnstFieldDualOutpEncoder
+internal class CmptAltCnstFieldDualOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptAltCnstFieldDualOutpObject>
 {
-  public decimal Alt { get; set; }
+  private readonly IEncoder<ICmptPrntCnstFieldDualOutpObject> _prntCnstFieldDualOutp = encoders.EncoderFor<ICmptPrntCnstFieldDualOutpObject>();
+  public Structured Encode(ICmptAltCnstFieldDualOutpObject input)
+    => _prntCnstFieldDualOutp.Encode(input)
+      .Add("alt", input.Alt);
 }

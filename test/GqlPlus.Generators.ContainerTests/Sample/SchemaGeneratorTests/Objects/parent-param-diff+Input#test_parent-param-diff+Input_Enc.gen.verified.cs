@@ -7,11 +7,19 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_parent_param_diff_Input;
 
-internal class testPrntParamDiffInpEncoder<TA>
+internal class testPrntParamDiffInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestPrntParamDiffInpObject<TA>>
 {
-  public TA Field { get; set; }
+  private readonly IEncoder<ItestRefPrntParamDiffInpObject<TA>> _itestRefPrntParamDiffInpObject<TA> = encoders.EncoderFor<ItestRefPrntParamDiffInpObject<TA>>();
+  private readonly IEncoder<TA> _a = encoders.EncoderFor<TA>();
+  public Structured Encode(ItestPrntParamDiffInpObject<TA> input)
+    => _itestRefPrntParamDiffInpObject<TA>.Encode(input)
+      .AddEncoded("field", input.Field, _a);
 }
 
-internal class testRefPrntParamDiffInpEncoder<TB>
+internal class testRefPrntParamDiffInpEncoder : IEncoder<ItestRefPrntParamDiffInpObject<TB>>
 {
+  public Structured Encode(ItestRefPrntParamDiffInpObject<TB> input)
+    => Structured.Empty();
 }

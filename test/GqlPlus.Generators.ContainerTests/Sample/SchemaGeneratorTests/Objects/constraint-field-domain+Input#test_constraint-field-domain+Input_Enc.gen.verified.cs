@@ -7,15 +7,27 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_domain_Input;
 
-internal class testCnstFieldDmnInpEncoder
+internal class testCnstFieldDmnInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestCnstFieldDmnInpObject>
 {
+  private readonly IEncoder<ItestRefCnstFieldDmnInpObject<ItestDomCnstFieldDmnInp>> _itestRefCnstFieldDmnInpObject<ItestDomCnstFieldDmnInp> = encoders.EncoderFor<ItestRefCnstFieldDmnInpObject<ItestDomCnstFieldDmnInp>>();
+  public Structured Encode(ItestCnstFieldDmnInpObject input)
+    => _itestRefCnstFieldDmnInpObject<ItestDomCnstFieldDmnInp>.Encode(input);
 }
 
-internal class testRefCnstFieldDmnInpEncoder<TRef>
+internal class testRefCnstFieldDmnInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestRefCnstFieldDmnInpObject<TRef>>
 {
-  public TRef Field { get; set; }
+  private readonly IEncoder<TRef> _ref = encoders.EncoderFor<TRef>();
+  public Structured Encode(ItestRefCnstFieldDmnInpObject<TRef> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _ref);
 }
 
-internal class testDomCnstFieldDmnInpEncoder
+internal class testDomCnstFieldDmnInpEncoder : IEncoder<ItestDomCnstFieldDmnInp>
 {
+  public Structured Encode(ItestDomCnstFieldDmnInp input)
+    => new(input.Value);
 }

@@ -7,22 +7,33 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_parent_Output;
 
-internal class testGnrcPrntEnumPrntOutpEncoder
+internal class testGnrcPrntEnumPrntOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestGnrcPrntEnumPrntOutpObject>
 {
+  private readonly IEncoder<ItestFieldGnrcPrntEnumPrntOutpObject<testEnumGnrcPrntEnumPrntOutp>> _itestFieldGnrcPrntEnumPrntOutpObject<testEnumGnrcPrntEnumPrntOutp> = encoders.EncoderFor<ItestFieldGnrcPrntEnumPrntOutpObject<testEnumGnrcPrntEnumPrntOutp>>();
+  public Structured Encode(ItestGnrcPrntEnumPrntOutpObject input)
+    => _itestFieldGnrcPrntEnumPrntOutpObject<testEnumGnrcPrntEnumPrntOutp>.Encode(input);
 }
 
-internal class testFieldGnrcPrntEnumPrntOutpEncoder<TRef>
+internal class testFieldGnrcPrntEnumPrntOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestFieldGnrcPrntEnumPrntOutpObject<TRef>>
 {
-  public TRef Field { get; set; }
+  private readonly IEncoder<TRef> _ref = encoders.EncoderFor<TRef>();
+  public Structured Encode(ItestFieldGnrcPrntEnumPrntOutpObject<TRef> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _ref);
 }
 
-internal class testEnumGnrcPrntEnumPrntOutpEncoder
+internal class testEnumGnrcPrntEnumPrntOutpEncoder : IEncoder<testEnumGnrcPrntEnumPrntOutp>
 {
-  public string gnrcPrntEnumPrntOutpParent { get; set; }
-  public string gnrcPrntEnumPrntOutpLabel { get; set; }
+  public Structured Encode(testEnumGnrcPrntEnumPrntOutp input)
+    => new(input.ToString(), "_EnumGnrcPrntEnumPrntOutp");
 }
 
-internal class testParentGnrcPrntEnumPrntOutpEncoder
+internal class testParentGnrcPrntEnumPrntOutpEncoder : IEncoder<testParentGnrcPrntEnumPrntOutp>
 {
-  public string gnrcPrntEnumPrntOutpParent { get; set; }
+  public Structured Encode(testParentGnrcPrntEnumPrntOutp input)
+    => new(input.ToString(), "_ParentGnrcPrntEnumPrntOutp");
 }

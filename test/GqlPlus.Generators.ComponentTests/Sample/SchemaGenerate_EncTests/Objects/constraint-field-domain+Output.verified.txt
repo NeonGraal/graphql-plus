@@ -12,15 +12,27 @@ domain DomCnstFieldDmnOutp { String /\w+/ }
 
 namespace Components.Gqlp_Schema_constraint_field_domain_Output;
 
-internal class CmptCnstFieldDmnOutpEncoder
+internal class CmptCnstFieldDmnOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptCnstFieldDmnOutpObject>
 {
+  private readonly IEncoder<ICmptRefCnstFieldDmnOutpObject<ICmptDomCnstFieldDmnOutp>> _refCnstFieldDmnOutpObject<ICmptDomCnstFieldDmnOutp> = encoders.EncoderFor<ICmptRefCnstFieldDmnOutpObject<ICmptDomCnstFieldDmnOutp>>();
+  public Structured Encode(ICmptCnstFieldDmnOutpObject input)
+    => _refCnstFieldDmnOutpObject<ICmptDomCnstFieldDmnOutp>.Encode(input);
 }
 
-internal class CmptRefCnstFieldDmnOutpEncoder<TRef>
+internal class CmptRefCnstFieldDmnOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptRefCnstFieldDmnOutpObject<TRef>>
 {
-  public TRef Field { get; set; }
+  private readonly IEncoder<TRef> _ref = encoders.EncoderFor<TRef>();
+  public Structured Encode(ICmptRefCnstFieldDmnOutpObject<TRef> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _ref);
 }
 
-internal class CmptDomCnstFieldDmnOutpEncoder
+internal class CmptDomCnstFieldDmnOutpEncoder : IEncoder<ICmptDomCnstFieldDmnOutp>
 {
+  public Structured Encode(ICmptDomCnstFieldDmnOutp input)
+    => new(input.Value);
 }

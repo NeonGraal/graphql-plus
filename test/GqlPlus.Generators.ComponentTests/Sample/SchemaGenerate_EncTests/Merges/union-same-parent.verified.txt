@@ -12,12 +12,26 @@ union PrntUnionSamePrnt { String }
 
 namespace Components.Gqlp_Schema_union_same_parent;
 
-internal class CmptUnionSamePrntEncoder
+internal class CmptUnionSamePrntEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptUnionSamePrnt>
 {
-  public Boolean AsBoolean { get; set; }
+  private readonly IEncoder<bool> _boolean = encoders.EncoderFor<bool>();
+  public Structured Encode(ICmptUnionSamePrnt input)
+    => input switch {
+      { AsBoolean: { } m } => _boolean.Encode(m),
+      _ => Structured.Empty()
+    };
 }
 
-internal class CmptPrntUnionSamePrntEncoder
+internal class CmptPrntUnionSamePrntEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptPrntUnionSamePrnt>
 {
-  public String AsString { get; set; }
+  private readonly IEncoder<string> _string = encoders.EncoderFor<string>();
+  public Structured Encode(ICmptPrntUnionSamePrnt input)
+    => input switch {
+      { AsString: { } m } => _string.Encode(m),
+      _ => Structured.Empty()
+    };
 }

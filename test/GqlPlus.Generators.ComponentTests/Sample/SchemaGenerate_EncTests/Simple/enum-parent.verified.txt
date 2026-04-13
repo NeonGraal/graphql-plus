@@ -11,13 +11,14 @@ enum PrntEnumPrnt { prnt_enumPrnt }
 
 namespace Components.Gqlp_Schema_enum_parent;
 
-internal class CmptEnumPrntEncoder
+internal class CmptEnumPrntEncoder : IEncoder<CmptEnumPrnt>
 {
-  public string prnt_enumPrnt { get; set; }
-  public string enumPrnt { get; set; }
+  public Structured Encode(CmptEnumPrnt input)
+    => new(input.ToString(), "_EnumPrnt");
 }
 
-internal class CmptPrntEnumPrntEncoder
+internal class CmptPrntEnumPrntEncoder : IEncoder<CmptPrntEnumPrnt>
 {
-  public string prnt_enumPrnt { get; set; }
+  public Structured Encode(CmptPrntEnumPrnt input)
+    => new(input.ToString(), "_PrntEnumPrnt");
 }

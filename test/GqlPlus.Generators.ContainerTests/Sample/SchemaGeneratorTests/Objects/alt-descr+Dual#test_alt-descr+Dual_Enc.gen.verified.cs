@@ -7,6 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_descr_Dual;
 
-internal class testAltDescrDualEncoder
+internal class testAltDescrDualEncoder : IEncoder<ItestAltDescrDualObject>
 {
+  public Structured Encode(ItestAltDescrDualObject input)
+    => Structured.Empty();
 }

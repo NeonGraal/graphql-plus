@@ -13,19 +13,33 @@ output AltCnstPrntObjPrntOutp { :PrntCnstPrntObjPrntOutp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Output;
 
-internal class CmptCnstPrntObjPrntOutpEncoder
+internal class CmptCnstPrntObjPrntOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptCnstPrntObjPrntOutpObject>
 {
+  private readonly IEncoder<ICmptRefCnstPrntObjPrntOutpObject<ICmptAltCnstPrntObjPrntOutp>> _refCnstPrntObjPrntOutpObject<ICmptAltCnstPrntObjPrntOutp> = encoders.EncoderFor<ICmptRefCnstPrntObjPrntOutpObject<ICmptAltCnstPrntObjPrntOutp>>();
+  public Structured Encode(ICmptCnstPrntObjPrntOutpObject input)
+    => _refCnstPrntObjPrntOutpObject<ICmptAltCnstPrntObjPrntOutp>.Encode(input);
 }
 
-internal class CmptRefCnstPrntObjPrntOutpEncoder<TRef>
+internal class CmptRefCnstPrntObjPrntOutpEncoder : IEncoder<ICmptRefCnstPrntObjPrntOutpObject<TRef>>
 {
+  public Structured Encode(ICmptRefCnstPrntObjPrntOutpObject<TRef> input)
+    => Structured.Empty();
 }
 
-internal class CmptPrntCnstPrntObjPrntOutpEncoder
+internal class CmptPrntCnstPrntObjPrntOutpEncoder : IEncoder<ICmptPrntCnstPrntObjPrntOutpObject>
 {
+  public Structured Encode(ICmptPrntCnstPrntObjPrntOutpObject input)
+    => Structured.Empty();
 }
 
-internal class CmptAltCnstPrntObjPrntOutpEncoder
+internal class CmptAltCnstPrntObjPrntOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptAltCnstPrntObjPrntOutpObject>
 {
-  public decimal Alt { get; set; }
+  private readonly IEncoder<ICmptPrntCnstPrntObjPrntOutpObject> _prntCnstPrntObjPrntOutp = encoders.EncoderFor<ICmptPrntCnstPrntObjPrntOutpObject>();
+  public Structured Encode(ICmptAltCnstPrntObjPrntOutpObject input)
+    => _prntCnstPrntObjPrntOutp.Encode(input)
+      .Add("alt", input.Alt);
 }

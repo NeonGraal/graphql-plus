@@ -12,16 +12,24 @@ enum EnumGnrcEnumOutp { gnrcEnumOutp }
 
 namespace Components.Gqlp_Schema_generic_enum_Output;
 
-internal class CmptGnrcEnumOutpEncoder
+internal class CmptGnrcEnumOutpEncoder : IEncoder<ICmptGnrcEnumOutpObject>
 {
+  public Structured Encode(ICmptGnrcEnumOutpObject input)
+    => Structured.Empty();
 }
 
-internal class CmptRefGnrcEnumOutpEncoder<TType>
+internal class CmptRefGnrcEnumOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptRefGnrcEnumOutpObject<TType>>
 {
-  public TType Field { get; set; }
+  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  public Structured Encode(ICmptRefGnrcEnumOutpObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _type);
 }
 
-internal class CmptEnumGnrcEnumOutpEncoder
+internal class CmptEnumGnrcEnumOutpEncoder : IEncoder<CmptEnumGnrcEnumOutp>
 {
-  public string gnrcEnumOutp { get; set; }
+  public Structured Encode(CmptEnumGnrcEnumOutp input)
+    => new(input.ToString(), "_EnumGnrcEnumOutp");
 }

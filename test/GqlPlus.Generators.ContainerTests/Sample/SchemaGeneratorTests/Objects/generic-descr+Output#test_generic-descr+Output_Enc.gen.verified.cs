@@ -7,7 +7,12 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_descr_Output;
 
-internal class testGnrcDescrOutpEncoder<TType>
+internal class testGnrcDescrOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestGnrcDescrOutpObject<TType>>
 {
-  public TType Field { get; set; }
+  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  public Structured Encode(ItestGnrcDescrOutpObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _type);
 }

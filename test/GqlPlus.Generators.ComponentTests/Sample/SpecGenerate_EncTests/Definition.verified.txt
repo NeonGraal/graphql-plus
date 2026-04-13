@@ -38,86 +38,144 @@ union _Simple [Simple] { _Enum _Domain _Union }
 
 namespace Components.Gqlp_Spec_Definition;
 
-internal class boolEncoder
+internal class boolEncoder : IEncoder<bool>
 {
-  public string false { get; set; }
-  public string true { get; set; }
+  public Structured Encode(bool input)
+    => new(input.ToString(), "_Boolean");
 }
 
-internal class GqlpNullEncoder
+internal class GqlpNullEncoder : IEncoder<GqlpNull>
 {
-  public string null { get; set; }
+  public Structured Encode(GqlpNull input)
+    => new(input.ToString(), "_Null");
 }
 
-internal class GqlpUnitEncoder
+internal class GqlpUnitEncoder : IEncoder<GqlpUnit>
 {
-  public string _ { get; set; }
+  public Structured Encode(GqlpUnit input)
+    => new(input.ToString(), "_Unit");
 }
 
-internal class voidEncoder
+internal class voidEncoder : IEncoder<void>
 {
+  public Structured Encode(void input)
+    => new(input.ToString(), "_Void");
 }
 
-internal class decimalEncoder
+internal class decimalEncoder : IEncoder<decimal>
 {
+  public Structured Encode(decimal input)
+    => new(input.Value);
 }
 
-internal class stringEncoder
+internal class stringEncoder : IEncoder<string>
 {
+  public Structured Encode(string input)
+    => new(input.Value);
 }
 
-internal class Cmpt_BasicEncoder
+internal class Cmpt_BasicEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_Basic>
 {
-  public Boolean AsBoolean { get; set; }
-  public Number AsNumber { get; set; }
-  public String AsString { get; set; }
-  public Unit AsUnit { get; set; }
+  private readonly IEncoder<bool> _boolean = encoders.EncoderFor<bool>();
+  private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
+  private readonly IEncoder<string> _string = encoders.EncoderFor<string>();
+  private readonly IEncoder<GqlpUnit> _unit = encoders.EncoderFor<GqlpUnit>();
+  public Structured Encode(ICmpt_Basic input)
+    => input switch {
+      { AsBoolean: { } m } => _boolean.Encode(m),
+      { AsNumber: { } m } => _number.Encode(m),
+      { AsString: { } m } => _string.Encode(m),
+      { AsUnit: { } m } => _unit.Encode(m),
+      _ => Structured.Empty()
+    };
 }
 
-internal class Cmpt_InternalEncoder
+internal class Cmpt_InternalEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_Internal>
 {
-  public Null AsNull { get; set; }
-  public Void AsVoid { get; set; }
+  private readonly IEncoder<GqlpNull> _null = encoders.EncoderFor<GqlpNull>();
+  private readonly IEncoder<void> _void = encoders.EncoderFor<void>();
+  public Structured Encode(ICmpt_Internal input)
+    => input switch {
+      { AsNull: { } m } => _null.Encode(m),
+      { AsVoid: { } m } => _void.Encode(m),
+      _ => Structured.Empty()
+    };
 }
 
-internal class Cmpt_KeyEncoder
+internal class Cmpt_KeyEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_Key>
 {
-  public _Basic As_Basic { get; set; }
-  public _Internal As_Internal { get; set; }
-  public _Simple As_Simple { get; set; }
+  private readonly IEncoder<ICmpt_Basic> __basic = encoders.EncoderFor<ICmpt_Basic>();
+  private readonly IEncoder<ICmpt_Internal> __internal = encoders.EncoderFor<ICmpt_Internal>();
+  private readonly IEncoder<ICmpt_Simple> __simple = encoders.EncoderFor<ICmpt_Simple>();
+  public Structured Encode(ICmpt_Key input)
+    => input switch {
+      { As_Basic: { } m } => __basic.Encode(m),
+      { As_Internal: { } m } => __internal.Encode(m),
+      { As_Simple: { } m } => __simple.Encode(m),
+      _ => Structured.Empty()
+    };
 }
 
-internal class Cmpt_ObjectEncoder
+internal class Cmpt_ObjectEncoder : IEncoder<ICmpt_ObjectObject>
 {
+  public Structured Encode(ICmpt_ObjectObject input)
+    => Structured.Empty();
 }
 
-internal class Cmpt_DomainEncoder
+internal class Cmpt_DomainEncoder : IEncoder<ICmpt_Domain>
 {
+  public Structured Encode(ICmpt_Domain input)
+    => Structured.Empty();
 }
 
-internal class Cmpt_DualEncoder
+internal class Cmpt_DualEncoder : IEncoder<ICmpt_DualObject>
 {
+  public Structured Encode(ICmpt_DualObject input)
+    => Structured.Empty();
 }
 
-internal class Cmpt_EnumEncoder
+internal class Cmpt_EnumEncoder : IEncoder<ICmpt_Enum>
 {
+  public Structured Encode(ICmpt_Enum input)
+    => Structured.Empty();
 }
 
-internal class Cmpt_InputEncoder
+internal class Cmpt_InputEncoder : IEncoder<ICmpt_InputObject>
 {
+  public Structured Encode(ICmpt_InputObject input)
+    => Structured.Empty();
 }
 
-internal class Cmpt_OutputEncoder
+internal class Cmpt_OutputEncoder : IEncoder<ICmpt_OutputObject>
 {
+  public Structured Encode(ICmpt_OutputObject input)
+    => Structured.Empty();
 }
 
-internal class Cmpt_UnionEncoder
+internal class Cmpt_UnionEncoder : IEncoder<ICmpt_Union>
 {
+  public Structured Encode(ICmpt_Union input)
+    => Structured.Empty();
 }
 
-internal class Cmpt_SimpleEncoder
+internal class Cmpt_SimpleEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_Simple>
 {
-  public _Enum As_Enum { get; set; }
-  public _Domain As_Domain { get; set; }
-  public _Union As_Union { get; set; }
+  private readonly IEncoder<ICmpt_Enum> __enum = encoders.EncoderFor<ICmpt_Enum>();
+  private readonly IEncoder<ICmpt_Domain> __domain = encoders.EncoderFor<ICmpt_Domain>();
+  private readonly IEncoder<ICmpt_Union> __union = encoders.EncoderFor<ICmpt_Union>();
+  public Structured Encode(ICmpt_Simple input)
+    => input switch {
+      { As_Enum: { } m } => __enum.Encode(m),
+      { As_Domain: { } m } => __domain.Encode(m),
+      { As_Union: { } m } => __union.Encode(m),
+      _ => Structured.Empty()
+    };
 }

@@ -7,11 +7,18 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_arg_Input;
 
-internal class testGnrcFieldArgInpEncoder<TType>
+internal class testGnrcFieldArgInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestGnrcFieldArgInpObject<TType>>
 {
-  public ItestRefGnrcFieldArgInp<TType> Field { get; set; }
+  private readonly IEncoder<ItestRefGnrcFieldArgInp<TType>> _itestRefGnrcFieldArgInp<TType> = encoders.EncoderFor<ItestRefGnrcFieldArgInp<TType>>();
+  public Structured Encode(ItestGnrcFieldArgInpObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _itestRefGnrcFieldArgInp<TType>);
 }
 
-internal class testRefGnrcFieldArgInpEncoder<TRef>
+internal class testRefGnrcFieldArgInpEncoder : IEncoder<ItestRefGnrcFieldArgInpObject<TRef>>
 {
+  public Structured Encode(ItestRefGnrcFieldArgInpObject<TRef> input)
+    => Structured.Empty();
 }

@@ -11,10 +11,14 @@ output RefGnrcAltArgDescrOutp<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_alt_arg_descr_Output;
 
-internal class CmptGnrcAltArgDescrOutpEncoder<TType>
+internal class CmptGnrcAltArgDescrOutpEncoder : IEncoder<ICmptGnrcAltArgDescrOutpObject<TType>>
 {
+  public Structured Encode(ICmptGnrcAltArgDescrOutpObject<TType> input)
+    => Structured.Empty();
 }
 
-internal class CmptRefGnrcAltArgDescrOutpEncoder<TRef>
+internal class CmptRefGnrcAltArgDescrOutpEncoder : IEncoder<ICmptRefGnrcAltArgDescrOutpObject<TRef>>
 {
+  public Structured Encode(ICmptRefGnrcAltArgDescrOutpObject<TRef> input)
+    => Structured.Empty();
 }

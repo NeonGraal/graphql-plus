@@ -7,17 +7,25 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_output_descr_param;
 
-internal class testOutpDescrParamEncoder
+internal class testOutpDescrParamEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestOutpDescrParamObject>
 {
-  public ItestFldOutpDescrParam? Field(ItestInOutpDescrParam parameter)
-    => null;
+  private readonly IEncoder<ItestFldOutpDescrParam> _itestFldOutpDescrParam = encoders.EncoderFor<ItestFldOutpDescrParam>();
+  public Structured Encode(ItestOutpDescrParamObject input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field(null), _itestFldOutpDescrParam);
 }
 
-internal class testFldOutpDescrParamEncoder
+internal class testFldOutpDescrParamEncoder : IEncoder<ItestFldOutpDescrParamObject>
 {
+  public Structured Encode(ItestFldOutpDescrParamObject input)
+    => Structured.Empty();
 }
 
-internal class testInOutpDescrParamEncoder
+internal class testInOutpDescrParamEncoder : IEncoder<ItestInOutpDescrParamObject>
 {
-  public decimal Param { get; set; }
+  public Structured Encode(ItestInOutpDescrParamObject input)
+    => Structured.Empty()
+      .Add("param", input.Param);
 }

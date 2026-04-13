@@ -7,12 +7,26 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_parent;
 
-internal class testUnionPrntEncoder
+internal class testUnionPrntEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestUnionPrnt>
 {
-  public String AsString { get; set; }
+  private readonly IEncoder<string> _string = encoders.EncoderFor<string>();
+  public Structured Encode(ItestUnionPrnt input)
+    => input switch {
+      { AsString: { } m } => _string.Encode(m),
+      _ => Structured.Empty()
+    };
 }
 
-internal class testPrntUnionPrntEncoder
+internal class testPrntUnionPrntEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestPrntUnionPrnt>
 {
-  public Number AsNumber { get; set; }
+  private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
+  public Structured Encode(ItestPrntUnionPrnt input)
+    => input switch {
+      { AsNumber: { } m } => _number.Encode(m),
+      _ => Structured.Empty()
+    };
 }

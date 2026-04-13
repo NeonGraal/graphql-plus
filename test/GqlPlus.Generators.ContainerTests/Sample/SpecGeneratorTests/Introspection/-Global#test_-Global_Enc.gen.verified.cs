@@ -7,53 +7,84 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp__Global;
 
-internal class test_AndTypeEncoder
+internal class test_AndTypeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_AndTypeObject>
 {
-  public Itest_Type Type { get; set; }
+  private readonly IEncoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
+  private readonly IEncoder<Itest_Type> _itest_Type = encoders.EncoderFor<Itest_Type>();
+  public Structured Encode(Itest_AndTypeObject input)
+    => _itest_Named.Encode(input)
+      .AddEncoded("type", input.Type, _itest_Type);
 }
 
-internal class test_CategoriesEncoder
+internal class test_CategoriesEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_CategoriesObject>
 {
-  public Itest_Category Category { get; set; }
+  private readonly IEncoder<Itest_AndTypeObject> _itest_AndType = encoders.EncoderFor<Itest_AndTypeObject>();
+  private readonly IEncoder<Itest_Category> _itest_Category = encoders.EncoderFor<Itest_Category>();
+  public Structured Encode(Itest_CategoriesObject input)
+    => _itest_AndType.Encode(input)
+      .AddEncoded("category", input.Category, _itest_Category);
 }
 
-internal class test_CategoryEncoder
+internal class test_CategoryEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_CategoryObject>
 {
-  public test_Resolution Resolution { get; set; }
-  public Itest_TypeRef<Itest_TypeKind> Output { get; set; }
-  public ICollection<Itest_Modifiers> Modifiers { get; set; }
+  private readonly IEncoder<Itest_AliasedObject> _itest_Aliased = encoders.EncoderFor<Itest_AliasedObject>();
+  private readonly IEncoder<Itest_TypeRef<Itest_TypeKind>> _itest_TypeRef<Itest_TypeKind> = encoders.EncoderFor<Itest_TypeRef<Itest_TypeKind>>();
+  private readonly IEncoder<Itest_Modifiers> _itest_Modifiers = encoders.EncoderFor<Itest_Modifiers>();
+  public Structured Encode(Itest_CategoryObject input)
+    => _itest_Aliased.Encode(input)
+      .AddEnum("resolution", input.Resolution)
+      .AddEncoded("output", input.Output, _itest_TypeRef<Itest_TypeKind>)
+      .AddList("modifiers", input.Modifiers, _itest_Modifiers);
 }
 
-internal class test_ResolutionEncoder
+internal class test_ResolutionEncoder : IEncoder<test_Resolution>
 {
-  public string Parallel { get; set; }
-  public string Sequential { get; set; }
-  public string Single { get; set; }
+  public Structured Encode(test_Resolution input)
+    => new(input.ToString(), "_Resolution");
 }
 
-internal class test_DirectivesEncoder
+internal class test_DirectivesEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_DirectivesObject>
 {
-  public Itest_Directive Directive { get; set; }
+  private readonly IEncoder<Itest_AndTypeObject> _itest_AndType = encoders.EncoderFor<Itest_AndTypeObject>();
+  private readonly IEncoder<Itest_Directive> _itest_Directive = encoders.EncoderFor<Itest_Directive>();
+  public Structured Encode(Itest_DirectivesObject input)
+    => _itest_AndType.Encode(input)
+      .AddEncoded("directive", input.Directive, _itest_Directive);
 }
 
-internal class test_DirectiveEncoder
+internal class test_DirectiveEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_DirectiveObject>
 {
-  public Itest_InputFieldType? Parameter { get; set; }
-  public bool Repeatable { get; set; }
-  public IDictionary<test_Location, GqlpUnit> Locations { get; set; }
+  private readonly IEncoder<Itest_AliasedObject> _itest_Aliased = encoders.EncoderFor<Itest_AliasedObject>();
+  private readonly IEncoder<Itest_InputFieldType> _itest_InputFieldType = encoders.EncoderFor<Itest_InputFieldType>();
+  public Structured Encode(Itest_DirectiveObject input)
+    => _itest_Aliased.Encode(input)
+      .AddEncoded("parameter", input.Parameter, _itest_InputFieldType)
+      .Add("repeatable", input.Repeatable);
 }
 
-internal class test_LocationEncoder
+internal class test_LocationEncoder : IEncoder<test_Location>
 {
-  public string Operation { get; set; }
-  public string Variable { get; set; }
-  public string Field { get; set; }
-  public string Inline { get; set; }
-  public string Spread { get; set; }
-  public string Fragment { get; set; }
+  public Structured Encode(test_Location input)
+    => new(input.ToString(), "_Location");
 }
 
-internal class test_SettingEncoder
+internal class test_SettingEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_SettingObject>
 {
-  public GqlpValue Value { get; set; }
+  private readonly IEncoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
+  private readonly IEncoder<GqlpValue> _gqlpValue = encoders.EncoderFor<GqlpValue>();
+  public Structured Encode(Itest_SettingObject input)
+    => _itest_Named.Encode(input)
+      .AddEncoded("value", input.Value, _gqlpValue);
 }

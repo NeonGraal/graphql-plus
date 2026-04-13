@@ -27,5 +27,5 @@ internal sealed class InputEncoderGenerator
   : GenerateForObject<IAstInputField>
 {
   protected override void Generate(IAstObject<IAstInputField> ast, GqlpGeneratorContext context)
-    => GenerateBlock(ast, context, EncoderHeader, TypeMembers, ClassMember);
+    => GenerateEncoderBlock(ast, context);
 }

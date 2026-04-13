@@ -11,7 +11,9 @@ output ObjFieldTypeAliasOutp { field: String }
 
 namespace Components.Gqlp_Schema_object_field_type_alias_Output;
 
-internal class CmptObjFieldTypeAliasOutpEncoder
+internal class CmptObjFieldTypeAliasOutpEncoder : IEncoder<ICmptObjFieldTypeAliasOutpObject>
 {
-  public string Field { get; set; }
+  public Structured Encode(ICmptObjFieldTypeAliasOutpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

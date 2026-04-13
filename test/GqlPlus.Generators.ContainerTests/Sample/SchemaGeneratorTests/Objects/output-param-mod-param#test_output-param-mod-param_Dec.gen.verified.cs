@@ -11,6 +11,8 @@ internal class testOutpParamModParamDecoder<TMod>
 {
   public ItestDomOutpParamModParam? Field(IDictionary<TMod, ItestInOutpParamModParam> parameter)
     => null;
+  public ItestDomOutpParamModParam? Field()
+    => null;
 }
 
 internal class testInOutpParamModParamDecoder

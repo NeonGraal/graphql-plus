@@ -11,11 +11,18 @@ dual RefPrntAltDual {  parent: Number | String }
 
 namespace Components.Gqlp_Schema_parent_alt_Dual;
 
-internal class CmptPrntAltDualEncoder
+internal class CmptPrntAltDualEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptPrntAltDualObject>
 {
+  private readonly IEncoder<ICmptRefPrntAltDualObject> _refPrntAltDual = encoders.EncoderFor<ICmptRefPrntAltDualObject>();
+  public Structured Encode(ICmptPrntAltDualObject input)
+    => _refPrntAltDual.Encode(input);
 }
 
-internal class CmptRefPrntAltDualEncoder
+internal class CmptRefPrntAltDualEncoder : IEncoder<ICmptRefPrntAltDualObject>
 {
-  public decimal Parent { get; set; }
+  public Structured Encode(ICmptRefPrntAltDualObject input)
+    => Structured.Empty()
+      .Add("parent", input.Parent);
 }

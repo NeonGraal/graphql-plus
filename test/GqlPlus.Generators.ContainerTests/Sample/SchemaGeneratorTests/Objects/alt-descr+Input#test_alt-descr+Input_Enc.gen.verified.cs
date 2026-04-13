@@ -7,6 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_descr_Input;
 
-internal class testAltDescrInpEncoder
+internal class testAltDescrInpEncoder : IEncoder<ItestAltDescrInpObject>
 {
+  public Structured Encode(ItestAltDescrInpObject input)
+    => Structured.Empty();
 }

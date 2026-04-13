@@ -7,6 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_operation_alias;
 
-internal class testOpEncoder
+internal class testOpEncoder : IEncoder<ItestOpObject>
 {
+  public Structured Encode(ItestOpObject input)
+    => Structured.Empty();
 }

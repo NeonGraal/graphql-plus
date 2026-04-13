@@ -55,13 +55,23 @@ public class Cmpt_SchemaObject
 {
   public IDictionary<ICmpt_Name, ICmpt_Categories>? Categories(ICmpt_CategoryFilter? parameter)
     => null;
+  public IDictionary<ICmpt_Name, ICmpt_Categories>? Categories()
+    => null;
   public IDictionary<ICmpt_Name, ICmpt_Directives>? Directives(ICmpt_Filter? parameter)
+    => null;
+  public IDictionary<ICmpt_Name, ICmpt_Directives>? Directives()
     => null;
   public IDictionary<ICmpt_Name, ICmpt_Operations>? Operations(ICmpt_Filter? parameter)
     => null;
+  public IDictionary<ICmpt_Name, ICmpt_Operations>? Operations()
+    => null;
   public IDictionary<ICmpt_Name, ICmpt_Type>? Types(ICmpt_TypeFilter? parameter)
     => null;
+  public IDictionary<ICmpt_Name, ICmpt_Type>? Types()
+    => null;
   public IDictionary<ICmpt_Name, ICmpt_Setting>? Settings(ICmpt_Filter? parameter)
+    => null;
+  public IDictionary<ICmpt_Name, ICmpt_Setting>? Settings()
     => null;
 
   public Cmpt_SchemaObject

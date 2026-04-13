@@ -7,16 +7,25 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_param_Output;
 
-internal class testGnrcFieldParamOutpEncoder
+internal class testGnrcFieldParamOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestGnrcFieldParamOutpObject>
 {
-  public ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> Field { get; set; }
+  private readonly IEncoder<ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp>> _itestRefGnrcFieldParamOutp = encoders.EncoderFor<ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp>>();
+  public Structured Encode(ItestGnrcFieldParamOutpObject input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _itestRefGnrcFieldParamOutp);
 }
 
-internal class testRefGnrcFieldParamOutpEncoder<TRef>
+internal class testRefGnrcFieldParamOutpEncoder<TRef> : IEncoder<ItestRefGnrcFieldParamOutpObject<TRef>>
 {
+  public Structured Encode(ItestRefGnrcFieldParamOutpObject<TRef> input)
+    => Structured.Empty();
 }
 
-internal class testAltGnrcFieldParamOutpEncoder
+internal class testAltGnrcFieldParamOutpEncoder : IEncoder<ItestAltGnrcFieldParamOutpObject>
 {
-  public decimal Alt { get; set; }
+  public Structured Encode(ItestAltGnrcFieldParamOutpObject input)
+    => Structured.Empty()
+      .Add("alt", input.Alt);
 }

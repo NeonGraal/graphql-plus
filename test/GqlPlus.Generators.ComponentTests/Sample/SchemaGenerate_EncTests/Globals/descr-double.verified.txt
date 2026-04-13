@@ -11,6 +11,8 @@ output DescrDbl { }
 
 namespace Components.Gqlp_Schema_descr_double;
 
-internal class CmptDescrDblEncoder
+internal class CmptDescrDblEncoder : IEncoder<ICmptDescrDblObject>
 {
+  public Structured Encode(ICmptDescrDblObject input)
+    => Structured.Empty();
 }

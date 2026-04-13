@@ -2166,6 +2166,8 @@ internal class CmptOutpDescrParamDecoder
 {
   public ICmptFldOutpDescrParam? Field(ICmptInOutpDescrParam parameter)
     => null;
+  public ICmptFldOutpDescrParam? Field()
+    => null;
 }
 
 internal class CmptFldOutpDescrParamDecoder
@@ -2180,6 +2182,8 @@ internal class CmptInOutpDescrParamDecoder
 internal class CmptOutpParamDecoder
 {
   public ICmptFldOutpParam? Field(ICmptInOutpParam parameter)
+    => null;
+  public ICmptFldOutpParam? Field()
     => null;
 }
 
@@ -2196,6 +2200,8 @@ internal class CmptOutpParamDescrDecoder
 {
   public ICmptFldOutpParamDescr? Field(ICmptInOutpParamDescr parameter)
     => null;
+  public ICmptFldOutpParamDescr? Field()
+    => null;
 }
 
 internal class CmptFldOutpParamDescrDecoder
@@ -2210,6 +2216,8 @@ internal class CmptInOutpParamDescrDecoder
 internal class CmptOutpParamModDmnDecoder
 {
   public ICmptDomOutpParamModDmn? Field(IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter)
+    => null;
+  public ICmptDomOutpParamModDmn? Field()
     => null;
 }
 
@@ -2226,6 +2234,8 @@ internal class CmptOutpParamModParamDecoder<TMod>
 {
   public ICmptDomOutpParamModParam? Field(IDictionary<TMod, ICmptInOutpParamModParam> parameter)
     => null;
+  public ICmptDomOutpParamModParam? Field()
+    => null;
 }
 
 internal class CmptInOutpParamModParamDecoder
@@ -2240,6 +2250,8 @@ internal class CmptDomOutpParamModParamDecoder
 internal class CmptOutpParamTypeDescrDecoder
 {
   public ICmptFldOutpParamTypeDescr? Field(ICmptInOutpParamTypeDescr parameter)
+    => null;
+  public ICmptFldOutpParamTypeDescr? Field()
     => null;
 }
 
@@ -2276,11 +2288,15 @@ internal class CmptOutpPrntParamDecoder
 {
   public ICmptFldOutpPrntParam? Field(ICmptInOutpPrntParam parameter)
     => null;
+  public ICmptFldOutpPrntParam? Field()
+    => null;
 }
 
 internal class CmptPrntOutpPrntParamDecoder
 {
   public ICmptFldOutpPrntParam? Field(ICmptPrntOutpPrntParamIn parameter)
+    => null;
+  public ICmptFldOutpPrntParam? Field()
     => null;
 }
 
@@ -2836,6 +2852,8 @@ internal class CmptOpDecoder
 internal class CmptOutpFieldParamDecoder
 {
   public ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter)
+    => null;
+  public ICmptFldOutpFieldParam? Field()
     => null;
 }
 

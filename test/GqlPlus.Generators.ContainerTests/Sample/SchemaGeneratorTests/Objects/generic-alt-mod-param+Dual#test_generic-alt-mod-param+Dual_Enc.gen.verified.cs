@@ -7,6 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_mod_param_Dual;
 
-internal class testRefGnrcAltModParamDualEncoder<TRef,TMod>
+internal class testRefGnrcAltModParamDualEncoder<TRef,TMod> : IEncoder<ItestRefGnrcAltModParamDualObject<TRef,TMod>>
 {
+  public Structured Encode(ItestRefGnrcAltModParamDualObject<TRef,TMod> input)
+    => Structured.Empty();
 }

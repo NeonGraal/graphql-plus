@@ -14,28 +14,43 @@ input PrntOutpPrntParamIn { parent: Number | String }
 
 namespace Components.Gqlp_Schema_output_parent_param;
 
-internal class CmptOutpPrntParamEncoder
+internal class CmptOutpPrntParamEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptOutpPrntParamObject>
 {
-  public ICmptFldOutpPrntParam? Field(ICmptInOutpPrntParam parameter)
-    => null;
+  private readonly IEncoder<ICmptPrntOutpPrntParamObject> _prntOutpPrntParam = encoders.EncoderFor<ICmptPrntOutpPrntParamObject>();
+  private readonly IEncoder<ICmptFldOutpPrntParam> _fldOutpPrntParam = encoders.EncoderFor<ICmptFldOutpPrntParam>();
+  public Structured Encode(ICmptOutpPrntParamObject input)
+    => _prntOutpPrntParam.Encode(input)
+      .AddEncoded("field", input.Field(), _fldOutpPrntParam);
 }
 
-internal class CmptPrntOutpPrntParamEncoder
+internal class CmptPrntOutpPrntParamEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptPrntOutpPrntParamObject>
 {
-  public ICmptFldOutpPrntParam? Field(ICmptPrntOutpPrntParamIn parameter)
-    => null;
+  private readonly IEncoder<ICmptFldOutpPrntParam> _fldOutpPrntParam = encoders.EncoderFor<ICmptFldOutpPrntParam>();
+  public Structured Encode(ICmptPrntOutpPrntParamObject input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field(), _fldOutpPrntParam);
 }
 
-internal class CmptFldOutpPrntParamEncoder
+internal class CmptFldOutpPrntParamEncoder : IEncoder<ICmptFldOutpPrntParamObject>
 {
+  public Structured Encode(ICmptFldOutpPrntParamObject input)
+    => Structured.Empty();
 }
 
-internal class CmptInOutpPrntParamEncoder
+internal class CmptInOutpPrntParamEncoder : IEncoder<ICmptInOutpPrntParamObject>
 {
-  public decimal Param { get; set; }
+  public Structured Encode(ICmptInOutpPrntParamObject input)
+    => Structured.Empty()
+      .Add("param", input.Param);
 }
 
-internal class CmptPrntOutpPrntParamInEncoder
+internal class CmptPrntOutpPrntParamInEncoder : IEncoder<ICmptPrntOutpPrntParamInObject>
 {
-  public decimal Parent { get; set; }
+  public Structured Encode(ICmptPrntOutpPrntParamInObject input)
+    => Structured.Empty()
+      .Add("parent", input.Parent);
 }

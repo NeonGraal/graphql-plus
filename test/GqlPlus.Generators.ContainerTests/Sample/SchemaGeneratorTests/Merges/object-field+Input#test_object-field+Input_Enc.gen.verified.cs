@@ -7,11 +7,18 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_Input;
 
-internal class testObjFieldInpEncoder
+internal class testObjFieldInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestObjFieldInpObject>
 {
-  public ItestFldObjFieldInp Field { get; set; }
+  private readonly IEncoder<ItestFldObjFieldInp> _itestFldObjFieldInp = encoders.EncoderFor<ItestFldObjFieldInp>();
+  public Structured Encode(ItestObjFieldInpObject input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _itestFldObjFieldInp);
 }
 
-internal class testFldObjFieldInpEncoder
+internal class testFldObjFieldInpEncoder : IEncoder<ItestFldObjFieldInpObject>
 {
+  public Structured Encode(ItestFldObjFieldInpObject input)
+    => Structured.Empty();
 }

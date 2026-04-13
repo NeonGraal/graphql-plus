@@ -7,6 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_operation_category;
 
-internal class testCatOprCtgrEncoder
+internal class testCatOprCtgrEncoder : IEncoder<ItestCatOprCtgrObject>
 {
+  public Structured Encode(ItestCatOprCtgrObject input)
+    => Structured.Empty();
 }

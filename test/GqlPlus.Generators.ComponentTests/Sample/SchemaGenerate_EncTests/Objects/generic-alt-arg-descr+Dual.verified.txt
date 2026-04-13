@@ -11,10 +11,14 @@ dual RefGnrcAltArgDescrDual<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_alt_arg_descr_Dual;
 
-internal class CmptGnrcAltArgDescrDualEncoder<TType>
+internal class CmptGnrcAltArgDescrDualEncoder<TType> : IEncoder<ICmptGnrcAltArgDescrDualObject<TType>>
 {
+  public Structured Encode(ICmptGnrcAltArgDescrDualObject<TType> input)
+    => Structured.Empty();
 }
 
-internal class CmptRefGnrcAltArgDescrDualEncoder<TRef>
+internal class CmptRefGnrcAltArgDescrDualEncoder<TRef> : IEncoder<ICmptRefGnrcAltArgDescrDualObject<TRef>>
 {
+  public Structured Encode(ICmptRefGnrcAltArgDescrDualObject<TRef> input)
+    => Structured.Empty();
 }

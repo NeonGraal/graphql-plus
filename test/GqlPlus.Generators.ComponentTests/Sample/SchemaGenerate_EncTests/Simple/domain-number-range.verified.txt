@@ -10,6 +10,8 @@ domain DmnNmbrRange { Number 1<9 21>12 }
 
 namespace Components.Gqlp_Schema_domain_number_range;
 
-internal class CmptDmnNmbrRangeEncoder
+internal class CmptDmnNmbrRangeEncoder : IEncoder<ICmptDmnNmbrRange>
 {
+  public Structured Encode(ICmptDmnNmbrRange input)
+    => new(input.Value);
 }

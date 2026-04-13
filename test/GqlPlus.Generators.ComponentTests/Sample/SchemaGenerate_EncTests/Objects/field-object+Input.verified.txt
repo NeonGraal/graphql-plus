@@ -11,12 +11,19 @@ input FldFieldObjInp { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_object_Input;
 
-internal class CmptFieldObjInpEncoder
+internal class CmptFieldObjInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptFieldObjInpObject>
 {
-  public ICmptFldFieldObjInp Field { get; set; }
+  private readonly IEncoder<ICmptFldFieldObjInp> _fldFieldObjInp = encoders.EncoderFor<ICmptFldFieldObjInp>();
+  public Structured Encode(ICmptFieldObjInpObject input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _fldFieldObjInp);
 }
 
-internal class CmptFldFieldObjInpEncoder
+internal class CmptFldFieldObjInpEncoder : IEncoder<ICmptFldFieldObjInpObject>
 {
-  public decimal Field { get; set; }
+  public Structured Encode(ICmptFldFieldObjInpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

@@ -7,16 +7,23 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_operation_type;
 
-internal class testCatOprTypeEncoder
+internal class testCatOprTypeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestCatOprTypeObject>
 {
-  public string First { get; set; }
-  public string Last { get; set; }
-  public ItestAddrOprType Address { get; set; }
+  private readonly IEncoder<ItestAddrOprType> _itestAddrOprType = encoders.EncoderFor<ItestAddrOprType>();
+  public Structured Encode(ItestCatOprTypeObject input)
+    => Structured.Empty()
+      .Add("first", input.First)
+      .Add("last", input.Last)
+      .AddEncoded("address", input.Address, _itestAddrOprType);
 }
 
-internal class testAddrOprTypeEncoder
+internal class testAddrOprTypeEncoder : IEncoder<ItestAddrOprTypeObject>
 {
-  public string Street { get; set; }
-  public string City { get; set; }
-  public string Country { get; set; }
+  public Structured Encode(ItestAddrOprTypeObject input)
+    => Structured.Empty()
+      .Add("street", input.Street)
+      .Add("city", input.City)
+      .Add("country", input.Country);
 }

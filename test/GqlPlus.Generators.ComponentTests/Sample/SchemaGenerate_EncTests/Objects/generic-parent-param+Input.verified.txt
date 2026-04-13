@@ -12,15 +12,24 @@ input AltGnrcPrntParamInp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_parent_param_Input;
 
-internal class CmptGnrcPrntParamInpEncoder
+internal class CmptGnrcPrntParamInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptGnrcPrntParamInpObject>
 {
+  private readonly IEncoder<ICmptRefGnrcPrntParamInpObject<ICmptAltGnrcPrntParamInp>> _refGnrcPrntParamInp = encoders.EncoderFor<ICmptRefGnrcPrntParamInpObject<ICmptAltGnrcPrntParamInp>>();
+  public Structured Encode(ICmptGnrcPrntParamInpObject input)
+    => _refGnrcPrntParamInp.Encode(input);
 }
 
-internal class CmptRefGnrcPrntParamInpEncoder<TRef>
+internal class CmptRefGnrcPrntParamInpEncoder<TRef> : IEncoder<ICmptRefGnrcPrntParamInpObject<TRef>>
 {
+  public Structured Encode(ICmptRefGnrcPrntParamInpObject<TRef> input)
+    => Structured.Empty();
 }
 
-internal class CmptAltGnrcPrntParamInpEncoder
+internal class CmptAltGnrcPrntParamInpEncoder : IEncoder<ICmptAltGnrcPrntParamInpObject>
 {
-  public decimal Alt { get; set; }
+  public Structured Encode(ICmptAltGnrcPrntParamInpObject input)
+    => Structured.Empty()
+      .Add("alt", input.Alt);
 }

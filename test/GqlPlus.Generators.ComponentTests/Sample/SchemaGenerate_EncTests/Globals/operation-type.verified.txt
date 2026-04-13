@@ -21,16 +21,23 @@ output AddrOprType {
 
 namespace Components.Gqlp_Schema_operation_type;
 
-internal class CmptCatOprTypeEncoder
+internal class CmptCatOprTypeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptCatOprTypeObject>
 {
-  public string First { get; set; }
-  public string Last { get; set; }
-  public ICmptAddrOprType Address { get; set; }
+  private readonly IEncoder<ICmptAddrOprType> _addrOprType = encoders.EncoderFor<ICmptAddrOprType>();
+  public Structured Encode(ICmptCatOprTypeObject input)
+    => Structured.Empty()
+      .Add("first", input.First)
+      .Add("last", input.Last)
+      .AddEncoded("address", input.Address, _addrOprType);
 }
 
-internal class CmptAddrOprTypeEncoder
+internal class CmptAddrOprTypeEncoder : IEncoder<ICmptAddrOprTypeObject>
 {
-  public string Street { get; set; }
-  public string City { get; set; }
-  public string Country { get; set; }
+  public Structured Encode(ICmptAddrOprTypeObject input)
+    => Structured.Empty()
+      .Add("street", input.Street)
+      .Add("city", input.City)
+      .Add("country", input.Country);
 }

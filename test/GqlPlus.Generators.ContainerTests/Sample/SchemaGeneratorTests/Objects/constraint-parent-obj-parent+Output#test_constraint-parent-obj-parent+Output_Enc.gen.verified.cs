@@ -7,19 +7,33 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_obj_parent_Output;
 
-internal class testCnstPrntObjPrntOutpEncoder
+internal class testCnstPrntObjPrntOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestCnstPrntObjPrntOutpObject>
 {
+  private readonly IEncoder<ItestRefCnstPrntObjPrntOutpObject<ItestAltCnstPrntObjPrntOutp>> _itestRefCnstPrntObjPrntOutp = encoders.EncoderFor<ItestRefCnstPrntObjPrntOutpObject<ItestAltCnstPrntObjPrntOutp>>();
+  public Structured Encode(ItestCnstPrntObjPrntOutpObject input)
+    => _itestRefCnstPrntObjPrntOutp.Encode(input);
 }
 
-internal class testRefCnstPrntObjPrntOutpEncoder<TRef>
+internal class testRefCnstPrntObjPrntOutpEncoder<TRef> : IEncoder<ItestRefCnstPrntObjPrntOutpObject<TRef>>
 {
+  public Structured Encode(ItestRefCnstPrntObjPrntOutpObject<TRef> input)
+    => Structured.Empty();
 }
 
-internal class testPrntCnstPrntObjPrntOutpEncoder
+internal class testPrntCnstPrntObjPrntOutpEncoder : IEncoder<ItestPrntCnstPrntObjPrntOutpObject>
 {
+  public Structured Encode(ItestPrntCnstPrntObjPrntOutpObject input)
+    => Structured.Empty();
 }
 
-internal class testAltCnstPrntObjPrntOutpEncoder
+internal class testAltCnstPrntObjPrntOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestAltCnstPrntObjPrntOutpObject>
 {
-  public decimal Alt { get; set; }
+  private readonly IEncoder<ItestPrntCnstPrntObjPrntOutpObject> _itestPrntCnstPrntObjPrntOutp = encoders.EncoderFor<ItestPrntCnstPrntObjPrntOutpObject>();
+  public Structured Encode(ItestAltCnstPrntObjPrntOutpObject input)
+    => _itestPrntCnstPrntObjPrntOutp.Encode(input)
+      .Add("alt", input.Alt);
 }

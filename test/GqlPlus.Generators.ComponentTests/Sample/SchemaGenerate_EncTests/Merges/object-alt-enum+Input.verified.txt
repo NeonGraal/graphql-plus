@@ -11,6 +11,8 @@ input ObjAltEnumInp { ! false }
 
 namespace Components.Gqlp_Schema_object_alt_enum_Input;
 
-internal class CmptObjAltEnumInpEncoder
+internal class CmptObjAltEnumInpEncoder : IEncoder<ICmptObjAltEnumInpObject>
 {
+  public Structured Encode(ICmptObjAltEnumInpObject input)
+    => Structured.Empty();
 }

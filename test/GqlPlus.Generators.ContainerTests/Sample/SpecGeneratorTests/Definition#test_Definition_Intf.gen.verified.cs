@@ -40,25 +40,22 @@ public interface string
 public interface Itest_Basic
   : IGqlpInterfaceBase
 {
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
-  String AsString { get; }
-  Unit AsUnit { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface Itest_Internal
   : IGqlpInterfaceBase
 {
-  Null AsNull { get; }
-  Void AsVoid { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface Itest_Key
   : IGqlpInterfaceBase
 {
-  _Basic As_Basic { get; }
-  _Internal As_Internal { get; }
-  _Simple As_Simple { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface Itest_Object
@@ -75,6 +72,8 @@ public interface Itest_ObjectObject
 public interface Itest_Domain
   : IGqlpInterfaceBase
 {
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface Itest_Dual
@@ -91,6 +90,8 @@ public interface Itest_DualObject
 public interface Itest_Enum
   : IGqlpInterfaceBase
 {
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface Itest_Input
@@ -118,12 +119,13 @@ public interface Itest_OutputObject
 public interface Itest_Union
   : IGqlpInterfaceBase
 {
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface Itest_Simple
   : IGqlpInterfaceBase
 {
-  _Enum As_Enum { get; }
-  _Domain As_Domain { get; }
-  _Union As_Union { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }

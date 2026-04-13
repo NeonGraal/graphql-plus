@@ -10,6 +10,8 @@ dual GnrcAltDual<$type:String> { | $type }
 
 namespace Components.Gqlp_Schema_generic_alt_Dual;
 
-internal class CmptGnrcAltDualEncoder<TType>
+internal class CmptGnrcAltDualEncoder<TType> : IEncoder<ICmptGnrcAltDualObject<TType>>
 {
+  public Structured Encode(ICmptGnrcAltDualObject<TType> input)
+    => Structured.Empty();
 }

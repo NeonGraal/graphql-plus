@@ -7,11 +7,18 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_parent_alt_Dual;
 
-internal class testPrntAltDualEncoder
+internal class testPrntAltDualEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestPrntAltDualObject>
 {
+  private readonly IEncoder<ItestRefPrntAltDualObject> _itestRefPrntAltDual = encoders.EncoderFor<ItestRefPrntAltDualObject>();
+  public Structured Encode(ItestPrntAltDualObject input)
+    => _itestRefPrntAltDual.Encode(input);
 }
 
-internal class testRefPrntAltDualEncoder
+internal class testRefPrntAltDualEncoder : IEncoder<ItestRefPrntAltDualObject>
 {
-  public decimal Parent { get; set; }
+  public Structured Encode(ItestRefPrntAltDualObject input)
+    => Structured.Empty()
+      .Add("parent", input.Parent);
 }

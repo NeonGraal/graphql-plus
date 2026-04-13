@@ -12,10 +12,14 @@ output ObjAltOutpType { }
 
 namespace Components.Gqlp_Schema_object_alt_Output;
 
-internal class CmptObjAltOutpEncoder
+internal class CmptObjAltOutpEncoder : IEncoder<ICmptObjAltOutpObject>
 {
+  public Structured Encode(ICmptObjAltOutpObject input)
+    => Structured.Empty();
 }
 
-internal class CmptObjAltOutpTypeEncoder
+internal class CmptObjAltOutpTypeEncoder : IEncoder<ICmptObjAltOutpTypeObject>
 {
+  public Structured Encode(ICmptObjAltOutpTypeObject input)
+    => Structured.Empty();
 }

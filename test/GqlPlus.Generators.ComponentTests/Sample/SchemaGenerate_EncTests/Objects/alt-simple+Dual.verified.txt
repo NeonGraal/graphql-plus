@@ -10,6 +10,8 @@ dual AltSmplDual { | String }
 
 namespace Components.Gqlp_Schema_alt_simple_Dual;
 
-internal class CmptAltSmplDualEncoder
+internal class CmptAltSmplDualEncoder : IEncoder<ICmptAltSmplDualObject>
 {
+  public Structured Encode(ICmptAltSmplDualObject input)
+    => Structured.Empty();
 }

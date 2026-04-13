@@ -7,22 +7,33 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_child_Dual;
 
-internal class testGnrcPrntEnumChildDualEncoder
+internal class testGnrcPrntEnumChildDualEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestGnrcPrntEnumChildDualObject>
 {
+  private readonly IEncoder<ItestFieldGnrcPrntEnumChildDualObject<testParentGnrcPrntEnumChildDual>> _itestFieldGnrcPrntEnumChildDual = encoders.EncoderFor<ItestFieldGnrcPrntEnumChildDualObject<testParentGnrcPrntEnumChildDual>>();
+  public Structured Encode(ItestGnrcPrntEnumChildDualObject input)
+    => _itestFieldGnrcPrntEnumChildDual.Encode(input);
 }
 
-internal class testFieldGnrcPrntEnumChildDualEncoder<TRef>
+internal class testFieldGnrcPrntEnumChildDualEncoder<TRef>(
+  IEncoderRepository encoders
+) : IEncoder<ItestFieldGnrcPrntEnumChildDualObject<TRef>>
 {
-  public TRef Field { get; set; }
+  private readonly IEncoder<TRef> _ref = encoders.EncoderFor<TRef>();
+  public Structured Encode(ItestFieldGnrcPrntEnumChildDualObject<TRef> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _ref);
 }
 
-internal class testEnumGnrcPrntEnumChildDualEncoder
+internal class testEnumGnrcPrntEnumChildDualEncoder : IEncoder<testEnumGnrcPrntEnumChildDual>
 {
-  public string gnrcPrntEnumChildDualParent { get; set; }
-  public string gnrcPrntEnumChildDualLabel { get; set; }
+  public Structured Encode(testEnumGnrcPrntEnumChildDual input)
+    => new(input.ToString(), "_EnumGnrcPrntEnumChildDual");
 }
 
-internal class testParentGnrcPrntEnumChildDualEncoder
+internal class testParentGnrcPrntEnumChildDualEncoder : IEncoder<testParentGnrcPrntEnumChildDual>
 {
-  public string gnrcPrntEnumChildDualParent { get; set; }
+  public Structured Encode(testParentGnrcPrntEnumChildDual input)
+    => new(input.ToString(), "_ParentGnrcPrntEnumChildDual");
 }

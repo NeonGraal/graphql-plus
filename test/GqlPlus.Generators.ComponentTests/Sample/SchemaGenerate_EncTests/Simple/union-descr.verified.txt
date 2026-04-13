@@ -10,7 +10,12 @@ union UnionDescr { "Union" "Descr" Number }
 
 namespace Components.Gqlp_Schema_union_descr;
 
-internal class CmptUnionDescrEncoder
+internal class CmptUnionDescrEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptUnionDescr>
 {
-  public Number AsNumber { get; set; }
+  private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
+  public Structured Encode(ICmptUnionDescr input)
+    => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+     : Structured.Empty();
 }

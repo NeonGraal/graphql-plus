@@ -11,6 +11,8 @@ internal class testOutpParamModDmnDecoder
 {
   public ItestDomOutpParamModDmn? Field(IDictionary<ItestDomOutpParamModDmn, ItestInOutpParamModDmn> parameter)
     => null;
+  public ItestDomOutpParamModDmn? Field()
+    => null;
 }
 
 internal class testInOutpParamModDmnDecoder

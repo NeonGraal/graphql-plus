@@ -12,6 +12,8 @@ output CatOprCtgr { }
 
 namespace Components.Gqlp_Schema_operation_category;
 
-internal class CmptCatOprCtgrEncoder
+internal class CmptCatOprCtgrEncoder : IEncoder<ICmptCatOprCtgrObject>
 {
+  public Structured Encode(ICmptCatOprCtgrObject input)
+    => Structured.Empty();
 }

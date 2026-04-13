@@ -17,6 +17,7 @@ public interface ItestOutpParamModParamObject<TMod>
   : IGqlpInterfaceBase
 {
   ItestDomOutpParamModParam? Field(IDictionary<TMod, ItestInOutpParamModParam> parameter);
+  ItestDomOutpParamModParam? Field();
 }
 
 public interface ItestInOutpParamModParam

@@ -11,13 +11,23 @@ internal class test_SchemaDecoder
 {
   public IDictionary<Itest_Name, Itest_Categories>? Categories(Itest_CategoryFilter? parameter)
     => null;
+  public IDictionary<Itest_Name, Itest_Categories>? Categories()
+    => null;
   public IDictionary<Itest_Name, Itest_Directives>? Directives(Itest_Filter? parameter)
+    => null;
+  public IDictionary<Itest_Name, Itest_Directives>? Directives()
     => null;
   public IDictionary<Itest_Name, Itest_Operations>? Operations(Itest_Filter? parameter)
     => null;
+  public IDictionary<Itest_Name, Itest_Operations>? Operations()
+    => null;
   public IDictionary<Itest_Name, Itest_Type>? Types(Itest_TypeFilter? parameter)
     => null;
+  public IDictionary<Itest_Name, Itest_Type>? Types()
+    => null;
   public IDictionary<Itest_Name, Itest_Setting>? Settings(Itest_Filter? parameter)
+    => null;
+  public IDictionary<Itest_Name, Itest_Setting>? Settings()
     => null;
 }
 

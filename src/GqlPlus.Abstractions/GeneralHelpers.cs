@@ -12,6 +12,21 @@ public static class GeneralHelpers
     where TKey : notnull
     => new() { [key] = value };
 
+  public static TValue GetValueOrCreate<TKey, TValue>(this IDictionary<TKey, TValue> dict, TKey key, Func<TKey, TValue> factory)
+    where TKey : notnull
+  {
+    if (!dict.ThrowIfNull().TryGetValue(key, out TValue? value)) {
+      value = factory.ThrowIfNull().Invoke(key);
+      dict[key] = value;
+    }
+
+    return value;
+  }
+
+  public static TValue GetValueOrDefault<TKey, TValue>(this IReadOnlyDictionary<TKey, TValue> dict, TKey key, TValue defaultValue)
+    where TKey : notnull
+    => dict.ThrowIfNull().TryGetValue(key, out TValue? value) ? value : defaultValue;
+
   public static string[]? FlagNames<TEnum>(this TEnum flagValue)
     where TEnum : Enum
   {

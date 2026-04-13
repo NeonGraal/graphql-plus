@@ -12,10 +12,17 @@ input RefObjPrntInp { }
 
 namespace Components.Gqlp_Schema_object_parent_Input;
 
-internal class CmptObjPrntInpEncoder
+internal class CmptObjPrntInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptObjPrntInpObject>
 {
+  private readonly IEncoder<ICmptRefObjPrntInpObject> _refObjPrntInp = encoders.EncoderFor<ICmptRefObjPrntInpObject>();
+  public Structured Encode(ICmptObjPrntInpObject input)
+    => _refObjPrntInp.Encode(input);
 }
 
-internal class CmptRefObjPrntInpEncoder
+internal class CmptRefObjPrntInpEncoder : IEncoder<ICmptRefObjPrntInpObject>
 {
+  public Structured Encode(ICmptRefObjPrntInpObject input)
+    => Structured.Empty();
 }

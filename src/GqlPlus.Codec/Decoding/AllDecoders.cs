@@ -26,7 +26,7 @@ public static class AllDecoders
       // Schema
       .AddDecoder(_ => new EnumDecoder<CategoryOption>())
       .AddDecoder(_ => new EnumDecoder<TypeKindModel>())
-      .AddNameFilter(_ => new NameFilterModelDecoder())
+      .AddDecoder<INameFilterDecoder, string>(_ => new NameFilterModelDecoder())
       .AddDecoder(r => new FilterModelDecoder(r))
       .AddDecoder(r => new CategoryFilterModelDecoder(r))
       .AddDecoder(r => new TypeFilterModelDecoder(r));

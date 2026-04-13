@@ -7977,6 +7977,8 @@ public class testOutpDescrParamObject
 {
   public ItestFldOutpDescrParam? Field(ItestInOutpDescrParam parameter)
     => null;
+  public ItestFldOutpDescrParam? Field()
+    => null;
 
   public testOutpDescrParamObject
     ()
@@ -8036,6 +8038,8 @@ public class testOutpParamObject
   , ItestOutpParamObject
 {
   public ItestFldOutpParam? Field(ItestInOutpParam parameter)
+    => null;
+  public ItestFldOutpParam? Field()
     => null;
 
   public testOutpParamObject
@@ -8097,6 +8101,8 @@ public class testOutpParamDescrObject
 {
   public ItestFldOutpParamDescr? Field(ItestInOutpParamDescr parameter)
     => null;
+  public ItestFldOutpParamDescr? Field()
+    => null;
 
   public testOutpParamDescrObject
     ()
@@ -8157,6 +8163,8 @@ public class testOutpParamModDmnObject
 {
   public ItestDomOutpParamModDmn? Field(IDictionary<ItestDomOutpParamModDmn, ItestInOutpParamModDmn> parameter)
     => null;
+  public ItestDomOutpParamModDmn? Field()
+    => null;
 
   public testOutpParamModDmnObject
     ()
@@ -8205,6 +8213,8 @@ public class testOutpParamModParamObject<TMod>
 {
   public ItestDomOutpParamModParam? Field(IDictionary<TMod, ItestInOutpParamModParam> parameter)
     => null;
+  public ItestDomOutpParamModParam? Field()
+    => null;
 
   public testOutpParamModParamObject
     ()
@@ -8252,6 +8262,8 @@ public class testOutpParamTypeDescrObject
   , ItestOutpParamTypeDescrObject
 {
   public ItestFldOutpParamTypeDescr? Field(ItestInOutpParamTypeDescr parameter)
+    => null;
+  public ItestFldOutpParamTypeDescr? Field()
     => null;
 
   public testOutpParamTypeDescrObject
@@ -8353,6 +8365,8 @@ public class testOutpPrntParamObject
 {
   public ItestFldOutpPrntParam? Field(ItestInOutpPrntParam parameter)
     => null;
+  public ItestFldOutpPrntParam? Field()
+    => null;
 
   public testOutpPrntParamObject
     ()
@@ -8372,6 +8386,8 @@ public class testPrntOutpPrntParamObject
   , ItestPrntOutpPrntParamObject
 {
   public ItestFldOutpPrntParam? Field(ItestPrntOutpPrntParamIn parameter)
+    => null;
+  public ItestFldOutpPrntParam? Field()
     => null;
 
   public testPrntOutpPrntParamObject
@@ -10528,6 +10544,8 @@ public class testOutpFieldParamObject
 {
   public ItestFldOutpFieldParam? Field(ItestOutpFieldParam1 parameter)
     => null;
+  public ItestFldOutpFieldParam? Field()
+    => null;
 
   public testOutpFieldParamObject
     ()
@@ -10593,37 +10611,42 @@ public class testUnionAlias
   : GqlpModelBase
   , ItestUnionAlias
 {
-  public Boolean AsBoolean { get; set; }
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class testUnionDiff
   : GqlpModelBase
   , ItestUnionDiff
 {
-  public Boolean AsBoolean { get; set; }
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class testUnionSame
   : GqlpModelBase
   , ItestUnionSame
 {
-  public Boolean AsBoolean { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class testUnionSamePrnt
   : testPrntUnionSamePrnt
   , ItestUnionSamePrnt
 {
-  public Boolean AsBoolean { get; set; }
 }
 
 public class testPrntUnionSamePrnt
   : GqlpModelBase
   , ItestPrntUnionSamePrnt
 {
-  public String AsString { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class testDmnBoolDescr
@@ -10828,47 +10851,52 @@ public class testUnionDescr
   : GqlpModelBase
   , ItestUnionDescr
 {
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class testUnionPrnt
   : testPrntUnionPrnt
   , ItestUnionPrnt
 {
-  public String AsString { get; set; }
 }
 
 public class testPrntUnionPrnt
   : GqlpModelBase
   , ItestPrntUnionPrnt
 {
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class testUnionPrntDescr
   : testPrntUnionPrntDescr
   , ItestUnionPrntDescr
 {
-  public Number AsNumber { get; set; }
 }
 
 public class testPrntUnionPrntDescr
   : GqlpModelBase
   , ItestPrntUnionPrntDescr
 {
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class testUnionPrntDup
   : testPrntUnionPrntDup
   , ItestUnionPrntDup
 {
-  public Number AsNumber { get; set; }
 }
 
 public class testPrntUnionPrntDup
   : GqlpModelBase
   , ItestPrntUnionPrntDup
 {
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }

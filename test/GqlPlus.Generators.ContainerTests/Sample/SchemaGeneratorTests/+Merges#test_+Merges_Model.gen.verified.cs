@@ -1226,6 +1226,8 @@ public class testOutpFieldParamObject
 {
   public ItestFldOutpFieldParam? Field(ItestOutpFieldParam1 parameter)
     => null;
+  public ItestFldOutpFieldParam? Field()
+    => null;
 
   public testOutpFieldParamObject
     ()
@@ -1291,35 +1293,40 @@ public class testUnionAlias
   : GqlpModelBase
   , ItestUnionAlias
 {
-  public Boolean AsBoolean { get; set; }
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class testUnionDiff
   : GqlpModelBase
   , ItestUnionDiff
 {
-  public Boolean AsBoolean { get; set; }
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class testUnionSame
   : GqlpModelBase
   , ItestUnionSame
 {
-  public Boolean AsBoolean { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class testUnionSamePrnt
   : testPrntUnionSamePrnt
   , ItestUnionSamePrnt
 {
-  public Boolean AsBoolean { get; set; }
 }
 
 public class testPrntUnionSamePrnt
   : GqlpModelBase
   , ItestPrntUnionSamePrnt
 {
-  public String AsString { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }

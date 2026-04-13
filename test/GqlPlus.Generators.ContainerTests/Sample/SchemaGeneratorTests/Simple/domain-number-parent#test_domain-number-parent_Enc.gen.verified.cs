@@ -7,10 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_number_parent;
 
-internal class testDmnNmbrPrntEncoder
+internal class testDmnNmbrPrntEncoder : IEncoder<ItestDmnNmbrPrnt>
 {
+  public Structured Encode(ItestDmnNmbrPrnt input)
+    => new(input.Value);
 }
 
-internal class testPrntDmnNmbrPrntEncoder
+internal class testPrntDmnNmbrPrntEncoder : IEncoder<ItestPrntDmnNmbrPrnt>
 {
+  public Structured Encode(ItestPrntDmnNmbrPrnt input)
+    => new(input.Value);
 }

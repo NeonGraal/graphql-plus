@@ -25,6 +25,8 @@ public class CmptOutpDescrParamObject
 {
   public ICmptFldOutpDescrParam? Field(ICmptInOutpDescrParam parameter)
     => null;
+  public ICmptFldOutpDescrParam? Field()
+    => null;
 
   public CmptOutpDescrParamObject
     ()

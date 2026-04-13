@@ -5164,6 +5164,7 @@ public interface ItestOutpDescrParamObject
   : IGqlpInterfaceBase
 {
   ItestFldOutpDescrParam? Field(ItestInOutpDescrParam parameter);
+  ItestFldOutpDescrParam? Field();
 }
 
 public interface ItestFldOutpDescrParam
@@ -5200,6 +5201,7 @@ public interface ItestOutpParamObject
   : IGqlpInterfaceBase
 {
   ItestFldOutpParam? Field(ItestInOutpParam parameter);
+  ItestFldOutpParam? Field();
 }
 
 public interface ItestFldOutpParam
@@ -5236,6 +5238,7 @@ public interface ItestOutpParamDescrObject
   : IGqlpInterfaceBase
 {
   ItestFldOutpParamDescr? Field(ItestInOutpParamDescr parameter);
+  ItestFldOutpParamDescr? Field();
 }
 
 public interface ItestFldOutpParamDescr
@@ -5272,6 +5275,7 @@ public interface ItestOutpParamModDmnObject
   : IGqlpInterfaceBase
 {
   ItestDomOutpParamModDmn? Field(IDictionary<ItestDomOutpParamModDmn, ItestInOutpParamModDmn> parameter);
+  ItestDomOutpParamModDmn? Field();
 }
 
 public interface ItestInOutpParamModDmn
@@ -5302,6 +5306,7 @@ public interface ItestOutpParamModParamObject<TMod>
   : IGqlpInterfaceBase
 {
   ItestDomOutpParamModParam? Field(IDictionary<TMod, ItestInOutpParamModParam> parameter);
+  ItestDomOutpParamModParam? Field();
 }
 
 public interface ItestInOutpParamModParam
@@ -5332,6 +5337,7 @@ public interface ItestOutpParamTypeDescrObject
   : IGqlpInterfaceBase
 {
   ItestFldOutpParamTypeDescr? Field(ItestInOutpParamTypeDescr parameter);
+  ItestFldOutpParamTypeDescr? Field();
 }
 
 public interface ItestFldOutpParamTypeDescr
@@ -5403,6 +5409,7 @@ public interface ItestOutpPrntParamObject
   : ItestPrntOutpPrntParamObject
 {
   ItestFldOutpPrntParam? Field(ItestInOutpPrntParam parameter);
+  ItestFldOutpPrntParam? Field();
 }
 
 public interface ItestPrntOutpPrntParam
@@ -5415,6 +5422,7 @@ public interface ItestPrntOutpPrntParamObject
   : IGqlpInterfaceBase
 {
   ItestFldOutpPrntParam? Field(ItestPrntOutpPrntParamIn parameter);
+  ItestFldOutpPrntParam? Field();
 }
 
 public interface ItestFldOutpPrntParam
@@ -6737,6 +6745,7 @@ public interface ItestOutpFieldParamObject
   : IGqlpInterfaceBase
 {
   ItestFldOutpFieldParam? Field(ItestOutpFieldParam1 parameter);
+  ItestFldOutpFieldParam? Field();
 }
 
 public interface ItestOutpFieldParam1
@@ -6775,33 +6784,34 @@ public interface ItestFldOutpFieldParamObject
 public interface ItestUnionAlias
   : IGqlpInterfaceBase
 {
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ItestUnionDiff
   : IGqlpInterfaceBase
 {
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ItestUnionSame
   : IGqlpInterfaceBase
 {
-  Boolean AsBoolean { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ItestUnionSamePrnt
   : ItestPrntUnionSamePrnt
 {
-  Boolean AsBoolean { get; }
 }
 
 public interface ItestPrntUnionSamePrnt
   : IGqlpInterfaceBase
 {
-  String AsString { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ItestDmnBoolDescr
@@ -7149,41 +7159,42 @@ public enum testPrntEnumPrntDup
 public interface ItestUnionDescr
   : IGqlpInterfaceBase
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ItestUnionPrnt
   : ItestPrntUnionPrnt
 {
-  String AsString { get; }
 }
 
 public interface ItestPrntUnionPrnt
   : IGqlpInterfaceBase
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ItestUnionPrntDescr
   : ItestPrntUnionPrntDescr
 {
-  Number AsNumber { get; }
 }
 
 public interface ItestPrntUnionPrntDescr
   : IGqlpInterfaceBase
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ItestUnionPrntDup
   : ItestPrntUnionPrntDup
 {
-  Number AsNumber { get; }
 }
 
 public interface ItestPrntUnionPrntDup
   : IGqlpInterfaceBase
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }

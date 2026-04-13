@@ -14,6 +14,6 @@ namespace Components.Gqlp_Schema_union_diff;
 public interface ICmptUnionDiff
   : Schema_union-diff
 {
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }

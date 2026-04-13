@@ -11,6 +11,8 @@ input ObjInp { }
 
 namespace Components.Gqlp_Schema_object_Input;
 
-internal class CmptObjInpEncoder
+internal class CmptObjInpEncoder : IEncoder<ICmptObjInpObject>
 {
+  public Structured Encode(ICmptObjInpObject input)
+    => Structured.Empty();
 }

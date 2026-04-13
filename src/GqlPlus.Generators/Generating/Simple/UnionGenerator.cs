@@ -19,14 +19,35 @@ internal sealed class UnionInterfaceGenerator
   : UnionGeneratorBase
 {
   protected override void Generate(IAstUnion ast, GqlpGeneratorContext context)
-    => GenerateBlock(ast, context, InterfaceHeader, TypeMembers, InterfaceMember);
+  {
+    context.Write("");
+    InterfaceHeader(ast, context);
+    context.Write("{");
+    if (ast.Parent is null) {
+      context.Write("  bool HasA<T>();");
+      context.Write("  T AsA<T>();");
+    }
+
+    context.Write("}");
+  }
 }
 
 internal sealed class UnionModelGenerator
   : UnionGeneratorBase
 {
   protected override void Generate(IAstUnion ast, GqlpGeneratorContext context)
-    => GenerateBlock(ast, context, ClassHeader, TypeMembers, ClassMember, ClassTail);
+  {
+    context.Write("");
+    ClassHeader(ast, context);
+    context.Write("{");
+    if (ast.Parent is null) {
+      context.Write("  private object? _value;");
+      context.Write("  public bool HasA<T>() => _value is T;");
+      context.Write("  public T AsA<T>() => (T)_value!;");
+    }
+
+    context.Write("}");
+  }
 }
 
 internal sealed class UnionDecoderGenerator
@@ -40,5 +61,42 @@ internal sealed class UnionEncoderGenerator
   : UnionGeneratorBase
 {
   protected override void Generate(IAstUnion ast, GqlpGeneratorContext context)
-    => GenerateBlock(ast, context, EncoderHeader, TypeMembers, ClassMember);
+  {
+    string typeName = context.TypeName(ast, "");
+    string interfaceName = context.TypeName(ast, "I");
+    MapPair<string>[] members = TypeMembers(ast, context).ToArray();
+
+    context.Write("");
+    if (members.Length == 0) {
+      context.Write($"internal class {typeName}Encoder : IEncoder<{interfaceName}>");
+      context.Write("{");
+      context.Write($"  public Structured Encode({interfaceName} input)");
+      context.Write("    => Structured.Empty();");
+      context.Write("}");
+      return;
+    }
+
+    context.Write($"internal class {typeName}Encoder(");
+    context.Write("  IEncoderRepository encoders");
+    context.Write($") : IEncoder<{interfaceName}>");
+    context.Write("{");
+
+    foreach (MapPair<string> member in members) {
+      string memberCsType = context.TypeName(member.Value, "I");
+      string varName = "_" + member.Key.Substring(2).ToLower(System.Globalization.CultureInfo.InvariantCulture);
+      context.Write($"  private readonly IEncoder<{memberCsType}> {varName} = encoders.EncoderFor<{memberCsType}>();");
+    }
+
+    context.Write($"  public Structured Encode({interfaceName} input)");
+    string encoderPrefix = "    => ";
+    foreach (MapPair<string> member in members) {
+      string memberCsType = context.TypeName(member.Value, "I");
+      string varName = "_" + member.Key.Substring(2).ToLower(System.Globalization.CultureInfo.InvariantCulture);
+      context.Write($"{encoderPrefix}input.HasA<{memberCsType}>() ? {varName}.Encode(input.AsA<{memberCsType}>())");
+      encoderPrefix = "     : ";
+    }
+
+    context.Write("     : Structured.Empty();");
+    context.Write("}");
+  }
 }

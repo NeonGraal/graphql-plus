@@ -11,9 +11,8 @@ enum EnumValueAlias { enumValueAlias [val2] }
 
 namespace Components.Gqlp_Schema_enum_value_alias;
 
-internal class CmptEnumValueAliasEncoder
+internal class CmptEnumValueAliasEncoder : IEncoder<CmptEnumValueAlias>
 {
-  public string enumValueAlias { get; set; }
-  public string val1 { get; set; }
-  public string val2 { get; set; }
+  public Structured Encode(CmptEnumValueAlias input)
+    => new(input.ToString(), "_EnumValueAlias");
 }

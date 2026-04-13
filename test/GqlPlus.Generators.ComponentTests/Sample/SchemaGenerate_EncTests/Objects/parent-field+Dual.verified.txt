@@ -11,12 +11,19 @@ dual RefPrntFieldDual { parent: Number | String }
 
 namespace Components.Gqlp_Schema_parent_field_Dual;
 
-internal class CmptPrntFieldDualEncoder
+internal class CmptPrntFieldDualEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptPrntFieldDualObject>
 {
-  public decimal Field { get; set; }
+  private readonly IEncoder<ICmptRefPrntFieldDualObject> _refPrntFieldDual = encoders.EncoderFor<ICmptRefPrntFieldDualObject>();
+  public Structured Encode(ICmptPrntFieldDualObject input)
+    => _refPrntFieldDual.Encode(input)
+      .Add("field", input.Field);
 }
 
-internal class CmptRefPrntFieldDualEncoder
+internal class CmptRefPrntFieldDualEncoder : IEncoder<ICmptRefPrntFieldDualObject>
 {
-  public decimal Parent { get; set; }
+  public Structured Encode(ICmptRefPrntFieldDualObject input)
+    => Structured.Empty()
+      .Add("parent", input.Parent);
 }

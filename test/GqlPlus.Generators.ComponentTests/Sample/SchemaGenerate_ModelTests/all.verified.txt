@@ -44,8 +44,9 @@ public class CmptMany
   : Schema_all
   , ICmptMany
 {
-  public Guid AsGuid { get; set; }
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class CmptField
@@ -105,6 +106,8 @@ public class CmptAllObject
   , ICmptAllObject
 {
   public ICmptField? Items(ICmptParam? parameter)
+    => null;
+  public ICmptField? Items()
     => null;
 
   public CmptAllObject

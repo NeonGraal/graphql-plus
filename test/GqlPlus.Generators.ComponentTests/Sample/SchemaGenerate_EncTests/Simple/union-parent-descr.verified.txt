@@ -11,12 +11,22 @@ union PrntUnionPrntDescr { Number }
 
 namespace Components.Gqlp_Schema_union_parent_descr;
 
-internal class CmptUnionPrntDescrEncoder
+internal class CmptUnionPrntDescrEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptUnionPrntDescr>
 {
-  public Number AsNumber { get; set; }
+  private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
+  public Structured Encode(ICmptUnionPrntDescr input)
+    => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+     : Structured.Empty();
 }
 
-internal class CmptPrntUnionPrntDescrEncoder
+internal class CmptPrntUnionPrntDescrEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptPrntUnionPrntDescr>
 {
-  public Number AsNumber { get; set; }
+  private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
+  public Structured Encode(ICmptPrntUnionPrntDescr input)
+    => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+     : Structured.Empty();
 }

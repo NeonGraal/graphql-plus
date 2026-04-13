@@ -1,19 +1,29 @@
 ﻿namespace GqlPlus.Encoding;
 
 internal class EncoderRepositoryBuilder
-  : BaseFactory<IEncoderRepository>, IEncoderRepositoryBuilder
+  : BaseFactory<IEncoderRepository>
+  , IEncoderRepositoryBuilder
 {
   internal readonly FactoryDict Encoders = [];
-  internal readonly FactoryList TypeEncoderFactories = [];
+  internal readonly Dictionary<Type, FactoryList> ListEncoders = [];
 
   public IEncoderRepositoryBuilder AddEncoder<TModel>(Factory<IEncoder<TModel>, IEncoderRepository> factory)
-    where TModel : IModelBase
     => this.FluentAction(b => b.Encoders[typeof(TModel)] = factory);
 
-  public IEncoderRepositoryBuilder AddTypeEncoder<TModel>(Factory<ITypeEncoder<TModel>, IEncoderRepository> factory)
-    where TModel : IModelBase
+  IEncoderRepositoryBuilder IEncoderRepositoryBuilder.AddListEncoder<TList, TEncoder, TModel>(Factory<TEncoder, IEncoderRepository> factory)
     => this.FluentAction(b => {
       b.Encoders[typeof(TModel)] = factory;
-      b.TypeEncoderFactories.Add(r => r.EncoderFor<TModel>());
+      FactoryList list = ListEncoders.GetValueOrCreate(typeof(TList), _ => []);
+      list.Add(r => r.EncoderFor<TModel>());
     });
+
+  internal IEnumerable<Factory<TList, IEncoderRepository>> FactoriesFor<TList>()
+    where TList : class
+    => ListEncoders.TryGetValue(typeof(TList), out FactoryList list)
+      ? list.Select(ListFactory<TList>)
+      : [];
+
+  private Factory<TList, IEncoderRepository> ListFactory<TList>(Factory<object, IEncoderRepository> factory)
+    where TList : class
+    => r => (TList)factory(r);
 }

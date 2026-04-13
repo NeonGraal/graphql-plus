@@ -12,11 +12,18 @@ input FldObjFieldAliasInp { }
 
 namespace Components.Gqlp_Schema_object_field_alias_Input;
 
-internal class CmptObjFieldAliasInpEncoder
+internal class CmptObjFieldAliasInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptObjFieldAliasInpObject>
 {
-  public ICmptFldObjFieldAliasInp Field { get; set; }
+  private readonly IEncoder<ICmptFldObjFieldAliasInp> _fldObjFieldAliasInp = encoders.EncoderFor<ICmptFldObjFieldAliasInp>();
+  public Structured Encode(ICmptObjFieldAliasInpObject input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _fldObjFieldAliasInp);
 }
 
-internal class CmptFldObjFieldAliasInpEncoder
+internal class CmptFldObjFieldAliasInpEncoder : IEncoder<ICmptFldObjFieldAliasInpObject>
 {
+  public Structured Encode(ICmptFldObjFieldAliasInpObject input)
+    => Structured.Empty();
 }

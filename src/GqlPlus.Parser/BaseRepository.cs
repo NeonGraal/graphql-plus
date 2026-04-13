@@ -34,6 +34,3 @@ public class BaseFactory<TRepo>
   public class FactoryList : List<Factory<object, TRepo>>;
 #pragma warning restore CA1034 // Nested types should not be visible
 }
-
-public delegate T Factory<out T, TRepo>(TRepo parsers)
-  where T : class;

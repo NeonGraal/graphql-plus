@@ -23,24 +23,31 @@ enum _Location { Operation Variable Field Inline Spread Fragment }
 
 namespace Components.Gqlp_Spec_Directive;
 
-internal class Cmpt_DirectivesEncoder
+internal class Cmpt_DirectivesEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_DirectivesObject>
 {
-  public ICmpt_Directive Directive { get; set; }
+  private readonly IEncoder<ICmpt_AndTypeObject> _andType = encoders.EncoderFor<ICmpt_AndTypeObject>();
+  private readonly IEncoder<ICmpt_Directive> _directive = encoders.EncoderFor<ICmpt_Directive>();
+  public Structured Encode(ICmpt_DirectivesObject input)
+    => _andType.Encode(input)
+      .AddEncoded("directive", input.Directive, _directive);
 }
 
-internal class Cmpt_DirectiveEncoder
+internal class Cmpt_DirectiveEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_DirectiveObject>
 {
-  public ICmpt_InputFieldType? Parameter { get; set; }
-  public bool Repeatable { get; set; }
-  public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
+  private readonly IEncoder<ICmpt_AliasedObject> _aliased = encoders.EncoderFor<ICmpt_AliasedObject>();
+  private readonly IEncoder<ICmpt_InputFieldType> _inputFieldType = encoders.EncoderFor<ICmpt_InputFieldType>();
+  public Structured Encode(ICmpt_DirectiveObject input)
+    => _aliased.Encode(input)
+      .AddEncoded("parameter", input.Parameter, _inputFieldType)
+      .Add("repeatable", input.Repeatable);
 }
 
-internal class Cmpt_LocationEncoder
+internal class Cmpt_LocationEncoder : IEncoder<Cmpt_Location>
 {
-  public string Operation { get; set; }
-  public string Variable { get; set; }
-  public string Field { get; set; }
-  public string Inline { get; set; }
-  public string Spread { get; set; }
-  public string Fragment { get; set; }
+  public Structured Encode(Cmpt_Location input)
+    => new(input.ToString(), "_Location");
 }

@@ -23,21 +23,33 @@ enum _Resolution { Parallel Sequential Single }
 
 namespace Components.Gqlp_Spec_Category;
 
-internal class Cmpt_CategoriesEncoder
+internal class Cmpt_CategoriesEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_CategoriesObject>
 {
-  public ICmpt_Category Category { get; set; }
+  private readonly IEncoder<ICmpt_AndTypeObject> _andType = encoders.EncoderFor<ICmpt_AndTypeObject>();
+  private readonly IEncoder<ICmpt_Category> _category = encoders.EncoderFor<ICmpt_Category>();
+  public Structured Encode(ICmpt_CategoriesObject input)
+    => _andType.Encode(input)
+      .AddEncoded("category", input.Category, _category);
 }
 
-internal class Cmpt_CategoryEncoder
+internal class Cmpt_CategoryEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_CategoryObject>
 {
-  public Cmpt_Resolution Resolution { get; set; }
-  public ICmpt_TypeRef<ICmpt_TypeKind> Output { get; set; }
-  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
+  private readonly IEncoder<ICmpt_AliasedObject> _aliased = encoders.EncoderFor<ICmpt_AliasedObject>();
+  private readonly IEncoder<ICmpt_TypeRef<ICmpt_TypeKind>> _typeRef = encoders.EncoderFor<ICmpt_TypeRef<ICmpt_TypeKind>>();
+  private readonly IEncoder<ICmpt_Modifiers> _modifiers = encoders.EncoderFor<ICmpt_Modifiers>();
+  public Structured Encode(ICmpt_CategoryObject input)
+    => _aliased.Encode(input)
+      .AddEnum("resolution", input.Resolution)
+      .AddEncoded("output", input.Output, _typeRef)
+      .AddList("modifiers", input.Modifiers, _modifiers);
 }
 
-internal class Cmpt_ResolutionEncoder
+internal class Cmpt_ResolutionEncoder : IEncoder<Cmpt_Resolution>
 {
-  public string Parallel { get; set; }
-  public string Sequential { get; set; }
-  public string Single { get; set; }
+  public Structured Encode(Cmpt_Resolution input)
+    => new(input.ToString(), "_Resolution");
 }

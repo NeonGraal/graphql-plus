@@ -27,6 +27,8 @@ public class CmptOutpFieldParamObject
 {
   public ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter)
     => null;
+  public ICmptFldOutpFieldParam? Field()
+    => null;
 
   public CmptOutpFieldParamObject
     ()

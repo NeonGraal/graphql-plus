@@ -11,6 +11,8 @@ domain DmnNmbrDiff { number }
 
 namespace Components.Gqlp_Schema_domain_number_diff;
 
-internal class CmptDmnNmbrDiffEncoder
+internal class CmptDmnNmbrDiffEncoder : IEncoder<ICmptDmnNmbrDiff>
 {
+  public Structured Encode(ICmptDmnNmbrDiff input)
+    => new(input.Value);
 }

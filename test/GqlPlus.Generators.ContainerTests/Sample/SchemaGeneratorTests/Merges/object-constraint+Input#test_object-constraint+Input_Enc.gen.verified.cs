@@ -7,8 +7,13 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_constraint_Input;
 
-internal class testObjCnstInpEncoder<TType>
+internal class testObjCnstInpEncoder<TType>(
+  IEncoderRepository encoders
+) : IEncoder<ItestObjCnstInpObject<TType>>
 {
-  public TType Field { get; set; }
-  public TType Str { get; set; }
+  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  public Structured Encode(ItestObjCnstInpObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _type)
+      .AddEncoded("str", input.Str, _type);
 }

@@ -54,27 +54,27 @@ public class Cmpt_Basic
   : Spec_Definition
   , ICmpt_Basic
 {
-  public Boolean AsBoolean { get; set; }
-  public Number AsNumber { get; set; }
-  public String AsString { get; set; }
-  public Unit AsUnit { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class Cmpt_Internal
   : Spec_Definition
   , ICmpt_Internal
 {
-  public Null AsNull { get; set; }
-  public Void AsVoid { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class Cmpt_Key
   : Spec_Definition
   , ICmpt_Key
 {
-  public _Basic As_Basic { get; set; }
-  public _Internal As_Internal { get; set; }
-  public _Simple As_Simple { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class Cmpt_Object
@@ -99,6 +99,9 @@ public class Cmpt_Domain
   : Spec_Definition
   , ICmpt_Domain
 {
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class Cmpt_Dual
@@ -123,6 +126,9 @@ public class Cmpt_Enum
   : Spec_Definition
   , ICmpt_Enum
 {
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class Cmpt_Input
@@ -165,13 +171,16 @@ public class Cmpt_Union
   : Spec_Definition
   , ICmpt_Union
 {
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class Cmpt_Simple
   : Spec_Definition
   , ICmpt_Simple
 {
-  public _Enum As_Enum { get; set; }
-  public _Domain As_Domain { get; set; }
-  public _Union As_Union { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }

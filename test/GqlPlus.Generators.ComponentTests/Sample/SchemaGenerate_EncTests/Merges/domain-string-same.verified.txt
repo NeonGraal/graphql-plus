@@ -11,6 +11,8 @@ domain DmnStrSame { string /a+/ }
 
 namespace Components.Gqlp_Schema_domain_string_same;
 
-internal class CmptDmnStrSameEncoder
+internal class CmptDmnStrSameEncoder : IEncoder<ICmptDmnStrSame>
 {
+  public Structured Encode(ICmptDmnStrSame input)
+    => new(input.Value);
 }

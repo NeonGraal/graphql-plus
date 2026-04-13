@@ -17,11 +17,22 @@ output _OutputFieldType {
 
 namespace Components.Gqlp_Spec_Output;
 
-internal class Cmpt_OutputFieldEncoder
+internal class Cmpt_OutputFieldEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_OutputFieldObject>
 {
+  private readonly IEncoder<ICmpt_ObjFieldObject<ICmpt_ObjFieldType>> _objField = encoders.EncoderFor<ICmpt_ObjFieldObject<ICmpt_ObjFieldType>>();
+  public Structured Encode(ICmpt_OutputFieldObject input)
+    => _objField.Encode(input);
 }
 
-internal class Cmpt_OutputFieldTypeEncoder
+internal class Cmpt_OutputFieldTypeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_OutputFieldTypeObject>
 {
-  public ICmpt_InputFieldType? Parameter { get; set; }
+  private readonly IEncoder<ICmpt_ObjFieldTypeObject> _objFieldType = encoders.EncoderFor<ICmpt_ObjFieldTypeObject>();
+  private readonly IEncoder<ICmpt_InputFieldType> _inputFieldType = encoders.EncoderFor<ICmpt_InputFieldType>();
+  public Structured Encode(ICmpt_OutputFieldTypeObject input)
+    => _objFieldType.Encode(input)
+      .AddEncoded("parameter", input.Parameter, _inputFieldType);
 }

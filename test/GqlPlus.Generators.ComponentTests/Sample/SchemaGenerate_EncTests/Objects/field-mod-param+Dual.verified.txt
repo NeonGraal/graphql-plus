@@ -11,12 +11,15 @@ dual FldFieldModParamDual { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_mod_param_Dual;
 
-internal class CmptFieldModParamDualEncoder<TMod>
+internal class CmptFieldModParamDualEncoder<TMod> : IEncoder<ICmptFieldModParamDualObject<TMod>>
 {
-  public IDictionary<TMod, ICmptFldFieldModParamDual> Field { get; set; }
+  public Structured Encode(ICmptFieldModParamDualObject<TMod> input)
+    => Structured.Empty();
 }
 
-internal class CmptFldFieldModParamDualEncoder
+internal class CmptFldFieldModParamDualEncoder : IEncoder<ICmptFldFieldModParamDualObject>
 {
-  public decimal Field { get; set; }
+  public Structured Encode(ICmptFldFieldModParamDualObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

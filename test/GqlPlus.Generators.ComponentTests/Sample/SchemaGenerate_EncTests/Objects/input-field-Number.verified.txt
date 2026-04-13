@@ -10,7 +10,9 @@ input InpFieldNmbr { field: Number = 42 }
 
 namespace Components.Gqlp_Schema_input_field_Number;
 
-internal class CmptInpFieldNmbrEncoder
+internal class CmptInpFieldNmbrEncoder : IEncoder<ICmptInpFieldNmbrObject>
 {
-  public decimal Field { get; set; }
+  public Structured Encode(ICmptInpFieldNmbrObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

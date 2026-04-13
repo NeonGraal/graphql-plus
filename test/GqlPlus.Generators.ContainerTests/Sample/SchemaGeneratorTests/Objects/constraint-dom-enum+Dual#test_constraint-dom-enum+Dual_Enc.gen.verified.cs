@@ -7,21 +7,30 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_dom_enum_Dual;
 
-internal class testCnstDomEnumDualEncoder
+internal class testCnstDomEnumDualEncoder : IEncoder<ItestCnstDomEnumDualObject>
 {
+  public Structured Encode(ItestCnstDomEnumDualObject input)
+    => Structured.Empty();
 }
 
-internal class testRefCnstDomEnumDualEncoder<TType>
+internal class testRefCnstDomEnumDualEncoder<TType>(
+  IEncoderRepository encoders
+) : IEncoder<ItestRefCnstDomEnumDualObject<TType>>
 {
-  public TType Field { get; set; }
+  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  public Structured Encode(ItestRefCnstDomEnumDualObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _type);
 }
 
-internal class testEnumCnstDomEnumDualEncoder
+internal class testEnumCnstDomEnumDualEncoder : IEncoder<testEnumCnstDomEnumDual>
 {
-  public string cnstDomEnumDual { get; set; }
-  public string other { get; set; }
+  public Structured Encode(testEnumCnstDomEnumDual input)
+    => new(input.ToString(), "_EnumCnstDomEnumDual");
 }
 
-internal class testJustCnstDomEnumDualEncoder
+internal class testJustCnstDomEnumDualEncoder : IEncoder<ItestJustCnstDomEnumDual>
 {
+  public Structured Encode(ItestJustCnstDomEnumDual input)
+    => new((decimal?)input.Value);
 }

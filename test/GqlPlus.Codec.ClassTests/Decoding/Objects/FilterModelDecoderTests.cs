@@ -8,7 +8,7 @@ public class FilterModelDecoderTests
   {
     IDecoderRepository decoders = A.Of<IDecoderRepository>();
     decoders.DecoderFor<bool?>().Returns(Boolean);
-    decoders.NameFilterDecoder.Returns(NameFilter);
+    decoders.DecoderFor<INameFilterDecoder, string>().Returns(NameFilter);
     Decoder = new FilterModelDecoder(decoders);
   }
 

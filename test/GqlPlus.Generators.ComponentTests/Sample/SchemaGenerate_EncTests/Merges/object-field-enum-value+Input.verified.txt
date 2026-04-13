@@ -11,7 +11,9 @@ input ObjFieldEnumValueInp { field = true }
 
 namespace Components.Gqlp_Schema_object_field_enum_value_Input;
 
-internal class CmptObjFieldEnumValueInpEncoder
+internal class CmptObjFieldEnumValueInpEncoder : IEncoder<ICmptObjFieldEnumValueInpObject>
 {
-  public bool Field { get; set; }
+  public Structured Encode(ICmptObjFieldEnumValueInpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

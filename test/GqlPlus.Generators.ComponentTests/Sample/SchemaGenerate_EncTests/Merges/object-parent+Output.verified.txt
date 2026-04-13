@@ -12,10 +12,17 @@ output RefObjPrntOutp { }
 
 namespace Components.Gqlp_Schema_object_parent_Output;
 
-internal class CmptObjPrntOutpEncoder
+internal class CmptObjPrntOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptObjPrntOutpObject>
 {
+  private readonly IEncoder<ICmptRefObjPrntOutpObject> _refObjPrntOutp = encoders.EncoderFor<ICmptRefObjPrntOutpObject>();
+  public Structured Encode(ICmptObjPrntOutpObject input)
+    => _refObjPrntOutp.Encode(input);
 }
 
-internal class CmptRefObjPrntOutpEncoder
+internal class CmptRefObjPrntOutpEncoder : IEncoder<ICmptRefObjPrntOutpObject>
 {
+  public Structured Encode(ICmptRefObjPrntOutpObject input)
+    => Structured.Empty();
 }

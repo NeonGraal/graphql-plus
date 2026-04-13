@@ -65,4 +65,6 @@ internal class CmptAllDecoder
 {
   public ICmptField? Items(ICmptParam? parameter)
     => null;
+  public ICmptField? Items()
+    => null;
 }

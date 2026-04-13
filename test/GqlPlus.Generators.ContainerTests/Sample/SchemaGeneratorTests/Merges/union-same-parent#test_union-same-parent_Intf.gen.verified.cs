@@ -10,11 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_union_same_parent;
 public interface ItestUnionSamePrnt
   : ItestPrntUnionSamePrnt
 {
-  Boolean AsBoolean { get; }
 }
 
 public interface ItestPrntUnionSamePrnt
   : IGqlpInterfaceBase
 {
-  String AsString { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }

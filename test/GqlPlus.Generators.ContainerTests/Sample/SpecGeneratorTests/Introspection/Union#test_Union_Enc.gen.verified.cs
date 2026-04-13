@@ -7,11 +7,22 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Union;
 
-internal class test_UnionRefEncoder
+internal class test_UnionRefEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_UnionRefObject>
 {
+  private readonly IEncoder<Itest_TypeRefObject<Itest_SimpleKind>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRefObject<Itest_SimpleKind>>();
+  public Structured Encode(Itest_UnionRefObject input)
+    => _itest_TypeRef.Encode(input);
 }
 
-internal class test_UnionMemberEncoder
+internal class test_UnionMemberEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_UnionMemberObject>
 {
-  public Itest_Name Union { get; set; }
+  private readonly IEncoder<Itest_UnionRefObject> _itest_UnionRef = encoders.EncoderFor<Itest_UnionRefObject>();
+  private readonly IEncoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  public Structured Encode(Itest_UnionMemberObject input)
+    => _itest_UnionRef.Encode(input)
+      .AddEncoded("union", input.Union, _itest_Name);
 }

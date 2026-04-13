@@ -12,10 +12,17 @@ dual RefObjPrntDual { }
 
 namespace Components.Gqlp_Schema_object_parent_Dual;
 
-internal class CmptObjPrntDualEncoder
+internal class CmptObjPrntDualEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptObjPrntDualObject>
 {
+  private readonly IEncoder<ICmptRefObjPrntDualObject> _refObjPrntDual = encoders.EncoderFor<ICmptRefObjPrntDualObject>();
+  public Structured Encode(ICmptObjPrntDualObject input)
+    => _refObjPrntDual.Encode(input);
 }
 
-internal class CmptRefObjPrntDualEncoder
+internal class CmptRefObjPrntDualEncoder : IEncoder<ICmptRefObjPrntDualObject>
 {
+  public Structured Encode(ICmptRefObjPrntDualObject input)
+    => Structured.Empty();
 }

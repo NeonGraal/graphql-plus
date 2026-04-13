@@ -10,11 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_union_parent_descr;
 public interface ItestUnionPrntDescr
   : ItestPrntUnionPrntDescr
 {
-  Number AsNumber { get; }
 }
 
 public interface ItestPrntUnionPrntDescr
   : IGqlpInterfaceBase
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }

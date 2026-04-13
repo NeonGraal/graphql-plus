@@ -20,6 +20,8 @@ public class testOutpParamModDmnObject
 {
   public ItestDomOutpParamModDmn? Field(IDictionary<ItestDomOutpParamModDmn, ItestInOutpParamModDmn> parameter)
     => null;
+  public ItestDomOutpParamModDmn? Field()
+    => null;
 
   public testOutpParamModDmnObject
     ()

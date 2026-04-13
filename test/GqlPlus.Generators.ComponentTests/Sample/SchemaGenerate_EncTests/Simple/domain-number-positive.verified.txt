@@ -10,6 +10,8 @@ domain DmnNmbrPstv { Number !<0 }
 
 namespace Components.Gqlp_Schema_domain_number_positive;
 
-internal class CmptDmnNmbrPstvEncoder
+internal class CmptDmnNmbrPstvEncoder : IEncoder<ICmptDmnNmbrPstv>
 {
+  public Structured Encode(ICmptDmnNmbrPstv input)
+    => new(input.Value);
 }

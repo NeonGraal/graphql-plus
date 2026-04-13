@@ -18,7 +18,7 @@ public class AllEncodersTests
   [Fact]
   public void AllEncoders_TypeEncoders_ReturnNotEmpty()
     => _services.GetRequiredService<IEncoderRepository>()
-      .TypeEncoders
+      .EncodersFor<ITypeEncoder>()
       .ShouldNotBeEmpty();
 
   private readonly IServiceProvider _services = new ServiceCollection()

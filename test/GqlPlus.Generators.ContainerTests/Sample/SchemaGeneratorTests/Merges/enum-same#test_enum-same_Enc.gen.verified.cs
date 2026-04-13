@@ -7,7 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_enum_same;
 
-internal class testEnumSameEncoder
+internal class testEnumSameEncoder : IEncoder<testEnumSame>
 {
-  public string enumSame { get; set; }
+  public Structured Encode(testEnumSame input)
+    => new(input.ToString(), "_EnumSame");
 }

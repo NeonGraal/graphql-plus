@@ -7,6 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_simple_Output;
 
-internal class testAltSmplOutpEncoder
+internal class testAltSmplOutpEncoder : IEncoder<ItestAltSmplOutpObject>
 {
+  public Structured Encode(ItestAltSmplOutpObject input)
+    => Structured.Empty();
 }

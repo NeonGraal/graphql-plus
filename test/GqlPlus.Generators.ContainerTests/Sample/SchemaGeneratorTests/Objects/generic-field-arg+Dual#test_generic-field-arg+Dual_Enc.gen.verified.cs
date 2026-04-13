@@ -7,11 +7,18 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_arg_Dual;
 
-internal class testGnrcFieldArgDualEncoder<TType>
+internal class testGnrcFieldArgDualEncoder<TType>(
+  IEncoderRepository encoders
+) : IEncoder<ItestGnrcFieldArgDualObject<TType>>
 {
-  public ItestRefGnrcFieldArgDual<TType> Field { get; set; }
+  private readonly IEncoder<ItestRefGnrcFieldArgDual<TType>> _itestRefGnrcFieldArgDual = encoders.EncoderFor<ItestRefGnrcFieldArgDual<TType>>();
+  public Structured Encode(ItestGnrcFieldArgDualObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _itestRefGnrcFieldArgDual);
 }
 
-internal class testRefGnrcFieldArgDualEncoder<TRef>
+internal class testRefGnrcFieldArgDualEncoder<TRef> : IEncoder<ItestRefGnrcFieldArgDualObject<TRef>>
 {
+  public Structured Encode(ItestRefGnrcFieldArgDualObject<TRef> input)
+    => Structured.Empty();
 }

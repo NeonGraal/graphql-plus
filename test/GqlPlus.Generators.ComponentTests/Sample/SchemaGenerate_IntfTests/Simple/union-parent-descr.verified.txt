@@ -14,11 +14,11 @@ namespace Components.Gqlp_Schema_union_parent_descr;
 public interface ICmptUnionPrntDescr
   : ICmptPrntUnionPrntDescr
 {
-  Number AsNumber { get; }
 }
 
 public interface ICmptPrntUnionPrntDescr
   : Schema_union-parent-descr
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }

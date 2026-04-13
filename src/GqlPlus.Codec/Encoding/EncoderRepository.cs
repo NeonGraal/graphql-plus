@@ -1,24 +1,22 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using System.Collections.Concurrent;
+using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Encoding;
 
-internal class EncoderRepository
-  : BaseRepository<IEncoderRepository>
+internal class EncoderRepository(
+  EncoderRepositoryBuilder builder,
+  ILoggerFactory loggerFactory
+) : BaseRepository<IEncoderRepository>(loggerFactory)
   , IEncoderRepository
 {
-  private readonly EncoderRepositoryBuilder _builder;
-  private readonly Lazy<IEnumerable<ITypeEncoder>> _typeEncoders;
-
-  public EncoderRepository(EncoderRepositoryBuilder builder, ILoggerFactory loggerFactory)
-    : base(loggerFactory)
-  {
-    _builder = builder;
-    _typeEncoders = new(() => [.. builder.TypeEncoderFactories.Select(f => (ITypeEncoder)f(this))]);
-  }
-
   public IEncoder<T> EncoderFor<T>()
-    where T : IModelBase
-    => Cached<T, IEncoder<T>>(_builder.Encoders, "encoder", this);
+    => Cached<T, IEncoder<T>>(builder.Encoders, "encoder", this);
 
-  public IEnumerable<ITypeEncoder> TypeEncoders => _typeEncoders.Value;
+  private readonly ConcurrentDictionary<Type, IEnumerable<object>> _lists = new();
+
+  public IEnumerable<TList> EncodersFor<TList>()
+    where TList : class
+    => (IEnumerable<TList>)_lists.GetOrAdd(
+      typeof(TList),
+      _ => builder.FactoriesFor<TList>().Select(f => f(this)));
 }

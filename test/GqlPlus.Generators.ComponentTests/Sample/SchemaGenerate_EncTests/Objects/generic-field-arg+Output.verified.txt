@@ -11,11 +11,18 @@ output RefGnrcFieldArgOutp<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_field_arg_Output;
 
-internal class CmptGnrcFieldArgOutpEncoder<TType>
+internal class CmptGnrcFieldArgOutpEncoder<TType>(
+  IEncoderRepository encoders
+) : IEncoder<ICmptGnrcFieldArgOutpObject<TType>>
 {
-  public ICmptRefGnrcFieldArgOutp<TType> Field { get; set; }
+  private readonly IEncoder<ICmptRefGnrcFieldArgOutp<TType>> _refGnrcFieldArgOutp = encoders.EncoderFor<ICmptRefGnrcFieldArgOutp<TType>>();
+  public Structured Encode(ICmptGnrcFieldArgOutpObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _refGnrcFieldArgOutp);
 }
 
-internal class CmptRefGnrcFieldArgOutpEncoder<TRef>
+internal class CmptRefGnrcFieldArgOutpEncoder<TRef> : IEncoder<ICmptRefGnrcFieldArgOutpObject<TRef>>
 {
+  public Structured Encode(ICmptRefGnrcFieldArgOutpObject<TRef> input)
+    => Structured.Empty();
 }

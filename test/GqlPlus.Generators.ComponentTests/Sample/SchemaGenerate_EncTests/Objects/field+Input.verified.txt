@@ -10,7 +10,9 @@ input FieldInp { field: String }
 
 namespace Components.Gqlp_Schema_field_Input;
 
-internal class CmptFieldInpEncoder
+internal class CmptFieldInpEncoder : IEncoder<ICmptFieldInpObject>
 {
-  public string Field { get; set; }
+  public Structured Encode(ICmptFieldInpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

@@ -11,6 +11,8 @@ dual ObjDual { }
 
 namespace Components.Gqlp_Schema_object_Dual;
 
-internal class CmptObjDualEncoder
+internal class CmptObjDualEncoder : IEncoder<ICmptObjDualObject>
 {
+  public Structured Encode(ICmptObjDualObject input)
+    => Structured.Empty();
 }

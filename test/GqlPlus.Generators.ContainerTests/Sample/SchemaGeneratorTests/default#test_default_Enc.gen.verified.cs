@@ -7,18 +7,26 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_default;
 
-internal class testQueryEncoder
+internal class testQueryEncoder : IEncoder<ItestQueryObject>
 {
+  public Structured Encode(ItestQueryObject input)
+    => Structured.Empty();
 }
 
-internal class testMutationEncoder
+internal class testMutationEncoder : IEncoder<ItestMutationObject>
 {
+  public Structured Encode(ItestMutationObject input)
+    => Structured.Empty();
 }
 
-internal class testSubscriptionEncoder
+internal class testSubscriptionEncoder : IEncoder<ItestSubscriptionObject>
 {
+  public Structured Encode(ItestSubscriptionObject input)
+    => Structured.Empty();
 }
 
-internal class test_SchemaEncoder
+internal class test_SchemaEncoder : IEncoder<Itest_SchemaObject>
 {
+  public Structured Encode(Itest_SchemaObject input)
+    => Structured.Empty();
 }

@@ -7,6 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_category_descrs;
 
-internal class testCtgrDscrsEncoder
+internal class testCtgrDscrsEncoder : IEncoder<ItestCtgrDscrsObject>
 {
+  public Structured Encode(ItestCtgrDscrsObject input)
+    => Structured.Empty();
 }

@@ -17,9 +17,13 @@ public interface Itest_SchemaObject
   : Itest_NamedObject
 {
   IDictionary<Itest_Name, Itest_Categories>? Categories(Itest_CategoryFilter? parameter);
+  IDictionary<Itest_Name, Itest_Categories>? Categories();
   IDictionary<Itest_Name, Itest_Directives>? Directives(Itest_Filter? parameter);
+  IDictionary<Itest_Name, Itest_Directives>? Directives();
   IDictionary<Itest_Name, Itest_Type>? Types(Itest_TypeFilter? parameter);
+  IDictionary<Itest_Name, Itest_Type>? Types();
   IDictionary<Itest_Name, Itest_Setting>? Settings(Itest_Filter? parameter);
+  IDictionary<Itest_Name, Itest_Setting>? Settings();
 }
 
 public interface Itest_Name

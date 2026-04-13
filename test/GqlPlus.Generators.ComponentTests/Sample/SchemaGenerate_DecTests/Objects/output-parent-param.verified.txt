@@ -18,11 +18,15 @@ internal class CmptOutpPrntParamDecoder
 {
   public ICmptFldOutpPrntParam? Field(ICmptInOutpPrntParam parameter)
     => null;
+  public ICmptFldOutpPrntParam? Field()
+    => null;
 }
 
 internal class CmptPrntOutpPrntParamDecoder
 {
   public ICmptFldOutpPrntParam? Field(ICmptPrntOutpPrntParamIn parameter)
+    => null;
+  public ICmptFldOutpPrntParam? Field()
     => null;
 }
 

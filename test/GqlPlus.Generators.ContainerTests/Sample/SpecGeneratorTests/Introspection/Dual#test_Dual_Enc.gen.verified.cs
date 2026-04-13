@@ -7,6 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Dual;
 
-internal class test_DualFieldEncoder
+internal class test_DualFieldEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_DualFieldObject>
 {
+  private readonly IEncoder<Itest_ObjFieldObject<Itest_ObjFieldType>> _itest_ObjField = encoders.EncoderFor<Itest_ObjFieldObject<Itest_ObjFieldType>>();
+  public Structured Encode(Itest_DualFieldObject input)
+    => _itest_ObjField.Encode(input);
 }

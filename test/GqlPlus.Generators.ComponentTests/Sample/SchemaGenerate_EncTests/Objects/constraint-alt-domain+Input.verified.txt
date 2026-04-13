@@ -12,14 +12,20 @@ domain DomCnstAltDmnInp { String /\w+/ }
 
 namespace Components.Gqlp_Schema_constraint_alt_domain_Input;
 
-internal class CmptCnstAltDmnInpEncoder
+internal class CmptCnstAltDmnInpEncoder : IEncoder<ICmptCnstAltDmnInpObject>
 {
+  public Structured Encode(ICmptCnstAltDmnInpObject input)
+    => Structured.Empty();
 }
 
-internal class CmptRefCnstAltDmnInpEncoder<TRef>
+internal class CmptRefCnstAltDmnInpEncoder<TRef> : IEncoder<ICmptRefCnstAltDmnInpObject<TRef>>
 {
+  public Structured Encode(ICmptRefCnstAltDmnInpObject<TRef> input)
+    => Structured.Empty();
 }
 
-internal class CmptDomCnstAltDmnInpEncoder
+internal class CmptDomCnstAltDmnInpEncoder : IEncoder<ICmptDomCnstAltDmnInp>
 {
+  public Structured Encode(ICmptDomCnstAltDmnInp input)
+    => new(input.Value);
 }

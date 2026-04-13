@@ -11,6 +11,8 @@ output ObjOutp { }
 
 namespace Components.Gqlp_Schema_object_Output;
 
-internal class CmptObjOutpEncoder
+internal class CmptObjOutpEncoder : IEncoder<ICmptObjOutpObject>
 {
+  public Structured Encode(ICmptObjOutpObject input)
+    => Structured.Empty();
 }

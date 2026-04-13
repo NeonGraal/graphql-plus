@@ -5124,6 +5124,7 @@ public interface ICmptOutpDescrParamObject
   : Schema_!ALL
 {
   ICmptFldOutpDescrParam? Field(ICmptInOutpDescrParam parameter);
+  ICmptFldOutpDescrParam? Field();
 }
 
 public interface ICmptFldOutpDescrParam
@@ -5160,6 +5161,7 @@ public interface ICmptOutpParamObject
   : Schema_!ALL
 {
   ICmptFldOutpParam? Field(ICmptInOutpParam parameter);
+  ICmptFldOutpParam? Field();
 }
 
 public interface ICmptFldOutpParam
@@ -5196,6 +5198,7 @@ public interface ICmptOutpParamDescrObject
   : Schema_!ALL
 {
   ICmptFldOutpParamDescr? Field(ICmptInOutpParamDescr parameter);
+  ICmptFldOutpParamDescr? Field();
 }
 
 public interface ICmptFldOutpParamDescr
@@ -5232,6 +5235,7 @@ public interface ICmptOutpParamModDmnObject
   : Schema_!ALL
 {
   ICmptDomOutpParamModDmn? Field(IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter);
+  ICmptDomOutpParamModDmn? Field();
 }
 
 public interface ICmptInOutpParamModDmn
@@ -5262,6 +5266,7 @@ public interface ICmptOutpParamModParamObject<TMod>
   : Schema_!ALL
 {
   ICmptDomOutpParamModParam? Field(IDictionary<TMod, ICmptInOutpParamModParam> parameter);
+  ICmptDomOutpParamModParam? Field();
 }
 
 public interface ICmptInOutpParamModParam
@@ -5292,6 +5297,7 @@ public interface ICmptOutpParamTypeDescrObject
   : Schema_!ALL
 {
   ICmptFldOutpParamTypeDescr? Field(ICmptInOutpParamTypeDescr parameter);
+  ICmptFldOutpParamTypeDescr? Field();
 }
 
 public interface ICmptFldOutpParamTypeDescr
@@ -5363,6 +5369,7 @@ public interface ICmptOutpPrntParamObject
   : ICmptPrntOutpPrntParamObject
 {
   ICmptFldOutpPrntParam? Field(ICmptInOutpPrntParam parameter);
+  ICmptFldOutpPrntParam? Field();
 }
 
 public interface ICmptPrntOutpPrntParam
@@ -5375,6 +5382,7 @@ public interface ICmptPrntOutpPrntParamObject
   : Schema_!ALL
 {
   ICmptFldOutpPrntParam? Field(ICmptPrntOutpPrntParamIn parameter);
+  ICmptFldOutpPrntParam? Field();
 }
 
 public interface ICmptFldOutpPrntParam
@@ -6686,6 +6694,7 @@ public interface ICmptOutpFieldParamObject
   : Schema_!ALL
 {
   ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter);
+  ICmptFldOutpFieldParam? Field();
 }
 
 public interface ICmptOutpFieldParam1
@@ -6724,33 +6733,34 @@ public interface ICmptFldOutpFieldParamObject
 public interface ICmptUnionAlias
   : Schema_!ALL
 {
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmptUnionDiff
   : Schema_!ALL
 {
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmptUnionSame
   : Schema_!ALL
 {
-  Boolean AsBoolean { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmptUnionSamePrnt
   : ICmptPrntUnionSamePrnt
 {
-  Boolean AsBoolean { get; }
 }
 
 public interface ICmptPrntUnionSamePrnt
   : Schema_!ALL
 {
-  String AsString { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmptDmnBoolDescr
@@ -7098,41 +7108,42 @@ public enum CmptPrntEnumPrntDup
 public interface ICmptUnionDescr
   : Schema_!ALL
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmptUnionPrnt
   : ICmptPrntUnionPrnt
 {
-  String AsString { get; }
 }
 
 public interface ICmptPrntUnionPrnt
   : Schema_!ALL
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmptUnionPrntDescr
   : ICmptPrntUnionPrntDescr
 {
-  Number AsNumber { get; }
 }
 
 public interface ICmptPrntUnionPrntDescr
   : Schema_!ALL
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmptUnionPrntDup
   : ICmptPrntUnionPrntDup
 {
-  Number AsNumber { get; }
 }
 
 public interface ICmptPrntUnionPrntDup
   : Schema_!ALL
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }

@@ -11,11 +11,18 @@ dual RefGnrcFieldArgDual<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_field_arg_Dual;
 
-internal class CmptGnrcFieldArgDualEncoder<TType>
+internal class CmptGnrcFieldArgDualEncoder<TType>(
+  IEncoderRepository encoders
+) : IEncoder<ICmptGnrcFieldArgDualObject<TType>>
 {
-  public ICmptRefGnrcFieldArgDual<TType> Field { get; set; }
+  private readonly IEncoder<ICmptRefGnrcFieldArgDual<TType>> _refGnrcFieldArgDual = encoders.EncoderFor<ICmptRefGnrcFieldArgDual<TType>>();
+  public Structured Encode(ICmptGnrcFieldArgDualObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _refGnrcFieldArgDual);
 }
 
-internal class CmptRefGnrcFieldArgDualEncoder<TRef>
+internal class CmptRefGnrcFieldArgDualEncoder<TRef> : IEncoder<ICmptRefGnrcFieldArgDualObject<TRef>>
 {
+  public Structured Encode(ICmptRefGnrcFieldArgDualObject<TRef> input)
+    => Structured.Empty();
 }

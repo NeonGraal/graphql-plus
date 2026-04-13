@@ -12,16 +12,24 @@ enum EnumGnrcEnumDual { gnrcEnumDual }
 
 namespace Components.Gqlp_Schema_generic_enum_Dual;
 
-internal class CmptGnrcEnumDualEncoder
+internal class CmptGnrcEnumDualEncoder : IEncoder<ICmptGnrcEnumDualObject>
 {
+  public Structured Encode(ICmptGnrcEnumDualObject input)
+    => Structured.Empty();
 }
 
-internal class CmptRefGnrcEnumDualEncoder<TType>
+internal class CmptRefGnrcEnumDualEncoder<TType>(
+  IEncoderRepository encoders
+) : IEncoder<ICmptRefGnrcEnumDualObject<TType>>
 {
-  public TType Field { get; set; }
+  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  public Structured Encode(ICmptRefGnrcEnumDualObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _type);
 }
 
-internal class CmptEnumGnrcEnumDualEncoder
+internal class CmptEnumGnrcEnumDualEncoder : IEncoder<CmptEnumGnrcEnumDual>
 {
-  public string gnrcEnumDual { get; set; }
+  public Structured Encode(CmptEnumGnrcEnumDual input)
+    => new(input.ToString(), "_EnumGnrcEnumDual");
 }

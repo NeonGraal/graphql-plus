@@ -10,6 +10,8 @@ input AltDescrInp { | "Test" "Descr" String }
 
 namespace Components.Gqlp_Schema_alt_descr_Input;
 
-internal class CmptAltDescrInpEncoder
+internal class CmptAltDescrInpEncoder : IEncoder<ICmptAltDescrInpObject>
 {
+  public Structured Encode(ICmptAltDescrInpObject input)
+    => Structured.Empty();
 }

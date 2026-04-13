@@ -50,7 +50,7 @@ internal class AllTypesEncoder(
 ) : IEncoder<BaseTypeModel>
 {
   Structured IEncoder<BaseTypeModel>.Encode(BaseTypeModel model)
-    => encoders.TypeEncoders
+    => encoders.EncodersFor<ITypeEncoder>()
     .SingleOrDefault(t => t.ForType(model))
     ?.TypeEncode(model)
     ?? throw new InvalidOperationException("Unable to find Encoder for " + model.GetType().ExpandTypeName());

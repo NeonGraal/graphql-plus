@@ -11,12 +11,15 @@ enum EnumFieldEnumDual { fieldEnumDual }
 
 namespace Components.Gqlp_Schema_field_enum_Dual;
 
-internal class CmptFieldEnumDualEncoder
+internal class CmptFieldEnumDualEncoder : IEncoder<ICmptFieldEnumDualObject>
 {
-  public CmptEnumFieldEnumDual Field { get; set; }
+  public Structured Encode(ICmptFieldEnumDualObject input)
+    => Structured.Empty()
+      .AddEnum("field", input.Field);
 }
 
-internal class CmptEnumFieldEnumDualEncoder
+internal class CmptEnumFieldEnumDualEncoder : IEncoder<CmptEnumFieldEnumDual>
 {
-  public string fieldEnumDual { get; set; }
+  public Structured Encode(CmptEnumFieldEnumDual input)
+    => new(input.ToString(), "_EnumFieldEnumDual");
 }

@@ -11,10 +11,17 @@ dual RefGnrcPrntArgDual<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_parent_arg_Dual;
 
-internal class CmptGnrcPrntArgDualEncoder<TType>
+internal class CmptGnrcPrntArgDualEncoder<TType>(
+  IEncoderRepository encoders
+) : IEncoder<ICmptGnrcPrntArgDualObject<TType>>
 {
+  private readonly IEncoder<ICmptRefGnrcPrntArgDualObject<TType>> _refGnrcPrntArgDual = encoders.EncoderFor<ICmptRefGnrcPrntArgDualObject<TType>>();
+  public Structured Encode(ICmptGnrcPrntArgDualObject<TType> input)
+    => _refGnrcPrntArgDual.Encode(input);
 }
 
-internal class CmptRefGnrcPrntArgDualEncoder<TRef>
+internal class CmptRefGnrcPrntArgDualEncoder<TRef> : IEncoder<ICmptRefGnrcPrntArgDualObject<TRef>>
 {
+  public Structured Encode(ICmptRefGnrcPrntArgDualObject<TRef> input)
+    => Structured.Empty();
 }

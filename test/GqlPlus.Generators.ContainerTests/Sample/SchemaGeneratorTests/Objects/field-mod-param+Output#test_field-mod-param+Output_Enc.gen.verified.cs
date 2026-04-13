@@ -7,12 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_mod_param_Output;
 
-internal class testFieldModParamOutpEncoder<TMod>
+internal class testFieldModParamOutpEncoder<TMod> : IEncoder<ItestFieldModParamOutpObject<TMod>>
 {
-  public IDictionary<TMod, ItestFldFieldModParamOutp> Field { get; set; }
+  public Structured Encode(ItestFieldModParamOutpObject<TMod> input)
+    => Structured.Empty();
 }
 
-internal class testFldFieldModParamOutpEncoder
+internal class testFldFieldModParamOutpEncoder : IEncoder<ItestFldFieldModParamOutpObject>
 {
-  public decimal Field { get; set; }
+  public Structured Encode(ItestFldFieldModParamOutpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

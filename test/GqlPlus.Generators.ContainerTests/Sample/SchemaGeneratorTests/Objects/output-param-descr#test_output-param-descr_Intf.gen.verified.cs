@@ -17,6 +17,7 @@ public interface ItestOutpParamDescrObject
   : IGqlpInterfaceBase
 {
   ItestFldOutpParamDescr? Field(ItestInOutpParamDescr parameter);
+  ItestFldOutpParamDescr? Field();
 }
 
 public interface ItestFldOutpParamDescr

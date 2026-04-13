@@ -10,6 +10,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_union_diff;
 public interface ItestUnionDiff
   : IGqlpInterfaceBase
 {
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }

@@ -208,47 +208,52 @@ public class CmptUnionDescr
   : Schema_+Simple
   , ICmptUnionDescr
 {
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class CmptUnionPrnt
   : CmptPrntUnionPrnt
   , ICmptUnionPrnt
 {
-  public String AsString { get; set; }
 }
 
 public class CmptPrntUnionPrnt
   : Schema_+Simple
   , ICmptPrntUnionPrnt
 {
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class CmptUnionPrntDescr
   : CmptPrntUnionPrntDescr
   , ICmptUnionPrntDescr
 {
-  public Number AsNumber { get; set; }
 }
 
 public class CmptPrntUnionPrntDescr
   : Schema_+Simple
   , ICmptPrntUnionPrntDescr
 {
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class CmptUnionPrntDup
   : CmptPrntUnionPrntDup
   , ICmptUnionPrntDup
 {
-  public Number AsNumber { get; set; }
 }
 
 public class CmptPrntUnionPrntDup
   : Schema_+Simple
   , ICmptPrntUnionPrntDup
 {
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }

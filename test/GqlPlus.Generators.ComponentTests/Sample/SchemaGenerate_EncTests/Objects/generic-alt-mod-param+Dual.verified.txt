@@ -10,6 +10,8 @@ dual RefGnrcAltModParamDual<$ref:String $mod:String> { | $ref[$mod] }
 
 namespace Components.Gqlp_Schema_generic_alt_mod_param_Dual;
 
-internal class CmptRefGnrcAltModParamDualEncoder<TRef,TMod>
+internal class CmptRefGnrcAltModParamDualEncoder<TRef,TMod> : IEncoder<ICmptRefGnrcAltModParamDualObject<TRef,TMod>>
 {
+  public Structured Encode(ICmptRefGnrcAltModParamDualObject<TRef,TMod> input)
+    => Structured.Empty();
 }

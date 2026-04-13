@@ -7,7 +7,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_input_field_Number;
 
-internal class testInpFieldNmbrEncoder
+internal class testInpFieldNmbrEncoder : IEncoder<ItestInpFieldNmbrObject>
 {
-  public decimal Field { get; set; }
+  public Structured Encode(ItestInpFieldNmbrObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

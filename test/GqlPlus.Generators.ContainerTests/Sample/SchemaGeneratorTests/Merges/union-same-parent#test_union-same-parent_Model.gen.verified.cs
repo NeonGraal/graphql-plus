@@ -11,12 +11,13 @@ public class testUnionSamePrnt
   : testPrntUnionSamePrnt
   , ItestUnionSamePrnt
 {
-  public Boolean AsBoolean { get; set; }
 }
 
 public class testPrntUnionSamePrnt
   : GqlpModelBase
   , ItestPrntUnionSamePrnt
 {
-  public String AsString { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }

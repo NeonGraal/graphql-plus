@@ -7,6 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_directive_param_in;
 
-internal class testInDrctParamInEncoder
+internal class testInDrctParamInEncoder : IEncoder<ItestInDrctParamInObject>
 {
+  public Structured Encode(ItestInDrctParamInObject input)
+    => Structured.Empty();
 }

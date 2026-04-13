@@ -17,11 +17,22 @@ output _UnionMember {
 
 namespace Components.Gqlp_Spec_Union;
 
-internal class Cmpt_UnionRefEncoder
+internal class Cmpt_UnionRefEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_UnionRefObject>
 {
+  private readonly IEncoder<ICmpt_TypeRefObject<ICmpt_SimpleKind>> _typeRef = encoders.EncoderFor<ICmpt_TypeRefObject<ICmpt_SimpleKind>>();
+  public Structured Encode(ICmpt_UnionRefObject input)
+    => _typeRef.Encode(input);
 }
 
-internal class Cmpt_UnionMemberEncoder
+internal class Cmpt_UnionMemberEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_UnionMemberObject>
 {
-  public ICmpt_Name Union { get; set; }
+  private readonly IEncoder<ICmpt_UnionRefObject> _unionRef = encoders.EncoderFor<ICmpt_UnionRefObject>();
+  private readonly IEncoder<ICmpt_Name> _name = encoders.EncoderFor<ICmpt_Name>();
+  public Structured Encode(ICmpt_UnionMemberObject input)
+    => _unionRef.Encode(input)
+      .AddEncoded("union", input.Union, _name);
 }

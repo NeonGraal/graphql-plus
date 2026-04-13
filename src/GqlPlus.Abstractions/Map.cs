@@ -5,7 +5,6 @@ namespace GqlPlus;
 public class Map<TMap>
   : SortedDictionary<string, TMap>
   , IMap<TMap>
-  , IReadOnlyMap<TMap>
 {
   public Map()
     : base()
@@ -15,8 +14,6 @@ public class Map<TMap>
     : base(map)
   { }
 
-  public TMap GetValueOrDefault(string key, TMap defaultValue)
-    => TryGetValue(key, out TMap value) ? value : defaultValue;
   public bool TryAdd(string key, TMap value)
   {
     if (ContainsKey(key)) {

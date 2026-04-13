@@ -13,5 +13,6 @@ namespace Components.Gqlp_Schema_union_descr;
 public interface ICmptUnionDescr
   : Schema_union-descr
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }

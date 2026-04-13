@@ -71,25 +71,22 @@ public interface string
 public interface ICmpt_Basic
   : Spec_Definition
 {
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
-  String AsString { get; }
-  Unit AsUnit { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmpt_Internal
   : Spec_Definition
 {
-  Null AsNull { get; }
-  Void AsVoid { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmpt_Key
   : Spec_Definition
 {
-  _Basic As_Basic { get; }
-  _Internal As_Internal { get; }
-  _Simple As_Simple { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmpt_Object
@@ -106,6 +103,8 @@ public interface ICmpt_ObjectObject
 public interface ICmpt_Domain
   : Spec_Definition
 {
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmpt_Dual
@@ -122,6 +121,8 @@ public interface ICmpt_DualObject
 public interface ICmpt_Enum
   : Spec_Definition
 {
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmpt_Input
@@ -149,12 +150,13 @@ public interface ICmpt_OutputObject
 public interface ICmpt_Union
   : Spec_Definition
 {
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmpt_Simple
   : Spec_Definition
 {
-  _Enum As_Enum { get; }
-  _Domain As_Domain { get; }
-  _Union As_Union { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }

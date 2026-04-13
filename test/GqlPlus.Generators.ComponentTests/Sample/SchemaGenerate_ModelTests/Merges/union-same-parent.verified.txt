@@ -16,12 +16,13 @@ public class CmptUnionSamePrnt
   : CmptPrntUnionSamePrnt
   , ICmptUnionSamePrnt
 {
-  public Boolean AsBoolean { get; set; }
 }
 
 public class CmptPrntUnionSamePrnt
   : Schema_union-same-parent
   , ICmptPrntUnionSamePrnt
 {
-  public String AsString { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }

@@ -7,12 +7,19 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_parent_field_Input;
 
-internal class testPrntFieldInpEncoder
+internal class testPrntFieldInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestPrntFieldInpObject>
 {
-  public decimal Field { get; set; }
+  private readonly IEncoder<ItestRefPrntFieldInpObject> _itestRefPrntFieldInp = encoders.EncoderFor<ItestRefPrntFieldInpObject>();
+  public Structured Encode(ItestPrntFieldInpObject input)
+    => _itestRefPrntFieldInp.Encode(input)
+      .Add("field", input.Field);
 }
 
-internal class testRefPrntFieldInpEncoder
+internal class testRefPrntFieldInpEncoder : IEncoder<ItestRefPrntFieldInpObject>
 {
-  public decimal Parent { get; set; }
+  public Structured Encode(ItestRefPrntFieldInpObject input)
+    => Structured.Empty()
+      .Add("parent", input.Parent);
 }

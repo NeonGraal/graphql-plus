@@ -11,10 +11,14 @@ domain PrntDmnBoolPrntDescr { Boolean true }
 
 namespace Components.Gqlp_Schema_domain_bool_parent_descr;
 
-internal class CmptDmnBoolPrntDescrEncoder
+internal class CmptDmnBoolPrntDescrEncoder : IEncoder<ICmptDmnBoolPrntDescr>
 {
+  public Structured Encode(ICmptDmnBoolPrntDescr input)
+    => new(input.Value);
 }
 
-internal class CmptPrntDmnBoolPrntDescrEncoder
+internal class CmptPrntDmnBoolPrntDescrEncoder : IEncoder<ICmptPrntDmnBoolPrntDescr>
 {
+  public Structured Encode(ICmptPrntDmnBoolPrntDescr input)
+    => new(input.Value);
 }

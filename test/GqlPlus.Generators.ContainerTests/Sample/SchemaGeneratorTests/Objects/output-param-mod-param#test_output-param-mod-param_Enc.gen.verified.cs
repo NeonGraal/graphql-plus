@@ -7,17 +7,25 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_output_param_mod_param;
 
-internal class testOutpParamModParamEncoder<TMod>
+internal class testOutpParamModParamEncoder<TMod>(
+  IEncoderRepository encoders
+) : IEncoder<ItestOutpParamModParamObject<TMod>>
 {
-  public ItestDomOutpParamModParam? Field(IDictionary<TMod, ItestInOutpParamModParam> parameter)
-    => null;
+  private readonly IEncoder<ItestDomOutpParamModParam> _itestDomOutpParamModParam = encoders.EncoderFor<ItestDomOutpParamModParam>();
+  public Structured Encode(ItestOutpParamModParamObject<TMod> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field(), _itestDomOutpParamModParam);
 }
 
-internal class testInOutpParamModParamEncoder
+internal class testInOutpParamModParamEncoder : IEncoder<ItestInOutpParamModParamObject>
 {
-  public decimal Param { get; set; }
+  public Structured Encode(ItestInOutpParamModParamObject input)
+    => Structured.Empty()
+      .Add("param", input.Param);
 }
 
-internal class testDomOutpParamModParamEncoder
+internal class testDomOutpParamModParamEncoder : IEncoder<ItestDomOutpParamModParam>
 {
+  public Structured Encode(ItestDomOutpParamModParam input)
+    => new(input.Value);
 }

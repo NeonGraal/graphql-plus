@@ -21,8 +21,8 @@ public enum testOne
 public interface ItestMany
   : IGqlpInterfaceBase
 {
-  Guid AsGuid { get; }
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ItestField
@@ -62,4 +62,5 @@ public interface ItestAllObject
   : IGqlpInterfaceBase
 {
   ItestField? Items(ItestParam? parameter);
+  ItestField? Items();
 }

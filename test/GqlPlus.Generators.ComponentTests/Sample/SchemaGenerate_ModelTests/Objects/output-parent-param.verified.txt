@@ -27,6 +27,8 @@ public class CmptOutpPrntParamObject
 {
   public ICmptFldOutpPrntParam? Field(ICmptInOutpPrntParam parameter)
     => null;
+  public ICmptFldOutpPrntParam? Field()
+    => null;
 
   public CmptOutpPrntParamObject
     ()
@@ -46,6 +48,8 @@ public class CmptPrntOutpPrntParamObject
   , ICmptPrntOutpPrntParamObject
 {
   public ICmptFldOutpPrntParam? Field(ICmptPrntOutpPrntParamIn parameter)
+    => null;
+  public ICmptFldOutpPrntParam? Field()
     => null;
 
   public CmptPrntOutpPrntParamObject

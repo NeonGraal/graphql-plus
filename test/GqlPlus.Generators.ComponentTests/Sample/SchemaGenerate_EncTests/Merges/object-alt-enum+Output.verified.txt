@@ -11,6 +11,8 @@ output ObjAltEnumOutp { ! false }
 
 namespace Components.Gqlp_Schema_object_alt_enum_Output;
 
-internal class CmptObjAltEnumOutpEncoder
+internal class CmptObjAltEnumOutpEncoder : IEncoder<ICmptObjAltEnumOutpObject>
 {
+  public Structured Encode(ICmptObjAltEnumOutpObject input)
+    => Structured.Empty();
 }

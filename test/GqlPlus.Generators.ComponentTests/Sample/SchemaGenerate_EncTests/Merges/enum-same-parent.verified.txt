@@ -12,13 +12,14 @@ enum PrntEnumSamePrnt { prnt_enumSamePrnt }
 
 namespace Components.Gqlp_Schema_enum_same_parent;
 
-internal class CmptEnumSamePrntEncoder
+internal class CmptEnumSamePrntEncoder : IEncoder<CmptEnumSamePrnt>
 {
-  public string prnt_enumSamePrnt { get; set; }
-  public string enumSamePrnt { get; set; }
+  public Structured Encode(CmptEnumSamePrnt input)
+    => new(input.ToString(), "_EnumSamePrnt");
 }
 
-internal class CmptPrntEnumSamePrntEncoder
+internal class CmptPrntEnumSamePrntEncoder : IEncoder<CmptPrntEnumSamePrnt>
 {
-  public string prnt_enumSamePrnt { get; set; }
+  public Structured Encode(CmptPrntEnumSamePrnt input)
+    => new(input.ToString(), "_PrntEnumSamePrnt");
 }

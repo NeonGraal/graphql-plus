@@ -41,41 +41,59 @@ input _TypeFilter {
 
 namespace Components.Gqlp_Spec_Declarations;
 
-internal class Cmpt_SchemaEncoder
+internal class Cmpt_SchemaEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_SchemaObject>
 {
-  public IDictionary<ICmpt_Name, ICmpt_Categories>? Categories(ICmpt_CategoryFilter? parameter)
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Directives>? Directives(ICmpt_Filter? parameter)
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Type>? Types(ICmpt_TypeFilter? parameter)
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Setting>? Settings(ICmpt_Filter? parameter)
-    => null;
+  private readonly IEncoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
+  public Structured Encode(ICmpt_SchemaObject input)
+    => _named.Encode(input);
 }
 
-internal class Cmpt_NameEncoder
+internal class Cmpt_NameEncoder : IEncoder<ICmpt_Name>
 {
+  public Structured Encode(ICmpt_Name input)
+    => new(input.Value);
 }
 
-internal class Cmpt_FilterEncoder
+internal class Cmpt_FilterEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_FilterObject>
 {
-  public ICollection<ICmpt_NameFilter> Names { get; set; }
-  public bool? MatchAliases { get; set; }
-  public ICollection<ICmpt_NameFilter> Aliases { get; set; }
-  public bool? ReturnByAlias { get; set; }
-  public bool? ReturnReferencedTypes { get; set; }
+  private readonly IEncoder<ICmpt_NameFilter> _nameFilter = encoders.EncoderFor<ICmpt_NameFilter>();
+  public Structured Encode(ICmpt_FilterObject input)
+    => Structured.Empty()
+      .AddList("names", input.Names, _nameFilter)
+      .Add("matchAliases", input.MatchAliases)
+      .AddList("aliases", input.Aliases, _nameFilter)
+      .Add("returnByAlias", input.ReturnByAlias)
+      .Add("returnReferencedTypes", input.ReturnReferencedTypes);
 }
 
-internal class Cmpt_NameFilterEncoder
+internal class Cmpt_NameFilterEncoder : IEncoder<ICmpt_NameFilter>
 {
+  public Structured Encode(ICmpt_NameFilter input)
+    => new(input.Value);
 }
 
-internal class Cmpt_CategoryFilterEncoder
+internal class Cmpt_CategoryFilterEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_CategoryFilterObject>
 {
-  public ICollection<ICmpt_Resolution> Resolutions { get; set; }
+  private readonly IEncoder<ICmpt_FilterObject> _filter = encoders.EncoderFor<ICmpt_FilterObject>();
+  private readonly IEncoder<ICmpt_Resolution> _resolution = encoders.EncoderFor<ICmpt_Resolution>();
+  public Structured Encode(ICmpt_CategoryFilterObject input)
+    => _filter.Encode(input)
+      .AddList("resolutions", input.Resolutions, _resolution);
 }
 
-internal class Cmpt_TypeFilterEncoder
+internal class Cmpt_TypeFilterEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_TypeFilterObject>
 {
-  public ICollection<ICmpt_TypeKind> Kinds { get; set; }
+  private readonly IEncoder<ICmpt_FilterObject> _filter = encoders.EncoderFor<ICmpt_FilterObject>();
+  private readonly IEncoder<ICmpt_TypeKind> _typeKind = encoders.EncoderFor<ICmpt_TypeKind>();
+  public Structured Encode(ICmpt_TypeFilterObject input)
+    => _filter.Encode(input)
+      .AddList("kinds", input.Kinds, _typeKind);
 }

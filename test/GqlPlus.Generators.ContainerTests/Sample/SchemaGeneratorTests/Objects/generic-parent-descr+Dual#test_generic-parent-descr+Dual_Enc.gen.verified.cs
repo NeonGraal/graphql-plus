@@ -7,6 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_descr_Dual;
 
-internal class testGnrcPrntDescrDualEncoder<TType>
+internal class testGnrcPrntDescrDualEncoder<TType> : IEncoder<ItestGnrcPrntDescrDualObject<TType>>
 {
+  public Structured Encode(ItestGnrcPrntDescrDualObject<TType> input)
+    => Structured.Empty();
 }

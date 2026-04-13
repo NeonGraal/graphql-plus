@@ -20,6 +20,8 @@ public class testOutpPrntParamObject
 {
   public ItestFldOutpPrntParam? Field(ItestInOutpPrntParam parameter)
     => null;
+  public ItestFldOutpPrntParam? Field()
+    => null;
 
   public testOutpPrntParamObject
     ()
@@ -39,6 +41,8 @@ public class testPrntOutpPrntParamObject
   , ItestPrntOutpPrntParamObject
 {
   public ItestFldOutpPrntParam? Field(ItestPrntOutpPrntParamIn parameter)
+    => null;
+  public ItestFldOutpPrntParam? Field()
     => null;
 
   public testPrntOutpPrntParamObject

@@ -18,14 +18,23 @@ domain _Identifier { String /[A-Za-z_][A-Za-z0-9_]*/ }
 
 namespace Components.Gqlp_Spec_Full;
 
-internal class Cmpt_RequestEncoder
+internal class Cmpt_RequestEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_RequestObject>
 {
-  public ICmpt_Identifier? Category { get; set; }
-  public ICmpt_Identifier? Operation { get; set; }
-  public ICmpt_Operation Definition { get; set; }
-  public ICmpt_Any? Parameters { get; set; }
+  private readonly IEncoder<ICmpt_Identifier> _identifier = encoders.EncoderFor<ICmpt_Identifier>();
+  private readonly IEncoder<ICmpt_Operation> _operation = encoders.EncoderFor<ICmpt_Operation>();
+  private readonly IEncoder<ICmpt_Any> _any = encoders.EncoderFor<ICmpt_Any>();
+  public Structured Encode(ICmpt_RequestObject input)
+    => Structured.Empty()
+      .AddEncoded("category", input.Category, _identifier)
+      .AddEncoded("operation", input.Operation, _identifier)
+      .AddEncoded("definition", input.Definition, _operation)
+      .AddEncoded("parameters", input.Parameters, _any);
 }
 
-internal class Cmpt_IdentifierEncoder
+internal class Cmpt_IdentifierEncoder : IEncoder<ICmpt_Identifier>
 {
+  public Structured Encode(ICmpt_Identifier input)
+    => new(input.Value);
 }

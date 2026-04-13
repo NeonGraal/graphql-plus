@@ -48,8 +48,8 @@ public enum CmptOne
 public interface ICmptMany
   : Schema_all
 {
-  Guid AsGuid { get; }
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmptField

@@ -13,10 +13,8 @@ internal class testUnionPrntDescrEncoder(
 {
   private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ItestUnionPrntDescr input)
-    => input switch {
-      { AsNumber: { } m } => _number.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+     : Structured.Empty();
 }
 
 internal class testPrntUnionPrntDescrEncoder(
@@ -25,8 +23,6 @@ internal class testPrntUnionPrntDescrEncoder(
 {
   private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ItestPrntUnionPrntDescr input)
-    => input switch {
-      { AsNumber: { } m } => _number.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+     : Structured.Empty();
 }

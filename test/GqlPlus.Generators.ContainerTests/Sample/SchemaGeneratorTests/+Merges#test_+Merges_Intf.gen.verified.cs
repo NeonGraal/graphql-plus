@@ -807,31 +807,32 @@ public interface ItestFldOutpFieldParamObject
 public interface ItestUnionAlias
   : IGqlpInterfaceBase
 {
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ItestUnionDiff
   : IGqlpInterfaceBase
 {
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ItestUnionSame
   : IGqlpInterfaceBase
 {
-  Boolean AsBoolean { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ItestUnionSamePrnt
   : ItestPrntUnionSamePrnt
 {
-  Boolean AsBoolean { get; }
 }
 
 public interface ItestPrntUnionSamePrnt
   : IGqlpInterfaceBase
 {
-  String AsString { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }

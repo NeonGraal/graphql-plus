@@ -14,9 +14,7 @@ internal class testUnionDiffEncoder(
   private readonly IEncoder<bool> _boolean = encoders.EncoderFor<bool>();
   private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ItestUnionDiff input)
-    => input switch {
-      { AsBoolean: { } m } => _boolean.Encode(m),
-      { AsNumber: { } m } => _number.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
+     : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+     : Structured.Empty();
 }

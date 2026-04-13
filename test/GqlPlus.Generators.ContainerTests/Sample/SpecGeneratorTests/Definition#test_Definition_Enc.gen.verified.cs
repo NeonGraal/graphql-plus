@@ -52,13 +52,11 @@ internal class test_BasicEncoder(
   private readonly IEncoder<string> _string = encoders.EncoderFor<string>();
   private readonly IEncoder<GqlpUnit> _unit = encoders.EncoderFor<GqlpUnit>();
   public Structured Encode(Itest_Basic input)
-    => input switch {
-      { AsBoolean: { } m } => _boolean.Encode(m),
-      { AsNumber: { } m } => _number.Encode(m),
-      { AsString: { } m } => _string.Encode(m),
-      { AsUnit: { } m } => _unit.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
+     : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+     : input.HasA<string>() ? _string.Encode(input.AsA<string>())
+     : input.HasA<GqlpUnit>() ? _unit.Encode(input.AsA<GqlpUnit>())
+     : Structured.Empty();
 }
 
 internal class test_InternalEncoder(
@@ -68,11 +66,9 @@ internal class test_InternalEncoder(
   private readonly IEncoder<GqlpNull> _null = encoders.EncoderFor<GqlpNull>();
   private readonly IEncoder<void> _void = encoders.EncoderFor<void>();
   public Structured Encode(Itest_Internal input)
-    => input switch {
-      { AsNull: { } m } => _null.Encode(m),
-      { AsVoid: { } m } => _void.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<GqlpNull>() ? _null.Encode(input.AsA<GqlpNull>())
+     : input.HasA<void>() ? _void.Encode(input.AsA<void>())
+     : Structured.Empty();
 }
 
 internal class test_KeyEncoder(
@@ -83,12 +79,10 @@ internal class test_KeyEncoder(
   private readonly IEncoder<Itest_Internal> __internal = encoders.EncoderFor<Itest_Internal>();
   private readonly IEncoder<Itest_Simple> __simple = encoders.EncoderFor<Itest_Simple>();
   public Structured Encode(Itest_Key input)
-    => input switch {
-      { As_Basic: { } m } => __basic.Encode(m),
-      { As_Internal: { } m } => __internal.Encode(m),
-      { As_Simple: { } m } => __simple.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<Itest_Basic>() ? __basic.Encode(input.AsA<Itest_Basic>())
+     : input.HasA<Itest_Internal>() ? __internal.Encode(input.AsA<Itest_Internal>())
+     : input.HasA<Itest_Simple>() ? __simple.Encode(input.AsA<Itest_Simple>())
+     : Structured.Empty();
 }
 
 internal class test_ObjectEncoder : IEncoder<Itest_ObjectObject>
@@ -141,10 +135,8 @@ internal class test_SimpleEncoder(
   private readonly IEncoder<Itest_Domain> __domain = encoders.EncoderFor<Itest_Domain>();
   private readonly IEncoder<Itest_Union> __union = encoders.EncoderFor<Itest_Union>();
   public Structured Encode(Itest_Simple input)
-    => input switch {
-      { As_Enum: { } m } => __enum.Encode(m),
-      { As_Domain: { } m } => __domain.Encode(m),
-      { As_Union: { } m } => __union.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<Itest_Enum>() ? __enum.Encode(input.AsA<Itest_Enum>())
+     : input.HasA<Itest_Domain>() ? __domain.Encode(input.AsA<Itest_Domain>())
+     : input.HasA<Itest_Union>() ? __union.Encode(input.AsA<Itest_Union>())
+     : Structured.Empty();
 }

@@ -576,11 +576,9 @@ internal class testUnionAliasEncoder(
   private readonly IEncoder<bool> _boolean = encoders.EncoderFor<bool>();
   private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ItestUnionAlias input)
-    => input switch {
-      { AsBoolean: { } m } => _boolean.Encode(m),
-      { AsNumber: { } m } => _number.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
+     : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+     : Structured.Empty();
 }
 
 internal class testUnionDiffEncoder(
@@ -590,11 +588,9 @@ internal class testUnionDiffEncoder(
   private readonly IEncoder<bool> _boolean = encoders.EncoderFor<bool>();
   private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ItestUnionDiff input)
-    => input switch {
-      { AsBoolean: { } m } => _boolean.Encode(m),
-      { AsNumber: { } m } => _number.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
+     : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+     : Structured.Empty();
 }
 
 internal class testUnionSameEncoder(
@@ -603,10 +599,8 @@ internal class testUnionSameEncoder(
 {
   private readonly IEncoder<bool> _boolean = encoders.EncoderFor<bool>();
   public Structured Encode(ItestUnionSame input)
-    => input switch {
-      { AsBoolean: { } m } => _boolean.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
+     : Structured.Empty();
 }
 
 internal class testUnionSamePrntEncoder(
@@ -615,10 +609,8 @@ internal class testUnionSamePrntEncoder(
 {
   private readonly IEncoder<bool> _boolean = encoders.EncoderFor<bool>();
   public Structured Encode(ItestUnionSamePrnt input)
-    => input switch {
-      { AsBoolean: { } m } => _boolean.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
+     : Structured.Empty();
 }
 
 internal class testPrntUnionSamePrntEncoder(
@@ -627,8 +619,6 @@ internal class testPrntUnionSamePrntEncoder(
 {
   private readonly IEncoder<string> _string = encoders.EncoderFor<string>();
   public Structured Encode(ItestPrntUnionSamePrnt input)
-    => input switch {
-      { AsString: { } m } => _string.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<string>() ? _string.Encode(input.AsA<string>())
+     : Structured.Empty();
 }

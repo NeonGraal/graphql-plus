@@ -14,5 +14,6 @@ namespace Components.Gqlp_Schema_union_same;
 public interface ICmptUnionSame
   : Schema_union-same
 {
-  Boolean AsBoolean { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }

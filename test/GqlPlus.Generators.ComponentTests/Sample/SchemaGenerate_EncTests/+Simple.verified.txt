@@ -378,10 +378,8 @@ internal class CmptUnionDescrEncoder(
 {
   private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ICmptUnionDescr input)
-    => input switch {
-      { AsNumber: { } m } => _number.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+     : Structured.Empty();
 }
 
 internal class CmptUnionPrntEncoder(
@@ -390,10 +388,8 @@ internal class CmptUnionPrntEncoder(
 {
   private readonly IEncoder<string> _string = encoders.EncoderFor<string>();
   public Structured Encode(ICmptUnionPrnt input)
-    => input switch {
-      { AsString: { } m } => _string.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<string>() ? _string.Encode(input.AsA<string>())
+     : Structured.Empty();
 }
 
 internal class CmptPrntUnionPrntEncoder(
@@ -402,10 +398,8 @@ internal class CmptPrntUnionPrntEncoder(
 {
   private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ICmptPrntUnionPrnt input)
-    => input switch {
-      { AsNumber: { } m } => _number.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+     : Structured.Empty();
 }
 
 internal class CmptUnionPrntDescrEncoder(
@@ -414,10 +408,8 @@ internal class CmptUnionPrntDescrEncoder(
 {
   private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ICmptUnionPrntDescr input)
-    => input switch {
-      { AsNumber: { } m } => _number.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+     : Structured.Empty();
 }
 
 internal class CmptPrntUnionPrntDescrEncoder(
@@ -426,10 +418,8 @@ internal class CmptPrntUnionPrntDescrEncoder(
 {
   private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ICmptPrntUnionPrntDescr input)
-    => input switch {
-      { AsNumber: { } m } => _number.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+     : Structured.Empty();
 }
 
 internal class CmptUnionPrntDupEncoder(
@@ -438,10 +428,8 @@ internal class CmptUnionPrntDupEncoder(
 {
   private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ICmptUnionPrntDup input)
-    => input switch {
-      { AsNumber: { } m } => _number.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+     : Structured.Empty();
 }
 
 internal class CmptPrntUnionPrntDupEncoder(
@@ -450,8 +438,6 @@ internal class CmptPrntUnionPrntDupEncoder(
 {
   private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ICmptPrntUnionPrntDup input)
-    => input switch {
-      { AsNumber: { } m } => _number.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+     : Structured.Empty();
 }

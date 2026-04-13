@@ -17,8 +17,9 @@ public class testMany
   : GqlpModelBase
   , ItestMany
 {
-  public Guid AsGuid { get; set; }
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class testField

@@ -575,11 +575,9 @@ internal class CmptUnionAliasEncoder(
   private readonly IEncoder<bool> _boolean = encoders.EncoderFor<bool>();
   private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ICmptUnionAlias input)
-    => input switch {
-      { AsBoolean: { } m } => _boolean.Encode(m),
-      { AsNumber: { } m } => _number.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
+     : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+     : Structured.Empty();
 }
 
 internal class CmptUnionDiffEncoder(
@@ -589,11 +587,9 @@ internal class CmptUnionDiffEncoder(
   private readonly IEncoder<bool> _boolean = encoders.EncoderFor<bool>();
   private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ICmptUnionDiff input)
-    => input switch {
-      { AsBoolean: { } m } => _boolean.Encode(m),
-      { AsNumber: { } m } => _number.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
+     : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+     : Structured.Empty();
 }
 
 internal class CmptUnionSameEncoder(
@@ -602,10 +598,8 @@ internal class CmptUnionSameEncoder(
 {
   private readonly IEncoder<bool> _boolean = encoders.EncoderFor<bool>();
   public Structured Encode(ICmptUnionSame input)
-    => input switch {
-      { AsBoolean: { } m } => _boolean.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
+     : Structured.Empty();
 }
 
 internal class CmptUnionSamePrntEncoder(
@@ -614,10 +608,8 @@ internal class CmptUnionSamePrntEncoder(
 {
   private readonly IEncoder<bool> _boolean = encoders.EncoderFor<bool>();
   public Structured Encode(ICmptUnionSamePrnt input)
-    => input switch {
-      { AsBoolean: { } m } => _boolean.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
+     : Structured.Empty();
 }
 
 internal class CmptPrntUnionSamePrntEncoder(
@@ -626,8 +618,6 @@ internal class CmptPrntUnionSamePrntEncoder(
 {
   private readonly IEncoder<string> _string = encoders.EncoderFor<string>();
   public Structured Encode(ICmptPrntUnionSamePrnt input)
-    => input switch {
-      { AsString: { } m } => _string.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<string>() ? _string.Encode(input.AsA<string>())
+     : Structured.Empty();
 }

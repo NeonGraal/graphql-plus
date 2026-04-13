@@ -26,11 +26,9 @@ internal class testManyEncoder(
   private readonly IEncoder<ItestGuid> _guid = encoders.EncoderFor<ItestGuid>();
   private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ItestMany input)
-    => input switch {
-      { AsGuid: { } m } => _guid.Encode(m),
-      { AsNumber: { } m } => _number.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<ItestGuid>() ? _guid.Encode(input.AsA<ItestGuid>())
+     : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+     : Structured.Empty();
 }
 
 internal class testFieldEncoder : IEncoder<ItestFieldObject>

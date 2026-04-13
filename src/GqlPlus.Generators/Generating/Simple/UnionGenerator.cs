@@ -17,14 +17,35 @@ internal sealed class UnionInterfaceGenerator
   : UnionGeneratorBase
 {
   protected override void Generate(IAstUnion ast, GqlpGeneratorContext context)
-    => GenerateBlock(ast, context, InterfaceHeader, TypeMembers, InterfaceMember);
+  {
+    context.Write("");
+    InterfaceHeader(ast, context);
+    context.Write("{");
+    if (ast.Parent is null) {
+      context.Write("  bool HasA<T>();");
+      context.Write("  T AsA<T>();");
+    }
+
+    context.Write("}");
+  }
 }
 
 internal sealed class UnionModelGenerator
   : UnionGeneratorBase
 {
   protected override void Generate(IAstUnion ast, GqlpGeneratorContext context)
-    => GenerateBlock(ast, context, ClassHeader, TypeMembers, ClassMember, ClassTail);
+  {
+    context.Write("");
+    ClassHeader(ast, context);
+    context.Write("{");
+    if (ast.Parent is null) {
+      context.Write("  private object? _value;");
+      context.Write("  public bool HasA<T>() => _value is T;");
+      context.Write("  public T AsA<T>() => (T)_value!;");
+    }
+
+    context.Write("}");
+  }
 }
 
 internal sealed class UnionDecoderGenerator
@@ -65,15 +86,15 @@ internal sealed class UnionEncoderGenerator
     }
 
     context.Write($"  public Structured Encode({interfaceName} input)");
-    context.Write("    => input switch {");
-
+    string encoderPrefix = "    => ";
     foreach (MapPair<string> member in members) {
+      string memberCsType = context.TypeName(member.Value, "I");
       string varName = "_" + member.Key.Substring(2).ToLower(System.Globalization.CultureInfo.InvariantCulture);
-      context.Write($"      {{ {member.Key}: {{ }} m }} => {varName}.Encode(m),");
+      context.Write($"{encoderPrefix}input.HasA<{memberCsType}>() ? {varName}.Encode(input.AsA<{memberCsType}>())");
+      encoderPrefix = "     : ";
     }
 
-    context.Write("      _ => Structured.Empty()");
-    context.Write("    };");
+    context.Write("     : Structured.Empty();");
     context.Write("}");
   }
 }

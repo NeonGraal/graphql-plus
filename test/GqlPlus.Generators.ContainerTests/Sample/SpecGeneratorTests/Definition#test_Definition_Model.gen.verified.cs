@@ -23,27 +23,27 @@ public class test_Basic
   : GqlpModelBase
   , Itest_Basic
 {
-  public Boolean AsBoolean { get; set; }
-  public Number AsNumber { get; set; }
-  public String AsString { get; set; }
-  public Unit AsUnit { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class test_Internal
   : GqlpModelBase
   , Itest_Internal
 {
-  public Null AsNull { get; set; }
-  public Void AsVoid { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class test_Key
   : GqlpModelBase
   , Itest_Key
 {
-  public _Basic As_Basic { get; set; }
-  public _Internal As_Internal { get; set; }
-  public _Simple As_Simple { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class test_Object
@@ -68,6 +68,9 @@ public class test_Domain
   : GqlpModelBase
   , Itest_Domain
 {
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class test_Dual
@@ -92,6 +95,9 @@ public class test_Enum
   : GqlpModelBase
   , Itest_Enum
 {
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class test_Input
@@ -134,13 +140,16 @@ public class test_Union
   : GqlpModelBase
   , Itest_Union
 {
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class test_Simple
   : GqlpModelBase
   , Itest_Simple
 {
-  public _Enum As_Enum { get; set; }
-  public _Domain As_Domain { get; set; }
-  public _Union As_Union { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }

@@ -6724,33 +6724,34 @@ public interface ICmptFldOutpFieldParamObject
 public interface ICmptUnionAlias
   : Schema_!ALL
 {
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmptUnionDiff
   : Schema_!ALL
 {
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmptUnionSame
   : Schema_!ALL
 {
-  Boolean AsBoolean { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmptUnionSamePrnt
   : ICmptPrntUnionSamePrnt
 {
-  Boolean AsBoolean { get; }
 }
 
 public interface ICmptPrntUnionSamePrnt
   : Schema_!ALL
 {
-  String AsString { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmptDmnBoolDescr
@@ -7098,41 +7099,42 @@ public enum CmptPrntEnumPrntDup
 public interface ICmptUnionDescr
   : Schema_!ALL
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmptUnionPrnt
   : ICmptPrntUnionPrnt
 {
-  String AsString { get; }
 }
 
 public interface ICmptPrntUnionPrnt
   : Schema_!ALL
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmptUnionPrntDescr
   : ICmptPrntUnionPrntDescr
 {
-  Number AsNumber { get; }
 }
 
 public interface ICmptPrntUnionPrntDescr
   : Schema_!ALL
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmptUnionPrntDup
   : ICmptPrntUnionPrntDup
 {
-  Number AsNumber { get; }
 }
 
 public interface ICmptPrntUnionPrntDup
   : Schema_!ALL
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }

@@ -13,8 +13,6 @@ internal class testUnionSameEncoder(
 {
   private readonly IEncoder<bool> _boolean = encoders.EncoderFor<bool>();
   public Structured Encode(ItestUnionSame input)
-    => input switch {
-      { AsBoolean: { } m } => _boolean.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
+     : Structured.Empty();
 }

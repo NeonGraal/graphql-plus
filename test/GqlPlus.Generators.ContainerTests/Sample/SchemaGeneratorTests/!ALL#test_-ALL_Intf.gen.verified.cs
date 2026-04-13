@@ -6725,33 +6725,34 @@ public interface ItestFldOutpFieldParamObject
 public interface ItestUnionAlias
   : IGqlpInterfaceBase
 {
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ItestUnionDiff
   : IGqlpInterfaceBase
 {
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ItestUnionSame
   : IGqlpInterfaceBase
 {
-  Boolean AsBoolean { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ItestUnionSamePrnt
   : ItestPrntUnionSamePrnt
 {
-  Boolean AsBoolean { get; }
 }
 
 public interface ItestPrntUnionSamePrnt
   : IGqlpInterfaceBase
 {
-  String AsString { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ItestDmnBoolDescr
@@ -7099,41 +7100,42 @@ public enum testPrntEnumPrntDup
 public interface ItestUnionDescr
   : IGqlpInterfaceBase
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ItestUnionPrnt
   : ItestPrntUnionPrnt
 {
-  String AsString { get; }
 }
 
 public interface ItestPrntUnionPrnt
   : IGqlpInterfaceBase
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ItestUnionPrntDescr
   : ItestPrntUnionPrntDescr
 {
-  Number AsNumber { get; }
 }
 
 public interface ItestPrntUnionPrntDescr
   : IGqlpInterfaceBase
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ItestUnionPrntDup
   : ItestPrntUnionPrntDup
 {
-  Number AsNumber { get; }
 }
 
 public interface ItestPrntUnionPrntDup
   : IGqlpInterfaceBase
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }

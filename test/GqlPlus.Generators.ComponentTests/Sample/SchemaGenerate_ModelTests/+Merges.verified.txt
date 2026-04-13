@@ -1272,35 +1272,40 @@ public class CmptUnionAlias
   : Schema_+Merges
   , ICmptUnionAlias
 {
-  public Boolean AsBoolean { get; set; }
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class CmptUnionDiff
   : Schema_+Merges
   , ICmptUnionDiff
 {
-  public Boolean AsBoolean { get; set; }
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class CmptUnionSame
   : Schema_+Merges
   , ICmptUnionSame
 {
-  public Boolean AsBoolean { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class CmptUnionSamePrnt
   : CmptPrntUnionSamePrnt
   , ICmptUnionSamePrnt
 {
-  public Boolean AsBoolean { get; set; }
 }
 
 public class CmptPrntUnionSamePrnt
   : Schema_+Merges
   , ICmptPrntUnionSamePrnt
 {
-  public String AsString { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }

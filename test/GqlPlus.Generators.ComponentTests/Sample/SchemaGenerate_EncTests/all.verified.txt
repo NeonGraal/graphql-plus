@@ -53,11 +53,9 @@ internal class CmptManyEncoder(
   private readonly IEncoder<ICmptGuid> _guid = encoders.EncoderFor<ICmptGuid>();
   private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ICmptMany input)
-    => input switch {
-      { AsGuid: { } m } => _guid.Encode(m),
-      { AsNumber: { } m } => _number.Encode(m),
-      _ => Structured.Empty()
-    };
+    => input.HasA<ICmptGuid>() ? _guid.Encode(input.AsA<ICmptGuid>())
+     : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+     : Structured.Empty();
 }
 
 internal class CmptFieldEncoder : IEncoder<ICmptFieldObject>

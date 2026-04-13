@@ -15,6 +15,6 @@ internal class DecoderRepository
   public IDecoder<T> DecoderFor<T>()
     => Cached<T, IDecoder<T>>(_builder.Decoders, "decoder", this);
   public TDecoder DecoderFor<TDecoder, TBase>()
-    where TDecoder : IDecoder<TBase>
+    where TDecoder : class, IDecoder<TBase>
     => Cached<TDecoder, TDecoder>(_builder.Decoders, $"decoder{typeof(TBase).TidyTypeName()}", this);
 }

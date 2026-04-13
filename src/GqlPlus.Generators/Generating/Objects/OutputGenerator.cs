@@ -62,7 +62,7 @@ internal sealed class OutputEncoderGenerator
   : OutputGeneratorBase
 {
   protected override void Generate(IAstObject<IAstOutputField> ast, GqlpGeneratorContext context)
-    => GenerateBlock(ast, context, EncoderHeader, TypeMembers, ClassMember);
+    => GenerateEncoderBlock(ast, context);
 }
 
 internal class OutputField(string fieldName, string fieldType, string fieldParam)

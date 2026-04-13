@@ -25,5 +25,5 @@ internal sealed class DualEncoderGenerator
   : GenerateForObject<IAstDualField>
 {
   protected override void Generate(IAstObject<IAstDualField> ast, GqlpGeneratorContext context)
-    => GenerateBlock(ast, context, EncoderHeader, TypeMembers, ClassMember);
+    => GenerateEncoderBlock(ast, context);
 }

@@ -9,7 +9,7 @@ public class AllTypesEncoderTests
   {
     _typeEncoder = A.Of<ITypeEncoder>();
     IEncoderRepository repo = A.Of<IEncoderRepository>();
-    repo.TypeEncoders.Returns([_typeEncoder]);
+    repo.EncodersFor<ITypeEncoder>().Returns([_typeEncoder]);
     Encoder = new AllTypesEncoder(repo);
   }
 

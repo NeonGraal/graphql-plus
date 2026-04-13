@@ -7,7 +7,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_descr_Output;
 
-internal class testFieldDescrOutpEncoder
+internal class testFieldDescrOutpEncoder : IEncoder<ItestFieldDescrOutpObject>
 {
-  public string Field { get; set; }
+  public Structured Encode(ItestFieldDescrOutpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

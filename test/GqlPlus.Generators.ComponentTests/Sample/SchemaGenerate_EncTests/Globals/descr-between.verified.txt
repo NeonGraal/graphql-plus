@@ -12,6 +12,8 @@ output DescrBtwn { }
 
 namespace Components.Gqlp_Schema_descr_between;
 
-internal class CmptDescrBtwnEncoder
+internal class CmptDescrBtwnEncoder : IEncoder<ICmptDescrBtwnObject>
 {
+  public Structured Encode(ICmptDescrBtwnObject input)
+    => Structured.Empty();
 }

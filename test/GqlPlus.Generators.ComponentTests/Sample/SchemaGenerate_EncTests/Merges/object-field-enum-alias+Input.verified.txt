@@ -11,7 +11,9 @@ input ObjFieldEnumAliasInp { field [field2] = true }
 
 namespace Components.Gqlp_Schema_object_field_enum_alias_Input;
 
-internal class CmptObjFieldEnumAliasInpEncoder
+internal class CmptObjFieldEnumAliasInpEncoder : IEncoder<ICmptObjFieldEnumAliasInpObject>
 {
-  public bool Field { get; set; }
+  public Structured Encode(ICmptObjFieldEnumAliasInpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

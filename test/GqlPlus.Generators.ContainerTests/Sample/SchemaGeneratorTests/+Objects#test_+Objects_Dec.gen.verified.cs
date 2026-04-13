@@ -2081,6 +2081,8 @@ internal class testOutpDescrParamDecoder
 {
   public ItestFldOutpDescrParam? Field(ItestInOutpDescrParam parameter)
     => null;
+  public ItestFldOutpDescrParam? Field()
+    => null;
 }
 
 internal class testFldOutpDescrParamDecoder
@@ -2095,6 +2097,8 @@ internal class testInOutpDescrParamDecoder
 internal class testOutpParamDecoder
 {
   public ItestFldOutpParam? Field(ItestInOutpParam parameter)
+    => null;
+  public ItestFldOutpParam? Field()
     => null;
 }
 
@@ -2111,6 +2115,8 @@ internal class testOutpParamDescrDecoder
 {
   public ItestFldOutpParamDescr? Field(ItestInOutpParamDescr parameter)
     => null;
+  public ItestFldOutpParamDescr? Field()
+    => null;
 }
 
 internal class testFldOutpParamDescrDecoder
@@ -2125,6 +2131,8 @@ internal class testInOutpParamDescrDecoder
 internal class testOutpParamModDmnDecoder
 {
   public ItestDomOutpParamModDmn? Field(IDictionary<ItestDomOutpParamModDmn, ItestInOutpParamModDmn> parameter)
+    => null;
+  public ItestDomOutpParamModDmn? Field()
     => null;
 }
 
@@ -2141,6 +2149,8 @@ internal class testOutpParamModParamDecoder<TMod>
 {
   public ItestDomOutpParamModParam? Field(IDictionary<TMod, ItestInOutpParamModParam> parameter)
     => null;
+  public ItestDomOutpParamModParam? Field()
+    => null;
 }
 
 internal class testInOutpParamModParamDecoder
@@ -2155,6 +2165,8 @@ internal class testDomOutpParamModParamDecoder
 internal class testOutpParamTypeDescrDecoder
 {
   public ItestFldOutpParamTypeDescr? Field(ItestInOutpParamTypeDescr parameter)
+    => null;
+  public ItestFldOutpParamTypeDescr? Field()
     => null;
 }
 
@@ -2191,11 +2203,15 @@ internal class testOutpPrntParamDecoder
 {
   public ItestFldOutpPrntParam? Field(ItestInOutpPrntParam parameter)
     => null;
+  public ItestFldOutpPrntParam? Field()
+    => null;
 }
 
 internal class testPrntOutpPrntParamDecoder
 {
   public ItestFldOutpPrntParam? Field(ItestPrntOutpPrntParamIn parameter)
+    => null;
+  public ItestFldOutpPrntParam? Field()
     => null;
 }
 

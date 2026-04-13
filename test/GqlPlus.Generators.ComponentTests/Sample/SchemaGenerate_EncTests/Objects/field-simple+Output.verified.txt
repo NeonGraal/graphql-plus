@@ -10,7 +10,9 @@ output FieldSmplOutp { field: Number }
 
 namespace Components.Gqlp_Schema_field_simple_Output;
 
-internal class CmptFieldSmplOutpEncoder
+internal class CmptFieldSmplOutpEncoder : IEncoder<ICmptFieldSmplOutpObject>
 {
-  public decimal Field { get; set; }
+  public Structured Encode(ICmptFieldSmplOutpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

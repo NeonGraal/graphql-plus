@@ -11,6 +11,8 @@ input ObjAliasInp [Input2] { }
 
 namespace Components.Gqlp_Schema_object_alias_Input;
 
-internal class CmptObjAliasInpEncoder
+internal class CmptObjAliasInpEncoder : IEncoder<ICmptObjAliasInpObject>
 {
+  public Structured Encode(ICmptObjAliasInpObject input)
+    => Structured.Empty();
 }

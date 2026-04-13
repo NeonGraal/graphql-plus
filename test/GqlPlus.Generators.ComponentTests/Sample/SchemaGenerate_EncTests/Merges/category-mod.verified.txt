@@ -12,6 +12,8 @@ output CtgrMod { }
 
 namespace Components.Gqlp_Schema_category_mod;
 
-internal class CmptCtgrModEncoder
+internal class CmptCtgrModEncoder : IEncoder<ICmptCtgrModObject>
 {
+  public Structured Encode(ICmptCtgrModObject input)
+    => Structured.Empty();
 }

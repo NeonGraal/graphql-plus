@@ -11,6 +11,8 @@ dual ObjAltEnumDual { ! false }
 
 namespace Components.Gqlp_Schema_object_alt_enum_Dual;
 
-internal class CmptObjAltEnumDualEncoder
+internal class CmptObjAltEnumDualEncoder : IEncoder<ICmptObjAltEnumDualObject>
 {
+  public Structured Encode(ICmptObjAltEnumDualObject input)
+    => Structured.Empty();
 }

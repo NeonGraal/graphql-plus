@@ -11,6 +11,8 @@ output DescrBcks { }
 
 namespace Components.Gqlp_Schema_descr_backslash;
 
-internal class CmptDescrBcksEncoder
+internal class CmptDescrBcksEncoder : IEncoder<ICmptDescrBcksObject>
 {
+  public Structured Encode(ICmptDescrBcksObject input)
+    => Structured.Empty();
 }

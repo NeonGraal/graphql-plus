@@ -20,6 +20,8 @@ public class testOutpParamObject
 {
   public ItestFldOutpParam? Field(ItestInOutpParam parameter)
     => null;
+  public ItestFldOutpParam? Field()
+    => null;
 
   public testOutpParamObject
     ()

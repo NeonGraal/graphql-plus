@@ -7,18 +7,21 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_enum_parent_Dual;
 
-internal class testFieldEnumPrntDualEncoder
+internal class testFieldEnumPrntDualEncoder : IEncoder<ItestFieldEnumPrntDualObject>
 {
-  public testEnumFieldEnumPrntDual Field { get; set; }
+  public Structured Encode(ItestFieldEnumPrntDualObject input)
+    => Structured.Empty()
+      .AddEnum("field", input.Field);
 }
 
-internal class testEnumFieldEnumPrntDualEncoder
+internal class testEnumFieldEnumPrntDualEncoder : IEncoder<testEnumFieldEnumPrntDual>
 {
-  public string prnt_fieldEnumPrntDual { get; set; }
-  public string fieldEnumPrntDual { get; set; }
+  public Structured Encode(testEnumFieldEnumPrntDual input)
+    => new(input.ToString(), "_EnumFieldEnumPrntDual");
 }
 
-internal class testPrntFieldEnumPrntDualEncoder
+internal class testPrntFieldEnumPrntDualEncoder : IEncoder<testPrntFieldEnumPrntDual>
 {
-  public string prnt_fieldEnumPrntDual { get; set; }
+  public Structured Encode(testPrntFieldEnumPrntDual input)
+    => new(input.ToString(), "_PrntFieldEnumPrntDual");
 }

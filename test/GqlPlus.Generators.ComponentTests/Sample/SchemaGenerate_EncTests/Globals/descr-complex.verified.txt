@@ -11,6 +11,8 @@ output DescrCmpl { }
 
 namespace Components.Gqlp_Schema_descr_complex;
 
-internal class CmptDescrCmplEncoder
+internal class CmptDescrCmplEncoder : IEncoder<ICmptDescrCmplObject>
 {
+  public Structured Encode(ICmptDescrCmplObject input)
+    => Structured.Empty();
 }

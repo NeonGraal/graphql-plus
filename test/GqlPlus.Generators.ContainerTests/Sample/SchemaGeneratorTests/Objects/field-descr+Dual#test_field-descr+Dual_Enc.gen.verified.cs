@@ -7,7 +7,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_descr_Dual;
 
-internal class testFieldDescrDualEncoder
+internal class testFieldDescrDualEncoder : IEncoder<ItestFieldDescrDualObject>
 {
-  public string Field { get; set; }
+  public Structured Encode(ItestFieldDescrDualObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

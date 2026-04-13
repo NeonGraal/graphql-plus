@@ -11,6 +11,8 @@ internal class testOutpParamDecoder
 {
   public ItestFldOutpParam? Field(ItestInOutpParam parameter)
     => null;
+  public ItestFldOutpParam? Field()
+    => null;
 }
 
 internal class testFldOutpParamDecoder

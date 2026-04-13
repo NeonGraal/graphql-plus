@@ -12,18 +12,21 @@ enum PrntFieldEnumPrntDual { prnt_fieldEnumPrntDual }
 
 namespace Components.Gqlp_Schema_field_enum_parent_Dual;
 
-internal class CmptFieldEnumPrntDualEncoder
+internal class CmptFieldEnumPrntDualEncoder : IEncoder<ICmptFieldEnumPrntDualObject>
 {
-  public CmptEnumFieldEnumPrntDual Field { get; set; }
+  public Structured Encode(ICmptFieldEnumPrntDualObject input)
+    => Structured.Empty()
+      .AddEnum("field", input.Field);
 }
 
-internal class CmptEnumFieldEnumPrntDualEncoder
+internal class CmptEnumFieldEnumPrntDualEncoder : IEncoder<CmptEnumFieldEnumPrntDual>
 {
-  public string prnt_fieldEnumPrntDual { get; set; }
-  public string fieldEnumPrntDual { get; set; }
+  public Structured Encode(CmptEnumFieldEnumPrntDual input)
+    => new(input.ToString(), "_EnumFieldEnumPrntDual");
 }
 
-internal class CmptPrntFieldEnumPrntDualEncoder
+internal class CmptPrntFieldEnumPrntDualEncoder : IEncoder<CmptPrntFieldEnumPrntDual>
 {
-  public string prnt_fieldEnumPrntDual { get; set; }
+  public Structured Encode(CmptPrntFieldEnumPrntDual input)
+    => new(input.ToString(), "_PrntFieldEnumPrntDual");
 }

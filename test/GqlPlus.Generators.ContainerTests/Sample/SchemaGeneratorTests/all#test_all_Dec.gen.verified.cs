@@ -38,4 +38,6 @@ internal class testAllDecoder
 {
   public ItestField? Items(ItestParam? parameter)
     => null;
+  public ItestField? Items()
+    => null;
 }

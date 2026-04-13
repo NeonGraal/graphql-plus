@@ -12,10 +12,14 @@ input ObjAltInpType { }
 
 namespace Components.Gqlp_Schema_object_alt_Input;
 
-internal class CmptObjAltInpEncoder
+internal class CmptObjAltInpEncoder : IEncoder<ICmptObjAltInpObject>
 {
+  public Structured Encode(ICmptObjAltInpObject input)
+    => Structured.Empty();
 }
 
-internal class CmptObjAltInpTypeEncoder
+internal class CmptObjAltInpTypeEncoder : IEncoder<ICmptObjAltInpTypeObject>
 {
+  public Structured Encode(ICmptObjAltInpTypeObject input)
+    => Structured.Empty();
 }

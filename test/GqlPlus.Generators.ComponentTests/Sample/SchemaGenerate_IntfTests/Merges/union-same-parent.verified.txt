@@ -15,11 +15,11 @@ namespace Components.Gqlp_Schema_union_same_parent;
 public interface ICmptUnionSamePrnt
   : ICmptPrntUnionSamePrnt
 {
-  Boolean AsBoolean { get; }
 }
 
 public interface ICmptPrntUnionSamePrnt
   : Schema_union-same-parent
 {
-  String AsString { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }

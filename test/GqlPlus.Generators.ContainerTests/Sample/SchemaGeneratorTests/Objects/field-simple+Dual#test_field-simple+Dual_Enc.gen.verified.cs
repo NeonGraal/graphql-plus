@@ -7,7 +7,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_simple_Dual;
 
-internal class testFieldSmplDualEncoder
+internal class testFieldSmplDualEncoder : IEncoder<ItestFieldSmplDualObject>
 {
-  public decimal Field { get; set; }
+  public Structured Encode(ItestFieldSmplDualObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

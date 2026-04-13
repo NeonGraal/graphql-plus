@@ -7,19 +7,14 @@ internal class DecoderRepository
   , IDecoderRepository
 {
   private readonly DecoderRepositoryBuilder _builder;
-  private readonly Lazy<INameFilterDecoder> _nameFilter;
 
   public DecoderRepository(DecoderRepositoryBuilder builder, ILoggerFactory loggerFactory)
     : base(loggerFactory)
-  {
-    _builder = builder;
-    _nameFilter = new(() => builder._nameFilter is not null
-      ? builder._nameFilter(this)
-      : new NameFilterModelDecoder());
-  }
+    => _builder = builder;
 
   public IDecoder<T> DecoderFor<T>()
     => Cached<T, IDecoder<T>>(_builder.Decoders, "decoder", this);
-
-  public INameFilterDecoder NameFilterDecoder => _nameFilter.Value;
+  public TDecoder DecoderFor<TDecoder, TBase>()
+    where TDecoder : class, IDecoder<TBase>
+    => Cached<TDecoder, TDecoder>(_builder.Decoders, $"decoder{typeof(TBase).TidyTypeName()}", this);
 }

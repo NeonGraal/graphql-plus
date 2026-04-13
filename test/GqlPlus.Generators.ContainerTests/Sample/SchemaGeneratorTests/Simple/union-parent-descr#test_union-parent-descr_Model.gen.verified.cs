@@ -11,12 +11,13 @@ public class testUnionPrntDescr
   : testPrntUnionPrntDescr
   , ItestUnionPrntDescr
 {
-  public Number AsNumber { get; set; }
 }
 
 public class testPrntUnionPrntDescr
   : GqlpModelBase
   , ItestPrntUnionPrntDescr
 {
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }

@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus;
 using GqlPlus.Convert;
-using GqlPlus.Encoding;
 using GqlPlus.Resolving;
 
 namespace GqlPlus.Sample;

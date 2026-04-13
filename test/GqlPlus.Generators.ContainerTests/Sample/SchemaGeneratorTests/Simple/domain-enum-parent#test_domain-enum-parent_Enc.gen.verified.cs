@@ -7,16 +7,20 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_parent;
 
-internal class testDmnEnumPrntEncoder
+internal class testDmnEnumPrntEncoder : IEncoder<ItestDmnEnumPrnt>
 {
+  public Structured Encode(ItestDmnEnumPrnt input)
+    => new((decimal?)input.Value);
 }
 
-internal class testPrntDmnEnumPrntEncoder
+internal class testPrntDmnEnumPrntEncoder : IEncoder<ItestPrntDmnEnumPrnt>
 {
+  public Structured Encode(ItestPrntDmnEnumPrnt input)
+    => new((decimal?)input.Value);
 }
 
-internal class testEnumDmnEnumPrntEncoder
+internal class testEnumDmnEnumPrntEncoder : IEncoder<testEnumDmnEnumPrnt>
 {
-  public string enum_dmnEnumPrnt { get; set; }
-  public string prnt_dmnEnumPrnt { get; set; }
+  public Structured Encode(testEnumDmnEnumPrnt input)
+    => new(input.ToString(), "_EnumDmnEnumPrnt");
 }

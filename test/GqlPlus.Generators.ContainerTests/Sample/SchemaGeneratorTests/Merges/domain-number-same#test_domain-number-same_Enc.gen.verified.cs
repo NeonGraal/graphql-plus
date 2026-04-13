@@ -7,6 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_number_same;
 
-internal class testDmnNmbrSameEncoder
+internal class testDmnNmbrSameEncoder : IEncoder<ItestDmnNmbrSame>
 {
+  public Structured Encode(ItestDmnNmbrSame input)
+    => new(input.Value);
 }

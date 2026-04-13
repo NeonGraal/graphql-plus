@@ -11,12 +11,15 @@ enum EnumFieldValueDescrInp { fieldValueDescrInp }
 
 namespace Components.Gqlp_Schema_field_value_descr_Input;
 
-internal class CmptFieldValueDescrInpEncoder
+internal class CmptFieldValueDescrInpEncoder : IEncoder<ICmptFieldValueDescrInpObject>
 {
-  public CmptEnumFieldValueDescrInp Field { get; set; }
+  public Structured Encode(ICmptFieldValueDescrInpObject input)
+    => Structured.Empty()
+      .AddEnum("field", input.Field);
 }
 
-internal class CmptEnumFieldValueDescrInpEncoder
+internal class CmptEnumFieldValueDescrInpEncoder : IEncoder<CmptEnumFieldValueDescrInp>
 {
-  public string fieldValueDescrInp { get; set; }
+  public Structured Encode(CmptEnumFieldValueDescrInp input)
+    => new(input.ToString(), "_EnumFieldValueDescrInp");
 }

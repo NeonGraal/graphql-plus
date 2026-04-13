@@ -11,12 +11,19 @@ input RefPrntFieldInp { parent: Number | String }
 
 namespace Components.Gqlp_Schema_parent_field_Input;
 
-internal class CmptPrntFieldInpEncoder
+internal class CmptPrntFieldInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptPrntFieldInpObject>
 {
-  public decimal Field { get; set; }
+  private readonly IEncoder<ICmptRefPrntFieldInpObject> _refPrntFieldInp = encoders.EncoderFor<ICmptRefPrntFieldInpObject>();
+  public Structured Encode(ICmptPrntFieldInpObject input)
+    => _refPrntFieldInp.Encode(input)
+      .Add("field", input.Field);
 }
 
-internal class CmptRefPrntFieldInpEncoder
+internal class CmptRefPrntFieldInpEncoder : IEncoder<ICmptRefPrntFieldInpObject>
 {
-  public decimal Parent { get; set; }
+  public Structured Encode(ICmptRefPrntFieldInpObject input)
+    => Structured.Empty()
+      .Add("parent", input.Parent);
 }

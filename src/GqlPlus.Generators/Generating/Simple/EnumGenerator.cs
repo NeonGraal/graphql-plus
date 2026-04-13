@@ -55,5 +55,14 @@ internal sealed class EnumEncoderGenerator
   : EnumGenerator
 {
   protected override void Generate(IAstEnum ast, GqlpGeneratorContext context)
-    => GenerateBlock(ast, context, EncoderHeader, EnumMembers, EnumClassMember);
+  {
+    string typeName = context.TypeName(ast, "");
+    string tag = ast.Name.StartsWith("_", StringComparison.Ordinal) ? ast.Name : "_" + ast.Name;
+    context.Write("");
+    context.Write($"internal class {typeName}Encoder : IEncoder<{typeName}>");
+    context.Write("{");
+    context.Write($"  public Structured Encode({typeName} input)");
+    context.Write($"    => new(input.ToString(), \"{tag}\");");
+    context.Write("}");
+  }
 }

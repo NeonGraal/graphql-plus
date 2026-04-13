@@ -12,20 +12,20 @@ enum DupDmnEnumUnq { dmnEnumUnq dup_dmnEnumUnq dmnEnumUnqDup }
 
 namespace Components.Gqlp_Schema_domain_enum_unique;
 
-internal class CmptDmnEnumUnqEncoder
+internal class CmptDmnEnumUnqEncoder : IEncoder<ICmptDmnEnumUnq>
 {
+  public Structured Encode(ICmptDmnEnumUnq input)
+    => new((decimal?)input.Value);
 }
 
-internal class CmptEnumDmnEnumUnqEncoder
+internal class CmptEnumDmnEnumUnqEncoder : IEncoder<CmptEnumDmnEnumUnq>
 {
-  public string enum_dmnEnumUnq { get; set; }
-  public string dmnEnumUnq { get; set; }
-  public string dmnEnumUnqValue { get; set; }
+  public Structured Encode(CmptEnumDmnEnumUnq input)
+    => new(input.ToString(), "_EnumDmnEnumUnq");
 }
 
-internal class CmptDupDmnEnumUnqEncoder
+internal class CmptDupDmnEnumUnqEncoder : IEncoder<CmptDupDmnEnumUnq>
 {
-  public string dmnEnumUnq { get; set; }
-  public string dup_dmnEnumUnq { get; set; }
-  public string dmnEnumUnqDup { get; set; }
+  public Structured Encode(CmptDupDmnEnumUnq input)
+    => new(input.ToString(), "_DupDmnEnumUnq");
 }

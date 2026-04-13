@@ -11,8 +11,13 @@ output ObjCnstOutp<$type:String> { str: $type }
 
 namespace Components.Gqlp_Schema_object_constraint_Output;
 
-internal class CmptObjCnstOutpEncoder<TType>
+internal class CmptObjCnstOutpEncoder<TType>(
+  IEncoderRepository encoders
+) : IEncoder<ICmptObjCnstOutpObject<TType>>
 {
-  public TType Field { get; set; }
-  public TType Str { get; set; }
+  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  public Structured Encode(ICmptObjCnstOutpObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _type)
+      .AddEncoded("str", input.Str, _type);
 }

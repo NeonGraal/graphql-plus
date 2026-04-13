@@ -11,12 +11,19 @@ dual FldFieldObjDual { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_object_Dual;
 
-internal class CmptFieldObjDualEncoder
+internal class CmptFieldObjDualEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptFieldObjDualObject>
 {
-  public ICmptFldFieldObjDual Field { get; set; }
+  private readonly IEncoder<ICmptFldFieldObjDual> _fldFieldObjDual = encoders.EncoderFor<ICmptFldFieldObjDual>();
+  public Structured Encode(ICmptFieldObjDualObject input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _fldFieldObjDual);
 }
 
-internal class CmptFldFieldObjDualEncoder
+internal class CmptFldFieldObjDualEncoder : IEncoder<ICmptFldFieldObjDualObject>
 {
-  public decimal Field { get; set; }
+  public Structured Encode(ICmptFldFieldObjDualObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

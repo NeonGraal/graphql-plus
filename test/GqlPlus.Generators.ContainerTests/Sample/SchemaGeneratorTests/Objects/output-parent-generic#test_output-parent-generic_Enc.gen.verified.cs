@@ -7,22 +7,30 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_output_parent_generic;
 
-internal class testOutpPrntGnrcEncoder
+internal class testOutpPrntGnrcEncoder : IEncoder<ItestOutpPrntGnrcObject>
 {
+  public Structured Encode(ItestOutpPrntGnrcObject input)
+    => Structured.Empty();
 }
 
-internal class testRefOutpPrntGnrcEncoder<TType>
+internal class testRefOutpPrntGnrcEncoder<TType>(
+  IEncoderRepository encoders
+) : IEncoder<ItestRefOutpPrntGnrcObject<TType>>
 {
-  public TType Field { get; set; }
+  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  public Structured Encode(ItestRefOutpPrntGnrcObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _type);
 }
 
-internal class testEnumOutpPrntGnrcEncoder
+internal class testEnumOutpPrntGnrcEncoder : IEncoder<testEnumOutpPrntGnrc>
 {
-  public string prnt_outpPrntGnrc { get; set; }
-  public string outpPrntGnrc { get; set; }
+  public Structured Encode(testEnumOutpPrntGnrc input)
+    => new(input.ToString(), "_EnumOutpPrntGnrc");
 }
 
-internal class testPrntOutpPrntGnrcEncoder
+internal class testPrntOutpPrntGnrcEncoder : IEncoder<testPrntOutpPrntGnrc>
 {
-  public string prnt_outpPrntGnrc { get; set; }
+  public Structured Encode(testPrntOutpPrntGnrc input)
+    => new(input.ToString(), "_PrntOutpPrntGnrc");
 }

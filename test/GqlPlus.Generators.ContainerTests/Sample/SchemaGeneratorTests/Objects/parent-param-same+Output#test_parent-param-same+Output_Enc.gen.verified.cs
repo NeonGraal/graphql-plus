@@ -7,18 +7,18 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_parent_param_same_Output;
 
-internal class testPrntParamSameOutpEncoder(
+internal class testPrntParamSameOutpEncoder<TA>(
   IEncoderRepository encoders
 ) : IEncoder<ItestPrntParamSameOutpObject<TA>>
 {
-  private readonly IEncoder<ItestRefPrntParamSameOutpObject<TA>> _itestRefPrntParamSameOutpObject<TA> = encoders.EncoderFor<ItestRefPrntParamSameOutpObject<TA>>();
+  private readonly IEncoder<ItestRefPrntParamSameOutpObject<TA>> _itestRefPrntParamSameOutp = encoders.EncoderFor<ItestRefPrntParamSameOutpObject<TA>>();
   private readonly IEncoder<TA> _a = encoders.EncoderFor<TA>();
   public Structured Encode(ItestPrntParamSameOutpObject<TA> input)
-    => _itestRefPrntParamSameOutpObject<TA>.Encode(input)
+    => _itestRefPrntParamSameOutp.Encode(input)
       .AddEncoded("field", input.Field, _a);
 }
 
-internal class testRefPrntParamSameOutpEncoder : IEncoder<ItestRefPrntParamSameOutpObject<TA>>
+internal class testRefPrntParamSameOutpEncoder<TA> : IEncoder<ItestRefPrntParamSameOutpObject<TA>>
 {
   public Structured Encode(ItestRefPrntParamSameOutpObject<TA> input)
     => Structured.Empty();

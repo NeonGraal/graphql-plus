@@ -19,7 +19,7 @@ internal class CmptCnstDomEnumOutpEncoder : IEncoder<ICmptCnstDomEnumOutpObject>
     => Structured.Empty();
 }
 
-internal class CmptRefCnstDomEnumOutpEncoder(
+internal class CmptRefCnstDomEnumOutpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptRefCnstDomEnumOutpObject<TType>>
 {

@@ -10,7 +10,7 @@ input GnrcPrntDescrInp<$type:_Dual> { :"Parent comment"$type }
 
 namespace Components.Gqlp_Schema_generic_parent_descr_Input;
 
-internal class CmptGnrcPrntDescrInpEncoder : IEncoder<ICmptGnrcPrntDescrInpObject<TType>>
+internal class CmptGnrcPrntDescrInpEncoder<TType> : IEncoder<ICmptGnrcPrntDescrInpObject<TType>>
 {
   public Structured Encode(ICmptGnrcPrntDescrInpObject<TType> input)
     => Structured.Empty();

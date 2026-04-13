@@ -12,6 +12,8 @@ internal abstract class OutputGeneratorBase
     } else {
       context.Write($"  public {item.Type.Trim('?')}? {item.Name}({item.Param} parameter)");
       context.Write("    => null;");
+      context.Write($"  public {item.Type.Trim('?')}? {item.Name}()");
+      context.Write("    => null;");
     }
   }
 
@@ -21,6 +23,7 @@ internal abstract class OutputGeneratorBase
       context.Write("  " + item.Type + " " + item.Name + " { get; }");
     } else {
       context.Write($"  {item.Type.Trim('?')}? {item.Name}({item.Param} parameter);");
+      context.Write($"  {item.Type.Trim('?')}? {item.Name}();");
     }
   }
 

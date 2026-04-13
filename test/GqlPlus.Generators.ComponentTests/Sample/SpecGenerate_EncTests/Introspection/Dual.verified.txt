@@ -16,7 +16,7 @@ internal class Cmpt_DualFieldEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_DualFieldObject>
 {
-  private readonly IEncoder<ICmpt_ObjFieldObject<ICmpt_ObjFieldType>> _objFieldObject<ICmpt_ObjFieldType> = encoders.EncoderFor<ICmpt_ObjFieldObject<ICmpt_ObjFieldType>>();
+  private readonly IEncoder<ICmpt_ObjFieldObject<ICmpt_ObjFieldType>> _objField = encoders.EncoderFor<ICmpt_ObjFieldObject<ICmpt_ObjFieldType>>();
   public Structured Encode(ICmpt_DualFieldObject input)
-    => _objFieldObject<ICmpt_ObjFieldType>.Encode(input);
+    => _objField.Encode(input);
 }

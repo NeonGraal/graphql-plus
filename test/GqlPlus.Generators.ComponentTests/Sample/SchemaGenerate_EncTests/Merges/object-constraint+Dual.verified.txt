@@ -11,7 +11,7 @@ dual ObjCnstDual<$type:String> { str: $type }
 
 namespace Components.Gqlp_Schema_object_constraint_Dual;
 
-internal class CmptObjCnstDualEncoder(
+internal class CmptObjCnstDualEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptObjCnstDualObject<TType>>
 {

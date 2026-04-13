@@ -13,7 +13,7 @@ internal class testGnrcValueOutpEncoder : IEncoder<ItestGnrcValueOutpObject>
     => Structured.Empty();
 }
 
-internal class testRefGnrcValueOutpEncoder(
+internal class testRefGnrcValueOutpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestRefGnrcValueOutpObject<TType>>
 {

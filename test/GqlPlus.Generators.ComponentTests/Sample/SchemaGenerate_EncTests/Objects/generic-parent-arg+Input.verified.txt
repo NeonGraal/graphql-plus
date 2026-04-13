@@ -11,16 +11,16 @@ input RefGnrcPrntArgInp<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_parent_arg_Input;
 
-internal class CmptGnrcPrntArgInpEncoder(
+internal class CmptGnrcPrntArgInpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptGnrcPrntArgInpObject<TType>>
 {
-  private readonly IEncoder<ICmptRefGnrcPrntArgInpObject<TType>> _refGnrcPrntArgInpObject<TType> = encoders.EncoderFor<ICmptRefGnrcPrntArgInpObject<TType>>();
+  private readonly IEncoder<ICmptRefGnrcPrntArgInpObject<TType>> _refGnrcPrntArgInp = encoders.EncoderFor<ICmptRefGnrcPrntArgInpObject<TType>>();
   public Structured Encode(ICmptGnrcPrntArgInpObject<TType> input)
-    => _refGnrcPrntArgInpObject<TType>.Encode(input);
+    => _refGnrcPrntArgInp.Encode(input);
 }
 
-internal class CmptRefGnrcPrntArgInpEncoder : IEncoder<ICmptRefGnrcPrntArgInpObject<TRef>>
+internal class CmptRefGnrcPrntArgInpEncoder<TRef> : IEncoder<ICmptRefGnrcPrntArgInpObject<TRef>>
 {
   public Structured Encode(ICmptRefGnrcPrntArgInpObject<TRef> input)
     => Structured.Empty();

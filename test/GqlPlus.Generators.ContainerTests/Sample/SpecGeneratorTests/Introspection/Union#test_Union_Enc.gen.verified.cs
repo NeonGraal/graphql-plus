@@ -11,9 +11,9 @@ internal class test_UnionRefEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_UnionRefObject>
 {
-  private readonly IEncoder<Itest_TypeRefObject<Itest_SimpleKind>> _itest_TypeRefObject<Itest_SimpleKind> = encoders.EncoderFor<Itest_TypeRefObject<Itest_SimpleKind>>();
+  private readonly IEncoder<Itest_TypeRefObject<Itest_SimpleKind>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRefObject<Itest_SimpleKind>>();
   public Structured Encode(Itest_UnionRefObject input)
-    => _itest_TypeRefObject<Itest_SimpleKind>.Encode(input);
+    => _itest_TypeRef.Encode(input);
 }
 
 internal class test_UnionMemberEncoder(

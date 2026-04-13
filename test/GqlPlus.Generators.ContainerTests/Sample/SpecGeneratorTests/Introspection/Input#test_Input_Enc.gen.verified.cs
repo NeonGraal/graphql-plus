@@ -11,9 +11,9 @@ internal class test_InputFieldEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_InputFieldObject>
 {
-  private readonly IEncoder<Itest_ObjFieldObject<Itest_InputFieldType>> _itest_ObjFieldObject<Itest_InputFieldType> = encoders.EncoderFor<Itest_ObjFieldObject<Itest_InputFieldType>>();
+  private readonly IEncoder<Itest_ObjFieldObject<Itest_InputFieldType>> _itest_ObjField = encoders.EncoderFor<Itest_ObjFieldObject<Itest_InputFieldType>>();
   public Structured Encode(Itest_InputFieldObject input)
-    => _itest_ObjFieldObject<Itest_InputFieldType>.Encode(input);
+    => _itest_ObjField.Encode(input);
 }
 
 internal class test_InputFieldTypeEncoder(

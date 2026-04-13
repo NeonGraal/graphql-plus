@@ -7,49 +7,49 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Schema;
 
-internal class test_OptEncoder : IEncoder<Itest_OptObject<TT>>
+internal class test_OptEncoder<TT> : IEncoder<Itest_OptObject<TT>>
 {
   public Structured Encode(Itest_OptObject<TT> input)
     => Structured.Empty();
 }
 
-internal class test_ListEncoder : IEncoder<Itest_ListObject<TT>>
+internal class test_ListEncoder<TT> : IEncoder<Itest_ListObject<TT>>
 {
   public Structured Encode(Itest_ListObject<TT> input)
     => Structured.Empty();
 }
 
-internal class test_DictEncoder : IEncoder<Itest_DictObject<TK,TT>>
+internal class test_DictEncoder<TK,TT> : IEncoder<Itest_DictObject<TK,TT>>
 {
   public Structured Encode(Itest_DictObject<TK,TT> input)
     => Structured.Empty();
 }
 
-internal class test_MapEncoder : IEncoder<Itest_MapObject<TT>>
+internal class test_MapEncoder<TT> : IEncoder<Itest_MapObject<TT>>
 {
   public Structured Encode(Itest_MapObject<TT> input)
     => Structured.Empty();
 }
 
-internal class test_ArrayEncoder : IEncoder<Itest_ArrayObject<TT>>
+internal class test_ArrayEncoder<TT> : IEncoder<Itest_ArrayObject<TT>>
 {
   public Structured Encode(Itest_ArrayObject<TT> input)
     => Structured.Empty();
 }
 
-internal class test_IfElseEncoder : IEncoder<Itest_IfElseObject<TT>>
+internal class test_IfElseEncoder<TT> : IEncoder<Itest_IfElseObject<TT>>
 {
   public Structured Encode(Itest_IfElseObject<TT> input)
     => Structured.Empty();
 }
 
-internal class test_SetEncoder : IEncoder<Itest_SetObject<TK>>
+internal class test_SetEncoder<TK> : IEncoder<Itest_SetObject<TK>>
 {
   public Structured Encode(Itest_SetObject<TK> input)
     => Structured.Empty();
 }
 
-internal class test_MaskEncoder : IEncoder<Itest_MaskObject<TK>>
+internal class test_MaskEncoder<TK> : IEncoder<Itest_MaskObject<TK>>
 {
   public Structured Encode(Itest_MaskObject<TK> input)
     => Structured.Empty();

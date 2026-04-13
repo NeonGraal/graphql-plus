@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_descr_Output;
 
-internal class testGnrcDescrOutpEncoder(
+internal class testGnrcDescrOutpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestGnrcDescrOutpObject<TType>>
 {

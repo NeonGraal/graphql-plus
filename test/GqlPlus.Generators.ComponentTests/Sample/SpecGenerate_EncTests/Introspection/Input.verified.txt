@@ -21,9 +21,9 @@ internal class Cmpt_InputFieldEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_InputFieldObject>
 {
-  private readonly IEncoder<ICmpt_ObjFieldObject<ICmpt_InputFieldType>> _objFieldObject<ICmpt_InputFieldType> = encoders.EncoderFor<ICmpt_ObjFieldObject<ICmpt_InputFieldType>>();
+  private readonly IEncoder<ICmpt_ObjFieldObject<ICmpt_InputFieldType>> _objField = encoders.EncoderFor<ICmpt_ObjFieldObject<ICmpt_InputFieldType>>();
   public Structured Encode(ICmpt_InputFieldObject input)
-    => _objFieldObject<ICmpt_InputFieldType>.Encode(input);
+    => _objField.Encode(input);
 }
 
 internal class Cmpt_InputFieldTypeEncoder(

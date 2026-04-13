@@ -11,7 +11,7 @@ input AltAltModParamInp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_mod_param_Input;
 
-internal class CmptAltModParamInpEncoder : IEncoder<ICmptAltModParamInpObject<TMod>>
+internal class CmptAltModParamInpEncoder<TMod> : IEncoder<ICmptAltModParamInpObject<TMod>>
 {
   public Structured Encode(ICmptAltModParamInpObject<TMod> input)
     => Structured.Empty();

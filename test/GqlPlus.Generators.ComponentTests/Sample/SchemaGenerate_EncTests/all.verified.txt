@@ -83,5 +83,5 @@ internal class CmptAllEncoder(
   private readonly IEncoder<ICmptField> _field = encoders.EncoderFor<ICmptField>();
   public Structured Encode(ICmptAllObject input)
     => Structured.Empty()
-      .AddEncoded("items", input.Items(null), _field);
+      .AddEncoded("items", input.Items(), _field);
 }

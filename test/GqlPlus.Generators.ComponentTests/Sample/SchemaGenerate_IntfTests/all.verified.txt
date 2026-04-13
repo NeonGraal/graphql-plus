@@ -89,4 +89,5 @@ public interface ICmptAllObject
   : Schema_all
 {
   ICmptField? Items(ICmptParam? parameter);
+  ICmptField? Items();
 }

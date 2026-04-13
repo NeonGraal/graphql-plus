@@ -21,9 +21,9 @@ internal class Cmpt_UnionRefEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_UnionRefObject>
 {
-  private readonly IEncoder<ICmpt_TypeRefObject<ICmpt_SimpleKind>> _typeRefObject<ICmpt_SimpleKind> = encoders.EncoderFor<ICmpt_TypeRefObject<ICmpt_SimpleKind>>();
+  private readonly IEncoder<ICmpt_TypeRefObject<ICmpt_SimpleKind>> _typeRef = encoders.EncoderFor<ICmpt_TypeRefObject<ICmpt_SimpleKind>>();
   public Structured Encode(ICmpt_UnionRefObject input)
-    => _typeRefObject<ICmpt_SimpleKind>.Encode(input);
+    => _typeRef.Encode(input);
 }
 
 internal class Cmpt_UnionMemberEncoder(

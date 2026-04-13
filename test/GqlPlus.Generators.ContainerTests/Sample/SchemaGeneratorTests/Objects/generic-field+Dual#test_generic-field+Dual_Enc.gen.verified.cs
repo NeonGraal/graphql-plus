@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_Dual;
 
-internal class testGnrcFieldDualEncoder(
+internal class testGnrcFieldDualEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestGnrcFieldDualObject<TType>>
 {

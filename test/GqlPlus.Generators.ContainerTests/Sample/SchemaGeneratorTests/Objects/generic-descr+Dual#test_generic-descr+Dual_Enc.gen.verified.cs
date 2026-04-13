@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_descr_Dual;
 
-internal class testGnrcDescrDualEncoder(
+internal class testGnrcDescrDualEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestGnrcDescrDualObject<TType>>
 {

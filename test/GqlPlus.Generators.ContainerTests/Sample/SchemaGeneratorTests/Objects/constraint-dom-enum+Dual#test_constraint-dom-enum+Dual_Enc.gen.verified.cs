@@ -13,7 +13,7 @@ internal class testCnstDomEnumDualEncoder : IEncoder<ItestCnstDomEnumDualObject>
     => Structured.Empty();
 }
 
-internal class testRefCnstDomEnumDualEncoder(
+internal class testRefCnstDomEnumDualEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestRefCnstDomEnumDualObject<TType>>
 {

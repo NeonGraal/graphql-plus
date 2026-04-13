@@ -13,7 +13,7 @@ internal class testGnrcValueDualEncoder : IEncoder<ItestGnrcValueDualObject>
     => Structured.Empty();
 }
 
-internal class testRefGnrcValueDualEncoder(
+internal class testRefGnrcValueDualEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestRefGnrcValueDualObject<TType>>
 {

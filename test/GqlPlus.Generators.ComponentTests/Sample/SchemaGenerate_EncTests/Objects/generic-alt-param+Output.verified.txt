@@ -18,7 +18,7 @@ internal class CmptGnrcAltParamOutpEncoder : IEncoder<ICmptGnrcAltParamOutpObjec
     => Structured.Empty();
 }
 
-internal class CmptRefGnrcAltParamOutpEncoder : IEncoder<ICmptRefGnrcAltParamOutpObject<TRef>>
+internal class CmptRefGnrcAltParamOutpEncoder<TRef> : IEncoder<ICmptRefGnrcAltParamOutpObject<TRef>>
 {
   public Structured Encode(ICmptRefGnrcAltParamOutpObject<TRef> input)
     => Structured.Empty();

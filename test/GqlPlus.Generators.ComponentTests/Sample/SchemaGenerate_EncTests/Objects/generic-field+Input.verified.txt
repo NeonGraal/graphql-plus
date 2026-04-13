@@ -10,7 +10,7 @@ input GnrcFieldInp<$type:String> { field: $type }
 
 namespace Components.Gqlp_Schema_generic_field_Input;
 
-internal class CmptGnrcFieldInpEncoder(
+internal class CmptGnrcFieldInpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptGnrcFieldInpObject<TType>>
 {

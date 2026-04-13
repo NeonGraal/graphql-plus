@@ -19,7 +19,7 @@ internal class CmptCnstDomEnumDualEncoder : IEncoder<ICmptCnstDomEnumDualObject>
     => Structured.Empty();
 }
 
-internal class CmptRefCnstDomEnumDualEncoder(
+internal class CmptRefCnstDomEnumDualEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptRefCnstDomEnumDualObject<TType>>
 {

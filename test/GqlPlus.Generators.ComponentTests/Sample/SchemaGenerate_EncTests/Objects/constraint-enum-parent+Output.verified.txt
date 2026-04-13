@@ -19,7 +19,7 @@ internal class CmptCnstEnumPrntOutpEncoder : IEncoder<ICmptCnstEnumPrntOutpObjec
     => Structured.Empty();
 }
 
-internal class CmptRefCnstEnumPrntOutpEncoder(
+internal class CmptRefCnstEnumPrntOutpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptRefCnstEnumPrntOutpObject<TType>>
 {

@@ -13,7 +13,7 @@ internal class testCnstPrntEnumDualEncoder : IEncoder<ItestCnstPrntEnumDualObjec
     => Structured.Empty();
 }
 
-internal class testRefCnstPrntEnumDualEncoder(
+internal class testRefCnstPrntEnumDualEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestRefCnstPrntEnumDualObject<TType>>
 {

@@ -11,7 +11,7 @@ dual FldFieldModParamDual { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_mod_param_Dual;
 
-internal class CmptFieldModParamDualEncoder : IEncoder<ICmptFieldModParamDualObject<TMod>>
+internal class CmptFieldModParamDualEncoder<TMod> : IEncoder<ICmptFieldModParamDualObject<TMod>>
 {
   public Structured Encode(ICmptFieldModParamDualObject<TMod> input)
     => Structured.Empty();

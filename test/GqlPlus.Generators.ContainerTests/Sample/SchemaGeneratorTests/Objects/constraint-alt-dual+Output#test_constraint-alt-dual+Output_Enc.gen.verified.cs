@@ -13,7 +13,7 @@ internal class testCnstAltDualOutpEncoder : IEncoder<ItestCnstAltDualOutpObject>
     => Structured.Empty();
 }
 
-internal class testRefCnstAltDualOutpEncoder : IEncoder<ItestRefCnstAltDualOutpObject<TRef>>
+internal class testRefCnstAltDualOutpEncoder<TRef> : IEncoder<ItestRefCnstAltDualOutpObject<TRef>>
 {
   public Structured Encode(ItestRefCnstAltDualOutpObject<TRef> input)
     => Structured.Empty();

@@ -11,7 +11,7 @@ input ObjParamInp<$type:String> { type: $type }
 
 namespace Components.Gqlp_Schema_object_param_Input;
 
-internal class CmptObjParamInpEncoder(
+internal class CmptObjParamInpEncoder<TTest,TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptObjParamInpObject<TTest,TType>>
 {

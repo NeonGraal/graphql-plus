@@ -16,13 +16,13 @@ internal class CmptGnrcFieldParamInpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptGnrcFieldParamInpObject>
 {
-  private readonly IEncoder<ICmptRefGnrcFieldParamInp<ICmptAltGnrcFieldParamInp>> _refGnrcFieldParamInp<ICmptAltGnrcFieldParamInp> = encoders.EncoderFor<ICmptRefGnrcFieldParamInp<ICmptAltGnrcFieldParamInp>>();
+  private readonly IEncoder<ICmptRefGnrcFieldParamInp<ICmptAltGnrcFieldParamInp>> _refGnrcFieldParamInp = encoders.EncoderFor<ICmptRefGnrcFieldParamInp<ICmptAltGnrcFieldParamInp>>();
   public Structured Encode(ICmptGnrcFieldParamInpObject input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field, _refGnrcFieldParamInp<ICmptAltGnrcFieldParamInp>);
+      .AddEncoded("field", input.Field, _refGnrcFieldParamInp);
 }
 
-internal class CmptRefGnrcFieldParamInpEncoder : IEncoder<ICmptRefGnrcFieldParamInpObject<TRef>>
+internal class CmptRefGnrcFieldParamInpEncoder<TRef> : IEncoder<ICmptRefGnrcFieldParamInpObject<TRef>>
 {
   public Structured Encode(ICmptRefGnrcFieldParamInpObject<TRef> input)
     => Structured.Empty();

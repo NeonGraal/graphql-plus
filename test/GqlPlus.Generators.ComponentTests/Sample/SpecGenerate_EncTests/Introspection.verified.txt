@@ -459,12 +459,12 @@ internal class Cmpt_CategoryEncoder(
 ) : IEncoder<ICmpt_CategoryObject>
 {
   private readonly IEncoder<ICmpt_AliasedObject> _aliased = encoders.EncoderFor<ICmpt_AliasedObject>();
-  private readonly IEncoder<ICmpt_TypeRef<Cmpt_TypeKind>> _typeRef<Cmpt_TypeKind> = encoders.EncoderFor<ICmpt_TypeRef<Cmpt_TypeKind>>();
+  private readonly IEncoder<ICmpt_TypeRef<Cmpt_TypeKind>> _typeRef = encoders.EncoderFor<ICmpt_TypeRef<Cmpt_TypeKind>>();
   private readonly IEncoder<ICmpt_Modifiers> _modifiers = encoders.EncoderFor<ICmpt_Modifiers>();
   public Structured Encode(ICmpt_CategoryObject input)
     => _aliased.Encode(input)
       .AddEnum("resolution", input.Resolution)
-      .AddEncoded("output", input.Output, _typeRef<Cmpt_TypeKind>)
+      .AddEncoded("output", input.Output, _typeRef)
       .AddList("modifiers", input.Modifiers, _modifiers);
 }
 
@@ -520,7 +520,7 @@ internal class Cmpt_TypeEncoder : IEncoder<ICmpt_TypeObject>
     => Structured.Empty();
 }
 
-internal class Cmpt_BaseTypeEncoder(
+internal class Cmpt_BaseTypeEncoder<TTypeKind>(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_BaseTypeObject<TTypeKind>>
 {
@@ -531,26 +531,26 @@ internal class Cmpt_BaseTypeEncoder(
       .AddEncoded("typeKind", input.TypeKind, _typeKind);
 }
 
-internal class Cmpt_ChildTypeEncoder(
+internal class Cmpt_ChildTypeEncoder<TTypeKind,TParent>(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_ChildTypeObject<TTypeKind,TParent>>
 {
-  private readonly IEncoder<ICmpt_BaseTypeObject<TTypeKind>> _baseTypeObject<TTypeKind> = encoders.EncoderFor<ICmpt_BaseTypeObject<TTypeKind>>();
+  private readonly IEncoder<ICmpt_BaseTypeObject<TTypeKind>> _baseType = encoders.EncoderFor<ICmpt_BaseTypeObject<TTypeKind>>();
   private readonly IEncoder<TParent> _parent = encoders.EncoderFor<TParent>();
   public Structured Encode(ICmpt_ChildTypeObject<TTypeKind,TParent> input)
-    => _baseTypeObject<TTypeKind>.Encode(input)
+    => _baseType.Encode(input)
       .AddEncoded("parent", input.Parent, _parent);
 }
 
-internal class Cmpt_ParentTypeEncoder(
+internal class Cmpt_ParentTypeEncoder<TTypeKind,TItem,TAllItem>(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>>
 {
-  private readonly IEncoder<ICmpt_ChildTypeObject<TTypeKind, ICmpt_Named>> _childTypeObject<TTypeKind, ICmpt_Named> = encoders.EncoderFor<ICmpt_ChildTypeObject<TTypeKind, ICmpt_Named>>();
+  private readonly IEncoder<ICmpt_ChildTypeObject<TTypeKind, ICmpt_Named>> _childType = encoders.EncoderFor<ICmpt_ChildTypeObject<TTypeKind, ICmpt_Named>>();
   private readonly IEncoder<TItem> _item = encoders.EncoderFor<TItem>();
   private readonly IEncoder<TAllItem> _allItem = encoders.EncoderFor<TAllItem>();
   public Structured Encode(ICmpt_ParentTypeObject<TTypeKind,TItem,TAllItem> input)
-    => _childTypeObject<TTypeKind, ICmpt_Named>.Encode(input)
+    => _childType.Encode(input)
       .AddList("items", input.Items, _item)
       .AddList("allItems", input.AllItems, _allItem);
 }
@@ -567,7 +567,7 @@ internal class Cmpt_TypeKindEncoder : IEncoder<Cmpt_TypeKind>
     => new(input.ToString(), "_TypeKind");
 }
 
-internal class Cmpt_TypeRefEncoder(
+internal class Cmpt_TypeRefEncoder<TTypeKind>(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_TypeRefObject<TTypeKind>>
 {
@@ -590,14 +590,14 @@ internal class Cmpt_CollectionsEncoder : IEncoder<ICmpt_CollectionsObject>
     => Structured.Empty();
 }
 
-internal class Cmpt_ModifierKeyedEncoder(
+internal class Cmpt_ModifierKeyedEncoder<TModifierKind>(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_ModifierKeyedObject<TModifierKind>>
 {
-  private readonly IEncoder<ICmpt_ModifierObject<TModifierKind>> _modifierObject<TModifierKind> = encoders.EncoderFor<ICmpt_ModifierObject<TModifierKind>>();
+  private readonly IEncoder<ICmpt_ModifierObject<TModifierKind>> _modifier = encoders.EncoderFor<ICmpt_ModifierObject<TModifierKind>>();
   private readonly IEncoder<ICmpt_TypeSimple> _typeSimple = encoders.EncoderFor<ICmpt_TypeSimple>();
   public Structured Encode(ICmpt_ModifierKeyedObject<TModifierKind> input)
-    => _modifierObject<TModifierKind>.Encode(input)
+    => _modifier.Encode(input)
       .AddEncoded("by", input.By, _typeSimple)
       .Add("isOptional", input.IsOptional);
 }
@@ -614,7 +614,7 @@ internal class Cmpt_ModifierKindEncoder : IEncoder<Cmpt_ModifierKind>
     => new(input.ToString(), "_ModifierKind");
 }
 
-internal class Cmpt_ModifierEncoder(
+internal class Cmpt_ModifierEncoder<TModifierKind>(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_ModifierObject<TModifierKind>>
 {
@@ -630,25 +630,25 @@ internal class Cmpt_DomainKindEncoder : IEncoder<Cmpt_DomainKind>
     => new(input.ToString(), "_DomainKind");
 }
 
-internal class Cmpt_DomainRefEncoder(
+internal class Cmpt_DomainRefEncoder<TDomainKind>(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_DomainRefObject<TDomainKind>>
 {
-  private readonly IEncoder<ICmpt_TypeRefObject<Cmpt_TypeKind>> _typeRefObject<Cmpt_TypeKind> = encoders.EncoderFor<ICmpt_TypeRefObject<Cmpt_TypeKind>>();
+  private readonly IEncoder<ICmpt_TypeRefObject<Cmpt_TypeKind>> _typeRef = encoders.EncoderFor<ICmpt_TypeRefObject<Cmpt_TypeKind>>();
   private readonly IEncoder<TDomainKind> _domainKind = encoders.EncoderFor<TDomainKind>();
   public Structured Encode(ICmpt_DomainRefObject<TDomainKind> input)
-    => _typeRefObject<Cmpt_TypeKind>.Encode(input)
+    => _typeRef.Encode(input)
       .AddEncoded("domainKind", input.DomainKind, _domainKind);
 }
 
-internal class Cmpt_BaseDomainEncoder(
+internal class Cmpt_BaseDomainEncoder<TDomainKind,TItem,TDomainItem>(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_BaseDomainObject<TDomainKind,TItem,TDomainItem>>
 {
-  private readonly IEncoder<ICmpt_ParentTypeObject<Cmpt_TypeKind, TItem, TDomainItem>> _parentTypeObject<Cmpt_TypeKind, TItem, TDomainItem> = encoders.EncoderFor<ICmpt_ParentTypeObject<Cmpt_TypeKind, TItem, TDomainItem>>();
+  private readonly IEncoder<ICmpt_ParentTypeObject<Cmpt_TypeKind, TItem, TDomainItem>> _parentType = encoders.EncoderFor<ICmpt_ParentTypeObject<Cmpt_TypeKind, TItem, TDomainItem>>();
   private readonly IEncoder<TDomainKind> _domainKind = encoders.EncoderFor<TDomainKind>();
   public Structured Encode(ICmpt_BaseDomainObject<TDomainKind,TItem,TDomainItem> input)
-    => _parentTypeObject<Cmpt_TypeKind, TItem, TDomainItem>.Encode(input)
+    => _parentType.Encode(input)
       .AddEncoded("domainKind", input.DomainKind, _domainKind);
 }
 
@@ -662,7 +662,7 @@ internal class Cmpt_BaseDomainItemEncoder(
       .Add("exclude", input.Exclude);
 }
 
-internal class Cmpt_DomainItemEncoder(
+internal class Cmpt_DomainItemEncoder<TItem>(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_DomainItemObject<TItem>>
 {
@@ -672,14 +672,14 @@ internal class Cmpt_DomainItemEncoder(
       .AddEncoded("domain", input.Domain, _name);
 }
 
-internal class Cmpt_DomainValueEncoder(
+internal class Cmpt_DomainValueEncoder<TDomainKind,TValue>(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_DomainValueObject<TDomainKind,TValue>>
 {
-  private readonly IEncoder<ICmpt_DomainRefObject<TDomainKind>> _domainRefObject<TDomainKind> = encoders.EncoderFor<ICmpt_DomainRefObject<TDomainKind>>();
+  private readonly IEncoder<ICmpt_DomainRefObject<TDomainKind>> _domainRef = encoders.EncoderFor<ICmpt_DomainRefObject<TDomainKind>>();
   private readonly IEncoder<TValue> _value = encoders.EncoderFor<TValue>();
   public Structured Encode(ICmpt_DomainValueObject<TDomainKind,TValue> input)
-    => _domainRefObject<TDomainKind>.Encode(input)
+    => _domainRef.Encode(input)
       .AddEncoded("value", input.Value, _value);
 }
 
@@ -703,9 +703,9 @@ internal class Cmpt_DomainItemTrueFalseEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_DomainItemTrueFalseObject>
 {
-  private readonly IEncoder<ICmpt_DomainItemObject<ICmpt_DomainTrueFalse>> _domainItemObject<ICmpt_DomainTrueFalse> = encoders.EncoderFor<ICmpt_DomainItemObject<ICmpt_DomainTrueFalse>>();
+  private readonly IEncoder<ICmpt_DomainItemObject<ICmpt_DomainTrueFalse>> _domainItem = encoders.EncoderFor<ICmpt_DomainItemObject<ICmpt_DomainTrueFalse>>();
   public Structured Encode(ICmpt_DomainItemTrueFalseObject input)
-    => _domainItemObject<ICmpt_DomainTrueFalse>.Encode(input);
+    => _domainItem.Encode(input);
 }
 
 internal class Cmpt_DomainLabelEncoder(
@@ -723,9 +723,9 @@ internal class Cmpt_DomainItemLabelEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_DomainItemLabelObject>
 {
-  private readonly IEncoder<ICmpt_DomainItemObject<ICmpt_DomainLabel>> _domainItemObject<ICmpt_DomainLabel> = encoders.EncoderFor<ICmpt_DomainItemObject<ICmpt_DomainLabel>>();
+  private readonly IEncoder<ICmpt_DomainItemObject<ICmpt_DomainLabel>> _domainItem = encoders.EncoderFor<ICmpt_DomainItemObject<ICmpt_DomainLabel>>();
   public Structured Encode(ICmpt_DomainItemLabelObject input)
-    => _domainItemObject<ICmpt_DomainLabel>.Encode(input);
+    => _domainItem.Encode(input);
 }
 
 internal class Cmpt_DomainRangeEncoder(
@@ -743,9 +743,9 @@ internal class Cmpt_DomainItemRangeEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_DomainItemRangeObject>
 {
-  private readonly IEncoder<ICmpt_DomainItemObject<ICmpt_DomainRange>> _domainItemObject<ICmpt_DomainRange> = encoders.EncoderFor<ICmpt_DomainItemObject<ICmpt_DomainRange>>();
+  private readonly IEncoder<ICmpt_DomainItemObject<ICmpt_DomainRange>> _domainItem = encoders.EncoderFor<ICmpt_DomainItemObject<ICmpt_DomainRange>>();
   public Structured Encode(ICmpt_DomainItemRangeObject input)
-    => _domainItemObject<ICmpt_DomainRange>.Encode(input);
+    => _domainItem.Encode(input);
 }
 
 internal class Cmpt_DomainRegexEncoder(
@@ -762,9 +762,9 @@ internal class Cmpt_DomainItemRegexEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_DomainItemRegexObject>
 {
-  private readonly IEncoder<ICmpt_DomainItemObject<ICmpt_DomainRegex>> _domainItemObject<ICmpt_DomainRegex> = encoders.EncoderFor<ICmpt_DomainItemObject<ICmpt_DomainRegex>>();
+  private readonly IEncoder<ICmpt_DomainItemObject<ICmpt_DomainRegex>> _domainItem = encoders.EncoderFor<ICmpt_DomainItemObject<ICmpt_DomainRegex>>();
   public Structured Encode(ICmpt_DomainItemRegexObject input)
-    => _domainItemObject<ICmpt_DomainRegex>.Encode(input);
+    => _domainItem.Encode(input);
 }
 
 internal class Cmpt_EnumLabelEncoder(
@@ -782,10 +782,10 @@ internal class Cmpt_EnumValueEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_EnumValueObject>
 {
-  private readonly IEncoder<ICmpt_TypeRefObject<Cmpt_TypeKind>> _typeRefObject<Cmpt_TypeKind> = encoders.EncoderFor<ICmpt_TypeRefObject<Cmpt_TypeKind>>();
+  private readonly IEncoder<ICmpt_TypeRefObject<Cmpt_TypeKind>> _typeRef = encoders.EncoderFor<ICmpt_TypeRefObject<Cmpt_TypeKind>>();
   private readonly IEncoder<ICmpt_Name> _name = encoders.EncoderFor<ICmpt_Name>();
   public Structured Encode(ICmpt_EnumValueObject input)
-    => _typeRefObject<Cmpt_TypeKind>.Encode(input)
+    => _typeRef.Encode(input)
       .AddEncoded("label", input.Label, _name);
 }
 
@@ -793,9 +793,9 @@ internal class Cmpt_UnionRefEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_UnionRefObject>
 {
-  private readonly IEncoder<ICmpt_TypeRefObject<Cmpt_SimpleKind>> _typeRefObject<Cmpt_SimpleKind> = encoders.EncoderFor<ICmpt_TypeRefObject<Cmpt_SimpleKind>>();
+  private readonly IEncoder<ICmpt_TypeRefObject<Cmpt_SimpleKind>> _typeRef = encoders.EncoderFor<ICmpt_TypeRefObject<Cmpt_SimpleKind>>();
   public Structured Encode(ICmpt_UnionRefObject input)
-    => _typeRefObject<Cmpt_SimpleKind>.Encode(input);
+    => _typeRef.Encode(input);
 }
 
 internal class Cmpt_UnionMemberEncoder(
@@ -815,23 +815,23 @@ internal class Cmpt_ObjectKindEncoder : IEncoder<ICmpt_ObjectKind>
     => new((decimal?)input.Value);
 }
 
-internal class Cmpt_TypeObjectEncoder(
+internal class Cmpt_TypeObjectEncoder<TObjectKind,TField>(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_TypeObjectObject<TObjectKind,TField>>
 {
-  private readonly IEncoder<ICmpt_ChildTypeObject<TObjectKind, ICmpt_ObjBase>> _childTypeObject<TObjectKind, ICmpt_ObjBase> = encoders.EncoderFor<ICmpt_ChildTypeObject<TObjectKind, ICmpt_ObjBase>>();
+  private readonly IEncoder<ICmpt_ChildTypeObject<TObjectKind, ICmpt_ObjBase>> _childType = encoders.EncoderFor<ICmpt_ChildTypeObject<TObjectKind, ICmpt_ObjBase>>();
   private readonly IEncoder<ICmpt_ObjTypeParam> _objTypeParam = encoders.EncoderFor<ICmpt_ObjTypeParam>();
   private readonly IEncoder<TField> _field = encoders.EncoderFor<TField>();
   private readonly IEncoder<ICmpt_ObjAlternate> _objAlternate = encoders.EncoderFor<ICmpt_ObjAlternate>();
-  private readonly IEncoder<ICmpt_ObjectFor<TField>> _objectFor<TField> = encoders.EncoderFor<ICmpt_ObjectFor<TField>>();
-  private readonly IEncoder<ICmpt_ObjectFor<ICmpt_ObjAlternate>> _objectFor<ICmpt_ObjAlternate> = encoders.EncoderFor<ICmpt_ObjectFor<ICmpt_ObjAlternate>>();
+  private readonly IEncoder<ICmpt_ObjectFor<TField>> _objectFor = encoders.EncoderFor<ICmpt_ObjectFor<TField>>();
+  private readonly IEncoder<ICmpt_ObjectFor<ICmpt_ObjAlternate>> _objectFor2 = encoders.EncoderFor<ICmpt_ObjectFor<ICmpt_ObjAlternate>>();
   public Structured Encode(ICmpt_TypeObjectObject<TObjectKind,TField> input)
-    => _childTypeObject<TObjectKind, ICmpt_ObjBase>.Encode(input)
+    => _childType.Encode(input)
       .AddList("typeParams", input.TypeParams, _objTypeParam)
       .AddList("fields", input.Fields, _field)
       .AddList("alternates", input.Alternates, _objAlternate)
-      .AddList("allFields", input.AllFields, _objectFor<TField>)
-      .AddList("allAlternates", input.AllAlternates, _objectFor<ICmpt_ObjAlternate>);
+      .AddList("allFields", input.AllFields, _objectFor)
+      .AddList("allAlternates", input.AllAlternates, _objectFor2);
 }
 
 internal class Cmpt_ObjTypeParamEncoder(
@@ -839,10 +839,10 @@ internal class Cmpt_ObjTypeParamEncoder(
 ) : IEncoder<ICmpt_ObjTypeParamObject>
 {
   private readonly IEncoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
-  private readonly IEncoder<ICmpt_TypeRef<Cmpt_TypeKind>> _typeRef<Cmpt_TypeKind> = encoders.EncoderFor<ICmpt_TypeRef<Cmpt_TypeKind>>();
+  private readonly IEncoder<ICmpt_TypeRef<Cmpt_TypeKind>> _typeRef = encoders.EncoderFor<ICmpt_TypeRef<Cmpt_TypeKind>>();
   public Structured Encode(ICmpt_ObjTypeParamObject input)
     => _named.Encode(input)
-      .AddEncoded("constraint", input.Constraint, _typeRef<Cmpt_TypeKind>);
+      .AddEncoded("constraint", input.Constraint, _typeRef);
 }
 
 internal class Cmpt_ObjBaseEncoder(
@@ -860,10 +860,10 @@ internal class Cmpt_ObjTypeArgEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_ObjTypeArgObject>
 {
-  private readonly IEncoder<ICmpt_TypeRefObject<Cmpt_TypeKind>> _typeRefObject<Cmpt_TypeKind> = encoders.EncoderFor<ICmpt_TypeRefObject<Cmpt_TypeKind>>();
+  private readonly IEncoder<ICmpt_TypeRefObject<Cmpt_TypeKind>> _typeRef = encoders.EncoderFor<ICmpt_TypeRefObject<Cmpt_TypeKind>>();
   private readonly IEncoder<ICmpt_Name> _name = encoders.EncoderFor<ICmpt_Name>();
   public Structured Encode(ICmpt_ObjTypeArgObject input)
-    => _typeRefObject<Cmpt_TypeKind>.Encode(input)
+    => _typeRef.Encode(input)
       .AddEncoded("label", input.Label, _name);
 }
 
@@ -894,14 +894,14 @@ internal class Cmpt_ObjAlternateEnumEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_ObjAlternateEnumObject>
 {
-  private readonly IEncoder<ICmpt_TypeRefObject<Cmpt_TypeKind>> _typeRefObject<Cmpt_TypeKind> = encoders.EncoderFor<ICmpt_TypeRefObject<Cmpt_TypeKind>>();
+  private readonly IEncoder<ICmpt_TypeRefObject<Cmpt_TypeKind>> _typeRef = encoders.EncoderFor<ICmpt_TypeRefObject<Cmpt_TypeKind>>();
   private readonly IEncoder<ICmpt_Name> _name = encoders.EncoderFor<ICmpt_Name>();
   public Structured Encode(ICmpt_ObjAlternateEnumObject input)
-    => _typeRefObject<Cmpt_TypeKind>.Encode(input)
+    => _typeRef.Encode(input)
       .AddEncoded("label", input.Label, _name);
 }
 
-internal class Cmpt_ObjectForEncoder(
+internal class Cmpt_ObjectForEncoder<TFor>(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_ObjectForObject<TFor>>
 {
@@ -911,7 +911,7 @@ internal class Cmpt_ObjectForEncoder(
       .AddEncoded("objectType", input.ObjectType, _name);
 }
 
-internal class Cmpt_ObjFieldEncoder(
+internal class Cmpt_ObjFieldEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_ObjFieldObject<TType>>
 {
@@ -937,14 +937,14 @@ internal class Cmpt_ObjFieldEnumEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_ObjFieldEnumObject>
 {
-  private readonly IEncoder<ICmpt_TypeRefObject<Cmpt_TypeKind>> _typeRefObject<Cmpt_TypeKind> = encoders.EncoderFor<ICmpt_TypeRefObject<Cmpt_TypeKind>>();
+  private readonly IEncoder<ICmpt_TypeRefObject<Cmpt_TypeKind>> _typeRef = encoders.EncoderFor<ICmpt_TypeRefObject<Cmpt_TypeKind>>();
   private readonly IEncoder<ICmpt_Name> _name = encoders.EncoderFor<ICmpt_Name>();
   public Structured Encode(ICmpt_ObjFieldEnumObject input)
-    => _typeRefObject<Cmpt_TypeKind>.Encode(input)
+    => _typeRef.Encode(input)
       .AddEncoded("label", input.Label, _name);
 }
 
-internal class Cmpt_ForParamEncoder : IEncoder<ICmpt_ForParamObject<TType>>
+internal class Cmpt_ForParamEncoder<TType> : IEncoder<ICmpt_ForParamObject<TType>>
 {
   public Structured Encode(ICmpt_ForParamObject<TType> input)
     => Structured.Empty();
@@ -954,18 +954,18 @@ internal class Cmpt_DualFieldEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_DualFieldObject>
 {
-  private readonly IEncoder<ICmpt_ObjFieldObject<ICmpt_ObjFieldType>> _objFieldObject<ICmpt_ObjFieldType> = encoders.EncoderFor<ICmpt_ObjFieldObject<ICmpt_ObjFieldType>>();
+  private readonly IEncoder<ICmpt_ObjFieldObject<ICmpt_ObjFieldType>> _objField = encoders.EncoderFor<ICmpt_ObjFieldObject<ICmpt_ObjFieldType>>();
   public Structured Encode(ICmpt_DualFieldObject input)
-    => _objFieldObject<ICmpt_ObjFieldType>.Encode(input);
+    => _objField.Encode(input);
 }
 
 internal class Cmpt_InputFieldEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_InputFieldObject>
 {
-  private readonly IEncoder<ICmpt_ObjFieldObject<ICmpt_InputFieldType>> _objFieldObject<ICmpt_InputFieldType> = encoders.EncoderFor<ICmpt_ObjFieldObject<ICmpt_InputFieldType>>();
+  private readonly IEncoder<ICmpt_ObjFieldObject<ICmpt_InputFieldType>> _objField = encoders.EncoderFor<ICmpt_ObjFieldObject<ICmpt_InputFieldType>>();
   public Structured Encode(ICmpt_InputFieldObject input)
-    => _objFieldObject<ICmpt_InputFieldType>.Encode(input);
+    => _objField.Encode(input);
 }
 
 internal class Cmpt_InputFieldTypeEncoder(
@@ -983,9 +983,9 @@ internal class Cmpt_OutputFieldEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_OutputFieldObject>
 {
-  private readonly IEncoder<ICmpt_ObjFieldObject<ICmpt_ObjFieldType>> _objFieldObject<ICmpt_ObjFieldType> = encoders.EncoderFor<ICmpt_ObjFieldObject<ICmpt_ObjFieldType>>();
+  private readonly IEncoder<ICmpt_ObjFieldObject<ICmpt_ObjFieldType>> _objField = encoders.EncoderFor<ICmpt_ObjFieldObject<ICmpt_ObjFieldType>>();
   public Structured Encode(ICmpt_OutputFieldObject input)
-    => _objFieldObject<ICmpt_ObjFieldType>.Encode(input);
+    => _objField.Encode(input);
 }
 
 internal class Cmpt_OutputFieldTypeEncoder(

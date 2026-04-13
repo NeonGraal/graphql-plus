@@ -10,7 +10,7 @@ output GnrcAltOutp<$type:String> { | $type }
 
 namespace Components.Gqlp_Schema_generic_alt_Output;
 
-internal class CmptGnrcAltOutpEncoder : IEncoder<ICmptGnrcAltOutpObject<TType>>
+internal class CmptGnrcAltOutpEncoder<TType> : IEncoder<ICmptGnrcAltOutpObject<TType>>
 {
   public Structured Encode(ICmptGnrcAltOutpObject<TType> input)
     => Structured.Empty();

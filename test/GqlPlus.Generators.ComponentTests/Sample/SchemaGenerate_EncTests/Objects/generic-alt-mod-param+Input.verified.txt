@@ -10,7 +10,7 @@ input RefGnrcAltModParamInp<$ref:String $mod:String> { | $ref[$mod] }
 
 namespace Components.Gqlp_Schema_generic_alt_mod_param_Input;
 
-internal class CmptRefGnrcAltModParamInpEncoder : IEncoder<ICmptRefGnrcAltModParamInpObject<TRef,TMod>>
+internal class CmptRefGnrcAltModParamInpEncoder<TRef,TMod> : IEncoder<ICmptRefGnrcAltModParamInpObject<TRef,TMod>>
 {
   public Structured Encode(ICmptRefGnrcAltModParamInpObject<TRef,TMod> input)
     => Structured.Empty();

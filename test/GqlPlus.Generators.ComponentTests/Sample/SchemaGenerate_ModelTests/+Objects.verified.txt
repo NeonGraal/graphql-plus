@@ -7598,6 +7598,8 @@ public class CmptOutpDescrParamObject
 {
   public ICmptFldOutpDescrParam? Field(ICmptInOutpDescrParam parameter)
     => null;
+  public ICmptFldOutpDescrParam? Field()
+    => null;
 
   public CmptOutpDescrParamObject
     ()
@@ -7657,6 +7659,8 @@ public class CmptOutpParamObject
   , ICmptOutpParamObject
 {
   public ICmptFldOutpParam? Field(ICmptInOutpParam parameter)
+    => null;
+  public ICmptFldOutpParam? Field()
     => null;
 
   public CmptOutpParamObject
@@ -7718,6 +7722,8 @@ public class CmptOutpParamDescrObject
 {
   public ICmptFldOutpParamDescr? Field(ICmptInOutpParamDescr parameter)
     => null;
+  public ICmptFldOutpParamDescr? Field()
+    => null;
 
   public CmptOutpParamDescrObject
     ()
@@ -7778,6 +7784,8 @@ public class CmptOutpParamModDmnObject
 {
   public ICmptDomOutpParamModDmn? Field(IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter)
     => null;
+  public ICmptDomOutpParamModDmn? Field()
+    => null;
 
   public CmptOutpParamModDmnObject
     ()
@@ -7826,6 +7834,8 @@ public class CmptOutpParamModParamObject<TMod>
 {
   public ICmptDomOutpParamModParam? Field(IDictionary<TMod, ICmptInOutpParamModParam> parameter)
     => null;
+  public ICmptDomOutpParamModParam? Field()
+    => null;
 
   public CmptOutpParamModParamObject
     ()
@@ -7873,6 +7883,8 @@ public class CmptOutpParamTypeDescrObject
   , ICmptOutpParamTypeDescrObject
 {
   public ICmptFldOutpParamTypeDescr? Field(ICmptInOutpParamTypeDescr parameter)
+    => null;
+  public ICmptFldOutpParamTypeDescr? Field()
     => null;
 
   public CmptOutpParamTypeDescrObject
@@ -7974,6 +7986,8 @@ public class CmptOutpPrntParamObject
 {
   public ICmptFldOutpPrntParam? Field(ICmptInOutpPrntParam parameter)
     => null;
+  public ICmptFldOutpPrntParam? Field()
+    => null;
 
   public CmptOutpPrntParamObject
     ()
@@ -7993,6 +8007,8 @@ public class CmptPrntOutpPrntParamObject
   , ICmptPrntOutpPrntParamObject
 {
   public ICmptFldOutpPrntParam? Field(ICmptPrntOutpPrntParamIn parameter)
+    => null;
+  public ICmptFldOutpPrntParam? Field()
     => null;
 
   public CmptPrntOutpPrntParamObject

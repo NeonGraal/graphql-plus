@@ -28,49 +28,49 @@ dual _Any { }
 
 namespace Components.Gqlp_Spec_Schema;
 
-internal class Cmpt_OptEncoder : IEncoder<ICmpt_OptObject<TT>>
+internal class Cmpt_OptEncoder<TT> : IEncoder<ICmpt_OptObject<TT>>
 {
   public Structured Encode(ICmpt_OptObject<TT> input)
     => Structured.Empty();
 }
 
-internal class Cmpt_ListEncoder : IEncoder<ICmpt_ListObject<TT>>
+internal class Cmpt_ListEncoder<TT> : IEncoder<ICmpt_ListObject<TT>>
 {
   public Structured Encode(ICmpt_ListObject<TT> input)
     => Structured.Empty();
 }
 
-internal class Cmpt_DictEncoder : IEncoder<ICmpt_DictObject<TK,TT>>
+internal class Cmpt_DictEncoder<TK,TT> : IEncoder<ICmpt_DictObject<TK,TT>>
 {
   public Structured Encode(ICmpt_DictObject<TK,TT> input)
     => Structured.Empty();
 }
 
-internal class Cmpt_MapEncoder : IEncoder<ICmpt_MapObject<TT>>
+internal class Cmpt_MapEncoder<TT> : IEncoder<ICmpt_MapObject<TT>>
 {
   public Structured Encode(ICmpt_MapObject<TT> input)
     => Structured.Empty();
 }
 
-internal class Cmpt_ArrayEncoder : IEncoder<ICmpt_ArrayObject<TT>>
+internal class Cmpt_ArrayEncoder<TT> : IEncoder<ICmpt_ArrayObject<TT>>
 {
   public Structured Encode(ICmpt_ArrayObject<TT> input)
     => Structured.Empty();
 }
 
-internal class Cmpt_IfElseEncoder : IEncoder<ICmpt_IfElseObject<TT>>
+internal class Cmpt_IfElseEncoder<TT> : IEncoder<ICmpt_IfElseObject<TT>>
 {
   public Structured Encode(ICmpt_IfElseObject<TT> input)
     => Structured.Empty();
 }
 
-internal class Cmpt_SetEncoder : IEncoder<ICmpt_SetObject<TK>>
+internal class Cmpt_SetEncoder<TK> : IEncoder<ICmpt_SetObject<TK>>
 {
   public Structured Encode(ICmpt_SetObject<TK> input)
     => Structured.Empty();
 }
 
-internal class Cmpt_MaskEncoder : IEncoder<ICmpt_MaskObject<TK>>
+internal class Cmpt_MaskEncoder<TK> : IEncoder<ICmpt_MaskObject<TK>>
 {
   public Structured Encode(ICmpt_MaskObject<TK> input)
     => Structured.Empty();

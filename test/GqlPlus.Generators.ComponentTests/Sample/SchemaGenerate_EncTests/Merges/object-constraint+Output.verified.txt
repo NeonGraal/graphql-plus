@@ -11,7 +11,7 @@ output ObjCnstOutp<$type:String> { str: $type }
 
 namespace Components.Gqlp_Schema_object_constraint_Output;
 
-internal class CmptObjCnstOutpEncoder(
+internal class CmptObjCnstOutpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptObjCnstOutpObject<TType>>
 {

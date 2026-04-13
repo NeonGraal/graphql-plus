@@ -11,7 +11,7 @@ dual ObjParamDupDual<$test:String> { type: $test }
 
 namespace Components.Gqlp_Schema_object_param_dup_Dual;
 
-internal class CmptObjParamDupDualEncoder(
+internal class CmptObjParamDupDualEncoder<TTest>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptObjParamDupDualObject<TTest>>
 {

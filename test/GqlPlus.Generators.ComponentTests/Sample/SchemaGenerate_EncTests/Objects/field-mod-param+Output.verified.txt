@@ -11,7 +11,7 @@ output FldFieldModParamOutp { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_mod_param_Output;
 
-internal class CmptFieldModParamOutpEncoder : IEncoder<ICmptFieldModParamOutpObject<TMod>>
+internal class CmptFieldModParamOutpEncoder<TMod> : IEncoder<ICmptFieldModParamOutpObject<TMod>>
 {
   public Structured Encode(ICmptFieldModParamOutpObject<TMod> input)
     => Structured.Empty();

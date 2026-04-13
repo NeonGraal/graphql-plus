@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_Output;
 
-internal class testCnstAltOutpEncoder : IEncoder<ItestCnstAltOutpObject<TType>>
+internal class testCnstAltOutpEncoder<TType> : IEncoder<ItestCnstAltOutpObject<TType>>
 {
   public Structured Encode(ItestCnstAltOutpObject<TType> input)
     => Structured.Empty();

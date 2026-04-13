@@ -11,12 +11,12 @@ internal class testGnrcPrntParamPrntDualEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestGnrcPrntParamPrntDualObject>
 {
-  private readonly IEncoder<ItestRefGnrcPrntParamPrntDualObject<ItestAltGnrcPrntParamPrntDual>> _itestRefGnrcPrntParamPrntDualObject<ItestAltGnrcPrntParamPrntDual> = encoders.EncoderFor<ItestRefGnrcPrntParamPrntDualObject<ItestAltGnrcPrntParamPrntDual>>();
+  private readonly IEncoder<ItestRefGnrcPrntParamPrntDualObject<ItestAltGnrcPrntParamPrntDual>> _itestRefGnrcPrntParamPrntDual = encoders.EncoderFor<ItestRefGnrcPrntParamPrntDualObject<ItestAltGnrcPrntParamPrntDual>>();
   public Structured Encode(ItestGnrcPrntParamPrntDualObject input)
-    => _itestRefGnrcPrntParamPrntDualObject<ItestAltGnrcPrntParamPrntDual>.Encode(input);
+    => _itestRefGnrcPrntParamPrntDual.Encode(input);
 }
 
-internal class testRefGnrcPrntParamPrntDualEncoder : IEncoder<ItestRefGnrcPrntParamPrntDualObject<TRef>>
+internal class testRefGnrcPrntParamPrntDualEncoder<TRef> : IEncoder<ItestRefGnrcPrntParamPrntDualObject<TRef>>
 {
   public Structured Encode(ItestRefGnrcPrntParamPrntDualObject<TRef> input)
     => Structured.Empty();

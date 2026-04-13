@@ -11,12 +11,12 @@ internal class testGnrcPrntSmplEnumOutpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestGnrcPrntSmplEnumOutpObject>
 {
-  private readonly IEncoder<ItestFieldGnrcPrntSmplEnumOutpObject<testEnumGnrcPrntSmplEnumOutp>> _itestFieldGnrcPrntSmplEnumOutpObject<testEnumGnrcPrntSmplEnumOutp> = encoders.EncoderFor<ItestFieldGnrcPrntSmplEnumOutpObject<testEnumGnrcPrntSmplEnumOutp>>();
+  private readonly IEncoder<ItestFieldGnrcPrntSmplEnumOutpObject<testEnumGnrcPrntSmplEnumOutp>> _itestFieldGnrcPrntSmplEnumOutp = encoders.EncoderFor<ItestFieldGnrcPrntSmplEnumOutpObject<testEnumGnrcPrntSmplEnumOutp>>();
   public Structured Encode(ItestGnrcPrntSmplEnumOutpObject input)
-    => _itestFieldGnrcPrntSmplEnumOutpObject<testEnumGnrcPrntSmplEnumOutp>.Encode(input);
+    => _itestFieldGnrcPrntSmplEnumOutp.Encode(input);
 }
 
-internal class testFieldGnrcPrntSmplEnumOutpEncoder(
+internal class testFieldGnrcPrntSmplEnumOutpEncoder<TRef>(
   IEncoderRepository encoders
 ) : IEncoder<ItestFieldGnrcPrntSmplEnumOutpObject<TRef>>
 {

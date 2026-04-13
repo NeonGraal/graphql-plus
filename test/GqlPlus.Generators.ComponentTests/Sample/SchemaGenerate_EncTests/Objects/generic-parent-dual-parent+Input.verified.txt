@@ -16,12 +16,12 @@ internal class CmptGnrcPrntDualPrntInpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptGnrcPrntDualPrntInpObject>
 {
-  private readonly IEncoder<ICmptRefGnrcPrntDualPrntInpObject<ICmptAltGnrcPrntDualPrntInp>> _refGnrcPrntDualPrntInpObject<ICmptAltGnrcPrntDualPrntInp> = encoders.EncoderFor<ICmptRefGnrcPrntDualPrntInpObject<ICmptAltGnrcPrntDualPrntInp>>();
+  private readonly IEncoder<ICmptRefGnrcPrntDualPrntInpObject<ICmptAltGnrcPrntDualPrntInp>> _refGnrcPrntDualPrntInp = encoders.EncoderFor<ICmptRefGnrcPrntDualPrntInpObject<ICmptAltGnrcPrntDualPrntInp>>();
   public Structured Encode(ICmptGnrcPrntDualPrntInpObject input)
-    => _refGnrcPrntDualPrntInpObject<ICmptAltGnrcPrntDualPrntInp>.Encode(input);
+    => _refGnrcPrntDualPrntInp.Encode(input);
 }
 
-internal class CmptRefGnrcPrntDualPrntInpEncoder : IEncoder<ICmptRefGnrcPrntDualPrntInpObject<TRef>>
+internal class CmptRefGnrcPrntDualPrntInpEncoder<TRef> : IEncoder<ICmptRefGnrcPrntDualPrntInpObject<TRef>>
 {
   public Structured Encode(ICmptRefGnrcPrntDualPrntInpObject<TRef> input)
     => Structured.Empty();

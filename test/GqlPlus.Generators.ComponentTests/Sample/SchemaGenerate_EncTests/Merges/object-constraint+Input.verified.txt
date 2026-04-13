@@ -11,7 +11,7 @@ input ObjCnstInp<$type:String> { str: $type }
 
 namespace Components.Gqlp_Schema_object_constraint_Input;
 
-internal class CmptObjCnstInpEncoder(
+internal class CmptObjCnstInpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptObjCnstInpObject<TType>>
 {

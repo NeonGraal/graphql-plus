@@ -10,7 +10,7 @@ input GnrcPrntInp<$type:_Dual> { :$type }
 
 namespace Components.Gqlp_Schema_generic_parent_Input;
 
-internal class CmptGnrcPrntInpEncoder : IEncoder<ICmptGnrcPrntInpObject<TType>>
+internal class CmptGnrcPrntInpEncoder<TType> : IEncoder<ICmptGnrcPrntInpObject<TType>>
 {
   public Structured Encode(ICmptGnrcPrntInpObject<TType> input)
     => Structured.Empty();

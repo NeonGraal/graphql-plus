@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_param_Dual;
 
-internal class testObjParamDualEncoder(
+internal class testObjParamDualEncoder<TTest,TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestObjParamDualObject<TTest,TType>>
 {

@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_param_Output;
 
-internal class testObjParamOutpEncoder(
+internal class testObjParamOutpEncoder<TTest,TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestObjParamOutpObject<TTest,TType>>
 {

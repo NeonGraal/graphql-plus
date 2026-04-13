@@ -19,7 +19,7 @@ internal class CmptOutpPrntGnrcEncoder : IEncoder<ICmptOutpPrntGnrcObject>
     => Structured.Empty();
 }
 
-internal class CmptRefOutpPrntGnrcEncoder(
+internal class CmptRefOutpPrntGnrcEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptRefOutpPrntGnrcObject<TType>>
 {

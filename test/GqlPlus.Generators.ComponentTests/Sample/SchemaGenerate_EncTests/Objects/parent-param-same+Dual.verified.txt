@@ -11,18 +11,18 @@ dual RefPrntParamSameDual<$a:String> { | $a }
 
 namespace Components.Gqlp_Schema_parent_param_same_Dual;
 
-internal class CmptPrntParamSameDualEncoder(
+internal class CmptPrntParamSameDualEncoder<TA>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptPrntParamSameDualObject<TA>>
 {
-  private readonly IEncoder<ICmptRefPrntParamSameDualObject<TA>> _refPrntParamSameDualObject<TA> = encoders.EncoderFor<ICmptRefPrntParamSameDualObject<TA>>();
+  private readonly IEncoder<ICmptRefPrntParamSameDualObject<TA>> _refPrntParamSameDual = encoders.EncoderFor<ICmptRefPrntParamSameDualObject<TA>>();
   private readonly IEncoder<TA> _a = encoders.EncoderFor<TA>();
   public Structured Encode(ICmptPrntParamSameDualObject<TA> input)
-    => _refPrntParamSameDualObject<TA>.Encode(input)
+    => _refPrntParamSameDual.Encode(input)
       .AddEncoded("field", input.Field, _a);
 }
 
-internal class CmptRefPrntParamSameDualEncoder : IEncoder<ICmptRefPrntParamSameDualObject<TA>>
+internal class CmptRefPrntParamSameDualEncoder<TA> : IEncoder<ICmptRefPrntParamSameDualObject<TA>>
 {
   public Structured Encode(ICmptRefPrntParamSameDualObject<TA> input)
     => Structured.Empty();

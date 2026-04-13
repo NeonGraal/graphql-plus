@@ -10,7 +10,7 @@ dual GnrcDescrDual<"Test" "Descr" $type:String> { field: $type }
 
 namespace Components.Gqlp_Schema_generic_descr_Dual;
 
-internal class CmptGnrcDescrDualEncoder(
+internal class CmptGnrcDescrDualEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptGnrcDescrDualObject<TType>>
 {

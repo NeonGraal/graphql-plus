@@ -18,7 +18,7 @@ internal class CmptGnrcEnumInpEncoder : IEncoder<ICmptGnrcEnumInpObject>
     => Structured.Empty();
 }
 
-internal class CmptRefGnrcEnumInpEncoder(
+internal class CmptRefGnrcEnumInpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptRefGnrcEnumInpObject<TType>>
 {

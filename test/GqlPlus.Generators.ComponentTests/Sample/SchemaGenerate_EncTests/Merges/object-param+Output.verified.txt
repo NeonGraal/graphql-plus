@@ -11,7 +11,7 @@ output ObjParamOutp<$type:String> { type: $type }
 
 namespace Components.Gqlp_Schema_object_param_Output;
 
-internal class CmptObjParamOutpEncoder(
+internal class CmptObjParamOutpEncoder<TTest,TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptObjParamOutpObject<TTest,TType>>
 {

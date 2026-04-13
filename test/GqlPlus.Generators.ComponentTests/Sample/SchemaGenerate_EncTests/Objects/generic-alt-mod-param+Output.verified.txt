@@ -10,7 +10,7 @@ output RefGnrcAltModParamOutp<$ref:String $mod:String> { | $ref[$mod] }
 
 namespace Components.Gqlp_Schema_generic_alt_mod_param_Output;
 
-internal class CmptRefGnrcAltModParamOutpEncoder : IEncoder<ICmptRefGnrcAltModParamOutpObject<TRef,TMod>>
+internal class CmptRefGnrcAltModParamOutpEncoder<TRef,TMod> : IEncoder<ICmptRefGnrcAltModParamOutpObject<TRef,TMod>>
 {
   public Structured Encode(ICmptRefGnrcAltModParamOutpObject<TRef,TMod> input)
     => Structured.Empty();

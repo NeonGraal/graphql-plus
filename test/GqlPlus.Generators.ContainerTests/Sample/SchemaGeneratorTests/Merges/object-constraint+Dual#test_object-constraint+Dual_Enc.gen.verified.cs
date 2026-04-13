@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_constraint_Dual;
 
-internal class testObjCnstDualEncoder(
+internal class testObjCnstDualEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestObjCnstDualObject<TType>>
 {

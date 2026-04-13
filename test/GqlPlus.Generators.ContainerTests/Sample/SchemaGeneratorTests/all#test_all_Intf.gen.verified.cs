@@ -62,4 +62,5 @@ public interface ItestAllObject
   : IGqlpInterfaceBase
 {
   ItestField? Items(ItestParam? parameter);
+  ItestField? Items();
 }

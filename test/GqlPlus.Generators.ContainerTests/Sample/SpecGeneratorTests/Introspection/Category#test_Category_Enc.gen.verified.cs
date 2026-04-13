@@ -23,12 +23,12 @@ internal class test_CategoryEncoder(
 ) : IEncoder<Itest_CategoryObject>
 {
   private readonly IEncoder<Itest_AliasedObject> _itest_Aliased = encoders.EncoderFor<Itest_AliasedObject>();
-  private readonly IEncoder<Itest_TypeRef<Itest_TypeKind>> _itest_TypeRef<Itest_TypeKind> = encoders.EncoderFor<Itest_TypeRef<Itest_TypeKind>>();
+  private readonly IEncoder<Itest_TypeRef<Itest_TypeKind>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRef<Itest_TypeKind>>();
   private readonly IEncoder<Itest_Modifiers> _itest_Modifiers = encoders.EncoderFor<Itest_Modifiers>();
   public Structured Encode(Itest_CategoryObject input)
     => _itest_Aliased.Encode(input)
       .AddEnum("resolution", input.Resolution)
-      .AddEncoded("output", input.Output, _itest_TypeRef<Itest_TypeKind>)
+      .AddEncoded("output", input.Output, _itest_TypeRef)
       .AddList("modifiers", input.Modifiers, _itest_Modifiers);
 }
 

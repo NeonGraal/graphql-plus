@@ -10,7 +10,7 @@ output GnrcDescrOutp<"Test" "Descr" $type:String> { field: $type }
 
 namespace Components.Gqlp_Schema_generic_descr_Output;
 
-internal class CmptGnrcDescrOutpEncoder(
+internal class CmptGnrcDescrOutpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptGnrcDescrOutpObject<TType>>
 {

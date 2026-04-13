@@ -11,7 +11,7 @@ input ObjParamDupInp<$test:String> { type: $test }
 
 namespace Components.Gqlp_Schema_object_param_dup_Input;
 
-internal class CmptObjParamDupInpEncoder(
+internal class CmptObjParamDupInpEncoder<TTest>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptObjParamDupInpObject<TTest>>
 {

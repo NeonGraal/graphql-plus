@@ -10,7 +10,7 @@ dual GnrcFieldDual<$type:String> { field: $type }
 
 namespace Components.Gqlp_Schema_generic_field_Dual;
 
-internal class CmptGnrcFieldDualEncoder(
+internal class CmptGnrcFieldDualEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptGnrcFieldDualObject<TType>>
 {

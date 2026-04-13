@@ -17,12 +17,12 @@ internal class CmptGnrcPrntEnumPrntInpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptGnrcPrntEnumPrntInpObject>
 {
-  private readonly IEncoder<ICmptFieldGnrcPrntEnumPrntInpObject<CmptEnumGnrcPrntEnumPrntInp>> _fieldGnrcPrntEnumPrntInpObject<CmptEnumGnrcPrntEnumPrntInp> = encoders.EncoderFor<ICmptFieldGnrcPrntEnumPrntInpObject<CmptEnumGnrcPrntEnumPrntInp>>();
+  private readonly IEncoder<ICmptFieldGnrcPrntEnumPrntInpObject<CmptEnumGnrcPrntEnumPrntInp>> _fieldGnrcPrntEnumPrntInp = encoders.EncoderFor<ICmptFieldGnrcPrntEnumPrntInpObject<CmptEnumGnrcPrntEnumPrntInp>>();
   public Structured Encode(ICmptGnrcPrntEnumPrntInpObject input)
-    => _fieldGnrcPrntEnumPrntInpObject<CmptEnumGnrcPrntEnumPrntInp>.Encode(input);
+    => _fieldGnrcPrntEnumPrntInp.Encode(input);
 }
 
-internal class CmptFieldGnrcPrntEnumPrntInpEncoder(
+internal class CmptFieldGnrcPrntEnumPrntInpEncoder<TRef>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptFieldGnrcPrntEnumPrntInpObject<TRef>>
 {

@@ -19,7 +19,7 @@ internal class CmptCnstAltObjOutpEncoder : IEncoder<ICmptCnstAltObjOutpObject>
     => Structured.Empty();
 }
 
-internal class CmptRefCnstAltObjOutpEncoder : IEncoder<ICmptRefCnstAltObjOutpObject<TRef>>
+internal class CmptRefCnstAltObjOutpEncoder<TRef> : IEncoder<ICmptRefCnstAltObjOutpObject<TRef>>
 {
   public Structured Encode(ICmptRefCnstAltObjOutpObject<TRef> input)
     => Structured.Empty();

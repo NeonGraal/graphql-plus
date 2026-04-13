@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_constraint_Output;
 
-internal class testObjCnstOutpEncoder(
+internal class testObjCnstOutpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestObjCnstOutpObject<TType>>
 {

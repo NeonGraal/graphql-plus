@@ -11,7 +11,7 @@ input FldFieldModParamInp { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_mod_param_Input;
 
-internal class CmptFieldModParamInpEncoder : IEncoder<ICmptFieldModParamInpObject<TMod>>
+internal class CmptFieldModParamInpEncoder<TMod> : IEncoder<ICmptFieldModParamInpObject<TMod>>
 {
   public Structured Encode(ICmptFieldModParamInpObject<TMod> input)
     => Structured.Empty();

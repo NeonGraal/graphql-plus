@@ -107,6 +107,8 @@ public class CmptAllObject
 {
   public ICmptField? Items(ICmptParam? parameter)
     => null;
+  public ICmptField? Items()
+    => null;
 
   public CmptAllObject
     ()

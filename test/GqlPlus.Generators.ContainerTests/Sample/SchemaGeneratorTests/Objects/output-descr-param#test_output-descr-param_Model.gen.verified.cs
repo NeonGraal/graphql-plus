@@ -20,6 +20,8 @@ public class testOutpDescrParamObject
 {
   public ItestFldOutpDescrParam? Field(ItestInOutpDescrParam parameter)
     => null;
+  public ItestFldOutpDescrParam? Field()
+    => null;
 
   public testOutpDescrParamObject
     ()

@@ -7,16 +7,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_arg_Output;
 
-internal class testGnrcPrntArgOutpEncoder(
+internal class testGnrcPrntArgOutpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestGnrcPrntArgOutpObject<TType>>
 {
-  private readonly IEncoder<ItestRefGnrcPrntArgOutpObject<TType>> _itestRefGnrcPrntArgOutpObject<TType> = encoders.EncoderFor<ItestRefGnrcPrntArgOutpObject<TType>>();
+  private readonly IEncoder<ItestRefGnrcPrntArgOutpObject<TType>> _itestRefGnrcPrntArgOutp = encoders.EncoderFor<ItestRefGnrcPrntArgOutpObject<TType>>();
   public Structured Encode(ItestGnrcPrntArgOutpObject<TType> input)
-    => _itestRefGnrcPrntArgOutpObject<TType>.Encode(input);
+    => _itestRefGnrcPrntArgOutp.Encode(input);
 }
 
-internal class testRefGnrcPrntArgOutpEncoder : IEncoder<ItestRefGnrcPrntArgOutpObject<TRef>>
+internal class testRefGnrcPrntArgOutpEncoder<TRef> : IEncoder<ItestRefGnrcPrntArgOutpObject<TRef>>
 {
   public Structured Encode(ItestRefGnrcPrntArgOutpObject<TRef> input)
     => Structured.Empty();

@@ -11,7 +11,7 @@ dual AltAltModParamDual { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_mod_param_Dual;
 
-internal class CmptAltModParamDualEncoder : IEncoder<ICmptAltModParamDualObject<TMod>>
+internal class CmptAltModParamDualEncoder<TMod> : IEncoder<ICmptAltModParamDualObject<TMod>>
 {
   public Structured Encode(ICmptAltModParamDualObject<TMod> input)
     => Structured.Empty();

@@ -10,7 +10,7 @@ dual CnstAltDual<$type:Number> { | $type }
 
 namespace Components.Gqlp_Schema_constraint_alt_Dual;
 
-internal class CmptCnstAltDualEncoder : IEncoder<ICmptCnstAltDualObject<TType>>
+internal class CmptCnstAltDualEncoder<TType> : IEncoder<ICmptCnstAltDualObject<TType>>
 {
   public Structured Encode(ICmptCnstAltDualObject<TType> input)
     => Structured.Empty();

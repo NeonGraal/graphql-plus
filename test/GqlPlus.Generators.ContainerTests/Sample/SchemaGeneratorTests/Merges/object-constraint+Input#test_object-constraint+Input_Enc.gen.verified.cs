@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_constraint_Input;
 
-internal class testObjCnstInpEncoder(
+internal class testObjCnstInpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestObjCnstInpObject<TType>>
 {

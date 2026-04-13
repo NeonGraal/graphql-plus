@@ -15,7 +15,7 @@ internal class testOutpPrntParamEncoder(
   private readonly IEncoder<ItestFldOutpPrntParam> _itestFldOutpPrntParam = encoders.EncoderFor<ItestFldOutpPrntParam>();
   public Structured Encode(ItestOutpPrntParamObject input)
     => _itestPrntOutpPrntParam.Encode(input)
-      .AddEncoded("field", input.Field(null), _itestFldOutpPrntParam);
+      .AddEncoded("field", input.Field(), _itestFldOutpPrntParam);
 }
 
 internal class testPrntOutpPrntParamEncoder(
@@ -25,7 +25,7 @@ internal class testPrntOutpPrntParamEncoder(
   private readonly IEncoder<ItestFldOutpPrntParam> _itestFldOutpPrntParam = encoders.EncoderFor<ItestFldOutpPrntParam>();
   public Structured Encode(ItestPrntOutpPrntParamObject input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field(null), _itestFldOutpPrntParam);
+      .AddEncoded("field", input.Field(), _itestFldOutpPrntParam);
 }
 
 internal class testFldOutpPrntParamEncoder : IEncoder<ItestFldOutpPrntParamObject>

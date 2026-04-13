@@ -13,7 +13,7 @@ internal class test_TypeEncoder : IEncoder<Itest_TypeObject>
     => Structured.Empty();
 }
 
-internal class test_BaseTypeEncoder(
+internal class test_BaseTypeEncoder<TTypeKind>(
   IEncoderRepository encoders
 ) : IEncoder<Itest_BaseTypeObject<TTypeKind>>
 {
@@ -24,26 +24,26 @@ internal class test_BaseTypeEncoder(
       .AddEncoded("typeKind", input.TypeKind, _typeKind);
 }
 
-internal class test_ChildTypeEncoder(
+internal class test_ChildTypeEncoder<TTypeKind,TParent>(
   IEncoderRepository encoders
 ) : IEncoder<Itest_ChildTypeObject<TTypeKind,TParent>>
 {
-  private readonly IEncoder<Itest_BaseTypeObject<TTypeKind>> _itest_BaseTypeObject<TTypeKind> = encoders.EncoderFor<Itest_BaseTypeObject<TTypeKind>>();
+  private readonly IEncoder<Itest_BaseTypeObject<TTypeKind>> _itest_BaseType = encoders.EncoderFor<Itest_BaseTypeObject<TTypeKind>>();
   private readonly IEncoder<TParent> _parent = encoders.EncoderFor<TParent>();
   public Structured Encode(Itest_ChildTypeObject<TTypeKind,TParent> input)
-    => _itest_BaseTypeObject<TTypeKind>.Encode(input)
+    => _itest_BaseType.Encode(input)
       .AddEncoded("parent", input.Parent, _parent);
 }
 
-internal class test_ParentTypeEncoder(
+internal class test_ParentTypeEncoder<TTypeKind,TItem,TAllItem>(
   IEncoderRepository encoders
 ) : IEncoder<Itest_ParentTypeObject<TTypeKind,TItem,TAllItem>>
 {
-  private readonly IEncoder<Itest_ChildTypeObject<TTypeKind, Itest_Named>> _itest_ChildTypeObject<TTypeKind, Itest_Named> = encoders.EncoderFor<Itest_ChildTypeObject<TTypeKind, Itest_Named>>();
+  private readonly IEncoder<Itest_ChildTypeObject<TTypeKind, Itest_Named>> _itest_ChildType = encoders.EncoderFor<Itest_ChildTypeObject<TTypeKind, Itest_Named>>();
   private readonly IEncoder<TItem> _item = encoders.EncoderFor<TItem>();
   private readonly IEncoder<TAllItem> _allItem = encoders.EncoderFor<TAllItem>();
   public Structured Encode(Itest_ParentTypeObject<TTypeKind,TItem,TAllItem> input)
-    => _itest_ChildTypeObject<TTypeKind, Itest_Named>.Encode(input)
+    => _itest_ChildType.Encode(input)
       .AddList("items", input.Items, _item)
       .AddList("allItems", input.AllItems, _allItem);
 }
@@ -60,7 +60,7 @@ internal class test_TypeKindEncoder : IEncoder<test_TypeKind>
     => new(input.ToString(), "_TypeKind");
 }
 
-internal class test_TypeRefEncoder(
+internal class test_TypeRefEncoder<TTypeKind>(
   IEncoderRepository encoders
 ) : IEncoder<Itest_TypeRefObject<TTypeKind>>
 {
@@ -83,14 +83,14 @@ internal class test_CollectionsEncoder : IEncoder<Itest_CollectionsObject>
     => Structured.Empty();
 }
 
-internal class test_ModifierKeyedEncoder(
+internal class test_ModifierKeyedEncoder<TModifierKind>(
   IEncoderRepository encoders
 ) : IEncoder<Itest_ModifierKeyedObject<TModifierKind>>
 {
-  private readonly IEncoder<Itest_ModifierObject<TModifierKind>> _itest_ModifierObject<TModifierKind> = encoders.EncoderFor<Itest_ModifierObject<TModifierKind>>();
+  private readonly IEncoder<Itest_ModifierObject<TModifierKind>> _itest_Modifier = encoders.EncoderFor<Itest_ModifierObject<TModifierKind>>();
   private readonly IEncoder<Itest_TypeSimple> _itest_TypeSimple = encoders.EncoderFor<Itest_TypeSimple>();
   public Structured Encode(Itest_ModifierKeyedObject<TModifierKind> input)
-    => _itest_ModifierObject<TModifierKind>.Encode(input)
+    => _itest_Modifier.Encode(input)
       .AddEncoded("by", input.By, _itest_TypeSimple)
       .Add("isOptional", input.IsOptional);
 }
@@ -107,7 +107,7 @@ internal class test_ModifierKindEncoder : IEncoder<test_ModifierKind>
     => new(input.ToString(), "_ModifierKind");
 }
 
-internal class test_ModifierEncoder(
+internal class test_ModifierEncoder<TModifierKind>(
   IEncoderRepository encoders
 ) : IEncoder<Itest_ModifierObject<TModifierKind>>
 {

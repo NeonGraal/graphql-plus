@@ -17,12 +17,12 @@ internal class CmptCnstFieldObjDualEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptCnstFieldObjDualObject>
 {
-  private readonly IEncoder<ICmptRefCnstFieldObjDualObject<ICmptAltCnstFieldObjDual>> _refCnstFieldObjDualObject<ICmptAltCnstFieldObjDual> = encoders.EncoderFor<ICmptRefCnstFieldObjDualObject<ICmptAltCnstFieldObjDual>>();
+  private readonly IEncoder<ICmptRefCnstFieldObjDualObject<ICmptAltCnstFieldObjDual>> _refCnstFieldObjDual = encoders.EncoderFor<ICmptRefCnstFieldObjDualObject<ICmptAltCnstFieldObjDual>>();
   public Structured Encode(ICmptCnstFieldObjDualObject input)
-    => _refCnstFieldObjDualObject<ICmptAltCnstFieldObjDual>.Encode(input);
+    => _refCnstFieldObjDual.Encode(input);
 }
 
-internal class CmptRefCnstFieldObjDualEncoder(
+internal class CmptRefCnstFieldObjDualEncoder<TRef>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptRefCnstFieldObjDualObject<TRef>>
 {

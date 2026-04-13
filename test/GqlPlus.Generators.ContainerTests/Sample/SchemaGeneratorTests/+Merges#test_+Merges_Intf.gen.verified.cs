@@ -769,6 +769,7 @@ public interface ItestOutpFieldParamObject
   : IGqlpInterfaceBase
 {
   ItestFldOutpFieldParam? Field(ItestOutpFieldParam1 parameter);
+  ItestFldOutpFieldParam? Field();
 }
 
 public interface ItestOutpFieldParam1

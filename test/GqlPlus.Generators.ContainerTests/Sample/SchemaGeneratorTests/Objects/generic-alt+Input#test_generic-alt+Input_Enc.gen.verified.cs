@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_Input;
 
-internal class testGnrcAltInpEncoder : IEncoder<ItestGnrcAltInpObject<TType>>
+internal class testGnrcAltInpEncoder<TType> : IEncoder<ItestGnrcAltInpObject<TType>>
 {
   public Structured Encode(ItestGnrcAltInpObject<TType> input)
     => Structured.Empty();

@@ -11,13 +11,13 @@ input RefGnrcAltArgDescrInp<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_alt_arg_descr_Input;
 
-internal class CmptGnrcAltArgDescrInpEncoder : IEncoder<ICmptGnrcAltArgDescrInpObject<TType>>
+internal class CmptGnrcAltArgDescrInpEncoder<TType> : IEncoder<ICmptGnrcAltArgDescrInpObject<TType>>
 {
   public Structured Encode(ICmptGnrcAltArgDescrInpObject<TType> input)
     => Structured.Empty();
 }
 
-internal class CmptRefGnrcAltArgDescrInpEncoder : IEncoder<ICmptRefGnrcAltArgDescrInpObject<TRef>>
+internal class CmptRefGnrcAltArgDescrInpEncoder<TRef> : IEncoder<ICmptRefGnrcAltArgDescrInpObject<TRef>>
 {
   public Structured Encode(ICmptRefGnrcAltArgDescrInpObject<TRef> input)
     => Structured.Empty();

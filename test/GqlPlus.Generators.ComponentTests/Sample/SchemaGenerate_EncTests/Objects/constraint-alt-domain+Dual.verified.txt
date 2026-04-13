@@ -18,7 +18,7 @@ internal class CmptCnstAltDmnDualEncoder : IEncoder<ICmptCnstAltDmnDualObject>
     => Structured.Empty();
 }
 
-internal class CmptRefCnstAltDmnDualEncoder : IEncoder<ICmptRefCnstAltDmnDualObject<TRef>>
+internal class CmptRefCnstAltDmnDualEncoder<TRef> : IEncoder<ICmptRefCnstAltDmnDualObject<TRef>>
 {
   public Structured Encode(ICmptRefCnstAltDmnDualObject<TRef> input)
     => Structured.Empty();

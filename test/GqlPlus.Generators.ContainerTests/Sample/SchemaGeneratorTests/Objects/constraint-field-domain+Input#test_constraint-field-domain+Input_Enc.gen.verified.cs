@@ -11,12 +11,12 @@ internal class testCnstFieldDmnInpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestCnstFieldDmnInpObject>
 {
-  private readonly IEncoder<ItestRefCnstFieldDmnInpObject<ItestDomCnstFieldDmnInp>> _itestRefCnstFieldDmnInpObject<ItestDomCnstFieldDmnInp> = encoders.EncoderFor<ItestRefCnstFieldDmnInpObject<ItestDomCnstFieldDmnInp>>();
+  private readonly IEncoder<ItestRefCnstFieldDmnInpObject<ItestDomCnstFieldDmnInp>> _itestRefCnstFieldDmnInp = encoders.EncoderFor<ItestRefCnstFieldDmnInpObject<ItestDomCnstFieldDmnInp>>();
   public Structured Encode(ItestCnstFieldDmnInpObject input)
-    => _itestRefCnstFieldDmnInpObject<ItestDomCnstFieldDmnInp>.Encode(input);
+    => _itestRefCnstFieldDmnInp.Encode(input);
 }
 
-internal class testRefCnstFieldDmnInpEncoder(
+internal class testRefCnstFieldDmnInpEncoder<TRef>(
   IEncoderRepository encoders
 ) : IEncoder<ItestRefCnstFieldDmnInpObject<TRef>>
 {

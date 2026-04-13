@@ -57,7 +57,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
 
       string fieldAccess;
       if (field is IAstOutputField outField && outField.Parameter is not null) {
-        fieldAccess = $"input.{fieldPropName}(null)";
+        fieldAccess = $"input.{fieldPropName}()";
       } else {
         fieldAccess = $"input.{fieldPropName}";
       }
@@ -120,14 +120,15 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     }
 
     bool needsEncoders = encoderFields.Count > 0;
+    string typeParams = TypeParamsString(ast);
 
     context.Write("");
     if (needsEncoders) {
-      context.Write($"internal class {typeName}Encoder(");
+      context.Write($"internal class {typeName}Encoder{typeParams}(");
       context.Write("  IEncoderRepository encoders");
       context.Write($") : IEncoder<{encoderInterface}>");
     } else {
-      context.Write($"internal class {typeName}Encoder : IEncoder<{encoderInterface}>");
+      context.Write($"internal class {typeName}Encoder{typeParams} : IEncoder<{encoderInterface}>");
     }
 
     context.Write("{");
@@ -178,6 +179,12 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
   private static string GetEncoderVarName(string encoderType, string typePrefix)
   {
     string name = encoderType;
+
+    // Strip generic type arguments — <...> is not valid in an identifier
+    int genericStart = name.IndexOf('<');
+    if (genericStart >= 0) {
+      name = name.Substring(0, genericStart);
+    }
 
     if (name.StartsWith("I", StringComparison.Ordinal) && name.Length > 1 && char.IsUpper(name[1])) {
       name = name.Substring(1);

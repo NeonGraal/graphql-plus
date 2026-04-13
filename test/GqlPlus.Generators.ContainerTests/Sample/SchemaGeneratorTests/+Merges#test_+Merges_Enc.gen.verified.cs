@@ -235,7 +235,7 @@ internal class testObjAltEnumOutpEncoder : IEncoder<ItestObjAltEnumOutpObject>
     => Structured.Empty();
 }
 
-internal class testObjCnstDualEncoder(
+internal class testObjCnstDualEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestObjCnstDualObject<TType>>
 {
@@ -246,7 +246,7 @@ internal class testObjCnstDualEncoder(
       .AddEncoded("str", input.Str, _type);
 }
 
-internal class testObjCnstInpEncoder(
+internal class testObjCnstInpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestObjCnstInpObject<TType>>
 {
@@ -257,7 +257,7 @@ internal class testObjCnstInpEncoder(
       .AddEncoded("str", input.Str, _type);
 }
 
-internal class testObjCnstOutpEncoder(
+internal class testObjCnstOutpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestObjCnstOutpObject<TType>>
 {
@@ -427,7 +427,7 @@ internal class testObjFieldTypeAliasOutpEncoder : IEncoder<ItestObjFieldTypeAlia
       .Add("field", input.Field);
 }
 
-internal class testObjParamDualEncoder(
+internal class testObjParamDualEncoder<TTest,TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestObjParamDualObject<TTest,TType>>
 {
@@ -439,7 +439,7 @@ internal class testObjParamDualEncoder(
       .AddEncoded("type", input.Type, _type);
 }
 
-internal class testObjParamInpEncoder(
+internal class testObjParamInpEncoder<TTest,TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestObjParamInpObject<TTest,TType>>
 {
@@ -451,7 +451,7 @@ internal class testObjParamInpEncoder(
       .AddEncoded("type", input.Type, _type);
 }
 
-internal class testObjParamOutpEncoder(
+internal class testObjParamOutpEncoder<TTest,TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestObjParamOutpObject<TTest,TType>>
 {
@@ -463,7 +463,7 @@ internal class testObjParamOutpEncoder(
       .AddEncoded("type", input.Type, _type);
 }
 
-internal class testObjParamDupDualEncoder(
+internal class testObjParamDupDualEncoder<TTest>(
   IEncoderRepository encoders
 ) : IEncoder<ItestObjParamDupDualObject<TTest>>
 {
@@ -474,7 +474,7 @@ internal class testObjParamDupDualEncoder(
       .AddEncoded("type", input.Type, _test);
 }
 
-internal class testObjParamDupInpEncoder(
+internal class testObjParamDupInpEncoder<TTest>(
   IEncoderRepository encoders
 ) : IEncoder<ItestObjParamDupInpObject<TTest>>
 {
@@ -485,7 +485,7 @@ internal class testObjParamDupInpEncoder(
       .AddEncoded("type", input.Type, _test);
 }
 
-internal class testObjParamDupOutpEncoder(
+internal class testObjParamDupOutpEncoder<TTest>(
   IEncoderRepository encoders
 ) : IEncoder<ItestObjParamDupOutpObject<TTest>>
 {
@@ -548,7 +548,7 @@ internal class testOutpFieldParamEncoder(
   private readonly IEncoder<ItestFldOutpFieldParam> _itestFldOutpFieldParam = encoders.EncoderFor<ItestFldOutpFieldParam>();
   public Structured Encode(ItestOutpFieldParamObject input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field(null), _itestFldOutpFieldParam);
+      .AddEncoded("field", input.Field(), _itestFldOutpFieldParam);
 }
 
 internal class testOutpFieldParam1Encoder : IEncoder<ItestOutpFieldParam1Object>

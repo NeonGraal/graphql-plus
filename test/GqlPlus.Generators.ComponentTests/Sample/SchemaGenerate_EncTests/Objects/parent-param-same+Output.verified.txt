@@ -11,18 +11,18 @@ output RefPrntParamSameOutp<$a:String> { | $a }
 
 namespace Components.Gqlp_Schema_parent_param_same_Output;
 
-internal class CmptPrntParamSameOutpEncoder(
+internal class CmptPrntParamSameOutpEncoder<TA>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptPrntParamSameOutpObject<TA>>
 {
-  private readonly IEncoder<ICmptRefPrntParamSameOutpObject<TA>> _refPrntParamSameOutpObject<TA> = encoders.EncoderFor<ICmptRefPrntParamSameOutpObject<TA>>();
+  private readonly IEncoder<ICmptRefPrntParamSameOutpObject<TA>> _refPrntParamSameOutp = encoders.EncoderFor<ICmptRefPrntParamSameOutpObject<TA>>();
   private readonly IEncoder<TA> _a = encoders.EncoderFor<TA>();
   public Structured Encode(ICmptPrntParamSameOutpObject<TA> input)
-    => _refPrntParamSameOutpObject<TA>.Encode(input)
+    => _refPrntParamSameOutp.Encode(input)
       .AddEncoded("field", input.Field, _a);
 }
 
-internal class CmptRefPrntParamSameOutpEncoder : IEncoder<ICmptRefPrntParamSameOutpObject<TA>>
+internal class CmptRefPrntParamSameOutpEncoder<TA> : IEncoder<ICmptRefPrntParamSameOutpObject<TA>>
 {
   public Structured Encode(ICmptRefPrntParamSameOutpObject<TA> input)
     => Structured.Empty();

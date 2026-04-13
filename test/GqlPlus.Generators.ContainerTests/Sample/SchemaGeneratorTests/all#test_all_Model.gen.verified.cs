@@ -80,6 +80,8 @@ public class testAllObject
 {
   public ItestField? Items(ItestParam? parameter)
     => null;
+  public ItestField? Items()
+    => null;
 
   public testAllObject
     ()

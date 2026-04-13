@@ -11,13 +11,13 @@ internal class testGnrcFieldParamOutpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestGnrcFieldParamOutpObject>
 {
-  private readonly IEncoder<ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp>> _itestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> = encoders.EncoderFor<ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp>>();
+  private readonly IEncoder<ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp>> _itestRefGnrcFieldParamOutp = encoders.EncoderFor<ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp>>();
   public Structured Encode(ItestGnrcFieldParamOutpObject input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field, _itestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp>);
+      .AddEncoded("field", input.Field, _itestRefGnrcFieldParamOutp);
 }
 
-internal class testRefGnrcFieldParamOutpEncoder : IEncoder<ItestRefGnrcFieldParamOutpObject<TRef>>
+internal class testRefGnrcFieldParamOutpEncoder<TRef> : IEncoder<ItestRefGnrcFieldParamOutpObject<TRef>>
 {
   public Structured Encode(ItestRefGnrcFieldParamOutpObject<TRef> input)
     => Structured.Empty();

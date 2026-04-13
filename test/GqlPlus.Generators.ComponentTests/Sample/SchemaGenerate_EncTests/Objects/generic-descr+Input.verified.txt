@@ -10,7 +10,7 @@ input GnrcDescrInp<"Test" "Descr" $type:String> { field: $type }
 
 namespace Components.Gqlp_Schema_generic_descr_Input;
 
-internal class CmptGnrcDescrInpEncoder(
+internal class CmptGnrcDescrInpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptGnrcDescrInpObject<TType>>
 {

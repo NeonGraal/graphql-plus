@@ -11,12 +11,12 @@ internal class testCnstPrntDualGrndInpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestCnstPrntDualGrndInpObject>
 {
-  private readonly IEncoder<ItestRefCnstPrntDualGrndInpObject<ItestAltCnstPrntDualGrndInp>> _itestRefCnstPrntDualGrndInpObject<ItestAltCnstPrntDualGrndInp> = encoders.EncoderFor<ItestRefCnstPrntDualGrndInpObject<ItestAltCnstPrntDualGrndInp>>();
+  private readonly IEncoder<ItestRefCnstPrntDualGrndInpObject<ItestAltCnstPrntDualGrndInp>> _itestRefCnstPrntDualGrndInp = encoders.EncoderFor<ItestRefCnstPrntDualGrndInpObject<ItestAltCnstPrntDualGrndInp>>();
   public Structured Encode(ItestCnstPrntDualGrndInpObject input)
-    => _itestRefCnstPrntDualGrndInpObject<ItestAltCnstPrntDualGrndInp>.Encode(input);
+    => _itestRefCnstPrntDualGrndInp.Encode(input);
 }
 
-internal class testRefCnstPrntDualGrndInpEncoder : IEncoder<ItestRefCnstPrntDualGrndInpObject<TRef>>
+internal class testRefCnstPrntDualGrndInpEncoder<TRef> : IEncoder<ItestRefCnstPrntDualGrndInpObject<TRef>>
 {
   public Structured Encode(ItestRefCnstPrntDualGrndInpObject<TRef> input)
     => Structured.Empty();

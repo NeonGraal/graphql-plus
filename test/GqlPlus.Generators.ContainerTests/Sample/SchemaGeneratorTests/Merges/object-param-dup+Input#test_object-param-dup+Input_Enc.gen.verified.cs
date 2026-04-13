@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_param_dup_Input;
 
-internal class testObjParamDupInpEncoder(
+internal class testObjParamDupInpEncoder<TTest>(
   IEncoderRepository encoders
 ) : IEncoder<ItestObjParamDupInpObject<TTest>>
 {

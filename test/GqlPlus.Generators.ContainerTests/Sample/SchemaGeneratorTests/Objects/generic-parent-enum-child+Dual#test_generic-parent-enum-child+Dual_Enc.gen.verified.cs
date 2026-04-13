@@ -11,12 +11,12 @@ internal class testGnrcPrntEnumChildDualEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestGnrcPrntEnumChildDualObject>
 {
-  private readonly IEncoder<ItestFieldGnrcPrntEnumChildDualObject<testParentGnrcPrntEnumChildDual>> _itestFieldGnrcPrntEnumChildDualObject<testParentGnrcPrntEnumChildDual> = encoders.EncoderFor<ItestFieldGnrcPrntEnumChildDualObject<testParentGnrcPrntEnumChildDual>>();
+  private readonly IEncoder<ItestFieldGnrcPrntEnumChildDualObject<testParentGnrcPrntEnumChildDual>> _itestFieldGnrcPrntEnumChildDual = encoders.EncoderFor<ItestFieldGnrcPrntEnumChildDualObject<testParentGnrcPrntEnumChildDual>>();
   public Structured Encode(ItestGnrcPrntEnumChildDualObject input)
-    => _itestFieldGnrcPrntEnumChildDualObject<testParentGnrcPrntEnumChildDual>.Encode(input);
+    => _itestFieldGnrcPrntEnumChildDual.Encode(input);
 }
 
-internal class testFieldGnrcPrntEnumChildDualEncoder(
+internal class testFieldGnrcPrntEnumChildDualEncoder<TRef>(
   IEncoderRepository encoders
 ) : IEncoder<ItestFieldGnrcPrntEnumChildDualObject<TRef>>
 {

@@ -1208,6 +1208,8 @@ public class testOutpFieldParamObject
 {
   public ItestFldOutpFieldParam? Field(ItestOutpFieldParam1 parameter)
     => null;
+  public ItestFldOutpFieldParam? Field()
+    => null;
 
   public testOutpFieldParamObject
     ()

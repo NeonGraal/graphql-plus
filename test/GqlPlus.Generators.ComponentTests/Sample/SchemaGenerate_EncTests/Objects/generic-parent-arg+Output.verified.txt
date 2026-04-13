@@ -11,10 +11,17 @@ output RefGnrcPrntArgOutp<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_parent_arg_Output;
 
-internal class CmptGnrcPrntArgOutpEncoder<TType>
+internal class CmptGnrcPrntArgOutpEncoder<TType>(
+  IEncoderRepository encoders
+) : IEncoder<ICmptGnrcPrntArgOutpObject<TType>>
 {
+  private readonly IEncoder<ICmptRefGnrcPrntArgOutpObject<TType>> _refGnrcPrntArgOutp = encoders.EncoderFor<ICmptRefGnrcPrntArgOutpObject<TType>>();
+  public Structured Encode(ICmptGnrcPrntArgOutpObject<TType> input)
+    => _refGnrcPrntArgOutp.Encode(input);
 }
 
-internal class CmptRefGnrcPrntArgOutpEncoder<TRef>
+internal class CmptRefGnrcPrntArgOutpEncoder<TRef> : IEncoder<ICmptRefGnrcPrntArgOutpObject<TRef>>
 {
+  public Structured Encode(ICmptRefGnrcPrntArgOutpObject<TRef> input)
+    => Structured.Empty();
 }

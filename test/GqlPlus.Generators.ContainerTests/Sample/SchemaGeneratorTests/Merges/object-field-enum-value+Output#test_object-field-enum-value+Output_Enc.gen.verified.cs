@@ -7,7 +7,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_enum_value_Output;
 
-internal class testObjFieldEnumValueOutpEncoder
+internal class testObjFieldEnumValueOutpEncoder : IEncoder<ItestObjFieldEnumValueOutpObject>
 {
-  public bool Field { get; set; }
+  public Structured Encode(ItestObjFieldEnumValueOutpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

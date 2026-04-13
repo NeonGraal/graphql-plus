@@ -7,6 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_category_alias;
 
-internal class testCtgrAliasEncoder
+internal class testCtgrAliasEncoder : IEncoder<ItestCtgrAliasObject>
 {
+  public Structured Encode(ItestCtgrAliasObject input)
+    => Structured.Empty();
 }

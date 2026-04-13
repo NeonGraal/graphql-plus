@@ -7,24 +7,31 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Directive;
 
-internal class test_DirectivesEncoder
+internal class test_DirectivesEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_DirectivesObject>
 {
-  public Itest_Directive Directive { get; set; }
+  private readonly IEncoder<Itest_AndTypeObject> _itest_AndType = encoders.EncoderFor<Itest_AndTypeObject>();
+  private readonly IEncoder<Itest_Directive> _itest_Directive = encoders.EncoderFor<Itest_Directive>();
+  public Structured Encode(Itest_DirectivesObject input)
+    => _itest_AndType.Encode(input)
+      .AddEncoded("directive", input.Directive, _itest_Directive);
 }
 
-internal class test_DirectiveEncoder
+internal class test_DirectiveEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_DirectiveObject>
 {
-  public Itest_InputFieldType? Parameter { get; set; }
-  public bool Repeatable { get; set; }
-  public IDictionary<test_Location, GqlpUnit> Locations { get; set; }
+  private readonly IEncoder<Itest_AliasedObject> _itest_Aliased = encoders.EncoderFor<Itest_AliasedObject>();
+  private readonly IEncoder<Itest_InputFieldType> _itest_InputFieldType = encoders.EncoderFor<Itest_InputFieldType>();
+  public Structured Encode(Itest_DirectiveObject input)
+    => _itest_Aliased.Encode(input)
+      .AddEncoded("parameter", input.Parameter, _itest_InputFieldType)
+      .Add("repeatable", input.Repeatable);
 }
 
-internal class test_LocationEncoder
+internal class test_LocationEncoder : IEncoder<test_Location>
 {
-  public string Operation { get; set; }
-  public string Variable { get; set; }
-  public string Field { get; set; }
-  public string Inline { get; set; }
-  public string Spread { get; set; }
-  public string Fragment { get; set; }
+  public Structured Encode(test_Location input)
+    => new(input.ToString(), "_Location");
 }

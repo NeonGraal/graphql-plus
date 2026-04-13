@@ -11,15 +11,14 @@ enum PrntEnumPrntAlias { prnt_enumPrntAlias }
 
 namespace Components.Gqlp_Schema_enum_parent_alias;
 
-internal class CmptEnumPrntAliasEncoder
+internal class CmptEnumPrntAliasEncoder : IEncoder<CmptEnumPrntAlias>
 {
-  public string prnt_enumPrntAlias { get; set; }
-  public string val_enumPrntAlias { get; set; }
-  public string prnt_enumPrntAlias { get; set; }
-  public string enumPrntAlias { get; set; }
+  public Structured Encode(CmptEnumPrntAlias input)
+    => new(input.ToString(), "_EnumPrntAlias");
 }
 
-internal class CmptPrntEnumPrntAliasEncoder
+internal class CmptPrntEnumPrntAliasEncoder : IEncoder<CmptPrntEnumPrntAlias>
 {
-  public string prnt_enumPrntAlias { get; set; }
+  public Structured Encode(CmptPrntEnumPrntAlias input)
+    => new(input.ToString(), "_PrntEnumPrntAlias");
 }

@@ -4938,6 +4938,7 @@ public interface ItestOutpDescrParamObject
   : IGqlpInterfaceBase
 {
   ItestFldOutpDescrParam? Field(ItestInOutpDescrParam parameter);
+  ItestFldOutpDescrParam? Field();
 }
 
 public interface ItestFldOutpDescrParam
@@ -4974,6 +4975,7 @@ public interface ItestOutpParamObject
   : IGqlpInterfaceBase
 {
   ItestFldOutpParam? Field(ItestInOutpParam parameter);
+  ItestFldOutpParam? Field();
 }
 
 public interface ItestFldOutpParam
@@ -5010,6 +5012,7 @@ public interface ItestOutpParamDescrObject
   : IGqlpInterfaceBase
 {
   ItestFldOutpParamDescr? Field(ItestInOutpParamDescr parameter);
+  ItestFldOutpParamDescr? Field();
 }
 
 public interface ItestFldOutpParamDescr
@@ -5046,6 +5049,7 @@ public interface ItestOutpParamModDmnObject
   : IGqlpInterfaceBase
 {
   ItestDomOutpParamModDmn? Field(IDictionary<ItestDomOutpParamModDmn, ItestInOutpParamModDmn> parameter);
+  ItestDomOutpParamModDmn? Field();
 }
 
 public interface ItestInOutpParamModDmn
@@ -5076,6 +5080,7 @@ public interface ItestOutpParamModParamObject<TMod>
   : IGqlpInterfaceBase
 {
   ItestDomOutpParamModParam? Field(IDictionary<TMod, ItestInOutpParamModParam> parameter);
+  ItestDomOutpParamModParam? Field();
 }
 
 public interface ItestInOutpParamModParam
@@ -5106,6 +5111,7 @@ public interface ItestOutpParamTypeDescrObject
   : IGqlpInterfaceBase
 {
   ItestFldOutpParamTypeDescr? Field(ItestInOutpParamTypeDescr parameter);
+  ItestFldOutpParamTypeDescr? Field();
 }
 
 public interface ItestFldOutpParamTypeDescr
@@ -5177,6 +5183,7 @@ public interface ItestOutpPrntParamObject
   : ItestPrntOutpPrntParamObject
 {
   ItestFldOutpPrntParam? Field(ItestInOutpPrntParam parameter);
+  ItestFldOutpPrntParam? Field();
 }
 
 public interface ItestPrntOutpPrntParam
@@ -5189,6 +5196,7 @@ public interface ItestPrntOutpPrntParamObject
   : IGqlpInterfaceBase
 {
   ItestFldOutpPrntParam? Field(ItestPrntOutpPrntParamIn parameter);
+  ItestFldOutpPrntParam? Field();
 }
 
 public interface ItestFldOutpPrntParam

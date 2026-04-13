@@ -7,11 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_descr;
 
-internal class testDmnEnumDescrEncoder
+internal class testDmnEnumDescrEncoder : IEncoder<ItestDmnEnumDescr>
 {
+  public Structured Encode(ItestDmnEnumDescr input)
+    => new((decimal?)input.Value);
 }
 
-internal class testEnumDmnEnumDescrEncoder
+internal class testEnumDmnEnumDescrEncoder : IEncoder<testEnumDmnEnumDescr>
 {
-  public string dmnEnumDescr { get; set; }
+  public Structured Encode(testEnumDmnEnumDescr input)
+    => new(input.ToString(), "_EnumDmnEnumDescr");
 }

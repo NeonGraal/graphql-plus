@@ -11,10 +11,14 @@ input RefGnrcAltSmplInp<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_alt_simple_Input;
 
-internal class CmptGnrcAltSmplInpEncoder
+internal class CmptGnrcAltSmplInpEncoder : IEncoder<ICmptGnrcAltSmplInpObject>
 {
+  public Structured Encode(ICmptGnrcAltSmplInpObject input)
+    => Structured.Empty();
 }
 
-internal class CmptRefGnrcAltSmplInpEncoder<TRef>
+internal class CmptRefGnrcAltSmplInpEncoder<TRef> : IEncoder<ICmptRefGnrcAltSmplInpObject<TRef>>
 {
+  public Structured Encode(ICmptRefGnrcAltSmplInpObject<TRef> input)
+    => Structured.Empty();
 }

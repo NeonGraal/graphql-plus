@@ -7,12 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_mod_Enum_Output;
 
-internal class testFieldModEnumOutpEncoder
+internal class testFieldModEnumOutpEncoder : IEncoder<ItestFieldModEnumOutpObject>
 {
-  public IDictionary<testEnumFieldModEnumOutp, string> Field { get; set; }
+  public Structured Encode(ItestFieldModEnumOutpObject input)
+    => Structured.Empty();
 }
 
-internal class testEnumFieldModEnumOutpEncoder
+internal class testEnumFieldModEnumOutpEncoder : IEncoder<testEnumFieldModEnumOutp>
 {
-  public string value { get; set; }
+  public Structured Encode(testEnumFieldModEnumOutp input)
+    => new(input.ToString(), "_EnumFieldModEnumOutp");
 }

@@ -7,6 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_alias_Dual;
 
-internal class testObjAliasDualEncoder
+internal class testObjAliasDualEncoder : IEncoder<ItestObjAliasDualObject>
 {
+  public Structured Encode(ItestObjAliasDualObject input)
+    => Structured.Empty();
 }

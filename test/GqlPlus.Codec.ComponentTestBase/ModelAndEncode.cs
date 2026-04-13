@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Encoding;
 using GqlPlus.Modelling;
 using GqlPlus.Resolving;
 

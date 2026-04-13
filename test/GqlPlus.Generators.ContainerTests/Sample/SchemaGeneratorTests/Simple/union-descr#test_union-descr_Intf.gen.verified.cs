@@ -10,5 +10,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_union_descr;
 public interface ItestUnionDescr
   : IGqlpInterfaceBase
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }

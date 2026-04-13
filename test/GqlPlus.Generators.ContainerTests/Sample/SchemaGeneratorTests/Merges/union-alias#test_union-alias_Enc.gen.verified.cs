@@ -7,8 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_alias;
 
-internal class testUnionAliasEncoder
+internal class testUnionAliasEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestUnionAlias>
 {
-  public Boolean AsBoolean { get; set; }
-  public Number AsNumber { get; set; }
+  private readonly IEncoder<bool> _boolean = encoders.EncoderFor<bool>();
+  private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
+  public Structured Encode(ItestUnionAlias input)
+    => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
+     : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+     : Structured.Empty();
 }

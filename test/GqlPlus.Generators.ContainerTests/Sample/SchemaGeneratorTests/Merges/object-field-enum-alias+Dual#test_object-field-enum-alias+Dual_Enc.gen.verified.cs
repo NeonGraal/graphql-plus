@@ -7,7 +7,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_enum_alias_Dual;
 
-internal class testObjFieldEnumAliasDualEncoder
+internal class testObjFieldEnumAliasDualEncoder : IEncoder<ItestObjFieldEnumAliasDualObject>
 {
-  public bool Field { get; set; }
+  public Structured Encode(ItestObjFieldEnumAliasDualObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

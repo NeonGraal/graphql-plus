@@ -11,6 +11,8 @@ output CtgrOutpDescr { }
 
 namespace Components.Gqlp_Schema_category_output_descr;
 
-internal class CmptCtgrOutpDescrEncoder
+internal class CmptCtgrOutpDescrEncoder : IEncoder<ICmptCtgrOutpDescrObject>
 {
+  public Structured Encode(ICmptCtgrOutpDescrObject input)
+    => Structured.Empty();
 }

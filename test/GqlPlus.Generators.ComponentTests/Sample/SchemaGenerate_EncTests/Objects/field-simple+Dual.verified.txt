@@ -10,7 +10,9 @@ dual FieldSmplDual { field: Number }
 
 namespace Components.Gqlp_Schema_field_simple_Dual;
 
-internal class CmptFieldSmplDualEncoder
+internal class CmptFieldSmplDualEncoder : IEncoder<ICmptFieldSmplDualObject>
 {
-  public decimal Field { get; set; }
+  public Structured Encode(ICmptFieldSmplDualObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

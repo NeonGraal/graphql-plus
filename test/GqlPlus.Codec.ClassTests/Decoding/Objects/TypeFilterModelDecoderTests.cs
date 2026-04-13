@@ -12,7 +12,7 @@ public class TypeFilterModelDecoderTests
   {
     IDecoderRepository decoders = A.Of<IDecoderRepository>();
     decoders.DecoderFor<bool?>().Returns(Boolean);
-    decoders.NameFilterDecoder.Returns(NameFilter);
+    decoders.DecoderFor<INameFilterDecoder, string>().Returns(NameFilter);
     decoders.DecoderFor<TypeKindModel?>().Returns(Kind);
     Decoder = new TypeFilterModelDecoder(decoders);
   }

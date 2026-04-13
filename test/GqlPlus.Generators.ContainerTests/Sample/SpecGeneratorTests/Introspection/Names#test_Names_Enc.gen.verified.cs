@@ -7,22 +7,42 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Names;
 
-internal class test_AliasedEncoder
+internal class test_AliasedEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_AliasedObject>
 {
-  public ICollection<Itest_Name> Aliases { get; set; }
+  private readonly IEncoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
+  private readonly IEncoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  public Structured Encode(Itest_AliasedObject input)
+    => _itest_Named.Encode(input)
+      .AddList("aliases", input.Aliases, _itest_Name);
 }
 
-internal class test_NamedEncoder
+internal class test_NamedEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_NamedObject>
 {
-  public Itest_Name Name { get; set; }
+  private readonly IEncoder<Itest_DescribedObject> _itest_Described = encoders.EncoderFor<Itest_DescribedObject>();
+  private readonly IEncoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  public Structured Encode(Itest_NamedObject input)
+    => _itest_Described.Encode(input)
+      .AddEncoded("name", input.Name, _itest_Name);
 }
 
-internal class test_DescribedEncoder
+internal class test_DescribedEncoder : IEncoder<Itest_DescribedObject>
 {
-  public ICollection<string> Description { get; set; }
+  public Structured Encode(Itest_DescribedObject input)
+    => Structured.Empty()
+      .Add("description", input.Description.Encode());
 }
 
-internal class test_AndTypeEncoder
+internal class test_AndTypeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_AndTypeObject>
 {
-  public Itest_Type Type { get; set; }
+  private readonly IEncoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
+  private readonly IEncoder<Itest_Type> _itest_Type = encoders.EncoderFor<Itest_Type>();
+  public Structured Encode(Itest_AndTypeObject input)
+    => _itest_Named.Encode(input)
+      .AddEncoded("type", input.Type, _itest_Type);
 }

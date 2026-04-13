@@ -12,11 +12,18 @@ output FldObjFieldOutp { }
 
 namespace Components.Gqlp_Schema_object_field_Output;
 
-internal class CmptObjFieldOutpEncoder
+internal class CmptObjFieldOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptObjFieldOutpObject>
 {
-  public ICmptFldObjFieldOutp Field { get; set; }
+  private readonly IEncoder<ICmptFldObjFieldOutp> _fldObjFieldOutp = encoders.EncoderFor<ICmptFldObjFieldOutp>();
+  public Structured Encode(ICmptObjFieldOutpObject input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _fldObjFieldOutp);
 }
 
-internal class CmptFldObjFieldOutpEncoder
+internal class CmptFldObjFieldOutpEncoder : IEncoder<ICmptFldObjFieldOutpObject>
 {
+  public Structured Encode(ICmptFldObjFieldOutpObject input)
+    => Structured.Empty();
 }

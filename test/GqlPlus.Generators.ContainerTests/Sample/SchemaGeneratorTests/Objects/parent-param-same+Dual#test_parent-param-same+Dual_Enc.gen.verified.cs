@@ -7,11 +7,19 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_parent_param_same_Dual;
 
-internal class testPrntParamSameDualEncoder<TA>
+internal class testPrntParamSameDualEncoder<TA>(
+  IEncoderRepository encoders
+) : IEncoder<ItestPrntParamSameDualObject<TA>>
 {
-  public TA Field { get; set; }
+  private readonly IEncoder<ItestRefPrntParamSameDualObject<TA>> _itestRefPrntParamSameDual = encoders.EncoderFor<ItestRefPrntParamSameDualObject<TA>>();
+  private readonly IEncoder<TA> _a = encoders.EncoderFor<TA>();
+  public Structured Encode(ItestPrntParamSameDualObject<TA> input)
+    => _itestRefPrntParamSameDual.Encode(input)
+      .AddEncoded("field", input.Field, _a);
 }
 
-internal class testRefPrntParamSameDualEncoder<TA>
+internal class testRefPrntParamSameDualEncoder<TA> : IEncoder<ItestRefPrntParamSameDualObject<TA>>
 {
+  public Structured Encode(ItestRefPrntParamSameDualObject<TA> input)
+    => Structured.Empty();
 }

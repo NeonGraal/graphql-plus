@@ -7,10 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_arg_descr_Input;
 
-internal class testGnrcAltArgDescrInpEncoder<TType>
+internal class testGnrcAltArgDescrInpEncoder<TType> : IEncoder<ItestGnrcAltArgDescrInpObject<TType>>
 {
+  public Structured Encode(ItestGnrcAltArgDescrInpObject<TType> input)
+    => Structured.Empty();
 }
 
-internal class testRefGnrcAltArgDescrInpEncoder<TRef>
+internal class testRefGnrcAltArgDescrInpEncoder<TRef> : IEncoder<ItestRefGnrcAltArgDescrInpObject<TRef>>
 {
+  public Structured Encode(ItestRefGnrcAltArgDescrInpObject<TRef> input)
+    => Structured.Empty();
 }

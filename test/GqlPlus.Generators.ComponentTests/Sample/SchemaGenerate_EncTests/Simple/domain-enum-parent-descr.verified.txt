@@ -12,16 +12,20 @@ enum EnumDmnEnumPrntDescr { enum_dmnEnumPrntDescr prnt_dmnEnumPrntDescr }
 
 namespace Components.Gqlp_Schema_domain_enum_parent_descr;
 
-internal class CmptDmnEnumPrntDescrEncoder
+internal class CmptDmnEnumPrntDescrEncoder : IEncoder<ICmptDmnEnumPrntDescr>
 {
+  public Structured Encode(ICmptDmnEnumPrntDescr input)
+    => new((decimal?)input.Value);
 }
 
-internal class CmptPrntDmnEnumPrntDescrEncoder
+internal class CmptPrntDmnEnumPrntDescrEncoder : IEncoder<ICmptPrntDmnEnumPrntDescr>
 {
+  public Structured Encode(ICmptPrntDmnEnumPrntDescr input)
+    => new((decimal?)input.Value);
 }
 
-internal class CmptEnumDmnEnumPrntDescrEncoder
+internal class CmptEnumDmnEnumPrntDescrEncoder : IEncoder<CmptEnumDmnEnumPrntDescr>
 {
-  public string enum_dmnEnumPrntDescr { get; set; }
-  public string prnt_dmnEnumPrntDescr { get; set; }
+  public Structured Encode(CmptEnumDmnEnumPrntDescr input)
+    => new(input.ToString(), "_EnumDmnEnumPrntDescr");
 }

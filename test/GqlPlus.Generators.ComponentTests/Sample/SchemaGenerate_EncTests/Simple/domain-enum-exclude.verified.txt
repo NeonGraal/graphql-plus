@@ -11,13 +11,14 @@ enum EnumDmnEnumExcl { dmnEnumExcl enum_dmnEnumExcl dmnEnumExclValue }
 
 namespace Components.Gqlp_Schema_domain_enum_exclude;
 
-internal class CmptDmnEnumExclEncoder
+internal class CmptDmnEnumExclEncoder : IEncoder<ICmptDmnEnumExcl>
 {
+  public Structured Encode(ICmptDmnEnumExcl input)
+    => new((decimal?)input.Value);
 }
 
-internal class CmptEnumDmnEnumExclEncoder
+internal class CmptEnumDmnEnumExclEncoder : IEncoder<CmptEnumDmnEnumExcl>
 {
-  public string dmnEnumExcl { get; set; }
-  public string enum_dmnEnumExcl { get; set; }
-  public string dmnEnumExclValue { get; set; }
+  public Structured Encode(CmptEnumDmnEnumExcl input)
+    => new(input.ToString(), "_EnumDmnEnumExcl");
 }

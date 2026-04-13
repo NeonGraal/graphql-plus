@@ -10,7 +10,12 @@ dual GnrcFieldDual<$type:String> { field: $type }
 
 namespace Components.Gqlp_Schema_generic_field_Dual;
 
-internal class CmptGnrcFieldDualEncoder<TType>
+internal class CmptGnrcFieldDualEncoder<TType>(
+  IEncoderRepository encoders
+) : IEncoder<ICmptGnrcFieldDualObject<TType>>
 {
-  public TType Field { get; set; }
+  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  public Structured Encode(ICmptGnrcFieldDualObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _type);
 }

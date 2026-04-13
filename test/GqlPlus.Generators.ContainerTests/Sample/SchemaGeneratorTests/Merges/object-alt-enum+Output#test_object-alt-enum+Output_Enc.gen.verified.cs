@@ -7,6 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_alt_enum_Output;
 
-internal class testObjAltEnumOutpEncoder
+internal class testObjAltEnumOutpEncoder : IEncoder<ItestObjAltEnumOutpObject>
 {
+  public Structured Encode(ItestObjAltEnumOutpObject input)
+    => Structured.Empty();
 }

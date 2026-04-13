@@ -16,6 +16,8 @@ internal class CmptOutpDescrParamDecoder
 {
   public ICmptFldOutpDescrParam? Field(ICmptInOutpDescrParam parameter)
     => null;
+  public ICmptFldOutpDescrParam? Field()
+    => null;
 }
 
 internal class CmptFldOutpDescrParamDecoder

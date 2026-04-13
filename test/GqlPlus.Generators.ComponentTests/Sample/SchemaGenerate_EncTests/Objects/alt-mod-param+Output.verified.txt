@@ -11,11 +11,15 @@ output AltAltModParamOutp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_mod_param_Output;
 
-internal class CmptAltModParamOutpEncoder<TMod>
+internal class CmptAltModParamOutpEncoder<TMod> : IEncoder<ICmptAltModParamOutpObject<TMod>>
 {
+  public Structured Encode(ICmptAltModParamOutpObject<TMod> input)
+    => Structured.Empty();
 }
 
-internal class CmptAltAltModParamOutpEncoder
+internal class CmptAltAltModParamOutpEncoder : IEncoder<ICmptAltAltModParamOutpObject>
 {
-  public decimal Alt { get; set; }
+  public Structured Encode(ICmptAltAltModParamOutpObject input)
+    => Structured.Empty()
+      .Add("alt", input.Alt);
 }

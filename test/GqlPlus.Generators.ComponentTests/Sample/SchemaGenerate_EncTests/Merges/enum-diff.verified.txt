@@ -11,8 +11,8 @@ enum EnumDiff { two }
 
 namespace Components.Gqlp_Schema_enum_diff;
 
-internal class CmptEnumDiffEncoder
+internal class CmptEnumDiffEncoder : IEncoder<CmptEnumDiff>
 {
-  public string one { get; set; }
-  public string two { get; set; }
+  public Structured Encode(CmptEnumDiff input)
+    => new(input.ToString(), "_EnumDiff");
 }

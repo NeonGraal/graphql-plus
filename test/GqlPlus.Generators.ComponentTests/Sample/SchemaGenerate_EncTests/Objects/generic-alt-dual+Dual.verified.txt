@@ -12,15 +12,21 @@ dual AltGnrcAltDualDual { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_alt_dual_Dual;
 
-internal class CmptGnrcAltDualDualEncoder
+internal class CmptGnrcAltDualDualEncoder : IEncoder<ICmptGnrcAltDualDualObject>
 {
+  public Structured Encode(ICmptGnrcAltDualDualObject input)
+    => Structured.Empty();
 }
 
-internal class CmptRefGnrcAltDualDualEncoder<TRef>
+internal class CmptRefGnrcAltDualDualEncoder<TRef> : IEncoder<ICmptRefGnrcAltDualDualObject<TRef>>
 {
+  public Structured Encode(ICmptRefGnrcAltDualDualObject<TRef> input)
+    => Structured.Empty();
 }
 
-internal class CmptAltGnrcAltDualDualEncoder
+internal class CmptAltGnrcAltDualDualEncoder : IEncoder<ICmptAltGnrcAltDualDualObject>
 {
-  public decimal Alt { get; set; }
+  public Structured Encode(ICmptAltGnrcAltDualDualObject input)
+    => Structured.Empty()
+      .Add("alt", input.Alt);
 }

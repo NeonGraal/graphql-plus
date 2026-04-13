@@ -10,7 +10,12 @@ output GnrcDescrOutp<"Test" "Descr" $type:String> { field: $type }
 
 namespace Components.Gqlp_Schema_generic_descr_Output;
 
-internal class CmptGnrcDescrOutpEncoder<TType>
+internal class CmptGnrcDescrOutpEncoder<TType>(
+  IEncoderRepository encoders
+) : IEncoder<ICmptGnrcDescrOutpObject<TType>>
 {
-  public TType Field { get; set; }
+  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  public Structured Encode(ICmptGnrcDescrOutpObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _type);
 }

@@ -12,16 +12,25 @@ output AltGnrcFieldParamOutp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_field_param_Output;
 
-internal class CmptGnrcFieldParamOutpEncoder
+internal class CmptGnrcFieldParamOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptGnrcFieldParamOutpObject>
 {
-  public ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> Field { get; set; }
+  private readonly IEncoder<ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp>> _refGnrcFieldParamOutp = encoders.EncoderFor<ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp>>();
+  public Structured Encode(ICmptGnrcFieldParamOutpObject input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _refGnrcFieldParamOutp);
 }
 
-internal class CmptRefGnrcFieldParamOutpEncoder<TRef>
+internal class CmptRefGnrcFieldParamOutpEncoder<TRef> : IEncoder<ICmptRefGnrcFieldParamOutpObject<TRef>>
 {
+  public Structured Encode(ICmptRefGnrcFieldParamOutpObject<TRef> input)
+    => Structured.Empty();
 }
 
-internal class CmptAltGnrcFieldParamOutpEncoder
+internal class CmptAltGnrcFieldParamOutpEncoder : IEncoder<ICmptAltGnrcFieldParamOutpObject>
 {
-  public decimal Alt { get; set; }
+  public Structured Encode(ICmptAltGnrcFieldParamOutpObject input)
+    => Structured.Empty()
+      .Add("alt", input.Alt);
 }

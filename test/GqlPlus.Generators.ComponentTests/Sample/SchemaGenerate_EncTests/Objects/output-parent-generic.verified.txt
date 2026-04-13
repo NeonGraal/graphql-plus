@@ -13,22 +13,30 @@ enum PrntOutpPrntGnrc { prnt_outpPrntGnrc }
 
 namespace Components.Gqlp_Schema_output_parent_generic;
 
-internal class CmptOutpPrntGnrcEncoder
+internal class CmptOutpPrntGnrcEncoder : IEncoder<ICmptOutpPrntGnrcObject>
 {
+  public Structured Encode(ICmptOutpPrntGnrcObject input)
+    => Structured.Empty();
 }
 
-internal class CmptRefOutpPrntGnrcEncoder<TType>
+internal class CmptRefOutpPrntGnrcEncoder<TType>(
+  IEncoderRepository encoders
+) : IEncoder<ICmptRefOutpPrntGnrcObject<TType>>
 {
-  public TType Field { get; set; }
+  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  public Structured Encode(ICmptRefOutpPrntGnrcObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _type);
 }
 
-internal class CmptEnumOutpPrntGnrcEncoder
+internal class CmptEnumOutpPrntGnrcEncoder : IEncoder<CmptEnumOutpPrntGnrc>
 {
-  public string prnt_outpPrntGnrc { get; set; }
-  public string outpPrntGnrc { get; set; }
+  public Structured Encode(CmptEnumOutpPrntGnrc input)
+    => new(input.ToString(), "_EnumOutpPrntGnrc");
 }
 
-internal class CmptPrntOutpPrntGnrcEncoder
+internal class CmptPrntOutpPrntGnrcEncoder : IEncoder<CmptPrntOutpPrntGnrc>
 {
-  public string prnt_outpPrntGnrc { get; set; }
+  public Structured Encode(CmptPrntOutpPrntGnrc input)
+    => new(input.ToString(), "_PrntOutpPrntGnrc");
 }

@@ -15,17 +15,13 @@ public class OutputDecoderGeneratorTests
   internal override GqlpBaseType BaseType => GqlpBaseType.Class;
 
   internal override ForType ForGeneratedCodeName(string name)
-  {
-    int bracketIdx = name.IndexOf('<', StringComparison.Ordinal);
-    string baseName = bracketIdx >= 0 ? name[..bracketIdx] : name;
-    return ForGeneratedDecoder("internal class " + TestPrefix + baseName + "Decoder");
-  }
+    => _ => _ => { };
 
   internal override ForType ForGeneratedCodeParent(string parent)
     => _ => _ => { };
 
   internal override ForType ForGeneratedBoth(string contains)
-    => ForGeneratedDecoder(contains);
+    => _ => _ => { };
 
   internal override ForType ForGeneratedModel(string contains)
     => _ => result => { };

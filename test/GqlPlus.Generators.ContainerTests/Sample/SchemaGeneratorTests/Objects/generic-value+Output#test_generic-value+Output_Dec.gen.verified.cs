@@ -7,15 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_value_Output;
 
-internal class testGnrcValueOutpDecoder
-{
-}
-
-internal class testRefGnrcValueOutpDecoder<TType>
-{
-  public TType Field { get; set; }
-}
-
 internal class testEnumGnrcValueOutpDecoder
 {
   public string gnrcValueOutp { get; set; }
@@ -25,6 +16,5 @@ internal static class test_generic_value_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_generic_value_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestGnrcValueOutpObject>(_ => new testGnrcValueOutpDecoder())
       .AddDecoder<testEnumGnrcValueOutp>(_ => new testEnumGnrcValueOutpDecoder());
 }

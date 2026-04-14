@@ -7,11 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_value_descr_Output;
 
-internal class testFieldValueDescrOutpDecoder
-{
-  public testEnumFieldValueDescrOutp Field { get; set; }
-}
-
 internal class testEnumFieldValueDescrOutpDecoder
 {
   public string fieldValueDescrOutp { get; set; }
@@ -21,6 +16,5 @@ internal static class test_field_value_descr_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_field_value_descr_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestFieldValueDescrOutpObject>(r => new testFieldValueDescrOutpDecoder(r))
       .AddDecoder<testEnumFieldValueDescrOutp>(_ => new testEnumFieldValueDescrOutpDecoder());
 }

@@ -50,40 +50,11 @@ output _Setting {
 
 namespace Components.Gqlp_Spec_Global;
 
-internal class Cmpt_AndTypeDecoder
-{
-  public ICmpt_Type Type { get; set; }
-}
-
-internal class Cmpt_CategoriesDecoder
-{
-  public ICmpt_Category Category { get; set; }
-}
-
-internal class Cmpt_CategoryDecoder
-{
-  public Cmpt_Resolution Resolution { get; set; }
-  public ICmpt_TypeRef<ICmpt_TypeKind> Output { get; set; }
-  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
-}
-
 internal class Cmpt_ResolutionDecoder
 {
   public string Parallel { get; set; }
   public string Sequential { get; set; }
   public string Single { get; set; }
-}
-
-internal class Cmpt_DirectivesDecoder
-{
-  public ICmpt_Directive Directive { get; set; }
-}
-
-internal class Cmpt_DirectiveDecoder
-{
-  public ICmpt_InputFieldType? Parameter { get; set; }
-  public bool Repeatable { get; set; }
-  public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
 }
 
 internal class Cmpt_LocationDecoder
@@ -96,21 +67,10 @@ internal class Cmpt_LocationDecoder
   public string Fragment { get; set; }
 }
 
-internal class Cmpt_SettingDecoder
-{
-  public GqlpValue Value { get; set; }
-}
-
 internal static class Cmpt_Spec_GlobalDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_GlobalDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmpt_AndTypeObject>(r => new Cmpt_AndTypeDecoder(r))
-      .AddDecoder<ICmpt_CategoriesObject>(r => new Cmpt_CategoriesDecoder(r))
-      .AddDecoder<ICmpt_CategoryObject>(r => new Cmpt_CategoryDecoder(r))
       .AddDecoder<Cmpt_Resolution>(_ => new Cmpt_ResolutionDecoder())
-      .AddDecoder<ICmpt_DirectivesObject>(r => new Cmpt_DirectivesDecoder(r))
-      .AddDecoder<ICmpt_DirectiveObject>(r => new Cmpt_DirectiveDecoder(r))
-      .AddDecoder<Cmpt_Location>(_ => new Cmpt_LocationDecoder())
-      .AddDecoder<ICmpt_SettingObject>(r => new Cmpt_SettingDecoder(r));
+      .AddDecoder<Cmpt_Location>(_ => new Cmpt_LocationDecoder());
 }

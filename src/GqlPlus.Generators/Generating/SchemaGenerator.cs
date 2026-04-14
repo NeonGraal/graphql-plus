@@ -40,6 +40,10 @@ internal sealed class SchemaGenerator(
     if (generatorType == GqlpGeneratorType.Dec && context.DecoderRegistrations.Count > 0) {
       GenerateDecoderRegistration(context);
     }
+
+    if (generatorType == GqlpGeneratorType.Enc && context.EncoderRegistrations.Count > 0) {
+      GenerateEncoderRegistration(context);
+    }
   }
 
   private static void GenerateDecoderRegistration(GqlpGeneratorContext context)
@@ -56,6 +60,28 @@ internal sealed class SchemaGenerator(
     context.Write("    => builder");
 
     IReadOnlyList<string> registrations = context.DecoderRegistrations;
+    for (int i = 0; i < registrations.Count; i++) {
+      string separator = i < registrations.Count - 1 ? "" : ";";
+      context.Write($"      {registrations[i]}{separator}");
+    }
+
+    context.Write("}");
+  }
+
+  private static void GenerateEncoderRegistration(GqlpGeneratorContext context)
+  {
+    string typePrefix = context.ModelOptions.TypePrefix;
+    string safeFile = context.SafeFile;
+    string className = $"{typePrefix}_{safeFile}Encoders";
+    string methodName = $"Add{typePrefix}_{safeFile}Encoders";
+
+    context.Write("");
+    context.Write($"internal static class {className}");
+    context.Write("{");
+    context.Write($"  internal static IEncoderRepositoryBuilder {methodName}(this IEncoderRepositoryBuilder builder)");
+    context.Write("    => builder");
+
+    IReadOnlyList<string> registrations = context.EncoderRegistrations;
     for (int i = 0; i < registrations.Count; i++) {
       string separator = i < registrations.Count - 1 ? "" : ";";
       context.Write($"      {registrations[i]}{separator}");

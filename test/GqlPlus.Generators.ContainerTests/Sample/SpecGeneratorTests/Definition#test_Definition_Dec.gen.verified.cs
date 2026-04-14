@@ -76,10 +76,6 @@ internal class test_InputDecoder
 {
 }
 
-internal class test_OutputDecoder
-{
-}
-
 internal class test_UnionDecoder
 {
 }
@@ -109,7 +105,6 @@ internal static class test_DefinitionDecoders
       .AddDecoder<Itest_DualObject>(_ => new test_DualDecoder())
       .AddDecoder<Itest_Enum>(_ => new test_EnumDecoder())
       .AddDecoder<Itest_InputObject>(_ => new test_InputDecoder())
-      .AddDecoder<Itest_OutputObject>(_ => new test_OutputDecoder())
       .AddDecoder<Itest_Union>(_ => new test_UnionDecoder())
       .AddDecoder<Itest_Simple>(r => new test_SimpleDecoder(r));
 }

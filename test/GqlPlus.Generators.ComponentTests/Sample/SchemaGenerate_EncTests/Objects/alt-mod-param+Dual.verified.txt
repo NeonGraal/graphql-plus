@@ -23,3 +23,10 @@ internal class CmptAltAltModParamDualEncoder : IEncoder<ICmptAltAltModParamDualO
     => Structured.Empty()
       .Add("alt", input.Alt);
 }
+
+internal static class Cmpt_Schema_alt_mod_param_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_alt_mod_param_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptAltAltModParamDualObject>(_ => new CmptAltAltModParamDualEncoder());
+}

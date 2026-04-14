@@ -22,3 +22,11 @@ internal class testFldObjFieldDualEncoder : IEncoder<ItestFldObjFieldDualObject>
   public Structured Encode(ItestFldObjFieldDualObject input)
     => Structured.Empty();
 }
+
+internal static class test_object_field_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_object_field_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestObjFieldDualObject>(r => new testObjFieldDualEncoder(r))
+      .AddEncoder<ItestFldObjFieldDualObject>(_ => new testFldObjFieldDualEncoder());
+}

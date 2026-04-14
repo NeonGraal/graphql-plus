@@ -12,15 +12,6 @@ enum EnumGnrcEnumOutp { gnrcEnumOutp }
 
 namespace Components.Gqlp_Schema_generic_enum_Output;
 
-internal class CmptGnrcEnumOutpDecoder
-{
-}
-
-internal class CmptRefGnrcEnumOutpDecoder<TType>
-{
-  public TType Field { get; set; }
-}
-
 internal class CmptEnumGnrcEnumOutpDecoder
 {
   public string gnrcEnumOutp { get; set; }
@@ -30,6 +21,5 @@ internal static class Cmpt_Schema_generic_enum_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_enum_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptGnrcEnumOutpObject>(_ => new CmptGnrcEnumOutpDecoder())
       .AddDecoder<CmptEnumGnrcEnumOutp>(_ => new CmptEnumGnrcEnumOutpDecoder());
 }

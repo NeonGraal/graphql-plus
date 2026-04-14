@@ -16,3 +16,10 @@ internal class CmptDescrBcksEncoder : IEncoder<ICmptDescrBcksObject>
   public Structured Encode(ICmptDescrBcksObject input)
     => Structured.Empty();
 }
+
+internal static class Cmpt_Schema_descr_backslashEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_descr_backslashEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptDescrBcksObject>(_ => new CmptDescrBcksEncoder());
+}

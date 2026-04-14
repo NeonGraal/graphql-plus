@@ -16,3 +16,10 @@ internal class CmptCtgrOutpDictEncoder : IEncoder<ICmptCtgrOutpDictObject>
   public Structured Encode(ICmptCtgrOutpDictObject input)
     => Structured.Empty();
 }
+
+internal static class Cmpt_Schema_category_output_dictEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_category_output_dictEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptCtgrOutpDictObject>(_ => new CmptCtgrOutpDictEncoder());
+}

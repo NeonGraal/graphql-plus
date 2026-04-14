@@ -30,3 +30,12 @@ internal class CmptPrntFieldEnumPrntOutpEncoder : IEncoder<CmptPrntFieldEnumPrnt
   public Structured Encode(CmptPrntFieldEnumPrntOutp input)
     => new(input.ToString(), "_PrntFieldEnumPrntOutp");
 }
+
+internal static class Cmpt_Schema_field_enum_parent_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_field_enum_parent_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptFieldEnumPrntOutpObject>(_ => new CmptFieldEnumPrntOutpEncoder())
+      .AddEncoder<CmptEnumFieldEnumPrntOutp>(_ => new CmptEnumFieldEnumPrntOutpEncoder())
+      .AddEncoder<CmptPrntFieldEnumPrntOutp>(_ => new CmptPrntFieldEnumPrntOutpEncoder());
+}

@@ -15,11 +15,7 @@ public class InputEncoderGeneratorTests
   internal override GqlpBaseType BaseType => GqlpBaseType.Class;
 
   internal override ForType ForGeneratedCodeName(string name)
-  {
-    int bracketIdx = name.IndexOf('<', StringComparison.Ordinal);
-    string baseName = bracketIdx >= 0 ? name[..bracketIdx] : name;
-    return ForGeneratedEncoder("internal class " + TestPrefix + baseName + "Encoder");
-  }
+    => _ => _ => { };
 
   internal override ForType ForGeneratedCodeParent(string parent)
     => _ => _ => { };

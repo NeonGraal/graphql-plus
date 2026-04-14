@@ -79,6 +79,7 @@ internal sealed class UnionEncoderGenerator
       context.Write($"  public Structured Encode({interfaceName} input)");
       context.Write("    => Structured.Empty();");
       context.Write("}");
+      context.RegisterEncoder($".AddEncoder<{interfaceName}>(_ => new {typeName}Encoder())");
       return;
     }
 
@@ -104,5 +105,6 @@ internal sealed class UnionEncoderGenerator
 
     context.Write("     : Structured.Empty();");
     context.Write("}");
+    context.RegisterEncoder($".AddEncoder<{interfaceName}>(r => new {typeName}Encoder(r))");
   }
 }

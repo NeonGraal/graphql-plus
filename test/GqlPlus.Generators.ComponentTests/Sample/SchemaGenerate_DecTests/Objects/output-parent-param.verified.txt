@@ -14,22 +14,6 @@ input PrntOutpPrntParamIn { parent: Number | String }
 
 namespace Components.Gqlp_Schema_output_parent_param;
 
-internal class CmptOutpPrntParamDecoder
-{
-  public ICmptFldOutpPrntParam? Field(ICmptInOutpPrntParam parameter)
-    => null;
-  public ICmptFldOutpPrntParam? Field()
-    => null;
-}
-
-internal class CmptPrntOutpPrntParamDecoder
-{
-  public ICmptFldOutpPrntParam? Field(ICmptPrntOutpPrntParamIn parameter)
-    => null;
-  public ICmptFldOutpPrntParam? Field()
-    => null;
-}
-
 internal class CmptFldOutpPrntParamDecoder
 {
 }
@@ -48,8 +32,6 @@ internal static class Cmpt_Schema_output_parent_paramDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_output_parent_paramDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptOutpPrntParamObject>(r => new CmptOutpPrntParamDecoder(r))
-      .AddDecoder<ICmptPrntOutpPrntParamObject>(r => new CmptPrntOutpPrntParamDecoder(r))
       .AddDecoder<ICmptFldOutpPrntParamObject>(_ => new CmptFldOutpPrntParamDecoder())
       .AddDecoder<ICmptInOutpPrntParamObject>(r => new CmptInOutpPrntParamDecoder(r))
       .AddDecoder<ICmptPrntOutpPrntParamInObject>(r => new CmptPrntOutpPrntParamInDecoder(r));

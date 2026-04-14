@@ -25,3 +25,12 @@ internal class testPrntFieldEnumPrntDualEncoder : IEncoder<testPrntFieldEnumPrnt
   public Structured Encode(testPrntFieldEnumPrntDual input)
     => new(input.ToString(), "_PrntFieldEnumPrntDual");
 }
+
+internal static class test_field_enum_parent_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_field_enum_parent_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestFieldEnumPrntDualObject>(_ => new testFieldEnumPrntDualEncoder())
+      .AddEncoder<testEnumFieldEnumPrntDual>(_ => new testEnumFieldEnumPrntDualEncoder())
+      .AddEncoder<testPrntFieldEnumPrntDual>(_ => new testPrntFieldEnumPrntDualEncoder());
+}

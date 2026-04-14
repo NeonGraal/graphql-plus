@@ -7,27 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_domain_Input;
 
-internal class testCnstFieldDmnInpEncoder(
-  IEncoderRepository encoders
-) : IEncoder<ItestCnstFieldDmnInpObject>
-{
-  private readonly IEncoder<ItestRefCnstFieldDmnInpObject<ItestDomCnstFieldDmnInp>> _itestRefCnstFieldDmnInp = encoders.EncoderFor<ItestRefCnstFieldDmnInpObject<ItestDomCnstFieldDmnInp>>();
-  public Structured Encode(ItestCnstFieldDmnInpObject input)
-    => _itestRefCnstFieldDmnInp.Encode(input);
-}
-
-internal class testRefCnstFieldDmnInpEncoder<TRef>(
-  IEncoderRepository encoders
-) : IEncoder<ItestRefCnstFieldDmnInpObject<TRef>>
-{
-  private readonly IEncoder<TRef> _ref = encoders.EncoderFor<TRef>();
-  public Structured Encode(ItestRefCnstFieldDmnInpObject<TRef> input)
-    => Structured.Empty()
-      .AddEncoded("field", input.Field, _ref);
-}
-
 internal class testDomCnstFieldDmnInpEncoder : IEncoder<ItestDomCnstFieldDmnInp>
 {
   public Structured Encode(ItestDomCnstFieldDmnInp input)
     => new(input.Value);
+}
+
+internal static class test_constraint_field_domain_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_constraint_field_domain_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestDomCnstFieldDmnInp>(_ => new testDomCnstFieldDmnInpEncoder());
 }

@@ -107,10 +107,6 @@ internal class Cmpt_InputDecoder
 {
 }
 
-internal class Cmpt_OutputDecoder
-{
-}
-
 internal class Cmpt_UnionDecoder
 {
 }
@@ -140,7 +136,6 @@ internal static class Cmpt_Spec_DefinitionDecoders
       .AddDecoder<ICmpt_DualObject>(_ => new Cmpt_DualDecoder())
       .AddDecoder<ICmpt_Enum>(_ => new Cmpt_EnumDecoder())
       .AddDecoder<ICmpt_InputObject>(_ => new Cmpt_InputDecoder())
-      .AddDecoder<ICmpt_OutputObject>(_ => new Cmpt_OutputDecoder())
       .AddDecoder<ICmpt_Union>(_ => new Cmpt_UnionDecoder())
       .AddDecoder<ICmpt_Simple>(r => new Cmpt_SimpleDecoder(r));
 }

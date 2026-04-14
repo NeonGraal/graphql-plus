@@ -12,14 +12,6 @@ domain DomCnstAltDmnOutp { String /\w+/ }
 
 namespace Components.Gqlp_Schema_constraint_alt_domain_Output;
 
-internal class CmptCnstAltDmnOutpDecoder
-{
-}
-
-internal class CmptRefCnstAltDmnOutpDecoder<TRef>
-{
-}
-
 internal class CmptDomCnstAltDmnOutpDecoder
 {
 }
@@ -28,6 +20,5 @@ internal static class Cmpt_Schema_constraint_alt_domain_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_alt_domain_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptCnstAltDmnOutpObject>(_ => new CmptCnstAltDmnOutpDecoder())
       .AddDecoder<ICmptDomCnstAltDmnOutp>(_ => new CmptDomCnstAltDmnOutpDecoder());
 }

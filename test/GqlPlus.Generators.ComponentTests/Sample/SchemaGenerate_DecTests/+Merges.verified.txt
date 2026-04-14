@@ -6,22 +6,6 @@
 
 namespace Components.Gqlp_Schema_Merges;
 
-internal class CmptCtgrDecoder
-{
-}
-
-internal class CmptCtgrAliasDecoder
-{
-}
-
-internal class CmptCtgrDescrDecoder
-{
-}
-
-internal class CmptCtgrModDecoder
-{
-}
-
 internal class CmptInDrctParamDecoder
 {
 }
@@ -116,19 +100,11 @@ internal class CmptObjInpDecoder
 {
 }
 
-internal class CmptObjOutpDecoder
-{
-}
-
 internal class CmptObjAliasDualDecoder
 {
 }
 
 internal class CmptObjAliasInpDecoder
-{
-}
-
-internal class CmptObjAliasOutpDecoder
 {
 }
 
@@ -148,23 +124,11 @@ internal class CmptObjAltInpTypeDecoder
 {
 }
 
-internal class CmptObjAltOutpDecoder
-{
-}
-
-internal class CmptObjAltOutpTypeDecoder
-{
-}
-
 internal class CmptObjAltEnumDualDecoder
 {
 }
 
 internal class CmptObjAltEnumInpDecoder
-{
-}
-
-internal class CmptObjAltEnumOutpDecoder
 {
 }
 
@@ -175,12 +139,6 @@ internal class CmptObjCnstDualDecoder<TType>
 }
 
 internal class CmptObjCnstInpDecoder<TType>
-{
-  public TType Field { get; set; }
-  public TType Str { get; set; }
-}
-
-internal class CmptObjCnstOutpDecoder<TType>
 {
   public TType Field { get; set; }
   public TType Str { get; set; }
@@ -204,15 +162,6 @@ internal class CmptFldObjFieldInpDecoder
 {
 }
 
-internal class CmptObjFieldOutpDecoder
-{
-  public ICmptFldObjFieldOutp Field { get; set; }
-}
-
-internal class CmptFldObjFieldOutpDecoder
-{
-}
-
 internal class CmptObjFieldAliasDualDecoder
 {
   public ICmptFldObjFieldAliasDual Field { get; set; }
@@ -231,26 +180,12 @@ internal class CmptFldObjFieldAliasInpDecoder
 {
 }
 
-internal class CmptObjFieldAliasOutpDecoder
-{
-  public ICmptFldObjFieldAliasOutp Field { get; set; }
-}
-
-internal class CmptFldObjFieldAliasOutpDecoder
-{
-}
-
 internal class CmptObjFieldEnumAliasDualDecoder
 {
   public bool Field { get; set; }
 }
 
 internal class CmptObjFieldEnumAliasInpDecoder
-{
-  public bool Field { get; set; }
-}
-
-internal class CmptObjFieldEnumAliasOutpDecoder
 {
   public bool Field { get; set; }
 }
@@ -265,22 +200,12 @@ internal class CmptObjFieldEnumValueInpDecoder
   public bool Field { get; set; }
 }
 
-internal class CmptObjFieldEnumValueOutpDecoder
-{
-  public bool Field { get; set; }
-}
-
 internal class CmptObjFieldTypeAliasDualDecoder
 {
   public string Field { get; set; }
 }
 
 internal class CmptObjFieldTypeAliasInpDecoder
-{
-  public string Field { get; set; }
-}
-
-internal class CmptObjFieldTypeAliasOutpDecoder
 {
   public string Field { get; set; }
 }
@@ -297,12 +222,6 @@ internal class CmptObjParamInpDecoder<TTest,TType>
   public TType Type { get; set; }
 }
 
-internal class CmptObjParamOutpDecoder<TTest,TType>
-{
-  public TTest Test { get; set; }
-  public TType Type { get; set; }
-}
-
 internal class CmptObjParamDupDualDecoder<TTest>
 {
   public TTest Test { get; set; }
@@ -310,12 +229,6 @@ internal class CmptObjParamDupDualDecoder<TTest>
 }
 
 internal class CmptObjParamDupInpDecoder<TTest>
-{
-  public TTest Test { get; set; }
-  public TTest Type { get; set; }
-}
-
-internal class CmptObjParamDupOutpDecoder<TTest>
 {
   public TTest Test { get; set; }
   public TTest Type { get; set; }
@@ -335,22 +248,6 @@ internal class CmptObjPrntInpDecoder
 
 internal class CmptRefObjPrntInpDecoder
 {
-}
-
-internal class CmptObjPrntOutpDecoder
-{
-}
-
-internal class CmptRefObjPrntOutpDecoder
-{
-}
-
-internal class CmptOutpFieldParamDecoder
-{
-  public ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter)
-    => null;
-  public ICmptFldOutpFieldParam? Field()
-    => null;
 }
 
 internal class CmptOutpFieldParam1Decoder
@@ -396,10 +293,6 @@ internal static class Cmpt_Schema_MergesDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_MergesDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptCtgrObject>(_ => new CmptCtgrDecoder())
-      .AddDecoder<ICmptCtgrAliasObject>(_ => new CmptCtgrAliasDecoder())
-      .AddDecoder<ICmptCtgrDescrObject>(_ => new CmptCtgrDescrDecoder())
-      .AddDecoder<ICmptCtgrModObject>(_ => new CmptCtgrModDecoder())
       .AddDecoder<ICmptInDrctParamObject>(_ => new CmptInDrctParamDecoder())
       .AddDecoder<ICmptDmnAlias>(_ => new CmptDmnAliasDecoder())
       .AddDecoder<ICmptDmnBool>(_ => new CmptDmnBoolDecoder())
@@ -421,47 +314,32 @@ internal static class Cmpt_Schema_MergesDecoders
       .AddDecoder<CmptEnumValueAlias>(_ => new CmptEnumValueAliasDecoder())
       .AddDecoder<ICmptObjDualObject>(_ => new CmptObjDualDecoder())
       .AddDecoder<ICmptObjInpObject>(_ => new CmptObjInpDecoder())
-      .AddDecoder<ICmptObjOutpObject>(_ => new CmptObjOutpDecoder())
       .AddDecoder<ICmptObjAliasDualObject>(_ => new CmptObjAliasDualDecoder())
       .AddDecoder<ICmptObjAliasInpObject>(_ => new CmptObjAliasInpDecoder())
-      .AddDecoder<ICmptObjAliasOutpObject>(_ => new CmptObjAliasOutpDecoder())
       .AddDecoder<ICmptObjAltDualObject>(_ => new CmptObjAltDualDecoder())
       .AddDecoder<ICmptObjAltDualTypeObject>(_ => new CmptObjAltDualTypeDecoder())
       .AddDecoder<ICmptObjAltInpObject>(_ => new CmptObjAltInpDecoder())
       .AddDecoder<ICmptObjAltInpTypeObject>(_ => new CmptObjAltInpTypeDecoder())
-      .AddDecoder<ICmptObjAltOutpObject>(_ => new CmptObjAltOutpDecoder())
-      .AddDecoder<ICmptObjAltOutpTypeObject>(_ => new CmptObjAltOutpTypeDecoder())
       .AddDecoder<ICmptObjAltEnumDualObject>(_ => new CmptObjAltEnumDualDecoder())
       .AddDecoder<ICmptObjAltEnumInpObject>(_ => new CmptObjAltEnumInpDecoder())
-      .AddDecoder<ICmptObjAltEnumOutpObject>(_ => new CmptObjAltEnumOutpDecoder())
       .AddDecoder<ICmptObjFieldDualObject>(r => new CmptObjFieldDualDecoder(r))
       .AddDecoder<ICmptFldObjFieldDualObject>(_ => new CmptFldObjFieldDualDecoder())
       .AddDecoder<ICmptObjFieldInpObject>(r => new CmptObjFieldInpDecoder(r))
       .AddDecoder<ICmptFldObjFieldInpObject>(_ => new CmptFldObjFieldInpDecoder())
-      .AddDecoder<ICmptObjFieldOutpObject>(r => new CmptObjFieldOutpDecoder(r))
-      .AddDecoder<ICmptFldObjFieldOutpObject>(_ => new CmptFldObjFieldOutpDecoder())
       .AddDecoder<ICmptObjFieldAliasDualObject>(r => new CmptObjFieldAliasDualDecoder(r))
       .AddDecoder<ICmptFldObjFieldAliasDualObject>(_ => new CmptFldObjFieldAliasDualDecoder())
       .AddDecoder<ICmptObjFieldAliasInpObject>(r => new CmptObjFieldAliasInpDecoder(r))
       .AddDecoder<ICmptFldObjFieldAliasInpObject>(_ => new CmptFldObjFieldAliasInpDecoder())
-      .AddDecoder<ICmptObjFieldAliasOutpObject>(r => new CmptObjFieldAliasOutpDecoder(r))
-      .AddDecoder<ICmptFldObjFieldAliasOutpObject>(_ => new CmptFldObjFieldAliasOutpDecoder())
       .AddDecoder<ICmptObjFieldEnumAliasDualObject>(r => new CmptObjFieldEnumAliasDualDecoder(r))
       .AddDecoder<ICmptObjFieldEnumAliasInpObject>(r => new CmptObjFieldEnumAliasInpDecoder(r))
-      .AddDecoder<ICmptObjFieldEnumAliasOutpObject>(r => new CmptObjFieldEnumAliasOutpDecoder(r))
       .AddDecoder<ICmptObjFieldEnumValueDualObject>(r => new CmptObjFieldEnumValueDualDecoder(r))
       .AddDecoder<ICmptObjFieldEnumValueInpObject>(r => new CmptObjFieldEnumValueInpDecoder(r))
-      .AddDecoder<ICmptObjFieldEnumValueOutpObject>(r => new CmptObjFieldEnumValueOutpDecoder(r))
       .AddDecoder<ICmptObjFieldTypeAliasDualObject>(r => new CmptObjFieldTypeAliasDualDecoder(r))
       .AddDecoder<ICmptObjFieldTypeAliasInpObject>(r => new CmptObjFieldTypeAliasInpDecoder(r))
-      .AddDecoder<ICmptObjFieldTypeAliasOutpObject>(r => new CmptObjFieldTypeAliasOutpDecoder(r))
       .AddDecoder<ICmptObjPrntDualObject>(_ => new CmptObjPrntDualDecoder())
       .AddDecoder<ICmptRefObjPrntDualObject>(_ => new CmptRefObjPrntDualDecoder())
       .AddDecoder<ICmptObjPrntInpObject>(_ => new CmptObjPrntInpDecoder())
       .AddDecoder<ICmptRefObjPrntInpObject>(_ => new CmptRefObjPrntInpDecoder())
-      .AddDecoder<ICmptObjPrntOutpObject>(_ => new CmptObjPrntOutpDecoder())
-      .AddDecoder<ICmptRefObjPrntOutpObject>(_ => new CmptRefObjPrntOutpDecoder())
-      .AddDecoder<ICmptOutpFieldParamObject>(r => new CmptOutpFieldParamDecoder(r))
       .AddDecoder<ICmptOutpFieldParam1Object>(_ => new CmptOutpFieldParam1Decoder())
       .AddDecoder<ICmptOutpFieldParam2Object>(_ => new CmptOutpFieldParam2Decoder())
       .AddDecoder<ICmptFldOutpFieldParamObject>(_ => new CmptFldOutpFieldParamDecoder())

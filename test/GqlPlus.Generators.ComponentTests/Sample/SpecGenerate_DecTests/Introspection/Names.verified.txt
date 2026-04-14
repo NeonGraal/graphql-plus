@@ -43,17 +43,11 @@ internal class Cmpt_DescribedDecoder
   public ICollection<string> Description { get; set; }
 }
 
-internal class Cmpt_AndTypeDecoder
-{
-  public ICmpt_Type Type { get; set; }
-}
-
 internal static class Cmpt_Spec_NamesDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_NamesDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmpt_AliasedObject>(r => new Cmpt_AliasedDecoder(r))
       .AddDecoder<ICmpt_NamedObject>(r => new Cmpt_NamedDecoder(r))
-      .AddDecoder<ICmpt_DescribedObject>(r => new Cmpt_DescribedDecoder(r))
-      .AddDecoder<ICmpt_AndTypeObject>(r => new Cmpt_AndTypeDecoder(r));
+      .AddDecoder<ICmpt_DescribedObject>(r => new Cmpt_DescribedDecoder(r));
 }

@@ -13,3 +13,10 @@ internal class testFieldTypeDescrOutpEncoder : IEncoder<ItestFieldTypeDescrOutpO
     => Structured.Empty()
       .Add("field", input.Field);
 }
+
+internal static class test_field_type_descr_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_field_type_descr_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestFieldTypeDescrOutpObject>(_ => new testFieldTypeDescrOutpEncoder());
+}

@@ -12,14 +12,6 @@ domain DomOutpParamModParam { number 1 > 10 }
 
 namespace Components.Gqlp_Schema_output_param_mod_param;
 
-internal class CmptOutpParamModParamDecoder<TMod>
-{
-  public ICmptDomOutpParamModParam? Field(IDictionary<TMod, ICmptInOutpParamModParam> parameter)
-    => null;
-  public ICmptDomOutpParamModParam? Field()
-    => null;
-}
-
 internal class CmptInOutpParamModParamDecoder
 {
   public decimal Param { get; set; }

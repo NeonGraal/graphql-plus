@@ -157,6 +157,12 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     }
 
     context.Write("}");
+
+    if (string.IsNullOrEmpty(typeParams)) {
+      string encoderInterface0 = context.TypeName(ast, "I") + "Object";
+      string factory = needsEncoders ? $"r => new {typeName}Encoder(r)" : $"_ => new {typeName}Encoder()";
+      context.RegisterEncoder($".AddEncoder<{encoderInterface0}>({factory})");
+    }
   }
 
   private static string GetOrAddEncoder(Dictionary<string, string> encoderFields, string encoderType, string typePrefix)

@@ -46,3 +46,13 @@ internal class testAltCnstPrntDualGrndDualEncoder(
     => _itestPrntCnstPrntDualGrndDual.Encode(input)
       .Add("alt", input.Alt);
 }
+
+internal static class test_constraint_parent_dual_grandparent_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_constraint_parent_dual_grandparent_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestCnstPrntDualGrndDualObject>(r => new testCnstPrntDualGrndDualEncoder(r))
+      .AddEncoder<ItestGrndCnstPrntDualGrndDualObject>(_ => new testGrndCnstPrntDualGrndDualEncoder())
+      .AddEncoder<ItestPrntCnstPrntDualGrndDualObject>(r => new testPrntCnstPrntDualGrndDualEncoder(r))
+      .AddEncoder<ItestAltCnstPrntDualGrndDualObject>(r => new testAltCnstPrntDualGrndDualEncoder(r));
+}

@@ -140,12 +140,6 @@ internal class Cmpt_EnumEncoder : IEncoder<ICmpt_Enum>
     => Structured.Empty();
 }
 
-internal class Cmpt_InputEncoder : IEncoder<ICmpt_InputObject>
-{
-  public Structured Encode(ICmpt_InputObject input)
-    => Structured.Empty();
-}
-
 internal class Cmpt_OutputEncoder : IEncoder<ICmpt_OutputObject>
 {
   public Structured Encode(ICmpt_OutputObject input)
@@ -170,4 +164,26 @@ internal class Cmpt_SimpleEncoder(
      : input.HasA<ICmpt_Domain>() ? __domain.Encode(input.AsA<ICmpt_Domain>())
      : input.HasA<ICmpt_Union>() ? __union.Encode(input.AsA<ICmpt_Union>())
      : Structured.Empty();
+}
+
+internal static class Cmpt_Spec_DefinitionEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Spec_DefinitionEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<bool>(_ => new boolEncoder())
+      .AddEncoder<GqlpNull>(_ => new GqlpNullEncoder())
+      .AddEncoder<GqlpUnit>(_ => new GqlpUnitEncoder())
+      .AddEncoder<void>(_ => new voidEncoder())
+      .AddEncoder<decimal>(_ => new decimalEncoder())
+      .AddEncoder<string>(_ => new stringEncoder())
+      .AddEncoder<ICmpt_Basic>(r => new Cmpt_BasicEncoder(r))
+      .AddEncoder<ICmpt_Internal>(r => new Cmpt_InternalEncoder(r))
+      .AddEncoder<ICmpt_Key>(r => new Cmpt_KeyEncoder(r))
+      .AddEncoder<ICmpt_ObjectObject>(_ => new Cmpt_ObjectEncoder())
+      .AddEncoder<ICmpt_Domain>(_ => new Cmpt_DomainEncoder())
+      .AddEncoder<ICmpt_DualObject>(_ => new Cmpt_DualEncoder())
+      .AddEncoder<ICmpt_Enum>(_ => new Cmpt_EnumEncoder())
+      .AddEncoder<ICmpt_OutputObject>(_ => new Cmpt_OutputEncoder())
+      .AddEncoder<ICmpt_Union>(_ => new Cmpt_UnionEncoder())
+      .AddEncoder<ICmpt_Simple>(r => new Cmpt_SimpleEncoder(r));
 }

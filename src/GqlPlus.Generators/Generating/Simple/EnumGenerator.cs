@@ -69,5 +69,7 @@ internal sealed class EnumEncoderGenerator
     context.Write($"  public Structured Encode({typeName} input)");
     context.Write($"    => new(input.ToString(), \"{tag}\");");
     context.Write("}");
+
+    context.RegisterEncoder($".AddEncoder<{typeName}>(_ => new {typeName}Encoder())");
   }
 }

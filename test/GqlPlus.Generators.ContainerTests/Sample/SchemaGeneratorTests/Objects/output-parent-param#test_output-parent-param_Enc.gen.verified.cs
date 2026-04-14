@@ -34,16 +34,11 @@ internal class testFldOutpPrntParamEncoder : IEncoder<ItestFldOutpPrntParamObjec
     => Structured.Empty();
 }
 
-internal class testInOutpPrntParamEncoder : IEncoder<ItestInOutpPrntParamObject>
+internal static class test_output_parent_paramEncoders
 {
-  public Structured Encode(ItestInOutpPrntParamObject input)
-    => Structured.Empty()
-      .Add("param", input.Param);
-}
-
-internal class testPrntOutpPrntParamInEncoder : IEncoder<ItestPrntOutpPrntParamInObject>
-{
-  public Structured Encode(ItestPrntOutpPrntParamInObject input)
-    => Structured.Empty()
-      .Add("parent", input.Parent);
+  internal static IEncoderRepositoryBuilder Addtest_output_parent_paramEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestOutpPrntParamObject>(r => new testOutpPrntParamEncoder(r))
+      .AddEncoder<ItestPrntOutpPrntParamObject>(r => new testPrntOutpPrntParamEncoder(r))
+      .AddEncoder<ItestFldOutpPrntParamObject>(_ => new testFldOutpPrntParamEncoder());
 }

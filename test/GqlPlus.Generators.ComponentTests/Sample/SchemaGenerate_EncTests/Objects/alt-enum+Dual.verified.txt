@@ -22,3 +22,11 @@ internal class CmptEnumAltEnumDualEncoder : IEncoder<CmptEnumAltEnumDual>
   public Structured Encode(CmptEnumAltEnumDual input)
     => new(input.ToString(), "_EnumAltEnumDual");
 }
+
+internal static class Cmpt_Schema_alt_enum_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_alt_enum_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptAltEnumDualObject>(_ => new CmptAltEnumDualEncoder())
+      .AddEncoder<CmptEnumAltEnumDual>(_ => new CmptEnumAltEnumDualEncoder());
+}

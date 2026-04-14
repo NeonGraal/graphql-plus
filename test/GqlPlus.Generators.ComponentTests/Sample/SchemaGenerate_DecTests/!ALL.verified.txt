@@ -6,58 +6,6 @@
 
 namespace Components.Gqlp_Schema_ALL;
 
-internal class CmptCtgrDscrsDecoder
-{
-}
-
-internal class CmptCtgrOutpDecoder
-{
-}
-
-internal class CmptCtgrOutpDescrDecoder
-{
-}
-
-internal class CmptCtgrOutpDictDecoder
-{
-}
-
-internal class CmptCtgrOutpListDecoder
-{
-}
-
-internal class CmptCtgrOutpOptlDecoder
-{
-}
-
-internal class CmptDescrDecoder
-{
-}
-
-internal class CmptDescrBcksDecoder
-{
-}
-
-internal class CmptDescrBtwnDecoder
-{
-}
-
-internal class CmptDescrCmplDecoder
-{
-}
-
-internal class CmptDescrDblDecoder
-{
-}
-
-internal class CmptDescrSnglDecoder
-{
-}
-
-internal class CmptDscrsDecoder
-{
-}
-
 internal class CmptInDrctParamDictDecoder
 {
 }
@@ -92,24 +40,11 @@ internal class CmptAltAltInpDecoder
   public decimal Alt { get; set; }
 }
 
-internal class CmptAltOutpDecoder
-{
-}
-
-internal class CmptAltAltOutpDecoder
-{
-  public decimal Alt { get; set; }
-}
-
 internal class CmptAltDescrDualDecoder
 {
 }
 
 internal class CmptAltDescrInpDecoder
-{
-}
-
-internal class CmptAltDescrOutpDecoder
 {
 }
 
@@ -129,10 +64,6 @@ internal class CmptAltDualInpDecoder
 internal class CmptObjDualAltDualInpDecoder
 {
   public decimal Alt { get; set; }
-}
-
-internal class CmptAltDualOutpDecoder
-{
 }
 
 internal class CmptObjDualAltDualOutpDecoder
@@ -158,10 +89,6 @@ internal class CmptEnumAltEnumInpDecoder
   public string altEnumInp { get; set; }
 }
 
-internal class CmptAltEnumOutpDecoder
-{
-}
-
 internal class CmptEnumAltEnumOutpDecoder
 {
   public string altEnumOutp { get; set; }
@@ -185,15 +112,6 @@ internal class CmptAltAltModBoolInpDecoder
   public decimal Alt { get; set; }
 }
 
-internal class CmptAltModBoolOutpDecoder
-{
-}
-
-internal class CmptAltAltModBoolOutpDecoder
-{
-  public decimal Alt { get; set; }
-}
-
 internal class CmptAltModParamDualDecoder<TMod>
 {
 }
@@ -212,15 +130,6 @@ internal class CmptAltAltModParamInpDecoder
   public decimal Alt { get; set; }
 }
 
-internal class CmptAltModParamOutpDecoder<TMod>
-{
-}
-
-internal class CmptAltAltModParamOutpDecoder
-{
-  public decimal Alt { get; set; }
-}
-
 internal class CmptAltSmplDualDecoder
 {
 }
@@ -229,19 +138,11 @@ internal class CmptAltSmplInpDecoder
 {
 }
 
-internal class CmptAltSmplOutpDecoder
-{
-}
-
 internal class CmptCnstAltDualDecoder<TType>
 {
 }
 
 internal class CmptCnstAltInpDecoder<TType>
-{
-}
-
-internal class CmptCnstAltOutpDecoder<TType>
 {
 }
 
@@ -266,14 +167,6 @@ internal class CmptRefCnstAltDmnInpDecoder<TRef>
 }
 
 internal class CmptDomCnstAltDmnInpDecoder
-{
-}
-
-internal class CmptCnstAltDmnOutpDecoder
-{
-}
-
-internal class CmptRefCnstAltDmnOutpDecoder<TRef>
 {
 }
 
@@ -315,21 +208,8 @@ internal class CmptAltCnstAltDualInpDecoder
   public decimal Alt { get; set; }
 }
 
-internal class CmptCnstAltDualOutpDecoder
-{
-}
-
-internal class CmptRefCnstAltDualOutpDecoder<TRef>
-{
-}
-
 internal class CmptPrntCnstAltDualOutpDecoder
 {
-}
-
-internal class CmptAltCnstAltDualOutpDecoder
-{
-  public decimal Alt { get; set; }
 }
 
 internal class CmptCnstAltObjDualDecoder
@@ -362,23 +242,6 @@ internal class CmptPrntCnstAltObjInpDecoder
 }
 
 internal class CmptAltCnstAltObjInpDecoder
-{
-  public decimal Alt { get; set; }
-}
-
-internal class CmptCnstAltObjOutpDecoder
-{
-}
-
-internal class CmptRefCnstAltObjOutpDecoder<TRef>
-{
-}
-
-internal class CmptPrntCnstAltObjOutpDecoder
-{
-}
-
-internal class CmptAltCnstAltObjOutpDecoder
 {
   public decimal Alt { get; set; }
 }
@@ -421,15 +284,6 @@ internal class CmptJustCnstDomEnumInpDecoder
 {
 }
 
-internal class CmptCnstDomEnumOutpDecoder
-{
-}
-
-internal class CmptRefCnstDomEnumOutpDecoder<TType>
-{
-  public TType Field { get; set; }
-}
-
 internal class CmptEnumCnstDomEnumOutpDecoder
 {
   public string cnstDomEnumOutp { get; set; }
@@ -466,15 +320,6 @@ internal class CmptRefCnstEnumInpDecoder<TType>
 internal class CmptEnumCnstEnumInpDecoder
 {
   public string cnstEnumInp { get; set; }
-}
-
-internal class CmptCnstEnumOutpDecoder
-{
-}
-
-internal class CmptRefCnstEnumOutpDecoder<TType>
-{
-  public TType Field { get; set; }
 }
 
 internal class CmptEnumCnstEnumOutpDecoder
@@ -522,15 +367,6 @@ internal class CmptParentCnstEnumPrntInpDecoder
   public string parentCnstEnumPrntInp { get; set; }
 }
 
-internal class CmptCnstEnumPrntOutpDecoder
-{
-}
-
-internal class CmptRefCnstEnumPrntOutpDecoder<TType>
-{
-  public TType Field { get; set; }
-}
-
 internal class CmptEnumCnstEnumPrntOutpDecoder
 {
   public string parentCnstEnumPrntOutp { get; set; }
@@ -566,15 +402,6 @@ internal class CmptRefCnstFieldDmnInpDecoder<TRef>
 
 internal class CmptDomCnstFieldDmnInpDecoder
 {
-}
-
-internal class CmptCnstFieldDmnOutpDecoder
-{
-}
-
-internal class CmptRefCnstFieldDmnOutpDecoder<TRef>
-{
-  public TRef Field { get; set; }
 }
 
 internal class CmptDomCnstFieldDmnOutpDecoder
@@ -617,22 +444,8 @@ internal class CmptAltCnstFieldDualInpDecoder
   public decimal Alt { get; set; }
 }
 
-internal class CmptCnstFieldDualOutpDecoder
-{
-}
-
-internal class CmptRefCnstFieldDualOutpDecoder<TRef>
-{
-  public TRef Field { get; set; }
-}
-
 internal class CmptPrntCnstFieldDualOutpDecoder
 {
-}
-
-internal class CmptAltCnstFieldDualOutpDecoder
-{
-  public decimal Alt { get; set; }
 }
 
 internal class CmptCnstFieldObjDualDecoder
@@ -667,24 +480,6 @@ internal class CmptPrntCnstFieldObjInpDecoder
 }
 
 internal class CmptAltCnstFieldObjInpDecoder
-{
-  public decimal Alt { get; set; }
-}
-
-internal class CmptCnstFieldObjOutpDecoder
-{
-}
-
-internal class CmptRefCnstFieldObjOutpDecoder<TRef>
-{
-  public TRef Field { get; set; }
-}
-
-internal class CmptPrntCnstFieldObjOutpDecoder
-{
-}
-
-internal class CmptAltCnstFieldObjOutpDecoder
 {
   public decimal Alt { get; set; }
 }
@@ -731,25 +526,12 @@ internal class CmptAltCnstPrntDualGrndInpDecoder
   public decimal Alt { get; set; }
 }
 
-internal class CmptCnstPrntDualGrndOutpDecoder
-{
-}
-
-internal class CmptRefCnstPrntDualGrndOutpDecoder<TRef>
-{
-}
-
 internal class CmptGrndCnstPrntDualGrndOutpDecoder
 {
 }
 
 internal class CmptPrntCnstPrntDualGrndOutpDecoder
 {
-}
-
-internal class CmptAltCnstPrntDualGrndOutpDecoder
-{
-  public decimal Alt { get; set; }
 }
 
 internal class CmptCnstPrntDualPrntDualDecoder
@@ -786,21 +568,8 @@ internal class CmptAltCnstPrntDualPrntInpDecoder
   public decimal Alt { get; set; }
 }
 
-internal class CmptCnstPrntDualPrntOutpDecoder
-{
-}
-
-internal class CmptRefCnstPrntDualPrntOutpDecoder<TRef>
-{
-}
-
 internal class CmptPrntCnstPrntDualPrntOutpDecoder
 {
-}
-
-internal class CmptAltCnstPrntDualPrntOutpDecoder
-{
-  public decimal Alt { get; set; }
 }
 
 internal class CmptCnstPrntEnumDualDecoder
@@ -841,15 +610,6 @@ internal class CmptEnumCnstPrntEnumInpDecoder
 internal class CmptParentCnstPrntEnumInpDecoder
 {
   public string parentCnstPrntEnumInp { get; set; }
-}
-
-internal class CmptCnstPrntEnumOutpDecoder
-{
-}
-
-internal class CmptRefCnstPrntEnumOutpDecoder<TType>
-{
-  public TType Field { get; set; }
 }
 
 internal class CmptEnumCnstPrntEnumOutpDecoder
@@ -897,23 +657,6 @@ internal class CmptAltCnstPrntObjPrntInpDecoder
   public decimal Alt { get; set; }
 }
 
-internal class CmptCnstPrntObjPrntOutpDecoder
-{
-}
-
-internal class CmptRefCnstPrntObjPrntOutpDecoder<TRef>
-{
-}
-
-internal class CmptPrntCnstPrntObjPrntOutpDecoder
-{
-}
-
-internal class CmptAltCnstPrntObjPrntOutpDecoder
-{
-  public decimal Alt { get; set; }
-}
-
 internal class CmptFieldDualDecoder
 {
   public string Field { get; set; }
@@ -924,22 +667,12 @@ internal class CmptFieldInpDecoder
   public string Field { get; set; }
 }
 
-internal class CmptFieldOutpDecoder
-{
-  public string Field { get; set; }
-}
-
 internal class CmptFieldDescrDualDecoder
 {
   public string Field { get; set; }
 }
 
 internal class CmptFieldDescrInpDecoder
-{
-  public string Field { get; set; }
-}
-
-internal class CmptFieldDescrOutpDecoder
 {
   public string Field { get; set; }
 }
@@ -962,11 +695,6 @@ internal class CmptFieldDualInpDecoder
 internal class CmptFldFieldDualInpDecoder
 {
   public decimal Field { get; set; }
-}
-
-internal class CmptFieldDualOutpDecoder
-{
-  public ICmptFldFieldDualOutp Field { get; set; }
 }
 
 internal class CmptFldFieldDualOutpDecoder
@@ -992,11 +720,6 @@ internal class CmptFieldEnumInpDecoder
 internal class CmptEnumFieldEnumInpDecoder
 {
   public string fieldEnumInp { get; set; }
-}
-
-internal class CmptFieldEnumOutpDecoder
-{
-  public CmptEnumFieldEnumOutp Field { get; set; }
 }
 
 internal class CmptEnumFieldEnumOutpDecoder
@@ -1036,11 +759,6 @@ internal class CmptPrntFieldEnumPrntInpDecoder
   public string prnt_fieldEnumPrntInp { get; set; }
 }
 
-internal class CmptFieldEnumPrntOutpDecoder
-{
-  public CmptEnumFieldEnumPrntOutp Field { get; set; }
-}
-
 internal class CmptEnumFieldEnumPrntOutpDecoder
 {
   public string prnt_fieldEnumPrntOutp { get; set; }
@@ -1072,11 +790,6 @@ internal class CmptEnumFieldModEnumInpDecoder
   public string value { get; set; }
 }
 
-internal class CmptFieldModEnumOutpDecoder
-{
-  public IDictionary<CmptEnumFieldModEnumOutp, string> Field { get; set; }
-}
-
 internal class CmptEnumFieldModEnumOutpDecoder
 {
   public string value { get; set; }
@@ -1102,16 +815,6 @@ internal class CmptFldFieldModParamInpDecoder
   public decimal Field { get; set; }
 }
 
-internal class CmptFieldModParamOutpDecoder<TMod>
-{
-  public IDictionary<TMod, ICmptFldFieldModParamOutp> Field { get; set; }
-}
-
-internal class CmptFldFieldModParamOutpDecoder
-{
-  public decimal Field { get; set; }
-}
-
 internal class CmptFieldObjDualDecoder
 {
   public ICmptFldFieldObjDual Field { get; set; }
@@ -1132,16 +835,6 @@ internal class CmptFldFieldObjInpDecoder
   public decimal Field { get; set; }
 }
 
-internal class CmptFieldObjOutpDecoder
-{
-  public ICmptFldFieldObjOutp Field { get; set; }
-}
-
-internal class CmptFldFieldObjOutpDecoder
-{
-  public decimal Field { get; set; }
-}
-
 internal class CmptFieldSmplDualDecoder
 {
   public decimal Field { get; set; }
@@ -1152,22 +845,12 @@ internal class CmptFieldSmplInpDecoder
   public decimal Field { get; set; }
 }
 
-internal class CmptFieldSmplOutpDecoder
-{
-  public decimal Field { get; set; }
-}
-
 internal class CmptFieldTypeDescrDualDecoder
 {
   public decimal Field { get; set; }
 }
 
 internal class CmptFieldTypeDescrInpDecoder
-{
-  public decimal Field { get; set; }
-}
-
-internal class CmptFieldTypeDescrOutpDecoder
 {
   public decimal Field { get; set; }
 }
@@ -1190,11 +873,6 @@ internal class CmptFieldValueInpDecoder
 internal class CmptEnumFieldValueInpDecoder
 {
   public string fieldValueInp { get; set; }
-}
-
-internal class CmptFieldValueOutpDecoder
-{
-  public CmptEnumFieldValueOutp Field { get; set; }
 }
 
 internal class CmptEnumFieldValueOutpDecoder
@@ -1222,11 +900,6 @@ internal class CmptEnumFieldValueDescrInpDecoder
   public string fieldValueDescrInp { get; set; }
 }
 
-internal class CmptFieldValueDescrOutpDecoder
-{
-  public CmptEnumFieldValueDescrOutp Field { get; set; }
-}
-
 internal class CmptEnumFieldValueDescrOutpDecoder
 {
   public string fieldValueDescrOutp { get; set; }
@@ -1237,10 +910,6 @@ internal class CmptGnrcAltDualDecoder<TType>
 }
 
 internal class CmptGnrcAltInpDecoder<TType>
-{
-}
-
-internal class CmptGnrcAltOutpDecoder<TType>
 {
 }
 
@@ -1260,14 +929,6 @@ internal class CmptRefGnrcAltArgInpDecoder<TRef>
 {
 }
 
-internal class CmptGnrcAltArgOutpDecoder<TType>
-{
-}
-
-internal class CmptRefGnrcAltArgOutpDecoder<TRef>
-{
-}
-
 internal class CmptGnrcAltArgDescrDualDecoder<TType>
 {
 }
@@ -1281,14 +942,6 @@ internal class CmptGnrcAltArgDescrInpDecoder<TType>
 }
 
 internal class CmptRefGnrcAltArgDescrInpDecoder<TRef>
-{
-}
-
-internal class CmptGnrcAltArgDescrOutpDecoder<TType>
-{
-}
-
-internal class CmptRefGnrcAltArgDescrOutpDecoder<TRef>
 {
 }
 
@@ -1318,14 +971,6 @@ internal class CmptAltGnrcAltDualInpDecoder
   public decimal Alt { get; set; }
 }
 
-internal class CmptGnrcAltDualOutpDecoder
-{
-}
-
-internal class CmptRefGnrcAltDualOutpDecoder<TRef>
-{
-}
-
 internal class CmptAltGnrcAltDualOutpDecoder
 {
   public decimal Alt { get; set; }
@@ -1339,19 +984,11 @@ internal class CmptRefGnrcAltModParamInpDecoder<TRef,TMod>
 {
 }
 
-internal class CmptRefGnrcAltModParamOutpDecoder<TRef,TMod>
-{
-}
-
 internal class CmptRefGnrcAltModStrDualDecoder<TRef>
 {
 }
 
 internal class CmptRefGnrcAltModStrInpDecoder<TRef>
-{
-}
-
-internal class CmptRefGnrcAltModStrOutpDecoder<TRef>
 {
 }
 
@@ -1381,19 +1018,6 @@ internal class CmptAltGnrcAltParamInpDecoder
   public decimal Alt { get; set; }
 }
 
-internal class CmptGnrcAltParamOutpDecoder
-{
-}
-
-internal class CmptRefGnrcAltParamOutpDecoder<TRef>
-{
-}
-
-internal class CmptAltGnrcAltParamOutpDecoder
-{
-  public decimal Alt { get; set; }
-}
-
 internal class CmptGnrcAltSmplDualDecoder
 {
 }
@@ -1410,25 +1034,12 @@ internal class CmptRefGnrcAltSmplInpDecoder<TRef>
 {
 }
 
-internal class CmptGnrcAltSmplOutpDecoder
-{
-}
-
-internal class CmptRefGnrcAltSmplOutpDecoder<TRef>
-{
-}
-
 internal class CmptGnrcDescrDualDecoder<TType>
 {
   public TType Field { get; set; }
 }
 
 internal class CmptGnrcDescrInpDecoder<TType>
-{
-  public TType Field { get; set; }
-}
-
-internal class CmptGnrcDescrOutpDecoder<TType>
 {
   public TType Field { get; set; }
 }
@@ -1461,15 +1072,6 @@ internal class CmptEnumGnrcEnumInpDecoder
   public string gnrcEnumInp { get; set; }
 }
 
-internal class CmptGnrcEnumOutpDecoder
-{
-}
-
-internal class CmptRefGnrcEnumOutpDecoder<TType>
-{
-  public TType Field { get; set; }
-}
-
 internal class CmptEnumGnrcEnumOutpDecoder
 {
   public string gnrcEnumOutp { get; set; }
@@ -1481,11 +1083,6 @@ internal class CmptGnrcFieldDualDecoder<TType>
 }
 
 internal class CmptGnrcFieldInpDecoder<TType>
-{
-  public TType Field { get; set; }
-}
-
-internal class CmptGnrcFieldOutpDecoder<TType>
 {
   public TType Field { get; set; }
 }
@@ -1505,15 +1102,6 @@ internal class CmptGnrcFieldArgInpDecoder<TType>
 }
 
 internal class CmptRefGnrcFieldArgInpDecoder<TRef>
-{
-}
-
-internal class CmptGnrcFieldArgOutpDecoder<TType>
-{
-  public ICmptRefGnrcFieldArgOutp<TType> Field { get; set; }
-}
-
-internal class CmptRefGnrcFieldArgOutpDecoder<TRef>
 {
 }
 
@@ -1543,15 +1131,6 @@ internal class CmptRefGnrcFieldDualInpDecoder<TRef>
 internal class CmptAltGnrcFieldDualInpDecoder
 {
   public decimal Alt { get; set; }
-}
-
-internal class CmptGnrcFieldDualOutpDecoder
-{
-  public ICmptRefGnrcFieldDualOutp<ICmptAltGnrcFieldDualOutp> Field { get; set; }
-}
-
-internal class CmptRefGnrcFieldDualOutpDecoder<TRef>
-{
 }
 
 internal class CmptAltGnrcFieldDualOutpDecoder
@@ -1587,29 +1166,11 @@ internal class CmptAltGnrcFieldParamInpDecoder
   public decimal Alt { get; set; }
 }
 
-internal class CmptGnrcFieldParamOutpDecoder
-{
-  public ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> Field { get; set; }
-}
-
-internal class CmptRefGnrcFieldParamOutpDecoder<TRef>
-{
-}
-
-internal class CmptAltGnrcFieldParamOutpDecoder
-{
-  public decimal Alt { get; set; }
-}
-
 internal class CmptGnrcPrntDualDecoder<TType>
 {
 }
 
 internal class CmptGnrcPrntInpDecoder<TType>
-{
-}
-
-internal class CmptGnrcPrntOutpDecoder<TType>
 {
 }
 
@@ -1629,23 +1190,11 @@ internal class CmptRefGnrcPrntArgInpDecoder<TRef>
 {
 }
 
-internal class CmptGnrcPrntArgOutpDecoder<TType>
-{
-}
-
-internal class CmptRefGnrcPrntArgOutpDecoder<TRef>
-{
-}
-
 internal class CmptGnrcPrntDescrDualDecoder<TType>
 {
 }
 
 internal class CmptGnrcPrntDescrInpDecoder<TType>
-{
-}
-
-internal class CmptGnrcPrntDescrOutpDecoder<TType>
 {
 }
 
@@ -1673,14 +1222,6 @@ internal class CmptRefGnrcPrntDualInpDecoder<TRef>
 internal class CmptAltGnrcPrntDualInpDecoder
 {
   public decimal Alt { get; set; }
-}
-
-internal class CmptGnrcPrntDualOutpDecoder
-{
-}
-
-internal class CmptRefGnrcPrntDualOutpDecoder<TRef>
-{
 }
 
 internal class CmptAltGnrcPrntDualOutpDecoder
@@ -1712,14 +1253,6 @@ internal class CmptRefGnrcPrntDualPrntInpDecoder<TRef>
 internal class CmptAltGnrcPrntDualPrntInpDecoder
 {
   public decimal Alt { get; set; }
-}
-
-internal class CmptGnrcPrntDualPrntOutpDecoder
-{
-}
-
-internal class CmptRefGnrcPrntDualPrntOutpDecoder<TRef>
-{
 }
 
 internal class CmptAltGnrcPrntDualPrntOutpDecoder
@@ -1765,15 +1298,6 @@ internal class CmptEnumGnrcPrntEnumChildInpDecoder
 internal class CmptParentGnrcPrntEnumChildInpDecoder
 {
   public string gnrcPrntEnumChildInpParent { get; set; }
-}
-
-internal class CmptGnrcPrntEnumChildOutpDecoder
-{
-}
-
-internal class CmptFieldGnrcPrntEnumChildOutpDecoder<TRef>
-{
-  public TRef Field { get; set; }
 }
 
 internal class CmptEnumGnrcPrntEnumChildOutpDecoder
@@ -1823,15 +1347,6 @@ internal class CmptEnumGnrcPrntEnumDomInpDecoder
 
 internal class CmptDomGnrcPrntEnumDomInpDecoder
 {
-}
-
-internal class CmptGnrcPrntEnumDomOutpDecoder
-{
-}
-
-internal class CmptFieldGnrcPrntEnumDomOutpDecoder<TRef>
-{
-  public TRef Field { get; set; }
 }
 
 internal class CmptEnumGnrcPrntEnumDomOutpDecoder
@@ -1884,15 +1399,6 @@ internal class CmptParentGnrcPrntEnumPrntInpDecoder
   public string gnrcPrntEnumPrntInpParent { get; set; }
 }
 
-internal class CmptGnrcPrntEnumPrntOutpDecoder
-{
-}
-
-internal class CmptFieldGnrcPrntEnumPrntOutpDecoder<TRef>
-{
-  public TRef Field { get; set; }
-}
-
 internal class CmptEnumGnrcPrntEnumPrntOutpDecoder
 {
   public string gnrcPrntEnumPrntOutpParent { get; set; }
@@ -1930,19 +1436,6 @@ internal class CmptAltGnrcPrntParamInpDecoder
   public decimal Alt { get; set; }
 }
 
-internal class CmptGnrcPrntParamOutpDecoder
-{
-}
-
-internal class CmptRefGnrcPrntParamOutpDecoder<TRef>
-{
-}
-
-internal class CmptAltGnrcPrntParamOutpDecoder
-{
-  public decimal Alt { get; set; }
-}
-
 internal class CmptGnrcPrntParamPrntDualDecoder
 {
 }
@@ -1965,19 +1458,6 @@ internal class CmptRefGnrcPrntParamPrntInpDecoder<TRef>
 }
 
 internal class CmptAltGnrcPrntParamPrntInpDecoder
-{
-  public decimal Alt { get; set; }
-}
-
-internal class CmptGnrcPrntParamPrntOutpDecoder
-{
-}
-
-internal class CmptRefGnrcPrntParamPrntOutpDecoder<TRef>
-{
-}
-
-internal class CmptAltGnrcPrntParamPrntOutpDecoder
 {
   public decimal Alt { get; set; }
 }
@@ -2008,15 +1488,6 @@ internal class CmptFieldGnrcPrntSmplEnumInpDecoder<TRef>
 internal class CmptEnumGnrcPrntSmplEnumInpDecoder
 {
   public string gnrcPrntSmplEnumInp { get; set; }
-}
-
-internal class CmptGnrcPrntSmplEnumOutpDecoder
-{
-}
-
-internal class CmptFieldGnrcPrntSmplEnumOutpDecoder<TRef>
-{
-  public TRef Field { get; set; }
 }
 
 internal class CmptEnumGnrcPrntSmplEnumOutpDecoder
@@ -2050,15 +1521,6 @@ internal class CmptDomGnrcPrntStrDomInpDecoder
 {
 }
 
-internal class CmptGnrcPrntStrDomOutpDecoder
-{
-}
-
-internal class CmptFieldGnrcPrntStrDomOutpDecoder<TRef>
-{
-  public TRef Field { get; set; }
-}
-
 internal class CmptDomGnrcPrntStrDomOutpDecoder
 {
 }
@@ -2089,15 +1551,6 @@ internal class CmptRefGnrcValueInpDecoder<TType>
 internal class CmptEnumGnrcValueInpDecoder
 {
   public string gnrcValueInp { get; set; }
-}
-
-internal class CmptGnrcValueOutpDecoder
-{
-}
-
-internal class CmptRefGnrcValueOutpDecoder<TType>
-{
-  public TType Field { get; set; }
 }
 
 internal class CmptEnumGnrcValueOutpDecoder
@@ -2144,14 +1597,6 @@ internal class CmptInpFieldStrDecoder
   public string Field { get; set; }
 }
 
-internal class CmptOutpDescrParamDecoder
-{
-  public ICmptFldOutpDescrParam? Field(ICmptInOutpDescrParam parameter)
-    => null;
-  public ICmptFldOutpDescrParam? Field()
-    => null;
-}
-
 internal class CmptFldOutpDescrParamDecoder
 {
 }
@@ -2159,14 +1604,6 @@ internal class CmptFldOutpDescrParamDecoder
 internal class CmptInOutpDescrParamDecoder
 {
   public decimal Param { get; set; }
-}
-
-internal class CmptOutpParamDecoder
-{
-  public ICmptFldOutpParam? Field(ICmptInOutpParam parameter)
-    => null;
-  public ICmptFldOutpParam? Field()
-    => null;
 }
 
 internal class CmptFldOutpParamDecoder
@@ -2178,14 +1615,6 @@ internal class CmptInOutpParamDecoder
   public decimal Param { get; set; }
 }
 
-internal class CmptOutpParamDescrDecoder
-{
-  public ICmptFldOutpParamDescr? Field(ICmptInOutpParamDescr parameter)
-    => null;
-  public ICmptFldOutpParamDescr? Field()
-    => null;
-}
-
 internal class CmptFldOutpParamDescrDecoder
 {
 }
@@ -2193,14 +1622,6 @@ internal class CmptFldOutpParamDescrDecoder
 internal class CmptInOutpParamDescrDecoder
 {
   public decimal Param { get; set; }
-}
-
-internal class CmptOutpParamModDmnDecoder
-{
-  public ICmptDomOutpParamModDmn? Field(IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter)
-    => null;
-  public ICmptDomOutpParamModDmn? Field()
-    => null;
 }
 
 internal class CmptInOutpParamModDmnDecoder
@@ -2212,14 +1633,6 @@ internal class CmptDomOutpParamModDmnDecoder
 {
 }
 
-internal class CmptOutpParamModParamDecoder<TMod>
-{
-  public ICmptDomOutpParamModParam? Field(IDictionary<TMod, ICmptInOutpParamModParam> parameter)
-    => null;
-  public ICmptDomOutpParamModParam? Field()
-    => null;
-}
-
 internal class CmptInOutpParamModParamDecoder
 {
   public decimal Param { get; set; }
@@ -2227,14 +1640,6 @@ internal class CmptInOutpParamModParamDecoder
 
 internal class CmptDomOutpParamModParamDecoder
 {
-}
-
-internal class CmptOutpParamTypeDescrDecoder
-{
-  public ICmptFldOutpParamTypeDescr? Field(ICmptInOutpParamTypeDescr parameter)
-    => null;
-  public ICmptFldOutpParamTypeDescr? Field()
-    => null;
 }
 
 internal class CmptFldOutpParamTypeDescrDecoder
@@ -2246,15 +1651,6 @@ internal class CmptInOutpParamTypeDescrDecoder
   public decimal Param { get; set; }
 }
 
-internal class CmptOutpPrntGnrcDecoder
-{
-}
-
-internal class CmptRefOutpPrntGnrcDecoder<TType>
-{
-  public TType Field { get; set; }
-}
-
 internal class CmptEnumOutpPrntGnrcDecoder
 {
   public string prnt_outpPrntGnrc { get; set; }
@@ -2264,22 +1660,6 @@ internal class CmptEnumOutpPrntGnrcDecoder
 internal class CmptPrntOutpPrntGnrcDecoder
 {
   public string prnt_outpPrntGnrc { get; set; }
-}
-
-internal class CmptOutpPrntParamDecoder
-{
-  public ICmptFldOutpPrntParam? Field(ICmptInOutpPrntParam parameter)
-    => null;
-  public ICmptFldOutpPrntParam? Field()
-    => null;
-}
-
-internal class CmptPrntOutpPrntParamDecoder
-{
-  public ICmptFldOutpPrntParam? Field(ICmptPrntOutpPrntParamIn parameter)
-    => null;
-  public ICmptFldOutpPrntParam? Field()
-    => null;
 }
 
 internal class CmptFldOutpPrntParamDecoder
@@ -2314,15 +1694,6 @@ internal class CmptRefPrntInpDecoder
   public decimal Parent { get; set; }
 }
 
-internal class CmptPrntOutpDecoder
-{
-}
-
-internal class CmptRefPrntOutpDecoder
-{
-  public decimal Parent { get; set; }
-}
-
 internal class CmptPrntAltDualDecoder
 {
 }
@@ -2337,15 +1708,6 @@ internal class CmptPrntAltInpDecoder
 }
 
 internal class CmptRefPrntAltInpDecoder
-{
-  public decimal Parent { get; set; }
-}
-
-internal class CmptPrntAltOutpDecoder
-{
-}
-
-internal class CmptRefPrntAltOutpDecoder
 {
   public decimal Parent { get; set; }
 }
@@ -2368,15 +1730,6 @@ internal class CmptRefPrntDescrInpDecoder
   public decimal Parent { get; set; }
 }
 
-internal class CmptPrntDescrOutpDecoder
-{
-}
-
-internal class CmptRefPrntDescrOutpDecoder
-{
-  public decimal Parent { get; set; }
-}
-
 internal class CmptPrntDualDualDecoder
 {
 }
@@ -2393,10 +1746,6 @@ internal class CmptPrntDualInpDecoder
 internal class CmptRefPrntDualInpDecoder
 {
   public decimal Parent { get; set; }
-}
-
-internal class CmptPrntDualOutpDecoder
-{
 }
 
 internal class CmptRefPrntDualOutpDecoder
@@ -2424,16 +1773,6 @@ internal class CmptRefPrntFieldInpDecoder
   public decimal Parent { get; set; }
 }
 
-internal class CmptPrntFieldOutpDecoder
-{
-  public decimal Field { get; set; }
-}
-
-internal class CmptRefPrntFieldOutpDecoder
-{
-  public decimal Parent { get; set; }
-}
-
 internal class CmptPrntParamDiffDualDecoder<TA>
 {
   public TA Field { get; set; }
@@ -2452,15 +1791,6 @@ internal class CmptRefPrntParamDiffInpDecoder<TB>
 {
 }
 
-internal class CmptPrntParamDiffOutpDecoder<TA>
-{
-  public TA Field { get; set; }
-}
-
-internal class CmptRefPrntParamDiffOutpDecoder<TB>
-{
-}
-
 internal class CmptPrntParamSameDualDecoder<TA>
 {
   public TA Field { get; set; }
@@ -2476,31 +1806,6 @@ internal class CmptPrntParamSameInpDecoder<TA>
 }
 
 internal class CmptRefPrntParamSameInpDecoder<TA>
-{
-}
-
-internal class CmptPrntParamSameOutpDecoder<TA>
-{
-  public TA Field { get; set; }
-}
-
-internal class CmptRefPrntParamSameOutpDecoder<TA>
-{
-}
-
-internal class CmptCtgrDecoder
-{
-}
-
-internal class CmptCtgrAliasDecoder
-{
-}
-
-internal class CmptCtgrDescrDecoder
-{
-}
-
-internal class CmptCtgrModDecoder
 {
 }
 
@@ -2598,19 +1903,11 @@ internal class CmptObjInpDecoder
 {
 }
 
-internal class CmptObjOutpDecoder
-{
-}
-
 internal class CmptObjAliasDualDecoder
 {
 }
 
 internal class CmptObjAliasInpDecoder
-{
-}
-
-internal class CmptObjAliasOutpDecoder
 {
 }
 
@@ -2630,23 +1927,11 @@ internal class CmptObjAltInpTypeDecoder
 {
 }
 
-internal class CmptObjAltOutpDecoder
-{
-}
-
-internal class CmptObjAltOutpTypeDecoder
-{
-}
-
 internal class CmptObjAltEnumDualDecoder
 {
 }
 
 internal class CmptObjAltEnumInpDecoder
-{
-}
-
-internal class CmptObjAltEnumOutpDecoder
 {
 }
 
@@ -2657,12 +1942,6 @@ internal class CmptObjCnstDualDecoder<TType>
 }
 
 internal class CmptObjCnstInpDecoder<TType>
-{
-  public TType Field { get; set; }
-  public TType Str { get; set; }
-}
-
-internal class CmptObjCnstOutpDecoder<TType>
 {
   public TType Field { get; set; }
   public TType Str { get; set; }
@@ -2686,15 +1965,6 @@ internal class CmptFldObjFieldInpDecoder
 {
 }
 
-internal class CmptObjFieldOutpDecoder
-{
-  public ICmptFldObjFieldOutp Field { get; set; }
-}
-
-internal class CmptFldObjFieldOutpDecoder
-{
-}
-
 internal class CmptObjFieldAliasDualDecoder
 {
   public ICmptFldObjFieldAliasDual Field { get; set; }
@@ -2713,26 +1983,12 @@ internal class CmptFldObjFieldAliasInpDecoder
 {
 }
 
-internal class CmptObjFieldAliasOutpDecoder
-{
-  public ICmptFldObjFieldAliasOutp Field { get; set; }
-}
-
-internal class CmptFldObjFieldAliasOutpDecoder
-{
-}
-
 internal class CmptObjFieldEnumAliasDualDecoder
 {
   public bool Field { get; set; }
 }
 
 internal class CmptObjFieldEnumAliasInpDecoder
-{
-  public bool Field { get; set; }
-}
-
-internal class CmptObjFieldEnumAliasOutpDecoder
 {
   public bool Field { get; set; }
 }
@@ -2747,22 +2003,12 @@ internal class CmptObjFieldEnumValueInpDecoder
   public bool Field { get; set; }
 }
 
-internal class CmptObjFieldEnumValueOutpDecoder
-{
-  public bool Field { get; set; }
-}
-
 internal class CmptObjFieldTypeAliasDualDecoder
 {
   public string Field { get; set; }
 }
 
 internal class CmptObjFieldTypeAliasInpDecoder
-{
-  public string Field { get; set; }
-}
-
-internal class CmptObjFieldTypeAliasOutpDecoder
 {
   public string Field { get; set; }
 }
@@ -2779,12 +2025,6 @@ internal class CmptObjParamInpDecoder<TTest,TType>
   public TType Type { get; set; }
 }
 
-internal class CmptObjParamOutpDecoder<TTest,TType>
-{
-  public TTest Test { get; set; }
-  public TType Type { get; set; }
-}
-
 internal class CmptObjParamDupDualDecoder<TTest>
 {
   public TTest Test { get; set; }
@@ -2792,12 +2032,6 @@ internal class CmptObjParamDupDualDecoder<TTest>
 }
 
 internal class CmptObjParamDupInpDecoder<TTest>
-{
-  public TTest Test { get; set; }
-  public TTest Type { get; set; }
-}
-
-internal class CmptObjParamDupOutpDecoder<TTest>
 {
   public TTest Test { get; set; }
   public TTest Type { get; set; }
@@ -2817,22 +2051,6 @@ internal class CmptObjPrntInpDecoder
 
 internal class CmptRefObjPrntInpDecoder
 {
-}
-
-internal class CmptObjPrntOutpDecoder
-{
-}
-
-internal class CmptRefObjPrntOutpDecoder
-{
-}
-
-internal class CmptOutpFieldParamDecoder
-{
-  public ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter)
-    => null;
-  public ICmptFldOutpFieldParam? Field()
-    => null;
 }
 
 internal class CmptOutpFieldParam1Decoder
@@ -3222,19 +2440,6 @@ internal static class Cmpt_Schema_ALLDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_ALLDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptCtgrDscrsObject>(_ => new CmptCtgrDscrsDecoder())
-      .AddDecoder<ICmptCtgrOutpObject>(_ => new CmptCtgrOutpDecoder())
-      .AddDecoder<ICmptCtgrOutpDescrObject>(_ => new CmptCtgrOutpDescrDecoder())
-      .AddDecoder<ICmptCtgrOutpDictObject>(_ => new CmptCtgrOutpDictDecoder())
-      .AddDecoder<ICmptCtgrOutpListObject>(_ => new CmptCtgrOutpListDecoder())
-      .AddDecoder<ICmptCtgrOutpOptlObject>(_ => new CmptCtgrOutpOptlDecoder())
-      .AddDecoder<ICmptDescrObject>(_ => new CmptDescrDecoder())
-      .AddDecoder<ICmptDescrBcksObject>(_ => new CmptDescrBcksDecoder())
-      .AddDecoder<ICmptDescrBtwnObject>(_ => new CmptDescrBtwnDecoder())
-      .AddDecoder<ICmptDescrCmplObject>(_ => new CmptDescrCmplDecoder())
-      .AddDecoder<ICmptDescrDblObject>(_ => new CmptDescrDblDecoder())
-      .AddDecoder<ICmptDescrSnglObject>(_ => new CmptDescrSnglDecoder())
-      .AddDecoder<ICmptDscrsObject>(_ => new CmptDscrsDecoder())
       .AddDecoder<ICmptInDrctParamDictObject>(_ => new CmptInDrctParamDictDecoder())
       .AddDecoder<ICmptInDrctParamInObject>(_ => new CmptInDrctParamInDecoder())
       .AddDecoder<ICmptInDrctParamListObject>(_ => new CmptInDrctParamListDecoder())
@@ -3243,40 +2448,30 @@ internal static class Cmpt_Schema_ALLDecoders
       .AddDecoder<ICmptAltAltDualObject>(r => new CmptAltAltDualDecoder(r))
       .AddDecoder<ICmptAltInpObject>(_ => new CmptAltInpDecoder())
       .AddDecoder<ICmptAltAltInpObject>(r => new CmptAltAltInpDecoder(r))
-      .AddDecoder<ICmptAltOutpObject>(_ => new CmptAltOutpDecoder())
-      .AddDecoder<ICmptAltAltOutpObject>(r => new CmptAltAltOutpDecoder(r))
       .AddDecoder<ICmptAltDescrDualObject>(_ => new CmptAltDescrDualDecoder())
       .AddDecoder<ICmptAltDescrInpObject>(_ => new CmptAltDescrInpDecoder())
-      .AddDecoder<ICmptAltDescrOutpObject>(_ => new CmptAltDescrOutpDecoder())
       .AddDecoder<ICmptAltDualDualObject>(_ => new CmptAltDualDualDecoder())
       .AddDecoder<ICmptObjDualAltDualDualObject>(r => new CmptObjDualAltDualDualDecoder(r))
       .AddDecoder<ICmptAltDualInpObject>(_ => new CmptAltDualInpDecoder())
       .AddDecoder<ICmptObjDualAltDualInpObject>(r => new CmptObjDualAltDualInpDecoder(r))
-      .AddDecoder<ICmptAltDualOutpObject>(_ => new CmptAltDualOutpDecoder())
       .AddDecoder<ICmptObjDualAltDualOutpObject>(r => new CmptObjDualAltDualOutpDecoder(r))
       .AddDecoder<ICmptAltEnumDualObject>(_ => new CmptAltEnumDualDecoder())
       .AddDecoder<CmptEnumAltEnumDual>(_ => new CmptEnumAltEnumDualDecoder())
       .AddDecoder<ICmptAltEnumInpObject>(_ => new CmptAltEnumInpDecoder())
       .AddDecoder<CmptEnumAltEnumInp>(_ => new CmptEnumAltEnumInpDecoder())
-      .AddDecoder<ICmptAltEnumOutpObject>(_ => new CmptAltEnumOutpDecoder())
       .AddDecoder<CmptEnumAltEnumOutp>(_ => new CmptEnumAltEnumOutpDecoder())
       .AddDecoder<ICmptAltModBoolDualObject>(_ => new CmptAltModBoolDualDecoder())
       .AddDecoder<ICmptAltAltModBoolDualObject>(r => new CmptAltAltModBoolDualDecoder(r))
       .AddDecoder<ICmptAltModBoolInpObject>(_ => new CmptAltModBoolInpDecoder())
       .AddDecoder<ICmptAltAltModBoolInpObject>(r => new CmptAltAltModBoolInpDecoder(r))
-      .AddDecoder<ICmptAltModBoolOutpObject>(_ => new CmptAltModBoolOutpDecoder())
-      .AddDecoder<ICmptAltAltModBoolOutpObject>(r => new CmptAltAltModBoolOutpDecoder(r))
       .AddDecoder<ICmptAltAltModParamDualObject>(r => new CmptAltAltModParamDualDecoder(r))
       .AddDecoder<ICmptAltAltModParamInpObject>(r => new CmptAltAltModParamInpDecoder(r))
-      .AddDecoder<ICmptAltAltModParamOutpObject>(r => new CmptAltAltModParamOutpDecoder(r))
       .AddDecoder<ICmptAltSmplDualObject>(_ => new CmptAltSmplDualDecoder())
       .AddDecoder<ICmptAltSmplInpObject>(_ => new CmptAltSmplInpDecoder())
-      .AddDecoder<ICmptAltSmplOutpObject>(_ => new CmptAltSmplOutpDecoder())
       .AddDecoder<ICmptCnstAltDmnDualObject>(_ => new CmptCnstAltDmnDualDecoder())
       .AddDecoder<ICmptDomCnstAltDmnDual>(_ => new CmptDomCnstAltDmnDualDecoder())
       .AddDecoder<ICmptCnstAltDmnInpObject>(_ => new CmptCnstAltDmnInpDecoder())
       .AddDecoder<ICmptDomCnstAltDmnInp>(_ => new CmptDomCnstAltDmnInpDecoder())
-      .AddDecoder<ICmptCnstAltDmnOutpObject>(_ => new CmptCnstAltDmnOutpDecoder())
       .AddDecoder<ICmptDomCnstAltDmnOutp>(_ => new CmptDomCnstAltDmnOutpDecoder())
       .AddDecoder<ICmptCnstAltDualDualObject>(_ => new CmptCnstAltDualDualDecoder())
       .AddDecoder<ICmptPrntCnstAltDualDualObject>(_ => new CmptPrntCnstAltDualDualDecoder())
@@ -3284,32 +2479,25 @@ internal static class Cmpt_Schema_ALLDecoders
       .AddDecoder<ICmptCnstAltDualInpObject>(_ => new CmptCnstAltDualInpDecoder())
       .AddDecoder<ICmptPrntCnstAltDualInpObject>(_ => new CmptPrntCnstAltDualInpDecoder())
       .AddDecoder<ICmptAltCnstAltDualInpObject>(r => new CmptAltCnstAltDualInpDecoder(r))
-      .AddDecoder<ICmptCnstAltDualOutpObject>(_ => new CmptCnstAltDualOutpDecoder())
       .AddDecoder<ICmptPrntCnstAltDualOutpObject>(_ => new CmptPrntCnstAltDualOutpDecoder())
-      .AddDecoder<ICmptAltCnstAltDualOutpObject>(r => new CmptAltCnstAltDualOutpDecoder(r))
       .AddDecoder<ICmptCnstAltObjDualObject>(_ => new CmptCnstAltObjDualDecoder())
       .AddDecoder<ICmptPrntCnstAltObjDualObject>(_ => new CmptPrntCnstAltObjDualDecoder())
       .AddDecoder<ICmptAltCnstAltObjDualObject>(r => new CmptAltCnstAltObjDualDecoder(r))
       .AddDecoder<ICmptCnstAltObjInpObject>(_ => new CmptCnstAltObjInpDecoder())
       .AddDecoder<ICmptPrntCnstAltObjInpObject>(_ => new CmptPrntCnstAltObjInpDecoder())
       .AddDecoder<ICmptAltCnstAltObjInpObject>(r => new CmptAltCnstAltObjInpDecoder(r))
-      .AddDecoder<ICmptCnstAltObjOutpObject>(_ => new CmptCnstAltObjOutpDecoder())
-      .AddDecoder<ICmptPrntCnstAltObjOutpObject>(_ => new CmptPrntCnstAltObjOutpDecoder())
-      .AddDecoder<ICmptAltCnstAltObjOutpObject>(r => new CmptAltCnstAltObjOutpDecoder(r))
       .AddDecoder<ICmptCnstDomEnumDualObject>(_ => new CmptCnstDomEnumDualDecoder())
       .AddDecoder<CmptEnumCnstDomEnumDual>(_ => new CmptEnumCnstDomEnumDualDecoder())
       .AddDecoder<ICmptJustCnstDomEnumDual>(_ => new CmptJustCnstDomEnumDualDecoder())
       .AddDecoder<ICmptCnstDomEnumInpObject>(_ => new CmptCnstDomEnumInpDecoder())
       .AddDecoder<CmptEnumCnstDomEnumInp>(_ => new CmptEnumCnstDomEnumInpDecoder())
       .AddDecoder<ICmptJustCnstDomEnumInp>(_ => new CmptJustCnstDomEnumInpDecoder())
-      .AddDecoder<ICmptCnstDomEnumOutpObject>(_ => new CmptCnstDomEnumOutpDecoder())
       .AddDecoder<CmptEnumCnstDomEnumOutp>(_ => new CmptEnumCnstDomEnumOutpDecoder())
       .AddDecoder<ICmptJustCnstDomEnumOutp>(_ => new CmptJustCnstDomEnumOutpDecoder())
       .AddDecoder<ICmptCnstEnumDualObject>(_ => new CmptCnstEnumDualDecoder())
       .AddDecoder<CmptEnumCnstEnumDual>(_ => new CmptEnumCnstEnumDualDecoder())
       .AddDecoder<ICmptCnstEnumInpObject>(_ => new CmptCnstEnumInpDecoder())
       .AddDecoder<CmptEnumCnstEnumInp>(_ => new CmptEnumCnstEnumInpDecoder())
-      .AddDecoder<ICmptCnstEnumOutpObject>(_ => new CmptCnstEnumOutpDecoder())
       .AddDecoder<CmptEnumCnstEnumOutp>(_ => new CmptEnumCnstEnumOutpDecoder())
       .AddDecoder<ICmptCnstEnumPrntDualObject>(_ => new CmptCnstEnumPrntDualDecoder())
       .AddDecoder<CmptEnumCnstEnumPrntDual>(_ => new CmptEnumCnstEnumPrntDualDecoder())
@@ -3317,14 +2505,12 @@ internal static class Cmpt_Schema_ALLDecoders
       .AddDecoder<ICmptCnstEnumPrntInpObject>(_ => new CmptCnstEnumPrntInpDecoder())
       .AddDecoder<CmptEnumCnstEnumPrntInp>(_ => new CmptEnumCnstEnumPrntInpDecoder())
       .AddDecoder<CmptParentCnstEnumPrntInp>(_ => new CmptParentCnstEnumPrntInpDecoder())
-      .AddDecoder<ICmptCnstEnumPrntOutpObject>(_ => new CmptCnstEnumPrntOutpDecoder())
       .AddDecoder<CmptEnumCnstEnumPrntOutp>(_ => new CmptEnumCnstEnumPrntOutpDecoder())
       .AddDecoder<CmptParentCnstEnumPrntOutp>(_ => new CmptParentCnstEnumPrntOutpDecoder())
       .AddDecoder<ICmptCnstFieldDmnDualObject>(_ => new CmptCnstFieldDmnDualDecoder())
       .AddDecoder<ICmptDomCnstFieldDmnDual>(_ => new CmptDomCnstFieldDmnDualDecoder())
       .AddDecoder<ICmptCnstFieldDmnInpObject>(_ => new CmptCnstFieldDmnInpDecoder())
       .AddDecoder<ICmptDomCnstFieldDmnInp>(_ => new CmptDomCnstFieldDmnInpDecoder())
-      .AddDecoder<ICmptCnstFieldDmnOutpObject>(_ => new CmptCnstFieldDmnOutpDecoder())
       .AddDecoder<ICmptDomCnstFieldDmnOutp>(_ => new CmptDomCnstFieldDmnOutpDecoder())
       .AddDecoder<ICmptCnstFieldDualDualObject>(_ => new CmptCnstFieldDualDualDecoder())
       .AddDecoder<ICmptPrntCnstFieldDualDualObject>(_ => new CmptPrntCnstFieldDualDualDecoder())
@@ -3332,18 +2518,13 @@ internal static class Cmpt_Schema_ALLDecoders
       .AddDecoder<ICmptCnstFieldDualInpObject>(_ => new CmptCnstFieldDualInpDecoder())
       .AddDecoder<ICmptPrntCnstFieldDualInpObject>(_ => new CmptPrntCnstFieldDualInpDecoder())
       .AddDecoder<ICmptAltCnstFieldDualInpObject>(r => new CmptAltCnstFieldDualInpDecoder(r))
-      .AddDecoder<ICmptCnstFieldDualOutpObject>(_ => new CmptCnstFieldDualOutpDecoder())
       .AddDecoder<ICmptPrntCnstFieldDualOutpObject>(_ => new CmptPrntCnstFieldDualOutpDecoder())
-      .AddDecoder<ICmptAltCnstFieldDualOutpObject>(r => new CmptAltCnstFieldDualOutpDecoder(r))
       .AddDecoder<ICmptCnstFieldObjDualObject>(_ => new CmptCnstFieldObjDualDecoder())
       .AddDecoder<ICmptPrntCnstFieldObjDualObject>(_ => new CmptPrntCnstFieldObjDualDecoder())
       .AddDecoder<ICmptAltCnstFieldObjDualObject>(r => new CmptAltCnstFieldObjDualDecoder(r))
       .AddDecoder<ICmptCnstFieldObjInpObject>(_ => new CmptCnstFieldObjInpDecoder())
       .AddDecoder<ICmptPrntCnstFieldObjInpObject>(_ => new CmptPrntCnstFieldObjInpDecoder())
       .AddDecoder<ICmptAltCnstFieldObjInpObject>(r => new CmptAltCnstFieldObjInpDecoder(r))
-      .AddDecoder<ICmptCnstFieldObjOutpObject>(_ => new CmptCnstFieldObjOutpDecoder())
-      .AddDecoder<ICmptPrntCnstFieldObjOutpObject>(_ => new CmptPrntCnstFieldObjOutpDecoder())
-      .AddDecoder<ICmptAltCnstFieldObjOutpObject>(r => new CmptAltCnstFieldObjOutpDecoder(r))
       .AddDecoder<ICmptCnstPrntDualGrndDualObject>(_ => new CmptCnstPrntDualGrndDualDecoder())
       .AddDecoder<ICmptGrndCnstPrntDualGrndDualObject>(_ => new CmptGrndCnstPrntDualGrndDualDecoder())
       .AddDecoder<ICmptPrntCnstPrntDualGrndDualObject>(_ => new CmptPrntCnstPrntDualGrndDualDecoder())
@@ -3352,26 +2533,21 @@ internal static class Cmpt_Schema_ALLDecoders
       .AddDecoder<ICmptGrndCnstPrntDualGrndInpObject>(_ => new CmptGrndCnstPrntDualGrndInpDecoder())
       .AddDecoder<ICmptPrntCnstPrntDualGrndInpObject>(_ => new CmptPrntCnstPrntDualGrndInpDecoder())
       .AddDecoder<ICmptAltCnstPrntDualGrndInpObject>(r => new CmptAltCnstPrntDualGrndInpDecoder(r))
-      .AddDecoder<ICmptCnstPrntDualGrndOutpObject>(_ => new CmptCnstPrntDualGrndOutpDecoder())
       .AddDecoder<ICmptGrndCnstPrntDualGrndOutpObject>(_ => new CmptGrndCnstPrntDualGrndOutpDecoder())
       .AddDecoder<ICmptPrntCnstPrntDualGrndOutpObject>(_ => new CmptPrntCnstPrntDualGrndOutpDecoder())
-      .AddDecoder<ICmptAltCnstPrntDualGrndOutpObject>(r => new CmptAltCnstPrntDualGrndOutpDecoder(r))
       .AddDecoder<ICmptCnstPrntDualPrntDualObject>(_ => new CmptCnstPrntDualPrntDualDecoder())
       .AddDecoder<ICmptPrntCnstPrntDualPrntDualObject>(_ => new CmptPrntCnstPrntDualPrntDualDecoder())
       .AddDecoder<ICmptAltCnstPrntDualPrntDualObject>(r => new CmptAltCnstPrntDualPrntDualDecoder(r))
       .AddDecoder<ICmptCnstPrntDualPrntInpObject>(_ => new CmptCnstPrntDualPrntInpDecoder())
       .AddDecoder<ICmptPrntCnstPrntDualPrntInpObject>(_ => new CmptPrntCnstPrntDualPrntInpDecoder())
       .AddDecoder<ICmptAltCnstPrntDualPrntInpObject>(r => new CmptAltCnstPrntDualPrntInpDecoder(r))
-      .AddDecoder<ICmptCnstPrntDualPrntOutpObject>(_ => new CmptCnstPrntDualPrntOutpDecoder())
       .AddDecoder<ICmptPrntCnstPrntDualPrntOutpObject>(_ => new CmptPrntCnstPrntDualPrntOutpDecoder())
-      .AddDecoder<ICmptAltCnstPrntDualPrntOutpObject>(r => new CmptAltCnstPrntDualPrntOutpDecoder(r))
       .AddDecoder<ICmptCnstPrntEnumDualObject>(_ => new CmptCnstPrntEnumDualDecoder())
       .AddDecoder<CmptEnumCnstPrntEnumDual>(_ => new CmptEnumCnstPrntEnumDualDecoder())
       .AddDecoder<CmptParentCnstPrntEnumDual>(_ => new CmptParentCnstPrntEnumDualDecoder())
       .AddDecoder<ICmptCnstPrntEnumInpObject>(_ => new CmptCnstPrntEnumInpDecoder())
       .AddDecoder<CmptEnumCnstPrntEnumInp>(_ => new CmptEnumCnstPrntEnumInpDecoder())
       .AddDecoder<CmptParentCnstPrntEnumInp>(_ => new CmptParentCnstPrntEnumInpDecoder())
-      .AddDecoder<ICmptCnstPrntEnumOutpObject>(_ => new CmptCnstPrntEnumOutpDecoder())
       .AddDecoder<CmptEnumCnstPrntEnumOutp>(_ => new CmptEnumCnstPrntEnumOutpDecoder())
       .AddDecoder<CmptParentCnstPrntEnumOutp>(_ => new CmptParentCnstPrntEnumOutpDecoder())
       .AddDecoder<ICmptCnstPrntObjPrntDualObject>(_ => new CmptCnstPrntObjPrntDualDecoder())
@@ -3380,26 +2556,19 @@ internal static class Cmpt_Schema_ALLDecoders
       .AddDecoder<ICmptCnstPrntObjPrntInpObject>(_ => new CmptCnstPrntObjPrntInpDecoder())
       .AddDecoder<ICmptPrntCnstPrntObjPrntInpObject>(_ => new CmptPrntCnstPrntObjPrntInpDecoder())
       .AddDecoder<ICmptAltCnstPrntObjPrntInpObject>(r => new CmptAltCnstPrntObjPrntInpDecoder(r))
-      .AddDecoder<ICmptCnstPrntObjPrntOutpObject>(_ => new CmptCnstPrntObjPrntOutpDecoder())
-      .AddDecoder<ICmptPrntCnstPrntObjPrntOutpObject>(_ => new CmptPrntCnstPrntObjPrntOutpDecoder())
-      .AddDecoder<ICmptAltCnstPrntObjPrntOutpObject>(r => new CmptAltCnstPrntObjPrntOutpDecoder(r))
       .AddDecoder<ICmptFieldDualObject>(r => new CmptFieldDualDecoder(r))
       .AddDecoder<ICmptFieldInpObject>(r => new CmptFieldInpDecoder(r))
-      .AddDecoder<ICmptFieldOutpObject>(r => new CmptFieldOutpDecoder(r))
       .AddDecoder<ICmptFieldDescrDualObject>(r => new CmptFieldDescrDualDecoder(r))
       .AddDecoder<ICmptFieldDescrInpObject>(r => new CmptFieldDescrInpDecoder(r))
-      .AddDecoder<ICmptFieldDescrOutpObject>(r => new CmptFieldDescrOutpDecoder(r))
       .AddDecoder<ICmptFieldDualDualObject>(r => new CmptFieldDualDualDecoder(r))
       .AddDecoder<ICmptFldFieldDualDualObject>(r => new CmptFldFieldDualDualDecoder(r))
       .AddDecoder<ICmptFieldDualInpObject>(r => new CmptFieldDualInpDecoder(r))
       .AddDecoder<ICmptFldFieldDualInpObject>(r => new CmptFldFieldDualInpDecoder(r))
-      .AddDecoder<ICmptFieldDualOutpObject>(r => new CmptFieldDualOutpDecoder(r))
       .AddDecoder<ICmptFldFieldDualOutpObject>(r => new CmptFldFieldDualOutpDecoder(r))
       .AddDecoder<ICmptFieldEnumDualObject>(r => new CmptFieldEnumDualDecoder(r))
       .AddDecoder<CmptEnumFieldEnumDual>(_ => new CmptEnumFieldEnumDualDecoder())
       .AddDecoder<ICmptFieldEnumInpObject>(r => new CmptFieldEnumInpDecoder(r))
       .AddDecoder<CmptEnumFieldEnumInp>(_ => new CmptEnumFieldEnumInpDecoder())
-      .AddDecoder<ICmptFieldEnumOutpObject>(r => new CmptFieldEnumOutpDecoder(r))
       .AddDecoder<CmptEnumFieldEnumOutp>(_ => new CmptEnumFieldEnumOutpDecoder())
       .AddDecoder<ICmptFieldEnumPrntDualObject>(r => new CmptFieldEnumPrntDualDecoder(r))
       .AddDecoder<CmptEnumFieldEnumPrntDual>(_ => new CmptEnumFieldEnumPrntDualDecoder())
@@ -3407,86 +2576,67 @@ internal static class Cmpt_Schema_ALLDecoders
       .AddDecoder<ICmptFieldEnumPrntInpObject>(r => new CmptFieldEnumPrntInpDecoder(r))
       .AddDecoder<CmptEnumFieldEnumPrntInp>(_ => new CmptEnumFieldEnumPrntInpDecoder())
       .AddDecoder<CmptPrntFieldEnumPrntInp>(_ => new CmptPrntFieldEnumPrntInpDecoder())
-      .AddDecoder<ICmptFieldEnumPrntOutpObject>(r => new CmptFieldEnumPrntOutpDecoder(r))
       .AddDecoder<CmptEnumFieldEnumPrntOutp>(_ => new CmptEnumFieldEnumPrntOutpDecoder())
       .AddDecoder<CmptPrntFieldEnumPrntOutp>(_ => new CmptPrntFieldEnumPrntOutpDecoder())
       .AddDecoder<ICmptFieldModEnumDualObject>(r => new CmptFieldModEnumDualDecoder(r))
       .AddDecoder<CmptEnumFieldModEnumDual>(_ => new CmptEnumFieldModEnumDualDecoder())
       .AddDecoder<ICmptFieldModEnumInpObject>(r => new CmptFieldModEnumInpDecoder(r))
       .AddDecoder<CmptEnumFieldModEnumInp>(_ => new CmptEnumFieldModEnumInpDecoder())
-      .AddDecoder<ICmptFieldModEnumOutpObject>(r => new CmptFieldModEnumOutpDecoder(r))
       .AddDecoder<CmptEnumFieldModEnumOutp>(_ => new CmptEnumFieldModEnumOutpDecoder())
       .AddDecoder<ICmptFldFieldModParamDualObject>(r => new CmptFldFieldModParamDualDecoder(r))
       .AddDecoder<ICmptFldFieldModParamInpObject>(r => new CmptFldFieldModParamInpDecoder(r))
-      .AddDecoder<ICmptFldFieldModParamOutpObject>(r => new CmptFldFieldModParamOutpDecoder(r))
       .AddDecoder<ICmptFieldObjDualObject>(r => new CmptFieldObjDualDecoder(r))
       .AddDecoder<ICmptFldFieldObjDualObject>(r => new CmptFldFieldObjDualDecoder(r))
       .AddDecoder<ICmptFieldObjInpObject>(r => new CmptFieldObjInpDecoder(r))
       .AddDecoder<ICmptFldFieldObjInpObject>(r => new CmptFldFieldObjInpDecoder(r))
-      .AddDecoder<ICmptFieldObjOutpObject>(r => new CmptFieldObjOutpDecoder(r))
-      .AddDecoder<ICmptFldFieldObjOutpObject>(r => new CmptFldFieldObjOutpDecoder(r))
       .AddDecoder<ICmptFieldSmplDualObject>(r => new CmptFieldSmplDualDecoder(r))
       .AddDecoder<ICmptFieldSmplInpObject>(r => new CmptFieldSmplInpDecoder(r))
-      .AddDecoder<ICmptFieldSmplOutpObject>(r => new CmptFieldSmplOutpDecoder(r))
       .AddDecoder<ICmptFieldTypeDescrDualObject>(r => new CmptFieldTypeDescrDualDecoder(r))
       .AddDecoder<ICmptFieldTypeDescrInpObject>(r => new CmptFieldTypeDescrInpDecoder(r))
-      .AddDecoder<ICmptFieldTypeDescrOutpObject>(r => new CmptFieldTypeDescrOutpDecoder(r))
       .AddDecoder<ICmptFieldValueDualObject>(r => new CmptFieldValueDualDecoder(r))
       .AddDecoder<CmptEnumFieldValueDual>(_ => new CmptEnumFieldValueDualDecoder())
       .AddDecoder<ICmptFieldValueInpObject>(r => new CmptFieldValueInpDecoder(r))
       .AddDecoder<CmptEnumFieldValueInp>(_ => new CmptEnumFieldValueInpDecoder())
-      .AddDecoder<ICmptFieldValueOutpObject>(r => new CmptFieldValueOutpDecoder(r))
       .AddDecoder<CmptEnumFieldValueOutp>(_ => new CmptEnumFieldValueOutpDecoder())
       .AddDecoder<ICmptFieldValueDescrDualObject>(r => new CmptFieldValueDescrDualDecoder(r))
       .AddDecoder<CmptEnumFieldValueDescrDual>(_ => new CmptEnumFieldValueDescrDualDecoder())
       .AddDecoder<ICmptFieldValueDescrInpObject>(r => new CmptFieldValueDescrInpDecoder(r))
       .AddDecoder<CmptEnumFieldValueDescrInp>(_ => new CmptEnumFieldValueDescrInpDecoder())
-      .AddDecoder<ICmptFieldValueDescrOutpObject>(r => new CmptFieldValueDescrOutpDecoder(r))
       .AddDecoder<CmptEnumFieldValueDescrOutp>(_ => new CmptEnumFieldValueDescrOutpDecoder())
       .AddDecoder<ICmptGnrcAltDualDualObject>(_ => new CmptGnrcAltDualDualDecoder())
       .AddDecoder<ICmptAltGnrcAltDualDualObject>(r => new CmptAltGnrcAltDualDualDecoder(r))
       .AddDecoder<ICmptGnrcAltDualInpObject>(_ => new CmptGnrcAltDualInpDecoder())
       .AddDecoder<ICmptAltGnrcAltDualInpObject>(r => new CmptAltGnrcAltDualInpDecoder(r))
-      .AddDecoder<ICmptGnrcAltDualOutpObject>(_ => new CmptGnrcAltDualOutpDecoder())
       .AddDecoder<ICmptAltGnrcAltDualOutpObject>(r => new CmptAltGnrcAltDualOutpDecoder(r))
       .AddDecoder<ICmptGnrcAltParamDualObject>(_ => new CmptGnrcAltParamDualDecoder())
       .AddDecoder<ICmptAltGnrcAltParamDualObject>(r => new CmptAltGnrcAltParamDualDecoder(r))
       .AddDecoder<ICmptGnrcAltParamInpObject>(_ => new CmptGnrcAltParamInpDecoder())
       .AddDecoder<ICmptAltGnrcAltParamInpObject>(r => new CmptAltGnrcAltParamInpDecoder(r))
-      .AddDecoder<ICmptGnrcAltParamOutpObject>(_ => new CmptGnrcAltParamOutpDecoder())
-      .AddDecoder<ICmptAltGnrcAltParamOutpObject>(r => new CmptAltGnrcAltParamOutpDecoder(r))
       .AddDecoder<ICmptGnrcAltSmplDualObject>(_ => new CmptGnrcAltSmplDualDecoder())
       .AddDecoder<ICmptGnrcAltSmplInpObject>(_ => new CmptGnrcAltSmplInpDecoder())
-      .AddDecoder<ICmptGnrcAltSmplOutpObject>(_ => new CmptGnrcAltSmplOutpDecoder())
       .AddDecoder<ICmptGnrcEnumDualObject>(_ => new CmptGnrcEnumDualDecoder())
       .AddDecoder<CmptEnumGnrcEnumDual>(_ => new CmptEnumGnrcEnumDualDecoder())
       .AddDecoder<ICmptGnrcEnumInpObject>(_ => new CmptGnrcEnumInpDecoder())
       .AddDecoder<CmptEnumGnrcEnumInp>(_ => new CmptEnumGnrcEnumInpDecoder())
-      .AddDecoder<ICmptGnrcEnumOutpObject>(_ => new CmptGnrcEnumOutpDecoder())
       .AddDecoder<CmptEnumGnrcEnumOutp>(_ => new CmptEnumGnrcEnumOutpDecoder())
       .AddDecoder<ICmptGnrcFieldDualDualObject>(r => new CmptGnrcFieldDualDualDecoder(r))
       .AddDecoder<ICmptAltGnrcFieldDualDualObject>(r => new CmptAltGnrcFieldDualDualDecoder(r))
       .AddDecoder<ICmptGnrcFieldDualInpObject>(r => new CmptGnrcFieldDualInpDecoder(r))
       .AddDecoder<ICmptAltGnrcFieldDualInpObject>(r => new CmptAltGnrcFieldDualInpDecoder(r))
-      .AddDecoder<ICmptGnrcFieldDualOutpObject>(r => new CmptGnrcFieldDualOutpDecoder(r))
       .AddDecoder<ICmptAltGnrcFieldDualOutpObject>(r => new CmptAltGnrcFieldDualOutpDecoder(r))
       .AddDecoder<ICmptGnrcFieldParamDualObject>(r => new CmptGnrcFieldParamDualDecoder(r))
       .AddDecoder<ICmptAltGnrcFieldParamDualObject>(r => new CmptAltGnrcFieldParamDualDecoder(r))
       .AddDecoder<ICmptGnrcFieldParamInpObject>(r => new CmptGnrcFieldParamInpDecoder(r))
       .AddDecoder<ICmptAltGnrcFieldParamInpObject>(r => new CmptAltGnrcFieldParamInpDecoder(r))
-      .AddDecoder<ICmptGnrcFieldParamOutpObject>(r => new CmptGnrcFieldParamOutpDecoder(r))
-      .AddDecoder<ICmptAltGnrcFieldParamOutpObject>(r => new CmptAltGnrcFieldParamOutpDecoder(r))
       .AddDecoder<ICmptGnrcPrntDualDualObject>(_ => new CmptGnrcPrntDualDualDecoder())
       .AddDecoder<ICmptAltGnrcPrntDualDualObject>(r => new CmptAltGnrcPrntDualDualDecoder(r))
       .AddDecoder<ICmptGnrcPrntDualInpObject>(_ => new CmptGnrcPrntDualInpDecoder())
       .AddDecoder<ICmptAltGnrcPrntDualInpObject>(r => new CmptAltGnrcPrntDualInpDecoder(r))
-      .AddDecoder<ICmptGnrcPrntDualOutpObject>(_ => new CmptGnrcPrntDualOutpDecoder())
       .AddDecoder<ICmptAltGnrcPrntDualOutpObject>(r => new CmptAltGnrcPrntDualOutpDecoder(r))
       .AddDecoder<ICmptGnrcPrntDualPrntDualObject>(_ => new CmptGnrcPrntDualPrntDualDecoder())
       .AddDecoder<ICmptAltGnrcPrntDualPrntDualObject>(r => new CmptAltGnrcPrntDualPrntDualDecoder(r))
       .AddDecoder<ICmptGnrcPrntDualPrntInpObject>(_ => new CmptGnrcPrntDualPrntInpDecoder())
       .AddDecoder<ICmptAltGnrcPrntDualPrntInpObject>(r => new CmptAltGnrcPrntDualPrntInpDecoder(r))
-      .AddDecoder<ICmptGnrcPrntDualPrntOutpObject>(_ => new CmptGnrcPrntDualPrntOutpDecoder())
       .AddDecoder<ICmptAltGnrcPrntDualPrntOutpObject>(r => new CmptAltGnrcPrntDualPrntOutpDecoder(r))
       .AddDecoder<ICmptGnrcPrntEnumChildDualObject>(_ => new CmptGnrcPrntEnumChildDualDecoder())
       .AddDecoder<CmptEnumGnrcPrntEnumChildDual>(_ => new CmptEnumGnrcPrntEnumChildDualDecoder())
@@ -3494,7 +2644,6 @@ internal static class Cmpt_Schema_ALLDecoders
       .AddDecoder<ICmptGnrcPrntEnumChildInpObject>(_ => new CmptGnrcPrntEnumChildInpDecoder())
       .AddDecoder<CmptEnumGnrcPrntEnumChildInp>(_ => new CmptEnumGnrcPrntEnumChildInpDecoder())
       .AddDecoder<CmptParentGnrcPrntEnumChildInp>(_ => new CmptParentGnrcPrntEnumChildInpDecoder())
-      .AddDecoder<ICmptGnrcPrntEnumChildOutpObject>(_ => new CmptGnrcPrntEnumChildOutpDecoder())
       .AddDecoder<CmptEnumGnrcPrntEnumChildOutp>(_ => new CmptEnumGnrcPrntEnumChildOutpDecoder())
       .AddDecoder<CmptParentGnrcPrntEnumChildOutp>(_ => new CmptParentGnrcPrntEnumChildOutpDecoder())
       .AddDecoder<ICmptGnrcPrntEnumDomDualObject>(_ => new CmptGnrcPrntEnumDomDualDecoder())
@@ -3503,7 +2652,6 @@ internal static class Cmpt_Schema_ALLDecoders
       .AddDecoder<ICmptGnrcPrntEnumDomInpObject>(_ => new CmptGnrcPrntEnumDomInpDecoder())
       .AddDecoder<CmptEnumGnrcPrntEnumDomInp>(_ => new CmptEnumGnrcPrntEnumDomInpDecoder())
       .AddDecoder<ICmptDomGnrcPrntEnumDomInp>(_ => new CmptDomGnrcPrntEnumDomInpDecoder())
-      .AddDecoder<ICmptGnrcPrntEnumDomOutpObject>(_ => new CmptGnrcPrntEnumDomOutpDecoder())
       .AddDecoder<CmptEnumGnrcPrntEnumDomOutp>(_ => new CmptEnumGnrcPrntEnumDomOutpDecoder())
       .AddDecoder<ICmptDomGnrcPrntEnumDomOutp>(_ => new CmptDomGnrcPrntEnumDomOutpDecoder())
       .AddDecoder<ICmptGnrcPrntEnumPrntDualObject>(_ => new CmptGnrcPrntEnumPrntDualDecoder())
@@ -3512,38 +2660,30 @@ internal static class Cmpt_Schema_ALLDecoders
       .AddDecoder<ICmptGnrcPrntEnumPrntInpObject>(_ => new CmptGnrcPrntEnumPrntInpDecoder())
       .AddDecoder<CmptEnumGnrcPrntEnumPrntInp>(_ => new CmptEnumGnrcPrntEnumPrntInpDecoder())
       .AddDecoder<CmptParentGnrcPrntEnumPrntInp>(_ => new CmptParentGnrcPrntEnumPrntInpDecoder())
-      .AddDecoder<ICmptGnrcPrntEnumPrntOutpObject>(_ => new CmptGnrcPrntEnumPrntOutpDecoder())
       .AddDecoder<CmptEnumGnrcPrntEnumPrntOutp>(_ => new CmptEnumGnrcPrntEnumPrntOutpDecoder())
       .AddDecoder<CmptParentGnrcPrntEnumPrntOutp>(_ => new CmptParentGnrcPrntEnumPrntOutpDecoder())
       .AddDecoder<ICmptGnrcPrntParamDualObject>(_ => new CmptGnrcPrntParamDualDecoder())
       .AddDecoder<ICmptAltGnrcPrntParamDualObject>(r => new CmptAltGnrcPrntParamDualDecoder(r))
       .AddDecoder<ICmptGnrcPrntParamInpObject>(_ => new CmptGnrcPrntParamInpDecoder())
       .AddDecoder<ICmptAltGnrcPrntParamInpObject>(r => new CmptAltGnrcPrntParamInpDecoder(r))
-      .AddDecoder<ICmptGnrcPrntParamOutpObject>(_ => new CmptGnrcPrntParamOutpDecoder())
-      .AddDecoder<ICmptAltGnrcPrntParamOutpObject>(r => new CmptAltGnrcPrntParamOutpDecoder(r))
       .AddDecoder<ICmptGnrcPrntParamPrntDualObject>(_ => new CmptGnrcPrntParamPrntDualDecoder())
       .AddDecoder<ICmptAltGnrcPrntParamPrntDualObject>(r => new CmptAltGnrcPrntParamPrntDualDecoder(r))
       .AddDecoder<ICmptGnrcPrntParamPrntInpObject>(_ => new CmptGnrcPrntParamPrntInpDecoder())
       .AddDecoder<ICmptAltGnrcPrntParamPrntInpObject>(r => new CmptAltGnrcPrntParamPrntInpDecoder(r))
-      .AddDecoder<ICmptGnrcPrntParamPrntOutpObject>(_ => new CmptGnrcPrntParamPrntOutpDecoder())
-      .AddDecoder<ICmptAltGnrcPrntParamPrntOutpObject>(r => new CmptAltGnrcPrntParamPrntOutpDecoder(r))
       .AddDecoder<ICmptGnrcPrntSmplEnumDualObject>(_ => new CmptGnrcPrntSmplEnumDualDecoder())
       .AddDecoder<CmptEnumGnrcPrntSmplEnumDual>(_ => new CmptEnumGnrcPrntSmplEnumDualDecoder())
       .AddDecoder<ICmptGnrcPrntSmplEnumInpObject>(_ => new CmptGnrcPrntSmplEnumInpDecoder())
       .AddDecoder<CmptEnumGnrcPrntSmplEnumInp>(_ => new CmptEnumGnrcPrntSmplEnumInpDecoder())
-      .AddDecoder<ICmptGnrcPrntSmplEnumOutpObject>(_ => new CmptGnrcPrntSmplEnumOutpDecoder())
       .AddDecoder<CmptEnumGnrcPrntSmplEnumOutp>(_ => new CmptEnumGnrcPrntSmplEnumOutpDecoder())
       .AddDecoder<ICmptGnrcPrntStrDomDualObject>(_ => new CmptGnrcPrntStrDomDualDecoder())
       .AddDecoder<ICmptDomGnrcPrntStrDomDual>(_ => new CmptDomGnrcPrntStrDomDualDecoder())
       .AddDecoder<ICmptGnrcPrntStrDomInpObject>(_ => new CmptGnrcPrntStrDomInpDecoder())
       .AddDecoder<ICmptDomGnrcPrntStrDomInp>(_ => new CmptDomGnrcPrntStrDomInpDecoder())
-      .AddDecoder<ICmptGnrcPrntStrDomOutpObject>(_ => new CmptGnrcPrntStrDomOutpDecoder())
       .AddDecoder<ICmptDomGnrcPrntStrDomOutp>(_ => new CmptDomGnrcPrntStrDomOutpDecoder())
       .AddDecoder<ICmptGnrcValueDualObject>(_ => new CmptGnrcValueDualDecoder())
       .AddDecoder<CmptEnumGnrcValueDual>(_ => new CmptEnumGnrcValueDualDecoder())
       .AddDecoder<ICmptGnrcValueInpObject>(_ => new CmptGnrcValueInpDecoder())
       .AddDecoder<CmptEnumGnrcValueInp>(_ => new CmptEnumGnrcValueInpDecoder())
-      .AddDecoder<ICmptGnrcValueOutpObject>(_ => new CmptGnrcValueOutpDecoder())
       .AddDecoder<CmptEnumGnrcValueOutp>(_ => new CmptEnumGnrcValueOutpDecoder())
       .AddDecoder<ICmptInpFieldDescrNmbrObject>(r => new CmptInpFieldDescrNmbrDecoder(r))
       .AddDecoder<ICmptInpFieldEnumObject>(r => new CmptInpFieldEnumDecoder(r))
@@ -3553,28 +2693,20 @@ internal static class Cmpt_Schema_ALLDecoders
       .AddDecoder<ICmptInpFieldNmbrObject>(r => new CmptInpFieldNmbrDecoder(r))
       .AddDecoder<ICmptInpFieldNmbrDescrObject>(r => new CmptInpFieldNmbrDescrDecoder(r))
       .AddDecoder<ICmptInpFieldStrObject>(r => new CmptInpFieldStrDecoder(r))
-      .AddDecoder<ICmptOutpDescrParamObject>(r => new CmptOutpDescrParamDecoder(r))
       .AddDecoder<ICmptFldOutpDescrParamObject>(_ => new CmptFldOutpDescrParamDecoder())
       .AddDecoder<ICmptInOutpDescrParamObject>(r => new CmptInOutpDescrParamDecoder(r))
-      .AddDecoder<ICmptOutpParamObject>(r => new CmptOutpParamDecoder(r))
       .AddDecoder<ICmptFldOutpParamObject>(_ => new CmptFldOutpParamDecoder())
       .AddDecoder<ICmptInOutpParamObject>(r => new CmptInOutpParamDecoder(r))
-      .AddDecoder<ICmptOutpParamDescrObject>(r => new CmptOutpParamDescrDecoder(r))
       .AddDecoder<ICmptFldOutpParamDescrObject>(_ => new CmptFldOutpParamDescrDecoder())
       .AddDecoder<ICmptInOutpParamDescrObject>(r => new CmptInOutpParamDescrDecoder(r))
-      .AddDecoder<ICmptOutpParamModDmnObject>(r => new CmptOutpParamModDmnDecoder(r))
       .AddDecoder<ICmptInOutpParamModDmnObject>(r => new CmptInOutpParamModDmnDecoder(r))
       .AddDecoder<ICmptDomOutpParamModDmn>(_ => new CmptDomOutpParamModDmnDecoder())
       .AddDecoder<ICmptInOutpParamModParamObject>(r => new CmptInOutpParamModParamDecoder(r))
       .AddDecoder<ICmptDomOutpParamModParam>(_ => new CmptDomOutpParamModParamDecoder())
-      .AddDecoder<ICmptOutpParamTypeDescrObject>(r => new CmptOutpParamTypeDescrDecoder(r))
       .AddDecoder<ICmptFldOutpParamTypeDescrObject>(_ => new CmptFldOutpParamTypeDescrDecoder())
       .AddDecoder<ICmptInOutpParamTypeDescrObject>(r => new CmptInOutpParamTypeDescrDecoder(r))
-      .AddDecoder<ICmptOutpPrntGnrcObject>(_ => new CmptOutpPrntGnrcDecoder())
       .AddDecoder<CmptEnumOutpPrntGnrc>(_ => new CmptEnumOutpPrntGnrcDecoder())
       .AddDecoder<CmptPrntOutpPrntGnrc>(_ => new CmptPrntOutpPrntGnrcDecoder())
-      .AddDecoder<ICmptOutpPrntParamObject>(r => new CmptOutpPrntParamDecoder(r))
-      .AddDecoder<ICmptPrntOutpPrntParamObject>(r => new CmptPrntOutpPrntParamDecoder(r))
       .AddDecoder<ICmptFldOutpPrntParamObject>(_ => new CmptFldOutpPrntParamDecoder())
       .AddDecoder<ICmptInOutpPrntParamObject>(r => new CmptInOutpPrntParamDecoder(r))
       .AddDecoder<ICmptPrntOutpPrntParamInObject>(r => new CmptPrntOutpPrntParamInDecoder(r))
@@ -3582,36 +2714,23 @@ internal static class Cmpt_Schema_ALLDecoders
       .AddDecoder<ICmptRefPrntDualObject>(r => new CmptRefPrntDualDecoder(r))
       .AddDecoder<ICmptPrntInpObject>(_ => new CmptPrntInpDecoder())
       .AddDecoder<ICmptRefPrntInpObject>(r => new CmptRefPrntInpDecoder(r))
-      .AddDecoder<ICmptPrntOutpObject>(_ => new CmptPrntOutpDecoder())
-      .AddDecoder<ICmptRefPrntOutpObject>(r => new CmptRefPrntOutpDecoder(r))
       .AddDecoder<ICmptPrntAltDualObject>(_ => new CmptPrntAltDualDecoder())
       .AddDecoder<ICmptRefPrntAltDualObject>(r => new CmptRefPrntAltDualDecoder(r))
       .AddDecoder<ICmptPrntAltInpObject>(_ => new CmptPrntAltInpDecoder())
       .AddDecoder<ICmptRefPrntAltInpObject>(r => new CmptRefPrntAltInpDecoder(r))
-      .AddDecoder<ICmptPrntAltOutpObject>(_ => new CmptPrntAltOutpDecoder())
-      .AddDecoder<ICmptRefPrntAltOutpObject>(r => new CmptRefPrntAltOutpDecoder(r))
       .AddDecoder<ICmptPrntDescrDualObject>(_ => new CmptPrntDescrDualDecoder())
       .AddDecoder<ICmptRefPrntDescrDualObject>(r => new CmptRefPrntDescrDualDecoder(r))
       .AddDecoder<ICmptPrntDescrInpObject>(_ => new CmptPrntDescrInpDecoder())
       .AddDecoder<ICmptRefPrntDescrInpObject>(r => new CmptRefPrntDescrInpDecoder(r))
-      .AddDecoder<ICmptPrntDescrOutpObject>(_ => new CmptPrntDescrOutpDecoder())
-      .AddDecoder<ICmptRefPrntDescrOutpObject>(r => new CmptRefPrntDescrOutpDecoder(r))
       .AddDecoder<ICmptPrntDualDualObject>(_ => new CmptPrntDualDualDecoder())
       .AddDecoder<ICmptRefPrntDualDualObject>(r => new CmptRefPrntDualDualDecoder(r))
       .AddDecoder<ICmptPrntDualInpObject>(_ => new CmptPrntDualInpDecoder())
       .AddDecoder<ICmptRefPrntDualInpObject>(r => new CmptRefPrntDualInpDecoder(r))
-      .AddDecoder<ICmptPrntDualOutpObject>(_ => new CmptPrntDualOutpDecoder())
       .AddDecoder<ICmptRefPrntDualOutpObject>(r => new CmptRefPrntDualOutpDecoder(r))
       .AddDecoder<ICmptPrntFieldDualObject>(r => new CmptPrntFieldDualDecoder(r))
       .AddDecoder<ICmptRefPrntFieldDualObject>(r => new CmptRefPrntFieldDualDecoder(r))
       .AddDecoder<ICmptPrntFieldInpObject>(r => new CmptPrntFieldInpDecoder(r))
       .AddDecoder<ICmptRefPrntFieldInpObject>(r => new CmptRefPrntFieldInpDecoder(r))
-      .AddDecoder<ICmptPrntFieldOutpObject>(r => new CmptPrntFieldOutpDecoder(r))
-      .AddDecoder<ICmptRefPrntFieldOutpObject>(r => new CmptRefPrntFieldOutpDecoder(r))
-      .AddDecoder<ICmptCtgrObject>(_ => new CmptCtgrDecoder())
-      .AddDecoder<ICmptCtgrAliasObject>(_ => new CmptCtgrAliasDecoder())
-      .AddDecoder<ICmptCtgrDescrObject>(_ => new CmptCtgrDescrDecoder())
-      .AddDecoder<ICmptCtgrModObject>(_ => new CmptCtgrModDecoder())
       .AddDecoder<ICmptInDrctParamObject>(_ => new CmptInDrctParamDecoder())
       .AddDecoder<ICmptDmnAlias>(_ => new CmptDmnAliasDecoder())
       .AddDecoder<ICmptDmnBool>(_ => new CmptDmnBoolDecoder())
@@ -3633,47 +2752,32 @@ internal static class Cmpt_Schema_ALLDecoders
       .AddDecoder<CmptEnumValueAlias>(_ => new CmptEnumValueAliasDecoder())
       .AddDecoder<ICmptObjDualObject>(_ => new CmptObjDualDecoder())
       .AddDecoder<ICmptObjInpObject>(_ => new CmptObjInpDecoder())
-      .AddDecoder<ICmptObjOutpObject>(_ => new CmptObjOutpDecoder())
       .AddDecoder<ICmptObjAliasDualObject>(_ => new CmptObjAliasDualDecoder())
       .AddDecoder<ICmptObjAliasInpObject>(_ => new CmptObjAliasInpDecoder())
-      .AddDecoder<ICmptObjAliasOutpObject>(_ => new CmptObjAliasOutpDecoder())
       .AddDecoder<ICmptObjAltDualObject>(_ => new CmptObjAltDualDecoder())
       .AddDecoder<ICmptObjAltDualTypeObject>(_ => new CmptObjAltDualTypeDecoder())
       .AddDecoder<ICmptObjAltInpObject>(_ => new CmptObjAltInpDecoder())
       .AddDecoder<ICmptObjAltInpTypeObject>(_ => new CmptObjAltInpTypeDecoder())
-      .AddDecoder<ICmptObjAltOutpObject>(_ => new CmptObjAltOutpDecoder())
-      .AddDecoder<ICmptObjAltOutpTypeObject>(_ => new CmptObjAltOutpTypeDecoder())
       .AddDecoder<ICmptObjAltEnumDualObject>(_ => new CmptObjAltEnumDualDecoder())
       .AddDecoder<ICmptObjAltEnumInpObject>(_ => new CmptObjAltEnumInpDecoder())
-      .AddDecoder<ICmptObjAltEnumOutpObject>(_ => new CmptObjAltEnumOutpDecoder())
       .AddDecoder<ICmptObjFieldDualObject>(r => new CmptObjFieldDualDecoder(r))
       .AddDecoder<ICmptFldObjFieldDualObject>(_ => new CmptFldObjFieldDualDecoder())
       .AddDecoder<ICmptObjFieldInpObject>(r => new CmptObjFieldInpDecoder(r))
       .AddDecoder<ICmptFldObjFieldInpObject>(_ => new CmptFldObjFieldInpDecoder())
-      .AddDecoder<ICmptObjFieldOutpObject>(r => new CmptObjFieldOutpDecoder(r))
-      .AddDecoder<ICmptFldObjFieldOutpObject>(_ => new CmptFldObjFieldOutpDecoder())
       .AddDecoder<ICmptObjFieldAliasDualObject>(r => new CmptObjFieldAliasDualDecoder(r))
       .AddDecoder<ICmptFldObjFieldAliasDualObject>(_ => new CmptFldObjFieldAliasDualDecoder())
       .AddDecoder<ICmptObjFieldAliasInpObject>(r => new CmptObjFieldAliasInpDecoder(r))
       .AddDecoder<ICmptFldObjFieldAliasInpObject>(_ => new CmptFldObjFieldAliasInpDecoder())
-      .AddDecoder<ICmptObjFieldAliasOutpObject>(r => new CmptObjFieldAliasOutpDecoder(r))
-      .AddDecoder<ICmptFldObjFieldAliasOutpObject>(_ => new CmptFldObjFieldAliasOutpDecoder())
       .AddDecoder<ICmptObjFieldEnumAliasDualObject>(r => new CmptObjFieldEnumAliasDualDecoder(r))
       .AddDecoder<ICmptObjFieldEnumAliasInpObject>(r => new CmptObjFieldEnumAliasInpDecoder(r))
-      .AddDecoder<ICmptObjFieldEnumAliasOutpObject>(r => new CmptObjFieldEnumAliasOutpDecoder(r))
       .AddDecoder<ICmptObjFieldEnumValueDualObject>(r => new CmptObjFieldEnumValueDualDecoder(r))
       .AddDecoder<ICmptObjFieldEnumValueInpObject>(r => new CmptObjFieldEnumValueInpDecoder(r))
-      .AddDecoder<ICmptObjFieldEnumValueOutpObject>(r => new CmptObjFieldEnumValueOutpDecoder(r))
       .AddDecoder<ICmptObjFieldTypeAliasDualObject>(r => new CmptObjFieldTypeAliasDualDecoder(r))
       .AddDecoder<ICmptObjFieldTypeAliasInpObject>(r => new CmptObjFieldTypeAliasInpDecoder(r))
-      .AddDecoder<ICmptObjFieldTypeAliasOutpObject>(r => new CmptObjFieldTypeAliasOutpDecoder(r))
       .AddDecoder<ICmptObjPrntDualObject>(_ => new CmptObjPrntDualDecoder())
       .AddDecoder<ICmptRefObjPrntDualObject>(_ => new CmptRefObjPrntDualDecoder())
       .AddDecoder<ICmptObjPrntInpObject>(_ => new CmptObjPrntInpDecoder())
       .AddDecoder<ICmptRefObjPrntInpObject>(_ => new CmptRefObjPrntInpDecoder())
-      .AddDecoder<ICmptObjPrntOutpObject>(_ => new CmptObjPrntOutpDecoder())
-      .AddDecoder<ICmptRefObjPrntOutpObject>(_ => new CmptRefObjPrntOutpDecoder())
-      .AddDecoder<ICmptOutpFieldParamObject>(r => new CmptOutpFieldParamDecoder(r))
       .AddDecoder<ICmptOutpFieldParam1Object>(_ => new CmptOutpFieldParam1Decoder())
       .AddDecoder<ICmptOutpFieldParam2Object>(_ => new CmptOutpFieldParam2Decoder())
       .AddDecoder<ICmptFldOutpFieldParamObject>(_ => new CmptFldOutpFieldParamDecoder())

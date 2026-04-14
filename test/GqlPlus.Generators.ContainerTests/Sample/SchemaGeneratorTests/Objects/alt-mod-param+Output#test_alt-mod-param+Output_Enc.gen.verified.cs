@@ -19,3 +19,10 @@ internal class testAltAltModParamOutpEncoder : IEncoder<ItestAltAltModParamOutpO
     => Structured.Empty()
       .Add("alt", input.Alt);
 }
+
+internal static class test_alt_mod_param_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_alt_mod_param_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestAltAltModParamOutpObject>(_ => new testAltAltModParamOutpEncoder());
+}

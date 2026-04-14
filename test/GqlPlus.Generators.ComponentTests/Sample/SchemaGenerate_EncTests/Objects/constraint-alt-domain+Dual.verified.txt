@@ -29,3 +29,11 @@ internal class CmptDomCnstAltDmnDualEncoder : IEncoder<ICmptDomCnstAltDmnDual>
   public Structured Encode(ICmptDomCnstAltDmnDual input)
     => new(input.Value);
 }
+
+internal static class Cmpt_Schema_constraint_alt_domain_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_alt_domain_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptCnstAltDmnDualObject>(_ => new CmptCnstAltDmnDualEncoder())
+      .AddEncoder<ICmptDomCnstAltDmnDual>(_ => new CmptDomCnstAltDmnDualEncoder());
+}

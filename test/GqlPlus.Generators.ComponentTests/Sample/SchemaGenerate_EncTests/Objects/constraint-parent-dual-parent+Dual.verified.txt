@@ -43,3 +43,12 @@ internal class CmptAltCnstPrntDualPrntDualEncoder(
     => _prntCnstPrntDualPrntDual.Encode(input)
       .Add("alt", input.Alt);
 }
+
+internal static class Cmpt_Schema_constraint_parent_dual_parent_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_parent_dual_parent_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptCnstPrntDualPrntDualObject>(r => new CmptCnstPrntDualPrntDualEncoder(r))
+      .AddEncoder<ICmptPrntCnstPrntDualPrntDualObject>(_ => new CmptPrntCnstPrntDualPrntDualEncoder())
+      .AddEncoder<ICmptAltCnstPrntDualPrntDualObject>(r => new CmptAltCnstPrntDualPrntDualEncoder(r));
+}

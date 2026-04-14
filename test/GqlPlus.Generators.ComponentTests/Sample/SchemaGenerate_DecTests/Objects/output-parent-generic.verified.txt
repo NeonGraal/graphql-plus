@@ -13,15 +13,6 @@ enum PrntOutpPrntGnrc { prnt_outpPrntGnrc }
 
 namespace Components.Gqlp_Schema_output_parent_generic;
 
-internal class CmptOutpPrntGnrcDecoder
-{
-}
-
-internal class CmptRefOutpPrntGnrcDecoder<TType>
-{
-  public TType Field { get; set; }
-}
-
 internal class CmptEnumOutpPrntGnrcDecoder
 {
   public string prnt_outpPrntGnrc { get; set; }
@@ -37,7 +28,6 @@ internal static class Cmpt_Schema_output_parent_genericDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_output_parent_genericDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptOutpPrntGnrcObject>(_ => new CmptOutpPrntGnrcDecoder())
       .AddDecoder<CmptEnumOutpPrntGnrc>(_ => new CmptEnumOutpPrntGnrcDecoder())
       .AddDecoder<CmptPrntOutpPrntGnrc>(_ => new CmptPrntOutpPrntGnrcDecoder());
 }

@@ -13,15 +13,6 @@ enum ParentGnrcPrntEnumPrntOutp { gnrcPrntEnumPrntOutpParent }
 
 namespace Components.Gqlp_Schema_generic_parent_enum_parent_Output;
 
-internal class CmptGnrcPrntEnumPrntOutpDecoder
-{
-}
-
-internal class CmptFieldGnrcPrntEnumPrntOutpDecoder<TRef>
-{
-  public TRef Field { get; set; }
-}
-
 internal class CmptEnumGnrcPrntEnumPrntOutpDecoder
 {
   public string gnrcPrntEnumPrntOutpParent { get; set; }
@@ -37,7 +28,6 @@ internal static class Cmpt_Schema_generic_parent_enum_parent_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_parent_enum_parent_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptGnrcPrntEnumPrntOutpObject>(_ => new CmptGnrcPrntEnumPrntOutpDecoder())
       .AddDecoder<CmptEnumGnrcPrntEnumPrntOutp>(_ => new CmptEnumGnrcPrntEnumPrntOutpDecoder())
       .AddDecoder<CmptParentGnrcPrntEnumPrntOutp>(_ => new CmptParentGnrcPrntEnumPrntOutpDecoder());
 }

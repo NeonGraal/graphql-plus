@@ -56,44 +56,17 @@ internal class Cmpt_NameEncoder : IEncoder<ICmpt_Name>
     => new(input.Value);
 }
 
-internal class Cmpt_FilterEncoder(
-  IEncoderRepository encoders
-) : IEncoder<ICmpt_FilterObject>
-{
-  private readonly IEncoder<ICmpt_NameFilter> _nameFilter = encoders.EncoderFor<ICmpt_NameFilter>();
-  public Structured Encode(ICmpt_FilterObject input)
-    => Structured.Empty()
-      .AddList("names", input.Names, _nameFilter)
-      .Add("matchAliases", input.MatchAliases)
-      .AddList("aliases", input.Aliases, _nameFilter)
-      .Add("returnByAlias", input.ReturnByAlias)
-      .Add("returnReferencedTypes", input.ReturnReferencedTypes);
-}
-
 internal class Cmpt_NameFilterEncoder : IEncoder<ICmpt_NameFilter>
 {
   public Structured Encode(ICmpt_NameFilter input)
     => new(input.Value);
 }
 
-internal class Cmpt_CategoryFilterEncoder(
-  IEncoderRepository encoders
-) : IEncoder<ICmpt_CategoryFilterObject>
+internal static class Cmpt_Spec_DeclarationsEncoders
 {
-  private readonly IEncoder<ICmpt_FilterObject> _filter = encoders.EncoderFor<ICmpt_FilterObject>();
-  private readonly IEncoder<ICmpt_Resolution> _resolution = encoders.EncoderFor<ICmpt_Resolution>();
-  public Structured Encode(ICmpt_CategoryFilterObject input)
-    => _filter.Encode(input)
-      .AddList("resolutions", input.Resolutions, _resolution);
-}
-
-internal class Cmpt_TypeFilterEncoder(
-  IEncoderRepository encoders
-) : IEncoder<ICmpt_TypeFilterObject>
-{
-  private readonly IEncoder<ICmpt_FilterObject> _filter = encoders.EncoderFor<ICmpt_FilterObject>();
-  private readonly IEncoder<ICmpt_TypeKind> _typeKind = encoders.EncoderFor<ICmpt_TypeKind>();
-  public Structured Encode(ICmpt_TypeFilterObject input)
-    => _filter.Encode(input)
-      .AddList("kinds", input.Kinds, _typeKind);
+  internal static IEncoderRepositoryBuilder AddCmpt_Spec_DeclarationsEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmpt_SchemaObject>(r => new Cmpt_SchemaEncoder(r))
+      .AddEncoder<ICmpt_Name>(_ => new Cmpt_NameEncoder())
+      .AddEncoder<ICmpt_NameFilter>(_ => new Cmpt_NameFilterEncoder());
 }

@@ -18,3 +18,11 @@ internal class testEnumAltEnumDualEncoder : IEncoder<testEnumAltEnumDual>
   public Structured Encode(testEnumAltEnumDual input)
     => new(input.ToString(), "_EnumAltEnumDual");
 }
+
+internal static class test_alt_enum_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_alt_enum_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestAltEnumDualObject>(_ => new testAltEnumDualEncoder())
+      .AddEncoder<testEnumAltEnumDual>(_ => new testEnumAltEnumDualEncoder());
+}

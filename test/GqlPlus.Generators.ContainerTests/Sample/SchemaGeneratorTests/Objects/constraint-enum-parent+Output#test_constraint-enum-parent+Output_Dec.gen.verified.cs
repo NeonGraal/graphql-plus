@@ -7,15 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_enum_parent_Output;
 
-internal class testCnstEnumPrntOutpDecoder
-{
-}
-
-internal class testRefCnstEnumPrntOutpDecoder<TType>
-{
-  public TType Field { get; set; }
-}
-
 internal class testEnumCnstEnumPrntOutpDecoder
 {
   public string parentCnstEnumPrntOutp { get; set; }
@@ -31,7 +22,6 @@ internal static class test_constraint_enum_parent_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_constraint_enum_parent_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestCnstEnumPrntOutpObject>(_ => new testCnstEnumPrntOutpDecoder())
       .AddDecoder<testEnumCnstEnumPrntOutp>(_ => new testEnumCnstEnumPrntOutpDecoder())
       .AddDecoder<testParentCnstEnumPrntOutp>(_ => new testParentCnstEnumPrntOutpDecoder());
 }

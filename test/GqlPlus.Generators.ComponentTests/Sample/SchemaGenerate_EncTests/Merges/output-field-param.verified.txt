@@ -24,20 +24,16 @@ internal class CmptOutpFieldParamEncoder(
       .AddEncoded("field", input.Field(), _fldOutpFieldParam);
 }
 
-internal class CmptOutpFieldParam1Encoder : IEncoder<ICmptOutpFieldParam1Object>
-{
-  public Structured Encode(ICmptOutpFieldParam1Object input)
-    => Structured.Empty();
-}
-
-internal class CmptOutpFieldParam2Encoder : IEncoder<ICmptOutpFieldParam2Object>
-{
-  public Structured Encode(ICmptOutpFieldParam2Object input)
-    => Structured.Empty();
-}
-
 internal class CmptFldOutpFieldParamEncoder : IEncoder<ICmptFldOutpFieldParamObject>
 {
   public Structured Encode(ICmptFldOutpFieldParamObject input)
     => Structured.Empty();
+}
+
+internal static class Cmpt_Schema_output_field_paramEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_output_field_paramEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptOutpFieldParamObject>(r => new CmptOutpFieldParamEncoder(r))
+      .AddEncoder<ICmptFldOutpFieldParamObject>(_ => new CmptFldOutpFieldParamEncoder());
 }

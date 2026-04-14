@@ -16,3 +16,10 @@ internal class CmptObjAliasDualEncoder : IEncoder<ICmptObjAliasDualObject>
   public Structured Encode(ICmptObjAliasDualObject input)
     => Structured.Empty();
 }
+
+internal static class Cmpt_Schema_object_alias_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_object_alias_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptObjAliasDualObject>(_ => new CmptObjAliasDualEncoder());
+}

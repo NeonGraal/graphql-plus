@@ -12,15 +12,6 @@ domain DomCnstFieldDmnOutp { String /\w+/ }
 
 namespace Components.Gqlp_Schema_constraint_field_domain_Output;
 
-internal class CmptCnstFieldDmnOutpDecoder
-{
-}
-
-internal class CmptRefCnstFieldDmnOutpDecoder<TRef>
-{
-  public TRef Field { get; set; }
-}
-
 internal class CmptDomCnstFieldDmnOutpDecoder
 {
 }
@@ -29,6 +20,5 @@ internal static class Cmpt_Schema_constraint_field_domain_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_field_domain_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptCnstFieldDmnOutpObject>(_ => new CmptCnstFieldDmnOutpDecoder())
       .AddDecoder<ICmptDomCnstFieldDmnOutp>(_ => new CmptDomCnstFieldDmnOutpDecoder());
 }

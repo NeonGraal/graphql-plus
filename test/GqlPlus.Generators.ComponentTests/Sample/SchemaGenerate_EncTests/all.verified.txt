@@ -65,17 +65,6 @@ internal class CmptFieldEncoder : IEncoder<ICmptFieldObject>
       .Add("strings", input.Strings.Encode());
 }
 
-internal class CmptParamEncoder(
-  IEncoderRepository encoders
-) : IEncoder<ICmptParamObject>
-{
-  private readonly IEncoder<ICmptMany> _many = encoders.EncoderFor<ICmptMany>();
-  public Structured Encode(ICmptParamObject input)
-    => Structured.Empty()
-      .AddEncoded("afterId", input.AfterId, _many)
-      .AddEncoded("beforeId", input.BeforeId, _many);
-}
-
 internal class CmptAllEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptAllObject>
@@ -84,4 +73,15 @@ internal class CmptAllEncoder(
   public Structured Encode(ICmptAllObject input)
     => Structured.Empty()
       .AddEncoded("items", input.Items(), _field);
+}
+
+internal static class Cmpt_Schema_allEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_allEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptGuid>(_ => new CmptGuidEncoder())
+      .AddEncoder<CmptOne>(_ => new CmptOneEncoder())
+      .AddEncoder<ICmptMany>(r => new CmptManyEncoder(r))
+      .AddEncoder<ICmptFieldObject>(_ => new CmptFieldEncoder())
+      .AddEncoder<ICmptAllObject>(r => new CmptAllEncoder(r));
 }

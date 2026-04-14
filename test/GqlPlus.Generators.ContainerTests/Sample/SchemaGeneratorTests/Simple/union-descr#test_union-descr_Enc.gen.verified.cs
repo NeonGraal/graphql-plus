@@ -16,3 +16,10 @@ internal class testUnionDescrEncoder(
     => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
      : Structured.Empty();
 }
+
+internal static class test_union_descrEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_union_descrEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestUnionDescr>(r => new testUnionDescrEncoder(r));
+}

@@ -41,3 +41,12 @@ internal class testAltCnstFieldObjDualEncoder(
     => _itestPrntCnstFieldObjDual.Encode(input)
       .Add("alt", input.Alt);
 }
+
+internal static class test_constraint_field_obj_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_constraint_field_obj_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestCnstFieldObjDualObject>(r => new testCnstFieldObjDualEncoder(r))
+      .AddEncoder<ItestPrntCnstFieldObjDualObject>(_ => new testPrntCnstFieldObjDualEncoder())
+      .AddEncoder<ItestAltCnstFieldObjDualObject>(r => new testAltCnstFieldObjDualEncoder(r));
+}

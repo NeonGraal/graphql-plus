@@ -107,51 +107,14 @@ internal class Cmpt_DomainKindDecoder
   public string String { get; set; }
 }
 
-internal class Cmpt_DomainRefDecoder<TDomainKind>
-{
-  public TDomainKind DomainKind { get; set; }
-}
-
-internal class Cmpt_BaseDomainDecoder<TDomainKind,TItem,TDomainItem>
-{
-  public TDomainKind DomainKind { get; set; }
-}
-
 internal class Cmpt_BaseDomainItemDecoder
 {
   public bool Exclude { get; set; }
 }
 
-internal class Cmpt_DomainItemDecoder<TItem>
-{
-  public ICmpt_Name Domain { get; set; }
-}
-
-internal class Cmpt_DomainValueDecoder<TDomainKind,TValue>
-{
-  public TValue Value { get; set; }
-}
-
-internal class Cmpt_BasicValueDecoder
-{
-}
-
 internal class Cmpt_DomainTrueFalseDecoder
 {
   public bool Value { get; set; }
-}
-
-internal class Cmpt_DomainItemTrueFalseDecoder
-{
-}
-
-internal class Cmpt_DomainLabelDecoder
-{
-  public ICmpt_EnumValue Label { get; set; }
-}
-
-internal class Cmpt_DomainItemLabelDecoder
-{
 }
 
 internal class Cmpt_DomainRangeDecoder
@@ -160,36 +123,14 @@ internal class Cmpt_DomainRangeDecoder
   public decimal? Upper { get; set; }
 }
 
-internal class Cmpt_DomainItemRangeDecoder
-{
-}
-
 internal class Cmpt_DomainRegexDecoder
 {
   public string Pattern { get; set; }
 }
 
-internal class Cmpt_DomainItemRegexDecoder
-{
-}
-
 internal class Cmpt_EnumLabelDecoder
 {
   public ICmpt_Name EnumType { get; set; }
-}
-
-internal class Cmpt_EnumValueDecoder
-{
-  public ICmpt_Name Label { get; set; }
-}
-
-internal class Cmpt_UnionRefDecoder
-{
-}
-
-internal class Cmpt_UnionMemberDecoder
-{
-  public ICmpt_Name Union { get; set; }
 }
 
 internal static class Cmpt_Spec_SimpleDecoders
@@ -198,17 +139,8 @@ internal static class Cmpt_Spec_SimpleDecoders
     => builder
       .AddDecoder<Cmpt_DomainKind>(_ => new Cmpt_DomainKindDecoder())
       .AddDecoder<ICmpt_BaseDomainItemObject>(r => new Cmpt_BaseDomainItemDecoder(r))
-      .AddDecoder<ICmpt_BasicValueObject>(_ => new Cmpt_BasicValueDecoder())
       .AddDecoder<ICmpt_DomainTrueFalseObject>(r => new Cmpt_DomainTrueFalseDecoder(r))
-      .AddDecoder<ICmpt_DomainItemTrueFalseObject>(_ => new Cmpt_DomainItemTrueFalseDecoder())
-      .AddDecoder<ICmpt_DomainLabelObject>(r => new Cmpt_DomainLabelDecoder(r))
-      .AddDecoder<ICmpt_DomainItemLabelObject>(_ => new Cmpt_DomainItemLabelDecoder())
       .AddDecoder<ICmpt_DomainRangeObject>(r => new Cmpt_DomainRangeDecoder(r))
-      .AddDecoder<ICmpt_DomainItemRangeObject>(_ => new Cmpt_DomainItemRangeDecoder())
       .AddDecoder<ICmpt_DomainRegexObject>(r => new Cmpt_DomainRegexDecoder(r))
-      .AddDecoder<ICmpt_DomainItemRegexObject>(_ => new Cmpt_DomainItemRegexDecoder())
-      .AddDecoder<ICmpt_EnumLabelObject>(r => new Cmpt_EnumLabelDecoder(r))
-      .AddDecoder<ICmpt_EnumValueObject>(r => new Cmpt_EnumValueDecoder(r))
-      .AddDecoder<ICmpt_UnionRefObject>(_ => new Cmpt_UnionRefDecoder())
-      .AddDecoder<ICmpt_UnionMemberObject>(r => new Cmpt_UnionMemberDecoder(r));
+      .AddDecoder<ICmpt_EnumLabelObject>(r => new Cmpt_EnumLabelDecoder(r));
 }

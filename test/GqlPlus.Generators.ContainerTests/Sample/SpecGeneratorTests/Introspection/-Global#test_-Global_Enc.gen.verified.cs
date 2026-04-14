@@ -88,3 +88,17 @@ internal class test_SettingEncoder(
     => _itest_Named.Encode(input)
       .AddEncoded("value", input.Value, _gqlpValue);
 }
+
+internal static class test__GlobalEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest__GlobalEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<Itest_AndTypeObject>(r => new test_AndTypeEncoder(r))
+      .AddEncoder<Itest_CategoriesObject>(r => new test_CategoriesEncoder(r))
+      .AddEncoder<Itest_CategoryObject>(r => new test_CategoryEncoder(r))
+      .AddEncoder<test_Resolution>(_ => new test_ResolutionEncoder())
+      .AddEncoder<Itest_DirectivesObject>(r => new test_DirectivesEncoder(r))
+      .AddEncoder<Itest_DirectiveObject>(r => new test_DirectiveEncoder(r))
+      .AddEncoder<test_Location>(_ => new test_LocationEncoder())
+      .AddEncoder<Itest_SettingObject>(r => new test_SettingEncoder(r));
+}

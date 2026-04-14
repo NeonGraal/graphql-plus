@@ -42,6 +42,12 @@ internal sealed class GqlpGeneratorContext
   public void RegisterDecoder(string addDecoderLine)
     => _decoderRegistrations.Add(addDecoderLine);
 
+  private readonly List<string> _encoderRegistrations = [];
+  public IReadOnlyList<string> EncoderRegistrations => _encoderRegistrations;
+
+  public void RegisterEncoder(string addEncoderLine)
+    => _encoderRegistrations.Add(addEncoderLine);
+
   public void WritePrefixLine(string text)
     => (_prefixWritten ? _builder : _prefix).AppendLine(text);
 

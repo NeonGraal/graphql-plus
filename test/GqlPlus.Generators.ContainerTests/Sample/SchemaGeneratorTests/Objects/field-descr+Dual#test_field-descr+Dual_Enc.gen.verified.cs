@@ -13,3 +13,10 @@ internal class testFieldDescrDualEncoder : IEncoder<ItestFieldDescrDualObject>
     => Structured.Empty()
       .Add("field", input.Field);
 }
+
+internal static class test_field_descr_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_field_descr_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestFieldDescrDualObject>(_ => new testFieldDescrDualEncoder());
+}

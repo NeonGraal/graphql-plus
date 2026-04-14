@@ -14,14 +14,6 @@ dual FldOutpFieldParam { }
 
 namespace Components.Gqlp_Schema_output_field_param;
 
-internal class CmptOutpFieldParamDecoder
-{
-  public ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter)
-    => null;
-  public ICmptFldOutpFieldParam? Field()
-    => null;
-}
-
 internal class CmptOutpFieldParam1Decoder
 {
 }
@@ -38,7 +30,6 @@ internal static class Cmpt_Schema_output_field_paramDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_output_field_paramDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptOutpFieldParamObject>(r => new CmptOutpFieldParamDecoder(r))
       .AddDecoder<ICmptOutpFieldParam1Object>(_ => new CmptOutpFieldParam1Decoder())
       .AddDecoder<ICmptOutpFieldParam2Object>(_ => new CmptOutpFieldParam2Decoder())
       .AddDecoder<ICmptFldOutpFieldParamObject>(_ => new CmptFldOutpFieldParamDecoder());

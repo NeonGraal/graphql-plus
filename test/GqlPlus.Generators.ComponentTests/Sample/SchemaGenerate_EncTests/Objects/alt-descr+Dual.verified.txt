@@ -15,3 +15,10 @@ internal class CmptAltDescrDualEncoder : IEncoder<ICmptAltDescrDualObject>
   public Structured Encode(ICmptAltDescrDualObject input)
     => Structured.Empty();
 }
+
+internal static class Cmpt_Schema_alt_descr_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_alt_descr_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptAltDescrDualObject>(_ => new CmptAltDescrDualEncoder());
+}

@@ -77,26 +77,6 @@ dual _Modifier<$modifierKind:_ModifierKind> {
 
 namespace Components.Gqlp_Spec_Type;
 
-internal class Cmpt_TypeDecoder
-{
-}
-
-internal class Cmpt_BaseTypeDecoder<TTypeKind>
-{
-  public TTypeKind TypeKind { get; set; }
-}
-
-internal class Cmpt_ChildTypeDecoder<TTypeKind,TParent>
-{
-  public TParent Parent { get; set; }
-}
-
-internal class Cmpt_ParentTypeDecoder<TTypeKind,TItem,TAllItem>
-{
-  public ICollection<TItem> Items { get; set; }
-  public ICollection<TAllItem> AllItems { get; set; }
-}
-
 internal class Cmpt_SimpleKindDecoder
 {
   public string Basic { get; set; }
@@ -161,7 +141,6 @@ internal static class Cmpt_Spec_TypeDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_TypeDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmpt_TypeObject>(_ => new Cmpt_TypeDecoder())
       .AddDecoder<Cmpt_SimpleKind>(_ => new Cmpt_SimpleKindDecoder())
       .AddDecoder<Cmpt_TypeKind>(_ => new Cmpt_TypeKindDecoder())
       .AddDecoder<ICmpt_TypeSimpleObject>(_ => new Cmpt_TypeSimpleDecoder())

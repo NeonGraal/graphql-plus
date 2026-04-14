@@ -25,6 +25,6 @@ internal static class test_generic_field_dual_InputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_generic_field_dual_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestGnrcFieldDualInpObject>(r => new testGnrcFieldDualInpDecoder(r))
-      .AddDecoder<ItestAltGnrcFieldDualInpObject>(r => new testAltGnrcFieldDualInpDecoder(r));
+      .AddDecoder<ItestGnrcFieldDualInpObject>(_ => new testGnrcFieldDualInpDecoder())
+      .AddDecoder<ItestAltGnrcFieldDualInpObject>(_ => new testAltGnrcFieldDualInpDecoder());
 }

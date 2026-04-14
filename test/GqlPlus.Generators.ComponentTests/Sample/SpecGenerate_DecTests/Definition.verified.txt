@@ -128,14 +128,14 @@ internal static class Cmpt_Spec_DefinitionDecoders
       .AddDecoder<void>(_ => new voidDecoder())
       .AddDecoder<decimal>(_ => new decimalDecoder())
       .AddDecoder<string>(_ => new stringDecoder())
-      .AddDecoder<ICmpt_Basic>(r => new Cmpt_BasicDecoder(r))
-      .AddDecoder<ICmpt_Internal>(r => new Cmpt_InternalDecoder(r))
-      .AddDecoder<ICmpt_Key>(r => new Cmpt_KeyDecoder(r))
+      .AddDecoder<ICmpt_Basic>(_ => new Cmpt_BasicDecoder())
+      .AddDecoder<ICmpt_Internal>(_ => new Cmpt_InternalDecoder())
+      .AddDecoder<ICmpt_Key>(_ => new Cmpt_KeyDecoder())
       .AddDecoder<ICmpt_ObjectObject>(_ => new Cmpt_ObjectDecoder())
       .AddDecoder<ICmpt_Domain>(_ => new Cmpt_DomainDecoder())
       .AddDecoder<ICmpt_DualObject>(_ => new Cmpt_DualDecoder())
       .AddDecoder<ICmpt_Enum>(_ => new Cmpt_EnumDecoder())
       .AddDecoder<ICmpt_InputObject>(_ => new Cmpt_InputDecoder())
       .AddDecoder<ICmpt_Union>(_ => new Cmpt_UnionDecoder())
-      .AddDecoder<ICmpt_Simple>(r => new Cmpt_SimpleDecoder(r));
+      .AddDecoder<ICmpt_Simple>(_ => new Cmpt_SimpleDecoder());
 }

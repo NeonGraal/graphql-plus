@@ -25,5 +25,5 @@ internal static class Cmpt_Schema_parent_alt_InputDecoders
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_parent_alt_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmptPrntAltInpObject>(_ => new CmptPrntAltInpDecoder())
-      .AddDecoder<ICmptRefPrntAltInpObject>(r => new CmptRefPrntAltInpDecoder(r));
+      .AddDecoder<ICmptRefPrntAltInpObject>(_ => new CmptRefPrntAltInpDecoder());
 }

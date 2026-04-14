@@ -19,5 +19,5 @@ internal static class Cmpt_Schema_field_simple_InputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_simple_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptFieldSmplInpObject>(r => new CmptFieldSmplInpDecoder(r));
+      .AddDecoder<ICmptFieldSmplInpObject>(_ => new CmptFieldSmplInpDecoder());
 }

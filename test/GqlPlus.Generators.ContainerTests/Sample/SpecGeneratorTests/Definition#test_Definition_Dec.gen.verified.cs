@@ -97,14 +97,14 @@ internal static class test_DefinitionDecoders
       .AddDecoder<void>(_ => new voidDecoder())
       .AddDecoder<decimal>(_ => new decimalDecoder())
       .AddDecoder<string>(_ => new stringDecoder())
-      .AddDecoder<Itest_Basic>(r => new test_BasicDecoder(r))
-      .AddDecoder<Itest_Internal>(r => new test_InternalDecoder(r))
-      .AddDecoder<Itest_Key>(r => new test_KeyDecoder(r))
+      .AddDecoder<Itest_Basic>(_ => new test_BasicDecoder())
+      .AddDecoder<Itest_Internal>(_ => new test_InternalDecoder())
+      .AddDecoder<Itest_Key>(_ => new test_KeyDecoder())
       .AddDecoder<Itest_ObjectObject>(_ => new test_ObjectDecoder())
       .AddDecoder<Itest_Domain>(_ => new test_DomainDecoder())
       .AddDecoder<Itest_DualObject>(_ => new test_DualDecoder())
       .AddDecoder<Itest_Enum>(_ => new test_EnumDecoder())
       .AddDecoder<Itest_InputObject>(_ => new test_InputDecoder())
       .AddDecoder<Itest_Union>(_ => new test_UnionDecoder())
-      .AddDecoder<Itest_Simple>(r => new test_SimpleDecoder(r));
+      .AddDecoder<Itest_Simple>(_ => new test_SimpleDecoder());
 }

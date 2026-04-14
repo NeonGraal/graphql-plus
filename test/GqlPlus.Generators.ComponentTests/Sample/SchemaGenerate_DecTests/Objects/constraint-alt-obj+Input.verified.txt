@@ -36,5 +36,5 @@ internal static class Cmpt_Schema_constraint_alt_obj_InputDecoders
     => builder
       .AddDecoder<ICmptCnstAltObjInpObject>(_ => new CmptCnstAltObjInpDecoder())
       .AddDecoder<ICmptPrntCnstAltObjInpObject>(_ => new CmptPrntCnstAltObjInpDecoder())
-      .AddDecoder<ICmptAltCnstAltObjInpObject>(r => new CmptAltCnstAltObjInpDecoder(r));
+      .AddDecoder<ICmptAltCnstAltObjInpObject>(_ => new CmptAltCnstAltObjInpDecoder());
 }

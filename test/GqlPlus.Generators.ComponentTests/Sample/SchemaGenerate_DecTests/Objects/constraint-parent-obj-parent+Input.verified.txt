@@ -36,5 +36,5 @@ internal static class Cmpt_Schema_constraint_parent_obj_parent_InputDecoders
     => builder
       .AddDecoder<ICmptCnstPrntObjPrntInpObject>(_ => new CmptCnstPrntObjPrntInpDecoder())
       .AddDecoder<ICmptPrntCnstPrntObjPrntInpObject>(_ => new CmptPrntCnstPrntObjPrntInpDecoder())
-      .AddDecoder<ICmptAltCnstPrntObjPrntInpObject>(r => new CmptAltCnstPrntObjPrntInpDecoder(r));
+      .AddDecoder<ICmptAltCnstPrntObjPrntInpObject>(_ => new CmptAltCnstPrntObjPrntInpDecoder());
 }

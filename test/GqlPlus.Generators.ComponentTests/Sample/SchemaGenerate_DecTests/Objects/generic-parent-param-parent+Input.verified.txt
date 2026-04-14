@@ -30,5 +30,5 @@ internal static class Cmpt_Schema_generic_parent_param_parent_InputDecoders
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_parent_param_parent_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmptGnrcPrntParamPrntInpObject>(_ => new CmptGnrcPrntParamPrntInpDecoder())
-      .AddDecoder<ICmptAltGnrcPrntParamPrntInpObject>(r => new CmptAltGnrcPrntParamPrntInpDecoder(r));
+      .AddDecoder<ICmptAltGnrcPrntParamPrntInpObject>(_ => new CmptAltGnrcPrntParamPrntInpDecoder());
 }

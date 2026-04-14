@@ -21,6 +21,6 @@ internal static class test_union_parentDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_union_parentDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestUnionPrnt>(r => new testUnionPrntDecoder(r))
-      .AddDecoder<ItestPrntUnionPrnt>(r => new testPrntUnionPrntDecoder(r));
+      .AddDecoder<ItestUnionPrnt>(_ => new testUnionPrntDecoder())
+      .AddDecoder<ItestPrntUnionPrnt>(_ => new testPrntUnionPrntDecoder());
 }

@@ -21,5 +21,5 @@ internal static class test_parent_descr_DualDecoders
   internal static IDecoderRepositoryBuilder Addtest_parent_descr_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestPrntDescrDualObject>(_ => new testPrntDescrDualDecoder())
-      .AddDecoder<ItestRefPrntDescrDualObject>(r => new testRefPrntDescrDualDecoder(r));
+      .AddDecoder<ItestRefPrntDescrDualObject>(_ => new testRefPrntDescrDualDecoder());
 }

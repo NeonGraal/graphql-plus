@@ -67,7 +67,7 @@ internal static class Cmpt_Schema_allDecoders
     => builder
       .AddDecoder<ICmptGuid>(_ => new CmptGuidDecoder())
       .AddDecoder<CmptOne>(_ => new CmptOneDecoder())
-      .AddDecoder<ICmptMany>(r => new CmptManyDecoder(r))
-      .AddDecoder<ICmptFieldObject>(r => new CmptFieldDecoder(r))
-      .AddDecoder<ICmptParamObject>(r => new CmptParamDecoder(r));
+      .AddDecoder<ICmptMany>(_ => new CmptManyDecoder())
+      .AddDecoder<ICmptFieldObject>(_ => new CmptFieldDecoder())
+      .AddDecoder<ICmptParamObject>(_ => new CmptParamDecoder());
 }

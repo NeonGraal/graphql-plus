@@ -26,5 +26,5 @@ internal static class Cmpt_Schema_output_param_type_descrDecoders
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_output_param_type_descrDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmptFldOutpParamTypeDescrObject>(_ => new CmptFldOutpParamTypeDescrDecoder())
-      .AddDecoder<ICmptInOutpParamTypeDescrObject>(r => new CmptInOutpParamTypeDescrDecoder(r));
+      .AddDecoder<ICmptInOutpParamTypeDescrObject>(_ => new CmptInOutpParamTypeDescrDecoder());
 }

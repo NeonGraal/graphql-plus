@@ -20,5 +20,5 @@ internal static class test_alt_mod_param_DualDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_alt_mod_param_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestAltAltModParamDualObject>(r => new testAltAltModParamDualDecoder(r));
+      .AddDecoder<ItestAltAltModParamDualObject>(_ => new testAltAltModParamDualDecoder());
 }

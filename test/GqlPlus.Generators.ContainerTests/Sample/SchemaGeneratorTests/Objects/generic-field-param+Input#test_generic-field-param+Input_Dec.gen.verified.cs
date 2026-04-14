@@ -25,6 +25,6 @@ internal static class test_generic_field_param_InputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_generic_field_param_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestGnrcFieldParamInpObject>(r => new testGnrcFieldParamInpDecoder(r))
-      .AddDecoder<ItestAltGnrcFieldParamInpObject>(r => new testAltGnrcFieldParamInpDecoder(r));
+      .AddDecoder<ItestGnrcFieldParamInpObject>(_ => new testGnrcFieldParamInpDecoder())
+      .AddDecoder<ItestAltGnrcFieldParamInpObject>(_ => new testAltGnrcFieldParamInpDecoder());
 }

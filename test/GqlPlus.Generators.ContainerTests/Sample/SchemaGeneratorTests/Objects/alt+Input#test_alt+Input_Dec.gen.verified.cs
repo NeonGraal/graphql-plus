@@ -21,5 +21,5 @@ internal static class test_alt_InputDecoders
   internal static IDecoderRepositoryBuilder Addtest_alt_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestAltInpObject>(_ => new testAltInpDecoder())
-      .AddDecoder<ItestAltAltInpObject>(r => new testAltAltInpDecoder(r));
+      .AddDecoder<ItestAltAltInpObject>(_ => new testAltAltInpDecoder());
 }

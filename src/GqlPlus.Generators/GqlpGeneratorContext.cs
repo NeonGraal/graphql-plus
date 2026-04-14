@@ -36,17 +36,17 @@ internal sealed class GqlpGeneratorContext
   public string Safe(string unsafeName)
     => _unsafeRegex.Replace(unsafeName, "_");
 
-  private readonly List<string> _decoderRegistrations = [];
-  public IReadOnlyList<string> DecoderRegistrations => _decoderRegistrations;
+  private readonly List<CodecRegistration> _decoderRegistrations = [];
+  public IReadOnlyList<CodecRegistration> DecoderRegistrations => _decoderRegistrations;
 
-  public void RegisterDecoder(string addDecoderLine)
-    => _decoderRegistrations.Add(addDecoderLine);
+  public void RegisterDecoder(string serviceType, string implType, bool needsRepo = false)
+    => _decoderRegistrations.Add(new(serviceType, implType, needsRepo));
 
-  private readonly List<string> _encoderRegistrations = [];
-  public IReadOnlyList<string> EncoderRegistrations => _encoderRegistrations;
+  private readonly List<CodecRegistration> _encoderRegistrations = [];
+  public IReadOnlyList<CodecRegistration> EncoderRegistrations => _encoderRegistrations;
 
-  public void RegisterEncoder(string addEncoderLine)
-    => _encoderRegistrations.Add(addEncoderLine);
+  public void RegisterEncoder(string serviceType, string implType, bool needsRepo = false)
+    => _encoderRegistrations.Add(new(serviceType, implType, needsRepo));
 
   public void WritePrefixLine(string text)
     => (_prefixWritten ? _builder : _prefix).AppendLine(text);
@@ -71,3 +71,5 @@ internal sealed class GqlpGeneratorContext
   public override string ToString()
     => _builder.ToString();
 }
+
+internal record struct CodecRegistration(string ServiceType, string ImplType, bool NeedsRepo);

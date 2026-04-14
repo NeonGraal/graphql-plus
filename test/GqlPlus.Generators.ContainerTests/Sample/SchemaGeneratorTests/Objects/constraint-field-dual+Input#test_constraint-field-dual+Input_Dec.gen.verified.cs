@@ -31,5 +31,5 @@ internal static class test_constraint_field_dual_InputDecoders
     => builder
       .AddDecoder<ItestCnstFieldDualInpObject>(_ => new testCnstFieldDualInpDecoder())
       .AddDecoder<ItestPrntCnstFieldDualInpObject>(_ => new testPrntCnstFieldDualInpDecoder())
-      .AddDecoder<ItestAltCnstFieldDualInpObject>(r => new testAltCnstFieldDualInpDecoder(r));
+      .AddDecoder<ItestAltCnstFieldDualInpObject>(_ => new testAltCnstFieldDualInpDecoder());
 }

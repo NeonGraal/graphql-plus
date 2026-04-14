@@ -32,7 +32,7 @@ internal static class Cmpt_Schema_field_enum_parent_DualDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_enum_parent_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptFieldEnumPrntDualObject>(r => new CmptFieldEnumPrntDualDecoder(r))
+      .AddDecoder<ICmptFieldEnumPrntDualObject>(_ => new CmptFieldEnumPrntDualDecoder())
       .AddDecoder<CmptEnumFieldEnumPrntDual>(_ => new CmptEnumFieldEnumPrntDualDecoder())
       .AddDecoder<CmptPrntFieldEnumPrntDual>(_ => new CmptPrntFieldEnumPrntDualDecoder());
 }

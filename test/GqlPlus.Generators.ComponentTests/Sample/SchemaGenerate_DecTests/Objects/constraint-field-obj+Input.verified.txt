@@ -37,5 +37,5 @@ internal static class Cmpt_Schema_constraint_field_obj_InputDecoders
     => builder
       .AddDecoder<ICmptCnstFieldObjInpObject>(_ => new CmptCnstFieldObjInpDecoder())
       .AddDecoder<ICmptPrntCnstFieldObjInpObject>(_ => new CmptPrntCnstFieldObjInpDecoder())
-      .AddDecoder<ICmptAltCnstFieldObjInpObject>(r => new CmptAltCnstFieldObjInpDecoder(r));
+      .AddDecoder<ICmptAltCnstFieldObjInpObject>(_ => new CmptAltCnstFieldObjInpDecoder());
 }

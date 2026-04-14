@@ -37,5 +37,5 @@ internal static class Cmpt_Schema_constraint_field_dual_DualDecoders
     => builder
       .AddDecoder<ICmptCnstFieldDualDualObject>(_ => new CmptCnstFieldDualDualDecoder())
       .AddDecoder<ICmptPrntCnstFieldDualDualObject>(_ => new CmptPrntCnstFieldDualDualDecoder())
-      .AddDecoder<ICmptAltCnstFieldDualDualObject>(r => new CmptAltCnstFieldDualDualDecoder(r));
+      .AddDecoder<ICmptAltCnstFieldDualDualObject>(_ => new CmptAltCnstFieldDualDualDecoder());
 }

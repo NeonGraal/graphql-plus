@@ -39,8 +39,8 @@ internal static class test_DeclarationsDecoders
   internal static IDecoderRepositoryBuilder Addtest_DeclarationsDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<Itest_Name>(_ => new test_NameDecoder())
-      .AddDecoder<Itest_FilterObject>(r => new test_FilterDecoder(r))
+      .AddDecoder<Itest_FilterObject>(_ => new test_FilterDecoder())
       .AddDecoder<Itest_NameFilter>(_ => new test_NameFilterDecoder())
-      .AddDecoder<Itest_CategoryFilterObject>(r => new test_CategoryFilterDecoder(r))
-      .AddDecoder<Itest_TypeFilterObject>(r => new test_TypeFilterDecoder(r));
+      .AddDecoder<Itest_CategoryFilterObject>(_ => new test_CategoryFilterDecoder())
+      .AddDecoder<Itest_TypeFilterObject>(_ => new test_TypeFilterDecoder());
 }

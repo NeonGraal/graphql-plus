@@ -25,5 +25,5 @@ internal static class test_generic_alt_param_DualDecoders
   internal static IDecoderRepositoryBuilder Addtest_generic_alt_param_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestGnrcAltParamDualObject>(_ => new testGnrcAltParamDualDecoder())
-      .AddDecoder<ItestAltGnrcAltParamDualObject>(r => new testAltGnrcAltParamDualDecoder(r));
+      .AddDecoder<ItestAltGnrcAltParamDualObject>(_ => new testAltGnrcAltParamDualDecoder());
 }

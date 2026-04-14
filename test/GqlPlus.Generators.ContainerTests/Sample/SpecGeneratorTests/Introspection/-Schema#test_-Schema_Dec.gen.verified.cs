@@ -54,11 +54,11 @@ internal static class test__SchemaDecoders
   internal static IDecoderRepositoryBuilder Addtest__SchemaDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<Itest_Name>(_ => new test_NameDecoder())
-      .AddDecoder<Itest_FilterObject>(r => new test_FilterDecoder(r))
+      .AddDecoder<Itest_FilterObject>(_ => new test_FilterDecoder())
       .AddDecoder<Itest_NameFilter>(_ => new test_NameFilterDecoder())
-      .AddDecoder<Itest_CategoryFilterObject>(r => new test_CategoryFilterDecoder(r))
-      .AddDecoder<Itest_TypeFilterObject>(r => new test_TypeFilterDecoder(r))
-      .AddDecoder<Itest_AliasedObject>(r => new test_AliasedDecoder(r))
-      .AddDecoder<Itest_NamedObject>(r => new test_NamedDecoder(r))
-      .AddDecoder<Itest_DescribedObject>(r => new test_DescribedDecoder(r));
+      .AddDecoder<Itest_CategoryFilterObject>(_ => new test_CategoryFilterDecoder())
+      .AddDecoder<Itest_TypeFilterObject>(_ => new test_TypeFilterDecoder())
+      .AddDecoder<Itest_AliasedObject>(_ => new test_AliasedDecoder())
+      .AddDecoder<Itest_NamedObject>(_ => new test_NamedDecoder())
+      .AddDecoder<Itest_DescribedObject>(_ => new test_DescribedDecoder());
 }

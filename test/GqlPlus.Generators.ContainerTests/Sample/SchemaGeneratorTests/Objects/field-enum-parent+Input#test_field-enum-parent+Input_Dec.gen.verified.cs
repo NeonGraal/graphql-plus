@@ -27,7 +27,7 @@ internal static class test_field_enum_parent_InputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_field_enum_parent_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestFieldEnumPrntInpObject>(r => new testFieldEnumPrntInpDecoder(r))
+      .AddDecoder<ItestFieldEnumPrntInpObject>(_ => new testFieldEnumPrntInpDecoder())
       .AddDecoder<testEnumFieldEnumPrntInp>(_ => new testEnumFieldEnumPrntInpDecoder())
       .AddDecoder<testPrntFieldEnumPrntInp>(_ => new testPrntFieldEnumPrntInpDecoder());
 }

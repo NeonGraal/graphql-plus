@@ -47,7 +47,7 @@ internal static class Cmpt_Spec_NamesDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_NamesDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmpt_AliasedObject>(r => new Cmpt_AliasedDecoder(r))
-      .AddDecoder<ICmpt_NamedObject>(r => new Cmpt_NamedDecoder(r))
-      .AddDecoder<ICmpt_DescribedObject>(r => new Cmpt_DescribedDecoder(r));
+      .AddDecoder<ICmpt_AliasedObject>(_ => new Cmpt_AliasedDecoder())
+      .AddDecoder<ICmpt_NamedObject>(_ => new Cmpt_NamedDecoder())
+      .AddDecoder<ICmpt_DescribedObject>(_ => new Cmpt_DescribedDecoder());
 }

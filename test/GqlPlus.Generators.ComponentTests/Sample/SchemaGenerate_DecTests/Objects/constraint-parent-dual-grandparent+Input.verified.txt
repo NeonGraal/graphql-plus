@@ -42,5 +42,5 @@ internal static class Cmpt_Schema_constraint_parent_dual_grandparent_InputDecode
       .AddDecoder<ICmptCnstPrntDualGrndInpObject>(_ => new CmptCnstPrntDualGrndInpDecoder())
       .AddDecoder<ICmptGrndCnstPrntDualGrndInpObject>(_ => new CmptGrndCnstPrntDualGrndInpDecoder())
       .AddDecoder<ICmptPrntCnstPrntDualGrndInpObject>(_ => new CmptPrntCnstPrntDualGrndInpDecoder())
-      .AddDecoder<ICmptAltCnstPrntDualGrndInpObject>(r => new CmptAltCnstPrntDualGrndInpDecoder(r));
+      .AddDecoder<ICmptAltCnstPrntDualGrndInpObject>(_ => new CmptAltCnstPrntDualGrndInpDecoder());
 }

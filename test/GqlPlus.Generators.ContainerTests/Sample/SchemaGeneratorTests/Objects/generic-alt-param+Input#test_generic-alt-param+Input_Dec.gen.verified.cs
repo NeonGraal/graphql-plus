@@ -25,5 +25,5 @@ internal static class test_generic_alt_param_InputDecoders
   internal static IDecoderRepositoryBuilder Addtest_generic_alt_param_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestGnrcAltParamInpObject>(_ => new testGnrcAltParamInpDecoder())
-      .AddDecoder<ItestAltGnrcAltParamInpObject>(r => new testAltGnrcAltParamInpDecoder(r));
+      .AddDecoder<ItestAltGnrcAltParamInpObject>(_ => new testAltGnrcAltParamInpDecoder());
 }

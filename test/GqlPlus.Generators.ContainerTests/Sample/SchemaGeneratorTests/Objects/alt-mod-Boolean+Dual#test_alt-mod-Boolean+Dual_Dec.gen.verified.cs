@@ -21,5 +21,5 @@ internal static class test_alt_mod_Boolean_DualDecoders
   internal static IDecoderRepositoryBuilder Addtest_alt_mod_Boolean_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestAltModBoolDualObject>(_ => new testAltModBoolDualDecoder())
-      .AddDecoder<ItestAltAltModBoolDualObject>(r => new testAltAltModBoolDualDecoder(r));
+      .AddDecoder<ItestAltAltModBoolDualObject>(_ => new testAltAltModBoolDualDecoder());
 }

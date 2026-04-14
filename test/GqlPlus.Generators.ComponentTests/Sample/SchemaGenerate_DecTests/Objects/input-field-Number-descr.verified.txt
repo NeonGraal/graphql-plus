@@ -19,5 +19,5 @@ internal static class Cmpt_Schema_input_field_Number_descrDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_input_field_Number_descrDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptInpFieldNmbrDescrObject>(r => new CmptInpFieldNmbrDescrDecoder(r));
+      .AddDecoder<ICmptInpFieldNmbrDescrObject>(_ => new CmptInpFieldNmbrDescrDecoder());
 }

@@ -16,5 +16,5 @@ internal static class test_object_field_enum_value_DualDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_object_field_enum_value_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestObjFieldEnumValueDualObject>(r => new testObjFieldEnumValueDualDecoder(r));
+      .AddDecoder<ItestObjFieldEnumValueDualObject>(_ => new testObjFieldEnumValueDualDecoder());
 }

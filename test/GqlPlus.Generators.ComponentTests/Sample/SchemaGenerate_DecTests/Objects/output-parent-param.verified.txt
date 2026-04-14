@@ -33,6 +33,6 @@ internal static class Cmpt_Schema_output_parent_paramDecoders
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_output_parent_paramDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmptFldOutpPrntParamObject>(_ => new CmptFldOutpPrntParamDecoder())
-      .AddDecoder<ICmptInOutpPrntParamObject>(r => new CmptInOutpPrntParamDecoder(r))
-      .AddDecoder<ICmptPrntOutpPrntParamInObject>(r => new CmptPrntOutpPrntParamInDecoder(r));
+      .AddDecoder<ICmptInOutpPrntParamObject>(_ => new CmptInOutpPrntParamDecoder())
+      .AddDecoder<ICmptPrntOutpPrntParamInObject>(_ => new CmptPrntOutpPrntParamInDecoder());
 }

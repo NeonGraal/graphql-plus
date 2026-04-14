@@ -52,7 +52,7 @@ internal sealed class EnumDecoderGenerator
     GenerateBlock(ast, context, DecoderHeader, EnumMembers, EnumClassMember);
 
     string typeName = context.TypeName(ast, "");
-    context.RegisterDecoder($".AddDecoder<{typeName}>(_ => new {typeName}Decoder())");
+    context.RegisterDecoder(typeName, typeName + "Decoder");
   }
 }
 
@@ -70,6 +70,6 @@ internal sealed class EnumEncoderGenerator
     context.Write($"    => new(input.ToString(), \"{tag}\");");
     context.Write("}");
 
-    context.RegisterEncoder($".AddEncoder<{typeName}>(_ => new {typeName}Encoder())");
+    context.RegisterEncoder(typeName, typeName + "Encoder");
   }
 }

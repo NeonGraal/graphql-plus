@@ -30,5 +30,5 @@ internal static class test_constraint_alt_obj_InputDecoders
     => builder
       .AddDecoder<ItestCnstAltObjInpObject>(_ => new testCnstAltObjInpDecoder())
       .AddDecoder<ItestPrntCnstAltObjInpObject>(_ => new testPrntCnstAltObjInpDecoder())
-      .AddDecoder<ItestAltCnstAltObjInpObject>(r => new testAltCnstAltObjInpDecoder(r));
+      .AddDecoder<ItestAltCnstAltObjInpObject>(_ => new testAltCnstAltObjInpDecoder());
 }

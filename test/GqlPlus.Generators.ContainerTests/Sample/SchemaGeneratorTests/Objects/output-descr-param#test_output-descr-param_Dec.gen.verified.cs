@@ -21,5 +21,5 @@ internal static class test_output_descr_paramDecoders
   internal static IDecoderRepositoryBuilder Addtest_output_descr_paramDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestFldOutpDescrParamObject>(_ => new testFldOutpDescrParamDecoder())
-      .AddDecoder<ItestInOutpDescrParamObject>(r => new testInOutpDescrParamDecoder(r));
+      .AddDecoder<ItestInOutpDescrParamObject>(_ => new testInOutpDescrParamDecoder());
 }

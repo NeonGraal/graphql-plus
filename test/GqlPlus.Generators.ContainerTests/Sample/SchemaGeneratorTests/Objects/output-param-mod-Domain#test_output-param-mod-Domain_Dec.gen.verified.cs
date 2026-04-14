@@ -20,6 +20,6 @@ internal static class test_output_param_mod_DomainDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_output_param_mod_DomainDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestInOutpParamModDmnObject>(r => new testInOutpParamModDmnDecoder(r))
+      .AddDecoder<ItestInOutpParamModDmnObject>(_ => new testInOutpParamModDmnDecoder())
       .AddDecoder<ItestDomOutpParamModDmn>(_ => new testDomOutpParamModDmnDecoder());
 }

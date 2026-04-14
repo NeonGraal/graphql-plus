@@ -25,6 +25,6 @@ internal static class Cmpt_Schema_field_value_DualDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_value_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptFieldValueDualObject>(r => new CmptFieldValueDualDecoder(r))
+      .AddDecoder<ICmptFieldValueDualObject>(_ => new CmptFieldValueDualDecoder())
       .AddDecoder<CmptEnumFieldValueDual>(_ => new CmptEnumFieldValueDualDecoder());
 }

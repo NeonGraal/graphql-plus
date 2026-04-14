@@ -20,5 +20,5 @@ internal static class Cmpt_Schema_field_dual_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_dual_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptFldFieldDualOutpObject>(r => new CmptFldFieldDualOutpDecoder(r));
+      .AddDecoder<ICmptFldFieldDualOutpObject>(_ => new CmptFldFieldDualOutpDecoder());
 }

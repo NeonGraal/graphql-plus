@@ -25,5 +25,5 @@ internal static class Cmpt_Schema_field_mod_param_InputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_mod_param_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptFldFieldModParamInpObject>(r => new CmptFldFieldModParamInpDecoder(r));
+      .AddDecoder<ICmptFldFieldModParamInpObject>(_ => new CmptFldFieldModParamInpDecoder());
 }

@@ -17,5 +17,5 @@ internal static class test_union_aliasDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_union_aliasDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestUnionAlias>(r => new testUnionAliasDecoder(r));
+      .AddDecoder<ItestUnionAlias>(_ => new testUnionAliasDecoder());
 }

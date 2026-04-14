@@ -25,5 +25,5 @@ internal static class test_generic_parent_dual_DualDecoders
   internal static IDecoderRepositoryBuilder Addtest_generic_parent_dual_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestGnrcPrntDualDualObject>(_ => new testGnrcPrntDualDualDecoder())
-      .AddDecoder<ItestAltGnrcPrntDualDualObject>(r => new testAltGnrcPrntDualDualDecoder(r));
+      .AddDecoder<ItestAltGnrcPrntDualDualObject>(_ => new testAltGnrcPrntDualDualDecoder());
 }

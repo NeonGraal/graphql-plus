@@ -20,5 +20,5 @@ internal static class Cmpt_Schema_object_field_enum_value_InputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_object_field_enum_value_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptObjFieldEnumValueInpObject>(r => new CmptObjFieldEnumValueInpDecoder(r));
+      .AddDecoder<ICmptObjFieldEnumValueInpObject>(_ => new CmptObjFieldEnumValueInpDecoder());
 }

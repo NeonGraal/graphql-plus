@@ -21,5 +21,5 @@ internal static class test_parent_descr_InputDecoders
   internal static IDecoderRepositoryBuilder Addtest_parent_descr_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestPrntDescrInpObject>(_ => new testPrntDescrInpDecoder())
-      .AddDecoder<ItestRefPrntDescrInpObject>(r => new testRefPrntDescrInpDecoder(r));
+      .AddDecoder<ItestRefPrntDescrInpObject>(_ => new testRefPrntDescrInpDecoder());
 }

@@ -25,5 +25,5 @@ internal static class Cmpt_Schema_alt_dual_InputDecoders
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_alt_dual_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmptAltDualInpObject>(_ => new CmptAltDualInpDecoder())
-      .AddDecoder<ICmptObjDualAltDualInpObject>(r => new CmptObjDualAltDualInpDecoder(r));
+      .AddDecoder<ICmptObjDualAltDualInpObject>(_ => new CmptObjDualAltDualInpDecoder());
 }

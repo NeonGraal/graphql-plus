@@ -31,5 +31,5 @@ internal static class test_constraint_field_obj_InputDecoders
     => builder
       .AddDecoder<ItestCnstFieldObjInpObject>(_ => new testCnstFieldObjInpDecoder())
       .AddDecoder<ItestPrntCnstFieldObjInpObject>(_ => new testPrntCnstFieldObjInpDecoder())
-      .AddDecoder<ItestAltCnstFieldObjInpObject>(r => new testAltCnstFieldObjInpDecoder(r));
+      .AddDecoder<ItestAltCnstFieldObjInpObject>(_ => new testAltCnstFieldObjInpDecoder());
 }

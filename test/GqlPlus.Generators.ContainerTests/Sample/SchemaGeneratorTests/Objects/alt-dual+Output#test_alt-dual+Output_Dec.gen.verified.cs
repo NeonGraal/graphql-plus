@@ -16,5 +16,5 @@ internal static class test_alt_dual_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_alt_dual_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestObjDualAltDualOutpObject>(r => new testObjDualAltDualOutpDecoder(r));
+      .AddDecoder<ItestObjDualAltDualOutpObject>(_ => new testObjDualAltDualOutpDecoder());
 }

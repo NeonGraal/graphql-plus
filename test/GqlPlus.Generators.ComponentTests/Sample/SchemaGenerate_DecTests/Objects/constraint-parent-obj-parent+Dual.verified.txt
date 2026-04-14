@@ -36,5 +36,5 @@ internal static class Cmpt_Schema_constraint_parent_obj_parent_DualDecoders
     => builder
       .AddDecoder<ICmptCnstPrntObjPrntDualObject>(_ => new CmptCnstPrntObjPrntDualDecoder())
       .AddDecoder<ICmptPrntCnstPrntObjPrntDualObject>(_ => new CmptPrntCnstPrntObjPrntDualDecoder())
-      .AddDecoder<ICmptAltCnstPrntObjPrntDualObject>(r => new CmptAltCnstPrntObjPrntDualDecoder(r));
+      .AddDecoder<ICmptAltCnstPrntObjPrntDualObject>(_ => new CmptAltCnstPrntObjPrntDualDecoder());
 }

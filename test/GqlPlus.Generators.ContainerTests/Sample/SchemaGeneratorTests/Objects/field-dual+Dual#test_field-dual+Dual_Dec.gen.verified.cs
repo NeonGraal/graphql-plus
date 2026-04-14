@@ -21,6 +21,6 @@ internal static class test_field_dual_DualDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_field_dual_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestFieldDualDualObject>(r => new testFieldDualDualDecoder(r))
-      .AddDecoder<ItestFldFieldDualDualObject>(r => new testFldFieldDualDualDecoder(r));
+      .AddDecoder<ItestFieldDualDualObject>(_ => new testFieldDualDualDecoder())
+      .AddDecoder<ItestFldFieldDualDualObject>(_ => new testFldFieldDualDualDecoder());
 }

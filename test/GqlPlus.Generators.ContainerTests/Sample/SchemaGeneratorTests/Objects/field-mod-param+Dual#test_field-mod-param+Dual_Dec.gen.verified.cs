@@ -21,5 +21,5 @@ internal static class test_field_mod_param_DualDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_field_mod_param_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestFldFieldModParamDualObject>(r => new testFldFieldModParamDualDecoder(r));
+      .AddDecoder<ItestFldFieldModParamDualObject>(_ => new testFldFieldModParamDualDecoder());
 }

@@ -26,6 +26,6 @@ internal static class Cmpt_Schema_union_same_parentDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_union_same_parentDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptUnionSamePrnt>(r => new CmptUnionSamePrntDecoder(r))
-      .AddDecoder<ICmptPrntUnionSamePrnt>(r => new CmptPrntUnionSamePrntDecoder(r));
+      .AddDecoder<ICmptUnionSamePrnt>(_ => new CmptUnionSamePrntDecoder())
+      .AddDecoder<ICmptPrntUnionSamePrnt>(_ => new CmptPrntUnionSamePrntDecoder());
 }

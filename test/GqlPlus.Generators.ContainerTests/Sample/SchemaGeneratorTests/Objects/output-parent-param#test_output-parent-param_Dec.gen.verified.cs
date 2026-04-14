@@ -26,6 +26,6 @@ internal static class test_output_parent_paramDecoders
   internal static IDecoderRepositoryBuilder Addtest_output_parent_paramDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestFldOutpPrntParamObject>(_ => new testFldOutpPrntParamDecoder())
-      .AddDecoder<ItestInOutpPrntParamObject>(r => new testInOutpPrntParamDecoder(r))
-      .AddDecoder<ItestPrntOutpPrntParamInObject>(r => new testPrntOutpPrntParamInDecoder(r));
+      .AddDecoder<ItestInOutpPrntParamObject>(_ => new testInOutpPrntParamDecoder())
+      .AddDecoder<ItestPrntOutpPrntParamInObject>(_ => new testPrntOutpPrntParamInDecoder());
 }

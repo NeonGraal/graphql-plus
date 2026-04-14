@@ -415,11 +415,11 @@ internal static class Cmpt_Schema_SimpleDecoders
       .AddDecoder<CmptPrntEnumPrntDescr>(_ => new CmptPrntEnumPrntDescrDecoder())
       .AddDecoder<CmptEnumPrntDup>(_ => new CmptEnumPrntDupDecoder())
       .AddDecoder<CmptPrntEnumPrntDup>(_ => new CmptPrntEnumPrntDupDecoder())
-      .AddDecoder<ICmptUnionDescr>(r => new CmptUnionDescrDecoder(r))
-      .AddDecoder<ICmptUnionPrnt>(r => new CmptUnionPrntDecoder(r))
-      .AddDecoder<ICmptPrntUnionPrnt>(r => new CmptPrntUnionPrntDecoder(r))
-      .AddDecoder<ICmptUnionPrntDescr>(r => new CmptUnionPrntDescrDecoder(r))
-      .AddDecoder<ICmptPrntUnionPrntDescr>(r => new CmptPrntUnionPrntDescrDecoder(r))
-      .AddDecoder<ICmptUnionPrntDup>(r => new CmptUnionPrntDupDecoder(r))
-      .AddDecoder<ICmptPrntUnionPrntDup>(r => new CmptPrntUnionPrntDupDecoder(r));
+      .AddDecoder<ICmptUnionDescr>(_ => new CmptUnionDescrDecoder())
+      .AddDecoder<ICmptUnionPrnt>(_ => new CmptUnionPrntDecoder())
+      .AddDecoder<ICmptPrntUnionPrnt>(_ => new CmptPrntUnionPrntDecoder())
+      .AddDecoder<ICmptUnionPrntDescr>(_ => new CmptUnionPrntDescrDecoder())
+      .AddDecoder<ICmptPrntUnionPrntDescr>(_ => new CmptPrntUnionPrntDescrDecoder())
+      .AddDecoder<ICmptUnionPrntDup>(_ => new CmptUnionPrntDupDecoder())
+      .AddDecoder<ICmptPrntUnionPrntDup>(_ => new CmptPrntUnionPrntDupDecoder());
 }

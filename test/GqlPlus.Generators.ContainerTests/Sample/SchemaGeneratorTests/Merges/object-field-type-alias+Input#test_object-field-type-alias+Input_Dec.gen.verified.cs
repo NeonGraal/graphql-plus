@@ -16,5 +16,5 @@ internal static class test_object_field_type_alias_InputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_object_field_type_alias_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestObjFieldTypeAliasInpObject>(r => new testObjFieldTypeAliasInpDecoder(r));
+      .AddDecoder<ItestObjFieldTypeAliasInpObject>(_ => new testObjFieldTypeAliasInpDecoder());
 }

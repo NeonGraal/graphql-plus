@@ -17,5 +17,5 @@ internal static class test_union_diffDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_union_diffDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestUnionDiff>(r => new testUnionDiffDecoder(r));
+      .AddDecoder<ItestUnionDiff>(_ => new testUnionDiffDecoder());
 }

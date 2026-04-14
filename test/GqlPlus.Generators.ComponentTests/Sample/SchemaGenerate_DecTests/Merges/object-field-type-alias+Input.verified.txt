@@ -20,5 +20,5 @@ internal static class Cmpt_Schema_object_field_type_alias_InputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_object_field_type_alias_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptObjFieldTypeAliasInpObject>(r => new CmptObjFieldTypeAliasInpDecoder(r));
+      .AddDecoder<ICmptObjFieldTypeAliasInpObject>(_ => new CmptObjFieldTypeAliasInpDecoder());
 }

@@ -30,6 +30,6 @@ internal static class Cmpt_Schema_generic_field_param_DualDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_field_param_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptGnrcFieldParamDualObject>(r => new CmptGnrcFieldParamDualDecoder(r))
-      .AddDecoder<ICmptAltGnrcFieldParamDualObject>(r => new CmptAltGnrcFieldParamDualDecoder(r));
+      .AddDecoder<ICmptGnrcFieldParamDualObject>(_ => new CmptGnrcFieldParamDualDecoder())
+      .AddDecoder<ICmptAltGnrcFieldParamDualObject>(_ => new CmptAltGnrcFieldParamDualDecoder());
 }

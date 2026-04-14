@@ -25,6 +25,6 @@ internal static class Cmpt_Schema_output_param_mod_DomainDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_output_param_mod_DomainDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptInOutpParamModDmnObject>(r => new CmptInOutpParamModDmnDecoder(r))
+      .AddDecoder<ICmptInOutpParamModDmnObject>(_ => new CmptInOutpParamModDmnDecoder())
       .AddDecoder<ICmptDomOutpParamModDmn>(_ => new CmptDomOutpParamModDmnDecoder());
 }

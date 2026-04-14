@@ -16,5 +16,5 @@ internal static class test_EnumDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_EnumDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<Itest_EnumLabelObject>(r => new test_EnumLabelDecoder(r));
+      .AddDecoder<Itest_EnumLabelObject>(_ => new test_EnumLabelDecoder());
 }

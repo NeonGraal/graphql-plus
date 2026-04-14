@@ -25,5 +25,5 @@ internal static class Cmpt_Schema_alt_mod_Boolean_DualDecoders
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_alt_mod_Boolean_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmptAltModBoolDualObject>(_ => new CmptAltModBoolDualDecoder())
-      .AddDecoder<ICmptAltAltModBoolDualObject>(r => new CmptAltAltModBoolDualDecoder(r));
+      .AddDecoder<ICmptAltAltModBoolDualObject>(_ => new CmptAltAltModBoolDualDecoder());
 }

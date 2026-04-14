@@ -25,6 +25,6 @@ internal static class Cmpt_Schema_parent_field_InputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_parent_field_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptPrntFieldInpObject>(r => new CmptPrntFieldInpDecoder(r))
-      .AddDecoder<ICmptRefPrntFieldInpObject>(r => new CmptRefPrntFieldInpDecoder(r));
+      .AddDecoder<ICmptPrntFieldInpObject>(_ => new CmptPrntFieldInpDecoder())
+      .AddDecoder<ICmptRefPrntFieldInpObject>(_ => new CmptRefPrntFieldInpDecoder());
 }

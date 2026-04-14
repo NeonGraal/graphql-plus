@@ -30,5 +30,5 @@ internal static class Cmpt_Schema_generic_alt_dual_InputDecoders
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_alt_dual_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmptGnrcAltDualInpObject>(_ => new CmptGnrcAltDualInpDecoder())
-      .AddDecoder<ICmptAltGnrcAltDualInpObject>(r => new CmptAltGnrcAltDualInpDecoder(r));
+      .AddDecoder<ICmptAltGnrcAltDualInpObject>(_ => new CmptAltGnrcAltDualInpDecoder());
 }

@@ -25,6 +25,6 @@ internal static class Cmpt_Schema_union_parent_dupDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_union_parent_dupDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptUnionPrntDup>(r => new CmptUnionPrntDupDecoder(r))
-      .AddDecoder<ICmptPrntUnionPrntDup>(r => new CmptPrntUnionPrntDupDecoder(r));
+      .AddDecoder<ICmptUnionPrntDup>(_ => new CmptUnionPrntDupDecoder())
+      .AddDecoder<ICmptPrntUnionPrntDup>(_ => new CmptPrntUnionPrntDupDecoder());
 }

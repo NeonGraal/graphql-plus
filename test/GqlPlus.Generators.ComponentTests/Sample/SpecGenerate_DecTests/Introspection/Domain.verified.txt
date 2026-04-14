@@ -114,8 +114,8 @@ internal static class Cmpt_Spec_DomainDecoders
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_DomainDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<Cmpt_DomainKind>(_ => new Cmpt_DomainKindDecoder())
-      .AddDecoder<ICmpt_BaseDomainItemObject>(r => new Cmpt_BaseDomainItemDecoder(r))
-      .AddDecoder<ICmpt_DomainTrueFalseObject>(r => new Cmpt_DomainTrueFalseDecoder(r))
-      .AddDecoder<ICmpt_DomainRangeObject>(r => new Cmpt_DomainRangeDecoder(r))
-      .AddDecoder<ICmpt_DomainRegexObject>(r => new Cmpt_DomainRegexDecoder(r));
+      .AddDecoder<ICmpt_BaseDomainItemObject>(_ => new Cmpt_BaseDomainItemDecoder())
+      .AddDecoder<ICmpt_DomainTrueFalseObject>(_ => new Cmpt_DomainTrueFalseDecoder())
+      .AddDecoder<ICmpt_DomainRangeObject>(_ => new Cmpt_DomainRangeDecoder())
+      .AddDecoder<ICmpt_DomainRegexObject>(_ => new Cmpt_DomainRegexDecoder());
 }

@@ -57,9 +57,7 @@ internal sealed class UnionDecoderGenerator
 
     string typeName = context.TypeName(ast, "");
     string interfaceType = context.TypeName(ast, "I");
-    bool hasMembers = TypeMembers(ast, context).Any();
-    string factory = hasMembers ? $"r => new {typeName}Decoder(r)" : $"_ => new {typeName}Decoder()";
-    context.RegisterDecoder($".AddDecoder<{interfaceType}>({factory})");
+    context.RegisterDecoder(interfaceType, typeName + "Decoder");
   }
 }
 
@@ -79,7 +77,7 @@ internal sealed class UnionEncoderGenerator
       context.Write($"  public Structured Encode({interfaceName} input)");
       context.Write("    => Structured.Empty();");
       context.Write("}");
-      context.RegisterEncoder($".AddEncoder<{interfaceName}>(_ => new {typeName}Encoder())");
+      context.RegisterEncoder(interfaceName, typeName + "Encoder");
       return;
     }
 
@@ -105,6 +103,6 @@ internal sealed class UnionEncoderGenerator
 
     context.Write("     : Structured.Empty();");
     context.Write("}");
-    context.RegisterEncoder($".AddEncoder<{interfaceName}>(r => new {typeName}Encoder(r))");
+    context.RegisterEncoder(interfaceName, typeName + "Encoder", needsRepo: true);
   }
 }

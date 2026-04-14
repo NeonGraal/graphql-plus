@@ -40,7 +40,7 @@ internal static class test_allDecoders
     => builder
       .AddDecoder<ItestGuid>(_ => new testGuidDecoder())
       .AddDecoder<testOne>(_ => new testOneDecoder())
-      .AddDecoder<ItestMany>(r => new testManyDecoder(r))
-      .AddDecoder<ItestFieldObject>(r => new testFieldDecoder(r))
-      .AddDecoder<ItestParamObject>(r => new testParamDecoder(r));
+      .AddDecoder<ItestMany>(_ => new testManyDecoder())
+      .AddDecoder<ItestFieldObject>(_ => new testFieldDecoder())
+      .AddDecoder<ItestParamObject>(_ => new testParamDecoder());
 }

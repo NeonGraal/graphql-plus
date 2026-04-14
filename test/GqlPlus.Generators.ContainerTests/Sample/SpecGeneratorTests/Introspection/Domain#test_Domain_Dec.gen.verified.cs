@@ -41,8 +41,8 @@ internal static class test_DomainDecoders
   internal static IDecoderRepositoryBuilder Addtest_DomainDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<test_DomainKind>(_ => new test_DomainKindDecoder())
-      .AddDecoder<Itest_BaseDomainItemObject>(r => new test_BaseDomainItemDecoder(r))
-      .AddDecoder<Itest_DomainTrueFalseObject>(r => new test_DomainTrueFalseDecoder(r))
-      .AddDecoder<Itest_DomainRangeObject>(r => new test_DomainRangeDecoder(r))
-      .AddDecoder<Itest_DomainRegexObject>(r => new test_DomainRegexDecoder(r));
+      .AddDecoder<Itest_BaseDomainItemObject>(_ => new test_BaseDomainItemDecoder())
+      .AddDecoder<Itest_DomainTrueFalseObject>(_ => new test_DomainTrueFalseDecoder())
+      .AddDecoder<Itest_DomainRangeObject>(_ => new test_DomainRangeDecoder())
+      .AddDecoder<Itest_DomainRegexObject>(_ => new test_DomainRegexDecoder());
 }

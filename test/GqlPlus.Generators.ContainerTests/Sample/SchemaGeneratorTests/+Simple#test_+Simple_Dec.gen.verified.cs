@@ -416,11 +416,11 @@ internal static class test__SimpleDecoders
       .AddDecoder<testPrntEnumPrntDescr>(_ => new testPrntEnumPrntDescrDecoder())
       .AddDecoder<testEnumPrntDup>(_ => new testEnumPrntDupDecoder())
       .AddDecoder<testPrntEnumPrntDup>(_ => new testPrntEnumPrntDupDecoder())
-      .AddDecoder<ItestUnionDescr>(r => new testUnionDescrDecoder(r))
-      .AddDecoder<ItestUnionPrnt>(r => new testUnionPrntDecoder(r))
-      .AddDecoder<ItestPrntUnionPrnt>(r => new testPrntUnionPrntDecoder(r))
-      .AddDecoder<ItestUnionPrntDescr>(r => new testUnionPrntDescrDecoder(r))
-      .AddDecoder<ItestPrntUnionPrntDescr>(r => new testPrntUnionPrntDescrDecoder(r))
-      .AddDecoder<ItestUnionPrntDup>(r => new testUnionPrntDupDecoder(r))
-      .AddDecoder<ItestPrntUnionPrntDup>(r => new testPrntUnionPrntDupDecoder(r));
+      .AddDecoder<ItestUnionDescr>(_ => new testUnionDescrDecoder())
+      .AddDecoder<ItestUnionPrnt>(_ => new testUnionPrntDecoder())
+      .AddDecoder<ItestPrntUnionPrnt>(_ => new testPrntUnionPrntDecoder())
+      .AddDecoder<ItestUnionPrntDescr>(_ => new testUnionPrntDescrDecoder())
+      .AddDecoder<ItestPrntUnionPrntDescr>(_ => new testPrntUnionPrntDescrDecoder())
+      .AddDecoder<ItestUnionPrntDup>(_ => new testUnionPrntDupDecoder())
+      .AddDecoder<ItestPrntUnionPrntDup>(_ => new testPrntUnionPrntDupDecoder());
 }

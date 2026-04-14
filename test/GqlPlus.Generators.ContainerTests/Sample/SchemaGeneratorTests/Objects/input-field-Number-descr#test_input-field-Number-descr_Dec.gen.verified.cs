@@ -16,5 +16,5 @@ internal static class test_input_field_Number_descrDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_input_field_Number_descrDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestInpFieldNmbrDescrObject>(r => new testInpFieldNmbrDescrDecoder(r));
+      .AddDecoder<ItestInpFieldNmbrDescrObject>(_ => new testInpFieldNmbrDescrDecoder());
 }

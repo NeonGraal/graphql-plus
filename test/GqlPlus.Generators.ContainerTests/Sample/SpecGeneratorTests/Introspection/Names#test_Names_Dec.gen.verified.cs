@@ -26,7 +26,7 @@ internal static class test_NamesDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_NamesDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<Itest_AliasedObject>(r => new test_AliasedDecoder(r))
-      .AddDecoder<Itest_NamedObject>(r => new test_NamedDecoder(r))
-      .AddDecoder<Itest_DescribedObject>(r => new test_DescribedDecoder(r));
+      .AddDecoder<Itest_AliasedObject>(_ => new test_AliasedDecoder())
+      .AddDecoder<Itest_NamedObject>(_ => new test_NamedDecoder())
+      .AddDecoder<Itest_DescribedObject>(_ => new test_DescribedDecoder());
 }

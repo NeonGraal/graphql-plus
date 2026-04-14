@@ -35,5 +35,5 @@ internal static class test_constraint_parent_dual_grandparent_DualDecoders
       .AddDecoder<ItestCnstPrntDualGrndDualObject>(_ => new testCnstPrntDualGrndDualDecoder())
       .AddDecoder<ItestGrndCnstPrntDualGrndDualObject>(_ => new testGrndCnstPrntDualGrndDualDecoder())
       .AddDecoder<ItestPrntCnstPrntDualGrndDualObject>(_ => new testPrntCnstPrntDualGrndDualDecoder())
-      .AddDecoder<ItestAltCnstPrntDualGrndDualObject>(r => new testAltCnstPrntDualGrndDualDecoder(r));
+      .AddDecoder<ItestAltCnstPrntDualGrndDualObject>(_ => new testAltCnstPrntDualGrndDualDecoder());
 }

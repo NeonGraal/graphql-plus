@@ -11,7 +11,9 @@ input ObjFieldTypeAliasInp { field: String }
 
 namespace Components.Gqlp_Schema_object_field_type_alias_Input;
 
-internal class CmptObjFieldTypeAliasInpEncoder
+internal class CmptObjFieldTypeAliasInpEncoder : IEncoder<ICmptObjFieldTypeAliasInpObject>
 {
-  public string Field { get; set; }
+  public Structured Encode(ICmptObjFieldTypeAliasInpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

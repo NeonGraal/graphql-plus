@@ -364,41 +364,42 @@ public enum testPrntEnumPrntDup
 public interface ItestUnionDescr
   : IGqlpInterfaceBase
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ItestUnionPrnt
   : ItestPrntUnionPrnt
 {
-  String AsString { get; }
 }
 
 public interface ItestPrntUnionPrnt
   : IGqlpInterfaceBase
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ItestUnionPrntDescr
   : ItestPrntUnionPrntDescr
 {
-  Number AsNumber { get; }
 }
 
 public interface ItestPrntUnionPrntDescr
   : IGqlpInterfaceBase
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ItestUnionPrntDup
   : ItestPrntUnionPrntDup
 {
-  Number AsNumber { get; }
 }
 
 public interface ItestPrntUnionPrntDup
   : IGqlpInterfaceBase
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }

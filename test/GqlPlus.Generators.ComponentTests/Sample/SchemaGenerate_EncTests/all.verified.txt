@@ -34,35 +34,54 @@ output All {
 
 namespace Components.Gqlp_Schema_all;
 
-internal class CmptGuidEncoder
+internal class CmptGuidEncoder : IEncoder<ICmptGuid>
 {
+  public Structured Encode(ICmptGuid input)
+    => new(input.Value);
 }
 
-internal class CmptOneEncoder
+internal class CmptOneEncoder : IEncoder<CmptOne>
 {
-  public string Two { get; set; }
-  public string Three { get; set; }
+  public Structured Encode(CmptOne input)
+    => new(input.ToString(), "_One");
 }
 
-internal class CmptManyEncoder
+internal class CmptManyEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptMany>
 {
-  public Guid AsGuid { get; set; }
-  public Number AsNumber { get; set; }
+  private readonly IEncoder<ICmptGuid> _guid = encoders.EncoderFor<ICmptGuid>();
+  private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
+  public Structured Encode(ICmptMany input)
+    => input.HasA<ICmptGuid>() ? _guid.Encode(input.AsA<ICmptGuid>())
+     : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+     : Structured.Empty();
 }
 
-internal class CmptFieldEncoder
+internal class CmptFieldEncoder : IEncoder<ICmptFieldObject>
 {
-  public ICollection<string> Strings { get; set; }
+  public Structured Encode(ICmptFieldObject input)
+    => Structured.Empty()
+      .Add("strings", input.Strings.Encode());
 }
 
-internal class CmptParamEncoder
+internal class CmptParamEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptParamObject>
 {
-  public ICmptMany? AfterId { get; set; }
-  public ICmptMany BeforeId { get; set; }
+  private readonly IEncoder<ICmptMany> _many = encoders.EncoderFor<ICmptMany>();
+  public Structured Encode(ICmptParamObject input)
+    => Structured.Empty()
+      .AddEncoded("afterId", input.AfterId, _many)
+      .AddEncoded("beforeId", input.BeforeId, _many);
 }
 
-internal class CmptAllEncoder
+internal class CmptAllEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptAllObject>
 {
-  public ICmptField? Items(ICmptParam? parameter)
-    => null;
+  private readonly IEncoder<ICmptField> _field = encoders.EncoderFor<ICmptField>();
+  public Structured Encode(ICmptAllObject input)
+    => Structured.Empty()
+      .AddEncoded("items", input.Items(), _field);
 }

@@ -10,7 +10,9 @@ dual FieldDual { field: String }
 
 namespace Components.Gqlp_Schema_field_Dual;
 
-internal class CmptFieldDualEncoder
+internal class CmptFieldDualEncoder : IEncoder<ICmptFieldDualObject>
 {
-  public string Field { get; set; }
+  public Structured Encode(ICmptFieldDualObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

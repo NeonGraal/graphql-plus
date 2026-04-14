@@ -11,8 +11,14 @@ union UnionAlias [UnA2] { Number }
 
 namespace Components.Gqlp_Schema_union_alias;
 
-internal class CmptUnionAliasEncoder
+internal class CmptUnionAliasEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptUnionAlias>
 {
-  public Boolean AsBoolean { get; set; }
-  public Number AsNumber { get; set; }
+  private readonly IEncoder<bool> _boolean = encoders.EncoderFor<bool>();
+  private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
+  public Structured Encode(ICmptUnionAlias input)
+    => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
+     : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+     : Structured.Empty();
 }

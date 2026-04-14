@@ -114,10 +114,10 @@ internal abstract class FilterModelDecoder<TModel>
   private readonly IDecoder<bool?> _boolean;
   private readonly INameFilterDecoder _nameFilter;
 
-  public FilterModelDecoder(IDecoder<bool?> boolean, INameFilterDecoder nameFilter)
+  public FilterModelDecoder(IDecoderRepository decoders)
   {
-    _boolean = boolean;
-    _nameFilter = nameFilter;
+    _boolean = decoders.DecoderFor<bool?>();
+    _nameFilter = decoders.DecoderFor<INameFilterDecoder, string>();
 
     Decoders.Add(DecodeNames);
   }
@@ -162,8 +162,8 @@ internal abstract class FilterModelDecoder<TModel>
   }
 }
 
-internal class FilterModelDecoder(IDecoder<bool?> boolean, INameFilterDecoder nameFilter)
-  : FilterModelDecoder<FilterModel>(boolean, nameFilter)
+internal class FilterModelDecoder(IDecoderRepository decoders)
+  : FilterModelDecoder<FilterModel>(decoders)
 {
   protected override IMessages DecodeMap(IMap<IValue> map, out FilterModel? output)
     => DecodeFilterMap(map, out output);
@@ -173,11 +173,11 @@ internal class FilterModelDecoder(IDecoder<bool?> boolean, INameFilterDecoder na
 }
 
 internal class CategoryFilterModelDecoder(
-  IDecoder<bool?> boolean,
-  INameFilterDecoder nameFilter,
-  IDecoder<CategoryOption?> resolution
-) : FilterModelDecoder<CategoryFilterModel>(boolean, nameFilter)
+  IDecoderRepository decoders
+) : FilterModelDecoder<CategoryFilterModel>(decoders)
 {
+  private readonly IDecoder<CategoryOption?> _resolution = decoders.DecoderFor<CategoryOption?>();
+
   protected override IMessages DecodeMap(IMap<IValue> map, out CategoryFilterModel? output)
   {
     IMessages messages = DecodeFilterMap(map, out FilterModel? filterModel);
@@ -186,7 +186,7 @@ internal class CategoryFilterModelDecoder(
       return messages;
     }
 
-    DecodeStructListField(messages, resolution, map, out IEnumerable<CategoryOption>? resolutions);
+    DecodeStructListField(messages, _resolution, map, out IEnumerable<CategoryOption>? resolutions);
 
     output = new(filterModel) { Resolutions = [.. resolutions], };
     return messages;
@@ -202,11 +202,11 @@ internal class CategoryFilterModelDecoder(
 }
 
 internal class TypeFilterModelDecoder(
-  IDecoder<bool?> boolean,
-  INameFilterDecoder nameFilter,
-  IDecoder<TypeKindModel?> kind
-) : FilterModelDecoder<TypeFilterModel>(boolean, nameFilter)
+  IDecoderRepository decoders
+) : FilterModelDecoder<TypeFilterModel>(decoders)
 {
+  private readonly IDecoder<TypeKindModel?> _kind = decoders.DecoderFor<TypeKindModel?>();
+
   protected override IMessages DecodeMap(IMap<IValue> map, out TypeFilterModel? output)
   {
     IMessages messages = DecodeFilterMap(map, out FilterModel? filterModel);
@@ -215,7 +215,7 @@ internal class TypeFilterModelDecoder(
       return messages;
     }
 
-    DecodeStructListField(messages, kind, map, out IEnumerable<TypeKindModel>? kinds);
+    DecodeStructListField(messages, _kind, map, out IEnumerable<TypeKindModel>? kinds);
 
     output = new(filterModel) { Kinds = [.. kinds], };
     return messages;

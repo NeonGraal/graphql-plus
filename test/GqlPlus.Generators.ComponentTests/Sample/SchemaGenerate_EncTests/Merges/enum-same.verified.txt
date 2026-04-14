@@ -11,7 +11,8 @@ enum EnumSame { enumSame }
 
 namespace Components.Gqlp_Schema_enum_same;
 
-internal class CmptEnumSameEncoder
+internal class CmptEnumSameEncoder : IEncoder<CmptEnumSame>
 {
-  public string enumSame { get; set; }
+  public Structured Encode(CmptEnumSame input)
+    => new(input.ToString(), "_EnumSame");
 }

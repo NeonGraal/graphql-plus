@@ -7,6 +7,8 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_string_descr;
 
-internal class testDmnStrDescrEncoder
+internal class testDmnStrDescrEncoder : IEncoder<ItestDmnStrDescr>
 {
+  public Structured Encode(ItestDmnStrDescr input)
+    => new(input.Value);
 }

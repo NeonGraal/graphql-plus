@@ -7,29 +7,26 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_unique_parent;
 
-internal class testDmnEnumUnqPrntEncoder
+internal class testDmnEnumUnqPrntEncoder : IEncoder<ItestDmnEnumUnqPrnt>
 {
+  public Structured Encode(ItestDmnEnumUnqPrnt input)
+    => new((decimal?)input.Value);
 }
 
-internal class testEnumDmnEnumUnqPrntEncoder
+internal class testEnumDmnEnumUnqPrntEncoder : IEncoder<testEnumDmnEnumUnqPrnt>
 {
-  public string dmnEnumUnqPrnt { get; set; }
-  public string prnt_dmnEnumUnqPrnt { get; set; }
-  public string dmnEnumUnqPrntPrnt { get; set; }
-  public string enum_dmnEnumUnqPrnt { get; set; }
-  public string dmnEnumUnqPrntValue { get; set; }
+  public Structured Encode(testEnumDmnEnumUnqPrnt input)
+    => new(input.ToString(), "_EnumDmnEnumUnqPrnt");
 }
 
-internal class testPrntDmnEnumUnqPrntEncoder
+internal class testPrntDmnEnumUnqPrntEncoder : IEncoder<testPrntDmnEnumUnqPrnt>
 {
-  public string dmnEnumUnqPrnt { get; set; }
-  public string prnt_dmnEnumUnqPrnt { get; set; }
-  public string dmnEnumUnqPrntPrnt { get; set; }
+  public Structured Encode(testPrntDmnEnumUnqPrnt input)
+    => new(input.ToString(), "_PrntDmnEnumUnqPrnt");
 }
 
-internal class testDupDmnEnumUnqPrntEncoder
+internal class testDupDmnEnumUnqPrntEncoder : IEncoder<testDupDmnEnumUnqPrnt>
 {
-  public string dmnEnumUnqPrnt { get; set; }
-  public string dup_dmnEnumUnqPrnt { get; set; }
-  public string dmnEnumUnqPrntDup { get; set; }
+  public Structured Encode(testDupDmnEnumUnqPrnt input)
+    => new(input.ToString(), "_DupDmnEnumUnqPrnt");
 }

@@ -5,14 +5,18 @@ namespace GqlPlus.Modelling;
 public class AllModellersTests
 {
   [Fact]
-  public void AllModellers_DefinesModeller_FieldKey()
-  {
-    IServiceProvider services = new ServiceCollection()
-      .AddLogging()
-      .AddModellers()
-      .BuildServiceProvider();
-
-    services.GetService<IModeller<IAstFieldKey>>()
+  public void AllModellers_Repository_IsRegistered()
+    => _services.GetService<IModellerRepository>()
       .ShouldNotBeNull();
-  }
+
+  [Fact]
+  public void AllModellers_ModellerForFieldKey_IsRegistered()
+    => _services.GetRequiredService<IModellerRepository>()
+      .ModellerFor<IAstFieldKey, SimpleModel>()
+      .ShouldNotBeNull();
+
+  private readonly IServiceProvider _services = new ServiceCollection()
+    .AddLogging()
+    .AddModellers()
+    .BuildServiceProvider();
 }

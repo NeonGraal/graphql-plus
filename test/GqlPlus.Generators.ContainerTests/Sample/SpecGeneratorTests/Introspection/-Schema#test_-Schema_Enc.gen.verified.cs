@@ -7,56 +7,88 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp__Schema;
 
-internal class test_SchemaEncoder
+internal class test_SchemaEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_SchemaObject>
 {
-  public IDictionary<Itest_Name, Itest_Categories>? Categories(Itest_CategoryFilter? parameter)
-    => null;
-  public IDictionary<Itest_Name, Itest_Directives>? Directives(Itest_Filter? parameter)
-    => null;
-  public IDictionary<Itest_Name, Itest_Type>? Types(Itest_TypeFilter? parameter)
-    => null;
-  public IDictionary<Itest_Name, Itest_Setting>? Settings(Itest_Filter? parameter)
-    => null;
+  private readonly IEncoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
+  public Structured Encode(Itest_SchemaObject input)
+    => _itest_Named.Encode(input);
 }
 
-internal class test_NameEncoder
+internal class test_NameEncoder : IEncoder<Itest_Name>
 {
+  public Structured Encode(Itest_Name input)
+    => new(input.Value);
 }
 
-internal class test_FilterEncoder
+internal class test_FilterEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_FilterObject>
 {
-  public ICollection<Itest_NameFilter> Names { get; set; }
-  public bool? MatchAliases { get; set; }
-  public ICollection<Itest_NameFilter> Aliases { get; set; }
-  public bool? ReturnByAlias { get; set; }
-  public bool? ReturnReferencedTypes { get; set; }
+  private readonly IEncoder<Itest_NameFilter> _itest_NameFilter = encoders.EncoderFor<Itest_NameFilter>();
+  public Structured Encode(Itest_FilterObject input)
+    => Structured.Empty()
+      .AddList("names", input.Names, _itest_NameFilter)
+      .Add("matchAliases", input.MatchAliases)
+      .AddList("aliases", input.Aliases, _itest_NameFilter)
+      .Add("returnByAlias", input.ReturnByAlias)
+      .Add("returnReferencedTypes", input.ReturnReferencedTypes);
 }
 
-internal class test_NameFilterEncoder
+internal class test_NameFilterEncoder : IEncoder<Itest_NameFilter>
 {
+  public Structured Encode(Itest_NameFilter input)
+    => new(input.Value);
 }
 
-internal class test_CategoryFilterEncoder
+internal class test_CategoryFilterEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_CategoryFilterObject>
 {
-  public ICollection<Itest_Resolution> Resolutions { get; set; }
+  private readonly IEncoder<Itest_FilterObject> _itest_Filter = encoders.EncoderFor<Itest_FilterObject>();
+  private readonly IEncoder<Itest_Resolution> _itest_Resolution = encoders.EncoderFor<Itest_Resolution>();
+  public Structured Encode(Itest_CategoryFilterObject input)
+    => _itest_Filter.Encode(input)
+      .AddList("resolutions", input.Resolutions, _itest_Resolution);
 }
 
-internal class test_TypeFilterEncoder
+internal class test_TypeFilterEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_TypeFilterObject>
 {
-  public ICollection<Itest_TypeKind> Kinds { get; set; }
+  private readonly IEncoder<Itest_FilterObject> _itest_Filter = encoders.EncoderFor<Itest_FilterObject>();
+  private readonly IEncoder<Itest_TypeKind> _itest_TypeKind = encoders.EncoderFor<Itest_TypeKind>();
+  public Structured Encode(Itest_TypeFilterObject input)
+    => _itest_Filter.Encode(input)
+      .AddList("kinds", input.Kinds, _itest_TypeKind);
 }
 
-internal class test_AliasedEncoder
+internal class test_AliasedEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_AliasedObject>
 {
-  public ICollection<Itest_Name> Aliases { get; set; }
+  private readonly IEncoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
+  private readonly IEncoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  public Structured Encode(Itest_AliasedObject input)
+    => _itest_Named.Encode(input)
+      .AddList("aliases", input.Aliases, _itest_Name);
 }
 
-internal class test_NamedEncoder
+internal class test_NamedEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_NamedObject>
 {
-  public Itest_Name Name { get; set; }
+  private readonly IEncoder<Itest_DescribedObject> _itest_Described = encoders.EncoderFor<Itest_DescribedObject>();
+  private readonly IEncoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  public Structured Encode(Itest_NamedObject input)
+    => _itest_Described.Encode(input)
+      .AddEncoded("name", input.Name, _itest_Name);
 }
 
-internal class test_DescribedEncoder
+internal class test_DescribedEncoder : IEncoder<Itest_DescribedObject>
 {
-  public ICollection<string> Description { get; set; }
+  public Structured Encode(Itest_DescribedObject input)
+    => Structured.Empty()
+      .Add("description", input.Description.Encode());
 }

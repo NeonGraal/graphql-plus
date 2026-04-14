@@ -14,20 +14,30 @@ dual FldOutpFieldParam { }
 
 namespace Components.Gqlp_Schema_output_field_param;
 
-internal class CmptOutpFieldParamEncoder
+internal class CmptOutpFieldParamEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptOutpFieldParamObject>
 {
-  public ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter)
-    => null;
+  private readonly IEncoder<ICmptFldOutpFieldParam> _fldOutpFieldParam = encoders.EncoderFor<ICmptFldOutpFieldParam>();
+  public Structured Encode(ICmptOutpFieldParamObject input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field(), _fldOutpFieldParam);
 }
 
-internal class CmptOutpFieldParam1Encoder
+internal class CmptOutpFieldParam1Encoder : IEncoder<ICmptOutpFieldParam1Object>
 {
+  public Structured Encode(ICmptOutpFieldParam1Object input)
+    => Structured.Empty();
 }
 
-internal class CmptOutpFieldParam2Encoder
+internal class CmptOutpFieldParam2Encoder : IEncoder<ICmptOutpFieldParam2Object>
 {
+  public Structured Encode(ICmptOutpFieldParam2Object input)
+    => Structured.Empty();
 }
 
-internal class CmptFldOutpFieldParamEncoder
+internal class CmptFldOutpFieldParamEncoder : IEncoder<ICmptFldOutpFieldParamObject>
 {
+  public Structured Encode(ICmptFldOutpFieldParamObject input)
+    => Structured.Empty();
 }

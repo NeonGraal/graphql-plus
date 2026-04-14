@@ -10,6 +10,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_union_alias;
 public interface ItestUnionAlias
   : IGqlpInterfaceBase
 {
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }

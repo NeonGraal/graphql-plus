@@ -50,53 +50,84 @@ output _Setting {
 
 namespace Components.Gqlp_Spec_Global;
 
-internal class Cmpt_AndTypeEncoder
+internal class Cmpt_AndTypeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_AndTypeObject>
 {
-  public ICmpt_Type Type { get; set; }
+  private readonly IEncoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
+  private readonly IEncoder<ICmpt_Type> _type = encoders.EncoderFor<ICmpt_Type>();
+  public Structured Encode(ICmpt_AndTypeObject input)
+    => _named.Encode(input)
+      .AddEncoded("type", input.Type, _type);
 }
 
-internal class Cmpt_CategoriesEncoder
+internal class Cmpt_CategoriesEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_CategoriesObject>
 {
-  public ICmpt_Category Category { get; set; }
+  private readonly IEncoder<ICmpt_AndTypeObject> _andType = encoders.EncoderFor<ICmpt_AndTypeObject>();
+  private readonly IEncoder<ICmpt_Category> _category = encoders.EncoderFor<ICmpt_Category>();
+  public Structured Encode(ICmpt_CategoriesObject input)
+    => _andType.Encode(input)
+      .AddEncoded("category", input.Category, _category);
 }
 
-internal class Cmpt_CategoryEncoder
+internal class Cmpt_CategoryEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_CategoryObject>
 {
-  public Cmpt_Resolution Resolution { get; set; }
-  public ICmpt_TypeRef<ICmpt_TypeKind> Output { get; set; }
-  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
+  private readonly IEncoder<ICmpt_AliasedObject> _aliased = encoders.EncoderFor<ICmpt_AliasedObject>();
+  private readonly IEncoder<ICmpt_TypeRef<ICmpt_TypeKind>> _typeRef = encoders.EncoderFor<ICmpt_TypeRef<ICmpt_TypeKind>>();
+  private readonly IEncoder<ICmpt_Modifiers> _modifiers = encoders.EncoderFor<ICmpt_Modifiers>();
+  public Structured Encode(ICmpt_CategoryObject input)
+    => _aliased.Encode(input)
+      .AddEnum("resolution", input.Resolution)
+      .AddEncoded("output", input.Output, _typeRef)
+      .AddList("modifiers", input.Modifiers, _modifiers);
 }
 
-internal class Cmpt_ResolutionEncoder
+internal class Cmpt_ResolutionEncoder : IEncoder<Cmpt_Resolution>
 {
-  public string Parallel { get; set; }
-  public string Sequential { get; set; }
-  public string Single { get; set; }
+  public Structured Encode(Cmpt_Resolution input)
+    => new(input.ToString(), "_Resolution");
 }
 
-internal class Cmpt_DirectivesEncoder
+internal class Cmpt_DirectivesEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_DirectivesObject>
 {
-  public ICmpt_Directive Directive { get; set; }
+  private readonly IEncoder<ICmpt_AndTypeObject> _andType = encoders.EncoderFor<ICmpt_AndTypeObject>();
+  private readonly IEncoder<ICmpt_Directive> _directive = encoders.EncoderFor<ICmpt_Directive>();
+  public Structured Encode(ICmpt_DirectivesObject input)
+    => _andType.Encode(input)
+      .AddEncoded("directive", input.Directive, _directive);
 }
 
-internal class Cmpt_DirectiveEncoder
+internal class Cmpt_DirectiveEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_DirectiveObject>
 {
-  public ICmpt_InputFieldType? Parameter { get; set; }
-  public bool Repeatable { get; set; }
-  public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
+  private readonly IEncoder<ICmpt_AliasedObject> _aliased = encoders.EncoderFor<ICmpt_AliasedObject>();
+  private readonly IEncoder<ICmpt_InputFieldType> _inputFieldType = encoders.EncoderFor<ICmpt_InputFieldType>();
+  public Structured Encode(ICmpt_DirectiveObject input)
+    => _aliased.Encode(input)
+      .AddEncoded("parameter", input.Parameter, _inputFieldType)
+      .Add("repeatable", input.Repeatable);
 }
 
-internal class Cmpt_LocationEncoder
+internal class Cmpt_LocationEncoder : IEncoder<Cmpt_Location>
 {
-  public string Operation { get; set; }
-  public string Variable { get; set; }
-  public string Field { get; set; }
-  public string Inline { get; set; }
-  public string Spread { get; set; }
-  public string Fragment { get; set; }
+  public Structured Encode(Cmpt_Location input)
+    => new(input.ToString(), "_Location");
 }
 
-internal class Cmpt_SettingEncoder
+internal class Cmpt_SettingEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_SettingObject>
 {
-  public GqlpValue Value { get; set; }
+  private readonly IEncoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
+  private readonly IEncoder<GqlpValue> _gqlpValue = encoders.EncoderFor<GqlpValue>();
+  public Structured Encode(ICmpt_SettingObject input)
+    => _named.Encode(input)
+      .AddEncoded("value", input.Value, _gqlpValue);
 }

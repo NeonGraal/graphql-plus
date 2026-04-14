@@ -8,8 +8,9 @@ public class ObjectForEncoderTests
   public ObjectForEncoderTests()
   {
     _typeParam = RFor<TypeParamModel>();
-
-    Encoder = new ObjectForEncoder<TypeParamModel>(_typeParam);
+    IEncoderRepository repo = A.Of<IEncoderRepository>();
+    repo.EncoderFor<TypeParamModel>().Returns(_typeParam);
+    Encoder = new ObjectForEncoder<TypeParamModel>(repo);
   }
 
   protected override IEncoder<ObjectForModel<TypeParamModel>> Encoder { get; }

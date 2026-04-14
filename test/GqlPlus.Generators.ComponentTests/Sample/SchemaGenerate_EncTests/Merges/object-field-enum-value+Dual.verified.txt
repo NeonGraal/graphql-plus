@@ -11,7 +11,9 @@ dual ObjFieldEnumValueDual { field = true }
 
 namespace Components.Gqlp_Schema_object_field_enum_value_Dual;
 
-internal class CmptObjFieldEnumValueDualEncoder
+internal class CmptObjFieldEnumValueDualEncoder : IEncoder<ICmptObjFieldEnumValueDualObject>
 {
-  public bool Field { get; set; }
+  public Structured Encode(ICmptObjFieldEnumValueDualObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

@@ -11,11 +11,14 @@ enum EnumDmnEnumLabel { dmnEnumLabel }
 
 namespace Components.Gqlp_Schema_domain_enum_label;
 
-internal class CmptDmnEnumLabelEncoder
+internal class CmptDmnEnumLabelEncoder : IEncoder<ICmptDmnEnumLabel>
 {
+  public Structured Encode(ICmptDmnEnumLabel input)
+    => new((decimal?)input.Value);
 }
 
-internal class CmptEnumDmnEnumLabelEncoder
+internal class CmptEnumDmnEnumLabelEncoder : IEncoder<CmptEnumDmnEnumLabel>
 {
-  public string dmnEnumLabel { get; set; }
+  public Structured Encode(CmptEnumDmnEnumLabel input)
+    => new(input.ToString(), "_EnumDmnEnumLabel");
 }

@@ -7,20 +7,37 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_obj_Output;
 
-internal class testCnstFieldObjOutpEncoder
+internal class testCnstFieldObjOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestCnstFieldObjOutpObject>
 {
+  private readonly IEncoder<ItestRefCnstFieldObjOutpObject<ItestAltCnstFieldObjOutp>> _itestRefCnstFieldObjOutp = encoders.EncoderFor<ItestRefCnstFieldObjOutpObject<ItestAltCnstFieldObjOutp>>();
+  public Structured Encode(ItestCnstFieldObjOutpObject input)
+    => _itestRefCnstFieldObjOutp.Encode(input);
 }
 
-internal class testRefCnstFieldObjOutpEncoder<TRef>
+internal class testRefCnstFieldObjOutpEncoder<TRef>(
+  IEncoderRepository encoders
+) : IEncoder<ItestRefCnstFieldObjOutpObject<TRef>>
 {
-  public TRef Field { get; set; }
+  private readonly IEncoder<TRef> _ref = encoders.EncoderFor<TRef>();
+  public Structured Encode(ItestRefCnstFieldObjOutpObject<TRef> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _ref);
 }
 
-internal class testPrntCnstFieldObjOutpEncoder
+internal class testPrntCnstFieldObjOutpEncoder : IEncoder<ItestPrntCnstFieldObjOutpObject>
 {
+  public Structured Encode(ItestPrntCnstFieldObjOutpObject input)
+    => Structured.Empty();
 }
 
-internal class testAltCnstFieldObjOutpEncoder
+internal class testAltCnstFieldObjOutpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestAltCnstFieldObjOutpObject>
 {
-  public decimal Alt { get; set; }
+  private readonly IEncoder<ItestPrntCnstFieldObjOutpObject> _itestPrntCnstFieldObjOutp = encoders.EncoderFor<ItestPrntCnstFieldObjOutpObject>();
+  public Structured Encode(ItestAltCnstFieldObjOutpObject input)
+    => _itestPrntCnstFieldObjOutp.Encode(input)
+      .Add("alt", input.Alt);
 }

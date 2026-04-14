@@ -11,11 +11,15 @@ dual ObjDualAltDualOutp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_dual_Output;
 
-internal class CmptAltDualOutpEncoder
+internal class CmptAltDualOutpEncoder : IEncoder<ICmptAltDualOutpObject>
 {
+  public Structured Encode(ICmptAltDualOutpObject input)
+    => Structured.Empty();
 }
 
-internal class CmptObjDualAltDualOutpEncoder
+internal class CmptObjDualAltDualOutpEncoder : IEncoder<ICmptObjDualAltDualOutpObject>
 {
-  public decimal Alt { get; set; }
+  public Structured Encode(ICmptObjDualAltDualOutpObject input)
+    => Structured.Empty()
+      .Add("alt", input.Alt);
 }

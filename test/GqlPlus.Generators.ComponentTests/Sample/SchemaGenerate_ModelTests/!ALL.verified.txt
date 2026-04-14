@@ -7910,6 +7910,8 @@ public class CmptOutpDescrParamObject
 {
   public ICmptFldOutpDescrParam? Field(ICmptInOutpDescrParam parameter)
     => null;
+  public ICmptFldOutpDescrParam? Field()
+    => null;
 
   public CmptOutpDescrParamObject
     ()
@@ -7969,6 +7971,8 @@ public class CmptOutpParamObject
   , ICmptOutpParamObject
 {
   public ICmptFldOutpParam? Field(ICmptInOutpParam parameter)
+    => null;
+  public ICmptFldOutpParam? Field()
     => null;
 
   public CmptOutpParamObject
@@ -8030,6 +8034,8 @@ public class CmptOutpParamDescrObject
 {
   public ICmptFldOutpParamDescr? Field(ICmptInOutpParamDescr parameter)
     => null;
+  public ICmptFldOutpParamDescr? Field()
+    => null;
 
   public CmptOutpParamDescrObject
     ()
@@ -8090,6 +8096,8 @@ public class CmptOutpParamModDmnObject
 {
   public ICmptDomOutpParamModDmn? Field(IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter)
     => null;
+  public ICmptDomOutpParamModDmn? Field()
+    => null;
 
   public CmptOutpParamModDmnObject
     ()
@@ -8138,6 +8146,8 @@ public class CmptOutpParamModParamObject<TMod>
 {
   public ICmptDomOutpParamModParam? Field(IDictionary<TMod, ICmptInOutpParamModParam> parameter)
     => null;
+  public ICmptDomOutpParamModParam? Field()
+    => null;
 
   public CmptOutpParamModParamObject
     ()
@@ -8185,6 +8195,8 @@ public class CmptOutpParamTypeDescrObject
   , ICmptOutpParamTypeDescrObject
 {
   public ICmptFldOutpParamTypeDescr? Field(ICmptInOutpParamTypeDescr parameter)
+    => null;
+  public ICmptFldOutpParamTypeDescr? Field()
     => null;
 
   public CmptOutpParamTypeDescrObject
@@ -8286,6 +8298,8 @@ public class CmptOutpPrntParamObject
 {
   public ICmptFldOutpPrntParam? Field(ICmptInOutpPrntParam parameter)
     => null;
+  public ICmptFldOutpPrntParam? Field()
+    => null;
 
   public CmptOutpPrntParamObject
     ()
@@ -8305,6 +8319,8 @@ public class CmptPrntOutpPrntParamObject
   , ICmptPrntOutpPrntParamObject
 {
   public ICmptFldOutpPrntParam? Field(ICmptPrntOutpPrntParamIn parameter)
+    => null;
+  public ICmptFldOutpPrntParam? Field()
     => null;
 
   public CmptPrntOutpPrntParamObject
@@ -10445,6 +10461,8 @@ public class CmptOutpFieldParamObject
 {
   public ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter)
     => null;
+  public ICmptFldOutpFieldParam? Field()
+    => null;
 
   public CmptOutpFieldParamObject
     ()
@@ -10510,37 +10528,42 @@ public class CmptUnionAlias
   : Schema_!ALL
   , ICmptUnionAlias
 {
-  public Boolean AsBoolean { get; set; }
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class CmptUnionDiff
   : Schema_!ALL
   , ICmptUnionDiff
 {
-  public Boolean AsBoolean { get; set; }
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class CmptUnionSame
   : Schema_!ALL
   , ICmptUnionSame
 {
-  public Boolean AsBoolean { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class CmptUnionSamePrnt
   : CmptPrntUnionSamePrnt
   , ICmptUnionSamePrnt
 {
-  public Boolean AsBoolean { get; set; }
 }
 
 public class CmptPrntUnionSamePrnt
   : Schema_!ALL
   , ICmptPrntUnionSamePrnt
 {
-  public String AsString { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class CmptDmnBoolDescr
@@ -10757,47 +10780,52 @@ public class CmptUnionDescr
   : Schema_!ALL
   , ICmptUnionDescr
 {
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class CmptUnionPrnt
   : CmptPrntUnionPrnt
   , ICmptUnionPrnt
 {
-  public String AsString { get; set; }
 }
 
 public class CmptPrntUnionPrnt
   : Schema_!ALL
   , ICmptPrntUnionPrnt
 {
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class CmptUnionPrntDescr
   : CmptPrntUnionPrntDescr
   , ICmptUnionPrntDescr
 {
-  public Number AsNumber { get; set; }
 }
 
 public class CmptPrntUnionPrntDescr
   : Schema_!ALL
   , ICmptPrntUnionPrntDescr
 {
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class CmptUnionPrntDup
   : CmptPrntUnionPrntDup
   , ICmptUnionPrntDup
 {
-  public Number AsNumber { get; set; }
 }
 
 public class CmptPrntUnionPrntDup
   : Schema_!ALL
   , ICmptPrntUnionPrntDup
 {
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }

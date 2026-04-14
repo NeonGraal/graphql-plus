@@ -24,6 +24,7 @@ public interface ICmptOutpFieldParamObject
   : Schema_output-field-param
 {
   ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter);
+  ICmptFldOutpFieldParam? Field();
 }
 
 public interface ICmptOutpFieldParam1

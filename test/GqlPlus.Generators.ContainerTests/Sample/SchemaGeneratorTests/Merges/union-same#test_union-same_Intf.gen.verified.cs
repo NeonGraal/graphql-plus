@@ -10,5 +10,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_union_same;
 public interface ItestUnionSame
   : IGqlpInterfaceBase
 {
-  Boolean AsBoolean { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }

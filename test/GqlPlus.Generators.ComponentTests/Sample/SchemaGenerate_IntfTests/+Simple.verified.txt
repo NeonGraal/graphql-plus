@@ -363,41 +363,42 @@ public enum CmptPrntEnumPrntDup
 public interface ICmptUnionDescr
   : Schema_+Simple
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmptUnionPrnt
   : ICmptPrntUnionPrnt
 {
-  String AsString { get; }
 }
 
 public interface ICmptPrntUnionPrnt
   : Schema_+Simple
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmptUnionPrntDescr
   : ICmptPrntUnionPrntDescr
 {
-  Number AsNumber { get; }
 }
 
 public interface ICmptPrntUnionPrntDescr
   : Schema_+Simple
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmptUnionPrntDup
   : ICmptPrntUnionPrntDup
 {
-  Number AsNumber { get; }
 }
 
 public interface ICmptPrntUnionPrntDup
   : Schema_+Simple
 {
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }

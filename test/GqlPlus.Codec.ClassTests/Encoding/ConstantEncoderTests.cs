@@ -8,8 +8,9 @@ public class ConstantEncoderTests
   public ConstantEncoderTests()
   {
     _simpleEncoder = RFor<SimpleModel>();
-
-    Encoder = new ConstantEncoder(_simpleEncoder);
+    IEncoderRepository encoders = A.Of<IEncoderRepository>();
+    encoders.EncoderFor<SimpleModel>().Returns(_simpleEncoder);
+    Encoder = new ConstantEncoder(encoders);
   }
 
   protected override IEncoder<ConstantModel> Encoder { get; }

@@ -6,8 +6,9 @@ public class DirectiveModellerTests
   public DirectiveModellerTests()
   {
     IModeller<IAstInputParam, InputParamModel> parameter = MFor<IAstInputParam, InputParamModel>();
-
-    Modeller = new DirectiveModeller(parameter);
+    IModellerRepository modellers = A.Of<IModellerRepository>();
+    modellers.ModellerFor<IAstInputParam, InputParamModel>().Returns(parameter);
+    Modeller = new DirectiveModeller(modellers);
   }
 
   protected override IModeller<IAstSchemaDirective, DirectiveModel> Modeller { get; }

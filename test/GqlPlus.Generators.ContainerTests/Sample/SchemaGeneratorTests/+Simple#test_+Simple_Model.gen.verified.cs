@@ -221,47 +221,52 @@ public class testUnionDescr
   : GqlpModelBase
   , ItestUnionDescr
 {
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class testUnionPrnt
   : testPrntUnionPrnt
   , ItestUnionPrnt
 {
-  public String AsString { get; set; }
 }
 
 public class testPrntUnionPrnt
   : GqlpModelBase
   , ItestPrntUnionPrnt
 {
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class testUnionPrntDescr
   : testPrntUnionPrntDescr
   , ItestUnionPrntDescr
 {
-  public Number AsNumber { get; set; }
 }
 
 public class testPrntUnionPrntDescr
   : GqlpModelBase
   , ItestPrntUnionPrntDescr
 {
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }
 
 public class testUnionPrntDup
   : testPrntUnionPrntDup
   , ItestUnionPrntDup
 {
-  public Number AsNumber { get; set; }
 }
 
 public class testPrntUnionPrntDup
   : GqlpModelBase
   , ItestPrntUnionPrntDup
 {
-  public Number AsNumber { get; set; }
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
 }

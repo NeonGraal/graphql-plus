@@ -5,7 +5,12 @@ public class FilterModelDecoderTests
 {
 
   public FilterModelDecoderTests()
-    => Decoder = new FilterModelDecoder(Boolean, NameFilter);
+  {
+    IDecoderRepository decoders = A.Of<IDecoderRepository>();
+    decoders.DecoderFor<bool?>().Returns(Boolean);
+    decoders.DecoderFor<INameFilterDecoder, string>().Returns(NameFilter);
+    Decoder = new FilterModelDecoder(decoders);
+  }
 
   protected override IDecoder<FilterModel> Decoder { get; }
 }

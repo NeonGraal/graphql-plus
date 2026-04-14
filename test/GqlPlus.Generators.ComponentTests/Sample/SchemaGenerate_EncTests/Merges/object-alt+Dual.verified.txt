@@ -12,10 +12,14 @@ dual ObjAltDualType { }
 
 namespace Components.Gqlp_Schema_object_alt_Dual;
 
-internal class CmptObjAltDualEncoder
+internal class CmptObjAltDualEncoder : IEncoder<ICmptObjAltDualObject>
 {
+  public Structured Encode(ICmptObjAltDualObject input)
+    => Structured.Empty();
 }
 
-internal class CmptObjAltDualTypeEncoder
+internal class CmptObjAltDualTypeEncoder : IEncoder<ICmptObjAltDualTypeObject>
 {
+  public Structured Encode(ICmptObjAltDualTypeObject input)
+    => Structured.Empty();
 }

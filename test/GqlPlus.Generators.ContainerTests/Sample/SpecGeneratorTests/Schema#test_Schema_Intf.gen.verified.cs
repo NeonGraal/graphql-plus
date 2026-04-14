@@ -107,6 +107,8 @@ public interface Itest_MaskObject<TK>
 public interface Itest_Key
   : IGqlpInterfaceBase
 {
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface Itest_Any

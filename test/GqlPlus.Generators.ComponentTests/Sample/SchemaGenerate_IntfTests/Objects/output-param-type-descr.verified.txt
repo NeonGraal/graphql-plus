@@ -22,6 +22,7 @@ public interface ICmptOutpParamTypeDescrObject
   : Schema_output-param-type-descr
 {
   ICmptFldOutpParamTypeDescr? Field(ICmptInOutpParamTypeDescr parameter);
+  ICmptFldOutpParamTypeDescr? Field();
 }
 
 public interface ICmptFldOutpParamTypeDescr

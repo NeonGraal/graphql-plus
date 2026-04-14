@@ -11,11 +11,18 @@ dual FldInpFieldNull { }
 
 namespace Components.Gqlp_Schema_input_field_null;
 
-internal class CmptInpFieldNullEncoder
+internal class CmptInpFieldNullEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptInpFieldNullObject>
 {
-  public ICmptFldInpFieldNull? Field { get; set; }
+  private readonly IEncoder<ICmptFldInpFieldNull> _fldInpFieldNull = encoders.EncoderFor<ICmptFldInpFieldNull>();
+  public Structured Encode(ICmptInpFieldNullObject input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _fldInpFieldNull);
 }
 
-internal class CmptFldInpFieldNullEncoder
+internal class CmptFldInpFieldNullEncoder : IEncoder<ICmptFldInpFieldNullObject>
 {
+  public Structured Encode(ICmptFldInpFieldNullObject input)
+    => Structured.Empty();
 }

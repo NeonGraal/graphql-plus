@@ -11,6 +11,8 @@ input InDrctParamIn { }
 
 namespace Components.Gqlp_Schema_directive_param_in;
 
-internal class CmptInDrctParamInEncoder
+internal class CmptInDrctParamInEncoder : IEncoder<ICmptInDrctParamInObject>
 {
+  public Structured Encode(ICmptInDrctParamInObject input)
+    => Structured.Empty();
 }

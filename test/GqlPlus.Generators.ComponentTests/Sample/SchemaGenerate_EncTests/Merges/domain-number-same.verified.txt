@@ -11,6 +11,8 @@ domain DmnNmbrSame { number 9<1 }
 
 namespace Components.Gqlp_Schema_domain_number_same;
 
-internal class CmptDmnNmbrSameEncoder
+internal class CmptDmnNmbrSameEncoder : IEncoder<ICmptDmnNmbrSame>
 {
+  public Structured Encode(ICmptDmnNmbrSame input)
+    => new(input.Value);
 }

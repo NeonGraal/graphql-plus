@@ -11,11 +11,15 @@ internal class testOutpPrntParamDecoder
 {
   public ItestFldOutpPrntParam? Field(ItestInOutpPrntParam parameter)
     => null;
+  public ItestFldOutpPrntParam? Field()
+    => null;
 }
 
 internal class testPrntOutpPrntParamDecoder
 {
   public ItestFldOutpPrntParam? Field(ItestPrntOutpPrntParamIn parameter)
+    => null;
+  public ItestFldOutpPrntParam? Field()
     => null;
 }
 

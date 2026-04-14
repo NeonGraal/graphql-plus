@@ -10,6 +10,8 @@ input AltSmplInp { | String }
 
 namespace Components.Gqlp_Schema_alt_simple_Input;
 
-internal class CmptAltSmplInpEncoder
+internal class CmptAltSmplInpEncoder : IEncoder<ICmptAltSmplInpObject>
 {
+  public Structured Encode(ICmptAltSmplInpObject input)
+    => Structured.Empty();
 }

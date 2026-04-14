@@ -7,12 +7,19 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_dual_Input;
 
-internal class testFieldDualInpEncoder
+internal class testFieldDualInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestFieldDualInpObject>
 {
-  public ItestFldFieldDualInp Field { get; set; }
+  private readonly IEncoder<ItestFldFieldDualInp> _itestFldFieldDualInp = encoders.EncoderFor<ItestFldFieldDualInp>();
+  public Structured Encode(ItestFieldDualInpObject input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _itestFldFieldDualInp);
 }
 
-internal class testFldFieldDualInpEncoder
+internal class testFldFieldDualInpEncoder : IEncoder<ItestFldFieldDualInpObject>
 {
-  public decimal Field { get; set; }
+  public Structured Encode(ItestFldFieldDualInpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

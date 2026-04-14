@@ -16,6 +16,8 @@ internal class CmptOutpParamModDmnDecoder
 {
   public ICmptDomOutpParamModDmn? Field(IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter)
     => null;
+  public ICmptDomOutpParamModDmn? Field()
+    => null;
 }
 
 internal class CmptInOutpParamModDmnDecoder

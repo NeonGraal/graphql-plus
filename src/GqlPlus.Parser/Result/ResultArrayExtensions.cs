@@ -40,7 +40,7 @@ internal static class ResultArrayExtensions
 
     if (result is ResultArrayOk<T> ok) {
 #pragma warning disable CA1062 // Validate arguments of public methods
-      action(ok.Result!);
+      action(ok.Result);
 #pragma warning restore CA1062 // Validate arguments of public methods
       return true;
     }

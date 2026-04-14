@@ -770,6 +770,7 @@ public interface ICmptOutpFieldParamObject
   : Schema_+Merges
 {
   ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter);
+  ICmptFldOutpFieldParam? Field();
 }
 
 public interface ICmptOutpFieldParam1
@@ -808,31 +809,32 @@ public interface ICmptFldOutpFieldParamObject
 public interface ICmptUnionAlias
   : Schema_+Merges
 {
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmptUnionDiff
   : Schema_+Merges
 {
-  Boolean AsBoolean { get; }
-  Number AsNumber { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmptUnionSame
   : Schema_+Merges
 {
-  Boolean AsBoolean { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }
 
 public interface ICmptUnionSamePrnt
   : ICmptPrntUnionSamePrnt
 {
-  Boolean AsBoolean { get; }
 }
 
 public interface ICmptPrntUnionSamePrnt
   : Schema_+Merges
 {
-  String AsString { get; }
+  bool HasA<T>();
+  T AsA<T>();
 }

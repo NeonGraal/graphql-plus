@@ -7,28 +7,43 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_output_parent_param;
 
-internal class testOutpPrntParamEncoder
+internal class testOutpPrntParamEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestOutpPrntParamObject>
 {
-  public ItestFldOutpPrntParam? Field(ItestInOutpPrntParam parameter)
-    => null;
+  private readonly IEncoder<ItestPrntOutpPrntParamObject> _itestPrntOutpPrntParam = encoders.EncoderFor<ItestPrntOutpPrntParamObject>();
+  private readonly IEncoder<ItestFldOutpPrntParam> _itestFldOutpPrntParam = encoders.EncoderFor<ItestFldOutpPrntParam>();
+  public Structured Encode(ItestOutpPrntParamObject input)
+    => _itestPrntOutpPrntParam.Encode(input)
+      .AddEncoded("field", input.Field(), _itestFldOutpPrntParam);
 }
 
-internal class testPrntOutpPrntParamEncoder
+internal class testPrntOutpPrntParamEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestPrntOutpPrntParamObject>
 {
-  public ItestFldOutpPrntParam? Field(ItestPrntOutpPrntParamIn parameter)
-    => null;
+  private readonly IEncoder<ItestFldOutpPrntParam> _itestFldOutpPrntParam = encoders.EncoderFor<ItestFldOutpPrntParam>();
+  public Structured Encode(ItestPrntOutpPrntParamObject input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field(), _itestFldOutpPrntParam);
 }
 
-internal class testFldOutpPrntParamEncoder
+internal class testFldOutpPrntParamEncoder : IEncoder<ItestFldOutpPrntParamObject>
 {
+  public Structured Encode(ItestFldOutpPrntParamObject input)
+    => Structured.Empty();
 }
 
-internal class testInOutpPrntParamEncoder
+internal class testInOutpPrntParamEncoder : IEncoder<ItestInOutpPrntParamObject>
 {
-  public decimal Param { get; set; }
+  public Structured Encode(ItestInOutpPrntParamObject input)
+    => Structured.Empty()
+      .Add("param", input.Param);
 }
 
-internal class testPrntOutpPrntParamInEncoder
+internal class testPrntOutpPrntParamInEncoder : IEncoder<ItestPrntOutpPrntParamInObject>
 {
-  public decimal Parent { get; set; }
+  public Structured Encode(ItestPrntOutpPrntParamInObject input)
+    => Structured.Empty()
+      .Add("parent", input.Parent);
 }

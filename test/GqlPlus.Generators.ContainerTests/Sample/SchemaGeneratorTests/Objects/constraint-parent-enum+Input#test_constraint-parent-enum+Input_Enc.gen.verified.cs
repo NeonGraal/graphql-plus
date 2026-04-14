@@ -7,22 +7,30 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_enum_Input;
 
-internal class testCnstPrntEnumInpEncoder
+internal class testCnstPrntEnumInpEncoder : IEncoder<ItestCnstPrntEnumInpObject>
 {
+  public Structured Encode(ItestCnstPrntEnumInpObject input)
+    => Structured.Empty();
 }
 
-internal class testRefCnstPrntEnumInpEncoder<TType>
+internal class testRefCnstPrntEnumInpEncoder<TType>(
+  IEncoderRepository encoders
+) : IEncoder<ItestRefCnstPrntEnumInpObject<TType>>
 {
-  public TType Field { get; set; }
+  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  public Structured Encode(ItestRefCnstPrntEnumInpObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _type);
 }
 
-internal class testEnumCnstPrntEnumInpEncoder
+internal class testEnumCnstPrntEnumInpEncoder : IEncoder<testEnumCnstPrntEnumInp>
 {
-  public string parentCnstPrntEnumInp { get; set; }
-  public string cnstPrntEnumInp { get; set; }
+  public Structured Encode(testEnumCnstPrntEnumInp input)
+    => new(input.ToString(), "_EnumCnstPrntEnumInp");
 }
 
-internal class testParentCnstPrntEnumInpEncoder
+internal class testParentCnstPrntEnumInpEncoder : IEncoder<testParentCnstPrntEnumInp>
 {
-  public string parentCnstPrntEnumInp { get; set; }
+  public Structured Encode(testParentCnstPrntEnumInp input)
+    => new(input.ToString(), "_ParentCnstPrntEnumInp");
 }

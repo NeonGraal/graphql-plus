@@ -10,7 +10,9 @@ output FieldDescrOutp { "Test" "Descr" field: String }
 
 namespace Components.Gqlp_Schema_field_descr_Output;
 
-internal class CmptFieldDescrOutpEncoder
+internal class CmptFieldDescrOutpEncoder : IEncoder<ICmptFieldDescrOutpObject>
 {
-  public string Field { get; set; }
+  public Structured Encode(ICmptFieldDescrOutpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field);
 }

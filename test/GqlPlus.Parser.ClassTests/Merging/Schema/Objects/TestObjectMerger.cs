@@ -73,5 +73,5 @@ public abstract class TestObjectMerger<TObjField>
   protected override IAstObject<TObjField> MakeTyped(string name, string[]? aliases = null, string description = "", IAstObjBase? parent = default)
     => MakeObject(name, aliases, description, parent);
   protected override IAstObjBase? MakeParent(string? parent)
-    => string.IsNullOrWhiteSpace(parent) ? null : MakeBase(parent!);
+    => string.IsNullOrWhiteSpace(parent) ? null : MakeBase(parent);
 }

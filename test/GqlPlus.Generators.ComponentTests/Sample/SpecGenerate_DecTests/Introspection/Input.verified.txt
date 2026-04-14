@@ -25,3 +25,11 @@ internal class Cmpt_InputFieldTypeDecoder
 {
   public GqlpValue? DefaultValue { get; set; }
 }
+
+internal static class Cmpt_Spec_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmpt_InputFieldObject>(_ => new Cmpt_InputFieldDecoder())
+      .AddDecoder<ICmpt_InputFieldTypeObject>(r => new Cmpt_InputFieldTypeDecoder(r));
+}

@@ -25,3 +25,11 @@ internal class CmptEnumCnstEnumDualDecoder
 {
   public string cnstEnumDual { get; set; }
 }
+
+internal static class Cmpt_Schema_constraint_enum_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_enum_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptCnstEnumDualObject>(_ => new CmptCnstEnumDualDecoder())
+      .AddDecoder<CmptEnumCnstEnumDual>(_ => new CmptEnumCnstEnumDualDecoder());
+}

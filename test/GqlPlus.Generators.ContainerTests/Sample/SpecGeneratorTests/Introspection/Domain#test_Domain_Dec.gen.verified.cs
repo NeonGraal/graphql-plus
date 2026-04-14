@@ -80,3 +80,20 @@ internal class test_DomainRegexDecoder
 internal class test_DomainItemRegexDecoder
 {
 }
+
+internal static class test_DomainDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_DomainDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<test_DomainKind>(_ => new test_DomainKindDecoder())
+      .AddDecoder<Itest_BaseDomainItemObject>(r => new test_BaseDomainItemDecoder(r))
+      .AddDecoder<Itest_BasicValueObject>(_ => new test_BasicValueDecoder())
+      .AddDecoder<Itest_DomainTrueFalseObject>(r => new test_DomainTrueFalseDecoder(r))
+      .AddDecoder<Itest_DomainItemTrueFalseObject>(_ => new test_DomainItemTrueFalseDecoder())
+      .AddDecoder<Itest_DomainLabelObject>(r => new test_DomainLabelDecoder(r))
+      .AddDecoder<Itest_DomainItemLabelObject>(_ => new test_DomainItemLabelDecoder())
+      .AddDecoder<Itest_DomainRangeObject>(r => new test_DomainRangeDecoder(r))
+      .AddDecoder<Itest_DomainItemRangeObject>(_ => new test_DomainItemRangeDecoder())
+      .AddDecoder<Itest_DomainRegexObject>(r => new test_DomainRegexDecoder(r))
+      .AddDecoder<Itest_DomainItemRegexObject>(_ => new test_DomainItemRegexDecoder());
+}

@@ -28,3 +28,12 @@ internal class CmptInOutpParamDescrDecoder
 {
   public decimal Param { get; set; }
 }
+
+internal static class Cmpt_Schema_output_param_descrDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_output_param_descrDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptOutpParamDescrObject>(r => new CmptOutpParamDescrDecoder(r))
+      .AddDecoder<ICmptFldOutpParamDescrObject>(_ => new CmptFldOutpParamDescrDecoder())
+      .AddDecoder<ICmptInOutpParamDescrObject>(r => new CmptInOutpParamDescrDecoder(r));
+}

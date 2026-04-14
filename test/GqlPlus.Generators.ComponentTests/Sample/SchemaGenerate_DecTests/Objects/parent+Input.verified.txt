@@ -19,3 +19,11 @@ internal class CmptRefPrntInpDecoder
 {
   public decimal Parent { get; set; }
 }
+
+internal static class Cmpt_Schema_parent_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_parent_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptPrntInpObject>(_ => new CmptPrntInpDecoder())
+      .AddDecoder<ICmptRefPrntInpObject>(r => new CmptRefPrntInpDecoder(r));
+}

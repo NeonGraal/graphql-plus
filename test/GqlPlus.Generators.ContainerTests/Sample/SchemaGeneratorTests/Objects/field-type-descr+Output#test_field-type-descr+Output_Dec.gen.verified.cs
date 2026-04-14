@@ -11,3 +11,10 @@ internal class testFieldTypeDescrOutpDecoder
 {
   public decimal Field { get; set; }
 }
+
+internal static class test_field_type_descr_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_field_type_descr_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestFieldTypeDescrOutpObject>(r => new testFieldTypeDescrOutpDecoder(r));
+}

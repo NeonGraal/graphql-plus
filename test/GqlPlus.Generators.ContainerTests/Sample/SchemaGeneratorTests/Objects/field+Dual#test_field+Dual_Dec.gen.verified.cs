@@ -11,3 +11,10 @@ internal class testFieldDualDecoder
 {
   public string Field { get; set; }
 }
+
+internal static class test_field_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_field_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestFieldDualObject>(r => new testFieldDualDecoder(r));
+}

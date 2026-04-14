@@ -27,3 +27,13 @@ internal class testAltCnstPrntDualGrndOutpDecoder
 {
   public decimal Alt { get; set; }
 }
+
+internal static class test_constraint_parent_dual_grandparent_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_constraint_parent_dual_grandparent_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestCnstPrntDualGrndOutpObject>(_ => new testCnstPrntDualGrndOutpDecoder())
+      .AddDecoder<ItestGrndCnstPrntDualGrndOutpObject>(_ => new testGrndCnstPrntDualGrndOutpDecoder())
+      .AddDecoder<ItestPrntCnstPrntDualGrndOutpObject>(_ => new testPrntCnstPrntDualGrndOutpDecoder())
+      .AddDecoder<ItestAltCnstPrntDualGrndOutpObject>(r => new testAltCnstPrntDualGrndOutpDecoder(r));
+}

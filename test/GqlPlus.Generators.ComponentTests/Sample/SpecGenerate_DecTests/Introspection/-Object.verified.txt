@@ -188,3 +188,23 @@ internal class Cmpt_OutputFieldTypeDecoder
 {
   public ICmpt_InputFieldType? Parameter { get; set; }
 }
+
+internal static class Cmpt_Spec_ObjectDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_ObjectDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmpt_ObjectKind>(_ => new Cmpt_ObjectKindDecoder())
+      .AddDecoder<ICmpt_ObjTypeParamObject>(r => new Cmpt_ObjTypeParamDecoder(r))
+      .AddDecoder<ICmpt_ObjBaseObject>(r => new Cmpt_ObjBaseDecoder(r))
+      .AddDecoder<ICmpt_ObjTypeArgObject>(r => new Cmpt_ObjTypeArgDecoder(r))
+      .AddDecoder<ICmpt_TypeParamObject>(r => new Cmpt_TypeParamDecoder(r))
+      .AddDecoder<ICmpt_ObjAlternateObject>(r => new Cmpt_ObjAlternateDecoder(r))
+      .AddDecoder<ICmpt_ObjAlternateEnumObject>(r => new Cmpt_ObjAlternateEnumDecoder(r))
+      .AddDecoder<ICmpt_ObjFieldTypeObject>(r => new Cmpt_ObjFieldTypeDecoder(r))
+      .AddDecoder<ICmpt_ObjFieldEnumObject>(r => new Cmpt_ObjFieldEnumDecoder(r))
+      .AddDecoder<ICmpt_DualFieldObject>(_ => new Cmpt_DualFieldDecoder())
+      .AddDecoder<ICmpt_InputFieldObject>(_ => new Cmpt_InputFieldDecoder())
+      .AddDecoder<ICmpt_InputFieldTypeObject>(r => new Cmpt_InputFieldTypeDecoder(r))
+      .AddDecoder<ICmpt_OutputFieldObject>(_ => new Cmpt_OutputFieldDecoder())
+      .AddDecoder<ICmpt_OutputFieldTypeObject>(r => new Cmpt_OutputFieldTypeDecoder(r));
+}

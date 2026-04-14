@@ -14,3 +14,10 @@ namespace Components.Gqlp_Schema_descr_double;
 internal class CmptDescrDblDecoder
 {
 }
+
+internal static class Cmpt_Schema_descr_doubleDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_descr_doubleDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptDescrDblObject>(_ => new CmptDescrDblDecoder());
+}

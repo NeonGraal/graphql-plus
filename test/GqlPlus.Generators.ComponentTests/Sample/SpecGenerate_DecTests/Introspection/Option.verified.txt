@@ -17,3 +17,10 @@ internal class Cmpt_SettingDecoder
 {
   public GqlpValue Value { get; set; }
 }
+
+internal static class Cmpt_Spec_OptionDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_OptionDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmpt_SettingObject>(r => new Cmpt_SettingDecoder(r));
+}

@@ -18,7 +18,7 @@ internal sealed class DomainEnumDecoderGenerator()
   : GenerateBaseDomain<IAstDomainLabel>(DomainKind.Enum)
 {
   protected override void Generate(IAstDomain<IAstDomainLabel> ast, GqlpGeneratorContext context)
-    => GenerateBlock(ast, context, DecoderHeader, TypeMembers, ClassMember);
+    => GenerateDomainDecoder(ast, context);
 }
 
 internal sealed class DomainEnumEncoderGenerator()

@@ -31,3 +31,12 @@ internal class CmptEnumGnrcPrntEnumDomOutpDecoder
 internal class CmptDomGnrcPrntEnumDomOutpDecoder
 {
 }
+
+internal static class Cmpt_Schema_generic_parent_enum_dom_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_parent_enum_dom_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptGnrcPrntEnumDomOutpObject>(_ => new CmptGnrcPrntEnumDomOutpDecoder())
+      .AddDecoder<CmptEnumGnrcPrntEnumDomOutp>(_ => new CmptEnumGnrcPrntEnumDomOutpDecoder())
+      .AddDecoder<ICmptDomGnrcPrntEnumDomOutp>(_ => new CmptDomGnrcPrntEnumDomOutpDecoder());
+}

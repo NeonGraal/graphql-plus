@@ -34,3 +34,13 @@ internal class CmptSubscriptionDecoder
 internal class Cmpt_SchemaDecoder
 {
 }
+
+internal static class Cmpt_Schema_defaultDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_defaultDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptQueryObject>(_ => new CmptQueryDecoder())
+      .AddDecoder<ICmptMutationObject>(_ => new CmptMutationDecoder())
+      .AddDecoder<ICmptSubscriptionObject>(_ => new CmptSubscriptionDecoder())
+      .AddDecoder<ICmpt_SchemaObject>(_ => new Cmpt_SchemaDecoder());
+}

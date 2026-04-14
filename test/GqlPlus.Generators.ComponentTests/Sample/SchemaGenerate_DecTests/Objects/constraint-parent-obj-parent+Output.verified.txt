@@ -29,3 +29,12 @@ internal class CmptAltCnstPrntObjPrntOutpDecoder
 {
   public decimal Alt { get; set; }
 }
+
+internal static class Cmpt_Schema_constraint_parent_obj_parent_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_parent_obj_parent_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptCnstPrntObjPrntOutpObject>(_ => new CmptCnstPrntObjPrntOutpDecoder())
+      .AddDecoder<ICmptPrntCnstPrntObjPrntOutpObject>(_ => new CmptPrntCnstPrntObjPrntOutpDecoder())
+      .AddDecoder<ICmptAltCnstPrntObjPrntOutpObject>(r => new CmptAltCnstPrntObjPrntOutpDecoder(r));
+}

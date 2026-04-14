@@ -24,3 +24,11 @@ internal class CmptAltGnrcPrntParamOutpDecoder
 {
   public decimal Alt { get; set; }
 }
+
+internal static class Cmpt_Schema_generic_parent_param_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_parent_param_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptGnrcPrntParamOutpObject>(_ => new CmptGnrcPrntParamOutpDecoder())
+      .AddDecoder<ICmptAltGnrcPrntParamOutpObject>(r => new CmptAltGnrcPrntParamOutpDecoder(r));
+}

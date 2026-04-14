@@ -10,3 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_descr_backslash;
 internal class testDescrBcksDecoder
 {
 }
+
+internal static class test_descr_backslashDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_descr_backslashDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestDescrBcksObject>(_ => new testDescrBcksDecoder());
+}

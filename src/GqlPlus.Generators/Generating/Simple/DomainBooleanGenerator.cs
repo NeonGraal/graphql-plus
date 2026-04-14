@@ -18,7 +18,7 @@ internal sealed class DomainBooleanDecoderGenerator()
   : GenerateBaseDomain<IAstDomainTrueFalse>(DomainKind.Boolean)
 {
   protected override void Generate(IAstDomain<IAstDomainTrueFalse> ast, GqlpGeneratorContext context)
-    => GenerateBlock(ast, context, DecoderHeader, TypeMembers, ClassMember);
+    => GenerateDomainDecoder(ast, context);
 }
 
 internal sealed class DomainBooleanEncoderGenerator()

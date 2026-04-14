@@ -25,3 +25,12 @@ internal class testEnumCnstDomEnumOutpDecoder
 internal class testJustCnstDomEnumOutpDecoder
 {
 }
+
+internal static class test_constraint_dom_enum_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_constraint_dom_enum_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestCnstDomEnumOutpObject>(_ => new testCnstDomEnumOutpDecoder())
+      .AddDecoder<testEnumCnstDomEnumOutp>(_ => new testEnumCnstDomEnumOutpDecoder())
+      .AddDecoder<ItestJustCnstDomEnumOutp>(_ => new testJustCnstDomEnumOutpDecoder());
+}

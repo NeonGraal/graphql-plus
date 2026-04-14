@@ -20,3 +20,11 @@ internal class testAltGnrcFieldDualInpDecoder
 {
   public decimal Alt { get; set; }
 }
+
+internal static class test_generic_field_dual_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_generic_field_dual_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestGnrcFieldDualInpObject>(r => new testGnrcFieldDualInpDecoder(r))
+      .AddDecoder<ItestAltGnrcFieldDualInpObject>(r => new testAltGnrcFieldDualInpDecoder(r));
+}

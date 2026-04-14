@@ -28,3 +28,12 @@ internal class test_LocationDecoder
   public string Spread { get; set; }
   public string Fragment { get; set; }
 }
+
+internal static class test_DirectiveDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_DirectiveDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<Itest_DirectivesObject>(r => new test_DirectivesDecoder(r))
+      .AddDecoder<Itest_DirectiveObject>(r => new test_DirectiveDecoder(r))
+      .AddDecoder<test_Location>(_ => new test_LocationDecoder());
+}

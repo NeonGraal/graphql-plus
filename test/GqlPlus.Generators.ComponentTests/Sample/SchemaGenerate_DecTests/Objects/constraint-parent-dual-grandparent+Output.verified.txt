@@ -34,3 +34,13 @@ internal class CmptAltCnstPrntDualGrndOutpDecoder
 {
   public decimal Alt { get; set; }
 }
+
+internal static class Cmpt_Schema_constraint_parent_dual_grandparent_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_parent_dual_grandparent_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptCnstPrntDualGrndOutpObject>(_ => new CmptCnstPrntDualGrndOutpDecoder())
+      .AddDecoder<ICmptGrndCnstPrntDualGrndOutpObject>(_ => new CmptGrndCnstPrntDualGrndOutpDecoder())
+      .AddDecoder<ICmptPrntCnstPrntDualGrndOutpObject>(_ => new CmptPrntCnstPrntDualGrndOutpDecoder())
+      .AddDecoder<ICmptAltCnstPrntDualGrndOutpObject>(r => new CmptAltCnstPrntDualGrndOutpDecoder(r));
+}

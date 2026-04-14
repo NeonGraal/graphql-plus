@@ -28,3 +28,11 @@ internal class CmptInOutpParamModParamDecoder
 internal class CmptDomOutpParamModParamDecoder
 {
 }
+
+internal static class Cmpt_Schema_output_param_mod_paramDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_output_param_mod_paramDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptInOutpParamModParamObject>(r => new CmptInOutpParamModParamDecoder(r))
+      .AddDecoder<ICmptDomOutpParamModParam>(_ => new CmptDomOutpParamModParamDecoder());
+}

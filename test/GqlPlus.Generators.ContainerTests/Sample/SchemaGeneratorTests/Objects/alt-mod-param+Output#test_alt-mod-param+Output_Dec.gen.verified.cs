@@ -15,3 +15,10 @@ internal class testAltAltModParamOutpDecoder
 {
   public decimal Alt { get; set; }
 }
+
+internal static class test_alt_mod_param_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_alt_mod_param_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestAltAltModParamOutpObject>(r => new testAltAltModParamOutpDecoder(r));
+}

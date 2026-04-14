@@ -25,3 +25,11 @@ internal class Cmpt_UnionMemberDecoder
 {
   public ICmpt_Name Union { get; set; }
 }
+
+internal static class Cmpt_Spec_UnionDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_UnionDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmpt_UnionRefObject>(_ => new Cmpt_UnionRefDecoder())
+      .AddDecoder<ICmpt_UnionMemberObject>(r => new Cmpt_UnionMemberDecoder(r));
+}

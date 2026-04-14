@@ -87,3 +87,15 @@ internal class Cmpt_TypeFilterDecoder
 {
   public ICollection<ICmpt_TypeKind> Kinds { get; set; }
 }
+
+internal static class Cmpt_Spec_DeclarationsDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_DeclarationsDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmpt_SchemaObject>(r => new Cmpt_SchemaDecoder(r))
+      .AddDecoder<ICmpt_Name>(_ => new Cmpt_NameDecoder())
+      .AddDecoder<ICmpt_FilterObject>(r => new Cmpt_FilterDecoder(r))
+      .AddDecoder<ICmpt_NameFilter>(_ => new Cmpt_NameFilterDecoder())
+      .AddDecoder<ICmpt_CategoryFilterObject>(r => new Cmpt_CategoryFilterDecoder(r))
+      .AddDecoder<ICmpt_TypeFilterObject>(r => new Cmpt_TypeFilterDecoder(r));
+}

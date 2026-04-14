@@ -19,3 +19,11 @@ internal class CmptEnumAltEnumOutpDecoder
 {
   public string altEnumOutp { get; set; }
 }
+
+internal static class Cmpt_Schema_alt_enum_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_alt_enum_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptAltEnumOutpObject>(_ => new CmptAltEnumOutpDecoder())
+      .AddDecoder<CmptEnumAltEnumOutp>(_ => new CmptEnumAltEnumOutpDecoder());
+}

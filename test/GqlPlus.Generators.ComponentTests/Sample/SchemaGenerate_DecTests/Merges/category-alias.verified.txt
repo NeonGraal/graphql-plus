@@ -15,3 +15,10 @@ namespace Components.Gqlp_Schema_category_alias;
 internal class CmptCtgrAliasDecoder
 {
 }
+
+internal static class Cmpt_Schema_category_aliasDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_category_aliasDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptCtgrAliasObject>(_ => new CmptCtgrAliasDecoder());
+}

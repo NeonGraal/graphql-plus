@@ -116,3 +116,18 @@ internal class Cmpt_DescribedDecoder
 {
   public ICollection<string> Description { get; set; }
 }
+
+internal static class Cmpt_Spec_SchemaDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_SchemaDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmpt_SchemaObject>(r => new Cmpt_SchemaDecoder(r))
+      .AddDecoder<ICmpt_Name>(_ => new Cmpt_NameDecoder())
+      .AddDecoder<ICmpt_FilterObject>(r => new Cmpt_FilterDecoder(r))
+      .AddDecoder<ICmpt_NameFilter>(_ => new Cmpt_NameFilterDecoder())
+      .AddDecoder<ICmpt_CategoryFilterObject>(r => new Cmpt_CategoryFilterDecoder(r))
+      .AddDecoder<ICmpt_TypeFilterObject>(r => new Cmpt_TypeFilterDecoder(r))
+      .AddDecoder<ICmpt_AliasedObject>(r => new Cmpt_AliasedDecoder(r))
+      .AddDecoder<ICmpt_NamedObject>(r => new Cmpt_NamedDecoder(r))
+      .AddDecoder<ICmpt_DescribedObject>(r => new Cmpt_DescribedDecoder(r));
+}

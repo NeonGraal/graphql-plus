@@ -25,3 +25,12 @@ internal class test_ResolutionDecoder
   public string Sequential { get; set; }
   public string Single { get; set; }
 }
+
+internal static class test_CategoryDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_CategoryDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<Itest_CategoriesObject>(r => new test_CategoriesDecoder(r))
+      .AddDecoder<Itest_CategoryObject>(r => new test_CategoryDecoder(r))
+      .AddDecoder<test_Resolution>(_ => new test_ResolutionDecoder());
+}

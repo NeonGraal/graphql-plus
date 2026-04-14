@@ -24,3 +24,11 @@ internal class CmptAltGnrcAltDualDualDecoder
 {
   public decimal Alt { get; set; }
 }
+
+internal static class Cmpt_Schema_generic_alt_dual_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_alt_dual_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptGnrcAltDualDualObject>(_ => new CmptGnrcAltDualDualDecoder())
+      .AddDecoder<ICmptAltGnrcAltDualDualObject>(r => new CmptAltGnrcAltDualDualDecoder(r));
+}

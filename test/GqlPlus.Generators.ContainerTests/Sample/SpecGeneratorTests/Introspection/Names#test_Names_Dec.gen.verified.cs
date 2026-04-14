@@ -26,3 +26,13 @@ internal class test_AndTypeDecoder
 {
   public Itest_Type Type { get; set; }
 }
+
+internal static class test_NamesDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_NamesDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<Itest_AliasedObject>(r => new test_AliasedDecoder(r))
+      .AddDecoder<Itest_NamedObject>(r => new test_NamedDecoder(r))
+      .AddDecoder<Itest_DescribedObject>(r => new test_DescribedDecoder(r))
+      .AddDecoder<Itest_AndTypeObject>(r => new test_AndTypeDecoder(r));
+}

@@ -10,3 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_descr_single;
 internal class testDescrSnglDecoder
 {
 }
+
+internal static class test_descr_singleDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_descr_singleDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestDescrSnglObject>(_ => new testDescrSnglDecoder());
+}

@@ -14,3 +14,10 @@ namespace Components.Gqlp_Schema_category_output_dict;
 internal class CmptCtgrOutpDictDecoder
 {
 }
+
+internal static class Cmpt_Schema_category_output_dictDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_category_output_dictDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptCtgrOutpDictObject>(_ => new CmptCtgrOutpDictDecoder());
+}

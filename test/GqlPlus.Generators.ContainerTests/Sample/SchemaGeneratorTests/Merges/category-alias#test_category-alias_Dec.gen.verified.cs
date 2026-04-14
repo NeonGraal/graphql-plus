@@ -10,3 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_category_alias;
 internal class testCtgrAliasDecoder
 {
 }
+
+internal static class test_category_aliasDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_category_aliasDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestCtgrAliasObject>(_ => new testCtgrAliasDecoder());
+}

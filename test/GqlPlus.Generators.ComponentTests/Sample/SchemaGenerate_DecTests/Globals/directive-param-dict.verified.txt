@@ -14,3 +14,10 @@ namespace Components.Gqlp_Schema_directive_param_dict;
 internal class CmptInDrctParamDictDecoder
 {
 }
+
+internal static class Cmpt_Schema_directive_param_dictDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_directive_param_dictDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptInDrctParamDictObject>(_ => new CmptInDrctParamDictDecoder());
+}

@@ -19,3 +19,11 @@ internal class CmptRefPrntDescrDualDecoder
 {
   public decimal Parent { get; set; }
 }
+
+internal static class Cmpt_Schema_parent_descr_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_parent_descr_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptPrntDescrDualObject>(_ => new CmptPrntDescrDualDecoder())
+      .AddDecoder<ICmptRefPrntDescrDualObject>(r => new CmptRefPrntDescrDualDecoder(r));
+}

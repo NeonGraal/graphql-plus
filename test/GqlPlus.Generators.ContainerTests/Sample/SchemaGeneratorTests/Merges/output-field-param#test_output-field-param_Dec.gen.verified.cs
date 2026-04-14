@@ -26,3 +26,13 @@ internal class testOutpFieldParam2Decoder
 internal class testFldOutpFieldParamDecoder
 {
 }
+
+internal static class test_output_field_paramDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_output_field_paramDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestOutpFieldParamObject>(r => new testOutpFieldParamDecoder(r))
+      .AddDecoder<ItestOutpFieldParam1Object>(_ => new testOutpFieldParam1Decoder())
+      .AddDecoder<ItestOutpFieldParam2Object>(_ => new testOutpFieldParam2Decoder())
+      .AddDecoder<ItestFldOutpFieldParamObject>(_ => new testFldOutpFieldParamDecoder());
+}

@@ -14,3 +14,10 @@ namespace Components.Gqlp_Schema_descr_backslash;
 internal class CmptDescrBcksDecoder
 {
 }
+
+internal static class Cmpt_Schema_descr_backslashDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_descr_backslashDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptDescrBcksObject>(_ => new CmptDescrBcksDecoder());
+}

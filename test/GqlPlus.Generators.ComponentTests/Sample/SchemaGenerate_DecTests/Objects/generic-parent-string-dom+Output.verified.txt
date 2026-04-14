@@ -24,3 +24,11 @@ internal class CmptFieldGnrcPrntStrDomOutpDecoder<TRef>
 internal class CmptDomGnrcPrntStrDomOutpDecoder
 {
 }
+
+internal static class Cmpt_Schema_generic_parent_string_dom_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_parent_string_dom_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptGnrcPrntStrDomOutpObject>(_ => new CmptGnrcPrntStrDomOutpDecoder())
+      .AddDecoder<ICmptDomGnrcPrntStrDomOutp>(_ => new CmptDomGnrcPrntStrDomOutpDecoder());
+}

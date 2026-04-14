@@ -22,3 +22,13 @@ internal class testSubscriptionDecoder
 internal class test_SchemaDecoder
 {
 }
+
+internal static class test_defaultDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_defaultDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestQueryObject>(_ => new testQueryDecoder())
+      .AddDecoder<ItestMutationObject>(_ => new testMutationDecoder())
+      .AddDecoder<ItestSubscriptionObject>(_ => new testSubscriptionDecoder())
+      .AddDecoder<Itest_SchemaObject>(_ => new test_SchemaDecoder());
+}

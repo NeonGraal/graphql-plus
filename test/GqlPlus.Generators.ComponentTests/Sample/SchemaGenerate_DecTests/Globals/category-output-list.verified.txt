@@ -14,3 +14,10 @@ namespace Components.Gqlp_Schema_category_output_list;
 internal class CmptCtgrOutpListDecoder
 {
 }
+
+internal static class Cmpt_Schema_category_output_listDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_category_output_listDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptCtgrOutpListObject>(_ => new CmptCtgrOutpListDecoder());
+}

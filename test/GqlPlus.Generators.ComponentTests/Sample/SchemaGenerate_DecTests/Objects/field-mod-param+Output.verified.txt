@@ -20,3 +20,10 @@ internal class CmptFldFieldModParamOutpDecoder
 {
   public decimal Field { get; set; }
 }
+
+internal static class Cmpt_Schema_field_mod_param_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_mod_param_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptFldFieldModParamOutpObject>(r => new CmptFldFieldModParamOutpDecoder(r));
+}

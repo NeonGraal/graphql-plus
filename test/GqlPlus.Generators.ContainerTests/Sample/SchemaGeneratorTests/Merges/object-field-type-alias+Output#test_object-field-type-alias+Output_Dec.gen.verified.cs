@@ -11,3 +11,10 @@ internal class testObjFieldTypeAliasOutpDecoder
 {
   public string Field { get; set; }
 }
+
+internal static class test_object_field_type_alias_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_object_field_type_alias_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestObjFieldTypeAliasOutpObject>(r => new testObjFieldTypeAliasOutpDecoder(r));
+}

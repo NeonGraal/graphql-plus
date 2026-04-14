@@ -31,3 +31,12 @@ internal class CmptEnumCnstDomEnumInpDecoder
 internal class CmptJustCnstDomEnumInpDecoder
 {
 }
+
+internal static class Cmpt_Schema_constraint_dom_enum_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_dom_enum_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptCnstDomEnumInpObject>(_ => new CmptCnstDomEnumInpDecoder())
+      .AddDecoder<CmptEnumCnstDomEnumInp>(_ => new CmptEnumCnstDomEnumInpDecoder())
+      .AddDecoder<ICmptJustCnstDomEnumInp>(_ => new CmptJustCnstDomEnumInpDecoder());
+}

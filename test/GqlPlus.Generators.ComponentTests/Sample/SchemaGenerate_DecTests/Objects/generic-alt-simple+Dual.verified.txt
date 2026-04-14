@@ -18,3 +18,10 @@ internal class CmptGnrcAltSmplDualDecoder
 internal class CmptRefGnrcAltSmplDualDecoder<TRef>
 {
 }
+
+internal static class Cmpt_Schema_generic_alt_simple_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_alt_simple_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptGnrcAltSmplDualObject>(_ => new CmptGnrcAltSmplDualDecoder());
+}

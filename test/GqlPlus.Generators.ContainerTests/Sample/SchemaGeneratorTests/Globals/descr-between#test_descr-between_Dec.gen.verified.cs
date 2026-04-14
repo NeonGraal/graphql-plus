@@ -10,3 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_descr_between;
 internal class testDescrBtwnDecoder
 {
 }
+
+internal static class test_descr_betweenDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_descr_betweenDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestDescrBtwnObject>(_ => new testDescrBtwnDecoder());
+}

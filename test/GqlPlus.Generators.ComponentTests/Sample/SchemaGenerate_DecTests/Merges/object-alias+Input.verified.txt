@@ -14,3 +14,10 @@ namespace Components.Gqlp_Schema_object_alias_Input;
 internal class CmptObjAliasInpDecoder
 {
 }
+
+internal static class Cmpt_Schema_object_alias_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_object_alias_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptObjAliasInpObject>(_ => new CmptObjAliasInpDecoder());
+}

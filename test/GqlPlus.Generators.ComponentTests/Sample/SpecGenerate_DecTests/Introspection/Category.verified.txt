@@ -41,3 +41,12 @@ internal class Cmpt_ResolutionDecoder
   public string Sequential { get; set; }
   public string Single { get; set; }
 }
+
+internal static class Cmpt_Spec_CategoryDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_CategoryDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmpt_CategoriesObject>(r => new Cmpt_CategoriesDecoder(r))
+      .AddDecoder<ICmpt_CategoryObject>(r => new Cmpt_CategoryDecoder(r))
+      .AddDecoder<Cmpt_Resolution>(_ => new Cmpt_ResolutionDecoder());
+}

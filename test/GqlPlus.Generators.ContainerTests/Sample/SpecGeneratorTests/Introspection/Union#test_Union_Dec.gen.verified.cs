@@ -15,3 +15,11 @@ internal class test_UnionMemberDecoder
 {
   public Itest_Name Union { get; set; }
 }
+
+internal static class test_UnionDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_UnionDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<Itest_UnionRefObject>(_ => new test_UnionRefDecoder())
+      .AddDecoder<Itest_UnionMemberObject>(r => new test_UnionMemberDecoder(r));
+}

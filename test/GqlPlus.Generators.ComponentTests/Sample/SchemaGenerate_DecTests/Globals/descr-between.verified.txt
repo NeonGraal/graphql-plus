@@ -15,3 +15,10 @@ namespace Components.Gqlp_Schema_descr_between;
 internal class CmptDescrBtwnDecoder
 {
 }
+
+internal static class Cmpt_Schema_descr_betweenDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_descr_betweenDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptDescrBtwnObject>(_ => new CmptDescrBtwnDecoder());
+}

@@ -24,3 +24,12 @@ internal class testAltCnstFieldDualOutpDecoder
 {
   public decimal Alt { get; set; }
 }
+
+internal static class test_constraint_field_dual_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_constraint_field_dual_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestCnstFieldDualOutpObject>(_ => new testCnstFieldDualOutpDecoder())
+      .AddDecoder<ItestPrntCnstFieldDualOutpObject>(_ => new testPrntCnstFieldDualOutpDecoder())
+      .AddDecoder<ItestAltCnstFieldDualOutpObject>(r => new testAltCnstFieldDualOutpDecoder(r));
+}

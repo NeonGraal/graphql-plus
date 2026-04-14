@@ -19,3 +19,11 @@ internal class CmptObjPrntOutpDecoder
 internal class CmptRefObjPrntOutpDecoder
 {
 }
+
+internal static class Cmpt_Schema_object_parent_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_object_parent_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptObjPrntOutpObject>(_ => new CmptObjPrntOutpDecoder())
+      .AddDecoder<ICmptRefObjPrntOutpObject>(_ => new CmptRefObjPrntOutpDecoder());
+}

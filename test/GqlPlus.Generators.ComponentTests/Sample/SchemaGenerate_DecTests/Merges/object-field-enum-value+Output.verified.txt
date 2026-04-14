@@ -15,3 +15,10 @@ internal class CmptObjFieldEnumValueOutpDecoder
 {
   public bool Field { get; set; }
 }
+
+internal static class Cmpt_Schema_object_field_enum_value_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_object_field_enum_value_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptObjFieldEnumValueOutpObject>(r => new CmptObjFieldEnumValueOutpDecoder(r));
+}

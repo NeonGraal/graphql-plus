@@ -14,3 +14,11 @@ internal class testObjAltInpDecoder
 internal class testObjAltInpTypeDecoder
 {
 }
+
+internal static class test_object_alt_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_object_alt_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestObjAltInpObject>(_ => new testObjAltInpDecoder())
+      .AddDecoder<ItestObjAltInpTypeObject>(_ => new testObjAltInpTypeDecoder());
+}

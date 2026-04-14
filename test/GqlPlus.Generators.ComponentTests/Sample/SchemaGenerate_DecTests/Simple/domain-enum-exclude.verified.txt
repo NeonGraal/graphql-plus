@@ -21,3 +21,11 @@ internal class CmptEnumDmnEnumExclDecoder
   public string enum_dmnEnumExcl { get; set; }
   public string dmnEnumExclValue { get; set; }
 }
+
+internal static class Cmpt_Schema_domain_enum_excludeDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_enum_excludeDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptDmnEnumExcl>(_ => new CmptDmnEnumExclDecoder())
+      .AddDecoder<CmptEnumDmnEnumExcl>(_ => new CmptEnumDmnEnumExclDecoder());
+}

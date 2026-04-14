@@ -23,3 +23,12 @@ internal class testInOutpDescrParamDecoder
 {
   public decimal Param { get; set; }
 }
+
+internal static class test_output_descr_paramDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_output_descr_paramDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestOutpDescrParamObject>(r => new testOutpDescrParamDecoder(r))
+      .AddDecoder<ItestFldOutpDescrParamObject>(_ => new testFldOutpDescrParamDecoder())
+      .AddDecoder<ItestInOutpDescrParamObject>(r => new testInOutpDescrParamDecoder(r));
+}

@@ -14,3 +14,10 @@ internal class CmptFieldOutpDecoder
 {
   public string Field { get; set; }
 }
+
+internal static class Cmpt_Schema_field_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptFieldOutpObject>(r => new CmptFieldOutpDecoder(r));
+}

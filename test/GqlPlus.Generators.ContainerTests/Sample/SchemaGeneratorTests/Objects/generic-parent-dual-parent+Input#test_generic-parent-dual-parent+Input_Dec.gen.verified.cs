@@ -19,3 +19,11 @@ internal class testAltGnrcPrntDualPrntInpDecoder
 {
   public decimal Alt { get; set; }
 }
+
+internal static class test_generic_parent_dual_parent_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_generic_parent_dual_parent_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestGnrcPrntDualPrntInpObject>(_ => new testGnrcPrntDualPrntInpDecoder())
+      .AddDecoder<ItestAltGnrcPrntDualPrntInpObject>(r => new testAltGnrcPrntDualPrntInpDecoder(r));
+}

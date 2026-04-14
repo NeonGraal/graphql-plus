@@ -15,3 +15,11 @@ internal class testEnumAltEnumOutpDecoder
 {
   public string altEnumOutp { get; set; }
 }
+
+internal static class test_alt_enum_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_alt_enum_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestAltEnumOutpObject>(_ => new testAltEnumOutpDecoder())
+      .AddDecoder<testEnumAltEnumOutp>(_ => new testEnumAltEnumOutpDecoder());
+}

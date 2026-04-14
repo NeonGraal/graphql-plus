@@ -22,3 +22,12 @@ internal class testPrntFieldEnumPrntOutpDecoder
 {
   public string prnt_fieldEnumPrntOutp { get; set; }
 }
+
+internal static class test_field_enum_parent_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_field_enum_parent_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestFieldEnumPrntOutpObject>(r => new testFieldEnumPrntOutpDecoder(r))
+      .AddDecoder<testEnumFieldEnumPrntOutp>(_ => new testEnumFieldEnumPrntOutpDecoder())
+      .AddDecoder<testPrntFieldEnumPrntOutp>(_ => new testPrntFieldEnumPrntOutpDecoder());
+}

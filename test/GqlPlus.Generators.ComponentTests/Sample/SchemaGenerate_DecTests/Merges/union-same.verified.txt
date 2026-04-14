@@ -15,3 +15,10 @@ internal class CmptUnionSameDecoder
 {
   public Boolean AsBoolean { get; set; }
 }
+
+internal static class Cmpt_Schema_union_sameDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_union_sameDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptUnionSame>(r => new CmptUnionSameDecoder(r));
+}

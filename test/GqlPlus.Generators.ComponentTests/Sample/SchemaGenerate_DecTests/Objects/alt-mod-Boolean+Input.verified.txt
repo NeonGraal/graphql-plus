@@ -19,3 +19,11 @@ internal class CmptAltAltModBoolInpDecoder
 {
   public decimal Alt { get; set; }
 }
+
+internal static class Cmpt_Schema_alt_mod_Boolean_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_alt_mod_Boolean_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptAltModBoolInpObject>(_ => new CmptAltModBoolInpDecoder())
+      .AddDecoder<ICmptAltAltModBoolInpObject>(r => new CmptAltAltModBoolInpDecoder(r));
+}

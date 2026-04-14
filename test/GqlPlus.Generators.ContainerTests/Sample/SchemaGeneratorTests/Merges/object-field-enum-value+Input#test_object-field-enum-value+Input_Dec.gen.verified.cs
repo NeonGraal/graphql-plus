@@ -11,3 +11,10 @@ internal class testObjFieldEnumValueInpDecoder
 {
   public bool Field { get; set; }
 }
+
+internal static class test_object_field_enum_value_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_object_field_enum_value_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestObjFieldEnumValueInpObject>(r => new testObjFieldEnumValueInpDecoder(r));
+}

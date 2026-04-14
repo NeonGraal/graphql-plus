@@ -30,3 +30,12 @@ internal class CmptAltCnstFieldObjOutpDecoder
 {
   public decimal Alt { get; set; }
 }
+
+internal static class Cmpt_Schema_constraint_field_obj_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_field_obj_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptCnstFieldObjOutpObject>(_ => new CmptCnstFieldObjOutpDecoder())
+      .AddDecoder<ICmptPrntCnstFieldObjOutpObject>(_ => new CmptPrntCnstFieldObjOutpDecoder())
+      .AddDecoder<ICmptAltCnstFieldObjOutpObject>(r => new CmptAltCnstFieldObjOutpDecoder(r));
+}

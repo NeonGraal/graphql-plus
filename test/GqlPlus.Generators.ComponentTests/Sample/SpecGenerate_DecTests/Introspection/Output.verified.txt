@@ -25,3 +25,11 @@ internal class Cmpt_OutputFieldTypeDecoder
 {
   public ICmpt_InputFieldType? Parameter { get; set; }
 }
+
+internal static class Cmpt_Spec_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmpt_OutputFieldObject>(_ => new Cmpt_OutputFieldDecoder())
+      .AddDecoder<ICmpt_OutputFieldTypeObject>(r => new Cmpt_OutputFieldTypeDecoder(r));
+}

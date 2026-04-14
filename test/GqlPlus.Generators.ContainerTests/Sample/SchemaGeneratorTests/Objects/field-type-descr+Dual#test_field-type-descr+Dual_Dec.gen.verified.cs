@@ -11,3 +11,10 @@ internal class testFieldTypeDescrDualDecoder
 {
   public decimal Field { get; set; }
 }
+
+internal static class test_field_type_descr_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_field_type_descr_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestFieldTypeDescrDualObject>(r => new testFieldTypeDescrDualDecoder(r));
+}

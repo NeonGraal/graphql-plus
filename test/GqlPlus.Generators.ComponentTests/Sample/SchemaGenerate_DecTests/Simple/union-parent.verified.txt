@@ -20,3 +20,11 @@ internal class CmptPrntUnionPrntDecoder
 {
   public Number AsNumber { get; set; }
 }
+
+internal static class Cmpt_Schema_union_parentDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_union_parentDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptUnionPrnt>(r => new CmptUnionPrntDecoder(r))
+      .AddDecoder<ICmptPrntUnionPrnt>(r => new CmptPrntUnionPrntDecoder(r));
+}

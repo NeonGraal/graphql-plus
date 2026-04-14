@@ -20,3 +20,11 @@ internal class CmptRefPrntFieldOutpDecoder
 {
   public decimal Parent { get; set; }
 }
+
+internal static class Cmpt_Schema_parent_field_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_parent_field_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptPrntFieldOutpObject>(r => new CmptPrntFieldOutpDecoder(r))
+      .AddDecoder<ICmptRefPrntFieldOutpObject>(r => new CmptRefPrntFieldOutpDecoder(r));
+}

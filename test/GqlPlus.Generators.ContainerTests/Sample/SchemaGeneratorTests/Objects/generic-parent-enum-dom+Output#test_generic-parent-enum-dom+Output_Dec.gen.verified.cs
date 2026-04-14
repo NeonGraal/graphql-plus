@@ -25,3 +25,12 @@ internal class testEnumGnrcPrntEnumDomOutpDecoder
 internal class testDomGnrcPrntEnumDomOutpDecoder
 {
 }
+
+internal static class test_generic_parent_enum_dom_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_generic_parent_enum_dom_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestGnrcPrntEnumDomOutpObject>(_ => new testGnrcPrntEnumDomOutpDecoder())
+      .AddDecoder<testEnumGnrcPrntEnumDomOutp>(_ => new testEnumGnrcPrntEnumDomOutpDecoder())
+      .AddDecoder<ItestDomGnrcPrntEnumDomOutp>(_ => new testDomGnrcPrntEnumDomOutpDecoder());
+}

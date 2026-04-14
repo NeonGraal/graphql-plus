@@ -15,3 +15,11 @@ internal class testRefPrntAltOutpDecoder
 {
   public decimal Parent { get; set; }
 }
+
+internal static class test_parent_alt_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_parent_alt_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestPrntAltOutpObject>(_ => new testPrntAltOutpDecoder())
+      .AddDecoder<ItestRefPrntAltOutpObject>(r => new testRefPrntAltOutpDecoder(r));
+}

@@ -14,3 +14,10 @@ namespace Components.Gqlp_Schema_object_Input;
 internal class CmptObjInpDecoder
 {
 }
+
+internal static class Cmpt_Schema_object_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_object_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptObjInpObject>(_ => new CmptObjInpDecoder());
+}

@@ -14,3 +14,10 @@ namespace Components.Gqlp_Schema_object_alias_Output;
 internal class CmptObjAliasOutpDecoder
 {
 }
+
+internal static class Cmpt_Schema_object_alias_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_object_alias_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptObjAliasOutpObject>(_ => new CmptObjAliasOutpDecoder());
+}

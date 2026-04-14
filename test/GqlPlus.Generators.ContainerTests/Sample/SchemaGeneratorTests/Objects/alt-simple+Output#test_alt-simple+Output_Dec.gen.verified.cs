@@ -10,3 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_simple_Output;
 internal class testAltSmplOutpDecoder
 {
 }
+
+internal static class test_alt_simple_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_alt_simple_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestAltSmplOutpObject>(_ => new testAltSmplOutpDecoder());
+}

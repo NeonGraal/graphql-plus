@@ -20,3 +20,11 @@ internal class CmptEnumFieldValueDescrOutpDecoder
 {
   public string fieldValueDescrOutp { get; set; }
 }
+
+internal static class Cmpt_Schema_field_value_descr_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_value_descr_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptFieldValueDescrOutpObject>(r => new CmptFieldValueDescrOutpDecoder(r))
+      .AddDecoder<CmptEnumFieldValueDescrOutp>(_ => new CmptEnumFieldValueDescrOutpDecoder());
+}

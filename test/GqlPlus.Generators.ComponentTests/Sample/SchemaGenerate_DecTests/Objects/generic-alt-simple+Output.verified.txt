@@ -18,3 +18,10 @@ internal class CmptGnrcAltSmplOutpDecoder
 internal class CmptRefGnrcAltSmplOutpDecoder<TRef>
 {
 }
+
+internal static class Cmpt_Schema_generic_alt_simple_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_alt_simple_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptGnrcAltSmplOutpObject>(_ => new CmptGnrcAltSmplOutpDecoder());
+}

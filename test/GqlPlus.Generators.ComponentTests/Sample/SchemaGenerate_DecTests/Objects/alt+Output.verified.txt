@@ -19,3 +19,11 @@ internal class CmptAltAltOutpDecoder
 {
   public decimal Alt { get; set; }
 }
+
+internal static class Cmpt_Schema_alt_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_alt_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptAltOutpObject>(_ => new CmptAltOutpDecoder())
+      .AddDecoder<ICmptAltAltOutpObject>(r => new CmptAltAltOutpDecoder(r));
+}

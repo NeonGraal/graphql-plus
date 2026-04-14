@@ -266,6 +266,22 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
   protected override void DecoderHeader(IAstObject<TObjField> ast, GqlpGeneratorContext context)
     => context.Write("internal class " + context.TypeName(ast, "") + "Decoder" + TypeParamsString(ast));
 
+  protected void GenerateObjectDecoder(IAstObject<TObjField> ast, GqlpGeneratorContext context)
+  {
+    GenerateBlock(ast, context, DecoderHeader, TypeMembers, ClassMember);
+
+    if (ast.TypeParams.Any()) {
+      return;
+    }
+
+    string typeName = context.TypeName(ast, "");
+    string decoderClass = typeName + "Decoder";
+    string interfaceType = context.TypeName(ast, "I") + "Object";
+    bool hasFields = TypeMembers(ast, context).Any();
+    string factory = hasFields ? $"r => new {decoderClass}(r)" : $"_ => new {decoderClass}()";
+    context.RegisterDecoder($".AddDecoder<{interfaceType}>({factory})");
+  }
+
   protected override void EncoderHeader(IAstObject<TObjField> ast, GqlpGeneratorContext context)
     => context.Write("internal class " + context.TypeName(ast, "") + "Encoder" + TypeParamsString(ast));
 

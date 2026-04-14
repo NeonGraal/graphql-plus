@@ -57,3 +57,17 @@ internal class test_SettingDecoder
 {
   public GqlpValue Value { get; set; }
 }
+
+internal static class test__GlobalDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest__GlobalDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<Itest_AndTypeObject>(r => new test_AndTypeDecoder(r))
+      .AddDecoder<Itest_CategoriesObject>(r => new test_CategoriesDecoder(r))
+      .AddDecoder<Itest_CategoryObject>(r => new test_CategoryDecoder(r))
+      .AddDecoder<test_Resolution>(_ => new test_ResolutionDecoder())
+      .AddDecoder<Itest_DirectivesObject>(r => new test_DirectivesDecoder(r))
+      .AddDecoder<Itest_DirectiveObject>(r => new test_DirectiveDecoder(r))
+      .AddDecoder<test_Location>(_ => new test_LocationDecoder())
+      .AddDecoder<Itest_SettingObject>(r => new test_SettingDecoder(r));
+}

@@ -73,3 +73,26 @@ internal class CmptInDrctParamListDecoder
 internal class CmptInDrctParamOptDecoder
 {
 }
+
+internal static class Cmpt_Schema_GlobalsDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_GlobalsDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptCtgrDscrsObject>(_ => new CmptCtgrDscrsDecoder())
+      .AddDecoder<ICmptCtgrOutpObject>(_ => new CmptCtgrOutpDecoder())
+      .AddDecoder<ICmptCtgrOutpDescrObject>(_ => new CmptCtgrOutpDescrDecoder())
+      .AddDecoder<ICmptCtgrOutpDictObject>(_ => new CmptCtgrOutpDictDecoder())
+      .AddDecoder<ICmptCtgrOutpListObject>(_ => new CmptCtgrOutpListDecoder())
+      .AddDecoder<ICmptCtgrOutpOptlObject>(_ => new CmptCtgrOutpOptlDecoder())
+      .AddDecoder<ICmptDescrObject>(_ => new CmptDescrDecoder())
+      .AddDecoder<ICmptDescrBcksObject>(_ => new CmptDescrBcksDecoder())
+      .AddDecoder<ICmptDescrBtwnObject>(_ => new CmptDescrBtwnDecoder())
+      .AddDecoder<ICmptDescrCmplObject>(_ => new CmptDescrCmplDecoder())
+      .AddDecoder<ICmptDescrDblObject>(_ => new CmptDescrDblDecoder())
+      .AddDecoder<ICmptDescrSnglObject>(_ => new CmptDescrSnglDecoder())
+      .AddDecoder<ICmptDscrsObject>(_ => new CmptDscrsDecoder())
+      .AddDecoder<ICmptInDrctParamDictObject>(_ => new CmptInDrctParamDictDecoder())
+      .AddDecoder<ICmptInDrctParamInObject>(_ => new CmptInDrctParamInDecoder())
+      .AddDecoder<ICmptInDrctParamListObject>(_ => new CmptInDrctParamListDecoder())
+      .AddDecoder<ICmptInDrctParamOptObject>(_ => new CmptInDrctParamOptDecoder());
+}

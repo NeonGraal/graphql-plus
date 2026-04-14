@@ -14,3 +14,11 @@ internal class testObjAltDualDecoder
 internal class testObjAltDualTypeDecoder
 {
 }
+
+internal static class test_object_alt_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_object_alt_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestObjAltDualObject>(_ => new testObjAltDualDecoder())
+      .AddDecoder<ItestObjAltDualTypeObject>(_ => new testObjAltDualTypeDecoder());
+}

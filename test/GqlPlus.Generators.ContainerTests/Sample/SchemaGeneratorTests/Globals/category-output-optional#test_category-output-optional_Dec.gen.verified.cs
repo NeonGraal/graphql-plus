@@ -10,3 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_category_output_optional;
 internal class testCtgrOutpOptlDecoder
 {
 }
+
+internal static class test_category_output_optionalDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_category_output_optionalDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestCtgrOutpOptlObject>(_ => new testCtgrOutpOptlDecoder());
+}

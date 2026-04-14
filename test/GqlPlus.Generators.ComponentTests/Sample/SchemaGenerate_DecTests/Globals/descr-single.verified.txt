@@ -14,3 +14,10 @@ namespace Components.Gqlp_Schema_descr_single;
 internal class CmptDescrSnglDecoder
 {
 }
+
+internal static class Cmpt_Schema_descr_singleDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_descr_singleDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptDescrSnglObject>(_ => new CmptDescrSnglDecoder());
+}

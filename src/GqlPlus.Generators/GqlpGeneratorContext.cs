@@ -36,6 +36,12 @@ internal sealed class GqlpGeneratorContext
   public string Safe(string unsafeName)
     => _unsafeRegex.Replace(unsafeName, "_");
 
+  private readonly List<string> _decoderRegistrations = [];
+  public IReadOnlyList<string> DecoderRegistrations => _decoderRegistrations;
+
+  public void RegisterDecoder(string addDecoderLine)
+    => _decoderRegistrations.Add(addDecoderLine);
+
   public void WritePrefixLine(string text)
     => (_prefixWritten ? _builder : _prefix).AppendLine(text);
 

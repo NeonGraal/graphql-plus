@@ -121,3 +121,26 @@ internal class Cmpt_SimpleDecoder
   public _Domain As_Domain { get; set; }
   public _Union As_Union { get; set; }
 }
+
+internal static class Cmpt_Spec_DefinitionDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_DefinitionDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<bool>(_ => new boolDecoder())
+      .AddDecoder<GqlpNull>(_ => new GqlpNullDecoder())
+      .AddDecoder<GqlpUnit>(_ => new GqlpUnitDecoder())
+      .AddDecoder<void>(_ => new voidDecoder())
+      .AddDecoder<decimal>(_ => new decimalDecoder())
+      .AddDecoder<string>(_ => new stringDecoder())
+      .AddDecoder<ICmpt_Basic>(r => new Cmpt_BasicDecoder(r))
+      .AddDecoder<ICmpt_Internal>(r => new Cmpt_InternalDecoder(r))
+      .AddDecoder<ICmpt_Key>(r => new Cmpt_KeyDecoder(r))
+      .AddDecoder<ICmpt_ObjectObject>(_ => new Cmpt_ObjectDecoder())
+      .AddDecoder<ICmpt_Domain>(_ => new Cmpt_DomainDecoder())
+      .AddDecoder<ICmpt_DualObject>(_ => new Cmpt_DualDecoder())
+      .AddDecoder<ICmpt_Enum>(_ => new Cmpt_EnumDecoder())
+      .AddDecoder<ICmpt_InputObject>(_ => new Cmpt_InputDecoder())
+      .AddDecoder<ICmpt_OutputObject>(_ => new Cmpt_OutputDecoder())
+      .AddDecoder<ICmpt_Union>(_ => new Cmpt_UnionDecoder())
+      .AddDecoder<ICmpt_Simple>(r => new Cmpt_SimpleDecoder(r));
+}

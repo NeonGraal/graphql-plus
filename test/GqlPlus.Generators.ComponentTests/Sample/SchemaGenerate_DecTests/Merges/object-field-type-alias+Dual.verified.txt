@@ -15,3 +15,10 @@ internal class CmptObjFieldTypeAliasDualDecoder
 {
   public string Field { get; set; }
 }
+
+internal static class Cmpt_Schema_object_field_type_alias_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_object_field_type_alias_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptObjFieldTypeAliasDualObject>(r => new CmptObjFieldTypeAliasDualDecoder(r));
+}

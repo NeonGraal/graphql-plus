@@ -16,3 +16,10 @@ internal class CmptUnionDiffDecoder
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }
 }
+
+internal static class Cmpt_Schema_union_diffDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_union_diffDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptUnionDiff>(r => new CmptUnionDiffDecoder(r));
+}

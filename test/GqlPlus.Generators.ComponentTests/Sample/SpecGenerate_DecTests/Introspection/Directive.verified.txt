@@ -44,3 +44,12 @@ internal class Cmpt_LocationDecoder
   public string Spread { get; set; }
   public string Fragment { get; set; }
 }
+
+internal static class Cmpt_Spec_DirectiveDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_DirectiveDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmpt_DirectivesObject>(r => new Cmpt_DirectivesDecoder(r))
+      .AddDecoder<ICmpt_DirectiveObject>(r => new Cmpt_DirectiveDecoder(r))
+      .AddDecoder<Cmpt_Location>(_ => new Cmpt_LocationDecoder());
+}

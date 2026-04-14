@@ -19,3 +19,11 @@ internal class CmptObjAltOutpDecoder
 internal class CmptObjAltOutpTypeDecoder
 {
 }
+
+internal static class Cmpt_Schema_object_alt_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_object_alt_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptObjAltOutpObject>(_ => new CmptObjAltOutpDecoder())
+      .AddDecoder<ICmptObjAltOutpTypeObject>(_ => new CmptObjAltOutpTypeDecoder());
+}

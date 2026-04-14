@@ -14,3 +14,10 @@ internal class testGnrcAltSmplOutpDecoder
 internal class testRefGnrcAltSmplOutpDecoder<TRef>
 {
 }
+
+internal static class test_generic_alt_simple_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_generic_alt_simple_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestGnrcAltSmplOutpObject>(_ => new testGnrcAltSmplOutpDecoder());
+}

@@ -10,3 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_category_mod;
 internal class testCtgrModDecoder
 {
 }
+
+internal static class test_category_modDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_category_modDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestCtgrModObject>(_ => new testCtgrModDecoder());
+}

@@ -11,3 +11,10 @@ internal class testFieldOutpDecoder
 {
   public string Field { get; set; }
 }
+
+internal static class test_field_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_field_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestFieldOutpObject>(r => new testFieldOutpDecoder(r));
+}

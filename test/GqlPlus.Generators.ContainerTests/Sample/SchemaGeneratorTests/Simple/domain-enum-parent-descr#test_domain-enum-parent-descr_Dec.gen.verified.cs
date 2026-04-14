@@ -20,3 +20,12 @@ internal class testEnumDmnEnumPrntDescrDecoder
   public string enum_dmnEnumPrntDescr { get; set; }
   public string prnt_dmnEnumPrntDescr { get; set; }
 }
+
+internal static class test_domain_enum_parent_descrDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_domain_enum_parent_descrDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestDmnEnumPrntDescr>(_ => new testDmnEnumPrntDescrDecoder())
+      .AddDecoder<ItestPrntDmnEnumPrntDescr>(_ => new testPrntDmnEnumPrntDescrDecoder())
+      .AddDecoder<testEnumDmnEnumPrntDescr>(_ => new testEnumDmnEnumPrntDescrDecoder());
+}

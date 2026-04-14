@@ -15,3 +15,10 @@ namespace Components.Gqlp_Spec_Dual;
 internal class Cmpt_DualFieldDecoder
 {
 }
+
+internal static class Cmpt_Spec_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmpt_DualFieldObject>(_ => new Cmpt_DualFieldDecoder());
+}

@@ -11,3 +11,10 @@ internal class test_SettingDecoder
 {
   public GqlpValue Value { get; set; }
 }
+
+internal static class test_OptionDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_OptionDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<Itest_SettingObject>(r => new test_SettingDecoder(r));
+}

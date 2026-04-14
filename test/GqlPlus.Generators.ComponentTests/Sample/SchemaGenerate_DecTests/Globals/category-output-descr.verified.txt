@@ -14,3 +14,10 @@ namespace Components.Gqlp_Schema_category_output_descr;
 internal class CmptCtgrOutpDescrDecoder
 {
 }
+
+internal static class Cmpt_Schema_category_output_descrDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_category_output_descrDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptCtgrOutpDescrObject>(_ => new CmptCtgrOutpDescrDecoder());
+}

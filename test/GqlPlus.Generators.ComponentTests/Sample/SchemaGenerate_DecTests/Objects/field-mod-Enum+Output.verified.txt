@@ -20,3 +20,11 @@ internal class CmptEnumFieldModEnumOutpDecoder
 {
   public string value { get; set; }
 }
+
+internal static class Cmpt_Schema_field_mod_Enum_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_mod_Enum_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptFieldModEnumOutpObject>(r => new CmptFieldModEnumOutpDecoder(r))
+      .AddDecoder<CmptEnumFieldModEnumOutp>(_ => new CmptEnumFieldModEnumOutpDecoder());
+}

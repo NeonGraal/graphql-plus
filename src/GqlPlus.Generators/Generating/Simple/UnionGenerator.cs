@@ -52,7 +52,15 @@ internal sealed class UnionDecoderGenerator
   : UnionGeneratorBase
 {
   protected override void Generate(IAstUnion ast, GqlpGeneratorContext context)
-    => GenerateBlock(ast, context, DecoderHeader, TypeMembers, ClassMember);
+  {
+    GenerateBlock(ast, context, DecoderHeader, TypeMembers, ClassMember);
+
+    string typeName = context.TypeName(ast, "");
+    string interfaceType = context.TypeName(ast, "I");
+    bool hasMembers = TypeMembers(ast, context).Any();
+    string factory = hasMembers ? $"r => new {typeName}Decoder(r)" : $"_ => new {typeName}Decoder()";
+    context.RegisterDecoder($".AddDecoder<{interfaceType}>({factory})");
+  }
 }
 
 internal sealed class UnionEncoderGenerator

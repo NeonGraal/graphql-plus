@@ -33,3 +33,13 @@ internal class CmptOutpFieldParam2Decoder
 internal class CmptFldOutpFieldParamDecoder
 {
 }
+
+internal static class Cmpt_Schema_output_field_paramDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_output_field_paramDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptOutpFieldParamObject>(r => new CmptOutpFieldParamDecoder(r))
+      .AddDecoder<ICmptOutpFieldParam1Object>(_ => new CmptOutpFieldParam1Decoder())
+      .AddDecoder<ICmptOutpFieldParam2Object>(_ => new CmptOutpFieldParam2Decoder())
+      .AddDecoder<ICmptFldOutpFieldParamObject>(_ => new CmptFldOutpFieldParamDecoder());
+}

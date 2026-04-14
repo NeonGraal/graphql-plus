@@ -16,3 +16,11 @@ internal class testRefPrntFieldOutpDecoder
 {
   public decimal Parent { get; set; }
 }
+
+internal static class test_parent_field_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_parent_field_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestPrntFieldOutpObject>(r => new testPrntFieldOutpDecoder(r))
+      .AddDecoder<ItestRefPrntFieldOutpObject>(r => new testRefPrntFieldOutpDecoder(r));
+}

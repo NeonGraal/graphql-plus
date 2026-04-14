@@ -74,3 +74,18 @@ internal class test_ObjFieldEnumDecoder
 internal class test_ForParamDecoder<TType>
 {
 }
+
+internal static class test_BaseDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_BaseDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<Itest_ObjectKind>(_ => new test_ObjectKindDecoder())
+      .AddDecoder<Itest_ObjTypeParamObject>(r => new test_ObjTypeParamDecoder(r))
+      .AddDecoder<Itest_ObjBaseObject>(r => new test_ObjBaseDecoder(r))
+      .AddDecoder<Itest_ObjTypeArgObject>(r => new test_ObjTypeArgDecoder(r))
+      .AddDecoder<Itest_TypeParamObject>(r => new test_TypeParamDecoder(r))
+      .AddDecoder<Itest_ObjAlternateObject>(r => new test_ObjAlternateDecoder(r))
+      .AddDecoder<Itest_ObjAlternateEnumObject>(r => new test_ObjAlternateEnumDecoder(r))
+      .AddDecoder<Itest_ObjFieldTypeObject>(r => new test_ObjFieldTypeDecoder(r))
+      .AddDecoder<Itest_ObjFieldEnumObject>(r => new test_ObjFieldEnumDecoder(r));
+}

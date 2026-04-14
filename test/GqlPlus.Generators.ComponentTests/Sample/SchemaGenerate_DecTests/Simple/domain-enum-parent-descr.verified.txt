@@ -25,3 +25,12 @@ internal class CmptEnumDmnEnumPrntDescrDecoder
   public string enum_dmnEnumPrntDescr { get; set; }
   public string prnt_dmnEnumPrntDescr { get; set; }
 }
+
+internal static class Cmpt_Schema_domain_enum_parent_descrDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_enum_parent_descrDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptDmnEnumPrntDescr>(_ => new CmptDmnEnumPrntDescrDecoder())
+      .AddDecoder<ICmptPrntDmnEnumPrntDescr>(_ => new CmptPrntDmnEnumPrntDescrDecoder())
+      .AddDecoder<CmptEnumDmnEnumPrntDescr>(_ => new CmptEnumDmnEnumPrntDescrDecoder());
+}

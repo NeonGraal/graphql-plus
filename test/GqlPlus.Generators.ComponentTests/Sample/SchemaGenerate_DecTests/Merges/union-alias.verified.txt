@@ -16,3 +16,10 @@ internal class CmptUnionAliasDecoder
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }
 }
+
+internal static class Cmpt_Schema_union_aliasDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_union_aliasDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptUnionAlias>(r => new CmptUnionAliasDecoder(r));
+}

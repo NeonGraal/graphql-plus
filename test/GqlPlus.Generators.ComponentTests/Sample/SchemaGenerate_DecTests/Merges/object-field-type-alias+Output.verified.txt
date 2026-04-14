@@ -15,3 +15,10 @@ internal class CmptObjFieldTypeAliasOutpDecoder
 {
   public string Field { get; set; }
 }
+
+internal static class Cmpt_Schema_object_field_type_alias_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_object_field_type_alias_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptObjFieldTypeAliasOutpObject>(r => new CmptObjFieldTypeAliasOutpDecoder(r));
+}

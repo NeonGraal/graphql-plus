@@ -32,3 +32,12 @@ internal class CmptParentGnrcPrntEnumChildOutpDecoder
 {
   public string gnrcPrntEnumChildOutpParent { get; set; }
 }
+
+internal static class Cmpt_Schema_generic_parent_enum_child_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_parent_enum_child_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptGnrcPrntEnumChildOutpObject>(_ => new CmptGnrcPrntEnumChildOutpDecoder())
+      .AddDecoder<CmptEnumGnrcPrntEnumChildOutp>(_ => new CmptEnumGnrcPrntEnumChildOutpDecoder())
+      .AddDecoder<CmptParentGnrcPrntEnumChildOutp>(_ => new CmptParentGnrcPrntEnumChildOutpDecoder());
+}

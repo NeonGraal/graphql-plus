@@ -20,3 +20,11 @@ internal class CmptFldFieldObjInpDecoder
 {
   public decimal Field { get; set; }
 }
+
+internal static class Cmpt_Schema_field_object_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_object_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptFieldObjInpObject>(r => new CmptFieldObjInpDecoder(r))
+      .AddDecoder<ICmptFldFieldObjInpObject>(r => new CmptFldFieldObjInpDecoder(r));
+}

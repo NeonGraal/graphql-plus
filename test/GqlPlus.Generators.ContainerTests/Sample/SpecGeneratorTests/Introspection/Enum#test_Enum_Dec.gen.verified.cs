@@ -16,3 +16,11 @@ internal class test_EnumValueDecoder
 {
   public Itest_Name Label { get; set; }
 }
+
+internal static class test_EnumDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_EnumDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<Itest_EnumLabelObject>(r => new test_EnumLabelDecoder(r))
+      .AddDecoder<Itest_EnumValueObject>(r => new test_EnumValueDecoder(r));
+}

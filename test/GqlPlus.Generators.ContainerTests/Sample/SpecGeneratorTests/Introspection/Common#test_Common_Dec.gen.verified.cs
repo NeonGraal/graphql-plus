@@ -56,3 +56,13 @@ internal class test_TypeRefDecoder<TTypeKind>
 internal class test_TypeSimpleDecoder
 {
 }
+
+internal static class test_CommonDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_CommonDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<Itest_TypeObject>(_ => new test_TypeDecoder())
+      .AddDecoder<test_SimpleKind>(_ => new test_SimpleKindDecoder())
+      .AddDecoder<test_TypeKind>(_ => new test_TypeKindDecoder())
+      .AddDecoder<Itest_TypeSimpleObject>(_ => new test_TypeSimpleDecoder());
+}

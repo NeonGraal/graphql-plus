@@ -14,3 +14,10 @@ namespace Components.Gqlp_Schema_object_alt_enum_Output;
 internal class CmptObjAltEnumOutpDecoder
 {
 }
+
+internal static class Cmpt_Schema_object_alt_enum_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_object_alt_enum_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptObjAltEnumOutpObject>(_ => new CmptObjAltEnumOutpDecoder());
+}

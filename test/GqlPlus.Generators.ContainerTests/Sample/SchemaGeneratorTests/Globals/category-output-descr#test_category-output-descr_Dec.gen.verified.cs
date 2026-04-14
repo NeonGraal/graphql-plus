@@ -10,3 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_category_output_descr;
 internal class testCtgrOutpDescrDecoder
 {
 }
+
+internal static class test_category_output_descrDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_category_output_descrDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestCtgrOutpDescrObject>(_ => new testCtgrOutpDescrDecoder());
+}

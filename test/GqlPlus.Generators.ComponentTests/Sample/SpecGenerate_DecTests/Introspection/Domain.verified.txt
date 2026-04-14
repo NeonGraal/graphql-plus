@@ -153,3 +153,20 @@ internal class Cmpt_DomainRegexDecoder
 internal class Cmpt_DomainItemRegexDecoder
 {
 }
+
+internal static class Cmpt_Spec_DomainDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_DomainDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<Cmpt_DomainKind>(_ => new Cmpt_DomainKindDecoder())
+      .AddDecoder<ICmpt_BaseDomainItemObject>(r => new Cmpt_BaseDomainItemDecoder(r))
+      .AddDecoder<ICmpt_BasicValueObject>(_ => new Cmpt_BasicValueDecoder())
+      .AddDecoder<ICmpt_DomainTrueFalseObject>(r => new Cmpt_DomainTrueFalseDecoder(r))
+      .AddDecoder<ICmpt_DomainItemTrueFalseObject>(_ => new Cmpt_DomainItemTrueFalseDecoder())
+      .AddDecoder<ICmpt_DomainLabelObject>(r => new Cmpt_DomainLabelDecoder(r))
+      .AddDecoder<ICmpt_DomainItemLabelObject>(_ => new Cmpt_DomainItemLabelDecoder())
+      .AddDecoder<ICmpt_DomainRangeObject>(r => new Cmpt_DomainRangeDecoder(r))
+      .AddDecoder<ICmpt_DomainItemRangeObject>(_ => new Cmpt_DomainItemRangeDecoder())
+      .AddDecoder<ICmpt_DomainRegexObject>(r => new Cmpt_DomainRegexDecoder(r))
+      .AddDecoder<ICmpt_DomainItemRegexObject>(_ => new Cmpt_DomainItemRegexDecoder());
+}

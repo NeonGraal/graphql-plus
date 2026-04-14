@@ -14,3 +14,10 @@ namespace Components.Gqlp_Schema_domain_boolean_diff;
 internal class CmptDmnBoolDiffDecoder
 {
 }
+
+internal static class Cmpt_Schema_domain_boolean_diffDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_boolean_diffDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptDmnBoolDiff>(_ => new CmptDmnBoolDiffDecoder());
+}

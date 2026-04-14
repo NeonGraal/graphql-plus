@@ -19,3 +19,11 @@ internal class testFieldGnrcPrntStrDomOutpDecoder<TRef>
 internal class testDomGnrcPrntStrDomOutpDecoder
 {
 }
+
+internal static class test_generic_parent_string_dom_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_generic_parent_string_dom_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestGnrcPrntStrDomOutpObject>(_ => new testGnrcPrntStrDomOutpDecoder())
+      .AddDecoder<ItestDomGnrcPrntStrDomOutp>(_ => new testDomGnrcPrntStrDomOutpDecoder());
+}

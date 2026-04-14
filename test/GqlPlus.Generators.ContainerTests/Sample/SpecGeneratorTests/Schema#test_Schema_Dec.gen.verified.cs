@@ -46,3 +46,11 @@ internal class test_KeyDecoder
 internal class test_AnyDecoder
 {
 }
+
+internal static class test_SchemaDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_SchemaDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<Itest_Key>(_ => new test_KeyDecoder())
+      .AddDecoder<Itest_AnyObject>(_ => new test_AnyDecoder());
+}

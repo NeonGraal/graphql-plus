@@ -41,3 +41,15 @@ internal class testAllDecoder
   public ItestField? Items()
     => null;
 }
+
+internal static class test_allDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_allDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestGuid>(_ => new testGuidDecoder())
+      .AddDecoder<testOne>(_ => new testOneDecoder())
+      .AddDecoder<ItestMany>(r => new testManyDecoder(r))
+      .AddDecoder<ItestFieldObject>(r => new testFieldDecoder(r))
+      .AddDecoder<ItestParamObject>(r => new testParamDecoder(r))
+      .AddDecoder<ItestAllObject>(r => new testAllDecoder(r));
+}

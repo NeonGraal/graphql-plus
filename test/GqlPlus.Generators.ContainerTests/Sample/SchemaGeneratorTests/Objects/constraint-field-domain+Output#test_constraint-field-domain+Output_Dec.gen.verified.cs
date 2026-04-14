@@ -19,3 +19,11 @@ internal class testRefCnstFieldDmnOutpDecoder<TRef>
 internal class testDomCnstFieldDmnOutpDecoder
 {
 }
+
+internal static class test_constraint_field_domain_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_constraint_field_domain_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestCnstFieldDmnOutpObject>(_ => new testCnstFieldDmnOutpDecoder())
+      .AddDecoder<ItestDomCnstFieldDmnOutp>(_ => new testDomCnstFieldDmnOutpDecoder());
+}

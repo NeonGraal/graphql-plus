@@ -36,6 +36,32 @@ internal sealed class SchemaGenerator(
           => typeGenerator.ForType(type);
       }
     }
+
+    if (generatorType == GqlpGeneratorType.Dec && context.DecoderRegistrations.Count > 0) {
+      GenerateDecoderRegistration(context);
+    }
+  }
+
+  private static void GenerateDecoderRegistration(GqlpGeneratorContext context)
+  {
+    string typePrefix = context.ModelOptions.TypePrefix;
+    string safeFile = context.SafeFile;
+    string className = $"{typePrefix}_{safeFile}Decoders";
+    string methodName = $"Add{typePrefix}_{safeFile}Decoders";
+
+    context.Write("");
+    context.Write($"internal static class {className}");
+    context.Write("{");
+    context.Write($"  internal static IDecoderRepositoryBuilder {methodName}(this IDecoderRepositoryBuilder builder)");
+    context.Write("    => builder");
+
+    IReadOnlyList<string> registrations = context.DecoderRegistrations;
+    for (int i = 0; i < registrations.Count; i++) {
+      string separator = i < registrations.Count - 1 ? "" : ";";
+      context.Write($"      {registrations[i]}{separator}");
+    }
+
+    context.Write("}");
   }
 
   private static TAst[] Typed<TAst>(IAstSchema ast)

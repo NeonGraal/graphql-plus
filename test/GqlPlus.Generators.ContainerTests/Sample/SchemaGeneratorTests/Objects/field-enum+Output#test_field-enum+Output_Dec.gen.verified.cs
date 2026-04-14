@@ -16,3 +16,11 @@ internal class testEnumFieldEnumOutpDecoder
 {
   public string fieldEnumOutp { get; set; }
 }
+
+internal static class test_field_enum_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_field_enum_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestFieldEnumOutpObject>(r => new testFieldEnumOutpDecoder(r))
+      .AddDecoder<testEnumFieldEnumOutp>(_ => new testEnumFieldEnumOutpDecoder());
+}

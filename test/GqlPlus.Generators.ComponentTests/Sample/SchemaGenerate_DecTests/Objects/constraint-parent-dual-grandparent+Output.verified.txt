@@ -14,14 +14,6 @@ output AltCnstPrntDualGrndOutp { :PrntCnstPrntDualGrndOutp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Output;
 
-internal class CmptCnstPrntDualGrndOutpDecoder
-{
-}
-
-internal class CmptRefCnstPrntDualGrndOutpDecoder<TRef>
-{
-}
-
 internal class CmptGrndCnstPrntDualGrndOutpDecoder
 {
 }
@@ -30,7 +22,10 @@ internal class CmptPrntCnstPrntDualGrndOutpDecoder
 {
 }
 
-internal class CmptAltCnstPrntDualGrndOutpDecoder
+internal static class Cmpt_Schema_constraint_parent_dual_grandparent_OutputDecoders
 {
-  public decimal Alt { get; set; }
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_parent_dual_grandparent_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptGrndCnstPrntDualGrndOutpObject>(_ => new CmptGrndCnstPrntDualGrndOutpDecoder())
+      .AddDecoder<ICmptPrntCnstPrntDualGrndOutpObject>(_ => new CmptPrntCnstPrntDualGrndOutpDecoder());
 }

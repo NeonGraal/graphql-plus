@@ -19,3 +19,11 @@ internal class testRefCnstFieldDmnDualDecoder<TRef>
 internal class testDomCnstFieldDmnDualDecoder
 {
 }
+
+internal static class test_constraint_field_domain_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_constraint_field_domain_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestCnstFieldDmnDualObject>(_ => new testCnstFieldDmnDualDecoder())
+      .AddDecoder<ItestDomCnstFieldDmnDual>(_ => new testDomCnstFieldDmnDualDecoder());
+}

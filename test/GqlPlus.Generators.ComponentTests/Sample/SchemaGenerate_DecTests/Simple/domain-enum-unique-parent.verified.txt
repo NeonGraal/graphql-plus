@@ -39,3 +39,13 @@ internal class CmptDupDmnEnumUnqPrntDecoder
   public string dup_dmnEnumUnqPrnt { get; set; }
   public string dmnEnumUnqPrntDup { get; set; }
 }
+
+internal static class Cmpt_Schema_domain_enum_unique_parentDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_enum_unique_parentDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptDmnEnumUnqPrnt>(_ => new CmptDmnEnumUnqPrntDecoder())
+      .AddDecoder<CmptEnumDmnEnumUnqPrnt>(_ => new CmptEnumDmnEnumUnqPrntDecoder())
+      .AddDecoder<CmptPrntDmnEnumUnqPrnt>(_ => new CmptPrntDmnEnumUnqPrntDecoder())
+      .AddDecoder<CmptDupDmnEnumUnqPrnt>(_ => new CmptDupDmnEnumUnqPrntDecoder());
+}

@@ -288,3 +288,23 @@ internal class Cmpt_OutputFieldTypeEncoder(
     => _objFieldType.Encode(input)
       .AddEncoded("parameter", input.Parameter, _inputFieldType);
 }
+
+internal static class Cmpt_Spec_ObjectEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Spec_ObjectEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmpt_ObjectKind>(_ => new Cmpt_ObjectKindEncoder())
+      .AddEncoder<ICmpt_ObjTypeParamObject>(r => new Cmpt_ObjTypeParamEncoder(r))
+      .AddEncoder<ICmpt_ObjBaseObject>(r => new Cmpt_ObjBaseEncoder(r))
+      .AddEncoder<ICmpt_ObjTypeArgObject>(r => new Cmpt_ObjTypeArgEncoder(r))
+      .AddEncoder<ICmpt_TypeParamObject>(r => new Cmpt_TypeParamEncoder(r))
+      .AddEncoder<ICmpt_ObjAlternateObject>(r => new Cmpt_ObjAlternateEncoder(r))
+      .AddEncoder<ICmpt_ObjAlternateEnumObject>(r => new Cmpt_ObjAlternateEnumEncoder(r))
+      .AddEncoder<ICmpt_ObjFieldTypeObject>(r => new Cmpt_ObjFieldTypeEncoder(r))
+      .AddEncoder<ICmpt_ObjFieldEnumObject>(r => new Cmpt_ObjFieldEnumEncoder(r))
+      .AddEncoder<ICmpt_DualFieldObject>(r => new Cmpt_DualFieldEncoder(r))
+      .AddEncoder<ICmpt_InputFieldObject>(r => new Cmpt_InputFieldEncoder(r))
+      .AddEncoder<ICmpt_InputFieldTypeObject>(r => new Cmpt_InputFieldTypeEncoder(r))
+      .AddEncoder<ICmpt_OutputFieldObject>(r => new Cmpt_OutputFieldEncoder(r))
+      .AddEncoder<ICmpt_OutputFieldTypeObject>(r => new Cmpt_OutputFieldTypeEncoder(r));
+}

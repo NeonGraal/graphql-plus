@@ -7,30 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_dual_Input;
 
-internal class testCnstAltDualInpEncoder : IEncoder<ItestCnstAltDualInpObject>
-{
-  public Structured Encode(ItestCnstAltDualInpObject input)
-    => Structured.Empty();
-}
-
-internal class testRefCnstAltDualInpEncoder<TRef> : IEncoder<ItestRefCnstAltDualInpObject<TRef>>
-{
-  public Structured Encode(ItestRefCnstAltDualInpObject<TRef> input)
-    => Structured.Empty();
-}
-
 internal class testPrntCnstAltDualInpEncoder : IEncoder<ItestPrntCnstAltDualInpObject>
 {
   public Structured Encode(ItestPrntCnstAltDualInpObject input)
     => Structured.Empty();
 }
 
-internal class testAltCnstAltDualInpEncoder(
-  IEncoderRepository encoders
-) : IEncoder<ItestAltCnstAltDualInpObject>
+internal static class test_constraint_alt_dual_InputEncoders
 {
-  private readonly IEncoder<ItestPrntCnstAltDualInpObject> _itestPrntCnstAltDualInp = encoders.EncoderFor<ItestPrntCnstAltDualInpObject>();
-  public Structured Encode(ItestAltCnstAltDualInpObject input)
-    => _itestPrntCnstAltDualInp.Encode(input)
-      .Add("alt", input.Alt);
+  internal static IEncoderRepositoryBuilder Addtest_constraint_alt_dual_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestPrntCnstAltDualInpObject>(_ => new testPrntCnstAltDualInpEncoder());
 }

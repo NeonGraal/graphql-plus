@@ -20,3 +20,11 @@ internal class testEnumCnstEnumInpDecoder
 {
   public string cnstEnumInp { get; set; }
 }
+
+internal static class test_constraint_enum_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_constraint_enum_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestCnstEnumInpObject>(_ => new testCnstEnumInpDecoder())
+      .AddDecoder<testEnumCnstEnumInp>(_ => new testEnumCnstEnumInpDecoder());
+}

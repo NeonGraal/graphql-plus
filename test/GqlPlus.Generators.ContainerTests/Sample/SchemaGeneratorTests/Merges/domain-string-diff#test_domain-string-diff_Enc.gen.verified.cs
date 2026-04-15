@@ -12,3 +12,10 @@ internal class testDmnStrDiffEncoder : IEncoder<ItestDmnStrDiff>
   public Structured Encode(ItestDmnStrDiff input)
     => new(input.Value);
 }
+
+internal static class test_domain_string_diffEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_domain_string_diffEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestDmnStrDiff>(_ => new testDmnStrDiffEncoder());
+}

@@ -16,3 +16,10 @@ internal class CmptEnumSameEncoder : IEncoder<CmptEnumSame>
   public Structured Encode(CmptEnumSame input)
     => new(input.ToString(), "_EnumSame");
 }
+
+internal static class Cmpt_Schema_enum_sameEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_enum_sameEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<CmptEnumSame>(_ => new CmptEnumSameEncoder());
+}

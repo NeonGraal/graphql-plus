@@ -43,3 +43,12 @@ internal class CmptParentGnrcPrntEnumPrntOutpEncoder : IEncoder<CmptParentGnrcPr
   public Structured Encode(CmptParentGnrcPrntEnumPrntOutp input)
     => new(input.ToString(), "_ParentGnrcPrntEnumPrntOutp");
 }
+
+internal static class Cmpt_Schema_generic_parent_enum_parent_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_parent_enum_parent_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptGnrcPrntEnumPrntOutpObject>(r => new CmptGnrcPrntEnumPrntOutpEncoder(r))
+      .AddEncoder<CmptEnumGnrcPrntEnumPrntOutp>(_ => new CmptEnumGnrcPrntEnumPrntOutpEncoder())
+      .AddEncoder<CmptParentGnrcPrntEnumPrntOutp>(_ => new CmptParentGnrcPrntEnumPrntOutpEncoder());
+}

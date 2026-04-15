@@ -28,3 +28,11 @@ internal class test_EnumValueEncoder(
     => _itest_TypeRef.Encode(input)
       .AddEncoded("label", input.Label, _itest_Name);
 }
+
+internal static class test_EnumEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_EnumEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<Itest_EnumLabelObject>(r => new test_EnumLabelEncoder(r))
+      .AddEncoder<Itest_EnumValueObject>(r => new test_EnumValueEncoder(r));
+}

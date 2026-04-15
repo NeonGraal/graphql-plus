@@ -18,3 +18,10 @@ internal class testRefGnrcAltSmplOutpEncoder<TRef> : IEncoder<ItestRefGnrcAltSmp
   public Structured Encode(ItestRefGnrcAltSmplOutpObject<TRef> input)
     => Structured.Empty();
 }
+
+internal static class test_generic_alt_simple_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_generic_alt_simple_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestGnrcAltSmplOutpObject>(_ => new testGnrcAltSmplOutpEncoder());
+}

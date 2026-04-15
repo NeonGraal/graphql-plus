@@ -7,15 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_value_descr_Input;
 
-internal class testFieldValueDescrInpEncoder : IEncoder<ItestFieldValueDescrInpObject>
-{
-  public Structured Encode(ItestFieldValueDescrInpObject input)
-    => Structured.Empty()
-      .AddEnum("field", input.Field);
-}
-
 internal class testEnumFieldValueDescrInpEncoder : IEncoder<testEnumFieldValueDescrInp>
 {
   public Structured Encode(testEnumFieldValueDescrInp input)
     => new(input.ToString(), "_EnumFieldValueDescrInp");
+}
+
+internal static class test_field_value_descr_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_field_value_descr_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<testEnumFieldValueDescrInp>(_ => new testEnumFieldValueDescrInpEncoder());
 }

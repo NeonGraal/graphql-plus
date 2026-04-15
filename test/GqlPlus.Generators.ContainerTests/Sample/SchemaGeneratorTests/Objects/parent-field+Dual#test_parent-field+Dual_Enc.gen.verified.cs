@@ -23,3 +23,11 @@ internal class testRefPrntFieldDualEncoder : IEncoder<ItestRefPrntFieldDualObjec
     => Structured.Empty()
       .Add("parent", input.Parent);
 }
+
+internal static class test_parent_field_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_parent_field_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestPrntFieldDualObject>(r => new testPrntFieldDualEncoder(r))
+      .AddEncoder<ItestRefPrntFieldDualObject>(_ => new testRefPrntFieldDualEncoder());
+}

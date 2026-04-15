@@ -20,3 +20,11 @@ internal class CmptObjFieldDualDecoder
 internal class CmptFldObjFieldDualDecoder
 {
 }
+
+internal static class Cmpt_Schema_object_field_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_object_field_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptObjFieldDualObject>(_ => new CmptObjFieldDualDecoder())
+      .AddDecoder<ICmptFldObjFieldDualObject>(_ => new CmptFldObjFieldDualDecoder());
+}

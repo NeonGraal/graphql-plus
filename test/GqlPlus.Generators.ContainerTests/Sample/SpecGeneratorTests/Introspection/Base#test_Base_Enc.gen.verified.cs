@@ -147,3 +147,18 @@ internal class test_ForParamEncoder<TType> : IEncoder<Itest_ForParamObject<TType
   public Structured Encode(Itest_ForParamObject<TType> input)
     => Structured.Empty();
 }
+
+internal static class test_BaseEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_BaseEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<Itest_ObjectKind>(_ => new test_ObjectKindEncoder())
+      .AddEncoder<Itest_ObjTypeParamObject>(r => new test_ObjTypeParamEncoder(r))
+      .AddEncoder<Itest_ObjBaseObject>(r => new test_ObjBaseEncoder(r))
+      .AddEncoder<Itest_ObjTypeArgObject>(r => new test_ObjTypeArgEncoder(r))
+      .AddEncoder<Itest_TypeParamObject>(r => new test_TypeParamEncoder(r))
+      .AddEncoder<Itest_ObjAlternateObject>(r => new test_ObjAlternateEncoder(r))
+      .AddEncoder<Itest_ObjAlternateEnumObject>(r => new test_ObjAlternateEnumEncoder(r))
+      .AddEncoder<Itest_ObjFieldTypeObject>(r => new test_ObjFieldTypeEncoder(r))
+      .AddEncoder<Itest_ObjFieldEnumObject>(r => new test_ObjFieldEnumEncoder(r));
+}

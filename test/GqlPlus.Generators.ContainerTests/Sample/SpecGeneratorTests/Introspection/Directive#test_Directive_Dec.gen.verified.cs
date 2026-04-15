@@ -7,18 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Directive;
 
-internal class test_DirectivesDecoder
-{
-  public Itest_Directive Directive { get; set; }
-}
-
-internal class test_DirectiveDecoder
-{
-  public Itest_InputFieldType? Parameter { get; set; }
-  public bool Repeatable { get; set; }
-  public IDictionary<test_Location, GqlpUnit> Locations { get; set; }
-}
-
 internal class test_LocationDecoder
 {
   public string Operation { get; set; }
@@ -27,4 +15,11 @@ internal class test_LocationDecoder
   public string Inline { get; set; }
   public string Spread { get; set; }
   public string Fragment { get; set; }
+}
+
+internal static class test_DirectiveDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_DirectiveDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<test_Location>(_ => new test_LocationDecoder());
 }

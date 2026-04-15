@@ -28,3 +28,11 @@ internal class testAltGnrcPrntParamPrntDualEncoder : IEncoder<ItestAltGnrcPrntPa
     => Structured.Empty()
       .Add("alt", input.Alt);
 }
+
+internal static class test_generic_parent_param_parent_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_generic_parent_param_parent_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestGnrcPrntParamPrntDualObject>(r => new testGnrcPrntParamPrntDualEncoder(r))
+      .AddEncoder<ItestAltGnrcPrntParamPrntDualObject>(_ => new testAltGnrcPrntParamPrntDualEncoder());
+}

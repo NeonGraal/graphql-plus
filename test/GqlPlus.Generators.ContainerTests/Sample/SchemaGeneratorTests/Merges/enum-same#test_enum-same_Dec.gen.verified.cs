@@ -11,3 +11,10 @@ internal class testEnumSameDecoder
 {
   public string enumSame { get; set; }
 }
+
+internal static class test_enum_sameDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_enum_sameDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<testEnumSame>(_ => new testEnumSameDecoder());
+}

@@ -16,3 +16,11 @@ internal class testEnumFieldValueDescrDualDecoder
 {
   public string fieldValueDescrDual { get; set; }
 }
+
+internal static class test_field_value_descr_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_field_value_descr_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestFieldValueDescrDualObject>(_ => new testFieldValueDescrDualDecoder())
+      .AddDecoder<testEnumFieldValueDescrDual>(_ => new testEnumFieldValueDescrDualDecoder());
+}

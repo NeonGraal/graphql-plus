@@ -19,3 +19,11 @@ internal class CmptInpFieldNullDecoder
 internal class CmptFldInpFieldNullDecoder
 {
 }
+
+internal static class Cmpt_Schema_input_field_nullDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_input_field_nullDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptInpFieldNullObject>(_ => new CmptInpFieldNullDecoder())
+      .AddDecoder<ICmptFldInpFieldNullObject>(_ => new CmptFldInpFieldNullDecoder());
+}

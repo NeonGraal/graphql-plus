@@ -15,3 +15,11 @@ internal class testRefPrntDualDualDecoder
 {
   public decimal Parent { get; set; }
 }
+
+internal static class test_parent_dual_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_parent_dual_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestPrntDualDualObject>(_ => new testPrntDualDualDecoder())
+      .AddDecoder<ItestRefPrntDualDualObject>(_ => new testRefPrntDualDualDecoder());
+}

@@ -22,3 +22,11 @@ internal class testRefPrntOutpEncoder : IEncoder<ItestRefPrntOutpObject>
     => Structured.Empty()
       .Add("parent", input.Parent);
 }
+
+internal static class test_parent_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_parent_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestPrntOutpObject>(r => new testPrntOutpEncoder(r))
+      .AddEncoder<ItestRefPrntOutpObject>(_ => new testRefPrntOutpEncoder());
+}

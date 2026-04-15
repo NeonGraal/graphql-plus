@@ -51,3 +51,12 @@ internal class Cmpt_LocationEncoder : IEncoder<Cmpt_Location>
   public Structured Encode(Cmpt_Location input)
     => new(input.ToString(), "_Location");
 }
+
+internal static class Cmpt_Spec_DirectiveEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Spec_DirectiveEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmpt_DirectivesObject>(r => new Cmpt_DirectivesEncoder(r))
+      .AddEncoder<ICmpt_DirectiveObject>(r => new Cmpt_DirectiveEncoder(r))
+      .AddEncoder<Cmpt_Location>(_ => new Cmpt_LocationEncoder());
+}

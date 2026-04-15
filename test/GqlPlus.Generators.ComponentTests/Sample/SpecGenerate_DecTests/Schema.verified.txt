@@ -67,3 +67,11 @@ internal class Cmpt_KeyDecoder
 internal class Cmpt_AnyDecoder
 {
 }
+
+internal static class Cmpt_Spec_SchemaDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_SchemaDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmpt_Key>(_ => new Cmpt_KeyDecoder())
+      .AddDecoder<ICmpt_AnyObject>(_ => new Cmpt_AnyDecoder());
+}

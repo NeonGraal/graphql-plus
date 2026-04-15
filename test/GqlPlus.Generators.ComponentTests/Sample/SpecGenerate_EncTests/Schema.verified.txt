@@ -87,3 +87,11 @@ internal class Cmpt_AnyEncoder : IEncoder<ICmpt_AnyObject>
   public Structured Encode(ICmpt_AnyObject input)
     => Structured.Empty();
 }
+
+internal static class Cmpt_Spec_SchemaEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Spec_SchemaEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmpt_Key>(_ => new Cmpt_KeyEncoder())
+      .AddEncoder<ICmpt_AnyObject>(_ => new Cmpt_AnyEncoder());
+}

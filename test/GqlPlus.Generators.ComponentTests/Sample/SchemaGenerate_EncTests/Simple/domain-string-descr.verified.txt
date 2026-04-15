@@ -15,3 +15,10 @@ internal class CmptDmnStrDescrEncoder : IEncoder<ICmptDmnStrDescr>
   public Structured Encode(ICmptDmnStrDescr input)
     => new(input.Value);
 }
+
+internal static class Cmpt_Schema_domain_string_descrEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_string_descrEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptDmnStrDescr>(_ => new CmptDmnStrDescrEncoder());
+}

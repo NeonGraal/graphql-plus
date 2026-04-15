@@ -39,3 +39,11 @@ internal class Cmpt_EnumValueEncoder(
     => _typeRef.Encode(input)
       .AddEncoded("label", input.Label, _name);
 }
+
+internal static class Cmpt_Spec_EnumEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Spec_EnumEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmpt_EnumLabelObject>(r => new Cmpt_EnumLabelEncoder(r))
+      .AddEncoder<ICmpt_EnumValueObject>(r => new Cmpt_EnumValueEncoder(r));
+}

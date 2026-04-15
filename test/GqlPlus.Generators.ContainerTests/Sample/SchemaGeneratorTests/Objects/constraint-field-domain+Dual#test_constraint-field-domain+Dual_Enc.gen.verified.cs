@@ -31,3 +31,11 @@ internal class testDomCnstFieldDmnDualEncoder : IEncoder<ItestDomCnstFieldDmnDua
   public Structured Encode(ItestDomCnstFieldDmnDual input)
     => new(input.Value);
 }
+
+internal static class test_constraint_field_domain_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_constraint_field_domain_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestCnstFieldDmnDualObject>(r => new testCnstFieldDmnDualEncoder(r))
+      .AddEncoder<ItestDomCnstFieldDmnDual>(_ => new testDomCnstFieldDmnDualEncoder());
+}

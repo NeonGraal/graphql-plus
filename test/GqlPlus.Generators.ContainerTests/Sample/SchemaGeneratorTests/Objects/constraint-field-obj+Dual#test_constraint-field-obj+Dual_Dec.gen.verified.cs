@@ -24,3 +24,12 @@ internal class testAltCnstFieldObjDualDecoder
 {
   public decimal Alt { get; set; }
 }
+
+internal static class test_constraint_field_obj_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_constraint_field_obj_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestCnstFieldObjDualObject>(_ => new testCnstFieldObjDualDecoder())
+      .AddDecoder<ItestPrntCnstFieldObjDualObject>(_ => new testPrntCnstFieldObjDualDecoder())
+      .AddDecoder<ItestAltCnstFieldObjDualObject>(_ => new testAltCnstFieldObjDualDecoder());
+}

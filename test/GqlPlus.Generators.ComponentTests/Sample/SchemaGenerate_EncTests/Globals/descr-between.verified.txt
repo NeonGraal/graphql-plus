@@ -17,3 +17,10 @@ internal class CmptDescrBtwnEncoder : IEncoder<ICmptDescrBtwnObject>
   public Structured Encode(ICmptDescrBtwnObject input)
     => Structured.Empty();
 }
+
+internal static class Cmpt_Schema_descr_betweenEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_descr_betweenEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptDescrBtwnObject>(_ => new CmptDescrBtwnEncoder());
+}

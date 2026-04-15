@@ -13,3 +13,10 @@ namespace Components.Gqlp_Schema_alt_descr_Dual;
 internal class CmptAltDescrDualDecoder
 {
 }
+
+internal static class Cmpt_Schema_alt_descr_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_alt_descr_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptAltDescrDualObject>(_ => new CmptAltDescrDualDecoder());
+}

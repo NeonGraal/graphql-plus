@@ -37,3 +37,12 @@ internal class testDomGnrcPrntEnumDomDualEncoder : IEncoder<ItestDomGnrcPrntEnum
   public Structured Encode(ItestDomGnrcPrntEnumDomDual input)
     => new((decimal?)input.Value);
 }
+
+internal static class test_generic_parent_enum_dom_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_generic_parent_enum_dom_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestGnrcPrntEnumDomDualObject>(r => new testGnrcPrntEnumDomDualEncoder(r))
+      .AddEncoder<testEnumGnrcPrntEnumDomDual>(_ => new testEnumGnrcPrntEnumDomDualEncoder())
+      .AddEncoder<ItestDomGnrcPrntEnumDomDual>(_ => new testDomGnrcPrntEnumDomDualEncoder());
+}

@@ -22,3 +22,10 @@ internal class CmptUnionDiffEncoder(
      : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
      : Structured.Empty();
 }
+
+internal static class Cmpt_Schema_union_diffEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_union_diffEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptUnionDiff>(r => new CmptUnionDiffEncoder(r));
+}

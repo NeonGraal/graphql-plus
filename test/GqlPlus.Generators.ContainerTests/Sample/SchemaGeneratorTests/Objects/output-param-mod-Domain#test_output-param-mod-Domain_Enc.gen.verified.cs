@@ -17,15 +17,16 @@ internal class testOutpParamModDmnEncoder(
       .AddEncoded("field", input.Field(), _itestDomOutpParamModDmn);
 }
 
-internal class testInOutpParamModDmnEncoder : IEncoder<ItestInOutpParamModDmnObject>
-{
-  public Structured Encode(ItestInOutpParamModDmnObject input)
-    => Structured.Empty()
-      .Add("param", input.Param);
-}
-
 internal class testDomOutpParamModDmnEncoder : IEncoder<ItestDomOutpParamModDmn>
 {
   public Structured Encode(ItestDomOutpParamModDmn input)
     => new(input.Value);
+}
+
+internal static class test_output_param_mod_DomainEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_output_param_mod_DomainEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestOutpParamModDmnObject>(r => new testOutpParamModDmnEncoder(r))
+      .AddEncoder<ItestDomOutpParamModDmn>(_ => new testDomOutpParamModDmnEncoder());
 }

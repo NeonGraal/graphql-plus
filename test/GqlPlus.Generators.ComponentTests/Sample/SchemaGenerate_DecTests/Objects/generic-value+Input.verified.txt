@@ -25,3 +25,11 @@ internal class CmptEnumGnrcValueInpDecoder
 {
   public string gnrcValueInp { get; set; }
 }
+
+internal static class Cmpt_Schema_generic_value_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_value_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptGnrcValueInpObject>(_ => new CmptGnrcValueInpDecoder())
+      .AddDecoder<CmptEnumGnrcValueInp>(_ => new CmptEnumGnrcValueInpDecoder());
+}

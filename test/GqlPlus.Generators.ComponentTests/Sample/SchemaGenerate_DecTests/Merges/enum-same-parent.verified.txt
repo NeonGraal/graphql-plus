@@ -22,3 +22,11 @@ internal class CmptPrntEnumSamePrntDecoder
 {
   public string prnt_enumSamePrnt { get; set; }
 }
+
+internal static class Cmpt_Schema_enum_same_parentDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_enum_same_parentDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<CmptEnumSamePrnt>(_ => new CmptEnumSamePrntDecoder())
+      .AddDecoder<CmptPrntEnumSamePrnt>(_ => new CmptPrntEnumSamePrntDecoder());
+}

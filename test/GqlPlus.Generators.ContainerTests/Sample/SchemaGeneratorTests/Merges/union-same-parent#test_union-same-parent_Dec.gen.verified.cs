@@ -16,3 +16,11 @@ internal class testPrntUnionSamePrntDecoder
 {
   public String AsString { get; set; }
 }
+
+internal static class test_union_same_parentDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_union_same_parentDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestUnionSamePrnt>(_ => new testUnionSamePrntDecoder())
+      .AddDecoder<ItestPrntUnionSamePrnt>(_ => new testPrntUnionSamePrntDecoder());
+}

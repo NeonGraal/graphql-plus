@@ -12,3 +12,10 @@ internal class testObjOutpEncoder : IEncoder<ItestObjOutpObject>
   public Structured Encode(ItestObjOutpObject input)
     => Structured.Empty();
 }
+
+internal static class test_object_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_object_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestObjOutpObject>(_ => new testObjOutpEncoder());
+}

@@ -23,9 +23,10 @@ internal class testFldOutpParamDescrEncoder : IEncoder<ItestFldOutpParamDescrObj
     => Structured.Empty();
 }
 
-internal class testInOutpParamDescrEncoder : IEncoder<ItestInOutpParamDescrObject>
+internal static class test_output_param_descrEncoders
 {
-  public Structured Encode(ItestInOutpParamDescrObject input)
-    => Structured.Empty()
-      .Add("param", input.Param);
+  internal static IEncoderRepositoryBuilder Addtest_output_param_descrEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestOutpParamDescrObject>(r => new testOutpParamDescrEncoder(r))
+      .AddEncoder<ItestFldOutpParamDescrObject>(_ => new testFldOutpParamDescrEncoder());
 }

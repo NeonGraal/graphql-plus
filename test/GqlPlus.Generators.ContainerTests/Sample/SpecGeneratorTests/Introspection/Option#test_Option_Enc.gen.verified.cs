@@ -17,3 +17,10 @@ internal class test_SettingEncoder(
     => _itest_Named.Encode(input)
       .AddEncoded("value", input.Value, _gqlpValue);
 }
+
+internal static class test_OptionEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_OptionEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<Itest_SettingObject>(r => new test_SettingEncoder(r));
+}

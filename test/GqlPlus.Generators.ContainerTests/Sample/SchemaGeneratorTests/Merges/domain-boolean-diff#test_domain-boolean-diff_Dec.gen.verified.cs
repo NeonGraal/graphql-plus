@@ -10,3 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_boolean_diff;
 internal class testDmnBoolDiffDecoder
 {
 }
+
+internal static class test_domain_boolean_diffDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_domain_boolean_diffDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestDmnBoolDiff>(_ => new testDmnBoolDiffDecoder());
+}

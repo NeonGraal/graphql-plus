@@ -12,14 +12,6 @@ input InOutpParam { param: Number | String }
 
 namespace Components.Gqlp_Schema_output_param;
 
-internal class CmptOutpParamDecoder
-{
-  public ICmptFldOutpParam? Field(ICmptInOutpParam parameter)
-    => null;
-  public ICmptFldOutpParam? Field()
-    => null;
-}
-
 internal class CmptFldOutpParamDecoder
 {
 }
@@ -27,4 +19,12 @@ internal class CmptFldOutpParamDecoder
 internal class CmptInOutpParamDecoder
 {
   public decimal Param { get; set; }
+}
+
+internal static class Cmpt_Schema_output_paramDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_output_paramDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptFldOutpParamObject>(_ => new CmptFldOutpParamDecoder())
+      .AddDecoder<ICmptInOutpParamObject>(_ => new CmptInOutpParamDecoder());
 }

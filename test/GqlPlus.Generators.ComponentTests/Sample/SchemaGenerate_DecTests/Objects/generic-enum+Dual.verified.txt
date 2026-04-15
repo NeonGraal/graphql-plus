@@ -25,3 +25,11 @@ internal class CmptEnumGnrcEnumDualDecoder
 {
   public string gnrcEnumDual { get; set; }
 }
+
+internal static class Cmpt_Schema_generic_enum_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_enum_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptGnrcEnumDualObject>(_ => new CmptGnrcEnumDualDecoder())
+      .AddDecoder<CmptEnumGnrcEnumDual>(_ => new CmptEnumGnrcEnumDualDecoder());
+}

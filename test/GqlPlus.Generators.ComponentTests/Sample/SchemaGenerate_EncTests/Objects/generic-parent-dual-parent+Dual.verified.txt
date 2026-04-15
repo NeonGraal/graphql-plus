@@ -33,3 +33,11 @@ internal class CmptAltGnrcPrntDualPrntDualEncoder : IEncoder<ICmptAltGnrcPrntDua
     => Structured.Empty()
       .Add("alt", input.Alt);
 }
+
+internal static class Cmpt_Schema_generic_parent_dual_parent_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_parent_dual_parent_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptGnrcPrntDualPrntDualObject>(r => new CmptGnrcPrntDualPrntDualEncoder(r))
+      .AddEncoder<ICmptAltGnrcPrntDualPrntDualObject>(_ => new CmptAltGnrcPrntDualPrntDualEncoder());
+}

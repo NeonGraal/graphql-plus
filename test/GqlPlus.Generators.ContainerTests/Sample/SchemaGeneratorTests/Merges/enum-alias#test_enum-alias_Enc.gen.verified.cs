@@ -12,3 +12,10 @@ internal class testEnumAliasEncoder : IEncoder<testEnumAlias>
   public Structured Encode(testEnumAlias input)
     => new(input.ToString(), "_EnumAlias");
 }
+
+internal static class test_enum_aliasEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_enum_aliasEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<testEnumAlias>(_ => new testEnumAliasEncoder());
+}

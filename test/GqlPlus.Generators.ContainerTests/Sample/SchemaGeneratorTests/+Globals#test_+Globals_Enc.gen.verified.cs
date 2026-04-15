@@ -85,26 +85,21 @@ internal class testDscrsEncoder : IEncoder<ItestDscrsObject>
     => Structured.Empty();
 }
 
-internal class testInDrctParamDictEncoder : IEncoder<ItestInDrctParamDictObject>
+internal static class test__GlobalsEncoders
 {
-  public Structured Encode(ItestInDrctParamDictObject input)
-    => Structured.Empty();
-}
-
-internal class testInDrctParamInEncoder : IEncoder<ItestInDrctParamInObject>
-{
-  public Structured Encode(ItestInDrctParamInObject input)
-    => Structured.Empty();
-}
-
-internal class testInDrctParamListEncoder : IEncoder<ItestInDrctParamListObject>
-{
-  public Structured Encode(ItestInDrctParamListObject input)
-    => Structured.Empty();
-}
-
-internal class testInDrctParamOptEncoder : IEncoder<ItestInDrctParamOptObject>
-{
-  public Structured Encode(ItestInDrctParamOptObject input)
-    => Structured.Empty();
+  internal static IEncoderRepositoryBuilder Addtest__GlobalsEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestCtgrDscrsObject>(_ => new testCtgrDscrsEncoder())
+      .AddEncoder<ItestCtgrOutpObject>(_ => new testCtgrOutpEncoder())
+      .AddEncoder<ItestCtgrOutpDescrObject>(_ => new testCtgrOutpDescrEncoder())
+      .AddEncoder<ItestCtgrOutpDictObject>(_ => new testCtgrOutpDictEncoder())
+      .AddEncoder<ItestCtgrOutpListObject>(_ => new testCtgrOutpListEncoder())
+      .AddEncoder<ItestCtgrOutpOptlObject>(_ => new testCtgrOutpOptlEncoder())
+      .AddEncoder<ItestDescrObject>(_ => new testDescrEncoder())
+      .AddEncoder<ItestDescrBcksObject>(_ => new testDescrBcksEncoder())
+      .AddEncoder<ItestDescrBtwnObject>(_ => new testDescrBtwnEncoder())
+      .AddEncoder<ItestDescrCmplObject>(_ => new testDescrCmplEncoder())
+      .AddEncoder<ItestDescrDblObject>(_ => new testDescrDblEncoder())
+      .AddEncoder<ItestDescrSnglObject>(_ => new testDescrSnglEncoder())
+      .AddEncoder<ItestDscrsObject>(_ => new testDscrsEncoder());
 }

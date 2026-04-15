@@ -24,3 +24,12 @@ internal class testEnumDmnEnumPrntEncoder : IEncoder<testEnumDmnEnumPrnt>
   public Structured Encode(testEnumDmnEnumPrnt input)
     => new(input.ToString(), "_EnumDmnEnumPrnt");
 }
+
+internal static class test_domain_enum_parentEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_domain_enum_parentEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestDmnEnumPrnt>(_ => new testDmnEnumPrntEncoder())
+      .AddEncoder<ItestPrntDmnEnumPrnt>(_ => new testPrntDmnEnumPrntEncoder())
+      .AddEncoder<testEnumDmnEnumPrnt>(_ => new testEnumDmnEnumPrntEncoder());
+}

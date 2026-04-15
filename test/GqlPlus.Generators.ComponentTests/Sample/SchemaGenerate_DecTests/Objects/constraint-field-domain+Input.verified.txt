@@ -24,3 +24,11 @@ internal class CmptRefCnstFieldDmnInpDecoder<TRef>
 internal class CmptDomCnstFieldDmnInpDecoder
 {
 }
+
+internal static class Cmpt_Schema_constraint_field_domain_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_field_domain_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptCnstFieldDmnInpObject>(_ => new CmptCnstFieldDmnInpDecoder())
+      .AddDecoder<ICmptDomCnstFieldDmnInp>(_ => new CmptDomCnstFieldDmnInpDecoder());
+}

@@ -40,3 +40,12 @@ internal class CmptJustCnstDomEnumDualEncoder : IEncoder<ICmptJustCnstDomEnumDua
   public Structured Encode(ICmptJustCnstDomEnumDual input)
     => new((decimal?)input.Value);
 }
+
+internal static class Cmpt_Schema_constraint_dom_enum_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_dom_enum_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptCnstDomEnumDualObject>(_ => new CmptCnstDomEnumDualEncoder())
+      .AddEncoder<CmptEnumCnstDomEnumDual>(_ => new CmptEnumCnstDomEnumDualEncoder())
+      .AddEncoder<ICmptJustCnstDomEnumDual>(_ => new CmptJustCnstDomEnumDualEncoder());
+}

@@ -12,3 +12,10 @@ internal class testDmnBoolSameEncoder : IEncoder<ItestDmnBoolSame>
   public Structured Encode(ItestDmnBoolSame input)
     => new(input.Value);
 }
+
+internal static class test_domain_boolean_sameEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_domain_boolean_sameEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestDmnBoolSame>(_ => new testDmnBoolSameEncoder());
+}

@@ -34,10 +34,13 @@ internal class testParamDecoder
   public ItestMany BeforeId { get; set; }
 }
 
-internal class testAllDecoder
+internal static class test_allDecoders
 {
-  public ItestField? Items(ItestParam? parameter)
-    => null;
-  public ItestField? Items()
-    => null;
+  internal static IDecoderRepositoryBuilder Addtest_allDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestGuid>(_ => new testGuidDecoder())
+      .AddDecoder<testOne>(_ => new testOneDecoder())
+      .AddDecoder<ItestMany>(_ => new testManyDecoder())
+      .AddDecoder<ItestFieldObject>(_ => new testFieldDecoder())
+      .AddDecoder<ItestParamObject>(_ => new testParamDecoder());
 }

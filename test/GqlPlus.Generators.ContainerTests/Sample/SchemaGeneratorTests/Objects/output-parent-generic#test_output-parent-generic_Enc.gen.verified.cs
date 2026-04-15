@@ -34,3 +34,12 @@ internal class testPrntOutpPrntGnrcEncoder : IEncoder<testPrntOutpPrntGnrc>
   public Structured Encode(testPrntOutpPrntGnrc input)
     => new(input.ToString(), "_PrntOutpPrntGnrc");
 }
+
+internal static class test_output_parent_genericEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_output_parent_genericEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestOutpPrntGnrcObject>(_ => new testOutpPrntGnrcEncoder())
+      .AddEncoder<testEnumOutpPrntGnrc>(_ => new testEnumOutpPrntGnrcEncoder())
+      .AddEncoder<testPrntOutpPrntGnrc>(_ => new testPrntOutpPrntGnrcEncoder());
+}

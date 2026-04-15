@@ -23,3 +23,11 @@ internal class CmptEnumFieldValueOutpEncoder : IEncoder<CmptEnumFieldValueOutp>
   public Structured Encode(CmptEnumFieldValueOutp input)
     => new(input.ToString(), "_EnumFieldValueOutp");
 }
+
+internal static class Cmpt_Schema_field_value_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_field_value_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptFieldValueOutpObject>(_ => new CmptFieldValueOutpEncoder())
+      .AddEncoder<CmptEnumFieldValueOutp>(_ => new CmptEnumFieldValueOutpEncoder());
+}

@@ -16,3 +16,10 @@ internal class CmptEnumDiffEncoder : IEncoder<CmptEnumDiff>
   public Structured Encode(CmptEnumDiff input)
     => new(input.ToString(), "_EnumDiff");
 }
+
+internal static class Cmpt_Schema_enum_diffEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_enum_diffEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<CmptEnumDiff>(_ => new CmptEnumDiffEncoder());
+}

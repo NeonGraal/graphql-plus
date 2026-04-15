@@ -29,3 +29,12 @@ internal class CmptDupDmnEnumUnqDecoder
   public string dup_dmnEnumUnq { get; set; }
   public string dmnEnumUnqDup { get; set; }
 }
+
+internal static class Cmpt_Schema_domain_enum_uniqueDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_enum_uniqueDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptDmnEnumUnq>(_ => new CmptDmnEnumUnqDecoder())
+      .AddDecoder<CmptEnumDmnEnumUnq>(_ => new CmptEnumDmnEnumUnqDecoder())
+      .AddDecoder<CmptDupDmnEnumUnq>(_ => new CmptDupDmnEnumUnqDecoder());
+}

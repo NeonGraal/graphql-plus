@@ -14,3 +14,11 @@ internal class testObjPrntInpDecoder
 internal class testRefObjPrntInpDecoder
 {
 }
+
+internal static class test_object_parent_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_object_parent_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestObjPrntInpObject>(_ => new testObjPrntInpDecoder())
+      .AddDecoder<ItestRefObjPrntInpObject>(_ => new testRefObjPrntInpDecoder());
+}

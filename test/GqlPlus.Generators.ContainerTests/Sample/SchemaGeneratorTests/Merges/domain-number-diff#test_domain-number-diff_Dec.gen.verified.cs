@@ -10,3 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_number_diff;
 internal class testDmnNmbrDiffDecoder
 {
 }
+
+internal static class test_domain_number_diffDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_domain_number_diffDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestDmnNmbrDiff>(_ => new testDmnNmbrDiffDecoder());
+}

@@ -12,3 +12,10 @@ internal class testDmnEnumSameEncoder : IEncoder<ItestDmnEnumSame>
   public Structured Encode(ItestDmnEnumSame input)
     => new((decimal?)input.Value);
 }
+
+internal static class test_domain_enum_sameEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_domain_enum_sameEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestDmnEnumSame>(_ => new testDmnEnumSameEncoder());
+}

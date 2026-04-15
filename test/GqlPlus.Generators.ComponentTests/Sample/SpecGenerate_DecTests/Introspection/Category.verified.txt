@@ -23,21 +23,16 @@ enum _Resolution { Parallel Sequential Single }
 
 namespace Components.Gqlp_Spec_Category;
 
-internal class Cmpt_CategoriesDecoder
-{
-  public ICmpt_Category Category { get; set; }
-}
-
-internal class Cmpt_CategoryDecoder
-{
-  public Cmpt_Resolution Resolution { get; set; }
-  public ICmpt_TypeRef<ICmpt_TypeKind> Output { get; set; }
-  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
-}
-
 internal class Cmpt_ResolutionDecoder
 {
   public string Parallel { get; set; }
   public string Sequential { get; set; }
   public string Single { get; set; }
+}
+
+internal static class Cmpt_Spec_CategoryDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_CategoryDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<Cmpt_Resolution>(_ => new Cmpt_ResolutionDecoder());
 }

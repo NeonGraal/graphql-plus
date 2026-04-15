@@ -14,3 +14,11 @@ internal class testDmnBoolPrntDescrDecoder
 internal class testPrntDmnBoolPrntDescrDecoder
 {
 }
+
+internal static class test_domain_bool_parent_descrDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_domain_bool_parent_descrDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestDmnBoolPrntDescr>(_ => new testDmnBoolPrntDescrDecoder())
+      .AddDecoder<ItestPrntDmnBoolPrntDescr>(_ => new testPrntDmnBoolPrntDescrDecoder());
+}

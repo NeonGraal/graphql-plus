@@ -14,3 +14,10 @@ namespace Components.Gqlp_Schema_object_alt_enum_Dual;
 internal class CmptObjAltEnumDualDecoder
 {
 }
+
+internal static class Cmpt_Schema_object_alt_enum_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_object_alt_enum_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptObjAltEnumDualObject>(_ => new CmptObjAltEnumDualDecoder());
+}

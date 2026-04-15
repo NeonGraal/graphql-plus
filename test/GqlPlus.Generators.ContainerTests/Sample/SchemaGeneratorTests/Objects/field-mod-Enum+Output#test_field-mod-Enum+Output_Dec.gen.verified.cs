@@ -7,12 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_mod_Enum_Output;
 
-internal class testFieldModEnumOutpDecoder
-{
-  public IDictionary<testEnumFieldModEnumOutp, string> Field { get; set; }
-}
-
 internal class testEnumFieldModEnumOutpDecoder
 {
   public string value { get; set; }
+}
+
+internal static class test_field_mod_Enum_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_field_mod_Enum_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<testEnumFieldModEnumOutp>(_ => new testEnumFieldModEnumOutpDecoder());
 }

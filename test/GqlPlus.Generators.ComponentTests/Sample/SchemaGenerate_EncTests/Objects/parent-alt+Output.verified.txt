@@ -26,3 +26,11 @@ internal class CmptRefPrntAltOutpEncoder : IEncoder<ICmptRefPrntAltOutpObject>
     => Structured.Empty()
       .Add("parent", input.Parent);
 }
+
+internal static class Cmpt_Schema_parent_alt_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_parent_alt_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptPrntAltOutpObject>(r => new CmptPrntAltOutpEncoder(r))
+      .AddEncoder<ICmptRefPrntAltOutpObject>(_ => new CmptRefPrntAltOutpEncoder());
+}

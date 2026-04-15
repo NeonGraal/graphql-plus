@@ -7,15 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_dual_Output;
 
-internal class testGnrcAltDualOutpDecoder
-{
-}
-
-internal class testRefGnrcAltDualOutpDecoder<TRef>
-{
-}
-
 internal class testAltGnrcAltDualOutpDecoder
 {
   public decimal Alt { get; set; }
+}
+
+internal static class test_generic_alt_dual_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_generic_alt_dual_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestAltGnrcAltDualOutpObject>(_ => new testAltGnrcAltDualOutpDecoder());
 }

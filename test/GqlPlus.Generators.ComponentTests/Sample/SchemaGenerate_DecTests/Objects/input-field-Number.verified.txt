@@ -14,3 +14,10 @@ internal class CmptInpFieldNmbrDecoder
 {
   public decimal Field { get; set; }
 }
+
+internal static class Cmpt_Schema_input_field_NumberDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_input_field_NumberDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptInpFieldNmbrObject>(_ => new CmptInpFieldNmbrDecoder());
+}

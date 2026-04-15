@@ -25,3 +25,12 @@ internal class testEnumCnstDomEnumDualDecoder
 internal class testJustCnstDomEnumDualDecoder
 {
 }
+
+internal static class test_constraint_dom_enum_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_constraint_dom_enum_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestCnstDomEnumDualObject>(_ => new testCnstDomEnumDualDecoder())
+      .AddDecoder<testEnumCnstDomEnumDual>(_ => new testEnumCnstDomEnumDualDecoder())
+      .AddDecoder<ItestJustCnstDomEnumDual>(_ => new testJustCnstDomEnumDualDecoder());
+}

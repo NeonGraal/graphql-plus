@@ -67,3 +67,13 @@ internal class Cmpt_AndTypeEncoder(
     => _named.Encode(input)
       .AddEncoded("type", input.Type, _type);
 }
+
+internal static class Cmpt_Spec_NamesEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Spec_NamesEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmpt_AliasedObject>(r => new Cmpt_AliasedEncoder(r))
+      .AddEncoder<ICmpt_NamedObject>(r => new Cmpt_NamedEncoder(r))
+      .AddEncoder<ICmpt_DescribedObject>(_ => new Cmpt_DescribedEncoder())
+      .AddEncoder<ICmpt_AndTypeObject>(r => new Cmpt_AndTypeEncoder(r));
+}

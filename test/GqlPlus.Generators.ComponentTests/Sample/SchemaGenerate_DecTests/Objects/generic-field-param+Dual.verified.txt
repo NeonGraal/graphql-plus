@@ -25,3 +25,11 @@ internal class CmptAltGnrcFieldParamDualDecoder
 {
   public decimal Alt { get; set; }
 }
+
+internal static class Cmpt_Schema_generic_field_param_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_field_param_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptGnrcFieldParamDualObject>(_ => new CmptGnrcFieldParamDualDecoder())
+      .AddDecoder<ICmptAltGnrcFieldParamDualObject>(_ => new CmptAltGnrcFieldParamDualDecoder());
+}

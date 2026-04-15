@@ -18,3 +18,11 @@ internal class testObjAltDualTypeEncoder : IEncoder<ItestObjAltDualTypeObject>
   public Structured Encode(ItestObjAltDualTypeObject input)
     => Structured.Empty();
 }
+
+internal static class test_object_alt_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_object_alt_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestObjAltDualObject>(_ => new testObjAltDualEncoder())
+      .AddEncoder<ItestObjAltDualTypeObject>(_ => new testObjAltDualTypeEncoder());
+}

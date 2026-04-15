@@ -123,3 +123,13 @@ internal class Cmpt_TypeSimpleEncoder : IEncoder<ICmpt_TypeSimpleObject>
   public Structured Encode(ICmpt_TypeSimpleObject input)
     => Structured.Empty();
 }
+
+internal static class Cmpt_Spec_CommonEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Spec_CommonEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmpt_TypeObject>(_ => new Cmpt_TypeEncoder())
+      .AddEncoder<Cmpt_SimpleKind>(_ => new Cmpt_SimpleKindEncoder())
+      .AddEncoder<Cmpt_TypeKind>(_ => new Cmpt_TypeKindEncoder())
+      .AddEncoder<ICmpt_TypeSimpleObject>(_ => new Cmpt_TypeSimpleEncoder());
+}

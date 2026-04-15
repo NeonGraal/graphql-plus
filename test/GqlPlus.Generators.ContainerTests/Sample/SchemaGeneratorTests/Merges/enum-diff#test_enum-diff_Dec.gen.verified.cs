@@ -12,3 +12,10 @@ internal class testEnumDiffDecoder
   public string one { get; set; }
   public string two { get; set; }
 }
+
+internal static class test_enum_diffDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_enum_diffDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<testEnumDiff>(_ => new testEnumDiffDecoder());
+}

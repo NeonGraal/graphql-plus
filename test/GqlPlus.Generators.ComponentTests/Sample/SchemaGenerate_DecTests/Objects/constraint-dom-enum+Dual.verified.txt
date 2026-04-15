@@ -31,3 +31,12 @@ internal class CmptEnumCnstDomEnumDualDecoder
 internal class CmptJustCnstDomEnumDualDecoder
 {
 }
+
+internal static class Cmpt_Schema_constraint_dom_enum_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_dom_enum_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptCnstDomEnumDualObject>(_ => new CmptCnstDomEnumDualDecoder())
+      .AddDecoder<CmptEnumCnstDomEnumDual>(_ => new CmptEnumCnstDomEnumDualDecoder())
+      .AddDecoder<ICmptJustCnstDomEnumDual>(_ => new CmptJustCnstDomEnumDualDecoder());
+}

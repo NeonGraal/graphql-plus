@@ -18,3 +18,11 @@ internal class testPrntEnumPrntAliasEncoder : IEncoder<testPrntEnumPrntAlias>
   public Structured Encode(testPrntEnumPrntAlias input)
     => new(input.ToString(), "_PrntEnumPrntAlias");
 }
+
+internal static class test_enum_parent_aliasEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_enum_parent_aliasEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<testEnumPrntAlias>(_ => new testEnumPrntAliasEncoder())
+      .AddEncoder<testPrntEnumPrntAlias>(_ => new testPrntEnumPrntAliasEncoder());
+}

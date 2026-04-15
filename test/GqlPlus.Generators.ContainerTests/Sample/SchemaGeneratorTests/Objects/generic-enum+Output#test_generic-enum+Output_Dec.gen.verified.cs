@@ -7,16 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_enum_Output;
 
-internal class testGnrcEnumOutpDecoder
-{
-}
-
-internal class testRefGnrcEnumOutpDecoder<TType>
-{
-  public TType Field { get; set; }
-}
-
 internal class testEnumGnrcEnumOutpDecoder
 {
   public string gnrcEnumOutp { get; set; }
+}
+
+internal static class test_generic_enum_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_generic_enum_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<testEnumGnrcEnumOutp>(_ => new testEnumGnrcEnumOutpDecoder());
 }

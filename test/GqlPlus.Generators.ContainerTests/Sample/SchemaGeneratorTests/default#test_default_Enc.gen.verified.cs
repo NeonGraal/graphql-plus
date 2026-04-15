@@ -30,3 +30,13 @@ internal class test_SchemaEncoder : IEncoder<Itest_SchemaObject>
   public Structured Encode(Itest_SchemaObject input)
     => Structured.Empty();
 }
+
+internal static class test_defaultEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_defaultEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestQueryObject>(_ => new testQueryEncoder())
+      .AddEncoder<ItestMutationObject>(_ => new testMutationEncoder())
+      .AddEncoder<ItestSubscriptionObject>(_ => new testSubscriptionEncoder())
+      .AddEncoder<Itest_SchemaObject>(_ => new test_SchemaEncoder());
+}

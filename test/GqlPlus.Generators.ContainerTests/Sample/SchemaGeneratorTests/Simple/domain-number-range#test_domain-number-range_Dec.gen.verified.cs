@@ -10,3 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_number_range;
 internal class testDmnNmbrRangeDecoder
 {
 }
+
+internal static class test_domain_number_rangeDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_domain_number_rangeDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestDmnNmbrRange>(_ => new testDmnNmbrRangeDecoder());
+}

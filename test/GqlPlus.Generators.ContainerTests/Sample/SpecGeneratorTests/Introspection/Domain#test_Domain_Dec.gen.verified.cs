@@ -15,51 +15,14 @@ internal class test_DomainKindDecoder
   public string String { get; set; }
 }
 
-internal class test_DomainRefDecoder<TDomainKind>
-{
-  public TDomainKind DomainKind { get; set; }
-}
-
-internal class test_BaseDomainDecoder<TDomainKind,TItem,TDomainItem>
-{
-  public TDomainKind DomainKind { get; set; }
-}
-
 internal class test_BaseDomainItemDecoder
 {
   public bool Exclude { get; set; }
 }
 
-internal class test_DomainItemDecoder<TItem>
-{
-  public Itest_Name Domain { get; set; }
-}
-
-internal class test_DomainValueDecoder<TDomainKind,TValue>
-{
-  public TValue Value { get; set; }
-}
-
-internal class test_BasicValueDecoder
-{
-}
-
 internal class test_DomainTrueFalseDecoder
 {
   public bool Value { get; set; }
-}
-
-internal class test_DomainItemTrueFalseDecoder
-{
-}
-
-internal class test_DomainLabelDecoder
-{
-  public Itest_EnumValue Label { get; set; }
-}
-
-internal class test_DomainItemLabelDecoder
-{
 }
 
 internal class test_DomainRangeDecoder
@@ -68,15 +31,18 @@ internal class test_DomainRangeDecoder
   public decimal? Upper { get; set; }
 }
 
-internal class test_DomainItemRangeDecoder
-{
-}
-
 internal class test_DomainRegexDecoder
 {
   public string Pattern { get; set; }
 }
 
-internal class test_DomainItemRegexDecoder
+internal static class test_DomainDecoders
 {
+  internal static IDecoderRepositoryBuilder Addtest_DomainDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<test_DomainKind>(_ => new test_DomainKindDecoder())
+      .AddDecoder<Itest_BaseDomainItemObject>(_ => new test_BaseDomainItemDecoder())
+      .AddDecoder<Itest_DomainTrueFalseObject>(_ => new test_DomainTrueFalseDecoder())
+      .AddDecoder<Itest_DomainRangeObject>(_ => new test_DomainRangeDecoder())
+      .AddDecoder<Itest_DomainRegexObject>(_ => new test_DomainRegexDecoder());
 }

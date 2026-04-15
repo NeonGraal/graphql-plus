@@ -16,3 +16,10 @@ internal class CmptFieldDescrDualEncoder : IEncoder<ICmptFieldDescrDualObject>
     => Structured.Empty()
       .Add("field", input.Field);
 }
+
+internal static class Cmpt_Schema_field_descr_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_field_descr_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptFieldDescrDualObject>(_ => new CmptFieldDescrDualEncoder());
+}

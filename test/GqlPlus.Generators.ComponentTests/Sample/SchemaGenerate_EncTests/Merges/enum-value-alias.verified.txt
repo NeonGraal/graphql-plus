@@ -16,3 +16,10 @@ internal class CmptEnumValueAliasEncoder : IEncoder<CmptEnumValueAlias>
   public Structured Encode(CmptEnumValueAlias input)
     => new(input.ToString(), "_EnumValueAlias");
 }
+
+internal static class Cmpt_Schema_enum_value_aliasEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_enum_value_aliasEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<CmptEnumValueAlias>(_ => new CmptEnumValueAliasEncoder());
+}

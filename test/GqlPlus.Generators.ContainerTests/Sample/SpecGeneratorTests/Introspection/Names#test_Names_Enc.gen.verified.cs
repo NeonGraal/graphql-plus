@@ -46,3 +46,13 @@ internal class test_AndTypeEncoder(
     => _itest_Named.Encode(input)
       .AddEncoded("type", input.Type, _itest_Type);
 }
+
+internal static class test_NamesEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_NamesEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<Itest_AliasedObject>(r => new test_AliasedEncoder(r))
+      .AddEncoder<Itest_NamedObject>(r => new test_NamedEncoder(r))
+      .AddEncoder<Itest_DescribedObject>(_ => new test_DescribedEncoder())
+      .AddEncoder<Itest_AndTypeObject>(r => new test_AndTypeEncoder(r));
+}

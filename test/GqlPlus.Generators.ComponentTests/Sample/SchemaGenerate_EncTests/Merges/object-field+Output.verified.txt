@@ -27,3 +27,11 @@ internal class CmptFldObjFieldOutpEncoder : IEncoder<ICmptFldObjFieldOutpObject>
   public Structured Encode(ICmptFldObjFieldOutpObject input)
     => Structured.Empty();
 }
+
+internal static class Cmpt_Schema_object_field_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_object_field_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptObjFieldOutpObject>(r => new CmptObjFieldOutpEncoder(r))
+      .AddEncoder<ICmptFldObjFieldOutpObject>(_ => new CmptFldObjFieldOutpEncoder());
+}

@@ -30,3 +30,11 @@ internal class CmptAltGnrcAltParamOutpEncoder : IEncoder<ICmptAltGnrcAltParamOut
     => Structured.Empty()
       .Add("alt", input.Alt);
 }
+
+internal static class Cmpt_Schema_generic_alt_param_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_alt_param_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptGnrcAltParamOutpObject>(_ => new CmptGnrcAltParamOutpEncoder())
+      .AddEncoder<ICmptAltGnrcAltParamOutpObject>(_ => new CmptAltGnrcAltParamOutpEncoder());
+}

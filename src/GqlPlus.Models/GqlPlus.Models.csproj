@@ -14,8 +14,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GqlPlus.Common\GqlPlus.Common.csproj" OutputItemType="Analyzer" />
-    <ProjectReference Include="..\GqlPlus.Generators\GqlPlus.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\GqlPlus.Abstractions\GqlPlus.Abstractions.csproj" />
+    <ProjectReference Include="..\GqlPlus.Common\GqlPlus.Common.csproj"
+                      OutputItemType="Analyzer" />
+    <ProjectReference Include="..\GqlPlus.Generators\GqlPlus.Generators.csproj"
+                      OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
   </ItemGroup>
 
 </Project>

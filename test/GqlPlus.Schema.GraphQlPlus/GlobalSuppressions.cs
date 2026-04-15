@@ -7,3 +7,5 @@ using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("Design", "CA1040:Avoid empty interfaces")]
 [assembly: SuppressMessage("Naming", "CA1711:Identifiers should not have incorrect suffix")]
+[assembly: SuppressMessage("Performance", "CA1812:Seal internal types")]
+[assembly: SuppressMessage("Performance", "CA1852:Avoid uninstantiated internal classes")]

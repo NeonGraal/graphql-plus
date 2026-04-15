@@ -18,3 +18,11 @@ internal class testPrntDmnBoolPrntDescrEncoder : IEncoder<ItestPrntDmnBoolPrntDe
   public Structured Encode(ItestPrntDmnBoolPrntDescr input)
     => new(input.Value);
 }
+
+internal static class test_domain_bool_parent_descrEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_domain_bool_parent_descrEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestDmnBoolPrntDescr>(_ => new testDmnBoolPrntDescrEncoder())
+      .AddEncoder<ItestPrntDmnBoolPrntDescr>(_ => new testPrntDmnBoolPrntDescrEncoder());
+}

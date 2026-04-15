@@ -25,3 +25,12 @@ internal class testPrntFieldEnumPrntOutpEncoder : IEncoder<testPrntFieldEnumPrnt
   public Structured Encode(testPrntFieldEnumPrntOutp input)
     => new(input.ToString(), "_PrntFieldEnumPrntOutp");
 }
+
+internal static class test_field_enum_parent_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_field_enum_parent_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestFieldEnumPrntOutpObject>(_ => new testFieldEnumPrntOutpEncoder())
+      .AddEncoder<testEnumFieldEnumPrntOutp>(_ => new testEnumFieldEnumPrntOutpEncoder())
+      .AddEncoder<testPrntFieldEnumPrntOutp>(_ => new testPrntFieldEnumPrntOutpEncoder());
+}

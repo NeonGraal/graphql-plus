@@ -66,3 +66,11 @@ internal class test_AnyEncoder : IEncoder<Itest_AnyObject>
   public Structured Encode(Itest_AnyObject input)
     => Structured.Empty();
 }
+
+internal static class test_SchemaEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_SchemaEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<Itest_Key>(_ => new test_KeyEncoder())
+      .AddEncoder<Itest_AnyObject>(_ => new test_AnyEncoder());
+}

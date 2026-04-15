@@ -29,3 +29,12 @@ internal class CmptPrntDmnEnumValuePrntEncoder : IEncoder<CmptPrntDmnEnumValuePr
   public Structured Encode(CmptPrntDmnEnumValuePrnt input)
     => new(input.ToString(), "_PrntDmnEnumValuePrnt");
 }
+
+internal static class Cmpt_Schema_domain_enum_value_parentEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_enum_value_parentEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptDmnEnumValuePrnt>(_ => new CmptDmnEnumValuePrntEncoder())
+      .AddEncoder<CmptEnumDmnEnumValuePrnt>(_ => new CmptEnumDmnEnumValuePrntEncoder())
+      .AddEncoder<CmptPrntDmnEnumValuePrnt>(_ => new CmptPrntDmnEnumValuePrntEncoder());
+}

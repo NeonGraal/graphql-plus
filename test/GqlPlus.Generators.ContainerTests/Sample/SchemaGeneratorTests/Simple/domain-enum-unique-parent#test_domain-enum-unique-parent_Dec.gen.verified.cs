@@ -33,3 +33,13 @@ internal class testDupDmnEnumUnqPrntDecoder
   public string dup_dmnEnumUnqPrnt { get; set; }
   public string dmnEnumUnqPrntDup { get; set; }
 }
+
+internal static class test_domain_enum_unique_parentDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_domain_enum_unique_parentDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestDmnEnumUnqPrnt>(_ => new testDmnEnumUnqPrntDecoder())
+      .AddDecoder<testEnumDmnEnumUnqPrnt>(_ => new testEnumDmnEnumUnqPrntDecoder())
+      .AddDecoder<testPrntDmnEnumUnqPrnt>(_ => new testPrntDmnEnumUnqPrntDecoder())
+      .AddDecoder<testDupDmnEnumUnqPrnt>(_ => new testDupDmnEnumUnqPrntDecoder());
+}

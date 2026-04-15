@@ -24,3 +24,11 @@ internal class CmptFieldGnrcPrntStrDomDualDecoder<TRef>
 internal class CmptDomGnrcPrntStrDomDualDecoder
 {
 }
+
+internal static class Cmpt_Schema_generic_parent_string_dom_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_parent_string_dom_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptGnrcPrntStrDomDualObject>(_ => new CmptGnrcPrntStrDomDualDecoder())
+      .AddDecoder<ICmptDomGnrcPrntStrDomDual>(_ => new CmptDomGnrcPrntStrDomDualDecoder());
+}

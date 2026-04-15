@@ -131,3 +131,17 @@ internal class Cmpt_SettingEncoder(
     => _named.Encode(input)
       .AddEncoded("value", input.Value, _gqlpValue);
 }
+
+internal static class Cmpt_Spec_GlobalEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Spec_GlobalEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmpt_AndTypeObject>(r => new Cmpt_AndTypeEncoder(r))
+      .AddEncoder<ICmpt_CategoriesObject>(r => new Cmpt_CategoriesEncoder(r))
+      .AddEncoder<ICmpt_CategoryObject>(r => new Cmpt_CategoryEncoder(r))
+      .AddEncoder<Cmpt_Resolution>(_ => new Cmpt_ResolutionEncoder())
+      .AddEncoder<ICmpt_DirectivesObject>(r => new Cmpt_DirectivesEncoder(r))
+      .AddEncoder<ICmpt_DirectiveObject>(r => new Cmpt_DirectiveEncoder(r))
+      .AddEncoder<Cmpt_Location>(_ => new Cmpt_LocationEncoder())
+      .AddEncoder<ICmpt_SettingObject>(r => new Cmpt_SettingEncoder(r));
+}

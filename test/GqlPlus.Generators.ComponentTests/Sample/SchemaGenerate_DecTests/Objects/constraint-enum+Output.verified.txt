@@ -12,16 +12,14 @@ enum EnumCnstEnumOutp { cnstEnumOutp }
 
 namespace Components.Gqlp_Schema_constraint_enum_Output;
 
-internal class CmptCnstEnumOutpDecoder
-{
-}
-
-internal class CmptRefCnstEnumOutpDecoder<TType>
-{
-  public TType Field { get; set; }
-}
-
 internal class CmptEnumCnstEnumOutpDecoder
 {
   public string cnstEnumOutp { get; set; }
+}
+
+internal static class Cmpt_Schema_constraint_enum_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_enum_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<CmptEnumCnstEnumOutp>(_ => new CmptEnumCnstEnumOutpDecoder());
 }

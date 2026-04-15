@@ -22,15 +22,15 @@ internal class CmptOutpParamModParamEncoder<TMod>(
       .AddEncoded("field", input.Field(), _domOutpParamModParam);
 }
 
-internal class CmptInOutpParamModParamEncoder : IEncoder<ICmptInOutpParamModParamObject>
-{
-  public Structured Encode(ICmptInOutpParamModParamObject input)
-    => Structured.Empty()
-      .Add("param", input.Param);
-}
-
 internal class CmptDomOutpParamModParamEncoder : IEncoder<ICmptDomOutpParamModParam>
 {
   public Structured Encode(ICmptDomOutpParamModParam input)
     => new(input.Value);
+}
+
+internal static class Cmpt_Schema_output_param_mod_paramEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_output_param_mod_paramEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptDomOutpParamModParam>(_ => new CmptDomOutpParamModParamEncoder());
 }

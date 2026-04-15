@@ -11,14 +11,15 @@ enum EnumAltEnumInp { altEnumInp }
 
 namespace Components.Gqlp_Schema_alt_enum_Input;
 
-internal class CmptAltEnumInpEncoder : IEncoder<ICmptAltEnumInpObject>
-{
-  public Structured Encode(ICmptAltEnumInpObject input)
-    => Structured.Empty();
-}
-
 internal class CmptEnumAltEnumInpEncoder : IEncoder<CmptEnumAltEnumInp>
 {
   public Structured Encode(CmptEnumAltEnumInp input)
     => new(input.ToString(), "_EnumAltEnumInp");
+}
+
+internal static class Cmpt_Schema_alt_enum_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_alt_enum_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<CmptEnumAltEnumInp>(_ => new CmptEnumAltEnumInpEncoder());
 }

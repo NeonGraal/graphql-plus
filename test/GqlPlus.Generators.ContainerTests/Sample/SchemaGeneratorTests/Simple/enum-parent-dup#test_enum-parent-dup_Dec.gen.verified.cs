@@ -19,3 +19,11 @@ internal class testPrntEnumPrntDupDecoder
   public string prnt_enumPrntDup { get; set; }
   public string enumPrntDup { get; set; }
 }
+
+internal static class test_enum_parent_dupDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_enum_parent_dupDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<testEnumPrntDup>(_ => new testEnumPrntDupDecoder())
+      .AddDecoder<testPrntEnumPrntDup>(_ => new testPrntEnumPrntDupDecoder());
+}

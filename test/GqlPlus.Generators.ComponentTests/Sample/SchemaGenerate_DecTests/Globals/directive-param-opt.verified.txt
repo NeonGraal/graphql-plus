@@ -14,3 +14,10 @@ namespace Components.Gqlp_Schema_directive_param_opt;
 internal class CmptInDrctParamOptDecoder
 {
 }
+
+internal static class Cmpt_Schema_directive_param_optDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_directive_param_optDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptInDrctParamOptObject>(_ => new CmptInDrctParamOptDecoder());
+}

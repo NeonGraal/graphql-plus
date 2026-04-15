@@ -7,26 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp__Type;
 
-internal class test_TypeDecoder
-{
-}
-
-internal class test_BaseTypeDecoder<TTypeKind>
-{
-  public TTypeKind TypeKind { get; set; }
-}
-
-internal class test_ChildTypeDecoder<TTypeKind,TParent>
-{
-  public TParent Parent { get; set; }
-}
-
-internal class test_ParentTypeDecoder<TTypeKind,TItem,TAllItem>
-{
-  public ICollection<TItem> Items { get; set; }
-  public ICollection<TAllItem> AllItems { get; set; }
-}
-
 internal class test_SimpleKindDecoder
 {
   public string Basic { get; set; }
@@ -85,4 +65,16 @@ internal class test_ModifierKindDecoder
 internal class test_ModifierDecoder<TModifierKind>
 {
   public TModifierKind ModifierKind { get; set; }
+}
+
+internal static class test__TypeDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest__TypeDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<test_SimpleKind>(_ => new test_SimpleKindDecoder())
+      .AddDecoder<test_TypeKind>(_ => new test_TypeKindDecoder())
+      .AddDecoder<Itest_TypeSimpleObject>(_ => new test_TypeSimpleDecoder())
+      .AddDecoder<Itest_CollectionsObject>(_ => new test_CollectionsDecoder())
+      .AddDecoder<Itest_ModifiersObject>(_ => new test_ModifiersDecoder())
+      .AddDecoder<test_ModifierKind>(_ => new test_ModifierKindDecoder());
 }

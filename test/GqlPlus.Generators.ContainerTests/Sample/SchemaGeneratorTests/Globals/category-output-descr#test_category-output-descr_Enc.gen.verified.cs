@@ -12,3 +12,10 @@ internal class testCtgrOutpDescrEncoder : IEncoder<ItestCtgrOutpDescrObject>
   public Structured Encode(ItestCtgrOutpDescrObject input)
     => Structured.Empty();
 }
+
+internal static class test_category_output_descrEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_category_output_descrEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestCtgrOutpDescrObject>(_ => new testCtgrOutpDescrEncoder());
+}

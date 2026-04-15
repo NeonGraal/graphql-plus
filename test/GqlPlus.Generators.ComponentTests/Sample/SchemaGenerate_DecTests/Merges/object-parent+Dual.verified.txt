@@ -19,3 +19,11 @@ internal class CmptObjPrntDualDecoder
 internal class CmptRefObjPrntDualDecoder
 {
 }
+
+internal static class Cmpt_Schema_object_parent_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_object_parent_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptObjPrntDualObject>(_ => new CmptObjPrntDualDecoder())
+      .AddDecoder<ICmptRefObjPrntDualObject>(_ => new CmptRefObjPrntDualDecoder());
+}

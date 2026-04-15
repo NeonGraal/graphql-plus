@@ -11,18 +11,16 @@ dual RefPrntDualInp { parent: Number | String }
 
 namespace Components.Gqlp_Schema_parent_dual_Input;
 
-internal class CmptPrntDualInpEncoder(
-  IEncoderRepository encoders
-) : IEncoder<ICmptPrntDualInpObject>
-{
-  private readonly IEncoder<ICmptRefPrntDualInpObject> _refPrntDualInp = encoders.EncoderFor<ICmptRefPrntDualInpObject>();
-  public Structured Encode(ICmptPrntDualInpObject input)
-    => _refPrntDualInp.Encode(input);
-}
-
 internal class CmptRefPrntDualInpEncoder : IEncoder<ICmptRefPrntDualInpObject>
 {
   public Structured Encode(ICmptRefPrntDualInpObject input)
     => Structured.Empty()
       .Add("parent", input.Parent);
+}
+
+internal static class Cmpt_Schema_parent_dual_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_parent_dual_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptRefPrntDualInpObject>(_ => new CmptRefPrntDualInpEncoder());
 }

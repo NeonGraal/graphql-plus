@@ -25,3 +25,11 @@ internal class CmptEnumGnrcPrntSmplEnumInpDecoder
 {
   public string gnrcPrntSmplEnumInp { get; set; }
 }
+
+internal static class Cmpt_Schema_generic_parent_simple_enum_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_parent_simple_enum_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptGnrcPrntSmplEnumInpObject>(_ => new CmptGnrcPrntSmplEnumInpDecoder())
+      .AddDecoder<CmptEnumGnrcPrntSmplEnumInp>(_ => new CmptEnumGnrcPrntSmplEnumInpDecoder());
+}

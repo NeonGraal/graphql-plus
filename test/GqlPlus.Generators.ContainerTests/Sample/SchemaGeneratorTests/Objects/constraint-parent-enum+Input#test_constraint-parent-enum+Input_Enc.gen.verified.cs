@@ -7,22 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_enum_Input;
 
-internal class testCnstPrntEnumInpEncoder : IEncoder<ItestCnstPrntEnumInpObject>
-{
-  public Structured Encode(ItestCnstPrntEnumInpObject input)
-    => Structured.Empty();
-}
-
-internal class testRefCnstPrntEnumInpEncoder<TType>(
-  IEncoderRepository encoders
-) : IEncoder<ItestRefCnstPrntEnumInpObject<TType>>
-{
-  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
-  public Structured Encode(ItestRefCnstPrntEnumInpObject<TType> input)
-    => Structured.Empty()
-      .AddEncoded("field", input.Field, _type);
-}
-
 internal class testEnumCnstPrntEnumInpEncoder : IEncoder<testEnumCnstPrntEnumInp>
 {
   public Structured Encode(testEnumCnstPrntEnumInp input)
@@ -33,4 +17,12 @@ internal class testParentCnstPrntEnumInpEncoder : IEncoder<testParentCnstPrntEnu
 {
   public Structured Encode(testParentCnstPrntEnumInp input)
     => new(input.ToString(), "_ParentCnstPrntEnumInp");
+}
+
+internal static class test_constraint_parent_enum_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_constraint_parent_enum_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<testEnumCnstPrntEnumInp>(_ => new testEnumCnstPrntEnumInpEncoder())
+      .AddEncoder<testParentCnstPrntEnumInp>(_ => new testParentCnstPrntEnumInpEncoder());
 }

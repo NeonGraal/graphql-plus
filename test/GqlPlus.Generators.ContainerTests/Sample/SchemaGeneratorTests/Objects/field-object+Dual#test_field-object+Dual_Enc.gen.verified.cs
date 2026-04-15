@@ -23,3 +23,11 @@ internal class testFldFieldObjDualEncoder : IEncoder<ItestFldFieldObjDualObject>
     => Structured.Empty()
       .Add("field", input.Field);
 }
+
+internal static class test_field_object_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_field_object_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestFieldObjDualObject>(r => new testFieldObjDualEncoder(r))
+      .AddEncoder<ItestFldFieldObjDualObject>(_ => new testFldFieldObjDualEncoder());
+}

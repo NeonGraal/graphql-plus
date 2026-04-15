@@ -55,26 +55,6 @@ dual _Described {
 
 namespace Components.Gqlp_Spec_Schema;
 
-internal class Cmpt_SchemaDecoder
-{
-  public IDictionary<ICmpt_Name, ICmpt_Categories>? Categories(ICmpt_CategoryFilter? parameter)
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Categories>? Categories()
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Directives>? Directives(ICmpt_Filter? parameter)
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Directives>? Directives()
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Type>? Types(ICmpt_TypeFilter? parameter)
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Type>? Types()
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Setting>? Settings(ICmpt_Filter? parameter)
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Setting>? Settings()
-    => null;
-}
-
 internal class Cmpt_NameDecoder
 {
 }
@@ -115,4 +95,18 @@ internal class Cmpt_NamedDecoder
 internal class Cmpt_DescribedDecoder
 {
   public ICollection<string> Description { get; set; }
+}
+
+internal static class Cmpt_Spec_SchemaDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_SchemaDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmpt_Name>(_ => new Cmpt_NameDecoder())
+      .AddDecoder<ICmpt_FilterObject>(_ => new Cmpt_FilterDecoder())
+      .AddDecoder<ICmpt_NameFilter>(_ => new Cmpt_NameFilterDecoder())
+      .AddDecoder<ICmpt_CategoryFilterObject>(_ => new Cmpt_CategoryFilterDecoder())
+      .AddDecoder<ICmpt_TypeFilterObject>(_ => new Cmpt_TypeFilterDecoder())
+      .AddDecoder<ICmpt_AliasedObject>(_ => new Cmpt_AliasedDecoder())
+      .AddDecoder<ICmpt_NamedObject>(_ => new Cmpt_NamedDecoder())
+      .AddDecoder<ICmpt_DescribedObject>(_ => new Cmpt_DescribedDecoder());
 }

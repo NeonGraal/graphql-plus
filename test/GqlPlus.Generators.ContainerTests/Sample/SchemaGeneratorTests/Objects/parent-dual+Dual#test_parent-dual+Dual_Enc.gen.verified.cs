@@ -22,3 +22,11 @@ internal class testRefPrntDualDualEncoder : IEncoder<ItestRefPrntDualDualObject>
     => Structured.Empty()
       .Add("parent", input.Parent);
 }
+
+internal static class test_parent_dual_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_parent_dual_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestPrntDualDualObject>(r => new testPrntDualDualEncoder(r))
+      .AddEncoder<ItestRefPrntDualDualObject>(_ => new testRefPrntDualDualEncoder());
+}

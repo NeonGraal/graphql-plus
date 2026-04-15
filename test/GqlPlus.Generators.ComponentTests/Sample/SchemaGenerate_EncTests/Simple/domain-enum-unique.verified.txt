@@ -29,3 +29,12 @@ internal class CmptDupDmnEnumUnqEncoder : IEncoder<CmptDupDmnEnumUnq>
   public Structured Encode(CmptDupDmnEnumUnq input)
     => new(input.ToString(), "_DupDmnEnumUnq");
 }
+
+internal static class Cmpt_Schema_domain_enum_uniqueEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_enum_uniqueEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptDmnEnumUnq>(_ => new CmptDmnEnumUnqEncoder())
+      .AddEncoder<CmptEnumDmnEnumUnq>(_ => new CmptEnumDmnEnumUnqEncoder())
+      .AddEncoder<CmptDupDmnEnumUnq>(_ => new CmptDupDmnEnumUnqEncoder());
+}

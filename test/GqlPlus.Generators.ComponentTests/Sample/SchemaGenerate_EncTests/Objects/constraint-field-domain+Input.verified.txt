@@ -12,27 +12,15 @@ domain DomCnstFieldDmnInp { String /\w+/ }
 
 namespace Components.Gqlp_Schema_constraint_field_domain_Input;
 
-internal class CmptCnstFieldDmnInpEncoder(
-  IEncoderRepository encoders
-) : IEncoder<ICmptCnstFieldDmnInpObject>
-{
-  private readonly IEncoder<ICmptRefCnstFieldDmnInpObject<ICmptDomCnstFieldDmnInp>> _refCnstFieldDmnInp = encoders.EncoderFor<ICmptRefCnstFieldDmnInpObject<ICmptDomCnstFieldDmnInp>>();
-  public Structured Encode(ICmptCnstFieldDmnInpObject input)
-    => _refCnstFieldDmnInp.Encode(input);
-}
-
-internal class CmptRefCnstFieldDmnInpEncoder<TRef>(
-  IEncoderRepository encoders
-) : IEncoder<ICmptRefCnstFieldDmnInpObject<TRef>>
-{
-  private readonly IEncoder<TRef> _ref = encoders.EncoderFor<TRef>();
-  public Structured Encode(ICmptRefCnstFieldDmnInpObject<TRef> input)
-    => Structured.Empty()
-      .AddEncoded("field", input.Field, _ref);
-}
-
 internal class CmptDomCnstFieldDmnInpEncoder : IEncoder<ICmptDomCnstFieldDmnInp>
 {
   public Structured Encode(ICmptDomCnstFieldDmnInp input)
     => new(input.Value);
+}
+
+internal static class Cmpt_Schema_constraint_field_domain_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_field_domain_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptDomCnstFieldDmnInp>(_ => new CmptDomCnstFieldDmnInpEncoder());
 }

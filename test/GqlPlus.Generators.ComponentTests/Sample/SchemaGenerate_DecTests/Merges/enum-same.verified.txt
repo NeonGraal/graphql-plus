@@ -15,3 +15,10 @@ internal class CmptEnumSameDecoder
 {
   public string enumSame { get; set; }
 }
+
+internal static class Cmpt_Schema_enum_sameDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_enum_sameDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<CmptEnumSame>(_ => new CmptEnumSameDecoder());
+}

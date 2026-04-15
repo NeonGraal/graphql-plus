@@ -15,3 +15,10 @@ internal class CmptEnumDescrEncoder : IEncoder<CmptEnumDescr>
   public Structured Encode(CmptEnumDescr input)
     => new(input.ToString(), "_EnumDescr");
 }
+
+internal static class Cmpt_Schema_enum_descrEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_enum_descrEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<CmptEnumDescr>(_ => new CmptEnumDescrEncoder());
+}

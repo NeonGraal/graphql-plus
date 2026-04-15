@@ -16,3 +16,10 @@ internal class CmptEnumDiffDecoder
   public string one { get; set; }
   public string two { get; set; }
 }
+
+internal static class Cmpt_Schema_enum_diffDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_enum_diffDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<CmptEnumDiff>(_ => new CmptEnumDiffDecoder());
+}

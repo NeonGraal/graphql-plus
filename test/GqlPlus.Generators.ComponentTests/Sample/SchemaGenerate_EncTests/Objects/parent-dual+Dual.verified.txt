@@ -26,3 +26,11 @@ internal class CmptRefPrntDualDualEncoder : IEncoder<ICmptRefPrntDualDualObject>
     => Structured.Empty()
       .Add("parent", input.Parent);
 }
+
+internal static class Cmpt_Schema_parent_dual_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_parent_dual_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptPrntDualDualObject>(r => new CmptPrntDualDualEncoder(r))
+      .AddEncoder<ICmptRefPrntDualDualObject>(_ => new CmptRefPrntDualDualEncoder());
+}

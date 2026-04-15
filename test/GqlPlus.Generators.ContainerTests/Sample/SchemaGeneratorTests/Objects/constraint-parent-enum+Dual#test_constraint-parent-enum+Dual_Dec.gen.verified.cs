@@ -26,3 +26,12 @@ internal class testParentCnstPrntEnumDualDecoder
 {
   public string parentCnstPrntEnumDual { get; set; }
 }
+
+internal static class test_constraint_parent_enum_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_constraint_parent_enum_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestCnstPrntEnumDualObject>(_ => new testCnstPrntEnumDualDecoder())
+      .AddDecoder<testEnumCnstPrntEnumDual>(_ => new testEnumCnstPrntEnumDualDecoder())
+      .AddDecoder<testParentCnstPrntEnumDual>(_ => new testParentCnstPrntEnumDualDecoder());
+}

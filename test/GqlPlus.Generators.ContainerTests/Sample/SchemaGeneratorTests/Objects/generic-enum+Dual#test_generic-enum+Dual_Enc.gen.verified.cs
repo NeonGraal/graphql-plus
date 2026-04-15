@@ -28,3 +28,11 @@ internal class testEnumGnrcEnumDualEncoder : IEncoder<testEnumGnrcEnumDual>
   public Structured Encode(testEnumGnrcEnumDual input)
     => new(input.ToString(), "_EnumGnrcEnumDual");
 }
+
+internal static class test_generic_enum_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_generic_enum_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestGnrcEnumDualObject>(_ => new testGnrcEnumDualEncoder())
+      .AddEncoder<testEnumGnrcEnumDual>(_ => new testEnumGnrcEnumDualEncoder());
+}

@@ -13,19 +13,13 @@ output AltCnstAltDualOutp { :PrntCnstAltDualOutp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_alt_dual_Output;
 
-internal class CmptCnstAltDualOutpDecoder
-{
-}
-
-internal class CmptRefCnstAltDualOutpDecoder<TRef>
-{
-}
-
 internal class CmptPrntCnstAltDualOutpDecoder
 {
 }
 
-internal class CmptAltCnstAltDualOutpDecoder
+internal static class Cmpt_Schema_constraint_alt_dual_OutputDecoders
 {
-  public decimal Alt { get; set; }
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_alt_dual_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptPrntCnstAltDualOutpObject>(_ => new CmptPrntCnstAltDualOutpDecoder());
 }

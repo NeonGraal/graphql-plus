@@ -30,3 +30,11 @@ internal class CmptPrntUnionPrntDupEncoder(
     => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
      : Structured.Empty();
 }
+
+internal static class Cmpt_Schema_union_parent_dupEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_union_parent_dupEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptUnionPrntDup>(r => new CmptUnionPrntDupEncoder(r))
+      .AddEncoder<ICmptPrntUnionPrntDup>(r => new CmptPrntUnionPrntDupEncoder(r));
+}

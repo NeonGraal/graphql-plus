@@ -12,15 +12,14 @@ dual AltGnrcPrntDualPrntOutp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_parent_dual_parent_Output;
 
-internal class CmptGnrcPrntDualPrntOutpDecoder
-{
-}
-
-internal class CmptRefGnrcPrntDualPrntOutpDecoder<TRef>
-{
-}
-
 internal class CmptAltGnrcPrntDualPrntOutpDecoder
 {
   public decimal Alt { get; set; }
+}
+
+internal static class Cmpt_Schema_generic_parent_dual_parent_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_parent_dual_parent_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptAltGnrcPrntDualPrntOutpObject>(_ => new CmptAltGnrcPrntDualPrntOutpDecoder());
 }

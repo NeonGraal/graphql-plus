@@ -13,15 +13,6 @@ enum ParentCnstPrntEnumOutp { parentCnstPrntEnumOutp }
 
 namespace Components.Gqlp_Schema_constraint_parent_enum_Output;
 
-internal class CmptCnstPrntEnumOutpDecoder
-{
-}
-
-internal class CmptRefCnstPrntEnumOutpDecoder<TType>
-{
-  public TType Field { get; set; }
-}
-
 internal class CmptEnumCnstPrntEnumOutpDecoder
 {
   public string parentCnstPrntEnumOutp { get; set; }
@@ -31,4 +22,12 @@ internal class CmptEnumCnstPrntEnumOutpDecoder
 internal class CmptParentCnstPrntEnumOutpDecoder
 {
   public string parentCnstPrntEnumOutp { get; set; }
+}
+
+internal static class Cmpt_Schema_constraint_parent_enum_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_parent_enum_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<CmptEnumCnstPrntEnumOutp>(_ => new CmptEnumCnstPrntEnumOutpDecoder())
+      .AddDecoder<CmptParentCnstPrntEnumOutp>(_ => new CmptParentCnstPrntEnumOutpDecoder());
 }

@@ -27,3 +27,12 @@ internal class CmptPrntFieldEnumPrntInpDecoder
 {
   public string prnt_fieldEnumPrntInp { get; set; }
 }
+
+internal static class Cmpt_Schema_field_enum_parent_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_enum_parent_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptFieldEnumPrntInpObject>(_ => new CmptFieldEnumPrntInpDecoder())
+      .AddDecoder<CmptEnumFieldEnumPrntInp>(_ => new CmptEnumFieldEnumPrntInpDecoder())
+      .AddDecoder<CmptPrntFieldEnumPrntInp>(_ => new CmptPrntFieldEnumPrntInpDecoder());
+}

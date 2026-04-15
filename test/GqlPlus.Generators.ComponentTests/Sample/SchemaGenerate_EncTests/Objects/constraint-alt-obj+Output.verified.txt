@@ -40,3 +40,12 @@ internal class CmptAltCnstAltObjOutpEncoder(
     => _prntCnstAltObjOutp.Encode(input)
       .Add("alt", input.Alt);
 }
+
+internal static class Cmpt_Schema_constraint_alt_obj_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_alt_obj_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptCnstAltObjOutpObject>(_ => new CmptCnstAltObjOutpEncoder())
+      .AddEncoder<ICmptPrntCnstAltObjOutpObject>(_ => new CmptPrntCnstAltObjOutpEncoder())
+      .AddEncoder<ICmptAltCnstAltObjOutpObject>(r => new CmptAltCnstAltObjOutpEncoder(r));
+}

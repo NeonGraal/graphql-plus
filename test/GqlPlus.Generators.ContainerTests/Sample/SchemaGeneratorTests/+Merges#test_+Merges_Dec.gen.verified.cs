@@ -7,22 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp__Merges;
 
-internal class testCtgrDecoder
-{
-}
-
-internal class testCtgrAliasDecoder
-{
-}
-
-internal class testCtgrDescrDecoder
-{
-}
-
-internal class testCtgrModDecoder
-{
-}
-
 internal class testInDrctParamDecoder
 {
 }
@@ -117,19 +101,11 @@ internal class testObjInpDecoder
 {
 }
 
-internal class testObjOutpDecoder
-{
-}
-
 internal class testObjAliasDualDecoder
 {
 }
 
 internal class testObjAliasInpDecoder
-{
-}
-
-internal class testObjAliasOutpDecoder
 {
 }
 
@@ -149,23 +125,11 @@ internal class testObjAltInpTypeDecoder
 {
 }
 
-internal class testObjAltOutpDecoder
-{
-}
-
-internal class testObjAltOutpTypeDecoder
-{
-}
-
 internal class testObjAltEnumDualDecoder
 {
 }
 
 internal class testObjAltEnumInpDecoder
-{
-}
-
-internal class testObjAltEnumOutpDecoder
 {
 }
 
@@ -176,12 +140,6 @@ internal class testObjCnstDualDecoder<TType>
 }
 
 internal class testObjCnstInpDecoder<TType>
-{
-  public TType Field { get; set; }
-  public TType Str { get; set; }
-}
-
-internal class testObjCnstOutpDecoder<TType>
 {
   public TType Field { get; set; }
   public TType Str { get; set; }
@@ -205,15 +163,6 @@ internal class testFldObjFieldInpDecoder
 {
 }
 
-internal class testObjFieldOutpDecoder
-{
-  public ItestFldObjFieldOutp Field { get; set; }
-}
-
-internal class testFldObjFieldOutpDecoder
-{
-}
-
 internal class testObjFieldAliasDualDecoder
 {
   public ItestFldObjFieldAliasDual Field { get; set; }
@@ -232,26 +181,12 @@ internal class testFldObjFieldAliasInpDecoder
 {
 }
 
-internal class testObjFieldAliasOutpDecoder
-{
-  public ItestFldObjFieldAliasOutp Field { get; set; }
-}
-
-internal class testFldObjFieldAliasOutpDecoder
-{
-}
-
 internal class testObjFieldEnumAliasDualDecoder
 {
   public bool Field { get; set; }
 }
 
 internal class testObjFieldEnumAliasInpDecoder
-{
-  public bool Field { get; set; }
-}
-
-internal class testObjFieldEnumAliasOutpDecoder
 {
   public bool Field { get; set; }
 }
@@ -266,22 +201,12 @@ internal class testObjFieldEnumValueInpDecoder
   public bool Field { get; set; }
 }
 
-internal class testObjFieldEnumValueOutpDecoder
-{
-  public bool Field { get; set; }
-}
-
 internal class testObjFieldTypeAliasDualDecoder
 {
   public string Field { get; set; }
 }
 
 internal class testObjFieldTypeAliasInpDecoder
-{
-  public string Field { get; set; }
-}
-
-internal class testObjFieldTypeAliasOutpDecoder
 {
   public string Field { get; set; }
 }
@@ -298,12 +223,6 @@ internal class testObjParamInpDecoder<TTest,TType>
   public TType Type { get; set; }
 }
 
-internal class testObjParamOutpDecoder<TTest,TType>
-{
-  public TTest Test { get; set; }
-  public TType Type { get; set; }
-}
-
 internal class testObjParamDupDualDecoder<TTest>
 {
   public TTest Test { get; set; }
@@ -311,12 +230,6 @@ internal class testObjParamDupDualDecoder<TTest>
 }
 
 internal class testObjParamDupInpDecoder<TTest>
-{
-  public TTest Test { get; set; }
-  public TTest Type { get; set; }
-}
-
-internal class testObjParamDupOutpDecoder<TTest>
 {
   public TTest Test { get; set; }
   public TTest Type { get; set; }
@@ -336,22 +249,6 @@ internal class testObjPrntInpDecoder
 
 internal class testRefObjPrntInpDecoder
 {
-}
-
-internal class testObjPrntOutpDecoder
-{
-}
-
-internal class testRefObjPrntOutpDecoder
-{
-}
-
-internal class testOutpFieldParamDecoder
-{
-  public ItestFldOutpFieldParam? Field(ItestOutpFieldParam1 parameter)
-    => null;
-  public ItestFldOutpFieldParam? Field()
-    => null;
 }
 
 internal class testOutpFieldParam1Decoder
@@ -391,4 +288,65 @@ internal class testUnionSamePrntDecoder
 internal class testPrntUnionSamePrntDecoder
 {
   public String AsString { get; set; }
+}
+
+internal static class test__MergesDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest__MergesDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestInDrctParamObject>(_ => new testInDrctParamDecoder())
+      .AddDecoder<ItestDmnAlias>(_ => new testDmnAliasDecoder())
+      .AddDecoder<ItestDmnBool>(_ => new testDmnBoolDecoder())
+      .AddDecoder<ItestDmnBoolDiff>(_ => new testDmnBoolDiffDecoder())
+      .AddDecoder<ItestDmnBoolSame>(_ => new testDmnBoolSameDecoder())
+      .AddDecoder<ItestDmnEnumDiff>(_ => new testDmnEnumDiffDecoder())
+      .AddDecoder<ItestDmnEnumSame>(_ => new testDmnEnumSameDecoder())
+      .AddDecoder<ItestDmnNmbr>(_ => new testDmnNmbrDecoder())
+      .AddDecoder<ItestDmnNmbrDiff>(_ => new testDmnNmbrDiffDecoder())
+      .AddDecoder<ItestDmnNmbrSame>(_ => new testDmnNmbrSameDecoder())
+      .AddDecoder<ItestDmnStr>(_ => new testDmnStrDecoder())
+      .AddDecoder<ItestDmnStrDiff>(_ => new testDmnStrDiffDecoder())
+      .AddDecoder<ItestDmnStrSame>(_ => new testDmnStrSameDecoder())
+      .AddDecoder<testEnumAlias>(_ => new testEnumAliasDecoder())
+      .AddDecoder<testEnumDiff>(_ => new testEnumDiffDecoder())
+      .AddDecoder<testEnumSame>(_ => new testEnumSameDecoder())
+      .AddDecoder<testEnumSamePrnt>(_ => new testEnumSamePrntDecoder())
+      .AddDecoder<testPrntEnumSamePrnt>(_ => new testPrntEnumSamePrntDecoder())
+      .AddDecoder<testEnumValueAlias>(_ => new testEnumValueAliasDecoder())
+      .AddDecoder<ItestObjDualObject>(_ => new testObjDualDecoder())
+      .AddDecoder<ItestObjInpObject>(_ => new testObjInpDecoder())
+      .AddDecoder<ItestObjAliasDualObject>(_ => new testObjAliasDualDecoder())
+      .AddDecoder<ItestObjAliasInpObject>(_ => new testObjAliasInpDecoder())
+      .AddDecoder<ItestObjAltDualObject>(_ => new testObjAltDualDecoder())
+      .AddDecoder<ItestObjAltDualTypeObject>(_ => new testObjAltDualTypeDecoder())
+      .AddDecoder<ItestObjAltInpObject>(_ => new testObjAltInpDecoder())
+      .AddDecoder<ItestObjAltInpTypeObject>(_ => new testObjAltInpTypeDecoder())
+      .AddDecoder<ItestObjAltEnumDualObject>(_ => new testObjAltEnumDualDecoder())
+      .AddDecoder<ItestObjAltEnumInpObject>(_ => new testObjAltEnumInpDecoder())
+      .AddDecoder<ItestObjFieldDualObject>(_ => new testObjFieldDualDecoder())
+      .AddDecoder<ItestFldObjFieldDualObject>(_ => new testFldObjFieldDualDecoder())
+      .AddDecoder<ItestObjFieldInpObject>(_ => new testObjFieldInpDecoder())
+      .AddDecoder<ItestFldObjFieldInpObject>(_ => new testFldObjFieldInpDecoder())
+      .AddDecoder<ItestObjFieldAliasDualObject>(_ => new testObjFieldAliasDualDecoder())
+      .AddDecoder<ItestFldObjFieldAliasDualObject>(_ => new testFldObjFieldAliasDualDecoder())
+      .AddDecoder<ItestObjFieldAliasInpObject>(_ => new testObjFieldAliasInpDecoder())
+      .AddDecoder<ItestFldObjFieldAliasInpObject>(_ => new testFldObjFieldAliasInpDecoder())
+      .AddDecoder<ItestObjFieldEnumAliasDualObject>(_ => new testObjFieldEnumAliasDualDecoder())
+      .AddDecoder<ItestObjFieldEnumAliasInpObject>(_ => new testObjFieldEnumAliasInpDecoder())
+      .AddDecoder<ItestObjFieldEnumValueDualObject>(_ => new testObjFieldEnumValueDualDecoder())
+      .AddDecoder<ItestObjFieldEnumValueInpObject>(_ => new testObjFieldEnumValueInpDecoder())
+      .AddDecoder<ItestObjFieldTypeAliasDualObject>(_ => new testObjFieldTypeAliasDualDecoder())
+      .AddDecoder<ItestObjFieldTypeAliasInpObject>(_ => new testObjFieldTypeAliasInpDecoder())
+      .AddDecoder<ItestObjPrntDualObject>(_ => new testObjPrntDualDecoder())
+      .AddDecoder<ItestRefObjPrntDualObject>(_ => new testRefObjPrntDualDecoder())
+      .AddDecoder<ItestObjPrntInpObject>(_ => new testObjPrntInpDecoder())
+      .AddDecoder<ItestRefObjPrntInpObject>(_ => new testRefObjPrntInpDecoder())
+      .AddDecoder<ItestOutpFieldParam1Object>(_ => new testOutpFieldParam1Decoder())
+      .AddDecoder<ItestOutpFieldParam2Object>(_ => new testOutpFieldParam2Decoder())
+      .AddDecoder<ItestFldOutpFieldParamObject>(_ => new testFldOutpFieldParamDecoder())
+      .AddDecoder<ItestUnionAlias>(_ => new testUnionAliasDecoder())
+      .AddDecoder<ItestUnionDiff>(_ => new testUnionDiffDecoder())
+      .AddDecoder<ItestUnionSame>(_ => new testUnionSameDecoder())
+      .AddDecoder<ItestUnionSamePrnt>(_ => new testUnionSamePrntDecoder())
+      .AddDecoder<ItestPrntUnionSamePrnt>(_ => new testPrntUnionSamePrntDecoder());
 }

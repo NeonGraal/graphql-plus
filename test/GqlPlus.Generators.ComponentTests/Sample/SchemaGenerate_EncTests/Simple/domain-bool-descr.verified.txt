@@ -15,3 +15,10 @@ internal class CmptDmnBoolDescrEncoder : IEncoder<ICmptDmnBoolDescr>
   public Structured Encode(ICmptDmnBoolDescr input)
     => new(input.Value);
 }
+
+internal static class Cmpt_Schema_domain_bool_descrEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_bool_descrEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptDmnBoolDescr>(_ => new CmptDmnBoolDescrEncoder());
+}

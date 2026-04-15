@@ -116,3 +116,16 @@ internal class test_ModifierEncoder<TModifierKind>(
     => Structured.Empty()
       .AddEncoded("modifierKind", input.ModifierKind, _modifierKind);
 }
+
+internal static class test__TypeEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest__TypeEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<Itest_TypeObject>(_ => new test_TypeEncoder())
+      .AddEncoder<test_SimpleKind>(_ => new test_SimpleKindEncoder())
+      .AddEncoder<test_TypeKind>(_ => new test_TypeKindEncoder())
+      .AddEncoder<Itest_TypeSimpleObject>(_ => new test_TypeSimpleEncoder())
+      .AddEncoder<Itest_CollectionsObject>(_ => new test_CollectionsEncoder())
+      .AddEncoder<Itest_ModifiersObject>(_ => new test_ModifiersEncoder())
+      .AddEncoder<test_ModifierKind>(_ => new test_ModifierKindEncoder());
+}

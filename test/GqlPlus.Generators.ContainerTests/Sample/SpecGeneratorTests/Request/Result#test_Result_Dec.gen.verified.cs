@@ -40,3 +40,14 @@ internal class test_OpSpreadDecoder
   public Itest_Identifier Fragment { get; set; }
   public ICollection<Itest_OpDirective> Directives { get; set; }
 }
+
+internal static class test_ResultDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_ResultDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<Itest_OpResultObject>(_ => new test_OpResultDecoder())
+      .AddDecoder<Itest_OpObjectObject>(_ => new test_OpObjectDecoder())
+      .AddDecoder<Itest_OpFieldObject>(_ => new test_OpFieldDecoder())
+      .AddDecoder<Itest_OpInlineObject>(_ => new test_OpInlineDecoder())
+      .AddDecoder<Itest_OpSpreadObject>(_ => new test_OpSpreadDecoder());
+}

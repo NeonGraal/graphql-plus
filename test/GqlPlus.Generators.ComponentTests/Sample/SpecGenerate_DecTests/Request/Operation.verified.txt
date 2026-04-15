@@ -132,3 +132,19 @@ internal class Cmpt_OpArgMapDecoder
   public ICmpt_OpArgValue Value { get; set; }
   public ICmpt_Identifier ByVariable { get; set; }
 }
+
+internal static class Cmpt_Spec_OperationDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_OperationDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmpt_OperationObject>(_ => new Cmpt_OperationDecoder())
+      .AddDecoder<ICmpt_OpVariableObject>(_ => new Cmpt_OpVariableDecoder())
+      .AddDecoder<ICmpt_OpDirectiveObject>(_ => new Cmpt_OpDirectiveDecoder())
+      .AddDecoder<ICmpt_OpFragmentObject>(_ => new Cmpt_OpFragmentDecoder())
+      .AddDecoder<Cmpt_ModifierKind>(_ => new Cmpt_ModifierKindDecoder())
+      .AddDecoder<ICmpt_ModifierObject>(_ => new Cmpt_ModifierDecoder())
+      .AddDecoder<ICmpt_OpArgumentObject>(_ => new Cmpt_OpArgumentDecoder())
+      .AddDecoder<ICmpt_OpArgValueObject>(_ => new Cmpt_OpArgValueDecoder())
+      .AddDecoder<ICmpt_OpArgListObject>(_ => new Cmpt_OpArgListDecoder())
+      .AddDecoder<ICmpt_OpArgMapObject>(_ => new Cmpt_OpArgMapDecoder());
+}

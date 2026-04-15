@@ -18,3 +18,11 @@ internal class test_RequestDecoder
 internal class test_IdentifierDecoder
 {
 }
+
+internal static class test_FullDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_FullDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<Itest_RequestObject>(_ => new test_RequestDecoder())
+      .AddDecoder<Itest_Identifier>(_ => new test_IdentifierDecoder());
+}

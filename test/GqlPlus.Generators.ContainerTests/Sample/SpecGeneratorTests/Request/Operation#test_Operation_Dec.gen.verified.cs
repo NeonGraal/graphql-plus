@@ -74,3 +74,19 @@ internal class test_OpArgMapDecoder
   public Itest_OpArgValue Value { get; set; }
   public Itest_Identifier ByVariable { get; set; }
 }
+
+internal static class test_OperationDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_OperationDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<Itest_OperationObject>(_ => new test_OperationDecoder())
+      .AddDecoder<Itest_OpVariableObject>(_ => new test_OpVariableDecoder())
+      .AddDecoder<Itest_OpDirectiveObject>(_ => new test_OpDirectiveDecoder())
+      .AddDecoder<Itest_OpFragmentObject>(_ => new test_OpFragmentDecoder())
+      .AddDecoder<test_ModifierKind>(_ => new test_ModifierKindDecoder())
+      .AddDecoder<Itest_ModifierObject>(_ => new test_ModifierDecoder())
+      .AddDecoder<Itest_OpArgumentObject>(_ => new test_OpArgumentDecoder())
+      .AddDecoder<Itest_OpArgValueObject>(_ => new test_OpArgValueDecoder())
+      .AddDecoder<Itest_OpArgListObject>(_ => new test_OpArgListDecoder())
+      .AddDecoder<Itest_OpArgMapObject>(_ => new test_OpArgMapDecoder());
+}

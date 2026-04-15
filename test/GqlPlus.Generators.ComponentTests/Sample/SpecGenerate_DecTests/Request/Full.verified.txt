@@ -29,3 +29,11 @@ internal class Cmpt_RequestDecoder
 internal class Cmpt_IdentifierDecoder
 {
 }
+
+internal static class Cmpt_Spec_FullDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_FullDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmpt_RequestObject>(_ => new Cmpt_RequestDecoder())
+      .AddDecoder<ICmpt_Identifier>(_ => new Cmpt_IdentifierDecoder());
+}

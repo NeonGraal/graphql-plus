@@ -120,3 +120,26 @@ internal class test_OpSpreadDecoder
   public Itest_Identifier Fragment { get; set; }
   public ICollection<Itest_OpDirective> Directives { get; set; }
 }
+
+internal static class test_RequestDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_RequestDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<Itest_RequestObject>(_ => new test_RequestDecoder())
+      .AddDecoder<Itest_Identifier>(_ => new test_IdentifierDecoder())
+      .AddDecoder<Itest_OperationObject>(_ => new test_OperationDecoder())
+      .AddDecoder<Itest_OpVariableObject>(_ => new test_OpVariableDecoder())
+      .AddDecoder<Itest_OpDirectiveObject>(_ => new test_OpDirectiveDecoder())
+      .AddDecoder<Itest_OpFragmentObject>(_ => new test_OpFragmentDecoder())
+      .AddDecoder<test_ModifierKind>(_ => new test_ModifierKindDecoder())
+      .AddDecoder<Itest_ModifierObject>(_ => new test_ModifierDecoder())
+      .AddDecoder<Itest_OpArgumentObject>(_ => new test_OpArgumentDecoder())
+      .AddDecoder<Itest_OpArgValueObject>(_ => new test_OpArgValueDecoder())
+      .AddDecoder<Itest_OpArgListObject>(_ => new test_OpArgListDecoder())
+      .AddDecoder<Itest_OpArgMapObject>(_ => new test_OpArgMapDecoder())
+      .AddDecoder<Itest_OpResultObject>(_ => new test_OpResultDecoder())
+      .AddDecoder<Itest_OpObjectObject>(_ => new test_OpObjectDecoder())
+      .AddDecoder<Itest_OpFieldObject>(_ => new test_OpFieldDecoder())
+      .AddDecoder<Itest_OpInlineObject>(_ => new test_OpInlineDecoder())
+      .AddDecoder<Itest_OpSpreadObject>(_ => new test_OpSpreadDecoder());
+}

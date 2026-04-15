@@ -75,3 +75,14 @@ internal class Cmpt_OpSpreadDecoder
   public ICmpt_Identifier Fragment { get; set; }
   public ICollection<ICmpt_OpDirective> Directives { get; set; }
 }
+
+internal static class Cmpt_Spec_ResultDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_ResultDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmpt_OpResultObject>(_ => new Cmpt_OpResultDecoder())
+      .AddDecoder<ICmpt_OpObjectObject>(_ => new Cmpt_OpObjectDecoder())
+      .AddDecoder<ICmpt_OpFieldObject>(_ => new Cmpt_OpFieldDecoder())
+      .AddDecoder<ICmpt_OpInlineObject>(_ => new Cmpt_OpInlineDecoder())
+      .AddDecoder<ICmpt_OpSpreadObject>(_ => new Cmpt_OpSpreadDecoder());
+}

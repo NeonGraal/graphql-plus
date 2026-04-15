@@ -14,11 +14,13 @@ namespace Components.Gqlp_Schema_constraint_alt_domain_Output;
 
 internal class CmptDomCnstAltDmnOutpDecoder
 {
+
+  internal static CmptDomCnstAltDmnOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_constraint_alt_domain_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_alt_domain_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptDomCnstAltDmnOutp>(_ => new CmptDomCnstAltDmnOutpDecoder());
+      .AddDecoder<ICmptDomCnstAltDmnOutp>(CmptDomCnstAltDmnOutpDecoder.Factory);
 }

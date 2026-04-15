@@ -15,18 +15,22 @@ internal class CmptEnumPrntAliasEncoder : IEncoder<CmptEnumPrntAlias>
 {
   public Structured Encode(CmptEnumPrntAlias input)
     => new(input.ToString(), "_EnumPrntAlias");
+
+  internal static CmptEnumPrntAliasEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptPrntEnumPrntAliasEncoder : IEncoder<CmptPrntEnumPrntAlias>
 {
   public Structured Encode(CmptPrntEnumPrntAlias input)
     => new(input.ToString(), "_PrntEnumPrntAlias");
+
+  internal static CmptPrntEnumPrntAliasEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_enum_parent_aliasEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_enum_parent_aliasEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<CmptEnumPrntAlias>(_ => new CmptEnumPrntAliasEncoder())
-      .AddEncoder<CmptPrntEnumPrntAlias>(_ => new CmptPrntEnumPrntAliasEncoder());
+      .AddEncoder<CmptEnumPrntAlias>(CmptEnumPrntAliasEncoder.Factory)
+      .AddEncoder<CmptPrntEnumPrntAlias>(CmptPrntEnumPrntAliasEncoder.Factory);
 }

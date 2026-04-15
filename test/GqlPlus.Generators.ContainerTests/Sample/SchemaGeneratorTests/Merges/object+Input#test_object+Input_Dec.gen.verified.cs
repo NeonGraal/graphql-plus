@@ -9,11 +9,13 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_Input;
 
 internal class testObjInpDecoder
 {
+
+  internal static testObjInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_object_InputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_object_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestObjInpObject>(_ => new testObjInpDecoder());
+      .AddDecoder<ItestObjInpObject>(testObjInpDecoder.Factory);
 }

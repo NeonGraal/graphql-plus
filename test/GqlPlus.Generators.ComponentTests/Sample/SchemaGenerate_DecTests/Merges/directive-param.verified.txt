@@ -14,11 +14,13 @@ namespace Components.Gqlp_Schema_directive_param;
 
 internal class CmptInDrctParamDecoder
 {
+
+  internal static CmptInDrctParamDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_directive_paramDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_directive_paramDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptInDrctParamObject>(_ => new CmptInDrctParamDecoder());
+      .AddDecoder<ICmptInDrctParamObject>(CmptInDrctParamDecoder.Factory);
 }

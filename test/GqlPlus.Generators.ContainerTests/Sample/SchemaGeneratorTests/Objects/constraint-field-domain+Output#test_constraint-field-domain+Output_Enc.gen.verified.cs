@@ -14,6 +14,8 @@ internal class testCnstFieldDmnOutpEncoder(
   private readonly IEncoder<ItestRefCnstFieldDmnOutpObject<ItestDomCnstFieldDmnOutp>> _itestRefCnstFieldDmnOutp = encoders.EncoderFor<ItestRefCnstFieldDmnOutpObject<ItestDomCnstFieldDmnOutp>>();
   public Structured Encode(ItestCnstFieldDmnOutpObject input)
     => _itestRefCnstFieldDmnOutp.Encode(input);
+
+  internal static testCnstFieldDmnOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testRefCnstFieldDmnOutpEncoder<TRef>(
@@ -30,12 +32,14 @@ internal class testDomCnstFieldDmnOutpEncoder : IEncoder<ItestDomCnstFieldDmnOut
 {
   public Structured Encode(ItestDomCnstFieldDmnOutp input)
     => new(input.Value);
+
+  internal static testDomCnstFieldDmnOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_constraint_field_domain_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_constraint_field_domain_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestCnstFieldDmnOutpObject>(r => new testCnstFieldDmnOutpEncoder(r))
-      .AddEncoder<ItestDomCnstFieldDmnOutp>(_ => new testDomCnstFieldDmnOutpEncoder());
+      .AddEncoder<ItestCnstFieldDmnOutpObject>(testCnstFieldDmnOutpEncoder.Factory)
+      .AddEncoder<ItestDomCnstFieldDmnOutp>(testDomCnstFieldDmnOutpEncoder.Factory);
 }

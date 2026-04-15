@@ -11,11 +11,13 @@ internal class testCtgrAliasEncoder : IEncoder<ItestCtgrAliasObject>
 {
   public Structured Encode(ItestCtgrAliasObject input)
     => Structured.Empty();
+
+  internal static testCtgrAliasEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_category_aliasEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_category_aliasEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestCtgrAliasObject>(_ => new testCtgrAliasEncoder());
+      .AddEncoder<ItestCtgrAliasObject>(testCtgrAliasEncoder.Factory);
 }

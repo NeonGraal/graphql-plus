@@ -21,11 +21,13 @@ internal class testDomOutpParamModParamEncoder : IEncoder<ItestDomOutpParamModPa
 {
   public Structured Encode(ItestDomOutpParamModParam input)
     => new(input.Value);
+
+  internal static testDomOutpParamModParamEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_output_param_mod_paramEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_output_param_mod_paramEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestDomOutpParamModParam>(_ => new testDomOutpParamModParamEncoder());
+      .AddEncoder<ItestDomOutpParamModParam>(testDomOutpParamModParamEncoder.Factory);
 }

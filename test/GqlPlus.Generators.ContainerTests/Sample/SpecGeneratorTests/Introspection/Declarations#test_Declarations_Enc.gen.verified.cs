@@ -14,25 +14,31 @@ internal class test_SchemaEncoder(
   private readonly IEncoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
   public Structured Encode(Itest_SchemaObject input)
     => _itest_Named.Encode(input);
+
+  internal static test_SchemaEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_NameEncoder : IEncoder<Itest_Name>
 {
   public Structured Encode(Itest_Name input)
     => new(input.Value);
+
+  internal static test_NameEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_NameFilterEncoder : IEncoder<Itest_NameFilter>
 {
   public Structured Encode(Itest_NameFilter input)
     => new(input.Value);
+
+  internal static test_NameFilterEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_DeclarationsEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_DeclarationsEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<Itest_SchemaObject>(r => new test_SchemaEncoder(r))
-      .AddEncoder<Itest_Name>(_ => new test_NameEncoder())
-      .AddEncoder<Itest_NameFilter>(_ => new test_NameFilterEncoder());
+      .AddEncoder<Itest_SchemaObject>(test_SchemaEncoder.Factory)
+      .AddEncoder<Itest_Name>(test_NameEncoder.Factory)
+      .AddEncoder<Itest_NameFilter>(test_NameFilterEncoder.Factory);
 }

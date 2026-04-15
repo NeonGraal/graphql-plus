@@ -17,18 +17,22 @@ internal class CmptEnumGnrcPrntEnumDomInpEncoder : IEncoder<CmptEnumGnrcPrntEnum
 {
   public Structured Encode(CmptEnumGnrcPrntEnumDomInp input)
     => new(input.ToString(), "_EnumGnrcPrntEnumDomInp");
+
+  internal static CmptEnumGnrcPrntEnumDomInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptDomGnrcPrntEnumDomInpEncoder : IEncoder<ICmptDomGnrcPrntEnumDomInp>
 {
   public Structured Encode(ICmptDomGnrcPrntEnumDomInp input)
     => new((decimal?)input.Value);
+
+  internal static CmptDomGnrcPrntEnumDomInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_generic_parent_enum_dom_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_parent_enum_dom_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<CmptEnumGnrcPrntEnumDomInp>(_ => new CmptEnumGnrcPrntEnumDomInpEncoder())
-      .AddEncoder<ICmptDomGnrcPrntEnumDomInp>(_ => new CmptDomGnrcPrntEnumDomInpEncoder());
+      .AddEncoder<CmptEnumGnrcPrntEnumDomInp>(CmptEnumGnrcPrntEnumDomInpEncoder.Factory)
+      .AddEncoder<ICmptDomGnrcPrntEnumDomInp>(CmptDomGnrcPrntEnumDomInpEncoder.Factory);
 }

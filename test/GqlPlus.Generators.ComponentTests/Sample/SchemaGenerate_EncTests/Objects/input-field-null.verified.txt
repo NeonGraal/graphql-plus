@@ -15,11 +15,13 @@ internal class CmptFldInpFieldNullEncoder : IEncoder<ICmptFldInpFieldNullObject>
 {
   public Structured Encode(ICmptFldInpFieldNullObject input)
     => Structured.Empty();
+
+  internal static CmptFldInpFieldNullEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_input_field_nullEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_input_field_nullEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptFldInpFieldNullObject>(_ => new CmptFldInpFieldNullEncoder());
+      .AddEncoder<ICmptFldInpFieldNullObject>(CmptFldInpFieldNullEncoder.Factory);
 }

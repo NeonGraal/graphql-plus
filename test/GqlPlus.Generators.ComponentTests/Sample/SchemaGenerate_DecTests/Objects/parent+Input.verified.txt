@@ -13,17 +13,21 @@ namespace Components.Gqlp_Schema_parent_Input;
 
 internal class CmptPrntInpDecoder
 {
+
+  internal static CmptPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefPrntInpDecoder
 {
   public decimal Parent { get; set; }
+
+  internal static CmptRefPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_parent_InputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_parent_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptPrntInpObject>(_ => new CmptPrntInpDecoder())
-      .AddDecoder<ICmptRefPrntInpObject>(_ => new CmptRefPrntInpDecoder());
+      .AddDecoder<ICmptPrntInpObject>(CmptPrntInpDecoder.Factory)
+      .AddDecoder<ICmptRefPrntInpObject>(CmptRefPrntInpDecoder.Factory);
 }

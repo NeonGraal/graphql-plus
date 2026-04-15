@@ -13,11 +13,13 @@ namespace Components.Gqlp_Schema_union_descr;
 internal class CmptUnionDescrDecoder
 {
   public Number AsNumber { get; set; }
+
+  internal static CmptUnionDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_union_descrDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_union_descrDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptUnionDescr>(_ => new CmptUnionDescrDecoder());
+      .AddDecoder<ICmptUnionDescr>(CmptUnionDescrDecoder.Factory);
 }

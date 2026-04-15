@@ -13,17 +13,21 @@ namespace Components.Gqlp_Schema_alt_mod_Boolean_Input;
 
 internal class CmptAltModBoolInpDecoder
 {
+
+  internal static CmptAltModBoolInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptAltAltModBoolInpDecoder
 {
   public decimal Alt { get; set; }
+
+  internal static CmptAltAltModBoolInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_alt_mod_Boolean_InputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_alt_mod_Boolean_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptAltModBoolInpObject>(_ => new CmptAltModBoolInpDecoder())
-      .AddDecoder<ICmptAltAltModBoolInpObject>(_ => new CmptAltAltModBoolInpDecoder());
+      .AddDecoder<ICmptAltModBoolInpObject>(CmptAltModBoolInpDecoder.Factory)
+      .AddDecoder<ICmptAltAltModBoolInpObject>(CmptAltAltModBoolInpDecoder.Factory);
 }

@@ -15,6 +15,8 @@ namespace Components.Gqlp_Schema_constraint_alt_obj_Input;
 
 internal class CmptCnstAltObjInpDecoder
 {
+
+  internal static CmptCnstAltObjInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefCnstAltObjInpDecoder<TRef>
@@ -23,18 +25,22 @@ internal class CmptRefCnstAltObjInpDecoder<TRef>
 
 internal class CmptPrntCnstAltObjInpDecoder
 {
+
+  internal static CmptPrntCnstAltObjInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptAltCnstAltObjInpDecoder
 {
   public decimal Alt { get; set; }
+
+  internal static CmptAltCnstAltObjInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_constraint_alt_obj_InputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_alt_obj_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptCnstAltObjInpObject>(_ => new CmptCnstAltObjInpDecoder())
-      .AddDecoder<ICmptPrntCnstAltObjInpObject>(_ => new CmptPrntCnstAltObjInpDecoder())
-      .AddDecoder<ICmptAltCnstAltObjInpObject>(_ => new CmptAltCnstAltObjInpDecoder());
+      .AddDecoder<ICmptCnstAltObjInpObject>(CmptCnstAltObjInpDecoder.Factory)
+      .AddDecoder<ICmptPrntCnstAltObjInpObject>(CmptPrntCnstAltObjInpDecoder.Factory)
+      .AddDecoder<ICmptAltCnstAltObjInpObject>(CmptAltCnstAltObjInpDecoder.Factory);
 }

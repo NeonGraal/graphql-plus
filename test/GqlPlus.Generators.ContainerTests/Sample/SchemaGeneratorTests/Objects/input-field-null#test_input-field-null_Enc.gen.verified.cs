@@ -11,11 +11,13 @@ internal class testFldInpFieldNullEncoder : IEncoder<ItestFldInpFieldNullObject>
 {
   public Structured Encode(ItestFldInpFieldNullObject input)
     => Structured.Empty();
+
+  internal static testFldInpFieldNullEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_input_field_nullEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_input_field_nullEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestFldInpFieldNullObject>(_ => new testFldInpFieldNullEncoder());
+      .AddEncoder<ItestFldInpFieldNullObject>(testFldInpFieldNullEncoder.Factory);
 }

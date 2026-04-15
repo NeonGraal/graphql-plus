@@ -11,11 +11,13 @@ internal class testDmnStrNonEmptyEncoder : IEncoder<ItestDmnStrNonEmpty>
 {
   public Structured Encode(ItestDmnStrNonEmpty input)
     => new(input.Value);
+
+  internal static testDmnStrNonEmptyEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_domain_string_non_emptyEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_domain_string_non_emptyEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestDmnStrNonEmpty>(_ => new testDmnStrNonEmptyEncoder());
+      .AddEncoder<ItestDmnStrNonEmpty>(testDmnStrNonEmptyEncoder.Factory);
 }

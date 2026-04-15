@@ -26,11 +26,13 @@ internal class CmptDomOutpParamModParamEncoder : IEncoder<ICmptDomOutpParamModPa
 {
   public Structured Encode(ICmptDomOutpParamModParam input)
     => new(input.Value);
+
+  internal static CmptDomOutpParamModParamEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_output_param_mod_paramEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_output_param_mod_paramEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptDomOutpParamModParam>(_ => new CmptDomOutpParamModParamEncoder());
+      .AddEncoder<ICmptDomOutpParamModParam>(CmptDomOutpParamModParamEncoder.Factory);
 }

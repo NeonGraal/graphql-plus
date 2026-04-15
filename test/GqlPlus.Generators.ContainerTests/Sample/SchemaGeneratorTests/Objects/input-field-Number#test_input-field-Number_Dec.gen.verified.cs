@@ -10,11 +10,13 @@ namespace GqlPlus.GeneratorTests.Gqlp_input_field_Number;
 internal class testInpFieldNmbrDecoder
 {
   public decimal Field { get; set; }
+
+  internal static testInpFieldNmbrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_input_field_NumberDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_input_field_NumberDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestInpFieldNmbrObject>(_ => new testInpFieldNmbrDecoder());
+      .AddDecoder<ItestInpFieldNmbrObject>(testInpFieldNmbrDecoder.Factory);
 }

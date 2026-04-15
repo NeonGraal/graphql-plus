@@ -11,11 +11,13 @@ internal class testAltSmplOutpEncoder : IEncoder<ItestAltSmplOutpObject>
 {
   public Structured Encode(ItestAltSmplOutpObject input)
     => Structured.Empty();
+
+  internal static testAltSmplOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_alt_simple_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_alt_simple_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestAltSmplOutpObject>(_ => new testAltSmplOutpEncoder());
+      .AddEncoder<ItestAltSmplOutpObject>(testAltSmplOutpEncoder.Factory);
 }

@@ -9,6 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_param_Dual;
 
 internal class testGnrcAltParamDualDecoder
 {
+
+  internal static testGnrcAltParamDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testRefGnrcAltParamDualDecoder<TRef>
@@ -18,12 +20,14 @@ internal class testRefGnrcAltParamDualDecoder<TRef>
 internal class testAltGnrcAltParamDualDecoder
 {
   public decimal Alt { get; set; }
+
+  internal static testAltGnrcAltParamDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_generic_alt_param_DualDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_generic_alt_param_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestGnrcAltParamDualObject>(_ => new testGnrcAltParamDualDecoder())
-      .AddDecoder<ItestAltGnrcAltParamDualObject>(_ => new testAltGnrcAltParamDualDecoder());
+      .AddDecoder<ItestGnrcAltParamDualObject>(testGnrcAltParamDualDecoder.Factory)
+      .AddDecoder<ItestAltGnrcAltParamDualObject>(testAltGnrcAltParamDualDecoder.Factory);
 }

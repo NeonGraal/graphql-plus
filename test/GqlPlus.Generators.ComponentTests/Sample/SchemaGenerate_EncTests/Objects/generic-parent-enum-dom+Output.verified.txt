@@ -20,6 +20,8 @@ internal class CmptGnrcPrntEnumDomOutpEncoder(
   private readonly IEncoder<ICmptFieldGnrcPrntEnumDomOutpObject<ICmptDomGnrcPrntEnumDomOutp>> _fieldGnrcPrntEnumDomOutp = encoders.EncoderFor<ICmptFieldGnrcPrntEnumDomOutpObject<ICmptDomGnrcPrntEnumDomOutp>>();
   public Structured Encode(ICmptGnrcPrntEnumDomOutpObject input)
     => _fieldGnrcPrntEnumDomOutp.Encode(input);
+
+  internal static CmptGnrcPrntEnumDomOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class CmptFieldGnrcPrntEnumDomOutpEncoder<TRef>(
@@ -36,19 +38,23 @@ internal class CmptEnumGnrcPrntEnumDomOutpEncoder : IEncoder<CmptEnumGnrcPrntEnu
 {
   public Structured Encode(CmptEnumGnrcPrntEnumDomOutp input)
     => new(input.ToString(), "_EnumGnrcPrntEnumDomOutp");
+
+  internal static CmptEnumGnrcPrntEnumDomOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptDomGnrcPrntEnumDomOutpEncoder : IEncoder<ICmptDomGnrcPrntEnumDomOutp>
 {
   public Structured Encode(ICmptDomGnrcPrntEnumDomOutp input)
     => new((decimal?)input.Value);
+
+  internal static CmptDomGnrcPrntEnumDomOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_generic_parent_enum_dom_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_parent_enum_dom_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptGnrcPrntEnumDomOutpObject>(r => new CmptGnrcPrntEnumDomOutpEncoder(r))
-      .AddEncoder<CmptEnumGnrcPrntEnumDomOutp>(_ => new CmptEnumGnrcPrntEnumDomOutpEncoder())
-      .AddEncoder<ICmptDomGnrcPrntEnumDomOutp>(_ => new CmptDomGnrcPrntEnumDomOutpEncoder());
+      .AddEncoder<ICmptGnrcPrntEnumDomOutpObject>(CmptGnrcPrntEnumDomOutpEncoder.Factory)
+      .AddEncoder<CmptEnumGnrcPrntEnumDomOutp>(CmptEnumGnrcPrntEnumDomOutpEncoder.Factory)
+      .AddEncoder<ICmptDomGnrcPrntEnumDomOutp>(CmptDomGnrcPrntEnumDomOutpEncoder.Factory);
 }

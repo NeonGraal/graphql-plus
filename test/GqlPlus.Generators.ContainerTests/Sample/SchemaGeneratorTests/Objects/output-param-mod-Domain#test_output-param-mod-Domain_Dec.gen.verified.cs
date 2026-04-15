@@ -10,16 +10,20 @@ namespace GqlPlus.GeneratorTests.Gqlp_output_param_mod_Domain;
 internal class testInOutpParamModDmnDecoder
 {
   public decimal Param { get; set; }
+
+  internal static testInOutpParamModDmnDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testDomOutpParamModDmnDecoder
 {
+
+  internal static testDomOutpParamModDmnDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_output_param_mod_DomainDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_output_param_mod_DomainDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestInOutpParamModDmnObject>(_ => new testInOutpParamModDmnDecoder())
-      .AddDecoder<ItestDomOutpParamModDmn>(_ => new testDomOutpParamModDmnDecoder());
+      .AddDecoder<ItestInOutpParamModDmnObject>(testInOutpParamModDmnDecoder.Factory)
+      .AddDecoder<ItestDomOutpParamModDmn>(testDomOutpParamModDmnDecoder.Factory);
 }

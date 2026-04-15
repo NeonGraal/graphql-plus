@@ -16,6 +16,8 @@ internal class CmptCnstAltDmnOutpEncoder : IEncoder<ICmptCnstAltDmnOutpObject>
 {
   public Structured Encode(ICmptCnstAltDmnOutpObject input)
     => Structured.Empty();
+
+  internal static CmptCnstAltDmnOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptRefCnstAltDmnOutpEncoder<TRef> : IEncoder<ICmptRefCnstAltDmnOutpObject<TRef>>
@@ -28,12 +30,14 @@ internal class CmptDomCnstAltDmnOutpEncoder : IEncoder<ICmptDomCnstAltDmnOutp>
 {
   public Structured Encode(ICmptDomCnstAltDmnOutp input)
     => new(input.Value);
+
+  internal static CmptDomCnstAltDmnOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_constraint_alt_domain_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_alt_domain_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptCnstAltDmnOutpObject>(_ => new CmptCnstAltDmnOutpEncoder())
-      .AddEncoder<ICmptDomCnstAltDmnOutp>(_ => new CmptDomCnstAltDmnOutpEncoder());
+      .AddEncoder<ICmptCnstAltDmnOutpObject>(CmptCnstAltDmnOutpEncoder.Factory)
+      .AddEncoder<ICmptDomCnstAltDmnOutp>(CmptDomCnstAltDmnOutpEncoder.Factory);
 }

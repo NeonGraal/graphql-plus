@@ -14,6 +14,8 @@ namespace Components.Gqlp_Schema_domain_enum_unique;
 
 internal class CmptDmnEnumUnqDecoder
 {
+
+  internal static CmptDmnEnumUnqDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumUnqDecoder
@@ -21,6 +23,8 @@ internal class CmptEnumDmnEnumUnqDecoder
   public string enum_dmnEnumUnq { get; set; }
   public string dmnEnumUnq { get; set; }
   public string dmnEnumUnqValue { get; set; }
+
+  internal static CmptEnumDmnEnumUnqDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptDupDmnEnumUnqDecoder
@@ -28,13 +32,15 @@ internal class CmptDupDmnEnumUnqDecoder
   public string dmnEnumUnq { get; set; }
   public string dup_dmnEnumUnq { get; set; }
   public string dmnEnumUnqDup { get; set; }
+
+  internal static CmptDupDmnEnumUnqDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_domain_enum_uniqueDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_enum_uniqueDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptDmnEnumUnq>(_ => new CmptDmnEnumUnqDecoder())
-      .AddDecoder<CmptEnumDmnEnumUnq>(_ => new CmptEnumDmnEnumUnqDecoder())
-      .AddDecoder<CmptDupDmnEnumUnq>(_ => new CmptDupDmnEnumUnqDecoder());
+      .AddDecoder<ICmptDmnEnumUnq>(CmptDmnEnumUnqDecoder.Factory)
+      .AddDecoder<CmptEnumDmnEnumUnq>(CmptEnumDmnEnumUnqDecoder.Factory)
+      .AddDecoder<CmptDupDmnEnumUnq>(CmptDupDmnEnumUnqDecoder.Factory);
 }

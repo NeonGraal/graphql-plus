@@ -61,6 +61,8 @@ internal class Cmpt_SimpleKindDecoder
   public string Internal { get; set; }
   public string Domain { get; set; }
   public string Union { get; set; }
+
+  internal static Cmpt_SimpleKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_TypeKindDecoder
@@ -73,6 +75,8 @@ internal class Cmpt_TypeKindDecoder
   public string Dual { get; set; }
   public string Input { get; set; }
   public string Output { get; set; }
+
+  internal static Cmpt_TypeKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_TypeRefDecoder<TTypeKind>
@@ -82,13 +86,15 @@ internal class Cmpt_TypeRefDecoder<TTypeKind>
 
 internal class Cmpt_TypeSimpleDecoder
 {
+
+  internal static Cmpt_TypeSimpleDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Spec_CommonDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_CommonDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<Cmpt_SimpleKind>(_ => new Cmpt_SimpleKindDecoder())
-      .AddDecoder<Cmpt_TypeKind>(_ => new Cmpt_TypeKindDecoder())
-      .AddDecoder<ICmpt_TypeSimpleObject>(_ => new Cmpt_TypeSimpleDecoder());
+      .AddDecoder<Cmpt_SimpleKind>(Cmpt_SimpleKindDecoder.Factory)
+      .AddDecoder<Cmpt_TypeKind>(Cmpt_TypeKindDecoder.Factory)
+      .AddDecoder<ICmpt_TypeSimpleObject>(Cmpt_TypeSimpleDecoder.Factory);
 }

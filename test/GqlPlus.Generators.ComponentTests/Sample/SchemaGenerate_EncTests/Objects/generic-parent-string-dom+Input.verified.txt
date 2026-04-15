@@ -16,11 +16,13 @@ internal class CmptDomGnrcPrntStrDomInpEncoder : IEncoder<ICmptDomGnrcPrntStrDom
 {
   public Structured Encode(ICmptDomGnrcPrntStrDomInp input)
     => new(input.Value);
+
+  internal static CmptDomGnrcPrntStrDomInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_generic_parent_string_dom_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_parent_string_dom_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptDomGnrcPrntStrDomInp>(_ => new CmptDomGnrcPrntStrDomInpEncoder());
+      .AddEncoder<ICmptDomGnrcPrntStrDomInp>(CmptDomGnrcPrntStrDomInpEncoder.Factory);
 }

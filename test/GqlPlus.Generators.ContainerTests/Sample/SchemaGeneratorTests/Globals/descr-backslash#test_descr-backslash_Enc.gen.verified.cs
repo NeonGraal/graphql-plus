@@ -11,11 +11,13 @@ internal class testDescrBcksEncoder : IEncoder<ItestDescrBcksObject>
 {
   public Structured Encode(ItestDescrBcksObject input)
     => Structured.Empty();
+
+  internal static testDescrBcksEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_descr_backslashEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_descr_backslashEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestDescrBcksObject>(_ => new testDescrBcksEncoder());
+      .AddEncoder<ItestDescrBcksObject>(testDescrBcksEncoder.Factory);
 }

@@ -14,6 +14,8 @@ namespace Components.Gqlp_Schema_constraint_alt_domain_Input;
 
 internal class CmptCnstAltDmnInpDecoder
 {
+
+  internal static CmptCnstAltDmnInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefCnstAltDmnInpDecoder<TRef>
@@ -22,12 +24,14 @@ internal class CmptRefCnstAltDmnInpDecoder<TRef>
 
 internal class CmptDomCnstAltDmnInpDecoder
 {
+
+  internal static CmptDomCnstAltDmnInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_constraint_alt_domain_InputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_alt_domain_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptCnstAltDmnInpObject>(_ => new CmptCnstAltDmnInpDecoder())
-      .AddDecoder<ICmptDomCnstAltDmnInp>(_ => new CmptDomCnstAltDmnInpDecoder());
+      .AddDecoder<ICmptCnstAltDmnInpObject>(CmptCnstAltDmnInpDecoder.Factory)
+      .AddDecoder<ICmptDomCnstAltDmnInp>(CmptDomCnstAltDmnInpDecoder.Factory);
 }

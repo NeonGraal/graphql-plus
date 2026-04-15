@@ -55,6 +55,8 @@ internal class Cmpt_ResolutionDecoder
   public string Parallel { get; set; }
   public string Sequential { get; set; }
   public string Single { get; set; }
+
+  internal static Cmpt_ResolutionDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_LocationDecoder
@@ -65,12 +67,14 @@ internal class Cmpt_LocationDecoder
   public string Inline { get; set; }
   public string Spread { get; set; }
   public string Fragment { get; set; }
+
+  internal static Cmpt_LocationDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Spec_GlobalDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_GlobalDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<Cmpt_Resolution>(_ => new Cmpt_ResolutionDecoder())
-      .AddDecoder<Cmpt_Location>(_ => new Cmpt_LocationDecoder());
+      .AddDecoder<Cmpt_Resolution>(Cmpt_ResolutionDecoder.Factory)
+      .AddDecoder<Cmpt_Location>(Cmpt_LocationDecoder.Factory);
 }

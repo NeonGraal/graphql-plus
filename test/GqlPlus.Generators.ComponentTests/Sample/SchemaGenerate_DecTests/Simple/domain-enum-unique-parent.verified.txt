@@ -15,6 +15,8 @@ namespace Components.Gqlp_Schema_domain_enum_unique_parent;
 
 internal class CmptDmnEnumUnqPrntDecoder
 {
+
+  internal static CmptDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumUnqPrntDecoder
@@ -24,6 +26,8 @@ internal class CmptEnumDmnEnumUnqPrntDecoder
   public string dmnEnumUnqPrntPrnt { get; set; }
   public string enum_dmnEnumUnqPrnt { get; set; }
   public string dmnEnumUnqPrntValue { get; set; }
+
+  internal static CmptEnumDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntDmnEnumUnqPrntDecoder
@@ -31,6 +35,8 @@ internal class CmptPrntDmnEnumUnqPrntDecoder
   public string dmnEnumUnqPrnt { get; set; }
   public string prnt_dmnEnumUnqPrnt { get; set; }
   public string dmnEnumUnqPrntPrnt { get; set; }
+
+  internal static CmptPrntDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptDupDmnEnumUnqPrntDecoder
@@ -38,14 +44,16 @@ internal class CmptDupDmnEnumUnqPrntDecoder
   public string dmnEnumUnqPrnt { get; set; }
   public string dup_dmnEnumUnqPrnt { get; set; }
   public string dmnEnumUnqPrntDup { get; set; }
+
+  internal static CmptDupDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_domain_enum_unique_parentDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_enum_unique_parentDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptDmnEnumUnqPrnt>(_ => new CmptDmnEnumUnqPrntDecoder())
-      .AddDecoder<CmptEnumDmnEnumUnqPrnt>(_ => new CmptEnumDmnEnumUnqPrntDecoder())
-      .AddDecoder<CmptPrntDmnEnumUnqPrnt>(_ => new CmptPrntDmnEnumUnqPrntDecoder())
-      .AddDecoder<CmptDupDmnEnumUnqPrnt>(_ => new CmptDupDmnEnumUnqPrntDecoder());
+      .AddDecoder<ICmptDmnEnumUnqPrnt>(CmptDmnEnumUnqPrntDecoder.Factory)
+      .AddDecoder<CmptEnumDmnEnumUnqPrnt>(CmptEnumDmnEnumUnqPrntDecoder.Factory)
+      .AddDecoder<CmptPrntDmnEnumUnqPrnt>(CmptPrntDmnEnumUnqPrntDecoder.Factory)
+      .AddDecoder<CmptDupDmnEnumUnqPrnt>(CmptDupDmnEnumUnqPrntDecoder.Factory);
 }

@@ -11,6 +11,8 @@ internal class testGnrcValueOutpEncoder : IEncoder<ItestGnrcValueOutpObject>
 {
   public Structured Encode(ItestGnrcValueOutpObject input)
     => Structured.Empty();
+
+  internal static testGnrcValueOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testRefGnrcValueOutpEncoder<TType>(
@@ -27,12 +29,14 @@ internal class testEnumGnrcValueOutpEncoder : IEncoder<testEnumGnrcValueOutp>
 {
   public Structured Encode(testEnumGnrcValueOutp input)
     => new(input.ToString(), "_EnumGnrcValueOutp");
+
+  internal static testEnumGnrcValueOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_generic_value_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_generic_value_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestGnrcValueOutpObject>(_ => new testGnrcValueOutpEncoder())
-      .AddEncoder<testEnumGnrcValueOutp>(_ => new testEnumGnrcValueOutpEncoder());
+      .AddEncoder<ItestGnrcValueOutpObject>(testGnrcValueOutpEncoder.Factory)
+      .AddEncoder<testEnumGnrcValueOutp>(testEnumGnrcValueOutpEncoder.Factory);
 }

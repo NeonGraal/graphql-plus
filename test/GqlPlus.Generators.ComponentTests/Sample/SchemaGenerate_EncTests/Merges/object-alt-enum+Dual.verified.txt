@@ -15,11 +15,13 @@ internal class CmptObjAltEnumDualEncoder : IEncoder<ICmptObjAltEnumDualObject>
 {
   public Structured Encode(ICmptObjAltEnumDualObject input)
     => Structured.Empty();
+
+  internal static CmptObjAltEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_object_alt_enum_DualEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_object_alt_enum_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptObjAltEnumDualObject>(_ => new CmptObjAltEnumDualEncoder());
+      .AddEncoder<ICmptObjAltEnumDualObject>(CmptObjAltEnumDualEncoder.Factory);
 }

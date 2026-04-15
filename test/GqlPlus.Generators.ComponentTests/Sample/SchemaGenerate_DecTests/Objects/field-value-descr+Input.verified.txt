@@ -14,17 +14,21 @@ namespace Components.Gqlp_Schema_field_value_descr_Input;
 internal class CmptFieldValueDescrInpDecoder
 {
   public CmptEnumFieldValueDescrInp Field { get; set; }
+
+  internal static CmptFieldValueDescrInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumFieldValueDescrInpDecoder
 {
   public string fieldValueDescrInp { get; set; }
+
+  internal static CmptEnumFieldValueDescrInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_field_value_descr_InputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_value_descr_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptFieldValueDescrInpObject>(_ => new CmptFieldValueDescrInpDecoder())
-      .AddDecoder<CmptEnumFieldValueDescrInp>(_ => new CmptEnumFieldValueDescrInpDecoder());
+      .AddDecoder<ICmptFieldValueDescrInpObject>(CmptFieldValueDescrInpDecoder.Factory)
+      .AddDecoder<CmptEnumFieldValueDescrInp>(CmptEnumFieldValueDescrInpDecoder.Factory);
 }

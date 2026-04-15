@@ -11,6 +11,8 @@ internal class testGrndCnstPrntDualGrndInpEncoder : IEncoder<ItestGrndCnstPrntDu
 {
   public Structured Encode(ItestGrndCnstPrntDualGrndInpObject input)
     => Structured.Empty();
+
+  internal static testGrndCnstPrntDualGrndInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testPrntCnstPrntDualGrndInpEncoder(
@@ -20,12 +22,14 @@ internal class testPrntCnstPrntDualGrndInpEncoder(
   private readonly IEncoder<ItestGrndCnstPrntDualGrndInpObject> _itestGrndCnstPrntDualGrndInp = encoders.EncoderFor<ItestGrndCnstPrntDualGrndInpObject>();
   public Structured Encode(ItestPrntCnstPrntDualGrndInpObject input)
     => _itestGrndCnstPrntDualGrndInp.Encode(input);
+
+  internal static testPrntCnstPrntDualGrndInpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class test_constraint_parent_dual_grandparent_InputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_constraint_parent_dual_grandparent_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestGrndCnstPrntDualGrndInpObject>(_ => new testGrndCnstPrntDualGrndInpEncoder())
-      .AddEncoder<ItestPrntCnstPrntDualGrndInpObject>(r => new testPrntCnstPrntDualGrndInpEncoder(r));
+      .AddEncoder<ItestGrndCnstPrntDualGrndInpObject>(testGrndCnstPrntDualGrndInpEncoder.Factory)
+      .AddEncoder<ItestPrntCnstPrntDualGrndInpObject>(testPrntCnstPrntDualGrndInpEncoder.Factory);
 }

@@ -15,11 +15,13 @@ internal class CmptCtgrOutpListEncoder : IEncoder<ICmptCtgrOutpListObject>
 {
   public Structured Encode(ICmptCtgrOutpListObject input)
     => Structured.Empty();
+
+  internal static CmptCtgrOutpListEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_category_output_listEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_category_output_listEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptCtgrOutpListObject>(_ => new CmptCtgrOutpListEncoder());
+      .AddEncoder<ICmptCtgrOutpListObject>(CmptCtgrOutpListEncoder.Factory);
 }

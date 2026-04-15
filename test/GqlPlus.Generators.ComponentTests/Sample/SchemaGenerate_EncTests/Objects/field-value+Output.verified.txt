@@ -16,18 +16,22 @@ internal class CmptFieldValueOutpEncoder : IEncoder<ICmptFieldValueOutpObject>
   public Structured Encode(ICmptFieldValueOutpObject input)
     => Structured.Empty()
       .AddEnum("field", input.Field);
+
+  internal static CmptFieldValueOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptEnumFieldValueOutpEncoder : IEncoder<CmptEnumFieldValueOutp>
 {
   public Structured Encode(CmptEnumFieldValueOutp input)
     => new(input.ToString(), "_EnumFieldValueOutp");
+
+  internal static CmptEnumFieldValueOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_field_value_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_field_value_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptFieldValueOutpObject>(_ => new CmptFieldValueOutpEncoder())
-      .AddEncoder<CmptEnumFieldValueOutp>(_ => new CmptEnumFieldValueOutpEncoder());
+      .AddEncoder<ICmptFieldValueOutpObject>(CmptFieldValueOutpEncoder.Factory)
+      .AddEncoder<CmptEnumFieldValueOutp>(CmptEnumFieldValueOutpEncoder.Factory);
 }

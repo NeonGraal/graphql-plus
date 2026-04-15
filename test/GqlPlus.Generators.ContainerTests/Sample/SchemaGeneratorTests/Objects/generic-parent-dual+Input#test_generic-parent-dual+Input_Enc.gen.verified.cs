@@ -12,11 +12,13 @@ internal class testAltGnrcPrntDualInpEncoder : IEncoder<ItestAltGnrcPrntDualInpO
   public Structured Encode(ItestAltGnrcPrntDualInpObject input)
     => Structured.Empty()
       .Add("alt", input.Alt);
+
+  internal static testAltGnrcPrntDualInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_generic_parent_dual_InputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_generic_parent_dual_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestAltGnrcPrntDualInpObject>(_ => new testAltGnrcPrntDualInpEncoder());
+      .AddEncoder<ItestAltGnrcPrntDualInpObject>(testAltGnrcPrntDualInpEncoder.Factory);
 }

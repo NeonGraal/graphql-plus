@@ -11,11 +11,13 @@ internal class testPrntCnstAltDualInpEncoder : IEncoder<ItestPrntCnstAltDualInpO
 {
   public Structured Encode(ItestPrntCnstAltDualInpObject input)
     => Structured.Empty();
+
+  internal static testPrntCnstAltDualInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_constraint_alt_dual_InputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_constraint_alt_dual_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestPrntCnstAltDualInpObject>(_ => new testPrntCnstAltDualInpEncoder());
+      .AddEncoder<ItestPrntCnstAltDualInpObject>(testPrntCnstAltDualInpEncoder.Factory);
 }

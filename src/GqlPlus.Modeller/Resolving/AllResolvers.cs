@@ -19,17 +19,17 @@ public static class AllResolvers
   internal static IResolverRepositoryBuilder AddSchemaResolvers(this IResolverRepositoryBuilder builder)
     => builder.ThrowIfNull()
       // Schema
-      .AddResolver<SchemaModel>(r => new SchemaResolver(r))
-      .AddResolver<BaseTypeModel>(r => new AllTypesResolver(r))
+      .AddResolver<SchemaModel>(SchemaResolver.Factory)
+      .AddResolver<BaseTypeModel>(AllTypesResolver.Factory)
       // Simple
-      .AddTypeResolver<BaseDomainModel<DomainLabelModel>>(_ => new TypeDomainEnumResolver())
-      .AddTypeResolver<BaseDomainModel<DomainRangeModel>>(_ => new ResolverDomainType<DomainRangeModel>())
-      .AddTypeResolver<BaseDomainModel<DomainRegexModel>>(_ => new ResolverDomainType<DomainRegexModel>())
-      .AddTypeResolver<BaseDomainModel<DomainTrueFalseModel>>(_ => new ResolverDomainType<DomainTrueFalseModel>())
-      .AddTypeResolver<TypeEnumModel>(_ => new TypeEnumResolver())
-      .AddTypeResolver<TypeUnionModel>(_ => new TypeUnionResolver())
+      .AddTypeResolver<BaseDomainModel<DomainLabelModel>>(TypeDomainEnumResolver.Factory)
+      .AddTypeResolver<BaseDomainModel<DomainRangeModel>>(ResolverDomainType<DomainRangeModel>.Factory)
+      .AddTypeResolver<BaseDomainModel<DomainRegexModel>>(ResolverDomainType<DomainRegexModel>.Factory)
+      .AddTypeResolver<BaseDomainModel<DomainTrueFalseModel>>(ResolverDomainType<DomainTrueFalseModel>.Factory)
+      .AddTypeResolver<TypeEnumModel>(TypeEnumResolver.Factory)
+      .AddTypeResolver<TypeUnionModel>(TypeUnionResolver.Factory)
       // Object
-      .AddTypeResolver<TypeDualModel>(_ => new TypeDualResolver())
-      .AddTypeResolver<TypeInputModel>(r => new TypeInputResolver(r))
-      .AddTypeResolver<TypeOutputModel>(r => new TypeOutputResolver(r));
+      .AddTypeResolver<TypeDualModel>(TypeDualResolver.Factory)
+      .AddTypeResolver<TypeInputModel>(TypeInputResolver.Factory)
+      .AddTypeResolver<TypeOutputModel>(TypeOutputResolver.Factory);
 }

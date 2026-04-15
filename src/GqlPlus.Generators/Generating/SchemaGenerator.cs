@@ -62,9 +62,8 @@ internal sealed class SchemaGenerator(
     IReadOnlyList<CodecRegistration> registrations = context.DecoderRegistrations;
     for (int i = 0; i < registrations.Count; i++) {
       CodecRegistration reg = registrations[i];
-      string factory = reg.NeedsRepo ? $"r => new {reg.ImplType}(r)" : $"_ => new {reg.ImplType}()";
       string separator = i < registrations.Count - 1 ? "" : ";";
-      context.Write($"      .AddDecoder<{reg.ServiceType}>({factory}){separator}");
+      context.Write($"      .AddDecoder<{reg.ServiceType}>({reg.ImplType}.Factory){separator}");
     }
 
     context.Write("}");
@@ -86,9 +85,8 @@ internal sealed class SchemaGenerator(
     IReadOnlyList<CodecRegistration> registrations = context.EncoderRegistrations;
     for (int i = 0; i < registrations.Count; i++) {
       CodecRegistration reg = registrations[i];
-      string factory = reg.NeedsRepo ? $"r => new {reg.ImplType}(r)" : $"_ => new {reg.ImplType}()";
       string separator = i < registrations.Count - 1 ? "" : ";";
-      context.Write($"      .AddEncoder<{reg.ServiceType}>({factory}){separator}");
+      context.Write($"      .AddEncoder<{reg.ServiceType}>({reg.ImplType}.Factory){separator}");
     }
 
     context.Write("}");

@@ -156,6 +156,13 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
       context.Write($"      {encodeParts[encodeParts.Count - 1]};");
     }
 
+    if (string.IsNullOrEmpty(typeParams)) {
+      string factoryParam = needsEncoders ? "r" : "_";
+      string factoryArgs = needsEncoders ? "(r)" : "()";
+      context.Write("");
+      context.Write($"  internal static {typeName}Encoder Factory(IEncoderRepository {factoryParam}) => new{factoryArgs};");
+    }
+
     context.Write("}");
 
     if (string.IsNullOrEmpty(typeParams)) {
@@ -273,15 +280,21 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
 
   protected void GenerateObjectDecoder(IAstObject<TObjField> ast, GqlpGeneratorContext context)
   {
-    GenerateBlock(ast, context, DecoderHeader, TypeMembers, ClassMember);
+    bool hasTypeParams = ast.TypeParams.Any();
+    string decoderName = context.TypeName(ast, "") + "Decoder";
 
-    if (ast.TypeParams.Any()) {
+    GenerateBlock(ast, context, DecoderHeader, TypeMembers, ClassMember,
+      hasTypeParams ? null : (_, c) => {
+        c.Write("");
+        c.Write($"  internal static {decoderName} Factory(IDecoderRepository _) => new();");
+      });
+
+    if (hasTypeParams) {
       return;
     }
 
-    string typeName = context.TypeName(ast, "");
     string interfaceType = context.TypeName(ast, "I") + "Object";
-    context.RegisterDecoder(interfaceType, typeName + "Decoder");
+    context.RegisterDecoder(interfaceType, decoderName);
   }
 
   protected override void EncoderHeader(IAstObject<TObjField> ast, GqlpGeneratorContext context)

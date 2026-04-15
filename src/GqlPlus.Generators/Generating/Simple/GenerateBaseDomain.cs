@@ -17,11 +17,15 @@ internal abstract class GenerateBaseDomain<TItem>(
 
   protected void GenerateDomainDecoder(IAstDomain<TItem> ast, GqlpGeneratorContext context)
   {
-    GenerateBlock(ast, context, DecoderHeader, TypeMembers, ClassMember);
+    string decoderName = context.TypeName(ast, "") + "Decoder";
+    GenerateBlock(ast, context, DecoderHeader, TypeMembers, ClassMember,
+      (_, c) => {
+        c.Write("");
+        c.Write($"  internal static {decoderName} Factory(IDecoderRepository _) => new();");
+      });
 
-    string typeName = context.TypeName(ast, "");
     string interfaceType = context.TypeName(ast, "I");
-    context.RegisterDecoder(interfaceType, typeName + "Decoder");
+    context.RegisterDecoder(interfaceType, decoderName);
   }
 
   protected void GenerateDomainEncoder(IAstDomain<TItem> ast, GqlpGeneratorContext context, string encodeBody)
@@ -33,6 +37,8 @@ internal abstract class GenerateBaseDomain<TItem>(
     context.Write("{");
     context.Write($"  public Structured Encode({interfaceName} input)");
     context.Write($"    => {encodeBody};");
+    context.Write("");
+    context.Write($"  internal static {typeName}Encoder Factory(IEncoderRepository _) => new();");
     context.Write("}");
 
     context.RegisterEncoder(interfaceName, typeName + "Encoder");

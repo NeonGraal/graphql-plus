@@ -20,16 +20,16 @@ public static class AllDecoders
   internal static IDecoderRepositoryBuilder AddSchemaDecoders(this IDecoderRepositoryBuilder builder)
     => builder.ThrowIfNull()
       // Common
-      .AddDecoder(_ => new BooleanDecoder())
-      .AddDecoder(_ => new NumberDecoder())
-      .AddDecoder(_ => new StringDecoder())
-      .AddDecoder(_ => new ConstantDecoder())
-      .AddDecoder(_ => new SimpleDecoder())
+      .AddDecoder(BooleanDecoder.Factory)
+      .AddDecoder(NumberDecoder.Factory)
+      .AddDecoder(StringDecoder.Factory)
+      .AddDecoder(ConstantDecoder.Factory)
+      .AddDecoder(SimpleDecoder.Factory)
       // Schema
-      .AddDecoder(_ => new EnumDecoder<CategoryOption>())
-      .AddDecoder(_ => new EnumDecoder<TypeKindModel>())
-      .AddDecoder<INameFilterDecoder, string>(_ => new NameFilterModelDecoder())
-      .AddDecoder(r => new FilterModelDecoder(r))
-      .AddDecoder(r => new CategoryFilterModelDecoder(r))
-      .AddDecoder(r => new TypeFilterModelDecoder(r));
+      .AddDecoder(EnumDecoder<CategoryOption>.Factory)
+      .AddDecoder(EnumDecoder<TypeKindModel>.Factory)
+      .AddDecoder<INameFilterDecoder, string>(NameFilterModelDecoder.Factory)
+      .AddDecoder(FilterModelDecoder.Factory)
+      .AddDecoder(CategoryFilterModelDecoder.Factory)
+      .AddDecoder(TypeFilterModelDecoder.Factory);
 }

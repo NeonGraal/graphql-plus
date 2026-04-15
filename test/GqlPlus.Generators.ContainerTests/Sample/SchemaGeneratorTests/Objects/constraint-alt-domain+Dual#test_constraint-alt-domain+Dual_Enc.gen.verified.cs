@@ -24,3 +24,11 @@ internal class testDomCnstAltDmnDualEncoder : IEncoder<ItestDomCnstAltDmnDual>
   public Structured Encode(ItestDomCnstAltDmnDual input)
     => new(input.Value);
 }
+
+internal static class test_constraint_alt_domain_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_constraint_alt_domain_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestCnstAltDmnDualObject>(_ => new testCnstAltDmnDualEncoder())
+      .AddEncoder<ItestDomCnstAltDmnDual>(_ => new testDomCnstAltDmnDualEncoder());
+}

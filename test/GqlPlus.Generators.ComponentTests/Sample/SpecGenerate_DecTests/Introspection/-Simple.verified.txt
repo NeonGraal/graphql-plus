@@ -107,51 +107,14 @@ internal class Cmpt_DomainKindDecoder
   public string String { get; set; }
 }
 
-internal class Cmpt_DomainRefDecoder<TDomainKind>
-{
-  public TDomainKind DomainKind { get; set; }
-}
-
-internal class Cmpt_BaseDomainDecoder<TDomainKind,TItem,TDomainItem>
-{
-  public TDomainKind DomainKind { get; set; }
-}
-
 internal class Cmpt_BaseDomainItemDecoder
 {
   public bool Exclude { get; set; }
 }
 
-internal class Cmpt_DomainItemDecoder<TItem>
-{
-  public ICmpt_Name Domain { get; set; }
-}
-
-internal class Cmpt_DomainValueDecoder<TDomainKind,TValue>
-{
-  public TValue Value { get; set; }
-}
-
-internal class Cmpt_BasicValueDecoder
-{
-}
-
 internal class Cmpt_DomainTrueFalseDecoder
 {
   public bool Value { get; set; }
-}
-
-internal class Cmpt_DomainItemTrueFalseDecoder
-{
-}
-
-internal class Cmpt_DomainLabelDecoder
-{
-  public ICmpt_EnumValue Label { get; set; }
-}
-
-internal class Cmpt_DomainItemLabelDecoder
-{
 }
 
 internal class Cmpt_DomainRangeDecoder
@@ -160,17 +123,9 @@ internal class Cmpt_DomainRangeDecoder
   public decimal? Upper { get; set; }
 }
 
-internal class Cmpt_DomainItemRangeDecoder
-{
-}
-
 internal class Cmpt_DomainRegexDecoder
 {
   public string Pattern { get; set; }
-}
-
-internal class Cmpt_DomainItemRegexDecoder
-{
 }
 
 internal class Cmpt_EnumLabelDecoder
@@ -178,16 +133,14 @@ internal class Cmpt_EnumLabelDecoder
   public ICmpt_Name EnumType { get; set; }
 }
 
-internal class Cmpt_EnumValueDecoder
+internal static class Cmpt_Spec_SimpleDecoders
 {
-  public ICmpt_Name Label { get; set; }
-}
-
-internal class Cmpt_UnionRefDecoder
-{
-}
-
-internal class Cmpt_UnionMemberDecoder
-{
-  public ICmpt_Name Union { get; set; }
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_SimpleDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<Cmpt_DomainKind>(_ => new Cmpt_DomainKindDecoder())
+      .AddDecoder<ICmpt_BaseDomainItemObject>(_ => new Cmpt_BaseDomainItemDecoder())
+      .AddDecoder<ICmpt_DomainTrueFalseObject>(_ => new Cmpt_DomainTrueFalseDecoder())
+      .AddDecoder<ICmpt_DomainRangeObject>(_ => new Cmpt_DomainRangeDecoder())
+      .AddDecoder<ICmpt_DomainRegexObject>(_ => new Cmpt_DomainRegexDecoder())
+      .AddDecoder<ICmpt_EnumLabelObject>(_ => new Cmpt_EnumLabelDecoder());
 }

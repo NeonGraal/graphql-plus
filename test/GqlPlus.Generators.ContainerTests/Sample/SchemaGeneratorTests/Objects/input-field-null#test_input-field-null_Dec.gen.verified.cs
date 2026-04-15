@@ -15,3 +15,11 @@ internal class testInpFieldNullDecoder
 internal class testFldInpFieldNullDecoder
 {
 }
+
+internal static class test_input_field_nullDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_input_field_nullDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestInpFieldNullObject>(_ => new testInpFieldNullDecoder())
+      .AddDecoder<ItestFldInpFieldNullObject>(_ => new testFldInpFieldNullDecoder());
+}

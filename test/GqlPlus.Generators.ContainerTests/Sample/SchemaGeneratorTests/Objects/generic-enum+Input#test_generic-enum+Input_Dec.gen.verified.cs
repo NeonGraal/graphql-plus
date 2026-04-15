@@ -20,3 +20,11 @@ internal class testEnumGnrcEnumInpDecoder
 {
   public string gnrcEnumInp { get; set; }
 }
+
+internal static class test_generic_enum_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_generic_enum_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestGnrcEnumInpObject>(_ => new testGnrcEnumInpDecoder())
+      .AddDecoder<testEnumGnrcEnumInp>(_ => new testEnumGnrcEnumInpDecoder());
+}

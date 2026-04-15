@@ -10,3 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_directive_param_opt;
 internal class testInDrctParamOptDecoder
 {
 }
+
+internal static class test_directive_param_optDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_directive_param_optDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestInDrctParamOptObject>(_ => new testInDrctParamOptDecoder());
+}

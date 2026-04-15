@@ -15,3 +15,11 @@ internal class testEnumAltEnumDualDecoder
 {
   public string altEnumDual { get; set; }
 }
+
+internal static class test_alt_enum_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_alt_enum_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestAltEnumDualObject>(_ => new testAltEnumDualDecoder())
+      .AddDecoder<testEnumAltEnumDual>(_ => new testEnumAltEnumDualDecoder());
+}

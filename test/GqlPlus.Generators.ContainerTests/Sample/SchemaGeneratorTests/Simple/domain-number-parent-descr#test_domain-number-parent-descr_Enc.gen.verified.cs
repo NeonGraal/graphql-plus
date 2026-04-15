@@ -18,3 +18,11 @@ internal class testPrntDmnNmbrPrntDescrEncoder : IEncoder<ItestPrntDmnNmbrPrntDe
   public Structured Encode(ItestPrntDmnNmbrPrntDescr input)
     => new(input.Value);
 }
+
+internal static class test_domain_number_parent_descrEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_domain_number_parent_descrEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestDmnNmbrPrntDescr>(_ => new testDmnNmbrPrntDescrEncoder())
+      .AddEncoder<ItestPrntDmnNmbrPrntDescr>(_ => new testPrntDmnNmbrPrntDescrEncoder());
+}

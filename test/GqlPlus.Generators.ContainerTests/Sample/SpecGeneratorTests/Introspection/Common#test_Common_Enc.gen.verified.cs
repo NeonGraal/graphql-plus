@@ -76,3 +76,13 @@ internal class test_TypeSimpleEncoder : IEncoder<Itest_TypeSimpleObject>
   public Structured Encode(Itest_TypeSimpleObject input)
     => Structured.Empty();
 }
+
+internal static class test_CommonEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_CommonEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<Itest_TypeObject>(_ => new test_TypeEncoder())
+      .AddEncoder<test_SimpleKind>(_ => new test_SimpleKindEncoder())
+      .AddEncoder<test_TypeKind>(_ => new test_TypeKindEncoder())
+      .AddEncoder<Itest_TypeSimpleObject>(_ => new test_TypeSimpleEncoder());
+}

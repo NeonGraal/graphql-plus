@@ -23,3 +23,11 @@ internal class CmptRefCnstAltDmnDualDecoder<TRef>
 internal class CmptDomCnstAltDmnDualDecoder
 {
 }
+
+internal static class Cmpt_Schema_constraint_alt_domain_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_alt_domain_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptCnstAltDmnDualObject>(_ => new CmptCnstAltDmnDualDecoder())
+      .AddDecoder<ICmptDomCnstAltDmnDual>(_ => new CmptDomCnstAltDmnDualDecoder());
+}

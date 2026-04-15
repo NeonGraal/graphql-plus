@@ -26,3 +26,11 @@ internal class test_OutputFieldTypeEncoder(
     => _itest_ObjFieldType.Encode(input)
       .AddEncoded("parameter", input.Parameter, _itest_InputFieldType);
 }
+
+internal static class test_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<Itest_OutputFieldObject>(r => new test_OutputFieldEncoder(r))
+      .AddEncoder<Itest_OutputFieldTypeObject>(r => new test_OutputFieldTypeEncoder(r));
+}

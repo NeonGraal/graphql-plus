@@ -18,3 +18,11 @@ internal class CmptDmnNmbrPrntDecoder
 internal class CmptPrntDmnNmbrPrntDecoder
 {
 }
+
+internal static class Cmpt_Schema_domain_number_parentDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_number_parentDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptDmnNmbrPrnt>(_ => new CmptDmnNmbrPrntDecoder())
+      .AddDecoder<ICmptPrntDmnNmbrPrnt>(_ => new CmptPrntDmnNmbrPrntDecoder());
+}

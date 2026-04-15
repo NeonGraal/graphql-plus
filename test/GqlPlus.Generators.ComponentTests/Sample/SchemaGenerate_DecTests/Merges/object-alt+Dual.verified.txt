@@ -19,3 +19,11 @@ internal class CmptObjAltDualDecoder
 internal class CmptObjAltDualTypeDecoder
 {
 }
+
+internal static class Cmpt_Schema_object_alt_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_object_alt_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptObjAltDualObject>(_ => new CmptObjAltDualDecoder())
+      .AddDecoder<ICmptObjAltDualTypeObject>(_ => new CmptObjAltDualTypeDecoder());
+}

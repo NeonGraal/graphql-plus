@@ -22,46 +22,10 @@ internal class test_NameEncoder : IEncoder<Itest_Name>
     => new(input.Value);
 }
 
-internal class test_FilterEncoder(
-  IEncoderRepository encoders
-) : IEncoder<Itest_FilterObject>
-{
-  private readonly IEncoder<Itest_NameFilter> _itest_NameFilter = encoders.EncoderFor<Itest_NameFilter>();
-  public Structured Encode(Itest_FilterObject input)
-    => Structured.Empty()
-      .AddList("names", input.Names, _itest_NameFilter)
-      .Add("matchAliases", input.MatchAliases)
-      .AddList("aliases", input.Aliases, _itest_NameFilter)
-      .Add("returnByAlias", input.ReturnByAlias)
-      .Add("returnReferencedTypes", input.ReturnReferencedTypes);
-}
-
 internal class test_NameFilterEncoder : IEncoder<Itest_NameFilter>
 {
   public Structured Encode(Itest_NameFilter input)
     => new(input.Value);
-}
-
-internal class test_CategoryFilterEncoder(
-  IEncoderRepository encoders
-) : IEncoder<Itest_CategoryFilterObject>
-{
-  private readonly IEncoder<Itest_FilterObject> _itest_Filter = encoders.EncoderFor<Itest_FilterObject>();
-  private readonly IEncoder<Itest_Resolution> _itest_Resolution = encoders.EncoderFor<Itest_Resolution>();
-  public Structured Encode(Itest_CategoryFilterObject input)
-    => _itest_Filter.Encode(input)
-      .AddList("resolutions", input.Resolutions, _itest_Resolution);
-}
-
-internal class test_TypeFilterEncoder(
-  IEncoderRepository encoders
-) : IEncoder<Itest_TypeFilterObject>
-{
-  private readonly IEncoder<Itest_FilterObject> _itest_Filter = encoders.EncoderFor<Itest_FilterObject>();
-  private readonly IEncoder<Itest_TypeKind> _itest_TypeKind = encoders.EncoderFor<Itest_TypeKind>();
-  public Structured Encode(Itest_TypeFilterObject input)
-    => _itest_Filter.Encode(input)
-      .AddList("kinds", input.Kinds, _itest_TypeKind);
 }
 
 internal class test_AliasedEncoder(
@@ -91,4 +55,16 @@ internal class test_DescribedEncoder : IEncoder<Itest_DescribedObject>
   public Structured Encode(Itest_DescribedObject input)
     => Structured.Empty()
       .Add("description", input.Description.Encode());
+}
+
+internal static class test__SchemaEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest__SchemaEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<Itest_SchemaObject>(r => new test_SchemaEncoder(r))
+      .AddEncoder<Itest_Name>(_ => new test_NameEncoder())
+      .AddEncoder<Itest_NameFilter>(_ => new test_NameFilterEncoder())
+      .AddEncoder<Itest_AliasedObject>(r => new test_AliasedEncoder(r))
+      .AddEncoder<Itest_NamedObject>(r => new test_NamedEncoder(r))
+      .AddEncoder<Itest_DescribedObject>(_ => new test_DescribedEncoder());
 }

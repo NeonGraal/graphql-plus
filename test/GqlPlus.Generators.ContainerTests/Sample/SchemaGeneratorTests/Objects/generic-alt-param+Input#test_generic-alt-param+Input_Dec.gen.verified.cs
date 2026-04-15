@@ -19,3 +19,11 @@ internal class testAltGnrcAltParamInpDecoder
 {
   public decimal Alt { get; set; }
 }
+
+internal static class test_generic_alt_param_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_generic_alt_param_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestGnrcAltParamInpObject>(_ => new testGnrcAltParamInpDecoder())
+      .AddDecoder<ItestAltGnrcAltParamInpObject>(_ => new testAltGnrcAltParamInpDecoder());
+}

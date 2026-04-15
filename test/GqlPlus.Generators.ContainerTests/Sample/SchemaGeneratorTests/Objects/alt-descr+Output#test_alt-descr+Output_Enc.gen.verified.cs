@@ -12,3 +12,10 @@ internal class testAltDescrOutpEncoder : IEncoder<ItestAltDescrOutpObject>
   public Structured Encode(ItestAltDescrOutpObject input)
     => Structured.Empty();
 }
+
+internal static class test_alt_descr_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_alt_descr_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestAltDescrOutpObject>(_ => new testAltDescrOutpEncoder());
+}

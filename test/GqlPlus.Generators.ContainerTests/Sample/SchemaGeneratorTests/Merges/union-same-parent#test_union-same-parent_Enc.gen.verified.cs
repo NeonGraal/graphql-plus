@@ -26,3 +26,11 @@ internal class testPrntUnionSamePrntEncoder(
     => input.HasA<string>() ? _string.Encode(input.AsA<string>())
      : Structured.Empty();
 }
+
+internal static class test_union_same_parentEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_union_same_parentEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestUnionSamePrnt>(r => new testUnionSamePrntEncoder(r))
+      .AddEncoder<ItestPrntUnionSamePrnt>(r => new testPrntUnionSamePrntEncoder(r));
+}

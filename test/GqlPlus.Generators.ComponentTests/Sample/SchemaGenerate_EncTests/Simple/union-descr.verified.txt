@@ -19,3 +19,10 @@ internal class CmptUnionDescrEncoder(
     => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
      : Structured.Empty();
 }
+
+internal static class Cmpt_Schema_union_descrEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_union_descrEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptUnionDescr>(r => new CmptUnionDescrEncoder(r));
+}

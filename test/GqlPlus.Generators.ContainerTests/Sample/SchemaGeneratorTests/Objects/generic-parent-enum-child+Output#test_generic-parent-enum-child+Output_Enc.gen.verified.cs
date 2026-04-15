@@ -37,3 +37,12 @@ internal class testParentGnrcPrntEnumChildOutpEncoder : IEncoder<testParentGnrcP
   public Structured Encode(testParentGnrcPrntEnumChildOutp input)
     => new(input.ToString(), "_ParentGnrcPrntEnumChildOutp");
 }
+
+internal static class test_generic_parent_enum_child_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_generic_parent_enum_child_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestGnrcPrntEnumChildOutpObject>(r => new testGnrcPrntEnumChildOutpEncoder(r))
+      .AddEncoder<testEnumGnrcPrntEnumChildOutp>(_ => new testEnumGnrcPrntEnumChildOutpEncoder())
+      .AddEncoder<testParentGnrcPrntEnumChildOutp>(_ => new testParentGnrcPrntEnumChildOutpEncoder());
+}

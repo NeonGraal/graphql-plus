@@ -43,3 +43,12 @@ internal class CmptParentGnrcPrntEnumChildDualEncoder : IEncoder<CmptParentGnrcP
   public Structured Encode(CmptParentGnrcPrntEnumChildDual input)
     => new(input.ToString(), "_ParentGnrcPrntEnumChildDual");
 }
+
+internal static class Cmpt_Schema_generic_parent_enum_child_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_parent_enum_child_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptGnrcPrntEnumChildDualObject>(r => new CmptGnrcPrntEnumChildDualEncoder(r))
+      .AddEncoder<CmptEnumGnrcPrntEnumChildDual>(_ => new CmptEnumGnrcPrntEnumChildDualEncoder())
+      .AddEncoder<CmptParentGnrcPrntEnumChildDual>(_ => new CmptParentGnrcPrntEnumChildDualEncoder());
+}

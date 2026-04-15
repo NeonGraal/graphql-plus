@@ -42,3 +42,13 @@ internal class Cmpt_SchemaEncoder : IEncoder<ICmpt_SchemaObject>
   public Structured Encode(ICmpt_SchemaObject input)
     => Structured.Empty();
 }
+
+internal static class Cmpt_Schema_defaultEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_defaultEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptQueryObject>(_ => new CmptQueryEncoder())
+      .AddEncoder<ICmptMutationObject>(_ => new CmptMutationEncoder())
+      .AddEncoder<ICmptSubscriptionObject>(_ => new CmptSubscriptionEncoder())
+      .AddEncoder<ICmpt_SchemaObject>(_ => new Cmpt_SchemaEncoder());
+}

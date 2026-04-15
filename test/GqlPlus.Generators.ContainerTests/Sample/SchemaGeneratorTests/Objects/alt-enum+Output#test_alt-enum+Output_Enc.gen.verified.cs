@@ -18,3 +18,11 @@ internal class testEnumAltEnumOutpEncoder : IEncoder<testEnumAltEnumOutp>
   public Structured Encode(testEnumAltEnumOutp input)
     => new(input.ToString(), "_EnumAltEnumOutp");
 }
+
+internal static class test_alt_enum_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_alt_enum_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestAltEnumOutpObject>(_ => new testAltEnumOutpEncoder())
+      .AddEncoder<testEnumAltEnumOutp>(_ => new testEnumAltEnumOutpEncoder());
+}

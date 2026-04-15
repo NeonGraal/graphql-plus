@@ -12,24 +12,15 @@ enum EnumGnrcEnumInp { gnrcEnumInp }
 
 namespace Components.Gqlp_Schema_generic_enum_Input;
 
-internal class CmptGnrcEnumInpEncoder : IEncoder<ICmptGnrcEnumInpObject>
-{
-  public Structured Encode(ICmptGnrcEnumInpObject input)
-    => Structured.Empty();
-}
-
-internal class CmptRefGnrcEnumInpEncoder<TType>(
-  IEncoderRepository encoders
-) : IEncoder<ICmptRefGnrcEnumInpObject<TType>>
-{
-  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
-  public Structured Encode(ICmptRefGnrcEnumInpObject<TType> input)
-    => Structured.Empty()
-      .AddEncoded("field", input.Field, _type);
-}
-
 internal class CmptEnumGnrcEnumInpEncoder : IEncoder<CmptEnumGnrcEnumInp>
 {
   public Structured Encode(CmptEnumGnrcEnumInp input)
     => new(input.ToString(), "_EnumGnrcEnumInp");
+}
+
+internal static class Cmpt_Schema_generic_enum_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_enum_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<CmptEnumGnrcEnumInp>(_ => new CmptEnumGnrcEnumInpEncoder());
 }

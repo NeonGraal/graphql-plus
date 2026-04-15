@@ -15,3 +15,10 @@ internal class CmptDmnStrNonEmptyEncoder : IEncoder<ICmptDmnStrNonEmpty>
   public Structured Encode(ICmptDmnStrNonEmpty input)
     => new(input.Value);
 }
+
+internal static class Cmpt_Schema_domain_string_non_emptyEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_string_non_emptyEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptDmnStrNonEmpty>(_ => new CmptDmnStrNonEmptyEncoder());
+}

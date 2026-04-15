@@ -13,3 +13,10 @@ internal class testEnumValueAliasDecoder
   public string val1 { get; set; }
   public string val2 { get; set; }
 }
+
+internal static class test_enum_value_aliasDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_enum_value_aliasDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<testEnumValueAlias>(_ => new testEnumValueAliasDecoder());
+}

@@ -36,3 +36,11 @@ internal class Cmpt_InputFieldTypeEncoder(
     => _objFieldType.Encode(input)
       .AddEncoded("defaultValue", input.DefaultValue, _gqlpValue);
 }
+
+internal static class Cmpt_Spec_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Spec_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmpt_InputFieldObject>(r => new Cmpt_InputFieldEncoder(r))
+      .AddEncoder<ICmpt_InputFieldTypeObject>(r => new Cmpt_InputFieldTypeEncoder(r));
+}

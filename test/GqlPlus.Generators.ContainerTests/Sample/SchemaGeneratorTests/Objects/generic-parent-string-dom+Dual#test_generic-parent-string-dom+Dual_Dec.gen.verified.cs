@@ -19,3 +19,11 @@ internal class testFieldGnrcPrntStrDomDualDecoder<TRef>
 internal class testDomGnrcPrntStrDomDualDecoder
 {
 }
+
+internal static class test_generic_parent_string_dom_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_generic_parent_string_dom_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestGnrcPrntStrDomDualObject>(_ => new testGnrcPrntStrDomDualDecoder())
+      .AddDecoder<ItestDomGnrcPrntStrDomDual>(_ => new testDomGnrcPrntStrDomDualDecoder());
+}

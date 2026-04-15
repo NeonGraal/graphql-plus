@@ -12,16 +12,14 @@ enum EnumGnrcValueOutp { gnrcValueOutp }
 
 namespace Components.Gqlp_Schema_generic_value_Output;
 
-internal class CmptGnrcValueOutpDecoder
-{
-}
-
-internal class CmptRefGnrcValueOutpDecoder<TType>
-{
-  public TType Field { get; set; }
-}
-
 internal class CmptEnumGnrcValueOutpDecoder
 {
   public string gnrcValueOutp { get; set; }
+}
+
+internal static class Cmpt_Schema_generic_value_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_value_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<CmptEnumGnrcValueOutp>(_ => new CmptEnumGnrcValueOutpDecoder());
 }

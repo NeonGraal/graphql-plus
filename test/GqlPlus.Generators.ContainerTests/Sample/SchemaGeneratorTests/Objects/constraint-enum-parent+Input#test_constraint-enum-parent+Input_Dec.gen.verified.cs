@@ -26,3 +26,12 @@ internal class testParentCnstEnumPrntInpDecoder
 {
   public string parentCnstEnumPrntInp { get; set; }
 }
+
+internal static class test_constraint_enum_parent_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_constraint_enum_parent_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestCnstEnumPrntInpObject>(_ => new testCnstEnumPrntInpDecoder())
+      .AddDecoder<testEnumCnstEnumPrntInp>(_ => new testEnumCnstEnumPrntInpDecoder())
+      .AddDecoder<testParentCnstEnumPrntInp>(_ => new testParentCnstEnumPrntInpDecoder());
+}

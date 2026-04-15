@@ -28,3 +28,11 @@ internal class testEnumCnstEnumOutpEncoder : IEncoder<testEnumCnstEnumOutp>
   public Structured Encode(testEnumCnstEnumOutp input)
     => new(input.ToString(), "_EnumCnstEnumOutp");
 }
+
+internal static class test_constraint_enum_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_constraint_enum_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestCnstEnumOutpObject>(_ => new testCnstEnumOutpEncoder())
+      .AddEncoder<testEnumCnstEnumOutp>(_ => new testEnumCnstEnumOutpEncoder());
+}

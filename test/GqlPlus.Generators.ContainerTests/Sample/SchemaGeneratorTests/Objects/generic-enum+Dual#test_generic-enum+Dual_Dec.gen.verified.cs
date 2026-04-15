@@ -20,3 +20,11 @@ internal class testEnumGnrcEnumDualDecoder
 {
   public string gnrcEnumDual { get; set; }
 }
+
+internal static class test_generic_enum_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_generic_enum_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestGnrcEnumDualObject>(_ => new testGnrcEnumDualDecoder())
+      .AddDecoder<testEnumGnrcEnumDual>(_ => new testEnumGnrcEnumDualDecoder());
+}

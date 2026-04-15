@@ -13,15 +13,6 @@ domain DomGnrcPrntEnumDomOutp { enum gnrcPrntEnumDomOutpLabel }
 
 namespace Components.Gqlp_Schema_generic_parent_enum_dom_Output;
 
-internal class CmptGnrcPrntEnumDomOutpDecoder
-{
-}
-
-internal class CmptFieldGnrcPrntEnumDomOutpDecoder<TRef>
-{
-  public TRef Field { get; set; }
-}
-
 internal class CmptEnumGnrcPrntEnumDomOutpDecoder
 {
   public string gnrcPrntEnumDomOutpLabel { get; set; }
@@ -30,4 +21,12 @@ internal class CmptEnumGnrcPrntEnumDomOutpDecoder
 
 internal class CmptDomGnrcPrntEnumDomOutpDecoder
 {
+}
+
+internal static class Cmpt_Schema_generic_parent_enum_dom_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_parent_enum_dom_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<CmptEnumGnrcPrntEnumDomOutp>(_ => new CmptEnumGnrcPrntEnumDomOutpDecoder())
+      .AddDecoder<ICmptDomGnrcPrntEnumDomOutp>(_ => new CmptDomGnrcPrntEnumDomOutpDecoder());
 }

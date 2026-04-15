@@ -47,3 +47,12 @@ internal class CmptAltCnstFieldObjDualEncoder(
     => _prntCnstFieldObjDual.Encode(input)
       .Add("alt", input.Alt);
 }
+
+internal static class Cmpt_Schema_constraint_field_obj_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_field_obj_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptCnstFieldObjDualObject>(r => new CmptCnstFieldObjDualEncoder(r))
+      .AddEncoder<ICmptPrntCnstFieldObjDualObject>(_ => new CmptPrntCnstFieldObjDualEncoder())
+      .AddEncoder<ICmptAltCnstFieldObjDualObject>(r => new CmptAltCnstFieldObjDualEncoder(r));
+}

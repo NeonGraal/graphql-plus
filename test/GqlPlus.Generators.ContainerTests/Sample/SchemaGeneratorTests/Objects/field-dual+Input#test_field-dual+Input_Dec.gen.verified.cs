@@ -16,3 +16,11 @@ internal class testFldFieldDualInpDecoder
 {
   public decimal Field { get; set; }
 }
+
+internal static class test_field_dual_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_field_dual_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestFieldDualInpObject>(_ => new testFieldDualInpDecoder())
+      .AddDecoder<ItestFldFieldDualInpObject>(_ => new testFldFieldDualInpDecoder());
+}

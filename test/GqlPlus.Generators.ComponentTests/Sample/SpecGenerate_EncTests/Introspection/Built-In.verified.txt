@@ -70,3 +70,12 @@ internal class Cmpt_ModifierEncoder<TModifierKind>(
     => Structured.Empty()
       .AddEncoded("modifierKind", input.ModifierKind, _modifierKind);
 }
+
+internal static class Cmpt_Spec_Built_InEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Spec_Built_InEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmpt_CollectionsObject>(_ => new Cmpt_CollectionsEncoder())
+      .AddEncoder<ICmpt_ModifiersObject>(_ => new Cmpt_ModifiersEncoder())
+      .AddEncoder<Cmpt_ModifierKind>(_ => new Cmpt_ModifierKindEncoder());
+}

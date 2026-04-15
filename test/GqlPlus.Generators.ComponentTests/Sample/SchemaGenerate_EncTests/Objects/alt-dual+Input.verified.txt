@@ -11,15 +11,16 @@ dual ObjDualAltDualInp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_dual_Input;
 
-internal class CmptAltDualInpEncoder : IEncoder<ICmptAltDualInpObject>
-{
-  public Structured Encode(ICmptAltDualInpObject input)
-    => Structured.Empty();
-}
-
 internal class CmptObjDualAltDualInpEncoder : IEncoder<ICmptObjDualAltDualInpObject>
 {
   public Structured Encode(ICmptObjDualAltDualInpObject input)
     => Structured.Empty()
       .Add("alt", input.Alt);
+}
+
+internal static class Cmpt_Schema_alt_dual_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_alt_dual_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptObjDualAltDualInpObject>(_ => new CmptObjDualAltDualInpEncoder());
 }

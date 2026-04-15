@@ -30,3 +30,13 @@ internal class testDupDmnEnumUnqPrntEncoder : IEncoder<testDupDmnEnumUnqPrnt>
   public Structured Encode(testDupDmnEnumUnqPrnt input)
     => new(input.ToString(), "_DupDmnEnumUnqPrnt");
 }
+
+internal static class test_domain_enum_unique_parentEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_domain_enum_unique_parentEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestDmnEnumUnqPrnt>(_ => new testDmnEnumUnqPrntEncoder())
+      .AddEncoder<testEnumDmnEnumUnqPrnt>(_ => new testEnumDmnEnumUnqPrntEncoder())
+      .AddEncoder<testPrntDmnEnumUnqPrnt>(_ => new testPrntDmnEnumUnqPrntEncoder())
+      .AddEncoder<testDupDmnEnumUnqPrnt>(_ => new testDupDmnEnumUnqPrntEncoder());
+}

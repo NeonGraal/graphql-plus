@@ -41,16 +41,11 @@ internal class CmptFldOutpPrntParamEncoder : IEncoder<ICmptFldOutpPrntParamObjec
     => Structured.Empty();
 }
 
-internal class CmptInOutpPrntParamEncoder : IEncoder<ICmptInOutpPrntParamObject>
+internal static class Cmpt_Schema_output_parent_paramEncoders
 {
-  public Structured Encode(ICmptInOutpPrntParamObject input)
-    => Structured.Empty()
-      .Add("param", input.Param);
-}
-
-internal class CmptPrntOutpPrntParamInEncoder : IEncoder<ICmptPrntOutpPrntParamInObject>
-{
-  public Structured Encode(ICmptPrntOutpPrntParamInObject input)
-    => Structured.Empty()
-      .Add("parent", input.Parent);
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_output_parent_paramEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptOutpPrntParamObject>(r => new CmptOutpPrntParamEncoder(r))
+      .AddEncoder<ICmptPrntOutpPrntParamObject>(r => new CmptPrntOutpPrntParamEncoder(r))
+      .AddEncoder<ICmptFldOutpPrntParamObject>(_ => new CmptFldOutpPrntParamEncoder());
 }

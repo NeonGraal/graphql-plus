@@ -10,3 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_alt_enum_Dual;
 internal class testObjAltEnumDualDecoder
 {
 }
+
+internal static class test_object_alt_enum_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_object_alt_enum_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestObjAltEnumDualObject>(_ => new testObjAltEnumDualDecoder());
+}

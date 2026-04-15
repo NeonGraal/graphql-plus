@@ -23,3 +23,10 @@ internal class Cmpt_SettingEncoder(
     => _named.Encode(input)
       .AddEncoded("value", input.Value, _gqlpValue);
 }
+
+internal static class Cmpt_Spec_OptionEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Spec_OptionEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmpt_SettingObject>(r => new Cmpt_SettingEncoder(r));
+}

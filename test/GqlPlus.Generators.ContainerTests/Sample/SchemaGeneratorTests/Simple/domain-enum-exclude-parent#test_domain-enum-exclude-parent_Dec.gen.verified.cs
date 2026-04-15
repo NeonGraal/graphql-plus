@@ -24,3 +24,12 @@ internal class testPrntDmnEnumExclPrntDecoder
   public string prnt_dmnEnumExclPrnt { get; set; }
   public string dmnEnumExclPrntPrnt { get; set; }
 }
+
+internal static class test_domain_enum_exclude_parentDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_domain_enum_exclude_parentDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestDmnEnumExclPrnt>(_ => new testDmnEnumExclPrntDecoder())
+      .AddDecoder<testEnumDmnEnumExclPrnt>(_ => new testEnumDmnEnumExclPrntDecoder())
+      .AddDecoder<testPrntDmnEnumExclPrnt>(_ => new testPrntDmnEnumExclPrntDecoder());
+}

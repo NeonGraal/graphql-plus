@@ -13,3 +13,10 @@ namespace Components.Gqlp_Schema_domain_string_descr;
 internal class CmptDmnStrDescrDecoder
 {
 }
+
+internal static class Cmpt_Schema_domain_string_descrDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_string_descrDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptDmnStrDescr>(_ => new CmptDmnStrDescrDecoder());
+}

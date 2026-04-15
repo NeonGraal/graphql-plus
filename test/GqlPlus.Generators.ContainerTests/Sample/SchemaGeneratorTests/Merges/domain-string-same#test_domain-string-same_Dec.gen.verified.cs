@@ -10,3 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_string_same;
 internal class testDmnStrSameDecoder
 {
 }
+
+internal static class test_domain_string_sameDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_domain_string_sameDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestDmnStrSame>(_ => new testDmnStrSameDecoder());
+}

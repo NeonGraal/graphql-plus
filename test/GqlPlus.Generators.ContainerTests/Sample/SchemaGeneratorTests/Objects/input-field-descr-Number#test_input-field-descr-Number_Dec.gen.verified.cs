@@ -11,3 +11,10 @@ internal class testInpFieldDescrNmbrDecoder
 {
   public decimal Field { get; set; }
 }
+
+internal static class test_input_field_descr_NumberDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_input_field_descr_NumberDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestInpFieldDescrNmbrObject>(_ => new testInpFieldDescrNmbrDecoder());
+}

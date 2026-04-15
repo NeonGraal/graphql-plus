@@ -35,3 +35,12 @@ internal class test_LocationEncoder : IEncoder<test_Location>
   public Structured Encode(test_Location input)
     => new(input.ToString(), "_Location");
 }
+
+internal static class test_DirectiveEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_DirectiveEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<Itest_DirectivesObject>(r => new test_DirectivesEncoder(r))
+      .AddEncoder<Itest_DirectiveObject>(r => new test_DirectiveEncoder(r))
+      .AddEncoder<test_Location>(_ => new test_LocationEncoder());
+}

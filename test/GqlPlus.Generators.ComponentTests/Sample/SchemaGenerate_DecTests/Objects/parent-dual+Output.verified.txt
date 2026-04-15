@@ -11,11 +11,14 @@ dual RefPrntDualOutp { parent: Number | String }
 
 namespace Components.Gqlp_Schema_parent_dual_Output;
 
-internal class CmptPrntDualOutpDecoder
-{
-}
-
 internal class CmptRefPrntDualOutpDecoder
 {
   public decimal Parent { get; set; }
+}
+
+internal static class Cmpt_Schema_parent_dual_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_parent_dual_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptRefPrntDualOutpObject>(_ => new CmptRefPrntDualOutpDecoder());
 }

@@ -20,3 +20,11 @@ internal class CmptEnumFieldModEnumDualDecoder
 {
   public string value { get; set; }
 }
+
+internal static class Cmpt_Schema_field_mod_Enum_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_mod_Enum_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptFieldModEnumDualObject>(_ => new CmptFieldModEnumDualDecoder())
+      .AddDecoder<CmptEnumFieldModEnumDual>(_ => new CmptEnumFieldModEnumDualDecoder());
+}

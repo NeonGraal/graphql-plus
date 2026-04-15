@@ -60,3 +60,12 @@ internal class Cmpt_ModifierDecoder<TModifierKind>
 {
   public TModifierKind ModifierKind { get; set; }
 }
+
+internal static class Cmpt_Spec_Built_InDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_Built_InDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmpt_CollectionsObject>(_ => new Cmpt_CollectionsDecoder())
+      .AddDecoder<ICmpt_ModifiersObject>(_ => new Cmpt_ModifiersDecoder())
+      .AddDecoder<Cmpt_ModifierKind>(_ => new Cmpt_ModifierKindDecoder());
+}

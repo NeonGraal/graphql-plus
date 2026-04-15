@@ -18,3 +18,10 @@ internal class testRefGnrcAltSmplDualEncoder<TRef> : IEncoder<ItestRefGnrcAltSmp
   public Structured Encode(ItestRefGnrcAltSmplDualObject<TRef> input)
     => Structured.Empty();
 }
+
+internal static class test_generic_alt_simple_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_generic_alt_simple_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestGnrcAltSmplDualObject>(_ => new testGnrcAltSmplDualEncoder());
+}

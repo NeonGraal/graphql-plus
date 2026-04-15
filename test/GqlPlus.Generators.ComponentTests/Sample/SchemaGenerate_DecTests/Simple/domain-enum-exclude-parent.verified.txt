@@ -29,3 +29,12 @@ internal class CmptPrntDmnEnumExclPrntDecoder
   public string prnt_dmnEnumExclPrnt { get; set; }
   public string dmnEnumExclPrntPrnt { get; set; }
 }
+
+internal static class Cmpt_Schema_domain_enum_exclude_parentDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_enum_exclude_parentDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptDmnEnumExclPrnt>(_ => new CmptDmnEnumExclPrntDecoder())
+      .AddDecoder<CmptEnumDmnEnumExclPrnt>(_ => new CmptEnumDmnEnumExclPrntDecoder())
+      .AddDecoder<CmptPrntDmnEnumExclPrnt>(_ => new CmptPrntDmnEnumExclPrntDecoder());
+}

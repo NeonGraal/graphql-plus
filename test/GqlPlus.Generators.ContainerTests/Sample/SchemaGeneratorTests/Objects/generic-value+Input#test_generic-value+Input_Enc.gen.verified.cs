@@ -7,24 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_value_Input;
 
-internal class testGnrcValueInpEncoder : IEncoder<ItestGnrcValueInpObject>
-{
-  public Structured Encode(ItestGnrcValueInpObject input)
-    => Structured.Empty();
-}
-
-internal class testRefGnrcValueInpEncoder<TType>(
-  IEncoderRepository encoders
-) : IEncoder<ItestRefGnrcValueInpObject<TType>>
-{
-  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
-  public Structured Encode(ItestRefGnrcValueInpObject<TType> input)
-    => Structured.Empty()
-      .AddEncoded("field", input.Field, _type);
-}
-
 internal class testEnumGnrcValueInpEncoder : IEncoder<testEnumGnrcValueInp>
 {
   public Structured Encode(testEnumGnrcValueInp input)
     => new(input.ToString(), "_EnumGnrcValueInp");
+}
+
+internal static class test_generic_value_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_generic_value_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<testEnumGnrcValueInp>(_ => new testEnumGnrcValueInpEncoder());
 }

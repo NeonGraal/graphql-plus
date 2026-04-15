@@ -12,3 +12,10 @@ internal class testCtgrOutpListEncoder : IEncoder<ItestCtgrOutpListObject>
   public Structured Encode(ItestCtgrOutpListObject input)
     => Structured.Empty();
 }
+
+internal static class test_category_output_listEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_category_output_listEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestCtgrOutpListObject>(_ => new testCtgrOutpListEncoder());
+}

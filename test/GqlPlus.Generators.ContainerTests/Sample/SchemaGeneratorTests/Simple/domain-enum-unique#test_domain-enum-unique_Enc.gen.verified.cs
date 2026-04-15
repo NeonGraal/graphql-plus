@@ -24,3 +24,12 @@ internal class testDupDmnEnumUnqEncoder : IEncoder<testDupDmnEnumUnq>
   public Structured Encode(testDupDmnEnumUnq input)
     => new(input.ToString(), "_DupDmnEnumUnq");
 }
+
+internal static class test_domain_enum_uniqueEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_domain_enum_uniqueEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestDmnEnumUnq>(_ => new testDmnEnumUnqEncoder())
+      .AddEncoder<testEnumDmnEnumUnq>(_ => new testEnumDmnEnumUnqEncoder())
+      .AddEncoder<testDupDmnEnumUnq>(_ => new testDupDmnEnumUnqEncoder());
+}

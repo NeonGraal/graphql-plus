@@ -21,3 +21,11 @@ internal class CmptEnumDmnEnumAllDescrDecoder
   public string enum_dmnEnumAllDescr { get; set; }
   public string dmnEnumAllDescrValue { get; set; }
 }
+
+internal static class Cmpt_Schema_domain_enum_all_descrDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_enum_all_descrDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptDmnEnumAllDescr>(_ => new CmptDmnEnumAllDescrDecoder())
+      .AddDecoder<CmptEnumDmnEnumAllDescr>(_ => new CmptEnumDmnEnumAllDescrDecoder());
+}

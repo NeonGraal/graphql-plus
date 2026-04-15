@@ -10,3 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_alias_Dual;
 internal class testObjAliasDualDecoder
 {
 }
+
+internal static class test_object_alias_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_object_alias_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestObjAliasDualObject>(_ => new testObjAliasDualDecoder());
+}

@@ -283,3 +283,24 @@ internal class Cmpt_UnionMemberEncoder(
     => _unionRef.Encode(input)
       .AddEncoded("union", input.Union, _name);
 }
+
+internal static class Cmpt_Spec_SimpleEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Spec_SimpleEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<Cmpt_DomainKind>(_ => new Cmpt_DomainKindEncoder())
+      .AddEncoder<ICmpt_BaseDomainItemObject>(r => new Cmpt_BaseDomainItemEncoder(r))
+      .AddEncoder<ICmpt_BasicValueObject>(_ => new Cmpt_BasicValueEncoder())
+      .AddEncoder<ICmpt_DomainTrueFalseObject>(r => new Cmpt_DomainTrueFalseEncoder(r))
+      .AddEncoder<ICmpt_DomainItemTrueFalseObject>(r => new Cmpt_DomainItemTrueFalseEncoder(r))
+      .AddEncoder<ICmpt_DomainLabelObject>(r => new Cmpt_DomainLabelEncoder(r))
+      .AddEncoder<ICmpt_DomainItemLabelObject>(r => new Cmpt_DomainItemLabelEncoder(r))
+      .AddEncoder<ICmpt_DomainRangeObject>(r => new Cmpt_DomainRangeEncoder(r))
+      .AddEncoder<ICmpt_DomainItemRangeObject>(r => new Cmpt_DomainItemRangeEncoder(r))
+      .AddEncoder<ICmpt_DomainRegexObject>(r => new Cmpt_DomainRegexEncoder(r))
+      .AddEncoder<ICmpt_DomainItemRegexObject>(r => new Cmpt_DomainItemRegexEncoder(r))
+      .AddEncoder<ICmpt_EnumLabelObject>(r => new Cmpt_EnumLabelEncoder(r))
+      .AddEncoder<ICmpt_EnumValueObject>(r => new Cmpt_EnumValueEncoder(r))
+      .AddEncoder<ICmpt_UnionRefObject>(r => new Cmpt_UnionRefEncoder(r))
+      .AddEncoder<ICmpt_UnionMemberObject>(r => new Cmpt_UnionMemberEncoder(r));
+}

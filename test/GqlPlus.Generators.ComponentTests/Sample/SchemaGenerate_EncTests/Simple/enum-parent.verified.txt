@@ -22,3 +22,11 @@ internal class CmptPrntEnumPrntEncoder : IEncoder<CmptPrntEnumPrnt>
   public Structured Encode(CmptPrntEnumPrnt input)
     => new(input.ToString(), "_PrntEnumPrnt");
 }
+
+internal static class Cmpt_Schema_enum_parentEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_enum_parentEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<CmptEnumPrnt>(_ => new CmptEnumPrntEncoder())
+      .AddEncoder<CmptPrntEnumPrnt>(_ => new CmptPrntEnumPrntEncoder());
+}

@@ -22,3 +22,10 @@ internal class CmptRefGnrcAltSmplDualEncoder<TRef> : IEncoder<ICmptRefGnrcAltSmp
   public Structured Encode(ICmptRefGnrcAltSmplDualObject<TRef> input)
     => Structured.Empty();
 }
+
+internal static class Cmpt_Schema_generic_alt_simple_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_alt_simple_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptGnrcAltSmplDualObject>(_ => new CmptGnrcAltSmplDualEncoder());
+}

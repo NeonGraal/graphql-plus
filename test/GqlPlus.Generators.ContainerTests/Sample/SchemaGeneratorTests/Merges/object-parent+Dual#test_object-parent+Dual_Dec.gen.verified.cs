@@ -14,3 +14,11 @@ internal class testObjPrntDualDecoder
 internal class testRefObjPrntDualDecoder
 {
 }
+
+internal static class test_object_parent_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_object_parent_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestObjPrntDualObject>(_ => new testObjPrntDualDecoder())
+      .AddDecoder<ItestRefObjPrntDualObject>(_ => new testRefObjPrntDualDecoder());
+}

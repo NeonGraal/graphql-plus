@@ -61,10 +61,13 @@ internal class CmptParamDecoder
   public ICmptMany BeforeId { get; set; }
 }
 
-internal class CmptAllDecoder
+internal static class Cmpt_Schema_allDecoders
 {
-  public ICmptField? Items(ICmptParam? parameter)
-    => null;
-  public ICmptField? Items()
-    => null;
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_allDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptGuid>(_ => new CmptGuidDecoder())
+      .AddDecoder<CmptOne>(_ => new CmptOneDecoder())
+      .AddDecoder<ICmptMany>(_ => new CmptManyDecoder())
+      .AddDecoder<ICmptFieldObject>(_ => new CmptFieldDecoder())
+      .AddDecoder<ICmptParamObject>(_ => new CmptParamDecoder());
 }

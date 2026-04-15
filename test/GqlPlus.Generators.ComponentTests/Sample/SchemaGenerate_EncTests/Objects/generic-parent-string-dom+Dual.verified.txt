@@ -36,3 +36,11 @@ internal class CmptDomGnrcPrntStrDomDualEncoder : IEncoder<ICmptDomGnrcPrntStrDo
   public Structured Encode(ICmptDomGnrcPrntStrDomDual input)
     => new(input.Value);
 }
+
+internal static class Cmpt_Schema_generic_parent_string_dom_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_parent_string_dom_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptGnrcPrntStrDomDualObject>(r => new CmptGnrcPrntStrDomDualEncoder(r))
+      .AddEncoder<ICmptDomGnrcPrntStrDomDual>(_ => new CmptDomGnrcPrntStrDomDualEncoder());
+}

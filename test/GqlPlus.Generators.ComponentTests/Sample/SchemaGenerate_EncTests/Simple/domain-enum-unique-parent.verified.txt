@@ -36,3 +36,13 @@ internal class CmptDupDmnEnumUnqPrntEncoder : IEncoder<CmptDupDmnEnumUnqPrnt>
   public Structured Encode(CmptDupDmnEnumUnqPrnt input)
     => new(input.ToString(), "_DupDmnEnumUnqPrnt");
 }
+
+internal static class Cmpt_Schema_domain_enum_unique_parentEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_enum_unique_parentEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptDmnEnumUnqPrnt>(_ => new CmptDmnEnumUnqPrntEncoder())
+      .AddEncoder<CmptEnumDmnEnumUnqPrnt>(_ => new CmptEnumDmnEnumUnqPrntEncoder())
+      .AddEncoder<CmptPrntDmnEnumUnqPrnt>(_ => new CmptPrntDmnEnumUnqPrntEncoder())
+      .AddEncoder<CmptDupDmnEnumUnqPrnt>(_ => new CmptDupDmnEnumUnqPrntEncoder());
+}

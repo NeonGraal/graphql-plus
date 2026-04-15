@@ -16,3 +16,10 @@ internal class CmptFieldSmplOutpEncoder : IEncoder<ICmptFieldSmplOutpObject>
     => Structured.Empty()
       .Add("field", input.Field);
 }
+
+internal static class Cmpt_Schema_field_simple_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_field_simple_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptFieldSmplOutpObject>(_ => new CmptFieldSmplOutpEncoder());
+}

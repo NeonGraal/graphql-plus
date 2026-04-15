@@ -31,3 +31,12 @@ internal class CmptEnumGnrcPrntEnumDomDualDecoder
 internal class CmptDomGnrcPrntEnumDomDualDecoder
 {
 }
+
+internal static class Cmpt_Schema_generic_parent_enum_dom_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_parent_enum_dom_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptGnrcPrntEnumDomDualObject>(_ => new CmptGnrcPrntEnumDomDualDecoder())
+      .AddDecoder<CmptEnumGnrcPrntEnumDomDual>(_ => new CmptEnumGnrcPrntEnumDomDualDecoder())
+      .AddDecoder<ICmptDomGnrcPrntEnumDomDual>(_ => new CmptDomGnrcPrntEnumDomDualDecoder());
+}

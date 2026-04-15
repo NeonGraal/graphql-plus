@@ -21,3 +21,12 @@ internal class testPrntDmnEnumValuePrntDecoder
 {
   public string prnt_dmnEnumValuePrnt { get; set; }
 }
+
+internal static class test_domain_enum_value_parentDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_domain_enum_value_parentDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestDmnEnumValuePrnt>(_ => new testDmnEnumValuePrntDecoder())
+      .AddDecoder<testEnumDmnEnumValuePrnt>(_ => new testEnumDmnEnumValuePrntDecoder())
+      .AddDecoder<testPrntDmnEnumValuePrnt>(_ => new testPrntDmnEnumValuePrntDecoder());
+}

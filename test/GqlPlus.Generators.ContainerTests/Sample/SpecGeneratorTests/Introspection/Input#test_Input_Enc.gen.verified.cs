@@ -26,3 +26,11 @@ internal class test_InputFieldTypeEncoder(
     => _itest_ObjFieldType.Encode(input)
       .AddEncoded("defaultValue", input.DefaultValue, _gqlpValue);
 }
+
+internal static class test_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<Itest_InputFieldObject>(r => new test_InputFieldEncoder(r))
+      .AddEncoder<Itest_InputFieldTypeObject>(r => new test_InputFieldTypeEncoder(r));
+}

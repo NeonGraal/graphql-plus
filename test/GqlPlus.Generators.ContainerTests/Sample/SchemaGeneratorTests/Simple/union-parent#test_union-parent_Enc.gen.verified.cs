@@ -26,3 +26,11 @@ internal class testPrntUnionPrntEncoder(
     => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
      : Structured.Empty();
 }
+
+internal static class test_union_parentEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_union_parentEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestUnionPrnt>(r => new testUnionPrntEncoder(r))
+      .AddEncoder<ItestPrntUnionPrnt>(r => new testPrntUnionPrntEncoder(r));
+}

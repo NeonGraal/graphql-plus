@@ -18,3 +18,11 @@ internal class testRefCnstAltDmnInpDecoder<TRef>
 internal class testDomCnstAltDmnInpDecoder
 {
 }
+
+internal static class test_constraint_alt_domain_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_constraint_alt_domain_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestCnstAltDmnInpObject>(_ => new testCnstAltDmnInpDecoder())
+      .AddDecoder<ItestDomCnstAltDmnInp>(_ => new testDomCnstAltDmnInpDecoder());
+}

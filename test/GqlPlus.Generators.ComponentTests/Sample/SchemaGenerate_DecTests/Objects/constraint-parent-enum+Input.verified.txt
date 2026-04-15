@@ -32,3 +32,12 @@ internal class CmptParentCnstPrntEnumInpDecoder
 {
   public string parentCnstPrntEnumInp { get; set; }
 }
+
+internal static class Cmpt_Schema_constraint_parent_enum_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_parent_enum_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptCnstPrntEnumInpObject>(_ => new CmptCnstPrntEnumInpDecoder())
+      .AddDecoder<CmptEnumCnstPrntEnumInp>(_ => new CmptEnumCnstPrntEnumInpDecoder())
+      .AddDecoder<CmptParentCnstPrntEnumInp>(_ => new CmptParentCnstPrntEnumInpDecoder());
+}

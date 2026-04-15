@@ -19,3 +19,11 @@ internal class testAltAltDualEncoder : IEncoder<ItestAltAltDualObject>
     => Structured.Empty()
       .Add("alt", input.Alt);
 }
+
+internal static class test_alt_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_alt_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestAltDualObject>(_ => new testAltDualEncoder())
+      .AddEncoder<ItestAltAltDualObject>(_ => new testAltAltDualEncoder());
+}

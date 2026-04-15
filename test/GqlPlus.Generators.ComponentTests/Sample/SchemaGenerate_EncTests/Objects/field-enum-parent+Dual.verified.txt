@@ -30,3 +30,12 @@ internal class CmptPrntFieldEnumPrntDualEncoder : IEncoder<CmptPrntFieldEnumPrnt
   public Structured Encode(CmptPrntFieldEnumPrntDual input)
     => new(input.ToString(), "_PrntFieldEnumPrntDual");
 }
+
+internal static class Cmpt_Schema_field_enum_parent_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_field_enum_parent_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptFieldEnumPrntDualObject>(_ => new CmptFieldEnumPrntDualEncoder())
+      .AddEncoder<CmptEnumFieldEnumPrntDual>(_ => new CmptEnumFieldEnumPrntDualEncoder())
+      .AddEncoder<CmptPrntFieldEnumPrntDual>(_ => new CmptPrntFieldEnumPrntDualEncoder());
+}

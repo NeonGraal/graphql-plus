@@ -22,7 +22,11 @@ internal class test_DescribedDecoder
   public ICollection<string> Description { get; set; }
 }
 
-internal class test_AndTypeDecoder
+internal static class test_NamesDecoders
 {
-  public Itest_Type Type { get; set; }
+  internal static IDecoderRepositoryBuilder Addtest_NamesDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<Itest_AliasedObject>(_ => new test_AliasedDecoder())
+      .AddDecoder<Itest_NamedObject>(_ => new test_NamedDecoder())
+      .AddDecoder<Itest_DescribedObject>(_ => new test_DescribedDecoder());
 }

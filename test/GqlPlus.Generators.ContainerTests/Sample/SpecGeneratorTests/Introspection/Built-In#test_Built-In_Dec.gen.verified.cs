@@ -36,3 +36,12 @@ internal class test_ModifierDecoder<TModifierKind>
 {
   public TModifierKind ModifierKind { get; set; }
 }
+
+internal static class test_Built_InDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_Built_InDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<Itest_CollectionsObject>(_ => new test_CollectionsDecoder())
+      .AddDecoder<Itest_ModifiersObject>(_ => new test_ModifiersDecoder())
+      .AddDecoder<test_ModifierKind>(_ => new test_ModifierKindDecoder());
+}

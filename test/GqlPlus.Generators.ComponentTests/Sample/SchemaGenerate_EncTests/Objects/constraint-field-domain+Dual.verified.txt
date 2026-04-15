@@ -36,3 +36,11 @@ internal class CmptDomCnstFieldDmnDualEncoder : IEncoder<ICmptDomCnstFieldDmnDua
   public Structured Encode(ICmptDomCnstFieldDmnDual input)
     => new(input.Value);
 }
+
+internal static class Cmpt_Schema_constraint_field_domain_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_field_domain_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptCnstFieldDmnDualObject>(r => new CmptCnstFieldDmnDualEncoder(r))
+      .AddEncoder<ICmptDomCnstFieldDmnDual>(_ => new CmptDomCnstFieldDmnDualEncoder());
+}

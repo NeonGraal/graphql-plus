@@ -14,3 +14,10 @@ internal class CmptFieldTypeDescrInpDecoder
 {
   public decimal Field { get; set; }
 }
+
+internal static class Cmpt_Schema_field_type_descr_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_type_descr_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptFieldTypeDescrInpObject>(_ => new CmptFieldTypeDescrInpDecoder());
+}

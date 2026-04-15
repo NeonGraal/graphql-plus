@@ -34,3 +34,12 @@ internal class testParentCnstPrntEnumOutpEncoder : IEncoder<testParentCnstPrntEn
   public Structured Encode(testParentCnstPrntEnumOutp input)
     => new(input.ToString(), "_ParentCnstPrntEnumOutp");
 }
+
+internal static class test_constraint_parent_enum_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_constraint_parent_enum_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestCnstPrntEnumOutpObject>(_ => new testCnstPrntEnumOutpEncoder())
+      .AddEncoder<testEnumCnstPrntEnumOutp>(_ => new testEnumCnstPrntEnumOutpEncoder())
+      .AddEncoder<testParentCnstPrntEnumOutp>(_ => new testParentCnstPrntEnumOutpEncoder());
+}

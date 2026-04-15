@@ -12,3 +12,10 @@ internal class testDescrBtwnEncoder : IEncoder<ItestDescrBtwnObject>
   public Structured Encode(ItestDescrBtwnObject input)
     => Structured.Empty();
 }
+
+internal static class test_descr_betweenEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_descr_betweenEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestDescrBtwnObject>(_ => new testDescrBtwnEncoder());
+}

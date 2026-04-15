@@ -34,3 +34,12 @@ internal class testJustCnstDomEnumDualEncoder : IEncoder<ItestJustCnstDomEnumDua
   public Structured Encode(ItestJustCnstDomEnumDual input)
     => new((decimal?)input.Value);
 }
+
+internal static class test_constraint_dom_enum_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_constraint_dom_enum_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestCnstDomEnumDualObject>(_ => new testCnstDomEnumDualEncoder())
+      .AddEncoder<testEnumCnstDomEnumDual>(_ => new testEnumCnstDomEnumDualEncoder())
+      .AddEncoder<ItestJustCnstDomEnumDual>(_ => new testJustCnstDomEnumDualEncoder());
+}

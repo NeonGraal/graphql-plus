@@ -24,3 +24,12 @@ internal class testDupDmnEnumUnqDecoder
   public string dup_dmnEnumUnq { get; set; }
   public string dmnEnumUnqDup { get; set; }
 }
+
+internal static class test_domain_enum_uniqueDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_domain_enum_uniqueDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestDmnEnumUnq>(_ => new testDmnEnumUnqDecoder())
+      .AddDecoder<testEnumDmnEnumUnq>(_ => new testEnumDmnEnumUnqDecoder())
+      .AddDecoder<testDupDmnEnumUnq>(_ => new testDupDmnEnumUnqDecoder());
+}

@@ -16,3 +16,10 @@ internal class CmptObjAltEnumOutpEncoder : IEncoder<ICmptObjAltEnumOutpObject>
   public Structured Encode(ICmptObjAltEnumOutpObject input)
     => Structured.Empty();
 }
+
+internal static class Cmpt_Schema_object_alt_enum_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_object_alt_enum_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptObjAltEnumOutpObject>(_ => new CmptObjAltEnumOutpEncoder());
+}

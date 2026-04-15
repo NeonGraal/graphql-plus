@@ -26,3 +26,11 @@ internal class test_UnionMemberEncoder(
     => _itest_UnionRef.Encode(input)
       .AddEncoded("union", input.Union, _itest_Name);
 }
+
+internal static class test_UnionEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_UnionEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<Itest_UnionRefObject>(r => new test_UnionRefEncoder(r))
+      .AddEncoder<Itest_UnionMemberObject>(r => new test_UnionMemberEncoder(r));
+}

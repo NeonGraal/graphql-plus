@@ -16,3 +16,10 @@ internal class CmptDmnNmbrSameEncoder : IEncoder<ICmptDmnNmbrSame>
   public Structured Encode(ICmptDmnNmbrSame input)
     => new(input.Value);
 }
+
+internal static class Cmpt_Schema_domain_number_sameEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_number_sameEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptDmnNmbrSame>(_ => new CmptDmnNmbrSameEncoder());
+}

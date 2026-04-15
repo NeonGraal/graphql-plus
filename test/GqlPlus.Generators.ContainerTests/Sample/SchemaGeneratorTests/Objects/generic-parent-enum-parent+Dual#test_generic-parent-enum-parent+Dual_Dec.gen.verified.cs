@@ -26,3 +26,12 @@ internal class testParentGnrcPrntEnumPrntDualDecoder
 {
   public string gnrcPrntEnumPrntDualParent { get; set; }
 }
+
+internal static class test_generic_parent_enum_parent_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_generic_parent_enum_parent_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestGnrcPrntEnumPrntDualObject>(_ => new testGnrcPrntEnumPrntDualDecoder())
+      .AddDecoder<testEnumGnrcPrntEnumPrntDual>(_ => new testEnumGnrcPrntEnumPrntDualDecoder())
+      .AddDecoder<testParentGnrcPrntEnumPrntDual>(_ => new testParentGnrcPrntEnumPrntDualDecoder());
+}

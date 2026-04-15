@@ -12,3 +12,10 @@ internal class testDmnEnumDiffEncoder : IEncoder<ItestDmnEnumDiff>
   public Structured Encode(ItestDmnEnumDiff input)
     => new((decimal?)input.Value);
 }
+
+internal static class test_domain_enum_diffEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_domain_enum_diffEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestDmnEnumDiff>(_ => new testDmnEnumDiffEncoder());
+}

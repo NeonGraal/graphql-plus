@@ -7,15 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_dom_Output;
 
-internal class testGnrcPrntEnumDomOutpDecoder
-{
-}
-
-internal class testFieldGnrcPrntEnumDomOutpDecoder<TRef>
-{
-  public TRef Field { get; set; }
-}
-
 internal class testEnumGnrcPrntEnumDomOutpDecoder
 {
   public string gnrcPrntEnumDomOutpLabel { get; set; }
@@ -24,4 +15,12 @@ internal class testEnumGnrcPrntEnumDomOutpDecoder
 
 internal class testDomGnrcPrntEnumDomOutpDecoder
 {
+}
+
+internal static class test_generic_parent_enum_dom_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_generic_parent_enum_dom_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<testEnumGnrcPrntEnumDomOutp>(_ => new testEnumGnrcPrntEnumDomOutpDecoder())
+      .AddDecoder<ItestDomGnrcPrntEnumDomOutp>(_ => new testDomGnrcPrntEnumDomOutpDecoder());
 }

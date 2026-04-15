@@ -13,3 +13,10 @@ namespace Components.Gqlp_Schema_alt_descr_Input;
 internal class CmptAltDescrInpDecoder
 {
 }
+
+internal static class Cmpt_Schema_alt_descr_InputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_alt_descr_InputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptAltDescrInpObject>(_ => new CmptAltDescrInpDecoder());
+}

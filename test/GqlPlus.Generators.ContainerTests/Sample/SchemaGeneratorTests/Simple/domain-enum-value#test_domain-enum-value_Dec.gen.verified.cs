@@ -15,3 +15,11 @@ internal class testEnumDmnEnumValueDecoder
 {
   public string dmnEnumValue { get; set; }
 }
+
+internal static class test_domain_enum_valueDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_domain_enum_valueDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestDmnEnumValue>(_ => new testDmnEnumValueDecoder())
+      .AddDecoder<testEnumDmnEnumValue>(_ => new testEnumDmnEnumValueDecoder());
+}

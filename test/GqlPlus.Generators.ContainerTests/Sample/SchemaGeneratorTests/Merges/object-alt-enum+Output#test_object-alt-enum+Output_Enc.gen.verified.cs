@@ -12,3 +12,10 @@ internal class testObjAltEnumOutpEncoder : IEncoder<ItestObjAltEnumOutpObject>
   public Structured Encode(ItestObjAltEnumOutpObject input)
     => Structured.Empty();
 }
+
+internal static class test_object_alt_enum_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_object_alt_enum_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestObjAltEnumOutpObject>(_ => new testObjAltEnumOutpEncoder());
+}

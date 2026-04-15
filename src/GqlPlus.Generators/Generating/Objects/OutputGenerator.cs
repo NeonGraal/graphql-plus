@@ -58,7 +58,7 @@ internal sealed class OutputDecoderGenerator
   : OutputGeneratorBase
 {
   protected override void Generate(IAstObject<IAstOutputField> ast, GqlpGeneratorContext context)
-    => GenerateBlock(ast, context, DecoderHeader, TypeMembers, ClassMember);
+  { }
 }
 
 internal sealed class OutputEncoderGenerator

@@ -76,10 +76,6 @@ internal class test_InputDecoder
 {
 }
 
-internal class test_OutputDecoder
-{
-}
-
 internal class test_UnionDecoder
 {
 }
@@ -89,4 +85,26 @@ internal class test_SimpleDecoder
   public _Enum As_Enum { get; set; }
   public _Domain As_Domain { get; set; }
   public _Union As_Union { get; set; }
+}
+
+internal static class test_DefinitionDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_DefinitionDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<bool>(_ => new boolDecoder())
+      .AddDecoder<GqlpNull>(_ => new GqlpNullDecoder())
+      .AddDecoder<GqlpUnit>(_ => new GqlpUnitDecoder())
+      .AddDecoder<void>(_ => new voidDecoder())
+      .AddDecoder<decimal>(_ => new decimalDecoder())
+      .AddDecoder<string>(_ => new stringDecoder())
+      .AddDecoder<Itest_Basic>(_ => new test_BasicDecoder())
+      .AddDecoder<Itest_Internal>(_ => new test_InternalDecoder())
+      .AddDecoder<Itest_Key>(_ => new test_KeyDecoder())
+      .AddDecoder<Itest_ObjectObject>(_ => new test_ObjectDecoder())
+      .AddDecoder<Itest_Domain>(_ => new test_DomainDecoder())
+      .AddDecoder<Itest_DualObject>(_ => new test_DualDecoder())
+      .AddDecoder<Itest_Enum>(_ => new test_EnumDecoder())
+      .AddDecoder<Itest_InputObject>(_ => new test_InputDecoder())
+      .AddDecoder<Itest_Union>(_ => new test_UnionDecoder())
+      .AddDecoder<Itest_Simple>(_ => new test_SimpleDecoder());
 }

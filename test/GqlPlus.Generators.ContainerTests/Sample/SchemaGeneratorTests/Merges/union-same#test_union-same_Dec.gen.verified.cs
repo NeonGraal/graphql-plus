@@ -11,3 +11,10 @@ internal class testUnionSameDecoder
 {
   public Boolean AsBoolean { get; set; }
 }
+
+internal static class test_union_sameDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_union_sameDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestUnionSame>(_ => new testUnionSameDecoder());
+}

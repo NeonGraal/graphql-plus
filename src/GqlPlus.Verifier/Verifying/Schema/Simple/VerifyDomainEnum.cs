@@ -2,7 +2,8 @@
 
 namespace GqlPlus.Verifying.Schema.Simple;
 
-internal class VerifyDomainEnum(IVerifierRepository verifiers) : AstDomainVerifier<IAstDomainLabel>(verifiers)
+internal class VerifyDomainEnum(IVerifierRepository verifiers)
+  : AstDomainVerifier<IAstDomainLabel>(verifiers)
 {
   protected override void VerifyDomain(IAstDomain<IAstDomainLabel> domain, EnumContext context)
   {
@@ -20,6 +21,9 @@ internal class VerifyDomainEnum(IVerifierRepository verifiers) : AstDomainVerifi
       }
     }
   }
+
+  internal new static VerifyDomainEnum Factory(IVerifierRepository v)
+    => new(v);
 }
 
 internal record struct EnumLabel(IAstEnum Enum, string Label);
@@ -97,6 +101,4 @@ internal class EnumLabels
       .GroupBy(m => m.Label)
       .Where(g => g.Count() != 1)
       .Select(g => g.ToArray())];
-
-  internal static VerifyDomainEnum Factory(IVerifierRepository v) => new(v);
 }

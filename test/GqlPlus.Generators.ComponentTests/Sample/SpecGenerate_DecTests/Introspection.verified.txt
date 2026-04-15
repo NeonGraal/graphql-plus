@@ -438,30 +438,6 @@ output _OutputFieldType {
 
 namespace Components.Gqlp_Spec_Introspection;
 
-internal class Cmpt_SchemaDecoder
-{
-  public IDictionary<ICmpt_Name, ICmpt_Categories>? Categories(ICmpt_CategoryFilter? parameter)
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Categories>? Categories()
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Directives>? Directives(ICmpt_Filter? parameter)
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Directives>? Directives()
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Operations>? Operations(ICmpt_Filter? parameter)
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Operations>? Operations()
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Type>? Types(ICmpt_TypeFilter? parameter)
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Type>? Types()
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Setting>? Settings(ICmpt_Filter? parameter)
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Setting>? Settings()
-    => null;
-}
-
 internal class Cmpt_NameDecoder
 {
 }
@@ -504,40 +480,11 @@ internal class Cmpt_DescribedDecoder
   public ICollection<string> Description { get; set; }
 }
 
-internal class Cmpt_AndTypeDecoder
-{
-  public ICmpt_Type Type { get; set; }
-}
-
-internal class Cmpt_CategoriesDecoder
-{
-  public ICmpt_Category Category { get; set; }
-}
-
-internal class Cmpt_CategoryDecoder
-{
-  public Cmpt_Resolution Resolution { get; set; }
-  public ICmpt_TypeRef<Cmpt_TypeKind> Output { get; set; }
-  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
-}
-
 internal class Cmpt_ResolutionDecoder
 {
   public string Parallel { get; set; }
   public string Sequential { get; set; }
   public string Single { get; set; }
-}
-
-internal class Cmpt_DirectivesDecoder
-{
-  public ICmpt_Directive Directive { get; set; }
-}
-
-internal class Cmpt_DirectiveDecoder
-{
-  public ICmpt_InputFieldType? Parameter { get; set; }
-  public bool Repeatable { get; set; }
-  public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
 }
 
 internal class Cmpt_LocationDecoder
@@ -550,42 +497,9 @@ internal class Cmpt_LocationDecoder
   public string Fragment { get; set; }
 }
 
-internal class Cmpt_OperationsDecoder
-{
-  public ICmpt_Operation Operation { get; set; }
-  public ICmpt_Type Type { get; set; }
-}
-
-internal class Cmpt_OpDirectivesDecoder
-{
-  public ICollection<ICmpt_OpDirective> Directives { get; set; }
-}
-
-internal class Cmpt_OperationDecoder
-{
-  public ICmpt_Name Category { get; set; }
-  public IDictionary<ICmpt_Name, ICmpt_OpVariable> Variables { get; set; }
-  public ICollection<ICmpt_OpDirective> Directives { get; set; }
-  public IDictionary<ICmpt_Name, ICmpt_OpFragment> Fragments { get; set; }
-  public ICmpt_OpResult Result { get; set; }
-  public IDictionary<ICmpt_Path, ICollection<ICmpt_OpSelection>> Selections { get; set; }
-}
-
-internal class Cmpt_OpVariableDecoder
-{
-  public ICmpt_TypeRef<Cmpt_TypeKind> Type { get; set; }
-  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
-  public GqlpValue? DefaultValue { get; set; }
-}
-
 internal class Cmpt_OpDirectiveDecoder
 {
   public ICmpt_OpArgument? Argument { get; set; }
-}
-
-internal class Cmpt_OpFragmentDecoder
-{
-  public ICmpt_TypeRef<Cmpt_TypeKind> Type { get; set; }
 }
 
 internal class Cmpt_OpArgumentDecoder
@@ -607,61 +521,8 @@ internal class Cmpt_OpArgMapDecoder
   public ICmpt_Name ByVariable { get; set; }
 }
 
-internal class Cmpt_OpResultDecoder
-{
-  public ICmpt_OpArgument? Argument { get; set; }
-}
-
 internal class Cmpt_PathDecoder
 {
-}
-
-internal class Cmpt_OpSelectionDecoder
-{
-}
-
-internal class Cmpt_OpFieldDecoder
-{
-  public string? FieldAlias { get; set; }
-  public ICmpt_OpArgument? Argument { get; set; }
-  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
-}
-
-internal class Cmpt_OpInlineDecoder
-{
-  public ICmpt_TypeRef<Cmpt_TypeKind>? Type { get; set; }
-  public ICollection<ICmpt_OpDirective> Directives { get; set; }
-}
-
-internal class Cmpt_OpSpreadDecoder
-{
-  public string Fragment { get; set; }
-  public ICollection<ICmpt_OpDirective> Directives { get; set; }
-}
-
-internal class Cmpt_SettingDecoder
-{
-  public GqlpValue Value { get; set; }
-}
-
-internal class Cmpt_TypeDecoder
-{
-}
-
-internal class Cmpt_BaseTypeDecoder<TTypeKind>
-{
-  public TTypeKind TypeKind { get; set; }
-}
-
-internal class Cmpt_ChildTypeDecoder<TTypeKind,TParent>
-{
-  public TParent Parent { get; set; }
-}
-
-internal class Cmpt_ParentTypeDecoder<TTypeKind,TItem,TAllItem>
-{
-  public ICollection<TItem> Items { get; set; }
-  public ICollection<TAllItem> AllItems { get; set; }
 }
 
 internal class Cmpt_SimpleKindDecoder
@@ -732,51 +593,14 @@ internal class Cmpt_DomainKindDecoder
   public string String { get; set; }
 }
 
-internal class Cmpt_DomainRefDecoder<TDomainKind>
-{
-  public TDomainKind DomainKind { get; set; }
-}
-
-internal class Cmpt_BaseDomainDecoder<TDomainKind,TItem,TDomainItem>
-{
-  public TDomainKind DomainKind { get; set; }
-}
-
 internal class Cmpt_BaseDomainItemDecoder
 {
   public bool Exclude { get; set; }
 }
 
-internal class Cmpt_DomainItemDecoder<TItem>
-{
-  public ICmpt_Name Domain { get; set; }
-}
-
-internal class Cmpt_DomainValueDecoder<TDomainKind,TValue>
-{
-  public TValue Value { get; set; }
-}
-
-internal class Cmpt_BasicValueDecoder
-{
-}
-
 internal class Cmpt_DomainTrueFalseDecoder
 {
   public bool Value { get; set; }
-}
-
-internal class Cmpt_DomainItemTrueFalseDecoder
-{
-}
-
-internal class Cmpt_DomainLabelDecoder
-{
-  public ICmpt_EnumValue Label { get; set; }
-}
-
-internal class Cmpt_DomainItemLabelDecoder
-{
 }
 
 internal class Cmpt_DomainRangeDecoder
@@ -785,17 +609,9 @@ internal class Cmpt_DomainRangeDecoder
   public decimal? Upper { get; set; }
 }
 
-internal class Cmpt_DomainItemRangeDecoder
-{
-}
-
 internal class Cmpt_DomainRegexDecoder
 {
   public string Pattern { get; set; }
-}
-
-internal class Cmpt_DomainItemRegexDecoder
-{
 }
 
 internal class Cmpt_EnumLabelDecoder
@@ -803,106 +619,41 @@ internal class Cmpt_EnumLabelDecoder
   public ICmpt_Name EnumType { get; set; }
 }
 
-internal class Cmpt_EnumValueDecoder
-{
-  public ICmpt_Name Label { get; set; }
-}
-
-internal class Cmpt_UnionRefDecoder
-{
-}
-
-internal class Cmpt_UnionMemberDecoder
-{
-  public ICmpt_Name Union { get; set; }
-}
-
 internal class Cmpt_ObjectKindDecoder
 {
 }
 
-internal class Cmpt_TypeObjectDecoder<TObjectKind,TField>
+internal static class Cmpt_Spec_IntrospectionDecoders
 {
-  public ICollection<ICmpt_ObjTypeParam> TypeParams { get; set; }
-  public ICollection<TField> Fields { get; set; }
-  public ICollection<ICmpt_ObjAlternate> Alternates { get; set; }
-  public ICollection<ICmpt_ObjectFor<TField>> AllFields { get; set; }
-  public ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> AllAlternates { get; set; }
-}
-
-internal class Cmpt_ObjTypeParamDecoder
-{
-  public ICmpt_TypeRef<Cmpt_TypeKind> Constraint { get; set; }
-}
-
-internal class Cmpt_ObjBaseDecoder
-{
-  public ICollection<ICmpt_ObjTypeArg> TypeArgs { get; set; }
-}
-
-internal class Cmpt_ObjTypeArgDecoder
-{
-  public ICmpt_Name? Label { get; set; }
-}
-
-internal class Cmpt_TypeParamDecoder
-{
-  public ICmpt_Name TypeParam { get; set; }
-}
-
-internal class Cmpt_ObjAlternateDecoder
-{
-  public ICmpt_ObjBase Type { get; set; }
-  public ICollection<ICmpt_Collections> Collections { get; set; }
-}
-
-internal class Cmpt_ObjAlternateEnumDecoder
-{
-  public ICmpt_Name Label { get; set; }
-}
-
-internal class Cmpt_ObjectForDecoder<TFor>
-{
-  public ICmpt_Name ObjectType { get; set; }
-}
-
-internal class Cmpt_ObjFieldDecoder<TType>
-{
-  public TType Type { get; set; }
-}
-
-internal class Cmpt_ObjFieldTypeDecoder
-{
-  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
-}
-
-internal class Cmpt_ObjFieldEnumDecoder
-{
-  public ICmpt_Name Label { get; set; }
-}
-
-internal class Cmpt_ForParamDecoder<TType>
-{
-}
-
-internal class Cmpt_DualFieldDecoder
-{
-}
-
-internal class Cmpt_InputFieldDecoder
-{
-}
-
-internal class Cmpt_InputFieldTypeDecoder
-{
-  public GqlpValue? DefaultValue { get; set; }
-}
-
-internal class Cmpt_OutputFieldDecoder
-{
-}
-
-internal class Cmpt_OutputFieldTypeDecoder
-{
-  public ICmpt_InputFieldType? Parameter { get; set; }
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_IntrospectionDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmpt_Name>(_ => new Cmpt_NameDecoder())
+      .AddDecoder<ICmpt_FilterObject>(_ => new Cmpt_FilterDecoder())
+      .AddDecoder<ICmpt_NameFilter>(_ => new Cmpt_NameFilterDecoder())
+      .AddDecoder<ICmpt_CategoryFilterObject>(_ => new Cmpt_CategoryFilterDecoder())
+      .AddDecoder<ICmpt_TypeFilterObject>(_ => new Cmpt_TypeFilterDecoder())
+      .AddDecoder<ICmpt_AliasedObject>(_ => new Cmpt_AliasedDecoder())
+      .AddDecoder<ICmpt_NamedObject>(_ => new Cmpt_NamedDecoder())
+      .AddDecoder<ICmpt_DescribedObject>(_ => new Cmpt_DescribedDecoder())
+      .AddDecoder<Cmpt_Resolution>(_ => new Cmpt_ResolutionDecoder())
+      .AddDecoder<Cmpt_Location>(_ => new Cmpt_LocationDecoder())
+      .AddDecoder<ICmpt_OpDirectiveObject>(_ => new Cmpt_OpDirectiveDecoder())
+      .AddDecoder<ICmpt_OpArgumentObject>(_ => new Cmpt_OpArgumentDecoder())
+      .AddDecoder<ICmpt_OpArgValueObject>(_ => new Cmpt_OpArgValueDecoder())
+      .AddDecoder<ICmpt_OpArgListObject>(_ => new Cmpt_OpArgListDecoder())
+      .AddDecoder<ICmpt_OpArgMapObject>(_ => new Cmpt_OpArgMapDecoder())
+      .AddDecoder<ICmpt_Path>(_ => new Cmpt_PathDecoder())
+      .AddDecoder<Cmpt_SimpleKind>(_ => new Cmpt_SimpleKindDecoder())
+      .AddDecoder<Cmpt_TypeKind>(_ => new Cmpt_TypeKindDecoder())
+      .AddDecoder<ICmpt_TypeSimpleObject>(_ => new Cmpt_TypeSimpleDecoder())
+      .AddDecoder<ICmpt_CollectionsObject>(_ => new Cmpt_CollectionsDecoder())
+      .AddDecoder<ICmpt_ModifiersObject>(_ => new Cmpt_ModifiersDecoder())
+      .AddDecoder<Cmpt_ModifierKind>(_ => new Cmpt_ModifierKindDecoder())
+      .AddDecoder<Cmpt_DomainKind>(_ => new Cmpt_DomainKindDecoder())
+      .AddDecoder<ICmpt_BaseDomainItemObject>(_ => new Cmpt_BaseDomainItemDecoder())
+      .AddDecoder<ICmpt_DomainTrueFalseObject>(_ => new Cmpt_DomainTrueFalseDecoder())
+      .AddDecoder<ICmpt_DomainRangeObject>(_ => new Cmpt_DomainRangeDecoder())
+      .AddDecoder<ICmpt_DomainRegexObject>(_ => new Cmpt_DomainRegexDecoder())
+      .AddDecoder<ICmpt_EnumLabelObject>(_ => new Cmpt_EnumLabelDecoder())
+      .AddDecoder<ICmpt_ObjectKind>(_ => new Cmpt_ObjectKindDecoder());
 }

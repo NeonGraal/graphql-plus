@@ -7,19 +7,13 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_dual_parent_Output;
 
-internal class testCnstPrntDualPrntOutpDecoder
-{
-}
-
-internal class testRefCnstPrntDualPrntOutpDecoder<TRef>
-{
-}
-
 internal class testPrntCnstPrntDualPrntOutpDecoder
 {
 }
 
-internal class testAltCnstPrntDualPrntOutpDecoder
+internal static class test_constraint_parent_dual_parent_OutputDecoders
 {
-  public decimal Alt { get; set; }
+  internal static IDecoderRepositoryBuilder Addtest_constraint_parent_dual_parent_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestPrntCnstPrntDualPrntOutpObject>(_ => new testPrntCnstPrntDualPrntOutpDecoder());
 }

@@ -22,3 +22,11 @@ internal class CmptEnumDmnEnumAllEncoder : IEncoder<CmptEnumDmnEnumAll>
   public Structured Encode(CmptEnumDmnEnumAll input)
     => new(input.ToString(), "_EnumDmnEnumAll");
 }
+
+internal static class Cmpt_Schema_domain_enum_allEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_enum_allEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptDmnEnumAll>(_ => new CmptDmnEnumAllEncoder())
+      .AddEncoder<CmptEnumDmnEnumAll>(_ => new CmptEnumDmnEnumAllEncoder());
+}

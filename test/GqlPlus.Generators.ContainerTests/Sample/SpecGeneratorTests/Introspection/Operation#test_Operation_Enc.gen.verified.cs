@@ -174,3 +174,25 @@ internal class test_OpSpreadEncoder(
       .Add("fragment", input.Fragment)
       .AddList("directives", input.Directives, _itest_OpDirective);
 }
+
+internal static class test_OperationEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_OperationEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<Itest_OperationsObject>(r => new test_OperationsEncoder(r))
+      .AddEncoder<Itest_OpDirectivesObject>(r => new test_OpDirectivesEncoder(r))
+      .AddEncoder<Itest_OperationObject>(r => new test_OperationEncoder(r))
+      .AddEncoder<Itest_OpVariableObject>(r => new test_OpVariableEncoder(r))
+      .AddEncoder<Itest_OpDirectiveObject>(r => new test_OpDirectiveEncoder(r))
+      .AddEncoder<Itest_OpFragmentObject>(r => new test_OpFragmentEncoder(r))
+      .AddEncoder<Itest_OpArgumentObject>(_ => new test_OpArgumentEncoder())
+      .AddEncoder<Itest_OpArgValueObject>(r => new test_OpArgValueEncoder(r))
+      .AddEncoder<Itest_OpArgListObject>(_ => new test_OpArgListEncoder())
+      .AddEncoder<Itest_OpArgMapObject>(r => new test_OpArgMapEncoder(r))
+      .AddEncoder<Itest_OpResultObject>(r => new test_OpResultEncoder(r))
+      .AddEncoder<Itest_Path>(_ => new test_PathEncoder())
+      .AddEncoder<Itest_OpSelectionObject>(_ => new test_OpSelectionEncoder())
+      .AddEncoder<Itest_OpFieldObject>(r => new test_OpFieldEncoder(r))
+      .AddEncoder<Itest_OpInlineObject>(r => new test_OpInlineEncoder(r))
+      .AddEncoder<Itest_OpSpreadObject>(r => new test_OpSpreadEncoder(r));
+}

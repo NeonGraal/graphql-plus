@@ -41,3 +41,11 @@ internal class CmptAddrOprTypeEncoder : IEncoder<ICmptAddrOprTypeObject>
       .Add("city", input.City)
       .Add("country", input.Country);
 }
+
+internal static class Cmpt_Schema_operation_typeEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_operation_typeEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptCatOprTypeObject>(r => new CmptCatOprTypeEncoder(r))
+      .AddEncoder<ICmptAddrOprTypeObject>(_ => new CmptAddrOprTypeEncoder());
+}

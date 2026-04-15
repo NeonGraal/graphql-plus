@@ -28,9 +28,10 @@ internal class CmptFldOutpDescrParamEncoder : IEncoder<ICmptFldOutpDescrParamObj
     => Structured.Empty();
 }
 
-internal class CmptInOutpDescrParamEncoder : IEncoder<ICmptInOutpDescrParamObject>
+internal static class Cmpt_Schema_output_descr_paramEncoders
 {
-  public Structured Encode(ICmptInOutpDescrParamObject input)
-    => Structured.Empty()
-      .Add("param", input.Param);
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_output_descr_paramEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptOutpDescrParamObject>(r => new CmptOutpDescrParamEncoder(r))
+      .AddEncoder<ICmptFldOutpDescrParamObject>(_ => new CmptFldOutpDescrParamEncoder());
 }

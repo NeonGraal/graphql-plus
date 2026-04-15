@@ -17,3 +17,10 @@ internal class CmptCtgrAliasEncoder : IEncoder<ICmptCtgrAliasObject>
   public Structured Encode(ICmptCtgrAliasObject input)
     => Structured.Empty();
 }
+
+internal static class Cmpt_Schema_category_aliasEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_category_aliasEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptCtgrAliasObject>(_ => new CmptCtgrAliasEncoder());
+}

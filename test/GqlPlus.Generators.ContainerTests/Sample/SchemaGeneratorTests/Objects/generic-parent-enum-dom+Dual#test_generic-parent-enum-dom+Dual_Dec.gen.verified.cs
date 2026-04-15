@@ -25,3 +25,12 @@ internal class testEnumGnrcPrntEnumDomDualDecoder
 internal class testDomGnrcPrntEnumDomDualDecoder
 {
 }
+
+internal static class test_generic_parent_enum_dom_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_generic_parent_enum_dom_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestGnrcPrntEnumDomDualObject>(_ => new testGnrcPrntEnumDomDualDecoder())
+      .AddDecoder<testEnumGnrcPrntEnumDomDual>(_ => new testEnumGnrcPrntEnumDomDualDecoder())
+      .AddDecoder<ItestDomGnrcPrntEnumDomDual>(_ => new testDomGnrcPrntEnumDomDualDecoder());
+}

@@ -158,6 +158,11 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     }
 
     context.Write("}");
+
+    if (string.IsNullOrEmpty(typeParams)) {
+      string encoderInterface0 = context.TypeName(ast, "I") + "Object";
+      context.RegisterEncoder(encoderInterface0, typeName + "Encoder", needsEncoders);
+    }
   }
 
   private static string GetOrAddEncoder(Dictionary<string, string> encoderFields, string encoderType, string typePrefix)
@@ -266,6 +271,19 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
 
   protected override void DecoderHeader(IAstObject<TObjField> ast, GqlpGeneratorContext context)
     => context.Write("internal class " + context.TypeName(ast, "") + "Decoder" + TypeParamsString(ast));
+
+  protected void GenerateObjectDecoder(IAstObject<TObjField> ast, GqlpGeneratorContext context)
+  {
+    GenerateBlock(ast, context, DecoderHeader, TypeMembers, ClassMember);
+
+    if (ast.TypeParams.Any()) {
+      return;
+    }
+
+    string typeName = context.TypeName(ast, "");
+    string interfaceType = context.TypeName(ast, "I") + "Object";
+    context.RegisterDecoder(interfaceType, typeName + "Decoder");
+  }
 
   protected override void EncoderHeader(IAstObject<TObjField> ast, GqlpGeneratorContext context)
     => context.Write("internal class " + context.TypeName(ast, "") + "Encoder" + TypeParamsString(ast));

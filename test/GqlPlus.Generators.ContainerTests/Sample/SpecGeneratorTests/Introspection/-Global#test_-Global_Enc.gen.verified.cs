@@ -256,3 +256,33 @@ internal class test_SettingEncoder(
     => _itest_Named.Encode(input)
       .AddEncoded("value", input.Value, _gqlpValue);
 }
+
+internal static class test__GlobalEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest__GlobalEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<Itest_AndTypeObject>(r => new test_AndTypeEncoder(r))
+      .AddEncoder<Itest_CategoriesObject>(r => new test_CategoriesEncoder(r))
+      .AddEncoder<Itest_CategoryObject>(r => new test_CategoryEncoder(r))
+      .AddEncoder<test_Resolution>(_ => new test_ResolutionEncoder())
+      .AddEncoder<Itest_DirectivesObject>(r => new test_DirectivesEncoder(r))
+      .AddEncoder<Itest_DirectiveObject>(r => new test_DirectiveEncoder(r))
+      .AddEncoder<test_Location>(_ => new test_LocationEncoder())
+      .AddEncoder<Itest_OperationsObject>(r => new test_OperationsEncoder(r))
+      .AddEncoder<Itest_OpDirectivesObject>(r => new test_OpDirectivesEncoder(r))
+      .AddEncoder<Itest_OperationObject>(r => new test_OperationEncoder(r))
+      .AddEncoder<Itest_OpVariableObject>(r => new test_OpVariableEncoder(r))
+      .AddEncoder<Itest_OpDirectiveObject>(r => new test_OpDirectiveEncoder(r))
+      .AddEncoder<Itest_OpFragmentObject>(r => new test_OpFragmentEncoder(r))
+      .AddEncoder<Itest_OpArgumentObject>(_ => new test_OpArgumentEncoder())
+      .AddEncoder<Itest_OpArgValueObject>(r => new test_OpArgValueEncoder(r))
+      .AddEncoder<Itest_OpArgListObject>(_ => new test_OpArgListEncoder())
+      .AddEncoder<Itest_OpArgMapObject>(r => new test_OpArgMapEncoder(r))
+      .AddEncoder<Itest_OpResultObject>(r => new test_OpResultEncoder(r))
+      .AddEncoder<Itest_Path>(_ => new test_PathEncoder())
+      .AddEncoder<Itest_OpSelectionObject>(_ => new test_OpSelectionEncoder())
+      .AddEncoder<Itest_OpFieldObject>(r => new test_OpFieldEncoder(r))
+      .AddEncoder<Itest_OpInlineObject>(r => new test_OpInlineEncoder(r))
+      .AddEncoder<Itest_OpSpreadObject>(r => new test_OpSpreadEncoder(r))
+      .AddEncoder<Itest_SettingObject>(r => new test_SettingEncoder(r));
+}

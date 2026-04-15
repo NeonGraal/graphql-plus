@@ -21,3 +21,11 @@ internal class testRefObjPrntOutpEncoder : IEncoder<ItestRefObjPrntOutpObject>
   public Structured Encode(ItestRefObjPrntOutpObject input)
     => Structured.Empty();
 }
+
+internal static class test_object_parent_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_object_parent_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestObjPrntOutpObject>(r => new testObjPrntOutpEncoder(r))
+      .AddEncoder<ItestRefObjPrntOutpObject>(_ => new testRefObjPrntOutpEncoder());
+}

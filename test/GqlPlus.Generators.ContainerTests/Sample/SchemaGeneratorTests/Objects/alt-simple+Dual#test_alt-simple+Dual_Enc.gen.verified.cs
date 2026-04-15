@@ -12,3 +12,10 @@ internal class testAltSmplDualEncoder : IEncoder<ItestAltSmplDualObject>
   public Structured Encode(ItestAltSmplDualObject input)
     => Structured.Empty();
 }
+
+internal static class test_alt_simple_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_alt_simple_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestAltSmplDualObject>(_ => new testAltSmplDualEncoder());
+}

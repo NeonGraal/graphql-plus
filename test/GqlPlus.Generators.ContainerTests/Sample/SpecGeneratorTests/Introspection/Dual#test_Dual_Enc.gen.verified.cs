@@ -15,3 +15,10 @@ internal class test_DualFieldEncoder(
   public Structured Encode(Itest_DualFieldObject input)
     => _itest_ObjField.Encode(input);
 }
+
+internal static class test_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<Itest_DualFieldObject>(r => new test_DualFieldEncoder(r));
+}

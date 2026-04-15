@@ -16,3 +16,10 @@ internal class CmptObjAliasOutpEncoder : IEncoder<ICmptObjAliasOutpObject>
   public Structured Encode(ICmptObjAliasOutpObject input)
     => Structured.Empty();
 }
+
+internal static class Cmpt_Schema_object_alias_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_object_alias_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptObjAliasOutpObject>(_ => new CmptObjAliasOutpEncoder());
+}

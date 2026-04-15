@@ -7,21 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_dual_grandparent_Input;
 
-internal class testCnstPrntDualGrndInpEncoder(
-  IEncoderRepository encoders
-) : IEncoder<ItestCnstPrntDualGrndInpObject>
-{
-  private readonly IEncoder<ItestRefCnstPrntDualGrndInpObject<ItestAltCnstPrntDualGrndInp>> _itestRefCnstPrntDualGrndInp = encoders.EncoderFor<ItestRefCnstPrntDualGrndInpObject<ItestAltCnstPrntDualGrndInp>>();
-  public Structured Encode(ItestCnstPrntDualGrndInpObject input)
-    => _itestRefCnstPrntDualGrndInp.Encode(input);
-}
-
-internal class testRefCnstPrntDualGrndInpEncoder<TRef> : IEncoder<ItestRefCnstPrntDualGrndInpObject<TRef>>
-{
-  public Structured Encode(ItestRefCnstPrntDualGrndInpObject<TRef> input)
-    => Structured.Empty();
-}
-
 internal class testGrndCnstPrntDualGrndInpEncoder : IEncoder<ItestGrndCnstPrntDualGrndInpObject>
 {
   public Structured Encode(ItestGrndCnstPrntDualGrndInpObject input)
@@ -37,12 +22,10 @@ internal class testPrntCnstPrntDualGrndInpEncoder(
     => _itestGrndCnstPrntDualGrndInp.Encode(input);
 }
 
-internal class testAltCnstPrntDualGrndInpEncoder(
-  IEncoderRepository encoders
-) : IEncoder<ItestAltCnstPrntDualGrndInpObject>
+internal static class test_constraint_parent_dual_grandparent_InputEncoders
 {
-  private readonly IEncoder<ItestPrntCnstPrntDualGrndInpObject> _itestPrntCnstPrntDualGrndInp = encoders.EncoderFor<ItestPrntCnstPrntDualGrndInpObject>();
-  public Structured Encode(ItestAltCnstPrntDualGrndInpObject input)
-    => _itestPrntCnstPrntDualGrndInp.Encode(input)
-      .Add("alt", input.Alt);
+  internal static IEncoderRepositoryBuilder Addtest_constraint_parent_dual_grandparent_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestGrndCnstPrntDualGrndInpObject>(_ => new testGrndCnstPrntDualGrndInpEncoder())
+      .AddEncoder<ItestPrntCnstPrntDualGrndInpObject>(r => new testPrntCnstPrntDualGrndInpEncoder(r));
 }

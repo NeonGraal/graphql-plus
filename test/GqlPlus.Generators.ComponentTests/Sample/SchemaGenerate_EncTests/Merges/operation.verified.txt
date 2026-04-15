@@ -18,3 +18,10 @@ internal class CmptOpEncoder : IEncoder<ICmptOpObject>
   public Structured Encode(ICmptOpObject input)
     => Structured.Empty();
 }
+
+internal static class Cmpt_Schema_operationEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_operationEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptOpObject>(_ => new CmptOpEncoder());
+}

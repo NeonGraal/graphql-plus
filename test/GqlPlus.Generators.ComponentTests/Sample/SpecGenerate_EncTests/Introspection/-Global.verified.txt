@@ -388,3 +388,33 @@ internal class Cmpt_SettingEncoder(
     => _named.Encode(input)
       .AddEncoded("value", input.Value, _gqlpValue);
 }
+
+internal static class Cmpt_Spec_GlobalEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Spec_GlobalEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmpt_AndTypeObject>(r => new Cmpt_AndTypeEncoder(r))
+      .AddEncoder<ICmpt_CategoriesObject>(r => new Cmpt_CategoriesEncoder(r))
+      .AddEncoder<ICmpt_CategoryObject>(r => new Cmpt_CategoryEncoder(r))
+      .AddEncoder<Cmpt_Resolution>(_ => new Cmpt_ResolutionEncoder())
+      .AddEncoder<ICmpt_DirectivesObject>(r => new Cmpt_DirectivesEncoder(r))
+      .AddEncoder<ICmpt_DirectiveObject>(r => new Cmpt_DirectiveEncoder(r))
+      .AddEncoder<Cmpt_Location>(_ => new Cmpt_LocationEncoder())
+      .AddEncoder<ICmpt_OperationsObject>(r => new Cmpt_OperationsEncoder(r))
+      .AddEncoder<ICmpt_OpDirectivesObject>(r => new Cmpt_OpDirectivesEncoder(r))
+      .AddEncoder<ICmpt_OperationObject>(r => new Cmpt_OperationEncoder(r))
+      .AddEncoder<ICmpt_OpVariableObject>(r => new Cmpt_OpVariableEncoder(r))
+      .AddEncoder<ICmpt_OpDirectiveObject>(r => new Cmpt_OpDirectiveEncoder(r))
+      .AddEncoder<ICmpt_OpFragmentObject>(r => new Cmpt_OpFragmentEncoder(r))
+      .AddEncoder<ICmpt_OpArgumentObject>(_ => new Cmpt_OpArgumentEncoder())
+      .AddEncoder<ICmpt_OpArgValueObject>(r => new Cmpt_OpArgValueEncoder(r))
+      .AddEncoder<ICmpt_OpArgListObject>(_ => new Cmpt_OpArgListEncoder())
+      .AddEncoder<ICmpt_OpArgMapObject>(r => new Cmpt_OpArgMapEncoder(r))
+      .AddEncoder<ICmpt_OpResultObject>(r => new Cmpt_OpResultEncoder(r))
+      .AddEncoder<ICmpt_Path>(_ => new Cmpt_PathEncoder())
+      .AddEncoder<ICmpt_OpSelectionObject>(_ => new Cmpt_OpSelectionEncoder())
+      .AddEncoder<ICmpt_OpFieldObject>(r => new Cmpt_OpFieldEncoder(r))
+      .AddEncoder<ICmpt_OpInlineObject>(r => new Cmpt_OpInlineEncoder(r))
+      .AddEncoder<ICmpt_OpSpreadObject>(r => new Cmpt_OpSpreadEncoder(r))
+      .AddEncoder<ICmpt_SettingObject>(r => new Cmpt_SettingEncoder(r));
+}

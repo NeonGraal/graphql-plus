@@ -23,7 +23,9 @@ internal class Cmpt_EnumLabelDecoder
   public ICmpt_Name EnumType { get; set; }
 }
 
-internal class Cmpt_EnumValueDecoder
+internal static class Cmpt_Spec_EnumDecoders
 {
-  public ICmpt_Name Label { get; set; }
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_EnumDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmpt_EnumLabelObject>(_ => new Cmpt_EnumLabelDecoder());
 }

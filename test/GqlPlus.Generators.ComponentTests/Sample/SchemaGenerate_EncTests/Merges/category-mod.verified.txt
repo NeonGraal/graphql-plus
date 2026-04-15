@@ -17,3 +17,10 @@ internal class CmptCtgrModEncoder : IEncoder<ICmptCtgrModObject>
   public Structured Encode(ICmptCtgrModObject input)
     => Structured.Empty();
 }
+
+internal static class Cmpt_Schema_category_modEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_category_modEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptCtgrModObject>(_ => new CmptCtgrModEncoder());
+}

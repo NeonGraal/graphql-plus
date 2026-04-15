@@ -98,42 +98,9 @@ output _OpSpread {
 
 namespace Components.Gqlp_Spec_Operation;
 
-internal class Cmpt_OperationsDecoder
-{
-  public ICmpt_Operation Operation { get; set; }
-  public ICmpt_Type Type { get; set; }
-}
-
-internal class Cmpt_OpDirectivesDecoder
-{
-  public ICollection<ICmpt_OpDirective> Directives { get; set; }
-}
-
-internal class Cmpt_OperationDecoder
-{
-  public ICmpt_Name Category { get; set; }
-  public IDictionary<ICmpt_Name, ICmpt_OpVariable> Variables { get; set; }
-  public ICollection<ICmpt_OpDirective> Directives { get; set; }
-  public IDictionary<ICmpt_Name, ICmpt_OpFragment> Fragments { get; set; }
-  public ICmpt_OpResult Result { get; set; }
-  public IDictionary<ICmpt_Path, ICollection<ICmpt_OpSelection>> Selections { get; set; }
-}
-
-internal class Cmpt_OpVariableDecoder
-{
-  public ICmpt_TypeRef<ICmpt_TypeKind> Type { get; set; }
-  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
-  public GqlpValue? DefaultValue { get; set; }
-}
-
 internal class Cmpt_OpDirectiveDecoder
 {
   public ICmpt_OpArgument? Argument { get; set; }
-}
-
-internal class Cmpt_OpFragmentDecoder
-{
-  public ICmpt_TypeRef<ICmpt_TypeKind> Type { get; set; }
 }
 
 internal class Cmpt_OpArgumentDecoder
@@ -155,34 +122,18 @@ internal class Cmpt_OpArgMapDecoder
   public ICmpt_Name ByVariable { get; set; }
 }
 
-internal class Cmpt_OpResultDecoder
-{
-  public ICmpt_OpArgument? Argument { get; set; }
-}
-
 internal class Cmpt_PathDecoder
 {
 }
 
-internal class Cmpt_OpSelectionDecoder
+internal static class Cmpt_Spec_OperationDecoders
 {
-}
-
-internal class Cmpt_OpFieldDecoder
-{
-  public string? FieldAlias { get; set; }
-  public ICmpt_OpArgument? Argument { get; set; }
-  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
-}
-
-internal class Cmpt_OpInlineDecoder
-{
-  public ICmpt_TypeRef<ICmpt_TypeKind>? Type { get; set; }
-  public ICollection<ICmpt_OpDirective> Directives { get; set; }
-}
-
-internal class Cmpt_OpSpreadDecoder
-{
-  public string Fragment { get; set; }
-  public ICollection<ICmpt_OpDirective> Directives { get; set; }
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_OperationDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmpt_OpDirectiveObject>(_ => new Cmpt_OpDirectiveDecoder())
+      .AddDecoder<ICmpt_OpArgumentObject>(_ => new Cmpt_OpArgumentDecoder())
+      .AddDecoder<ICmpt_OpArgValueObject>(_ => new Cmpt_OpArgValueDecoder())
+      .AddDecoder<ICmpt_OpArgListObject>(_ => new Cmpt_OpArgListDecoder())
+      .AddDecoder<ICmpt_OpArgMapObject>(_ => new Cmpt_OpArgMapDecoder())
+      .AddDecoder<ICmpt_Path>(_ => new Cmpt_PathDecoder());
 }

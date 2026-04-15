@@ -84,30 +84,6 @@ internal class CmptDscrsEncoder : IEncoder<ICmptDscrsObject>
     => Structured.Empty();
 }
 
-internal class CmptInDrctParamDictEncoder : IEncoder<ICmptInDrctParamDictObject>
-{
-  public Structured Encode(ICmptInDrctParamDictObject input)
-    => Structured.Empty();
-}
-
-internal class CmptInDrctParamInEncoder : IEncoder<ICmptInDrctParamInObject>
-{
-  public Structured Encode(ICmptInDrctParamInObject input)
-    => Structured.Empty();
-}
-
-internal class CmptInDrctParamListEncoder : IEncoder<ICmptInDrctParamListObject>
-{
-  public Structured Encode(ICmptInDrctParamListObject input)
-    => Structured.Empty();
-}
-
-internal class CmptInDrctParamOptEncoder : IEncoder<ICmptInDrctParamOptObject>
-{
-  public Structured Encode(ICmptInDrctParamOptObject input)
-    => Structured.Empty();
-}
-
 internal class CmptCatOprCtgrEncoder : IEncoder<ICmptCatOprCtgrObject>
 {
   public Structured Encode(ICmptCatOprCtgrObject input)
@@ -133,4 +109,26 @@ internal class CmptAddrOprTypeEncoder : IEncoder<ICmptAddrOprTypeObject>
       .Add("street", input.Street)
       .Add("city", input.City)
       .Add("country", input.Country);
+}
+
+internal static class Cmpt_Schema_GlobalsEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_GlobalsEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptCtgrDscrsObject>(_ => new CmptCtgrDscrsEncoder())
+      .AddEncoder<ICmptCtgrOutpObject>(_ => new CmptCtgrOutpEncoder())
+      .AddEncoder<ICmptCtgrOutpDescrObject>(_ => new CmptCtgrOutpDescrEncoder())
+      .AddEncoder<ICmptCtgrOutpDictObject>(_ => new CmptCtgrOutpDictEncoder())
+      .AddEncoder<ICmptCtgrOutpListObject>(_ => new CmptCtgrOutpListEncoder())
+      .AddEncoder<ICmptCtgrOutpOptlObject>(_ => new CmptCtgrOutpOptlEncoder())
+      .AddEncoder<ICmptDescrObject>(_ => new CmptDescrEncoder())
+      .AddEncoder<ICmptDescrBcksObject>(_ => new CmptDescrBcksEncoder())
+      .AddEncoder<ICmptDescrBtwnObject>(_ => new CmptDescrBtwnEncoder())
+      .AddEncoder<ICmptDescrCmplObject>(_ => new CmptDescrCmplEncoder())
+      .AddEncoder<ICmptDescrDblObject>(_ => new CmptDescrDblEncoder())
+      .AddEncoder<ICmptDescrSnglObject>(_ => new CmptDescrSnglEncoder())
+      .AddEncoder<ICmptDscrsObject>(_ => new CmptDscrsEncoder())
+      .AddEncoder<ICmptCatOprCtgrObject>(_ => new CmptCatOprCtgrEncoder())
+      .AddEncoder<ICmptCatOprTypeObject>(r => new CmptCatOprTypeEncoder(r))
+      .AddEncoder<ICmptAddrOprTypeObject>(_ => new CmptAddrOprTypeEncoder());
 }

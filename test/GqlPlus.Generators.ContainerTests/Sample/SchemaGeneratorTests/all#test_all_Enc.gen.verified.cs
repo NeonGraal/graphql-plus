@@ -38,17 +38,6 @@ internal class testFieldEncoder : IEncoder<ItestFieldObject>
       .Add("strings", input.Strings.Encode());
 }
 
-internal class testParamEncoder(
-  IEncoderRepository encoders
-) : IEncoder<ItestParamObject>
-{
-  private readonly IEncoder<ItestMany> _itestMany = encoders.EncoderFor<ItestMany>();
-  public Structured Encode(ItestParamObject input)
-    => Structured.Empty()
-      .AddEncoded("afterId", input.AfterId, _itestMany)
-      .AddEncoded("beforeId", input.BeforeId, _itestMany);
-}
-
 internal class testAllEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestAllObject>
@@ -57,4 +46,15 @@ internal class testAllEncoder(
   public Structured Encode(ItestAllObject input)
     => Structured.Empty()
       .AddEncoded("items", input.Items(), _itestField);
+}
+
+internal static class test_allEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_allEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestGuid>(_ => new testGuidEncoder())
+      .AddEncoder<testOne>(_ => new testOneEncoder())
+      .AddEncoder<ItestMany>(r => new testManyEncoder(r))
+      .AddEncoder<ItestFieldObject>(_ => new testFieldEncoder())
+      .AddEncoder<ItestAllObject>(r => new testAllEncoder(r));
 }

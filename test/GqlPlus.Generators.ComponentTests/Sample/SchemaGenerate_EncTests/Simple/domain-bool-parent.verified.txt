@@ -22,3 +22,11 @@ internal class CmptPrntDmnBoolPrntEncoder : IEncoder<ICmptPrntDmnBoolPrnt>
   public Structured Encode(ICmptPrntDmnBoolPrnt input)
     => new(input.Value);
 }
+
+internal static class Cmpt_Schema_domain_bool_parentEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_bool_parentEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptDmnBoolPrnt>(_ => new CmptDmnBoolPrntEncoder())
+      .AddEncoder<ICmptPrntDmnBoolPrnt>(_ => new CmptPrntDmnBoolPrntEncoder());
+}

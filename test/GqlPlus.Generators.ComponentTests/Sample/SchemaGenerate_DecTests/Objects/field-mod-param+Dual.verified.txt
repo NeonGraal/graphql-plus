@@ -20,3 +20,10 @@ internal class CmptFldFieldModParamDualDecoder
 {
   public decimal Field { get; set; }
 }
+
+internal static class Cmpt_Schema_field_mod_param_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_mod_param_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptFldFieldModParamDualObject>(_ => new CmptFldFieldModParamDualDecoder());
+}

@@ -19,3 +19,11 @@ internal class CmptEnumDmnEnumLabelDecoder
 {
   public string dmnEnumLabel { get; set; }
 }
+
+internal static class Cmpt_Schema_domain_enum_labelDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_enum_labelDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptDmnEnumLabel>(_ => new CmptDmnEnumLabelDecoder())
+      .AddDecoder<CmptEnumDmnEnumLabel>(_ => new CmptEnumDmnEnumLabelDecoder());
+}

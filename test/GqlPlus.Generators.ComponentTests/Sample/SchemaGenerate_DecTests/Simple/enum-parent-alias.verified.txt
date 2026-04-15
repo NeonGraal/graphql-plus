@@ -23,3 +23,11 @@ internal class CmptPrntEnumPrntAliasDecoder
 {
   public string prnt_enumPrntAlias { get; set; }
 }
+
+internal static class Cmpt_Schema_enum_parent_aliasDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_enum_parent_aliasDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<CmptEnumPrntAlias>(_ => new CmptEnumPrntAliasDecoder())
+      .AddDecoder<CmptPrntEnumPrntAlias>(_ => new CmptPrntEnumPrntAliasDecoder());
+}

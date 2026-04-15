@@ -18,3 +18,11 @@ internal class testEnumDmnEnumDescrEncoder : IEncoder<testEnumDmnEnumDescr>
   public Structured Encode(testEnumDmnEnumDescr input)
     => new(input.ToString(), "_EnumDmnEnumDescr");
 }
+
+internal static class test_domain_enum_descrEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_domain_enum_descrEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestDmnEnumDescr>(_ => new testDmnEnumDescrEncoder())
+      .AddEncoder<testEnumDmnEnumDescr>(_ => new testEnumDmnEnumDescrEncoder());
+}

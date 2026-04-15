@@ -12,11 +12,6 @@ enum PrntFieldEnumPrntOutp { prnt_fieldEnumPrntOutp }
 
 namespace Components.Gqlp_Schema_field_enum_parent_Output;
 
-internal class CmptFieldEnumPrntOutpDecoder
-{
-  public CmptEnumFieldEnumPrntOutp Field { get; set; }
-}
-
 internal class CmptEnumFieldEnumPrntOutpDecoder
 {
   public string prnt_fieldEnumPrntOutp { get; set; }
@@ -26,4 +21,12 @@ internal class CmptEnumFieldEnumPrntOutpDecoder
 internal class CmptPrntFieldEnumPrntOutpDecoder
 {
   public string prnt_fieldEnumPrntOutp { get; set; }
+}
+
+internal static class Cmpt_Schema_field_enum_parent_OutputDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_enum_parent_OutputDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<CmptEnumFieldEnumPrntOutp>(_ => new CmptEnumFieldEnumPrntOutpDecoder())
+      .AddDecoder<CmptPrntFieldEnumPrntOutp>(_ => new CmptPrntFieldEnumPrntOutpDecoder());
 }

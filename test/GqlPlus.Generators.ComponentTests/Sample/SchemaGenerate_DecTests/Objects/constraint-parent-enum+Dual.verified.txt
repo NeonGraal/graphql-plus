@@ -32,3 +32,12 @@ internal class CmptParentCnstPrntEnumDualDecoder
 {
   public string parentCnstPrntEnumDual { get; set; }
 }
+
+internal static class Cmpt_Schema_constraint_parent_enum_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_parent_enum_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptCnstPrntEnumDualObject>(_ => new CmptCnstPrntEnumDualDecoder())
+      .AddDecoder<CmptEnumCnstPrntEnumDual>(_ => new CmptEnumCnstPrntEnumDualDecoder())
+      .AddDecoder<CmptParentCnstPrntEnumDual>(_ => new CmptParentCnstPrntEnumDualDecoder());
+}

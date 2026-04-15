@@ -85,30 +85,6 @@ internal class testDscrsEncoder : IEncoder<ItestDscrsObject>
     => Structured.Empty();
 }
 
-internal class testInDrctParamDictEncoder : IEncoder<ItestInDrctParamDictObject>
-{
-  public Structured Encode(ItestInDrctParamDictObject input)
-    => Structured.Empty();
-}
-
-internal class testInDrctParamInEncoder : IEncoder<ItestInDrctParamInObject>
-{
-  public Structured Encode(ItestInDrctParamInObject input)
-    => Structured.Empty();
-}
-
-internal class testInDrctParamListEncoder : IEncoder<ItestInDrctParamListObject>
-{
-  public Structured Encode(ItestInDrctParamListObject input)
-    => Structured.Empty();
-}
-
-internal class testInDrctParamOptEncoder : IEncoder<ItestInDrctParamOptObject>
-{
-  public Structured Encode(ItestInDrctParamOptObject input)
-    => Structured.Empty();
-}
-
 internal class testCatOprCtgrEncoder : IEncoder<ItestCatOprCtgrObject>
 {
   public Structured Encode(ItestCatOprCtgrObject input)
@@ -134,4 +110,26 @@ internal class testAddrOprTypeEncoder : IEncoder<ItestAddrOprTypeObject>
       .Add("street", input.Street)
       .Add("city", input.City)
       .Add("country", input.Country);
+}
+
+internal static class test__GlobalsEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest__GlobalsEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestCtgrDscrsObject>(_ => new testCtgrDscrsEncoder())
+      .AddEncoder<ItestCtgrOutpObject>(_ => new testCtgrOutpEncoder())
+      .AddEncoder<ItestCtgrOutpDescrObject>(_ => new testCtgrOutpDescrEncoder())
+      .AddEncoder<ItestCtgrOutpDictObject>(_ => new testCtgrOutpDictEncoder())
+      .AddEncoder<ItestCtgrOutpListObject>(_ => new testCtgrOutpListEncoder())
+      .AddEncoder<ItestCtgrOutpOptlObject>(_ => new testCtgrOutpOptlEncoder())
+      .AddEncoder<ItestDescrObject>(_ => new testDescrEncoder())
+      .AddEncoder<ItestDescrBcksObject>(_ => new testDescrBcksEncoder())
+      .AddEncoder<ItestDescrBtwnObject>(_ => new testDescrBtwnEncoder())
+      .AddEncoder<ItestDescrCmplObject>(_ => new testDescrCmplEncoder())
+      .AddEncoder<ItestDescrDblObject>(_ => new testDescrDblEncoder())
+      .AddEncoder<ItestDescrSnglObject>(_ => new testDescrSnglEncoder())
+      .AddEncoder<ItestDscrsObject>(_ => new testDscrsEncoder())
+      .AddEncoder<ItestCatOprCtgrObject>(_ => new testCatOprCtgrEncoder())
+      .AddEncoder<ItestCatOprTypeObject>(r => new testCatOprTypeEncoder(r))
+      .AddEncoder<ItestAddrOprTypeObject>(_ => new testAddrOprTypeEncoder());
 }

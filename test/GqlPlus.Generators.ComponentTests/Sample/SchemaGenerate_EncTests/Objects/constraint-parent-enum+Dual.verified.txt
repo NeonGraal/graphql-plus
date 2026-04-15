@@ -40,3 +40,12 @@ internal class CmptParentCnstPrntEnumDualEncoder : IEncoder<CmptParentCnstPrntEn
   public Structured Encode(CmptParentCnstPrntEnumDual input)
     => new(input.ToString(), "_ParentCnstPrntEnumDual");
 }
+
+internal static class Cmpt_Schema_constraint_parent_enum_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_parent_enum_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptCnstPrntEnumDualObject>(_ => new CmptCnstPrntEnumDualEncoder())
+      .AddEncoder<CmptEnumCnstPrntEnumDual>(_ => new CmptEnumCnstPrntEnumDualEncoder())
+      .AddEncoder<CmptParentCnstPrntEnumDual>(_ => new CmptParentCnstPrntEnumDualEncoder());
+}

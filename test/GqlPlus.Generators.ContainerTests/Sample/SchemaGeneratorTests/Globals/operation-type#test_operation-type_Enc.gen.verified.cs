@@ -27,3 +27,11 @@ internal class testAddrOprTypeEncoder : IEncoder<ItestAddrOprTypeObject>
       .Add("city", input.City)
       .Add("country", input.Country);
 }
+
+internal static class test_operation_typeEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_operation_typeEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestCatOprTypeObject>(r => new testCatOprTypeEncoder(r))
+      .AddEncoder<ItestAddrOprTypeObject>(_ => new testAddrOprTypeEncoder());
+}

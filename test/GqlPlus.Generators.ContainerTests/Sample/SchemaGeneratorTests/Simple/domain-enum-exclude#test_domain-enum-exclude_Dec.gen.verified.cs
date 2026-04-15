@@ -17,3 +17,11 @@ internal class testEnumDmnEnumExclDecoder
   public string enum_dmnEnumExcl { get; set; }
   public string dmnEnumExclValue { get; set; }
 }
+
+internal static class test_domain_enum_excludeDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_domain_enum_excludeDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestDmnEnumExcl>(_ => new testDmnEnumExclDecoder())
+      .AddDecoder<testEnumDmnEnumExcl>(_ => new testEnumDmnEnumExclDecoder());
+}

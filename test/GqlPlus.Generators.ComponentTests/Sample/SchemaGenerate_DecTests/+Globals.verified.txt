@@ -6,58 +6,6 @@
 
 namespace Components.Gqlp_Schema_Globals;
 
-internal class CmptCtgrDscrsDecoder
-{
-}
-
-internal class CmptCtgrOutpDecoder
-{
-}
-
-internal class CmptCtgrOutpDescrDecoder
-{
-}
-
-internal class CmptCtgrOutpDictDecoder
-{
-}
-
-internal class CmptCtgrOutpListDecoder
-{
-}
-
-internal class CmptCtgrOutpOptlDecoder
-{
-}
-
-internal class CmptDescrDecoder
-{
-}
-
-internal class CmptDescrBcksDecoder
-{
-}
-
-internal class CmptDescrBtwnDecoder
-{
-}
-
-internal class CmptDescrCmplDecoder
-{
-}
-
-internal class CmptDescrDblDecoder
-{
-}
-
-internal class CmptDescrSnglDecoder
-{
-}
-
-internal class CmptDscrsDecoder
-{
-}
-
 internal class CmptInDrctParamDictDecoder
 {
 }
@@ -74,20 +22,12 @@ internal class CmptInDrctParamOptDecoder
 {
 }
 
-internal class CmptCatOprCtgrDecoder
+internal static class Cmpt_Schema_GlobalsDecoders
 {
-}
-
-internal class CmptCatOprTypeDecoder
-{
-  public string First { get; set; }
-  public string Last { get; set; }
-  public ICmptAddrOprType Address { get; set; }
-}
-
-internal class CmptAddrOprTypeDecoder
-{
-  public string Street { get; set; }
-  public string City { get; set; }
-  public string Country { get; set; }
+  internal static IDecoderRepositoryBuilder AddCmpt_Schema_GlobalsDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptInDrctParamDictObject>(_ => new CmptInDrctParamDictDecoder())
+      .AddDecoder<ICmptInDrctParamInObject>(_ => new CmptInDrctParamInDecoder())
+      .AddDecoder<ICmptInDrctParamListObject>(_ => new CmptInDrctParamListDecoder())
+      .AddDecoder<ICmptInDrctParamOptObject>(_ => new CmptInDrctParamOptDecoder());
 }

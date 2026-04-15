@@ -19,3 +19,11 @@ internal class testEnumFieldValueDescrOutpEncoder : IEncoder<testEnumFieldValueD
   public Structured Encode(testEnumFieldValueDescrOutp input)
     => new(input.ToString(), "_EnumFieldValueDescrOutp");
 }
+
+internal static class test_field_value_descr_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_field_value_descr_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestFieldValueDescrOutpObject>(_ => new testFieldValueDescrOutpEncoder())
+      .AddEncoder<testEnumFieldValueDescrOutp>(_ => new testEnumFieldValueDescrOutpEncoder());
+}

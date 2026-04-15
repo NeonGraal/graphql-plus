@@ -12,3 +12,10 @@ internal class testDmnStrDescrEncoder : IEncoder<ItestDmnStrDescr>
   public Structured Encode(ItestDmnStrDescr input)
     => new(input.Value);
 }
+
+internal static class test_domain_string_descrEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_domain_string_descrEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestDmnStrDescr>(_ => new testDmnStrDescrEncoder());
+}

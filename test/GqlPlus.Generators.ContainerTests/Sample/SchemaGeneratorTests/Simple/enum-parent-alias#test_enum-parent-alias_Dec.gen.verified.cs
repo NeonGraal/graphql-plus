@@ -19,3 +19,11 @@ internal class testPrntEnumPrntAliasDecoder
 {
   public string prnt_enumPrntAlias { get; set; }
 }
+
+internal static class test_enum_parent_aliasDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_enum_parent_aliasDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<testEnumPrntAlias>(_ => new testEnumPrntAliasDecoder())
+      .AddDecoder<testPrntEnumPrntAlias>(_ => new testPrntEnumPrntAliasDecoder());
+}

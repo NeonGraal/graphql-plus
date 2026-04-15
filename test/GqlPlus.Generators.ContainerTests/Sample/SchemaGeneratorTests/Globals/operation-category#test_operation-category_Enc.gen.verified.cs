@@ -12,3 +12,10 @@ internal class testCatOprCtgrEncoder : IEncoder<ItestCatOprCtgrObject>
   public Structured Encode(ItestCatOprCtgrObject input)
     => Structured.Empty();
 }
+
+internal static class test_operation_categoryEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_operation_categoryEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestCatOprCtgrObject>(_ => new testCatOprCtgrEncoder());
+}

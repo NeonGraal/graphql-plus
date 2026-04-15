@@ -17,3 +17,10 @@ internal class CmptDscrsEncoder : IEncoder<ICmptDscrsObject>
   public Structured Encode(ICmptDscrsObject input)
     => Structured.Empty();
 }
+
+internal static class Cmpt_Schema_descrsEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_descrsEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptDscrsObject>(_ => new CmptDscrsEncoder());
+}

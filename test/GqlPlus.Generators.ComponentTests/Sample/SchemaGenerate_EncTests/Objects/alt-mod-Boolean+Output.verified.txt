@@ -23,3 +23,11 @@ internal class CmptAltAltModBoolOutpEncoder : IEncoder<ICmptAltAltModBoolOutpObj
     => Structured.Empty()
       .Add("alt", input.Alt);
 }
+
+internal static class Cmpt_Schema_alt_mod_Boolean_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_alt_mod_Boolean_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptAltModBoolOutpObject>(_ => new CmptAltModBoolOutpEncoder())
+      .AddEncoder<ICmptAltAltModBoolOutpObject>(_ => new CmptAltAltModBoolOutpEncoder());
+}

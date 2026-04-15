@@ -7,58 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp__Globals;
 
-internal class testCtgrDscrsDecoder
-{
-}
-
-internal class testCtgrOutpDecoder
-{
-}
-
-internal class testCtgrOutpDescrDecoder
-{
-}
-
-internal class testCtgrOutpDictDecoder
-{
-}
-
-internal class testCtgrOutpListDecoder
-{
-}
-
-internal class testCtgrOutpOptlDecoder
-{
-}
-
-internal class testDescrDecoder
-{
-}
-
-internal class testDescrBcksDecoder
-{
-}
-
-internal class testDescrBtwnDecoder
-{
-}
-
-internal class testDescrCmplDecoder
-{
-}
-
-internal class testDescrDblDecoder
-{
-}
-
-internal class testDescrSnglDecoder
-{
-}
-
-internal class testDscrsDecoder
-{
-}
-
 internal class testInDrctParamDictDecoder
 {
 }
@@ -75,20 +23,12 @@ internal class testInDrctParamOptDecoder
 {
 }
 
-internal class testCatOprCtgrDecoder
+internal static class test__GlobalsDecoders
 {
-}
-
-internal class testCatOprTypeDecoder
-{
-  public string First { get; set; }
-  public string Last { get; set; }
-  public ItestAddrOprType Address { get; set; }
-}
-
-internal class testAddrOprTypeDecoder
-{
-  public string Street { get; set; }
-  public string City { get; set; }
-  public string Country { get; set; }
+  internal static IDecoderRepositoryBuilder Addtest__GlobalsDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestInDrctParamDictObject>(_ => new testInDrctParamDictDecoder())
+      .AddDecoder<ItestInDrctParamInObject>(_ => new testInDrctParamInDecoder())
+      .AddDecoder<ItestInDrctParamListObject>(_ => new testInDrctParamListDecoder())
+      .AddDecoder<ItestInDrctParamOptObject>(_ => new testInDrctParamOptDecoder());
 }

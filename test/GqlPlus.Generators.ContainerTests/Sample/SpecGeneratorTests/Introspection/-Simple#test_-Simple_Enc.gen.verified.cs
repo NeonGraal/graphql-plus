@@ -191,3 +191,24 @@ internal class test_UnionMemberEncoder(
     => _itest_UnionRef.Encode(input)
       .AddEncoded("union", input.Union, _itest_Name);
 }
+
+internal static class test__SimpleEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest__SimpleEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<test_DomainKind>(_ => new test_DomainKindEncoder())
+      .AddEncoder<Itest_BaseDomainItemObject>(r => new test_BaseDomainItemEncoder(r))
+      .AddEncoder<Itest_BasicValueObject>(_ => new test_BasicValueEncoder())
+      .AddEncoder<Itest_DomainTrueFalseObject>(r => new test_DomainTrueFalseEncoder(r))
+      .AddEncoder<Itest_DomainItemTrueFalseObject>(r => new test_DomainItemTrueFalseEncoder(r))
+      .AddEncoder<Itest_DomainLabelObject>(r => new test_DomainLabelEncoder(r))
+      .AddEncoder<Itest_DomainItemLabelObject>(r => new test_DomainItemLabelEncoder(r))
+      .AddEncoder<Itest_DomainRangeObject>(r => new test_DomainRangeEncoder(r))
+      .AddEncoder<Itest_DomainItemRangeObject>(r => new test_DomainItemRangeEncoder(r))
+      .AddEncoder<Itest_DomainRegexObject>(r => new test_DomainRegexEncoder(r))
+      .AddEncoder<Itest_DomainItemRegexObject>(r => new test_DomainItemRegexEncoder(r))
+      .AddEncoder<Itest_EnumLabelObject>(r => new test_EnumLabelEncoder(r))
+      .AddEncoder<Itest_EnumValueObject>(r => new test_EnumValueEncoder(r))
+      .AddEncoder<Itest_UnionRefObject>(r => new test_UnionRefEncoder(r))
+      .AddEncoder<Itest_UnionMemberObject>(r => new test_UnionMemberEncoder(r));
+}

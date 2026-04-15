@@ -453,44 +453,10 @@ internal class Cmpt_NameEncoder : IEncoder<ICmpt_Name>
     => new(input.Value);
 }
 
-internal class Cmpt_FilterEncoder(
-  IEncoderRepository encoders
-) : IEncoder<ICmpt_FilterObject>
-{
-  private readonly IEncoder<ICmpt_NameFilter> _nameFilter = encoders.EncoderFor<ICmpt_NameFilter>();
-  public Structured Encode(ICmpt_FilterObject input)
-    => Structured.Empty()
-      .AddList("names", input.Names, _nameFilter)
-      .Add("matchAliases", input.MatchAliases)
-      .AddList("aliases", input.Aliases, _nameFilter)
-      .Add("returnByAlias", input.ReturnByAlias)
-      .Add("returnReferencedTypes", input.ReturnReferencedTypes);
-}
-
 internal class Cmpt_NameFilterEncoder : IEncoder<ICmpt_NameFilter>
 {
   public Structured Encode(ICmpt_NameFilter input)
     => new(input.Value);
-}
-
-internal class Cmpt_CategoryFilterEncoder(
-  IEncoderRepository encoders
-) : IEncoder<ICmpt_CategoryFilterObject>
-{
-  private readonly IEncoder<ICmpt_FilterObject> _filter = encoders.EncoderFor<ICmpt_FilterObject>();
-  public Structured Encode(ICmpt_CategoryFilterObject input)
-    => _filter.Encode(input)
-      .Add("resolutions", input.Resolutions.Encode());
-}
-
-internal class Cmpt_TypeFilterEncoder(
-  IEncoderRepository encoders
-) : IEncoder<ICmpt_TypeFilterObject>
-{
-  private readonly IEncoder<ICmpt_FilterObject> _filter = encoders.EncoderFor<ICmpt_FilterObject>();
-  public Structured Encode(ICmpt_TypeFilterObject input)
-    => _filter.Encode(input)
-      .Add("kinds", input.Kinds.Encode());
 }
 
 internal class Cmpt_AliasedEncoder(
@@ -1255,4 +1221,76 @@ internal class Cmpt_OutputFieldTypeEncoder(
   public Structured Encode(ICmpt_OutputFieldTypeObject input)
     => _objFieldType.Encode(input)
       .AddEncoded("parameter", input.Parameter, _inputFieldType);
+}
+
+internal static class Cmpt_Spec_IntrospectionEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Spec_IntrospectionEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmpt_SchemaObject>(r => new Cmpt_SchemaEncoder(r))
+      .AddEncoder<ICmpt_Name>(_ => new Cmpt_NameEncoder())
+      .AddEncoder<ICmpt_NameFilter>(_ => new Cmpt_NameFilterEncoder())
+      .AddEncoder<ICmpt_AliasedObject>(r => new Cmpt_AliasedEncoder(r))
+      .AddEncoder<ICmpt_NamedObject>(r => new Cmpt_NamedEncoder(r))
+      .AddEncoder<ICmpt_DescribedObject>(_ => new Cmpt_DescribedEncoder())
+      .AddEncoder<ICmpt_AndTypeObject>(r => new Cmpt_AndTypeEncoder(r))
+      .AddEncoder<ICmpt_CategoriesObject>(r => new Cmpt_CategoriesEncoder(r))
+      .AddEncoder<ICmpt_CategoryObject>(r => new Cmpt_CategoryEncoder(r))
+      .AddEncoder<Cmpt_Resolution>(_ => new Cmpt_ResolutionEncoder())
+      .AddEncoder<ICmpt_DirectivesObject>(r => new Cmpt_DirectivesEncoder(r))
+      .AddEncoder<ICmpt_DirectiveObject>(r => new Cmpt_DirectiveEncoder(r))
+      .AddEncoder<Cmpt_Location>(_ => new Cmpt_LocationEncoder())
+      .AddEncoder<ICmpt_OperationsObject>(r => new Cmpt_OperationsEncoder(r))
+      .AddEncoder<ICmpt_OpDirectivesObject>(r => new Cmpt_OpDirectivesEncoder(r))
+      .AddEncoder<ICmpt_OperationObject>(r => new Cmpt_OperationEncoder(r))
+      .AddEncoder<ICmpt_OpVariableObject>(r => new Cmpt_OpVariableEncoder(r))
+      .AddEncoder<ICmpt_OpDirectiveObject>(r => new Cmpt_OpDirectiveEncoder(r))
+      .AddEncoder<ICmpt_OpFragmentObject>(r => new Cmpt_OpFragmentEncoder(r))
+      .AddEncoder<ICmpt_OpArgumentObject>(_ => new Cmpt_OpArgumentEncoder())
+      .AddEncoder<ICmpt_OpArgValueObject>(r => new Cmpt_OpArgValueEncoder(r))
+      .AddEncoder<ICmpt_OpArgListObject>(_ => new Cmpt_OpArgListEncoder())
+      .AddEncoder<ICmpt_OpArgMapObject>(r => new Cmpt_OpArgMapEncoder(r))
+      .AddEncoder<ICmpt_OpResultObject>(r => new Cmpt_OpResultEncoder(r))
+      .AddEncoder<ICmpt_Path>(_ => new Cmpt_PathEncoder())
+      .AddEncoder<ICmpt_OpSelectionObject>(_ => new Cmpt_OpSelectionEncoder())
+      .AddEncoder<ICmpt_OpFieldObject>(r => new Cmpt_OpFieldEncoder(r))
+      .AddEncoder<ICmpt_OpInlineObject>(r => new Cmpt_OpInlineEncoder(r))
+      .AddEncoder<ICmpt_OpSpreadObject>(r => new Cmpt_OpSpreadEncoder(r))
+      .AddEncoder<ICmpt_SettingObject>(r => new Cmpt_SettingEncoder(r))
+      .AddEncoder<ICmpt_TypeObject>(_ => new Cmpt_TypeEncoder())
+      .AddEncoder<Cmpt_SimpleKind>(_ => new Cmpt_SimpleKindEncoder())
+      .AddEncoder<Cmpt_TypeKind>(_ => new Cmpt_TypeKindEncoder())
+      .AddEncoder<ICmpt_TypeSimpleObject>(_ => new Cmpt_TypeSimpleEncoder())
+      .AddEncoder<ICmpt_CollectionsObject>(_ => new Cmpt_CollectionsEncoder())
+      .AddEncoder<ICmpt_ModifiersObject>(_ => new Cmpt_ModifiersEncoder())
+      .AddEncoder<Cmpt_ModifierKind>(_ => new Cmpt_ModifierKindEncoder())
+      .AddEncoder<Cmpt_DomainKind>(_ => new Cmpt_DomainKindEncoder())
+      .AddEncoder<ICmpt_BaseDomainItemObject>(r => new Cmpt_BaseDomainItemEncoder(r))
+      .AddEncoder<ICmpt_BasicValueObject>(_ => new Cmpt_BasicValueEncoder())
+      .AddEncoder<ICmpt_DomainTrueFalseObject>(r => new Cmpt_DomainTrueFalseEncoder(r))
+      .AddEncoder<ICmpt_DomainItemTrueFalseObject>(r => new Cmpt_DomainItemTrueFalseEncoder(r))
+      .AddEncoder<ICmpt_DomainLabelObject>(r => new Cmpt_DomainLabelEncoder(r))
+      .AddEncoder<ICmpt_DomainItemLabelObject>(r => new Cmpt_DomainItemLabelEncoder(r))
+      .AddEncoder<ICmpt_DomainRangeObject>(r => new Cmpt_DomainRangeEncoder(r))
+      .AddEncoder<ICmpt_DomainItemRangeObject>(r => new Cmpt_DomainItemRangeEncoder(r))
+      .AddEncoder<ICmpt_DomainRegexObject>(r => new Cmpt_DomainRegexEncoder(r))
+      .AddEncoder<ICmpt_DomainItemRegexObject>(r => new Cmpt_DomainItemRegexEncoder(r))
+      .AddEncoder<ICmpt_EnumLabelObject>(r => new Cmpt_EnumLabelEncoder(r))
+      .AddEncoder<ICmpt_EnumValueObject>(r => new Cmpt_EnumValueEncoder(r))
+      .AddEncoder<ICmpt_UnionRefObject>(r => new Cmpt_UnionRefEncoder(r))
+      .AddEncoder<ICmpt_UnionMemberObject>(r => new Cmpt_UnionMemberEncoder(r))
+      .AddEncoder<ICmpt_ObjectKind>(_ => new Cmpt_ObjectKindEncoder())
+      .AddEncoder<ICmpt_ObjTypeParamObject>(r => new Cmpt_ObjTypeParamEncoder(r))
+      .AddEncoder<ICmpt_ObjBaseObject>(r => new Cmpt_ObjBaseEncoder(r))
+      .AddEncoder<ICmpt_ObjTypeArgObject>(r => new Cmpt_ObjTypeArgEncoder(r))
+      .AddEncoder<ICmpt_TypeParamObject>(r => new Cmpt_TypeParamEncoder(r))
+      .AddEncoder<ICmpt_ObjAlternateObject>(r => new Cmpt_ObjAlternateEncoder(r))
+      .AddEncoder<ICmpt_ObjAlternateEnumObject>(r => new Cmpt_ObjAlternateEnumEncoder(r))
+      .AddEncoder<ICmpt_ObjFieldTypeObject>(r => new Cmpt_ObjFieldTypeEncoder(r))
+      .AddEncoder<ICmpt_ObjFieldEnumObject>(r => new Cmpt_ObjFieldEnumEncoder(r))
+      .AddEncoder<ICmpt_DualFieldObject>(r => new Cmpt_DualFieldEncoder(r))
+      .AddEncoder<ICmpt_InputFieldObject>(r => new Cmpt_InputFieldEncoder(r))
+      .AddEncoder<ICmpt_InputFieldTypeObject>(r => new Cmpt_InputFieldTypeEncoder(r))
+      .AddEncoder<ICmpt_OutputFieldObject>(r => new Cmpt_OutputFieldEncoder(r))
+      .AddEncoder<ICmpt_OutputFieldTypeObject>(r => new Cmpt_OutputFieldTypeEncoder(r));
 }

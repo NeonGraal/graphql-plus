@@ -11,3 +11,10 @@ internal class testUnionDescrDecoder
 {
   public Number AsNumber { get; set; }
 }
+
+internal static class test_union_descrDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_union_descrDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestUnionDescr>(_ => new testUnionDescrDecoder());
+}

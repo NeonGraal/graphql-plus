@@ -31,3 +31,11 @@ internal class testEnumGnrcPrntSmplEnumOutpEncoder : IEncoder<testEnumGnrcPrntSm
   public Structured Encode(testEnumGnrcPrntSmplEnumOutp input)
     => new(input.ToString(), "_EnumGnrcPrntSmplEnumOutp");
 }
+
+internal static class test_generic_parent_simple_enum_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_generic_parent_simple_enum_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestGnrcPrntSmplEnumOutpObject>(r => new testGnrcPrntSmplEnumOutpEncoder(r))
+      .AddEncoder<testEnumGnrcPrntSmplEnumOutp>(_ => new testEnumGnrcPrntSmplEnumOutpEncoder());
+}

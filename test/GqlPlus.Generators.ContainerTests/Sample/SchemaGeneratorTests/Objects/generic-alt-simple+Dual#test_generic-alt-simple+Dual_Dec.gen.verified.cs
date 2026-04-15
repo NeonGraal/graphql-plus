@@ -14,3 +14,10 @@ internal class testGnrcAltSmplDualDecoder
 internal class testRefGnrcAltSmplDualDecoder<TRef>
 {
 }
+
+internal static class test_generic_alt_simple_DualDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest_generic_alt_simple_DualDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ItestGnrcAltSmplDualObject>(_ => new testGnrcAltSmplDualDecoder());
+}

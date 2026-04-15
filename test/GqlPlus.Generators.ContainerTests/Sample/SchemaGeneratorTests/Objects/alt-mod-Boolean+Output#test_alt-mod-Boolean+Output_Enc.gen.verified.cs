@@ -19,3 +19,11 @@ internal class testAltAltModBoolOutpEncoder : IEncoder<ItestAltAltModBoolOutpObj
     => Structured.Empty()
       .Add("alt", input.Alt);
 }
+
+internal static class test_alt_mod_Boolean_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_alt_mod_Boolean_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestAltModBoolOutpObject>(_ => new testAltModBoolOutpEncoder())
+      .AddEncoder<ItestAltAltModBoolOutpObject>(_ => new testAltAltModBoolOutpEncoder());
+}

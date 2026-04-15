@@ -31,3 +31,11 @@ internal class testDomGnrcPrntStrDomOutpEncoder : IEncoder<ItestDomGnrcPrntStrDo
   public Structured Encode(ItestDomGnrcPrntStrDomOutp input)
     => new(input.Value);
 }
+
+internal static class test_generic_parent_string_dom_OutputEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_generic_parent_string_dom_OutputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestGnrcPrntStrDomOutpObject>(r => new testGnrcPrntStrDomOutpEncoder(r))
+      .AddEncoder<ItestDomGnrcPrntStrDomOutp>(_ => new testDomGnrcPrntStrDomOutpEncoder());
+}

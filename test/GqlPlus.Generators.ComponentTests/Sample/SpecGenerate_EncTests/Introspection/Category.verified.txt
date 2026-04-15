@@ -53,3 +53,12 @@ internal class Cmpt_ResolutionEncoder : IEncoder<Cmpt_Resolution>
   public Structured Encode(Cmpt_Resolution input)
     => new(input.ToString(), "_Resolution");
 }
+
+internal static class Cmpt_Spec_CategoryEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Spec_CategoryEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmpt_CategoriesObject>(r => new Cmpt_CategoriesEncoder(r))
+      .AddEncoder<ICmpt_CategoryObject>(r => new Cmpt_CategoryEncoder(r))
+      .AddEncoder<Cmpt_Resolution>(_ => new Cmpt_ResolutionEncoder());
+}

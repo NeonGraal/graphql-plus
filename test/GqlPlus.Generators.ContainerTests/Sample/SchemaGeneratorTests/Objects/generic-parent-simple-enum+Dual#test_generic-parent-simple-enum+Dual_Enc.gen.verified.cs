@@ -31,3 +31,11 @@ internal class testEnumGnrcPrntSmplEnumDualEncoder : IEncoder<testEnumGnrcPrntSm
   public Structured Encode(testEnumGnrcPrntSmplEnumDual input)
     => new(input.ToString(), "_EnumGnrcPrntSmplEnumDual");
 }
+
+internal static class test_generic_parent_simple_enum_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_generic_parent_simple_enum_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestGnrcPrntSmplEnumDualObject>(r => new testGnrcPrntSmplEnumDualEncoder(r))
+      .AddEncoder<testEnumGnrcPrntSmplEnumDual>(_ => new testEnumGnrcPrntSmplEnumDualEncoder());
+}

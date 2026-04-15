@@ -109,12 +109,6 @@ internal class test_EnumEncoder : IEncoder<Itest_Enum>
     => Structured.Empty();
 }
 
-internal class test_InputEncoder : IEncoder<Itest_InputObject>
-{
-  public Structured Encode(Itest_InputObject input)
-    => Structured.Empty();
-}
-
 internal class test_OutputEncoder : IEncoder<Itest_OutputObject>
 {
   public Structured Encode(Itest_OutputObject input)
@@ -139,4 +133,26 @@ internal class test_SimpleEncoder(
      : input.HasA<Itest_Domain>() ? __domain.Encode(input.AsA<Itest_Domain>())
      : input.HasA<Itest_Union>() ? __union.Encode(input.AsA<Itest_Union>())
      : Structured.Empty();
+}
+
+internal static class test_DefinitionEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_DefinitionEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<bool>(_ => new boolEncoder())
+      .AddEncoder<GqlpNull>(_ => new GqlpNullEncoder())
+      .AddEncoder<GqlpUnit>(_ => new GqlpUnitEncoder())
+      .AddEncoder<void>(_ => new voidEncoder())
+      .AddEncoder<decimal>(_ => new decimalEncoder())
+      .AddEncoder<string>(_ => new stringEncoder())
+      .AddEncoder<Itest_Basic>(r => new test_BasicEncoder(r))
+      .AddEncoder<Itest_Internal>(r => new test_InternalEncoder(r))
+      .AddEncoder<Itest_Key>(r => new test_KeyEncoder(r))
+      .AddEncoder<Itest_ObjectObject>(_ => new test_ObjectEncoder())
+      .AddEncoder<Itest_Domain>(_ => new test_DomainEncoder())
+      .AddEncoder<Itest_DualObject>(_ => new test_DualEncoder())
+      .AddEncoder<Itest_Enum>(_ => new test_EnumEncoder())
+      .AddEncoder<Itest_OutputObject>(_ => new test_OutputEncoder())
+      .AddEncoder<Itest_Union>(_ => new test_UnionEncoder())
+      .AddEncoder<Itest_Simple>(r => new test_SimpleEncoder(r));
 }

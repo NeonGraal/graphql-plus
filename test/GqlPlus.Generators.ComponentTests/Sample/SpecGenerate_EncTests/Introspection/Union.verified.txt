@@ -36,3 +36,11 @@ internal class Cmpt_UnionMemberEncoder(
     => _unionRef.Encode(input)
       .AddEncoded("union", input.Union, _name);
 }
+
+internal static class Cmpt_Spec_UnionEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Spec_UnionEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmpt_UnionRefObject>(r => new Cmpt_UnionRefEncoder(r))
+      .AddEncoder<ICmpt_UnionMemberObject>(r => new Cmpt_UnionMemberEncoder(r));
+}

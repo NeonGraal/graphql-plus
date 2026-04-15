@@ -7,30 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp__Schema;
 
-internal class test_SchemaDecoder
-{
-  public IDictionary<Itest_Name, Itest_Categories>? Categories(Itest_CategoryFilter? parameter)
-    => null;
-  public IDictionary<Itest_Name, Itest_Categories>? Categories()
-    => null;
-  public IDictionary<Itest_Name, Itest_Directives>? Directives(Itest_Filter? parameter)
-    => null;
-  public IDictionary<Itest_Name, Itest_Directives>? Directives()
-    => null;
-  public IDictionary<Itest_Name, Itest_Operations>? Operations(Itest_Filter? parameter)
-    => null;
-  public IDictionary<Itest_Name, Itest_Operations>? Operations()
-    => null;
-  public IDictionary<Itest_Name, Itest_Type>? Types(Itest_TypeFilter? parameter)
-    => null;
-  public IDictionary<Itest_Name, Itest_Type>? Types()
-    => null;
-  public IDictionary<Itest_Name, Itest_Setting>? Settings(Itest_Filter? parameter)
-    => null;
-  public IDictionary<Itest_Name, Itest_Setting>? Settings()
-    => null;
-}
-
 internal class test_NameDecoder
 {
 }
@@ -71,4 +47,18 @@ internal class test_NamedDecoder
 internal class test_DescribedDecoder
 {
   public ICollection<string> Description { get; set; }
+}
+
+internal static class test__SchemaDecoders
+{
+  internal static IDecoderRepositoryBuilder Addtest__SchemaDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<Itest_Name>(_ => new test_NameDecoder())
+      .AddDecoder<Itest_FilterObject>(_ => new test_FilterDecoder())
+      .AddDecoder<Itest_NameFilter>(_ => new test_NameFilterDecoder())
+      .AddDecoder<Itest_CategoryFilterObject>(_ => new test_CategoryFilterDecoder())
+      .AddDecoder<Itest_TypeFilterObject>(_ => new test_TypeFilterDecoder())
+      .AddDecoder<Itest_AliasedObject>(_ => new test_AliasedDecoder())
+      .AddDecoder<Itest_NamedObject>(_ => new test_NamedDecoder())
+      .AddDecoder<Itest_DescribedObject>(_ => new test_DescribedDecoder());
 }

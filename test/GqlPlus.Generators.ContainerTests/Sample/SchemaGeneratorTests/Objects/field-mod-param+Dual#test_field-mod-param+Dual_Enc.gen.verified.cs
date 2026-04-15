@@ -19,3 +19,10 @@ internal class testFldFieldModParamDualEncoder : IEncoder<ItestFldFieldModParamD
     => Structured.Empty()
       .Add("field", input.Field);
 }
+
+internal static class test_field_mod_param_DualEncoders
+{
+  internal static IEncoderRepositoryBuilder Addtest_field_mod_param_DualEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ItestFldFieldModParamDualObject>(_ => new testFldFieldModParamDualEncoder());
+}

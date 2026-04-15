@@ -20,7 +20,7 @@ internal sealed class DualDecoderGenerator
   : GenerateForObject<IAstDualField>
 {
   protected override void Generate(IAstObject<IAstDualField> ast, GqlpGeneratorContext context)
-    => GenerateBlock(ast, context, DecoderHeader, TypeMembers, ClassMember);
+    => GenerateObjectDecoder(ast, context);
 }
 
 internal sealed class DualEncoderGenerator

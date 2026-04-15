@@ -18,6 +18,8 @@ internal class ConstantEncoder(
         => _simple.Encode(model.Value),
       _ => new(""),
     };
+
+  internal static ConstantEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class SimpleEncoder
@@ -32,6 +34,8 @@ internal class SimpleEncoder
         => new(model.Text, model.TypeName),
       _ => new(""),
     };
+
+  internal static SimpleEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CollectionEncoder
@@ -46,6 +50,8 @@ internal class CollectionEncoder
               ?? throw new InvalidOperationException($"{model.ModifierKind} Modifier must have a Key specified"))
             .AddBool("optional", model.IsOptional)
             .Add("typeKind", model.KeyType?.EncodeEnum()));
+
+  internal static CollectionEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class ModifierEncoder
@@ -54,4 +60,6 @@ internal class ModifierEncoder
 {
   Structured IEncoder<ModifierModel>.Encode(ModifierModel model)
     => Encode(model);
+
+  internal static new ModifierEncoder Factory(IEncoderRepository _) => new();
 }

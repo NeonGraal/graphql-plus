@@ -96,4 +96,6 @@ internal sealed class SchemaGenerator(
 
   private static TAst[] Typed<TAst>(IAstSchema ast)
     => ast.Declarations.ArrayOf<TAst>();
+
+  internal static SchemaGenerator Factory(IGeneratorRepository g) => new(g);
 }

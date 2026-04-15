@@ -140,6 +140,8 @@ internal class EnumDecoder<T>
 
     return Mapped(numValue, output);
   }
+
+  internal static EnumDecoder<T> Factory(IDecoderRepository _) => new();
 }
 
 internal abstract class ScalarDecoder<TModel>

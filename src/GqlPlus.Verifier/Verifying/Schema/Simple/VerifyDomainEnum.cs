@@ -97,4 +97,6 @@ internal class EnumLabels
       .GroupBy(m => m.Label)
       .Where(g => g.Count() != 1)
       .Select(g => g.ToArray())];
+
+  internal static VerifyDomainEnum Factory(IVerifierRepository v) => new(v);
 }

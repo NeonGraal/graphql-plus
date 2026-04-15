@@ -13,4 +13,6 @@ internal class DomainStringModeller
 
   protected override DomainRegexModel ToItem(IAstDomainRegex ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Pattern, ast.Excludes, ast.Description);
+
+  internal static DomainStringModeller Factory(IModellerRepository _) => new();
 }

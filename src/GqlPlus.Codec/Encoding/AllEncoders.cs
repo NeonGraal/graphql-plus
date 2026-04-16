@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace GqlPlus.Encoding;
@@ -14,6 +15,7 @@ public static class AllEncoders
     return services;
   }
 
+  [ExcludeFromCodeCoverage]
   internal static IEncoderRepositoryBuilder AddSchemaEncoders(this IEncoderRepositoryBuilder builder)
     => builder.ThrowIfNull()
       // Common

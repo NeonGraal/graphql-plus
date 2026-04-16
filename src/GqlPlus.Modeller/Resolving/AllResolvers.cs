@@ -1,4 +1,5 @@
-﻿using GqlPlus.Resolving.Objects;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Resolving.Objects;
 using GqlPlus.Resolving.Simple;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -16,6 +17,7 @@ public static class AllResolvers
     return services;
   }
 
+  [ExcludeFromCodeCoverage]
   internal static IResolverRepositoryBuilder AddSchemaResolvers(this IResolverRepositoryBuilder builder)
     => builder.ThrowIfNull()
       // Schema

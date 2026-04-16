@@ -1,4 +1,5 @@
-﻿using GqlPlus;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Decoding;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +18,7 @@ public static class AllDecoders
     return services;
   }
 
+  [ExcludeFromCodeCoverage]
   internal static IDecoderRepositoryBuilder AddSchemaDecoders(this IDecoderRepositoryBuilder builder)
     => builder.ThrowIfNull()
       // Common

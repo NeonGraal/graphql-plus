@@ -1,4 +1,5 @@
-﻿using GqlPlus.Modelling.Globals;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Modelling.Globals;
 using GqlPlus.Modelling.Objects;
 using GqlPlus.Modelling.Simple;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +18,7 @@ public static class AllModellers
     return services;
   }
 
+  [ExcludeFromCodeCoverage]
   internal static IModellerRepositoryBuilder AddSchemaModellers(this IModellerRepositoryBuilder builder)
     => builder.ThrowIfNull()
       // Common

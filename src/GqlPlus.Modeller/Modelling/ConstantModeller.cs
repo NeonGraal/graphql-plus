@@ -16,4 +16,6 @@ internal class ConstantModeller(
     => constant.ToDictionary(
       p => _value.ToModel(p.Key, typeKinds),
       p => ToModel(p.Value, typeKinds));
+
+  internal static ConstantModeller Factory(IModellerRepository r) => new(r);
 }

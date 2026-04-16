@@ -14,11 +14,13 @@ internal class testAltModParamDualDecoder<TMod>
 internal class testAltAltModParamDualDecoder
 {
   public decimal Alt { get; set; }
+
+  internal static testAltAltModParamDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_alt_mod_param_DualDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_alt_mod_param_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestAltAltModParamDualObject>(_ => new testAltAltModParamDualDecoder());
+      .AddDecoder<ItestAltAltModParamDualObject>(testAltAltModParamDualDecoder.Factory);
 }

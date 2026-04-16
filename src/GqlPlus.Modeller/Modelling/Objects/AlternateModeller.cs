@@ -16,4 +16,6 @@ internal class AlternateModeller(
     };
     return result;
   }
+
+  internal static AlternateModeller Factory(IModellerRepository r) => new(r);
 }

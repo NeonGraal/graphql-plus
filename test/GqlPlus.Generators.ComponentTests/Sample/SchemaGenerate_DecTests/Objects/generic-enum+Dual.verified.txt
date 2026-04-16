@@ -14,6 +14,8 @@ namespace Components.Gqlp_Schema_generic_enum_Dual;
 
 internal class CmptGnrcEnumDualDecoder
 {
+
+  internal static CmptGnrcEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefGnrcEnumDualDecoder<TType>
@@ -24,12 +26,14 @@ internal class CmptRefGnrcEnumDualDecoder<TType>
 internal class CmptEnumGnrcEnumDualDecoder
 {
   public string gnrcEnumDual { get; set; }
+
+  internal static CmptEnumGnrcEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_generic_enum_DualDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_enum_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptGnrcEnumDualObject>(_ => new CmptGnrcEnumDualDecoder())
-      .AddDecoder<CmptEnumGnrcEnumDual>(_ => new CmptEnumGnrcEnumDualDecoder());
+      .AddDecoder<ICmptGnrcEnumDualObject>(CmptGnrcEnumDualDecoder.Factory)
+      .AddDecoder<CmptEnumGnrcEnumDual>(CmptEnumGnrcEnumDualDecoder.Factory);
 }

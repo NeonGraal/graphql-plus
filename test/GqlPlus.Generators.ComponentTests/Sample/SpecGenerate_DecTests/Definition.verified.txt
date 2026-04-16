@@ -42,28 +42,40 @@ internal class boolDecoder
 {
   public string false { get; set; }
   public string true { get; set; }
+
+  internal static boolDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class GqlpNullDecoder
 {
   public string null { get; set; }
+
+  internal static GqlpNullDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class GqlpUnitDecoder
 {
   public string _ { get; set; }
+
+  internal static GqlpUnitDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class voidDecoder
 {
+
+  internal static voidDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class decimalDecoder
 {
+
+  internal static decimalDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class stringDecoder
 {
+
+  internal static stringDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_BasicDecoder
@@ -72,12 +84,16 @@ internal class Cmpt_BasicDecoder
   public Number AsNumber { get; set; }
   public String AsString { get; set; }
   public Unit AsUnit { get; set; }
+
+  internal static Cmpt_BasicDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_InternalDecoder
 {
   public Null AsNull { get; set; }
   public Void AsVoid { get; set; }
+
+  internal static Cmpt_InternalDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_KeyDecoder
@@ -85,30 +101,44 @@ internal class Cmpt_KeyDecoder
   public _Basic As_Basic { get; set; }
   public _Internal As_Internal { get; set; }
   public _Simple As_Simple { get; set; }
+
+  internal static Cmpt_KeyDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_ObjectDecoder
 {
+
+  internal static Cmpt_ObjectDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_DomainDecoder
 {
+
+  internal static Cmpt_DomainDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_DualDecoder
 {
+
+  internal static Cmpt_DualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_EnumDecoder
 {
+
+  internal static Cmpt_EnumDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_InputDecoder
 {
+
+  internal static Cmpt_InputDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_UnionDecoder
 {
+
+  internal static Cmpt_UnionDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_SimpleDecoder
@@ -116,26 +146,28 @@ internal class Cmpt_SimpleDecoder
   public _Enum As_Enum { get; set; }
   public _Domain As_Domain { get; set; }
   public _Union As_Union { get; set; }
+
+  internal static Cmpt_SimpleDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Spec_DefinitionDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_DefinitionDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<bool>(_ => new boolDecoder())
-      .AddDecoder<GqlpNull>(_ => new GqlpNullDecoder())
-      .AddDecoder<GqlpUnit>(_ => new GqlpUnitDecoder())
-      .AddDecoder<void>(_ => new voidDecoder())
-      .AddDecoder<decimal>(_ => new decimalDecoder())
-      .AddDecoder<string>(_ => new stringDecoder())
-      .AddDecoder<ICmpt_Basic>(_ => new Cmpt_BasicDecoder())
-      .AddDecoder<ICmpt_Internal>(_ => new Cmpt_InternalDecoder())
-      .AddDecoder<ICmpt_Key>(_ => new Cmpt_KeyDecoder())
-      .AddDecoder<ICmpt_ObjectObject>(_ => new Cmpt_ObjectDecoder())
-      .AddDecoder<ICmpt_Domain>(_ => new Cmpt_DomainDecoder())
-      .AddDecoder<ICmpt_DualObject>(_ => new Cmpt_DualDecoder())
-      .AddDecoder<ICmpt_Enum>(_ => new Cmpt_EnumDecoder())
-      .AddDecoder<ICmpt_InputObject>(_ => new Cmpt_InputDecoder())
-      .AddDecoder<ICmpt_Union>(_ => new Cmpt_UnionDecoder())
-      .AddDecoder<ICmpt_Simple>(_ => new Cmpt_SimpleDecoder());
+      .AddDecoder<bool>(boolDecoder.Factory)
+      .AddDecoder<GqlpNull>(GqlpNullDecoder.Factory)
+      .AddDecoder<GqlpUnit>(GqlpUnitDecoder.Factory)
+      .AddDecoder<void>(voidDecoder.Factory)
+      .AddDecoder<decimal>(decimalDecoder.Factory)
+      .AddDecoder<string>(stringDecoder.Factory)
+      .AddDecoder<ICmpt_Basic>(Cmpt_BasicDecoder.Factory)
+      .AddDecoder<ICmpt_Internal>(Cmpt_InternalDecoder.Factory)
+      .AddDecoder<ICmpt_Key>(Cmpt_KeyDecoder.Factory)
+      .AddDecoder<ICmpt_ObjectObject>(Cmpt_ObjectDecoder.Factory)
+      .AddDecoder<ICmpt_Domain>(Cmpt_DomainDecoder.Factory)
+      .AddDecoder<ICmpt_DualObject>(Cmpt_DualDecoder.Factory)
+      .AddDecoder<ICmpt_Enum>(Cmpt_EnumDecoder.Factory)
+      .AddDecoder<ICmpt_InputObject>(Cmpt_InputDecoder.Factory)
+      .AddDecoder<ICmpt_Union>(Cmpt_UnionDecoder.Factory)
+      .AddDecoder<ICmpt_Simple>(Cmpt_SimpleDecoder.Factory);
 }

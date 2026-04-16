@@ -10,11 +10,13 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_enum_Output;
 internal class testEnumCnstEnumOutpDecoder
 {
   public string cnstEnumOutp { get; set; }
+
+  internal static testEnumCnstEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_constraint_enum_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_constraint_enum_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<testEnumCnstEnumOutp>(_ => new testEnumCnstEnumOutpDecoder());
+      .AddDecoder<testEnumCnstEnumOutp>(testEnumCnstEnumOutpDecoder.Factory);
 }

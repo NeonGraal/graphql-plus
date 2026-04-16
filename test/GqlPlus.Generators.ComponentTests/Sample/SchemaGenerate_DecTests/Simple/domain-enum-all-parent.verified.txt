@@ -14,6 +14,8 @@ namespace Components.Gqlp_Schema_domain_enum_all_parent;
 
 internal class CmptDmnEnumAllPrntDecoder
 {
+
+  internal static CmptDmnEnumAllPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumAllPrntDecoder
@@ -22,19 +24,23 @@ internal class CmptEnumDmnEnumAllPrntDecoder
   public string dmnEnumAllPrntPrnt { get; set; }
   public string dmnEnumAllPrnt { get; set; }
   public string dmnEnumAllPrntValue { get; set; }
+
+  internal static CmptEnumDmnEnumAllPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntDmnEnumAllPrntDecoder
 {
   public string prnt_dmnEnumAllPrnt { get; set; }
   public string dmnEnumAllPrntPrnt { get; set; }
+
+  internal static CmptPrntDmnEnumAllPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_domain_enum_all_parentDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_enum_all_parentDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptDmnEnumAllPrnt>(_ => new CmptDmnEnumAllPrntDecoder())
-      .AddDecoder<CmptEnumDmnEnumAllPrnt>(_ => new CmptEnumDmnEnumAllPrntDecoder())
-      .AddDecoder<CmptPrntDmnEnumAllPrnt>(_ => new CmptPrntDmnEnumAllPrntDecoder());
+      .AddDecoder<ICmptDmnEnumAllPrnt>(CmptDmnEnumAllPrntDecoder.Factory)
+      .AddDecoder<CmptEnumDmnEnumAllPrnt>(CmptEnumDmnEnumAllPrntDecoder.Factory)
+      .AddDecoder<CmptPrntDmnEnumAllPrnt>(CmptPrntDmnEnumAllPrntDecoder.Factory);
 }

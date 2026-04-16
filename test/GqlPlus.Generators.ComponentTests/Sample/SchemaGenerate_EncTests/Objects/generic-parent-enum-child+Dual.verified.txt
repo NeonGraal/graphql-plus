@@ -20,6 +20,8 @@ internal class CmptGnrcPrntEnumChildDualEncoder(
   private readonly IEncoder<ICmptFieldGnrcPrntEnumChildDualObject<CmptParentGnrcPrntEnumChildDual>> _fieldGnrcPrntEnumChildDual = encoders.EncoderFor<ICmptFieldGnrcPrntEnumChildDualObject<CmptParentGnrcPrntEnumChildDual>>();
   public Structured Encode(ICmptGnrcPrntEnumChildDualObject input)
     => _fieldGnrcPrntEnumChildDual.Encode(input);
+
+  internal static CmptGnrcPrntEnumChildDualEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class CmptFieldGnrcPrntEnumChildDualEncoder<TRef>(
@@ -36,19 +38,23 @@ internal class CmptEnumGnrcPrntEnumChildDualEncoder : IEncoder<CmptEnumGnrcPrntE
 {
   public Structured Encode(CmptEnumGnrcPrntEnumChildDual input)
     => new(input.ToString(), "_EnumGnrcPrntEnumChildDual");
+
+  internal static CmptEnumGnrcPrntEnumChildDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptParentGnrcPrntEnumChildDualEncoder : IEncoder<CmptParentGnrcPrntEnumChildDual>
 {
   public Structured Encode(CmptParentGnrcPrntEnumChildDual input)
     => new(input.ToString(), "_ParentGnrcPrntEnumChildDual");
+
+  internal static CmptParentGnrcPrntEnumChildDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_generic_parent_enum_child_DualEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_parent_enum_child_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptGnrcPrntEnumChildDualObject>(r => new CmptGnrcPrntEnumChildDualEncoder(r))
-      .AddEncoder<CmptEnumGnrcPrntEnumChildDual>(_ => new CmptEnumGnrcPrntEnumChildDualEncoder())
-      .AddEncoder<CmptParentGnrcPrntEnumChildDual>(_ => new CmptParentGnrcPrntEnumChildDualEncoder());
+      .AddEncoder<ICmptGnrcPrntEnumChildDualObject>(CmptGnrcPrntEnumChildDualEncoder.Factory)
+      .AddEncoder<CmptEnumGnrcPrntEnumChildDual>(CmptEnumGnrcPrntEnumChildDualEncoder.Factory)
+      .AddEncoder<CmptParentGnrcPrntEnumChildDual>(CmptParentGnrcPrntEnumChildDualEncoder.Factory);
 }

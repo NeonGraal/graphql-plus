@@ -11,11 +11,13 @@ internal class testDomCnstAltDmnInpEncoder : IEncoder<ItestDomCnstAltDmnInp>
 {
   public Structured Encode(ItestDomCnstAltDmnInp input)
     => new(input.Value);
+
+  internal static testDomCnstAltDmnInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_constraint_alt_domain_InputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_constraint_alt_domain_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestDomCnstAltDmnInp>(_ => new testDomCnstAltDmnInpEncoder());
+      .AddEncoder<ItestDomCnstAltDmnInp>(testDomCnstAltDmnInpEncoder.Factory);
 }

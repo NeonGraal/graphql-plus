@@ -14,11 +14,13 @@ namespace Components.Gqlp_Schema_alt_dual_Output;
 internal class CmptObjDualAltDualOutpDecoder
 {
   public decimal Alt { get; set; }
+
+  internal static CmptObjDualAltDualOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_alt_dual_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_alt_dual_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptObjDualAltDualOutpObject>(_ => new CmptObjDualAltDualOutpDecoder());
+      .AddDecoder<ICmptObjDualAltDualOutpObject>(CmptObjDualAltDualOutpDecoder.Factory);
 }

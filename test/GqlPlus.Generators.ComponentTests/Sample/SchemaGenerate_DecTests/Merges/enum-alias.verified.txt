@@ -14,11 +14,13 @@ namespace Components.Gqlp_Schema_enum_alias;
 internal class CmptEnumAliasDecoder
 {
   public string enumAlias { get; set; }
+
+  internal static CmptEnumAliasDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_enum_aliasDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_enum_aliasDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<CmptEnumAlias>(_ => new CmptEnumAliasDecoder());
+      .AddDecoder<CmptEnumAlias>(CmptEnumAliasDecoder.Factory);
 }

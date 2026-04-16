@@ -170,6 +170,8 @@ internal class FilterModelDecoder(IDecoderRepository decoders)
 
   protected override IMessages DecodeNames(IValue value, out FilterModel? output)
     => DecodeFilterNames(value, out output);
+
+  internal static FilterModelDecoder Factory(IDecoderRepository r) => new(r);
 }
 
 internal class CategoryFilterModelDecoder(
@@ -199,6 +201,8 @@ internal class CategoryFilterModelDecoder(
     output = filterModel is null ? null : new(filterModel);
     return messages;
   }
+
+  internal static CategoryFilterModelDecoder Factory(IDecoderRepository r) => new(r);
 }
 
 internal class TypeFilterModelDecoder(
@@ -228,4 +232,6 @@ internal class TypeFilterModelDecoder(
     output = filterModel is null ? null : new(filterModel);
     return messages;
   }
+
+  internal static TypeFilterModelDecoder Factory(IDecoderRepository r) => new(r);
 }

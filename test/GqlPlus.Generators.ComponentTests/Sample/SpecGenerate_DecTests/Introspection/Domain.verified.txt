@@ -86,36 +86,46 @@ internal class Cmpt_DomainKindDecoder
   public string Enum { get; set; }
   public string Number { get; set; }
   public string String { get; set; }
+
+  internal static Cmpt_DomainKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_BaseDomainItemDecoder
 {
   public bool Exclude { get; set; }
+
+  internal static Cmpt_BaseDomainItemDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_DomainTrueFalseDecoder
 {
   public bool Value { get; set; }
+
+  internal static Cmpt_DomainTrueFalseDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_DomainRangeDecoder
 {
   public decimal? Lower { get; set; }
   public decimal? Upper { get; set; }
+
+  internal static Cmpt_DomainRangeDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_DomainRegexDecoder
 {
   public string Pattern { get; set; }
+
+  internal static Cmpt_DomainRegexDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Spec_DomainDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_DomainDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<Cmpt_DomainKind>(_ => new Cmpt_DomainKindDecoder())
-      .AddDecoder<ICmpt_BaseDomainItemObject>(_ => new Cmpt_BaseDomainItemDecoder())
-      .AddDecoder<ICmpt_DomainTrueFalseObject>(_ => new Cmpt_DomainTrueFalseDecoder())
-      .AddDecoder<ICmpt_DomainRangeObject>(_ => new Cmpt_DomainRangeDecoder())
-      .AddDecoder<ICmpt_DomainRegexObject>(_ => new Cmpt_DomainRegexDecoder());
+      .AddDecoder<Cmpt_DomainKind>(Cmpt_DomainKindDecoder.Factory)
+      .AddDecoder<ICmpt_BaseDomainItemObject>(Cmpt_BaseDomainItemDecoder.Factory)
+      .AddDecoder<ICmpt_DomainTrueFalseObject>(Cmpt_DomainTrueFalseDecoder.Factory)
+      .AddDecoder<ICmpt_DomainRangeObject>(Cmpt_DomainRangeDecoder.Factory)
+      .AddDecoder<ICmpt_DomainRegexObject>(Cmpt_DomainRegexDecoder.Factory);
 }

@@ -16,11 +16,13 @@ internal class CmptRefPrntDualInpEncoder : IEncoder<ICmptRefPrntDualInpObject>
   public Structured Encode(ICmptRefPrntDualInpObject input)
     => Structured.Empty()
       .Add("parent", input.Parent);
+
+  internal static CmptRefPrntDualInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_parent_dual_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_parent_dual_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptRefPrntDualInpObject>(_ => new CmptRefPrntDualInpEncoder());
+      .AddEncoder<ICmptRefPrntDualInpObject>(CmptRefPrntDualInpEncoder.Factory);
 }

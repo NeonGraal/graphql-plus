@@ -18,6 +18,8 @@ internal class CmptPrntAltOutpEncoder(
   private readonly IEncoder<ICmptRefPrntAltOutpObject> _refPrntAltOutp = encoders.EncoderFor<ICmptRefPrntAltOutpObject>();
   public Structured Encode(ICmptPrntAltOutpObject input)
     => _refPrntAltOutp.Encode(input);
+
+  internal static CmptPrntAltOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class CmptRefPrntAltOutpEncoder : IEncoder<ICmptRefPrntAltOutpObject>
@@ -25,12 +27,14 @@ internal class CmptRefPrntAltOutpEncoder : IEncoder<ICmptRefPrntAltOutpObject>
   public Structured Encode(ICmptRefPrntAltOutpObject input)
     => Structured.Empty()
       .Add("parent", input.Parent);
+
+  internal static CmptRefPrntAltOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_parent_alt_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_parent_alt_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptPrntAltOutpObject>(r => new CmptPrntAltOutpEncoder(r))
-      .AddEncoder<ICmptRefPrntAltOutpObject>(_ => new CmptRefPrntAltOutpEncoder());
+      .AddEncoder<ICmptPrntAltOutpObject>(CmptPrntAltOutpEncoder.Factory)
+      .AddEncoder<ICmptRefPrntAltOutpObject>(CmptRefPrntAltOutpEncoder.Factory);
 }

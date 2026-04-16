@@ -12,4 +12,6 @@ internal class MergeUnionMembers
     => item.Name;
   protected override IAstUnionMember MergeGroup(IEnumerable<IAstUnionMember> group)
     => group.First();
+
+  internal static MergeUnionMembers Factory(IMergerRepository _) => new();
 }

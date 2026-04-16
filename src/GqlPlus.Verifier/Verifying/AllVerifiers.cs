@@ -16,55 +16,55 @@ public static class AllVerifiers
   public static IVerifierRepositoryBuilder AddSchemaVerifiers([NotNull] this IVerifierRepositoryBuilder builder)
     => builder
         // Schema
-        .AddVerify(v => new VerifySchema(v))
+        .AddVerify(VerifySchema.Factory)
         .AddSchemaGlobalVerifiers()
-        .AddVerify(v => new VerifyAllTypes(v))
-        .AddVerifyAliased(v => new VerifyAllTypesAliased(v))
+        .AddVerify(VerifyAllTypes.Factory)
+        .AddVerifyAliased(VerifyAllTypesAliased.Factory)
         .AddSchemaSimpleVerifiers()
         .AddSchemaObjectVerifiers();
 
   public static IVerifierRepositoryBuilder AddSchemaGlobalVerifiers([NotNull] this IVerifierRepositoryBuilder builder)
     => builder
         .AddVerifyUsageAliased(
-          v => new VerifyCategoryAliased(v),
-          v => new VerifyCategoryOutput(v))
+          VerifyCategoryAliased.Factory,
+          VerifyCategoryOutput.Factory)
         .AddVerifyUsageAliased(
-          v => new VerifyDirectiveAliased(v),
-          v => new VerifyDirectiveInput(v))
-        .AddVerifyAliased(v => new VerifyOptionAliased(v));
+          VerifyDirectiveAliased.Factory,
+          VerifyDirectiveInput.Factory)
+        .AddVerifyAliased(VerifyOptionAliased.Factory);
 
   public static IVerifierRepositoryBuilder AddSchemaSimpleVerifiers([NotNull] this IVerifierRepositoryBuilder builder)
     => builder
         .AddSchemaDomainVerifiers()
         .AddVerifyUsageAliased(
-          v => new VerifyEnumsAliased(v),
-          v => new VerifyEnumTypes(v))
+          VerifyEnumsAliased.Factory,
+          VerifyEnumTypes.Factory)
         .AddVerifyUsageAliased(
-          v => new VerifyUnionsAliased(v),
-          v => new VerifyUnionTypes(v));
+          VerifyUnionsAliased.Factory,
+          VerifyUnionTypes.Factory);
 
   public static IVerifierRepositoryBuilder AddSchemaDomainVerifiers([NotNull] this IVerifierRepositoryBuilder builder)
     => builder
         .AddVerifyUsageAliased(
-          v => new VerifyDomainsAliased(v),
-          v => new VerifyDomainTypes(v))
-        .AddDomain(v => new AstDomainVerifier<IAstDomainRange>(v))
-        .AddDomain(v => new AstDomainVerifier<IAstDomainRegex>(v))
-        .AddDomain(v => new AstDomainVerifier<IAstDomainTrueFalse>(v))
-        .AddDomain(v => new VerifyDomainEnum(v));
+          VerifyDomainsAliased.Factory,
+          VerifyDomainTypes.Factory)
+        .AddDomain(AstDomainVerifier<IAstDomainRange>.Factory)
+        .AddDomain(AstDomainVerifier<IAstDomainRegex>.Factory)
+        .AddDomain(AstDomainVerifier<IAstDomainTrueFalse>.Factory)
+        .AddDomain(VerifyDomainEnum.Factory);
 
   public static IVerifierRepositoryBuilder AddSchemaObjectVerifiers([NotNull] this IVerifierRepositoryBuilder builder)
     => builder
-        .AddVerifyObject(TypeKind.Dual, v => new VerifyDualTypes(v))
-        .AddVerifyObject(TypeKind.Input, v => new VerifyInputTypes(v))
-        .AddVerifyObject(TypeKind.Output, v => new VerifyOutputTypes(v));
+        .AddVerifyObject(TypeKind.Dual, VerifyDualTypes.Factory)
+        .AddVerifyObject(TypeKind.Input, VerifyInputTypes.Factory)
+        .AddVerifyObject(TypeKind.Output, VerifyOutputTypes.Factory);
 
   public static IVerifierRepositoryBuilder AddOperationVerifiers([NotNull] this IVerifierRepositoryBuilder builder)
     => builder
-      .AddVerify(v => new VerifyOperation(v))
-      .AddVerify(_ => new VerifyVariable())
-      .AddVerifyUsageIdentified(v => new VerifyVariableUsage(v))
-      .AddVerifyUsageIdentified(v => new VerifyFragmentUsage(v));
+      .AddVerify(VerifyOperation.Factory)
+      .AddVerify(VerifyVariable.Factory)
+      .AddVerifyUsageIdentified(VerifyVariableUsage.Factory)
+      .AddVerifyUsageIdentified(VerifyFragmentUsage.Factory);
 
   public static IServiceCollection AddVerifiers(this IServiceCollection services, Action<IVerifierRepositoryBuilder> config)
   {
@@ -82,8 +82,8 @@ public static class AllVerifiers
     where TIdentified : IAstIdentified
     => builder
       .AddIdentified(identifiedFactory)
-      .TryAddVerify(v => new NullVerifierError<TUsage>(v))
-      .TryAddVerify(v => new NullVerifierError<TIdentified>(v));
+      .TryAddVerify(NullVerifierError<TUsage>.Factory)
+      .TryAddVerify(NullVerifierError<TIdentified>.Factory);
 
   private static IVerifierRepositoryBuilder AddVerifyAliased<TAliased>(
     this IVerifierRepositoryBuilder builder,
@@ -91,7 +91,7 @@ public static class AllVerifiers
     where TAliased : IAstAliased
     => builder
       .AddAliased(aliasedFactory)
-      .TryAddVerify(v => new NullVerifierError<TAliased>(v));
+      .TryAddVerify(NullVerifierError<TAliased>.Factory);
 
   private static IVerifierRepositoryBuilder AddVerifyUsageAliased<TUsage>(
     this IVerifierRepositoryBuilder builder,
@@ -101,7 +101,7 @@ public static class AllVerifiers
     => builder
       .AddAliased(aliasedFactory)
       .AddUsage(usageFactory)
-      .TryAddVerify(v => new NullVerifierError<TUsage>(v));
+      .TryAddVerify(NullVerifierError<TUsage>.Factory);
 
   private static IVerifierRepositoryBuilder AddVerifyObject<TField>(
     this IVerifierRepositoryBuilder builder,
@@ -111,5 +111,5 @@ public static class AllVerifiers
     => builder
       .AddAliased(v => new ObjectsAliasedVerifier<TField>(v, fieldKind))
       .AddUsage(usageFactory)
-      .TryAddVerify(v => new NullVerifierError<IAstObject<TField>>(v));
+      .TryAddVerify(NullVerifierError<IAstObject<TField>>.Factory);
 }

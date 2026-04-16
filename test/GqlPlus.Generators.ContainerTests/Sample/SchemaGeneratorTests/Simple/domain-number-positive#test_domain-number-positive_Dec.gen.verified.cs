@@ -9,11 +9,13 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_number_positive;
 
 internal class testDmnNmbrPstvDecoder
 {
+
+  internal static testDmnNmbrPstvDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_domain_number_positiveDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_domain_number_positiveDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestDmnNmbrPstv>(_ => new testDmnNmbrPstvDecoder());
+      .AddDecoder<ItestDmnNmbrPstv>(testDmnNmbrPstvDecoder.Factory);
 }

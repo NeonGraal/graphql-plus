@@ -15,11 +15,13 @@ internal class CmptDescrDblEncoder : IEncoder<ICmptDescrDblObject>
 {
   public Structured Encode(ICmptDescrDblObject input)
     => Structured.Empty();
+
+  internal static CmptDescrDblEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_descr_doubleEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_descr_doubleEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptDescrDblObject>(_ => new CmptDescrDblEncoder());
+      .AddEncoder<ICmptDescrDblObject>(CmptDescrDblEncoder.Factory);
 }

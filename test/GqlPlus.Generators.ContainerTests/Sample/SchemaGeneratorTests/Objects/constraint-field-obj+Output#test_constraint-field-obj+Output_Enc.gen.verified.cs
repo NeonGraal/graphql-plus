@@ -14,6 +14,8 @@ internal class testCnstFieldObjOutpEncoder(
   private readonly IEncoder<ItestRefCnstFieldObjOutpObject<ItestAltCnstFieldObjOutp>> _itestRefCnstFieldObjOutp = encoders.EncoderFor<ItestRefCnstFieldObjOutpObject<ItestAltCnstFieldObjOutp>>();
   public Structured Encode(ItestCnstFieldObjOutpObject input)
     => _itestRefCnstFieldObjOutp.Encode(input);
+
+  internal static testCnstFieldObjOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testRefCnstFieldObjOutpEncoder<TRef>(
@@ -30,6 +32,8 @@ internal class testPrntCnstFieldObjOutpEncoder : IEncoder<ItestPrntCnstFieldObjO
 {
   public Structured Encode(ItestPrntCnstFieldObjOutpObject input)
     => Structured.Empty();
+
+  internal static testPrntCnstFieldObjOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testAltCnstFieldObjOutpEncoder(
@@ -40,13 +44,15 @@ internal class testAltCnstFieldObjOutpEncoder(
   public Structured Encode(ItestAltCnstFieldObjOutpObject input)
     => _itestPrntCnstFieldObjOutp.Encode(input)
       .Add("alt", input.Alt);
+
+  internal static testAltCnstFieldObjOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class test_constraint_field_obj_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_constraint_field_obj_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestCnstFieldObjOutpObject>(r => new testCnstFieldObjOutpEncoder(r))
-      .AddEncoder<ItestPrntCnstFieldObjOutpObject>(_ => new testPrntCnstFieldObjOutpEncoder())
-      .AddEncoder<ItestAltCnstFieldObjOutpObject>(r => new testAltCnstFieldObjOutpEncoder(r));
+      .AddEncoder<ItestCnstFieldObjOutpObject>(testCnstFieldObjOutpEncoder.Factory)
+      .AddEncoder<ItestPrntCnstFieldObjOutpObject>(testPrntCnstFieldObjOutpEncoder.Factory)
+      .AddEncoder<ItestAltCnstFieldObjOutpObject>(testAltCnstFieldObjOutpEncoder.Factory);
 }

@@ -22,64 +22,64 @@ public static class AllMergers
 
   public static IMergerRepositoryBuilder AddSchemaMergers(this IMergerRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      .AddMerge(_ => new MergeConstants())
-      .AddMerge(m => new MergeSchemas(m))
+      .AddMerge(MergeConstants.Factory)
+      .AddMerge(MergeSchemas.Factory)
       .AddSchemaGlobalMergers()
-      .AddMerge(m => new MergeAllTypes(m))
+      .AddMerge(MergeAllTypes.Factory)
       .AddSchemaSimpleMergers()
       .AddSchemaObjectMergers();
 
   public static IMergerRepositoryBuilder AddSchemaGlobalMergers(this IMergerRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      .AddMerge(m => new MergeCategories(m))
-      .AddMerge(m => new MergeDirectives(m))
-      .AddMerge(m => new MergeOptions(m))
-      .AddMerge(m => new MergeOptionSettings(m));
+      .AddMerge(MergeCategories.Factory)
+      .AddMerge(MergeDirectives.Factory)
+      .AddMerge(MergeOptions.Factory)
+      .AddMerge(MergeOptionSettings.Factory);
 
   public static IMergerRepositoryBuilder AddSchemaSimpleMergers(this IMergerRepositoryBuilder builder)
     => builder.ThrowIfNull()
       .AddSchemaDomainMergers()
       .AddSchemaDomainMergeAlls()
-      .AddMerge(m => new MergeEnumLabels(m))
-      .AddMergeAll<IAstEnum, IAstType, MergeEnums>(m => new MergeEnums(m))
-      .AddMerge(_ => new MergeUnionMembers())
-      .AddMergeAll<IAstUnion, IAstType, MergeUnions>(m => new MergeUnions(m));
+      .AddMerge(MergeEnumLabels.Factory)
+      .AddMergeAll<IAstEnum, IAstType, MergeEnums>(MergeEnums.Factory)
+      .AddMerge(MergeUnionMembers.Factory)
+      .AddMergeAll<IAstUnion, IAstType, MergeUnions>(MergeUnions.Factory);
 
   public static IMergerRepositoryBuilder AddSchemaDomainMergers(this IMergerRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      .AddMerge(m => new MergeDomainLabels(m))
-      .AddMerge(m => new MergeDomainRanges(m))
-      .AddMerge(m => new MergeDomainRegexes(m))
-      .AddMerge(m => new MergeDomainTrueFalse(m));
+      .AddMerge(MergeDomainLabels.Factory)
+      .AddMerge(MergeDomainRanges.Factory)
+      .AddMerge(MergeDomainRegexes.Factory)
+      .AddMerge(MergeDomainTrueFalse.Factory);
 
   public static IMergerRepositoryBuilder AddSchemaDomainMergeAlls(this IMergerRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      .AddMergeAll<IAstDomain, IAstType, MergeAllDomains>(m => new MergeAllDomains(m))
+      .AddMergeAll<IAstDomain, IAstType, MergeAllDomains>(MergeAllDomains.Factory)
       .AddMergeAll<IAstDomain<IAstDomainLabel>, IAstDomain, MergeDomains<DomainLabelAst, IAstDomainLabel>>(
-        m => new MergeDomains<DomainLabelAst, IAstDomainLabel>(m))
+        MergeDomains<DomainLabelAst, IAstDomainLabel>.Factory)
       .AddMergeAll<IAstDomain<IAstDomainRange>, IAstDomain, MergeDomains<DomainRangeAst, IAstDomainRange>>(
-        m => new MergeDomains<DomainRangeAst, IAstDomainRange>(m))
+        MergeDomains<DomainRangeAst, IAstDomainRange>.Factory)
       .AddMergeAll<IAstDomain<IAstDomainRegex>, IAstDomain, MergeDomains<DomainRegexAst, IAstDomainRegex>>(
-        m => new MergeDomains<DomainRegexAst, IAstDomainRegex>(m))
+        MergeDomains<DomainRegexAst, IAstDomainRegex>.Factory)
       .AddMergeAll<IAstDomain<IAstDomainTrueFalse>, IAstDomain, MergeDomains<DomainTrueFalseAst, IAstDomainTrueFalse>>(
-        m => new MergeDomains<DomainTrueFalseAst, IAstDomainTrueFalse>(m));
+        MergeDomains<DomainTrueFalseAst, IAstDomainTrueFalse>.Factory);
 
   public static IMergerRepositoryBuilder AddSchemaObjectMergers(this IMergerRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      .AddMerge(_ => new MergeTypeParams())
-      .AddMerge(m => new MergeAlternates(m))
-      .AddMerge(m => new MergeDualFields(m))
-      .AddMerge(m => new MergeInputFields(m))
-      .AddMerge(m => new MergeInputParams(m))
-      .AddMerge(m => new MergeOutputFields(m))
+      .AddMerge(MergeTypeParams.Factory)
+      .AddMerge(MergeAlternates.Factory)
+      .AddMerge(MergeDualFields.Factory)
+      .AddMerge(MergeInputFields.Factory)
+      .AddMerge(MergeInputParams.Factory)
+      .AddMerge(MergeOutputFields.Factory)
       .AddSchemaObjectMergeAlls();
 
   public static IMergerRepositoryBuilder AddSchemaObjectMergeAlls(this IMergerRepositoryBuilder builder)
     => builder.ThrowIfNull()
       .AddMergeAll<IAstObject<IAstDualField>, IAstType, AstObjectsMerger<IAstDualField>>(
-        m => new AstObjectsMerger<IAstDualField>(m))
+        AstObjectsMerger<IAstDualField>.Factory)
       .AddMergeAll<IAstObject<IAstInputField>, IAstType, AstObjectsMerger<IAstInputField>>(
-        m => new AstObjectsMerger<IAstInputField>(m))
+        AstObjectsMerger<IAstInputField>.Factory)
       .AddMergeAll<IAstObject<IAstOutputField>, IAstType, AstObjectsMerger<IAstOutputField>>(
-        m => new AstObjectsMerger<IAstOutputField>(m));
+        AstObjectsMerger<IAstOutputField>.Factory);
 }

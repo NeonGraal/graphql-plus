@@ -16,11 +16,13 @@ internal class CmptObjFieldEnumValueDualEncoder : IEncoder<ICmptObjFieldEnumValu
   public Structured Encode(ICmptObjFieldEnumValueDualObject input)
     => Structured.Empty()
       .Add("field", input.Field);
+
+  internal static CmptObjFieldEnumValueDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_object_field_enum_value_DualEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_object_field_enum_value_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptObjFieldEnumValueDualObject>(_ => new CmptObjFieldEnumValueDualEncoder());
+      .AddEncoder<ICmptObjFieldEnumValueDualObject>(CmptObjFieldEnumValueDualEncoder.Factory);
 }

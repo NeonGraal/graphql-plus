@@ -15,6 +15,8 @@ internal class testUnionSamePrntEncoder(
   public Structured Encode(ItestUnionSamePrnt input)
     => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
      : Structured.Empty();
+
+  internal static testUnionSamePrntEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testPrntUnionSamePrntEncoder(
@@ -25,12 +27,14 @@ internal class testPrntUnionSamePrntEncoder(
   public Structured Encode(ItestPrntUnionSamePrnt input)
     => input.HasA<string>() ? _string.Encode(input.AsA<string>())
      : Structured.Empty();
+
+  internal static testPrntUnionSamePrntEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class test_union_same_parentEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_union_same_parentEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestUnionSamePrnt>(r => new testUnionSamePrntEncoder(r))
-      .AddEncoder<ItestPrntUnionSamePrnt>(r => new testPrntUnionSamePrntEncoder(r));
+      .AddEncoder<ItestUnionSamePrnt>(testUnionSamePrntEncoder.Factory)
+      .AddEncoder<ItestPrntUnionSamePrnt>(testPrntUnionSamePrntEncoder.Factory);
 }

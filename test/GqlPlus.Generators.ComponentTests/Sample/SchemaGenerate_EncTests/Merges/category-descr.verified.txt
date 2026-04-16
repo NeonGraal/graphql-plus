@@ -18,11 +18,13 @@ internal class CmptCtgrDescrEncoder : IEncoder<ICmptCtgrDescrObject>
 {
   public Structured Encode(ICmptCtgrDescrObject input)
     => Structured.Empty();
+
+  internal static CmptCtgrDescrEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_category_descrEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_category_descrEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptCtgrDescrObject>(_ => new CmptCtgrDescrEncoder());
+      .AddEncoder<ICmptCtgrDescrObject>(CmptCtgrDescrEncoder.Factory);
 }

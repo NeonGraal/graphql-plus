@@ -59,6 +59,8 @@ internal class Cmpt_AndTypeEncoder(
   public Structured Encode(ICmpt_AndTypeObject input)
     => _named.Encode(input)
       .AddEncoded("type", input.Type, _type);
+
+  internal static Cmpt_AndTypeEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_CategoriesEncoder(
@@ -70,6 +72,8 @@ internal class Cmpt_CategoriesEncoder(
   public Structured Encode(ICmpt_CategoriesObject input)
     => _andType.Encode(input)
       .AddEncoded("category", input.Category, _category);
+
+  internal static Cmpt_CategoriesEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_CategoryEncoder(
@@ -84,12 +88,16 @@ internal class Cmpt_CategoryEncoder(
       .AddEnum("resolution", input.Resolution)
       .AddEncoded("output", input.Output, _typeRef)
       .AddList("modifiers", input.Modifiers, _modifiers);
+
+  internal static Cmpt_CategoryEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_ResolutionEncoder : IEncoder<Cmpt_Resolution>
 {
   public Structured Encode(Cmpt_Resolution input)
     => new(input.ToString(), "_Resolution");
+
+  internal static Cmpt_ResolutionEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class Cmpt_DirectivesEncoder(
@@ -101,6 +109,8 @@ internal class Cmpt_DirectivesEncoder(
   public Structured Encode(ICmpt_DirectivesObject input)
     => _andType.Encode(input)
       .AddEncoded("directive", input.Directive, _directive);
+
+  internal static Cmpt_DirectivesEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_DirectiveEncoder(
@@ -113,12 +123,16 @@ internal class Cmpt_DirectiveEncoder(
     => _aliased.Encode(input)
       .AddEncoded("parameter", input.Parameter, _inputFieldType)
       .Add("repeatable", input.Repeatable);
+
+  internal static Cmpt_DirectiveEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_LocationEncoder : IEncoder<Cmpt_Location>
 {
   public Structured Encode(Cmpt_Location input)
     => new(input.ToString(), "_Location");
+
+  internal static Cmpt_LocationEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class Cmpt_SettingEncoder(
@@ -130,18 +144,20 @@ internal class Cmpt_SettingEncoder(
   public Structured Encode(ICmpt_SettingObject input)
     => _named.Encode(input)
       .AddEncoded("value", input.Value, _gqlpValue);
+
+  internal static Cmpt_SettingEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class Cmpt_Spec_GlobalEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Spec_GlobalEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmpt_AndTypeObject>(r => new Cmpt_AndTypeEncoder(r))
-      .AddEncoder<ICmpt_CategoriesObject>(r => new Cmpt_CategoriesEncoder(r))
-      .AddEncoder<ICmpt_CategoryObject>(r => new Cmpt_CategoryEncoder(r))
-      .AddEncoder<Cmpt_Resolution>(_ => new Cmpt_ResolutionEncoder())
-      .AddEncoder<ICmpt_DirectivesObject>(r => new Cmpt_DirectivesEncoder(r))
-      .AddEncoder<ICmpt_DirectiveObject>(r => new Cmpt_DirectiveEncoder(r))
-      .AddEncoder<Cmpt_Location>(_ => new Cmpt_LocationEncoder())
-      .AddEncoder<ICmpt_SettingObject>(r => new Cmpt_SettingEncoder(r));
+      .AddEncoder<ICmpt_AndTypeObject>(Cmpt_AndTypeEncoder.Factory)
+      .AddEncoder<ICmpt_CategoriesObject>(Cmpt_CategoriesEncoder.Factory)
+      .AddEncoder<ICmpt_CategoryObject>(Cmpt_CategoryEncoder.Factory)
+      .AddEncoder<Cmpt_Resolution>(Cmpt_ResolutionEncoder.Factory)
+      .AddEncoder<ICmpt_DirectivesObject>(Cmpt_DirectivesEncoder.Factory)
+      .AddEncoder<ICmpt_DirectiveObject>(Cmpt_DirectiveEncoder.Factory)
+      .AddEncoder<Cmpt_Location>(Cmpt_LocationEncoder.Factory)
+      .AddEncoder<ICmpt_SettingObject>(Cmpt_SettingEncoder.Factory);
 }

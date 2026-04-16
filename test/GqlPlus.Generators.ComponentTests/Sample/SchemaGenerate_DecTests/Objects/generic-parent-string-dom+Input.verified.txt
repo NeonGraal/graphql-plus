@@ -14,6 +14,8 @@ namespace Components.Gqlp_Schema_generic_parent_string_dom_Input;
 
 internal class CmptGnrcPrntStrDomInpDecoder
 {
+
+  internal static CmptGnrcPrntStrDomInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptFieldGnrcPrntStrDomInpDecoder<TRef>
@@ -23,12 +25,14 @@ internal class CmptFieldGnrcPrntStrDomInpDecoder<TRef>
 
 internal class CmptDomGnrcPrntStrDomInpDecoder
 {
+
+  internal static CmptDomGnrcPrntStrDomInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_generic_parent_string_dom_InputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_parent_string_dom_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptGnrcPrntStrDomInpObject>(_ => new CmptGnrcPrntStrDomInpDecoder())
-      .AddDecoder<ICmptDomGnrcPrntStrDomInp>(_ => new CmptDomGnrcPrntStrDomInpDecoder());
+      .AddDecoder<ICmptGnrcPrntStrDomInpObject>(CmptGnrcPrntStrDomInpDecoder.Factory)
+      .AddDecoder<ICmptDomGnrcPrntStrDomInp>(CmptDomGnrcPrntStrDomInpDecoder.Factory);
 }

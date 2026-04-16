@@ -15,11 +15,13 @@ internal class testFieldModParamInpDecoder<TMod>
 internal class testFldFieldModParamInpDecoder
 {
   public decimal Field { get; set; }
+
+  internal static testFldFieldModParamInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_field_mod_param_InputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_field_mod_param_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestFldFieldModParamInpObject>(_ => new testFldFieldModParamInpDecoder());
+      .AddDecoder<ItestFldFieldModParamInpObject>(testFldFieldModParamInpDecoder.Factory);
 }

@@ -19,6 +19,8 @@ internal class BooleanDecoder
       BuiltIn.BooleanFalse => false,
       _ => null
     });
+
+  internal static BooleanDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class ConstantDecoder
@@ -84,6 +86,8 @@ internal class ConstantDecoder
 
     return messages;
   }
+
+  internal static ConstantDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class NumberDecoder
@@ -95,6 +99,8 @@ internal class NumberDecoder
     => Ok(output = numValue);
   protected override IMessages DecodeText(string strValue, out decimal? output)
     => Parsed(strValue, output = decimal.TryParse(strValue, out decimal result) ? result : null);
+
+  internal static NumberDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class SimpleDecoder
@@ -106,6 +112,8 @@ internal class SimpleDecoder
     => Ok(output = new(numValue));
   protected override IMessages DecodeText(string strValue, out SimpleModel? output)
     => Ok(output = new(strValue));
+
+  internal static SimpleDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class StringDecoder
@@ -117,4 +125,6 @@ internal class StringDecoder
     => Ok(output = $"{numValue:0.#####}");
   protected override IMessages DecodeText(string strValue, out string? output)
     => Ok(output = strValue);
+
+  internal static StringDecoder Factory(IDecoderRepository _) => new();
 }

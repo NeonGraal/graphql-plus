@@ -17,18 +17,22 @@ internal class CmptEnumCnstEnumPrntInpEncoder : IEncoder<CmptEnumCnstEnumPrntInp
 {
   public Structured Encode(CmptEnumCnstEnumPrntInp input)
     => new(input.ToString(), "_EnumCnstEnumPrntInp");
+
+  internal static CmptEnumCnstEnumPrntInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptParentCnstEnumPrntInpEncoder : IEncoder<CmptParentCnstEnumPrntInp>
 {
   public Structured Encode(CmptParentCnstEnumPrntInp input)
     => new(input.ToString(), "_ParentCnstEnumPrntInp");
+
+  internal static CmptParentCnstEnumPrntInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_constraint_enum_parent_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_enum_parent_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<CmptEnumCnstEnumPrntInp>(_ => new CmptEnumCnstEnumPrntInpEncoder())
-      .AddEncoder<CmptParentCnstEnumPrntInp>(_ => new CmptParentCnstEnumPrntInpEncoder());
+      .AddEncoder<CmptEnumCnstEnumPrntInp>(CmptEnumCnstEnumPrntInpEncoder.Factory)
+      .AddEncoder<CmptParentCnstEnumPrntInp>(CmptParentCnstEnumPrntInpEncoder.Factory);
 }

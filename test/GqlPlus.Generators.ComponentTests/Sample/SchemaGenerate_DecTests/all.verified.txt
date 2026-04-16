@@ -36,38 +36,48 @@ namespace Components.Gqlp_Schema_all;
 
 internal class CmptGuidDecoder
 {
+
+  internal static CmptGuidDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptOneDecoder
 {
   public string Two { get; set; }
   public string Three { get; set; }
+
+  internal static CmptOneDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptManyDecoder
 {
   public Guid AsGuid { get; set; }
   public Number AsNumber { get; set; }
+
+  internal static CmptManyDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptFieldDecoder
 {
   public ICollection<string> Strings { get; set; }
+
+  internal static CmptFieldDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptParamDecoder
 {
   public ICmptMany? AfterId { get; set; }
   public ICmptMany BeforeId { get; set; }
+
+  internal static CmptParamDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_allDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_allDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptGuid>(_ => new CmptGuidDecoder())
-      .AddDecoder<CmptOne>(_ => new CmptOneDecoder())
-      .AddDecoder<ICmptMany>(_ => new CmptManyDecoder())
-      .AddDecoder<ICmptFieldObject>(_ => new CmptFieldDecoder())
-      .AddDecoder<ICmptParamObject>(_ => new CmptParamDecoder());
+      .AddDecoder<ICmptGuid>(CmptGuidDecoder.Factory)
+      .AddDecoder<CmptOne>(CmptOneDecoder.Factory)
+      .AddDecoder<ICmptMany>(CmptManyDecoder.Factory)
+      .AddDecoder<ICmptFieldObject>(CmptFieldDecoder.Factory)
+      .AddDecoder<ICmptParamObject>(CmptParamDecoder.Factory);
 }

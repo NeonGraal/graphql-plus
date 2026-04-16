@@ -17,16 +17,20 @@ internal class CmptEnumGnrcPrntEnumDomOutpDecoder
 {
   public string gnrcPrntEnumDomOutpLabel { get; set; }
   public string gnrcPrntEnumDomOutpOther { get; set; }
+
+  internal static CmptEnumGnrcPrntEnumDomOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptDomGnrcPrntEnumDomOutpDecoder
 {
+
+  internal static CmptDomGnrcPrntEnumDomOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_generic_parent_enum_dom_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_parent_enum_dom_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<CmptEnumGnrcPrntEnumDomOutp>(_ => new CmptEnumGnrcPrntEnumDomOutpDecoder())
-      .AddDecoder<ICmptDomGnrcPrntEnumDomOutp>(_ => new CmptDomGnrcPrntEnumDomOutpDecoder());
+      .AddDecoder<CmptEnumGnrcPrntEnumDomOutp>(CmptEnumGnrcPrntEnumDomOutpDecoder.Factory)
+      .AddDecoder<ICmptDomGnrcPrntEnumDomOutp>(CmptDomGnrcPrntEnumDomOutpDecoder.Factory);
 }

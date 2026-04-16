@@ -11,18 +11,22 @@ internal class testObjAltOutpEncoder : IEncoder<ItestObjAltOutpObject>
 {
   public Structured Encode(ItestObjAltOutpObject input)
     => Structured.Empty();
+
+  internal static testObjAltOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testObjAltOutpTypeEncoder : IEncoder<ItestObjAltOutpTypeObject>
 {
   public Structured Encode(ItestObjAltOutpTypeObject input)
     => Structured.Empty();
+
+  internal static testObjAltOutpTypeEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_object_alt_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_object_alt_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestObjAltOutpObject>(_ => new testObjAltOutpEncoder())
-      .AddEncoder<ItestObjAltOutpTypeObject>(_ => new testObjAltOutpTypeEncoder());
+      .AddEncoder<ItestObjAltOutpObject>(testObjAltOutpEncoder.Factory)
+      .AddEncoder<ItestObjAltOutpTypeObject>(testObjAltOutpTypeEncoder.Factory);
 }

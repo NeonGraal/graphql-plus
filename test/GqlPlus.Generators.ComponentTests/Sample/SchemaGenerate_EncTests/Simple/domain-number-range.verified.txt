@@ -14,11 +14,13 @@ internal class CmptDmnNmbrRangeEncoder : IEncoder<ICmptDmnNmbrRange>
 {
   public Structured Encode(ICmptDmnNmbrRange input)
     => new(input.Value);
+
+  internal static CmptDmnNmbrRangeEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_domain_number_rangeEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_number_rangeEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptDmnNmbrRange>(_ => new CmptDmnNmbrRangeEncoder());
+      .AddEncoder<ICmptDmnNmbrRange>(CmptDmnNmbrRangeEncoder.Factory);
 }

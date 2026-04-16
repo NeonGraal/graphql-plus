@@ -10,17 +10,21 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_enum_Input;
 internal class testFieldEnumInpDecoder
 {
   public testEnumFieldEnumInp Field { get; set; }
+
+  internal static testFieldEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testEnumFieldEnumInpDecoder
 {
   public string fieldEnumInp { get; set; }
+
+  internal static testEnumFieldEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_field_enum_InputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_field_enum_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestFieldEnumInpObject>(_ => new testFieldEnumInpDecoder())
-      .AddDecoder<testEnumFieldEnumInp>(_ => new testEnumFieldEnumInpDecoder());
+      .AddDecoder<ItestFieldEnumInpObject>(testFieldEnumInpDecoder.Factory)
+      .AddDecoder<testEnumFieldEnumInp>(testEnumFieldEnumInpDecoder.Factory);
 }

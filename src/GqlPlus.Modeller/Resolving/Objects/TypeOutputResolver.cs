@@ -109,4 +109,6 @@ internal class TypeOutputResolver(
 
     return false;
   }
+
+  internal static TypeOutputResolver Factory(IResolverRepository r) => new(r);
 }

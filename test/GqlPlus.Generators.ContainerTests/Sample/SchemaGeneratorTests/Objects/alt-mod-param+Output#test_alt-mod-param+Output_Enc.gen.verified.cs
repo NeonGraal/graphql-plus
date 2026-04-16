@@ -18,11 +18,13 @@ internal class testAltAltModParamOutpEncoder : IEncoder<ItestAltAltModParamOutpO
   public Structured Encode(ItestAltAltModParamOutpObject input)
     => Structured.Empty()
       .Add("alt", input.Alt);
+
+  internal static testAltAltModParamOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_alt_mod_param_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_alt_mod_param_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestAltAltModParamOutpObject>(_ => new testAltAltModParamOutpEncoder());
+      .AddEncoder<ItestAltAltModParamOutpObject>(testAltAltModParamOutpEncoder.Factory);
 }

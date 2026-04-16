@@ -14,6 +14,8 @@ internal class testGnrcPrntEnumChildDualEncoder(
   private readonly IEncoder<ItestFieldGnrcPrntEnumChildDualObject<testParentGnrcPrntEnumChildDual>> _itestFieldGnrcPrntEnumChildDual = encoders.EncoderFor<ItestFieldGnrcPrntEnumChildDualObject<testParentGnrcPrntEnumChildDual>>();
   public Structured Encode(ItestGnrcPrntEnumChildDualObject input)
     => _itestFieldGnrcPrntEnumChildDual.Encode(input);
+
+  internal static testGnrcPrntEnumChildDualEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testFieldGnrcPrntEnumChildDualEncoder<TRef>(
@@ -30,19 +32,23 @@ internal class testEnumGnrcPrntEnumChildDualEncoder : IEncoder<testEnumGnrcPrntE
 {
   public Structured Encode(testEnumGnrcPrntEnumChildDual input)
     => new(input.ToString(), "_EnumGnrcPrntEnumChildDual");
+
+  internal static testEnumGnrcPrntEnumChildDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testParentGnrcPrntEnumChildDualEncoder : IEncoder<testParentGnrcPrntEnumChildDual>
 {
   public Structured Encode(testParentGnrcPrntEnumChildDual input)
     => new(input.ToString(), "_ParentGnrcPrntEnumChildDual");
+
+  internal static testParentGnrcPrntEnumChildDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_generic_parent_enum_child_DualEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_generic_parent_enum_child_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestGnrcPrntEnumChildDualObject>(r => new testGnrcPrntEnumChildDualEncoder(r))
-      .AddEncoder<testEnumGnrcPrntEnumChildDual>(_ => new testEnumGnrcPrntEnumChildDualEncoder())
-      .AddEncoder<testParentGnrcPrntEnumChildDual>(_ => new testParentGnrcPrntEnumChildDualEncoder());
+      .AddEncoder<ItestGnrcPrntEnumChildDualObject>(testGnrcPrntEnumChildDualEncoder.Factory)
+      .AddEncoder<testEnumGnrcPrntEnumChildDual>(testEnumGnrcPrntEnumChildDualEncoder.Factory)
+      .AddEncoder<testParentGnrcPrntEnumChildDual>(testParentGnrcPrntEnumChildDualEncoder.Factory);
 }

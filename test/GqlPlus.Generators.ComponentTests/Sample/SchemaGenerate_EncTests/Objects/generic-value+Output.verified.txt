@@ -16,6 +16,8 @@ internal class CmptGnrcValueOutpEncoder : IEncoder<ICmptGnrcValueOutpObject>
 {
   public Structured Encode(ICmptGnrcValueOutpObject input)
     => Structured.Empty();
+
+  internal static CmptGnrcValueOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptRefGnrcValueOutpEncoder<TType>(
@@ -32,12 +34,14 @@ internal class CmptEnumGnrcValueOutpEncoder : IEncoder<CmptEnumGnrcValueOutp>
 {
   public Structured Encode(CmptEnumGnrcValueOutp input)
     => new(input.ToString(), "_EnumGnrcValueOutp");
+
+  internal static CmptEnumGnrcValueOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_generic_value_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_value_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptGnrcValueOutpObject>(_ => new CmptGnrcValueOutpEncoder())
-      .AddEncoder<CmptEnumGnrcValueOutp>(_ => new CmptEnumGnrcValueOutpEncoder());
+      .AddEncoder<ICmptGnrcValueOutpObject>(CmptGnrcValueOutpEncoder.Factory)
+      .AddEncoder<CmptEnumGnrcValueOutp>(CmptEnumGnrcValueOutpEncoder.Factory);
 }

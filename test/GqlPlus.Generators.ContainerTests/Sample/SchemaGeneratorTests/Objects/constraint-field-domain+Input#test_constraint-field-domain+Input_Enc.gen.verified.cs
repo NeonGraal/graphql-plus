@@ -11,11 +11,13 @@ internal class testDomCnstFieldDmnInpEncoder : IEncoder<ItestDomCnstFieldDmnInp>
 {
   public Structured Encode(ItestDomCnstFieldDmnInp input)
     => new(input.Value);
+
+  internal static testDomCnstFieldDmnInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_constraint_field_domain_InputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_constraint_field_domain_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestDomCnstFieldDmnInp>(_ => new testDomCnstFieldDmnInpEncoder());
+      .AddEncoder<ItestDomCnstFieldDmnInp>(testDomCnstFieldDmnInpEncoder.Factory);
 }

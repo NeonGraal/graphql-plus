@@ -11,11 +11,13 @@ internal class testObjAltEnumDualEncoder : IEncoder<ItestObjAltEnumDualObject>
 {
   public Structured Encode(ItestObjAltEnumDualObject input)
     => Structured.Empty();
+
+  internal static testObjAltEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_object_alt_enum_DualEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_object_alt_enum_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestObjAltEnumDualObject>(_ => new testObjAltEnumDualEncoder());
+      .AddEncoder<ItestObjAltEnumDualObject>(testObjAltEnumDualEncoder.Factory);
 }

@@ -16,6 +16,8 @@ internal class CmptGnrcValueDualEncoder : IEncoder<ICmptGnrcValueDualObject>
 {
   public Structured Encode(ICmptGnrcValueDualObject input)
     => Structured.Empty();
+
+  internal static CmptGnrcValueDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptRefGnrcValueDualEncoder<TType>(
@@ -32,12 +34,14 @@ internal class CmptEnumGnrcValueDualEncoder : IEncoder<CmptEnumGnrcValueDual>
 {
   public Structured Encode(CmptEnumGnrcValueDual input)
     => new(input.ToString(), "_EnumGnrcValueDual");
+
+  internal static CmptEnumGnrcValueDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_generic_value_DualEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_value_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptGnrcValueDualObject>(_ => new CmptGnrcValueDualEncoder())
-      .AddEncoder<CmptEnumGnrcValueDual>(_ => new CmptEnumGnrcValueDualEncoder());
+      .AddEncoder<ICmptGnrcValueDualObject>(CmptGnrcValueDualEncoder.Factory)
+      .AddEncoder<CmptEnumGnrcValueDual>(CmptEnumGnrcValueDualEncoder.Factory);
 }

@@ -9,11 +9,13 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_alias;
 
 internal class testDmnAliasDecoder
 {
+
+  internal static testDmnAliasDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_domain_aliasDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_domain_aliasDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestDmnAlias>(_ => new testDmnAliasDecoder());
+      .AddDecoder<ItestDmnAlias>(testDmnAliasDecoder.Factory);
 }

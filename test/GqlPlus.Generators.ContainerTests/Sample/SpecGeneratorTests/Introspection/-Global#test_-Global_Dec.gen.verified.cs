@@ -12,6 +12,8 @@ internal class test_ResolutionDecoder
   public string Parallel { get; set; }
   public string Sequential { get; set; }
   public string Single { get; set; }
+
+  internal static test_ResolutionDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_LocationDecoder
@@ -22,12 +24,14 @@ internal class test_LocationDecoder
   public string Inline { get; set; }
   public string Spread { get; set; }
   public string Fragment { get; set; }
+
+  internal static test_LocationDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test__GlobalDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest__GlobalDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<test_Resolution>(_ => new test_ResolutionDecoder())
-      .AddDecoder<test_Location>(_ => new test_LocationDecoder());
+      .AddDecoder<test_Resolution>(test_ResolutionDecoder.Factory)
+      .AddDecoder<test_Location>(test_LocationDecoder.Factory);
 }

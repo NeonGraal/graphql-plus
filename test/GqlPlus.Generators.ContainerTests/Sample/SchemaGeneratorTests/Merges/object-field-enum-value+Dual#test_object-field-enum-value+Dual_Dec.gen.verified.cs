@@ -10,11 +10,13 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_field_enum_value_Dual;
 internal class testObjFieldEnumValueDualDecoder
 {
   public bool Field { get; set; }
+
+  internal static testObjFieldEnumValueDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_object_field_enum_value_DualDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_object_field_enum_value_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestObjFieldEnumValueDualObject>(_ => new testObjFieldEnumValueDualDecoder());
+      .AddDecoder<ItestObjFieldEnumValueDualObject>(testObjFieldEnumValueDualDecoder.Factory);
 }

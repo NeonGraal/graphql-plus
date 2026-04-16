@@ -14,6 +14,8 @@ internal class test_SimpleKindDecoder
   public string Internal { get; set; }
   public string Domain { get; set; }
   public string Union { get; set; }
+
+  internal static test_SimpleKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_TypeKindDecoder
@@ -26,6 +28,8 @@ internal class test_TypeKindDecoder
   public string Dual { get; set; }
   public string Input { get; set; }
   public string Output { get; set; }
+
+  internal static test_TypeKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_TypeRefDecoder<TTypeKind>
@@ -35,13 +39,15 @@ internal class test_TypeRefDecoder<TTypeKind>
 
 internal class test_TypeSimpleDecoder
 {
+
+  internal static test_TypeSimpleDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_CommonDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_CommonDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<test_SimpleKind>(_ => new test_SimpleKindDecoder())
-      .AddDecoder<test_TypeKind>(_ => new test_TypeKindDecoder())
-      .AddDecoder<Itest_TypeSimpleObject>(_ => new test_TypeSimpleDecoder());
+      .AddDecoder<test_SimpleKind>(test_SimpleKindDecoder.Factory)
+      .AddDecoder<test_TypeKind>(test_TypeKindDecoder.Factory)
+      .AddDecoder<Itest_TypeSimpleObject>(test_TypeSimpleDecoder.Factory);
 }

@@ -11,6 +11,8 @@ internal class testCnstAltDmnDualEncoder : IEncoder<ItestCnstAltDmnDualObject>
 {
   public Structured Encode(ItestCnstAltDmnDualObject input)
     => Structured.Empty();
+
+  internal static testCnstAltDmnDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testRefCnstAltDmnDualEncoder<TRef> : IEncoder<ItestRefCnstAltDmnDualObject<TRef>>
@@ -23,12 +25,14 @@ internal class testDomCnstAltDmnDualEncoder : IEncoder<ItestDomCnstAltDmnDual>
 {
   public Structured Encode(ItestDomCnstAltDmnDual input)
     => new(input.Value);
+
+  internal static testDomCnstAltDmnDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_constraint_alt_domain_DualEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_constraint_alt_domain_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestCnstAltDmnDualObject>(_ => new testCnstAltDmnDualEncoder())
-      .AddEncoder<ItestDomCnstAltDmnDual>(_ => new testDomCnstAltDmnDualEncoder());
+      .AddEncoder<ItestCnstAltDmnDualObject>(testCnstAltDmnDualEncoder.Factory)
+      .AddEncoder<ItestDomCnstAltDmnDual>(testDomCnstAltDmnDualEncoder.Factory);
 }

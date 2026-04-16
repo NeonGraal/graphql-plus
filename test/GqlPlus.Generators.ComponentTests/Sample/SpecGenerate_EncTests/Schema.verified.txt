@@ -80,18 +80,22 @@ internal class Cmpt_KeyEncoder : IEncoder<ICmpt_Key>
 {
   public Structured Encode(ICmpt_Key input)
     => Structured.Empty();
+
+  internal static Cmpt_KeyEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class Cmpt_AnyEncoder : IEncoder<ICmpt_AnyObject>
 {
   public Structured Encode(ICmpt_AnyObject input)
     => Structured.Empty();
+
+  internal static Cmpt_AnyEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Spec_SchemaEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Spec_SchemaEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmpt_Key>(_ => new Cmpt_KeyEncoder())
-      .AddEncoder<ICmpt_AnyObject>(_ => new Cmpt_AnyEncoder());
+      .AddEncoder<ICmpt_Key>(Cmpt_KeyEncoder.Factory)
+      .AddEncoder<ICmpt_AnyObject>(Cmpt_AnyEncoder.Factory);
 }

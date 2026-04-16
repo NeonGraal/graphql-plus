@@ -15,6 +15,8 @@ namespace Components.Gqlp_Schema_generic_parent_enum_parent_Dual;
 
 internal class CmptGnrcPrntEnumPrntDualDecoder
 {
+
+  internal static CmptGnrcPrntEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptFieldGnrcPrntEnumPrntDualDecoder<TRef>
@@ -26,18 +28,22 @@ internal class CmptEnumGnrcPrntEnumPrntDualDecoder
 {
   public string gnrcPrntEnumPrntDualParent { get; set; }
   public string gnrcPrntEnumPrntDualLabel { get; set; }
+
+  internal static CmptEnumGnrcPrntEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptParentGnrcPrntEnumPrntDualDecoder
 {
   public string gnrcPrntEnumPrntDualParent { get; set; }
+
+  internal static CmptParentGnrcPrntEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_generic_parent_enum_parent_DualDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_parent_enum_parent_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptGnrcPrntEnumPrntDualObject>(_ => new CmptGnrcPrntEnumPrntDualDecoder())
-      .AddDecoder<CmptEnumGnrcPrntEnumPrntDual>(_ => new CmptEnumGnrcPrntEnumPrntDualDecoder())
-      .AddDecoder<CmptParentGnrcPrntEnumPrntDual>(_ => new CmptParentGnrcPrntEnumPrntDualDecoder());
+      .AddDecoder<ICmptGnrcPrntEnumPrntDualObject>(CmptGnrcPrntEnumPrntDualDecoder.Factory)
+      .AddDecoder<CmptEnumGnrcPrntEnumPrntDual>(CmptEnumGnrcPrntEnumPrntDualDecoder.Factory)
+      .AddDecoder<CmptParentGnrcPrntEnumPrntDual>(CmptParentGnrcPrntEnumPrntDualDecoder.Factory);
 }

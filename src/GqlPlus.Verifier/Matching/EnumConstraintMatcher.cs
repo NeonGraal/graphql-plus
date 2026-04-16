@@ -12,4 +12,6 @@ internal class EnumConstraintMatcher(
   public override bool MatchesConstraint(IAstType type, IAstEnum constraint, EnumContext context)
     => base.MatchesConstraint(type, constraint, context)
       || _enumMatcher.Matches(constraint, type.Name, context);
+
+  internal static EnumConstraintMatcher Factory(IMatcherRepository m) => new(m);
 }

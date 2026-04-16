@@ -9,11 +9,13 @@ namespace GqlPlus.GeneratorTests.Gqlp_Base;
 
 internal class test_ObjectKindDecoder
 {
+
+  internal static test_ObjectKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_BaseDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_BaseDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<Itest_ObjectKind>(_ => new test_ObjectKindDecoder());
+      .AddDecoder<Itest_ObjectKind>(test_ObjectKindDecoder.Factory);
 }

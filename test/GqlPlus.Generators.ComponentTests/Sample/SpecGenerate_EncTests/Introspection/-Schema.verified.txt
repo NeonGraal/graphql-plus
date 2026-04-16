@@ -63,18 +63,24 @@ internal class Cmpt_SchemaEncoder(
   private readonly IEncoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
   public Structured Encode(ICmpt_SchemaObject input)
     => _named.Encode(input);
+
+  internal static Cmpt_SchemaEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_NameEncoder : IEncoder<ICmpt_Name>
 {
   public Structured Encode(ICmpt_Name input)
     => new(input.Value);
+
+  internal static Cmpt_NameEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class Cmpt_NameFilterEncoder : IEncoder<ICmpt_NameFilter>
 {
   public Structured Encode(ICmpt_NameFilter input)
     => new(input.Value);
+
+  internal static Cmpt_NameFilterEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class Cmpt_AliasedEncoder(
@@ -86,6 +92,8 @@ internal class Cmpt_AliasedEncoder(
   public Structured Encode(ICmpt_AliasedObject input)
     => _named.Encode(input)
       .AddList("aliases", input.Aliases, _name);
+
+  internal static Cmpt_AliasedEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_NamedEncoder(
@@ -97,6 +105,8 @@ internal class Cmpt_NamedEncoder(
   public Structured Encode(ICmpt_NamedObject input)
     => _described.Encode(input)
       .AddEncoded("name", input.Name, _name);
+
+  internal static Cmpt_NamedEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_DescribedEncoder : IEncoder<ICmpt_DescribedObject>
@@ -104,16 +114,18 @@ internal class Cmpt_DescribedEncoder : IEncoder<ICmpt_DescribedObject>
   public Structured Encode(ICmpt_DescribedObject input)
     => Structured.Empty()
       .Add("description", input.Description.Encode());
+
+  internal static Cmpt_DescribedEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Spec_SchemaEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Spec_SchemaEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmpt_SchemaObject>(r => new Cmpt_SchemaEncoder(r))
-      .AddEncoder<ICmpt_Name>(_ => new Cmpt_NameEncoder())
-      .AddEncoder<ICmpt_NameFilter>(_ => new Cmpt_NameFilterEncoder())
-      .AddEncoder<ICmpt_AliasedObject>(r => new Cmpt_AliasedEncoder(r))
-      .AddEncoder<ICmpt_NamedObject>(r => new Cmpt_NamedEncoder(r))
-      .AddEncoder<ICmpt_DescribedObject>(_ => new Cmpt_DescribedEncoder());
+      .AddEncoder<ICmpt_SchemaObject>(Cmpt_SchemaEncoder.Factory)
+      .AddEncoder<ICmpt_Name>(Cmpt_NameEncoder.Factory)
+      .AddEncoder<ICmpt_NameFilter>(Cmpt_NameFilterEncoder.Factory)
+      .AddEncoder<ICmpt_AliasedObject>(Cmpt_AliasedEncoder.Factory)
+      .AddEncoder<ICmpt_NamedObject>(Cmpt_NamedEncoder.Factory)
+      .AddEncoder<ICmpt_DescribedObject>(Cmpt_DescribedEncoder.Factory);
 }

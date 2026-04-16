@@ -14,4 +14,6 @@ internal class MergeOutputFields(
     => (OutputFieldAst)base.MergeGroup(group) with {
       Parameter = group.Merge(item => item.Parameter, mergers.MergerFor<IAstInputParam>()).FirstOrDefault(),
     };
+
+  internal static MergeOutputFields Factory(IMergerRepository m) => new(m);
 }

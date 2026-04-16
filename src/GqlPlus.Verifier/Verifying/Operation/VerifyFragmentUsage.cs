@@ -7,4 +7,6 @@ internal class VerifyFragmentUsage(IVerifierRepository verifiers) : IdentifiedVe
   public override string Label => "Spread";
 
   public override string UsageKey(IAstSpread item) => item.Identifier;
+
+  internal static VerifyFragmentUsage Factory(IVerifierRepository v) => new(v);
 }

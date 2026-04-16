@@ -22,4 +22,6 @@ internal class VerifyDirectiveInput(IVerifierRepository verifiers) : UsageVerifi
 
     context.CheckModifiers(usage.Parameter);
   }
+
+  internal static VerifyDirectiveInput Factory(IVerifierRepository v) => new(v);
 }

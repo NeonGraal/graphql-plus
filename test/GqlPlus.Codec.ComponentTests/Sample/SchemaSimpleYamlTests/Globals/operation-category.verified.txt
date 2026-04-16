@@ -8,7 +8,6 @@ categories: !_Map(_Categories)
     resolution: !_Resolution Parallel
 operations: !_Map(_Operations)
   !_Name OprCtgr: !_Operation
-    category: catOprCtgr
     name: OprCtgr
 types: !_Map(_Type)
   !_Name CatOprCtgr: !_TypeOutput

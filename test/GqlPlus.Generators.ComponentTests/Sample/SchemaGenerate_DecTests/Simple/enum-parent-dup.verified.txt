@@ -16,18 +16,22 @@ internal class CmptEnumPrntDupDecoder
   public string prnt_enumPrntDup { get; set; }
   public string enumPrntDup { get; set; }
   public string enumPrntDup { get; set; }
+
+  internal static CmptEnumPrntDupDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntEnumPrntDupDecoder
 {
   public string prnt_enumPrntDup { get; set; }
   public string enumPrntDup { get; set; }
+
+  internal static CmptPrntEnumPrntDupDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_enum_parent_dupDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_enum_parent_dupDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<CmptEnumPrntDup>(_ => new CmptEnumPrntDupDecoder())
-      .AddDecoder<CmptPrntEnumPrntDup>(_ => new CmptPrntEnumPrntDupDecoder());
+      .AddDecoder<CmptEnumPrntDup>(CmptEnumPrntDupDecoder.Factory)
+      .AddDecoder<CmptPrntEnumPrntDup>(CmptPrntEnumPrntDupDecoder.Factory);
 }

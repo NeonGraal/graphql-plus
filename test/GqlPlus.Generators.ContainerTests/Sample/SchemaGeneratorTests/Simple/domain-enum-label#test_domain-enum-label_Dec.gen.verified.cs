@@ -9,17 +9,21 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_label;
 
 internal class testDmnEnumLabelDecoder
 {
+
+  internal static testDmnEnumLabelDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testEnumDmnEnumLabelDecoder
 {
   public string dmnEnumLabel { get; set; }
+
+  internal static testEnumDmnEnumLabelDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_domain_enum_labelDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_domain_enum_labelDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestDmnEnumLabel>(_ => new testDmnEnumLabelDecoder())
-      .AddDecoder<testEnumDmnEnumLabel>(_ => new testEnumDmnEnumLabelDecoder());
+      .AddDecoder<ItestDmnEnumLabel>(testDmnEnumLabelDecoder.Factory)
+      .AddDecoder<testEnumDmnEnumLabel>(testEnumDmnEnumLabelDecoder.Factory);
 }

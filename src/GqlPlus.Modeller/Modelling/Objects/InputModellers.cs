@@ -15,6 +15,8 @@ internal class InputModeller(
       Fields = FieldsModels(ast.ObjFields, typeKinds),
       Alternates = AlternatesModels(ast.Alternates, typeKinds),
     };
+
+  internal static InputModeller Factory(IModellerRepository r) => new(r);
 }
 
 internal class InputFieldModeller(
@@ -27,6 +29,8 @@ internal class InputFieldModeller(
     => new(ast.Name, type with { Description = ast.Type.Description.IfWhiteSpace() }, ast.Description) {
       Default = _constant.TryModel(ast.DefaultValue, typeKinds),
     };
+
+  internal static InputFieldModeller Factory(IModellerRepository r) => new(r);
 }
 
 internal class InputParamModeller(
@@ -45,4 +49,6 @@ internal class InputParamModeller(
     };
     return model;
   }
+
+  internal static InputParamModeller Factory(IModellerRepository r) => new(r);
 }

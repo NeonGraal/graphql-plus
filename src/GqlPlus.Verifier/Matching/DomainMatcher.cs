@@ -44,4 +44,6 @@ internal class DomainMatcher(
   private bool MatchEnumLabel(string enumItem, string constraint, EnumContext context)
     => context.GetEnumValue(enumItem, out string? enumType)
       && MatchEnumType(enumType, constraint, context);
+
+  internal static DomainMatcher Factory(IMatcherRepository m) => new(m);
 }

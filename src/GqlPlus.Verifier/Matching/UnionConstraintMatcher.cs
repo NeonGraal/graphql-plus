@@ -15,4 +15,6 @@ internal class UnionConstraintMatcher(
 
   private Func<IAstUnionMember, bool> MatchesUnionMember(IAstType type, EnumContext context)
     => member => MatchArgOrType<IAstType, EnumContext>(type.Name, member.Name, context, _anyTypeMatcher.Matches);
+
+  internal static UnionConstraintMatcher Factory(IMatcherRepository m) => new(m);
 }

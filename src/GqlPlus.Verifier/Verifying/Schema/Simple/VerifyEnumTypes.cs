@@ -9,4 +9,6 @@ internal class VerifyEnumTypes(IVerifierRepository verifiers) : AstSimpleVerifie
 
   protected override UsageContext MakeContext(IAstEnum usage, IAstType[] aliased, IMessages errors)
     => MakeUsageContext(aliased, errors);
+
+  internal static VerifyEnumTypes Factory(IVerifierRepository v) => new(v);
 }

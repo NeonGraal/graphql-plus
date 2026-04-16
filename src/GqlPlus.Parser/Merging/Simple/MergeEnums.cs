@@ -12,4 +12,6 @@ internal class MergeEnums(
     EnumDeclAst ast = (EnumDeclAst)input;
     return ast with { Items = items.ArrayOf<EnumLabelAst>() };
   }
+
+  internal static MergeEnums Factory(IMergerRepository m) => new(m);
 }

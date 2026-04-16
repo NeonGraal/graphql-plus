@@ -29,4 +29,6 @@ internal class VerifyAllTypes(IVerifierRepository verifiers) : IVerify<IAstType[
     _domainAllTypes.Verify(new(domainTypes, allTypes), errors);
     _unionAllTypes.Verify(new(unionTypes, allTypes), errors);
   }
+
+  internal static VerifyAllTypes Factory(IVerifierRepository v) => new(v);
 }

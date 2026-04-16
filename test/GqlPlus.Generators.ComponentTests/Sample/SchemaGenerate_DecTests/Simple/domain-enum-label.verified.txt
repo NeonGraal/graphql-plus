@@ -13,17 +13,21 @@ namespace Components.Gqlp_Schema_domain_enum_label;
 
 internal class CmptDmnEnumLabelDecoder
 {
+
+  internal static CmptDmnEnumLabelDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumLabelDecoder
 {
   public string dmnEnumLabel { get; set; }
+
+  internal static CmptEnumDmnEnumLabelDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_domain_enum_labelDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_enum_labelDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptDmnEnumLabel>(_ => new CmptDmnEnumLabelDecoder())
-      .AddDecoder<CmptEnumDmnEnumLabel>(_ => new CmptEnumDmnEnumLabelDecoder());
+      .AddDecoder<ICmptDmnEnumLabel>(CmptDmnEnumLabelDecoder.Factory)
+      .AddDecoder<CmptEnumDmnEnumLabel>(CmptEnumDmnEnumLabelDecoder.Factory);
 }

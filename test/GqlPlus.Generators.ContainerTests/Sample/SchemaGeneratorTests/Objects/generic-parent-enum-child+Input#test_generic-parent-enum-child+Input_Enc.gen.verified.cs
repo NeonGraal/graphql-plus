@@ -11,18 +11,22 @@ internal class testEnumGnrcPrntEnumChildInpEncoder : IEncoder<testEnumGnrcPrntEn
 {
   public Structured Encode(testEnumGnrcPrntEnumChildInp input)
     => new(input.ToString(), "_EnumGnrcPrntEnumChildInp");
+
+  internal static testEnumGnrcPrntEnumChildInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testParentGnrcPrntEnumChildInpEncoder : IEncoder<testParentGnrcPrntEnumChildInp>
 {
   public Structured Encode(testParentGnrcPrntEnumChildInp input)
     => new(input.ToString(), "_ParentGnrcPrntEnumChildInp");
+
+  internal static testParentGnrcPrntEnumChildInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_generic_parent_enum_child_InputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_generic_parent_enum_child_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<testEnumGnrcPrntEnumChildInp>(_ => new testEnumGnrcPrntEnumChildInpEncoder())
-      .AddEncoder<testParentGnrcPrntEnumChildInp>(_ => new testParentGnrcPrntEnumChildInpEncoder());
+      .AddEncoder<testEnumGnrcPrntEnumChildInp>(testEnumGnrcPrntEnumChildInpEncoder.Factory)
+      .AddEncoder<testParentGnrcPrntEnumChildInp>(testParentGnrcPrntEnumChildInpEncoder.Factory);
 }

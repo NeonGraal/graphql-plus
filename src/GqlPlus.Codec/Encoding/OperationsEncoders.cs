@@ -3,7 +3,9 @@
 internal class OperationsEncoder(
   IEncoderRepository encoders
 ) : AndTypeEncoder<OperationsModel, OperationModel>("operation", encoders)
-{ }
+{
+  internal static OperationsEncoder Factory(IEncoderRepository r) => new(r);
+}
 
 internal class OperationEncoder(
   IEncoderRepository encoders
@@ -35,11 +37,15 @@ internal class OpFragmentEncoder
 
 internal class OpResultEncoder
   : BaseEncoder<OpResultModel>
-{ }
+{
+  internal static OpResultEncoder Factory(IEncoderRepository _) => new();
+}
 
 internal class OpSelectionEncoder
   : BaseEncoder<OpSelectionModel>
-{ }
+{
+  internal static OpSelectionEncoder Factory(IEncoderRepository _) => new();
+}
 
 internal class OpSelectionsEncoder
   : IEncoder<OpSelectionModel[]>

@@ -16,6 +16,8 @@ internal class test_EnumLabelEncoder(
   public Structured Encode(Itest_EnumLabelObject input)
     => _itest_Aliased.Encode(input)
       .AddEncoded("enumType", input.EnumType, _itest_Name);
+
+  internal static test_EnumLabelEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_EnumValueEncoder(
@@ -27,12 +29,14 @@ internal class test_EnumValueEncoder(
   public Structured Encode(Itest_EnumValueObject input)
     => _itest_TypeRef.Encode(input)
       .AddEncoded("label", input.Label, _itest_Name);
+
+  internal static test_EnumValueEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class test_EnumEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_EnumEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<Itest_EnumLabelObject>(r => new test_EnumLabelEncoder(r))
-      .AddEncoder<Itest_EnumValueObject>(r => new test_EnumValueEncoder(r));
+      .AddEncoder<Itest_EnumLabelObject>(test_EnumLabelEncoder.Factory)
+      .AddEncoder<Itest_EnumValueObject>(test_EnumValueEncoder.Factory);
 }

@@ -8,4 +8,6 @@ internal class MergeDomainTrueFalse(
 {
   protected override string ItemGroupKey(IAstDomainTrueFalse item)
     => $"{item.IsTrue}";
+
+  internal static MergeDomainTrueFalse Factory(IMergerRepository m) => new(m);
 }

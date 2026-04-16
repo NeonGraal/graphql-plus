@@ -46,4 +46,6 @@ internal class VerifyVariable
       errors.Add(def.MakeError("Invalid Variable definition. Default of 'null' must be on Optional Type."));
     }
   }
+
+  internal static VerifyVariable Factory(IVerifierRepository _) => new();
 }

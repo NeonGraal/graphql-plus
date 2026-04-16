@@ -339,13 +339,11 @@
     "OprCtgr": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
-      "category": "catOprCtgr",
       "name": "OprCtgr"
     },
     "OprType": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
-      "category": "catOprType",
       "name": "OprType"
     }
   },

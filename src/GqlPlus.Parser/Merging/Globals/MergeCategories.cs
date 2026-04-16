@@ -13,4 +13,6 @@ internal class MergeCategories(
   protected override string ItemMatchName => "Output~Modifiers~Option";
   protected override string ItemMatchKey(IAstSchemaCategory item)
     => $"{item.Output.Name}~{item.Modifiers.AsString().Joined(",")}~{item.CategoryOption}";
+
+  internal static MergeCategories Factory(IMergerRepository m) => new(m);
 }

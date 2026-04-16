@@ -9,4 +9,6 @@ internal class SpecialTypeModeller()
     => new(ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
     };
+
+  internal static SpecialTypeModeller Factory(IModellerRepository _) => new();
 }

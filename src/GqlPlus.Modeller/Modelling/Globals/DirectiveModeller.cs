@@ -15,4 +15,6 @@ internal class DirectiveModeller(
       Locations = ast.Locations,
       Parameter = _parameter.TryModel(ast.Parameter, typeKinds),
     };
+
+  internal static DirectiveModeller Factory(IModellerRepository r) => new(r);
 }

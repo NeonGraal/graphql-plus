@@ -14,6 +14,8 @@ internal class testGnrcPrntSmplEnumOutpEncoder(
   private readonly IEncoder<ItestFieldGnrcPrntSmplEnumOutpObject<testEnumGnrcPrntSmplEnumOutp>> _itestFieldGnrcPrntSmplEnumOutp = encoders.EncoderFor<ItestFieldGnrcPrntSmplEnumOutpObject<testEnumGnrcPrntSmplEnumOutp>>();
   public Structured Encode(ItestGnrcPrntSmplEnumOutpObject input)
     => _itestFieldGnrcPrntSmplEnumOutp.Encode(input);
+
+  internal static testGnrcPrntSmplEnumOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testFieldGnrcPrntSmplEnumOutpEncoder<TRef>(
@@ -30,12 +32,14 @@ internal class testEnumGnrcPrntSmplEnumOutpEncoder : IEncoder<testEnumGnrcPrntSm
 {
   public Structured Encode(testEnumGnrcPrntSmplEnumOutp input)
     => new(input.ToString(), "_EnumGnrcPrntSmplEnumOutp");
+
+  internal static testEnumGnrcPrntSmplEnumOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_generic_parent_simple_enum_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_generic_parent_simple_enum_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestGnrcPrntSmplEnumOutpObject>(r => new testGnrcPrntSmplEnumOutpEncoder(r))
-      .AddEncoder<testEnumGnrcPrntSmplEnumOutp>(_ => new testEnumGnrcPrntSmplEnumOutpEncoder());
+      .AddEncoder<ItestGnrcPrntSmplEnumOutpObject>(testGnrcPrntSmplEnumOutpEncoder.Factory)
+      .AddEncoder<testEnumGnrcPrntSmplEnumOutp>(testEnumGnrcPrntSmplEnumOutpEncoder.Factory);
 }

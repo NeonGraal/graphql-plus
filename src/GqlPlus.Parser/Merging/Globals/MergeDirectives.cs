@@ -23,4 +23,6 @@ internal class MergeDirectives(
       Locations = group.Aggregate(DirectiveLocation.None, (l, d) => d.Locations | l),
     };
   }
+
+  internal static MergeDirectives Factory(IMergerRepository m) => new(m);
 }

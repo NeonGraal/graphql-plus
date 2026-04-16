@@ -11,18 +11,22 @@ internal class testDmnBoolPrntEncoder : IEncoder<ItestDmnBoolPrnt>
 {
   public Structured Encode(ItestDmnBoolPrnt input)
     => new(input.Value);
+
+  internal static testDmnBoolPrntEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testPrntDmnBoolPrntEncoder : IEncoder<ItestPrntDmnBoolPrnt>
 {
   public Structured Encode(ItestPrntDmnBoolPrnt input)
     => new(input.Value);
+
+  internal static testPrntDmnBoolPrntEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_domain_bool_parentEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_domain_bool_parentEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestDmnBoolPrnt>(_ => new testDmnBoolPrntEncoder())
-      .AddEncoder<ItestPrntDmnBoolPrnt>(_ => new testPrntDmnBoolPrntEncoder());
+      .AddEncoder<ItestDmnBoolPrnt>(testDmnBoolPrntEncoder.Factory)
+      .AddEncoder<ItestPrntDmnBoolPrnt>(testPrntDmnBoolPrntEncoder.Factory);
 }

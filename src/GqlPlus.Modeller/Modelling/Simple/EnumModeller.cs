@@ -20,4 +20,6 @@ internal class EnumModeller
     => new(ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
     };
+
+  internal static EnumModeller Factory(IModellerRepository _) => new();
 }

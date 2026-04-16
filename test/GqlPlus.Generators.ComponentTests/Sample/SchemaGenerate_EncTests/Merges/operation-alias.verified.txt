@@ -17,11 +17,13 @@ internal class CmptOpEncoder : IEncoder<ICmptOpObject>
 {
   public Structured Encode(ICmptOpObject input)
     => Structured.Empty();
+
+  internal static CmptOpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_operation_aliasEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_operation_aliasEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptOpObject>(_ => new CmptOpEncoder());
+      .AddEncoder<ICmptOpObject>(CmptOpEncoder.Factory);
 }

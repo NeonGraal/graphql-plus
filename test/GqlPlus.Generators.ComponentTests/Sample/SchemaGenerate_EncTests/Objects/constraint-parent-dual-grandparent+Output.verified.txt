@@ -21,6 +21,8 @@ internal class CmptCnstPrntDualGrndOutpEncoder(
   private readonly IEncoder<ICmptRefCnstPrntDualGrndOutpObject<ICmptAltCnstPrntDualGrndOutp>> _refCnstPrntDualGrndOutp = encoders.EncoderFor<ICmptRefCnstPrntDualGrndOutpObject<ICmptAltCnstPrntDualGrndOutp>>();
   public Structured Encode(ICmptCnstPrntDualGrndOutpObject input)
     => _refCnstPrntDualGrndOutp.Encode(input);
+
+  internal static CmptCnstPrntDualGrndOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class CmptRefCnstPrntDualGrndOutpEncoder<TRef> : IEncoder<ICmptRefCnstPrntDualGrndOutpObject<TRef>>
@@ -33,6 +35,8 @@ internal class CmptGrndCnstPrntDualGrndOutpEncoder : IEncoder<ICmptGrndCnstPrntD
 {
   public Structured Encode(ICmptGrndCnstPrntDualGrndOutpObject input)
     => Structured.Empty();
+
+  internal static CmptGrndCnstPrntDualGrndOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptPrntCnstPrntDualGrndOutpEncoder(
@@ -42,6 +46,8 @@ internal class CmptPrntCnstPrntDualGrndOutpEncoder(
   private readonly IEncoder<ICmptGrndCnstPrntDualGrndOutpObject> _grndCnstPrntDualGrndOutp = encoders.EncoderFor<ICmptGrndCnstPrntDualGrndOutpObject>();
   public Structured Encode(ICmptPrntCnstPrntDualGrndOutpObject input)
     => _grndCnstPrntDualGrndOutp.Encode(input);
+
+  internal static CmptPrntCnstPrntDualGrndOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class CmptAltCnstPrntDualGrndOutpEncoder(
@@ -52,14 +58,16 @@ internal class CmptAltCnstPrntDualGrndOutpEncoder(
   public Structured Encode(ICmptAltCnstPrntDualGrndOutpObject input)
     => _prntCnstPrntDualGrndOutp.Encode(input)
       .Add("alt", input.Alt);
+
+  internal static CmptAltCnstPrntDualGrndOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class Cmpt_Schema_constraint_parent_dual_grandparent_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_parent_dual_grandparent_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptCnstPrntDualGrndOutpObject>(r => new CmptCnstPrntDualGrndOutpEncoder(r))
-      .AddEncoder<ICmptGrndCnstPrntDualGrndOutpObject>(_ => new CmptGrndCnstPrntDualGrndOutpEncoder())
-      .AddEncoder<ICmptPrntCnstPrntDualGrndOutpObject>(r => new CmptPrntCnstPrntDualGrndOutpEncoder(r))
-      .AddEncoder<ICmptAltCnstPrntDualGrndOutpObject>(r => new CmptAltCnstPrntDualGrndOutpEncoder(r));
+      .AddEncoder<ICmptCnstPrntDualGrndOutpObject>(CmptCnstPrntDualGrndOutpEncoder.Factory)
+      .AddEncoder<ICmptGrndCnstPrntDualGrndOutpObject>(CmptGrndCnstPrntDualGrndOutpEncoder.Factory)
+      .AddEncoder<ICmptPrntCnstPrntDualGrndOutpObject>(CmptPrntCnstPrntDualGrndOutpEncoder.Factory)
+      .AddEncoder<ICmptAltCnstPrntDualGrndOutpObject>(CmptAltCnstPrntDualGrndOutpEncoder.Factory);
 }

@@ -8,4 +8,6 @@ internal class OperationModeller
       Aliases = [.. ast.Aliases],
       Description = ast.Description,
     };
+
+  internal static OperationModeller Factory(IModellerRepository _) => new();
 }

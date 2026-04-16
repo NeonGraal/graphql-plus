@@ -11,6 +11,8 @@ internal class test_TypeEncoder : IEncoder<Itest_TypeObject>
 {
   public Structured Encode(Itest_TypeObject input)
     => Structured.Empty();
+
+  internal static test_TypeEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_BaseTypeEncoder<TTypeKind>(
@@ -52,12 +54,16 @@ internal class test_SimpleKindEncoder : IEncoder<test_SimpleKind>
 {
   public Structured Encode(test_SimpleKind input)
     => new(input.ToString(), "_SimpleKind");
+
+  internal static test_SimpleKindEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_TypeKindEncoder : IEncoder<test_TypeKind>
 {
   public Structured Encode(test_TypeKind input)
     => new(input.ToString(), "_TypeKind");
+
+  internal static test_TypeKindEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_TypeRefEncoder<TTypeKind>(
@@ -75,12 +81,16 @@ internal class test_TypeSimpleEncoder : IEncoder<Itest_TypeSimpleObject>
 {
   public Structured Encode(Itest_TypeSimpleObject input)
     => Structured.Empty();
+
+  internal static test_TypeSimpleEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_CollectionsEncoder : IEncoder<Itest_CollectionsObject>
 {
   public Structured Encode(Itest_CollectionsObject input)
     => Structured.Empty();
+
+  internal static test_CollectionsEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_ModifierKeyedEncoder<TModifierKind>(
@@ -99,12 +109,16 @@ internal class test_ModifiersEncoder : IEncoder<Itest_ModifiersObject>
 {
   public Structured Encode(Itest_ModifiersObject input)
     => Structured.Empty();
+
+  internal static test_ModifiersEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_ModifierKindEncoder : IEncoder<test_ModifierKind>
 {
   public Structured Encode(test_ModifierKind input)
     => new(input.ToString(), "_ModifierKind");
+
+  internal static test_ModifierKindEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_ModifierEncoder<TModifierKind>(
@@ -121,11 +135,11 @@ internal static class test__TypeEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest__TypeEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<Itest_TypeObject>(_ => new test_TypeEncoder())
-      .AddEncoder<test_SimpleKind>(_ => new test_SimpleKindEncoder())
-      .AddEncoder<test_TypeKind>(_ => new test_TypeKindEncoder())
-      .AddEncoder<Itest_TypeSimpleObject>(_ => new test_TypeSimpleEncoder())
-      .AddEncoder<Itest_CollectionsObject>(_ => new test_CollectionsEncoder())
-      .AddEncoder<Itest_ModifiersObject>(_ => new test_ModifiersEncoder())
-      .AddEncoder<test_ModifierKind>(_ => new test_ModifierKindEncoder());
+      .AddEncoder<Itest_TypeObject>(test_TypeEncoder.Factory)
+      .AddEncoder<test_SimpleKind>(test_SimpleKindEncoder.Factory)
+      .AddEncoder<test_TypeKind>(test_TypeKindEncoder.Factory)
+      .AddEncoder<Itest_TypeSimpleObject>(test_TypeSimpleEncoder.Factory)
+      .AddEncoder<Itest_CollectionsObject>(test_CollectionsEncoder.Factory)
+      .AddEncoder<Itest_ModifiersObject>(test_ModifiersEncoder.Factory)
+      .AddEncoder<test_ModifierKind>(test_ModifierKindEncoder.Factory);
 }

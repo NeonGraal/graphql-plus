@@ -23,4 +23,6 @@ internal class TypeArgModeller(
       EnumValue = _enumValue.ToModel(ast.EnumValue, typeKinds),
     };
   }
+
+  internal static TypeArgModeller Factory(IModellerRepository r) => new(r);
 }

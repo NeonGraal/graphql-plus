@@ -11,11 +11,13 @@ internal class testDmnNmbrDiffEncoder : IEncoder<ItestDmnNmbrDiff>
 {
   public Structured Encode(ItestDmnNmbrDiff input)
     => new(input.Value);
+
+  internal static testDmnNmbrDiffEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_domain_number_diffEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_domain_number_diffEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestDmnNmbrDiff>(_ => new testDmnNmbrDiffEncoder());
+      .AddEncoder<ItestDmnNmbrDiff>(testDmnNmbrDiffEncoder.Factory);
 }

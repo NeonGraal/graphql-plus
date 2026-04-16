@@ -15,6 +15,8 @@ internal class testGnrcFieldDualOutpEncoder(
   public Structured Encode(ItestGnrcFieldDualOutpObject input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _itestRefGnrcFieldDualOutp);
+
+  internal static testGnrcFieldDualOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testRefGnrcFieldDualOutpEncoder<TRef> : IEncoder<ItestRefGnrcFieldDualOutpObject<TRef>>
@@ -28,12 +30,14 @@ internal class testAltGnrcFieldDualOutpEncoder : IEncoder<ItestAltGnrcFieldDualO
   public Structured Encode(ItestAltGnrcFieldDualOutpObject input)
     => Structured.Empty()
       .Add("alt", input.Alt);
+
+  internal static testAltGnrcFieldDualOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_generic_field_dual_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_generic_field_dual_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestGnrcFieldDualOutpObject>(r => new testGnrcFieldDualOutpEncoder(r))
-      .AddEncoder<ItestAltGnrcFieldDualOutpObject>(_ => new testAltGnrcFieldDualOutpEncoder());
+      .AddEncoder<ItestGnrcFieldDualOutpObject>(testGnrcFieldDualOutpEncoder.Factory)
+      .AddEncoder<ItestAltGnrcFieldDualOutpObject>(testAltGnrcFieldDualOutpEncoder.Factory);
 }

@@ -30,6 +30,8 @@ internal class AstDomainVerifier<TItem>(
 
   protected virtual IMessages CanMergeDomain(IAstDomain<TItem> domain, IAstDomain<TItem> domainParent, EnumContext context)
     => _items.CanMerge(domainParent.Items.Concat(domain.Items));
+
+  internal static AstDomainVerifier<TItem> Factory(IVerifierRepository v) => new(v);
 }
 
 public interface IVerifyDomain

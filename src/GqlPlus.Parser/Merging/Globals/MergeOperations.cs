@@ -7,6 +7,9 @@ internal class MergeOperations(
 ) : AstAliasedMerger<IAstSchemaOperation>(mergers)
 {
   protected override string ItemMatchName => "Category";
+
   protected override string ItemMatchKey(IAstSchemaOperation item)
     => item.Category.ToString();
+
+  internal static MergeOperations Factory(IMergerRepository r) => new(r);
 }

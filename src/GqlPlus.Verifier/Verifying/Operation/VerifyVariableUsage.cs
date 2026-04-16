@@ -7,4 +7,6 @@ internal class VerifyVariableUsage(IVerifierRepository verifiers) : IdentifiedVe
   public override string Label => "Variable";
 
   public override string UsageKey(IAstArg item) => item.Variable!;
+
+  internal static VerifyVariableUsage Factory(IVerifierRepository v) => new(v);
 }

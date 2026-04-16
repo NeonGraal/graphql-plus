@@ -16,11 +16,13 @@ internal class test_SettingEncoder(
   public Structured Encode(Itest_SettingObject input)
     => _itest_Named.Encode(input)
       .AddEncoded("value", input.Value, _gqlpValue);
+
+  internal static test_SettingEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class test_OptionEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_OptionEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<Itest_SettingObject>(r => new test_SettingEncoder(r));
+      .AddEncoder<Itest_SettingObject>(test_SettingEncoder.Factory);
 }

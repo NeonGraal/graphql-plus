@@ -25,7 +25,6 @@
     "Operation": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
-      "category": "op",
       "name": "Operation"
     }
   },

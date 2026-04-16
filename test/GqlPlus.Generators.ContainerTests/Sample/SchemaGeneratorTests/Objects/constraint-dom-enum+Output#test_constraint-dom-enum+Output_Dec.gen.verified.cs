@@ -11,16 +11,20 @@ internal class testEnumCnstDomEnumOutpDecoder
 {
   public string cnstDomEnumOutp { get; set; }
   public string other { get; set; }
+
+  internal static testEnumCnstDomEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testJustCnstDomEnumOutpDecoder
 {
+
+  internal static testJustCnstDomEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_constraint_dom_enum_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_constraint_dom_enum_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<testEnumCnstDomEnumOutp>(_ => new testEnumCnstDomEnumOutpDecoder())
-      .AddDecoder<ItestJustCnstDomEnumOutp>(_ => new testJustCnstDomEnumOutpDecoder());
+      .AddDecoder<testEnumCnstDomEnumOutp>(testEnumCnstDomEnumOutpDecoder.Factory)
+      .AddDecoder<ItestJustCnstDomEnumOutp>(testJustCnstDomEnumOutpDecoder.Factory);
 }

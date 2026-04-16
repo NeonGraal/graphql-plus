@@ -55,7 +55,6 @@ name: Schema
 operations: !_Map(_Operations)
   !_Name Operation: !_Operation
     aliases: [Op1,Op2]
-    category: op
     name: Operation
 settings: !_Map(_Setting)
   !_Name merged: !_Setting

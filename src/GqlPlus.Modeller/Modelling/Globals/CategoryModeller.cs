@@ -17,4 +17,6 @@ internal class CategoryModeller(
       Resolution = ast.CategoryOption,
       Modifiers = _modifier.ToModels(ast.Modifiers, typeKinds),
     };
+
+  internal static CategoryModeller Factory(IModellerRepository r) => new(r);
 }

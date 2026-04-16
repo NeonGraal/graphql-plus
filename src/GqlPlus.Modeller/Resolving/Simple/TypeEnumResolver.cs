@@ -7,4 +7,6 @@ internal class TypeEnumResolver
     => new(item.Name, model.Name, item.Description) {
       Aliases = item.Aliases,
     };
+
+  internal static TypeEnumResolver Factory(IResolverRepository _) => new();
 }

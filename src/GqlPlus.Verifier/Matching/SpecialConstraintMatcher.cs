@@ -10,4 +10,6 @@ internal class SpecialConstraintMatcher(
   public override bool MatchesConstraint(IAstType type, IAstTypeSpecial constraint, EnumContext context)
     => base.MatchesConstraint(type, constraint, context)
       || constraint.MatchesTypeSpecial(type);
+
+  internal static SpecialConstraintMatcher Factory(IMatcherRepository m) => new(m);
 }

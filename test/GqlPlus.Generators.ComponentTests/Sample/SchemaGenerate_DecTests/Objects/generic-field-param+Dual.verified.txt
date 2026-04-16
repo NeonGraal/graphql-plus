@@ -15,6 +15,8 @@ namespace Components.Gqlp_Schema_generic_field_param_Dual;
 internal class CmptGnrcFieldParamDualDecoder
 {
   public ICmptRefGnrcFieldParamDual<ICmptAltGnrcFieldParamDual> Field { get; set; }
+
+  internal static CmptGnrcFieldParamDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefGnrcFieldParamDualDecoder<TRef>
@@ -24,12 +26,14 @@ internal class CmptRefGnrcFieldParamDualDecoder<TRef>
 internal class CmptAltGnrcFieldParamDualDecoder
 {
   public decimal Alt { get; set; }
+
+  internal static CmptAltGnrcFieldParamDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_generic_field_param_DualDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_field_param_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptGnrcFieldParamDualObject>(_ => new CmptGnrcFieldParamDualDecoder())
-      .AddDecoder<ICmptAltGnrcFieldParamDualObject>(_ => new CmptAltGnrcFieldParamDualDecoder());
+      .AddDecoder<ICmptGnrcFieldParamDualObject>(CmptGnrcFieldParamDualDecoder.Factory)
+      .AddDecoder<ICmptAltGnrcFieldParamDualObject>(CmptAltGnrcFieldParamDualDecoder.Factory);
 }

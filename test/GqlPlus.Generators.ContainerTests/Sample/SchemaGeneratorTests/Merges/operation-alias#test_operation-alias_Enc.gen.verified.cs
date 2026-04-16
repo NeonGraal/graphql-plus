@@ -11,11 +11,13 @@ internal class testOpEncoder : IEncoder<ItestOpObject>
 {
   public Structured Encode(ItestOpObject input)
     => Structured.Empty();
+
+  internal static testOpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_operation_aliasEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_operation_aliasEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestOpObject>(_ => new testOpEncoder());
+      .AddEncoder<ItestOpObject>(testOpEncoder.Factory);
 }

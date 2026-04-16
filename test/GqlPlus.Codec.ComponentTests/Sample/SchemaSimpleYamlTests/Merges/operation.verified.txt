@@ -8,7 +8,6 @@ categories: !_Map(_Categories)
     resolution: !_Resolution Parallel
 operations: !_Map(_Operations)
   !_Name Operation: !_Operation
-    category: op
     name: Operation
 types: !_Map(_Type)
   !_Name Op: !_TypeOutput

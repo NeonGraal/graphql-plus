@@ -20,7 +20,7 @@ public static class AllGenerators
 
   internal static IGeneratorRepositoryBuilder AddSchemaGenerators(this IGeneratorRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      .AddGenerator(g => new SchemaGenerator(g))
+      .AddGenerator(SchemaGenerator.Factory)
       .AddSchemaGlobalGenerators()
       .AddSchemaSimpleGenerators()
       .AddSchemaObjectGenerators();

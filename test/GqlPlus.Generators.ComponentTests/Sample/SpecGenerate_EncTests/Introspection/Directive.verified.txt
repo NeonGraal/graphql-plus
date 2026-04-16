@@ -32,6 +32,8 @@ internal class Cmpt_DirectivesEncoder(
   public Structured Encode(ICmpt_DirectivesObject input)
     => _andType.Encode(input)
       .AddEncoded("directive", input.Directive, _directive);
+
+  internal static Cmpt_DirectivesEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_DirectiveEncoder(
@@ -44,19 +46,23 @@ internal class Cmpt_DirectiveEncoder(
     => _aliased.Encode(input)
       .AddEncoded("parameter", input.Parameter, _inputFieldType)
       .Add("repeatable", input.Repeatable);
+
+  internal static Cmpt_DirectiveEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_LocationEncoder : IEncoder<Cmpt_Location>
 {
   public Structured Encode(Cmpt_Location input)
     => new(input.ToString(), "_Location");
+
+  internal static Cmpt_LocationEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Spec_DirectiveEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Spec_DirectiveEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmpt_DirectivesObject>(r => new Cmpt_DirectivesEncoder(r))
-      .AddEncoder<ICmpt_DirectiveObject>(r => new Cmpt_DirectiveEncoder(r))
-      .AddEncoder<Cmpt_Location>(_ => new Cmpt_LocationEncoder());
+      .AddEncoder<ICmpt_DirectivesObject>(Cmpt_DirectivesEncoder.Factory)
+      .AddEncoder<ICmpt_DirectiveObject>(Cmpt_DirectiveEncoder.Factory)
+      .AddEncoder<Cmpt_Location>(Cmpt_LocationEncoder.Factory);
 }

@@ -15,4 +15,6 @@ internal class DomainBooleanModeller
 
   protected override DomainTrueFalseModel ToItem(IAstDomainTrueFalse ast, IMap<TypeKindModel> typeKinds)
     => new(ast.IsTrue, ast.Excludes, ast.Description);
+
+  internal static DomainBooleanModeller Factory(IModellerRepository _) => new();
 }

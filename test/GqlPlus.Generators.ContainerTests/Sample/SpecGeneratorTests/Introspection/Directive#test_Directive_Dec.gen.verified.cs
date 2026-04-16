@@ -15,11 +15,13 @@ internal class test_LocationDecoder
   public string Inline { get; set; }
   public string Spread { get; set; }
   public string Fragment { get; set; }
+
+  internal static test_LocationDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_DirectiveDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_DirectiveDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<test_Location>(_ => new test_LocationDecoder());
+      .AddDecoder<test_Location>(test_LocationDecoder.Factory);
 }

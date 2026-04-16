@@ -18,4 +18,6 @@ internal class VerifyOutputTypes(IVerifierRepository verifiers)
     CheckTypeRef(context, field.Parameter.Type, "Param of " + usage.Name, inputKinds);
     context.CheckModifiers(field.Parameter);
   }
+
+  internal static VerifyOutputTypes Factory(IVerifierRepository v) => new(v);
 }

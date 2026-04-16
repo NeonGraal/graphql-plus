@@ -16,6 +16,8 @@ internal class testOutpPrntParamEncoder(
   public Structured Encode(ItestOutpPrntParamObject input)
     => _itestPrntOutpPrntParam.Encode(input)
       .AddEncoded("field", input.Field(), _itestFldOutpPrntParam);
+
+  internal static testOutpPrntParamEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testPrntOutpPrntParamEncoder(
@@ -26,19 +28,23 @@ internal class testPrntOutpPrntParamEncoder(
   public Structured Encode(ItestPrntOutpPrntParamObject input)
     => Structured.Empty()
       .AddEncoded("field", input.Field(), _itestFldOutpPrntParam);
+
+  internal static testPrntOutpPrntParamEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testFldOutpPrntParamEncoder : IEncoder<ItestFldOutpPrntParamObject>
 {
   public Structured Encode(ItestFldOutpPrntParamObject input)
     => Structured.Empty();
+
+  internal static testFldOutpPrntParamEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_output_parent_paramEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_output_parent_paramEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestOutpPrntParamObject>(r => new testOutpPrntParamEncoder(r))
-      .AddEncoder<ItestPrntOutpPrntParamObject>(r => new testPrntOutpPrntParamEncoder(r))
-      .AddEncoder<ItestFldOutpPrntParamObject>(_ => new testFldOutpPrntParamEncoder());
+      .AddEncoder<ItestOutpPrntParamObject>(testOutpPrntParamEncoder.Factory)
+      .AddEncoder<ItestPrntOutpPrntParamObject>(testPrntOutpPrntParamEncoder.Factory)
+      .AddEncoder<ItestFldOutpPrntParamObject>(testFldOutpPrntParamEncoder.Factory);
 }

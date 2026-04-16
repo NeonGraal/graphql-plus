@@ -9,4 +9,6 @@ internal class MergeDomainRanges(
 {
   protected override string ItemGroupKey(IAstDomainRange item)
     => ((DomainRangeAst)item).AsString;
+
+  internal static MergeDomainRanges Factory(IMergerRepository m) => new(m);
 }

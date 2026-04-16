@@ -1,5 +1,4 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Schema;
+﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Modelling.Globals;
 using GqlPlus.Modelling.Objects;
 using GqlPlus.Modelling.Simple;
@@ -19,45 +18,46 @@ public static class AllModellers
     return services;
   }
 
+  [ExcludeFromCodeCoverage]
   internal static IModellerRepositoryBuilder AddSchemaModellers(this IModellerRepositoryBuilder builder)
     => builder.ThrowIfNull()
       // Common
-      .AddModeller<IAstEnumValue, EnumValueModel>(_ => new EnumValueModeller())
-      .AddModeller<IAstFieldKey, SimpleModel>(r => new SimpleModeller(r))
-      .AddModeller<IAstConstant, ConstantModel>(r => new ConstantModeller(r))
-      .AddModifierModeller(_ => new ModifierModeller())
+      .AddModeller(EnumValueModeller.Factory)
+      .AddModeller(SimpleModeller.Factory)
+      .AddModeller(ConstantModeller.Factory)
+      .AddModifierModeller(ModifierModeller.Factory)
       .AddModeller<IAstModifier, ModifierModel>(r => r.ModifierModeller)
       .AddModeller<IAstModifier, CollectionModel>(r => r.ModifierModeller)
       // Schema
-      .AddModeller<IAstSchema, SchemaModel>(r => new SchemaModeller(r))
-      .AddModeller<IAstSchemaCategory, CategoryModel>(r => new CategoryModeller(r))
-      .AddModeller<IAstSchemaDirective, DirectiveModel>(r => new DirectiveModeller(r))
-      .AddModeller<IAstSchemaOperation, OperationModel>(r => new OperationModeller())
-      .AddModeller<IAstSchemaSetting, SettingModel>(r => new SettingModeller(r))
+      .AddModeller(SchemaModeller.Factory)
+      .AddModeller(CategoryModeller.Factory)
+      .AddModeller(DirectiveModeller.Factory)
+      .AddModeller(OperationModeller.Factory)
+      .AddModeller(SettingModeller.Factory)
       // Types
-      .AddTypesModeller(r => new TypesModeller(r))
-      .AddModeller<IAstType, BaseTypeModel>(r => r.TypesModeller)
-      .AddTypeModeller<IAstTypeSpecial, SpecialTypeModel>(_ => new SpecialTypeModeller())
+      .AddTypesModeller(TypesModeller.Factory)
+      .AddModeller(r => r.TypesModeller)
+      .AddTypeModeller(SpecialTypeModeller.Factory)
       // Simple - Domain
-      .AddTypeModeller<IAstDomain<IAstDomainLabel>, BaseDomainModel<DomainLabelModel>>(_ => new DomainEnumModeller())
-      .AddTypeModeller<IAstDomain<IAstDomainRange>, BaseDomainModel<DomainRangeModel>>(_ => new DomainNumberModeller())
-      .AddTypeModeller<IAstDomain<IAstDomainRegex>, BaseDomainModel<DomainRegexModel>>(_ => new DomainStringModeller())
-      .AddTypeModeller<IAstDomain<IAstDomainTrueFalse>, BaseDomainModel<DomainTrueFalseModel>>(_ => new DomainBooleanModeller())
-      .AddTypeModeller<IAstEnum, TypeEnumModel>(_ => new EnumModeller())
-      .AddTypeModeller<IAstUnion, TypeUnionModel>(_ => new UnionModeller())
+      .AddTypeModeller(DomainEnumModeller.Factory)
+      .AddTypeModeller(DomainNumberModeller.Factory)
+      .AddTypeModeller(DomainStringModeller.Factory)
+      .AddTypeModeller(DomainBooleanModeller.Factory)
+      .AddTypeModeller(EnumModeller.Factory)
+      .AddTypeModeller(UnionModeller.Factory)
       // Object
-      .AddModeller<IAstTypeParam, TypeParamModel>(_ => new TypeParamModeller())
-      .AddModeller<IAstTypeArg, TypeArgModel>(r => new TypeArgModeller(r))
-      .AddModeller<IAstObjBase, ObjBaseModel>(r => new ObjBaseModeller(r))
-      .AddModeller<IAstAlternate, AlternateModel>(r => new AlternateModeller(r))
+      .AddModeller(TypeParamModeller.Factory)
+      .AddModeller(TypeArgModeller.Factory)
+      .AddModeller(ObjBaseModeller.Factory)
+      .AddModeller(AlternateModeller.Factory)
       // Dual
-      .AddModeller<IAstDualField, DualFieldModel>(r => new DualFieldModeller(r))
-      .AddTypeModeller<IAstObject<IAstDualField>, TypeDualModel>(r => new DualModeller(r))
+      .AddModeller(DualFieldModeller.Factory)
+      .AddTypeModeller(DualModeller.Factory)
       // Input
-      .AddModeller<IAstInputField, InputFieldModel>(r => new InputFieldModeller(r))
-      .AddTypeModeller<IAstObject<IAstInputField>, TypeInputModel>(r => new InputModeller(r))
-      .AddModeller<IAstInputParam, InputParamModel>(r => new InputParamModeller(r))
+      .AddModeller(InputFieldModeller.Factory)
+      .AddTypeModeller(InputModeller.Factory)
+      .AddModeller(InputParamModeller.Factory)
       // Output
-      .AddModeller<IAstOutputField, OutputFieldModel>(r => new OutputFieldModeller(r))
-      .AddTypeModeller<IAstObject<IAstOutputField>, TypeOutputModel>(r => new OutputModeller(r));
+      .AddModeller(OutputFieldModeller.Factory)
+      .AddTypeModeller(OutputModeller.Factory);
 }

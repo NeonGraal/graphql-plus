@@ -13,17 +13,21 @@ namespace Components.Gqlp_Schema_parent_alt_Input;
 
 internal class CmptPrntAltInpDecoder
 {
+
+  internal static CmptPrntAltInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefPrntAltInpDecoder
 {
   public decimal Parent { get; set; }
+
+  internal static CmptRefPrntAltInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_parent_alt_InputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_parent_alt_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptPrntAltInpObject>(_ => new CmptPrntAltInpDecoder())
-      .AddDecoder<ICmptRefPrntAltInpObject>(_ => new CmptRefPrntAltInpDecoder());
+      .AddDecoder<ICmptPrntAltInpObject>(CmptPrntAltInpDecoder.Factory)
+      .AddDecoder<ICmptRefPrntAltInpObject>(CmptRefPrntAltInpDecoder.Factory);
 }

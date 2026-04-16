@@ -144,6 +144,8 @@ internal class Cmpt_ResolutionDecoder
   public string Parallel { get; set; }
   public string Sequential { get; set; }
   public string Single { get; set; }
+
+  internal static Cmpt_ResolutionDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_LocationDecoder
@@ -154,46 +156,60 @@ internal class Cmpt_LocationDecoder
   public string Inline { get; set; }
   public string Spread { get; set; }
   public string Fragment { get; set; }
+
+  internal static Cmpt_LocationDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_OpDirectiveDecoder
 {
   public ICmpt_OpArgument? Argument { get; set; }
+
+  internal static Cmpt_OpDirectiveDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_OpArgumentDecoder
 {
+
+  internal static Cmpt_OpArgumentDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_OpArgValueDecoder
 {
   public ICmpt_Name Variable { get; set; }
+
+  internal static Cmpt_OpArgValueDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_OpArgListDecoder
 {
+
+  internal static Cmpt_OpArgListDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_OpArgMapDecoder
 {
   public ICmpt_OpArgValue Value { get; set; }
   public ICmpt_Name ByVariable { get; set; }
+
+  internal static Cmpt_OpArgMapDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_PathDecoder
 {
+
+  internal static Cmpt_PathDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Spec_GlobalDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_GlobalDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<Cmpt_Resolution>(_ => new Cmpt_ResolutionDecoder())
-      .AddDecoder<Cmpt_Location>(_ => new Cmpt_LocationDecoder())
-      .AddDecoder<ICmpt_OpDirectiveObject>(_ => new Cmpt_OpDirectiveDecoder())
-      .AddDecoder<ICmpt_OpArgumentObject>(_ => new Cmpt_OpArgumentDecoder())
-      .AddDecoder<ICmpt_OpArgValueObject>(_ => new Cmpt_OpArgValueDecoder())
-      .AddDecoder<ICmpt_OpArgListObject>(_ => new Cmpt_OpArgListDecoder())
-      .AddDecoder<ICmpt_OpArgMapObject>(_ => new Cmpt_OpArgMapDecoder())
-      .AddDecoder<ICmpt_Path>(_ => new Cmpt_PathDecoder());
+      .AddDecoder<Cmpt_Resolution>(Cmpt_ResolutionDecoder.Factory)
+      .AddDecoder<Cmpt_Location>(Cmpt_LocationDecoder.Factory)
+      .AddDecoder<ICmpt_OpDirectiveObject>(Cmpt_OpDirectiveDecoder.Factory)
+      .AddDecoder<ICmpt_OpArgumentObject>(Cmpt_OpArgumentDecoder.Factory)
+      .AddDecoder<ICmpt_OpArgValueObject>(Cmpt_OpArgValueDecoder.Factory)
+      .AddDecoder<ICmpt_OpArgListObject>(Cmpt_OpArgListDecoder.Factory)
+      .AddDecoder<ICmpt_OpArgMapObject>(Cmpt_OpArgMapDecoder.Factory)
+      .AddDecoder<ICmpt_Path>(Cmpt_PathDecoder.Factory);
 }

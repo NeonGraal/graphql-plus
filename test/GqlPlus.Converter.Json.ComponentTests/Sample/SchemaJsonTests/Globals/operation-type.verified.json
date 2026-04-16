@@ -25,7 +25,6 @@
     "OprType": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
-      "category": "catOprType",
       "name": "OprType"
     }
   },

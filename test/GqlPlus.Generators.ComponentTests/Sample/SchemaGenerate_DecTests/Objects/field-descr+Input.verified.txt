@@ -13,11 +13,13 @@ namespace Components.Gqlp_Schema_field_descr_Input;
 internal class CmptFieldDescrInpDecoder
 {
   public string Field { get; set; }
+
+  internal static CmptFieldDescrInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_field_descr_InputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_descr_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptFieldDescrInpObject>(_ => new CmptFieldDescrInpDecoder());
+      .AddDecoder<ICmptFieldDescrInpObject>(CmptFieldDescrInpDecoder.Factory);
 }

@@ -11,6 +11,8 @@ internal class testCnstAltObjDualEncoder : IEncoder<ItestCnstAltObjDualObject>
 {
   public Structured Encode(ItestCnstAltObjDualObject input)
     => Structured.Empty();
+
+  internal static testCnstAltObjDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testRefCnstAltObjDualEncoder<TRef> : IEncoder<ItestRefCnstAltObjDualObject<TRef>>
@@ -23,6 +25,8 @@ internal class testPrntCnstAltObjDualEncoder : IEncoder<ItestPrntCnstAltObjDualO
 {
   public Structured Encode(ItestPrntCnstAltObjDualObject input)
     => Structured.Empty();
+
+  internal static testPrntCnstAltObjDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testAltCnstAltObjDualEncoder(
@@ -33,13 +37,15 @@ internal class testAltCnstAltObjDualEncoder(
   public Structured Encode(ItestAltCnstAltObjDualObject input)
     => _itestPrntCnstAltObjDual.Encode(input)
       .Add("alt", input.Alt);
+
+  internal static testAltCnstAltObjDualEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class test_constraint_alt_obj_DualEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_constraint_alt_obj_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestCnstAltObjDualObject>(_ => new testCnstAltObjDualEncoder())
-      .AddEncoder<ItestPrntCnstAltObjDualObject>(_ => new testPrntCnstAltObjDualEncoder())
-      .AddEncoder<ItestAltCnstAltObjDualObject>(r => new testAltCnstAltObjDualEncoder(r));
+      .AddEncoder<ItestCnstAltObjDualObject>(testCnstAltObjDualEncoder.Factory)
+      .AddEncoder<ItestPrntCnstAltObjDualObject>(testPrntCnstAltObjDualEncoder.Factory)
+      .AddEncoder<ItestAltCnstAltObjDualObject>(testAltCnstAltObjDualEncoder.Factory);
 }

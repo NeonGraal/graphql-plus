@@ -18,4 +18,6 @@ internal class AnyTypeMatcher(
 
     return typeMatchers.Any(m => m.MatchesTypeConstraint(type, constraint, context));
   }
+
+  internal static AnyTypeMatcher Factory(IMatcherRepository m) => new(m);
 }

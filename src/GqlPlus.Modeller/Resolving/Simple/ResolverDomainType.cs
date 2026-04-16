@@ -6,4 +6,6 @@ internal class ResolverDomainType<TDomain>
 {
   protected override DomainItemModel<TDomain> NewItem(BaseDomainModel<TDomain> model, TDomain item)
     => new(item, model.Name);
+
+  internal static ResolverDomainType<TDomain> Factory(IResolverRepository _) => new();
 }

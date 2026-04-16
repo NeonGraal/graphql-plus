@@ -16,4 +16,6 @@ internal class ObjBaseModeller(
     IsTypeParam = ast.IsTypeParam,
     Args = ModelArgs(ast, typeKinds),
   };
+
+  internal static ObjBaseModeller Factory(IModellerRepository r) => new(r);
 }

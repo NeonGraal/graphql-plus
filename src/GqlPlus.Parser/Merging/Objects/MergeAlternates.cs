@@ -22,4 +22,6 @@ internal class MergeAlternates(
   protected override string ItemMatchName => "Modifiers";
   protected override string ItemMatchKey(IAstAlternate item)
     => item.Modifiers.AsString().Joined();
+
+  internal static MergeAlternates Factory(IMergerRepository m) => new(m);
 }

@@ -27,6 +27,8 @@ internal class TypesModeller(
 
   protected override BaseTypeModel ToModel(IAstType ast, IMap<TypeKindModel> typeKinds)
     => _modellers.TypeModellers.Single(t => t.ForType(ast)).ToTypeModel(ast, typeKinds);
+
+  internal static TypesModeller Factory(IModellerRepository r) => new(r);
 }
 
 public interface ITypesModeller

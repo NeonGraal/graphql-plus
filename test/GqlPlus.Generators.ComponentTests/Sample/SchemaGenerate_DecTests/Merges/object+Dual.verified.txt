@@ -13,11 +13,13 @@ namespace Components.Gqlp_Schema_object_Dual;
 
 internal class CmptObjDualDecoder
 {
+
+  internal static CmptObjDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_object_DualDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_object_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptObjDualObject>(_ => new CmptObjDualDecoder());
+      .AddDecoder<ICmptObjDualObject>(CmptObjDualDecoder.Factory);
 }

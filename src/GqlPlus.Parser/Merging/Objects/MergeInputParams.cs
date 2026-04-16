@@ -30,4 +30,6 @@ internal class MergeInputParams(
       DefaultValue = group.Merge(item => item.DefaultValue, mergers.MergerFor<IAstConstant>()).FirstOrDefault(),
     };
   }
+
+  internal static MergeInputParams Factory(IMergerRepository m) => new(m);
 }

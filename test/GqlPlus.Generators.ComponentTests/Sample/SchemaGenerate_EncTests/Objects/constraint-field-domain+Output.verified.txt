@@ -19,6 +19,8 @@ internal class CmptCnstFieldDmnOutpEncoder(
   private readonly IEncoder<ICmptRefCnstFieldDmnOutpObject<ICmptDomCnstFieldDmnOutp>> _refCnstFieldDmnOutp = encoders.EncoderFor<ICmptRefCnstFieldDmnOutpObject<ICmptDomCnstFieldDmnOutp>>();
   public Structured Encode(ICmptCnstFieldDmnOutpObject input)
     => _refCnstFieldDmnOutp.Encode(input);
+
+  internal static CmptCnstFieldDmnOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class CmptRefCnstFieldDmnOutpEncoder<TRef>(
@@ -35,12 +37,14 @@ internal class CmptDomCnstFieldDmnOutpEncoder : IEncoder<ICmptDomCnstFieldDmnOut
 {
   public Structured Encode(ICmptDomCnstFieldDmnOutp input)
     => new(input.Value);
+
+  internal static CmptDomCnstFieldDmnOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_constraint_field_domain_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_field_domain_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptCnstFieldDmnOutpObject>(r => new CmptCnstFieldDmnOutpEncoder(r))
-      .AddEncoder<ICmptDomCnstFieldDmnOutp>(_ => new CmptDomCnstFieldDmnOutpEncoder());
+      .AddEncoder<ICmptCnstFieldDmnOutpObject>(CmptCnstFieldDmnOutpEncoder.Factory)
+      .AddEncoder<ICmptDomCnstFieldDmnOutp>(CmptDomCnstFieldDmnOutpEncoder.Factory);
 }

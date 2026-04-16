@@ -17,6 +17,8 @@ internal class testCatOprTypeEncoder(
       .Add("first", input.First)
       .Add("last", input.Last)
       .AddEncoded("address", input.Address, _itestAddrOprType);
+
+  internal static testCatOprTypeEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testAddrOprTypeEncoder : IEncoder<ItestAddrOprTypeObject>
@@ -26,12 +28,14 @@ internal class testAddrOprTypeEncoder : IEncoder<ItestAddrOprTypeObject>
       .Add("street", input.Street)
       .Add("city", input.City)
       .Add("country", input.Country);
+
+  internal static testAddrOprTypeEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_operation_typeEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_operation_typeEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestCatOprTypeObject>(r => new testCatOprTypeEncoder(r))
-      .AddEncoder<ItestAddrOprTypeObject>(_ => new testAddrOprTypeEncoder());
+      .AddEncoder<ItestCatOprTypeObject>(testCatOprTypeEncoder.Factory)
+      .AddEncoder<ItestAddrOprTypeObject>(testAddrOprTypeEncoder.Factory);
 }

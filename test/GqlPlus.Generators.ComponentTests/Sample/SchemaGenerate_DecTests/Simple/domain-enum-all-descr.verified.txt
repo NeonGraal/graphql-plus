@@ -13,6 +13,8 @@ namespace Components.Gqlp_Schema_domain_enum_all_descr;
 
 internal class CmptDmnEnumAllDescrDecoder
 {
+
+  internal static CmptDmnEnumAllDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumAllDescrDecoder
@@ -20,12 +22,14 @@ internal class CmptEnumDmnEnumAllDescrDecoder
   public string dmnEnumAllDescr { get; set; }
   public string enum_dmnEnumAllDescr { get; set; }
   public string dmnEnumAllDescrValue { get; set; }
+
+  internal static CmptEnumDmnEnumAllDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_domain_enum_all_descrDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_enum_all_descrDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptDmnEnumAllDescr>(_ => new CmptDmnEnumAllDescrDecoder())
-      .AddDecoder<CmptEnumDmnEnumAllDescr>(_ => new CmptEnumDmnEnumAllDescrDecoder());
+      .AddDecoder<ICmptDmnEnumAllDescr>(CmptDmnEnumAllDescrDecoder.Factory)
+      .AddDecoder<CmptEnumDmnEnumAllDescr>(CmptEnumDmnEnumAllDescrDecoder.Factory);
 }

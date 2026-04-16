@@ -16,18 +16,22 @@ internal class CmptObjAltOutpEncoder : IEncoder<ICmptObjAltOutpObject>
 {
   public Structured Encode(ICmptObjAltOutpObject input)
     => Structured.Empty();
+
+  internal static CmptObjAltOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptObjAltOutpTypeEncoder : IEncoder<ICmptObjAltOutpTypeObject>
 {
   public Structured Encode(ICmptObjAltOutpTypeObject input)
     => Structured.Empty();
+
+  internal static CmptObjAltOutpTypeEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_object_alt_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_object_alt_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptObjAltOutpObject>(_ => new CmptObjAltOutpEncoder())
-      .AddEncoder<ICmptObjAltOutpTypeObject>(_ => new CmptObjAltOutpTypeEncoder());
+      .AddEncoder<ICmptObjAltOutpObject>(CmptObjAltOutpEncoder.Factory)
+      .AddEncoder<ICmptObjAltOutpTypeObject>(CmptObjAltOutpTypeEncoder.Factory);
 }

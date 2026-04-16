@@ -56,4 +56,6 @@ internal class VerifyUnionTypes(IVerifierRepository verifiers) : AstSimpleVerifi
       CheckMember(name, member, context);
     }
   }
+
+  internal static VerifyUnionTypes Factory(IVerifierRepository v) => new(v);
 }

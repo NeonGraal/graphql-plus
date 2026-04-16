@@ -16,4 +16,6 @@ internal class MergeInputFields(
     => (InputFieldAst)base.MergeGroup(group) with {
       DefaultValue = group.Merge(item => item.DefaultValue, mergers.MergerFor<IAstConstant>()).FirstOrDefault()
     };
+
+  internal static MergeInputFields Factory(IMergerRepository m) => new(m);
 }

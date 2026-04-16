@@ -18,4 +18,6 @@ internal class UnionModeller
 
   internal static AliasedModel ToMember(IAstUnionMember ast)
     => new(ast.Name, ast.Description);
+
+  internal static UnionModeller Factory(IModellerRepository _) => new();
 }

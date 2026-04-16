@@ -15,11 +15,13 @@ internal class CmptDmnBoolDiffEncoder : IEncoder<ICmptDmnBoolDiff>
 {
   public Structured Encode(ICmptDmnBoolDiff input)
     => new(input.Value);
+
+  internal static CmptDmnBoolDiffEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_domain_boolean_diffEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_boolean_diffEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptDmnBoolDiff>(_ => new CmptDmnBoolDiffEncoder());
+      .AddEncoder<ICmptDmnBoolDiff>(CmptDmnBoolDiffEncoder.Factory);
 }

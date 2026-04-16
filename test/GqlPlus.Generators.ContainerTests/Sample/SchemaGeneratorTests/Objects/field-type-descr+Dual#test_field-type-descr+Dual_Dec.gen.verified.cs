@@ -10,11 +10,13 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_type_descr_Dual;
 internal class testFieldTypeDescrDualDecoder
 {
   public decimal Field { get; set; }
+
+  internal static testFieldTypeDescrDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_field_type_descr_DualDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_field_type_descr_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestFieldTypeDescrDualObject>(_ => new testFieldTypeDescrDualDecoder());
+      .AddDecoder<ItestFieldTypeDescrDualObject>(testFieldTypeDescrDualDecoder.Factory);
 }

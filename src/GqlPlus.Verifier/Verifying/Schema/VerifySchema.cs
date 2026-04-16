@@ -33,4 +33,6 @@ internal class VerifySchema(IVerifierRepository verifiers) : IVerify<IAstSchema>
       where T : IAstType
       => type is T;
   }
+
+  internal static VerifySchema Factory(IVerifierRepository v) => new(v);
 }

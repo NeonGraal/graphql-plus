@@ -11,11 +11,13 @@ internal class testDescrCmplEncoder : IEncoder<ItestDescrCmplObject>
 {
   public Structured Encode(ItestDescrCmplObject input)
     => Structured.Empty();
+
+  internal static testDescrCmplEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_descr_complexEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_descr_complexEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestDescrCmplObject>(_ => new testDescrCmplEncoder());
+      .AddEncoder<ItestDescrCmplObject>(testDescrCmplEncoder.Factory);
 }

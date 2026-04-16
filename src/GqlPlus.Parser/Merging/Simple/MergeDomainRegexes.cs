@@ -8,4 +8,6 @@ internal class MergeDomainRegexes(
 {
   protected override string ItemGroupKey(IAstDomainRegex item)
     => item.Pattern;
+
+  internal static MergeDomainRegexes Factory(IMergerRepository m) => new(m);
 }

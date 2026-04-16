@@ -14,17 +14,21 @@ namespace Components.Gqlp_Schema_parent_field_Dual;
 internal class CmptPrntFieldDualDecoder
 {
   public decimal Field { get; set; }
+
+  internal static CmptPrntFieldDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefPrntFieldDualDecoder
 {
   public decimal Parent { get; set; }
+
+  internal static CmptRefPrntFieldDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_parent_field_DualDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_parent_field_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptPrntFieldDualObject>(_ => new CmptPrntFieldDualDecoder())
-      .AddDecoder<ICmptRefPrntFieldDualObject>(_ => new CmptRefPrntFieldDualDecoder());
+      .AddDecoder<ICmptPrntFieldDualObject>(CmptPrntFieldDualDecoder.Factory)
+      .AddDecoder<ICmptRefPrntFieldDualObject>(CmptRefPrntFieldDualDecoder.Factory);
 }

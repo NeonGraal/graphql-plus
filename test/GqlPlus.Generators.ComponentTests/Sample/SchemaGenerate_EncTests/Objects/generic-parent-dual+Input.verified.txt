@@ -17,11 +17,13 @@ internal class CmptAltGnrcPrntDualInpEncoder : IEncoder<ICmptAltGnrcPrntDualInpO
   public Structured Encode(ICmptAltGnrcPrntDualInpObject input)
     => Structured.Empty()
       .Add("alt", input.Alt);
+
+  internal static CmptAltGnrcPrntDualInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_generic_parent_dual_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_parent_dual_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptAltGnrcPrntDualInpObject>(_ => new CmptAltGnrcPrntDualInpEncoder());
+      .AddEncoder<ICmptAltGnrcPrntDualInpObject>(CmptAltGnrcPrntDualInpEncoder.Factory);
 }

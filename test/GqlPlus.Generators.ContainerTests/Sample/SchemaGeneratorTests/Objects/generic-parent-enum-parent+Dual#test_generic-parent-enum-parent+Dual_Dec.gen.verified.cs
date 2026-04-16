@@ -9,6 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_parent_Dual;
 
 internal class testGnrcPrntEnumPrntDualDecoder
 {
+
+  internal static testGnrcPrntEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testFieldGnrcPrntEnumPrntDualDecoder<TRef>
@@ -20,18 +22,22 @@ internal class testEnumGnrcPrntEnumPrntDualDecoder
 {
   public string gnrcPrntEnumPrntDualParent { get; set; }
   public string gnrcPrntEnumPrntDualLabel { get; set; }
+
+  internal static testEnumGnrcPrntEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testParentGnrcPrntEnumPrntDualDecoder
 {
   public string gnrcPrntEnumPrntDualParent { get; set; }
+
+  internal static testParentGnrcPrntEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_generic_parent_enum_parent_DualDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_generic_parent_enum_parent_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestGnrcPrntEnumPrntDualObject>(_ => new testGnrcPrntEnumPrntDualDecoder())
-      .AddDecoder<testEnumGnrcPrntEnumPrntDual>(_ => new testEnumGnrcPrntEnumPrntDualDecoder())
-      .AddDecoder<testParentGnrcPrntEnumPrntDual>(_ => new testParentGnrcPrntEnumPrntDualDecoder());
+      .AddDecoder<ItestGnrcPrntEnumPrntDualObject>(testGnrcPrntEnumPrntDualDecoder.Factory)
+      .AddDecoder<testEnumGnrcPrntEnumPrntDual>(testEnumGnrcPrntEnumPrntDualDecoder.Factory)
+      .AddDecoder<testParentGnrcPrntEnumPrntDual>(testParentGnrcPrntEnumPrntDualDecoder.Factory);
 }

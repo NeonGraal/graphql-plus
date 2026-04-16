@@ -9,11 +9,13 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_descr_Input;
 
 internal class testAltDescrInpDecoder
 {
+
+  internal static testAltDescrInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_alt_descr_InputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_alt_descr_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestAltDescrInpObject>(_ => new testAltDescrInpDecoder());
+      .AddDecoder<ItestAltDescrInpObject>(testAltDescrInpDecoder.Factory);
 }

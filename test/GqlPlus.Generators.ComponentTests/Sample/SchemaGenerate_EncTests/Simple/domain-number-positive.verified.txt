@@ -14,11 +14,13 @@ internal class CmptDmnNmbrPstvEncoder : IEncoder<ICmptDmnNmbrPstv>
 {
   public Structured Encode(ICmptDmnNmbrPstv input)
     => new(input.Value);
+
+  internal static CmptDmnNmbrPstvEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_domain_number_positiveEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_number_positiveEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptDmnNmbrPstv>(_ => new CmptDmnNmbrPstvEncoder());
+      .AddEncoder<ICmptDmnNmbrPstv>(CmptDmnNmbrPstvEncoder.Factory);
 }

@@ -14,6 +14,8 @@ internal class OutputModeller(
       Fields = FieldsModels(ast.ObjFields, typeKinds),
       Alternates = AlternatesModels(ast.Alternates, typeKinds),
     };
+
+  internal static OutputModeller Factory(IModellerRepository r) => new(r);
 }
 
 internal class OutputFieldModeller(
@@ -30,4 +32,6 @@ internal class OutputFieldModeller(
       : new(field.Name, type, field.Description) {
         Enum = new(field.Name, type.Name, field.EnumValue.EnumLabel, type.Description)
       };
+
+  internal static OutputFieldModeller Factory(IModellerRepository r) => new(r);
 }

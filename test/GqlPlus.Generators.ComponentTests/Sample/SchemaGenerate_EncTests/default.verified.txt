@@ -23,32 +23,40 @@ internal class CmptQueryEncoder : IEncoder<ICmptQueryObject>
 {
   public Structured Encode(ICmptQueryObject input)
     => Structured.Empty();
+
+  internal static CmptQueryEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptMutationEncoder : IEncoder<ICmptMutationObject>
 {
   public Structured Encode(ICmptMutationObject input)
     => Structured.Empty();
+
+  internal static CmptMutationEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptSubscriptionEncoder : IEncoder<ICmptSubscriptionObject>
 {
   public Structured Encode(ICmptSubscriptionObject input)
     => Structured.Empty();
+
+  internal static CmptSubscriptionEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class Cmpt_SchemaEncoder : IEncoder<ICmpt_SchemaObject>
 {
   public Structured Encode(ICmpt_SchemaObject input)
     => Structured.Empty();
+
+  internal static Cmpt_SchemaEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_defaultEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_defaultEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptQueryObject>(_ => new CmptQueryEncoder())
-      .AddEncoder<ICmptMutationObject>(_ => new CmptMutationEncoder())
-      .AddEncoder<ICmptSubscriptionObject>(_ => new CmptSubscriptionEncoder())
-      .AddEncoder<ICmpt_SchemaObject>(_ => new Cmpt_SchemaEncoder());
+      .AddEncoder<ICmptQueryObject>(CmptQueryEncoder.Factory)
+      .AddEncoder<ICmptMutationObject>(CmptMutationEncoder.Factory)
+      .AddEncoder<ICmptSubscriptionObject>(CmptSubscriptionEncoder.Factory)
+      .AddEncoder<ICmpt_SchemaObject>(Cmpt_SchemaEncoder.Factory);
 }

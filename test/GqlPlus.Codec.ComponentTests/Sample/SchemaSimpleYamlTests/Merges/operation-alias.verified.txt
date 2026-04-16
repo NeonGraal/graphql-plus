@@ -9,7 +9,6 @@ categories: !_Map(_Categories)
 operations: !_Map(_Operations)
   !_Name Operation: !_Operation
     aliases: [Op1,Op2]
-    category: op
     name: Operation
 types: !_Map(_Type)
   !_Name Op: !_TypeOutput

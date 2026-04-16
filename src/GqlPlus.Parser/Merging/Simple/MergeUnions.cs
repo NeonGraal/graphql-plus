@@ -12,4 +12,6 @@ internal class MergeUnions(
     UnionDeclAst ast = (UnionDeclAst)input;
     return ast with { Items = items.ArrayOf<UnionMemberAst>() };
   }
+
+  internal static MergeUnions Factory(IMergerRepository m) => new(m);
 }

@@ -101,39 +101,51 @@ namespace Components.Gqlp_Spec_Operation;
 internal class Cmpt_OpDirectiveDecoder
 {
   public ICmpt_OpArgument? Argument { get; set; }
+
+  internal static Cmpt_OpDirectiveDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_OpArgumentDecoder
 {
+
+  internal static Cmpt_OpArgumentDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_OpArgValueDecoder
 {
   public ICmpt_Name Variable { get; set; }
+
+  internal static Cmpt_OpArgValueDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_OpArgListDecoder
 {
+
+  internal static Cmpt_OpArgListDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_OpArgMapDecoder
 {
   public ICmpt_OpArgValue Value { get; set; }
   public ICmpt_Name ByVariable { get; set; }
+
+  internal static Cmpt_OpArgMapDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_PathDecoder
 {
+
+  internal static Cmpt_PathDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Spec_OperationDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_OperationDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmpt_OpDirectiveObject>(_ => new Cmpt_OpDirectiveDecoder())
-      .AddDecoder<ICmpt_OpArgumentObject>(_ => new Cmpt_OpArgumentDecoder())
-      .AddDecoder<ICmpt_OpArgValueObject>(_ => new Cmpt_OpArgValueDecoder())
-      .AddDecoder<ICmpt_OpArgListObject>(_ => new Cmpt_OpArgListDecoder())
-      .AddDecoder<ICmpt_OpArgMapObject>(_ => new Cmpt_OpArgMapDecoder())
-      .AddDecoder<ICmpt_Path>(_ => new Cmpt_PathDecoder());
+      .AddDecoder<ICmpt_OpDirectiveObject>(Cmpt_OpDirectiveDecoder.Factory)
+      .AddDecoder<ICmpt_OpArgumentObject>(Cmpt_OpArgumentDecoder.Factory)
+      .AddDecoder<ICmpt_OpArgValueObject>(Cmpt_OpArgValueDecoder.Factory)
+      .AddDecoder<ICmpt_OpArgListObject>(Cmpt_OpArgListDecoder.Factory)
+      .AddDecoder<ICmpt_OpArgMapObject>(Cmpt_OpArgMapDecoder.Factory)
+      .AddDecoder<ICmpt_Path>(Cmpt_PathDecoder.Factory);
 }

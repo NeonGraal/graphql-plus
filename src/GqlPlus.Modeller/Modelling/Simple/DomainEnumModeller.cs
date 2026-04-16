@@ -15,4 +15,6 @@ internal class DomainEnumModeller
 
   protected override DomainLabelModel ToItem(IAstDomainLabel ast, IMap<TypeKindModel> typeKinds)
     => new(ast.EnumType.IfWhiteSpace(), ast.EnumItem, ast.Excludes, ast.Description);
+
+  internal static DomainEnumModeller Factory(IModellerRepository _) => new();
 }

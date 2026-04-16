@@ -17,4 +17,6 @@ internal class VerifyInputTypes(IVerifierRepository verifiers)
       field.DefaultValue?.Value?.EnumValue?.EnumValue == "Null.null"
         && !(field.Modifiers.LastOrDefault()?.ModifierKind == ModifierKind.Optional));
   }
+
+  internal static VerifyInputTypes Factory(IVerifierRepository v) => new(v);
 }

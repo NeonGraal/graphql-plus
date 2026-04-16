@@ -14,18 +14,24 @@ internal class test_SchemaEncoder(
   private readonly IEncoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
   public Structured Encode(Itest_SchemaObject input)
     => _itest_Named.Encode(input);
+
+  internal static test_SchemaEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_NameEncoder : IEncoder<Itest_Name>
 {
   public Structured Encode(Itest_Name input)
     => new(input.Value);
+
+  internal static test_NameEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_NameFilterEncoder : IEncoder<Itest_NameFilter>
 {
   public Structured Encode(Itest_NameFilter input)
     => new(input.Value);
+
+  internal static test_NameFilterEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_AliasedEncoder(
@@ -37,6 +43,8 @@ internal class test_AliasedEncoder(
   public Structured Encode(Itest_AliasedObject input)
     => _itest_Named.Encode(input)
       .AddList("aliases", input.Aliases, _itest_Name);
+
+  internal static test_AliasedEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_NamedEncoder(
@@ -48,6 +56,8 @@ internal class test_NamedEncoder(
   public Structured Encode(Itest_NamedObject input)
     => _itest_Described.Encode(input)
       .AddEncoded("name", input.Name, _itest_Name);
+
+  internal static test_NamedEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_DescribedEncoder : IEncoder<Itest_DescribedObject>
@@ -55,6 +65,8 @@ internal class test_DescribedEncoder : IEncoder<Itest_DescribedObject>
   public Structured Encode(Itest_DescribedObject input)
     => Structured.Empty()
       .Add("description", input.Description.Encode());
+
+  internal static test_DescribedEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_AndTypeEncoder(
@@ -66,6 +78,8 @@ internal class test_AndTypeEncoder(
   public Structured Encode(Itest_AndTypeObject input)
     => _itest_Named.Encode(input)
       .AddEncoded("type", input.Type, _itest_Type);
+
+  internal static test_AndTypeEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_CategoriesEncoder(
@@ -77,6 +91,8 @@ internal class test_CategoriesEncoder(
   public Structured Encode(Itest_CategoriesObject input)
     => _itest_AndType.Encode(input)
       .AddEncoded("category", input.Category, _itest_Category);
+
+  internal static test_CategoriesEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_CategoryEncoder(
@@ -91,12 +107,16 @@ internal class test_CategoryEncoder(
       .AddEnum("resolution", input.Resolution)
       .AddEncoded("output", input.Output, _itest_TypeRef)
       .AddList("modifiers", input.Modifiers, _itest_Modifiers);
+
+  internal static test_CategoryEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_ResolutionEncoder : IEncoder<test_Resolution>
 {
   public Structured Encode(test_Resolution input)
     => new(input.ToString(), "_Resolution");
+
+  internal static test_ResolutionEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_DirectivesEncoder(
@@ -108,6 +128,8 @@ internal class test_DirectivesEncoder(
   public Structured Encode(Itest_DirectivesObject input)
     => _itest_AndType.Encode(input)
       .AddEncoded("directive", input.Directive, _itest_Directive);
+
+  internal static test_DirectivesEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_DirectiveEncoder(
@@ -120,12 +142,16 @@ internal class test_DirectiveEncoder(
     => _itest_Aliased.Encode(input)
       .AddEncoded("parameter", input.Parameter, _itest_InputFieldType)
       .Add("repeatable", input.Repeatable);
+
+  internal static test_DirectiveEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_LocationEncoder : IEncoder<test_Location>
 {
   public Structured Encode(test_Location input)
     => new(input.ToString(), "_Location");
+
+  internal static test_LocationEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_OperationsEncoder(
@@ -138,6 +164,8 @@ internal class test_OperationsEncoder(
     => Structured.Empty()
       .AddEncoded("operation", input.Operation, _itest_Operation)
       .AddEncoded("type", input.Type, _itest_Type);
+
+  internal static test_OperationsEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_OpDirectivesEncoder(
@@ -149,6 +177,8 @@ internal class test_OpDirectivesEncoder(
   public Structured Encode(Itest_OpDirectivesObject input)
     => _itest_Named.Encode(input)
       .AddList("directives", input.Directives, _itest_OpDirective);
+
+  internal static test_OpDirectivesEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_OperationEncoder(
@@ -164,6 +194,8 @@ internal class test_OperationEncoder(
       .AddEncoded("category", input.Category, _itest_Name)
       .AddList("directives", input.Directives, _itest_OpDirective)
       .AddEncoded("result", input.Result, _itest_OpResult);
+
+  internal static test_OperationEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_OpVariableEncoder(
@@ -179,6 +211,8 @@ internal class test_OpVariableEncoder(
       .AddEncoded("type", input.Type, _itest_TypeRef)
       .AddList("modifiers", input.Modifiers, _itest_Modifiers)
       .AddEncoded("defaultValue", input.DefaultValue, _gqlpValue);
+
+  internal static test_OpVariableEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_OpDirectiveEncoder(
@@ -190,6 +224,8 @@ internal class test_OpDirectiveEncoder(
   public Structured Encode(Itest_OpDirectiveObject input)
     => _itest_Named.Encode(input)
       .AddEncoded("argument", input.Argument, _itest_OpArgument);
+
+  internal static test_OpDirectiveEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_OpFragmentEncoder(
@@ -201,12 +237,16 @@ internal class test_OpFragmentEncoder(
   public Structured Encode(Itest_OpFragmentObject input)
     => _itest_OpDirectives.Encode(input)
       .AddEncoded("type", input.Type, _itest_TypeRef);
+
+  internal static test_OpFragmentEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_OpArgumentEncoder : IEncoder<Itest_OpArgumentObject>
 {
   public Structured Encode(Itest_OpArgumentObject input)
     => Structured.Empty();
+
+  internal static test_OpArgumentEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_OpArgValueEncoder(
@@ -217,12 +257,16 @@ internal class test_OpArgValueEncoder(
   public Structured Encode(Itest_OpArgValueObject input)
     => Structured.Empty()
       .AddEncoded("variable", input.Variable, _itest_Name);
+
+  internal static test_OpArgValueEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_OpArgListEncoder : IEncoder<Itest_OpArgListObject>
 {
   public Structured Encode(Itest_OpArgListObject input)
     => Structured.Empty();
+
+  internal static test_OpArgListEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_OpArgMapEncoder(
@@ -235,6 +279,8 @@ internal class test_OpArgMapEncoder(
     => Structured.Empty()
       .AddEncoded("value", input.Value, _itest_OpArgValue)
       .AddEncoded("byVariable", input.ByVariable, _itest_Name);
+
+  internal static test_OpArgMapEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_OpResultEncoder(
@@ -245,18 +291,24 @@ internal class test_OpResultEncoder(
   public Structured Encode(Itest_OpResultObject input)
     => Structured.Empty()
       .AddEncoded("argument", input.Argument, _itest_OpArgument);
+
+  internal static test_OpResultEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_PathEncoder : IEncoder<Itest_Path>
 {
   public Structured Encode(Itest_Path input)
     => new(input.Value);
+
+  internal static test_PathEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_OpSelectionEncoder : IEncoder<Itest_OpSelectionObject>
 {
   public Structured Encode(Itest_OpSelectionObject input)
     => Structured.Empty();
+
+  internal static test_OpSelectionEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_OpFieldEncoder(
@@ -271,6 +323,8 @@ internal class test_OpFieldEncoder(
       .Add("fieldAlias", input.FieldAlias)
       .AddEncoded("argument", input.Argument, _itest_OpArgument)
       .AddList("modifiers", input.Modifiers, _itest_Modifiers);
+
+  internal static test_OpFieldEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_OpInlineEncoder(
@@ -283,6 +337,8 @@ internal class test_OpInlineEncoder(
     => Structured.Empty()
       .AddEncoded("type", input.Type, _itest_TypeRef)
       .AddList("directives", input.Directives, _itest_OpDirective);
+
+  internal static test_OpInlineEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_OpSpreadEncoder(
@@ -294,6 +350,8 @@ internal class test_OpSpreadEncoder(
     => Structured.Empty()
       .Add("fragment", input.Fragment)
       .AddList("directives", input.Directives, _itest_OpDirective);
+
+  internal static test_OpSpreadEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_SettingEncoder(
@@ -305,12 +363,16 @@ internal class test_SettingEncoder(
   public Structured Encode(Itest_SettingObject input)
     => _itest_Named.Encode(input)
       .AddEncoded("value", input.Value, _gqlpValue);
+
+  internal static test_SettingEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_TypeEncoder : IEncoder<Itest_TypeObject>
 {
   public Structured Encode(Itest_TypeObject input)
     => Structured.Empty();
+
+  internal static test_TypeEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_BaseTypeEncoder<TTypeKind>(
@@ -352,12 +414,16 @@ internal class test_SimpleKindEncoder : IEncoder<test_SimpleKind>
 {
   public Structured Encode(test_SimpleKind input)
     => new(input.ToString(), "_SimpleKind");
+
+  internal static test_SimpleKindEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_TypeKindEncoder : IEncoder<test_TypeKind>
 {
   public Structured Encode(test_TypeKind input)
     => new(input.ToString(), "_TypeKind");
+
+  internal static test_TypeKindEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_TypeRefEncoder<TTypeKind>(
@@ -375,12 +441,16 @@ internal class test_TypeSimpleEncoder : IEncoder<Itest_TypeSimpleObject>
 {
   public Structured Encode(Itest_TypeSimpleObject input)
     => Structured.Empty();
+
+  internal static test_TypeSimpleEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_CollectionsEncoder : IEncoder<Itest_CollectionsObject>
 {
   public Structured Encode(Itest_CollectionsObject input)
     => Structured.Empty();
+
+  internal static test_CollectionsEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_ModifierKeyedEncoder<TModifierKind>(
@@ -399,12 +469,16 @@ internal class test_ModifiersEncoder : IEncoder<Itest_ModifiersObject>
 {
   public Structured Encode(Itest_ModifiersObject input)
     => Structured.Empty();
+
+  internal static test_ModifiersEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_ModifierKindEncoder : IEncoder<test_ModifierKind>
 {
   public Structured Encode(test_ModifierKind input)
     => new(input.ToString(), "_ModifierKind");
+
+  internal static test_ModifierKindEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_ModifierEncoder<TModifierKind>(
@@ -421,6 +495,8 @@ internal class test_DomainKindEncoder : IEncoder<test_DomainKind>
 {
   public Structured Encode(test_DomainKind input)
     => new(input.ToString(), "_DomainKind");
+
+  internal static test_DomainKindEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_DomainRefEncoder<TDomainKind>(
@@ -453,6 +529,8 @@ internal class test_BaseDomainItemEncoder(
   public Structured Encode(Itest_BaseDomainItemObject input)
     => _itest_Described.Encode(input)
       .Add("exclude", input.Exclude);
+
+  internal static test_BaseDomainItemEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_DomainItemEncoder<TItem>(
@@ -480,6 +558,8 @@ internal class test_BasicValueEncoder : IEncoder<Itest_BasicValueObject>
 {
   public Structured Encode(Itest_BasicValueObject input)
     => Structured.Empty();
+
+  internal static test_BasicValueEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_DomainTrueFalseEncoder(
@@ -490,6 +570,8 @@ internal class test_DomainTrueFalseEncoder(
   public Structured Encode(Itest_DomainTrueFalseObject input)
     => _itest_BaseDomainItem.Encode(input)
       .Add("value", input.Value);
+
+  internal static test_DomainTrueFalseEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_DomainItemTrueFalseEncoder(
@@ -499,6 +581,8 @@ internal class test_DomainItemTrueFalseEncoder(
   private readonly IEncoder<Itest_DomainItemObject<Itest_DomainTrueFalse>> _itest_DomainItem = encoders.EncoderFor<Itest_DomainItemObject<Itest_DomainTrueFalse>>();
   public Structured Encode(Itest_DomainItemTrueFalseObject input)
     => _itest_DomainItem.Encode(input);
+
+  internal static test_DomainItemTrueFalseEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_DomainLabelEncoder(
@@ -510,6 +594,8 @@ internal class test_DomainLabelEncoder(
   public Structured Encode(Itest_DomainLabelObject input)
     => _itest_BaseDomainItem.Encode(input)
       .AddEncoded("label", input.Label, _itest_EnumValue);
+
+  internal static test_DomainLabelEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_DomainItemLabelEncoder(
@@ -519,6 +605,8 @@ internal class test_DomainItemLabelEncoder(
   private readonly IEncoder<Itest_DomainItemObject<Itest_DomainLabel>> _itest_DomainItem = encoders.EncoderFor<Itest_DomainItemObject<Itest_DomainLabel>>();
   public Structured Encode(Itest_DomainItemLabelObject input)
     => _itest_DomainItem.Encode(input);
+
+  internal static test_DomainItemLabelEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_DomainRangeEncoder(
@@ -530,6 +618,8 @@ internal class test_DomainRangeEncoder(
     => _itest_BaseDomainItem.Encode(input)
       .Add("lower", input.Lower)
       .Add("upper", input.Upper);
+
+  internal static test_DomainRangeEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_DomainItemRangeEncoder(
@@ -539,6 +629,8 @@ internal class test_DomainItemRangeEncoder(
   private readonly IEncoder<Itest_DomainItemObject<Itest_DomainRange>> _itest_DomainItem = encoders.EncoderFor<Itest_DomainItemObject<Itest_DomainRange>>();
   public Structured Encode(Itest_DomainItemRangeObject input)
     => _itest_DomainItem.Encode(input);
+
+  internal static test_DomainItemRangeEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_DomainRegexEncoder(
@@ -549,6 +641,8 @@ internal class test_DomainRegexEncoder(
   public Structured Encode(Itest_DomainRegexObject input)
     => _itest_BaseDomainItem.Encode(input)
       .Add("pattern", input.Pattern);
+
+  internal static test_DomainRegexEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_DomainItemRegexEncoder(
@@ -558,6 +652,8 @@ internal class test_DomainItemRegexEncoder(
   private readonly IEncoder<Itest_DomainItemObject<Itest_DomainRegex>> _itest_DomainItem = encoders.EncoderFor<Itest_DomainItemObject<Itest_DomainRegex>>();
   public Structured Encode(Itest_DomainItemRegexObject input)
     => _itest_DomainItem.Encode(input);
+
+  internal static test_DomainItemRegexEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_EnumLabelEncoder(
@@ -569,6 +665,8 @@ internal class test_EnumLabelEncoder(
   public Structured Encode(Itest_EnumLabelObject input)
     => _itest_Aliased.Encode(input)
       .AddEncoded("enumType", input.EnumType, _itest_Name);
+
+  internal static test_EnumLabelEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_EnumValueEncoder(
@@ -580,6 +678,8 @@ internal class test_EnumValueEncoder(
   public Structured Encode(Itest_EnumValueObject input)
     => _itest_TypeRef.Encode(input)
       .AddEncoded("label", input.Label, _itest_Name);
+
+  internal static test_EnumValueEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_UnionRefEncoder(
@@ -589,6 +689,8 @@ internal class test_UnionRefEncoder(
   private readonly IEncoder<Itest_TypeRefObject<test_SimpleKind>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRefObject<test_SimpleKind>>();
   public Structured Encode(Itest_UnionRefObject input)
     => _itest_TypeRef.Encode(input);
+
+  internal static test_UnionRefEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_UnionMemberEncoder(
@@ -600,12 +702,16 @@ internal class test_UnionMemberEncoder(
   public Structured Encode(Itest_UnionMemberObject input)
     => _itest_UnionRef.Encode(input)
       .AddEncoded("union", input.Union, _itest_Name);
+
+  internal static test_UnionMemberEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_ObjectKindEncoder : IEncoder<Itest_ObjectKind>
 {
   public Structured Encode(Itest_ObjectKind input)
     => new((decimal?)input.Value);
+
+  internal static test_ObjectKindEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_TypeObjectEncoder<TObjectKind,TField>(
@@ -636,6 +742,8 @@ internal class test_ObjTypeParamEncoder(
   public Structured Encode(Itest_ObjTypeParamObject input)
     => _itest_Named.Encode(input)
       .AddEncoded("constraint", input.Constraint, _itest_TypeRef);
+
+  internal static test_ObjTypeParamEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_ObjBaseEncoder(
@@ -647,6 +755,8 @@ internal class test_ObjBaseEncoder(
   public Structured Encode(Itest_ObjBaseObject input)
     => _itest_Named.Encode(input)
       .AddList("typeArgs", input.TypeArgs, _itest_ObjTypeArg);
+
+  internal static test_ObjBaseEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_ObjTypeArgEncoder(
@@ -658,6 +768,8 @@ internal class test_ObjTypeArgEncoder(
   public Structured Encode(Itest_ObjTypeArgObject input)
     => _itest_TypeRef.Encode(input)
       .AddEncoded("label", input.Label, _itest_Name);
+
+  internal static test_ObjTypeArgEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_TypeParamEncoder(
@@ -669,6 +781,8 @@ internal class test_TypeParamEncoder(
   public Structured Encode(Itest_TypeParamObject input)
     => _itest_Described.Encode(input)
       .AddEncoded("typeParam", input.TypeParam, _itest_Name);
+
+  internal static test_TypeParamEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_ObjAlternateEncoder(
@@ -681,6 +795,8 @@ internal class test_ObjAlternateEncoder(
     => Structured.Empty()
       .AddEncoded("type", input.Type, _itest_ObjBase)
       .AddList("collections", input.Collections, _itest_Collections);
+
+  internal static test_ObjAlternateEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_ObjAlternateEnumEncoder(
@@ -692,6 +808,8 @@ internal class test_ObjAlternateEnumEncoder(
   public Structured Encode(Itest_ObjAlternateEnumObject input)
     => _itest_TypeRef.Encode(input)
       .AddEncoded("label", input.Label, _itest_Name);
+
+  internal static test_ObjAlternateEnumEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_ObjectForEncoder<TFor>(
@@ -724,6 +842,8 @@ internal class test_ObjFieldTypeEncoder(
   public Structured Encode(Itest_ObjFieldTypeObject input)
     => _itest_ObjBase.Encode(input)
       .AddList("modifiers", input.Modifiers, _itest_Modifiers);
+
+  internal static test_ObjFieldTypeEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_ObjFieldEnumEncoder(
@@ -735,6 +855,8 @@ internal class test_ObjFieldEnumEncoder(
   public Structured Encode(Itest_ObjFieldEnumObject input)
     => _itest_TypeRef.Encode(input)
       .AddEncoded("label", input.Label, _itest_Name);
+
+  internal static test_ObjFieldEnumEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_ForParamEncoder<TType> : IEncoder<Itest_ForParamObject<TType>>
@@ -750,6 +872,8 @@ internal class test_DualFieldEncoder(
   private readonly IEncoder<Itest_ObjFieldObject<Itest_ObjFieldType>> _itest_ObjField = encoders.EncoderFor<Itest_ObjFieldObject<Itest_ObjFieldType>>();
   public Structured Encode(Itest_DualFieldObject input)
     => _itest_ObjField.Encode(input);
+
+  internal static test_DualFieldEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_InputFieldEncoder(
@@ -759,6 +883,8 @@ internal class test_InputFieldEncoder(
   private readonly IEncoder<Itest_ObjFieldObject<Itest_InputFieldType>> _itest_ObjField = encoders.EncoderFor<Itest_ObjFieldObject<Itest_InputFieldType>>();
   public Structured Encode(Itest_InputFieldObject input)
     => _itest_ObjField.Encode(input);
+
+  internal static test_InputFieldEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_InputFieldTypeEncoder(
@@ -770,6 +896,8 @@ internal class test_InputFieldTypeEncoder(
   public Structured Encode(Itest_InputFieldTypeObject input)
     => _itest_ObjFieldType.Encode(input)
       .AddEncoded("defaultValue", input.DefaultValue, _gqlpValue);
+
+  internal static test_InputFieldTypeEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_OutputFieldEncoder(
@@ -779,6 +907,8 @@ internal class test_OutputFieldEncoder(
   private readonly IEncoder<Itest_ObjFieldObject<Itest_ObjFieldType>> _itest_ObjField = encoders.EncoderFor<Itest_ObjFieldObject<Itest_ObjFieldType>>();
   public Structured Encode(Itest_OutputFieldObject input)
     => _itest_ObjField.Encode(input);
+
+  internal static test_OutputFieldEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_OutputFieldTypeEncoder(
@@ -790,76 +920,78 @@ internal class test_OutputFieldTypeEncoder(
   public Structured Encode(Itest_OutputFieldTypeObject input)
     => _itest_ObjFieldType.Encode(input)
       .AddEncoded("parameter", input.Parameter, _itest_InputFieldType);
+
+  internal static test_OutputFieldTypeEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class test_IntrospectionEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_IntrospectionEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<Itest_SchemaObject>(r => new test_SchemaEncoder(r))
-      .AddEncoder<Itest_Name>(_ => new test_NameEncoder())
-      .AddEncoder<Itest_NameFilter>(_ => new test_NameFilterEncoder())
-      .AddEncoder<Itest_AliasedObject>(r => new test_AliasedEncoder(r))
-      .AddEncoder<Itest_NamedObject>(r => new test_NamedEncoder(r))
-      .AddEncoder<Itest_DescribedObject>(_ => new test_DescribedEncoder())
-      .AddEncoder<Itest_AndTypeObject>(r => new test_AndTypeEncoder(r))
-      .AddEncoder<Itest_CategoriesObject>(r => new test_CategoriesEncoder(r))
-      .AddEncoder<Itest_CategoryObject>(r => new test_CategoryEncoder(r))
-      .AddEncoder<test_Resolution>(_ => new test_ResolutionEncoder())
-      .AddEncoder<Itest_DirectivesObject>(r => new test_DirectivesEncoder(r))
-      .AddEncoder<Itest_DirectiveObject>(r => new test_DirectiveEncoder(r))
-      .AddEncoder<test_Location>(_ => new test_LocationEncoder())
-      .AddEncoder<Itest_OperationsObject>(r => new test_OperationsEncoder(r))
-      .AddEncoder<Itest_OpDirectivesObject>(r => new test_OpDirectivesEncoder(r))
-      .AddEncoder<Itest_OperationObject>(r => new test_OperationEncoder(r))
-      .AddEncoder<Itest_OpVariableObject>(r => new test_OpVariableEncoder(r))
-      .AddEncoder<Itest_OpDirectiveObject>(r => new test_OpDirectiveEncoder(r))
-      .AddEncoder<Itest_OpFragmentObject>(r => new test_OpFragmentEncoder(r))
-      .AddEncoder<Itest_OpArgumentObject>(_ => new test_OpArgumentEncoder())
-      .AddEncoder<Itest_OpArgValueObject>(r => new test_OpArgValueEncoder(r))
-      .AddEncoder<Itest_OpArgListObject>(_ => new test_OpArgListEncoder())
-      .AddEncoder<Itest_OpArgMapObject>(r => new test_OpArgMapEncoder(r))
-      .AddEncoder<Itest_OpResultObject>(r => new test_OpResultEncoder(r))
-      .AddEncoder<Itest_Path>(_ => new test_PathEncoder())
-      .AddEncoder<Itest_OpSelectionObject>(_ => new test_OpSelectionEncoder())
-      .AddEncoder<Itest_OpFieldObject>(r => new test_OpFieldEncoder(r))
-      .AddEncoder<Itest_OpInlineObject>(r => new test_OpInlineEncoder(r))
-      .AddEncoder<Itest_OpSpreadObject>(r => new test_OpSpreadEncoder(r))
-      .AddEncoder<Itest_SettingObject>(r => new test_SettingEncoder(r))
-      .AddEncoder<Itest_TypeObject>(_ => new test_TypeEncoder())
-      .AddEncoder<test_SimpleKind>(_ => new test_SimpleKindEncoder())
-      .AddEncoder<test_TypeKind>(_ => new test_TypeKindEncoder())
-      .AddEncoder<Itest_TypeSimpleObject>(_ => new test_TypeSimpleEncoder())
-      .AddEncoder<Itest_CollectionsObject>(_ => new test_CollectionsEncoder())
-      .AddEncoder<Itest_ModifiersObject>(_ => new test_ModifiersEncoder())
-      .AddEncoder<test_ModifierKind>(_ => new test_ModifierKindEncoder())
-      .AddEncoder<test_DomainKind>(_ => new test_DomainKindEncoder())
-      .AddEncoder<Itest_BaseDomainItemObject>(r => new test_BaseDomainItemEncoder(r))
-      .AddEncoder<Itest_BasicValueObject>(_ => new test_BasicValueEncoder())
-      .AddEncoder<Itest_DomainTrueFalseObject>(r => new test_DomainTrueFalseEncoder(r))
-      .AddEncoder<Itest_DomainItemTrueFalseObject>(r => new test_DomainItemTrueFalseEncoder(r))
-      .AddEncoder<Itest_DomainLabelObject>(r => new test_DomainLabelEncoder(r))
-      .AddEncoder<Itest_DomainItemLabelObject>(r => new test_DomainItemLabelEncoder(r))
-      .AddEncoder<Itest_DomainRangeObject>(r => new test_DomainRangeEncoder(r))
-      .AddEncoder<Itest_DomainItemRangeObject>(r => new test_DomainItemRangeEncoder(r))
-      .AddEncoder<Itest_DomainRegexObject>(r => new test_DomainRegexEncoder(r))
-      .AddEncoder<Itest_DomainItemRegexObject>(r => new test_DomainItemRegexEncoder(r))
-      .AddEncoder<Itest_EnumLabelObject>(r => new test_EnumLabelEncoder(r))
-      .AddEncoder<Itest_EnumValueObject>(r => new test_EnumValueEncoder(r))
-      .AddEncoder<Itest_UnionRefObject>(r => new test_UnionRefEncoder(r))
-      .AddEncoder<Itest_UnionMemberObject>(r => new test_UnionMemberEncoder(r))
-      .AddEncoder<Itest_ObjectKind>(_ => new test_ObjectKindEncoder())
-      .AddEncoder<Itest_ObjTypeParamObject>(r => new test_ObjTypeParamEncoder(r))
-      .AddEncoder<Itest_ObjBaseObject>(r => new test_ObjBaseEncoder(r))
-      .AddEncoder<Itest_ObjTypeArgObject>(r => new test_ObjTypeArgEncoder(r))
-      .AddEncoder<Itest_TypeParamObject>(r => new test_TypeParamEncoder(r))
-      .AddEncoder<Itest_ObjAlternateObject>(r => new test_ObjAlternateEncoder(r))
-      .AddEncoder<Itest_ObjAlternateEnumObject>(r => new test_ObjAlternateEnumEncoder(r))
-      .AddEncoder<Itest_ObjFieldTypeObject>(r => new test_ObjFieldTypeEncoder(r))
-      .AddEncoder<Itest_ObjFieldEnumObject>(r => new test_ObjFieldEnumEncoder(r))
-      .AddEncoder<Itest_DualFieldObject>(r => new test_DualFieldEncoder(r))
-      .AddEncoder<Itest_InputFieldObject>(r => new test_InputFieldEncoder(r))
-      .AddEncoder<Itest_InputFieldTypeObject>(r => new test_InputFieldTypeEncoder(r))
-      .AddEncoder<Itest_OutputFieldObject>(r => new test_OutputFieldEncoder(r))
-      .AddEncoder<Itest_OutputFieldTypeObject>(r => new test_OutputFieldTypeEncoder(r));
+      .AddEncoder<Itest_SchemaObject>(test_SchemaEncoder.Factory)
+      .AddEncoder<Itest_Name>(test_NameEncoder.Factory)
+      .AddEncoder<Itest_NameFilter>(test_NameFilterEncoder.Factory)
+      .AddEncoder<Itest_AliasedObject>(test_AliasedEncoder.Factory)
+      .AddEncoder<Itest_NamedObject>(test_NamedEncoder.Factory)
+      .AddEncoder<Itest_DescribedObject>(test_DescribedEncoder.Factory)
+      .AddEncoder<Itest_AndTypeObject>(test_AndTypeEncoder.Factory)
+      .AddEncoder<Itest_CategoriesObject>(test_CategoriesEncoder.Factory)
+      .AddEncoder<Itest_CategoryObject>(test_CategoryEncoder.Factory)
+      .AddEncoder<test_Resolution>(test_ResolutionEncoder.Factory)
+      .AddEncoder<Itest_DirectivesObject>(test_DirectivesEncoder.Factory)
+      .AddEncoder<Itest_DirectiveObject>(test_DirectiveEncoder.Factory)
+      .AddEncoder<test_Location>(test_LocationEncoder.Factory)
+      .AddEncoder<Itest_OperationsObject>(test_OperationsEncoder.Factory)
+      .AddEncoder<Itest_OpDirectivesObject>(test_OpDirectivesEncoder.Factory)
+      .AddEncoder<Itest_OperationObject>(test_OperationEncoder.Factory)
+      .AddEncoder<Itest_OpVariableObject>(test_OpVariableEncoder.Factory)
+      .AddEncoder<Itest_OpDirectiveObject>(test_OpDirectiveEncoder.Factory)
+      .AddEncoder<Itest_OpFragmentObject>(test_OpFragmentEncoder.Factory)
+      .AddEncoder<Itest_OpArgumentObject>(test_OpArgumentEncoder.Factory)
+      .AddEncoder<Itest_OpArgValueObject>(test_OpArgValueEncoder.Factory)
+      .AddEncoder<Itest_OpArgListObject>(test_OpArgListEncoder.Factory)
+      .AddEncoder<Itest_OpArgMapObject>(test_OpArgMapEncoder.Factory)
+      .AddEncoder<Itest_OpResultObject>(test_OpResultEncoder.Factory)
+      .AddEncoder<Itest_Path>(test_PathEncoder.Factory)
+      .AddEncoder<Itest_OpSelectionObject>(test_OpSelectionEncoder.Factory)
+      .AddEncoder<Itest_OpFieldObject>(test_OpFieldEncoder.Factory)
+      .AddEncoder<Itest_OpInlineObject>(test_OpInlineEncoder.Factory)
+      .AddEncoder<Itest_OpSpreadObject>(test_OpSpreadEncoder.Factory)
+      .AddEncoder<Itest_SettingObject>(test_SettingEncoder.Factory)
+      .AddEncoder<Itest_TypeObject>(test_TypeEncoder.Factory)
+      .AddEncoder<test_SimpleKind>(test_SimpleKindEncoder.Factory)
+      .AddEncoder<test_TypeKind>(test_TypeKindEncoder.Factory)
+      .AddEncoder<Itest_TypeSimpleObject>(test_TypeSimpleEncoder.Factory)
+      .AddEncoder<Itest_CollectionsObject>(test_CollectionsEncoder.Factory)
+      .AddEncoder<Itest_ModifiersObject>(test_ModifiersEncoder.Factory)
+      .AddEncoder<test_ModifierKind>(test_ModifierKindEncoder.Factory)
+      .AddEncoder<test_DomainKind>(test_DomainKindEncoder.Factory)
+      .AddEncoder<Itest_BaseDomainItemObject>(test_BaseDomainItemEncoder.Factory)
+      .AddEncoder<Itest_BasicValueObject>(test_BasicValueEncoder.Factory)
+      .AddEncoder<Itest_DomainTrueFalseObject>(test_DomainTrueFalseEncoder.Factory)
+      .AddEncoder<Itest_DomainItemTrueFalseObject>(test_DomainItemTrueFalseEncoder.Factory)
+      .AddEncoder<Itest_DomainLabelObject>(test_DomainLabelEncoder.Factory)
+      .AddEncoder<Itest_DomainItemLabelObject>(test_DomainItemLabelEncoder.Factory)
+      .AddEncoder<Itest_DomainRangeObject>(test_DomainRangeEncoder.Factory)
+      .AddEncoder<Itest_DomainItemRangeObject>(test_DomainItemRangeEncoder.Factory)
+      .AddEncoder<Itest_DomainRegexObject>(test_DomainRegexEncoder.Factory)
+      .AddEncoder<Itest_DomainItemRegexObject>(test_DomainItemRegexEncoder.Factory)
+      .AddEncoder<Itest_EnumLabelObject>(test_EnumLabelEncoder.Factory)
+      .AddEncoder<Itest_EnumValueObject>(test_EnumValueEncoder.Factory)
+      .AddEncoder<Itest_UnionRefObject>(test_UnionRefEncoder.Factory)
+      .AddEncoder<Itest_UnionMemberObject>(test_UnionMemberEncoder.Factory)
+      .AddEncoder<Itest_ObjectKind>(test_ObjectKindEncoder.Factory)
+      .AddEncoder<Itest_ObjTypeParamObject>(test_ObjTypeParamEncoder.Factory)
+      .AddEncoder<Itest_ObjBaseObject>(test_ObjBaseEncoder.Factory)
+      .AddEncoder<Itest_ObjTypeArgObject>(test_ObjTypeArgEncoder.Factory)
+      .AddEncoder<Itest_TypeParamObject>(test_TypeParamEncoder.Factory)
+      .AddEncoder<Itest_ObjAlternateObject>(test_ObjAlternateEncoder.Factory)
+      .AddEncoder<Itest_ObjAlternateEnumObject>(test_ObjAlternateEnumEncoder.Factory)
+      .AddEncoder<Itest_ObjFieldTypeObject>(test_ObjFieldTypeEncoder.Factory)
+      .AddEncoder<Itest_ObjFieldEnumObject>(test_ObjFieldEnumEncoder.Factory)
+      .AddEncoder<Itest_DualFieldObject>(test_DualFieldEncoder.Factory)
+      .AddEncoder<Itest_InputFieldObject>(test_InputFieldEncoder.Factory)
+      .AddEncoder<Itest_InputFieldTypeObject>(test_InputFieldTypeEncoder.Factory)
+      .AddEncoder<Itest_OutputFieldObject>(test_OutputFieldEncoder.Factory)
+      .AddEncoder<Itest_OutputFieldTypeObject>(test_OutputFieldTypeEncoder.Factory);
 }

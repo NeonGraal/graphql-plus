@@ -108,10 +108,8 @@ directives: !_Map(_Directives)
 name: Schema
 operations: !_Map(_Operations)
   !_Name OprCtgr: !_Operation
-    category: catOprCtgr
     name: OprCtgr
   !_Name OprType: !_Operation
-    category: catOprType
     name: OprType
 settings: !_Map(_Setting)
   !_Name descr: !_Setting

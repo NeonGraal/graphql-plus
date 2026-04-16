@@ -14,11 +14,13 @@ internal class test_DualFieldEncoder(
   private readonly IEncoder<Itest_ObjFieldObject<Itest_ObjFieldType>> _itest_ObjField = encoders.EncoderFor<Itest_ObjFieldObject<Itest_ObjFieldType>>();
   public Structured Encode(Itest_DualFieldObject input)
     => _itest_ObjField.Encode(input);
+
+  internal static test_DualFieldEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class test_DualEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<Itest_DualFieldObject>(r => new test_DualFieldEncoder(r));
+      .AddEncoder<Itest_DualFieldObject>(test_DualFieldEncoder.Factory);
 }

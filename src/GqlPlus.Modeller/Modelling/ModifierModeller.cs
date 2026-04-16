@@ -38,6 +38,8 @@ internal class ModifierModeller
     => TryModels<CollectionModel>(asts, typeKinds);
   CollectionModel[] IModeller<IAstModifier, CollectionModel>.ToModels(IEnumerable<IAstModifier>? asts, IMap<TypeKindModel> typeKinds)
     => ToModels<CollectionModel>(asts, typeKinds);
+
+  internal static ModifierModeller Factory(IModellerRepository _) => new();
 }
 
 public interface IModifierModeller

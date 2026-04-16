@@ -5,4 +5,6 @@ internal class TypeUnionResolver
 {
   protected override UnionMemberModel NewItem(TypeUnionModel model, NamedModel item)
     => new(item.Name, model.Name, item.Description);
+
+  internal static TypeUnionResolver Factory(IResolverRepository _) => new();
 }

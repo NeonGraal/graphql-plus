@@ -108,6 +108,8 @@ internal class Cmpt_OperationsEncoder(
     => Structured.Empty()
       .AddEncoded("operation", input.Operation, _operation)
       .AddEncoded("type", input.Type, _type);
+
+  internal static Cmpt_OperationsEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_OpDirectivesEncoder(
@@ -119,6 +121,8 @@ internal class Cmpt_OpDirectivesEncoder(
   public Structured Encode(ICmpt_OpDirectivesObject input)
     => _named.Encode(input)
       .AddList("directives", input.Directives, _opDirective);
+
+  internal static Cmpt_OpDirectivesEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_OperationEncoder(
@@ -134,6 +138,8 @@ internal class Cmpt_OperationEncoder(
       .AddEncoded("category", input.Category, _name)
       .AddList("directives", input.Directives, _opDirective)
       .AddEncoded("result", input.Result, _opResult);
+
+  internal static Cmpt_OperationEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_OpVariableEncoder(
@@ -149,6 +155,8 @@ internal class Cmpt_OpVariableEncoder(
       .AddEncoded("type", input.Type, _typeRef)
       .AddList("modifiers", input.Modifiers, _modifiers)
       .AddEncoded("defaultValue", input.DefaultValue, _gqlpValue);
+
+  internal static Cmpt_OpVariableEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_OpDirectiveEncoder(
@@ -160,6 +168,8 @@ internal class Cmpt_OpDirectiveEncoder(
   public Structured Encode(ICmpt_OpDirectiveObject input)
     => _named.Encode(input)
       .AddEncoded("argument", input.Argument, _opArgument);
+
+  internal static Cmpt_OpDirectiveEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_OpFragmentEncoder(
@@ -171,12 +181,16 @@ internal class Cmpt_OpFragmentEncoder(
   public Structured Encode(ICmpt_OpFragmentObject input)
     => _opDirectives.Encode(input)
       .AddEncoded("type", input.Type, _typeRef);
+
+  internal static Cmpt_OpFragmentEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_OpArgumentEncoder : IEncoder<ICmpt_OpArgumentObject>
 {
   public Structured Encode(ICmpt_OpArgumentObject input)
     => Structured.Empty();
+
+  internal static Cmpt_OpArgumentEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class Cmpt_OpArgValueEncoder(
@@ -187,12 +201,16 @@ internal class Cmpt_OpArgValueEncoder(
   public Structured Encode(ICmpt_OpArgValueObject input)
     => Structured.Empty()
       .AddEncoded("variable", input.Variable, _name);
+
+  internal static Cmpt_OpArgValueEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_OpArgListEncoder : IEncoder<ICmpt_OpArgListObject>
 {
   public Structured Encode(ICmpt_OpArgListObject input)
     => Structured.Empty();
+
+  internal static Cmpt_OpArgListEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class Cmpt_OpArgMapEncoder(
@@ -205,6 +223,8 @@ internal class Cmpt_OpArgMapEncoder(
     => Structured.Empty()
       .AddEncoded("value", input.Value, _opArgValue)
       .AddEncoded("byVariable", input.ByVariable, _name);
+
+  internal static Cmpt_OpArgMapEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_OpResultEncoder(
@@ -215,18 +235,24 @@ internal class Cmpt_OpResultEncoder(
   public Structured Encode(ICmpt_OpResultObject input)
     => Structured.Empty()
       .AddEncoded("argument", input.Argument, _opArgument);
+
+  internal static Cmpt_OpResultEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_PathEncoder : IEncoder<ICmpt_Path>
 {
   public Structured Encode(ICmpt_Path input)
     => new(input.Value);
+
+  internal static Cmpt_PathEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class Cmpt_OpSelectionEncoder : IEncoder<ICmpt_OpSelectionObject>
 {
   public Structured Encode(ICmpt_OpSelectionObject input)
     => Structured.Empty();
+
+  internal static Cmpt_OpSelectionEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class Cmpt_OpFieldEncoder(
@@ -241,6 +267,8 @@ internal class Cmpt_OpFieldEncoder(
       .Add("fieldAlias", input.FieldAlias)
       .AddEncoded("argument", input.Argument, _opArgument)
       .AddList("modifiers", input.Modifiers, _modifiers);
+
+  internal static Cmpt_OpFieldEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_OpInlineEncoder(
@@ -253,6 +281,8 @@ internal class Cmpt_OpInlineEncoder(
     => Structured.Empty()
       .AddEncoded("type", input.Type, _typeRef)
       .AddList("directives", input.Directives, _opDirective);
+
+  internal static Cmpt_OpInlineEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_OpSpreadEncoder(
@@ -264,26 +294,28 @@ internal class Cmpt_OpSpreadEncoder(
     => Structured.Empty()
       .Add("fragment", input.Fragment)
       .AddList("directives", input.Directives, _opDirective);
+
+  internal static Cmpt_OpSpreadEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class Cmpt_Spec_OperationEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Spec_OperationEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmpt_OperationsObject>(r => new Cmpt_OperationsEncoder(r))
-      .AddEncoder<ICmpt_OpDirectivesObject>(r => new Cmpt_OpDirectivesEncoder(r))
-      .AddEncoder<ICmpt_OperationObject>(r => new Cmpt_OperationEncoder(r))
-      .AddEncoder<ICmpt_OpVariableObject>(r => new Cmpt_OpVariableEncoder(r))
-      .AddEncoder<ICmpt_OpDirectiveObject>(r => new Cmpt_OpDirectiveEncoder(r))
-      .AddEncoder<ICmpt_OpFragmentObject>(r => new Cmpt_OpFragmentEncoder(r))
-      .AddEncoder<ICmpt_OpArgumentObject>(_ => new Cmpt_OpArgumentEncoder())
-      .AddEncoder<ICmpt_OpArgValueObject>(r => new Cmpt_OpArgValueEncoder(r))
-      .AddEncoder<ICmpt_OpArgListObject>(_ => new Cmpt_OpArgListEncoder())
-      .AddEncoder<ICmpt_OpArgMapObject>(r => new Cmpt_OpArgMapEncoder(r))
-      .AddEncoder<ICmpt_OpResultObject>(r => new Cmpt_OpResultEncoder(r))
-      .AddEncoder<ICmpt_Path>(_ => new Cmpt_PathEncoder())
-      .AddEncoder<ICmpt_OpSelectionObject>(_ => new Cmpt_OpSelectionEncoder())
-      .AddEncoder<ICmpt_OpFieldObject>(r => new Cmpt_OpFieldEncoder(r))
-      .AddEncoder<ICmpt_OpInlineObject>(r => new Cmpt_OpInlineEncoder(r))
-      .AddEncoder<ICmpt_OpSpreadObject>(r => new Cmpt_OpSpreadEncoder(r));
+      .AddEncoder<ICmpt_OperationsObject>(Cmpt_OperationsEncoder.Factory)
+      .AddEncoder<ICmpt_OpDirectivesObject>(Cmpt_OpDirectivesEncoder.Factory)
+      .AddEncoder<ICmpt_OperationObject>(Cmpt_OperationEncoder.Factory)
+      .AddEncoder<ICmpt_OpVariableObject>(Cmpt_OpVariableEncoder.Factory)
+      .AddEncoder<ICmpt_OpDirectiveObject>(Cmpt_OpDirectiveEncoder.Factory)
+      .AddEncoder<ICmpt_OpFragmentObject>(Cmpt_OpFragmentEncoder.Factory)
+      .AddEncoder<ICmpt_OpArgumentObject>(Cmpt_OpArgumentEncoder.Factory)
+      .AddEncoder<ICmpt_OpArgValueObject>(Cmpt_OpArgValueEncoder.Factory)
+      .AddEncoder<ICmpt_OpArgListObject>(Cmpt_OpArgListEncoder.Factory)
+      .AddEncoder<ICmpt_OpArgMapObject>(Cmpt_OpArgMapEncoder.Factory)
+      .AddEncoder<ICmpt_OpResultObject>(Cmpt_OpResultEncoder.Factory)
+      .AddEncoder<ICmpt_Path>(Cmpt_PathEncoder.Factory)
+      .AddEncoder<ICmpt_OpSelectionObject>(Cmpt_OpSelectionEncoder.Factory)
+      .AddEncoder<ICmpt_OpFieldObject>(Cmpt_OpFieldEncoder.Factory)
+      .AddEncoder<ICmpt_OpInlineObject>(Cmpt_OpInlineEncoder.Factory)
+      .AddEncoder<ICmpt_OpSpreadObject>(Cmpt_OpSpreadEncoder.Factory);
 }

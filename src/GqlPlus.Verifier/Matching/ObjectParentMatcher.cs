@@ -14,4 +14,6 @@ internal class ObjectParentMatcher<TField>(
   protected bool MatchObject<TObj>(TObj obj, string constraint, UsageContext context)
     where TObj : class, IAstObject
     => obj.Parent is not null && MatchParent(obj.Parent, constraint, context);
+
+  internal static ObjectParentMatcher<TField> Factory(IMatcherRepository m) => new(m);
 }

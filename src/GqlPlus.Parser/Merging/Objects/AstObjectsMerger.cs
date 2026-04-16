@@ -46,4 +46,6 @@ internal class AstObjectsMerger<TObjField>(
     => (AstObject<TObjField>)input with {
       ObjFields = [.. items],
     };
+
+  internal static AstObjectsMerger<TObjField> Factory(IMergerRepository m) => new(m);
 }

@@ -8,4 +8,6 @@ internal class SettingModeller(
 
   protected override SettingModel ToModel(IAstSchemaSetting ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, _constant.ToModel(ast.Value, typeKinds), ast.Description);
+
+  internal static SettingModeller Factory(IModellerRepository r) => new(r);
 }

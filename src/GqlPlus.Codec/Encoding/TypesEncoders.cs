@@ -54,6 +54,8 @@ internal class AllTypesEncoder(
     .SingleOrDefault(t => t.ForType(model))
     ?.TypeEncode(model)
     ?? throw new InvalidOperationException("Unable to find Encoder for " + model.GetType().ExpandTypeName());
+
+  internal static AllTypesEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 public interface ITypeEncoder
@@ -76,6 +78,8 @@ internal class TypeRefEncoder<TModel, TKind>
   internal override Structured Encode(TModel model)
     => base.Encode(model)
       .AddEnum("typeKind", model.TypeKind);
+
+  internal static new TypeRefEncoder<TModel, TKind> Factory(IEncoderRepository _) => new();
 }
 
 internal class DomainRefEncoder
@@ -84,8 +88,13 @@ internal class DomainRefEncoder
   internal override Structured Encode(DomainRefModel model)
     => base.Encode(model)
       .AddEnum("domainKind", model.DomainKind);
+
+  internal static new DomainRefEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class SpecialTypeEncoder
   : BaseTypeEncoder<SpecialTypeModel>
-{ }
+
+{
+  internal static new SpecialTypeEncoder Factory(IEncoderRepository _) => new();
+}

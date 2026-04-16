@@ -11,11 +11,13 @@ internal class testDmnNmbrRangeEncoder : IEncoder<ItestDmnNmbrRange>
 {
   public Structured Encode(ItestDmnNmbrRange input)
     => new(input.Value);
+
+  internal static testDmnNmbrRangeEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_domain_number_rangeEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_domain_number_rangeEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestDmnNmbrRange>(_ => new testDmnNmbrRangeEncoder());
+      .AddEncoder<ItestDmnNmbrRange>(testDmnNmbrRangeEncoder.Factory);
 }

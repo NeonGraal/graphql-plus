@@ -9,11 +9,13 @@ namespace GqlPlus.GeneratorTests.Gqlp_directive_param_in;
 
 internal class testInDrctParamInDecoder
 {
+
+  internal static testInDrctParamInDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_directive_param_inDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_directive_param_inDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestInDrctParamInObject>(_ => new testInDrctParamInDecoder());
+      .AddDecoder<ItestInDrctParamInObject>(testInDrctParamInDecoder.Factory);
 }

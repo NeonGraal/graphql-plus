@@ -17,11 +17,13 @@ internal class test_OpSpreadEncoder(
     => Structured.Empty()
       .AddEncoded("fragment", input.Fragment, _itest_Identifier)
       .AddList("directives", input.Directives, _itest_OpDirective);
+
+  internal static test_OpSpreadEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class test_ResultEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_ResultEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<Itest_OpSpreadObject>(r => new test_OpSpreadEncoder(r));
+      .AddEncoder<Itest_OpSpreadObject>(test_OpSpreadEncoder.Factory);
 }

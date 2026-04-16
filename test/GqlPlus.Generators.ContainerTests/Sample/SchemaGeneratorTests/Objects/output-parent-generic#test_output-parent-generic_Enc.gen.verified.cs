@@ -11,6 +11,8 @@ internal class testOutpPrntGnrcEncoder : IEncoder<ItestOutpPrntGnrcObject>
 {
   public Structured Encode(ItestOutpPrntGnrcObject input)
     => Structured.Empty();
+
+  internal static testOutpPrntGnrcEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testRefOutpPrntGnrcEncoder<TType>(
@@ -27,19 +29,23 @@ internal class testEnumOutpPrntGnrcEncoder : IEncoder<testEnumOutpPrntGnrc>
 {
   public Structured Encode(testEnumOutpPrntGnrc input)
     => new(input.ToString(), "_EnumOutpPrntGnrc");
+
+  internal static testEnumOutpPrntGnrcEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testPrntOutpPrntGnrcEncoder : IEncoder<testPrntOutpPrntGnrc>
 {
   public Structured Encode(testPrntOutpPrntGnrc input)
     => new(input.ToString(), "_PrntOutpPrntGnrc");
+
+  internal static testPrntOutpPrntGnrcEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_output_parent_genericEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_output_parent_genericEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestOutpPrntGnrcObject>(_ => new testOutpPrntGnrcEncoder())
-      .AddEncoder<testEnumOutpPrntGnrc>(_ => new testEnumOutpPrntGnrcEncoder())
-      .AddEncoder<testPrntOutpPrntGnrc>(_ => new testPrntOutpPrntGnrcEncoder());
+      .AddEncoder<ItestOutpPrntGnrcObject>(testOutpPrntGnrcEncoder.Factory)
+      .AddEncoder<testEnumOutpPrntGnrc>(testEnumOutpPrntGnrcEncoder.Factory)
+      .AddEncoder<testPrntOutpPrntGnrc>(testPrntOutpPrntGnrcEncoder.Factory);
 }

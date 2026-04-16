@@ -19,11 +19,13 @@ internal class CmptFieldModParamInpDecoder<TMod>
 internal class CmptFldFieldModParamInpDecoder
 {
   public decimal Field { get; set; }
+
+  internal static CmptFldFieldModParamInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_field_mod_param_InputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_mod_param_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptFldFieldModParamInpObject>(_ => new CmptFldFieldModParamInpDecoder());
+      .AddDecoder<ICmptFldFieldModParamInpObject>(CmptFldFieldModParamInpDecoder.Factory);
 }

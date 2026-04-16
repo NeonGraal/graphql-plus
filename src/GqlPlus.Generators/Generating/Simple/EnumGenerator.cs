@@ -49,10 +49,15 @@ internal sealed class EnumDecoderGenerator
 {
   protected override void Generate(IAstEnum ast, GqlpGeneratorContext context)
   {
-    GenerateBlock(ast, context, DecoderHeader, EnumMembers, EnumClassMember);
+    string typeName = context.TypeName(ast, "") + "Decoder";
+    GenerateBlock(ast, context, DecoderHeader, EnumMembers, EnumClassMember,
+      (_, c) => {
+        c.Write("");
+        c.Write($"  internal static {typeName} Factory(IDecoderRepository _) => new();");
+      });
 
-    string typeName = context.TypeName(ast, "");
-    context.RegisterDecoder(typeName, typeName + "Decoder");
+    string baseName = context.TypeName(ast, "");
+    context.RegisterDecoder(baseName, typeName);
   }
 }
 
@@ -68,6 +73,8 @@ internal sealed class EnumEncoderGenerator
     context.Write("{");
     context.Write($"  public Structured Encode({typeName} input)");
     context.Write($"    => new(input.ToString(), \"{tag}\");");
+    context.Write("");
+    context.Write($"  internal static {typeName}Encoder Factory(IEncoderRepository _) => new();");
     context.Write("}");
 
     context.RegisterEncoder(typeName, typeName + "Encoder");

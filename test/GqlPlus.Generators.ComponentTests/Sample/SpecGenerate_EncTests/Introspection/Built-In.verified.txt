@@ -35,6 +35,8 @@ internal class Cmpt_CollectionsEncoder : IEncoder<ICmpt_CollectionsObject>
 {
   public Structured Encode(ICmpt_CollectionsObject input)
     => Structured.Empty();
+
+  internal static Cmpt_CollectionsEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class Cmpt_ModifierKeyedEncoder<TModifierKind>(
@@ -53,12 +55,16 @@ internal class Cmpt_ModifiersEncoder : IEncoder<ICmpt_ModifiersObject>
 {
   public Structured Encode(ICmpt_ModifiersObject input)
     => Structured.Empty();
+
+  internal static Cmpt_ModifiersEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class Cmpt_ModifierKindEncoder : IEncoder<Cmpt_ModifierKind>
 {
   public Structured Encode(Cmpt_ModifierKind input)
     => new(input.ToString(), "_ModifierKind");
+
+  internal static Cmpt_ModifierKindEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class Cmpt_ModifierEncoder<TModifierKind>(
@@ -75,7 +81,7 @@ internal static class Cmpt_Spec_Built_InEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Spec_Built_InEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmpt_CollectionsObject>(_ => new Cmpt_CollectionsEncoder())
-      .AddEncoder<ICmpt_ModifiersObject>(_ => new Cmpt_ModifiersEncoder())
-      .AddEncoder<Cmpt_ModifierKind>(_ => new Cmpt_ModifierKindEncoder());
+      .AddEncoder<ICmpt_CollectionsObject>(Cmpt_CollectionsEncoder.Factory)
+      .AddEncoder<ICmpt_ModifiersObject>(Cmpt_ModifiersEncoder.Factory)
+      .AddEncoder<Cmpt_ModifierKind>(Cmpt_ModifierKindEncoder.Factory);
 }

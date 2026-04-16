@@ -16,16 +16,20 @@ namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Output;
 
 internal class CmptGrndCnstPrntDualGrndOutpDecoder
 {
+
+  internal static CmptGrndCnstPrntDualGrndOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntCnstPrntDualGrndOutpDecoder
 {
+
+  internal static CmptPrntCnstPrntDualGrndOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_constraint_parent_dual_grandparent_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_parent_dual_grandparent_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptGrndCnstPrntDualGrndOutpObject>(_ => new CmptGrndCnstPrntDualGrndOutpDecoder())
-      .AddDecoder<ICmptPrntCnstPrntDualGrndOutpObject>(_ => new CmptPrntCnstPrntDualGrndOutpDecoder());
+      .AddDecoder<ICmptGrndCnstPrntDualGrndOutpObject>(CmptGrndCnstPrntDualGrndOutpDecoder.Factory)
+      .AddDecoder<ICmptPrntCnstPrntDualGrndOutpObject>(CmptPrntCnstPrntDualGrndOutpDecoder.Factory);
 }

@@ -19,11 +19,13 @@ internal class Cmpt_DualFieldEncoder(
   private readonly IEncoder<ICmpt_ObjFieldObject<ICmpt_ObjFieldType>> _objField = encoders.EncoderFor<ICmpt_ObjFieldObject<ICmpt_ObjFieldType>>();
   public Structured Encode(ICmpt_DualFieldObject input)
     => _objField.Encode(input);
+
+  internal static Cmpt_DualFieldEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class Cmpt_Spec_DualEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Spec_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmpt_DualFieldObject>(r => new Cmpt_DualFieldEncoder(r));
+      .AddEncoder<ICmpt_DualFieldObject>(Cmpt_DualFieldEncoder.Factory);
 }

@@ -15,17 +15,21 @@ namespace Components.Gqlp_Schema_union_same_parent;
 internal class CmptUnionSamePrntDecoder
 {
   public Boolean AsBoolean { get; set; }
+
+  internal static CmptUnionSamePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntUnionSamePrntDecoder
 {
   public String AsString { get; set; }
+
+  internal static CmptPrntUnionSamePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_union_same_parentDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_union_same_parentDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptUnionSamePrnt>(_ => new CmptUnionSamePrntDecoder())
-      .AddDecoder<ICmptPrntUnionSamePrnt>(_ => new CmptPrntUnionSamePrntDecoder());
+      .AddDecoder<ICmptUnionSamePrnt>(CmptUnionSamePrntDecoder.Factory)
+      .AddDecoder<ICmptPrntUnionSamePrnt>(CmptPrntUnionSamePrntDecoder.Factory);
 }

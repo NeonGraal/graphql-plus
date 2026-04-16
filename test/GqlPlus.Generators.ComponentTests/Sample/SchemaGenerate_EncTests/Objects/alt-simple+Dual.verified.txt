@@ -14,11 +14,13 @@ internal class CmptAltSmplDualEncoder : IEncoder<ICmptAltSmplDualObject>
 {
   public Structured Encode(ICmptAltSmplDualObject input)
     => Structured.Empty();
+
+  internal static CmptAltSmplDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_alt_simple_DualEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_alt_simple_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptAltSmplDualObject>(_ => new CmptAltSmplDualEncoder());
+      .AddEncoder<ICmptAltSmplDualObject>(CmptAltSmplDualEncoder.Factory);
 }

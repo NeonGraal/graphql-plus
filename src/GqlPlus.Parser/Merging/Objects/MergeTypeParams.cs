@@ -28,4 +28,6 @@ internal class MergeTypeParams
 
     return ast.MakeDescription(asts);
   }
+
+  internal static MergeTypeParams Factory(IMergerRepository _) => new();
 }

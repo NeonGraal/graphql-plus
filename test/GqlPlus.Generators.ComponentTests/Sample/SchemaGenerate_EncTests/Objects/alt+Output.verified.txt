@@ -15,6 +15,8 @@ internal class CmptAltOutpEncoder : IEncoder<ICmptAltOutpObject>
 {
   public Structured Encode(ICmptAltOutpObject input)
     => Structured.Empty();
+
+  internal static CmptAltOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptAltAltOutpEncoder : IEncoder<ICmptAltAltOutpObject>
@@ -22,12 +24,14 @@ internal class CmptAltAltOutpEncoder : IEncoder<ICmptAltAltOutpObject>
   public Structured Encode(ICmptAltAltOutpObject input)
     => Structured.Empty()
       .Add("alt", input.Alt);
+
+  internal static CmptAltAltOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_alt_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_alt_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptAltOutpObject>(_ => new CmptAltOutpEncoder())
-      .AddEncoder<ICmptAltAltOutpObject>(_ => new CmptAltAltOutpEncoder());
+      .AddEncoder<ICmptAltOutpObject>(CmptAltOutpEncoder.Factory)
+      .AddEncoder<ICmptAltAltOutpObject>(CmptAltAltOutpEncoder.Factory);
 }

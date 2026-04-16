@@ -11,6 +11,8 @@ internal class testCnstPrntEnumDualEncoder : IEncoder<ItestCnstPrntEnumDualObjec
 {
   public Structured Encode(ItestCnstPrntEnumDualObject input)
     => Structured.Empty();
+
+  internal static testCnstPrntEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testRefCnstPrntEnumDualEncoder<TType>(
@@ -27,19 +29,23 @@ internal class testEnumCnstPrntEnumDualEncoder : IEncoder<testEnumCnstPrntEnumDu
 {
   public Structured Encode(testEnumCnstPrntEnumDual input)
     => new(input.ToString(), "_EnumCnstPrntEnumDual");
+
+  internal static testEnumCnstPrntEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testParentCnstPrntEnumDualEncoder : IEncoder<testParentCnstPrntEnumDual>
 {
   public Structured Encode(testParentCnstPrntEnumDual input)
     => new(input.ToString(), "_ParentCnstPrntEnumDual");
+
+  internal static testParentCnstPrntEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_constraint_parent_enum_DualEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_constraint_parent_enum_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestCnstPrntEnumDualObject>(_ => new testCnstPrntEnumDualEncoder())
-      .AddEncoder<testEnumCnstPrntEnumDual>(_ => new testEnumCnstPrntEnumDualEncoder())
-      .AddEncoder<testParentCnstPrntEnumDual>(_ => new testParentCnstPrntEnumDualEncoder());
+      .AddEncoder<ItestCnstPrntEnumDualObject>(testCnstPrntEnumDualEncoder.Factory)
+      .AddEncoder<testEnumCnstPrntEnumDual>(testEnumCnstPrntEnumDualEncoder.Factory)
+      .AddEncoder<testParentCnstPrntEnumDual>(testParentCnstPrntEnumDualEncoder.Factory);
 }

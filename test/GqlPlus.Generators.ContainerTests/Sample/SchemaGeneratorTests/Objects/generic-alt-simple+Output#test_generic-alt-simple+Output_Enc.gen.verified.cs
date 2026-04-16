@@ -11,6 +11,8 @@ internal class testGnrcAltSmplOutpEncoder : IEncoder<ItestGnrcAltSmplOutpObject>
 {
   public Structured Encode(ItestGnrcAltSmplOutpObject input)
     => Structured.Empty();
+
+  internal static testGnrcAltSmplOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testRefGnrcAltSmplOutpEncoder<TRef> : IEncoder<ItestRefGnrcAltSmplOutpObject<TRef>>
@@ -23,5 +25,5 @@ internal static class test_generic_alt_simple_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_generic_alt_simple_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestGnrcAltSmplOutpObject>(_ => new testGnrcAltSmplOutpEncoder());
+      .AddEncoder<ItestGnrcAltSmplOutpObject>(testGnrcAltSmplOutpEncoder.Factory);
 }

@@ -71,6 +71,8 @@ internal class Cmpt_OperationDecoder
   public ICollection<ICmpt_OpDirective> Directives { get; set; }
   public ICollection<ICmpt_OpFragment> Fragments { get; set; }
   public ICmpt_OpResult Result { get; set; }
+
+  internal static Cmpt_OperationDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_OpVariableDecoder
@@ -80,12 +82,16 @@ internal class Cmpt_OpVariableDecoder
   public ICollection<ICmpt_Modifier> Modifiers { get; set; }
   public GqlpValue? Default { get; set; }
   public ICollection<ICmpt_OpDirective> Directives { get; set; }
+
+  internal static Cmpt_OpVariableDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_OpDirectiveDecoder
 {
   public ICmpt_Identifier Name { get; set; }
   public ICmpt_OpArgument? Argument { get; set; }
+
+  internal static Cmpt_OpDirectiveDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_OpFragmentDecoder
@@ -94,6 +100,8 @@ internal class Cmpt_OpFragmentDecoder
   public ICmpt_Identifier? Type { get; set; }
   public ICollection<ICmpt_OpDirective> Directives { get; set; }
   public ICollection<ICmpt_OpObject> Body { get; set; }
+
+  internal static Cmpt_OpFragmentDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_ModifierKindDecoder
@@ -105,6 +113,8 @@ internal class Cmpt_ModifierKindDecoder
   public string Dictionary { get; set; }
   public string Param { get; set; }
   public string TypeParam { get; set; }
+
+  internal static Cmpt_ModifierKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_ModifierDecoder
@@ -112,39 +122,49 @@ internal class Cmpt_ModifierDecoder
   public Cmpt_ModifierKind ModifierKind { get; set; }
   public ICmpt_Identifier? By { get; set; }
   public bool? Optional { get; set; }
+
+  internal static Cmpt_ModifierDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_OpArgumentDecoder
 {
+
+  internal static Cmpt_OpArgumentDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_OpArgValueDecoder
 {
   public ICmpt_Identifier Variable { get; set; }
+
+  internal static Cmpt_OpArgValueDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_OpArgListDecoder
 {
+
+  internal static Cmpt_OpArgListDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_OpArgMapDecoder
 {
   public ICmpt_OpArgValue Value { get; set; }
   public ICmpt_Identifier ByVariable { get; set; }
+
+  internal static Cmpt_OpArgMapDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Spec_OperationDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_OperationDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmpt_OperationObject>(_ => new Cmpt_OperationDecoder())
-      .AddDecoder<ICmpt_OpVariableObject>(_ => new Cmpt_OpVariableDecoder())
-      .AddDecoder<ICmpt_OpDirectiveObject>(_ => new Cmpt_OpDirectiveDecoder())
-      .AddDecoder<ICmpt_OpFragmentObject>(_ => new Cmpt_OpFragmentDecoder())
-      .AddDecoder<Cmpt_ModifierKind>(_ => new Cmpt_ModifierKindDecoder())
-      .AddDecoder<ICmpt_ModifierObject>(_ => new Cmpt_ModifierDecoder())
-      .AddDecoder<ICmpt_OpArgumentObject>(_ => new Cmpt_OpArgumentDecoder())
-      .AddDecoder<ICmpt_OpArgValueObject>(_ => new Cmpt_OpArgValueDecoder())
-      .AddDecoder<ICmpt_OpArgListObject>(_ => new Cmpt_OpArgListDecoder())
-      .AddDecoder<ICmpt_OpArgMapObject>(_ => new Cmpt_OpArgMapDecoder());
+      .AddDecoder<ICmpt_OperationObject>(Cmpt_OperationDecoder.Factory)
+      .AddDecoder<ICmpt_OpVariableObject>(Cmpt_OpVariableDecoder.Factory)
+      .AddDecoder<ICmpt_OpDirectiveObject>(Cmpt_OpDirectiveDecoder.Factory)
+      .AddDecoder<ICmpt_OpFragmentObject>(Cmpt_OpFragmentDecoder.Factory)
+      .AddDecoder<Cmpt_ModifierKind>(Cmpt_ModifierKindDecoder.Factory)
+      .AddDecoder<ICmpt_ModifierObject>(Cmpt_ModifierDecoder.Factory)
+      .AddDecoder<ICmpt_OpArgumentObject>(Cmpt_OpArgumentDecoder.Factory)
+      .AddDecoder<ICmpt_OpArgValueObject>(Cmpt_OpArgValueDecoder.Factory)
+      .AddDecoder<ICmpt_OpArgListObject>(Cmpt_OpArgListDecoder.Factory)
+      .AddDecoder<ICmpt_OpArgMapObject>(Cmpt_OpArgMapDecoder.Factory);
 }

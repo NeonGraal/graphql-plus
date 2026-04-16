@@ -11,11 +11,13 @@ internal class test_IdentifierEncoder : IEncoder<Itest_Identifier>
 {
   public Structured Encode(Itest_Identifier input)
     => new(input.Value);
+
+  internal static test_IdentifierEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_FullEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_FullEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<Itest_Identifier>(_ => new test_IdentifierEncoder());
+      .AddEncoder<Itest_Identifier>(test_IdentifierEncoder.Factory);
 }

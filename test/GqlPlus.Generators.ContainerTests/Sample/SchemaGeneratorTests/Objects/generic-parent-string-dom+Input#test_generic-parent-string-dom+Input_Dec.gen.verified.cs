@@ -9,6 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_string_dom_Input;
 
 internal class testGnrcPrntStrDomInpDecoder
 {
+
+  internal static testGnrcPrntStrDomInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testFieldGnrcPrntStrDomInpDecoder<TRef>
@@ -18,12 +20,14 @@ internal class testFieldGnrcPrntStrDomInpDecoder<TRef>
 
 internal class testDomGnrcPrntStrDomInpDecoder
 {
+
+  internal static testDomGnrcPrntStrDomInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_generic_parent_string_dom_InputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_generic_parent_string_dom_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestGnrcPrntStrDomInpObject>(_ => new testGnrcPrntStrDomInpDecoder())
-      .AddDecoder<ItestDomGnrcPrntStrDomInp>(_ => new testDomGnrcPrntStrDomInpDecoder());
+      .AddDecoder<ItestGnrcPrntStrDomInpObject>(testGnrcPrntStrDomInpDecoder.Factory)
+      .AddDecoder<ItestDomGnrcPrntStrDomInp>(testDomGnrcPrntStrDomInpDecoder.Factory);
 }

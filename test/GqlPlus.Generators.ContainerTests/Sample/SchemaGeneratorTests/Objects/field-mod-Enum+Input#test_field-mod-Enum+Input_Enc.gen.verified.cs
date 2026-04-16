@@ -11,11 +11,13 @@ internal class testEnumFieldModEnumInpEncoder : IEncoder<testEnumFieldModEnumInp
 {
   public Structured Encode(testEnumFieldModEnumInp input)
     => new(input.ToString(), "_EnumFieldModEnumInp");
+
+  internal static testEnumFieldModEnumInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_field_mod_Enum_InputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_field_mod_Enum_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<testEnumFieldModEnumInp>(_ => new testEnumFieldModEnumInpEncoder());
+      .AddEncoder<testEnumFieldModEnumInp>(testEnumFieldModEnumInpEncoder.Factory);
 }

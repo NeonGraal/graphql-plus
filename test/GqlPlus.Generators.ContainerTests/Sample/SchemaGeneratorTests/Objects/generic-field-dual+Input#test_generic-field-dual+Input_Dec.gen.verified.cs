@@ -10,6 +10,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_field_dual_Input;
 internal class testGnrcFieldDualInpDecoder
 {
   public ItestRefGnrcFieldDualInp<ItestAltGnrcFieldDualInp> Field { get; set; }
+
+  internal static testGnrcFieldDualInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testRefGnrcFieldDualInpDecoder<TRef>
@@ -19,12 +21,14 @@ internal class testRefGnrcFieldDualInpDecoder<TRef>
 internal class testAltGnrcFieldDualInpDecoder
 {
   public decimal Alt { get; set; }
+
+  internal static testAltGnrcFieldDualInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_generic_field_dual_InputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_generic_field_dual_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestGnrcFieldDualInpObject>(_ => new testGnrcFieldDualInpDecoder())
-      .AddDecoder<ItestAltGnrcFieldDualInpObject>(_ => new testAltGnrcFieldDualInpDecoder());
+      .AddDecoder<ItestGnrcFieldDualInpObject>(testGnrcFieldDualInpDecoder.Factory)
+      .AddDecoder<ItestAltGnrcFieldDualInpObject>(testAltGnrcFieldDualInpDecoder.Factory);
 }

@@ -14,17 +14,21 @@ namespace Components.Gqlp_Schema_field_enum_Input;
 internal class CmptFieldEnumInpDecoder
 {
   public CmptEnumFieldEnumInp Field { get; set; }
+
+  internal static CmptFieldEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumFieldEnumInpDecoder
 {
   public string fieldEnumInp { get; set; }
+
+  internal static CmptEnumFieldEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_field_enum_InputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_enum_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptFieldEnumInpObject>(_ => new CmptFieldEnumInpDecoder())
-      .AddDecoder<CmptEnumFieldEnumInp>(_ => new CmptEnumFieldEnumInpDecoder());
+      .AddDecoder<ICmptFieldEnumInpObject>(CmptFieldEnumInpDecoder.Factory)
+      .AddDecoder<CmptEnumFieldEnumInp>(CmptEnumFieldEnumInpDecoder.Factory);
 }

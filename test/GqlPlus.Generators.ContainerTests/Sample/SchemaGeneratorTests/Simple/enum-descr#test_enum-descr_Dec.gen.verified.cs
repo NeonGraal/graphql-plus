@@ -10,11 +10,13 @@ namespace GqlPlus.GeneratorTests.Gqlp_enum_descr;
 internal class testEnumDescrDecoder
 {
   public string enumDescr { get; set; }
+
+  internal static testEnumDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_enum_descrDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_enum_descrDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<testEnumDescr>(_ => new testEnumDescrDecoder());
+      .AddDecoder<testEnumDescr>(testEnumDescrDecoder.Factory);
 }

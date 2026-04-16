@@ -9,6 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_obj_Input;
 
 internal class testCnstFieldObjInpDecoder
 {
+
+  internal static testCnstFieldObjInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testRefCnstFieldObjInpDecoder<TRef>
@@ -18,18 +20,22 @@ internal class testRefCnstFieldObjInpDecoder<TRef>
 
 internal class testPrntCnstFieldObjInpDecoder
 {
+
+  internal static testPrntCnstFieldObjInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testAltCnstFieldObjInpDecoder
 {
   public decimal Alt { get; set; }
+
+  internal static testAltCnstFieldObjInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_constraint_field_obj_InputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_constraint_field_obj_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestCnstFieldObjInpObject>(_ => new testCnstFieldObjInpDecoder())
-      .AddDecoder<ItestPrntCnstFieldObjInpObject>(_ => new testPrntCnstFieldObjInpDecoder())
-      .AddDecoder<ItestAltCnstFieldObjInpObject>(_ => new testAltCnstFieldObjInpDecoder());
+      .AddDecoder<ItestCnstFieldObjInpObject>(testCnstFieldObjInpDecoder.Factory)
+      .AddDecoder<ItestPrntCnstFieldObjInpObject>(testPrntCnstFieldObjInpDecoder.Factory)
+      .AddDecoder<ItestAltCnstFieldObjInpObject>(testAltCnstFieldObjInpDecoder.Factory);
 }

@@ -12,6 +12,8 @@ internal class DualModeller(
       Fields = FieldsModels(ast.ObjFields, typeKinds),
       Alternates = AlternatesModels(ast.Alternates, typeKinds),
     };
+
+  internal static DualModeller Factory(IModellerRepository r) => new(r);
 }
 
 internal class DualFieldModeller(
@@ -20,4 +22,6 @@ internal class DualFieldModeller(
 {
   protected override DualFieldModel FieldModel(IAstDualField ast, ObjBaseModel type, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, type with { Description = ast.Type.Description.IfWhiteSpace() }, ast.Description);
+
+  internal static DualFieldModeller Factory(IModellerRepository r) => new(r);
 }

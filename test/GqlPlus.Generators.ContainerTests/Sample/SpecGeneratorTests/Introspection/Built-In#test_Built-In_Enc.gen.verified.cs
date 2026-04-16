@@ -11,6 +11,8 @@ internal class test_CollectionsEncoder : IEncoder<Itest_CollectionsObject>
 {
   public Structured Encode(Itest_CollectionsObject input)
     => Structured.Empty();
+
+  internal static test_CollectionsEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_ModifierKeyedEncoder<TModifierKind>(
@@ -29,12 +31,16 @@ internal class test_ModifiersEncoder : IEncoder<Itest_ModifiersObject>
 {
   public Structured Encode(Itest_ModifiersObject input)
     => Structured.Empty();
+
+  internal static test_ModifiersEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_ModifierKindEncoder : IEncoder<test_ModifierKind>
 {
   public Structured Encode(test_ModifierKind input)
     => new(input.ToString(), "_ModifierKind");
+
+  internal static test_ModifierKindEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_ModifierEncoder<TModifierKind>(
@@ -51,7 +57,7 @@ internal static class test_Built_InEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_Built_InEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<Itest_CollectionsObject>(_ => new test_CollectionsEncoder())
-      .AddEncoder<Itest_ModifiersObject>(_ => new test_ModifiersEncoder())
-      .AddEncoder<test_ModifierKind>(_ => new test_ModifierKindEncoder());
+      .AddEncoder<Itest_CollectionsObject>(test_CollectionsEncoder.Factory)
+      .AddEncoder<Itest_ModifiersObject>(test_ModifiersEncoder.Factory)
+      .AddEncoder<test_ModifierKind>(test_ModifierKindEncoder.Factory);
 }

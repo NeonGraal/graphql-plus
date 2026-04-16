@@ -16,11 +16,13 @@ internal class CmptObjFieldTypeAliasOutpEncoder : IEncoder<ICmptObjFieldTypeAlia
   public Structured Encode(ICmptObjFieldTypeAliasOutpObject input)
     => Structured.Empty()
       .Add("field", input.Field);
+
+  internal static CmptObjFieldTypeAliasOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_object_field_type_alias_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_object_field_type_alias_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptObjFieldTypeAliasOutpObject>(_ => new CmptObjFieldTypeAliasOutpEncoder());
+      .AddEncoder<ICmptObjFieldTypeAliasOutpObject>(CmptObjFieldTypeAliasOutpEncoder.Factory);
 }

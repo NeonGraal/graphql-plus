@@ -15,6 +15,8 @@ namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Dual;
 
 internal class CmptCnstPrntObjPrntDualDecoder
 {
+
+  internal static CmptCnstPrntObjPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefCnstPrntObjPrntDualDecoder<TRef>
@@ -23,18 +25,22 @@ internal class CmptRefCnstPrntObjPrntDualDecoder<TRef>
 
 internal class CmptPrntCnstPrntObjPrntDualDecoder
 {
+
+  internal static CmptPrntCnstPrntObjPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptAltCnstPrntObjPrntDualDecoder
 {
   public decimal Alt { get; set; }
+
+  internal static CmptAltCnstPrntObjPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_constraint_parent_obj_parent_DualDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_parent_obj_parent_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptCnstPrntObjPrntDualObject>(_ => new CmptCnstPrntObjPrntDualDecoder())
-      .AddDecoder<ICmptPrntCnstPrntObjPrntDualObject>(_ => new CmptPrntCnstPrntObjPrntDualDecoder())
-      .AddDecoder<ICmptAltCnstPrntObjPrntDualObject>(_ => new CmptAltCnstPrntObjPrntDualDecoder());
+      .AddDecoder<ICmptCnstPrntObjPrntDualObject>(CmptCnstPrntObjPrntDualDecoder.Factory)
+      .AddDecoder<ICmptPrntCnstPrntObjPrntDualObject>(CmptPrntCnstPrntObjPrntDualDecoder.Factory)
+      .AddDecoder<ICmptAltCnstPrntObjPrntDualObject>(CmptAltCnstPrntObjPrntDualDecoder.Factory);
 }

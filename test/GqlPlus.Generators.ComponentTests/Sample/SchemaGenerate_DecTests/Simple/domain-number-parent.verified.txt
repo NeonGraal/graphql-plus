@@ -13,16 +13,20 @@ namespace Components.Gqlp_Schema_domain_number_parent;
 
 internal class CmptDmnNmbrPrntDecoder
 {
+
+  internal static CmptDmnNmbrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntDmnNmbrPrntDecoder
 {
+
+  internal static CmptPrntDmnNmbrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_domain_number_parentDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_number_parentDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptDmnNmbrPrnt>(_ => new CmptDmnNmbrPrntDecoder())
-      .AddDecoder<ICmptPrntDmnNmbrPrnt>(_ => new CmptPrntDmnNmbrPrntDecoder());
+      .AddDecoder<ICmptDmnNmbrPrnt>(CmptDmnNmbrPrntDecoder.Factory)
+      .AddDecoder<ICmptPrntDmnNmbrPrnt>(CmptPrntDmnNmbrPrntDecoder.Factory);
 }

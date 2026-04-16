@@ -14,6 +14,8 @@ internal class test_UnionRefEncoder(
   private readonly IEncoder<Itest_TypeRefObject<Itest_SimpleKind>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRefObject<Itest_SimpleKind>>();
   public Structured Encode(Itest_UnionRefObject input)
     => _itest_TypeRef.Encode(input);
+
+  internal static test_UnionRefEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_UnionMemberEncoder(
@@ -25,12 +27,14 @@ internal class test_UnionMemberEncoder(
   public Structured Encode(Itest_UnionMemberObject input)
     => _itest_UnionRef.Encode(input)
       .AddEncoded("union", input.Union, _itest_Name);
+
+  internal static test_UnionMemberEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class test_UnionEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_UnionEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<Itest_UnionRefObject>(r => new test_UnionRefEncoder(r))
-      .AddEncoder<Itest_UnionMemberObject>(r => new test_UnionMemberEncoder(r));
+      .AddEncoder<Itest_UnionRefObject>(test_UnionRefEncoder.Factory)
+      .AddEncoder<Itest_UnionMemberObject>(test_UnionMemberEncoder.Factory);
 }

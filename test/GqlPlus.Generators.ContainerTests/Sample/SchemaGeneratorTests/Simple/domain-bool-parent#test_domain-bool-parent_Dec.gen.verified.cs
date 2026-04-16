@@ -9,16 +9,20 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_bool_parent;
 
 internal class testDmnBoolPrntDecoder
 {
+
+  internal static testDmnBoolPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testPrntDmnBoolPrntDecoder
 {
+
+  internal static testPrntDmnBoolPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_domain_bool_parentDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_domain_bool_parentDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestDmnBoolPrnt>(_ => new testDmnBoolPrntDecoder())
-      .AddDecoder<ItestPrntDmnBoolPrnt>(_ => new testPrntDmnBoolPrntDecoder());
+      .AddDecoder<ItestDmnBoolPrnt>(testDmnBoolPrntDecoder.Factory)
+      .AddDecoder<ItestPrntDmnBoolPrnt>(testPrntDmnBoolPrntDecoder.Factory);
 }

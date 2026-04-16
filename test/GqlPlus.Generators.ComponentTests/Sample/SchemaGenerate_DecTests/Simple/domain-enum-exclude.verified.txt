@@ -13,6 +13,8 @@ namespace Components.Gqlp_Schema_domain_enum_exclude;
 
 internal class CmptDmnEnumExclDecoder
 {
+
+  internal static CmptDmnEnumExclDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumExclDecoder
@@ -20,12 +22,14 @@ internal class CmptEnumDmnEnumExclDecoder
   public string dmnEnumExcl { get; set; }
   public string enum_dmnEnumExcl { get; set; }
   public string dmnEnumExclValue { get; set; }
+
+  internal static CmptEnumDmnEnumExclDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_domain_enum_excludeDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_enum_excludeDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptDmnEnumExcl>(_ => new CmptDmnEnumExclDecoder())
-      .AddDecoder<CmptEnumDmnEnumExcl>(_ => new CmptEnumDmnEnumExclDecoder());
+      .AddDecoder<ICmptDmnEnumExcl>(CmptDmnEnumExclDecoder.Factory)
+      .AddDecoder<CmptEnumDmnEnumExcl>(CmptEnumDmnEnumExclDecoder.Factory);
 }

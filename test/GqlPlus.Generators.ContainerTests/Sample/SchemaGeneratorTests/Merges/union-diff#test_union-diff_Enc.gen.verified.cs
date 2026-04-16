@@ -17,11 +17,13 @@ internal class testUnionDiffEncoder(
     => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
      : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
      : Structured.Empty();
+
+  internal static testUnionDiffEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class test_union_diffEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_union_diffEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestUnionDiff>(r => new testUnionDiffEncoder(r));
+      .AddEncoder<ItestUnionDiff>(testUnionDiffEncoder.Factory);
 }

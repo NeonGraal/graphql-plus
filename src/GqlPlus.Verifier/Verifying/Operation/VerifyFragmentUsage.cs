@@ -37,4 +37,6 @@ internal class VerifyFragmentUsage(IVerifierRepository verifiers) : IdentifiedVe
 
     return false;
   }
+
+  internal static VerifyFragmentUsage Factory(IVerifierRepository v) => new(v);
 }

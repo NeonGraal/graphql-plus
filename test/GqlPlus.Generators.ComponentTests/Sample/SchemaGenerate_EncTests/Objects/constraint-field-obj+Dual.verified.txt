@@ -20,6 +20,8 @@ internal class CmptCnstFieldObjDualEncoder(
   private readonly IEncoder<ICmptRefCnstFieldObjDualObject<ICmptAltCnstFieldObjDual>> _refCnstFieldObjDual = encoders.EncoderFor<ICmptRefCnstFieldObjDualObject<ICmptAltCnstFieldObjDual>>();
   public Structured Encode(ICmptCnstFieldObjDualObject input)
     => _refCnstFieldObjDual.Encode(input);
+
+  internal static CmptCnstFieldObjDualEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class CmptRefCnstFieldObjDualEncoder<TRef>(
@@ -36,6 +38,8 @@ internal class CmptPrntCnstFieldObjDualEncoder : IEncoder<ICmptPrntCnstFieldObjD
 {
   public Structured Encode(ICmptPrntCnstFieldObjDualObject input)
     => Structured.Empty();
+
+  internal static CmptPrntCnstFieldObjDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptAltCnstFieldObjDualEncoder(
@@ -46,13 +50,15 @@ internal class CmptAltCnstFieldObjDualEncoder(
   public Structured Encode(ICmptAltCnstFieldObjDualObject input)
     => _prntCnstFieldObjDual.Encode(input)
       .Add("alt", input.Alt);
+
+  internal static CmptAltCnstFieldObjDualEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class Cmpt_Schema_constraint_field_obj_DualEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_field_obj_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptCnstFieldObjDualObject>(r => new CmptCnstFieldObjDualEncoder(r))
-      .AddEncoder<ICmptPrntCnstFieldObjDualObject>(_ => new CmptPrntCnstFieldObjDualEncoder())
-      .AddEncoder<ICmptAltCnstFieldObjDualObject>(r => new CmptAltCnstFieldObjDualEncoder(r));
+      .AddEncoder<ICmptCnstFieldObjDualObject>(CmptCnstFieldObjDualEncoder.Factory)
+      .AddEncoder<ICmptPrntCnstFieldObjDualObject>(CmptPrntCnstFieldObjDualEncoder.Factory)
+      .AddEncoder<ICmptAltCnstFieldObjDualObject>(CmptAltCnstFieldObjDualEncoder.Factory);
 }

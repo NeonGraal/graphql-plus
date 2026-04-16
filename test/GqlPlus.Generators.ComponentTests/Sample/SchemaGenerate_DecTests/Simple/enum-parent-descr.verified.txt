@@ -15,17 +15,21 @@ internal class CmptEnumPrntDescrDecoder
 {
   public string prnt_enumPrntDescr { get; set; }
   public string enumPrntDescr { get; set; }
+
+  internal static CmptEnumPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntEnumPrntDescrDecoder
 {
   public string prnt_enumPrntDescr { get; set; }
+
+  internal static CmptPrntEnumPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_enum_parent_descrDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_enum_parent_descrDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<CmptEnumPrntDescr>(_ => new CmptEnumPrntDescrDecoder())
-      .AddDecoder<CmptPrntEnumPrntDescr>(_ => new CmptPrntEnumPrntDescrDecoder());
+      .AddDecoder<CmptEnumPrntDescr>(CmptEnumPrntDescrDecoder.Factory)
+      .AddDecoder<CmptPrntEnumPrntDescr>(CmptPrntEnumPrntDescrDecoder.Factory);
 }

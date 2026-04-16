@@ -16,18 +16,22 @@ internal class CmptEnumSamePrntEncoder : IEncoder<CmptEnumSamePrnt>
 {
   public Structured Encode(CmptEnumSamePrnt input)
     => new(input.ToString(), "_EnumSamePrnt");
+
+  internal static CmptEnumSamePrntEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptPrntEnumSamePrntEncoder : IEncoder<CmptPrntEnumSamePrnt>
 {
   public Structured Encode(CmptPrntEnumSamePrnt input)
     => new(input.ToString(), "_PrntEnumSamePrnt");
+
+  internal static CmptPrntEnumSamePrntEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_enum_same_parentEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_enum_same_parentEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<CmptEnumSamePrnt>(_ => new CmptEnumSamePrntEncoder())
-      .AddEncoder<CmptPrntEnumSamePrnt>(_ => new CmptPrntEnumSamePrntEncoder());
+      .AddEncoder<CmptEnumSamePrnt>(CmptEnumSamePrntEncoder.Factory)
+      .AddEncoder<CmptPrntEnumSamePrnt>(CmptPrntEnumSamePrntEncoder.Factory);
 }

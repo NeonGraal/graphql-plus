@@ -79,11 +79,13 @@ namespace Components.Gqlp_Spec_Base;
 
 internal class Cmpt_ObjectKindDecoder
 {
+
+  internal static Cmpt_ObjectKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Spec_BaseDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_BaseDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmpt_ObjectKind>(_ => new Cmpt_ObjectKindDecoder());
+      .AddDecoder<ICmpt_ObjectKind>(Cmpt_ObjectKindDecoder.Factory);
 }

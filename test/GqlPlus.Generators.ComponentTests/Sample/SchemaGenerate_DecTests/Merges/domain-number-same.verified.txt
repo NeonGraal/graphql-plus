@@ -13,11 +13,13 @@ namespace Components.Gqlp_Schema_domain_number_same;
 
 internal class CmptDmnNmbrSameDecoder
 {
+
+  internal static CmptDmnNmbrSameDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_domain_number_sameDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_number_sameDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptDmnNmbrSame>(_ => new CmptDmnNmbrSameDecoder());
+      .AddDecoder<ICmptDmnNmbrSame>(CmptDmnNmbrSameDecoder.Factory);
 }

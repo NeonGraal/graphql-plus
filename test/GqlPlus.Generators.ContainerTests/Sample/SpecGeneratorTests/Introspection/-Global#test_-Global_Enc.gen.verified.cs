@@ -16,6 +16,8 @@ internal class test_AndTypeEncoder(
   public Structured Encode(Itest_AndTypeObject input)
     => _itest_Named.Encode(input)
       .AddEncoded("type", input.Type, _itest_Type);
+
+  internal static test_AndTypeEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_CategoriesEncoder(
@@ -27,6 +29,8 @@ internal class test_CategoriesEncoder(
   public Structured Encode(Itest_CategoriesObject input)
     => _itest_AndType.Encode(input)
       .AddEncoded("category", input.Category, _itest_Category);
+
+  internal static test_CategoriesEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_CategoryEncoder(
@@ -41,12 +45,16 @@ internal class test_CategoryEncoder(
       .AddEnum("resolution", input.Resolution)
       .AddEncoded("output", input.Output, _itest_TypeRef)
       .AddList("modifiers", input.Modifiers, _itest_Modifiers);
+
+  internal static test_CategoryEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_ResolutionEncoder : IEncoder<test_Resolution>
 {
   public Structured Encode(test_Resolution input)
     => new(input.ToString(), "_Resolution");
+
+  internal static test_ResolutionEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_DirectivesEncoder(
@@ -58,6 +66,8 @@ internal class test_DirectivesEncoder(
   public Structured Encode(Itest_DirectivesObject input)
     => _itest_AndType.Encode(input)
       .AddEncoded("directive", input.Directive, _itest_Directive);
+
+  internal static test_DirectivesEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_DirectiveEncoder(
@@ -70,12 +80,16 @@ internal class test_DirectiveEncoder(
     => _itest_Aliased.Encode(input)
       .AddEncoded("parameter", input.Parameter, _itest_InputFieldType)
       .Add("repeatable", input.Repeatable);
+
+  internal static test_DirectiveEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_LocationEncoder : IEncoder<test_Location>
 {
   public Structured Encode(test_Location input)
     => new(input.ToString(), "_Location");
+
+  internal static test_LocationEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_SettingEncoder(
@@ -87,18 +101,20 @@ internal class test_SettingEncoder(
   public Structured Encode(Itest_SettingObject input)
     => _itest_Named.Encode(input)
       .AddEncoded("value", input.Value, _gqlpValue);
+
+  internal static test_SettingEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class test__GlobalEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest__GlobalEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<Itest_AndTypeObject>(r => new test_AndTypeEncoder(r))
-      .AddEncoder<Itest_CategoriesObject>(r => new test_CategoriesEncoder(r))
-      .AddEncoder<Itest_CategoryObject>(r => new test_CategoryEncoder(r))
-      .AddEncoder<test_Resolution>(_ => new test_ResolutionEncoder())
-      .AddEncoder<Itest_DirectivesObject>(r => new test_DirectivesEncoder(r))
-      .AddEncoder<Itest_DirectiveObject>(r => new test_DirectiveEncoder(r))
-      .AddEncoder<test_Location>(_ => new test_LocationEncoder())
-      .AddEncoder<Itest_SettingObject>(r => new test_SettingEncoder(r));
+      .AddEncoder<Itest_AndTypeObject>(test_AndTypeEncoder.Factory)
+      .AddEncoder<Itest_CategoriesObject>(test_CategoriesEncoder.Factory)
+      .AddEncoder<Itest_CategoryObject>(test_CategoryEncoder.Factory)
+      .AddEncoder<test_Resolution>(test_ResolutionEncoder.Factory)
+      .AddEncoder<Itest_DirectivesObject>(test_DirectivesEncoder.Factory)
+      .AddEncoder<Itest_DirectiveObject>(test_DirectiveEncoder.Factory)
+      .AddEncoder<test_Location>(test_LocationEncoder.Factory)
+      .AddEncoder<Itest_SettingObject>(test_SettingEncoder.Factory);
 }

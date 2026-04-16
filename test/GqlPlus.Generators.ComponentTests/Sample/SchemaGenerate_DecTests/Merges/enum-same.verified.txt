@@ -14,11 +14,13 @@ namespace Components.Gqlp_Schema_enum_same;
 internal class CmptEnumSameDecoder
 {
   public string enumSame { get; set; }
+
+  internal static CmptEnumSameDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_enum_sameDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_enum_sameDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<CmptEnumSame>(_ => new CmptEnumSameDecoder());
+      .AddDecoder<CmptEnumSame>(CmptEnumSameDecoder.Factory);
 }

@@ -22,4 +22,6 @@ internal class TypeDualResolver
     => parent is TypeDualModel dual ? dual.AllFields : [];
   protected override string? ParentName(TypeDualModel model)
     => model.Parent?.Name;
+
+  internal static TypeDualResolver Factory(IResolverRepository _) => new();
 }

@@ -22,11 +22,13 @@ internal class Cmpt_IdentifierEncoder : IEncoder<ICmpt_Identifier>
 {
   public Structured Encode(ICmpt_Identifier input)
     => new(input.Value);
+
+  internal static Cmpt_IdentifierEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Spec_FullEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Spec_FullEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmpt_Identifier>(_ => new Cmpt_IdentifierEncoder());
+      .AddEncoder<ICmpt_Identifier>(Cmpt_IdentifierEncoder.Factory);
 }

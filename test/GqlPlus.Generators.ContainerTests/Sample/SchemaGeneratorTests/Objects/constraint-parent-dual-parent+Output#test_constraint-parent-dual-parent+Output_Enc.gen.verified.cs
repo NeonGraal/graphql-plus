@@ -14,6 +14,8 @@ internal class testCnstPrntDualPrntOutpEncoder(
   private readonly IEncoder<ItestRefCnstPrntDualPrntOutpObject<ItestAltCnstPrntDualPrntOutp>> _itestRefCnstPrntDualPrntOutp = encoders.EncoderFor<ItestRefCnstPrntDualPrntOutpObject<ItestAltCnstPrntDualPrntOutp>>();
   public Structured Encode(ItestCnstPrntDualPrntOutpObject input)
     => _itestRefCnstPrntDualPrntOutp.Encode(input);
+
+  internal static testCnstPrntDualPrntOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testRefCnstPrntDualPrntOutpEncoder<TRef> : IEncoder<ItestRefCnstPrntDualPrntOutpObject<TRef>>
@@ -26,6 +28,8 @@ internal class testPrntCnstPrntDualPrntOutpEncoder : IEncoder<ItestPrntCnstPrntD
 {
   public Structured Encode(ItestPrntCnstPrntDualPrntOutpObject input)
     => Structured.Empty();
+
+  internal static testPrntCnstPrntDualPrntOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testAltCnstPrntDualPrntOutpEncoder(
@@ -36,13 +40,15 @@ internal class testAltCnstPrntDualPrntOutpEncoder(
   public Structured Encode(ItestAltCnstPrntDualPrntOutpObject input)
     => _itestPrntCnstPrntDualPrntOutp.Encode(input)
       .Add("alt", input.Alt);
+
+  internal static testAltCnstPrntDualPrntOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class test_constraint_parent_dual_parent_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_constraint_parent_dual_parent_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestCnstPrntDualPrntOutpObject>(r => new testCnstPrntDualPrntOutpEncoder(r))
-      .AddEncoder<ItestPrntCnstPrntDualPrntOutpObject>(_ => new testPrntCnstPrntDualPrntOutpEncoder())
-      .AddEncoder<ItestAltCnstPrntDualPrntOutpObject>(r => new testAltCnstPrntDualPrntOutpEncoder(r));
+      .AddEncoder<ItestCnstPrntDualPrntOutpObject>(testCnstPrntDualPrntOutpEncoder.Factory)
+      .AddEncoder<ItestPrntCnstPrntDualPrntOutpObject>(testPrntCnstPrntDualPrntOutpEncoder.Factory)
+      .AddEncoder<ItestAltCnstPrntDualPrntOutpObject>(testAltCnstPrntDualPrntOutpEncoder.Factory);
 }

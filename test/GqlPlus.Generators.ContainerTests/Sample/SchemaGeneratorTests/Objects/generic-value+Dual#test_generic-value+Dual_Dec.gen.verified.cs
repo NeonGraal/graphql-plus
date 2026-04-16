@@ -9,6 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_value_Dual;
 
 internal class testGnrcValueDualDecoder
 {
+
+  internal static testGnrcValueDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testRefGnrcValueDualDecoder<TType>
@@ -19,12 +21,14 @@ internal class testRefGnrcValueDualDecoder<TType>
 internal class testEnumGnrcValueDualDecoder
 {
   public string gnrcValueDual { get; set; }
+
+  internal static testEnumGnrcValueDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_generic_value_DualDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_generic_value_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestGnrcValueDualObject>(_ => new testGnrcValueDualDecoder())
-      .AddDecoder<testEnumGnrcValueDual>(_ => new testEnumGnrcValueDualDecoder());
+      .AddDecoder<ItestGnrcValueDualObject>(testGnrcValueDualDecoder.Factory)
+      .AddDecoder<testEnumGnrcValueDual>(testEnumGnrcValueDualDecoder.Factory);
 }

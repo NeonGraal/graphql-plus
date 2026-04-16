@@ -12,11 +12,13 @@ internal class testObjFieldEnumAliasOutpEncoder : IEncoder<ItestObjFieldEnumAlia
   public Structured Encode(ItestObjFieldEnumAliasOutpObject input)
     => Structured.Empty()
       .Add("field", input.Field);
+
+  internal static testObjFieldEnumAliasOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_object_field_enum_alias_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_object_field_enum_alias_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestObjFieldEnumAliasOutpObject>(_ => new testObjFieldEnumAliasOutpEncoder());
+      .AddEncoder<ItestObjFieldEnumAliasOutpObject>(testObjFieldEnumAliasOutpEncoder.Factory);
 }

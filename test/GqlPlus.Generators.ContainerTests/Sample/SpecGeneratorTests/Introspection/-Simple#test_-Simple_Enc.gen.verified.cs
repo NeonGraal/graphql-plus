@@ -11,6 +11,8 @@ internal class test_DomainKindEncoder : IEncoder<test_DomainKind>
 {
   public Structured Encode(test_DomainKind input)
     => new(input.ToString(), "_DomainKind");
+
+  internal static test_DomainKindEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_DomainRefEncoder<TDomainKind>(
@@ -43,6 +45,8 @@ internal class test_BaseDomainItemEncoder(
   public Structured Encode(Itest_BaseDomainItemObject input)
     => _itest_Described.Encode(input)
       .Add("exclude", input.Exclude);
+
+  internal static test_BaseDomainItemEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_DomainItemEncoder<TItem>(
@@ -70,6 +74,8 @@ internal class test_BasicValueEncoder : IEncoder<Itest_BasicValueObject>
 {
   public Structured Encode(Itest_BasicValueObject input)
     => Structured.Empty();
+
+  internal static test_BasicValueEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_DomainTrueFalseEncoder(
@@ -80,6 +86,8 @@ internal class test_DomainTrueFalseEncoder(
   public Structured Encode(Itest_DomainTrueFalseObject input)
     => _itest_BaseDomainItem.Encode(input)
       .Add("value", input.Value);
+
+  internal static test_DomainTrueFalseEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_DomainItemTrueFalseEncoder(
@@ -89,6 +97,8 @@ internal class test_DomainItemTrueFalseEncoder(
   private readonly IEncoder<Itest_DomainItemObject<Itest_DomainTrueFalse>> _itest_DomainItem = encoders.EncoderFor<Itest_DomainItemObject<Itest_DomainTrueFalse>>();
   public Structured Encode(Itest_DomainItemTrueFalseObject input)
     => _itest_DomainItem.Encode(input);
+
+  internal static test_DomainItemTrueFalseEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_DomainLabelEncoder(
@@ -100,6 +110,8 @@ internal class test_DomainLabelEncoder(
   public Structured Encode(Itest_DomainLabelObject input)
     => _itest_BaseDomainItem.Encode(input)
       .AddEncoded("label", input.Label, _itest_EnumValue);
+
+  internal static test_DomainLabelEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_DomainItemLabelEncoder(
@@ -109,6 +121,8 @@ internal class test_DomainItemLabelEncoder(
   private readonly IEncoder<Itest_DomainItemObject<Itest_DomainLabel>> _itest_DomainItem = encoders.EncoderFor<Itest_DomainItemObject<Itest_DomainLabel>>();
   public Structured Encode(Itest_DomainItemLabelObject input)
     => _itest_DomainItem.Encode(input);
+
+  internal static test_DomainItemLabelEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_DomainRangeEncoder(
@@ -120,6 +134,8 @@ internal class test_DomainRangeEncoder(
     => _itest_BaseDomainItem.Encode(input)
       .Add("lower", input.Lower)
       .Add("upper", input.Upper);
+
+  internal static test_DomainRangeEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_DomainItemRangeEncoder(
@@ -129,6 +145,8 @@ internal class test_DomainItemRangeEncoder(
   private readonly IEncoder<Itest_DomainItemObject<Itest_DomainRange>> _itest_DomainItem = encoders.EncoderFor<Itest_DomainItemObject<Itest_DomainRange>>();
   public Structured Encode(Itest_DomainItemRangeObject input)
     => _itest_DomainItem.Encode(input);
+
+  internal static test_DomainItemRangeEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_DomainRegexEncoder(
@@ -139,6 +157,8 @@ internal class test_DomainRegexEncoder(
   public Structured Encode(Itest_DomainRegexObject input)
     => _itest_BaseDomainItem.Encode(input)
       .Add("pattern", input.Pattern);
+
+  internal static test_DomainRegexEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_DomainItemRegexEncoder(
@@ -148,6 +168,8 @@ internal class test_DomainItemRegexEncoder(
   private readonly IEncoder<Itest_DomainItemObject<Itest_DomainRegex>> _itest_DomainItem = encoders.EncoderFor<Itest_DomainItemObject<Itest_DomainRegex>>();
   public Structured Encode(Itest_DomainItemRegexObject input)
     => _itest_DomainItem.Encode(input);
+
+  internal static test_DomainItemRegexEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_EnumLabelEncoder(
@@ -159,6 +181,8 @@ internal class test_EnumLabelEncoder(
   public Structured Encode(Itest_EnumLabelObject input)
     => _itest_Aliased.Encode(input)
       .AddEncoded("enumType", input.EnumType, _itest_Name);
+
+  internal static test_EnumLabelEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_EnumValueEncoder(
@@ -170,6 +194,8 @@ internal class test_EnumValueEncoder(
   public Structured Encode(Itest_EnumValueObject input)
     => _itest_TypeRef.Encode(input)
       .AddEncoded("label", input.Label, _itest_Name);
+
+  internal static test_EnumValueEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_UnionRefEncoder(
@@ -179,6 +205,8 @@ internal class test_UnionRefEncoder(
   private readonly IEncoder<Itest_TypeRefObject<Itest_SimpleKind>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRefObject<Itest_SimpleKind>>();
   public Structured Encode(Itest_UnionRefObject input)
     => _itest_TypeRef.Encode(input);
+
+  internal static test_UnionRefEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_UnionMemberEncoder(
@@ -190,25 +218,27 @@ internal class test_UnionMemberEncoder(
   public Structured Encode(Itest_UnionMemberObject input)
     => _itest_UnionRef.Encode(input)
       .AddEncoded("union", input.Union, _itest_Name);
+
+  internal static test_UnionMemberEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class test__SimpleEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest__SimpleEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<test_DomainKind>(_ => new test_DomainKindEncoder())
-      .AddEncoder<Itest_BaseDomainItemObject>(r => new test_BaseDomainItemEncoder(r))
-      .AddEncoder<Itest_BasicValueObject>(_ => new test_BasicValueEncoder())
-      .AddEncoder<Itest_DomainTrueFalseObject>(r => new test_DomainTrueFalseEncoder(r))
-      .AddEncoder<Itest_DomainItemTrueFalseObject>(r => new test_DomainItemTrueFalseEncoder(r))
-      .AddEncoder<Itest_DomainLabelObject>(r => new test_DomainLabelEncoder(r))
-      .AddEncoder<Itest_DomainItemLabelObject>(r => new test_DomainItemLabelEncoder(r))
-      .AddEncoder<Itest_DomainRangeObject>(r => new test_DomainRangeEncoder(r))
-      .AddEncoder<Itest_DomainItemRangeObject>(r => new test_DomainItemRangeEncoder(r))
-      .AddEncoder<Itest_DomainRegexObject>(r => new test_DomainRegexEncoder(r))
-      .AddEncoder<Itest_DomainItemRegexObject>(r => new test_DomainItemRegexEncoder(r))
-      .AddEncoder<Itest_EnumLabelObject>(r => new test_EnumLabelEncoder(r))
-      .AddEncoder<Itest_EnumValueObject>(r => new test_EnumValueEncoder(r))
-      .AddEncoder<Itest_UnionRefObject>(r => new test_UnionRefEncoder(r))
-      .AddEncoder<Itest_UnionMemberObject>(r => new test_UnionMemberEncoder(r));
+      .AddEncoder<test_DomainKind>(test_DomainKindEncoder.Factory)
+      .AddEncoder<Itest_BaseDomainItemObject>(test_BaseDomainItemEncoder.Factory)
+      .AddEncoder<Itest_BasicValueObject>(test_BasicValueEncoder.Factory)
+      .AddEncoder<Itest_DomainTrueFalseObject>(test_DomainTrueFalseEncoder.Factory)
+      .AddEncoder<Itest_DomainItemTrueFalseObject>(test_DomainItemTrueFalseEncoder.Factory)
+      .AddEncoder<Itest_DomainLabelObject>(test_DomainLabelEncoder.Factory)
+      .AddEncoder<Itest_DomainItemLabelObject>(test_DomainItemLabelEncoder.Factory)
+      .AddEncoder<Itest_DomainRangeObject>(test_DomainRangeEncoder.Factory)
+      .AddEncoder<Itest_DomainItemRangeObject>(test_DomainItemRangeEncoder.Factory)
+      .AddEncoder<Itest_DomainRegexObject>(test_DomainRegexEncoder.Factory)
+      .AddEncoder<Itest_DomainItemRegexObject>(test_DomainItemRegexEncoder.Factory)
+      .AddEncoder<Itest_EnumLabelObject>(test_EnumLabelEncoder.Factory)
+      .AddEncoder<Itest_EnumValueObject>(test_EnumValueEncoder.Factory)
+      .AddEncoder<Itest_UnionRefObject>(test_UnionRefEncoder.Factory)
+      .AddEncoder<Itest_UnionMemberObject>(test_UnionMemberEncoder.Factory);
 }

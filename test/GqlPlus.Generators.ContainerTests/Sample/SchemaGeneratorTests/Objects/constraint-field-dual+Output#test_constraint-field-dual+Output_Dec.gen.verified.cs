@@ -9,11 +9,13 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_dual_Output;
 
 internal class testPrntCnstFieldDualOutpDecoder
 {
+
+  internal static testPrntCnstFieldDualOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_constraint_field_dual_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_constraint_field_dual_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestPrntCnstFieldDualOutpObject>(_ => new testPrntCnstFieldDualOutpDecoder());
+      .AddDecoder<ItestPrntCnstFieldDualOutpObject>(testPrntCnstFieldDualOutpDecoder.Factory);
 }

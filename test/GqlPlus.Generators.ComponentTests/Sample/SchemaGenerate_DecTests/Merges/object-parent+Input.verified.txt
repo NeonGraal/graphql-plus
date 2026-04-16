@@ -14,16 +14,20 @@ namespace Components.Gqlp_Schema_object_parent_Input;
 
 internal class CmptObjPrntInpDecoder
 {
+
+  internal static CmptObjPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefObjPrntInpDecoder
 {
+
+  internal static CmptRefObjPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_object_parent_InputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_object_parent_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptObjPrntInpObject>(_ => new CmptObjPrntInpDecoder())
-      .AddDecoder<ICmptRefObjPrntInpObject>(_ => new CmptRefObjPrntInpDecoder());
+      .AddDecoder<ICmptObjPrntInpObject>(CmptObjPrntInpDecoder.Factory)
+      .AddDecoder<ICmptRefObjPrntInpObject>(CmptRefObjPrntInpDecoder.Factory);
 }

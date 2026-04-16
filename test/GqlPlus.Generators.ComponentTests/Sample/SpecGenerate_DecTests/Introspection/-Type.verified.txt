@@ -84,6 +84,8 @@ internal class Cmpt_SimpleKindDecoder
   public string Internal { get; set; }
   public string Domain { get; set; }
   public string Union { get; set; }
+
+  internal static Cmpt_SimpleKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_TypeKindDecoder
@@ -96,6 +98,8 @@ internal class Cmpt_TypeKindDecoder
   public string Dual { get; set; }
   public string Input { get; set; }
   public string Output { get; set; }
+
+  internal static Cmpt_TypeKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_TypeRefDecoder<TTypeKind>
@@ -105,10 +109,14 @@ internal class Cmpt_TypeRefDecoder<TTypeKind>
 
 internal class Cmpt_TypeSimpleDecoder
 {
+
+  internal static Cmpt_TypeSimpleDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_CollectionsDecoder
 {
+
+  internal static Cmpt_CollectionsDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_ModifierKeyedDecoder<TModifierKind>
@@ -119,6 +127,8 @@ internal class Cmpt_ModifierKeyedDecoder<TModifierKind>
 
 internal class Cmpt_ModifiersDecoder
 {
+
+  internal static Cmpt_ModifiersDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_ModifierKindDecoder
@@ -130,6 +140,8 @@ internal class Cmpt_ModifierKindDecoder
   public string Dictionary { get; set; }
   public string Param { get; set; }
   public string TypeParam { get; set; }
+
+  internal static Cmpt_ModifierKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_ModifierDecoder<TModifierKind>
@@ -141,10 +153,10 @@ internal static class Cmpt_Spec_TypeDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_TypeDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<Cmpt_SimpleKind>(_ => new Cmpt_SimpleKindDecoder())
-      .AddDecoder<Cmpt_TypeKind>(_ => new Cmpt_TypeKindDecoder())
-      .AddDecoder<ICmpt_TypeSimpleObject>(_ => new Cmpt_TypeSimpleDecoder())
-      .AddDecoder<ICmpt_CollectionsObject>(_ => new Cmpt_CollectionsDecoder())
-      .AddDecoder<ICmpt_ModifiersObject>(_ => new Cmpt_ModifiersDecoder())
-      .AddDecoder<Cmpt_ModifierKind>(_ => new Cmpt_ModifierKindDecoder());
+      .AddDecoder<Cmpt_SimpleKind>(Cmpt_SimpleKindDecoder.Factory)
+      .AddDecoder<Cmpt_TypeKind>(Cmpt_TypeKindDecoder.Factory)
+      .AddDecoder<ICmpt_TypeSimpleObject>(Cmpt_TypeSimpleDecoder.Factory)
+      .AddDecoder<ICmpt_CollectionsObject>(Cmpt_CollectionsDecoder.Factory)
+      .AddDecoder<ICmpt_ModifiersObject>(Cmpt_ModifiersDecoder.Factory)
+      .AddDecoder<Cmpt_ModifierKind>(Cmpt_ModifierKindDecoder.Factory);
 }

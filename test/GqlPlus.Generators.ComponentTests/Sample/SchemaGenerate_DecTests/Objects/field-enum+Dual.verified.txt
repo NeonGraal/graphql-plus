@@ -14,17 +14,21 @@ namespace Components.Gqlp_Schema_field_enum_Dual;
 internal class CmptFieldEnumDualDecoder
 {
   public CmptEnumFieldEnumDual Field { get; set; }
+
+  internal static CmptFieldEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumFieldEnumDualDecoder
 {
   public string fieldEnumDual { get; set; }
+
+  internal static CmptEnumFieldEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_field_enum_DualDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_enum_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptFieldEnumDualObject>(_ => new CmptFieldEnumDualDecoder())
-      .AddDecoder<CmptEnumFieldEnumDual>(_ => new CmptEnumFieldEnumDualDecoder());
+      .AddDecoder<ICmptFieldEnumDualObject>(CmptFieldEnumDualDecoder.Factory)
+      .AddDecoder<CmptEnumFieldEnumDual>(CmptEnumFieldEnumDualDecoder.Factory);
 }

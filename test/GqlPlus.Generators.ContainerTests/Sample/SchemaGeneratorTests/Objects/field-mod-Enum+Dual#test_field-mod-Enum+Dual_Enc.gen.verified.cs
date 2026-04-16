@@ -11,18 +11,22 @@ internal class testFieldModEnumDualEncoder : IEncoder<ItestFieldModEnumDualObjec
 {
   public Structured Encode(ItestFieldModEnumDualObject input)
     => Structured.Empty();
+
+  internal static testFieldModEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testEnumFieldModEnumDualEncoder : IEncoder<testEnumFieldModEnumDual>
 {
   public Structured Encode(testEnumFieldModEnumDual input)
     => new(input.ToString(), "_EnumFieldModEnumDual");
+
+  internal static testEnumFieldModEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_field_mod_Enum_DualEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_field_mod_Enum_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestFieldModEnumDualObject>(_ => new testFieldModEnumDualEncoder())
-      .AddEncoder<testEnumFieldModEnumDual>(_ => new testEnumFieldModEnumDualEncoder());
+      .AddEncoder<ItestFieldModEnumDualObject>(testFieldModEnumDualEncoder.Factory)
+      .AddEncoder<testEnumFieldModEnumDual>(testEnumFieldModEnumDualEncoder.Factory);
 }

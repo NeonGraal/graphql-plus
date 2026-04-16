@@ -11,11 +11,13 @@ internal class testDmnBoolEncoder : IEncoder<ItestDmnBool>
 {
   public Structured Encode(ItestDmnBool input)
     => new(input.Value);
+
+  internal static testDmnBoolEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_domain_booleanEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_domain_booleanEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestDmnBool>(_ => new testDmnBoolEncoder());
+      .AddEncoder<ItestDmnBool>(testDmnBoolEncoder.Factory);
 }

@@ -11,6 +11,8 @@ internal class testCnstEnumOutpEncoder : IEncoder<ItestCnstEnumOutpObject>
 {
   public Structured Encode(ItestCnstEnumOutpObject input)
     => Structured.Empty();
+
+  internal static testCnstEnumOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testRefCnstEnumOutpEncoder<TType>(
@@ -27,12 +29,14 @@ internal class testEnumCnstEnumOutpEncoder : IEncoder<testEnumCnstEnumOutp>
 {
   public Structured Encode(testEnumCnstEnumOutp input)
     => new(input.ToString(), "_EnumCnstEnumOutp");
+
+  internal static testEnumCnstEnumOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_constraint_enum_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_constraint_enum_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestCnstEnumOutpObject>(_ => new testCnstEnumOutpEncoder())
-      .AddEncoder<testEnumCnstEnumOutp>(_ => new testEnumCnstEnumOutpEncoder());
+      .AddEncoder<ItestCnstEnumOutpObject>(testCnstEnumOutpEncoder.Factory)
+      .AddEncoder<testEnumCnstEnumOutp>(testEnumCnstEnumOutpEncoder.Factory);
 }

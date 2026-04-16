@@ -17,32 +17,40 @@ internal class CmptDmnEnumUnqPrntEncoder : IEncoder<ICmptDmnEnumUnqPrnt>
 {
   public Structured Encode(ICmptDmnEnumUnqPrnt input)
     => new((decimal?)input.Value);
+
+  internal static CmptDmnEnumUnqPrntEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumUnqPrntEncoder : IEncoder<CmptEnumDmnEnumUnqPrnt>
 {
   public Structured Encode(CmptEnumDmnEnumUnqPrnt input)
     => new(input.ToString(), "_EnumDmnEnumUnqPrnt");
+
+  internal static CmptEnumDmnEnumUnqPrntEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptPrntDmnEnumUnqPrntEncoder : IEncoder<CmptPrntDmnEnumUnqPrnt>
 {
   public Structured Encode(CmptPrntDmnEnumUnqPrnt input)
     => new(input.ToString(), "_PrntDmnEnumUnqPrnt");
+
+  internal static CmptPrntDmnEnumUnqPrntEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptDupDmnEnumUnqPrntEncoder : IEncoder<CmptDupDmnEnumUnqPrnt>
 {
   public Structured Encode(CmptDupDmnEnumUnqPrnt input)
     => new(input.ToString(), "_DupDmnEnumUnqPrnt");
+
+  internal static CmptDupDmnEnumUnqPrntEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_domain_enum_unique_parentEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_enum_unique_parentEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptDmnEnumUnqPrnt>(_ => new CmptDmnEnumUnqPrntEncoder())
-      .AddEncoder<CmptEnumDmnEnumUnqPrnt>(_ => new CmptEnumDmnEnumUnqPrntEncoder())
-      .AddEncoder<CmptPrntDmnEnumUnqPrnt>(_ => new CmptPrntDmnEnumUnqPrntEncoder())
-      .AddEncoder<CmptDupDmnEnumUnqPrnt>(_ => new CmptDupDmnEnumUnqPrntEncoder());
+      .AddEncoder<ICmptDmnEnumUnqPrnt>(CmptDmnEnumUnqPrntEncoder.Factory)
+      .AddEncoder<CmptEnumDmnEnumUnqPrnt>(CmptEnumDmnEnumUnqPrntEncoder.Factory)
+      .AddEncoder<CmptPrntDmnEnumUnqPrnt>(CmptPrntDmnEnumUnqPrntEncoder.Factory)
+      .AddEncoder<CmptDupDmnEnumUnqPrnt>(CmptDupDmnEnumUnqPrntEncoder.Factory);
 }

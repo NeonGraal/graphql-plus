@@ -11,6 +11,8 @@ internal class testCnstAltDmnOutpEncoder : IEncoder<ItestCnstAltDmnOutpObject>
 {
   public Structured Encode(ItestCnstAltDmnOutpObject input)
     => Structured.Empty();
+
+  internal static testCnstAltDmnOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testRefCnstAltDmnOutpEncoder<TRef> : IEncoder<ItestRefCnstAltDmnOutpObject<TRef>>
@@ -23,12 +25,14 @@ internal class testDomCnstAltDmnOutpEncoder : IEncoder<ItestDomCnstAltDmnOutp>
 {
   public Structured Encode(ItestDomCnstAltDmnOutp input)
     => new(input.Value);
+
+  internal static testDomCnstAltDmnOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_constraint_alt_domain_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_constraint_alt_domain_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestCnstAltDmnOutpObject>(_ => new testCnstAltDmnOutpEncoder())
-      .AddEncoder<ItestDomCnstAltDmnOutp>(_ => new testDomCnstAltDmnOutpEncoder());
+      .AddEncoder<ItestCnstAltDmnOutpObject>(testCnstAltDmnOutpEncoder.Factory)
+      .AddEncoder<ItestDomCnstAltDmnOutp>(testDomCnstAltDmnOutpEncoder.Factory);
 }

@@ -16,11 +16,13 @@ internal class CmptDomCnstAltDmnInpEncoder : IEncoder<ICmptDomCnstAltDmnInp>
 {
   public Structured Encode(ICmptDomCnstAltDmnInp input)
     => new(input.Value);
+
+  internal static CmptDomCnstAltDmnInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_constraint_alt_domain_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_alt_domain_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptDomCnstAltDmnInp>(_ => new CmptDomCnstAltDmnInpEncoder());
+      .AddEncoder<ICmptDomCnstAltDmnInp>(CmptDomCnstAltDmnInpEncoder.Factory);
 }

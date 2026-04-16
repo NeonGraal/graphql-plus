@@ -57,6 +57,8 @@ namespace Components.Gqlp_Spec_Schema;
 
 internal class Cmpt_NameDecoder
 {
+
+  internal static Cmpt_NameDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_FilterDecoder
@@ -66,47 +68,61 @@ internal class Cmpt_FilterDecoder
   public ICollection<ICmpt_NameFilter> Aliases { get; set; }
   public bool? ReturnByAlias { get; set; }
   public bool? ReturnReferencedTypes { get; set; }
+
+  internal static Cmpt_FilterDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_NameFilterDecoder
 {
+
+  internal static Cmpt_NameFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_CategoryFilterDecoder
 {
   public ICollection<ICmpt_Resolution> Resolutions { get; set; }
+
+  internal static Cmpt_CategoryFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_TypeFilterDecoder
 {
   public ICollection<ICmpt_TypeKind> Kinds { get; set; }
+
+  internal static Cmpt_TypeFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_AliasedDecoder
 {
   public ICollection<ICmpt_Name> Aliases { get; set; }
+
+  internal static Cmpt_AliasedDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_NamedDecoder
 {
   public ICmpt_Name Name { get; set; }
+
+  internal static Cmpt_NamedDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_DescribedDecoder
 {
   public ICollection<string> Description { get; set; }
+
+  internal static Cmpt_DescribedDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Spec_SchemaDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_SchemaDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmpt_Name>(_ => new Cmpt_NameDecoder())
-      .AddDecoder<ICmpt_FilterObject>(_ => new Cmpt_FilterDecoder())
-      .AddDecoder<ICmpt_NameFilter>(_ => new Cmpt_NameFilterDecoder())
-      .AddDecoder<ICmpt_CategoryFilterObject>(_ => new Cmpt_CategoryFilterDecoder())
-      .AddDecoder<ICmpt_TypeFilterObject>(_ => new Cmpt_TypeFilterDecoder())
-      .AddDecoder<ICmpt_AliasedObject>(_ => new Cmpt_AliasedDecoder())
-      .AddDecoder<ICmpt_NamedObject>(_ => new Cmpt_NamedDecoder())
-      .AddDecoder<ICmpt_DescribedObject>(_ => new Cmpt_DescribedDecoder());
+      .AddDecoder<ICmpt_Name>(Cmpt_NameDecoder.Factory)
+      .AddDecoder<ICmpt_FilterObject>(Cmpt_FilterDecoder.Factory)
+      .AddDecoder<ICmpt_NameFilter>(Cmpt_NameFilterDecoder.Factory)
+      .AddDecoder<ICmpt_CategoryFilterObject>(Cmpt_CategoryFilterDecoder.Factory)
+      .AddDecoder<ICmpt_TypeFilterObject>(Cmpt_TypeFilterDecoder.Factory)
+      .AddDecoder<ICmpt_AliasedObject>(Cmpt_AliasedDecoder.Factory)
+      .AddDecoder<ICmpt_NamedObject>(Cmpt_NamedDecoder.Factory)
+      .AddDecoder<ICmpt_DescribedObject>(Cmpt_DescribedDecoder.Factory);
 }

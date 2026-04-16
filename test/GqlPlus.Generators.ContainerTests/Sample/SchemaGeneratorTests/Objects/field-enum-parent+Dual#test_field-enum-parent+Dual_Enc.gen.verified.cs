@@ -12,25 +12,31 @@ internal class testFieldEnumPrntDualEncoder : IEncoder<ItestFieldEnumPrntDualObj
   public Structured Encode(ItestFieldEnumPrntDualObject input)
     => Structured.Empty()
       .AddEnum("field", input.Field);
+
+  internal static testFieldEnumPrntDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testEnumFieldEnumPrntDualEncoder : IEncoder<testEnumFieldEnumPrntDual>
 {
   public Structured Encode(testEnumFieldEnumPrntDual input)
     => new(input.ToString(), "_EnumFieldEnumPrntDual");
+
+  internal static testEnumFieldEnumPrntDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testPrntFieldEnumPrntDualEncoder : IEncoder<testPrntFieldEnumPrntDual>
 {
   public Structured Encode(testPrntFieldEnumPrntDual input)
     => new(input.ToString(), "_PrntFieldEnumPrntDual");
+
+  internal static testPrntFieldEnumPrntDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_field_enum_parent_DualEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_field_enum_parent_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestFieldEnumPrntDualObject>(_ => new testFieldEnumPrntDualEncoder())
-      .AddEncoder<testEnumFieldEnumPrntDual>(_ => new testEnumFieldEnumPrntDualEncoder())
-      .AddEncoder<testPrntFieldEnumPrntDual>(_ => new testPrntFieldEnumPrntDualEncoder());
+      .AddEncoder<ItestFieldEnumPrntDualObject>(testFieldEnumPrntDualEncoder.Factory)
+      .AddEncoder<testEnumFieldEnumPrntDual>(testEnumFieldEnumPrntDualEncoder.Factory)
+      .AddEncoder<testPrntFieldEnumPrntDual>(testPrntFieldEnumPrntDualEncoder.Factory);
 }

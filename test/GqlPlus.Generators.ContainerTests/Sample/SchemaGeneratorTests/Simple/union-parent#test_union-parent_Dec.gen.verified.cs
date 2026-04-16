@@ -10,17 +10,21 @@ namespace GqlPlus.GeneratorTests.Gqlp_union_parent;
 internal class testUnionPrntDecoder
 {
   public String AsString { get; set; }
+
+  internal static testUnionPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testPrntUnionPrntDecoder
 {
   public Number AsNumber { get; set; }
+
+  internal static testPrntUnionPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_union_parentDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_union_parentDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestUnionPrnt>(_ => new testUnionPrntDecoder())
-      .AddDecoder<ItestPrntUnionPrnt>(_ => new testPrntUnionPrntDecoder());
+      .AddDecoder<ItestUnionPrnt>(testUnionPrntDecoder.Factory)
+      .AddDecoder<ItestPrntUnionPrnt>(testPrntUnionPrntDecoder.Factory);
 }

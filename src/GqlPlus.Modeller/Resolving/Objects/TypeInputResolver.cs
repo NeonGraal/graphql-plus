@@ -109,4 +109,6 @@ internal class TypeInputResolver(
 
     return false;
   }
+
+  internal static TypeInputResolver Factory(IResolverRepository r) => new(r);
 }

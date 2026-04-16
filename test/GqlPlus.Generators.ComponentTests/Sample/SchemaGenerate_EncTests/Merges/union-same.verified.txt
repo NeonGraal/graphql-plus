@@ -19,11 +19,13 @@ internal class CmptUnionSameEncoder(
   public Structured Encode(ICmptUnionSame input)
     => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
      : Structured.Empty();
+
+  internal static CmptUnionSameEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class Cmpt_Schema_union_sameEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_union_sameEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptUnionSame>(r => new CmptUnionSameEncoder(r));
+      .AddEncoder<ICmptUnionSame>(CmptUnionSameEncoder.Factory);
 }

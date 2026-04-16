@@ -13,11 +13,13 @@ namespace Components.Gqlp_Schema_domain_number_diff;
 
 internal class CmptDmnNmbrDiffDecoder
 {
+
+  internal static CmptDmnNmbrDiffDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_domain_number_diffDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_number_diffDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptDmnNmbrDiff>(_ => new CmptDmnNmbrDiffDecoder());
+      .AddDecoder<ICmptDmnNmbrDiff>(CmptDmnNmbrDiffDecoder.Factory);
 }

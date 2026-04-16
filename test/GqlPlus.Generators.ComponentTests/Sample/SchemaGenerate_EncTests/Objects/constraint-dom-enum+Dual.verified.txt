@@ -17,6 +17,8 @@ internal class CmptCnstDomEnumDualEncoder : IEncoder<ICmptCnstDomEnumDualObject>
 {
   public Structured Encode(ICmptCnstDomEnumDualObject input)
     => Structured.Empty();
+
+  internal static CmptCnstDomEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptRefCnstDomEnumDualEncoder<TType>(
@@ -33,19 +35,23 @@ internal class CmptEnumCnstDomEnumDualEncoder : IEncoder<CmptEnumCnstDomEnumDual
 {
   public Structured Encode(CmptEnumCnstDomEnumDual input)
     => new(input.ToString(), "_EnumCnstDomEnumDual");
+
+  internal static CmptEnumCnstDomEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptJustCnstDomEnumDualEncoder : IEncoder<ICmptJustCnstDomEnumDual>
 {
   public Structured Encode(ICmptJustCnstDomEnumDual input)
     => new((decimal?)input.Value);
+
+  internal static CmptJustCnstDomEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_constraint_dom_enum_DualEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_dom_enum_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptCnstDomEnumDualObject>(_ => new CmptCnstDomEnumDualEncoder())
-      .AddEncoder<CmptEnumCnstDomEnumDual>(_ => new CmptEnumCnstDomEnumDualEncoder())
-      .AddEncoder<ICmptJustCnstDomEnumDual>(_ => new CmptJustCnstDomEnumDualEncoder());
+      .AddEncoder<ICmptCnstDomEnumDualObject>(CmptCnstDomEnumDualEncoder.Factory)
+      .AddEncoder<CmptEnumCnstDomEnumDual>(CmptEnumCnstDomEnumDualEncoder.Factory)
+      .AddEncoder<ICmptJustCnstDomEnumDual>(CmptJustCnstDomEnumDualEncoder.Factory);
 }

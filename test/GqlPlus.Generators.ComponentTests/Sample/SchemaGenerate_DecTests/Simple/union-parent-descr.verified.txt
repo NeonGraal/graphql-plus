@@ -14,17 +14,21 @@ namespace Components.Gqlp_Schema_union_parent_descr;
 internal class CmptUnionPrntDescrDecoder
 {
   public Number AsNumber { get; set; }
+
+  internal static CmptUnionPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntUnionPrntDescrDecoder
 {
   public Number AsNumber { get; set; }
+
+  internal static CmptPrntUnionPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_union_parent_descrDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_union_parent_descrDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptUnionPrntDescr>(_ => new CmptUnionPrntDescrDecoder())
-      .AddDecoder<ICmptPrntUnionPrntDescr>(_ => new CmptPrntUnionPrntDescrDecoder());
+      .AddDecoder<ICmptUnionPrntDescr>(CmptUnionPrntDescrDecoder.Factory)
+      .AddDecoder<ICmptPrntUnionPrntDescr>(CmptPrntUnionPrntDescrDecoder.Factory);
 }

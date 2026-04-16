@@ -14,18 +14,22 @@ internal class testObjPrntOutpEncoder(
   private readonly IEncoder<ItestRefObjPrntOutpObject> _itestRefObjPrntOutp = encoders.EncoderFor<ItestRefObjPrntOutpObject>();
   public Structured Encode(ItestObjPrntOutpObject input)
     => _itestRefObjPrntOutp.Encode(input);
+
+  internal static testObjPrntOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testRefObjPrntOutpEncoder : IEncoder<ItestRefObjPrntOutpObject>
 {
   public Structured Encode(ItestRefObjPrntOutpObject input)
     => Structured.Empty();
+
+  internal static testRefObjPrntOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_object_parent_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_object_parent_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestObjPrntOutpObject>(r => new testObjPrntOutpEncoder(r))
-      .AddEncoder<ItestRefObjPrntOutpObject>(_ => new testRefObjPrntOutpEncoder());
+      .AddEncoder<ItestObjPrntOutpObject>(testObjPrntOutpEncoder.Factory)
+      .AddEncoder<ItestRefObjPrntOutpObject>(testRefObjPrntOutpEncoder.Factory);
 }

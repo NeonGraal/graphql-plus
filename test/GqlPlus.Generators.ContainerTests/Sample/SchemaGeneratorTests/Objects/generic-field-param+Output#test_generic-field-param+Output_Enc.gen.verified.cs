@@ -15,6 +15,8 @@ internal class testGnrcFieldParamOutpEncoder(
   public Structured Encode(ItestGnrcFieldParamOutpObject input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _itestRefGnrcFieldParamOutp);
+
+  internal static testGnrcFieldParamOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testRefGnrcFieldParamOutpEncoder<TRef> : IEncoder<ItestRefGnrcFieldParamOutpObject<TRef>>
@@ -28,12 +30,14 @@ internal class testAltGnrcFieldParamOutpEncoder : IEncoder<ItestAltGnrcFieldPara
   public Structured Encode(ItestAltGnrcFieldParamOutpObject input)
     => Structured.Empty()
       .Add("alt", input.Alt);
+
+  internal static testAltGnrcFieldParamOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_generic_field_param_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_generic_field_param_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestGnrcFieldParamOutpObject>(r => new testGnrcFieldParamOutpEncoder(r))
-      .AddEncoder<ItestAltGnrcFieldParamOutpObject>(_ => new testAltGnrcFieldParamOutpEncoder());
+      .AddEncoder<ItestGnrcFieldParamOutpObject>(testGnrcFieldParamOutpEncoder.Factory)
+      .AddEncoder<ItestAltGnrcFieldParamOutpObject>(testAltGnrcFieldParamOutpEncoder.Factory);
 }

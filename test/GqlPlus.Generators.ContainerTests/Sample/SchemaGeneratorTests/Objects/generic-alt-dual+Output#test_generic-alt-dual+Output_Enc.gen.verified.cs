@@ -11,6 +11,8 @@ internal class testGnrcAltDualOutpEncoder : IEncoder<ItestGnrcAltDualOutpObject>
 {
   public Structured Encode(ItestGnrcAltDualOutpObject input)
     => Structured.Empty();
+
+  internal static testGnrcAltDualOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testRefGnrcAltDualOutpEncoder<TRef> : IEncoder<ItestRefGnrcAltDualOutpObject<TRef>>
@@ -24,12 +26,14 @@ internal class testAltGnrcAltDualOutpEncoder : IEncoder<ItestAltGnrcAltDualOutpO
   public Structured Encode(ItestAltGnrcAltDualOutpObject input)
     => Structured.Empty()
       .Add("alt", input.Alt);
+
+  internal static testAltGnrcAltDualOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_generic_alt_dual_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_generic_alt_dual_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestGnrcAltDualOutpObject>(_ => new testGnrcAltDualOutpEncoder())
-      .AddEncoder<ItestAltGnrcAltDualOutpObject>(_ => new testAltGnrcAltDualOutpEncoder());
+      .AddEncoder<ItestGnrcAltDualOutpObject>(testGnrcAltDualOutpEncoder.Factory)
+      .AddEncoder<ItestAltGnrcAltDualOutpObject>(testAltGnrcAltDualOutpEncoder.Factory);
 }

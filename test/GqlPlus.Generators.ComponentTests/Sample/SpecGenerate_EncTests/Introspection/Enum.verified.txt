@@ -27,6 +27,8 @@ internal class Cmpt_EnumLabelEncoder(
   public Structured Encode(ICmpt_EnumLabelObject input)
     => _aliased.Encode(input)
       .AddEncoded("enumType", input.EnumType, _name);
+
+  internal static Cmpt_EnumLabelEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_EnumValueEncoder(
@@ -38,12 +40,14 @@ internal class Cmpt_EnumValueEncoder(
   public Structured Encode(ICmpt_EnumValueObject input)
     => _typeRef.Encode(input)
       .AddEncoded("label", input.Label, _name);
+
+  internal static Cmpt_EnumValueEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class Cmpt_Spec_EnumEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Spec_EnumEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmpt_EnumLabelObject>(r => new Cmpt_EnumLabelEncoder(r))
-      .AddEncoder<ICmpt_EnumValueObject>(r => new Cmpt_EnumValueEncoder(r));
+      .AddEncoder<ICmpt_EnumLabelObject>(Cmpt_EnumLabelEncoder.Factory)
+      .AddEncoder<ICmpt_EnumValueObject>(Cmpt_EnumValueEncoder.Factory);
 }

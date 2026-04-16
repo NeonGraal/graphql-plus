@@ -11,18 +11,22 @@ internal class testEnumPrntEncoder : IEncoder<testEnumPrnt>
 {
   public Structured Encode(testEnumPrnt input)
     => new(input.ToString(), "_EnumPrnt");
+
+  internal static testEnumPrntEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testPrntEnumPrntEncoder : IEncoder<testPrntEnumPrnt>
 {
   public Structured Encode(testPrntEnumPrnt input)
     => new(input.ToString(), "_PrntEnumPrnt");
+
+  internal static testPrntEnumPrntEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_enum_parentEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_enum_parentEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<testEnumPrnt>(_ => new testEnumPrntEncoder())
-      .AddEncoder<testPrntEnumPrnt>(_ => new testPrntEnumPrntEncoder());
+      .AddEncoder<testEnumPrnt>(testEnumPrntEncoder.Factory)
+      .AddEncoder<testPrntEnumPrnt>(testPrntEnumPrntEncoder.Factory);
 }

@@ -15,6 +15,8 @@ namespace Components.Gqlp_Schema_constraint_dom_enum_Dual;
 
 internal class CmptCnstDomEnumDualDecoder
 {
+
+  internal static CmptCnstDomEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefCnstDomEnumDualDecoder<TType>
@@ -26,17 +28,21 @@ internal class CmptEnumCnstDomEnumDualDecoder
 {
   public string cnstDomEnumDual { get; set; }
   public string other { get; set; }
+
+  internal static CmptEnumCnstDomEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptJustCnstDomEnumDualDecoder
 {
+
+  internal static CmptJustCnstDomEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_constraint_dom_enum_DualDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_dom_enum_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptCnstDomEnumDualObject>(_ => new CmptCnstDomEnumDualDecoder())
-      .AddDecoder<CmptEnumCnstDomEnumDual>(_ => new CmptEnumCnstDomEnumDualDecoder())
-      .AddDecoder<ICmptJustCnstDomEnumDual>(_ => new CmptJustCnstDomEnumDualDecoder());
+      .AddDecoder<ICmptCnstDomEnumDualObject>(CmptCnstDomEnumDualDecoder.Factory)
+      .AddDecoder<CmptEnumCnstDomEnumDual>(CmptEnumCnstDomEnumDualDecoder.Factory)
+      .AddDecoder<ICmptJustCnstDomEnumDual>(CmptJustCnstDomEnumDualDecoder.Factory);
 }

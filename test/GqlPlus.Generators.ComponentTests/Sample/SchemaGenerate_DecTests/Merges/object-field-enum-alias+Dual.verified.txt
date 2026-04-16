@@ -14,11 +14,13 @@ namespace Components.Gqlp_Schema_object_field_enum_alias_Dual;
 internal class CmptObjFieldEnumAliasDualDecoder
 {
   public bool Field { get; set; }
+
+  internal static CmptObjFieldEnumAliasDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_object_field_enum_alias_DualDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_object_field_enum_alias_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptObjFieldEnumAliasDualObject>(_ => new CmptObjFieldEnumAliasDualDecoder());
+      .AddDecoder<ICmptObjFieldEnumAliasDualObject>(CmptObjFieldEnumAliasDualDecoder.Factory);
 }

@@ -47,4 +47,6 @@ internal class MergeConstants
 
     return (ConstantAst)b with { Fields = new FieldsAst<IAstConstant>(fields) };
   }
+
+  internal static MergeConstants Factory(IMergerRepository _) => new();
 }

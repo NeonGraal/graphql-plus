@@ -17,4 +17,6 @@ internal class VerifyCategoryOutput(IVerifierRepository verifiers) : UsageVerifi
 
     context.CheckModifiers(usage);
   }
+
+  internal static VerifyCategoryOutput Factory(IVerifierRepository v) => new(v);
 }

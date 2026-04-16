@@ -14,6 +14,8 @@ internal class testPrntDescrOutpEncoder(
   private readonly IEncoder<ItestRefPrntDescrOutpObject> _itestRefPrntDescrOutp = encoders.EncoderFor<ItestRefPrntDescrOutpObject>();
   public Structured Encode(ItestPrntDescrOutpObject input)
     => _itestRefPrntDescrOutp.Encode(input);
+
+  internal static testPrntDescrOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testRefPrntDescrOutpEncoder : IEncoder<ItestRefPrntDescrOutpObject>
@@ -21,12 +23,14 @@ internal class testRefPrntDescrOutpEncoder : IEncoder<ItestRefPrntDescrOutpObjec
   public Structured Encode(ItestRefPrntDescrOutpObject input)
     => Structured.Empty()
       .Add("parent", input.Parent);
+
+  internal static testRefPrntDescrOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_parent_descr_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_parent_descr_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestPrntDescrOutpObject>(r => new testPrntDescrOutpEncoder(r))
-      .AddEncoder<ItestRefPrntDescrOutpObject>(_ => new testRefPrntDescrOutpEncoder());
+      .AddEncoder<ItestPrntDescrOutpObject>(testPrntDescrOutpEncoder.Factory)
+      .AddEncoder<ItestRefPrntDescrOutpObject>(testRefPrntDescrOutpEncoder.Factory);
 }

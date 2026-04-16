@@ -11,18 +11,22 @@ internal class testAltEnumDualEncoder : IEncoder<ItestAltEnumDualObject>
 {
   public Structured Encode(ItestAltEnumDualObject input)
     => Structured.Empty();
+
+  internal static testAltEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testEnumAltEnumDualEncoder : IEncoder<testEnumAltEnumDual>
 {
   public Structured Encode(testEnumAltEnumDual input)
     => new(input.ToString(), "_EnumAltEnumDual");
+
+  internal static testEnumAltEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_alt_enum_DualEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_alt_enum_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestAltEnumDualObject>(_ => new testAltEnumDualEncoder())
-      .AddEncoder<testEnumAltEnumDual>(_ => new testEnumAltEnumDualEncoder());
+      .AddEncoder<ItestAltEnumDualObject>(testAltEnumDualEncoder.Factory)
+      .AddEncoder<testEnumAltEnumDual>(testEnumAltEnumDualEncoder.Factory);
 }

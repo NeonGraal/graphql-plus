@@ -16,6 +16,8 @@ internal class test_AliasedEncoder(
   public Structured Encode(Itest_AliasedObject input)
     => _itest_Named.Encode(input)
       .AddList("aliases", input.Aliases, _itest_Name);
+
+  internal static test_AliasedEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_NamedEncoder(
@@ -27,6 +29,8 @@ internal class test_NamedEncoder(
   public Structured Encode(Itest_NamedObject input)
     => _itest_Described.Encode(input)
       .AddEncoded("name", input.Name, _itest_Name);
+
+  internal static test_NamedEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_DescribedEncoder : IEncoder<Itest_DescribedObject>
@@ -34,6 +38,8 @@ internal class test_DescribedEncoder : IEncoder<Itest_DescribedObject>
   public Structured Encode(Itest_DescribedObject input)
     => Structured.Empty()
       .Add("description", input.Description.Encode());
+
+  internal static test_DescribedEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_AndTypeEncoder(
@@ -45,14 +51,16 @@ internal class test_AndTypeEncoder(
   public Structured Encode(Itest_AndTypeObject input)
     => _itest_Named.Encode(input)
       .AddEncoded("type", input.Type, _itest_Type);
+
+  internal static test_AndTypeEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class test_NamesEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_NamesEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<Itest_AliasedObject>(r => new test_AliasedEncoder(r))
-      .AddEncoder<Itest_NamedObject>(r => new test_NamedEncoder(r))
-      .AddEncoder<Itest_DescribedObject>(_ => new test_DescribedEncoder())
-      .AddEncoder<Itest_AndTypeObject>(r => new test_AndTypeEncoder(r));
+      .AddEncoder<Itest_AliasedObject>(test_AliasedEncoder.Factory)
+      .AddEncoder<Itest_NamedObject>(test_NamedEncoder.Factory)
+      .AddEncoder<Itest_DescribedObject>(test_DescribedEncoder.Factory)
+      .AddEncoder<Itest_AndTypeObject>(test_AndTypeEncoder.Factory);
 }

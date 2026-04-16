@@ -8,4 +8,6 @@ internal class MergeDomainLabels(
 {
   protected override string ItemGroupKey(IAstDomainLabel item)
     => $"{item.EnumType}~{item.EnumItem}";
+
+  internal static MergeDomainLabels Factory(IMergerRepository m) => new(m);
 }

@@ -11,6 +11,8 @@ internal class testGnrcAltParamOutpEncoder : IEncoder<ItestGnrcAltParamOutpObjec
 {
   public Structured Encode(ItestGnrcAltParamOutpObject input)
     => Structured.Empty();
+
+  internal static testGnrcAltParamOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testRefGnrcAltParamOutpEncoder<TRef> : IEncoder<ItestRefGnrcAltParamOutpObject<TRef>>
@@ -24,12 +26,14 @@ internal class testAltGnrcAltParamOutpEncoder : IEncoder<ItestAltGnrcAltParamOut
   public Structured Encode(ItestAltGnrcAltParamOutpObject input)
     => Structured.Empty()
       .Add("alt", input.Alt);
+
+  internal static testAltGnrcAltParamOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_generic_alt_param_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_generic_alt_param_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestGnrcAltParamOutpObject>(_ => new testGnrcAltParamOutpEncoder())
-      .AddEncoder<ItestAltGnrcAltParamOutpObject>(_ => new testAltGnrcAltParamOutpEncoder());
+      .AddEncoder<ItestGnrcAltParamOutpObject>(testGnrcAltParamOutpEncoder.Factory)
+      .AddEncoder<ItestAltGnrcAltParamOutpObject>(testAltGnrcAltParamOutpEncoder.Factory);
 }

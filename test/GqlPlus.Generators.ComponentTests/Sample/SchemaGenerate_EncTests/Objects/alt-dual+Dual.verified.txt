@@ -15,6 +15,8 @@ internal class CmptAltDualDualEncoder : IEncoder<ICmptAltDualDualObject>
 {
   public Structured Encode(ICmptAltDualDualObject input)
     => Structured.Empty();
+
+  internal static CmptAltDualDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptObjDualAltDualDualEncoder : IEncoder<ICmptObjDualAltDualDualObject>
@@ -22,12 +24,14 @@ internal class CmptObjDualAltDualDualEncoder : IEncoder<ICmptObjDualAltDualDualO
   public Structured Encode(ICmptObjDualAltDualDualObject input)
     => Structured.Empty()
       .Add("alt", input.Alt);
+
+  internal static CmptObjDualAltDualDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_alt_dual_DualEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_alt_dual_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptAltDualDualObject>(_ => new CmptAltDualDualEncoder())
-      .AddEncoder<ICmptObjDualAltDualDualObject>(_ => new CmptObjDualAltDualDualEncoder());
+      .AddEncoder<ICmptAltDualDualObject>(CmptAltDualDualEncoder.Factory)
+      .AddEncoder<ICmptObjDualAltDualDualObject>(CmptObjDualAltDualDualEncoder.Factory);
 }

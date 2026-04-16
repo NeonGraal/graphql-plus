@@ -21,11 +21,13 @@ internal class CmptUnionAliasEncoder(
     => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
      : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
      : Structured.Empty();
+
+  internal static CmptUnionAliasEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class Cmpt_Schema_union_aliasEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_union_aliasEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptUnionAlias>(r => new CmptUnionAliasEncoder(r));
+      .AddEncoder<ICmptUnionAlias>(CmptUnionAliasEncoder.Factory);
 }

@@ -15,18 +15,22 @@ internal class CmptDmnEnumExclEncoder : IEncoder<ICmptDmnEnumExcl>
 {
   public Structured Encode(ICmptDmnEnumExcl input)
     => new((decimal?)input.Value);
+
+  internal static CmptDmnEnumExclEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumExclEncoder : IEncoder<CmptEnumDmnEnumExcl>
 {
   public Structured Encode(CmptEnumDmnEnumExcl input)
     => new(input.ToString(), "_EnumDmnEnumExcl");
+
+  internal static CmptEnumDmnEnumExclEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_domain_enum_excludeEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_enum_excludeEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptDmnEnumExcl>(_ => new CmptDmnEnumExclEncoder())
-      .AddEncoder<CmptEnumDmnEnumExcl>(_ => new CmptEnumDmnEnumExclEncoder());
+      .AddEncoder<ICmptDmnEnumExcl>(CmptDmnEnumExclEncoder.Factory)
+      .AddEncoder<CmptEnumDmnEnumExcl>(CmptEnumDmnEnumExclEncoder.Factory);
 }

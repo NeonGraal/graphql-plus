@@ -9,6 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_dual_Input;
 
 internal class testCnstFieldDualInpDecoder
 {
+
+  internal static testCnstFieldDualInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testRefCnstFieldDualInpDecoder<TRef>
@@ -18,18 +20,22 @@ internal class testRefCnstFieldDualInpDecoder<TRef>
 
 internal class testPrntCnstFieldDualInpDecoder
 {
+
+  internal static testPrntCnstFieldDualInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testAltCnstFieldDualInpDecoder
 {
   public decimal Alt { get; set; }
+
+  internal static testAltCnstFieldDualInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_constraint_field_dual_InputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_constraint_field_dual_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestCnstFieldDualInpObject>(_ => new testCnstFieldDualInpDecoder())
-      .AddDecoder<ItestPrntCnstFieldDualInpObject>(_ => new testPrntCnstFieldDualInpDecoder())
-      .AddDecoder<ItestAltCnstFieldDualInpObject>(_ => new testAltCnstFieldDualInpDecoder());
+      .AddDecoder<ItestCnstFieldDualInpObject>(testCnstFieldDualInpDecoder.Factory)
+      .AddDecoder<ItestPrntCnstFieldDualInpObject>(testPrntCnstFieldDualInpDecoder.Factory)
+      .AddDecoder<ItestAltCnstFieldDualInpObject>(testAltCnstFieldDualInpDecoder.Factory);
 }

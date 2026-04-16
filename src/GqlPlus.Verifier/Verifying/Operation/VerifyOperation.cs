@@ -13,4 +13,6 @@ internal class VerifyOperation(IVerifierRepository verifiers) : IVerify<IAstOper
     _spreads.Verify(new(item.Spreads, item.Fragments), errors);
     errors.Add(item.Errors);
   }
+
+  internal static VerifyOperation Factory(IVerifierRepository v) => new(v);
 }

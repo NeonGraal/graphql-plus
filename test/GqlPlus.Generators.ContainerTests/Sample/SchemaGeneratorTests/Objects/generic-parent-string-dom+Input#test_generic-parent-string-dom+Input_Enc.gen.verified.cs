@@ -11,11 +11,13 @@ internal class testDomGnrcPrntStrDomInpEncoder : IEncoder<ItestDomGnrcPrntStrDom
 {
   public Structured Encode(ItestDomGnrcPrntStrDomInp input)
     => new(input.Value);
+
+  internal static testDomGnrcPrntStrDomInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_generic_parent_string_dom_InputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_generic_parent_string_dom_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestDomGnrcPrntStrDomInp>(_ => new testDomGnrcPrntStrDomInpEncoder());
+      .AddEncoder<ItestDomGnrcPrntStrDomInp>(testDomGnrcPrntStrDomInpEncoder.Factory);
 }

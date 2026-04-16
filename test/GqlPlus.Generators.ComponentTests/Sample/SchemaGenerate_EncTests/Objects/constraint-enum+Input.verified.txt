@@ -16,11 +16,13 @@ internal class CmptEnumCnstEnumInpEncoder : IEncoder<CmptEnumCnstEnumInp>
 {
   public Structured Encode(CmptEnumCnstEnumInp input)
     => new(input.ToString(), "_EnumCnstEnumInp");
+
+  internal static CmptEnumCnstEnumInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_constraint_enum_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_enum_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<CmptEnumCnstEnumInp>(_ => new CmptEnumCnstEnumInpEncoder());
+      .AddEncoder<CmptEnumCnstEnumInp>(CmptEnumCnstEnumInpEncoder.Factory);
 }

@@ -17,25 +17,31 @@ internal class CmptFieldEnumPrntDualEncoder : IEncoder<ICmptFieldEnumPrntDualObj
   public Structured Encode(ICmptFieldEnumPrntDualObject input)
     => Structured.Empty()
       .AddEnum("field", input.Field);
+
+  internal static CmptFieldEnumPrntDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptEnumFieldEnumPrntDualEncoder : IEncoder<CmptEnumFieldEnumPrntDual>
 {
   public Structured Encode(CmptEnumFieldEnumPrntDual input)
     => new(input.ToString(), "_EnumFieldEnumPrntDual");
+
+  internal static CmptEnumFieldEnumPrntDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptPrntFieldEnumPrntDualEncoder : IEncoder<CmptPrntFieldEnumPrntDual>
 {
   public Structured Encode(CmptPrntFieldEnumPrntDual input)
     => new(input.ToString(), "_PrntFieldEnumPrntDual");
+
+  internal static CmptPrntFieldEnumPrntDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_field_enum_parent_DualEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_field_enum_parent_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptFieldEnumPrntDualObject>(_ => new CmptFieldEnumPrntDualEncoder())
-      .AddEncoder<CmptEnumFieldEnumPrntDual>(_ => new CmptEnumFieldEnumPrntDualEncoder())
-      .AddEncoder<CmptPrntFieldEnumPrntDual>(_ => new CmptPrntFieldEnumPrntDualEncoder());
+      .AddEncoder<ICmptFieldEnumPrntDualObject>(CmptFieldEnumPrntDualEncoder.Factory)
+      .AddEncoder<CmptEnumFieldEnumPrntDual>(CmptEnumFieldEnumPrntDualEncoder.Factory)
+      .AddEncoder<CmptPrntFieldEnumPrntDual>(CmptPrntFieldEnumPrntDualEncoder.Factory);
 }

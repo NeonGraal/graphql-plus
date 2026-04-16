@@ -37,6 +37,8 @@ internal class Cmpt_AliasedEncoder(
   public Structured Encode(ICmpt_AliasedObject input)
     => _named.Encode(input)
       .AddList("aliases", input.Aliases, _name);
+
+  internal static Cmpt_AliasedEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_NamedEncoder(
@@ -48,6 +50,8 @@ internal class Cmpt_NamedEncoder(
   public Structured Encode(ICmpt_NamedObject input)
     => _described.Encode(input)
       .AddEncoded("name", input.Name, _name);
+
+  internal static Cmpt_NamedEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_DescribedEncoder : IEncoder<ICmpt_DescribedObject>
@@ -55,6 +59,8 @@ internal class Cmpt_DescribedEncoder : IEncoder<ICmpt_DescribedObject>
   public Structured Encode(ICmpt_DescribedObject input)
     => Structured.Empty()
       .Add("description", input.Description.Encode());
+
+  internal static Cmpt_DescribedEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class Cmpt_AndTypeEncoder(
@@ -66,14 +72,16 @@ internal class Cmpt_AndTypeEncoder(
   public Structured Encode(ICmpt_AndTypeObject input)
     => _named.Encode(input)
       .AddEncoded("type", input.Type, _type);
+
+  internal static Cmpt_AndTypeEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class Cmpt_Spec_NamesEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Spec_NamesEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmpt_AliasedObject>(r => new Cmpt_AliasedEncoder(r))
-      .AddEncoder<ICmpt_NamedObject>(r => new Cmpt_NamedEncoder(r))
-      .AddEncoder<ICmpt_DescribedObject>(_ => new Cmpt_DescribedEncoder())
-      .AddEncoder<ICmpt_AndTypeObject>(r => new Cmpt_AndTypeEncoder(r));
+      .AddEncoder<ICmpt_AliasedObject>(Cmpt_AliasedEncoder.Factory)
+      .AddEncoder<ICmpt_NamedObject>(Cmpt_NamedEncoder.Factory)
+      .AddEncoder<ICmpt_DescribedObject>(Cmpt_DescribedEncoder.Factory)
+      .AddEncoder<ICmpt_AndTypeObject>(Cmpt_AndTypeEncoder.Factory);
 }

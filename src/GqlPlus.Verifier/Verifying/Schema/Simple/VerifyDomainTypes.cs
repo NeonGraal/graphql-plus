@@ -46,4 +46,6 @@ internal class VerifyDomainTypes(IVerifierRepository verifiers) : AstParentVerif
       context.Add(failures);
     }
   }
+
+  internal static VerifyDomainTypes Factory(IVerifierRepository v) => new(v);
 }

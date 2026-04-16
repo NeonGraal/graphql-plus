@@ -9,17 +9,21 @@ namespace GqlPlus.GeneratorTests.Gqlp_parent_descr_Dual;
 
 internal class testPrntDescrDualDecoder
 {
+
+  internal static testPrntDescrDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testRefPrntDescrDualDecoder
 {
   public decimal Parent { get; set; }
+
+  internal static testRefPrntDescrDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_parent_descr_DualDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_parent_descr_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestPrntDescrDualObject>(_ => new testPrntDescrDualDecoder())
-      .AddDecoder<ItestRefPrntDescrDualObject>(_ => new testRefPrntDescrDualDecoder());
+      .AddDecoder<ItestPrntDescrDualObject>(testPrntDescrDualDecoder.Factory)
+      .AddDecoder<ItestRefPrntDescrDualObject>(testRefPrntDescrDualDecoder.Factory);
 }

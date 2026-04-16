@@ -13,17 +13,21 @@ namespace Components.Gqlp_Schema_alt_enum_Input;
 
 internal class CmptAltEnumInpDecoder
 {
+
+  internal static CmptAltEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumAltEnumInpDecoder
 {
   public string altEnumInp { get; set; }
+
+  internal static CmptEnumAltEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_alt_enum_InputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_alt_enum_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptAltEnumInpObject>(_ => new CmptAltEnumInpDecoder())
-      .AddDecoder<CmptEnumAltEnumInp>(_ => new CmptEnumAltEnumInpDecoder());
+      .AddDecoder<ICmptAltEnumInpObject>(CmptAltEnumInpDecoder.Factory)
+      .AddDecoder<CmptEnumAltEnumInp>(CmptEnumAltEnumInpDecoder.Factory);
 }

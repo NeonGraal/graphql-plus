@@ -14,6 +14,8 @@ namespace Components.Gqlp_Schema_constraint_alt_domain_Dual;
 
 internal class CmptCnstAltDmnDualDecoder
 {
+
+  internal static CmptCnstAltDmnDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefCnstAltDmnDualDecoder<TRef>
@@ -22,12 +24,14 @@ internal class CmptRefCnstAltDmnDualDecoder<TRef>
 
 internal class CmptDomCnstAltDmnDualDecoder
 {
+
+  internal static CmptDomCnstAltDmnDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_constraint_alt_domain_DualDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_alt_domain_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptCnstAltDmnDualObject>(_ => new CmptCnstAltDmnDualDecoder())
-      .AddDecoder<ICmptDomCnstAltDmnDual>(_ => new CmptDomCnstAltDmnDualDecoder());
+      .AddDecoder<ICmptCnstAltDmnDualObject>(CmptCnstAltDmnDualDecoder.Factory)
+      .AddDecoder<ICmptDomCnstAltDmnDual>(CmptDomCnstAltDmnDualDecoder.Factory);
 }

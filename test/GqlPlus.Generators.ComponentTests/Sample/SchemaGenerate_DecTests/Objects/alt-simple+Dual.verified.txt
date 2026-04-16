@@ -12,11 +12,13 @@ namespace Components.Gqlp_Schema_alt_simple_Dual;
 
 internal class CmptAltSmplDualDecoder
 {
+
+  internal static CmptAltSmplDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_alt_simple_DualDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_alt_simple_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptAltSmplDualObject>(_ => new CmptAltSmplDualDecoder());
+      .AddDecoder<ICmptAltSmplDualObject>(CmptAltSmplDualDecoder.Factory);
 }

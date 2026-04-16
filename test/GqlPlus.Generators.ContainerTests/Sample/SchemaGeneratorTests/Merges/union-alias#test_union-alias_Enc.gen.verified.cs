@@ -17,11 +17,13 @@ internal class testUnionAliasEncoder(
     => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
      : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
      : Structured.Empty();
+
+  internal static testUnionAliasEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class test_union_aliasEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_union_aliasEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestUnionAlias>(r => new testUnionAliasEncoder(r));
+      .AddEncoder<ItestUnionAlias>(testUnionAliasEncoder.Factory);
 }

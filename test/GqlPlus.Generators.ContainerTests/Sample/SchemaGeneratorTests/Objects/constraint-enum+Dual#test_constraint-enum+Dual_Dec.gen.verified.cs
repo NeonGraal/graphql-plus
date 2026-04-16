@@ -9,6 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_enum_Dual;
 
 internal class testCnstEnumDualDecoder
 {
+
+  internal static testCnstEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testRefCnstEnumDualDecoder<TType>
@@ -19,12 +21,14 @@ internal class testRefCnstEnumDualDecoder<TType>
 internal class testEnumCnstEnumDualDecoder
 {
   public string cnstEnumDual { get; set; }
+
+  internal static testEnumCnstEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_constraint_enum_DualDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_constraint_enum_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestCnstEnumDualObject>(_ => new testCnstEnumDualDecoder())
-      .AddDecoder<testEnumCnstEnumDual>(_ => new testEnumCnstEnumDualDecoder());
+      .AddDecoder<ItestCnstEnumDualObject>(testCnstEnumDualDecoder.Factory)
+      .AddDecoder<testEnumCnstEnumDual>(testEnumCnstEnumDualDecoder.Factory);
 }

@@ -12,11 +12,13 @@ namespace Components.Gqlp_Schema_domain_number_descr;
 
 internal class CmptDmnNmbrDescrDecoder
 {
+
+  internal static CmptDmnNmbrDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_domain_number_descrDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_number_descrDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptDmnNmbrDescr>(_ => new CmptDmnNmbrDescrDecoder());
+      .AddDecoder<ICmptDmnNmbrDescr>(CmptDmnNmbrDescrDecoder.Factory);
 }

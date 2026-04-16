@@ -22,11 +22,13 @@ internal class Cmpt_SettingEncoder(
   public Structured Encode(ICmpt_SettingObject input)
     => _named.Encode(input)
       .AddEncoded("value", input.Value, _gqlpValue);
+
+  internal static Cmpt_SettingEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class Cmpt_Spec_OptionEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Spec_OptionEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmpt_SettingObject>(r => new Cmpt_SettingEncoder(r));
+      .AddEncoder<ICmpt_SettingObject>(Cmpt_SettingEncoder.Factory);
 }

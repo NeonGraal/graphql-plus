@@ -9,6 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_Introspection;
 
 internal class test_NameDecoder
 {
+
+  internal static test_NameDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_FilterDecoder
@@ -18,35 +20,49 @@ internal class test_FilterDecoder
   public ICollection<Itest_NameFilter> Aliases { get; set; }
   public bool? ReturnByAlias { get; set; }
   public bool? ReturnReferencedTypes { get; set; }
+
+  internal static test_FilterDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_NameFilterDecoder
 {
+
+  internal static test_NameFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_CategoryFilterDecoder
 {
   public ICollection<test_Resolution> Resolutions { get; set; }
+
+  internal static test_CategoryFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_TypeFilterDecoder
 {
   public ICollection<test_TypeKind> Kinds { get; set; }
+
+  internal static test_TypeFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_AliasedDecoder
 {
   public ICollection<Itest_Name> Aliases { get; set; }
+
+  internal static test_AliasedDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_NamedDecoder
 {
   public Itest_Name Name { get; set; }
+
+  internal static test_NamedDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_DescribedDecoder
 {
   public ICollection<string> Description { get; set; }
+
+  internal static test_DescribedDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_ResolutionDecoder
@@ -54,6 +70,8 @@ internal class test_ResolutionDecoder
   public string Parallel { get; set; }
   public string Sequential { get; set; }
   public string Single { get; set; }
+
+  internal static test_ResolutionDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_LocationDecoder
@@ -64,6 +82,8 @@ internal class test_LocationDecoder
   public string Inline { get; set; }
   public string Spread { get; set; }
   public string Fragment { get; set; }
+
+  internal static test_LocationDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_SimpleKindDecoder
@@ -73,6 +93,8 @@ internal class test_SimpleKindDecoder
   public string Internal { get; set; }
   public string Domain { get; set; }
   public string Union { get; set; }
+
+  internal static test_SimpleKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_TypeKindDecoder
@@ -85,6 +107,8 @@ internal class test_TypeKindDecoder
   public string Dual { get; set; }
   public string Input { get; set; }
   public string Output { get; set; }
+
+  internal static test_TypeKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_TypeRefDecoder<TTypeKind>
@@ -94,10 +118,14 @@ internal class test_TypeRefDecoder<TTypeKind>
 
 internal class test_TypeSimpleDecoder
 {
+
+  internal static test_TypeSimpleDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_CollectionsDecoder
 {
+
+  internal static test_CollectionsDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_ModifierKeyedDecoder<TModifierKind>
@@ -108,6 +136,8 @@ internal class test_ModifierKeyedDecoder<TModifierKind>
 
 internal class test_ModifiersDecoder
 {
+
+  internal static test_ModifiersDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_ModifierKindDecoder
@@ -119,6 +149,8 @@ internal class test_ModifierKindDecoder
   public string Dictionary { get; set; }
   public string Param { get; set; }
   public string TypeParam { get; set; }
+
+  internal static test_ModifierKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_ModifierDecoder<TModifierKind>
@@ -132,63 +164,77 @@ internal class test_DomainKindDecoder
   public string Enum { get; set; }
   public string Number { get; set; }
   public string String { get; set; }
+
+  internal static test_DomainKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_BaseDomainItemDecoder
 {
   public bool Exclude { get; set; }
+
+  internal static test_BaseDomainItemDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_DomainTrueFalseDecoder
 {
   public bool Value { get; set; }
+
+  internal static test_DomainTrueFalseDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_DomainRangeDecoder
 {
   public decimal? Lower { get; set; }
   public decimal? Upper { get; set; }
+
+  internal static test_DomainRangeDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_DomainRegexDecoder
 {
   public string Pattern { get; set; }
+
+  internal static test_DomainRegexDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_EnumLabelDecoder
 {
   public Itest_Name EnumType { get; set; }
+
+  internal static test_EnumLabelDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_ObjectKindDecoder
 {
+
+  internal static test_ObjectKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_IntrospectionDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_IntrospectionDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<Itest_Name>(_ => new test_NameDecoder())
-      .AddDecoder<Itest_FilterObject>(_ => new test_FilterDecoder())
-      .AddDecoder<Itest_NameFilter>(_ => new test_NameFilterDecoder())
-      .AddDecoder<Itest_CategoryFilterObject>(_ => new test_CategoryFilterDecoder())
-      .AddDecoder<Itest_TypeFilterObject>(_ => new test_TypeFilterDecoder())
-      .AddDecoder<Itest_AliasedObject>(_ => new test_AliasedDecoder())
-      .AddDecoder<Itest_NamedObject>(_ => new test_NamedDecoder())
-      .AddDecoder<Itest_DescribedObject>(_ => new test_DescribedDecoder())
-      .AddDecoder<test_Resolution>(_ => new test_ResolutionDecoder())
-      .AddDecoder<test_Location>(_ => new test_LocationDecoder())
-      .AddDecoder<test_SimpleKind>(_ => new test_SimpleKindDecoder())
-      .AddDecoder<test_TypeKind>(_ => new test_TypeKindDecoder())
-      .AddDecoder<Itest_TypeSimpleObject>(_ => new test_TypeSimpleDecoder())
-      .AddDecoder<Itest_CollectionsObject>(_ => new test_CollectionsDecoder())
-      .AddDecoder<Itest_ModifiersObject>(_ => new test_ModifiersDecoder())
-      .AddDecoder<test_ModifierKind>(_ => new test_ModifierKindDecoder())
-      .AddDecoder<test_DomainKind>(_ => new test_DomainKindDecoder())
-      .AddDecoder<Itest_BaseDomainItemObject>(_ => new test_BaseDomainItemDecoder())
-      .AddDecoder<Itest_DomainTrueFalseObject>(_ => new test_DomainTrueFalseDecoder())
-      .AddDecoder<Itest_DomainRangeObject>(_ => new test_DomainRangeDecoder())
-      .AddDecoder<Itest_DomainRegexObject>(_ => new test_DomainRegexDecoder())
-      .AddDecoder<Itest_EnumLabelObject>(_ => new test_EnumLabelDecoder())
-      .AddDecoder<Itest_ObjectKind>(_ => new test_ObjectKindDecoder());
+      .AddDecoder<Itest_Name>(test_NameDecoder.Factory)
+      .AddDecoder<Itest_FilterObject>(test_FilterDecoder.Factory)
+      .AddDecoder<Itest_NameFilter>(test_NameFilterDecoder.Factory)
+      .AddDecoder<Itest_CategoryFilterObject>(test_CategoryFilterDecoder.Factory)
+      .AddDecoder<Itest_TypeFilterObject>(test_TypeFilterDecoder.Factory)
+      .AddDecoder<Itest_AliasedObject>(test_AliasedDecoder.Factory)
+      .AddDecoder<Itest_NamedObject>(test_NamedDecoder.Factory)
+      .AddDecoder<Itest_DescribedObject>(test_DescribedDecoder.Factory)
+      .AddDecoder<test_Resolution>(test_ResolutionDecoder.Factory)
+      .AddDecoder<test_Location>(test_LocationDecoder.Factory)
+      .AddDecoder<test_SimpleKind>(test_SimpleKindDecoder.Factory)
+      .AddDecoder<test_TypeKind>(test_TypeKindDecoder.Factory)
+      .AddDecoder<Itest_TypeSimpleObject>(test_TypeSimpleDecoder.Factory)
+      .AddDecoder<Itest_CollectionsObject>(test_CollectionsDecoder.Factory)
+      .AddDecoder<Itest_ModifiersObject>(test_ModifiersDecoder.Factory)
+      .AddDecoder<test_ModifierKind>(test_ModifierKindDecoder.Factory)
+      .AddDecoder<test_DomainKind>(test_DomainKindDecoder.Factory)
+      .AddDecoder<Itest_BaseDomainItemObject>(test_BaseDomainItemDecoder.Factory)
+      .AddDecoder<Itest_DomainTrueFalseObject>(test_DomainTrueFalseDecoder.Factory)
+      .AddDecoder<Itest_DomainRangeObject>(test_DomainRangeDecoder.Factory)
+      .AddDecoder<Itest_DomainRegexObject>(test_DomainRegexDecoder.Factory)
+      .AddDecoder<Itest_EnumLabelObject>(test_EnumLabelDecoder.Factory)
+      .AddDecoder<Itest_ObjectKind>(test_ObjectKindDecoder.Factory);
 }

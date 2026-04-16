@@ -20,4 +20,6 @@ internal class MergeOptionSettings(
       Value = (ConstantAst)group.Combine(item => item.Value, mergers.MergerFor<IAstConstant>())
     };
   }
+
+  internal static MergeOptionSettings Factory(IMergerRepository m) => new(m);
 }

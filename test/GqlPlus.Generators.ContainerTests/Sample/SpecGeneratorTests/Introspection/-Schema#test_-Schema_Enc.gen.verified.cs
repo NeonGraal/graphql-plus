@@ -14,18 +14,24 @@ internal class test_SchemaEncoder(
   private readonly IEncoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
   public Structured Encode(Itest_SchemaObject input)
     => _itest_Named.Encode(input);
+
+  internal static test_SchemaEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_NameEncoder : IEncoder<Itest_Name>
 {
   public Structured Encode(Itest_Name input)
     => new(input.Value);
+
+  internal static test_NameEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_NameFilterEncoder : IEncoder<Itest_NameFilter>
 {
   public Structured Encode(Itest_NameFilter input)
     => new(input.Value);
+
+  internal static test_NameFilterEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_AliasedEncoder(
@@ -37,6 +43,8 @@ internal class test_AliasedEncoder(
   public Structured Encode(Itest_AliasedObject input)
     => _itest_Named.Encode(input)
       .AddList("aliases", input.Aliases, _itest_Name);
+
+  internal static test_AliasedEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_NamedEncoder(
@@ -48,6 +56,8 @@ internal class test_NamedEncoder(
   public Structured Encode(Itest_NamedObject input)
     => _itest_Described.Encode(input)
       .AddEncoded("name", input.Name, _itest_Name);
+
+  internal static test_NamedEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_DescribedEncoder : IEncoder<Itest_DescribedObject>
@@ -55,16 +65,18 @@ internal class test_DescribedEncoder : IEncoder<Itest_DescribedObject>
   public Structured Encode(Itest_DescribedObject input)
     => Structured.Empty()
       .Add("description", input.Description.Encode());
+
+  internal static test_DescribedEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test__SchemaEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest__SchemaEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<Itest_SchemaObject>(r => new test_SchemaEncoder(r))
-      .AddEncoder<Itest_Name>(_ => new test_NameEncoder())
-      .AddEncoder<Itest_NameFilter>(_ => new test_NameFilterEncoder())
-      .AddEncoder<Itest_AliasedObject>(r => new test_AliasedEncoder(r))
-      .AddEncoder<Itest_NamedObject>(r => new test_NamedEncoder(r))
-      .AddEncoder<Itest_DescribedObject>(_ => new test_DescribedEncoder());
+      .AddEncoder<Itest_SchemaObject>(test_SchemaEncoder.Factory)
+      .AddEncoder<Itest_Name>(test_NameEncoder.Factory)
+      .AddEncoder<Itest_NameFilter>(test_NameFilterEncoder.Factory)
+      .AddEncoder<Itest_AliasedObject>(test_AliasedEncoder.Factory)
+      .AddEncoder<Itest_NamedObject>(test_NamedEncoder.Factory)
+      .AddEncoder<Itest_DescribedObject>(test_DescribedEncoder.Factory);
 }

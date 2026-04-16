@@ -18,7 +18,6 @@ public static class AllEncoders
     => builder.ThrowIfNull()
       // Common
       .AddEncoder(AliasedEncoder<AliasedModel>.Factory)
-      .AddEncoder(DescribedEncoder<DescribedModel>.Factory)
       .AddEncoder(NamedEncoder<NamedModel>.Factory)
       .AddEncoder(ConstantEncoder.Factory)
       .AddEncoder(SimpleEncoder.Factory)

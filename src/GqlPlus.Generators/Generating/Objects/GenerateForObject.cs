@@ -52,73 +52,86 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     }
 
     foreach (TObjField field in ast.ObjFields) {
-      string fieldKey = field.Name;
-      string fieldPropName = field.Name.Capitalize() ?? field.Name;
-
-      string fieldAccess;
-      if (field is IAstOutputField outField && outField.Parameter is not null) {
-        fieldAccess = $"input.{fieldPropName}()";
-      } else {
-        fieldAccess = $"input.{fieldPropName}";
-      }
-
-      bool hasListMod = field.Modifiers.Any(m => m.ModifierKind == ModifierKind.List);
-      bool hasDictMod = field.Modifiers.Any(m =>
-        m.ModifierKind == ModifierKind.Dictionary || m.ModifierKind == ModifierKind.Param);
-
-      if (hasDictMod) {
-        continue;
-      }
-
-      string fieldTypeName = field.Type.Name;
-      bool isTypeParam = field.Type.IsTypeParam;
-      bool isPrimitive;
-      bool isEnum;
-      string csBaseType;
-
-      if (isTypeParam) {
-        if (context.GetArg(fieldTypeName, out IAstObjType resolvedArg) && !resolvedArg.IsTypeParam) {
-          fieldTypeName = resolvedArg.Name;
-          isTypeParam = false;
-        }
-      }
-
-      if (isTypeParam) {
-        csBaseType = "T" + (fieldTypeName.Capitalize() ?? fieldTypeName);
-        isPrimitive = false;
-        isEnum = false;
-      } else {
-        csBaseType = context.TypeName(fieldTypeName, "");
-        isPrimitive = csBaseType is "string" or "bool" or "decimal";
-        isEnum = !isPrimitive && context.GetTypeAst(fieldTypeName, out IAstEnum _);
-      }
-
-      if (hasListMod) {
-        if (isPrimitive && csBaseType == "string") {
-          fieldCalls.Add($".Add(\"{fieldKey}\", {fieldAccess}.Encode())");
-        } else if (isEnum) {
-          fieldCalls.Add($".Add(\"{fieldKey}\", {fieldAccess}.Encode())");
-        } else {
-          string encoderType = TypeString(field.Type, context, "I");
-          string varName = GetOrAddEncoder(encoderFields, encoderType, typePrefix);
-          string listAccess = fieldAccess.EndsWith("(null)", StringComparison.Ordinal)
-            ? $"{fieldAccess} ?? []"
-            : fieldAccess;
-          fieldCalls.Add($".AddList(\"{fieldKey}\", {listAccess}, {varName})");
-        }
-      } else {
-        if (isPrimitive) {
-          fieldCalls.Add($".Add(\"{fieldKey}\", {fieldAccess})");
-        } else if (isEnum) {
-          fieldCalls.Add($".AddEnum(\"{fieldKey}\", {fieldAccess})");
-        } else {
-          string encoderType = TypeString(field.Type, context, "I");
-          string varName = GetOrAddEncoder(encoderFields, encoderType, typePrefix);
-          fieldCalls.Add($".AddEncoded(\"{fieldKey}\", {fieldAccess}, {varName})");
-        }
-      }
+      AddEncoderFieldCall(field, encoderFields, fieldCalls, typePrefix, context);
     }
 
+    WriteEncoderClass(ast, context, typeName, encoderInterface, typePrefix, encoderFields, fieldCalls, parentVarName);
+  }
+
+  private void AddEncoderFieldCall(TObjField field, Dictionary<string, string> encoderFields, List<string> fieldCalls, string typePrefix, GqlpGeneratorContext context)
+  {
+    bool hasDictMod = field.Modifiers.Any(m => m.ModifierKind == ModifierKind.Dictionary || m.ModifierKind == ModifierKind.Param);
+    if (hasDictMod) {
+      return;
+    }
+
+    string fieldKey = field.Name;
+    string fieldAccess = GetFieldAccess(field);
+    bool hasListMod = field.Modifiers.Any(m => m.ModifierKind == ModifierKind.List);
+    (string csBaseType, bool isPrimitive, bool isEnum) = ResolveFieldTypeInfo(field, context);
+
+    string call = BuildFieldCall(field, fieldKey, fieldAccess, hasListMod, csBaseType, isPrimitive, isEnum, encoderFields, typePrefix, context);
+    fieldCalls.Add(call);
+  }
+
+  private static string GetFieldAccess(TObjField field)
+  {
+    string fieldPropName = field.Name.Capitalize() ?? field.Name;
+    return field is IAstOutputField outField && outField.Parameter is not null
+      ? $"input.{fieldPropName}()"
+      : $"input.{fieldPropName}";
+  }
+
+  private (string CsBaseType, bool IsPrimitive, bool IsEnum) ResolveFieldTypeInfo(TObjField field, GqlpGeneratorContext context)
+  {
+    string fieldTypeName = field.Type.Name;
+    bool isTypeParam = field.Type.IsTypeParam;
+
+    if (isTypeParam && context.GetArg(fieldTypeName, out IAstObjType resolvedArg) && !resolvedArg.IsTypeParam) {
+      fieldTypeName = resolvedArg.Name;
+      isTypeParam = false;
+    }
+
+    if (isTypeParam) {
+      return ("T" + (fieldTypeName.Capitalize() ?? fieldTypeName), false, false);
+    }
+
+    string csBaseType = context.TypeName(fieldTypeName, "");
+    bool isPrimitive = csBaseType is "string" or "bool" or "decimal";
+    bool isEnum = !isPrimitive && context.GetTypeAst(fieldTypeName, out IAstEnum _);
+    return (csBaseType, isPrimitive, isEnum);
+  }
+
+  private string BuildFieldCall(TObjField field, string fieldKey, string fieldAccess, bool hasListMod, string csBaseType, bool isPrimitive, bool isEnum, Dictionary<string, string> encoderFields, string typePrefix, GqlpGeneratorContext context)
+  {
+    if (hasListMod) {
+      if (isPrimitive || isEnum) {
+        return $".Add(\"{fieldKey}\", {fieldAccess}.Encode())";
+      }
+
+      string encoderType = TypeString(field.Type, context, "I");
+      string varName = GetOrAddEncoder(encoderFields, encoderType, typePrefix);
+      string listAccess = fieldAccess.EndsWith("(null)", StringComparison.Ordinal)
+        ? $"{fieldAccess} ?? []"
+        : fieldAccess;
+      return $".AddList(\"{fieldKey}\", {listAccess}, {varName})";
+    }
+
+    if (isPrimitive) {
+      return $".Add(\"{fieldKey}\", {fieldAccess})";
+    }
+
+    if (isEnum) {
+      return $".AddEnum(\"{fieldKey}\", {fieldAccess})";
+    }
+
+    string encoderType2 = TypeString(field.Type, context, "I");
+    string varName2 = GetOrAddEncoder(encoderFields, encoderType2, typePrefix);
+    return $".AddEncoded(\"{fieldKey}\", {fieldAccess}, {varName2})";
+  }
+
+  private static void WriteEncoderClass(IAstObject<TObjField> ast, GqlpGeneratorContext context, string typeName, string encoderInterface, string typePrefix, Dictionary<string, string> encoderFields, List<string> fieldCalls, string? parentVarName)
+  {
     bool needsEncoders = encoderFields.Count > 0;
     string typeParams = TypeParamsString(ast);
 
@@ -190,36 +203,45 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
 
   private static string GetEncoderVarName(string encoderType, string typePrefix)
   {
-    string name = encoderType;
+    string name = StripGenericArgs(encoderType);
+    name = StripInterfaceOrUpperPrefix(name);
+    name = StripTypePrefix(name, typePrefix);
+    name = name.StartsWith("_", StringComparison.Ordinal) ? name.Substring(1) : name;
+    name = name.EndsWith("Object", StringComparison.Ordinal) ? name.Substring(0, name.Length - "Object".Length) : name;
+    return "_" + (name.Camelize() ?? name.ToLower(System.Globalization.CultureInfo.InvariantCulture));
+  }
 
-    // Strip generic type arguments — <...> is not valid in an identifier
+  private static string StripGenericArgs(string name)
+  {
     int genericStart = name.IndexOf('<');
-    if (genericStart >= 0) {
-      name = name.Substring(0, genericStart);
-    }
+    return genericStart >= 0 ? name.Substring(0, genericStart) : name;
+  }
 
+  private static string StripInterfaceOrUpperPrefix(string name)
+  {
     if (name.StartsWith("I", StringComparison.Ordinal) && name.Length > 1 && char.IsUpper(name[1])) {
-      name = name.Substring(1);
-    } else if (name.Length > 1 && char.IsUpper(name[0]) && char.IsUpper(name[1])) {
-      name = name.Substring(1);
+      return name.Substring(1);
     }
 
+    if (name.Length > 1 && char.IsUpper(name[0]) && char.IsUpper(name[1])) {
+      return name.Substring(1);
+    }
+
+    return name;
+  }
+
+  private static string StripTypePrefix(string name, string typePrefix)
+  {
     string prefixWithUnderscore = typePrefix + "_";
     if (name.StartsWith(prefixWithUnderscore, StringComparison.Ordinal)) {
-      name = name.Substring(prefixWithUnderscore.Length);
-    } else if (name.StartsWith(typePrefix, StringComparison.Ordinal)) {
-      name = name.Substring(typePrefix.Length);
+      return name.Substring(prefixWithUnderscore.Length);
     }
 
-    if (name.StartsWith("_", StringComparison.Ordinal)) {
-      name = name.Substring(1);
+    if (name.StartsWith(typePrefix, StringComparison.Ordinal)) {
+      return name.Substring(typePrefix.Length);
     }
 
-    if (name.EndsWith("Object", StringComparison.Ordinal)) {
-      name = name.Substring(0, name.Length - "Object".Length);
-    }
-
-    return "_" + (name.Camelize() ?? name.ToLower(System.Globalization.CultureInfo.InvariantCulture));
+    return name;
   }
 
   private string AlternateHeader(IAstObject<TObjField> ast, GqlpGeneratorContext context, string type, string prefix, GqlpBaseType baseType)

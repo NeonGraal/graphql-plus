@@ -10,16 +10,20 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_field_Input;
 internal class testObjFieldInpDecoder
 {
   public ItestFldObjFieldInp Field { get; set; }
+
+  internal static testObjFieldInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testFldObjFieldInpDecoder
 {
+
+  internal static testFldObjFieldInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_object_field_InputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_object_field_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestObjFieldInpObject>(_ => new testObjFieldInpDecoder())
-      .AddDecoder<ItestFldObjFieldInpObject>(_ => new testFldObjFieldInpDecoder());
+      .AddDecoder<ItestObjFieldInpObject>(testObjFieldInpDecoder.Factory)
+      .AddDecoder<ItestFldObjFieldInpObject>(testFldObjFieldInpDecoder.Factory);
 }

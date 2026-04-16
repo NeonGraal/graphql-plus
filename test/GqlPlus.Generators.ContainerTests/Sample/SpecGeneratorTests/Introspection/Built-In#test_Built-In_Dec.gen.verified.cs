@@ -9,6 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_Built_In;
 
 internal class test_CollectionsDecoder
 {
+
+  internal static test_CollectionsDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_ModifierKeyedDecoder<TModifierKind>
@@ -19,6 +21,8 @@ internal class test_ModifierKeyedDecoder<TModifierKind>
 
 internal class test_ModifiersDecoder
 {
+
+  internal static test_ModifiersDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_ModifierKindDecoder
@@ -30,6 +34,8 @@ internal class test_ModifierKindDecoder
   public string Dictionary { get; set; }
   public string Param { get; set; }
   public string TypeParam { get; set; }
+
+  internal static test_ModifierKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_ModifierDecoder<TModifierKind>
@@ -41,7 +47,7 @@ internal static class test_Built_InDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_Built_InDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<Itest_CollectionsObject>(_ => new test_CollectionsDecoder())
-      .AddDecoder<Itest_ModifiersObject>(_ => new test_ModifiersDecoder())
-      .AddDecoder<test_ModifierKind>(_ => new test_ModifierKindDecoder());
+      .AddDecoder<Itest_CollectionsObject>(test_CollectionsDecoder.Factory)
+      .AddDecoder<Itest_ModifiersObject>(test_ModifiersDecoder.Factory)
+      .AddDecoder<test_ModifierKind>(test_ModifierKindDecoder.Factory);
 }

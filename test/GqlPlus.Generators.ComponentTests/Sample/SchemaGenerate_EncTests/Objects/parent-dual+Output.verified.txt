@@ -18,6 +18,8 @@ internal class CmptPrntDualOutpEncoder(
   private readonly IEncoder<ICmptRefPrntDualOutpObject> _refPrntDualOutp = encoders.EncoderFor<ICmptRefPrntDualOutpObject>();
   public Structured Encode(ICmptPrntDualOutpObject input)
     => _refPrntDualOutp.Encode(input);
+
+  internal static CmptPrntDualOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class CmptRefPrntDualOutpEncoder : IEncoder<ICmptRefPrntDualOutpObject>
@@ -25,12 +27,14 @@ internal class CmptRefPrntDualOutpEncoder : IEncoder<ICmptRefPrntDualOutpObject>
   public Structured Encode(ICmptRefPrntDualOutpObject input)
     => Structured.Empty()
       .Add("parent", input.Parent);
+
+  internal static CmptRefPrntDualOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_parent_dual_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_parent_dual_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptPrntDualOutpObject>(r => new CmptPrntDualOutpEncoder(r))
-      .AddEncoder<ICmptRefPrntDualOutpObject>(_ => new CmptRefPrntDualOutpEncoder());
+      .AddEncoder<ICmptPrntDualOutpObject>(CmptPrntDualOutpEncoder.Factory)
+      .AddEncoder<ICmptRefPrntDualOutpObject>(CmptRefPrntDualOutpEncoder.Factory);
 }

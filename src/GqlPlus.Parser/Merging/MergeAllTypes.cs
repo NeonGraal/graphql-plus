@@ -106,4 +106,6 @@ internal class MergeAllTypes(
 
     type.SetEnumType(enumType!);
   }
+
+  internal static MergeAllTypes Factory(IMergerRepository m) => new(m);
 }

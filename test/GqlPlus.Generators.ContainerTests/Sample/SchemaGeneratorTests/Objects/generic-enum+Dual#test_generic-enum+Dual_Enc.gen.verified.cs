@@ -11,6 +11,8 @@ internal class testGnrcEnumDualEncoder : IEncoder<ItestGnrcEnumDualObject>
 {
   public Structured Encode(ItestGnrcEnumDualObject input)
     => Structured.Empty();
+
+  internal static testGnrcEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testRefGnrcEnumDualEncoder<TType>(
@@ -27,12 +29,14 @@ internal class testEnumGnrcEnumDualEncoder : IEncoder<testEnumGnrcEnumDual>
 {
   public Structured Encode(testEnumGnrcEnumDual input)
     => new(input.ToString(), "_EnumGnrcEnumDual");
+
+  internal static testEnumGnrcEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_generic_enum_DualEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_generic_enum_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestGnrcEnumDualObject>(_ => new testGnrcEnumDualEncoder())
-      .AddEncoder<testEnumGnrcEnumDual>(_ => new testEnumGnrcEnumDualEncoder());
+      .AddEncoder<ItestGnrcEnumDualObject>(testGnrcEnumDualEncoder.Factory)
+      .AddEncoder<testEnumGnrcEnumDual>(testEnumGnrcEnumDualEncoder.Factory);
 }

@@ -11,11 +11,13 @@ internal class testEnumGnrcValueInpEncoder : IEncoder<testEnumGnrcValueInp>
 {
   public Structured Encode(testEnumGnrcValueInp input)
     => new(input.ToString(), "_EnumGnrcValueInp");
+
+  internal static testEnumGnrcValueInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_generic_value_InputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_generic_value_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<testEnumGnrcValueInp>(_ => new testEnumGnrcValueInpEncoder());
+      .AddEncoder<testEnumGnrcValueInp>(testEnumGnrcValueInpEncoder.Factory);
 }

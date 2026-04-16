@@ -14,6 +14,8 @@ internal class testGnrcPrntStrDomDualEncoder(
   private readonly IEncoder<ItestFieldGnrcPrntStrDomDualObject<ItestDomGnrcPrntStrDomDual>> _itestFieldGnrcPrntStrDomDual = encoders.EncoderFor<ItestFieldGnrcPrntStrDomDualObject<ItestDomGnrcPrntStrDomDual>>();
   public Structured Encode(ItestGnrcPrntStrDomDualObject input)
     => _itestFieldGnrcPrntStrDomDual.Encode(input);
+
+  internal static testGnrcPrntStrDomDualEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testFieldGnrcPrntStrDomDualEncoder<TRef>(
@@ -30,12 +32,14 @@ internal class testDomGnrcPrntStrDomDualEncoder : IEncoder<ItestDomGnrcPrntStrDo
 {
   public Structured Encode(ItestDomGnrcPrntStrDomDual input)
     => new(input.Value);
+
+  internal static testDomGnrcPrntStrDomDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_generic_parent_string_dom_DualEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_generic_parent_string_dom_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestGnrcPrntStrDomDualObject>(r => new testGnrcPrntStrDomDualEncoder(r))
-      .AddEncoder<ItestDomGnrcPrntStrDomDual>(_ => new testDomGnrcPrntStrDomDualEncoder());
+      .AddEncoder<ItestGnrcPrntStrDomDualObject>(testGnrcPrntStrDomDualEncoder.Factory)
+      .AddEncoder<ItestDomGnrcPrntStrDomDual>(testDomGnrcPrntStrDomDualEncoder.Factory);
 }

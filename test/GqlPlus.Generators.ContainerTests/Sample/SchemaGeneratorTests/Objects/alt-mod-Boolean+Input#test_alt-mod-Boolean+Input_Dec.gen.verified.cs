@@ -9,17 +9,21 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_Boolean_Input;
 
 internal class testAltModBoolInpDecoder
 {
+
+  internal static testAltModBoolInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testAltAltModBoolInpDecoder
 {
   public decimal Alt { get; set; }
+
+  internal static testAltAltModBoolInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_alt_mod_Boolean_InputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_alt_mod_Boolean_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestAltModBoolInpObject>(_ => new testAltModBoolInpDecoder())
-      .AddDecoder<ItestAltAltModBoolInpObject>(_ => new testAltAltModBoolInpDecoder());
+      .AddDecoder<ItestAltModBoolInpObject>(testAltModBoolInpDecoder.Factory)
+      .AddDecoder<ItestAltAltModBoolInpObject>(testAltAltModBoolInpDecoder.Factory);
 }

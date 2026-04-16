@@ -18,4 +18,6 @@ internal class SimpleModeller(
         => SimpleModel.Enum(_enumValue.ToModel(ast.EnumValue, typeKinds)),
       _ => new("")
     };
+
+  internal static SimpleModeller Factory(IModellerRepository r) => new(r);
 }

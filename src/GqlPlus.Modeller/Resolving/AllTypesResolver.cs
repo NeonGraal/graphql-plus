@@ -8,4 +8,6 @@ internal class AllTypesResolver(
 
   public BaseTypeModel Resolve(BaseTypeModel model, IResolveContext context)
     => _resolvers.TypeResolvers.SingleOrDefault(t => t.ForType(model))?.ResolveType(model, context) ?? model;
+
+  internal static AllTypesResolver Factory(IResolverRepository r) => new(r);
 }

@@ -20,18 +20,22 @@ internal class CmptOutpDescrParamEncoder(
   public Structured Encode(ICmptOutpDescrParamObject input)
     => Structured.Empty()
       .AddEncoded("field", input.Field(), _fldOutpDescrParam);
+
+  internal static CmptOutpDescrParamEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class CmptFldOutpDescrParamEncoder : IEncoder<ICmptFldOutpDescrParamObject>
 {
   public Structured Encode(ICmptFldOutpDescrParamObject input)
     => Structured.Empty();
+
+  internal static CmptFldOutpDescrParamEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_output_descr_paramEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_output_descr_paramEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptOutpDescrParamObject>(r => new CmptOutpDescrParamEncoder(r))
-      .AddEncoder<ICmptFldOutpDescrParamObject>(_ => new CmptFldOutpDescrParamEncoder());
+      .AddEncoder<ICmptOutpDescrParamObject>(CmptOutpDescrParamEncoder.Factory)
+      .AddEncoder<ICmptFldOutpDescrParamObject>(CmptFldOutpDescrParamEncoder.Factory);
 }

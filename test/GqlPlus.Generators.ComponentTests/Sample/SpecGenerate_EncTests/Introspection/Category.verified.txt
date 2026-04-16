@@ -32,6 +32,8 @@ internal class Cmpt_CategoriesEncoder(
   public Structured Encode(ICmpt_CategoriesObject input)
     => _andType.Encode(input)
       .AddEncoded("category", input.Category, _category);
+
+  internal static Cmpt_CategoriesEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_CategoryEncoder(
@@ -46,19 +48,23 @@ internal class Cmpt_CategoryEncoder(
       .AddEnum("resolution", input.Resolution)
       .AddEncoded("output", input.Output, _typeRef)
       .AddList("modifiers", input.Modifiers, _modifiers);
+
+  internal static Cmpt_CategoryEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_ResolutionEncoder : IEncoder<Cmpt_Resolution>
 {
   public Structured Encode(Cmpt_Resolution input)
     => new(input.ToString(), "_Resolution");
+
+  internal static Cmpt_ResolutionEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Spec_CategoryEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Spec_CategoryEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmpt_CategoriesObject>(r => new Cmpt_CategoriesEncoder(r))
-      .AddEncoder<ICmpt_CategoryObject>(r => new Cmpt_CategoryEncoder(r))
-      .AddEncoder<Cmpt_Resolution>(_ => new Cmpt_ResolutionEncoder());
+      .AddEncoder<ICmpt_CategoriesObject>(Cmpt_CategoriesEncoder.Factory)
+      .AddEncoder<ICmpt_CategoryObject>(Cmpt_CategoryEncoder.Factory)
+      .AddEncoder<Cmpt_Resolution>(Cmpt_ResolutionEncoder.Factory);
 }

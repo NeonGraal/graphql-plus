@@ -14,6 +14,8 @@ internal class testCnstFieldDmnDualEncoder(
   private readonly IEncoder<ItestRefCnstFieldDmnDualObject<ItestDomCnstFieldDmnDual>> _itestRefCnstFieldDmnDual = encoders.EncoderFor<ItestRefCnstFieldDmnDualObject<ItestDomCnstFieldDmnDual>>();
   public Structured Encode(ItestCnstFieldDmnDualObject input)
     => _itestRefCnstFieldDmnDual.Encode(input);
+
+  internal static testCnstFieldDmnDualEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testRefCnstFieldDmnDualEncoder<TRef>(
@@ -30,12 +32,14 @@ internal class testDomCnstFieldDmnDualEncoder : IEncoder<ItestDomCnstFieldDmnDua
 {
   public Structured Encode(ItestDomCnstFieldDmnDual input)
     => new(input.Value);
+
+  internal static testDomCnstFieldDmnDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_constraint_field_domain_DualEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_constraint_field_domain_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestCnstFieldDmnDualObject>(r => new testCnstFieldDmnDualEncoder(r))
-      .AddEncoder<ItestDomCnstFieldDmnDual>(_ => new testDomCnstFieldDmnDualEncoder());
+      .AddEncoder<ItestCnstFieldDmnDualObject>(testCnstFieldDmnDualEncoder.Factory)
+      .AddEncoder<ItestDomCnstFieldDmnDual>(testDomCnstFieldDmnDualEncoder.Factory);
 }

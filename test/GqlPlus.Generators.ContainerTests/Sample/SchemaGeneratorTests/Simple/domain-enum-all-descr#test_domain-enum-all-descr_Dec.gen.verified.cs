@@ -9,6 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_all_descr;
 
 internal class testDmnEnumAllDescrDecoder
 {
+
+  internal static testDmnEnumAllDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testEnumDmnEnumAllDescrDecoder
@@ -16,12 +18,14 @@ internal class testEnumDmnEnumAllDescrDecoder
   public string dmnEnumAllDescr { get; set; }
   public string enum_dmnEnumAllDescr { get; set; }
   public string dmnEnumAllDescrValue { get; set; }
+
+  internal static testEnumDmnEnumAllDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_domain_enum_all_descrDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_domain_enum_all_descrDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestDmnEnumAllDescr>(_ => new testDmnEnumAllDescrDecoder())
-      .AddDecoder<testEnumDmnEnumAllDescr>(_ => new testEnumDmnEnumAllDescrDecoder());
+      .AddDecoder<ItestDmnEnumAllDescr>(testDmnEnumAllDescrDecoder.Factory)
+      .AddDecoder<testEnumDmnEnumAllDescr>(testEnumDmnEnumAllDescrDecoder.Factory);
 }

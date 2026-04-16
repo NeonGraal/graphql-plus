@@ -14,4 +14,6 @@ internal class SchemaResolver(
 
     return model with { Types = types, };
   }
+
+  internal static SchemaResolver Factory(IResolverRepository r) => new(r);
 }

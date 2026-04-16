@@ -141,4 +141,6 @@ internal class TypeDomainEnumResolver
           ItemDescription),
         Domain);
   }
+
+  internal static TypeDomainEnumResolver Factory(IResolverRepository _) => new();
 }

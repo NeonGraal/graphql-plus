@@ -8,81 +8,117 @@ namespace Components.Gqlp_Schema_Merges;
 
 internal class CmptInDrctParamDecoder
 {
+
+  internal static CmptInDrctParamDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptDmnAliasDecoder
 {
+
+  internal static CmptDmnAliasDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptDmnBoolDecoder
 {
+
+  internal static CmptDmnBoolDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptDmnBoolDiffDecoder
 {
+
+  internal static CmptDmnBoolDiffDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptDmnBoolSameDecoder
 {
+
+  internal static CmptDmnBoolSameDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptDmnEnumDiffDecoder
 {
+
+  internal static CmptDmnEnumDiffDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptDmnEnumSameDecoder
 {
+
+  internal static CmptDmnEnumSameDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptDmnNmbrDecoder
 {
+
+  internal static CmptDmnNmbrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptDmnNmbrDiffDecoder
 {
+
+  internal static CmptDmnNmbrDiffDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptDmnNmbrSameDecoder
 {
+
+  internal static CmptDmnNmbrSameDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptDmnStrDecoder
 {
+
+  internal static CmptDmnStrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptDmnStrDiffDecoder
 {
+
+  internal static CmptDmnStrDiffDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptDmnStrSameDecoder
 {
+
+  internal static CmptDmnStrSameDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumAliasDecoder
 {
   public string enumAlias { get; set; }
+
+  internal static CmptEnumAliasDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDiffDecoder
 {
   public string one { get; set; }
   public string two { get; set; }
+
+  internal static CmptEnumDiffDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumSameDecoder
 {
   public string enumSame { get; set; }
+
+  internal static CmptEnumSameDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumSamePrntDecoder
 {
   public string prnt_enumSamePrnt { get; set; }
   public string enumSamePrnt { get; set; }
+
+  internal static CmptEnumSamePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntEnumSamePrntDecoder
 {
   public string prnt_enumSamePrnt { get; set; }
+
+  internal static CmptPrntEnumSamePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumValueAliasDecoder
@@ -90,46 +126,68 @@ internal class CmptEnumValueAliasDecoder
   public string enumValueAlias { get; set; }
   public string val1 { get; set; }
   public string val2 { get; set; }
+
+  internal static CmptEnumValueAliasDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjDualDecoder
 {
+
+  internal static CmptObjDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjInpDecoder
 {
+
+  internal static CmptObjInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjAliasDualDecoder
 {
+
+  internal static CmptObjAliasDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjAliasInpDecoder
 {
+
+  internal static CmptObjAliasInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjAltDualDecoder
 {
+
+  internal static CmptObjAltDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjAltDualTypeDecoder
 {
+
+  internal static CmptObjAltDualTypeDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjAltInpDecoder
 {
+
+  internal static CmptObjAltInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjAltInpTypeDecoder
 {
+
+  internal static CmptObjAltInpTypeDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjAltEnumDualDecoder
 {
+
+  internal static CmptObjAltEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjAltEnumInpDecoder
 {
+
+  internal static CmptObjAltEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjCnstDualDecoder<TType>
@@ -147,67 +205,95 @@ internal class CmptObjCnstInpDecoder<TType>
 internal class CmptObjFieldDualDecoder
 {
   public ICmptFldObjFieldDual Field { get; set; }
+
+  internal static CmptObjFieldDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptFldObjFieldDualDecoder
 {
+
+  internal static CmptFldObjFieldDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjFieldInpDecoder
 {
   public ICmptFldObjFieldInp Field { get; set; }
+
+  internal static CmptObjFieldInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptFldObjFieldInpDecoder
 {
+
+  internal static CmptFldObjFieldInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjFieldAliasDualDecoder
 {
   public ICmptFldObjFieldAliasDual Field { get; set; }
+
+  internal static CmptObjFieldAliasDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptFldObjFieldAliasDualDecoder
 {
+
+  internal static CmptFldObjFieldAliasDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjFieldAliasInpDecoder
 {
   public ICmptFldObjFieldAliasInp Field { get; set; }
+
+  internal static CmptObjFieldAliasInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptFldObjFieldAliasInpDecoder
 {
+
+  internal static CmptFldObjFieldAliasInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjFieldEnumAliasDualDecoder
 {
   public bool Field { get; set; }
+
+  internal static CmptObjFieldEnumAliasDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjFieldEnumAliasInpDecoder
 {
   public bool Field { get; set; }
+
+  internal static CmptObjFieldEnumAliasInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjFieldEnumValueDualDecoder
 {
   public bool Field { get; set; }
+
+  internal static CmptObjFieldEnumValueDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjFieldEnumValueInpDecoder
 {
   public bool Field { get; set; }
+
+  internal static CmptObjFieldEnumValueInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjFieldTypeAliasDualDecoder
 {
   public string Field { get; set; }
+
+  internal static CmptObjFieldTypeAliasDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjFieldTypeAliasInpDecoder
 {
   public string Field { get; set; }
+
+  internal static CmptObjFieldTypeAliasInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjParamDualDecoder<TTest,TType>
@@ -236,116 +322,140 @@ internal class CmptObjParamDupInpDecoder<TTest>
 
 internal class CmptObjPrntDualDecoder
 {
+
+  internal static CmptObjPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefObjPrntDualDecoder
 {
+
+  internal static CmptRefObjPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjPrntInpDecoder
 {
+
+  internal static CmptObjPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefObjPrntInpDecoder
 {
+
+  internal static CmptRefObjPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptOutpFieldParam1Decoder
 {
+
+  internal static CmptOutpFieldParam1Decoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptOutpFieldParam2Decoder
 {
+
+  internal static CmptOutpFieldParam2Decoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptFldOutpFieldParamDecoder
 {
+
+  internal static CmptFldOutpFieldParamDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptUnionAliasDecoder
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }
+
+  internal static CmptUnionAliasDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptUnionDiffDecoder
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }
+
+  internal static CmptUnionDiffDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptUnionSameDecoder
 {
   public Boolean AsBoolean { get; set; }
+
+  internal static CmptUnionSameDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptUnionSamePrntDecoder
 {
   public Boolean AsBoolean { get; set; }
+
+  internal static CmptUnionSamePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntUnionSamePrntDecoder
 {
   public String AsString { get; set; }
+
+  internal static CmptPrntUnionSamePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_MergesDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_MergesDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptInDrctParamObject>(_ => new CmptInDrctParamDecoder())
-      .AddDecoder<ICmptDmnAlias>(_ => new CmptDmnAliasDecoder())
-      .AddDecoder<ICmptDmnBool>(_ => new CmptDmnBoolDecoder())
-      .AddDecoder<ICmptDmnBoolDiff>(_ => new CmptDmnBoolDiffDecoder())
-      .AddDecoder<ICmptDmnBoolSame>(_ => new CmptDmnBoolSameDecoder())
-      .AddDecoder<ICmptDmnEnumDiff>(_ => new CmptDmnEnumDiffDecoder())
-      .AddDecoder<ICmptDmnEnumSame>(_ => new CmptDmnEnumSameDecoder())
-      .AddDecoder<ICmptDmnNmbr>(_ => new CmptDmnNmbrDecoder())
-      .AddDecoder<ICmptDmnNmbrDiff>(_ => new CmptDmnNmbrDiffDecoder())
-      .AddDecoder<ICmptDmnNmbrSame>(_ => new CmptDmnNmbrSameDecoder())
-      .AddDecoder<ICmptDmnStr>(_ => new CmptDmnStrDecoder())
-      .AddDecoder<ICmptDmnStrDiff>(_ => new CmptDmnStrDiffDecoder())
-      .AddDecoder<ICmptDmnStrSame>(_ => new CmptDmnStrSameDecoder())
-      .AddDecoder<CmptEnumAlias>(_ => new CmptEnumAliasDecoder())
-      .AddDecoder<CmptEnumDiff>(_ => new CmptEnumDiffDecoder())
-      .AddDecoder<CmptEnumSame>(_ => new CmptEnumSameDecoder())
-      .AddDecoder<CmptEnumSamePrnt>(_ => new CmptEnumSamePrntDecoder())
-      .AddDecoder<CmptPrntEnumSamePrnt>(_ => new CmptPrntEnumSamePrntDecoder())
-      .AddDecoder<CmptEnumValueAlias>(_ => new CmptEnumValueAliasDecoder())
-      .AddDecoder<ICmptObjDualObject>(_ => new CmptObjDualDecoder())
-      .AddDecoder<ICmptObjInpObject>(_ => new CmptObjInpDecoder())
-      .AddDecoder<ICmptObjAliasDualObject>(_ => new CmptObjAliasDualDecoder())
-      .AddDecoder<ICmptObjAliasInpObject>(_ => new CmptObjAliasInpDecoder())
-      .AddDecoder<ICmptObjAltDualObject>(_ => new CmptObjAltDualDecoder())
-      .AddDecoder<ICmptObjAltDualTypeObject>(_ => new CmptObjAltDualTypeDecoder())
-      .AddDecoder<ICmptObjAltInpObject>(_ => new CmptObjAltInpDecoder())
-      .AddDecoder<ICmptObjAltInpTypeObject>(_ => new CmptObjAltInpTypeDecoder())
-      .AddDecoder<ICmptObjAltEnumDualObject>(_ => new CmptObjAltEnumDualDecoder())
-      .AddDecoder<ICmptObjAltEnumInpObject>(_ => new CmptObjAltEnumInpDecoder())
-      .AddDecoder<ICmptObjFieldDualObject>(_ => new CmptObjFieldDualDecoder())
-      .AddDecoder<ICmptFldObjFieldDualObject>(_ => new CmptFldObjFieldDualDecoder())
-      .AddDecoder<ICmptObjFieldInpObject>(_ => new CmptObjFieldInpDecoder())
-      .AddDecoder<ICmptFldObjFieldInpObject>(_ => new CmptFldObjFieldInpDecoder())
-      .AddDecoder<ICmptObjFieldAliasDualObject>(_ => new CmptObjFieldAliasDualDecoder())
-      .AddDecoder<ICmptFldObjFieldAliasDualObject>(_ => new CmptFldObjFieldAliasDualDecoder())
-      .AddDecoder<ICmptObjFieldAliasInpObject>(_ => new CmptObjFieldAliasInpDecoder())
-      .AddDecoder<ICmptFldObjFieldAliasInpObject>(_ => new CmptFldObjFieldAliasInpDecoder())
-      .AddDecoder<ICmptObjFieldEnumAliasDualObject>(_ => new CmptObjFieldEnumAliasDualDecoder())
-      .AddDecoder<ICmptObjFieldEnumAliasInpObject>(_ => new CmptObjFieldEnumAliasInpDecoder())
-      .AddDecoder<ICmptObjFieldEnumValueDualObject>(_ => new CmptObjFieldEnumValueDualDecoder())
-      .AddDecoder<ICmptObjFieldEnumValueInpObject>(_ => new CmptObjFieldEnumValueInpDecoder())
-      .AddDecoder<ICmptObjFieldTypeAliasDualObject>(_ => new CmptObjFieldTypeAliasDualDecoder())
-      .AddDecoder<ICmptObjFieldTypeAliasInpObject>(_ => new CmptObjFieldTypeAliasInpDecoder())
-      .AddDecoder<ICmptObjPrntDualObject>(_ => new CmptObjPrntDualDecoder())
-      .AddDecoder<ICmptRefObjPrntDualObject>(_ => new CmptRefObjPrntDualDecoder())
-      .AddDecoder<ICmptObjPrntInpObject>(_ => new CmptObjPrntInpDecoder())
-      .AddDecoder<ICmptRefObjPrntInpObject>(_ => new CmptRefObjPrntInpDecoder())
-      .AddDecoder<ICmptOutpFieldParam1Object>(_ => new CmptOutpFieldParam1Decoder())
-      .AddDecoder<ICmptOutpFieldParam2Object>(_ => new CmptOutpFieldParam2Decoder())
-      .AddDecoder<ICmptFldOutpFieldParamObject>(_ => new CmptFldOutpFieldParamDecoder())
-      .AddDecoder<ICmptUnionAlias>(_ => new CmptUnionAliasDecoder())
-      .AddDecoder<ICmptUnionDiff>(_ => new CmptUnionDiffDecoder())
-      .AddDecoder<ICmptUnionSame>(_ => new CmptUnionSameDecoder())
-      .AddDecoder<ICmptUnionSamePrnt>(_ => new CmptUnionSamePrntDecoder())
-      .AddDecoder<ICmptPrntUnionSamePrnt>(_ => new CmptPrntUnionSamePrntDecoder());
+      .AddDecoder<ICmptInDrctParamObject>(CmptInDrctParamDecoder.Factory)
+      .AddDecoder<ICmptDmnAlias>(CmptDmnAliasDecoder.Factory)
+      .AddDecoder<ICmptDmnBool>(CmptDmnBoolDecoder.Factory)
+      .AddDecoder<ICmptDmnBoolDiff>(CmptDmnBoolDiffDecoder.Factory)
+      .AddDecoder<ICmptDmnBoolSame>(CmptDmnBoolSameDecoder.Factory)
+      .AddDecoder<ICmptDmnEnumDiff>(CmptDmnEnumDiffDecoder.Factory)
+      .AddDecoder<ICmptDmnEnumSame>(CmptDmnEnumSameDecoder.Factory)
+      .AddDecoder<ICmptDmnNmbr>(CmptDmnNmbrDecoder.Factory)
+      .AddDecoder<ICmptDmnNmbrDiff>(CmptDmnNmbrDiffDecoder.Factory)
+      .AddDecoder<ICmptDmnNmbrSame>(CmptDmnNmbrSameDecoder.Factory)
+      .AddDecoder<ICmptDmnStr>(CmptDmnStrDecoder.Factory)
+      .AddDecoder<ICmptDmnStrDiff>(CmptDmnStrDiffDecoder.Factory)
+      .AddDecoder<ICmptDmnStrSame>(CmptDmnStrSameDecoder.Factory)
+      .AddDecoder<CmptEnumAlias>(CmptEnumAliasDecoder.Factory)
+      .AddDecoder<CmptEnumDiff>(CmptEnumDiffDecoder.Factory)
+      .AddDecoder<CmptEnumSame>(CmptEnumSameDecoder.Factory)
+      .AddDecoder<CmptEnumSamePrnt>(CmptEnumSamePrntDecoder.Factory)
+      .AddDecoder<CmptPrntEnumSamePrnt>(CmptPrntEnumSamePrntDecoder.Factory)
+      .AddDecoder<CmptEnumValueAlias>(CmptEnumValueAliasDecoder.Factory)
+      .AddDecoder<ICmptObjDualObject>(CmptObjDualDecoder.Factory)
+      .AddDecoder<ICmptObjInpObject>(CmptObjInpDecoder.Factory)
+      .AddDecoder<ICmptObjAliasDualObject>(CmptObjAliasDualDecoder.Factory)
+      .AddDecoder<ICmptObjAliasInpObject>(CmptObjAliasInpDecoder.Factory)
+      .AddDecoder<ICmptObjAltDualObject>(CmptObjAltDualDecoder.Factory)
+      .AddDecoder<ICmptObjAltDualTypeObject>(CmptObjAltDualTypeDecoder.Factory)
+      .AddDecoder<ICmptObjAltInpObject>(CmptObjAltInpDecoder.Factory)
+      .AddDecoder<ICmptObjAltInpTypeObject>(CmptObjAltInpTypeDecoder.Factory)
+      .AddDecoder<ICmptObjAltEnumDualObject>(CmptObjAltEnumDualDecoder.Factory)
+      .AddDecoder<ICmptObjAltEnumInpObject>(CmptObjAltEnumInpDecoder.Factory)
+      .AddDecoder<ICmptObjFieldDualObject>(CmptObjFieldDualDecoder.Factory)
+      .AddDecoder<ICmptFldObjFieldDualObject>(CmptFldObjFieldDualDecoder.Factory)
+      .AddDecoder<ICmptObjFieldInpObject>(CmptObjFieldInpDecoder.Factory)
+      .AddDecoder<ICmptFldObjFieldInpObject>(CmptFldObjFieldInpDecoder.Factory)
+      .AddDecoder<ICmptObjFieldAliasDualObject>(CmptObjFieldAliasDualDecoder.Factory)
+      .AddDecoder<ICmptFldObjFieldAliasDualObject>(CmptFldObjFieldAliasDualDecoder.Factory)
+      .AddDecoder<ICmptObjFieldAliasInpObject>(CmptObjFieldAliasInpDecoder.Factory)
+      .AddDecoder<ICmptFldObjFieldAliasInpObject>(CmptFldObjFieldAliasInpDecoder.Factory)
+      .AddDecoder<ICmptObjFieldEnumAliasDualObject>(CmptObjFieldEnumAliasDualDecoder.Factory)
+      .AddDecoder<ICmptObjFieldEnumAliasInpObject>(CmptObjFieldEnumAliasInpDecoder.Factory)
+      .AddDecoder<ICmptObjFieldEnumValueDualObject>(CmptObjFieldEnumValueDualDecoder.Factory)
+      .AddDecoder<ICmptObjFieldEnumValueInpObject>(CmptObjFieldEnumValueInpDecoder.Factory)
+      .AddDecoder<ICmptObjFieldTypeAliasDualObject>(CmptObjFieldTypeAliasDualDecoder.Factory)
+      .AddDecoder<ICmptObjFieldTypeAliasInpObject>(CmptObjFieldTypeAliasInpDecoder.Factory)
+      .AddDecoder<ICmptObjPrntDualObject>(CmptObjPrntDualDecoder.Factory)
+      .AddDecoder<ICmptRefObjPrntDualObject>(CmptRefObjPrntDualDecoder.Factory)
+      .AddDecoder<ICmptObjPrntInpObject>(CmptObjPrntInpDecoder.Factory)
+      .AddDecoder<ICmptRefObjPrntInpObject>(CmptRefObjPrntInpDecoder.Factory)
+      .AddDecoder<ICmptOutpFieldParam1Object>(CmptOutpFieldParam1Decoder.Factory)
+      .AddDecoder<ICmptOutpFieldParam2Object>(CmptOutpFieldParam2Decoder.Factory)
+      .AddDecoder<ICmptFldOutpFieldParamObject>(CmptFldOutpFieldParamDecoder.Factory)
+      .AddDecoder<ICmptUnionAlias>(CmptUnionAliasDecoder.Factory)
+      .AddDecoder<ICmptUnionDiff>(CmptUnionDiffDecoder.Factory)
+      .AddDecoder<ICmptUnionSame>(CmptUnionSameDecoder.Factory)
+      .AddDecoder<ICmptUnionSamePrnt>(CmptUnionSamePrntDecoder.Factory)
+      .AddDecoder<ICmptPrntUnionSamePrnt>(CmptPrntUnionSamePrntDecoder.Factory);
 }

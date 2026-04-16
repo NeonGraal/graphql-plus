@@ -12,11 +12,13 @@ namespace Components.Gqlp_Schema_domain_number_positive;
 
 internal class CmptDmnNmbrPstvDecoder
 {
+
+  internal static CmptDmnNmbrPstvDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_domain_number_positiveDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_number_positiveDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptDmnNmbrPstv>(_ => new CmptDmnNmbrPstvDecoder());
+      .AddDecoder<ICmptDmnNmbrPstv>(CmptDmnNmbrPstvDecoder.Factory);
 }

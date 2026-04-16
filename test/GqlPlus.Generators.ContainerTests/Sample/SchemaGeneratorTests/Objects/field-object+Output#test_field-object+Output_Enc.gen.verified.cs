@@ -15,6 +15,8 @@ internal class testFieldObjOutpEncoder(
   public Structured Encode(ItestFieldObjOutpObject input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _itestFldFieldObjOutp);
+
+  internal static testFieldObjOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testFldFieldObjOutpEncoder : IEncoder<ItestFldFieldObjOutpObject>
@@ -22,12 +24,14 @@ internal class testFldFieldObjOutpEncoder : IEncoder<ItestFldFieldObjOutpObject>
   public Structured Encode(ItestFldFieldObjOutpObject input)
     => Structured.Empty()
       .Add("field", input.Field);
+
+  internal static testFldFieldObjOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_field_object_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_field_object_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestFieldObjOutpObject>(r => new testFieldObjOutpEncoder(r))
-      .AddEncoder<ItestFldFieldObjOutpObject>(_ => new testFldFieldObjOutpEncoder());
+      .AddEncoder<ItestFieldObjOutpObject>(testFieldObjOutpEncoder.Factory)
+      .AddEncoder<ItestFldFieldObjOutpObject>(testFldFieldObjOutpEncoder.Factory);
 }

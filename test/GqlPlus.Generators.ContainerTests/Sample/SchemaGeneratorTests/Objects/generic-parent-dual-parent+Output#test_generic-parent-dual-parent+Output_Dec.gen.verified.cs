@@ -10,11 +10,13 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_dual_parent_Output;
 internal class testAltGnrcPrntDualPrntOutpDecoder
 {
   public decimal Alt { get; set; }
+
+  internal static testAltGnrcPrntDualPrntOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_generic_parent_dual_parent_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_generic_parent_dual_parent_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestAltGnrcPrntDualPrntOutpObject>(_ => new testAltGnrcPrntDualPrntOutpDecoder());
+      .AddDecoder<ItestAltGnrcPrntDualPrntOutpObject>(testAltGnrcPrntDualPrntOutpDecoder.Factory);
 }

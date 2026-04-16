@@ -15,6 +15,8 @@ internal class testFieldDualOutpEncoder(
   public Structured Encode(ItestFieldDualOutpObject input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _itestFldFieldDualOutp);
+
+  internal static testFieldDualOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testFldFieldDualOutpEncoder : IEncoder<ItestFldFieldDualOutpObject>
@@ -22,12 +24,14 @@ internal class testFldFieldDualOutpEncoder : IEncoder<ItestFldFieldDualOutpObjec
   public Structured Encode(ItestFldFieldDualOutpObject input)
     => Structured.Empty()
       .Add("field", input.Field);
+
+  internal static testFldFieldDualOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_field_dual_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_field_dual_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestFieldDualOutpObject>(r => new testFieldDualOutpEncoder(r))
-      .AddEncoder<ItestFldFieldDualOutpObject>(_ => new testFldFieldDualOutpEncoder());
+      .AddEncoder<ItestFieldDualOutpObject>(testFieldDualOutpEncoder.Factory)
+      .AddEncoder<ItestFldFieldDualOutpObject>(testFldFieldDualOutpEncoder.Factory);
 }

@@ -20,6 +20,8 @@ internal class CmptGnrcPrntEnumDomDualEncoder(
   private readonly IEncoder<ICmptFieldGnrcPrntEnumDomDualObject<ICmptDomGnrcPrntEnumDomDual>> _fieldGnrcPrntEnumDomDual = encoders.EncoderFor<ICmptFieldGnrcPrntEnumDomDualObject<ICmptDomGnrcPrntEnumDomDual>>();
   public Structured Encode(ICmptGnrcPrntEnumDomDualObject input)
     => _fieldGnrcPrntEnumDomDual.Encode(input);
+
+  internal static CmptGnrcPrntEnumDomDualEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class CmptFieldGnrcPrntEnumDomDualEncoder<TRef>(
@@ -36,19 +38,23 @@ internal class CmptEnumGnrcPrntEnumDomDualEncoder : IEncoder<CmptEnumGnrcPrntEnu
 {
   public Structured Encode(CmptEnumGnrcPrntEnumDomDual input)
     => new(input.ToString(), "_EnumGnrcPrntEnumDomDual");
+
+  internal static CmptEnumGnrcPrntEnumDomDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptDomGnrcPrntEnumDomDualEncoder : IEncoder<ICmptDomGnrcPrntEnumDomDual>
 {
   public Structured Encode(ICmptDomGnrcPrntEnumDomDual input)
     => new((decimal?)input.Value);
+
+  internal static CmptDomGnrcPrntEnumDomDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_generic_parent_enum_dom_DualEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_parent_enum_dom_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptGnrcPrntEnumDomDualObject>(r => new CmptGnrcPrntEnumDomDualEncoder(r))
-      .AddEncoder<CmptEnumGnrcPrntEnumDomDual>(_ => new CmptEnumGnrcPrntEnumDomDualEncoder())
-      .AddEncoder<ICmptDomGnrcPrntEnumDomDual>(_ => new CmptDomGnrcPrntEnumDomDualEncoder());
+      .AddEncoder<ICmptGnrcPrntEnumDomDualObject>(CmptGnrcPrntEnumDomDualEncoder.Factory)
+      .AddEncoder<CmptEnumGnrcPrntEnumDomDual>(CmptEnumGnrcPrntEnumDomDualEncoder.Factory)
+      .AddEncoder<ICmptDomGnrcPrntEnumDomDual>(CmptDomGnrcPrntEnumDomDualEncoder.Factory);
 }

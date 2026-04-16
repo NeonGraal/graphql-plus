@@ -53,11 +53,15 @@ internal sealed class UnionDecoderGenerator
 {
   protected override void Generate(IAstUnion ast, GqlpGeneratorContext context)
   {
-    GenerateBlock(ast, context, DecoderHeader, TypeMembers, ClassMember);
+    string decoderName = context.TypeName(ast, "") + "Decoder";
+    GenerateBlock(ast, context, DecoderHeader, TypeMembers, ClassMember,
+      (_, c) => {
+        c.Write("");
+        c.Write($"  internal static {decoderName} Factory(IDecoderRepository _) => new();");
+      });
 
-    string typeName = context.TypeName(ast, "");
     string interfaceType = context.TypeName(ast, "I");
-    context.RegisterDecoder(interfaceType, typeName + "Decoder");
+    context.RegisterDecoder(interfaceType, decoderName);
   }
 }
 
@@ -76,6 +80,8 @@ internal sealed class UnionEncoderGenerator
       context.Write("{");
       context.Write($"  public Structured Encode({interfaceName} input)");
       context.Write("    => Structured.Empty();");
+      context.Write("");
+      context.Write($"  internal static {typeName}Encoder Factory(IEncoderRepository _) => new();");
       context.Write("}");
       context.RegisterEncoder(interfaceName, typeName + "Encoder");
       return;
@@ -102,6 +108,8 @@ internal sealed class UnionEncoderGenerator
     }
 
     context.Write("     : Structured.Empty();");
+    context.Write("");
+    context.Write($"  internal static {typeName}Encoder Factory(IEncoderRepository r) => new(r);");
     context.Write("}");
     context.RegisterEncoder(interfaceName, typeName + "Encoder", needsRepo: true);
   }

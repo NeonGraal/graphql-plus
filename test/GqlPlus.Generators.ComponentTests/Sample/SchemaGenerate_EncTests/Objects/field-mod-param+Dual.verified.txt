@@ -22,11 +22,13 @@ internal class CmptFldFieldModParamDualEncoder : IEncoder<ICmptFldFieldModParamD
   public Structured Encode(ICmptFldFieldModParamDualObject input)
     => Structured.Empty()
       .Add("field", input.Field);
+
+  internal static CmptFldFieldModParamDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_field_mod_param_DualEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_field_mod_param_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptFldFieldModParamDualObject>(_ => new CmptFldFieldModParamDualEncoder());
+      .AddEncoder<ICmptFldFieldModParamDualObject>(CmptFldFieldModParamDualEncoder.Factory);
 }

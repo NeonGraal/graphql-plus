@@ -14,11 +14,13 @@ namespace Components.Gqlp_Schema_field_value_Output;
 internal class CmptEnumFieldValueOutpDecoder
 {
   public string fieldValueOutp { get; set; }
+
+  internal static CmptEnumFieldValueOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_field_value_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_value_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<CmptEnumFieldValueOutp>(_ => new CmptEnumFieldValueOutpDecoder());
+      .AddDecoder<CmptEnumFieldValueOutp>(CmptEnumFieldValueOutpDecoder.Factory);
 }

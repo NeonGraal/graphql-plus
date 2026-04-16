@@ -17,17 +17,21 @@ internal class CmptEnumGnrcPrntEnumChildOutpDecoder
 {
   public string gnrcPrntEnumChildOutpParent { get; set; }
   public string gnrcPrntEnumChildOutpLabel { get; set; }
+
+  internal static CmptEnumGnrcPrntEnumChildOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptParentGnrcPrntEnumChildOutpDecoder
 {
   public string gnrcPrntEnumChildOutpParent { get; set; }
+
+  internal static CmptParentGnrcPrntEnumChildOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_generic_parent_enum_child_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_parent_enum_child_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<CmptEnumGnrcPrntEnumChildOutp>(_ => new CmptEnumGnrcPrntEnumChildOutpDecoder())
-      .AddDecoder<CmptParentGnrcPrntEnumChildOutp>(_ => new CmptParentGnrcPrntEnumChildOutpDecoder());
+      .AddDecoder<CmptEnumGnrcPrntEnumChildOutp>(CmptEnumGnrcPrntEnumChildOutpDecoder.Factory)
+      .AddDecoder<CmptParentGnrcPrntEnumChildOutp>(CmptParentGnrcPrntEnumChildOutpDecoder.Factory);
 }

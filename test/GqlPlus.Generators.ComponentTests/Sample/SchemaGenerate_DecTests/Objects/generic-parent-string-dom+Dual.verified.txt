@@ -14,6 +14,8 @@ namespace Components.Gqlp_Schema_generic_parent_string_dom_Dual;
 
 internal class CmptGnrcPrntStrDomDualDecoder
 {
+
+  internal static CmptGnrcPrntStrDomDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptFieldGnrcPrntStrDomDualDecoder<TRef>
@@ -23,12 +25,14 @@ internal class CmptFieldGnrcPrntStrDomDualDecoder<TRef>
 
 internal class CmptDomGnrcPrntStrDomDualDecoder
 {
+
+  internal static CmptDomGnrcPrntStrDomDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_generic_parent_string_dom_DualDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_parent_string_dom_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptGnrcPrntStrDomDualObject>(_ => new CmptGnrcPrntStrDomDualDecoder())
-      .AddDecoder<ICmptDomGnrcPrntStrDomDual>(_ => new CmptDomGnrcPrntStrDomDualDecoder());
+      .AddDecoder<ICmptGnrcPrntStrDomDualObject>(CmptGnrcPrntStrDomDualDecoder.Factory)
+      .AddDecoder<ICmptDomGnrcPrntStrDomDual>(CmptDomGnrcPrntStrDomDualDecoder.Factory);
 }

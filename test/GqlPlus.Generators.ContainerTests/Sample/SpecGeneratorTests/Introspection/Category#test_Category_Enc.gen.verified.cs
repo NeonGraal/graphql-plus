@@ -16,6 +16,8 @@ internal class test_CategoriesEncoder(
   public Structured Encode(Itest_CategoriesObject input)
     => _itest_AndType.Encode(input)
       .AddEncoded("category", input.Category, _itest_Category);
+
+  internal static test_CategoriesEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_CategoryEncoder(
@@ -30,19 +32,23 @@ internal class test_CategoryEncoder(
       .AddEnum("resolution", input.Resolution)
       .AddEncoded("output", input.Output, _itest_TypeRef)
       .AddList("modifiers", input.Modifiers, _itest_Modifiers);
+
+  internal static test_CategoryEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_ResolutionEncoder : IEncoder<test_Resolution>
 {
   public Structured Encode(test_Resolution input)
     => new(input.ToString(), "_Resolution");
+
+  internal static test_ResolutionEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_CategoryEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_CategoryEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<Itest_CategoriesObject>(r => new test_CategoriesEncoder(r))
-      .AddEncoder<Itest_CategoryObject>(r => new test_CategoryEncoder(r))
-      .AddEncoder<test_Resolution>(_ => new test_ResolutionEncoder());
+      .AddEncoder<Itest_CategoriesObject>(test_CategoriesEncoder.Factory)
+      .AddEncoder<Itest_CategoryObject>(test_CategoryEncoder.Factory)
+      .AddEncoder<test_Resolution>(test_ResolutionEncoder.Factory);
 }

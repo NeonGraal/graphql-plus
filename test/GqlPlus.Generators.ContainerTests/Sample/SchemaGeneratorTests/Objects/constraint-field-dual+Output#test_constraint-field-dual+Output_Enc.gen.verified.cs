@@ -14,6 +14,8 @@ internal class testCnstFieldDualOutpEncoder(
   private readonly IEncoder<ItestRefCnstFieldDualOutpObject<ItestAltCnstFieldDualOutp>> _itestRefCnstFieldDualOutp = encoders.EncoderFor<ItestRefCnstFieldDualOutpObject<ItestAltCnstFieldDualOutp>>();
   public Structured Encode(ItestCnstFieldDualOutpObject input)
     => _itestRefCnstFieldDualOutp.Encode(input);
+
+  internal static testCnstFieldDualOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testRefCnstFieldDualOutpEncoder<TRef>(
@@ -30,6 +32,8 @@ internal class testPrntCnstFieldDualOutpEncoder : IEncoder<ItestPrntCnstFieldDua
 {
   public Structured Encode(ItestPrntCnstFieldDualOutpObject input)
     => Structured.Empty();
+
+  internal static testPrntCnstFieldDualOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testAltCnstFieldDualOutpEncoder(
@@ -40,13 +44,15 @@ internal class testAltCnstFieldDualOutpEncoder(
   public Structured Encode(ItestAltCnstFieldDualOutpObject input)
     => _itestPrntCnstFieldDualOutp.Encode(input)
       .Add("alt", input.Alt);
+
+  internal static testAltCnstFieldDualOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class test_constraint_field_dual_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_constraint_field_dual_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestCnstFieldDualOutpObject>(r => new testCnstFieldDualOutpEncoder(r))
-      .AddEncoder<ItestPrntCnstFieldDualOutpObject>(_ => new testPrntCnstFieldDualOutpEncoder())
-      .AddEncoder<ItestAltCnstFieldDualOutpObject>(r => new testAltCnstFieldDualOutpEncoder(r));
+      .AddEncoder<ItestCnstFieldDualOutpObject>(testCnstFieldDualOutpEncoder.Factory)
+      .AddEncoder<ItestPrntCnstFieldDualOutpObject>(testPrntCnstFieldDualOutpEncoder.Factory)
+      .AddEncoder<ItestAltCnstFieldDualOutpObject>(testAltCnstFieldDualOutpEncoder.Factory);
 }

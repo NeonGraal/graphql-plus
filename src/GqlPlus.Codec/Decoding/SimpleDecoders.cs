@@ -23,4 +23,6 @@ internal class NameFilterModelDecoder
 
     return Error($"'{strValue}' is not a valid NameFilter value", output = null);
   }
+
+  internal static NameFilterModelDecoder Factory(IDecoderRepository _) => new();
 }

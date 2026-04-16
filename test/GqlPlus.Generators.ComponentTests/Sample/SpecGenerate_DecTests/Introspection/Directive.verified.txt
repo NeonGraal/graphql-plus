@@ -31,11 +31,13 @@ internal class Cmpt_LocationDecoder
   public string Inline { get; set; }
   public string Spread { get; set; }
   public string Fragment { get; set; }
+
+  internal static Cmpt_LocationDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Spec_DirectiveDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_DirectiveDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<Cmpt_Location>(_ => new Cmpt_LocationDecoder());
+      .AddDecoder<Cmpt_Location>(Cmpt_LocationDecoder.Factory);
 }

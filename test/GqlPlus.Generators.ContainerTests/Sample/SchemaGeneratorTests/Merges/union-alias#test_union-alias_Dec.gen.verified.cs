@@ -11,11 +11,13 @@ internal class testUnionAliasDecoder
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }
+
+  internal static testUnionAliasDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_union_aliasDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_union_aliasDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestUnionAlias>(_ => new testUnionAliasDecoder());
+      .AddDecoder<ItestUnionAlias>(testUnionAliasDecoder.Factory);
 }

@@ -24,6 +24,8 @@ internal class Cmpt_InputFieldEncoder(
   private readonly IEncoder<ICmpt_ObjFieldObject<ICmpt_InputFieldType>> _objField = encoders.EncoderFor<ICmpt_ObjFieldObject<ICmpt_InputFieldType>>();
   public Structured Encode(ICmpt_InputFieldObject input)
     => _objField.Encode(input);
+
+  internal static Cmpt_InputFieldEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_InputFieldTypeEncoder(
@@ -35,12 +37,14 @@ internal class Cmpt_InputFieldTypeEncoder(
   public Structured Encode(ICmpt_InputFieldTypeObject input)
     => _objFieldType.Encode(input)
       .AddEncoded("defaultValue", input.DefaultValue, _gqlpValue);
+
+  internal static Cmpt_InputFieldTypeEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class Cmpt_Spec_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Spec_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmpt_InputFieldObject>(r => new Cmpt_InputFieldEncoder(r))
-      .AddEncoder<ICmpt_InputFieldTypeObject>(r => new Cmpt_InputFieldTypeEncoder(r));
+      .AddEncoder<ICmpt_InputFieldObject>(Cmpt_InputFieldEncoder.Factory)
+      .AddEncoder<ICmpt_InputFieldTypeObject>(Cmpt_InputFieldTypeEncoder.Factory);
 }

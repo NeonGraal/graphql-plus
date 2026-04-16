@@ -11,25 +11,31 @@ internal class testDmnEnumPrntDescrEncoder : IEncoder<ItestDmnEnumPrntDescr>
 {
   public Structured Encode(ItestDmnEnumPrntDescr input)
     => new((decimal?)input.Value);
+
+  internal static testDmnEnumPrntDescrEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testPrntDmnEnumPrntDescrEncoder : IEncoder<ItestPrntDmnEnumPrntDescr>
 {
   public Structured Encode(ItestPrntDmnEnumPrntDescr input)
     => new((decimal?)input.Value);
+
+  internal static testPrntDmnEnumPrntDescrEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testEnumDmnEnumPrntDescrEncoder : IEncoder<testEnumDmnEnumPrntDescr>
 {
   public Structured Encode(testEnumDmnEnumPrntDescr input)
     => new(input.ToString(), "_EnumDmnEnumPrntDescr");
+
+  internal static testEnumDmnEnumPrntDescrEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_domain_enum_parent_descrEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_domain_enum_parent_descrEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestDmnEnumPrntDescr>(_ => new testDmnEnumPrntDescrEncoder())
-      .AddEncoder<ItestPrntDmnEnumPrntDescr>(_ => new testPrntDmnEnumPrntDescrEncoder())
-      .AddEncoder<testEnumDmnEnumPrntDescr>(_ => new testEnumDmnEnumPrntDescrEncoder());
+      .AddEncoder<ItestDmnEnumPrntDescr>(testDmnEnumPrntDescrEncoder.Factory)
+      .AddEncoder<ItestPrntDmnEnumPrntDescr>(testPrntDmnEnumPrntDescrEncoder.Factory)
+      .AddEncoder<testEnumDmnEnumPrntDescr>(testEnumDmnEnumPrntDescrEncoder.Factory);
 }

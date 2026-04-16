@@ -81,6 +81,8 @@ internal class Cmpt_ObjectKindEncoder : IEncoder<ICmpt_ObjectKind>
 {
   public Structured Encode(ICmpt_ObjectKind input)
     => new((decimal?)input.Value);
+
+  internal static Cmpt_ObjectKindEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class Cmpt_TypeObjectEncoder<TObjectKind,TField>(
@@ -111,6 +113,8 @@ internal class Cmpt_ObjTypeParamEncoder(
   public Structured Encode(ICmpt_ObjTypeParamObject input)
     => _named.Encode(input)
       .AddEncoded("constraint", input.Constraint, _typeRef);
+
+  internal static Cmpt_ObjTypeParamEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_ObjBaseEncoder(
@@ -122,6 +126,8 @@ internal class Cmpt_ObjBaseEncoder(
   public Structured Encode(ICmpt_ObjBaseObject input)
     => _named.Encode(input)
       .AddList("typeArgs", input.TypeArgs, _objTypeArg);
+
+  internal static Cmpt_ObjBaseEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_ObjTypeArgEncoder(
@@ -133,6 +139,8 @@ internal class Cmpt_ObjTypeArgEncoder(
   public Structured Encode(ICmpt_ObjTypeArgObject input)
     => _typeRef.Encode(input)
       .AddEncoded("label", input.Label, _name);
+
+  internal static Cmpt_ObjTypeArgEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_TypeParamEncoder(
@@ -144,6 +152,8 @@ internal class Cmpt_TypeParamEncoder(
   public Structured Encode(ICmpt_TypeParamObject input)
     => _described.Encode(input)
       .AddEncoded("typeParam", input.TypeParam, _name);
+
+  internal static Cmpt_TypeParamEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_ObjAlternateEncoder(
@@ -156,6 +166,8 @@ internal class Cmpt_ObjAlternateEncoder(
     => Structured.Empty()
       .AddEncoded("type", input.Type, _objBase)
       .AddList("collections", input.Collections, _collections);
+
+  internal static Cmpt_ObjAlternateEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_ObjAlternateEnumEncoder(
@@ -167,6 +179,8 @@ internal class Cmpt_ObjAlternateEnumEncoder(
   public Structured Encode(ICmpt_ObjAlternateEnumObject input)
     => _typeRef.Encode(input)
       .AddEncoded("label", input.Label, _name);
+
+  internal static Cmpt_ObjAlternateEnumEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_ObjectForEncoder<TFor>(
@@ -199,6 +213,8 @@ internal class Cmpt_ObjFieldTypeEncoder(
   public Structured Encode(ICmpt_ObjFieldTypeObject input)
     => _objBase.Encode(input)
       .AddList("modifiers", input.Modifiers, _modifiers);
+
+  internal static Cmpt_ObjFieldTypeEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_ObjFieldEnumEncoder(
@@ -210,6 +226,8 @@ internal class Cmpt_ObjFieldEnumEncoder(
   public Structured Encode(ICmpt_ObjFieldEnumObject input)
     => _typeRef.Encode(input)
       .AddEncoded("label", input.Label, _name);
+
+  internal static Cmpt_ObjFieldEnumEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_ForParamEncoder<TType> : IEncoder<ICmpt_ForParamObject<TType>>
@@ -222,13 +240,13 @@ internal static class Cmpt_Spec_BaseEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Spec_BaseEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmpt_ObjectKind>(_ => new Cmpt_ObjectKindEncoder())
-      .AddEncoder<ICmpt_ObjTypeParamObject>(r => new Cmpt_ObjTypeParamEncoder(r))
-      .AddEncoder<ICmpt_ObjBaseObject>(r => new Cmpt_ObjBaseEncoder(r))
-      .AddEncoder<ICmpt_ObjTypeArgObject>(r => new Cmpt_ObjTypeArgEncoder(r))
-      .AddEncoder<ICmpt_TypeParamObject>(r => new Cmpt_TypeParamEncoder(r))
-      .AddEncoder<ICmpt_ObjAlternateObject>(r => new Cmpt_ObjAlternateEncoder(r))
-      .AddEncoder<ICmpt_ObjAlternateEnumObject>(r => new Cmpt_ObjAlternateEnumEncoder(r))
-      .AddEncoder<ICmpt_ObjFieldTypeObject>(r => new Cmpt_ObjFieldTypeEncoder(r))
-      .AddEncoder<ICmpt_ObjFieldEnumObject>(r => new Cmpt_ObjFieldEnumEncoder(r));
+      .AddEncoder<ICmpt_ObjectKind>(Cmpt_ObjectKindEncoder.Factory)
+      .AddEncoder<ICmpt_ObjTypeParamObject>(Cmpt_ObjTypeParamEncoder.Factory)
+      .AddEncoder<ICmpt_ObjBaseObject>(Cmpt_ObjBaseEncoder.Factory)
+      .AddEncoder<ICmpt_ObjTypeArgObject>(Cmpt_ObjTypeArgEncoder.Factory)
+      .AddEncoder<ICmpt_TypeParamObject>(Cmpt_TypeParamEncoder.Factory)
+      .AddEncoder<ICmpt_ObjAlternateObject>(Cmpt_ObjAlternateEncoder.Factory)
+      .AddEncoder<ICmpt_ObjAlternateEnumObject>(Cmpt_ObjAlternateEnumEncoder.Factory)
+      .AddEncoder<ICmpt_ObjFieldTypeObject>(Cmpt_ObjFieldTypeEncoder.Factory)
+      .AddEncoder<ICmpt_ObjFieldEnumObject>(Cmpt_ObjFieldEnumEncoder.Factory);
 }

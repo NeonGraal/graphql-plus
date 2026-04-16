@@ -11,18 +11,22 @@ internal class testObjAltDualEncoder : IEncoder<ItestObjAltDualObject>
 {
   public Structured Encode(ItestObjAltDualObject input)
     => Structured.Empty();
+
+  internal static testObjAltDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testObjAltDualTypeEncoder : IEncoder<ItestObjAltDualTypeObject>
 {
   public Structured Encode(ItestObjAltDualTypeObject input)
     => Structured.Empty();
+
+  internal static testObjAltDualTypeEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_object_alt_DualEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_object_alt_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestObjAltDualObject>(_ => new testObjAltDualEncoder())
-      .AddEncoder<ItestObjAltDualTypeObject>(_ => new testObjAltDualTypeEncoder());
+      .AddEncoder<ItestObjAltDualObject>(testObjAltDualEncoder.Factory)
+      .AddEncoder<ItestObjAltDualTypeObject>(testObjAltDualTypeEncoder.Factory);
 }

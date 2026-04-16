@@ -11,6 +11,8 @@ internal class NullVerifierError<TError>
 
   public void Verify(TError item, IMessages errors)
     => _logger.NullVerification(item);
+
+  internal static NullVerifierError<TError> Factory(IVerifierRepository v) => new(v);
 }
 
 internal static partial class NullVerifierLogging

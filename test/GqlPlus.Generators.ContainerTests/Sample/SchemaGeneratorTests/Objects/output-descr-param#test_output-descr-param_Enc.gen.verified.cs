@@ -15,18 +15,22 @@ internal class testOutpDescrParamEncoder(
   public Structured Encode(ItestOutpDescrParamObject input)
     => Structured.Empty()
       .AddEncoded("field", input.Field(), _itestFldOutpDescrParam);
+
+  internal static testOutpDescrParamEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testFldOutpDescrParamEncoder : IEncoder<ItestFldOutpDescrParamObject>
 {
   public Structured Encode(ItestFldOutpDescrParamObject input)
     => Structured.Empty();
+
+  internal static testFldOutpDescrParamEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_output_descr_paramEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_output_descr_paramEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestOutpDescrParamObject>(r => new testOutpDescrParamEncoder(r))
-      .AddEncoder<ItestFldOutpDescrParamObject>(_ => new testFldOutpDescrParamEncoder());
+      .AddEncoder<ItestOutpDescrParamObject>(testOutpDescrParamEncoder.Factory)
+      .AddEncoder<ItestFldOutpDescrParamObject>(testFldOutpDescrParamEncoder.Factory);
 }

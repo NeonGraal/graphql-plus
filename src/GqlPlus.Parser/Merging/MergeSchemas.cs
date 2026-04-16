@@ -49,4 +49,6 @@ internal class MergeSchemas(
 
     return ast with { Declarations = [.. declarations] };
   }
+
+  internal static MergeSchemas Factory(IMergerRepository m) => new(m);
 }

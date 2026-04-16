@@ -9,11 +9,13 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_diff;
 
 internal class testDmnEnumDiffDecoder
 {
+
+  internal static testDmnEnumDiffDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_domain_enum_diffDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_domain_enum_diffDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestDmnEnumDiff>(_ => new testDmnEnumDiffDecoder());
+      .AddDecoder<ItestDmnEnumDiff>(testDmnEnumDiffDecoder.Factory);
 }

@@ -20,6 +20,8 @@ internal class MergeDomains<TItemAst, TItem>(
     AstDomain<TItemAst, TItem> ast = (AstDomain<TItemAst, TItem>)input;
     return ast with { Items = items.ArrayOf<TItemAst>() };
   }
+
+  internal static MergeDomains<TItemAst, TItem> Factory(IMergerRepository m) => new(m);
 }
 
 internal interface IDomainMerger<TItem>

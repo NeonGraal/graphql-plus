@@ -15,11 +15,13 @@ internal class CmptDmnBoolEncoder : IEncoder<ICmptDmnBool>
 {
   public Structured Encode(ICmptDmnBool input)
     => new(input.Value);
+
+  internal static CmptDmnBoolEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_domain_booleanEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_booleanEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptDmnBool>(_ => new CmptDmnBoolEncoder());
+      .AddEncoder<ICmptDmnBool>(CmptDmnBoolEncoder.Factory);
 }

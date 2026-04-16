@@ -15,6 +15,8 @@ namespace Components.Gqlp_Schema_constraint_parent_enum_Input;
 
 internal class CmptCnstPrntEnumInpDecoder
 {
+
+  internal static CmptCnstPrntEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefCnstPrntEnumInpDecoder<TType>
@@ -26,18 +28,22 @@ internal class CmptEnumCnstPrntEnumInpDecoder
 {
   public string parentCnstPrntEnumInp { get; set; }
   public string cnstPrntEnumInp { get; set; }
+
+  internal static CmptEnumCnstPrntEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptParentCnstPrntEnumInpDecoder
 {
   public string parentCnstPrntEnumInp { get; set; }
+
+  internal static CmptParentCnstPrntEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_constraint_parent_enum_InputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_parent_enum_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptCnstPrntEnumInpObject>(_ => new CmptCnstPrntEnumInpDecoder())
-      .AddDecoder<CmptEnumCnstPrntEnumInp>(_ => new CmptEnumCnstPrntEnumInpDecoder())
-      .AddDecoder<CmptParentCnstPrntEnumInp>(_ => new CmptParentCnstPrntEnumInpDecoder());
+      .AddDecoder<ICmptCnstPrntEnumInpObject>(CmptCnstPrntEnumInpDecoder.Factory)
+      .AddDecoder<CmptEnumCnstPrntEnumInp>(CmptEnumCnstPrntEnumInpDecoder.Factory)
+      .AddDecoder<CmptParentCnstPrntEnumInp>(CmptParentCnstPrntEnumInpDecoder.Factory);
 }

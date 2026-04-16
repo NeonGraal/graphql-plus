@@ -10,24 +10,30 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_enum_parent_Dual;
 internal class testFieldEnumPrntDualDecoder
 {
   public testEnumFieldEnumPrntDual Field { get; set; }
+
+  internal static testFieldEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testEnumFieldEnumPrntDualDecoder
 {
   public string prnt_fieldEnumPrntDual { get; set; }
   public string fieldEnumPrntDual { get; set; }
+
+  internal static testEnumFieldEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testPrntFieldEnumPrntDualDecoder
 {
   public string prnt_fieldEnumPrntDual { get; set; }
+
+  internal static testPrntFieldEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_field_enum_parent_DualDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_field_enum_parent_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestFieldEnumPrntDualObject>(_ => new testFieldEnumPrntDualDecoder())
-      .AddDecoder<testEnumFieldEnumPrntDual>(_ => new testEnumFieldEnumPrntDualDecoder())
-      .AddDecoder<testPrntFieldEnumPrntDual>(_ => new testPrntFieldEnumPrntDualDecoder());
+      .AddDecoder<ItestFieldEnumPrntDualObject>(testFieldEnumPrntDualDecoder.Factory)
+      .AddDecoder<testEnumFieldEnumPrntDual>(testEnumFieldEnumPrntDualDecoder.Factory)
+      .AddDecoder<testPrntFieldEnumPrntDual>(testPrntFieldEnumPrntDualDecoder.Factory);
 }

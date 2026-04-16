@@ -17,4 +17,6 @@ internal class SimpleParentMatcher<TType>(
     => context.GetTyped(name, out TType? typeParent)
       && typeParent.Parent is not null
       && MatchParent(typeParent.Parent, constraint, context);
+
+  internal static SimpleParentMatcher<TType> Factory(IMatcherRepository m) => new(m);
 }

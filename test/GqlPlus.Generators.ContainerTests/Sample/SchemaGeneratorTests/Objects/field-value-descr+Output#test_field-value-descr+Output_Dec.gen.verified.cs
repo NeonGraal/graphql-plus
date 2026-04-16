@@ -10,11 +10,13 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_value_descr_Output;
 internal class testEnumFieldValueDescrOutpDecoder
 {
   public string fieldValueDescrOutp { get; set; }
+
+  internal static testEnumFieldValueDescrOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_field_value_descr_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_field_value_descr_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<testEnumFieldValueDescrOutp>(_ => new testEnumFieldValueDescrOutpDecoder());
+      .AddDecoder<testEnumFieldValueDescrOutp>(testEnumFieldValueDescrOutpDecoder.Factory);
 }

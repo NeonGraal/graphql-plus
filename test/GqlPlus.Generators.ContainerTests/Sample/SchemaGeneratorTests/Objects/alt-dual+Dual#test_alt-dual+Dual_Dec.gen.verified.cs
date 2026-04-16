@@ -9,17 +9,21 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_dual_Dual;
 
 internal class testAltDualDualDecoder
 {
+
+  internal static testAltDualDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testObjDualAltDualDualDecoder
 {
   public decimal Alt { get; set; }
+
+  internal static testObjDualAltDualDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_alt_dual_DualDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_alt_dual_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestAltDualDualObject>(_ => new testAltDualDualDecoder())
-      .AddDecoder<ItestObjDualAltDualDualObject>(_ => new testObjDualAltDualDualDecoder());
+      .AddDecoder<ItestAltDualDualObject>(testAltDualDualDecoder.Factory)
+      .AddDecoder<ItestObjDualAltDualDualObject>(testObjDualAltDualDualDecoder.Factory);
 }

@@ -15,4 +15,6 @@ internal class AlternateConstraintMatcher(
 
   private Func<IAstAlternate, bool> MatchesAltMember(IAstType type, EnumContext context)
     => alternate => MatchArgOrType<IAstType, EnumContext>(type.Name, alternate.Name, context, _anyTypeMatcher.Matches);
+
+  internal static AlternateConstraintMatcher Factory(IMatcherRepository m) => new(m);
 }

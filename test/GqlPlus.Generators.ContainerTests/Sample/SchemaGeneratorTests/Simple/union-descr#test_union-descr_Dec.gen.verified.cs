@@ -10,11 +10,13 @@ namespace GqlPlus.GeneratorTests.Gqlp_union_descr;
 internal class testUnionDescrDecoder
 {
   public Number AsNumber { get; set; }
+
+  internal static testUnionDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_union_descrDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_union_descrDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestUnionDescr>(_ => new testUnionDescrDecoder());
+      .AddDecoder<ItestUnionDescr>(testUnionDescrDecoder.Factory);
 }

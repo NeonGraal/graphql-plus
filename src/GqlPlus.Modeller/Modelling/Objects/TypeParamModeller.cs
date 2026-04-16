@@ -11,4 +11,6 @@ internal class TypeParamModeller
     => typeKinds.TryGetValue(constraint, out TypeKindModel typeKind)
         ? new TypeRefModel<TypeKindModel>(typeKind, constraint, "")
         : throw new ModelTypeException<IAstTypeParam>($"Kind of {constraint} not found");
+
+  internal static TypeParamModeller Factory(IModellerRepository _) => new();
 }

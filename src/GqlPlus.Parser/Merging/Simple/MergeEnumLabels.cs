@@ -9,4 +9,6 @@ internal class MergeEnumLabels(
   protected override string ItemMatchName => "Name";
   protected override string ItemMatchKey(IAstEnumLabel item)
     => item.Name;
+
+  internal static MergeEnumLabels Factory(IMergerRepository m) => new(m);
 }

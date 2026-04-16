@@ -11,6 +11,8 @@ internal class testAltModBoolOutpEncoder : IEncoder<ItestAltModBoolOutpObject>
 {
   public Structured Encode(ItestAltModBoolOutpObject input)
     => Structured.Empty();
+
+  internal static testAltModBoolOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testAltAltModBoolOutpEncoder : IEncoder<ItestAltAltModBoolOutpObject>
@@ -18,12 +20,14 @@ internal class testAltAltModBoolOutpEncoder : IEncoder<ItestAltAltModBoolOutpObj
   public Structured Encode(ItestAltAltModBoolOutpObject input)
     => Structured.Empty()
       .Add("alt", input.Alt);
+
+  internal static testAltAltModBoolOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_alt_mod_Boolean_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_alt_mod_Boolean_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestAltModBoolOutpObject>(_ => new testAltModBoolOutpEncoder())
-      .AddEncoder<ItestAltAltModBoolOutpObject>(_ => new testAltAltModBoolOutpEncoder());
+      .AddEncoder<ItestAltModBoolOutpObject>(testAltModBoolOutpEncoder.Factory)
+      .AddEncoder<ItestAltAltModBoolOutpObject>(testAltAltModBoolOutpEncoder.Factory);
 }

@@ -14,6 +14,8 @@ internal class testGnrcPrntStrDomOutpEncoder(
   private readonly IEncoder<ItestFieldGnrcPrntStrDomOutpObject<ItestDomGnrcPrntStrDomOutp>> _itestFieldGnrcPrntStrDomOutp = encoders.EncoderFor<ItestFieldGnrcPrntStrDomOutpObject<ItestDomGnrcPrntStrDomOutp>>();
   public Structured Encode(ItestGnrcPrntStrDomOutpObject input)
     => _itestFieldGnrcPrntStrDomOutp.Encode(input);
+
+  internal static testGnrcPrntStrDomOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testFieldGnrcPrntStrDomOutpEncoder<TRef>(
@@ -30,12 +32,14 @@ internal class testDomGnrcPrntStrDomOutpEncoder : IEncoder<ItestDomGnrcPrntStrDo
 {
   public Structured Encode(ItestDomGnrcPrntStrDomOutp input)
     => new(input.Value);
+
+  internal static testDomGnrcPrntStrDomOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_generic_parent_string_dom_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_generic_parent_string_dom_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestGnrcPrntStrDomOutpObject>(r => new testGnrcPrntStrDomOutpEncoder(r))
-      .AddEncoder<ItestDomGnrcPrntStrDomOutp>(_ => new testDomGnrcPrntStrDomOutpEncoder());
+      .AddEncoder<ItestGnrcPrntStrDomOutpObject>(testGnrcPrntStrDomOutpEncoder.Factory)
+      .AddEncoder<ItestDomGnrcPrntStrDomOutp>(testDomGnrcPrntStrDomOutpEncoder.Factory);
 }

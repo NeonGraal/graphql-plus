@@ -33,6 +33,8 @@ namespace Components.Gqlp_Spec_Built_In;
 
 internal class Cmpt_CollectionsDecoder
 {
+
+  internal static Cmpt_CollectionsDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_ModifierKeyedDecoder<TModifierKind>
@@ -43,6 +45,8 @@ internal class Cmpt_ModifierKeyedDecoder<TModifierKind>
 
 internal class Cmpt_ModifiersDecoder
 {
+
+  internal static Cmpt_ModifiersDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_ModifierKindDecoder
@@ -54,6 +58,8 @@ internal class Cmpt_ModifierKindDecoder
   public string Dictionary { get; set; }
   public string Param { get; set; }
   public string TypeParam { get; set; }
+
+  internal static Cmpt_ModifierKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_ModifierDecoder<TModifierKind>
@@ -65,7 +71,7 @@ internal static class Cmpt_Spec_Built_InDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_Built_InDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmpt_CollectionsObject>(_ => new Cmpt_CollectionsDecoder())
-      .AddDecoder<ICmpt_ModifiersObject>(_ => new Cmpt_ModifiersDecoder())
-      .AddDecoder<Cmpt_ModifierKind>(_ => new Cmpt_ModifierKindDecoder());
+      .AddDecoder<ICmpt_CollectionsObject>(Cmpt_CollectionsDecoder.Factory)
+      .AddDecoder<ICmpt_ModifiersObject>(Cmpt_ModifiersDecoder.Factory)
+      .AddDecoder<Cmpt_ModifierKind>(Cmpt_ModifierKindDecoder.Factory);
 }

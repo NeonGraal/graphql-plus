@@ -23,23 +23,7 @@ internal sealed class SchemaGenerator(
     context.WritePrefixLine($"namespace {nameSpace};");
 
     GqlpGeneratorType generatorType = context.GeneratorOptions.GeneratorType;
-    if (generators.TypeGenerators.TryGetValue(generatorType, out IEnumerable<ITypeGenerator>? typeGenerators)) {
-      foreach (IAstType type in types) {
-        ITypeGenerator? typeGenerator = typeGenerators.FirstOrDefault(IsForType);
-        if (typeGenerator is null) {
-          if (generators.TypeGenerators.TryGetValue(GqlpGeneratorType.Interface, out IEnumerable<ITypeGenerator>? interfaceGenerators)) {
-            if (!interfaceGenerators.Any(IsForType)) {
-              throw new InvalidOperationException("No Generator for " + type.GetType().ExpandTypeName());
-            }
-          }
-        } else {
-          typeGenerator.GenerateType(type, context);
-        }
-
-        bool IsForType(ITypeGenerator typeGenerator)
-          => typeGenerator.ForType(type);
-      }
-    }
+    GenerateTypesForGeneratorType(types, generatorType, context);
 
     if (generatorType == GqlpGeneratorType.Dec && context.DecoderRegistrations.Count > 0) {
       GenerateDecoderRegistration(context);
@@ -47,6 +31,31 @@ internal sealed class SchemaGenerator(
 
     if (generatorType == GqlpGeneratorType.Enc && context.EncoderRegistrations.Count > 0) {
       GenerateEncoderRegistration(context);
+    }
+  }
+
+  private void GenerateTypesForGeneratorType(IAstType[] types, GqlpGeneratorType generatorType, GqlpGeneratorContext context)
+  {
+    if (!generators.TypeGenerators.TryGetValue(generatorType, out IEnumerable<ITypeGenerator>? typeGenerators)) {
+      return;
+    }
+
+    foreach (IAstType type in types) {
+      GenerateTypeOrValidate(typeGenerators, type, context);
+    }
+  }
+
+  private void GenerateTypeOrValidate(IEnumerable<ITypeGenerator> typeGenerators, IAstType type, GqlpGeneratorContext context)
+  {
+    ITypeGenerator? typeGenerator = typeGenerators.FirstOrDefault(tg => tg.ForType(type));
+    if (typeGenerator is not null) {
+      typeGenerator.GenerateType(type, context);
+      return;
+    }
+
+    if (generators.TypeGenerators.TryGetValue(GqlpGeneratorType.Interface, out IEnumerable<ITypeGenerator>? interfaceGenerators)
+        && !interfaceGenerators.Any(tg => tg.ForType(type))) {
+      throw new InvalidOperationException("No Generator for " + type.GetType().ExpandTypeName());
     }
   }
 
@@ -66,9 +75,8 @@ internal sealed class SchemaGenerator(
     IReadOnlyList<CodecRegistration> registrations = context.DecoderRegistrations;
     for (int i = 0; i < registrations.Count; i++) {
       CodecRegistration reg = registrations[i];
-      string factory = reg.NeedsRepo ? $"r => new {reg.ImplType}(r)" : $"_ => new {reg.ImplType}()";
       string separator = i < registrations.Count - 1 ? "" : ";";
-      context.Write($"      .AddDecoder<{reg.ServiceType}>({factory}){separator}");
+      context.Write($"      .AddDecoder<{reg.ServiceType}>({reg.ImplType}.Factory){separator}");
     }
 
     context.Write("}");
@@ -90,9 +98,8 @@ internal sealed class SchemaGenerator(
     IReadOnlyList<CodecRegistration> registrations = context.EncoderRegistrations;
     for (int i = 0; i < registrations.Count; i++) {
       CodecRegistration reg = registrations[i];
-      string factory = reg.NeedsRepo ? $"r => new {reg.ImplType}(r)" : $"_ => new {reg.ImplType}()";
       string separator = i < registrations.Count - 1 ? "" : ";";
-      context.Write($"      .AddEncoder<{reg.ServiceType}>({factory}){separator}");
+      context.Write($"      .AddEncoder<{reg.ServiceType}>({reg.ImplType}.Factory){separator}");
     }
 
     context.Write("}");
@@ -100,4 +107,6 @@ internal sealed class SchemaGenerator(
 
   private static TAst[] Typed<TAst>(IAstSchema ast)
     => ast.Declarations.ArrayOf<TAst>();
+
+  internal static SchemaGenerator Factory(IGeneratorRepository g) => new(g);
 }

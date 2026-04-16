@@ -17,6 +17,8 @@ internal class CmptCnstAltDualOutpEncoder : IEncoder<ICmptCnstAltDualOutpObject>
 {
   public Structured Encode(ICmptCnstAltDualOutpObject input)
     => Structured.Empty();
+
+  internal static CmptCnstAltDualOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptRefCnstAltDualOutpEncoder<TRef> : IEncoder<ICmptRefCnstAltDualOutpObject<TRef>>
@@ -29,6 +31,8 @@ internal class CmptPrntCnstAltDualOutpEncoder : IEncoder<ICmptPrntCnstAltDualOut
 {
   public Structured Encode(ICmptPrntCnstAltDualOutpObject input)
     => Structured.Empty();
+
+  internal static CmptPrntCnstAltDualOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptAltCnstAltDualOutpEncoder(
@@ -39,13 +43,15 @@ internal class CmptAltCnstAltDualOutpEncoder(
   public Structured Encode(ICmptAltCnstAltDualOutpObject input)
     => _prntCnstAltDualOutp.Encode(input)
       .Add("alt", input.Alt);
+
+  internal static CmptAltCnstAltDualOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class Cmpt_Schema_constraint_alt_dual_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_alt_dual_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptCnstAltDualOutpObject>(_ => new CmptCnstAltDualOutpEncoder())
-      .AddEncoder<ICmptPrntCnstAltDualOutpObject>(_ => new CmptPrntCnstAltDualOutpEncoder())
-      .AddEncoder<ICmptAltCnstAltDualOutpObject>(r => new CmptAltCnstAltDualOutpEncoder(r));
+      .AddEncoder<ICmptCnstAltDualOutpObject>(CmptCnstAltDualOutpEncoder.Factory)
+      .AddEncoder<ICmptPrntCnstAltDualOutpObject>(CmptPrntCnstAltDualOutpEncoder.Factory)
+      .AddEncoder<ICmptAltCnstAltDualOutpObject>(CmptAltCnstAltDualOutpEncoder.Factory);
 }

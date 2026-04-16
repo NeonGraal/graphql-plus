@@ -8,26 +8,34 @@ namespace Components.Gqlp_Schema_Globals;
 
 internal class CmptInDrctParamDictDecoder
 {
+
+  internal static CmptInDrctParamDictDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptInDrctParamInDecoder
 {
+
+  internal static CmptInDrctParamInDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptInDrctParamListDecoder
 {
+
+  internal static CmptInDrctParamListDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptInDrctParamOptDecoder
 {
+
+  internal static CmptInDrctParamOptDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_GlobalsDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_GlobalsDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptInDrctParamDictObject>(_ => new CmptInDrctParamDictDecoder())
-      .AddDecoder<ICmptInDrctParamInObject>(_ => new CmptInDrctParamInDecoder())
-      .AddDecoder<ICmptInDrctParamListObject>(_ => new CmptInDrctParamListDecoder())
-      .AddDecoder<ICmptInDrctParamOptObject>(_ => new CmptInDrctParamOptDecoder());
+      .AddDecoder<ICmptInDrctParamDictObject>(CmptInDrctParamDictDecoder.Factory)
+      .AddDecoder<ICmptInDrctParamInObject>(CmptInDrctParamInDecoder.Factory)
+      .AddDecoder<ICmptInDrctParamListObject>(CmptInDrctParamListDecoder.Factory)
+      .AddDecoder<ICmptInDrctParamOptObject>(CmptInDrctParamOptDecoder.Factory);
 }

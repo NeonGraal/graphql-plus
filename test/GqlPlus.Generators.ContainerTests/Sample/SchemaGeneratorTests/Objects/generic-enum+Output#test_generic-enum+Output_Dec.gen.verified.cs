@@ -10,11 +10,13 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_enum_Output;
 internal class testEnumGnrcEnumOutpDecoder
 {
   public string gnrcEnumOutp { get; set; }
+
+  internal static testEnumGnrcEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_generic_enum_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_generic_enum_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<testEnumGnrcEnumOutp>(_ => new testEnumGnrcEnumOutpDecoder());
+      .AddDecoder<testEnumGnrcEnumOutp>(testEnumGnrcEnumOutpDecoder.Factory);
 }

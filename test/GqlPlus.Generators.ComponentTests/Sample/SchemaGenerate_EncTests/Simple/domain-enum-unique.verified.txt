@@ -16,25 +16,31 @@ internal class CmptDmnEnumUnqEncoder : IEncoder<ICmptDmnEnumUnq>
 {
   public Structured Encode(ICmptDmnEnumUnq input)
     => new((decimal?)input.Value);
+
+  internal static CmptDmnEnumUnqEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumUnqEncoder : IEncoder<CmptEnumDmnEnumUnq>
 {
   public Structured Encode(CmptEnumDmnEnumUnq input)
     => new(input.ToString(), "_EnumDmnEnumUnq");
+
+  internal static CmptEnumDmnEnumUnqEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptDupDmnEnumUnqEncoder : IEncoder<CmptDupDmnEnumUnq>
 {
   public Structured Encode(CmptDupDmnEnumUnq input)
     => new(input.ToString(), "_DupDmnEnumUnq");
+
+  internal static CmptDupDmnEnumUnqEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_domain_enum_uniqueEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_enum_uniqueEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptDmnEnumUnq>(_ => new CmptDmnEnumUnqEncoder())
-      .AddEncoder<CmptEnumDmnEnumUnq>(_ => new CmptEnumDmnEnumUnqEncoder())
-      .AddEncoder<CmptDupDmnEnumUnq>(_ => new CmptDupDmnEnumUnqEncoder());
+      .AddEncoder<ICmptDmnEnumUnq>(CmptDmnEnumUnqEncoder.Factory)
+      .AddEncoder<CmptEnumDmnEnumUnq>(CmptEnumDmnEnumUnqEncoder.Factory)
+      .AddEncoder<CmptDupDmnEnumUnq>(CmptDupDmnEnumUnqEncoder.Factory);
 }

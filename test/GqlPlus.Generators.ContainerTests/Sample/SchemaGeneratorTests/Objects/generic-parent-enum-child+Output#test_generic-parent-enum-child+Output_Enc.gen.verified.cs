@@ -14,6 +14,8 @@ internal class testGnrcPrntEnumChildOutpEncoder(
   private readonly IEncoder<ItestFieldGnrcPrntEnumChildOutpObject<testParentGnrcPrntEnumChildOutp>> _itestFieldGnrcPrntEnumChildOutp = encoders.EncoderFor<ItestFieldGnrcPrntEnumChildOutpObject<testParentGnrcPrntEnumChildOutp>>();
   public Structured Encode(ItestGnrcPrntEnumChildOutpObject input)
     => _itestFieldGnrcPrntEnumChildOutp.Encode(input);
+
+  internal static testGnrcPrntEnumChildOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testFieldGnrcPrntEnumChildOutpEncoder<TRef>(
@@ -30,19 +32,23 @@ internal class testEnumGnrcPrntEnumChildOutpEncoder : IEncoder<testEnumGnrcPrntE
 {
   public Structured Encode(testEnumGnrcPrntEnumChildOutp input)
     => new(input.ToString(), "_EnumGnrcPrntEnumChildOutp");
+
+  internal static testEnumGnrcPrntEnumChildOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testParentGnrcPrntEnumChildOutpEncoder : IEncoder<testParentGnrcPrntEnumChildOutp>
 {
   public Structured Encode(testParentGnrcPrntEnumChildOutp input)
     => new(input.ToString(), "_ParentGnrcPrntEnumChildOutp");
+
+  internal static testParentGnrcPrntEnumChildOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_generic_parent_enum_child_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_generic_parent_enum_child_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestGnrcPrntEnumChildOutpObject>(r => new testGnrcPrntEnumChildOutpEncoder(r))
-      .AddEncoder<testEnumGnrcPrntEnumChildOutp>(_ => new testEnumGnrcPrntEnumChildOutpEncoder())
-      .AddEncoder<testParentGnrcPrntEnumChildOutp>(_ => new testParentGnrcPrntEnumChildOutpEncoder());
+      .AddEncoder<ItestGnrcPrntEnumChildOutpObject>(testGnrcPrntEnumChildOutpEncoder.Factory)
+      .AddEncoder<testEnumGnrcPrntEnumChildOutp>(testEnumGnrcPrntEnumChildOutpEncoder.Factory)
+      .AddEncoder<testParentGnrcPrntEnumChildOutp>(testParentGnrcPrntEnumChildOutpEncoder.Factory);
 }

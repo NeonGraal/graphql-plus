@@ -26,7 +26,10 @@ internal class AndTypeEncoder<TModel, TAnd>(
 internal class CategoriesEncoder(
   IEncoderRepository encoders
 ) : AndTypeEncoder<CategoriesModel, CategoryModel>("category", encoders)
-{ }
+
+{
+  internal static CategoriesEncoder Factory(IEncoderRepository r) => new(r);
+}
 
 internal class CategoryEncoder(
   IEncoderRepository encoders
@@ -40,12 +43,17 @@ internal class CategoryEncoder(
       .AddEnum("resolution", model.Resolution, "_Resolution")
       .AddEncoded("output", model.Output, _output)
       .AddList("modifiers", model.Modifiers, _modifiers, flow: true);
+
+  internal static new CategoryEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class DirectivesEncoder(
   IEncoderRepository encoders
 ) : AndTypeEncoder<DirectivesModel, DirectiveModel>("directive", encoders)
-{ }
+
+{
+  internal static DirectivesEncoder Factory(IEncoderRepository r) => new(r);
+}
 
 internal class DirectiveEncoder(
   IEncoderRepository encoders
@@ -58,6 +66,8 @@ internal class DirectiveEncoder(
       .AddSet("locations", model.Locations, "_Location")
       .AddEncoded("parameter", model.Parameter, _parameter)
       .Add("repeatable", model.Repeatable);
+
+  internal static new DirectiveEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class SettingEncoder(
@@ -69,4 +79,6 @@ internal class SettingEncoder(
   internal override Structured Encode(SettingModel model)
     => base.Encode(model)
       .AddEncoded("value", model.Value, _constant);
+
+  internal static new SettingEncoder Factory(IEncoderRepository r) => new(r);
 }

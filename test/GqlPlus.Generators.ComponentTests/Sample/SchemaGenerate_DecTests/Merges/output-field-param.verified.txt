@@ -16,21 +16,27 @@ namespace Components.Gqlp_Schema_output_field_param;
 
 internal class CmptOutpFieldParam1Decoder
 {
+
+  internal static CmptOutpFieldParam1Decoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptOutpFieldParam2Decoder
 {
+
+  internal static CmptOutpFieldParam2Decoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptFldOutpFieldParamDecoder
 {
+
+  internal static CmptFldOutpFieldParamDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_output_field_paramDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_output_field_paramDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptOutpFieldParam1Object>(_ => new CmptOutpFieldParam1Decoder())
-      .AddDecoder<ICmptOutpFieldParam2Object>(_ => new CmptOutpFieldParam2Decoder())
-      .AddDecoder<ICmptFldOutpFieldParamObject>(_ => new CmptFldOutpFieldParamDecoder());
+      .AddDecoder<ICmptOutpFieldParam1Object>(CmptOutpFieldParam1Decoder.Factory)
+      .AddDecoder<ICmptOutpFieldParam2Object>(CmptOutpFieldParam2Decoder.Factory)
+      .AddDecoder<ICmptFldOutpFieldParamObject>(CmptFldOutpFieldParamDecoder.Factory);
 }

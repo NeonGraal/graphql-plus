@@ -18,11 +18,13 @@ internal class CmptAltModParamDualDecoder<TMod>
 internal class CmptAltAltModParamDualDecoder
 {
   public decimal Alt { get; set; }
+
+  internal static CmptAltAltModParamDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_alt_mod_param_DualDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_alt_mod_param_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptAltAltModParamDualObject>(_ => new CmptAltAltModParamDualDecoder());
+      .AddDecoder<ICmptAltAltModParamDualObject>(CmptAltAltModParamDualDecoder.Factory);
 }

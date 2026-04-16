@@ -16,11 +16,13 @@ internal class CmptEnumGnrcValueInpEncoder : IEncoder<CmptEnumGnrcValueInp>
 {
   public Structured Encode(CmptEnumGnrcValueInp input)
     => new(input.ToString(), "_EnumGnrcValueInp");
+
+  internal static CmptEnumGnrcValueInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_generic_value_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_value_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<CmptEnumGnrcValueInp>(_ => new CmptEnumGnrcValueInpEncoder());
+      .AddEncoder<CmptEnumGnrcValueInp>(CmptEnumGnrcValueInpEncoder.Factory);
 }

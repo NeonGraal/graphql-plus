@@ -38,12 +38,16 @@ internal class CmptGuidEncoder : IEncoder<ICmptGuid>
 {
   public Structured Encode(ICmptGuid input)
     => new(input.Value);
+
+  internal static CmptGuidEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptOneEncoder : IEncoder<CmptOne>
 {
   public Structured Encode(CmptOne input)
     => new(input.ToString(), "_One");
+
+  internal static CmptOneEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptManyEncoder(
@@ -56,6 +60,8 @@ internal class CmptManyEncoder(
     => input.HasA<ICmptGuid>() ? _guid.Encode(input.AsA<ICmptGuid>())
      : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
      : Structured.Empty();
+
+  internal static CmptManyEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class CmptFieldEncoder : IEncoder<ICmptFieldObject>
@@ -63,6 +69,8 @@ internal class CmptFieldEncoder : IEncoder<ICmptFieldObject>
   public Structured Encode(ICmptFieldObject input)
     => Structured.Empty()
       .Add("strings", input.Strings.Encode());
+
+  internal static CmptFieldEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptAllEncoder(
@@ -73,15 +81,17 @@ internal class CmptAllEncoder(
   public Structured Encode(ICmptAllObject input)
     => Structured.Empty()
       .AddEncoded("items", input.Items(), _field);
+
+  internal static CmptAllEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class Cmpt_Schema_allEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_allEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptGuid>(_ => new CmptGuidEncoder())
-      .AddEncoder<CmptOne>(_ => new CmptOneEncoder())
-      .AddEncoder<ICmptMany>(r => new CmptManyEncoder(r))
-      .AddEncoder<ICmptFieldObject>(_ => new CmptFieldEncoder())
-      .AddEncoder<ICmptAllObject>(r => new CmptAllEncoder(r));
+      .AddEncoder<ICmptGuid>(CmptGuidEncoder.Factory)
+      .AddEncoder<CmptOne>(CmptOneEncoder.Factory)
+      .AddEncoder<ICmptMany>(CmptManyEncoder.Factory)
+      .AddEncoder<ICmptFieldObject>(CmptFieldEncoder.Factory)
+      .AddEncoder<ICmptAllObject>(CmptAllEncoder.Factory);
 }

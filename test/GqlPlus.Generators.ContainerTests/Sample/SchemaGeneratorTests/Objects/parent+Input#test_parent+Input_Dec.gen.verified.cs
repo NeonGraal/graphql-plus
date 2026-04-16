@@ -9,17 +9,21 @@ namespace GqlPlus.GeneratorTests.Gqlp_parent_Input;
 
 internal class testPrntInpDecoder
 {
+
+  internal static testPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testRefPrntInpDecoder
 {
   public decimal Parent { get; set; }
+
+  internal static testRefPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_parent_InputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_parent_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestPrntInpObject>(_ => new testPrntInpDecoder())
-      .AddDecoder<ItestRefPrntInpObject>(_ => new testRefPrntInpDecoder());
+      .AddDecoder<ItestPrntInpObject>(testPrntInpDecoder.Factory)
+      .AddDecoder<ItestRefPrntInpObject>(testRefPrntInpDecoder.Factory);
 }

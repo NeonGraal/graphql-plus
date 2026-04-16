@@ -10,11 +10,13 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_descr_Input;
 internal class testFieldDescrInpDecoder
 {
   public string Field { get; set; }
+
+  internal static testFieldDescrInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_field_descr_InputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_field_descr_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestFieldDescrInpObject>(_ => new testFieldDescrInpDecoder());
+      .AddDecoder<ItestFieldDescrInpObject>(testFieldDescrInpDecoder.Factory);
 }

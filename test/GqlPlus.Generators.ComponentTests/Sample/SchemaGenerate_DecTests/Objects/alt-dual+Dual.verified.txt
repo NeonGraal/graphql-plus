@@ -13,17 +13,21 @@ namespace Components.Gqlp_Schema_alt_dual_Dual;
 
 internal class CmptAltDualDualDecoder
 {
+
+  internal static CmptAltDualDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjDualAltDualDualDecoder
 {
   public decimal Alt { get; set; }
+
+  internal static CmptObjDualAltDualDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_alt_dual_DualDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_alt_dual_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptAltDualDualObject>(_ => new CmptAltDualDualDecoder())
-      .AddDecoder<ICmptObjDualAltDualDualObject>(_ => new CmptObjDualAltDualDualDecoder());
+      .AddDecoder<ICmptAltDualDualObject>(CmptAltDualDualDecoder.Factory)
+      .AddDecoder<ICmptObjDualAltDualDualObject>(CmptObjDualAltDualDualDecoder.Factory);
 }

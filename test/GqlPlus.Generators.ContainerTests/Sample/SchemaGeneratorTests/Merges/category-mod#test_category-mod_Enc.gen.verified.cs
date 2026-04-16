@@ -11,11 +11,13 @@ internal class testCtgrModEncoder : IEncoder<ItestCtgrModObject>
 {
   public Structured Encode(ItestCtgrModObject input)
     => Structured.Empty();
+
+  internal static testCtgrModEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_category_modEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_category_modEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestCtgrModObject>(_ => new testCtgrModEncoder());
+      .AddEncoder<ItestCtgrModObject>(testCtgrModEncoder.Factory);
 }

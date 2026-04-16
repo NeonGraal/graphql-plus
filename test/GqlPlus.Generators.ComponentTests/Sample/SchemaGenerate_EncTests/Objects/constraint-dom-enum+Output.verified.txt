@@ -17,6 +17,8 @@ internal class CmptCnstDomEnumOutpEncoder : IEncoder<ICmptCnstDomEnumOutpObject>
 {
   public Structured Encode(ICmptCnstDomEnumOutpObject input)
     => Structured.Empty();
+
+  internal static CmptCnstDomEnumOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptRefCnstDomEnumOutpEncoder<TType>(
@@ -33,19 +35,23 @@ internal class CmptEnumCnstDomEnumOutpEncoder : IEncoder<CmptEnumCnstDomEnumOutp
 {
   public Structured Encode(CmptEnumCnstDomEnumOutp input)
     => new(input.ToString(), "_EnumCnstDomEnumOutp");
+
+  internal static CmptEnumCnstDomEnumOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptJustCnstDomEnumOutpEncoder : IEncoder<ICmptJustCnstDomEnumOutp>
 {
   public Structured Encode(ICmptJustCnstDomEnumOutp input)
     => new((decimal?)input.Value);
+
+  internal static CmptJustCnstDomEnumOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_constraint_dom_enum_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_dom_enum_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptCnstDomEnumOutpObject>(_ => new CmptCnstDomEnumOutpEncoder())
-      .AddEncoder<CmptEnumCnstDomEnumOutp>(_ => new CmptEnumCnstDomEnumOutpEncoder())
-      .AddEncoder<ICmptJustCnstDomEnumOutp>(_ => new CmptJustCnstDomEnumOutpEncoder());
+      .AddEncoder<ICmptCnstDomEnumOutpObject>(CmptCnstDomEnumOutpEncoder.Factory)
+      .AddEncoder<CmptEnumCnstDomEnumOutp>(CmptEnumCnstDomEnumOutpEncoder.Factory)
+      .AddEncoder<ICmptJustCnstDomEnumOutp>(CmptJustCnstDomEnumOutpEncoder.Factory);
 }

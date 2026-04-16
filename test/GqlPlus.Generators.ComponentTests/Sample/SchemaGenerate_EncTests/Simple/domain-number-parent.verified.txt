@@ -15,18 +15,22 @@ internal class CmptDmnNmbrPrntEncoder : IEncoder<ICmptDmnNmbrPrnt>
 {
   public Structured Encode(ICmptDmnNmbrPrnt input)
     => new(input.Value);
+
+  internal static CmptDmnNmbrPrntEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptPrntDmnNmbrPrntEncoder : IEncoder<ICmptPrntDmnNmbrPrnt>
 {
   public Structured Encode(ICmptPrntDmnNmbrPrnt input)
     => new(input.Value);
+
+  internal static CmptPrntDmnNmbrPrntEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_domain_number_parentEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_number_parentEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptDmnNmbrPrnt>(_ => new CmptDmnNmbrPrntEncoder())
-      .AddEncoder<ICmptPrntDmnNmbrPrnt>(_ => new CmptPrntDmnNmbrPrntEncoder());
+      .AddEncoder<ICmptDmnNmbrPrnt>(CmptDmnNmbrPrntEncoder.Factory)
+      .AddEncoder<ICmptPrntDmnNmbrPrnt>(CmptPrntDmnNmbrPrntEncoder.Factory);
 }

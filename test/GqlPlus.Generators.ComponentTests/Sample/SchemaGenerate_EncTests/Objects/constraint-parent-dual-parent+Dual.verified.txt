@@ -20,6 +20,8 @@ internal class CmptCnstPrntDualPrntDualEncoder(
   private readonly IEncoder<ICmptRefCnstPrntDualPrntDualObject<ICmptAltCnstPrntDualPrntDual>> _refCnstPrntDualPrntDual = encoders.EncoderFor<ICmptRefCnstPrntDualPrntDualObject<ICmptAltCnstPrntDualPrntDual>>();
   public Structured Encode(ICmptCnstPrntDualPrntDualObject input)
     => _refCnstPrntDualPrntDual.Encode(input);
+
+  internal static CmptCnstPrntDualPrntDualEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class CmptRefCnstPrntDualPrntDualEncoder<TRef> : IEncoder<ICmptRefCnstPrntDualPrntDualObject<TRef>>
@@ -32,6 +34,8 @@ internal class CmptPrntCnstPrntDualPrntDualEncoder : IEncoder<ICmptPrntCnstPrntD
 {
   public Structured Encode(ICmptPrntCnstPrntDualPrntDualObject input)
     => Structured.Empty();
+
+  internal static CmptPrntCnstPrntDualPrntDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptAltCnstPrntDualPrntDualEncoder(
@@ -42,13 +46,15 @@ internal class CmptAltCnstPrntDualPrntDualEncoder(
   public Structured Encode(ICmptAltCnstPrntDualPrntDualObject input)
     => _prntCnstPrntDualPrntDual.Encode(input)
       .Add("alt", input.Alt);
+
+  internal static CmptAltCnstPrntDualPrntDualEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class Cmpt_Schema_constraint_parent_dual_parent_DualEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_parent_dual_parent_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptCnstPrntDualPrntDualObject>(r => new CmptCnstPrntDualPrntDualEncoder(r))
-      .AddEncoder<ICmptPrntCnstPrntDualPrntDualObject>(_ => new CmptPrntCnstPrntDualPrntDualEncoder())
-      .AddEncoder<ICmptAltCnstPrntDualPrntDualObject>(r => new CmptAltCnstPrntDualPrntDualEncoder(r));
+      .AddEncoder<ICmptCnstPrntDualPrntDualObject>(CmptCnstPrntDualPrntDualEncoder.Factory)
+      .AddEncoder<ICmptPrntCnstPrntDualPrntDualObject>(CmptPrntCnstPrntDualPrntDualEncoder.Factory)
+      .AddEncoder<ICmptAltCnstPrntDualPrntDualObject>(CmptAltCnstPrntDualPrntDualEncoder.Factory);
 }

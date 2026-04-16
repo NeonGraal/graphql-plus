@@ -14,6 +14,8 @@ namespace Components.Gqlp_Schema_constraint_field_domain_Input;
 
 internal class CmptCnstFieldDmnInpDecoder
 {
+
+  internal static CmptCnstFieldDmnInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefCnstFieldDmnInpDecoder<TRef>
@@ -23,12 +25,14 @@ internal class CmptRefCnstFieldDmnInpDecoder<TRef>
 
 internal class CmptDomCnstFieldDmnInpDecoder
 {
+
+  internal static CmptDomCnstFieldDmnInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_constraint_field_domain_InputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_field_domain_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptCnstFieldDmnInpObject>(_ => new CmptCnstFieldDmnInpDecoder())
-      .AddDecoder<ICmptDomCnstFieldDmnInp>(_ => new CmptDomCnstFieldDmnInpDecoder());
+      .AddDecoder<ICmptCnstFieldDmnInpObject>(CmptCnstFieldDmnInpDecoder.Factory)
+      .AddDecoder<ICmptDomCnstFieldDmnInp>(CmptDomCnstFieldDmnInpDecoder.Factory);
 }

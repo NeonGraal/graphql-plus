@@ -20,6 +20,8 @@ internal class CmptCnstFieldObjOutpEncoder(
   private readonly IEncoder<ICmptRefCnstFieldObjOutpObject<ICmptAltCnstFieldObjOutp>> _refCnstFieldObjOutp = encoders.EncoderFor<ICmptRefCnstFieldObjOutpObject<ICmptAltCnstFieldObjOutp>>();
   public Structured Encode(ICmptCnstFieldObjOutpObject input)
     => _refCnstFieldObjOutp.Encode(input);
+
+  internal static CmptCnstFieldObjOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class CmptRefCnstFieldObjOutpEncoder<TRef>(
@@ -36,6 +38,8 @@ internal class CmptPrntCnstFieldObjOutpEncoder : IEncoder<ICmptPrntCnstFieldObjO
 {
   public Structured Encode(ICmptPrntCnstFieldObjOutpObject input)
     => Structured.Empty();
+
+  internal static CmptPrntCnstFieldObjOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptAltCnstFieldObjOutpEncoder(
@@ -46,13 +50,15 @@ internal class CmptAltCnstFieldObjOutpEncoder(
   public Structured Encode(ICmptAltCnstFieldObjOutpObject input)
     => _prntCnstFieldObjOutp.Encode(input)
       .Add("alt", input.Alt);
+
+  internal static CmptAltCnstFieldObjOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class Cmpt_Schema_constraint_field_obj_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_field_obj_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptCnstFieldObjOutpObject>(r => new CmptCnstFieldObjOutpEncoder(r))
-      .AddEncoder<ICmptPrntCnstFieldObjOutpObject>(_ => new CmptPrntCnstFieldObjOutpEncoder())
-      .AddEncoder<ICmptAltCnstFieldObjOutpObject>(r => new CmptAltCnstFieldObjOutpEncoder(r));
+      .AddEncoder<ICmptCnstFieldObjOutpObject>(CmptCnstFieldObjOutpEncoder.Factory)
+      .AddEncoder<ICmptPrntCnstFieldObjOutpObject>(CmptPrntCnstFieldObjOutpEncoder.Factory)
+      .AddEncoder<ICmptAltCnstFieldObjOutpObject>(CmptAltCnstFieldObjOutpEncoder.Factory);
 }

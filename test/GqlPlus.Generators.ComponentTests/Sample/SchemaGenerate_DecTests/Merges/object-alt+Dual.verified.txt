@@ -14,16 +14,20 @@ namespace Components.Gqlp_Schema_object_alt_Dual;
 
 internal class CmptObjAltDualDecoder
 {
+
+  internal static CmptObjAltDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptObjAltDualTypeDecoder
 {
+
+  internal static CmptObjAltDualTypeDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_object_alt_DualDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_object_alt_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptObjAltDualObject>(_ => new CmptObjAltDualDecoder())
-      .AddDecoder<ICmptObjAltDualTypeObject>(_ => new CmptObjAltDualTypeDecoder());
+      .AddDecoder<ICmptObjAltDualObject>(CmptObjAltDualDecoder.Factory)
+      .AddDecoder<ICmptObjAltDualTypeObject>(CmptObjAltDualTypeDecoder.Factory);
 }

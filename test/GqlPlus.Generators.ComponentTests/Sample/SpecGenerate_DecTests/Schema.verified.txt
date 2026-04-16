@@ -62,16 +62,20 @@ internal class Cmpt_MaskDecoder<TK>
 
 internal class Cmpt_KeyDecoder
 {
+
+  internal static Cmpt_KeyDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_AnyDecoder
 {
+
+  internal static Cmpt_AnyDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Spec_SchemaDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_SchemaDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmpt_Key>(_ => new Cmpt_KeyDecoder())
-      .AddDecoder<ICmpt_AnyObject>(_ => new Cmpt_AnyDecoder());
+      .AddDecoder<ICmpt_Key>(Cmpt_KeyDecoder.Factory)
+      .AddDecoder<ICmpt_AnyObject>(Cmpt_AnyDecoder.Factory);
 }

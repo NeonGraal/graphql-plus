@@ -74,4 +74,6 @@ internal class TypeArgMatcher(
 
     return false;
   }
+
+  internal static TypeArgMatcher Factory(IMatcherRepository m) => new(m);
 }

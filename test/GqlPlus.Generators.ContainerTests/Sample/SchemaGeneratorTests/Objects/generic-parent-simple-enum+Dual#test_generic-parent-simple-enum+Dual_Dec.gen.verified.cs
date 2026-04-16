@@ -9,6 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_simple_enum_Dual;
 
 internal class testGnrcPrntSmplEnumDualDecoder
 {
+
+  internal static testGnrcPrntSmplEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testFieldGnrcPrntSmplEnumDualDecoder<TRef>
@@ -19,12 +21,14 @@ internal class testFieldGnrcPrntSmplEnumDualDecoder<TRef>
 internal class testEnumGnrcPrntSmplEnumDualDecoder
 {
   public string gnrcPrntSmplEnumDual { get; set; }
+
+  internal static testEnumGnrcPrntSmplEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_generic_parent_simple_enum_DualDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_generic_parent_simple_enum_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestGnrcPrntSmplEnumDualObject>(_ => new testGnrcPrntSmplEnumDualDecoder())
-      .AddDecoder<testEnumGnrcPrntSmplEnumDual>(_ => new testEnumGnrcPrntSmplEnumDualDecoder());
+      .AddDecoder<ItestGnrcPrntSmplEnumDualObject>(testGnrcPrntSmplEnumDualDecoder.Factory)
+      .AddDecoder<testEnumGnrcPrntSmplEnumDual>(testEnumGnrcPrntSmplEnumDualDecoder.Factory);
 }

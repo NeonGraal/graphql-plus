@@ -13,17 +13,21 @@ namespace Components.Gqlp_Schema_alt_enum_Dual;
 
 internal class CmptAltEnumDualDecoder
 {
+
+  internal static CmptAltEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumAltEnumDualDecoder
 {
   public string altEnumDual { get; set; }
+
+  internal static CmptEnumAltEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_alt_enum_DualDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_alt_enum_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptAltEnumDualObject>(_ => new CmptAltEnumDualDecoder())
-      .AddDecoder<CmptEnumAltEnumDual>(_ => new CmptEnumAltEnumDualDecoder());
+      .AddDecoder<ICmptAltEnumDualObject>(CmptAltEnumDualDecoder.Factory)
+      .AddDecoder<CmptEnumAltEnumDual>(CmptEnumAltEnumDualDecoder.Factory);
 }

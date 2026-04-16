@@ -15,11 +15,13 @@ internal class testUnionSameEncoder(
   public Structured Encode(ItestUnionSame input)
     => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
      : Structured.Empty();
+
+  internal static testUnionSameEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class test_union_sameEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_union_sameEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestUnionSame>(r => new testUnionSameEncoder(r));
+      .AddEncoder<ItestUnionSame>(testUnionSameEncoder.Factory);
 }

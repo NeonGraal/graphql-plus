@@ -15,11 +15,13 @@ internal class CmptDmnNmbrDiffEncoder : IEncoder<ICmptDmnNmbrDiff>
 {
   public Structured Encode(ICmptDmnNmbrDiff input)
     => new(input.Value);
+
+  internal static CmptDmnNmbrDiffEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_domain_number_diffEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_number_diffEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptDmnNmbrDiff>(_ => new CmptDmnNmbrDiffEncoder());
+      .AddEncoder<ICmptDmnNmbrDiff>(CmptDmnNmbrDiffEncoder.Factory);
 }

@@ -14,6 +14,8 @@ namespace Components.Gqlp_Schema_generic_parent_param_Input;
 
 internal class CmptGnrcPrntParamInpDecoder
 {
+
+  internal static CmptGnrcPrntParamInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefGnrcPrntParamInpDecoder<TRef>
@@ -23,12 +25,14 @@ internal class CmptRefGnrcPrntParamInpDecoder<TRef>
 internal class CmptAltGnrcPrntParamInpDecoder
 {
   public decimal Alt { get; set; }
+
+  internal static CmptAltGnrcPrntParamInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_generic_parent_param_InputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_parent_param_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptGnrcPrntParamInpObject>(_ => new CmptGnrcPrntParamInpDecoder())
-      .AddDecoder<ICmptAltGnrcPrntParamInpObject>(_ => new CmptAltGnrcPrntParamInpDecoder());
+      .AddDecoder<ICmptGnrcPrntParamInpObject>(CmptGnrcPrntParamInpDecoder.Factory)
+      .AddDecoder<ICmptAltGnrcPrntParamInpObject>(CmptAltGnrcPrntParamInpDecoder.Factory);
 }

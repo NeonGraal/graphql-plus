@@ -11,6 +11,8 @@ internal class testCnstDomEnumDualEncoder : IEncoder<ItestCnstDomEnumDualObject>
 {
   public Structured Encode(ItestCnstDomEnumDualObject input)
     => Structured.Empty();
+
+  internal static testCnstDomEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testRefCnstDomEnumDualEncoder<TType>(
@@ -27,19 +29,23 @@ internal class testEnumCnstDomEnumDualEncoder : IEncoder<testEnumCnstDomEnumDual
 {
   public Structured Encode(testEnumCnstDomEnumDual input)
     => new(input.ToString(), "_EnumCnstDomEnumDual");
+
+  internal static testEnumCnstDomEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testJustCnstDomEnumDualEncoder : IEncoder<ItestJustCnstDomEnumDual>
 {
   public Structured Encode(ItestJustCnstDomEnumDual input)
     => new((decimal?)input.Value);
+
+  internal static testJustCnstDomEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_constraint_dom_enum_DualEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_constraint_dom_enum_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestCnstDomEnumDualObject>(_ => new testCnstDomEnumDualEncoder())
-      .AddEncoder<testEnumCnstDomEnumDual>(_ => new testEnumCnstDomEnumDualEncoder())
-      .AddEncoder<ItestJustCnstDomEnumDual>(_ => new testJustCnstDomEnumDualEncoder());
+      .AddEncoder<ItestCnstDomEnumDualObject>(testCnstDomEnumDualEncoder.Factory)
+      .AddEncoder<testEnumCnstDomEnumDual>(testEnumCnstDomEnumDualEncoder.Factory)
+      .AddEncoder<ItestJustCnstDomEnumDual>(testJustCnstDomEnumDualEncoder.Factory);
 }

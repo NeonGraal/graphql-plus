@@ -19,4 +19,6 @@ internal class MergeAllDomains(
 
   IEnumerable<IAstType> IMerge<IAstType>.Merge(IEnumerable<IAstType> items)
       => Merge(items?.OfType<IAstDomain>() ?? []).Cast<IAstType>();
+
+  internal static MergeAllDomains Factory(IMergerRepository m) => new(m);
 }

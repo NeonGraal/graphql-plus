@@ -12,18 +12,22 @@ internal class testFieldEnumOutpEncoder : IEncoder<ItestFieldEnumOutpObject>
   public Structured Encode(ItestFieldEnumOutpObject input)
     => Structured.Empty()
       .AddEnum("field", input.Field);
+
+  internal static testFieldEnumOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testEnumFieldEnumOutpEncoder : IEncoder<testEnumFieldEnumOutp>
 {
   public Structured Encode(testEnumFieldEnumOutp input)
     => new(input.ToString(), "_EnumFieldEnumOutp");
+
+  internal static testEnumFieldEnumOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_field_enum_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_field_enum_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestFieldEnumOutpObject>(_ => new testFieldEnumOutpEncoder())
-      .AddEncoder<testEnumFieldEnumOutp>(_ => new testEnumFieldEnumOutpEncoder());
+      .AddEncoder<ItestFieldEnumOutpObject>(testFieldEnumOutpEncoder.Factory)
+      .AddEncoder<testEnumFieldEnumOutp>(testEnumFieldEnumOutpEncoder.Factory);
 }

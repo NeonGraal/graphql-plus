@@ -20,6 +20,8 @@ internal class CmptGnrcFieldParamDualEncoder(
   public Structured Encode(ICmptGnrcFieldParamDualObject input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _refGnrcFieldParamDual);
+
+  internal static CmptGnrcFieldParamDualEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class CmptRefGnrcFieldParamDualEncoder<TRef> : IEncoder<ICmptRefGnrcFieldParamDualObject<TRef>>
@@ -33,12 +35,14 @@ internal class CmptAltGnrcFieldParamDualEncoder : IEncoder<ICmptAltGnrcFieldPara
   public Structured Encode(ICmptAltGnrcFieldParamDualObject input)
     => Structured.Empty()
       .Add("alt", input.Alt);
+
+  internal static CmptAltGnrcFieldParamDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_generic_field_param_DualEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_field_param_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptGnrcFieldParamDualObject>(r => new CmptGnrcFieldParamDualEncoder(r))
-      .AddEncoder<ICmptAltGnrcFieldParamDualObject>(_ => new CmptAltGnrcFieldParamDualEncoder());
+      .AddEncoder<ICmptGnrcFieldParamDualObject>(CmptGnrcFieldParamDualEncoder.Factory)
+      .AddEncoder<ICmptAltGnrcFieldParamDualObject>(CmptAltGnrcFieldParamDualEncoder.Factory);
 }

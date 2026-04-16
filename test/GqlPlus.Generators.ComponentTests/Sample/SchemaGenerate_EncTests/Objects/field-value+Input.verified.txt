@@ -15,11 +15,13 @@ internal class CmptEnumFieldValueInpEncoder : IEncoder<CmptEnumFieldValueInp>
 {
   public Structured Encode(CmptEnumFieldValueInp input)
     => new(input.ToString(), "_EnumFieldValueInp");
+
+  internal static CmptEnumFieldValueInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_field_value_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_field_value_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<CmptEnumFieldValueInp>(_ => new CmptEnumFieldValueInpEncoder());
+      .AddEncoder<CmptEnumFieldValueInp>(CmptEnumFieldValueInpEncoder.Factory);
 }

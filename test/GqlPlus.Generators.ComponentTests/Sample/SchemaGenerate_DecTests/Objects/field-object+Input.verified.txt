@@ -14,17 +14,21 @@ namespace Components.Gqlp_Schema_field_object_Input;
 internal class CmptFieldObjInpDecoder
 {
   public ICmptFldFieldObjInp Field { get; set; }
+
+  internal static CmptFieldObjInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptFldFieldObjInpDecoder
 {
   public decimal Field { get; set; }
+
+  internal static CmptFldFieldObjInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_field_object_InputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_object_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptFieldObjInpObject>(_ => new CmptFieldObjInpDecoder())
-      .AddDecoder<ICmptFldFieldObjInpObject>(_ => new CmptFldFieldObjInpDecoder());
+      .AddDecoder<ICmptFieldObjInpObject>(CmptFieldObjInpDecoder.Factory)
+      .AddDecoder<ICmptFldFieldObjInpObject>(CmptFldFieldObjInpDecoder.Factory);
 }

@@ -14,6 +14,8 @@ internal class test_SimpleKindDecoder
   public string Internal { get; set; }
   public string Domain { get; set; }
   public string Union { get; set; }
+
+  internal static test_SimpleKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_TypeKindDecoder
@@ -26,6 +28,8 @@ internal class test_TypeKindDecoder
   public string Dual { get; set; }
   public string Input { get; set; }
   public string Output { get; set; }
+
+  internal static test_TypeKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_TypeRefDecoder<TTypeKind>
@@ -35,10 +39,14 @@ internal class test_TypeRefDecoder<TTypeKind>
 
 internal class test_TypeSimpleDecoder
 {
+
+  internal static test_TypeSimpleDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_CollectionsDecoder
 {
+
+  internal static test_CollectionsDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_ModifierKeyedDecoder<TModifierKind>
@@ -49,6 +57,8 @@ internal class test_ModifierKeyedDecoder<TModifierKind>
 
 internal class test_ModifiersDecoder
 {
+
+  internal static test_ModifiersDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_ModifierKindDecoder
@@ -60,6 +70,8 @@ internal class test_ModifierKindDecoder
   public string Dictionary { get; set; }
   public string Param { get; set; }
   public string TypeParam { get; set; }
+
+  internal static test_ModifierKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_ModifierDecoder<TModifierKind>
@@ -71,10 +83,10 @@ internal static class test__TypeDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest__TypeDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<test_SimpleKind>(_ => new test_SimpleKindDecoder())
-      .AddDecoder<test_TypeKind>(_ => new test_TypeKindDecoder())
-      .AddDecoder<Itest_TypeSimpleObject>(_ => new test_TypeSimpleDecoder())
-      .AddDecoder<Itest_CollectionsObject>(_ => new test_CollectionsDecoder())
-      .AddDecoder<Itest_ModifiersObject>(_ => new test_ModifiersDecoder())
-      .AddDecoder<test_ModifierKind>(_ => new test_ModifierKindDecoder());
+      .AddDecoder<test_SimpleKind>(test_SimpleKindDecoder.Factory)
+      .AddDecoder<test_TypeKind>(test_TypeKindDecoder.Factory)
+      .AddDecoder<Itest_TypeSimpleObject>(test_TypeSimpleDecoder.Factory)
+      .AddDecoder<Itest_CollectionsObject>(test_CollectionsDecoder.Factory)
+      .AddDecoder<Itest_ModifiersObject>(test_ModifiersDecoder.Factory)
+      .AddDecoder<test_ModifierKind>(test_ModifierKindDecoder.Factory);
 }

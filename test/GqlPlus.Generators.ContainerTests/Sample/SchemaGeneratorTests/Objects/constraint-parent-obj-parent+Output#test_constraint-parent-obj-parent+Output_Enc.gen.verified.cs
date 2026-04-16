@@ -14,6 +14,8 @@ internal class testCnstPrntObjPrntOutpEncoder(
   private readonly IEncoder<ItestRefCnstPrntObjPrntOutpObject<ItestAltCnstPrntObjPrntOutp>> _itestRefCnstPrntObjPrntOutp = encoders.EncoderFor<ItestRefCnstPrntObjPrntOutpObject<ItestAltCnstPrntObjPrntOutp>>();
   public Structured Encode(ItestCnstPrntObjPrntOutpObject input)
     => _itestRefCnstPrntObjPrntOutp.Encode(input);
+
+  internal static testCnstPrntObjPrntOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testRefCnstPrntObjPrntOutpEncoder<TRef> : IEncoder<ItestRefCnstPrntObjPrntOutpObject<TRef>>
@@ -26,6 +28,8 @@ internal class testPrntCnstPrntObjPrntOutpEncoder : IEncoder<ItestPrntCnstPrntOb
 {
   public Structured Encode(ItestPrntCnstPrntObjPrntOutpObject input)
     => Structured.Empty();
+
+  internal static testPrntCnstPrntObjPrntOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testAltCnstPrntObjPrntOutpEncoder(
@@ -36,13 +40,15 @@ internal class testAltCnstPrntObjPrntOutpEncoder(
   public Structured Encode(ItestAltCnstPrntObjPrntOutpObject input)
     => _itestPrntCnstPrntObjPrntOutp.Encode(input)
       .Add("alt", input.Alt);
+
+  internal static testAltCnstPrntObjPrntOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class test_constraint_parent_obj_parent_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_constraint_parent_obj_parent_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestCnstPrntObjPrntOutpObject>(r => new testCnstPrntObjPrntOutpEncoder(r))
-      .AddEncoder<ItestPrntCnstPrntObjPrntOutpObject>(_ => new testPrntCnstPrntObjPrntOutpEncoder())
-      .AddEncoder<ItestAltCnstPrntObjPrntOutpObject>(r => new testAltCnstPrntObjPrntOutpEncoder(r));
+      .AddEncoder<ItestCnstPrntObjPrntOutpObject>(testCnstPrntObjPrntOutpEncoder.Factory)
+      .AddEncoder<ItestPrntCnstPrntObjPrntOutpObject>(testPrntCnstPrntObjPrntOutpEncoder.Factory)
+      .AddEncoder<ItestAltCnstPrntObjPrntOutpObject>(testAltCnstPrntObjPrntOutpEncoder.Factory);
 }

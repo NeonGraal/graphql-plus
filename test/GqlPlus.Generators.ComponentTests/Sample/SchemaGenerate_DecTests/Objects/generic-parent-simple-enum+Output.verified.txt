@@ -15,11 +15,13 @@ namespace Components.Gqlp_Schema_generic_parent_simple_enum_Output;
 internal class CmptEnumGnrcPrntSmplEnumOutpDecoder
 {
   public string gnrcPrntSmplEnumOutp { get; set; }
+
+  internal static CmptEnumGnrcPrntSmplEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_generic_parent_simple_enum_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_parent_simple_enum_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<CmptEnumGnrcPrntSmplEnumOutp>(_ => new CmptEnumGnrcPrntSmplEnumOutpDecoder());
+      .AddDecoder<CmptEnumGnrcPrntSmplEnumOutp>(CmptEnumGnrcPrntSmplEnumOutpDecoder.Factory);
 }

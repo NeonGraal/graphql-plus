@@ -16,6 +16,8 @@ internal class test_DirectivesEncoder(
   public Structured Encode(Itest_DirectivesObject input)
     => _itest_AndType.Encode(input)
       .AddEncoded("directive", input.Directive, _itest_Directive);
+
+  internal static test_DirectivesEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_DirectiveEncoder(
@@ -28,19 +30,23 @@ internal class test_DirectiveEncoder(
     => _itest_Aliased.Encode(input)
       .AddEncoded("parameter", input.Parameter, _itest_InputFieldType)
       .Add("repeatable", input.Repeatable);
+
+  internal static test_DirectiveEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_LocationEncoder : IEncoder<test_Location>
 {
   public Structured Encode(test_Location input)
     => new(input.ToString(), "_Location");
+
+  internal static test_LocationEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_DirectiveEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_DirectiveEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<Itest_DirectivesObject>(r => new test_DirectivesEncoder(r))
-      .AddEncoder<Itest_DirectiveObject>(r => new test_DirectiveEncoder(r))
-      .AddEncoder<test_Location>(_ => new test_LocationEncoder());
+      .AddEncoder<Itest_DirectivesObject>(test_DirectivesEncoder.Factory)
+      .AddEncoder<Itest_DirectiveObject>(test_DirectiveEncoder.Factory)
+      .AddEncoder<test_Location>(test_LocationEncoder.Factory);
 }

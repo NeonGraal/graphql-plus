@@ -15,6 +15,8 @@ internal class CmptAltModBoolOutpEncoder : IEncoder<ICmptAltModBoolOutpObject>
 {
   public Structured Encode(ICmptAltModBoolOutpObject input)
     => Structured.Empty();
+
+  internal static CmptAltModBoolOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptAltAltModBoolOutpEncoder : IEncoder<ICmptAltAltModBoolOutpObject>
@@ -22,12 +24,14 @@ internal class CmptAltAltModBoolOutpEncoder : IEncoder<ICmptAltAltModBoolOutpObj
   public Structured Encode(ICmptAltAltModBoolOutpObject input)
     => Structured.Empty()
       .Add("alt", input.Alt);
+
+  internal static CmptAltAltModBoolOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_alt_mod_Boolean_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_alt_mod_Boolean_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptAltModBoolOutpObject>(_ => new CmptAltModBoolOutpEncoder())
-      .AddEncoder<ICmptAltAltModBoolOutpObject>(_ => new CmptAltAltModBoolOutpEncoder());
+      .AddEncoder<ICmptAltModBoolOutpObject>(CmptAltModBoolOutpEncoder.Factory)
+      .AddEncoder<ICmptAltAltModBoolOutpObject>(CmptAltAltModBoolOutpEncoder.Factory);
 }

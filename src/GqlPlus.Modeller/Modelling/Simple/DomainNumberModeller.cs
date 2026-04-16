@@ -13,4 +13,6 @@ internal class DomainNumberModeller
 
   protected override DomainRangeModel ToItem(IAstDomainRange ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Lower, ast.Upper, ast.Excludes, ast.Description);
+
+  internal static DomainNumberModeller Factory(IModellerRepository _) => new();
 }

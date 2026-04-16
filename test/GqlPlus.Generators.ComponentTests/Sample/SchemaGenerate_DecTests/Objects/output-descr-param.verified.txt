@@ -14,17 +14,21 @@ namespace Components.Gqlp_Schema_output_descr_param;
 
 internal class CmptFldOutpDescrParamDecoder
 {
+
+  internal static CmptFldOutpDescrParamDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptInOutpDescrParamDecoder
 {
   public decimal Param { get; set; }
+
+  internal static CmptInOutpDescrParamDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_output_descr_paramDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_output_descr_paramDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptFldOutpDescrParamObject>(_ => new CmptFldOutpDescrParamDecoder())
-      .AddDecoder<ICmptInOutpDescrParamObject>(_ => new CmptInOutpDescrParamDecoder());
+      .AddDecoder<ICmptFldOutpDescrParamObject>(CmptFldOutpDescrParamDecoder.Factory)
+      .AddDecoder<ICmptInOutpDescrParamObject>(CmptInOutpDescrParamDecoder.Factory);
 }

@@ -12,11 +12,13 @@ namespace Components.Gqlp_Schema_alt_simple_Input;
 
 internal class CmptAltSmplInpDecoder
 {
+
+  internal static CmptAltSmplInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_alt_simple_InputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_alt_simple_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptAltSmplInpObject>(_ => new CmptAltSmplInpDecoder());
+      .AddDecoder<ICmptAltSmplInpObject>(CmptAltSmplInpDecoder.Factory);
 }

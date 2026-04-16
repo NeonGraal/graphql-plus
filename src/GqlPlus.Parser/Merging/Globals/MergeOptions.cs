@@ -23,4 +23,6 @@ internal class MergeOptions(
       Settings = group.ManyGroupMerger(d => d.Settings, s => s.Name, mergers.MergerFor<IAstSchemaSetting>()).ArrayOf<OptionSettingAst>(),
     };
   }
+
+  internal static MergeOptions Factory(IMergerRepository m) => new(m);
 }

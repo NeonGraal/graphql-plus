@@ -15,6 +15,8 @@ internal class testUnionPrntEncoder(
   public Structured Encode(ItestUnionPrnt input)
     => input.HasA<string>() ? _string.Encode(input.AsA<string>())
      : Structured.Empty();
+
+  internal static testUnionPrntEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testPrntUnionPrntEncoder(
@@ -25,12 +27,14 @@ internal class testPrntUnionPrntEncoder(
   public Structured Encode(ItestPrntUnionPrnt input)
     => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
      : Structured.Empty();
+
+  internal static testPrntUnionPrntEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class test_union_parentEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_union_parentEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestUnionPrnt>(r => new testUnionPrntEncoder(r))
-      .AddEncoder<ItestPrntUnionPrnt>(r => new testPrntUnionPrntEncoder(r));
+      .AddEncoder<ItestUnionPrnt>(testUnionPrntEncoder.Factory)
+      .AddEncoder<ItestPrntUnionPrnt>(testPrntUnionPrntEncoder.Factory);
 }

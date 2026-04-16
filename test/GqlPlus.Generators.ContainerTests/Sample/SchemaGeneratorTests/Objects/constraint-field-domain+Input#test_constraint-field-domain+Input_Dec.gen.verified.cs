@@ -9,6 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_domain_Input;
 
 internal class testCnstFieldDmnInpDecoder
 {
+
+  internal static testCnstFieldDmnInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testRefCnstFieldDmnInpDecoder<TRef>
@@ -18,12 +20,14 @@ internal class testRefCnstFieldDmnInpDecoder<TRef>
 
 internal class testDomCnstFieldDmnInpDecoder
 {
+
+  internal static testDomCnstFieldDmnInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_constraint_field_domain_InputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_constraint_field_domain_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestCnstFieldDmnInpObject>(_ => new testCnstFieldDmnInpDecoder())
-      .AddDecoder<ItestDomCnstFieldDmnInp>(_ => new testDomCnstFieldDmnInpDecoder());
+      .AddDecoder<ItestCnstFieldDmnInpObject>(testCnstFieldDmnInpDecoder.Factory)
+      .AddDecoder<ItestDomCnstFieldDmnInp>(testDomCnstFieldDmnInpDecoder.Factory);
 }

@@ -11,11 +11,13 @@ internal class testCtgrOutpListEncoder : IEncoder<ItestCtgrOutpListObject>
 {
   public Structured Encode(ItestCtgrOutpListObject input)
     => Structured.Empty();
+
+  internal static testCtgrOutpListEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_category_output_listEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_category_output_listEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestCtgrOutpListObject>(_ => new testCtgrOutpListEncoder());
+      .AddEncoder<ItestCtgrOutpListObject>(testCtgrOutpListEncoder.Factory);
 }

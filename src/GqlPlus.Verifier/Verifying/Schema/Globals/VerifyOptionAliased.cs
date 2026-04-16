@@ -14,4 +14,6 @@ internal class VerifyOptionAliased(IVerifierRepository verifiers) : AliasedVerif
 
     base.Verify(item, errors);
   }
+
+  internal static VerifyOptionAliased Factory(IVerifierRepository v) => new(v);
 }

@@ -15,18 +15,22 @@ internal class CmptFieldModEnumDualEncoder : IEncoder<ICmptFieldModEnumDualObjec
 {
   public Structured Encode(ICmptFieldModEnumDualObject input)
     => Structured.Empty();
+
+  internal static CmptFieldModEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptEnumFieldModEnumDualEncoder : IEncoder<CmptEnumFieldModEnumDual>
 {
   public Structured Encode(CmptEnumFieldModEnumDual input)
     => new(input.ToString(), "_EnumFieldModEnumDual");
+
+  internal static CmptEnumFieldModEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_field_mod_Enum_DualEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_field_mod_Enum_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptFieldModEnumDualObject>(_ => new CmptFieldModEnumDualEncoder())
-      .AddEncoder<CmptEnumFieldModEnumDual>(_ => new CmptEnumFieldModEnumDualEncoder());
+      .AddEncoder<ICmptFieldModEnumDualObject>(CmptFieldModEnumDualEncoder.Factory)
+      .AddEncoder<CmptEnumFieldModEnumDual>(CmptEnumFieldModEnumDualEncoder.Factory);
 }

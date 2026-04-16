@@ -11,12 +11,16 @@ internal class testGuidEncoder : IEncoder<ItestGuid>
 {
   public Structured Encode(ItestGuid input)
     => new(input.Value);
+
+  internal static testGuidEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testOneEncoder : IEncoder<testOne>
 {
   public Structured Encode(testOne input)
     => new(input.ToString(), "_One");
+
+  internal static testOneEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testManyEncoder(
@@ -29,6 +33,8 @@ internal class testManyEncoder(
     => input.HasA<ItestGuid>() ? _guid.Encode(input.AsA<ItestGuid>())
      : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
      : Structured.Empty();
+
+  internal static testManyEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testFieldEncoder : IEncoder<ItestFieldObject>
@@ -36,6 +42,8 @@ internal class testFieldEncoder : IEncoder<ItestFieldObject>
   public Structured Encode(ItestFieldObject input)
     => Structured.Empty()
       .Add("strings", input.Strings.Encode());
+
+  internal static testFieldEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testAllEncoder(
@@ -46,15 +54,17 @@ internal class testAllEncoder(
   public Structured Encode(ItestAllObject input)
     => Structured.Empty()
       .AddEncoded("items", input.Items(), _itestField);
+
+  internal static testAllEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class test_allEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_allEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestGuid>(_ => new testGuidEncoder())
-      .AddEncoder<testOne>(_ => new testOneEncoder())
-      .AddEncoder<ItestMany>(r => new testManyEncoder(r))
-      .AddEncoder<ItestFieldObject>(_ => new testFieldEncoder())
-      .AddEncoder<ItestAllObject>(r => new testAllEncoder(r));
+      .AddEncoder<ItestGuid>(testGuidEncoder.Factory)
+      .AddEncoder<testOne>(testOneEncoder.Factory)
+      .AddEncoder<ItestMany>(testManyEncoder.Factory)
+      .AddEncoder<ItestFieldObject>(testFieldEncoder.Factory)
+      .AddEncoder<ItestAllObject>(testAllEncoder.Factory);
 }

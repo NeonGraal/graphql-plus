@@ -59,18 +59,22 @@ internal class test_KeyEncoder : IEncoder<Itest_Key>
 {
   public Structured Encode(Itest_Key input)
     => Structured.Empty();
+
+  internal static test_KeyEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_AnyEncoder : IEncoder<Itest_AnyObject>
 {
   public Structured Encode(Itest_AnyObject input)
     => Structured.Empty();
+
+  internal static test_AnyEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_SchemaEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_SchemaEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<Itest_Key>(_ => new test_KeyEncoder())
-      .AddEncoder<Itest_AnyObject>(_ => new test_AnyEncoder());
+      .AddEncoder<Itest_Key>(test_KeyEncoder.Factory)
+      .AddEncoder<Itest_AnyObject>(test_AnyEncoder.Factory);
 }

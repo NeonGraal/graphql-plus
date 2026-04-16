@@ -12,11 +12,13 @@ internal class testFieldDescrOutpEncoder : IEncoder<ItestFieldDescrOutpObject>
   public Structured Encode(ItestFieldDescrOutpObject input)
     => Structured.Empty()
       .Add("field", input.Field);
+
+  internal static testFieldDescrOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_field_descr_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_field_descr_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestFieldDescrOutpObject>(_ => new testFieldDescrOutpEncoder());
+      .AddEncoder<ItestFieldDescrOutpObject>(testFieldDescrOutpEncoder.Factory);
 }

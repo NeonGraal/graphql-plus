@@ -14,6 +14,8 @@ internal class testPrntDualDualEncoder(
   private readonly IEncoder<ItestRefPrntDualDualObject> _itestRefPrntDualDual = encoders.EncoderFor<ItestRefPrntDualDualObject>();
   public Structured Encode(ItestPrntDualDualObject input)
     => _itestRefPrntDualDual.Encode(input);
+
+  internal static testPrntDualDualEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testRefPrntDualDualEncoder : IEncoder<ItestRefPrntDualDualObject>
@@ -21,12 +23,14 @@ internal class testRefPrntDualDualEncoder : IEncoder<ItestRefPrntDualDualObject>
   public Structured Encode(ItestRefPrntDualDualObject input)
     => Structured.Empty()
       .Add("parent", input.Parent);
+
+  internal static testRefPrntDualDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_parent_dual_DualEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_parent_dual_DualEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestPrntDualDualObject>(r => new testPrntDualDualEncoder(r))
-      .AddEncoder<ItestRefPrntDualDualObject>(_ => new testRefPrntDualDualEncoder());
+      .AddEncoder<ItestPrntDualDualObject>(testPrntDualDualEncoder.Factory)
+      .AddEncoder<ItestRefPrntDualDualObject>(testRefPrntDualDualEncoder.Factory);
 }

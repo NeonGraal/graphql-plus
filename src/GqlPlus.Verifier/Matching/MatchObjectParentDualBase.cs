@@ -15,4 +15,6 @@ internal class MatchObjectParentDualBase<TField>(
 
   private bool MatchDual(IAstObject<IAstDualField> dual, string constraint, UsageContext context)
     => MatchObject(dual, constraint, context);
+
+  internal static new MatchObjectParentDualBase<TField> Factory(IMatcherRepository m) => new(m);
 }

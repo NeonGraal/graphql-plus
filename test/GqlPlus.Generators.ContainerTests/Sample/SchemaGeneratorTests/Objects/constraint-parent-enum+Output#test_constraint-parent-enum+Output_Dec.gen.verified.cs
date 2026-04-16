@@ -11,17 +11,21 @@ internal class testEnumCnstPrntEnumOutpDecoder
 {
   public string parentCnstPrntEnumOutp { get; set; }
   public string cnstPrntEnumOutp { get; set; }
+
+  internal static testEnumCnstPrntEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testParentCnstPrntEnumOutpDecoder
 {
   public string parentCnstPrntEnumOutp { get; set; }
+
+  internal static testParentCnstPrntEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_constraint_parent_enum_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_constraint_parent_enum_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<testEnumCnstPrntEnumOutp>(_ => new testEnumCnstPrntEnumOutpDecoder())
-      .AddDecoder<testParentCnstPrntEnumOutp>(_ => new testParentCnstPrntEnumOutpDecoder());
+      .AddDecoder<testEnumCnstPrntEnumOutp>(testEnumCnstPrntEnumOutpDecoder.Factory)
+      .AddDecoder<testParentCnstPrntEnumOutp>(testParentCnstPrntEnumOutpDecoder.Factory);
 }

@@ -11,17 +11,21 @@ internal class testEnumOutpPrntGnrcDecoder
 {
   public string prnt_outpPrntGnrc { get; set; }
   public string outpPrntGnrc { get; set; }
+
+  internal static testEnumOutpPrntGnrcDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testPrntOutpPrntGnrcDecoder
 {
   public string prnt_outpPrntGnrc { get; set; }
+
+  internal static testPrntOutpPrntGnrcDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_output_parent_genericDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_output_parent_genericDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<testEnumOutpPrntGnrc>(_ => new testEnumOutpPrntGnrcDecoder())
-      .AddDecoder<testPrntOutpPrntGnrc>(_ => new testPrntOutpPrntGnrcDecoder());
+      .AddDecoder<testEnumOutpPrntGnrc>(testEnumOutpPrntGnrcDecoder.Factory)
+      .AddDecoder<testPrntOutpPrntGnrc>(testPrntOutpPrntGnrcDecoder.Factory);
 }

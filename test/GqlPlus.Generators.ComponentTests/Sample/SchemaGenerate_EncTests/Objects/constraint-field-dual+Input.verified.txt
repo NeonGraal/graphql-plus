@@ -17,11 +17,13 @@ internal class CmptPrntCnstFieldDualInpEncoder : IEncoder<ICmptPrntCnstFieldDual
 {
   public Structured Encode(ICmptPrntCnstFieldDualInpObject input)
     => Structured.Empty();
+
+  internal static CmptPrntCnstFieldDualInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_constraint_field_dual_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_field_dual_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptPrntCnstFieldDualInpObject>(_ => new CmptPrntCnstFieldDualInpEncoder());
+      .AddEncoder<ICmptPrntCnstFieldDualInpObject>(CmptPrntCnstFieldDualInpEncoder.Factory);
 }

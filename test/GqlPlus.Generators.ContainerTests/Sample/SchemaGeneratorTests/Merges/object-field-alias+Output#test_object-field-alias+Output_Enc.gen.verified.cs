@@ -15,18 +15,22 @@ internal class testObjFieldAliasOutpEncoder(
   public Structured Encode(ItestObjFieldAliasOutpObject input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _itestFldObjFieldAliasOutp);
+
+  internal static testObjFieldAliasOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testFldObjFieldAliasOutpEncoder : IEncoder<ItestFldObjFieldAliasOutpObject>
 {
   public Structured Encode(ItestFldObjFieldAliasOutpObject input)
     => Structured.Empty();
+
+  internal static testFldObjFieldAliasOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_object_field_alias_OutputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_object_field_alias_OutputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestObjFieldAliasOutpObject>(r => new testObjFieldAliasOutpEncoder(r))
-      .AddEncoder<ItestFldObjFieldAliasOutpObject>(_ => new testFldObjFieldAliasOutpEncoder());
+      .AddEncoder<ItestObjFieldAliasOutpObject>(testObjFieldAliasOutpEncoder.Factory)
+      .AddEncoder<ItestFldObjFieldAliasOutpObject>(testFldObjFieldAliasOutpEncoder.Factory);
 }

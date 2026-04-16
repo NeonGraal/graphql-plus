@@ -13,17 +13,21 @@ namespace Components.Gqlp_Schema_domain_enum_value;
 
 internal class CmptDmnEnumValueDecoder
 {
+
+  internal static CmptDmnEnumValueDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumValueDecoder
 {
   public string dmnEnumValue { get; set; }
+
+  internal static CmptEnumDmnEnumValueDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_domain_enum_valueDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_enum_valueDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptDmnEnumValue>(_ => new CmptDmnEnumValueDecoder())
-      .AddDecoder<CmptEnumDmnEnumValue>(_ => new CmptEnumDmnEnumValueDecoder());
+      .AddDecoder<ICmptDmnEnumValue>(CmptDmnEnumValueDecoder.Factory)
+      .AddDecoder<CmptEnumDmnEnumValue>(CmptEnumDmnEnumValueDecoder.Factory);
 }

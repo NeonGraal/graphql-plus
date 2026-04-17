@@ -145,7 +145,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{90DCB911-0
 		.github\copilot-instructions.md = .github\copilot-instructions.md
 		README.md = README.md
 		Style-Guide.md = Style-Guide.md
-		summary.md = summary.md
 	EndProjectSection
 EndProject
 Global

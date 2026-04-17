@@ -39,7 +39,24 @@ public class SchemaGeneratorTests
   }
 
   [Theory, RepeatData]
-  public void Generate_WithNoMatchingGenerator_DoesNotThrow(string typeName)
+  public void Generate_WithOnlyInterfaceGenerator_DoesNotThrow(string typeName)
+  {
+    // Arrange
+    GqlpGeneratorContext context = Context();
+    IAstSchema schema = A.Error<IAstSchema>();
+    IAstType type = A.Named<IAstType>(typeName);
+    schema.Declarations.Returns([type]);
+
+    ITypeGenerator typeGenerator = A.Of<ITypeGenerator>();
+    typeGenerator.ForType(type).Returns(true);
+    _generators.TypeGenerators(GqlpGeneratorType.Interface).Returns([typeGenerator]);
+
+    // Act & Assert
+    Should.NotThrow(() => _generator.Generate(schema, context));
+  }
+
+  [Theory, RepeatData]
+  public void Generate_WithNoMatchingGenerator_Throws(string typeName)
   {
     // Arrange
     GqlpGeneratorContext context = Context();
@@ -48,7 +65,7 @@ public class SchemaGeneratorTests
     schema.Declarations.Returns([type]);
 
     // Act & Assert
-    Should.NotThrow(() => _generator.Generate(schema, context));
+    Should.Throw<InvalidOperationException>(() => _generator.Generate(schema, context));
   }
 
   [Theory, RepeatData]

@@ -60,6 +60,3 @@ internal sealed class DomainEnumEncoderGenerator()
     => GenerateDomainEncoder(ast, context, "new((decimal?)input.Value)");
 }
 
-
-
-

@@ -4,6 +4,38 @@ Defining a successor to GraphQL <img src="images/GraphQL_Logo.svg" width="50" al
 
 ## Dotnet Parser, Merging Verifier and Modeller
 
+GraphQL+ is a .NET implementation of a parser, merging verifier, and modeller for GraphQL+ schemas and queries.
+
+## Tech stack
+
+- C# with modern language features enabled
+- Source projects target .NET Standard 2.0
+- Test projects target .NET 10.0, 9.0, and 8.0
+- Nullable reference types are enabled
+- File-scoped namespaces are preferred
+
+### Test stack
+
+- xUnit v3
+- AutoFixture with AutoData
+- NSubstitute
+- Shouldly
+- Verify
+
+## Build and validation
+
+```powershell
+dotnet restore
+dotnet build
+./test.ps1
+./test.ps1 -ClassTests
+./test.ps1 -Framework "10.0"
+./format.ps1
+./coverage.ps1
+```
+
+`format.ps1` runs Prettier for non-C# files, then `dotnet format whitespace`, `dotnet format style`, and `dotnet format analyzers`.
+
 ### Dotnet Packages
 
 - [AutoFixture](https://github.com/AutoFixture/AutoFixture?tab=readme-ov-file#readme) [nuget](https://www.nuget.org/packages/AutoFixture.Xunit3)
@@ -33,6 +65,8 @@ Various scripts presume these dotnet tools are installed globally:
 For repository-wide coding style, see [Style-Guide.md](Style-Guide.md).
 
 For development conventions including testing standards, see [Conventions.md](Conventions.md).
+
+For agent workflow guidance, see [AGENTS.md](AGENTS.md).
 
 ### Other references
 

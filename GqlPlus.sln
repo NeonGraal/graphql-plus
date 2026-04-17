@@ -30,7 +30,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.prettierrc.yml = .prettierrc.yml
 		autoverify.ps1 = autoverify.ps1
 		collect-samples.ps1 = collect-samples.ps1
-		.github\copilot-instructions.md = .github\copilot-instructions.md
 		.github\dependabot.yml = .github\dependabot.yml
 		Directory.Build.props = Directory.Build.props
 		Directory.Packages.props = Directory.Packages.props
@@ -38,7 +37,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.config\dotnet-tools.json = .config\dotnet-tools.json
 		format.ps1 = format.ps1
 		make-summary.ps1 = make-summary.ps1
-		README.md = README.md
 		test.ps1 = test.ps1
 		update.ps1 = update.ps1
 	EndProjectSection
@@ -139,6 +137,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Schema.GraphQlPlus", "test\GqlPlus.Schema.GraphQlPlus\GqlPlus.Schema.GraphQlPlus.csproj", "{1B3878FD-C19B-FCC9-CEB6-93F81C64EF53}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Models", "src\GqlPlus.Models\GqlPlus.Models.csproj", "{6000D95B-FC11-42E2-9432-C72F22EE9A95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{90DCB911-0A2C-4CD4-A166-8C6DD00FD3A9}"
+	ProjectSection(SolutionItems) = preProject
+		AGENTS.md = AGENTS.md
+		Conventions.md = Conventions.md
+		.github\copilot-instructions.md = .github\copilot-instructions.md
+		README.md = README.md
+		Style-Guide.md = Style-Guide.md
+		summary.md = summary.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -353,6 +361,7 @@ Global
 		{BDE665BC-9003-91CF-3B20-3D2B5E009B82} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{1B3878FD-C19B-FCC9-CEB6-93F81C64EF53} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{6000D95B-FC11-42E2-9432-C72F22EE9A95} = {B834B2ED-0D27-4281-8523-B706B42DCC15}
+		{90DCB911-0A2C-4CD4-A166-8C6DD00FD3A9} = {4E1645F9-6194-4B1F-B93D-5B2CDDE5E6DE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {148B651C-DFAA-434F-B1ED-51E535FC2DE8}

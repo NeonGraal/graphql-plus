@@ -5,7 +5,7 @@ enum EnumDmnEnumLabel { dmnEnumLabel }
 
 // Generated from Schema domain-enum-label
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-enum-label, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

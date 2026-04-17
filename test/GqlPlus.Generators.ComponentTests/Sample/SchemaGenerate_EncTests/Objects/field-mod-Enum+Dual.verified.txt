@@ -5,7 +5,7 @@ enum EnumFieldModEnumDual { value }
 
 // Generated from Schema field-mod-Enum+Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_field-mod-Enum+Dual, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

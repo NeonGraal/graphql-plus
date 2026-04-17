@@ -6,7 +6,7 @@ dual RefObjPrntDual { }
 
 // Generated from Schema object-parent+Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_object-parent+Dual, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

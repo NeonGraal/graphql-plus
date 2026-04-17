@@ -5,7 +5,7 @@ enum EnumDmnEnumExcl { dmnEnumExcl enum_dmnEnumExcl dmnEnumExclValue }
 
 // Generated from Schema domain-enum-exclude
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-enum-exclude, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

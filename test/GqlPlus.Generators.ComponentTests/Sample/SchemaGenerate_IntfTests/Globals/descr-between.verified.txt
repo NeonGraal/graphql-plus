@@ -6,7 +6,7 @@ output DescrBtwn { }
 
 // Generated from Schema descr-between
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_descr-between, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

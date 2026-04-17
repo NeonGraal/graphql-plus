@@ -78,7 +78,11 @@ public class GqlpGenerator : IIncrementalGenerator
       typePrefix = "Gqlp";
     }
 
-    return new GqlpModelOptions(baseNamespace, typePrefix);
+    bool namespaceIncludesBaseName = !provider.GlobalOptions
+      .TryGetValue("build_property.GqlPlus_NamespaceIncludesBaseName", out string? includesBaseNameString)
+        || !bool.TryParse(includesBaseNameString, out bool includesBaseName) || includesBaseName;
+
+    return new GqlpModelOptions(baseNamespace, typePrefix, namespaceIncludesBaseName);
   }
 
   private void GenerateCode(
@@ -128,6 +132,8 @@ public class GqlpGenerator : IIncrementalGenerator
     IMerge<IAstSchema> schemaMerger = services.GetRequiredService<IMergerRepository>().MergerFor<IAstSchema>();
     IGenerator<IAstSchema> schemaGenerator = services.GetRequiredService<IGeneratorRepository>().GeneratorFor<IAstSchema>();
 
+    Map<IAstSchema> schemas = [];
+
     foreach (AdditionalText text in array) {
       string? lines = text.GetText()?.ToString();
       if (lines is null) {
@@ -137,17 +143,26 @@ public class GqlpGenerator : IIncrementalGenerator
       string path = Path.GetFullPath(text.Path);
       Tokenizer tokens = new(lines);
       IAstSchema parsed = schemaParser.Parse(tokens, "Schema").Required();
-      IAstSchema merged = schemaMerger.Merge([parsed]).Single();
+      schemas[path] = schemaMerger.Merge([parsed]).Single();
+    }
 
+    foreach (string path in schemas.Keys) {
       GqlpGeneratorContext context = new(path, generatorOptions, modelOptions);
-      schemaGenerator.Generate(merged, context);
+
+      foreach (MapPair<IAstSchema> other in schemas) {
+        if (other.Key != path) {
+          context.AddTypes(other.Value.Declarations.ArrayOf<IAstType>());
+        }
+      }
+
+      schemaGenerator.Generate(schemas[path], context);
       string source = context.ToString();
 
       if (!string.IsNullOrWhiteSpace(source)) {
         sourceContext.AddSource(context.FileName, source);
       }
 
-      foreach (IMessage error in merged.Errors) {
+      foreach (IMessage error in schemas[path].Errors) {
         LinePosition at = error is ITokenMessage token ? new(token.Line, token.Column) : default;
         Location location = Location.Create(path, default, new(at, at));
         Diagnostic diagnostic = Diagnostic.Create(

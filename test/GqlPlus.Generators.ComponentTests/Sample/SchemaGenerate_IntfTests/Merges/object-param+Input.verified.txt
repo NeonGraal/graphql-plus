@@ -5,7 +5,7 @@ input ObjParamInp<$type:String> { type: $type }
 
 // Generated from Schema object-param+Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-param+Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

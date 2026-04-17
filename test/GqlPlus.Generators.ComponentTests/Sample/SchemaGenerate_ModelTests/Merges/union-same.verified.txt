@@ -5,7 +5,7 @@ union UnionSame { Boolean }
 
 // Generated from Schema union-same
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_union-same, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -8,7 +8,7 @@ output CtgrDescr { }
 
 // Generated from Schema category-descr
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_category-descr, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -6,7 +6,7 @@ output CtgrAlias { }
 
 // Generated from Schema category-alias
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_category-alias, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -5,7 +5,7 @@ domain DmnAlias [Num2] { number }
 
 // Generated from Schema domain-alias
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-alias, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

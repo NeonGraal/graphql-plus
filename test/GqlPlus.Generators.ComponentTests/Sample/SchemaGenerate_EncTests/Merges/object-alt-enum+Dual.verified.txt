@@ -5,7 +5,7 @@ dual ObjAltEnumDual { ! false }
 
 // Generated from Schema object-alt-enum+Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alt-enum+Dual, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

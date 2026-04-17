@@ -7,7 +7,7 @@ enum ParentGnrcPrntEnumPrntInp { gnrcPrntEnumPrntInpParent }
 
 // Generated from Schema generic-parent-enum-parent+Input
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-enum-parent+Input, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -6,7 +6,7 @@ domain DomGnrcPrntStrDomInp { string /\w+/ }
 
 // Generated from Schema generic-parent-string-dom+Input
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-string-dom+Input, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

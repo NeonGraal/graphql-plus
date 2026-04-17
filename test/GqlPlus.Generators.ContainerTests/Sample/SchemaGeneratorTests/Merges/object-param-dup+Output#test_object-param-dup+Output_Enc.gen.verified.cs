@@ -1,7 +1,7 @@
 ﻿//HintName: test_object-param-dup+Output_Enc.gen.cs
 // Generated from {CurrentDirectory}object-param-dup+Output.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpEncoderBase, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

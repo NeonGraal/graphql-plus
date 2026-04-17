@@ -5,7 +5,7 @@ input RefPrntAltInp {  parent: Number | String }
 
 // Generated from Schema parent-alt+Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_parent-alt+Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -4,7 +4,7 @@ dual RefGnrcAltModParamDual<$ref:String $mod:String> { | $ref[$mod] }
 
 // Generated from Schema generic-alt-mod-param+Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-mod-param+Dual, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

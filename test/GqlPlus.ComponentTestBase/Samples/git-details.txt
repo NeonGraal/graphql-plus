@@ -1,1 +1,1 @@
-41c2e2d  (HEAD -> generators) 2026-03-06 Improve naming of various *Kind type params
+3686bc6  (HEAD -> main, origin/main, origin/HEAD) 2026-03-31 Merge pull request #50 from graphql-plus/dependabot/github_actions/actions/deploy-pages-5

@@ -1,7 +1,7 @@
 ﻿//HintName: test_object-param-dup+Dual_Intf.gen.cs
 // Generated from {CurrentDirectory}object-param-dup+Dual.graphql+
 //   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

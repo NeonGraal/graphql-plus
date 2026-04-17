@@ -7,7 +7,7 @@ domain JustCnstDomEnumDual { enum EnumCnstDomEnumDual.cnstDomEnumDual }
 
 // Generated from Schema constraint-dom-enum+Dual
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-dom-enum+Dual, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

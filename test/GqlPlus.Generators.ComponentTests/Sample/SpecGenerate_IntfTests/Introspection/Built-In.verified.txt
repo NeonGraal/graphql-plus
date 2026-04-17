@@ -25,7 +25,7 @@ dual _Modifier<$modifierKind:_ModifierKind> {
 
 // Generated from Spec Built-In
 //   with GeneratorOption: BaseType: Interface, BaseName: Spec_Built-In, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

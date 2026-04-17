@@ -6,7 +6,7 @@ dual AltGnrcAltParamDual { alt: Number | String }
 
 // Generated from Schema generic-alt-param+Dual
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-alt-param+Dual, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

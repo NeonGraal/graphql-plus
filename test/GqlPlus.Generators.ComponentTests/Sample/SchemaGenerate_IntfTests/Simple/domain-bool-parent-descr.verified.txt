@@ -5,7 +5,7 @@ domain PrntDmnBoolPrntDescr { Boolean true }
 
 // Generated from Schema domain-bool-parent-descr
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-bool-parent-descr, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

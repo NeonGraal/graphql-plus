@@ -1,7 +1,7 @@
 ﻿//HintName: test_generic-field-arg+Input_Dec.gen.cs
 // Generated from {CurrentDirectory}generic-field-arg+Input.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpDecoderBase, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

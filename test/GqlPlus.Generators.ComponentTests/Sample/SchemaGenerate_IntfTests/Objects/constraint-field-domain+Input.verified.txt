@@ -6,7 +6,7 @@ domain DomCnstFieldDmnInp { String /\w+/ }
 
 // Generated from Schema constraint-field-domain+Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-field-domain+Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

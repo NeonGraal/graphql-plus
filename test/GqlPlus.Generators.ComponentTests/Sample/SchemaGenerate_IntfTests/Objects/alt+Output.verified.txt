@@ -5,7 +5,7 @@ output AltAltOutp { alt: Number | String }
 
 // Generated from Schema alt+Output
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_alt+Output, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

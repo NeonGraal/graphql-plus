@@ -6,7 +6,7 @@ enum EnumCnstEnumOutp { cnstEnumOutp }
 
 // Generated from Schema constraint-enum+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-enum+Output, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

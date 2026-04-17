@@ -1,6 +1,6 @@
 ﻿// Generated from Schema +Objects
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_+Objects, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

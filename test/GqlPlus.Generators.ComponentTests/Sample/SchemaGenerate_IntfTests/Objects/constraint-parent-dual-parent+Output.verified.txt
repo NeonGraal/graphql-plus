@@ -7,7 +7,7 @@ output AltCnstPrntDualPrntOutp { :PrntCnstPrntDualPrntOutp alt: Number }
 
 // Generated from Schema constraint-parent-dual-parent+Output
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-parent-dual-parent+Output, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

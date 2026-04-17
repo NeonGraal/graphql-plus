@@ -5,7 +5,7 @@ output RefPrntFieldOutp { parent: Number | String }
 
 // Generated from Schema parent-field+Output
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_parent-field+Output, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

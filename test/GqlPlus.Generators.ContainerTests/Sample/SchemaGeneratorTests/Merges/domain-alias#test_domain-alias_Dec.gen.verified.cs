@@ -1,7 +1,7 @@
 ﻿//HintName: test_domain-alias_Dec.gen.cs
 // Generated from {CurrentDirectory}domain-alias.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpDecoderBase, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

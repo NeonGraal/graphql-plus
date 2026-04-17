@@ -1,7 +1,7 @@
 ﻿//HintName: test_constraint-dom-enum+Input_Model.gen.cs
 // Generated from {CurrentDirectory}constraint-dom-enum+Input.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

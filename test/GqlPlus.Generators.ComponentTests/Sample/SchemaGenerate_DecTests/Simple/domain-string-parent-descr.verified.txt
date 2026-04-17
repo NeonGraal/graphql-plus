@@ -5,7 +5,7 @@ domain PrntDmnStrPrntDescr { String /b+/ }
 
 // Generated from Schema domain-string-parent-descr
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-string-parent-descr, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

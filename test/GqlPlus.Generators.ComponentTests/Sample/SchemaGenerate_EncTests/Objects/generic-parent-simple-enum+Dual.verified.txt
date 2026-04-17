@@ -6,7 +6,7 @@ enum EnumGnrcPrntSmplEnumDual { gnrcPrntSmplEnumDual }
 
 // Generated from Schema generic-parent-simple-enum+Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-simple-enum+Dual, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

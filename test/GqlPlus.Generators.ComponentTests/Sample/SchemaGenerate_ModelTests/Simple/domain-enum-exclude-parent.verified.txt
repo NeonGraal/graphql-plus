@@ -6,7 +6,7 @@ enum PrntDmnEnumExclPrnt { prnt_dmnEnumExclPrnt dmnEnumExclPrntPrnt }
 
 // Generated from Schema domain-enum-exclude-parent
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-enum-exclude-parent, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

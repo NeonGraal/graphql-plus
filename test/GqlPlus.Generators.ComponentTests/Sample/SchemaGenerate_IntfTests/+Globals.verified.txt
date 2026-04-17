@@ -1,6 +1,6 @@
 ﻿// Generated from Schema +Globals
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_+Globals, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

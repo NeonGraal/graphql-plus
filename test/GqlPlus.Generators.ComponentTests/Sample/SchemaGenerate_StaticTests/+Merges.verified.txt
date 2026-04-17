@@ -1,6 +1,6 @@
 ﻿// Generated from Schema +Merges
 //   with GeneratorOption: BaseType: Other, BaseName: Schema_+Merges, GeneratorType: Static
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 
 Category ctgr

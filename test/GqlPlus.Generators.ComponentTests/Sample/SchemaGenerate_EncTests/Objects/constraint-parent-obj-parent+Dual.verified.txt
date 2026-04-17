@@ -7,7 +7,7 @@ dual AltCnstPrntObjPrntDual { :PrntCnstPrntObjPrntDual alt: Number }
 
 // Generated from Schema constraint-parent-obj-parent+Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-parent-obj-parent+Dual, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

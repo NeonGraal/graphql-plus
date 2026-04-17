@@ -6,7 +6,7 @@ union PrntUnionSamePrnt { String }
 
 // Generated from Schema union-same-parent
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_union-same-parent, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

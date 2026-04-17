@@ -5,7 +5,7 @@ dual RefPrntParamSameDual<$a:String> { | $a }
 
 // Generated from Schema parent-param-same+Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-param-same+Dual, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

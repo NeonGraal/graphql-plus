@@ -1,7 +1,7 @@
 ﻿//HintName: test_generic-parent-enum-dom+Output_Enc.gen.cs
 // Generated from {CurrentDirectory}generic-parent-enum-dom+Output.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpEncoderBase, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

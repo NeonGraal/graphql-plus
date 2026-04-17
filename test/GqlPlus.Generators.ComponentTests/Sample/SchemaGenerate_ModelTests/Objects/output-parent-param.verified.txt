@@ -8,7 +8,7 @@ input PrntOutpPrntParamIn { parent: Number | String }
 
 // Generated from Schema output-parent-param
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_output-parent-param, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -6,7 +6,7 @@ input InOutpParam { param: Number | String }
 
 // Generated from Schema output-param
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_output-param, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

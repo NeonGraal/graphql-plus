@@ -5,7 +5,7 @@ domain DmnEnumSame { enum true }
 
 // Generated from Schema domain-enum-same
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-enum-same, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

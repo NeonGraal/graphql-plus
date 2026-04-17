@@ -1,7 +1,7 @@
 ﻿//HintName: test_category-output-optional_Intf.gen.cs
 // Generated from {CurrentDirectory}category-output-optional.graphql+
 //   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

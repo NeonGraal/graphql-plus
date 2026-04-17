@@ -1,7 +1,7 @@
 ﻿//HintName: test_constraint-alt-obj+Dual_Enc.gen.cs
 // Generated from {CurrentDirectory}constraint-alt-obj+Dual.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpEncoderBase, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

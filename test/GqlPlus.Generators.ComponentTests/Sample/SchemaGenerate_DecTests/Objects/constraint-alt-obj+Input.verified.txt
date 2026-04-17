@@ -7,7 +7,7 @@ input AltCnstAltObjInp { :PrntCnstAltObjInp alt: Number }
 
 // Generated from Schema constraint-alt-obj+Input
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-alt-obj+Input, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -7,7 +7,7 @@ enum ParentGnrcPrntEnumChildOutp { gnrcPrntEnumChildOutpParent }
 
 // Generated from Schema generic-parent-enum-child+Output
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-enum-child+Output, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

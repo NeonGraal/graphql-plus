@@ -1,7 +1,7 @@
 ﻿//HintName: test_field-enum-parent+Input_Enc.gen.cs
 // Generated from {CurrentDirectory}field-enum-parent+Input.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpEncoderBase, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

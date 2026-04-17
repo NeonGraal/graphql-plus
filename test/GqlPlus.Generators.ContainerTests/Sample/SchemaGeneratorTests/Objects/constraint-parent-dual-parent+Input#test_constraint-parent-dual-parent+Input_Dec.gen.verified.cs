@@ -1,7 +1,7 @@
 ﻿//HintName: test_constraint-parent-dual-parent+Input_Dec.gen.cs
 // Generated from {CurrentDirectory}constraint-parent-dual-parent+Input.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpDecoderBase, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

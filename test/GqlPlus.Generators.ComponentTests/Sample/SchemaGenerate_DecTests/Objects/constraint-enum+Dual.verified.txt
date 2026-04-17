@@ -6,7 +6,7 @@ enum EnumCnstEnumDual { cnstEnumDual }
 
 // Generated from Schema constraint-enum+Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-enum+Dual, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

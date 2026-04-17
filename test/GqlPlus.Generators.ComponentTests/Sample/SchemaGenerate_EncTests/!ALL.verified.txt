@@ -1,6 +1,6 @@
 ﻿// Generated from Schema !ALL
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_!ALL, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -74,7 +74,7 @@ output _DomainItemRegex {
 
 // Generated from Spec Domain
 //   with GeneratorOption: BaseType: Class, BaseName: Spec_Domain, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

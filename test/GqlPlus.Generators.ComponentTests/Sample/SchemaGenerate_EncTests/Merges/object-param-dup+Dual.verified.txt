@@ -5,7 +5,7 @@ dual ObjParamDupDual<$test:String> { type: $test }
 
 // Generated from Schema object-param-dup+Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_object-param-dup+Dual, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

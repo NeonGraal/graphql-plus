@@ -5,7 +5,7 @@ output RefGnrcAltSmplOutp<$ref:String> { | $ref }
 
 // Generated from Schema generic-alt-simple+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-simple+Output, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

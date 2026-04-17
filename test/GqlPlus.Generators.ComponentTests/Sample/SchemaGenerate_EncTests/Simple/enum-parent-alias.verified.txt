@@ -5,7 +5,7 @@ enum PrntEnumPrntAlias { prnt_enumPrntAlias }
 
 // Generated from Schema enum-parent-alias
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_enum-parent-alias, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

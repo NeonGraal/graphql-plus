@@ -1,7 +1,7 @@
 ﻿//HintName: test_generic-parent-string-dom+Input_Model.gen.cs
 // Generated from {CurrentDirectory}generic-parent-string-dom+Input.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

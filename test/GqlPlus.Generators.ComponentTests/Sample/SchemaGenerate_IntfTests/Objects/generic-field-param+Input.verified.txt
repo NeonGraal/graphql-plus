@@ -6,7 +6,7 @@ input AltGnrcFieldParamInp { alt: Number | String }
 
 // Generated from Schema generic-field-param+Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-field-param+Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -5,7 +5,7 @@ enum EnumAltEnumOutp { altEnumOutp }
 
 // Generated from Schema alt-enum+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-enum+Output, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

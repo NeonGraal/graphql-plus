@@ -5,7 +5,7 @@ union PrntUnionPrntDescr { Number }
 
 // Generated from Schema union-parent-descr
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_union-parent-descr, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

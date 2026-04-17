@@ -71,7 +71,7 @@ output _ForParam<$type:_ObjFieldType> {
 
 // Generated from Spec Base
 //   with GeneratorOption: BaseType: Class, BaseName: Spec_Base, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

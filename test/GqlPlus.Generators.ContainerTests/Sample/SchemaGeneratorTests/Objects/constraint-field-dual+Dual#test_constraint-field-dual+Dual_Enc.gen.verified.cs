@@ -1,7 +1,7 @@
 ﻿//HintName: test_constraint-field-dual+Dual_Enc.gen.cs
 // Generated from {CurrentDirectory}constraint-field-dual+Dual.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpEncoderBase, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

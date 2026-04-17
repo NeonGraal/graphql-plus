@@ -1,7 +1,7 @@
 ﻿//HintName: test_descr-single_Model.gen.cs
 // Generated from {CurrentDirectory}descr-single.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

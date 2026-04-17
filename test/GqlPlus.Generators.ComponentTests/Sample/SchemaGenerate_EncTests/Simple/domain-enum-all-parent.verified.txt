@@ -6,7 +6,7 @@ enum PrntDmnEnumAllPrnt { prnt_dmnEnumAllPrnt dmnEnumAllPrntPrnt }
 
 // Generated from Schema domain-enum-all-parent
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-enum-all-parent, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

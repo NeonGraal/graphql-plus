@@ -5,7 +5,7 @@ output CtgrOutpDict { }
 
 // Generated from Schema category-output-dict
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_category-output-dict, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

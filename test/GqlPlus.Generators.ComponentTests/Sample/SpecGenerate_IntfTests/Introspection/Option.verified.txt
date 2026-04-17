@@ -7,7 +7,7 @@ output _Setting {
 
 // Generated from Spec Option
 //   with GeneratorOption: BaseType: Interface, BaseName: Spec_Option, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

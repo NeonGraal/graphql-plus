@@ -5,7 +5,7 @@ dual RefPrntFieldDual { parent: Number | String }
 
 // Generated from Schema parent-field+Dual
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_parent-field+Dual, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

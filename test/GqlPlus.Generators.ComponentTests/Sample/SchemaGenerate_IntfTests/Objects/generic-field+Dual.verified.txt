@@ -4,7 +4,7 @@ dual GnrcFieldDual<$type:String> { field: $type }
 
 // Generated from Schema generic-field+Dual
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-field+Dual, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

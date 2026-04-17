@@ -4,7 +4,7 @@ dual FieldSmplDual { field: Number }
 
 // Generated from Schema field-simple+Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_field-simple+Dual, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

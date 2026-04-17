@@ -5,7 +5,7 @@ enum EnumFieldModEnumOutp { value }
 
 // Generated from Schema field-mod-Enum+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_field-mod-Enum+Output, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -6,7 +6,7 @@ output AltGnrcAltParamOutp { alt: Number | String }
 
 // Generated from Schema generic-alt-param+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-param+Output, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

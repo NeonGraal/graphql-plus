@@ -6,7 +6,7 @@ dual FldObjFieldAliasDual { }
 
 // Generated from Schema object-field-alias+Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field-alias+Dual, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -5,7 +5,7 @@ dual RefPrntParamDiffDual<$b:String> { | $b }
 
 // Generated from Schema parent-param-diff+Dual
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_parent-param-diff+Dual, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -1,7 +1,7 @@
 ﻿//HintName: test_descr-backslash_Intf.gen.cs
 // Generated from {CurrentDirectory}descr-backslash.graphql+
 //   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

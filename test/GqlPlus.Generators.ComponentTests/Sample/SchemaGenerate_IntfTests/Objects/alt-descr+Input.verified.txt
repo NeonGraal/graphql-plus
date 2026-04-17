@@ -4,7 +4,7 @@ input AltDescrInp { | "Test" "Descr" String }
 
 // Generated from Schema alt-descr+Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_alt-descr+Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -6,7 +6,7 @@ domain DomCnstFieldDmnDual { String /\w+/ }
 
 // Generated from Schema constraint-field-domain+Dual
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-field-domain+Dual, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

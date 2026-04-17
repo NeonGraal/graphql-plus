@@ -5,7 +5,7 @@ output RefPrntParamDiffOutp<$b:String> { | $b }
 
 // Generated from Schema parent-param-diff+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-param-diff+Output, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

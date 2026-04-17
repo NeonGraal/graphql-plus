@@ -5,7 +5,7 @@ option Schema { merged=[0] }
 
 // Generated from Schema option-value
 //   with GeneratorOption: BaseType: Other, BaseName: Schema_option-value, GeneratorType: Static
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 
 Option Schema

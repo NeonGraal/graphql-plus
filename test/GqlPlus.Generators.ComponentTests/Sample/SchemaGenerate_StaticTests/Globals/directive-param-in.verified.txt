@@ -5,7 +5,7 @@ input InDrctParamIn { }
 
 // Generated from Schema directive-param-in
 //   with GeneratorOption: BaseType: Other, BaseName: Schema_directive-param-in, GeneratorType: Static
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 
 Directive DrctParamIn

@@ -5,7 +5,7 @@ dual FldFieldModParamDual { field: Number | String }
 
 // Generated from Schema field-mod-param+Dual
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-mod-param+Dual, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

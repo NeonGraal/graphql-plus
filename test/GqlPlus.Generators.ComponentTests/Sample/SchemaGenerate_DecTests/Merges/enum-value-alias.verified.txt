@@ -5,7 +5,7 @@ enum EnumValueAlias { enumValueAlias [val2] }
 
 // Generated from Schema enum-value-alias
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_enum-value-alias, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

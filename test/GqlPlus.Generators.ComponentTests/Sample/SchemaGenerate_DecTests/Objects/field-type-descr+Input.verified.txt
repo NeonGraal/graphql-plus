@@ -4,7 +4,7 @@ input FieldTypeDescrInp { field: "Test" "Descr" Number }
 
 // Generated from Schema field-type-descr+Input
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_field-type-descr+Input, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

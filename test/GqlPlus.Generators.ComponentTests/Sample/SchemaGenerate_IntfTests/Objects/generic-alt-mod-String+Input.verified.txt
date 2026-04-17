@@ -4,7 +4,7 @@ input RefGnrcAltModStrInp<$ref:String> { | $ref[*] }
 
 // Generated from Schema generic-alt-mod-String+Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-alt-mod-String+Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -5,7 +5,7 @@ union UnionAlias [UnA2] { Number }
 
 // Generated from Schema union-alias
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_union-alias, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -70,7 +70,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     bool hasListMod = field.Modifiers.Any(m => m.ModifierKind == ModifierKind.List);
     (string csBaseType, bool isPrimitive, bool isEnum) = ResolveFieldTypeInfo(field, context);
 
-    string call = BuildFieldCall(field, fieldKey, fieldAccess, hasListMod, csBaseType, isPrimitive, isEnum, encoderFields, typePrefix, context);
+    string call = BuildFieldCall(field, fieldKey, fieldAccess, hasListMod, isPrimitive, isEnum, encoderFields, typePrefix, context);
     fieldCalls.Add(call);
   }
 
@@ -82,27 +82,35 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
       : $"input.{fieldPropName}";
   }
 
-  private (string CsBaseType, bool IsPrimitive, bool IsEnum) ResolveFieldTypeInfo(TObjField field, GqlpGeneratorContext context)
+  private bool ResolveFieldTypeName(TObjField field, GqlpGeneratorContext context, out string fieldTypeName)
   {
-    string fieldTypeName = field.Type.Name;
+    fieldTypeName = field.Type.Name;
     bool isTypeParam = field.Type.IsTypeParam;
 
     if (isTypeParam && context.GetArg(fieldTypeName, out IAstObjType resolvedArg) && !resolvedArg.IsTypeParam) {
       fieldTypeName = resolvedArg.Name;
-      isTypeParam = false;
+      return false;
     }
 
-    if (isTypeParam) {
-      return ("T" + (fieldTypeName.Capitalize() ?? fieldTypeName), false, false);
+    return isTypeParam;
+  }
+
+  private (string CsBaseType, bool IsPrimitive, bool IsEnum) ResolveFieldTypeInfo(TObjField field, GqlpGeneratorContext context)
+  {
+    if (ResolveFieldTypeName(field, context, out string fieldTypeName)) {
+      return ("T" + fieldTypeName.Capitalize(), false, false);
     }
 
     string csBaseType = context.TypeName(fieldTypeName, "");
-    bool isPrimitive = csBaseType is "string" or "bool" or "decimal";
+    bool isPrimitive = IsPrimitive(csBaseType);
     bool isEnum = !isPrimitive && context.GetTypeAst(fieldTypeName, out IAstEnum _);
     return (csBaseType, isPrimitive, isEnum);
   }
 
-  private string BuildFieldCall(TObjField field, string fieldKey, string fieldAccess, bool hasListMod, string csBaseType, bool isPrimitive, bool isEnum, Dictionary<string, string> encoderFields, string typePrefix, GqlpGeneratorContext context)
+  private bool IsPrimitive(string csBaseType)
+    => csBaseType is "string" or "bool" or "decimal";
+
+  private string BuildFieldCall(TObjField field, string fieldKey, string fieldAccess, bool hasListMod, bool isPrimitive, bool isEnum, Dictionary<string, string> encoderFields, string typePrefix, GqlpGeneratorContext context)
   {
     if (hasListMod) {
       if (isPrimitive || isEnum) {

@@ -4,7 +4,7 @@ domain DmnNmbrRange { Number 1<9 21>12 }
 
 // Generated from Schema domain-number-range
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-number-range, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

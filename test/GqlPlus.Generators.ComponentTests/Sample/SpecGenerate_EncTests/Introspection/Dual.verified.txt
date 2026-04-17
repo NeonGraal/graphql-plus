@@ -6,7 +6,7 @@ output _DualField {
 
 // Generated from Spec Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Spec_Dual, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

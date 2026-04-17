@@ -32,7 +32,7 @@ union _Simple [Simple] { _Enum _Domain _Union }
 
 // Generated from Spec Definition
 //   with GeneratorOption: BaseType: Class, BaseName: Spec_Definition, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

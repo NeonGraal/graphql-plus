@@ -5,7 +5,7 @@ enum EnumDmnEnumValue { dmnEnumValue }
 
 // Generated from Schema domain-enum-value
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-enum-value, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

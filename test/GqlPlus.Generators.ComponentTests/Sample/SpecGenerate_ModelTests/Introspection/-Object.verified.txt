@@ -93,7 +93,7 @@ output _OutputFieldType {
 
 // Generated from Spec -Object
 //   with GeneratorOption: BaseType: Class, BaseName: Spec_-Object, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -5,7 +5,7 @@ domain DmnEnumDiff { enum false }
 
 // Generated from Schema domain-enum-diff
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-enum-diff, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

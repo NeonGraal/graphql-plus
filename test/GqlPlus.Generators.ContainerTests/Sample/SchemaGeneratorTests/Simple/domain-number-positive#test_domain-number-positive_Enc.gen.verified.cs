@@ -1,7 +1,7 @@
 ﻿//HintName: test_domain-number-positive_Enc.gen.cs
 // Generated from {CurrentDirectory}domain-number-positive.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpEncoderBase, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

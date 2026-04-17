@@ -342,7 +342,7 @@ output _OutputFieldType {
 
 // Generated from Spec Introspection
 //   with GeneratorOption: BaseType: Interface, BaseName: Spec_Introspection, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

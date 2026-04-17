@@ -5,7 +5,7 @@ enum EnumFieldEnumDual { fieldEnumDual }
 
 // Generated from Schema field-enum+Dual
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-enum+Dual, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

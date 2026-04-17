@@ -1,7 +1,7 @@
 ﻿//HintName: test_output-descr-param_Intf.gen.cs
 // Generated from {CurrentDirectory}output-descr-param.graphql+
 //   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

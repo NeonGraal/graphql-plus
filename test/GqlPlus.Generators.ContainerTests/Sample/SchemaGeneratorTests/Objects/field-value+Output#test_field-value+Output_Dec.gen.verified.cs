@@ -1,7 +1,7 @@
 ﻿//HintName: test_field-value+Output_Dec.gen.cs
 // Generated from {CurrentDirectory}field-value+Output.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpDecoderBase, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

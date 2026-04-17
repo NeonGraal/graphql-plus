@@ -1,7 +1,7 @@
 ﻿//HintName: test_object-parent+Dual_Dec.gen.cs
 // Generated from {CurrentDirectory}object-parent+Dual.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpDecoderBase, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -44,7 +44,7 @@ output _Setting {
 
 // Generated from Spec -Global
 //   with GeneratorOption: BaseType: Class, BaseName: Spec_-Global, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

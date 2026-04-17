@@ -11,7 +11,7 @@ output _OutputFieldType {
 
 // Generated from Spec Output
 //   with GeneratorOption: BaseType: Class, BaseName: Spec_Output, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

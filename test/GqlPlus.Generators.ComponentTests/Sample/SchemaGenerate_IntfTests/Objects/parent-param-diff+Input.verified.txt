@@ -5,7 +5,7 @@ input RefPrntParamDiffInp<$b:String> { | $b }
 
 // Generated from Schema parent-param-diff+Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_parent-param-diff+Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

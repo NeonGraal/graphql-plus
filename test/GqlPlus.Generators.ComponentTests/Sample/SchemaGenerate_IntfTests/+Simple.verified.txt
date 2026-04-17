@@ -1,6 +1,6 @@
 ﻿// Generated from Schema +Simple
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_+Simple, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

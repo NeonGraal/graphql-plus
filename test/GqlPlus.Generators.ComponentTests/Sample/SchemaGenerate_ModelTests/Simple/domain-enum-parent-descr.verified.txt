@@ -6,7 +6,7 @@ enum EnumDmnEnumPrntDescr { enum_dmnEnumPrntDescr prnt_dmnEnumPrntDescr }
 
 // Generated from Schema domain-enum-parent-descr
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-enum-parent-descr, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

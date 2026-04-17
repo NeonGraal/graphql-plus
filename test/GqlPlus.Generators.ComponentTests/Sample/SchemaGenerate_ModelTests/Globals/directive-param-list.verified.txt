@@ -5,7 +5,7 @@ input InDrctParamList { }
 
 // Generated from Schema directive-param-list
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_directive-param-list, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

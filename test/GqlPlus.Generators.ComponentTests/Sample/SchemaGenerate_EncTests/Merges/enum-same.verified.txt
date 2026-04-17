@@ -5,7 +5,7 @@ enum EnumSame { enumSame }
 
 // Generated from Schema enum-same
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_enum-same, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

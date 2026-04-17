@@ -1,7 +1,7 @@
 ﻿//HintName: test_enum-parent-dup_Dec.gen.cs
 // Generated from {CurrentDirectory}enum-parent-dup.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpDecoderBase, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

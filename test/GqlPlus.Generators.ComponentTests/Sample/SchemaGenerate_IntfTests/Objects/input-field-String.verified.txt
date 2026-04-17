@@ -4,7 +4,7 @@ input InpFieldStr { field: String = 'default' }
 
 // Generated from Schema input-field-String
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_input-field-String, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

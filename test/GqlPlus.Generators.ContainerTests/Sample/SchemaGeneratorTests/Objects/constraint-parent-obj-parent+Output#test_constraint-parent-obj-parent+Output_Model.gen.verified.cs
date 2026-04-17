@@ -1,7 +1,7 @@
 ﻿//HintName: test_constraint-parent-obj-parent+Output_Model.gen.cs
 // Generated from {CurrentDirectory}constraint-parent-obj-parent+Output.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -6,7 +6,7 @@ enum EnumDmnEnumPrnt { enum_dmnEnumPrnt prnt_dmnEnumPrnt }
 
 // Generated from Schema domain-enum-parent
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-enum-parent, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

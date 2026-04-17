@@ -5,7 +5,7 @@ output RefGnrcFieldArgOutp<$ref:String> { | $ref }
 
 // Generated from Schema generic-field-arg+Output
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-field-arg+Output, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

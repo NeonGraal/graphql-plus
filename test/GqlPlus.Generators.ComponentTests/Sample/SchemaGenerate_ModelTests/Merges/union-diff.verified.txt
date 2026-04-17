@@ -5,7 +5,7 @@ union UnionDiff { Number }
 
 // Generated from Schema union-diff
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_union-diff, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

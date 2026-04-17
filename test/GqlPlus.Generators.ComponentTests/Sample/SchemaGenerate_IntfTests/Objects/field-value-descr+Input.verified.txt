@@ -5,7 +5,7 @@ enum EnumFieldValueDescrInp { fieldValueDescrInp }
 
 // Generated from Schema field-value-descr+Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-value-descr+Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

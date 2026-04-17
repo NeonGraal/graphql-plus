@@ -4,7 +4,7 @@ input GnrcAltInp<$type:String> { | $type }
 
 // Generated from Schema generic-alt+Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-alt+Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

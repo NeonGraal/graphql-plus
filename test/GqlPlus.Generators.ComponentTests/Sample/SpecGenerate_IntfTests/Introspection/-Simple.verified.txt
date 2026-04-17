@@ -93,7 +93,7 @@ output _UnionMember {
 
 // Generated from Spec -Simple
 //   with GeneratorOption: BaseType: Interface, BaseName: Spec_-Simple, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

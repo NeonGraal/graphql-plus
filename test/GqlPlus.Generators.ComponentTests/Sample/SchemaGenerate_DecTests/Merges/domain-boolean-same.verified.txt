@@ -5,7 +5,7 @@ domain DmnBoolSame { boolean true }
 
 // Generated from Schema domain-boolean-same
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-boolean-same, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

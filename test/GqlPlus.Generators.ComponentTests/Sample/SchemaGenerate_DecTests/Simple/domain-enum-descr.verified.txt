@@ -5,7 +5,7 @@ enum EnumDmnEnumDescr { dmnEnumDescr }
 
 // Generated from Schema domain-enum-descr
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-enum-descr, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

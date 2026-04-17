@@ -5,7 +5,7 @@ enum EnumAlias [En2] { enumAlias }
 
 // Generated from Schema enum-alias
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_enum-alias, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

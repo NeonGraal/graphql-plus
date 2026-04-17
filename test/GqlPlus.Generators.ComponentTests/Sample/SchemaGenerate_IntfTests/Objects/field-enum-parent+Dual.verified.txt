@@ -6,7 +6,7 @@ enum PrntFieldEnumPrntDual { prnt_fieldEnumPrntDual }
 
 // Generated from Schema field-enum-parent+Dual
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-enum-parent+Dual, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

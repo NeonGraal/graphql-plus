@@ -11,7 +11,7 @@ output _UnionMember {
 
 // Generated from Spec Union
 //   with GeneratorOption: BaseType: Interface, BaseName: Spec_Union, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

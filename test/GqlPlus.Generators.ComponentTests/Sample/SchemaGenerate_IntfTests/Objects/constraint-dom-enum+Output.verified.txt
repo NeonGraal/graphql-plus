@@ -7,7 +7,7 @@ domain JustCnstDomEnumOutp { enum EnumCnstDomEnumOutp.cnstDomEnumOutp }
 
 // Generated from Schema constraint-dom-enum+Output
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-dom-enum+Output, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

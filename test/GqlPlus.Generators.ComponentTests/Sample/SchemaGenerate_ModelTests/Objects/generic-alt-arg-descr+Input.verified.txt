@@ -5,7 +5,7 @@ input RefGnrcAltArgDescrInp<$ref:String> { | $ref }
 
 // Generated from Schema generic-alt-arg-descr+Input
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-arg-descr+Input, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

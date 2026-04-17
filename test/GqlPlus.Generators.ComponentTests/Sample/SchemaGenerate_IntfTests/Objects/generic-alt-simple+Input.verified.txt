@@ -5,7 +5,7 @@ input RefGnrcAltSmplInp<$ref:String> { | $ref }
 
 // Generated from Schema generic-alt-simple+Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-alt-simple+Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

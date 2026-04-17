@@ -5,7 +5,7 @@ input AltAltModParamInp { alt: Number | String }
 
 // Generated from Schema alt-mod-param+Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_alt-mod-param+Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

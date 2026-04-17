@@ -5,7 +5,7 @@ dual FldFieldObjDual { field: Number | String }
 
 // Generated from Schema field-object+Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_field-object+Dual, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

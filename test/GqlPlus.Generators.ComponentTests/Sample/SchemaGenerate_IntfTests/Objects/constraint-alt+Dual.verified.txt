@@ -4,7 +4,7 @@ dual CnstAltDual<$type:Number> { | $type }
 
 // Generated from Schema constraint-alt+Dual
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-alt+Dual, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

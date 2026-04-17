@@ -8,7 +8,7 @@ dual FldOutpFieldParam { }
 
 // Generated from Schema output-field-param
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_output-field-param, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

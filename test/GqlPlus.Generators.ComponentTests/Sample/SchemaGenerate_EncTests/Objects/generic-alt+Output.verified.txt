@@ -4,7 +4,7 @@ output GnrcAltOutp<$type:String> { | $type }
 
 // Generated from Schema generic-alt+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt+Output, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

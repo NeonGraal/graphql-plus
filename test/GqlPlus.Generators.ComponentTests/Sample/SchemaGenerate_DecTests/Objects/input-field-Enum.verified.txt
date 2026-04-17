@@ -5,7 +5,7 @@ enum EnumInpFieldEnum { inpFieldEnum }
 
 // Generated from Schema input-field-Enum
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_input-field-Enum, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

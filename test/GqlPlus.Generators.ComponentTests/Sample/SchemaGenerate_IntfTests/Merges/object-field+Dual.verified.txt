@@ -6,7 +6,7 @@ dual FldObjFieldDual { }
 
 // Generated from Schema object-field+Dual
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-field+Dual, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -4,7 +4,7 @@ output FieldDescrOutp { "Test" "Descr" field: String }
 
 // Generated from Schema field-descr+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_field-descr+Output, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

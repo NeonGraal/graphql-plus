@@ -5,7 +5,7 @@ dual RefGnrcAltArgDual<$ref:String> { | $ref }
 
 // Generated from Schema generic-alt-arg+Dual
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-alt-arg+Dual, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

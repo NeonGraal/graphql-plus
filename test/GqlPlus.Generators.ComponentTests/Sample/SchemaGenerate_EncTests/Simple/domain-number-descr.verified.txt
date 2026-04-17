@@ -4,7 +4,7 @@ domain DmnNmbrDescr { Number "DomNumber" "Descr" <2 }
 
 // Generated from Schema domain-number-descr
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-number-descr, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

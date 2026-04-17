@@ -6,7 +6,7 @@ enum PrntEnumSamePrnt { prnt_enumSamePrnt }
 
 // Generated from Schema enum-same-parent
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_enum-same-parent, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

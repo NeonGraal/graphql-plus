@@ -7,7 +7,7 @@ output AltCnstPrntObjPrntOutp { :PrntCnstPrntObjPrntOutp alt: Number }
 
 // Generated from Schema constraint-parent-obj-parent+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-parent-obj-parent+Output, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

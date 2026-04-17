@@ -5,7 +5,7 @@ domain DmnNmbr { number }
 
 // Generated from Schema domain-number
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-number, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

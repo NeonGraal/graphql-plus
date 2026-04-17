@@ -1,7 +1,7 @@
 ﻿//HintName: test_constraint-alt-obj+Output_Intf.gen.cs
 // Generated from {CurrentDirectory}constraint-alt-obj+Output.graphql+
 //   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

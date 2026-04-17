@@ -6,7 +6,7 @@ domain DomCnstFieldDmnOutp { String /\w+/ }
 
 // Generated from Schema constraint-field-domain+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-field-domain+Output, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

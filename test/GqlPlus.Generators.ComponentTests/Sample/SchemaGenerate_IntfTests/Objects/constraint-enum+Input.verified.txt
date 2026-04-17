@@ -6,7 +6,7 @@ enum EnumCnstEnumInp { cnstEnumInp }
 
 // Generated from Schema constraint-enum+Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-enum+Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

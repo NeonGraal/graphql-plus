@@ -5,7 +5,7 @@ domain DmnNmbrSame { number 9<1 }
 
 // Generated from Schema domain-number-same
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-number-same, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

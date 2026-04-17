@@ -5,7 +5,7 @@ enum EnumDmnEnumAllDescr { dmnEnumAllDescr enum_dmnEnumAllDescr dmnEnumAllDescrV
 
 // Generated from Schema domain-enum-all-descr
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-enum-all-descr, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

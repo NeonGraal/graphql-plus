@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GqlPlus_TypePrefix>GqlpM</GqlPlus_TypePrefix>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <GqlPlus_NamespaceIncludesBaseName>false</GqlPlus_NamespaceIncludesBaseName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="Models\*.graphql+" />
+
+    <CompilerVisibleProperty Include="GqlPlus_TypePrefix" />
+    <CompilerVisibleProperty Include="GqlPlus_NamespaceIncludesBaseName" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GqlPlus.Abstractions\GqlPlus.Abstractions.csproj" />
+    <ProjectReference Include="..\GqlPlus.Common\GqlPlus.Common.csproj"
+                      OutputItemType="Analyzer" />
+    <ProjectReference Include="..\GqlPlus.Generators\GqlPlus.Generators.csproj"
+                      OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+
+</Project>

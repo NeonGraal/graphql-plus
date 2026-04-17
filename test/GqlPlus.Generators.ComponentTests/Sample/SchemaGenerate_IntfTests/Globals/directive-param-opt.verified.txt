@@ -5,7 +5,7 @@ input InDrctParamOpt { }
 
 // Generated from Schema directive-param-opt
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_directive-param-opt, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

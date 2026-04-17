@@ -1,7 +1,7 @@
 ﻿//HintName: test_constraint-parent-obj-parent+Input_Intf.gen.cs
 // Generated from {CurrentDirectory}constraint-parent-obj-parent+Input.graphql+
 //   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

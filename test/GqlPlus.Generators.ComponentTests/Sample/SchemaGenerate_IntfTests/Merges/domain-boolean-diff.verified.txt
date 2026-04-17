@@ -5,7 +5,7 @@ domain DmnBoolDiff { boolean false }
 
 // Generated from Schema domain-boolean-diff
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-boolean-diff, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

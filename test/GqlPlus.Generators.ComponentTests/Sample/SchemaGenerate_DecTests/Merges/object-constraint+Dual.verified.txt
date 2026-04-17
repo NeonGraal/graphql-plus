@@ -5,7 +5,7 @@ dual ObjCnstDual<$type:String> { str: $type }
 
 // Generated from Schema object-constraint+Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_object-constraint+Dual, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

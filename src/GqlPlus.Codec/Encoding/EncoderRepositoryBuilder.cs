@@ -13,7 +13,7 @@ internal class EncoderRepositoryBuilder
   IEncoderRepositoryBuilder IEncoderRepositoryBuilder.AddListEncoder<TList, TEncoder, TModel>(Factory<TEncoder, IEncoderRepository> factory)
     => this.FluentAction(b => {
       b.Encoders[typeof(TModel)] = factory;
-      FactoryList list = ListEncoders.GetValueOrCreate(typeof(TList), _ => []);
+      FactoryList list = b.ListEncoders.GetValueOrCreate(typeof(TList), _ => []);
       list.Add(r => r.EncoderFor<TModel>());
     });
 

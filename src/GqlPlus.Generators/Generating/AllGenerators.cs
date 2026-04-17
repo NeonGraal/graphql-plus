@@ -37,8 +37,8 @@ public static class AllGenerators
       .AddAllFourTypeGenerators<DomainNumberInterfaceGenerator, DomainNumberModelGenerator, DomainNumberDecoderGenerator, DomainNumberEncoderGenerator>()
       .AddAllFourTypeGenerators<DomainStringInterfaceGenerator, DomainStringModelGenerator, DomainStringDecoderGenerator, DomainStringEncoderGenerator>()
       .AddTypeGenerator<EnumGenerator>(GqlpGeneratorType.Interface)
-      .AddTypeGenerator<EnumDecoderGenerator>(GqlpGeneratorType.Dec)
-      .AddTypeGenerator<EnumEncoderGenerator>(GqlpGeneratorType.Enc)
+      .AddTypeGenerator<EnumDecoderGenerator>(GqlpGeneratorType.Decoder)
+      .AddTypeGenerator<EnumEncoderGenerator>(GqlpGeneratorType.Encoder)
       .AddAllFourTypeGenerators<UnionInterfaceGenerator, UnionModelGenerator, UnionDecoderGenerator, UnionEncoderGenerator>();
 
   internal static IGeneratorRepositoryBuilder AddSchemaObjectGenerators(this IGeneratorRepositoryBuilder builder)

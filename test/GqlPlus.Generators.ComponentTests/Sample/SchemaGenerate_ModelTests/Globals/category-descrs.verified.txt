@@ -7,7 +7,7 @@ output CtgrDscrs { }
 
 // Generated from Schema category-descrs
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_category-descrs, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

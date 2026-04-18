@@ -5,7 +5,7 @@ enum EnumFieldValueDescrDual { fieldValueDescrDual }
 
 // Generated from Schema field-value-descr+Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_field-value-descr+Dual, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -1,7 +1,7 @@
 ﻿//HintName: test_+Simple_Model.gen.cs
 // Generated from {CurrentDirectory}+Simple.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -41,30 +41,35 @@ public class testDmnEnumAll
   : GqlpDomainEnum
   , ItestDmnEnumAll
 {
+  public new testEnumDmnEnumAll? Value { get; set; }
 }
 
 public class testDmnEnumAllDescr
   : GqlpDomainEnum
   , ItestDmnEnumAllDescr
 {
+  public new testEnumDmnEnumAllDescr? Value { get; set; }
 }
 
 public class testDmnEnumAllPrnt
   : GqlpDomainEnum
   , ItestDmnEnumAllPrnt
 {
+  public new testEnumDmnEnumAllPrnt? Value { get; set; }
 }
 
 public class testDmnEnumDescr
   : GqlpDomainEnum
   , ItestDmnEnumDescr
 {
+  public new testEnumDmnEnumDescr? Value { get; set; }
 }
 
 public class testDmnEnumExcl
   : GqlpDomainEnum
   , ItestDmnEnumExcl
 {
+  public new testEnumDmnEnumExcl? Value { get; set; }
 }
 
 public class testDmnEnumExclPrnt
@@ -77,30 +82,35 @@ public class testDmnEnumLabel
   : GqlpDomainEnum
   , ItestDmnEnumLabel
 {
+  public new testEnumDmnEnumLabel? Value { get; set; }
 }
 
 public class testDmnEnumPrnt
   : testPrntDmnEnumPrnt
   , ItestDmnEnumPrnt
 {
+  public new testEnumDmnEnumPrnt? Value { get; set; }
 }
 
 public class testPrntDmnEnumPrnt
   : GqlpDomainEnum
   , ItestPrntDmnEnumPrnt
 {
+  public new testEnumDmnEnumPrnt? Value { get; set; }
 }
 
 public class testDmnEnumPrntDescr
   : testPrntDmnEnumPrntDescr
   , ItestDmnEnumPrntDescr
 {
+  public new testEnumDmnEnumPrntDescr? Value { get; set; }
 }
 
 public class testPrntDmnEnumPrntDescr
   : GqlpDomainEnum
   , ItestPrntDmnEnumPrntDescr
 {
+  public new testEnumDmnEnumPrntDescr? Value { get; set; }
 }
 
 public class testDmnEnumUnq
@@ -119,12 +129,14 @@ public class testDmnEnumValue
   : GqlpDomainEnum
   , ItestDmnEnumValue
 {
+  public new testEnumDmnEnumValue? Value { get; set; }
 }
 
 public class testDmnEnumValuePrnt
   : GqlpDomainEnum
   , ItestDmnEnumValuePrnt
 {
+  public new testEnumDmnEnumValuePrnt? Value { get; set; }
 }
 
 public class testDmnNmbrDescr

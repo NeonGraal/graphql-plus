@@ -1,7 +1,7 @@
 ﻿//HintName: test_+Merges_Model.gen.cs
 // Generated from {CurrentDirectory}+Merges.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -125,12 +125,14 @@ public class testDmnEnumDiff
   : GqlpDomainEnum
   , ItestDmnEnumDiff
 {
+  public new bool? Value { get; set; }
 }
 
 public class testDmnEnumSame
   : GqlpDomainEnum
   , ItestDmnEnumSame
 {
+  public new bool? Value { get; set; }
 }
 
 public class testDmnNmbr

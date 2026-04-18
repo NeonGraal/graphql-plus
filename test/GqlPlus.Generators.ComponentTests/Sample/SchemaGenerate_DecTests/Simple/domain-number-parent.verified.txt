@@ -5,7 +5,7 @@ domain PrntDmnNmbrPrnt { Number <2 }
 
 // Generated from Schema domain-number-parent
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-number-parent, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

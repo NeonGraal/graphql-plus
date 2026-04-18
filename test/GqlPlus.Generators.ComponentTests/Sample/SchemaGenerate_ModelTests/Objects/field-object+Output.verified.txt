@@ -5,7 +5,7 @@ output FldFieldObjOutp { field: Number | String }
 
 // Generated from Schema field-object+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_field-object+Output, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

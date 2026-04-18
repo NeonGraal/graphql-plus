@@ -5,7 +5,7 @@ output CtgrOutpOptl { }
 
 // Generated from Schema category-output-optional
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_category-output-optional, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

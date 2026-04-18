@@ -22,7 +22,7 @@ output _AndType {
 
 // Generated from Spec Names
 //   with GeneratorOption: BaseType: Class, BaseName: Spec_Names, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

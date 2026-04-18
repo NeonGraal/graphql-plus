@@ -1,7 +1,7 @@
 ﻿//HintName: test_generic-alt-mod-String+Input_Dec.gen.cs
 // Generated from {CurrentDirectory}generic-alt-mod-String+Input.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpDecoderBase, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -49,7 +49,7 @@ dual _Described {
 
 // Generated from Spec -Schema
 //   with GeneratorOption: BaseType: Interface, BaseName: Spec_-Schema, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

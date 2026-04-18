@@ -5,7 +5,7 @@ input FldFieldObjInp { field: Number | String }
 
 // Generated from Schema field-object+Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-object+Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

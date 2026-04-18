@@ -4,7 +4,7 @@ output GnrcFieldOutp<$type:String> { field: $type }
 
 // Generated from Schema generic-field+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-field+Output, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

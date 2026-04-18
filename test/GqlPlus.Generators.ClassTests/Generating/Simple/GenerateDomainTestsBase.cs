@@ -49,5 +49,9 @@ public abstract class GenerateDomainTestsBase<TItem>
     => new DomainBuilder<TItem>(name, Kind);
   protected override void MakeItems(SimpleBuilder<IAstDomain<TItem>> builder, params string[] items)
     => ((DomainBuilder<TItem>)builder).WithItems([.. items.Select(MakeDomainItem)]);
+
+  internal override ForType ForGeneratedItem(string name, string item)
+    => ForGeneratedEncoder("input.Value");
+
   protected abstract TItem MakeDomainItem(string item);
 }

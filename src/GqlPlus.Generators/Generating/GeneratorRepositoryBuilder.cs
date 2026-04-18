@@ -6,7 +6,9 @@ internal class GeneratorRepositoryBuilder
   : BaseFactory<IGeneratorRepository>, IGeneratorRepositoryBuilder
 {
   internal readonly FactoryDict Generators = [];
-  internal readonly Dictionary<GqlpGeneratorType, List<Factory<ITypeGenerator, IGeneratorRepository>>> TypeGenerators = [];
+
+  // Factory<ITypeGenerator, IGeneratorRepository>
+  internal readonly Dictionary<GqlpGeneratorType, FactoryList> TypeGenerators = [];
 
   public IGeneratorRepositoryBuilder AddBothTypeGenerators<TInterface, TModel>()
     where TInterface : ITypeGenerator, new()
@@ -20,8 +22,8 @@ internal class GeneratorRepositoryBuilder
     where TDecoder : ITypeGenerator, new()
     where TEncoder : ITypeGenerator, new()
     => AddBothTypeGenerators<TInterface, TModel>()
-      .AddTypeGenerator<TDecoder>(GqlpGeneratorType.Dec)
-      .AddTypeGenerator<TEncoder>(GqlpGeneratorType.Enc);
+      .AddTypeGenerator<TDecoder>(GqlpGeneratorType.Decoder)
+      .AddTypeGenerator<TEncoder>(GqlpGeneratorType.Encoder);
 
   public IGeneratorRepositoryBuilder AddGenerator<TAst>(Factory<IGenerator<TAst>, IGeneratorRepository> factory)
     where TAst : IAstError
@@ -34,10 +36,7 @@ internal class GeneratorRepositoryBuilder
   public IGeneratorRepositoryBuilder AddTypeGenerator<TGenerator>(GqlpGeneratorType generatorType)
     where TGenerator : ITypeGenerator, new()
     => this.FluentAction(b => {
-      if (b.TypeGenerators.TryGetValue(generatorType, out List<Factory<ITypeGenerator, IGeneratorRepository>>? list)) {
-        list.Add(_ => new TGenerator());
-      } else {
-        b.TypeGenerators[generatorType] = [_ => new TGenerator()];
-      }
+      FactoryList list = b.TypeGenerators.GetValueOrCreate(generatorType, _ => []);
+      list.Add(_ => new TGenerator());
     });
 }

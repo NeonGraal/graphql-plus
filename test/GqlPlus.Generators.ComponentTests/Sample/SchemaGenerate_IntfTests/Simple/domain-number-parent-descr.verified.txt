@@ -5,7 +5,7 @@ domain PrntDmnNmbrPrntDescr { Number <2 }
 
 // Generated from Schema domain-number-parent-descr
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-number-parent-descr, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

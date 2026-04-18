@@ -5,7 +5,7 @@ domain DmnNmbrDiff { number }
 
 // Generated from Schema domain-number-diff
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-number-diff, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -1,7 +1,7 @@
 ﻿//HintName: test_parent-param-same+Output_Intf.gen.cs
 // Generated from {CurrentDirectory}parent-param-same+Output.graphql+
 //   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -5,7 +5,7 @@ dual ObjFieldEnumAliasDual { field [field2] = true }
 
 // Generated from Schema object-field-enum-alias+Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field-enum-alias+Dual, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

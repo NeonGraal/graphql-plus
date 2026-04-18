@@ -5,7 +5,7 @@ directive @Drct { spread }
 
 // Generated from Schema directive
 //   with GeneratorOption: BaseType: Other, BaseName: Schema_directive, GeneratorType: Static
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 
 Directive Drct

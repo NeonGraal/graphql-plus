@@ -13,7 +13,7 @@ output _Schema { }
 
 // Generated from Schema default
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_default, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -5,7 +5,7 @@ input ObjFieldEnumAliasInp { field [field2] = true }
 
 // Generated from Schema object-field-enum-alias+Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-field-enum-alias+Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

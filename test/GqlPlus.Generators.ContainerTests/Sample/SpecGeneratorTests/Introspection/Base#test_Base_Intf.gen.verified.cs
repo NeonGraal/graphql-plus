@@ -1,7 +1,7 @@
 ﻿//HintName: test_Base_Intf.gen.cs
 // Generated from {CurrentDirectory}Base.graphql+
 //   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -10,6 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_Base;
 public interface Itest_ObjectKind
   : IGqlpDomainEnum
 {
+  new test_TypeKind? Value { get; }
 }
 
 public interface Itest_TypeObject<TObjectKind,TField>

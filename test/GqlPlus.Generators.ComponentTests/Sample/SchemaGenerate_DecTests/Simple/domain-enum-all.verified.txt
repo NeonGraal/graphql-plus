@@ -5,7 +5,7 @@ enum EnumDmnEnumAll { dmnEnumAll enum_dmnEnumAll dmnEnumAllValue }
 
 // Generated from Schema domain-enum-all
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-enum-all, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

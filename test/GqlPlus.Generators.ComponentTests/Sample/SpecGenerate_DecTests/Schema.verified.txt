@@ -22,7 +22,7 @@ dual _Any { }
 
 // Generated from Spec Schema
 //   with GeneratorOption: BaseType: Class, BaseName: Spec_Schema, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

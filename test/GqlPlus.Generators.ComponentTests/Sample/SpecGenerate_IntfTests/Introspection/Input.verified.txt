@@ -11,7 +11,7 @@ output _InputFieldType {
 
 // Generated from Spec Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Spec_Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

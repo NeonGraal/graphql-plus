@@ -5,7 +5,7 @@ dual RefPrntDualInp { parent: Number | String }
 
 // Generated from Schema parent-dual+Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_parent-dual+Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

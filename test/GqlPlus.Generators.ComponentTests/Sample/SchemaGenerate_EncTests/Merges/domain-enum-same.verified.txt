@@ -5,7 +5,7 @@ domain DmnEnumSame { enum true }
 
 // Generated from Schema domain-enum-same
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-enum-same, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_domain_enum_same;
 internal class CmptDmnEnumSameEncoder : IEncoder<ICmptDmnEnumSame>
 {
   public Structured Encode(ICmptDmnEnumSame input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "bool");
 
   internal static CmptDmnEnumSameEncoder Factory(IEncoderRepository _) => new();
 }

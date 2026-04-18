@@ -1,6 +1,6 @@
 ﻿// Generated from Schema +Simple
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_+Simple, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -34,6 +34,7 @@ public interface ICmptPrntDmnBoolPrntDescr
 public interface ICmptDmnEnumAll
   : IGqlpDomainEnum
 {
+  new CmptEnumDmnEnumAll? Value { get; }
 }
 
 public enum CmptEnumDmnEnumAll
@@ -46,6 +47,7 @@ public enum CmptEnumDmnEnumAll
 public interface ICmptDmnEnumAllDescr
   : IGqlpDomainEnum
 {
+  new CmptEnumDmnEnumAllDescr? Value { get; }
 }
 
 public enum CmptEnumDmnEnumAllDescr
@@ -58,6 +60,7 @@ public enum CmptEnumDmnEnumAllDescr
 public interface ICmptDmnEnumAllPrnt
   : IGqlpDomainEnum
 {
+  new CmptEnumDmnEnumAllPrnt? Value { get; }
 }
 
 public enum CmptEnumDmnEnumAllPrnt
@@ -77,6 +80,7 @@ public enum CmptPrntDmnEnumAllPrnt
 public interface ICmptDmnEnumDescr
   : IGqlpDomainEnum
 {
+  new CmptEnumDmnEnumDescr? Value { get; }
 }
 
 public enum CmptEnumDmnEnumDescr
@@ -87,6 +91,7 @@ public enum CmptEnumDmnEnumDescr
 public interface ICmptDmnEnumExcl
   : IGqlpDomainEnum
 {
+  new CmptEnumDmnEnumExcl? Value { get; }
 }
 
 public enum CmptEnumDmnEnumExcl
@@ -118,6 +123,7 @@ public enum CmptPrntDmnEnumExclPrnt
 public interface ICmptDmnEnumLabel
   : IGqlpDomainEnum
 {
+  new CmptEnumDmnEnumLabel? Value { get; }
 }
 
 public enum CmptEnumDmnEnumLabel
@@ -128,11 +134,13 @@ public enum CmptEnumDmnEnumLabel
 public interface ICmptDmnEnumPrnt
   : ICmptPrntDmnEnumPrnt
 {
+  new CmptEnumDmnEnumPrnt? Value { get; }
 }
 
 public interface ICmptPrntDmnEnumPrnt
   : IGqlpDomainEnum
 {
+  new CmptEnumDmnEnumPrnt? Value { get; }
 }
 
 public enum CmptEnumDmnEnumPrnt
@@ -144,11 +152,13 @@ public enum CmptEnumDmnEnumPrnt
 public interface ICmptDmnEnumPrntDescr
   : ICmptPrntDmnEnumPrntDescr
 {
+  new CmptEnumDmnEnumPrntDescr? Value { get; }
 }
 
 public interface ICmptPrntDmnEnumPrntDescr
   : IGqlpDomainEnum
 {
+  new CmptEnumDmnEnumPrntDescr? Value { get; }
 }
 
 public enum CmptEnumDmnEnumPrntDescr
@@ -207,6 +217,7 @@ public enum CmptDupDmnEnumUnqPrnt
 public interface ICmptDmnEnumValue
   : IGqlpDomainEnum
 {
+  new CmptEnumDmnEnumValue? Value { get; }
 }
 
 public enum CmptEnumDmnEnumValue
@@ -217,6 +228,7 @@ public enum CmptEnumDmnEnumValue
 public interface ICmptDmnEnumValuePrnt
   : IGqlpDomainEnum
 {
+  new CmptEnumDmnEnumValuePrnt? Value { get; }
 }
 
 public enum CmptEnumDmnEnumValuePrnt

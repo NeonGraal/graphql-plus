@@ -7,19 +7,11 @@ enum DupDmnEnumUnqPrnt { dmnEnumUnqPrnt dup_dmnEnumUnqPrnt dmnEnumUnqPrntDup }
 
 // Generated from Schema domain-enum-unique-parent
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-enum-unique-parent, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 
 namespace Components.Gqlp_Schema_domain_enum_unique_parent;
-
-internal class CmptDmnEnumUnqPrntEncoder : IEncoder<ICmptDmnEnumUnqPrnt>
-{
-  public Structured Encode(ICmptDmnEnumUnqPrnt input)
-    => new((decimal?)input.Value);
-
-  internal static CmptDmnEnumUnqPrntEncoder Factory(IEncoderRepository _) => new();
-}
 
 internal class CmptEnumDmnEnumUnqPrntEncoder : IEncoder<CmptEnumDmnEnumUnqPrnt>
 {
@@ -49,7 +41,6 @@ internal static class Cmpt_Schema_domain_enum_unique_parentEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_enum_unique_parentEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptDmnEnumUnqPrnt>(CmptDmnEnumUnqPrntEncoder.Factory)
       .AddEncoder<CmptEnumDmnEnumUnqPrnt>(CmptEnumDmnEnumUnqPrntEncoder.Factory)
       .AddEncoder<CmptPrntDmnEnumUnqPrnt>(CmptPrntDmnEnumUnqPrntEncoder.Factory)
       .AddEncoder<CmptDupDmnEnumUnqPrnt>(CmptDupDmnEnumUnqPrntEncoder.Factory);

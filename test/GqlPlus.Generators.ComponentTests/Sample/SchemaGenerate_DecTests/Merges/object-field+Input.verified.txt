@@ -6,7 +6,7 @@ input FldObjFieldInp { }
 
 // Generated from Schema object-field+Input
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field+Input, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -1,7 +1,7 @@
 ﻿//HintName: test_domain-enum-diff_Model.gen.cs
 // Generated from {CurrentDirectory}domain-enum-diff.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -11,4 +11,5 @@ public class testDmnEnumDiff
   : GqlpDomainEnum
   , ItestDmnEnumDiff
 {
+  public new bool? Value { get; set; }
 }

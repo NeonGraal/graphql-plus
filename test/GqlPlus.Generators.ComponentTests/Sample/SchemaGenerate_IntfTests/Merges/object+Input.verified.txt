@@ -5,7 +5,7 @@ input ObjInp { }
 
 // Generated from Schema object+Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_object+Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

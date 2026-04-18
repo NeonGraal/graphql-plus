@@ -1,7 +1,7 @@
 ﻿//HintName: test_generic-parent-simple-enum+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}generic-parent-simple-enum+Dual.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

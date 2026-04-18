@@ -20,7 +20,7 @@ This guide captures the coding style already used across the GraphQL+ solution. 
 
 - Use one primary type per file.
 - Keep the file name aligned with the primary type name.
-- Use file-scoped namespaces.
+- Use file-scoped namespaces (enforced via `.editorconfig`)
 - Keep `using` directives outside the namespace.
 - Let `System.*` usings come first.
 - Prefer project-level global usings for imports that are shared widely inside a project.
@@ -50,7 +50,7 @@ This guide captures the coding style already used across the GraphQL+ solution. 
 
 ## Types and language features
 
-- Prefer explicit variable types over `var`.
+- Prefer explicit variable types while still using target-typed `new()` where the declaration already makes the type obvious
 - Still prefer target-typed `new()` when the type is already obvious from the declaration.
 - Prefer collection expressions such as `[]` when they make the code shorter without hiding the element type.
 - Prefer object and collection initializers over step-by-step mutation where practical.

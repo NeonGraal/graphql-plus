@@ -1,7 +1,7 @@
 ﻿//HintName: test_generic-parent-enum-dom+Input_Model.gen.cs
 // Generated from {CurrentDirectory}generic-parent-enum-dom+Input.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -51,4 +51,5 @@ public class testDomGnrcPrntEnumDomInp
   : GqlpDomainEnum
   , ItestDomGnrcPrntEnumDomInp
 {
+  public new testEnumGnrcPrntEnumDomInp? Value { get; set; }
 }

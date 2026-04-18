@@ -1,7 +1,7 @@
 ﻿//HintName: test_constraint-field-dual+Input_Model.gen.cs
 // Generated from {CurrentDirectory}constraint-field-dual+Input.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

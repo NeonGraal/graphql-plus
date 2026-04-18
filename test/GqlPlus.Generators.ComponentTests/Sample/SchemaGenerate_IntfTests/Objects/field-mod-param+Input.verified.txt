@@ -5,7 +5,7 @@ input FldFieldModParamInp { field: Number | String }
 
 // Generated from Schema field-mod-param+Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-mod-param+Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

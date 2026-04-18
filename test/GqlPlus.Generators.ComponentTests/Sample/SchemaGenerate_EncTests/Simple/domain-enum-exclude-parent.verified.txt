@@ -6,19 +6,11 @@ enum PrntDmnEnumExclPrnt { prnt_dmnEnumExclPrnt dmnEnumExclPrntPrnt }
 
 // Generated from Schema domain-enum-exclude-parent
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-enum-exclude-parent, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 
 namespace Components.Gqlp_Schema_domain_enum_exclude_parent;
-
-internal class CmptDmnEnumExclPrntEncoder : IEncoder<ICmptDmnEnumExclPrnt>
-{
-  public Structured Encode(ICmptDmnEnumExclPrnt input)
-    => new((decimal?)input.Value);
-
-  internal static CmptDmnEnumExclPrntEncoder Factory(IEncoderRepository _) => new();
-}
 
 internal class CmptEnumDmnEnumExclPrntEncoder : IEncoder<CmptEnumDmnEnumExclPrnt>
 {
@@ -40,7 +32,6 @@ internal static class Cmpt_Schema_domain_enum_exclude_parentEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_enum_exclude_parentEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptDmnEnumExclPrnt>(CmptDmnEnumExclPrntEncoder.Factory)
       .AddEncoder<CmptEnumDmnEnumExclPrnt>(CmptEnumDmnEnumExclPrntEncoder.Factory)
       .AddEncoder<CmptPrntDmnEnumExclPrnt>(CmptPrntDmnEnumExclPrntEncoder.Factory);
 }

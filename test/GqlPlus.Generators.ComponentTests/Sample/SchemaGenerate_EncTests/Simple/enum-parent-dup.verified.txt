@@ -5,7 +5,7 @@ enum PrntEnumPrntDup { prnt_enumPrntDup[enumPrntDup] }
 
 // Generated from Schema enum-parent-dup
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_enum-parent-dup, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

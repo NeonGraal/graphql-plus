@@ -5,7 +5,7 @@ input ObjAliasInp [Input2] { }
 
 // Generated from Schema object-alias+Input
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alias+Input, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

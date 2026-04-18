@@ -1,7 +1,7 @@
 ﻿//HintName: test_+Objects_Model.gen.cs
 // Generated from {CurrentDirectory}+Objects.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -1371,6 +1371,7 @@ public class testJustCnstDomEnumDual
   : GqlpDomainEnum
   , ItestJustCnstDomEnumDual
 {
+  public new testEnumCnstDomEnumDual? Value { get; set; }
 }
 
 public class testCnstDomEnumInp
@@ -1417,6 +1418,7 @@ public class testJustCnstDomEnumInp
   : GqlpDomainEnum
   , ItestJustCnstDomEnumInp
 {
+  public new testEnumCnstDomEnumInp? Value { get; set; }
 }
 
 public class testCnstDomEnumOutp
@@ -1463,6 +1465,7 @@ public class testJustCnstDomEnumOutp
   : GqlpDomainEnum
   , ItestJustCnstDomEnumOutp
 {
+  public new testEnumCnstDomEnumOutp? Value { get; set; }
 }
 
 public class testCnstEnumDual
@@ -6498,6 +6501,7 @@ public class testDomGnrcPrntEnumDomDual
   : GqlpDomainEnum
   , ItestDomGnrcPrntEnumDomDual
 {
+  public new testEnumGnrcPrntEnumDomDual? Value { get; set; }
 }
 
 public class testGnrcPrntEnumDomInp
@@ -6544,6 +6548,7 @@ public class testDomGnrcPrntEnumDomInp
   : GqlpDomainEnum
   , ItestDomGnrcPrntEnumDomInp
 {
+  public new testEnumGnrcPrntEnumDomInp? Value { get; set; }
 }
 
 public class testGnrcPrntEnumDomOutp
@@ -6590,6 +6595,7 @@ public class testDomGnrcPrntEnumDomOutp
   : GqlpDomainEnum
   , ItestDomGnrcPrntEnumDomOutp
 {
+  public new testEnumGnrcPrntEnumDomOutp? Value { get; set; }
 }
 
 public class testGnrcPrntEnumPrntDual

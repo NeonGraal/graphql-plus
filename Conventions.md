@@ -78,3 +78,5 @@ public void MethodName_Scenario_ExpectedBehavior()
 - Should inherit from RendererClassTestBase
 - Use its Renderer property for the instance being tested
 - Check the Structured output using `.ToLines(false)`
+
+**Test naming convention:** Follow the `MethodUnderTest_StateUnderTest_ExpectedResult` pattern as documented in Conventions.md.

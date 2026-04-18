@@ -6,7 +6,7 @@ input FldObjFieldAliasInp { }
 
 // Generated from Schema object-field-alias+Input
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field-alias+Input, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

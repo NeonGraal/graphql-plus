@@ -5,7 +5,7 @@ enum PrntEnumPrntDescr { prnt_enumPrntDescr }
 
 // Generated from Schema enum-parent-descr
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_enum-parent-descr, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

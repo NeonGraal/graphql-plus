@@ -6,7 +6,7 @@ output RefObjPrntOutp { }
 
 // Generated from Schema object-parent+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_object-parent+Output, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

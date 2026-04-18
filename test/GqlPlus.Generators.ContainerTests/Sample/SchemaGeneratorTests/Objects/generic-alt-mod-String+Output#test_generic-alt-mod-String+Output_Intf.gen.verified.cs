@@ -1,7 +1,7 @@
 ﻿//HintName: test_generic-alt-mod-String+Output_Intf.gen.cs
 // Generated from {CurrentDirectory}generic-alt-mod-String+Output.graphql+
 //   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

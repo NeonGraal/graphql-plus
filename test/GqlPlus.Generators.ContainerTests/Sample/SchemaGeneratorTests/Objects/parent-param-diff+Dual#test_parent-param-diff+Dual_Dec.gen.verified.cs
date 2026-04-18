@@ -1,7 +1,7 @@
 ﻿//HintName: test_parent-param-diff+Dual_Dec.gen.cs
 // Generated from {CurrentDirectory}parent-param-diff+Dual.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpDecoderBase, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

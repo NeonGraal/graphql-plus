@@ -1,7 +1,7 @@
 ﻿//HintName: test_output-parent-param_Dec.gen.cs
 // Generated from {CurrentDirectory}output-parent-param.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpDecoderBase, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

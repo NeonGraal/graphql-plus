@@ -1,7 +1,7 @@
 ﻿//HintName: test_constraint-dom-enum+Dual_Intf.gen.cs
 // Generated from {CurrentDirectory}constraint-dom-enum+Dual.graphql+
 //   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -40,4 +40,5 @@ public enum testEnumCnstDomEnumDual
 public interface ItestJustCnstDomEnumDual
   : IGqlpDomainEnum
 {
+  new testEnumCnstDomEnumDual? Value { get; }
 }

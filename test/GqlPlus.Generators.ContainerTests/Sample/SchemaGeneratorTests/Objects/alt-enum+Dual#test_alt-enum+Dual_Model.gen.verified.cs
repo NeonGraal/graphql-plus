@@ -1,7 +1,7 @@
 ﻿//HintName: test_alt-enum+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}alt-enum+Dual.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

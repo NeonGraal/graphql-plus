@@ -1,7 +1,7 @@
 ﻿//HintName: test_constraint-field-domain+Output_Enc.gen.cs
 // Generated from {CurrentDirectory}constraint-field-domain+Output.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpEncoderBase, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -6,7 +6,7 @@ domain DomGnrcPrntStrDomDual { string /\w+/ }
 
 // Generated from Schema generic-parent-string-dom+Dual
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-string-dom+Dual, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

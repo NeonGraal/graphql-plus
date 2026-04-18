@@ -6,7 +6,7 @@ output AltGnrcFieldParamOutp { alt: Number | String }
 
 // Generated from Schema generic-field-param+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-field-param+Output, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

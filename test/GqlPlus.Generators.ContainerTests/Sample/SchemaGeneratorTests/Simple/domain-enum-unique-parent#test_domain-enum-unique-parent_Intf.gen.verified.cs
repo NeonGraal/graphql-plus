@@ -1,7 +1,7 @@
 ﻿//HintName: test_domain-enum-unique-parent_Intf.gen.cs
 // Generated from {CurrentDirectory}domain-enum-unique-parent.graphql+
 //   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -1,7 +1,7 @@
 ﻿//HintName: test_+Objects_Enc.gen.cs
 // Generated from {CurrentDirectory}+Objects.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpEncoderBase, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -457,7 +457,7 @@ internal class testEnumCnstDomEnumDualEncoder : IEncoder<testEnumCnstDomEnumDual
 internal class testJustCnstDomEnumDualEncoder : IEncoder<ItestJustCnstDomEnumDual>
 {
   public Structured Encode(ItestJustCnstDomEnumDual input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "testEnumCnstDomEnumDual");
 
   internal static testJustCnstDomEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
@@ -473,7 +473,7 @@ internal class testEnumCnstDomEnumInpEncoder : IEncoder<testEnumCnstDomEnumInp>
 internal class testJustCnstDomEnumInpEncoder : IEncoder<ItestJustCnstDomEnumInp>
 {
   public Structured Encode(ItestJustCnstDomEnumInp input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "testEnumCnstDomEnumInp");
 
   internal static testJustCnstDomEnumInpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -507,7 +507,7 @@ internal class testEnumCnstDomEnumOutpEncoder : IEncoder<testEnumCnstDomEnumOutp
 internal class testJustCnstDomEnumOutpEncoder : IEncoder<ItestJustCnstDomEnumOutp>
 {
   public Structured Encode(ItestJustCnstDomEnumOutp input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "testEnumCnstDomEnumOutp");
 
   internal static testJustCnstDomEnumOutpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -2436,7 +2436,7 @@ internal class testEnumGnrcPrntEnumDomDualEncoder : IEncoder<testEnumGnrcPrntEnu
 internal class testDomGnrcPrntEnumDomDualEncoder : IEncoder<ItestDomGnrcPrntEnumDomDual>
 {
   public Structured Encode(ItestDomGnrcPrntEnumDomDual input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "testEnumGnrcPrntEnumDomDual");
 
   internal static testDomGnrcPrntEnumDomDualEncoder Factory(IEncoderRepository _) => new();
 }
@@ -2452,7 +2452,7 @@ internal class testEnumGnrcPrntEnumDomInpEncoder : IEncoder<testEnumGnrcPrntEnum
 internal class testDomGnrcPrntEnumDomInpEncoder : IEncoder<ItestDomGnrcPrntEnumDomInp>
 {
   public Structured Encode(ItestDomGnrcPrntEnumDomInp input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "testEnumGnrcPrntEnumDomInp");
 
   internal static testDomGnrcPrntEnumDomInpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -2489,7 +2489,7 @@ internal class testEnumGnrcPrntEnumDomOutpEncoder : IEncoder<testEnumGnrcPrntEnu
 internal class testDomGnrcPrntEnumDomOutpEncoder : IEncoder<ItestDomGnrcPrntEnumDomOutp>
 {
   public Structured Encode(ItestDomGnrcPrntEnumDomOutp input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "testEnumGnrcPrntEnumDomOutp");
 
   internal static testDomGnrcPrntEnumDomOutpEncoder Factory(IEncoderRepository _) => new();
 }

@@ -4,7 +4,7 @@ output AltSmplOutp { | String }
 
 // Generated from Schema alt-simple+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-simple+Output, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

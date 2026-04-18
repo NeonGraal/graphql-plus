@@ -7,7 +7,7 @@ domain JustCnstDomEnumOutp { enum EnumCnstDomEnumOutp.cnstDomEnumOutp }
 
 // Generated from Schema constraint-dom-enum+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-dom-enum+Output, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -57,4 +57,5 @@ public class CmptJustCnstDomEnumOutp
   : GqlpDomainEnum
   , ICmptJustCnstDomEnumOutp
 {
+  public new CmptEnumCnstDomEnumOutp? Value { get; set; }
 }

@@ -1,6 +1,6 @@
 ﻿// Generated from Schema +Merges
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_+Merges, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -124,12 +124,14 @@ public class CmptDmnEnumDiff
   : GqlpDomainEnum
   , ICmptDmnEnumDiff
 {
+  public new bool? Value { get; set; }
 }
 
 public class CmptDmnEnumSame
   : GqlpDomainEnum
   , ICmptDmnEnumSame
 {
+  public new bool? Value { get; set; }
 }
 
 public class CmptDmnNmbr

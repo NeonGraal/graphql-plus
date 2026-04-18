@@ -5,7 +5,7 @@ output ObjAliasOutp [Output2] { }
 
 // Generated from Schema object-alias+Output
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-alias+Output, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

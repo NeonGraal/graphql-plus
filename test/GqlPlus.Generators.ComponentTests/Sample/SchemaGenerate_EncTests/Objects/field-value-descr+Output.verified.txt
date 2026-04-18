@@ -5,7 +5,7 @@ enum EnumFieldValueDescrOutp { fieldValueDescrOutp }
 
 // Generated from Schema field-value-descr+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_field-value-descr+Output, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

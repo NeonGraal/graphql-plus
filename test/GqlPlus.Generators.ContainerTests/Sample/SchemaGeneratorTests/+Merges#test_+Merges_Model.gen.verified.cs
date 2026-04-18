@@ -125,12 +125,14 @@ public class testDmnEnumDiff
   : GqlpDomainEnum
   , ItestDmnEnumDiff
 {
+  public new bool? Value { get; set; }
 }
 
 public class testDmnEnumSame
   : GqlpDomainEnum
   , ItestDmnEnumSame
 {
+  public new bool? Value { get; set; }
 }
 
 public class testDmnNmbr

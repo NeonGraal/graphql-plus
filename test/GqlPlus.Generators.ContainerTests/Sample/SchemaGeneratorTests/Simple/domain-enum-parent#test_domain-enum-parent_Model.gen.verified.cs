@@ -11,10 +11,12 @@ public class testDmnEnumPrnt
   : testPrntDmnEnumPrnt
   , ItestDmnEnumPrnt
 {
+  public new testEnumDmnEnumPrnt? Value { get; set; }
 }
 
 public class testPrntDmnEnumPrnt
   : GqlpDomainEnum
   , ItestPrntDmnEnumPrnt
 {
+  public new testEnumDmnEnumPrnt? Value { get; set; }
 }

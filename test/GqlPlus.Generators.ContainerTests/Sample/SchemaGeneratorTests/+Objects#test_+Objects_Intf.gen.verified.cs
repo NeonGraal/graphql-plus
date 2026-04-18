@@ -874,6 +874,7 @@ public enum testEnumCnstDomEnumDual
 public interface ItestJustCnstDomEnumDual
   : IGqlpDomainEnum
 {
+  new testEnumCnstDomEnumDual? Value { get; }
 }
 
 public interface ItestCnstDomEnumInp
@@ -909,6 +910,7 @@ public enum testEnumCnstDomEnumInp
 public interface ItestJustCnstDomEnumInp
   : IGqlpDomainEnum
 {
+  new testEnumCnstDomEnumInp? Value { get; }
 }
 
 public interface ItestCnstDomEnumOutp
@@ -944,6 +946,7 @@ public enum testEnumCnstDomEnumOutp
 public interface ItestJustCnstDomEnumOutp
   : IGqlpDomainEnum
 {
+  new testEnumCnstDomEnumOutp? Value { get; }
 }
 
 public interface ItestCnstEnumDual
@@ -4197,6 +4200,7 @@ public enum testEnumGnrcPrntEnumDomDual
 public interface ItestDomGnrcPrntEnumDomDual
   : IGqlpDomainEnum
 {
+  new testEnumGnrcPrntEnumDomDual? Value { get; }
 }
 
 public interface ItestGnrcPrntEnumDomInp
@@ -4231,6 +4235,7 @@ public enum testEnumGnrcPrntEnumDomInp
 public interface ItestDomGnrcPrntEnumDomInp
   : IGqlpDomainEnum
 {
+  new testEnumGnrcPrntEnumDomInp? Value { get; }
 }
 
 public interface ItestGnrcPrntEnumDomOutp
@@ -4265,6 +4270,7 @@ public enum testEnumGnrcPrntEnumDomOutp
 public interface ItestDomGnrcPrntEnumDomOutp
   : IGqlpDomainEnum
 {
+  new testEnumGnrcPrntEnumDomOutp? Value { get; }
 }
 
 public interface ItestGnrcPrntEnumPrntDual

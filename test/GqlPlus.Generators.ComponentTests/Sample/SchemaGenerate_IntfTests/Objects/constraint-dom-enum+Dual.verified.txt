@@ -46,4 +46,5 @@ public enum CmptEnumCnstDomEnumDual
 public interface ICmptJustCnstDomEnumDual
   : IGqlpDomainEnum
 {
+  new CmptEnumCnstDomEnumDual? Value { get; }
 }

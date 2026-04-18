@@ -45,4 +45,5 @@ public enum CmptEnumGnrcPrntEnumDomInp
 public interface ICmptDomGnrcPrntEnumDomInp
   : IGqlpDomainEnum
 {
+  new CmptEnumGnrcPrntEnumDomInp? Value { get; }
 }

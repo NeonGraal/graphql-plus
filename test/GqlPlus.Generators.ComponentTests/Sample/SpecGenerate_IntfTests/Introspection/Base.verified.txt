@@ -80,6 +80,7 @@ namespace Components.Gqlp_Spec_Base;
 public interface ICmpt_ObjectKind
   : IGqlpDomainEnum
 {
+  new Cmpt_TypeKind? Value { get; }
 }
 
 public interface ICmpt_TypeObject<TObjectKind,TField>

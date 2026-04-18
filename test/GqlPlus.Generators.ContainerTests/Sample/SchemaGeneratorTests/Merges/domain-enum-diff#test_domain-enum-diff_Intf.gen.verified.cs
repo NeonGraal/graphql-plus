@@ -10,4 +10,5 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_diff;
 public interface ItestDmnEnumDiff
   : IGqlpDomainEnum
 {
+  new bool? Value { get; }
 }

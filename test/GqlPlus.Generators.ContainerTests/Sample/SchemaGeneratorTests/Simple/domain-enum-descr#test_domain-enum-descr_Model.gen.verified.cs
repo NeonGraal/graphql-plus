@@ -11,4 +11,5 @@ public class testDmnEnumDescr
   : GqlpDomainEnum
   , ItestDmnEnumDescr
 {
+  public new testEnumDmnEnumDescr? Value { get; set; }
 }

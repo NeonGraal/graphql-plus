@@ -1676,6 +1676,7 @@ public class CmptJustCnstDomEnumDual
   : GqlpDomainEnum
   , ICmptJustCnstDomEnumDual
 {
+  public new CmptEnumCnstDomEnumDual? Value { get; set; }
 }
 
 public class CmptCnstDomEnumInp
@@ -1722,6 +1723,7 @@ public class CmptJustCnstDomEnumInp
   : GqlpDomainEnum
   , ICmptJustCnstDomEnumInp
 {
+  public new CmptEnumCnstDomEnumInp? Value { get; set; }
 }
 
 public class CmptCnstDomEnumOutp
@@ -1768,6 +1770,7 @@ public class CmptJustCnstDomEnumOutp
   : GqlpDomainEnum
   , ICmptJustCnstDomEnumOutp
 {
+  public new CmptEnumCnstDomEnumOutp? Value { get; set; }
 }
 
 public class CmptCnstEnumDual
@@ -6803,6 +6806,7 @@ public class CmptDomGnrcPrntEnumDomDual
   : GqlpDomainEnum
   , ICmptDomGnrcPrntEnumDomDual
 {
+  public new CmptEnumGnrcPrntEnumDomDual? Value { get; set; }
 }
 
 public class CmptGnrcPrntEnumDomInp
@@ -6849,6 +6853,7 @@ public class CmptDomGnrcPrntEnumDomInp
   : GqlpDomainEnum
   , ICmptDomGnrcPrntEnumDomInp
 {
+  public new CmptEnumGnrcPrntEnumDomInp? Value { get; set; }
 }
 
 public class CmptGnrcPrntEnumDomOutp
@@ -6895,6 +6900,7 @@ public class CmptDomGnrcPrntEnumDomOutp
   : GqlpDomainEnum
   , ICmptDomGnrcPrntEnumDomOutp
 {
+  public new CmptEnumGnrcPrntEnumDomOutp? Value { get; set; }
 }
 
 public class CmptGnrcPrntEnumPrntDual
@@ -9370,12 +9376,14 @@ public class CmptDmnEnumDiff
   : GqlpDomainEnum
   , ICmptDmnEnumDiff
 {
+  public new bool? Value { get; set; }
 }
 
 public class CmptDmnEnumSame
   : GqlpDomainEnum
   , ICmptDmnEnumSame
 {
+  public new bool? Value { get; set; }
 }
 
 public class CmptDmnNmbr
@@ -10592,30 +10600,35 @@ public class CmptDmnEnumAll
   : GqlpDomainEnum
   , ICmptDmnEnumAll
 {
+  public new CmptEnumDmnEnumAll? Value { get; set; }
 }
 
 public class CmptDmnEnumAllDescr
   : GqlpDomainEnum
   , ICmptDmnEnumAllDescr
 {
+  public new CmptEnumDmnEnumAllDescr? Value { get; set; }
 }
 
 public class CmptDmnEnumAllPrnt
   : GqlpDomainEnum
   , ICmptDmnEnumAllPrnt
 {
+  public new CmptEnumDmnEnumAllPrnt? Value { get; set; }
 }
 
 public class CmptDmnEnumDescr
   : GqlpDomainEnum
   , ICmptDmnEnumDescr
 {
+  public new CmptEnumDmnEnumDescr? Value { get; set; }
 }
 
 public class CmptDmnEnumExcl
   : GqlpDomainEnum
   , ICmptDmnEnumExcl
 {
+  public new CmptEnumDmnEnumExcl? Value { get; set; }
 }
 
 public class CmptDmnEnumExclPrnt
@@ -10628,30 +10641,35 @@ public class CmptDmnEnumLabel
   : GqlpDomainEnum
   , ICmptDmnEnumLabel
 {
+  public new CmptEnumDmnEnumLabel? Value { get; set; }
 }
 
 public class CmptDmnEnumPrnt
   : CmptPrntDmnEnumPrnt
   , ICmptDmnEnumPrnt
 {
+  public new CmptEnumDmnEnumPrnt? Value { get; set; }
 }
 
 public class CmptPrntDmnEnumPrnt
   : GqlpDomainEnum
   , ICmptPrntDmnEnumPrnt
 {
+  public new CmptEnumDmnEnumPrnt? Value { get; set; }
 }
 
 public class CmptDmnEnumPrntDescr
   : CmptPrntDmnEnumPrntDescr
   , ICmptDmnEnumPrntDescr
 {
+  public new CmptEnumDmnEnumPrntDescr? Value { get; set; }
 }
 
 public class CmptPrntDmnEnumPrntDescr
   : GqlpDomainEnum
   , ICmptPrntDmnEnumPrntDescr
 {
+  public new CmptEnumDmnEnumPrntDescr? Value { get; set; }
 }
 
 public class CmptDmnEnumUnq
@@ -10670,12 +10688,14 @@ public class CmptDmnEnumValue
   : GqlpDomainEnum
   , ICmptDmnEnumValue
 {
+  public new CmptEnumDmnEnumValue? Value { get; set; }
 }
 
 public class CmptDmnEnumValuePrnt
   : GqlpDomainEnum
   , ICmptDmnEnumValuePrnt
 {
+  public new CmptEnumDmnEnumValuePrnt? Value { get; set; }
 }
 
 public class CmptDmnNmbrDescr

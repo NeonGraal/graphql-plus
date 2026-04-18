@@ -10,6 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_exclude;
 public interface ItestDmnEnumExcl
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumExcl? Value { get; }
 }
 
 public enum testEnumDmnEnumExcl

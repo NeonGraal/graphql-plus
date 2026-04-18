@@ -10,6 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_all_descr;
 public interface ItestDmnEnumAllDescr
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumAllDescr? Value { get; }
 }
 
 public enum testEnumDmnEnumAllDescr

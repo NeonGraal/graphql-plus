@@ -39,4 +39,5 @@ public enum testEnumGnrcPrntEnumDomOutp
 public interface ItestDomGnrcPrntEnumDomOutp
   : IGqlpDomainEnum
 {
+  new testEnumGnrcPrntEnumDomOutp? Value { get; }
 }

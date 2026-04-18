@@ -10,11 +10,13 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_parent_descr;
 public interface ItestDmnEnumPrntDescr
   : ItestPrntDmnEnumPrntDescr
 {
+  new testEnumDmnEnumPrntDescr? Value { get; }
 }
 
 public interface ItestPrntDmnEnumPrntDescr
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumPrntDescr? Value { get; }
 }
 
 public enum testEnumDmnEnumPrntDescr

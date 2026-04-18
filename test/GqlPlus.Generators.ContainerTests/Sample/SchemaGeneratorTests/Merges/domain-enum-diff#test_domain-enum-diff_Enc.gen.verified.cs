@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_diff;
 internal class testDmnEnumDiffEncoder : IEncoder<ItestDmnEnumDiff>
 {
   public Structured Encode(ItestDmnEnumDiff input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "bool");
 
   internal static testDmnEnumDiffEncoder Factory(IEncoderRepository _) => new();
 }

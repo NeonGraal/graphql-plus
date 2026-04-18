@@ -85,11 +85,13 @@ public interface ItestDmnBoolSame
 public interface ItestDmnEnumDiff
   : IGqlpDomainEnum
 {
+  new bool? Value { get; }
 }
 
 public interface ItestDmnEnumSame
   : IGqlpDomainEnum
 {
+  new bool? Value { get; }
 }
 
 public interface ItestDmnNmbr

@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Models;
 
 [GqlpGenerator(GqlpGeneratorType.Interface)]
-public interface  IGqlpM_Base
+public interface IGqlpM_Base
 { }
 
 [GqlpGenerator(GqlpGeneratorType.Model)]

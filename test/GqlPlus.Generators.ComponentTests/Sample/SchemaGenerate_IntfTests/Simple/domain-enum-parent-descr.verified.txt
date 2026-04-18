@@ -15,11 +15,13 @@ namespace Components.Gqlp_Schema_domain_enum_parent_descr;
 public interface ICmptDmnEnumPrntDescr
   : ICmptPrntDmnEnumPrntDescr
 {
+  new CmptEnumDmnEnumPrntDescr? Value { get; }
 }
 
 public interface ICmptPrntDmnEnumPrntDescr
   : IGqlpDomainEnum
 {
+  new CmptEnumDmnEnumPrntDescr? Value { get; }
 }
 
 public enum CmptEnumDmnEnumPrntDescr

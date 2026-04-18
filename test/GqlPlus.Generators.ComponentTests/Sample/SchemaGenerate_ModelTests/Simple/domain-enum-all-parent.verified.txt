@@ -16,4 +16,5 @@ public class CmptDmnEnumAllPrnt
   : GqlpDomainEnum
   , ICmptDmnEnumAllPrnt
 {
+  public new CmptEnumDmnEnumAllPrnt? Value { get; set; }
 }

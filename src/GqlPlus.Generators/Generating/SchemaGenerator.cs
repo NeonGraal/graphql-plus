@@ -36,9 +36,7 @@ internal sealed class SchemaGenerator(
 
   private void GenerateTypesForGeneratorType(IAstType[] types, GqlpGeneratorType generatorType, GqlpGeneratorContext context)
   {
-    if (!generators.TypeGenerators.TryGetValue(generatorType, out IEnumerable<ITypeGenerator>? typeGenerators)) {
-      return;
-    }
+    IEnumerable<ITypeGenerator> typeGenerators = generators.TypeGenerators(generatorType);
 
     foreach (IAstType type in types) {
       GenerateTypeOrValidate(typeGenerators, type, context);
@@ -53,8 +51,8 @@ internal sealed class SchemaGenerator(
       return;
     }
 
-    if (generators.TypeGenerators.TryGetValue(GqlpGeneratorType.Interface, out IEnumerable<ITypeGenerator>? interfaceGenerators)
-        && !interfaceGenerators.Any(tg => tg.ForType(type))) {
+    IEnumerable<ITypeGenerator> interfaceGenerators = generators.TypeGenerators(GqlpGeneratorType.Interface);
+    if (!interfaceGenerators.Any(tg => tg.ForType(type))) {
       throw new InvalidOperationException("No Generator for " + type.GetType().ExpandTypeName());
     }
   }

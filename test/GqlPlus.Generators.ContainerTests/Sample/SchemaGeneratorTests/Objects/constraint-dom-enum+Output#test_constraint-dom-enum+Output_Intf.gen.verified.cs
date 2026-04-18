@@ -40,4 +40,5 @@ public enum testEnumCnstDomEnumOutp
 public interface ItestJustCnstDomEnumOutp
   : IGqlpDomainEnum
 {
+  new testEnumCnstDomEnumOutp? Value { get; }
 }

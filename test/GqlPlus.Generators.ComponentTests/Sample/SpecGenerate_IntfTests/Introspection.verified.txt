@@ -948,6 +948,7 @@ public interface ICmpt_UnionMemberObject
 public interface ICmpt_ObjectKind
   : IGqlpDomainEnum
 {
+  new Cmpt_TypeKind? Value { get; }
 }
 
 public interface ICmpt_TypeObject<TObjectKind,TField>

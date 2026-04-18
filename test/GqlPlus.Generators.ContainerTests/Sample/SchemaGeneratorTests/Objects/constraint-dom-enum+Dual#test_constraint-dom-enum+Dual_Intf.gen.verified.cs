@@ -40,4 +40,5 @@ public enum testEnumCnstDomEnumDual
 public interface ItestJustCnstDomEnumDual
   : IGqlpDomainEnum
 {
+  new testEnumCnstDomEnumDual? Value { get; }
 }

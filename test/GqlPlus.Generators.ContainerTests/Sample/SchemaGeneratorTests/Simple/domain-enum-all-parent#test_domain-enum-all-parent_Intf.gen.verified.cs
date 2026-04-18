@@ -10,6 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_all_parent;
 public interface ItestDmnEnumAllPrnt
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumAllPrnt? Value { get; }
 }
 
 public enum testEnumDmnEnumAllPrnt

@@ -84,11 +84,13 @@ public interface ICmptDmnBoolSame
 public interface ICmptDmnEnumDiff
   : IGqlpDomainEnum
 {
+  new bool? Value { get; }
 }
 
 public interface ICmptDmnEnumSame
   : IGqlpDomainEnum
 {
+  new bool? Value { get; }
 }
 
 public interface ICmptDmnNmbr

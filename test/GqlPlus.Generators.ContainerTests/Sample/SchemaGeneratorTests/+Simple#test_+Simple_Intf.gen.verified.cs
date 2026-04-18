@@ -35,6 +35,7 @@ public interface ItestPrntDmnBoolPrntDescr
 public interface ItestDmnEnumAll
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumAll? Value { get; }
 }
 
 public enum testEnumDmnEnumAll
@@ -47,6 +48,7 @@ public enum testEnumDmnEnumAll
 public interface ItestDmnEnumAllDescr
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumAllDescr? Value { get; }
 }
 
 public enum testEnumDmnEnumAllDescr
@@ -59,6 +61,7 @@ public enum testEnumDmnEnumAllDescr
 public interface ItestDmnEnumAllPrnt
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumAllPrnt? Value { get; }
 }
 
 public enum testEnumDmnEnumAllPrnt
@@ -78,6 +81,7 @@ public enum testPrntDmnEnumAllPrnt
 public interface ItestDmnEnumDescr
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumDescr? Value { get; }
 }
 
 public enum testEnumDmnEnumDescr
@@ -88,6 +92,7 @@ public enum testEnumDmnEnumDescr
 public interface ItestDmnEnumExcl
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumExcl? Value { get; }
 }
 
 public enum testEnumDmnEnumExcl
@@ -119,6 +124,7 @@ public enum testPrntDmnEnumExclPrnt
 public interface ItestDmnEnumLabel
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumLabel? Value { get; }
 }
 
 public enum testEnumDmnEnumLabel
@@ -129,11 +135,13 @@ public enum testEnumDmnEnumLabel
 public interface ItestDmnEnumPrnt
   : ItestPrntDmnEnumPrnt
 {
+  new testEnumDmnEnumPrnt? Value { get; }
 }
 
 public interface ItestPrntDmnEnumPrnt
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumPrnt? Value { get; }
 }
 
 public enum testEnumDmnEnumPrnt
@@ -145,11 +153,13 @@ public enum testEnumDmnEnumPrnt
 public interface ItestDmnEnumPrntDescr
   : ItestPrntDmnEnumPrntDescr
 {
+  new testEnumDmnEnumPrntDescr? Value { get; }
 }
 
 public interface ItestPrntDmnEnumPrntDescr
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumPrntDescr? Value { get; }
 }
 
 public enum testEnumDmnEnumPrntDescr
@@ -208,6 +218,7 @@ public enum testDupDmnEnumUnqPrnt
 public interface ItestDmnEnumValue
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumValue? Value { get; }
 }
 
 public enum testEnumDmnEnumValue
@@ -218,6 +229,7 @@ public enum testEnumDmnEnumValue
 public interface ItestDmnEnumValuePrnt
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumValuePrnt? Value { get; }
 }
 
 public enum testEnumDmnEnumValuePrnt

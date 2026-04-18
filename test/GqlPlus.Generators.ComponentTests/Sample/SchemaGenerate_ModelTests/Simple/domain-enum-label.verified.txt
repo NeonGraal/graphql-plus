@@ -5,7 +5,7 @@ enum EnumDmnEnumLabel { dmnEnumLabel }
 
 // Generated from Schema domain-enum-label
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-enum-label, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -15,4 +15,5 @@ public class CmptDmnEnumLabel
   : GqlpDomainEnum
   , ICmptDmnEnumLabel
 {
+  public new CmptEnumDmnEnumLabel? Value { get; set; }
 }

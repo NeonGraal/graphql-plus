@@ -7,7 +7,7 @@ output _Setting {
 
 // Generated from Spec Option
 //   with GeneratorOption: BaseType: Class, BaseName: Spec_Option, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

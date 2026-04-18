@@ -1,24 +1,29 @@
 ﻿
 namespace GqlPlus;
 
-public sealed class GqlpModelOptions(string baseNamespace, string typePrefix)
+public sealed class GqlpModelOptions(
+  string baseNamespace,
+  string typePrefix,
+  bool namespaceIncludesBaseName = true)
   : IEquatable<GqlpModelOptions>
 {
   public string BaseNamespace { get; } = baseNamespace;
   public string TypePrefix { get; } = typePrefix;
+  public bool NamespaceIncludesBaseName { get; } = namespaceIncludesBaseName;
 
   public bool Equals(GqlpModelOptions? other)
     => other is not null
     && BaseNamespace.Equals(other.BaseNamespace, StringComparison.Ordinal)
-    && TypePrefix.Equals(other.TypePrefix, StringComparison.Ordinal);
+    && TypePrefix.Equals(other.TypePrefix, StringComparison.Ordinal)
+    && NamespaceIncludesBaseName == other.NamespaceIncludesBaseName;
 
   public override bool Equals(object? obj)
     => obj is GqlpModelOptions options
     ? Equals(options)
     : base.Equals(obj);
   public override int GetHashCode()
-    => HashCode.Combine(BaseNamespace, TypePrefix);
+    => HashCode.Combine(BaseNamespace, TypePrefix, NamespaceIncludesBaseName);
 
   public override string ToString()
-    => $"BaseNamespace: {BaseNamespace}, TypePrefix: {TypePrefix}";
+    => $"BaseNamespace: {BaseNamespace}, TypePrefix: {TypePrefix}, NamespaceIncludesBaseName: {NamespaceIncludesBaseName}";
 }

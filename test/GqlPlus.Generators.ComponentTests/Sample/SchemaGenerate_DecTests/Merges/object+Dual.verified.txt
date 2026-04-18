@@ -5,7 +5,7 @@ dual ObjDual { }
 
 // Generated from Schema object+Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_object+Dual, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

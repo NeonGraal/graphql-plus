@@ -1,7 +1,7 @@
 ﻿//HintName: test_domain-enum-descr_Model.gen.cs
 // Generated from {CurrentDirectory}domain-enum-descr.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -11,4 +11,5 @@ public class testDmnEnumDescr
   : GqlpDomainEnum
   , ItestDmnEnumDescr
 {
+  public new testEnumDmnEnumDescr? Value { get; set; }
 }

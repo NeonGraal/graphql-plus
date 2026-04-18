@@ -48,7 +48,7 @@ dual _TypeSimple {
 
 // Generated from Spec Common
 //   with GeneratorOption: BaseType: Class, BaseName: Spec_Common, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

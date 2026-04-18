@@ -6,6 +6,7 @@ param (
 
 $source = Join-Path $SpecPath "samples"
 $dest = "test/GqlPlus.ComponentTestBase/Samples"
+$models = "src/GqlPlus.Models/Models"
 
 Push-Location $source
 try {
@@ -24,6 +25,12 @@ Get-ChildItem $source -Recurse -Exclude "*.md","*.yml" | ForEach-Object {
   $relative = Resolve-Path -RelativeBasePath $source -Relative $_
   $to = Join-Path $dest $relative
   Copy-Item $_ $to -Force
+
+  if ($relative -match '.*Introspection[/\\]-.*\.graphql+') {
+    $fileName = (Split-Path $relative -Leaf).TrimStart("-")
+    $to = Join-Path $models $fileName
+    Copy-Item $_ $to -Force
+  }
 }
 
 if ($AutoVerify) {

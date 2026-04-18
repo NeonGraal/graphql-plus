@@ -4,7 +4,7 @@ domain DmnNmbrPstv { Number !<0 }
 
 // Generated from Schema domain-number-positive
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-number-positive, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

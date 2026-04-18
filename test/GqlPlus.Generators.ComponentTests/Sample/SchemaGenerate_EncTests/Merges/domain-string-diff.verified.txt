@@ -5,7 +5,7 @@ domain DmnStrDiff { string }
 
 // Generated from Schema domain-string-diff
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-string-diff, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

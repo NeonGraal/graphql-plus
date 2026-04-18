@@ -1,7 +1,7 @@
 ﻿//HintName: test_domain-enum-all-parent_Enc.gen.cs
 // Generated from {CurrentDirectory}domain-enum-all-parent.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpEncoderBase, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_all_parent;
 internal class testDmnEnumAllPrntEncoder : IEncoder<ItestDmnEnumAllPrnt>
 {
   public Structured Encode(ItestDmnEnumAllPrnt input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "testEnumDmnEnumAllPrnt");
 
   internal static testDmnEnumAllPrntEncoder Factory(IEncoderRepository _) => new();
 }

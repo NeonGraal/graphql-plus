@@ -5,7 +5,7 @@ input RefPrntInp { parent: Number | String }
 
 // Generated from Schema parent+Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_parent+Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

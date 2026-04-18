@@ -5,7 +5,7 @@
     <TargetFrameworks></TargetFrameworks>
     <IsPackable>false</IsPackable>
 
-    <GqlPlus_TypePrefix>Gqlp</GqlPlus_TypePrefix>
+    <GqlPlus_TypePrefix>Sch</GqlPlus_TypePrefix>
     <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
   </PropertyGroup>
 

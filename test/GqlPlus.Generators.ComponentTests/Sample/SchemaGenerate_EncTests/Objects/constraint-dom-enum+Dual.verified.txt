@@ -7,7 +7,7 @@ domain JustCnstDomEnumDual { enum EnumCnstDomEnumDual.cnstDomEnumDual }
 
 // Generated from Schema constraint-dom-enum+Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-dom-enum+Dual, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -42,7 +42,7 @@ internal class CmptEnumCnstDomEnumDualEncoder : IEncoder<CmptEnumCnstDomEnumDual
 internal class CmptJustCnstDomEnumDualEncoder : IEncoder<ICmptJustCnstDomEnumDual>
 {
   public Structured Encode(ICmptJustCnstDomEnumDual input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "CmptEnumCnstDomEnumDual");
 
   internal static CmptJustCnstDomEnumDualEncoder Factory(IEncoderRepository _) => new();
 }

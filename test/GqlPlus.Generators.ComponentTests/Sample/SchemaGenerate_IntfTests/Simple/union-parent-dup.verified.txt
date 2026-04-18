@@ -5,7 +5,7 @@ union PrntUnionPrntDup { Number }
 
 // Generated from Schema union-parent-dup
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_union-parent-dup, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

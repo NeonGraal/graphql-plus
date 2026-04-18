@@ -7,7 +7,7 @@ input AltCnstAltDualInp { :PrntCnstAltDualInp alt: Number }
 
 // Generated from Schema constraint-alt-dual+Input
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-alt-dual+Input, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

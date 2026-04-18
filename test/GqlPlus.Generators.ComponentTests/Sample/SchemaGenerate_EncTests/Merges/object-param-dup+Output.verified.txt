@@ -5,7 +5,7 @@ output ObjParamDupOutp<$test:String> { type: $test }
 
 // Generated from Schema object-param-dup+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_object-param-dup+Output, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

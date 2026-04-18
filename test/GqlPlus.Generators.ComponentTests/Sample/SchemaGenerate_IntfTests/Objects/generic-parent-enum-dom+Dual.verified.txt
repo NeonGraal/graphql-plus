@@ -7,7 +7,7 @@ domain DomGnrcPrntEnumDomDual { enum gnrcPrntEnumDomDualLabel }
 
 // Generated from Schema generic-parent-enum-dom+Dual
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-enum-dom+Dual, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -45,4 +45,5 @@ public enum CmptEnumGnrcPrntEnumDomDual
 public interface ICmptDomGnrcPrntEnumDomDual
   : IGqlpDomainEnum
 {
+  new CmptEnumGnrcPrntEnumDomDual? Value { get; }
 }

@@ -4,7 +4,7 @@ domain DmnBoolDescr { Boolean "DomBool" "Descr" true }
 
 // Generated from Schema domain-bool-descr
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-bool-descr, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -17,7 +17,7 @@ enum _Location { Operation Variable Field Inline Spread Fragment }
 
 // Generated from Spec Directive
 //   with GeneratorOption: BaseType: Class, BaseName: Spec_Directive, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

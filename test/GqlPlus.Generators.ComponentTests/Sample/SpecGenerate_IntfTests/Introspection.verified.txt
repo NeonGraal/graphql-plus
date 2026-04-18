@@ -342,7 +342,7 @@ output _OutputFieldType {
 
 // Generated from Spec Introspection
 //   with GeneratorOption: BaseType: Interface, BaseName: Spec_Introspection, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -948,6 +948,7 @@ public interface ICmpt_UnionMemberObject
 public interface ICmpt_ObjectKind
   : IGqlpDomainEnum
 {
+  new Cmpt_TypeKind? Value { get; }
 }
 
 public interface ICmpt_TypeObject<TObjectKind,TField>

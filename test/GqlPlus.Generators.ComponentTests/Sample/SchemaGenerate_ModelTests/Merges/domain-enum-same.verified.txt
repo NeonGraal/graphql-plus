@@ -5,7 +5,7 @@ domain DmnEnumSame { enum true }
 
 // Generated from Schema domain-enum-same
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-enum-same, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -15,4 +15,5 @@ public class CmptDmnEnumSame
   : GqlpDomainEnum
   , ICmptDmnEnumSame
 {
+  public new bool? Value { get; set; }
 }

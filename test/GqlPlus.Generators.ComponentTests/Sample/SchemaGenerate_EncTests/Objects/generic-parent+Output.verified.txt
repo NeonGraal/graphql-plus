@@ -4,7 +4,7 @@ output GnrcPrntOutp<$type:_Dual> { :$type }
 
 // Generated from Schema generic-parent+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent+Output, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

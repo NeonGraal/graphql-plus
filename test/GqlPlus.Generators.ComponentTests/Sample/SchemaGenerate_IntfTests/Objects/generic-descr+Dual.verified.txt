@@ -4,7 +4,7 @@ dual GnrcDescrDual<"Test" "Descr" $type:String> { field: $type }
 
 // Generated from Schema generic-descr+Dual
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-descr+Dual, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

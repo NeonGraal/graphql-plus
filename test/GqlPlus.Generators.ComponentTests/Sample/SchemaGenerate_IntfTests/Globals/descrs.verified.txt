@@ -6,7 +6,7 @@ output Dscrs { }
 
 // Generated from Schema descrs
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_descrs, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

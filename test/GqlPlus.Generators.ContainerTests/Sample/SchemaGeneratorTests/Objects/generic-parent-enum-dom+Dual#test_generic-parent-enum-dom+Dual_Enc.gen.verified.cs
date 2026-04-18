@@ -1,7 +1,7 @@
 ﻿//HintName: test_generic-parent-enum-dom+Dual_Enc.gen.cs
 // Generated from {CurrentDirectory}generic-parent-enum-dom+Dual.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpEncoderBase, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -39,7 +39,7 @@ internal class testEnumGnrcPrntEnumDomDualEncoder : IEncoder<testEnumGnrcPrntEnu
 internal class testDomGnrcPrntEnumDomDualEncoder : IEncoder<ItestDomGnrcPrntEnumDomDual>
 {
   public Structured Encode(ItestDomGnrcPrntEnumDomDual input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "testEnumGnrcPrntEnumDomDual");
 
   internal static testDomGnrcPrntEnumDomDualEncoder Factory(IEncoderRepository _) => new();
 }

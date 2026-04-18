@@ -5,7 +5,7 @@ output ObjAliasOutp [Output2] { }
 
 // Generated from Schema object-alias+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alias+Output, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

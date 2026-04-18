@@ -6,7 +6,7 @@ dual AltGnrcPrntDualOutp { alt: Number | String }
 
 // Generated from Schema generic-parent-dual+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-dual+Output, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

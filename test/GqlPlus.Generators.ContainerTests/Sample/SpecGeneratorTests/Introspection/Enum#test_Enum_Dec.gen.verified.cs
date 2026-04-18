@@ -1,7 +1,7 @@
 ﻿//HintName: test_Enum_Dec.gen.cs
 // Generated from {CurrentDirectory}Enum.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpDecoderBase, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

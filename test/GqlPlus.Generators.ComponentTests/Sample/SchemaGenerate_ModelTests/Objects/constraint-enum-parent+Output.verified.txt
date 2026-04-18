@@ -7,7 +7,7 @@ enum ParentCnstEnumPrntOutp { parentCnstEnumPrntOutp }
 
 // Generated from Schema constraint-enum-parent+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-enum-parent+Output, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

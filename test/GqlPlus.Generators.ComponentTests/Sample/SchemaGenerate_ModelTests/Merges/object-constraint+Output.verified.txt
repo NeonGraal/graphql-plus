@@ -5,7 +5,7 @@ output ObjCnstOutp<$type:String> { str: $type }
 
 // Generated from Schema object-constraint+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_object-constraint+Output, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

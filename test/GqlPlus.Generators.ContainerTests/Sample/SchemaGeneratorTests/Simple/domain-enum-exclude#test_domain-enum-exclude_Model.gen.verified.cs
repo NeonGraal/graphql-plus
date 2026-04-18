@@ -1,7 +1,7 @@
 ﻿//HintName: test_domain-enum-exclude_Model.gen.cs
 // Generated from {CurrentDirectory}domain-enum-exclude.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -11,4 +11,5 @@ public class testDmnEnumExcl
   : GqlpDomainEnum
   , ItestDmnEnumExcl
 {
+  public new testEnumDmnEnumExcl? Value { get; set; }
 }

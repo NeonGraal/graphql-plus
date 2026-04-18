@@ -71,7 +71,7 @@ dual _Modifier<$modifierKind:_ModifierKind> {
 
 // Generated from Spec -Type
 //   with GeneratorOption: BaseType: Class, BaseName: Spec_-Type, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

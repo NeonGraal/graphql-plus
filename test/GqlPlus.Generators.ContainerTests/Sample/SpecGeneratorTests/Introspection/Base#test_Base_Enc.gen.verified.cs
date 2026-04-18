@@ -1,7 +1,7 @@
 ﻿//HintName: test_Base_Enc.gen.cs
 // Generated from {CurrentDirectory}Base.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpEncoderBase, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_Base;
 internal class test_ObjectKindEncoder : IEncoder<Itest_ObjectKind>
 {
   public Structured Encode(Itest_ObjectKind input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "test_TypeKind");
 
   internal static test_ObjectKindEncoder Factory(IEncoderRepository _) => new();
 }

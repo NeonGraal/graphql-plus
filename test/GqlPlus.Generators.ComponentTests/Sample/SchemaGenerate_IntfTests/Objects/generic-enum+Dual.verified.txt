@@ -6,7 +6,7 @@ enum EnumGnrcEnumDual { gnrcEnumDual }
 
 // Generated from Schema generic-enum+Dual
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-enum+Dual, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

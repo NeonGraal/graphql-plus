@@ -7,7 +7,7 @@ input AltCnstFieldObjInp { :PrntCnstFieldObjInp alt: Number }
 
 // Generated from Schema constraint-field-obj+Input
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-field-obj+Input, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

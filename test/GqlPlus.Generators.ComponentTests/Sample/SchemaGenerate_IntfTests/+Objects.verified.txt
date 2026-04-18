@@ -1,6 +1,6 @@
 ﻿// Generated from Schema +Objects
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_+Objects, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -873,6 +873,7 @@ public enum CmptEnumCnstDomEnumDual
 public interface ICmptJustCnstDomEnumDual
   : IGqlpDomainEnum
 {
+  new CmptEnumCnstDomEnumDual? Value { get; }
 }
 
 public interface ICmptCnstDomEnumInp
@@ -908,6 +909,7 @@ public enum CmptEnumCnstDomEnumInp
 public interface ICmptJustCnstDomEnumInp
   : IGqlpDomainEnum
 {
+  new CmptEnumCnstDomEnumInp? Value { get; }
 }
 
 public interface ICmptCnstDomEnumOutp
@@ -943,6 +945,7 @@ public enum CmptEnumCnstDomEnumOutp
 public interface ICmptJustCnstDomEnumOutp
   : IGqlpDomainEnum
 {
+  new CmptEnumCnstDomEnumOutp? Value { get; }
 }
 
 public interface ICmptCnstEnumDual
@@ -4196,6 +4199,7 @@ public enum CmptEnumGnrcPrntEnumDomDual
 public interface ICmptDomGnrcPrntEnumDomDual
   : IGqlpDomainEnum
 {
+  new CmptEnumGnrcPrntEnumDomDual? Value { get; }
 }
 
 public interface ICmptGnrcPrntEnumDomInp
@@ -4230,6 +4234,7 @@ public enum CmptEnumGnrcPrntEnumDomInp
 public interface ICmptDomGnrcPrntEnumDomInp
   : IGqlpDomainEnum
 {
+  new CmptEnumGnrcPrntEnumDomInp? Value { get; }
 }
 
 public interface ICmptGnrcPrntEnumDomOutp
@@ -4264,6 +4269,7 @@ public enum CmptEnumGnrcPrntEnumDomOutp
 public interface ICmptDomGnrcPrntEnumDomOutp
   : IGqlpDomainEnum
 {
+  new CmptEnumGnrcPrntEnumDomOutp? Value { get; }
 }
 
 public interface ICmptGnrcPrntEnumPrntDual

@@ -3,10 +3,10 @@
 public class GqlpModelOptionsTests
 {
   [Theory, RepeatData]
-  public void Equals_SameProperties_ReturnsTrue(string baseNamespace, string typePrefix)
+  public void Equals_SameProperties_ReturnsTrue(string baseNamespace, string typePrefix, bool namespaceIncludesBaseName)
   {
-    GqlpModelOptions a = new(baseNamespace, typePrefix);
-    GqlpModelOptions b = new(baseNamespace, typePrefix);
+    GqlpModelOptions a = new(baseNamespace, typePrefix, namespaceIncludesBaseName);
+    GqlpModelOptions b = new(baseNamespace, typePrefix, namespaceIncludesBaseName);
 
     a.Equals(b).ShouldBeTrue();
     a.Equals((object)b).ShouldBeTrue();
@@ -15,20 +15,20 @@ public class GqlpModelOptionsTests
   }
 
   [Theory, RepeatData]
-  public void Equals_DifferentBaseNamespace_ReturnsFalse(string baseNamespace, string typePrefix)
+  public void Equals_DifferentBaseNamespace_ReturnsFalse(string baseNamespace, string typePrefix, bool namespaceIncludesBaseName)
   {
-    GqlpModelOptions a = new(baseNamespace, typePrefix);
-    GqlpModelOptions b = new(baseNamespace + "_diff", typePrefix);
+    GqlpModelOptions a = new(baseNamespace, typePrefix, namespaceIncludesBaseName);
+    GqlpModelOptions b = new(baseNamespace + "_diff", typePrefix, namespaceIncludesBaseName);
 
     a.Equals(b).ShouldBeFalse();
     a.Equals((object)b).ShouldBeFalse();
   }
 
   [Theory, RepeatData]
-  public void Equals_DifferentTypePrefix_ReturnsFalse(string baseNamespace, string typePrefix)
+  public void Equals_DifferentTypePrefix_ReturnsFalse(string baseNamespace, string typePrefix, bool namespaceIncludesBaseName)
   {
-    GqlpModelOptions a = new(baseNamespace, typePrefix);
-    GqlpModelOptions b = new(baseNamespace, typePrefix + "_diff");
+    GqlpModelOptions a = new(baseNamespace, typePrefix, namespaceIncludesBaseName);
+    GqlpModelOptions b = new(baseNamespace, typePrefix + "_diff", namespaceIncludesBaseName);
 
     a.Equals(b).ShouldBeFalse();
     a.Equals((object)b).ShouldBeFalse();

@@ -6,7 +6,7 @@ output FldObjFieldOutp { }
 
 // Generated from Schema object-field+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field+Output, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

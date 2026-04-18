@@ -11,7 +11,7 @@ output NoParams<> {}
 
 // Generated from Schema errors
 //   with GeneratorOption: BaseType: Other, BaseName: Schema_errors, GeneratorType: Static
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 
 Category query

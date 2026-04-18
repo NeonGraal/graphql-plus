@@ -4,7 +4,7 @@ input InpFieldNmbr { field: Number = 42 }
 
 // Generated from Schema input-field-Number
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_input-field-Number, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

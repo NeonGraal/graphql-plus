@@ -5,7 +5,7 @@ dual AltAltModBoolDual { alt: Number | String }
 
 // Generated from Schema alt-mod-Boolean+Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-mod-Boolean+Dual, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

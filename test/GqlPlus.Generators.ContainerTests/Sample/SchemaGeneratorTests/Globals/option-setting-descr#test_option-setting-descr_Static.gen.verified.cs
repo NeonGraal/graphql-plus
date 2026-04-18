@@ -1,7 +1,7 @@
 ﻿//HintName: test_option-setting-descr_Static.gen.cs
 // Generated from {CurrentDirectory}option-setting-descr.graphql+
 //   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Static
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 
 Option Schema

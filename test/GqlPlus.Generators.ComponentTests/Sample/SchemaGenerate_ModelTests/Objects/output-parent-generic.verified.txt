@@ -7,7 +7,7 @@ enum PrntOutpPrntGnrc { prnt_outpPrntGnrc }
 
 // Generated from Schema output-parent-generic
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_output-parent-generic, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

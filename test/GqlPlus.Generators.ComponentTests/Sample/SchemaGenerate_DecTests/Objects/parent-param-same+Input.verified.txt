@@ -5,7 +5,7 @@ input RefPrntParamSameInp<$a:String> { | $a }
 
 // Generated from Schema parent-param-same+Input
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-param-same+Input, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

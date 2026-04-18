@@ -4,7 +4,7 @@ input FieldInp { field: String }
 
 // Generated from Schema field+Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_field+Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

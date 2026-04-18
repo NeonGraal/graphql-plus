@@ -6,7 +6,7 @@ input ObjAltInpType { }
 
 // Generated from Schema object-alt+Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-alt+Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

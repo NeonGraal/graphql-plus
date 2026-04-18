@@ -5,7 +5,7 @@ dual ObjParamDual<$type:String> { type: $type }
 
 // Generated from Schema object-param+Dual
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-param+Dual, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

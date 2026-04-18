@@ -1,7 +1,7 @@
 ﻿//HintName: test_field-value-descr+Input_Intf.gen.cs
 // Generated from {CurrentDirectory}field-value-descr+Input.graphql+
 //   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

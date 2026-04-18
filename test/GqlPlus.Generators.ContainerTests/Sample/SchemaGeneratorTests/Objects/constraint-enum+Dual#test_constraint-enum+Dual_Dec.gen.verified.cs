@@ -1,7 +1,7 @@
 ﻿//HintName: test_constraint-enum+Dual_Dec.gen.cs
 // Generated from {CurrentDirectory}constraint-enum+Dual.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpDecoderBase, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

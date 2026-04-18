@@ -82,25 +82,33 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
       : $"input.{fieldPropName}";
   }
 
-  private (string CsBaseType, bool IsPrimitive, bool IsEnum) ResolveFieldTypeInfo(TObjField field, GqlpGeneratorContext context)
+  private bool ResolveFieldTypeName(TObjField field, GqlpGeneratorContext context, out string fieldTypeName)
   {
-    string fieldTypeName = field.Type.Name;
+    fieldTypeName = field.Type.Name;
     bool isTypeParam = field.Type.IsTypeParam;
 
     if (isTypeParam && context.GetArg(fieldTypeName, out IAstObjType resolvedArg) && !resolvedArg.IsTypeParam) {
       fieldTypeName = resolvedArg.Name;
-      isTypeParam = false;
+      return false;
     }
 
-    if (isTypeParam) {
-      return ("T" + (fieldTypeName.Capitalize() ?? fieldTypeName), false, false);
+    return isTypeParam;
+  }
+
+  private (string CsBaseType, bool IsPrimitive, bool IsEnum) ResolveFieldTypeInfo(TObjField field, GqlpGeneratorContext context)
+  {
+    if (ResolveFieldTypeName(field, context, out string fieldTypeName)) {
+      return ("T" + fieldTypeName.Capitalize(), false, false);
     }
 
     string csBaseType = context.TypeName(fieldTypeName, "");
-    bool isPrimitive = csBaseType is "string" or "bool" or "decimal";
+    bool isPrimitive = IsPrimitive(csBaseType);
     bool isEnum = !isPrimitive && context.GetTypeAst(fieldTypeName, out IAstEnum _);
     return (csBaseType, isPrimitive, isEnum);
   }
+
+  private bool IsPrimitive(string csBaseType)
+    => csBaseType is "string" or "bool" or "decimal";
 
   private string BuildFieldCall(TObjField field, string fieldKey, string fieldAccess, bool hasListMod, bool isPrimitive, bool isEnum, Dictionary<string, string> encoderFields, string typePrefix, GqlpGeneratorContext context)
   {
@@ -136,52 +144,82 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     string typeParams = TypeParamsString(ast);
 
     context.Write("");
-    if (needsEncoders) {
-      context.Write($"internal class {typeName}Encoder{typeParams}(");
-      context.Write("  IEncoderRepository encoders");
-      context.Write($") : IEncoder<{encoderInterface}>");
-    } else {
+    WriteEncoderDeclaration(context, typeName, typeParams, encoderInterface, needsEncoders);
+    context.Write("{");
+    WriteEncoderFields(context, encoderFields);
+    WriteEncodeMethod(context, encoderInterface, fieldCalls, parentVarName);
+    WriteEncoderFactory(context, typeName, typeParams, needsEncoders);
+    context.Write("}");
+    RegisterEncoder(ast, context, typeName, typeParams, needsEncoders);
+  }
+
+  private static void WriteEncoderDeclaration(GqlpGeneratorContext context, string typeName, string typeParams, string encoderInterface, bool needsEncoders)
+  {
+    if (!needsEncoders) {
       context.Write($"internal class {typeName}Encoder{typeParams} : IEncoder<{encoderInterface}>");
+      return;
     }
 
-    context.Write("{");
+    context.Write($"internal class {typeName}Encoder{typeParams}(");
+    context.Write("  IEncoderRepository encoders");
+    context.Write($") : IEncoder<{encoderInterface}>");
+  }
 
+  private static void WriteEncoderFields(GqlpGeneratorContext context, Dictionary<string, string> encoderFields)
+  {
     foreach (KeyValuePair<string, string> kv in encoderFields) {
       context.Write($"  private readonly IEncoder<{kv.Key}> {kv.Value} = encoders.EncoderFor<{kv.Key}>();");
     }
+  }
 
-    string startExpr = parentVarName is not null
+  private static void WriteEncodeMethod(GqlpGeneratorContext context, string encoderInterface, List<string> fieldCalls, string? parentVarName)
+  {
+    List<string> encodeParts = [GetStartEncodeExpression(parentVarName), .. fieldCalls];
+
+    context.Write($"  public Structured Encode({encoderInterface} input)");
+    WriteEncodeExpression(context, encodeParts);
+  }
+
+  private static string GetStartEncodeExpression(string? parentVarName)
+    => parentVarName is not null
       ? $"{parentVarName}.Encode(input)"
       : "Structured.Empty()";
 
-    List<string> encodeParts = new() { startExpr };
-    encodeParts.AddRange(fieldCalls);
-
-    context.Write($"  public Structured Encode({encoderInterface} input)");
+  private static void WriteEncodeExpression(GqlpGeneratorContext context, List<string> encodeParts)
+  {
     if (encodeParts.Count == 1) {
       context.Write($"    => {encodeParts[0]};");
-    } else {
-      context.Write($"    => {encodeParts[0]}");
-      for (int i = 1; i < encodeParts.Count - 1; i++) {
-        context.Write($"      {encodeParts[i]}");
-      }
-
-      context.Write($"      {encodeParts[encodeParts.Count - 1]};");
+      return;
     }
 
-    if (string.IsNullOrEmpty(typeParams)) {
-      string factoryParam = needsEncoders ? "r" : "_";
-      string factoryArgs = needsEncoders ? "(r)" : "()";
-      context.Write("");
-      context.Write($"  internal static {typeName}Encoder Factory(IEncoderRepository {factoryParam}) => new{factoryArgs};");
+    context.Write($"    => {encodeParts[0]}");
+    foreach (string encodePart in encodeParts.Skip(1).Take(encodeParts.Count - 2)) {
+      context.Write($"      {encodePart}");
     }
 
-    context.Write("}");
+    context.Write($"      {encodeParts[encodeParts.Count - 1]};");
+  }
 
-    if (string.IsNullOrEmpty(typeParams)) {
-      string encoderInterface0 = context.TypeName(ast, "I") + "Object";
-      context.RegisterEncoder(encoderInterface0, typeName + "Encoder", needsEncoders);
+  private static void WriteEncoderFactory(GqlpGeneratorContext context, string typeName, string typeParams, bool needsEncoders)
+  {
+    if (!string.IsNullOrEmpty(typeParams)) {
+      return;
     }
+
+    string factoryParam = needsEncoders ? "r" : "_";
+    string factoryArgs = needsEncoders ? "(r)" : "()";
+    context.Write("");
+    context.Write($"  internal static {typeName}Encoder Factory(IEncoderRepository {factoryParam}) => new{factoryArgs};");
+  }
+
+  private static void RegisterEncoder(IAstObject<TObjField> ast, GqlpGeneratorContext context, string typeName, string typeParams, bool needsEncoders)
+  {
+    if (!string.IsNullOrEmpty(typeParams)) {
+      return;
+    }
+
+    string encoderInterface = context.TypeName(ast, "I") + "Object";
+    context.RegisterEncoder(encoderInterface, typeName + "Encoder", needsEncoders);
   }
 
   private static string GetOrAddEncoder(Dictionary<string, string> encoderFields, string encoderType, string typePrefix)

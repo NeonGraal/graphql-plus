@@ -5,7 +5,7 @@ enum PrntEnumPrnt { prnt_enumPrnt }
 
 // Generated from Schema enum-parent
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_enum-parent, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -5,7 +5,7 @@ output DescrBcks { }
 
 // Generated from Schema descr-backslash
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_descr-backslash, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

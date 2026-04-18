@@ -5,7 +5,7 @@ output RefPrntParamSameOutp<$a:String> { | $a }
 
 // Generated from Schema parent-param-same+Output
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_parent-param-same+Output, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

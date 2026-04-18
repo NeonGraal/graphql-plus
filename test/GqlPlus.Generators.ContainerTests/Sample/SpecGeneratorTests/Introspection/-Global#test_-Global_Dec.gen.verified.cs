@@ -1,7 +1,7 @@
 ﻿//HintName: test_-Global_Dec.gen.cs
 // Generated from {CurrentDirectory}-Global.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpDecoderBase, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

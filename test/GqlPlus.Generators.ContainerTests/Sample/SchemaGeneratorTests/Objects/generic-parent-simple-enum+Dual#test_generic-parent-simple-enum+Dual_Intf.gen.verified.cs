@@ -1,7 +1,7 @@
 ﻿//HintName: test_generic-parent-simple-enum+Dual_Intf.gen.cs
 // Generated from {CurrentDirectory}generic-parent-simple-enum+Dual.graphql+
 //   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

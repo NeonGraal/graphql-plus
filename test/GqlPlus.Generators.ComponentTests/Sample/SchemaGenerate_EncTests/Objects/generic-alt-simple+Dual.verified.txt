@@ -5,7 +5,7 @@ dual RefGnrcAltSmplDual<$ref:String> { | $ref }
 
 // Generated from Schema generic-alt-simple+Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-simple+Dual, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

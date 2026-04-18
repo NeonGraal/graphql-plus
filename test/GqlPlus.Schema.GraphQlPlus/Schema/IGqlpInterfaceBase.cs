@@ -2,6 +2,5 @@
 
 [GqlpGenerator(GqlpGeneratorType.Static)]
 [GqlpGenerator(GqlpGeneratorType.Interface)]
-
 public interface IGqlpInterfaceBase
 { }

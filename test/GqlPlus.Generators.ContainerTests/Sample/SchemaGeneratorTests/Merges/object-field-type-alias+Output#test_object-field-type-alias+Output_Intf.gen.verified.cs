@@ -1,7 +1,7 @@
 ﻿//HintName: test_object-field-type-alias+Output_Intf.gen.cs
 // Generated from {CurrentDirectory}object-field-type-alias+Output.graphql+
 //   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

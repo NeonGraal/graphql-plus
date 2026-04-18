@@ -5,7 +5,7 @@ output ObjAltEnumOutp { ! false }
 
 // Generated from Schema object-alt-enum+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alt-enum+Output, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

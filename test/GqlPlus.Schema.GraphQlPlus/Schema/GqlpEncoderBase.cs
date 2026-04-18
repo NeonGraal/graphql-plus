@@ -1,5 +1,5 @@
 ﻿namespace GqlPlus.Schema;
 
-// [GqlpGenerator(GqlpGeneratorType.Encoder)]
+[GqlpGenerator(GqlpGeneratorType.Encoder)]
 public class GqlpEncoderBase
 { }

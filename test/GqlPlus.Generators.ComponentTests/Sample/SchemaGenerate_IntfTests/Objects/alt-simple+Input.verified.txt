@@ -4,7 +4,7 @@ input AltSmplInp { | String }
 
 // Generated from Schema alt-simple+Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_alt-simple+Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

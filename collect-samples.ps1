@@ -17,6 +17,7 @@ finally {
 }
 
 Remove-Item $dest -Recurse -Force -ErrorAction Ignore
+Remove-Item "$models/*.graphql+" -Recurse -Force -ErrorAction Ignore
 New-Item $dest -ItemType Directory -Force | Out-Null
 
 $gitDetails | Set-Content "$dest/git-details.txt"
@@ -27,7 +28,7 @@ Get-ChildItem $source -Recurse -Exclude "*.md","*.yml" | ForEach-Object {
   Copy-Item $_ $to -Force
 
   if ($relative -match '.*Introspection[/\\]-.*\.graphql+') {
-    $fileName = (Split-Path $relative -Leaf).TrimStart("-")
+    $fileName = Split-Path $relative -Leaf
     $to = Join-Path $models $fileName
     Copy-Item $_ $to -Force
   }

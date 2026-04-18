@@ -7,12 +7,14 @@
 
     <GqlPlus_TypePrefix>Sch</GqlPlus_TypePrefix>
     <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <GqlPlus_NamespaceIncludesBaseName>false</GqlPlus_NamespaceIncludesBaseName>
   </PropertyGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="..\GqlPlus.ComponentTestBase\Samples\Specification\Introspection.graphql+" />
+    <AdditionalFiles Include="..\GqlPlus.ComponentTestBase\Samples\Specification\Introspection\-*.graphql+" />
 
     <CompilerVisibleProperty Include="GqlPlus_TypePrefix" />
+    <CompilerVisibleProperty Include="GqlPlus_NamespaceIncludesBaseName" />
   </ItemGroup>
 
   <ItemGroup>

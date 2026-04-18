@@ -1,5 +1,4 @@
-﻿using GqlPlus.Decoding;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Encoding;
 
@@ -35,7 +34,6 @@ public class AllEncodersTests
   public void AllEncoders_EncodersForFactories_ReturnNotNull()
   {
     IEncoderRepository repo = _services.GetRequiredService<IEncoderRepository>();
-    EncoderRepositoryBuilder builder = _services.GetRequiredService<EncoderRepositoryBuilder>();
 
     repo.ShouldSatisfyAllConditions([.. repo.EncodersFor<ITypeEncoder>().Select(CheckTypeEncoder)]);
   }

@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_domain_enum_value;
 internal class CmptDmnEnumValueEncoder : IEncoder<ICmptDmnEnumValue>
 {
   public Structured Encode(ICmptDmnEnumValue input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "CmptEnumDmnEnumValue");
 
   internal static CmptDmnEnumValueEncoder Factory(IEncoderRepository _) => new();
 }

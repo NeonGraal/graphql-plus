@@ -7,14 +7,6 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_unique_parent;
 
-internal class testDmnEnumUnqPrntEncoder : IEncoder<ItestDmnEnumUnqPrnt>
-{
-  public Structured Encode(ItestDmnEnumUnqPrnt input)
-    => new((decimal?)input.Value);
-
-  internal static testDmnEnumUnqPrntEncoder Factory(IEncoderRepository _) => new();
-}
-
 internal class testEnumDmnEnumUnqPrntEncoder : IEncoder<testEnumDmnEnumUnqPrnt>
 {
   public Structured Encode(testEnumDmnEnumUnqPrnt input)
@@ -43,7 +35,6 @@ internal static class test_domain_enum_unique_parentEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_domain_enum_unique_parentEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestDmnEnumUnqPrnt>(testDmnEnumUnqPrntEncoder.Factory)
       .AddEncoder<testEnumDmnEnumUnqPrnt>(testEnumDmnEnumUnqPrntEncoder.Factory)
       .AddEncoder<testPrntDmnEnumUnqPrnt>(testPrntDmnEnumUnqPrntEncoder.Factory)
       .AddEncoder<testDupDmnEnumUnqPrnt>(testDupDmnEnumUnqPrntEncoder.Factory);

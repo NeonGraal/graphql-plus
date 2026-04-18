@@ -29,7 +29,7 @@ public class GqlpDomainBase<TDomain>
 public class GqlpDomainBoolean : GqlpDomainBase<bool>, IGqlpDomainBoolean
 { }
 
-public class GqlpDomainEnum : GqlpDomainBase<uint>, IGqlpDomainBase<uint>
+public class GqlpDomainEnum : GqlpDomainBase<uint>, IGqlpDomainEnum
 { }
 
 public class GqlpDomainNumber : GqlpDomainBase<decimal>, IGqlpDomainNumber

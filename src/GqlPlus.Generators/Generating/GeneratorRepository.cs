@@ -19,7 +19,7 @@ internal class GeneratorRepository(
   public IEnumerable<ITypeGenerator> TypeGenerators(GqlpGeneratorType generatorType)
     => _typeGenerators.GetOrAdd(
       generatorType,
-      k => builder.TypeGenerators
+      k => [.. builder.TypeGenerators
         .GetValueOrDefault(k, [])
-        .Select(f => (ITypeGenerator)f(this)));
+        .Select(f => (ITypeGenerator)f(this))]);
 }

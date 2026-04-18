@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Generating.Simple;
+﻿using System.Runtime.InteropServices.ComTypes;
+
+namespace GqlPlus.Generating.Simple;
 
 internal sealed class DomainEnumInterfaceGenerator()
   : GenerateBaseDomain<IAstDomainLabel>(DomainKind.Enum)
@@ -17,9 +19,9 @@ internal sealed class DomainEnumInterfaceGenerator()
       return [];
     }
 
-    string csharpType = "new " + types.TypeName(enumTypes[0], "") + "?";
+    string valueType = "new " + types.TypeName(enumTypes[0], "") + "?";
 
-    return [new MapPair<string>("Value", csharpType)];
+    return [new MapPair<string>("Value", valueType)];
   }
 }
 
@@ -40,9 +42,8 @@ internal sealed class DomainEnumModelGenerator()
       return [];
     }
 
-    string csharpType = "new " + types.TypeName(enumTypes[0], "") + "?";
-
-    return [new MapPair<string>("Value", csharpType)];
+    string valueType = "new " + types.TypeName(enumTypes[0], "") + "?";
+    return [new MapPair<string>("Value", valueType)];
   }
 }
 
@@ -57,6 +58,17 @@ internal sealed class DomainEnumEncoderGenerator()
   : GenerateBaseDomain<IAstDomainLabel>(DomainKind.Enum)
 {
   protected override void Generate(IAstDomain<IAstDomainLabel> ast, GqlpGeneratorContext context)
-    => GenerateDomainEncoder(ast, context, "new((decimal?)input.Value)");
-}
+  {
+    string[] enumTypes = [.. ast.Items
+      .Select(i => i.EnumType)
+      .Where(t => !string.IsNullOrWhiteSpace(t))
+      .Distinct()];
 
+    if (enumTypes.Length != 1) {
+      return;
+    }
+
+    string valueType = context.TypeName(enumTypes[0], "");
+    GenerateDomainEncoder(ast, context, $"new(input.ToString(), \"{valueType}\")");
+  }
+}

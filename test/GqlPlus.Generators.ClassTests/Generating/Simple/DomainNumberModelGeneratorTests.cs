@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Generating.Simple;
+﻿using System.ComponentModel;
+
+namespace GqlPlus.Generating.Simple;
 
 public class DomainNumberModelGeneratorTests
   : GenerateDomainTestsBase<IAstDomainRange>

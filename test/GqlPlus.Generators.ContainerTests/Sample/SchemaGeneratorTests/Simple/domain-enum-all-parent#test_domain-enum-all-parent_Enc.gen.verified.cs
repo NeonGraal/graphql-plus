@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_all_parent;
 internal class testDmnEnumAllPrntEncoder : IEncoder<ItestDmnEnumAllPrnt>
 {
   public Structured Encode(ItestDmnEnumAllPrnt input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "testEnumDmnEnumAllPrnt");
 
   internal static testDmnEnumAllPrntEncoder Factory(IEncoderRepository _) => new();
 }

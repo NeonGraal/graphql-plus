@@ -12,14 +12,6 @@ enum DupDmnEnumUnq { dmnEnumUnq dup_dmnEnumUnq dmnEnumUnqDup }
 
 namespace Components.Gqlp_Schema_domain_enum_unique;
 
-internal class CmptDmnEnumUnqEncoder : IEncoder<ICmptDmnEnumUnq>
-{
-  public Structured Encode(ICmptDmnEnumUnq input)
-    => new((decimal?)input.Value);
-
-  internal static CmptDmnEnumUnqEncoder Factory(IEncoderRepository _) => new();
-}
-
 internal class CmptEnumDmnEnumUnqEncoder : IEncoder<CmptEnumDmnEnumUnq>
 {
   public Structured Encode(CmptEnumDmnEnumUnq input)
@@ -40,7 +32,6 @@ internal static class Cmpt_Schema_domain_enum_uniqueEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_enum_uniqueEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptDmnEnumUnq>(CmptDmnEnumUnqEncoder.Factory)
       .AddEncoder<CmptEnumDmnEnumUnq>(CmptEnumDmnEnumUnqEncoder.Factory)
       .AddEncoder<CmptDupDmnEnumUnq>(CmptDupDmnEnumUnqEncoder.Factory);
 }

@@ -1,5 +1,4 @@
-﻿using AutoFixture.Xunit3;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Generating;
 

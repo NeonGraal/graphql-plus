@@ -5,7 +5,7 @@ domain DmnStr { string }
 
 // Generated from Schema domain-string
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-string, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -1,26 +1,25 @@
-﻿using GqlPlus.Ast;
+﻿using System.Collections.Concurrent;
+using GqlPlus.Abstractions;
 using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Generating;
 
-internal class GeneratorRepository
-  : BaseRepository<IGeneratorRepository>
+internal class GeneratorRepository(
+  GeneratorRepositoryBuilder builder,
+  ILoggerFactory loggerFactory
+) : BaseRepository<IGeneratorRepository>(loggerFactory)
   , IGeneratorRepository
 {
-  private readonly GeneratorRepositoryBuilder _builder;
-  private readonly Lazy<IDictionary<GqlpGeneratorType, IEnumerable<ITypeGenerator>>> _typeGenerators;
-
-  public GeneratorRepository(GeneratorRepositoryBuilder builder, ILoggerFactory loggerFactory)
-    : base(loggerFactory)
-  {
-    _builder = builder;
-    _typeGenerators = new(() => builder.TypeGenerators
-      .ToDictionary(kv => kv.Key, kv => (IEnumerable<ITypeGenerator>)[.. kv.Value.Select(f => f(this))]));
-  }
+  private readonly ConcurrentDictionary<GqlpGeneratorType, IEnumerable<ITypeGenerator>> _typeGenerators = [];
 
   public IGenerator<TAst> GeneratorFor<TAst>()
     where TAst : IAstError
-    => Cached<TAst, IGenerator<TAst>>(_builder.Generators, "generator", this);
+    => Cached<TAst, IGenerator<TAst>>(builder.Generators, "generator", this);
 
-  public IDictionary<GqlpGeneratorType, IEnumerable<ITypeGenerator>> TypeGenerators => _typeGenerators.Value;
+  public IEnumerable<ITypeGenerator> TypeGenerators(GqlpGeneratorType generatorType)
+    => _typeGenerators.GetOrAdd(
+      generatorType,
+      k => [.. builder.TypeGenerators
+        .GetValueOrDefault(k, [])
+        .Select(f => (ITypeGenerator)f(this))]);
 }

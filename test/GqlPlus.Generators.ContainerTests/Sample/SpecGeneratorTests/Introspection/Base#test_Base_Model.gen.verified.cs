@@ -1,7 +1,7 @@
 ﻿//HintName: test_Base_Model.gen.cs
 // Generated from {CurrentDirectory}Base.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -11,6 +11,7 @@ public class test_ObjectKind
   : GqlpDomainEnum
   , Itest_ObjectKind
 {
+  public new test_TypeKind? Value { get; set; }
 }
 
 public class test_TypeObject<TObjectKind,TField>

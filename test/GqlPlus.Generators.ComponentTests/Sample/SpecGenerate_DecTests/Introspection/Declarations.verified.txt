@@ -36,7 +36,7 @@ input _TypeFilter {
 
 // Generated from Spec Declarations
 //   with GeneratorOption: BaseType: Class, BaseName: Spec_Declarations, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

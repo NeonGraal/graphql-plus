@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using System.ComponentModel;
 
 namespace GqlPlus.Generating.Simple;
 

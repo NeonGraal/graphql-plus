@@ -1,6 +1,6 @@
 ﻿// Generated from Schema +Merges
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_+Merges, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -84,11 +84,13 @@ public interface ICmptDmnBoolSame
 public interface ICmptDmnEnumDiff
   : IGqlpDomainEnum
 {
+  new bool? Value { get; }
 }
 
 public interface ICmptDmnEnumSame
   : IGqlpDomainEnum
 {
+  new bool? Value { get; }
 }
 
 public interface ICmptDmnNmbr

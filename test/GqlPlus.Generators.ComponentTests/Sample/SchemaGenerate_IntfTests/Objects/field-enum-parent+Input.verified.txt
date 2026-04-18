@@ -6,7 +6,7 @@ enum PrntFieldEnumPrntInp { prnt_fieldEnumPrntInp }
 
 // Generated from Schema field-enum-parent+Input
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-enum-parent+Input, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

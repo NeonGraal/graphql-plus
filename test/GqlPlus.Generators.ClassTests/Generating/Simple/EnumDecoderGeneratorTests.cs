@@ -26,4 +26,7 @@ public class EnumDecoderGeneratorTests
     => ((EnumBuilder)builder).WithLabels(items);
   protected override SimpleBuilder<IAstEnum> MakeSimple(string name)
     => new EnumBuilder(name);
+
+  internal override ForType ForGeneratedItem(string name, string item)
+    => ForGeneratedDecoder(item);
 }

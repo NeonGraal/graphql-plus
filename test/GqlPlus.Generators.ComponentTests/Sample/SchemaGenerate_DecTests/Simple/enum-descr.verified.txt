@@ -4,7 +4,7 @@ enum EnumDescr { "Enum" "Descr" enumDescr }
 
 // Generated from Schema enum-descr
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_enum-descr, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -31,4 +31,7 @@ public class UnionEncoderGeneratorTests
     => ((UnionBuilder)builder).WithMembers(items);
   protected override SimpleBuilder<IAstUnion> MakeSimple(string name)
     => new UnionBuilder(name);
+
+  internal override ForType ForGeneratedItem(string name, string item)
+    => ForGeneratedEncoder(item);
 }

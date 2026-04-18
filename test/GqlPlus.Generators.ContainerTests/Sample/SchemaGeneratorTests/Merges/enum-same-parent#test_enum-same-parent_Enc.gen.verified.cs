@@ -1,7 +1,7 @@
 ﻿//HintName: test_enum-same-parent_Enc.gen.cs
 // Generated from {CurrentDirectory}enum-same-parent.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpEncoderBase, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

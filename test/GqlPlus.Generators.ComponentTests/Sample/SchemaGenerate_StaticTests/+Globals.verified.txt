@@ -1,6 +1,6 @@
 ﻿// Generated from Schema +Globals
 //   with GeneratorOption: BaseType: Other, BaseName: Schema_+Globals, GeneratorType: Static
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 
 Category ctgrDscrs

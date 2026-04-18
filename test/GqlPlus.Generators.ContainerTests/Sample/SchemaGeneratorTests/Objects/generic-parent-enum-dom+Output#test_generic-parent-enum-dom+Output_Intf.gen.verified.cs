@@ -1,7 +1,7 @@
 ﻿//HintName: test_generic-parent-enum-dom+Output_Intf.gen.cs
 // Generated from {CurrentDirectory}generic-parent-enum-dom+Output.graphql+
 //   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -39,4 +39,5 @@ public enum testEnumGnrcPrntEnumDomOutp
 public interface ItestDomGnrcPrntEnumDomOutp
   : IGqlpDomainEnum
 {
+  new testEnumGnrcPrntEnumDomOutp? Value { get; }
 }

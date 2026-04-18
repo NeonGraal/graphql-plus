@@ -6,7 +6,7 @@ dual ObjAltDualType { }
 
 // Generated from Schema object-alt+Dual
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-alt+Dual, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

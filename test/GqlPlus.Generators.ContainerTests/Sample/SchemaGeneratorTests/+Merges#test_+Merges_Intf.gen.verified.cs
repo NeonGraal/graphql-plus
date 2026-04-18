@@ -1,7 +1,7 @@
 ﻿//HintName: test_+Merges_Intf.gen.cs
 // Generated from {CurrentDirectory}+Merges.graphql+
 //   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -85,11 +85,13 @@ public interface ItestDmnBoolSame
 public interface ItestDmnEnumDiff
   : IGqlpDomainEnum
 {
+  new bool? Value { get; }
 }
 
 public interface ItestDmnEnumSame
   : IGqlpDomainEnum
 {
+  new bool? Value { get; }
 }
 
 public interface ItestDmnNmbr

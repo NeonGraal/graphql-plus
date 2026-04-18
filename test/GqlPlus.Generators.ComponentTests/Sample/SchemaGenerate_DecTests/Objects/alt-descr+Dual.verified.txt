@@ -4,7 +4,7 @@ dual AltDescrDual { | "Test" "Descr" String }
 
 // Generated from Schema alt-descr+Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-descr+Dual, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

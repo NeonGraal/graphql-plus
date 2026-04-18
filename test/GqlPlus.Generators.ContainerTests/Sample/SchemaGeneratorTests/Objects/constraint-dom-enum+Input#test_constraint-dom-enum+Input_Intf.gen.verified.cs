@@ -1,7 +1,7 @@
 ﻿//HintName: test_constraint-dom-enum+Input_Intf.gen.cs
 // Generated from {CurrentDirectory}constraint-dom-enum+Input.graphql+
 //   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -40,4 +40,5 @@ public enum testEnumCnstDomEnumInp
 public interface ItestJustCnstDomEnumInp
   : IGqlpDomainEnum
 {
+  new testEnumCnstDomEnumInp? Value { get; }
 }

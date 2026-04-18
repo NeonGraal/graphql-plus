@@ -1,4 +1,4 @@
-namespace GqlPlus.Generating;
+﻿namespace GqlPlus.Generating;
 
 internal sealed class SchemaGenerator(
   IGeneratorRepository generators
@@ -16,7 +16,11 @@ internal sealed class SchemaGenerator(
     context.WritePrefixLine("*/");
     context.WritePrefixLine("");
     string nameSpace = context.GeneratorOptions.NameSpace.IfWhiteSpace(context.ModelOptions.BaseNamespace);
-    context.WritePrefixLine($"namespace {nameSpace}.Gqlp_" + context.SafeFile + ";");
+    if (context.ModelOptions.NamespaceIncludesBaseName) {
+      nameSpace += ".Gqlp_" + context.SafeFile;
+    }
+
+    context.WritePrefixLine($"namespace {nameSpace};");
 
     GqlpGeneratorType generatorType = context.GeneratorOptions.GeneratorType;
     GenerateTypesForGeneratorType(types, generatorType, context);
@@ -32,9 +36,7 @@ internal sealed class SchemaGenerator(
 
   private void GenerateTypesForGeneratorType(IAstType[] types, GqlpGeneratorType generatorType, GqlpGeneratorContext context)
   {
-    if (!generators.TypeGenerators.TryGetValue(generatorType, out IEnumerable<ITypeGenerator>? typeGenerators)) {
-      return;
-    }
+    IEnumerable<ITypeGenerator> typeGenerators = generators.TypeGenerators(generatorType);
 
     foreach (IAstType type in types) {
       GenerateTypeOrValidate(typeGenerators, type, context);
@@ -49,8 +51,8 @@ internal sealed class SchemaGenerator(
       return;
     }
 
-    if (generators.TypeGenerators.TryGetValue(GqlpGeneratorType.Interface, out IEnumerable<ITypeGenerator>? interfaceGenerators)
-        && !interfaceGenerators.Any(tg => tg.ForType(type))) {
+    IEnumerable<ITypeGenerator> interfaceGenerators = generators.TypeGenerators(GqlpGeneratorType.Interface);
+    if (!interfaceGenerators.Any(tg => tg.ForType(type))) {
       throw new InvalidOperationException("No Generator for " + type.GetType().ExpandTypeName());
     }
   }

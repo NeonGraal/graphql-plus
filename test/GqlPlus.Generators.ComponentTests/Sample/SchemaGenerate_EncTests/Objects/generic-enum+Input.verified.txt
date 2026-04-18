@@ -6,7 +6,7 @@ enum EnumGnrcEnumInp { gnrcEnumInp }
 
 // Generated from Schema generic-enum+Input
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-enum+Input, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

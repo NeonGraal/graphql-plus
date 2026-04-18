@@ -93,7 +93,7 @@ output _OutputFieldType {
 
 // Generated from Spec -Object
 //   with GeneratorOption: BaseType: Interface, BaseName: Spec_-Object, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -102,6 +102,7 @@ namespace Components.Gqlp_Spec_Object;
 public interface ICmpt_ObjectKind
   : IGqlpDomainEnum
 {
+  new Cmpt_TypeKind? Value { get; }
 }
 
 public interface ICmpt_TypeObject<TObjectKind,TField>

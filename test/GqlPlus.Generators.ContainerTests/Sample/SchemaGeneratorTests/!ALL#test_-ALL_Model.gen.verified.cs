@@ -1,7 +1,7 @@
 ﻿//HintName: test_-ALL_Model.gen.cs
 // Generated from {CurrentDirectory}-ALL.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -1749,6 +1749,7 @@ public class testJustCnstDomEnumDual
   : GqlpDomainEnum
   , ItestJustCnstDomEnumDual
 {
+  public new testEnumCnstDomEnumDual? Value { get; set; }
 }
 
 public class testCnstDomEnumInp
@@ -1795,6 +1796,7 @@ public class testJustCnstDomEnumInp
   : GqlpDomainEnum
   , ItestJustCnstDomEnumInp
 {
+  public new testEnumCnstDomEnumInp? Value { get; set; }
 }
 
 public class testCnstDomEnumOutp
@@ -1841,6 +1843,7 @@ public class testJustCnstDomEnumOutp
   : GqlpDomainEnum
   , ItestJustCnstDomEnumOutp
 {
+  public new testEnumCnstDomEnumOutp? Value { get; set; }
 }
 
 public class testCnstEnumDual
@@ -6876,6 +6879,7 @@ public class testDomGnrcPrntEnumDomDual
   : GqlpDomainEnum
   , ItestDomGnrcPrntEnumDomDual
 {
+  public new testEnumGnrcPrntEnumDomDual? Value { get; set; }
 }
 
 public class testGnrcPrntEnumDomInp
@@ -6922,6 +6926,7 @@ public class testDomGnrcPrntEnumDomInp
   : GqlpDomainEnum
   , ItestDomGnrcPrntEnumDomInp
 {
+  public new testEnumGnrcPrntEnumDomInp? Value { get; set; }
 }
 
 public class testGnrcPrntEnumDomOutp
@@ -6968,6 +6973,7 @@ public class testDomGnrcPrntEnumDomOutp
   : GqlpDomainEnum
   , ItestDomGnrcPrntEnumDomOutp
 {
+  public new testEnumGnrcPrntEnumDomOutp? Value { get; set; }
 }
 
 public class testGnrcPrntEnumPrntDual
@@ -9443,12 +9449,14 @@ public class testDmnEnumDiff
   : GqlpDomainEnum
   , ItestDmnEnumDiff
 {
+  public new bool? Value { get; set; }
 }
 
 public class testDmnEnumSame
   : GqlpDomainEnum
   , ItestDmnEnumSame
 {
+  public new bool? Value { get; set; }
 }
 
 public class testDmnNmbr
@@ -10683,30 +10691,35 @@ public class testDmnEnumAll
   : GqlpDomainEnum
   , ItestDmnEnumAll
 {
+  public new testEnumDmnEnumAll? Value { get; set; }
 }
 
 public class testDmnEnumAllDescr
   : GqlpDomainEnum
   , ItestDmnEnumAllDescr
 {
+  public new testEnumDmnEnumAllDescr? Value { get; set; }
 }
 
 public class testDmnEnumAllPrnt
   : GqlpDomainEnum
   , ItestDmnEnumAllPrnt
 {
+  public new testEnumDmnEnumAllPrnt? Value { get; set; }
 }
 
 public class testDmnEnumDescr
   : GqlpDomainEnum
   , ItestDmnEnumDescr
 {
+  public new testEnumDmnEnumDescr? Value { get; set; }
 }
 
 public class testDmnEnumExcl
   : GqlpDomainEnum
   , ItestDmnEnumExcl
 {
+  public new testEnumDmnEnumExcl? Value { get; set; }
 }
 
 public class testDmnEnumExclPrnt
@@ -10719,30 +10732,35 @@ public class testDmnEnumLabel
   : GqlpDomainEnum
   , ItestDmnEnumLabel
 {
+  public new testEnumDmnEnumLabel? Value { get; set; }
 }
 
 public class testDmnEnumPrnt
   : testPrntDmnEnumPrnt
   , ItestDmnEnumPrnt
 {
+  public new testEnumDmnEnumPrnt? Value { get; set; }
 }
 
 public class testPrntDmnEnumPrnt
   : GqlpDomainEnum
   , ItestPrntDmnEnumPrnt
 {
+  public new testEnumDmnEnumPrnt? Value { get; set; }
 }
 
 public class testDmnEnumPrntDescr
   : testPrntDmnEnumPrntDescr
   , ItestDmnEnumPrntDescr
 {
+  public new testEnumDmnEnumPrntDescr? Value { get; set; }
 }
 
 public class testPrntDmnEnumPrntDescr
   : GqlpDomainEnum
   , ItestPrntDmnEnumPrntDescr
 {
+  public new testEnumDmnEnumPrntDescr? Value { get; set; }
 }
 
 public class testDmnEnumUnq
@@ -10761,12 +10779,14 @@ public class testDmnEnumValue
   : GqlpDomainEnum
   , ItestDmnEnumValue
 {
+  public new testEnumDmnEnumValue? Value { get; set; }
 }
 
 public class testDmnEnumValuePrnt
   : GqlpDomainEnum
   , ItestDmnEnumValuePrnt
 {
+  public new testEnumDmnEnumValuePrnt? Value { get; set; }
 }
 
 public class testDmnNmbrDescr

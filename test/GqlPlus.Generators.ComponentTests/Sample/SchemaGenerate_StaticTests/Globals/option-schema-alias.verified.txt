@@ -4,7 +4,7 @@ option Schema [Alias] { }
 
 // Generated from Schema option-schema-alias
 //   with GeneratorOption: BaseType: Other, BaseName: Schema_option-schema-alias, GeneratorType: Static
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 
 Option Schema

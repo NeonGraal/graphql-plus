@@ -5,7 +5,7 @@ dual ObjDualAltDualOutp { alt: Number | String }
 
 // Generated from Schema alt-dual+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-dual+Output, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

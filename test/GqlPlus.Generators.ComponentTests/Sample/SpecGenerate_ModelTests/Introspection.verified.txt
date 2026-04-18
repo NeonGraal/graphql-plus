@@ -432,7 +432,7 @@ output _OutputFieldType {
 
 // Generated from Spec Introspection
 //   with GeneratorOption: BaseType: Class, BaseName: Spec_Introspection, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -1795,6 +1795,7 @@ public class Cmpt_ObjectKind
   : GqlpDomainEnum
   , ICmpt_ObjectKind
 {
+  public new Cmpt_TypeKind? Value { get; set; }
 }
 
 public class Cmpt_TypeObject<TObjectKind,TField>

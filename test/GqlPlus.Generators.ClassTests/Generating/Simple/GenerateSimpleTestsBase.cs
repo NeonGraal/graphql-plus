@@ -54,7 +54,8 @@ public abstract class GenerateSimpleTestsBase<TSimple>
     TypeGenerator.GenerateType(builder.AsSimple, context);
 
     // Assert
-    context.CheckFor(ForGeneratedCodeName(name));
+    context.CheckFor(ForGeneratedCodeName(name),
+      ForGeneratedItem(name, item));
   }
 
   [Theory, RepeatData]
@@ -69,9 +70,11 @@ public abstract class GenerateSimpleTestsBase<TSimple>
     TypeGenerator.GenerateType(builder.AsSimple, context);
 
     // Assert
-    context.CheckFor(ForGeneratedCodeName(name));
+    context.CheckFor([ForGeneratedCodeName(name),
+      .. items.Select(i => ForGeneratedItem(name, i))]);
   }
 
   protected abstract SimpleBuilder<TSimple> MakeSimple(string name);
   protected abstract void MakeItems(SimpleBuilder<TSimple> builder, params string[] items);
+  internal abstract ForType ForGeneratedItem(string name, string item);
 }

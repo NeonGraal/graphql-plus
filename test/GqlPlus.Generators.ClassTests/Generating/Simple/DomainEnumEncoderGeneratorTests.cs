@@ -12,7 +12,7 @@ public class DomainEnumEncoderGeneratorTests
   internal override GqlpBaseType BaseType => GqlpBaseType.Class;
 
   internal override ForType ForGeneratedCodeName(string name)
-    => ForGeneratedEncoder("internal class " + TestPrefix + name + "Encoder");
+    => _ => _ => { };
 
   internal override ForType ForGeneratedCodeParent(string parent)
     => _ => _ => { };
@@ -21,5 +21,8 @@ public class DomainEnumEncoderGeneratorTests
     => ForGeneratedEncoder(contains);
 
   protected override IAstDomainLabel MakeDomainItem(string item)
-    => A.ItemLabel("", item);
+    => A.ItemLabel("TestEnum", item);
+
+  internal override ForType ForGeneratedItem(string name, string item)
+    => ForGeneratedEncoder("new(input.ToString(), \"tstTestEnum\");");
 }

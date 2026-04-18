@@ -133,7 +133,7 @@ output _Setting {
 
 // Generated from Spec -Global
 //   with GeneratorOption: BaseType: Interface, BaseName: Spec_-Global, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

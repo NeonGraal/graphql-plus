@@ -1,7 +1,7 @@
 ﻿//HintName: test_output-param-descr_Model.gen.cs
 // Generated from {CurrentDirectory}output-param-descr.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -7,7 +7,7 @@ enum DupDmnEnumUnqPrnt { dmnEnumUnqPrnt dup_dmnEnumUnqPrnt dmnEnumUnqPrntDup }
 
 // Generated from Schema domain-enum-unique-parent
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-enum-unique-parent, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

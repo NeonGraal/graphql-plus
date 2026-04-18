@@ -5,7 +5,7 @@ output DescrSngl { }
 
 // Generated from Schema descr-single
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_descr-single, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

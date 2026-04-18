@@ -4,7 +4,7 @@ dual GnrcAltDual<$type:String> { | $type }
 
 // Generated from Schema generic-alt+Dual
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-alt+Dual, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

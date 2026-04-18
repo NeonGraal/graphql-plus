@@ -5,7 +5,7 @@ domain DmnStrSame { string /a+/ }
 
 // Generated from Schema domain-string-same
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-string-same, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

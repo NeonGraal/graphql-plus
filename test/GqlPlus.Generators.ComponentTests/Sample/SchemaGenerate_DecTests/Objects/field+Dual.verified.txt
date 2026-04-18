@@ -4,7 +4,7 @@ dual FieldDual { field: String }
 
 // Generated from Schema field+Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_field+Dual, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

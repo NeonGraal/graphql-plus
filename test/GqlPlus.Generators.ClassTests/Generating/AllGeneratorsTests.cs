@@ -16,10 +16,10 @@ public class AllGeneratorsTests
       .GeneratorFor<IAstSchema>()
       .ShouldNotBeNull();
 
-  [Fact]
-  public void AllGenerators_TypeGenerators_ReturnNotEmpty()
+  [Theory, ClassData<DefinedGeneratorTypes>]
+  public void AllGenerators_TypeGenerators_ReturnNotEmpty(GqlpGeneratorType generatorType)
     => _services.GetRequiredService<IGeneratorRepository>()
-    .TypeGenerators.ShouldNotBeEmpty();
+    .TypeGenerators(generatorType).ShouldNotBeEmpty();
 
   [Fact]
   public void AllGenerators_GeneratorFactories_ReturnNotNull()
@@ -30,23 +30,36 @@ public class AllGeneratorsTests
     repo.ShouldSatisfyAllConditions([.. builder.Generators.Values.Select(CheckGenerator)]);
   }
 
-  [Fact]
-  public void AllGenerators_TypeGeneratorFactories_ReturnNotNull()
+  [Theory, ClassData<DefinedGeneratorTypes>]
+  public void AllGenerators_TypeGeneratorFactories_ReturnNotNull(GqlpGeneratorType generatorType)
   {
     IGeneratorRepository repo = _services.GetRequiredService<IGeneratorRepository>();
-    GeneratorRepositoryBuilder builder = _services.GetRequiredService<GeneratorRepositoryBuilder>();
 
-    repo.ShouldSatisfyAllConditions([.. builder.TypeGenerators.Values
-      .SelectMany(fs => fs)
-      .Select(CheckGenerator)]);
+    repo.ShouldSatisfyAllConditions([.. repo.TypeGenerators(generatorType)
+      .Select(CheckTypeGenerator)]);
   }
 
   private static Action<IGeneratorRepository> CheckGenerator(Factory<object, IGeneratorRepository> factory)
     => r => factory(r)
         .ShouldNotBeNull($"Generator for {factory.GetType().ExpandTypeName()} should not be null");
+  private static Action<IGeneratorRepository> CheckTypeGenerator(ITypeGenerator generator)
+    => r => generator
+        .ShouldNotBeNull($"Type generator for {generator.GetType().ExpandTypeName()} should not be null");
 
   private readonly IServiceProvider _services = new ServiceCollection()
     .AddLogging()
     .AddGenerators()
     .BuildServiceProvider();
+}
+
+public class DefinedGeneratorTypes
+  : TheoryData<GqlpGeneratorType>
+{
+  public DefinedGeneratorTypes()
+  {
+    Add(GqlpGeneratorType.Interface);
+    Add(GqlpGeneratorType.Model);
+    Add(GqlpGeneratorType.Encoder);
+    Add(GqlpGeneratorType.Decoder);
+  }
 }

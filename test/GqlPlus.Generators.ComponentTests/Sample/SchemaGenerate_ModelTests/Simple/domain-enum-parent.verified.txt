@@ -6,7 +6,7 @@ enum EnumDmnEnumPrnt { enum_dmnEnumPrnt prnt_dmnEnumPrnt }
 
 // Generated from Schema domain-enum-parent
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-enum-parent, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -16,10 +16,12 @@ public class CmptDmnEnumPrnt
   : CmptPrntDmnEnumPrnt
   , ICmptDmnEnumPrnt
 {
+  public new CmptEnumDmnEnumPrnt? Value { get; set; }
 }
 
 public class CmptPrntDmnEnumPrnt
   : GqlpDomainEnum
   , ICmptPrntDmnEnumPrnt
 {
+  public new CmptEnumDmnEnumPrnt? Value { get; set; }
 }

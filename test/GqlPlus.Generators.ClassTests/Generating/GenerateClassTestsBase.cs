@@ -11,7 +11,9 @@ public class GenerateClassTestsBase
   internal static GqlpGeneratorContext Context(
     GqlpBaseType baseType = GqlpBaseType.Class,
     GqlpGeneratorType generatorType = GqlpGeneratorType.Model
-  ) => new("testPath", new("testNamespace.testClass", baseType, generatorType), new("testNamespace", TestPrefix));
+  ) => new("testPath",
+    new("testNamespace.testClass", baseType, generatorType),
+    new("testNamespace", TestPrefix));
 
   internal void SkipBuiltInTypes(params string[] typeNames)
   {

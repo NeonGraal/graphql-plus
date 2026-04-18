@@ -7,7 +7,7 @@ dual AltCnstFieldDualDual { :PrntCnstFieldDualDual alt: Number }
 
 // Generated from Schema constraint-field-dual+Dual
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-field-dual+Dual, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

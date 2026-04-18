@@ -1,7 +1,7 @@
 ﻿//HintName: test_constraint-field-obj+Dual_Dec.gen.cs
 // Generated from {CurrentDirectory}constraint-field-obj+Dual.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpDecoderBase, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

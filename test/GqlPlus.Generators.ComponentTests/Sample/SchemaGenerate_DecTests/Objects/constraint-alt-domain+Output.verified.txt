@@ -6,7 +6,7 @@ domain DomCnstAltDmnOutp { String /\w+/ }
 
 // Generated from Schema constraint-alt-domain+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-alt-domain+Output, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

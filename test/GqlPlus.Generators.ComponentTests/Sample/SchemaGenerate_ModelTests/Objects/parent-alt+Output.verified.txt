@@ -5,7 +5,7 @@ output RefPrntAltOutp {  parent: Number | String }
 
 // Generated from Schema parent-alt+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-alt+Output, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

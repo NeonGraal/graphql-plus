@@ -12,7 +12,7 @@ output _EnumValue {
 
 // Generated from Spec Enum
 //   with GeneratorOption: BaseType: Class, BaseName: Spec_Enum, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

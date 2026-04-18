@@ -1,7 +1,7 @@
 ﻿//HintName: test_Introspection_Enc.gen.cs
 // Generated from {CurrentDirectory}Introspection.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpEncoderBase, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -709,7 +709,7 @@ internal class test_UnionMemberEncoder(
 internal class test_ObjectKindEncoder : IEncoder<Itest_ObjectKind>
 {
   public Structured Encode(Itest_ObjectKind input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "test_TypeKind");
 
   internal static test_ObjectKindEncoder Factory(IEncoderRepository _) => new();
 }

@@ -1,7 +1,7 @@
 ﻿//HintName: test_union-diff_Dec.gen.cs
 // Generated from {CurrentDirectory}union-diff.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpDecoderBase, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -28,7 +28,7 @@ output All {
 
 // Generated from Schema all
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_all, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -4,7 +4,7 @@ dual FieldTypeDescrDual { field: "Test" "Descr" Number }
 
 // Generated from Schema field-type-descr+Dual
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_field-type-descr+Dual, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

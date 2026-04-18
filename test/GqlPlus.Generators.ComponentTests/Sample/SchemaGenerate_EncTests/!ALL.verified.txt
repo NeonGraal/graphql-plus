@@ -1,6 +1,6 @@
 ﻿// Generated from Schema !ALL
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_!ALL, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -593,7 +593,7 @@ internal class CmptEnumCnstDomEnumDualEncoder : IEncoder<CmptEnumCnstDomEnumDual
 internal class CmptJustCnstDomEnumDualEncoder : IEncoder<ICmptJustCnstDomEnumDual>
 {
   public Structured Encode(ICmptJustCnstDomEnumDual input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "CmptEnumCnstDomEnumDual");
 
   internal static CmptJustCnstDomEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
@@ -609,7 +609,7 @@ internal class CmptEnumCnstDomEnumInpEncoder : IEncoder<CmptEnumCnstDomEnumInp>
 internal class CmptJustCnstDomEnumInpEncoder : IEncoder<ICmptJustCnstDomEnumInp>
 {
   public Structured Encode(ICmptJustCnstDomEnumInp input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "CmptEnumCnstDomEnumInp");
 
   internal static CmptJustCnstDomEnumInpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -643,7 +643,7 @@ internal class CmptEnumCnstDomEnumOutpEncoder : IEncoder<CmptEnumCnstDomEnumOutp
 internal class CmptJustCnstDomEnumOutpEncoder : IEncoder<ICmptJustCnstDomEnumOutp>
 {
   public Structured Encode(ICmptJustCnstDomEnumOutp input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "CmptEnumCnstDomEnumOutp");
 
   internal static CmptJustCnstDomEnumOutpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -2572,7 +2572,7 @@ internal class CmptEnumGnrcPrntEnumDomDualEncoder : IEncoder<CmptEnumGnrcPrntEnu
 internal class CmptDomGnrcPrntEnumDomDualEncoder : IEncoder<ICmptDomGnrcPrntEnumDomDual>
 {
   public Structured Encode(ICmptDomGnrcPrntEnumDomDual input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "CmptEnumGnrcPrntEnumDomDual");
 
   internal static CmptDomGnrcPrntEnumDomDualEncoder Factory(IEncoderRepository _) => new();
 }
@@ -2588,7 +2588,7 @@ internal class CmptEnumGnrcPrntEnumDomInpEncoder : IEncoder<CmptEnumGnrcPrntEnum
 internal class CmptDomGnrcPrntEnumDomInpEncoder : IEncoder<ICmptDomGnrcPrntEnumDomInp>
 {
   public Structured Encode(ICmptDomGnrcPrntEnumDomInp input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "CmptEnumGnrcPrntEnumDomInp");
 
   internal static CmptDomGnrcPrntEnumDomInpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -2625,7 +2625,7 @@ internal class CmptEnumGnrcPrntEnumDomOutpEncoder : IEncoder<CmptEnumGnrcPrntEnu
 internal class CmptDomGnrcPrntEnumDomOutpEncoder : IEncoder<ICmptDomGnrcPrntEnumDomOutp>
 {
   public Structured Encode(ICmptDomGnrcPrntEnumDomOutp input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "CmptEnumGnrcPrntEnumDomOutp");
 
   internal static CmptDomGnrcPrntEnumDomOutpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -3563,7 +3563,7 @@ internal class CmptDmnBoolSameEncoder : IEncoder<ICmptDmnBoolSame>
 internal class CmptDmnEnumDiffEncoder : IEncoder<ICmptDmnEnumDiff>
 {
   public Structured Encode(ICmptDmnEnumDiff input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "bool");
 
   internal static CmptDmnEnumDiffEncoder Factory(IEncoderRepository _) => new();
 }
@@ -3571,7 +3571,7 @@ internal class CmptDmnEnumDiffEncoder : IEncoder<ICmptDmnEnumDiff>
 internal class CmptDmnEnumSameEncoder : IEncoder<ICmptDmnEnumSame>
 {
   public Structured Encode(ICmptDmnEnumSame input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "bool");
 
   internal static CmptDmnEnumSameEncoder Factory(IEncoderRepository _) => new();
 }
@@ -4127,7 +4127,7 @@ internal class CmptPrntDmnBoolPrntDescrEncoder : IEncoder<ICmptPrntDmnBoolPrntDe
 internal class CmptDmnEnumAllEncoder : IEncoder<ICmptDmnEnumAll>
 {
   public Structured Encode(ICmptDmnEnumAll input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "CmptEnumDmnEnumAll");
 
   internal static CmptDmnEnumAllEncoder Factory(IEncoderRepository _) => new();
 }
@@ -4143,7 +4143,7 @@ internal class CmptEnumDmnEnumAllEncoder : IEncoder<CmptEnumDmnEnumAll>
 internal class CmptDmnEnumAllDescrEncoder : IEncoder<ICmptDmnEnumAllDescr>
 {
   public Structured Encode(ICmptDmnEnumAllDescr input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "CmptEnumDmnEnumAllDescr");
 
   internal static CmptDmnEnumAllDescrEncoder Factory(IEncoderRepository _) => new();
 }
@@ -4159,7 +4159,7 @@ internal class CmptEnumDmnEnumAllDescrEncoder : IEncoder<CmptEnumDmnEnumAllDescr
 internal class CmptDmnEnumAllPrntEncoder : IEncoder<ICmptDmnEnumAllPrnt>
 {
   public Structured Encode(ICmptDmnEnumAllPrnt input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "CmptEnumDmnEnumAllPrnt");
 
   internal static CmptDmnEnumAllPrntEncoder Factory(IEncoderRepository _) => new();
 }
@@ -4183,7 +4183,7 @@ internal class CmptPrntDmnEnumAllPrntEncoder : IEncoder<CmptPrntDmnEnumAllPrnt>
 internal class CmptDmnEnumDescrEncoder : IEncoder<ICmptDmnEnumDescr>
 {
   public Structured Encode(ICmptDmnEnumDescr input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "CmptEnumDmnEnumDescr");
 
   internal static CmptDmnEnumDescrEncoder Factory(IEncoderRepository _) => new();
 }
@@ -4199,7 +4199,7 @@ internal class CmptEnumDmnEnumDescrEncoder : IEncoder<CmptEnumDmnEnumDescr>
 internal class CmptDmnEnumExclEncoder : IEncoder<ICmptDmnEnumExcl>
 {
   public Structured Encode(ICmptDmnEnumExcl input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "CmptEnumDmnEnumExcl");
 
   internal static CmptDmnEnumExclEncoder Factory(IEncoderRepository _) => new();
 }
@@ -4210,14 +4210,6 @@ internal class CmptEnumDmnEnumExclEncoder : IEncoder<CmptEnumDmnEnumExcl>
     => new(input.ToString(), "_EnumDmnEnumExcl");
 
   internal static CmptEnumDmnEnumExclEncoder Factory(IEncoderRepository _) => new();
-}
-
-internal class CmptDmnEnumExclPrntEncoder : IEncoder<ICmptDmnEnumExclPrnt>
-{
-  public Structured Encode(ICmptDmnEnumExclPrnt input)
-    => new((decimal?)input.Value);
-
-  internal static CmptDmnEnumExclPrntEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumExclPrntEncoder : IEncoder<CmptEnumDmnEnumExclPrnt>
@@ -4239,7 +4231,7 @@ internal class CmptPrntDmnEnumExclPrntEncoder : IEncoder<CmptPrntDmnEnumExclPrnt
 internal class CmptDmnEnumLabelEncoder : IEncoder<ICmptDmnEnumLabel>
 {
   public Structured Encode(ICmptDmnEnumLabel input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "CmptEnumDmnEnumLabel");
 
   internal static CmptDmnEnumLabelEncoder Factory(IEncoderRepository _) => new();
 }
@@ -4255,7 +4247,7 @@ internal class CmptEnumDmnEnumLabelEncoder : IEncoder<CmptEnumDmnEnumLabel>
 internal class CmptDmnEnumPrntEncoder : IEncoder<ICmptDmnEnumPrnt>
 {
   public Structured Encode(ICmptDmnEnumPrnt input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "CmptEnumDmnEnumPrnt");
 
   internal static CmptDmnEnumPrntEncoder Factory(IEncoderRepository _) => new();
 }
@@ -4263,7 +4255,7 @@ internal class CmptDmnEnumPrntEncoder : IEncoder<ICmptDmnEnumPrnt>
 internal class CmptPrntDmnEnumPrntEncoder : IEncoder<ICmptPrntDmnEnumPrnt>
 {
   public Structured Encode(ICmptPrntDmnEnumPrnt input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "CmptEnumDmnEnumPrnt");
 
   internal static CmptPrntDmnEnumPrntEncoder Factory(IEncoderRepository _) => new();
 }
@@ -4279,7 +4271,7 @@ internal class CmptEnumDmnEnumPrntEncoder : IEncoder<CmptEnumDmnEnumPrnt>
 internal class CmptDmnEnumPrntDescrEncoder : IEncoder<ICmptDmnEnumPrntDescr>
 {
   public Structured Encode(ICmptDmnEnumPrntDescr input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "CmptEnumDmnEnumPrntDescr");
 
   internal static CmptDmnEnumPrntDescrEncoder Factory(IEncoderRepository _) => new();
 }
@@ -4287,7 +4279,7 @@ internal class CmptDmnEnumPrntDescrEncoder : IEncoder<ICmptDmnEnumPrntDescr>
 internal class CmptPrntDmnEnumPrntDescrEncoder : IEncoder<ICmptPrntDmnEnumPrntDescr>
 {
   public Structured Encode(ICmptPrntDmnEnumPrntDescr input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "CmptEnumDmnEnumPrntDescr");
 
   internal static CmptPrntDmnEnumPrntDescrEncoder Factory(IEncoderRepository _) => new();
 }
@@ -4298,14 +4290,6 @@ internal class CmptEnumDmnEnumPrntDescrEncoder : IEncoder<CmptEnumDmnEnumPrntDes
     => new(input.ToString(), "_EnumDmnEnumPrntDescr");
 
   internal static CmptEnumDmnEnumPrntDescrEncoder Factory(IEncoderRepository _) => new();
-}
-
-internal class CmptDmnEnumUnqEncoder : IEncoder<ICmptDmnEnumUnq>
-{
-  public Structured Encode(ICmptDmnEnumUnq input)
-    => new((decimal?)input.Value);
-
-  internal static CmptDmnEnumUnqEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumUnqEncoder : IEncoder<CmptEnumDmnEnumUnq>
@@ -4322,14 +4306,6 @@ internal class CmptDupDmnEnumUnqEncoder : IEncoder<CmptDupDmnEnumUnq>
     => new(input.ToString(), "_DupDmnEnumUnq");
 
   internal static CmptDupDmnEnumUnqEncoder Factory(IEncoderRepository _) => new();
-}
-
-internal class CmptDmnEnumUnqPrntEncoder : IEncoder<ICmptDmnEnumUnqPrnt>
-{
-  public Structured Encode(ICmptDmnEnumUnqPrnt input)
-    => new((decimal?)input.Value);
-
-  internal static CmptDmnEnumUnqPrntEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumUnqPrntEncoder : IEncoder<CmptEnumDmnEnumUnqPrnt>
@@ -4359,7 +4335,7 @@ internal class CmptDupDmnEnumUnqPrntEncoder : IEncoder<CmptDupDmnEnumUnqPrnt>
 internal class CmptDmnEnumValueEncoder : IEncoder<ICmptDmnEnumValue>
 {
   public Structured Encode(ICmptDmnEnumValue input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "CmptEnumDmnEnumValue");
 
   internal static CmptDmnEnumValueEncoder Factory(IEncoderRepository _) => new();
 }
@@ -4375,7 +4351,7 @@ internal class CmptEnumDmnEnumValueEncoder : IEncoder<CmptEnumDmnEnumValue>
 internal class CmptDmnEnumValuePrntEncoder : IEncoder<ICmptDmnEnumValuePrnt>
 {
   public Structured Encode(ICmptDmnEnumValuePrnt input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "CmptEnumDmnEnumValuePrnt");
 
   internal static CmptDmnEnumValuePrntEncoder Factory(IEncoderRepository _) => new();
 }
@@ -5031,7 +5007,6 @@ internal static class Cmpt_Schema_ALLEncoders
       .AddEncoder<CmptEnumDmnEnumDescr>(CmptEnumDmnEnumDescrEncoder.Factory)
       .AddEncoder<ICmptDmnEnumExcl>(CmptDmnEnumExclEncoder.Factory)
       .AddEncoder<CmptEnumDmnEnumExcl>(CmptEnumDmnEnumExclEncoder.Factory)
-      .AddEncoder<ICmptDmnEnumExclPrnt>(CmptDmnEnumExclPrntEncoder.Factory)
       .AddEncoder<CmptEnumDmnEnumExclPrnt>(CmptEnumDmnEnumExclPrntEncoder.Factory)
       .AddEncoder<CmptPrntDmnEnumExclPrnt>(CmptPrntDmnEnumExclPrntEncoder.Factory)
       .AddEncoder<ICmptDmnEnumLabel>(CmptDmnEnumLabelEncoder.Factory)
@@ -5042,10 +5017,8 @@ internal static class Cmpt_Schema_ALLEncoders
       .AddEncoder<ICmptDmnEnumPrntDescr>(CmptDmnEnumPrntDescrEncoder.Factory)
       .AddEncoder<ICmptPrntDmnEnumPrntDescr>(CmptPrntDmnEnumPrntDescrEncoder.Factory)
       .AddEncoder<CmptEnumDmnEnumPrntDescr>(CmptEnumDmnEnumPrntDescrEncoder.Factory)
-      .AddEncoder<ICmptDmnEnumUnq>(CmptDmnEnumUnqEncoder.Factory)
       .AddEncoder<CmptEnumDmnEnumUnq>(CmptEnumDmnEnumUnqEncoder.Factory)
       .AddEncoder<CmptDupDmnEnumUnq>(CmptDupDmnEnumUnqEncoder.Factory)
-      .AddEncoder<ICmptDmnEnumUnqPrnt>(CmptDmnEnumUnqPrntEncoder.Factory)
       .AddEncoder<CmptEnumDmnEnumUnqPrnt>(CmptEnumDmnEnumUnqPrntEncoder.Factory)
       .AddEncoder<CmptPrntDmnEnumUnqPrnt>(CmptPrntDmnEnumUnqPrntEncoder.Factory)
       .AddEncoder<CmptDupDmnEnumUnqPrnt>(CmptDupDmnEnumUnqPrntEncoder.Factory)

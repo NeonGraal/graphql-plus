@@ -1,7 +1,7 @@
 ﻿//HintName: test_-Schema_Model.gen.cs
 // Generated from {CurrentDirectory}-Schema.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

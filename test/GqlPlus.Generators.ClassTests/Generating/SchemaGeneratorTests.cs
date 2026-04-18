@@ -9,7 +9,6 @@ public class SchemaGeneratorTests
   private readonly IGenerator<IAstSchemaCategory> _categoryGenerator = GFor<IAstSchemaCategory>();
   private readonly IGenerator<IAstSchemaDirective> _directiveGenerator = GFor<IAstSchemaDirective>();
   private readonly IGenerator<IAstSchemaOption> _optionGenerator = GFor<IAstSchemaOption>();
-  private readonly Dictionary<GqlpGeneratorType, IEnumerable<ITypeGenerator>> _typeGenerators = [];
 
   private readonly SchemaGenerator _generator;
 
@@ -18,7 +17,6 @@ public class SchemaGeneratorTests
     _generators.GeneratorFor<IAstSchemaCategory>().Returns(_categoryGenerator);
     _generators.GeneratorFor<IAstSchemaDirective>().Returns(_directiveGenerator);
     _generators.GeneratorFor<IAstSchemaOption>().Returns(_optionGenerator);
-    _generators.TypeGenerators.Returns(_typeGenerators);
     _generator = new SchemaGenerator(_generators);
   }
 
@@ -33,8 +31,7 @@ public class SchemaGeneratorTests
 
     ITypeGenerator typeGenerator = A.Of<ITypeGenerator>();
     typeGenerator.ForType(type).Returns(true);
-
-    _typeGenerators[GqlpGeneratorType.Model] = [typeGenerator];
+    _generators.TypeGenerators(GqlpGeneratorType.Model).Returns([typeGenerator]);
 
     // Act
     _generator.Generate(schema, context);
@@ -44,7 +41,24 @@ public class SchemaGeneratorTests
   }
 
   [Theory, RepeatData]
-  public void Generate_WithNoMatchingGenerator_DoesNotThrow(string typeName)
+  public void Generate_WithOnlyInterfaceGenerator_DoesNotThrow(string typeName)
+  {
+    // Arrange
+    GqlpGeneratorContext context = Context();
+    IAstSchema schema = A.Error<IAstSchema>();
+    IAstType type = A.Named<IAstType>(typeName);
+    schema.Declarations.Returns([type]);
+
+    ITypeGenerator typeGenerator = A.Of<ITypeGenerator>();
+    typeGenerator.ForType(type).Returns(true);
+    _generators.TypeGenerators(GqlpGeneratorType.Interface).Returns([typeGenerator]);
+
+    // Act & Assert
+    Should.NotThrow(() => _generator.Generate(schema, context));
+  }
+
+  [Theory, RepeatData]
+  public void Generate_WithNoMatchingGenerator_Throws(string typeName)
   {
     // Arrange
     GqlpGeneratorContext context = Context();
@@ -53,7 +67,7 @@ public class SchemaGeneratorTests
     schema.Declarations.Returns([type]);
 
     // Act & Assert
-    Should.NotThrow(() => _generator.Generate(schema, context));
+    Should.Throw<InvalidOperationException>(() => _generator.Generate(schema, context));
   }
 
   [Theory, RepeatData]

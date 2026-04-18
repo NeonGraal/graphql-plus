@@ -6,7 +6,7 @@ output AltGnrcPrntParamPrntOutp { alt: Number | String }
 
 // Generated from Schema generic-parent-param-parent+Output
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-param-parent+Output, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

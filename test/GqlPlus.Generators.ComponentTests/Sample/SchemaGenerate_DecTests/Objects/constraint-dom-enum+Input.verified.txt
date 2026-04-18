@@ -7,7 +7,7 @@ domain JustCnstDomEnumInp { enum EnumCnstDomEnumInp.cnstDomEnumInp }
 
 // Generated from Schema constraint-dom-enum+Input
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-dom-enum+Input, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

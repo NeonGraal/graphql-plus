@@ -34,7 +34,9 @@ internal sealed class SchemaGeneratorChecks(
   {
     IAstSchema schema = _schemaMerger.Merge(asts).First();
 
-    GqlpGeneratorContext context = new(label + " " + test, new($"Components.{label}_{test}", baseType, type), new GqlpModelOptions("ComponentTests", "Cmpt"));
+    GqlpGeneratorContext context = new(label + " " + test,
+      new($"Components.{label}_{test}", baseType, type),
+      new GqlpModelOptions("ComponentTests", "Cmpt"));
 
     _schemaGenerator.Generate(schema, context);
 

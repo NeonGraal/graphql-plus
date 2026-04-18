@@ -5,7 +5,7 @@ input InDrctParamDict { }
 
 // Generated from Schema directive-param-dict
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_directive-param-dict, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

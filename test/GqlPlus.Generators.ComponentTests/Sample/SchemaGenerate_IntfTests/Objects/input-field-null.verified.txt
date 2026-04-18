@@ -5,7 +5,7 @@ dual FldInpFieldNull { }
 
 // Generated from Schema input-field-null
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_input-field-null, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

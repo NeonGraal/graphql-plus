@@ -1,7 +1,7 @@
 ﻿//HintName: test_field-value-descr+Dual_Enc.gen.cs
 // Generated from {CurrentDirectory}field-value-descr+Dual.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpEncoderBase, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

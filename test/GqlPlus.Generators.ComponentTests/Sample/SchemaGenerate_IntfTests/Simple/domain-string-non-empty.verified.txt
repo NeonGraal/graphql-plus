@@ -4,7 +4,7 @@ domain DmnStrNonEmpty { String !/\s*/ }
 
 // Generated from Schema domain-string-non-empty
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-string-non-empty, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

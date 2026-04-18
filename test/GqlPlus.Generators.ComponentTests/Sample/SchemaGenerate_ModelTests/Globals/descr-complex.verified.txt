@@ -5,7 +5,7 @@ output DescrCmpl { }
 
 // Generated from Schema descr-complex
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_descr-complex, GeneratorType: Model
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

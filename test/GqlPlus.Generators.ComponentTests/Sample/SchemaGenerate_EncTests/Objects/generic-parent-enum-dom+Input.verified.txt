@@ -7,7 +7,7 @@ domain DomGnrcPrntEnumDomInp { enum gnrcPrntEnumDomInpLabel }
 
 // Generated from Schema generic-parent-enum-dom+Input
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-enum-dom+Input, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 
@@ -24,7 +24,7 @@ internal class CmptEnumGnrcPrntEnumDomInpEncoder : IEncoder<CmptEnumGnrcPrntEnum
 internal class CmptDomGnrcPrntEnumDomInpEncoder : IEncoder<ICmptDomGnrcPrntEnumDomInp>
 {
   public Structured Encode(ICmptDomGnrcPrntEnumDomInp input)
-    => new((decimal?)input.Value);
+    => new(input.ToString(), "CmptEnumGnrcPrntEnumDomInp");
 
   internal static CmptDomGnrcPrntEnumDomInpEncoder Factory(IEncoderRepository _) => new();
 }

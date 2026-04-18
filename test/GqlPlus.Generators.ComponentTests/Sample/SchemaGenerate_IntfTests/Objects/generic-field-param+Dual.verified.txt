@@ -6,7 +6,7 @@ dual AltGnrcFieldParamDual { alt: Number | String }
 
 // Generated from Schema generic-field-param+Dual
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-field-param+Dual, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

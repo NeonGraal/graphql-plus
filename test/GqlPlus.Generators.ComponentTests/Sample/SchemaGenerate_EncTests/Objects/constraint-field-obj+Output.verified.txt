@@ -7,7 +7,7 @@ output AltCnstFieldObjOutp { :PrntCnstFieldObjOutp alt: Number }
 
 // Generated from Schema constraint-field-obj+Output
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-field-obj+Output, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

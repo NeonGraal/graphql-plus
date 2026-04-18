@@ -15,7 +15,7 @@ output AddrOprType {
 
 // Generated from Schema operation-type
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_operation-type, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

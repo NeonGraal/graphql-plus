@@ -47,7 +47,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     // Assert
     context.CheckFor(
       ForGeneratedCodeName(name),
-      ForGeneratedBoth("I" + TestPrefix + "String? " + fieldName + " { get;"));
+      ForGeneratedBoth("string? " + fieldName + " { get;"));
   }
 
   [Theory, RepeatData]

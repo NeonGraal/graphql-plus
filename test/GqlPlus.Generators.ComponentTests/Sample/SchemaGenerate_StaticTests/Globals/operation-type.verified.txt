@@ -15,7 +15,7 @@ output AddrOprType {
 
 // Generated from Schema operation-type
 //   with GeneratorOption: BaseType: Other, BaseName: Schema_operation-type, GeneratorType: Static
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 
 Category catOprType

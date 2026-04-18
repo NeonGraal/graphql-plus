@@ -7,7 +7,7 @@ output Op { }
 
 // Generated from Schema operation
 //   with GeneratorOption: BaseType: Class, BaseName: Schema_operation, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

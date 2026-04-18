@@ -390,7 +390,7 @@ internal class Cmpt_OpFieldEncoder(
   private readonly IEncoder<ICmpt_Modifiers> _modifiers = encoders.EncoderFor<ICmpt_Modifiers>();
   public Structured Encode(ICmpt_OpFieldObject input)
     => _opDirectives.Encode(input)
-      .Add("fieldAlias", input.FieldAlias)
+      .AddIf(input.FieldAlias is not null, onTrue: t => t.Add("fieldAlias", input.FieldAlias!))
       .AddEncoded("argument", input.Argument, _opArgument)
       .AddList("modifiers", input.Modifiers, _modifiers);
 

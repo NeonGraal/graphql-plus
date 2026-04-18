@@ -1,7 +1,7 @@
 ﻿//HintName: test_operation-alias_Model.gen.cs
 // Generated from {CurrentDirectory}operation-alias.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
-//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 

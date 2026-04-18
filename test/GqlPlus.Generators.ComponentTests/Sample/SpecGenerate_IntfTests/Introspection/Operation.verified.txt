@@ -92,7 +92,7 @@ output _OpSpread {
 
 // Generated from Spec Operation
 //   with GeneratorOption: BaseType: Interface, BaseName: Spec_Operation, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

@@ -7,7 +7,7 @@ output Op { }
 
 // Generated from Schema operation-alias
 //   with GeneratorOption: BaseType: Interface, BaseName: Schema_operation-alias, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

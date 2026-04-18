@@ -258,7 +258,7 @@ internal class test_OpFieldEncoder(
   private readonly IEncoder<Itest_Modifiers> _itest_Modifiers = encoders.EncoderFor<Itest_Modifiers>();
   public Structured Encode(Itest_OpFieldObject input)
     => _itest_OpDirectives.Encode(input)
-      .Add("fieldAlias", input.FieldAlias)
+      .AddIf(input.FieldAlias is not null, onTrue: t => t.Add("fieldAlias", input.FieldAlias!))
       .AddEncoded("argument", input.Argument, _itest_OpArgument)
       .AddList("modifiers", input.Modifiers, _itest_Modifiers);
 

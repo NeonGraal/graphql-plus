@@ -320,7 +320,7 @@ internal class test_OpFieldEncoder(
   private readonly IEncoder<Itest_Modifiers> _itest_Modifiers = encoders.EncoderFor<Itest_Modifiers>();
   public Structured Encode(Itest_OpFieldObject input)
     => _itest_OpDirectives.Encode(input)
-      .Add("fieldAlias", input.FieldAlias)
+      .AddIf(input.FieldAlias is not null, onTrue: t => t.Add("fieldAlias", input.FieldAlias!))
       .AddEncoded("argument", input.Argument, _itest_OpArgument)
       .AddList("modifiers", input.Modifiers, _itest_Modifiers);
 
@@ -616,8 +616,8 @@ internal class test_DomainRangeEncoder(
   private readonly IEncoder<Itest_BaseDomainItemObject> _itest_BaseDomainItem = encoders.EncoderFor<Itest_BaseDomainItemObject>();
   public Structured Encode(Itest_DomainRangeObject input)
     => _itest_BaseDomainItem.Encode(input)
-      .Add("lower", input.Lower)
-      .Add("upper", input.Upper);
+      .AddIf(input.Lower is not null, onTrue: t => t.Add("lower", input.Lower!))
+      .AddIf(input.Upper is not null, onTrue: t => t.Add("upper", input.Upper!));
 
   internal static test_DomainRangeEncoder Factory(IEncoderRepository r) => new(r);
 }

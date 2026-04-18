@@ -12,7 +12,7 @@ domain _Identifier { String /[A-Za-z_][A-Za-z0-9_]*/ }
 
 // Generated from Spec Full
 //   with GeneratorOption: BaseType: Class, BaseName: Spec_Full, GeneratorType: Dec
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

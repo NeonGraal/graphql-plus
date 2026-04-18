@@ -59,7 +59,7 @@ dual _OpArgMap {
 
 // Generated from Spec Operation
 //   with GeneratorOption: BaseType: Class, BaseName: Spec_Operation, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

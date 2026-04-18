@@ -103,7 +103,7 @@ dual _OpSpread {
 
 // Generated from Spec -Request
 //   with GeneratorOption: BaseType: Class, BaseName: Spec_-Request, GeneratorType: Enc
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

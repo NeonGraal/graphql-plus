@@ -36,7 +36,7 @@ dual _OpSpread {
 
 // Generated from Spec Result
 //   with GeneratorOption: BaseType: Interface, BaseName: Spec_Result, GeneratorType: Intf
-//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 

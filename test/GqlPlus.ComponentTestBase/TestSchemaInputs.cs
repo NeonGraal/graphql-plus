@@ -9,6 +9,15 @@ public abstract class TestSchemaInputs
     => await Label_Inputs("Schema", await SchemaValidDataAll(), "!ALL");
 
   [Theory]
+  [ClassData(typeof(SamplesGraphQlGraphqlData))]
+  public async Task Test_GraphQL(string sample)
+  {
+    string schema = await ReadFile(sample, "graphql+", "GraphQl");
+
+    await Test_Input("GraphQl", schema, ["GraphQl"], sample);
+  }
+
+  [Theory]
   [ClassData(typeof(SchemaValidData))]
   public async Task Test_Groups(string group)
     => await Label_Inputs("Schema", await SchemaValidDataGroup(group), "+" + group);
@@ -46,7 +55,7 @@ public abstract class TestSchemaInputs
   [ClassData(typeof(SamplesSpecificationData))]
   public async Task Test_Spec(string sample)
   {
-    string spec = await ReadSpecification(sample);
+    string spec = await ReadFile(sample, "graphql+", "Specification");
 
     await Test_Input("Spec", spec, ["Specification"], sample);
   }
@@ -55,7 +64,7 @@ public abstract class TestSchemaInputs
   [ClassData(typeof(SamplesSpecificationIntrospectionData))]
   public async Task Test_Introspection(string sample)
   {
-    string spec = await ReadSpecification(sample, "Introspection");
+    string spec = await ReadFile(sample, "graphql+", "Specification", "Introspection");
 
     await Test_Input("Spec", spec, ["Specification", "Introspection"], sample, "Introspection");
   }

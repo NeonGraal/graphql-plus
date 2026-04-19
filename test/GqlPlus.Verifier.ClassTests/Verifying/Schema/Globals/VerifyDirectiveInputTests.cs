@@ -41,6 +41,18 @@ public class VerifyDirectiveInputTests
   }
 
   [Fact]
+  public void Verify_DefinedDual_ReturnsNoError()
+  {
+    Define<IAstObject<IAstDualField>>("Type");
+
+    Usages.Add(_directive);
+
+    _verifier.Verify(UsageAliased, Errors);
+
+    Errors.ShouldBeEmpty();
+  }
+
+  [Fact]
   public void Verify_DefinedInput_ReturnsNoError()
   {
     Define<IAstObject<IAstInputField>>("Type");

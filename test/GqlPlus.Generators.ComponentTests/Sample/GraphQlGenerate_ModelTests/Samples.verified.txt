@@ -1,0 +1,571 @@
+﻿/* Samples
+output Query {
+    user(UserFilter): FullUser
+    likeStory(StoryFilter) : Story
+    field(FieldFilter): String
+    me: FullUser
+    picture(PicFilter): String
+    profiles(ProfileFilter): Profile[]
+    nearestThing(ThingFilter): String
+  | FullUser
+}
+
+output Mutation {
+    sendEmail(Email): Boolean
+}
+
+dual UserFilter {
+     id: Number
+}
+
+dual User {
+    id: Number
+    name: String
+    firstName: String
+    lastName: String
+    birthday: Date
+}
+
+output FullUser {
+  : User
+    profilePic(PicFilter): String
+    friends(FriendsFilter): UserList
+    mutualFriends(FriendsFilter): UserList
+}
+
+output UserList {
+    count: Number
+    users: User[]
+  | User[]
+}
+
+dual StoryFilter {
+    storyID: Number
+}
+
+dual Story {
+    likeCount: Number
+}
+
+dual FieldFilter {
+    arg: String?
+}
+
+dual PicFilter {
+    size: Number
+    width: Number
+    height: Number
+}
+
+dual FriendsFilter {
+    first: Number
+}
+
+output Profile {
+  : User
+    handle: String
+  | Page  
+}
+
+dual ProfileFilter {
+    handles: String[]
+}
+
+output Page {
+    handle: String
+    likers: UserList
+}
+
+directive @include (IncludeParams) { Inline }
+
+dual IncludeParams {
+    if: Boolean
+}
+
+dual Email {
+    message: String
+}
+
+dual ThingFilter {
+    location: Location
+}
+
+dual Location {
+    lat: Number
+    lon: Number
+}
+
+domain Int { Number >0 }
+
+domain Date { String /\d{4}-\d{2}-\d{2}/ }
+*/
+
+// Generated from GraphQl Samples
+//   with GeneratorOption: BaseType: Class, BaseName: GraphQl_Samples, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_GraphQl_Samples;
+
+public class CmptQuery
+  : GraphQl_Samples
+  , ICmptQuery
+{
+  public ICmptFullUser? AsFullUser { get; set; }
+  public ICmptQueryObject? As_Query { get; set; }
+}
+
+public class CmptQueryObject
+  : GraphQl_Samples
+  , ICmptQueryObject
+{
+  public ICmptFullUser? User(ICmptUserFilter parameter)
+    => null;
+  public ICmptFullUser? User()
+    => null;
+  public ICmptStory? LikeStory(ICmptStoryFilter parameter)
+    => null;
+  public ICmptStory? LikeStory()
+    => null;
+  public string? Field(ICmptFieldFilter parameter)
+    => null;
+  public string? Field()
+    => null;
+  public ICmptFullUser Me { get; set; }
+  public string? Picture(ICmptPicFilter parameter)
+    => null;
+  public string? Picture()
+    => null;
+  public ICollection<ICmptProfile>? Profiles(ICmptProfileFilter parameter)
+    => null;
+  public ICollection<ICmptProfile>? Profiles()
+    => null;
+  public string? NearestThing(ICmptThingFilter parameter)
+    => null;
+  public string? NearestThing()
+    => null;
+
+  public CmptQueryObject
+    ( ICmptFullUser me
+    )
+  {
+    Me = me;
+  }
+}
+
+public class CmptMutation
+  : GraphQl_Samples
+  , ICmptMutation
+{
+  public ICmptMutationObject? As_Mutation { get; set; }
+}
+
+public class CmptMutationObject
+  : GraphQl_Samples
+  , ICmptMutationObject
+{
+  public bool? SendEmail(ICmptEmail parameter)
+    => null;
+  public bool? SendEmail()
+    => null;
+
+  public CmptMutationObject
+    ()
+  {
+  }
+}
+
+public class CmptUserFilter
+  : GraphQl_Samples
+  , ICmptUserFilter
+{
+  public ICmptUserFilterObject? As_UserFilter { get; set; }
+}
+
+public class CmptUserFilterObject
+  : GraphQl_Samples
+  , ICmptUserFilterObject
+{
+  public decimal Id { get; set; }
+
+  public CmptUserFilterObject
+    ( decimal id
+    )
+  {
+    Id = id;
+  }
+}
+
+public class CmptUser
+  : GraphQl_Samples
+  , ICmptUser
+{
+  public ICmptUserObject? As_User { get; set; }
+}
+
+public class CmptUserObject
+  : GraphQl_Samples
+  , ICmptUserObject
+{
+  public decimal Id { get; set; }
+  public string Name { get; set; }
+  public string FirstName { get; set; }
+  public string LastName { get; set; }
+  public ICmptDate Birthday { get; set; }
+
+  public CmptUserObject
+    ( decimal id
+    , string name
+    , string firstName
+    , string lastName
+    , ICmptDate birthday
+    )
+  {
+    Id = id;
+    Name = name;
+    FirstName = firstName;
+    LastName = lastName;
+    Birthday = birthday;
+  }
+}
+
+public class CmptFullUser
+  : CmptUser
+  , ICmptFullUser
+{
+  public ICmptFullUserObject? As_FullUser { get; set; }
+}
+
+public class CmptFullUserObject
+  : CmptUserObject
+  , ICmptFullUserObject
+{
+  public string? ProfilePic(ICmptPicFilter parameter)
+    => null;
+  public string? ProfilePic()
+    => null;
+  public ICmptUserList? Friends(ICmptFriendsFilter parameter)
+    => null;
+  public ICmptUserList? Friends()
+    => null;
+  public ICmptUserList? MutualFriends(ICmptFriendsFilter parameter)
+    => null;
+  public ICmptUserList? MutualFriends()
+    => null;
+
+  public CmptFullUserObject
+    ( decimal id
+    , string name
+    , string firstName
+    , string lastName
+    , ICmptDate birthday
+    ) : base(id, name, firstName, lastName, birthday)
+  {
+  }
+}
+
+public class CmptUserList
+  : GraphQl_Samples
+  , ICmptUserList
+{
+  public ICollection<ICmptUser>? AsUser { get; set; }
+  public ICmptUserListObject? As_UserList { get; set; }
+}
+
+public class CmptUserListObject
+  : GraphQl_Samples
+  , ICmptUserListObject
+{
+  public decimal Count { get; set; }
+  public ICollection<ICmptUser> Users { get; set; }
+
+  public CmptUserListObject
+    ( decimal count
+    , ICollection<ICmptUser> users
+    )
+  {
+    Count = count;
+    Users = users;
+  }
+}
+
+public class CmptStoryFilter
+  : GraphQl_Samples
+  , ICmptStoryFilter
+{
+  public ICmptStoryFilterObject? As_StoryFilter { get; set; }
+}
+
+public class CmptStoryFilterObject
+  : GraphQl_Samples
+  , ICmptStoryFilterObject
+{
+  public decimal StoryID { get; set; }
+
+  public CmptStoryFilterObject
+    ( decimal storyID
+    )
+  {
+    StoryID = storyID;
+  }
+}
+
+public class CmptStory
+  : GraphQl_Samples
+  , ICmptStory
+{
+  public ICmptStoryObject? As_Story { get; set; }
+}
+
+public class CmptStoryObject
+  : GraphQl_Samples
+  , ICmptStoryObject
+{
+  public decimal LikeCount { get; set; }
+
+  public CmptStoryObject
+    ( decimal likeCount
+    )
+  {
+    LikeCount = likeCount;
+  }
+}
+
+public class CmptFieldFilter
+  : GraphQl_Samples
+  , ICmptFieldFilter
+{
+  public ICmptFieldFilterObject? As_FieldFilter { get; set; }
+}
+
+public class CmptFieldFilterObject
+  : GraphQl_Samples
+  , ICmptFieldFilterObject
+{
+  public string? Arg { get; set; }
+
+  public CmptFieldFilterObject
+    ()
+  {
+  }
+}
+
+public class CmptPicFilter
+  : GraphQl_Samples
+  , ICmptPicFilter
+{
+  public ICmptPicFilterObject? As_PicFilter { get; set; }
+}
+
+public class CmptPicFilterObject
+  : GraphQl_Samples
+  , ICmptPicFilterObject
+{
+  public decimal Size { get; set; }
+  public decimal Width { get; set; }
+  public decimal Height { get; set; }
+
+  public CmptPicFilterObject
+    ( decimal size
+    , decimal width
+    , decimal height
+    )
+  {
+    Size = size;
+    Width = width;
+    Height = height;
+  }
+}
+
+public class CmptFriendsFilter
+  : GraphQl_Samples
+  , ICmptFriendsFilter
+{
+  public ICmptFriendsFilterObject? As_FriendsFilter { get; set; }
+}
+
+public class CmptFriendsFilterObject
+  : GraphQl_Samples
+  , ICmptFriendsFilterObject
+{
+  public decimal First { get; set; }
+
+  public CmptFriendsFilterObject
+    ( decimal first
+    )
+  {
+    First = first;
+  }
+}
+
+public class CmptProfile
+  : CmptUser
+  , ICmptProfile
+{
+  public ICmptPage? AsPage { get; set; }
+  public ICmptProfileObject? As_Profile { get; set; }
+}
+
+public class CmptProfileObject
+  : CmptUserObject
+  , ICmptProfileObject
+{
+  public string Handle { get; set; }
+
+  public CmptProfileObject
+    ( decimal id
+    , string name
+    , string firstName
+    , string lastName
+    , ICmptDate birthday
+    , string handle
+    ) : base(id, name, firstName, lastName, birthday)
+  {
+    Handle = handle;
+  }
+}
+
+public class CmptProfileFilter
+  : GraphQl_Samples
+  , ICmptProfileFilter
+{
+  public ICmptProfileFilterObject? As_ProfileFilter { get; set; }
+}
+
+public class CmptProfileFilterObject
+  : GraphQl_Samples
+  , ICmptProfileFilterObject
+{
+  public ICollection<string> Handles { get; set; }
+
+  public CmptProfileFilterObject
+    ( ICollection<string> handles
+    )
+  {
+    Handles = handles;
+  }
+}
+
+public class CmptPage
+  : GraphQl_Samples
+  , ICmptPage
+{
+  public ICmptPageObject? As_Page { get; set; }
+}
+
+public class CmptPageObject
+  : GraphQl_Samples
+  , ICmptPageObject
+{
+  public string Handle { get; set; }
+  public ICmptUserList Likers { get; set; }
+
+  public CmptPageObject
+    ( string handle
+    , ICmptUserList likers
+    )
+  {
+    Handle = handle;
+    Likers = likers;
+  }
+}
+
+public class CmptIncludeParams
+  : GraphQl_Samples
+  , ICmptIncludeParams
+{
+  public ICmptIncludeParamsObject? As_IncludeParams { get; set; }
+}
+
+public class CmptIncludeParamsObject
+  : GraphQl_Samples
+  , ICmptIncludeParamsObject
+{
+  public bool If { get; set; }
+
+  public CmptIncludeParamsObject
+    ( bool if
+    )
+  {
+    If = if;
+  }
+}
+
+public class CmptEmail
+  : GraphQl_Samples
+  , ICmptEmail
+{
+  public ICmptEmailObject? As_Email { get; set; }
+}
+
+public class CmptEmailObject
+  : GraphQl_Samples
+  , ICmptEmailObject
+{
+  public string Message { get; set; }
+
+  public CmptEmailObject
+    ( string message
+    )
+  {
+    Message = message;
+  }
+}
+
+public class CmptThingFilter
+  : GraphQl_Samples
+  , ICmptThingFilter
+{
+  public ICmptThingFilterObject? As_ThingFilter { get; set; }
+}
+
+public class CmptThingFilterObject
+  : GraphQl_Samples
+  , ICmptThingFilterObject
+{
+  public ICmptLocation Location { get; set; }
+
+  public CmptThingFilterObject
+    ( ICmptLocation location
+    )
+  {
+    Location = location;
+  }
+}
+
+public class CmptLocation
+  : GraphQl_Samples
+  , ICmptLocation
+{
+  public ICmptLocationObject? As_Location { get; set; }
+}
+
+public class CmptLocationObject
+  : GraphQl_Samples
+  , ICmptLocationObject
+{
+  public decimal Lat { get; set; }
+  public decimal Lon { get; set; }
+
+  public CmptLocationObject
+    ( decimal lat
+    , decimal lon
+    )
+  {
+    Lat = lat;
+    Lon = lon;
+  }
+}
+
+public class CmptInt
+  : GqlpDomainNumber
+  , ICmptInt
+{
+}
+
+public class CmptDate
+  : GqlpDomainString
+  , ICmptDate
+{
+}

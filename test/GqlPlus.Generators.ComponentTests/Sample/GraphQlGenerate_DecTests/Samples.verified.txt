@@ -1,0 +1,232 @@
+﻿/* Samples
+output Query {
+    user(UserFilter): FullUser
+    likeStory(StoryFilter) : Story
+    field(FieldFilter): String
+    me: FullUser
+    picture(PicFilter): String
+    profiles(ProfileFilter): Profile[]
+    nearestThing(ThingFilter): String
+  | FullUser
+}
+
+output Mutation {
+    sendEmail(Email): Boolean
+}
+
+dual UserFilter {
+     id: Number
+}
+
+dual User {
+    id: Number
+    name: String
+    firstName: String
+    lastName: String
+    birthday: Date
+}
+
+output FullUser {
+  : User
+    profilePic(PicFilter): String
+    friends(FriendsFilter): UserList
+    mutualFriends(FriendsFilter): UserList
+}
+
+output UserList {
+    count: Number
+    users: User[]
+  | User[]
+}
+
+dual StoryFilter {
+    storyID: Number
+}
+
+dual Story {
+    likeCount: Number
+}
+
+dual FieldFilter {
+    arg: String?
+}
+
+dual PicFilter {
+    size: Number
+    width: Number
+    height: Number
+}
+
+dual FriendsFilter {
+    first: Number
+}
+
+output Profile {
+  : User
+    handle: String
+  | Page  
+}
+
+dual ProfileFilter {
+    handles: String[]
+}
+
+output Page {
+    handle: String
+    likers: UserList
+}
+
+directive @include (IncludeParams) { Inline }
+
+dual IncludeParams {
+    if: Boolean
+}
+
+dual Email {
+    message: String
+}
+
+dual ThingFilter {
+    location: Location
+}
+
+dual Location {
+    lat: Number
+    lon: Number
+}
+
+domain Int { Number >0 }
+
+domain Date { String /\d{4}-\d{2}-\d{2}/ }
+*/
+
+// Generated from GraphQl Samples
+//   with GeneratorOption: BaseType: Class, BaseName: GraphQl_Samples, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_GraphQl_Samples;
+
+internal class CmptUserFilterDecoder
+{
+  public decimal Id { get; set; }
+
+  internal static CmptUserFilterDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class CmptUserDecoder
+{
+  public decimal Id { get; set; }
+  public string Name { get; set; }
+  public string FirstName { get; set; }
+  public string LastName { get; set; }
+  public ICmptDate Birthday { get; set; }
+
+  internal static CmptUserDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class CmptStoryFilterDecoder
+{
+  public decimal StoryID { get; set; }
+
+  internal static CmptStoryFilterDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class CmptStoryDecoder
+{
+  public decimal LikeCount { get; set; }
+
+  internal static CmptStoryDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class CmptFieldFilterDecoder
+{
+  public string? Arg { get; set; }
+
+  internal static CmptFieldFilterDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class CmptPicFilterDecoder
+{
+  public decimal Size { get; set; }
+  public decimal Width { get; set; }
+  public decimal Height { get; set; }
+
+  internal static CmptPicFilterDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class CmptFriendsFilterDecoder
+{
+  public decimal First { get; set; }
+
+  internal static CmptFriendsFilterDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class CmptProfileFilterDecoder
+{
+  public ICollection<string> Handles { get; set; }
+
+  internal static CmptProfileFilterDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class CmptIncludeParamsDecoder
+{
+  public bool If { get; set; }
+
+  internal static CmptIncludeParamsDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class CmptEmailDecoder
+{
+  public string Message { get; set; }
+
+  internal static CmptEmailDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class CmptThingFilterDecoder
+{
+  public ICmptLocation Location { get; set; }
+
+  internal static CmptThingFilterDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class CmptLocationDecoder
+{
+  public decimal Lat { get; set; }
+  public decimal Lon { get; set; }
+
+  internal static CmptLocationDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class CmptIntDecoder
+{
+
+  internal static CmptIntDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class CmptDateDecoder
+{
+
+  internal static CmptDateDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal static class Cmpt_GraphQl_SamplesDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_GraphQl_SamplesDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmptUserFilterObject>(CmptUserFilterDecoder.Factory)
+      .AddDecoder<ICmptUserObject>(CmptUserDecoder.Factory)
+      .AddDecoder<ICmptStoryFilterObject>(CmptStoryFilterDecoder.Factory)
+      .AddDecoder<ICmptStoryObject>(CmptStoryDecoder.Factory)
+      .AddDecoder<ICmptFieldFilterObject>(CmptFieldFilterDecoder.Factory)
+      .AddDecoder<ICmptPicFilterObject>(CmptPicFilterDecoder.Factory)
+      .AddDecoder<ICmptFriendsFilterObject>(CmptFriendsFilterDecoder.Factory)
+      .AddDecoder<ICmptProfileFilterObject>(CmptProfileFilterDecoder.Factory)
+      .AddDecoder<ICmptIncludeParamsObject>(CmptIncludeParamsDecoder.Factory)
+      .AddDecoder<ICmptEmailObject>(CmptEmailDecoder.Factory)
+      .AddDecoder<ICmptThingFilterObject>(CmptThingFilterDecoder.Factory)
+      .AddDecoder<ICmptLocationObject>(CmptLocationDecoder.Factory)
+      .AddDecoder<ICmptInt>(CmptIntDecoder.Factory)
+      .AddDecoder<ICmptDate>(CmptDateDecoder.Factory);
+}

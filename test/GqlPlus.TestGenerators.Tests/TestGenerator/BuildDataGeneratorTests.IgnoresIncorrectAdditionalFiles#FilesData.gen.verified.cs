@@ -4,19 +4,34 @@
 
 namespace GqlPlusTests;
 
-public class SamplesFilesData
+public class SamplesFilesGqlData
   : TheoryData<string>
 {
   public static readonly string[] Strings = [
-    "file2",
     "File3",
   ];
 
-  public SamplesFilesData()
+  public SamplesFilesGqlData()
   {
     foreach (string s in Strings) Add(s);
   }
 
-  public const string From = "Samples/Files/";
+  public const string From = "Samples/Files/Gql";
+  public const string Collected = "IgnoresIncorrectAdditionalFiles";
+}
+
+public class SamplesFilesGraphqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "file2",
+  ];
+
+  public SamplesFilesGraphqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Files/Graphql";
   public const string Collected = "IgnoresIncorrectAdditionalFiles";
 }

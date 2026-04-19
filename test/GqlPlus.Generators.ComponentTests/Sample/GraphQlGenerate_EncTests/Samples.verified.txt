@@ -1,0 +1,354 @@
+﻿/* Samples
+output Query {
+    user(UserFilter): FullUser
+    likeStory(StoryFilter) : Story
+    field(FieldFilter): String
+    me: FullUser
+    picture(PicFilter): String
+    profiles(ProfileFilter): Profile[]
+    nearestThing(ThingFilter): String
+  | FullUser
+}
+
+output Mutation {
+    sendEmail(Email): Boolean
+}
+
+dual UserFilter {
+     id: Number
+}
+
+dual User {
+    id: Number
+    name: String
+    firstName: String
+    lastName: String
+    birthday: Date
+}
+
+output FullUser {
+  : User
+    profilePic(PicFilter): String
+    friends(FriendsFilter): UserList
+    mutualFriends(FriendsFilter): UserList
+}
+
+output UserList {
+    count: Number
+    users: User[]
+  | User[]
+}
+
+dual StoryFilter {
+    storyID: Number
+}
+
+dual Story {
+    likeCount: Number
+}
+
+dual FieldFilter {
+    arg: String?
+}
+
+dual PicFilter {
+    size: Number
+    width: Number
+    height: Number
+}
+
+dual FriendsFilter {
+    first: Number
+}
+
+output Profile {
+  : User
+    handle: String
+  | Page  
+}
+
+dual ProfileFilter {
+    handles: String[]
+}
+
+output Page {
+    handle: String
+    likers: UserList
+}
+
+directive @include (IncludeParams) { Inline }
+
+dual IncludeParams {
+    if: Boolean
+}
+
+dual Email {
+    message: String
+}
+
+dual ThingFilter {
+    location: Location
+}
+
+dual Location {
+    lat: Number
+    lon: Number
+}
+
+domain Int { Number >0 }
+
+domain Date { String /\d{4}-\d{2}-\d{2}/ }
+*/
+
+// Generated from GraphQl Samples
+//   with GeneratorOption: BaseType: Class, BaseName: GraphQl_Samples, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_GraphQl_Samples;
+
+internal class CmptQueryEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptQueryObject>
+{
+  private readonly IEncoder<ICmptFullUser> _fullUser = encoders.EncoderFor<ICmptFullUser>();
+  private readonly IEncoder<ICmptStory> _story = encoders.EncoderFor<ICmptStory>();
+  private readonly IEncoder<ICmptProfile> _profile = encoders.EncoderFor<ICmptProfile>();
+  public Structured Encode(ICmptQueryObject input)
+    => Structured.Empty()
+      .AddEncoded("user", input.User(), _fullUser)
+      .AddEncoded("likeStory", input.LikeStory(), _story)
+      .Add("field", input.Field())
+      .AddEncoded("me", input.Me, _fullUser)
+      .Add("picture", input.Picture())
+      .AddList("profiles", input.Profiles(), _profile)
+      .Add("nearestThing", input.NearestThing());
+
+  internal static CmptQueryEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptMutationEncoder : IEncoder<ICmptMutationObject>
+{
+  public Structured Encode(ICmptMutationObject input)
+    => Structured.Empty()
+      .Add("sendEmail", input.SendEmail());
+
+  internal static CmptMutationEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptUserFilterEncoder : IEncoder<ICmptUserFilterObject>
+{
+  public Structured Encode(ICmptUserFilterObject input)
+    => Structured.Empty()
+      .Add("id", input.Id);
+
+  internal static CmptUserFilterEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptUserEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptUserObject>
+{
+  private readonly IEncoder<ICmptDate> _date = encoders.EncoderFor<ICmptDate>();
+  public Structured Encode(ICmptUserObject input)
+    => Structured.Empty()
+      .Add("id", input.Id)
+      .Add("name", input.Name)
+      .Add("firstName", input.FirstName)
+      .Add("lastName", input.LastName)
+      .AddEncoded("birthday", input.Birthday, _date);
+
+  internal static CmptUserEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptFullUserEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptFullUserObject>
+{
+  private readonly IEncoder<ICmptUserObject> _user = encoders.EncoderFor<ICmptUserObject>();
+  private readonly IEncoder<ICmptUserList> _userList = encoders.EncoderFor<ICmptUserList>();
+  public Structured Encode(ICmptFullUserObject input)
+    => _user.Encode(input)
+      .Add("profilePic", input.ProfilePic())
+      .AddEncoded("friends", input.Friends(), _userList)
+      .AddEncoded("mutualFriends", input.MutualFriends(), _userList);
+
+  internal static CmptFullUserEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptUserListEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptUserListObject>
+{
+  private readonly IEncoder<ICmptUser> _user = encoders.EncoderFor<ICmptUser>();
+  public Structured Encode(ICmptUserListObject input)
+    => Structured.Empty()
+      .Add("count", input.Count)
+      .AddList("users", input.Users, _user);
+
+  internal static CmptUserListEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptStoryFilterEncoder : IEncoder<ICmptStoryFilterObject>
+{
+  public Structured Encode(ICmptStoryFilterObject input)
+    => Structured.Empty()
+      .Add("storyID", input.StoryID);
+
+  internal static CmptStoryFilterEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptStoryEncoder : IEncoder<ICmptStoryObject>
+{
+  public Structured Encode(ICmptStoryObject input)
+    => Structured.Empty()
+      .Add("likeCount", input.LikeCount);
+
+  internal static CmptStoryEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptFieldFilterEncoder : IEncoder<ICmptFieldFilterObject>
+{
+  public Structured Encode(ICmptFieldFilterObject input)
+    => Structured.Empty()
+      .Add("arg", input.Arg);
+
+  internal static CmptFieldFilterEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptPicFilterEncoder : IEncoder<ICmptPicFilterObject>
+{
+  public Structured Encode(ICmptPicFilterObject input)
+    => Structured.Empty()
+      .Add("size", input.Size)
+      .Add("width", input.Width)
+      .Add("height", input.Height);
+
+  internal static CmptPicFilterEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptFriendsFilterEncoder : IEncoder<ICmptFriendsFilterObject>
+{
+  public Structured Encode(ICmptFriendsFilterObject input)
+    => Structured.Empty()
+      .Add("first", input.First);
+
+  internal static CmptFriendsFilterEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptProfileEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptProfileObject>
+{
+  private readonly IEncoder<ICmptUserObject> _user = encoders.EncoderFor<ICmptUserObject>();
+  public Structured Encode(ICmptProfileObject input)
+    => _user.Encode(input)
+      .Add("handle", input.Handle);
+
+  internal static CmptProfileEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptProfileFilterEncoder : IEncoder<ICmptProfileFilterObject>
+{
+  public Structured Encode(ICmptProfileFilterObject input)
+    => Structured.Empty()
+      .Add("handles", input.Handles.Encode());
+
+  internal static CmptProfileFilterEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptPageEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptPageObject>
+{
+  private readonly IEncoder<ICmptUserList> _userList = encoders.EncoderFor<ICmptUserList>();
+  public Structured Encode(ICmptPageObject input)
+    => Structured.Empty()
+      .Add("handle", input.Handle)
+      .AddEncoded("likers", input.Likers, _userList);
+
+  internal static CmptPageEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptIncludeParamsEncoder : IEncoder<ICmptIncludeParamsObject>
+{
+  public Structured Encode(ICmptIncludeParamsObject input)
+    => Structured.Empty()
+      .Add("if", input.If);
+
+  internal static CmptIncludeParamsEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptEmailEncoder : IEncoder<ICmptEmailObject>
+{
+  public Structured Encode(ICmptEmailObject input)
+    => Structured.Empty()
+      .Add("message", input.Message);
+
+  internal static CmptEmailEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptThingFilterEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptThingFilterObject>
+{
+  private readonly IEncoder<ICmptLocation> _location = encoders.EncoderFor<ICmptLocation>();
+  public Structured Encode(ICmptThingFilterObject input)
+    => Structured.Empty()
+      .AddEncoded("location", input.Location, _location);
+
+  internal static CmptThingFilterEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptLocationEncoder : IEncoder<ICmptLocationObject>
+{
+  public Structured Encode(ICmptLocationObject input)
+    => Structured.Empty()
+      .Add("lat", input.Lat)
+      .Add("lon", input.Lon);
+
+  internal static CmptLocationEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptIntEncoder : IEncoder<ICmptInt>
+{
+  public Structured Encode(ICmptInt input)
+    => new(input.Value);
+
+  internal static CmptIntEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptDateEncoder : IEncoder<ICmptDate>
+{
+  public Structured Encode(ICmptDate input)
+    => new(input.Value);
+
+  internal static CmptDateEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_GraphQl_SamplesEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_GraphQl_SamplesEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptQueryObject>(CmptQueryEncoder.Factory)
+      .AddEncoder<ICmptMutationObject>(CmptMutationEncoder.Factory)
+      .AddEncoder<ICmptUserFilterObject>(CmptUserFilterEncoder.Factory)
+      .AddEncoder<ICmptUserObject>(CmptUserEncoder.Factory)
+      .AddEncoder<ICmptFullUserObject>(CmptFullUserEncoder.Factory)
+      .AddEncoder<ICmptUserListObject>(CmptUserListEncoder.Factory)
+      .AddEncoder<ICmptStoryFilterObject>(CmptStoryFilterEncoder.Factory)
+      .AddEncoder<ICmptStoryObject>(CmptStoryEncoder.Factory)
+      .AddEncoder<ICmptFieldFilterObject>(CmptFieldFilterEncoder.Factory)
+      .AddEncoder<ICmptPicFilterObject>(CmptPicFilterEncoder.Factory)
+      .AddEncoder<ICmptFriendsFilterObject>(CmptFriendsFilterEncoder.Factory)
+      .AddEncoder<ICmptProfileObject>(CmptProfileEncoder.Factory)
+      .AddEncoder<ICmptProfileFilterObject>(CmptProfileFilterEncoder.Factory)
+      .AddEncoder<ICmptPageObject>(CmptPageEncoder.Factory)
+      .AddEncoder<ICmptIncludeParamsObject>(CmptIncludeParamsEncoder.Factory)
+      .AddEncoder<ICmptEmailObject>(CmptEmailEncoder.Factory)
+      .AddEncoder<ICmptThingFilterObject>(CmptThingFilterEncoder.Factory)
+      .AddEncoder<ICmptLocationObject>(CmptLocationEncoder.Factory)
+      .AddEncoder<ICmptInt>(CmptIntEncoder.Factory)
+      .AddEncoder<ICmptDate>(CmptDateEncoder.Factory);
+}

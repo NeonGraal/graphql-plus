@@ -22,7 +22,7 @@ Success
       StoryFilter
     )
     :
-    I@030/0003
+    I@029/0003
     Story
     !OF I@005/0004
     field
@@ -72,7 +72,7 @@ Success
     String
   }
   |
-  I@005/0009
+  I@007/0009
   FullUser
 }
 {
@@ -137,7 +137,7 @@ Success
   !Ou I@008/0028
   FullUser
   :
-  I@005/0029
+  I@007/0029
   User
   {
     !OF I@005/0030
@@ -189,7 +189,7 @@ Success
     []
   }
   |
-  I@005/0038
+  I@007/0038
   User
   []
 }
@@ -263,7 +263,7 @@ Success
   !Ou I@008/0063
   Profile
   :
-  I@005/0064
+  I@007/0064
   User
   {
     !OF I@005/0065
@@ -273,7 +273,7 @@ Success
     String
   }
   |
-  I@005/0066
+  I@007/0066
   Page
 }
 {

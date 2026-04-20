@@ -1,5 +1,6 @@
 param(
-  [switch]$Verify
+  [switch]$Verify,
+  [switch]$OnlyPrettier
 )
 
 $ErrorActionPreference = "Stop"
@@ -9,6 +10,8 @@ New-Item -ItemType Directory -Path "format" -Force | Out-Null
 
 $prettierArgs = if ($Verify) { @("-c", ".") } else { @("-w", ".") }
 & prettier @prettierArgs
+
+if ($OnlyPrettier) { exit }
 
 $dotnetVerifyArgs = if ($Verify) { @("--verify-no-changes") } else { @() }
 

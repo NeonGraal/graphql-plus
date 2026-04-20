@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Generating.Objects;
 
@@ -60,7 +61,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
 
   private void AddEncoderFieldCall(TObjField field, Dictionary<string, string> encoderFields, List<string> fieldCalls, string typePrefix, GqlpGeneratorContext context)
   {
-    bool hasDictMod = field.Modifiers.Any(m => m.ModifierKind == ModifierKind.Dictionary || m.ModifierKind == ModifierKind.Param);
+    bool hasDictMod = field.Modifiers.Any(m => m.ModifierKind is ModifierKind.Dictionary or ModifierKind.Param);
     if (hasDictMod) {
       return;
     }
@@ -70,7 +71,16 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     bool hasListMod = field.Modifiers.Any(m => m.ModifierKind == ModifierKind.List);
     (string csBaseType, bool isPrimitive, bool isEnum) = ResolveFieldTypeInfo(field, context);
 
-    string call = BuildFieldCall(field, fieldKey, fieldAccess, hasListMod, isPrimitive, isEnum, encoderFields, typePrefix, context);
+    string call;
+    if (isPrimitive || isEnum) {
+      bool hasOptionalMod = field.Modifiers.LastOrDefault()?.ModifierKind == ModifierKind.Optional;
+      call = BuildPrimitiveFieldCall(fieldKey, fieldAccess, isEnum, hasListMod, hasOptionalMod);
+    } else if (hasListMod) {
+      call = BuildFieldListCall(field, fieldKey, fieldAccess, encoderFields, typePrefix, context);
+    } else {
+      call = BuildFieldCall(field, fieldKey, fieldAccess, encoderFields, typePrefix, context);
+    }
+
     fieldCalls.Add(call);
   }
 
@@ -110,29 +120,38 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
   private bool IsPrimitive(string csBaseType)
     => csBaseType is "string" or "bool" or "decimal";
 
-  private string BuildFieldCall(TObjField field, string fieldKey, string fieldAccess, bool hasListMod, bool isPrimitive, bool isEnum, Dictionary<string, string> encoderFields, string typePrefix, GqlpGeneratorContext context)
+  private string BuildPrimitiveFieldCall(string fieldKey, string fieldAccess, bool isEnum, bool hasList, bool hasOptional)
   {
-    if (hasListMod) {
-      if (isPrimitive || isEnum) {
-        return $".Add(\"{fieldKey}\", {fieldAccess}.Encode())";
-      }
+    string result = string.Empty;
 
-      string encoderType = TypeString(field.Type, context, "I");
-      string varName = GetOrAddEncoder(encoderFields, encoderType, typePrefix);
-      string listAccess = fieldAccess.EndsWith("(null)", StringComparison.Ordinal)
-        ? $"{fieldAccess} ?? []"
-        : fieldAccess;
-      return $".AddList(\"{fieldKey}\", {listAccess}, {varName})";
+    if (hasOptional) {
+      result = $".AddIf({fieldAccess} is not null, onTrue: t => t";
+      fieldAccess += "!";
     }
 
-    if (isPrimitive) {
-      return $".Add(\"{fieldKey}\", {fieldAccess})";
+    if (hasList) {
+      result += $".Add(\"{fieldKey}\", {fieldAccess}.Encode())";
+    } else if (isEnum) {
+      result += $".AddEnum(\"{fieldKey}\", {fieldAccess})";
+    } else {
+      result += $".Add(\"{fieldKey}\", {fieldAccess})";
     }
 
-    if (isEnum) {
-      return $".AddEnum(\"{fieldKey}\", {fieldAccess})";
-    }
+    return hasOptional ? result + ")" : result;
+  }
 
+  private string BuildFieldListCall(TObjField field, string fieldKey, string fieldAccess, Dictionary<string, string> encoderFields, string typePrefix, GqlpGeneratorContext context)
+  {
+    string encoderType = TypeString(field.Type, context, "I");
+    string varName = GetOrAddEncoder(encoderFields, encoderType, typePrefix);
+    string listAccess = fieldAccess.EndsWith("(null)", StringComparison.Ordinal)
+      ? $"{fieldAccess} ?? []"
+      : fieldAccess;
+    return $".AddList(\"{fieldKey}\", {listAccess}, {varName})";
+  }
+
+  private string BuildFieldCall(TObjField field, string fieldKey, string fieldAccess, Dictionary<string, string> encoderFields, string typePrefix, GqlpGeneratorContext context)
+  {
     string encoderType2 = TypeString(field.Type, context, "I");
     string varName2 = GetOrAddEncoder(encoderFields, encoderType2, typePrefix);
     return $".AddEncoded(\"{fieldKey}\", {fieldAccess}, {varName2})";
@@ -429,7 +448,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     context.Write($"  public {context.TypeName(ast, "")}Object");
     string prefix = "(";
     foreach ((string key, RequiredField value) in paramList) {
-      context.Write($"    {prefix} {value.Type} {key}");
+      context.Write($"    {prefix} {value.Type} p{key}");
       prefix = ",";
     }
 
@@ -480,7 +499,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
 
   private static string FieldValue(MapPair<RequiredField> field)
     => string.IsNullOrEmpty(field.Value.Label)
-      ? field.Key
+      ? "p" + field.Key
       : field.Value.Type + "." + field.Value.Label;
 
   internal virtual MapPair<RequiredField>[] RequiredMembers(IAstObject ast, GqlpGeneratorTypes types)

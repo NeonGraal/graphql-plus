@@ -1,4 +1,6 @@
-﻿using GqlPlus.Merging;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
+using GqlPlus.Merging;
 using GqlPlus.Verifying;
 using Microsoft.Extensions.Logging;
 

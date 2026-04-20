@@ -21,10 +21,10 @@ public class testGnrcFieldArgDualObject<TType>
   public ItestRefGnrcFieldArgDual<TType> Field { get; set; }
 
   public testGnrcFieldArgDualObject
-    ( ItestRefGnrcFieldArgDual<TType> field
+    ( ItestRefGnrcFieldArgDual<TType> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 

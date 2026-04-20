@@ -25,10 +25,10 @@ public class CmptFieldModParamDualObject<TMod>
   public IDictionary<TMod, ICmptFldFieldModParamDual> Field { get; set; }
 
   public CmptFieldModParamDualObject
-    ( IDictionary<TMod, ICmptFldFieldModParamDual> field
+    ( IDictionary<TMod, ICmptFldFieldModParamDual> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -47,9 +47,9 @@ public class CmptFldFieldModParamDualObject
   public decimal Field { get; set; }
 
   public CmptFldFieldModParamDualObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

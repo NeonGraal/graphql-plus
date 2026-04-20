@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Modelling.Objects;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Modelling.Objects;
 
 public class TypeParamModellerTests
   : ModellerClassTestBase<IAstTypeParam, TypeParamModel>

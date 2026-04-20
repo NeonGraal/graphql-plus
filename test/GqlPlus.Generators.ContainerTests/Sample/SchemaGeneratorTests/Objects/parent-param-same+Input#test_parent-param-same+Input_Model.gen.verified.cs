@@ -21,10 +21,10 @@ public class testPrntParamSameInpObject<TA>
   public TA Field { get; set; }
 
   public testPrntParamSameInpObject
-    ( TA field
+    ( TA pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 

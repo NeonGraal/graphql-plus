@@ -21,10 +21,10 @@ public class testObjFieldDualObject
   public ItestFldObjFieldDual Field { get; set; }
 
   public testObjFieldDualObject
-    ( ItestFldObjFieldDual field
+    ( ItestFldObjFieldDual pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 

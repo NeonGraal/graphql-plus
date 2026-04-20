@@ -40,9 +40,9 @@ public class testRefCnstEnumPrntDualObject<TType>
   public TType Field { get; set; }
 
   public testRefCnstEnumPrntDualObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

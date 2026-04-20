@@ -1,0 +1,1233 @@
+﻿{
+  "$mapTag": "_Schema",
+  "directives": {
+    "$mapTag": "_Map(_Directives)",
+    "include": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Directive",
+      "locations": {
+        "$mapTag": "_Set(_Location)",
+        "Inline": "_"
+      },
+      "name": "include",
+      "parameter": {
+        "$mapTag": "_InputParam",
+        "name": "IncludeParams"
+      },
+      "repeatable": false
+    }
+  },
+  "types": {
+    "$mapTag": "_Map(_Type)",
+    "Date": {
+      "$keyTag": "_Name",
+      "$mapTag": "_DomainString",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainRegex)",
+          "domain": "Date",
+          "exclude": false,
+          "pattern": "\\d{4}-\\d{2}-\\d{2}"
+        }
+      ],
+      "domainKind": {
+        "$value": "String",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "\\d{4}-\\d{2}-\\d{2}"
+        }
+      ],
+      "name": "Date",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "Email": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeDual",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "message",
+          "object": "Email",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_DualField",
+          "name": "message",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "name": "Email",
+      "typeKind": {
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "FieldFilter": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeDual",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "arg",
+          "object": "FieldFilter",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_DualField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "arg",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "name": "FieldFilter",
+      "typeKind": {
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "FriendsFilter": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeDual",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "first",
+          "object": "FriendsFilter",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_DualField",
+          "name": "first",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        }
+      ],
+      "name": "FriendsFilter",
+      "typeKind": {
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "FullUser": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "id",
+          "object": "User",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "User",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "firstName",
+          "object": "User",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "lastName",
+          "object": "User",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "birthday",
+          "object": "User",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Date"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "profilePic",
+          "object": "FullUser",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "PicFilter"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "friends",
+          "object": "FullUser",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "FriendsFilter"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "UserList"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "mutualFriends",
+          "object": "FullUser",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "FriendsFilter"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "UserList"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "profilePic",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "PicFilter"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "friends",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "FriendsFilter"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "UserList"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "mutualFriends",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "FriendsFilter"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "UserList"
+          }
+        }
+      ],
+      "name": "FullUser",
+      "parent": {
+        "$mapTag": "_ObjBase",
+        "name": "User"
+      },
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "IncludeParams": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeDual",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "if",
+          "object": "IncludeParams",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Boolean"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_DualField",
+          "name": "if",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Boolean"
+          }
+        }
+      ],
+      "name": "IncludeParams",
+      "typeKind": {
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "Int": {
+      "$keyTag": "_Name",
+      "$mapTag": "_DomainNumber",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainRange)",
+          "domain": "Int",
+          "exclude": false,
+          "from": 0
+        }
+      ],
+      "domainKind": {
+        "$value": "Number",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainRange",
+          "exclude": false,
+          "from": 0
+        }
+      ],
+      "name": "Int",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "Location": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeDual",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "lat",
+          "object": "Location",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "lon",
+          "object": "Location",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_DualField",
+          "name": "lat",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        },
+        {
+          "$mapTag": "_DualField",
+          "name": "lon",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        }
+      ],
+      "name": "Location",
+      "typeKind": {
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "Mutation": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "sendEmail",
+          "object": "Mutation",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "Email"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Boolean"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "sendEmail",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "Email"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Boolean"
+          }
+        }
+      ],
+      "name": "Mutation",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "Page": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "handle",
+          "object": "Page",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "likers",
+          "object": "Page",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "UserList"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "handle",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "likers",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "UserList"
+          }
+        }
+      ],
+      "name": "Page",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "PicFilter": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeDual",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "size",
+          "object": "PicFilter",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "width",
+          "object": "PicFilter",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "height",
+          "object": "PicFilter",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_DualField",
+          "name": "size",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        },
+        {
+          "$mapTag": "_DualField",
+          "name": "width",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        },
+        {
+          "$mapTag": "_DualField",
+          "name": "height",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        }
+      ],
+      "name": "PicFilter",
+      "typeKind": {
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "Profile": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "Profile",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Page"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "id",
+          "object": "User",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "User",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "firstName",
+          "object": "User",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "lastName",
+          "object": "User",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "birthday",
+          "object": "User",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Date"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "handle",
+          "object": "Profile",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$mapTag": "_Alternate",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Page"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "handle",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "name": "Profile",
+      "parent": {
+        "$mapTag": "_ObjBase",
+        "name": "User"
+      },
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "ProfileFilter": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeDual",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "handles",
+          "object": "ProfileFilter",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_DualField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "handles",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "name": "ProfileFilter",
+      "typeKind": {
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "Query": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "Query",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "FullUser"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "user",
+          "object": "Query",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "UserFilter"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "FullUser"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "likeStory",
+          "object": "Query",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "StoryFilter"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Story"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "Query",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "FieldFilter"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "me",
+          "object": "Query",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "FullUser"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "picture",
+          "object": "Query",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "PicFilter"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "profiles",
+          "object": "Query",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "ProfileFilter"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Profile"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "nearestThing",
+          "object": "Query",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "ThingFilter"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$mapTag": "_Alternate",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "FullUser"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "user",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "UserFilter"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "FullUser"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "likeStory",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "StoryFilter"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Story"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "field",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "FieldFilter"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "me",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "FullUser"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "picture",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "PicFilter"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "profiles",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "ProfileFilter"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Profile"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "nearestThing",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "ThingFilter"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "name": "Query",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "Story": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeDual",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "likeCount",
+          "object": "Story",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_DualField",
+          "name": "likeCount",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        }
+      ],
+      "name": "Story",
+      "typeKind": {
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "StoryFilter": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeDual",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "storyID",
+          "object": "StoryFilter",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_DualField",
+          "name": "storyID",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        }
+      ],
+      "name": "StoryFilter",
+      "typeKind": {
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "ThingFilter": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeDual",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "location",
+          "object": "ThingFilter",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Location"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_DualField",
+          "name": "location",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Location"
+          }
+        }
+      ],
+      "name": "ThingFilter",
+      "typeKind": {
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "User": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeDual",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "id",
+          "object": "User",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "User",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "firstName",
+          "object": "User",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "lastName",
+          "object": "User",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "birthday",
+          "object": "User",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Date"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_DualField",
+          "name": "id",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        },
+        {
+          "$mapTag": "_DualField",
+          "name": "name",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_DualField",
+          "name": "firstName",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_DualField",
+          "name": "lastName",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_DualField",
+          "name": "birthday",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Date"
+          }
+        }
+      ],
+      "name": "User",
+      "typeKind": {
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "UserFilter": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeDual",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "id",
+          "object": "UserFilter",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_DualField",
+          "name": "id",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        }
+      ],
+      "name": "UserFilter",
+      "typeKind": {
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "UserList": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "collections": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "object": "UserList",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "User"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "count",
+          "object": "UserList",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "users",
+          "object": "UserList",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "User"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$mapTag": "_Alternate",
+          "collections": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "User"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "count",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "users",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "User"
+          }
+        }
+      ],
+      "name": "UserList",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    }
+  }
+}

@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Merging;
+﻿using GqlPlus.Ast;
+
+namespace GqlPlus.Merging;
 
 internal abstract class GroupsMerger<TItem>
   : BaseMerger<TItem>

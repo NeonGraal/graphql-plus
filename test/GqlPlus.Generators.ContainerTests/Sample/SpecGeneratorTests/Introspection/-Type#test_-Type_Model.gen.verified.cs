@@ -50,10 +50,10 @@ public class test_BaseTypeObject<TTypeKind>
   public TTypeKind TypeKind { get; set; }
 
   public test_BaseTypeObject
-    ( TTypeKind typeKind
+    ( TTypeKind ptypeKind
     )
   {
-    TypeKind = typeKind;
+    TypeKind = ptypeKind;
   }
 }
 
@@ -71,11 +71,11 @@ public class test_ChildTypeObject<TTypeKind,TParent>
   public TParent Parent { get; set; }
 
   public test_ChildTypeObject
-    ( TTypeKind typeKind
-    , TParent parent
-    ) : base(typeKind)
+    ( TTypeKind ptypeKind
+    , TParent pparent
+    ) : base(ptypeKind)
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }
 
@@ -94,14 +94,14 @@ public class test_ParentTypeObject<TTypeKind,TItem,TAllItem>
   public ICollection<TAllItem> AllItems { get; set; }
 
   public test_ParentTypeObject
-    ( TTypeKind typeKind
-    , Itest_Named parent
-    , ICollection<TItem> items
-    , ICollection<TAllItem> allItems
-    ) : base(typeKind, parent)
+    ( TTypeKind ptypeKind
+    , Itest_Named pparent
+    , ICollection<TItem> pitems
+    , ICollection<TAllItem> pallItems
+    ) : base(ptypeKind, pparent)
   {
-    Items = items;
-    AllItems = allItems;
+    Items = pitems;
+    AllItems = pallItems;
   }
 }
 
@@ -119,10 +119,10 @@ public class test_TypeRefObject<TTypeKind>
   public TTypeKind TypeKind { get; set; }
 
   public test_TypeRefObject
-    ( TTypeKind typeKind
+    ( TTypeKind ptypeKind
     )
   {
-    TypeKind = typeKind;
+    TypeKind = ptypeKind;
   }
 }
 
@@ -184,13 +184,13 @@ public class test_ModifierKeyedObject<TModifierKind>
   public bool IsOptional { get; set; }
 
   public test_ModifierKeyedObject
-    ( TModifierKind modifierKind
-    , Itest_TypeSimple by
-    , bool isOptional
-    ) : base(modifierKind)
+    ( TModifierKind pmodifierKind
+    , Itest_TypeSimple pby
+    , bool pisOptional
+    ) : base(pmodifierKind)
   {
-    By = by;
-    IsOptional = isOptional;
+    By = pby;
+    IsOptional = pisOptional;
   }
 }
 
@@ -228,9 +228,9 @@ public class test_ModifierObject<TModifierKind>
   public TModifierKind ModifierKind { get; set; }
 
   public test_ModifierObject
-    ( TModifierKind modifierKind
+    ( TModifierKind pmodifierKind
     )
   {
-    ModifierKind = modifierKind;
+    ModifierKind = pmodifierKind;
   }
 }

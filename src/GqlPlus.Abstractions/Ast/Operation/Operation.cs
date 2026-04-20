@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Abstractions.Operation;
+﻿namespace GqlPlus.Ast.Operation;
 
 public interface IAstOperation
   : IAstIdentified

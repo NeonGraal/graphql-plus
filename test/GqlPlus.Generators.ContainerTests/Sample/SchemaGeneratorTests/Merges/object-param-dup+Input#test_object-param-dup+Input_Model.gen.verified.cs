@@ -22,11 +22,11 @@ public class testObjParamDupInpObject<TTest>
   public TTest Type { get; set; }
 
   public testObjParamDupInpObject
-    ( TTest test
-    , TTest type
+    ( TTest ptest
+    , TTest ptype
     )
   {
-    Test = test;
-    Type = type;
+    Test = ptest;
+    Type = ptype;
   }
 }

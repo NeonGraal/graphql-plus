@@ -1,6 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
-
-namespace GqlPlus.Ast.Operation;
+﻿namespace GqlPlus.Ast.Operation;
 
 public partial class OperationAstTests
 {

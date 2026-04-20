@@ -1,1 +1,1 @@
-﻿global using GqlPlus.Abstractions.Schema;
+﻿global using GqlPlus.Ast.Schema;

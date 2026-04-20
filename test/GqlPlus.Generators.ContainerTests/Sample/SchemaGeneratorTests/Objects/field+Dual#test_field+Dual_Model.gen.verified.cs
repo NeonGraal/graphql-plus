@@ -21,9 +21,9 @@ public class testFieldDualObject
   public string Field { get; set; }
 
   public testFieldDualObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

@@ -1,3 +1,3 @@
 ﻿global using System.Diagnostics.CodeAnalysis;
-global using GqlPlus.Abstractions;
+global using GqlPlus.Ast;
 global using Microsoft.Extensions.Logging;

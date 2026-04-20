@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Matching;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Matching;
 
 public abstract class MatchObjectParentDualTestsBase<TObjField>(TypeKind kind)
   : ObjectParentMatcherTests<TObjField>(kind)

@@ -1,6 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Ast.Schema.Objects;
+﻿namespace GqlPlus.Ast.Schema.Objects;
 
 public abstract class ObjFieldTypeBaseTests<TInput>
   : ObjEnumBaseTests<TInput>

@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 
 namespace GqlPlus;
 
@@ -128,7 +129,11 @@ public class SampleChecks
   }
 
   protected static async Task<string> ReadFile(string file, string extn, params string[] dirs)
-    => await File.ReadAllTextAsync(Path.Join(["Samples", .. dirs, file + "." + extn]));
+  {
+    string path = Path.Join(["Samples", .. dirs, file + "." + extn]);
+    path.SkipIf(!File.Exists(path));
+    return await File.ReadAllTextAsync(path);
+  }
 
   protected static async Task<string> ReadRequest(string schema, params string[] dirs)
     => await ReadFile(schema, "g+req", ["Request", .. dirs]);

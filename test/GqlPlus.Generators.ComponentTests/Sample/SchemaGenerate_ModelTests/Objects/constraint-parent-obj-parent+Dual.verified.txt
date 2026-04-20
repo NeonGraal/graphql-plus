@@ -83,9 +83,9 @@ public class CmptAltCnstPrntObjPrntDualObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstPrntObjPrntDualObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }

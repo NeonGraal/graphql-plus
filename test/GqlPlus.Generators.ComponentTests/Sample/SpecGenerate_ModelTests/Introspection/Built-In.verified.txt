@@ -67,13 +67,13 @@ public class Cmpt_ModifierKeyedObject<TModifierKind>
   public bool IsOptional { get; set; }
 
   public Cmpt_ModifierKeyedObject
-    ( TModifierKind modifierKind
-    , ICmpt_TypeSimple by
-    , bool isOptional
-    ) : base(modifierKind)
+    ( TModifierKind pmodifierKind
+    , ICmpt_TypeSimple pby
+    , bool pisOptional
+    ) : base(pmodifierKind)
   {
-    By = by;
-    IsOptional = isOptional;
+    By = pby;
+    IsOptional = pisOptional;
   }
 }
 
@@ -111,9 +111,9 @@ public class Cmpt_ModifierObject<TModifierKind>
   public TModifierKind ModifierKind { get; set; }
 
   public Cmpt_ModifierObject
-    ( TModifierKind modifierKind
+    ( TModifierKind pmodifierKind
     )
   {
-    ModifierKind = modifierKind;
+    ModifierKind = pmodifierKind;
   }
 }

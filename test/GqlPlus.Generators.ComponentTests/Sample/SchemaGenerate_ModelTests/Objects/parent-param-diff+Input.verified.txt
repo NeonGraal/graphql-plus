@@ -25,10 +25,10 @@ public class CmptPrntParamDiffInpObject<TA>
   public TA Field { get; set; }
 
   public CmptPrntParamDiffInpObject
-    ( TA field
+    ( TA pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 

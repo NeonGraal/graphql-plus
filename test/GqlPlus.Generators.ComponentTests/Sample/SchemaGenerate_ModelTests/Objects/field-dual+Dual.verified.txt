@@ -25,10 +25,10 @@ public class CmptFieldDualDualObject
   public ICmptFldFieldDualDual Field { get; set; }
 
   public CmptFieldDualDualObject
-    ( ICmptFldFieldDualDual field
+    ( ICmptFldFieldDualDual pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -47,9 +47,9 @@ public class CmptFldFieldDualDualObject
   public decimal Field { get; set; }
 
   public CmptFldFieldDualDualObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

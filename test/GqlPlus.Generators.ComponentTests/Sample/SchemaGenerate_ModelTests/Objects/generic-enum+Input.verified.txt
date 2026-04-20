@@ -45,9 +45,9 @@ public class CmptRefGnrcEnumInpObject<TType>
   public TType Field { get; set; }
 
   public CmptRefGnrcEnumInpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

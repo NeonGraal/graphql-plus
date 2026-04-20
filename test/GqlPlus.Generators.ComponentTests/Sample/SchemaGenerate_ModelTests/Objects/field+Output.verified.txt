@@ -24,9 +24,9 @@ public class CmptFieldOutpObject
   public string Field { get; set; }
 
   public CmptFieldOutpObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

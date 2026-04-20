@@ -20,8 +20,8 @@ public class testPrntInpObject
 {
 
   public testPrntInpObject
-    ( decimal parent
-    ) : base(parent)
+    ( decimal pparent
+    ) : base(pparent)
   {
   }
 }
@@ -41,9 +41,9 @@ public class testRefPrntInpObject
   public decimal Parent { get; set; }
 
   public testRefPrntInpObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }

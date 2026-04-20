@@ -102,9 +102,9 @@ public class CmptAltCnstPrntDualGrndInpObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstPrntDualGrndInpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }

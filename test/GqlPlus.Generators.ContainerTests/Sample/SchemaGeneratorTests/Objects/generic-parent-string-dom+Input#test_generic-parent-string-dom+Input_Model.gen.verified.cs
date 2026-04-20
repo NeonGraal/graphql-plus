@@ -20,8 +20,8 @@ public class testGnrcPrntStrDomInpObject
 {
 
   public testGnrcPrntStrDomInpObject
-    ( ItestDomGnrcPrntStrDomInp field
-    ) : base(field)
+    ( ItestDomGnrcPrntStrDomInp pfield
+    ) : base(pfield)
   {
   }
 }
@@ -40,10 +40,10 @@ public class testFieldGnrcPrntStrDomInpObject<TRef>
   public TRef Field { get; set; }
 
   public testFieldGnrcPrntStrDomInpObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 

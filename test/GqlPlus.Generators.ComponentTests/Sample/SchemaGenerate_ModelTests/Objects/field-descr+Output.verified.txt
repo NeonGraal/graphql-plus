@@ -24,9 +24,9 @@ public class CmptFieldDescrOutpObject
   public string Field { get; set; }
 
   public CmptFieldDescrOutpObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

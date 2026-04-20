@@ -24,9 +24,9 @@ public class CmptFieldTypeDescrDualObject
   public decimal Field { get; set; }
 
   public CmptFieldTypeDescrDualObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

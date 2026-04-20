@@ -40,9 +40,9 @@ public class testRefCnstEnumInpObject<TType>
   public TType Field { get; set; }
 
   public testRefCnstEnumInpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

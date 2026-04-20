@@ -20,8 +20,8 @@ public class testCnstFieldDmnInpObject
 {
 
   public testCnstFieldDmnInpObject
-    ( ItestDomCnstFieldDmnInp field
-    ) : base(field)
+    ( ItestDomCnstFieldDmnInp pfield
+    ) : base(pfield)
   {
   }
 }
@@ -40,10 +40,10 @@ public class testRefCnstFieldDmnInpObject<TRef>
   public TRef Field { get; set; }
 
   public testRefCnstFieldDmnInpObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 

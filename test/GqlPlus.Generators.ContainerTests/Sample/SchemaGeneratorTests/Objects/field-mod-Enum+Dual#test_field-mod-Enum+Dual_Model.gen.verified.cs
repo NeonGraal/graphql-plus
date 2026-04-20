@@ -21,9 +21,9 @@ public class testFieldModEnumDualObject
   public IDictionary<testEnumFieldModEnumDual, string> Field { get; set; }
 
   public testFieldModEnumDualObject
-    ( IDictionary<testEnumFieldModEnumDual, string> field
+    ( IDictionary<testEnumFieldModEnumDual, string> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

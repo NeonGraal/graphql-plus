@@ -21,9 +21,9 @@ public class testFieldValueDescrDualObject
   public testEnumFieldValueDescrDual Field { get; set; }
 
   public testFieldValueDescrDualObject
-    ( testEnumFieldValueDescrDual field
+    ( testEnumFieldValueDescrDual pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

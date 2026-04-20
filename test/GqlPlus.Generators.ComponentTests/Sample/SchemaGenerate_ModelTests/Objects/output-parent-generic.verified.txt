@@ -46,9 +46,9 @@ public class CmptRefOutpPrntGnrcObject<TType>
   public TType Field { get; set; }
 
   public CmptRefOutpPrntGnrcObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

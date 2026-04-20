@@ -25,10 +25,10 @@ public class CmptFieldModParamOutpObject<TMod>
   public IDictionary<TMod, ICmptFldFieldModParamOutp> Field { get; set; }
 
   public CmptFieldModParamOutpObject
-    ( IDictionary<TMod, ICmptFldFieldModParamOutp> field
+    ( IDictionary<TMod, ICmptFldFieldModParamOutp> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -47,9 +47,9 @@ public class CmptFldFieldModParamOutpObject
   public decimal Field { get; set; }
 
   public CmptFldFieldModParamOutpObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

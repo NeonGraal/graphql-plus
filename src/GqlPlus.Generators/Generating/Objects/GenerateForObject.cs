@@ -447,7 +447,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     context.Write($"  public {context.TypeName(ast, "")}Object");
     string prefix = "(";
     foreach ((string key, RequiredField value) in paramList) {
-      context.Write($"    {prefix} {value.Type} {key}");
+      context.Write($"    {prefix} {value.Type} p{key}");
       prefix = ",";
     }
 
@@ -498,7 +498,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
 
   private static string FieldValue(MapPair<RequiredField> field)
     => string.IsNullOrEmpty(field.Value.Label)
-      ? field.Key
+      ? "p" + field.Key
       : field.Value.Type + "." + field.Value.Label;
 
   internal virtual MapPair<RequiredField>[] RequiredMembers(IAstObject ast, GqlpGeneratorTypes types)

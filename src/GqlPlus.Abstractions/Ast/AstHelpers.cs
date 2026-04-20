@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Ast;
 
-public static class AbstractionHelpers
+public static class AstHelpers
 {
   public static IEnumerable<string?> Bracket(this IAstAbbreviated? item, string before, string after)
     => item?.GetFields().Prepend(before).Append(after) ?? [];

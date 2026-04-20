@@ -59,9 +59,9 @@ public class testAltGnrcPrntDualPrntDualObject
   public decimal Alt { get; set; }
 
   public testAltGnrcPrntDualPrntDualObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }

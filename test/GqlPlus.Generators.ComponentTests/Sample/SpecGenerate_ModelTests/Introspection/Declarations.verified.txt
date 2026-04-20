@@ -105,12 +105,12 @@ public class Cmpt_FilterObject
   public bool? ReturnReferencedTypes { get; set; }
 
   public Cmpt_FilterObject
-    ( ICollection<ICmpt_NameFilter> names
-    , ICollection<ICmpt_NameFilter> aliases
+    ( ICollection<ICmpt_NameFilter> pnames
+    , ICollection<ICmpt_NameFilter> paliases
     )
   {
-    Names = names;
-    Aliases = aliases;
+    Names = pnames;
+    Aliases = paliases;
   }
 }
 
@@ -134,12 +134,12 @@ public class Cmpt_CategoryFilterObject
   public ICollection<ICmpt_Resolution> Resolutions { get; set; }
 
   public Cmpt_CategoryFilterObject
-    ( ICollection<ICmpt_NameFilter> names
-    , ICollection<ICmpt_NameFilter> aliases
-    , ICollection<ICmpt_Resolution> resolutions
-    ) : base(names, aliases)
+    ( ICollection<ICmpt_NameFilter> pnames
+    , ICollection<ICmpt_NameFilter> paliases
+    , ICollection<ICmpt_Resolution> presolutions
+    ) : base(pnames, paliases)
   {
-    Resolutions = resolutions;
+    Resolutions = presolutions;
   }
 }
 
@@ -157,11 +157,11 @@ public class Cmpt_TypeFilterObject
   public ICollection<ICmpt_TypeKind> Kinds { get; set; }
 
   public Cmpt_TypeFilterObject
-    ( ICollection<ICmpt_NameFilter> names
-    , ICollection<ICmpt_NameFilter> aliases
-    , ICollection<ICmpt_TypeKind> kinds
-    ) : base(names, aliases)
+    ( ICollection<ICmpt_NameFilter> pnames
+    , ICollection<ICmpt_NameFilter> paliases
+    , ICollection<ICmpt_TypeKind> pkinds
+    ) : base(pnames, paliases)
   {
-    Kinds = kinds;
+    Kinds = pkinds;
   }
 }

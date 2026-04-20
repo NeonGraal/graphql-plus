@@ -74,7 +74,7 @@ internal sealed class UnionEncoderGenerator
   {
     string typeName = context.TypeName(ast, "");
     string interfaceName = context.TypeName(ast, "I");
-    MapPair<string>[] members = TypeMembers(ast, context).ToArray();
+    MapPair<string>[] members = [.. TypeMembers(ast, context)];
 
     context.Write("");
     if (members.Length == 0) {

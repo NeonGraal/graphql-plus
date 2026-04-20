@@ -22,11 +22,11 @@ public class testObjParamOutpObject<TTest,TType>
   public TType Type { get; set; }
 
   public testObjParamOutpObject
-    ( TTest test
-    , TType type
+    ( TTest ptest
+    , TType ptype
     )
   {
-    Test = test;
-    Type = type;
+    Test = ptest;
+    Type = ptype;
   }
 }

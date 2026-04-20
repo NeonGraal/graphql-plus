@@ -22,10 +22,10 @@ public class test_DirectivesObject
   public Itest_Directive Directive { get; set; }
 
   public test_DirectivesObject
-    ( Itest_Directive directive
+    ( Itest_Directive pdirective
     )
   {
-    Directive = directive;
+    Directive = pdirective;
   }
 }
 
@@ -45,11 +45,11 @@ public class test_DirectiveObject
   public IDictionary<test_Location, GqlpUnit> Locations { get; set; }
 
   public test_DirectiveObject
-    ( bool repeatable
-    , IDictionary<test_Location, GqlpUnit> locations
+    ( bool prepeatable
+    , IDictionary<test_Location, GqlpUnit> plocations
     )
   {
-    Repeatable = repeatable;
-    Locations = locations;
+    Repeatable = prepeatable;
+    Locations = plocations;
   }
 }

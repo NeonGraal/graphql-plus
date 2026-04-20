@@ -46,9 +46,9 @@ public class CmptRefCnstEnumPrntDualObject<TType>
   public TType Field { get; set; }
 
   public CmptRefCnstEnumPrntDualObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

@@ -17,8 +17,8 @@ internal class VerifySchema(IVerifierRepository verifiers) : IVerify<IAstSchema>
     IAstSchemaOption[] options = item.Declarations.ArrayOf<IAstSchemaOption>();
 
     IAstType[] astTypes = item.Declarations.ArrayOf<IAstType>();
-    IAstType[] outputTypes = [.. astTypes.Where(TypeIs<IAstObject<IAstOutputField>>), .. BuiltIn.Basic, .. BuiltIn.Internal];
-    IAstType[] inputTypes = [.. astTypes.Where(TypeIs<IAstObject<IAstInputField>>), .. BuiltIn.Basic, .. BuiltIn.Internal];
+    IAstType[] outputTypes = [.. astTypes.Where(ObjectTypeIs<IAstOutputField>), .. BuiltIn.Basic, .. BuiltIn.Internal];
+    IAstType[] inputTypes = [.. astTypes.Where(ObjectTypeIs<IAstInputField>), .. BuiltIn.Basic, .. BuiltIn.Internal];
 
     _categoryOutputs.Verify(new(categories, outputTypes), errors);
     _directiveInputs.Verify(new(directives, inputTypes), errors);
@@ -29,9 +29,9 @@ internal class VerifySchema(IVerifierRepository verifiers) : IVerify<IAstSchema>
 
     errors.Add(item.Errors);
 
-    static bool TypeIs<T>(IAstType type)
-      where T : IAstType
-      => type is T;
+    static bool ObjectTypeIs<T>(IAstType type)
+      where T : IAstObjField
+      => type is IAstObject<T> or IAstObject<IAstDualField>;
   }
 
   internal static VerifySchema Factory(IVerifierRepository v) => new(v);

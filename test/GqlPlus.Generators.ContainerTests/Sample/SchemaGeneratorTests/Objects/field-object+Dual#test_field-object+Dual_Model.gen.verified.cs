@@ -21,10 +21,10 @@ public class testFieldObjDualObject
   public ItestFldFieldObjDual Field { get; set; }
 
   public testFieldObjDualObject
-    ( ItestFldFieldObjDual field
+    ( ItestFldFieldObjDual pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -43,9 +43,9 @@ public class testFldFieldObjDualObject
   public decimal Field { get; set; }
 
   public testFldFieldObjDualObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

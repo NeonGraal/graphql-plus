@@ -27,9 +27,9 @@ public class Cmpt_SettingObject
   public GqlpValue Value { get; set; }
 
   public Cmpt_SettingObject
-    ( GqlpValue value
+    ( GqlpValue pvalue
     )
   {
-    Value = value;
+    Value = pvalue;
   }
 }

@@ -4,417 +4,732 @@
 
 namespace GqlPlusTests;
 
-public class SamplesBottomGreenValidData
+public class SamplesBottomGreenValidGqlData
   : TheoryData<string>
 {
   public static readonly string[] Strings = [
-    "File109",
     "File214",
-    "File319",
     "File4",
     "File424",
   ];
 
-  public SamplesBottomGreenValidData()
+  public SamplesBottomGreenValidGqlData()
   {
     foreach (string s in Strings) Add(s);
   }
 
-  public const string From = "Samples/Bottom/Green/Valid";
+  public const string From = "Samples/Bottom/Green/ValidGql";
   public const string Collected = "ManyFiles";
 }
 
-public class SamplesBottomOrangeData
+public class SamplesBottomInValidGqlData
   : TheoryData<string>
 {
   public static readonly string[] Strings = [
-    "File114",
-    "File219",
-    "File324",
-    "File429",
-    "File9",
-  ];
-
-  public SamplesBottomOrangeData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
-
-  public const string From = "Samples/Bottom/Orange";
-  public const string Collected = "ManyFiles";
-}
-
-public class SamplesBottomInValidData
-  : TheoryData<string>
-{
-  public static readonly string[] Strings = [
-    "File119",
     "File14",
     "File224",
-    "File329",
     "File434",
   ];
 
-  public SamplesBottomInValidData()
+  public SamplesBottomInValidGqlData()
   {
     foreach (string s in Strings) Add(s);
   }
 
-  public const string From = "Samples/Bottom/InValid";
+  public const string From = "Samples/Bottom/InValidGql";
   public const string Collected = "ManyFiles";
 }
 
-public class SamplesBottomBlueValidData
+public class SamplesBottomYellowGqlData
   : TheoryData<string>
 {
   public static readonly string[] Strings = [
-    "File124",
-    "File19",
-    "File229",
-    "File334",
-    "File439",
-  ];
-
-  public SamplesBottomBlueValidData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
-
-  public const string From = "Samples/Bottom/Blue/Valid";
-  public const string Collected = "ManyFiles";
-}
-
-public class SamplesBottomYellowData
-  : TheoryData<string>
-{
-  public static readonly string[] Strings = [
-    "File129",
     "File234",
     "File24",
-    "File339",
     "File444",
   ];
 
-  public SamplesBottomYellowData()
+  public SamplesBottomYellowGqlData()
   {
     foreach (string s in Strings) Add(s);
   }
 
-  public const string From = "Samples/Bottom/Yellow";
+  public const string From = "Samples/Bottom/YellowGql";
   public const string Collected = "ManyFiles";
 }
 
-public class SamplesBottomRedInValidData
+public class SamplesBottomPurpleValidGqlData
   : TheoryData<string>
 {
   public static readonly string[] Strings = [
-    "File134",
-    "File239",
-    "File29",
-    "File344",
-    "File449",
-  ];
-
-  public SamplesBottomRedInValidData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
-
-  public const string From = "Samples/Bottom/Red/InValid";
-  public const string Collected = "ManyFiles";
-}
-
-public class SamplesBottomPurpleValidData
-  : TheoryData<string>
-{
-  public static readonly string[] Strings = [
-    "File139",
     "File244",
     "File34",
-    "File349",
     "File454",
   ];
 
-  public SamplesBottomPurpleValidData()
+  public SamplesBottomPurpleValidGqlData()
   {
     foreach (string s in Strings) Add(s);
   }
 
-  public const string From = "Samples/Bottom/Purple/Valid";
+  public const string From = "Samples/Bottom/Purple/ValidGql";
   public const string Collected = "ManyFiles";
 }
 
-public class SamplesBottomGreenData
+public class SamplesBottomOrangeInValidGqlData
   : TheoryData<string>
 {
   public static readonly string[] Strings = [
-    "File144",
-    "File249",
-    "File354",
-    "File39",
-    "File459",
-  ];
-
-  public SamplesBottomGreenData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
-
-  public const string From = "Samples/Bottom/Green";
-  public const string Collected = "ManyFiles";
-}
-
-public class SamplesBottomOrangeInValidData
-  : TheoryData<string>
-{
-  public static readonly string[] Strings = [
-    "File149",
     "File254",
-    "File359",
     "File44",
     "File464",
   ];
 
-  public SamplesBottomOrangeInValidData()
+  public SamplesBottomOrangeInValidGqlData()
   {
     foreach (string s in Strings) Add(s);
   }
 
-  public const string From = "Samples/Bottom/Orange/InValid";
+  public const string From = "Samples/Bottom/Orange/InValidGql";
   public const string Collected = "ManyFiles";
 }
 
-public class SamplesBottomValidData
+public class SamplesBottomBlueGqlData
   : TheoryData<string>
 {
   public static readonly string[] Strings = [
-    "File154",
-    "File259",
-    "File364",
-    "File469",
-    "File49",
-  ];
-
-  public SamplesBottomValidData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
-
-  public const string From = "Samples/Bottom/Valid";
-  public const string Collected = "ManyFiles";
-}
-
-public class SamplesBottomBlueData
-  : TheoryData<string>
-{
-  public static readonly string[] Strings = [
-    "File159",
     "File264",
-    "File369",
     "File474",
     "File54",
   ];
 
-  public SamplesBottomBlueData()
+  public SamplesBottomBlueGqlData()
   {
     foreach (string s in Strings) Add(s);
   }
 
-  public const string From = "Samples/Bottom/Blue";
+  public const string From = "Samples/Bottom/BlueGql";
   public const string Collected = "ManyFiles";
 }
 
-public class SamplesBottomYellowInValidData
+public class SamplesBottomRedValidGqlData
   : TheoryData<string>
 {
   public static readonly string[] Strings = [
-    "File164",
-    "File269",
-    "File374",
-    "File479",
-    "File59",
-  ];
-
-  public SamplesBottomYellowInValidData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
-
-  public const string From = "Samples/Bottom/Yellow/InValid";
-  public const string Collected = "ManyFiles";
-}
-
-public class SamplesBottomRedValidData
-  : TheoryData<string>
-{
-  public static readonly string[] Strings = [
-    "File169",
     "File274",
-    "File379",
     "File484",
     "File64",
   ];
 
-  public SamplesBottomRedValidData()
+  public SamplesBottomRedValidGqlData()
   {
     foreach (string s in Strings) Add(s);
   }
 
-  public const string From = "Samples/Bottom/Red/Valid";
+  public const string From = "Samples/Bottom/Red/ValidGql";
   public const string Collected = "ManyFiles";
 }
 
-public class SamplesBottomPurpleData
+public class SamplesBottomGreenInValidGqlData
   : TheoryData<string>
 {
   public static readonly string[] Strings = [
-    "File174",
-    "File279",
-    "File384",
-    "File489",
-    "File69",
-  ];
-
-  public SamplesBottomPurpleData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
-
-  public const string From = "Samples/Bottom/Purple";
-  public const string Collected = "ManyFiles";
-}
-
-public class SamplesBottomGreenInValidData
-  : TheoryData<string>
-{
-  public static readonly string[] Strings = [
-    "File179",
     "File284",
-    "File389",
     "File494",
     "File74",
   ];
 
-  public SamplesBottomGreenInValidData()
+  public SamplesBottomGreenInValidGqlData()
   {
     foreach (string s in Strings) Add(s);
   }
 
-  public const string From = "Samples/Bottom/Green/InValid";
+  public const string From = "Samples/Bottom/Green/InValidGql";
   public const string Collected = "ManyFiles";
 }
 
-public class SamplesBottomOrangeValidData
+public class SamplesBottomGqlData
   : TheoryData<string>
 {
   public static readonly string[] Strings = [
-    "File184",
-    "File289",
-    "File394",
-    "File499",
-    "File79",
-  ];
-
-  public SamplesBottomOrangeValidData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
-
-  public const string From = "Samples/Bottom/Orange/Valid";
-  public const string Collected = "ManyFiles";
-}
-
-public class SamplesBottomData
-  : TheoryData<string>
-{
-  public static readonly string[] Strings = [
-    "File189",
     "File294",
-    "File399",
     "File84",
   ];
 
-  public SamplesBottomData()
+  public SamplesBottomGqlData()
   {
     foreach (string s in Strings) Add(s);
   }
 
-  public const string From = "Samples/Bottom/";
+  public const string From = "Samples/Bottom/Gql";
   public const string Collected = "ManyFiles";
 }
 
-public class SamplesBottomBlueInValidData
+public class SamplesBottomYellowValidGqlData
   : TheoryData<string>
 {
   public static readonly string[] Strings = [
-    "File194",
-    "File299",
-    "File404",
-    "File89",
-  ];
-
-  public SamplesBottomBlueInValidData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
-
-  public const string From = "Samples/Bottom/Blue/InValid";
-  public const string Collected = "ManyFiles";
-}
-
-public class SamplesBottomYellowValidData
-  : TheoryData<string>
-{
-  public static readonly string[] Strings = [
-    "File199",
     "File304",
-    "File409",
     "File94",
   ];
 
-  public SamplesBottomYellowValidData()
+  public SamplesBottomYellowValidGqlData()
   {
     foreach (string s in Strings) Add(s);
   }
 
-  public const string From = "Samples/Bottom/Yellow/Valid";
+  public const string From = "Samples/Bottom/Yellow/ValidGql";
   public const string Collected = "ManyFiles";
 }
 
-public class SamplesBottomRedData
-  : TheoryData<string>
-{
-  public static readonly string[] Strings = [
-    "File204",
-    "File309",
-    "File414",
-    "File99",
-  ];
-
-  public SamplesBottomRedData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
-
-  public const string From = "Samples/Bottom/Red";
-  public const string Collected = "ManyFiles";
-}
-
-public class SamplesBottomPurpleInValidData
+public class SamplesBottomPurpleInValidGqlData
   : TheoryData<string>
 {
   public static readonly string[] Strings = [
     "File104",
-    "File209",
     "File314",
-    "File419",
   ];
 
-  public SamplesBottomPurpleInValidData()
+  public SamplesBottomPurpleInValidGqlData()
   {
     foreach (string s in Strings) Add(s);
   }
 
-  public const string From = "Samples/Bottom/Purple/InValid";
+  public const string From = "Samples/Bottom/Purple/InValidGql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomOrangeGqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File114",
+    "File324",
+  ];
+
+  public SamplesBottomOrangeGqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/OrangeGql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomBlueValidGqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File124",
+    "File334",
+  ];
+
+  public SamplesBottomBlueValidGqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/Blue/ValidGql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomRedInValidGqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File134",
+    "File344",
+  ];
+
+  public SamplesBottomRedInValidGqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/Red/InValidGql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomGreenGqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File144",
+    "File354",
+  ];
+
+  public SamplesBottomGreenGqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/GreenGql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomValidGqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File154",
+    "File364",
+  ];
+
+  public SamplesBottomValidGqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/ValidGql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomYellowInValidGqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File164",
+    "File374",
+  ];
+
+  public SamplesBottomYellowInValidGqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/Yellow/InValidGql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomPurpleGqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File174",
+    "File384",
+  ];
+
+  public SamplesBottomPurpleGqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/PurpleGql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomOrangeValidGqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File184",
+    "File394",
+  ];
+
+  public SamplesBottomOrangeValidGqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/Orange/ValidGql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomBlueInValidGqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File194",
+    "File404",
+  ];
+
+  public SamplesBottomBlueInValidGqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/Blue/InValidGql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomRedGqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File204",
+    "File414",
+  ];
+
+  public SamplesBottomRedGqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/RedGql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomOrangeGraphqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File219",
+    "File429",
+    "File9",
+  ];
+
+  public SamplesBottomOrangeGraphqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/OrangeGraphql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomBlueValidGraphqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File19",
+    "File229",
+    "File439",
+  ];
+
+  public SamplesBottomBlueValidGraphqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/Blue/ValidGraphql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomRedInValidGraphqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File239",
+    "File29",
+    "File449",
+  ];
+
+  public SamplesBottomRedInValidGraphqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/Red/InValidGraphql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomGreenGraphqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File249",
+    "File39",
+    "File459",
+  ];
+
+  public SamplesBottomGreenGraphqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/GreenGraphql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomValidGraphqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File259",
+    "File469",
+    "File49",
+  ];
+
+  public SamplesBottomValidGraphqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/ValidGraphql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomYellowInValidGraphqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File269",
+    "File479",
+    "File59",
+  ];
+
+  public SamplesBottomYellowInValidGraphqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/Yellow/InValidGraphql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomPurpleGraphqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File279",
+    "File489",
+    "File69",
+  ];
+
+  public SamplesBottomPurpleGraphqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/PurpleGraphql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomOrangeValidGraphqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File289",
+    "File499",
+    "File79",
+  ];
+
+  public SamplesBottomOrangeValidGraphqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/Orange/ValidGraphql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomBlueInValidGraphqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File299",
+    "File89",
+  ];
+
+  public SamplesBottomBlueInValidGraphqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/Blue/InValidGraphql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomRedGraphqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File309",
+    "File99",
+  ];
+
+  public SamplesBottomRedGraphqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/RedGraphql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomGreenValidGraphqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File109",
+    "File319",
+  ];
+
+  public SamplesBottomGreenValidGraphqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/Green/ValidGraphql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomInValidGraphqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File119",
+    "File329",
+  ];
+
+  public SamplesBottomInValidGraphqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/InValidGraphql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomYellowGraphqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File129",
+    "File339",
+  ];
+
+  public SamplesBottomYellowGraphqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/YellowGraphql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomPurpleValidGraphqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File139",
+    "File349",
+  ];
+
+  public SamplesBottomPurpleValidGraphqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/Purple/ValidGraphql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomOrangeInValidGraphqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File149",
+    "File359",
+  ];
+
+  public SamplesBottomOrangeInValidGraphqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/Orange/InValidGraphql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomBlueGraphqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File159",
+    "File369",
+  ];
+
+  public SamplesBottomBlueGraphqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/BlueGraphql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomRedValidGraphqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File169",
+    "File379",
+  ];
+
+  public SamplesBottomRedValidGraphqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/Red/ValidGraphql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomGreenInValidGraphqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File179",
+    "File389",
+  ];
+
+  public SamplesBottomGreenInValidGraphqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/Green/InValidGraphql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomGraphqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File189",
+    "File399",
+  ];
+
+  public SamplesBottomGraphqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/Graphql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomYellowValidGraphqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File199",
+    "File409",
+  ];
+
+  public SamplesBottomYellowValidGraphqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/Yellow/ValidGraphql";
+  public const string Collected = "ManyFiles";
+}
+
+public class SamplesBottomPurpleInValidGraphqlData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "File209",
+    "File419",
+  ];
+
+  public SamplesBottomPurpleInValidGraphqlData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Bottom/Purple/InValidGraphql";
   public const string Collected = "ManyFiles";
 }

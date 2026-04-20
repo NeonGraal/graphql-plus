@@ -464,12 +464,12 @@ public class CmptObjCnstDualObject<TType>
   public TType Str { get; set; }
 
   public CmptObjCnstDualObject
-    ( TType field
-    , TType str
+    ( TType pfield
+    , TType pstr
     )
   {
-    Field = field;
-    Str = str;
+    Field = pfield;
+    Str = pstr;
   }
 }
 
@@ -488,12 +488,12 @@ public class CmptObjCnstInpObject<TType>
   public TType Str { get; set; }
 
   public CmptObjCnstInpObject
-    ( TType field
-    , TType str
+    ( TType pfield
+    , TType pstr
     )
   {
-    Field = field;
-    Str = str;
+    Field = pfield;
+    Str = pstr;
   }
 }
 
@@ -512,12 +512,12 @@ public class CmptObjCnstOutpObject<TType>
   public TType Str { get; set; }
 
   public CmptObjCnstOutpObject
-    ( TType field
-    , TType str
+    ( TType pfield
+    , TType pstr
     )
   {
-    Field = field;
-    Str = str;
+    Field = pfield;
+    Str = pstr;
   }
 }
 
@@ -535,10 +535,10 @@ public class CmptObjFieldDualObject
   public ICmptFldObjFieldDual Field { get; set; }
 
   public CmptObjFieldDualObject
-    ( ICmptFldObjFieldDual field
+    ( ICmptFldObjFieldDual pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -574,10 +574,10 @@ public class CmptObjFieldInpObject
   public ICmptFldObjFieldInp Field { get; set; }
 
   public CmptObjFieldInpObject
-    ( ICmptFldObjFieldInp field
+    ( ICmptFldObjFieldInp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -613,10 +613,10 @@ public class CmptObjFieldOutpObject
   public ICmptFldObjFieldOutp Field { get; set; }
 
   public CmptObjFieldOutpObject
-    ( ICmptFldObjFieldOutp field
+    ( ICmptFldObjFieldOutp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -652,10 +652,10 @@ public class CmptObjFieldAliasDualObject
   public ICmptFldObjFieldAliasDual Field { get; set; }
 
   public CmptObjFieldAliasDualObject
-    ( ICmptFldObjFieldAliasDual field
+    ( ICmptFldObjFieldAliasDual pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -691,10 +691,10 @@ public class CmptObjFieldAliasInpObject
   public ICmptFldObjFieldAliasInp Field { get; set; }
 
   public CmptObjFieldAliasInpObject
-    ( ICmptFldObjFieldAliasInp field
+    ( ICmptFldObjFieldAliasInp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -730,10 +730,10 @@ public class CmptObjFieldAliasOutpObject
   public ICmptFldObjFieldAliasOutp Field { get; set; }
 
   public CmptObjFieldAliasOutpObject
-    ( ICmptFldObjFieldAliasOutp field
+    ( ICmptFldObjFieldAliasOutp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -769,10 +769,10 @@ public class CmptObjFieldEnumAliasDualObject
   public bool Field { get; set; }
 
   public CmptObjFieldEnumAliasDualObject
-    ( bool field
+    ( bool pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -790,10 +790,10 @@ public class CmptObjFieldEnumAliasInpObject
   public bool Field { get; set; }
 
   public CmptObjFieldEnumAliasInpObject
-    ( bool field
+    ( bool pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -811,10 +811,10 @@ public class CmptObjFieldEnumAliasOutpObject
   public bool Field { get; set; }
 
   public CmptObjFieldEnumAliasOutpObject
-    ( bool field
+    ( bool pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -832,10 +832,10 @@ public class CmptObjFieldEnumValueDualObject
   public bool Field { get; set; }
 
   public CmptObjFieldEnumValueDualObject
-    ( bool field
+    ( bool pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -853,10 +853,10 @@ public class CmptObjFieldEnumValueInpObject
   public bool Field { get; set; }
 
   public CmptObjFieldEnumValueInpObject
-    ( bool field
+    ( bool pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -874,10 +874,10 @@ public class CmptObjFieldEnumValueOutpObject
   public bool Field { get; set; }
 
   public CmptObjFieldEnumValueOutpObject
-    ( bool field
+    ( bool pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -895,10 +895,10 @@ public class CmptObjFieldTypeAliasDualObject
   public string Field { get; set; }
 
   public CmptObjFieldTypeAliasDualObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -916,10 +916,10 @@ public class CmptObjFieldTypeAliasInpObject
   public string Field { get; set; }
 
   public CmptObjFieldTypeAliasInpObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -937,10 +937,10 @@ public class CmptObjFieldTypeAliasOutpObject
   public string Field { get; set; }
 
   public CmptObjFieldTypeAliasOutpObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -959,12 +959,12 @@ public class CmptObjParamDualObject<TTest,TType>
   public TType Type { get; set; }
 
   public CmptObjParamDualObject
-    ( TTest test
-    , TType type
+    ( TTest ptest
+    , TType ptype
     )
   {
-    Test = test;
-    Type = type;
+    Test = ptest;
+    Type = ptype;
   }
 }
 
@@ -983,12 +983,12 @@ public class CmptObjParamInpObject<TTest,TType>
   public TType Type { get; set; }
 
   public CmptObjParamInpObject
-    ( TTest test
-    , TType type
+    ( TTest ptest
+    , TType ptype
     )
   {
-    Test = test;
-    Type = type;
+    Test = ptest;
+    Type = ptype;
   }
 }
 
@@ -1007,12 +1007,12 @@ public class CmptObjParamOutpObject<TTest,TType>
   public TType Type { get; set; }
 
   public CmptObjParamOutpObject
-    ( TTest test
-    , TType type
+    ( TTest ptest
+    , TType ptype
     )
   {
-    Test = test;
-    Type = type;
+    Test = ptest;
+    Type = ptype;
   }
 }
 
@@ -1031,12 +1031,12 @@ public class CmptObjParamDupDualObject<TTest>
   public TTest Type { get; set; }
 
   public CmptObjParamDupDualObject
-    ( TTest test
-    , TTest type
+    ( TTest ptest
+    , TTest ptype
     )
   {
-    Test = test;
-    Type = type;
+    Test = ptest;
+    Type = ptype;
   }
 }
 
@@ -1055,12 +1055,12 @@ public class CmptObjParamDupInpObject<TTest>
   public TTest Type { get; set; }
 
   public CmptObjParamDupInpObject
-    ( TTest test
-    , TTest type
+    ( TTest ptest
+    , TTest ptype
     )
   {
-    Test = test;
-    Type = type;
+    Test = ptest;
+    Type = ptype;
   }
 }
 
@@ -1079,12 +1079,12 @@ public class CmptObjParamDupOutpObject<TTest>
   public TTest Type { get; set; }
 
   public CmptObjParamDupOutpObject
-    ( TTest test
-    , TTest type
+    ( TTest ptest
+    , TTest ptype
     )
   {
-    Test = test;
-    Type = type;
+    Test = ptest;
+    Type = ptype;
   }
 }
 

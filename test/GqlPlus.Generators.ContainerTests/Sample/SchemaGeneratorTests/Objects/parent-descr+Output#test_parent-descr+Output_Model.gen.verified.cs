@@ -20,8 +20,8 @@ public class testPrntDescrOutpObject
 {
 
   public testPrntDescrOutpObject
-    ( decimal parent
-    ) : base(parent)
+    ( decimal pparent
+    ) : base(pparent)
   {
   }
 }
@@ -41,9 +41,9 @@ public class testRefPrntDescrOutpObject
   public decimal Parent { get; set; }
 
   public testRefPrntDescrOutpObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }

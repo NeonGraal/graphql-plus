@@ -33,19 +33,20 @@ public class BuildDataGenerator : IIncrementalGenerator
     context.RegisterSourceOutput(samples.Combine(gitDetails), GenerateCode);
   }
 
-  private record struct DataPath(string Parent, string[] Directory, string FileName);
+  private record struct DataPath(string Parent, string[] Directory, string FileName, string Extension);
 
   private static DataPath FromArray(string[] path)
   {
     int first = Array.IndexOf(path, "Samples") + 1;
     int last = path.Length - 1;
     string filename = Path.GetFileNameWithoutExtension(path[last]);
+    string extension = Path.GetExtension(path[last]);
     string[] dir = [];
     if (first + 1 < last) {
       dir = [.. path.Skip(first + 1).Take(last - first - 1)];
     }
 
-    return new(path[first], dir, filename);
+    return new(path[first], dir, filename, extension);
   }
 
   private record struct FileDetails(string Collected, string From, StringBuilder Builder)
@@ -79,8 +80,19 @@ public class BuildDataGenerator : IIncrementalGenerator
       details.AppendLine();
       details.AppendLine($"namespace {_namespace};");
 
-      foreach (IGrouping<string, DataPath> directory in parent.GroupBy(g => PathCombine(g.Directory))) {
-        GenerateDataClass(details, directory.Key, directory);
+      IGrouping<string, DataPath>[] byExtension = [.. parent.GroupBy(path => path.Extension)];
+
+      if (byExtension.Length > 1) {
+        foreach (IGrouping<string, DataPath> ext in byExtension) {
+          string safeKey = (ext.Key[1..2].ToUpperInvariant() + ext.Key[2..]).TrimEnd('+');
+          foreach (IGrouping<string, DataPath> directory in ext.GroupBy(g => PathCombine(g.Directory))) {
+            GenerateDataClass(details, directory.Key + safeKey, directory);
+          }
+        }
+      } else {
+        foreach (IGrouping<string, DataPath> directory in parent.GroupBy(g => PathCombine(g.Directory))) {
+          GenerateDataClass(details, directory.Key, directory);
+        }
       }
 
       context.AddSource(parent.Key + "Data.gen.cs", details.Source);

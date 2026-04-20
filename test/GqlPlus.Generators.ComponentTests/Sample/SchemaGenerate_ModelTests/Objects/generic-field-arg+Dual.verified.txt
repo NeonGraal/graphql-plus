@@ -25,10 +25,10 @@ public class CmptGnrcFieldArgDualObject<TType>
   public ICmptRefGnrcFieldArgDual<TType> Field { get; set; }
 
   public CmptGnrcFieldArgDualObject
-    ( ICmptRefGnrcFieldArgDual<TType> field
+    ( ICmptRefGnrcFieldArgDual<TType> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 

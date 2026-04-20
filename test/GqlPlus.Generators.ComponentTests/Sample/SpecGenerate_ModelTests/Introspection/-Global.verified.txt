@@ -154,10 +154,10 @@ public class Cmpt_AndTypeObject
   public ICmpt_Type Type { get; set; }
 
   public Cmpt_AndTypeObject
-    ( ICmpt_Type type
+    ( ICmpt_Type ptype
     )
   {
-    Type = type;
+    Type = ptype;
   }
 }
 
@@ -176,11 +176,11 @@ public class Cmpt_CategoriesObject
   public ICmpt_Category Category { get; set; }
 
   public Cmpt_CategoriesObject
-    ( ICmpt_Type type
-    , ICmpt_Category category
-    ) : base(type)
+    ( ICmpt_Type ptype
+    , ICmpt_Category pcategory
+    ) : base(ptype)
   {
-    Category = category;
+    Category = pcategory;
   }
 }
 
@@ -200,14 +200,14 @@ public class Cmpt_CategoryObject
   public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 
   public Cmpt_CategoryObject
-    ( Cmpt_Resolution resolution
-    , ICmpt_TypeRef<ICmpt_TypeKind> output
-    , ICollection<ICmpt_Modifiers> modifiers
+    ( Cmpt_Resolution presolution
+    , ICmpt_TypeRef<ICmpt_TypeKind> poutput
+    , ICollection<ICmpt_Modifiers> pmodifiers
     )
   {
-    Resolution = resolution;
-    Output = output;
-    Modifiers = modifiers;
+    Resolution = presolution;
+    Output = poutput;
+    Modifiers = pmodifiers;
   }
 }
 
@@ -226,11 +226,11 @@ public class Cmpt_DirectivesObject
   public ICmpt_Directive Directive { get; set; }
 
   public Cmpt_DirectivesObject
-    ( ICmpt_Type type
-    , ICmpt_Directive directive
-    ) : base(type)
+    ( ICmpt_Type ptype
+    , ICmpt_Directive pdirective
+    ) : base(ptype)
   {
-    Directive = directive;
+    Directive = pdirective;
   }
 }
 
@@ -250,12 +250,12 @@ public class Cmpt_DirectiveObject
   public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
 
   public Cmpt_DirectiveObject
-    ( bool repeatable
-    , IDictionary<Cmpt_Location, GqlpUnit> locations
+    ( bool prepeatable
+    , IDictionary<Cmpt_Location, GqlpUnit> plocations
     )
   {
-    Repeatable = repeatable;
-    Locations = locations;
+    Repeatable = prepeatable;
+    Locations = plocations;
   }
 }
 
@@ -627,9 +627,9 @@ public class Cmpt_SettingObject
   public GqlpValue Value { get; set; }
 
   public Cmpt_SettingObject
-    ( GqlpValue value
+    ( GqlpValue pvalue
     )
   {
-    Value = value;
+    Value = pvalue;
   }
 }

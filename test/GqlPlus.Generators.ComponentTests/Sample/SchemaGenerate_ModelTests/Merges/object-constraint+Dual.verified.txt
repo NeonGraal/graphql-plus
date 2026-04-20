@@ -26,11 +26,11 @@ public class CmptObjCnstDualObject<TType>
   public TType Str { get; set; }
 
   public CmptObjCnstDualObject
-    ( TType field
-    , TType str
+    ( TType pfield
+    , TType pstr
     )
   {
-    Field = field;
-    Str = str;
+    Field = pfield;
+    Str = pstr;
   }
 }

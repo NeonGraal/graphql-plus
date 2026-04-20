@@ -22,10 +22,10 @@ public class test_AndTypeObject
   public Itest_Type Type { get; set; }
 
   public test_AndTypeObject
-    ( Itest_Type type
+    ( Itest_Type ptype
     )
   {
-    Type = type;
+    Type = ptype;
   }
 }
 
@@ -44,11 +44,11 @@ public class test_CategoriesObject
   public Itest_Category Category { get; set; }
 
   public test_CategoriesObject
-    ( Itest_Type type
-    , Itest_Category category
-    ) : base(type)
+    ( Itest_Type ptype
+    , Itest_Category pcategory
+    ) : base(ptype)
   {
-    Category = category;
+    Category = pcategory;
   }
 }
 
@@ -68,14 +68,14 @@ public class test_CategoryObject
   public ICollection<Itest_Modifiers> Modifiers { get; set; }
 
   public test_CategoryObject
-    ( test_Resolution resolution
-    , Itest_TypeRef<Itest_TypeKind> output
-    , ICollection<Itest_Modifiers> modifiers
+    ( test_Resolution presolution
+    , Itest_TypeRef<Itest_TypeKind> poutput
+    , ICollection<Itest_Modifiers> pmodifiers
     )
   {
-    Resolution = resolution;
-    Output = output;
-    Modifiers = modifiers;
+    Resolution = presolution;
+    Output = poutput;
+    Modifiers = pmodifiers;
   }
 }
 
@@ -94,11 +94,11 @@ public class test_DirectivesObject
   public Itest_Directive Directive { get; set; }
 
   public test_DirectivesObject
-    ( Itest_Type type
-    , Itest_Directive directive
-    ) : base(type)
+    ( Itest_Type ptype
+    , Itest_Directive pdirective
+    ) : base(ptype)
   {
-    Directive = directive;
+    Directive = pdirective;
   }
 }
 
@@ -118,12 +118,12 @@ public class test_DirectiveObject
   public IDictionary<test_Location, GqlpUnit> Locations { get; set; }
 
   public test_DirectiveObject
-    ( bool repeatable
-    , IDictionary<test_Location, GqlpUnit> locations
+    ( bool prepeatable
+    , IDictionary<test_Location, GqlpUnit> plocations
     )
   {
-    Repeatable = repeatable;
-    Locations = locations;
+    Repeatable = prepeatable;
+    Locations = plocations;
   }
 }
 
@@ -495,9 +495,9 @@ public class test_SettingObject
   public GqlpValue Value { get; set; }
 
   public test_SettingObject
-    ( GqlpValue value
+    ( GqlpValue pvalue
     )
   {
-    Value = value;
+    Value = pvalue;
   }
 }

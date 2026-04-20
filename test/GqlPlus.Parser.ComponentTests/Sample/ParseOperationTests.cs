@@ -21,7 +21,7 @@ public class ParseOperationTests(
   }
 
   [Theory]
-  [ClassData(typeof(SamplesGraphQlData))]
+  [ClassData(typeof(SamplesGraphQlGqlData))]
   public async Task ParseGraphQl(string example)
   {
     IAstOperation? ast = await ParseSampleOperation("GraphQl", example, "gql");

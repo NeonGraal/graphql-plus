@@ -347,14 +347,14 @@ public class testCatOprTypeObject
   public ItestAddrOprType Address { get; set; }
 
   public testCatOprTypeObject
-    ( string first
-    , string last
-    , ItestAddrOprType address
+    ( string pfirst
+    , string plast
+    , ItestAddrOprType paddress
     )
   {
-    First = first;
-    Last = last;
-    Address = address;
+    First = pfirst;
+    Last = plast;
+    Address = paddress;
   }
 }
 
@@ -374,13 +374,13 @@ public class testAddrOprTypeObject
   public string Country { get; set; }
 
   public testAddrOprTypeObject
-    ( string street
-    , string city
-    , string country
+    ( string pstreet
+    , string pcity
+    , string pcountry
     )
   {
-    Street = street;
-    City = city;
-    Country = country;
+    Street = pstreet;
+    City = pcity;
+    Country = pcountry;
   }
 }

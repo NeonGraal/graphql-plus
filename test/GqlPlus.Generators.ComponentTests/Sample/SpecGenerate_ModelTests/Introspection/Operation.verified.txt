@@ -115,12 +115,12 @@ public class Cmpt_OperationsObject
   public ICmpt_Type Type { get; set; }
 
   public Cmpt_OperationsObject
-    ( ICmpt_Operation operation
-    , ICmpt_Type type
+    ( ICmpt_Operation poperation
+    , ICmpt_Type ptype
     )
   {
-    Operation = operation;
-    Type = type;
+    Operation = poperation;
+    Type = ptype;
   }
 }
 
@@ -138,10 +138,10 @@ public class Cmpt_OpDirectivesObject
   public ICollection<ICmpt_OpDirective> Directives { get; set; }
 
   public Cmpt_OpDirectivesObject
-    ( ICollection<ICmpt_OpDirective> directives
+    ( ICollection<ICmpt_OpDirective> pdirectives
     )
   {
-    Directives = directives;
+    Directives = pdirectives;
   }
 }
 
@@ -164,20 +164,20 @@ public class Cmpt_OperationObject
   public IDictionary<ICmpt_Path, ICollection<ICmpt_OpSelection>> Selections { get; set; }
 
   public Cmpt_OperationObject
-    ( ICmpt_Name category
-    , IDictionary<ICmpt_Name, ICmpt_OpVariable> variables
-    , ICollection<ICmpt_OpDirective> directives
-    , IDictionary<ICmpt_Name, ICmpt_OpFragment> fragments
-    , ICmpt_OpResult result
-    , IDictionary<ICmpt_Path, ICollection<ICmpt_OpSelection>> selections
+    ( ICmpt_Name pcategory
+    , IDictionary<ICmpt_Name, ICmpt_OpVariable> pvariables
+    , ICollection<ICmpt_OpDirective> pdirectives
+    , IDictionary<ICmpt_Name, ICmpt_OpFragment> pfragments
+    , ICmpt_OpResult presult
+    , IDictionary<ICmpt_Path, ICollection<ICmpt_OpSelection>> pselections
     )
   {
-    Category = category;
-    Variables = variables;
-    Directives = directives;
-    Fragments = fragments;
-    Result = result;
-    Selections = selections;
+    Category = pcategory;
+    Variables = pvariables;
+    Directives = pdirectives;
+    Fragments = pfragments;
+    Result = presult;
+    Selections = pselections;
   }
 }
 
@@ -197,13 +197,13 @@ public class Cmpt_OpVariableObject
   public GqlpValue? DefaultValue { get; set; }
 
   public Cmpt_OpVariableObject
-    ( ICollection<ICmpt_OpDirective> directives
-    , ICmpt_TypeRef<ICmpt_TypeKind> type
-    , ICollection<ICmpt_Modifiers> modifiers
-    ) : base(directives)
+    ( ICollection<ICmpt_OpDirective> pdirectives
+    , ICmpt_TypeRef<ICmpt_TypeKind> ptype
+    , ICollection<ICmpt_Modifiers> pmodifiers
+    ) : base(pdirectives)
   {
-    Type = type;
-    Modifiers = modifiers;
+    Type = ptype;
+    Modifiers = pmodifiers;
   }
 }
 
@@ -240,11 +240,11 @@ public class Cmpt_OpFragmentObject
   public ICmpt_TypeRef<ICmpt_TypeKind> Type { get; set; }
 
   public Cmpt_OpFragmentObject
-    ( ICollection<ICmpt_OpDirective> directives
-    , ICmpt_TypeRef<ICmpt_TypeKind> type
-    ) : base(directives)
+    ( ICollection<ICmpt_OpDirective> pdirectives
+    , ICmpt_TypeRef<ICmpt_TypeKind> ptype
+    ) : base(pdirectives)
   {
-    Type = type;
+    Type = ptype;
   }
 }
 
@@ -284,10 +284,10 @@ public class Cmpt_OpArgValueObject
   public ICmpt_Name Variable { get; set; }
 
   public Cmpt_OpArgValueObject
-    ( ICmpt_Name variable
+    ( ICmpt_Name pvariable
     )
   {
-    Variable = variable;
+    Variable = pvariable;
   }
 }
 
@@ -326,12 +326,12 @@ public class Cmpt_OpArgMapObject
   public ICmpt_Name ByVariable { get; set; }
 
   public Cmpt_OpArgMapObject
-    ( ICmpt_OpArgValue value
-    , ICmpt_Name byVariable
+    ( ICmpt_OpArgValue pvalue
+    , ICmpt_Name pbyVariable
     )
   {
-    Value = value;
-    ByVariable = byVariable;
+    Value = pvalue;
+    ByVariable = pbyVariable;
   }
 }
 
@@ -398,11 +398,11 @@ public class Cmpt_OpFieldObject
   public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 
   public Cmpt_OpFieldObject
-    ( ICollection<ICmpt_OpDirective> directives
-    , ICollection<ICmpt_Modifiers> modifiers
-    ) : base(directives)
+    ( ICollection<ICmpt_OpDirective> pdirectives
+    , ICollection<ICmpt_Modifiers> pmodifiers
+    ) : base(pdirectives)
   {
-    Modifiers = modifiers;
+    Modifiers = pmodifiers;
   }
 }
 
@@ -421,10 +421,10 @@ public class Cmpt_OpInlineObject
   public ICollection<ICmpt_OpDirective> Directives { get; set; }
 
   public Cmpt_OpInlineObject
-    ( ICollection<ICmpt_OpDirective> directives
+    ( ICollection<ICmpt_OpDirective> pdirectives
     )
   {
-    Directives = directives;
+    Directives = pdirectives;
   }
 }
 
@@ -443,11 +443,11 @@ public class Cmpt_OpSpreadObject
   public ICollection<ICmpt_OpDirective> Directives { get; set; }
 
   public Cmpt_OpSpreadObject
-    ( string fragment
-    , ICollection<ICmpt_OpDirective> directives
+    ( string pfragment
+    , ICollection<ICmpt_OpDirective> pdirectives
     )
   {
-    Fragment = fragment;
-    Directives = directives;
+    Fragment = pfragment;
+    Directives = pdirectives;
   }
 }

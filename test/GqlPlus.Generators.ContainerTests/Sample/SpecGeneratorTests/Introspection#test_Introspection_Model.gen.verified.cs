@@ -348,12 +348,12 @@ public class test_OperationsObject
   public Itest_Type Type { get; set; }
 
   public test_OperationsObject
-    ( Itest_Operation operation
-    , Itest_Type type
+    ( Itest_Operation poperation
+    , Itest_Type ptype
     )
   {
-    Operation = operation;
-    Type = type;
+    Operation = poperation;
+    Type = ptype;
   }
 }
 
@@ -371,12 +371,12 @@ public class test_OpDirectivesObject
   public ICollection<Itest_OpDirective> Directives { get; set; }
 
   public test_OpDirectivesObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , ICollection<Itest_OpDirective> directives
-    ) : base(description, name)
+    ( ICollection<string> pdescription
+    , Itest_Name pname
+    , ICollection<Itest_OpDirective> pdirectives
+    ) : base(pdescription, pname)
   {
-    Directives = directives;
+    Directives = pdirectives;
   }
 }
 
@@ -399,23 +399,23 @@ public class test_OperationObject
   public IDictionary<Itest_Path, ICollection<Itest_OpSelection>> Selections { get; set; }
 
   public test_OperationObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , ICollection<Itest_Name> aliases
-    , Itest_Name category
-    , IDictionary<Itest_Name, Itest_OpVariable> variables
-    , ICollection<Itest_OpDirective> directives
-    , IDictionary<Itest_Name, Itest_OpFragment> fragments
-    , Itest_OpResult result
-    , IDictionary<Itest_Path, ICollection<Itest_OpSelection>> selections
-    ) : base(description, name, aliases)
+    ( ICollection<string> pdescription
+    , Itest_Name pname
+    , ICollection<Itest_Name> paliases
+    , Itest_Name pcategory
+    , IDictionary<Itest_Name, Itest_OpVariable> pvariables
+    , ICollection<Itest_OpDirective> pdirectives
+    , IDictionary<Itest_Name, Itest_OpFragment> pfragments
+    , Itest_OpResult presult
+    , IDictionary<Itest_Path, ICollection<Itest_OpSelection>> pselections
+    ) : base(pdescription, pname, paliases)
   {
-    Category = category;
-    Variables = variables;
-    Directives = directives;
-    Fragments = fragments;
-    Result = result;
-    Selections = selections;
+    Category = pcategory;
+    Variables = pvariables;
+    Directives = pdirectives;
+    Fragments = pfragments;
+    Result = presult;
+    Selections = pselections;
   }
 }
 
@@ -435,15 +435,15 @@ public class test_OpVariableObject
   public GqlpValue? DefaultValue { get; set; }
 
   public test_OpVariableObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , ICollection<Itest_OpDirective> directives
-    , Itest_TypeRef<test_TypeKind> type
-    , ICollection<Itest_Modifiers> modifiers
-    ) : base(description, name, directives)
+    ( ICollection<string> pdescription
+    , Itest_Name pname
+    , ICollection<Itest_OpDirective> pdirectives
+    , Itest_TypeRef<test_TypeKind> ptype
+    , ICollection<Itest_Modifiers> pmodifiers
+    ) : base(pdescription, pname, pdirectives)
   {
-    Type = type;
-    Modifiers = modifiers;
+    Type = ptype;
+    Modifiers = pmodifiers;
   }
 }
 
@@ -461,9 +461,9 @@ public class test_OpDirectiveObject
   public Itest_OpArgument? Argument { get; set; }
 
   public test_OpDirectiveObject
-    ( ICollection<string> description
-    , Itest_Name name
-    ) : base(description, name)
+    ( ICollection<string> pdescription
+    , Itest_Name pname
+    ) : base(pdescription, pname)
   {
   }
 }
@@ -482,13 +482,13 @@ public class test_OpFragmentObject
   public Itest_TypeRef<test_TypeKind> Type { get; set; }
 
   public test_OpFragmentObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , ICollection<Itest_OpDirective> directives
-    , Itest_TypeRef<test_TypeKind> type
-    ) : base(description, name, directives)
+    ( ICollection<string> pdescription
+    , Itest_Name pname
+    , ICollection<Itest_OpDirective> pdirectives
+    , Itest_TypeRef<test_TypeKind> ptype
+    ) : base(pdescription, pname, pdirectives)
   {
-    Type = type;
+    Type = ptype;
   }
 }
 
@@ -528,10 +528,10 @@ public class test_OpArgValueObject
   public Itest_Name Variable { get; set; }
 
   public test_OpArgValueObject
-    ( Itest_Name variable
+    ( Itest_Name pvariable
     )
   {
-    Variable = variable;
+    Variable = pvariable;
   }
 }
 
@@ -570,12 +570,12 @@ public class test_OpArgMapObject
   public Itest_Name ByVariable { get; set; }
 
   public test_OpArgMapObject
-    ( Itest_OpArgValue value
-    , Itest_Name byVariable
+    ( Itest_OpArgValue pvalue
+    , Itest_Name pbyVariable
     )
   {
-    Value = value;
-    ByVariable = byVariable;
+    Value = pvalue;
+    ByVariable = pbyVariable;
   }
 }
 
@@ -642,13 +642,13 @@ public class test_OpFieldObject
   public ICollection<Itest_Modifiers> Modifiers { get; set; }
 
   public test_OpFieldObject
-    ( ICollection<string> description
-    , Itest_Name name
-    , ICollection<Itest_OpDirective> directives
-    , ICollection<Itest_Modifiers> modifiers
-    ) : base(description, name, directives)
+    ( ICollection<string> pdescription
+    , Itest_Name pname
+    , ICollection<Itest_OpDirective> pdirectives
+    , ICollection<Itest_Modifiers> pmodifiers
+    ) : base(pdescription, pname, pdirectives)
   {
-    Modifiers = modifiers;
+    Modifiers = pmodifiers;
   }
 }
 
@@ -667,10 +667,10 @@ public class test_OpInlineObject
   public ICollection<Itest_OpDirective> Directives { get; set; }
 
   public test_OpInlineObject
-    ( ICollection<Itest_OpDirective> directives
+    ( ICollection<Itest_OpDirective> pdirectives
     )
   {
-    Directives = directives;
+    Directives = pdirectives;
   }
 }
 
@@ -689,12 +689,12 @@ public class test_OpSpreadObject
   public ICollection<Itest_OpDirective> Directives { get; set; }
 
   public test_OpSpreadObject
-    ( string fragment
-    , ICollection<Itest_OpDirective> directives
+    ( string pfragment
+    , ICollection<Itest_OpDirective> pdirectives
     )
   {
-    Fragment = fragment;
-    Directives = directives;
+    Fragment = pfragment;
+    Directives = pdirectives;
   }
 }
 

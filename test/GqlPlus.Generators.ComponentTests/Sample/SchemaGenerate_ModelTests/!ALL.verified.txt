@@ -346,14 +346,14 @@ public class CmptCatOprTypeObject
   public ICmptAddrOprType Address { get; set; }
 
   public CmptCatOprTypeObject
-    ( string first
-    , string last
-    , ICmptAddrOprType address
+    ( string pfirst
+    , string plast
+    , ICmptAddrOprType paddress
     )
   {
-    First = first;
-    Last = last;
-    Address = address;
+    First = pfirst;
+    Last = plast;
+    Address = paddress;
   }
 }
 
@@ -373,14 +373,14 @@ public class CmptAddrOprTypeObject
   public string Country { get; set; }
 
   public CmptAddrOprTypeObject
-    ( string street
-    , string city
-    , string country
+    ( string pstreet
+    , string pcity
+    , string pcountry
     )
   {
-    Street = street;
-    City = city;
-    Country = country;
+    Street = pstreet;
+    City = pcity;
+    Country = pcountry;
   }
 }
 

@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Matching;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Matching;
 
 public class MatchAnyTypesTestsBase
   : MatchTestsBase

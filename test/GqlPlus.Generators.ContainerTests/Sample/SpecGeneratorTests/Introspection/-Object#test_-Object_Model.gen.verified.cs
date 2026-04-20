@@ -32,18 +32,18 @@ public class test_TypeObjectObject<TObjectKind,TField>
   public ICollection<Itest_ObjectFor<Itest_ObjAlternate>> AllAlternates { get; set; }
 
   public test_TypeObjectObject
-    ( ICollection<Itest_ObjTypeParam> typeParams
-    , ICollection<TField> fields
-    , ICollection<Itest_ObjAlternate> alternates
-    , ICollection<Itest_ObjectFor<TField>> allFields
-    , ICollection<Itest_ObjectFor<Itest_ObjAlternate>> allAlternates
+    ( ICollection<Itest_ObjTypeParam> ptypeParams
+    , ICollection<TField> pfields
+    , ICollection<Itest_ObjAlternate> palternates
+    , ICollection<Itest_ObjectFor<TField>> pallFields
+    , ICollection<Itest_ObjectFor<Itest_ObjAlternate>> pallAlternates
     )
   {
-    TypeParams = typeParams;
-    Fields = fields;
-    Alternates = alternates;
-    AllFields = allFields;
-    AllAlternates = allAlternates;
+    TypeParams = ptypeParams;
+    Fields = pfields;
+    Alternates = palternates;
+    AllFields = pallFields;
+    AllAlternates = pallAlternates;
   }
 }
 
@@ -61,10 +61,10 @@ public class test_ObjTypeParamObject
   public Itest_TypeRef<Itest_TypeKind> Constraint { get; set; }
 
   public test_ObjTypeParamObject
-    ( Itest_TypeRef<Itest_TypeKind> constraint
+    ( Itest_TypeRef<Itest_TypeKind> pconstraint
     )
   {
-    Constraint = constraint;
+    Constraint = pconstraint;
   }
 }
 
@@ -83,10 +83,10 @@ public class test_ObjBaseObject
   public ICollection<Itest_ObjTypeArg> TypeArgs { get; set; }
 
   public test_ObjBaseObject
-    ( ICollection<Itest_ObjTypeArg> typeArgs
+    ( ICollection<Itest_ObjTypeArg> ptypeArgs
     )
   {
-    TypeArgs = typeArgs;
+    TypeArgs = ptypeArgs;
   }
 }
 
@@ -124,10 +124,10 @@ public class test_TypeParamObject
   public Itest_Name TypeParam { get; set; }
 
   public test_TypeParamObject
-    ( Itest_Name typeParam
+    ( Itest_Name ptypeParam
     )
   {
-    TypeParam = typeParam;
+    TypeParam = ptypeParam;
   }
 }
 
@@ -147,12 +147,12 @@ public class test_ObjAlternateObject
   public ICollection<Itest_Collections> Collections { get; set; }
 
   public test_ObjAlternateObject
-    ( Itest_ObjBase type
-    , ICollection<Itest_Collections> collections
+    ( Itest_ObjBase ptype
+    , ICollection<Itest_Collections> pcollections
     )
   {
-    Type = type;
-    Collections = collections;
+    Type = ptype;
+    Collections = pcollections;
   }
 }
 
@@ -170,10 +170,10 @@ public class test_ObjAlternateEnumObject
   public Itest_Name Label { get; set; }
 
   public test_ObjAlternateEnumObject
-    ( Itest_Name label
+    ( Itest_Name plabel
     )
   {
-    Label = label;
+    Label = plabel;
   }
 }
 
@@ -192,10 +192,10 @@ public class test_ObjectForObject<TFor>
   public Itest_Name ObjectType { get; set; }
 
   public test_ObjectForObject
-    ( Itest_Name objectType
+    ( Itest_Name pobjectType
     )
   {
-    ObjectType = objectType;
+    ObjectType = pobjectType;
   }
 }
 
@@ -213,10 +213,10 @@ public class test_ObjFieldObject<TType>
   public TType Type { get; set; }
 
   public test_ObjFieldObject
-    ( TType type
+    ( TType ptype
     )
   {
-    Type = type;
+    Type = ptype;
   }
 }
 
@@ -235,11 +235,11 @@ public class test_ObjFieldTypeObject
   public ICollection<Itest_Modifiers> Modifiers { get; set; }
 
   public test_ObjFieldTypeObject
-    ( ICollection<Itest_ObjTypeArg> typeArgs
-    , ICollection<Itest_Modifiers> modifiers
-    ) : base(typeArgs)
+    ( ICollection<Itest_ObjTypeArg> ptypeArgs
+    , ICollection<Itest_Modifiers> pmodifiers
+    ) : base(ptypeArgs)
   {
-    Modifiers = modifiers;
+    Modifiers = pmodifiers;
   }
 }
 
@@ -257,10 +257,10 @@ public class test_ObjFieldEnumObject
   public Itest_Name Label { get; set; }
 
   public test_ObjFieldEnumObject
-    ( Itest_Name label
+    ( Itest_Name plabel
     )
   {
-    Label = label;
+    Label = plabel;
   }
 }
 
@@ -297,8 +297,8 @@ public class test_DualFieldObject
 {
 
   public test_DualFieldObject
-    ( Itest_ObjFieldType type
-    ) : base(type)
+    ( Itest_ObjFieldType ptype
+    ) : base(ptype)
   {
   }
 }
@@ -316,8 +316,8 @@ public class test_InputFieldObject
 {
 
   public test_InputFieldObject
-    ( Itest_InputFieldType type
-    ) : base(type)
+    ( Itest_InputFieldType ptype
+    ) : base(ptype)
   {
   }
 }
@@ -336,9 +336,9 @@ public class test_InputFieldTypeObject
   public GqlpValue? DefaultValue { get; set; }
 
   public test_InputFieldTypeObject
-    ( ICollection<Itest_ObjTypeArg> typeArgs
-    , ICollection<Itest_Modifiers> modifiers
-    ) : base(typeArgs, modifiers)
+    ( ICollection<Itest_ObjTypeArg> ptypeArgs
+    , ICollection<Itest_Modifiers> pmodifiers
+    ) : base(ptypeArgs, pmodifiers)
   {
   }
 }
@@ -356,8 +356,8 @@ public class test_OutputFieldObject
 {
 
   public test_OutputFieldObject
-    ( Itest_ObjFieldType type
-    ) : base(type)
+    ( Itest_ObjFieldType ptype
+    ) : base(ptype)
   {
   }
 }
@@ -376,9 +376,9 @@ public class test_OutputFieldTypeObject
   public Itest_InputFieldType? Parameter { get; set; }
 
   public test_OutputFieldTypeObject
-    ( ICollection<Itest_ObjTypeArg> typeArgs
-    , ICollection<Itest_Modifiers> modifiers
-    ) : base(typeArgs, modifiers)
+    ( ICollection<Itest_ObjTypeArg> ptypeArgs
+    , ICollection<Itest_Modifiers> pmodifiers
+    ) : base(ptypeArgs, pmodifiers)
   {
   }
 }

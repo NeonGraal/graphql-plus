@@ -1,6 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Ast.Schema.Simple;
+﻿namespace GqlPlus.Ast.Schema.Simple;
 
 internal sealed record class DomainRegexAst(
   ITokenAt At,

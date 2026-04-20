@@ -21,9 +21,9 @@ public class testFieldDescrInpObject
   public string Field { get; set; }
 
   public testFieldDescrInpObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

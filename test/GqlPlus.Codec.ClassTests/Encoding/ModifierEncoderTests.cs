@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Encoding;
+﻿using GqlPlus.Ast;
+
+namespace GqlPlus.Encoding;
 
 public class ModifierEncoderTests
   : EncoderClassTestBase<ModifierModel>

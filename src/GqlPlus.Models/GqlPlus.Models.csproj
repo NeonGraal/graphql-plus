@@ -2,8 +2,9 @@
 
   <PropertyGroup>
     <GqlPlus_TypePrefix>GqlpM</GqlPlus_TypePrefix>
-    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
     <GqlPlus_NamespaceIncludesBaseName>false</GqlPlus_NamespaceIncludesBaseName>
+
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
   </PropertyGroup>
 
   <ItemGroup>

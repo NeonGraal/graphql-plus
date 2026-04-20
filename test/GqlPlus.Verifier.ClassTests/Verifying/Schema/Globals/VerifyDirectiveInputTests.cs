@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifying.Schema.Globals;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Verifying.Schema.Globals;
 
 [TracePerTest]
 public class VerifyDirectiveInputTests
@@ -38,6 +40,18 @@ public class VerifyDirectiveInputTests
     _verifier.Verify(UsageAliased, Errors);
 
     Errors.ShouldNotBeEmpty();
+  }
+
+  [Fact]
+  public void Verify_DefinedDual_ReturnsNoError()
+  {
+    Define<IAstObject<IAstDualField>>("Type");
+
+    Usages.Add(_directive);
+
+    _verifier.Verify(UsageAliased, Errors);
+
+    Errors.ShouldBeEmpty();
   }
 
   [Fact]

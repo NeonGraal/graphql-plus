@@ -1,4 +1,6 @@
 ﻿
+using GqlPlus.Ast.Schema;
+
 namespace GqlPlus.Modelling.Objects;
 
 internal class TypeParamModeller

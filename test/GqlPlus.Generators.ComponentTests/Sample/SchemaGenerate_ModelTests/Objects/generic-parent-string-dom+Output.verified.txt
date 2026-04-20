@@ -25,8 +25,8 @@ public class CmptGnrcPrntStrDomOutpObject
 {
 
   public CmptGnrcPrntStrDomOutpObject
-    ( ICmptDomGnrcPrntStrDomOutp field
-    ) : base(field)
+    ( ICmptDomGnrcPrntStrDomOutp pfield
+    ) : base(pfield)
   {
   }
 }
@@ -45,10 +45,10 @@ public class CmptFieldGnrcPrntStrDomOutpObject<TRef>
   public TRef Field { get; set; }
 
   public CmptFieldGnrcPrntStrDomOutpObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 

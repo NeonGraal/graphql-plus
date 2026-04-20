@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Generating.Globals;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Generating.Globals;
 
 public class DirectiveGeneratorTests
   : GenerateClassTestsBase

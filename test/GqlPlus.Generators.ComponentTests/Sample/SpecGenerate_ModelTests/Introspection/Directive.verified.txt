@@ -38,10 +38,10 @@ public class Cmpt_DirectivesObject
   public ICmpt_Directive Directive { get; set; }
 
   public Cmpt_DirectivesObject
-    ( ICmpt_Directive directive
+    ( ICmpt_Directive pdirective
     )
   {
-    Directive = directive;
+    Directive = pdirective;
   }
 }
 
@@ -61,11 +61,11 @@ public class Cmpt_DirectiveObject
   public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
 
   public Cmpt_DirectiveObject
-    ( bool repeatable
-    , IDictionary<Cmpt_Location, GqlpUnit> locations
+    ( bool prepeatable
+    , IDictionary<Cmpt_Location, GqlpUnit> plocations
     )
   {
-    Repeatable = repeatable;
-    Locations = locations;
+    Repeatable = prepeatable;
+    Locations = plocations;
   }
 }

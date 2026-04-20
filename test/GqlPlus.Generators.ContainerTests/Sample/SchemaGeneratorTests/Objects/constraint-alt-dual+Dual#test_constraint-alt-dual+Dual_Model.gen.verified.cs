@@ -78,9 +78,9 @@ public class testAltCnstAltDualDualObject
   public decimal Alt { get; set; }
 
   public testAltCnstAltDualDualObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }

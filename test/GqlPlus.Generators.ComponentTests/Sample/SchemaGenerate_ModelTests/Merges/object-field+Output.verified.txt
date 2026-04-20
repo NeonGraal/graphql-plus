@@ -26,10 +26,10 @@ public class CmptObjFieldOutpObject
   public ICmptFldObjFieldOutp Field { get; set; }
 
   public CmptObjFieldOutpObject
-    ( ICmptFldObjFieldOutp field
+    ( ICmptFldObjFieldOutp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 

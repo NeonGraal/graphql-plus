@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using GqlPlus.Abstractions;
+using GqlPlus.Ast;
 using GqlPlus.Structures;
 
 namespace GqlPlus;

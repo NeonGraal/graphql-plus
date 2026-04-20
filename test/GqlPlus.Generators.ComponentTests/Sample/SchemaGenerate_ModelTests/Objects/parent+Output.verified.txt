@@ -24,8 +24,8 @@ public class CmptPrntOutpObject
 {
 
   public CmptPrntOutpObject
-    ( decimal parent
-    ) : base(parent)
+    ( decimal pparent
+    ) : base(pparent)
   {
   }
 }
@@ -45,9 +45,9 @@ public class CmptRefPrntOutpObject
   public decimal Parent { get; set; }
 
   public CmptRefPrntOutpObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }

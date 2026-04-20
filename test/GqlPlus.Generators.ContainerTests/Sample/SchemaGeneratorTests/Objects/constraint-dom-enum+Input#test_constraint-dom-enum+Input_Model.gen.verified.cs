@@ -40,10 +40,10 @@ public class testRefCnstDomEnumInpObject<TType>
   public TType Field { get; set; }
 
   public testRefCnstDomEnumInpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 

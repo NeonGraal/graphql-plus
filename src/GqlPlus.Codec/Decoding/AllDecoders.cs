@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus;
-using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Decoding;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;

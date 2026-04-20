@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices.ComTypes;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Generating.Simple;
 

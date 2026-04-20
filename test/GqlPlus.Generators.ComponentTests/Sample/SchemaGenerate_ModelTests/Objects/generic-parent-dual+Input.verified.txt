@@ -64,9 +64,9 @@ public class CmptAltGnrcPrntDualInpObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcPrntDualInpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }

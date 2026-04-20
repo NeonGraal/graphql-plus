@@ -1,6 +1,7 @@
 ﻿using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Abstractions;
+using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Generating;
 using GqlPlus.Merging;
 using GqlPlus.Parsing;

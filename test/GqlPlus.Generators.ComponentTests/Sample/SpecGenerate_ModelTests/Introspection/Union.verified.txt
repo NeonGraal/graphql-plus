@@ -49,9 +49,9 @@ public class Cmpt_UnionMemberObject
   public ICmpt_Name Union { get; set; }
 
   public Cmpt_UnionMemberObject
-    ( ICmpt_Name union
+    ( ICmpt_Name punion
     )
   {
-    Union = union;
+    Union = punion;
   }
 }

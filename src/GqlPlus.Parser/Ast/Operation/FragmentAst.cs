@@ -1,6 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
-
-namespace GqlPlus.Ast.Operation;
+﻿namespace GqlPlus.Ast.Operation;
 
 internal sealed record class FragmentAst(
   ITokenAt At,

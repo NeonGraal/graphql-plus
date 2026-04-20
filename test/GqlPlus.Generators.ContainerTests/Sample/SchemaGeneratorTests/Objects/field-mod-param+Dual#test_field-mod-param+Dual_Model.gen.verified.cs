@@ -21,10 +21,10 @@ public class testFieldModParamDualObject<TMod>
   public IDictionary<TMod, ItestFldFieldModParamDual> Field { get; set; }
 
   public testFieldModParamDualObject
-    ( IDictionary<TMod, ItestFldFieldModParamDual> field
+    ( IDictionary<TMod, ItestFldFieldModParamDual> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -43,9 +43,9 @@ public class testFldFieldModParamDualObject
   public decimal Field { get; set; }
 
   public testFldFieldModParamDualObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

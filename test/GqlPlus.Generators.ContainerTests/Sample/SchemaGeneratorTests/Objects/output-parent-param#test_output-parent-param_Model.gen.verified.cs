@@ -84,10 +84,10 @@ public class testInOutpPrntParamObject
   public decimal Param { get; set; }
 
   public testInOutpPrntParamObject
-    ( decimal param
+    ( decimal pparam
     )
   {
-    Param = param;
+    Param = pparam;
   }
 }
 
@@ -106,9 +106,9 @@ public class testPrntOutpPrntParamInObject
   public decimal Parent { get; set; }
 
   public testPrntOutpPrntParamInObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }

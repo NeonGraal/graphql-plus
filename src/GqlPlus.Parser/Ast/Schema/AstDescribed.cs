@@ -1,6 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Ast.Schema;
+﻿namespace GqlPlus.Ast.Schema;
 
 internal abstract record class AstDescribed(
   ITokenAt At,

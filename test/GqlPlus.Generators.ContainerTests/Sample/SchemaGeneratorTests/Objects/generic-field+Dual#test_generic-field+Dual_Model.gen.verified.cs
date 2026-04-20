@@ -21,9 +21,9 @@ public class testGnrcFieldDualObject<TType>
   public TType Field { get; set; }
 
   public testGnrcFieldDualObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

@@ -21,9 +21,9 @@ public class testGnrcDescrOutpObject<TType>
   public TType Field { get; set; }
 
   public testGnrcDescrOutpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

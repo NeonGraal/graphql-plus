@@ -21,11 +21,11 @@ public class testPrntFieldOutpObject
   public decimal Field { get; set; }
 
   public testPrntFieldOutpObject
-    ( decimal parent
-    , decimal field
-    ) : base(parent)
+    ( decimal pparent
+    , decimal pfield
+    ) : base(pparent)
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -44,9 +44,9 @@ public class testRefPrntFieldOutpObject
   public decimal Parent { get; set; }
 
   public testRefPrntFieldOutpObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }

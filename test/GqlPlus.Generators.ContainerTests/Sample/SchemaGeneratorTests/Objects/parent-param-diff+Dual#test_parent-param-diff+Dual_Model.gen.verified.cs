@@ -21,10 +21,10 @@ public class testPrntParamDiffDualObject<TA>
   public TA Field { get; set; }
 
   public testPrntParamDiffDualObject
-    ( TA field
+    ( TA pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 

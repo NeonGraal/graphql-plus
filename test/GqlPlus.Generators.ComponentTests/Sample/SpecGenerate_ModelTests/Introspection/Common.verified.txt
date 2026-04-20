@@ -97,10 +97,10 @@ public class Cmpt_BaseTypeObject<TTypeKind>
   public TTypeKind TypeKind { get; set; }
 
   public Cmpt_BaseTypeObject
-    ( TTypeKind typeKind
+    ( TTypeKind ptypeKind
     )
   {
-    TypeKind = typeKind;
+    TypeKind = ptypeKind;
   }
 }
 
@@ -118,11 +118,11 @@ public class Cmpt_ChildTypeObject<TTypeKind,TParent>
   public TParent Parent { get; set; }
 
   public Cmpt_ChildTypeObject
-    ( TTypeKind typeKind
-    , TParent parent
-    ) : base(typeKind)
+    ( TTypeKind ptypeKind
+    , TParent pparent
+    ) : base(ptypeKind)
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }
 
@@ -141,14 +141,14 @@ public class Cmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>
   public ICollection<TAllItem> AllItems { get; set; }
 
   public Cmpt_ParentTypeObject
-    ( TTypeKind typeKind
-    , ICmpt_Named parent
-    , ICollection<TItem> items
-    , ICollection<TAllItem> allItems
-    ) : base(typeKind, parent)
+    ( TTypeKind ptypeKind
+    , ICmpt_Named pparent
+    , ICollection<TItem> pitems
+    , ICollection<TAllItem> pallItems
+    ) : base(ptypeKind, pparent)
   {
-    Items = items;
-    AllItems = allItems;
+    Items = pitems;
+    AllItems = pallItems;
   }
 }
 
@@ -166,10 +166,10 @@ public class Cmpt_TypeRefObject<TTypeKind>
   public TTypeKind TypeKind { get; set; }
 
   public Cmpt_TypeRefObject
-    ( TTypeKind typeKind
+    ( TTypeKind ptypeKind
     )
   {
-    TypeKind = typeKind;
+    TypeKind = ptypeKind;
   }
 }
 

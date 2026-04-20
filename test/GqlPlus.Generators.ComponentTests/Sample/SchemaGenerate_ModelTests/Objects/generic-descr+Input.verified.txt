@@ -24,9 +24,9 @@ public class CmptGnrcDescrInpObject<TType>
   public TType Field { get; set; }
 
   public CmptGnrcDescrInpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

@@ -39,9 +39,9 @@ public class test_UnionMemberObject
   public Itest_Name Union { get; set; }
 
   public test_UnionMemberObject
-    ( Itest_Name union
+    ( Itest_Name punion
     )
   {
-    Union = union;
+    Union = punion;
   }
 }

@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Modelling;
+﻿using GqlPlus.Ast;
+
+namespace GqlPlus.Modelling;
 
 internal class EnumValueModeller
   : ModellerBase<IAstEnumValue, EnumValueModel>

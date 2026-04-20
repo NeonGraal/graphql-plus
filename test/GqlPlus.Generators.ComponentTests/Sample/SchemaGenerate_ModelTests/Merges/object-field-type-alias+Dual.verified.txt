@@ -25,9 +25,9 @@ public class CmptObjFieldTypeAliasDualObject
   public string Field { get; set; }
 
   public CmptObjFieldTypeAliasDualObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

@@ -60,9 +60,9 @@ public class testAltGnrcAltDualOutpObject
   public decimal Alt { get; set; }
 
   public testAltGnrcAltDualOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }

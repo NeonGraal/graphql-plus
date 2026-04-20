@@ -1,0 +1,575 @@
+﻿!_Schema
+directives: !_Map(_Directives)
+  !_Name include: !_Directive
+    locations: !_Set(_Location){Inline:_}
+    name: include
+    parameter: !_InputParam
+      name: IncludeParams
+    repeatable: false
+types: !_Map(_Type)
+  !_Name Date: !_DomainString
+    allItems:
+      - !_DomainItem(_DomainRegex)
+        domain: Date
+        exclude: false
+        pattern: '\\d{4}-\\d{2}-\\d{2}'
+    domainKind: !_DomainKind String
+    items:
+      - !_DomainRegex
+        exclude: false
+        pattern: '\\d{4}-\\d{2}-\\d{2}'
+    name: Date
+    typeKind: !_TypeKind Domain
+  !_Name Email: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: message
+        object: Email
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_DualField
+        name: message
+        type: !_ObjBase
+          name: String
+    name: Email
+    typeKind: !_TypeKind Dual
+  !_Name FieldFilter: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: arg
+        object: FieldFilter
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_DualField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: arg
+        type: !_ObjBase
+          name: String
+    name: FieldFilter
+    typeKind: !_TypeKind Dual
+  !_Name FriendsFilter: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: first
+        object: FriendsFilter
+        type: !_ObjBase
+          name: Number
+    fields:
+      - !_DualField
+        name: first
+        type: !_ObjBase
+          name: Number
+    name: FriendsFilter
+    typeKind: !_TypeKind Dual
+  !_Name FullUser: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: id
+        object: User
+        type: !_ObjBase
+          name: Number
+      - !_ObjectFor(_DualField)
+        name: name
+        object: User
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_DualField)
+        name: firstName
+        object: User
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_DualField)
+        name: lastName
+        object: User
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_DualField)
+        name: birthday
+        object: User
+        type: !_ObjBase
+          name: Date
+      - !_ObjectFor(_OutputField)
+        name: profilePic
+        object: FullUser
+        parameter: !_InputParam
+          name: PicFilter
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: friends
+        object: FullUser
+        parameter: !_InputParam
+          name: FriendsFilter
+        type: !_ObjBase
+          name: UserList
+      - !_ObjectFor(_OutputField)
+        name: mutualFriends
+        object: FullUser
+        parameter: !_InputParam
+          name: FriendsFilter
+        type: !_ObjBase
+          name: UserList
+    fields:
+      - !_OutputField
+        name: profilePic
+        parameter: !_InputParam
+          name: PicFilter
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: friends
+        parameter: !_InputParam
+          name: FriendsFilter
+        type: !_ObjBase
+          name: UserList
+      - !_OutputField
+        name: mutualFriends
+        parameter: !_InputParam
+          name: FriendsFilter
+        type: !_ObjBase
+          name: UserList
+    name: FullUser
+    parent: !_ObjBase
+      name: User
+    typeKind: !_TypeKind Output
+  !_Name IncludeParams: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: if
+        object: IncludeParams
+        type: !_ObjBase
+          name: Boolean
+    fields:
+      - !_DualField
+        name: if
+        type: !_ObjBase
+          name: Boolean
+    name: IncludeParams
+    typeKind: !_TypeKind Dual
+  !_Name Int: !_DomainNumber
+    allItems:
+      - !_DomainItem(_DomainRange)
+        domain: Int
+        exclude: false
+        from: 0
+    domainKind: !_DomainKind Number
+    items:
+      - !_DomainRange
+        exclude: false
+        from: 0
+    name: Int
+    typeKind: !_TypeKind Domain
+  !_Name Location: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: lat
+        object: Location
+        type: !_ObjBase
+          name: Number
+      - !_ObjectFor(_DualField)
+        name: lon
+        object: Location
+        type: !_ObjBase
+          name: Number
+    fields:
+      - !_DualField
+        name: lat
+        type: !_ObjBase
+          name: Number
+      - !_DualField
+        name: lon
+        type: !_ObjBase
+          name: Number
+    name: Location
+    typeKind: !_TypeKind Dual
+  !_Name Mutation: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: sendEmail
+        object: Mutation
+        parameter: !_InputParam
+          name: Email
+        type: !_ObjBase
+          name: Boolean
+    fields:
+      - !_OutputField
+        name: sendEmail
+        parameter: !_InputParam
+          name: Email
+        type: !_ObjBase
+          name: Boolean
+    name: Mutation
+    typeKind: !_TypeKind Output
+  !_Name Page: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: handle
+        object: Page
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: likers
+        object: Page
+        type: !_ObjBase
+          name: UserList
+    fields:
+      - !_OutputField
+        name: handle
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: likers
+        type: !_ObjBase
+          name: UserList
+    name: Page
+    typeKind: !_TypeKind Output
+  !_Name PicFilter: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: size
+        object: PicFilter
+        type: !_ObjBase
+          name: Number
+      - !_ObjectFor(_DualField)
+        name: width
+        object: PicFilter
+        type: !_ObjBase
+          name: Number
+      - !_ObjectFor(_DualField)
+        name: height
+        object: PicFilter
+        type: !_ObjBase
+          name: Number
+    fields:
+      - !_DualField
+        name: size
+        type: !_ObjBase
+          name: Number
+      - !_DualField
+        name: width
+        type: !_ObjBase
+          name: Number
+      - !_DualField
+        name: height
+        type: !_ObjBase
+          name: Number
+    name: PicFilter
+    typeKind: !_TypeKind Dual
+  !_Name Profile: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: Profile
+        type: !_ObjBase
+          name: Page
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: id
+        object: User
+        type: !_ObjBase
+          name: Number
+      - !_ObjectFor(_DualField)
+        name: name
+        object: User
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_DualField)
+        name: firstName
+        object: User
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_DualField)
+        name: lastName
+        object: User
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_DualField)
+        name: birthday
+        object: User
+        type: !_ObjBase
+          name: Date
+      - !_ObjectFor(_OutputField)
+        name: handle
+        object: Profile
+        type: !_ObjBase
+          name: String
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: Page
+    fields:
+      - !_OutputField
+        name: handle
+        type: !_ObjBase
+          name: String
+    name: Profile
+    parent: !_ObjBase
+      name: User
+    typeKind: !_TypeKind Output
+  !_Name ProfileFilter: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: handles
+        object: ProfileFilter
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_DualField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: handles
+        type: !_ObjBase
+          name: String
+    name: ProfileFilter
+    typeKind: !_TypeKind Dual
+  !_Name Query: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: Query
+        type: !_ObjBase
+          name: FullUser
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: user
+        object: Query
+        parameter: !_InputParam
+          name: UserFilter
+        type: !_ObjBase
+          name: FullUser
+      - !_ObjectFor(_OutputField)
+        name: likeStory
+        object: Query
+        parameter: !_InputParam
+          name: StoryFilter
+        type: !_ObjBase
+          name: Story
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: Query
+        parameter: !_InputParam
+          name: FieldFilter
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: me
+        object: Query
+        type: !_ObjBase
+          name: FullUser
+      - !_ObjectFor(_OutputField)
+        name: picture
+        object: Query
+        parameter: !_InputParam
+          name: PicFilter
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: profiles
+        object: Query
+        parameter: !_InputParam
+          name: ProfileFilter
+        type: !_ObjBase
+          name: Profile
+      - !_ObjectFor(_OutputField)
+        name: nearestThing
+        object: Query
+        parameter: !_InputParam
+          name: ThingFilter
+        type: !_ObjBase
+          name: String
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: FullUser
+    fields:
+      - !_OutputField
+        name: user
+        parameter: !_InputParam
+          name: UserFilter
+        type: !_ObjBase
+          name: FullUser
+      - !_OutputField
+        name: likeStory
+        parameter: !_InputParam
+          name: StoryFilter
+        type: !_ObjBase
+          name: Story
+      - !_OutputField
+        name: field
+        parameter: !_InputParam
+          name: FieldFilter
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: me
+        type: !_ObjBase
+          name: FullUser
+      - !_OutputField
+        name: picture
+        parameter: !_InputParam
+          name: PicFilter
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: profiles
+        parameter: !_InputParam
+          name: ProfileFilter
+        type: !_ObjBase
+          name: Profile
+      - !_OutputField
+        name: nearestThing
+        parameter: !_InputParam
+          name: ThingFilter
+        type: !_ObjBase
+          name: String
+    name: Query
+    typeKind: !_TypeKind Output
+  !_Name Story: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: likeCount
+        object: Story
+        type: !_ObjBase
+          name: Number
+    fields:
+      - !_DualField
+        name: likeCount
+        type: !_ObjBase
+          name: Number
+    name: Story
+    typeKind: !_TypeKind Dual
+  !_Name StoryFilter: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: storyID
+        object: StoryFilter
+        type: !_ObjBase
+          name: Number
+    fields:
+      - !_DualField
+        name: storyID
+        type: !_ObjBase
+          name: Number
+    name: StoryFilter
+    typeKind: !_TypeKind Dual
+  !_Name ThingFilter: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: location
+        object: ThingFilter
+        type: !_ObjBase
+          name: Location
+    fields:
+      - !_DualField
+        name: location
+        type: !_ObjBase
+          name: Location
+    name: ThingFilter
+    typeKind: !_TypeKind Dual
+  !_Name User: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: id
+        object: User
+        type: !_ObjBase
+          name: Number
+      - !_ObjectFor(_DualField)
+        name: name
+        object: User
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_DualField)
+        name: firstName
+        object: User
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_DualField)
+        name: lastName
+        object: User
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_DualField)
+        name: birthday
+        object: User
+        type: !_ObjBase
+          name: Date
+    fields:
+      - !_DualField
+        name: id
+        type: !_ObjBase
+          name: Number
+      - !_DualField
+        name: name
+        type: !_ObjBase
+          name: String
+      - !_DualField
+        name: firstName
+        type: !_ObjBase
+          name: String
+      - !_DualField
+        name: lastName
+        type: !_ObjBase
+          name: String
+      - !_DualField
+        name: birthday
+        type: !_ObjBase
+          name: Date
+    name: User
+    typeKind: !_TypeKind Dual
+  !_Name UserFilter: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: id
+        object: UserFilter
+        type: !_ObjBase
+          name: Number
+    fields:
+      - !_DualField
+        name: id
+        type: !_ObjBase
+          name: Number
+    name: UserFilter
+    typeKind: !_TypeKind Dual
+  !_Name UserList: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        collections:
+          - !_Modifier
+            modifierKind: !_ModifierKind List
+        object: UserList
+        type: !_ObjBase
+          name: User
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: count
+        object: UserList
+        type: !_ObjBase
+          name: Number
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: users
+        object: UserList
+        type: !_ObjBase
+          name: User
+    alternates:
+      - !_Alternate
+        collections:
+          - !_Modifier
+            modifierKind: !_ModifierKind List
+        type: !_ObjBase
+          name: User
+    fields:
+      - !_OutputField
+        name: count
+        type: !_ObjBase
+          name: Number
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: users
+        type: !_ObjBase
+          name: User
+    name: UserList
+    typeKind: !_TypeKind Output

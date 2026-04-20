@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Building;
+﻿using GqlPlus.Ast;
+
+namespace GqlPlus.Building;
 
 public class FieldKeyBuilder
   : ErrorBuilder

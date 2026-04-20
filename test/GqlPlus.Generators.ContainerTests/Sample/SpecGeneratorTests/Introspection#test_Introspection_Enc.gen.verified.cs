@@ -416,8 +416,8 @@ internal class test_DomainRangeEncoder(
   private readonly IEncoder<Itest_BaseDomainItemObject> _itest_BaseDomainItem = encoders.EncoderFor<Itest_BaseDomainItemObject>();
   public Structured Encode(Itest_DomainRangeObject input)
     => _itest_BaseDomainItem.Encode(input)
-      .Add("lower", input.Lower)
-      .Add("upper", input.Upper);
+      .AddIf(input.Lower is not null, onTrue: t => t.Add("lower", input.Lower!))
+      .AddIf(input.Upper is not null, onTrue: t => t.Add("upper", input.Upper!));
 
   internal static test_DomainRangeEncoder Factory(IEncoderRepository r) => new(r);
 }

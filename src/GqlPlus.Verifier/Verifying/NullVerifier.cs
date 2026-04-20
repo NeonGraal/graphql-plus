@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifying;
+﻿using GqlPlus.Ast;
+
+namespace GqlPlus.Verifying;
 
 internal class NullVerifierError<TError>
   : IVerify<TError>

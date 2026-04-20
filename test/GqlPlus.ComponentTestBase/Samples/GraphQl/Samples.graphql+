@@ -1,0 +1,99 @@
+output Query {
+    user(UserFilter): FullUser
+    likeStory(StoryFilter): Story
+    field(FieldFilter): String
+    me: FullUser
+    picture(PicFilter): String
+    profiles(ProfileFilter): Profile[]
+    nearestThing(ThingFilter): String
+    | FullUser
+}
+
+output Mutation {
+    sendEmail(Email): Boolean
+}
+
+dual UserFilter {
+     id: Number
+}
+
+dual User {
+    id: Number
+    name: String
+    firstName: String
+    lastName: String
+    birthday: Date
+}
+
+output FullUser {
+    : User
+    profilePic(PicFilter): String
+    friends(FriendsFilter): UserList
+    mutualFriends(FriendsFilter): UserList
+}
+
+output UserList {
+    count: Number
+    users: User[]
+    | User[]
+}
+
+dual StoryFilter {
+    storyID: Number
+}
+
+dual Story {
+    likeCount: Number
+}
+
+dual FieldFilter {
+    arg: String?
+}
+
+dual PicFilter {
+    size: Number
+    width: Number
+    height: Number
+}
+
+dual FriendsFilter {
+    first: Number
+}
+
+output Profile {
+    : User
+    handle: String
+    | Page
+}
+
+dual ProfileFilter {
+    handles: String[]
+}
+
+output Page {
+    handle: String
+    likers: UserList
+}
+
+directive @include (IncludeParams) { Inline }
+
+dual IncludeParams {
+    if: Boolean
+}
+
+dual Email {
+    message: String
+}
+
+dual ThingFilter {
+    location: Location
+}
+
+dual Location {
+    lat: Number
+    lon: Number
+}
+
+domain Int { Number >0 }
+
+domain Date { String /\d{4}-\d{2}-\d{2}/ }

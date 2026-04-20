@@ -1,6 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Ast.Schema.Objects;
+﻿namespace GqlPlus.Ast.Schema.Objects;
 
 internal abstract class InputFieldTypeChecks<TInput, TObjType>(
   TypeBy<TInput, TObjType> createType

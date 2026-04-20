@@ -26,8 +26,8 @@ public class CmptGnrcPrntEnumDomDualObject
 {
 
   public CmptGnrcPrntEnumDomDualObject
-    ( ICmptDomGnrcPrntEnumDomDual field
-    ) : base(field)
+    ( ICmptDomGnrcPrntEnumDomDual pfield
+    ) : base(pfield)
   {
   }
 }
@@ -46,10 +46,10 @@ public class CmptFieldGnrcPrntEnumDomDualObject<TRef>
   public TRef Field { get; set; }
 
   public CmptFieldGnrcPrntEnumDomDualObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 

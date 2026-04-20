@@ -1,4 +1,6 @@
 ﻿
+using GqlPlus.Ast.Schema;
+
 namespace GqlPlus.Generating.Simple;
 
 // Unsealed to allow EnumDecoderGenerator and EnumEncoderGenerator to extend it

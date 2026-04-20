@@ -147,6 +147,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{90DCB911-0
 		Style-Guide.md = Style-Guide.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Samples.GraphQlPlus", "test\GqlPlus.Samples.GraphQlPlus\GqlPlus.Samples.GraphQlPlus.csproj", "{5AC91E4C-81C5-67B1-5346-09EE192467D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -313,6 +315,10 @@ Global
 		{6000D95B-FC11-42E2-9432-C72F22EE9A95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6000D95B-FC11-42E2-9432-C72F22EE9A95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6000D95B-FC11-42E2-9432-C72F22EE9A95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AC91E4C-81C5-67B1-5346-09EE192467D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AC91E4C-81C5-67B1-5346-09EE192467D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AC91E4C-81C5-67B1-5346-09EE192467D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AC91E4C-81C5-67B1-5346-09EE192467D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -361,6 +367,7 @@ Global
 		{1B3878FD-C19B-FCC9-CEB6-93F81C64EF53} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{6000D95B-FC11-42E2-9432-C72F22EE9A95} = {B834B2ED-0D27-4281-8523-B706B42DCC15}
 		{90DCB911-0A2C-4CD4-A166-8C6DD00FD3A9} = {4E1645F9-6194-4B1F-B93D-5B2CDDE5E6DE}
+		{5AC91E4C-81C5-67B1-5346-09EE192467D3} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {148B651C-DFAA-434F-B1ED-51E535FC2DE8}

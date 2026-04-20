@@ -26,11 +26,11 @@ public class CmptObjCnstOutpObject<TType>
   public TType Str { get; set; }
 
   public CmptObjCnstOutpObject
-    ( TType field
-    , TType str
+    ( TType pfield
+    , TType pstr
     )
   {
-    Field = field;
-    Str = str;
+    Field = pfield;
+    Str = pstr;
   }
 }

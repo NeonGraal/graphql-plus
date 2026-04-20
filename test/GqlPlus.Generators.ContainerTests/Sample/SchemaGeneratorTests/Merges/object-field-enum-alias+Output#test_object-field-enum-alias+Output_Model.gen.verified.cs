@@ -21,9 +21,9 @@ public class testObjFieldEnumAliasOutpObject
   public bool Field { get; set; }
 
   public testObjFieldEnumAliasOutpObject
-    ( bool field
+    ( bool pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

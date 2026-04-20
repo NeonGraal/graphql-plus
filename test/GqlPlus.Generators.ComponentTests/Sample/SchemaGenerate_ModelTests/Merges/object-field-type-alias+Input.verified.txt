@@ -25,9 +25,9 @@ public class CmptObjFieldTypeAliasInpObject
   public string Field { get; set; }
 
   public CmptObjFieldTypeAliasInpObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

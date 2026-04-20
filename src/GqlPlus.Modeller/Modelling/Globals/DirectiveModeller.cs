@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Modelling.Globals;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Modelling.Globals;
 
 internal class DirectiveModeller(
   IModellerRepository modellers

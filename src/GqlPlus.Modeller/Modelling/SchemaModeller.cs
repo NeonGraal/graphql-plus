@@ -1,4 +1,6 @@
-﻿using GqlPlus.Resolving;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
+using GqlPlus.Resolving;
 
 namespace GqlPlus.Modelling;
 

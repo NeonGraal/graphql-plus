@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Parsing.Schema;
 using GqlPlus.Parsing.Schema.Globals;
 using GqlPlus.Parsing.Schema.Objects;

@@ -24,9 +24,9 @@ public class CmptFieldSmplInpObject
   public decimal Field { get; set; }
 
   public CmptFieldSmplInpObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

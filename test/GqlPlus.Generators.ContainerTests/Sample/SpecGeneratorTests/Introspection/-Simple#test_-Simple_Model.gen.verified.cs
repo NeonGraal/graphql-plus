@@ -21,10 +21,10 @@ public class test_DomainRefObject<TDomainKind>
   public TDomainKind DomainKind { get; set; }
 
   public test_DomainRefObject
-    ( TDomainKind domainKind
+    ( TDomainKind pdomainKind
     )
   {
-    DomainKind = domainKind;
+    DomainKind = pdomainKind;
   }
 }
 
@@ -42,10 +42,10 @@ public class test_BaseDomainObject<TDomainKind,TItem,TDomainItem>
   public TDomainKind DomainKind { get; set; }
 
   public test_BaseDomainObject
-    ( TDomainKind domainKind
+    ( TDomainKind pdomainKind
     )
   {
-    DomainKind = domainKind;
+    DomainKind = pdomainKind;
   }
 }
 
@@ -63,10 +63,10 @@ public class test_BaseDomainItemObject
   public bool Exclude { get; set; }
 
   public test_BaseDomainItemObject
-    ( bool exclude
+    ( bool pexclude
     )
   {
-    Exclude = exclude;
+    Exclude = pexclude;
   }
 }
 
@@ -85,10 +85,10 @@ public class test_DomainItemObject<TItem>
   public Itest_Name Domain { get; set; }
 
   public test_DomainItemObject
-    ( Itest_Name domain
+    ( Itest_Name pdomain
     )
   {
-    Domain = domain;
+    Domain = pdomain;
   }
 }
 
@@ -107,11 +107,11 @@ public class test_DomainValueObject<TDomainKind,TValue>
   public TValue Value { get; set; }
 
   public test_DomainValueObject
-    ( TDomainKind domainKind
-    , TValue value
-    ) : base(domainKind)
+    ( TDomainKind pdomainKind
+    , TValue pvalue
+    ) : base(pdomainKind)
   {
-    Value = value;
+    Value = pvalue;
   }
 }
 
@@ -151,11 +151,11 @@ public class test_DomainTrueFalseObject
   public bool Value { get; set; }
 
   public test_DomainTrueFalseObject
-    ( bool exclude
-    , bool value
-    ) : base(exclude)
+    ( bool pexclude
+    , bool pvalue
+    ) : base(pexclude)
   {
-    Value = value;
+    Value = pvalue;
   }
 }
 
@@ -172,8 +172,8 @@ public class test_DomainItemTrueFalseObject
 {
 
   public test_DomainItemTrueFalseObject
-    ( Itest_Name domain
-    ) : base(domain)
+    ( Itest_Name pdomain
+    ) : base(pdomain)
   {
   }
 }
@@ -192,11 +192,11 @@ public class test_DomainLabelObject
   public Itest_EnumValue Label { get; set; }
 
   public test_DomainLabelObject
-    ( bool exclude
-    , Itest_EnumValue label
-    ) : base(exclude)
+    ( bool pexclude
+    , Itest_EnumValue plabel
+    ) : base(pexclude)
   {
-    Label = label;
+    Label = plabel;
   }
 }
 
@@ -213,8 +213,8 @@ public class test_DomainItemLabelObject
 {
 
   public test_DomainItemLabelObject
-    ( Itest_Name domain
-    ) : base(domain)
+    ( Itest_Name pdomain
+    ) : base(pdomain)
   {
   }
 }
@@ -234,8 +234,8 @@ public class test_DomainRangeObject
   public decimal? Upper { get; set; }
 
   public test_DomainRangeObject
-    ( bool exclude
-    ) : base(exclude)
+    ( bool pexclude
+    ) : base(pexclude)
   {
   }
 }
@@ -253,8 +253,8 @@ public class test_DomainItemRangeObject
 {
 
   public test_DomainItemRangeObject
-    ( Itest_Name domain
-    ) : base(domain)
+    ( Itest_Name pdomain
+    ) : base(pdomain)
   {
   }
 }
@@ -273,11 +273,11 @@ public class test_DomainRegexObject
   public string Pattern { get; set; }
 
   public test_DomainRegexObject
-    ( bool exclude
-    , string pattern
-    ) : base(exclude)
+    ( bool pexclude
+    , string ppattern
+    ) : base(pexclude)
   {
-    Pattern = pattern;
+    Pattern = ppattern;
   }
 }
 
@@ -294,8 +294,8 @@ public class test_DomainItemRegexObject
 {
 
   public test_DomainItemRegexObject
-    ( Itest_Name domain
-    ) : base(domain)
+    ( Itest_Name pdomain
+    ) : base(pdomain)
   {
   }
 }
@@ -314,10 +314,10 @@ public class test_EnumLabelObject
   public Itest_Name EnumType { get; set; }
 
   public test_EnumLabelObject
-    ( Itest_Name enumType
+    ( Itest_Name penumType
     )
   {
-    EnumType = enumType;
+    EnumType = penumType;
   }
 }
 
@@ -335,10 +335,10 @@ public class test_EnumValueObject
   public Itest_Name Label { get; set; }
 
   public test_EnumValueObject
-    ( Itest_Name label
+    ( Itest_Name plabel
     )
   {
-    Label = label;
+    Label = plabel;
   }
 }
 
@@ -374,9 +374,9 @@ public class test_UnionMemberObject
   public Itest_Name Union { get; set; }
 
   public test_UnionMemberObject
-    ( Itest_Name union
+    ( Itest_Name punion
     )
   {
-    Union = union;
+    Union = punion;
   }
 }

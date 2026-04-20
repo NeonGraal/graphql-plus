@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Modelling;
+﻿using GqlPlus.Ast;
+
+namespace GqlPlus.Modelling;
 
 public class EnumValueModellerTests
   : ModellerClassTestBase<IAstEnumValue, EnumValueModel>

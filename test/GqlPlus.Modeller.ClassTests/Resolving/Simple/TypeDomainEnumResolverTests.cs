@@ -1,4 +1,6 @@
 ﻿
+using GqlPlus.Ast.Schema;
+
 namespace GqlPlus.Resolving.Simple;
 
 public class TypeDomainEnumResolverTests

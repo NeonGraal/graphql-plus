@@ -63,10 +63,10 @@ public class CmptFieldObject
   public ICollection<string> Strings { get; set; }
 
   public CmptFieldObject
-    ( ICollection<string> strings
+    ( ICollection<string> pstrings
     )
   {
-    Strings = strings;
+    Strings = pstrings;
   }
 }
 
@@ -86,10 +86,10 @@ public class CmptParamObject
   public ICmptMany BeforeId { get; set; }
 
   public CmptParamObject
-    ( ICmptMany beforeId
+    ( ICmptMany pbeforeId
     )
   {
-    BeforeId = beforeId;
+    BeforeId = pbeforeId;
   }
 }
 

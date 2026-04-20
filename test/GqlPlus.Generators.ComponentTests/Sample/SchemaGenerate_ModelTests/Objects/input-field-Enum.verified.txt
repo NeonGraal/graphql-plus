@@ -25,9 +25,9 @@ public class CmptInpFieldEnumObject
   public CmptEnumInpFieldEnum Field { get; set; }
 
   public CmptInpFieldEnumObject
-    ( CmptEnumInpFieldEnum field
+    ( CmptEnumInpFieldEnum pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

@@ -20,8 +20,8 @@ public class testGnrcPrntStrDomDualObject
 {
 
   public testGnrcPrntStrDomDualObject
-    ( ItestDomGnrcPrntStrDomDual field
-    ) : base(field)
+    ( ItestDomGnrcPrntStrDomDual pfield
+    ) : base(pfield)
   {
   }
 }
@@ -40,10 +40,10 @@ public class testFieldGnrcPrntStrDomDualObject<TRef>
   public TRef Field { get; set; }
 
   public testFieldGnrcPrntStrDomDualObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 

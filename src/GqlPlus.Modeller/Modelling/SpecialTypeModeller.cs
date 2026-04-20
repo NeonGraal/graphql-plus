@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Modelling;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Modelling;
 
 internal class SpecialTypeModeller()
   : ModellerType<IAstTypeSpecial, IAstTypeRef, SpecialTypeModel>(TypeKindModel.Special)

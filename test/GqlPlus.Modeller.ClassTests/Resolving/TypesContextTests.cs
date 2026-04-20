@@ -1,4 +1,5 @@
-﻿using GqlPlus.Modelling;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Modelling;
 using NSubstitute.ExceptionExtensions;
 
 namespace GqlPlus.Resolving;

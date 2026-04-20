@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Encoding.Globals;
+﻿using GqlPlus.Ast;
+
+namespace GqlPlus.Encoding.Globals;
 
 public class CategoryEncoderTests
   : EncoderClassTestBase<CategoryModel>

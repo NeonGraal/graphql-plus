@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Token;
+﻿using GqlPlus.Ast;
+
+namespace GqlPlus.Token;
 
 public record class TokenAt(
   TokenKind Kind,

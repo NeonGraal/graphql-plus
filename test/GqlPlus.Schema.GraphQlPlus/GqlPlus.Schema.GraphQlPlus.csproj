@@ -6,13 +6,17 @@
     <IsPackable>false</IsPackable>
 
     <GqlPlus_TypePrefix>Sch</GqlPlus_TypePrefix>
+    <GqlPlus_NamespaceIncludesBaseName>false</GqlPlus_NamespaceIncludesBaseName>
+
     <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
   </PropertyGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="..\GqlPlus.ComponentTestBase\Samples\Specification\Introspection.graphql+" />
+    <AdditionalFiles Include="..\GqlPlus.ComponentTestBase\Samples\Specification\Introspection\-*.graphql+"
+                     Link="Introspection\%(Filename)%(Extension)" />
 
     <CompilerVisibleProperty Include="GqlPlus_TypePrefix" />
+    <CompilerVisibleProperty Include="GqlPlus_NamespaceIncludesBaseName" />
   </ItemGroup>
 
   <ItemGroup>

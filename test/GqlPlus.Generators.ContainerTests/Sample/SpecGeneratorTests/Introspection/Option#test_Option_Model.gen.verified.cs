@@ -21,9 +21,9 @@ public class test_SettingObject
   public GqlpValue Value { get; set; }
 
   public test_SettingObject
-    ( GqlpValue value
+    ( GqlpValue pvalue
     )
   {
-    Value = value;
+    Value = pvalue;
   }
 }

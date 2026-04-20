@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Models;
+﻿using GqlPlus.Ast;
+
+namespace GqlPlus.Models;
 
 public class ConstantModel
   : ComplexValue<SimpleModel, ConstantModel>

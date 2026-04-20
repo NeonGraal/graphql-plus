@@ -124,18 +124,18 @@ public class Cmpt_TypeObjectObject<TObjectKind,TField>
   public ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> AllAlternates { get; set; }
 
   public Cmpt_TypeObjectObject
-    ( ICollection<ICmpt_ObjTypeParam> typeParams
-    , ICollection<TField> fields
-    , ICollection<ICmpt_ObjAlternate> alternates
-    , ICollection<ICmpt_ObjectFor<TField>> allFields
-    , ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> allAlternates
+    ( ICollection<ICmpt_ObjTypeParam> ptypeParams
+    , ICollection<TField> pfields
+    , ICollection<ICmpt_ObjAlternate> palternates
+    , ICollection<ICmpt_ObjectFor<TField>> pallFields
+    , ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> pallAlternates
     )
   {
-    TypeParams = typeParams;
-    Fields = fields;
-    Alternates = alternates;
-    AllFields = allFields;
-    AllAlternates = allAlternates;
+    TypeParams = ptypeParams;
+    Fields = pfields;
+    Alternates = palternates;
+    AllFields = pallFields;
+    AllAlternates = pallAlternates;
   }
 }
 
@@ -153,10 +153,10 @@ public class Cmpt_ObjTypeParamObject
   public ICmpt_TypeRef<ICmpt_TypeKind> Constraint { get; set; }
 
   public Cmpt_ObjTypeParamObject
-    ( ICmpt_TypeRef<ICmpt_TypeKind> constraint
+    ( ICmpt_TypeRef<ICmpt_TypeKind> pconstraint
     )
   {
-    Constraint = constraint;
+    Constraint = pconstraint;
   }
 }
 
@@ -175,10 +175,10 @@ public class Cmpt_ObjBaseObject
   public ICollection<ICmpt_ObjTypeArg> TypeArgs { get; set; }
 
   public Cmpt_ObjBaseObject
-    ( ICollection<ICmpt_ObjTypeArg> typeArgs
+    ( ICollection<ICmpt_ObjTypeArg> ptypeArgs
     )
   {
-    TypeArgs = typeArgs;
+    TypeArgs = ptypeArgs;
   }
 }
 
@@ -216,10 +216,10 @@ public class Cmpt_TypeParamObject
   public ICmpt_Name TypeParam { get; set; }
 
   public Cmpt_TypeParamObject
-    ( ICmpt_Name typeParam
+    ( ICmpt_Name ptypeParam
     )
   {
-    TypeParam = typeParam;
+    TypeParam = ptypeParam;
   }
 }
 
@@ -239,12 +239,12 @@ public class Cmpt_ObjAlternateObject
   public ICollection<ICmpt_Collections> Collections { get; set; }
 
   public Cmpt_ObjAlternateObject
-    ( ICmpt_ObjBase type
-    , ICollection<ICmpt_Collections> collections
+    ( ICmpt_ObjBase ptype
+    , ICollection<ICmpt_Collections> pcollections
     )
   {
-    Type = type;
-    Collections = collections;
+    Type = ptype;
+    Collections = pcollections;
   }
 }
 
@@ -262,10 +262,10 @@ public class Cmpt_ObjAlternateEnumObject
   public ICmpt_Name Label { get; set; }
 
   public Cmpt_ObjAlternateEnumObject
-    ( ICmpt_Name label
+    ( ICmpt_Name plabel
     )
   {
-    Label = label;
+    Label = plabel;
   }
 }
 
@@ -284,10 +284,10 @@ public class Cmpt_ObjectForObject<TFor>
   public ICmpt_Name ObjectType { get; set; }
 
   public Cmpt_ObjectForObject
-    ( ICmpt_Name objectType
+    ( ICmpt_Name pobjectType
     )
   {
-    ObjectType = objectType;
+    ObjectType = pobjectType;
   }
 }
 
@@ -305,10 +305,10 @@ public class Cmpt_ObjFieldObject<TType>
   public TType Type { get; set; }
 
   public Cmpt_ObjFieldObject
-    ( TType type
+    ( TType ptype
     )
   {
-    Type = type;
+    Type = ptype;
   }
 }
 
@@ -327,11 +327,11 @@ public class Cmpt_ObjFieldTypeObject
   public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 
   public Cmpt_ObjFieldTypeObject
-    ( ICollection<ICmpt_ObjTypeArg> typeArgs
-    , ICollection<ICmpt_Modifiers> modifiers
-    ) : base(typeArgs)
+    ( ICollection<ICmpt_ObjTypeArg> ptypeArgs
+    , ICollection<ICmpt_Modifiers> pmodifiers
+    ) : base(ptypeArgs)
   {
-    Modifiers = modifiers;
+    Modifiers = pmodifiers;
   }
 }
 
@@ -349,10 +349,10 @@ public class Cmpt_ObjFieldEnumObject
   public ICmpt_Name Label { get; set; }
 
   public Cmpt_ObjFieldEnumObject
-    ( ICmpt_Name label
+    ( ICmpt_Name plabel
     )
   {
-    Label = label;
+    Label = plabel;
   }
 }
 
@@ -389,8 +389,8 @@ public class Cmpt_DualFieldObject
 {
 
   public Cmpt_DualFieldObject
-    ( ICmpt_ObjFieldType type
-    ) : base(type)
+    ( ICmpt_ObjFieldType ptype
+    ) : base(ptype)
   {
   }
 }
@@ -408,8 +408,8 @@ public class Cmpt_InputFieldObject
 {
 
   public Cmpt_InputFieldObject
-    ( ICmpt_InputFieldType type
-    ) : base(type)
+    ( ICmpt_InputFieldType ptype
+    ) : base(ptype)
   {
   }
 }
@@ -428,9 +428,9 @@ public class Cmpt_InputFieldTypeObject
   public GqlpValue? DefaultValue { get; set; }
 
   public Cmpt_InputFieldTypeObject
-    ( ICollection<ICmpt_ObjTypeArg> typeArgs
-    , ICollection<ICmpt_Modifiers> modifiers
-    ) : base(typeArgs, modifiers)
+    ( ICollection<ICmpt_ObjTypeArg> ptypeArgs
+    , ICollection<ICmpt_Modifiers> pmodifiers
+    ) : base(ptypeArgs, pmodifiers)
   {
   }
 }
@@ -448,8 +448,8 @@ public class Cmpt_OutputFieldObject
 {
 
   public Cmpt_OutputFieldObject
-    ( ICmpt_ObjFieldType type
-    ) : base(type)
+    ( ICmpt_ObjFieldType ptype
+    ) : base(ptype)
   {
   }
 }
@@ -468,9 +468,9 @@ public class Cmpt_OutputFieldTypeObject
   public ICmpt_InputFieldType? Parameter { get; set; }
 
   public Cmpt_OutputFieldTypeObject
-    ( ICollection<ICmpt_ObjTypeArg> typeArgs
-    , ICollection<ICmpt_Modifiers> modifiers
-    ) : base(typeArgs, modifiers)
+    ( ICollection<ICmpt_ObjTypeArg> ptypeArgs
+    , ICollection<ICmpt_Modifiers> pmodifiers
+    ) : base(ptypeArgs, pmodifiers)
   {
   }
 }

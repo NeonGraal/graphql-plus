@@ -46,9 +46,9 @@ public class CmptRefCnstPrntEnumOutpObject<TType>
   public TType Field { get; set; }
 
   public CmptRefCnstPrntEnumOutpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

@@ -21,10 +21,10 @@ public class testPrntParamDiffOutpObject<TA>
   public TA Field { get; set; }
 
   public testPrntParamDiffOutpObject
-    ( TA field
+    ( TA pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 

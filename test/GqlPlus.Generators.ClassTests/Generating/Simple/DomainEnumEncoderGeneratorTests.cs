@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Generating.Simple;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Generating.Simple;
 
 public class DomainEnumEncoderGeneratorTests
   : GenerateDomainTestsBase<IAstDomainLabel>

@@ -1,4 +1,5 @@
-﻿using GqlPlus.Building.Schema.Objects;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Building.Schema.Objects;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 

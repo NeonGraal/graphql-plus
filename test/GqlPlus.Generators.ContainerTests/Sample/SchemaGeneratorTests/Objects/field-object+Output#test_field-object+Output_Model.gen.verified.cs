@@ -21,10 +21,10 @@ public class testFieldObjOutpObject
   public ItestFldFieldObjOutp Field { get; set; }
 
   public testFieldObjOutpObject
-    ( ItestFldFieldObjOutp field
+    ( ItestFldFieldObjOutp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -43,9 +43,9 @@ public class testFldFieldObjOutpObject
   public decimal Field { get; set; }
 
   public testFldFieldObjOutpObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

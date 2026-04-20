@@ -83,16 +83,16 @@ public class Cmpt_OperationObject
   public ICmpt_OpResult Result { get; set; }
 
   public Cmpt_OperationObject
-    ( ICollection<ICmpt_OpVariable> variables
-    , ICollection<ICmpt_OpDirective> directives
-    , ICollection<ICmpt_OpFragment> fragments
-    , ICmpt_OpResult result
+    ( ICollection<ICmpt_OpVariable> pvariables
+    , ICollection<ICmpt_OpDirective> pdirectives
+    , ICollection<ICmpt_OpFragment> pfragments
+    , ICmpt_OpResult presult
     )
   {
-    Variables = variables;
-    Directives = directives;
-    Fragments = fragments;
-    Result = result;
+    Variables = pvariables;
+    Directives = pdirectives;
+    Fragments = pfragments;
+    Result = presult;
   }
 }
 
@@ -114,14 +114,14 @@ public class Cmpt_OpVariableObject
   public ICollection<ICmpt_OpDirective> Directives { get; set; }
 
   public Cmpt_OpVariableObject
-    ( ICmpt_Identifier name
-    , ICollection<ICmpt_Modifier> modifiers
-    , ICollection<ICmpt_OpDirective> directives
+    ( ICmpt_Identifier pname
+    , ICollection<ICmpt_Modifier> pmodifiers
+    , ICollection<ICmpt_OpDirective> pdirectives
     )
   {
-    Name = name;
-    Modifiers = modifiers;
-    Directives = directives;
+    Name = pname;
+    Modifiers = pmodifiers;
+    Directives = pdirectives;
   }
 }
 
@@ -140,10 +140,10 @@ public class Cmpt_OpDirectiveObject
   public ICmpt_OpArgument? Argument { get; set; }
 
   public Cmpt_OpDirectiveObject
-    ( ICmpt_Identifier name
+    ( ICmpt_Identifier pname
     )
   {
-    Name = name;
+    Name = pname;
   }
 }
 
@@ -164,14 +164,14 @@ public class Cmpt_OpFragmentObject
   public ICollection<ICmpt_OpObject> Body { get; set; }
 
   public Cmpt_OpFragmentObject
-    ( ICmpt_Identifier name
-    , ICollection<ICmpt_OpDirective> directives
-    , ICollection<ICmpt_OpObject> body
+    ( ICmpt_Identifier pname
+    , ICollection<ICmpt_OpDirective> pdirectives
+    , ICollection<ICmpt_OpObject> pbody
     )
   {
-    Name = name;
-    Directives = directives;
-    Body = body;
+    Name = pname;
+    Directives = pdirectives;
+    Body = pbody;
   }
 }
 
@@ -191,10 +191,10 @@ public class Cmpt_ModifierObject
   public bool? Optional { get; set; }
 
   public Cmpt_ModifierObject
-    ( Cmpt_ModifierKind modifierKind
+    ( Cmpt_ModifierKind pmodifierKind
     )
   {
-    ModifierKind = modifierKind;
+    ModifierKind = pmodifierKind;
   }
 }
 
@@ -234,10 +234,10 @@ public class Cmpt_OpArgValueObject
   public ICmpt_Identifier Variable { get; set; }
 
   public Cmpt_OpArgValueObject
-    ( ICmpt_Identifier variable
+    ( ICmpt_Identifier pvariable
     )
   {
-    Variable = variable;
+    Variable = pvariable;
   }
 }
 
@@ -276,11 +276,11 @@ public class Cmpt_OpArgMapObject
   public ICmpt_Identifier ByVariable { get; set; }
 
   public Cmpt_OpArgMapObject
-    ( ICmpt_OpArgValue value
-    , ICmpt_Identifier byVariable
+    ( ICmpt_OpArgValue pvalue
+    , ICmpt_Identifier pbyVariable
     )
   {
-    Value = value;
-    ByVariable = byVariable;
+    Value = pvalue;
+    ByVariable = pbyVariable;
   }
 }

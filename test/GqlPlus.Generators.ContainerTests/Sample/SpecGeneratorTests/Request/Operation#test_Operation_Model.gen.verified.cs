@@ -25,16 +25,16 @@ public class test_OperationObject
   public Itest_OpResult Result { get; set; }
 
   public test_OperationObject
-    ( ICollection<Itest_OpVariable> variables
-    , ICollection<Itest_OpDirective> directives
-    , ICollection<Itest_OpFragment> fragments
-    , Itest_OpResult result
+    ( ICollection<Itest_OpVariable> pvariables
+    , ICollection<Itest_OpDirective> pdirectives
+    , ICollection<Itest_OpFragment> pfragments
+    , Itest_OpResult presult
     )
   {
-    Variables = variables;
-    Directives = directives;
-    Fragments = fragments;
-    Result = result;
+    Variables = pvariables;
+    Directives = pdirectives;
+    Fragments = pfragments;
+    Result = presult;
   }
 }
 
@@ -56,14 +56,14 @@ public class test_OpVariableObject
   public ICollection<Itest_OpDirective> Directives { get; set; }
 
   public test_OpVariableObject
-    ( Itest_Identifier name
-    , ICollection<Itest_Modifier> modifiers
-    , ICollection<Itest_OpDirective> directives
+    ( Itest_Identifier pname
+    , ICollection<Itest_Modifier> pmodifiers
+    , ICollection<Itest_OpDirective> pdirectives
     )
   {
-    Name = name;
-    Modifiers = modifiers;
-    Directives = directives;
+    Name = pname;
+    Modifiers = pmodifiers;
+    Directives = pdirectives;
   }
 }
 
@@ -82,10 +82,10 @@ public class test_OpDirectiveObject
   public Itest_OpArgument? Argument { get; set; }
 
   public test_OpDirectiveObject
-    ( Itest_Identifier name
+    ( Itest_Identifier pname
     )
   {
-    Name = name;
+    Name = pname;
   }
 }
 
@@ -106,14 +106,14 @@ public class test_OpFragmentObject
   public ICollection<Itest_OpObject> Body { get; set; }
 
   public test_OpFragmentObject
-    ( Itest_Identifier name
-    , ICollection<Itest_OpDirective> directives
-    , ICollection<Itest_OpObject> body
+    ( Itest_Identifier pname
+    , ICollection<Itest_OpDirective> pdirectives
+    , ICollection<Itest_OpObject> pbody
     )
   {
-    Name = name;
-    Directives = directives;
-    Body = body;
+    Name = pname;
+    Directives = pdirectives;
+    Body = pbody;
   }
 }
 
@@ -133,10 +133,10 @@ public class test_ModifierObject
   public bool? Optional { get; set; }
 
   public test_ModifierObject
-    ( test_ModifierKind modifierKind
+    ( test_ModifierKind pmodifierKind
     )
   {
-    ModifierKind = modifierKind;
+    ModifierKind = pmodifierKind;
   }
 }
 
@@ -176,10 +176,10 @@ public class test_OpArgValueObject
   public Itest_Identifier Variable { get; set; }
 
   public test_OpArgValueObject
-    ( Itest_Identifier variable
+    ( Itest_Identifier pvariable
     )
   {
-    Variable = variable;
+    Variable = pvariable;
   }
 }
 
@@ -218,11 +218,11 @@ public class test_OpArgMapObject
   public Itest_Identifier ByVariable { get; set; }
 
   public test_OpArgMapObject
-    ( Itest_OpArgValue value
-    , Itest_Identifier byVariable
+    ( Itest_OpArgValue pvalue
+    , Itest_Identifier pbyVariable
     )
   {
-    Value = value;
-    ByVariable = byVariable;
+    Value = pvalue;
+    ByVariable = pbyVariable;
   }
 }

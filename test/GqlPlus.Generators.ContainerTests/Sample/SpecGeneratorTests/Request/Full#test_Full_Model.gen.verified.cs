@@ -25,10 +25,10 @@ public class test_RequestObject
   public Itest_Any? Parameters { get; set; }
 
   public test_RequestObject
-    ( Itest_Operation definition
+    ( Itest_Operation pdefinition
     )
   {
-    Definition = definition;
+    Definition = pdefinition;
   }
 }
 

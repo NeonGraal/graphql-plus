@@ -23,10 +23,10 @@ public class test_OpResultObject
   public ICollection<Itest_OpObject> Body { get; set; }
 
   public test_OpResultObject
-    ( ICollection<Itest_OpObject> body
+    ( ICollection<Itest_OpObject> pbody
     )
   {
-    Body = body;
+    Body = pbody;
   }
 }
 
@@ -70,16 +70,16 @@ public class test_OpFieldObject
   public string Body { get; set; }
 
   public test_OpFieldObject
-    ( Itest_Identifier field
-    , ICollection<Itest_Modifier> modifiers
-    , ICollection<Itest_OpDirective> directives
-    , string body
+    ( Itest_Identifier pfield
+    , ICollection<Itest_Modifier> pmodifiers
+    , ICollection<Itest_OpDirective> pdirectives
+    , string pbody
     )
   {
-    Field = field;
-    Modifiers = modifiers;
-    Directives = directives;
-    Body = body;
+    Field = pfield;
+    Modifiers = pmodifiers;
+    Directives = pdirectives;
+    Body = pbody;
   }
 }
 
@@ -99,12 +99,12 @@ public class test_OpInlineObject
   public string Body { get; set; }
 
   public test_OpInlineObject
-    ( ICollection<Itest_OpDirective> directives
-    , string body
+    ( ICollection<Itest_OpDirective> pdirectives
+    , string pbody
     )
   {
-    Directives = directives;
-    Body = body;
+    Directives = pdirectives;
+    Body = pbody;
   }
 }
 
@@ -123,11 +123,11 @@ public class test_OpSpreadObject
   public ICollection<Itest_OpDirective> Directives { get; set; }
 
   public test_OpSpreadObject
-    ( Itest_Identifier fragment
-    , ICollection<Itest_OpDirective> directives
+    ( Itest_Identifier pfragment
+    , ICollection<Itest_OpDirective> pdirectives
     )
   {
-    Fragment = fragment;
-    Directives = directives;
+    Fragment = pfragment;
+    Directives = pdirectives;
   }
 }

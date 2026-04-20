@@ -58,10 +58,10 @@ public class Cmpt_OpResultObject
   public ICollection<ICmpt_OpObject> Body { get; set; }
 
   public Cmpt_OpResultObject
-    ( ICollection<ICmpt_OpObject> body
+    ( ICollection<ICmpt_OpObject> pbody
     )
   {
-    Body = body;
+    Body = pbody;
   }
 }
 
@@ -105,16 +105,16 @@ public class Cmpt_OpFieldObject
   public string Body { get; set; }
 
   public Cmpt_OpFieldObject
-    ( ICmpt_Identifier field
-    , ICollection<ICmpt_Modifier> modifiers
-    , ICollection<ICmpt_OpDirective> directives
-    , string body
+    ( ICmpt_Identifier pfield
+    , ICollection<ICmpt_Modifier> pmodifiers
+    , ICollection<ICmpt_OpDirective> pdirectives
+    , string pbody
     )
   {
-    Field = field;
-    Modifiers = modifiers;
-    Directives = directives;
-    Body = body;
+    Field = pfield;
+    Modifiers = pmodifiers;
+    Directives = pdirectives;
+    Body = pbody;
   }
 }
 
@@ -134,12 +134,12 @@ public class Cmpt_OpInlineObject
   public string Body { get; set; }
 
   public Cmpt_OpInlineObject
-    ( ICollection<ICmpt_OpDirective> directives
-    , string body
+    ( ICollection<ICmpt_OpDirective> pdirectives
+    , string pbody
     )
   {
-    Directives = directives;
-    Body = body;
+    Directives = pdirectives;
+    Body = pbody;
   }
 }
 
@@ -158,11 +158,11 @@ public class Cmpt_OpSpreadObject
   public ICollection<ICmpt_OpDirective> Directives { get; set; }
 
   public Cmpt_OpSpreadObject
-    ( ICmpt_Identifier fragment
-    , ICollection<ICmpt_OpDirective> directives
+    ( ICmpt_Identifier pfragment
+    , ICollection<ICmpt_OpDirective> pdirectives
     )
   {
-    Fragment = fragment;
-    Directives = directives;
+    Fragment = pfragment;
+    Directives = pdirectives;
   }
 }

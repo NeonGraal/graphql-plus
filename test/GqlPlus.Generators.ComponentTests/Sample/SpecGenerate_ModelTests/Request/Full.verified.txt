@@ -36,10 +36,10 @@ public class Cmpt_RequestObject
   public ICmpt_Any? Parameters { get; set; }
 
   public Cmpt_RequestObject
-    ( ICmpt_Operation definition
+    ( ICmpt_Operation pdefinition
     )
   {
-    Definition = definition;
+    Definition = pdefinition;
   }
 }
 

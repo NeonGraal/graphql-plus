@@ -25,9 +25,9 @@ public class CmptFieldModEnumOutpObject
   public IDictionary<CmptEnumFieldModEnumOutp, string> Field { get; set; }
 
   public CmptFieldModEnumOutpObject
-    ( IDictionary<CmptEnumFieldModEnumOutp, string> field
+    ( IDictionary<CmptEnumFieldModEnumOutp, string> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

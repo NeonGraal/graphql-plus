@@ -1,5 +1,5 @@
 ﻿namespace GqlPlus.StarWars;
 
-// [GqlpGenerator(GqlpGeneratorType.Encoder)]
+// Todo: [GqlpGenerator(GqlpGeneratorType.Encoder)]
 public class SwEncoderBase
   : ISwInterfaceBase;

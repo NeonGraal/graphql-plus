@@ -42,12 +42,12 @@ public class Cmpt_AliasedObject
   public ICollection<ICmpt_Name> Aliases { get; set; }
 
   public Cmpt_AliasedObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICollection<ICmpt_Name> aliases
-    ) : base(description, name)
+    ( ICollection<string> pdescription
+    , ICmpt_Name pname
+    , ICollection<ICmpt_Name> paliases
+    ) : base(pdescription, pname)
   {
-    Aliases = aliases;
+    Aliases = paliases;
   }
 }
 
@@ -65,11 +65,11 @@ public class Cmpt_NamedObject
   public ICmpt_Name Name { get; set; }
 
   public Cmpt_NamedObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    ) : base(description)
+    ( ICollection<string> pdescription
+    , ICmpt_Name pname
+    ) : base(pdescription)
   {
-    Name = name;
+    Name = pname;
   }
 }
 
@@ -87,10 +87,10 @@ public class Cmpt_DescribedObject
   public ICollection<string> Description { get; set; }
 
   public Cmpt_DescribedObject
-    ( ICollection<string> description
+    ( ICollection<string> pdescription
     )
   {
-    Description = description;
+    Description = pdescription;
   }
 }
 
@@ -109,11 +109,11 @@ public class Cmpt_AndTypeObject
   public ICmpt_Type Type { get; set; }
 
   public Cmpt_AndTypeObject
-    ( ICollection<string> description
-    , ICmpt_Name name
-    , ICmpt_Type type
-    ) : base(description, name)
+    ( ICollection<string> pdescription
+    , ICmpt_Name pname
+    , ICmpt_Type ptype
+    ) : base(pdescription, pname)
   {
-    Type = type;
+    Type = ptype;
   }
 }

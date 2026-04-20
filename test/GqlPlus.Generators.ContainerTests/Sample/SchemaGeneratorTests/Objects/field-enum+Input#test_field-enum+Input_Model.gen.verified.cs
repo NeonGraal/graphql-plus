@@ -21,9 +21,9 @@ public class testFieldEnumInpObject
   public testEnumFieldEnumInp Field { get; set; }
 
   public testFieldEnumInpObject
-    ( testEnumFieldEnumInp field
+    ( testEnumFieldEnumInp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

@@ -41,9 +41,9 @@ public class testAltAltModParamOutpObject
   public decimal Alt { get; set; }
 
   public testAltAltModParamOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }

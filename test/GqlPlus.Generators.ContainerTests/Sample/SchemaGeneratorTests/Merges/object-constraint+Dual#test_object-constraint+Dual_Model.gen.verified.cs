@@ -22,11 +22,11 @@ public class testObjCnstDualObject<TType>
   public TType Str { get; set; }
 
   public testObjCnstDualObject
-    ( TType field
-    , TType str
+    ( TType pfield
+    , TType pstr
     )
   {
-    Field = field;
-    Str = str;
+    Field = pfield;
+    Str = pstr;
   }
 }

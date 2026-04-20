@@ -205,8 +205,8 @@ internal class Cmpt_DomainRangeEncoder(
   private readonly IEncoder<ICmpt_BaseDomainItemObject> _baseDomainItem = encoders.EncoderFor<ICmpt_BaseDomainItemObject>();
   public Structured Encode(ICmpt_DomainRangeObject input)
     => _baseDomainItem.Encode(input)
-      .Add("lower", input.Lower)
-      .Add("upper", input.Upper);
+      .AddIf(input.Lower is not null, onTrue: t => t.Add("lower", input.Lower!))
+      .AddIf(input.Upper is not null, onTrue: t => t.Add("upper", input.Upper!));
 
   internal static Cmpt_DomainRangeEncoder Factory(IEncoderRepository r) => new(r);
 }

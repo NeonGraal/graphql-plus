@@ -22,10 +22,10 @@ public class test_CategoriesObject
   public Itest_Category Category { get; set; }
 
   public test_CategoriesObject
-    ( Itest_Category category
+    ( Itest_Category pcategory
     )
   {
-    Category = category;
+    Category = pcategory;
   }
 }
 
@@ -45,13 +45,13 @@ public class test_CategoryObject
   public ICollection<Itest_Modifiers> Modifiers { get; set; }
 
   public test_CategoryObject
-    ( test_Resolution resolution
-    , Itest_TypeRef<Itest_TypeKind> output
-    , ICollection<Itest_Modifiers> modifiers
+    ( test_Resolution presolution
+    , Itest_TypeRef<Itest_TypeKind> poutput
+    , ICollection<Itest_Modifiers> pmodifiers
     )
   {
-    Resolution = resolution;
-    Output = output;
-    Modifiers = modifiers;
+    Resolution = presolution;
+    Output = poutput;
+    Modifiers = pmodifiers;
   }
 }

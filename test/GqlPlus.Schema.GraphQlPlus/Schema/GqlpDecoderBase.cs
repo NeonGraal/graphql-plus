@@ -1,5 +1,5 @@
 ﻿namespace GqlPlus.Schema;
 
-// [GqlpGenerator(GqlpGeneratorType.Decoder)]
+// Todo: [GqlpGenerator(GqlpGeneratorType.Decoder)]
 public class GqlpDecoderBase
 { }

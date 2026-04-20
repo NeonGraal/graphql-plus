@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Abstractions;
+﻿namespace GqlPlus.Ast;
 
 public enum ParseResultKind
 {

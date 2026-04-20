@@ -25,10 +25,10 @@ public class CmptGnrcFieldArgOutpObject<TType>
   public ICmptRefGnrcFieldArgOutp<TType> Field { get; set; }
 
   public CmptGnrcFieldArgOutpObject
-    ( ICmptRefGnrcFieldArgOutp<TType> field
+    ( ICmptRefGnrcFieldArgOutp<TType> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 

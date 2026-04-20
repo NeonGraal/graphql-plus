@@ -21,9 +21,9 @@ public class testFieldTypeDescrOutpObject
   public decimal Field { get; set; }
 
   public testFieldTypeDescrOutpObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

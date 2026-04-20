@@ -62,9 +62,9 @@ public class testInOutpDescrParamObject
   public decimal Param { get; set; }
 
   public testInOutpDescrParamObject
-    ( decimal param
+    ( decimal pparam
     )
   {
-    Param = param;
+    Param = pparam;
   }
 }

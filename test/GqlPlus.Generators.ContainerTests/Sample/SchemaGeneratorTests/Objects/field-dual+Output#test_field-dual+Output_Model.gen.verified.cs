@@ -21,10 +21,10 @@ public class testFieldDualOutpObject
   public ItestFldFieldDualOutp Field { get; set; }
 
   public testFieldDualOutpObject
-    ( ItestFldFieldDualOutp field
+    ( ItestFldFieldDualOutp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -43,9 +43,9 @@ public class testFldFieldDualOutpObject
   public decimal Field { get; set; }
 
   public testFldFieldDualOutpObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

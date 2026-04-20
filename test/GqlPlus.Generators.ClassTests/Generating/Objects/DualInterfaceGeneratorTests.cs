@@ -1,4 +1,5 @@
 ﻿
+using GqlPlus.Ast.Schema;
 using GqlPlus.Building.Schema.Objects;
 
 namespace GqlPlus.Generating.Objects;

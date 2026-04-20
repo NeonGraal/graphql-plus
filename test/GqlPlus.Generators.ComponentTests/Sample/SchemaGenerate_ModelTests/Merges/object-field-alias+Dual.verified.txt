@@ -26,10 +26,10 @@ public class CmptObjFieldAliasDualObject
   public ICmptFldObjFieldAliasDual Field { get; set; }
 
   public CmptObjFieldAliasDualObject
-    ( ICmptFldObjFieldAliasDual field
+    ( ICmptFldObjFieldAliasDual pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 

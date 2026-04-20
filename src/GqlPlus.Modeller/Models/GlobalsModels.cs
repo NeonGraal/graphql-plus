@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Models;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Models;
 
 public record class AndTypeModel<TModel>
   : ModelBase

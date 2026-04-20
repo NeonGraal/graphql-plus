@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Generating.Simple;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Generating.Simple;
 
 internal abstract class GenerateBaseDomain<TItem>(
   DomainKind kind

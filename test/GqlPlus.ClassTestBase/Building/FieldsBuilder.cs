@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Building;
+﻿using GqlPlus.Ast;
+
+namespace GqlPlus.Building;
 
 public sealed class FieldsBuilder<T>
   : IMockBuilder

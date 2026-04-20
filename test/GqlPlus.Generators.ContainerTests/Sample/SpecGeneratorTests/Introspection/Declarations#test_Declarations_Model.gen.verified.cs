@@ -66,12 +66,12 @@ public class test_FilterObject
   public bool? ReturnReferencedTypes { get; set; }
 
   public test_FilterObject
-    ( ICollection<Itest_NameFilter> names
-    , ICollection<Itest_NameFilter> aliases
+    ( ICollection<Itest_NameFilter> pnames
+    , ICollection<Itest_NameFilter> paliases
     )
   {
-    Names = names;
-    Aliases = aliases;
+    Names = pnames;
+    Aliases = paliases;
   }
 }
 
@@ -95,12 +95,12 @@ public class test_CategoryFilterObject
   public ICollection<Itest_Resolution> Resolutions { get; set; }
 
   public test_CategoryFilterObject
-    ( ICollection<Itest_NameFilter> names
-    , ICollection<Itest_NameFilter> aliases
-    , ICollection<Itest_Resolution> resolutions
-    ) : base(names, aliases)
+    ( ICollection<Itest_NameFilter> pnames
+    , ICollection<Itest_NameFilter> paliases
+    , ICollection<Itest_Resolution> presolutions
+    ) : base(pnames, paliases)
   {
-    Resolutions = resolutions;
+    Resolutions = presolutions;
   }
 }
 
@@ -118,11 +118,11 @@ public class test_TypeFilterObject
   public ICollection<Itest_TypeKind> Kinds { get; set; }
 
   public test_TypeFilterObject
-    ( ICollection<Itest_NameFilter> names
-    , ICollection<Itest_NameFilter> aliases
-    , ICollection<Itest_TypeKind> kinds
-    ) : base(names, aliases)
+    ( ICollection<Itest_NameFilter> pnames
+    , ICollection<Itest_NameFilter> paliases
+    , ICollection<Itest_TypeKind> pkinds
+    ) : base(pnames, paliases)
   {
-    Kinds = kinds;
+    Kinds = pkinds;
   }
 }

@@ -46,10 +46,10 @@ public class CmptRefCnstDomEnumDualObject<TType>
   public TType Field { get; set; }
 
   public CmptRefCnstDomEnumDualObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 

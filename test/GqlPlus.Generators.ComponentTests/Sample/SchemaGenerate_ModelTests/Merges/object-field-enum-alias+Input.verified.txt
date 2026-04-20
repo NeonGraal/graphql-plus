@@ -25,9 +25,9 @@ public class CmptObjFieldEnumAliasInpObject
   public bool Field { get; set; }
 
   public CmptObjFieldEnumAliasInpObject
-    ( bool field
+    ( bool pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

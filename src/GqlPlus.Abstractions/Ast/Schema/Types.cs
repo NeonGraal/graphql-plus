@@ -1,5 +1,4 @@
-﻿
-namespace GqlPlus.Abstractions.Schema;
+﻿namespace GqlPlus.Ast.Schema;
 
 public interface IAstType
   : IAstDeclaration

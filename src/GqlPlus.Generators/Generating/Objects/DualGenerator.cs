@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Generating.Objects;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Generating.Objects;
 
 internal sealed class DualInterfaceGenerator
   : GenerateForObject<IAstDualField>

@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
-using GqlPlus.Abstractions;
+using GqlPlus.Ast;
 
 namespace GqlPlus.Structures;
 

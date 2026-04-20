@@ -1,6 +1,6 @@
 ﻿using System.Collections.Immutable;
 
-namespace GqlPlus.Abstractions;
+namespace GqlPlus.Ast;
 
 public interface IAstError
 {

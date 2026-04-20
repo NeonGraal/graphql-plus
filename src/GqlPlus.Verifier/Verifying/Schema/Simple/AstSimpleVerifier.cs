@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-
-using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Verifying.Schema.Simple;
 

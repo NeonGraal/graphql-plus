@@ -40,10 +40,10 @@ public class CmptAltAltDualObject
   public decimal Alt { get; set; }
 
   public CmptAltAltDualObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -81,10 +81,10 @@ public class CmptAltAltInpObject
   public decimal Alt { get; set; }
 
   public CmptAltAltInpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -122,10 +122,10 @@ public class CmptAltAltOutpObject
   public decimal Alt { get; set; }
 
   public CmptAltAltOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -220,10 +220,10 @@ public class CmptObjDualAltDualDualObject
   public decimal Alt { get; set; }
 
   public CmptObjDualAltDualDualObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -261,10 +261,10 @@ public class CmptObjDualAltDualInpObject
   public decimal Alt { get; set; }
 
   public CmptObjDualAltDualInpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -302,10 +302,10 @@ public class CmptObjDualAltDualOutpObject
   public decimal Alt { get; set; }
 
   public CmptObjDualAltDualOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -400,10 +400,10 @@ public class CmptAltAltModBoolDualObject
   public decimal Alt { get; set; }
 
   public CmptAltAltModBoolDualObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -441,10 +441,10 @@ public class CmptAltAltModBoolInpObject
   public decimal Alt { get; set; }
 
   public CmptAltAltModBoolInpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -482,10 +482,10 @@ public class CmptAltAltModBoolOutpObject
   public decimal Alt { get; set; }
 
   public CmptAltAltModBoolOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -523,10 +523,10 @@ public class CmptAltAltModParamDualObject
   public decimal Alt { get; set; }
 
   public CmptAltAltModParamDualObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -564,10 +564,10 @@ public class CmptAltAltModParamInpObject
   public decimal Alt { get; set; }
 
   public CmptAltAltModParamInpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -605,10 +605,10 @@ public class CmptAltAltModParamOutpObject
   public decimal Alt { get; set; }
 
   public CmptAltAltModParamOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -929,10 +929,10 @@ public class CmptAltCnstAltDualDualObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstAltDualDualObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -1007,10 +1007,10 @@ public class CmptAltCnstAltDualInpObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstAltDualInpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -1085,10 +1085,10 @@ public class CmptAltCnstAltDualOutpObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstAltDualOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -1163,10 +1163,10 @@ public class CmptAltCnstAltObjDualObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstAltObjDualObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -1241,10 +1241,10 @@ public class CmptAltCnstAltObjInpObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstAltObjInpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -1319,10 +1319,10 @@ public class CmptAltCnstAltObjOutpObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstAltObjOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -1359,10 +1359,10 @@ public class CmptRefCnstDomEnumDualObject<TType>
   public TType Field { get; set; }
 
   public CmptRefCnstDomEnumDualObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -1406,10 +1406,10 @@ public class CmptRefCnstDomEnumInpObject<TType>
   public TType Field { get; set; }
 
   public CmptRefCnstDomEnumInpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -1453,10 +1453,10 @@ public class CmptRefCnstDomEnumOutpObject<TType>
   public TType Field { get; set; }
 
   public CmptRefCnstDomEnumOutpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -1500,10 +1500,10 @@ public class CmptRefCnstEnumDualObject<TType>
   public TType Field { get; set; }
 
   public CmptRefCnstEnumDualObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -1540,10 +1540,10 @@ public class CmptRefCnstEnumInpObject<TType>
   public TType Field { get; set; }
 
   public CmptRefCnstEnumInpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -1580,10 +1580,10 @@ public class CmptRefCnstEnumOutpObject<TType>
   public TType Field { get; set; }
 
   public CmptRefCnstEnumOutpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -1620,10 +1620,10 @@ public class CmptRefCnstEnumPrntDualObject<TType>
   public TType Field { get; set; }
 
   public CmptRefCnstEnumPrntDualObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -1660,10 +1660,10 @@ public class CmptRefCnstEnumPrntInpObject<TType>
   public TType Field { get; set; }
 
   public CmptRefCnstEnumPrntInpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -1700,10 +1700,10 @@ public class CmptRefCnstEnumPrntOutpObject<TType>
   public TType Field { get; set; }
 
   public CmptRefCnstEnumPrntOutpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -1720,8 +1720,8 @@ public class CmptCnstFieldDmnDualObject
 {
 
   public CmptCnstFieldDmnDualObject
-    ( ICmptDomCnstFieldDmnDual field
-    ) : base(field)
+    ( ICmptDomCnstFieldDmnDual pfield
+    ) : base(pfield)
   {
   }
 }
@@ -1740,10 +1740,10 @@ public class CmptRefCnstFieldDmnDualObject<TRef>
   public TRef Field { get; set; }
 
   public CmptRefCnstFieldDmnDualObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -1766,8 +1766,8 @@ public class CmptCnstFieldDmnInpObject
 {
 
   public CmptCnstFieldDmnInpObject
-    ( ICmptDomCnstFieldDmnInp field
-    ) : base(field)
+    ( ICmptDomCnstFieldDmnInp pfield
+    ) : base(pfield)
   {
   }
 }
@@ -1786,10 +1786,10 @@ public class CmptRefCnstFieldDmnInpObject<TRef>
   public TRef Field { get; set; }
 
   public CmptRefCnstFieldDmnInpObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -1812,8 +1812,8 @@ public class CmptCnstFieldDmnOutpObject
 {
 
   public CmptCnstFieldDmnOutpObject
-    ( ICmptDomCnstFieldDmnOutp field
-    ) : base(field)
+    ( ICmptDomCnstFieldDmnOutp pfield
+    ) : base(pfield)
   {
   }
 }
@@ -1832,10 +1832,10 @@ public class CmptRefCnstFieldDmnOutpObject<TRef>
   public TRef Field { get; set; }
 
   public CmptRefCnstFieldDmnOutpObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -1858,8 +1858,8 @@ public class CmptCnstFieldDualDualObject
 {
 
   public CmptCnstFieldDualDualObject
-    ( ICmptAltCnstFieldDualDual field
-    ) : base(field)
+    ( ICmptAltCnstFieldDualDual pfield
+    ) : base(pfield)
   {
   }
 }
@@ -1878,10 +1878,10 @@ public class CmptRefCnstFieldDualDualObject<TRef>
   public TRef Field { get; set; }
 
   public CmptRefCnstFieldDualDualObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -1918,10 +1918,10 @@ public class CmptAltCnstFieldDualDualObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstFieldDualDualObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -1938,8 +1938,8 @@ public class CmptCnstFieldDualInpObject
 {
 
   public CmptCnstFieldDualInpObject
-    ( ICmptAltCnstFieldDualInp field
-    ) : base(field)
+    ( ICmptAltCnstFieldDualInp pfield
+    ) : base(pfield)
   {
   }
 }
@@ -1958,10 +1958,10 @@ public class CmptRefCnstFieldDualInpObject<TRef>
   public TRef Field { get; set; }
 
   public CmptRefCnstFieldDualInpObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -1998,10 +1998,10 @@ public class CmptAltCnstFieldDualInpObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstFieldDualInpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -2018,8 +2018,8 @@ public class CmptCnstFieldDualOutpObject
 {
 
   public CmptCnstFieldDualOutpObject
-    ( ICmptAltCnstFieldDualOutp field
-    ) : base(field)
+    ( ICmptAltCnstFieldDualOutp pfield
+    ) : base(pfield)
   {
   }
 }
@@ -2038,10 +2038,10 @@ public class CmptRefCnstFieldDualOutpObject<TRef>
   public TRef Field { get; set; }
 
   public CmptRefCnstFieldDualOutpObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -2078,10 +2078,10 @@ public class CmptAltCnstFieldDualOutpObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstFieldDualOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -2098,8 +2098,8 @@ public class CmptCnstFieldObjDualObject
 {
 
   public CmptCnstFieldObjDualObject
-    ( ICmptAltCnstFieldObjDual field
-    ) : base(field)
+    ( ICmptAltCnstFieldObjDual pfield
+    ) : base(pfield)
   {
   }
 }
@@ -2118,10 +2118,10 @@ public class CmptRefCnstFieldObjDualObject<TRef>
   public TRef Field { get; set; }
 
   public CmptRefCnstFieldObjDualObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -2158,10 +2158,10 @@ public class CmptAltCnstFieldObjDualObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstFieldObjDualObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -2178,8 +2178,8 @@ public class CmptCnstFieldObjInpObject
 {
 
   public CmptCnstFieldObjInpObject
-    ( ICmptAltCnstFieldObjInp field
-    ) : base(field)
+    ( ICmptAltCnstFieldObjInp pfield
+    ) : base(pfield)
   {
   }
 }
@@ -2198,10 +2198,10 @@ public class CmptRefCnstFieldObjInpObject<TRef>
   public TRef Field { get; set; }
 
   public CmptRefCnstFieldObjInpObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -2238,10 +2238,10 @@ public class CmptAltCnstFieldObjInpObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstFieldObjInpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -2258,8 +2258,8 @@ public class CmptCnstFieldObjOutpObject
 {
 
   public CmptCnstFieldObjOutpObject
-    ( ICmptAltCnstFieldObjOutp field
-    ) : base(field)
+    ( ICmptAltCnstFieldObjOutp pfield
+    ) : base(pfield)
   {
   }
 }
@@ -2278,10 +2278,10 @@ public class CmptRefCnstFieldObjOutpObject<TRef>
   public TRef Field { get; set; }
 
   public CmptRefCnstFieldObjOutpObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -2318,10 +2318,10 @@ public class CmptAltCnstFieldObjOutpObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstFieldObjOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -2413,10 +2413,10 @@ public class CmptAltCnstPrntDualGrndDualObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstPrntDualGrndDualObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -2508,10 +2508,10 @@ public class CmptAltCnstPrntDualGrndInpObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstPrntDualGrndInpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -2603,10 +2603,10 @@ public class CmptAltCnstPrntDualGrndOutpObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstPrntDualGrndOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -2680,10 +2680,10 @@ public class CmptAltCnstPrntDualPrntDualObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstPrntDualPrntDualObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -2757,10 +2757,10 @@ public class CmptAltCnstPrntDualPrntInpObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstPrntDualPrntInpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -2834,10 +2834,10 @@ public class CmptAltCnstPrntDualPrntOutpObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstPrntDualPrntOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -2874,10 +2874,10 @@ public class CmptRefCnstPrntEnumDualObject<TType>
   public TType Field { get; set; }
 
   public CmptRefCnstPrntEnumDualObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -2914,10 +2914,10 @@ public class CmptRefCnstPrntEnumInpObject<TType>
   public TType Field { get; set; }
 
   public CmptRefCnstPrntEnumInpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -2954,10 +2954,10 @@ public class CmptRefCnstPrntEnumOutpObject<TType>
   public TType Field { get; set; }
 
   public CmptRefCnstPrntEnumOutpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3031,10 +3031,10 @@ public class CmptAltCnstPrntObjPrntDualObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstPrntObjPrntDualObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -3108,10 +3108,10 @@ public class CmptAltCnstPrntObjPrntInpObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstPrntObjPrntInpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -3185,10 +3185,10 @@ public class CmptAltCnstPrntObjPrntOutpObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstPrntObjPrntOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -3206,10 +3206,10 @@ public class CmptFieldDualObject
   public string Field { get; set; }
 
   public CmptFieldDualObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3227,10 +3227,10 @@ public class CmptFieldInpObject
   public string Field { get; set; }
 
   public CmptFieldInpObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3248,10 +3248,10 @@ public class CmptFieldOutpObject
   public string Field { get; set; }
 
   public CmptFieldOutpObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3269,10 +3269,10 @@ public class CmptFieldDescrDualObject
   public string Field { get; set; }
 
   public CmptFieldDescrDualObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3290,10 +3290,10 @@ public class CmptFieldDescrInpObject
   public string Field { get; set; }
 
   public CmptFieldDescrInpObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3311,10 +3311,10 @@ public class CmptFieldDescrOutpObject
   public string Field { get; set; }
 
   public CmptFieldDescrOutpObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3332,10 +3332,10 @@ public class CmptFieldDualDualObject
   public ICmptFldFieldDualDual Field { get; set; }
 
   public CmptFieldDualDualObject
-    ( ICmptFldFieldDualDual field
+    ( ICmptFldFieldDualDual pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3354,10 +3354,10 @@ public class CmptFldFieldDualDualObject
   public decimal Field { get; set; }
 
   public CmptFldFieldDualDualObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3375,10 +3375,10 @@ public class CmptFieldDualInpObject
   public ICmptFldFieldDualInp Field { get; set; }
 
   public CmptFieldDualInpObject
-    ( ICmptFldFieldDualInp field
+    ( ICmptFldFieldDualInp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3397,10 +3397,10 @@ public class CmptFldFieldDualInpObject
   public decimal Field { get; set; }
 
   public CmptFldFieldDualInpObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3418,10 +3418,10 @@ public class CmptFieldDualOutpObject
   public ICmptFldFieldDualOutp Field { get; set; }
 
   public CmptFieldDualOutpObject
-    ( ICmptFldFieldDualOutp field
+    ( ICmptFldFieldDualOutp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3440,10 +3440,10 @@ public class CmptFldFieldDualOutpObject
   public decimal Field { get; set; }
 
   public CmptFldFieldDualOutpObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3461,10 +3461,10 @@ public class CmptFieldEnumDualObject
   public CmptEnumFieldEnumDual Field { get; set; }
 
   public CmptFieldEnumDualObject
-    ( CmptEnumFieldEnumDual field
+    ( CmptEnumFieldEnumDual pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3482,10 +3482,10 @@ public class CmptFieldEnumInpObject
   public CmptEnumFieldEnumInp Field { get; set; }
 
   public CmptFieldEnumInpObject
-    ( CmptEnumFieldEnumInp field
+    ( CmptEnumFieldEnumInp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3503,10 +3503,10 @@ public class CmptFieldEnumOutpObject
   public CmptEnumFieldEnumOutp Field { get; set; }
 
   public CmptFieldEnumOutpObject
-    ( CmptEnumFieldEnumOutp field
+    ( CmptEnumFieldEnumOutp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3524,10 +3524,10 @@ public class CmptFieldEnumPrntDualObject
   public CmptEnumFieldEnumPrntDual Field { get; set; }
 
   public CmptFieldEnumPrntDualObject
-    ( CmptEnumFieldEnumPrntDual field
+    ( CmptEnumFieldEnumPrntDual pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3545,10 +3545,10 @@ public class CmptFieldEnumPrntInpObject
   public CmptEnumFieldEnumPrntInp Field { get; set; }
 
   public CmptFieldEnumPrntInpObject
-    ( CmptEnumFieldEnumPrntInp field
+    ( CmptEnumFieldEnumPrntInp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3566,10 +3566,10 @@ public class CmptFieldEnumPrntOutpObject
   public CmptEnumFieldEnumPrntOutp Field { get; set; }
 
   public CmptFieldEnumPrntOutpObject
-    ( CmptEnumFieldEnumPrntOutp field
+    ( CmptEnumFieldEnumPrntOutp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3587,10 +3587,10 @@ public class CmptFieldModEnumDualObject
   public IDictionary<CmptEnumFieldModEnumDual, string> Field { get; set; }
 
   public CmptFieldModEnumDualObject
-    ( IDictionary<CmptEnumFieldModEnumDual, string> field
+    ( IDictionary<CmptEnumFieldModEnumDual, string> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3608,10 +3608,10 @@ public class CmptFieldModEnumInpObject
   public IDictionary<CmptEnumFieldModEnumInp, string> Field { get; set; }
 
   public CmptFieldModEnumInpObject
-    ( IDictionary<CmptEnumFieldModEnumInp, string> field
+    ( IDictionary<CmptEnumFieldModEnumInp, string> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3629,10 +3629,10 @@ public class CmptFieldModEnumOutpObject
   public IDictionary<CmptEnumFieldModEnumOutp, string> Field { get; set; }
 
   public CmptFieldModEnumOutpObject
-    ( IDictionary<CmptEnumFieldModEnumOutp, string> field
+    ( IDictionary<CmptEnumFieldModEnumOutp, string> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3650,10 +3650,10 @@ public class CmptFieldModParamDualObject<TMod>
   public IDictionary<TMod, ICmptFldFieldModParamDual> Field { get; set; }
 
   public CmptFieldModParamDualObject
-    ( IDictionary<TMod, ICmptFldFieldModParamDual> field
+    ( IDictionary<TMod, ICmptFldFieldModParamDual> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3672,10 +3672,10 @@ public class CmptFldFieldModParamDualObject
   public decimal Field { get; set; }
 
   public CmptFldFieldModParamDualObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3693,10 +3693,10 @@ public class CmptFieldModParamInpObject<TMod>
   public IDictionary<TMod, ICmptFldFieldModParamInp> Field { get; set; }
 
   public CmptFieldModParamInpObject
-    ( IDictionary<TMod, ICmptFldFieldModParamInp> field
+    ( IDictionary<TMod, ICmptFldFieldModParamInp> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3715,10 +3715,10 @@ public class CmptFldFieldModParamInpObject
   public decimal Field { get; set; }
 
   public CmptFldFieldModParamInpObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3736,10 +3736,10 @@ public class CmptFieldModParamOutpObject<TMod>
   public IDictionary<TMod, ICmptFldFieldModParamOutp> Field { get; set; }
 
   public CmptFieldModParamOutpObject
-    ( IDictionary<TMod, ICmptFldFieldModParamOutp> field
+    ( IDictionary<TMod, ICmptFldFieldModParamOutp> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3758,10 +3758,10 @@ public class CmptFldFieldModParamOutpObject
   public decimal Field { get; set; }
 
   public CmptFldFieldModParamOutpObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3779,10 +3779,10 @@ public class CmptFieldObjDualObject
   public ICmptFldFieldObjDual Field { get; set; }
 
   public CmptFieldObjDualObject
-    ( ICmptFldFieldObjDual field
+    ( ICmptFldFieldObjDual pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3801,10 +3801,10 @@ public class CmptFldFieldObjDualObject
   public decimal Field { get; set; }
 
   public CmptFldFieldObjDualObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3822,10 +3822,10 @@ public class CmptFieldObjInpObject
   public ICmptFldFieldObjInp Field { get; set; }
 
   public CmptFieldObjInpObject
-    ( ICmptFldFieldObjInp field
+    ( ICmptFldFieldObjInp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3844,10 +3844,10 @@ public class CmptFldFieldObjInpObject
   public decimal Field { get; set; }
 
   public CmptFldFieldObjInpObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3865,10 +3865,10 @@ public class CmptFieldObjOutpObject
   public ICmptFldFieldObjOutp Field { get; set; }
 
   public CmptFieldObjOutpObject
-    ( ICmptFldFieldObjOutp field
+    ( ICmptFldFieldObjOutp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3887,10 +3887,10 @@ public class CmptFldFieldObjOutpObject
   public decimal Field { get; set; }
 
   public CmptFldFieldObjOutpObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3908,10 +3908,10 @@ public class CmptFieldSmplDualObject
   public decimal Field { get; set; }
 
   public CmptFieldSmplDualObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3929,10 +3929,10 @@ public class CmptFieldSmplInpObject
   public decimal Field { get; set; }
 
   public CmptFieldSmplInpObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3950,10 +3950,10 @@ public class CmptFieldSmplOutpObject
   public decimal Field { get; set; }
 
   public CmptFieldSmplOutpObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3971,10 +3971,10 @@ public class CmptFieldTypeDescrDualObject
   public decimal Field { get; set; }
 
   public CmptFieldTypeDescrDualObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -3992,10 +3992,10 @@ public class CmptFieldTypeDescrInpObject
   public decimal Field { get; set; }
 
   public CmptFieldTypeDescrInpObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -4013,10 +4013,10 @@ public class CmptFieldTypeDescrOutpObject
   public decimal Field { get; set; }
 
   public CmptFieldTypeDescrOutpObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -4034,10 +4034,10 @@ public class CmptFieldValueDualObject
   public CmptEnumFieldValueDual Field { get; set; }
 
   public CmptFieldValueDualObject
-    ( CmptEnumFieldValueDual field
+    ( CmptEnumFieldValueDual pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -4055,10 +4055,10 @@ public class CmptFieldValueInpObject
   public CmptEnumFieldValueInp Field { get; set; }
 
   public CmptFieldValueInpObject
-    ( CmptEnumFieldValueInp field
+    ( CmptEnumFieldValueInp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -4076,10 +4076,10 @@ public class CmptFieldValueOutpObject
   public CmptEnumFieldValueOutp Field { get; set; }
 
   public CmptFieldValueOutpObject
-    ( CmptEnumFieldValueOutp field
+    ( CmptEnumFieldValueOutp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -4097,10 +4097,10 @@ public class CmptFieldValueDescrDualObject
   public CmptEnumFieldValueDescrDual Field { get; set; }
 
   public CmptFieldValueDescrDualObject
-    ( CmptEnumFieldValueDescrDual field
+    ( CmptEnumFieldValueDescrDual pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -4118,10 +4118,10 @@ public class CmptFieldValueDescrInpObject
   public CmptEnumFieldValueDescrInp Field { get; set; }
 
   public CmptFieldValueDescrInpObject
-    ( CmptEnumFieldValueDescrInp field
+    ( CmptEnumFieldValueDescrInp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -4139,10 +4139,10 @@ public class CmptFieldValueDescrOutpObject
   public CmptEnumFieldValueDescrOutp Field { get; set; }
 
   public CmptFieldValueDescrOutpObject
-    ( CmptEnumFieldValueDescrOutp field
+    ( CmptEnumFieldValueDescrOutp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -4484,10 +4484,10 @@ public class CmptAltGnrcAltDualDualObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcAltDualDualObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -4544,10 +4544,10 @@ public class CmptAltGnrcAltDualInpObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcAltDualInpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -4604,10 +4604,10 @@ public class CmptAltGnrcAltDualOutpObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcAltDualOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -4778,10 +4778,10 @@ public class CmptAltGnrcAltParamDualObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcAltParamDualObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -4838,10 +4838,10 @@ public class CmptAltGnrcAltParamInpObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcAltParamInpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -4898,10 +4898,10 @@ public class CmptAltGnrcAltParamOutpObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcAltParamOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -5033,10 +5033,10 @@ public class CmptGnrcDescrDualObject<TType>
   public TType Field { get; set; }
 
   public CmptGnrcDescrDualObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -5054,10 +5054,10 @@ public class CmptGnrcDescrInpObject<TType>
   public TType Field { get; set; }
 
   public CmptGnrcDescrInpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -5075,10 +5075,10 @@ public class CmptGnrcDescrOutpObject<TType>
   public TType Field { get; set; }
 
   public CmptGnrcDescrOutpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -5115,10 +5115,10 @@ public class CmptRefGnrcEnumDualObject<TType>
   public TType Field { get; set; }
 
   public CmptRefGnrcEnumDualObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -5155,10 +5155,10 @@ public class CmptRefGnrcEnumInpObject<TType>
   public TType Field { get; set; }
 
   public CmptRefGnrcEnumInpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -5195,10 +5195,10 @@ public class CmptRefGnrcEnumOutpObject<TType>
   public TType Field { get; set; }
 
   public CmptRefGnrcEnumOutpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -5216,10 +5216,10 @@ public class CmptGnrcFieldDualObject<TType>
   public TType Field { get; set; }
 
   public CmptGnrcFieldDualObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -5237,10 +5237,10 @@ public class CmptGnrcFieldInpObject<TType>
   public TType Field { get; set; }
 
   public CmptGnrcFieldInpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -5258,10 +5258,10 @@ public class CmptGnrcFieldOutpObject<TType>
   public TType Field { get; set; }
 
   public CmptGnrcFieldOutpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -5279,10 +5279,10 @@ public class CmptGnrcFieldArgDualObject<TType>
   public ICmptRefGnrcFieldArgDual<TType> Field { get; set; }
 
   public CmptGnrcFieldArgDualObject
-    ( ICmptRefGnrcFieldArgDual<TType> field
+    ( ICmptRefGnrcFieldArgDual<TType> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -5319,10 +5319,10 @@ public class CmptGnrcFieldArgInpObject<TType>
   public ICmptRefGnrcFieldArgInp<TType> Field { get; set; }
 
   public CmptGnrcFieldArgInpObject
-    ( ICmptRefGnrcFieldArgInp<TType> field
+    ( ICmptRefGnrcFieldArgInp<TType> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -5359,10 +5359,10 @@ public class CmptGnrcFieldArgOutpObject<TType>
   public ICmptRefGnrcFieldArgOutp<TType> Field { get; set; }
 
   public CmptGnrcFieldArgOutpObject
-    ( ICmptRefGnrcFieldArgOutp<TType> field
+    ( ICmptRefGnrcFieldArgOutp<TType> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -5399,10 +5399,10 @@ public class CmptGnrcFieldDualDualObject
   public ICmptRefGnrcFieldDualDual<ICmptAltGnrcFieldDualDual> Field { get; set; }
 
   public CmptGnrcFieldDualDualObject
-    ( ICmptRefGnrcFieldDualDual<ICmptAltGnrcFieldDualDual> field
+    ( ICmptRefGnrcFieldDualDual<ICmptAltGnrcFieldDualDual> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -5440,10 +5440,10 @@ public class CmptAltGnrcFieldDualDualObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcFieldDualDualObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -5461,10 +5461,10 @@ public class CmptGnrcFieldDualInpObject
   public ICmptRefGnrcFieldDualInp<ICmptAltGnrcFieldDualInp> Field { get; set; }
 
   public CmptGnrcFieldDualInpObject
-    ( ICmptRefGnrcFieldDualInp<ICmptAltGnrcFieldDualInp> field
+    ( ICmptRefGnrcFieldDualInp<ICmptAltGnrcFieldDualInp> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -5502,10 +5502,10 @@ public class CmptAltGnrcFieldDualInpObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcFieldDualInpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -5523,10 +5523,10 @@ public class CmptGnrcFieldDualOutpObject
   public ICmptRefGnrcFieldDualOutp<ICmptAltGnrcFieldDualOutp> Field { get; set; }
 
   public CmptGnrcFieldDualOutpObject
-    ( ICmptRefGnrcFieldDualOutp<ICmptAltGnrcFieldDualOutp> field
+    ( ICmptRefGnrcFieldDualOutp<ICmptAltGnrcFieldDualOutp> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -5564,10 +5564,10 @@ public class CmptAltGnrcFieldDualOutpObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcFieldDualOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -5585,10 +5585,10 @@ public class CmptGnrcFieldParamDualObject
   public ICmptRefGnrcFieldParamDual<ICmptAltGnrcFieldParamDual> Field { get; set; }
 
   public CmptGnrcFieldParamDualObject
-    ( ICmptRefGnrcFieldParamDual<ICmptAltGnrcFieldParamDual> field
+    ( ICmptRefGnrcFieldParamDual<ICmptAltGnrcFieldParamDual> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -5626,10 +5626,10 @@ public class CmptAltGnrcFieldParamDualObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcFieldParamDualObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -5647,10 +5647,10 @@ public class CmptGnrcFieldParamInpObject
   public ICmptRefGnrcFieldParamInp<ICmptAltGnrcFieldParamInp> Field { get; set; }
 
   public CmptGnrcFieldParamInpObject
-    ( ICmptRefGnrcFieldParamInp<ICmptAltGnrcFieldParamInp> field
+    ( ICmptRefGnrcFieldParamInp<ICmptAltGnrcFieldParamInp> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -5688,10 +5688,10 @@ public class CmptAltGnrcFieldParamInpObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcFieldParamInpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -5709,10 +5709,10 @@ public class CmptGnrcFieldParamOutpObject
   public ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> Field { get; set; }
 
   public CmptGnrcFieldParamOutpObject
-    ( ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> field
+    ( ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -5750,10 +5750,10 @@ public class CmptAltGnrcFieldParamOutpObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcFieldParamOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -6034,10 +6034,10 @@ public class CmptAltGnrcPrntDualDualObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcPrntDualDualObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -6093,10 +6093,10 @@ public class CmptAltGnrcPrntDualInpObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcPrntDualInpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -6152,10 +6152,10 @@ public class CmptAltGnrcPrntDualOutpObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcPrntDualOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -6211,10 +6211,10 @@ public class CmptAltGnrcPrntDualPrntDualObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcPrntDualPrntDualObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -6270,10 +6270,10 @@ public class CmptAltGnrcPrntDualPrntInpObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcPrntDualPrntInpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -6329,10 +6329,10 @@ public class CmptAltGnrcPrntDualPrntOutpObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcPrntDualPrntOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -6349,8 +6349,8 @@ public class CmptGnrcPrntEnumChildDualObject
 {
 
   public CmptGnrcPrntEnumChildDualObject
-    ( CmptParentGnrcPrntEnumChildDual field
-    ) : base(field)
+    ( CmptParentGnrcPrntEnumChildDual pfield
+    ) : base(pfield)
   {
   }
 }
@@ -6369,10 +6369,10 @@ public class CmptFieldGnrcPrntEnumChildDualObject<TRef>
   public TRef Field { get; set; }
 
   public CmptFieldGnrcPrntEnumChildDualObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -6389,8 +6389,8 @@ public class CmptGnrcPrntEnumChildInpObject
 {
 
   public CmptGnrcPrntEnumChildInpObject
-    ( CmptParentGnrcPrntEnumChildInp field
-    ) : base(field)
+    ( CmptParentGnrcPrntEnumChildInp pfield
+    ) : base(pfield)
   {
   }
 }
@@ -6409,10 +6409,10 @@ public class CmptFieldGnrcPrntEnumChildInpObject<TRef>
   public TRef Field { get; set; }
 
   public CmptFieldGnrcPrntEnumChildInpObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -6429,8 +6429,8 @@ public class CmptGnrcPrntEnumChildOutpObject
 {
 
   public CmptGnrcPrntEnumChildOutpObject
-    ( CmptParentGnrcPrntEnumChildOutp field
-    ) : base(field)
+    ( CmptParentGnrcPrntEnumChildOutp pfield
+    ) : base(pfield)
   {
   }
 }
@@ -6449,10 +6449,10 @@ public class CmptFieldGnrcPrntEnumChildOutpObject<TRef>
   public TRef Field { get; set; }
 
   public CmptFieldGnrcPrntEnumChildOutpObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -6469,8 +6469,8 @@ public class CmptGnrcPrntEnumDomDualObject
 {
 
   public CmptGnrcPrntEnumDomDualObject
-    ( ICmptDomGnrcPrntEnumDomDual field
-    ) : base(field)
+    ( ICmptDomGnrcPrntEnumDomDual pfield
+    ) : base(pfield)
   {
   }
 }
@@ -6489,10 +6489,10 @@ public class CmptFieldGnrcPrntEnumDomDualObject<TRef>
   public TRef Field { get; set; }
 
   public CmptFieldGnrcPrntEnumDomDualObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -6516,8 +6516,8 @@ public class CmptGnrcPrntEnumDomInpObject
 {
 
   public CmptGnrcPrntEnumDomInpObject
-    ( ICmptDomGnrcPrntEnumDomInp field
-    ) : base(field)
+    ( ICmptDomGnrcPrntEnumDomInp pfield
+    ) : base(pfield)
   {
   }
 }
@@ -6536,10 +6536,10 @@ public class CmptFieldGnrcPrntEnumDomInpObject<TRef>
   public TRef Field { get; set; }
 
   public CmptFieldGnrcPrntEnumDomInpObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -6563,8 +6563,8 @@ public class CmptGnrcPrntEnumDomOutpObject
 {
 
   public CmptGnrcPrntEnumDomOutpObject
-    ( ICmptDomGnrcPrntEnumDomOutp field
-    ) : base(field)
+    ( ICmptDomGnrcPrntEnumDomOutp pfield
+    ) : base(pfield)
   {
   }
 }
@@ -6583,10 +6583,10 @@ public class CmptFieldGnrcPrntEnumDomOutpObject<TRef>
   public TRef Field { get; set; }
 
   public CmptFieldGnrcPrntEnumDomOutpObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -6610,8 +6610,8 @@ public class CmptGnrcPrntEnumPrntDualObject
 {
 
   public CmptGnrcPrntEnumPrntDualObject
-    ( CmptEnumGnrcPrntEnumPrntDual field
-    ) : base(field)
+    ( CmptEnumGnrcPrntEnumPrntDual pfield
+    ) : base(pfield)
   {
   }
 }
@@ -6630,10 +6630,10 @@ public class CmptFieldGnrcPrntEnumPrntDualObject<TRef>
   public TRef Field { get; set; }
 
   public CmptFieldGnrcPrntEnumPrntDualObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -6650,8 +6650,8 @@ public class CmptGnrcPrntEnumPrntInpObject
 {
 
   public CmptGnrcPrntEnumPrntInpObject
-    ( CmptEnumGnrcPrntEnumPrntInp field
-    ) : base(field)
+    ( CmptEnumGnrcPrntEnumPrntInp pfield
+    ) : base(pfield)
   {
   }
 }
@@ -6670,10 +6670,10 @@ public class CmptFieldGnrcPrntEnumPrntInpObject<TRef>
   public TRef Field { get; set; }
 
   public CmptFieldGnrcPrntEnumPrntInpObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -6690,8 +6690,8 @@ public class CmptGnrcPrntEnumPrntOutpObject
 {
 
   public CmptGnrcPrntEnumPrntOutpObject
-    ( CmptEnumGnrcPrntEnumPrntOutp field
-    ) : base(field)
+    ( CmptEnumGnrcPrntEnumPrntOutp pfield
+    ) : base(pfield)
   {
   }
 }
@@ -6710,10 +6710,10 @@ public class CmptFieldGnrcPrntEnumPrntOutpObject<TRef>
   public TRef Field { get; set; }
 
   public CmptFieldGnrcPrntEnumPrntOutpObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -6769,10 +6769,10 @@ public class CmptAltGnrcPrntParamDualObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcPrntParamDualObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -6828,10 +6828,10 @@ public class CmptAltGnrcPrntParamInpObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcPrntParamInpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -6887,10 +6887,10 @@ public class CmptAltGnrcPrntParamOutpObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcPrntParamOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -6946,10 +6946,10 @@ public class CmptAltGnrcPrntParamPrntDualObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcPrntParamPrntDualObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -7005,10 +7005,10 @@ public class CmptAltGnrcPrntParamPrntInpObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcPrntParamPrntInpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -7064,10 +7064,10 @@ public class CmptAltGnrcPrntParamPrntOutpObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcPrntParamPrntOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }
 
@@ -7084,8 +7084,8 @@ public class CmptGnrcPrntSmplEnumDualObject
 {
 
   public CmptGnrcPrntSmplEnumDualObject
-    ( CmptEnumGnrcPrntSmplEnumDual field
-    ) : base(field)
+    ( CmptEnumGnrcPrntSmplEnumDual pfield
+    ) : base(pfield)
   {
   }
 }
@@ -7104,10 +7104,10 @@ public class CmptFieldGnrcPrntSmplEnumDualObject<TRef>
   public TRef Field { get; set; }
 
   public CmptFieldGnrcPrntSmplEnumDualObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -7124,8 +7124,8 @@ public class CmptGnrcPrntSmplEnumInpObject
 {
 
   public CmptGnrcPrntSmplEnumInpObject
-    ( CmptEnumGnrcPrntSmplEnumInp field
-    ) : base(field)
+    ( CmptEnumGnrcPrntSmplEnumInp pfield
+    ) : base(pfield)
   {
   }
 }
@@ -7144,10 +7144,10 @@ public class CmptFieldGnrcPrntSmplEnumInpObject<TRef>
   public TRef Field { get; set; }
 
   public CmptFieldGnrcPrntSmplEnumInpObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -7164,8 +7164,8 @@ public class CmptGnrcPrntSmplEnumOutpObject
 {
 
   public CmptGnrcPrntSmplEnumOutpObject
-    ( CmptEnumGnrcPrntSmplEnumOutp field
-    ) : base(field)
+    ( CmptEnumGnrcPrntSmplEnumOutp pfield
+    ) : base(pfield)
   {
   }
 }
@@ -7184,10 +7184,10 @@ public class CmptFieldGnrcPrntSmplEnumOutpObject<TRef>
   public TRef Field { get; set; }
 
   public CmptFieldGnrcPrntSmplEnumOutpObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -7204,8 +7204,8 @@ public class CmptGnrcPrntStrDomDualObject
 {
 
   public CmptGnrcPrntStrDomDualObject
-    ( ICmptDomGnrcPrntStrDomDual field
-    ) : base(field)
+    ( ICmptDomGnrcPrntStrDomDual pfield
+    ) : base(pfield)
   {
   }
 }
@@ -7224,10 +7224,10 @@ public class CmptFieldGnrcPrntStrDomDualObject<TRef>
   public TRef Field { get; set; }
 
   public CmptFieldGnrcPrntStrDomDualObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -7250,8 +7250,8 @@ public class CmptGnrcPrntStrDomInpObject
 {
 
   public CmptGnrcPrntStrDomInpObject
-    ( ICmptDomGnrcPrntStrDomInp field
-    ) : base(field)
+    ( ICmptDomGnrcPrntStrDomInp pfield
+    ) : base(pfield)
   {
   }
 }
@@ -7270,10 +7270,10 @@ public class CmptFieldGnrcPrntStrDomInpObject<TRef>
   public TRef Field { get; set; }
 
   public CmptFieldGnrcPrntStrDomInpObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -7296,8 +7296,8 @@ public class CmptGnrcPrntStrDomOutpObject
 {
 
   public CmptGnrcPrntStrDomOutpObject
-    ( ICmptDomGnrcPrntStrDomOutp field
-    ) : base(field)
+    ( ICmptDomGnrcPrntStrDomOutp pfield
+    ) : base(pfield)
   {
   }
 }
@@ -7316,10 +7316,10 @@ public class CmptFieldGnrcPrntStrDomOutpObject<TRef>
   public TRef Field { get; set; }
 
   public CmptFieldGnrcPrntStrDomOutpObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -7362,10 +7362,10 @@ public class CmptRefGnrcValueDualObject<TType>
   public TType Field { get; set; }
 
   public CmptRefGnrcValueDualObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -7402,10 +7402,10 @@ public class CmptRefGnrcValueInpObject<TType>
   public TType Field { get; set; }
 
   public CmptRefGnrcValueInpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -7442,10 +7442,10 @@ public class CmptRefGnrcValueOutpObject<TType>
   public TType Field { get; set; }
 
   public CmptRefGnrcValueOutpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -7463,10 +7463,10 @@ public class CmptInpFieldDescrNmbrObject
   public decimal Field { get; set; }
 
   public CmptInpFieldDescrNmbrObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -7484,10 +7484,10 @@ public class CmptInpFieldEnumObject
   public CmptEnumInpFieldEnum Field { get; set; }
 
   public CmptInpFieldEnumObject
-    ( CmptEnumInpFieldEnum field
+    ( CmptEnumInpFieldEnum pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -7542,10 +7542,10 @@ public class CmptInpFieldNmbrObject
   public decimal Field { get; set; }
 
   public CmptInpFieldNmbrObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -7563,10 +7563,10 @@ public class CmptInpFieldNmbrDescrObject
   public decimal Field { get; set; }
 
   public CmptInpFieldNmbrDescrObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -7584,10 +7584,10 @@ public class CmptInpFieldStrObject
   public string Field { get; set; }
 
   public CmptInpFieldStrObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -7646,10 +7646,10 @@ public class CmptInOutpDescrParamObject
   public decimal Param { get; set; }
 
   public CmptInOutpDescrParamObject
-    ( decimal param
+    ( decimal pparam
     )
   {
-    Param = param;
+    Param = pparam;
   }
 }
 
@@ -7708,10 +7708,10 @@ public class CmptInOutpParamObject
   public decimal Param { get; set; }
 
   public CmptInOutpParamObject
-    ( decimal param
+    ( decimal pparam
     )
   {
-    Param = param;
+    Param = pparam;
   }
 }
 
@@ -7770,10 +7770,10 @@ public class CmptInOutpParamDescrObject
   public decimal Param { get; set; }
 
   public CmptInOutpParamDescrObject
-    ( decimal param
+    ( decimal pparam
     )
   {
-    Param = param;
+    Param = pparam;
   }
 }
 
@@ -7814,10 +7814,10 @@ public class CmptInOutpParamModDmnObject
   public decimal Param { get; set; }
 
   public CmptInOutpParamModDmnObject
-    ( decimal param
+    ( decimal pparam
     )
   {
-    Param = param;
+    Param = pparam;
   }
 }
 
@@ -7864,10 +7864,10 @@ public class CmptInOutpParamModParamObject
   public decimal Param { get; set; }
 
   public CmptInOutpParamModParamObject
-    ( decimal param
+    ( decimal pparam
     )
   {
-    Param = param;
+    Param = pparam;
   }
 }
 
@@ -7932,10 +7932,10 @@ public class CmptInOutpParamTypeDescrObject
   public decimal Param { get; set; }
 
   public CmptInOutpParamTypeDescrObject
-    ( decimal param
+    ( decimal pparam
     )
   {
-    Param = param;
+    Param = pparam;
   }
 }
 
@@ -7972,10 +7972,10 @@ public class CmptRefOutpPrntGnrcObject<TType>
   public TType Field { get; set; }
 
   public CmptRefOutpPrntGnrcObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -8056,10 +8056,10 @@ public class CmptInOutpPrntParamObject
   public decimal Param { get; set; }
 
   public CmptInOutpPrntParamObject
-    ( decimal param
+    ( decimal pparam
     )
   {
-    Param = param;
+    Param = pparam;
   }
 }
 
@@ -8078,10 +8078,10 @@ public class CmptPrntOutpPrntParamInObject
   public decimal Parent { get; set; }
 
   public CmptPrntOutpPrntParamInObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }
 
@@ -8098,8 +8098,8 @@ public class CmptPrntDualObject
 {
 
   public CmptPrntDualObject
-    ( decimal parent
-    ) : base(parent)
+    ( decimal pparent
+    ) : base(pparent)
   {
   }
 }
@@ -8119,10 +8119,10 @@ public class CmptRefPrntDualObject
   public decimal Parent { get; set; }
 
   public CmptRefPrntDualObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }
 
@@ -8139,8 +8139,8 @@ public class CmptPrntInpObject
 {
 
   public CmptPrntInpObject
-    ( decimal parent
-    ) : base(parent)
+    ( decimal pparent
+    ) : base(pparent)
   {
   }
 }
@@ -8160,10 +8160,10 @@ public class CmptRefPrntInpObject
   public decimal Parent { get; set; }
 
   public CmptRefPrntInpObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }
 
@@ -8180,8 +8180,8 @@ public class CmptPrntOutpObject
 {
 
   public CmptPrntOutpObject
-    ( decimal parent
-    ) : base(parent)
+    ( decimal pparent
+    ) : base(pparent)
   {
   }
 }
@@ -8201,10 +8201,10 @@ public class CmptRefPrntOutpObject
   public decimal Parent { get; set; }
 
   public CmptRefPrntOutpObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }
 
@@ -8222,8 +8222,8 @@ public class CmptPrntAltDualObject
 {
 
   public CmptPrntAltDualObject
-    ( decimal parent
-    ) : base(parent)
+    ( decimal pparent
+    ) : base(pparent)
   {
   }
 }
@@ -8243,10 +8243,10 @@ public class CmptRefPrntAltDualObject
   public decimal Parent { get; set; }
 
   public CmptRefPrntAltDualObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }
 
@@ -8264,8 +8264,8 @@ public class CmptPrntAltInpObject
 {
 
   public CmptPrntAltInpObject
-    ( decimal parent
-    ) : base(parent)
+    ( decimal pparent
+    ) : base(pparent)
   {
   }
 }
@@ -8285,10 +8285,10 @@ public class CmptRefPrntAltInpObject
   public decimal Parent { get; set; }
 
   public CmptRefPrntAltInpObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }
 
@@ -8306,8 +8306,8 @@ public class CmptPrntAltOutpObject
 {
 
   public CmptPrntAltOutpObject
-    ( decimal parent
-    ) : base(parent)
+    ( decimal pparent
+    ) : base(pparent)
   {
   }
 }
@@ -8327,10 +8327,10 @@ public class CmptRefPrntAltOutpObject
   public decimal Parent { get; set; }
 
   public CmptRefPrntAltOutpObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }
 
@@ -8347,8 +8347,8 @@ public class CmptPrntDescrDualObject
 {
 
   public CmptPrntDescrDualObject
-    ( decimal parent
-    ) : base(parent)
+    ( decimal pparent
+    ) : base(pparent)
   {
   }
 }
@@ -8368,10 +8368,10 @@ public class CmptRefPrntDescrDualObject
   public decimal Parent { get; set; }
 
   public CmptRefPrntDescrDualObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }
 
@@ -8388,8 +8388,8 @@ public class CmptPrntDescrInpObject
 {
 
   public CmptPrntDescrInpObject
-    ( decimal parent
-    ) : base(parent)
+    ( decimal pparent
+    ) : base(pparent)
   {
   }
 }
@@ -8409,10 +8409,10 @@ public class CmptRefPrntDescrInpObject
   public decimal Parent { get; set; }
 
   public CmptRefPrntDescrInpObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }
 
@@ -8429,8 +8429,8 @@ public class CmptPrntDescrOutpObject
 {
 
   public CmptPrntDescrOutpObject
-    ( decimal parent
-    ) : base(parent)
+    ( decimal pparent
+    ) : base(pparent)
   {
   }
 }
@@ -8450,10 +8450,10 @@ public class CmptRefPrntDescrOutpObject
   public decimal Parent { get; set; }
 
   public CmptRefPrntDescrOutpObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }
 
@@ -8470,8 +8470,8 @@ public class CmptPrntDualDualObject
 {
 
   public CmptPrntDualDualObject
-    ( decimal parent
-    ) : base(parent)
+    ( decimal pparent
+    ) : base(pparent)
   {
   }
 }
@@ -8491,10 +8491,10 @@ public class CmptRefPrntDualDualObject
   public decimal Parent { get; set; }
 
   public CmptRefPrntDualDualObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }
 
@@ -8511,8 +8511,8 @@ public class CmptPrntDualInpObject
 {
 
   public CmptPrntDualInpObject
-    ( decimal parent
-    ) : base(parent)
+    ( decimal pparent
+    ) : base(pparent)
   {
   }
 }
@@ -8532,10 +8532,10 @@ public class CmptRefPrntDualInpObject
   public decimal Parent { get; set; }
 
   public CmptRefPrntDualInpObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }
 
@@ -8552,8 +8552,8 @@ public class CmptPrntDualOutpObject
 {
 
   public CmptPrntDualOutpObject
-    ( decimal parent
-    ) : base(parent)
+    ( decimal pparent
+    ) : base(pparent)
   {
   }
 }
@@ -8573,10 +8573,10 @@ public class CmptRefPrntDualOutpObject
   public decimal Parent { get; set; }
 
   public CmptRefPrntDualOutpObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }
 
@@ -8594,11 +8594,11 @@ public class CmptPrntFieldDualObject
   public decimal Field { get; set; }
 
   public CmptPrntFieldDualObject
-    ( decimal parent
-    , decimal field
-    ) : base(parent)
+    ( decimal pparent
+    , decimal pfield
+    ) : base(pparent)
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -8617,10 +8617,10 @@ public class CmptRefPrntFieldDualObject
   public decimal Parent { get; set; }
 
   public CmptRefPrntFieldDualObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }
 
@@ -8638,11 +8638,11 @@ public class CmptPrntFieldInpObject
   public decimal Field { get; set; }
 
   public CmptPrntFieldInpObject
-    ( decimal parent
-    , decimal field
-    ) : base(parent)
+    ( decimal pparent
+    , decimal pfield
+    ) : base(pparent)
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -8661,10 +8661,10 @@ public class CmptRefPrntFieldInpObject
   public decimal Parent { get; set; }
 
   public CmptRefPrntFieldInpObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }
 
@@ -8682,11 +8682,11 @@ public class CmptPrntFieldOutpObject
   public decimal Field { get; set; }
 
   public CmptPrntFieldOutpObject
-    ( decimal parent
-    , decimal field
-    ) : base(parent)
+    ( decimal pparent
+    , decimal pfield
+    ) : base(pparent)
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -8705,10 +8705,10 @@ public class CmptRefPrntFieldOutpObject
   public decimal Parent { get; set; }
 
   public CmptRefPrntFieldOutpObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }
 
@@ -8726,10 +8726,10 @@ public class CmptPrntParamDiffDualObject<TA>
   public TA Field { get; set; }
 
   public CmptPrntParamDiffDualObject
-    ( TA field
+    ( TA pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -8766,10 +8766,10 @@ public class CmptPrntParamDiffInpObject<TA>
   public TA Field { get; set; }
 
   public CmptPrntParamDiffInpObject
-    ( TA field
+    ( TA pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -8806,10 +8806,10 @@ public class CmptPrntParamDiffOutpObject<TA>
   public TA Field { get; set; }
 
   public CmptPrntParamDiffOutpObject
-    ( TA field
+    ( TA pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -8846,10 +8846,10 @@ public class CmptPrntParamSameDualObject<TA>
   public TA Field { get; set; }
 
   public CmptPrntParamSameDualObject
-    ( TA field
+    ( TA pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -8886,10 +8886,10 @@ public class CmptPrntParamSameInpObject<TA>
   public TA Field { get; set; }
 
   public CmptPrntParamSameInpObject
-    ( TA field
+    ( TA pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -8926,10 +8926,10 @@ public class CmptPrntParamSameOutpObject<TA>
   public TA Field { get; set; }
 
   public CmptPrntParamSameOutpObject
-    ( TA field
+    ( TA pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 

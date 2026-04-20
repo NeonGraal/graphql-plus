@@ -21,9 +21,9 @@ public class testFieldSmplOutpObject
   public decimal Field { get; set; }
 
   public testFieldSmplOutpObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

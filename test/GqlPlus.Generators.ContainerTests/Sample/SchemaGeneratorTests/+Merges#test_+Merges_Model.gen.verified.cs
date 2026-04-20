@@ -465,12 +465,12 @@ public class testObjCnstDualObject<TType>
   public TType Str { get; set; }
 
   public testObjCnstDualObject
-    ( TType field
-    , TType str
+    ( TType pfield
+    , TType pstr
     )
   {
-    Field = field;
-    Str = str;
+    Field = pfield;
+    Str = pstr;
   }
 }
 
@@ -489,12 +489,12 @@ public class testObjCnstInpObject<TType>
   public TType Str { get; set; }
 
   public testObjCnstInpObject
-    ( TType field
-    , TType str
+    ( TType pfield
+    , TType pstr
     )
   {
-    Field = field;
-    Str = str;
+    Field = pfield;
+    Str = pstr;
   }
 }
 
@@ -513,12 +513,12 @@ public class testObjCnstOutpObject<TType>
   public TType Str { get; set; }
 
   public testObjCnstOutpObject
-    ( TType field
-    , TType str
+    ( TType pfield
+    , TType pstr
     )
   {
-    Field = field;
-    Str = str;
+    Field = pfield;
+    Str = pstr;
   }
 }
 
@@ -536,10 +536,10 @@ public class testObjFieldDualObject
   public ItestFldObjFieldDual Field { get; set; }
 
   public testObjFieldDualObject
-    ( ItestFldObjFieldDual field
+    ( ItestFldObjFieldDual pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -575,10 +575,10 @@ public class testObjFieldInpObject
   public ItestFldObjFieldInp Field { get; set; }
 
   public testObjFieldInpObject
-    ( ItestFldObjFieldInp field
+    ( ItestFldObjFieldInp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -614,10 +614,10 @@ public class testObjFieldOutpObject
   public ItestFldObjFieldOutp Field { get; set; }
 
   public testObjFieldOutpObject
-    ( ItestFldObjFieldOutp field
+    ( ItestFldObjFieldOutp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -653,10 +653,10 @@ public class testObjFieldAliasDualObject
   public ItestFldObjFieldAliasDual Field { get; set; }
 
   public testObjFieldAliasDualObject
-    ( ItestFldObjFieldAliasDual field
+    ( ItestFldObjFieldAliasDual pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -692,10 +692,10 @@ public class testObjFieldAliasInpObject
   public ItestFldObjFieldAliasInp Field { get; set; }
 
   public testObjFieldAliasInpObject
-    ( ItestFldObjFieldAliasInp field
+    ( ItestFldObjFieldAliasInp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -731,10 +731,10 @@ public class testObjFieldAliasOutpObject
   public ItestFldObjFieldAliasOutp Field { get; set; }
 
   public testObjFieldAliasOutpObject
-    ( ItestFldObjFieldAliasOutp field
+    ( ItestFldObjFieldAliasOutp pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -770,10 +770,10 @@ public class testObjFieldEnumAliasDualObject
   public bool Field { get; set; }
 
   public testObjFieldEnumAliasDualObject
-    ( bool field
+    ( bool pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -791,10 +791,10 @@ public class testObjFieldEnumAliasInpObject
   public bool Field { get; set; }
 
   public testObjFieldEnumAliasInpObject
-    ( bool field
+    ( bool pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -812,10 +812,10 @@ public class testObjFieldEnumAliasOutpObject
   public bool Field { get; set; }
 
   public testObjFieldEnumAliasOutpObject
-    ( bool field
+    ( bool pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -833,10 +833,10 @@ public class testObjFieldEnumValueDualObject
   public bool Field { get; set; }
 
   public testObjFieldEnumValueDualObject
-    ( bool field
+    ( bool pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -854,10 +854,10 @@ public class testObjFieldEnumValueInpObject
   public bool Field { get; set; }
 
   public testObjFieldEnumValueInpObject
-    ( bool field
+    ( bool pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -875,10 +875,10 @@ public class testObjFieldEnumValueOutpObject
   public bool Field { get; set; }
 
   public testObjFieldEnumValueOutpObject
-    ( bool field
+    ( bool pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -896,10 +896,10 @@ public class testObjFieldTypeAliasDualObject
   public string Field { get; set; }
 
   public testObjFieldTypeAliasDualObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -917,10 +917,10 @@ public class testObjFieldTypeAliasInpObject
   public string Field { get; set; }
 
   public testObjFieldTypeAliasInpObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -938,10 +938,10 @@ public class testObjFieldTypeAliasOutpObject
   public string Field { get; set; }
 
   public testObjFieldTypeAliasOutpObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -960,12 +960,12 @@ public class testObjParamDualObject<TTest,TType>
   public TType Type { get; set; }
 
   public testObjParamDualObject
-    ( TTest test
-    , TType type
+    ( TTest ptest
+    , TType ptype
     )
   {
-    Test = test;
-    Type = type;
+    Test = ptest;
+    Type = ptype;
   }
 }
 
@@ -984,12 +984,12 @@ public class testObjParamInpObject<TTest,TType>
   public TType Type { get; set; }
 
   public testObjParamInpObject
-    ( TTest test
-    , TType type
+    ( TTest ptest
+    , TType ptype
     )
   {
-    Test = test;
-    Type = type;
+    Test = ptest;
+    Type = ptype;
   }
 }
 
@@ -1008,12 +1008,12 @@ public class testObjParamOutpObject<TTest,TType>
   public TType Type { get; set; }
 
   public testObjParamOutpObject
-    ( TTest test
-    , TType type
+    ( TTest ptest
+    , TType ptype
     )
   {
-    Test = test;
-    Type = type;
+    Test = ptest;
+    Type = ptype;
   }
 }
 
@@ -1032,12 +1032,12 @@ public class testObjParamDupDualObject<TTest>
   public TTest Type { get; set; }
 
   public testObjParamDupDualObject
-    ( TTest test
-    , TTest type
+    ( TTest ptest
+    , TTest ptype
     )
   {
-    Test = test;
-    Type = type;
+    Test = ptest;
+    Type = ptype;
   }
 }
 
@@ -1056,12 +1056,12 @@ public class testObjParamDupInpObject<TTest>
   public TTest Type { get; set; }
 
   public testObjParamDupInpObject
-    ( TTest test
-    , TTest type
+    ( TTest ptest
+    , TTest ptype
     )
   {
-    Test = test;
-    Type = type;
+    Test = ptest;
+    Type = ptype;
   }
 }
 
@@ -1080,12 +1080,12 @@ public class testObjParamDupOutpObject<TTest>
   public TTest Type { get; set; }
 
   public testObjParamDupOutpObject
-    ( TTest test
-    , TTest type
+    ( TTest ptest
+    , TTest ptype
     )
   {
-    Test = test;
-    Type = type;
+    Test = ptest;
+    Type = ptype;
   }
 }
 

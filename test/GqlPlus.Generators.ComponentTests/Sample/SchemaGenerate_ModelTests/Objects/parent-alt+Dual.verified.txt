@@ -25,8 +25,8 @@ public class CmptPrntAltDualObject
 {
 
   public CmptPrntAltDualObject
-    ( decimal parent
-    ) : base(parent)
+    ( decimal pparent
+    ) : base(pparent)
   {
   }
 }
@@ -46,9 +46,9 @@ public class CmptRefPrntAltDualObject
   public decimal Parent { get; set; }
 
   public CmptRefPrntAltDualObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }

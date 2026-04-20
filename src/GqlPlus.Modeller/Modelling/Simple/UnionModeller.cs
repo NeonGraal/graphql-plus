@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Modelling.Simple;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Modelling.Simple;
 
 internal class UnionModeller
   : ModellerType<IAstUnion, IAstTypeRef, TypeUnionModel>

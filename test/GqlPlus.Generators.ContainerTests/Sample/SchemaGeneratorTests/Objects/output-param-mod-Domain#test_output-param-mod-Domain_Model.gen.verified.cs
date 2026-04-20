@@ -44,10 +44,10 @@ public class testInOutpParamModDmnObject
   public decimal Param { get; set; }
 
   public testInOutpParamModDmnObject
-    ( decimal param
+    ( decimal pparam
     )
   {
-    Param = param;
+    Param = pparam;
   }
 }
 

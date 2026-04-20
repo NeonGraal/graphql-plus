@@ -1,4 +1,5 @@
-﻿using NSubstitute;
+﻿using GqlPlus.Ast;
+using NSubstitute;
 
 namespace GqlPlus;
 

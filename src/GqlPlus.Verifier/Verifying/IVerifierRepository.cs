@@ -1,5 +1,6 @@
-﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Matching;
 using GqlPlus.Merging;
 using GqlPlus.Verifying.Operation;

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using GqlPlus.Ast;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Modelling;
 

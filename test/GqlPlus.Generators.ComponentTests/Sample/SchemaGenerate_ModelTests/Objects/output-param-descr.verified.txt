@@ -67,9 +67,9 @@ public class CmptInOutpParamDescrObject
   public decimal Param { get; set; }
 
   public CmptInOutpParamDescrObject
-    ( decimal param
+    ( decimal pparam
     )
   {
-    Param = param;
+    Param = pparam;
   }
 }

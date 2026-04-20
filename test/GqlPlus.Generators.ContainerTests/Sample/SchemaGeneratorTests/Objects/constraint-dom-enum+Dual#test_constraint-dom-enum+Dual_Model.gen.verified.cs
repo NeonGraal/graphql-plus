@@ -40,10 +40,10 @@ public class testRefCnstDomEnumDualObject<TType>
   public TType Field { get; set; }
 
   public testRefCnstDomEnumDualObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 

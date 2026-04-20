@@ -24,9 +24,9 @@ public class CmptInpFieldDescrNmbrObject
   public decimal Field { get; set; }
 
   public CmptInpFieldDescrNmbrObject
-    ( decimal field
+    ( decimal pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

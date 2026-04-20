@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Models;
 

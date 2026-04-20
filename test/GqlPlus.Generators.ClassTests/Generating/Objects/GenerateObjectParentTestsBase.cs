@@ -1,4 +1,5 @@
-﻿using GqlPlus.Building.Schema.Objects;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Building.Schema.Objects;
 
 namespace GqlPlus.Generating.Objects;
 
@@ -65,8 +66,8 @@ public abstract class GenerateObjectParentTestsBase<TObjField>(
     context.CheckFor(
       ForGeneratedCodeName(name),
       ForGeneratedCodeParent(TestPrefix + parent),
-      ForGeneratedModel("I" + TestPrefix + fieldType + " " + fieldName),
-      ForGeneratedModel(": base(" + fieldName + ")"));
+      ForGeneratedModel("I" + TestPrefix + fieldType + " p" + fieldName),
+      ForGeneratedModel(": base(p" + fieldName + ")"));
   }
 
   [Theory, RepeatData]
@@ -93,8 +94,8 @@ public abstract class GenerateObjectParentTestsBase<TObjField>(
     context.CheckFor(
       ForGeneratedCodeName(name),
       ForGeneratedCodeParent(TestPrefix + parent),
-      ForGeneratedModel("I" + TestPrefix + fieldType + " " + fieldName),
-      ForGeneratedModel(") : base(" + fieldName + ")"));
+      ForGeneratedModel("I" + TestPrefix + fieldType + " p" + fieldName),
+      ForGeneratedModel(") : base(p" + fieldName + ")"));
   }
 
   [Theory, RepeatData]

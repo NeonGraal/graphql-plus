@@ -25,8 +25,8 @@ public class CmptCnstFieldDmnDualObject
 {
 
   public CmptCnstFieldDmnDualObject
-    ( ICmptDomCnstFieldDmnDual field
-    ) : base(field)
+    ( ICmptDomCnstFieldDmnDual pfield
+    ) : base(pfield)
   {
   }
 }
@@ -45,10 +45,10 @@ public class CmptRefCnstFieldDmnDualObject<TRef>
   public TRef Field { get; set; }
 
   public CmptRefCnstFieldDmnDualObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 

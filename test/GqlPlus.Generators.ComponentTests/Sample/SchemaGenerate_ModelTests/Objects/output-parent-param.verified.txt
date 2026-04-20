@@ -91,10 +91,10 @@ public class CmptInOutpPrntParamObject
   public decimal Param { get; set; }
 
   public CmptInOutpPrntParamObject
-    ( decimal param
+    ( decimal pparam
     )
   {
-    Param = param;
+    Param = pparam;
   }
 }
 
@@ -113,9 +113,9 @@ public class CmptPrntOutpPrntParamInObject
   public decimal Parent { get; set; }
 
   public CmptPrntOutpPrntParamInObject
-    ( decimal parent
+    ( decimal pparent
     )
   {
-    Parent = parent;
+    Parent = pparent;
   }
 }

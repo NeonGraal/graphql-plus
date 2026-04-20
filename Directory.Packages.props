@@ -21,7 +21,7 @@
     <PackageVersion Include="PolySharp" Version="1.15.0" />
     <PackageVersion Include="System.Collections.Immutable" Version="10.0.6" />
     <PackageVersion Include="System.Text.Json" Version="10.0.6" />
-    <PackageVersion Include="YamlDotNet" Version="16.3.0" />
+    <PackageVersion Include="YamlDotNet" Version="17.0.1" />
   </ItemGroup>
   <!-- Test framework packages defined in test/Directory.Build.targets -->
   <ItemGroup>

@@ -24,9 +24,9 @@ public class CmptGnrcDescrDualObject<TType>
   public TType Field { get; set; }
 
   public CmptGnrcDescrDualObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

@@ -1,4 +1,6 @@
-﻿namespace GqlPlus;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus;
 
 internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
 {

@@ -24,9 +24,9 @@ public class CmptGnrcFieldOutpObject<TType>
   public TType Field { get; set; }
 
   public CmptGnrcFieldOutpObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

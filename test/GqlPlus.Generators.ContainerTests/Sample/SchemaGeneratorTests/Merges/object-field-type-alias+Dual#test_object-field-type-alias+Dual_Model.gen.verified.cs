@@ -21,9 +21,9 @@ public class testObjFieldTypeAliasDualObject
   public string Field { get; set; }
 
   public testObjFieldTypeAliasDualObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

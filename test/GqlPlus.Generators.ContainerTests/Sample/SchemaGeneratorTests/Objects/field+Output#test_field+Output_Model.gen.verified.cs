@@ -21,9 +21,9 @@ public class testFieldOutpObject
   public string Field { get; set; }
 
   public testFieldOutpObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

@@ -45,9 +45,9 @@ public class CmptAltAltModParamOutpObject
   public decimal Alt { get; set; }
 
   public CmptAltAltModParamOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }

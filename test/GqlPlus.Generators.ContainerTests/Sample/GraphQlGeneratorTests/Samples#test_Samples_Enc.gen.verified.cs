@@ -111,7 +111,7 @@ internal class testFieldFilterEncoder : IEncoder<ItestFieldFilterObject>
 {
   public Structured Encode(ItestFieldFilterObject input)
     => Structured.Empty()
-      .Add("arg", input.Arg);
+      .AddIf(input.Arg is not null, onTrue: t => t.Add("arg", input.Arg!));
 
   internal static testFieldFilterEncoder Factory(IEncoderRepository _) => new();
 }

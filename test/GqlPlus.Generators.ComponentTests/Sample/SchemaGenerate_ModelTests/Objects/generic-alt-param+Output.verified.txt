@@ -65,9 +65,9 @@ public class CmptAltGnrcAltParamOutpObject
   public decimal Alt { get; set; }
 
   public CmptAltGnrcAltParamOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }

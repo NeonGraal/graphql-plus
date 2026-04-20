@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace GqlPlus.Abstractions.Schema;
+namespace GqlPlus.Ast.Schema;
 
-public static class SchemaAbstractionHelpers
+public static class SchemaAstHelpers
 {
   public static IEnumerable<IGrouping<string, TAliased>> AliasedGroup<TAliased>(this TAliased[] items)
     where TAliased : IAstAliased

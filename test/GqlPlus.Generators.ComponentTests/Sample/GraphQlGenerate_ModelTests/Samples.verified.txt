@@ -147,10 +147,10 @@ public class CmptQueryObject
     => null;
 
   public CmptQueryObject
-    ( ICmptFullUser me
+    ( ICmptFullUser pme
     )
   {
-    Me = me;
+    Me = pme;
   }
 }
 
@@ -190,10 +190,10 @@ public class CmptUserFilterObject
   public decimal Id { get; set; }
 
   public CmptUserFilterObject
-    ( decimal id
+    ( decimal pid
     )
   {
-    Id = id;
+    Id = pid;
   }
 }
 
@@ -215,18 +215,18 @@ public class CmptUserObject
   public ICmptDate Birthday { get; set; }
 
   public CmptUserObject
-    ( decimal id
-    , string name
-    , string firstName
-    , string lastName
-    , ICmptDate birthday
+    ( decimal pid
+    , string pname
+    , string pfirstName
+    , string plastName
+    , ICmptDate pbirthday
     )
   {
-    Id = id;
-    Name = name;
-    FirstName = firstName;
-    LastName = lastName;
-    Birthday = birthday;
+    Id = pid;
+    Name = pname;
+    FirstName = pfirstName;
+    LastName = plastName;
+    Birthday = pbirthday;
   }
 }
 
@@ -255,12 +255,12 @@ public class CmptFullUserObject
     => null;
 
   public CmptFullUserObject
-    ( decimal id
-    , string name
-    , string firstName
-    , string lastName
-    , ICmptDate birthday
-    ) : base(id, name, firstName, lastName, birthday)
+    ( decimal pid
+    , string pname
+    , string pfirstName
+    , string plastName
+    , ICmptDate pbirthday
+    ) : base(pid, pname, pfirstName, plastName, pbirthday)
   {
   }
 }
@@ -281,12 +281,12 @@ public class CmptUserListObject
   public ICollection<ICmptUser> Users { get; set; }
 
   public CmptUserListObject
-    ( decimal count
-    , ICollection<ICmptUser> users
+    ( decimal pcount
+    , ICollection<ICmptUser> pusers
     )
   {
-    Count = count;
-    Users = users;
+    Count = pcount;
+    Users = pusers;
   }
 }
 
@@ -304,10 +304,10 @@ public class CmptStoryFilterObject
   public decimal StoryID { get; set; }
 
   public CmptStoryFilterObject
-    ( decimal storyID
+    ( decimal pstoryID
     )
   {
-    StoryID = storyID;
+    StoryID = pstoryID;
   }
 }
 
@@ -325,10 +325,10 @@ public class CmptStoryObject
   public decimal LikeCount { get; set; }
 
   public CmptStoryObject
-    ( decimal likeCount
+    ( decimal plikeCount
     )
   {
-    LikeCount = likeCount;
+    LikeCount = plikeCount;
   }
 }
 
@@ -367,14 +367,14 @@ public class CmptPicFilterObject
   public decimal Height { get; set; }
 
   public CmptPicFilterObject
-    ( decimal size
-    , decimal width
-    , decimal height
+    ( decimal psize
+    , decimal pwidth
+    , decimal pheight
     )
   {
-    Size = size;
-    Width = width;
-    Height = height;
+    Size = psize;
+    Width = pwidth;
+    Height = pheight;
   }
 }
 
@@ -392,10 +392,10 @@ public class CmptFriendsFilterObject
   public decimal First { get; set; }
 
   public CmptFriendsFilterObject
-    ( decimal first
+    ( decimal pfirst
     )
   {
-    First = first;
+    First = pfirst;
   }
 }
 
@@ -414,15 +414,15 @@ public class CmptProfileObject
   public string Handle { get; set; }
 
   public CmptProfileObject
-    ( decimal id
-    , string name
-    , string firstName
-    , string lastName
-    , ICmptDate birthday
-    , string handle
-    ) : base(id, name, firstName, lastName, birthday)
+    ( decimal pid
+    , string pname
+    , string pfirstName
+    , string plastName
+    , ICmptDate pbirthday
+    , string phandle
+    ) : base(pid, pname, pfirstName, plastName, pbirthday)
   {
-    Handle = handle;
+    Handle = phandle;
   }
 }
 
@@ -440,10 +440,10 @@ public class CmptProfileFilterObject
   public ICollection<string> Handles { get; set; }
 
   public CmptProfileFilterObject
-    ( ICollection<string> handles
+    ( ICollection<string> phandles
     )
   {
-    Handles = handles;
+    Handles = phandles;
   }
 }
 
@@ -462,12 +462,12 @@ public class CmptPageObject
   public ICmptUserList Likers { get; set; }
 
   public CmptPageObject
-    ( string handle
-    , ICmptUserList likers
+    ( string phandle
+    , ICmptUserList plikers
     )
   {
-    Handle = handle;
-    Likers = likers;
+    Handle = phandle;
+    Likers = plikers;
   }
 }
 
@@ -485,10 +485,10 @@ public class CmptIncludeParamsObject
   public bool If { get; set; }
 
   public CmptIncludeParamsObject
-    ( bool if
+    ( bool pif
     )
   {
-    If = if;
+    If = pif;
   }
 }
 
@@ -506,10 +506,10 @@ public class CmptEmailObject
   public string Message { get; set; }
 
   public CmptEmailObject
-    ( string message
+    ( string pmessage
     )
   {
-    Message = message;
+    Message = pmessage;
   }
 }
 
@@ -527,10 +527,10 @@ public class CmptThingFilterObject
   public ICmptLocation Location { get; set; }
 
   public CmptThingFilterObject
-    ( ICmptLocation location
+    ( ICmptLocation plocation
     )
   {
-    Location = location;
+    Location = plocation;
   }
 }
 
@@ -549,12 +549,12 @@ public class CmptLocationObject
   public decimal Lon { get; set; }
 
   public CmptLocationObject
-    ( decimal lat
-    , decimal lon
+    ( decimal plat
+    , decimal plon
     )
   {
-    Lat = lat;
-    Lon = lon;
+    Lat = plat;
+    Lon = plon;
   }
 }
 

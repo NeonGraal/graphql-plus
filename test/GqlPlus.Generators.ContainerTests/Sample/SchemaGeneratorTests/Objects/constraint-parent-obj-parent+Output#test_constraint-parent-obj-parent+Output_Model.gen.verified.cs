@@ -77,9 +77,9 @@ public class testAltCnstPrntObjPrntOutpObject
   public decimal Alt { get; set; }
 
   public testAltCnstPrntObjPrntOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }

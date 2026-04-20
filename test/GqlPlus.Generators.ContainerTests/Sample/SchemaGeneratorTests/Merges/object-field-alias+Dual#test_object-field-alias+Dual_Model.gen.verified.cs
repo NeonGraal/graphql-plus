@@ -21,10 +21,10 @@ public class testObjFieldAliasDualObject
   public ItestFldObjFieldAliasDual Field { get; set; }
 
   public testObjFieldAliasDualObject
-    ( ItestFldObjFieldAliasDual field
+    ( ItestFldObjFieldAliasDual pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 

@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Modelling.Globals;
 using GqlPlus.Modelling.Objects;
 using GqlPlus.Modelling.Simple;

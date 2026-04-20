@@ -46,10 +46,10 @@ public class testQueryObject
     => null;
 
   public testQueryObject
-    ( ItestFullUser me
+    ( ItestFullUser pme
     )
   {
-    Me = me;
+    Me = pme;
   }
 }
 
@@ -89,10 +89,10 @@ public class testUserFilterObject
   public decimal Id { get; set; }
 
   public testUserFilterObject
-    ( decimal id
+    ( decimal pid
     )
   {
-    Id = id;
+    Id = pid;
   }
 }
 
@@ -114,18 +114,18 @@ public class testUserObject
   public ItestDate Birthday { get; set; }
 
   public testUserObject
-    ( decimal id
-    , string name
-    , string firstName
-    , string lastName
-    , ItestDate birthday
+    ( decimal pid
+    , string pname
+    , string pfirstName
+    , string plastName
+    , ItestDate pbirthday
     )
   {
-    Id = id;
-    Name = name;
-    FirstName = firstName;
-    LastName = lastName;
-    Birthday = birthday;
+    Id = pid;
+    Name = pname;
+    FirstName = pfirstName;
+    LastName = plastName;
+    Birthday = pbirthday;
   }
 }
 
@@ -154,12 +154,12 @@ public class testFullUserObject
     => null;
 
   public testFullUserObject
-    ( decimal id
-    , string name
-    , string firstName
-    , string lastName
-    , ItestDate birthday
-    ) : base(id, name, firstName, lastName, birthday)
+    ( decimal pid
+    , string pname
+    , string pfirstName
+    , string plastName
+    , ItestDate pbirthday
+    ) : base(pid, pname, pfirstName, plastName, pbirthday)
   {
   }
 }
@@ -180,12 +180,12 @@ public class testUserListObject
   public ICollection<ItestUser> Users { get; set; }
 
   public testUserListObject
-    ( decimal count
-    , ICollection<ItestUser> users
+    ( decimal pcount
+    , ICollection<ItestUser> pusers
     )
   {
-    Count = count;
-    Users = users;
+    Count = pcount;
+    Users = pusers;
   }
 }
 
@@ -203,10 +203,10 @@ public class testStoryFilterObject
   public decimal StoryID { get; set; }
 
   public testStoryFilterObject
-    ( decimal storyID
+    ( decimal pstoryID
     )
   {
-    StoryID = storyID;
+    StoryID = pstoryID;
   }
 }
 
@@ -224,10 +224,10 @@ public class testStoryObject
   public decimal LikeCount { get; set; }
 
   public testStoryObject
-    ( decimal likeCount
+    ( decimal plikeCount
     )
   {
-    LikeCount = likeCount;
+    LikeCount = plikeCount;
   }
 }
 
@@ -266,14 +266,14 @@ public class testPicFilterObject
   public decimal Height { get; set; }
 
   public testPicFilterObject
-    ( decimal size
-    , decimal width
-    , decimal height
+    ( decimal psize
+    , decimal pwidth
+    , decimal pheight
     )
   {
-    Size = size;
-    Width = width;
-    Height = height;
+    Size = psize;
+    Width = pwidth;
+    Height = pheight;
   }
 }
 
@@ -291,10 +291,10 @@ public class testFriendsFilterObject
   public decimal First { get; set; }
 
   public testFriendsFilterObject
-    ( decimal first
+    ( decimal pfirst
     )
   {
-    First = first;
+    First = pfirst;
   }
 }
 
@@ -313,15 +313,15 @@ public class testProfileObject
   public string Handle { get; set; }
 
   public testProfileObject
-    ( decimal id
-    , string name
-    , string firstName
-    , string lastName
-    , ItestDate birthday
-    , string handle
-    ) : base(id, name, firstName, lastName, birthday)
+    ( decimal pid
+    , string pname
+    , string pfirstName
+    , string plastName
+    , ItestDate pbirthday
+    , string phandle
+    ) : base(pid, pname, pfirstName, plastName, pbirthday)
   {
-    Handle = handle;
+    Handle = phandle;
   }
 }
 
@@ -339,10 +339,10 @@ public class testProfileFilterObject
   public ICollection<string> Handles { get; set; }
 
   public testProfileFilterObject
-    ( ICollection<string> handles
+    ( ICollection<string> phandles
     )
   {
-    Handles = handles;
+    Handles = phandles;
   }
 }
 
@@ -361,12 +361,12 @@ public class testPageObject
   public ItestUserList Likers { get; set; }
 
   public testPageObject
-    ( string handle
-    , ItestUserList likers
+    ( string phandle
+    , ItestUserList plikers
     )
   {
-    Handle = handle;
-    Likers = likers;
+    Handle = phandle;
+    Likers = plikers;
   }
 }
 
@@ -384,10 +384,10 @@ public class testIncludeParamsObject
   public bool If { get; set; }
 
   public testIncludeParamsObject
-    ( bool if
+    ( bool pif
     )
   {
-    If = if;
+    If = pif;
   }
 }
 
@@ -405,10 +405,10 @@ public class testEmailObject
   public string Message { get; set; }
 
   public testEmailObject
-    ( string message
+    ( string pmessage
     )
   {
-    Message = message;
+    Message = pmessage;
   }
 }
 
@@ -426,10 +426,10 @@ public class testThingFilterObject
   public ItestLocation Location { get; set; }
 
   public testThingFilterObject
-    ( ItestLocation location
+    ( ItestLocation plocation
     )
   {
-    Location = location;
+    Location = plocation;
   }
 }
 
@@ -448,12 +448,12 @@ public class testLocationObject
   public decimal Lon { get; set; }
 
   public testLocationObject
-    ( decimal lat
-    , decimal lon
+    ( decimal plat
+    , decimal plon
     )
   {
-    Lat = lat;
-    Lon = lon;
+    Lat = plat;
+    Lon = plon;
   }
 }
 

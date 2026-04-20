@@ -21,9 +21,9 @@ public class testObjFieldEnumAliasDualObject
   public bool Field { get; set; }
 
   public testObjFieldEnumAliasDualObject
-    ( bool field
+    ( bool pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

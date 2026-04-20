@@ -1,4 +1,6 @@
 ﻿
+using GqlPlus.Ast.Schema;
+
 namespace GqlPlus.Generating;
 
 internal abstract class GenerateForType<TType>

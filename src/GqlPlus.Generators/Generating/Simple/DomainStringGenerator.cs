@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Generating.Simple;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Generating.Simple;
 
 internal sealed class DomainStringInterfaceGenerator()
   : GenerateBaseDomain<IAstDomainRegex>(DomainKind.String)

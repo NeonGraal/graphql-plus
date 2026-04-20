@@ -212,7 +212,7 @@ internal class CmptFieldFilterEncoder : IEncoder<ICmptFieldFilterObject>
 {
   public Structured Encode(ICmptFieldFilterObject input)
     => Structured.Empty()
-      .Add("arg", input.Arg);
+      .AddIf(input.Arg is not null, onTrue: t => t.Add("arg", input.Arg!));
 
   internal static CmptFieldFilterEncoder Factory(IEncoderRepository _) => new();
 }

@@ -49,10 +49,10 @@ public class CmptInOutpParamModParamObject
   public decimal Param { get; set; }
 
   public CmptInOutpParamModParamObject
-    ( decimal param
+    ( decimal pparam
     )
   {
-    Param = param;
+    Param = pparam;
   }
 }
 

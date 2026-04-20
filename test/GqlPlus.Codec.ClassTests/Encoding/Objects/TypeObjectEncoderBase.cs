@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Encoding.Objects;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Encoding.Objects;
 
 public abstract class TypeObjectEncoderBase<TObject, TBase, TField, TAlt>
   : ObjectBaseEncoderBase<TObject, TBase>

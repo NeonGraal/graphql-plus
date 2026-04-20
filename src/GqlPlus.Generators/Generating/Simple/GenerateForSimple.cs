@@ -1,4 +1,6 @@
 ﻿
+using GqlPlus.Ast.Schema;
+
 namespace GqlPlus.Generating.Simple;
 
 internal abstract class GenerateForSimple<TSimple>

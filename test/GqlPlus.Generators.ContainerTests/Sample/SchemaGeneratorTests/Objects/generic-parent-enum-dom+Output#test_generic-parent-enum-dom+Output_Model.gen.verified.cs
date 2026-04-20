@@ -20,8 +20,8 @@ public class testGnrcPrntEnumDomOutpObject
 {
 
   public testGnrcPrntEnumDomOutpObject
-    ( ItestDomGnrcPrntEnumDomOutp field
-    ) : base(field)
+    ( ItestDomGnrcPrntEnumDomOutp pfield
+    ) : base(pfield)
   {
   }
 }
@@ -40,10 +40,10 @@ public class testFieldGnrcPrntEnumDomOutpObject<TRef>
   public TRef Field { get; set; }
 
   public testFieldGnrcPrntEnumDomOutpObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 

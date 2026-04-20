@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Encoding;
+﻿using GqlPlus.Ast;
+
+namespace GqlPlus.Encoding;
 
 internal class ConstantEncoder(
   IEncoderRepository encoders

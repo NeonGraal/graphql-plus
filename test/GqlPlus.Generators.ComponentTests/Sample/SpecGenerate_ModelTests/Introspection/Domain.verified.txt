@@ -94,10 +94,10 @@ public class Cmpt_DomainRefObject<TDomainKind>
   public TDomainKind DomainKind { get; set; }
 
   public Cmpt_DomainRefObject
-    ( TDomainKind domainKind
+    ( TDomainKind pdomainKind
     )
   {
-    DomainKind = domainKind;
+    DomainKind = pdomainKind;
   }
 }
 
@@ -115,10 +115,10 @@ public class Cmpt_BaseDomainObject<TDomainKind,TItem,TDomainItem>
   public TDomainKind DomainKind { get; set; }
 
   public Cmpt_BaseDomainObject
-    ( TDomainKind domainKind
+    ( TDomainKind pdomainKind
     )
   {
-    DomainKind = domainKind;
+    DomainKind = pdomainKind;
   }
 }
 
@@ -136,10 +136,10 @@ public class Cmpt_BaseDomainItemObject
   public bool Exclude { get; set; }
 
   public Cmpt_BaseDomainItemObject
-    ( bool exclude
+    ( bool pexclude
     )
   {
-    Exclude = exclude;
+    Exclude = pexclude;
   }
 }
 
@@ -158,10 +158,10 @@ public class Cmpt_DomainItemObject<TItem>
   public ICmpt_Name Domain { get; set; }
 
   public Cmpt_DomainItemObject
-    ( ICmpt_Name domain
+    ( ICmpt_Name pdomain
     )
   {
-    Domain = domain;
+    Domain = pdomain;
   }
 }
 
@@ -180,11 +180,11 @@ public class Cmpt_DomainValueObject<TDomainKind,TValue>
   public TValue Value { get; set; }
 
   public Cmpt_DomainValueObject
-    ( TDomainKind domainKind
-    , TValue value
-    ) : base(domainKind)
+    ( TDomainKind pdomainKind
+    , TValue pvalue
+    ) : base(pdomainKind)
   {
-    Value = value;
+    Value = pvalue;
   }
 }
 
@@ -224,11 +224,11 @@ public class Cmpt_DomainTrueFalseObject
   public bool Value { get; set; }
 
   public Cmpt_DomainTrueFalseObject
-    ( bool exclude
-    , bool value
-    ) : base(exclude)
+    ( bool pexclude
+    , bool pvalue
+    ) : base(pexclude)
   {
-    Value = value;
+    Value = pvalue;
   }
 }
 
@@ -245,8 +245,8 @@ public class Cmpt_DomainItemTrueFalseObject
 {
 
   public Cmpt_DomainItemTrueFalseObject
-    ( ICmpt_Name domain
-    ) : base(domain)
+    ( ICmpt_Name pdomain
+    ) : base(pdomain)
   {
   }
 }
@@ -265,11 +265,11 @@ public class Cmpt_DomainLabelObject
   public ICmpt_EnumValue Label { get; set; }
 
   public Cmpt_DomainLabelObject
-    ( bool exclude
-    , ICmpt_EnumValue label
-    ) : base(exclude)
+    ( bool pexclude
+    , ICmpt_EnumValue plabel
+    ) : base(pexclude)
   {
-    Label = label;
+    Label = plabel;
   }
 }
 
@@ -286,8 +286,8 @@ public class Cmpt_DomainItemLabelObject
 {
 
   public Cmpt_DomainItemLabelObject
-    ( ICmpt_Name domain
-    ) : base(domain)
+    ( ICmpt_Name pdomain
+    ) : base(pdomain)
   {
   }
 }
@@ -307,8 +307,8 @@ public class Cmpt_DomainRangeObject
   public decimal? Upper { get; set; }
 
   public Cmpt_DomainRangeObject
-    ( bool exclude
-    ) : base(exclude)
+    ( bool pexclude
+    ) : base(pexclude)
   {
   }
 }
@@ -326,8 +326,8 @@ public class Cmpt_DomainItemRangeObject
 {
 
   public Cmpt_DomainItemRangeObject
-    ( ICmpt_Name domain
-    ) : base(domain)
+    ( ICmpt_Name pdomain
+    ) : base(pdomain)
   {
   }
 }
@@ -346,11 +346,11 @@ public class Cmpt_DomainRegexObject
   public string Pattern { get; set; }
 
   public Cmpt_DomainRegexObject
-    ( bool exclude
-    , string pattern
-    ) : base(exclude)
+    ( bool pexclude
+    , string ppattern
+    ) : base(pexclude)
   {
-    Pattern = pattern;
+    Pattern = ppattern;
   }
 }
 
@@ -367,8 +367,8 @@ public class Cmpt_DomainItemRegexObject
 {
 
   public Cmpt_DomainItemRegexObject
-    ( ICmpt_Name domain
-    ) : base(domain)
+    ( ICmpt_Name pdomain
+    ) : base(pdomain)
   {
   }
 }

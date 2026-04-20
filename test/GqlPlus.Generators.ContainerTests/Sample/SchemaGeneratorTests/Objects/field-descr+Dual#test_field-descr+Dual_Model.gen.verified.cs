@@ -21,9 +21,9 @@ public class testFieldDescrDualObject
   public string Field { get; set; }
 
   public testFieldDescrDualObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

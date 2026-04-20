@@ -43,13 +43,13 @@ public class test_ModifierKeyedObject<TModifierKind>
   public bool IsOptional { get; set; }
 
   public test_ModifierKeyedObject
-    ( TModifierKind modifierKind
-    , Itest_TypeSimple by
-    , bool isOptional
-    ) : base(modifierKind)
+    ( TModifierKind pmodifierKind
+    , Itest_TypeSimple pby
+    , bool pisOptional
+    ) : base(pmodifierKind)
   {
-    By = by;
-    IsOptional = isOptional;
+    By = pby;
+    IsOptional = pisOptional;
   }
 }
 
@@ -87,9 +87,9 @@ public class test_ModifierObject<TModifierKind>
   public TModifierKind ModifierKind { get; set; }
 
   public test_ModifierObject
-    ( TModifierKind modifierKind
+    ( TModifierKind pmodifierKind
     )
   {
-    ModifierKind = modifierKind;
+    ModifierKind = pmodifierKind;
   }
 }

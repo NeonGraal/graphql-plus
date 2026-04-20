@@ -21,10 +21,10 @@ public class testGnrcFieldParamOutpObject
   public ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> Field { get; set; }
 
   public testGnrcFieldParamOutpObject
-    ( ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> field
+    ( ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -62,9 +62,9 @@ public class testAltGnrcFieldParamOutpObject
   public decimal Alt { get; set; }
 
   public testAltGnrcFieldParamOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }

@@ -26,8 +26,8 @@ public class CmptCnstFieldObjOutpObject
 {
 
   public CmptCnstFieldObjOutpObject
-    ( ICmptAltCnstFieldObjOutp field
-    ) : base(field)
+    ( ICmptAltCnstFieldObjOutp pfield
+    ) : base(pfield)
   {
   }
 }
@@ -46,10 +46,10 @@ public class CmptRefCnstFieldObjOutpObject<TRef>
   public TRef Field { get; set; }
 
   public CmptRefCnstFieldObjOutpObject
-    ( TRef field
+    ( TRef pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }
 
@@ -86,9 +86,9 @@ public class CmptAltCnstFieldObjOutpObject
   public decimal Alt { get; set; }
 
   public CmptAltCnstFieldObjOutpObject
-    ( decimal alt
+    ( decimal palt
     )
   {
-    Alt = alt;
+    Alt = palt;
   }
 }

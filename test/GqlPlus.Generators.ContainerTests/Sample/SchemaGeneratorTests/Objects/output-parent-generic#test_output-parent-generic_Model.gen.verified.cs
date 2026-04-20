@@ -40,9 +40,9 @@ public class testRefOutpPrntGnrcObject<TType>
   public TType Field { get; set; }
 
   public testRefOutpPrntGnrcObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

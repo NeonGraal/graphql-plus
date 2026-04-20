@@ -40,9 +40,9 @@ public class testRefGnrcValueDualObject<TType>
   public TType Field { get; set; }
 
   public testRefGnrcValueDualObject
-    ( TType field
+    ( TType pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

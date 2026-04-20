@@ -36,10 +36,10 @@ public class testFieldObject
   public ICollection<string> Strings { get; set; }
 
   public testFieldObject
-    ( ICollection<string> strings
+    ( ICollection<string> pstrings
     )
   {
-    Strings = strings;
+    Strings = pstrings;
   }
 }
 
@@ -59,10 +59,10 @@ public class testParamObject
   public ItestMany BeforeId { get; set; }
 
   public testParamObject
-    ( ItestMany beforeId
+    ( ItestMany pbeforeId
     )
   {
-    BeforeId = beforeId;
+    BeforeId = pbeforeId;
   }
 }
 

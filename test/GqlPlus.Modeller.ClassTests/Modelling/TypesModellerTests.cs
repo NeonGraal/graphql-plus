@@ -1,4 +1,5 @@
-﻿using NSubstitute.ReceivedExtensions;
+﻿using GqlPlus.Ast.Schema;
+using NSubstitute.ReceivedExtensions;
 
 namespace GqlPlus.Modelling;
 

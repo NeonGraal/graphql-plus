@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifying.Schema;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Verifying.Schema;
 
 [TracePerTest]
 public class VerifyAllTypesAliasedTests

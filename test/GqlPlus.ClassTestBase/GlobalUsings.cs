@@ -1,2 +1,2 @@
-﻿global using GqlPlus.Abstractions;
+﻿global using GqlPlus.Ast;
 global using NSubstitute;

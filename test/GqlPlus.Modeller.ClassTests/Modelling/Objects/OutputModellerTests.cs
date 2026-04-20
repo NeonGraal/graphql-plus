@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Modelling.Objects;
+﻿using GqlPlus.Ast.Schema;
+
+namespace GqlPlus.Modelling.Objects;
 
 public class OutputModellerTests
   : ModellerObjectBaseTestBase<IAstObject<IAstOutputField>, TypeOutputModel, ObjBaseModel>

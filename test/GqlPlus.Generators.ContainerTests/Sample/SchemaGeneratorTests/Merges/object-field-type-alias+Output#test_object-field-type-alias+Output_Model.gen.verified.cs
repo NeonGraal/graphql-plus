@@ -21,9 +21,9 @@ public class testObjFieldTypeAliasOutpObject
   public string Field { get; set; }
 
   public testObjFieldTypeAliasOutpObject
-    ( string field
+    ( string pfield
     )
   {
-    Field = field;
+    Field = pfield;
   }
 }

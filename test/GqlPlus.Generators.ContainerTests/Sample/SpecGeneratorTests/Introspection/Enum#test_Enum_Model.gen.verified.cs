@@ -21,10 +21,10 @@ public class test_EnumLabelObject
   public Itest_Name EnumType { get; set; }
 
   public test_EnumLabelObject
-    ( Itest_Name enumType
+    ( Itest_Name penumType
     )
   {
-    EnumType = enumType;
+    EnumType = penumType;
   }
 }
 
@@ -42,9 +42,9 @@ public class test_EnumValueObject
   public Itest_Name Label { get; set; }
 
   public test_EnumValueObject
-    ( Itest_Name label
+    ( Itest_Name plabel
     )
   {
-    Label = label;
+    Label = plabel;
   }
 }

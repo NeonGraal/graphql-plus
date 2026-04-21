@@ -1,17 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <GqlPlus_TypePrefix>GqlpM</GqlPlus_TypePrefix>
-    <GqlPlus_NamespaceIncludesBaseName>false</GqlPlus_NamespaceIncludesBaseName>
+    <GqlPlus_TypePrefix>Req</GqlPlus_TypePrefix>
 
     <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
   </PropertyGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="Models\*.graphql+" />
+    <AdditionalFiles Include="Request\*.graphql+" />
 
     <CompilerVisibleProperty Include="GqlPlus_TypePrefix" />
-    <CompilerVisibleProperty Include="GqlPlus_NamespaceIncludesBaseName" />
   </ItemGroup>
 
   <ItemGroup>

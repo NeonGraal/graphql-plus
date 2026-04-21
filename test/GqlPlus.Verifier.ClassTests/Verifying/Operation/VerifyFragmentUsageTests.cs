@@ -6,7 +6,7 @@ public class VerifyFragmentUsageTests
   : IdentifiedVerifierTestsBase<IAstSpread, IAstFragment>
 {
   [Fact]
-  public void Verify_WithCycle()
+  public void Verify_WithCycle_ReturnsError()
   {
     IEnumerable<IAstSpread> usage1 = OneUsage("frag1");
     IEnumerable<IAstSpread> usage2 = OneUsage("frag2");

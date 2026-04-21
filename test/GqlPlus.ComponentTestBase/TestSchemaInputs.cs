@@ -75,7 +75,7 @@ public abstract class TestSchemaInputs
   {
     string spec = await ReadSpecification(sample, "Request");
 
-    await Label_Input("Spec", spec, ["Specification", "Request"], sample, "Request");
+    await Test_Input("Spec", spec, ["Specification", "Request"], sample, "Request");
   }
 
   protected abstract Task Label_Input(string label, string input, string[] dirs, string test, string section = "");

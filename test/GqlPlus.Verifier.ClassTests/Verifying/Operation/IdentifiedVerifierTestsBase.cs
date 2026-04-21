@@ -1,5 +1,4 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Verifying.Operation;
 
@@ -66,8 +65,6 @@ public abstract class IdentifiedVerifierTestsBase<TUsage, TIdentified>
   [Fact]
   public void Verify_WithDifferent()
   {
-    IdentifiedVerifier<TUsage, TIdentified> verifier = NewVerifier();
-
     UsageIdentified<TUsage, TIdentified> item = new(OneUsage("usage"), OneDefinition("defined"));
 
     VerifyWithErrors(item, 2);
@@ -78,10 +75,10 @@ public abstract class IdentifiedVerifierTestsBase<TUsage, TIdentified>
   {
     UsageIdentified<TUsage, TIdentified> item = new(OneUsage("match"), OneDefinition("match"));
 
-    VerifyWithOutErrors(item);
+    VerifyWithoutErrors(item);
   }
 
-  internal void VerifyWithOutErrors(UsageIdentified<TUsage, TIdentified> item)
+  internal void VerifyWithoutErrors(UsageIdentified<TUsage, TIdentified> item)
   {
     _verifier.Value.Verify(item, Errors);
 

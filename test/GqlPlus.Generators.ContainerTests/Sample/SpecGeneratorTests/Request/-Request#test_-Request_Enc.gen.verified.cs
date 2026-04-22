@@ -15,6 +15,75 @@ internal class test_IdentifierEncoder : IEncoder<Itest_Identifier>
   internal static test_IdentifierEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class test_CollectionsEncoder : IEncoder<Itest_CollectionsObject>
+{
+  public Structured Encode(Itest_CollectionsObject input)
+    => Structured.Empty();
+
+  internal static test_CollectionsEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class test_ModifierKeyedEncoder<TModifierKind>(
+  IEncoderRepository encoders
+) : IEncoder<Itest_ModifierKeyedObject<TModifierKind>>
+{
+  private readonly IEncoder<Itest_ModifierObject<TModifierKind>> _itest_Modifier = encoders.EncoderFor<Itest_ModifierObject<TModifierKind>>();
+  private readonly IEncoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
+  public Structured Encode(Itest_ModifierKeyedObject<TModifierKind> input)
+    => _itest_Modifier.Encode(input)
+      .AddEncoded("by", input.By, _itest_Identifier)
+      .Add("isOptional", input.IsOptional);
+}
+
+internal class test_ModifiersEncoder : IEncoder<Itest_ModifiersObject>
+{
+  public Structured Encode(Itest_ModifiersObject input)
+    => Structured.Empty();
+
+  internal static test_ModifiersEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class test_ModifierKindEncoder : IEncoder<test_ModifierKind>
+{
+  public Structured Encode(test_ModifierKind input)
+    => new(input.ToString(), "_ModifierKind");
+
+  internal static test_ModifierKindEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class test_ModifierEncoder<TModifierKind>(
+  IEncoderRepository encoders
+) : IEncoder<Itest_ModifierObject<TModifierKind>>
+{
+  private readonly IEncoder<TModifierKind> _modifierKind = encoders.EncoderFor<TModifierKind>();
+  public Structured Encode(Itest_ModifierObject<TModifierKind> input)
+    => Structured.Empty()
+      .AddEncoded("modifierKind", input.ModifierKind, _modifierKind);
+}
+
+internal class test_PathEncoder : IEncoder<Itest_Path>
+{
+  public Structured Encode(Itest_Path input)
+    => new(input.Value);
+
+  internal static test_PathEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class test_OpDirectivesEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_OpDirectivesObject>
+{
+  private readonly IEncoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
+  private readonly IEncoder<Itest_OpDirective> _itest_OpDirective = encoders.EncoderFor<Itest_OpDirective>();
+  public Structured Encode(Itest_OpDirectivesObject input)
+    => Structured.Empty()
+      .AddEncoded("name", input.Name, _itest_Identifier)
+      .Add("description", input.Description.Encode())
+      .AddList("directives", input.Directives, _itest_OpDirective);
+
+  internal static test_OpDirectivesEncoder Factory(IEncoderRepository r) => new(r);
+}
+
 internal class test_OpDirectiveEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_OpDirectiveObject>
@@ -27,14 +96,6 @@ internal class test_OpDirectiveEncoder(
       .AddEncoded("argument", input.Argument, _itest_OpArgument);
 
   internal static test_OpDirectiveEncoder Factory(IEncoderRepository r) => new(r);
-}
-
-internal class test_ModifierKindEncoder : IEncoder<test_ModifierKind>
-{
-  public Structured Encode(test_ModifierKind input)
-    => new(input.ToString(), "_ModifierKind");
-
-  internal static test_ModifierKindEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_OpArgumentEncoder : IEncoder<Itest_OpArgumentObject>
@@ -98,8 +159,12 @@ internal static class test__RequestEncoders
   internal static IEncoderRepositoryBuilder Addtest__RequestEncoders(this IEncoderRepositoryBuilder builder)
     => builder
       .AddEncoder<Itest_Identifier>(test_IdentifierEncoder.Factory)
-      .AddEncoder<Itest_OpDirectiveObject>(test_OpDirectiveEncoder.Factory)
+      .AddEncoder<Itest_CollectionsObject>(test_CollectionsEncoder.Factory)
+      .AddEncoder<Itest_ModifiersObject>(test_ModifiersEncoder.Factory)
       .AddEncoder<test_ModifierKind>(test_ModifierKindEncoder.Factory)
+      .AddEncoder<Itest_Path>(test_PathEncoder.Factory)
+      .AddEncoder<Itest_OpDirectivesObject>(test_OpDirectivesEncoder.Factory)
+      .AddEncoder<Itest_OpDirectiveObject>(test_OpDirectiveEncoder.Factory)
       .AddEncoder<Itest_OpArgumentObject>(test_OpArgumentEncoder.Factory)
       .AddEncoder<Itest_OpArgValueObject>(test_OpArgValueEncoder.Factory)
       .AddEncoder<Itest_OpArgListObject>(test_OpArgListEncoder.Factory)

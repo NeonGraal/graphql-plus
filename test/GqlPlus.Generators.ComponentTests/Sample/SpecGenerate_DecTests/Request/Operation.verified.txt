@@ -4,15 +4,23 @@ input _Operation {
         directives: _OpDirective[]
         fragments: _OpFragment[]
         result: _OpResult
+        selections: _OpSelection[][_Path]
     | "Parsed into above fields, plus Request category and operation" String
     }
 
-input _OpVariable {
+domain _Path { String /(\$([A-Za-z]\w*)?|\.+)?\d+(\.\d+)*/ }
+
+dual _OpDirectives {
         name: _Identifier
-        type: _Identifier? = null
-        modifiers: _Modifier[]
-        default: Value?
+        description: String[]
         directives: _OpDirective[]
+
+}
+input _OpVariable {
+    : _OpDirectives
+        type: _Identifier? = null
+        modifiers: _Modifiers[]
+        defaultValue: Value?
     }
 
 dual _OpDirective {
@@ -21,18 +29,13 @@ dual _OpDirective {
     }
 
 input _OpFragment {
-        name: _Identifier
+    : _OpDirectives
         type: _Identifier? = null
-        directives: _OpDirective[]
-        body: _OpObject[]
     }
 
-enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
-
-input _Modifier {
-        modifierKind: _ModifierKind
-        by: _Identifier?
-        optional: Boolean?
+input _OpResult {
+        domain: _Identifier? = null
+        argument: _OpArgument?
     }
 
 dual _OpArgument {
@@ -71,17 +74,31 @@ internal class Cmpt_OperationDecoder
   public ICollection<ICmpt_OpDirective> Directives { get; set; }
   public ICollection<ICmpt_OpFragment> Fragments { get; set; }
   public ICmpt_OpResult Result { get; set; }
+  public IDictionary<ICmpt_Path, ICollection<ICmpt_OpSelection>> Selections { get; set; }
 
   internal static Cmpt_OperationDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_OpVariableDecoder
+internal class Cmpt_PathDecoder
+{
+
+  internal static Cmpt_PathDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class Cmpt_OpDirectivesDecoder
 {
   public ICmpt_Identifier Name { get; set; }
-  public ICmpt_Identifier? Type { get; set; }
-  public ICollection<ICmpt_Modifier> Modifiers { get; set; }
-  public GqlpValue? Default { get; set; }
+  public ICollection<string> Description { get; set; }
   public ICollection<ICmpt_OpDirective> Directives { get; set; }
+
+  internal static Cmpt_OpDirectivesDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class Cmpt_OpVariableDecoder
+{
+  public ICmpt_Identifier? Type { get; set; }
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
+  public GqlpValue? DefaultValue { get; set; }
 
   internal static Cmpt_OpVariableDecoder Factory(IDecoderRepository _) => new();
 }
@@ -96,34 +113,17 @@ internal class Cmpt_OpDirectiveDecoder
 
 internal class Cmpt_OpFragmentDecoder
 {
-  public ICmpt_Identifier Name { get; set; }
   public ICmpt_Identifier? Type { get; set; }
-  public ICollection<ICmpt_OpDirective> Directives { get; set; }
-  public ICollection<ICmpt_OpObject> Body { get; set; }
 
   internal static Cmpt_OpFragmentDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_ModifierKindDecoder
+internal class Cmpt_OpResultDecoder
 {
-  public string Opt { get; set; }
-  public string Optional { get; set; }
-  public string List { get; set; }
-  public string Dict { get; set; }
-  public string Dictionary { get; set; }
-  public string Param { get; set; }
-  public string TypeParam { get; set; }
+  public ICmpt_Identifier? Domain { get; set; }
+  public ICmpt_OpArgument? Argument { get; set; }
 
-  internal static Cmpt_ModifierKindDecoder Factory(IDecoderRepository _) => new();
-}
-
-internal class Cmpt_ModifierDecoder
-{
-  public Cmpt_ModifierKind ModifierKind { get; set; }
-  public ICmpt_Identifier? By { get; set; }
-  public bool? Optional { get; set; }
-
-  internal static Cmpt_ModifierDecoder Factory(IDecoderRepository _) => new();
+  internal static Cmpt_OpResultDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_OpArgumentDecoder
@@ -158,11 +158,12 @@ internal static class Cmpt_Spec_OperationDecoders
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_OperationDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmpt_OperationObject>(Cmpt_OperationDecoder.Factory)
+      .AddDecoder<ICmpt_Path>(Cmpt_PathDecoder.Factory)
+      .AddDecoder<ICmpt_OpDirectivesObject>(Cmpt_OpDirectivesDecoder.Factory)
       .AddDecoder<ICmpt_OpVariableObject>(Cmpt_OpVariableDecoder.Factory)
       .AddDecoder<ICmpt_OpDirectiveObject>(Cmpt_OpDirectiveDecoder.Factory)
       .AddDecoder<ICmpt_OpFragmentObject>(Cmpt_OpFragmentDecoder.Factory)
-      .AddDecoder<Cmpt_ModifierKind>(Cmpt_ModifierKindDecoder.Factory)
-      .AddDecoder<ICmpt_ModifierObject>(Cmpt_ModifierDecoder.Factory)
+      .AddDecoder<ICmpt_OpResultObject>(Cmpt_OpResultDecoder.Factory)
       .AddDecoder<ICmpt_OpArgumentObject>(Cmpt_OpArgumentDecoder.Factory)
       .AddDecoder<ICmpt_OpArgValueObject>(Cmpt_OpArgValueDecoder.Factory)
       .AddDecoder<ICmpt_OpArgListObject>(Cmpt_OpArgListDecoder.Factory)

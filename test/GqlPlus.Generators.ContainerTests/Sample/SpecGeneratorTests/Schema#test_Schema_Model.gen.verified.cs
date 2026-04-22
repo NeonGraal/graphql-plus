@@ -169,19 +169,19 @@ public class test_Key
   public T AsA<T>() => (T)_value!;
 }
 
-public class test_Any
+public class object
   : GqlpModelBase
-  , Itest_Any
+  , object
 {
-  public Itest_AnyObject? As__Any { get; set; }
+  public objectObject? As__Any { get; set; }
 }
 
-public class test_AnyObject
+public class objectObject
   : GqlpModelBase
-  , Itest_AnyObject
+  , objectObject
 {
 
-  public test_AnyObject
+  public objectObject
     ()
   {
   }

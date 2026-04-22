@@ -23,47 +23,80 @@ public class test_OperationObject
   public ICollection<Itest_OpDirective> Directives { get; set; }
   public ICollection<Itest_OpFragment> Fragments { get; set; }
   public Itest_OpResult Result { get; set; }
+  public IDictionary<Itest_Path, ICollection<Itest_OpSelection>> Selections { get; set; }
 
   public test_OperationObject
     ( ICollection<Itest_OpVariable> pvariables
     , ICollection<Itest_OpDirective> pdirectives
     , ICollection<Itest_OpFragment> pfragments
     , Itest_OpResult presult
+    , IDictionary<Itest_Path, ICollection<Itest_OpSelection>> pselections
     )
   {
     Variables = pvariables;
     Directives = pdirectives;
     Fragments = pfragments;
     Result = presult;
+    Selections = pselections;
+  }
+}
+
+public class test_Path
+  : GqlpDomainString
+  , Itest_Path
+{
+}
+
+public class test_OpDirectives
+  : GqlpModelBase
+  , Itest_OpDirectives
+{
+  public Itest_OpDirectivesObject? As__OpDirectives { get; set; }
+}
+
+public class test_OpDirectivesObject
+  : GqlpModelBase
+  , Itest_OpDirectivesObject
+{
+  public Itest_Identifier Name { get; set; }
+  public ICollection<string> Description { get; set; }
+  public ICollection<Itest_OpDirective> Directives { get; set; }
+
+  public test_OpDirectivesObject
+    ( Itest_Identifier pname
+    , ICollection<string> pdescription
+    , ICollection<Itest_OpDirective> pdirectives
+    )
+  {
+    Name = pname;
+    Description = pdescription;
+    Directives = pdirectives;
   }
 }
 
 public class test_OpVariable
-  : GqlpModelBase
+  : test_OpDirectives
   , Itest_OpVariable
 {
   public Itest_OpVariableObject? As__OpVariable { get; set; }
 }
 
 public class test_OpVariableObject
-  : GqlpModelBase
+  : test_OpDirectivesObject
   , Itest_OpVariableObject
 {
-  public Itest_Identifier Name { get; set; }
   public Itest_Identifier? Type { get; set; }
-  public ICollection<Itest_Modifier> Modifiers { get; set; }
-  public GqlpValue? Default { get; set; }
-  public ICollection<Itest_OpDirective> Directives { get; set; }
+  public ICollection<Itest_Modifiers> Modifiers { get; set; }
+  public GqlpValue? DefaultValue { get; set; }
 
   public test_OpVariableObject
     ( Itest_Identifier pname
-    , ICollection<Itest_Modifier> pmodifiers
+    , ICollection<string> pdescription
     , ICollection<Itest_OpDirective> pdirectives
-    )
+    , ICollection<Itest_Modifiers> pmodifiers
+    ) : base(pname, pdescription, pdirectives)
   {
-    Name = pname;
     Modifiers = pmodifiers;
-    Directives = pdirectives;
   }
 }
 
@@ -90,53 +123,44 @@ public class test_OpDirectiveObject
 }
 
 public class test_OpFragment
-  : GqlpModelBase
+  : test_OpDirectives
   , Itest_OpFragment
 {
   public Itest_OpFragmentObject? As__OpFragment { get; set; }
 }
 
 public class test_OpFragmentObject
-  : GqlpModelBase
+  : test_OpDirectivesObject
   , Itest_OpFragmentObject
 {
-  public Itest_Identifier Name { get; set; }
   public Itest_Identifier? Type { get; set; }
-  public ICollection<Itest_OpDirective> Directives { get; set; }
-  public ICollection<Itest_OpObject> Body { get; set; }
 
   public test_OpFragmentObject
     ( Itest_Identifier pname
+    , ICollection<string> pdescription
     , ICollection<Itest_OpDirective> pdirectives
-    , ICollection<Itest_OpObject> pbody
-    )
+    ) : base(pname, pdescription, pdirectives)
   {
-    Name = pname;
-    Directives = pdirectives;
-    Body = pbody;
   }
 }
 
-public class test_Modifier
+public class test_OpResult
   : GqlpModelBase
-  , Itest_Modifier
+  , Itest_OpResult
 {
-  public Itest_ModifierObject? As__Modifier { get; set; }
+  public Itest_OpResultObject? As__OpResult { get; set; }
 }
 
-public class test_ModifierObject
+public class test_OpResultObject
   : GqlpModelBase
-  , Itest_ModifierObject
+  , Itest_OpResultObject
 {
-  public test_ModifierKind ModifierKind { get; set; }
-  public Itest_Identifier? By { get; set; }
-  public bool? Optional { get; set; }
+  public Itest_Identifier? Domain { get; set; }
+  public Itest_OpArgument? Argument { get; set; }
 
-  public test_ModifierObject
-    ( test_ModifierKind pmodifierKind
-    )
+  public test_OpResultObject
+    ()
   {
-    ModifierKind = pmodifierKind;
   }
 }
 

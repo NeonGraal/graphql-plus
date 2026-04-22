@@ -45,10 +45,10 @@ internal class test_KeyDecoder
   internal static test_KeyDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_AnyDecoder
+internal class objectDecoder
 {
 
-  internal static test_AnyDecoder Factory(IDecoderRepository _) => new();
+  internal static objectDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_SchemaDecoders
@@ -56,5 +56,5 @@ internal static class test_SchemaDecoders
   internal static IDecoderRepositoryBuilder Addtest_SchemaDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<Itest_Key>(test_KeyDecoder.Factory)
-      .AddDecoder<Itest_AnyObject>(test_AnyDecoder.Factory);
+      .AddDecoder<objectObject>(objectDecoder.Factory);
 }

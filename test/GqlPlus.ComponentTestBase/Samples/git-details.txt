@@ -1,1 +1,1 @@
-b7ee558  (HEAD -> request, origin/request) 2026-04-21 Merge branch 'main' into request
+c00af9f  (HEAD -> request) 2026-04-22 Improve Request Operation definition

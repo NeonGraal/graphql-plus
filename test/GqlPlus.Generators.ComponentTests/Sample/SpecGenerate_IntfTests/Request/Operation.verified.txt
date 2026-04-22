@@ -4,15 +4,23 @@ input _Operation {
         directives: _OpDirective[]
         fragments: _OpFragment[]
         result: _OpResult
+        selections: _OpSelection[][_Path]
     | "Parsed into above fields, plus Request category and operation" String
     }
 
-input _OpVariable {
+domain _Path { String /(\$([A-Za-z]\w*)?|\.+)?\d+(\.\d+)*/ }
+
+dual _OpDirectives {
         name: _Identifier
-        type: _Identifier? = null
-        modifiers: _Modifier[]
-        default: Value?
+        description: String[]
         directives: _OpDirective[]
+
+}
+input _OpVariable {
+    : _OpDirectives
+        type: _Identifier? = null
+        modifiers: _Modifiers[]
+        defaultValue: Value?
     }
 
 dual _OpDirective {
@@ -21,18 +29,13 @@ dual _OpDirective {
     }
 
 input _OpFragment {
-        name: _Identifier
+    : _OpDirectives
         type: _Identifier? = null
-        directives: _OpDirective[]
-        body: _OpObject[]
     }
 
-enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
-
-input _Modifier {
-        modifierKind: _ModifierKind
-        by: _Identifier?
-        optional: Boolean?
+input _OpResult {
+        domain: _Identifier? = null
+        argument: _OpArgument?
     }
 
 dual _OpArgument {
@@ -79,22 +82,40 @@ public interface ICmpt_OperationObject
   ICollection<ICmpt_OpDirective> Directives { get; }
   ICollection<ICmpt_OpFragment> Fragments { get; }
   ICmpt_OpResult Result { get; }
+  IDictionary<ICmpt_Path, ICollection<ICmpt_OpSelection>> Selections { get; }
+}
+
+public interface ICmpt_Path
+  : IGqlpDomainString
+{
+}
+
+public interface ICmpt_OpDirectives
+  : Spec_Operation
+{
+  ICmpt_OpDirectivesObject? As__OpDirectives { get; }
+}
+
+public interface ICmpt_OpDirectivesObject
+  : Spec_Operation
+{
+  ICmpt_Identifier Name { get; }
+  ICollection<string> Description { get; }
+  ICollection<ICmpt_OpDirective> Directives { get; }
 }
 
 public interface ICmpt_OpVariable
-  : Spec_Operation
+  : ICmpt_OpDirectives
 {
   ICmpt_OpVariableObject? As__OpVariable { get; }
 }
 
 public interface ICmpt_OpVariableObject
-  : Spec_Operation
+  : ICmpt_OpDirectivesObject
 {
-  ICmpt_Identifier Name { get; }
   ICmpt_Identifier? Type { get; }
-  ICollection<ICmpt_Modifier> Modifiers { get; }
-  GqlpValue? Default { get; }
-  ICollection<ICmpt_OpDirective> Directives { get; }
+  ICollection<ICmpt_Modifiers> Modifiers { get; }
+  GqlpValue? DefaultValue { get; }
 }
 
 public interface ICmpt_OpDirective
@@ -111,43 +132,28 @@ public interface ICmpt_OpDirectiveObject
 }
 
 public interface ICmpt_OpFragment
-  : Spec_Operation
+  : ICmpt_OpDirectives
 {
   ICmpt_OpFragmentObject? As__OpFragment { get; }
 }
 
 public interface ICmpt_OpFragmentObject
-  : Spec_Operation
+  : ICmpt_OpDirectivesObject
 {
-  ICmpt_Identifier Name { get; }
   ICmpt_Identifier? Type { get; }
-  ICollection<ICmpt_OpDirective> Directives { get; }
-  ICollection<ICmpt_OpObject> Body { get; }
 }
 
-public enum Cmpt_ModifierKind
-{
-  Opt,
-  Optional = Opt,
-  List,
-  Dict,
-  Dictionary = Dict,
-  Param,
-  TypeParam = Param,
-}
-
-public interface ICmpt_Modifier
+public interface ICmpt_OpResult
   : Spec_Operation
 {
-  ICmpt_ModifierObject? As__Modifier { get; }
+  ICmpt_OpResultObject? As__OpResult { get; }
 }
 
-public interface ICmpt_ModifierObject
+public interface ICmpt_OpResultObject
   : Spec_Operation
 {
-  Cmpt_ModifierKind ModifierKind { get; }
-  ICmpt_Identifier? By { get; }
-  bool? Optional { get; }
+  ICmpt_Identifier? Domain { get; }
+  ICmpt_OpArgument? Argument { get; }
 }
 
 public interface ICmpt_OpArgument

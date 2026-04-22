@@ -9,20 +9,51 @@ input _Request {
 
 domain _Identifier { String /[A-Za-z_][A-Za-z0-9_]*/ }
 
+dual _Collections {
+    | _Modifier<_ModifierKind.List>
+    | _ModifierKeyed<_ModifierKind.Dictionary>
+    | _ModifierKeyed<_ModifierKind.TypeParam>
+    }
+
+dual _ModifierKeyed<$modifierKind:_ModifierKind> {
+    : _Modifier<$modifierKind>
+        by: _Identifier
+        isOptional: Boolean
+    }
+
+dual _Modifiers {
+    | _Modifier<_ModifierKind.Optional>
+    | _Collections
+    }
+
+enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+
+dual _Modifier<$modifierKind:_ModifierKind> {
+        modifierKind: $modifierKind
+    }
+
 input _Operation {
         variables: _OpVariable[]
         directives: _OpDirective[]
         fragments: _OpFragment[]
         result: _OpResult
+        selections: _OpSelection[][_Path]
     | "Parsed into above fields, plus Request category and operation" String
     }
 
-input _OpVariable {
+domain _Path { String /(\$([A-Za-z]\w*)?|\.+)?\d+(\.\d+)*/ }
+
+dual _OpDirectives {
         name: _Identifier
-        type: _Identifier? = null
-        modifiers: _Modifier[]
-        default: Value?
+        description: String[]
         directives: _OpDirective[]
+
+}
+input _OpVariable {
+    : _OpDirectives
+        type: _Identifier? = null
+        modifiers: _Modifiers[]
+        defaultValue: Value?
     }
 
 dual _OpDirective {
@@ -31,18 +62,13 @@ dual _OpDirective {
     }
 
 input _OpFragment {
-        name: _Identifier
+    : _OpDirectives
         type: _Identifier? = null
-        directives: _OpDirective[]
-        body: _OpObject[]
     }
 
-enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
-
-input _Modifier {
-        modifierKind: _ModifierKind
-        by: _Identifier?
-        optional: Boolean?
+input _OpResult {
+        domain: _Identifier? = null
+        argument: _OpArgument?
     }
 
 dual _OpArgument {
@@ -66,33 +92,22 @@ dual _OpArgMap {
     | _OpArgValue[Scalar]
     }
 
-input _OpResult {
-        domain: _Identifier? = null
-        argument: _OpArgument?
-        body: _OpObject[]
-    }
-
-input _OpObject {
+input _OpSelection {
     |   _OpField
     |   _OpSpread
     |   _OpInline
     }
 
 input _OpField {
-        alias: _Identifier? = null
-        field: _Identifier
+    : _OpDirectives
+        fieldAlias: _Identifier? = null
         argument: _OpArgument?
-        modifiers: _Modifier[]
-        directives: _OpDirective[]
-        "The body as a string as we can't have nested objects."
-        body: String
+        modifiers: _Modifiers[]
     }
 
 input _OpInline {
         type: _Identifier? = null
         directives: _OpDirective[]
-        "The body as a string as we can't have nested objects."
-        body: String
     }
 
 dual _OpSpread {
@@ -117,6 +132,75 @@ internal class Cmpt_IdentifierEncoder : IEncoder<ICmpt_Identifier>
   internal static Cmpt_IdentifierEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class Cmpt_CollectionsEncoder : IEncoder<ICmpt_CollectionsObject>
+{
+  public Structured Encode(ICmpt_CollectionsObject input)
+    => Structured.Empty();
+
+  internal static Cmpt_CollectionsEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class Cmpt_ModifierKeyedEncoder<TModifierKind>(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_ModifierKeyedObject<TModifierKind>>
+{
+  private readonly IEncoder<ICmpt_ModifierObject<TModifierKind>> _modifier = encoders.EncoderFor<ICmpt_ModifierObject<TModifierKind>>();
+  private readonly IEncoder<ICmpt_Identifier> _identifier = encoders.EncoderFor<ICmpt_Identifier>();
+  public Structured Encode(ICmpt_ModifierKeyedObject<TModifierKind> input)
+    => _modifier.Encode(input)
+      .AddEncoded("by", input.By, _identifier)
+      .Add("isOptional", input.IsOptional);
+}
+
+internal class Cmpt_ModifiersEncoder : IEncoder<ICmpt_ModifiersObject>
+{
+  public Structured Encode(ICmpt_ModifiersObject input)
+    => Structured.Empty();
+
+  internal static Cmpt_ModifiersEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class Cmpt_ModifierKindEncoder : IEncoder<Cmpt_ModifierKind>
+{
+  public Structured Encode(Cmpt_ModifierKind input)
+    => new(input.ToString(), "_ModifierKind");
+
+  internal static Cmpt_ModifierKindEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class Cmpt_ModifierEncoder<TModifierKind>(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_ModifierObject<TModifierKind>>
+{
+  private readonly IEncoder<TModifierKind> _modifierKind = encoders.EncoderFor<TModifierKind>();
+  public Structured Encode(ICmpt_ModifierObject<TModifierKind> input)
+    => Structured.Empty()
+      .AddEncoded("modifierKind", input.ModifierKind, _modifierKind);
+}
+
+internal class Cmpt_PathEncoder : IEncoder<ICmpt_Path>
+{
+  public Structured Encode(ICmpt_Path input)
+    => new(input.Value);
+
+  internal static Cmpt_PathEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class Cmpt_OpDirectivesEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_OpDirectivesObject>
+{
+  private readonly IEncoder<ICmpt_Identifier> _identifier = encoders.EncoderFor<ICmpt_Identifier>();
+  private readonly IEncoder<ICmpt_OpDirective> _opDirective = encoders.EncoderFor<ICmpt_OpDirective>();
+  public Structured Encode(ICmpt_OpDirectivesObject input)
+    => Structured.Empty()
+      .AddEncoded("name", input.Name, _identifier)
+      .Add("description", input.Description.Encode())
+      .AddList("directives", input.Directives, _opDirective);
+
+  internal static Cmpt_OpDirectivesEncoder Factory(IEncoderRepository r) => new(r);
+}
+
 internal class Cmpt_OpDirectiveEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_OpDirectiveObject>
@@ -129,14 +213,6 @@ internal class Cmpt_OpDirectiveEncoder(
       .AddEncoded("argument", input.Argument, _opArgument);
 
   internal static Cmpt_OpDirectiveEncoder Factory(IEncoderRepository r) => new(r);
-}
-
-internal class Cmpt_ModifierKindEncoder : IEncoder<Cmpt_ModifierKind>
-{
-  public Structured Encode(Cmpt_ModifierKind input)
-    => new(input.ToString(), "_ModifierKind");
-
-  internal static Cmpt_ModifierKindEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class Cmpt_OpArgumentEncoder : IEncoder<ICmpt_OpArgumentObject>
@@ -200,8 +276,12 @@ internal static class Cmpt_Spec_RequestEncoders
   internal static IEncoderRepositoryBuilder AddCmpt_Spec_RequestEncoders(this IEncoderRepositoryBuilder builder)
     => builder
       .AddEncoder<ICmpt_Identifier>(Cmpt_IdentifierEncoder.Factory)
-      .AddEncoder<ICmpt_OpDirectiveObject>(Cmpt_OpDirectiveEncoder.Factory)
+      .AddEncoder<ICmpt_CollectionsObject>(Cmpt_CollectionsEncoder.Factory)
+      .AddEncoder<ICmpt_ModifiersObject>(Cmpt_ModifiersEncoder.Factory)
       .AddEncoder<Cmpt_ModifierKind>(Cmpt_ModifierKindEncoder.Factory)
+      .AddEncoder<ICmpt_Path>(Cmpt_PathEncoder.Factory)
+      .AddEncoder<ICmpt_OpDirectivesObject>(Cmpt_OpDirectivesEncoder.Factory)
+      .AddEncoder<ICmpt_OpDirectiveObject>(Cmpt_OpDirectiveEncoder.Factory)
       .AddEncoder<ICmpt_OpArgumentObject>(Cmpt_OpArgumentEncoder.Factory)
       .AddEncoder<ICmpt_OpArgValueObject>(Cmpt_OpArgValueEncoder.Factory)
       .AddEncoder<ICmpt_OpArgListObject>(Cmpt_OpArgListEncoder.Factory)

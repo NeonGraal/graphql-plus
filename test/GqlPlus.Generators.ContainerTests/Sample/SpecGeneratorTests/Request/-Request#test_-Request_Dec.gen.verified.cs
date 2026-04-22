@@ -12,7 +12,7 @@ internal class test_RequestDecoder
   public Itest_Identifier? Category { get; set; }
   public Itest_Identifier? Operation { get; set; }
   public Itest_Operation Definition { get; set; }
-  public Itest_Any? Parameters { get; set; }
+  public object? Parameters { get; set; }
 
   internal static test_RequestDecoder Factory(IDecoderRepository _) => new();
 }
@@ -23,43 +23,22 @@ internal class test_IdentifierDecoder
   internal static test_IdentifierDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_OperationDecoder
+internal class test_CollectionsDecoder
 {
-  public ICollection<Itest_OpVariable> Variables { get; set; }
-  public ICollection<Itest_OpDirective> Directives { get; set; }
-  public ICollection<Itest_OpFragment> Fragments { get; set; }
-  public Itest_OpResult Result { get; set; }
 
-  internal static test_OperationDecoder Factory(IDecoderRepository _) => new();
+  internal static test_CollectionsDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_OpVariableDecoder
+internal class test_ModifierKeyedDecoder<TModifierKind>
 {
-  public Itest_Identifier Name { get; set; }
-  public Itest_Identifier? Type { get; set; }
-  public ICollection<Itest_Modifier> Modifiers { get; set; }
-  public GqlpValue? Default { get; set; }
-  public ICollection<Itest_OpDirective> Directives { get; set; }
-
-  internal static test_OpVariableDecoder Factory(IDecoderRepository _) => new();
+  public Itest_Identifier By { get; set; }
+  public bool IsOptional { get; set; }
 }
 
-internal class test_OpDirectiveDecoder
+internal class test_ModifiersDecoder
 {
-  public Itest_Identifier Name { get; set; }
-  public Itest_OpArgument? Argument { get; set; }
 
-  internal static test_OpDirectiveDecoder Factory(IDecoderRepository _) => new();
-}
-
-internal class test_OpFragmentDecoder
-{
-  public Itest_Identifier Name { get; set; }
-  public Itest_Identifier? Type { get; set; }
-  public ICollection<Itest_OpDirective> Directives { get; set; }
-  public ICollection<Itest_OpObject> Body { get; set; }
-
-  internal static test_OpFragmentDecoder Factory(IDecoderRepository _) => new();
+  internal static test_ModifiersDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_ModifierKindDecoder
@@ -75,13 +54,67 @@ internal class test_ModifierKindDecoder
   internal static test_ModifierKindDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_ModifierDecoder
+internal class test_ModifierDecoder<TModifierKind>
 {
-  public test_ModifierKind ModifierKind { get; set; }
-  public Itest_Identifier? By { get; set; }
-  public bool? Optional { get; set; }
+  public TModifierKind ModifierKind { get; set; }
+}
 
-  internal static test_ModifierDecoder Factory(IDecoderRepository _) => new();
+internal class test_OperationDecoder
+{
+  public ICollection<Itest_OpVariable> Variables { get; set; }
+  public ICollection<Itest_OpDirective> Directives { get; set; }
+  public ICollection<Itest_OpFragment> Fragments { get; set; }
+  public Itest_OpResult Result { get; set; }
+  public IDictionary<Itest_Path, ICollection<Itest_OpSelection>> Selections { get; set; }
+
+  internal static test_OperationDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class test_PathDecoder
+{
+
+  internal static test_PathDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class test_OpDirectivesDecoder
+{
+  public Itest_Identifier Name { get; set; }
+  public ICollection<string> Description { get; set; }
+  public ICollection<Itest_OpDirective> Directives { get; set; }
+
+  internal static test_OpDirectivesDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class test_OpVariableDecoder
+{
+  public Itest_Identifier? Type { get; set; }
+  public ICollection<Itest_Modifiers> Modifiers { get; set; }
+  public GqlpValue? DefaultValue { get; set; }
+
+  internal static test_OpVariableDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class test_OpDirectiveDecoder
+{
+  public Itest_Identifier Name { get; set; }
+  public Itest_OpArgument? Argument { get; set; }
+
+  internal static test_OpDirectiveDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class test_OpFragmentDecoder
+{
+  public Itest_Identifier? Type { get; set; }
+
+  internal static test_OpFragmentDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class test_OpResultDecoder
+{
+  public Itest_Identifier? Domain { get; set; }
+  public Itest_OpArgument? Argument { get; set; }
+
+  internal static test_OpResultDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_OpArgumentDecoder
@@ -111,29 +144,17 @@ internal class test_OpArgMapDecoder
   internal static test_OpArgMapDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_OpResultDecoder
-{
-  public Itest_Identifier? Domain { get; set; }
-  public Itest_OpArgument? Argument { get; set; }
-  public ICollection<Itest_OpObject> Body { get; set; }
-
-  internal static test_OpResultDecoder Factory(IDecoderRepository _) => new();
-}
-
-internal class test_OpObjectDecoder
+internal class test_OpSelectionDecoder
 {
 
-  internal static test_OpObjectDecoder Factory(IDecoderRepository _) => new();
+  internal static test_OpSelectionDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_OpFieldDecoder
 {
-  public Itest_Identifier? Alias { get; set; }
-  public Itest_Identifier Field { get; set; }
+  public Itest_Identifier? FieldAlias { get; set; }
   public Itest_OpArgument? Argument { get; set; }
-  public ICollection<Itest_Modifier> Modifiers { get; set; }
-  public ICollection<Itest_OpDirective> Directives { get; set; }
-  public string Body { get; set; }
+  public ICollection<Itest_Modifiers> Modifiers { get; set; }
 
   internal static test_OpFieldDecoder Factory(IDecoderRepository _) => new();
 }
@@ -142,7 +163,6 @@ internal class test_OpInlineDecoder
 {
   public Itest_Identifier? Type { get; set; }
   public ICollection<Itest_OpDirective> Directives { get; set; }
-  public string Body { get; set; }
 
   internal static test_OpInlineDecoder Factory(IDecoderRepository _) => new();
 }
@@ -161,18 +181,21 @@ internal static class test__RequestDecoders
     => builder
       .AddDecoder<Itest_RequestObject>(test_RequestDecoder.Factory)
       .AddDecoder<Itest_Identifier>(test_IdentifierDecoder.Factory)
+      .AddDecoder<Itest_CollectionsObject>(test_CollectionsDecoder.Factory)
+      .AddDecoder<Itest_ModifiersObject>(test_ModifiersDecoder.Factory)
+      .AddDecoder<test_ModifierKind>(test_ModifierKindDecoder.Factory)
       .AddDecoder<Itest_OperationObject>(test_OperationDecoder.Factory)
+      .AddDecoder<Itest_Path>(test_PathDecoder.Factory)
+      .AddDecoder<Itest_OpDirectivesObject>(test_OpDirectivesDecoder.Factory)
       .AddDecoder<Itest_OpVariableObject>(test_OpVariableDecoder.Factory)
       .AddDecoder<Itest_OpDirectiveObject>(test_OpDirectiveDecoder.Factory)
       .AddDecoder<Itest_OpFragmentObject>(test_OpFragmentDecoder.Factory)
-      .AddDecoder<test_ModifierKind>(test_ModifierKindDecoder.Factory)
-      .AddDecoder<Itest_ModifierObject>(test_ModifierDecoder.Factory)
+      .AddDecoder<Itest_OpResultObject>(test_OpResultDecoder.Factory)
       .AddDecoder<Itest_OpArgumentObject>(test_OpArgumentDecoder.Factory)
       .AddDecoder<Itest_OpArgValueObject>(test_OpArgValueDecoder.Factory)
       .AddDecoder<Itest_OpArgListObject>(test_OpArgListDecoder.Factory)
       .AddDecoder<Itest_OpArgMapObject>(test_OpArgMapDecoder.Factory)
-      .AddDecoder<Itest_OpResultObject>(test_OpResultDecoder.Factory)
-      .AddDecoder<Itest_OpObjectObject>(test_OpObjectDecoder.Factory)
+      .AddDecoder<Itest_OpSelectionObject>(test_OpSelectionDecoder.Factory)
       .AddDecoder<Itest_OpFieldObject>(test_OpFieldDecoder.Factory)
       .AddDecoder<Itest_OpInlineObject>(test_OpInlineDecoder.Factory)
       .AddDecoder<Itest_OpSpreadObject>(test_OpSpreadDecoder.Factory);

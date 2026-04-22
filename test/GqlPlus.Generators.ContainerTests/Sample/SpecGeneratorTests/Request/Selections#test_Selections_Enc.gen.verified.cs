@@ -1,11 +1,11 @@
-﻿//HintName: test_Result_Enc.gen.cs
-// Generated from {CurrentDirectory}Result.graphql+
+﻿//HintName: test_Selections_Enc.gen.cs
+// Generated from {CurrentDirectory}Selections.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpEncoderBase, GeneratorType: Enc
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 
-namespace GqlPlus.GeneratorTests.Gqlp_Result;
+namespace GqlPlus.GeneratorTests.Gqlp_Selections;
 
 internal class test_OpSpreadEncoder(
   IEncoderRepository encoders
@@ -21,9 +21,9 @@ internal class test_OpSpreadEncoder(
   internal static test_OpSpreadEncoder Factory(IEncoderRepository r) => new(r);
 }
 
-internal static class test_ResultEncoders
+internal static class test_SelectionsEncoders
 {
-  internal static IEncoderRepositoryBuilder Addtest_ResultEncoders(this IEncoderRepositoryBuilder builder)
+  internal static IEncoderRepositoryBuilder Addtest_SelectionsEncoders(this IEncoderRepositoryBuilder builder)
     => builder
       .AddEncoder<Itest_OpSpreadObject>(test_OpSpreadEncoder.Factory);
 }

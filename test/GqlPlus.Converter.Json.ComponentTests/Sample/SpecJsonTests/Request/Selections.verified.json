@@ -1,5 +1,18 @@
 ﻿{
   "$mapTag": "_Schema",
+  "errors": {
+    "$list": [
+      {
+        "$mapTag": "_Error",
+        "_kind": {
+          "$value": "End",
+          "$valueTag": "_TokenKind"
+        },
+        "_message": "In _OpField can\u0027t get model for type \u0027_OpDirectives\u0027"
+      }
+    ],
+    "$listTag": "_Errors"
+  },
   "types": {
     "$mapTag": "_Map(_Type)",
     "_OpField": {
@@ -21,16 +34,7 @@
               }
             }
           ],
-          "name": "alias",
-          "object": "_OpField",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$mapTag": "_ObjectFor(_InputField)",
-          "name": "field",
+          "name": "fieldAlias",
           "object": "_OpField",
           "type": {
             "$mapTag": "_ObjBase",
@@ -70,35 +74,7 @@
           "object": "_OpField",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Modifier"
-          }
-        },
-        {
-          "$mapTag": "_ObjectFor(_InputField)",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "List",
-                "$valueTag": "_ModifierKind"
-              }
-            }
-          ],
-          "name": "directives",
-          "object": "_OpField",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_OpDirective"
-          }
-        },
-        {
-          "$mapTag": "_ObjectFor(_InputField)",
-          "description": "The body as a string as we can\u0027t have nested objects.",
-          "name": "body",
-          "object": "_OpField",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "String"
+            "name": "_Modifiers"
           }
         }
       ],
@@ -118,15 +94,7 @@
               }
             }
           ],
-          "name": "alias",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$mapTag": "_InputField",
-          "name": "field",
+          "name": "fieldAlias",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_Identifier"
@@ -163,37 +131,15 @@
           "name": "modifiers",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Modifier"
-          }
-        },
-        {
-          "$mapTag": "_InputField",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "List",
-                "$valueTag": "_ModifierKind"
-              }
-            }
-          ],
-          "name": "directives",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_OpDirective"
-          }
-        },
-        {
-          "$mapTag": "_InputField",
-          "description": "The body as a string as we can\u0027t have nested objects.",
-          "name": "body",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "String"
+            "name": "_Modifiers"
           }
         }
       ],
       "name": "_OpField",
+      "parent": {
+        "$mapTag": "_ObjBase",
+        "name": "_OpDirectives"
+      },
       "typeKind": {
         "$value": "Input",
         "$valueTag": "_TypeKind"
@@ -242,16 +188,6 @@
             "$mapTag": "_ObjBase",
             "name": "_OpDirective"
           }
-        },
-        {
-          "$mapTag": "_ObjectFor(_InputField)",
-          "description": "The body as a string as we can\u0027t have nested objects.",
-          "name": "body",
-          "object": "_OpInline",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "String"
-          }
         }
       ],
       "fields": [
@@ -292,15 +228,6 @@
             "$mapTag": "_ObjBase",
             "name": "_OpDirective"
           }
-        },
-        {
-          "$mapTag": "_InputField",
-          "description": "The body as a string as we can\u0027t have nested objects.",
-          "name": "body",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "String"
-          }
         }
       ],
       "name": "_OpInline",
@@ -309,13 +236,13 @@
         "$valueTag": "_TypeKind"
       }
     },
-    "_OpObject": {
+    "_OpSelection": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeInput",
       "allAlternates": [
         {
           "$mapTag": "_ObjectFor(_Alternate)",
-          "object": "_OpObject",
+          "object": "_OpSelection",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_OpField"
@@ -323,7 +250,7 @@
         },
         {
           "$mapTag": "_ObjectFor(_Alternate)",
-          "object": "_OpObject",
+          "object": "_OpSelection",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_OpSpread"
@@ -331,7 +258,7 @@
         },
         {
           "$mapTag": "_ObjectFor(_Alternate)",
-          "object": "_OpObject",
+          "object": "_OpSelection",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_OpInline"
@@ -361,133 +288,7 @@
           }
         }
       ],
-      "name": "_OpObject",
-      "typeKind": {
-        "$value": "Input",
-        "$valueTag": "_TypeKind"
-      }
-    },
-    "_OpResult": {
-      "$keyTag": "_Name",
-      "$mapTag": "_TypeInput",
-      "allFields": [
-        {
-          "$mapTag": "_ObjectFor(_InputField)",
-          "default": {
-            "$value": "null",
-            "$valueTag": "Null"
-          },
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "Opt",
-                "$valueTag": "_ModifierKind"
-              }
-            }
-          ],
-          "name": "domain",
-          "object": "_OpResult",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$mapTag": "_ObjectFor(_InputField)",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "Opt",
-                "$valueTag": "_ModifierKind"
-              }
-            }
-          ],
-          "name": "argument",
-          "object": "_OpResult",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_OpArgument"
-          }
-        },
-        {
-          "$mapTag": "_ObjectFor(_InputField)",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "List",
-                "$valueTag": "_ModifierKind"
-              }
-            }
-          ],
-          "name": "body",
-          "object": "_OpResult",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_OpObject"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$mapTag": "_InputField",
-          "default": {
-            "$value": "null",
-            "$valueTag": "Null"
-          },
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "Opt",
-                "$valueTag": "_ModifierKind"
-              }
-            }
-          ],
-          "name": "domain",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$mapTag": "_InputField",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "Opt",
-                "$valueTag": "_ModifierKind"
-              }
-            }
-          ],
-          "name": "argument",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_OpArgument"
-          }
-        },
-        {
-          "$mapTag": "_InputField",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "List",
-                "$valueTag": "_ModifierKind"
-              }
-            }
-          ],
-          "name": "body",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_OpObject"
-          }
-        }
-      ],
-      "name": "_OpResult",
+      "name": "_OpSelection",
       "typeKind": {
         "$value": "Input",
         "$valueTag": "_TypeKind"

@@ -1,31 +1,20 @@
-﻿/* Result
-input _OpResult {
-        domain: _Identifier? = null
-        argument: _OpArgument?
-        body: _OpObject[]
-    }
-
-input _OpObject {
+﻿/* Selections
+input _OpSelection {
     |   _OpField
     |   _OpSpread
     |   _OpInline
     }
 
 input _OpField {
-        alias: _Identifier? = null
-        field: _Identifier
+    : _OpDirectives
+        fieldAlias: _Identifier? = null
         argument: _OpArgument?
-        modifiers: _Modifier[]
-        directives: _OpDirective[]
-        "The body as a string as we can't have nested objects."
-        body: String
+        modifiers: _Modifiers[]
     }
 
 input _OpInline {
         type: _Identifier? = null
         directives: _OpDirective[]
-        "The body as a string as we can't have nested objects."
-        body: String
     }
 
 dual _OpSpread {
@@ -34,13 +23,13 @@ dual _OpSpread {
     }
 */
 
-// Generated from Spec Result
-//   with GeneratorOption: BaseType: Class, BaseName: Spec_Result, GeneratorType: Enc
+// Generated from Spec Selections
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Selections, GeneratorType: Enc
 //   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 */
 
-namespace Components.Gqlp_Spec_Result;
+namespace Components.Gqlp_Spec_Selections;
 
 internal class Cmpt_OpSpreadEncoder(
   IEncoderRepository encoders
@@ -56,9 +45,9 @@ internal class Cmpt_OpSpreadEncoder(
   internal static Cmpt_OpSpreadEncoder Factory(IEncoderRepository r) => new(r);
 }
 
-internal static class Cmpt_Spec_ResultEncoders
+internal static class Cmpt_Spec_SelectionsEncoders
 {
-  internal static IEncoderRepositoryBuilder AddCmpt_Spec_ResultEncoders(this IEncoderRepositoryBuilder builder)
+  internal static IEncoderRepositoryBuilder AddCmpt_Spec_SelectionsEncoders(this IEncoderRepositoryBuilder builder)
     => builder
       .AddEncoder<ICmpt_OpSpreadObject>(Cmpt_OpSpreadEncoder.Factory);
 }

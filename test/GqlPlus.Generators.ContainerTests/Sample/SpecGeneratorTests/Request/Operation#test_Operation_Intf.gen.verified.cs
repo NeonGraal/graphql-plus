@@ -21,22 +21,40 @@ public interface Itest_OperationObject
   ICollection<Itest_OpDirective> Directives { get; }
   ICollection<Itest_OpFragment> Fragments { get; }
   Itest_OpResult Result { get; }
+  IDictionary<Itest_Path, ICollection<Itest_OpSelection>> Selections { get; }
+}
+
+public interface Itest_Path
+  : IGqlpDomainString
+{
+}
+
+public interface Itest_OpDirectives
+  : IGqlpInterfaceBase
+{
+  Itest_OpDirectivesObject? As__OpDirectives { get; }
+}
+
+public interface Itest_OpDirectivesObject
+  : IGqlpInterfaceBase
+{
+  Itest_Identifier Name { get; }
+  ICollection<string> Description { get; }
+  ICollection<Itest_OpDirective> Directives { get; }
 }
 
 public interface Itest_OpVariable
-  : IGqlpInterfaceBase
+  : Itest_OpDirectives
 {
   Itest_OpVariableObject? As__OpVariable { get; }
 }
 
 public interface Itest_OpVariableObject
-  : IGqlpInterfaceBase
+  : Itest_OpDirectivesObject
 {
-  Itest_Identifier Name { get; }
   Itest_Identifier? Type { get; }
-  ICollection<Itest_Modifier> Modifiers { get; }
-  GqlpValue? Default { get; }
-  ICollection<Itest_OpDirective> Directives { get; }
+  ICollection<Itest_Modifiers> Modifiers { get; }
+  GqlpValue? DefaultValue { get; }
 }
 
 public interface Itest_OpDirective
@@ -53,43 +71,28 @@ public interface Itest_OpDirectiveObject
 }
 
 public interface Itest_OpFragment
-  : IGqlpInterfaceBase
+  : Itest_OpDirectives
 {
   Itest_OpFragmentObject? As__OpFragment { get; }
 }
 
 public interface Itest_OpFragmentObject
-  : IGqlpInterfaceBase
+  : Itest_OpDirectivesObject
 {
-  Itest_Identifier Name { get; }
   Itest_Identifier? Type { get; }
-  ICollection<Itest_OpDirective> Directives { get; }
-  ICollection<Itest_OpObject> Body { get; }
 }
 
-public enum test_ModifierKind
-{
-  Opt,
-  Optional = Opt,
-  List,
-  Dict,
-  Dictionary = Dict,
-  Param,
-  TypeParam = Param,
-}
-
-public interface Itest_Modifier
+public interface Itest_OpResult
   : IGqlpInterfaceBase
 {
-  Itest_ModifierObject? As__Modifier { get; }
+  Itest_OpResultObject? As__OpResult { get; }
 }
 
-public interface Itest_ModifierObject
+public interface Itest_OpResultObject
   : IGqlpInterfaceBase
 {
-  test_ModifierKind ModifierKind { get; }
-  Itest_Identifier? By { get; }
-  bool? Optional { get; }
+  Itest_Identifier? Domain { get; }
+  Itest_OpArgument? Argument { get; }
 }
 
 public interface Itest_OpArgument

@@ -1,55 +1,38 @@
-﻿//HintName: test_Result_Intf.gen.cs
-// Generated from {CurrentDirectory}Result.graphql+
+﻿//HintName: test_Selections_Intf.gen.cs
+// Generated from {CurrentDirectory}Selections.graphql+
 //   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 
-namespace GqlPlus.GeneratorTests.Gqlp_Result;
+namespace GqlPlus.GeneratorTests.Gqlp_Selections;
 
-public interface Itest_OpResult
-  : IGqlpInterfaceBase
-{
-  Itest_OpResultObject? As__OpResult { get; }
-}
-
-public interface Itest_OpResultObject
-  : IGqlpInterfaceBase
-{
-  Itest_Identifier? Domain { get; }
-  Itest_OpArgument? Argument { get; }
-  ICollection<Itest_OpObject> Body { get; }
-}
-
-public interface Itest_OpObject
+public interface Itest_OpSelection
   : IGqlpInterfaceBase
 {
   Itest_OpField? As_OpField { get; }
   Itest_OpSpread? As_OpSpread { get; }
   Itest_OpInline? As_OpInline { get; }
-  Itest_OpObjectObject? As__OpObject { get; }
+  Itest_OpSelectionObject? As__OpSelection { get; }
 }
 
-public interface Itest_OpObjectObject
+public interface Itest_OpSelectionObject
   : IGqlpInterfaceBase
 {
 }
 
 public interface Itest_OpField
-  : IGqlpInterfaceBase
+  : Itest_OpDirectives
 {
   Itest_OpFieldObject? As__OpField { get; }
 }
 
 public interface Itest_OpFieldObject
-  : IGqlpInterfaceBase
+  : Itest_OpDirectivesObject
 {
-  Itest_Identifier? Alias { get; }
-  Itest_Identifier Field { get; }
+  Itest_Identifier? FieldAlias { get; }
   Itest_OpArgument? Argument { get; }
-  ICollection<Itest_Modifier> Modifiers { get; }
-  ICollection<Itest_OpDirective> Directives { get; }
-  string Body { get; }
+  ICollection<Itest_Modifiers> Modifiers { get; }
 }
 
 public interface Itest_OpInline
@@ -63,7 +46,6 @@ public interface Itest_OpInlineObject
 {
   Itest_Identifier? Type { get; }
   ICollection<Itest_OpDirective> Directives { get; }
-  string Body { get; }
 }
 
 public interface Itest_OpSpread

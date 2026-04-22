@@ -9,20 +9,51 @@ input _Request {
 
 domain _Identifier { String /[A-Za-z_][A-Za-z0-9_]*/ }
 
+dual _Collections {
+    | _Modifier<_ModifierKind.List>
+    | _ModifierKeyed<_ModifierKind.Dictionary>
+    | _ModifierKeyed<_ModifierKind.TypeParam>
+    }
+
+dual _ModifierKeyed<$modifierKind:_ModifierKind> {
+    : _Modifier<$modifierKind>
+        by: _Identifier
+        isOptional: Boolean
+    }
+
+dual _Modifiers {
+    | _Modifier<_ModifierKind.Optional>
+    | _Collections
+    }
+
+enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+
+dual _Modifier<$modifierKind:_ModifierKind> {
+        modifierKind: $modifierKind
+    }
+
 input _Operation {
         variables: _OpVariable[]
         directives: _OpDirective[]
         fragments: _OpFragment[]
         result: _OpResult
+        selections: _OpSelection[][_Path]
     | "Parsed into above fields, plus Request category and operation" String
     }
 
-input _OpVariable {
+domain _Path { String /(\$([A-Za-z]\w*)?|\.+)?\d+(\.\d+)*/ }
+
+dual _OpDirectives {
         name: _Identifier
-        type: _Identifier? = null
-        modifiers: _Modifier[]
-        default: Value?
+        description: String[]
         directives: _OpDirective[]
+
+}
+input _OpVariable {
+    : _OpDirectives
+        type: _Identifier? = null
+        modifiers: _Modifiers[]
+        defaultValue: Value?
     }
 
 dual _OpDirective {
@@ -31,18 +62,13 @@ dual _OpDirective {
     }
 
 input _OpFragment {
-        name: _Identifier
+    : _OpDirectives
         type: _Identifier? = null
-        directives: _OpDirective[]
-        body: _OpObject[]
     }
 
-enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
-
-input _Modifier {
-        modifierKind: _ModifierKind
-        by: _Identifier?
-        optional: Boolean?
+input _OpResult {
+        domain: _Identifier? = null
+        argument: _OpArgument?
     }
 
 dual _OpArgument {
@@ -66,33 +92,22 @@ dual _OpArgMap {
     | _OpArgValue[Scalar]
     }
 
-input _OpResult {
-        domain: _Identifier? = null
-        argument: _OpArgument?
-        body: _OpObject[]
-    }
-
-input _OpObject {
+input _OpSelection {
     |   _OpField
     |   _OpSpread
     |   _OpInline
     }
 
 input _OpField {
-        alias: _Identifier? = null
-        field: _Identifier
+    : _OpDirectives
+        fieldAlias: _Identifier? = null
         argument: _OpArgument?
-        modifiers: _Modifier[]
-        directives: _OpDirective[]
-        "The body as a string as we can't have nested objects."
-        body: String
+        modifiers: _Modifiers[]
     }
 
 input _OpInline {
         type: _Identifier? = null
         directives: _OpDirective[]
-        "The body as a string as we can't have nested objects."
-        body: String
     }
 
 dual _OpSpread {
@@ -124,7 +139,7 @@ public class Cmpt_RequestObject
   public ICmpt_Identifier? Category { get; set; }
   public ICmpt_Identifier? Operation { get; set; }
   public ICmpt_Operation Definition { get; set; }
-  public ICmpt_Any? Parameters { get; set; }
+  public object? Parameters { get; set; }
 
   public Cmpt_RequestObject
     ( ICmpt_Operation pdefinition
@@ -138,6 +153,93 @@ public class Cmpt_Identifier
   : GqlpDomainString
   , ICmpt_Identifier
 {
+}
+
+public class Cmpt_Collections
+  : Spec_-Request
+  , ICmpt_Collections
+{
+  public ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindList { get; set; }
+  public ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindDictionary { get; set; }
+  public ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindTypeParam { get; set; }
+  public ICmpt_CollectionsObject? As__Collections { get; set; }
+}
+
+public class Cmpt_CollectionsObject
+  : Spec_-Request
+  , ICmpt_CollectionsObject
+{
+
+  public Cmpt_CollectionsObject
+    ()
+  {
+  }
+}
+
+public class Cmpt_ModifierKeyed<TModifierKind>
+  : Cmpt_Modifier<TModifierKind>
+  , ICmpt_ModifierKeyed<TModifierKind>
+{
+  public ICmpt_ModifierKeyedObject<TModifierKind>? As__ModifierKeyed { get; set; }
+}
+
+public class Cmpt_ModifierKeyedObject<TModifierKind>
+  : Cmpt_ModifierObject<TModifierKind>
+  , ICmpt_ModifierKeyedObject<TModifierKind>
+{
+  public ICmpt_Identifier By { get; set; }
+  public bool IsOptional { get; set; }
+
+  public Cmpt_ModifierKeyedObject
+    ( TModifierKind pmodifierKind
+    , ICmpt_Identifier pby
+    , bool pisOptional
+    ) : base(pmodifierKind)
+  {
+    By = pby;
+    IsOptional = pisOptional;
+  }
+}
+
+public class Cmpt_Modifiers
+  : Spec_-Request
+  , ICmpt_Modifiers
+{
+  public ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindOptional { get; set; }
+  public ICmpt_Collections? As_Collections { get; set; }
+  public ICmpt_ModifiersObject? As__Modifiers { get; set; }
+}
+
+public class Cmpt_ModifiersObject
+  : Spec_-Request
+  , ICmpt_ModifiersObject
+{
+
+  public Cmpt_ModifiersObject
+    ()
+  {
+  }
+}
+
+public class Cmpt_Modifier<TModifierKind>
+  : Spec_-Request
+  , ICmpt_Modifier<TModifierKind>
+{
+  public ICmpt_ModifierObject<TModifierKind>? As__Modifier { get; set; }
+}
+
+public class Cmpt_ModifierObject<TModifierKind>
+  : Spec_-Request
+  , ICmpt_ModifierObject<TModifierKind>
+{
+  public TModifierKind ModifierKind { get; set; }
+
+  public Cmpt_ModifierObject
+    ( TModifierKind pmodifierKind
+    )
+  {
+    ModifierKind = pmodifierKind;
+  }
 }
 
 public class Cmpt_Operation
@@ -156,47 +258,80 @@ public class Cmpt_OperationObject
   public ICollection<ICmpt_OpDirective> Directives { get; set; }
   public ICollection<ICmpt_OpFragment> Fragments { get; set; }
   public ICmpt_OpResult Result { get; set; }
+  public IDictionary<ICmpt_Path, ICollection<ICmpt_OpSelection>> Selections { get; set; }
 
   public Cmpt_OperationObject
     ( ICollection<ICmpt_OpVariable> pvariables
     , ICollection<ICmpt_OpDirective> pdirectives
     , ICollection<ICmpt_OpFragment> pfragments
     , ICmpt_OpResult presult
+    , IDictionary<ICmpt_Path, ICollection<ICmpt_OpSelection>> pselections
     )
   {
     Variables = pvariables;
     Directives = pdirectives;
     Fragments = pfragments;
     Result = presult;
+    Selections = pselections;
+  }
+}
+
+public class Cmpt_Path
+  : GqlpDomainString
+  , ICmpt_Path
+{
+}
+
+public class Cmpt_OpDirectives
+  : Spec_-Request
+  , ICmpt_OpDirectives
+{
+  public ICmpt_OpDirectivesObject? As__OpDirectives { get; set; }
+}
+
+public class Cmpt_OpDirectivesObject
+  : Spec_-Request
+  , ICmpt_OpDirectivesObject
+{
+  public ICmpt_Identifier Name { get; set; }
+  public ICollection<string> Description { get; set; }
+  public ICollection<ICmpt_OpDirective> Directives { get; set; }
+
+  public Cmpt_OpDirectivesObject
+    ( ICmpt_Identifier pname
+    , ICollection<string> pdescription
+    , ICollection<ICmpt_OpDirective> pdirectives
+    )
+  {
+    Name = pname;
+    Description = pdescription;
+    Directives = pdirectives;
   }
 }
 
 public class Cmpt_OpVariable
-  : Spec_-Request
+  : Cmpt_OpDirectives
   , ICmpt_OpVariable
 {
   public ICmpt_OpVariableObject? As__OpVariable { get; set; }
 }
 
 public class Cmpt_OpVariableObject
-  : Spec_-Request
+  : Cmpt_OpDirectivesObject
   , ICmpt_OpVariableObject
 {
-  public ICmpt_Identifier Name { get; set; }
   public ICmpt_Identifier? Type { get; set; }
-  public ICollection<ICmpt_Modifier> Modifiers { get; set; }
-  public GqlpValue? Default { get; set; }
-  public ICollection<ICmpt_OpDirective> Directives { get; set; }
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
+  public GqlpValue? DefaultValue { get; set; }
 
   public Cmpt_OpVariableObject
     ( ICmpt_Identifier pname
-    , ICollection<ICmpt_Modifier> pmodifiers
+    , ICollection<string> pdescription
     , ICollection<ICmpt_OpDirective> pdirectives
-    )
+    , ICollection<ICmpt_Modifiers> pmodifiers
+    ) : base(pname, pdescription, pdirectives)
   {
-    Name = pname;
     Modifiers = pmodifiers;
-    Directives = pdirectives;
   }
 }
 
@@ -223,53 +358,44 @@ public class Cmpt_OpDirectiveObject
 }
 
 public class Cmpt_OpFragment
-  : Spec_-Request
+  : Cmpt_OpDirectives
   , ICmpt_OpFragment
 {
   public ICmpt_OpFragmentObject? As__OpFragment { get; set; }
 }
 
 public class Cmpt_OpFragmentObject
-  : Spec_-Request
+  : Cmpt_OpDirectivesObject
   , ICmpt_OpFragmentObject
 {
-  public ICmpt_Identifier Name { get; set; }
   public ICmpt_Identifier? Type { get; set; }
-  public ICollection<ICmpt_OpDirective> Directives { get; set; }
-  public ICollection<ICmpt_OpObject> Body { get; set; }
 
   public Cmpt_OpFragmentObject
     ( ICmpt_Identifier pname
+    , ICollection<string> pdescription
     , ICollection<ICmpt_OpDirective> pdirectives
-    , ICollection<ICmpt_OpObject> pbody
-    )
+    ) : base(pname, pdescription, pdirectives)
   {
-    Name = pname;
-    Directives = pdirectives;
-    Body = pbody;
   }
 }
 
-public class Cmpt_Modifier
+public class Cmpt_OpResult
   : Spec_-Request
-  , ICmpt_Modifier
+  , ICmpt_OpResult
 {
-  public ICmpt_ModifierObject? As__Modifier { get; set; }
+  public ICmpt_OpResultObject? As__OpResult { get; set; }
 }
 
-public class Cmpt_ModifierObject
+public class Cmpt_OpResultObject
   : Spec_-Request
-  , ICmpt_ModifierObject
+  , ICmpt_OpResultObject
 {
-  public Cmpt_ModifierKind ModifierKind { get; set; }
-  public ICmpt_Identifier? By { get; set; }
-  public bool? Optional { get; set; }
+  public ICmpt_Identifier? Domain { get; set; }
+  public ICmpt_OpArgument? Argument { get; set; }
 
-  public Cmpt_ModifierObject
-    ( Cmpt_ModifierKind pmodifierKind
-    )
+  public Cmpt_OpResultObject
+    ()
   {
-    ModifierKind = pmodifierKind;
   }
 }
 
@@ -360,79 +486,50 @@ public class Cmpt_OpArgMapObject
   }
 }
 
-public class Cmpt_OpResult
+public class Cmpt_OpSelection
   : Spec_-Request
-  , ICmpt_OpResult
-{
-  public ICmpt_OpResultObject? As__OpResult { get; set; }
-}
-
-public class Cmpt_OpResultObject
-  : Spec_-Request
-  , ICmpt_OpResultObject
-{
-  public ICmpt_Identifier? Domain { get; set; }
-  public ICmpt_OpArgument? Argument { get; set; }
-  public ICollection<ICmpt_OpObject> Body { get; set; }
-
-  public Cmpt_OpResultObject
-    ( ICollection<ICmpt_OpObject> pbody
-    )
-  {
-    Body = pbody;
-  }
-}
-
-public class Cmpt_OpObject
-  : Spec_-Request
-  , ICmpt_OpObject
+  , ICmpt_OpSelection
 {
   public ICmpt_OpField? As_OpField { get; set; }
   public ICmpt_OpSpread? As_OpSpread { get; set; }
   public ICmpt_OpInline? As_OpInline { get; set; }
-  public ICmpt_OpObjectObject? As__OpObject { get; set; }
+  public ICmpt_OpSelectionObject? As__OpSelection { get; set; }
 }
 
-public class Cmpt_OpObjectObject
+public class Cmpt_OpSelectionObject
   : Spec_-Request
-  , ICmpt_OpObjectObject
+  , ICmpt_OpSelectionObject
 {
 
-  public Cmpt_OpObjectObject
+  public Cmpt_OpSelectionObject
     ()
   {
   }
 }
 
 public class Cmpt_OpField
-  : Spec_-Request
+  : Cmpt_OpDirectives
   , ICmpt_OpField
 {
   public ICmpt_OpFieldObject? As__OpField { get; set; }
 }
 
 public class Cmpt_OpFieldObject
-  : Spec_-Request
+  : Cmpt_OpDirectivesObject
   , ICmpt_OpFieldObject
 {
-  public ICmpt_Identifier? Alias { get; set; }
-  public ICmpt_Identifier Field { get; set; }
+  public ICmpt_Identifier? FieldAlias { get; set; }
   public ICmpt_OpArgument? Argument { get; set; }
-  public ICollection<ICmpt_Modifier> Modifiers { get; set; }
-  public ICollection<ICmpt_OpDirective> Directives { get; set; }
-  public string Body { get; set; }
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 
   public Cmpt_OpFieldObject
-    ( ICmpt_Identifier pfield
-    , ICollection<ICmpt_Modifier> pmodifiers
+    ( ICmpt_Identifier pname
+    , ICollection<string> pdescription
     , ICollection<ICmpt_OpDirective> pdirectives
-    , string pbody
-    )
+    , ICollection<ICmpt_Modifiers> pmodifiers
+    ) : base(pname, pdescription, pdirectives)
   {
-    Field = pfield;
     Modifiers = pmodifiers;
-    Directives = pdirectives;
-    Body = pbody;
   }
 }
 
@@ -449,15 +546,12 @@ public class Cmpt_OpInlineObject
 {
   public ICmpt_Identifier? Type { get; set; }
   public ICollection<ICmpt_OpDirective> Directives { get; set; }
-  public string Body { get; set; }
 
   public Cmpt_OpInlineObject
     ( ICollection<ICmpt_OpDirective> pdirectives
-    , string pbody
     )
   {
     Directives = pdirectives;
-    Body = pbody;
   }
 }
 

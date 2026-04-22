@@ -1,16 +1,15 @@
 ﻿!_Schema
+errors: !_Errors
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _OpField can't get model for type '_OpDirectives'"
 types: !_Map(_Type)
   !_Name _OpField: !_TypeInput
     allFields:
       - !_ObjectFor(_InputField)
         default: !Null null
         modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: alias
-        object: _OpField
-        type: !_ObjBase
-          name: _Identifier
-      - !_ObjectFor(_InputField)
-        name: field
+        name: fieldAlias
         object: _OpField
         type: !_ObjBase
           name: _Identifier
@@ -25,28 +24,12 @@ types: !_Map(_Type)
         name: modifiers
         object: _OpField
         type: !_ObjBase
-          name: _Modifier
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: directives
-        object: _OpField
-        type: !_ObjBase
-          name: _OpDirective
-      - !_ObjectFor(_InputField)
-        description: "The body as a string as we can't have nested objects."
-        name: body
-        object: _OpField
-        type: !_ObjBase
-          name: String
+          name: _Modifiers
     fields:
       - !_InputField
         default: !Null null
         modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: alias
-        type: !_ObjBase
-          name: _Identifier
-      - !_InputField
-        name: field
+        name: fieldAlias
         type: !_ObjBase
           name: _Identifier
       - !_InputField
@@ -58,18 +41,10 @@ types: !_Map(_Type)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: modifiers
         type: !_ObjBase
-          name: _Modifier
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: directives
-        type: !_ObjBase
-          name: _OpDirective
-      - !_InputField
-        description: "The body as a string as we can't have nested objects."
-        name: body
-        type: !_ObjBase
-          name: String
+          name: _Modifiers
     name: _OpField
+    parent: !_ObjBase
+      name: _OpDirectives
     typeKind: !_TypeKind Input
   !_Name _OpInline: !_TypeInput
     allFields:
@@ -86,12 +61,6 @@ types: !_Map(_Type)
         object: _OpInline
         type: !_ObjBase
           name: _OpDirective
-      - !_ObjectFor(_InputField)
-        description: "The body as a string as we can't have nested objects."
-        name: body
-        object: _OpInline
-        type: !_ObjBase
-          name: String
     fields:
       - !_InputField
         default: !Null null
@@ -104,25 +73,20 @@ types: !_Map(_Type)
         name: directives
         type: !_ObjBase
           name: _OpDirective
-      - !_InputField
-        description: "The body as a string as we can't have nested objects."
-        name: body
-        type: !_ObjBase
-          name: String
     name: _OpInline
     typeKind: !_TypeKind Input
-  !_Name _OpObject: !_TypeInput
+  !_Name _OpSelection: !_TypeInput
     allAlternates:
       - !_ObjectFor(_Alternate)
-        object: _OpObject
+        object: _OpSelection
         type: !_ObjBase
           name: _OpField
       - !_ObjectFor(_Alternate)
-        object: _OpObject
+        object: _OpSelection
         type: !_ObjBase
           name: _OpSpread
       - !_ObjectFor(_Alternate)
-        object: _OpObject
+        object: _OpSelection
         type: !_ObjBase
           name: _OpInline
     alternates:
@@ -135,47 +99,7 @@ types: !_Map(_Type)
       - !_Alternate
         type: !_ObjBase
           name: _OpInline
-    name: _OpObject
-    typeKind: !_TypeKind Input
-  !_Name _OpResult: !_TypeInput
-    allFields:
-      - !_ObjectFor(_InputField)
-        default: !Null null
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: domain
-        object: _OpResult
-        type: !_ObjBase
-          name: _Identifier
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: argument
-        object: _OpResult
-        type: !_ObjBase
-          name: _OpArgument
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: body
-        object: _OpResult
-        type: !_ObjBase
-          name: _OpObject
-    fields:
-      - !_InputField
-        default: !Null null
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: domain
-        type: !_ObjBase
-          name: _Identifier
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: argument
-        type: !_ObjBase
-          name: _OpArgument
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: body
-        type: !_ObjBase
-          name: _OpObject
-    name: _OpResult
+    name: _OpSelection
     typeKind: !_TypeKind Input
   !_Name _OpSpread: !_TypeDual
     allFields:

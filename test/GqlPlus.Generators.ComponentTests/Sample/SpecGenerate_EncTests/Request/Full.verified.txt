@@ -8,6 +8,29 @@ input _Request {
     }
 
 domain _Identifier { String /[A-Za-z_][A-Za-z0-9_]*/ }
+
+dual _Collections {
+    | _Modifier<_ModifierKind.List>
+    | _ModifierKeyed<_ModifierKind.Dictionary>
+    | _ModifierKeyed<_ModifierKind.TypeParam>
+    }
+
+dual _ModifierKeyed<$modifierKind:_ModifierKind> {
+    : _Modifier<$modifierKind>
+        by: _Identifier
+        isOptional: Boolean
+    }
+
+dual _Modifiers {
+    | _Modifier<_ModifierKind.Optional>
+    | _Collections
+    }
+
+enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+
+dual _Modifier<$modifierKind:_ModifierKind> {
+        modifierKind: $modifierKind
+    }
 */
 
 // Generated from Spec Full
@@ -26,9 +49,58 @@ internal class Cmpt_IdentifierEncoder : IEncoder<ICmpt_Identifier>
   internal static Cmpt_IdentifierEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class Cmpt_CollectionsEncoder : IEncoder<ICmpt_CollectionsObject>
+{
+  public Structured Encode(ICmpt_CollectionsObject input)
+    => Structured.Empty();
+
+  internal static Cmpt_CollectionsEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class Cmpt_ModifierKeyedEncoder<TModifierKind>(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_ModifierKeyedObject<TModifierKind>>
+{
+  private readonly IEncoder<ICmpt_ModifierObject<TModifierKind>> _modifier = encoders.EncoderFor<ICmpt_ModifierObject<TModifierKind>>();
+  private readonly IEncoder<ICmpt_Identifier> _identifier = encoders.EncoderFor<ICmpt_Identifier>();
+  public Structured Encode(ICmpt_ModifierKeyedObject<TModifierKind> input)
+    => _modifier.Encode(input)
+      .AddEncoded("by", input.By, _identifier)
+      .Add("isOptional", input.IsOptional);
+}
+
+internal class Cmpt_ModifiersEncoder : IEncoder<ICmpt_ModifiersObject>
+{
+  public Structured Encode(ICmpt_ModifiersObject input)
+    => Structured.Empty();
+
+  internal static Cmpt_ModifiersEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class Cmpt_ModifierKindEncoder : IEncoder<Cmpt_ModifierKind>
+{
+  public Structured Encode(Cmpt_ModifierKind input)
+    => new(input.ToString(), "_ModifierKind");
+
+  internal static Cmpt_ModifierKindEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class Cmpt_ModifierEncoder<TModifierKind>(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_ModifierObject<TModifierKind>>
+{
+  private readonly IEncoder<TModifierKind> _modifierKind = encoders.EncoderFor<TModifierKind>();
+  public Structured Encode(ICmpt_ModifierObject<TModifierKind> input)
+    => Structured.Empty()
+      .AddEncoded("modifierKind", input.ModifierKind, _modifierKind);
+}
+
 internal static class Cmpt_Spec_FullEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Spec_FullEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmpt_Identifier>(Cmpt_IdentifierEncoder.Factory);
+      .AddEncoder<ICmpt_Identifier>(Cmpt_IdentifierEncoder.Factory)
+      .AddEncoder<ICmpt_CollectionsObject>(Cmpt_CollectionsEncoder.Factory)
+      .AddEncoder<ICmpt_ModifiersObject>(Cmpt_ModifiersEncoder.Factory)
+      .AddEncoder<Cmpt_ModifierKind>(Cmpt_ModifierKindEncoder.Factory);
 }

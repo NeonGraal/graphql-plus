@@ -43,3 +43,104 @@ Success
   !DX R@029/0009
   /[A-Za-z_][A-Za-z0-9_]*/
 }
+{
+  !Du I@006/0011
+  _Collections
+  |
+  I@007/0012
+  _Modifier
+  <
+    I@017/0012
+    _ModifierKind.List
+  >
+  I@007/0013
+  _ModifierKeyed
+  <
+    I@022/0013
+    _ModifierKind.Dictionary
+  >
+  I@007/0014
+  _ModifierKeyed
+  <
+    I@022/0014
+    _ModifierKind.TypeParam
+  >
+}
+{
+  !Du I@006/0017
+  _ModifierKeyed
+  <
+    I@022/0017
+    $modifierKind
+    :_ModifierKind
+  >
+  :
+  I@007/0018
+  _Modifier
+  <
+    I@018/0018
+    $modifierKind
+  >
+  {
+    !DF I@009/0019
+    by
+    :
+    I@013/0019
+    _Identifier
+    !DF I@009/0020
+    isOptional
+    :
+    I@021/0020
+    Boolean
+  }
+}
+{
+  !Du I@006/0023
+  _Modifiers
+  |
+  I@007/0024
+  _Modifier
+  <
+    I@017/0024
+    _ModifierKind.Optional
+  >
+  I@007/0025
+  _Collections
+}
+{
+  !En I@006/0028
+  _ModifierKind
+  !EL I@022/0028
+  Opt
+  [
+    Optional
+  ]
+  !EL I@036/0028
+  List
+  !EL I@041/0028
+  Dict
+  [
+    Dictionary
+  ]
+  !EL I@058/0028
+  Param
+  [
+    TypeParam
+  ]
+}
+{
+  !Du I@006/0030
+  _Modifier
+  <
+    I@017/0030
+    $modifierKind
+    :_ModifierKind
+  >
+  {
+    !DF I@009/0031
+    modifierKind
+    :
+    I@024/0031
+    $modifierKind
+  }
+}

@@ -1,85 +1,53 @@
-﻿//HintName: test_Result_Model.gen.cs
-// Generated from {CurrentDirectory}Result.graphql+
+﻿//HintName: test_Selections_Model.gen.cs
+// Generated from {CurrentDirectory}Selections.graphql+
 //   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 */
 
-namespace GqlPlus.GeneratorTests.Gqlp_Result;
+namespace GqlPlus.GeneratorTests.Gqlp_Selections;
 
-public class test_OpResult
+public class test_OpSelection
   : GqlpModelBase
-  , Itest_OpResult
-{
-  public Itest_OpResultObject? As__OpResult { get; set; }
-}
-
-public class test_OpResultObject
-  : GqlpModelBase
-  , Itest_OpResultObject
-{
-  public Itest_Identifier? Domain { get; set; }
-  public Itest_OpArgument? Argument { get; set; }
-  public ICollection<Itest_OpObject> Body { get; set; }
-
-  public test_OpResultObject
-    ( ICollection<Itest_OpObject> pbody
-    )
-  {
-    Body = pbody;
-  }
-}
-
-public class test_OpObject
-  : GqlpModelBase
-  , Itest_OpObject
+  , Itest_OpSelection
 {
   public Itest_OpField? As_OpField { get; set; }
   public Itest_OpSpread? As_OpSpread { get; set; }
   public Itest_OpInline? As_OpInline { get; set; }
-  public Itest_OpObjectObject? As__OpObject { get; set; }
+  public Itest_OpSelectionObject? As__OpSelection { get; set; }
 }
 
-public class test_OpObjectObject
+public class test_OpSelectionObject
   : GqlpModelBase
-  , Itest_OpObjectObject
+  , Itest_OpSelectionObject
 {
 
-  public test_OpObjectObject
+  public test_OpSelectionObject
     ()
   {
   }
 }
 
 public class test_OpField
-  : GqlpModelBase
+  : test_OpDirectives
   , Itest_OpField
 {
   public Itest_OpFieldObject? As__OpField { get; set; }
 }
 
 public class test_OpFieldObject
-  : GqlpModelBase
+  : test_OpDirectivesObject
   , Itest_OpFieldObject
 {
-  public Itest_Identifier? Alias { get; set; }
-  public Itest_Identifier Field { get; set; }
+  public Itest_Identifier? FieldAlias { get; set; }
   public Itest_OpArgument? Argument { get; set; }
-  public ICollection<Itest_Modifier> Modifiers { get; set; }
-  public ICollection<Itest_OpDirective> Directives { get; set; }
-  public string Body { get; set; }
+  public ICollection<Itest_Modifiers> Modifiers { get; set; }
 
   public test_OpFieldObject
-    ( Itest_Identifier pfield
-    , ICollection<Itest_Modifier> pmodifiers
-    , ICollection<Itest_OpDirective> pdirectives
-    , string pbody
+    ( ICollection<Itest_Modifiers> pmodifiers
     )
   {
-    Field = pfield;
     Modifiers = pmodifiers;
-    Directives = pdirectives;
-    Body = pbody;
   }
 }
 
@@ -96,15 +64,12 @@ public class test_OpInlineObject
 {
   public Itest_Identifier? Type { get; set; }
   public ICollection<Itest_OpDirective> Directives { get; set; }
-  public string Body { get; set; }
 
   public test_OpInlineObject
     ( ICollection<Itest_OpDirective> pdirectives
-    , string pbody
     )
   {
     Directives = pdirectives;
-    Body = pbody;
   }
 }
 

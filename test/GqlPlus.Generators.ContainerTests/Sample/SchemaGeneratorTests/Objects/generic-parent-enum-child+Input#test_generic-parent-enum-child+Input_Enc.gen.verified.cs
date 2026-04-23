@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_child_Input;
 internal class testEnumGnrcPrntEnumChildInpEncoder : IEncoder<testEnumGnrcPrntEnumChildInp>
 {
   public Structured Encode(testEnumGnrcPrntEnumChildInp input)
-    => new(input.ToString(), "_EnumGnrcPrntEnumChildInp");
+    => input.EncodeEnum("EnumGnrcPrntEnumChildInp");
 
   internal static testEnumGnrcPrntEnumChildInpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -18,7 +18,7 @@ internal class testEnumGnrcPrntEnumChildInpEncoder : IEncoder<testEnumGnrcPrntEn
 internal class testParentGnrcPrntEnumChildInpEncoder : IEncoder<testParentGnrcPrntEnumChildInp>
 {
   public Structured Encode(testParentGnrcPrntEnumChildInp input)
-    => new(input.ToString(), "_ParentGnrcPrntEnumChildInp");
+    => input.EncodeEnum("ParentGnrcPrntEnumChildInp");
 
   internal static testParentGnrcPrntEnumChildInpEncoder Factory(IEncoderRepository _) => new();
 }

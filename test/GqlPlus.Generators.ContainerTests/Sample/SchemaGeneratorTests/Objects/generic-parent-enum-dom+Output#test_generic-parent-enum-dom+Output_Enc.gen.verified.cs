@@ -31,7 +31,7 @@ internal class testFieldGnrcPrntEnumDomOutpEncoder<TRef>(
 internal class testEnumGnrcPrntEnumDomOutpEncoder : IEncoder<testEnumGnrcPrntEnumDomOutp>
 {
   public Structured Encode(testEnumGnrcPrntEnumDomOutp input)
-    => new(input.ToString(), "_EnumGnrcPrntEnumDomOutp");
+    => input.EncodeEnum("EnumGnrcPrntEnumDomOutp");
 
   internal static testEnumGnrcPrntEnumDomOutpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -39,7 +39,7 @@ internal class testEnumGnrcPrntEnumDomOutpEncoder : IEncoder<testEnumGnrcPrntEnu
 internal class testDomGnrcPrntEnumDomOutpEncoder : IEncoder<ItestDomGnrcPrntEnumDomOutp>
 {
   public Structured Encode(ItestDomGnrcPrntEnumDomOutp input)
-    => new(input.ToString(), "testEnumGnrcPrntEnumDomOutp");
+    => input.Value?.EncodeEnum("testEnumGnrcPrntEnumDomOutp")!;
 
   internal static testDomGnrcPrntEnumDomOutpEncoder Factory(IEncoderRepository _) => new();
 }

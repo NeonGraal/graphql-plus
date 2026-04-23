@@ -16,5 +16,5 @@ public class NumberDecoderTests
     => decimal.TryParse(value, out decimal result) ? result : null;
   protected override decimal? ExpectedList(decimal value) => value;
   protected override decimal? ExpectedDict(string key, decimal value) => null;
-  protected override Structured Value(decimal value) => new(value);
+  protected override Structured Value(decimal value) => value.Encode();
 }

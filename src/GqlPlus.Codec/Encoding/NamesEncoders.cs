@@ -18,7 +18,7 @@ internal class DescribedEncoder<TModel>
   internal Structured Described(Structured encoded, TModel model)
     => encoded
     .AddIf(string.IsNullOrWhiteSpace(model.Description),
-      onFalse: f => f.Add("description", new(model.Description)));
+      onFalse: f => f.Add("description", model.Description?.Encode()));
 
   internal override Structured Encode(TModel model)
     => Described(base.Encode(model), model);
@@ -32,7 +32,7 @@ internal class NamedEncoder<TModel>
 {
   internal override Structured Encode(TModel model)
     => base.Encode(model)
-      .Add("name", model.Name);
+      .Add("name", model.Name?.Encode());
 
   internal static new NamedEncoder<TModel> Factory(IEncoderRepository _) => new();
 }

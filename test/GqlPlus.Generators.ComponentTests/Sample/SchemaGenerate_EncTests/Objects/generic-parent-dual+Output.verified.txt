@@ -33,7 +33,7 @@ internal class CmptAltGnrcPrntDualOutpEncoder : IEncoder<ICmptAltGnrcPrntDualOut
 {
   public Structured Encode(ICmptAltGnrcPrntDualOutpObject input)
     => Structured.Empty()
-      .Add("alt", input.Alt);
+      .Add("alt", input.Alt.Encode());
 
   internal static CmptAltGnrcPrntDualOutpEncoder Factory(IEncoderRepository _) => new();
 }

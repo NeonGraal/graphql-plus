@@ -19,7 +19,7 @@ internal class testFieldEnumDualEncoder : IEncoder<ItestFieldEnumDualObject>
 internal class testEnumFieldEnumDualEncoder : IEncoder<testEnumFieldEnumDual>
 {
   public Structured Encode(testEnumFieldEnumDual input)
-    => new(input.ToString(), "_EnumFieldEnumDual");
+    => input.EncodeEnum("EnumFieldEnumDual");
 
   internal static testEnumFieldEnumDualEncoder Factory(IEncoderRepository _) => new();
 }

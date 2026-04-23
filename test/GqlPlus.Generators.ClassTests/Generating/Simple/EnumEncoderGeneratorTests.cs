@@ -28,5 +28,5 @@ public class EnumEncoderGeneratorTests
     => new EnumBuilder(name);
 
   internal override ForType ForGeneratedItem(string name, string item)
-    => ForGeneratedEncoder("input.ToString()");
+    => ForGeneratedEncoder($"input.EncodeEnum(\"{name}\")");
 }

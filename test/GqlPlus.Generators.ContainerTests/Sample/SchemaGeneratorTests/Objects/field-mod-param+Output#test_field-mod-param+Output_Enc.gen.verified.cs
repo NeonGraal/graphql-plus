@@ -17,7 +17,7 @@ internal class testFldFieldModParamOutpEncoder : IEncoder<ItestFldFieldModParamO
 {
   public Structured Encode(ItestFldFieldModParamOutpObject input)
     => Structured.Empty()
-      .Add("field", input.Field);
+      .Add("field", input.Field.Encode());
 
   internal static testFldFieldModParamOutpEncoder Factory(IEncoderRepository _) => new();
 }

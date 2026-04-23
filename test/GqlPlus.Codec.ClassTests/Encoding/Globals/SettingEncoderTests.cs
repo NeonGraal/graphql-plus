@@ -21,7 +21,7 @@ public class SettingEncoderTests
     // Arrange
     SimpleModel simple = SimpleModel.Str(value);
     ConstantModel constant = new(simple);
-    _constant.Encode(constant).Returns(new Structured(value));
+    _constant.Encode(constant).Returns(value.Encode());
 
     // Act
     EncodeAndCheck(new(name, constant, ""),

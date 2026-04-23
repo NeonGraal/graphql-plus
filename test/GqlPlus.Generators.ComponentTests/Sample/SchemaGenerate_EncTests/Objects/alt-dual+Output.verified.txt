@@ -23,7 +23,7 @@ internal class CmptObjDualAltDualOutpEncoder : IEncoder<ICmptObjDualAltDualOutpO
 {
   public Structured Encode(ICmptObjDualAltDualOutpObject input)
     => Structured.Empty()
-      .Add("alt", input.Alt);
+      .Add("alt", input.Alt.Encode());
 
   internal static CmptObjDualAltDualOutpEncoder Factory(IEncoderRepository _) => new();
 }

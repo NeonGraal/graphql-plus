@@ -11,7 +11,7 @@ internal class testFieldSmplOutpEncoder : IEncoder<ItestFieldSmplOutpObject>
 {
   public Structured Encode(ItestFieldSmplOutpObject input)
     => Structured.Empty()
-      .Add("field", input.Field);
+      .Add("field", input.Field.Encode());
 
   internal static testFieldSmplOutpEncoder Factory(IEncoderRepository _) => new();
 }

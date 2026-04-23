@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_all;
 internal class testGuidEncoder : IEncoder<ItestGuid>
 {
   public Structured Encode(ItestGuid input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static testGuidEncoder Factory(IEncoderRepository _) => new();
 }
@@ -18,7 +18,7 @@ internal class testGuidEncoder : IEncoder<ItestGuid>
 internal class testOneEncoder : IEncoder<testOne>
 {
   public Structured Encode(testOne input)
-    => new(input.ToString(), "_One");
+    => input.EncodeEnum("One");
 
   internal static testOneEncoder Factory(IEncoderRepository _) => new();
 }

@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp__Simple;
 internal class test_DomainKindEncoder : IEncoder<test_DomainKind>
 {
   public Structured Encode(test_DomainKind input)
-    => new(input.ToString(), "_DomainKind");
+    => input.EncodeEnum("_DomainKind");
 
   internal static test_DomainKindEncoder Factory(IEncoderRepository _) => new();
 }
@@ -44,7 +44,7 @@ internal class test_BaseDomainItemEncoder(
   private readonly IEncoder<Itest_DescribedObject> _itest_Described = encoders.EncoderFor<Itest_DescribedObject>();
   public Structured Encode(Itest_BaseDomainItemObject input)
     => _itest_Described.Encode(input)
-      .Add("exclude", input.Exclude);
+      .Add("exclude", input.Exclude.Encode());
 
   internal static test_BaseDomainItemEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -85,7 +85,7 @@ internal class test_DomainTrueFalseEncoder(
   private readonly IEncoder<Itest_BaseDomainItemObject> _itest_BaseDomainItem = encoders.EncoderFor<Itest_BaseDomainItemObject>();
   public Structured Encode(Itest_DomainTrueFalseObject input)
     => _itest_BaseDomainItem.Encode(input)
-      .Add("value", input.Value);
+      .Add("value", input.Value.Encode());
 
   internal static test_DomainTrueFalseEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -132,8 +132,8 @@ internal class test_DomainRangeEncoder(
   private readonly IEncoder<Itest_BaseDomainItemObject> _itest_BaseDomainItem = encoders.EncoderFor<Itest_BaseDomainItemObject>();
   public Structured Encode(Itest_DomainRangeObject input)
     => _itest_BaseDomainItem.Encode(input)
-      .AddIf(input.Lower is not null, onTrue: t => t.Add("lower", input.Lower!))
-      .AddIf(input.Upper is not null, onTrue: t => t.Add("upper", input.Upper!));
+      .AddIf(input.Lower is not null, onTrue: t => t.Add("lower", input.Lower!.Encode()))
+      .AddIf(input.Upper is not null, onTrue: t => t.Add("upper", input.Upper!.Encode()));
 
   internal static test_DomainRangeEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -156,7 +156,7 @@ internal class test_DomainRegexEncoder(
   private readonly IEncoder<Itest_BaseDomainItemObject> _itest_BaseDomainItem = encoders.EncoderFor<Itest_BaseDomainItemObject>();
   public Structured Encode(Itest_DomainRegexObject input)
     => _itest_BaseDomainItem.Encode(input)
-      .Add("pattern", input.Pattern);
+      .Add("pattern", input.Pattern.Encode());
 
   internal static test_DomainRegexEncoder Factory(IEncoderRepository r) => new(r);
 }

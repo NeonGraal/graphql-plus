@@ -7,15 +7,15 @@ public abstract class ScalarDecoderClassTestBase<TModel, TInput>
 
   [Theory, RepeatData]
   public void Decode_Bool(bool value)
-    => DecodeAndCheck(new(value), ExpectedBool(value), BoolMapped);
+    => DecodeAndCheck(value.Encode(), ExpectedBool(value), BoolMapped);
 
   [Theory, RepeatData]
   public void Decode_Number(decimal value)
-    => DecodeAndCheck(new(value), ExpectedNumber(value));
+    => DecodeAndCheck(value.Encode(), ExpectedNumber(value));
 
   [Theory, RepeatData, InlineData("")]
   public void Decode_Text(string value)
-    => DecodeAndCheck(new(value), ExpectedText(value));
+    => DecodeAndCheck(value.Encode(), ExpectedText(value));
 
   [Theory, RepeatData]
   public void Decode_List(TInput value)
@@ -37,5 +37,5 @@ public abstract class ScalarDecoderClassTestBase<TModel, TInput>
 public abstract class ScalarDecoderClassTestBase<TModel>
   : ScalarDecoderClassTestBase<TModel, string>
 {
-  protected sealed override Structured Value(string value) => new(value);
+  protected sealed override Structured Value(string value) => value.Encode();
 }

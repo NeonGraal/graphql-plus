@@ -11,7 +11,7 @@ internal class testObjFieldTypeAliasOutpEncoder : IEncoder<ItestObjFieldTypeAlia
 {
   public Structured Encode(ItestObjFieldTypeAliasOutpObject input)
     => Structured.Empty()
-      .Add("field", input.Field);
+      .Add("field", input.Field.Encode());
 
   internal static testObjFieldTypeAliasOutpEncoder Factory(IEncoderRepository _) => new();
 }

@@ -16,7 +16,7 @@ internal class CmptAltGnrcFieldDualInpEncoder : IEncoder<ICmptAltGnrcFieldDualIn
 {
   public Structured Encode(ICmptAltGnrcFieldDualInpObject input)
     => Structured.Empty()
-      .Add("alt", input.Alt);
+      .Add("alt", input.Alt.Encode());
 
   internal static CmptAltGnrcFieldDualInpEncoder Factory(IEncoderRepository _) => new();
 }

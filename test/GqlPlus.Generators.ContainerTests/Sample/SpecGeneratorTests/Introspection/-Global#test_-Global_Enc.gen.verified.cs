@@ -52,7 +52,7 @@ internal class test_CategoryEncoder(
 internal class test_ResolutionEncoder : IEncoder<test_Resolution>
 {
   public Structured Encode(test_Resolution input)
-    => new(input.ToString(), "_Resolution");
+    => input.EncodeEnum("_Resolution");
 
   internal static test_ResolutionEncoder Factory(IEncoderRepository _) => new();
 }
@@ -79,7 +79,7 @@ internal class test_DirectiveEncoder(
   public Structured Encode(Itest_DirectiveObject input)
     => _itest_Aliased.Encode(input)
       .AddEncoded("parameter", input.Parameter, _itest_InputFieldType)
-      .Add("repeatable", input.Repeatable);
+      .Add("repeatable", input.Repeatable.Encode());
 
   internal static test_DirectiveEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -87,7 +87,7 @@ internal class test_DirectiveEncoder(
 internal class test_LocationEncoder : IEncoder<test_Location>
 {
   public Structured Encode(test_Location input)
-    => new(input.ToString(), "_Location");
+    => input.EncodeEnum("_Location");
 
   internal static test_LocationEncoder Factory(IEncoderRepository _) => new();
 }

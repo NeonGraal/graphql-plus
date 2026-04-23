@@ -22,7 +22,7 @@ internal class testOutpParamModDmnEncoder(
 internal class testDomOutpParamModDmnEncoder : IEncoder<ItestDomOutpParamModDmn>
 {
   public Structured Encode(ItestDomOutpParamModDmn input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static testDomOutpParamModDmnEncoder Factory(IEncoderRepository _) => new();
 }

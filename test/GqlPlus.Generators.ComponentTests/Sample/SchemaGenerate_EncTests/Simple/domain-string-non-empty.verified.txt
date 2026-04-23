@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_domain_string_non_empty;
 internal class CmptDmnStrNonEmptyEncoder : IEncoder<ICmptDmnStrNonEmpty>
 {
   public Structured Encode(ICmptDmnStrNonEmpty input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static CmptDmnStrNonEmptyEncoder Factory(IEncoderRepository _) => new();
 }

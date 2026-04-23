@@ -71,7 +71,7 @@ namespace Components.Gqlp_Spec_Operation;
 internal class Cmpt_PathEncoder : IEncoder<ICmpt_Path>
 {
   public Structured Encode(ICmpt_Path input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static Cmpt_PathEncoder Factory(IEncoderRepository _) => new();
 }

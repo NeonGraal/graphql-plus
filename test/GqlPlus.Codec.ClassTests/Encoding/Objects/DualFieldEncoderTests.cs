@@ -21,7 +21,7 @@ public class DualFieldEncoderTests
   {
     // Arrange
     ObjBaseModel dualBase = new(dual, "");
-    ObjBase.Encode(dualBase).Returns(new Structured(dual));
+    ObjBase.Encode(dualBase).Returns(dual.Encode());
 
     // Act & Accept
     EncodeAndCheck(new(name, dualBase, contents),

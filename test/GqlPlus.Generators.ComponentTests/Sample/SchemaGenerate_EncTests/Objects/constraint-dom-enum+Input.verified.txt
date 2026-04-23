@@ -16,7 +16,7 @@ namespace Components.Gqlp_Schema_constraint_dom_enum_Input;
 internal class CmptEnumCnstDomEnumInpEncoder : IEncoder<CmptEnumCnstDomEnumInp>
 {
   public Structured Encode(CmptEnumCnstDomEnumInp input)
-    => new(input.ToString(), "_EnumCnstDomEnumInp");
+    => input.EncodeEnum("EnumCnstDomEnumInp");
 
   internal static CmptEnumCnstDomEnumInpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -24,7 +24,7 @@ internal class CmptEnumCnstDomEnumInpEncoder : IEncoder<CmptEnumCnstDomEnumInp>
 internal class CmptJustCnstDomEnumInpEncoder : IEncoder<ICmptJustCnstDomEnumInp>
 {
   public Structured Encode(ICmptJustCnstDomEnumInp input)
-    => new(input.ToString(), "CmptEnumCnstDomEnumInp");
+    => input.Value?.EncodeEnum("CmptEnumCnstDomEnumInp")!;
 
   internal static CmptJustCnstDomEnumInpEncoder Factory(IEncoderRepository _) => new();
 }

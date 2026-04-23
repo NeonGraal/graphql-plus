@@ -23,8 +23,8 @@ public class ConstantEncoderTests
     SimpleModel simpleValue = SimpleModel.Str(value);
     ConstantModel valueModel = new(simpleValue);
 
-    Structured encodedKey = new(key);
-    Structured encodedValue = new(value);
+    Structured encodedKey = key.Encode();
+    Structured encodedValue = value.Encode();
     _simpleEncoder.Encode(simpleKey).Returns(_ => encodedKey);
     _simpleEncoder.Encode(simpleValue).Returns(_ => encodedValue);
 
@@ -39,7 +39,7 @@ public class ConstantEncoderTests
     // Arrange
     ConstantModel valueModel = new(SimpleModel.Str(value));
 
-    Structured encodedValue = new(value);
+    Structured encodedValue = value.Encode();
     Encoder.Encode(valueModel).Returns(encodedValue);
 
     // Act
@@ -51,7 +51,7 @@ public class ConstantEncoderTests
   {
     // Arrange
     SimpleModel valueModel = SimpleModel.Str(value);
-    Structured encodedValue = new(value);
+    Structured encodedValue = value.Encode();
     _simpleEncoder.Encode(valueModel).Returns(encodedValue);
 
     EncodeAndCheck(new(valueModel), ["=" + value]);

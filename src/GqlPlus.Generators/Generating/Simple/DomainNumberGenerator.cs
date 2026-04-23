@@ -27,5 +27,5 @@ internal sealed class DomainNumberEncoderGenerator()
   : GenerateBaseDomain<IAstDomainRange>(DomainKind.Number)
 {
   protected override void Generate(IAstDomain<IAstDomainRange> ast, GqlpGeneratorContext context)
-    => GenerateDomainEncoder(ast, context, "new(input.Value)");
+    => GenerateDomainEncoder(ast, context, "input.Value!.Encode()");
 }

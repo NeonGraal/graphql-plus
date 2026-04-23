@@ -37,7 +37,7 @@ internal sealed class ReadJson
     => reader.TokenType switch {
       JsonTokenType.StartObject => ReadMap(ref reader),
       JsonTokenType.StartArray => new("", ReadList(ref reader)),
-      _ => new("", new(ReadValue(ref reader))),
+      _ => new("", ReadValue(ref reader)?.Encode() ?? Structured.Empty()),
     };
 
   private KeyTagResult ReadMap(ref Utf8JsonReader reader)

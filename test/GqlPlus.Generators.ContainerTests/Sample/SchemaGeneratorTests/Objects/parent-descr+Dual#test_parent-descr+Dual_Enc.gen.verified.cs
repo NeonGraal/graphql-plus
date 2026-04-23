@@ -22,7 +22,7 @@ internal class testRefPrntDescrDualEncoder : IEncoder<ItestRefPrntDescrDualObjec
 {
   public Structured Encode(ItestRefPrntDescrDualObject input)
     => Structured.Empty()
-      .Add("parent", input.Parent);
+      .Add("parent", input.Parent.Encode());
 
   internal static testRefPrntDescrDualEncoder Factory(IEncoderRepository _) => new();
 }

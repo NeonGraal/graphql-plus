@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_boolean;
 internal class testDmnBoolEncoder : IEncoder<ItestDmnBool>
 {
   public Structured Encode(ItestDmnBool input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static testDmnBoolEncoder Factory(IEncoderRepository _) => new();
 }

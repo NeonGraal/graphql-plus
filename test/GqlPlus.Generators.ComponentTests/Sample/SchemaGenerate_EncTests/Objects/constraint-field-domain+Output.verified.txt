@@ -36,7 +36,7 @@ internal class CmptRefCnstFieldDmnOutpEncoder<TRef>(
 internal class CmptDomCnstFieldDmnOutpEncoder : IEncoder<ICmptDomCnstFieldDmnOutp>
 {
   public Structured Encode(ICmptDomCnstFieldDmnOutp input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static CmptDomCnstFieldDmnOutpEncoder Factory(IEncoderRepository _) => new();
 }

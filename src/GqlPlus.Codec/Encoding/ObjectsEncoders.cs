@@ -10,8 +10,8 @@ internal class TypeArgEncoder(
     => model.EnumValue is null
     ? base.Encode(model)
       .AddIf(model.IsTypeParam,
-        t => t.Add("typeParam", model.Name),
-        f => f.Add("name", model.Name))
+        t => t.Add("typeParam", model.Name?.Encode()),
+        f => f.Add("name", model.Name?.Encode()))
     : _enumValue.Encode(model.EnumValue);
 
   internal static new TypeArgEncoder Factory(IEncoderRepository r) => new(r);
@@ -27,8 +27,8 @@ internal class ObjectBaseEncoder<TBase>(
   internal override Structured Encode(TBase model)
     => base.Encode(model)
       .AddIf(model.IsTypeParam,
-        t => t.Add("typeParam", model.Name),
-        f => f.Add("name", model.Name)
+        t => t.Add("typeParam", model.Name?.Encode()),
+        f => f.Add("name", model.Name?.Encode())
           .AddList("typeArgs", model.Args, _objArg));
 
   internal static new ObjectBaseEncoder<TBase> Factory(IEncoderRepository r) => new(r);
@@ -87,7 +87,7 @@ internal class ObjectForEncoder<TFor>(
   internal override Structured Encode(ObjectForModel<TFor> model)
     => base.Encode(model)
       .IncludeEncoded(model.For, _encoder)
-      .Add("object", model.Obj);
+      .Add("object", model.Obj?.Encode());
 
   internal static ObjectForEncoder<TFor> Factory(IEncoderRepository r) => new(r);
 }
@@ -184,8 +184,8 @@ internal class OutputEnumEncoder
 {
   internal override Structured Encode(OutputEnumModel model)
     => base.Encode(model)
-      .Add("field", model.Field)
-      .Add("label", model.EnumLabel);
+      .Add("field", model.Field?.Encode())
+      .Add("label", model.EnumLabel?.Encode());
 
   internal static new OutputEnumEncoder Factory(IEncoderRepository _) => new();
 }

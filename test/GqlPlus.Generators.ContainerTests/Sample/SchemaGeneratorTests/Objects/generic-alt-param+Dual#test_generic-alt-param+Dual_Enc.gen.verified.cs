@@ -25,7 +25,7 @@ internal class testAltGnrcAltParamDualEncoder : IEncoder<ItestAltGnrcAltParamDua
 {
   public Structured Encode(ItestAltGnrcAltParamDualObject input)
     => Structured.Empty()
-      .Add("alt", input.Alt);
+      .Add("alt", input.Alt.Encode());
 
   internal static testAltGnrcAltParamDualEncoder Factory(IEncoderRepository _) => new();
 }

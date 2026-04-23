@@ -90,7 +90,7 @@ public abstract class StructureConvertToTestsBase(IConvertTestsBase converters)
   }
 
   protected Structured AsValue(string value)
-    => new(value, ValueTag);
+    => value.Encode(ValueTag);
 
   protected Structured AsList<T>(T[] value, Func<T, Structured> mapper)
     => value.Encode(mapper, ListTag, flow: Flow);

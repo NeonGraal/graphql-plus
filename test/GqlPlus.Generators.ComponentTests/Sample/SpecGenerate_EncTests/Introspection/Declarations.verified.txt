@@ -55,7 +55,7 @@ internal class Cmpt_SchemaEncoder(
 internal class Cmpt_NameEncoder : IEncoder<ICmpt_Name>
 {
   public Structured Encode(ICmpt_Name input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static Cmpt_NameEncoder Factory(IEncoderRepository _) => new();
 }
@@ -63,7 +63,7 @@ internal class Cmpt_NameEncoder : IEncoder<ICmpt_Name>
 internal class Cmpt_NameFilterEncoder : IEncoder<ICmpt_NameFilter>
 {
   public Structured Encode(ICmpt_NameFilter input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static Cmpt_NameFilterEncoder Factory(IEncoderRepository _) => new();
 }

@@ -362,7 +362,7 @@ internal class Cmpt_SchemaEncoder(
 internal class Cmpt_NameEncoder : IEncoder<ICmpt_Name>
 {
   public Structured Encode(ICmpt_Name input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static Cmpt_NameEncoder Factory(IEncoderRepository _) => new();
 }
@@ -370,7 +370,7 @@ internal class Cmpt_NameEncoder : IEncoder<ICmpt_Name>
 internal class Cmpt_NameFilterEncoder : IEncoder<ICmpt_NameFilter>
 {
   public Structured Encode(ICmpt_NameFilter input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static Cmpt_NameFilterEncoder Factory(IEncoderRepository _) => new();
 }
@@ -455,7 +455,7 @@ internal class Cmpt_CategoryEncoder(
 internal class Cmpt_ResolutionEncoder : IEncoder<Cmpt_Resolution>
 {
   public Structured Encode(Cmpt_Resolution input)
-    => new(input.ToString(), "_Resolution");
+    => input.EncodeEnum("_Resolution");
 
   internal static Cmpt_ResolutionEncoder Factory(IEncoderRepository _) => new();
 }
@@ -482,7 +482,7 @@ internal class Cmpt_DirectiveEncoder(
   public Structured Encode(ICmpt_DirectiveObject input)
     => _aliased.Encode(input)
       .AddEncoded("parameter", input.Parameter, _inputFieldType)
-      .Add("repeatable", input.Repeatable);
+      .Add("repeatable", input.Repeatable.Encode());
 
   internal static Cmpt_DirectiveEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -490,7 +490,7 @@ internal class Cmpt_DirectiveEncoder(
 internal class Cmpt_LocationEncoder : IEncoder<Cmpt_Location>
 {
   public Structured Encode(Cmpt_Location input)
-    => new(input.ToString(), "_Location");
+    => input.EncodeEnum("_Location");
 
   internal static Cmpt_LocationEncoder Factory(IEncoderRepository _) => new();
 }
@@ -554,7 +554,7 @@ internal class Cmpt_ParentTypeEncoder<TTypeKind,TItem,TAllItem>(
 internal class Cmpt_SimpleKindEncoder : IEncoder<Cmpt_SimpleKind>
 {
   public Structured Encode(Cmpt_SimpleKind input)
-    => new(input.ToString(), "_SimpleKind");
+    => input.EncodeEnum("_SimpleKind");
 
   internal static Cmpt_SimpleKindEncoder Factory(IEncoderRepository _) => new();
 }
@@ -562,7 +562,7 @@ internal class Cmpt_SimpleKindEncoder : IEncoder<Cmpt_SimpleKind>
 internal class Cmpt_TypeKindEncoder : IEncoder<Cmpt_TypeKind>
 {
   public Structured Encode(Cmpt_TypeKind input)
-    => new(input.ToString(), "_TypeKind");
+    => input.EncodeEnum("_TypeKind");
 
   internal static Cmpt_TypeKindEncoder Factory(IEncoderRepository _) => new();
 }
@@ -603,7 +603,7 @@ internal class Cmpt_ModifierKeyedEncoder<TModifierKind>(
   public Structured Encode(ICmpt_ModifierKeyedObject<TModifierKind> input)
     => _modifier.Encode(input)
       .AddEncoded("by", input.By, _typeSimple)
-      .Add("isOptional", input.IsOptional);
+      .Add("isOptional", input.IsOptional.Encode());
 }
 
 internal class Cmpt_ModifiersEncoder : IEncoder<ICmpt_ModifiersObject>
@@ -617,7 +617,7 @@ internal class Cmpt_ModifiersEncoder : IEncoder<ICmpt_ModifiersObject>
 internal class Cmpt_ModifierKindEncoder : IEncoder<Cmpt_ModifierKind>
 {
   public Structured Encode(Cmpt_ModifierKind input)
-    => new(input.ToString(), "_ModifierKind");
+    => input.EncodeEnum("_ModifierKind");
 
   internal static Cmpt_ModifierKindEncoder Factory(IEncoderRepository _) => new();
 }
@@ -635,7 +635,7 @@ internal class Cmpt_ModifierEncoder<TModifierKind>(
 internal class Cmpt_DomainKindEncoder : IEncoder<Cmpt_DomainKind>
 {
   public Structured Encode(Cmpt_DomainKind input)
-    => new(input.ToString(), "_DomainKind");
+    => input.EncodeEnum("_DomainKind");
 
   internal static Cmpt_DomainKindEncoder Factory(IEncoderRepository _) => new();
 }
@@ -669,7 +669,7 @@ internal class Cmpt_BaseDomainItemEncoder(
   private readonly IEncoder<ICmpt_DescribedObject> _described = encoders.EncoderFor<ICmpt_DescribedObject>();
   public Structured Encode(ICmpt_BaseDomainItemObject input)
     => _described.Encode(input)
-      .Add("exclude", input.Exclude);
+      .Add("exclude", input.Exclude.Encode());
 
   internal static Cmpt_BaseDomainItemEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -710,7 +710,7 @@ internal class Cmpt_DomainTrueFalseEncoder(
   private readonly IEncoder<ICmpt_BaseDomainItemObject> _baseDomainItem = encoders.EncoderFor<ICmpt_BaseDomainItemObject>();
   public Structured Encode(ICmpt_DomainTrueFalseObject input)
     => _baseDomainItem.Encode(input)
-      .Add("value", input.Value);
+      .Add("value", input.Value.Encode());
 
   internal static Cmpt_DomainTrueFalseEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -757,8 +757,8 @@ internal class Cmpt_DomainRangeEncoder(
   private readonly IEncoder<ICmpt_BaseDomainItemObject> _baseDomainItem = encoders.EncoderFor<ICmpt_BaseDomainItemObject>();
   public Structured Encode(ICmpt_DomainRangeObject input)
     => _baseDomainItem.Encode(input)
-      .AddIf(input.Lower is not null, onTrue: t => t.Add("lower", input.Lower!))
-      .AddIf(input.Upper is not null, onTrue: t => t.Add("upper", input.Upper!));
+      .AddIf(input.Lower is not null, onTrue: t => t.Add("lower", input.Lower!.Encode()))
+      .AddIf(input.Upper is not null, onTrue: t => t.Add("upper", input.Upper!.Encode()));
 
   internal static Cmpt_DomainRangeEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -781,7 +781,7 @@ internal class Cmpt_DomainRegexEncoder(
   private readonly IEncoder<ICmpt_BaseDomainItemObject> _baseDomainItem = encoders.EncoderFor<ICmpt_BaseDomainItemObject>();
   public Structured Encode(ICmpt_DomainRegexObject input)
     => _baseDomainItem.Encode(input)
-      .Add("pattern", input.Pattern);
+      .Add("pattern", input.Pattern.Encode());
 
   internal static Cmpt_DomainRegexEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -850,7 +850,7 @@ internal class Cmpt_UnionMemberEncoder(
 internal class Cmpt_ObjectKindEncoder : IEncoder<ICmpt_ObjectKind>
 {
   public Structured Encode(ICmpt_ObjectKind input)
-    => new(input.ToString(), "Cmpt_TypeKind");
+    => input.Value?.EncodeEnum("Cmpt_TypeKind")!;
 
   internal static Cmpt_ObjectKindEncoder Factory(IEncoderRepository _) => new();
 }

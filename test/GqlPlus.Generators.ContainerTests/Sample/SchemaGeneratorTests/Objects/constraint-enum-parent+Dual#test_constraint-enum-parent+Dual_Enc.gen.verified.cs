@@ -28,7 +28,7 @@ internal class testRefCnstEnumPrntDualEncoder<TType>(
 internal class testEnumCnstEnumPrntDualEncoder : IEncoder<testEnumCnstEnumPrntDual>
 {
   public Structured Encode(testEnumCnstEnumPrntDual input)
-    => new(input.ToString(), "_EnumCnstEnumPrntDual");
+    => input.EncodeEnum("EnumCnstEnumPrntDual");
 
   internal static testEnumCnstEnumPrntDualEncoder Factory(IEncoderRepository _) => new();
 }
@@ -36,7 +36,7 @@ internal class testEnumCnstEnumPrntDualEncoder : IEncoder<testEnumCnstEnumPrntDu
 internal class testParentCnstEnumPrntDualEncoder : IEncoder<testParentCnstEnumPrntDual>
 {
   public Structured Encode(testParentCnstEnumPrntDual input)
-    => new(input.ToString(), "_ParentCnstEnumPrntDual");
+    => input.EncodeEnum("ParentCnstEnumPrntDual");
 
   internal static testParentCnstEnumPrntDualEncoder Factory(IEncoderRepository _) => new();
 }

@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_enum_alias;
 internal class testEnumAliasEncoder : IEncoder<testEnumAlias>
 {
   public Structured Encode(testEnumAlias input)
-    => new(input.ToString(), "_EnumAlias");
+    => input.EncodeEnum("EnumAlias");
 
   internal static testEnumAliasEncoder Factory(IEncoderRepository _) => new();
 }

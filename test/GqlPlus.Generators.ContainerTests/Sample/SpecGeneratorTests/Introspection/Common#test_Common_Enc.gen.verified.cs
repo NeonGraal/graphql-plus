@@ -53,7 +53,7 @@ internal class test_ParentTypeEncoder<TTypeKind,TItem,TAllItem>(
 internal class test_SimpleKindEncoder : IEncoder<test_SimpleKind>
 {
   public Structured Encode(test_SimpleKind input)
-    => new(input.ToString(), "_SimpleKind");
+    => input.EncodeEnum("_SimpleKind");
 
   internal static test_SimpleKindEncoder Factory(IEncoderRepository _) => new();
 }
@@ -61,7 +61,7 @@ internal class test_SimpleKindEncoder : IEncoder<test_SimpleKind>
 internal class test_TypeKindEncoder : IEncoder<test_TypeKind>
 {
   public Structured Encode(test_TypeKind input)
-    => new(input.ToString(), "_TypeKind");
+    => input.EncodeEnum("_TypeKind");
 
   internal static test_TypeKindEncoder Factory(IEncoderRepository _) => new();
 }

@@ -39,7 +39,7 @@ internal sealed class RenderStructureJsonConverter
       WriteTag(writer, keyTag, "keyTag");
       WriteTag(writer, value.Tag, "mapTag");
       writer.WritePropertyName(first.Key.AsString);
-      WriteStructureTagged(writer, first.Value.Value, first.Key.Tag);
+      WriteStructureTagged(writer, first.Value?.Value.Encode() ?? Structured.Empty(), first.Key.Tag);
       writer.WriteEndObject();
     } else {
       WriteFullMap(writer, value.Map, value.Tag, keyTag);

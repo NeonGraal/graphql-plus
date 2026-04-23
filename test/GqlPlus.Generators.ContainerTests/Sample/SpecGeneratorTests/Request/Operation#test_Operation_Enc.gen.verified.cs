@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_Operation;
 internal class test_PathEncoder : IEncoder<Itest_Path>
 {
   public Structured Encode(Itest_Path input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static test_PathEncoder Factory(IEncoderRepository _) => new();
 }

@@ -119,11 +119,11 @@ internal class CmptQueryEncoder(
     => Structured.Empty()
       .AddEncoded("user", input.User(), _fullUser)
       .AddEncoded("likeStory", input.LikeStory(), _story)
-      .Add("field", input.Field())
+      .Add("field", input.Field().Encode())
       .AddEncoded("me", input.Me, _fullUser)
-      .Add("picture", input.Picture())
+      .Add("picture", input.Picture().Encode())
       .AddList("profiles", input.Profiles(), _profile)
-      .Add("nearestThing", input.NearestThing());
+      .Add("nearestThing", input.NearestThing().Encode());
 
   internal static CmptQueryEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -132,7 +132,7 @@ internal class CmptMutationEncoder : IEncoder<ICmptMutationObject>
 {
   public Structured Encode(ICmptMutationObject input)
     => Structured.Empty()
-      .Add("sendEmail", input.SendEmail());
+      .Add("sendEmail", input.SendEmail().Encode());
 
   internal static CmptMutationEncoder Factory(IEncoderRepository _) => new();
 }
@@ -141,7 +141,7 @@ internal class CmptUserFilterEncoder : IEncoder<ICmptUserFilterObject>
 {
   public Structured Encode(ICmptUserFilterObject input)
     => Structured.Empty()
-      .Add("id", input.Id);
+      .Add("id", input.Id.Encode());
 
   internal static CmptUserFilterEncoder Factory(IEncoderRepository _) => new();
 }
@@ -153,10 +153,10 @@ internal class CmptUserEncoder(
   private readonly IEncoder<ICmptDate> _date = encoders.EncoderFor<ICmptDate>();
   public Structured Encode(ICmptUserObject input)
     => Structured.Empty()
-      .Add("id", input.Id)
-      .Add("name", input.Name)
-      .Add("firstName", input.FirstName)
-      .Add("lastName", input.LastName)
+      .Add("id", input.Id.Encode())
+      .Add("name", input.Name.Encode())
+      .Add("firstName", input.FirstName.Encode())
+      .Add("lastName", input.LastName.Encode())
       .AddEncoded("birthday", input.Birthday, _date);
 
   internal static CmptUserEncoder Factory(IEncoderRepository r) => new(r);
@@ -170,7 +170,7 @@ internal class CmptFullUserEncoder(
   private readonly IEncoder<ICmptUserList> _userList = encoders.EncoderFor<ICmptUserList>();
   public Structured Encode(ICmptFullUserObject input)
     => _user.Encode(input)
-      .Add("profilePic", input.ProfilePic())
+      .Add("profilePic", input.ProfilePic().Encode())
       .AddEncoded("friends", input.Friends(), _userList)
       .AddEncoded("mutualFriends", input.MutualFriends(), _userList);
 
@@ -184,7 +184,7 @@ internal class CmptUserListEncoder(
   private readonly IEncoder<ICmptUser> _user = encoders.EncoderFor<ICmptUser>();
   public Structured Encode(ICmptUserListObject input)
     => Structured.Empty()
-      .Add("count", input.Count)
+      .Add("count", input.Count.Encode())
       .AddList("users", input.Users, _user);
 
   internal static CmptUserListEncoder Factory(IEncoderRepository r) => new(r);
@@ -194,7 +194,7 @@ internal class CmptStoryFilterEncoder : IEncoder<ICmptStoryFilterObject>
 {
   public Structured Encode(ICmptStoryFilterObject input)
     => Structured.Empty()
-      .Add("storyID", input.StoryID);
+      .Add("storyID", input.StoryID.Encode());
 
   internal static CmptStoryFilterEncoder Factory(IEncoderRepository _) => new();
 }
@@ -203,7 +203,7 @@ internal class CmptStoryEncoder : IEncoder<ICmptStoryObject>
 {
   public Structured Encode(ICmptStoryObject input)
     => Structured.Empty()
-      .Add("likeCount", input.LikeCount);
+      .Add("likeCount", input.LikeCount.Encode());
 
   internal static CmptStoryEncoder Factory(IEncoderRepository _) => new();
 }
@@ -212,7 +212,7 @@ internal class CmptFieldFilterEncoder : IEncoder<ICmptFieldFilterObject>
 {
   public Structured Encode(ICmptFieldFilterObject input)
     => Structured.Empty()
-      .AddIf(input.Arg is not null, onTrue: t => t.Add("arg", input.Arg!));
+      .AddIf(input.Arg is not null, onTrue: t => t.Add("arg", input.Arg!.Encode()));
 
   internal static CmptFieldFilterEncoder Factory(IEncoderRepository _) => new();
 }
@@ -221,9 +221,9 @@ internal class CmptPicFilterEncoder : IEncoder<ICmptPicFilterObject>
 {
   public Structured Encode(ICmptPicFilterObject input)
     => Structured.Empty()
-      .Add("size", input.Size)
-      .Add("width", input.Width)
-      .Add("height", input.Height);
+      .Add("size", input.Size.Encode())
+      .Add("width", input.Width.Encode())
+      .Add("height", input.Height.Encode());
 
   internal static CmptPicFilterEncoder Factory(IEncoderRepository _) => new();
 }
@@ -232,7 +232,7 @@ internal class CmptFriendsFilterEncoder : IEncoder<ICmptFriendsFilterObject>
 {
   public Structured Encode(ICmptFriendsFilterObject input)
     => Structured.Empty()
-      .Add("first", input.First);
+      .Add("first", input.First.Encode());
 
   internal static CmptFriendsFilterEncoder Factory(IEncoderRepository _) => new();
 }
@@ -244,7 +244,7 @@ internal class CmptProfileEncoder(
   private readonly IEncoder<ICmptUserObject> _user = encoders.EncoderFor<ICmptUserObject>();
   public Structured Encode(ICmptProfileObject input)
     => _user.Encode(input)
-      .Add("handle", input.Handle);
+      .Add("handle", input.Handle.Encode());
 
   internal static CmptProfileEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -265,7 +265,7 @@ internal class CmptPageEncoder(
   private readonly IEncoder<ICmptUserList> _userList = encoders.EncoderFor<ICmptUserList>();
   public Structured Encode(ICmptPageObject input)
     => Structured.Empty()
-      .Add("handle", input.Handle)
+      .Add("handle", input.Handle.Encode())
       .AddEncoded("likers", input.Likers, _userList);
 
   internal static CmptPageEncoder Factory(IEncoderRepository r) => new(r);
@@ -275,7 +275,7 @@ internal class CmptIncludeParamsEncoder : IEncoder<ICmptIncludeParamsObject>
 {
   public Structured Encode(ICmptIncludeParamsObject input)
     => Structured.Empty()
-      .Add("if", input.If);
+      .Add("if", input.If.Encode());
 
   internal static CmptIncludeParamsEncoder Factory(IEncoderRepository _) => new();
 }
@@ -284,7 +284,7 @@ internal class CmptEmailEncoder : IEncoder<ICmptEmailObject>
 {
   public Structured Encode(ICmptEmailObject input)
     => Structured.Empty()
-      .Add("message", input.Message);
+      .Add("message", input.Message.Encode());
 
   internal static CmptEmailEncoder Factory(IEncoderRepository _) => new();
 }
@@ -305,8 +305,8 @@ internal class CmptLocationEncoder : IEncoder<ICmptLocationObject>
 {
   public Structured Encode(ICmptLocationObject input)
     => Structured.Empty()
-      .Add("lat", input.Lat)
-      .Add("lon", input.Lon);
+      .Add("lat", input.Lat.Encode())
+      .Add("lon", input.Lon.Encode());
 
   internal static CmptLocationEncoder Factory(IEncoderRepository _) => new();
 }
@@ -314,7 +314,7 @@ internal class CmptLocationEncoder : IEncoder<ICmptLocationObject>
 internal class CmptIntEncoder : IEncoder<ICmptInt>
 {
   public Structured Encode(ICmptInt input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static CmptIntEncoder Factory(IEncoderRepository _) => new();
 }
@@ -322,7 +322,7 @@ internal class CmptIntEncoder : IEncoder<ICmptInt>
 internal class CmptDateEncoder : IEncoder<ICmptDate>
 {
   public Structured Encode(ICmptDate input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static CmptDateEncoder Factory(IEncoderRepository _) => new();
 }

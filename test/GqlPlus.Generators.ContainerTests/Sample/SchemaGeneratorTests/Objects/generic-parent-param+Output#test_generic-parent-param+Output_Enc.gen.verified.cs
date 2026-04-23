@@ -28,7 +28,7 @@ internal class testAltGnrcPrntParamOutpEncoder : IEncoder<ItestAltGnrcPrntParamO
 {
   public Structured Encode(ItestAltGnrcPrntParamOutpObject input)
     => Structured.Empty()
-      .Add("alt", input.Alt);
+      .Add("alt", input.Alt.Encode());
 
   internal static testAltGnrcPrntParamOutpEncoder Factory(IEncoderRepository _) => new();
 }

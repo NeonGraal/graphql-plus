@@ -21,7 +21,7 @@ internal class CmptAltAltModParamOutpEncoder : IEncoder<ICmptAltAltModParamOutpO
 {
   public Structured Encode(ICmptAltAltModParamOutpObject input)
     => Structured.Empty()
-      .Add("alt", input.Alt);
+      .Add("alt", input.Alt.Encode());
 
   internal static CmptAltAltModParamOutpEncoder Factory(IEncoderRepository _) => new();
 }

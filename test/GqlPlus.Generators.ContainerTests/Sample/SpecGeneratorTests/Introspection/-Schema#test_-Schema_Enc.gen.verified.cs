@@ -21,7 +21,7 @@ internal class test_SchemaEncoder(
 internal class test_NameEncoder : IEncoder<Itest_Name>
 {
   public Structured Encode(Itest_Name input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static test_NameEncoder Factory(IEncoderRepository _) => new();
 }
@@ -29,7 +29,7 @@ internal class test_NameEncoder : IEncoder<Itest_Name>
 internal class test_NameFilterEncoder : IEncoder<Itest_NameFilter>
 {
   public Structured Encode(Itest_NameFilter input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static test_NameFilterEncoder Factory(IEncoderRepository _) => new();
 }

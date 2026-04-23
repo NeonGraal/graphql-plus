@@ -123,7 +123,7 @@ internal class Cmpt_ParentTypeEncoder<TTypeKind,TItem,TAllItem>(
 internal class Cmpt_SimpleKindEncoder : IEncoder<Cmpt_SimpleKind>
 {
   public Structured Encode(Cmpt_SimpleKind input)
-    => new(input.ToString(), "_SimpleKind");
+    => input.EncodeEnum("_SimpleKind");
 
   internal static Cmpt_SimpleKindEncoder Factory(IEncoderRepository _) => new();
 }
@@ -131,7 +131,7 @@ internal class Cmpt_SimpleKindEncoder : IEncoder<Cmpt_SimpleKind>
 internal class Cmpt_TypeKindEncoder : IEncoder<Cmpt_TypeKind>
 {
   public Structured Encode(Cmpt_TypeKind input)
-    => new(input.ToString(), "_TypeKind");
+    => input.EncodeEnum("_TypeKind");
 
   internal static Cmpt_TypeKindEncoder Factory(IEncoderRepository _) => new();
 }
@@ -172,7 +172,7 @@ internal class Cmpt_ModifierKeyedEncoder<TModifierKind>(
   public Structured Encode(ICmpt_ModifierKeyedObject<TModifierKind> input)
     => _modifier.Encode(input)
       .AddEncoded("by", input.By, _typeSimple)
-      .Add("isOptional", input.IsOptional);
+      .Add("isOptional", input.IsOptional.Encode());
 }
 
 internal class Cmpt_ModifiersEncoder : IEncoder<ICmpt_ModifiersObject>
@@ -186,7 +186,7 @@ internal class Cmpt_ModifiersEncoder : IEncoder<ICmpt_ModifiersObject>
 internal class Cmpt_ModifierKindEncoder : IEncoder<Cmpt_ModifierKind>
 {
   public Structured Encode(Cmpt_ModifierKind input)
-    => new(input.ToString(), "_ModifierKind");
+    => input.EncodeEnum("_ModifierKind");
 
   internal static Cmpt_ModifierKindEncoder Factory(IEncoderRepository _) => new();
 }

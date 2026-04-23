@@ -11,7 +11,7 @@ internal class testObjDualAltDualInpEncoder : IEncoder<ItestObjDualAltDualInpObj
 {
   public Structured Encode(ItestObjDualAltDualInpObject input)
     => Structured.Empty()
-      .Add("alt", input.Alt);
+      .Add("alt", input.Alt.Encode());
 
   internal static testObjDualAltDualInpEncoder Factory(IEncoderRepository _) => new();
 }

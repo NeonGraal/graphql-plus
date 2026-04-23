@@ -23,7 +23,7 @@ internal class CmptAltAltModBoolDualEncoder : IEncoder<ICmptAltAltModBoolDualObj
 {
   public Structured Encode(ICmptAltAltModBoolDualObject input)
     => Structured.Empty()
-      .Add("alt", input.Alt);
+      .Add("alt", input.Alt.Encode());
 
   internal static CmptAltAltModBoolDualEncoder Factory(IEncoderRepository _) => new();
 }

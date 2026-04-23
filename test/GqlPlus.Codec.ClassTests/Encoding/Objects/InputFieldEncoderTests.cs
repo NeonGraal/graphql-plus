@@ -24,7 +24,7 @@ public class InputFieldEncoderTests
   {
     // Arrange
     ObjBaseModel inputBase = new(input, "");
-    ObjBase.Encode(inputBase).Returns(new Structured(input));
+    ObjBase.Encode(inputBase).Returns(input.Encode());
 
     // Act & Accept
     EncodeAndCheck(new(name, inputBase, contents),

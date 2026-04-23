@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_domain_alias;
 internal class CmptDmnAliasEncoder : IEncoder<ICmptDmnAlias>
 {
   public Structured Encode(ICmptDmnAlias input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static CmptDmnAliasEncoder Factory(IEncoderRepository _) => new();
 }

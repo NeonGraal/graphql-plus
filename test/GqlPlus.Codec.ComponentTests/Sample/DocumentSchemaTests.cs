@@ -29,7 +29,7 @@ public class DocumentSchemaTests(
     groups["All"] = all.Links(v => v[1..]);
 
     Structured result = new Map<Structured>() {
-      ["title"] = "Schema",
+      ["title"] = "Schema".Encode(),
       ["items"] = SamplesSchemaData.Strings.Links(),
       ["groups"] = groups.Encode()
     }.Encode();
@@ -45,7 +45,7 @@ public class DocumentSchemaTests(
     };
 
     Structured result = new Map<Structured>() {
-      ["title"] = "Specification",
+      ["title"] = "Specification".Encode(),
       ["items"] = SamplesSpecificationData.Strings.Links(),
       ["groups"] = groups.Links().Encode()
     }.Encode();
@@ -63,7 +63,7 @@ public class DocumentSchemaTests(
     IMap<BaseTypeModel> inputs = Just<TypeInputModel>();
     IMap<BaseTypeModel> outputs = Just<TypeOutputModel>();
 
-    Structured groups = new Structured("")
+    Structured groups = "".Encode()
       .AddMap("Domain", domains, Types, "_Type")
       .AddMap("Enum", enums, Types, "_Type")
       .AddMap("Union", unions, Types, "_Type")
@@ -77,7 +77,7 @@ public class DocumentSchemaTests(
     SchemaModel newModel = new(model.Name, categories, directives, settings, [], model.Errors);
     Structured result = checks.Encode_Model(newModel, context)
       .Add("groups", groups)
-      .Add("title", new(test));
+      .Add("title", test.Encode());
 
     await result.WriteHtmlFileAsync(new string[] { "Doc", label, section }.Joined("/"), test);
 

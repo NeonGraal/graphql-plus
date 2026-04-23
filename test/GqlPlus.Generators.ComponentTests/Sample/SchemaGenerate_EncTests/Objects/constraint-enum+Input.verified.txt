@@ -15,7 +15,7 @@ namespace Components.Gqlp_Schema_constraint_enum_Input;
 internal class CmptEnumCnstEnumInpEncoder : IEncoder<CmptEnumCnstEnumInp>
 {
   public Structured Encode(CmptEnumCnstEnumInp input)
-    => new(input.ToString(), "_EnumCnstEnumInp");
+    => input.EncodeEnum("EnumCnstEnumInp");
 
   internal static CmptEnumCnstEnumInpEncoder Factory(IEncoderRepository _) => new();
 }

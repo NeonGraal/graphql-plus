@@ -19,7 +19,7 @@ internal class testAltAltOutpEncoder : IEncoder<ItestAltAltOutpObject>
 {
   public Structured Encode(ItestAltAltOutpObject input)
     => Structured.Empty()
-      .Add("alt", input.Alt);
+      .Add("alt", input.Alt.Encode());
 
   internal static testAltAltOutpEncoder Factory(IEncoderRepository _) => new();
 }

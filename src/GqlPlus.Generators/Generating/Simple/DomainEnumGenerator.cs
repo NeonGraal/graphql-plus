@@ -70,6 +70,6 @@ internal sealed class DomainEnumEncoderGenerator()
     }
 
     string valueType = context.TypeName(enumTypes[0], "");
-    GenerateDomainEncoder(ast, context, $"new(input.ToString(), \"{valueType}\")");
+    GenerateDomainEncoder(ast, context, $"input.Value?.EncodeEnum(\"{valueType}\")!");
   }
 }

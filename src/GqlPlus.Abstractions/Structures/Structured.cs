@@ -6,29 +6,18 @@ public class Structured
 {
   public bool Flow { get; }
 
-  public static Structured Empty(string? tag = null) => new(default(string), tag);
+  public static Structured Empty(string? tag = null)
+    => new(tag.IfWhiteSpace());
 
-  public Structured(bool? value, string? tag = null)
-    : base(new StructureValue(value, tag)) => Tag = tag.IfWhiteSpace();
-  public Structured(string? value, string? tag = null)
-    : base(new StructureValue(value, tag)) => Tag = tag.IfWhiteSpace();
-  public Structured(decimal? value, string? tag = null)
-    : base(new StructureValue(value, tag)) => Tag = tag.IfWhiteSpace();
-  public Structured(StructureValue? value)
-    : base(value) => Tag = (value?.Tag).IfWhiteSpace();
+  private Structured(string tag)
+    : base(default(StructureValue)) => Tag = tag;
+
+  public Structured(StructureValue? value, string? tag = null)
+    : base(value) => Tag = tag.IfWhiteSpace((value?.Tag).IfWhiteSpace());
   public Structured(IEnumerable<Structured> list, string? tag = null, bool flow = false)
     : base(list) => (Tag, Flow) = (tag.IfWhiteSpace(), flow);
   public Structured(IDictionary<StructureValue, Structured> map, string? tag = null, bool flow = false)
     : base(map) => (Tag, Flow) = (tag.IfWhiteSpace(), flow);
-
-  public static implicit operator Structured(StructureValue value)
-    => new(value);
-  public static implicit operator Structured(bool value)
-    => new(value);
-  public static implicit operator Structured(string value)
-    => new(value);
-  public static implicit operator Structured(decimal value)
-    => new(value);
 
   public Structured Add(string key, Structured? value)
   {
@@ -41,7 +30,7 @@ public class Structured
   }
 
   public Structured AddBool(string key, bool value)
-    => value ? Add(key, value) : this;
+    => value ? Add(key, value.Encode()) : this;
 
   public Structured IncludeEncoded<TValue>(TValue? value, IEncoder<TValue> encoder)
   {
@@ -60,7 +49,7 @@ public class Structured
 
   public Structured AddEnum<TValue>(string key, TValue value, string? tag = null)
     where TValue : Enum
-    => Add(key, new(value.ToString(), tag.IfWhiteSpace(typeof(TValue).TypeTag())));
+    => Add(key, value.ToString().Encode(tag.IfWhiteSpace(typeof(TValue).TypeTag())));
 
   public Structured AddEncoded<TValue>(string key, TValue? value, IEncoder<TValue> encoder)
     => value is null ? this
@@ -102,7 +91,7 @@ public class Structured
       Dict result = [];
 
       foreach (string flag in flags) {
-        result.Add(new(flag), new("_"));
+        result.Add(new(flag), "_".Encode());
       }
 
       return Add(key, new(result, $"_Set({tag.IfWhiteSpace(typeof(TEnum).TypeTag())})", flow: flow));

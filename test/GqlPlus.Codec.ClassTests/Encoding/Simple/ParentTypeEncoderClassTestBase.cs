@@ -31,7 +31,7 @@ public abstract class ParentTypeEncoderClassTestBase<TModel, TItem, TAll, TInput
   public void Encode_WithValidModel_ReturnsStructured(string name, string parent, string contents)
   {
     TypeRefModel<SimpleKindModel> parentModel = new(Kind, parent, "");
-    EncodeReturns(Parent, parentModel, new Structured(parent, "_TypeRef(_SimpleKind)"));
+    EncodeReturns(Parent, parentModel, parent.Encode("_TypeRef(_SimpleKind)"));
     EncodeAndCheck(NewModel(name, contents, parentModel), ValidModelExpected(name, parent, contents));
   }
 
@@ -45,8 +45,8 @@ public abstract class ParentTypeEncoderClassTestBase<TModel, TItem, TAll, TInput
   [Theory, RepeatData]
   public void Encode_WithItem_ReturnsStructured(string name, TInput item)
   {
-    EncodeReturns(Item, Arg.Any<TItem>(), new($"{item}", "_ItemModel"));
-    EncodeReturns(All, Arg.Any<TAll>(), new($"{item}", "_AllModel"));
+    EncodeReturns(Item, Arg.Any<TItem>(), $"{item}".Encode("_ItemModel"));
+    EncodeReturns(All, Arg.Any<TAll>(), $"{item}".Encode("_AllModel"));
 
     EncodeAndCheck(NewModel(name, "", null) with {
       Items = [NewItem(item)],

@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_domain_string_same;
 internal class CmptDmnStrSameEncoder : IEncoder<ICmptDmnStrSame>
 {
   public Structured Encode(ICmptDmnStrSame input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static CmptDmnStrSameEncoder Factory(IEncoderRepository _) => new();
 }

@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_domain_string_parent;
 internal class CmptDmnStrPrntEncoder : IEncoder<ICmptDmnStrPrnt>
 {
   public Structured Encode(ICmptDmnStrPrnt input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static CmptDmnStrPrntEncoder Factory(IEncoderRepository _) => new();
 }
@@ -22,7 +22,7 @@ internal class CmptDmnStrPrntEncoder : IEncoder<ICmptDmnStrPrnt>
 internal class CmptPrntDmnStrPrntEncoder : IEncoder<ICmptPrntDmnStrPrnt>
 {
   public Structured Encode(ICmptPrntDmnStrPrnt input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static CmptPrntDmnStrPrntEncoder Factory(IEncoderRepository _) => new();
 }

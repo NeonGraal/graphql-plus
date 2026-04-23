@@ -21,7 +21,7 @@ public class AllTypesEncoderTests
     // Arrange
     SpecialTypeModel model = new(type, "");
     _typeEncoder.ForType(model).Returns(true);
-    Structured expectedStructured = new(type);
+    Structured expectedStructured = type.Encode();
     _typeEncoder.TypeEncode(model).Returns(expectedStructured);
 
     // Act

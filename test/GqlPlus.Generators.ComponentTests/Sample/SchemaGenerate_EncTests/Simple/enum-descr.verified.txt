@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_enum_descr;
 internal class CmptEnumDescrEncoder : IEncoder<CmptEnumDescr>
 {
   public Structured Encode(CmptEnumDescr input)
-    => new(input.ToString(), "_EnumDescr");
+    => input.EncodeEnum("EnumDescr");
 
   internal static CmptEnumDescrEncoder Factory(IEncoderRepository _) => new();
 }

@@ -26,7 +26,7 @@ internal class CmptRefPrntOutpEncoder : IEncoder<ICmptRefPrntOutpObject>
 {
   public Structured Encode(ICmptRefPrntOutpObject input)
     => Structured.Empty()
-      .Add("parent", input.Parent);
+      .Add("parent", input.Parent.Encode());
 
   internal static CmptRefPrntOutpEncoder Factory(IEncoderRepository _) => new();
 }

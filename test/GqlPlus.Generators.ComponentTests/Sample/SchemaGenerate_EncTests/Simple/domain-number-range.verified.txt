@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_domain_number_range;
 internal class CmptDmnNmbrRangeEncoder : IEncoder<ICmptDmnNmbrRange>
 {
   public Structured Encode(ICmptDmnNmbrRange input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static CmptDmnNmbrRangeEncoder Factory(IEncoderRepository _) => new();
 }

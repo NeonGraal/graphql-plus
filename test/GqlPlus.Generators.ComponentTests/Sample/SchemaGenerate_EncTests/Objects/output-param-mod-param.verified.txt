@@ -25,7 +25,7 @@ internal class CmptOutpParamModParamEncoder<TMod>(
 internal class CmptDomOutpParamModParamEncoder : IEncoder<ICmptDomOutpParamModParam>
 {
   public Structured Encode(ICmptDomOutpParamModParam input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static CmptDomOutpParamModParamEncoder Factory(IEncoderRepository _) => new();
 }

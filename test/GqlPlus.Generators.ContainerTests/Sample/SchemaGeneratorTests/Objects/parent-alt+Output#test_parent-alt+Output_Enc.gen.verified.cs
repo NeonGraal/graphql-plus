@@ -22,7 +22,7 @@ internal class testRefPrntAltOutpEncoder : IEncoder<ItestRefPrntAltOutpObject>
 {
   public Structured Encode(ItestRefPrntAltOutpObject input)
     => Structured.Empty()
-      .Add("parent", input.Parent);
+      .Add("parent", input.Parent.Encode());
 
   internal static testRefPrntAltOutpEncoder Factory(IEncoderRepository _) => new();
 }

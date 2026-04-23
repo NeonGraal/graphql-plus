@@ -7,20 +7,18 @@ public abstract class SimpleDecoderClassTestBase<TModel, TInput>
 
   [Theory, RepeatData]
   public void Decode_Bool(bool value)
-    => DecodeAndCheck(new(value), ExpectedBool(value), BoolMapped);
+    => DecodeAndCheck(value.Encode(), ExpectedBool(value), BoolMapped);
 
   [Theory, RepeatData]
   public void Decode_Number(decimal value)
-    => DecodeAndCheck(new(value), ExpectedNumber(value));
-
+    => DecodeAndCheck(value.Encode(), ExpectedNumber(value));
   [Theory, RepeatData, InlineData("")]
   public void Decode_Text(string value)
-    => DecodeAndCheck(new(value), ExpectedText(value));
+    => DecodeAndCheck(value.Encode(), ExpectedText(value));
 
   [Theory, RepeatData]
   public void Decode_List(TInput value)
-    => DecodeAndCheck(new([Value(value)]), ExpectedList(value));
-
+    => DecodeAndCheck(Value(value), ExpectedList(value));
   [Theory, RepeatData, RepeatInlineData("")]
   public void Decode_Dict(string key, TInput value)
     => DecodeAndCheck(key.MapWith(value).Encode(Value), ExpectedDict(key, value));
@@ -37,5 +35,5 @@ public abstract class SimpleDecoderClassTestBase<TModel, TInput>
 public abstract class SimpleDecoderClassTestBase<TModel>
   : SimpleDecoderClassTestBase<TModel, string>
 {
-  protected sealed override Structured Value(string value) => new(value);
+  protected sealed override Structured Value(string value) => value.Encode();
 }

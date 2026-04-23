@@ -27,5 +27,5 @@ internal sealed class DomainBooleanEncoderGenerator()
   : GenerateBaseDomain<IAstDomainTrueFalse>(DomainKind.Boolean)
 {
   protected override void Generate(IAstDomain<IAstDomainTrueFalse> ast, GqlpGeneratorContext context)
-    => GenerateDomainEncoder(ast, context, "new(input.Value)");
+    => GenerateDomainEncoder(ast, context, "input.Value!.Encode()");
 }

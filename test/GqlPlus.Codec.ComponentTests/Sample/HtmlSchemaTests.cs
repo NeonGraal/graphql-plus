@@ -26,7 +26,7 @@ public class HtmlSchemaTests(
     groups["All"] = all.Links(v => v[1..]);
 
     Structured result = new Map<Structured>() {
-      ["title"] = "Schema",
+      ["title"] = "Schema".Encode(),
       ["items"] = SamplesSchemaData.Strings.Links(),
       ["groups"] = groups.Encode()
     }.Encode();
@@ -42,7 +42,7 @@ public class HtmlSchemaTests(
     };
 
     Structured result = new Map<Structured>() {
-      ["title"] = "Specification",
+      ["title"] = "Specification".Encode(),
       ["items"] = SamplesSpecificationData.Strings.Links(),
       ["groups"] = groups.Links().Encode()
     }.Encode();
@@ -62,7 +62,7 @@ public class HtmlSchemaTests(
     };
 
     Structured result = new Map<Structured>() {
-      ["title"] = "Dependency Injection",
+      ["title"] = "Dependency Injection".Encode(),
       ["groups"] = groups.Links().Encode()
     }.Encode("");
 
@@ -73,7 +73,7 @@ public class HtmlSchemaTests(
   {
     Structured result = checks.Encode_Model(model, context);
     await result.ThrowIfNull()
-      .Add("title", new(label))
+      .Add("title", label.Encode())
       .WriteHtmlFileAsync(new string[] { label, section }.Joined("/"), test);
   }
   public override string ResultGroup => "Html";

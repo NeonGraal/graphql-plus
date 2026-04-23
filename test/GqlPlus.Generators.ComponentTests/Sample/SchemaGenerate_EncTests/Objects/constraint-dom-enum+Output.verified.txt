@@ -34,7 +34,7 @@ internal class CmptRefCnstDomEnumOutpEncoder<TType>(
 internal class CmptEnumCnstDomEnumOutpEncoder : IEncoder<CmptEnumCnstDomEnumOutp>
 {
   public Structured Encode(CmptEnumCnstDomEnumOutp input)
-    => new(input.ToString(), "_EnumCnstDomEnumOutp");
+    => input.EncodeEnum("EnumCnstDomEnumOutp");
 
   internal static CmptEnumCnstDomEnumOutpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -42,7 +42,7 @@ internal class CmptEnumCnstDomEnumOutpEncoder : IEncoder<CmptEnumCnstDomEnumOutp
 internal class CmptJustCnstDomEnumOutpEncoder : IEncoder<ICmptJustCnstDomEnumOutp>
 {
   public Structured Encode(ICmptJustCnstDomEnumOutp input)
-    => new(input.ToString(), "CmptEnumCnstDomEnumOutp");
+    => input.Value?.EncodeEnum("CmptEnumCnstDomEnumOutp")!;
 
   internal static CmptJustCnstDomEnumOutpEncoder Factory(IEncoderRepository _) => new();
 }

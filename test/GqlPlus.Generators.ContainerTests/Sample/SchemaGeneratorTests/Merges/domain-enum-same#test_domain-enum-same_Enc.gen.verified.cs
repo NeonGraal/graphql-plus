@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_same;
 internal class testDmnEnumSameEncoder : IEncoder<ItestDmnEnumSame>
 {
   public Structured Encode(ItestDmnEnumSame input)
-    => new(input.ToString(), "bool");
+    => input.Value?.EncodeEnum("bool")!;
 
   internal static testDmnEnumSameEncoder Factory(IEncoderRepository _) => new();
 }

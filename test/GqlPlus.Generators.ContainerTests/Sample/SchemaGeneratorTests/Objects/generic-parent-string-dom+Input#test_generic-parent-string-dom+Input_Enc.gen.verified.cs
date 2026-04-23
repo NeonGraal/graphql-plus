@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_string_dom_Input;
 internal class testDomGnrcPrntStrDomInpEncoder : IEncoder<ItestDomGnrcPrntStrDomInp>
 {
   public Structured Encode(ItestDomGnrcPrntStrDomInp input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static testDomGnrcPrntStrDomInpEncoder Factory(IEncoderRepository _) => new();
 }

@@ -1,0 +1,41 @@
+﻿/* parent-field+Input
+input PrntFieldInp { :RefPrntFieldInp field: Number }
+input RefPrntFieldInp { parent: Number | String }
+*/
+
+// Generated from Schema parent-field+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-field+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_field_Input;
+
+internal class CmptPrntFieldInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptPrntFieldInpObject>
+{
+  private readonly IEncoder<ICmptRefPrntFieldInpObject> _refPrntFieldInp = encoders.EncoderFor<ICmptRefPrntFieldInpObject>();
+  public Structured Encode(ICmptPrntFieldInpObject input)
+    => _refPrntFieldInp.Encode(input)
+      .Add("field", input.Field.Encode());
+
+  internal static CmptPrntFieldInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptRefPrntFieldInpEncoder : IEncoder<ICmptRefPrntFieldInpObject>
+{
+  public Structured Encode(ICmptRefPrntFieldInpObject input)
+    => Structured.Empty()
+      .Add("parent", input.Parent.Encode());
+
+  internal static CmptRefPrntFieldInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_parent_field_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_parent_field_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptPrntFieldInpObject>(CmptPrntFieldInpEncoder.Factory)
+      .AddEncoder<ICmptRefPrntFieldInpObject>(CmptRefPrntFieldInpEncoder.Factory);
+}

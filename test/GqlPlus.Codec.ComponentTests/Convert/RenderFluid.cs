@@ -39,7 +39,7 @@ public static class RenderFluid
       : EmptyValue.Instance;
 
   internal static Structured Links(this IEnumerable<string> list, Func<string, string> mapper)
-    => new(list.ToDictionary(i => new StructureValue(mapper(i)), i => mapper(i).Encode()), "links");
+    => new(list.ToDictionary(i => new StructureValue(mapper(i)), i => i.Encode()), "links");
 
   internal static Structured Links(this IEnumerable<string> list, string prefix = "")
     => new(list.ToDictionary(i => new StructureValue(i), i => (prefix + i).Encode()), "links");

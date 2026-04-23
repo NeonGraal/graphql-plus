@@ -11,6 +11,18 @@ dual FldFieldDualInp { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_dual_Input;
 
+internal class CmptFieldDualInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptFieldDualInpObject>
+{
+  private readonly IEncoder<ICmptFldFieldDualInp> _fldFieldDualInp = encoders.EncoderFor<ICmptFldFieldDualInp>();
+  public Structured Encode(ICmptFieldDualInpObject input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _fldFieldDualInp);
+
+  internal static CmptFieldDualInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
 internal class CmptFldFieldDualInpEncoder : IEncoder<ICmptFldFieldDualInpObject>
 {
   public Structured Encode(ICmptFldFieldDualInpObject input)
@@ -24,5 +36,6 @@ internal static class Cmpt_Schema_field_dual_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_field_dual_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
+      .AddEncoder<ICmptFieldDualInpObject>(CmptFieldDualInpEncoder.Factory)
       .AddEncoder<ICmptFldFieldDualInpObject>(CmptFldFieldDualInpEncoder.Factory);
 }

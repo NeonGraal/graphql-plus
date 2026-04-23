@@ -1,0 +1,40 @@
+﻿/* parent-descr+Input
+input PrntDescrInp { : "Test" "Descr" RefPrntDescrInp }
+input RefPrntDescrInp { parent: Number | String }
+*/
+
+// Generated from Schema parent-descr+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-descr+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_descr_Input;
+
+internal class CmptPrntDescrInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptPrntDescrInpObject>
+{
+  private readonly IEncoder<ICmptRefPrntDescrInpObject> _refPrntDescrInp = encoders.EncoderFor<ICmptRefPrntDescrInpObject>();
+  public Structured Encode(ICmptPrntDescrInpObject input)
+    => _refPrntDescrInp.Encode(input);
+
+  internal static CmptPrntDescrInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptRefPrntDescrInpEncoder : IEncoder<ICmptRefPrntDescrInpObject>
+{
+  public Structured Encode(ICmptRefPrntDescrInpObject input)
+    => Structured.Empty()
+      .Add("parent", input.Parent.Encode());
+
+  internal static CmptRefPrntDescrInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_parent_descr_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_parent_descr_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptPrntDescrInpObject>(CmptPrntDescrInpEncoder.Factory)
+      .AddEncoder<ICmptRefPrntDescrInpObject>(CmptRefPrntDescrInpEncoder.Factory);
+}

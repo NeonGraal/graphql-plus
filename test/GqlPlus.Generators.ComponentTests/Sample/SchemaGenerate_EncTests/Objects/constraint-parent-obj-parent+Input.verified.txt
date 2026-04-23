@@ -1,0 +1,60 @@
+﻿/* constraint-parent-obj-parent+Input
+input CnstPrntObjPrntInp { :RefCnstPrntObjPrntInp<AltCnstPrntObjPrntInp> }
+input RefCnstPrntObjPrntInp<$ref:PrntCnstPrntObjPrntInp> { :$ref }
+input PrntCnstPrntObjPrntInp { | String }
+input AltCnstPrntObjPrntInp { :PrntCnstPrntObjPrntInp alt: Number }
+*/
+
+// Generated from Schema constraint-parent-obj-parent+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-parent-obj-parent+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Input;
+
+internal class CmptCnstPrntObjPrntInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptCnstPrntObjPrntInpObject>
+{
+  private readonly IEncoder<ICmptRefCnstPrntObjPrntInpObject<ICmptAltCnstPrntObjPrntInp>> _refCnstPrntObjPrntInp = encoders.EncoderFor<ICmptRefCnstPrntObjPrntInpObject<ICmptAltCnstPrntObjPrntInp>>();
+  public Structured Encode(ICmptCnstPrntObjPrntInpObject input)
+    => _refCnstPrntObjPrntInp.Encode(input);
+
+  internal static CmptCnstPrntObjPrntInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptRefCnstPrntObjPrntInpEncoder<TRef> : IEncoder<ICmptRefCnstPrntObjPrntInpObject<TRef>>
+{
+  public Structured Encode(ICmptRefCnstPrntObjPrntInpObject<TRef> input)
+    => Structured.Empty();
+}
+
+internal class CmptPrntCnstPrntObjPrntInpEncoder : IEncoder<ICmptPrntCnstPrntObjPrntInpObject>
+{
+  public Structured Encode(ICmptPrntCnstPrntObjPrntInpObject input)
+    => Structured.Empty();
+
+  internal static CmptPrntCnstPrntObjPrntInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptAltCnstPrntObjPrntInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptAltCnstPrntObjPrntInpObject>
+{
+  private readonly IEncoder<ICmptPrntCnstPrntObjPrntInpObject> _prntCnstPrntObjPrntInp = encoders.EncoderFor<ICmptPrntCnstPrntObjPrntInpObject>();
+  public Structured Encode(ICmptAltCnstPrntObjPrntInpObject input)
+    => _prntCnstPrntObjPrntInp.Encode(input)
+      .Add("alt", input.Alt.Encode());
+
+  internal static CmptAltCnstPrntObjPrntInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal static class Cmpt_Schema_constraint_parent_obj_parent_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_parent_obj_parent_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptCnstPrntObjPrntInpObject>(CmptCnstPrntObjPrntInpEncoder.Factory)
+      .AddEncoder<ICmptPrntCnstPrntObjPrntInpObject>(CmptPrntCnstPrntObjPrntInpEncoder.Factory)
+      .AddEncoder<ICmptAltCnstPrntObjPrntInpObject>(CmptAltCnstPrntObjPrntInpEncoder.Factory);
+}

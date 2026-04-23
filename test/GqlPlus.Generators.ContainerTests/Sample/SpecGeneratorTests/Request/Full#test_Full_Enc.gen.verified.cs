@@ -7,6 +7,23 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Full;
 
+internal class test_RequestEncoder(
+  IEncoderRepository encoders
+) : IEncoder<Itest_RequestObject>
+{
+  private readonly IEncoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
+  private readonly IEncoder<Itest_Operation> _itest_Operation = encoders.EncoderFor<Itest_Operation>();
+  private readonly IEncoder<object> _object = encoders.EncoderFor<object>();
+  public Structured Encode(Itest_RequestObject input)
+    => Structured.Empty()
+      .AddEncoded("category", input.Category, _itest_Identifier)
+      .AddEncoded("operation", input.Operation, _itest_Identifier)
+      .AddEncoded("definition", input.Definition, _itest_Operation)
+      .AddEncoded("parameters", input.Parameters, _object);
+
+  internal static test_RequestEncoder Factory(IEncoderRepository r) => new(r);
+}
+
 internal class test_IdentifierEncoder : IEncoder<Itest_Identifier>
 {
   public Structured Encode(Itest_Identifier input)
@@ -65,6 +82,7 @@ internal static class test_FullEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_FullEncoders(this IEncoderRepositoryBuilder builder)
     => builder
+      .AddEncoder<Itest_RequestObject>(test_RequestEncoder.Factory)
       .AddEncoder<Itest_Identifier>(test_IdentifierEncoder.Factory)
       .AddEncoder<Itest_CollectionsObject>(test_CollectionsEncoder.Factory)
       .AddEncoder<Itest_ModifiersObject>(test_ModifiersEncoder.Factory)

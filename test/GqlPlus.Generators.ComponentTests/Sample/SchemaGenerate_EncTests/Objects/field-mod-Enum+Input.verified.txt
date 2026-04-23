@@ -11,6 +11,14 @@ enum EnumFieldModEnumInp { value }
 
 namespace Components.Gqlp_Schema_field_mod_Enum_Input;
 
+internal class CmptFieldModEnumInpEncoder : IEncoder<ICmptFieldModEnumInpObject>
+{
+  public Structured Encode(ICmptFieldModEnumInpObject input)
+    => Structured.Empty();
+
+  internal static CmptFieldModEnumInpEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptEnumFieldModEnumInpEncoder : IEncoder<CmptEnumFieldModEnumInp>
 {
   public Structured Encode(CmptEnumFieldModEnumInp input)
@@ -23,5 +31,6 @@ internal static class Cmpt_Schema_field_mod_Enum_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_field_mod_Enum_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
+      .AddEncoder<ICmptFieldModEnumInpObject>(CmptFieldModEnumInpEncoder.Factory)
       .AddEncoder<CmptEnumFieldModEnumInp>(CmptEnumFieldModEnumInpEncoder.Factory);
 }

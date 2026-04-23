@@ -1,12 +1,10 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Ast.Operation;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Matching;
 using GqlPlus.Merging;
 using GqlPlus.Verifying.Operation;
 using GqlPlus.Verifying.Schema;
 using GqlPlus.Verifying.Schema.Simple;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Verifying;
 

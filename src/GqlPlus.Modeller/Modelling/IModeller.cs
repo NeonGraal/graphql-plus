@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast;
-
-namespace GqlPlus.Modelling;
+﻿namespace GqlPlus.Modelling;
 
 public interface IModeller<TAst>
   where TAst : IAstError

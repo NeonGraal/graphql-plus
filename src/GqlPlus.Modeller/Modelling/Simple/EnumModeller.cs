@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Modelling.Simple;
+﻿namespace GqlPlus.Modelling.Simple;
 
 internal class EnumModeller
   : ModellerType<IAstEnum, IAstTypeRef, TypeEnumModel>

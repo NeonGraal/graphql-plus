@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Modelling.Simple;
+﻿namespace GqlPlus.Modelling.Simple;
 
 public class DomainStringModellerTests
   : DomainModellerClassTestBase<IAstDomainRegex, DomainRegexModel>

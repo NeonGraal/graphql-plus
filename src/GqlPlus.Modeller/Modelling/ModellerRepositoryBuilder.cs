@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast;
-
-namespace GqlPlus.Modelling;
+﻿namespace GqlPlus.Modelling;
 
 internal class ModellerRepositoryBuilder
   : BaseFactory<IModellerRepository>, IModellerRepositoryBuilder

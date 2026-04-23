@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Encoding.Objects;
+﻿namespace GqlPlus.Encoding.Objects;
 
 public class TypeOutputEncoderTests
   : TypeObjectEncoderBase<TypeOutputModel, ObjBaseModel, OutputFieldModel, AlternateModel>

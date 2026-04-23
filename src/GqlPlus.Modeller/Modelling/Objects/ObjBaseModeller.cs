@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Modelling.Objects;
+﻿namespace GqlPlus.Modelling.Objects;
 
 internal class ObjBaseModeller(
   IModellerRepository modellers

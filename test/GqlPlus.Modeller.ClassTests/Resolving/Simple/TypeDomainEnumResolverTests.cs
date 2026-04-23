@@ -1,7 +1,4 @@
-﻿
-using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Resolving.Simple;
+﻿namespace GqlPlus.Resolving.Simple;
 
 public class TypeDomainEnumResolverTests
   : ResolverParentTypeTestBase<BaseDomainModel<DomainLabelModel>, EnumLabelInput, DomainLabelModel, DomainItemModel<DomainLabelModel>>

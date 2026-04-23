@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Resolving.Simple;
+﻿namespace GqlPlus.Resolving.Simple;
 
 internal class TypeDomainEnumResolver
   : ResolverChildType<BaseDomainModel<DomainLabelModel>, TypeRefModel<SimpleKindModel>>

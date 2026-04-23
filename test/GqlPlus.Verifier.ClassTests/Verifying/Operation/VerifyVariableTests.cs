@@ -1,5 +1,4 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Ast.Operation;
 using NSubstitute.ReturnsExtensions;
 
 namespace GqlPlus.Verifying.Operation;

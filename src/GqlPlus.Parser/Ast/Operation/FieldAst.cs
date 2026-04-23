@@ -1,6 +1,4 @@
-﻿using GqlPlus;
-
-namespace GqlPlus.Ast.Operation;
+﻿namespace GqlPlus.Ast.Operation;
 
 internal sealed record class FieldAst(
   ITokenAt At,

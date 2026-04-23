@@ -1,7 +1,4 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Modelling.Objects;
+﻿namespace GqlPlus.Modelling.Objects;
 
 internal class TypeArgModeller(
   IModellerRepository modellers

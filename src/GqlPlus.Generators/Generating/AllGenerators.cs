@@ -1,5 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
-using GqlPlus.Generating.Globals;
+﻿using GqlPlus.Generating.Globals;
 using GqlPlus.Generating.Objects;
 using GqlPlus.Generating.Simple;
 using Microsoft.Extensions.DependencyInjection;

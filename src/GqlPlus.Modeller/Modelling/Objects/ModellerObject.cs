@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Modelling.Objects;
+﻿namespace GqlPlus.Modelling.Objects;
 
 internal abstract class ModellerObject<TAst, TObjFieldAst, TModel, TObjField>(
   TypeKindModel kind,

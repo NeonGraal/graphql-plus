@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast;
-
-namespace GqlPlus.Modelling;
+﻿namespace GqlPlus.Modelling;
 
 public abstract class ModellerClassTestBase<TAst, TModel>
   : SubstituteBase

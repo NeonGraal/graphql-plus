@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_string_same;
 internal class testDmnStrSameEncoder : IEncoder<ItestDmnStrSame>
 {
   public Structured Encode(ItestDmnStrSame input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static testDmnStrSameEncoder Factory(IEncoderRepository _) => new();
 }

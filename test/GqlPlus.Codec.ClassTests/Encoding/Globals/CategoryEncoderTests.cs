@@ -26,8 +26,8 @@ public class CategoryEncoderTests
     // Arrange
     TypeRefModel<TypeKindModel> output = new(TypeKindModel.Output, outputName, string.Empty);
     ModifierModel modifier = new(ModifierKind.List);
-    _output.Encode(output).Returns(new Structured(outputName, "Output"));
-    _modifiers.Encode(modifier).Returns(new Structured("List"));
+    _output.Encode(output).Returns(outputName.Encode("Output"));
+    _modifiers.Encode(modifier).Returns("List".Encode());
 
     // Act
     EncodeAndCheck(new(name, output, contents) {

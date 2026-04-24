@@ -14,7 +14,7 @@ internal class CmptFieldSmplOutpEncoder : IEncoder<ICmptFieldSmplOutpObject>
 {
   public Structured Encode(ICmptFieldSmplOutpObject input)
     => Structured.Empty()
-      .Add("field", input.Field);
+      .Add("field", input.Field.Encode());
 
   internal static CmptFieldSmplOutpEncoder Factory(IEncoderRepository _) => new();
 }

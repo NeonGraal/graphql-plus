@@ -6,6 +6,23 @@ namespace GqlPlus.Structures;
 
 public static class StructureHelper
 {
+  public static Structured? Encode(this bool? value, string? tag = null)
+    => value is null ? null : new(new StructureValue(value, tag), tag.IfWhiteSpace());
+  public static Structured? Encode(this decimal? value, string? tag = null)
+    => value is null ? null : new(new StructureValue(value, tag), tag.IfWhiteSpace());
+  public static Structured? Encode(this int? value, string? tag = null)
+    => value is null ? null : new(new StructureValue(value, tag), tag.IfWhiteSpace());
+  public static Structured? Encode(this StructureValue? value)
+    => value is null ? null : new(value, value.Tag.IfWhiteSpace());
+  public static Structured Encode(this string value, string? tag = null)
+    => new(new StructureValue(value, tag), tag.IfWhiteSpace());
+  public static Structured Encode(this bool value, string? tag = null)
+    => new(new StructureValue(value, tag), tag.IfWhiteSpace());
+  public static Structured Encode(this decimal value, string? tag = null)
+    => new(new StructureValue(value, tag), tag.IfWhiteSpace());
+  public static Structured Encode(this int value, string? tag = null)
+    => new(new StructureValue(value, tag), tag.IfWhiteSpace());
+
   public static Structured Encode<T>(
     this IEnumerable<T> list,
     Func<T, Structured> mapper,
@@ -15,10 +32,10 @@ public static class StructureHelper
 
   public static Structured Encode<T>(this IEnumerable<T> list, string? tag = null, bool flow = false)
     where T : Enum
-    => new(list.Select(v => new Structured(v.ToString(), tag.IfWhiteSpace(typeof(T).TypeTag()))), flow: flow);
+    => new(list.Select(v => v.ToString().Encode(tag.IfWhiteSpace(typeof(T).TypeTag()))), flow: flow);
 
   public static Structured Encode(this IEnumerable<string> list, string? tag = null, bool flow = false)
-    => list.Encode(i => new(i), tag, flow);
+    => list.Encode(i => i.Encode(), tag, flow);
 
   public static Structured Encode<T>(
     this IMap<T> groups,
@@ -42,7 +59,7 @@ public static class StructureHelper
 
   private static Structured Encode(IMessage msg)
   {
-    Structured result = new Map<Structured>() { ["_message"] = msg.Message }.Encode($"_{msg.Level}");
+    Structured result = new Map<Structured>() { ["_message"] = msg.Message.Encode() }.Encode($"_{msg.Level}");
 
     if (msg is ITokenMessage error) {
       result
@@ -56,8 +73,8 @@ public static class StructureHelper
 
   private static Structured EncodeAt(ITokenAt at)
     => new Map<Structured>() {
-      ["_col"] = at.Column,
-      ["_line"] = at.Line,
+      ["_col"] = at.Column.Encode(),
+      ["_line"] = at.Line.Encode(),
     }.Encode("_At", flow: true);
 
   public static string TypeTag(this Type type)
@@ -73,9 +90,9 @@ public static class StructureHelper
     return result;
   }
 
-  public static Structured EncodeEnum<TEnum>(this TEnum value)
+  public static Structured EncodeEnum<TEnum>(this TEnum value, string? tag = null)
     where TEnum : struct
-    => new(value.ToString(), value.GetType().TypeTag());
+    => value.ToString().Encode(tag ?? value.GetType().TypeTag());
 
   public static bool BothValued<T>([NotNullWhen(true)] this T? left, [NotNullWhen(true)] T? right)
     => left is not null && right is not null;

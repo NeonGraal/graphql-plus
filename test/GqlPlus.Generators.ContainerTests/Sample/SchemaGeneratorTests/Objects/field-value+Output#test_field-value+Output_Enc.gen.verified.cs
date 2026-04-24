@@ -19,7 +19,7 @@ internal class testFieldValueOutpEncoder : IEncoder<ItestFieldValueOutpObject>
 internal class testEnumFieldValueOutpEncoder : IEncoder<testEnumFieldValueOutp>
 {
   public Structured Encode(testEnumFieldValueOutp input)
-    => new(input.ToString(), "_EnumFieldValueOutp");
+    => input.EncodeEnum("EnumFieldValueOutp");
 
   internal static testEnumFieldValueOutpEncoder Factory(IEncoderRepository _) => new();
 }

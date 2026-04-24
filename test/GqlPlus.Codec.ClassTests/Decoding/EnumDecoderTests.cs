@@ -7,7 +7,7 @@ public class EnumDecoderTests
   [Theory, InlineData(0, TypeKindModel.Basic), InlineData(10, TypeKindModel.Dual), InlineData(20, null)]
   public void Decode_Specific_Number(decimal value, TypeKindModel? expected)
   {
-    IMessages messages = Decoder.Decode(new Structured(value), out TypeKindModel? result);
+    IMessages messages = Decoder.Decode(value.Encode(), out TypeKindModel? result);
 
     result.ShouldSatisfyAllConditions(
       () => result.ShouldBeEquivalentTo(expected),
@@ -17,7 +17,7 @@ public class EnumDecoderTests
   [Theory, InlineData("Enum", TypeKindModel.Enum), InlineData("Input", TypeKindModel.Input), InlineData("", null)]
   public void Decode_Specific_Text(string value, TypeKindModel? expected)
   {
-    IMessages messages = Decoder.Decode(new Structured(value), out TypeKindModel? result);
+    IMessages messages = Decoder.Decode(value.Encode(), out TypeKindModel? result);
 
     result.ShouldSatisfyAllConditions(
       () => result.ShouldBeEquivalentTo(expected),
@@ -27,7 +27,7 @@ public class EnumDecoderTests
   [Theory, InlineData("", TypeKindModel.Enum), InlineData("_TypeKind", TypeKindModel.Enum), InlineData("_BadTag", null)]
   public void Decode_Specific_Tag(string value, TypeKindModel? expected)
   {
-    IMessages messages = Decoder.Decode(new Structured("Enum", value), out TypeKindModel? result);
+    IMessages messages = Decoder.Decode("Enum".Encode(value), out TypeKindModel? result);
 
     result.ShouldSatisfyAllConditions(
       () => result.ShouldBeEquivalentTo(expected),

@@ -14,6 +14,8 @@ public class YamlStructureFullTagTests()
 
   protected override string[] Expected_Map(MapPair<string>[] value)
     => value.FlowMap("!map ", "!key ", "!value ");
+  protected override string[] Expected_MapUntagged(MapPair<string>[] value)
+    => value.FlowMap("!map ", "!key ");
 
   protected override string[] Expected_ListOfLists(string[][] value)
     => value.FlowList(v => v!.FlowList("!value ", "!list ", "  "), "!list ");

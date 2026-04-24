@@ -23,7 +23,7 @@ internal class CmptFieldEnumDualEncoder : IEncoder<ICmptFieldEnumDualObject>
 internal class CmptEnumFieldEnumDualEncoder : IEncoder<CmptEnumFieldEnumDual>
 {
   public Structured Encode(CmptEnumFieldEnumDual input)
-    => new(input.ToString(), "_EnumFieldEnumDual");
+    => input.EncodeEnum("EnumFieldEnumDual");
 
   internal static CmptEnumFieldEnumDualEncoder Factory(IEncoderRepository _) => new();
 }

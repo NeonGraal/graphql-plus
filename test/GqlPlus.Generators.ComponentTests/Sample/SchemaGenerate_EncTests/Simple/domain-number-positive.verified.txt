@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_domain_number_positive;
 internal class CmptDmnNmbrPstvEncoder : IEncoder<ICmptDmnNmbrPstv>
 {
   public Structured Encode(ICmptDmnNmbrPstv input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static CmptDmnNmbrPstvEncoder Factory(IEncoderRepository _) => new();
 }

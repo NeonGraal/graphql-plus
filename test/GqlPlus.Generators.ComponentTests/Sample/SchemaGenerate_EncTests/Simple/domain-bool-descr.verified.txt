@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_domain_bool_descr;
 internal class CmptDmnBoolDescrEncoder : IEncoder<ICmptDmnBoolDescr>
 {
   public Structured Encode(ICmptDmnBoolDescr input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static CmptDmnBoolDescrEncoder Factory(IEncoderRepository _) => new();
 }

@@ -37,7 +37,7 @@ namespace Components.Gqlp_Schema_all;
 internal class CmptGuidEncoder : IEncoder<ICmptGuid>
 {
   public Structured Encode(ICmptGuid input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static CmptGuidEncoder Factory(IEncoderRepository _) => new();
 }
@@ -45,7 +45,7 @@ internal class CmptGuidEncoder : IEncoder<ICmptGuid>
 internal class CmptOneEncoder : IEncoder<CmptOne>
 {
   public Structured Encode(CmptOne input)
-    => new(input.ToString(), "_One");
+    => input.EncodeEnum("One");
 
   internal static CmptOneEncoder Factory(IEncoderRepository _) => new();
 }

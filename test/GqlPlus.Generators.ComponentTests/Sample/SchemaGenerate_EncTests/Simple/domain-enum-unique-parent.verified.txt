@@ -16,7 +16,7 @@ namespace Components.Gqlp_Schema_domain_enum_unique_parent;
 internal class CmptEnumDmnEnumUnqPrntEncoder : IEncoder<CmptEnumDmnEnumUnqPrnt>
 {
   public Structured Encode(CmptEnumDmnEnumUnqPrnt input)
-    => new(input.ToString(), "_EnumDmnEnumUnqPrnt");
+    => input.EncodeEnum("EnumDmnEnumUnqPrnt");
 
   internal static CmptEnumDmnEnumUnqPrntEncoder Factory(IEncoderRepository _) => new();
 }
@@ -24,7 +24,7 @@ internal class CmptEnumDmnEnumUnqPrntEncoder : IEncoder<CmptEnumDmnEnumUnqPrnt>
 internal class CmptPrntDmnEnumUnqPrntEncoder : IEncoder<CmptPrntDmnEnumUnqPrnt>
 {
   public Structured Encode(CmptPrntDmnEnumUnqPrnt input)
-    => new(input.ToString(), "_PrntDmnEnumUnqPrnt");
+    => input.EncodeEnum("PrntDmnEnumUnqPrnt");
 
   internal static CmptPrntDmnEnumUnqPrntEncoder Factory(IEncoderRepository _) => new();
 }
@@ -32,7 +32,7 @@ internal class CmptPrntDmnEnumUnqPrntEncoder : IEncoder<CmptPrntDmnEnumUnqPrnt>
 internal class CmptDupDmnEnumUnqPrntEncoder : IEncoder<CmptDupDmnEnumUnqPrnt>
 {
   public Structured Encode(CmptDupDmnEnumUnqPrnt input)
-    => new(input.ToString(), "_DupDmnEnumUnqPrnt");
+    => input.EncodeEnum("DupDmnEnumUnqPrnt");
 
   internal static CmptDupDmnEnumUnqPrntEncoder Factory(IEncoderRepository _) => new();
 }

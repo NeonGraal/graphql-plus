@@ -33,7 +33,7 @@ internal class CmptAltGnrcPrntParamPrntOutpEncoder : IEncoder<ICmptAltGnrcPrntPa
 {
   public Structured Encode(ICmptAltGnrcPrntParamPrntOutpObject input)
     => Structured.Empty()
-      .Add("alt", input.Alt);
+      .Add("alt", input.Alt.Encode());
 
   internal static CmptAltGnrcPrntParamPrntOutpEncoder Factory(IEncoderRepository _) => new();
 }

@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_field_value_Input;
 internal class CmptEnumFieldValueInpEncoder : IEncoder<CmptEnumFieldValueInp>
 {
   public Structured Encode(CmptEnumFieldValueInp input)
-    => new(input.ToString(), "_EnumFieldValueInp");
+    => input.EncodeEnum("EnumFieldValueInp");
 
   internal static CmptEnumFieldValueInpEncoder Factory(IEncoderRepository _) => new();
 }

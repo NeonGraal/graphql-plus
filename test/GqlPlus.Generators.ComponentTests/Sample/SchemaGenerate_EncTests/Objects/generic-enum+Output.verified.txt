@@ -33,7 +33,7 @@ internal class CmptRefGnrcEnumOutpEncoder<TType>(
 internal class CmptEnumGnrcEnumOutpEncoder : IEncoder<CmptEnumGnrcEnumOutp>
 {
   public Structured Encode(CmptEnumGnrcEnumOutp input)
-    => new(input.ToString(), "_EnumGnrcEnumOutp");
+    => input.EncodeEnum("EnumGnrcEnumOutp");
 
   internal static CmptEnumGnrcEnumOutpEncoder Factory(IEncoderRepository _) => new();
 }

@@ -21,6 +21,6 @@ public static class RenderJson
     string joined = json.Joined(Environment.NewLine);
     Structured? result = string.IsNullOrWhiteSpace(joined) ? null
       : JsonSerializer.Deserialize<Structured>(joined, options ?? Indented);
-    return result ?? new Structured("");
+    return result ?? Structured.Empty();
   }
 }

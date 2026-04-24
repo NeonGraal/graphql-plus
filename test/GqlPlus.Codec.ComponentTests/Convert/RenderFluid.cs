@@ -39,10 +39,10 @@ public static class RenderFluid
       : EmptyValue.Instance;
 
   internal static Structured Links(this IEnumerable<string> list, Func<string, string> mapper)
-    => new(list.ToDictionary(i => new StructureValue(mapper(i)), i => new Structured(i)), "links");
+    => new(list.ToDictionary(i => new StructureValue(mapper(i)), i => i.Encode()), "links");
 
   internal static Structured Links(this IEnumerable<string> list, string prefix = "")
-    => new(list.ToDictionary(i => new StructureValue(i), i => new Structured(prefix + i)), "links");
+    => new(list.ToDictionary(i => new StructureValue(i), i => (prefix + i).Encode()), "links");
 
   internal static Map<Structured> Links(this Map<IEnumerable<string>> groups)
     => groups.ToMap(g => g.Key, g => g.Value.Links(g.Key + "/"));
@@ -51,7 +51,7 @@ public static class RenderFluid
   {
     ArgumentNullException.ThrowIfNull(model);
 
-    model.Add("yaml", model.ToSimpleYaml(true).Joined(Environment.NewLine));
+    model.Add("yaml", model.ToSimpleYaml(true).Joined(Environment.NewLine).Encode());
     TemplateContext context = new(model, s_options);
     IFluidTemplate template = GetTemplate(initial);
     await template.RenderAsync(context).WriteHtmlFileAsync(dir, file);

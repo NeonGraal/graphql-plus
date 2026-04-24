@@ -28,7 +28,7 @@ internal class testRefGnrcValueOutpEncoder<TType>(
 internal class testEnumGnrcValueOutpEncoder : IEncoder<testEnumGnrcValueOutp>
 {
   public Structured Encode(testEnumGnrcValueOutp input)
-    => new(input.ToString(), "_EnumGnrcValueOutp");
+    => input.EncodeEnum("EnumGnrcValueOutp");
 
   internal static testEnumGnrcValueOutpEncoder Factory(IEncoderRepository _) => new();
 }

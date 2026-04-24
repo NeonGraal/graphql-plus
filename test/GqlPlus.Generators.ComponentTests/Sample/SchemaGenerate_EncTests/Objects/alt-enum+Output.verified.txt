@@ -22,7 +22,7 @@ internal class CmptAltEnumOutpEncoder : IEncoder<ICmptAltEnumOutpObject>
 internal class CmptEnumAltEnumOutpEncoder : IEncoder<CmptEnumAltEnumOutp>
 {
   public Structured Encode(CmptEnumAltEnumOutp input)
-    => new(input.ToString(), "_EnumAltEnumOutp");
+    => input.EncodeEnum("EnumAltEnumOutp");
 
   internal static CmptEnumAltEnumOutpEncoder Factory(IEncoderRepository _) => new();
 }

@@ -41,7 +41,7 @@ public class HtmlBuiltInTests(IModelAndEncode encoder)
     };
 
     Structured result = new Map<Structured>() {
-      ["title"] = "BuiltIn",
+      ["title"] = "BuiltIn".Encode(),
       ["items"] = _sections.Links("!"),
       ["groups"] = groups.Links().Encode(),
     }.Encode("");
@@ -110,6 +110,6 @@ public class HtmlBuiltInTests(IModelAndEncode encoder)
   {
     Structured result = encoder.EncodeAst(schema, encoder.Context(), extras);
 
-    await result.ThrowIfNull().Add("title", new(filename)).WriteHtmlFileAsync("BuiltIn" + section.Prefixed("/"), filename);
+    await result.ThrowIfNull().Add("title", filename.Encode()).WriteHtmlFileAsync("BuiltIn" + section.Prefixed("/"), filename);
   }
 }

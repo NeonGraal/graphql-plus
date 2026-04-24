@@ -23,7 +23,7 @@ internal class CmptAltAltOutpEncoder : IEncoder<ICmptAltAltOutpObject>
 {
   public Structured Encode(ICmptAltAltOutpObject input)
     => Structured.Empty()
-      .Add("alt", input.Alt);
+      .Add("alt", input.Alt.Encode());
 
   internal static CmptAltAltOutpEncoder Factory(IEncoderRepository _) => new();
 }

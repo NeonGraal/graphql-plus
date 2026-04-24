@@ -49,7 +49,7 @@ internal class CmptAltCnstFieldObjOutpEncoder(
   private readonly IEncoder<ICmptPrntCnstFieldObjOutpObject> _prntCnstFieldObjOutp = encoders.EncoderFor<ICmptPrntCnstFieldObjOutpObject>();
   public Structured Encode(ICmptAltCnstFieldObjOutpObject input)
     => _prntCnstFieldObjOutp.Encode(input)
-      .Add("alt", input.Alt);
+      .Add("alt", input.Alt.Encode());
 
   internal static CmptAltCnstFieldObjOutpEncoder Factory(IEncoderRepository r) => new(r);
 }

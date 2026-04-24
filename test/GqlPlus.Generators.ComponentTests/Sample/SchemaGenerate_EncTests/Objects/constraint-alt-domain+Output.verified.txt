@@ -29,7 +29,7 @@ internal class CmptRefCnstAltDmnOutpEncoder<TRef> : IEncoder<ICmptRefCnstAltDmnO
 internal class CmptDomCnstAltDmnOutpEncoder : IEncoder<ICmptDomCnstAltDmnOutp>
 {
   public Structured Encode(ICmptDomCnstAltDmnOutp input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static CmptDomCnstAltDmnOutpEncoder Factory(IEncoderRepository _) => new();
 }

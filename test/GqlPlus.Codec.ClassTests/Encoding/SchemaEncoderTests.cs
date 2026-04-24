@@ -53,10 +53,10 @@ public class SchemaEncoderTests
       Aliases = aliases
     };
 
-    EncodeReturns(_categories, Arg.Any<CategoriesModel>(), new Structured(categoryName, "_Categories"));
-    EncodeReturns(_directives, Arg.Any<DirectivesModel>(), new Structured(directiveName, "_Directives"));
-    EncodeReturns(_settings, Arg.Any<SettingModel>(), new Structured(settingName, "_Setting"));
-    EncodeReturns(_types, Arg.Any<BaseTypeModel>(), new Structured(typeName, "_TypeOutput"));
+    EncodeReturns(_categories, Arg.Any<CategoriesModel>(), categoryName.Encode("_Categories"));
+    EncodeReturns(_directives, Arg.Any<DirectivesModel>(), directiveName.Encode("_Directives"));
+    EncodeReturns(_settings, Arg.Any<SettingModel>(), settingName.Encode("_Setting"));
+    EncodeReturns(_types, Arg.Any<BaseTypeModel>(), typeName.Encode("_TypeOutput"));
 
     IEnumerable<string> taggedAliases = aliases.Select((s, i) => $":aliases.{i}={s}");
 

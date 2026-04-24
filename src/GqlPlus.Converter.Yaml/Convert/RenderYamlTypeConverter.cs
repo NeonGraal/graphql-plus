@@ -136,14 +136,14 @@ internal class RenderYamlTypeConverter
     Scalar current = parser.Consume<Scalar>().ThrowIfNull();
     string? tag = current.Tag.IsEmpty ? null : current.Tag.Value.TrimStart('!');
     if (decimal.TryParse(current.Value, out decimal number)) {
-      return new(number, tag);
+      return number.Encode(tag);
     }
 
     if (bool.TryParse(current.Value, out bool boolean)) {
-      return new(boolean, tag);
+      return boolean.Encode(tag);
     }
 
-    return new(current.Value, tag);
+    return current.Value.Encode(tag);
   }
   private void WriteValue(IEmitter emitter, StructureValue value, string tag)
   {

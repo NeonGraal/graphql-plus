@@ -28,7 +28,7 @@ internal class testRefOutpPrntGnrcEncoder<TType>(
 internal class testEnumOutpPrntGnrcEncoder : IEncoder<testEnumOutpPrntGnrc>
 {
   public Structured Encode(testEnumOutpPrntGnrc input)
-    => new(input.ToString(), "_EnumOutpPrntGnrc");
+    => input.EncodeEnum("EnumOutpPrntGnrc");
 
   internal static testEnumOutpPrntGnrcEncoder Factory(IEncoderRepository _) => new();
 }
@@ -36,7 +36,7 @@ internal class testEnumOutpPrntGnrcEncoder : IEncoder<testEnumOutpPrntGnrc>
 internal class testPrntOutpPrntGnrcEncoder : IEncoder<testPrntOutpPrntGnrc>
 {
   public Structured Encode(testPrntOutpPrntGnrc input)
-    => new(input.ToString(), "_PrntOutpPrntGnrc");
+    => input.EncodeEnum("PrntOutpPrntGnrc");
 
   internal static testPrntOutpPrntGnrcEncoder Factory(IEncoderRepository _) => new();
 }

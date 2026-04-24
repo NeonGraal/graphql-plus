@@ -109,6 +109,25 @@ public abstract class GenerateObjectTestsBase<TObjField>(
   }
 
   [Theory, RepeatData]
+  public void GenerateType_WithPrimitiveField_GeneratesCorrectCode(string name, string fieldName)
+  {
+    // Arrange
+    GqlpGeneratorContext context = Context(BaseType, GeneratorType);
+    IAstObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
+      .WithObjFields(MakeField(fieldName, "String")
+        .AsObjField)
+      .AsObject;
+
+    // Act
+    TypeGenerator.GenerateType(obj, context);
+
+    // Assert
+    context.CheckFor(
+      ForGeneratedCodeName(name),
+      ForGeneratedBoth("string " + fieldName + " { get;"));
+  }
+
+  [Theory, RepeatData]
   public void GenerateType_WithAlternate_GeneratesCorrectCode(string name, string alternateType)
   {
     // Arrange

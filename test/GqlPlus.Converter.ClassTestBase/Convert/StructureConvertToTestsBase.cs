@@ -10,10 +10,15 @@ public abstract class StructureConvertToTestsBase(IConvertTestsBase converters)
   protected virtual string KeyTag => "";
   protected abstract string[] Expected_List(string[] value);
   protected abstract string[] Expected_Map(MapPair<string>[] value);
+  protected abstract string[] Expected_MapUntagged(MapPair<string>[] value);
   protected abstract string[] Expected_ListOfLists(string[][] value);
   protected abstract string[] Expected_MapOfLists(MapPair<string[]>[] value);
   protected abstract string[] Expected_ListOfMaps(MapPair<string>[][] value);
   protected abstract string[] Expected_MapOfMaps(MapPair<MapPair<string>[]>[] value);
+
+  [Theory, RepeatData]
+  public void ConvertTo_AList(string value)
+    => ConvertTo_List([value]);
 
   [Theory, RepeatData]
   public void ConvertTo_List(string[] value)
@@ -27,12 +32,33 @@ public abstract class StructureConvertToTestsBase(IConvertTestsBase converters)
   }
 
   [Theory, RepeatData]
+  public void ConvertTo_AMap(MapPair<string> value)
+    => ConvertTo_Map([value]);
+
+  [Theory, RepeatData]
   public void ConvertTo_Map(MapPair<string>[] value)
   {
     Assert.SkipWhen(value is null || MapDups(value), "Duplicate Keys in map");
 
     string[] expected = Expected_Map(value);
     Structured model = AsMap(value, AsValue);
+
+    string[] result = Converters.ConvertTo(model);
+
+    result.ShouldBe(expected);
+  }
+
+  [Theory, RepeatData]
+  public void ConvertTo_AMapUntagged(MapPair<string> value)
+    => ConvertTo_MapUntagged([value]);
+
+  [Theory, RepeatData]
+  public void ConvertTo_MapUntagged(MapPair<string>[] value)
+  {
+    Assert.SkipWhen(value is null || MapDups(value), "Duplicate Keys in map");
+
+    string[] expected = Expected_MapUntagged(value);
+    Structured model = AsMap(value, v => v.Encode());
 
     string[] result = Converters.ConvertTo(model);
 

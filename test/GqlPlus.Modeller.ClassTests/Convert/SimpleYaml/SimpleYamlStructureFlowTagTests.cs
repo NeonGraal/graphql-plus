@@ -42,6 +42,8 @@ public class SimpleYamlStructureFlowTagTests()
 
   protected override string[] Expected_Map(MapPair<string>[] value)
     => value.FlowMap("!map", "!value ");
+  protected override string[] Expected_MapUntagged(MapPair<string>[] value)
+    => value.FlowMap("!map");
 
   protected override string[] Expected_ListOfLists(string[][] value)
     => value.FlowList(v => v!.FlowList("!value ", "!list"), "!list");

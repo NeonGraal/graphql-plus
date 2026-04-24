@@ -8,6 +8,8 @@ public class PlainStructureTests()
 
   protected override string[] Expected_Map(MapPair<string>[] value)
     => value.BlockMap(ValueTag.Tagged(), MapTag, KeyTag);
+  protected override string[] Expected_MapUntagged(MapPair<string>[] value)
+    => value.BlockMap("".Tagged(), MapTag, KeyTag);
 
   protected override string[] Expected_ListOfLists(string[][] value)
     => value.BlockList(v => v.BlockList(ValueTag.Tagged(), ListTag), ListTag);

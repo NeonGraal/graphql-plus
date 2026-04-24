@@ -8,6 +8,8 @@ public class JsonStructureIndentedTests()
 
   protected override string[] Expected_Map(MapPair<string>[] value)
     => value.AsIndentedMap();
+  protected override string[] Expected_MapUntagged(MapPair<string>[] value)
+    => value.AsIndentedMap();
 
   protected override string[] Expected_ListOfLists(string[][] value)
     => [value.AsIndentedList(v => [v!.AsUnindentedList()], "").SkipLast(1).Joined(""), "]"];

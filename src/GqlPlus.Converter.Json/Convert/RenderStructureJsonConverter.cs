@@ -35,15 +35,20 @@ internal sealed class RenderStructureJsonConverter
   {
     KeyValuePair<StructureValue, Structured> first = value.Map.First();
     if (value.Map.Count == 1 && !plain && string.IsNullOrWhiteSpace(first.Value.Tag) && first.Value.Value is not null) {
-      writer.WriteStartObject();
-      WriteTag(writer, keyTag, "keyTag");
-      WriteTag(writer, value.Tag, "mapTag");
-      writer.WritePropertyName(first.Key.AsString);
-      WriteStructureTagged(writer, first.Value?.Value.Encode() ?? Structured.Empty(), first.Key.Tag);
-      writer.WriteEndObject();
+      WriteSingleMap(writer, value.Tag, keyTag, first);
     } else {
       WriteFullMap(writer, value.Map, value.Tag, keyTag);
     }
+  }
+
+  private void WriteSingleMap(Utf8JsonWriter writer, string valueTag, string keyTag, KeyValuePair<StructureValue, Structured> first)
+  {
+    writer.WriteStartObject();
+    WriteTag(writer, keyTag, "keyTag");
+    WriteTag(writer, valueTag, "mapTag");
+    writer.WritePropertyName(first.Key.AsString);
+    WriteStructureTagged(writer, first.Value?.Value.Encode() ?? Structured.Empty(), first.Key.Tag);
+    writer.WriteEndObject();
   }
 
   private void WriteFullMap(

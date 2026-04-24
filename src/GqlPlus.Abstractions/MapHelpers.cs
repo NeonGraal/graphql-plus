@@ -14,6 +14,11 @@ public static class MapHelpers
     [NotNull] Func<TInput, TPair> value
   ) => new(key(item), value(item));
 
+  public static MapPair<TPair> Select<TInput, TPair>(
+    this MapPair<TInput> item,
+    [NotNull] Func<TInput, TPair> value
+  ) => new(item.Key, value(item.Value));
+
   public static IEnumerable<MapPair<TMap>> ToPairs<TInput, TMap>(
     this IEnumerable<TInput>? items,
     Func<TInput, string> key,

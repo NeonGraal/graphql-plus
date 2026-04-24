@@ -8,6 +8,8 @@ public class SimpleYamlStructureTests()
 
   protected override string[] Expected_Map(MapPair<string>[] value)
     => value.BlockMap();
+  protected override string[] Expected_MapUntagged(MapPair<string>[] value)
+    => value.BlockMap();
 
   protected override string[] Expected_ListOfLists(string[][] value)
     => value.BlockList(v => ["-", .. v!.BlockList("  - ")]);

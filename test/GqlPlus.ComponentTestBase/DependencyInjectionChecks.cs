@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
 using System.Globalization;
 using System.Reflection;
 using System.Text;
@@ -187,6 +188,8 @@ public abstract class DependencyInjectionChecks(IServiceCollection services)
     IOrderedEnumerable<DiService> services = _diServices.Values
       .OrderBy(s => (s.RequiredBy, s.Service.Name));
 
+    TestContext.Current.AddAttachment(Label + " services", services.Joined(s => $"{s}", Environment.NewLine));
+
     TemplateContext context = new(s_options);
     context.SetValue("name", Label);
     context.SetValue("services", services);
@@ -204,6 +207,14 @@ public abstract class DependencyInjectionChecks(IServiceCollection services)
     string[] nodes = [.. links
       .SelectMany(l => new string[] { l.From, l.To })
       .Distinct()];
+
+    StringBuilder sb = new("Force 3D for ");
+    sb.AppendLine(Label);
+    foreach (DiLink link in links) {
+      sb.AppendLine(CultureInfo.InvariantCulture, $"{link.From} - {link.Style} > {link.To}");
+    }
+
+    TestContext.Current.AddAttachment(Label + " force 3D", sb.ToString());
 
     TemplateContext context = new(s_options);
     context.SetValue("name", Label);
@@ -257,6 +268,11 @@ public abstract class DependencyInjectionChecks(IServiceCollection services)
     if (group.Count > 0) {
       groups[name] = [.. group];
     }
+
+    TestContext.Current.AddAttachment(Label + " diagram groups", groups.Joined(kv => {
+      string details = kv.Value.Joined(v => $"  {v}", Environment.NewLine);
+      return kv.Key + ":" + Environment.NewLine + details;
+    }, Environment.NewLine));
 
     TemplateContext context = new(s_options);
     context.SetValue("name", Label);

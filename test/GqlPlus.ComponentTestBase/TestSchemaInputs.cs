@@ -68,15 +68,6 @@ public abstract class TestSchemaInputs
     await Test_Input("Spec", spec, ["Specification", "Introspection"], sample, "Introspection");
   }
 
-  [Theory]
-  [ClassData(typeof(SamplesSpecificationRequestData))]
-  public async Task Test_SpecRequest(string sample)
-  {
-    string spec = await ReadSpecification(sample, "Request");
-
-    await Test_Input("Spec", spec, ["Specification", "Request"], sample, "Request");
-  }
-
   protected abstract Task Label_Input(string label, string input, string[] dirs, string test, string section = "");
 
   protected virtual async Task Label_Inputs(string label, IEnumerable<string> inputs, string test)

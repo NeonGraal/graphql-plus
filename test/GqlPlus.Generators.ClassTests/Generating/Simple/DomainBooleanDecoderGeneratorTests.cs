@@ -15,13 +15,10 @@ public class DomainBooleanDecoderGeneratorTests
     => ForGeneratedDecoder("internal class " + TestPrefix + name + "Decoder");
 
   internal override ForType ForGeneratedCodeParent(string parent)
-    => _ => _ => { };
+    => _ => r => r.ShouldNotContain(": " + parent);
 
   internal override ForType ForGeneratedBoth(string contains)
     => ForGeneratedDecoder(contains);
-
-  internal override ForType ForGeneratedModel(string contains)
-    => _ => result => { };
 
   protected override IAstDomainTrueFalse MakeDomainItem(string item)
     => A.ItemTrueFalse(item?.Length % 2 == 1);

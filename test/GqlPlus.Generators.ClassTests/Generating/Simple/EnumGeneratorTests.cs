@@ -140,7 +140,7 @@ public class EnumGeneratorTests
     => ForGeneratedInterface("public enum " + TestPrefix + name);
 
   internal override ForType ForGeneratedCodeParent(string parent)
-    => _ => _ => { };
+    => _ => r => r.ShouldNotContain(": I" + parent);
 
   protected override void MakeItems(SimpleBuilder<IAstEnum> builder, params string[] items)
     => ((EnumBuilder)builder).WithLabels(items);

@@ -13,8 +13,6 @@ public class HtmlSchemaTests(
   [Fact]
   public async Task Index_Schema()
   {
-    string[] all = ["!ALL", "+Global", "+Merge", "+Object", "+Simple"];
-
     Map<IEnumerable<string>> mostGroups = new() {
       ["Globals"] = SamplesSchemaGlobalsData.Strings,
       ["Merges"] = await ReplaceSchemaKeys("Merges"),
@@ -23,7 +21,7 @@ public class HtmlSchemaTests(
     };
 
     Map<Structured> groups = mostGroups.Links();
-    groups["All"] = all.Links(v => v[1..]);
+    groups["All"] = SchemaValidData.AllGroups.Links(v => v[1..]);
 
     Structured result = new Map<Structured>() {
       ["title"] = "Schema".Encode(),

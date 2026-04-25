@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\GqlPlus.Abstractions\GqlPlus.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>

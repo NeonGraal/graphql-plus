@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GqlPlus.Codec.ComponentTestBase\GqlPlus.Codec.ComponentTestBase.csproj" />
+    <ProjectReference Include="..\GqlPlus.Schema.Codec.ComponentTestBase\GqlPlus.Schema.Codec.ComponentTestBase.csproj" />
   </ItemGroup>
 
 </Project>

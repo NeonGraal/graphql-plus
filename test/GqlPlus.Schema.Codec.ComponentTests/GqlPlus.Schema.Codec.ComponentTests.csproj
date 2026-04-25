@@ -9,7 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GqlPlus.Codec.ComponentTestBase\GqlPlus.Codec.ComponentTestBase.csproj" />
+    <ProjectReference Include="..\..\src\GqlPlus.Converter.Plain\GqlPlus.Converter.Plain.csproj" />
+    <ProjectReference Include="..\GqlPlus.Schema.Codec.ComponentTestBase\GqlPlus.Schema.Codec.ComponentTestBase.csproj" />
   </ItemGroup>
 
 </Project>

@@ -144,4 +144,4 @@ if ($broken.Count -gt 0) {
     }
 }
 
-if ($FailOnMissing -and $broken.Count -gt 0) { exit 1 } elseif ($broken.Count -gt 0) { exit 1 } else { exit 0 }
+if ($FailOnMissing -and $broken.Count -gt 0) { exit 1 } else { exit 0 }

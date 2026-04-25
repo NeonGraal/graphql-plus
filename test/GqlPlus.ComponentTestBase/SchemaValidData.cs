@@ -9,6 +9,8 @@ public class SchemaValidData
   public static bool ExcludeSpecsForBuiltIn(string test)
     => test == SpecDefinition || test == "Schema";
 
+  public static readonly string[] AllGroups = ["!ALL", "+Globals", "+Merges", "+Objects", "+Simple"];
+
   public static readonly string[] All = [
     .. SamplesSchemaGlobalsData.Strings,
     .. SamplesSchemaMergesData.Strings,

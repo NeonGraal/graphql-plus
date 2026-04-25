@@ -19,13 +19,7 @@ public class UnionEncoderGeneratorTests
     => ForGeneratedEncoder("internal class " + TestPrefix + name + "Encoder");
 
   internal override ForType ForGeneratedCodeParent(string parent)
-    => _ => _ => { };
-
-  internal override ForType ForGeneratedBoth(string contains)
-    => _ => _ => { };
-
-  internal override ForType ForGeneratedInterface(string contains)
-    => _ => _ => { };
+    => _ => r => r.ShouldNotContain(": " + parent);
 
   protected override void MakeItems(SimpleBuilder<IAstUnion> builder, params string[] items)
     => ((UnionBuilder)builder).WithMembers(items);

@@ -15,13 +15,10 @@ public class DomainNumberDecoderGeneratorTests
     => ForGeneratedDecoder("internal class " + TestPrefix + name + "Decoder");
 
   internal override ForType ForGeneratedCodeParent(string parent)
-    => _ => _ => { };
+    => _ => r => r.ShouldNotContain(": " + parent);
 
   internal override ForType ForGeneratedBoth(string contains)
     => ForGeneratedDecoder(contains);
-
-  internal override ForType ForGeneratedModel(string contains)
-    => _ => result => { };
 
   protected override IAstDomainRange MakeDomainItem(string item)
     => A.ItemRange(item?.Length ?? 0);

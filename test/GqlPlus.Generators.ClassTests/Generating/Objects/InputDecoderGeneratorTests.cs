@@ -22,14 +22,8 @@ public class InputDecoderGeneratorTests
     return ForGeneratedDecoder("internal class " + TestPrefix + baseName + "Decoder");
   }
 
-  internal override ForType ForGeneratedCodeParent(string parent)
-    => _ => _ => { };
-
   internal override ForType ForGeneratedBoth(string contains)
     => ForGeneratedDecoder(contains);
-
-  internal override ForType ForGeneratedModel(string contains)
-    => _ => result => { };
 
   protected override ObjFieldBuilder<IAstInputField> MakeField(string name, string type)
     => new InputFieldBuilder(name, type);

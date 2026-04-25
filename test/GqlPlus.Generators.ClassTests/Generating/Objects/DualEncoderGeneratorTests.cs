@@ -22,15 +22,6 @@ public class DualEncoderGeneratorTests
     return ForGeneratedEncoder("internal class " + TestPrefix + baseName + "Encoder");
   }
 
-  internal override ForType ForGeneratedCodeParent(string parent)
-    => _ => _ => { };
-
-  internal override ForType ForGeneratedBoth(string contains)
-    => _ => _ => { };
-
-  internal override ForType ForGeneratedInterface(string contains)
-    => _ => _ => { };
-
   protected override ObjFieldBuilder<IAstDualField> MakeField(string name, string type)
     => new DualFieldBuilder(name, type);
 }

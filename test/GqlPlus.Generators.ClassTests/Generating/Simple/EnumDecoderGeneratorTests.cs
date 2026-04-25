@@ -20,7 +20,7 @@ public class EnumDecoderGeneratorTests
     => ForGeneratedDecoder("internal class " + TestPrefix + name + "Decoder");
 
   internal override ForType ForGeneratedCodeParent(string parent)
-    => _ => _ => { };
+    => _ => r => r.ShouldNotContain(": " + parent);
 
   protected override void MakeItems(SimpleBuilder<IAstEnum> builder, params string[] items)
     => ((EnumBuilder)builder).WithLabels(items);

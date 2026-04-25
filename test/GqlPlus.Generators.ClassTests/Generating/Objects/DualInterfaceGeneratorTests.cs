@@ -25,9 +25,6 @@ public class DualInterfaceGeneratorTests
   internal override ForType ForGeneratedBoth(string contains)
     => ForGeneratedInterface(contains);
 
-  internal override ForType ForGeneratedModel(string contains)
-    => _ => result => { };
-
   protected override ObjFieldBuilder<IAstDualField> MakeField(string name, string type)
     => new DualFieldBuilder(name, type);
 }

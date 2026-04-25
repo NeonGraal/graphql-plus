@@ -60,6 +60,9 @@ jobs:
           dotnet tool restore --tool-manifest .config/dotnet-tools.json
       - name: Tests with Coverage
         run: pwsh just-coverage.ps1 -Framework ${{ matrix.version }} -ClassTests:${{ matrix.classTests }}
+      - name: Check HTML Links
+        if: matrix.classTests == false
+        run: pwsh check-links.ps1
       - name: Generate Coverage Report
         if: always()
         env:

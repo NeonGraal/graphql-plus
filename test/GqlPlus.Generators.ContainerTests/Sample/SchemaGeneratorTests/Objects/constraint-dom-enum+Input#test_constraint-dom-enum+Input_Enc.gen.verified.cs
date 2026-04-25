@@ -18,7 +18,7 @@ internal class testEnumCnstDomEnumInpEncoder : IEncoder<testEnumCnstDomEnumInp>
 internal class testJustCnstDomEnumInpEncoder : IEncoder<ItestJustCnstDomEnumInp>
 {
   public Structured Encode(ItestJustCnstDomEnumInp input)
-    => input.Value?.EncodeEnum("testEnumCnstDomEnumInp")!;
+    => input.Value?.EncodeEnum("testEnumCnstDomEnumInp") ?? Structured.Empty("testEnumCnstDomEnumInp");
 
   internal static testJustCnstDomEnumInpEncoder Factory(IEncoderRepository _) => new();
 }

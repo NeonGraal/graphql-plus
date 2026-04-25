@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_domain_enum_label;
 internal class CmptDmnEnumLabelEncoder : IEncoder<ICmptDmnEnumLabel>
 {
   public Structured Encode(ICmptDmnEnumLabel input)
-    => input.Value?.EncodeEnum("CmptEnumDmnEnumLabel")!;
+    => input.Value?.EncodeEnum("CmptEnumDmnEnumLabel") ?? Structured.Empty("CmptEnumDmnEnumLabel");
 
   internal static CmptDmnEnumLabelEncoder Factory(IEncoderRepository _) => new();
 }

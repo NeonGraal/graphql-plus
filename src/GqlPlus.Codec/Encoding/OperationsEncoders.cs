@@ -19,7 +19,7 @@ internal class OperationEncoder(
 
   internal override Structured Encode(OperationModel model)
     => base.Encode(model)
-      .Add("category", model.Category)
+      .Add("category", model.Category.Encode())
       .AddList("directives", model.Directives, _directives)
       .AddMap("fragments", model.Fragments, _fragments, "_Fragments")
       .AddEncoded("result", model.Result, _result)

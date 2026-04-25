@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Generating.Simple;
+﻿namespace GqlPlus.Generating.Simple;
 
 public class DomainEnumEncoderGeneratorTests
   : GenerateDomainTestsBase<IAstDomainLabel>
@@ -24,5 +22,5 @@ public class DomainEnumEncoderGeneratorTests
     => A.ItemLabel("TestEnum", item);
 
   internal override ForType ForGeneratedItem(string name, string item)
-    => ForGeneratedEncoder("input.Value?.EncodeEnum(\"tstTestEnum\")!;");
+    => ForGeneratedEncoder("input.Value?.EncodeEnum(\"tstTestEnum\") ?? Structured.Empty(\"tstTestEnum\")");
 }

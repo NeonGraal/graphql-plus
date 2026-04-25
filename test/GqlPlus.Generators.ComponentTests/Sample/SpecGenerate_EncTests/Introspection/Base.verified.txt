@@ -80,7 +80,7 @@ namespace Components.Gqlp_Spec_Base;
 internal class Cmpt_ObjectKindEncoder : IEncoder<ICmpt_ObjectKind>
 {
   public Structured Encode(ICmpt_ObjectKind input)
-    => input.Value?.EncodeEnum("Cmpt_TypeKind")!;
+    => input.Value?.EncodeEnum("Cmpt_TypeKind") ?? Structured.Empty("Cmpt_TypeKind");
 
   internal static Cmpt_ObjectKindEncoder Factory(IEncoderRepository _) => new();
 }

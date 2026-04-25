@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_domain_enum_exclude;
 internal class CmptDmnEnumExclEncoder : IEncoder<ICmptDmnEnumExcl>
 {
   public Structured Encode(ICmptDmnEnumExcl input)
-    => input.Value?.EncodeEnum("CmptEnumDmnEnumExcl")!;
+    => input.Value?.EncodeEnum("CmptEnumDmnEnumExcl") ?? Structured.Empty("CmptEnumDmnEnumExcl");
 
   internal static CmptDmnEnumExclEncoder Factory(IEncoderRepository _) => new();
 }

@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_domain_enum_diff;
 internal class CmptDmnEnumDiffEncoder : IEncoder<ICmptDmnEnumDiff>
 {
   public Structured Encode(ICmptDmnEnumDiff input)
-    => input.Value?.EncodeEnum("bool")!;
+    => input.Value?.EncodeEnum("bool") ?? Structured.Empty("bool");
 
   internal static CmptDmnEnumDiffEncoder Factory(IEncoderRepository _) => new();
 }

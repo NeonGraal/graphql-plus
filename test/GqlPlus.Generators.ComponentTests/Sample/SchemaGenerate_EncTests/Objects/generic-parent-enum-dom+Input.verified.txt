@@ -24,7 +24,7 @@ internal class CmptEnumGnrcPrntEnumDomInpEncoder : IEncoder<CmptEnumGnrcPrntEnum
 internal class CmptDomGnrcPrntEnumDomInpEncoder : IEncoder<ICmptDomGnrcPrntEnumDomInp>
 {
   public Structured Encode(ICmptDomGnrcPrntEnumDomInp input)
-    => input.Value?.EncodeEnum("CmptEnumGnrcPrntEnumDomInp")!;
+    => input.Value?.EncodeEnum("CmptEnumGnrcPrntEnumDomInp") ?? Structured.Empty("CmptEnumGnrcPrntEnumDomInp");
 
   internal static CmptDomGnrcPrntEnumDomInpEncoder Factory(IEncoderRepository _) => new();
 }

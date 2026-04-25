@@ -242,7 +242,7 @@ internal class Cmpt_OpResultEncoder(
 internal class Cmpt_PathEncoder : IEncoder<ICmpt_Path>
 {
   public Structured Encode(ICmpt_Path input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static Cmpt_PathEncoder Factory(IEncoderRepository _) => new();
 }
@@ -264,7 +264,7 @@ internal class Cmpt_OpFieldEncoder(
   private readonly IEncoder<ICmpt_Modifiers> _modifiers = encoders.EncoderFor<ICmpt_Modifiers>();
   public Structured Encode(ICmpt_OpFieldObject input)
     => _opDirectives.Encode(input)
-      .AddIf(input.FieldAlias is not null, onTrue: t => t.Add("fieldAlias", input.FieldAlias!))
+      .AddIf(input.FieldAlias is not null, onTrue: t => t.Add("fieldAlias", input.FieldAlias!.Encode()))
       .AddEncoded("argument", input.Argument, _opArgument)
       .AddList("modifiers", input.Modifiers, _modifiers);
 
@@ -292,7 +292,7 @@ internal class Cmpt_OpSpreadEncoder(
   private readonly IEncoder<ICmpt_OpDirective> _opDirective = encoders.EncoderFor<ICmpt_OpDirective>();
   public Structured Encode(ICmpt_OpSpreadObject input)
     => Structured.Empty()
-      .Add("fragment", input.Fragment)
+      .Add("fragment", input.Fragment.Encode())
       .AddList("directives", input.Directives, _opDirective);
 
   internal static Cmpt_OpSpreadEncoder Factory(IEncoderRepository r) => new(r);

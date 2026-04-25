@@ -151,7 +151,7 @@ internal class test_OpResultEncoder(
 internal class test_PathEncoder : IEncoder<Itest_Path>
 {
   public Structured Encode(Itest_Path input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static test_PathEncoder Factory(IEncoderRepository _) => new();
 }
@@ -173,7 +173,7 @@ internal class test_OpFieldEncoder(
   private readonly IEncoder<Itest_Modifiers> _itest_Modifiers = encoders.EncoderFor<Itest_Modifiers>();
   public Structured Encode(Itest_OpFieldObject input)
     => _itest_OpDirectives.Encode(input)
-      .AddIf(input.FieldAlias is not null, onTrue: t => t.Add("fieldAlias", input.FieldAlias!))
+      .AddIf(input.FieldAlias is not null, onTrue: t => t.Add("fieldAlias", input.FieldAlias!.Encode()))
       .AddEncoded("argument", input.Argument, _itest_OpArgument)
       .AddList("modifiers", input.Modifiers, _itest_Modifiers);
 
@@ -201,7 +201,7 @@ internal class test_OpSpreadEncoder(
   private readonly IEncoder<Itest_OpDirective> _itest_OpDirective = encoders.EncoderFor<Itest_OpDirective>();
   public Structured Encode(Itest_OpSpreadObject input)
     => Structured.Empty()
-      .Add("fragment", input.Fragment)
+      .Add("fragment", input.Fragment.Encode())
       .AddList("directives", input.Directives, _itest_OpDirective);
 
   internal static test_OpSpreadEncoder Factory(IEncoderRepository r) => new(r);

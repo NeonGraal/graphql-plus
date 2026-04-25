@@ -14,7 +14,7 @@ internal class testPrntFieldDualEncoder(
   private readonly IEncoder<ItestRefPrntFieldDualObject> _itestRefPrntFieldDual = encoders.EncoderFor<ItestRefPrntFieldDualObject>();
   public Structured Encode(ItestPrntFieldDualObject input)
     => _itestRefPrntFieldDual.Encode(input)
-      .Add("field", input.Field);
+      .Add("field", input.Field.Encode());
 
   internal static testPrntFieldDualEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -23,7 +23,7 @@ internal class testRefPrntFieldDualEncoder : IEncoder<ItestRefPrntFieldDualObjec
 {
   public Structured Encode(ItestRefPrntFieldDualObject input)
     => Structured.Empty()
-      .Add("parent", input.Parent);
+      .Add("parent", input.Parent.Encode());
 
   internal static testRefPrntFieldDualEncoder Factory(IEncoderRepository _) => new();
 }

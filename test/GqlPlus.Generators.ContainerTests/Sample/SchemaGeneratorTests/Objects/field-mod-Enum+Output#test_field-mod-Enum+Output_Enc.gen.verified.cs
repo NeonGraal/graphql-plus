@@ -18,7 +18,7 @@ internal class testFieldModEnumOutpEncoder : IEncoder<ItestFieldModEnumOutpObjec
 internal class testEnumFieldModEnumOutpEncoder : IEncoder<testEnumFieldModEnumOutp>
 {
   public Structured Encode(testEnumFieldModEnumOutp input)
-    => new(input.ToString(), "_EnumFieldModEnumOutp");
+    => input.EncodeEnum("EnumFieldModEnumOutp");
 
   internal static testEnumFieldModEnumOutpEncoder Factory(IEncoderRepository _) => new();
 }

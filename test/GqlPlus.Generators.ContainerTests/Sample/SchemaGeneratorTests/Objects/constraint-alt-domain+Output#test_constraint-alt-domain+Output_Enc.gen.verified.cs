@@ -24,7 +24,7 @@ internal class testRefCnstAltDmnOutpEncoder<TRef> : IEncoder<ItestRefCnstAltDmnO
 internal class testDomCnstAltDmnOutpEncoder : IEncoder<ItestDomCnstAltDmnOutp>
 {
   public Structured Encode(ItestDomCnstAltDmnOutp input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static testDomCnstAltDmnOutpEncoder Factory(IEncoderRepository _) => new();
 }

@@ -133,7 +133,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     } else if (isEnum) {
       result += $".AddEnum(\"{fieldKey}\", {fieldAccess})";
     } else {
-      result += $".Add(\"{fieldKey}\", {fieldAccess})";
+      result += $".Add(\"{fieldKey}\", {fieldAccess}.Encode())";
     }
 
     return hasOptional ? result + ")" : result;

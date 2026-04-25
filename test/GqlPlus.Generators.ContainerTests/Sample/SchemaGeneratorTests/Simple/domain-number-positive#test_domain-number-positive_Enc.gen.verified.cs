@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_number_positive;
 internal class testDmnNmbrPstvEncoder : IEncoder<ItestDmnNmbrPstv>
 {
   public Structured Encode(ItestDmnNmbrPstv input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static testDmnNmbrPstvEncoder Factory(IEncoderRepository _) => new();
 }

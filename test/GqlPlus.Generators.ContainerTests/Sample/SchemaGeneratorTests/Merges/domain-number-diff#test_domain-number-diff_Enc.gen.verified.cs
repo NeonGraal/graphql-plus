@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_number_diff;
 internal class testDmnNmbrDiffEncoder : IEncoder<ItestDmnNmbrDiff>
 {
   public Structured Encode(ItestDmnNmbrDiff input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static testDmnNmbrDiffEncoder Factory(IEncoderRepository _) => new();
 }

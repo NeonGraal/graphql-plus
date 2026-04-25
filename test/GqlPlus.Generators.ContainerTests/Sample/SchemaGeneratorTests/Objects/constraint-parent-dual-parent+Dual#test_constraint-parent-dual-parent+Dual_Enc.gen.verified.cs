@@ -39,7 +39,7 @@ internal class testAltCnstPrntDualPrntDualEncoder(
   private readonly IEncoder<ItestPrntCnstPrntDualPrntDualObject> _itestPrntCnstPrntDualPrntDual = encoders.EncoderFor<ItestPrntCnstPrntDualPrntDualObject>();
   public Structured Encode(ItestAltCnstPrntDualPrntDualObject input)
     => _itestPrntCnstPrntDualPrntDual.Encode(input)
-      .Add("alt", input.Alt);
+      .Add("alt", input.Alt.Encode());
 
   internal static testAltCnstPrntDualPrntDualEncoder Factory(IEncoderRepository r) => new(r);
 }

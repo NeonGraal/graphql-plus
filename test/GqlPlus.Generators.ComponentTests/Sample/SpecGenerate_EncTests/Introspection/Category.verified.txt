@@ -55,7 +55,7 @@ internal class Cmpt_CategoryEncoder(
 internal class Cmpt_ResolutionEncoder : IEncoder<Cmpt_Resolution>
 {
   public Structured Encode(Cmpt_Resolution input)
-    => new(input.ToString(), "_Resolution");
+    => input.EncodeEnum("_Resolution");
 
   internal static Cmpt_ResolutionEncoder Factory(IEncoderRepository _) => new();
 }

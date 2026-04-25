@@ -43,7 +43,7 @@ internal class testAltCnstFieldObjDualEncoder(
   private readonly IEncoder<ItestPrntCnstFieldObjDualObject> _itestPrntCnstFieldObjDual = encoders.EncoderFor<ItestPrntCnstFieldObjDualObject>();
   public Structured Encode(ItestAltCnstFieldObjDualObject input)
     => _itestPrntCnstFieldObjDual.Encode(input)
-      .Add("alt", input.Alt);
+      .Add("alt", input.Alt.Encode());
 
   internal static testAltCnstFieldObjDualEncoder Factory(IEncoderRepository r) => new(r);
 }

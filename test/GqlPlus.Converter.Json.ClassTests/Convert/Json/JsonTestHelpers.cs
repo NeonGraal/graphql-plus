@@ -24,7 +24,12 @@ internal static class JsonTestHelpers
       .JsonValue()
       .WithValue(value.JsonValue(), ":", suffix)
       .Surround("{", "}", by);
-  internal static Func<string?, string> AsKeyTaggedValue(this string tag, string keyTag)
+  internal static Func<string?, string> AsKeyTaggedValue(this string keyTag)
+    => value => new[] {
+        keyTag.Internal(suffix: ","),
+        value.JsonValue().Internal(valueTag: "value")
+      }.Surround("{", "}", "");
+  internal static Func<string?, string> AsKeyTaggedValueTagged(this string tag, string keyTag)
     => value => tag
       .WithValue(value.JsonValue(), ":")
       .Prepend(keyTag.Internal(suffix: ","))
@@ -33,7 +38,12 @@ internal static class JsonTestHelpers
     => [value.Internal(sep, suffix), valueTag.Internal(sep)];
   internal static string[] WithIndentedValue(this string tag, string? value)
     => ["{", .. tag.JsonValue().WithValue(value, ": ").Indent(), "}"];
-  internal static Func<string?, string[]> AsIndentedValue(this string tag, string keyTag)
+  internal static Func<string?, string[]> AsIndentedValue(this string keyTag)
+    => value => ["{",
+        "  " + keyTag.Internal(": ", suffix: ","),
+        "  " + value.JsonValue().Internal(": ", valueTag: "value"),
+      "}"];
+  internal static Func<string?, string[]> AsIndentedValueTagged(this string tag, string keyTag)
     => value => ["{",
       .. tag.JsonValue()
         .WithValue(value.JsonValue(), ": ")
@@ -91,7 +101,7 @@ internal static class JsonTestHelpers
     .AddComma("{", "}");
 
   internal static string[] AsIndentedMap(this MapPair<string>[] values)
-    => values.AsIndentedMap(v => [JsonValue(v)]);
+    => values.AsIndentedMap(v => [v.JsonValue()]);
   internal static string[] AsIndentedMap<T>(this MapPair<T>[] values, Func<T?, string[]> mapper, string mapTag = "", string keyTag = "")
     => values
     .OrderBy(v => v.Key, StringComparer.Ordinal)

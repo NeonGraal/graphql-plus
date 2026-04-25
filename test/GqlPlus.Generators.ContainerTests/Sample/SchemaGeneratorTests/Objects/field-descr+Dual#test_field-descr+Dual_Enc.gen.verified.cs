@@ -11,7 +11,7 @@ internal class testFieldDescrDualEncoder : IEncoder<ItestFieldDescrDualObject>
 {
   public Structured Encode(ItestFieldDescrDualObject input)
     => Structured.Empty()
-      .Add("field", input.Field);
+      .Add("field", input.Field.Encode());
 
   internal static testFieldDescrDualEncoder Factory(IEncoderRepository _) => new();
 }

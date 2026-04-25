@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_exclude;
 internal class testDmnEnumExclEncoder : IEncoder<ItestDmnEnumExcl>
 {
   public Structured Encode(ItestDmnEnumExcl input)
-    => new(input.ToString(), "testEnumDmnEnumExcl");
+    => input.Value?.EncodeEnum("testEnumDmnEnumExcl")!;
 
   internal static testDmnEnumExclEncoder Factory(IEncoderRepository _) => new();
 }
@@ -18,7 +18,7 @@ internal class testDmnEnumExclEncoder : IEncoder<ItestDmnEnumExcl>
 internal class testEnumDmnEnumExclEncoder : IEncoder<testEnumDmnEnumExcl>
 {
   public Structured Encode(testEnumDmnEnumExcl input)
-    => new(input.ToString(), "_EnumDmnEnumExcl");
+    => input.EncodeEnum("EnumDmnEnumExcl");
 
   internal static testEnumDmnEnumExclEncoder Factory(IEncoderRepository _) => new();
 }

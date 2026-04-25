@@ -21,7 +21,7 @@ internal class test_SchemaEncoder(
 internal class test_NameEncoder : IEncoder<Itest_Name>
 {
   public Structured Encode(Itest_Name input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static test_NameEncoder Factory(IEncoderRepository _) => new();
 }
@@ -29,7 +29,7 @@ internal class test_NameEncoder : IEncoder<Itest_Name>
 internal class test_NameFilterEncoder : IEncoder<Itest_NameFilter>
 {
   public Structured Encode(Itest_NameFilter input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static test_NameFilterEncoder Factory(IEncoderRepository _) => new();
 }
@@ -114,7 +114,7 @@ internal class test_CategoryEncoder(
 internal class test_ResolutionEncoder : IEncoder<test_Resolution>
 {
   public Structured Encode(test_Resolution input)
-    => new(input.ToString(), "_Resolution");
+    => input.EncodeEnum("_Resolution");
 
   internal static test_ResolutionEncoder Factory(IEncoderRepository _) => new();
 }
@@ -141,7 +141,7 @@ internal class test_DirectiveEncoder(
   public Structured Encode(Itest_DirectiveObject input)
     => _itest_Aliased.Encode(input)
       .AddEncoded("parameter", input.Parameter, _itest_InputFieldType)
-      .Add("repeatable", input.Repeatable);
+      .Add("repeatable", input.Repeatable.Encode());
 
   internal static test_DirectiveEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -149,7 +149,7 @@ internal class test_DirectiveEncoder(
 internal class test_LocationEncoder : IEncoder<test_Location>
 {
   public Structured Encode(test_Location input)
-    => new(input.ToString(), "_Location");
+    => input.EncodeEnum("_Location");
 
   internal static test_LocationEncoder Factory(IEncoderRepository _) => new();
 }
@@ -413,7 +413,7 @@ internal class test_ParentTypeEncoder<TTypeKind,TItem,TAllItem>(
 internal class test_SimpleKindEncoder : IEncoder<test_SimpleKind>
 {
   public Structured Encode(test_SimpleKind input)
-    => new(input.ToString(), "_SimpleKind");
+    => input.EncodeEnum("_SimpleKind");
 
   internal static test_SimpleKindEncoder Factory(IEncoderRepository _) => new();
 }
@@ -421,7 +421,7 @@ internal class test_SimpleKindEncoder : IEncoder<test_SimpleKind>
 internal class test_TypeKindEncoder : IEncoder<test_TypeKind>
 {
   public Structured Encode(test_TypeKind input)
-    => new(input.ToString(), "_TypeKind");
+    => input.EncodeEnum("_TypeKind");
 
   internal static test_TypeKindEncoder Factory(IEncoderRepository _) => new();
 }
@@ -462,7 +462,7 @@ internal class test_ModifierKeyedEncoder<TModifierKind>(
   public Structured Encode(Itest_ModifierKeyedObject<TModifierKind> input)
     => _itest_Modifier.Encode(input)
       .AddEncoded("by", input.By, _itest_TypeSimple)
-      .Add("isOptional", input.IsOptional);
+      .Add("isOptional", input.IsOptional.Encode());
 }
 
 internal class test_ModifiersEncoder : IEncoder<Itest_ModifiersObject>
@@ -476,7 +476,7 @@ internal class test_ModifiersEncoder : IEncoder<Itest_ModifiersObject>
 internal class test_ModifierKindEncoder : IEncoder<test_ModifierKind>
 {
   public Structured Encode(test_ModifierKind input)
-    => new(input.ToString(), "_ModifierKind");
+    => input.EncodeEnum("_ModifierKind");
 
   internal static test_ModifierKindEncoder Factory(IEncoderRepository _) => new();
 }
@@ -494,7 +494,7 @@ internal class test_ModifierEncoder<TModifierKind>(
 internal class test_DomainKindEncoder : IEncoder<test_DomainKind>
 {
   public Structured Encode(test_DomainKind input)
-    => new(input.ToString(), "_DomainKind");
+    => input.EncodeEnum("_DomainKind");
 
   internal static test_DomainKindEncoder Factory(IEncoderRepository _) => new();
 }
@@ -528,7 +528,7 @@ internal class test_BaseDomainItemEncoder(
   private readonly IEncoder<Itest_DescribedObject> _itest_Described = encoders.EncoderFor<Itest_DescribedObject>();
   public Structured Encode(Itest_BaseDomainItemObject input)
     => _itest_Described.Encode(input)
-      .Add("exclude", input.Exclude);
+      .Add("exclude", input.Exclude.Encode());
 
   internal static test_BaseDomainItemEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -569,7 +569,7 @@ internal class test_DomainTrueFalseEncoder(
   private readonly IEncoder<Itest_BaseDomainItemObject> _itest_BaseDomainItem = encoders.EncoderFor<Itest_BaseDomainItemObject>();
   public Structured Encode(Itest_DomainTrueFalseObject input)
     => _itest_BaseDomainItem.Encode(input)
-      .Add("value", input.Value);
+      .Add("value", input.Value.Encode());
 
   internal static test_DomainTrueFalseEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -616,8 +616,8 @@ internal class test_DomainRangeEncoder(
   private readonly IEncoder<Itest_BaseDomainItemObject> _itest_BaseDomainItem = encoders.EncoderFor<Itest_BaseDomainItemObject>();
   public Structured Encode(Itest_DomainRangeObject input)
     => _itest_BaseDomainItem.Encode(input)
-      .AddIf(input.Lower is not null, onTrue: t => t.Add("lower", input.Lower!))
-      .AddIf(input.Upper is not null, onTrue: t => t.Add("upper", input.Upper!));
+      .AddIf(input.Lower is not null, onTrue: t => t.Add("lower", input.Lower!.Encode()))
+      .AddIf(input.Upper is not null, onTrue: t => t.Add("upper", input.Upper!.Encode()));
 
   internal static test_DomainRangeEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -640,7 +640,7 @@ internal class test_DomainRegexEncoder(
   private readonly IEncoder<Itest_BaseDomainItemObject> _itest_BaseDomainItem = encoders.EncoderFor<Itest_BaseDomainItemObject>();
   public Structured Encode(Itest_DomainRegexObject input)
     => _itest_BaseDomainItem.Encode(input)
-      .Add("pattern", input.Pattern);
+      .Add("pattern", input.Pattern.Encode());
 
   internal static test_DomainRegexEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -709,7 +709,7 @@ internal class test_UnionMemberEncoder(
 internal class test_ObjectKindEncoder : IEncoder<Itest_ObjectKind>
 {
   public Structured Encode(Itest_ObjectKind input)
-    => new(input.ToString(), "test_TypeKind");
+    => input.Value?.EncodeEnum("test_TypeKind")!;
 
   internal static test_ObjectKindEncoder Factory(IEncoderRepository _) => new();
 }

@@ -14,7 +14,7 @@ public abstract class ValueConvertToTestsBase(IConvertTestsBase converters)
   [Fact]
   public void ConvertTo_Empty()
   {
-    Structured model = new("", Tag);
+    Structured model = "".Encode(Tag);
     string[] expected = Expected_Empty();
 
     string[] result = Converters.ConvertTo(model);
@@ -28,7 +28,7 @@ public abstract class ValueConvertToTestsBase(IConvertTestsBase converters)
     this.SkipIf(value.ThrowIfNull().Contains('\\', StringComparison.Ordinal));
 
     string[] expected = Expected_String(value);
-    Structured model = new(new(value, Tag));
+    Structured model = value.Encode(Tag);
 
     string[] result = Converters.ConvertTo(model);
 
@@ -39,7 +39,7 @@ public abstract class ValueConvertToTestsBase(IConvertTestsBase converters)
   public void ConvertTo_Identifier(string value)
   {
     string[] expected = Expected_Identifier(value);
-    Structured model = new(value, Tag);
+    Structured model = value.Encode(Tag);
 
     string[] result = Converters.ConvertTo(model);
 
@@ -50,7 +50,7 @@ public abstract class ValueConvertToTestsBase(IConvertTestsBase converters)
   public void ConvertTo_Punctuation(string value)
   {
     string[] expected = Expected_Punctuation(value);
-    Structured model = new(value, Tag);
+    Structured model = value.Encode(Tag);
 
     string[] result = Converters.ConvertTo(model);
 
@@ -61,7 +61,7 @@ public abstract class ValueConvertToTestsBase(IConvertTestsBase converters)
   public void ConvertTo_Decimal(decimal value)
   {
     string[] expected = Expected_Decimal(value);
-    Structured model = new(value, Tag);
+    Structured model = value.Encode(Tag);
 
     string[] result = Converters.ConvertTo(model);
 
@@ -72,7 +72,7 @@ public abstract class ValueConvertToTestsBase(IConvertTestsBase converters)
   public void ConvertTo_Bool(bool value)
   {
     string[] expected = Expected_Bool(value);
-    Structured model = new(value, Tag);
+    Structured model = value.Encode(Tag);
 
     string[] result = Converters.ConvertTo(model);
 

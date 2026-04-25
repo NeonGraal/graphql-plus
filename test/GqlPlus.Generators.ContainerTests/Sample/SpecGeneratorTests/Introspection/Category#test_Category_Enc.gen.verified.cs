@@ -39,7 +39,7 @@ internal class test_CategoryEncoder(
 internal class test_ResolutionEncoder : IEncoder<test_Resolution>
 {
   public Structured Encode(test_Resolution input)
-    => new(input.ToString(), "_Resolution");
+    => input.EncodeEnum("_Resolution");
 
   internal static test_ResolutionEncoder Factory(IEncoderRepository _) => new();
 }

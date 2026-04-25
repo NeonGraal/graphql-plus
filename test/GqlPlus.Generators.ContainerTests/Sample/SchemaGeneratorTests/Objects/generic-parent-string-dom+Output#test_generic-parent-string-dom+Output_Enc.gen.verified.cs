@@ -31,7 +31,7 @@ internal class testFieldGnrcPrntStrDomOutpEncoder<TRef>(
 internal class testDomGnrcPrntStrDomOutpEncoder : IEncoder<ItestDomGnrcPrntStrDomOutp>
 {
   public Structured Encode(ItestDomGnrcPrntStrDomOutp input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static testDomGnrcPrntStrDomOutpEncoder Factory(IEncoderRepository _) => new();
 }

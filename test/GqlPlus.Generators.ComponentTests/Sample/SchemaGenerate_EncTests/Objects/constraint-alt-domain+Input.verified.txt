@@ -15,7 +15,7 @@ namespace Components.Gqlp_Schema_constraint_alt_domain_Input;
 internal class CmptDomCnstAltDmnInpEncoder : IEncoder<ICmptDomCnstAltDmnInp>
 {
   public Structured Encode(ICmptDomCnstAltDmnInp input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static CmptDomCnstAltDmnInpEncoder Factory(IEncoderRepository _) => new();
 }

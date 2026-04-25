@@ -32,6 +32,8 @@ public class JsonStructureUnindentedTests()
 
   protected override string[] Expected_Map(MapPair<string>[] value)
     => [value.AsUnindentedMap()];
+  protected override string[] Expected_MapUntagged(MapPair<string>[] value)
+    => [value.AsUnindentedMap()];
 
   protected override string[] Expected_ListOfLists(string[][] value)
     => [value.AsUnindentedList(v => v!.AsUnindentedList())];

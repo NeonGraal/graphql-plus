@@ -12,6 +12,8 @@ public class SimpleYamlStructureTagTests()
 
   protected override string[] Expected_Map(MapPair<string>[] value)
     => ["!map", .. value.BlockMap("", "!value ")];
+  protected override string[] Expected_MapUntagged(MapPair<string>[] value)
+    => ["!map", .. value.BlockMap()];
 
   protected override string[] Expected_ListOfLists(string[][] value)
     => value.BlockList(v => v!.BlockList("  - !value ", "- !list"), "!list");

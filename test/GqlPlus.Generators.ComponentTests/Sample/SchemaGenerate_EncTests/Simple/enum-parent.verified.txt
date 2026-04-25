@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_enum_parent;
 internal class CmptEnumPrntEncoder : IEncoder<CmptEnumPrnt>
 {
   public Structured Encode(CmptEnumPrnt input)
-    => new(input.ToString(), "_EnumPrnt");
+    => input.EncodeEnum("EnumPrnt");
 
   internal static CmptEnumPrntEncoder Factory(IEncoderRepository _) => new();
 }
@@ -22,7 +22,7 @@ internal class CmptEnumPrntEncoder : IEncoder<CmptEnumPrnt>
 internal class CmptPrntEnumPrntEncoder : IEncoder<CmptPrntEnumPrnt>
 {
   public Structured Encode(CmptPrntEnumPrnt input)
-    => new(input.ToString(), "_PrntEnumPrnt");
+    => input.EncodeEnum("PrntEnumPrnt");
 
   internal static CmptPrntEnumPrntEncoder Factory(IEncoderRepository _) => new();
 }

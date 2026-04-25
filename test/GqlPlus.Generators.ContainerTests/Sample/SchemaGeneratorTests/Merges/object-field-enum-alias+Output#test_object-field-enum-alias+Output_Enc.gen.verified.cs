@@ -11,7 +11,7 @@ internal class testObjFieldEnumAliasOutpEncoder : IEncoder<ItestObjFieldEnumAlia
 {
   public Structured Encode(ItestObjFieldEnumAliasOutpObject input)
     => Structured.Empty()
-      .Add("field", input.Field);
+      .Add("field", input.Field.Encode());
 
   internal static testObjFieldEnumAliasOutpEncoder Factory(IEncoderRepository _) => new();
 }

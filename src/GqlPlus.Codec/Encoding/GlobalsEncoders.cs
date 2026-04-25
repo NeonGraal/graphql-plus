@@ -14,7 +14,7 @@ internal class AndTypeEncoder<TModel, TAnd>(
   internal override Structured Encode(TModel model)
     => model.Type is null
       ? model.And is null
-        ? new("")
+        ? "".Encode()
         : _and.Encode(model.And)
       : model.And is null
         ? _type.Encode(model.Type)
@@ -65,7 +65,7 @@ internal class DirectiveEncoder(
     => base.Encode(model)
       .AddSet("locations", model.Locations, "_Location")
       .AddEncoded("parameter", model.Parameter, _parameter)
-      .Add("repeatable", model.Repeatable);
+      .Add("repeatable", model.Repeatable.Encode());
 
   internal static new DirectiveEncoder Factory(IEncoderRepository r) => new(r);
 }

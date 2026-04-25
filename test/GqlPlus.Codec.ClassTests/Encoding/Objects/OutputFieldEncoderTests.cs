@@ -27,7 +27,7 @@ public class OutputFieldEncoderTests
   {
     // Arrange
     ObjBaseModel outputBase = new(output, "");
-    ObjBase.Encode(outputBase).Returns(new Structured(output));
+    ObjBase.Encode(outputBase).Returns(output.Encode());
 
     // Act & Accept
     EncodeAndCheck(new(name, outputBase, contents),

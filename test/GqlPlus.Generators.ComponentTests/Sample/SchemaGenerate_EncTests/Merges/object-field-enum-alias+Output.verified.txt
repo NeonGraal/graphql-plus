@@ -15,7 +15,7 @@ internal class CmptObjFieldEnumAliasOutpEncoder : IEncoder<ICmptObjFieldEnumAlia
 {
   public Structured Encode(ICmptObjFieldEnumAliasOutpObject input)
     => Structured.Empty()
-      .Add("field", input.Field);
+      .Add("field", input.Field.Encode());
 
   internal static CmptObjFieldEnumAliasOutpEncoder Factory(IEncoderRepository _) => new();
 }

@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_enum_same;
 internal class CmptEnumSameEncoder : IEncoder<CmptEnumSame>
 {
   public Structured Encode(CmptEnumSame input)
-    => new(input.ToString(), "_EnumSame");
+    => input.EncodeEnum("EnumSame");
 
   internal static CmptEnumSameEncoder Factory(IEncoderRepository _) => new();
 }

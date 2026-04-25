@@ -17,7 +17,7 @@ public abstract class FilterModelDecoderTestBase<TModel>
 
   [Fact]
   public void Decode_Empty_ReturnsNull()
-    => DecodeAndCheck(new(""), null);
+    => DecodeAndCheck("".Encode(), null);
 
   [Theory, RepeatData]
   public void Decode_All_ReturnsExpected(
@@ -29,10 +29,10 @@ public abstract class FilterModelDecoderTestBase<TModel>
   {
     Map<Structured> input = new() {
       ["names"] = names.Encode(),
-      ["matchAliases"] = matchAliases,
+      ["matchAliases"] = matchAliases.Encode(),
       ["aliases"] = aliases.Encode(),
-      ["returnReferencedTypes"] = returnReferencedTypes,
-      ["returnByAlias"] = returnByAlias
+      ["returnReferencedTypes"] = returnReferencedTypes.Encode(),
+      ["returnByAlias"] = returnByAlias.Encode()
     };
 
     IMessages messages = Decoder.Decode(input.Encode(), out TModel? result);

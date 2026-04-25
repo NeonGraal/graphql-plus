@@ -36,7 +36,7 @@ internal class CmptFieldGnrcPrntSmplEnumOutpEncoder<TRef>(
 internal class CmptEnumGnrcPrntSmplEnumOutpEncoder : IEncoder<CmptEnumGnrcPrntSmplEnumOutp>
 {
   public Structured Encode(CmptEnumGnrcPrntSmplEnumOutp input)
-    => new(input.ToString(), "_EnumGnrcPrntSmplEnumOutp");
+    => input.EncodeEnum("EnumGnrcPrntSmplEnumOutp");
 
   internal static CmptEnumGnrcPrntSmplEnumOutpEncoder Factory(IEncoderRepository _) => new();
 }

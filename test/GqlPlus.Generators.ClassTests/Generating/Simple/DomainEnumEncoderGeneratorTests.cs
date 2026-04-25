@@ -24,5 +24,5 @@ public class DomainEnumEncoderGeneratorTests
     => A.ItemLabel("TestEnum", item);
 
   internal override ForType ForGeneratedItem(string name, string item)
-    => ForGeneratedEncoder("new(input.ToString(), \"tstTestEnum\");");
+    => ForGeneratedEncoder("input.Value?.EncodeEnum(\"tstTestEnum\")!;");
 }

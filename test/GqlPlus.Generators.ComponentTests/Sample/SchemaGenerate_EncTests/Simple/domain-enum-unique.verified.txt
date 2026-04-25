@@ -15,7 +15,7 @@ namespace Components.Gqlp_Schema_domain_enum_unique;
 internal class CmptEnumDmnEnumUnqEncoder : IEncoder<CmptEnumDmnEnumUnq>
 {
   public Structured Encode(CmptEnumDmnEnumUnq input)
-    => new(input.ToString(), "_EnumDmnEnumUnq");
+    => input.EncodeEnum("EnumDmnEnumUnq");
 
   internal static CmptEnumDmnEnumUnqEncoder Factory(IEncoderRepository _) => new();
 }
@@ -23,7 +23,7 @@ internal class CmptEnumDmnEnumUnqEncoder : IEncoder<CmptEnumDmnEnumUnq>
 internal class CmptDupDmnEnumUnqEncoder : IEncoder<CmptDupDmnEnumUnq>
 {
   public Structured Encode(CmptDupDmnEnumUnq input)
-    => new(input.ToString(), "_DupDmnEnumUnq");
+    => input.EncodeEnum("DupDmnEnumUnq");
 
   internal static CmptDupDmnEnumUnqEncoder Factory(IEncoderRepository _) => new();
 }

@@ -21,15 +21,6 @@ public class OutputEncoderGeneratorTests
     return ForGeneratedEncoder("internal class " + TestPrefix + baseName + "Encoder");
   }
 
-  internal override ForType ForGeneratedCodeParent(string parent)
-    => _ => _ => { };
-
-  internal override ForType ForGeneratedBoth(string contains)
-    => _ => _ => { };
-
-  internal override ForType ForGeneratedInterface(string contains)
-    => _ => _ => { };
-
   protected override ObjFieldBuilder<IAstOutputField> MakeField(string name, string type)
     => new OutputFieldBuilder(name, type);
 }

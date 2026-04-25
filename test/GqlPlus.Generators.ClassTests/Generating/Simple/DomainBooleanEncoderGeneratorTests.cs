@@ -13,7 +13,7 @@ public class DomainBooleanEncoderGeneratorTests
     => ForGeneratedEncoder("internal class " + TestPrefix + name + "Encoder");
 
   internal override ForType ForGeneratedCodeParent(string parent)
-    => _ => _ => { };
+    => _ => r => r.ShouldNotContain(": " + parent);
 
   internal override ForType ForGeneratedBoth(string contains)
     => ForGeneratedEncoder(contains);

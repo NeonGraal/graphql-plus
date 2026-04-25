@@ -10,10 +10,14 @@ public class DomainEnumEncoderGeneratorTests
   internal override GqlpBaseType BaseType => GqlpBaseType.Class;
 
   internal override ForType ForGeneratedCodeName(string name)
-    => _ => _ => { };
+    => _ => r => {
+      if (!string.IsNullOrWhiteSpace(r)) {
+        r.ShouldContain(TestPrefix + name + "Encoder");
+      }
+    };
 
   internal override ForType ForGeneratedCodeParent(string parent)
-    => _ => _ => { };
+    => _ => r => r.ShouldNotContain(": " + parent);
 
   internal override ForType ForGeneratedBoth(string contains)
     => ForGeneratedEncoder(contains);

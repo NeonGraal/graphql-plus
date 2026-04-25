@@ -85,8 +85,8 @@ For agent workflow guidance, see [AGENTS.md](AGENTS.md).
   Usage (from repo root):
 
   ```powershell
-  powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\check-links.ps1 \
-    -Entry test/Html/index.html -Root test/Html -Verbose -FailOnMissing
+  powershell -NoProfile -ExecutionPolicy Bypass -File .\check-links.ps1 \
+    -Entry test/Html/index.html -Root test/Html -Verbose
   ```
 
   The script:
@@ -98,9 +98,9 @@ For agent workflow guidance, see [AGENTS.md](AGENTS.md).
   Example GitHub Actions job snippet:
 
   ```yaml
-  - name: Check local HTML links
+  - name: Check out repository
     uses: actions/checkout@v4
-    run: pwsh -NoProfile -NonInteractive -ExecutionPolicy Bypass -File ./scripts/check-links.ps1 -Entry test/Html/index.html -Root test/Html -FailOnMissing
-  ```
 
-  If you want I can add a small negative test and wire this job into CI.
+  - name: Check local HTML links
+    run: pwsh -NoProfile -NonInteractive -ExecutionPolicy Bypass -File ./check-links.ps1 -Entry test/Html/index.html -Root test/Html
+  ```

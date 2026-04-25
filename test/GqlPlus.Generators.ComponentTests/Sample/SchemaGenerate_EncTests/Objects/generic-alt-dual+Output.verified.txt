@@ -30,7 +30,7 @@ internal class CmptAltGnrcAltDualOutpEncoder : IEncoder<ICmptAltGnrcAltDualOutpO
 {
   public Structured Encode(ICmptAltGnrcAltDualOutpObject input)
     => Structured.Empty()
-      .Add("alt", input.Alt);
+      .Add("alt", input.Alt.Encode());
 
   internal static CmptAltGnrcAltDualOutpEncoder Factory(IEncoderRepository _) => new();
 }

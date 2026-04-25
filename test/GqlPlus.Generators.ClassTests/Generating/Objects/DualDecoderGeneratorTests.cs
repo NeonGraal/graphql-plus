@@ -22,14 +22,8 @@ public class DualDecoderGeneratorTests
     return ForGeneratedDecoder("internal class " + TestPrefix + baseName + "Decoder");
   }
 
-  internal override ForType ForGeneratedCodeParent(string parent)
-    => _ => _ => { };
-
   internal override ForType ForGeneratedBoth(string contains)
     => ForGeneratedDecoder(contains);
-
-  internal override ForType ForGeneratedModel(string contains)
-    => _ => result => { };
 
   protected override ObjFieldBuilder<IAstDualField> MakeField(string name, string type)
     => new DualFieldBuilder(name, type);

@@ -15,7 +15,7 @@ namespace Components.Gqlp_Schema_constraint_field_domain_Input;
 internal class CmptDomCnstFieldDmnInpEncoder : IEncoder<ICmptDomCnstFieldDmnInp>
 {
   public Structured Encode(ICmptDomCnstFieldDmnInp input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static CmptDomCnstFieldDmnInpEncoder Factory(IEncoderRepository _) => new();
 }

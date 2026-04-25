@@ -13,6 +13,8 @@ public class YamlStructureWrappedTagTests()
 
   protected override string[] Expected_Map(MapPair<string>[] value)
     => value.BlockMap("!key ", "!value ", "!map");
+  protected override string[] Expected_MapUntagged(MapPair<string>[] value)
+    => value.BlockMap("!key ", "", "!map");
 
   protected override string[] Expected_ListOfLists(string[][] value)
     => value.BlockList(v => v!.BlockList("- !value ", "!list").PrefixFirst("- ", "  "), "!list");

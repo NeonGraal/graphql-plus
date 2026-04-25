@@ -49,7 +49,7 @@ internal class CmptAltCnstFieldDualDualEncoder(
   private readonly IEncoder<ICmptPrntCnstFieldDualDualObject> _prntCnstFieldDualDual = encoders.EncoderFor<ICmptPrntCnstFieldDualDualObject>();
   public Structured Encode(ICmptAltCnstFieldDualDualObject input)
     => _prntCnstFieldDualDual.Encode(input)
-      .Add("alt", input.Alt);
+      .Add("alt", input.Alt.Encode());
 
   internal static CmptAltCnstFieldDualDualEncoder Factory(IEncoderRepository r) => new(r);
 }

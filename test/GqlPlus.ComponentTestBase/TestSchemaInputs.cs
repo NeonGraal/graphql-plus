@@ -3,11 +3,6 @@
 public abstract class TestSchemaInputs
   : SampleChecks
 {
-
-  [Fact]
-  public async Task Test_All()
-    => await Label_Inputs("Schema", await SchemaValidDataAll(), "!ALL");
-
   [Theory]
   [ClassData(typeof(SamplesGraphQlGraphqlData))]
   public async Task Test_GraphQL(string sample)
@@ -17,29 +12,33 @@ public abstract class TestSchemaInputs
     await Test_Input("GraphQl", schema, ["GraphQl"], sample);
   }
 
+  [Fact]
+  public async Task Test_SchemaAll()
+    => await Label_Inputs("Schema", await SchemaValidDataAll(), "!ALL");
+
   [Theory]
   [ClassData(typeof(SchemaValidData))]
-  public async Task Test_Groups(string group)
+  public async Task Test_SchemaGroups(string group)
     => await Label_Inputs("Schema", await SchemaValidDataGroup(group), "+" + group);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaMergesData))]
-  public async Task Test_Merges(string model)
+  public async Task Test_SchemaMerges(string model)
     => await ReplaceFileAsync("Merges", model, Sample_Input);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaObjectsData))]
-  public async Task Test_Objects(string model)
+  public async Task Test_SchemaObjects(string model)
     => await ReplaceFileAsync("Objects", model, Sample_Input);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaGlobalsData))]
-  public async Task Test_Globals(string global)
+  public async Task Test_SchemaGlobals(string global)
     => await ReplaceFileAsync("Globals", global, Sample_Input);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaSimpleData))]
-  public async Task Test_Simple(string simple)
+  public async Task Test_SchemaSimple(string simple)
     => await ReplaceFileAsync("Simple", simple, Sample_Input);
 
   [Theory]
@@ -62,7 +61,7 @@ public abstract class TestSchemaInputs
 
   [Theory]
   [ClassData(typeof(SamplesSpecificationIntrospectionData))]
-  public async Task Test_Introspection(string sample)
+  public async Task Test_SpecIntrospection(string sample)
   {
     string spec = await ReadFile(sample, "graphql+", "Specification", "Introspection");
 

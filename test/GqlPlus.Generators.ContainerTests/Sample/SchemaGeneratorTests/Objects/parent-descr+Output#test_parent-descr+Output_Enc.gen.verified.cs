@@ -22,7 +22,7 @@ internal class testRefPrntDescrOutpEncoder : IEncoder<ItestRefPrntDescrOutpObjec
 {
   public Structured Encode(ItestRefPrntDescrOutpObject input)
     => Structured.Empty()
-      .Add("parent", input.Parent);
+      .Add("parent", input.Parent.Encode());
 
   internal static testRefPrntDescrOutpEncoder Factory(IEncoderRepository _) => new();
 }

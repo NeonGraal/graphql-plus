@@ -1,11 +1,101 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Ast;
 using GqlPlus.Token;
 
 namespace GqlPlus.Structures;
 
 public class StructureHelperTests
 {
+  [Theory, RepeatData]
+  public void Encode_Text_IsCorrect(string value)
+  {
+    // Act
+    Structured result = value.Encode();
+
+    // Assert
+    result.ShouldSatisfyAllConditions(
+      r => r.Tag.ShouldBeEmpty(),
+      r => r.Value!.Text.ShouldBe(value)
+    );
+  }
+
+  [Theory, RepeatData]
+  public void Encode_Boolean_IsCorrect(bool value)
+  {
+    // Act
+    Structured result = value.Encode();
+
+    // Assert
+    result.ShouldSatisfyAllConditions(
+      r => r.Tag.ShouldBeEmpty(),
+      r => r.Value!.Boolean.ShouldBe(value)
+    );
+  }
+
+  [Theory, RepeatData]
+  public void Encode_Int_IsCorrect(int value)
+  {
+    // Act
+    Structured result = value.Encode();
+
+    // Assert
+    result.ShouldSatisfyAllConditions(
+      r => r.Tag.ShouldBeEmpty(),
+      r => r.Value!.Number.ShouldBe(value)
+    );
+  }
+
+  [Theory, RepeatData]
+  public void Encode_Number_IsCorrect(decimal value)
+  {
+    // Act
+    Structured result = value.Encode();
+
+    // Assert
+    result.ShouldSatisfyAllConditions(
+      r => r.Tag.ShouldBeEmpty(),
+      r => r.Value!.Number.ShouldBe(value)
+    );
+  }
+
+  [Fact]
+  public void Encode_NullBoolean_IsCorrect()
+  {
+    // Arrange
+    bool? value = null;
+
+    // Act
+    Structured? result = value.Encode();
+
+    // Assert
+    result.ShouldBeNull();
+  }
+
+  [Fact]
+  public void Encode_NullInt_IsCorrect()
+  {
+    // Arrange
+    int? value = null;
+
+    // Act
+    Structured? result = value.Encode();
+
+    // Assert
+    result.ShouldBeNull();
+  }
+
+  [Fact]
+  public void Encode_NullNumber_IsCorrect()
+  {
+    // Arrange
+    decimal? value = null;
+
+    // Act
+    Structured? result = value.Encode();
+
+    // Assert
+    result.ShouldBeNull();
+  }
+
   [Theory, RepeatData]
   public void Encode_Errors_ReturnsCorrect([NotNull] string[] messages)
   {

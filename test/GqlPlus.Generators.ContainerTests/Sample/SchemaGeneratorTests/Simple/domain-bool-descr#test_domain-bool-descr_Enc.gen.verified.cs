@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_bool_descr;
 internal class testDmnBoolDescrEncoder : IEncoder<ItestDmnBoolDescr>
 {
   public Structured Encode(ItestDmnBoolDescr input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static testDmnBoolDescrEncoder Factory(IEncoderRepository _) => new();
 }

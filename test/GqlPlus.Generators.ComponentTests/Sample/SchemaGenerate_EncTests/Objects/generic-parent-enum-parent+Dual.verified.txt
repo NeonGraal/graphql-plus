@@ -37,7 +37,7 @@ internal class CmptFieldGnrcPrntEnumPrntDualEncoder<TRef>(
 internal class CmptEnumGnrcPrntEnumPrntDualEncoder : IEncoder<CmptEnumGnrcPrntEnumPrntDual>
 {
   public Structured Encode(CmptEnumGnrcPrntEnumPrntDual input)
-    => new(input.ToString(), "_EnumGnrcPrntEnumPrntDual");
+    => input.EncodeEnum("EnumGnrcPrntEnumPrntDual");
 
   internal static CmptEnumGnrcPrntEnumPrntDualEncoder Factory(IEncoderRepository _) => new();
 }
@@ -45,7 +45,7 @@ internal class CmptEnumGnrcPrntEnumPrntDualEncoder : IEncoder<CmptEnumGnrcPrntEn
 internal class CmptParentGnrcPrntEnumPrntDualEncoder : IEncoder<CmptParentGnrcPrntEnumPrntDual>
 {
   public Structured Encode(CmptParentGnrcPrntEnumPrntDual input)
-    => new(input.ToString(), "_ParentGnrcPrntEnumPrntDual");
+    => input.EncodeEnum("ParentGnrcPrntEnumPrntDual");
 
   internal static CmptParentGnrcPrntEnumPrntDualEncoder Factory(IEncoderRepository _) => new();
 }

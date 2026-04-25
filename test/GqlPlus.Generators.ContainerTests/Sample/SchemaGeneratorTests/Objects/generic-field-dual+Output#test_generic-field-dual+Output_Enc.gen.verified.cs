@@ -29,7 +29,7 @@ internal class testAltGnrcFieldDualOutpEncoder : IEncoder<ItestAltGnrcFieldDualO
 {
   public Structured Encode(ItestAltGnrcFieldDualOutpObject input)
     => Structured.Empty()
-      .Add("alt", input.Alt);
+      .Add("alt", input.Alt.Encode());
 
   internal static testAltGnrcFieldDualOutpEncoder Factory(IEncoderRepository _) => new();
 }

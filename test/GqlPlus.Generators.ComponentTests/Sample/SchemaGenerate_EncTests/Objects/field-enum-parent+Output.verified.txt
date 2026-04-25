@@ -24,7 +24,7 @@ internal class CmptFieldEnumPrntOutpEncoder : IEncoder<ICmptFieldEnumPrntOutpObj
 internal class CmptEnumFieldEnumPrntOutpEncoder : IEncoder<CmptEnumFieldEnumPrntOutp>
 {
   public Structured Encode(CmptEnumFieldEnumPrntOutp input)
-    => new(input.ToString(), "_EnumFieldEnumPrntOutp");
+    => input.EncodeEnum("EnumFieldEnumPrntOutp");
 
   internal static CmptEnumFieldEnumPrntOutpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -32,7 +32,7 @@ internal class CmptEnumFieldEnumPrntOutpEncoder : IEncoder<CmptEnumFieldEnumPrnt
 internal class CmptPrntFieldEnumPrntOutpEncoder : IEncoder<CmptPrntFieldEnumPrntOutp>
 {
   public Structured Encode(CmptPrntFieldEnumPrntOutp input)
-    => new(input.ToString(), "_PrntFieldEnumPrntOutp");
+    => input.EncodeEnum("PrntFieldEnumPrntOutp");
 
   internal static CmptPrntFieldEnumPrntOutpEncoder Factory(IEncoderRepository _) => new();
 }

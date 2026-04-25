@@ -15,7 +15,7 @@ namespace Components.Gqlp_Schema_generic_parent_string_dom_Input;
 internal class CmptDomGnrcPrntStrDomInpEncoder : IEncoder<ICmptDomGnrcPrntStrDomInp>
 {
   public Structured Encode(ICmptDomGnrcPrntStrDomInp input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static CmptDomGnrcPrntStrDomInpEncoder Factory(IEncoderRepository _) => new();
 }

@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_domain_bool_parent_descr;
 internal class CmptDmnBoolPrntDescrEncoder : IEncoder<ICmptDmnBoolPrntDescr>
 {
   public Structured Encode(ICmptDmnBoolPrntDescr input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static CmptDmnBoolPrntDescrEncoder Factory(IEncoderRepository _) => new();
 }
@@ -22,7 +22,7 @@ internal class CmptDmnBoolPrntDescrEncoder : IEncoder<ICmptDmnBoolPrntDescr>
 internal class CmptPrntDmnBoolPrntDescrEncoder : IEncoder<ICmptPrntDmnBoolPrntDescr>
 {
   public Structured Encode(ICmptPrntDmnBoolPrntDescr input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static CmptPrntDmnBoolPrntDescrEncoder Factory(IEncoderRepository _) => new();
 }

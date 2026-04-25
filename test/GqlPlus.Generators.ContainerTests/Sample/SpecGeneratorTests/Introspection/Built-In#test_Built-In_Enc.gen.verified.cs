@@ -24,7 +24,7 @@ internal class test_ModifierKeyedEncoder<TModifierKind>(
   public Structured Encode(Itest_ModifierKeyedObject<TModifierKind> input)
     => _itest_Modifier.Encode(input)
       .AddEncoded("by", input.By, _itest_TypeSimple)
-      .Add("isOptional", input.IsOptional);
+      .Add("isOptional", input.IsOptional.Encode());
 }
 
 internal class test_ModifiersEncoder : IEncoder<Itest_ModifiersObject>
@@ -38,7 +38,7 @@ internal class test_ModifiersEncoder : IEncoder<Itest_ModifiersObject>
 internal class test_ModifierKindEncoder : IEncoder<test_ModifierKind>
 {
   public Structured Encode(test_ModifierKind input)
-    => new(input.ToString(), "_ModifierKind");
+    => input.EncodeEnum("_ModifierKind");
 
   internal static test_ModifierKindEncoder Factory(IEncoderRepository _) => new();
 }

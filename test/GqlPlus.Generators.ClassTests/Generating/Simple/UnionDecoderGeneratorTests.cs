@@ -19,13 +19,10 @@ public class UnionDecoderGeneratorTests
     => ForGeneratedDecoder("internal class " + TestPrefix + name + "Decoder");
 
   internal override ForType ForGeneratedCodeParent(string parent)
-    => _ => _ => { };
+    => _ => r => r.ShouldNotContain(": " + parent);
 
   internal override ForType ForGeneratedBoth(string contains)
     => ForGeneratedDecoder(contains);
-
-  internal override ForType ForGeneratedModel(string contains)
-    => _ => result => { };
 
   protected override void MakeItems(SimpleBuilder<IAstUnion> builder, params string[] items)
     => ((UnionBuilder)builder).WithMembers(items);

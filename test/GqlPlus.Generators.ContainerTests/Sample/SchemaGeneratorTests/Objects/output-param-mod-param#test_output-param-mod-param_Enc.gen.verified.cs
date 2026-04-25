@@ -20,7 +20,7 @@ internal class testOutpParamModParamEncoder<TMod>(
 internal class testDomOutpParamModParamEncoder : IEncoder<ItestDomOutpParamModParam>
 {
   public Structured Encode(ItestDomOutpParamModParam input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static testDomOutpParamModParamEncoder Factory(IEncoderRepository _) => new();
 }

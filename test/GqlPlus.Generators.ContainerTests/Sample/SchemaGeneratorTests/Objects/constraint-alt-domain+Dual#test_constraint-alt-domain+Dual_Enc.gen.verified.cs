@@ -24,7 +24,7 @@ internal class testRefCnstAltDmnDualEncoder<TRef> : IEncoder<ItestRefCnstAltDmnD
 internal class testDomCnstAltDmnDualEncoder : IEncoder<ItestDomCnstAltDmnDual>
 {
   public Structured Encode(ItestDomCnstAltDmnDual input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static testDomCnstAltDmnDualEncoder Factory(IEncoderRepository _) => new();
 }

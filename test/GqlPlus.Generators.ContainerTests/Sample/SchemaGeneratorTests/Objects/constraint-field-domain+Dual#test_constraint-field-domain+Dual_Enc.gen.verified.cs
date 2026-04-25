@@ -31,7 +31,7 @@ internal class testRefCnstFieldDmnDualEncoder<TRef>(
 internal class testDomCnstFieldDmnDualEncoder : IEncoder<ItestDomCnstFieldDmnDual>
 {
   public Structured Encode(ItestDomCnstFieldDmnDual input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static testDomCnstFieldDmnDualEncoder Factory(IEncoderRepository _) => new();
 }

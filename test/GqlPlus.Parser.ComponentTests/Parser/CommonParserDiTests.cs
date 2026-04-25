@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Parser;
 
-public class ParserDiTests(IServiceCollection services)
+public class CommonParserDiTests(IServiceCollection services)
   : DependencyInjectionChecks(services)
 {
   protected override string Label => "CommonParser";

@@ -15,7 +15,7 @@ internal class CmptFldFieldDualInpEncoder : IEncoder<ICmptFldFieldDualInpObject>
 {
   public Structured Encode(ICmptFldFieldDualInpObject input)
     => Structured.Empty()
-      .Add("field", input.Field);
+      .Add("field", input.Field.Encode());
 
   internal static CmptFldFieldDualInpEncoder Factory(IEncoderRepository _) => new();
 }

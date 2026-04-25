@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_Definition;
 internal class boolEncoder : IEncoder<bool>
 {
   public Structured Encode(bool input)
-    => new(input.ToString(), "_Boolean");
+    => input.EncodeEnum("Boolean");
 
   internal static boolEncoder Factory(IEncoderRepository _) => new();
 }
@@ -18,7 +18,7 @@ internal class boolEncoder : IEncoder<bool>
 internal class GqlpNullEncoder : IEncoder<GqlpNull>
 {
   public Structured Encode(GqlpNull input)
-    => new(input.ToString(), "_Null");
+    => input.EncodeEnum("Null");
 
   internal static GqlpNullEncoder Factory(IEncoderRepository _) => new();
 }
@@ -26,7 +26,7 @@ internal class GqlpNullEncoder : IEncoder<GqlpNull>
 internal class GqlpUnitEncoder : IEncoder<GqlpUnit>
 {
   public Structured Encode(GqlpUnit input)
-    => new(input.ToString(), "_Unit");
+    => input.EncodeEnum("Unit");
 
   internal static GqlpUnitEncoder Factory(IEncoderRepository _) => new();
 }
@@ -34,7 +34,7 @@ internal class GqlpUnitEncoder : IEncoder<GqlpUnit>
 internal class voidEncoder : IEncoder<void>
 {
   public Structured Encode(void input)
-    => new(input.ToString(), "_Void");
+    => input.EncodeEnum("Void");
 
   internal static voidEncoder Factory(IEncoderRepository _) => new();
 }
@@ -42,7 +42,7 @@ internal class voidEncoder : IEncoder<void>
 internal class decimalEncoder : IEncoder<decimal>
 {
   public Structured Encode(decimal input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static decimalEncoder Factory(IEncoderRepository _) => new();
 }
@@ -50,7 +50,7 @@ internal class decimalEncoder : IEncoder<decimal>
 internal class stringEncoder : IEncoder<string>
 {
   public Structured Encode(string input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static stringEncoder Factory(IEncoderRepository _) => new();
 }

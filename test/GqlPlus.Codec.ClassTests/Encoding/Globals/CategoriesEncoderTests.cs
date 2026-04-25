@@ -24,8 +24,8 @@ public class CategoriesEncoderTests
     // Arrange
     BaseTypeModel type = new TypeInputModel(name, string.Empty);
     CategoryModel category = new(name, new(TypeKindModel.Output, name, string.Empty), string.Empty);
-    _baseType.Encode(type).Returns(new Structured(name, "Input"));
-    _category.Encode(category).Returns(new Structured(name, "Category"));
+    _baseType.Encode(type).Returns(name.Encode("Input"));
+    _category.Encode(category).Returns(name.Encode("Category"));
 
     // Act
     EncodeAndCheck(new() {

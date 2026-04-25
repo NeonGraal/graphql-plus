@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_domain_number;
 internal class CmptDmnNmbrEncoder : IEncoder<ICmptDmnNmbr>
 {
   public Structured Encode(ICmptDmnNmbr input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static CmptDmnNmbrEncoder Factory(IEncoderRepository _) => new();
 }

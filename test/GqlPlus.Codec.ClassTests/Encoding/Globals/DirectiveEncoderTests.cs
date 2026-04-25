@@ -22,7 +22,7 @@ public class DirectiveEncoderTests
   {
     // Arrange
     InputParamModel parameter = new(input, "");
-    _parameter.Encode(parameter).Returns(new Structured(input));
+    _parameter.Encode(parameter).Returns(input.Encode());
 
     // Act
     EncodeAndCheck(new(name, contents) {

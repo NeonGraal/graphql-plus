@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_domain_Input;
 internal class testDomCnstFieldDmnInpEncoder : IEncoder<ItestDomCnstFieldDmnInp>
 {
   public Structured Encode(ItestDomCnstFieldDmnInp input)
-    => new(input.Value);
+    => input.Value!.Encode();
 
   internal static testDomCnstFieldDmnInpEncoder Factory(IEncoderRepository _) => new();
 }

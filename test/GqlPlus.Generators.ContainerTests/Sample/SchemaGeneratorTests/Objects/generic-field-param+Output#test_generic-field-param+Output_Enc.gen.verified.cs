@@ -29,7 +29,7 @@ internal class testAltGnrcFieldParamOutpEncoder : IEncoder<ItestAltGnrcFieldPara
 {
   public Structured Encode(ItestAltGnrcFieldParamOutpObject input)
     => Structured.Empty()
-      .Add("alt", input.Alt);
+      .Add("alt", input.Alt.Encode());
 
   internal static testAltGnrcFieldParamOutpEncoder Factory(IEncoderRepository _) => new();
 }

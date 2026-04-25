@@ -22,7 +22,7 @@ public class ObjectAlternateEncoderTests
   public void Encode_WithoutTypeParam_ReturnsStructuredWithDual(string dual)
   {
     ObjBaseModel objBase = new(dual, "");
-    _objBaseEncoder.Encode(objBase).Returns(new Structured(dual));
+    _objBaseEncoder.Encode(objBase).Returns(dual.Encode());
     EncodeAndCheck(new(objBase),
         TagAll("_Alternate",
         ":type=" + dual));

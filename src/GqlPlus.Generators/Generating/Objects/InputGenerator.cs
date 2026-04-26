@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Generating.Objects;
+﻿namespace GqlPlus.Generating.Objects;
 
 internal sealed class InputInterfaceGenerator
   : GenerateForObject<IAstInputField>

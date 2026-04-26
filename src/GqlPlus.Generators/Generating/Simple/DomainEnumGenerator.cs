@@ -1,7 +1,4 @@
-﻿using System.Runtime.InteropServices.ComTypes;
-using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Generating.Simple;
+﻿namespace GqlPlus.Generating.Simple;
 
 internal sealed class DomainEnumInterfaceGenerator()
   : GenerateBaseDomain<IAstDomainLabel>(DomainKind.Enum)

@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Generating.Globals;
+﻿namespace GqlPlus.Generating.Globals;
 
 public class OptionGeneratorTests
   : GenerateClassTestsBase

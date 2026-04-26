@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Encoding.Globals;
+﻿namespace GqlPlus.Encoding.Globals;
 
 public class DirectiveEncoderTests
   : EncoderClassTestBase<DirectiveModel>

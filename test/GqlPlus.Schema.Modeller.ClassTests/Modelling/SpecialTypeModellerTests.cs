@@ -1,5 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
-using GqlPlus.Modelling.Simple;
+﻿using GqlPlus.Modelling.Simple;
 
 namespace GqlPlus.Modelling;
 

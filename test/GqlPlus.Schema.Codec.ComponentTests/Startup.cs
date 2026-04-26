@@ -2,8 +2,6 @@
 
 using DiffEngine;
 
-using GqlPlus.Convert;
-
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 

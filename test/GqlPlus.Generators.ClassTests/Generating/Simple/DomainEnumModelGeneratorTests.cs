@@ -1,7 +1,4 @@
-﻿using System.ComponentModel;
-using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Generating.Simple;
+﻿namespace GqlPlus.Generating.Simple;
 
 public class DomainEnumModelGeneratorTests
   : GenerateDomainTestsBase<IAstDomainLabel>

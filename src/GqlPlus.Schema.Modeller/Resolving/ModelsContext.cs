@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Ast;
 
 namespace GqlPlus.Resolving;
 

@@ -1,6 +1,5 @@
 ﻿using GqlPlus;
 using GqlPlus.Ast.Schema;
-using GqlPlus.Convert;
 using GqlPlus.Resolving;
 
 namespace GqlPlus;

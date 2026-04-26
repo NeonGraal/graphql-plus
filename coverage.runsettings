@@ -11,7 +11,6 @@
             <ModulePaths>
               <Include>
                 <ModulePath>.*\\GqlPlus\.Abstractions\.dll$</ModulePath>
-                <ModulePath>.*\\GqlPlus\.Common\.dll$</ModulePath>
                 <ModulePath>.*\\GqlPlus\.Converter\.Json\.dll$</ModulePath>
                 <ModulePath>.*\\GqlPlus\.Converter\.Plain\.dll$</ModulePath>
                 <ModulePath>.*\\GqlPlus\.Converter\.Yaml\.dll$</ModulePath>

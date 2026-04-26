@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Modelling.Globals;
+﻿namespace GqlPlus.Modelling.Globals;
 
 public class DirectiveModellerTests
   : ModellerClassTestBase<IAstSchemaDirective, DirectiveModel>

@@ -62,8 +62,7 @@ public record class ObjBaseModel(
   , IObjBaseModel
 {
   public bool IsTypeParam { get; set; }
-  public TypeArgModel[] Args { get; set; } = [];
-  ITypeArgModel[] IObjBaseModel.Args => [.. Args.Cast<ITypeArgModel>()];
+  public ITypeArgModel[] Args { get; set; } = [];
 }
 
 public interface IObjBaseModel

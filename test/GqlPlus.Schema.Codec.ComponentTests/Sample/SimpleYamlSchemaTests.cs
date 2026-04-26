@@ -1,6 +1,4 @@
-﻿using GqlPlus.Convert;
-
-namespace GqlPlus.Sample;
+﻿namespace GqlPlus.Sample;
 
 [Trait("Generate", "Yaml")]
 [Trait("Generate", "SimpleYaml")]

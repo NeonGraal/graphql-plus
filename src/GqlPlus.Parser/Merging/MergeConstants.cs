@@ -1,7 +1,5 @@
 ﻿using System.Collections.Immutable;
 
-using GqlPlus.Ast;
-
 namespace GqlPlus.Merging;
 
 internal class MergeConstants

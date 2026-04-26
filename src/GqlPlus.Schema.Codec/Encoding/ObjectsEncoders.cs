@@ -22,7 +22,7 @@ internal class ObjectBaseEncoder<TBase>(
 ) : DescribedEncoder<TBase>
   where TBase : ObjBaseModel
 {
-  private readonly IEncoder<TypeArgModel> _objArg = encoders.EncoderFor<TypeArgModel>();
+  private readonly IEncoder<ITypeArgModel> _objArg = encoders.EncoderFor<ITypeArgModel>();
 
   internal override Structured Encode(TBase model)
     => base.Encode(model)
@@ -38,7 +38,7 @@ internal class TypeParamEncoder(
   IEncoderRepository encoders
 ) : NamedEncoder<TypeParamModel>
 {
-  private readonly IEncoder<TypeRefModel<TypeKindModel>> _typeKind = encoders.EncoderFor<TypeRefModel<TypeKindModel>>();
+  private readonly IEncoder<ITypeRefModel<TypeKindModel>> _typeKind = encoders.EncoderFor<ITypeRefModel<TypeKindModel>>();
 
   internal override Structured Encode(TypeParamModel model)
     => base.Encode(model)

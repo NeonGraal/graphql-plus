@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast;
-
-namespace GqlPlus.Encoding;
+﻿namespace GqlPlus.Encoding;
 
 public class CollectionEncoderTests
   : EncoderClassTestBase<CollectionModel>

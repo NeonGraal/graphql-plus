@@ -1,7 +1,4 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Modelling.Globals;
+﻿namespace GqlPlus.Modelling.Globals;
 
 // ResolutionModel => CategoryOption
 

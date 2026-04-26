@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Verifying.Schema;
+﻿namespace GqlPlus.Verifying.Schema;
 
 [TracePerTest]
 public class VerifySchemaTests

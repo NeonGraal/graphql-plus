@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Generating.Objects;
 
@@ -375,9 +374,6 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     string interfaceType = context.TypeName(ast, "I") + "Object";
     context.RegisterDecoder(interfaceType, decoderName);
   }
-
-  protected override void EncoderHeader(IAstObject<TObjField> ast, GqlpGeneratorContext context)
-    => context.Write("internal class " + context.TypeName(ast, "") + "Encoder" + TypeParamsString(ast));
 
   protected void AlternateClassMember(MapPair<string> item, GqlpGeneratorContext context)
     => context.Write($"  public {item.Value}? As{item.Key} {{ get; set; }}");

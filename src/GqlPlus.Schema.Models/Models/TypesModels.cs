@@ -61,7 +61,7 @@ public record class TypeRefModel<TKind>(
   where TKind : Enum
 { }
 
-internal interface ITypeRefModel<TKind>
+public interface ITypeRefModel<TKind>
   : INamedModel
   where TKind : Enum
 {

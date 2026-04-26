@@ -1,5 +1,4 @@
-﻿global using GqlPlus.Ast;
-global using GqlPlus.Convert;
+﻿global using GqlPlus.Convert;
 global using GqlPlus.Models;
 global using GqlPlus.Structures;
 global using Shouldly;

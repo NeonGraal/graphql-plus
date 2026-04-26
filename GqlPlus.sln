@@ -1,4 +1,3 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
 VisualStudioVersion = 18.0.11205.157
@@ -9,9 +8,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B834B2ED-0D2
 		src\SourceSuppressions.cs = src\SourceSuppressions.cs
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.StarWars.Api", "test\GqlPlus.StarWars.Api\GqlPlus.StarWars.Api.csproj", "{B0E3F1C4-5D6A-4B2E-9F1A-3C2D1E0F4A55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.StarWars.Api", "test\GqlPlus.StarWars.Api\GqlPlus.StarWars.Api.csproj", "{B0E3F1C4-5D6A-4B2E-9F1A-3C2D1E0F4A55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.StarWars.ContainerTests", "test\GqlPlus.StarWars.ContainerTests\GqlPlus.StarWars.ContainerTests.csproj", "{C9A1E5B2-7F3D-4D2B-9A11-2F3C4B5D6E7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.StarWars.ContainerTests", "test\GqlPlus.StarWars.ContainerTests\GqlPlus.StarWars.ContainerTests.csproj", "{C9A1E5B2-7F3D-4D2B-9A11-2F3C4B5D6E7F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Verifier", "src\GqlPlus.Verifier\GqlPlus.Verifier.csproj", "{DDB8D682-23EA-48C4-A1AD-65F114533202}"
 EndProject
@@ -71,72 +70,80 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Parser.ClassTests",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Parser.ComponentTests", "test\GqlPlus.Parser.ComponentTests\GqlPlus.Parser.ComponentTests.csproj", "{F9D2FECF-2F45-4984-9D2E-A136F285E47B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Modeller", "src\GqlPlus.Modeller\GqlPlus.Modeller.csproj", "{33279A3A-60F3-49A6-BE09-33F3582E61DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Schema.Modeller", "src\GqlPlus.Schema.Modeller\GqlPlus.Schema.Modeller.csproj", "{33279A3A-60F3-49A6-BE09-33F3582E61DA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Converter.Plain", "src\GqlPlus.Converter.Plain\GqlPlus.Converter.Plain.csproj", "{EBF0F102-7403-467F-ADAE-CB3E64C32806}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Schema.Models", "src\GqlPlus.Schema.Models\GqlPlus.Schema.Models.csproj", "{E934A78B-DE90-432C-AC5D-F623B25C4C93}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.ComponentTestBase", "test\GqlPlus.ComponentTestBase\GqlPlus.ComponentTestBase.csproj", "{F10AC1D0-D945-4D8E-A49F-26D9DC08C42D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Modeller.ClassTests", "test\GqlPlus.Modeller.ClassTests\GqlPlus.Modeller.ClassTests.csproj", "{2EB2CC0E-4803-4D8A-8DFC-921FF815F719}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Schema.Modeller.ClassTests", "test\GqlPlus.Schema.Modeller.ClassTests\GqlPlus.Schema.Modeller.ClassTests.csproj", "{2EB2CC0E-4803-4D8A-8DFC-921FF815F719}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Verifier.ClassTests", "test\GqlPlus.Verifier.ClassTests\GqlPlus.Verifier.ClassTests.csproj", "{7D18D0EF-C933-414A-AF79-26309EFA4B94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Converter.Plain.ClassTests", "test\GqlPlus.Converter.Plain.ClassTests\GqlPlus.Converter.Plain.ClassTests.csproj", "{A3C9EF71-23C9-4DF1-A23C-BD6AB55A26F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.ClassTestBase", "test\GqlPlus.ClassTestBase\GqlPlus.ClassTestBase.csproj", "{2CDE8A80-4B51-499E-8C10-C865C38D03E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Schema.Modeller.ComponentTests", "test\GqlPlus.Schema.Modeller.ComponentTests\GqlPlus.Schema.Modeller.ComponentTests.csproj", "{4D5F9210-F7FC-4B49-B36A-171CD19C644C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Abstractions.ClassTests", "test\GqlPlus.Abstractions.ClassTests\GqlPlus.Abstractions.ClassTests.csproj", "{A037825A-92B7-4B00-B039-EEC7A1AA0823}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Verifier.ClassTests", "test\GqlPlus.Verifier.ClassTests\GqlPlus.Verifier.ClassTests.csproj", "{7D18D0EF-C933-414A-AF79-26309EFA4B94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.TestGenerators", "test\GqlPlus.TestGenerators\GqlPlus.TestGenerators.csproj", "{B061A811-3DBB-4E5A-AD96-91F0A74FE3C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.ClassTestBase", "test\GqlPlus.ClassTestBase\GqlPlus.ClassTestBase.csproj", "{2CDE8A80-4B51-499E-8C10-C865C38D03E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.TestGenerators.Tests", "test\GqlPlus.TestGenerators.Tests\GqlPlus.TestGenerators.Tests.csproj", "{BB113C8C-1B2C-4815-A4DF-051F9237AF0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Abstractions.ClassTests", "test\GqlPlus.Abstractions.ClassTests\GqlPlus.Abstractions.ClassTests.csproj", "{A037825A-92B7-4B00-B039-EEC7A1AA0823}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.PolyFill", "src\GqlPlus.PolyFill\GqlPlus.PolyFill.csproj", "{44D55F97-4EBA-48C8-A72C-7FBC12A44719}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.TestGenerators", "test\GqlPlus.TestGenerators\GqlPlus.TestGenerators.csproj", "{B061A811-3DBB-4E5A-AD96-91F0A74FE3C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.VerifyTestBase", "test\GqlPlus.VerifyTestBase\GqlPlus.VerifyTestBase.csproj", "{14F619F3-163D-43D5-B3A4-14817438274E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.TestGenerators.Tests", "test\GqlPlus.TestGenerators.Tests\GqlPlus.TestGenerators.Tests.csproj", "{BB113C8C-1B2C-4815-A4DF-051F9237AF0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Generators", "src\GqlPlus.Generators\GqlPlus.Generators.csproj", "{B5DD5781-B8AF-459C-9A70-7C2B8F36F2F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.PolyFill", "src\GqlPlus.PolyFill\GqlPlus.PolyFill.csproj", "{44D55F97-4EBA-48C8-A72C-7FBC12A44719}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Generators.ContainerTests", "test\GqlPlus.Generators.ContainerTests\GqlPlus.Generators.ContainerTests.csproj", "{6A04326B-1202-41DD-A4C0-B0DFB68E76A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.VerifyTestBase", "test\GqlPlus.VerifyTestBase\GqlPlus.VerifyTestBase.csproj", "{14F619F3-163D-43D5-B3A4-14817438274E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Converter.Json", "src\GqlPlus.Converter.Json\GqlPlus.Converter.Json.csproj", "{B8D01714-3F6B-41D6-89F5-5F7056290ACF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Generators", "src\GqlPlus.Generators\GqlPlus.Generators.csproj", "{B5DD5781-B8AF-459C-9A70-7C2B8F36F2F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Converter.Json.ComponentTests", "test\GqlPlus.Converter.Json.ComponentTests\GqlPlus.Converter.Json.ComponentTests.csproj", "{3289A609-8CB0-495D-9D10-326D63BAA5F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Generators.ContainerTests", "test\GqlPlus.Generators.ContainerTests\GqlPlus.Generators.ContainerTests.csproj", "{6A04326B-1202-41DD-A4C0-B0DFB68E76A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Codec.ComponentTestBase", "test\GqlPlus.Codec.ComponentTestBase\GqlPlus.Codec.ComponentTestBase.csproj", "{7A0D7D70-6533-442A-9FD1-29131DE207F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Converter.Json", "src\GqlPlus.Converter.Json\GqlPlus.Converter.Json.csproj", "{B8D01714-3F6B-41D6-89F5-5F7056290ACF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Converter.Yaml.ComponentTests", "test\GqlPlus.Converter.Yaml.ComponentTests\GqlPlus.Converter.Yaml.ComponentTests.csproj", "{8F67479F-A4B7-4574-B8EA-10C8E19DA2E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Converter.Json.ComponentTests", "test\GqlPlus.Converter.Json.ComponentTests\GqlPlus.Converter.Json.ComponentTests.csproj", "{3289A609-8CB0-495D-9D10-326D63BAA5F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Converter.Yaml", "src\GqlPlus.Converter.Yaml\GqlPlus.Converter.Yaml.csproj", "{DF7D0CA6-48AE-460D-BCFF-B274D6D004BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Schema.Codec.ComponentTestBase", "test\GqlPlus.Schema.Codec.ComponentTestBase\GqlPlus.Schema.Codec.ComponentTestBase.csproj", "{7A0D7D70-6533-442A-9FD1-29131DE207F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Converter.Json.ClassTests", "test\GqlPlus.Converter.Json.ClassTests\GqlPlus.Converter.Json.ClassTests.csproj", "{E3D3D14A-A5FA-4292-8676-2A8386931EC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Converter.Yaml.ComponentTests", "test\GqlPlus.Converter.Yaml.ComponentTests\GqlPlus.Converter.Yaml.ComponentTests.csproj", "{8F67479F-A4B7-4574-B8EA-10C8E19DA2E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Converter.Yaml.ClassTests", "test\GqlPlus.Converter.Yaml.ClassTests\GqlPlus.Converter.Yaml.ClassTests.csproj", "{D11248A7-A1B2-4D8F-A396-36615F36A4F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Converter.Yaml", "src\GqlPlus.Converter.Yaml\GqlPlus.Converter.Yaml.csproj", "{DF7D0CA6-48AE-460D-BCFF-B274D6D004BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Converter.ClassTestBase", "test\GqlPlus.Converter.ClassTestBase\GqlPlus.Converter.ClassTestBase.csproj", "{9A60308A-96CA-45DC-B338-92ABA3035987}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Converter.Json.ClassTests", "test\GqlPlus.Converter.Json.ClassTests\GqlPlus.Converter.Json.ClassTests.csproj", "{E3D3D14A-A5FA-4292-8676-2A8386931EC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Codec", "src\GqlPlus.Codec\GqlPlus.Codec.csproj", "{0E70B5E4-06A2-4186-B025-952E1424EB57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Converter.Yaml.ClassTests", "test\GqlPlus.Converter.Yaml.ClassTests\GqlPlus.Converter.Yaml.ClassTests.csproj", "{D11248A7-A1B2-4D8F-A396-36615F36A4F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Codec.ClassTests", "test\GqlPlus.Codec.ClassTests\GqlPlus.Codec.ClassTests.csproj", "{3D07CC4F-1DF7-47AB-A02F-FE73EF1D5542}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Converter.ClassTestBase", "test\GqlPlus.Converter.ClassTestBase\GqlPlus.Converter.ClassTestBase.csproj", "{9A60308A-96CA-45DC-B338-92ABA3035987}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Codec.ComponentTests", "test\GqlPlus.Codec.ComponentTests\GqlPlus.Codec.ComponentTests.csproj", "{7607F6AB-9D34-42AD-8174-06A46760AABE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Schema.Codec", "src\GqlPlus.Schema.Codec\GqlPlus.Schema.Codec.csproj", "{0E70B5E4-06A2-4186-B025-952E1424EB57}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Schema.Codec.ClassTests", "test\GqlPlus.Schema.Codec.ClassTests\GqlPlus.Schema.Codec.ClassTests.csproj", "{3D07CC4F-1DF7-47AB-A02F-FE73EF1D5542}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Schema.Codec.ComponentTests", "test\GqlPlus.Schema.Codec.ComponentTests\GqlPlus.Schema.Codec.ComponentTests.csproj", "{7607F6AB-9D34-42AD-8174-06A46760AABE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 	ProjectSection(SolutionItems) = preProject
 		common\SolutionSuppressions.cs = common\SolutionSuppressions.cs
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.TestGeneratorsBase", "test\GqlPlus.TestGeneratorsBase\GqlPlus.TestGeneratorsBase.csproj", "{E2E7AFA8-CE14-4384-ACC3-2C4F48B8D656}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.TestGeneratorsBase", "test\GqlPlus.TestGeneratorsBase\GqlPlus.TestGeneratorsBase.csproj", "{E2E7AFA8-CE14-4384-ACC3-2C4F48B8D656}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Generators.ComponentTests", "test\GqlPlus.Generators.ComponentTests\GqlPlus.Generators.ComponentTests.csproj", "{461D4743-5509-485C-934A-2B5A0193E36A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Generators.ComponentTests", "test\GqlPlus.Generators.ComponentTests\GqlPlus.Generators.ComponentTests.csproj", "{461D4743-5509-485C-934A-2B5A0193E36A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Generators.ClassTests", "test\GqlPlus.Generators.ClassTests\GqlPlus.Generators.ClassTests.csproj", "{D4DC52CA-26B4-408C-A965-BF026787ADB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Generators.ClassTests", "test\GqlPlus.Generators.ClassTests\GqlPlus.Generators.ClassTests.csproj", "{D4DC52CA-26B4-408C-A965-BF026787ADB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Common", "src\GqlPlus.Common\GqlPlus.Common.csproj", "{7ECF075F-05FD-4A9E-8C72-C909E80BCB3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Common", "src\GqlPlus.Common\GqlPlus.Common.csproj", "{7ECF075F-05FD-4A9E-8C72-C909E80BCB3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.GeneratorsTestBase", "test\GqlPlus.GeneratorsTestBase\GqlPlus.GeneratorsTestBase.csproj", "{17C63E58-68E8-47BC-1FFE-497979A3ACDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.GeneratorsTestBase", "test\GqlPlus.GeneratorsTestBase\GqlPlus.GeneratorsTestBase.csproj", "{17C63E58-68E8-47BC-1FFE-497979A3ACDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.StarWars.GraphQlPlus", "test\GqlPlus.StarWars.GraphQlPlus\GqlPlus.StarWars.GraphQlPlus.csproj", "{BDE665BC-9003-91CF-3B20-3D2B5E009B82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.StarWars.GraphQlPlus", "test\GqlPlus.StarWars.GraphQlPlus\GqlPlus.StarWars.GraphQlPlus.csproj", "{BDE665BC-9003-91CF-3B20-3D2B5E009B82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Schema.GraphQlPlus", "test\GqlPlus.Schema.GraphQlPlus\GqlPlus.Schema.GraphQlPlus.csproj", "{1B3878FD-C19B-FCC9-CEB6-93F81C64EF53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Schema.GraphQlPlus", "test\GqlPlus.Schema.GraphQlPlus\GqlPlus.Schema.GraphQlPlus.csproj", "{1B3878FD-C19B-FCC9-CEB6-93F81C64EF53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Schema", "src\GqlPlus.Schema\GqlPlus.Schema.csproj", "{6000D95B-FC11-42E2-9432-C72F22EE9A95}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Schema", "src\GqlPlus.Schema\GqlPlus.Schema.csproj", "{DE6DC163-FA7D-4403-BDB8-3375063ED704}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{90DCB911-0A2C-4CD4-A166-8C6DD00FD3A9}"
 	ProjectSection(SolutionItems) = preProject
@@ -147,7 +154,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{90DCB911-0
 		Style-Guide.md = Style-Guide.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Samples.GraphQlPlus", "test\GqlPlus.Samples.GraphQlPlus\GqlPlus.Samples.GraphQlPlus.csproj", "{5AC91E4C-81C5-67B1-5346-09EE192467D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Samples.GraphQlPlus", "test\GqlPlus.Samples.GraphQlPlus\GqlPlus.Samples.GraphQlPlus.csproj", "{5AC91E4C-81C5-67B1-5346-09EE192467D3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Request", "src\GqlPlus.Request\GqlPlus.Request.csproj", "{0D428A8D-60B2-ED71-FEBF-7CCE32867BEC}"
 EndProject
@@ -197,6 +204,14 @@ Global
 		{33279A3A-60F3-49A6-BE09-33F3582E61DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33279A3A-60F3-49A6-BE09-33F3582E61DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33279A3A-60F3-49A6-BE09-33F3582E61DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBF0F102-7403-467F-ADAE-CB3E64C32806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBF0F102-7403-467F-ADAE-CB3E64C32806}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBF0F102-7403-467F-ADAE-CB3E64C32806}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBF0F102-7403-467F-ADAE-CB3E64C32806}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E934A78B-DE90-432C-AC5D-F623B25C4C93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E934A78B-DE90-432C-AC5D-F623B25C4C93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E934A78B-DE90-432C-AC5D-F623B25C4C93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E934A78B-DE90-432C-AC5D-F623B25C4C93}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F10AC1D0-D945-4D8E-A49F-26D9DC08C42D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F10AC1D0-D945-4D8E-A49F-26D9DC08C42D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F10AC1D0-D945-4D8E-A49F-26D9DC08C42D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -205,6 +220,14 @@ Global
 		{2EB2CC0E-4803-4D8A-8DFC-921FF815F719}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EB2CC0E-4803-4D8A-8DFC-921FF815F719}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EB2CC0E-4803-4D8A-8DFC-921FF815F719}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3C9EF71-23C9-4DF1-A23C-BD6AB55A26F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3C9EF71-23C9-4DF1-A23C-BD6AB55A26F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3C9EF71-23C9-4DF1-A23C-BD6AB55A26F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3C9EF71-23C9-4DF1-A23C-BD6AB55A26F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D5F9210-F7FC-4B49-B36A-171CD19C644C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D5F9210-F7FC-4B49-B36A-171CD19C644C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D5F9210-F7FC-4B49-B36A-171CD19C644C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D5F9210-F7FC-4B49-B36A-171CD19C644C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7D18D0EF-C933-414A-AF79-26309EFA4B94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7D18D0EF-C933-414A-AF79-26309EFA4B94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D18D0EF-C933-414A-AF79-26309EFA4B94}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -313,10 +336,10 @@ Global
 		{1B3878FD-C19B-FCC9-CEB6-93F81C64EF53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B3878FD-C19B-FCC9-CEB6-93F81C64EF53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B3878FD-C19B-FCC9-CEB6-93F81C64EF53}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6000D95B-FC11-42E2-9432-C72F22EE9A95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6000D95B-FC11-42E2-9432-C72F22EE9A95}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6000D95B-FC11-42E2-9432-C72F22EE9A95}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6000D95B-FC11-42E2-9432-C72F22EE9A95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE6DC163-FA7D-4403-BDB8-3375063ED704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE6DC163-FA7D-4403-BDB8-3375063ED704}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE6DC163-FA7D-4403-BDB8-3375063ED704}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE6DC163-FA7D-4403-BDB8-3375063ED704}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5AC91E4C-81C5-67B1-5346-09EE192467D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5AC91E4C-81C5-67B1-5346-09EE192467D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AC91E4C-81C5-67B1-5346-09EE192467D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -342,8 +365,12 @@ Global
 		{0910A54F-5BA1-4CCF-BDF2-B2AE8DB81D90} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{F9D2FECF-2F45-4984-9D2E-A136F285E47B} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{33279A3A-60F3-49A6-BE09-33F3582E61DA} = {B834B2ED-0D27-4281-8523-B706B42DCC15}
+		{EBF0F102-7403-467F-ADAE-CB3E64C32806} = {B834B2ED-0D27-4281-8523-B706B42DCC15}
+		{E934A78B-DE90-432C-AC5D-F623B25C4C93} = {B834B2ED-0D27-4281-8523-B706B42DCC15}
 		{F10AC1D0-D945-4D8E-A49F-26D9DC08C42D} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{2EB2CC0E-4803-4D8A-8DFC-921FF815F719} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
+		{A3C9EF71-23C9-4DF1-A23C-BD6AB55A26F9} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
+		{4D5F9210-F7FC-4B49-B36A-171CD19C644C} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{7D18D0EF-C933-414A-AF79-26309EFA4B94} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{2CDE8A80-4B51-499E-8C10-C865C38D03E1} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{A037825A-92B7-4B00-B039-EEC7A1AA0823} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
@@ -371,7 +398,6 @@ Global
 		{17C63E58-68E8-47BC-1FFE-497979A3ACDD} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{BDE665BC-9003-91CF-3B20-3D2B5E009B82} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{1B3878FD-C19B-FCC9-CEB6-93F81C64EF53} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
-		{6000D95B-FC11-42E2-9432-C72F22EE9A95} = {B834B2ED-0D27-4281-8523-B706B42DCC15}
 		{90DCB911-0A2C-4CD4-A166-8C6DD00FD3A9} = {4E1645F9-6194-4B1F-B93D-5B2CDDE5E6DE}
 		{5AC91E4C-81C5-67B1-5346-09EE192467D3} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{0D428A8D-60B2-ED71-FEBF-7CCE32867BEC} = {B834B2ED-0D27-4281-8523-B706B42DCC15}

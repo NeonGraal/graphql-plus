@@ -1,0 +1,8 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\GqlPlus.Parser\GqlPlus.Parser.csproj" />
+    <ProjectReference Include="..\GqlPlus.Schema.Models\GqlPlus.Schema.Models.csproj" />
+  </ItemGroup>
+
+</Project>

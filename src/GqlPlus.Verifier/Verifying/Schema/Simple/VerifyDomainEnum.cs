@@ -22,7 +22,7 @@ internal class VerifyDomainEnum(IVerifierRepository verifiers)
     }
   }
 
-  internal new static VerifyDomainEnum Factory(IVerifierRepository v)
+  internal static new VerifyDomainEnum Factory(IVerifierRepository v)
     => new(v);
 }
 

@@ -1,7 +1,0 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <ItemGroup>
-    <ProjectReference Include="..\GqlPlus.Parser\GqlPlus.Parser.csproj" />
-  </ItemGroup>
-
-</Project>

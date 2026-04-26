@@ -1,7 +1,4 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Generating;
+﻿namespace GqlPlus.Generating;
 
 public class GenerateClassTestsBase
   : SubstituteBase

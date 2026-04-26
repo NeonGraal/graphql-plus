@@ -1,6 +1,4 @@
-﻿using GqlPlus;
-
-namespace GqlPlus.Ast.Schema.Simple;
+﻿namespace GqlPlus.Ast.Schema.Simple;
 
 internal abstract record class AstSimple(
   ITokenAt At,

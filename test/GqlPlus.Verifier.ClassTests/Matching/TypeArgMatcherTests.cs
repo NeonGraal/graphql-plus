@@ -1,5 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
-using GqlPlus.Building.Schema.Objects;
+﻿using GqlPlus.Building.Schema.Objects;
 using GqlPlus.Building.Schema.Simple;
 
 namespace GqlPlus.Matching;

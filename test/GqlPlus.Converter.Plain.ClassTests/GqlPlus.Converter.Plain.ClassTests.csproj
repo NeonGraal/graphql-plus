@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\GqlPlus.Converter.Plain\GqlPlus.Converter.Plain.csproj" />
+    <ProjectReference Include="..\GqlPlus.Converter.ClassTestBase\GqlPlus.Converter.ClassTestBase.csproj" />
+  </ItemGroup>
+
+</Project>

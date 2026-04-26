@@ -1,5 +1,4 @@
 ﻿using System.Runtime.CompilerServices;
-using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
 

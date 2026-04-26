@@ -11,12 +11,14 @@
             <ModulePaths>
               <Include>
                 <ModulePath>.*\\GqlPlus\.Abstractions\.dll$</ModulePath>
-                <ModulePath>.*\\GqlPlus\.Codec\.dll$</ModulePath>
                 <ModulePath>.*\\GqlPlus\.Converter\.Json\.dll$</ModulePath>
+                <ModulePath>.*\\GqlPlus\.Converter\.Plain\.dll$</ModulePath>
                 <ModulePath>.*\\GqlPlus\.Converter\.Yaml\.dll$</ModulePath>
                 <ModulePath>.*\\GqlPlus\.Generators\.dll$</ModulePath>
-                <ModulePath>.*\\GqlPlus\.Modeller\.dll$</ModulePath>
                 <ModulePath>.*\\GqlPlus\.Parser\.dll$</ModulePath>
+                <ModulePath>.*\\GqlPlus\.Schema\.Codec\.dll$</ModulePath>
+                <ModulePath>.*\\GqlPlus\.Schema\.Models\.dll$</ModulePath>
+                <ModulePath>.*\\GqlPlus\.Schema\.Modeller\.dll$</ModulePath>
                 <ModulePath>.*\\GqlPlus\.Verifier\.dll$</ModulePath>
               </Include>
             </ModulePaths>

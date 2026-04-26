@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Generating;
+﻿namespace GqlPlus.Generating;
 
 internal interface ITypeGenerator
 {

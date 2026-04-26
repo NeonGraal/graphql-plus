@@ -20,7 +20,7 @@ public class ModifierModellerTests
 
     // Assert
     result.ShouldNotBeNull()
-      .ModifierKind.ShouldBe(ModifierKind.Opt);
+      .ModifierKind.ShouldBe(ModifierKindModel.Opt);
   }
 
   [Fact]
@@ -48,7 +48,7 @@ public class ModifierModellerTests
     // Assert
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
-        r => r.ModifierKind.ShouldBe(ModifierKind.Dict),
+        r => r.ModifierKind.ShouldBe(ModifierKindModel.Dict),
         r => r.Key.ShouldBe(key),
         r => r.IsOptional.ShouldBeTrue());
   }
@@ -74,8 +74,8 @@ public class ModifierModellerTests
 
     // Assert
     results.Length.ShouldBe(2);
-    results[0].ModifierKind.ShouldBe(ModifierKind.Opt);
-    results[1].ModifierKind.ShouldBe(ModifierKind.List);
+    results[0].ModifierKind.ShouldBe(ModifierKindModel.Opt);
+    results[1].ModifierKind.ShouldBe(ModifierKindModel.List);
   }
 
   [Fact]
@@ -99,9 +99,9 @@ public class ModifierModellerTests
 
     // Assert
     results.Length.ShouldBe(3);
-    results[0].ShouldNotBeNull().ModifierKind.ShouldBe(ModifierKind.Opt);
+    results[0].ShouldNotBeNull().ModifierKind.ShouldBe(ModifierKindModel.Opt);
     results[1].ShouldBeNull();
-    results[2].ShouldNotBeNull().ModifierKind.ShouldBe(ModifierKind.List);
+    results[2].ShouldNotBeNull().ModifierKind.ShouldBe(ModifierKindModel.List);
   }
 
   [Theory, RepeatData]
@@ -115,8 +115,8 @@ public class ModifierModellerTests
 
     // Assert
     results.Length.ShouldBe(2);
-    results[0].ModifierKind.ShouldBe(ModifierKind.Dict);
-    results[1].ModifierKind.ShouldBe(ModifierKind.List);
+    results[0].ModifierKind.ShouldBe(ModifierKindModel.Dict);
+    results[1].ModifierKind.ShouldBe(ModifierKindModel.List);
   }
 
   [Fact]
@@ -140,8 +140,8 @@ public class ModifierModellerTests
 
     // Assert
     results.Length.ShouldBe(3);
-    results[0].ShouldNotBeNull().ModifierKind.ShouldBe(ModifierKind.Dict);
+    results[0].ShouldNotBeNull().ModifierKind.ShouldBe(ModifierKindModel.Dict);
     results[1].ShouldBeNull();
-    results[2].ShouldNotBeNull().ModifierKind.ShouldBe(ModifierKind.List);
+    results[2].ShouldNotBeNull().ModifierKind.ShouldBe(ModifierKindModel.List);
   }
 }

@@ -24,7 +24,7 @@ public class DirectiveEncoderTests
 
     // Act
     EncodeAndCheck(new(name, contents) {
-      Locations = DirectiveLocation.Operation,
+      Locations = DirectiveLocationModel.Operation,
       Parameter = parameter,
       Repeatable = true,
     }, [

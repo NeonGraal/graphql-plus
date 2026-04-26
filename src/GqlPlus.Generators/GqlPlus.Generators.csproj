@@ -23,6 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GqlPlus.Core\GqlPlus.Core.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\GqlPlus.Parser.Ast\GqlPlus.Parser.Ast.csproj" PrivateAssets="all" />
     <ProjectReference Include="..\GqlPlus.Common\GqlPlus.Common.csproj" PrivateAssets="all" />
     <ProjectReference Include="..\GqlPlus.Parser\GqlPlus.Parser.csproj" PrivateAssets="all" />
   </ItemGroup>
@@ -48,7 +50,8 @@
 
       <TargetPathWithTargetPlatformMoniker Include="$(PkgMicrosoft_Extensions_Logging_Abstractions)\lib\netstandard2.0\*.dll" IncludeRuntimeDependency="false" />
 
-      <!-- local project -->
+      <TargetPathWithTargetPlatformMoniker Include="$(ProjectDir)\..\GqlPlus.Core\$(OutputPath)\*.dll" IncludeRuntimeDependency="false" />
+      <TargetPathWithTargetPlatformMoniker Include="$(ProjectDir)\..\GqlPlus.Parser.Ast\$(OutputPath)\*.dll" IncludeRuntimeDependency="false" />
       <TargetPathWithTargetPlatformMoniker Include="$(ProjectDir)\..\GqlPlus.Parser\$(OutputPath)\*.dll" IncludeRuntimeDependency="false" />
     </ItemGroup>
   </Target>

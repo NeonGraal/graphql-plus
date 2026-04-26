@@ -26,7 +26,7 @@ public class CategoryModellerTests
     ast.Modifiers.Returns(modifiers);
 
     _modifier.ToModels(modifiers, TypeKinds)
-      .Returns([new ModifierModel(ModifierKind.List), new ModifierModel(ModifierKind.Opt)]);
+      .Returns([new ModifierModel(ModifierKindModel.List), new ModifierModel(ModifierKindModel.Opt)]);
 
     // Act
     CategoryModel result = Modeller.ToModel(ast, TypeKinds);
@@ -37,7 +37,7 @@ public class CategoryModellerTests
         r => r.Name.ShouldBe(categoryName),
         r => r.Output.Name.ShouldBe(outputName),
         r => r.Description.ShouldBe(contents),
-        r => r.Resolution.ShouldBe(CategoryOption.Parallel)
+        r => r.Resolution.ShouldBe(CategoryOptionModel.Parallel)
       );
   }
 }

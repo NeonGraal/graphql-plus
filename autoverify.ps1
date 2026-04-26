@@ -1,9 +1,14 @@
+param(
+  [switch]$NoBuild
+)
 
-dotnet build
+if (-not $NoBuild) {
+  dotnet build
 
-if ($LASTEXITCODE -ne 0) {
-  Write-Host "Build failed, exiting."
-  exit $LASTEXITCODE
+  if ($LASTEXITCODE -ne 0) {
+    Write-Host "Build failed, exiting."
+    exit $LASTEXITCODE
+  }
 }
 
 Get-ChildItem test -Filter "*.verified.*" -Recurse | Remove-Item -Force

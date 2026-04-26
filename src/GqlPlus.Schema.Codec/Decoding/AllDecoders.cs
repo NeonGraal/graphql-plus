@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Ast.Schema;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
@@ -26,7 +25,7 @@ public static class AllDecoders
       .AddDecoder(ConstantDecoder.Factory)
       .AddDecoder(SimpleDecoder.Factory)
       // Schema
-      .AddDecoder(EnumDecoder<CategoryOption>.Factory)
+      .AddDecoder(EnumDecoder<CategoryOptionModel>.Factory)
       .AddDecoder(EnumDecoder<TypeKindModel>.Factory)
       .AddDecoder<INameFilterDecoder, string>(NameFilterModelDecoder.Factory)
       .AddDecoder(FilterModelDecoder.Factory)

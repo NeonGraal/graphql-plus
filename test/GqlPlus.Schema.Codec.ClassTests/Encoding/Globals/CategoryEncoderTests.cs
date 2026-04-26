@@ -23,7 +23,7 @@ public class CategoryEncoderTests
   {
     // Arrange
     TypeRefModel<TypeKindModel> output = new(TypeKindModel.Output, outputName, string.Empty);
-    ModifierModel modifier = new(ModifierKind.List);
+    ModifierModel modifier = new(ModifierKindModel.List);
     _output.Encode(output).Returns(outputName.Encode("Output"));
     _modifiers.Encode(modifier).Returns("List".Encode());
 

@@ -1,5 +1,4 @@
 ﻿using System.Runtime.CompilerServices;
-using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Decoding;
 
@@ -178,7 +177,7 @@ internal class CategoryFilterModelDecoder(
   IDecoderRepository decoders
 ) : FilterModelDecoder<CategoryFilterModel>(decoders)
 {
-  private readonly IDecoder<CategoryOption?> _resolution = decoders.DecoderFor<CategoryOption?>();
+  private readonly IDecoder<CategoryOptionModel?> _resolution = decoders.DecoderFor<CategoryOptionModel?>();
 
   protected override IMessages DecodeMap(IMap<IValue> map, out CategoryFilterModel? output)
   {
@@ -188,7 +187,7 @@ internal class CategoryFilterModelDecoder(
       return messages;
     }
 
-    DecodeStructListField(messages, _resolution, map, out IEnumerable<CategoryOption>? resolutions);
+    DecodeStructListField(messages, _resolution, map, out IEnumerable<CategoryOptionModel>? resolutions);
 
     output = new(filterModel) { Resolutions = [.. resolutions], };
     return messages;

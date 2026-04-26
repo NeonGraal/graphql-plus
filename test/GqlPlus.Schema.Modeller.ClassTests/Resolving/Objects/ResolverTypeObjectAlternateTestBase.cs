@@ -8,7 +8,7 @@ public abstract class ResolverTypeObjectAlternateTestBase<TModel, TField>
   [Theory, RepeatData]
   public void ModelWithAlternateCollection_ResolvesCorrectly(string name, string alternate, string key)
   {
-    ModifierModel modifier = new(ModifierKind.Dict) { Key = key };
+    ModifierModel modifier = new(ModifierKindModel.Dict) { Key = key };
     AlternateModel theAlternate = MakeCollectionAlternate(alternate, modifier);
     ObjectForModel allAlternate = new ObjectForModel<AlternateModel>(theAlternate, name);
     TModel model = NewModel(name, "") with {
@@ -69,7 +69,7 @@ public abstract class ResolverTypeObjectAlternateTestBase<TModel, TField>
   {
     TModel parentModel = NewModel(parent, "") with {
       TypeParams = [new(key, "", default!)],
-      Alternates = [MakeCollectionAlternate(alternate, new(ModifierKind.Param) { Key = key })],
+      Alternates = [MakeCollectionAlternate(alternate, new(ModifierKindModel.Param) { Key = key })],
     };
     Context.AddModels([parentModel]);
 
@@ -80,7 +80,7 @@ public abstract class ResolverTypeObjectAlternateTestBase<TModel, TField>
       Parent = MakeBase(parent, "", NewArg(key)),
     };
 
-    AlternateModel expectedAlternate = MakeCollectionAlternate(alternate, new(ModifierKind.Dict) { Key = key });
+    AlternateModel expectedAlternate = MakeCollectionAlternate(alternate, new(ModifierKindModel.Dict) { Key = key });
     ObjectForModel[] allAlternates = [new ObjectForModel<AlternateModel>(expectedAlternate, parent)];
     TModel expectedParent = parentModel with {
       Alternates = [expectedAlternate],
@@ -99,7 +99,7 @@ public abstract class ResolverTypeObjectAlternateTestBase<TModel, TField>
   [Theory, RepeatData]
   public void ModelWithParentWithArgAlternateCollection_ResolvesCorrectly(string name, string parent, string alternate, string key)
   {
-    CollectionModel collection = new(ModifierKind.Dict) { Key = key };
+    CollectionModel collection = new(ModifierKindModel.Dict) { Key = key };
     TModel parentModel = NewModel(parent, "") with {
       TypeParams = [new(alternate, "", default!)],
       Alternates = [MakeParamAlternate(alternate, collection)],

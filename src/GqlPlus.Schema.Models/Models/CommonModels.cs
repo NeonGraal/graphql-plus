@@ -78,8 +78,19 @@ public class SimpleModel
       EnumValue.NullHashCode());
 }
 
+public enum ModifierKindModel
+{
+  Opt,
+  Optional = Opt,
+  List,
+  Dict,
+  Dictionary = Dict,
+  Param,
+  TypeParam = Param,
+}
+
 public record class CollectionModel(
-  ModifierKind ModifierKind
+  ModifierKindModel ModifierKind
 ) : ModelBase
 {
   // Todo: Make key a proper SimpleType
@@ -89,13 +100,13 @@ public record class CollectionModel(
 
   internal override string Tag =>
     ModifierKind switch {
-      ModifierKind.Dict => "_ModifierDictionary",
-      ModifierKind.Param => "_ModifierTypeParam",
+      ModifierKindModel.Dict => "_ModifierDictionary",
+      ModifierKindModel.Param => "_ModifierTypeParam",
       _ => base.Tag,
     };
 }
 
 public record class ModifierModel(
-  ModifierKind Kind
+  ModifierKindModel Kind
 ) : CollectionModel(Kind)
 { }

@@ -79,9 +79,4 @@ internal static class ModelHelper
   internal static TypeRefModel<TKind>? TypeRef<TKind>(this string? input, TKind kind, string? description = null)
     where TKind : Enum
     => string.IsNullOrWhiteSpace(input) ? null : new(kind, input!, description.IfWhiteSpace());
-
-  [return: NotNullIfNotNull(nameof(input))]
-  internal static TypeRefModel<TKind>? TypeRef<TKind>(this IAstTypeRef? input, TKind kind)
-    where TKind : Enum
-    => input?.Name.TypeRef(kind, input.Description);
 }

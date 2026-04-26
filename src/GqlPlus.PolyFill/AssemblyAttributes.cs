@@ -1,6 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("GqlPlus.Abstractions")]
+[assembly: InternalsVisibleTo("GqlPlus.Core")]
+[assembly: InternalsVisibleTo("GqlPlus.Parser.Ast")]
 [assembly: InternalsVisibleTo("GqlPlus.Common")]
 [assembly: InternalsVisibleTo("GqlPlus.Converter.Json")]
 [assembly: InternalsVisibleTo("GqlPlus.Converter.Plain")]

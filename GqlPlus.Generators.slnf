@@ -2,14 +2,15 @@
   "solution": {
     "path": "GqlPlus.sln",
     "projects": [
-      "src\\GqlPlus.Abstractions\\GqlPlus.Abstractions.csproj",
+      "src\\GqlPlus.Core\\GqlPlus.Core.csproj",
+      "src\\GqlPlus.Parser.Ast\\GqlPlus.Parser.Ast.csproj",
       "src\\GqlPlus.Codec\\GqlPlus.Codec.csproj",
       "src\\GqlPlus.Common\\GqlPlus.Common.csproj",
       "src\\GqlPlus.Generators\\GqlPlus.Generators.csproj",
       "src\\GqlPlus.Modeller\\GqlPlus.Modeller.csproj",
       "src\\GqlPlus.Parser\\GqlPlus.Parser.csproj",
       "src\\GqlPlus.PolyFill\\GqlPlus.PolyFill.csproj",
-      "test\\GqlPlus.Abstractions.ClassTests\\GqlPlus.Abstractions.ClassTests.csproj",
+      "test\\GqlPlus.Parser.Ast.ClassTests\\GqlPlus.Parser.Ast.ClassTests.csproj",
       "test\\GqlPlus.ClassTestBase\\GqlPlus.ClassTestBase.csproj",
       "test\\GqlPlus.Codec.ComponentTestBase\\GqlPlus.Codec.ComponentTestBase.csproj",
       "test\\GqlPlus.ComponentTestBase\\GqlPlus.ComponentTestBase.csproj",

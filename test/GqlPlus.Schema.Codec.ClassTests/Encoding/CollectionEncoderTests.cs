@@ -10,7 +10,7 @@ public class CollectionEncoderTests
   public void Encode_WithModifierKindDict_ReturnsStructuredWithKey(string key)
   {
     // Arrange
-    EncodeAndCheck(new(ModifierKind.Dict) {
+    EncodeAndCheck(new(ModifierKindModel.Dict) {
       Key = key,
       IsOptional = true
     }, TagAll("_ModifierDictionary",

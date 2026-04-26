@@ -8,7 +8,7 @@ public abstract class ResolverTypeObjectFieldTestBase<TModel, TField>
   [Theory, RepeatData]
   public void ModelWithFieldModifier_ResolvesCorrectly(string name, FieldInput field, string key)
   {
-    ModifierModel modifier = new(ModifierKind.Dict) { Key = key };
+    ModifierModel modifier = new(ModifierKindModel.Dict) { Key = key };
     TField objField = MakeModifierField(field, modifier);
     ObjectForModel allField = new ObjectForModel<TField>(objField, name);
     TModel model = NewModel(name, "") with {
@@ -67,7 +67,7 @@ public abstract class ResolverTypeObjectFieldTestBase<TModel, TField>
   [Theory, RepeatData]
   public void ModelWithParentWithArgFieldModifier_ResolvesCorrectly(string name, string parent, FieldInput field, string key)
   {
-    ModifierModel modifier = new(ModifierKind.Dict) { Key = key };
+    ModifierModel modifier = new(ModifierKindModel.Dict) { Key = key };
     TModel parentModel = NewModel(parent, "") with {
       TypeParams = [new(field.Type, "", default!)],
       Fields = [MakeParamField(field, modifier)],
@@ -102,7 +102,7 @@ public abstract class ResolverTypeObjectFieldTestBase<TModel, TField>
   {
     this.SkipEqual(name, parent);
 
-    ModifierModel modifier = new(ModifierKind.Param) { Key = key };
+    ModifierModel modifier = new(ModifierKindModel.Param) { Key = key };
     TModel parentModel = NewModel(parent, "") with {
       TypeParams = [new(key, "", default!)],
       Fields = [MakeModifierField(field, modifier)],
@@ -116,7 +116,7 @@ public abstract class ResolverTypeObjectFieldTestBase<TModel, TField>
       Parent = MakeBase(parent, "", NewArg(key)),
     };
 
-    TField expectedField = MakeModifierField(field, new(ModifierKind.Dict) { Key = key });
+    TField expectedField = MakeModifierField(field, new(ModifierKindModel.Dict) { Key = key });
     ObjectForModel[] allFields = [new ObjectForModel<TField>(expectedField, parent)];
     TModel expectedModel = parentModel with {
       Fields = [expectedField],

@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Models;
+namespace GqlPlus.Models;
 
 public record class SchemaModel(
   string Name,
@@ -66,7 +66,7 @@ public record class CategoryFilterModel
   public CategoryFilterModel(FilterModel filter)
     : base(filter) { }
 
-  public CategoryOption[] Resolutions { get; set; } = [];
+  public CategoryOptionModel[] Resolutions { get; set; } = [];
 }
 
 public record class TypeFilterModel

@@ -1,5 +1,26 @@
 ﻿namespace GqlPlus.Models;
 
+public enum CategoryOptionModel
+{
+  Parallel,
+  Sequential,
+  Single,
+}
+
+[Flags]
+public enum DirectiveLocationModel
+{
+  Operation = 0x01,
+  Variable = 0x02,
+  Field = 0x04,
+  Inline = 0x08,
+  Spread = 0x10,
+  Fragment = 0x20,
+
+  None = 0x00,
+  All = 0xff,
+}
+
 public record class AndTypeModel<TModel>
   : ModelBase
   where TModel : ModelBase
@@ -19,7 +40,7 @@ public record class CategoryModel(
   string Description
 ) : AliasedModel(Name, Description)
 {
-  public CategoryOption Resolution { get; set; } = CategoryOption.Parallel;
+  public CategoryOptionModel Resolution { get; set; } = CategoryOptionModel.Parallel;
   public ModifierModel[] Modifiers { get; set; } = [];
 }
 
@@ -34,7 +55,7 @@ public record class DirectiveModel(
 {
   public InputParamModel? Parameter { get; set; }
   public bool Repeatable { get; set; }
-  public DirectiveLocation Locations { get; set; } = DirectiveLocation.None;
+  public DirectiveLocationModel Locations { get; set; } = DirectiveLocationModel.None;
 }
 
 public record class SettingModel(

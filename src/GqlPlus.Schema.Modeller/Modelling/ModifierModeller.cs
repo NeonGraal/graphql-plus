@@ -5,7 +5,7 @@ internal class ModifierModeller
   , IModifierModeller
 {
   protected override ModifierModel ToModel(IAstModifier ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.ModifierKind) {
+    => new((ModifierKindModel)ast.ModifierKind) {
       Key = ast.Key,
       KeyType = !string.IsNullOrWhiteSpace(ast.Key)
           && typeKinds.TryGetValue(ast.Key, out TypeKindModel keyType)

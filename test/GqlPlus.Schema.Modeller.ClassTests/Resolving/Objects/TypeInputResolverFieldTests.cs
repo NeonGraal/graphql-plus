@@ -13,7 +13,7 @@ public class TypeInputResolverFieldTests
     Resolver = new TypeInputResolver(resolvers);
   }
 
-  protected override ObjBaseModel MakeBase(string name, string description = "", params TypeArgModel[] args)
+  protected override ObjBaseModel MakeBase(string name, string description = "", params ITypeArgModel[] args)
     => new(name, description) { Args = args };
   protected override InputFieldModel MakeField(FieldInput field)
     => new(field.Name, new(field.Type, ""), "");
@@ -25,6 +25,6 @@ public class TypeInputResolverFieldTests
     => new(name, description);
   protected override ObjBaseModel NewParam(string paramName)
     => new(paramName, "") { IsTypeParam = true };
-  protected override TypeArgModel NewArg(string argument, bool isParam = false)
-    => new(TypeKindModel.Input, argument, "") { IsTypeParam = isParam };
+  protected override ITypeArgModel NewArg(string argument, bool isParam = false)
+    => new TypeArgModel(TypeKindModel.Input, argument, "") { IsTypeParam = isParam };
 }

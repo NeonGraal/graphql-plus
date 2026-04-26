@@ -15,7 +15,7 @@ public class TypeOutputResolverAlternateTests
 
   protected override AlternateModel MakeAlternate(string alternate)
     => new(new ObjBaseModel(alternate, ""));
-  protected override ObjBaseModel MakeBase(string name, string description = "", params TypeArgModel[] args)
+  protected override ObjBaseModel MakeBase(string name, string description = "", params ITypeArgModel[] args)
     => new(name, description) { Args = args };
   protected override AlternateModel MakeCollectionAlternate(string alternate, CollectionModel collection)
     => new(new ObjBaseModel(alternate, "")) { Collections = [collection] };
@@ -25,6 +25,6 @@ public class TypeOutputResolverAlternateTests
     => new(name, description);
   protected override ObjBaseModel NewParam(string paramName)
     => new(paramName, "") { IsTypeParam = true };
-  protected override TypeArgModel NewArg(string argument, bool isParam = false)
-    => new(TypeKindModel.Output, argument, "") { IsTypeParam = isParam };
+  protected override ITypeArgModel NewArg(string argument, bool isParam = false)
+    => new TypeArgModel(TypeKindModel.Output, argument, "") { IsTypeParam = isParam };
 }

@@ -8,7 +8,7 @@ public abstract class ResolverTypeObjectTypeTestBase<TModel, TField>
   protected sealed override ObjBaseModel NewParent(string parent, string description)
     => MakeBase(parent, description);
 
-  protected abstract ObjBaseModel MakeBase(string name, string description = "", params TypeArgModel[] args);
+  protected abstract ObjBaseModel MakeBase(string name, string description = "", params ITypeArgModel[] args);
   protected abstract ObjBaseModel NewParam(string paramName);
-  protected abstract TypeArgModel NewArg(string argument, bool isParam = false);
+  protected abstract ITypeArgModel NewArg(string argument, bool isParam = false);
 }

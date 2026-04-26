@@ -64,7 +64,7 @@ public static class AllEncoders
       .AddEncoder(TypeParamEncoder.Factory)
       .AddEncoder(ObjectAlternateEncoder.Factory)
       .AddEncoder(ObjectForEncoder<AlternateModel>.Factory)
-      .AddEncoder<TypeArgModel>(TypeArgEncoder.Factory)
+      .AddEncoder(TypeArgEncoder.Factory)
       // Dual
       .AddEncoder(DualFieldEncoder.Factory)
       .AddEncoder(ObjectForEncoder<DualFieldModel>.Factory)

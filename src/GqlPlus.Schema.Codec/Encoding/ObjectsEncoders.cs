@@ -2,11 +2,11 @@
 
 internal class TypeArgEncoder(
   IEncoderRepository encoders
-) : DescribedEncoder<TypeArgModel>
+) : DescribedEncoder<ITypeArgModel>
 {
   private readonly IEncoder<EnumValueModel> _enumValue = encoders.EncoderFor<EnumValueModel>();
 
-  internal override Structured Encode(TypeArgModel model)
+  internal override Structured Encode(ITypeArgModel model)
     => model.EnumValue is null
     ? base.Encode(model)
       .AddIf(model.IsTypeParam,
@@ -38,7 +38,7 @@ internal class TypeParamEncoder(
   IEncoderRepository encoders
 ) : NamedEncoder<TypeParamModel>
 {
-  private readonly IEncoder<ITypeRefModel<TypeKindModel>> _typeKind = encoders.EncoderFor<ITypeRefModel<TypeKindModel>>();
+  private readonly IEncoder<TypeRefModel<TypeKindModel>> _typeKind = encoders.EncoderFor<TypeRefModel<TypeKindModel>>();
 
   internal override Structured Encode(TypeParamModel model)
     => base.Encode(model)

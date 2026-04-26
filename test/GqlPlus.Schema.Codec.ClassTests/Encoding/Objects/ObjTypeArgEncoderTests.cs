@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Encoding.Objects;
 
 public class TypeArgEncoderTests
-  : EncoderClassTestBase<TypeArgModel>
+  : EncoderClassTestBase<ITypeArgModel>
 {
   private readonly IEncoder<EnumValueModel> _enumValue;
 
@@ -13,18 +13,18 @@ public class TypeArgEncoderTests
     Encoder = new TypeArgEncoder(encoders);
   }
 
-  protected override IEncoder<TypeArgModel> Encoder { get; }
+  protected override IEncoder<ITypeArgModel> Encoder { get; }
 
   [Theory, RepeatData]
   public void Encode_WithTypeParam_ReturnsStructuredWithTypeParam(string output, string contents)
-    => EncodeAndCheck(new(TypeKindModel.Output, output, contents) { IsTypeParam = true },
+    => EncodeAndCheck(new TypeArgModel(TypeKindModel.Output, output, contents) { IsTypeParam = true },
       TagAll("_TypeArg",
       ":description=" + contents.QuotedIdentifier(),
       ":typeParam=" + output));
 
   [Theory, RepeatData]
   public void Encode_WithoutTypeParam_ReturnsStructuredWithOutput(string output, string contents)
-    => EncodeAndCheck(new(TypeKindModel.Output, output, contents),
+    => EncodeAndCheck(new TypeArgModel(TypeKindModel.Output, output, contents),
       TagAll("_TypeArg",
       ":description=" + contents.QuotedIdentifier(),
       ":name=" + output));

@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Verifying.Schema.Globals;
+﻿namespace GqlPlus.Verifying.Schema.Globals;
 
 [TracePerTest]
 public class VerifyCategoryAliasedTests

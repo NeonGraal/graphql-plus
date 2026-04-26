@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Verifying.Schema;

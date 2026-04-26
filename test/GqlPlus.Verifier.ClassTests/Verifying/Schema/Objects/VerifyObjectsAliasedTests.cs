@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Verifying.Schema.Objects;
+﻿namespace GqlPlus.Verifying.Schema.Objects;
 
 public abstract class VerifyObjectsAliasedTests<TObjField>(
   TypeKind fieldKind

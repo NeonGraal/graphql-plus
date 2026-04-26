@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\GqlPlus.Abstractions\GqlPlus.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\GqlPlus.Parser.Ast\GqlPlus.Parser.Ast.csproj" />
     <ProjectReference Include="..\..\src\GqlPlus.Parser\GqlPlus.Parser.csproj" />
   </ItemGroup>
 

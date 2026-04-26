@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" />
-    <ProjectReference Include="..\GqlPlus.Abstractions\GqlPlus.Abstractions.csproj" />
+    <ProjectReference Include="..\GqlPlus.Parser.Ast\GqlPlus.Parser.Ast.csproj" />
   </ItemGroup>
 
 </Project>

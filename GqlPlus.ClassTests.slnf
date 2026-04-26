@@ -2,7 +2,8 @@
   "solution": {
     "path": "GqlPlus.sln",
     "projects": [
-      "src\\GqlPlus.Abstractions\\GqlPlus.Abstractions.csproj",
+      "src\\GqlPlus.Core\\GqlPlus.Core.csproj",
+      "src\\GqlPlus.Parser.Ast\\GqlPlus.Parser.Ast.csproj",
       "src\\GqlPlus.Common\\GqlPlus.Common.csproj",
       "src\\GqlPlus.Converter.Json\\GqlPlus.Converter.Json.csproj",
       "src\\GqlPlus.Converter.Plain\\GqlPlus.Converter.Plain.csproj",
@@ -14,7 +15,8 @@
       "src\\GqlPlus.Schema.Modeller\\GqlPlus.Schema.Modeller.csproj",
       "src\\GqlPlus.Schema.Models\\GqlPlus.Schema.Models.csproj",
       "src\\GqlPlus.Verifier\\GqlPlus.Verifier.csproj",
-      "test\\GqlPlus.Abstractions.ClassTests\\GqlPlus.Abstractions.ClassTests.csproj",
+      "test\\GqlPlus.Core.ClassTests\\GqlPlus.Core.ClassTests.csproj",
+      "test\\GqlPlus.Parser.Ast.ClassTests\\GqlPlus.Parser.Ast.ClassTests.csproj",
       "test\\GqlPlus.ClassTestBase\\GqlPlus.ClassTestBase.csproj",
       "test\\GqlPlus.Converter.ClassTestBase\\GqlPlus.Converter.ClassTestBase.csproj",
       "test\\GqlPlus.Converter.Json.ClassTests\\GqlPlus.Converter.Json.ClassTests.csproj",

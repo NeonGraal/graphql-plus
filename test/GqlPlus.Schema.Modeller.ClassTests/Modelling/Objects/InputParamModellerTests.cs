@@ -34,7 +34,7 @@ public class InputParamModellerTests
     IAstConstant constant = A.Constant(text);
     ast.DefaultValue.Returns(constant);
 
-    ModifierModel[] modifiers = [new(ModifierKind.Optional)];
+    ModifierModel[] modifiers = [new(ModifierKindModel.Optional)];
     ToModelsReturns(_modifier, ast.Modifiers, modifiers);
 
     ConstantModel defaultValue = new(SimpleModel.Str(text));

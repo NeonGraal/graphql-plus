@@ -29,7 +29,7 @@ public class AlternateModellerTests
 
     ObjBaseModel dualType = new(name, contents);
     ToModelReturns(ObjBase, dualType);
-    CollectionModel[] collections = [new(ModifierKind.List)];
+    CollectionModel[] collections = [new(ModifierKindModel.List)];
     ToModelsReturns(_collection, collections);
 
     // Act

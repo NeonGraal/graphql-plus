@@ -1,8 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using GqlPlus.Ast;
-using GqlPlus.Structures;
 
 namespace GqlPlus;
 
@@ -80,42 +78,4 @@ public static class GeneralHelpers
 
   public static string TrueFalse(this bool value)
     => value ? GqlpStrings.BoolTrue : GqlpStrings.BoolFalse;
-
-  public static string Show(this IAstAbbreviated? abbr)
-  {
-    if (abbr is null) {
-      return "";
-    }
-
-    using StringWriter sw = new();
-    int indent = 0;
-    string[] begins = ["(", "{", "[", "<"];
-    string[] ends = [")", "}", "]", ">"];
-    foreach (string? field in abbr.GetFields()) {
-      if (string.IsNullOrWhiteSpace(field)) {
-        continue;
-      }
-
-      if (begins.Contains(field)) {
-        Write(field!);
-        indent++;
-      } else if (ends.Contains(field)) {
-        indent--;
-        Write(field!);
-      } else {
-        Write(field!);
-      }
-    }
-
-    return sw.ToString();
-
-    void Write(string text)
-    {
-      for (int i = 0; i < indent; i++) {
-        sw.Write("  ");
-      }
-
-      sw.WriteLine(text);
-    }
-  }
 }

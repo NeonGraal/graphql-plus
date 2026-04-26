@@ -44,7 +44,7 @@ internal class CollectionEncoder
   internal override Structured Encode(CollectionModel model)
     => base.Encode(model)
         .AddEnum("modifierKind", model.ModifierKind)
-        .AddIf(model.ModifierKind is ModifierKind.Dict or ModifierKind.Param,
+        .AddIf(model.ModifierKind is ModifierKindModel.Dict or ModifierKindModel.Param,
           s => s
             .Add("by", model.Key?.Encode()
               ?? throw new InvalidOperationException($"{model.ModifierKind} Modifier must have a Key specified"))

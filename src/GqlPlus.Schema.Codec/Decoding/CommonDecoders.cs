@@ -15,8 +15,8 @@ internal class BooleanDecoder
 
   protected override IMessages DecodeText(string strValue, out bool? output)
     => Parsed(strValue, output = strValue switch {
-      BuiltIn.BooleanTrue => true,
-      BuiltIn.BooleanFalse => false,
+      GqlpStrings.BoolTrue => true,
+      GqlpStrings.BoolFalse => false,
       _ => null
     });
 

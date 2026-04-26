@@ -11,7 +11,7 @@ internal class CategoryModeller(
   protected override CategoryModel ToModel(IAstSchemaCategory ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, ast.Output.TypeRef(TypeKindModel.Output), ast.Description) {
       Aliases = [.. ast.Aliases],
-      Resolution = ast.CategoryOption,
+      Resolution = (CategoryOptionModel)ast.CategoryOption,
       Modifiers = _modifier.ToModels(ast.Modifiers, typeKinds),
     };
 

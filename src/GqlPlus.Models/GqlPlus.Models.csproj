@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GqlPlus.Abstractions\GqlPlus.Abstractions.csproj" />
+    <ProjectReference Include="..\GqlPlus.Core\GqlPlus.Core.csproj" />
     <ProjectReference Include="..\GqlPlus.Common\GqlPlus.Common.csproj"
                       OutputItemType="Analyzer" />
     <ProjectReference Include="..\GqlPlus.Generators\GqlPlus.Generators.csproj"

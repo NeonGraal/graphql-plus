@@ -32,7 +32,7 @@ public class DirectiveModellerTests
         r => r.Description.ShouldBe(contents),
         r => r.Aliases.ShouldBeEquivalentTo(aliases),
         r => r.Repeatable.ShouldBeTrue(),
-        r => r.Locations.ShouldBe(DirectiveLocation.Operation | DirectiveLocation.Fragment)
+        r => r.Locations.ShouldBe(DirectiveLocationModel.Operation | DirectiveLocationModel.Fragment)
       );
   }
 }

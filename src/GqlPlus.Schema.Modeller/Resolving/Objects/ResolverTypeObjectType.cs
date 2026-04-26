@@ -92,9 +92,9 @@ internal abstract class ResolverTypeObjectType<TModel, TObjField>
 
   protected Func<CollectionModel, CollectionModel> ApplyCollection(string label, ArgumentsContext arguments)
     => collection => {
-      if (collection.ModifierKind == ModifierKind.Param
+      if (collection.ModifierKind == ModifierKindModel.Param
         && arguments.TryGetArg(label, collection.Key!, out TypeArgModel? keyModel)) {
-        return new(ModifierKind.Dict) { Key = keyModel.Name };
+        return new(ModifierKindModel.Dict) { Key = keyModel.Name };
       }
 
       return collection;
@@ -102,9 +102,9 @@ internal abstract class ResolverTypeObjectType<TModel, TObjField>
 
   protected Func<ModifierModel, ModifierModel> ApplyModifier(string label, ArgumentsContext arguments)
     => modifier => {
-      if (modifier.ModifierKind == ModifierKind.Param
+      if (modifier.ModifierKind == ModifierKindModel.Param
         && arguments.TryGetArg(label, modifier.Key!, out TypeArgModel? keyModel)) {
-        return new(ModifierKind.Dict) { Key = keyModel.Name };
+        return new(ModifierKindModel.Dict) { Key = keyModel.Name };
       }
 
       return modifier;

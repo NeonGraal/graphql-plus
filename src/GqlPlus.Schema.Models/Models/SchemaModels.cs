@@ -1,5 +1,3 @@
-﻿using GqlPlus.Ast.Schema;
-
 namespace GqlPlus.Models;
 
 public record class SchemaModel(
@@ -78,7 +76,7 @@ public record class CategoryFilterModel
   public CategoryFilterModel(FilterModel filter)
     : base(filter) { }
 
-  public CategoryOption[] Resolutions { get; set; } = [];
+  public CategoryOptionModel[] Resolutions { get; set; } = [];
 }
 
 public record class TypeFilterModel

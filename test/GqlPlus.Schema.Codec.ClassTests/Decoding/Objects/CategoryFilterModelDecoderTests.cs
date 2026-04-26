@@ -5,15 +5,15 @@ namespace GqlPlus.Decoding.Objects;
 public class CategoryFilterModelDecoderTests
   : FilterModelDecoderTestBase<CategoryFilterModel>
 {
-  private IDecoder<CategoryOption?> Resolution { get; }
-    = DFor<CategoryOption?>();
+  private IDecoder<CategoryOptionModel?> Resolution { get; }
+    = DFor<CategoryOptionModel?>();
 
   public CategoryFilterModelDecoderTests()
   {
     IDecoderRepository decoders = A.Of<IDecoderRepository>();
     decoders.DecoderFor<bool?>().Returns(Boolean);
     decoders.DecoderFor<INameFilterDecoder, string>().Returns(NameFilter);
-    decoders.DecoderFor<CategoryOption?>().Returns(Resolution);
+    decoders.DecoderFor<CategoryOptionModel?>().Returns(Resolution);
     Decoder = new CategoryFilterModelDecoder(decoders);
   }
 
@@ -29,7 +29,7 @@ public class CategoryFilterModelDecoderTests
       ["resolutions"] = resolutions.Encode()
     };
 
-    DecodeReturns(Resolution, CategoryOption.Parallel);
+    DecodeReturns(Resolution, CategoryOptionModel.Parallel);
 
     IMessages messages = Decoder.Decode(input.Encode(), out CategoryFilterModel? result);
 

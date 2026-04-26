@@ -1,5 +1,3 @@
-﻿using GqlPlus.Ast;
-
 namespace GqlPlus;
 
 public static class IEnumerableHelpers
@@ -10,12 +8,6 @@ public static class IEnumerableHelpers
   public static TResult[] AsArray<TSource, TResult>(this IEnumerable<TSource>? items, Func<TSource, TResult> mapper)
     => [.. items?.Select(mapper) ?? []];
 
-  private static IEnumerable<string?>? AsFields<T>(IEnumerable<T>? items)
-    => items?.Any(i => i is IAstAbbreviated) == true
-    ? items.OfType<IAstAbbreviated>().SelectMany(i => i.GetFields())
-    : items?.Any() == true
-      ? items.Select(i => $"{i}")
-      : null;
   public static IEnumerable<string> AsString<T>(this IEnumerable<T>? items)
     => items?.Any() == true
       ? items.Where(i => i is not null).Select(i => $"{i}")
@@ -29,24 +21,6 @@ public static class IEnumerableHelpers
    => items?.Any() == true
       ? items.Select(formatter).Prepend(before).Append(after)
       : [];
-
-  public static IEnumerable<string?> Bracket<T>(
-    this IEnumerable<T>? items,
-    string before = "",
-    string after = "",
-    bool sort = false)
-  {
-    IEnumerable<string?>? result = AsFields(items);
-
-    if (sort) {
-      result = result?.OrderBy(t => t);
-    }
-
-    return result
-        ?.Prepend(before)
-        ?.Append(after)
-        ?? [];
-  }
 
   public static string Debug(this IEnumerable<string?>? items)
     => (items?.OrderBy(t => t, StringComparer.Ordinal)).Joined(i => $"'{i}'", ", ");

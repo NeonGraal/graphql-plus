@@ -1,11 +1,9 @@
 ﻿using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Ast;
-using GqlPlus.Ast.Schema;
 using GqlPlus.Generating;
 using GqlPlus.Merging;
 using GqlPlus.Parsing;
-using GqlPlus.Parsing.Schema;
 using GqlPlus.Result;
 using GqlPlus.Token;
 using Microsoft.CodeAnalysis;

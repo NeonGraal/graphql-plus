@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast;
-
-namespace GqlPlus.Building;
+﻿namespace GqlPlus.Building;
 
 public class ErrorBuilder
   : IMockBuilder

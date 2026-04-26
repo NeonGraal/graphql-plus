@@ -1,7 +1,4 @@
-﻿
-using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Generating.Simple;
+﻿namespace GqlPlus.Generating.Simple;
 
 internal abstract class GenerateForSimple<TSimple>
   : GenerateForClass<TSimple, MapPair<string>>

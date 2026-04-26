@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
-
-namespace GqlPlus.Generating.Simple;
+﻿namespace GqlPlus.Generating.Simple;
 
 public class DomainBooleanInterfaceGeneratorTests
   : GenerateDomainTestsBase<IAstDomainTrueFalse>

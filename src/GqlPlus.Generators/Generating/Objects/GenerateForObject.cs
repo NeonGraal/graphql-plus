@@ -31,6 +31,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     GenerateBlock(ast, context, AlternateInterfaceHeader, AlternateMembers, AlternateInterfaceMember);
     GenerateBlock(ast, context, InterfaceHeader, TypeMembers, InterfaceMember);
   }
+  protected abstract void InterfaceMember(TFieldItem item, GqlpGeneratorContext context);
 
   protected void GenerateEncoderBlock(IAstObject<TObjField> ast, GqlpGeneratorContext context)
   {

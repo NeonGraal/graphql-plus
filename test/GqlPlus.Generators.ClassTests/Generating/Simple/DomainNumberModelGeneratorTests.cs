@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Generating.Simple;
 
 public class DomainNumberModelGeneratorTests
-  : GenerateDomainTestsBase<IAstDomainRange>
+  : GenerateDomainTestsBase<IAstDomainRange, DomainRangeInput>
 {
   protected override DomainKind Kind => DomainKind.Number;
   internal override GenerateBaseDomain<IAstDomainRange> Generator { get; }
@@ -18,6 +18,6 @@ public class DomainNumberModelGeneratorTests
   internal override ForType ForGeneratedBoth(string contains)
     => ForGeneratedModel(contains);
 
-  protected override IAstDomainRange MakeDomainItem(string item)
-    => A.ItemRange(item?.Length ?? 0);
+  protected override IAstDomainRange MakeDomainItem(DomainRangeInput item)
+    => A.ItemRange(item.Lower ?? item.Upper ?? 0);
 }

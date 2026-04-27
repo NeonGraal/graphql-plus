@@ -1,32 +1,30 @@
 ﻿namespace GqlPlus.Ast.Schema.Simple;
 
 public class DomainAstEnumTests
-  : AstDomainBaseTests<DomainLabelInput>
+  : AstDomainBaseTests<EnumLabelInput>
 {
 
   [Theory, RepeatData]
-  public void Inequality_BetweenSpecifcItems(string name, string type1, string type2)
+  public void Inequality_BetweenSpecificItems(string name, string type1, string type2)
     => Checks.Inequality_BetweenItems(name, new(type1, TestLabel), new(type2, TestLabel));
 
-  internal override IAstDomainChecks<DomainLabelInput> Checks => _checks;
+  internal override IAstDomainChecks<EnumLabelInput> Checks => _checks;
 
   private readonly DomainAstEnumChecks _checks = new();
 }
 
 internal sealed class DomainAstEnumChecks()
- : AstDomainChecks<DomainLabelInput, DomainLabelAst, IAstDomainLabel>(DomainKind.Enum)
+ : AstDomainChecks<EnumLabelInput, DomainLabelAst, IAstDomainLabel>(DomainKind.Enum)
 {
-  protected override DomainLabelAst[] DomainItems(DomainLabelInput input)
-    => [new(AstNulls.At, string.Empty, false, input.EnumLabel)];
+  protected override DomainLabelAst[] DomainItems(EnumLabelInput input)
+    => [new(AstNulls.At, string.Empty, false, input.Label) { EnumType = input.EnumType }];
 
-  protected override string ItemsString(string name, DomainLabelInput input)
-    => $"( !Do {name} Enum !DE {input.EnumLabel} )";
+  protected override string ItemsString(string name, EnumLabelInput input)
+    => $"( !Do {name} Enum !DE {input.EnumType} {input.Label} )";
 
   protected override AstDomain<DomainLabelAst, IAstDomainLabel> NewDomain(string name, DomainLabelAst[] list)
     => new(AstNulls.At, name, Kind, list);
 
-  protected override bool SkipEquals(DomainLabelInput input1, DomainLabelInput input2)
-    => input1.EnumLabel == input2.EnumLabel;
+  protected override bool SkipEquals(EnumLabelInput input1, EnumLabelInput input2)
+    => input1 == input2;
 }
-
-public record struct DomainLabelInput(string EnumType, string EnumLabel);

@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Generating.Simple;
 
 public class DomainEnumEncoderGeneratorTests
-  : GenerateDomainTestsBase<IAstDomainLabel>
+  : GenerateDomainTestsBase<IAstDomainLabel, EnumLabelInput>
 {
   protected override DomainKind Kind => DomainKind.Enum;
   internal override GenerateBaseDomain<IAstDomainLabel> Generator { get; }
@@ -22,9 +22,13 @@ public class DomainEnumEncoderGeneratorTests
   internal override ForType ForGeneratedBoth(string contains)
     => ForGeneratedEncoder(contains);
 
-  protected override IAstDomainLabel MakeDomainItem(string item)
-    => A.ItemLabel("TestEnum", item);
+  protected override IAstDomainLabel MakeDomainItem(EnumLabelInput item)
+    => A.ItemLabel(item.EnumType, item.Label);
 
-  internal override ForType ForGeneratedItem(string name, string item)
-    => ForGeneratedEncoder("input.Value?.EncodeEnum(\"tstTestEnum\")!;");
+  internal override ForType ForGeneratedItem(string name, EnumLabelInput item)
+    => ForGeneratedEncoder($"input.Value?.EncodeEnum(\"tst{item.EnumType}\")!;");
+
+  internal override ForType[] ForGeneratedItems(string name, EnumLabelInput[] items)
+    => [ForGeneratedCodeName(name),
+      ForGeneratedEncoder($"input.Value?.EncodeEnum(\"{name}\")!;")];
 }

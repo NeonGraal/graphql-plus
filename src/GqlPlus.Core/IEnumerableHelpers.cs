@@ -1,4 +1,4 @@
-namespace GqlPlus;
+﻿namespace GqlPlus;
 
 public static class IEnumerableHelpers
 {

@@ -456,7 +456,7 @@ internal class CmptEnumCnstDomEnumDualEncoder : IEncoder<CmptEnumCnstDomEnumDual
 internal class CmptJustCnstDomEnumDualEncoder : IEncoder<ICmptJustCnstDomEnumDual>
 {
   public Structured Encode(ICmptJustCnstDomEnumDual input)
-    => input.Value?.EncodeEnum("CmptEnumCnstDomEnumDual") ?? Structured.Empty("CmptEnumCnstDomEnumDual");
+    => input.Value?.EncodeEnum("CmptEnumCnstDomEnumDual")!;
 
   internal static CmptJustCnstDomEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
@@ -472,7 +472,7 @@ internal class CmptEnumCnstDomEnumInpEncoder : IEncoder<CmptEnumCnstDomEnumInp>
 internal class CmptJustCnstDomEnumInpEncoder : IEncoder<ICmptJustCnstDomEnumInp>
 {
   public Structured Encode(ICmptJustCnstDomEnumInp input)
-    => input.Value?.EncodeEnum("CmptEnumCnstDomEnumInp") ?? Structured.Empty("CmptEnumCnstDomEnumInp");
+    => input.Value?.EncodeEnum("CmptEnumCnstDomEnumInp")!;
 
   internal static CmptJustCnstDomEnumInpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -506,7 +506,7 @@ internal class CmptEnumCnstDomEnumOutpEncoder : IEncoder<CmptEnumCnstDomEnumOutp
 internal class CmptJustCnstDomEnumOutpEncoder : IEncoder<ICmptJustCnstDomEnumOutp>
 {
   public Structured Encode(ICmptJustCnstDomEnumOutp input)
-    => input.Value?.EncodeEnum("CmptEnumCnstDomEnumOutp") ?? Structured.Empty("CmptEnumCnstDomEnumOutp");
+    => input.Value?.EncodeEnum("CmptEnumCnstDomEnumOutp")!;
 
   internal static CmptJustCnstDomEnumOutpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -2435,7 +2435,7 @@ internal class CmptEnumGnrcPrntEnumDomDualEncoder : IEncoder<CmptEnumGnrcPrntEnu
 internal class CmptDomGnrcPrntEnumDomDualEncoder : IEncoder<ICmptDomGnrcPrntEnumDomDual>
 {
   public Structured Encode(ICmptDomGnrcPrntEnumDomDual input)
-    => input.Value?.EncodeEnum("CmptEnumGnrcPrntEnumDomDual") ?? Structured.Empty("CmptEnumGnrcPrntEnumDomDual");
+    => input.Value?.EncodeEnum("CmptEnumGnrcPrntEnumDomDual")!;
 
   internal static CmptDomGnrcPrntEnumDomDualEncoder Factory(IEncoderRepository _) => new();
 }
@@ -2451,7 +2451,7 @@ internal class CmptEnumGnrcPrntEnumDomInpEncoder : IEncoder<CmptEnumGnrcPrntEnum
 internal class CmptDomGnrcPrntEnumDomInpEncoder : IEncoder<ICmptDomGnrcPrntEnumDomInp>
 {
   public Structured Encode(ICmptDomGnrcPrntEnumDomInp input)
-    => input.Value?.EncodeEnum("CmptEnumGnrcPrntEnumDomInp") ?? Structured.Empty("CmptEnumGnrcPrntEnumDomInp");
+    => input.Value?.EncodeEnum("CmptEnumGnrcPrntEnumDomInp")!;
 
   internal static CmptDomGnrcPrntEnumDomInpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -2488,7 +2488,7 @@ internal class CmptEnumGnrcPrntEnumDomOutpEncoder : IEncoder<CmptEnumGnrcPrntEnu
 internal class CmptDomGnrcPrntEnumDomOutpEncoder : IEncoder<ICmptDomGnrcPrntEnumDomOutp>
 {
   public Structured Encode(ICmptDomGnrcPrntEnumDomOutp input)
-    => input.Value?.EncodeEnum("CmptEnumGnrcPrntEnumDomOutp") ?? Structured.Empty("CmptEnumGnrcPrntEnumDomOutp");
+    => input.Value?.EncodeEnum("CmptEnumGnrcPrntEnumDomOutp")!;
 
   internal static CmptDomGnrcPrntEnumDomOutpEncoder Factory(IEncoderRepository _) => new();
 }

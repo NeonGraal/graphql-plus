@@ -74,7 +74,7 @@ internal class testDmnBoolSameEncoder : IEncoder<ItestDmnBoolSame>
 internal class testDmnEnumDiffEncoder : IEncoder<ItestDmnEnumDiff>
 {
   public Structured Encode(ItestDmnEnumDiff input)
-    => input.Value?.EncodeEnum("bool") ?? Structured.Empty("bool");
+    => input.Value?.EncodeEnum("bool")!;
 
   internal static testDmnEnumDiffEncoder Factory(IEncoderRepository _) => new();
 }
@@ -82,7 +82,7 @@ internal class testDmnEnumDiffEncoder : IEncoder<ItestDmnEnumDiff>
 internal class testDmnEnumSameEncoder : IEncoder<ItestDmnEnumSame>
 {
   public Structured Encode(ItestDmnEnumSame input)
-    => input.Value?.EncodeEnum("bool") ?? Structured.Empty("bool");
+    => input.Value?.EncodeEnum("bool")!;
 
   internal static testDmnEnumSameEncoder Factory(IEncoderRepository _) => new();
 }

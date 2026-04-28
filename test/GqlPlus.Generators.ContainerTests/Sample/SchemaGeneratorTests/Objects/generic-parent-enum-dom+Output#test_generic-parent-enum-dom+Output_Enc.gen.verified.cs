@@ -39,7 +39,7 @@ internal class testEnumGnrcPrntEnumDomOutpEncoder : IEncoder<testEnumGnrcPrntEnu
 internal class testDomGnrcPrntEnumDomOutpEncoder : IEncoder<ItestDomGnrcPrntEnumDomOutp>
 {
   public Structured Encode(ItestDomGnrcPrntEnumDomOutp input)
-    => input.Value?.EncodeEnum("testEnumGnrcPrntEnumDomOutp") ?? Structured.Empty("testEnumGnrcPrntEnumDomOutp");
+    => input.Value?.EncodeEnum("testEnumGnrcPrntEnumDomOutp")!;
 
   internal static testDomGnrcPrntEnumDomOutpEncoder Factory(IEncoderRepository _) => new();
 }

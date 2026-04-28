@@ -1,6 +1,4 @@
-﻿using System.Runtime.InteropServices.ComTypes;
-
-namespace GqlPlus.Generating.Simple;
+﻿namespace GqlPlus.Generating.Simple;
 
 internal sealed class DomainEnumInterfaceGenerator()
   : GenerateBaseDomain<IAstDomainLabel>(DomainKind.Enum)
@@ -64,11 +62,12 @@ internal sealed class DomainEnumEncoderGenerator()
       .Where(t => !string.IsNullOrWhiteSpace(t))
       .Distinct()];
 
-    if (enumTypes.Length != 1) {
+    if (enumTypes.Length == 1) {
+      string valueType = context.TypeName(enumTypes[0], "");
+      GenerateDomainEncoder(ast, context, $"input.Value?.EncodeEnum(\"{valueType}\")!");
       return;
     }
 
-    string valueType = context.TypeName(enumTypes[0], "");
-    GenerateDomainEncoder(ast, context, $"input.Value?.EncodeEnum(\"{valueType}\") ?? Structured.Empty(\"{valueType}\")");
+    GenerateDomainEncoder(ast, context, $"input.Value?.EncodeEnum(\"{ast.Name}\")!");
   }
 }

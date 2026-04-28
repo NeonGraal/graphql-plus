@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_domain_enum_all_descr;
 internal class CmptDmnEnumAllDescrEncoder : IEncoder<ICmptDmnEnumAllDescr>
 {
   public Structured Encode(ICmptDmnEnumAllDescr input)
-    => input.Value?.EncodeEnum("CmptEnumDmnEnumAllDescr") ?? Structured.Empty("CmptEnumDmnEnumAllDescr");
+    => input.Value?.EncodeEnum("CmptEnumDmnEnumAllDescr")!;
 
   internal static CmptDmnEnumAllDescrEncoder Factory(IEncoderRepository _) => new();
 }

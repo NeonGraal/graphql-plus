@@ -3,7 +3,7 @@
 namespace GqlPlus.Generating.Simple;
 
 public class UnionModelGeneratorTests
-  : GenerateSimpleTestsBase<IAstUnion>
+  : GenerateSimpleTestsBase<IAstUnion, string>
 {
   private readonly UnionModelGenerator _generator;
 

@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_Base;
 internal class test_ObjectKindEncoder : IEncoder<Itest_ObjectKind>
 {
   public Structured Encode(Itest_ObjectKind input)
-    => input.Value?.EncodeEnum("test_TypeKind") ?? Structured.Empty("test_TypeKind");
+    => input.Value?.EncodeEnum("test_TypeKind")!;
 
   internal static test_ObjectKindEncoder Factory(IEncoderRepository _) => new();
 }

@@ -42,7 +42,7 @@ internal class CmptEnumCnstDomEnumOutpEncoder : IEncoder<CmptEnumCnstDomEnumOutp
 internal class CmptJustCnstDomEnumOutpEncoder : IEncoder<ICmptJustCnstDomEnumOutp>
 {
   public Structured Encode(ICmptJustCnstDomEnumOutp input)
-    => input.Value?.EncodeEnum("CmptEnumCnstDomEnumOutp") ?? Structured.Empty("CmptEnumCnstDomEnumOutp");
+    => input.Value?.EncodeEnum("CmptEnumCnstDomEnumOutp")!;
 
   internal static CmptJustCnstDomEnumOutpEncoder Factory(IEncoderRepository _) => new();
 }

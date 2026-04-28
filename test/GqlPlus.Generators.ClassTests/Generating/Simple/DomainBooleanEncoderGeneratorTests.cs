@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Generating.Simple;
 
 public class DomainBooleanEncoderGeneratorTests
-  : GenerateDomainTestsBase<IAstDomainTrueFalse>
+  : GenerateDomainTestsBase<IAstDomainTrueFalse, bool>
 {
   protected override DomainKind Kind => DomainKind.Boolean;
   internal override GenerateBaseDomain<IAstDomainTrueFalse> Generator { get; }
@@ -18,6 +18,6 @@ public class DomainBooleanEncoderGeneratorTests
   internal override ForType ForGeneratedBoth(string contains)
     => ForGeneratedEncoder(contains);
 
-  protected override IAstDomainTrueFalse MakeDomainItem(string item)
-    => A.ItemTrueFalse(item?.Length % 2 == 1);
+  protected override IAstDomainTrueFalse MakeDomainItem(bool item)
+    => A.ItemTrueFalse(item);
 }

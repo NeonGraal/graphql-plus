@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Generating.Simple;
 
-public abstract class GenerateSimpleTestsBase<TSimple>
+public abstract class GenerateSimpleTestsBase<TSimple, TInput>
   : GenerateTypeClassTestsBase<TSimple, IAstTypeRef, MapPair<string>>
   where TSimple : class, IAstSimple
 {
@@ -41,7 +41,7 @@ public abstract class GenerateSimpleTestsBase<TSimple>
   }
 
   [Theory, RepeatData]
-  public void GenerateType_WithItem_GeneratesCorrectCode(string name, string item)
+  public void GenerateType_WithItem_GeneratesCorrectCode(string name, TInput item)
   {
     // Arrange
     GqlpGeneratorContext context = Context(BaseType, GeneratorType);
@@ -57,7 +57,7 @@ public abstract class GenerateSimpleTestsBase<TSimple>
   }
 
   [Theory, RepeatData]
-  public void GenerateType_WithItems_GeneratesCorrectCode(string name, string[] items)
+  public void GenerateType_WithItems_GeneratesCorrectCode(string name, TInput[] items)
   {
     // Arrange
     GqlpGeneratorContext context = Context(BaseType, GeneratorType);
@@ -68,11 +68,14 @@ public abstract class GenerateSimpleTestsBase<TSimple>
     TypeGenerator.GenerateType(builder.AsSimple, context);
 
     // Assert
-    context.CheckFor([ForGeneratedCodeName(name),
-      .. items.Select(i => ForGeneratedItem(name, i))]);
+    context.CheckFor(ForGeneratedItems(name, items));
   }
 
+  internal virtual ForType[] ForGeneratedItems(string name, TInput[] items)
+    => [ForGeneratedCodeName(name),
+      .. items.Select(i => ForGeneratedItem(name, i))];
+
   protected abstract SimpleBuilder<TSimple> MakeSimple(string name);
-  protected abstract void MakeItems(SimpleBuilder<TSimple> builder, params string[] items);
-  internal abstract ForType ForGeneratedItem(string name, string item);
+  protected abstract void MakeItems(SimpleBuilder<TSimple> builder, params TInput[] items);
+  internal abstract ForType ForGeneratedItem(string name, TInput item);
 }

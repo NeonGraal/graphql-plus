@@ -3,7 +3,7 @@
 namespace GqlPlus.Generating.Simple;
 
 public class UnionEncoderGeneratorTests
-  : GenerateSimpleTestsBase<IAstUnion>
+  : GenerateSimpleTestsBase<IAstUnion, string>
 {
   private readonly UnionEncoderGenerator _generator;
 

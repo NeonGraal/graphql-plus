@@ -135,6 +135,14 @@ internal class testEnumDmnEnumExclEncoder : IEncoder<testEnumDmnEnumExcl>
   internal static testEnumDmnEnumExclEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class testDmnEnumExclPrntEncoder : IEncoder<ItestDmnEnumExclPrnt>
+{
+  public Structured Encode(ItestDmnEnumExclPrnt input)
+    => input.Value?.EncodeEnum("DmnEnumExclPrnt")!;
+
+  internal static testDmnEnumExclPrntEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class testEnumDmnEnumExclPrntEncoder : IEncoder<testEnumDmnEnumExclPrnt>
 {
   public Structured Encode(testEnumDmnEnumExclPrnt input)
@@ -215,6 +223,14 @@ internal class testEnumDmnEnumPrntDescrEncoder : IEncoder<testEnumDmnEnumPrntDes
   internal static testEnumDmnEnumPrntDescrEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class testDmnEnumUnqEncoder : IEncoder<ItestDmnEnumUnq>
+{
+  public Structured Encode(ItestDmnEnumUnq input)
+    => input.Value?.EncodeEnum("DmnEnumUnq")!;
+
+  internal static testDmnEnumUnqEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class testEnumDmnEnumUnqEncoder : IEncoder<testEnumDmnEnumUnq>
 {
   public Structured Encode(testEnumDmnEnumUnq input)
@@ -229,6 +245,14 @@ internal class testDupDmnEnumUnqEncoder : IEncoder<testDupDmnEnumUnq>
     => input.EncodeEnum("DupDmnEnumUnq");
 
   internal static testDupDmnEnumUnqEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class testDmnEnumUnqPrntEncoder : IEncoder<ItestDmnEnumUnqPrnt>
+{
+  public Structured Encode(ItestDmnEnumUnqPrnt input)
+    => input.Value?.EncodeEnum("DmnEnumUnqPrnt")!;
+
+  internal static testDmnEnumUnqPrntEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testEnumDmnEnumUnqPrntEncoder : IEncoder<testEnumDmnEnumUnqPrnt>
@@ -575,6 +599,7 @@ internal static class test__SimpleEncoders
       .AddEncoder<testEnumDmnEnumDescr>(testEnumDmnEnumDescrEncoder.Factory)
       .AddEncoder<ItestDmnEnumExcl>(testDmnEnumExclEncoder.Factory)
       .AddEncoder<testEnumDmnEnumExcl>(testEnumDmnEnumExclEncoder.Factory)
+      .AddEncoder<ItestDmnEnumExclPrnt>(testDmnEnumExclPrntEncoder.Factory)
       .AddEncoder<testEnumDmnEnumExclPrnt>(testEnumDmnEnumExclPrntEncoder.Factory)
       .AddEncoder<testPrntDmnEnumExclPrnt>(testPrntDmnEnumExclPrntEncoder.Factory)
       .AddEncoder<ItestDmnEnumLabel>(testDmnEnumLabelEncoder.Factory)
@@ -585,8 +610,10 @@ internal static class test__SimpleEncoders
       .AddEncoder<ItestDmnEnumPrntDescr>(testDmnEnumPrntDescrEncoder.Factory)
       .AddEncoder<ItestPrntDmnEnumPrntDescr>(testPrntDmnEnumPrntDescrEncoder.Factory)
       .AddEncoder<testEnumDmnEnumPrntDescr>(testEnumDmnEnumPrntDescrEncoder.Factory)
+      .AddEncoder<ItestDmnEnumUnq>(testDmnEnumUnqEncoder.Factory)
       .AddEncoder<testEnumDmnEnumUnq>(testEnumDmnEnumUnqEncoder.Factory)
       .AddEncoder<testDupDmnEnumUnq>(testDupDmnEnumUnqEncoder.Factory)
+      .AddEncoder<ItestDmnEnumUnqPrnt>(testDmnEnumUnqPrntEncoder.Factory)
       .AddEncoder<testEnumDmnEnumUnqPrnt>(testEnumDmnEnumUnqPrntEncoder.Factory)
       .AddEncoder<testPrntDmnEnumUnqPrnt>(testPrntDmnEnumUnqPrntEncoder.Factory)
       .AddEncoder<testDupDmnEnumUnqPrnt>(testDupDmnEnumUnqPrntEncoder.Factory)

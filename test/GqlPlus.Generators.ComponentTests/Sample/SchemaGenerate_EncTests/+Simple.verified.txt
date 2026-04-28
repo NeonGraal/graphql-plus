@@ -134,6 +134,14 @@ internal class CmptEnumDmnEnumExclEncoder : IEncoder<CmptEnumDmnEnumExcl>
   internal static CmptEnumDmnEnumExclEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptDmnEnumExclPrntEncoder : IEncoder<ICmptDmnEnumExclPrnt>
+{
+  public Structured Encode(ICmptDmnEnumExclPrnt input)
+    => input.Value?.EncodeEnum("DmnEnumExclPrnt")!;
+
+  internal static CmptDmnEnumExclPrntEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptEnumDmnEnumExclPrntEncoder : IEncoder<CmptEnumDmnEnumExclPrnt>
 {
   public Structured Encode(CmptEnumDmnEnumExclPrnt input)
@@ -214,6 +222,14 @@ internal class CmptEnumDmnEnumPrntDescrEncoder : IEncoder<CmptEnumDmnEnumPrntDes
   internal static CmptEnumDmnEnumPrntDescrEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptDmnEnumUnqEncoder : IEncoder<ICmptDmnEnumUnq>
+{
+  public Structured Encode(ICmptDmnEnumUnq input)
+    => input.Value?.EncodeEnum("DmnEnumUnq")!;
+
+  internal static CmptDmnEnumUnqEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptEnumDmnEnumUnqEncoder : IEncoder<CmptEnumDmnEnumUnq>
 {
   public Structured Encode(CmptEnumDmnEnumUnq input)
@@ -228,6 +244,14 @@ internal class CmptDupDmnEnumUnqEncoder : IEncoder<CmptDupDmnEnumUnq>
     => input.EncodeEnum("DupDmnEnumUnq");
 
   internal static CmptDupDmnEnumUnqEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptDmnEnumUnqPrntEncoder : IEncoder<ICmptDmnEnumUnqPrnt>
+{
+  public Structured Encode(ICmptDmnEnumUnqPrnt input)
+    => input.Value?.EncodeEnum("DmnEnumUnqPrnt")!;
+
+  internal static CmptDmnEnumUnqPrntEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumUnqPrntEncoder : IEncoder<CmptEnumDmnEnumUnqPrnt>
@@ -574,6 +598,7 @@ internal static class Cmpt_Schema_SimpleEncoders
       .AddEncoder<CmptEnumDmnEnumDescr>(CmptEnumDmnEnumDescrEncoder.Factory)
       .AddEncoder<ICmptDmnEnumExcl>(CmptDmnEnumExclEncoder.Factory)
       .AddEncoder<CmptEnumDmnEnumExcl>(CmptEnumDmnEnumExclEncoder.Factory)
+      .AddEncoder<ICmptDmnEnumExclPrnt>(CmptDmnEnumExclPrntEncoder.Factory)
       .AddEncoder<CmptEnumDmnEnumExclPrnt>(CmptEnumDmnEnumExclPrntEncoder.Factory)
       .AddEncoder<CmptPrntDmnEnumExclPrnt>(CmptPrntDmnEnumExclPrntEncoder.Factory)
       .AddEncoder<ICmptDmnEnumLabel>(CmptDmnEnumLabelEncoder.Factory)
@@ -584,8 +609,10 @@ internal static class Cmpt_Schema_SimpleEncoders
       .AddEncoder<ICmptDmnEnumPrntDescr>(CmptDmnEnumPrntDescrEncoder.Factory)
       .AddEncoder<ICmptPrntDmnEnumPrntDescr>(CmptPrntDmnEnumPrntDescrEncoder.Factory)
       .AddEncoder<CmptEnumDmnEnumPrntDescr>(CmptEnumDmnEnumPrntDescrEncoder.Factory)
+      .AddEncoder<ICmptDmnEnumUnq>(CmptDmnEnumUnqEncoder.Factory)
       .AddEncoder<CmptEnumDmnEnumUnq>(CmptEnumDmnEnumUnqEncoder.Factory)
       .AddEncoder<CmptDupDmnEnumUnq>(CmptDupDmnEnumUnqEncoder.Factory)
+      .AddEncoder<ICmptDmnEnumUnqPrnt>(CmptDmnEnumUnqPrntEncoder.Factory)
       .AddEncoder<CmptEnumDmnEnumUnqPrnt>(CmptEnumDmnEnumUnqPrntEncoder.Factory)
       .AddEncoder<CmptPrntDmnEnumUnqPrnt>(CmptPrntDmnEnumUnqPrntEncoder.Factory)
       .AddEncoder<CmptDupDmnEnumUnqPrnt>(CmptDupDmnEnumUnqPrntEncoder.Factory)

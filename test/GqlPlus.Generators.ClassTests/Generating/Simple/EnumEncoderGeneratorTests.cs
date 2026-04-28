@@ -3,7 +3,7 @@
 namespace GqlPlus.Generating.Simple;
 
 public class EnumEncoderGeneratorTests
-  : GenerateSimpleTestsBase<IAstEnum>
+  : GenerateSimpleTestsBase<IAstEnum, EnumLabelInput>
 {
   private readonly EnumEncoderGenerator _generator;
 
@@ -21,11 +21,11 @@ public class EnumEncoderGeneratorTests
   internal override ForType ForGeneratedCodeParent(string parent)
     => _ => r => r.ShouldNotContain(": " + parent);
 
-  protected override void MakeItems(SimpleBuilder<IAstEnum> builder, params string[] items)
-    => ((EnumBuilder)builder).WithLabels(items);
+  protected override void MakeItems(SimpleBuilder<IAstEnum> builder, params EnumLabelInput[] items)
+    => ((EnumBuilder)builder).WithLabels([.. items.Select(i => i.Label)]);
   protected override SimpleBuilder<IAstEnum> MakeSimple(string name)
     => new EnumBuilder(name);
 
-  internal override ForType ForGeneratedItem(string name, string item)
+  internal override ForType ForGeneratedItem(string name, EnumLabelInput item)
     => ForGeneratedEncoder($"input.EncodeEnum(\"{name}\")");
 }

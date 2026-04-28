@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Generating.Simple;
 
-public abstract class GenerateDomainTestsBase<TItem>
-  : GenerateSimpleTestsBase<IAstDomain<TItem>>
+public abstract class GenerateDomainTestsBase<TItem, TInput>
+  : GenerateSimpleTestsBase<IAstDomain<TItem>, TInput>
   where TItem : class, IAstDomainItem
 {
   internal abstract GenerateBaseDomain<TItem> Generator { get; }
@@ -47,11 +47,10 @@ public abstract class GenerateDomainTestsBase<TItem>
 
   protected override SimpleBuilder<IAstDomain<TItem>> MakeSimple(string name)
     => new DomainBuilder<TItem>(name, Kind);
-  protected override void MakeItems(SimpleBuilder<IAstDomain<TItem>> builder, params string[] items)
+  protected override void MakeItems(SimpleBuilder<IAstDomain<TItem>> builder, params TInput[] items)
     => ((DomainBuilder<TItem>)builder).WithItems([.. items.Select(MakeDomainItem)]);
 
-  internal override ForType ForGeneratedItem(string name, string item)
+  internal override ForType ForGeneratedItem(string name, TInput item)
     => ForGeneratedEncoder("input.Value");
-
-  protected abstract TItem MakeDomainItem(string item);
+  protected abstract TItem MakeDomainItem(TInput item);
 }

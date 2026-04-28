@@ -15,6 +15,9 @@ internal abstract class GenerateBaseDomain<TItem>(
     return true;
   }
 
+  protected void InterfaceMember(MapPair<string> item, GqlpGeneratorContext context)
+    => context.Write($"  {item.Value} {item.Key} {{ get; }}");
+
   protected void GenerateDomainDecoder(IAstDomain<TItem> ast, GqlpGeneratorContext context)
   {
     string decoderName = context.TypeName(ast, "") + "Decoder";

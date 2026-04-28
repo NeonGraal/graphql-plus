@@ -3,7 +3,7 @@
 namespace GqlPlus.Generating.Simple;
 
 public class UnionDecoderGeneratorTests
-  : GenerateSimpleTestsBase<IAstUnion>
+  : GenerateSimpleTestsBase<IAstUnion, string>
 {
   private readonly UnionDecoderGenerator _generator;
 

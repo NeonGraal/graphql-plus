@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Generating.Simple;
 
 public class DomainStringInterfaceGeneratorTests
-  : GenerateDomainTestsBase<IAstDomainRegex>
+  : GenerateDomainTestsBase<IAstDomainRegex, string>
 {
   protected override DomainKind Kind => DomainKind.String;
   internal override GenerateBaseDomain<IAstDomainRegex> Generator { get; }

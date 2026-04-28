@@ -18,8 +18,6 @@ internal abstract class GenerateForClass<TClass, TMember>
   protected virtual void InterfaceHeader(TClass ast, GqlpGeneratorContext context)
     => TypeHeader(ast, context, "interface", "I", GqlpBaseType.Interface);
 
-  protected abstract void InterfaceMember(TMember item, GqlpGeneratorContext context);
-
   protected abstract string TypeHeader(TClass ast, GqlpGeneratorContext context, string type, string prefix, GqlpBaseType baseType);
 
   protected virtual void TypeInterface(TClass ast, GqlpGeneratorContext context, string interfaceSep)

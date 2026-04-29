@@ -9,6 +9,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_all_parent;
 
 internal class testDmnEnumAllPrntDecoder
 {
+  public new testEnumDmnEnumAllPrnt? Value { get; set; }
 
   internal static testDmnEnumAllPrntDecoder Factory(IDecoderRepository _) => new();
 }

@@ -338,6 +338,7 @@ internal class CmptEnumCnstDomEnumDualDecoder : IDecoder<CmptEnumCnstDomEnumDual
 
 internal class CmptJustCnstDomEnumDualDecoder
 {
+  public new CmptEnumCnstDomEnumDual? Value { get; set; }
 
   internal static CmptJustCnstDomEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
@@ -363,6 +364,7 @@ internal class CmptEnumCnstDomEnumInpDecoder : IDecoder<CmptEnumCnstDomEnumInp?>
 
 internal class CmptJustCnstDomEnumInpDecoder
 {
+  public new CmptEnumCnstDomEnumInp? Value { get; set; }
 
   internal static CmptJustCnstDomEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -377,6 +379,7 @@ internal class CmptEnumCnstDomEnumOutpDecoder : IDecoder<CmptEnumCnstDomEnumOutp
 
 internal class CmptJustCnstDomEnumOutpDecoder
 {
+  public new CmptEnumCnstDomEnumOutp? Value { get; set; }
 
   internal static CmptJustCnstDomEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -1753,6 +1756,7 @@ internal class CmptEnumGnrcPrntEnumDomDualDecoder : IDecoder<CmptEnumGnrcPrntEnu
 
 internal class CmptDomGnrcPrntEnumDomDualDecoder
 {
+  public new CmptEnumGnrcPrntEnumDomDual? Value { get; set; }
 
   internal static CmptDomGnrcPrntEnumDomDualDecoder Factory(IDecoderRepository _) => new();
 }
@@ -1778,6 +1782,7 @@ internal class CmptEnumGnrcPrntEnumDomInpDecoder : IDecoder<CmptEnumGnrcPrntEnum
 
 internal class CmptDomGnrcPrntEnumDomInpDecoder
 {
+  public new CmptEnumGnrcPrntEnumDomInp? Value { get; set; }
 
   internal static CmptDomGnrcPrntEnumDomInpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -1792,6 +1797,7 @@ internal class CmptEnumGnrcPrntEnumDomOutpDecoder : IDecoder<CmptEnumGnrcPrntEnu
 
 internal class CmptDomGnrcPrntEnumDomOutpDecoder
 {
+  public new CmptEnumGnrcPrntEnumDomOutp? Value { get; set; }
 
   internal static CmptDomGnrcPrntEnumDomOutpDecoder Factory(IDecoderRepository _) => new();
 }

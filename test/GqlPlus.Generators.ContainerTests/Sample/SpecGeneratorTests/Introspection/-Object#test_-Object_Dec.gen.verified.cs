@@ -9,6 +9,7 @@ namespace GqlPlus.GeneratorTests.Gqlp__Object;
 
 internal class test_ObjectKindDecoder
 {
+  public new test_TypeKind? Value { get; set; }
 
   internal static test_ObjectKindDecoder Factory(IDecoderRepository _) => new();
 }

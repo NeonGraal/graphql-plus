@@ -14,12 +14,14 @@ namespace Components.Gqlp_Schema_domain_enum_parent;
 
 internal class CmptDmnEnumPrntDecoder
 {
+  public new CmptEnumDmnEnumPrnt? Value { get; set; }
 
   internal static CmptDmnEnumPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntDmnEnumPrntDecoder
 {
+  public new CmptEnumDmnEnumPrnt? Value { get; set; }
 
   internal static CmptPrntDmnEnumPrntDecoder Factory(IDecoderRepository _) => new();
 }

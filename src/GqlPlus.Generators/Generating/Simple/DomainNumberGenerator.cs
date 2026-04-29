@@ -1,29 +1,17 @@
 ﻿namespace GqlPlus.Generating.Simple;
 
 internal sealed class DomainNumberInterfaceGenerator()
-  : GenerateBaseDomain<IAstDomainRange>(DomainKind.Number)
-{
-  protected override void Generate(IAstDomain<IAstDomainRange> ast, GqlpGeneratorContext context)
-    => GenerateBlock(ast, context, InterfaceHeader, TypeMembers, InterfaceMember);
-}
+  : DomainValueInterfaceGeneratorBase<IAstDomainRange>(DomainKind.Number)
+{ }
 
 internal sealed class DomainNumberModelGenerator()
-  : GenerateBaseDomain<IAstDomainRange>(DomainKind.Number)
-{
-  protected override void Generate(IAstDomain<IAstDomainRange> ast, GqlpGeneratorContext context)
-    => GenerateBlock(ast, context, ClassHeader, TypeMembers, ClassMember, ClassTail);
-}
+  : DomainValueModelGeneratorBase<IAstDomainRange>(DomainKind.Number)
+{ }
 
 internal sealed class DomainNumberDecoderGenerator()
-  : GenerateBaseDomain<IAstDomainRange>(DomainKind.Number)
-{
-  protected override void Generate(IAstDomain<IAstDomainRange> ast, GqlpGeneratorContext context)
-    => GenerateDomainDecoder(ast, context);
-}
+  : DomainValueDecoderGeneratorBase<IAstDomainRange>(DomainKind.Number)
+{ }
 
 internal sealed class DomainNumberEncoderGenerator()
-  : GenerateBaseDomain<IAstDomainRange>(DomainKind.Number)
-{
-  protected override void Generate(IAstDomain<IAstDomainRange> ast, GqlpGeneratorContext context)
-    => GenerateDomainEncoder(ast, context, "input.Value!.Encode()");
-}
+  : DomainValueEncoderGeneratorBase<IAstDomainRange>(DomainKind.Number)
+{ }

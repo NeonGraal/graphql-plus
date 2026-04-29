@@ -39,12 +39,14 @@ internal class testDmnBoolSameDecoder
 
 internal class testDmnEnumDiffDecoder
 {
+  public new bool? Value { get; set; }
 
   internal static testDmnEnumDiffDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testDmnEnumSameDecoder
 {
+  public new bool? Value { get; set; }
 
   internal static testDmnEnumSameDecoder Factory(IDecoderRepository _) => new();
 }

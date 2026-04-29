@@ -39,6 +39,7 @@ internal class testPrntDmnBoolPrntDescrDecoder
 
 internal class testDmnEnumAllDecoder
 {
+  public new testEnumDmnEnumAll? Value { get; set; }
 
   internal static testDmnEnumAllDecoder Factory(IDecoderRepository _) => new();
 }
@@ -53,6 +54,7 @@ internal class testEnumDmnEnumAllDecoder : IDecoder<testEnumDmnEnumAll?>
 
 internal class testDmnEnumAllDescrDecoder
 {
+  public new testEnumDmnEnumAllDescr? Value { get; set; }
 
   internal static testDmnEnumAllDescrDecoder Factory(IDecoderRepository _) => new();
 }
@@ -67,6 +69,7 @@ internal class testEnumDmnEnumAllDescrDecoder : IDecoder<testEnumDmnEnumAllDescr
 
 internal class testDmnEnumAllPrntDecoder
 {
+  public new testEnumDmnEnumAllPrnt? Value { get; set; }
 
   internal static testDmnEnumAllPrntDecoder Factory(IDecoderRepository _) => new();
 }
@@ -89,6 +92,7 @@ internal class testPrntDmnEnumAllPrntDecoder : IDecoder<testPrntDmnEnumAllPrnt?>
 
 internal class testDmnEnumDescrDecoder
 {
+  public new testEnumDmnEnumDescr? Value { get; set; }
 
   internal static testDmnEnumDescrDecoder Factory(IDecoderRepository _) => new();
 }
@@ -103,6 +107,7 @@ internal class testEnumDmnEnumDescrDecoder : IDecoder<testEnumDmnEnumDescr?>
 
 internal class testDmnEnumExclDecoder
 {
+  public new testEnumDmnEnumExcl? Value { get; set; }
 
   internal static testDmnEnumExclDecoder Factory(IDecoderRepository _) => new();
 }
@@ -139,6 +144,7 @@ internal class testPrntDmnEnumExclPrntDecoder : IDecoder<testPrntDmnEnumExclPrnt
 
 internal class testDmnEnumLabelDecoder
 {
+  public new testEnumDmnEnumLabel? Value { get; set; }
 
   internal static testDmnEnumLabelDecoder Factory(IDecoderRepository _) => new();
 }
@@ -153,12 +159,14 @@ internal class testEnumDmnEnumLabelDecoder : IDecoder<testEnumDmnEnumLabel?>
 
 internal class testDmnEnumPrntDecoder
 {
+  public new testEnumDmnEnumPrnt? Value { get; set; }
 
   internal static testDmnEnumPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testPrntDmnEnumPrntDecoder
 {
+  public new testEnumDmnEnumPrnt? Value { get; set; }
 
   internal static testPrntDmnEnumPrntDecoder Factory(IDecoderRepository _) => new();
 }
@@ -173,12 +181,14 @@ internal class testEnumDmnEnumPrntDecoder : IDecoder<testEnumDmnEnumPrnt?>
 
 internal class testDmnEnumPrntDescrDecoder
 {
+  public new testEnumDmnEnumPrntDescr? Value { get; set; }
 
   internal static testDmnEnumPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testPrntDmnEnumPrntDescrDecoder
 {
+  public new testEnumDmnEnumPrntDescr? Value { get; set; }
 
   internal static testPrntDmnEnumPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
@@ -245,6 +255,7 @@ internal class testDupDmnEnumUnqPrntDecoder : IDecoder<testDupDmnEnumUnqPrnt?>
 
 internal class testDmnEnumValueDecoder
 {
+  public new testEnumDmnEnumValue? Value { get; set; }
 
   internal static testDmnEnumValueDecoder Factory(IDecoderRepository _) => new();
 }
@@ -259,6 +270,7 @@ internal class testEnumDmnEnumValueDecoder : IDecoder<testEnumDmnEnumValue?>
 
 internal class testDmnEnumValuePrntDecoder
 {
+  public new testEnumDmnEnumValuePrnt? Value { get; set; }
 
   internal static testDmnEnumValuePrntDecoder Factory(IDecoderRepository _) => new();
 }

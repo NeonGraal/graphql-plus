@@ -28,6 +28,7 @@ internal class testEnumGnrcPrntEnumDomDualDecoder : IDecoder<testEnumGnrcPrntEnu
 
 internal class testDomGnrcPrntEnumDomDualDecoder
 {
+  public new testEnumGnrcPrntEnumDomDual? Value { get; set; }
 
   internal static testDomGnrcPrntEnumDomDualDecoder Factory(IDecoderRepository _) => new();
 }

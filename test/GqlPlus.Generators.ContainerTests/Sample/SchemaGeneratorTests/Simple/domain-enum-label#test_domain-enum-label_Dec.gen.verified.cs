@@ -9,6 +9,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_label;
 
 internal class testDmnEnumLabelDecoder
 {
+  public new testEnumDmnEnumLabel? Value { get; set; }
 
   internal static testDmnEnumLabelDecoder Factory(IDecoderRepository _) => new();
 }

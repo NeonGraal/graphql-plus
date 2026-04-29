@@ -79,6 +79,7 @@ namespace Components.Gqlp_Spec_Base;
 
 internal class Cmpt_ObjectKindDecoder
 {
+  public new Cmpt_TypeKind? Value { get; set; }
 
   internal static Cmpt_ObjectKindDecoder Factory(IDecoderRepository _) => new();
 }

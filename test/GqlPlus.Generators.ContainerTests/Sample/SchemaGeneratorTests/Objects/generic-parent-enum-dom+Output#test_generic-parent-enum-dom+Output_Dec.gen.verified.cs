@@ -17,6 +17,7 @@ internal class testEnumGnrcPrntEnumDomOutpDecoder : IDecoder<testEnumGnrcPrntEnu
 
 internal class testDomGnrcPrntEnumDomOutpDecoder
 {
+  public new testEnumGnrcPrntEnumDomOutp? Value { get; set; }
 
   internal static testDomGnrcPrntEnumDomOutpDecoder Factory(IDecoderRepository _) => new();
 }

@@ -34,6 +34,7 @@ internal class CmptEnumCnstDomEnumDualDecoder : IDecoder<CmptEnumCnstDomEnumDual
 
 internal class CmptJustCnstDomEnumDualDecoder
 {
+  public new CmptEnumCnstDomEnumDual? Value { get; set; }
 
   internal static CmptJustCnstDomEnumDualDecoder Factory(IDecoderRepository _) => new();
 }

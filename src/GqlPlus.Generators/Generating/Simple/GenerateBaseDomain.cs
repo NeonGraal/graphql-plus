@@ -18,6 +18,12 @@ internal abstract class GenerateBaseDomain<TItem>(
   protected void InterfaceMember(MapPair<string> item, GqlpGeneratorContext context)
     => context.Write($"  {item.Value} {item.Key} {{ get; }}");
 
+  protected void GenerateDomainInterface(IAstDomain<TItem> ast, GqlpGeneratorContext context)
+    => GenerateBlock(ast, context, InterfaceHeader, TypeMembers, InterfaceMember);
+
+  protected void GenerateDomainModel(IAstDomain<TItem> ast, GqlpGeneratorContext context)
+    => GenerateBlock(ast, context, ClassHeader, TypeMembers, ClassMember, ClassTail);
+
   protected void GenerateDomainDecoder(IAstDomain<TItem> ast, GqlpGeneratorContext context)
   {
     string decoderName = context.TypeName(ast, "") + "Decoder";
@@ -46,4 +52,7 @@ internal abstract class GenerateBaseDomain<TItem>(
 
     context.RegisterEncoder(interfaceName, typeName + "Encoder");
   }
+
+  protected void GenerateDomainValueEncoder(IAstDomain<TItem> ast, GqlpGeneratorContext context)
+    => GenerateDomainEncoder(ast, context, "input.Value!.Encode()");
 }

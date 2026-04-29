@@ -1,29 +1,17 @@
 ﻿namespace GqlPlus.Generating.Simple;
 
 internal sealed class DomainBooleanInterfaceGenerator()
-  : GenerateBaseDomain<IAstDomainTrueFalse>(DomainKind.Boolean)
-{
-  protected override void Generate(IAstDomain<IAstDomainTrueFalse> ast, GqlpGeneratorContext context)
-    => GenerateBlock(ast, context, InterfaceHeader, TypeMembers, InterfaceMember);
-}
+  : DomainValueInterfaceGeneratorBase<IAstDomainTrueFalse>(DomainKind.Boolean)
+{ }
 
 internal sealed class DomainBooleanModelGenerator()
-  : GenerateBaseDomain<IAstDomainTrueFalse>(DomainKind.Boolean)
-{
-  protected override void Generate(IAstDomain<IAstDomainTrueFalse> ast, GqlpGeneratorContext context)
-    => GenerateBlock(ast, context, ClassHeader, TypeMembers, ClassMember, ClassTail);
-}
+  : DomainValueModelGeneratorBase<IAstDomainTrueFalse>(DomainKind.Boolean)
+{ }
 
 internal sealed class DomainBooleanDecoderGenerator()
-  : GenerateBaseDomain<IAstDomainTrueFalse>(DomainKind.Boolean)
-{
-  protected override void Generate(IAstDomain<IAstDomainTrueFalse> ast, GqlpGeneratorContext context)
-    => GenerateDomainDecoder(ast, context);
-}
+  : DomainValueDecoderGeneratorBase<IAstDomainTrueFalse>(DomainKind.Boolean)
+{ }
 
 internal sealed class DomainBooleanEncoderGenerator()
-  : GenerateBaseDomain<IAstDomainTrueFalse>(DomainKind.Boolean)
-{
-  protected override void Generate(IAstDomain<IAstDomainTrueFalse> ast, GqlpGeneratorContext context)
-    => GenerateDomainEncoder(ast, context, "input.Value!.Encode()");
-}
+  : DomainValueEncoderGeneratorBase<IAstDomainTrueFalse>(DomainKind.Boolean)
+{ }

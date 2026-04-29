@@ -339,6 +339,7 @@ internal class testEnumCnstDomEnumDualDecoder : IDecoder<testEnumCnstDomEnumDual
 
 internal class testJustCnstDomEnumDualDecoder
 {
+  public new testEnumCnstDomEnumDual? Value { get; set; }
 
   internal static testJustCnstDomEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
@@ -364,6 +365,7 @@ internal class testEnumCnstDomEnumInpDecoder : IDecoder<testEnumCnstDomEnumInp?>
 
 internal class testJustCnstDomEnumInpDecoder
 {
+  public new testEnumCnstDomEnumInp? Value { get; set; }
 
   internal static testJustCnstDomEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -378,6 +380,7 @@ internal class testEnumCnstDomEnumOutpDecoder : IDecoder<testEnumCnstDomEnumOutp
 
 internal class testJustCnstDomEnumOutpDecoder
 {
+  public new testEnumCnstDomEnumOutp? Value { get; set; }
 
   internal static testJustCnstDomEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -1754,6 +1757,7 @@ internal class testEnumGnrcPrntEnumDomDualDecoder : IDecoder<testEnumGnrcPrntEnu
 
 internal class testDomGnrcPrntEnumDomDualDecoder
 {
+  public new testEnumGnrcPrntEnumDomDual? Value { get; set; }
 
   internal static testDomGnrcPrntEnumDomDualDecoder Factory(IDecoderRepository _) => new();
 }
@@ -1779,6 +1783,7 @@ internal class testEnumGnrcPrntEnumDomInpDecoder : IDecoder<testEnumGnrcPrntEnum
 
 internal class testDomGnrcPrntEnumDomInpDecoder
 {
+  public new testEnumGnrcPrntEnumDomInp? Value { get; set; }
 
   internal static testDomGnrcPrntEnumDomInpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -1793,6 +1798,7 @@ internal class testEnumGnrcPrntEnumDomOutpDecoder : IDecoder<testEnumGnrcPrntEnu
 
 internal class testDomGnrcPrntEnumDomOutpDecoder
 {
+  public new testEnumGnrcPrntEnumDomOutp? Value { get; set; }
 
   internal static testDomGnrcPrntEnumDomOutpDecoder Factory(IDecoderRepository _) => new();
 }

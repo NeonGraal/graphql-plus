@@ -9,6 +9,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_exclude;
 
 internal class testDmnEnumExclDecoder
 {
+  public new testEnumDmnEnumExcl? Value { get; set; }
 
   internal static testDmnEnumExclDecoder Factory(IDecoderRepository _) => new();
 }

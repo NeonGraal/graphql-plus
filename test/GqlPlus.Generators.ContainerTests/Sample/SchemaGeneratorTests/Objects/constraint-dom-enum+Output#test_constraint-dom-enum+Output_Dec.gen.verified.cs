@@ -17,6 +17,7 @@ internal class testEnumCnstDomEnumOutpDecoder : IDecoder<testEnumCnstDomEnumOutp
 
 internal class testJustCnstDomEnumOutpDecoder
 {
+  public new testEnumCnstDomEnumOutp? Value { get; set; }
 
   internal static testJustCnstDomEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }

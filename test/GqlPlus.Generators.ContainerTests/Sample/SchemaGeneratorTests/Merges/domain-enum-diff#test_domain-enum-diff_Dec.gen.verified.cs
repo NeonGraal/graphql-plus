@@ -9,6 +9,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_diff;
 
 internal class testDmnEnumDiffDecoder
 {
+  public new bool? Value { get; set; }
 
   internal static testDmnEnumDiffDecoder Factory(IDecoderRepository _) => new();
 }

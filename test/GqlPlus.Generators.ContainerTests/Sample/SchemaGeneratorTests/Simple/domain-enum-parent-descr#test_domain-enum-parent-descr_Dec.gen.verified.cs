@@ -9,12 +9,14 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_parent_descr;
 
 internal class testDmnEnumPrntDescrDecoder
 {
+  public new testEnumDmnEnumPrntDescr? Value { get; set; }
 
   internal static testDmnEnumPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testPrntDmnEnumPrntDescrDecoder
 {
+  public new testEnumDmnEnumPrntDescr? Value { get; set; }
 
   internal static testPrntDmnEnumPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }

@@ -1,29 +1,13 @@
 ﻿namespace GqlPlus.Generating.Objects;
 
-internal sealed class DualInterfaceGenerator
-  : GenerateForObject<IAstDualField>
-{
-  protected override void Generate(IAstObject<IAstDualField> ast, GqlpGeneratorContext context)
-    => GenerateObjectInterfaces(ast, context);
-}
+internal sealed class DualInterfaceGenerator()
+  : ObjectInterfaceGeneratorBase<IAstDualField>;
 
-internal sealed class DualModelGenerator
-  : GenerateForObject<IAstDualField>
-{
-  protected override void Generate(IAstObject<IAstDualField> ast, GqlpGeneratorContext context)
-    => GenerateObjectClasses(ast, context);
-}
+internal sealed class DualModelGenerator()
+  : ObjectModelGeneratorBase<IAstDualField>;
 
-internal sealed class DualDecoderGenerator
-  : GenerateForObject<IAstDualField>
-{
-  protected override void Generate(IAstObject<IAstDualField> ast, GqlpGeneratorContext context)
-    => GenerateObjectDecoder(ast, context);
-}
+internal sealed class DualDecoderGenerator()
+  : ObjectDecoderGeneratorBase<IAstDualField>;
 
-internal sealed class DualEncoderGenerator
-  : GenerateForObject<IAstDualField>
-{
-  protected override void Generate(IAstObject<IAstDualField> ast, GqlpGeneratorContext context)
-    => GenerateEncoderBlock(ast, context);
-}
+internal sealed class DualEncoderGenerator()
+  : ObjectEncoderGeneratorBase<IAstDualField>;

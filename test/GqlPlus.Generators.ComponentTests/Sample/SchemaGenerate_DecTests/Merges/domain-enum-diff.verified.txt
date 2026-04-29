@@ -13,6 +13,7 @@ namespace Components.Gqlp_Schema_domain_enum_diff;
 
 internal class CmptDmnEnumDiffDecoder
 {
+  public new bool? Value { get; set; }
 
   internal static CmptDmnEnumDiffDecoder Factory(IDecoderRepository _) => new();
 }

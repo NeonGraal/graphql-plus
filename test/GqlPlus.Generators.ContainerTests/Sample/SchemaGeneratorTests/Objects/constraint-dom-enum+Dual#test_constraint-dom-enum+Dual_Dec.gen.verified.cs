@@ -28,6 +28,7 @@ internal class testEnumCnstDomEnumDualDecoder : IDecoder<testEnumCnstDomEnumDual
 
 internal class testJustCnstDomEnumDualDecoder
 {
+  public new testEnumCnstDomEnumDual? Value { get; set; }
 
   internal static testJustCnstDomEnumDualDecoder Factory(IDecoderRepository _) => new();
 }

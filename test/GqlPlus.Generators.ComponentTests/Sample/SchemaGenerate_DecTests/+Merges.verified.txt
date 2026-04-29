@@ -38,12 +38,14 @@ internal class CmptDmnBoolSameDecoder
 
 internal class CmptDmnEnumDiffDecoder
 {
+  public new bool? Value { get; set; }
 
   internal static CmptDmnEnumDiffDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptDmnEnumSameDecoder
 {
+  public new bool? Value { get; set; }
 
   internal static CmptDmnEnumSameDecoder Factory(IDecoderRepository _) => new();
 }

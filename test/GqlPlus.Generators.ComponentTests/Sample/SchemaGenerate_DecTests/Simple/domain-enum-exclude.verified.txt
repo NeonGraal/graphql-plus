@@ -13,6 +13,7 @@ namespace Components.Gqlp_Schema_domain_enum_exclude;
 
 internal class CmptDmnEnumExclDecoder
 {
+  public new CmptEnumDmnEnumExcl? Value { get; set; }
 
   internal static CmptDmnEnumExclDecoder Factory(IDecoderRepository _) => new();
 }

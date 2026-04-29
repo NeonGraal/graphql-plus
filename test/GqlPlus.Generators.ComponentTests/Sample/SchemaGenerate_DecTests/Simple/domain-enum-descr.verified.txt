@@ -13,6 +13,7 @@ namespace Components.Gqlp_Schema_domain_enum_descr;
 
 internal class CmptDmnEnumDescrDecoder
 {
+  public new CmptEnumDmnEnumDescr? Value { get; set; }
 
   internal static CmptDmnEnumDescrDecoder Factory(IDecoderRepository _) => new();
 }

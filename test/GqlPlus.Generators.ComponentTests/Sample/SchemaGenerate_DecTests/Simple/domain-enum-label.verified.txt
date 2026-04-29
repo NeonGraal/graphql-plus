@@ -13,6 +13,7 @@ namespace Components.Gqlp_Schema_domain_enum_label;
 
 internal class CmptDmnEnumLabelDecoder
 {
+  public new CmptEnumDmnEnumLabel? Value { get; set; }
 
   internal static CmptDmnEnumLabelDecoder Factory(IDecoderRepository _) => new();
 }

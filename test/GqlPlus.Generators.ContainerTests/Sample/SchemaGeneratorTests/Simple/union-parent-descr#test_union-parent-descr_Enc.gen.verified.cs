@@ -9,12 +9,12 @@ namespace GqlPlus.GeneratorTests.Gqlp_union_parent_descr;
 
 internal class testUnionPrntDescrEncoder(
   IEncoderRepository encoders
-) : IEncoder<ItestUnionPrntDescr>
+: testPrntUnionPrntDescrEncoder, IEncoder<ItestUnionPrntDescr>
 {
   private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ItestUnionPrntDescr input)
     => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
-     : Structured.Empty();
+     : base.Encode(input);
 
   internal static testUnionPrntDescrEncoder Factory(IEncoderRepository r) => new(r);
 }

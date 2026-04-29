@@ -70,12 +70,12 @@ public class ObjTypeTestData :
   TheoryData<string>
 {
   public ObjTypeTestData()
-  {
-    Add("Boolean");
-    Add("Number");
-    Add("String");
-    Add("^");
-    Add("0");
-    Add("*");
-  }
+    : base(
+      "Boolean",
+      "Number",
+      "String",
+      "^",
+      "0",
+      "*")
+  { }
 }

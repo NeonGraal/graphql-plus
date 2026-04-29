@@ -11,24 +11,10 @@ public static class BuiltInData
       = BuiltIn.Internal.ToMap(m => m.Name);
 }
 
-public class BuiltInBasicData
-  : TheoryData<string>
-{
-  public BuiltInBasicData()
-  {
-    foreach (string key in BuiltInData.BasicMap.Keys) {
-      Add(key);
-    }
-  }
-}
+public class BuiltInBasicData()
+  : TheoryData<string>(BuiltInData.BasicMap.Keys)
+{ }
 
-public class BuiltInInternalData
-  : TheoryData<string>
-{
-  public BuiltInInternalData()
-  {
-    foreach (string key in BuiltInData.InternalMap.Keys) {
-      Add(key);
-    }
-  }
-}
+public class BuiltInInternalData()
+  : TheoryData<string>(BuiltInData.InternalMap.Keys)
+{ }

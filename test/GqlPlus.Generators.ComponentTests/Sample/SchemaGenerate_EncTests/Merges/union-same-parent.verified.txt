@@ -14,12 +14,12 @@ namespace Components.Gqlp_Schema_union_same_parent;
 
 internal class CmptUnionSamePrntEncoder(
   IEncoderRepository encoders
-) : IEncoder<ICmptUnionSamePrnt>
+: CmptPrntUnionSamePrntEncoder, IEncoder<ICmptUnionSamePrnt>
 {
   private readonly IEncoder<bool> _boolean = encoders.EncoderFor<bool>();
   public Structured Encode(ICmptUnionSamePrnt input)
     => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
-     : Structured.Empty();
+     : base.Encode(input);
 
   internal static CmptUnionSamePrntEncoder Factory(IEncoderRepository r) => new(r);
 }

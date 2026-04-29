@@ -55,10 +55,10 @@ public class DefinedGeneratorTypes
   : TheoryData<GqlpGeneratorType>
 {
   public DefinedGeneratorTypes()
-  {
-    Add(GqlpGeneratorType.Interface);
-    Add(GqlpGeneratorType.Model);
-    Add(GqlpGeneratorType.Encoder);
-    Add(GqlpGeneratorType.Decoder);
-  }
+    : base(
+      GqlpGeneratorType.Interface,
+      GqlpGeneratorType.Model,
+      GqlpGeneratorType.Encoder,
+      GqlpGeneratorType.Decoder)
+  { }
 }

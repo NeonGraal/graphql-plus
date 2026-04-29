@@ -75,7 +75,7 @@ internal sealed class UnionEncoderGenerator
     MapPair<string>[] members = [.. TypeMembers(ast, context)];
 
     context.Write("");
-    if (members.Length == 0) {
+    if (members.Length == 0 && ast.Parent is null) {
       context.Write($"internal class {typeName}Encoder : IEncoder<{interfaceName}>");
       context.Write("{");
       context.Write($"  public Structured Encode({interfaceName} input)");
@@ -89,7 +89,13 @@ internal sealed class UnionEncoderGenerator
 
     context.Write($"internal class {typeName}Encoder(");
     context.Write("  IEncoderRepository encoders");
-    context.Write($") : IEncoder<{interfaceName}>");
+    if (ast.Parent is null) {
+      context.Write($") : IEncoder<{interfaceName}>");
+    } else {
+      string parentType = context.TypeName(ast.Parent, "");
+      context.Write($": {parentType}Encoder, IEncoder<{interfaceName}>");
+    }
+
     context.Write("{");
 
     foreach (MapPair<string> member in members) {
@@ -107,7 +113,12 @@ internal sealed class UnionEncoderGenerator
       encoderPrefix = "     : ";
     }
 
-    context.Write("     : Structured.Empty();");
+    if (ast.Parent is null) {
+      context.Write("     : Structured.Empty();");
+    } else {
+      context.Write("     : base.Encode(input);");
+    }
+
     context.Write("");
     context.Write($"  internal static {typeName}Encoder Factory(IEncoderRepository r) => new(r);");
     context.Write("}");

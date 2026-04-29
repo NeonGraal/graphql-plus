@@ -14,9 +14,8 @@ public class SamplesBottomGreenValidGqlData
   ];
 
   public SamplesBottomGreenValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Green/ValidGql";
   public const string Collected = "ManyFiles";
@@ -32,9 +31,8 @@ public class SamplesBottomInValidGqlData
   ];
 
   public SamplesBottomInValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/InValidGql";
   public const string Collected = "ManyFiles";
@@ -50,9 +48,8 @@ public class SamplesBottomYellowGqlData
   ];
 
   public SamplesBottomYellowGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/YellowGql";
   public const string Collected = "ManyFiles";
@@ -68,9 +65,8 @@ public class SamplesBottomPurpleValidGqlData
   ];
 
   public SamplesBottomPurpleValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Purple/ValidGql";
   public const string Collected = "ManyFiles";
@@ -86,9 +82,8 @@ public class SamplesBottomOrangeInValidGqlData
   ];
 
   public SamplesBottomOrangeInValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Orange/InValidGql";
   public const string Collected = "ManyFiles";
@@ -104,9 +99,8 @@ public class SamplesBottomBlueGqlData
   ];
 
   public SamplesBottomBlueGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/BlueGql";
   public const string Collected = "ManyFiles";
@@ -122,9 +116,8 @@ public class SamplesBottomRedValidGqlData
   ];
 
   public SamplesBottomRedValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Red/ValidGql";
   public const string Collected = "ManyFiles";
@@ -140,9 +133,8 @@ public class SamplesBottomGreenInValidGqlData
   ];
 
   public SamplesBottomGreenInValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Green/InValidGql";
   public const string Collected = "ManyFiles";
@@ -157,9 +149,8 @@ public class SamplesBottomGqlData
   ];
 
   public SamplesBottomGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Gql";
   public const string Collected = "ManyFiles";
@@ -174,9 +165,8 @@ public class SamplesBottomYellowValidGqlData
   ];
 
   public SamplesBottomYellowValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Yellow/ValidGql";
   public const string Collected = "ManyFiles";
@@ -191,9 +181,8 @@ public class SamplesBottomPurpleInValidGqlData
   ];
 
   public SamplesBottomPurpleInValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Purple/InValidGql";
   public const string Collected = "ManyFiles";
@@ -208,9 +197,8 @@ public class SamplesBottomOrangeGqlData
   ];
 
   public SamplesBottomOrangeGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/OrangeGql";
   public const string Collected = "ManyFiles";
@@ -225,9 +213,8 @@ public class SamplesBottomBlueValidGqlData
   ];
 
   public SamplesBottomBlueValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Blue/ValidGql";
   public const string Collected = "ManyFiles";
@@ -242,9 +229,8 @@ public class SamplesBottomRedInValidGqlData
   ];
 
   public SamplesBottomRedInValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Red/InValidGql";
   public const string Collected = "ManyFiles";
@@ -259,9 +245,8 @@ public class SamplesBottomGreenGqlData
   ];
 
   public SamplesBottomGreenGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/GreenGql";
   public const string Collected = "ManyFiles";
@@ -276,9 +261,8 @@ public class SamplesBottomValidGqlData
   ];
 
   public SamplesBottomValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/ValidGql";
   public const string Collected = "ManyFiles";
@@ -293,9 +277,8 @@ public class SamplesBottomYellowInValidGqlData
   ];
 
   public SamplesBottomYellowInValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Yellow/InValidGql";
   public const string Collected = "ManyFiles";
@@ -310,9 +293,8 @@ public class SamplesBottomPurpleGqlData
   ];
 
   public SamplesBottomPurpleGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/PurpleGql";
   public const string Collected = "ManyFiles";
@@ -327,9 +309,8 @@ public class SamplesBottomOrangeValidGqlData
   ];
 
   public SamplesBottomOrangeValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Orange/ValidGql";
   public const string Collected = "ManyFiles";
@@ -344,9 +325,8 @@ public class SamplesBottomBlueInValidGqlData
   ];
 
   public SamplesBottomBlueInValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Blue/InValidGql";
   public const string Collected = "ManyFiles";
@@ -361,9 +341,8 @@ public class SamplesBottomRedGqlData
   ];
 
   public SamplesBottomRedGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/RedGql";
   public const string Collected = "ManyFiles";
@@ -379,9 +358,8 @@ public class SamplesBottomOrangeGraphqlData
   ];
 
   public SamplesBottomOrangeGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/OrangeGraphql";
   public const string Collected = "ManyFiles";
@@ -397,9 +375,8 @@ public class SamplesBottomBlueValidGraphqlData
   ];
 
   public SamplesBottomBlueValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Blue/ValidGraphql";
   public const string Collected = "ManyFiles";
@@ -415,9 +392,8 @@ public class SamplesBottomRedInValidGraphqlData
   ];
 
   public SamplesBottomRedInValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Red/InValidGraphql";
   public const string Collected = "ManyFiles";
@@ -433,9 +409,8 @@ public class SamplesBottomGreenGraphqlData
   ];
 
   public SamplesBottomGreenGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/GreenGraphql";
   public const string Collected = "ManyFiles";
@@ -451,9 +426,8 @@ public class SamplesBottomValidGraphqlData
   ];
 
   public SamplesBottomValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/ValidGraphql";
   public const string Collected = "ManyFiles";
@@ -469,9 +443,8 @@ public class SamplesBottomYellowInValidGraphqlData
   ];
 
   public SamplesBottomYellowInValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Yellow/InValidGraphql";
   public const string Collected = "ManyFiles";
@@ -487,9 +460,8 @@ public class SamplesBottomPurpleGraphqlData
   ];
 
   public SamplesBottomPurpleGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/PurpleGraphql";
   public const string Collected = "ManyFiles";
@@ -505,9 +477,8 @@ public class SamplesBottomOrangeValidGraphqlData
   ];
 
   public SamplesBottomOrangeValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Orange/ValidGraphql";
   public const string Collected = "ManyFiles";
@@ -522,9 +493,8 @@ public class SamplesBottomBlueInValidGraphqlData
   ];
 
   public SamplesBottomBlueInValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Blue/InValidGraphql";
   public const string Collected = "ManyFiles";
@@ -539,9 +509,8 @@ public class SamplesBottomRedGraphqlData
   ];
 
   public SamplesBottomRedGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/RedGraphql";
   public const string Collected = "ManyFiles";
@@ -556,9 +525,8 @@ public class SamplesBottomGreenValidGraphqlData
   ];
 
   public SamplesBottomGreenValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Green/ValidGraphql";
   public const string Collected = "ManyFiles";
@@ -573,9 +541,8 @@ public class SamplesBottomInValidGraphqlData
   ];
 
   public SamplesBottomInValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/InValidGraphql";
   public const string Collected = "ManyFiles";
@@ -590,9 +557,8 @@ public class SamplesBottomYellowGraphqlData
   ];
 
   public SamplesBottomYellowGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/YellowGraphql";
   public const string Collected = "ManyFiles";
@@ -607,9 +573,8 @@ public class SamplesBottomPurpleValidGraphqlData
   ];
 
   public SamplesBottomPurpleValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Purple/ValidGraphql";
   public const string Collected = "ManyFiles";
@@ -624,9 +589,8 @@ public class SamplesBottomOrangeInValidGraphqlData
   ];
 
   public SamplesBottomOrangeInValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Orange/InValidGraphql";
   public const string Collected = "ManyFiles";
@@ -641,9 +605,8 @@ public class SamplesBottomBlueGraphqlData
   ];
 
   public SamplesBottomBlueGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/BlueGraphql";
   public const string Collected = "ManyFiles";
@@ -658,9 +621,8 @@ public class SamplesBottomRedValidGraphqlData
   ];
 
   public SamplesBottomRedValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Red/ValidGraphql";
   public const string Collected = "ManyFiles";
@@ -675,9 +637,8 @@ public class SamplesBottomGreenInValidGraphqlData
   ];
 
   public SamplesBottomGreenInValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Green/InValidGraphql";
   public const string Collected = "ManyFiles";
@@ -692,9 +653,8 @@ public class SamplesBottomGraphqlData
   ];
 
   public SamplesBottomGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Graphql";
   public const string Collected = "ManyFiles";
@@ -709,9 +669,8 @@ public class SamplesBottomYellowValidGraphqlData
   ];
 
   public SamplesBottomYellowValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Yellow/ValidGraphql";
   public const string Collected = "ManyFiles";
@@ -726,9 +685,8 @@ public class SamplesBottomPurpleInValidGraphqlData
   ];
 
   public SamplesBottomPurpleInValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Bottom/Purple/InValidGraphql";
   public const string Collected = "ManyFiles";

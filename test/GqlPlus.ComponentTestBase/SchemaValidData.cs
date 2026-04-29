@@ -26,9 +26,6 @@ public class SchemaValidData
   };
 
   public SchemaValidData()
-  {
-    foreach (string item in Files.Keys) {
-      Add(item);
-    }
-  }
+    : base(Files.Keys)
+  { }
 }

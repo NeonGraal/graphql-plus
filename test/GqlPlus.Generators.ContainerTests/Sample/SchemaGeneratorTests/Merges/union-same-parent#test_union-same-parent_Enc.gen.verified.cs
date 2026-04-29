@@ -9,12 +9,12 @@ namespace GqlPlus.GeneratorTests.Gqlp_union_same_parent;
 
 internal class testUnionSamePrntEncoder(
   IEncoderRepository encoders
-) : IEncoder<ItestUnionSamePrnt>
+: testPrntUnionSamePrntEncoder, IEncoder<ItestUnionSamePrnt>
 {
   private readonly IEncoder<bool> _boolean = encoders.EncoderFor<bool>();
   public Structured Encode(ItestUnionSamePrnt input)
     => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
-     : Structured.Empty();
+     : base.Encode(input);
 
   internal static testUnionSamePrntEncoder Factory(IEncoderRepository r) => new(r);
 }

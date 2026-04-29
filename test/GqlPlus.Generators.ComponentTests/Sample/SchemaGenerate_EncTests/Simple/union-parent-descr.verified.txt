@@ -13,12 +13,12 @@ namespace Components.Gqlp_Schema_union_parent_descr;
 
 internal class CmptUnionPrntDescrEncoder(
   IEncoderRepository encoders
-) : IEncoder<ICmptUnionPrntDescr>
+: CmptPrntUnionPrntDescrEncoder, IEncoder<ICmptUnionPrntDescr>
 {
   private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ICmptUnionPrntDescr input)
     => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
-     : Structured.Empty();
+     : base.Encode(input);
 
   internal static CmptUnionPrntDescrEncoder Factory(IEncoderRepository r) => new(r);
 }

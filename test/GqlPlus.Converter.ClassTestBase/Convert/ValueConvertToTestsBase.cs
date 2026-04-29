@@ -83,25 +83,25 @@ public abstract class ValueConvertToTestsBase(IConvertTestsBase converters)
 public class PunctuationData : TheoryData<string>
 {
   public PunctuationData()
-  {
-    Add("{");
-    Add("}");
-    Add("[");
-    Add("]");
-    //Add("&");
-    Add("#");
-    Add("*");
-    Add("?");
-    Add("|");
-    Add("-");
-    //Add("<");
-    //Add(">");
-    //Add("=");
-    Add("!");
-    Add("%");
-    Add("@");
-    Add(":");
-    //Add("`");
-    Add(",");
-  }
+    : base(
+      "{",
+      "}",
+      "[",
+      "]",
+      //  "&",
+      "#",
+      "*",
+      "?",
+      "|",
+      "-",
+      //  "<",
+      //  ">",
+      //  "=",
+      "!",
+      "%",
+      "@",
+      ":",
+      //  "`",
+      ",")
+  { }
 }

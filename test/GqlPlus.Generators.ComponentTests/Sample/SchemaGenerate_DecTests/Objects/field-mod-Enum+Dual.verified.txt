@@ -18,9 +18,10 @@ internal class CmptFieldModEnumDualDecoder
   internal static CmptFieldModEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEnumFieldModEnumDualDecoder
+internal class CmptEnumFieldModEnumDualDecoder : IDecoder<CmptEnumFieldModEnumDual?>
 {
-  public string value { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumFieldModEnumDual? output)
+    => input.DecodeEnum("EnumFieldModEnumDual", out output);
 
   internal static CmptEnumFieldModEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
@@ -30,5 +31,5 @@ internal static class Cmpt_Schema_field_mod_Enum_DualDecoders
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_mod_Enum_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmptFieldModEnumDualObject>(CmptFieldModEnumDualDecoder.Factory)
-      .AddDecoder<CmptEnumFieldModEnumDual>(CmptEnumFieldModEnumDualDecoder.Factory);
+      .AddDecoder<CmptEnumFieldModEnumDual?>(CmptEnumFieldModEnumDualDecoder.Factory);
 }

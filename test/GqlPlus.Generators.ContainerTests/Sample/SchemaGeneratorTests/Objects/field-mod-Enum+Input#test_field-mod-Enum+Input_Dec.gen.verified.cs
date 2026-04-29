@@ -14,9 +14,10 @@ internal class testFieldModEnumInpDecoder
   internal static testFieldModEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumFieldModEnumInpDecoder
+internal class testEnumFieldModEnumInpDecoder : IDecoder<testEnumFieldModEnumInp?>
 {
-  public string value { get; set; }
+  public IMessages Decoder(IValue input, out testEnumFieldModEnumInp? output)
+    => input.DecodeEnum("EnumFieldModEnumInp", out output);
 
   internal static testEnumFieldModEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -26,5 +27,5 @@ internal static class test_field_mod_Enum_InputDecoders
   internal static IDecoderRepositoryBuilder Addtest_field_mod_Enum_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestFieldModEnumInpObject>(testFieldModEnumInpDecoder.Factory)
-      .AddDecoder<testEnumFieldModEnumInp>(testEnumFieldModEnumInpDecoder.Factory);
+      .AddDecoder<testEnumFieldModEnumInp?>(testEnumFieldModEnumInpDecoder.Factory);
 }

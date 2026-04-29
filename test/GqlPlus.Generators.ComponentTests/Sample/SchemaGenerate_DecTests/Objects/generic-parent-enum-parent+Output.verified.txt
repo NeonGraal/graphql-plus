@@ -13,17 +13,18 @@ enum ParentGnrcPrntEnumPrntOutp { gnrcPrntEnumPrntOutpParent }
 
 namespace Components.Gqlp_Schema_generic_parent_enum_parent_Output;
 
-internal class CmptEnumGnrcPrntEnumPrntOutpDecoder
+internal class CmptEnumGnrcPrntEnumPrntOutpDecoder : IDecoder<CmptEnumGnrcPrntEnumPrntOutp?>
 {
-  public string gnrcPrntEnumPrntOutpParent { get; set; }
-  public string gnrcPrntEnumPrntOutpLabel { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumGnrcPrntEnumPrntOutp? output)
+    => input.DecodeEnum("EnumGnrcPrntEnumPrntOutp", out output);
 
   internal static CmptEnumGnrcPrntEnumPrntOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptParentGnrcPrntEnumPrntOutpDecoder
+internal class CmptParentGnrcPrntEnumPrntOutpDecoder : IDecoder<CmptParentGnrcPrntEnumPrntOutp?>
 {
-  public string gnrcPrntEnumPrntOutpParent { get; set; }
+  public IMessages Decoder(IValue input, out CmptParentGnrcPrntEnumPrntOutp? output)
+    => input.DecodeEnum("ParentGnrcPrntEnumPrntOutp", out output);
 
   internal static CmptParentGnrcPrntEnumPrntOutpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -32,6 +33,6 @@ internal static class Cmpt_Schema_generic_parent_enum_parent_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_parent_enum_parent_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<CmptEnumGnrcPrntEnumPrntOutp>(CmptEnumGnrcPrntEnumPrntOutpDecoder.Factory)
-      .AddDecoder<CmptParentGnrcPrntEnumPrntOutp>(CmptParentGnrcPrntEnumPrntOutpDecoder.Factory);
+      .AddDecoder<CmptEnumGnrcPrntEnumPrntOutp?>(CmptEnumGnrcPrntEnumPrntOutpDecoder.Factory)
+      .AddDecoder<CmptParentGnrcPrntEnumPrntOutp?>(CmptParentGnrcPrntEnumPrntOutpDecoder.Factory);
 }

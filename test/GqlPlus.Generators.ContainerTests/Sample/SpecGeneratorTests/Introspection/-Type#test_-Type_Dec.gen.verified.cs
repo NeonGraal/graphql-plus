@@ -7,27 +7,18 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp__Type;
 
-internal class test_SimpleKindDecoder
+internal class test_SimpleKindDecoder : IDecoder<test_SimpleKind?>
 {
-  public string Basic { get; set; }
-  public string Enum { get; set; }
-  public string Internal { get; set; }
-  public string Domain { get; set; }
-  public string Union { get; set; }
+  public IMessages Decoder(IValue input, out test_SimpleKind? output)
+    => input.DecodeEnum("_SimpleKind", out output);
 
   internal static test_SimpleKindDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_TypeKindDecoder
+internal class test_TypeKindDecoder : IDecoder<test_TypeKind?>
 {
-  public string Basic { get; set; }
-  public string Enum { get; set; }
-  public string Internal { get; set; }
-  public string Domain { get; set; }
-  public string Union { get; set; }
-  public string Dual { get; set; }
-  public string Input { get; set; }
-  public string Output { get; set; }
+  public IMessages Decoder(IValue input, out test_TypeKind? output)
+    => input.DecodeEnum("_TypeKind", out output);
 
   internal static test_TypeKindDecoder Factory(IDecoderRepository _) => new();
 }
@@ -61,15 +52,10 @@ internal class test_ModifiersDecoder
   internal static test_ModifiersDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_ModifierKindDecoder
+internal class test_ModifierKindDecoder : IDecoder<test_ModifierKind?>
 {
-  public string Opt { get; set; }
-  public string Optional { get; set; }
-  public string List { get; set; }
-  public string Dict { get; set; }
-  public string Dictionary { get; set; }
-  public string Param { get; set; }
-  public string TypeParam { get; set; }
+  public IMessages Decoder(IValue input, out test_ModifierKind? output)
+    => input.DecodeEnum("_ModifierKind", out output);
 
   internal static test_ModifierKindDecoder Factory(IDecoderRepository _) => new();
 }
@@ -83,10 +69,10 @@ internal static class test__TypeDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest__TypeDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<test_SimpleKind>(test_SimpleKindDecoder.Factory)
-      .AddDecoder<test_TypeKind>(test_TypeKindDecoder.Factory)
+      .AddDecoder<test_SimpleKind?>(test_SimpleKindDecoder.Factory)
+      .AddDecoder<test_TypeKind?>(test_TypeKindDecoder.Factory)
       .AddDecoder<Itest_TypeSimpleObject>(test_TypeSimpleDecoder.Factory)
       .AddDecoder<Itest_CollectionsObject>(test_CollectionsDecoder.Factory)
       .AddDecoder<Itest_ModifiersObject>(test_ModifiersDecoder.Factory)
-      .AddDecoder<test_ModifierKind>(test_ModifierKindDecoder.Factory);
+      .AddDecoder<test_ModifierKind?>(test_ModifierKindDecoder.Factory);
 }

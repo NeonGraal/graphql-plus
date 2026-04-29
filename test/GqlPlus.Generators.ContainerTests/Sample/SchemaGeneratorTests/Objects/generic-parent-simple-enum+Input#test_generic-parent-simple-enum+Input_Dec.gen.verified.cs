@@ -18,9 +18,10 @@ internal class testFieldGnrcPrntSmplEnumInpDecoder<TRef>
   public TRef Field { get; set; }
 }
 
-internal class testEnumGnrcPrntSmplEnumInpDecoder
+internal class testEnumGnrcPrntSmplEnumInpDecoder : IDecoder<testEnumGnrcPrntSmplEnumInp?>
 {
-  public string gnrcPrntSmplEnumInp { get; set; }
+  public IMessages Decoder(IValue input, out testEnumGnrcPrntSmplEnumInp? output)
+    => input.DecodeEnum("EnumGnrcPrntSmplEnumInp", out output);
 
   internal static testEnumGnrcPrntSmplEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -30,5 +31,5 @@ internal static class test_generic_parent_simple_enum_InputDecoders
   internal static IDecoderRepositoryBuilder Addtest_generic_parent_simple_enum_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestGnrcPrntSmplEnumInpObject>(testGnrcPrntSmplEnumInpDecoder.Factory)
-      .AddDecoder<testEnumGnrcPrntSmplEnumInp>(testEnumGnrcPrntSmplEnumInpDecoder.Factory);
+      .AddDecoder<testEnumGnrcPrntSmplEnumInp?>(testEnumGnrcPrntSmplEnumInpDecoder.Factory);
 }

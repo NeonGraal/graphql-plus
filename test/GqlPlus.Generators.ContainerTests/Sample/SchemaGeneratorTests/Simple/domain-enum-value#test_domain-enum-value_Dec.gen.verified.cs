@@ -13,9 +13,10 @@ internal class testDmnEnumValueDecoder
   internal static testDmnEnumValueDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDmnEnumValueDecoder
+internal class testEnumDmnEnumValueDecoder : IDecoder<testEnumDmnEnumValue?>
 {
-  public string dmnEnumValue { get; set; }
+  public IMessages Decoder(IValue input, out testEnumDmnEnumValue? output)
+    => input.DecodeEnum("EnumDmnEnumValue", out output);
 
   internal static testEnumDmnEnumValueDecoder Factory(IDecoderRepository _) => new();
 }
@@ -25,5 +26,5 @@ internal static class test_domain_enum_valueDecoders
   internal static IDecoderRepositoryBuilder Addtest_domain_enum_valueDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestDmnEnumValue>(testDmnEnumValueDecoder.Factory)
-      .AddDecoder<testEnumDmnEnumValue>(testEnumDmnEnumValueDecoder.Factory);
+      .AddDecoder<testEnumDmnEnumValue?>(testEnumDmnEnumValueDecoder.Factory);
 }

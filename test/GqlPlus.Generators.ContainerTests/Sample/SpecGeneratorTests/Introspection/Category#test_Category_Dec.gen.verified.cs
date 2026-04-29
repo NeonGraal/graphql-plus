@@ -7,11 +7,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Category;
 
-internal class test_ResolutionDecoder
+internal class test_ResolutionDecoder : IDecoder<test_Resolution?>
 {
-  public string Parallel { get; set; }
-  public string Sequential { get; set; }
-  public string Single { get; set; }
+  public IMessages Decoder(IValue input, out test_Resolution? output)
+    => input.DecodeEnum("_Resolution", out output);
 
   internal static test_ResolutionDecoder Factory(IDecoderRepository _) => new();
 }
@@ -20,5 +19,5 @@ internal static class test_CategoryDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_CategoryDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<test_Resolution>(test_ResolutionDecoder.Factory);
+      .AddDecoder<test_Resolution?>(test_ResolutionDecoder.Factory);
 }

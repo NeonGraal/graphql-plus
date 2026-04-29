@@ -84,48 +84,50 @@ internal class CmptDmnStrSameDecoder
   internal static CmptDmnStrSameDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEnumAliasDecoder
+internal class CmptEnumAliasDecoder : IDecoder<CmptEnumAlias?>
 {
-  public string enumAlias { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumAlias? output)
+    => input.DecodeEnum("EnumAlias", out output);
 
   internal static CmptEnumAliasDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEnumDiffDecoder
+internal class CmptEnumDiffDecoder : IDecoder<CmptEnumDiff?>
 {
-  public string one { get; set; }
-  public string two { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumDiff? output)
+    => input.DecodeEnum("EnumDiff", out output);
 
   internal static CmptEnumDiffDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEnumSameDecoder
+internal class CmptEnumSameDecoder : IDecoder<CmptEnumSame?>
 {
-  public string enumSame { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumSame? output)
+    => input.DecodeEnum("EnumSame", out output);
 
   internal static CmptEnumSameDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEnumSamePrntDecoder
+internal class CmptEnumSamePrntDecoder : IDecoder<CmptEnumSamePrnt?>
 {
-  public string prnt_enumSamePrnt { get; set; }
-  public string enumSamePrnt { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumSamePrnt? output)
+    => input.DecodeEnum("EnumSamePrnt", out output);
 
   internal static CmptEnumSamePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntEnumSamePrntDecoder
+internal class CmptPrntEnumSamePrntDecoder : IDecoder<CmptPrntEnumSamePrnt?>
 {
-  public string prnt_enumSamePrnt { get; set; }
+  public IMessages Decoder(IValue input, out CmptPrntEnumSamePrnt? output)
+    => input.DecodeEnum("PrntEnumSamePrnt", out output);
 
   internal static CmptPrntEnumSamePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEnumValueAliasDecoder
+internal class CmptEnumValueAliasDecoder : IDecoder<CmptEnumValueAlias?>
 {
-  public string enumValueAlias { get; set; }
-  public string val1 { get; set; }
-  public string val2 { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumValueAlias? output)
+    => input.DecodeEnum("EnumValueAlias", out output);
 
   internal static CmptEnumValueAliasDecoder Factory(IDecoderRepository _) => new();
 }
@@ -416,12 +418,12 @@ internal static class Cmpt_Schema_MergesDecoders
       .AddDecoder<ICmptDmnStr>(CmptDmnStrDecoder.Factory)
       .AddDecoder<ICmptDmnStrDiff>(CmptDmnStrDiffDecoder.Factory)
       .AddDecoder<ICmptDmnStrSame>(CmptDmnStrSameDecoder.Factory)
-      .AddDecoder<CmptEnumAlias>(CmptEnumAliasDecoder.Factory)
-      .AddDecoder<CmptEnumDiff>(CmptEnumDiffDecoder.Factory)
-      .AddDecoder<CmptEnumSame>(CmptEnumSameDecoder.Factory)
-      .AddDecoder<CmptEnumSamePrnt>(CmptEnumSamePrntDecoder.Factory)
-      .AddDecoder<CmptPrntEnumSamePrnt>(CmptPrntEnumSamePrntDecoder.Factory)
-      .AddDecoder<CmptEnumValueAlias>(CmptEnumValueAliasDecoder.Factory)
+      .AddDecoder<CmptEnumAlias?>(CmptEnumAliasDecoder.Factory)
+      .AddDecoder<CmptEnumDiff?>(CmptEnumDiffDecoder.Factory)
+      .AddDecoder<CmptEnumSame?>(CmptEnumSameDecoder.Factory)
+      .AddDecoder<CmptEnumSamePrnt?>(CmptEnumSamePrntDecoder.Factory)
+      .AddDecoder<CmptPrntEnumSamePrnt?>(CmptPrntEnumSamePrntDecoder.Factory)
+      .AddDecoder<CmptEnumValueAlias?>(CmptEnumValueAliasDecoder.Factory)
       .AddDecoder<ICmptObjDualObject>(CmptObjDualDecoder.Factory)
       .AddDecoder<ICmptObjInpObject>(CmptObjInpDecoder.Factory)
       .AddDecoder<ICmptObjAliasDualObject>(CmptObjAliasDualDecoder.Factory)

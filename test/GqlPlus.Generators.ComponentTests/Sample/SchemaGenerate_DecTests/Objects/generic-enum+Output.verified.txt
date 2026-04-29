@@ -12,9 +12,10 @@ enum EnumGnrcEnumOutp { gnrcEnumOutp }
 
 namespace Components.Gqlp_Schema_generic_enum_Output;
 
-internal class CmptEnumGnrcEnumOutpDecoder
+internal class CmptEnumGnrcEnumOutpDecoder : IDecoder<CmptEnumGnrcEnumOutp?>
 {
-  public string gnrcEnumOutp { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumGnrcEnumOutp? output)
+    => input.DecodeEnum("EnumGnrcEnumOutp", out output);
 
   internal static CmptEnumGnrcEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -23,5 +24,5 @@ internal static class Cmpt_Schema_generic_enum_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_enum_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<CmptEnumGnrcEnumOutp>(CmptEnumGnrcEnumOutpDecoder.Factory);
+      .AddDecoder<CmptEnumGnrcEnumOutp?>(CmptEnumGnrcEnumOutpDecoder.Factory);
 }

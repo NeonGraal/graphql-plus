@@ -11,9 +11,10 @@ enum EnumFieldValueOutp { fieldValueOutp }
 
 namespace Components.Gqlp_Schema_field_value_Output;
 
-internal class CmptEnumFieldValueOutpDecoder
+internal class CmptEnumFieldValueOutpDecoder : IDecoder<CmptEnumFieldValueOutp?>
 {
-  public string fieldValueOutp { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumFieldValueOutp? output)
+    => input.DecodeEnum("EnumFieldValueOutp", out output);
 
   internal static CmptEnumFieldValueOutpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -22,5 +23,5 @@ internal static class Cmpt_Schema_field_value_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_value_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<CmptEnumFieldValueOutp>(CmptEnumFieldValueOutpDecoder.Factory);
+      .AddDecoder<CmptEnumFieldValueOutp?>(CmptEnumFieldValueOutpDecoder.Factory);
 }

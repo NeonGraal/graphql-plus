@@ -7,11 +7,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_enum_value_alias;
 
-internal class testEnumValueAliasDecoder
+internal class testEnumValueAliasDecoder : IDecoder<testEnumValueAlias?>
 {
-  public string enumValueAlias { get; set; }
-  public string val1 { get; set; }
-  public string val2 { get; set; }
+  public IMessages Decoder(IValue input, out testEnumValueAlias? output)
+    => input.DecodeEnum("EnumValueAlias", out output);
 
   internal static testEnumValueAliasDecoder Factory(IDecoderRepository _) => new();
 }
@@ -20,5 +19,5 @@ internal static class test_enum_value_aliasDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_enum_value_aliasDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<testEnumValueAlias>(testEnumValueAliasDecoder.Factory);
+      .AddDecoder<testEnumValueAlias?>(testEnumValueAliasDecoder.Factory);
 }

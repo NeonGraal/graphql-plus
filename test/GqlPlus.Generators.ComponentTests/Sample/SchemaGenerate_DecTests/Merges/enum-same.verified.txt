@@ -11,9 +11,10 @@ enum EnumSame { enumSame }
 
 namespace Components.Gqlp_Schema_enum_same;
 
-internal class CmptEnumSameDecoder
+internal class CmptEnumSameDecoder : IDecoder<CmptEnumSame?>
 {
-  public string enumSame { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumSame? output)
+    => input.DecodeEnum("EnumSame", out output);
 
   internal static CmptEnumSameDecoder Factory(IDecoderRepository _) => new();
 }
@@ -22,5 +23,5 @@ internal static class Cmpt_Schema_enum_sameDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_enum_sameDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<CmptEnumSame>(CmptEnumSameDecoder.Factory);
+      .AddDecoder<CmptEnumSame?>(CmptEnumSameDecoder.Factory);
 }

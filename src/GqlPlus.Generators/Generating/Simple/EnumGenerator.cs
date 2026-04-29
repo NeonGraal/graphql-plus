@@ -48,15 +48,17 @@ internal sealed class EnumDecoderGenerator
 {
   protected override void Generate(IAstEnum ast, GqlpGeneratorContext context)
   {
-    string typeName = context.TypeName(ast, "") + "Decoder";
-    GenerateBlock(ast, context, DecoderHeader, EnumMembers, EnumClassMember,
-      (_, c) => {
-        c.Write("");
-        c.Write($"  internal static {typeName} Factory(IDecoderRepository _) => new();");
-      });
+    string typeName = context.TypeName(ast, "");
+    context.Write("");
+    context.Write($"internal class {typeName}Decoder : IDecoder<{typeName}?>");
+    context.Write("{");
+    context.Write($"  public IMessages Decoder(IValue input, out {typeName}? output)");
+    context.Write($"    => input.DecodeEnum(\"{ast.Name}\", out output);");
+    context.Write("");
+    context.Write($"  internal static {typeName}Decoder Factory(IDecoderRepository _) => new();");
+    context.Write("}");
 
-    string baseName = context.TypeName(ast, "");
-    context.RegisterDecoder(baseName, typeName);
+    context.RegisterDecoder(typeName + "?", typeName + "Decoder");
   }
 }
 

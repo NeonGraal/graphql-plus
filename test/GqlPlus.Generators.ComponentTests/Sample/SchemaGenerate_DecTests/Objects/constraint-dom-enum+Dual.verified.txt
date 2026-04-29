@@ -24,10 +24,10 @@ internal class CmptRefCnstDomEnumDualDecoder<TType>
   public TType Field { get; set; }
 }
 
-internal class CmptEnumCnstDomEnumDualDecoder
+internal class CmptEnumCnstDomEnumDualDecoder : IDecoder<CmptEnumCnstDomEnumDual?>
 {
-  public string cnstDomEnumDual { get; set; }
-  public string other { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumCnstDomEnumDual? output)
+    => input.DecodeEnum("EnumCnstDomEnumDual", out output);
 
   internal static CmptEnumCnstDomEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
@@ -43,6 +43,6 @@ internal static class Cmpt_Schema_constraint_dom_enum_DualDecoders
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_dom_enum_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmptCnstDomEnumDualObject>(CmptCnstDomEnumDualDecoder.Factory)
-      .AddDecoder<CmptEnumCnstDomEnumDual>(CmptEnumCnstDomEnumDualDecoder.Factory)
+      .AddDecoder<CmptEnumCnstDomEnumDual?>(CmptEnumCnstDomEnumDualDecoder.Factory)
       .AddDecoder<ICmptJustCnstDomEnumDual>(CmptJustCnstDomEnumDualDecoder.Factory);
 }

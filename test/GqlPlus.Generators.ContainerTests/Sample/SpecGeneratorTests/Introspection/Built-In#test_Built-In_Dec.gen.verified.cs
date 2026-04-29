@@ -25,15 +25,10 @@ internal class test_ModifiersDecoder
   internal static test_ModifiersDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_ModifierKindDecoder
+internal class test_ModifierKindDecoder : IDecoder<test_ModifierKind?>
 {
-  public string Opt { get; set; }
-  public string Optional { get; set; }
-  public string List { get; set; }
-  public string Dict { get; set; }
-  public string Dictionary { get; set; }
-  public string Param { get; set; }
-  public string TypeParam { get; set; }
+  public IMessages Decoder(IValue input, out test_ModifierKind? output)
+    => input.DecodeEnum("_ModifierKind", out output);
 
   internal static test_ModifierKindDecoder Factory(IDecoderRepository _) => new();
 }
@@ -49,5 +44,5 @@ internal static class test_Built_InDecoders
     => builder
       .AddDecoder<Itest_CollectionsObject>(test_CollectionsDecoder.Factory)
       .AddDecoder<Itest_ModifiersObject>(test_ModifiersDecoder.Factory)
-      .AddDecoder<test_ModifierKind>(test_ModifierKindDecoder.Factory);
+      .AddDecoder<test_ModifierKind?>(test_ModifierKindDecoder.Factory);
 }

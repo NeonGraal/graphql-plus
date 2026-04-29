@@ -14,9 +14,6 @@ public class InputModelGeneratorParentTests
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Model;
   internal override GqlpBaseType BaseType => GqlpBaseType.Class;
 
-  internal override ForType ForGeneratedCodeName(string name)
-    => ForGeneratedModel("public class " + TestPrefix + name);
-
   internal override ForType ForGeneratedCodeParent(string parent)
     => ForGeneratedModel(": " + parent);
 

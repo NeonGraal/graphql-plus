@@ -7,17 +7,18 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_enum_parent_Output;
 
-internal class testEnumCnstEnumPrntOutpDecoder
+internal class testEnumCnstEnumPrntOutpDecoder : IDecoder<testEnumCnstEnumPrntOutp?>
 {
-  public string parentCnstEnumPrntOutp { get; set; }
-  public string cnstEnumPrntOutp { get; set; }
+  public IMessages Decoder(IValue input, out testEnumCnstEnumPrntOutp? output)
+    => input.DecodeEnum("EnumCnstEnumPrntOutp", out output);
 
   internal static testEnumCnstEnumPrntOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testParentCnstEnumPrntOutpDecoder
+internal class testParentCnstEnumPrntOutpDecoder : IDecoder<testParentCnstEnumPrntOutp?>
 {
-  public string parentCnstEnumPrntOutp { get; set; }
+  public IMessages Decoder(IValue input, out testParentCnstEnumPrntOutp? output)
+    => input.DecodeEnum("ParentCnstEnumPrntOutp", out output);
 
   internal static testParentCnstEnumPrntOutpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -26,6 +27,6 @@ internal static class test_constraint_enum_parent_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_constraint_enum_parent_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<testEnumCnstEnumPrntOutp>(testEnumCnstEnumPrntOutpDecoder.Factory)
-      .AddDecoder<testParentCnstEnumPrntOutp>(testParentCnstEnumPrntOutpDecoder.Factory);
+      .AddDecoder<testEnumCnstEnumPrntOutp?>(testEnumCnstEnumPrntOutpDecoder.Factory)
+      .AddDecoder<testParentCnstEnumPrntOutp?>(testParentCnstEnumPrntOutpDecoder.Factory);
 }

@@ -99,12 +99,10 @@ output _UnionMember {
 
 namespace Components.Gqlp_Spec_Simple;
 
-internal class Cmpt_DomainKindDecoder
+internal class Cmpt_DomainKindDecoder : IDecoder<Cmpt_DomainKind?>
 {
-  public string Boolean { get; set; }
-  public string Enum { get; set; }
-  public string Number { get; set; }
-  public string String { get; set; }
+  public IMessages Decoder(IValue input, out Cmpt_DomainKind? output)
+    => input.DecodeEnum("_DomainKind", out output);
 
   internal static Cmpt_DomainKindDecoder Factory(IDecoderRepository _) => new();
 }
@@ -149,7 +147,7 @@ internal static class Cmpt_Spec_SimpleDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_SimpleDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<Cmpt_DomainKind>(Cmpt_DomainKindDecoder.Factory)
+      .AddDecoder<Cmpt_DomainKind?>(Cmpt_DomainKindDecoder.Factory)
       .AddDecoder<ICmpt_BaseDomainItemObject>(Cmpt_BaseDomainItemDecoder.Factory)
       .AddDecoder<ICmpt_DomainTrueFalseObject>(Cmpt_DomainTrueFalseDecoder.Factory)
       .AddDecoder<ICmpt_DomainRangeObject>(Cmpt_DomainRangeDecoder.Factory)

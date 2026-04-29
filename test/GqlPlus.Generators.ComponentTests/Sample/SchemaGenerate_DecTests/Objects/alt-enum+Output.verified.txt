@@ -11,9 +11,10 @@ enum EnumAltEnumOutp { altEnumOutp }
 
 namespace Components.Gqlp_Schema_alt_enum_Output;
 
-internal class CmptEnumAltEnumOutpDecoder
+internal class CmptEnumAltEnumOutpDecoder : IDecoder<CmptEnumAltEnumOutp?>
 {
-  public string altEnumOutp { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumAltEnumOutp? output)
+    => input.DecodeEnum("EnumAltEnumOutp", out output);
 
   internal static CmptEnumAltEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -22,5 +23,5 @@ internal static class Cmpt_Schema_alt_enum_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_alt_enum_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<CmptEnumAltEnumOutp>(CmptEnumAltEnumOutpDecoder.Factory);
+      .AddDecoder<CmptEnumAltEnumOutp?>(CmptEnumAltEnumOutpDecoder.Factory);
 }

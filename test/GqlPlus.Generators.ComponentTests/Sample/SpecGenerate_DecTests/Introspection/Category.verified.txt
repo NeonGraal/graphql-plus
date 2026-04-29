@@ -23,11 +23,10 @@ enum _Resolution { Parallel Sequential Single }
 
 namespace Components.Gqlp_Spec_Category;
 
-internal class Cmpt_ResolutionDecoder
+internal class Cmpt_ResolutionDecoder : IDecoder<Cmpt_Resolution?>
 {
-  public string Parallel { get; set; }
-  public string Sequential { get; set; }
-  public string Single { get; set; }
+  public IMessages Decoder(IValue input, out Cmpt_Resolution? output)
+    => input.DecodeEnum("_Resolution", out output);
 
   internal static Cmpt_ResolutionDecoder Factory(IDecoderRepository _) => new();
 }
@@ -36,5 +35,5 @@ internal static class Cmpt_Spec_CategoryDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_CategoryDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<Cmpt_Resolution>(Cmpt_ResolutionDecoder.Factory);
+      .AddDecoder<Cmpt_Resolution?>(Cmpt_ResolutionDecoder.Factory);
 }

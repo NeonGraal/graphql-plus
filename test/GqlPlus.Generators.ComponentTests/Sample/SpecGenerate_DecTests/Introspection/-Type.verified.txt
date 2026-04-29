@@ -77,27 +77,18 @@ dual _Modifier<$modifierKind:_ModifierKind> {
 
 namespace Components.Gqlp_Spec_Type;
 
-internal class Cmpt_SimpleKindDecoder
+internal class Cmpt_SimpleKindDecoder : IDecoder<Cmpt_SimpleKind?>
 {
-  public string Basic { get; set; }
-  public string Enum { get; set; }
-  public string Internal { get; set; }
-  public string Domain { get; set; }
-  public string Union { get; set; }
+  public IMessages Decoder(IValue input, out Cmpt_SimpleKind? output)
+    => input.DecodeEnum("_SimpleKind", out output);
 
   internal static Cmpt_SimpleKindDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_TypeKindDecoder
+internal class Cmpt_TypeKindDecoder : IDecoder<Cmpt_TypeKind?>
 {
-  public string Basic { get; set; }
-  public string Enum { get; set; }
-  public string Internal { get; set; }
-  public string Domain { get; set; }
-  public string Union { get; set; }
-  public string Dual { get; set; }
-  public string Input { get; set; }
-  public string Output { get; set; }
+  public IMessages Decoder(IValue input, out Cmpt_TypeKind? output)
+    => input.DecodeEnum("_TypeKind", out output);
 
   internal static Cmpt_TypeKindDecoder Factory(IDecoderRepository _) => new();
 }
@@ -131,15 +122,10 @@ internal class Cmpt_ModifiersDecoder
   internal static Cmpt_ModifiersDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_ModifierKindDecoder
+internal class Cmpt_ModifierKindDecoder : IDecoder<Cmpt_ModifierKind?>
 {
-  public string Opt { get; set; }
-  public string Optional { get; set; }
-  public string List { get; set; }
-  public string Dict { get; set; }
-  public string Dictionary { get; set; }
-  public string Param { get; set; }
-  public string TypeParam { get; set; }
+  public IMessages Decoder(IValue input, out Cmpt_ModifierKind? output)
+    => input.DecodeEnum("_ModifierKind", out output);
 
   internal static Cmpt_ModifierKindDecoder Factory(IDecoderRepository _) => new();
 }
@@ -153,10 +139,10 @@ internal static class Cmpt_Spec_TypeDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_TypeDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<Cmpt_SimpleKind>(Cmpt_SimpleKindDecoder.Factory)
-      .AddDecoder<Cmpt_TypeKind>(Cmpt_TypeKindDecoder.Factory)
+      .AddDecoder<Cmpt_SimpleKind?>(Cmpt_SimpleKindDecoder.Factory)
+      .AddDecoder<Cmpt_TypeKind?>(Cmpt_TypeKindDecoder.Factory)
       .AddDecoder<ICmpt_TypeSimpleObject>(Cmpt_TypeSimpleDecoder.Factory)
       .AddDecoder<ICmpt_CollectionsObject>(Cmpt_CollectionsDecoder.Factory)
       .AddDecoder<ICmpt_ModifiersObject>(Cmpt_ModifiersDecoder.Factory)
-      .AddDecoder<Cmpt_ModifierKind>(Cmpt_ModifierKindDecoder.Factory);
+      .AddDecoder<Cmpt_ModifierKind?>(Cmpt_ModifierKindDecoder.Factory);
 }

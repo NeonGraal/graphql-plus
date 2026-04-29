@@ -23,9 +23,10 @@ internal class CmptRefGnrcValueDualDecoder<TType>
   public TType Field { get; set; }
 }
 
-internal class CmptEnumGnrcValueDualDecoder
+internal class CmptEnumGnrcValueDualDecoder : IDecoder<CmptEnumGnrcValueDual?>
 {
-  public string gnrcValueDual { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumGnrcValueDual? output)
+    => input.DecodeEnum("EnumGnrcValueDual", out output);
 
   internal static CmptEnumGnrcValueDualDecoder Factory(IDecoderRepository _) => new();
 }
@@ -35,5 +36,5 @@ internal static class Cmpt_Schema_generic_value_DualDecoders
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_value_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmptGnrcValueDualObject>(CmptGnrcValueDualDecoder.Factory)
-      .AddDecoder<CmptEnumGnrcValueDual>(CmptEnumGnrcValueDualDecoder.Factory);
+      .AddDecoder<CmptEnumGnrcValueDual?>(CmptEnumGnrcValueDualDecoder.Factory);
 }

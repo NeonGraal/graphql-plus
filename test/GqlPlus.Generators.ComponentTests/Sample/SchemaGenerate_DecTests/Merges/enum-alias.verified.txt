@@ -11,9 +11,10 @@ enum EnumAlias [En2] { enumAlias }
 
 namespace Components.Gqlp_Schema_enum_alias;
 
-internal class CmptEnumAliasDecoder
+internal class CmptEnumAliasDecoder : IDecoder<CmptEnumAlias?>
 {
-  public string enumAlias { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumAlias? output)
+    => input.DecodeEnum("EnumAlias", out output);
 
   internal static CmptEnumAliasDecoder Factory(IDecoderRepository _) => new();
 }
@@ -22,5 +23,5 @@ internal static class Cmpt_Schema_enum_aliasDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_enum_aliasDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<CmptEnumAlias>(CmptEnumAliasDecoder.Factory);
+      .AddDecoder<CmptEnumAlias?>(CmptEnumAliasDecoder.Factory);
 }

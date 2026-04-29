@@ -13,17 +13,18 @@ internal class testDmnEnumValuePrntDecoder
   internal static testDmnEnumValuePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDmnEnumValuePrntDecoder
+internal class testEnumDmnEnumValuePrntDecoder : IDecoder<testEnumDmnEnumValuePrnt?>
 {
-  public string prnt_dmnEnumValuePrnt { get; set; }
-  public string dmnEnumValuePrnt { get; set; }
+  public IMessages Decoder(IValue input, out testEnumDmnEnumValuePrnt? output)
+    => input.DecodeEnum("EnumDmnEnumValuePrnt", out output);
 
   internal static testEnumDmnEnumValuePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntDmnEnumValuePrntDecoder
+internal class testPrntDmnEnumValuePrntDecoder : IDecoder<testPrntDmnEnumValuePrnt?>
 {
-  public string prnt_dmnEnumValuePrnt { get; set; }
+  public IMessages Decoder(IValue input, out testPrntDmnEnumValuePrnt? output)
+    => input.DecodeEnum("PrntDmnEnumValuePrnt", out output);
 
   internal static testPrntDmnEnumValuePrntDecoder Factory(IDecoderRepository _) => new();
 }
@@ -33,6 +34,6 @@ internal static class test_domain_enum_value_parentDecoders
   internal static IDecoderRepositoryBuilder Addtest_domain_enum_value_parentDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestDmnEnumValuePrnt>(testDmnEnumValuePrntDecoder.Factory)
-      .AddDecoder<testEnumDmnEnumValuePrnt>(testEnumDmnEnumValuePrntDecoder.Factory)
-      .AddDecoder<testPrntDmnEnumValuePrnt>(testPrntDmnEnumValuePrntDecoder.Factory);
+      .AddDecoder<testEnumDmnEnumValuePrnt?>(testEnumDmnEnumValuePrntDecoder.Factory)
+      .AddDecoder<testPrntDmnEnumValuePrnt?>(testPrntDmnEnumValuePrntDecoder.Factory);
 }

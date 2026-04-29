@@ -14,17 +14,18 @@ internal class testFieldEnumPrntDualDecoder
   internal static testFieldEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumFieldEnumPrntDualDecoder
+internal class testEnumFieldEnumPrntDualDecoder : IDecoder<testEnumFieldEnumPrntDual?>
 {
-  public string prnt_fieldEnumPrntDual { get; set; }
-  public string fieldEnumPrntDual { get; set; }
+  public IMessages Decoder(IValue input, out testEnumFieldEnumPrntDual? output)
+    => input.DecodeEnum("EnumFieldEnumPrntDual", out output);
 
   internal static testEnumFieldEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntFieldEnumPrntDualDecoder
+internal class testPrntFieldEnumPrntDualDecoder : IDecoder<testPrntFieldEnumPrntDual?>
 {
-  public string prnt_fieldEnumPrntDual { get; set; }
+  public IMessages Decoder(IValue input, out testPrntFieldEnumPrntDual? output)
+    => input.DecodeEnum("PrntFieldEnumPrntDual", out output);
 
   internal static testPrntFieldEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
@@ -34,6 +35,6 @@ internal static class test_field_enum_parent_DualDecoders
   internal static IDecoderRepositoryBuilder Addtest_field_enum_parent_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestFieldEnumPrntDualObject>(testFieldEnumPrntDualDecoder.Factory)
-      .AddDecoder<testEnumFieldEnumPrntDual>(testEnumFieldEnumPrntDualDecoder.Factory)
-      .AddDecoder<testPrntFieldEnumPrntDual>(testPrntFieldEnumPrntDualDecoder.Factory);
+      .AddDecoder<testEnumFieldEnumPrntDual?>(testEnumFieldEnumPrntDualDecoder.Factory)
+      .AddDecoder<testPrntFieldEnumPrntDual?>(testPrntFieldEnumPrntDualDecoder.Factory);
 }

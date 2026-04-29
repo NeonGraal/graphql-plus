@@ -50,23 +50,18 @@ output _Setting {
 
 namespace Components.Gqlp_Spec_Global;
 
-internal class Cmpt_ResolutionDecoder
+internal class Cmpt_ResolutionDecoder : IDecoder<Cmpt_Resolution?>
 {
-  public string Parallel { get; set; }
-  public string Sequential { get; set; }
-  public string Single { get; set; }
+  public IMessages Decoder(IValue input, out Cmpt_Resolution? output)
+    => input.DecodeEnum("_Resolution", out output);
 
   internal static Cmpt_ResolutionDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_LocationDecoder
+internal class Cmpt_LocationDecoder : IDecoder<Cmpt_Location?>
 {
-  public string Operation { get; set; }
-  public string Variable { get; set; }
-  public string Field { get; set; }
-  public string Inline { get; set; }
-  public string Spread { get; set; }
-  public string Fragment { get; set; }
+  public IMessages Decoder(IValue input, out Cmpt_Location? output)
+    => input.DecodeEnum("_Location", out output);
 
   internal static Cmpt_LocationDecoder Factory(IDecoderRepository _) => new();
 }
@@ -75,6 +70,6 @@ internal static class Cmpt_Spec_GlobalDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_GlobalDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<Cmpt_Resolution>(Cmpt_ResolutionDecoder.Factory)
-      .AddDecoder<Cmpt_Location>(Cmpt_LocationDecoder.Factory);
+      .AddDecoder<Cmpt_Resolution?>(Cmpt_ResolutionDecoder.Factory)
+      .AddDecoder<Cmpt_Location?>(Cmpt_LocationDecoder.Factory);
 }

@@ -7,12 +7,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Domain;
 
-internal class test_DomainKindDecoder
+internal class test_DomainKindDecoder : IDecoder<test_DomainKind?>
 {
-  public string Boolean { get; set; }
-  public string Enum { get; set; }
-  public string Number { get; set; }
-  public string String { get; set; }
+  public IMessages Decoder(IValue input, out test_DomainKind? output)
+    => input.DecodeEnum("_DomainKind", out output);
 
   internal static test_DomainKindDecoder Factory(IDecoderRepository _) => new();
 }
@@ -50,7 +48,7 @@ internal static class test_DomainDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_DomainDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<test_DomainKind>(test_DomainKindDecoder.Factory)
+      .AddDecoder<test_DomainKind?>(test_DomainKindDecoder.Factory)
       .AddDecoder<Itest_BaseDomainItemObject>(test_BaseDomainItemDecoder.Factory)
       .AddDecoder<Itest_DomainTrueFalseObject>(test_DomainTrueFalseDecoder.Factory)
       .AddDecoder<Itest_DomainRangeObject>(test_DomainRangeDecoder.Factory)

@@ -7,17 +7,18 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_output_parent_generic;
 
-internal class testEnumOutpPrntGnrcDecoder
+internal class testEnumOutpPrntGnrcDecoder : IDecoder<testEnumOutpPrntGnrc?>
 {
-  public string prnt_outpPrntGnrc { get; set; }
-  public string outpPrntGnrc { get; set; }
+  public IMessages Decoder(IValue input, out testEnumOutpPrntGnrc? output)
+    => input.DecodeEnum("EnumOutpPrntGnrc", out output);
 
   internal static testEnumOutpPrntGnrcDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntOutpPrntGnrcDecoder
+internal class testPrntOutpPrntGnrcDecoder : IDecoder<testPrntOutpPrntGnrc?>
 {
-  public string prnt_outpPrntGnrc { get; set; }
+  public IMessages Decoder(IValue input, out testPrntOutpPrntGnrc? output)
+    => input.DecodeEnum("PrntOutpPrntGnrc", out output);
 
   internal static testPrntOutpPrntGnrcDecoder Factory(IDecoderRepository _) => new();
 }
@@ -26,6 +27,6 @@ internal static class test_output_parent_genericDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_output_parent_genericDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<testEnumOutpPrntGnrc>(testEnumOutpPrntGnrcDecoder.Factory)
-      .AddDecoder<testPrntOutpPrntGnrc>(testPrntOutpPrntGnrcDecoder.Factory);
+      .AddDecoder<testEnumOutpPrntGnrc?>(testEnumOutpPrntGnrcDecoder.Factory)
+      .AddDecoder<testPrntOutpPrntGnrc?>(testPrntOutpPrntGnrcDecoder.Factory);
 }

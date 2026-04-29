@@ -7,9 +7,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_enum_Output;
 
-internal class testEnumAltEnumOutpDecoder
+internal class testEnumAltEnumOutpDecoder : IDecoder<testEnumAltEnumOutp?>
 {
-  public string altEnumOutp { get; set; }
+  public IMessages Decoder(IValue input, out testEnumAltEnumOutp? output)
+    => input.DecodeEnum("EnumAltEnumOutp", out output);
 
   internal static testEnumAltEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -18,5 +19,5 @@ internal static class test_alt_enum_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_alt_enum_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<testEnumAltEnumOutp>(testEnumAltEnumOutpDecoder.Factory);
+      .AddDecoder<testEnumAltEnumOutp?>(testEnumAltEnumOutpDecoder.Factory);
 }

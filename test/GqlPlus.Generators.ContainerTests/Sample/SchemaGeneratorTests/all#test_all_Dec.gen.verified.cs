@@ -13,10 +13,10 @@ internal class testGuidDecoder
   internal static testGuidDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testOneDecoder
+internal class testOneDecoder : IDecoder<testOne?>
 {
-  public string Two { get; set; }
-  public string Three { get; set; }
+  public IMessages Decoder(IValue input, out testOne? output)
+    => input.DecodeEnum("One", out output);
 
   internal static testOneDecoder Factory(IDecoderRepository _) => new();
 }
@@ -49,7 +49,7 @@ internal static class test_allDecoders
   internal static IDecoderRepositoryBuilder Addtest_allDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestGuid>(testGuidDecoder.Factory)
-      .AddDecoder<testOne>(testOneDecoder.Factory)
+      .AddDecoder<testOne?>(testOneDecoder.Factory)
       .AddDecoder<ItestMany>(testManyDecoder.Factory)
       .AddDecoder<ItestFieldObject>(testFieldDecoder.Factory)
       .AddDecoder<ItestParamObject>(testParamDecoder.Factory);

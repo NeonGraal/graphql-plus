@@ -40,10 +40,10 @@ internal class CmptGuidDecoder
   internal static CmptGuidDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptOneDecoder
+internal class CmptOneDecoder : IDecoder<CmptOne?>
 {
-  public string Two { get; set; }
-  public string Three { get; set; }
+  public IMessages Decoder(IValue input, out CmptOne? output)
+    => input.DecodeEnum("One", out output);
 
   internal static CmptOneDecoder Factory(IDecoderRepository _) => new();
 }
@@ -76,7 +76,7 @@ internal static class Cmpt_Schema_allDecoders
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_allDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmptGuid>(CmptGuidDecoder.Factory)
-      .AddDecoder<CmptOne>(CmptOneDecoder.Factory)
+      .AddDecoder<CmptOne?>(CmptOneDecoder.Factory)
       .AddDecoder<ICmptMany>(CmptManyDecoder.Factory)
       .AddDecoder<ICmptFieldObject>(CmptFieldDecoder.Factory)
       .AddDecoder<ICmptParamObject>(CmptParamDecoder.Factory);

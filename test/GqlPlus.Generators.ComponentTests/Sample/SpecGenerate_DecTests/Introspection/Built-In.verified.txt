@@ -49,15 +49,10 @@ internal class Cmpt_ModifiersDecoder
   internal static Cmpt_ModifiersDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_ModifierKindDecoder
+internal class Cmpt_ModifierKindDecoder : IDecoder<Cmpt_ModifierKind?>
 {
-  public string Opt { get; set; }
-  public string Optional { get; set; }
-  public string List { get; set; }
-  public string Dict { get; set; }
-  public string Dictionary { get; set; }
-  public string Param { get; set; }
-  public string TypeParam { get; set; }
+  public IMessages Decoder(IValue input, out Cmpt_ModifierKind? output)
+    => input.DecodeEnum("_ModifierKind", out output);
 
   internal static Cmpt_ModifierKindDecoder Factory(IDecoderRepository _) => new();
 }
@@ -73,5 +68,5 @@ internal static class Cmpt_Spec_Built_InDecoders
     => builder
       .AddDecoder<ICmpt_CollectionsObject>(Cmpt_CollectionsDecoder.Factory)
       .AddDecoder<ICmpt_ModifiersObject>(Cmpt_ModifiersDecoder.Factory)
-      .AddDecoder<Cmpt_ModifierKind>(Cmpt_ModifierKindDecoder.Factory);
+      .AddDecoder<Cmpt_ModifierKind?>(Cmpt_ModifierKindDecoder.Factory);
 }

@@ -12,17 +12,18 @@ enum PrntFieldEnumPrntOutp { prnt_fieldEnumPrntOutp }
 
 namespace Components.Gqlp_Schema_field_enum_parent_Output;
 
-internal class CmptEnumFieldEnumPrntOutpDecoder
+internal class CmptEnumFieldEnumPrntOutpDecoder : IDecoder<CmptEnumFieldEnumPrntOutp?>
 {
-  public string prnt_fieldEnumPrntOutp { get; set; }
-  public string fieldEnumPrntOutp { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumFieldEnumPrntOutp? output)
+    => input.DecodeEnum("EnumFieldEnumPrntOutp", out output);
 
   internal static CmptEnumFieldEnumPrntOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntFieldEnumPrntOutpDecoder
+internal class CmptPrntFieldEnumPrntOutpDecoder : IDecoder<CmptPrntFieldEnumPrntOutp?>
 {
-  public string prnt_fieldEnumPrntOutp { get; set; }
+  public IMessages Decoder(IValue input, out CmptPrntFieldEnumPrntOutp? output)
+    => input.DecodeEnum("PrntFieldEnumPrntOutp", out output);
 
   internal static CmptPrntFieldEnumPrntOutpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -31,6 +32,6 @@ internal static class Cmpt_Schema_field_enum_parent_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_enum_parent_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<CmptEnumFieldEnumPrntOutp>(CmptEnumFieldEnumPrntOutpDecoder.Factory)
-      .AddDecoder<CmptPrntFieldEnumPrntOutp>(CmptPrntFieldEnumPrntOutpDecoder.Factory);
+      .AddDecoder<CmptEnumFieldEnumPrntOutp?>(CmptEnumFieldEnumPrntOutpDecoder.Factory)
+      .AddDecoder<CmptPrntFieldEnumPrntOutp?>(CmptPrntFieldEnumPrntOutpDecoder.Factory);
 }

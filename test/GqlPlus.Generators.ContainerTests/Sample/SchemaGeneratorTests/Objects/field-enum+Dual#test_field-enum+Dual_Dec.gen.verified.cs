@@ -14,9 +14,10 @@ internal class testFieldEnumDualDecoder
   internal static testFieldEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumFieldEnumDualDecoder
+internal class testEnumFieldEnumDualDecoder : IDecoder<testEnumFieldEnumDual?>
 {
-  public string fieldEnumDual { get; set; }
+  public IMessages Decoder(IValue input, out testEnumFieldEnumDual? output)
+    => input.DecodeEnum("EnumFieldEnumDual", out output);
 
   internal static testEnumFieldEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
@@ -26,5 +27,5 @@ internal static class test_field_enum_DualDecoders
   internal static IDecoderRepositoryBuilder Addtest_field_enum_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestFieldEnumDualObject>(testFieldEnumDualDecoder.Factory)
-      .AddDecoder<testEnumFieldEnumDual>(testEnumFieldEnumDualDecoder.Factory);
+      .AddDecoder<testEnumFieldEnumDual?>(testEnumFieldEnumDualDecoder.Factory);
 }

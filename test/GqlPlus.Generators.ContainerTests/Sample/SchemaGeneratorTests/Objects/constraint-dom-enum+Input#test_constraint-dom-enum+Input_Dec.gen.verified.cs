@@ -18,10 +18,10 @@ internal class testRefCnstDomEnumInpDecoder<TType>
   public TType Field { get; set; }
 }
 
-internal class testEnumCnstDomEnumInpDecoder
+internal class testEnumCnstDomEnumInpDecoder : IDecoder<testEnumCnstDomEnumInp?>
 {
-  public string cnstDomEnumInp { get; set; }
-  public string other { get; set; }
+  public IMessages Decoder(IValue input, out testEnumCnstDomEnumInp? output)
+    => input.DecodeEnum("EnumCnstDomEnumInp", out output);
 
   internal static testEnumCnstDomEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -37,6 +37,6 @@ internal static class test_constraint_dom_enum_InputDecoders
   internal static IDecoderRepositoryBuilder Addtest_constraint_dom_enum_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestCnstDomEnumInpObject>(testCnstDomEnumInpDecoder.Factory)
-      .AddDecoder<testEnumCnstDomEnumInp>(testEnumCnstDomEnumInpDecoder.Factory)
+      .AddDecoder<testEnumCnstDomEnumInp?>(testEnumCnstDomEnumInpDecoder.Factory)
       .AddDecoder<ItestJustCnstDomEnumInp>(testJustCnstDomEnumInpDecoder.Factory);
 }

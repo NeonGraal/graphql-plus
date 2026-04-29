@@ -17,11 +17,10 @@ internal class CmptDmnEnumAllDescrDecoder
   internal static CmptDmnEnumAllDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEnumDmnEnumAllDescrDecoder
+internal class CmptEnumDmnEnumAllDescrDecoder : IDecoder<CmptEnumDmnEnumAllDescr?>
 {
-  public string dmnEnumAllDescr { get; set; }
-  public string enum_dmnEnumAllDescr { get; set; }
-  public string dmnEnumAllDescrValue { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumDmnEnumAllDescr? output)
+    => input.DecodeEnum("EnumDmnEnumAllDescr", out output);
 
   internal static CmptEnumDmnEnumAllDescrDecoder Factory(IDecoderRepository _) => new();
 }
@@ -31,5 +30,5 @@ internal static class Cmpt_Schema_domain_enum_all_descrDecoders
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_enum_all_descrDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmptDmnEnumAllDescr>(CmptDmnEnumAllDescrDecoder.Factory)
-      .AddDecoder<CmptEnumDmnEnumAllDescr>(CmptEnumDmnEnumAllDescrDecoder.Factory);
+      .AddDecoder<CmptEnumDmnEnumAllDescr?>(CmptEnumDmnEnumAllDescrDecoder.Factory);
 }

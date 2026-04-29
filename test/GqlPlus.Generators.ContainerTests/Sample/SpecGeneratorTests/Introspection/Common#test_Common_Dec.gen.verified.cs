@@ -7,27 +7,18 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Common;
 
-internal class test_SimpleKindDecoder
+internal class test_SimpleKindDecoder : IDecoder<test_SimpleKind?>
 {
-  public string Basic { get; set; }
-  public string Enum { get; set; }
-  public string Internal { get; set; }
-  public string Domain { get; set; }
-  public string Union { get; set; }
+  public IMessages Decoder(IValue input, out test_SimpleKind? output)
+    => input.DecodeEnum("_SimpleKind", out output);
 
   internal static test_SimpleKindDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_TypeKindDecoder
+internal class test_TypeKindDecoder : IDecoder<test_TypeKind?>
 {
-  public string Basic { get; set; }
-  public string Enum { get; set; }
-  public string Internal { get; set; }
-  public string Domain { get; set; }
-  public string Union { get; set; }
-  public string Dual { get; set; }
-  public string Input { get; set; }
-  public string Output { get; set; }
+  public IMessages Decoder(IValue input, out test_TypeKind? output)
+    => input.DecodeEnum("_TypeKind", out output);
 
   internal static test_TypeKindDecoder Factory(IDecoderRepository _) => new();
 }
@@ -47,7 +38,7 @@ internal static class test_CommonDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_CommonDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<test_SimpleKind>(test_SimpleKindDecoder.Factory)
-      .AddDecoder<test_TypeKind>(test_TypeKindDecoder.Factory)
+      .AddDecoder<test_SimpleKind?>(test_SimpleKindDecoder.Factory)
+      .AddDecoder<test_TypeKind?>(test_TypeKindDecoder.Factory)
       .AddDecoder<Itest_TypeSimpleObject>(test_TypeSimpleDecoder.Factory);
 }

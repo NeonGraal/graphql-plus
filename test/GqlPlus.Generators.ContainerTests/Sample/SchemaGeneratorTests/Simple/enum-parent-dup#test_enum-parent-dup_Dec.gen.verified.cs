@@ -7,19 +7,18 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_enum_parent_dup;
 
-internal class testEnumPrntDupDecoder
+internal class testEnumPrntDupDecoder : IDecoder<testEnumPrntDup?>
 {
-  public string prnt_enumPrntDup { get; set; }
-  public string enumPrntDup { get; set; }
-  public string enumPrntDup { get; set; }
+  public IMessages Decoder(IValue input, out testEnumPrntDup? output)
+    => input.DecodeEnum("EnumPrntDup", out output);
 
   internal static testEnumPrntDupDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntEnumPrntDupDecoder
+internal class testPrntEnumPrntDupDecoder : IDecoder<testPrntEnumPrntDup?>
 {
-  public string prnt_enumPrntDup { get; set; }
-  public string enumPrntDup { get; set; }
+  public IMessages Decoder(IValue input, out testPrntEnumPrntDup? output)
+    => input.DecodeEnum("PrntEnumPrntDup", out output);
 
   internal static testPrntEnumPrntDupDecoder Factory(IDecoderRepository _) => new();
 }
@@ -28,6 +27,6 @@ internal static class test_enum_parent_dupDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_enum_parent_dupDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<testEnumPrntDup>(testEnumPrntDupDecoder.Factory)
-      .AddDecoder<testPrntEnumPrntDup>(testPrntEnumPrntDupDecoder.Factory);
+      .AddDecoder<testEnumPrntDup?>(testEnumPrntDupDecoder.Factory)
+      .AddDecoder<testPrntEnumPrntDup?>(testPrntEnumPrntDupDecoder.Factory);
 }

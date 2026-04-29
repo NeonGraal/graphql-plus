@@ -7,14 +7,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Directive;
 
-internal class test_LocationDecoder
+internal class test_LocationDecoder : IDecoder<test_Location?>
 {
-  public string Operation { get; set; }
-  public string Variable { get; set; }
-  public string Field { get; set; }
-  public string Inline { get; set; }
-  public string Spread { get; set; }
-  public string Fragment { get; set; }
+  public IMessages Decoder(IValue input, out test_Location? output)
+    => input.DecodeEnum("_Location", out output);
 
   internal static test_LocationDecoder Factory(IDecoderRepository _) => new();
 }
@@ -23,5 +19,5 @@ internal static class test_DirectiveDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_DirectiveDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<test_Location>(test_LocationDecoder.Factory);
+      .AddDecoder<test_Location?>(test_LocationDecoder.Factory);
 }

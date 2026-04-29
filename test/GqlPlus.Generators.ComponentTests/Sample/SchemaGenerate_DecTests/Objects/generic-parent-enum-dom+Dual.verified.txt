@@ -24,10 +24,10 @@ internal class CmptFieldGnrcPrntEnumDomDualDecoder<TRef>
   public TRef Field { get; set; }
 }
 
-internal class CmptEnumGnrcPrntEnumDomDualDecoder
+internal class CmptEnumGnrcPrntEnumDomDualDecoder : IDecoder<CmptEnumGnrcPrntEnumDomDual?>
 {
-  public string gnrcPrntEnumDomDualLabel { get; set; }
-  public string gnrcPrntEnumDomDualOther { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumGnrcPrntEnumDomDual? output)
+    => input.DecodeEnum("EnumGnrcPrntEnumDomDual", out output);
 
   internal static CmptEnumGnrcPrntEnumDomDualDecoder Factory(IDecoderRepository _) => new();
 }
@@ -43,6 +43,6 @@ internal static class Cmpt_Schema_generic_parent_enum_dom_DualDecoders
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_parent_enum_dom_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmptGnrcPrntEnumDomDualObject>(CmptGnrcPrntEnumDomDualDecoder.Factory)
-      .AddDecoder<CmptEnumGnrcPrntEnumDomDual>(CmptEnumGnrcPrntEnumDomDualDecoder.Factory)
+      .AddDecoder<CmptEnumGnrcPrntEnumDomDual?>(CmptEnumGnrcPrntEnumDomDualDecoder.Factory)
       .AddDecoder<ICmptDomGnrcPrntEnumDomDual>(CmptDomGnrcPrntEnumDomDualDecoder.Factory);
 }

@@ -13,9 +13,10 @@ internal class testAltEnumInpDecoder
   internal static testAltEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumAltEnumInpDecoder
+internal class testEnumAltEnumInpDecoder : IDecoder<testEnumAltEnumInp?>
 {
-  public string altEnumInp { get; set; }
+  public IMessages Decoder(IValue input, out testEnumAltEnumInp? output)
+    => input.DecodeEnum("EnumAltEnumInp", out output);
 
   internal static testEnumAltEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -25,5 +26,5 @@ internal static class test_alt_enum_InputDecoders
   internal static IDecoderRepositoryBuilder Addtest_alt_enum_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestAltEnumInpObject>(testAltEnumInpDecoder.Factory)
-      .AddDecoder<testEnumAltEnumInp>(testEnumAltEnumInpDecoder.Factory);
+      .AddDecoder<testEnumAltEnumInp?>(testEnumAltEnumInpDecoder.Factory);
 }

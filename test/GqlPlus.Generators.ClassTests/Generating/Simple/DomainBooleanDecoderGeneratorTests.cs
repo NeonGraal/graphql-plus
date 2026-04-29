@@ -9,9 +9,6 @@ public class DomainBooleanDecoderGeneratorTests
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Dec;
   internal override GqlpBaseType BaseType => GqlpBaseType.Class;
 
-  internal override ForType ForGeneratedCodeName(string name)
-    => ForGeneratedDecoder("internal class " + TestPrefix + name + "Decoder");
-
   internal override ForType ForGeneratedCodeParent(string parent)
     => _ => r => r.ShouldNotContain(": " + parent);
 

@@ -7,30 +7,34 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Definition;
 
-internal class boolDecoder
+internal class boolDecoder : IDecoder<bool?>
 {
-  public string false { get; set; }
-  public string true { get; set; }
+  public IMessages Decoder(IValue input, out bool? output)
+    => input.DecodeEnum("Boolean", out output);
 
   internal static boolDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class GqlpNullDecoder
+internal class GqlpNullDecoder : IDecoder<GqlpNull?>
 {
-  public string null { get; set; }
+  public IMessages Decoder(IValue input, out GqlpNull? output)
+    => input.DecodeEnum("Null", out output);
 
   internal static GqlpNullDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class GqlpUnitDecoder
+internal class GqlpUnitDecoder : IDecoder<GqlpUnit?>
 {
-  public string _ { get; set; }
+  public IMessages Decoder(IValue input, out GqlpUnit? output)
+    => input.DecodeEnum("Unit", out output);
 
   internal static GqlpUnitDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class voidDecoder
+internal class voidDecoder : IDecoder<void?>
 {
+  public IMessages Decoder(IValue input, out void? output)
+    => input.DecodeEnum("Void", out output);
 
   internal static voidDecoder Factory(IDecoderRepository _) => new();
 }
@@ -123,10 +127,10 @@ internal static class test_DefinitionDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_DefinitionDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<bool>(boolDecoder.Factory)
-      .AddDecoder<GqlpNull>(GqlpNullDecoder.Factory)
-      .AddDecoder<GqlpUnit>(GqlpUnitDecoder.Factory)
-      .AddDecoder<void>(voidDecoder.Factory)
+      .AddDecoder<bool?>(boolDecoder.Factory)
+      .AddDecoder<GqlpNull?>(GqlpNullDecoder.Factory)
+      .AddDecoder<GqlpUnit?>(GqlpUnitDecoder.Factory)
+      .AddDecoder<void?>(voidDecoder.Factory)
       .AddDecoder<decimal>(decimalDecoder.Factory)
       .AddDecoder<string>(stringDecoder.Factory)
       .AddDecoder<Itest_Basic>(test_BasicDecoder.Factory)

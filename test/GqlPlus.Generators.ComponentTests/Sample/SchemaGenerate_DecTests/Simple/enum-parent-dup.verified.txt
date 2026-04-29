@@ -11,19 +11,18 @@ enum PrntEnumPrntDup { prnt_enumPrntDup[enumPrntDup] }
 
 namespace Components.Gqlp_Schema_enum_parent_dup;
 
-internal class CmptEnumPrntDupDecoder
+internal class CmptEnumPrntDupDecoder : IDecoder<CmptEnumPrntDup?>
 {
-  public string prnt_enumPrntDup { get; set; }
-  public string enumPrntDup { get; set; }
-  public string enumPrntDup { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumPrntDup? output)
+    => input.DecodeEnum("EnumPrntDup", out output);
 
   internal static CmptEnumPrntDupDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntEnumPrntDupDecoder
+internal class CmptPrntEnumPrntDupDecoder : IDecoder<CmptPrntEnumPrntDup?>
 {
-  public string prnt_enumPrntDup { get; set; }
-  public string enumPrntDup { get; set; }
+  public IMessages Decoder(IValue input, out CmptPrntEnumPrntDup? output)
+    => input.DecodeEnum("PrntEnumPrntDup", out output);
 
   internal static CmptPrntEnumPrntDupDecoder Factory(IDecoderRepository _) => new();
 }
@@ -32,6 +31,6 @@ internal static class Cmpt_Schema_enum_parent_dupDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_enum_parent_dupDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<CmptEnumPrntDup>(CmptEnumPrntDupDecoder.Factory)
-      .AddDecoder<CmptPrntEnumPrntDup>(CmptPrntEnumPrntDupDecoder.Factory);
+      .AddDecoder<CmptEnumPrntDup?>(CmptEnumPrntDupDecoder.Factory)
+      .AddDecoder<CmptPrntEnumPrntDup?>(CmptPrntEnumPrntDupDecoder.Factory);
 }

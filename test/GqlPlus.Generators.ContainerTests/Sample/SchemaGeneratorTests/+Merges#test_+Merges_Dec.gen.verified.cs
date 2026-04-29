@@ -85,48 +85,50 @@ internal class testDmnStrSameDecoder
   internal static testDmnStrSameDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumAliasDecoder
+internal class testEnumAliasDecoder : IDecoder<testEnumAlias?>
 {
-  public string enumAlias { get; set; }
+  public IMessages Decoder(IValue input, out testEnumAlias? output)
+    => input.DecodeEnum("EnumAlias", out output);
 
   internal static testEnumAliasDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDiffDecoder
+internal class testEnumDiffDecoder : IDecoder<testEnumDiff?>
 {
-  public string one { get; set; }
-  public string two { get; set; }
+  public IMessages Decoder(IValue input, out testEnumDiff? output)
+    => input.DecodeEnum("EnumDiff", out output);
 
   internal static testEnumDiffDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumSameDecoder
+internal class testEnumSameDecoder : IDecoder<testEnumSame?>
 {
-  public string enumSame { get; set; }
+  public IMessages Decoder(IValue input, out testEnumSame? output)
+    => input.DecodeEnum("EnumSame", out output);
 
   internal static testEnumSameDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumSamePrntDecoder
+internal class testEnumSamePrntDecoder : IDecoder<testEnumSamePrnt?>
 {
-  public string prnt_enumSamePrnt { get; set; }
-  public string enumSamePrnt { get; set; }
+  public IMessages Decoder(IValue input, out testEnumSamePrnt? output)
+    => input.DecodeEnum("EnumSamePrnt", out output);
 
   internal static testEnumSamePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntEnumSamePrntDecoder
+internal class testPrntEnumSamePrntDecoder : IDecoder<testPrntEnumSamePrnt?>
 {
-  public string prnt_enumSamePrnt { get; set; }
+  public IMessages Decoder(IValue input, out testPrntEnumSamePrnt? output)
+    => input.DecodeEnum("PrntEnumSamePrnt", out output);
 
   internal static testPrntEnumSamePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumValueAliasDecoder
+internal class testEnumValueAliasDecoder : IDecoder<testEnumValueAlias?>
 {
-  public string enumValueAlias { get; set; }
-  public string val1 { get; set; }
-  public string val2 { get; set; }
+  public IMessages Decoder(IValue input, out testEnumValueAlias? output)
+    => input.DecodeEnum("EnumValueAlias", out output);
 
   internal static testEnumValueAliasDecoder Factory(IDecoderRepository _) => new();
 }
@@ -417,12 +419,12 @@ internal static class test__MergesDecoders
       .AddDecoder<ItestDmnStr>(testDmnStrDecoder.Factory)
       .AddDecoder<ItestDmnStrDiff>(testDmnStrDiffDecoder.Factory)
       .AddDecoder<ItestDmnStrSame>(testDmnStrSameDecoder.Factory)
-      .AddDecoder<testEnumAlias>(testEnumAliasDecoder.Factory)
-      .AddDecoder<testEnumDiff>(testEnumDiffDecoder.Factory)
-      .AddDecoder<testEnumSame>(testEnumSameDecoder.Factory)
-      .AddDecoder<testEnumSamePrnt>(testEnumSamePrntDecoder.Factory)
-      .AddDecoder<testPrntEnumSamePrnt>(testPrntEnumSamePrntDecoder.Factory)
-      .AddDecoder<testEnumValueAlias>(testEnumValueAliasDecoder.Factory)
+      .AddDecoder<testEnumAlias?>(testEnumAliasDecoder.Factory)
+      .AddDecoder<testEnumDiff?>(testEnumDiffDecoder.Factory)
+      .AddDecoder<testEnumSame?>(testEnumSameDecoder.Factory)
+      .AddDecoder<testEnumSamePrnt?>(testEnumSamePrntDecoder.Factory)
+      .AddDecoder<testPrntEnumSamePrnt?>(testPrntEnumSamePrntDecoder.Factory)
+      .AddDecoder<testEnumValueAlias?>(testEnumValueAliasDecoder.Factory)
       .AddDecoder<ItestObjDualObject>(testObjDualDecoder.Factory)
       .AddDecoder<ItestObjInpObject>(testObjInpDecoder.Factory)
       .AddDecoder<ItestObjAliasDualObject>(testObjAliasDualDecoder.Factory)

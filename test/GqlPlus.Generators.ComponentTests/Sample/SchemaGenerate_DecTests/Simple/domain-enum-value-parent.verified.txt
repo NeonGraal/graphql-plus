@@ -18,17 +18,18 @@ internal class CmptDmnEnumValuePrntDecoder
   internal static CmptDmnEnumValuePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEnumDmnEnumValuePrntDecoder
+internal class CmptEnumDmnEnumValuePrntDecoder : IDecoder<CmptEnumDmnEnumValuePrnt?>
 {
-  public string prnt_dmnEnumValuePrnt { get; set; }
-  public string dmnEnumValuePrnt { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumDmnEnumValuePrnt? output)
+    => input.DecodeEnum("EnumDmnEnumValuePrnt", out output);
 
   internal static CmptEnumDmnEnumValuePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntDmnEnumValuePrntDecoder
+internal class CmptPrntDmnEnumValuePrntDecoder : IDecoder<CmptPrntDmnEnumValuePrnt?>
 {
-  public string prnt_dmnEnumValuePrnt { get; set; }
+  public IMessages Decoder(IValue input, out CmptPrntDmnEnumValuePrnt? output)
+    => input.DecodeEnum("PrntDmnEnumValuePrnt", out output);
 
   internal static CmptPrntDmnEnumValuePrntDecoder Factory(IDecoderRepository _) => new();
 }
@@ -38,6 +39,6 @@ internal static class Cmpt_Schema_domain_enum_value_parentDecoders
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_enum_value_parentDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmptDmnEnumValuePrnt>(CmptDmnEnumValuePrntDecoder.Factory)
-      .AddDecoder<CmptEnumDmnEnumValuePrnt>(CmptEnumDmnEnumValuePrntDecoder.Factory)
-      .AddDecoder<CmptPrntDmnEnumValuePrnt>(CmptPrntDmnEnumValuePrntDecoder.Factory);
+      .AddDecoder<CmptEnumDmnEnumValuePrnt?>(CmptEnumDmnEnumValuePrntDecoder.Factory)
+      .AddDecoder<CmptPrntDmnEnumValuePrnt?>(CmptPrntDmnEnumValuePrntDecoder.Factory);
 }

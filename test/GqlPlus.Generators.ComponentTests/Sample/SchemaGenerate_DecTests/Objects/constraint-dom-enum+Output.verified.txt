@@ -13,10 +13,10 @@ domain JustCnstDomEnumOutp { enum EnumCnstDomEnumOutp.cnstDomEnumOutp }
 
 namespace Components.Gqlp_Schema_constraint_dom_enum_Output;
 
-internal class CmptEnumCnstDomEnumOutpDecoder
+internal class CmptEnumCnstDomEnumOutpDecoder : IDecoder<CmptEnumCnstDomEnumOutp?>
 {
-  public string cnstDomEnumOutp { get; set; }
-  public string other { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumCnstDomEnumOutp? output)
+    => input.DecodeEnum("EnumCnstDomEnumOutp", out output);
 
   internal static CmptEnumCnstDomEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -31,6 +31,6 @@ internal static class Cmpt_Schema_constraint_dom_enum_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_dom_enum_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<CmptEnumCnstDomEnumOutp>(CmptEnumCnstDomEnumOutpDecoder.Factory)
+      .AddDecoder<CmptEnumCnstDomEnumOutp?>(CmptEnumCnstDomEnumOutpDecoder.Factory)
       .AddDecoder<ICmptJustCnstDomEnumOutp>(CmptJustCnstDomEnumOutpDecoder.Factory);
 }

@@ -18,17 +18,18 @@ internal class testFieldGnrcPrntEnumChildDualDecoder<TRef>
   public TRef Field { get; set; }
 }
 
-internal class testEnumGnrcPrntEnumChildDualDecoder
+internal class testEnumGnrcPrntEnumChildDualDecoder : IDecoder<testEnumGnrcPrntEnumChildDual?>
 {
-  public string gnrcPrntEnumChildDualParent { get; set; }
-  public string gnrcPrntEnumChildDualLabel { get; set; }
+  public IMessages Decoder(IValue input, out testEnumGnrcPrntEnumChildDual? output)
+    => input.DecodeEnum("EnumGnrcPrntEnumChildDual", out output);
 
   internal static testEnumGnrcPrntEnumChildDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testParentGnrcPrntEnumChildDualDecoder
+internal class testParentGnrcPrntEnumChildDualDecoder : IDecoder<testParentGnrcPrntEnumChildDual?>
 {
-  public string gnrcPrntEnumChildDualParent { get; set; }
+  public IMessages Decoder(IValue input, out testParentGnrcPrntEnumChildDual? output)
+    => input.DecodeEnum("ParentGnrcPrntEnumChildDual", out output);
 
   internal static testParentGnrcPrntEnumChildDualDecoder Factory(IDecoderRepository _) => new();
 }
@@ -38,6 +39,6 @@ internal static class test_generic_parent_enum_child_DualDecoders
   internal static IDecoderRepositoryBuilder Addtest_generic_parent_enum_child_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestGnrcPrntEnumChildDualObject>(testGnrcPrntEnumChildDualDecoder.Factory)
-      .AddDecoder<testEnumGnrcPrntEnumChildDual>(testEnumGnrcPrntEnumChildDualDecoder.Factory)
-      .AddDecoder<testParentGnrcPrntEnumChildDual>(testParentGnrcPrntEnumChildDualDecoder.Factory);
+      .AddDecoder<testEnumGnrcPrntEnumChildDual?>(testEnumGnrcPrntEnumChildDualDecoder.Factory)
+      .AddDecoder<testParentGnrcPrntEnumChildDual?>(testParentGnrcPrntEnumChildDualDecoder.Factory);
 }

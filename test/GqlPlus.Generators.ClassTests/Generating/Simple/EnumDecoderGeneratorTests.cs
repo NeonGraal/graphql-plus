@@ -15,9 +15,6 @@ public class EnumDecoderGeneratorTests
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Dec;
   internal override GqlpBaseType BaseType => GqlpBaseType.Class;
 
-  internal override ForType ForGeneratedCodeName(string name)
-    => ForGeneratedDecoder("internal class " + TestPrefix + name + "Decoder");
-
   internal override ForType ForGeneratedCodeParent(string parent)
     => _ => r => r.ShouldNotContain(": " + parent);
 
@@ -27,5 +24,5 @@ public class EnumDecoderGeneratorTests
     => new EnumBuilder(name);
 
   internal override ForType ForGeneratedItem(string name, EnumLabelInput item)
-    => ForGeneratedDecoder(item.Label);
+    => ForGeneratedDecoder($"=> input.DecodeEnum(\"{name}\", out output);");
 }

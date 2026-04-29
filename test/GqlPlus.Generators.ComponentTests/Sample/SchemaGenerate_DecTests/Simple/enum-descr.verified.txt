@@ -10,9 +10,10 @@ enum EnumDescr { "Enum" "Descr" enumDescr }
 
 namespace Components.Gqlp_Schema_enum_descr;
 
-internal class CmptEnumDescrDecoder
+internal class CmptEnumDescrDecoder : IDecoder<CmptEnumDescr?>
 {
-  public string enumDescr { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumDescr? output)
+    => input.DecodeEnum("EnumDescr", out output);
 
   internal static CmptEnumDescrDecoder Factory(IDecoderRepository _) => new();
 }
@@ -21,5 +22,5 @@ internal static class Cmpt_Schema_enum_descrDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_enum_descrDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<CmptEnumDescr>(CmptEnumDescrDecoder.Factory);
+      .AddDecoder<CmptEnumDescr?>(CmptEnumDescrDecoder.Factory);
 }

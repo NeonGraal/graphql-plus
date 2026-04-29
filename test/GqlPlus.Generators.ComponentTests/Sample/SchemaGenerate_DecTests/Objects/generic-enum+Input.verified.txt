@@ -23,9 +23,10 @@ internal class CmptRefGnrcEnumInpDecoder<TType>
   public TType Field { get; set; }
 }
 
-internal class CmptEnumGnrcEnumInpDecoder
+internal class CmptEnumGnrcEnumInpDecoder : IDecoder<CmptEnumGnrcEnumInp?>
 {
-  public string gnrcEnumInp { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumGnrcEnumInp? output)
+    => input.DecodeEnum("EnumGnrcEnumInp", out output);
 
   internal static CmptEnumGnrcEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -35,5 +36,5 @@ internal static class Cmpt_Schema_generic_enum_InputDecoders
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_enum_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmptGnrcEnumInpObject>(CmptGnrcEnumInpDecoder.Factory)
-      .AddDecoder<CmptEnumGnrcEnumInp>(CmptEnumGnrcEnumInpDecoder.Factory);
+      .AddDecoder<CmptEnumGnrcEnumInp?>(CmptEnumGnrcEnumInpDecoder.Factory);
 }

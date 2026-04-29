@@ -24,17 +24,18 @@ internal class CmptRefCnstEnumPrntDualDecoder<TType>
   public TType Field { get; set; }
 }
 
-internal class CmptEnumCnstEnumPrntDualDecoder
+internal class CmptEnumCnstEnumPrntDualDecoder : IDecoder<CmptEnumCnstEnumPrntDual?>
 {
-  public string parentCnstEnumPrntDual { get; set; }
-  public string cnstEnumPrntDual { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumCnstEnumPrntDual? output)
+    => input.DecodeEnum("EnumCnstEnumPrntDual", out output);
 
   internal static CmptEnumCnstEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptParentCnstEnumPrntDualDecoder
+internal class CmptParentCnstEnumPrntDualDecoder : IDecoder<CmptParentCnstEnumPrntDual?>
 {
-  public string parentCnstEnumPrntDual { get; set; }
+  public IMessages Decoder(IValue input, out CmptParentCnstEnumPrntDual? output)
+    => input.DecodeEnum("ParentCnstEnumPrntDual", out output);
 
   internal static CmptParentCnstEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
@@ -44,6 +45,6 @@ internal static class Cmpt_Schema_constraint_enum_parent_DualDecoders
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_enum_parent_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmptCnstEnumPrntDualObject>(CmptCnstEnumPrntDualDecoder.Factory)
-      .AddDecoder<CmptEnumCnstEnumPrntDual>(CmptEnumCnstEnumPrntDualDecoder.Factory)
-      .AddDecoder<CmptParentCnstEnumPrntDual>(CmptParentCnstEnumPrntDualDecoder.Factory);
+      .AddDecoder<CmptEnumCnstEnumPrntDual?>(CmptEnumCnstEnumPrntDualDecoder.Factory)
+      .AddDecoder<CmptParentCnstEnumPrntDual?>(CmptParentCnstEnumPrntDualDecoder.Factory);
 }

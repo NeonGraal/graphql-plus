@@ -54,27 +54,18 @@ dual _TypeSimple {
 
 namespace Components.Gqlp_Spec_Common;
 
-internal class Cmpt_SimpleKindDecoder
+internal class Cmpt_SimpleKindDecoder : IDecoder<Cmpt_SimpleKind?>
 {
-  public string Basic { get; set; }
-  public string Enum { get; set; }
-  public string Internal { get; set; }
-  public string Domain { get; set; }
-  public string Union { get; set; }
+  public IMessages Decoder(IValue input, out Cmpt_SimpleKind? output)
+    => input.DecodeEnum("_SimpleKind", out output);
 
   internal static Cmpt_SimpleKindDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_TypeKindDecoder
+internal class Cmpt_TypeKindDecoder : IDecoder<Cmpt_TypeKind?>
 {
-  public string Basic { get; set; }
-  public string Enum { get; set; }
-  public string Internal { get; set; }
-  public string Domain { get; set; }
-  public string Union { get; set; }
-  public string Dual { get; set; }
-  public string Input { get; set; }
-  public string Output { get; set; }
+  public IMessages Decoder(IValue input, out Cmpt_TypeKind? output)
+    => input.DecodeEnum("_TypeKind", out output);
 
   internal static Cmpt_TypeKindDecoder Factory(IDecoderRepository _) => new();
 }
@@ -94,7 +85,7 @@ internal static class Cmpt_Spec_CommonDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_CommonDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<Cmpt_SimpleKind>(Cmpt_SimpleKindDecoder.Factory)
-      .AddDecoder<Cmpt_TypeKind>(Cmpt_TypeKindDecoder.Factory)
+      .AddDecoder<Cmpt_SimpleKind?>(Cmpt_SimpleKindDecoder.Factory)
+      .AddDecoder<Cmpt_TypeKind?>(Cmpt_TypeKindDecoder.Factory)
       .AddDecoder<ICmpt_TypeSimpleObject>(Cmpt_TypeSimpleDecoder.Factory);
 }

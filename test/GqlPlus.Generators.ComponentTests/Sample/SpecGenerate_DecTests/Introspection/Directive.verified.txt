@@ -23,14 +23,10 @@ enum _Location { Operation Variable Field Inline Spread Fragment }
 
 namespace Components.Gqlp_Spec_Directive;
 
-internal class Cmpt_LocationDecoder
+internal class Cmpt_LocationDecoder : IDecoder<Cmpt_Location?>
 {
-  public string Operation { get; set; }
-  public string Variable { get; set; }
-  public string Field { get; set; }
-  public string Inline { get; set; }
-  public string Spread { get; set; }
-  public string Fragment { get; set; }
+  public IMessages Decoder(IValue input, out Cmpt_Location? output)
+    => input.DecodeEnum("_Location", out output);
 
   internal static Cmpt_LocationDecoder Factory(IDecoderRepository _) => new();
 }
@@ -39,5 +35,5 @@ internal static class Cmpt_Spec_DirectiveDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_DirectiveDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<Cmpt_Location>(Cmpt_LocationDecoder.Factory);
+      .AddDecoder<Cmpt_Location?>(Cmpt_LocationDecoder.Factory);
 }

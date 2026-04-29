@@ -17,9 +17,10 @@ internal class CmptAltEnumDualDecoder
   internal static CmptAltEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEnumAltEnumDualDecoder
+internal class CmptEnumAltEnumDualDecoder : IDecoder<CmptEnumAltEnumDual?>
 {
-  public string altEnumDual { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumAltEnumDual? output)
+    => input.DecodeEnum("EnumAltEnumDual", out output);
 
   internal static CmptEnumAltEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
@@ -29,5 +30,5 @@ internal static class Cmpt_Schema_alt_enum_DualDecoders
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_alt_enum_DualDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmptAltEnumDualObject>(CmptAltEnumDualDecoder.Factory)
-      .AddDecoder<CmptEnumAltEnumDual>(CmptEnumAltEnumDualDecoder.Factory);
+      .AddDecoder<CmptEnumAltEnumDual?>(CmptEnumAltEnumDualDecoder.Factory);
 }

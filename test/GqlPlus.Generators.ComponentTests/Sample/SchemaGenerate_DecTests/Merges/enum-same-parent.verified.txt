@@ -12,17 +12,18 @@ enum PrntEnumSamePrnt { prnt_enumSamePrnt }
 
 namespace Components.Gqlp_Schema_enum_same_parent;
 
-internal class CmptEnumSamePrntDecoder
+internal class CmptEnumSamePrntDecoder : IDecoder<CmptEnumSamePrnt?>
 {
-  public string prnt_enumSamePrnt { get; set; }
-  public string enumSamePrnt { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumSamePrnt? output)
+    => input.DecodeEnum("EnumSamePrnt", out output);
 
   internal static CmptEnumSamePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntEnumSamePrntDecoder
+internal class CmptPrntEnumSamePrntDecoder : IDecoder<CmptPrntEnumSamePrnt?>
 {
-  public string prnt_enumSamePrnt { get; set; }
+  public IMessages Decoder(IValue input, out CmptPrntEnumSamePrnt? output)
+    => input.DecodeEnum("PrntEnumSamePrnt", out output);
 
   internal static CmptPrntEnumSamePrntDecoder Factory(IDecoderRepository _) => new();
 }
@@ -31,6 +32,6 @@ internal static class Cmpt_Schema_enum_same_parentDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_enum_same_parentDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<CmptEnumSamePrnt>(CmptEnumSamePrntDecoder.Factory)
-      .AddDecoder<CmptPrntEnumSamePrnt>(CmptPrntEnumSamePrntDecoder.Factory);
+      .AddDecoder<CmptEnumSamePrnt?>(CmptEnumSamePrntDecoder.Factory)
+      .AddDecoder<CmptPrntEnumSamePrnt?>(CmptPrntEnumSamePrntDecoder.Factory);
 }

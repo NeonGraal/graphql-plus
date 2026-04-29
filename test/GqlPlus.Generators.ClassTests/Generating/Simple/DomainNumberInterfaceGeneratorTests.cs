@@ -9,9 +9,6 @@ public class DomainNumberInterfaceGeneratorTests
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
   internal override GqlpBaseType BaseType => GqlpBaseType.Interface;
 
-  internal override ForType ForGeneratedCodeName(string name)
-    => ForGeneratedInterface("public interface I" + TestPrefix + name);
-
   internal override ForType ForGeneratedCodeParent(string parent)
     => ForGeneratedInterface(": I" + parent);
 

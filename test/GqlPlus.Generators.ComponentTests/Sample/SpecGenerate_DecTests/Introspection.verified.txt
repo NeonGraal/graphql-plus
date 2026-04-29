@@ -406,48 +406,34 @@ internal class Cmpt_DescribedDecoder
   internal static Cmpt_DescribedDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_ResolutionDecoder
+internal class Cmpt_ResolutionDecoder : IDecoder<Cmpt_Resolution?>
 {
-  public string Parallel { get; set; }
-  public string Sequential { get; set; }
-  public string Single { get; set; }
+  public IMessages Decoder(IValue input, out Cmpt_Resolution? output)
+    => input.DecodeEnum("_Resolution", out output);
 
   internal static Cmpt_ResolutionDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_LocationDecoder
+internal class Cmpt_LocationDecoder : IDecoder<Cmpt_Location?>
 {
-  public string Operation { get; set; }
-  public string Variable { get; set; }
-  public string Field { get; set; }
-  public string Inline { get; set; }
-  public string Spread { get; set; }
-  public string Fragment { get; set; }
+  public IMessages Decoder(IValue input, out Cmpt_Location? output)
+    => input.DecodeEnum("_Location", out output);
 
   internal static Cmpt_LocationDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_SimpleKindDecoder
+internal class Cmpt_SimpleKindDecoder : IDecoder<Cmpt_SimpleKind?>
 {
-  public string Basic { get; set; }
-  public string Enum { get; set; }
-  public string Internal { get; set; }
-  public string Domain { get; set; }
-  public string Union { get; set; }
+  public IMessages Decoder(IValue input, out Cmpt_SimpleKind? output)
+    => input.DecodeEnum("_SimpleKind", out output);
 
   internal static Cmpt_SimpleKindDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_TypeKindDecoder
+internal class Cmpt_TypeKindDecoder : IDecoder<Cmpt_TypeKind?>
 {
-  public string Basic { get; set; }
-  public string Enum { get; set; }
-  public string Internal { get; set; }
-  public string Domain { get; set; }
-  public string Union { get; set; }
-  public string Dual { get; set; }
-  public string Input { get; set; }
-  public string Output { get; set; }
+  public IMessages Decoder(IValue input, out Cmpt_TypeKind? output)
+    => input.DecodeEnum("_TypeKind", out output);
 
   internal static Cmpt_TypeKindDecoder Factory(IDecoderRepository _) => new();
 }
@@ -481,15 +467,10 @@ internal class Cmpt_ModifiersDecoder
   internal static Cmpt_ModifiersDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_ModifierKindDecoder
+internal class Cmpt_ModifierKindDecoder : IDecoder<Cmpt_ModifierKind?>
 {
-  public string Opt { get; set; }
-  public string Optional { get; set; }
-  public string List { get; set; }
-  public string Dict { get; set; }
-  public string Dictionary { get; set; }
-  public string Param { get; set; }
-  public string TypeParam { get; set; }
+  public IMessages Decoder(IValue input, out Cmpt_ModifierKind? output)
+    => input.DecodeEnum("_ModifierKind", out output);
 
   internal static Cmpt_ModifierKindDecoder Factory(IDecoderRepository _) => new();
 }
@@ -499,12 +480,10 @@ internal class Cmpt_ModifierDecoder<TModifierKind>
   public TModifierKind ModifierKind { get; set; }
 }
 
-internal class Cmpt_DomainKindDecoder
+internal class Cmpt_DomainKindDecoder : IDecoder<Cmpt_DomainKind?>
 {
-  public string Boolean { get; set; }
-  public string Enum { get; set; }
-  public string Number { get; set; }
-  public string String { get; set; }
+  public IMessages Decoder(IValue input, out Cmpt_DomainKind? output)
+    => input.DecodeEnum("_DomainKind", out output);
 
   internal static Cmpt_DomainKindDecoder Factory(IDecoderRepository _) => new();
 }
@@ -563,15 +542,15 @@ internal static class Cmpt_Spec_IntrospectionDecoders
       .AddDecoder<ICmpt_AliasedObject>(Cmpt_AliasedDecoder.Factory)
       .AddDecoder<ICmpt_NamedObject>(Cmpt_NamedDecoder.Factory)
       .AddDecoder<ICmpt_DescribedObject>(Cmpt_DescribedDecoder.Factory)
-      .AddDecoder<Cmpt_Resolution>(Cmpt_ResolutionDecoder.Factory)
-      .AddDecoder<Cmpt_Location>(Cmpt_LocationDecoder.Factory)
-      .AddDecoder<Cmpt_SimpleKind>(Cmpt_SimpleKindDecoder.Factory)
-      .AddDecoder<Cmpt_TypeKind>(Cmpt_TypeKindDecoder.Factory)
+      .AddDecoder<Cmpt_Resolution?>(Cmpt_ResolutionDecoder.Factory)
+      .AddDecoder<Cmpt_Location?>(Cmpt_LocationDecoder.Factory)
+      .AddDecoder<Cmpt_SimpleKind?>(Cmpt_SimpleKindDecoder.Factory)
+      .AddDecoder<Cmpt_TypeKind?>(Cmpt_TypeKindDecoder.Factory)
       .AddDecoder<ICmpt_TypeSimpleObject>(Cmpt_TypeSimpleDecoder.Factory)
       .AddDecoder<ICmpt_CollectionsObject>(Cmpt_CollectionsDecoder.Factory)
       .AddDecoder<ICmpt_ModifiersObject>(Cmpt_ModifiersDecoder.Factory)
-      .AddDecoder<Cmpt_ModifierKind>(Cmpt_ModifierKindDecoder.Factory)
-      .AddDecoder<Cmpt_DomainKind>(Cmpt_DomainKindDecoder.Factory)
+      .AddDecoder<Cmpt_ModifierKind?>(Cmpt_ModifierKindDecoder.Factory)
+      .AddDecoder<Cmpt_DomainKind?>(Cmpt_DomainKindDecoder.Factory)
       .AddDecoder<ICmpt_BaseDomainItemObject>(Cmpt_BaseDomainItemDecoder.Factory)
       .AddDecoder<ICmpt_DomainTrueFalseObject>(Cmpt_DomainTrueFalseDecoder.Factory)
       .AddDecoder<ICmpt_DomainRangeObject>(Cmpt_DomainRangeDecoder.Factory)

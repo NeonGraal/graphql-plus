@@ -18,9 +18,10 @@ internal class CmptFieldValueDescrInpDecoder
   internal static CmptFieldValueDescrInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEnumFieldValueDescrInpDecoder
+internal class CmptEnumFieldValueDescrInpDecoder : IDecoder<CmptEnumFieldValueDescrInp?>
 {
-  public string fieldValueDescrInp { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumFieldValueDescrInp? output)
+    => input.DecodeEnum("EnumFieldValueDescrInp", out output);
 
   internal static CmptEnumFieldValueDescrInpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -30,5 +31,5 @@ internal static class Cmpt_Schema_field_value_descr_InputDecoders
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_field_value_descr_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmptFieldValueDescrInpObject>(CmptFieldValueDescrInpDecoder.Factory)
-      .AddDecoder<CmptEnumFieldValueDescrInp>(CmptEnumFieldValueDescrInpDecoder.Factory);
+      .AddDecoder<CmptEnumFieldValueDescrInp?>(CmptEnumFieldValueDescrInpDecoder.Factory);
 }

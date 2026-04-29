@@ -24,10 +24,10 @@ internal class CmptRefCnstDomEnumInpDecoder<TType>
   public TType Field { get; set; }
 }
 
-internal class CmptEnumCnstDomEnumInpDecoder
+internal class CmptEnumCnstDomEnumInpDecoder : IDecoder<CmptEnumCnstDomEnumInp?>
 {
-  public string cnstDomEnumInp { get; set; }
-  public string other { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumCnstDomEnumInp? output)
+    => input.DecodeEnum("EnumCnstDomEnumInp", out output);
 
   internal static CmptEnumCnstDomEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -43,6 +43,6 @@ internal static class Cmpt_Schema_constraint_dom_enum_InputDecoders
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_constraint_dom_enum_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmptCnstDomEnumInpObject>(CmptCnstDomEnumInpDecoder.Factory)
-      .AddDecoder<CmptEnumCnstDomEnumInp>(CmptEnumCnstDomEnumInpDecoder.Factory)
+      .AddDecoder<CmptEnumCnstDomEnumInp?>(CmptEnumCnstDomEnumInpDecoder.Factory)
       .AddDecoder<ICmptJustCnstDomEnumInp>(CmptJustCnstDomEnumInpDecoder.Factory);
 }

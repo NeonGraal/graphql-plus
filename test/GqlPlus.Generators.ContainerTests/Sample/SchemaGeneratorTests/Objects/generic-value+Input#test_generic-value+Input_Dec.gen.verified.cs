@@ -18,9 +18,10 @@ internal class testRefGnrcValueInpDecoder<TType>
   public TType Field { get; set; }
 }
 
-internal class testEnumGnrcValueInpDecoder
+internal class testEnumGnrcValueInpDecoder : IDecoder<testEnumGnrcValueInp?>
 {
-  public string gnrcValueInp { get; set; }
+  public IMessages Decoder(IValue input, out testEnumGnrcValueInp? output)
+    => input.DecodeEnum("EnumGnrcValueInp", out output);
 
   internal static testEnumGnrcValueInpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -30,5 +31,5 @@ internal static class test_generic_value_InputDecoders
   internal static IDecoderRepositoryBuilder Addtest_generic_value_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestGnrcValueInpObject>(testGnrcValueInpDecoder.Factory)
-      .AddDecoder<testEnumGnrcValueInp>(testEnumGnrcValueInpDecoder.Factory);
+      .AddDecoder<testEnumGnrcValueInp?>(testEnumGnrcValueInpDecoder.Factory);
 }

@@ -18,17 +18,18 @@ internal class testFieldGnrcPrntEnumChildInpDecoder<TRef>
   public TRef Field { get; set; }
 }
 
-internal class testEnumGnrcPrntEnumChildInpDecoder
+internal class testEnumGnrcPrntEnumChildInpDecoder : IDecoder<testEnumGnrcPrntEnumChildInp?>
 {
-  public string gnrcPrntEnumChildInpParent { get; set; }
-  public string gnrcPrntEnumChildInpLabel { get; set; }
+  public IMessages Decoder(IValue input, out testEnumGnrcPrntEnumChildInp? output)
+    => input.DecodeEnum("EnumGnrcPrntEnumChildInp", out output);
 
   internal static testEnumGnrcPrntEnumChildInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testParentGnrcPrntEnumChildInpDecoder
+internal class testParentGnrcPrntEnumChildInpDecoder : IDecoder<testParentGnrcPrntEnumChildInp?>
 {
-  public string gnrcPrntEnumChildInpParent { get; set; }
+  public IMessages Decoder(IValue input, out testParentGnrcPrntEnumChildInp? output)
+    => input.DecodeEnum("ParentGnrcPrntEnumChildInp", out output);
 
   internal static testParentGnrcPrntEnumChildInpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -38,6 +39,6 @@ internal static class test_generic_parent_enum_child_InputDecoders
   internal static IDecoderRepositoryBuilder Addtest_generic_parent_enum_child_InputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestGnrcPrntEnumChildInpObject>(testGnrcPrntEnumChildInpDecoder.Factory)
-      .AddDecoder<testEnumGnrcPrntEnumChildInp>(testEnumGnrcPrntEnumChildInpDecoder.Factory)
-      .AddDecoder<testParentGnrcPrntEnumChildInp>(testParentGnrcPrntEnumChildInpDecoder.Factory);
+      .AddDecoder<testEnumGnrcPrntEnumChildInp?>(testEnumGnrcPrntEnumChildInpDecoder.Factory)
+      .AddDecoder<testParentGnrcPrntEnumChildInp?>(testParentGnrcPrntEnumChildInpDecoder.Factory);
 }

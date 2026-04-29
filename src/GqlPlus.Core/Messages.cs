@@ -66,6 +66,13 @@ public static class MessageHelpers
   public static IMessage Info(this string message)
     => new AMessage(MessageLevel.Info, message);
 
+  public static IMessages AnError(this string message)
+    => Messages.New.Add(new AMessage(MessageLevel.Error, message));
+  public static IMessages AWarning(this string message)
+    => Messages.New.Add(new AMessage(MessageLevel.Warning, message));
+  public static IMessages AnInfo(this string message)
+    => Messages.New.Add(new AMessage(MessageLevel.Info, message));
+
   private sealed record class AMessage(
     MessageLevel Level,
     string Message

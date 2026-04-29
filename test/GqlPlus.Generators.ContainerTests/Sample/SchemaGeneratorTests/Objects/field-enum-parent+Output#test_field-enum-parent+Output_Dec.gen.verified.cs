@@ -7,17 +7,18 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_enum_parent_Output;
 
-internal class testEnumFieldEnumPrntOutpDecoder
+internal class testEnumFieldEnumPrntOutpDecoder : IDecoder<testEnumFieldEnumPrntOutp?>
 {
-  public string prnt_fieldEnumPrntOutp { get; set; }
-  public string fieldEnumPrntOutp { get; set; }
+  public IMessages Decoder(IValue input, out testEnumFieldEnumPrntOutp? output)
+    => input.DecodeEnum("EnumFieldEnumPrntOutp", out output);
 
   internal static testEnumFieldEnumPrntOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntFieldEnumPrntOutpDecoder
+internal class testPrntFieldEnumPrntOutpDecoder : IDecoder<testPrntFieldEnumPrntOutp?>
 {
-  public string prnt_fieldEnumPrntOutp { get; set; }
+  public IMessages Decoder(IValue input, out testPrntFieldEnumPrntOutp? output)
+    => input.DecodeEnum("PrntFieldEnumPrntOutp", out output);
 
   internal static testPrntFieldEnumPrntOutpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -26,6 +27,6 @@ internal static class test_field_enum_parent_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_field_enum_parent_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<testEnumFieldEnumPrntOutp>(testEnumFieldEnumPrntOutpDecoder.Factory)
-      .AddDecoder<testPrntFieldEnumPrntOutp>(testPrntFieldEnumPrntOutpDecoder.Factory);
+      .AddDecoder<testEnumFieldEnumPrntOutp?>(testEnumFieldEnumPrntOutpDecoder.Factory)
+      .AddDecoder<testPrntFieldEnumPrntOutp?>(testPrntFieldEnumPrntOutpDecoder.Factory);
 }

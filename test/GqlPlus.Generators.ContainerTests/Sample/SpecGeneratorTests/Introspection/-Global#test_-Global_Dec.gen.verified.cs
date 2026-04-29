@@ -7,23 +7,18 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp__Global;
 
-internal class test_ResolutionDecoder
+internal class test_ResolutionDecoder : IDecoder<test_Resolution?>
 {
-  public string Parallel { get; set; }
-  public string Sequential { get; set; }
-  public string Single { get; set; }
+  public IMessages Decoder(IValue input, out test_Resolution? output)
+    => input.DecodeEnum("_Resolution", out output);
 
   internal static test_ResolutionDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_LocationDecoder
+internal class test_LocationDecoder : IDecoder<test_Location?>
 {
-  public string Operation { get; set; }
-  public string Variable { get; set; }
-  public string Field { get; set; }
-  public string Inline { get; set; }
-  public string Spread { get; set; }
-  public string Fragment { get; set; }
+  public IMessages Decoder(IValue input, out test_Location? output)
+    => input.DecodeEnum("_Location", out output);
 
   internal static test_LocationDecoder Factory(IDecoderRepository _) => new();
 }
@@ -32,6 +27,6 @@ internal static class test__GlobalDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest__GlobalDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<test_Resolution>(test_ResolutionDecoder.Factory)
-      .AddDecoder<test_Location>(test_LocationDecoder.Factory);
+      .AddDecoder<test_Resolution?>(test_ResolutionDecoder.Factory)
+      .AddDecoder<test_Location?>(test_LocationDecoder.Factory);
 }

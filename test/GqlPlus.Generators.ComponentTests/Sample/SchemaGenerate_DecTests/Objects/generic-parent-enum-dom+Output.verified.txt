@@ -13,10 +13,10 @@ domain DomGnrcPrntEnumDomOutp { enum gnrcPrntEnumDomOutpLabel }
 
 namespace Components.Gqlp_Schema_generic_parent_enum_dom_Output;
 
-internal class CmptEnumGnrcPrntEnumDomOutpDecoder
+internal class CmptEnumGnrcPrntEnumDomOutpDecoder : IDecoder<CmptEnumGnrcPrntEnumDomOutp?>
 {
-  public string gnrcPrntEnumDomOutpLabel { get; set; }
-  public string gnrcPrntEnumDomOutpOther { get; set; }
+  public IMessages Decoder(IValue input, out CmptEnumGnrcPrntEnumDomOutp? output)
+    => input.DecodeEnum("EnumGnrcPrntEnumDomOutp", out output);
 
   internal static CmptEnumGnrcPrntEnumDomOutpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -31,6 +31,6 @@ internal static class Cmpt_Schema_generic_parent_enum_dom_OutputDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_generic_parent_enum_dom_OutputDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<CmptEnumGnrcPrntEnumDomOutp>(CmptEnumGnrcPrntEnumDomOutpDecoder.Factory)
+      .AddDecoder<CmptEnumGnrcPrntEnumDomOutp?>(CmptEnumGnrcPrntEnumDomOutpDecoder.Factory)
       .AddDecoder<ICmptDomGnrcPrntEnumDomOutp>(CmptDomGnrcPrntEnumDomOutpDecoder.Factory);
 }

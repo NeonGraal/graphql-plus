@@ -120,37 +120,43 @@ public class CmptQueryObject
   : GraphQl_Samples
   , ICmptQueryObject
 {
-  public ICmptFullUser? User(ICmptUserFilter parameter)
+  public ICmptFullUser User { get; set; }
+  public ICmptFullUser? Call_User(ICmptUserFilter parameter)
     => null;
-  public ICmptFullUser? User()
+  public ICmptStory LikeStory { get; set; }
+  public ICmptStory? Call_LikeStory(ICmptStoryFilter parameter)
     => null;
-  public ICmptStory? LikeStory(ICmptStoryFilter parameter)
-    => null;
-  public ICmptStory? LikeStory()
-    => null;
-  public string? Field(ICmptFieldFilter parameter)
-    => null;
-  public string? Field()
+  public string Field { get; set; }
+  public string? Call_Field(ICmptFieldFilter parameter)
     => null;
   public ICmptFullUser Me { get; set; }
-  public string? Picture(ICmptPicFilter parameter)
+  public string Picture { get; set; }
+  public string? Call_Picture(ICmptPicFilter parameter)
     => null;
-  public string? Picture()
+  public ICollection<ICmptProfile> Profiles { get; set; }
+  public ICollection<ICmptProfile>? Call_Profiles(ICmptProfileFilter parameter)
     => null;
-  public ICollection<ICmptProfile>? Profiles(ICmptProfileFilter parameter)
-    => null;
-  public ICollection<ICmptProfile>? Profiles()
-    => null;
-  public string? NearestThing(ICmptThingFilter parameter)
-    => null;
-  public string? NearestThing()
+  public string NearestThing { get; set; }
+  public string? Call_NearestThing(ICmptThingFilter parameter)
     => null;
 
   public CmptQueryObject
-    ( ICmptFullUser pme
+    ( ICmptFullUser puser
+    , ICmptStory plikeStory
+    , string pfield
+    , ICmptFullUser pme
+    , string ppicture
+    , ICollection<ICmptProfile> pprofiles
+    , string pnearestThing
     )
   {
+    User = puser;
+    LikeStory = plikeStory;
+    Field = pfield;
     Me = pme;
+    Picture = ppicture;
+    Profiles = pprofiles;
+    NearestThing = pnearestThing;
   }
 }
 
@@ -165,14 +171,15 @@ public class CmptMutationObject
   : GraphQl_Samples
   , ICmptMutationObject
 {
-  public bool? SendEmail(ICmptEmail parameter)
-    => null;
-  public bool? SendEmail()
+  public bool SendEmail { get; set; }
+  public bool? Call_SendEmail(ICmptEmail parameter)
     => null;
 
   public CmptMutationObject
-    ()
+    ( bool psendEmail
+    )
   {
+    SendEmail = psendEmail;
   }
 }
 
@@ -241,17 +248,14 @@ public class CmptFullUserObject
   : CmptUserObject
   , ICmptFullUserObject
 {
-  public string? ProfilePic(ICmptPicFilter parameter)
+  public string ProfilePic { get; set; }
+  public string? Call_ProfilePic(ICmptPicFilter parameter)
     => null;
-  public string? ProfilePic()
+  public ICmptUserList Friends { get; set; }
+  public ICmptUserList? Call_Friends(ICmptFriendsFilter parameter)
     => null;
-  public ICmptUserList? Friends(ICmptFriendsFilter parameter)
-    => null;
-  public ICmptUserList? Friends()
-    => null;
-  public ICmptUserList? MutualFriends(ICmptFriendsFilter parameter)
-    => null;
-  public ICmptUserList? MutualFriends()
+  public ICmptUserList MutualFriends { get; set; }
+  public ICmptUserList? Call_MutualFriends(ICmptFriendsFilter parameter)
     => null;
 
   public CmptFullUserObject
@@ -260,8 +264,14 @@ public class CmptFullUserObject
     , string pfirstName
     , string plastName
     , ICmptDate pbirthday
+    , string pprofilePic
+    , ICmptUserList pfriends
+    , ICmptUserList pmutualFriends
     ) : base(pid, pname, pfirstName, plastName, pbirthday)
   {
+    ProfilePic = pprofilePic;
+    Friends = pfriends;
+    MutualFriends = pmutualFriends;
   }
 }
 

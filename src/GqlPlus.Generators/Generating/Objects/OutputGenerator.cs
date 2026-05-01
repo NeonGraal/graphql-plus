@@ -7,23 +7,20 @@ internal abstract class OutputGeneratorBase
 {
   protected override void ClassMember(OutputField item, GqlpGeneratorContext context)
   {
-    if (string.IsNullOrEmpty(item.Param)) {
-      context.Write("  public " + item.Type + " " + item.Name + " { get; set; }");
-    } else {
-      context.Write($"  public {item.Type.Trim('?')}? {item.Name}({item.Param} parameter)");
-      context.Write("    => null;");
-      context.Write($"  public {item.Type.Trim('?')}? {item.Name}()");
+    context.Write("  public " + item.Type + " " + item.Name + " { get; set; }");
+
+    if (!string.IsNullOrEmpty(item.Param)) {
+      context.Write($"  public {item.Type.Trim('?')}? Call_{item.Name}({item.Param} parameter)");
       context.Write("    => null;");
     }
   }
 
   protected override void InterfaceMember(OutputField item, GqlpGeneratorContext context)
   {
-    if (string.IsNullOrEmpty(item.Param)) {
-      context.Write("  " + item.Type + " " + item.Name + " { get; }");
-    } else {
-      context.Write($"  {item.Type.Trim('?')}? {item.Name}({item.Param} parameter);");
-      context.Write($"  {item.Type.Trim('?')}? {item.Name}();");
+    context.Write("  " + item.Type + " " + item.Name + " { get; }");
+
+    if (!string.IsNullOrEmpty(item.Param)) {
+      context.Write($"  {item.Type.Trim('?')}? Call_{item.Name}({item.Param} parameter);");
     }
   }
 
@@ -32,12 +29,6 @@ internal abstract class OutputGeneratorBase
       f.Name.Capitalize(),
       ModifiedTypeString(f.Type, f, types),
       f.Parameter is null ? "" : ModifiedTypeString(f.Parameter.Type, f.Parameter, types)));
-
-  internal override MapPair<RequiredField>[] RequiredMembers(IAstObject ast, GqlpGeneratorTypes types)
-    => [.. ast.Fields
-      .Where(f => f.Modifiers.LastOrDefault()?.ModifierKind != ModifierKind.Opt
-        && !(f is IAstOutputField outF && outF.Parameter is not null))
-      .Select(RequiredMember(types))];
 }
 
 internal sealed class OutputInterfaceGenerator

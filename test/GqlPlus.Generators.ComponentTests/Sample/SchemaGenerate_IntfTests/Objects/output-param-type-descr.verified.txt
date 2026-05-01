@@ -21,8 +21,8 @@ public interface ICmptOutpParamTypeDescr
 public interface ICmptOutpParamTypeDescrObject
   : Schema_output-param-type-descr
 {
-  ICmptFldOutpParamTypeDescr? Field(ICmptInOutpParamTypeDescr parameter);
-  ICmptFldOutpParamTypeDescr? Field();
+  ICmptFldOutpParamTypeDescr Field { get; }
+  ICmptFldOutpParamTypeDescr? Call_Field(ICmptInOutpParamTypeDescr parameter);
 }
 
 public interface ICmptFldOutpParamTypeDescr

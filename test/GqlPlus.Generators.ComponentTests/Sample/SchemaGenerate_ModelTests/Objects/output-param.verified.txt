@@ -23,14 +23,15 @@ public class CmptOutpParamObject
   : Schema_output-param
   , ICmptOutpParamObject
 {
-  public ICmptFldOutpParam? Field(ICmptInOutpParam parameter)
-    => null;
-  public ICmptFldOutpParam? Field()
+  public ICmptFldOutpParam Field { get; set; }
+  public ICmptFldOutpParam? Call_Field(ICmptInOutpParam parameter)
     => null;
 
   public CmptOutpParamObject
-    ()
+    ( ICmptFldOutpParam pfield
+    )
   {
+    Field = pfield;
   }
 }
 

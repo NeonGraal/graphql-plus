@@ -1,0 +1,41 @@
+﻿/* object-field-alias+Input
+input ObjFieldAliasInp { field [field1]: FldObjFieldAliasInp }
+input ObjFieldAliasInp { field [field2]: FldObjFieldAliasInp }
+input FldObjFieldAliasInp { }
+*/
+
+// Generated from Schema object-field-alias+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field-alias+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_alias_Input;
+
+internal class CmptObjFieldAliasInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptObjFieldAliasInpObject>
+{
+  private readonly IEncoder<ICmptFldObjFieldAliasInp> _fldObjFieldAliasInp = encoders.EncoderFor<ICmptFldObjFieldAliasInp>();
+  public Structured Encode(ICmptObjFieldAliasInpObject input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _fldObjFieldAliasInp);
+
+  internal static CmptObjFieldAliasInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptFldObjFieldAliasInpEncoder : IEncoder<ICmptFldObjFieldAliasInpObject>
+{
+  public Structured Encode(ICmptFldObjFieldAliasInpObject input)
+    => Structured.Empty();
+
+  internal static CmptFldObjFieldAliasInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_object_field_alias_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_object_field_alias_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptObjFieldAliasInpObject>(CmptObjFieldAliasInpEncoder.Factory)
+      .AddEncoder<ICmptFldObjFieldAliasInpObject>(CmptFldObjFieldAliasInpEncoder.Factory);
+}

@@ -21,8 +21,8 @@ public interface ICmptOutpParam
 public interface ICmptOutpParamObject
   : Schema_output-param
 {
-  ICmptFldOutpParam? Field(ICmptInOutpParam parameter);
-  ICmptFldOutpParam? Field();
+  ICmptFldOutpParam Field { get; }
+  ICmptFldOutpParam? Call_Field(ICmptInOutpParam parameter);
 }
 
 public interface ICmptFldOutpParam

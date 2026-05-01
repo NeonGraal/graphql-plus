@@ -7908,14 +7908,15 @@ public class CmptOutpDescrParamObject
   : Schema_!ALL
   , ICmptOutpDescrParamObject
 {
-  public ICmptFldOutpDescrParam? Field(ICmptInOutpDescrParam parameter)
-    => null;
-  public ICmptFldOutpDescrParam? Field()
+  public ICmptFldOutpDescrParam Field { get; set; }
+  public ICmptFldOutpDescrParam? Call_Field(ICmptInOutpDescrParam parameter)
     => null;
 
   public CmptOutpDescrParamObject
-    ()
+    ( ICmptFldOutpDescrParam pfield
+    )
   {
+    Field = pfield;
   }
 }
 
@@ -7970,14 +7971,15 @@ public class CmptOutpParamObject
   : Schema_!ALL
   , ICmptOutpParamObject
 {
-  public ICmptFldOutpParam? Field(ICmptInOutpParam parameter)
-    => null;
-  public ICmptFldOutpParam? Field()
+  public ICmptFldOutpParam Field { get; set; }
+  public ICmptFldOutpParam? Call_Field(ICmptInOutpParam parameter)
     => null;
 
   public CmptOutpParamObject
-    ()
+    ( ICmptFldOutpParam pfield
+    )
   {
+    Field = pfield;
   }
 }
 
@@ -8032,14 +8034,15 @@ public class CmptOutpParamDescrObject
   : Schema_!ALL
   , ICmptOutpParamDescrObject
 {
-  public ICmptFldOutpParamDescr? Field(ICmptInOutpParamDescr parameter)
-    => null;
-  public ICmptFldOutpParamDescr? Field()
+  public ICmptFldOutpParamDescr Field { get; set; }
+  public ICmptFldOutpParamDescr? Call_Field(ICmptInOutpParamDescr parameter)
     => null;
 
   public CmptOutpParamDescrObject
-    ()
+    ( ICmptFldOutpParamDescr pfield
+    )
   {
+    Field = pfield;
   }
 }
 
@@ -8094,14 +8097,15 @@ public class CmptOutpParamModDmnObject
   : Schema_!ALL
   , ICmptOutpParamModDmnObject
 {
-  public ICmptDomOutpParamModDmn? Field(IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter)
-    => null;
-  public ICmptDomOutpParamModDmn? Field()
+  public ICmptDomOutpParamModDmn Field { get; set; }
+  public ICmptDomOutpParamModDmn? Call_Field(IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter)
     => null;
 
   public CmptOutpParamModDmnObject
-    ()
+    ( ICmptDomOutpParamModDmn pfield
+    )
   {
+    Field = pfield;
   }
 }
 
@@ -8144,14 +8148,15 @@ public class CmptOutpParamModParamObject<TMod>
   : Schema_!ALL
   , ICmptOutpParamModParamObject<TMod>
 {
-  public ICmptDomOutpParamModParam? Field(IDictionary<TMod, ICmptInOutpParamModParam> parameter)
-    => null;
-  public ICmptDomOutpParamModParam? Field()
+  public ICmptDomOutpParamModParam Field { get; set; }
+  public ICmptDomOutpParamModParam? Call_Field(IDictionary<TMod, ICmptInOutpParamModParam> parameter)
     => null;
 
   public CmptOutpParamModParamObject
-    ()
+    ( ICmptDomOutpParamModParam pfield
+    )
   {
+    Field = pfield;
   }
 }
 
@@ -8194,14 +8199,15 @@ public class CmptOutpParamTypeDescrObject
   : Schema_!ALL
   , ICmptOutpParamTypeDescrObject
 {
-  public ICmptFldOutpParamTypeDescr? Field(ICmptInOutpParamTypeDescr parameter)
-    => null;
-  public ICmptFldOutpParamTypeDescr? Field()
+  public ICmptFldOutpParamTypeDescr Field { get; set; }
+  public ICmptFldOutpParamTypeDescr? Call_Field(ICmptInOutpParamTypeDescr parameter)
     => null;
 
   public CmptOutpParamTypeDescrObject
-    ()
+    ( ICmptFldOutpParamTypeDescr pfield
+    )
   {
+    Field = pfield;
   }
 }
 
@@ -8296,14 +8302,16 @@ public class CmptOutpPrntParamObject
   : CmptPrntOutpPrntParamObject
   , ICmptOutpPrntParamObject
 {
-  public ICmptFldOutpPrntParam? Field(ICmptInOutpPrntParam parameter)
-    => null;
-  public ICmptFldOutpPrntParam? Field()
+  public ICmptFldOutpPrntParam Field { get; set; }
+  public ICmptFldOutpPrntParam? Call_Field(ICmptInOutpPrntParam parameter)
     => null;
 
   public CmptOutpPrntParamObject
-    ()
+    ( ICmptFldOutpPrntParam pfield
+    , ICmptFldOutpPrntParam pfield
+    ) : base(pfield)
   {
+    Field = pfield;
   }
 }
 
@@ -8318,14 +8326,15 @@ public class CmptPrntOutpPrntParamObject
   : Schema_!ALL
   , ICmptPrntOutpPrntParamObject
 {
-  public ICmptFldOutpPrntParam? Field(ICmptPrntOutpPrntParamIn parameter)
-    => null;
-  public ICmptFldOutpPrntParam? Field()
+  public ICmptFldOutpPrntParam Field { get; set; }
+  public ICmptFldOutpPrntParam? Call_Field(ICmptPrntOutpPrntParamIn parameter)
     => null;
 
   public CmptPrntOutpPrntParamObject
-    ()
+    ( ICmptFldOutpPrntParam pfield
+    )
   {
+    Field = pfield;
   }
 }
 
@@ -10459,14 +10468,15 @@ public class CmptOutpFieldParamObject
   : Schema_!ALL
   , ICmptOutpFieldParamObject
 {
-  public ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter)
-    => null;
-  public ICmptFldOutpFieldParam? Field()
+  public ICmptFldOutpFieldParam Field { get; set; }
+  public ICmptFldOutpFieldParam? Call_Field(ICmptOutpFieldParam1 parameter)
     => null;
 
   public CmptOutpFieldParamObject
-    ()
+    ( ICmptFldOutpFieldParam pfield
+    )
   {
+    Field = pfield;
   }
 }
 

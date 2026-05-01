@@ -19,37 +19,43 @@ public class testQueryObject
   : GqlpModelBase
   , ItestQueryObject
 {
-  public ItestFullUser? User(ItestUserFilter parameter)
+  public ItestFullUser User { get; set; }
+  public ItestFullUser? Call_User(ItestUserFilter parameter)
     => null;
-  public ItestFullUser? User()
+  public ItestStory LikeStory { get; set; }
+  public ItestStory? Call_LikeStory(ItestStoryFilter parameter)
     => null;
-  public ItestStory? LikeStory(ItestStoryFilter parameter)
-    => null;
-  public ItestStory? LikeStory()
-    => null;
-  public string? Field(ItestFieldFilter parameter)
-    => null;
-  public string? Field()
+  public string Field { get; set; }
+  public string? Call_Field(ItestFieldFilter parameter)
     => null;
   public ItestFullUser Me { get; set; }
-  public string? Picture(ItestPicFilter parameter)
+  public string Picture { get; set; }
+  public string? Call_Picture(ItestPicFilter parameter)
     => null;
-  public string? Picture()
+  public ICollection<ItestProfile> Profiles { get; set; }
+  public ICollection<ItestProfile>? Call_Profiles(ItestProfileFilter parameter)
     => null;
-  public ICollection<ItestProfile>? Profiles(ItestProfileFilter parameter)
-    => null;
-  public ICollection<ItestProfile>? Profiles()
-    => null;
-  public string? NearestThing(ItestThingFilter parameter)
-    => null;
-  public string? NearestThing()
+  public string NearestThing { get; set; }
+  public string? Call_NearestThing(ItestThingFilter parameter)
     => null;
 
   public testQueryObject
-    ( ItestFullUser pme
+    ( ItestFullUser puser
+    , ItestStory plikeStory
+    , string pfield
+    , ItestFullUser pme
+    , string ppicture
+    , ICollection<ItestProfile> pprofiles
+    , string pnearestThing
     )
   {
+    User = puser;
+    LikeStory = plikeStory;
+    Field = pfield;
     Me = pme;
+    Picture = ppicture;
+    Profiles = pprofiles;
+    NearestThing = pnearestThing;
   }
 }
 
@@ -64,14 +70,15 @@ public class testMutationObject
   : GqlpModelBase
   , ItestMutationObject
 {
-  public bool? SendEmail(ItestEmail parameter)
-    => null;
-  public bool? SendEmail()
+  public bool SendEmail { get; set; }
+  public bool? Call_SendEmail(ItestEmail parameter)
     => null;
 
   public testMutationObject
-    ()
+    ( bool psendEmail
+    )
   {
+    SendEmail = psendEmail;
   }
 }
 
@@ -140,17 +147,14 @@ public class testFullUserObject
   : testUserObject
   , ItestFullUserObject
 {
-  public string? ProfilePic(ItestPicFilter parameter)
+  public string ProfilePic { get; set; }
+  public string? Call_ProfilePic(ItestPicFilter parameter)
     => null;
-  public string? ProfilePic()
+  public ItestUserList Friends { get; set; }
+  public ItestUserList? Call_Friends(ItestFriendsFilter parameter)
     => null;
-  public ItestUserList? Friends(ItestFriendsFilter parameter)
-    => null;
-  public ItestUserList? Friends()
-    => null;
-  public ItestUserList? MutualFriends(ItestFriendsFilter parameter)
-    => null;
-  public ItestUserList? MutualFriends()
+  public ItestUserList MutualFriends { get; set; }
+  public ItestUserList? Call_MutualFriends(ItestFriendsFilter parameter)
     => null;
 
   public testFullUserObject
@@ -159,8 +163,14 @@ public class testFullUserObject
     , string pfirstName
     , string plastName
     , ItestDate pbirthday
+    , string pprofilePic
+    , ItestUserList pfriends
+    , ItestUserList pmutualFriends
     ) : base(pid, pname, pfirstName, plastName, pbirthday)
   {
+    ProfilePic = pprofilePic;
+    Friends = pfriends;
+    MutualFriends = pmutualFriends;
   }
 }
 

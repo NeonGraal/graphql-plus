@@ -1208,14 +1208,15 @@ public class testOutpFieldParamObject
   : GqlpModelBase
   , ItestOutpFieldParamObject
 {
-  public ItestFldOutpFieldParam? Field(ItestOutpFieldParam1 parameter)
-    => null;
-  public ItestFldOutpFieldParam? Field()
+  public ItestFldOutpFieldParam Field { get; set; }
+  public ItestFldOutpFieldParam? Call_Field(ItestOutpFieldParam1 parameter)
     => null;
 
   public testOutpFieldParamObject
-    ()
+    ( ItestFldOutpFieldParam pfield
+    )
   {
+    Field = pfield;
   }
 }
 

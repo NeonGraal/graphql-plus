@@ -1,0 +1,44 @@
+﻿/* generic-alt-param+Input
+input GnrcAltParamInp { | RefGnrcAltParamInp<AltGnrcAltParamInp> }
+input RefGnrcAltParamInp<$ref:_Input> { | $ref }
+input AltGnrcAltParamInp { alt: Number | String }
+*/
+
+// Generated from Schema generic-alt-param+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-param+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_param_Input;
+
+internal class CmptGnrcAltParamInpEncoder : IEncoder<ICmptGnrcAltParamInpObject>
+{
+  public Structured Encode(ICmptGnrcAltParamInpObject input)
+    => Structured.Empty();
+
+  internal static CmptGnrcAltParamInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptRefGnrcAltParamInpEncoder<TRef> : IEncoder<ICmptRefGnrcAltParamInpObject<TRef>>
+{
+  public Structured Encode(ICmptRefGnrcAltParamInpObject<TRef> input)
+    => Structured.Empty();
+}
+
+internal class CmptAltGnrcAltParamInpEncoder : IEncoder<ICmptAltGnrcAltParamInpObject>
+{
+  public Structured Encode(ICmptAltGnrcAltParamInpObject input)
+    => Structured.Empty()
+      .Add("alt", input.Alt.Encode());
+
+  internal static CmptAltGnrcAltParamInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_generic_alt_param_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_alt_param_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptGnrcAltParamInpObject>(CmptGnrcAltParamInpEncoder.Factory)
+      .AddEncoder<ICmptAltGnrcAltParamInpObject>(CmptAltGnrcAltParamInpEncoder.Factory);
+}

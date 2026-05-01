@@ -18,14 +18,15 @@ public class testOutpParamDescrObject
   : GqlpModelBase
   , ItestOutpParamDescrObject
 {
-  public ItestFldOutpParamDescr? Field(ItestInOutpParamDescr parameter)
-    => null;
-  public ItestFldOutpParamDescr? Field()
+  public ItestFldOutpParamDescr Field { get; set; }
+  public ItestFldOutpParamDescr? Call_Field(ItestInOutpParamDescr parameter)
     => null;
 
   public testOutpParamDescrObject
-    ()
+    ( ItestFldOutpParamDescr pfield
+    )
   {
+    Field = pfield;
   }
 }
 

@@ -18,26 +18,30 @@ public class test_SchemaObject
   : test_NamedObject
   , Itest_SchemaObject
 {
-  public IDictionary<Itest_Name, Itest_Categories>? Categories(Itest_CategoryFilter? parameter)
+  public IDictionary<Itest_Name, Itest_Categories> Categories { get; set; }
+  public IDictionary<Itest_Name, Itest_Categories>? Call_Categories(Itest_CategoryFilter? parameter)
     => null;
-  public IDictionary<Itest_Name, Itest_Categories>? Categories()
+  public IDictionary<Itest_Name, Itest_Directives> Directives { get; set; }
+  public IDictionary<Itest_Name, Itest_Directives>? Call_Directives(Itest_Filter? parameter)
     => null;
-  public IDictionary<Itest_Name, Itest_Directives>? Directives(Itest_Filter? parameter)
+  public IDictionary<Itest_Name, Itest_Type> Types { get; set; }
+  public IDictionary<Itest_Name, Itest_Type>? Call_Types(Itest_TypeFilter? parameter)
     => null;
-  public IDictionary<Itest_Name, Itest_Directives>? Directives()
-    => null;
-  public IDictionary<Itest_Name, Itest_Type>? Types(Itest_TypeFilter? parameter)
-    => null;
-  public IDictionary<Itest_Name, Itest_Type>? Types()
-    => null;
-  public IDictionary<Itest_Name, Itest_Setting>? Settings(Itest_Filter? parameter)
-    => null;
-  public IDictionary<Itest_Name, Itest_Setting>? Settings()
+  public IDictionary<Itest_Name, Itest_Setting> Settings { get; set; }
+  public IDictionary<Itest_Name, Itest_Setting>? Call_Settings(Itest_Filter? parameter)
     => null;
 
   public test_SchemaObject
-    ()
+    ( IDictionary<Itest_Name, Itest_Categories> pcategories
+    , IDictionary<Itest_Name, Itest_Directives> pdirectives
+    , IDictionary<Itest_Name, Itest_Type> ptypes
+    , IDictionary<Itest_Name, Itest_Setting> psettings
+    )
   {
+    Categories = pcategories;
+    Directives = pdirectives;
+    Types = ptypes;
+    Settings = psettings;
   }
 }
 

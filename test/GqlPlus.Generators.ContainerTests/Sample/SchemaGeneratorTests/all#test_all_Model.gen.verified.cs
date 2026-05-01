@@ -78,13 +78,14 @@ public class testAllObject
   : GqlpModelBase
   , ItestAllObject
 {
-  public ItestField? Items(ItestParam? parameter)
-    => null;
-  public ItestField? Items()
+  public ItestField Items { get; set; }
+  public ItestField? Call_Items(ItestParam? parameter)
     => null;
 
   public testAllObject
-    ()
+    ( ItestField pitems
+    )
   {
+    Items = pitems;
   }
 }

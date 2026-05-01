@@ -66,28 +66,32 @@ public class Cmpt_SchemaObject
   : Cmpt_NamedObject
   , ICmpt_SchemaObject
 {
-  public IDictionary<ICmpt_Name, ICmpt_Categories>? Categories(ICmpt_CategoryFilter? parameter)
+  public IDictionary<ICmpt_Name, ICmpt_Categories> Categories { get; set; }
+  public IDictionary<ICmpt_Name, ICmpt_Categories>? Call_Categories(ICmpt_CategoryFilter? parameter)
     => null;
-  public IDictionary<ICmpt_Name, ICmpt_Categories>? Categories()
+  public IDictionary<ICmpt_Name, ICmpt_Directives> Directives { get; set; }
+  public IDictionary<ICmpt_Name, ICmpt_Directives>? Call_Directives(ICmpt_Filter? parameter)
     => null;
-  public IDictionary<ICmpt_Name, ICmpt_Directives>? Directives(ICmpt_Filter? parameter)
+  public IDictionary<ICmpt_Name, ICmpt_Type> Types { get; set; }
+  public IDictionary<ICmpt_Name, ICmpt_Type>? Call_Types(ICmpt_TypeFilter? parameter)
     => null;
-  public IDictionary<ICmpt_Name, ICmpt_Directives>? Directives()
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Type>? Types(ICmpt_TypeFilter? parameter)
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Type>? Types()
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Setting>? Settings(ICmpt_Filter? parameter)
-    => null;
-  public IDictionary<ICmpt_Name, ICmpt_Setting>? Settings()
+  public IDictionary<ICmpt_Name, ICmpt_Setting> Settings { get; set; }
+  public IDictionary<ICmpt_Name, ICmpt_Setting>? Call_Settings(ICmpt_Filter? parameter)
     => null;
 
   public Cmpt_SchemaObject
     ( ICollection<string> pdescription
     , ICmpt_Name pname
+    , IDictionary<ICmpt_Name, ICmpt_Categories> pcategories
+    , IDictionary<ICmpt_Name, ICmpt_Directives> pdirectives
+    , IDictionary<ICmpt_Name, ICmpt_Type> ptypes
+    , IDictionary<ICmpt_Name, ICmpt_Setting> psettings
     ) : base(pdescription, pname)
   {
+    Categories = pcategories;
+    Directives = pdirectives;
+    Types = ptypes;
+    Settings = psettings;
   }
 }
 

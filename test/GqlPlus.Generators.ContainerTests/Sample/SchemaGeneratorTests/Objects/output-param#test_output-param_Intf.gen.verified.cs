@@ -16,8 +16,8 @@ public interface ItestOutpParam
 public interface ItestOutpParamObject
   : IGqlpInterfaceBase
 {
-  ItestFldOutpParam? Field(ItestInOutpParam parameter);
-  ItestFldOutpParam? Field();
+  ItestFldOutpParam Field { get; }
+  ItestFldOutpParam? Call_Field(ItestInOutpParam parameter);
 }
 
 public interface ItestFldOutpParam

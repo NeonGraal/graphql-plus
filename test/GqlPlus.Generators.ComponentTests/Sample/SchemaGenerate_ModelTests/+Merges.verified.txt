@@ -1207,14 +1207,15 @@ public class CmptOutpFieldParamObject
   : Schema_+Merges
   , ICmptOutpFieldParamObject
 {
-  public ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter)
-    => null;
-  public ICmptFldOutpFieldParam? Field()
+  public ICmptFldOutpFieldParam Field { get; set; }
+  public ICmptFldOutpFieldParam? Call_Field(ICmptOutpFieldParam1 parameter)
     => null;
 
   public CmptOutpFieldParamObject
-    ()
+    ( ICmptFldOutpFieldParam pfield
+    )
   {
+    Field = pfield;
   }
 }
 

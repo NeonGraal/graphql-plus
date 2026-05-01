@@ -21,8 +21,8 @@ public interface ICmptOutpParamModDmn
 public interface ICmptOutpParamModDmnObject
   : Schema_output-param-mod-Domain
 {
-  ICmptDomOutpParamModDmn? Field(IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter);
-  ICmptDomOutpParamModDmn? Field();
+  ICmptDomOutpParamModDmn Field { get; }
+  ICmptDomOutpParamModDmn? Call_Field(IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter);
 }
 
 public interface ICmptInOutpParamModDmn

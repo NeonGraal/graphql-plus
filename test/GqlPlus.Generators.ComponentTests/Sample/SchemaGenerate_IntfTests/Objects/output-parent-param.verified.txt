@@ -23,8 +23,8 @@ public interface ICmptOutpPrntParam
 public interface ICmptOutpPrntParamObject
   : ICmptPrntOutpPrntParamObject
 {
-  ICmptFldOutpPrntParam? Field(ICmptInOutpPrntParam parameter);
-  ICmptFldOutpPrntParam? Field();
+  ICmptFldOutpPrntParam Field { get; }
+  ICmptFldOutpPrntParam? Call_Field(ICmptInOutpPrntParam parameter);
 }
 
 public interface ICmptPrntOutpPrntParam
@@ -36,8 +36,8 @@ public interface ICmptPrntOutpPrntParam
 public interface ICmptPrntOutpPrntParamObject
   : Schema_output-parent-param
 {
-  ICmptFldOutpPrntParam? Field(ICmptPrntOutpPrntParamIn parameter);
-  ICmptFldOutpPrntParam? Field();
+  ICmptFldOutpPrntParam Field { get; }
+  ICmptFldOutpPrntParam? Call_Field(ICmptPrntOutpPrntParamIn parameter);
 }
 
 public interface ICmptFldOutpPrntParam

@@ -23,14 +23,15 @@ public class CmptOutpParamModDmnObject
   : Schema_output-param-mod-Domain
   , ICmptOutpParamModDmnObject
 {
-  public ICmptDomOutpParamModDmn? Field(IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter)
-    => null;
-  public ICmptDomOutpParamModDmn? Field()
+  public ICmptDomOutpParamModDmn Field { get; set; }
+  public ICmptDomOutpParamModDmn? Call_Field(IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter)
     => null;
 
   public CmptOutpParamModDmnObject
-    ()
+    ( ICmptDomOutpParamModDmn pfield
+    )
   {
+    Field = pfield;
   }
 }
 

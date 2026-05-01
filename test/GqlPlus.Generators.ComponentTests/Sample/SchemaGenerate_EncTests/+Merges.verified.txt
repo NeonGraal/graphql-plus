@@ -38,6 +38,14 @@ internal class CmptCtgrModEncoder : IEncoder<ICmptCtgrModObject>
   internal static CmptCtgrModEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptInDrctParamEncoder : IEncoder<ICmptInDrctParamObject>
+{
+  public Structured Encode(ICmptInDrctParamObject input)
+    => Structured.Empty();
+
+  internal static CmptInDrctParamEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptDmnAliasEncoder : IEncoder<ICmptDmnAlias>
 {
   public Structured Encode(ICmptDmnAlias input)
@@ -190,6 +198,14 @@ internal class CmptObjDualEncoder : IEncoder<ICmptObjDualObject>
   internal static CmptObjDualEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptObjInpEncoder : IEncoder<ICmptObjInpObject>
+{
+  public Structured Encode(ICmptObjInpObject input)
+    => Structured.Empty();
+
+  internal static CmptObjInpEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptObjOutpEncoder : IEncoder<ICmptObjOutpObject>
 {
   public Structured Encode(ICmptObjOutpObject input)
@@ -204,6 +220,14 @@ internal class CmptObjAliasDualEncoder : IEncoder<ICmptObjAliasDualObject>
     => Structured.Empty();
 
   internal static CmptObjAliasDualEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptObjAliasInpEncoder : IEncoder<ICmptObjAliasInpObject>
+{
+  public Structured Encode(ICmptObjAliasInpObject input)
+    => Structured.Empty();
+
+  internal static CmptObjAliasInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptObjAliasOutpEncoder : IEncoder<ICmptObjAliasOutpObject>
@@ -230,6 +254,22 @@ internal class CmptObjAltDualTypeEncoder : IEncoder<ICmptObjAltDualTypeObject>
   internal static CmptObjAltDualTypeEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptObjAltInpEncoder : IEncoder<ICmptObjAltInpObject>
+{
+  public Structured Encode(ICmptObjAltInpObject input)
+    => Structured.Empty();
+
+  internal static CmptObjAltInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptObjAltInpTypeEncoder : IEncoder<ICmptObjAltInpTypeObject>
+{
+  public Structured Encode(ICmptObjAltInpTypeObject input)
+    => Structured.Empty();
+
+  internal static CmptObjAltInpTypeEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptObjAltOutpEncoder : IEncoder<ICmptObjAltOutpObject>
 {
   public Structured Encode(ICmptObjAltOutpObject input)
@@ -254,6 +294,14 @@ internal class CmptObjAltEnumDualEncoder : IEncoder<ICmptObjAltEnumDualObject>
   internal static CmptObjAltEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptObjAltEnumInpEncoder : IEncoder<ICmptObjAltEnumInpObject>
+{
+  public Structured Encode(ICmptObjAltEnumInpObject input)
+    => Structured.Empty();
+
+  internal static CmptObjAltEnumInpEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptObjAltEnumOutpEncoder : IEncoder<ICmptObjAltEnumOutpObject>
 {
   public Structured Encode(ICmptObjAltEnumOutpObject input)
@@ -268,6 +316,17 @@ internal class CmptObjCnstDualEncoder<TType>(
 {
   private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
   public Structured Encode(ICmptObjCnstDualObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _type)
+      .AddEncoded("str", input.Str, _type);
+}
+
+internal class CmptObjCnstInpEncoder<TType>(
+  IEncoderRepository encoders
+) : IEncoder<ICmptObjCnstInpObject<TType>>
+{
+  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  public Structured Encode(ICmptObjCnstInpObject<TType> input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _type)
       .AddEncoded("str", input.Str, _type);
@@ -302,6 +361,26 @@ internal class CmptFldObjFieldDualEncoder : IEncoder<ICmptFldObjFieldDualObject>
     => Structured.Empty();
 
   internal static CmptFldObjFieldDualEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptObjFieldInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptObjFieldInpObject>
+{
+  private readonly IEncoder<ICmptFldObjFieldInp> _fldObjFieldInp = encoders.EncoderFor<ICmptFldObjFieldInp>();
+  public Structured Encode(ICmptObjFieldInpObject input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _fldObjFieldInp);
+
+  internal static CmptObjFieldInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptFldObjFieldInpEncoder : IEncoder<ICmptFldObjFieldInpObject>
+{
+  public Structured Encode(ICmptFldObjFieldInpObject input)
+    => Structured.Empty();
+
+  internal static CmptFldObjFieldInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptObjFieldOutpEncoder(
@@ -344,6 +423,26 @@ internal class CmptFldObjFieldAliasDualEncoder : IEncoder<ICmptFldObjFieldAliasD
   internal static CmptFldObjFieldAliasDualEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptObjFieldAliasInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptObjFieldAliasInpObject>
+{
+  private readonly IEncoder<ICmptFldObjFieldAliasInp> _fldObjFieldAliasInp = encoders.EncoderFor<ICmptFldObjFieldAliasInp>();
+  public Structured Encode(ICmptObjFieldAliasInpObject input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _fldObjFieldAliasInp);
+
+  internal static CmptObjFieldAliasInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptFldObjFieldAliasInpEncoder : IEncoder<ICmptFldObjFieldAliasInpObject>
+{
+  public Structured Encode(ICmptFldObjFieldAliasInpObject input)
+    => Structured.Empty();
+
+  internal static CmptFldObjFieldAliasInpEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptObjFieldAliasOutpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptObjFieldAliasOutpObject>
@@ -373,6 +472,15 @@ internal class CmptObjFieldEnumAliasDualEncoder : IEncoder<ICmptObjFieldEnumAlia
   internal static CmptObjFieldEnumAliasDualEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptObjFieldEnumAliasInpEncoder : IEncoder<ICmptObjFieldEnumAliasInpObject>
+{
+  public Structured Encode(ICmptObjFieldEnumAliasInpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field.Encode());
+
+  internal static CmptObjFieldEnumAliasInpEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptObjFieldEnumAliasOutpEncoder : IEncoder<ICmptObjFieldEnumAliasOutpObject>
 {
   public Structured Encode(ICmptObjFieldEnumAliasOutpObject input)
@@ -391,6 +499,15 @@ internal class CmptObjFieldEnumValueDualEncoder : IEncoder<ICmptObjFieldEnumValu
   internal static CmptObjFieldEnumValueDualEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptObjFieldEnumValueInpEncoder : IEncoder<ICmptObjFieldEnumValueInpObject>
+{
+  public Structured Encode(ICmptObjFieldEnumValueInpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field.Encode());
+
+  internal static CmptObjFieldEnumValueInpEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptObjFieldEnumValueOutpEncoder : IEncoder<ICmptObjFieldEnumValueOutpObject>
 {
   public Structured Encode(ICmptObjFieldEnumValueOutpObject input)
@@ -407,6 +524,15 @@ internal class CmptObjFieldTypeAliasDualEncoder : IEncoder<ICmptObjFieldTypeAlia
       .Add("field", input.Field.Encode());
 
   internal static CmptObjFieldTypeAliasDualEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptObjFieldTypeAliasInpEncoder : IEncoder<ICmptObjFieldTypeAliasInpObject>
+{
+  public Structured Encode(ICmptObjFieldTypeAliasInpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field.Encode());
+
+  internal static CmptObjFieldTypeAliasInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptObjFieldTypeAliasOutpEncoder : IEncoder<ICmptObjFieldTypeAliasOutpObject>
@@ -430,6 +556,18 @@ internal class CmptObjParamDualEncoder<TTest,TType>(
       .AddEncoded("type", input.Type, _type);
 }
 
+internal class CmptObjParamInpEncoder<TTest,TType>(
+  IEncoderRepository encoders
+) : IEncoder<ICmptObjParamInpObject<TTest,TType>>
+{
+  private readonly IEncoder<TTest> _test = encoders.EncoderFor<TTest>();
+  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  public Structured Encode(ICmptObjParamInpObject<TTest,TType> input)
+    => Structured.Empty()
+      .AddEncoded("test", input.Test, _test)
+      .AddEncoded("type", input.Type, _type);
+}
+
 internal class CmptObjParamOutpEncoder<TTest,TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptObjParamOutpObject<TTest,TType>>
@@ -448,6 +586,17 @@ internal class CmptObjParamDupDualEncoder<TTest>(
 {
   private readonly IEncoder<TTest> _test = encoders.EncoderFor<TTest>();
   public Structured Encode(ICmptObjParamDupDualObject<TTest> input)
+    => Structured.Empty()
+      .AddEncoded("test", input.Test, _test)
+      .AddEncoded("type", input.Type, _test);
+}
+
+internal class CmptObjParamDupInpEncoder<TTest>(
+  IEncoderRepository encoders
+) : IEncoder<ICmptObjParamDupInpObject<TTest>>
+{
+  private readonly IEncoder<TTest> _test = encoders.EncoderFor<TTest>();
+  public Structured Encode(ICmptObjParamDupInpObject<TTest> input)
     => Structured.Empty()
       .AddEncoded("test", input.Test, _test)
       .AddEncoded("type", input.Type, _test);
@@ -483,6 +632,25 @@ internal class CmptRefObjPrntDualEncoder : IEncoder<ICmptRefObjPrntDualObject>
   internal static CmptRefObjPrntDualEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptObjPrntInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptObjPrntInpObject>
+{
+  private readonly IEncoder<ICmptRefObjPrntInpObject> _refObjPrntInp = encoders.EncoderFor<ICmptRefObjPrntInpObject>();
+  public Structured Encode(ICmptObjPrntInpObject input)
+    => _refObjPrntInp.Encode(input);
+
+  internal static CmptObjPrntInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptRefObjPrntInpEncoder : IEncoder<ICmptRefObjPrntInpObject>
+{
+  public Structured Encode(ICmptRefObjPrntInpObject input)
+    => Structured.Empty();
+
+  internal static CmptRefObjPrntInpEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptObjPrntOutpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptObjPrntOutpObject>
@@ -512,6 +680,22 @@ internal class CmptOutpFieldParamEncoder(
       .AddEncoded("field", input.Field(), _fldOutpFieldParam);
 
   internal static CmptOutpFieldParamEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptOutpFieldParam1Encoder : IEncoder<ICmptOutpFieldParam1Object>
+{
+  public Structured Encode(ICmptOutpFieldParam1Object input)
+    => Structured.Empty();
+
+  internal static CmptOutpFieldParam1Encoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptOutpFieldParam2Encoder : IEncoder<ICmptOutpFieldParam2Object>
+{
+  public Structured Encode(ICmptOutpFieldParam2Object input)
+    => Structured.Empty();
+
+  internal static CmptOutpFieldParam2Encoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptFldOutpFieldParamEncoder : IEncoder<ICmptFldOutpFieldParamObject>
@@ -594,6 +778,7 @@ internal static class Cmpt_Schema_MergesEncoders
       .AddEncoder<ICmptCtgrAliasObject>(CmptCtgrAliasEncoder.Factory)
       .AddEncoder<ICmptCtgrDescrObject>(CmptCtgrDescrEncoder.Factory)
       .AddEncoder<ICmptCtgrModObject>(CmptCtgrModEncoder.Factory)
+      .AddEncoder<ICmptInDrctParamObject>(CmptInDrctParamEncoder.Factory)
       .AddEncoder<ICmptDmnAlias>(CmptDmnAliasEncoder.Factory)
       .AddEncoder<ICmptDmnBool>(CmptDmnBoolEncoder.Factory)
       .AddEncoder<ICmptDmnBoolDiff>(CmptDmnBoolDiffEncoder.Factory)
@@ -613,34 +798,50 @@ internal static class Cmpt_Schema_MergesEncoders
       .AddEncoder<CmptPrntEnumSamePrnt>(CmptPrntEnumSamePrntEncoder.Factory)
       .AddEncoder<CmptEnumValueAlias>(CmptEnumValueAliasEncoder.Factory)
       .AddEncoder<ICmptObjDualObject>(CmptObjDualEncoder.Factory)
+      .AddEncoder<ICmptObjInpObject>(CmptObjInpEncoder.Factory)
       .AddEncoder<ICmptObjOutpObject>(CmptObjOutpEncoder.Factory)
       .AddEncoder<ICmptObjAliasDualObject>(CmptObjAliasDualEncoder.Factory)
+      .AddEncoder<ICmptObjAliasInpObject>(CmptObjAliasInpEncoder.Factory)
       .AddEncoder<ICmptObjAliasOutpObject>(CmptObjAliasOutpEncoder.Factory)
       .AddEncoder<ICmptObjAltDualObject>(CmptObjAltDualEncoder.Factory)
       .AddEncoder<ICmptObjAltDualTypeObject>(CmptObjAltDualTypeEncoder.Factory)
+      .AddEncoder<ICmptObjAltInpObject>(CmptObjAltInpEncoder.Factory)
+      .AddEncoder<ICmptObjAltInpTypeObject>(CmptObjAltInpTypeEncoder.Factory)
       .AddEncoder<ICmptObjAltOutpObject>(CmptObjAltOutpEncoder.Factory)
       .AddEncoder<ICmptObjAltOutpTypeObject>(CmptObjAltOutpTypeEncoder.Factory)
       .AddEncoder<ICmptObjAltEnumDualObject>(CmptObjAltEnumDualEncoder.Factory)
+      .AddEncoder<ICmptObjAltEnumInpObject>(CmptObjAltEnumInpEncoder.Factory)
       .AddEncoder<ICmptObjAltEnumOutpObject>(CmptObjAltEnumOutpEncoder.Factory)
       .AddEncoder<ICmptObjFieldDualObject>(CmptObjFieldDualEncoder.Factory)
       .AddEncoder<ICmptFldObjFieldDualObject>(CmptFldObjFieldDualEncoder.Factory)
+      .AddEncoder<ICmptObjFieldInpObject>(CmptObjFieldInpEncoder.Factory)
+      .AddEncoder<ICmptFldObjFieldInpObject>(CmptFldObjFieldInpEncoder.Factory)
       .AddEncoder<ICmptObjFieldOutpObject>(CmptObjFieldOutpEncoder.Factory)
       .AddEncoder<ICmptFldObjFieldOutpObject>(CmptFldObjFieldOutpEncoder.Factory)
       .AddEncoder<ICmptObjFieldAliasDualObject>(CmptObjFieldAliasDualEncoder.Factory)
       .AddEncoder<ICmptFldObjFieldAliasDualObject>(CmptFldObjFieldAliasDualEncoder.Factory)
+      .AddEncoder<ICmptObjFieldAliasInpObject>(CmptObjFieldAliasInpEncoder.Factory)
+      .AddEncoder<ICmptFldObjFieldAliasInpObject>(CmptFldObjFieldAliasInpEncoder.Factory)
       .AddEncoder<ICmptObjFieldAliasOutpObject>(CmptObjFieldAliasOutpEncoder.Factory)
       .AddEncoder<ICmptFldObjFieldAliasOutpObject>(CmptFldObjFieldAliasOutpEncoder.Factory)
       .AddEncoder<ICmptObjFieldEnumAliasDualObject>(CmptObjFieldEnumAliasDualEncoder.Factory)
+      .AddEncoder<ICmptObjFieldEnumAliasInpObject>(CmptObjFieldEnumAliasInpEncoder.Factory)
       .AddEncoder<ICmptObjFieldEnumAliasOutpObject>(CmptObjFieldEnumAliasOutpEncoder.Factory)
       .AddEncoder<ICmptObjFieldEnumValueDualObject>(CmptObjFieldEnumValueDualEncoder.Factory)
+      .AddEncoder<ICmptObjFieldEnumValueInpObject>(CmptObjFieldEnumValueInpEncoder.Factory)
       .AddEncoder<ICmptObjFieldEnumValueOutpObject>(CmptObjFieldEnumValueOutpEncoder.Factory)
       .AddEncoder<ICmptObjFieldTypeAliasDualObject>(CmptObjFieldTypeAliasDualEncoder.Factory)
+      .AddEncoder<ICmptObjFieldTypeAliasInpObject>(CmptObjFieldTypeAliasInpEncoder.Factory)
       .AddEncoder<ICmptObjFieldTypeAliasOutpObject>(CmptObjFieldTypeAliasOutpEncoder.Factory)
       .AddEncoder<ICmptObjPrntDualObject>(CmptObjPrntDualEncoder.Factory)
       .AddEncoder<ICmptRefObjPrntDualObject>(CmptRefObjPrntDualEncoder.Factory)
+      .AddEncoder<ICmptObjPrntInpObject>(CmptObjPrntInpEncoder.Factory)
+      .AddEncoder<ICmptRefObjPrntInpObject>(CmptRefObjPrntInpEncoder.Factory)
       .AddEncoder<ICmptObjPrntOutpObject>(CmptObjPrntOutpEncoder.Factory)
       .AddEncoder<ICmptRefObjPrntOutpObject>(CmptRefObjPrntOutpEncoder.Factory)
       .AddEncoder<ICmptOutpFieldParamObject>(CmptOutpFieldParamEncoder.Factory)
+      .AddEncoder<ICmptOutpFieldParam1Object>(CmptOutpFieldParam1Encoder.Factory)
+      .AddEncoder<ICmptOutpFieldParam2Object>(CmptOutpFieldParam2Encoder.Factory)
       .AddEncoder<ICmptFldOutpFieldParamObject>(CmptFldOutpFieldParamEncoder.Factory)
       .AddEncoder<ICmptUnionAlias>(CmptUnionAliasEncoder.Factory)
       .AddEncoder<ICmptUnionDiff>(CmptUnionDiffEncoder.Factory)

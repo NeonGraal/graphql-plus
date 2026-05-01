@@ -118,19 +118,19 @@ public interface ICmptQuery
 public interface ICmptQueryObject
   : GraphQl_Samples
 {
-  ICmptFullUser? User(ICmptUserFilter parameter);
-  ICmptFullUser? User();
-  ICmptStory? LikeStory(ICmptStoryFilter parameter);
-  ICmptStory? LikeStory();
-  string? Field(ICmptFieldFilter parameter);
-  string? Field();
+  ICmptFullUser User { get; }
+  ICmptFullUser? Call_User(ICmptUserFilter parameter);
+  ICmptStory LikeStory { get; }
+  ICmptStory? Call_LikeStory(ICmptStoryFilter parameter);
+  string Field { get; }
+  string? Call_Field(ICmptFieldFilter parameter);
   ICmptFullUser Me { get; }
-  string? Picture(ICmptPicFilter parameter);
-  string? Picture();
-  ICollection<ICmptProfile>? Profiles(ICmptProfileFilter parameter);
-  ICollection<ICmptProfile>? Profiles();
-  string? NearestThing(ICmptThingFilter parameter);
-  string? NearestThing();
+  string Picture { get; }
+  string? Call_Picture(ICmptPicFilter parameter);
+  ICollection<ICmptProfile> Profiles { get; }
+  ICollection<ICmptProfile>? Call_Profiles(ICmptProfileFilter parameter);
+  string NearestThing { get; }
+  string? Call_NearestThing(ICmptThingFilter parameter);
 }
 
 public interface ICmptMutation
@@ -142,8 +142,8 @@ public interface ICmptMutation
 public interface ICmptMutationObject
   : GraphQl_Samples
 {
-  bool? SendEmail(ICmptEmail parameter);
-  bool? SendEmail();
+  bool SendEmail { get; }
+  bool? Call_SendEmail(ICmptEmail parameter);
 }
 
 public interface ICmptUserFilter
@@ -183,12 +183,12 @@ public interface ICmptFullUser
 public interface ICmptFullUserObject
   : ICmptUserObject
 {
-  string? ProfilePic(ICmptPicFilter parameter);
-  string? ProfilePic();
-  ICmptUserList? Friends(ICmptFriendsFilter parameter);
-  ICmptUserList? Friends();
-  ICmptUserList? MutualFriends(ICmptFriendsFilter parameter);
-  ICmptUserList? MutualFriends();
+  string ProfilePic { get; }
+  string? Call_ProfilePic(ICmptPicFilter parameter);
+  ICmptUserList Friends { get; }
+  ICmptUserList? Call_Friends(ICmptFriendsFilter parameter);
+  ICmptUserList MutualFriends { get; }
+  ICmptUserList? Call_MutualFriends(ICmptFriendsFilter parameter);
 }
 
 public interface ICmptUserList

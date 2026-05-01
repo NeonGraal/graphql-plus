@@ -25,14 +25,16 @@ public class CmptOutpPrntParamObject
   : CmptPrntOutpPrntParamObject
   , ICmptOutpPrntParamObject
 {
-  public ICmptFldOutpPrntParam? Field(ICmptInOutpPrntParam parameter)
-    => null;
-  public ICmptFldOutpPrntParam? Field()
+  public ICmptFldOutpPrntParam Field { get; set; }
+  public ICmptFldOutpPrntParam? Call_Field(ICmptInOutpPrntParam parameter)
     => null;
 
   public CmptOutpPrntParamObject
-    ()
+    ( ICmptFldOutpPrntParam pfield
+    , ICmptFldOutpPrntParam pfield
+    ) : base(pfield)
   {
+    Field = pfield;
   }
 }
 
@@ -47,14 +49,15 @@ public class CmptPrntOutpPrntParamObject
   : Schema_output-parent-param
   , ICmptPrntOutpPrntParamObject
 {
-  public ICmptFldOutpPrntParam? Field(ICmptPrntOutpPrntParamIn parameter)
-    => null;
-  public ICmptFldOutpPrntParam? Field()
+  public ICmptFldOutpPrntParam Field { get; set; }
+  public ICmptFldOutpPrntParam? Call_Field(ICmptPrntOutpPrntParamIn parameter)
     => null;
 
   public CmptPrntOutpPrntParamObject
-    ()
+    ( ICmptFldOutpPrntParam pfield
+    )
   {
+    Field = pfield;
   }
 }
 

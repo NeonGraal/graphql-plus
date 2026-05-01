@@ -110,6 +110,38 @@ internal class CmptDscrsEncoder : IEncoder<ICmptDscrsObject>
   internal static CmptDscrsEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptInDrctParamDictEncoder : IEncoder<ICmptInDrctParamDictObject>
+{
+  public Structured Encode(ICmptInDrctParamDictObject input)
+    => Structured.Empty();
+
+  internal static CmptInDrctParamDictEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptInDrctParamInEncoder : IEncoder<ICmptInDrctParamInObject>
+{
+  public Structured Encode(ICmptInDrctParamInObject input)
+    => Structured.Empty();
+
+  internal static CmptInDrctParamInEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptInDrctParamListEncoder : IEncoder<ICmptInDrctParamListObject>
+{
+  public Structured Encode(ICmptInDrctParamListObject input)
+    => Structured.Empty();
+
+  internal static CmptInDrctParamListEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptInDrctParamOptEncoder : IEncoder<ICmptInDrctParamOptObject>
+{
+  public Structured Encode(ICmptInDrctParamOptObject input)
+    => Structured.Empty();
+
+  internal static CmptInDrctParamOptEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal static class Cmpt_Schema_GlobalsEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_GlobalsEncoders(this IEncoderRepositoryBuilder builder)
@@ -126,5 +158,9 @@ internal static class Cmpt_Schema_GlobalsEncoders
       .AddEncoder<ICmptDescrCmplObject>(CmptDescrCmplEncoder.Factory)
       .AddEncoder<ICmptDescrDblObject>(CmptDescrDblEncoder.Factory)
       .AddEncoder<ICmptDescrSnglObject>(CmptDescrSnglEncoder.Factory)
-      .AddEncoder<ICmptDscrsObject>(CmptDscrsEncoder.Factory);
+      .AddEncoder<ICmptDscrsObject>(CmptDscrsEncoder.Factory)
+      .AddEncoder<ICmptInDrctParamDictObject>(CmptInDrctParamDictEncoder.Factory)
+      .AddEncoder<ICmptInDrctParamInObject>(CmptInDrctParamInEncoder.Factory)
+      .AddEncoder<ICmptInDrctParamListObject>(CmptInDrctParamListEncoder.Factory)
+      .AddEncoder<ICmptInDrctParamOptObject>(CmptInDrctParamOptEncoder.Factory);
 }

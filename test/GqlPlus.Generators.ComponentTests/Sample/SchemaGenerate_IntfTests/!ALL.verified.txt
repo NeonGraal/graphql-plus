@@ -5129,8 +5129,8 @@ public interface ICmptOutpDescrParam
 public interface ICmptOutpDescrParamObject
   : Schema_!ALL
 {
-  ICmptFldOutpDescrParam? Field(ICmptInOutpDescrParam parameter);
-  ICmptFldOutpDescrParam? Field();
+  ICmptFldOutpDescrParam Field { get; }
+  ICmptFldOutpDescrParam? Call_Field(ICmptInOutpDescrParam parameter);
 }
 
 public interface ICmptFldOutpDescrParam
@@ -5166,8 +5166,8 @@ public interface ICmptOutpParam
 public interface ICmptOutpParamObject
   : Schema_!ALL
 {
-  ICmptFldOutpParam? Field(ICmptInOutpParam parameter);
-  ICmptFldOutpParam? Field();
+  ICmptFldOutpParam Field { get; }
+  ICmptFldOutpParam? Call_Field(ICmptInOutpParam parameter);
 }
 
 public interface ICmptFldOutpParam
@@ -5203,8 +5203,8 @@ public interface ICmptOutpParamDescr
 public interface ICmptOutpParamDescrObject
   : Schema_!ALL
 {
-  ICmptFldOutpParamDescr? Field(ICmptInOutpParamDescr parameter);
-  ICmptFldOutpParamDescr? Field();
+  ICmptFldOutpParamDescr Field { get; }
+  ICmptFldOutpParamDescr? Call_Field(ICmptInOutpParamDescr parameter);
 }
 
 public interface ICmptFldOutpParamDescr
@@ -5240,8 +5240,8 @@ public interface ICmptOutpParamModDmn
 public interface ICmptOutpParamModDmnObject
   : Schema_!ALL
 {
-  ICmptDomOutpParamModDmn? Field(IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter);
-  ICmptDomOutpParamModDmn? Field();
+  ICmptDomOutpParamModDmn Field { get; }
+  ICmptDomOutpParamModDmn? Call_Field(IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter);
 }
 
 public interface ICmptInOutpParamModDmn
@@ -5271,8 +5271,8 @@ public interface ICmptOutpParamModParam<TMod>
 public interface ICmptOutpParamModParamObject<TMod>
   : Schema_!ALL
 {
-  ICmptDomOutpParamModParam? Field(IDictionary<TMod, ICmptInOutpParamModParam> parameter);
-  ICmptDomOutpParamModParam? Field();
+  ICmptDomOutpParamModParam Field { get; }
+  ICmptDomOutpParamModParam? Call_Field(IDictionary<TMod, ICmptInOutpParamModParam> parameter);
 }
 
 public interface ICmptInOutpParamModParam
@@ -5302,8 +5302,8 @@ public interface ICmptOutpParamTypeDescr
 public interface ICmptOutpParamTypeDescrObject
   : Schema_!ALL
 {
-  ICmptFldOutpParamTypeDescr? Field(ICmptInOutpParamTypeDescr parameter);
-  ICmptFldOutpParamTypeDescr? Field();
+  ICmptFldOutpParamTypeDescr Field { get; }
+  ICmptFldOutpParamTypeDescr? Call_Field(ICmptInOutpParamTypeDescr parameter);
 }
 
 public interface ICmptFldOutpParamTypeDescr
@@ -5374,8 +5374,8 @@ public interface ICmptOutpPrntParam
 public interface ICmptOutpPrntParamObject
   : ICmptPrntOutpPrntParamObject
 {
-  ICmptFldOutpPrntParam? Field(ICmptInOutpPrntParam parameter);
-  ICmptFldOutpPrntParam? Field();
+  ICmptFldOutpPrntParam Field { get; }
+  ICmptFldOutpPrntParam? Call_Field(ICmptInOutpPrntParam parameter);
 }
 
 public interface ICmptPrntOutpPrntParam
@@ -5387,8 +5387,8 @@ public interface ICmptPrntOutpPrntParam
 public interface ICmptPrntOutpPrntParamObject
   : Schema_!ALL
 {
-  ICmptFldOutpPrntParam? Field(ICmptPrntOutpPrntParamIn parameter);
-  ICmptFldOutpPrntParam? Field();
+  ICmptFldOutpPrntParam Field { get; }
+  ICmptFldOutpPrntParam? Call_Field(ICmptPrntOutpPrntParamIn parameter);
 }
 
 public interface ICmptFldOutpPrntParam
@@ -6701,8 +6701,8 @@ public interface ICmptOutpFieldParam
 public interface ICmptOutpFieldParamObject
   : Schema_!ALL
 {
-  ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter);
-  ICmptFldOutpFieldParam? Field();
+  ICmptFldOutpFieldParam Field { get; }
+  ICmptFldOutpFieldParam? Call_Field(ICmptOutpFieldParam1 parameter);
 }
 
 public interface ICmptOutpFieldParam1

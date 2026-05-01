@@ -18,14 +18,15 @@ public class testOutpParamModParamObject<TMod>
   : GqlpModelBase
   , ItestOutpParamModParamObject<TMod>
 {
-  public ItestDomOutpParamModParam? Field(IDictionary<TMod, ItestInOutpParamModParam> parameter)
-    => null;
-  public ItestDomOutpParamModParam? Field()
+  public ItestDomOutpParamModParam Field { get; set; }
+  public ItestDomOutpParamModParam? Call_Field(IDictionary<TMod, ItestInOutpParamModParam> parameter)
     => null;
 
   public testOutpParamModParamObject
-    ()
+    ( ItestDomOutpParamModParam pfield
+    )
   {
+    Field = pfield;
   }
 }
 

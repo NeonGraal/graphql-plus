@@ -769,8 +769,8 @@ public interface ICmptOutpFieldParam
 public interface ICmptOutpFieldParamObject
   : Schema_+Merges
 {
-  ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter);
-  ICmptFldOutpFieldParam? Field();
+  ICmptFldOutpFieldParam Field { get; }
+  ICmptFldOutpFieldParam? Call_Field(ICmptOutpFieldParam1 parameter);
 }
 
 public interface ICmptOutpFieldParam1

@@ -88,6 +88,6 @@ public interface ICmptAll
 public interface ICmptAllObject
   : Schema_all
 {
-  ICmptField? Items(ICmptParam? parameter);
-  ICmptField? Items();
+  ICmptField Items { get; }
+  ICmptField? Call_Items(ICmptParam? parameter);
 }

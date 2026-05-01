@@ -13,6 +13,27 @@ domain DomGnrcPrntEnumDomInp { enum gnrcPrntEnumDomInpLabel }
 
 namespace Components.Gqlp_Schema_generic_parent_enum_dom_Input;
 
+internal class CmptGnrcPrntEnumDomInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptGnrcPrntEnumDomInpObject>
+{
+  private readonly IEncoder<ICmptFieldGnrcPrntEnumDomInpObject<ICmptDomGnrcPrntEnumDomInp>> _fieldGnrcPrntEnumDomInp = encoders.EncoderFor<ICmptFieldGnrcPrntEnumDomInpObject<ICmptDomGnrcPrntEnumDomInp>>();
+  public Structured Encode(ICmptGnrcPrntEnumDomInpObject input)
+    => _fieldGnrcPrntEnumDomInp.Encode(input);
+
+  internal static CmptGnrcPrntEnumDomInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptFieldGnrcPrntEnumDomInpEncoder<TRef>(
+  IEncoderRepository encoders
+) : IEncoder<ICmptFieldGnrcPrntEnumDomInpObject<TRef>>
+{
+  private readonly IEncoder<TRef> _ref = encoders.EncoderFor<TRef>();
+  public Structured Encode(ICmptFieldGnrcPrntEnumDomInpObject<TRef> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _ref);
+}
+
 internal class CmptEnumGnrcPrntEnumDomInpEncoder : IEncoder<CmptEnumGnrcPrntEnumDomInp>
 {
   public Structured Encode(CmptEnumGnrcPrntEnumDomInp input)
@@ -33,6 +54,7 @@ internal static class Cmpt_Schema_generic_parent_enum_dom_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_parent_enum_dom_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
+      .AddEncoder<ICmptGnrcPrntEnumDomInpObject>(CmptGnrcPrntEnumDomInpEncoder.Factory)
       .AddEncoder<CmptEnumGnrcPrntEnumDomInp>(CmptEnumGnrcPrntEnumDomInpEncoder.Factory)
       .AddEncoder<ICmptDomGnrcPrntEnumDomInp>(CmptDomGnrcPrntEnumDomInpEncoder.Factory);
 }

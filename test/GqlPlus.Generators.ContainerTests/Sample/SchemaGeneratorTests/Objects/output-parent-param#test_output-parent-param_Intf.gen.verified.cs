@@ -16,8 +16,8 @@ public interface ItestOutpPrntParam
 public interface ItestOutpPrntParamObject
   : ItestPrntOutpPrntParamObject
 {
-  ItestFldOutpPrntParam? Field(ItestInOutpPrntParam parameter);
-  ItestFldOutpPrntParam? Field();
+  ItestFldOutpPrntParam Field { get; }
+  ItestFldOutpPrntParam? Call_Field(ItestInOutpPrntParam parameter);
 }
 
 public interface ItestPrntOutpPrntParam
@@ -29,8 +29,8 @@ public interface ItestPrntOutpPrntParam
 public interface ItestPrntOutpPrntParamObject
   : IGqlpInterfaceBase
 {
-  ItestFldOutpPrntParam? Field(ItestPrntOutpPrntParamIn parameter);
-  ItestFldOutpPrntParam? Field();
+  ItestFldOutpPrntParam Field { get; }
+  ItestFldOutpPrntParam? Call_Field(ItestPrntOutpPrntParamIn parameter);
 }
 
 public interface ItestFldOutpPrntParam

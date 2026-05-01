@@ -105,13 +105,14 @@ public class CmptAllObject
   : Schema_all
   , ICmptAllObject
 {
-  public ICmptField? Items(ICmptParam? parameter)
-    => null;
-  public ICmptField? Items()
+  public ICmptField Items { get; set; }
+  public ICmptField? Call_Items(ICmptParam? parameter)
     => null;
 
   public CmptAllObject
-    ()
+    ( ICmptField pitems
+    )
   {
+    Items = pitems;
   }
 }

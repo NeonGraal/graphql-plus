@@ -7603,14 +7603,15 @@ public class testOutpDescrParamObject
   : GqlpModelBase
   , ItestOutpDescrParamObject
 {
-  public ItestFldOutpDescrParam? Field(ItestInOutpDescrParam parameter)
-    => null;
-  public ItestFldOutpDescrParam? Field()
+  public ItestFldOutpDescrParam Field { get; set; }
+  public ItestFldOutpDescrParam? Call_Field(ItestInOutpDescrParam parameter)
     => null;
 
   public testOutpDescrParamObject
-    ()
+    ( ItestFldOutpDescrParam pfield
+    )
   {
+    Field = pfield;
   }
 }
 
@@ -7665,14 +7666,15 @@ public class testOutpParamObject
   : GqlpModelBase
   , ItestOutpParamObject
 {
-  public ItestFldOutpParam? Field(ItestInOutpParam parameter)
-    => null;
-  public ItestFldOutpParam? Field()
+  public ItestFldOutpParam Field { get; set; }
+  public ItestFldOutpParam? Call_Field(ItestInOutpParam parameter)
     => null;
 
   public testOutpParamObject
-    ()
+    ( ItestFldOutpParam pfield
+    )
   {
+    Field = pfield;
   }
 }
 
@@ -7727,14 +7729,15 @@ public class testOutpParamDescrObject
   : GqlpModelBase
   , ItestOutpParamDescrObject
 {
-  public ItestFldOutpParamDescr? Field(ItestInOutpParamDescr parameter)
-    => null;
-  public ItestFldOutpParamDescr? Field()
+  public ItestFldOutpParamDescr Field { get; set; }
+  public ItestFldOutpParamDescr? Call_Field(ItestInOutpParamDescr parameter)
     => null;
 
   public testOutpParamDescrObject
-    ()
+    ( ItestFldOutpParamDescr pfield
+    )
   {
+    Field = pfield;
   }
 }
 
@@ -7789,14 +7792,15 @@ public class testOutpParamModDmnObject
   : GqlpModelBase
   , ItestOutpParamModDmnObject
 {
-  public ItestDomOutpParamModDmn? Field(IDictionary<ItestDomOutpParamModDmn, ItestInOutpParamModDmn> parameter)
-    => null;
-  public ItestDomOutpParamModDmn? Field()
+  public ItestDomOutpParamModDmn Field { get; set; }
+  public ItestDomOutpParamModDmn? Call_Field(IDictionary<ItestDomOutpParamModDmn, ItestInOutpParamModDmn> parameter)
     => null;
 
   public testOutpParamModDmnObject
-    ()
+    ( ItestDomOutpParamModDmn pfield
+    )
   {
+    Field = pfield;
   }
 }
 
@@ -7839,14 +7843,15 @@ public class testOutpParamModParamObject<TMod>
   : GqlpModelBase
   , ItestOutpParamModParamObject<TMod>
 {
-  public ItestDomOutpParamModParam? Field(IDictionary<TMod, ItestInOutpParamModParam> parameter)
-    => null;
-  public ItestDomOutpParamModParam? Field()
+  public ItestDomOutpParamModParam Field { get; set; }
+  public ItestDomOutpParamModParam? Call_Field(IDictionary<TMod, ItestInOutpParamModParam> parameter)
     => null;
 
   public testOutpParamModParamObject
-    ()
+    ( ItestDomOutpParamModParam pfield
+    )
   {
+    Field = pfield;
   }
 }
 
@@ -7889,14 +7894,15 @@ public class testOutpParamTypeDescrObject
   : GqlpModelBase
   , ItestOutpParamTypeDescrObject
 {
-  public ItestFldOutpParamTypeDescr? Field(ItestInOutpParamTypeDescr parameter)
-    => null;
-  public ItestFldOutpParamTypeDescr? Field()
+  public ItestFldOutpParamTypeDescr Field { get; set; }
+  public ItestFldOutpParamTypeDescr? Call_Field(ItestInOutpParamTypeDescr parameter)
     => null;
 
   public testOutpParamTypeDescrObject
-    ()
+    ( ItestFldOutpParamTypeDescr pfield
+    )
   {
+    Field = pfield;
   }
 }
 
@@ -7991,14 +7997,16 @@ public class testOutpPrntParamObject
   : testPrntOutpPrntParamObject
   , ItestOutpPrntParamObject
 {
-  public ItestFldOutpPrntParam? Field(ItestInOutpPrntParam parameter)
-    => null;
-  public ItestFldOutpPrntParam? Field()
+  public ItestFldOutpPrntParam Field { get; set; }
+  public ItestFldOutpPrntParam? Call_Field(ItestInOutpPrntParam parameter)
     => null;
 
   public testOutpPrntParamObject
-    ()
+    ( ItestFldOutpPrntParam pfield
+    , ItestFldOutpPrntParam pfield
+    ) : base(pfield)
   {
+    Field = pfield;
   }
 }
 
@@ -8013,14 +8021,15 @@ public class testPrntOutpPrntParamObject
   : GqlpModelBase
   , ItestPrntOutpPrntParamObject
 {
-  public ItestFldOutpPrntParam? Field(ItestPrntOutpPrntParamIn parameter)
-    => null;
-  public ItestFldOutpPrntParam? Field()
+  public ItestFldOutpPrntParam Field { get; set; }
+  public ItestFldOutpPrntParam? Call_Field(ItestPrntOutpPrntParamIn parameter)
     => null;
 
   public testPrntOutpPrntParamObject
-    ()
+    ( ItestFldOutpPrntParam pfield
+    )
   {
+    Field = pfield;
   }
 }
 

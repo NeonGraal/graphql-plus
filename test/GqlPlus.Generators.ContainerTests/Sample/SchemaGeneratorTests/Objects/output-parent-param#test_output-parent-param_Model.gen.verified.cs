@@ -18,14 +18,16 @@ public class testOutpPrntParamObject
   : testPrntOutpPrntParamObject
   , ItestOutpPrntParamObject
 {
-  public ItestFldOutpPrntParam? Field(ItestInOutpPrntParam parameter)
-    => null;
-  public ItestFldOutpPrntParam? Field()
+  public ItestFldOutpPrntParam Field { get; set; }
+  public ItestFldOutpPrntParam? Call_Field(ItestInOutpPrntParam parameter)
     => null;
 
   public testOutpPrntParamObject
-    ()
+    ( ItestFldOutpPrntParam pfield
+    , ItestFldOutpPrntParam pfield
+    ) : base(pfield)
   {
+    Field = pfield;
   }
 }
 
@@ -40,14 +42,15 @@ public class testPrntOutpPrntParamObject
   : GqlpModelBase
   , ItestPrntOutpPrntParamObject
 {
-  public ItestFldOutpPrntParam? Field(ItestPrntOutpPrntParamIn parameter)
-    => null;
-  public ItestFldOutpPrntParam? Field()
+  public ItestFldOutpPrntParam Field { get; set; }
+  public ItestFldOutpPrntParam? Call_Field(ItestPrntOutpPrntParamIn parameter)
     => null;
 
   public testPrntOutpPrntParamObject
-    ()
+    ( ItestFldOutpPrntParam pfield
+    )
   {
+    Field = pfield;
   }
 }
 

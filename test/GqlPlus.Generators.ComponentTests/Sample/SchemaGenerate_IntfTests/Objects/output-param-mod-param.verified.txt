@@ -21,8 +21,8 @@ public interface ICmptOutpParamModParam<TMod>
 public interface ICmptOutpParamModParamObject<TMod>
   : Schema_output-param-mod-param
 {
-  ICmptDomOutpParamModParam? Field(IDictionary<TMod, ICmptInOutpParamModParam> parameter);
-  ICmptDomOutpParamModParam? Field();
+  ICmptDomOutpParamModParam Field { get; }
+  ICmptDomOutpParamModParam? Call_Field(IDictionary<TMod, ICmptInOutpParamModParam> parameter);
 }
 
 public interface ICmptInOutpParamModParam

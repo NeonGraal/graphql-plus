@@ -16,14 +16,14 @@ public interface Itest_Schema
 public interface Itest_SchemaObject
   : Itest_NamedObject
 {
-  IDictionary<Itest_Name, Itest_Categories>? Categories(Itest_CategoryFilter? parameter);
-  IDictionary<Itest_Name, Itest_Categories>? Categories();
-  IDictionary<Itest_Name, Itest_Directives>? Directives(Itest_Filter? parameter);
-  IDictionary<Itest_Name, Itest_Directives>? Directives();
-  IDictionary<Itest_Name, Itest_Type>? Types(Itest_TypeFilter? parameter);
-  IDictionary<Itest_Name, Itest_Type>? Types();
-  IDictionary<Itest_Name, Itest_Setting>? Settings(Itest_Filter? parameter);
-  IDictionary<Itest_Name, Itest_Setting>? Settings();
+  IDictionary<Itest_Name, Itest_Categories> Categories { get; }
+  IDictionary<Itest_Name, Itest_Categories>? Call_Categories(Itest_CategoryFilter? parameter);
+  IDictionary<Itest_Name, Itest_Directives> Directives { get; }
+  IDictionary<Itest_Name, Itest_Directives>? Call_Directives(Itest_Filter? parameter);
+  IDictionary<Itest_Name, Itest_Type> Types { get; }
+  IDictionary<Itest_Name, Itest_Type>? Call_Types(Itest_TypeFilter? parameter);
+  IDictionary<Itest_Name, Itest_Setting> Settings { get; }
+  IDictionary<Itest_Name, Itest_Setting>? Call_Settings(Itest_Filter? parameter);
 }
 
 public interface Itest_Name

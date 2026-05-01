@@ -17,19 +17,19 @@ public interface ItestQuery
 public interface ItestQueryObject
   : IGqlpInterfaceBase
 {
-  ItestFullUser? User(ItestUserFilter parameter);
-  ItestFullUser? User();
-  ItestStory? LikeStory(ItestStoryFilter parameter);
-  ItestStory? LikeStory();
-  string? Field(ItestFieldFilter parameter);
-  string? Field();
+  ItestFullUser User { get; }
+  ItestFullUser? Call_User(ItestUserFilter parameter);
+  ItestStory LikeStory { get; }
+  ItestStory? Call_LikeStory(ItestStoryFilter parameter);
+  string Field { get; }
+  string? Call_Field(ItestFieldFilter parameter);
   ItestFullUser Me { get; }
-  string? Picture(ItestPicFilter parameter);
-  string? Picture();
-  ICollection<ItestProfile>? Profiles(ItestProfileFilter parameter);
-  ICollection<ItestProfile>? Profiles();
-  string? NearestThing(ItestThingFilter parameter);
-  string? NearestThing();
+  string Picture { get; }
+  string? Call_Picture(ItestPicFilter parameter);
+  ICollection<ItestProfile> Profiles { get; }
+  ICollection<ItestProfile>? Call_Profiles(ItestProfileFilter parameter);
+  string NearestThing { get; }
+  string? Call_NearestThing(ItestThingFilter parameter);
 }
 
 public interface ItestMutation
@@ -41,8 +41,8 @@ public interface ItestMutation
 public interface ItestMutationObject
   : IGqlpInterfaceBase
 {
-  bool? SendEmail(ItestEmail parameter);
-  bool? SendEmail();
+  bool SendEmail { get; }
+  bool? Call_SendEmail(ItestEmail parameter);
 }
 
 public interface ItestUserFilter
@@ -82,12 +82,12 @@ public interface ItestFullUser
 public interface ItestFullUserObject
   : ItestUserObject
 {
-  string? ProfilePic(ItestPicFilter parameter);
-  string? ProfilePic();
-  ItestUserList? Friends(ItestFriendsFilter parameter);
-  ItestUserList? Friends();
-  ItestUserList? MutualFriends(ItestFriendsFilter parameter);
-  ItestUserList? MutualFriends();
+  string ProfilePic { get; }
+  string? Call_ProfilePic(ItestPicFilter parameter);
+  ItestUserList Friends { get; }
+  ItestUserList? Call_Friends(ItestFriendsFilter parameter);
+  ItestUserList MutualFriends { get; }
+  ItestUserList? Call_MutualFriends(ItestFriendsFilter parameter);
 }
 
 public interface ItestUserList

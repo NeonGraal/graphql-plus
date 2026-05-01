@@ -61,6 +61,6 @@ public interface ItestAll
 public interface ItestAllObject
   : IGqlpInterfaceBase
 {
-  ItestField? Items(ItestParam? parameter);
-  ItestField? Items();
+  ItestField Items { get; }
+  ItestField? Call_Items(ItestParam? parameter);
 }

@@ -1,4 +1,4 @@
-using GqlPlus.Ast;
+﻿using GqlPlus.Ast;
 
 namespace GqlPlus.Generating.Objects;
 
@@ -32,7 +32,6 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     GenerateBlock(ast, context, InterfaceHeader, TypeMembers, InterfaceMember);
   }
   protected abstract void InterfaceMember(TFieldItem item, GqlpGeneratorContext context);
-
 
   private string AlternateHeader(IAstObject<TObjField> ast, GqlpGeneratorContext context, string type, string prefix, GqlpBaseType baseType)
   {
@@ -171,14 +170,14 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
   protected override void ClassTail(IAstObject<TObjField> ast, GqlpGeneratorContext context)
   {
     context.Write("");
-    MapPair<RequiredField>[] required = RequiredMembers(ast, context);
+    RequiredField[] required = RequiredMembers(ast, context);
     RequiredParents parents = DetermineParentAndGrandParent(ast, context);
 
-    IEnumerable<MapPair<RequiredField>> paramList = parents.ParamList(required);
+    IEnumerable<RequiredField> paramList = parents.ParamList(required);
     context.Write($"  public {context.TypeName(ast, "")}Object");
     string prefix = "(";
-    foreach ((string key, RequiredField value) in paramList) {
-      context.Write($"    {prefix} {value.Type} p{key}");
+    foreach (RequiredField value in paramList) {
+      context.Write($"    {prefix} {value.Type} p{value.Name}");
       prefix = ",";
     }
 
@@ -191,8 +190,8 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     }
 
     context.Write("  {");
-    foreach (KeyValuePair<string, RequiredField> kv in required) {
-      context.Write($"    {kv.Key.Capitalize()} = {FieldValue(kv)};");
+    foreach (RequiredField kv in required) {
+      context.Write($"    {kv.Name.Capitalize()} = {FieldValue(kv)};");
     }
 
     context.Write("  }");
@@ -221,25 +220,25 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
 
     GqlpGeneratorTypes parentTypes = new(types, ast.Parent.Args, parentObject.TypeParams);
 
-    MapPair<RequiredField>[] deep = ParentRequired(parentObject, parentTypes);
-    MapPair<RequiredField>[] shallow = RequiredMembers(parentObject, parentTypes);
+    RequiredField[] deep = ParentRequired(parentObject, parentTypes);
+    RequiredField[] shallow = RequiredMembers(parentObject, parentTypes);
 
     return new(deep, shallow);
   }
 
-  private static string FieldValue(MapPair<RequiredField> field)
-    => string.IsNullOrEmpty(field.Value.Label)
-      ? "p" + field.Key
-      : field.Value.Type + "." + field.Value.Label;
+  private static string FieldValue(RequiredField field)
+    => string.IsNullOrEmpty(field.Label)
+      ? "p" + field.Name
+      : field.Type + "." + field.Label;
 
-  internal virtual MapPair<RequiredField>[] RequiredMembers(IAstObject ast, GqlpGeneratorTypes types)
+  internal virtual RequiredField[] RequiredMembers(IAstObject ast, GqlpGeneratorTypes types)
   {
     return [.. ast.Fields
       .Where(f => f.Modifiers.LastOrDefault()?.ModifierKind != ModifierKind.Opt)
       .Select(RequiredMember(types))];
   }
 
-  internal Func<IAstObjField, MapPair<RequiredField>> RequiredMember(GqlpGeneratorTypes types)
+  internal Func<IAstObjField, RequiredField> RequiredMember(GqlpGeneratorTypes types)
     => f => {
       string type = ModifiedTypeString(f.Type, f, types);
       string label = "";
@@ -249,10 +248,10 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
         }
       }
 
-      return new RequiredField(type, label).ToPair(f.Name);
+      return new RequiredField(f.Name, type, label);
     };
 
-  internal virtual MapPair<RequiredField>[] ParentRequired(IAstObject ast, GqlpGeneratorTypes types)
+  internal virtual RequiredField[] ParentRequired(IAstObject ast, GqlpGeneratorTypes types)
   {
     if (ast.Parent is null || ast.Parent.IsTypeParam) {
       return [];
@@ -264,8 +263,8 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
 
     GqlpGeneratorTypes parentTypes = new(types, ast.Parent.Args, parentObject.TypeParams);
 
-    MapPair<RequiredField>[] grandRequired = ParentRequired(parentObject, parentTypes);
-    MapPair<RequiredField>[] parentRequired = RequiredMembers(parentObject, parentTypes);
+    RequiredField[] grandRequired = ParentRequired(parentObject, parentTypes);
+    RequiredField[] parentRequired = RequiredMembers(parentObject, parentTypes);
 
     return [.. grandRequired, .. parentRequired];
   }
@@ -291,32 +290,32 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     => context.Write("  " + interfaceSep + " " + context.TypeName(ast, "I") + "Object" + TypeParamsString(ast));
 }
 
-internal record struct RequiredField(string Type, string Label);
+internal record struct RequiredField(string Name, string Type, string Label);
 
-internal record struct RequiredSplit(MapPair<RequiredField>[] Deep, MapPair<RequiredField>[] Shallow)
+internal record struct RequiredSplit(RequiredField[] Deep, RequiredField[] Shallow)
 {
   public RequiredSplit()
     : this([], [])
   { }
 }
 
-internal record struct RequiredParents(MapPair<RequiredField>[] Parent, RequiredSplit Split)
+internal record struct RequiredParents(RequiredField[] Parent, RequiredSplit Split)
 {
-  internal readonly IEnumerable<MapPair<RequiredField>> ParamList(MapPair<RequiredField>[] required)
+  internal readonly IEnumerable<RequiredField> ParamList(RequiredField[] required)
     => Split.Deep
       .Concat(Split.Shallow)
       .Concat(Parent)
-      .Where(kv => string.IsNullOrEmpty(kv.Value.Label))
+      .Where(kv => string.IsNullOrEmpty(kv.Label))
       .Concat(required);
 
   internal readonly bool HasBase
     => Parent.Length > 0
       || Split.Deep.Length > 0
-      || Split.Shallow.Any(kv => string.IsNullOrEmpty(kv.Value.Label));
+      || Split.Shallow.Any(kv => string.IsNullOrEmpty(kv.Label));
 
-  internal readonly string ParentArgs(Func<MapPair<RequiredField>, string> fieldValue)
+  internal readonly string ParentArgs(Func<RequiredField, string> fieldValue)
     => Split.Deep
-        .Concat(Split.Shallow.Where(kv => string.IsNullOrEmpty(kv.Value.Label)))
+        .Concat(Split.Shallow.Where(kv => string.IsNullOrEmpty(kv.Label)))
         .Concat(Parent)
         .Joined(fieldValue, ", ");
 }

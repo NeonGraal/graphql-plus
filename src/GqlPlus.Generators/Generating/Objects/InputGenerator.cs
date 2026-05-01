@@ -10,8 +10,4 @@ internal sealed class InputDecoderGenerator()
   : ObjectDecoderGeneratorBase<IAstInputField>;
 
 internal sealed class InputEncoderGenerator
-  : ObjectEncoderGeneratorBase<IAstInputField>
-{
-  protected override void Generate(IAstObject<IAstInputField> ast, GqlpGeneratorContext context)
-  { }
-}
+  : ObjectEncoderGeneratorBase<IAstInputField>;

@@ -7,8 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_number_descr;
 
-internal class testDmnNmbrDescrDecoder
+internal class testDmnNmbrDescrDecoder : IDecoder<ItestDmnNmbrDescr>
 {
+
+  public IMessages Decode(IValue input, out ItestDmnNmbrDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testDmnNmbrDescrDecoder Factory(IDecoderRepository _) => new();
 }

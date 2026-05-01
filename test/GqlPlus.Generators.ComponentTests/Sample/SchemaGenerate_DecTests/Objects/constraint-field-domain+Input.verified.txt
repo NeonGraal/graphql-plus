@@ -12,19 +12,31 @@ domain DomCnstFieldDmnInp { String /\w+/ }
 
 namespace Components.Gqlp_Schema_constraint_field_domain_Input;
 
-internal class CmptCnstFieldDmnInpDecoder
+internal class CmptCnstFieldDmnInpDecoder : IDecoder<ICmptCnstFieldDmnInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptCnstFieldDmnInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptCnstFieldDmnInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefCnstFieldDmnInpDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef? Field { get; set; }
 }
 
-internal class CmptDomCnstFieldDmnInpDecoder
+internal class CmptDomCnstFieldDmnInpDecoder : IDecoder<ICmptDomCnstFieldDmnInp>
 {
+
+  public IMessages Decode(IValue input, out ICmptDomCnstFieldDmnInp? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDomCnstFieldDmnInpDecoder Factory(IDecoderRepository _) => new();
 }

@@ -60,14 +60,26 @@ internal class Cmpt_MaskDecoder<TK>
 {
 }
 
-internal class Cmpt_KeyDecoder
+internal class Cmpt_KeyDecoder : IDecoder<ICmpt_Key>
 {
+
+  public IMessages Decode(IValue input, out ICmpt_Key? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static Cmpt_KeyDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_AnyDecoder
+internal class Cmpt_AnyDecoder : IDecoder<ICmpt_AnyObject>
 {
+
+  public IMessages Decode(IValue input, out ICmpt_AnyObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static Cmpt_AnyDecoder Factory(IDecoderRepository _) => new();
 }

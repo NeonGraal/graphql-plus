@@ -7,15 +7,27 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_output_param_mod_param;
 
-internal class testInOutpParamModParamDecoder
+internal class testInOutpParamModParamDecoder : IDecoder<ItestInOutpParamModParamObject>
 {
-  public decimal Param { get; set; }
+  public decimal? Param { get; set; }
+
+  public IMessages Decode(IValue input, out ItestInOutpParamModParamObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testInOutpParamModParamDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDomOutpParamModParamDecoder
+internal class testDomOutpParamModParamDecoder : IDecoder<ItestDomOutpParamModParam>
 {
+
+  public IMessages Decode(IValue input, out ItestDomOutpParamModParam? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testDomOutpParamModParamDecoder Factory(IDecoderRepository _) => new();
 }

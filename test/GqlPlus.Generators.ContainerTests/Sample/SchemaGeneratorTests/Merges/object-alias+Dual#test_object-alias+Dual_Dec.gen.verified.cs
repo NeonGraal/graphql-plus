@@ -7,8 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_alias_Dual;
 
-internal class testObjAliasDualDecoder
+internal class testObjAliasDualDecoder : IDecoder<ItestObjAliasDualObject>
 {
+
+  public IMessages Decode(IValue input, out ItestObjAliasDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testObjAliasDualDecoder Factory(IDecoderRepository _) => new();
 }

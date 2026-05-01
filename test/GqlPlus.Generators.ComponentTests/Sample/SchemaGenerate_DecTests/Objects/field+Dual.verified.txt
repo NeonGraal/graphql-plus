@@ -10,9 +10,15 @@ dual FieldDual { field: String }
 
 namespace Components.Gqlp_Schema_field_Dual;
 
-internal class CmptFieldDualDecoder
+internal class CmptFieldDualDecoder : IDecoder<ICmptFieldDualObject>
 {
-  public string Field { get; set; }
+  public string? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptFieldDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptFieldDualDecoder Factory(IDecoderRepository _) => new();
 }

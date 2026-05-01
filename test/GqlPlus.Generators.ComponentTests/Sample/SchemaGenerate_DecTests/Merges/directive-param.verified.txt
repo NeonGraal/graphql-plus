@@ -12,8 +12,14 @@ input InDrctParam { }
 
 namespace Components.Gqlp_Schema_directive_param;
 
-internal class CmptInDrctParamDecoder
+internal class CmptInDrctParamDecoder : IDecoder<ICmptInDrctParamObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptInDrctParamObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptInDrctParamDecoder Factory(IDecoderRepository _) => new();
 }

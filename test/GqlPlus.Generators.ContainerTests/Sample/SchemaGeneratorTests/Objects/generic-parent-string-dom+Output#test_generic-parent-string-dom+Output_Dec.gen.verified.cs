@@ -7,8 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_string_dom_Output;
 
-internal class testDomGnrcPrntStrDomOutpDecoder
+internal class testDomGnrcPrntStrDomOutpDecoder : IDecoder<ItestDomGnrcPrntStrDomOutp>
 {
+
+  public IMessages Decode(IValue input, out ItestDomGnrcPrntStrDomOutp? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testDomGnrcPrntStrDomOutpDecoder Factory(IDecoderRepository _) => new();
 }

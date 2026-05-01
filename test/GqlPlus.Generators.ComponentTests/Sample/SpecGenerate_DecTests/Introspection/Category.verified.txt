@@ -25,8 +25,16 @@ namespace Components.Gqlp_Spec_Category;
 
 internal class Cmpt_ResolutionDecoder : IDecoder<Cmpt_Resolution?>
 {
-  public IMessages Decoder(IValue input, out Cmpt_Resolution? output)
-    => input.DecodeEnum("_Resolution", out output);
+  public IMessages Decode(IValue input, out Cmpt_Resolution? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out Cmpt_Resolution value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode Cmpt_Resolution".AnError();
+  }
 
   internal static Cmpt_ResolutionDecoder Factory(IDecoderRepository _) => new();
 }

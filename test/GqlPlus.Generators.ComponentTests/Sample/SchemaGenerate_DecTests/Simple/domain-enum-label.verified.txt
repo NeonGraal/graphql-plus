@@ -11,17 +11,31 @@ enum EnumDmnEnumLabel { dmnEnumLabel }
 
 namespace Components.Gqlp_Schema_domain_enum_label;
 
-internal class CmptDmnEnumLabelDecoder
+internal class CmptDmnEnumLabelDecoder : IDecoder<ICmptDmnEnumLabel>
 {
-  public new CmptEnumDmnEnumLabel? Value { get; set; }
+  public CmptEnumDmnEnumLabel? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptDmnEnumLabel? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnEnumLabelDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumLabelDecoder : IDecoder<CmptEnumDmnEnumLabel?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumDmnEnumLabel? output)
-    => input.DecodeEnum("EnumDmnEnumLabel", out output);
+  public IMessages Decode(IValue input, out CmptEnumDmnEnumLabel? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumDmnEnumLabel value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumDmnEnumLabel".AnError();
+  }
 
   internal static CmptEnumDmnEnumLabelDecoder Factory(IDecoderRepository _) => new();
 }

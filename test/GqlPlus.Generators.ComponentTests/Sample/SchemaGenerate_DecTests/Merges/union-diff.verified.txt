@@ -11,10 +11,16 @@ union UnionDiff { Number }
 
 namespace Components.Gqlp_Schema_union_diff;
 
-internal class CmptUnionDiffDecoder
+internal class CmptUnionDiffDecoder : IDecoder<ICmptUnionDiff>
 {
-  public Boolean AsBoolean { get; set; }
-  public Number AsNumber { get; set; }
+  public Boolean? AsBoolean { get; set; }
+  public Number? AsNumber { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptUnionDiff? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptUnionDiffDecoder Factory(IDecoderRepository _) => new();
 }

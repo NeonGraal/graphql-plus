@@ -7,25 +7,47 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_enum_parent_Dual;
 
-internal class testFieldEnumPrntDualDecoder
+internal class testFieldEnumPrntDualDecoder : IDecoder<ItestFieldEnumPrntDualObject>
 {
-  public testEnumFieldEnumPrntDual Field { get; set; }
+  public testEnumFieldEnumPrntDual? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ItestFieldEnumPrntDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testFieldEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testEnumFieldEnumPrntDualDecoder : IDecoder<testEnumFieldEnumPrntDual?>
 {
-  public IMessages Decoder(IValue input, out testEnumFieldEnumPrntDual? output)
-    => input.DecodeEnum("EnumFieldEnumPrntDual", out output);
+  public IMessages Decode(IValue input, out testEnumFieldEnumPrntDual? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testEnumFieldEnumPrntDual value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testEnumFieldEnumPrntDual".AnError();
+  }
 
   internal static testEnumFieldEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testPrntFieldEnumPrntDualDecoder : IDecoder<testPrntFieldEnumPrntDual?>
 {
-  public IMessages Decoder(IValue input, out testPrntFieldEnumPrntDual? output)
-    => input.DecodeEnum("PrntFieldEnumPrntDual", out output);
+  public IMessages Decode(IValue input, out testPrntFieldEnumPrntDual? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testPrntFieldEnumPrntDual value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testPrntFieldEnumPrntDual".AnError();
+  }
 
   internal static testPrntFieldEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }

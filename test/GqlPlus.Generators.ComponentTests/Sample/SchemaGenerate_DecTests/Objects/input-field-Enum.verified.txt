@@ -11,17 +11,31 @@ enum EnumInpFieldEnum { inpFieldEnum }
 
 namespace Components.Gqlp_Schema_input_field_Enum;
 
-internal class CmptInpFieldEnumDecoder
+internal class CmptInpFieldEnumDecoder : IDecoder<ICmptInpFieldEnumObject>
 {
-  public CmptEnumInpFieldEnum Field { get; set; }
+  public CmptEnumInpFieldEnum? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptInpFieldEnumObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptInpFieldEnumDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumInpFieldEnumDecoder : IDecoder<CmptEnumInpFieldEnum?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumInpFieldEnum? output)
-    => input.DecodeEnum("EnumInpFieldEnum", out output);
+  public IMessages Decode(IValue input, out CmptEnumInpFieldEnum? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumInpFieldEnum value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumInpFieldEnum".AnError();
+  }
 
   internal static CmptEnumInpFieldEnumDecoder Factory(IDecoderRepository _) => new();
 }

@@ -55,60 +55,108 @@ dual _Described {
 
 namespace Components.Gqlp_Spec_Schema;
 
-internal class Cmpt_NameDecoder
+internal class Cmpt_NameDecoder : IDecoder<ICmpt_Name>
 {
+
+  public IMessages Decode(IValue input, out ICmpt_Name? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static Cmpt_NameDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_FilterDecoder
+internal class Cmpt_FilterDecoder : IDecoder<ICmpt_FilterObject>
 {
-  public ICollection<ICmpt_NameFilter> Names { get; set; }
+  public ICollection<ICmpt_NameFilter>? Names { get; set; }
   public bool? MatchAliases { get; set; }
-  public ICollection<ICmpt_NameFilter> Aliases { get; set; }
+  public ICollection<ICmpt_NameFilter>? Aliases { get; set; }
   public bool? ReturnByAlias { get; set; }
   public bool? ReturnReferencedTypes { get; set; }
+
+  public IMessages Decode(IValue input, out ICmpt_FilterObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static Cmpt_FilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_NameFilterDecoder
+internal class Cmpt_NameFilterDecoder : IDecoder<ICmpt_NameFilter>
 {
+
+  public IMessages Decode(IValue input, out ICmpt_NameFilter? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static Cmpt_NameFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_CategoryFilterDecoder
+internal class Cmpt_CategoryFilterDecoder : IDecoder<ICmpt_CategoryFilterObject>
 {
-  public ICollection<ICmpt_Resolution> Resolutions { get; set; }
+  public ICollection<ICmpt_Resolution>? Resolutions { get; set; }
+
+  public IMessages Decode(IValue input, out ICmpt_CategoryFilterObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static Cmpt_CategoryFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_TypeFilterDecoder
+internal class Cmpt_TypeFilterDecoder : IDecoder<ICmpt_TypeFilterObject>
 {
-  public ICollection<ICmpt_TypeKind> Kinds { get; set; }
+  public ICollection<ICmpt_TypeKind>? Kinds { get; set; }
+
+  public IMessages Decode(IValue input, out ICmpt_TypeFilterObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static Cmpt_TypeFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_AliasedDecoder
+internal class Cmpt_AliasedDecoder : IDecoder<ICmpt_AliasedObject>
 {
-  public ICollection<ICmpt_Name> Aliases { get; set; }
+  public ICollection<ICmpt_Name>? Aliases { get; set; }
+
+  public IMessages Decode(IValue input, out ICmpt_AliasedObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static Cmpt_AliasedDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_NamedDecoder
+internal class Cmpt_NamedDecoder : IDecoder<ICmpt_NamedObject>
 {
-  public ICmpt_Name Name { get; set; }
+  public ICmpt_Name? Name { get; set; }
+
+  public IMessages Decode(IValue input, out ICmpt_NamedObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static Cmpt_NamedDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_DescribedDecoder
+internal class Cmpt_DescribedDecoder : IDecoder<ICmpt_DescribedObject>
 {
-  public ICollection<string> Description { get; set; }
+  public ICollection<string>? Description { get; set; }
+
+  public IMessages Decode(IValue input, out ICmpt_DescribedObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static Cmpt_DescribedDecoder Factory(IDecoderRepository _) => new();
 }

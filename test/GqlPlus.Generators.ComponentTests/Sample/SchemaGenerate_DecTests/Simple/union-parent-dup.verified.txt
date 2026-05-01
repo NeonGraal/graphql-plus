@@ -11,16 +11,28 @@ union PrntUnionPrntDup { Number }
 
 namespace Components.Gqlp_Schema_union_parent_dup;
 
-internal class CmptUnionPrntDupDecoder
+internal class CmptUnionPrntDupDecoder : IDecoder<ICmptUnionPrntDup>
 {
-  public Number AsNumber { get; set; }
+  public Number? AsNumber { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptUnionPrntDup? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptUnionPrntDupDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntUnionPrntDupDecoder
+internal class CmptPrntUnionPrntDupDecoder : IDecoder<ICmptPrntUnionPrntDup>
 {
-  public Number AsNumber { get; set; }
+  public Number? AsNumber { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptPrntUnionPrntDup? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntUnionPrntDupDecoder Factory(IDecoderRepository _) => new();
 }

@@ -13,8 +13,14 @@ input AltCnstPrntDualPrntInp { :PrntCnstPrntDualPrntInp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_parent_dual_parent_Input;
 
-internal class CmptCnstPrntDualPrntInpDecoder
+internal class CmptCnstPrntDualPrntInpDecoder : IDecoder<ICmptCnstPrntDualPrntInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptCnstPrntDualPrntInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptCnstPrntDualPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -23,15 +29,27 @@ internal class CmptRefCnstPrntDualPrntInpDecoder<TRef>
 {
 }
 
-internal class CmptPrntCnstPrntDualPrntInpDecoder
+internal class CmptPrntCnstPrntDualPrntInpDecoder : IDecoder<ICmptPrntCnstPrntDualPrntInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptPrntCnstPrntDualPrntInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntCnstPrntDualPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptAltCnstPrntDualPrntInpDecoder
+internal class CmptAltCnstPrntDualPrntInpDecoder : IDecoder<ICmptAltCnstPrntDualPrntInpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal? Alt { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptAltCnstPrntDualPrntInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptAltCnstPrntDualPrntInpDecoder Factory(IDecoderRepository _) => new();
 }

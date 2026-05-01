@@ -15,15 +15,29 @@ namespace Components.Gqlp_Schema_constraint_dom_enum_Output;
 
 internal class CmptEnumCnstDomEnumOutpDecoder : IDecoder<CmptEnumCnstDomEnumOutp?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumCnstDomEnumOutp? output)
-    => input.DecodeEnum("EnumCnstDomEnumOutp", out output);
+  public IMessages Decode(IValue input, out CmptEnumCnstDomEnumOutp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumCnstDomEnumOutp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumCnstDomEnumOutp".AnError();
+  }
 
   internal static CmptEnumCnstDomEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptJustCnstDomEnumOutpDecoder
+internal class CmptJustCnstDomEnumOutpDecoder : IDecoder<ICmptJustCnstDomEnumOutp>
 {
-  public new CmptEnumCnstDomEnumOutp? Value { get; set; }
+  public CmptEnumCnstDomEnumOutp? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptJustCnstDomEnumOutp? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptJustCnstDomEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }

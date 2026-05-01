@@ -10,8 +10,14 @@ domain DmnStrNonEmpty { String !/\s*/ }
 
 namespace Components.Gqlp_Schema_domain_string_non_empty;
 
-internal class CmptDmnStrNonEmptyDecoder
+internal class CmptDmnStrNonEmptyDecoder : IDecoder<ICmptDmnStrNonEmpty>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnStrNonEmpty? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnStrNonEmptyDecoder Factory(IDecoderRepository _) => new();
 }

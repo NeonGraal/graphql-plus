@@ -7,15 +7,27 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_parent_dual_Dual;
 
-internal class testPrntDualDualDecoder
+internal class testPrntDualDualDecoder : IDecoder<ItestPrntDualDualObject>
 {
+
+  public IMessages Decode(IValue input, out ItestPrntDualDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testPrntDualDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testRefPrntDualDualDecoder
+internal class testRefPrntDualDualDecoder : IDecoder<ItestRefPrntDualDualObject>
 {
-  public decimal Parent { get; set; }
+  public decimal? Parent { get; set; }
+
+  public IMessages Decode(IValue input, out ItestRefPrntDualDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testRefPrntDualDualDecoder Factory(IDecoderRepository _) => new();
 }

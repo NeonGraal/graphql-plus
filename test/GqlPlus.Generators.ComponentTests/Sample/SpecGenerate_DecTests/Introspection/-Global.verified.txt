@@ -52,16 +52,32 @@ namespace Components.Gqlp_Spec_Global;
 
 internal class Cmpt_ResolutionDecoder : IDecoder<Cmpt_Resolution?>
 {
-  public IMessages Decoder(IValue input, out Cmpt_Resolution? output)
-    => input.DecodeEnum("_Resolution", out output);
+  public IMessages Decode(IValue input, out Cmpt_Resolution? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out Cmpt_Resolution value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode Cmpt_Resolution".AnError();
+  }
 
   internal static Cmpt_ResolutionDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_LocationDecoder : IDecoder<Cmpt_Location?>
 {
-  public IMessages Decoder(IValue input, out Cmpt_Location? output)
-    => input.DecodeEnum("_Location", out output);
+  public IMessages Decode(IValue input, out Cmpt_Location? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out Cmpt_Location value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode Cmpt_Location".AnError();
+  }
 
   internal static Cmpt_LocationDecoder Factory(IDecoderRepository _) => new();
 }

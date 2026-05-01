@@ -7,14 +7,26 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_dual_grandparent_Output;
 
-internal class testGrndCnstPrntDualGrndOutpDecoder
+internal class testGrndCnstPrntDualGrndOutpDecoder : IDecoder<ItestGrndCnstPrntDualGrndOutpObject>
 {
+
+  public IMessages Decode(IValue input, out ItestGrndCnstPrntDualGrndOutpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testGrndCnstPrntDualGrndOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntCnstPrntDualGrndOutpDecoder
+internal class testPrntCnstPrntDualGrndOutpDecoder : IDecoder<ItestPrntCnstPrntDualGrndOutpObject>
 {
+
+  public IMessages Decode(IValue input, out ItestPrntCnstPrntDualGrndOutpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testPrntCnstPrntDualGrndOutpDecoder Factory(IDecoderRepository _) => new();
 }

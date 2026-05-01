@@ -12,9 +12,15 @@ dual AltGnrcAltDualOutp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_alt_dual_Output;
 
-internal class CmptAltGnrcAltDualOutpDecoder
+internal class CmptAltGnrcAltDualOutpDecoder : IDecoder<ICmptAltGnrcAltDualOutpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal? Alt { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptAltGnrcAltDualOutpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptAltGnrcAltDualOutpDecoder Factory(IDecoderRepository _) => new();
 }

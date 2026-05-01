@@ -11,14 +11,26 @@ domain PrntDmnStrPrnt { String /b+/ }
 
 namespace Components.Gqlp_Schema_domain_string_parent;
 
-internal class CmptDmnStrPrntDecoder
+internal class CmptDmnStrPrntDecoder : IDecoder<ICmptDmnStrPrnt>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnStrPrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnStrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntDmnStrPrntDecoder
+internal class CmptPrntDmnStrPrntDecoder : IDecoder<ICmptPrntDmnStrPrnt>
 {
+
+  public IMessages Decode(IValue input, out ICmptPrntDmnStrPrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntDmnStrPrntDecoder Factory(IDecoderRepository _) => new();
 }

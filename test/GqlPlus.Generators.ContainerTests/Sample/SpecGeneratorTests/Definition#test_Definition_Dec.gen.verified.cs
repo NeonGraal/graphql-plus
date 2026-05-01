@@ -9,116 +9,220 @@ namespace GqlPlus.GeneratorTests.Gqlp_Definition;
 
 internal class boolDecoder : IDecoder<bool?>
 {
-  public IMessages Decoder(IValue input, out bool? output)
-    => input.DecodeEnum("Boolean", out output);
+  public IMessages Decode(IValue input, out bool? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out bool value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode bool".AnError();
+  }
 
   internal static boolDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class GqlpNullDecoder : IDecoder<GqlpNull?>
 {
-  public IMessages Decoder(IValue input, out GqlpNull? output)
-    => input.DecodeEnum("Null", out output);
+  public IMessages Decode(IValue input, out GqlpNull? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out GqlpNull value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode GqlpNull".AnError();
+  }
 
   internal static GqlpNullDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class GqlpUnitDecoder : IDecoder<GqlpUnit?>
 {
-  public IMessages Decoder(IValue input, out GqlpUnit? output)
-    => input.DecodeEnum("Unit", out output);
+  public IMessages Decode(IValue input, out GqlpUnit? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out GqlpUnit value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode GqlpUnit".AnError();
+  }
 
   internal static GqlpUnitDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class voidDecoder : IDecoder<void?>
 {
-  public IMessages Decoder(IValue input, out void? output)
-    => input.DecodeEnum("Void", out output);
+  public IMessages Decode(IValue input, out void? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out void value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode void".AnError();
+  }
 
   internal static voidDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class decimalDecoder
+internal class decimalDecoder : IDecoder<decimal>
 {
+
+  public IMessages Decode(IValue input, out decimal? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static decimalDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class stringDecoder
+internal class stringDecoder : IDecoder<string>
 {
+
+  public IMessages Decode(IValue input, out string? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static stringDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_BasicDecoder
+internal class test_BasicDecoder : IDecoder<Itest_Basic>
 {
-  public Boolean AsBoolean { get; set; }
-  public Number AsNumber { get; set; }
-  public String AsString { get; set; }
-  public Unit AsUnit { get; set; }
+  public Boolean? AsBoolean { get; set; }
+  public Number? AsNumber { get; set; }
+  public String? AsString { get; set; }
+  public Unit? AsUnit { get; set; }
+
+  public IMessages Decode(IValue input, out Itest_Basic? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static test_BasicDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_InternalDecoder
+internal class test_InternalDecoder : IDecoder<Itest_Internal>
 {
-  public Null AsNull { get; set; }
-  public Void AsVoid { get; set; }
+  public Null? AsNull { get; set; }
+  public Void? AsVoid { get; set; }
+
+  public IMessages Decode(IValue input, out Itest_Internal? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static test_InternalDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_KeyDecoder
+internal class test_KeyDecoder : IDecoder<Itest_Key>
 {
-  public _Basic As_Basic { get; set; }
-  public _Internal As_Internal { get; set; }
-  public _Simple As_Simple { get; set; }
+  public _Basic? As_Basic { get; set; }
+  public _Internal? As_Internal { get; set; }
+  public _Simple? As_Simple { get; set; }
+
+  public IMessages Decode(IValue input, out Itest_Key? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static test_KeyDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_ObjectDecoder
+internal class test_ObjectDecoder : IDecoder<Itest_ObjectObject>
 {
+
+  public IMessages Decode(IValue input, out Itest_ObjectObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static test_ObjectDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_DomainDecoder
+internal class test_DomainDecoder : IDecoder<Itest_Domain>
 {
+
+  public IMessages Decode(IValue input, out Itest_Domain? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static test_DomainDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_DualDecoder
+internal class test_DualDecoder : IDecoder<Itest_DualObject>
 {
+
+  public IMessages Decode(IValue input, out Itest_DualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static test_DualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_EnumDecoder
+internal class test_EnumDecoder : IDecoder<Itest_Enum>
 {
+
+  public IMessages Decode(IValue input, out Itest_Enum? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static test_EnumDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_InputDecoder
+internal class test_InputDecoder : IDecoder<Itest_InputObject>
 {
+
+  public IMessages Decode(IValue input, out Itest_InputObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static test_InputDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_UnionDecoder
+internal class test_UnionDecoder : IDecoder<Itest_Union>
 {
+
+  public IMessages Decode(IValue input, out Itest_Union? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static test_UnionDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_SimpleDecoder
+internal class test_SimpleDecoder : IDecoder<Itest_Simple>
 {
-  public _Enum As_Enum { get; set; }
-  public _Domain As_Domain { get; set; }
-  public _Union As_Union { get; set; }
+  public _Enum? As_Enum { get; set; }
+  public _Domain? As_Domain { get; set; }
+  public _Union? As_Union { get; set; }
+
+  public IMessages Decode(IValue input, out Itest_Simple? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static test_SimpleDecoder Factory(IDecoderRepository _) => new();
 }

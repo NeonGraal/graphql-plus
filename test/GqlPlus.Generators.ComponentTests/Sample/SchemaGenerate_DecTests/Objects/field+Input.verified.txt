@@ -10,9 +10,15 @@ input FieldInp { field: String }
 
 namespace Components.Gqlp_Schema_field_Input;
 
-internal class CmptFieldInpDecoder
+internal class CmptFieldInpDecoder : IDecoder<ICmptFieldInpObject>
 {
-  public string Field { get; set; }
+  public string? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptFieldInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptFieldInpDecoder Factory(IDecoderRepository _) => new();
 }

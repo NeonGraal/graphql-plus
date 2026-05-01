@@ -10,9 +10,15 @@ input InpFieldNmbr { field: Number = 42 }
 
 namespace Components.Gqlp_Schema_input_field_Number;
 
-internal class CmptInpFieldNmbrDecoder
+internal class CmptInpFieldNmbrDecoder : IDecoder<ICmptInpFieldNmbrObject>
 {
-  public decimal Field { get; set; }
+  public decimal? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptInpFieldNmbrObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptInpFieldNmbrDecoder Factory(IDecoderRepository _) => new();
 }

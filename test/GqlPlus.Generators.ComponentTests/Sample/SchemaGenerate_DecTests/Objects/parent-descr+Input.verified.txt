@@ -11,15 +11,27 @@ input RefPrntDescrInp { parent: Number | String }
 
 namespace Components.Gqlp_Schema_parent_descr_Input;
 
-internal class CmptPrntDescrInpDecoder
+internal class CmptPrntDescrInpDecoder : IDecoder<ICmptPrntDescrInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptPrntDescrInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntDescrInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptRefPrntDescrInpDecoder
+internal class CmptRefPrntDescrInpDecoder : IDecoder<ICmptRefPrntDescrInpObject>
 {
-  public decimal Parent { get; set; }
+  public decimal? Parent { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptRefPrntDescrInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptRefPrntDescrInpDecoder Factory(IDecoderRepository _) => new();
 }

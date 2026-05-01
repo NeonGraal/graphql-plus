@@ -7,8 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_number_range;
 
-internal class testDmnNmbrRangeDecoder
+internal class testDmnNmbrRangeDecoder : IDecoder<ItestDmnNmbrRange>
 {
+
+  public IMessages Decode(IValue input, out ItestDmnNmbrRange? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testDmnNmbrRangeDecoder Factory(IDecoderRepository _) => new();
 }

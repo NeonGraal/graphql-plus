@@ -11,15 +11,27 @@ dual AltAltModBoolDual { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_mod_Boolean_Dual;
 
-internal class CmptAltModBoolDualDecoder
+internal class CmptAltModBoolDualDecoder : IDecoder<ICmptAltModBoolDualObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptAltModBoolDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptAltModBoolDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptAltAltModBoolDualDecoder
+internal class CmptAltAltModBoolDualDecoder : IDecoder<ICmptAltAltModBoolDualObject>
 {
-  public decimal Alt { get; set; }
+  public decimal? Alt { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptAltAltModBoolDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptAltAltModBoolDualDecoder Factory(IDecoderRepository _) => new();
 }

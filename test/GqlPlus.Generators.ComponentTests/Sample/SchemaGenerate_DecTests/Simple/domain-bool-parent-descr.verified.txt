@@ -11,14 +11,26 @@ domain PrntDmnBoolPrntDescr { Boolean true }
 
 namespace Components.Gqlp_Schema_domain_bool_parent_descr;
 
-internal class CmptDmnBoolPrntDescrDecoder
+internal class CmptDmnBoolPrntDescrDecoder : IDecoder<ICmptDmnBoolPrntDescr>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnBoolPrntDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnBoolPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntDmnBoolPrntDescrDecoder
+internal class CmptPrntDmnBoolPrntDescrDecoder : IDecoder<ICmptPrntDmnBoolPrntDescr>
 {
+
+  public IMessages Decode(IValue input, out ICmptPrntDmnBoolPrntDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntDmnBoolPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }

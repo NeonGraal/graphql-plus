@@ -7,21 +7,35 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_enum_Input;
 
-internal class testCnstEnumInpDecoder
+internal class testCnstEnumInpDecoder : IDecoder<ItestCnstEnumInpObject>
 {
+
+  public IMessages Decode(IValue input, out ItestCnstEnumInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testCnstEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testRefCnstEnumInpDecoder<TType>
 {
-  public TType Field { get; set; }
+  public TType? Field { get; set; }
 }
 
 internal class testEnumCnstEnumInpDecoder : IDecoder<testEnumCnstEnumInp?>
 {
-  public IMessages Decoder(IValue input, out testEnumCnstEnumInp? output)
-    => input.DecodeEnum("EnumCnstEnumInp", out output);
+  public IMessages Decode(IValue input, out testEnumCnstEnumInp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testEnumCnstEnumInp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testEnumCnstEnumInp".AnError();
+  }
 
   internal static testEnumCnstEnumInpDecoder Factory(IDecoderRepository _) => new();
 }

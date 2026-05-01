@@ -14,16 +14,32 @@ namespace Components.Gqlp_Schema_enum_same_parent;
 
 internal class CmptEnumSamePrntDecoder : IDecoder<CmptEnumSamePrnt?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumSamePrnt? output)
-    => input.DecodeEnum("EnumSamePrnt", out output);
+  public IMessages Decode(IValue input, out CmptEnumSamePrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumSamePrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumSamePrnt".AnError();
+  }
 
   internal static CmptEnumSamePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntEnumSamePrntDecoder : IDecoder<CmptPrntEnumSamePrnt?>
 {
-  public IMessages Decoder(IValue input, out CmptPrntEnumSamePrnt? output)
-    => input.DecodeEnum("PrntEnumSamePrnt", out output);
+  public IMessages Decode(IValue input, out CmptPrntEnumSamePrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptPrntEnumSamePrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptPrntEnumSamePrnt".AnError();
+  }
 
   internal static CmptPrntEnumSamePrntDecoder Factory(IDecoderRepository _) => new();
 }

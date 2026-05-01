@@ -7,9 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_type_descr_Dual;
 
-internal class testFieldTypeDescrDualDecoder
+internal class testFieldTypeDescrDualDecoder : IDecoder<ItestFieldTypeDescrDualObject>
 {
-  public decimal Field { get; set; }
+  public decimal? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ItestFieldTypeDescrDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testFieldTypeDescrDualDecoder Factory(IDecoderRepository _) => new();
 }

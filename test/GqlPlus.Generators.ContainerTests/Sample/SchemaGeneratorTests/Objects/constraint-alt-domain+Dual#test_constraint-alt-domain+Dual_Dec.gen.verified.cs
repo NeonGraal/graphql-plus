@@ -7,8 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_domain_Dual;
 
-internal class testCnstAltDmnDualDecoder
+internal class testCnstAltDmnDualDecoder : IDecoder<ItestCnstAltDmnDualObject>
 {
+
+  public IMessages Decode(IValue input, out ItestCnstAltDmnDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testCnstAltDmnDualDecoder Factory(IDecoderRepository _) => new();
 }
@@ -17,8 +23,14 @@ internal class testRefCnstAltDmnDualDecoder<TRef>
 {
 }
 
-internal class testDomCnstAltDmnDualDecoder
+internal class testDomCnstAltDmnDualDecoder : IDecoder<ItestDomCnstAltDmnDual>
 {
+
+  public IMessages Decode(IValue input, out ItestDomCnstAltDmnDual? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testDomCnstAltDmnDualDecoder Factory(IDecoderRepository _) => new();
 }

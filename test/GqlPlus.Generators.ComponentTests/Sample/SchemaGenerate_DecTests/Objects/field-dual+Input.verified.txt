@@ -11,16 +11,28 @@ dual FldFieldDualInp { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_dual_Input;
 
-internal class CmptFieldDualInpDecoder
+internal class CmptFieldDualInpDecoder : IDecoder<ICmptFieldDualInpObject>
 {
-  public ICmptFldFieldDualInp Field { get; set; }
+  public ICmptFldFieldDualInp? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptFieldDualInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptFieldDualInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptFldFieldDualInpDecoder
+internal class CmptFldFieldDualInpDecoder : IDecoder<ICmptFldFieldDualInpObject>
 {
-  public decimal Field { get; set; }
+  public decimal? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptFldFieldDualInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptFldFieldDualInpDecoder Factory(IDecoderRepository _) => new();
 }

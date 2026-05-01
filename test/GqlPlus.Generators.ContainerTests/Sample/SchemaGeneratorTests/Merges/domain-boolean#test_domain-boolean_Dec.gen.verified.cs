@@ -7,8 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_boolean;
 
-internal class testDmnBoolDecoder
+internal class testDmnBoolDecoder : IDecoder<ItestDmnBool>
 {
+
+  public IMessages Decode(IValue input, out ItestDmnBool? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testDmnBoolDecoder Factory(IDecoderRepository _) => new();
 }

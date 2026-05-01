@@ -13,8 +13,16 @@ namespace Components.Gqlp_Schema_enum_diff;
 
 internal class CmptEnumDiffDecoder : IDecoder<CmptEnumDiff?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumDiff? output)
-    => input.DecodeEnum("EnumDiff", out output);
+  public IMessages Decode(IValue input, out CmptEnumDiff? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumDiff value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumDiff".AnError();
+  }
 
   internal static CmptEnumDiffDecoder Factory(IDecoderRepository _) => new();
 }

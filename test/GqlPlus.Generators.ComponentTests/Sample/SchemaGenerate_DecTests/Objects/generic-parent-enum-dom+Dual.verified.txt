@@ -13,28 +13,48 @@ domain DomGnrcPrntEnumDomDual { enum gnrcPrntEnumDomDualLabel }
 
 namespace Components.Gqlp_Schema_generic_parent_enum_dom_Dual;
 
-internal class CmptGnrcPrntEnumDomDualDecoder
+internal class CmptGnrcPrntEnumDomDualDecoder : IDecoder<ICmptGnrcPrntEnumDomDualObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptGnrcPrntEnumDomDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptGnrcPrntEnumDomDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptFieldGnrcPrntEnumDomDualDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef? Field { get; set; }
 }
 
 internal class CmptEnumGnrcPrntEnumDomDualDecoder : IDecoder<CmptEnumGnrcPrntEnumDomDual?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumGnrcPrntEnumDomDual? output)
-    => input.DecodeEnum("EnumGnrcPrntEnumDomDual", out output);
+  public IMessages Decode(IValue input, out CmptEnumGnrcPrntEnumDomDual? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumGnrcPrntEnumDomDual value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumGnrcPrntEnumDomDual".AnError();
+  }
 
   internal static CmptEnumGnrcPrntEnumDomDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDomGnrcPrntEnumDomDualDecoder
+internal class CmptDomGnrcPrntEnumDomDualDecoder : IDecoder<ICmptDomGnrcPrntEnumDomDual>
 {
-  public new CmptEnumGnrcPrntEnumDomDual? Value { get; set; }
+  public CmptEnumGnrcPrntEnumDomDual? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptDomGnrcPrntEnumDomDual? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDomGnrcPrntEnumDomDualDecoder Factory(IDecoderRepository _) => new();
 }

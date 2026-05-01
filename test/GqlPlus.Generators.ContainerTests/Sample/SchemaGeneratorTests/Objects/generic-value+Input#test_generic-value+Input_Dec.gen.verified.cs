@@ -7,21 +7,35 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_value_Input;
 
-internal class testGnrcValueInpDecoder
+internal class testGnrcValueInpDecoder : IDecoder<ItestGnrcValueInpObject>
 {
+
+  public IMessages Decode(IValue input, out ItestGnrcValueInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testGnrcValueInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testRefGnrcValueInpDecoder<TType>
 {
-  public TType Field { get; set; }
+  public TType? Field { get; set; }
 }
 
 internal class testEnumGnrcValueInpDecoder : IDecoder<testEnumGnrcValueInp?>
 {
-  public IMessages Decoder(IValue input, out testEnumGnrcValueInp? output)
-    => input.DecodeEnum("EnumGnrcValueInp", out output);
+  public IMessages Decode(IValue input, out testEnumGnrcValueInp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testEnumGnrcValueInp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testEnumGnrcValueInp".AnError();
+  }
 
   internal static testEnumGnrcValueInpDecoder Factory(IDecoderRepository _) => new();
 }

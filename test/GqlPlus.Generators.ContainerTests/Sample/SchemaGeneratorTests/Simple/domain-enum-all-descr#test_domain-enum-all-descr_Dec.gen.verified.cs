@@ -7,17 +7,31 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_all_descr;
 
-internal class testDmnEnumAllDescrDecoder
+internal class testDmnEnumAllDescrDecoder : IDecoder<ItestDmnEnumAllDescr>
 {
-  public new testEnumDmnEnumAllDescr? Value { get; set; }
+  public testEnumDmnEnumAllDescr? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ItestDmnEnumAllDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testDmnEnumAllDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testEnumDmnEnumAllDescrDecoder : IDecoder<testEnumDmnEnumAllDescr?>
 {
-  public IMessages Decoder(IValue input, out testEnumDmnEnumAllDescr? output)
-    => input.DecodeEnum("EnumDmnEnumAllDescr", out output);
+  public IMessages Decode(IValue input, out testEnumDmnEnumAllDescr? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testEnumDmnEnumAllDescr value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testEnumDmnEnumAllDescr".AnError();
+  }
 
   internal static testEnumDmnEnumAllDescrDecoder Factory(IDecoderRepository _) => new();
 }

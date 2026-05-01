@@ -39,14 +39,26 @@ internal class test_MaskDecoder<TK>
 {
 }
 
-internal class test_KeyDecoder
+internal class test_KeyDecoder : IDecoder<Itest_Key>
 {
+
+  public IMessages Decode(IValue input, out Itest_Key? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static test_KeyDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_AnyDecoder
+internal class test_AnyDecoder : IDecoder<Itest_AnyObject>
 {
+
+  public IMessages Decode(IValue input, out Itest_AnyObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static test_AnyDecoder Factory(IDecoderRepository _) => new();
 }

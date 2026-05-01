@@ -7,9 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_diff;
 
-internal class testDmnEnumDiffDecoder
+internal class testDmnEnumDiffDecoder : IDecoder<ItestDmnEnumDiff>
 {
-  public new bool? Value { get; set; }
+  public bool? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ItestDmnEnumDiff? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testDmnEnumDiffDecoder Factory(IDecoderRepository _) => new();
 }

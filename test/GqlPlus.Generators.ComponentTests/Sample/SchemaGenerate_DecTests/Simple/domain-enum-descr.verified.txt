@@ -11,17 +11,31 @@ enum EnumDmnEnumDescr { dmnEnumDescr }
 
 namespace Components.Gqlp_Schema_domain_enum_descr;
 
-internal class CmptDmnEnumDescrDecoder
+internal class CmptDmnEnumDescrDecoder : IDecoder<ICmptDmnEnumDescr>
 {
-  public new CmptEnumDmnEnumDescr? Value { get; set; }
+  public CmptEnumDmnEnumDescr? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptDmnEnumDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnEnumDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumDescrDecoder : IDecoder<CmptEnumDmnEnumDescr?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumDmnEnumDescr? output)
-    => input.DecodeEnum("EnumDmnEnumDescr", out output);
+  public IMessages Decode(IValue input, out CmptEnumDmnEnumDescr? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumDmnEnumDescr value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumDmnEnumDescr".AnError();
+  }
 
   internal static CmptEnumDmnEnumDescrDecoder Factory(IDecoderRepository _) => new();
 }

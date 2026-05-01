@@ -12,16 +12,28 @@ union PrntUnionSamePrnt { String }
 
 namespace Components.Gqlp_Schema_union_same_parent;
 
-internal class CmptUnionSamePrntDecoder
+internal class CmptUnionSamePrntDecoder : IDecoder<ICmptUnionSamePrnt>
 {
-  public Boolean AsBoolean { get; set; }
+  public Boolean? AsBoolean { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptUnionSamePrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptUnionSamePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntUnionSamePrntDecoder
+internal class CmptPrntUnionSamePrntDecoder : IDecoder<ICmptPrntUnionSamePrnt>
 {
-  public String AsString { get; set; }
+  public String? AsString { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptPrntUnionSamePrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntUnionSamePrntDecoder Factory(IDecoderRepository _) => new();
 }

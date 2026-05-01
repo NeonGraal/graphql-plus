@@ -12,8 +12,14 @@ input AltGnrcPrntParamPrntInp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_parent_param_parent_Input;
 
-internal class CmptGnrcPrntParamPrntInpDecoder
+internal class CmptGnrcPrntParamPrntInpDecoder : IDecoder<ICmptGnrcPrntParamPrntInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptGnrcPrntParamPrntInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptGnrcPrntParamPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -22,9 +28,15 @@ internal class CmptRefGnrcPrntParamPrntInpDecoder<TRef>
 {
 }
 
-internal class CmptAltGnrcPrntParamPrntInpDecoder
+internal class CmptAltGnrcPrntParamPrntInpDecoder : IDecoder<ICmptAltGnrcPrntParamPrntInpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal? Alt { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptAltGnrcPrntParamPrntInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptAltGnrcPrntParamPrntInpDecoder Factory(IDecoderRepository _) => new();
 }

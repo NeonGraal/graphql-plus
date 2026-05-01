@@ -10,9 +10,15 @@ union UnionDescr { "Union" "Descr" Number }
 
 namespace Components.Gqlp_Schema_union_descr;
 
-internal class CmptUnionDescrDecoder
+internal class CmptUnionDescrDecoder : IDecoder<ICmptUnionDescr>
 {
-  public Number AsNumber { get; set; }
+  public Number? AsNumber { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptUnionDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptUnionDescrDecoder Factory(IDecoderRepository _) => new();
 }

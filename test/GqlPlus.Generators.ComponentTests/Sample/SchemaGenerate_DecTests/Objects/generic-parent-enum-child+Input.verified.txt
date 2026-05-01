@@ -13,29 +13,51 @@ enum ParentGnrcPrntEnumChildInp { gnrcPrntEnumChildInpParent }
 
 namespace Components.Gqlp_Schema_generic_parent_enum_child_Input;
 
-internal class CmptGnrcPrntEnumChildInpDecoder
+internal class CmptGnrcPrntEnumChildInpDecoder : IDecoder<ICmptGnrcPrntEnumChildInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptGnrcPrntEnumChildInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptGnrcPrntEnumChildInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptFieldGnrcPrntEnumChildInpDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef? Field { get; set; }
 }
 
 internal class CmptEnumGnrcPrntEnumChildInpDecoder : IDecoder<CmptEnumGnrcPrntEnumChildInp?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumGnrcPrntEnumChildInp? output)
-    => input.DecodeEnum("EnumGnrcPrntEnumChildInp", out output);
+  public IMessages Decode(IValue input, out CmptEnumGnrcPrntEnumChildInp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumGnrcPrntEnumChildInp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumGnrcPrntEnumChildInp".AnError();
+  }
 
   internal static CmptEnumGnrcPrntEnumChildInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptParentGnrcPrntEnumChildInpDecoder : IDecoder<CmptParentGnrcPrntEnumChildInp?>
 {
-  public IMessages Decoder(IValue input, out CmptParentGnrcPrntEnumChildInp? output)
-    => input.DecodeEnum("ParentGnrcPrntEnumChildInp", out output);
+  public IMessages Decode(IValue input, out CmptParentGnrcPrntEnumChildInp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptParentGnrcPrntEnumChildInp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptParentGnrcPrntEnumChildInp".AnError();
+  }
 
   internal static CmptParentGnrcPrntEnumChildInpDecoder Factory(IDecoderRepository _) => new();
 }

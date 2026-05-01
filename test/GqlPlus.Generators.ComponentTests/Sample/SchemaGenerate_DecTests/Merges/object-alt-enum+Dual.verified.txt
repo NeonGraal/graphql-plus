@@ -11,8 +11,14 @@ dual ObjAltEnumDual { ! false }
 
 namespace Components.Gqlp_Schema_object_alt_enum_Dual;
 
-internal class CmptObjAltEnumDualDecoder
+internal class CmptObjAltEnumDualDecoder : IDecoder<ICmptObjAltEnumDualObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptObjAltEnumDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptObjAltEnumDualDecoder Factory(IDecoderRepository _) => new();
 }

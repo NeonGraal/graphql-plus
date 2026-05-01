@@ -7,17 +7,31 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_label;
 
-internal class testDmnEnumLabelDecoder
+internal class testDmnEnumLabelDecoder : IDecoder<ItestDmnEnumLabel>
 {
-  public new testEnumDmnEnumLabel? Value { get; set; }
+  public testEnumDmnEnumLabel? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ItestDmnEnumLabel? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testDmnEnumLabelDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testEnumDmnEnumLabelDecoder : IDecoder<testEnumDmnEnumLabel?>
 {
-  public IMessages Decoder(IValue input, out testEnumDmnEnumLabel? output)
-    => input.DecodeEnum("EnumDmnEnumLabel", out output);
+  public IMessages Decode(IValue input, out testEnumDmnEnumLabel? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testEnumDmnEnumLabel value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testEnumDmnEnumLabel".AnError();
+  }
 
   internal static testEnumDmnEnumLabelDecoder Factory(IDecoderRepository _) => new();
 }

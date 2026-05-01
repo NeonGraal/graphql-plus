@@ -12,8 +12,14 @@ domain DomCnstAltDmnDual { String /\w+/ }
 
 namespace Components.Gqlp_Schema_constraint_alt_domain_Dual;
 
-internal class CmptCnstAltDmnDualDecoder
+internal class CmptCnstAltDmnDualDecoder : IDecoder<ICmptCnstAltDmnDualObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptCnstAltDmnDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptCnstAltDmnDualDecoder Factory(IDecoderRepository _) => new();
 }
@@ -22,8 +28,14 @@ internal class CmptRefCnstAltDmnDualDecoder<TRef>
 {
 }
 
-internal class CmptDomCnstAltDmnDualDecoder
+internal class CmptDomCnstAltDmnDualDecoder : IDecoder<ICmptDomCnstAltDmnDual>
 {
+
+  public IMessages Decode(IValue input, out ICmptDomCnstAltDmnDual? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDomCnstAltDmnDualDecoder Factory(IDecoderRepository _) => new();
 }

@@ -9,5 +9,5 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_descr_Input;
 
 internal class testGnrcDescrInpDecoder<TType>
 {
-  public TType Field { get; set; }
+  public TType? Field { get; set; }
 }

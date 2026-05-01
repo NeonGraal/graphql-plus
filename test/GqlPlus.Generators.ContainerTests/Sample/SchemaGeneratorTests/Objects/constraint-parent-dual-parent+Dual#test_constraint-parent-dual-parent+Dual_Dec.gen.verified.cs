@@ -7,8 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_dual_parent_Dual;
 
-internal class testCnstPrntDualPrntDualDecoder
+internal class testCnstPrntDualPrntDualDecoder : IDecoder<ItestCnstPrntDualPrntDualObject>
 {
+
+  public IMessages Decode(IValue input, out ItestCnstPrntDualPrntDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testCnstPrntDualPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
@@ -17,15 +23,27 @@ internal class testRefCnstPrntDualPrntDualDecoder<TRef>
 {
 }
 
-internal class testPrntCnstPrntDualPrntDualDecoder
+internal class testPrntCnstPrntDualPrntDualDecoder : IDecoder<ItestPrntCnstPrntDualPrntDualObject>
 {
+
+  public IMessages Decode(IValue input, out ItestPrntCnstPrntDualPrntDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testPrntCnstPrntDualPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testAltCnstPrntDualPrntDualDecoder
+internal class testAltCnstPrntDualPrntDualDecoder : IDecoder<ItestAltCnstPrntDualPrntDualObject>
 {
-  public decimal Alt { get; set; }
+  public decimal? Alt { get; set; }
+
+  public IMessages Decode(IValue input, out ItestAltCnstPrntDualPrntDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testAltCnstPrntDualPrntDualDecoder Factory(IDecoderRepository _) => new();
 }

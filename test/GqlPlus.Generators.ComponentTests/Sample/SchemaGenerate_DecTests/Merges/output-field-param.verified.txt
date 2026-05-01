@@ -14,20 +14,38 @@ dual FldOutpFieldParam { }
 
 namespace Components.Gqlp_Schema_output_field_param;
 
-internal class CmptOutpFieldParam1Decoder
+internal class CmptOutpFieldParam1Decoder : IDecoder<ICmptOutpFieldParam1Object>
 {
+
+  public IMessages Decode(IValue input, out ICmptOutpFieldParam1Object? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptOutpFieldParam1Decoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptOutpFieldParam2Decoder
+internal class CmptOutpFieldParam2Decoder : IDecoder<ICmptOutpFieldParam2Object>
 {
+
+  public IMessages Decode(IValue input, out ICmptOutpFieldParam2Object? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptOutpFieldParam2Decoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptFldOutpFieldParamDecoder
+internal class CmptFldOutpFieldParamDecoder : IDecoder<ICmptFldOutpFieldParamObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptFldOutpFieldParamObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptFldOutpFieldParamDecoder Factory(IDecoderRepository _) => new();
 }

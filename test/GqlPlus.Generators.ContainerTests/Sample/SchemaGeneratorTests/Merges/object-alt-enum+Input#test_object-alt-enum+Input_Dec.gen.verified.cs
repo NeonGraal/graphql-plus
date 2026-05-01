@@ -7,8 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_alt_enum_Input;
 
-internal class testObjAltEnumInpDecoder
+internal class testObjAltEnumInpDecoder : IDecoder<ItestObjAltEnumInpObject>
 {
+
+  public IMessages Decode(IValue input, out ItestObjAltEnumInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testObjAltEnumInpDecoder Factory(IDecoderRepository _) => new();
 }

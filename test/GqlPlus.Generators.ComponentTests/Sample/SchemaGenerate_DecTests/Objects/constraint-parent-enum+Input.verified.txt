@@ -13,29 +13,51 @@ enum ParentCnstPrntEnumInp { parentCnstPrntEnumInp }
 
 namespace Components.Gqlp_Schema_constraint_parent_enum_Input;
 
-internal class CmptCnstPrntEnumInpDecoder
+internal class CmptCnstPrntEnumInpDecoder : IDecoder<ICmptCnstPrntEnumInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptCnstPrntEnumInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptCnstPrntEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefCnstPrntEnumInpDecoder<TType>
 {
-  public TType Field { get; set; }
+  public TType? Field { get; set; }
 }
 
 internal class CmptEnumCnstPrntEnumInpDecoder : IDecoder<CmptEnumCnstPrntEnumInp?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumCnstPrntEnumInp? output)
-    => input.DecodeEnum("EnumCnstPrntEnumInp", out output);
+  public IMessages Decode(IValue input, out CmptEnumCnstPrntEnumInp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumCnstPrntEnumInp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumCnstPrntEnumInp".AnError();
+  }
 
   internal static CmptEnumCnstPrntEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptParentCnstPrntEnumInpDecoder : IDecoder<CmptParentCnstPrntEnumInp?>
 {
-  public IMessages Decoder(IValue input, out CmptParentCnstPrntEnumInp? output)
-    => input.DecodeEnum("ParentCnstPrntEnumInp", out output);
+  public IMessages Decode(IValue input, out CmptParentCnstPrntEnumInp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptParentCnstPrntEnumInp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptParentCnstPrntEnumInp".AnError();
+  }
 
   internal static CmptParentCnstPrntEnumInpDecoder Factory(IDecoderRepository _) => new();
 }

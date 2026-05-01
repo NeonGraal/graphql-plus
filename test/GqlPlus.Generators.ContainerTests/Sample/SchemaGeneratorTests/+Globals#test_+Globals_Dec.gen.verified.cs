@@ -7,26 +7,50 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp__Globals;
 
-internal class testInDrctParamDictDecoder
+internal class testInDrctParamDictDecoder : IDecoder<ItestInDrctParamDictObject>
 {
+
+  public IMessages Decode(IValue input, out ItestInDrctParamDictObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testInDrctParamDictDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testInDrctParamInDecoder
+internal class testInDrctParamInDecoder : IDecoder<ItestInDrctParamInObject>
 {
+
+  public IMessages Decode(IValue input, out ItestInDrctParamInObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testInDrctParamInDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testInDrctParamListDecoder
+internal class testInDrctParamListDecoder : IDecoder<ItestInDrctParamListObject>
 {
+
+  public IMessages Decode(IValue input, out ItestInDrctParamListObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testInDrctParamListDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testInDrctParamOptDecoder
+internal class testInDrctParamOptDecoder : IDecoder<ItestInDrctParamOptObject>
 {
+
+  public IMessages Decode(IValue input, out ItestInDrctParamOptObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testInDrctParamOptDecoder Factory(IDecoderRepository _) => new();
 }

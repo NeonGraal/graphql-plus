@@ -7,9 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_same;
 
-internal class testDmnEnumSameDecoder
+internal class testDmnEnumSameDecoder : IDecoder<ItestDmnEnumSame>
 {
-  public new bool? Value { get; set; }
+  public bool? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ItestDmnEnumSame? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testDmnEnumSameDecoder Factory(IDecoderRepository _) => new();
 }

@@ -9,6 +9,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_param_Dual;
 
 internal class testObjParamDualDecoder<TTest,TType>
 {
-  public TTest Test { get; set; }
-  public TType Type { get; set; }
+  public TTest? Test { get; set; }
+  public TType? Type { get; set; }
 }

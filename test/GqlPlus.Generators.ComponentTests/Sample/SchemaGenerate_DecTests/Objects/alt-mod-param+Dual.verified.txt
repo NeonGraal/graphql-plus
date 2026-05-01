@@ -15,9 +15,15 @@ internal class CmptAltModParamDualDecoder<TMod>
 {
 }
 
-internal class CmptAltAltModParamDualDecoder
+internal class CmptAltAltModParamDualDecoder : IDecoder<ICmptAltAltModParamDualObject>
 {
-  public decimal Alt { get; set; }
+  public decimal? Alt { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptAltAltModParamDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptAltAltModParamDualDecoder Factory(IDecoderRepository _) => new();
 }

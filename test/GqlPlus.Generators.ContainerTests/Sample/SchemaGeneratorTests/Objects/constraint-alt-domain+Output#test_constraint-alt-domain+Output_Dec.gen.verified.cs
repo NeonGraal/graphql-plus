@@ -7,8 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_domain_Output;
 
-internal class testDomCnstAltDmnOutpDecoder
+internal class testDomCnstAltDmnOutpDecoder : IDecoder<ItestDomCnstAltDmnOutp>
 {
+
+  public IMessages Decode(IValue input, out ItestDomCnstAltDmnOutp? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testDomCnstAltDmnOutpDecoder Factory(IDecoderRepository _) => new();
 }

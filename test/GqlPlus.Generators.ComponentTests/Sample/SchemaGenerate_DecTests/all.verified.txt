@@ -34,39 +34,71 @@ output All {
 
 namespace Components.Gqlp_Schema_all;
 
-internal class CmptGuidDecoder
+internal class CmptGuidDecoder : IDecoder<ICmptGuid>
 {
+
+  public IMessages Decode(IValue input, out ICmptGuid? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptGuidDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptOneDecoder : IDecoder<CmptOne?>
 {
-  public IMessages Decoder(IValue input, out CmptOne? output)
-    => input.DecodeEnum("One", out output);
+  public IMessages Decode(IValue input, out CmptOne? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptOne value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptOne".AnError();
+  }
 
   internal static CmptOneDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptManyDecoder
+internal class CmptManyDecoder : IDecoder<ICmptMany>
 {
-  public Guid AsGuid { get; set; }
-  public Number AsNumber { get; set; }
+  public Guid? AsGuid { get; set; }
+  public Number? AsNumber { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptMany? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptManyDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptFieldDecoder
+internal class CmptFieldDecoder : IDecoder<ICmptFieldObject>
 {
-  public ICollection<string> Strings { get; set; }
+  public ICollection<string>? Strings { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptFieldObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptFieldDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptParamDecoder
+internal class CmptParamDecoder : IDecoder<ICmptParamObject>
 {
   public ICmptMany? AfterId { get; set; }
-  public ICmptMany BeforeId { get; set; }
+  public ICmptMany? BeforeId { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptParamObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptParamDecoder Factory(IDecoderRepository _) => new();
 }

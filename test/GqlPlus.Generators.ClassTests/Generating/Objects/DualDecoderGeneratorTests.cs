@@ -22,7 +22,7 @@ public class DualDecoderGeneratorTests
   }
 
   internal override ForType ForGeneratedBoth(string contains)
-    => ForGeneratedDecoder(contains);
+    => ForGeneratedDecoder(GeneratorClassTestHelpers.MakeNullable(contains));
 
   protected override ObjFieldBuilder<IAstDualField> MakeField(string name, string type)
     => new DualFieldBuilder(name, type);

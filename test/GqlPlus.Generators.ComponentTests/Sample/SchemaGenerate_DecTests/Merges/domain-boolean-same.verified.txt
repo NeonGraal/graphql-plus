@@ -11,8 +11,14 @@ domain DmnBoolSame { boolean true }
 
 namespace Components.Gqlp_Schema_domain_boolean_same;
 
-internal class CmptDmnBoolSameDecoder
+internal class CmptDmnBoolSameDecoder : IDecoder<ICmptDmnBoolSame>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnBoolSame? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnBoolSameDecoder Factory(IDecoderRepository _) => new();
 }

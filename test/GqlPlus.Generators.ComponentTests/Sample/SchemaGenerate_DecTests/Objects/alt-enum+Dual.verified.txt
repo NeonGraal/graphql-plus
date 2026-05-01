@@ -11,16 +11,30 @@ enum EnumAltEnumDual { altEnumDual }
 
 namespace Components.Gqlp_Schema_alt_enum_Dual;
 
-internal class CmptAltEnumDualDecoder
+internal class CmptAltEnumDualDecoder : IDecoder<ICmptAltEnumDualObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptAltEnumDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptAltEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumAltEnumDualDecoder : IDecoder<CmptEnumAltEnumDual?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumAltEnumDual? output)
-    => input.DecodeEnum("EnumAltEnumDual", out output);
+  public IMessages Decode(IValue input, out CmptEnumAltEnumDual? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumAltEnumDual value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumAltEnumDual".AnError();
+  }
 
   internal static CmptEnumAltEnumDualDecoder Factory(IDecoderRepository _) => new();
 }

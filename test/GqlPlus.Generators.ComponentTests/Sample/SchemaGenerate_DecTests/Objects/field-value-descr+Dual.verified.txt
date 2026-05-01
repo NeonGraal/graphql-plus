@@ -11,17 +11,31 @@ enum EnumFieldValueDescrDual { fieldValueDescrDual }
 
 namespace Components.Gqlp_Schema_field_value_descr_Dual;
 
-internal class CmptFieldValueDescrDualDecoder
+internal class CmptFieldValueDescrDualDecoder : IDecoder<ICmptFieldValueDescrDualObject>
 {
-  public CmptEnumFieldValueDescrDual Field { get; set; }
+  public CmptEnumFieldValueDescrDual? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptFieldValueDescrDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptFieldValueDescrDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumFieldValueDescrDualDecoder : IDecoder<CmptEnumFieldValueDescrDual?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumFieldValueDescrDual? output)
-    => input.DecodeEnum("EnumFieldValueDescrDual", out output);
+  public IMessages Decode(IValue input, out CmptEnumFieldValueDescrDual? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumFieldValueDescrDual value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumFieldValueDescrDual".AnError();
+  }
 
   internal static CmptEnumFieldValueDescrDualDecoder Factory(IDecoderRepository _) => new();
 }

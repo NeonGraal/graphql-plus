@@ -7,9 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_type_alias_Input;
 
-internal class testObjFieldTypeAliasInpDecoder
+internal class testObjFieldTypeAliasInpDecoder : IDecoder<ItestObjFieldTypeAliasInpObject>
 {
-  public string Field { get; set; }
+  public string? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ItestObjFieldTypeAliasInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testObjFieldTypeAliasInpDecoder Factory(IDecoderRepository _) => new();
 }

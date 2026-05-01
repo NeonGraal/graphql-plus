@@ -7,39 +7,71 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_all;
 
-internal class testGuidDecoder
+internal class testGuidDecoder : IDecoder<ItestGuid>
 {
+
+  public IMessages Decode(IValue input, out ItestGuid? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testGuidDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testOneDecoder : IDecoder<testOne?>
 {
-  public IMessages Decoder(IValue input, out testOne? output)
-    => input.DecodeEnum("One", out output);
+  public IMessages Decode(IValue input, out testOne? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testOne value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testOne".AnError();
+  }
 
   internal static testOneDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testManyDecoder
+internal class testManyDecoder : IDecoder<ItestMany>
 {
-  public Guid AsGuid { get; set; }
-  public Number AsNumber { get; set; }
+  public Guid? AsGuid { get; set; }
+  public Number? AsNumber { get; set; }
+
+  public IMessages Decode(IValue input, out ItestMany? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testManyDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testFieldDecoder
+internal class testFieldDecoder : IDecoder<ItestFieldObject>
 {
-  public ICollection<string> Strings { get; set; }
+  public ICollection<string>? Strings { get; set; }
+
+  public IMessages Decode(IValue input, out ItestFieldObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testFieldDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testParamDecoder
+internal class testParamDecoder : IDecoder<ItestParamObject>
 {
   public ItestMany? AfterId { get; set; }
-  public ItestMany BeforeId { get; set; }
+  public ItestMany? BeforeId { get; set; }
+
+  public IMessages Decode(IValue input, out ItestParamObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testParamDecoder Factory(IDecoderRepository _) => new();
 }

@@ -77,9 +77,15 @@ output _ForParam<$type:_ObjFieldType> {
 
 namespace Components.Gqlp_Spec_Base;
 
-internal class Cmpt_ObjectKindDecoder
+internal class Cmpt_ObjectKindDecoder : IDecoder<ICmpt_ObjectKind>
 {
-  public new Cmpt_TypeKind? Value { get; set; }
+  public Cmpt_TypeKind? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ICmpt_ObjectKind? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static Cmpt_ObjectKindDecoder Factory(IDecoderRepository _) => new();
 }

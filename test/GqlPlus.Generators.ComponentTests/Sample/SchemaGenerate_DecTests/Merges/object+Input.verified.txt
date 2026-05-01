@@ -11,8 +11,14 @@ input ObjInp { }
 
 namespace Components.Gqlp_Schema_object_Input;
 
-internal class CmptObjInpDecoder
+internal class CmptObjInpDecoder : IDecoder<ICmptObjInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptObjInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptObjInpDecoder Factory(IDecoderRepository _) => new();
 }

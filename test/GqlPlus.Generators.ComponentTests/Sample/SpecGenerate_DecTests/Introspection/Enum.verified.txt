@@ -18,9 +18,15 @@ output _EnumValue {
 
 namespace Components.Gqlp_Spec_Enum;
 
-internal class Cmpt_EnumLabelDecoder
+internal class Cmpt_EnumLabelDecoder : IDecoder<ICmpt_EnumLabelObject>
 {
-  public ICmpt_Name EnumType { get; set; }
+  public ICmpt_Name? EnumType { get; set; }
+
+  public IMessages Decode(IValue input, out ICmpt_EnumLabelObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static Cmpt_EnumLabelDecoder Factory(IDecoderRepository _) => new();
 }

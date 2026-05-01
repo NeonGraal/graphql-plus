@@ -7,29 +7,51 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_parent_Input;
 
-internal class testGnrcPrntEnumPrntInpDecoder
+internal class testGnrcPrntEnumPrntInpDecoder : IDecoder<ItestGnrcPrntEnumPrntInpObject>
 {
+
+  public IMessages Decode(IValue input, out ItestGnrcPrntEnumPrntInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testGnrcPrntEnumPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testFieldGnrcPrntEnumPrntInpDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef? Field { get; set; }
 }
 
 internal class testEnumGnrcPrntEnumPrntInpDecoder : IDecoder<testEnumGnrcPrntEnumPrntInp?>
 {
-  public IMessages Decoder(IValue input, out testEnumGnrcPrntEnumPrntInp? output)
-    => input.DecodeEnum("EnumGnrcPrntEnumPrntInp", out output);
+  public IMessages Decode(IValue input, out testEnumGnrcPrntEnumPrntInp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testEnumGnrcPrntEnumPrntInp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testEnumGnrcPrntEnumPrntInp".AnError();
+  }
 
   internal static testEnumGnrcPrntEnumPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testParentGnrcPrntEnumPrntInpDecoder : IDecoder<testParentGnrcPrntEnumPrntInp?>
 {
-  public IMessages Decoder(IValue input, out testParentGnrcPrntEnumPrntInp? output)
-    => input.DecodeEnum("ParentGnrcPrntEnumPrntInp", out output);
+  public IMessages Decode(IValue input, out testParentGnrcPrntEnumPrntInp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testParentGnrcPrntEnumPrntInp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testParentGnrcPrntEnumPrntInp".AnError();
+  }
 
   internal static testParentGnrcPrntEnumPrntInpDecoder Factory(IDecoderRepository _) => new();
 }

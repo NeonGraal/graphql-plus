@@ -7,9 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_descr;
 
-internal class testUnionDescrDecoder
+internal class testUnionDescrDecoder : IDecoder<ItestUnionDescr>
 {
-  public Number AsNumber { get; set; }
+  public Number? AsNumber { get; set; }
+
+  public IMessages Decode(IValue input, out ItestUnionDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testUnionDescrDecoder Factory(IDecoderRepository _) => new();
 }

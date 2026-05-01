@@ -101,44 +101,82 @@ namespace Components.Gqlp_Spec_Simple;
 
 internal class Cmpt_DomainKindDecoder : IDecoder<Cmpt_DomainKind?>
 {
-  public IMessages Decoder(IValue input, out Cmpt_DomainKind? output)
-    => input.DecodeEnum("_DomainKind", out output);
+  public IMessages Decode(IValue input, out Cmpt_DomainKind? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out Cmpt_DomainKind value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode Cmpt_DomainKind".AnError();
+  }
 
   internal static Cmpt_DomainKindDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_BaseDomainItemDecoder
+internal class Cmpt_BaseDomainItemDecoder : IDecoder<ICmpt_BaseDomainItemObject>
 {
-  public bool Exclude { get; set; }
+  public bool? Exclude { get; set; }
+
+  public IMessages Decode(IValue input, out ICmpt_BaseDomainItemObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static Cmpt_BaseDomainItemDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_DomainTrueFalseDecoder
+internal class Cmpt_DomainTrueFalseDecoder : IDecoder<ICmpt_DomainTrueFalseObject>
 {
-  public bool Value { get; set; }
+  public bool? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ICmpt_DomainTrueFalseObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static Cmpt_DomainTrueFalseDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_DomainRangeDecoder
+internal class Cmpt_DomainRangeDecoder : IDecoder<ICmpt_DomainRangeObject>
 {
   public decimal? Lower { get; set; }
   public decimal? Upper { get; set; }
 
+  public IMessages Decode(IValue input, out ICmpt_DomainRangeObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
+
   internal static Cmpt_DomainRangeDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_DomainRegexDecoder
+internal class Cmpt_DomainRegexDecoder : IDecoder<ICmpt_DomainRegexObject>
 {
-  public string Pattern { get; set; }
+  public string? Pattern { get; set; }
+
+  public IMessages Decode(IValue input, out ICmpt_DomainRegexObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static Cmpt_DomainRegexDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_EnumLabelDecoder
+internal class Cmpt_EnumLabelDecoder : IDecoder<ICmpt_EnumLabelObject>
 {
-  public ICmpt_Name EnumType { get; set; }
+  public ICmpt_Name? EnumType { get; set; }
+
+  public IMessages Decode(IValue input, out ICmpt_EnumLabelObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static Cmpt_EnumLabelDecoder Factory(IDecoderRepository _) => new();
 }

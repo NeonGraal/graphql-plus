@@ -7,10 +7,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_alias;
 
-internal class testUnionAliasDecoder
+internal class testUnionAliasDecoder : IDecoder<ItestUnionAlias>
 {
-  public Boolean AsBoolean { get; set; }
-  public Number AsNumber { get; set; }
+  public Boolean? AsBoolean { get; set; }
+  public Number? AsNumber { get; set; }
+
+  public IMessages Decode(IValue input, out ItestUnionAlias? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testUnionAliasDecoder Factory(IDecoderRepository _) => new();
 }

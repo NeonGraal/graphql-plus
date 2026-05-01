@@ -13,26 +13,44 @@ input AltCnstFieldDualInp { :PrntCnstFieldDualInp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_field_dual_Input;
 
-internal class CmptCnstFieldDualInpDecoder
+internal class CmptCnstFieldDualInpDecoder : IDecoder<ICmptCnstFieldDualInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptCnstFieldDualInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptCnstFieldDualInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefCnstFieldDualInpDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef? Field { get; set; }
 }
 
-internal class CmptPrntCnstFieldDualInpDecoder
+internal class CmptPrntCnstFieldDualInpDecoder : IDecoder<ICmptPrntCnstFieldDualInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptPrntCnstFieldDualInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntCnstFieldDualInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptAltCnstFieldDualInpDecoder
+internal class CmptAltCnstFieldDualInpDecoder : IDecoder<ICmptAltCnstFieldDualInpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal? Alt { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptAltCnstFieldDualInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptAltCnstFieldDualInpDecoder Factory(IDecoderRepository _) => new();
 }

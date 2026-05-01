@@ -12,25 +12,47 @@ enum PrntFieldEnumPrntDual { prnt_fieldEnumPrntDual }
 
 namespace Components.Gqlp_Schema_field_enum_parent_Dual;
 
-internal class CmptFieldEnumPrntDualDecoder
+internal class CmptFieldEnumPrntDualDecoder : IDecoder<ICmptFieldEnumPrntDualObject>
 {
-  public CmptEnumFieldEnumPrntDual Field { get; set; }
+  public CmptEnumFieldEnumPrntDual? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptFieldEnumPrntDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptFieldEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumFieldEnumPrntDualDecoder : IDecoder<CmptEnumFieldEnumPrntDual?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumFieldEnumPrntDual? output)
-    => input.DecodeEnum("EnumFieldEnumPrntDual", out output);
+  public IMessages Decode(IValue input, out CmptEnumFieldEnumPrntDual? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumFieldEnumPrntDual value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumFieldEnumPrntDual".AnError();
+  }
 
   internal static CmptEnumFieldEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntFieldEnumPrntDualDecoder : IDecoder<CmptPrntFieldEnumPrntDual?>
 {
-  public IMessages Decoder(IValue input, out CmptPrntFieldEnumPrntDual? output)
-    => input.DecodeEnum("PrntFieldEnumPrntDual", out output);
+  public IMessages Decode(IValue input, out CmptPrntFieldEnumPrntDual? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptPrntFieldEnumPrntDual value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptPrntFieldEnumPrntDual".AnError();
+  }
 
   internal static CmptPrntFieldEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }

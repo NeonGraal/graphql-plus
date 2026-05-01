@@ -11,9 +11,15 @@ input ObjFieldEnumValueInp { field = true }
 
 namespace Components.Gqlp_Schema_object_field_enum_value_Input;
 
-internal class CmptObjFieldEnumValueInpDecoder
+internal class CmptObjFieldEnumValueInpDecoder : IDecoder<ICmptObjFieldEnumValueInpObject>
 {
-  public bool Field { get; set; }
+  public bool? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptObjFieldEnumValueInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptObjFieldEnumValueInpDecoder Factory(IDecoderRepository _) => new();
 }

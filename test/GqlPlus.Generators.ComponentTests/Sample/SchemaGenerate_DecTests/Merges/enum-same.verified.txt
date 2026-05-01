@@ -13,8 +13,16 @@ namespace Components.Gqlp_Schema_enum_same;
 
 internal class CmptEnumSameDecoder : IDecoder<CmptEnumSame?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumSame? output)
-    => input.DecodeEnum("EnumSame", out output);
+  public IMessages Decode(IValue input, out CmptEnumSame? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumSame value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumSame".AnError();
+  }
 
   internal static CmptEnumSameDecoder Factory(IDecoderRepository _) => new();
 }

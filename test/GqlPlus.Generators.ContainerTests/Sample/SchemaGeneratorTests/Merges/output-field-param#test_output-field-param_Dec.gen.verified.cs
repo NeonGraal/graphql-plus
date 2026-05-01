@@ -7,20 +7,38 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_output_field_param;
 
-internal class testOutpFieldParam1Decoder
+internal class testOutpFieldParam1Decoder : IDecoder<ItestOutpFieldParam1Object>
 {
+
+  public IMessages Decode(IValue input, out ItestOutpFieldParam1Object? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testOutpFieldParam1Decoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testOutpFieldParam2Decoder
+internal class testOutpFieldParam2Decoder : IDecoder<ItestOutpFieldParam2Object>
 {
+
+  public IMessages Decode(IValue input, out ItestOutpFieldParam2Object? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testOutpFieldParam2Decoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testFldOutpFieldParamDecoder
+internal class testFldOutpFieldParamDecoder : IDecoder<ItestFldOutpFieldParamObject>
 {
+
+  public IMessages Decode(IValue input, out ItestFldOutpFieldParamObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testFldOutpFieldParamDecoder Factory(IDecoderRepository _) => new();
 }

@@ -11,8 +11,14 @@ domain DmnNmbrSame { number 9<1 }
 
 namespace Components.Gqlp_Schema_domain_number_same;
 
-internal class CmptDmnNmbrSameDecoder
+internal class CmptDmnNmbrSameDecoder : IDecoder<ICmptDmnNmbrSame>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnNmbrSame? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnNmbrSameDecoder Factory(IDecoderRepository _) => new();
 }

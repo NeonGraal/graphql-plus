@@ -7,8 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_string_non_empty;
 
-internal class testDmnStrNonEmptyDecoder
+internal class testDmnStrNonEmptyDecoder : IDecoder<ItestDmnStrNonEmpty>
 {
+
+  public IMessages Decode(IValue input, out ItestDmnStrNonEmpty? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testDmnStrNonEmptyDecoder Factory(IDecoderRepository _) => new();
 }

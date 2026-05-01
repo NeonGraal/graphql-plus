@@ -12,19 +12,31 @@ domain DomCnstFieldDmnDual { String /\w+/ }
 
 namespace Components.Gqlp_Schema_constraint_field_domain_Dual;
 
-internal class CmptCnstFieldDmnDualDecoder
+internal class CmptCnstFieldDmnDualDecoder : IDecoder<ICmptCnstFieldDmnDualObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptCnstFieldDmnDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptCnstFieldDmnDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefCnstFieldDmnDualDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef? Field { get; set; }
 }
 
-internal class CmptDomCnstFieldDmnDualDecoder
+internal class CmptDomCnstFieldDmnDualDecoder : IDecoder<ICmptDomCnstFieldDmnDual>
 {
+
+  public IMessages Decode(IValue input, out ICmptDomCnstFieldDmnDual? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDomCnstFieldDmnDualDecoder Factory(IDecoderRepository _) => new();
 }

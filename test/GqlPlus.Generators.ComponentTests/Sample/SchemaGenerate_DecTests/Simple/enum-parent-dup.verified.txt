@@ -13,16 +13,32 @@ namespace Components.Gqlp_Schema_enum_parent_dup;
 
 internal class CmptEnumPrntDupDecoder : IDecoder<CmptEnumPrntDup?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumPrntDup? output)
-    => input.DecodeEnum("EnumPrntDup", out output);
+  public IMessages Decode(IValue input, out CmptEnumPrntDup? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumPrntDup value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumPrntDup".AnError();
+  }
 
   internal static CmptEnumPrntDupDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntEnumPrntDupDecoder : IDecoder<CmptPrntEnumPrntDup?>
 {
-  public IMessages Decoder(IValue input, out CmptPrntEnumPrntDup? output)
-    => input.DecodeEnum("PrntEnumPrntDup", out output);
+  public IMessages Decode(IValue input, out CmptPrntEnumPrntDup? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptPrntEnumPrntDup value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptPrntEnumPrntDup".AnError();
+  }
 
   internal static CmptPrntEnumPrntDupDecoder Factory(IDecoderRepository _) => new();
 }

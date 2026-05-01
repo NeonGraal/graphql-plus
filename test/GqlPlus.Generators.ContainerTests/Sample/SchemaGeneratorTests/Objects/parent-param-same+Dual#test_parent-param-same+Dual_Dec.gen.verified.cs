@@ -9,7 +9,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_parent_param_same_Dual;
 
 internal class testPrntParamSameDualDecoder<TA>
 {
-  public TA Field { get; set; }
+  public TA? Field { get; set; }
 }
 
 internal class testRefPrntParamSameDualDecoder<TA>

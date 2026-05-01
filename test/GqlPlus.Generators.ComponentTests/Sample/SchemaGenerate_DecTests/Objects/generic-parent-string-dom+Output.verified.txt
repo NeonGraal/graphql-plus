@@ -12,8 +12,14 @@ domain DomGnrcPrntStrDomOutp { string /\w+/ }
 
 namespace Components.Gqlp_Schema_generic_parent_string_dom_Output;
 
-internal class CmptDomGnrcPrntStrDomOutpDecoder
+internal class CmptDomGnrcPrntStrDomOutpDecoder : IDecoder<ICmptDomGnrcPrntStrDomOutp>
 {
+
+  public IMessages Decode(IValue input, out ICmptDomGnrcPrntStrDomOutp? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDomGnrcPrntStrDomOutpDecoder Factory(IDecoderRepository _) => new();
 }

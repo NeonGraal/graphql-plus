@@ -7,35 +7,55 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Built_In;
 
-internal class test_CollectionsDecoder
+internal class test_CollectionsDecoder : IDecoder<Itest_CollectionsObject>
 {
+
+  public IMessages Decode(IValue input, out Itest_CollectionsObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static test_CollectionsDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_ModifierKeyedDecoder<TModifierKind>
 {
-  public Itest_TypeSimple By { get; set; }
-  public bool IsOptional { get; set; }
+  public Itest_TypeSimple? By { get; set; }
+  public bool? IsOptional { get; set; }
 }
 
-internal class test_ModifiersDecoder
+internal class test_ModifiersDecoder : IDecoder<Itest_ModifiersObject>
 {
+
+  public IMessages Decode(IValue input, out Itest_ModifiersObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static test_ModifiersDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_ModifierKindDecoder : IDecoder<test_ModifierKind?>
 {
-  public IMessages Decoder(IValue input, out test_ModifierKind? output)
-    => input.DecodeEnum("_ModifierKind", out output);
+  public IMessages Decode(IValue input, out test_ModifierKind? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out test_ModifierKind value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode test_ModifierKind".AnError();
+  }
 
   internal static test_ModifierKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_ModifierDecoder<TModifierKind>
 {
-  public TModifierKind ModifierKind { get; set; }
+  public TModifierKind? ModifierKind { get; set; }
 }
 
 internal static class test_Built_InDecoders

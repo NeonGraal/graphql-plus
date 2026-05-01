@@ -11,16 +11,28 @@ input FldFieldObjInp { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_object_Input;
 
-internal class CmptFieldObjInpDecoder
+internal class CmptFieldObjInpDecoder : IDecoder<ICmptFieldObjInpObject>
 {
-  public ICmptFldFieldObjInp Field { get; set; }
+  public ICmptFldFieldObjInp? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptFieldObjInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptFieldObjInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptFldFieldObjInpDecoder
+internal class CmptFldFieldObjInpDecoder : IDecoder<ICmptFldFieldObjInpObject>
 {
-  public decimal Field { get; set; }
+  public decimal? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptFldFieldObjInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptFldFieldObjInpDecoder Factory(IDecoderRepository _) => new();
 }

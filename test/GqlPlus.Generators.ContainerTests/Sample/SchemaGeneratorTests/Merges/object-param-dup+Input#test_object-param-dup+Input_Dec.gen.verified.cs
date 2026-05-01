@@ -9,6 +9,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_param_dup_Input;
 
 internal class testObjParamDupInpDecoder<TTest>
 {
-  public TTest Test { get; set; }
-  public TTest Type { get; set; }
+  public TTest? Test { get; set; }
+  public TTest? Type { get; set; }
 }

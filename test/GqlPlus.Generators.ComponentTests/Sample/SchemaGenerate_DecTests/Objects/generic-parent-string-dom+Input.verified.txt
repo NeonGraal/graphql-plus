@@ -12,19 +12,31 @@ domain DomGnrcPrntStrDomInp { string /\w+/ }
 
 namespace Components.Gqlp_Schema_generic_parent_string_dom_Input;
 
-internal class CmptGnrcPrntStrDomInpDecoder
+internal class CmptGnrcPrntStrDomInpDecoder : IDecoder<ICmptGnrcPrntStrDomInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptGnrcPrntStrDomInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptGnrcPrntStrDomInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptFieldGnrcPrntStrDomInpDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef? Field { get; set; }
 }
 
-internal class CmptDomGnrcPrntStrDomInpDecoder
+internal class CmptDomGnrcPrntStrDomInpDecoder : IDecoder<ICmptDomGnrcPrntStrDomInp>
 {
+
+  public IMessages Decode(IValue input, out ICmptDomGnrcPrntStrDomInp? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDomGnrcPrntStrDomInpDecoder Factory(IDecoderRepository _) => new();
 }

@@ -9,8 +9,16 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_mod_Enum_Output;
 
 internal class testEnumFieldModEnumOutpDecoder : IDecoder<testEnumFieldModEnumOutp?>
 {
-  public IMessages Decoder(IValue input, out testEnumFieldModEnumOutp? output)
-    => input.DecodeEnum("EnumFieldModEnumOutp", out output);
+  public IMessages Decode(IValue input, out testEnumFieldModEnumOutp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testEnumFieldModEnumOutp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testEnumFieldModEnumOutp".AnError();
+  }
 
   internal static testEnumFieldModEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }

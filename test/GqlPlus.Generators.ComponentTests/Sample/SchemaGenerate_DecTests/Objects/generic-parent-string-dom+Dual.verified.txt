@@ -12,19 +12,31 @@ domain DomGnrcPrntStrDomDual { string /\w+/ }
 
 namespace Components.Gqlp_Schema_generic_parent_string_dom_Dual;
 
-internal class CmptGnrcPrntStrDomDualDecoder
+internal class CmptGnrcPrntStrDomDualDecoder : IDecoder<ICmptGnrcPrntStrDomDualObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptGnrcPrntStrDomDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptGnrcPrntStrDomDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptFieldGnrcPrntStrDomDualDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef? Field { get; set; }
 }
 
-internal class CmptDomGnrcPrntStrDomDualDecoder
+internal class CmptDomGnrcPrntStrDomDualDecoder : IDecoder<ICmptDomGnrcPrntStrDomDual>
 {
+
+  public IMessages Decode(IValue input, out ICmptDomGnrcPrntStrDomDual? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDomGnrcPrntStrDomDualDecoder Factory(IDecoderRepository _) => new();
 }

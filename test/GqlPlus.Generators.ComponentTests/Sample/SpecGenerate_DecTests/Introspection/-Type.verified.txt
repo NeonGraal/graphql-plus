@@ -79,60 +79,102 @@ namespace Components.Gqlp_Spec_Type;
 
 internal class Cmpt_SimpleKindDecoder : IDecoder<Cmpt_SimpleKind?>
 {
-  public IMessages Decoder(IValue input, out Cmpt_SimpleKind? output)
-    => input.DecodeEnum("_SimpleKind", out output);
+  public IMessages Decode(IValue input, out Cmpt_SimpleKind? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out Cmpt_SimpleKind value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode Cmpt_SimpleKind".AnError();
+  }
 
   internal static Cmpt_SimpleKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_TypeKindDecoder : IDecoder<Cmpt_TypeKind?>
 {
-  public IMessages Decoder(IValue input, out Cmpt_TypeKind? output)
-    => input.DecodeEnum("_TypeKind", out output);
+  public IMessages Decode(IValue input, out Cmpt_TypeKind? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out Cmpt_TypeKind value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode Cmpt_TypeKind".AnError();
+  }
 
   internal static Cmpt_TypeKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_TypeRefDecoder<TTypeKind>
 {
-  public TTypeKind TypeKind { get; set; }
+  public TTypeKind? TypeKind { get; set; }
 }
 
-internal class Cmpt_TypeSimpleDecoder
+internal class Cmpt_TypeSimpleDecoder : IDecoder<ICmpt_TypeSimpleObject>
 {
+
+  public IMessages Decode(IValue input, out ICmpt_TypeSimpleObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static Cmpt_TypeSimpleDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_CollectionsDecoder
+internal class Cmpt_CollectionsDecoder : IDecoder<ICmpt_CollectionsObject>
 {
+
+  public IMessages Decode(IValue input, out ICmpt_CollectionsObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static Cmpt_CollectionsDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_ModifierKeyedDecoder<TModifierKind>
 {
-  public ICmpt_TypeSimple By { get; set; }
-  public bool IsOptional { get; set; }
+  public ICmpt_TypeSimple? By { get; set; }
+  public bool? IsOptional { get; set; }
 }
 
-internal class Cmpt_ModifiersDecoder
+internal class Cmpt_ModifiersDecoder : IDecoder<ICmpt_ModifiersObject>
 {
+
+  public IMessages Decode(IValue input, out ICmpt_ModifiersObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static Cmpt_ModifiersDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_ModifierKindDecoder : IDecoder<Cmpt_ModifierKind?>
 {
-  public IMessages Decoder(IValue input, out Cmpt_ModifierKind? output)
-    => input.DecodeEnum("_ModifierKind", out output);
+  public IMessages Decode(IValue input, out Cmpt_ModifierKind? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out Cmpt_ModifierKind value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode Cmpt_ModifierKind".AnError();
+  }
 
   internal static Cmpt_ModifierKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_ModifierDecoder<TModifierKind>
 {
-  public TModifierKind ModifierKind { get; set; }
+  public TModifierKind? ModifierKind { get; set; }
 }
 
 internal static class Cmpt_Spec_TypeDecoders

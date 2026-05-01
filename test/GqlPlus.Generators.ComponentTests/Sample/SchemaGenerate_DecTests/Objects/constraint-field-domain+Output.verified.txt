@@ -12,8 +12,14 @@ domain DomCnstFieldDmnOutp { String /\w+/ }
 
 namespace Components.Gqlp_Schema_constraint_field_domain_Output;
 
-internal class CmptDomCnstFieldDmnOutpDecoder
+internal class CmptDomCnstFieldDmnOutpDecoder : IDecoder<ICmptDomCnstFieldDmnOutp>
 {
+
+  public IMessages Decode(IValue input, out ICmptDomCnstFieldDmnOutp? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDomCnstFieldDmnOutpDecoder Factory(IDecoderRepository _) => new();
 }

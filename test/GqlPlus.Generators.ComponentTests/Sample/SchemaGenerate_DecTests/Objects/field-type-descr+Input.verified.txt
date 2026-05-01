@@ -10,9 +10,15 @@ input FieldTypeDescrInp { field: "Test" "Descr" Number }
 
 namespace Components.Gqlp_Schema_field_type_descr_Input;
 
-internal class CmptFieldTypeDescrInpDecoder
+internal class CmptFieldTypeDescrInpDecoder : IDecoder<ICmptFieldTypeDescrInpObject>
 {
-  public decimal Field { get; set; }
+  public decimal? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptFieldTypeDescrInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptFieldTypeDescrInpDecoder Factory(IDecoderRepository _) => new();
 }

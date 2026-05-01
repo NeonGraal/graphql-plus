@@ -7,8 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_dual_Output;
 
-internal class testPrntCnstAltDualOutpDecoder
+internal class testPrntCnstAltDualOutpDecoder : IDecoder<ItestPrntCnstAltDualOutpObject>
 {
+
+  public IMessages Decode(IValue input, out ItestPrntCnstAltDualOutpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testPrntCnstAltDualOutpDecoder Factory(IDecoderRepository _) => new();
 }

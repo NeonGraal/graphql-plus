@@ -6,26 +6,50 @@
 
 namespace Components.Gqlp_Schema_Globals;
 
-internal class CmptInDrctParamDictDecoder
+internal class CmptInDrctParamDictDecoder : IDecoder<ICmptInDrctParamDictObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptInDrctParamDictObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptInDrctParamDictDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptInDrctParamInDecoder
+internal class CmptInDrctParamInDecoder : IDecoder<ICmptInDrctParamInObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptInDrctParamInObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptInDrctParamInDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptInDrctParamListDecoder
+internal class CmptInDrctParamListDecoder : IDecoder<ICmptInDrctParamListObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptInDrctParamListObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptInDrctParamListDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptInDrctParamOptDecoder
+internal class CmptInDrctParamOptDecoder : IDecoder<ICmptInDrctParamOptObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptInDrctParamOptObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptInDrctParamOptDecoder Factory(IDecoderRepository _) => new();
 }

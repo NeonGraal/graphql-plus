@@ -12,15 +12,27 @@ input InOutpParam { param: Number | String }
 
 namespace Components.Gqlp_Schema_output_param;
 
-internal class CmptFldOutpParamDecoder
+internal class CmptFldOutpParamDecoder : IDecoder<ICmptFldOutpParamObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptFldOutpParamObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptFldOutpParamDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptInOutpParamDecoder
+internal class CmptInOutpParamDecoder : IDecoder<ICmptInOutpParamObject>
 {
-  public decimal Param { get; set; }
+  public decimal? Param { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptInOutpParamObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptInOutpParamDecoder Factory(IDecoderRepository _) => new();
 }

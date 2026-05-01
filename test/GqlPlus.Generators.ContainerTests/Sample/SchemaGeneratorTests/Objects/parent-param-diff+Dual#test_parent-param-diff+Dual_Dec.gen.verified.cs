@@ -9,7 +9,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_parent_param_diff_Dual;
 
 internal class testPrntParamDiffDualDecoder<TA>
 {
-  public TA Field { get; set; }
+  public TA? Field { get; set; }
 }
 
 internal class testRefPrntParamDiffDualDecoder<TB>

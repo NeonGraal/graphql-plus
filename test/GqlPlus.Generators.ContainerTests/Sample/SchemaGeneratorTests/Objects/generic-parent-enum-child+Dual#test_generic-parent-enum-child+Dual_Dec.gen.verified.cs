@@ -7,29 +7,51 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_child_Dual;
 
-internal class testGnrcPrntEnumChildDualDecoder
+internal class testGnrcPrntEnumChildDualDecoder : IDecoder<ItestGnrcPrntEnumChildDualObject>
 {
+
+  public IMessages Decode(IValue input, out ItestGnrcPrntEnumChildDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testGnrcPrntEnumChildDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testFieldGnrcPrntEnumChildDualDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef? Field { get; set; }
 }
 
 internal class testEnumGnrcPrntEnumChildDualDecoder : IDecoder<testEnumGnrcPrntEnumChildDual?>
 {
-  public IMessages Decoder(IValue input, out testEnumGnrcPrntEnumChildDual? output)
-    => input.DecodeEnum("EnumGnrcPrntEnumChildDual", out output);
+  public IMessages Decode(IValue input, out testEnumGnrcPrntEnumChildDual? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testEnumGnrcPrntEnumChildDual value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testEnumGnrcPrntEnumChildDual".AnError();
+  }
 
   internal static testEnumGnrcPrntEnumChildDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testParentGnrcPrntEnumChildDualDecoder : IDecoder<testParentGnrcPrntEnumChildDual?>
 {
-  public IMessages Decoder(IValue input, out testParentGnrcPrntEnumChildDual? output)
-    => input.DecodeEnum("ParentGnrcPrntEnumChildDual", out output);
+  public IMessages Decode(IValue input, out testParentGnrcPrntEnumChildDual? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testParentGnrcPrntEnumChildDual value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testParentGnrcPrntEnumChildDual".AnError();
+  }
 
   internal static testParentGnrcPrntEnumChildDualDecoder Factory(IDecoderRepository _) => new();
 }

@@ -9,8 +9,16 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_enum_Output;
 
 internal class testEnumGnrcEnumOutpDecoder : IDecoder<testEnumGnrcEnumOutp?>
 {
-  public IMessages Decoder(IValue input, out testEnumGnrcEnumOutp? output)
-    => input.DecodeEnum("EnumGnrcEnumOutp", out output);
+  public IMessages Decode(IValue input, out testEnumGnrcEnumOutp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testEnumGnrcEnumOutp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testEnumGnrcEnumOutp".AnError();
+  }
 
   internal static testEnumGnrcEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }

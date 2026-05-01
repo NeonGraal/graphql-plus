@@ -7,17 +7,31 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_mod_Enum_Input;
 
-internal class testFieldModEnumInpDecoder
+internal class testFieldModEnumInpDecoder : IDecoder<ItestFieldModEnumInpObject>
 {
-  public IDictionary<testEnumFieldModEnumInp, string> Field { get; set; }
+  public IDictionary<testEnumFieldModEnumInp, string>? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ItestFieldModEnumInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testFieldModEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testEnumFieldModEnumInpDecoder : IDecoder<testEnumFieldModEnumInp?>
 {
-  public IMessages Decoder(IValue input, out testEnumFieldModEnumInp? output)
-    => input.DecodeEnum("EnumFieldModEnumInp", out output);
+  public IMessages Decode(IValue input, out testEnumFieldModEnumInp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testEnumFieldModEnumInp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testEnumFieldModEnumInp".AnError();
+  }
 
   internal static testEnumFieldModEnumInpDecoder Factory(IDecoderRepository _) => new();
 }

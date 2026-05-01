@@ -7,16 +7,30 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_enum_Input;
 
-internal class testAltEnumInpDecoder
+internal class testAltEnumInpDecoder : IDecoder<ItestAltEnumInpObject>
 {
+
+  public IMessages Decode(IValue input, out ItestAltEnumInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testAltEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testEnumAltEnumInpDecoder : IDecoder<testEnumAltEnumInp?>
 {
-  public IMessages Decoder(IValue input, out testEnumAltEnumInp? output)
-    => input.DecodeEnum("EnumAltEnumInp", out output);
+  public IMessages Decode(IValue input, out testEnumAltEnumInp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testEnumAltEnumInp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testEnumAltEnumInp".AnError();
+  }
 
   internal static testEnumAltEnumInpDecoder Factory(IDecoderRepository _) => new();
 }

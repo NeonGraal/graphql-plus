@@ -7,32 +7,62 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_unique_parent;
 
-internal class testDmnEnumUnqPrntDecoder
+internal class testDmnEnumUnqPrntDecoder : IDecoder<ItestDmnEnumUnqPrnt>
 {
+
+  public IMessages Decode(IValue input, out ItestDmnEnumUnqPrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testEnumDmnEnumUnqPrntDecoder : IDecoder<testEnumDmnEnumUnqPrnt?>
 {
-  public IMessages Decoder(IValue input, out testEnumDmnEnumUnqPrnt? output)
-    => input.DecodeEnum("EnumDmnEnumUnqPrnt", out output);
+  public IMessages Decode(IValue input, out testEnumDmnEnumUnqPrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testEnumDmnEnumUnqPrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testEnumDmnEnumUnqPrnt".AnError();
+  }
 
   internal static testEnumDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testPrntDmnEnumUnqPrntDecoder : IDecoder<testPrntDmnEnumUnqPrnt?>
 {
-  public IMessages Decoder(IValue input, out testPrntDmnEnumUnqPrnt? output)
-    => input.DecodeEnum("PrntDmnEnumUnqPrnt", out output);
+  public IMessages Decode(IValue input, out testPrntDmnEnumUnqPrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testPrntDmnEnumUnqPrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testPrntDmnEnumUnqPrnt".AnError();
+  }
 
   internal static testPrntDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testDupDmnEnumUnqPrntDecoder : IDecoder<testDupDmnEnumUnqPrnt?>
 {
-  public IMessages Decoder(IValue input, out testDupDmnEnumUnqPrnt? output)
-    => input.DecodeEnum("DupDmnEnumUnqPrnt", out output);
+  public IMessages Decode(IValue input, out testDupDmnEnumUnqPrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testDupDmnEnumUnqPrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testDupDmnEnumUnqPrnt".AnError();
+  }
 
   internal static testDupDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }

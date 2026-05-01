@@ -11,16 +11,30 @@ enum EnumAltEnumInp { altEnumInp }
 
 namespace Components.Gqlp_Schema_alt_enum_Input;
 
-internal class CmptAltEnumInpDecoder
+internal class CmptAltEnumInpDecoder : IDecoder<ICmptAltEnumInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptAltEnumInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptAltEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumAltEnumInpDecoder : IDecoder<CmptEnumAltEnumInp?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumAltEnumInp? output)
-    => input.DecodeEnum("EnumAltEnumInp", out output);
+  public IMessages Decode(IValue input, out CmptEnumAltEnumInp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumAltEnumInp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumAltEnumInp".AnError();
+  }
 
   internal static CmptEnumAltEnumInpDecoder Factory(IDecoderRepository _) => new();
 }

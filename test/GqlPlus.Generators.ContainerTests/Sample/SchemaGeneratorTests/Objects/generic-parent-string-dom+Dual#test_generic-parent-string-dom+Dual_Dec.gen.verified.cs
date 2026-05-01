@@ -7,19 +7,31 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_string_dom_Dual;
 
-internal class testGnrcPrntStrDomDualDecoder
+internal class testGnrcPrntStrDomDualDecoder : IDecoder<ItestGnrcPrntStrDomDualObject>
 {
+
+  public IMessages Decode(IValue input, out ItestGnrcPrntStrDomDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testGnrcPrntStrDomDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testFieldGnrcPrntStrDomDualDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef? Field { get; set; }
 }
 
-internal class testDomGnrcPrntStrDomDualDecoder
+internal class testDomGnrcPrntStrDomDualDecoder : IDecoder<ItestDomGnrcPrntStrDomDual>
 {
+
+  public IMessages Decode(IValue input, out ItestDomGnrcPrntStrDomDual? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testDomGnrcPrntStrDomDualDecoder Factory(IDecoderRepository _) => new();
 }

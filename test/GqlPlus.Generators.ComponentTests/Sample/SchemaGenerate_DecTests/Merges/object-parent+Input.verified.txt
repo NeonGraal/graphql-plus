@@ -12,14 +12,26 @@ input RefObjPrntInp { }
 
 namespace Components.Gqlp_Schema_object_parent_Input;
 
-internal class CmptObjPrntInpDecoder
+internal class CmptObjPrntInpDecoder : IDecoder<ICmptObjPrntInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptObjPrntInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptObjPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptRefObjPrntInpDecoder
+internal class CmptRefObjPrntInpDecoder : IDecoder<ICmptRefObjPrntInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptRefObjPrntInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptRefObjPrntInpDecoder Factory(IDecoderRepository _) => new();
 }

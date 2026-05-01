@@ -11,15 +11,27 @@ input AltAltInp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_Input;
 
-internal class CmptAltInpDecoder
+internal class CmptAltInpDecoder : IDecoder<ICmptAltInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptAltInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptAltInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptAltAltInpDecoder
+internal class CmptAltAltInpDecoder : IDecoder<ICmptAltAltInpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal? Alt { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptAltAltInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptAltAltInpDecoder Factory(IDecoderRepository _) => new();
 }

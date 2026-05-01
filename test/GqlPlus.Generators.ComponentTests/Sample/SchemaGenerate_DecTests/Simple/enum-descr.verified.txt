@@ -12,8 +12,16 @@ namespace Components.Gqlp_Schema_enum_descr;
 
 internal class CmptEnumDescrDecoder : IDecoder<CmptEnumDescr?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumDescr? output)
-    => input.DecodeEnum("EnumDescr", out output);
+  public IMessages Decode(IValue input, out CmptEnumDescr? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumDescr value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumDescr".AnError();
+  }
 
   internal static CmptEnumDescrDecoder Factory(IDecoderRepository _) => new();
 }

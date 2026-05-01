@@ -15,15 +15,29 @@ namespace Components.Gqlp_Schema_generic_parent_enum_dom_Output;
 
 internal class CmptEnumGnrcPrntEnumDomOutpDecoder : IDecoder<CmptEnumGnrcPrntEnumDomOutp?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumGnrcPrntEnumDomOutp? output)
-    => input.DecodeEnum("EnumGnrcPrntEnumDomOutp", out output);
+  public IMessages Decode(IValue input, out CmptEnumGnrcPrntEnumDomOutp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumGnrcPrntEnumDomOutp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumGnrcPrntEnumDomOutp".AnError();
+  }
 
   internal static CmptEnumGnrcPrntEnumDomOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDomGnrcPrntEnumDomOutpDecoder
+internal class CmptDomGnrcPrntEnumDomOutpDecoder : IDecoder<ICmptDomGnrcPrntEnumDomOutp>
 {
-  public new CmptEnumGnrcPrntEnumDomOutp? Value { get; set; }
+  public CmptEnumGnrcPrntEnumDomOutp? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptDomGnrcPrntEnumDomOutp? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDomGnrcPrntEnumDomOutpDecoder Factory(IDecoderRepository _) => new();
 }

@@ -7,26 +7,44 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_obj_Dual;
 
-internal class testCnstFieldObjDualDecoder
+internal class testCnstFieldObjDualDecoder : IDecoder<ItestCnstFieldObjDualObject>
 {
+
+  public IMessages Decode(IValue input, out ItestCnstFieldObjDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testCnstFieldObjDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testRefCnstFieldObjDualDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef? Field { get; set; }
 }
 
-internal class testPrntCnstFieldObjDualDecoder
+internal class testPrntCnstFieldObjDualDecoder : IDecoder<ItestPrntCnstFieldObjDualObject>
 {
+
+  public IMessages Decode(IValue input, out ItestPrntCnstFieldObjDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testPrntCnstFieldObjDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testAltCnstFieldObjDualDecoder
+internal class testAltCnstFieldObjDualDecoder : IDecoder<ItestAltCnstFieldObjDualObject>
 {
-  public decimal Alt { get; set; }
+  public decimal? Alt { get; set; }
+
+  public IMessages Decode(IValue input, out ItestAltCnstFieldObjDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testAltCnstFieldObjDualDecoder Factory(IDecoderRepository _) => new();
 }

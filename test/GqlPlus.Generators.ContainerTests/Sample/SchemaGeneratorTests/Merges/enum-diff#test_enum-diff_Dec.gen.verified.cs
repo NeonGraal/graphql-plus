@@ -9,8 +9,16 @@ namespace GqlPlus.GeneratorTests.Gqlp_enum_diff;
 
 internal class testEnumDiffDecoder : IDecoder<testEnumDiff?>
 {
-  public IMessages Decoder(IValue input, out testEnumDiff? output)
-    => input.DecodeEnum("EnumDiff", out output);
+  public IMessages Decode(IValue input, out testEnumDiff? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testEnumDiff value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testEnumDiff".AnError();
+  }
 
   internal static testEnumDiffDecoder Factory(IDecoderRepository _) => new();
 }

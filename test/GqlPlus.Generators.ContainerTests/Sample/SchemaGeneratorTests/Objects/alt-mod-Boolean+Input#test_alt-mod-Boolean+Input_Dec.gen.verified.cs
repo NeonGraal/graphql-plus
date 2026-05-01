@@ -7,15 +7,27 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_Boolean_Input;
 
-internal class testAltModBoolInpDecoder
+internal class testAltModBoolInpDecoder : IDecoder<ItestAltModBoolInpObject>
 {
+
+  public IMessages Decode(IValue input, out ItestAltModBoolInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testAltModBoolInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testAltAltModBoolInpDecoder
+internal class testAltAltModBoolInpDecoder : IDecoder<ItestAltAltModBoolInpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal? Alt { get; set; }
+
+  public IMessages Decode(IValue input, out ItestAltAltModBoolInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testAltAltModBoolInpDecoder Factory(IDecoderRepository _) => new();
 }

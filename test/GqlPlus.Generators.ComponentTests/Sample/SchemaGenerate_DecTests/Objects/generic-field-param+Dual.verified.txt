@@ -12,9 +12,15 @@ dual AltGnrcFieldParamDual { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_field_param_Dual;
 
-internal class CmptGnrcFieldParamDualDecoder
+internal class CmptGnrcFieldParamDualDecoder : IDecoder<ICmptGnrcFieldParamDualObject>
 {
-  public ICmptRefGnrcFieldParamDual<ICmptAltGnrcFieldParamDual> Field { get; set; }
+  public ICmptRefGnrcFieldParamDual<ICmptAltGnrcFieldParamDual>? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptGnrcFieldParamDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptGnrcFieldParamDualDecoder Factory(IDecoderRepository _) => new();
 }
@@ -23,9 +29,15 @@ internal class CmptRefGnrcFieldParamDualDecoder<TRef>
 {
 }
 
-internal class CmptAltGnrcFieldParamDualDecoder
+internal class CmptAltGnrcFieldParamDualDecoder : IDecoder<ICmptAltGnrcFieldParamDualObject>
 {
-  public decimal Alt { get; set; }
+  public decimal? Alt { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptAltGnrcFieldParamDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptAltGnrcFieldParamDualDecoder Factory(IDecoderRepository _) => new();
 }

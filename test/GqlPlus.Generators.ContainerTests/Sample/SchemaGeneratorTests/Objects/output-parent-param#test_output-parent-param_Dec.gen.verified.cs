@@ -7,22 +7,40 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_output_parent_param;
 
-internal class testFldOutpPrntParamDecoder
+internal class testFldOutpPrntParamDecoder : IDecoder<ItestFldOutpPrntParamObject>
 {
+
+  public IMessages Decode(IValue input, out ItestFldOutpPrntParamObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testFldOutpPrntParamDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testInOutpPrntParamDecoder
+internal class testInOutpPrntParamDecoder : IDecoder<ItestInOutpPrntParamObject>
 {
-  public decimal Param { get; set; }
+  public decimal? Param { get; set; }
+
+  public IMessages Decode(IValue input, out ItestInOutpPrntParamObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testInOutpPrntParamDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntOutpPrntParamInDecoder
+internal class testPrntOutpPrntParamInDecoder : IDecoder<ItestPrntOutpPrntParamInObject>
 {
-  public decimal Parent { get; set; }
+  public decimal? Parent { get; set; }
+
+  public IMessages Decode(IValue input, out ItestPrntOutpPrntParamInObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testPrntOutpPrntParamInDecoder Factory(IDecoderRepository _) => new();
 }

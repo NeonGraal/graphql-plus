@@ -12,21 +12,35 @@ enum EnumGnrcEnumDual { gnrcEnumDual }
 
 namespace Components.Gqlp_Schema_generic_enum_Dual;
 
-internal class CmptGnrcEnumDualDecoder
+internal class CmptGnrcEnumDualDecoder : IDecoder<ICmptGnrcEnumDualObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptGnrcEnumDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptGnrcEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefGnrcEnumDualDecoder<TType>
 {
-  public TType Field { get; set; }
+  public TType? Field { get; set; }
 }
 
 internal class CmptEnumGnrcEnumDualDecoder : IDecoder<CmptEnumGnrcEnumDual?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumGnrcEnumDual? output)
-    => input.DecodeEnum("EnumGnrcEnumDual", out output);
+  public IMessages Decode(IValue input, out CmptEnumGnrcEnumDual? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumGnrcEnumDual value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumGnrcEnumDual".AnError();
+  }
 
   internal static CmptEnumGnrcEnumDualDecoder Factory(IDecoderRepository _) => new();
 }

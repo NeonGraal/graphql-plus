@@ -13,8 +13,14 @@ output AltCnstAltDualOutp { :PrntCnstAltDualOutp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_alt_dual_Output;
 
-internal class CmptPrntCnstAltDualOutpDecoder
+internal class CmptPrntCnstAltDualOutpDecoder : IDecoder<ICmptPrntCnstAltDualOutpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptPrntCnstAltDualOutpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntCnstAltDualOutpDecoder Factory(IDecoderRepository _) => new();
 }

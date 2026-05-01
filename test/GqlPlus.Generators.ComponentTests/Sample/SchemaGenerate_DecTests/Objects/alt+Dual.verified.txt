@@ -11,15 +11,27 @@ dual AltAltDual { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_Dual;
 
-internal class CmptAltDualDecoder
+internal class CmptAltDualDecoder : IDecoder<ICmptAltDualObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptAltDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptAltDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptAltAltDualDecoder
+internal class CmptAltAltDualDecoder : IDecoder<ICmptAltAltDualObject>
 {
-  public decimal Alt { get; set; }
+  public decimal? Alt { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptAltAltDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptAltAltDualDecoder Factory(IDecoderRepository _) => new();
 }

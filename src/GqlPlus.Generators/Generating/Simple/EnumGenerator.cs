@@ -52,8 +52,16 @@ internal sealed class EnumDecoderGenerator
     context.Write("");
     context.Write($"internal class {typeName}Decoder : IDecoder<{typeName}?>");
     context.Write("{");
-    context.Write($"  public IMessages Decoder(IValue input, out {typeName}? output)");
-    context.Write($"    => input.DecodeEnum(\"{ast.Name}\", out output);");
+    context.Write($"  public IMessages Decode(IValue input, out {typeName}? output)");
+    context.Write("  {");
+    context.Write($"    if (input.TryGetText(out string? text) && Enum.TryParse(text, out {typeName} value))");
+    context.Write("    {");
+    context.Write("      output = value;");
+    context.Write("      return Messages.New;");
+    context.Write("    }");
+    context.Write("    output = null;");
+    context.Write($"    return \"Unable to decode {typeName}\".AnError();");
+    context.Write("  }");
     context.Write("");
     context.Write($"  internal static {typeName}Decoder Factory(IDecoderRepository _) => new();");
     context.Write("}");

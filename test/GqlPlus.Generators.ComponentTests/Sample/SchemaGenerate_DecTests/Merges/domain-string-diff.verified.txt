@@ -11,8 +11,14 @@ domain DmnStrDiff { string }
 
 namespace Components.Gqlp_Schema_domain_string_diff;
 
-internal class CmptDmnStrDiffDecoder
+internal class CmptDmnStrDiffDecoder : IDecoder<ICmptDmnStrDiff>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnStrDiff? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnStrDiffDecoder Factory(IDecoderRepository _) => new();
 }

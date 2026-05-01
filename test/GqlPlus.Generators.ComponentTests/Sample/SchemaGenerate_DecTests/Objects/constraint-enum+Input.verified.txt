@@ -12,21 +12,35 @@ enum EnumCnstEnumInp { cnstEnumInp }
 
 namespace Components.Gqlp_Schema_constraint_enum_Input;
 
-internal class CmptCnstEnumInpDecoder
+internal class CmptCnstEnumInpDecoder : IDecoder<ICmptCnstEnumInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptCnstEnumInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptCnstEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefCnstEnumInpDecoder<TType>
 {
-  public TType Field { get; set; }
+  public TType? Field { get; set; }
 }
 
 internal class CmptEnumCnstEnumInpDecoder : IDecoder<CmptEnumCnstEnumInp?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumCnstEnumInp? output)
-    => input.DecodeEnum("EnumCnstEnumInp", out output);
+  public IMessages Decode(IValue input, out CmptEnumCnstEnumInp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumCnstEnumInp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumCnstEnumInp".AnError();
+  }
 
   internal static CmptEnumCnstEnumInpDecoder Factory(IDecoderRepository _) => new();
 }

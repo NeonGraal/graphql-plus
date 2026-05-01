@@ -13,28 +13,48 @@ domain JustCnstDomEnumInp { enum EnumCnstDomEnumInp.cnstDomEnumInp }
 
 namespace Components.Gqlp_Schema_constraint_dom_enum_Input;
 
-internal class CmptCnstDomEnumInpDecoder
+internal class CmptCnstDomEnumInpDecoder : IDecoder<ICmptCnstDomEnumInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptCnstDomEnumInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptCnstDomEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefCnstDomEnumInpDecoder<TType>
 {
-  public TType Field { get; set; }
+  public TType? Field { get; set; }
 }
 
 internal class CmptEnumCnstDomEnumInpDecoder : IDecoder<CmptEnumCnstDomEnumInp?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumCnstDomEnumInp? output)
-    => input.DecodeEnum("EnumCnstDomEnumInp", out output);
+  public IMessages Decode(IValue input, out CmptEnumCnstDomEnumInp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumCnstDomEnumInp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumCnstDomEnumInp".AnError();
+  }
 
   internal static CmptEnumCnstDomEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptJustCnstDomEnumInpDecoder
+internal class CmptJustCnstDomEnumInpDecoder : IDecoder<ICmptJustCnstDomEnumInp>
 {
-  public new CmptEnumCnstDomEnumInp? Value { get; set; }
+  public CmptEnumCnstDomEnumInp? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptJustCnstDomEnumInp? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptJustCnstDomEnumInpDecoder Factory(IDecoderRepository _) => new();
 }

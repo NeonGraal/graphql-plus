@@ -9,6 +9,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_constraint_Dual;
 
 internal class testObjCnstDualDecoder<TType>
 {
-  public TType Field { get; set; }
-  public TType Str { get; set; }
+  public TType? Field { get; set; }
+  public TType? Str { get; set; }
 }

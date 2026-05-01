@@ -7,9 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_dual_Output;
 
-internal class testAltGnrcFieldDualOutpDecoder
+internal class testAltGnrcFieldDualOutpDecoder : IDecoder<ItestAltGnrcFieldDualOutpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal? Alt { get; set; }
+
+  public IMessages Decode(IValue input, out ItestAltGnrcFieldDualOutpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testAltGnrcFieldDualOutpDecoder Factory(IDecoderRepository _) => new();
 }

@@ -7,8 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_Input;
 
-internal class testObjInpDecoder
+internal class testObjInpDecoder : IDecoder<ItestObjInpObject>
 {
+
+  public IMessages Decode(IValue input, out ItestObjInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testObjInpDecoder Factory(IDecoderRepository _) => new();
 }

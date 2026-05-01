@@ -7,8 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_dual_Input;
 
-internal class testGnrcAltDualInpDecoder
+internal class testGnrcAltDualInpDecoder : IDecoder<ItestGnrcAltDualInpObject>
 {
+
+  public IMessages Decode(IValue input, out ItestGnrcAltDualInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testGnrcAltDualInpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -17,9 +23,15 @@ internal class testRefGnrcAltDualInpDecoder<TRef>
 {
 }
 
-internal class testAltGnrcAltDualInpDecoder
+internal class testAltGnrcAltDualInpDecoder : IDecoder<ItestAltGnrcAltDualInpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal? Alt { get; set; }
+
+  public IMessages Decode(IValue input, out ItestAltGnrcAltDualInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testAltGnrcAltDualInpDecoder Factory(IDecoderRepository _) => new();
 }

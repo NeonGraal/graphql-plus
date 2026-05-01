@@ -108,105 +108,189 @@ domain Date { String /\d{4}-\d{2}-\d{2}/ }
 
 namespace Components.Gqlp_GraphQl_Samples;
 
-internal class CmptUserFilterDecoder
+internal class CmptUserFilterDecoder : IDecoder<ICmptUserFilterObject>
 {
-  public decimal Id { get; set; }
+  public decimal? Id { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptUserFilterObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptUserFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptUserDecoder
+internal class CmptUserDecoder : IDecoder<ICmptUserObject>
 {
-  public decimal Id { get; set; }
-  public string Name { get; set; }
-  public string FirstName { get; set; }
-  public string LastName { get; set; }
-  public ICmptDate Birthday { get; set; }
+  public decimal? Id { get; set; }
+  public string? Name { get; set; }
+  public string? FirstName { get; set; }
+  public string? LastName { get; set; }
+  public ICmptDate? Birthday { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptUserObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptUserDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptStoryFilterDecoder
+internal class CmptStoryFilterDecoder : IDecoder<ICmptStoryFilterObject>
 {
-  public decimal StoryID { get; set; }
+  public decimal? StoryID { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptStoryFilterObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptStoryFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptStoryDecoder
+internal class CmptStoryDecoder : IDecoder<ICmptStoryObject>
 {
-  public decimal LikeCount { get; set; }
+  public decimal? LikeCount { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptStoryObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptStoryDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptFieldFilterDecoder
+internal class CmptFieldFilterDecoder : IDecoder<ICmptFieldFilterObject>
 {
   public string? Arg { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptFieldFilterObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptFieldFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPicFilterDecoder
+internal class CmptPicFilterDecoder : IDecoder<ICmptPicFilterObject>
 {
-  public decimal Size { get; set; }
-  public decimal Width { get; set; }
-  public decimal Height { get; set; }
+  public decimal? Size { get; set; }
+  public decimal? Width { get; set; }
+  public decimal? Height { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptPicFilterObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPicFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptFriendsFilterDecoder
+internal class CmptFriendsFilterDecoder : IDecoder<ICmptFriendsFilterObject>
 {
-  public decimal First { get; set; }
+  public decimal? First { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptFriendsFilterObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptFriendsFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptProfileFilterDecoder
+internal class CmptProfileFilterDecoder : IDecoder<ICmptProfileFilterObject>
 {
-  public ICollection<string> Handles { get; set; }
+  public ICollection<string>? Handles { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptProfileFilterObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptProfileFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptIncludeParamsDecoder
+internal class CmptIncludeParamsDecoder : IDecoder<ICmptIncludeParamsObject>
 {
-  public bool If { get; set; }
+  public bool? If { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptIncludeParamsObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptIncludeParamsDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEmailDecoder
+internal class CmptEmailDecoder : IDecoder<ICmptEmailObject>
 {
-  public string Message { get; set; }
+  public string? Message { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptEmailObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptEmailDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptThingFilterDecoder
+internal class CmptThingFilterDecoder : IDecoder<ICmptThingFilterObject>
 {
-  public ICmptLocation Location { get; set; }
+  public ICmptLocation? Location { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptThingFilterObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptThingFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptLocationDecoder
+internal class CmptLocationDecoder : IDecoder<ICmptLocationObject>
 {
-  public decimal Lat { get; set; }
-  public decimal Lon { get; set; }
+  public decimal? Lat { get; set; }
+  public decimal? Lon { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptLocationObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptLocationDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptIntDecoder
+internal class CmptIntDecoder : IDecoder<ICmptInt>
 {
+
+  public IMessages Decode(IValue input, out ICmptInt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptIntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDateDecoder
+internal class CmptDateDecoder : IDecoder<ICmptDate>
 {
+
+  public IMessages Decode(IValue input, out ICmptDate? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDateDecoder Factory(IDecoderRepository _) => new();
 }

@@ -13,12 +13,18 @@ namespace Components.Gqlp_Schema_field_mod_param_Input;
 
 internal class CmptFieldModParamInpDecoder<TMod>
 {
-  public IDictionary<TMod, ICmptFldFieldModParamInp> Field { get; set; }
+  public IDictionary<TMod, ICmptFldFieldModParamInp>? Field { get; set; }
 }
 
-internal class CmptFldFieldModParamInpDecoder
+internal class CmptFldFieldModParamInpDecoder : IDecoder<ICmptFldFieldModParamInpObject>
 {
-  public decimal Field { get; set; }
+  public decimal? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptFldFieldModParamInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptFldFieldModParamInpDecoder Factory(IDecoderRepository _) => new();
 }

@@ -7,9 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Base;
 
-internal class test_ObjectKindDecoder
+internal class test_ObjectKindDecoder : IDecoder<Itest_ObjectKind>
 {
-  public new test_TypeKind? Value { get; set; }
+  public test_TypeKind? Value { get; set; }
+
+  public IMessages Decode(IValue input, out Itest_ObjectKind? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static test_ObjectKindDecoder Factory(IDecoderRepository _) => new();
 }

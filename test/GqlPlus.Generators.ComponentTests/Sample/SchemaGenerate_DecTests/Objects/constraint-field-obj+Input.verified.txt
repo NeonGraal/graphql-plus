@@ -13,26 +13,44 @@ input AltCnstFieldObjInp { :PrntCnstFieldObjInp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_field_obj_Input;
 
-internal class CmptCnstFieldObjInpDecoder
+internal class CmptCnstFieldObjInpDecoder : IDecoder<ICmptCnstFieldObjInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptCnstFieldObjInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptCnstFieldObjInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptRefCnstFieldObjInpDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef? Field { get; set; }
 }
 
-internal class CmptPrntCnstFieldObjInpDecoder
+internal class CmptPrntCnstFieldObjInpDecoder : IDecoder<ICmptPrntCnstFieldObjInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptPrntCnstFieldObjInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntCnstFieldObjInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptAltCnstFieldObjInpDecoder
+internal class CmptAltCnstFieldObjInpDecoder : IDecoder<ICmptAltCnstFieldObjInpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal? Alt { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptAltCnstFieldObjInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptAltCnstFieldObjInpDecoder Factory(IDecoderRepository _) => new();
 }

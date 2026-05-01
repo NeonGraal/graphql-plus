@@ -9,16 +9,32 @@ namespace GqlPlus.GeneratorTests.Gqlp_enum_parent_alias;
 
 internal class testEnumPrntAliasDecoder : IDecoder<testEnumPrntAlias?>
 {
-  public IMessages Decoder(IValue input, out testEnumPrntAlias? output)
-    => input.DecodeEnum("EnumPrntAlias", out output);
+  public IMessages Decode(IValue input, out testEnumPrntAlias? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testEnumPrntAlias value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testEnumPrntAlias".AnError();
+  }
 
   internal static testEnumPrntAliasDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testPrntEnumPrntAliasDecoder : IDecoder<testPrntEnumPrntAlias?>
 {
-  public IMessages Decoder(IValue input, out testPrntEnumPrntAlias? output)
-    => input.DecodeEnum("PrntEnumPrntAlias", out output);
+  public IMessages Decode(IValue input, out testPrntEnumPrntAlias? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testPrntEnumPrntAlias value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testPrntEnumPrntAlias".AnError();
+  }
 
   internal static testPrntEnumPrntAliasDecoder Factory(IDecoderRepository _) => new();
 }

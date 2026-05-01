@@ -7,8 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_domain_Output;
 
-internal class testDomCnstFieldDmnOutpDecoder
+internal class testDomCnstFieldDmnOutpDecoder : IDecoder<ItestDomCnstFieldDmnOutp>
 {
+
+  public IMessages Decode(IValue input, out ItestDomCnstFieldDmnOutp? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testDomCnstFieldDmnOutpDecoder Factory(IDecoderRepository _) => new();
 }

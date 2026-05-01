@@ -13,29 +13,51 @@ enum ParentGnrcPrntEnumPrntInp { gnrcPrntEnumPrntInpParent }
 
 namespace Components.Gqlp_Schema_generic_parent_enum_parent_Input;
 
-internal class CmptGnrcPrntEnumPrntInpDecoder
+internal class CmptGnrcPrntEnumPrntInpDecoder : IDecoder<ICmptGnrcPrntEnumPrntInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptGnrcPrntEnumPrntInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptGnrcPrntEnumPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptFieldGnrcPrntEnumPrntInpDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef? Field { get; set; }
 }
 
 internal class CmptEnumGnrcPrntEnumPrntInpDecoder : IDecoder<CmptEnumGnrcPrntEnumPrntInp?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumGnrcPrntEnumPrntInp? output)
-    => input.DecodeEnum("EnumGnrcPrntEnumPrntInp", out output);
+  public IMessages Decode(IValue input, out CmptEnumGnrcPrntEnumPrntInp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumGnrcPrntEnumPrntInp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumGnrcPrntEnumPrntInp".AnError();
+  }
 
   internal static CmptEnumGnrcPrntEnumPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptParentGnrcPrntEnumPrntInpDecoder : IDecoder<CmptParentGnrcPrntEnumPrntInp?>
 {
-  public IMessages Decoder(IValue input, out CmptParentGnrcPrntEnumPrntInp? output)
-    => input.DecodeEnum("ParentGnrcPrntEnumPrntInp", out output);
+  public IMessages Decode(IValue input, out CmptParentGnrcPrntEnumPrntInp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptParentGnrcPrntEnumPrntInp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptParentGnrcPrntEnumPrntInp".AnError();
+  }
 
   internal static CmptParentGnrcPrntEnumPrntInpDecoder Factory(IDecoderRepository _) => new();
 }

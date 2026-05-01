@@ -7,8 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_boolean_diff;
 
-internal class testDmnBoolDiffDecoder
+internal class testDmnBoolDiffDecoder : IDecoder<ItestDmnBoolDiff>
 {
+
+  public IMessages Decode(IValue input, out ItestDmnBoolDiff? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testDmnBoolDiffDecoder Factory(IDecoderRepository _) => new();
 }

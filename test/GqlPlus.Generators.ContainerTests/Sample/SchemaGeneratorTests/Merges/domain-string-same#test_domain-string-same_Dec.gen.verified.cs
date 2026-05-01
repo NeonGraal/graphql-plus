@@ -7,8 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_string_same;
 
-internal class testDmnStrSameDecoder
+internal class testDmnStrSameDecoder : IDecoder<ItestDmnStrSame>
 {
+
+  public IMessages Decode(IValue input, out ItestDmnStrSame? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testDmnStrSameDecoder Factory(IDecoderRepository _) => new();
 }

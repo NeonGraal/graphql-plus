@@ -7,17 +7,31 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_value_descr_Dual;
 
-internal class testFieldValueDescrDualDecoder
+internal class testFieldValueDescrDualDecoder : IDecoder<ItestFieldValueDescrDualObject>
 {
-  public testEnumFieldValueDescrDual Field { get; set; }
+  public testEnumFieldValueDescrDual? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ItestFieldValueDescrDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testFieldValueDescrDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testEnumFieldValueDescrDualDecoder : IDecoder<testEnumFieldValueDescrDual?>
 {
-  public IMessages Decoder(IValue input, out testEnumFieldValueDescrDual? output)
-    => input.DecodeEnum("EnumFieldValueDescrDual", out output);
+  public IMessages Decode(IValue input, out testEnumFieldValueDescrDual? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testEnumFieldValueDescrDual value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testEnumFieldValueDescrDual".AnError();
+  }
 
   internal static testEnumFieldValueDescrDualDecoder Factory(IDecoderRepository _) => new();
 }

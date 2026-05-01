@@ -36,6 +36,12 @@ internal sealed class DomainEnumModelGenerator()
 internal sealed class DomainEnumDecoderGenerator()
   : DomainEnumGeneratorBase
 {
+  internal override IEnumerable<MapPair<string>> TypeMembers(IAstDomain<IAstDomainLabel> ast, GqlpGeneratorTypes types)
+    => base.TypeMembers(ast, types)
+      .Select(m => m.Value.StartsWith("new ", StringComparison.Ordinal)
+        ? new MapPair<string>(m.Key, m.Value.Substring(4))
+        : m);
+
   protected override void Generate(IAstDomain<IAstDomainLabel> ast, GqlpGeneratorContext context)
     => GenerateDomainDecoder(ast, context);
 }

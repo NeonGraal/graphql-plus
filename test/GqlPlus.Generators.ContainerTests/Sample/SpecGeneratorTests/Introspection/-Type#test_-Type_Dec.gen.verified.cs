@@ -9,60 +9,102 @@ namespace GqlPlus.GeneratorTests.Gqlp__Type;
 
 internal class test_SimpleKindDecoder : IDecoder<test_SimpleKind?>
 {
-  public IMessages Decoder(IValue input, out test_SimpleKind? output)
-    => input.DecodeEnum("_SimpleKind", out output);
+  public IMessages Decode(IValue input, out test_SimpleKind? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out test_SimpleKind value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode test_SimpleKind".AnError();
+  }
 
   internal static test_SimpleKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_TypeKindDecoder : IDecoder<test_TypeKind?>
 {
-  public IMessages Decoder(IValue input, out test_TypeKind? output)
-    => input.DecodeEnum("_TypeKind", out output);
+  public IMessages Decode(IValue input, out test_TypeKind? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out test_TypeKind value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode test_TypeKind".AnError();
+  }
 
   internal static test_TypeKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_TypeRefDecoder<TTypeKind>
 {
-  public TTypeKind TypeKind { get; set; }
+  public TTypeKind? TypeKind { get; set; }
 }
 
-internal class test_TypeSimpleDecoder
+internal class test_TypeSimpleDecoder : IDecoder<Itest_TypeSimpleObject>
 {
+
+  public IMessages Decode(IValue input, out Itest_TypeSimpleObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static test_TypeSimpleDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_CollectionsDecoder
+internal class test_CollectionsDecoder : IDecoder<Itest_CollectionsObject>
 {
+
+  public IMessages Decode(IValue input, out Itest_CollectionsObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static test_CollectionsDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_ModifierKeyedDecoder<TModifierKind>
 {
-  public Itest_TypeSimple By { get; set; }
-  public bool IsOptional { get; set; }
+  public Itest_TypeSimple? By { get; set; }
+  public bool? IsOptional { get; set; }
 }
 
-internal class test_ModifiersDecoder
+internal class test_ModifiersDecoder : IDecoder<Itest_ModifiersObject>
 {
+
+  public IMessages Decode(IValue input, out Itest_ModifiersObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static test_ModifiersDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_ModifierKindDecoder : IDecoder<test_ModifierKind?>
 {
-  public IMessages Decoder(IValue input, out test_ModifierKind? output)
-    => input.DecodeEnum("_ModifierKind", out output);
+  public IMessages Decode(IValue input, out test_ModifierKind? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out test_ModifierKind value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode test_ModifierKind".AnError();
+  }
 
   internal static test_ModifierKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_ModifierDecoder<TModifierKind>
 {
-  public TModifierKind ModifierKind { get; set; }
+  public TModifierKind? ModifierKind { get; set; }
 }
 
 internal static class test__TypeDecoders

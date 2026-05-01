@@ -14,22 +14,40 @@ input PrntOutpPrntParamIn { parent: Number | String }
 
 namespace Components.Gqlp_Schema_output_parent_param;
 
-internal class CmptFldOutpPrntParamDecoder
+internal class CmptFldOutpPrntParamDecoder : IDecoder<ICmptFldOutpPrntParamObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptFldOutpPrntParamObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptFldOutpPrntParamDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptInOutpPrntParamDecoder
+internal class CmptInOutpPrntParamDecoder : IDecoder<ICmptInOutpPrntParamObject>
 {
-  public decimal Param { get; set; }
+  public decimal? Param { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptInOutpPrntParamObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptInOutpPrntParamDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntOutpPrntParamInDecoder
+internal class CmptPrntOutpPrntParamInDecoder : IDecoder<ICmptPrntOutpPrntParamInObject>
 {
-  public decimal Parent { get; set; }
+  public decimal? Parent { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptPrntOutpPrntParamInObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntOutpPrntParamInDecoder Factory(IDecoderRepository _) => new();
 }

@@ -12,5 +12,5 @@ namespace Components.Gqlp_Schema_generic_descr_Dual;
 
 internal class CmptGnrcDescrDualDecoder<TType>
 {
-  public TType Field { get; set; }
+  public TType? Field { get; set; }
 }

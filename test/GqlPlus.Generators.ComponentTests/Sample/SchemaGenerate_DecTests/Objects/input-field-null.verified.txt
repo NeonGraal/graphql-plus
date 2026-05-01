@@ -11,15 +11,27 @@ dual FldInpFieldNull { }
 
 namespace Components.Gqlp_Schema_input_field_null;
 
-internal class CmptInpFieldNullDecoder
+internal class CmptInpFieldNullDecoder : IDecoder<ICmptInpFieldNullObject>
 {
   public ICmptFldInpFieldNull? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptInpFieldNullObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptInpFieldNullDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptFldInpFieldNullDecoder
+internal class CmptFldInpFieldNullDecoder : IDecoder<ICmptFldInpFieldNullObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptFldInpFieldNullObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptFldInpFieldNullDecoder Factory(IDecoderRepository _) => new();
 }

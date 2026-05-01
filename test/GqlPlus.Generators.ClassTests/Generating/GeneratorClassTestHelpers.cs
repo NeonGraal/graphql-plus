@@ -22,6 +22,21 @@ internal static class GeneratorClassTestHelpers
       .Select(ContainsAction)
       ]);
 
+  internal static string MakeNullable(string contains)
+  {
+    int lastGt = contains.LastIndexOf('>');
+    if (lastGt >= 0 && lastGt + 1 < contains.Length && contains[lastGt + 1] == ' ') {
+      return contains[..(lastGt + 1)] + "?" + contains[(lastGt + 1)..];
+    }
+
+    int firstSpace = contains.IndexOf(' ', StringComparison.Ordinal);
+    if (firstSpace > 0 && contains[firstSpace - 1] != '?') {
+      return contains[..firstSpace] + "?" + contains[firstSpace..];
+    }
+
+    return contains;
+  }
+
   private static Action<string> ContainsAction(string required)
     => result => result.ShouldContain(required);
 }

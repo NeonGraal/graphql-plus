@@ -14,6 +14,39 @@ internal abstract class GenerateForObject<TObjField>
 
   protected override void InterfaceMember(MapPair<string> item, GqlpGeneratorContext context)
     => context.Write($"  {item.Value} {item.Key} {{ get; }}");
+
+  protected void GenerateObjectDecoder(IAstObject<TObjField> ast, GqlpGeneratorContext context)
+  {
+    bool hasTypeParams = ast.TypeParams.Any();
+    string decoderName = context.TypeName(ast, "") + "Decoder";
+    string interfaceType = context.TypeName(ast, "I") + "Object";
+    string typeParams = TypeParamsString(ast);
+
+    GenerateBlock(ast, context,
+      (a, c) => c.Write("internal class " + context.TypeName(a, "") + "Decoder" + typeParams
+        + (hasTypeParams ? "" : " : IDecoder<" + interfaceType + ">")),
+      TypeMembers,
+      (item, c) => {
+        string type = item.Value.EndsWith("?", StringComparison.Ordinal) ? item.Value : item.Value + "?";
+        c.Write($"  public {type} {item.Key} {{ get; set; }}");
+      },
+      hasTypeParams ? null : (_, c) => {
+        c.Write("");
+        c.Write($"  public IMessages Decode(IValue input, out {interfaceType}? output)");
+        c.Write("  {");
+        c.Write("    output = null;");
+        c.Write("    return Messages.New;");
+        c.Write("  }");
+        c.Write("");
+        c.Write($"  internal static {decoderName} Factory(IDecoderRepository _) => new();");
+      });
+
+    if (hasTypeParams) {
+      return;
+    }
+
+    context.RegisterDecoder(interfaceType, decoderName);
+  }
 }
 
 internal abstract class GenerateForObject<TObjField, TFieldItem>
@@ -84,28 +117,6 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
   {
     string interfaceSep = AlternateHeader(ast, context, "class", "", GqlpBaseType.Class);
     context.Write("  " + interfaceSep + " " + context.TypeName(ast, "I") + TypeParamsString(ast));
-  }
-
-  protected override void DecoderHeader(IAstObject<TObjField> ast, GqlpGeneratorContext context)
-    => context.Write("internal class " + context.TypeName(ast, "") + "Decoder" + TypeParamsString(ast));
-
-  protected void GenerateObjectDecoder(IAstObject<TObjField> ast, GqlpGeneratorContext context)
-  {
-    bool hasTypeParams = ast.TypeParams.Any();
-    string decoderName = context.TypeName(ast, "") + "Decoder";
-
-    GenerateBlock(ast, context, DecoderHeader, TypeMembers, ClassMember,
-      hasTypeParams ? null : (_, c) => {
-        c.Write("");
-        c.Write($"  internal static {decoderName} Factory(IDecoderRepository _) => new();");
-      });
-
-    if (hasTypeParams) {
-      return;
-    }
-
-    string interfaceType = context.TypeName(ast, "I") + "Object";
-    context.RegisterDecoder(interfaceType, decoderName);
   }
 
   protected void AlternateClassMember(MapPair<string> item, GqlpGeneratorContext context)

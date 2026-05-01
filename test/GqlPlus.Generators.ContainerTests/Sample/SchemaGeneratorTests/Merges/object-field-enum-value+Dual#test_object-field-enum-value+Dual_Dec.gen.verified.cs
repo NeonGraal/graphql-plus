@@ -7,9 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_enum_value_Dual;
 
-internal class testObjFieldEnumValueDualDecoder
+internal class testObjFieldEnumValueDualDecoder : IDecoder<ItestObjFieldEnumValueDualObject>
 {
-  public bool Field { get; set; }
+  public bool? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ItestObjFieldEnumValueDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testObjFieldEnumValueDualDecoder Factory(IDecoderRepository _) => new();
 }

@@ -12,14 +12,26 @@ dual ObjAltDualType { }
 
 namespace Components.Gqlp_Schema_object_alt_Dual;
 
-internal class CmptObjAltDualDecoder
+internal class CmptObjAltDualDecoder : IDecoder<ICmptObjAltDualObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptObjAltDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptObjAltDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptObjAltDualTypeDecoder
+internal class CmptObjAltDualTypeDecoder : IDecoder<ICmptObjAltDualTypeObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptObjAltDualTypeObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptObjAltDualTypeDecoder Factory(IDecoderRepository _) => new();
 }

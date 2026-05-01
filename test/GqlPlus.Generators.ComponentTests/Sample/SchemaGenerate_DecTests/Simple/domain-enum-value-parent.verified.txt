@@ -12,25 +12,47 @@ enum PrntDmnEnumValuePrnt { prnt_dmnEnumValuePrnt }
 
 namespace Components.Gqlp_Schema_domain_enum_value_parent;
 
-internal class CmptDmnEnumValuePrntDecoder
+internal class CmptDmnEnumValuePrntDecoder : IDecoder<ICmptDmnEnumValuePrnt>
 {
-  public new CmptEnumDmnEnumValuePrnt? Value { get; set; }
+  public CmptEnumDmnEnumValuePrnt? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptDmnEnumValuePrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnEnumValuePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumValuePrntDecoder : IDecoder<CmptEnumDmnEnumValuePrnt?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumDmnEnumValuePrnt? output)
-    => input.DecodeEnum("EnumDmnEnumValuePrnt", out output);
+  public IMessages Decode(IValue input, out CmptEnumDmnEnumValuePrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumDmnEnumValuePrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumDmnEnumValuePrnt".AnError();
+  }
 
   internal static CmptEnumDmnEnumValuePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntDmnEnumValuePrntDecoder : IDecoder<CmptPrntDmnEnumValuePrnt?>
 {
-  public IMessages Decoder(IValue input, out CmptPrntDmnEnumValuePrnt? output)
-    => input.DecodeEnum("PrntDmnEnumValuePrnt", out output);
+  public IMessages Decode(IValue input, out CmptPrntDmnEnumValuePrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptPrntDmnEnumValuePrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptPrntDmnEnumValuePrnt".AnError();
+  }
 
   internal static CmptPrntDmnEnumValuePrntDecoder Factory(IDecoderRepository _) => new();
 }

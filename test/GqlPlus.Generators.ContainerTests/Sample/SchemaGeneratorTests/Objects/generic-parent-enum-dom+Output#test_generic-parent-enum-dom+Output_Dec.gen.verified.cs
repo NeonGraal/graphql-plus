@@ -9,15 +9,29 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_dom_Output;
 
 internal class testEnumGnrcPrntEnumDomOutpDecoder : IDecoder<testEnumGnrcPrntEnumDomOutp?>
 {
-  public IMessages Decoder(IValue input, out testEnumGnrcPrntEnumDomOutp? output)
-    => input.DecodeEnum("EnumGnrcPrntEnumDomOutp", out output);
+  public IMessages Decode(IValue input, out testEnumGnrcPrntEnumDomOutp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testEnumGnrcPrntEnumDomOutp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testEnumGnrcPrntEnumDomOutp".AnError();
+  }
 
   internal static testEnumGnrcPrntEnumDomOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDomGnrcPrntEnumDomOutpDecoder
+internal class testDomGnrcPrntEnumDomOutpDecoder : IDecoder<ItestDomGnrcPrntEnumDomOutp>
 {
-  public new testEnumGnrcPrntEnumDomOutp? Value { get; set; }
+  public testEnumGnrcPrntEnumDomOutp? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ItestDomGnrcPrntEnumDomOutp? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testDomGnrcPrntEnumDomOutpDecoder Factory(IDecoderRepository _) => new();
 }

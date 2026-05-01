@@ -12,15 +12,27 @@ domain DomOutpParamModParam { number 1 > 10 }
 
 namespace Components.Gqlp_Schema_output_param_mod_param;
 
-internal class CmptInOutpParamModParamDecoder
+internal class CmptInOutpParamModParamDecoder : IDecoder<ICmptInOutpParamModParamObject>
 {
-  public decimal Param { get; set; }
+  public decimal? Param { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptInOutpParamModParamObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptInOutpParamModParamDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDomOutpParamModParamDecoder
+internal class CmptDomOutpParamModParamDecoder : IDecoder<ICmptDomOutpParamModParam>
 {
+
+  public IMessages Decode(IValue input, out ICmptDomOutpParamModParam? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDomOutpParamModParamDecoder Factory(IDecoderRepository _) => new();
 }

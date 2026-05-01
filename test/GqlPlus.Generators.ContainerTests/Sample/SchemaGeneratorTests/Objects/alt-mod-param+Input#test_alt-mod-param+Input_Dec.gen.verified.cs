@@ -11,9 +11,15 @@ internal class testAltModParamInpDecoder<TMod>
 {
 }
 
-internal class testAltAltModParamInpDecoder
+internal class testAltAltModParamInpDecoder : IDecoder<ItestAltAltModParamInpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal? Alt { get; set; }
+
+  public IMessages Decode(IValue input, out ItestAltAltModParamInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testAltAltModParamInpDecoder Factory(IDecoderRepository _) => new();
 }

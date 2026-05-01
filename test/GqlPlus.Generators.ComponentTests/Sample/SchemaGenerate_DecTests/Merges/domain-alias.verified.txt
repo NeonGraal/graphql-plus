@@ -11,8 +11,14 @@ domain DmnAlias [Num2] { number }
 
 namespace Components.Gqlp_Schema_domain_alias;
 
-internal class CmptDmnAliasDecoder
+internal class CmptDmnAliasDecoder : IDecoder<ICmptDmnAlias>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnAlias? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnAliasDecoder Factory(IDecoderRepository _) => new();
 }

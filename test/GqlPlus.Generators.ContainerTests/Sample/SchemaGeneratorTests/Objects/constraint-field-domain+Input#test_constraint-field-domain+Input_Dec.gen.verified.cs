@@ -7,19 +7,31 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_domain_Input;
 
-internal class testCnstFieldDmnInpDecoder
+internal class testCnstFieldDmnInpDecoder : IDecoder<ItestCnstFieldDmnInpObject>
 {
+
+  public IMessages Decode(IValue input, out ItestCnstFieldDmnInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testCnstFieldDmnInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testRefCnstFieldDmnInpDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef? Field { get; set; }
 }
 
-internal class testDomCnstFieldDmnInpDecoder
+internal class testDomCnstFieldDmnInpDecoder : IDecoder<ItestDomCnstFieldDmnInp>
 {
+
+  public IMessages Decode(IValue input, out ItestDomCnstFieldDmnInp? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testDomCnstFieldDmnInpDecoder Factory(IDecoderRepository _) => new();
 }

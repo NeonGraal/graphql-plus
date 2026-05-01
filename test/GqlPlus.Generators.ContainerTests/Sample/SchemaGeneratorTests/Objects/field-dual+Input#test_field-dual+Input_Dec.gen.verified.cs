@@ -7,16 +7,28 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_dual_Input;
 
-internal class testFieldDualInpDecoder
+internal class testFieldDualInpDecoder : IDecoder<ItestFieldDualInpObject>
 {
-  public ItestFldFieldDualInp Field { get; set; }
+  public ItestFldFieldDualInp? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ItestFieldDualInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testFieldDualInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testFldFieldDualInpDecoder
+internal class testFldFieldDualInpDecoder : IDecoder<ItestFldFieldDualInpObject>
 {
-  public decimal Field { get; set; }
+  public decimal? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ItestFldFieldDualInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testFldFieldDualInpDecoder Factory(IDecoderRepository _) => new();
 }

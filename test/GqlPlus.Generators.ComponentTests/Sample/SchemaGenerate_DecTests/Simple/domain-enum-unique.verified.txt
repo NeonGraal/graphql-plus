@@ -12,24 +12,46 @@ enum DupDmnEnumUnq { dmnEnumUnq dup_dmnEnumUnq dmnEnumUnqDup }
 
 namespace Components.Gqlp_Schema_domain_enum_unique;
 
-internal class CmptDmnEnumUnqDecoder
+internal class CmptDmnEnumUnqDecoder : IDecoder<ICmptDmnEnumUnq>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnEnumUnq? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnEnumUnqDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumUnqDecoder : IDecoder<CmptEnumDmnEnumUnq?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumDmnEnumUnq? output)
-    => input.DecodeEnum("EnumDmnEnumUnq", out output);
+  public IMessages Decode(IValue input, out CmptEnumDmnEnumUnq? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumDmnEnumUnq value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumDmnEnumUnq".AnError();
+  }
 
   internal static CmptEnumDmnEnumUnqDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptDupDmnEnumUnqDecoder : IDecoder<CmptDupDmnEnumUnq?>
 {
-  public IMessages Decoder(IValue input, out CmptDupDmnEnumUnq? output)
-    => input.DecodeEnum("DupDmnEnumUnq", out output);
+  public IMessages Decode(IValue input, out CmptDupDmnEnumUnq? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptDupDmnEnumUnq value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptDupDmnEnumUnq".AnError();
+  }
 
   internal static CmptDupDmnEnumUnqDecoder Factory(IDecoderRepository _) => new();
 }

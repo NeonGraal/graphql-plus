@@ -11,9 +11,15 @@ input ObjFieldTypeAliasInp { field: String }
 
 namespace Components.Gqlp_Schema_object_field_type_alias_Input;
 
-internal class CmptObjFieldTypeAliasInpDecoder
+internal class CmptObjFieldTypeAliasInpDecoder : IDecoder<ICmptObjFieldTypeAliasInpObject>
 {
-  public string Field { get; set; }
+  public string? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptObjFieldTypeAliasInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptObjFieldTypeAliasInpDecoder Factory(IDecoderRepository _) => new();
 }

@@ -13,6 +13,6 @@ namespace Components.Gqlp_Schema_object_param_dup_Dual;
 
 internal class CmptObjParamDupDualDecoder<TTest>
 {
-  public TTest Test { get; set; }
-  public TTest Type { get; set; }
+  public TTest? Test { get; set; }
+  public TTest? Type { get; set; }
 }

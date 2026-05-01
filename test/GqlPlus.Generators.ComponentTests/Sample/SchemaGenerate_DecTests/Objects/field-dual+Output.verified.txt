@@ -11,9 +11,15 @@ dual FldFieldDualOutp { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_dual_Output;
 
-internal class CmptFldFieldDualOutpDecoder
+internal class CmptFldFieldDualOutpDecoder : IDecoder<ICmptFldFieldDualOutpObject>
 {
-  public decimal Field { get; set; }
+  public decimal? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptFldFieldDualOutpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptFldFieldDualOutpDecoder Factory(IDecoderRepository _) => new();
 }

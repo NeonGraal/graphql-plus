@@ -10,8 +10,14 @@ domain DmnBoolDescr { Boolean "DomBool" "Descr" true }
 
 namespace Components.Gqlp_Schema_domain_bool_descr;
 
-internal class CmptDmnBoolDescrDecoder
+internal class CmptDmnBoolDescrDecoder : IDecoder<ICmptDmnBoolDescr>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnBoolDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnBoolDescrDecoder Factory(IDecoderRepository _) => new();
 }

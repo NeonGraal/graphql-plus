@@ -14,8 +14,16 @@ namespace Components.Gqlp_Schema_generic_value_Output;
 
 internal class CmptEnumGnrcValueOutpDecoder : IDecoder<CmptEnumGnrcValueOutp?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumGnrcValueOutp? output)
-    => input.DecodeEnum("EnumGnrcValueOutp", out output);
+  public IMessages Decode(IValue input, out CmptEnumGnrcValueOutp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumGnrcValueOutp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumGnrcValueOutp".AnError();
+  }
 
   internal static CmptEnumGnrcValueOutpDecoder Factory(IDecoderRepository _) => new();
 }

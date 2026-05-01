@@ -7,28 +7,48 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_dom_enum_Input;
 
-internal class testCnstDomEnumInpDecoder
+internal class testCnstDomEnumInpDecoder : IDecoder<ItestCnstDomEnumInpObject>
 {
+
+  public IMessages Decode(IValue input, out ItestCnstDomEnumInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testCnstDomEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testRefCnstDomEnumInpDecoder<TType>
 {
-  public TType Field { get; set; }
+  public TType? Field { get; set; }
 }
 
 internal class testEnumCnstDomEnumInpDecoder : IDecoder<testEnumCnstDomEnumInp?>
 {
-  public IMessages Decoder(IValue input, out testEnumCnstDomEnumInp? output)
-    => input.DecodeEnum("EnumCnstDomEnumInp", out output);
+  public IMessages Decode(IValue input, out testEnumCnstDomEnumInp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testEnumCnstDomEnumInp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testEnumCnstDomEnumInp".AnError();
+  }
 
   internal static testEnumCnstDomEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testJustCnstDomEnumInpDecoder
+internal class testJustCnstDomEnumInpDecoder : IDecoder<ItestJustCnstDomEnumInp>
 {
-  public new testEnumCnstDomEnumInp? Value { get; set; }
+  public testEnumCnstDomEnumInp? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ItestJustCnstDomEnumInp? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testJustCnstDomEnumInpDecoder Factory(IDecoderRepository _) => new();
 }

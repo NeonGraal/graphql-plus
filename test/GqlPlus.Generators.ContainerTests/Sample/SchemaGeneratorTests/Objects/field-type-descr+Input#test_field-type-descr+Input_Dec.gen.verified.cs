@@ -7,9 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_type_descr_Input;
 
-internal class testFieldTypeDescrInpDecoder
+internal class testFieldTypeDescrInpDecoder : IDecoder<ItestFieldTypeDescrInpObject>
 {
-  public decimal Field { get; set; }
+  public decimal? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ItestFieldTypeDescrInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testFieldTypeDescrInpDecoder Factory(IDecoderRepository _) => new();
 }

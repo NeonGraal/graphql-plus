@@ -9,8 +9,16 @@ namespace GqlPlus.GeneratorTests.Gqlp_enum_same;
 
 internal class testEnumSameDecoder : IDecoder<testEnumSame?>
 {
-  public IMessages Decoder(IValue input, out testEnumSame? output)
-    => input.DecodeEnum("EnumSame", out output);
+  public IMessages Decode(IValue input, out testEnumSame? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testEnumSame value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testEnumSame".AnError();
+  }
 
   internal static testEnumSameDecoder Factory(IDecoderRepository _) => new();
 }

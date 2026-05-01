@@ -12,8 +12,14 @@ domain DomCnstAltDmnOutp { String /\w+/ }
 
 namespace Components.Gqlp_Schema_constraint_alt_domain_Output;
 
-internal class CmptDomCnstAltDmnOutpDecoder
+internal class CmptDomCnstAltDmnOutpDecoder : IDecoder<ICmptDomCnstAltDmnOutp>
 {
+
+  public IMessages Decode(IValue input, out ICmptDomCnstAltDmnOutp? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDomCnstAltDmnOutpDecoder Factory(IDecoderRepository _) => new();
 }

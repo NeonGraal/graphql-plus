@@ -11,8 +11,14 @@ domain DmnNmbr { number }
 
 namespace Components.Gqlp_Schema_domain_number;
 
-internal class CmptDmnNmbrDecoder
+internal class CmptDmnNmbrDecoder : IDecoder<ICmptDmnNmbr>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnNmbr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnNmbrDecoder Factory(IDecoderRepository _) => new();
 }

@@ -13,32 +13,62 @@ enum DupDmnEnumUnqPrnt { dmnEnumUnqPrnt dup_dmnEnumUnqPrnt dmnEnumUnqPrntDup }
 
 namespace Components.Gqlp_Schema_domain_enum_unique_parent;
 
-internal class CmptDmnEnumUnqPrntDecoder
+internal class CmptDmnEnumUnqPrntDecoder : IDecoder<ICmptDmnEnumUnqPrnt>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnEnumUnqPrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumUnqPrntDecoder : IDecoder<CmptEnumDmnEnumUnqPrnt?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumDmnEnumUnqPrnt? output)
-    => input.DecodeEnum("EnumDmnEnumUnqPrnt", out output);
+  public IMessages Decode(IValue input, out CmptEnumDmnEnumUnqPrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumDmnEnumUnqPrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumDmnEnumUnqPrnt".AnError();
+  }
 
   internal static CmptEnumDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntDmnEnumUnqPrntDecoder : IDecoder<CmptPrntDmnEnumUnqPrnt?>
 {
-  public IMessages Decoder(IValue input, out CmptPrntDmnEnumUnqPrnt? output)
-    => input.DecodeEnum("PrntDmnEnumUnqPrnt", out output);
+  public IMessages Decode(IValue input, out CmptPrntDmnEnumUnqPrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptPrntDmnEnumUnqPrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptPrntDmnEnumUnqPrnt".AnError();
+  }
 
   internal static CmptPrntDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptDupDmnEnumUnqPrntDecoder : IDecoder<CmptDupDmnEnumUnqPrnt?>
 {
-  public IMessages Decoder(IValue input, out CmptDupDmnEnumUnqPrnt? output)
-    => input.DecodeEnum("DupDmnEnumUnqPrnt", out output);
+  public IMessages Decode(IValue input, out CmptDupDmnEnumUnqPrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptDupDmnEnumUnqPrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptDupDmnEnumUnqPrnt".AnError();
+  }
 
   internal static CmptDupDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }

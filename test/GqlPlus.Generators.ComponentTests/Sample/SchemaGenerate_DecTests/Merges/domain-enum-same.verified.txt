@@ -11,9 +11,15 @@ domain DmnEnumSame { enum true }
 
 namespace Components.Gqlp_Schema_domain_enum_same;
 
-internal class CmptDmnEnumSameDecoder
+internal class CmptDmnEnumSameDecoder : IDecoder<ICmptDmnEnumSame>
 {
-  public new bool? Value { get; set; }
+  public bool? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptDmnEnumSame? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnEnumSameDecoder Factory(IDecoderRepository _) => new();
 }

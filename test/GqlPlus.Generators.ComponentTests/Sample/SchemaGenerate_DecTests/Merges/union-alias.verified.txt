@@ -11,10 +11,16 @@ union UnionAlias [UnA2] { Number }
 
 namespace Components.Gqlp_Schema_union_alias;
 
-internal class CmptUnionAliasDecoder
+internal class CmptUnionAliasDecoder : IDecoder<ICmptUnionAlias>
 {
-  public Boolean AsBoolean { get; set; }
-  public Number AsNumber { get; set; }
+  public Boolean? AsBoolean { get; set; }
+  public Number? AsNumber { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptUnionAlias? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptUnionAliasDecoder Factory(IDecoderRepository _) => new();
 }

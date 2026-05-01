@@ -15,16 +15,32 @@ namespace Components.Gqlp_Schema_output_parent_generic;
 
 internal class CmptEnumOutpPrntGnrcDecoder : IDecoder<CmptEnumOutpPrntGnrc?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumOutpPrntGnrc? output)
-    => input.DecodeEnum("EnumOutpPrntGnrc", out output);
+  public IMessages Decode(IValue input, out CmptEnumOutpPrntGnrc? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumOutpPrntGnrc value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumOutpPrntGnrc".AnError();
+  }
 
   internal static CmptEnumOutpPrntGnrcDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntOutpPrntGnrcDecoder : IDecoder<CmptPrntOutpPrntGnrc?>
 {
-  public IMessages Decoder(IValue input, out CmptPrntOutpPrntGnrc? output)
-    => input.DecodeEnum("PrntOutpPrntGnrc", out output);
+  public IMessages Decode(IValue input, out CmptPrntOutpPrntGnrc? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptPrntOutpPrntGnrc value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptPrntOutpPrntGnrc".AnError();
+  }
 
   internal static CmptPrntOutpPrntGnrcDecoder Factory(IDecoderRepository _) => new();
 }

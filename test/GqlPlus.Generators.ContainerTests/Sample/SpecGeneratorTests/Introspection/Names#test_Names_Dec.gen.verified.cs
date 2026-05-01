@@ -7,23 +7,41 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Names;
 
-internal class test_AliasedDecoder
+internal class test_AliasedDecoder : IDecoder<Itest_AliasedObject>
 {
-  public ICollection<Itest_Name> Aliases { get; set; }
+  public ICollection<Itest_Name>? Aliases { get; set; }
+
+  public IMessages Decode(IValue input, out Itest_AliasedObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static test_AliasedDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_NamedDecoder
+internal class test_NamedDecoder : IDecoder<Itest_NamedObject>
 {
-  public Itest_Name Name { get; set; }
+  public Itest_Name? Name { get; set; }
+
+  public IMessages Decode(IValue input, out Itest_NamedObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static test_NamedDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_DescribedDecoder
+internal class test_DescribedDecoder : IDecoder<Itest_DescribedObject>
 {
-  public ICollection<string> Description { get; set; }
+  public ICollection<string>? Description { get; set; }
+
+  public IMessages Decode(IValue input, out Itest_DescribedObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static test_DescribedDecoder Factory(IDecoderRepository _) => new();
 }

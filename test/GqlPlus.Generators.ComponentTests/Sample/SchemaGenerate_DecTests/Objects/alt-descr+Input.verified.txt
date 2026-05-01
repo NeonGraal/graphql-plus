@@ -10,8 +10,14 @@ input AltDescrInp { | "Test" "Descr" String }
 
 namespace Components.Gqlp_Schema_alt_descr_Input;
 
-internal class CmptAltDescrInpDecoder
+internal class CmptAltDescrInpDecoder : IDecoder<ICmptAltDescrInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptAltDescrInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptAltDescrInpDecoder Factory(IDecoderRepository _) => new();
 }

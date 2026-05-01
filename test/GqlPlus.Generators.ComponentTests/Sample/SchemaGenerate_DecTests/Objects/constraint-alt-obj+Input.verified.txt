@@ -13,8 +13,14 @@ input AltCnstAltObjInp { :PrntCnstAltObjInp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_alt_obj_Input;
 
-internal class CmptCnstAltObjInpDecoder
+internal class CmptCnstAltObjInpDecoder : IDecoder<ICmptCnstAltObjInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptCnstAltObjInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptCnstAltObjInpDecoder Factory(IDecoderRepository _) => new();
 }
@@ -23,15 +29,27 @@ internal class CmptRefCnstAltObjInpDecoder<TRef>
 {
 }
 
-internal class CmptPrntCnstAltObjInpDecoder
+internal class CmptPrntCnstAltObjInpDecoder : IDecoder<ICmptPrntCnstAltObjInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptPrntCnstAltObjInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntCnstAltObjInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptAltCnstAltObjInpDecoder
+internal class CmptAltCnstAltObjInpDecoder : IDecoder<ICmptAltCnstAltObjInpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal? Alt { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptAltCnstAltObjInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptAltCnstAltObjInpDecoder Factory(IDecoderRepository _) => new();
 }

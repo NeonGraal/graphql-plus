@@ -12,14 +12,26 @@ dual RefObjPrntDual { }
 
 namespace Components.Gqlp_Schema_object_parent_Dual;
 
-internal class CmptObjPrntDualDecoder
+internal class CmptObjPrntDualDecoder : IDecoder<ICmptObjPrntDualObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptObjPrntDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptObjPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptRefObjPrntDualDecoder
+internal class CmptRefObjPrntDualDecoder : IDecoder<ICmptRefObjPrntDualObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptRefObjPrntDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptRefObjPrntDualDecoder Factory(IDecoderRepository _) => new();
 }

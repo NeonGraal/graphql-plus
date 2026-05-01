@@ -6,485 +6,949 @@
 
 namespace Components.Gqlp_Schema_Simple;
 
-internal class CmptDmnBoolDescrDecoder
+internal class CmptDmnBoolDescrDecoder : IDecoder<ICmptDmnBoolDescr>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnBoolDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnBoolDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnBoolPrntDecoder
+internal class CmptDmnBoolPrntDecoder : IDecoder<ICmptDmnBoolPrnt>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnBoolPrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnBoolPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntDmnBoolPrntDecoder
+internal class CmptPrntDmnBoolPrntDecoder : IDecoder<ICmptPrntDmnBoolPrnt>
 {
+
+  public IMessages Decode(IValue input, out ICmptPrntDmnBoolPrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntDmnBoolPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnBoolPrntDescrDecoder
+internal class CmptDmnBoolPrntDescrDecoder : IDecoder<ICmptDmnBoolPrntDescr>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnBoolPrntDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnBoolPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntDmnBoolPrntDescrDecoder
+internal class CmptPrntDmnBoolPrntDescrDecoder : IDecoder<ICmptPrntDmnBoolPrntDescr>
 {
+
+  public IMessages Decode(IValue input, out ICmptPrntDmnBoolPrntDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntDmnBoolPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnEnumAllDecoder
+internal class CmptDmnEnumAllDecoder : IDecoder<ICmptDmnEnumAll>
 {
-  public new CmptEnumDmnEnumAll? Value { get; set; }
+  public CmptEnumDmnEnumAll? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptDmnEnumAll? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnEnumAllDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumAllDecoder : IDecoder<CmptEnumDmnEnumAll?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumDmnEnumAll? output)
-    => input.DecodeEnum("EnumDmnEnumAll", out output);
+  public IMessages Decode(IValue input, out CmptEnumDmnEnumAll? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumDmnEnumAll value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumDmnEnumAll".AnError();
+  }
 
   internal static CmptEnumDmnEnumAllDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnEnumAllDescrDecoder
+internal class CmptDmnEnumAllDescrDecoder : IDecoder<ICmptDmnEnumAllDescr>
 {
-  public new CmptEnumDmnEnumAllDescr? Value { get; set; }
+  public CmptEnumDmnEnumAllDescr? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptDmnEnumAllDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnEnumAllDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumAllDescrDecoder : IDecoder<CmptEnumDmnEnumAllDescr?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumDmnEnumAllDescr? output)
-    => input.DecodeEnum("EnumDmnEnumAllDescr", out output);
+  public IMessages Decode(IValue input, out CmptEnumDmnEnumAllDescr? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumDmnEnumAllDescr value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumDmnEnumAllDescr".AnError();
+  }
 
   internal static CmptEnumDmnEnumAllDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnEnumAllPrntDecoder
+internal class CmptDmnEnumAllPrntDecoder : IDecoder<ICmptDmnEnumAllPrnt>
 {
-  public new CmptEnumDmnEnumAllPrnt? Value { get; set; }
+  public CmptEnumDmnEnumAllPrnt? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptDmnEnumAllPrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnEnumAllPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumAllPrntDecoder : IDecoder<CmptEnumDmnEnumAllPrnt?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumDmnEnumAllPrnt? output)
-    => input.DecodeEnum("EnumDmnEnumAllPrnt", out output);
+  public IMessages Decode(IValue input, out CmptEnumDmnEnumAllPrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumDmnEnumAllPrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumDmnEnumAllPrnt".AnError();
+  }
 
   internal static CmptEnumDmnEnumAllPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntDmnEnumAllPrntDecoder : IDecoder<CmptPrntDmnEnumAllPrnt?>
 {
-  public IMessages Decoder(IValue input, out CmptPrntDmnEnumAllPrnt? output)
-    => input.DecodeEnum("PrntDmnEnumAllPrnt", out output);
+  public IMessages Decode(IValue input, out CmptPrntDmnEnumAllPrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptPrntDmnEnumAllPrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptPrntDmnEnumAllPrnt".AnError();
+  }
 
   internal static CmptPrntDmnEnumAllPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnEnumDescrDecoder
+internal class CmptDmnEnumDescrDecoder : IDecoder<ICmptDmnEnumDescr>
 {
-  public new CmptEnumDmnEnumDescr? Value { get; set; }
+  public CmptEnumDmnEnumDescr? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptDmnEnumDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnEnumDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumDescrDecoder : IDecoder<CmptEnumDmnEnumDescr?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumDmnEnumDescr? output)
-    => input.DecodeEnum("EnumDmnEnumDescr", out output);
+  public IMessages Decode(IValue input, out CmptEnumDmnEnumDescr? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumDmnEnumDescr value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumDmnEnumDescr".AnError();
+  }
 
   internal static CmptEnumDmnEnumDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnEnumExclDecoder
+internal class CmptDmnEnumExclDecoder : IDecoder<ICmptDmnEnumExcl>
 {
-  public new CmptEnumDmnEnumExcl? Value { get; set; }
+  public CmptEnumDmnEnumExcl? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptDmnEnumExcl? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnEnumExclDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumExclDecoder : IDecoder<CmptEnumDmnEnumExcl?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumDmnEnumExcl? output)
-    => input.DecodeEnum("EnumDmnEnumExcl", out output);
+  public IMessages Decode(IValue input, out CmptEnumDmnEnumExcl? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumDmnEnumExcl value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumDmnEnumExcl".AnError();
+  }
 
   internal static CmptEnumDmnEnumExclDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnEnumExclPrntDecoder
+internal class CmptDmnEnumExclPrntDecoder : IDecoder<ICmptDmnEnumExclPrnt>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnEnumExclPrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnEnumExclPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumExclPrntDecoder : IDecoder<CmptEnumDmnEnumExclPrnt?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumDmnEnumExclPrnt? output)
-    => input.DecodeEnum("EnumDmnEnumExclPrnt", out output);
+  public IMessages Decode(IValue input, out CmptEnumDmnEnumExclPrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumDmnEnumExclPrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumDmnEnumExclPrnt".AnError();
+  }
 
   internal static CmptEnumDmnEnumExclPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntDmnEnumExclPrntDecoder : IDecoder<CmptPrntDmnEnumExclPrnt?>
 {
-  public IMessages Decoder(IValue input, out CmptPrntDmnEnumExclPrnt? output)
-    => input.DecodeEnum("PrntDmnEnumExclPrnt", out output);
+  public IMessages Decode(IValue input, out CmptPrntDmnEnumExclPrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptPrntDmnEnumExclPrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptPrntDmnEnumExclPrnt".AnError();
+  }
 
   internal static CmptPrntDmnEnumExclPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnEnumLabelDecoder
+internal class CmptDmnEnumLabelDecoder : IDecoder<ICmptDmnEnumLabel>
 {
-  public new CmptEnumDmnEnumLabel? Value { get; set; }
+  public CmptEnumDmnEnumLabel? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptDmnEnumLabel? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnEnumLabelDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumLabelDecoder : IDecoder<CmptEnumDmnEnumLabel?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumDmnEnumLabel? output)
-    => input.DecodeEnum("EnumDmnEnumLabel", out output);
+  public IMessages Decode(IValue input, out CmptEnumDmnEnumLabel? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumDmnEnumLabel value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumDmnEnumLabel".AnError();
+  }
 
   internal static CmptEnumDmnEnumLabelDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnEnumPrntDecoder
+internal class CmptDmnEnumPrntDecoder : IDecoder<ICmptDmnEnumPrnt>
 {
-  public new CmptEnumDmnEnumPrnt? Value { get; set; }
+  public CmptEnumDmnEnumPrnt? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptDmnEnumPrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnEnumPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntDmnEnumPrntDecoder
+internal class CmptPrntDmnEnumPrntDecoder : IDecoder<ICmptPrntDmnEnumPrnt>
 {
-  public new CmptEnumDmnEnumPrnt? Value { get; set; }
+  public CmptEnumDmnEnumPrnt? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptPrntDmnEnumPrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntDmnEnumPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumPrntDecoder : IDecoder<CmptEnumDmnEnumPrnt?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumDmnEnumPrnt? output)
-    => input.DecodeEnum("EnumDmnEnumPrnt", out output);
+  public IMessages Decode(IValue input, out CmptEnumDmnEnumPrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumDmnEnumPrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumDmnEnumPrnt".AnError();
+  }
 
   internal static CmptEnumDmnEnumPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnEnumPrntDescrDecoder
+internal class CmptDmnEnumPrntDescrDecoder : IDecoder<ICmptDmnEnumPrntDescr>
 {
-  public new CmptEnumDmnEnumPrntDescr? Value { get; set; }
+  public CmptEnumDmnEnumPrntDescr? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptDmnEnumPrntDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnEnumPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntDmnEnumPrntDescrDecoder
+internal class CmptPrntDmnEnumPrntDescrDecoder : IDecoder<ICmptPrntDmnEnumPrntDescr>
 {
-  public new CmptEnumDmnEnumPrntDescr? Value { get; set; }
+  public CmptEnumDmnEnumPrntDescr? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptPrntDmnEnumPrntDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntDmnEnumPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumPrntDescrDecoder : IDecoder<CmptEnumDmnEnumPrntDescr?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumDmnEnumPrntDescr? output)
-    => input.DecodeEnum("EnumDmnEnumPrntDescr", out output);
+  public IMessages Decode(IValue input, out CmptEnumDmnEnumPrntDescr? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumDmnEnumPrntDescr value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumDmnEnumPrntDescr".AnError();
+  }
 
   internal static CmptEnumDmnEnumPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnEnumUnqDecoder
+internal class CmptDmnEnumUnqDecoder : IDecoder<ICmptDmnEnumUnq>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnEnumUnq? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnEnumUnqDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumUnqDecoder : IDecoder<CmptEnumDmnEnumUnq?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumDmnEnumUnq? output)
-    => input.DecodeEnum("EnumDmnEnumUnq", out output);
+  public IMessages Decode(IValue input, out CmptEnumDmnEnumUnq? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumDmnEnumUnq value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumDmnEnumUnq".AnError();
+  }
 
   internal static CmptEnumDmnEnumUnqDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptDupDmnEnumUnqDecoder : IDecoder<CmptDupDmnEnumUnq?>
 {
-  public IMessages Decoder(IValue input, out CmptDupDmnEnumUnq? output)
-    => input.DecodeEnum("DupDmnEnumUnq", out output);
+  public IMessages Decode(IValue input, out CmptDupDmnEnumUnq? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptDupDmnEnumUnq value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptDupDmnEnumUnq".AnError();
+  }
 
   internal static CmptDupDmnEnumUnqDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnEnumUnqPrntDecoder
+internal class CmptDmnEnumUnqPrntDecoder : IDecoder<ICmptDmnEnumUnqPrnt>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnEnumUnqPrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumUnqPrntDecoder : IDecoder<CmptEnumDmnEnumUnqPrnt?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumDmnEnumUnqPrnt? output)
-    => input.DecodeEnum("EnumDmnEnumUnqPrnt", out output);
+  public IMessages Decode(IValue input, out CmptEnumDmnEnumUnqPrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumDmnEnumUnqPrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumDmnEnumUnqPrnt".AnError();
+  }
 
   internal static CmptEnumDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntDmnEnumUnqPrntDecoder : IDecoder<CmptPrntDmnEnumUnqPrnt?>
 {
-  public IMessages Decoder(IValue input, out CmptPrntDmnEnumUnqPrnt? output)
-    => input.DecodeEnum("PrntDmnEnumUnqPrnt", out output);
+  public IMessages Decode(IValue input, out CmptPrntDmnEnumUnqPrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptPrntDmnEnumUnqPrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptPrntDmnEnumUnqPrnt".AnError();
+  }
 
   internal static CmptPrntDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptDupDmnEnumUnqPrntDecoder : IDecoder<CmptDupDmnEnumUnqPrnt?>
 {
-  public IMessages Decoder(IValue input, out CmptDupDmnEnumUnqPrnt? output)
-    => input.DecodeEnum("DupDmnEnumUnqPrnt", out output);
+  public IMessages Decode(IValue input, out CmptDupDmnEnumUnqPrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptDupDmnEnumUnqPrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptDupDmnEnumUnqPrnt".AnError();
+  }
 
   internal static CmptDupDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnEnumValueDecoder
+internal class CmptDmnEnumValueDecoder : IDecoder<ICmptDmnEnumValue>
 {
-  public new CmptEnumDmnEnumValue? Value { get; set; }
+  public CmptEnumDmnEnumValue? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptDmnEnumValue? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnEnumValueDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumValueDecoder : IDecoder<CmptEnumDmnEnumValue?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumDmnEnumValue? output)
-    => input.DecodeEnum("EnumDmnEnumValue", out output);
+  public IMessages Decode(IValue input, out CmptEnumDmnEnumValue? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumDmnEnumValue value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumDmnEnumValue".AnError();
+  }
 
   internal static CmptEnumDmnEnumValueDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnEnumValuePrntDecoder
+internal class CmptDmnEnumValuePrntDecoder : IDecoder<ICmptDmnEnumValuePrnt>
 {
-  public new CmptEnumDmnEnumValuePrnt? Value { get; set; }
+  public CmptEnumDmnEnumValuePrnt? Value { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptDmnEnumValuePrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnEnumValuePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDmnEnumValuePrntDecoder : IDecoder<CmptEnumDmnEnumValuePrnt?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumDmnEnumValuePrnt? output)
-    => input.DecodeEnum("EnumDmnEnumValuePrnt", out output);
+  public IMessages Decode(IValue input, out CmptEnumDmnEnumValuePrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumDmnEnumValuePrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumDmnEnumValuePrnt".AnError();
+  }
 
   internal static CmptEnumDmnEnumValuePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntDmnEnumValuePrntDecoder : IDecoder<CmptPrntDmnEnumValuePrnt?>
 {
-  public IMessages Decoder(IValue input, out CmptPrntDmnEnumValuePrnt? output)
-    => input.DecodeEnum("PrntDmnEnumValuePrnt", out output);
+  public IMessages Decode(IValue input, out CmptPrntDmnEnumValuePrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptPrntDmnEnumValuePrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptPrntDmnEnumValuePrnt".AnError();
+  }
 
   internal static CmptPrntDmnEnumValuePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnNmbrDescrDecoder
+internal class CmptDmnNmbrDescrDecoder : IDecoder<ICmptDmnNmbrDescr>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnNmbrDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnNmbrDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnNmbrPrntDecoder
+internal class CmptDmnNmbrPrntDecoder : IDecoder<ICmptDmnNmbrPrnt>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnNmbrPrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnNmbrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntDmnNmbrPrntDecoder
+internal class CmptPrntDmnNmbrPrntDecoder : IDecoder<ICmptPrntDmnNmbrPrnt>
 {
+
+  public IMessages Decode(IValue input, out ICmptPrntDmnNmbrPrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntDmnNmbrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnNmbrPrntDescrDecoder
+internal class CmptDmnNmbrPrntDescrDecoder : IDecoder<ICmptDmnNmbrPrntDescr>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnNmbrPrntDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnNmbrPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntDmnNmbrPrntDescrDecoder
+internal class CmptPrntDmnNmbrPrntDescrDecoder : IDecoder<ICmptPrntDmnNmbrPrntDescr>
 {
+
+  public IMessages Decode(IValue input, out ICmptPrntDmnNmbrPrntDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntDmnNmbrPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnNmbrPstvDecoder
+internal class CmptDmnNmbrPstvDecoder : IDecoder<ICmptDmnNmbrPstv>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnNmbrPstv? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnNmbrPstvDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnNmbrRangeDecoder
+internal class CmptDmnNmbrRangeDecoder : IDecoder<ICmptDmnNmbrRange>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnNmbrRange? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnNmbrRangeDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnStrDescrDecoder
+internal class CmptDmnStrDescrDecoder : IDecoder<ICmptDmnStrDescr>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnStrDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnStrDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnStrNonEmptyDecoder
+internal class CmptDmnStrNonEmptyDecoder : IDecoder<ICmptDmnStrNonEmpty>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnStrNonEmpty? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnStrNonEmptyDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnStrPrntDecoder
+internal class CmptDmnStrPrntDecoder : IDecoder<ICmptDmnStrPrnt>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnStrPrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnStrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntDmnStrPrntDecoder
+internal class CmptPrntDmnStrPrntDecoder : IDecoder<ICmptPrntDmnStrPrnt>
 {
+
+  public IMessages Decode(IValue input, out ICmptPrntDmnStrPrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntDmnStrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDmnStrPrntDescrDecoder
+internal class CmptDmnStrPrntDescrDecoder : IDecoder<ICmptDmnStrPrntDescr>
 {
+
+  public IMessages Decode(IValue input, out ICmptDmnStrPrntDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptDmnStrPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntDmnStrPrntDescrDecoder
+internal class CmptPrntDmnStrPrntDescrDecoder : IDecoder<ICmptPrntDmnStrPrntDescr>
 {
+
+  public IMessages Decode(IValue input, out ICmptPrntDmnStrPrntDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntDmnStrPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumDescrDecoder : IDecoder<CmptEnumDescr?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumDescr? output)
-    => input.DecodeEnum("EnumDescr", out output);
+  public IMessages Decode(IValue input, out CmptEnumDescr? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumDescr value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumDescr".AnError();
+  }
 
   internal static CmptEnumDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumPrntDecoder : IDecoder<CmptEnumPrnt?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumPrnt? output)
-    => input.DecodeEnum("EnumPrnt", out output);
+  public IMessages Decode(IValue input, out CmptEnumPrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumPrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumPrnt".AnError();
+  }
 
   internal static CmptEnumPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntEnumPrntDecoder : IDecoder<CmptPrntEnumPrnt?>
 {
-  public IMessages Decoder(IValue input, out CmptPrntEnumPrnt? output)
-    => input.DecodeEnum("PrntEnumPrnt", out output);
+  public IMessages Decode(IValue input, out CmptPrntEnumPrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptPrntEnumPrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptPrntEnumPrnt".AnError();
+  }
 
   internal static CmptPrntEnumPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumPrntAliasDecoder : IDecoder<CmptEnumPrntAlias?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumPrntAlias? output)
-    => input.DecodeEnum("EnumPrntAlias", out output);
+  public IMessages Decode(IValue input, out CmptEnumPrntAlias? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumPrntAlias value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumPrntAlias".AnError();
+  }
 
   internal static CmptEnumPrntAliasDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntEnumPrntAliasDecoder : IDecoder<CmptPrntEnumPrntAlias?>
 {
-  public IMessages Decoder(IValue input, out CmptPrntEnumPrntAlias? output)
-    => input.DecodeEnum("PrntEnumPrntAlias", out output);
+  public IMessages Decode(IValue input, out CmptPrntEnumPrntAlias? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptPrntEnumPrntAlias value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptPrntEnumPrntAlias".AnError();
+  }
 
   internal static CmptPrntEnumPrntAliasDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumPrntDescrDecoder : IDecoder<CmptEnumPrntDescr?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumPrntDescr? output)
-    => input.DecodeEnum("EnumPrntDescr", out output);
+  public IMessages Decode(IValue input, out CmptEnumPrntDescr? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumPrntDescr value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumPrntDescr".AnError();
+  }
 
   internal static CmptEnumPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntEnumPrntDescrDecoder : IDecoder<CmptPrntEnumPrntDescr?>
 {
-  public IMessages Decoder(IValue input, out CmptPrntEnumPrntDescr? output)
-    => input.DecodeEnum("PrntEnumPrntDescr", out output);
+  public IMessages Decode(IValue input, out CmptPrntEnumPrntDescr? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptPrntEnumPrntDescr value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptPrntEnumPrntDescr".AnError();
+  }
 
   internal static CmptPrntEnumPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptEnumPrntDupDecoder : IDecoder<CmptEnumPrntDup?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumPrntDup? output)
-    => input.DecodeEnum("EnumPrntDup", out output);
+  public IMessages Decode(IValue input, out CmptEnumPrntDup? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumPrntDup value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumPrntDup".AnError();
+  }
 
   internal static CmptEnumPrntDupDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntEnumPrntDupDecoder : IDecoder<CmptPrntEnumPrntDup?>
 {
-  public IMessages Decoder(IValue input, out CmptPrntEnumPrntDup? output)
-    => input.DecodeEnum("PrntEnumPrntDup", out output);
+  public IMessages Decode(IValue input, out CmptPrntEnumPrntDup? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptPrntEnumPrntDup value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptPrntEnumPrntDup".AnError();
+  }
 
   internal static CmptPrntEnumPrntDupDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptUnionDescrDecoder
+internal class CmptUnionDescrDecoder : IDecoder<ICmptUnionDescr>
 {
-  public Number AsNumber { get; set; }
+  public Number? AsNumber { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptUnionDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptUnionDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptUnionPrntDecoder
+internal class CmptUnionPrntDecoder : IDecoder<ICmptUnionPrnt>
 {
-  public String AsString { get; set; }
+  public String? AsString { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptUnionPrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptUnionPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntUnionPrntDecoder
+internal class CmptPrntUnionPrntDecoder : IDecoder<ICmptPrntUnionPrnt>
 {
-  public Number AsNumber { get; set; }
+  public Number? AsNumber { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptPrntUnionPrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntUnionPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptUnionPrntDescrDecoder
+internal class CmptUnionPrntDescrDecoder : IDecoder<ICmptUnionPrntDescr>
 {
-  public Number AsNumber { get; set; }
+  public Number? AsNumber { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptUnionPrntDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptUnionPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntUnionPrntDescrDecoder
+internal class CmptPrntUnionPrntDescrDecoder : IDecoder<ICmptPrntUnionPrntDescr>
 {
-  public Number AsNumber { get; set; }
+  public Number? AsNumber { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptPrntUnionPrntDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntUnionPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptUnionPrntDupDecoder
+internal class CmptUnionPrntDupDecoder : IDecoder<ICmptUnionPrntDup>
 {
-  public Number AsNumber { get; set; }
+  public Number? AsNumber { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptUnionPrntDup? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptUnionPrntDupDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntUnionPrntDupDecoder
+internal class CmptPrntUnionPrntDupDecoder : IDecoder<ICmptPrntUnionPrntDup>
 {
-  public Number AsNumber { get; set; }
+  public Number? AsNumber { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptPrntUnionPrntDup? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntUnionPrntDupDecoder Factory(IDecoderRepository _) => new();
 }

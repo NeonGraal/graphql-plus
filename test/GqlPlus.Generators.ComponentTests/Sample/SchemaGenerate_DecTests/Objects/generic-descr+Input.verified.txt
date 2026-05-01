@@ -12,5 +12,5 @@ namespace Components.Gqlp_Schema_generic_descr_Input;
 
 internal class CmptGnrcDescrInpDecoder<TType>
 {
-  public TType Field { get; set; }
+  public TType? Field { get; set; }
 }

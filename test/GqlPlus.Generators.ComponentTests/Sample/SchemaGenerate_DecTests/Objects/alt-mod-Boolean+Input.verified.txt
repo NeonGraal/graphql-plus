@@ -11,15 +11,27 @@ input AltAltModBoolInp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_mod_Boolean_Input;
 
-internal class CmptAltModBoolInpDecoder
+internal class CmptAltModBoolInpDecoder : IDecoder<ICmptAltModBoolInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptAltModBoolInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptAltModBoolInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptAltAltModBoolInpDecoder
+internal class CmptAltAltModBoolInpDecoder : IDecoder<ICmptAltAltModBoolInpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal? Alt { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptAltAltModBoolInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptAltAltModBoolInpDecoder Factory(IDecoderRepository _) => new();
 }

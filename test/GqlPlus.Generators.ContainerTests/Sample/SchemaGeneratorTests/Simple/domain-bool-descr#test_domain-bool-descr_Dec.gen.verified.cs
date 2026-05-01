@@ -7,8 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_bool_descr;
 
-internal class testDmnBoolDescrDecoder
+internal class testDmnBoolDescrDecoder : IDecoder<ItestDmnBoolDescr>
 {
+
+  public IMessages Decode(IValue input, out ItestDmnBoolDescr? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testDmnBoolDescrDecoder Factory(IDecoderRepository _) => new();
 }

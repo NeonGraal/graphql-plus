@@ -13,8 +13,16 @@ namespace Components.Gqlp_Schema_field_enum_Output;
 
 internal class CmptEnumFieldEnumOutpDecoder : IDecoder<CmptEnumFieldEnumOutp?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumFieldEnumOutp? output)
-    => input.DecodeEnum("EnumFieldEnumOutp", out output);
+  public IMessages Decode(IValue input, out CmptEnumFieldEnumOutp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumFieldEnumOutp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumFieldEnumOutp".AnError();
+  }
 
   internal static CmptEnumFieldEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }

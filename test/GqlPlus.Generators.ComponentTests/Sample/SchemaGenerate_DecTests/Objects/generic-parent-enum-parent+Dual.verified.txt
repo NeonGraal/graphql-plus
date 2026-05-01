@@ -13,29 +13,51 @@ enum ParentGnrcPrntEnumPrntDual { gnrcPrntEnumPrntDualParent }
 
 namespace Components.Gqlp_Schema_generic_parent_enum_parent_Dual;
 
-internal class CmptGnrcPrntEnumPrntDualDecoder
+internal class CmptGnrcPrntEnumPrntDualDecoder : IDecoder<ICmptGnrcPrntEnumPrntDualObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptGnrcPrntEnumPrntDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptGnrcPrntEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptFieldGnrcPrntEnumPrntDualDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef? Field { get; set; }
 }
 
 internal class CmptEnumGnrcPrntEnumPrntDualDecoder : IDecoder<CmptEnumGnrcPrntEnumPrntDual?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumGnrcPrntEnumPrntDual? output)
-    => input.DecodeEnum("EnumGnrcPrntEnumPrntDual", out output);
+  public IMessages Decode(IValue input, out CmptEnumGnrcPrntEnumPrntDual? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumGnrcPrntEnumPrntDual value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumGnrcPrntEnumPrntDual".AnError();
+  }
 
   internal static CmptEnumGnrcPrntEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptParentGnrcPrntEnumPrntDualDecoder : IDecoder<CmptParentGnrcPrntEnumPrntDual?>
 {
-  public IMessages Decoder(IValue input, out CmptParentGnrcPrntEnumPrntDual? output)
-    => input.DecodeEnum("ParentGnrcPrntEnumPrntDual", out output);
+  public IMessages Decode(IValue input, out CmptParentGnrcPrntEnumPrntDual? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptParentGnrcPrntEnumPrntDual value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptParentGnrcPrntEnumPrntDual".AnError();
+  }
 
   internal static CmptParentGnrcPrntEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }

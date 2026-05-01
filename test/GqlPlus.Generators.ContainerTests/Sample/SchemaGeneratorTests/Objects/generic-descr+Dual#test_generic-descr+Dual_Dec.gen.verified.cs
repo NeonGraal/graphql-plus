@@ -9,5 +9,5 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_descr_Dual;
 
 internal class testGnrcDescrDualDecoder<TType>
 {
-  public TType Field { get; set; }
+  public TType? Field { get; set; }
 }

@@ -7,8 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_Dual;
 
-internal class testObjDualDecoder
+internal class testObjDualDecoder : IDecoder<ItestObjDualObject>
 {
+
+  public IMessages Decode(IValue input, out ItestObjDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testObjDualDecoder Factory(IDecoderRepository _) => new();
 }

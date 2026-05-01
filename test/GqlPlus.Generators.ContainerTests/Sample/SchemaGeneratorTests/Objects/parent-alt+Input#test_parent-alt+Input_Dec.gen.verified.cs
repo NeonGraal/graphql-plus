@@ -7,15 +7,27 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_parent_alt_Input;
 
-internal class testPrntAltInpDecoder
+internal class testPrntAltInpDecoder : IDecoder<ItestPrntAltInpObject>
 {
+
+  public IMessages Decode(IValue input, out ItestPrntAltInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testPrntAltInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testRefPrntAltInpDecoder
+internal class testRefPrntAltInpDecoder : IDecoder<ItestRefPrntAltInpObject>
 {
-  public decimal Parent { get; set; }
+  public decimal? Parent { get; set; }
+
+  public IMessages Decode(IValue input, out ItestRefPrntAltInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testRefPrntAltInpDecoder Factory(IDecoderRepository _) => new();
 }

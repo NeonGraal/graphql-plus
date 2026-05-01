@@ -22,7 +22,7 @@ public class InputDecoderGeneratorTests
   }
 
   internal override ForType ForGeneratedBoth(string contains)
-    => ForGeneratedDecoder(contains);
+    => ForGeneratedDecoder(GeneratorClassTestHelpers.MakeNullable(contains));
 
   protected override ObjFieldBuilder<IAstInputField> MakeField(string name, string type)
     => new InputFieldBuilder(name, type);

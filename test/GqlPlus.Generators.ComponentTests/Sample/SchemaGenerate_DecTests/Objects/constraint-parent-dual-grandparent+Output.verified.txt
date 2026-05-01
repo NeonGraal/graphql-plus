@@ -14,14 +14,26 @@ output AltCnstPrntDualGrndOutp { :PrntCnstPrntDualGrndOutp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Output;
 
-internal class CmptGrndCnstPrntDualGrndOutpDecoder
+internal class CmptGrndCnstPrntDualGrndOutpDecoder : IDecoder<ICmptGrndCnstPrntDualGrndOutpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptGrndCnstPrntDualGrndOutpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptGrndCnstPrntDualGrndOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntCnstPrntDualGrndOutpDecoder
+internal class CmptPrntCnstPrntDualGrndOutpDecoder : IDecoder<ICmptPrntCnstPrntDualGrndOutpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptPrntCnstPrntDualGrndOutpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntCnstPrntDualGrndOutpDecoder Factory(IDecoderRepository _) => new();
 }

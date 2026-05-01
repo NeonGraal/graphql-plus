@@ -9,7 +9,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_field_arg_Dual;
 
 internal class testGnrcFieldArgDualDecoder<TType>
 {
-  public ItestRefGnrcFieldArgDual<TType> Field { get; set; }
+  public ItestRefGnrcFieldArgDual<TType>? Field { get; set; }
 }
 
 internal class testRefGnrcFieldArgDualDecoder<TRef>

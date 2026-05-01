@@ -14,8 +14,16 @@ namespace Components.Gqlp_Schema_constraint_enum_Output;
 
 internal class CmptEnumCnstEnumOutpDecoder : IDecoder<CmptEnumCnstEnumOutp?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumCnstEnumOutp? output)
-    => input.DecodeEnum("EnumCnstEnumOutp", out output);
+  public IMessages Decode(IValue input, out CmptEnumCnstEnumOutp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumCnstEnumOutp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumCnstEnumOutp".AnError();
+  }
 
   internal static CmptEnumCnstEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }

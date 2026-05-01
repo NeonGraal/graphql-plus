@@ -11,8 +11,14 @@ dual RefGnrcAltSmplDual<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_alt_simple_Dual;
 
-internal class CmptGnrcAltSmplDualDecoder
+internal class CmptGnrcAltSmplDualDecoder : IDecoder<ICmptGnrcAltSmplDualObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptGnrcAltSmplDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptGnrcAltSmplDualDecoder Factory(IDecoderRepository _) => new();
 }

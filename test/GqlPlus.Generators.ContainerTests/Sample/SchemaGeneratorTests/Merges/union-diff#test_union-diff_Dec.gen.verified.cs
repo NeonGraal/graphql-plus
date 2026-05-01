@@ -7,10 +7,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_diff;
 
-internal class testUnionDiffDecoder
+internal class testUnionDiffDecoder : IDecoder<ItestUnionDiff>
 {
-  public Boolean AsBoolean { get; set; }
-  public Number AsNumber { get; set; }
+  public Boolean? AsBoolean { get; set; }
+  public Number? AsNumber { get; set; }
+
+  public IMessages Decode(IValue input, out ItestUnionDiff? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testUnionDiffDecoder Factory(IDecoderRepository _) => new();
 }

@@ -7,24 +7,46 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_unique;
 
-internal class testDmnEnumUnqDecoder
+internal class testDmnEnumUnqDecoder : IDecoder<ItestDmnEnumUnq>
 {
+
+  public IMessages Decode(IValue input, out ItestDmnEnumUnq? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testDmnEnumUnqDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testEnumDmnEnumUnqDecoder : IDecoder<testEnumDmnEnumUnq?>
 {
-  public IMessages Decoder(IValue input, out testEnumDmnEnumUnq? output)
-    => input.DecodeEnum("EnumDmnEnumUnq", out output);
+  public IMessages Decode(IValue input, out testEnumDmnEnumUnq? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testEnumDmnEnumUnq value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testEnumDmnEnumUnq".AnError();
+  }
 
   internal static testEnumDmnEnumUnqDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testDupDmnEnumUnqDecoder : IDecoder<testDupDmnEnumUnq?>
 {
-  public IMessages Decoder(IValue input, out testDupDmnEnumUnq? output)
-    => input.DecodeEnum("DupDmnEnumUnq", out output);
+  public IMessages Decode(IValue input, out testDupDmnEnumUnq? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out testDupDmnEnumUnq value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode testDupDmnEnumUnq".AnError();
+  }
 
   internal static testDupDmnEnumUnqDecoder Factory(IDecoderRepository _) => new();
 }

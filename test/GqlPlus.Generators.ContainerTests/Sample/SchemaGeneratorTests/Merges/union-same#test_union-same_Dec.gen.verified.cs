@@ -7,9 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_same;
 
-internal class testUnionSameDecoder
+internal class testUnionSameDecoder : IDecoder<ItestUnionSame>
 {
-  public Boolean AsBoolean { get; set; }
+  public Boolean? AsBoolean { get; set; }
+
+  public IMessages Decode(IValue input, out ItestUnionSame? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testUnionSameDecoder Factory(IDecoderRepository _) => new();
 }

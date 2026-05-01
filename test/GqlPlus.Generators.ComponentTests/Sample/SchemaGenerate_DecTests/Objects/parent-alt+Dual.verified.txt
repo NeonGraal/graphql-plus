@@ -11,15 +11,27 @@ dual RefPrntAltDual {  parent: Number | String }
 
 namespace Components.Gqlp_Schema_parent_alt_Dual;
 
-internal class CmptPrntAltDualDecoder
+internal class CmptPrntAltDualDecoder : IDecoder<ICmptPrntAltDualObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptPrntAltDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptPrntAltDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptRefPrntAltDualDecoder
+internal class CmptRefPrntAltDualDecoder : IDecoder<ICmptRefPrntAltDualObject>
 {
-  public decimal Parent { get; set; }
+  public decimal? Parent { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptRefPrntAltDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptRefPrntAltDualDecoder Factory(IDecoderRepository _) => new();
 }

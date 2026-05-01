@@ -13,6 +13,6 @@ namespace Components.Gqlp_Schema_object_param_Input;
 
 internal class CmptObjParamInpDecoder<TTest,TType>
 {
-  public TTest Test { get; set; }
-  public TType Type { get; set; }
+  public TTest? Test { get; set; }
+  public TType? Type { get; set; }
 }

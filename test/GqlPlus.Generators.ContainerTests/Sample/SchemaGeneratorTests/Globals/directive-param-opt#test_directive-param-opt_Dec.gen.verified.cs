@@ -7,8 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_directive_param_opt;
 
-internal class testInDrctParamOptDecoder
+internal class testInDrctParamOptDecoder : IDecoder<ItestInDrctParamOptObject>
 {
+
+  public IMessages Decode(IValue input, out ItestInDrctParamOptObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testInDrctParamOptDecoder Factory(IDecoderRepository _) => new();
 }

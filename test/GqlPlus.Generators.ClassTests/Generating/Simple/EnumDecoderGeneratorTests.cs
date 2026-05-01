@@ -24,5 +24,5 @@ public class EnumDecoderGeneratorTests
     => new EnumBuilder(name);
 
   internal override ForType ForGeneratedItem(string name, EnumLabelInput item)
-    => ForGeneratedDecoder($"=> input.DecodeEnum(\"{name}\", out output);");
+    => ForGeneratedDecoder($"Enum.TryParse(text, out {TestPrefix}{name} value)");
 }

@@ -11,9 +11,15 @@ dual ObjFieldEnumValueDual { field = true }
 
 namespace Components.Gqlp_Schema_object_field_enum_value_Dual;
 
-internal class CmptObjFieldEnumValueDualDecoder
+internal class CmptObjFieldEnumValueDualDecoder : IDecoder<ICmptObjFieldEnumValueDualObject>
 {
-  public bool Field { get; set; }
+  public bool? Field { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptObjFieldEnumValueDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptObjFieldEnumValueDualDecoder Factory(IDecoderRepository _) => new();
 }

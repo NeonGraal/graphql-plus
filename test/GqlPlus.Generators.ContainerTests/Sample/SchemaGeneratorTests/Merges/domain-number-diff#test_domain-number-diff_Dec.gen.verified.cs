@@ -7,8 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_number_diff;
 
-internal class testDmnNmbrDiffDecoder
+internal class testDmnNmbrDiffDecoder : IDecoder<ItestDmnNmbrDiff>
 {
+
+  public IMessages Decode(IValue input, out ItestDmnNmbrDiff? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testDmnNmbrDiffDecoder Factory(IDecoderRepository _) => new();
 }

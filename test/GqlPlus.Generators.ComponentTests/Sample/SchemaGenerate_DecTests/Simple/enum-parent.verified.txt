@@ -13,16 +13,32 @@ namespace Components.Gqlp_Schema_enum_parent;
 
 internal class CmptEnumPrntDecoder : IDecoder<CmptEnumPrnt?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumPrnt? output)
-    => input.DecodeEnum("EnumPrnt", out output);
+  public IMessages Decode(IValue input, out CmptEnumPrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumPrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumPrnt".AnError();
+  }
 
   internal static CmptEnumPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntEnumPrntDecoder : IDecoder<CmptPrntEnumPrnt?>
 {
-  public IMessages Decoder(IValue input, out CmptPrntEnumPrnt? output)
-    => input.DecodeEnum("PrntEnumPrnt", out output);
+  public IMessages Decode(IValue input, out CmptPrntEnumPrnt? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptPrntEnumPrnt value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptPrntEnumPrnt".AnError();
+  }
 
   internal static CmptPrntEnumPrntDecoder Factory(IDecoderRepository _) => new();
 }

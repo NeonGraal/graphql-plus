@@ -9,7 +9,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_field_arg_Input;
 
 internal class testGnrcFieldArgInpDecoder<TType>
 {
-  public ItestRefGnrcFieldArgInp<TType> Field { get; set; }
+  public ItestRefGnrcFieldArgInp<TType>? Field { get; set; }
 }
 
 internal class testRefGnrcFieldArgInpDecoder<TRef>

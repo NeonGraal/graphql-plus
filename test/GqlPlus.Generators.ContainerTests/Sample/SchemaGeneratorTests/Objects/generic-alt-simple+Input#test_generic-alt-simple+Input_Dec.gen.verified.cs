@@ -7,8 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_simple_Input;
 
-internal class testGnrcAltSmplInpDecoder
+internal class testGnrcAltSmplInpDecoder : IDecoder<ItestGnrcAltSmplInpObject>
 {
+
+  public IMessages Decode(IValue input, out ItestGnrcAltSmplInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testGnrcAltSmplInpDecoder Factory(IDecoderRepository _) => new();
 }

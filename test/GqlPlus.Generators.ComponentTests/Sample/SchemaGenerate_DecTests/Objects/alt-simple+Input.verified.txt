@@ -10,8 +10,14 @@ input AltSmplInp { | String }
 
 namespace Components.Gqlp_Schema_alt_simple_Input;
 
-internal class CmptAltSmplInpDecoder
+internal class CmptAltSmplInpDecoder : IDecoder<ICmptAltSmplInpObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptAltSmplInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptAltSmplInpDecoder Factory(IDecoderRepository _) => new();
 }

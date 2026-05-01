@@ -14,16 +14,32 @@ namespace Components.Gqlp_Schema_field_enum_parent_Output;
 
 internal class CmptEnumFieldEnumPrntOutpDecoder : IDecoder<CmptEnumFieldEnumPrntOutp?>
 {
-  public IMessages Decoder(IValue input, out CmptEnumFieldEnumPrntOutp? output)
-    => input.DecodeEnum("EnumFieldEnumPrntOutp", out output);
+  public IMessages Decode(IValue input, out CmptEnumFieldEnumPrntOutp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptEnumFieldEnumPrntOutp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptEnumFieldEnumPrntOutp".AnError();
+  }
 
   internal static CmptEnumFieldEnumPrntOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptPrntFieldEnumPrntOutpDecoder : IDecoder<CmptPrntFieldEnumPrntOutp?>
 {
-  public IMessages Decoder(IValue input, out CmptPrntFieldEnumPrntOutp? output)
-    => input.DecodeEnum("PrntFieldEnumPrntOutp", out output);
+  public IMessages Decode(IValue input, out CmptPrntFieldEnumPrntOutp? output)
+  {
+    if (input.TryGetText(out string? text) && Enum.TryParse(text, out CmptPrntFieldEnumPrntOutp value))
+    {
+      output = value;
+      return Messages.New;
+    }
+    output = null;
+    return "Unable to decode CmptPrntFieldEnumPrntOutp".AnError();
+  }
 
   internal static CmptPrntFieldEnumPrntOutpDecoder Factory(IDecoderRepository _) => new();
 }

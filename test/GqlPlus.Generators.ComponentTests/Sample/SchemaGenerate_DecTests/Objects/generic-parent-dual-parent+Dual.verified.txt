@@ -12,8 +12,14 @@ dual AltGnrcPrntDualPrntDual { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_parent_dual_parent_Dual;
 
-internal class CmptGnrcPrntDualPrntDualDecoder
+internal class CmptGnrcPrntDualPrntDualDecoder : IDecoder<ICmptGnrcPrntDualPrntDualObject>
 {
+
+  public IMessages Decode(IValue input, out ICmptGnrcPrntDualPrntDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptGnrcPrntDualPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
@@ -22,9 +28,15 @@ internal class CmptRefGnrcPrntDualPrntDualDecoder<TRef>
 {
 }
 
-internal class CmptAltGnrcPrntDualPrntDualDecoder
+internal class CmptAltGnrcPrntDualPrntDualDecoder : IDecoder<ICmptAltGnrcPrntDualPrntDualObject>
 {
-  public decimal Alt { get; set; }
+  public decimal? Alt { get; set; }
+
+  public IMessages Decode(IValue input, out ICmptAltGnrcPrntDualPrntDualObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static CmptAltGnrcPrntDualPrntDualDecoder Factory(IDecoderRepository _) => new();
 }

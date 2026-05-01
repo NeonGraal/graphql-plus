@@ -7,26 +7,44 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_obj_Input;
 
-internal class testCnstFieldObjInpDecoder
+internal class testCnstFieldObjInpDecoder : IDecoder<ItestCnstFieldObjInpObject>
 {
+
+  public IMessages Decode(IValue input, out ItestCnstFieldObjInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testCnstFieldObjInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testRefCnstFieldObjInpDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef? Field { get; set; }
 }
 
-internal class testPrntCnstFieldObjInpDecoder
+internal class testPrntCnstFieldObjInpDecoder : IDecoder<ItestPrntCnstFieldObjInpObject>
 {
+
+  public IMessages Decode(IValue input, out ItestPrntCnstFieldObjInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testPrntCnstFieldObjInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testAltCnstFieldObjInpDecoder
+internal class testAltCnstFieldObjInpDecoder : IDecoder<ItestAltCnstFieldObjInpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal? Alt { get; set; }
+
+  public IMessages Decode(IValue input, out ItestAltCnstFieldObjInpObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
 
   internal static testAltCnstFieldObjInpDecoder Factory(IDecoderRepository _) => new();
 }

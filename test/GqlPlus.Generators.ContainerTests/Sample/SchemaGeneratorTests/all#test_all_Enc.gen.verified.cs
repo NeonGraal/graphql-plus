@@ -66,7 +66,7 @@ internal class testAllEncoder(
   private readonly IEncoder<ItestField> _itestField = encoders.EncoderFor<ItestField>();
   public Structured Encode(ItestAllObject input)
     => Structured.Empty()
-      .AddEncoded("items", input.Items(), _itestField);
+      .AddEncoded("items", input.Items, _itestField);
 
   internal static testAllEncoder Factory(IEncoderRepository r) => new(r);
 }

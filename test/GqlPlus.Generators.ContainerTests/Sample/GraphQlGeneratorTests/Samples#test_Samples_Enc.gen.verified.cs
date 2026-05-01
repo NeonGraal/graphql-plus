@@ -16,13 +16,13 @@ internal class testQueryEncoder(
   private readonly IEncoder<ItestProfile> _itestProfile = encoders.EncoderFor<ItestProfile>();
   public Structured Encode(ItestQueryObject input)
     => Structured.Empty()
-      .AddEncoded("user", input.User(), _itestFullUser)
-      .AddEncoded("likeStory", input.LikeStory(), _itestStory)
-      .Add("field", input.Field().Encode())
+      .AddEncoded("user", input.User, _itestFullUser)
+      .AddEncoded("likeStory", input.LikeStory, _itestStory)
+      .Add("field", input.Field.Encode())
       .AddEncoded("me", input.Me, _itestFullUser)
-      .Add("picture", input.Picture().Encode())
-      .AddList("profiles", input.Profiles(), _itestProfile)
-      .Add("nearestThing", input.NearestThing().Encode());
+      .Add("picture", input.Picture.Encode())
+      .AddList("profiles", input.Profiles, _itestProfile)
+      .Add("nearestThing", input.NearestThing.Encode());
 
   internal static testQueryEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -31,7 +31,7 @@ internal class testMutationEncoder : IEncoder<ItestMutationObject>
 {
   public Structured Encode(ItestMutationObject input)
     => Structured.Empty()
-      .Add("sendEmail", input.SendEmail().Encode());
+      .Add("sendEmail", input.SendEmail.Encode());
 
   internal static testMutationEncoder Factory(IEncoderRepository _) => new();
 }
@@ -69,9 +69,9 @@ internal class testFullUserEncoder(
   private readonly IEncoder<ItestUserList> _itestUserList = encoders.EncoderFor<ItestUserList>();
   public Structured Encode(ItestFullUserObject input)
     => _itestUser.Encode(input)
-      .Add("profilePic", input.ProfilePic().Encode())
-      .AddEncoded("friends", input.Friends(), _itestUserList)
-      .AddEncoded("mutualFriends", input.MutualFriends(), _itestUserList);
+      .Add("profilePic", input.ProfilePic.Encode())
+      .AddEncoded("friends", input.Friends, _itestUserList)
+      .AddEncoded("mutualFriends", input.MutualFriends, _itestUserList);
 
   internal static testFullUserEncoder Factory(IEncoderRepository r) => new(r);
 }

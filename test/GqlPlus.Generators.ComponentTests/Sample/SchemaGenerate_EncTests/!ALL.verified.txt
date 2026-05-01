@@ -4074,7 +4074,7 @@ internal class CmptOutpDescrParamEncoder(
   private readonly IEncoder<ICmptFldOutpDescrParam> _fldOutpDescrParam = encoders.EncoderFor<ICmptFldOutpDescrParam>();
   public Structured Encode(ICmptOutpDescrParamObject input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field(), _fldOutpDescrParam);
+      .AddEncoded("field", input.Field, _fldOutpDescrParam);
 
   internal static CmptOutpDescrParamEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -4103,7 +4103,7 @@ internal class CmptOutpParamEncoder(
   private readonly IEncoder<ICmptFldOutpParam> _fldOutpParam = encoders.EncoderFor<ICmptFldOutpParam>();
   public Structured Encode(ICmptOutpParamObject input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field(), _fldOutpParam);
+      .AddEncoded("field", input.Field, _fldOutpParam);
 
   internal static CmptOutpParamEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -4132,7 +4132,7 @@ internal class CmptOutpParamDescrEncoder(
   private readonly IEncoder<ICmptFldOutpParamDescr> _fldOutpParamDescr = encoders.EncoderFor<ICmptFldOutpParamDescr>();
   public Structured Encode(ICmptOutpParamDescrObject input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field(), _fldOutpParamDescr);
+      .AddEncoded("field", input.Field, _fldOutpParamDescr);
 
   internal static CmptOutpParamDescrEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -4161,7 +4161,7 @@ internal class CmptOutpParamModDmnEncoder(
   private readonly IEncoder<ICmptDomOutpParamModDmn> _domOutpParamModDmn = encoders.EncoderFor<ICmptDomOutpParamModDmn>();
   public Structured Encode(ICmptOutpParamModDmnObject input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field(), _domOutpParamModDmn);
+      .AddEncoded("field", input.Field, _domOutpParamModDmn);
 
   internal static CmptOutpParamModDmnEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -4190,7 +4190,7 @@ internal class CmptOutpParamModParamEncoder<TMod>(
   private readonly IEncoder<ICmptDomOutpParamModParam> _domOutpParamModParam = encoders.EncoderFor<ICmptDomOutpParamModParam>();
   public Structured Encode(ICmptOutpParamModParamObject<TMod> input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field(), _domOutpParamModParam);
+      .AddEncoded("field", input.Field, _domOutpParamModParam);
 }
 
 internal class CmptInOutpParamModParamEncoder : IEncoder<ICmptInOutpParamModParamObject>
@@ -4217,7 +4217,7 @@ internal class CmptOutpParamTypeDescrEncoder(
   private readonly IEncoder<ICmptFldOutpParamTypeDescr> _fldOutpParamTypeDescr = encoders.EncoderFor<ICmptFldOutpParamTypeDescr>();
   public Structured Encode(ICmptOutpParamTypeDescrObject input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field(), _fldOutpParamTypeDescr);
+      .AddEncoded("field", input.Field, _fldOutpParamTypeDescr);
 
   internal static CmptOutpParamTypeDescrEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -4281,7 +4281,7 @@ internal class CmptOutpPrntParamEncoder(
   private readonly IEncoder<ICmptFldOutpPrntParam> _fldOutpPrntParam = encoders.EncoderFor<ICmptFldOutpPrntParam>();
   public Structured Encode(ICmptOutpPrntParamObject input)
     => _prntOutpPrntParam.Encode(input)
-      .AddEncoded("field", input.Field(), _fldOutpPrntParam);
+      .AddEncoded("field", input.Field, _fldOutpPrntParam);
 
   internal static CmptOutpPrntParamEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -4293,7 +4293,7 @@ internal class CmptPrntOutpPrntParamEncoder(
   private readonly IEncoder<ICmptFldOutpPrntParam> _fldOutpPrntParam = encoders.EncoderFor<ICmptFldOutpPrntParam>();
   public Structured Encode(ICmptPrntOutpPrntParamObject input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field(), _fldOutpPrntParam);
+      .AddEncoded("field", input.Field, _fldOutpPrntParam);
 
   internal static CmptPrntOutpPrntParamEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -5400,7 +5400,7 @@ internal class CmptOutpFieldParamEncoder(
   private readonly IEncoder<ICmptFldOutpFieldParam> _fldOutpFieldParam = encoders.EncoderFor<ICmptFldOutpFieldParam>();
   public Structured Encode(ICmptOutpFieldParamObject input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field(), _fldOutpFieldParam);
+      .AddEncoded("field", input.Field, _fldOutpFieldParam);
 
   internal static CmptOutpFieldParamEncoder Factory(IEncoderRepository r) => new(r);
 }

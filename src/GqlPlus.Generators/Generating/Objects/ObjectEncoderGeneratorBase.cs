@@ -1,4 +1,4 @@
-using GqlPlus.Ast;
+﻿using GqlPlus.Ast;
 
 namespace GqlPlus.Generating.Objects;
 
@@ -61,12 +61,7 @@ internal abstract class ObjectEncoderGeneratorBase<TField>
   }
 
   private static string GetFieldAccess(TField field)
-  {
-    string fieldPropName = field.Name.Capitalize() ?? field.Name;
-    return field is IAstOutputField outField && outField.Parameter is not null
-      ? $"input.{fieldPropName}()"
-      : $"input.{fieldPropName}";
-  }
+    => $"input.{field.Name.Capitalize()}";
 
   private bool ResolveFieldTypeName(TField field, GqlpGeneratorContext context, out string fieldTypeName)
   {

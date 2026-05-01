@@ -19,7 +19,7 @@ internal class CmptOutpParamModParamEncoder<TMod>(
   private readonly IEncoder<ICmptDomOutpParamModParam> _domOutpParamModParam = encoders.EncoderFor<ICmptDomOutpParamModParam>();
   public Structured Encode(ICmptOutpParamModParamObject<TMod> input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field(), _domOutpParamModParam);
+      .AddEncoded("field", input.Field, _domOutpParamModParam);
 }
 
 internal class CmptInOutpParamModParamEncoder : IEncoder<ICmptInOutpParamModParamObject>

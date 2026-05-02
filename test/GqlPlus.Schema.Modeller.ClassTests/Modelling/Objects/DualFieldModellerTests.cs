@@ -10,7 +10,7 @@ public class DualFieldModellerTests
     IModifierModeller modifier = A.Of<IModifierModeller>();
     IModellerRepository modellers = A.Of<IModellerRepository>();
     modellers.ModifierModeller.Returns(modifier);
-    modellers.ModellerFor<IAstObjBase, ObjBaseModel>().Returns(ObjBase);
+    ModellerForReturns(modellers, ObjBase);
     Modeller = new DualFieldModeller(modellers);
   }
 

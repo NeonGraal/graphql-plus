@@ -8,7 +8,7 @@ public class SettingModellerTests
   public SettingModellerTests()
   {
     IModellerRepository modellers = A.Of<IModellerRepository>();
-    modellers.ModellerFor<IAstConstant, ConstantModel>().Returns(_constant);
+    ModellerForReturns(modellers, _constant);
     Modeller = new SettingModeller(modellers);
   }
 

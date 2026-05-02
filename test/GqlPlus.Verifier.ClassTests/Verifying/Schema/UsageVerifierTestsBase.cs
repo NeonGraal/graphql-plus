@@ -18,7 +18,7 @@ public abstract class UsageVerifierTestsBase<TUsage>
   protected abstract IVerifyUsage<TUsage> Verifier { get; }
 
   protected UsageVerifierTestsBase()
-    => VerifierRepo.AliasedFor<TUsage>().Returns(Aliased.Intf);
+    => AliasedForReturns(Aliased.Intf);
 
   [Fact]
   public void Verify_CallsVerifierAndAliased_WithoutErrors()

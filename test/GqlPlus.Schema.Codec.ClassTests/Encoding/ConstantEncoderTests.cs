@@ -9,7 +9,7 @@ public class ConstantEncoderTests
   {
     _simpleEncoder = RFor<SimpleModel>();
     IEncoderRepository encoders = A.Of<IEncoderRepository>();
-    encoders.EncoderFor<SimpleModel>().Returns(_simpleEncoder);
+    encoders.EncoderForReturns(_simpleEncoder);
     Encoder = new ConstantEncoder(encoders);
   }
 

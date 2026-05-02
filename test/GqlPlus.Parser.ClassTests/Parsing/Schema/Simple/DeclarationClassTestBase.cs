@@ -13,7 +13,7 @@ public class SimpleParserClassTestBase
     _typeRef.Parse(default!, default!)
       .ReturnsForAnyArgs(default(IAstTypeRef).Empty());
     Parser<IAstTypeRef>.L typeRefLazy = new(() => _typeRef);
-    Parsers.ParserFor<IAstTypeRef>().Returns(typeRefLazy);
+    Parsers.ParserFor<IAstTypeRef>().ReturnsForAnyArgs(typeRefLazy);
   }
 
   internal void ParseTypeRefOk(string input)

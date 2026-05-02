@@ -25,7 +25,7 @@ public class MergeOptionSettingsTests
   {
     _values = Merger<IAstConstant>();
     IMergerRepository mergers = Substitute.For<IMergerRepository>();
-    mergers.MergerFor<IAstConstant>().Returns(_values);
+    mergers.MergerForReturns(_values);
     _merger = new(mergers);
   }
 

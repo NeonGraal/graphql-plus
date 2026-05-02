@@ -52,7 +52,7 @@ public abstract class DomainAllEncoderTestBase<TItem, TInput>
   {
     Item = RFor<TItem>();
     IEncoderRepository encoders = A.Of<IEncoderRepository>();
-    encoders.EncoderFor<TItem>().Returns(Item);
+    encoders.EncoderForReturns(Item);
     Encoder = new DomainItemEncoder<TItem>(encoders);
   }
 

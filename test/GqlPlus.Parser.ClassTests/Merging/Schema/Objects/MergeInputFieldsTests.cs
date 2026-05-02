@@ -39,7 +39,7 @@ public class MergeInputFieldsTests
     _constant = Merger<IAstConstant>();
 
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.MergerFor<IAstConstant>().Returns(_constant);
+    mergers.MergerForReturns(_constant);
     _merger = new(mergers);
   }
 

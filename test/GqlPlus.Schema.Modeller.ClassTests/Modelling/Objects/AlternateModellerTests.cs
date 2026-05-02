@@ -11,8 +11,8 @@ public class AlternateModellerTests
   public AlternateModellerTests()
   {
     IModellerRepository modellers = A.Of<IModellerRepository>();
-    modellers.ModellerFor<IAstModifier, CollectionModel>().Returns(_collection);
-    modellers.ModellerFor<IAstObjBase, ObjBaseModel>().Returns(ObjBase);
+    ModellerForReturns(modellers, _collection);
+    ModellerForReturns(modellers, ObjBase);
     Modeller = new AlternateModeller(modellers);
   }
 

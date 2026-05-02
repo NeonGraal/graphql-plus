@@ -14,7 +14,7 @@ public class TypeArgMatcherTests
   {
     Matcher<IAstType>.D anyDelegate = MatcherFor(out Matcher<IAstType>.I anyInterface);
     AnyType = anyInterface;
-    MatcherRepo.MatcherFor<IAstType>().Returns(anyDelegate);
+    MatcherForReturns(anyDelegate);
     Matcher = new(MatcherRepo);
   }
 

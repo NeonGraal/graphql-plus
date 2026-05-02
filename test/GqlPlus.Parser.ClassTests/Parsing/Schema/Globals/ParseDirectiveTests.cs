@@ -15,10 +15,10 @@ public class ParseDirectiveTests
   {
     IDirectiveName name = A.Of<IDirectiveName>();
     NameParser = name;
-    Parsers.GetName<IDirectiveName>().Returns(name);
-    ConfigureRepoArray<IAstInputParam>(Parsers, out _param);
+    Parsers.GetName<IDirectiveName>().ReturnsForAnyArgs(name);
+    ConfigureRepoArray(Parsers, out _param);
     ConfigureRepoInterface<IOptionParser<DirectiveOption>, DirectiveOption>(Parsers, out _option);
-    ConfigureRepo<DirectiveLocation>(Parsers, out _definition);
+    ConfigureRepo(Parsers, out _definition);
     _parser = new ParseDirective(Parsers);
   }
 

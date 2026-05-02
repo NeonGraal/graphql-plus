@@ -11,7 +11,7 @@ public class ParseEnumDefinitionTests
 
   public ParseEnumDefinitionTests()
   {
-    ConfigureRepo<IAstEnumLabel>(Parsers, out _enumLabelParser);
+    ConfigureRepo(Parsers, out _enumLabelParser);
     _parser = new ParseEnumDefinition(Parsers);
   }
 

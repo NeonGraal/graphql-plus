@@ -11,9 +11,9 @@ public class InputFieldEncoderTests
     _modifer = RFor<ModifierModel>();
     _constant = RFor<ConstantModel>();
     IEncoderRepository encoders = A.Of<IEncoderRepository>();
-    encoders.EncoderFor<ModifierModel>().Returns(_modifer);
-    encoders.EncoderFor<ObjBaseModel>().Returns(ObjBase);
-    encoders.EncoderFor<ConstantModel>().Returns(_constant);
+    encoders.EncoderForReturns(_modifer);
+    encoders.EncoderForReturns(ObjBase);
+    encoders.EncoderForReturns(_constant);
     Encoder = new InputFieldEncoder(encoders);
   }
 

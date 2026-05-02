@@ -13,9 +13,9 @@ public class SchemaModellerTests
   public SchemaModellerTests()
   {
     IModellerRepository modellers = A.Of<IModellerRepository>();
-    modellers.ModellerFor<IAstSchemaCategory, CategoryModel>().Returns(_category);
-    modellers.ModellerFor<IAstSchemaDirective, DirectiveModel>().Returns(_directive);
-    modellers.ModellerFor<IAstSchemaSetting, SettingModel>().Returns(_setting);
+    ModellerForReturns(modellers, _category);
+    ModellerForReturns(modellers, _directive);
+    ModellerForReturns(modellers, _setting);
     modellers.TypesModeller.Returns(_types);
     Modeller = new SchemaModeller(modellers);
   }

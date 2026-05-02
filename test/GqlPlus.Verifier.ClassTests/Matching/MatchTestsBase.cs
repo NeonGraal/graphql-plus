@@ -25,4 +25,8 @@ public class MatchTestsBase
 
     return result;
   }
+
+  protected void MatcherForReturns<T>(Matcher<T>.D result)
+    where T : IAstError
+    => MatcherRepo.MatcherFor<T>().ReturnsForAnyArgs(result);
 }

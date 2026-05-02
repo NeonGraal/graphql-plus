@@ -9,7 +9,7 @@ public class DomainLabelEncoderTests
   {
     _enumValueEncoder = RFor<EnumValueModel>();
     IEncoderRepository encoders = A.Of<IEncoderRepository>();
-    encoders.EncoderFor<EnumValueModel>().Returns(_enumValueEncoder);
+    encoders.EncoderForReturns(_enumValueEncoder);
     Encoder = new DomainLabelEncoder(encoders);
   }
 

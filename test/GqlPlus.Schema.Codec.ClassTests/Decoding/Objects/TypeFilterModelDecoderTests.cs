@@ -11,9 +11,9 @@ public class TypeFilterModelDecoderTests
   public TypeFilterModelDecoderTests()
   {
     IDecoderRepository decoders = A.Of<IDecoderRepository>();
-    decoders.DecoderFor<bool?>().Returns(Boolean);
-    decoders.DecoderFor<INameFilterDecoder, string>().Returns(NameFilter);
-    decoders.DecoderFor<TypeKindModel?>().Returns(Kind);
+    decoders.DecoderForReturns(Boolean);
+    decoders.DecoderForReturns<INameFilterDecoder, string>(NameFilter);
+    decoders.DecoderForReturns(Kind);
     Decoder = new TypeFilterModelDecoder(decoders);
   }
 

@@ -11,8 +11,8 @@ public class ObjectAlternateEncoderTests
     _collection = RFor<CollectionModel>();
     _objBaseEncoder = A.Of<IEncoder<ObjBaseModel>>();
     IEncoderRepository encoders = A.Of<IEncoderRepository>();
-    encoders.EncoderFor<CollectionModel>().Returns(_collection);
-    encoders.EncoderFor<ObjBaseModel>().Returns(_objBaseEncoder);
+    encoders.EncoderForReturns(_collection);
+    encoders.EncoderForReturns(_objBaseEncoder);
     Encoder = new ObjectAlternateEncoder(encoders);
   }
 

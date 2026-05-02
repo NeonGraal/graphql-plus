@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using System.Runtime.CompilerServices;
+using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Modelling;
 
@@ -24,10 +25,10 @@ internal class ModellerRepository
     _typeModellers = new(() => [.. builder.TypeModellerFactories.Select(f => (ITypeModeller)f(this))]);
   }
 
-  public IModeller<TAst, TModel> ModellerFor<TAst, TModel>()
+  public IModeller<TAst, TModel> ModellerFor<TAst, TModel>([CallerMemberName] string callerName = "")
     where TAst : IAstError
     where TModel : IModelBase
-    => Cached<IModeller<TAst, TModel>, IModeller<TAst, TModel>>(_builder.Modellers, "modeller", this);
+    => Cached<IModeller<TAst, TModel>, IModeller<TAst, TModel>>(_builder.Modellers, "modeller for " + callerName, this);
 
   public IModifierModeller ModifierModeller => _modifier.Value;
   public ITypesModeller TypesModeller => _types.Value;

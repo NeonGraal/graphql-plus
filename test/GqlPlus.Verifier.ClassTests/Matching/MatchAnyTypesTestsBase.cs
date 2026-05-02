@@ -10,7 +10,7 @@ public class MatchAnyTypesTestsBase
   protected MatchAnyTypesTestsBase()
   {
     AnyTypeMatcher = MatcherFor(out _anyTypeMatcher);
-    MatcherRepo.MatcherFor<IAstType>().Returns(AnyTypeMatcher);
+    MatcherForReturns(AnyTypeMatcher);
   }
 
   protected void AnyTypeMatches(bool result)

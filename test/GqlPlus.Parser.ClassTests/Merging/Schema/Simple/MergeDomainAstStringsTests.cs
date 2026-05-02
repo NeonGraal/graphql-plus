@@ -13,7 +13,7 @@ public class MergeDomainAstStringsTests
   public MergeDomainAstStringsTests(ITestOutputHelper outputHelper)
   {
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.MergerFor<IAstDomainRegex>().Returns(MergeItems);
+    mergers.MergerForReturns(MergeItems);
     MergeDomains<DomainRegexAst, IAstDomainRegex> merger = new(mergers);
     MergerSimple = merger;
     Merger = merger;

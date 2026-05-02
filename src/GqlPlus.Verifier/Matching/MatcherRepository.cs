@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Matching;
+﻿using System.Runtime.CompilerServices;
+
+namespace GqlPlus.Matching;
 
 internal class MatcherRepository
   : BaseRepository<IMatcherRepository>
@@ -17,6 +19,6 @@ internal class MatcherRepository
 
   public IEnumerable<ITypeMatcher> TypeMatchers => _typeMatchers.Value;
 
-  public Matcher<T>.D MatcherFor<T>()
-    => () => Cached<T, Matcher<T>.I>(_state.Matchers, "matcher", this);
+  public Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "")
+    => () => Cached<T, Matcher<T>.I>(_state.Matchers, "matcher for " + callerName, this);
 }

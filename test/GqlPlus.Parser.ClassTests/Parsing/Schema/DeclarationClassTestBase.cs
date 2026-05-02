@@ -15,19 +15,19 @@ public class DeclarationClassTestBase
   {
     SimpleName = A.Of<ISimpleName>();
     NameParser = SimpleName;
-    Parsers.GetName<ISimpleName>().Returns(SimpleName);
+    Parsers.GetName<ISimpleName>().ReturnsForAnyArgs(SimpleName);
 
     _nullParam = A.Of<Parser<NullAst>.IA>();
     _nullParam.Parse(default!, default!)
       .ReturnsForAnyArgs(0.EmptyArray<NullAst>());
     Parser<NullAst>.LA nullParamLazy = new(() => _nullParam);
-    Parsers.ArrayFor<NullAst>().Returns(nullParamLazy);
+    Parsers.ArrayFor<NullAst>().ReturnsForAnyArgs(nullParamLazy);
 
     _option = A.Of<IOptionParser<NullOption>>();
     _option.Parse(default!, default!)
       .ReturnsForAnyArgs(default(NullOption).Empty());
     Parser<IOptionParser<NullOption>, NullOption>.L optionLazy = new(() => _option);
-    Parsers.ParserFor<IOptionParser<NullOption>, NullOption>().Returns(optionLazy);
+    Parsers.ParserFor<IOptionParser<NullOption>, NullOption>().ReturnsForAnyArgs(optionLazy);
 
     TakeReturns('{', true);
   }

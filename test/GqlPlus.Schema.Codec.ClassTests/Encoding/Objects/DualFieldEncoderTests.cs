@@ -9,8 +9,8 @@ public class DualFieldEncoderTests
   {
     _modifer = RFor<ModifierModel>();
     IEncoderRepository encoders = A.Of<IEncoderRepository>();
-    encoders.EncoderFor<ModifierModel>().Returns(_modifer);
-    encoders.EncoderFor<ObjBaseModel>().Returns(ObjBase);
+    encoders.EncoderForReturns(_modifer);
+    encoders.EncoderForReturns(ObjBase);
     Encoder = new DualFieldEncoder(encoders);
   }
 

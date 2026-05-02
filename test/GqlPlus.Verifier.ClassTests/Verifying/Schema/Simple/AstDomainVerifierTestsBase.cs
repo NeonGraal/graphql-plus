@@ -12,7 +12,7 @@ public abstract class AstDomainVerifierTestsBase<TItem>
   protected AstDomainVerifierTestsBase(DomainKind kind)
   {
     _kind = kind;
-    VerifierRepo.MergerFor<TItem>().Returns(ItemsMerger.Intf);
+    MergerForReturns(ItemsMerger.Intf);
   }
 
   [Fact]
@@ -43,7 +43,7 @@ public abstract class AstDomainVerifierTestsBase<TItem>
       .WithParent("parent").AsDomain;
 
     EnumContext context = new(Types, Errors, EnumValues);
-
+    TItem item = NewItem();
     AstDomainVerifier<TItem> verifier = NewDomainVerifier();
 
     IMessages result = verifier.CanMergeItems(domain, context);

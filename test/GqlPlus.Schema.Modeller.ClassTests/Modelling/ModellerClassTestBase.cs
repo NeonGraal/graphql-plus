@@ -1,4 +1,7 @@
-﻿namespace GqlPlus.Modelling;
+﻿using System.Runtime.CompilerServices;
+using EmptyFiles;
+
+namespace GqlPlus.Modelling;
 
 public abstract class ModellerClassTestBase<TAst, TModel>
   : SubstituteBase
@@ -22,6 +25,11 @@ public abstract class ModellerClassTestBase<TAst, TModel>
     where TA : IAstError
     where TM : IModelBase
     => A.Of<IModeller<TA, TM>>();
+
+  internal void ModellerForReturns<TA, TM>(IModellerRepository modellers, IModeller<TA, TM> result)
+    where TA : IAstError
+    where TM : IModelBase
+    => modellers.ModellerFor<TA, TM>().ReturnsForAnyArgs(result);
 
   internal void ToModelReturns<TA, TM>(IModeller<TA, TM> modeller, TM result)
     where TA : IAstError

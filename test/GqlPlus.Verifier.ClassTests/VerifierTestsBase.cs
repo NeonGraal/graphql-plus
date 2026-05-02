@@ -1,5 +1,9 @@
-﻿using GqlPlus.Merging;
+﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Matching;
+using GqlPlus.Merging;
 using GqlPlus.Verifying;
+using GqlPlus.Verifying.Operation;
+using GqlPlus.Verifying.Schema.Simple;
 using Microsoft.Extensions.Logging;
 
 namespace GqlPlus;
@@ -25,6 +29,33 @@ public class VerifierTestsBase
     VerifierRepo = Substitute.For<IVerifierRepository>();
     VerifierRepo.LoggerFactory.Returns(LoggerFactory);
   }
+
+  protected void AliasedForReturns<T>(IVerifyAliased<T> result)
+    where T : IAstAliased
+    => VerifierRepo.AliasedFor<T>().ReturnsForAnyArgs(result);
+
+  protected void GetDomainsReturns(params IVerifyDomain[] results)
+    => VerifierRepo.GetDomains().ReturnsForAnyArgs(results);
+
+  protected void IdentifiedForReturns<TUsage, TIdentified>(IVerifyIdentified<TUsage, TIdentified> result)
+    where TUsage : IAstError
+    where TIdentified : IAstIdentified
+    => VerifierRepo.IdentifiedFor<TUsage, TIdentified>().ReturnsForAnyArgs(result);
+
+  protected void VerifierMatcherForReturns<T>(Matcher<T>.D result)
+    where T : IAstError
+    => VerifierRepo.MatcherFor<T>().ReturnsForAnyArgs(result);
+
+  protected void MergerForReturns<T>(IMerge<T> result)
+    where T : IAstError
+    => VerifierRepo.MergerFor<T>().ReturnsForAnyArgs(result);
+
+  protected void UsageForReturns<T>(IVerifyUsage<T> result)
+    where T : IAstAliased
+    => VerifierRepo.UsageFor<T>().ReturnsForAnyArgs(result);
+
+  protected void VerifierForReturns<T>(IVerify<T> result)
+    => VerifierRepo.VerifierFor<T>().ReturnsForAnyArgs(result);
 
   protected void LoggerCalled(LogLevel level, string message, int times = 1)
   {

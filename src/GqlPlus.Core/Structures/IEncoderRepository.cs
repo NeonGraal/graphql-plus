@@ -1,8 +1,10 @@
-﻿namespace GqlPlus.Structures;
+﻿using System.Runtime.CompilerServices;
+
+namespace GqlPlus.Structures;
 
 public interface IEncoderRepository
 {
-  IEncoder<T> EncoderFor<T>();
-  IEnumerable<TList> EncodersFor<TList>()
+  IEncoder<T> EncoderFor<T>([CallerMemberName] string callerName = "");
+  IEnumerable<TList> EncodersFor<TList>([CallerMemberName] string callerName = "")
     where TList : class;
 }

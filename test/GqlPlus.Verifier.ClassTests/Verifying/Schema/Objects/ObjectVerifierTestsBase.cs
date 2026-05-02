@@ -20,10 +20,10 @@ public abstract class ObjectVerifierTestsBase<TObjField>
     ArgDelegate = A.Of<Matcher<IAstTypeArg>.D>();
     ArgDelegate().Returns(ArgMatcher);
 
-    VerifierRepo.MatcherFor<IAstTypeArg>().Returns(ArgDelegate);
+    VerifierMatcherForReturns(ArgDelegate);
 
-    VerifierRepo.MergerFor<TObjField>().Returns(MergeFields.Intf);
-    VerifierRepo.MergerFor<IAstAlternate>().Returns(MergeAlternates.Intf);
+    MergerForReturns(MergeFields.Intf);
+    MergerForReturns(MergeAlternates.Intf);
 
     TheBuilder = new(kind.ToString(), kind);
   }

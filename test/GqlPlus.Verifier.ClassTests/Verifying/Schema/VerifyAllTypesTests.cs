@@ -16,12 +16,12 @@ public class VerifyAllTypesTests
 
   public VerifyAllTypesTests()
   {
-    VerifierRepo.UsageFor<IAstObject<IAstDualField>>().Returns(_dualAllTypes.Intf);
-    VerifierRepo.UsageFor<IAstEnum>().Returns(_enumAllTypes.Intf);
-    VerifierRepo.UsageFor<IAstObject<IAstInputField>>().Returns(_inputAllTypes.Intf);
-    VerifierRepo.UsageFor<IAstObject<IAstOutputField>>().Returns(_outputAllTypes.Intf);
-    VerifierRepo.UsageFor<IAstDomain>().Returns(_domainAllTypes.Intf);
-    VerifierRepo.UsageFor<IAstUnion>().Returns(_unionAllTypes.Intf);
+    UsageForReturns(_dualAllTypes.Intf);
+    UsageForReturns(_enumAllTypes.Intf);
+    UsageForReturns(_inputAllTypes.Intf);
+    UsageForReturns(_outputAllTypes.Intf);
+    UsageForReturns(_domainAllTypes.Intf);
+    UsageForReturns(_unionAllTypes.Intf);
     _verifier = new(VerifierRepo);
   }
 

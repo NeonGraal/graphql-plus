@@ -17,7 +17,7 @@ public class MergeUnionsTypeTests
     result.Merge([]).ReturnsForAnyArgs(c => c.Arg<IEnumerable<IAstUnionMember>>());
 
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.MergerFor<IAstUnionMember>().Returns(result);
+    mergers.MergerForReturns(result);
     _merger = new(mergers);
   }
 

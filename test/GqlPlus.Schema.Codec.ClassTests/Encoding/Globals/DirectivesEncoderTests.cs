@@ -8,8 +8,8 @@ public class DirectivesEncoderTests
     _directive = RFor<DirectiveModel>();
     _baseType = RFor<BaseTypeModel>();
     IEncoderRepository repo = A.Of<IEncoderRepository>();
-    repo.EncoderFor<DirectiveModel>().Returns(_directive);
-    repo.EncoderFor<BaseTypeModel>().Returns(_baseType);
+    repo.EncoderForReturns(_directive);
+    repo.EncoderForReturns(_baseType);
     Encoder = new DirectivesEncoder(repo);
   }
 

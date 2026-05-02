@@ -14,9 +14,9 @@ public class ParseCategoryTests
   {
     ICategoryName name = Substitute.For<ICategoryName>();
     NameParser = name;
-    Parsers.GetName<ICategoryName>().Returns(name);
+    Parsers.GetName<ICategoryName>().ReturnsForAnyArgs(name);
     ConfigureRepoInterface<IOptionParser<CategoryOption>, CategoryOption>(Parsers, out _option);
-    ConfigureRepo<CategoryOutput>(Parsers, out _definition);
+    ConfigureRepo(Parsers, out _definition);
     _parser = new ParseCategory(Parsers);
     NameReturns(null);
   }

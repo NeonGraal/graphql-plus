@@ -43,7 +43,7 @@ public class MergeOptionsTests
     _settings = Merger<IAstSchemaSetting>();
 
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.MergerFor<IAstSchemaSetting>().Returns(_settings);
+    mergers.MergerForReturns(_settings);
     _merger = new(mergers);
   }
 

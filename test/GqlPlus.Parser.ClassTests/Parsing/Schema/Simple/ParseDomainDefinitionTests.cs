@@ -13,7 +13,7 @@ public class ParseDomainDefinitionTests
   public ParseDomainDefinitionTests()
   {
     _domainParser.Kind.Returns(DomainKind.Enum);
-    Parsers.GetDomains().Returns([_domainParser]);
+    Parsers.GetDomains().ReturnsForAnyArgs([_domainParser]);
     ConfigureRepoInterface<IEnumParser<DomainKind>, DomainKind>(Parsers, out _kindParser);
     _parser = new ParseDomainDefinition(Parsers);
   }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using System.Runtime.CompilerServices;
+using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Resolving;
 
@@ -16,9 +17,9 @@ internal class ResolverRepository
     _typeResolvers = new(() => [.. builder.TypeResolverFactories.Select(f => (ITypeResolver)f(this))]);
   }
 
-  public IResolver<T> ResolverFor<T>()
+  public IResolver<T> ResolverFor<T>([CallerMemberName] string callerName = "")
     where T : IModelBase
-    => Cached<T, IResolver<T>>(_builder.Resolvers, "resolver", this);
+    => Cached<T, IResolver<T>>(_builder.Resolvers, "resolver for " + callerName, this);
 
   public IEnumerable<ITypeResolver> TypeResolvers => _typeResolvers.Value;
 }

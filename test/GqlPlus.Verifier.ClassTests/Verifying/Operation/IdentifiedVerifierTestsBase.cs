@@ -15,8 +15,8 @@ public abstract class IdentifiedVerifierTestsBase<TUsage, TIdentified>
 
   protected IdentifiedVerifierTestsBase()
   {
-    VerifierRepo.VerifierFor<TUsage>().Returns(Usage);
-    VerifierRepo.VerifierFor<TIdentified>().Returns(Definition);
+    VerifierForReturns(Usage);
+    VerifierForReturns(Definition);
   }
 
   [Fact]

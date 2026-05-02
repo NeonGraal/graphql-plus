@@ -9,7 +9,7 @@ public class SchemaResolverTests
   {
     _typeResolver = RFor<BaseTypeModel>();
     IResolverRepository resolvers = A.Of<IResolverRepository>();
-    resolvers.ResolverFor<BaseTypeModel>().Returns(_typeResolver);
+    ResolveForReturns(resolvers, _typeResolver);
     Resolver = new SchemaResolver(resolvers);
   }
 

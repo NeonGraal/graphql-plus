@@ -11,9 +11,9 @@ public class CategoryFilterModelDecoderTests
   public CategoryFilterModelDecoderTests()
   {
     IDecoderRepository decoders = A.Of<IDecoderRepository>();
-    decoders.DecoderFor<bool?>().Returns(Boolean);
-    decoders.DecoderFor<INameFilterDecoder, string>().Returns(NameFilter);
-    decoders.DecoderFor<CategoryOptionModel?>().Returns(Resolution);
+    decoders.DecoderForReturns(Boolean);
+    decoders.DecoderForReturns<INameFilterDecoder, string>(NameFilter);
+    decoders.DecoderForReturns(Resolution);
     Decoder = new CategoryFilterModelDecoder(decoders);
   }
 

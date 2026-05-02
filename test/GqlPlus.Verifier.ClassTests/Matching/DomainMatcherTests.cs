@@ -9,7 +9,7 @@ public class DomainMatcherTests
   public DomainMatcherTests()
   {
     Matcher<IAstEnum>.D enumMatcher = MatcherFor(out _enumMatcher);
-    MatcherRepo.MatcherFor<IAstEnum>().Returns(enumMatcher);
+    MatcherForReturns(enumMatcher);
     _sut = new DomainMatcher(MatcherRepo);
   }
 

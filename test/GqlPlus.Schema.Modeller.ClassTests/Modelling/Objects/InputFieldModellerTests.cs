@@ -12,8 +12,8 @@ public class InputFieldModellerTests
     IModifierModeller modifier = A.Of<IModifierModeller>();
     IModellerRepository modellers = A.Of<IModellerRepository>();
     modellers.ModifierModeller.Returns(modifier);
-    modellers.ModellerFor<IAstObjBase, ObjBaseModel>().Returns(ObjBase);
-    modellers.ModellerFor<IAstConstant, ConstantModel>().Returns(_constant);
+    ModellerForReturns(modellers, ObjBase);
+    ModellerForReturns(modellers, _constant);
     Modeller = new InputFieldModeller(modellers);
   }
 

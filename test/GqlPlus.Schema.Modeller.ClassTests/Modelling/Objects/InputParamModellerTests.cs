@@ -18,7 +18,7 @@ public class InputParamModellerTests
     _constant = MFor<IAstConstant, ConstantModel>();
     IModellerRepository modellers = A.Of<IModellerRepository>();
     modellers.ModifierModeller.Returns(_modifier);
-    modellers.ModellerFor<IAstConstant, ConstantModel>().Returns(_constant);
+    ModellerForReturns(modellers, _constant);
     Modeller = new InputParamModeller(modellers);
   }
 

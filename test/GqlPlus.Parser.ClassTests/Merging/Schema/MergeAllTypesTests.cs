@@ -167,7 +167,7 @@ public class MergeAllTypesTests
     result.Merge([]).ReturnsForAnyArgs(c => c.Arg<IEnumerable<IAstType>>());
 
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.AllMergersFor<IAstType>().Returns([result]);
+    mergers.AllMergersForReturns(result);
     _merger = new(mergers);
   }
 

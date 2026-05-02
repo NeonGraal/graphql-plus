@@ -12,7 +12,7 @@ public class AliasesClassTestBase
       .ReturnsForAnyArgs(0.EmptyArray<string>());
 
     Parser<string>.LA aliasesLazy = new(() => _aliases);
-    Parsers.ArrayFor<string>().Returns(aliasesLazy);
+    Parsers.ArrayFor<string>().ReturnsForAnyArgs(aliasesLazy);
   }
 
   internal void ParseAliasesOk(string[] aliases)

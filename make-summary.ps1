@@ -87,6 +87,8 @@ function Write-Coverage($cover, $prefix = "") {
 
 [PsObject]$allCoverage = @{label = $testSet; linesCovered = 0; linesValid = 0; lineRate = 100.0 }
 
+$NoCoverage = $NoCoverage -or -not (Test-Path coverage/Coverage*.xml)
+
 if (-not $NoCoverage) {
   $coverage = Get-ChildItem coverage -Filter "Coverage-$Framework*.xml" | ForEach-Object {
     [xml]$coverageXml = Get-Content $_.FullName

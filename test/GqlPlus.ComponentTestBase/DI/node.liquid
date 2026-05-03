@@ -1,7 +1,7 @@
-{{ type.Key }}
-{%- if link -%}
-[["{{ type.Safe }}"]]
-click {{ type.Key }} href "#{{ type.Key }}" "- {{ type.Key }}"
+{{ type.Name }}
+{%- if type.IsHref -%}
+[["{{ type.Name }}"]]
+click {{ type.Name }} href "#{{ type.Name }}" "- {{ type.Name }}"
 {% else -%}
-("{{ type.Safe }}")
+("{{ type.Name }}")
 {% endif -%}

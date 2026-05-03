@@ -27,7 +27,7 @@
         <header>
           {%- for svc in grp[1] -%}
           {%- unless svc.IsLink %}
-          <span id="{{ svc.Service.Key }}" />
+          <span id="{{ svc.Name }}" />
           {% endunless -%}
           {%- endfor %}
           <h3 id="{{ grp[0] }}">{{ grp[0] }}</h3>
@@ -35,10 +35,9 @@
         <pre class='mermaid'>
           flowchart TD
           {%- for svc in grp[1] %}
-          {% render 'node', type: svc.Service, link: svc.IsLink -%}
+          {% render 'node', type: svc -%}
           {%- for prm in svc.Requires %}
-          {{ svc.Service.Key }} -->|"{{ prm[0] }}"| {{ prm[1].Key }}
-          {% render 'node' with prm[1] as type -%}
+          {{ svc.Name }} -->|"{{ prm[0] }}"| {{ prm[1] }}
           {%- endfor -%}
           {%- endfor %}
         </pre>

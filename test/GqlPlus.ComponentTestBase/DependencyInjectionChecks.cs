@@ -3,10 +3,7 @@ using System.Globalization;
 using System.Reflection;
 using System.Text;
 
-using Fluid;
-
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 using Xunit.Internal;
 
@@ -15,34 +12,11 @@ namespace GqlPlus;
 [Trait("Generate", "Html")]
 public abstract class DependencyInjectionChecks(IServiceCollection services)
 {
-  private const int MaxGroupSize = 5;
   private const string FunctionRequirement = "=>";
   private const string InstanceRequirement = "==";
   private const string ParentRequirement = "->";
 
-  private static readonly FluidParser s_parser = new();
-  private static readonly Map<IFluidTemplate> s_templates = [];
-  private static readonly TemplateOptions s_options = new();
-
   protected abstract string Label { get; }
-
-  static DependencyInjectionChecks()
-  {
-    s_options.FileProvider = new EmbeddedFileProvider(Assembly.GetAssembly(typeof(DependencyInjectionChecks))!, "GqlPlus.DI");
-    s_options.MemberAccessStrategy.Register<DiService>();
-    s_options.MemberAccessStrategy.Register<DiLink>();
-    s_options.MemberAccessStrategy.Register<TypeIdName>();
-  }
-
-  private static IFluidTemplate GetTemplate(string template)
-  {
-    if (!s_templates.TryGetValue(template, out IFluidTemplate? value)) {
-      value = s_parser.Parse("{% render '" + template + "' %}");
-      s_templates.TryAdd(template, value);
-    }
-
-    return value;
-  }
 
   private readonly Map<DiService> _diServices = DependencyInjectionServices(services);
 
@@ -170,138 +144,17 @@ public abstract class DependencyInjectionChecks(IServiceCollection services)
 
   [Fact]
   public void CheckFluidFiles()
-  {
-    IFileProvider files = s_options.FileProvider;
-
-    IDirectoryContents contents = files.GetDirectoryContents("");
-
-    contents.ShouldSatisfyAllConditions(Label,
-      c => c.Exists.ShouldBeTrue(),
-      c => c.ShouldNotBeEmpty(),
-      c => c.ShouldContain(fi => fi.Name == "pico.liquid"));
-  }
+    => DiFluid.CheckFiles(Label);
 
   [Fact]
   public void HtmlDependencyInjection()
-  {
-    IOrderedEnumerable<DiService> services = _diServices.Values
-      .OrderBy(s => (s.RequiredBy, s.Service.Name));
+    => DiFluid.WriteTree(Label, ServicesTree.ToMap(s => s.Name));
 
-    TestContext.Current.AddAttachment(Label + " services", services.Joined(s => $"{s}", Environment.NewLine));
-
-    TemplateContext context = new(s_options);
-    context.SetValue("name", Label);
-    context.SetValue("services", services);
-
-    IFluidTemplate template = GetTemplate("table");
-    template.Render(context).WriteHtmlFile("DI/Table", Label);
-  }
-
-  [Fact]
-  public void Force3dDependencyInjection()
-  {
-    DiLink[] links = [.. _diServices.Values
-      .SelectMany(s => s.Requires
-        .Select(r => new DiLink(s.Service.Safe, r.Value.Safe, r.Key)))];
-    string[] nodes = [.. links
-      .SelectMany(l => new string[] { l.From, l.To })
-      .Distinct()];
-
-    StringBuilder sb = new("Force 3D for ");
-    sb.AppendLine(Label);
-    foreach (DiLink link in links) {
-      sb.AppendLine(CultureInfo.InvariantCulture, $"{link.From} - {link.Style} > {link.To}");
-    }
-
-    TestContext.Current.AddAttachment(Label + " force 3D", sb.ToString());
-
-    TemplateContext context = new(s_options);
-    context.SetValue("name", Label);
-    context.SetValue("nodes", nodes);
-    context.SetValue("links", links);
-
-    IFluidTemplate template = GetTemplate("force3d");
-    template.Render(context).WriteHtmlFile("DI/Force-3D", Label);
-  }
-
-  private readonly HashSet<string> _ids = [];
-  private readonly List<DiService> _group = [];
-  private readonly HashSet<string> _groupIds = [];
-
-  [Fact]
-  public void DiagramDependencyInjection()
-  {
-    _ids.Clear();
-    Map<DiService[]> groups = [];
-
-    IOrderedEnumerable<DiService> services = _diServices.Values
-      .Where(s => s.Requires.Any())
-      .OrderBy(s => (s.Requires.Count - s.RequiredBy, s.Service.Name));
-
-    string name = "";
-    List<DiService> group = [];
-
-    _group.Clear();
-    _groupIds.Clear();
-    foreach (DiService di in services) {
-      if (_ids.Contains(di.Service.Id)) {
-        continue;
-      }
-
-      AddToGroup(di);
-      _ids.UnionWith(_groupIds);
-      _groupIds.Clear();
-
-      if (group.Count > MaxGroupSize || group.Count > 0 && group.Count < _group.Count) {
-        groups[name] = [.. group];
-        name = di.Service.Safe;
-        group.Clear();
-      } else if (string.IsNullOrWhiteSpace(name)) {
-        name = di.Service.Safe;
-      }
-
-      group.AddRange(_group);
-      _group.Clear();
-    }
-
-    if (group.Count > 0) {
-      groups[name] = [.. group];
-    }
-
-    TestContext.Current.AddAttachment(Label + " diagram groups", groups.Joined(kv => {
-      string details = kv.Value.Joined(v => $"  {v}", Environment.NewLine);
-      return kv.Key + ":" + Environment.NewLine + details;
-    }, Environment.NewLine));
-
-    TemplateContext context = new(s_options);
-    context.SetValue("name", Label);
-    context.SetValue("services", groups);
-
-    IFluidTemplate template = GetTemplate("diagram");
-    template.Render(context).WriteHtmlFile("DI/Diagram", Label);
-  }
-
-  private void AddToGroup(DiService di)
-  {
-    if (_groupIds.Contains(di.Service.Id)) {
-      return;
-    }
-
-    _group.Add(di);
-    _groupIds.Add(di.Service.Id);
-
-    foreach ((string key, TypeIdName prereq) in di.Requires) {
-      if (!_groupIds.Contains(prereq.Id)
-        && _diServices.TryGetValue(prereq.Id, out DiService? requires)) {
-        if (_ids.Contains(prereq.Id)) {
-          _group.Add(new(requires));
-          _groupIds.Add(requires.Service.Id);
-        } else {
-          AddToGroup(requires);
-        }
-      }
-    }
-  }
+  private IEnumerable<DiTree> ServicesTree
+    => _diServices.Values
+      .Select(s => new DiTree(s.Service.Safe, s.IsLink, s.RequiredBy) {
+        Requires = s.Requires.ToMap(r => r.Key, r => r.Value.Safe)
+      });
 
   private static readonly HashSet<string> s_optionalTypes = [
     "ILoggerFactory",
@@ -351,13 +204,6 @@ public sealed record TypeIdName
   public string Key { get; }
   public string Safe { get; }
   public TypeIdName? BaseName { get; }
-}
-
-public sealed class DiLink(string from, string to, string style)
-{
-  public string From { get; } = from;
-  public string To { get; } = to;
-  public string Style { get; } = style;
 }
 
 public sealed class DiService

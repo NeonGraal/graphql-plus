@@ -37,6 +37,8 @@ if ($Generate -eq "Html") {
 
 dotnet @test
 
+Write-Host ""
+
 if (-not $ClassTests) {
   ./check-links.ps1
   if (-not $?) {

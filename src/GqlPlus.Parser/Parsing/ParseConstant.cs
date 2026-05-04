@@ -1,4 +1,5 @@
-﻿using GqlPlus.Result;
+﻿using GqlPlus;
+using GqlPlus.Result;
 using GqlPlus.Token;
 
 namespace GqlPlus.Parsing;

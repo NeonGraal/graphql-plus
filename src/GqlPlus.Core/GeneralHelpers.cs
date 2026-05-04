@@ -12,16 +12,12 @@ public static class GeneralHelpers
 
   public static TValue GetValueOrCreate<TKey, TValue>(this IDictionary<TKey, TValue> dict, TKey key, Func<TKey, TValue> factory)
     where TKey : notnull
-  {
-    if (!dict.ThrowIfNull().TryGetValue(key, out TValue? value)) {
-      value = factory.ThrowIfNull().Invoke(key);
-      dict[key] = value;
-    }
+    => dict.ThrowIfNull().TryGetValue(key, out TValue? value) ? value : dict[key] = factory.ThrowIfNull().Invoke(key);
 
-    return value;
-  }
-
-  public static TValue GetValueOrDefault<TKey, TValue>(this IReadOnlyDictionary<TKey, TValue> dict, TKey key, TValue defaultValue)
+  public static TValue GetValueOr<TKey, TValue>(this IReadOnlyDictionary<TKey, TValue> dict, TKey key, Func<TKey, TValue> factory)
+    where TKey : notnull
+    => dict.ThrowIfNull().TryGetValue(key, out TValue? value) ? value : factory.ThrowIfNull().Invoke(key);
+  public static TValue GetValueOr<TKey, TValue>(this IReadOnlyDictionary<TKey, TValue> dict, TKey key, TValue defaultValue)
     where TKey : notnull
     => dict.ThrowIfNull().TryGetValue(key, out TValue? value) ? value : defaultValue;
 

@@ -20,8 +20,7 @@ internal class MergerRepositoryBuilder
     => this.FluentAction(b => {
       b.Mergers[typeof(TAst)] = factory;
       b.AllMergers[typeof(TService)] = factory;
-      b.AllMergerTypes.TryGetValue(typeof(TType), out List<Type>? list);
-      list ??= [];
+      List<Type> list = b.AllMergerTypes.GetValueOr(typeof(TType), []);
       b.AllMergerTypes[typeof(TType)] = list;
       if (!list.Contains(typeof(TService))) {
         list.Add(typeof(TService));

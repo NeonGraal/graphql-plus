@@ -21,14 +21,7 @@ public abstract class DependencyInjectionChecks(IServiceCollection services)
   private readonly Map<DiService> _diServices = DependencyInjectionServices(services);
 
   private static DiService GetOrCreate(Map<DiService> diServices, Type type)
-  {
-    if (!diServices.TryGetValue(type.FullTypeName(), out DiService? di)) {
-      di = new(type);
-      diServices[di.Service.Id] = di;
-    }
-
-    return di;
-  }
+    => diServices.GetValueOrCreate(type.FullTypeName(), k => new(type));
 
   internal static Map<DiService> DependencyInjectionServices(IServiceCollection services)
   {
@@ -108,10 +101,7 @@ public abstract class DependencyInjectionChecks(IServiceCollection services)
       return;
     }
 
-    if (!diServices.TryGetValue(baseName.Id, out DiService? baseService)) {
-      baseService = service.BaseService;
-      diServices[baseName.Id] = baseService;
-    }
+    DiService baseService = diServices.GetValueOrCreate(baseName.Id, _ => service.BaseService);
 
     service.Requires[ParentRequirement] = baseName;
   }

@@ -242,21 +242,16 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
   }
 
   private static string GetOrAddEncoder(Dictionary<string, string> encoderFields, string encoderType, string typePrefix)
-  {
-    if (encoderFields.TryGetValue(encoderType, out string? existing)) {
-      return existing;
-    }
+    => encoderFields.GetValueOrCreate(encoderType, k => {
+      string varName = GetEncoderVarName(encoderType, typePrefix);
+      string baseName = varName;
+      int suffix = 2;
+      while (encoderFields.ContainsValue(varName)) {
+        varName = baseName + suffix++;
+      }
 
-    string varName = GetEncoderVarName(encoderType, typePrefix);
-    string baseName = varName;
-    int suffix = 2;
-    while (encoderFields.ContainsValue(varName)) {
-      varName = baseName + suffix++;
-    }
-
-    encoderFields[encoderType] = varName;
-    return varName;
-  }
+      return varName;
+    });
 
   private static string GetEncoderVarName(string encoderType, string typePrefix)
   {

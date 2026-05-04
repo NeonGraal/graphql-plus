@@ -3,7 +3,8 @@
 namespace GqlPlus.Parsing;
 
 internal class ParserRepositoryBuilder
-  : BaseFactory<IParserRepository>, IParserRepositoryBuilder
+  : BaseFactory<IParserRepository>
+  , IParserRepositoryBuilder
 {
   internal readonly FactoryDict Singles = [];
   internal readonly FactoryDict Arrays = [];
@@ -11,6 +12,9 @@ internal class ParserRepositoryBuilder
   internal readonly FactoryDict InterfaceArrays = [];
   internal readonly FactoryDict Declarations = [];
   internal readonly Dictionary<Type, Type> Domains = [];
+
+  internal IEnumerable<Factory<object, IParserRepository>> AllFactories
+    => [.. Singles.Values, .. Arrays.Values, .. InterfaceSingles.Values, .. InterfaceArrays.Values, .. Declarations.Values];
 
   public IParserRepositoryBuilder AddSingle<T>(Factory<Parser<T>.I, IParserRepository> factory)
     => this.FluentAction(b => b.Singles[typeof(T)] = factory);

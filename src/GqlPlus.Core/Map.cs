@@ -14,6 +14,9 @@ public class Map<TMap>
     : base(map)
   { }
 
+  public TMap? GetValueOr(string key)
+    => TryGetValue(key, out TMap? value) ? value : default;
+
   public bool TryAdd(string key, TMap value)
   {
     if (ContainsKey(key)) {

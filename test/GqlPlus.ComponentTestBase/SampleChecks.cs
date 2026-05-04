@@ -144,11 +144,11 @@ public class SampleChecks
     => input is not null && input.Contains("object ", StringComparison.Ordinal);
 
   private static string PascalCase(string? input)
-    => string.Concat(TitleWords(input).Select(s => Abbreviations.TryGetValue(s, out string? abbr) ? abbr : s));
+    => string.Concat(TitleWords(input).Select(s => Abbreviations.GetValueOr(s, s)));
 
   private static string CamelCase(string? input)
     => string.Concat(TitleWords(input)
-      .Select(s => Abbreviations.TryGetValue(s, out string? abbr) ? abbr : s)
+      .Select(s => Abbreviations.GetValueOr(s, s))
       .Select((s, i) => i > 0 ? s : s.ToLowerInvariant()));
 
   public static readonly string[] Replacements = ["Dual", "Input", "Output"];

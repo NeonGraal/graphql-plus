@@ -21,6 +21,6 @@ internal class GeneratorRepository(
     => _typeGenerators.GetOrAdd(
       generatorType,
       k => [.. builder.TypeGenerators
-        .GetValueOrDefault(k, [])
+        .GetValueOr(k, [])
         .Select(f => (ITypeGenerator)f(this))]);
 }

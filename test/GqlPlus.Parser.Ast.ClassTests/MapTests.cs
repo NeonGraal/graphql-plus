@@ -9,7 +9,7 @@ public class MapTests
     Map<int> map = new() { { key, 1 } };
 
     // Act
-    int result = map.GetValueOrDefault(key, 0);
+    int result = map.GetValueOr(key, 0);
 
     // Assert
     result.ShouldBe(1);
@@ -22,7 +22,7 @@ public class MapTests
     Map<int> map = [];
 
     // Act
-    int result = map.GetValueOrDefault(key, 0);
+    int result = map.GetValueOr(key, 0);
 
     // Assert
     result.ShouldBe(0);

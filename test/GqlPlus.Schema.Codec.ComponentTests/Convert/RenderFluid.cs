@@ -1,7 +1,7 @@
 ﻿
 using Fluid;
 using Fluid.Values;
-
+using GqlPlus;
 using Microsoft.Extensions.FileProviders;
 
 namespace GqlPlus.Convert;
@@ -24,12 +24,9 @@ public static class RenderFluid
   private static IFluidTemplate GetTemplate(string template)
   {
     lock (s_templates) {
-      if (!s_templates.TryGetValue(template, out IFluidTemplate? value)) {
-        value = s_parser.Parse("{% render '" + template + "' %}");
-        s_templates.Add(template, value);
-      }
-
-      return value;
+      return s_templates.GetValueOrCreate(template,
+        k => s_parser.Parse("{% render '" + k + "' %}")
+          ?? throw new InvalidOperationException($"Failed to parse template '{k}'"));
     }
   }
 

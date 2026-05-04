@@ -117,9 +117,8 @@ public class BuildDataGenerator : IIncrementalGenerator
     details.AppendLine("  ];");
     details.AppendLine();
     details.AppendLine($"  public {className}()");
-    details.AppendLine("  {");
-    details.AppendLine("    foreach (string s in Strings) Add(s);");
-    details.AppendLine("  }");
+    details.AppendLine("    : base(Strings)");
+    details.AppendLine("  { }");
     details.AppendLine();
     details.AppendLine($"  public const string From = \"{details.From}/{directory}\";");
     details.AppendLine($"  public const string Collected = \"{details.Collected}\";");

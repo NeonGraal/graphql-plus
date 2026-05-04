@@ -51,7 +51,7 @@ internal class MergeAllTypes(
       foreach ((DomainLabelAst item, string enumType) in domain.Items
           .Cast<DomainLabelAst>()
           .Where(l => string.IsNullOrEmpty(l.EnumType))
-          .Select(l => (l, enumValues.TryGetValue(l.EnumItem.IfWhiteSpace(), out string? et) ? et : string.Empty))) {
+          .Select(l => (l, enumValues.GetValueOr(l.EnumItem.IfWhiteSpace(), string.Empty)))) {
         item.EnumType = enumType;
       }
     }

@@ -14,9 +14,8 @@ public class SamplesLeftRedValidGraphqlData
   ];
 
   public SamplesLeftRedValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Red/ValidGraphql";
   public const string Collected = "ManyFiles";
@@ -32,9 +31,8 @@ public class SamplesLeftGreenInValidGraphqlData
   ];
 
   public SamplesLeftGreenInValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Green/InValidGraphql";
   public const string Collected = "ManyFiles";
@@ -50,9 +48,8 @@ public class SamplesLeftGraphqlData
   ];
 
   public SamplesLeftGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Graphql";
   public const string Collected = "ManyFiles";
@@ -68,9 +65,8 @@ public class SamplesLeftYellowValidGraphqlData
   ];
 
   public SamplesLeftYellowValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Yellow/ValidGraphql";
   public const string Collected = "ManyFiles";
@@ -86,9 +82,8 @@ public class SamplesLeftPurpleInValidGraphqlData
   ];
 
   public SamplesLeftPurpleInValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Purple/InValidGraphql";
   public const string Collected = "ManyFiles";
@@ -104,9 +99,8 @@ public class SamplesLeftOrangeGraphqlData
   ];
 
   public SamplesLeftOrangeGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/OrangeGraphql";
   public const string Collected = "ManyFiles";
@@ -122,9 +116,8 @@ public class SamplesLeftBlueValidGraphqlData
   ];
 
   public SamplesLeftBlueValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Blue/ValidGraphql";
   public const string Collected = "ManyFiles";
@@ -140,9 +133,8 @@ public class SamplesLeftRedInValidGraphqlData
   ];
 
   public SamplesLeftRedInValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Red/InValidGraphql";
   public const string Collected = "ManyFiles";
@@ -157,9 +149,8 @@ public class SamplesLeftGreenGraphqlData
   ];
 
   public SamplesLeftGreenGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/GreenGraphql";
   public const string Collected = "ManyFiles";
@@ -174,9 +165,8 @@ public class SamplesLeftValidGraphqlData
   ];
 
   public SamplesLeftValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/ValidGraphql";
   public const string Collected = "ManyFiles";
@@ -191,9 +181,8 @@ public class SamplesLeftYellowInValidGraphqlData
   ];
 
   public SamplesLeftYellowInValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Yellow/InValidGraphql";
   public const string Collected = "ManyFiles";
@@ -208,9 +197,8 @@ public class SamplesLeftPurpleGraphqlData
   ];
 
   public SamplesLeftPurpleGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/PurpleGraphql";
   public const string Collected = "ManyFiles";
@@ -225,9 +213,8 @@ public class SamplesLeftOrangeValidGraphqlData
   ];
 
   public SamplesLeftOrangeValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Orange/ValidGraphql";
   public const string Collected = "ManyFiles";
@@ -242,9 +229,8 @@ public class SamplesLeftBlueInValidGraphqlData
   ];
 
   public SamplesLeftBlueInValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Blue/InValidGraphql";
   public const string Collected = "ManyFiles";
@@ -259,9 +245,8 @@ public class SamplesLeftRedGraphqlData
   ];
 
   public SamplesLeftRedGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/RedGraphql";
   public const string Collected = "ManyFiles";
@@ -276,9 +261,8 @@ public class SamplesLeftGreenValidGraphqlData
   ];
 
   public SamplesLeftGreenValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Green/ValidGraphql";
   public const string Collected = "ManyFiles";
@@ -293,9 +277,8 @@ public class SamplesLeftInValidGraphqlData
   ];
 
   public SamplesLeftInValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/InValidGraphql";
   public const string Collected = "ManyFiles";
@@ -310,9 +293,8 @@ public class SamplesLeftYellowGraphqlData
   ];
 
   public SamplesLeftYellowGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/YellowGraphql";
   public const string Collected = "ManyFiles";
@@ -327,9 +309,8 @@ public class SamplesLeftPurpleValidGraphqlData
   ];
 
   public SamplesLeftPurpleValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Purple/ValidGraphql";
   public const string Collected = "ManyFiles";
@@ -344,9 +325,8 @@ public class SamplesLeftOrangeInValidGraphqlData
   ];
 
   public SamplesLeftOrangeInValidGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Orange/InValidGraphql";
   public const string Collected = "ManyFiles";
@@ -361,9 +341,8 @@ public class SamplesLeftBlueGraphqlData
   ];
 
   public SamplesLeftBlueGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/BlueGraphql";
   public const string Collected = "ManyFiles";
@@ -379,9 +358,8 @@ public class SamplesLeftPurpleGqlData
   ];
 
   public SamplesLeftPurpleGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/PurpleGql";
   public const string Collected = "ManyFiles";
@@ -397,9 +375,8 @@ public class SamplesLeftOrangeValidGqlData
   ];
 
   public SamplesLeftOrangeValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Orange/ValidGql";
   public const string Collected = "ManyFiles";
@@ -415,9 +392,8 @@ public class SamplesLeftBlueInValidGqlData
   ];
 
   public SamplesLeftBlueInValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Blue/InValidGql";
   public const string Collected = "ManyFiles";
@@ -433,9 +409,8 @@ public class SamplesLeftRedGqlData
   ];
 
   public SamplesLeftRedGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/RedGql";
   public const string Collected = "ManyFiles";
@@ -451,9 +426,8 @@ public class SamplesLeftGreenValidGqlData
   ];
 
   public SamplesLeftGreenValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Green/ValidGql";
   public const string Collected = "ManyFiles";
@@ -469,9 +443,8 @@ public class SamplesLeftInValidGqlData
   ];
 
   public SamplesLeftInValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/InValidGql";
   public const string Collected = "ManyFiles";
@@ -487,9 +460,8 @@ public class SamplesLeftYellowGqlData
   ];
 
   public SamplesLeftYellowGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/YellowGql";
   public const string Collected = "ManyFiles";
@@ -505,9 +477,8 @@ public class SamplesLeftPurpleValidGqlData
   ];
 
   public SamplesLeftPurpleValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Purple/ValidGql";
   public const string Collected = "ManyFiles";
@@ -522,9 +493,8 @@ public class SamplesLeftOrangeInValidGqlData
   ];
 
   public SamplesLeftOrangeInValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Orange/InValidGql";
   public const string Collected = "ManyFiles";
@@ -539,9 +509,8 @@ public class SamplesLeftBlueGqlData
   ];
 
   public SamplesLeftBlueGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/BlueGql";
   public const string Collected = "ManyFiles";
@@ -556,9 +525,8 @@ public class SamplesLeftRedValidGqlData
   ];
 
   public SamplesLeftRedValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Red/ValidGql";
   public const string Collected = "ManyFiles";
@@ -573,9 +541,8 @@ public class SamplesLeftGreenInValidGqlData
   ];
 
   public SamplesLeftGreenInValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Green/InValidGql";
   public const string Collected = "ManyFiles";
@@ -590,9 +557,8 @@ public class SamplesLeftGqlData
   ];
 
   public SamplesLeftGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Gql";
   public const string Collected = "ManyFiles";
@@ -607,9 +573,8 @@ public class SamplesLeftYellowValidGqlData
   ];
 
   public SamplesLeftYellowValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Yellow/ValidGql";
   public const string Collected = "ManyFiles";
@@ -624,9 +589,8 @@ public class SamplesLeftPurpleInValidGqlData
   ];
 
   public SamplesLeftPurpleInValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Purple/InValidGql";
   public const string Collected = "ManyFiles";
@@ -641,9 +605,8 @@ public class SamplesLeftOrangeGqlData
   ];
 
   public SamplesLeftOrangeGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/OrangeGql";
   public const string Collected = "ManyFiles";
@@ -658,9 +621,8 @@ public class SamplesLeftBlueValidGqlData
   ];
 
   public SamplesLeftBlueValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Blue/ValidGql";
   public const string Collected = "ManyFiles";
@@ -675,9 +637,8 @@ public class SamplesLeftRedInValidGqlData
   ];
 
   public SamplesLeftRedInValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Red/InValidGql";
   public const string Collected = "ManyFiles";
@@ -692,9 +653,8 @@ public class SamplesLeftGreenGqlData
   ];
 
   public SamplesLeftGreenGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/GreenGql";
   public const string Collected = "ManyFiles";
@@ -709,9 +669,8 @@ public class SamplesLeftValidGqlData
   ];
 
   public SamplesLeftValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/ValidGql";
   public const string Collected = "ManyFiles";
@@ -726,9 +685,8 @@ public class SamplesLeftYellowInValidGqlData
   ];
 
   public SamplesLeftYellowInValidGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Left/Yellow/InValidGql";
   public const string Collected = "ManyFiles";

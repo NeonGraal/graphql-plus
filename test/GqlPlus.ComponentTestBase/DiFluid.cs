@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
-using Argon;
 using Fluid;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.Extensions.FileProviders;
 
 namespace GqlPlus;
@@ -25,13 +25,11 @@ public static class DiFluid
 
   private static IFluidTemplate GetTemplate(string template)
   {
-    if (!s_templates.TryGetValue(template, out IFluidTemplate? value)) {
-      value = s_parser.Parse("{% render '" + template + "' %}")
-        ?? throw new InvalidOperationException($"Failed to parse template '{template}'");
-      s_templates.TryAdd(template, value);
+    lock (s_templates) {
+      return s_templates.GetValueOrCreate(template,
+        k => s_parser.Parse("{% render '" + k + "' %}")
+          ?? throw new InvalidOperationException($"Failed to parse template '{k}'"));
     }
-
-    return value;
   }
 
   public static void CheckFiles(string label)
@@ -133,6 +131,12 @@ public static class DiFluid
       }
     }
   }
+
+  public static string SafeTypeName(this Type type)
+    => type
+      .ExpandTypeName()
+      .Replace('<', '(')
+      .Replace('>', ')');
 }
 
 public sealed class DiTree(string name, bool isHref, int requiredBy)

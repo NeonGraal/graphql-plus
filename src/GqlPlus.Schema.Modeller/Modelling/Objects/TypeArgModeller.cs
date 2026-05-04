@@ -9,13 +9,13 @@ internal class TypeArgModeller(
   protected override TypeArgModel ToModel(IAstTypeArg ast, IMap<TypeKindModel> typeKinds)
   {
     if (ast.EnumValue is null) {
-      typeKinds.TryGetValue(ast.Name, out TypeKindModel typeKind);
+      TypeKindModel typeKind = typeKinds.GetValueOr(ast.Name);
       return new(typeKind, ast.Name, ast.Description) {
         IsTypeParam = ast.IsTypeParam,
       };
     }
 
-    typeKinds.TryGetValue(ast.EnumValue.EnumType, out TypeKindModel enumKind);
+    TypeKindModel enumKind = typeKinds.GetValueOr(ast.EnumValue.EnumType);
     return new(enumKind, ast.EnumValue.EnumType, ast.Description) {
       EnumValue = _enumValue.ToModel(ast.EnumValue, typeKinds),
     };

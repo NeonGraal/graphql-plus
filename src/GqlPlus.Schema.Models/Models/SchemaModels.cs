@@ -35,14 +35,14 @@ public record class SchemaModel(
     => Categories.ToMap(c => c.Key,
       c => new CategoriesModel() {
         And = c.Value,
-        Type = Types.TryGetValue(c.Key, out BaseTypeModel? type) ? type : null,
+        Type = Types.GetValueOr(c.Key),
       });
 
   public IMap<DirectivesModel> GetDirectives(FilterModel? filter)
     => Directives.ToMap(d => d.Key,
       d => new DirectivesModel() {
         And = d.Value,
-        Type = Types.TryGetValue(d.Key, out BaseTypeModel? type) ? type : null,
+        Type = Types.GetValueOr(d.Key),
       });
 
   public IMap<BaseTypeModel> GetTypes(TypeFilterModel? filter) => Types;

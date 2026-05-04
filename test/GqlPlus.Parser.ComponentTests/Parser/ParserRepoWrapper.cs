@@ -39,9 +39,7 @@ internal sealed class ParserRepoWrapper(
   public Parser<T>.L ParserFor<T>([CallerMemberName] string callerName = "")
   {
     string targetName = typeof(T).SafeTypeName();
-    StackFrame frame = new(1);
-    MethodBase? method = frame.GetMethod();
-    Type? callerType = method?.DeclaringType;
+    Type? callerType = ResolvedType();
     if (callerType is not null) {
       string name = callerType.SafeTypeName();
       if (relationships.TryGetValue(name, out DiTree? tree)) {
@@ -54,6 +52,32 @@ internal sealed class ParserRepoWrapper(
     }
 
     return repo.ParserFor<T>(callerName);
+  }
+
+  private Type? ResolvedType()
+  {
+    int skipFrames = 1;
+
+    while (FrameCallerType(skipFrames) == typeof(ParserRepoWrapper)) {
+      skipFrames++;
+    }
+
+    Type? callerType = null;
+    Type? lastType = null;
+    do {
+      lastType = callerType;
+      callerType = FrameCallerType(skipFrames);
+      if (callerType == typeof(ParserRepoWrapper)) {
+        return lastType;
+      }
+
+      skipFrames++;
+    } while (callerType is { ContainsGenericParameters: true });
+
+    return callerType;
+
+    static Type? FrameCallerType(int skip)
+      => new StackFrame(skip).GetMethod()?.DeclaringType;
   }
 
   ParserArray<TInterface, TFor>.LA IParserRepository.ArrayFor<TInterface, TFor>(string callerName)

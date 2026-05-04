@@ -1,5 +1,4 @@
 ﻿// Expose Program class for WebApplicationFactory discovery in tests
-#pragma warning disable ASP0027 // Unnecessary public Program class declaration
 #pragma warning disable CA1050 // Declare types in namespaces
 public partial class Program
 {
@@ -15,4 +14,3 @@ public partial class Program
   }
 }
 #pragma warning restore CA1050 // Declare types in namespaces
-#pragma warning restore ASP0027 // Unnecessary public Program class declaration

@@ -49,4 +49,6 @@ internal class ParseDomainLabel(
 
     result.Labels = items.ArrayOf<DomainLabelAst>();
   }
+
+  internal static ParseDomainLabel Factory(IParserRepository p) => new(p);
 }

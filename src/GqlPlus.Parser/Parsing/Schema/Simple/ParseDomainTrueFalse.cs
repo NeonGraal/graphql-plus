@@ -39,4 +39,6 @@ internal class ParseDomainTrueFalse(
 
   private static DomainTrueFalseAst DefaultTrueFalse(ITokenizer tokens, bool value)
     => new(tokens.At, "", false, value);
+
+  internal static ParseDomainTrueFalse Factory(IParserRepository p) => new(p);
 }

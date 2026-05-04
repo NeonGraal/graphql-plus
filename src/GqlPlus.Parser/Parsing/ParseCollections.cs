@@ -42,6 +42,8 @@ internal class ParseCollections
     IEnumerable<IAstModifier> ReturnList()
       => list;
   }
+
+  internal static ParseCollections Factory(IParserRepository _) => new();
 }
 
 public interface IParserCollections

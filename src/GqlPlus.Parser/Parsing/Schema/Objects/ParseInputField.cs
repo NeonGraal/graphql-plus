@@ -29,4 +29,6 @@ internal class ParseInputField(
 
   protected override IResultArray<IAstInputParam> FieldParam(ITokenizer tokens)
     => 0.EmptyArray<IAstInputParam>();
+
+  internal static ParseInputField Factory(IParserRepository p) => new(p);
 }

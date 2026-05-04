@@ -31,4 +31,6 @@ internal class ParseConstant(
     => fields => new ConstantAst(at, fields);
   protected override Func<IEnumerable<IAstConstant>, IAstConstant> NewList(ITokenAt at)
     => list => new ConstantAst(at, list);
+
+  internal static ParseConstant Factory(IParserRepository p) => new(p);
 }

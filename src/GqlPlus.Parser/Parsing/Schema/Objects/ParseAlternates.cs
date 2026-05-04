@@ -74,4 +74,6 @@ internal class ParseAlternates(
     result.Add(alternate);
     return null;
   }
+
+  internal static ParseAlternates Factory(IParserRepository p) => new(p);
 }

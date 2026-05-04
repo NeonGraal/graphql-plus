@@ -39,4 +39,6 @@ internal class ParseArgValue(
     => fields => new ArgAst(at, fields);
   protected override Func<IEnumerable<IAstArg>, IAstArg> NewList(ITokenAt at)
     => list => new ArgAst(at, list);
+
+  internal static ParseArgValue Factory(IParserRepository p) => new(p);
 }

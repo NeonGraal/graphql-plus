@@ -37,4 +37,6 @@ internal class ParseVariables(
         ? list.OkArray()
         : tokens.PartialArray(label, "')'.", () => list);
   }
+
+  internal static ParseVariables Factory(IParserRepository p) => new(p);
 }

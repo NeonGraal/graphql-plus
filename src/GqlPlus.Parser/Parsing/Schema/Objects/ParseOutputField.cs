@@ -26,4 +26,6 @@ internal class ParseOutputField(
 
   protected override IResultArray<IAstInputParam> FieldParam(ITokenizer tokens)
     => _parameter.Parse(tokens, "Output");
+
+  internal static ParseOutputField Factory(IParserRepository p) => new(p);
 }

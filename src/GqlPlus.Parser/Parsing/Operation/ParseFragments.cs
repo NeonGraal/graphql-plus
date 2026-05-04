@@ -63,6 +63,8 @@ internal class ParseStartFragments(
     => tokens.Take('&');
   protected override bool TypePrefix(ref ITokenizer tokens)
     => tokens.Take(':');
+
+  internal static ParseStartFragments Factory(IParserRepository p) => new(p);
 }
 
 internal class ParseEndFragments(
@@ -73,6 +75,8 @@ internal class ParseEndFragments(
     => tokens.Take("fragment") || tokens.Take('&');
   protected override bool TypePrefix(ref ITokenizer tokens)
     => tokens.Take("on") || tokens.Take(':');
+
+  internal static ParseEndFragments Factory(IParserRepository p) => new(p);
 }
 
 public interface IParserStartFragments

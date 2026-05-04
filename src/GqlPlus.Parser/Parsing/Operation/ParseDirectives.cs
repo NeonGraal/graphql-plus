@@ -37,4 +37,6 @@ internal class ParseDirectives(
 
     return result.OkArray();
   }
+
+  internal static ParseDirectives Factory(IParserRepository p) => new(p);
 }

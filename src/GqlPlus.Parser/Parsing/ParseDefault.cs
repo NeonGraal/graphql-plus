@@ -14,6 +14,8 @@ internal class ParseDefault(
     => tokens.Take('=') ? _constant.Parse(tokens, "Default").MapEmpty(
           () => tokens.Error<IAstConstant>("Default", "value after '='")
         ) : default(IAstConstant).Empty();
+
+  internal static ParseDefault Factory(IParserRepository p) => new(p);
 }
 
 public interface IParserDefault

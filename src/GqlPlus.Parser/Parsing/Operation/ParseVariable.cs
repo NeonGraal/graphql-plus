@@ -47,4 +47,6 @@ internal class ParseVariable(
       ? variable.Ok<IAstVariable>()
       : directives.AsResult<IAstVariable>(variable);
   }
+
+  internal static ParseVariable Factory(IParserRepository p) => new(p);
 }

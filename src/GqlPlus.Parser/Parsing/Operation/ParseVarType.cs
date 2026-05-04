@@ -24,6 +24,8 @@ internal class ParseVarType : IParserVarType
 
     return "".Empty();
   }
+
+  internal static ParseVarType Factory(IParserRepository _) => new();
 }
 
 public interface IParserVarType : Parser<string>.I;

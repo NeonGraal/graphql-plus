@@ -19,4 +19,6 @@ internal class ParseTypeRef
       return tokens.Error<IAstTypeRef>(label, "type name");
     }
   }
+
+  internal static ParseTypeRef Factory(IParserRepository _) => new();
 }

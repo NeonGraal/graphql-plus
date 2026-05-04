@@ -14,6 +14,8 @@ internal class EnumParser<TEnum>
           ? result.Ok()
           : tokens.Error(label, "valid enum value", result)
         : default(TEnum).Empty();
+
+  internal static EnumParser<TEnum> Factory(IParserRepository _) => new();
 }
 
 public interface IEnumParser<TEnum>

@@ -93,4 +93,6 @@ internal class ParseTypeArgs
 
     return null;
   }
+
+  internal static ParseTypeArgs Factory(IParserRepository _) => new();
 }

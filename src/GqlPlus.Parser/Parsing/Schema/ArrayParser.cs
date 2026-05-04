@@ -27,4 +27,6 @@ internal class ArrayParser<TItem>(
 
     return result.OkArray();
   }
+
+  internal static ArrayParser<TItem> Factory(IParserRepository p) => new(p);
 }

@@ -64,4 +64,6 @@ internal class ParseSelection(
 
     return null;
   }
+
+  internal static ParseSelection Factory(IParserRepository p) => new(p);
 }

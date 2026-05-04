@@ -48,4 +48,6 @@ internal class ParseObjBase(
 
     return default(IAstObjBase).Empty();
   }
+
+  internal static ParseObjBase Factory(IParserRepository p) => new(p);
 }

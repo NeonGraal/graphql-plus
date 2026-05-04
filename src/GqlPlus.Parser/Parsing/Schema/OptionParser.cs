@@ -25,6 +25,8 @@ internal class OptionParser<TOption>(
 
     return default(TOption).Empty();
   }
+
+  internal static OptionParser<TOption> Factory(IParserRepository p) => new(p);
 }
 
 public interface IOptionParser<TOption>

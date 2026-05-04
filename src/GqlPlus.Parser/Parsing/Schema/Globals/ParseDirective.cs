@@ -24,6 +24,8 @@ internal class ParseDirective(
       Parameter = partial.Params.FirstOrDefault(),
       Option = partial.Option ?? DirectiveOption.Unique,
     };
+
+  internal static ParseDirective Factory(IParserRepository p) => new(p);
 }
 
 internal class DirectiveName
@@ -31,6 +33,8 @@ internal class DirectiveName
 {
   public bool ParseName(ITokenizer tokens, [NotNullWhen(true)] out string? name, out TokenAt at)
     => tokens.Prefix('@', out name, out at);
+
+  internal static DirectiveName Factory(IParserRepository _) => new();
 }
 
 internal interface IDirectiveName
@@ -59,4 +63,6 @@ internal class ParseDirectiveDefinition(
       ? tokens.Partial(label, "at least one location", () => locations)
       : locations.Ok();
   }
+
+  internal static ParseDirectiveDefinition Factory(IParserRepository p) => new(p);
 }

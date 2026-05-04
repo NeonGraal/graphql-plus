@@ -47,4 +47,6 @@ internal class ParseObjectDefinition<TObjField>(
       ? objectAlternates.AsPartial(result)
       : tokens.End(label, () => result);
   }
+
+  internal static ParseObjectDefinition<TObjField> Factory(IParserRepository p) => new(p);
 }

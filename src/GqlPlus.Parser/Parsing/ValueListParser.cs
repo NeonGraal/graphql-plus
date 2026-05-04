@@ -32,4 +32,6 @@ internal sealed class ValueListParser<TValue>(
 
     return list.OkArray();
   }
+
+  internal static ValueListParser<TValue> Factory(IParserRepository p) => new(p);
 }

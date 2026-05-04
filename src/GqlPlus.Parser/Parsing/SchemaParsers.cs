@@ -11,82 +11,82 @@ public static class SchemaParsers
   public static IParserRepositoryBuilder AddSchemaParsers([NotNull] this IParserRepositoryBuilder builder)
     => builder
       .AddNullParsers()
-      .AddArray(_ => new ParseAliases())
-      .AddSingle(_ => new ParseTypeRef())
-      .AddInterfaceSingle<ISimpleName>(_ => new SimpleName())
+      .AddArray(ParseAliases.Factory)
+      .AddSingle(ParseTypeRef.Factory)
+      .AddInterfaceSingle<ISimpleName>(SimpleName.Factory)
       .AddSchemaCategoryParsers()
       .AddSchemaDirectiveParsers()
       .AddSchemaOptionParsers()
       .AddSchemaSimpleParsers()
       .AddSchemaObjectParsers()
-      .AddSingle(p => new ParseSchema(p));
+      .AddSingle(ParseSchema.Factory);
 
   public static IParserRepositoryBuilder AddSchemaCategoryParsers([NotNull] this IParserRepositoryBuilder builder)
     => builder
-      .AddInterfaceSingle<ICategoryName>(_ => new CategoryName())
+      .AddInterfaceSingle<ICategoryName>(CategoryName.Factory)
       .AddOption<CategoryOption>()
-      .AddSingle(p => new ParseCategoryDefinition(p))
-      .AddDeclarationParser("category", p => new ParseCategory(p));
+      .AddSingle(ParseCategoryDefinition.Factory)
+      .AddDeclarationParser("category", ParseCategory.Factory);
 
   public static IParserRepositoryBuilder AddSchemaDirectiveParsers([NotNull] this IParserRepositoryBuilder builder)
     => builder
-      .AddInterfaceSingle<IDirectiveName>(_ => new DirectiveName())
+      .AddInterfaceSingle<IDirectiveName>(DirectiveName.Factory)
       .AddOption<DirectiveOption>()
       .AddEnum<DirectiveLocation>()
-      .AddSingle(p => new ParseDirectiveDefinition(p))
-      .AddDeclarationParser("directive", p => new ParseDirective(p));
+      .AddSingle(ParseDirectiveDefinition.Factory)
+      .AddDeclarationParser("directive", ParseDirective.Factory);
 
   public static IParserRepositoryBuilder AddSchemaOptionParsers([NotNull] this IParserRepositoryBuilder builder)
     => builder
-      .AddSingle(p => new ParseOptionDefinition(p))
-      .AddSingle(p => new ParseOptionSetting(p))
-      .AddDeclarationParser("option", p => new ParseOption(p));
+      .AddSingle(ParseOptionDefinition.Factory)
+      .AddSingle(ParseOptionSetting.Factory)
+      .AddDeclarationParser("option", ParseOption.Factory);
 
   public static IParserRepositoryBuilder AddSchemaSimpleParsers([NotNull] this IParserRepositoryBuilder builder)
     => builder
       .AddSchemaDomainParsers()
       // Enum
-      .AddSingle(p => new ParseEnumDefinition(p))
-      .AddSingle(p => new ParseEnumLabel(p))
-      .AddDeclarationParser("enum", p => new ParseEnum(p))
+      .AddSingle(ParseEnumDefinition.Factory)
+      .AddSingle(ParseEnumLabel.Factory)
+      .AddDeclarationParser("enum", ParseEnum.Factory)
       // Union
-      .AddSingle(p => new ParseUnionDefinition(p))
-      .AddSingle(_ => new ParseUnionMember())
-      .AddDeclarationParser("union", p => new ParseUnion(p));
+      .AddSingle(ParseUnionDefinition.Factory)
+      .AddSingle(ParseUnionMember.Factory)
+      .AddDeclarationParser("union", ParseUnion.Factory);
 
   public static IParserRepositoryBuilder AddSchemaDomainParsers([NotNull] this IParserRepositoryBuilder builder)
     => builder
-      .AddSingle(p => new ParseDomainDefinition(p))
+      .AddSingle(ParseDomainDefinition.Factory)
       .AddEnum<DomainKind>()
-      .AddDomainParser(p => new ParseDomainTrueFalse(p))
-      .AddDomainParser(p => new ParseDomainLabel(p))
-      .AddDomainParser(p => new ParseDomainRange(p))
-      .AddDomainParser(p => new ParseDomainRegex(p))
-      .AddDeclarationParser("domain", p => new ParseDomain(p));
+      .AddDomainParser(ParseDomainTrueFalse.Factory)
+      .AddDomainParser(ParseDomainLabel.Factory)
+      .AddDomainParser(ParseDomainRange.Factory)
+      .AddDomainParser(ParseDomainRegex.Factory)
+      .AddDeclarationParser("domain", ParseDomain.Factory);
 
   public static IParserRepositoryBuilder AddSchemaObjectParsers([NotNull] this IParserRepositoryBuilder builder)
     => builder
-      .AddArray(_ => new ParseTypeParams())
-      .AddArray(p => new ParseAlternates(p))
-      .AddSingle(p => new ParseObjBase(p))
-      .AddArray(_ => new ParseTypeArgs())
-      .AddArray(p => new ParseInputParams(p))
+      .AddArray(ParseTypeParams.Factory)
+      .AddArray(ParseAlternates.Factory)
+      .AddSingle(ParseObjBase.Factory)
+      .AddArray(ParseTypeArgs.Factory)
+      .AddArray(ParseInputParams.Factory)
       .AddSchemaObjectTypeParsers();
 
   public static IParserRepositoryBuilder AddSchemaObjectTypeParsers([NotNull] this IParserRepositoryBuilder builder)
     => builder
-      .AddObjectParser(TypeKind.Dual, p => new ParseDualField(p))
-      .AddObjectParser(TypeKind.Input, p => new ParseInputField(p))
-      .AddObjectParser(TypeKind.Output, p => new ParseOutputField(p));
+      .AddObjectParser(TypeKind.Dual, ParseDualField.Factory)
+      .AddObjectParser(TypeKind.Input, ParseInputField.Factory)
+      .AddObjectParser(TypeKind.Output, ParseOutputField.Factory);
 
   private static IParserRepositoryBuilder AddEnum<TEnum>(this IParserRepositoryBuilder builder)
     where TEnum : struct
-    => builder.AddInterfaceSingle<IEnumParser<TEnum>>(_ => new EnumParser<TEnum>());
+    => builder.AddInterfaceSingle<IEnumParser<TEnum>>(EnumParser<TEnum>.Factory);
 
   private static IParserRepositoryBuilder AddOption<TOption>(this IParserRepositoryBuilder builder)
     where TOption : struct
     => builder
-      .AddInterfaceSingle<IOptionParser<TOption>>(p => new OptionParser<TOption>(p))
+      .AddInterfaceSingle<IOptionParser<TOption>>(OptionParser<TOption>.Factory)
       .AddEnum<TOption>();
 
   [SuppressMessage("Globalization", "CA1308:Normalize strings to uppercase")]
@@ -94,7 +94,7 @@ public static class SchemaParsers
     where TObjField : IAstObjField
     => builder
       .AddSingle(factory)
-      .AddSingle(p => new ParseObjectDefinition<TObjField>(p))
+      .AddSingle(ParseObjectDefinition<TObjField>.Factory)
       .AddDeclarationParser(fieldKind.ToString().ToLowerInvariant(), p => new ObjectParser<TObjField>(fieldKind, p));
 
   private static IParserRepositoryBuilder AddDeclarationParser<TObject>(this IParserRepositoryBuilder builder, string selector, Factory<Parser<TObject>.I, IParserRepository> factory)
@@ -106,12 +106,12 @@ public static class SchemaParsers
   private static IParserRepositoryBuilder AddDomainParser<TDomain>(this IParserRepositoryBuilder builder, Factory<Parser<TDomain>.I, IParserRepository> factory)
     => builder
       .AddSingle(factory)
-      .AddArray(p => new ArrayParser<TDomain>(p))
+      .AddArray(ArrayParser<TDomain>.Factory)
       .AddDomain<TDomain>();
 
   private static IParserRepositoryBuilder AddNullParsers(this IParserRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      .AddArray(_ => new ParseNulls())
-      .AddInterfaceSingle<IOptionParser<NullOption>>(_ => new ParseNullOption())
-      .AddInterfaceSingle<IEnumParser<NullOption>>(_ => new ParseNullOption());
+      .AddArray(ParseNulls.Factory)
+      .AddInterfaceSingle<IOptionParser<NullOption>>(ParseNullOption.Factory)
+      .AddInterfaceSingle<IEnumParser<NullOption>>(ParseNullOption.Factory);
 }

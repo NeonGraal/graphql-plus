@@ -99,6 +99,8 @@ internal class ParseArg(
 
     return tokens.Error("Arg", "a value", more);
   }
+
+  internal static ParseArg Factory(IParserRepository p) => new(p);
 }
 
 public interface IParserArg

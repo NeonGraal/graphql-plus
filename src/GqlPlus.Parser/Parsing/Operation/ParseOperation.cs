@@ -111,4 +111,6 @@ internal class ParseOperation(
         : new(at) { Category = category }
       : new(at);
   }
+
+  internal static ParseOperation Factory(IParserRepository p) => new(p);
 }

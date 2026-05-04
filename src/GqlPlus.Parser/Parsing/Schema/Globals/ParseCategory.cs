@@ -26,6 +26,8 @@ internal class ParseCategory(
       Aliases = partial.Aliases,
       Option = partial.Option ?? CategoryOption.Parallel,
     };
+
+  internal static ParseCategory Factory(IParserRepository p) => new(p);
 }
 
 internal record CategoryOutput(IAstTypeRef Output)
@@ -45,6 +47,8 @@ internal class CategoryName
 
     return true;
   }
+
+  internal static CategoryName Factory(IParserRepository _) => new();
 }
 
 internal interface ICategoryName : INameParser;
@@ -72,4 +76,6 @@ internal class ParseCategoryDefinition(
     modifiers.Optional(value => result.Modifiers = [.. value]);
     return tokens.End(label, () => result);
   }
+
+  internal static ParseCategoryDefinition Factory(IParserRepository p) => new(p);
 }

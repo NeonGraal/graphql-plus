@@ -17,4 +17,6 @@ internal class ParseUnionMember
       ? new UnionMemberAst(at, value, description).Ok<IAstUnionMember>()
       : tokens.Error<IAstUnionMember>(label, "member");
   }
+
+  internal static ParseUnionMember Factory(IParserRepository _) => new();
 }

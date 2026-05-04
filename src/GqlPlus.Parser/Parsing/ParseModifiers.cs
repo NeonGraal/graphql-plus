@@ -26,4 +26,6 @@ internal class ParseModifiers(
 
     return list.OkArray();
   }
+
+  internal static ParseModifiers Factory(IParserRepository p) => new(p);
 }

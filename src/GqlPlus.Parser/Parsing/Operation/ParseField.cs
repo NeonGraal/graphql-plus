@@ -49,4 +49,6 @@ internal class ParseField(
       ? selections.AsPartial<IAstField>(result)
       : result.Ok<IAstField>();
   }
+
+  internal static ParseField Factory(IParserRepository p) => new(p);
 }

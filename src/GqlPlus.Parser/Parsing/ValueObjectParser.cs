@@ -33,4 +33,6 @@ internal class ValueObjectParser<TValue>(
 
     return result.Ok<IAstFields<TValue>>();
   }
+
+  internal static ValueObjectParser<TValue> Factory(IParserRepository p) => new(p);
 }

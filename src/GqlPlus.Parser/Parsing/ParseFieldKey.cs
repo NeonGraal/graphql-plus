@@ -23,4 +23,6 @@ internal class ParseFieldKey(
     IResult<IAstEnumValue> enumResult = _parseEnumValue.Parse(tokens, label);
     return enumResult.SelectOk(e => new FieldKeyAst(e) as IAstFieldKey);
   }
+
+  internal static ParseFieldKey Factory(IParserRepository p) => new(p);
 }

@@ -51,4 +51,6 @@ internal class ParseTypeParams
     constraint = "";
     return false;
   }
+
+  internal static ParseTypeParams Factory(IParserRepository _) => new();
 }

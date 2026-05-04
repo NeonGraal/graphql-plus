@@ -71,4 +71,6 @@ internal class ParseDomainRange(
     DomainDefinition result,
     IAstDomainRange[] items
   ) => result.Numbers = items.ArrayOf<DomainRangeAst>();
+
+  internal static ParseDomainRange Factory(IParserRepository p) => new(p);
 }

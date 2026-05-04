@@ -47,4 +47,6 @@ internal class ParseInputParams(
 
     return list.Count == 0 ? tokens.ErrorArray(label, "at least one parameter after '('", list) : list.OkArray();
   }
+
+  internal static ParseInputParams Factory(IParserRepository p) => new(p);
 }

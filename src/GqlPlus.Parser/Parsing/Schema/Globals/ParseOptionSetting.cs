@@ -24,4 +24,6 @@ internal class ParseOptionSetting(
       value => new OptionSettingAst(at, name, description, value),
       () => tokens.Error<IAstSchemaSetting>(label, "Value"));
   }
+
+  internal static ParseOptionSetting Factory(IParserRepository p) => new(p);
 }

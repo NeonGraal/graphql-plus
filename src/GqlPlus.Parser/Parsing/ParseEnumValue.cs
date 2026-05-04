@@ -28,4 +28,6 @@ internal class ParseEnumValue
 
     return default(IAstEnumValue).Empty();
   }
+
+  internal static ParseEnumValue Factory(IParserRepository _) => new();
 }

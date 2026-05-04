@@ -37,4 +37,6 @@ internal class ParseDomainRegex(
     IAstDomainRegex[] items
   )
     => result.Regexes = items.ArrayOf<DomainRegexAst>();
+
+  internal static ParseDomainRegex Factory(IParserRepository p) => new(p);
 }

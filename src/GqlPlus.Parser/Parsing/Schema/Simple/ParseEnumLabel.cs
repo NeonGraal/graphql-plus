@@ -27,4 +27,6 @@ internal class ParseEnumLabel(
 
     return enumAliases.AsPartial<IAstEnumLabel>(enumLabel);
   }
+
+  internal static ParseEnumLabel Factory(IParserRepository p) => new(p);
 }

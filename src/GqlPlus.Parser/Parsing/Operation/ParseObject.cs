@@ -39,4 +39,6 @@ internal class ParseObject(
       ? tokens.PartialArray(label, "at least one field or selection", () => fields)
       : fields.OkArray();
   }
+
+  internal static ParseObject Factory(IParserRepository p) => new(p);
 }

@@ -63,6 +63,8 @@ internal class ParseDomain(
       Aliases = partial.Aliases,
       Description = partial.Description,
     };
+
+  internal static ParseDomain Factory(IParserRepository p) => new(p);
 }
 
 public class DomainDefinition
@@ -111,4 +113,6 @@ internal class ParseDomainDefinition
       }
     }
   }
+
+  internal static ParseDomainDefinition Factory(IParserRepository p) => new(p);
 }

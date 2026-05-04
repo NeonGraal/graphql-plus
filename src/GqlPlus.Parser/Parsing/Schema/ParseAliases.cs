@@ -25,6 +25,8 @@ internal class ParseAliases
     return aliases.OkArray();
   }
 
+  internal static ParseAliases Factory(IParserRepository _) => new();
+
   public static bool ParseAlias(ITokenizer tokens, [NotNullWhen(true)] out string? alias)
   {
     if (tokens.Identifier(out alias)) {

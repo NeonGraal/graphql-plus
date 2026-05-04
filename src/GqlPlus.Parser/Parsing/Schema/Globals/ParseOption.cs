@@ -19,6 +19,8 @@ internal class ParseOption(
     => new OptionDeclAst(partial.At, partial.Name, partial.Description) {
       Aliases = partial.Aliases,
     };
+
+  internal static ParseOption Factory(IParserRepository p) => new(p);
 }
 
 internal class OptionDefinition
@@ -49,4 +51,6 @@ internal class ParseOptionDefinition(
     result.Settings = values.ArrayOf<OptionSettingAst>();
     return result.Ok();
   }
+
+  internal static ParseOptionDefinition Factory(IParserRepository p) => new(p);
 }

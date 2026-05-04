@@ -59,4 +59,6 @@ internal class ParseSchema
 
     return ast.Ok<IAstSchema>();
   }
+
+  internal static ParseSchema Factory(IParserRepository p) => new(p);
 }

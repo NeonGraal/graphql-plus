@@ -1,9 +1,8 @@
-﻿using System.Runtime.CompilerServices;
-using GqlPlus.Parsing.Schema;
+﻿using GqlPlus.Parsing.Schema;
 using GqlPlus.Parsing.Schema.Simple;
 using Microsoft.Extensions.Logging;
 
-namespace GqlPlus.Parser;
+namespace GqlPlus.Parsing;
 
 public class ParserRepositoryTests(ITestOutputHelper outputHelper)
 {
@@ -22,7 +21,7 @@ public class ParserRepositoryTests(ITestOutputHelper outputHelper)
 
 internal sealed class ParserRepoWrapper(
   IParserRepository repo
-) : RepoWrapperBase<IParserRepository, ParserRepoWrapper>(repo)
+) : RepositoryWrapperBase<IParserRepository, ParserRepoWrapper>(repo)
   , IParserRepository
 {
   public override IParserRepository Wrapper => this;

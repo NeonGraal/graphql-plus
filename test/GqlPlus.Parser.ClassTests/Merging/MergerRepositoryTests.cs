@@ -1,9 +1,7 @@
-﻿using System.Runtime.CompilerServices;
-using GqlPlus.Ast.Schema;
-using GqlPlus.Merging;
+﻿using GqlPlus.Ast.Schema;
 using Microsoft.Extensions.Logging;
 
-namespace GqlPlus.Merger;
+namespace GqlPlus.Merging;
 
 public class MergerRepositoryTests(ITestOutputHelper outputHelper)
 {
@@ -14,7 +12,7 @@ public class MergerRepositoryTests(ITestOutputHelper outputHelper)
 
 internal sealed class MergerRepoWrapper(
   IMergerRepository repo
-) : RepoWrapperBase<IMergerRepository, MergerRepoWrapper>(repo)
+) : RepositoryWrapperBase<IMergerRepository, MergerRepoWrapper>(repo)
   , IMergerRepository
 {
   public override IMergerRepository Wrapper => this;

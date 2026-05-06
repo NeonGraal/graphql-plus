@@ -3,7 +3,7 @@
 namespace GqlPlus.Parser.Schema;
 
 public class SchemaParserDiTests(IServiceCollection services)
-  : DependencyInjectionChecks(services)
+  : DiChecks(services)
 {
   protected override string Label => "SchemaParser";
 }

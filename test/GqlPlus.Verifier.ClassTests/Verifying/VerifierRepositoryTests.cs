@@ -24,7 +24,7 @@ public class VerifierRepositoryTests(ITestOutputHelper outputHelper)
 
 internal sealed class VerifierRepoWrapper(
   IVerifierRepository repo
-) : RepoWrapperBase<IVerifierRepository, VerifierRepoWrapper>(repo)
+) : RepositoryWrapperBase<IVerifierRepository, VerifierRepoWrapper>(repo)
   , IVerifierRepository
 {
   public override IVerifierRepository Wrapper => this;

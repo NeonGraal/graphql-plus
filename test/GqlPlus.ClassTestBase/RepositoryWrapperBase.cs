@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace GqlPlus;
 
-public abstract class RepoWrapperBase<TInterface, TClass>(
+public abstract class RepositoryWrapperBase<TInterface, TClass>(
   TInterface repo
 ) where TClass : class, TInterface
 {
@@ -14,7 +14,7 @@ public abstract class RepoWrapperBase<TInterface, TClass>(
       AddRelationship("=", key, instance.GetType());
     }
 
-    DiFluid.WriteTree(label + "Repo", _relationships);
+    DiFluid.WriteTree(label + "Repository", _relationships);
   }
 
   private readonly Map<DiTree> _relationships = [];
@@ -42,7 +42,7 @@ public abstract class RepoWrapperBase<TInterface, TClass>(
     }
   }
 
-  private readonly Type[] _baseTypes = [typeof(TClass), typeof(RepoWrapperBase<,>)];
+  private readonly Type[] _baseTypes = [typeof(TClass), typeof(RepositoryWrapperBase<,>)];
 
   private Type? ResolvedType()
   {

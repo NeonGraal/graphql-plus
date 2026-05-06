@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using Fluid;
-using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.Extensions.FileProviders;
+using Shouldly;
 
 namespace GqlPlus;
 
@@ -16,12 +16,13 @@ public static class DiFluid
 
   static DiFluid()
   {
-    s_options.FileProvider = new EmbeddedFileProvider(Assembly.GetAssembly(typeof(DependencyInjectionChecks))!, "GqlPlus.DI");
-    s_options.MemberAccessStrategy.Register<DiService>();
+    s_options.FileProvider = new EmbeddedFileProvider(Assembly.GetAssembly(typeof(DiFluid))!, "GqlPlus.DI");
     s_options.MemberAccessStrategy.Register<DiLink>();
     s_options.MemberAccessStrategy.Register<DiTree>();
-    s_options.MemberAccessStrategy.Register<TypeIdName>();
   }
+
+  public static void Register<T>() where T : class
+    => s_options.MemberAccessStrategy.Register<T>();
 
   private static IFluidTemplate GetTemplate(string template)
   {
@@ -137,6 +138,67 @@ public static class DiFluid
       .ExpandTypeName()
       .Replace('<', '(')
       .Replace('>', ')');
+
+  private static readonly string s_solutionDir = Assembly.GetAssembly(typeof(DiFluid))?.FullName?.Split("test")[0] ?? "";
+
+  public static void WriteHtmlFile(this string contents, string dir, string file)
+  {
+    string dirPath = Path.Join(s_solutionDir, "test", "Html", dir);
+    if (!Directory.Exists(dirPath)) {
+      Directory.CreateDirectory(dirPath);
+    }
+
+    string filePath = Path.Join(dirPath, file + ".html");
+    const int MaxAttempts = 8;
+    for (int attempt = 1; attempt <= MaxAttempts; ++attempt) {
+      try {
+        File.WriteAllText(filePath, contents);
+        return;
+      } catch (IOException) {
+        if (attempt >= MaxAttempts) {
+          throw;
+        }
+
+        Thread.Sleep(50 * attempt);
+      } catch (UnauthorizedAccessException) {
+        if (attempt >= MaxAttempts) {
+          throw;
+        }
+
+        Thread.Sleep(50 * attempt);
+      }
+    }
+  }
+
+  public static async Task WriteHtmlFileAsync(this ValueTask<string> contents, string dir, string file)
+  {
+    string dirPath = Path.Join(s_solutionDir, "..", "Html", dir);
+    if (!Directory.Exists(dirPath)) {
+      Directory.CreateDirectory(dirPath);
+    }
+
+    string filePath = Path.Join(dirPath, file + ".html");
+    const int MaxAttempts = 8;
+    string text = await contents;
+    for (int attempt = 1; attempt <= MaxAttempts; ++attempt) {
+      try {
+        await File.WriteAllTextAsync(filePath, text);
+        return;
+      } catch (IOException) {
+        if (attempt >= MaxAttempts) {
+          throw;
+        }
+
+        await Task.Delay(50 * attempt);
+      } catch (UnauthorizedAccessException) {
+        if (attempt >= MaxAttempts) {
+          throw;
+        }
+
+        await Task.Delay(50 * attempt);
+      }
+    }
+  }
 }
 
 public sealed class DiTree(string name, bool isHref, int requiredBy)

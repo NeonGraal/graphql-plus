@@ -3,7 +3,7 @@
 namespace GqlPlus;
 
 public class CodecDiTests(IServiceCollection services)
-  : DependencyInjectionChecks(services)
+  : DiChecks(services)
 {
   protected override string Label => "Codec";
 }

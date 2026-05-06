@@ -10,7 +10,7 @@ using Xunit.Internal;
 namespace GqlPlus;
 
 [Trait("Generate", "Html")]
-public abstract class DependencyInjectionChecks(IServiceCollection services)
+public abstract class DiChecks(IServiceCollection services)
 {
   private const string FunctionRequirement = "=>";
   private const string InstanceRequirement = "==";

@@ -40,5 +40,18 @@ internal class ParseArgValue(
   protected override Func<IEnumerable<IAstArg>, IAstArg> NewList(ITokenAt at)
     => list => new ArgAst(at, list);
 
-  internal static ParseArgValue Factory(IParserRepository p) => new(p);
+  internal static IValueParserFactories<IAstArg> Factories { get; } = new ParseArgValueFactories();
+
+  private class ParseArgValueFactories
+    : IValueParserFactories<IAstArg>
+  {
+    public ValueParser<IAstArg> Value(IParserRepository repo)
+      => new ParseArgValue(repo);
+    public ValueKeyValueParser<IAstArg> ValueKey(IParserRepository repo)
+      => new(repo);
+    public ValueListParser<IAstArg> ValueList(IParserRepository repo)
+      => new(repo);
+    public ValueObjectParser<IAstArg> ValueObject(IParserRepository repo)
+      => new(repo);
+  }
 }

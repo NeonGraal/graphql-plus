@@ -95,13 +95,13 @@ public static class SchemaParsers
     => builder
       .AddSingle(factory)
       .AddSingle(ParseObjectDefinition<TObjField>.Factory)
-      .AddDeclarationParser(fieldKind.ToString().ToLowerInvariant(), p => new ObjectParser<TObjField>(fieldKind, p));
+      .AddDeclarationParser(fieldKind.ToString().ToLowerInvariant(), ObjectParser<TObjField>.Factory(fieldKind));
 
   private static IParserRepositoryBuilder AddDeclarationParser<TObject>(this IParserRepositoryBuilder builder, string selector, Factory<Parser<TObject>.I, IParserRepository> factory)
     where TObject : IAstDeclaration
     => builder
       .AddSingle(factory)
-      .AddDeclaration<TObject>(p => new ParseDeclaration<TObject>(selector, p));
+      .AddDeclaration<TObject>(ParseDeclaration<TObject>.Factory(selector));
 
   private static IParserRepositoryBuilder AddDomainParser<TDomain>(this IParserRepositoryBuilder builder, Factory<Parser<TDomain>.I, IParserRepository> factory)
     => builder

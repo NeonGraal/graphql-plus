@@ -13,8 +13,8 @@ internal class ParserRepositoryBuilder
   internal readonly FactoryDict Declarations = [];
   internal readonly Dictionary<Type, Type> Domains = [];
 
-  internal IEnumerable<Factory<object, IParserRepository>> AllFactories
-    => [.. Singles.Values, .. Arrays.Values, .. InterfaceSingles.Values, .. InterfaceArrays.Values, .. Declarations.Values];
+  internal IEnumerable<KeyValuePair<Type, Factory<object, IParserRepository>>> AllFactories
+    => [.. Singles, .. Arrays, .. InterfaceSingles, .. InterfaceArrays, .. Declarations];
 
   public IParserRepositoryBuilder AddSingle<T>(Factory<Parser<T>.I, IParserRepository> factory)
     => this.FluentAction(b => b.Singles[typeof(T)] = factory);

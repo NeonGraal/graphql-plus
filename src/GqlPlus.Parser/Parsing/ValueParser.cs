@@ -75,3 +75,12 @@ internal interface IValueParser<TValue>
 
   IResult<IAstFields<TValue>> ParseFieldValues(ITokenizer tokens, string label, char last, IAstFields<TValue> fields);
 }
+
+internal interface IValueParserFactories<TValue>
+  where TValue : IAstValue<TValue>
+{
+  ValueParser<TValue> Value(IParserRepository repo);
+  ValueKeyValueParser<TValue> ValueKey(IParserRepository repo);
+  ValueListParser<TValue> ValueList(IParserRepository repo);
+  ValueObjectParser<TValue> ValueObject(IParserRepository repo);
+}

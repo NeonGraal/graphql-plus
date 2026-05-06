@@ -29,5 +29,5 @@ public static class OperationParsers
         .AddSingle(ParseSelection.Factory)
         .AddSingle(ParseField.Factory)
         .AddInterfaceSingle<IParserArg>(ParseArg.Factory)
-        .AddValueParsers(ParseArgValue.Factory);
+        .AddValueParsers(ParseArgValue.Factories);
 }

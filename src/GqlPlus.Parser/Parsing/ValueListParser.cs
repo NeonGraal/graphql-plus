@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing;
 
-internal sealed class ValueListParser<TValue>(
+internal class ValueListParser<TValue>(
   IParserRepository parsers
 ) : Parser<TValue>.IA
 {

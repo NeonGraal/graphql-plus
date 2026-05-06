@@ -32,5 +32,18 @@ internal class ParseConstant(
   protected override Func<IEnumerable<IAstConstant>, IAstConstant> NewList(ITokenAt at)
     => list => new ConstantAst(at, list);
 
-  internal static ParseConstant Factory(IParserRepository p) => new(p);
+  internal static IValueParserFactories<IAstConstant> Factories { get; } = new ParseConstantFactories();
+
+  private class ParseConstantFactories
+    : IValueParserFactories<IAstConstant>
+  {
+    public ValueParser<IAstConstant> Value(IParserRepository repo)
+      => new ParseConstant(repo);
+    public ValueKeyValueParser<IAstConstant> ValueKey(IParserRepository repo)
+      => new(repo);
+    public ValueListParser<IAstConstant> ValueList(IParserRepository repo)
+      => new(repo);
+    public ValueObjectParser<IAstConstant> ValueObject(IParserRepository repo)
+      => new(repo);
+  }
 }

@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Helpers;
+﻿namespace GqlPlus;
 
 public class MapHelpersTests
 {

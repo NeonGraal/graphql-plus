@@ -15,6 +15,11 @@ internal class VerifierRepositoryBuilder
   internal readonly FactoryDict Identified = [];
   internal readonly FactoryList Domains = [];
 
+  public IEnumerable<KeyValuePair<Type, Factory<object, IVerifierRepository>>> AllFactories
+    => [
+      .. Verifiers, .. Aliased, .. Usages, .. Identified,
+      .. Domains.Select(f => f.ToKeyValue(typeof(IVerifyDomain)))];
+
   public IVerifierRepositoryBuilder AddVerify<T>(Factory<IVerify<T>, IVerifierRepository> factory)
     => this.FluentAction(b => b.Verifiers[typeof(T)] = factory);
 

@@ -12,7 +12,7 @@ public static class CommonParsers
         .AddArray(ParseModifiers.Factory)
         .AddInterfaceArray<IParserCollections>(ParseCollections.Factory)
         .AddInterfaceSingle<IParserDefault>(ParseDefault.Factory)
-        .AddValueParsers(ParseConstant.Factory);
+        .AddValueParsers(ParseConstant.Factories);
 
   public static IServiceCollection AddParsers(this IServiceCollection services, Action<IParserRepositoryBuilder> config)
   {
@@ -27,12 +27,12 @@ public static class CommonParsers
     return services;
   }
 
-  internal static IParserRepositoryBuilder AddValueParsers<TValue>(this IParserRepositoryBuilder builder, Factory<ValueParser<TValue>, IParserRepository> factory)
+  internal static IParserRepositoryBuilder AddValueParsers<TValue>(this IParserRepositoryBuilder builder, IValueParserFactories<TValue> factories)
     where TValue : IAstValue<TValue>
     => builder
-      .AddSingle(factory)
-      .AddInterfaceSingle<IValueParser<TValue>>(factory)
-      .AddSingle(ValueKeyValueParser<TValue>.Factory)
-      .AddArray(ValueListParser<TValue>.Factory)
-      .AddSingle(ValueObjectParser<TValue>.Factory);
+      .AddSingle(factories.Value)
+      .AddInterfaceSingle<IValueParser<TValue>>(factories.Value)
+      .AddSingle(factories.ValueKey)
+      .AddArray(factories.ValueList)
+      .AddSingle(factories.ValueObject);
 }

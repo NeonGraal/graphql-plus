@@ -22,4 +22,7 @@ internal class ParseDeclaration<TObject>(
     => _declaration.Parse(tokens, label).AsResult<IAstDeclaration>();
 
   private readonly Parser<TObject>.L _declaration = parsers.ParserFor<TObject>();
+
+  internal static Factory<ParseDeclaration<TObject>, IParserRepository> Factory(string selector)
+    => r => new(selector, r);
 }

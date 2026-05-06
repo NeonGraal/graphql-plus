@@ -25,6 +25,9 @@ internal class ObjectParser<TObjField>(
       Aliases = partial.Aliases,
       TypeParams = partial.Params,
     };
+
+  internal static Factory<ObjectParser<TObjField>, IParserRepository> Factory(TypeKind fieldKind)
+    => r => new(fieldKind, r);
 }
 
 internal class ObjectDefinition<TObjField>

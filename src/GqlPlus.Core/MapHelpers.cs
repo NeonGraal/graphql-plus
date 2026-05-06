@@ -4,6 +4,9 @@ namespace GqlPlus;
 
 public static class MapHelpers
 {
+  public static KeyValuePair<TKey, TValue> ToKeyValue<TKey, TValue>(this TValue value, TKey key)
+    => new(key, value);
+
   public static MapPair<TPair> ToPair<TPair>(this TPair item, string key)
     => new(key, item);
   public static MapPair<TPair> ToPair<TPair>(this TPair item, [NotNull] Func<TPair, string> key)

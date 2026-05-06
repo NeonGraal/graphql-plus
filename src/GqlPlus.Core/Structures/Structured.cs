@@ -57,12 +57,11 @@ public class Structured
 
   public Structured AddList<TValue>(
     string key,
-    IEnumerable<TValue> values,
+    IEnumerable<TValue>? values,
     IEncoder<TValue> encoder,
     string? tag = null,
     bool flow = false
-  ) => Add(key, new(values.Select(encoder.ThrowIfNull().Encode), tag, flow));
-
+  ) => values is null ? this : Add(key, new(values.Select(encoder.ThrowIfNull().Encode), tag, flow));
   public Structured AddMap<TValue>(
     string key,
     IMap<TValue> values,

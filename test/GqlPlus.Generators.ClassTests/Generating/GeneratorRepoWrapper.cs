@@ -3,13 +3,6 @@ using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Generating;
 
-public class GeneratorRepositoryTests(ITestOutputHelper outputHelper)
-{
-  [Fact]
-  public void Generators()
-    => GeneratorRepoWrapper.WriteTree(outputHelper.ToLoggerFactory(), b => b.AddSchemaGenerators());
-}
-
 internal sealed class GeneratorRepoWrapper(
   IGeneratorRepository repo
 ) : RepositoryWrapperBase<IGeneratorRepository, GeneratorRepoWrapper>(repo)

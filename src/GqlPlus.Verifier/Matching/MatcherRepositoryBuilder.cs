@@ -11,7 +11,7 @@ internal class MatcherRepositoryBuilder
 
   public IEnumerable<KeyValuePair<Type, Factory<object, IMatcherRepository>>> AllFactories
     => [..Matchers,
-      ..TypeMatchers.Select(f => f.ToKeyValue(typeof(ITypeMatcher)))];
+      ..TypeMatchers.Select(FactoryKeyValue<ITypeMatcher>)];
 
   public IMatcherRepositoryBuilder AddMatcher<T>(Factory<Matcher<T>.I, IMatcherRepository> factory)
     => this.FluentAction(b => b.Matchers[typeof(T)] = factory);

@@ -9,6 +9,12 @@ internal class ModellerRepositoryBuilder
   internal Factory<IModifierModeller, IModellerRepository>? _modifierFactory;
   internal Factory<ITypesModeller, IModellerRepository>? _typesFactory;
 
+  public IEnumerable<KeyValuePair<Type, Factory<object, IModellerRepository>>> AllFactories
+    => [.. Modellers,
+      FactoryKeyValue<IModifierModeller>(_modifierFactory!),
+      FactoryKeyValue<ITypesModeller>(_typesFactory!),
+      .. TypeModellerFactories.Select(FactoryKeyValue<ITypeModeller>)];
+
   public IModellerRepositoryBuilder AddModeller<TAst, TModel>(Factory<IModeller<TAst, TModel>, IModellerRepository> factory)
     where TAst : IAstError
     where TModel : IModelBase

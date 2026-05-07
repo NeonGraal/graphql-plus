@@ -71,4 +71,7 @@ public abstract class RepositoryWrapperBase<TInterface, TClass>(
     static Type? FrameCallerType(int skip)
       => new StackFrame(skip).GetMethod()?.DeclaringType;
   }
+
+  protected string CallerName
+    => ResolvedType()?.SafeTypeName() ?? "Unknown";
 }

@@ -38,4 +38,7 @@ public class BaseFactory<TRepo>
   public class FactoryDict : Dictionary<Type, Factory<object, TRepo>>;
   public class FactoryList : List<Factory<object, TRepo>>;
 #pragma warning restore CA1034 // Nested types should not be visible
+
+  protected KeyValuePair<Type, Factory<object, TRepo>> FactoryKeyValue<T>(Factory<object, TRepo> factory)
+    => factory.ToKeyValue(typeof(T));
 }

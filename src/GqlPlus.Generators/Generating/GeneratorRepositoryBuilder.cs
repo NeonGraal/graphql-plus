@@ -13,7 +13,7 @@ internal class GeneratorRepositoryBuilder
     => [.. Generators,
       ..TypeGenerators.SelectMany(
         kv => kv.Value.Select(
-          f => f.ToKeyValue(typeof(ITypeGenerator))))];
+          FactoryKeyValue<ITypeGenerator>))];
 
   public IGeneratorRepositoryBuilder AddBothTypeGenerators<TInterface, TModel>()
     where TInterface : ITypeGenerator, new()

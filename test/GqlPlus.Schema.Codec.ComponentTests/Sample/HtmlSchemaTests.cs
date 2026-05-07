@@ -50,11 +50,13 @@ public class HtmlSchemaTests(
   [Fact]
   public async Task Index_DI()
   {
-    string[] files = ["Codec",
+    string[] files = [
+      "Codec", "DecoderRepository", "EncoderRepository",
       "CommonParser", "CommonParserRepository",
       "Generator", "GeneratorRepository",
       "MatcherRepository",
       "Merger", "MergerRepository",
+      "ModellerRepository", "ResolverRepository",
       "OperationParser", "OperationParserRepository",
       "SchemaParser", "SchemaParserRepository",
       "Verifier", "VerifierRepository"];

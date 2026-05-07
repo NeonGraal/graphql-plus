@@ -18,7 +18,7 @@ internal class VerifierRepositoryBuilder
   public IEnumerable<KeyValuePair<Type, Factory<object, IVerifierRepository>>> AllFactories
     => [
       .. Verifiers, .. Aliased, .. Usages, .. Identified,
-      .. Domains.Select(f => f.ToKeyValue(typeof(IVerifyDomain)))];
+      .. Domains.Select(FactoryKeyValue<IVerifyDomain>)];
 
   public IVerifierRepositoryBuilder AddVerify<T>(Factory<IVerify<T>, IVerifierRepository> factory)
     => this.FluentAction(b => b.Verifiers[typeof(T)] = factory);

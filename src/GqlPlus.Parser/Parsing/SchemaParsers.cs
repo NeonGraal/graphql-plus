@@ -16,6 +16,7 @@ public static class SchemaParsers
       .AddInterfaceSingle<ISimpleName>(_ => new SimpleName())
       .AddSchemaCategoryParsers()
       .AddSchemaDirectiveParsers()
+      .AddSchemaOperationParsers()
       .AddSchemaOptionParsers()
       .AddSchemaSimpleParsers()
       .AddSchemaObjectParsers()
@@ -35,6 +36,11 @@ public static class SchemaParsers
       .AddEnum<DirectiveLocation>()
       .AddSingle(p => new ParseDirectiveDefinition(p))
       .AddDeclarationParser("directive", p => new ParseDirective(p));
+
+  public static IParserRepositoryBuilder AddSchemaOperationParsers([NotNull] this IParserRepositoryBuilder builder)
+    => builder
+      .AddSingle(p => new ParseOperationDefinition(p))
+      .AddDeclarationParser("operation", p => new ParseOperationDecl(p));
 
   public static IParserRepositoryBuilder AddSchemaOptionParsers([NotNull] this IParserRepositoryBuilder builder)
     => builder

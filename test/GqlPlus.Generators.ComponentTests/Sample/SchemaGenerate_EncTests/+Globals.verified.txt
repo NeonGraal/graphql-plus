@@ -110,6 +110,39 @@ internal class CmptDscrsEncoder : IEncoder<ICmptDscrsObject>
   internal static CmptDscrsEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptCatOprCtgrEncoder : IEncoder<ICmptCatOprCtgrObject>
+{
+  public Structured Encode(ICmptCatOprCtgrObject input)
+    => Structured.Empty();
+
+  internal static CmptCatOprCtgrEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptCatOprTypeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptCatOprTypeObject>
+{
+  private readonly IEncoder<ICmptAddrOprType> _addrOprType = encoders.EncoderFor<ICmptAddrOprType>();
+  public Structured Encode(ICmptCatOprTypeObject input)
+    => Structured.Empty()
+      .Add("first", input.First.Encode())
+      .Add("last", input.Last.Encode())
+      .AddEncoded("address", input.Address, _addrOprType);
+
+  internal static CmptCatOprTypeEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptAddrOprTypeEncoder : IEncoder<ICmptAddrOprTypeObject>
+{
+  public Structured Encode(ICmptAddrOprTypeObject input)
+    => Structured.Empty()
+      .Add("street", input.Street.Encode())
+      .Add("city", input.City.Encode())
+      .Add("country", input.Country.Encode());
+
+  internal static CmptAddrOprTypeEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal static class Cmpt_Schema_GlobalsEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_GlobalsEncoders(this IEncoderRepositoryBuilder builder)
@@ -126,5 +159,8 @@ internal static class Cmpt_Schema_GlobalsEncoders
       .AddEncoder<ICmptDescrCmplObject>(CmptDescrCmplEncoder.Factory)
       .AddEncoder<ICmptDescrDblObject>(CmptDescrDblEncoder.Factory)
       .AddEncoder<ICmptDescrSnglObject>(CmptDescrSnglEncoder.Factory)
-      .AddEncoder<ICmptDscrsObject>(CmptDscrsEncoder.Factory);
+      .AddEncoder<ICmptDscrsObject>(CmptDscrsEncoder.Factory)
+      .AddEncoder<ICmptCatOprCtgrObject>(CmptCatOprCtgrEncoder.Factory)
+      .AddEncoder<ICmptCatOprTypeObject>(CmptCatOprTypeEncoder.Factory)
+      .AddEncoder<ICmptAddrOprTypeObject>(CmptAddrOprTypeEncoder.Factory);
 }

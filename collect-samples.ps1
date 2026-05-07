@@ -28,7 +28,7 @@ Get-ChildItem $source -Recurse -Exclude "*.md","*.yml" | ForEach-Object {
   Copy-Item $_ $to -Force
 
   if ($relative -match '.*Introspection[/\\]-.*\.graphql+') {
-    $fileName = (Split-Path $relative -Leaf)
+    $fileName = Split-Path $relative -Leaf
     $to = Join-Path $models $fileName
     Copy-Item $_ $to -Force
   }

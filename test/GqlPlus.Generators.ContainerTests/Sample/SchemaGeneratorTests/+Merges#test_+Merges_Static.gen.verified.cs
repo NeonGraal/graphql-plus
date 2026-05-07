@@ -8,6 +8,7 @@ Category ctgr
 Category ctgrAlias
 Category ctgrDescr
 Category ctgrMod
+Category op
 Directive Drct
 Directive DrctAlias
 Directive DrctParam

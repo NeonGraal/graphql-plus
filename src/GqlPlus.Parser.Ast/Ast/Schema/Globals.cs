@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Ast.Schema;
+﻿using GqlPlus.Ast.Operation;
+
+namespace GqlPlus.Ast.Schema;
 
 public interface IAstSchemaCategory
   : IAstDeclaration
@@ -43,6 +45,18 @@ public enum DirectiveLocation
 
   None = 0x00,
   All = 0xff,
+}
+
+public interface IAstSchemaOperation
+  : IAstDeclaration, IAstDirectives, IAstModifiers
+{
+  string Category { get; }
+
+  IEnumerable<IAstVariable> Variables { get; }
+  IAstArg? Arg { get; }
+  IEnumerable<IAstSelection>? Selections { get; }
+
+  IEnumerable<IAstFragment> Fragments { get; }
 }
 
 public interface IAstSchemaOption

@@ -34,6 +34,7 @@ public class MergeSchemasTests
       new SchemaAst(AstNulls.At) with { Declarations = [.. categoryDecls, .. otherDecls] })
     .MergeCalled(_categories)
     .MergeCalled(_directives)
+    .MergeCalled(_operations)
     .MergeCalled(_options)
     .MergeCalled(_astTypes);
   }
@@ -41,6 +42,7 @@ public class MergeSchemasTests
   private readonly MergeSchemas _merger;
   private readonly IMerge<IAstSchemaCategory> _categories;
   private readonly IMerge<IAstSchemaDirective> _directives;
+  private readonly IMerge<IAstSchemaOperation> _operations;
   private readonly IMerge<IAstSchemaOption> _options;
   private readonly IMerge<IAstType> _astTypes;
 
@@ -48,12 +50,14 @@ public class MergeSchemasTests
   {
     _categories = Merger<IAstSchemaCategory>();
     _directives = Merger<IAstSchemaDirective>();
+    _operations = Merger<IAstSchemaOperation>();
     _options = Merger<IAstSchemaOption>();
     _astTypes = Merger<IAstType>();
 
     IMergerRepository mergers = Substitute.For<IMergerRepository>();
     mergers.MergerFor<IAstSchemaCategory>().Returns(_categories);
     mergers.MergerFor<IAstSchemaDirective>().Returns(_directives);
+    mergers.MergerFor<IAstSchemaOperation>().Returns(_operations);
     mergers.MergerFor<IAstSchemaOption>().Returns(_options);
     mergers.MergerFor<IAstType>().Returns(_astTypes);
     _merger = new(mergers);

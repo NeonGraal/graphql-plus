@@ -313,6 +313,78 @@ public class testInDrctParamOptObject
   }
 }
 
+public class testCatOprCtgr
+  : GqlpModelBase
+  , ItestCatOprCtgr
+{
+  public ItestCatOprCtgrObject? As_CatOprCtgr { get; set; }
+}
+
+public class testCatOprCtgrObject
+  : GqlpModelBase
+  , ItestCatOprCtgrObject
+{
+
+  public testCatOprCtgrObject
+    ()
+  {
+  }
+}
+
+public class testCatOprType
+  : GqlpModelBase
+  , ItestCatOprType
+{
+  public ItestCatOprTypeObject? As_CatOprType { get; set; }
+}
+
+public class testCatOprTypeObject
+  : GqlpModelBase
+  , ItestCatOprTypeObject
+{
+  public string First { get; set; }
+  public string Last { get; set; }
+  public ItestAddrOprType Address { get; set; }
+
+  public testCatOprTypeObject
+    ( string pfirst
+    , string plast
+    , ItestAddrOprType paddress
+    )
+  {
+    First = pfirst;
+    Last = plast;
+    Address = paddress;
+  }
+}
+
+public class testAddrOprType
+  : GqlpModelBase
+  , ItestAddrOprType
+{
+  public ItestAddrOprTypeObject? As_AddrOprType { get; set; }
+}
+
+public class testAddrOprTypeObject
+  : GqlpModelBase
+  , ItestAddrOprTypeObject
+{
+  public string Street { get; set; }
+  public string City { get; set; }
+  public string Country { get; set; }
+
+  public testAddrOprTypeObject
+    ( string pstreet
+    , string pcity
+    , string pcountry
+    )
+  {
+    Street = pstreet;
+    City = pcity;
+    Country = pcountry;
+  }
+}
+
 public class testAltDual
   : GqlpModelBase
   , ItestAltDual
@@ -10444,6 +10516,24 @@ public class testRefObjPrntOutpObject
 {
 
   public testRefObjPrntOutpObject
+    ()
+  {
+  }
+}
+
+public class testOp
+  : GqlpModelBase
+  , ItestOp
+{
+  public ItestOpObject? As_Op { get; set; }
+}
+
+public class testOpObject
+  : GqlpModelBase
+  , ItestOpObject
+{
+
+  public testOpObject
     ()
   {
   }

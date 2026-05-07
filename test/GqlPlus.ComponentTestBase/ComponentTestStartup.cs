@@ -28,7 +28,9 @@ public static class ComponentTestStartup
     => services
       .AddComponentTest(checkEnv)
       .AddTransient<ISchemaParseChecks, SchemaParseChecks>()
-      .AddParsers(b => b.AddSchemaParsers())
+      .AddParsers(b => b
+      	.AddSchemaParsers()
+      	.AddOperationParsers())
       .AddMergers(b => b.AddSchemaMergers());
 
   private static readonly string s_projectDir = AttributeReader.GetProjectDirectory();

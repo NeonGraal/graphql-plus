@@ -502,6 +502,14 @@ internal class CmptRefObjPrntOutpEncoder : IEncoder<ICmptRefObjPrntOutpObject>
   internal static CmptRefObjPrntOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptOpEncoder : IEncoder<ICmptOpObject>
+{
+  public Structured Encode(ICmptOpObject input)
+    => Structured.Empty();
+
+  internal static CmptOpEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptOutpFieldParamEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptOutpFieldParamObject>
@@ -640,6 +648,7 @@ internal static class Cmpt_Schema_MergesEncoders
       .AddEncoder<ICmptRefObjPrntDualObject>(CmptRefObjPrntDualEncoder.Factory)
       .AddEncoder<ICmptObjPrntOutpObject>(CmptObjPrntOutpEncoder.Factory)
       .AddEncoder<ICmptRefObjPrntOutpObject>(CmptRefObjPrntOutpEncoder.Factory)
+      .AddEncoder<ICmptOpObject>(CmptOpEncoder.Factory)
       .AddEncoder<ICmptOutpFieldParamObject>(CmptOutpFieldParamEncoder.Factory)
       .AddEncoder<ICmptFldOutpFieldParamObject>(CmptFldOutpFieldParamEncoder.Factory)
       .AddEncoder<ICmptUnionAlias>(CmptUnionAliasEncoder.Factory)

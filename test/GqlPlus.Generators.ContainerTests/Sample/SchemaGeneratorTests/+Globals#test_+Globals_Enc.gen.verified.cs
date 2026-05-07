@@ -111,6 +111,39 @@ internal class testDscrsEncoder : IEncoder<ItestDscrsObject>
   internal static testDscrsEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class testCatOprCtgrEncoder : IEncoder<ItestCatOprCtgrObject>
+{
+  public Structured Encode(ItestCatOprCtgrObject input)
+    => Structured.Empty();
+
+  internal static testCatOprCtgrEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class testCatOprTypeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestCatOprTypeObject>
+{
+  private readonly IEncoder<ItestAddrOprType> _itestAddrOprType = encoders.EncoderFor<ItestAddrOprType>();
+  public Structured Encode(ItestCatOprTypeObject input)
+    => Structured.Empty()
+      .Add("first", input.First.Encode())
+      .Add("last", input.Last.Encode())
+      .AddEncoded("address", input.Address, _itestAddrOprType);
+
+  internal static testCatOprTypeEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class testAddrOprTypeEncoder : IEncoder<ItestAddrOprTypeObject>
+{
+  public Structured Encode(ItestAddrOprTypeObject input)
+    => Structured.Empty()
+      .Add("street", input.Street.Encode())
+      .Add("city", input.City.Encode())
+      .Add("country", input.Country.Encode());
+
+  internal static testAddrOprTypeEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal static class test__GlobalsEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest__GlobalsEncoders(this IEncoderRepositoryBuilder builder)
@@ -127,5 +160,8 @@ internal static class test__GlobalsEncoders
       .AddEncoder<ItestDescrCmplObject>(testDescrCmplEncoder.Factory)
       .AddEncoder<ItestDescrDblObject>(testDescrDblEncoder.Factory)
       .AddEncoder<ItestDescrSnglObject>(testDescrSnglEncoder.Factory)
-      .AddEncoder<ItestDscrsObject>(testDscrsEncoder.Factory);
+      .AddEncoder<ItestDscrsObject>(testDscrsEncoder.Factory)
+      .AddEncoder<ItestCatOprCtgrObject>(testCatOprCtgrEncoder.Factory)
+      .AddEncoder<ItestCatOprTypeObject>(testCatOprTypeEncoder.Factory)
+      .AddEncoder<ItestAddrOprTypeObject>(testAddrOprTypeEncoder.Factory);
 }

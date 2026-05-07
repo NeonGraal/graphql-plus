@@ -192,3 +192,42 @@ public interface ICmptInDrctParamOptObject
   : Schema_+Globals
 {
 }
+
+public interface ICmptCatOprCtgr
+  : Schema_+Globals
+{
+  ICmptCatOprCtgrObject? As_CatOprCtgr { get; }
+}
+
+public interface ICmptCatOprCtgrObject
+  : Schema_+Globals
+{
+}
+
+public interface ICmptCatOprType
+  : Schema_+Globals
+{
+  ICmptCatOprTypeObject? As_CatOprType { get; }
+}
+
+public interface ICmptCatOprTypeObject
+  : Schema_+Globals
+{
+  string First { get; }
+  string Last { get; }
+  ICmptAddrOprType Address { get; }
+}
+
+public interface ICmptAddrOprType
+  : Schema_+Globals
+{
+  ICmptAddrOprTypeObject? As_AddrOprType { get; }
+}
+
+public interface ICmptAddrOprTypeObject
+  : Schema_+Globals
+{
+  string Street { get; }
+  string City { get; }
+  string Country { get; }
+}

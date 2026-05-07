@@ -7,6 +7,7 @@ public class SchemaModellerTests
 {
   private readonly IModeller<IAstSchemaCategory, CategoryModel> _category = MFor<IAstSchemaCategory, CategoryModel>();
   private readonly IModeller<IAstSchemaDirective, DirectiveModel> _directive = MFor<IAstSchemaDirective, DirectiveModel>();
+  private readonly IModeller<IAstSchemaOperation, OperationModel> _operation = MFor<IAstSchemaOperation, OperationModel>();
   private readonly IModeller<IAstSchemaSetting, SettingModel> _setting = MFor<IAstSchemaSetting, SettingModel>();
   private readonly ITypesModeller _types = A.Of<ITypesModeller>();
 
@@ -15,6 +16,7 @@ public class SchemaModellerTests
     IModellerRepository modellers = A.Of<IModellerRepository>();
     modellers.ModellerFor<IAstSchemaCategory, CategoryModel>().Returns(_category);
     modellers.ModellerFor<IAstSchemaDirective, DirectiveModel>().Returns(_directive);
+    modellers.ModellerFor<IAstSchemaOperation, OperationModel>().Returns(_operation);
     modellers.ModellerFor<IAstSchemaSetting, SettingModel>().Returns(_setting);
     modellers.TypesModeller.Returns(_types);
     Modeller = new SchemaModeller(modellers);

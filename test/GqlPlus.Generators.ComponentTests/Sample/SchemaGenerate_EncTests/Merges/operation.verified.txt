@@ -1,0 +1,29 @@
+﻿/* operation
+operation Operation { op :String }
+operation Operation { op :String }
+category { Op }
+output Op { }
+*/
+
+// Generated from Schema operation
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_operation, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_operation;
+
+internal class CmptOpEncoder : IEncoder<ICmptOpObject>
+{
+  public Structured Encode(ICmptOpObject input)
+    => Structured.Empty();
+
+  internal static CmptOpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_operationEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_operationEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptOpObject>(CmptOpEncoder.Factory);
+}

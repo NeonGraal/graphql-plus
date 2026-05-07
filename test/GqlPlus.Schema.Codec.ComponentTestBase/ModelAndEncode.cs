@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Encoding;
 using GqlPlus.Modelling;
 using GqlPlus.Resolving;
 

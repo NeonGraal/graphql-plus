@@ -33,6 +33,16 @@ public static class AllEncoders
       .AddEncoder(DirectivesEncoder.Factory)
       .AddEncoder(DirectiveEncoder.Factory)
       .AddEncoder(SettingEncoder.Factory)
+      // Operation
+      .AddEncoder(OperationsEncoder.Factory)
+      .AddEncoder(OperationEncoder.Factory)
+      // .AddSingleton<AndBaseTypeEncoders<OperationModel>>()
+      .AddEncoder(OpDirectiveEncoder.Factory)
+      .AddEncoder(OpFragmentEncoder.Factory)
+      .AddEncoder(OpResultEncoder.Factory)
+      .AddEncoder(OpSelectionEncoder.Factory)
+      // .AddEncoder(OpSelectionsEncoder.Factory)
+      .AddEncoder(OpVariableEncoder.Factory)
       // Types
       .AddEncoder(AllTypesEncoder.Factory)
       .AddEncoder(DomainRefEncoder.Factory)

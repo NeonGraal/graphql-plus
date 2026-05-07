@@ -1,1 +1,1 @@
-21ca828  (HEAD -> samples) 2026-04-19 Add GraphQl samples schema
+99f7114  (HEAD -> operation, origin/operation) 2026-04-21 Merge branch 'main' into operation

@@ -13,6 +13,7 @@ public static class Startup
       .AddTransient<IBaseAliasedChecks<string, IAstSchemaCategory>, ParseCategoryChecks>()
 
       .AddTransient<IBaseAliasedChecks<string, IAstSchemaDirective>, ParseDirectiveChecks>()
+      .AddTransient<IBaseAliasedChecks<OperationInput, IAstSchemaOperation>, ParseOperationChecks>()
       .AddOneChecks<IAstSchemaSetting>()
       .AddTransient<IBaseAliasedChecks<string, IAstSchemaOption>, ParseOptionChecks>()
 

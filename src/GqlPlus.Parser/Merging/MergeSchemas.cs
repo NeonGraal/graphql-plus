@@ -13,16 +13,19 @@ internal class MergeSchemas(
   {
     IAstSchemaCategory[] categories = Just<IAstSchemaCategory>(group);
     IAstSchemaDirective[] directives = Just<IAstSchemaDirective>(group);
+    IAstSchemaOperation[] operations = Just<IAstSchemaOperation>(group);
     IAstSchemaOption[] options = Just<IAstSchemaOption>(group);
     IAstType[] astTypes = Just<IAstType>(group);
 
     IMessages categoriesCanMerge = categories.Length > 0 ? mergers.MergerFor<IAstSchemaCategory>().CanMerge(categories) : Messages.New;
     IMessages directivesCanMerge = directives.Length > 0 ? mergers.MergerFor<IAstSchemaDirective>().CanMerge(directives) : Messages.New;
+    IMessages operationsCanMerge = operations.Length > 0 ? mergers.MergerFor<IAstSchemaOperation>().CanMerge(operations) : Messages.New;
     IMessages optionsCanMerge = options.Length > 0 ? mergers.MergerFor<IAstSchemaOption>().CanMerge(options) : Messages.New;
     IMessages astTypesCanMerge = astTypes.Length > 0 ? mergers.MergerFor<IAstType>().CanMerge(astTypes) : Messages.New;
 
     return categoriesCanMerge
       .Add(directivesCanMerge)
+      .Add(operationsCanMerge)
       .Add(optionsCanMerge)
       .Add(astTypesCanMerge);
   }
@@ -34,12 +37,14 @@ internal class MergeSchemas(
   {
     IAstSchemaCategory[] categories = Just<IAstSchemaCategory>(group);
     IAstSchemaDirective[] directives = Just<IAstSchemaDirective>(group);
+    IAstSchemaOperation[] operations = Just<IAstSchemaOperation>(group);
     IAstSchemaOption[] options = Just<IAstSchemaOption>(group);
     IAstType[] astTypes = Just<IAstType>(group);
 
     IEnumerable<AstDeclaration> declarations = mergers.MergerFor<IAstSchemaCategory>()
       .Merge(categories).Cast<IAstDeclaration>()
       .Concat(mergers.MergerFor<IAstSchemaDirective>().Merge(directives))
+      .Concat(mergers.MergerFor<IAstSchemaOperation>().Merge(operations))
       .Concat(mergers.MergerFor<IAstSchemaOption>().Merge(options))
       .Concat(mergers.MergerFor<IAstType>().Merge(astTypes))
       .Cast<AstDeclaration>();

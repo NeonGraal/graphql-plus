@@ -1,0 +1,24 @@
+﻿/* operation-category
+operation OprCtgr { catOprCtgr :String }
+category { CatOprCtgr }
+output CatOprCtgr { }
+*/
+
+// Generated from Schema operation-category
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_operation-category, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_operation_category;
+
+public interface ICmptCatOprCtgr
+  : Schema_operation-category
+{
+  ICmptCatOprCtgrObject? As_CatOprCtgr { get; }
+}
+
+public interface ICmptCatOprCtgrObject
+  : Schema_operation-category
+{
+}

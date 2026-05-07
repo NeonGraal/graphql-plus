@@ -3,11 +3,12 @@ output _Schema {
     : _Named
         categories(_CategoryFilter?): _Categories[_Name]
         directives(_Filter?): _Directives[_Name]
+        operations(_Filter?): _Operations[_Name]
         types(_TypeFilter?): _Type[_Name]
         settings(_Filter?): _Setting[_Name]
     }
 
-domain _Name { String /[A-Za-z_][A-Za-z0-9_]*/ }
+domain _Name { String /[A-Za-z_]\w*/ }
 
 input _Filter {
         names: _NameFilter[]
@@ -20,7 +21,7 @@ input _Filter {
 
 "_NameFilter is a simple match expression against _Name"
 "where '.' matches any single character and '*' matches zero or more of any character."
-domain _NameFilter { String /[A-Za-z_.*]+/ }
+domain _NameFilter { String /[\w.*]+/ }
 
 input _CategoryFilter {
     : _Filter
@@ -82,6 +83,95 @@ output _Directive {
 
 enum _Location { Operation Variable Field Inline Spread Fragment }
 
+output _Operations {
+        operation: _Operation
+        type: _Type
+    | _Operation
+    | _Type
+}
+
+output _OpDirectives {
+    : _Named
+        directives: _OpDirective[]
+}
+
+output _Operation {
+    : _Aliased
+        category: _Name
+        variables: _OpVariable[_Name]
+        directives: _OpDirective[]
+        fragments: _OpFragment[_Name]
+        result: _OpResult
+        selections: _OpSelection[][_Path]
+}
+
+output _OpVariable {
+    : _OpDirectives
+        type: _TypeRef<_TypeKind.Input>
+        modifiers: _Modifiers[]
+        defaultValue: Value?
+}
+
+dual _OpDirective {
+    : _Named
+        argument: _OpArgument?
+}
+
+output _OpFragment {
+    : _OpDirectives
+        type: _TypeRef<_TypeKind.Output>
+}
+
+dual _OpArgument {
+    |   _OpArgValue
+    |   _OpArgList
+    |   _OpArgMap
+    }
+
+dual _OpArgValue {
+        variable: _Name
+    |   Value
+    }
+
+dual _OpArgList {
+    | _OpArgValue[]
+    }
+
+dual _OpArgMap {
+        value: _OpArgValue
+        byVariable: _Name
+    | _OpArgValue[Scalar]
+    }
+
+output _OpResult {
+        argument: _OpArgument?
+    | _TypeRef<_SimpleKind>
+}
+
+domain _Path { String /(\$([A-Za-z]\w*)?|\.+)?\d+(\.\d+)*/ }
+
+output _OpSelection {
+    |   _OpField
+    |   _OpSpread
+    |   _OpInline
+}
+
+output _OpField {
+    : _OpDirectives
+        fieldAlias: String?
+        argument: _OpArgument?
+        modifiers: _Modifiers[]
+}
+
+output _OpInline {
+        type: _TypeRef<_TypeKind.Output>?
+        directives: _OpDirective[]
+}
+
+output _OpSpread {
+        fragment: String
+        directives: _OpDirective[]
+}
 
 output _Setting {
     : _Named
@@ -366,6 +456,10 @@ public class Cmpt_SchemaObject
   public IDictionary<ICmpt_Name, ICmpt_Directives>? Directives(ICmpt_Filter? parameter)
     => null;
   public IDictionary<ICmpt_Name, ICmpt_Directives>? Directives()
+    => null;
+  public IDictionary<ICmpt_Name, ICmpt_Operations>? Operations(ICmpt_Filter? parameter)
+    => null;
+  public IDictionary<ICmpt_Name, ICmpt_Operations>? Operations()
     => null;
   public IDictionary<ICmpt_Name, ICmpt_Type>? Types(ICmpt_TypeFilter? parameter)
     => null;
@@ -665,6 +759,373 @@ public class Cmpt_DirectiveObject
   {
     Repeatable = prepeatable;
     Locations = plocations;
+  }
+}
+
+public class Cmpt_Operations
+  : Spec_Introspection
+  , ICmpt_Operations
+{
+  public ICmpt_Operation? As_Operation { get; set; }
+  public ICmpt_Type? As_Type { get; set; }
+  public ICmpt_OperationsObject? As__Operations { get; set; }
+}
+
+public class Cmpt_OperationsObject
+  : Spec_Introspection
+  , ICmpt_OperationsObject
+{
+  public ICmpt_Operation Operation { get; set; }
+  public ICmpt_Type Type { get; set; }
+
+  public Cmpt_OperationsObject
+    ( ICmpt_Operation poperation
+    , ICmpt_Type ptype
+    )
+  {
+    Operation = poperation;
+    Type = ptype;
+  }
+}
+
+public class Cmpt_OpDirectives
+  : Cmpt_Named
+  , ICmpt_OpDirectives
+{
+  public ICmpt_OpDirectivesObject? As__OpDirectives { get; set; }
+}
+
+public class Cmpt_OpDirectivesObject
+  : Cmpt_NamedObject
+  , ICmpt_OpDirectivesObject
+{
+  public ICollection<ICmpt_OpDirective> Directives { get; set; }
+
+  public Cmpt_OpDirectivesObject
+    ( ICollection<string> pdescription
+    , ICmpt_Name pname
+    , ICollection<ICmpt_OpDirective> pdirectives
+    ) : base(pdescription, pname)
+  {
+    Directives = pdirectives;
+  }
+}
+
+public class Cmpt_Operation
+  : Cmpt_Aliased
+  , ICmpt_Operation
+{
+  public ICmpt_OperationObject? As__Operation { get; set; }
+}
+
+public class Cmpt_OperationObject
+  : Cmpt_AliasedObject
+  , ICmpt_OperationObject
+{
+  public ICmpt_Name Category { get; set; }
+  public IDictionary<ICmpt_Name, ICmpt_OpVariable> Variables { get; set; }
+  public ICollection<ICmpt_OpDirective> Directives { get; set; }
+  public IDictionary<ICmpt_Name, ICmpt_OpFragment> Fragments { get; set; }
+  public ICmpt_OpResult Result { get; set; }
+  public IDictionary<ICmpt_Path, ICollection<ICmpt_OpSelection>> Selections { get; set; }
+
+  public Cmpt_OperationObject
+    ( ICollection<string> pdescription
+    , ICmpt_Name pname
+    , ICollection<ICmpt_Name> paliases
+    , ICmpt_Name pcategory
+    , IDictionary<ICmpt_Name, ICmpt_OpVariable> pvariables
+    , ICollection<ICmpt_OpDirective> pdirectives
+    , IDictionary<ICmpt_Name, ICmpt_OpFragment> pfragments
+    , ICmpt_OpResult presult
+    , IDictionary<ICmpt_Path, ICollection<ICmpt_OpSelection>> pselections
+    ) : base(pdescription, pname, paliases)
+  {
+    Category = pcategory;
+    Variables = pvariables;
+    Directives = pdirectives;
+    Fragments = pfragments;
+    Result = presult;
+    Selections = pselections;
+  }
+}
+
+public class Cmpt_OpVariable
+  : Cmpt_OpDirectives
+  , ICmpt_OpVariable
+{
+  public ICmpt_OpVariableObject? As__OpVariable { get; set; }
+}
+
+public class Cmpt_OpVariableObject
+  : Cmpt_OpDirectivesObject
+  , ICmpt_OpVariableObject
+{
+  public ICmpt_TypeRef<Cmpt_TypeKind> Type { get; set; }
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
+  public GqlpValue? DefaultValue { get; set; }
+
+  public Cmpt_OpVariableObject
+    ( ICollection<string> pdescription
+    , ICmpt_Name pname
+    , ICollection<ICmpt_OpDirective> pdirectives
+    , ICmpt_TypeRef<Cmpt_TypeKind> ptype
+    , ICollection<ICmpt_Modifiers> pmodifiers
+    ) : base(pdescription, pname, pdirectives)
+  {
+    Type = ptype;
+    Modifiers = pmodifiers;
+  }
+}
+
+public class Cmpt_OpDirective
+  : Cmpt_Named
+  , ICmpt_OpDirective
+{
+  public ICmpt_OpDirectiveObject? As__OpDirective { get; set; }
+}
+
+public class Cmpt_OpDirectiveObject
+  : Cmpt_NamedObject
+  , ICmpt_OpDirectiveObject
+{
+  public ICmpt_OpArgument? Argument { get; set; }
+
+  public Cmpt_OpDirectiveObject
+    ( ICollection<string> pdescription
+    , ICmpt_Name pname
+    ) : base(pdescription, pname)
+  {
+  }
+}
+
+public class Cmpt_OpFragment
+  : Cmpt_OpDirectives
+  , ICmpt_OpFragment
+{
+  public ICmpt_OpFragmentObject? As__OpFragment { get; set; }
+}
+
+public class Cmpt_OpFragmentObject
+  : Cmpt_OpDirectivesObject
+  , ICmpt_OpFragmentObject
+{
+  public ICmpt_TypeRef<Cmpt_TypeKind> Type { get; set; }
+
+  public Cmpt_OpFragmentObject
+    ( ICollection<string> pdescription
+    , ICmpt_Name pname
+    , ICollection<ICmpt_OpDirective> pdirectives
+    , ICmpt_TypeRef<Cmpt_TypeKind> ptype
+    ) : base(pdescription, pname, pdirectives)
+  {
+    Type = ptype;
+  }
+}
+
+public class Cmpt_OpArgument
+  : Spec_Introspection
+  , ICmpt_OpArgument
+{
+  public ICmpt_OpArgValue? As_OpArgValue { get; set; }
+  public ICmpt_OpArgList? As_OpArgList { get; set; }
+  public ICmpt_OpArgMap? As_OpArgMap { get; set; }
+  public ICmpt_OpArgumentObject? As__OpArgument { get; set; }
+}
+
+public class Cmpt_OpArgumentObject
+  : Spec_Introspection
+  , ICmpt_OpArgumentObject
+{
+
+  public Cmpt_OpArgumentObject
+    ()
+  {
+  }
+}
+
+public class Cmpt_OpArgValue
+  : Spec_Introspection
+  , ICmpt_OpArgValue
+{
+  public GqlpValue? AsValue { get; set; }
+  public ICmpt_OpArgValueObject? As__OpArgValue { get; set; }
+}
+
+public class Cmpt_OpArgValueObject
+  : Spec_Introspection
+  , ICmpt_OpArgValueObject
+{
+  public ICmpt_Name Variable { get; set; }
+
+  public Cmpt_OpArgValueObject
+    ( ICmpt_Name pvariable
+    )
+  {
+    Variable = pvariable;
+  }
+}
+
+public class Cmpt_OpArgList
+  : Spec_Introspection
+  , ICmpt_OpArgList
+{
+  public ICollection<ICmpt_OpArgValue>? As_OpArgValue { get; set; }
+  public ICmpt_OpArgListObject? As__OpArgList { get; set; }
+}
+
+public class Cmpt_OpArgListObject
+  : Spec_Introspection
+  , ICmpt_OpArgListObject
+{
+
+  public Cmpt_OpArgListObject
+    ()
+  {
+  }
+}
+
+public class Cmpt_OpArgMap
+  : Spec_Introspection
+  , ICmpt_OpArgMap
+{
+  public IDictionary<GqlpScalar, ICmpt_OpArgValue>? As_OpArgValue { get; set; }
+  public ICmpt_OpArgMapObject? As__OpArgMap { get; set; }
+}
+
+public class Cmpt_OpArgMapObject
+  : Spec_Introspection
+  , ICmpt_OpArgMapObject
+{
+  public ICmpt_OpArgValue Value { get; set; }
+  public ICmpt_Name ByVariable { get; set; }
+
+  public Cmpt_OpArgMapObject
+    ( ICmpt_OpArgValue pvalue
+    , ICmpt_Name pbyVariable
+    )
+  {
+    Value = pvalue;
+    ByVariable = pbyVariable;
+  }
+}
+
+public class Cmpt_OpResult
+  : Spec_Introspection
+  , ICmpt_OpResult
+{
+  public ICmpt_TypeRef<Cmpt_SimpleKind>? As_TypeRef { get; set; }
+  public ICmpt_OpResultObject? As__OpResult { get; set; }
+}
+
+public class Cmpt_OpResultObject
+  : Spec_Introspection
+  , ICmpt_OpResultObject
+{
+  public ICmpt_OpArgument? Argument { get; set; }
+
+  public Cmpt_OpResultObject
+    ()
+  {
+  }
+}
+
+public class Cmpt_Path
+  : GqlpDomainString
+  , ICmpt_Path
+{
+}
+
+public class Cmpt_OpSelection
+  : Spec_Introspection
+  , ICmpt_OpSelection
+{
+  public ICmpt_OpField? As_OpField { get; set; }
+  public ICmpt_OpSpread? As_OpSpread { get; set; }
+  public ICmpt_OpInline? As_OpInline { get; set; }
+  public ICmpt_OpSelectionObject? As__OpSelection { get; set; }
+}
+
+public class Cmpt_OpSelectionObject
+  : Spec_Introspection
+  , ICmpt_OpSelectionObject
+{
+
+  public Cmpt_OpSelectionObject
+    ()
+  {
+  }
+}
+
+public class Cmpt_OpField
+  : Cmpt_OpDirectives
+  , ICmpt_OpField
+{
+  public ICmpt_OpFieldObject? As__OpField { get; set; }
+}
+
+public class Cmpt_OpFieldObject
+  : Cmpt_OpDirectivesObject
+  , ICmpt_OpFieldObject
+{
+  public string? FieldAlias { get; set; }
+  public ICmpt_OpArgument? Argument { get; set; }
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
+
+  public Cmpt_OpFieldObject
+    ( ICollection<string> pdescription
+    , ICmpt_Name pname
+    , ICollection<ICmpt_OpDirective> pdirectives
+    , ICollection<ICmpt_Modifiers> pmodifiers
+    ) : base(pdescription, pname, pdirectives)
+  {
+    Modifiers = pmodifiers;
+  }
+}
+
+public class Cmpt_OpInline
+  : Spec_Introspection
+  , ICmpt_OpInline
+{
+  public ICmpt_OpInlineObject? As__OpInline { get; set; }
+}
+
+public class Cmpt_OpInlineObject
+  : Spec_Introspection
+  , ICmpt_OpInlineObject
+{
+  public ICmpt_TypeRef<Cmpt_TypeKind>? Type { get; set; }
+  public ICollection<ICmpt_OpDirective> Directives { get; set; }
+
+  public Cmpt_OpInlineObject
+    ( ICollection<ICmpt_OpDirective> pdirectives
+    )
+  {
+    Directives = pdirectives;
+  }
+}
+
+public class Cmpt_OpSpread
+  : Spec_Introspection
+  , ICmpt_OpSpread
+{
+  public ICmpt_OpSpreadObject? As__OpSpread { get; set; }
+}
+
+public class Cmpt_OpSpreadObject
+  : Spec_Introspection
+  , ICmpt_OpSpreadObject
+{
+  public string Fragment { get; set; }
+  public ICollection<ICmpt_OpDirective> Directives { get; set; }
+
+  public Cmpt_OpSpreadObject
+    ( string pfragment
+    , ICollection<ICmpt_OpDirective> pdirectives
+    )
+  {
+    Fragment = pfragment;
+    Directives = pdirectives;
   }
 }
 

@@ -7,6 +7,7 @@ public class SchemaEncoderTests
 {
   private readonly IEncoder<CategoriesModel> _categories;
   private readonly IEncoder<DirectivesModel> _directives;
+  private readonly IEncoder<OperationsModel> _operations;
   private readonly IEncoder<BaseTypeModel> _types;
   private readonly IEncoder<SettingModel> _settings;
 
@@ -14,11 +15,13 @@ public class SchemaEncoderTests
   {
     _categories = RFor<CategoriesModel>();
     _directives = RFor<DirectivesModel>();
+    _operations = RFor<OperationsModel>();
     _types = RFor<BaseTypeModel>();
     _settings = RFor<SettingModel>();
     IEncoderRepository encoders = A.Of<IEncoderRepository>();
     encoders.EncoderFor<CategoriesModel>().Returns(_categories);
     encoders.EncoderFor<DirectivesModel>().Returns(_directives);
+    encoders.EncoderFor<OperationsModel>().Returns(_operations);
     encoders.EncoderFor<BaseTypeModel>().Returns(_types);
     encoders.EncoderFor<SettingModel>().Returns(_settings);
     Encoder = new SchemaEncoder(encoders);
@@ -39,21 +42,24 @@ public class SchemaEncoderTests
     string[] aliases,
     string categoryName,
     string directiveName,
+    string operationName,
     string settingName,
     string typeName,
     string errorMessage)
   {
     IEnumerable<CategoryModel> categories = [new(categoryName, new(TypeKindModel.Output, typeName, string.Empty), string.Empty)];
     IEnumerable<DirectiveModel> directives = [new(directiveName, string.Empty)];
+    IEnumerable<OperationModel> operations = [new(operationName, string.Empty, new(), string.Empty)];
     IEnumerable<SettingModel> settings = [new(settingName, null!, string.Empty)];
     IEnumerable<TypeOutputModel> types = [new(typeName, string.Empty)];
     IMessages? errors = new Messages(new TokenMessage(AstNulls.At, errorMessage));
-    SchemaModel model = new(name, categories, directives, settings, types, errors) {
+    SchemaModel model = new(name, categories, directives, operations, settings, types, errors) {
       Aliases = aliases
     };
 
     EncodeReturns(_categories, Arg.Any<CategoriesModel>(), categoryName.Encode("_Categories"));
     EncodeReturns(_directives, Arg.Any<DirectivesModel>(), directiveName.Encode("_Directives"));
+    EncodeReturns(_operations, Arg.Any<OperationsModel>(), operationName.Encode("_Operations"));
     EncodeReturns(_settings, Arg.Any<SettingModel>(), settingName.Encode("_Setting"));
     EncodeReturns(_types, Arg.Any<BaseTypeModel>(), typeName.Encode("_TypeOutput"));
 
@@ -66,6 +72,7 @@ public class SchemaEncoderTests
         $":categories[_Map(_Categories)]:[_Name]{categoryName}=[_Categories]{categoryName}",
         $":directives[_Map(_Directives)]:[_Name]{directiveName}=[_Directives]{directiveName}",
         ":name=" + name,
+        $":operations[_Map(_Operations)]:[_Name]{operationName}=[_Operations]{operationName}",
         $":settings[_Map(_Setting)]:[_Name]{settingName}=[_Setting]{settingName}",
         $":types[_Map(_Type)]:[_Name]{typeName}=[_TypeOutput]{typeName}"]));
   }

@@ -1,0 +1,306 @@
+﻿/* Operation
+output _Operations {
+        operation: _Operation
+        type: _Type
+    | _Operation
+    | _Type
+}
+
+output _OpDirectives {
+    : _Named
+        directives: _OpDirective[]
+}
+
+output _Operation {
+    : _Aliased
+        category: _Name
+        variables: _OpVariable[_Name]
+        directives: _OpDirective[]
+        fragments: _OpFragment[_Name]
+        result: _OpResult
+        selections: _OpSelection[][_Path]
+}
+
+output _OpVariable {
+    : _OpDirectives
+        type: _TypeRef<_TypeKind.Input>
+        modifiers: _Modifiers[]
+        defaultValue: Value?
+}
+
+dual _OpDirective {
+    : _Named
+        argument: _OpArgument?
+}
+
+output _OpFragment {
+    : _OpDirectives
+        type: _TypeRef<_TypeKind.Output>
+}
+
+dual _OpArgument {
+    |   _OpArgValue
+    |   _OpArgList
+    |   _OpArgMap
+    }
+
+dual _OpArgValue {
+        variable: _Name
+    |   Value
+    }
+
+dual _OpArgList {
+    | _OpArgValue[]
+    }
+
+dual _OpArgMap {
+        value: _OpArgValue
+        byVariable: _Name
+    | _OpArgValue[Scalar]
+    }
+
+output _OpResult {
+        argument: _OpArgument?
+    | _TypeRef<_SimpleKind>
+}
+
+domain _Path { String /(\$([A-Za-z]\w*)?|\.+)?\d+(\.\d+)*/ }
+
+output _OpSelection {
+    |   _OpField
+    |   _OpSpread
+    |   _OpInline
+}
+
+output _OpField {
+    : _OpDirectives
+        fieldAlias: String?
+        argument: _OpArgument?
+        modifiers: _Modifiers[]
+}
+
+output _OpInline {
+        type: _TypeRef<_TypeKind.Output>?
+        directives: _OpDirective[]
+}
+
+output _OpSpread {
+        fragment: String
+        directives: _OpDirective[]
+}
+*/
+
+// Generated from Spec Operation
+//   with GeneratorOption: BaseType: Interface, BaseName: Spec_Operation, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Spec_Operation;
+
+public interface ICmpt_Operations
+  : Spec_Operation
+{
+  ICmpt_Operation? As_Operation { get; }
+  ICmpt_Type? As_Type { get; }
+  ICmpt_OperationsObject? As__Operations { get; }
+}
+
+public interface ICmpt_OperationsObject
+  : Spec_Operation
+{
+  ICmpt_Operation Operation { get; }
+  ICmpt_Type Type { get; }
+}
+
+public interface ICmpt_OpDirectives
+  : ICmpt_Named
+{
+  ICmpt_OpDirectivesObject? As__OpDirectives { get; }
+}
+
+public interface ICmpt_OpDirectivesObject
+  : ICmpt_NamedObject
+{
+  ICollection<ICmpt_OpDirective> Directives { get; }
+}
+
+public interface ICmpt_Operation
+  : ICmpt_Aliased
+{
+  ICmpt_OperationObject? As__Operation { get; }
+}
+
+public interface ICmpt_OperationObject
+  : ICmpt_AliasedObject
+{
+  ICmpt_Name Category { get; }
+  IDictionary<ICmpt_Name, ICmpt_OpVariable> Variables { get; }
+  ICollection<ICmpt_OpDirective> Directives { get; }
+  IDictionary<ICmpt_Name, ICmpt_OpFragment> Fragments { get; }
+  ICmpt_OpResult Result { get; }
+  IDictionary<ICmpt_Path, ICollection<ICmpt_OpSelection>> Selections { get; }
+}
+
+public interface ICmpt_OpVariable
+  : ICmpt_OpDirectives
+{
+  ICmpt_OpVariableObject? As__OpVariable { get; }
+}
+
+public interface ICmpt_OpVariableObject
+  : ICmpt_OpDirectivesObject
+{
+  ICmpt_TypeRef<ICmpt_TypeKind> Type { get; }
+  ICollection<ICmpt_Modifiers> Modifiers { get; }
+  GqlpValue? DefaultValue { get; }
+}
+
+public interface ICmpt_OpDirective
+  : ICmpt_Named
+{
+  ICmpt_OpDirectiveObject? As__OpDirective { get; }
+}
+
+public interface ICmpt_OpDirectiveObject
+  : ICmpt_NamedObject
+{
+  ICmpt_OpArgument? Argument { get; }
+}
+
+public interface ICmpt_OpFragment
+  : ICmpt_OpDirectives
+{
+  ICmpt_OpFragmentObject? As__OpFragment { get; }
+}
+
+public interface ICmpt_OpFragmentObject
+  : ICmpt_OpDirectivesObject
+{
+  ICmpt_TypeRef<ICmpt_TypeKind> Type { get; }
+}
+
+public interface ICmpt_OpArgument
+  : Spec_Operation
+{
+  ICmpt_OpArgValue? As_OpArgValue { get; }
+  ICmpt_OpArgList? As_OpArgList { get; }
+  ICmpt_OpArgMap? As_OpArgMap { get; }
+  ICmpt_OpArgumentObject? As__OpArgument { get; }
+}
+
+public interface ICmpt_OpArgumentObject
+  : Spec_Operation
+{
+}
+
+public interface ICmpt_OpArgValue
+  : Spec_Operation
+{
+  GqlpValue? AsValue { get; }
+  ICmpt_OpArgValueObject? As__OpArgValue { get; }
+}
+
+public interface ICmpt_OpArgValueObject
+  : Spec_Operation
+{
+  ICmpt_Name Variable { get; }
+}
+
+public interface ICmpt_OpArgList
+  : Spec_Operation
+{
+  ICollection<ICmpt_OpArgValue>? As_OpArgValue { get; }
+  ICmpt_OpArgListObject? As__OpArgList { get; }
+}
+
+public interface ICmpt_OpArgListObject
+  : Spec_Operation
+{
+}
+
+public interface ICmpt_OpArgMap
+  : Spec_Operation
+{
+  IDictionary<GqlpScalar, ICmpt_OpArgValue>? As_OpArgValue { get; }
+  ICmpt_OpArgMapObject? As__OpArgMap { get; }
+}
+
+public interface ICmpt_OpArgMapObject
+  : Spec_Operation
+{
+  ICmpt_OpArgValue Value { get; }
+  ICmpt_Name ByVariable { get; }
+}
+
+public interface ICmpt_OpResult
+  : Spec_Operation
+{
+  ICmpt_TypeRef<ICmpt_SimpleKind>? As_TypeRef { get; }
+  ICmpt_OpResultObject? As__OpResult { get; }
+}
+
+public interface ICmpt_OpResultObject
+  : Spec_Operation
+{
+  ICmpt_OpArgument? Argument { get; }
+}
+
+public interface ICmpt_Path
+  : IGqlpDomainString
+{
+}
+
+public interface ICmpt_OpSelection
+  : Spec_Operation
+{
+  ICmpt_OpField? As_OpField { get; }
+  ICmpt_OpSpread? As_OpSpread { get; }
+  ICmpt_OpInline? As_OpInline { get; }
+  ICmpt_OpSelectionObject? As__OpSelection { get; }
+}
+
+public interface ICmpt_OpSelectionObject
+  : Spec_Operation
+{
+}
+
+public interface ICmpt_OpField
+  : ICmpt_OpDirectives
+{
+  ICmpt_OpFieldObject? As__OpField { get; }
+}
+
+public interface ICmpt_OpFieldObject
+  : ICmpt_OpDirectivesObject
+{
+  string? FieldAlias { get; }
+  ICmpt_OpArgument? Argument { get; }
+  ICollection<ICmpt_Modifiers> Modifiers { get; }
+}
+
+public interface ICmpt_OpInline
+  : Spec_Operation
+{
+  ICmpt_OpInlineObject? As__OpInline { get; }
+}
+
+public interface ICmpt_OpInlineObject
+  : Spec_Operation
+{
+  ICmpt_TypeRef<ICmpt_TypeKind>? Type { get; }
+  ICollection<ICmpt_OpDirective> Directives { get; }
+}
+
+public interface ICmpt_OpSpread
+  : Spec_Operation
+{
+  ICmpt_OpSpreadObject? As__OpSpread { get; }
+}
+
+public interface ICmpt_OpSpreadObject
+  : Spec_Operation
+{
+  string Fragment { get; }
+  ICollection<ICmpt_OpDirective> Directives { get; }
+}

@@ -69,11 +69,11 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     string fieldKey = field.Name;
     string fieldAccess = GetFieldAccess(field);
     bool hasListMod = field.Modifiers.Any(m => m.ModifierKind == ModifierKind.List);
+    bool hasOptionalMod = field.Modifiers.LastOrDefault()?.ModifierKind == ModifierKind.Optional;
     (string csBaseType, bool isPrimitive, bool isEnum) = ResolveFieldTypeInfo(field, context);
 
     string call;
     if (isPrimitive || isEnum) {
-      bool hasOptionalMod = field.Modifiers.LastOrDefault()?.ModifierKind == ModifierKind.Optional;
       call = BuildPrimitiveFieldCall(fieldKey, fieldAccess, isEnum, hasListMod, hasOptionalMod);
     } else if (hasListMod) {
       call = BuildFieldListCall(field, fieldKey, fieldAccess, encoderFields, typePrefix, context);

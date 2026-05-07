@@ -110,6 +110,39 @@ internal class CmptDscrsEncoder : IEncoder<ICmptDscrsObject>
   internal static CmptDscrsEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptCatOprCtgrEncoder : IEncoder<ICmptCatOprCtgrObject>
+{
+  public Structured Encode(ICmptCatOprCtgrObject input)
+    => Structured.Empty();
+
+  internal static CmptCatOprCtgrEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptCatOprTypeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptCatOprTypeObject>
+{
+  private readonly IEncoder<ICmptAddrOprType> _addrOprType = encoders.EncoderFor<ICmptAddrOprType>();
+  public Structured Encode(ICmptCatOprTypeObject input)
+    => Structured.Empty()
+      .Add("first", input.First.Encode())
+      .Add("last", input.Last.Encode())
+      .AddEncoded("address", input.Address, _addrOprType);
+
+  internal static CmptCatOprTypeEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptAddrOprTypeEncoder : IEncoder<ICmptAddrOprTypeObject>
+{
+  public Structured Encode(ICmptAddrOprTypeObject input)
+    => Structured.Empty()
+      .Add("street", input.Street.Encode())
+      .Add("city", input.City.Encode())
+      .Add("country", input.Country.Encode());
+
+  internal static CmptAddrOprTypeEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptAltDualEncoder : IEncoder<ICmptAltDualObject>
 {
   public Structured Encode(ICmptAltDualObject input)
@@ -3959,6 +3992,14 @@ internal class CmptRefObjPrntOutpEncoder : IEncoder<ICmptRefObjPrntOutpObject>
   internal static CmptRefObjPrntOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptOpEncoder : IEncoder<ICmptOpObject>
+{
+  public Structured Encode(ICmptOpObject input)
+    => Structured.Empty();
+
+  internal static CmptOpEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptOutpFieldParamEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptOutpFieldParamObject>
@@ -4632,6 +4673,9 @@ internal static class Cmpt_Schema_ALLEncoders
       .AddEncoder<ICmptDescrDblObject>(CmptDescrDblEncoder.Factory)
       .AddEncoder<ICmptDescrSnglObject>(CmptDescrSnglEncoder.Factory)
       .AddEncoder<ICmptDscrsObject>(CmptDscrsEncoder.Factory)
+      .AddEncoder<ICmptCatOprCtgrObject>(CmptCatOprCtgrEncoder.Factory)
+      .AddEncoder<ICmptCatOprTypeObject>(CmptCatOprTypeEncoder.Factory)
+      .AddEncoder<ICmptAddrOprTypeObject>(CmptAddrOprTypeEncoder.Factory)
       .AddEncoder<ICmptAltDualObject>(CmptAltDualEncoder.Factory)
       .AddEncoder<ICmptAltAltDualObject>(CmptAltAltDualEncoder.Factory)
       .AddEncoder<ICmptAltOutpObject>(CmptAltOutpEncoder.Factory)
@@ -4963,6 +5007,7 @@ internal static class Cmpt_Schema_ALLEncoders
       .AddEncoder<ICmptRefObjPrntDualObject>(CmptRefObjPrntDualEncoder.Factory)
       .AddEncoder<ICmptObjPrntOutpObject>(CmptObjPrntOutpEncoder.Factory)
       .AddEncoder<ICmptRefObjPrntOutpObject>(CmptRefObjPrntOutpEncoder.Factory)
+      .AddEncoder<ICmptOpObject>(CmptOpEncoder.Factory)
       .AddEncoder<ICmptOutpFieldParamObject>(CmptOutpFieldParamEncoder.Factory)
       .AddEncoder<ICmptFldOutpFieldParamObject>(CmptFldOutpFieldParamEncoder.Factory)
       .AddEncoder<ICmptUnionAlias>(CmptUnionAliasEncoder.Factory)

@@ -111,6 +111,39 @@ internal class testDscrsEncoder : IEncoder<ItestDscrsObject>
   internal static testDscrsEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class testCatOprCtgrEncoder : IEncoder<ItestCatOprCtgrObject>
+{
+  public Structured Encode(ItestCatOprCtgrObject input)
+    => Structured.Empty();
+
+  internal static testCatOprCtgrEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class testCatOprTypeEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestCatOprTypeObject>
+{
+  private readonly IEncoder<ItestAddrOprType> _itestAddrOprType = encoders.EncoderFor<ItestAddrOprType>();
+  public Structured Encode(ItestCatOprTypeObject input)
+    => Structured.Empty()
+      .Add("first", input.First.Encode())
+      .Add("last", input.Last.Encode())
+      .AddEncoded("address", input.Address, _itestAddrOprType);
+
+  internal static testCatOprTypeEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class testAddrOprTypeEncoder : IEncoder<ItestAddrOprTypeObject>
+{
+  public Structured Encode(ItestAddrOprTypeObject input)
+    => Structured.Empty()
+      .Add("street", input.Street.Encode())
+      .Add("city", input.City.Encode())
+      .Add("country", input.Country.Encode());
+
+  internal static testAddrOprTypeEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class testAltDualEncoder : IEncoder<ItestAltDualObject>
 {
   public Structured Encode(ItestAltDualObject input)
@@ -3960,6 +3993,14 @@ internal class testRefObjPrntOutpEncoder : IEncoder<ItestRefObjPrntOutpObject>
   internal static testRefObjPrntOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class testOpEncoder : IEncoder<ItestOpObject>
+{
+  public Structured Encode(ItestOpObject input)
+    => Structured.Empty();
+
+  internal static testOpEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class testOutpFieldParamEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestOutpFieldParamObject>
@@ -4633,6 +4674,9 @@ internal static class test__ALLEncoders
       .AddEncoder<ItestDescrDblObject>(testDescrDblEncoder.Factory)
       .AddEncoder<ItestDescrSnglObject>(testDescrSnglEncoder.Factory)
       .AddEncoder<ItestDscrsObject>(testDscrsEncoder.Factory)
+      .AddEncoder<ItestCatOprCtgrObject>(testCatOprCtgrEncoder.Factory)
+      .AddEncoder<ItestCatOprTypeObject>(testCatOprTypeEncoder.Factory)
+      .AddEncoder<ItestAddrOprTypeObject>(testAddrOprTypeEncoder.Factory)
       .AddEncoder<ItestAltDualObject>(testAltDualEncoder.Factory)
       .AddEncoder<ItestAltAltDualObject>(testAltAltDualEncoder.Factory)
       .AddEncoder<ItestAltOutpObject>(testAltOutpEncoder.Factory)
@@ -4964,6 +5008,7 @@ internal static class test__ALLEncoders
       .AddEncoder<ItestRefObjPrntDualObject>(testRefObjPrntDualEncoder.Factory)
       .AddEncoder<ItestObjPrntOutpObject>(testObjPrntOutpEncoder.Factory)
       .AddEncoder<ItestRefObjPrntOutpObject>(testRefObjPrntOutpEncoder.Factory)
+      .AddEncoder<ItestOpObject>(testOpEncoder.Factory)
       .AddEncoder<ItestOutpFieldParamObject>(testOutpFieldParamEncoder.Factory)
       .AddEncoder<ItestFldOutpFieldParamObject>(testFldOutpFieldParamEncoder.Factory)
       .AddEncoder<ItestUnionAlias>(testUnionAliasEncoder.Factory)

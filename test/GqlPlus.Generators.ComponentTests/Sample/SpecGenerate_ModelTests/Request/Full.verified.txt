@@ -1,0 +1,160 @@
+﻿/* Full
+input _Request {
+        category: _Identifier? = null
+        operation: _Identifier? = null
+        definition: _Operation
+        parameters: Any? = null
+    |   "Parsed into definition" String
+    }
+
+domain _Identifier { String /[A-Za-z_][A-Za-z0-9_]*/ }
+
+dual _Collections {
+    | _Modifier<_ModifierKind.List>
+    | _ModifierKeyed<_ModifierKind.Dictionary>
+    | _ModifierKeyed<_ModifierKind.TypeParam>
+    }
+
+dual _ModifierKeyed<$modifierKind:_ModifierKind> {
+    : _Modifier<$modifierKind>
+        by: _Identifier
+        isOptional: Boolean
+    }
+
+dual _Modifiers {
+    | _Modifier<_ModifierKind.Optional>
+    | _Collections
+    }
+
+enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+
+dual _Modifier<$modifierKind:_ModifierKind> {
+        modifierKind: $modifierKind
+    }
+*/
+
+// Generated from Spec Full
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Full, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Spec_Full;
+
+public class Cmpt_Request
+  : Spec_Full
+  , ICmpt_Request
+{
+  public string? AsString { get; set; }
+  public ICmpt_RequestObject? As__Request { get; set; }
+}
+
+public class Cmpt_RequestObject
+  : Spec_Full
+  , ICmpt_RequestObject
+{
+  public ICmpt_Identifier? Category { get; set; }
+  public ICmpt_Identifier? Operation { get; set; }
+  public ICmpt_Operation Definition { get; set; }
+  public object? Parameters { get; set; }
+
+  public Cmpt_RequestObject
+    ( ICmpt_Operation pdefinition
+    )
+  {
+    Definition = pdefinition;
+  }
+}
+
+public class Cmpt_Identifier
+  : GqlpDomainString
+  , ICmpt_Identifier
+{
+}
+
+public class Cmpt_Collections
+  : Spec_Full
+  , ICmpt_Collections
+{
+  public ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindList { get; set; }
+  public ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindDictionary { get; set; }
+  public ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindTypeParam { get; set; }
+  public ICmpt_CollectionsObject? As__Collections { get; set; }
+}
+
+public class Cmpt_CollectionsObject
+  : Spec_Full
+  , ICmpt_CollectionsObject
+{
+
+  public Cmpt_CollectionsObject
+    ()
+  {
+  }
+}
+
+public class Cmpt_ModifierKeyed<TModifierKind>
+  : Cmpt_Modifier<TModifierKind>
+  , ICmpt_ModifierKeyed<TModifierKind>
+{
+  public ICmpt_ModifierKeyedObject<TModifierKind>? As__ModifierKeyed { get; set; }
+}
+
+public class Cmpt_ModifierKeyedObject<TModifierKind>
+  : Cmpt_ModifierObject<TModifierKind>
+  , ICmpt_ModifierKeyedObject<TModifierKind>
+{
+  public ICmpt_Identifier By { get; set; }
+  public bool IsOptional { get; set; }
+
+  public Cmpt_ModifierKeyedObject
+    ( TModifierKind pmodifierKind
+    , ICmpt_Identifier pby
+    , bool pisOptional
+    ) : base(pmodifierKind)
+  {
+    By = pby;
+    IsOptional = pisOptional;
+  }
+}
+
+public class Cmpt_Modifiers
+  : Spec_Full
+  , ICmpt_Modifiers
+{
+  public ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindOptional { get; set; }
+  public ICmpt_Collections? As_Collections { get; set; }
+  public ICmpt_ModifiersObject? As__Modifiers { get; set; }
+}
+
+public class Cmpt_ModifiersObject
+  : Spec_Full
+  , ICmpt_ModifiersObject
+{
+
+  public Cmpt_ModifiersObject
+    ()
+  {
+  }
+}
+
+public class Cmpt_Modifier<TModifierKind>
+  : Spec_Full
+  , ICmpt_Modifier<TModifierKind>
+{
+  public ICmpt_ModifierObject<TModifierKind>? As__Modifier { get; set; }
+}
+
+public class Cmpt_ModifierObject<TModifierKind>
+  : Spec_Full
+  , ICmpt_ModifierObject<TModifierKind>
+{
+  public TModifierKind ModifierKind { get; set; }
+
+  public Cmpt_ModifierObject
+    ( TModifierKind pmodifierKind
+    )
+  {
+    ModifierKind = pmodifierKind;
+  }
+}

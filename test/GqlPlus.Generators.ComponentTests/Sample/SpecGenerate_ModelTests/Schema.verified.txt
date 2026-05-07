@@ -190,19 +190,19 @@ public class Cmpt_Key
   public T AsA<T>() => (T)_value!;
 }
 
-public class Cmpt_Any
+public class object
   : Spec_Schema
-  , ICmpt_Any
+  , object
 {
-  public ICmpt_AnyObject? As__Any { get; set; }
+  public objectObject? As__Any { get; set; }
 }
 
-public class Cmpt_AnyObject
+public class objectObject
   : Spec_Schema
-  , ICmpt_AnyObject
+  , objectObject
 {
 
-  public Cmpt_AnyObject
+  public objectObject
     ()
   {
   }

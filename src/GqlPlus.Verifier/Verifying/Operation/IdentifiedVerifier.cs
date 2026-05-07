@@ -16,26 +16,44 @@ internal abstract class IdentifiedVerifier<TUsage, TIdentified>(
 
   public void Verify(UsageIdentified<TUsage, TIdentified> item, IMessages errors)
   {
-    Dictionary<string, TUsage> used = item.Usages.ToDictionary(UsageKey);
+    Map<TUsage[]> used = item.Usages.GroupBy(UsageKey).ToMap(g => g.Key, g => g.ToArray());
 
-    Dictionary<string, TIdentified> defined = item.Definitions.ToDictionary(f => f.Identifier);
+    Map<TIdentified> defined = item.Definitions.ToMap(f => f.Identifier);
 
-    foreach (MapPair<TUsage> use in used) {
-      if (!defined.ContainsKey(use.Key)) {
-        errors.Add(use.Value.MakeError($"Invalid {Label} usage. {Label} not defined."));
-      }
-
-      _usage?.Verify(use.Value, errors);
+    foreach (MapPair<TUsage[]> use in used) {
+      CheckUse(errors, defined, use);
     }
 
     foreach (MapPair<TIdentified> def in defined) {
-      if (!used.ContainsKey(def.Key)) {
-        errors.Add(def.Value.MakeError($"Invalid {Label} definition. {Label} not used."));
-      }
+      CheckDefinition(errors, used, def);
+    }
 
-      _definition?.Verify(def.Value, errors);
+    VerifyDefinitions(defined, errors);
+  }
+
+  private void CheckDefinition(IMessages errors, Map<TUsage[]> used, MapPair<TIdentified> def)
+  {
+    CheckContained(used, def.Key, def.Value, errors, "definition", "used");
+    _definition?.Verify(def.Value, errors);
+  }
+
+  private void CheckUse(IMessages errors, Map<TIdentified> defined, MapPair<TUsage[]> use)
+  {
+    CheckContained(defined, use.Key, use.Value[0], errors, "usage", "defined");
+    foreach (TUsage value in use.Value) {
+      _usage?.Verify(value, errors);
     }
   }
+
+  private void CheckContained<T>(Map<T> map, string key, IAstError value, IMessages errors, string error1, string error2)
+  {
+    if (!map.ContainsKey(key)) {
+      errors.Add(value.MakeError($"Invalid {Label} {error1}. '{key}' not {error2}."));
+    }
+  }
+
+  protected virtual void VerifyDefinitions(Map<TIdentified> defined, IMessages errors)
+  { }
 }
 
 public record class UsageIdentified<TUsage, TIdentified>(IEnumerable<TUsage> Usages, IEnumerable<TIdentified> Definitions)

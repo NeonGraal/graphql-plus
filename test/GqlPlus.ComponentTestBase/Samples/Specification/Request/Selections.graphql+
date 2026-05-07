@@ -1,0 +1,23 @@
+input _OpSelection {
+    |   _OpField
+    |   _OpSpread
+    |   _OpInline
+    }
+
+input _OpField {
+    : _OpDirectives
+        fieldAlias: _Identifier? = null
+        argument: _OpArgument?
+        modifiers: _Modifiers[]
+    }
+
+input _OpInline {
+        type: _Identifier? = null
+        directives: _OpDirective[]
+    }
+
+dual _OpSpread {
+        fragment: _Identifier
+        directives: _OpDirective[]
+    }
+

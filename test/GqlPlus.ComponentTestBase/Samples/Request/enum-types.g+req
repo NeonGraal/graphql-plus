@@ -1,0 +1,3 @@
+category = _Schema
+definition = ($filter) { types($filter) { name typeKind parent { name } } }
+parameters.filter.kinds = Enum

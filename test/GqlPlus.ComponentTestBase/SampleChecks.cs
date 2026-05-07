@@ -134,6 +134,9 @@ public class SampleChecks
     return await File.ReadAllTextAsync(path);
   }
 
+  protected static async Task<string> ReadRequest(string schema, params string[] dirs)
+    => await ReadFile(schema, "g+req", ["Request", .. dirs]);
+
   protected static async Task<string> ReadSchema(string schema, params string[] dirs)
     => await ReadFile(schema, "graphql+", ["Schema", .. dirs]);
 

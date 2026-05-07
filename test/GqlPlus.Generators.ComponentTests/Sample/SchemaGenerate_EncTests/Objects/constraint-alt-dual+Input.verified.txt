@@ -13,6 +13,20 @@ input AltCnstAltDualInp { :PrntCnstAltDualInp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_alt_dual_Input;
 
+internal class CmptCnstAltDualInpEncoder : IEncoder<ICmptCnstAltDualInpObject>
+{
+  public Structured Encode(ICmptCnstAltDualInpObject input)
+    => Structured.Empty();
+
+  internal static CmptCnstAltDualInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptRefCnstAltDualInpEncoder<TRef> : IEncoder<ICmptRefCnstAltDualInpObject<TRef>>
+{
+  public Structured Encode(ICmptRefCnstAltDualInpObject<TRef> input)
+    => Structured.Empty();
+}
+
 internal class CmptPrntCnstAltDualInpEncoder : IEncoder<ICmptPrntCnstAltDualInpObject>
 {
   public Structured Encode(ICmptPrntCnstAltDualInpObject input)
@@ -21,9 +35,23 @@ internal class CmptPrntCnstAltDualInpEncoder : IEncoder<ICmptPrntCnstAltDualInpO
   internal static CmptPrntCnstAltDualInpEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptAltCnstAltDualInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptAltCnstAltDualInpObject>
+{
+  private readonly IEncoder<ICmptPrntCnstAltDualInpObject> _prntCnstAltDualInp = encoders.EncoderFor<ICmptPrntCnstAltDualInpObject>();
+  public Structured Encode(ICmptAltCnstAltDualInpObject input)
+    => _prntCnstAltDualInp.Encode(input)
+      .Add("alt", input.Alt.Encode());
+
+  internal static CmptAltCnstAltDualInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
 internal static class Cmpt_Schema_constraint_alt_dual_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_alt_dual_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptPrntCnstAltDualInpObject>(CmptPrntCnstAltDualInpEncoder.Factory);
+      .AddEncoder<ICmptCnstAltDualInpObject>(CmptCnstAltDualInpEncoder.Factory)
+      .AddEncoder<ICmptPrntCnstAltDualInpObject>(CmptPrntCnstAltDualInpEncoder.Factory)
+      .AddEncoder<ICmptAltCnstAltDualInpObject>(CmptAltCnstAltDualInpEncoder.Factory);
 }

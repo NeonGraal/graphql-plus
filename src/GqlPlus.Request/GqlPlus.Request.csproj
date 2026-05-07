@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GqlPlus_TypePrefix>GqlpR</GqlPlus_TypePrefix>
+
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="Request\*.graphql+" />
+
+    <CompilerVisibleProperty Include="GqlPlus_TypePrefix" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GqlPlus.Common\GqlPlus.Common.csproj" OutputItemType="Analyzer" />
+    <ProjectReference Include="..\GqlPlus.Core\GqlPlus.Core.csproj" />
+    <ProjectReference Include="..\GqlPlus.Generators\GqlPlus.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+
+</Project>

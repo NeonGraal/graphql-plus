@@ -1,0 +1,128 @@
+﻿!_Schema
+errors: !_Errors
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _OpField can't get model for type '_OpDirectives'"
+types: !_Map(_Type)
+  !_Name _OpField: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        default: !Null null
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: fieldAlias
+        object: _OpField
+        type: !_ObjBase
+          name: _Identifier
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: argument
+        object: _OpField
+        type: !_ObjBase
+          name: _OpArgument
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        object: _OpField
+        type: !_ObjBase
+          name: _Modifiers
+    fields:
+      - !_InputField
+        default: !Null null
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: fieldAlias
+        type: !_ObjBase
+          name: _Identifier
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: argument
+        type: !_ObjBase
+          name: _OpArgument
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        type: !_ObjBase
+          name: _Modifiers
+    name: _OpField
+    parent: !_ObjBase
+      name: _OpDirectives
+    typeKind: !_TypeKind Input
+  !_Name _OpInline: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        default: !Null null
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: type
+        object: _OpInline
+        type: !_ObjBase
+          name: _Identifier
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        object: _OpInline
+        type: !_ObjBase
+          name: _OpDirective
+    fields:
+      - !_InputField
+        default: !Null null
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: type
+        type: !_ObjBase
+          name: _Identifier
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        type: !_ObjBase
+          name: _OpDirective
+    name: _OpInline
+    typeKind: !_TypeKind Input
+  !_Name _OpSelection: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _OpSelection
+        type: !_ObjBase
+          name: _OpField
+      - !_ObjectFor(_Alternate)
+        object: _OpSelection
+        type: !_ObjBase
+          name: _OpSpread
+      - !_ObjectFor(_Alternate)
+        object: _OpSelection
+        type: !_ObjBase
+          name: _OpInline
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _OpField
+      - !_Alternate
+        type: !_ObjBase
+          name: _OpSpread
+      - !_Alternate
+        type: !_ObjBase
+          name: _OpInline
+    name: _OpSelection
+    typeKind: !_TypeKind Input
+  !_Name _OpSpread: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: fragment
+        object: _OpSpread
+        type: !_ObjBase
+          name: _Identifier
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        object: _OpSpread
+        type: !_ObjBase
+          name: _OpDirective
+    fields:
+      - !_DualField
+        name: fragment
+        type: !_ObjBase
+          name: _Identifier
+      - !_DualField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        type: !_ObjBase
+          name: _OpDirective
+    name: _OpSpread
+    typeKind: !_TypeKind Dual

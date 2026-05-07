@@ -111,6 +111,38 @@ internal class testDscrsEncoder : IEncoder<ItestDscrsObject>
   internal static testDscrsEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class testInDrctParamDictEncoder : IEncoder<ItestInDrctParamDictObject>
+{
+  public Structured Encode(ItestInDrctParamDictObject input)
+    => Structured.Empty();
+
+  internal static testInDrctParamDictEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class testInDrctParamInEncoder : IEncoder<ItestInDrctParamInObject>
+{
+  public Structured Encode(ItestInDrctParamInObject input)
+    => Structured.Empty();
+
+  internal static testInDrctParamInEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class testInDrctParamListEncoder : IEncoder<ItestInDrctParamListObject>
+{
+  public Structured Encode(ItestInDrctParamListObject input)
+    => Structured.Empty();
+
+  internal static testInDrctParamListEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class testInDrctParamOptEncoder : IEncoder<ItestInDrctParamOptObject>
+{
+  public Structured Encode(ItestInDrctParamOptObject input)
+    => Structured.Empty();
+
+  internal static testInDrctParamOptEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal static class test__GlobalsEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest__GlobalsEncoders(this IEncoderRepositoryBuilder builder)
@@ -127,5 +159,9 @@ internal static class test__GlobalsEncoders
       .AddEncoder<ItestDescrCmplObject>(testDescrCmplEncoder.Factory)
       .AddEncoder<ItestDescrDblObject>(testDescrDblEncoder.Factory)
       .AddEncoder<ItestDescrSnglObject>(testDescrSnglEncoder.Factory)
-      .AddEncoder<ItestDscrsObject>(testDscrsEncoder.Factory);
+      .AddEncoder<ItestDscrsObject>(testDscrsEncoder.Factory)
+      .AddEncoder<ItestInDrctParamDictObject>(testInDrctParamDictEncoder.Factory)
+      .AddEncoder<ItestInDrctParamInObject>(testInDrctParamInEncoder.Factory)
+      .AddEncoder<ItestInDrctParamListObject>(testInDrctParamListEncoder.Factory)
+      .AddEncoder<ItestInDrctParamOptObject>(testInDrctParamOptEncoder.Factory);
 }

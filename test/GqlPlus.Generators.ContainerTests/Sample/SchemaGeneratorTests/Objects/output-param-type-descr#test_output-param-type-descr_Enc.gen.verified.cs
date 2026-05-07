@@ -27,10 +27,20 @@ internal class testFldOutpParamTypeDescrEncoder : IEncoder<ItestFldOutpParamType
   internal static testFldOutpParamTypeDescrEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class testInOutpParamTypeDescrEncoder : IEncoder<ItestInOutpParamTypeDescrObject>
+{
+  public Structured Encode(ItestInOutpParamTypeDescrObject input)
+    => Structured.Empty()
+      .Add("param", input.Param.Encode());
+
+  internal static testInOutpParamTypeDescrEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal static class test_output_param_type_descrEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_output_param_type_descrEncoders(this IEncoderRepositoryBuilder builder)
     => builder
       .AddEncoder<ItestOutpParamTypeDescrObject>(testOutpParamTypeDescrEncoder.Factory)
-      .AddEncoder<ItestFldOutpParamTypeDescrObject>(testFldOutpParamTypeDescrEncoder.Factory);
+      .AddEncoder<ItestFldOutpParamTypeDescrObject>(testFldOutpParamTypeDescrEncoder.Factory)
+      .AddEncoder<ItestInOutpParamTypeDescrObject>(testInOutpParamTypeDescrEncoder.Factory);
 }

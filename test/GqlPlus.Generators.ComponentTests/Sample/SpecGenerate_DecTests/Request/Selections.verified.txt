@@ -1,0 +1,73 @@
+﻿/* Selections
+input _OpSelection {
+    |   _OpField
+    |   _OpSpread
+    |   _OpInline
+    }
+
+input _OpField {
+    : _OpDirectives
+        fieldAlias: _Identifier? = null
+        argument: _OpArgument?
+        modifiers: _Modifiers[]
+    }
+
+input _OpInline {
+        type: _Identifier? = null
+        directives: _OpDirective[]
+    }
+
+dual _OpSpread {
+        fragment: _Identifier
+        directives: _OpDirective[]
+    }
+*/
+
+// Generated from Spec Selections
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Selections, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Spec_Selections;
+
+internal class Cmpt_OpSelectionDecoder
+{
+
+  internal static Cmpt_OpSelectionDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class Cmpt_OpFieldDecoder
+{
+  public ICmpt_Identifier? FieldAlias { get; set; }
+  public ICmpt_OpArgument? Argument { get; set; }
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
+
+  internal static Cmpt_OpFieldDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class Cmpt_OpInlineDecoder
+{
+  public ICmpt_Identifier? Type { get; set; }
+  public ICollection<ICmpt_OpDirective> Directives { get; set; }
+
+  internal static Cmpt_OpInlineDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class Cmpt_OpSpreadDecoder
+{
+  public ICmpt_Identifier Fragment { get; set; }
+  public ICollection<ICmpt_OpDirective> Directives { get; set; }
+
+  internal static Cmpt_OpSpreadDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal static class Cmpt_Spec_SelectionsDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_SelectionsDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmpt_OpSelectionObject>(Cmpt_OpSelectionDecoder.Factory)
+      .AddDecoder<ICmpt_OpFieldObject>(Cmpt_OpFieldDecoder.Factory)
+      .AddDecoder<ICmpt_OpInlineObject>(Cmpt_OpInlineDecoder.Factory)
+      .AddDecoder<ICmpt_OpSpreadObject>(Cmpt_OpSpreadDecoder.Factory);
+}

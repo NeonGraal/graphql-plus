@@ -1,0 +1,105 @@
+﻿/* Full
+input _Request {
+        category: _Identifier? = null
+        operation: _Identifier? = null
+        definition: _Operation
+        parameters: Any? = null
+    |   "Parsed into definition" String
+    }
+
+domain _Identifier { String /[A-Za-z_][A-Za-z0-9_]*/ }
+
+dual _Collections {
+    | _Modifier<_ModifierKind.List>
+    | _ModifierKeyed<_ModifierKind.Dictionary>
+    | _ModifierKeyed<_ModifierKind.TypeParam>
+    }
+
+dual _ModifierKeyed<$modifierKind:_ModifierKind> {
+    : _Modifier<$modifierKind>
+        by: _Identifier
+        isOptional: Boolean
+    }
+
+dual _Modifiers {
+    | _Modifier<_ModifierKind.Optional>
+    | _Collections
+    }
+
+enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+
+dual _Modifier<$modifierKind:_ModifierKind> {
+        modifierKind: $modifierKind
+    }
+*/
+
+// Generated from Spec Full
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Full, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Spec_Full;
+
+internal class Cmpt_RequestDecoder
+{
+  public ICmpt_Identifier? Category { get; set; }
+  public ICmpt_Identifier? Operation { get; set; }
+  public ICmpt_Operation Definition { get; set; }
+  public object? Parameters { get; set; }
+
+  internal static Cmpt_RequestDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class Cmpt_IdentifierDecoder
+{
+
+  internal static Cmpt_IdentifierDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class Cmpt_CollectionsDecoder
+{
+
+  internal static Cmpt_CollectionsDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class Cmpt_ModifierKeyedDecoder<TModifierKind>
+{
+  public ICmpt_Identifier By { get; set; }
+  public bool IsOptional { get; set; }
+}
+
+internal class Cmpt_ModifiersDecoder
+{
+
+  internal static Cmpt_ModifiersDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class Cmpt_ModifierKindDecoder
+{
+  public string Opt { get; set; }
+  public string Optional { get; set; }
+  public string List { get; set; }
+  public string Dict { get; set; }
+  public string Dictionary { get; set; }
+  public string Param { get; set; }
+  public string TypeParam { get; set; }
+
+  internal static Cmpt_ModifierKindDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class Cmpt_ModifierDecoder<TModifierKind>
+{
+  public TModifierKind ModifierKind { get; set; }
+}
+
+internal static class Cmpt_Spec_FullDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_Spec_FullDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<ICmpt_RequestObject>(Cmpt_RequestDecoder.Factory)
+      .AddDecoder<ICmpt_Identifier>(Cmpt_IdentifierDecoder.Factory)
+      .AddDecoder<ICmpt_CollectionsObject>(Cmpt_CollectionsDecoder.Factory)
+      .AddDecoder<ICmpt_ModifiersObject>(Cmpt_ModifiersDecoder.Factory)
+      .AddDecoder<Cmpt_ModifierKind>(Cmpt_ModifierKindDecoder.Factory);
+}

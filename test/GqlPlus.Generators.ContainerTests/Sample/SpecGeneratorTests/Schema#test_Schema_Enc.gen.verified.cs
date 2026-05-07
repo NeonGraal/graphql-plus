@@ -63,12 +63,12 @@ internal class test_KeyEncoder : IEncoder<Itest_Key>
   internal static test_KeyEncoder Factory(IEncoderRepository _) => new();
 }
 
-internal class test_AnyEncoder : IEncoder<Itest_AnyObject>
+internal class objectEncoder : IEncoder<objectObject>
 {
-  public Structured Encode(Itest_AnyObject input)
+  public Structured Encode(objectObject input)
     => Structured.Empty();
 
-  internal static test_AnyEncoder Factory(IEncoderRepository _) => new();
+  internal static objectEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_SchemaEncoders
@@ -76,5 +76,5 @@ internal static class test_SchemaEncoders
   internal static IEncoderRepositoryBuilder Addtest_SchemaEncoders(this IEncoderRepositoryBuilder builder)
     => builder
       .AddEncoder<Itest_Key>(test_KeyEncoder.Factory)
-      .AddEncoder<Itest_AnyObject>(test_AnyEncoder.Factory);
+      .AddEncoder<objectObject>(objectEncoder.Factory);
 }

@@ -13,6 +13,27 @@ enum ParentGnrcPrntEnumChildInp { gnrcPrntEnumChildInpParent }
 
 namespace Components.Gqlp_Schema_generic_parent_enum_child_Input;
 
+internal class CmptGnrcPrntEnumChildInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptGnrcPrntEnumChildInpObject>
+{
+  private readonly IEncoder<ICmptFieldGnrcPrntEnumChildInpObject<CmptParentGnrcPrntEnumChildInp>> _fieldGnrcPrntEnumChildInp = encoders.EncoderFor<ICmptFieldGnrcPrntEnumChildInpObject<CmptParentGnrcPrntEnumChildInp>>();
+  public Structured Encode(ICmptGnrcPrntEnumChildInpObject input)
+    => _fieldGnrcPrntEnumChildInp.Encode(input);
+
+  internal static CmptGnrcPrntEnumChildInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptFieldGnrcPrntEnumChildInpEncoder<TRef>(
+  IEncoderRepository encoders
+) : IEncoder<ICmptFieldGnrcPrntEnumChildInpObject<TRef>>
+{
+  private readonly IEncoder<TRef> _ref = encoders.EncoderFor<TRef>();
+  public Structured Encode(ICmptFieldGnrcPrntEnumChildInpObject<TRef> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _ref);
+}
+
 internal class CmptEnumGnrcPrntEnumChildInpEncoder : IEncoder<CmptEnumGnrcPrntEnumChildInp>
 {
   public Structured Encode(CmptEnumGnrcPrntEnumChildInp input)
@@ -33,6 +54,7 @@ internal static class Cmpt_Schema_generic_parent_enum_child_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_parent_enum_child_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
+      .AddEncoder<ICmptGnrcPrntEnumChildInpObject>(CmptGnrcPrntEnumChildInpEncoder.Factory)
       .AddEncoder<CmptEnumGnrcPrntEnumChildInp>(CmptEnumGnrcPrntEnumChildInpEncoder.Factory)
       .AddEncoder<CmptParentGnrcPrntEnumChildInp>(CmptParentGnrcPrntEnumChildInpEncoder.Factory);
 }

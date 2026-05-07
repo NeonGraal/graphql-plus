@@ -74,12 +74,54 @@ internal class Cmpt_NameEncoder : IEncoder<ICmpt_Name>
   internal static Cmpt_NameEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class Cmpt_FilterEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_FilterObject>
+{
+  private readonly IEncoder<ICmpt_NameFilter> _nameFilter = encoders.EncoderFor<ICmpt_NameFilter>();
+  public Structured Encode(ICmpt_FilterObject input)
+    => Structured.Empty()
+      .AddList("names", input.Names, _nameFilter)
+      .AddIf(input.MatchAliases is not null, onTrue: t => t.Add("matchAliases", input.MatchAliases!.Encode()))
+      .AddList("aliases", input.Aliases, _nameFilter)
+      .AddIf(input.ReturnByAlias is not null, onTrue: t => t.Add("returnByAlias", input.ReturnByAlias!.Encode()))
+      .AddIf(input.ReturnReferencedTypes is not null, onTrue: t => t.Add("returnReferencedTypes", input.ReturnReferencedTypes!.Encode()));
+
+  internal static Cmpt_FilterEncoder Factory(IEncoderRepository r) => new(r);
+}
+
 internal class Cmpt_NameFilterEncoder : IEncoder<ICmpt_NameFilter>
 {
   public Structured Encode(ICmpt_NameFilter input)
     => input.Value!.Encode();
 
   internal static Cmpt_NameFilterEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class Cmpt_CategoryFilterEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_CategoryFilterObject>
+{
+  private readonly IEncoder<ICmpt_FilterObject> _filter = encoders.EncoderFor<ICmpt_FilterObject>();
+  private readonly IEncoder<ICmpt_Resolution> _resolution = encoders.EncoderFor<ICmpt_Resolution>();
+  public Structured Encode(ICmpt_CategoryFilterObject input)
+    => _filter.Encode(input)
+      .AddList("resolutions", input.Resolutions, _resolution);
+
+  internal static Cmpt_CategoryFilterEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class Cmpt_TypeFilterEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmpt_TypeFilterObject>
+{
+  private readonly IEncoder<ICmpt_FilterObject> _filter = encoders.EncoderFor<ICmpt_FilterObject>();
+  private readonly IEncoder<ICmpt_TypeKind> _typeKind = encoders.EncoderFor<ICmpt_TypeKind>();
+  public Structured Encode(ICmpt_TypeFilterObject input)
+    => _filter.Encode(input)
+      .AddList("kinds", input.Kinds, _typeKind);
+
+  internal static Cmpt_TypeFilterEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class Cmpt_AliasedEncoder(
@@ -123,7 +165,10 @@ internal static class Cmpt_Spec_SchemaEncoders
     => builder
       .AddEncoder<ICmpt_SchemaObject>(Cmpt_SchemaEncoder.Factory)
       .AddEncoder<ICmpt_Name>(Cmpt_NameEncoder.Factory)
+      .AddEncoder<ICmpt_FilterObject>(Cmpt_FilterEncoder.Factory)
       .AddEncoder<ICmpt_NameFilter>(Cmpt_NameFilterEncoder.Factory)
+      .AddEncoder<ICmpt_CategoryFilterObject>(Cmpt_CategoryFilterEncoder.Factory)
+      .AddEncoder<ICmpt_TypeFilterObject>(Cmpt_TypeFilterEncoder.Factory)
       .AddEncoder<ICmpt_AliasedObject>(Cmpt_AliasedEncoder.Factory)
       .AddEncoder<ICmpt_NamedObject>(Cmpt_NamedEncoder.Factory)
       .AddEncoder<ICmpt_DescribedObject>(Cmpt_DescribedEncoder.Factory);

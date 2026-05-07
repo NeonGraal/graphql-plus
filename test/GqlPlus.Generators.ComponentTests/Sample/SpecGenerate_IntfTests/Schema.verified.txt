@@ -132,13 +132,13 @@ public interface ICmpt_Key
   T AsA<T>();
 }
 
-public interface ICmpt_Any
+public interface object
   : Spec_Schema
 {
-  ICmpt_AnyObject? As__Any { get; }
+  objectObject? As__Any { get; }
 }
 
-public interface ICmpt_AnyObject
+public interface objectObject
   : Spec_Schema
 {
 }

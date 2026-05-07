@@ -1,0 +1,40 @@
+﻿/* object-parent+Input
+input ObjPrntInp { :RefObjPrntInp }
+input ObjPrntInp { :RefObjPrntInp }
+input RefObjPrntInp { }
+*/
+
+// Generated from Schema object-parent+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-parent+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_parent_Input;
+
+internal class CmptObjPrntInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptObjPrntInpObject>
+{
+  private readonly IEncoder<ICmptRefObjPrntInpObject> _refObjPrntInp = encoders.EncoderFor<ICmptRefObjPrntInpObject>();
+  public Structured Encode(ICmptObjPrntInpObject input)
+    => _refObjPrntInp.Encode(input);
+
+  internal static CmptObjPrntInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptRefObjPrntInpEncoder : IEncoder<ICmptRefObjPrntInpObject>
+{
+  public Structured Encode(ICmptRefObjPrntInpObject input)
+    => Structured.Empty();
+
+  internal static CmptRefObjPrntInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_object_parent_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_object_parent_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptObjPrntInpObject>(CmptObjPrntInpEncoder.Factory)
+      .AddEncoder<ICmptRefObjPrntInpObject>(CmptRefObjPrntInpEncoder.Factory);
+}

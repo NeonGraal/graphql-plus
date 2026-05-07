@@ -13,22 +13,24 @@ public abstract class IdentifiedVerifierTestsBase<TUsage, TIdentified>
   protected IVerify<TUsage> Usage => _usage.Intf;
   protected IVerify<TIdentified> Definition => _definition.Intf;
 
+  private readonly Lazy<IdentifiedVerifier<TUsage, TIdentified>> _verifier;
+
   protected IdentifiedVerifierTestsBase()
   {
     VerifierRepo.VerifierFor<TUsage>().Returns(Usage);
     VerifierRepo.VerifierFor<TIdentified>().Returns(Definition);
+
+    _verifier = new(NewVerifier);
   }
 
   [Fact]
   public void Verify_WithNone()
   {
-    IdentifiedVerifier<TUsage, TIdentified> verifier = NewVerifier();
-
     UsageIdentified<TUsage, TIdentified> item = new([], []);
 
-    verifier.Verify(item, Errors);
+    _verifier.Value.Verify(item, Errors);
 
-    verifier.ShouldSatisfyAllConditions(
+    item.ShouldSatisfyAllConditions(
       _usage.NotCalled,
       _definition.NotCalled,
       () => Errors.ShouldBeEmpty());
@@ -37,13 +39,11 @@ public abstract class IdentifiedVerifierTestsBase<TUsage, TIdentified>
   [Fact]
   public void Verify_WithDefinition()
   {
-    IdentifiedVerifier<TUsage, TIdentified> verifier = NewVerifier();
-
     UsageIdentified<TUsage, TIdentified> item = new([], OneDefinition("defined"));
 
-    verifier.Verify(item, Errors);
+    _verifier.Value.Verify(item, Errors);
 
-    verifier.ShouldSatisfyAllConditions(
+    item.ShouldSatisfyAllConditions(
       _usage.NotCalled,
       _definition.Called,
       () => Errors.Count.ShouldBe(1));
@@ -52,13 +52,11 @@ public abstract class IdentifiedVerifierTestsBase<TUsage, TIdentified>
   [Fact]
   public void Verify_WithUsage()
   {
-    IdentifiedVerifier<TUsage, TIdentified> verifier = NewVerifier();
-
     UsageIdentified<TUsage, TIdentified> item = new(OneUsage("usage"), []);
 
-    verifier.Verify(item, Errors);
+    _verifier.Value.Verify(item, Errors);
 
-    verifier.ShouldSatisfyAllConditions(
+    item.ShouldSatisfyAllConditions(
       _usage.Called,
       _definition.NotCalled,
       () => Errors.Count.ShouldBe(1));
@@ -67,31 +65,37 @@ public abstract class IdentifiedVerifierTestsBase<TUsage, TIdentified>
   [Fact]
   public void Verify_WithDifferent()
   {
-    IdentifiedVerifier<TUsage, TIdentified> verifier = NewVerifier();
-
     UsageIdentified<TUsage, TIdentified> item = new(OneUsage("usage"), OneDefinition("defined"));
 
-    verifier.Verify(item, Errors);
-
-    verifier.ShouldSatisfyAllConditions(
-      _usage.Called,
-      _definition.Called,
-      () => Errors.Count.ShouldBe(2));
+    VerifyWithErrors(item, 2);
   }
 
   [Fact]
   public void Verify_WithMatching()
   {
-    IdentifiedVerifier<TUsage, TIdentified> verifier = NewVerifier();
-
     UsageIdentified<TUsage, TIdentified> item = new(OneUsage("match"), OneDefinition("match"));
 
-    verifier.Verify(item, Errors);
+    VerifyWithoutErrors(item);
+  }
 
-    verifier.ShouldSatisfyAllConditions(
+  internal void VerifyWithoutErrors(UsageIdentified<TUsage, TIdentified> item)
+  {
+    _verifier.Value.Verify(item, Errors);
+
+    item.ShouldSatisfyAllConditions(
       _usage.Called,
       _definition.Called,
       () => Errors.ShouldBeEmpty());
+  }
+
+  internal void VerifyWithErrors(UsageIdentified<TUsage, TIdentified> item, int count)
+  {
+    _verifier.Value.Verify(item, Errors);
+
+    item.ShouldSatisfyAllConditions(
+      _usage.Called,
+      _definition.Called,
+      () => Errors.Count.ShouldBe(count));
   }
 
   internal abstract IdentifiedVerifier<TUsage, TIdentified> NewVerifier();

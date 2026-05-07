@@ -1,0 +1,363 @@
+﻿{
+  "$mapTag": "_Schema",
+  "errors": {
+    "$list": [
+      {
+        "$mapTag": "_Error",
+        "_kind": {
+          "$value": "End",
+          "$valueTag": "_TokenKind"
+        },
+        "_message": "In _OpField can\u0027t get model for type \u0027_OpDirectives\u0027"
+      }
+    ],
+    "$listTag": "_Errors"
+  },
+  "types": {
+    "$mapTag": "_Map(_Type)",
+    "_OpField": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeInput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_InputField)",
+          "default": {
+            "$value": "null",
+            "$valueTag": "Null"
+          },
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "fieldAlias",
+          "object": "_OpField",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Identifier"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_InputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "argument",
+          "object": "_OpField",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpArgument"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_InputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "object": "_OpField",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Modifiers"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_InputField",
+          "default": {
+            "$value": "null",
+            "$valueTag": "Null"
+          },
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "fieldAlias",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Identifier"
+          }
+        },
+        {
+          "$mapTag": "_InputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "argument",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpArgument"
+          }
+        },
+        {
+          "$mapTag": "_InputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Modifiers"
+          }
+        }
+      ],
+      "name": "_OpField",
+      "parent": {
+        "$mapTag": "_ObjBase",
+        "name": "_OpDirectives"
+      },
+      "typeKind": {
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "_OpInline": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeInput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_InputField)",
+          "default": {
+            "$value": "null",
+            "$valueTag": "Null"
+          },
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "type",
+          "object": "_OpInline",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Identifier"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_InputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "object": "_OpInline",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpDirective"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_InputField",
+          "default": {
+            "$value": "null",
+            "$valueTag": "Null"
+          },
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "type",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Identifier"
+          }
+        },
+        {
+          "$mapTag": "_InputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpDirective"
+          }
+        }
+      ],
+      "name": "_OpInline",
+      "typeKind": {
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "_OpSelection": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "_OpSelection",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpField"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "_OpSelection",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpSpread"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "_OpSelection",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpInline"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$mapTag": "_Alternate",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpField"
+          }
+        },
+        {
+          "$mapTag": "_Alternate",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpSpread"
+          }
+        },
+        {
+          "$mapTag": "_Alternate",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpInline"
+          }
+        }
+      ],
+      "name": "_OpSelection",
+      "typeKind": {
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "_OpSpread": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeDual",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "fragment",
+          "object": "_OpSpread",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Identifier"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "object": "_OpSpread",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpDirective"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_DualField",
+          "name": "fragment",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Identifier"
+          }
+        },
+        {
+          "$mapTag": "_DualField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpDirective"
+          }
+        }
+      ],
+      "name": "_OpSpread",
+      "typeKind": {
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
+      }
+    }
+  }
+}

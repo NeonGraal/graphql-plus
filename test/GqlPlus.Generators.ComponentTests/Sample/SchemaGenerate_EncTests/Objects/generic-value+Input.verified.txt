@@ -12,6 +12,24 @@ enum EnumGnrcValueInp { gnrcValueInp }
 
 namespace Components.Gqlp_Schema_generic_value_Input;
 
+internal class CmptGnrcValueInpEncoder : IEncoder<ICmptGnrcValueInpObject>
+{
+  public Structured Encode(ICmptGnrcValueInpObject input)
+    => Structured.Empty();
+
+  internal static CmptGnrcValueInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptRefGnrcValueInpEncoder<TType>(
+  IEncoderRepository encoders
+) : IEncoder<ICmptRefGnrcValueInpObject<TType>>
+{
+  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  public Structured Encode(ICmptRefGnrcValueInpObject<TType> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _type);
+}
+
 internal class CmptEnumGnrcValueInpEncoder : IEncoder<CmptEnumGnrcValueInp>
 {
   public Structured Encode(CmptEnumGnrcValueInp input)
@@ -24,5 +42,6 @@ internal static class Cmpt_Schema_generic_value_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_value_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
+      .AddEncoder<ICmptGnrcValueInpObject>(CmptGnrcValueInpEncoder.Factory)
       .AddEncoder<CmptEnumGnrcValueInp>(CmptEnumGnrcValueInpEncoder.Factory);
 }

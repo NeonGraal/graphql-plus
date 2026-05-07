@@ -6,7 +6,8 @@ param (
 
 $source = Join-Path $SpecPath "samples"
 $dest = "test/GqlPlus.ComponentTestBase/Samples"
-$models = "src/GqlPlus.Models/Models"
+$models = "src/GqlPlus.Schema/Schema"
+$request = "src/GqlPlus.Request/Request"
 
 Push-Location $source
 try {
@@ -17,7 +18,7 @@ finally {
 }
 
 Remove-Item $dest -Recurse -Force -ErrorAction Ignore
-Remove-Item "$models/*.graphql+" -Recurse -Force -ErrorAction Ignore
+Get-ChildItem src/ -Filter "*.graphql+" -Recurse | Remove-Item -Force -ErrorAction Ignore
 New-Item $dest -ItemType Directory -Force | Out-Null
 
 $gitDetails | Set-Content "$dest/git-details.txt"
@@ -28,8 +29,12 @@ Get-ChildItem $source -Recurse -Exclude "*.md","*.yml" | ForEach-Object {
   Copy-Item $_ $to -Force
 
   if ($relative -match '.*Introspection[/\\]-.*\.graphql+') {
-    $fileName = (Split-Path $relative -Leaf)
-    $to = Join-Path $models $fileName
+    $to = Join-Path $models (Split-Path $relative -Leaf)
+    Copy-Item $_ $to -Force
+  }
+
+  if ($relative -match '.*[/\\]Request\.graphql+') {
+    $to = Join-Path $Request (Split-Path $relative -Leaf)
     Copy-Item $_ $to -Force
   }
 }

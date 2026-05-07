@@ -1,0 +1,41 @@
+﻿/* object-field+Input
+input ObjFieldInp { field: FldObjFieldInp }
+input ObjFieldInp { field: FldObjFieldInp }
+input FldObjFieldInp { }
+*/
+
+// Generated from Schema object-field+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_Input;
+
+internal class CmptObjFieldInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptObjFieldInpObject>
+{
+  private readonly IEncoder<ICmptFldObjFieldInp> _fldObjFieldInp = encoders.EncoderFor<ICmptFldObjFieldInp>();
+  public Structured Encode(ICmptObjFieldInpObject input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _fldObjFieldInp);
+
+  internal static CmptObjFieldInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptFldObjFieldInpEncoder : IEncoder<ICmptFldObjFieldInpObject>
+{
+  public Structured Encode(ICmptFldObjFieldInpObject input)
+    => Structured.Empty();
+
+  internal static CmptFldObjFieldInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_object_field_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_object_field_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptObjFieldInpObject>(CmptObjFieldInpEncoder.Factory)
+      .AddEncoder<ICmptFldObjFieldInpObject>(CmptFldObjFieldInpEncoder.Factory);
+}

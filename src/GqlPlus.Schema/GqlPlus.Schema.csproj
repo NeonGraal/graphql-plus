@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="Models\*.graphql+" />
+    <AdditionalFiles Include="Schema\*.graphql+" />
 
     <CompilerVisibleProperty Include="GqlPlus_TypePrefix" />
     <CompilerVisibleProperty Include="GqlPlus_NamespaceIncludesBaseName" />

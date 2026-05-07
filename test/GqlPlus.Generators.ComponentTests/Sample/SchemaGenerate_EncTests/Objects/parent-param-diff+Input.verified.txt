@@ -1,0 +1,29 @@
+﻿/* parent-param-diff+Input
+input PrntParamDiffInp<$a:String> { :RefPrntParamDiffInp<$a> field: $a }
+input RefPrntParamDiffInp<$b:String> { | $b }
+*/
+
+// Generated from Schema parent-param-diff+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-param-diff+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_param_diff_Input;
+
+internal class CmptPrntParamDiffInpEncoder<TA>(
+  IEncoderRepository encoders
+) : IEncoder<ICmptPrntParamDiffInpObject<TA>>
+{
+  private readonly IEncoder<ICmptRefPrntParamDiffInpObject<TA>> _refPrntParamDiffInp = encoders.EncoderFor<ICmptRefPrntParamDiffInpObject<TA>>();
+  private readonly IEncoder<TA> _a = encoders.EncoderFor<TA>();
+  public Structured Encode(ICmptPrntParamDiffInpObject<TA> input)
+    => _refPrntParamDiffInp.Encode(input)
+      .AddEncoded("field", input.Field, _a);
+}
+
+internal class CmptRefPrntParamDiffInpEncoder<TB> : IEncoder<ICmptRefPrntParamDiffInpObject<TB>>
+{
+  public Structured Encode(ICmptRefPrntParamDiffInpObject<TB> input)
+    => Structured.Empty();
+}

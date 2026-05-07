@@ -12,6 +12,27 @@ domain DomGnrcPrntStrDomInp { string /\w+/ }
 
 namespace Components.Gqlp_Schema_generic_parent_string_dom_Input;
 
+internal class CmptGnrcPrntStrDomInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptGnrcPrntStrDomInpObject>
+{
+  private readonly IEncoder<ICmptFieldGnrcPrntStrDomInpObject<ICmptDomGnrcPrntStrDomInp>> _fieldGnrcPrntStrDomInp = encoders.EncoderFor<ICmptFieldGnrcPrntStrDomInpObject<ICmptDomGnrcPrntStrDomInp>>();
+  public Structured Encode(ICmptGnrcPrntStrDomInpObject input)
+    => _fieldGnrcPrntStrDomInp.Encode(input);
+
+  internal static CmptGnrcPrntStrDomInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptFieldGnrcPrntStrDomInpEncoder<TRef>(
+  IEncoderRepository encoders
+) : IEncoder<ICmptFieldGnrcPrntStrDomInpObject<TRef>>
+{
+  private readonly IEncoder<TRef> _ref = encoders.EncoderFor<TRef>();
+  public Structured Encode(ICmptFieldGnrcPrntStrDomInpObject<TRef> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _ref);
+}
+
 internal class CmptDomGnrcPrntStrDomInpEncoder : IEncoder<ICmptDomGnrcPrntStrDomInp>
 {
   public Structured Encode(ICmptDomGnrcPrntStrDomInp input)
@@ -24,5 +45,6 @@ internal static class Cmpt_Schema_generic_parent_string_dom_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_parent_string_dom_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
+      .AddEncoder<ICmptGnrcPrntStrDomInpObject>(CmptGnrcPrntStrDomInpEncoder.Factory)
       .AddEncoder<ICmptDomGnrcPrntStrDomInp>(CmptDomGnrcPrntStrDomInpEncoder.Factory);
 }

@@ -111,13 +111,13 @@ public interface Itest_Key
   T AsA<T>();
 }
 
-public interface Itest_Any
+public interface object
   : IGqlpInterfaceBase
 {
-  Itest_AnyObject? As__Any { get; }
+  objectObject? As__Any { get; }
 }
 
-public interface Itest_AnyObject
+public interface objectObject
   : IGqlpInterfaceBase
 {
 }

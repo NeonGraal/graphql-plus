@@ -1,0 +1,48 @@
+﻿/* generic-field-param+Input
+input GnrcFieldParamInp { field: RefGnrcFieldParamInp<AltGnrcFieldParamInp> }
+input RefGnrcFieldParamInp<$ref:_Input> { | $ref }
+input AltGnrcFieldParamInp { alt: Number | String }
+*/
+
+// Generated from Schema generic-field-param+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-field-param+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_field_param_Input;
+
+internal class CmptGnrcFieldParamInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptGnrcFieldParamInpObject>
+{
+  private readonly IEncoder<ICmptRefGnrcFieldParamInp<ICmptAltGnrcFieldParamInp>> _refGnrcFieldParamInp = encoders.EncoderFor<ICmptRefGnrcFieldParamInp<ICmptAltGnrcFieldParamInp>>();
+  public Structured Encode(ICmptGnrcFieldParamInpObject input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _refGnrcFieldParamInp);
+
+  internal static CmptGnrcFieldParamInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptRefGnrcFieldParamInpEncoder<TRef> : IEncoder<ICmptRefGnrcFieldParamInpObject<TRef>>
+{
+  public Structured Encode(ICmptRefGnrcFieldParamInpObject<TRef> input)
+    => Structured.Empty();
+}
+
+internal class CmptAltGnrcFieldParamInpEncoder : IEncoder<ICmptAltGnrcFieldParamInpObject>
+{
+  public Structured Encode(ICmptAltGnrcFieldParamInpObject input)
+    => Structured.Empty()
+      .Add("alt", input.Alt.Encode());
+
+  internal static CmptAltGnrcFieldParamInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_generic_field_param_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_field_param_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptGnrcFieldParamInpObject>(CmptGnrcFieldParamInpEncoder.Factory)
+      .AddEncoder<ICmptAltGnrcFieldParamInpObject>(CmptAltGnrcFieldParamInpEncoder.Factory);
+}

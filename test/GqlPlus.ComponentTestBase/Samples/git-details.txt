@@ -1,1 +1,1 @@
-21ca828  (HEAD -> samples) 2026-04-19 Add GraphQl samples schema
+c00af9f  (HEAD -> request) 2026-04-22 Improve Request Operation definition

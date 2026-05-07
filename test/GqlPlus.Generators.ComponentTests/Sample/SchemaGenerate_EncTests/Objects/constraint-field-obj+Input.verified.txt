@@ -1,0 +1,64 @@
+﻿/* constraint-field-obj+Input
+input CnstFieldObjInp { :RefCnstFieldObjInp<AltCnstFieldObjInp> }
+input RefCnstFieldObjInp<$ref:PrntCnstFieldObjInp> { field: $ref }
+input PrntCnstFieldObjInp { | String }
+input AltCnstFieldObjInp { :PrntCnstFieldObjInp alt: Number }
+*/
+
+// Generated from Schema constraint-field-obj+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-field-obj+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_field_obj_Input;
+
+internal class CmptCnstFieldObjInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptCnstFieldObjInpObject>
+{
+  private readonly IEncoder<ICmptRefCnstFieldObjInpObject<ICmptAltCnstFieldObjInp>> _refCnstFieldObjInp = encoders.EncoderFor<ICmptRefCnstFieldObjInpObject<ICmptAltCnstFieldObjInp>>();
+  public Structured Encode(ICmptCnstFieldObjInpObject input)
+    => _refCnstFieldObjInp.Encode(input);
+
+  internal static CmptCnstFieldObjInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptRefCnstFieldObjInpEncoder<TRef>(
+  IEncoderRepository encoders
+) : IEncoder<ICmptRefCnstFieldObjInpObject<TRef>>
+{
+  private readonly IEncoder<TRef> _ref = encoders.EncoderFor<TRef>();
+  public Structured Encode(ICmptRefCnstFieldObjInpObject<TRef> input)
+    => Structured.Empty()
+      .AddEncoded("field", input.Field, _ref);
+}
+
+internal class CmptPrntCnstFieldObjInpEncoder : IEncoder<ICmptPrntCnstFieldObjInpObject>
+{
+  public Structured Encode(ICmptPrntCnstFieldObjInpObject input)
+    => Structured.Empty();
+
+  internal static CmptPrntCnstFieldObjInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptAltCnstFieldObjInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptAltCnstFieldObjInpObject>
+{
+  private readonly IEncoder<ICmptPrntCnstFieldObjInpObject> _prntCnstFieldObjInp = encoders.EncoderFor<ICmptPrntCnstFieldObjInpObject>();
+  public Structured Encode(ICmptAltCnstFieldObjInpObject input)
+    => _prntCnstFieldObjInp.Encode(input)
+      .Add("alt", input.Alt.Encode());
+
+  internal static CmptAltCnstFieldObjInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal static class Cmpt_Schema_constraint_field_obj_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_field_obj_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptCnstFieldObjInpObject>(CmptCnstFieldObjInpEncoder.Factory)
+      .AddEncoder<ICmptPrntCnstFieldObjInpObject>(CmptPrntCnstFieldObjInpEncoder.Factory)
+      .AddEncoder<ICmptAltCnstFieldObjInpObject>(CmptAltCnstFieldObjInpEncoder.Factory);
+}

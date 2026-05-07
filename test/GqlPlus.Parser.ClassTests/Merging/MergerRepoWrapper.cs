@@ -3,13 +3,6 @@ using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Merging;
 
-public class MergerRepositoryTests(ITestOutputHelper outputHelper)
-{
-  [Fact]
-  public void Mergers()
-    => MergerRepoWrapper.WriteTree(outputHelper.ToLoggerFactory(), b => b.AddSchemaMergers());
-}
-
 internal sealed class MergerRepoWrapper(
   IMergerRepository repo
 ) : RepositoryWrapperBase<IMergerRepository, MergerRepoWrapper>(repo)

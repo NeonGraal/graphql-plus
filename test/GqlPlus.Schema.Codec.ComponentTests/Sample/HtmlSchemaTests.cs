@@ -53,6 +53,7 @@ public class HtmlSchemaTests(
     string[] files = ["Codec",
       "CommonParser", "CommonParserRepository",
       "Generator", "GeneratorRepository",
+      "MatcherRepository",
       "Merger", "MergerRepository",
       "OperationParser", "OperationParserRepository",
       "SchemaParser", "SchemaParserRepository",

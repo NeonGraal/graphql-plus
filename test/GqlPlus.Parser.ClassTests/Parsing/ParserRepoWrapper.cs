@@ -4,21 +4,6 @@ using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Parsing;
 
-public class ParserRepositoryTests(ITestOutputHelper outputHelper)
-{
-  [Fact]
-  public void CommonParsers()
-    => ParserRepoWrapper.WriteTree("Common", outputHelper.ToLoggerFactory(), b => b.AddCommonParsers());
-
-  [Fact]
-  public void OperationParsers()
-    => ParserRepoWrapper.WriteTree("Operation", outputHelper.ToLoggerFactory(), b => b.AddOperationParsers());
-
-  [Fact]
-  public void SchemaParsers()
-    => ParserRepoWrapper.WriteTree("Schema", outputHelper.ToLoggerFactory(), b => b.AddSchemaParsers());
-}
-
 internal sealed class ParserRepoWrapper(
   IParserRepository repo
 ) : RepositoryWrapperBase<IParserRepository, ParserRepoWrapper>(repo)

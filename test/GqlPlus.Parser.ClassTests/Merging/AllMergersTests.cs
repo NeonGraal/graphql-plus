@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Factories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Merging;

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using GqlPlus.Factories;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Encoding;
 

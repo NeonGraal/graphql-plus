@@ -1,25 +1,12 @@
 ﻿using System.Runtime.CompilerServices;
-using GqlPlus.Ast;
 using GqlPlus.Ast.Operation;
-using GqlPlus.Ast.Schema;
 using GqlPlus.Matching;
 using GqlPlus.Merging;
 using GqlPlus.Verifying.Operation;
-using GqlPlus.Verifying.Schema;
 using GqlPlus.Verifying.Schema.Simple;
 using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Verifying;
-
-public class VerifierRepositoryTests(ITestOutputHelper outputHelper)
-{
-  [Fact]
-  public void Verifiers()
-    => VerifierRepoWrapper.WriteTree(outputHelper.ToLoggerFactory(),
-      v => v.AddSchemaVerifiers(),
-      m => m.AddConstraintMatchers(),
-      m => m.AddSchemaMergers());
-}
 
 internal sealed class VerifierRepoWrapper(
   IVerifierRepository repo

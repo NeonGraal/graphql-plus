@@ -5,6 +5,7 @@ using GqlPlus.Parsing.Schema.Simple;
 namespace GqlPlus.Parsing;
 
 public interface IParserRepository
+  : IRepository
 {
   Parser<T>.L ParserFor<T>([CallerMemberName] string callerName = "");
   Parser<T>.LA ArrayFor<T>([CallerMemberName] string callerName = "");

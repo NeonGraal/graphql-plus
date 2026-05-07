@@ -9,7 +9,6 @@ internal class MergerRepository(
 ) : BaseRepository<IMergerRepository>(loggerFactory)
   , IMergerRepository
 {
-
   public IMerge<T> MergerFor<T>([CallerMemberName] string callerName = "")
     where T : IAstError
     => Cached<T, IMerge<T>>(builder.Mergers, "merger for " + callerName, this);

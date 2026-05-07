@@ -4,6 +4,7 @@ using GqlPlus.Ast;
 namespace GqlPlus.Generating;
 
 internal interface IGeneratorRepository
+  : IRepository
 {
   IGenerator<TAst> GeneratorFor<TAst>([CallerMemberName] string callerName = "")
     where TAst : IAstError;

@@ -10,6 +10,7 @@ using GqlPlus.Verifying.Schema.Simple;
 namespace GqlPlus.Verifying;
 
 public interface IVerifierRepository
+  : IRepository
 {
   IVerify<T> VerifierFor<T>([CallerMemberName] string callerName = "");
 
@@ -24,8 +25,6 @@ public interface IVerifierRepository
     where TIdentified : IAstIdentified;
 
   IEnumerable<IVerifyDomain> GetDomains([CallerMemberName] string callerName = "");
-
-  ILoggerFactory LoggerFactory { get; }
 
   Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "");
 

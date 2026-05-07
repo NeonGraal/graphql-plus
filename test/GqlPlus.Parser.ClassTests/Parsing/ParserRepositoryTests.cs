@@ -8,15 +8,15 @@ public class ParserRepositoryTests(ITestOutputHelper outputHelper)
 {
   [Fact]
   public void CommonParsers()
-    => ParserRepoWrapper.WriteTree("CommonParser", outputHelper.ToLoggerFactory(), b => b.AddCommonParsers());
+    => ParserRepoWrapper.WriteTree("Common", outputHelper.ToLoggerFactory(), b => b.AddCommonParsers());
 
   [Fact]
   public void OperationParsers()
-    => ParserRepoWrapper.WriteTree("OperationParser", outputHelper.ToLoggerFactory(), b => b.AddOperationParsers());
+    => ParserRepoWrapper.WriteTree("Operation", outputHelper.ToLoggerFactory(), b => b.AddOperationParsers());
 
   [Fact]
   public void SchemaParsers()
-    => ParserRepoWrapper.WriteTree("SchemaParser", outputHelper.ToLoggerFactory(), b => b.AddSchemaParsers());
+    => ParserRepoWrapper.WriteTree("Schema", outputHelper.ToLoggerFactory(), b => b.AddSchemaParsers());
 }
 
 internal sealed class ParserRepoWrapper(
@@ -26,13 +26,15 @@ internal sealed class ParserRepoWrapper(
 {
   public override IParserRepository Wrapper => this;
 
+  public ILoggerFactory LoggerFactory => repo.LoggerFactory;
+
   public static void WriteTree(string label, ILoggerFactory loggerFactory, Action<IParserRepositoryBuilder> configure)
   {
     ParserRepositoryBuilder repoBuilder = new();
     configure(repoBuilder);
 
     ParserRepoWrapper repo = new(new ParserRepository(repoBuilder, loggerFactory));
-    repo.WriteFactories(label, repoBuilder.AllFactories);
+    repo.WriteFactories(label + "Parser", repoBuilder.AllFactories);
   }
 
   public Parser<T>.LA ArrayFor<T>([CallerMemberName] string callerName = "")

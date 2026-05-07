@@ -1,11 +1,13 @@
 ﻿using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Factories;
 
 namespace GqlPlus;
 
 public abstract class RepositoryWrapperBase<TInterface, TClass>(
   TInterface repo
 ) where TClass : class, TInterface
+  where TInterface : IRepository
 {
   public void WriteFactories(string label, [NotNull] IEnumerable<KeyValuePair<Type, Factory<object, TInterface>>> factories)
   {

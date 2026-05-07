@@ -3,9 +3,8 @@
 namespace GqlPlus.Matching;
 
 public interface IMatcherRepository
+  : IRepository
 {
-  ILoggerFactory LoggerFactory { get; }
-
   IEnumerable<ITypeMatcher> TypeMatchers { get; }
 
   Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "");

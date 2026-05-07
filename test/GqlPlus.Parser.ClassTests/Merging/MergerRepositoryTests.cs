@@ -6,8 +6,8 @@ namespace GqlPlus.Merging;
 public class MergerRepositoryTests(ITestOutputHelper outputHelper)
 {
   [Fact]
-  public void SchemaMergers()
-    => MergerRepoWrapper.WriteTree("SchemaMerger", outputHelper.ToLoggerFactory(), b => b.AddSchemaMergers());
+  public void Mergers()
+    => MergerRepoWrapper.WriteTree(outputHelper.ToLoggerFactory(), b => b.AddSchemaMergers());
 }
 
 internal sealed class MergerRepoWrapper(
@@ -19,13 +19,13 @@ internal sealed class MergerRepoWrapper(
 
   public ILoggerFactory LoggerFactory => repo.LoggerFactory;
 
-  public static void WriteTree(string label, ILoggerFactory loggerFactory, Action<IMergerRepositoryBuilder> configure)
+  public static void WriteTree(ILoggerFactory loggerFactory, Action<IMergerRepositoryBuilder> configure)
   {
     MergerRepositoryBuilder repoBuilder = new();
     configure(repoBuilder);
 
     MergerRepoWrapper repo = new(new MergerRepository(repoBuilder, loggerFactory));
-    repo.WriteFactories(label, repoBuilder.AllFactories);
+    repo.WriteFactories("Merger", repoBuilder.AllFactories);
   }
 
   public IEnumerable<IMergeAll<T>> AllMergersFor<T>([CallerMemberName] string callerName = "")

@@ -6,6 +6,8 @@ namespace GqlPlus.Factories;
 public class BaseRepository<TRepo>(
   ILoggerFactory loggerFactory
 ) : BaseFactory<TRepo>
+  , IRepository
+  where TRepo : IRepository
 {
   public ILoggerFactory LoggerFactory { get; } = loggerFactory;
 
@@ -21,6 +23,11 @@ public class BaseRepository<TRepo>(
 
   protected TResult Cached<TKey, TResult>(FactoryDict factories, string label, TRepo repo)
     => (TResult)Cached(factories, typeof(TKey), typeof(TResult), label, repo);
+}
+
+public interface IRepository
+{
+  ILoggerFactory LoggerFactory { get; }
 }
 
 #pragma warning disable CA1052 // Static holder types should be Static or NotInheritable

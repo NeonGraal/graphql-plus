@@ -7,8 +7,13 @@ internal class GeneratorRepositoryBuilder
 {
   internal readonly FactoryDict Generators = [];
 
-  // Factory<ITypeGenerator, IGeneratorRepository>
   internal readonly Dictionary<GqlpGeneratorType, FactoryList> TypeGenerators = [];
+
+  public IEnumerable<KeyValuePair<Type, Factory<object, IGeneratorRepository>>> AllFactories
+    => [.. Generators,
+      ..TypeGenerators.SelectMany(
+        kv => kv.Value.Select(
+          f => f.ToKeyValue(typeof(ITypeGenerator))))];
 
   public IGeneratorRepositoryBuilder AddBothTypeGenerators<TInterface, TModel>()
     where TInterface : ITypeGenerator, new()

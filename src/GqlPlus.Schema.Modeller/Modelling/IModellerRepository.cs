@@ -3,6 +3,7 @@
 namespace GqlPlus.Modelling;
 
 internal interface IModellerRepository
+  : IRepository
 {
   IModeller<TAst, TModel> ModellerFor<TAst, TModel>([CallerMemberName] string callerName = "")
     where TAst : IAstError

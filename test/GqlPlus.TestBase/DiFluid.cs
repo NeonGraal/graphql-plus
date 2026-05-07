@@ -139,7 +139,7 @@ public static class DiFluid
       .Replace('<', '(')
       .Replace('>', ')');
 
-  private static readonly string s_solutionDir = Assembly.GetAssembly(typeof(DiFluid))?.FullName?.Split("test")[0] ?? "";
+  private static readonly string s_solutionDir = Assembly.GetAssembly(typeof(DiFluid))?.Location.Split("test")[0] ?? "";
 
   public static void WriteHtmlFile(this string contents, string dir, string file)
   {
@@ -172,7 +172,7 @@ public static class DiFluid
 
   public static async Task WriteHtmlFileAsync(this ValueTask<string> contents, string dir, string file)
   {
-    string dirPath = Path.Join(s_solutionDir, "..", "Html", dir);
+    string dirPath = Path.Join(s_solutionDir, "test", "Html", dir);
     if (!Directory.Exists(dirPath)) {
       Directory.CreateDirectory(dirPath);
     }

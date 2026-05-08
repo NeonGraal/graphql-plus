@@ -13,28 +13,29 @@ internal sealed class VerifierRepoWrapper(
 ) : RepositoryWrapperBase<IVerifierRepository, VerifierRepoWrapper>(repo)
   , IVerifierRepository
 {
-  public override IVerifierRepository Wrapper => this;
+  protected override IVerifierRepository Wrapper => this;
 
   public ILoggerFactory LoggerFactory => repo.LoggerFactory;
 
-  public static void WriteTree(ILoggerFactory loggerFactory,
+  public static void WriteTree(string label,
+    ILoggerFactory loggerFactory,
     Action<IVerifierRepositoryBuilder> configureVerifiers,
-    Action<IMatcherRepositoryBuilder> configureMatchers,
-    Action<IMergerRepositoryBuilder> configureMergers)
+    Action<IMatcherRepositoryBuilder>? configureMatchers = null,
+    Action<IMergerRepositoryBuilder>? configureMergers = null)
   {
     VerifierRepositoryBuilder repoBuilder = new();
     configureVerifiers(repoBuilder);
 
     MatcherRepositoryBuilder matcherBuilder = new();
-    configureMatchers(matcherBuilder);
+    configureMatchers?.Invoke(matcherBuilder);
 
     MergerRepositoryBuilder mergerBuilder = new();
-    configureMergers(mergerBuilder);
+    configureMergers?.Invoke(mergerBuilder);
 
     MatcherRepository matchers = new(matcherBuilder, loggerFactory);
     MergerRepository mergers = new(mergerBuilder, loggerFactory);
     VerifierRepoWrapper repo = new(new VerifierRepository(repoBuilder, loggerFactory, matchers, mergers));
-    repo.WriteFactories("Verifier", repoBuilder.AllFactories);
+    repo.WriteFactories(label + "Verifier", repoBuilder.AllFactories);
   }
 
   public IVerifyAliased<T> AliasedFor<T>([CallerMemberName] string callerName = "")

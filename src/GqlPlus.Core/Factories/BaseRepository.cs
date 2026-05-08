@@ -41,4 +41,10 @@ public class BaseFactory<TRepo>
 
   protected KeyValuePair<Type, Factory<object, TRepo>> FactoryKeyValue<T>(Factory<object, TRepo> factory)
     => factory.ToKeyValue(typeof(T));
+  protected KeyValuePair<Type, FactoryList> FactoriesKeyValue<T>(IEnumerable<Factory<T, TRepo>> factories)
+    where T : class
+  {
+    FactoryList list = [.. factories];
+    return list.ToKeyValue(typeof(T));
+  }
 }

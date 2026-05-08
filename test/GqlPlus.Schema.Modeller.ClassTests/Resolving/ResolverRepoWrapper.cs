@@ -8,7 +8,7 @@ internal sealed class ResolverRepoWrapper(
 ) : RepositoryWrapperBase<IResolverRepository, ResolverRepoWrapper>(repo)
   , IResolverRepository
 {
-  public override IResolverRepository Wrapper => this;
+  protected override IResolverRepository Wrapper => this;
 
   public ILoggerFactory LoggerFactory => repo.LoggerFactory;
 

@@ -59,7 +59,7 @@ public class HtmlSchemaTests(
       "ModellerRepository", "ResolverRepository",
       "OperationParser", "OperationParserRepository",
       "SchemaParser", "SchemaParserRepository",
-      "Verifier", "VerifierRepository"];
+      "Verifier", "OperationVerifierRepository", "SchemaVerifierRepository"];
 
     Map<IEnumerable<string>> groups = new() {
       ["Table"] = files,

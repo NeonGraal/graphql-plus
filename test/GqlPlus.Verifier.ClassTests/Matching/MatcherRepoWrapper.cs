@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using GqlPlus.Factories;
 using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Matching;
@@ -8,11 +9,12 @@ internal sealed class MatcherRepoWrapper(
 ) : RepositoryWrapperBase<IMatcherRepository, MatcherRepoWrapper>(repo)
   , IMatcherRepository
 {
-  public override IMatcherRepository Wrapper => this;
+  protected override IMatcherRepository Wrapper => this;
 
   public ILoggerFactory LoggerFactory => repo.LoggerFactory;
 
-  public IEnumerable<ITypeMatcher> TypeMatchers => repo.TypeMatchers;
+  public IEnumerable<Factory<ITypeMatcher, IMatcherRepository>> TypeMatchers
+    => repo.TypeMatchers;
 
   public static void WriteTree(ILoggerFactory loggerFactory,
     Action<IMatcherRepositoryBuilder> configureMatchers)
@@ -20,8 +22,9 @@ internal sealed class MatcherRepoWrapper(
     MatcherRepositoryBuilder repoBuilder = new();
     configureMatchers(repoBuilder);
 
-    MatcherRepoWrapper repo = new(new MatcherRepository(repoBuilder, loggerFactory));
-    repo.WriteFactories("Matcher", repoBuilder.AllFactories);
+    MatcherRepoWrapper wrapper = new(new MatcherRepository(repoBuilder, loggerFactory));
+    wrapper.WriteFactories("Matcher", repoBuilder.Matchers,
+      wrapper.FactoriesKeyValue(wrapper.TypeMatchers));
   }
 
   public Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "")

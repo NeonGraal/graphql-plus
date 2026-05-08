@@ -11,8 +11,8 @@ internal class AnyTypeMatcher(
   {
     TryingMatch(type, constraint);
 
-    IEnumerable<ITypeMatcher> typeMatchers = matchers.TypeMatchers;
-    if (typeMatchers is null || !typeMatchers.Any()) {
+    ITypeMatcher[] typeMatchers = [.. matchers.TypeMatchers.Select(f => f(matchers))];
+    if (typeMatchers is null || typeMatchers.Length == 0) {
       throw new InvalidOperationException("No matchers available to match types.");
     }
 

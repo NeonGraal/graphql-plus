@@ -16,6 +16,46 @@ public class GeneralHelpersTests
       r => r.ShouldBeEmpty());
   }
 
+  [Theory, RepeatData]
+  public void GetValueOr_Missing_ReturnDefault(string key)
+  {
+    Map<string> map = [];
+
+    string result = map.GetValueOr(key, key);
+
+    result.ShouldBe(key);
+  }
+
+  [Theory, RepeatData]
+  public void GetValueOr_PresentWithValue_ReturnValue(string key)
+  {
+    Map<string> map = [key.ToKeyValue(key)];
+
+    string result = map.GetValueOr(key, "error");
+
+    result.ShouldBe(key);
+  }
+
+  [Theory, RepeatData]
+  public void GetValueOr_Missing_ReturnDefaultFunction(string key)
+  {
+    Map<string> map = [];
+
+    string result = map.GetValueOr(key, k => k);
+
+    result.ShouldBe(key);
+  }
+
+  [Theory, RepeatData]
+  public void GetValueOr_PresentWithFunction_ReturnValue(string key)
+  {
+    Map<string> map = [key.ToKeyValue(key)];
+
+    string result = map.GetValueOr(key, k => "error");
+
+    result.ShouldBe(key);
+  }
+
   [Fact]
   public void Joined_NullInput_ReturnsEmptyString()
   {

@@ -11,7 +11,7 @@ internal abstract class GroupedVerifier<TAliased> : IVerifyAliased<TAliased>
 
   protected GroupedVerifier(IVerifierRepository verifiers)
   {
-    _merger = verifiers.MergerFor<TAliased>();
+    _merger = verifiers.MergerFor<TAliased>("_merger");
     _logger = verifiers.LoggerFactory.CreateTypedLogger(this);
   }
 

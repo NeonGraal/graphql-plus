@@ -2,23 +2,18 @@
 
 namespace GqlPlus.Matching;
 
-internal class MatcherRepository
-  : BaseRepository<IMatcherRepository>
+internal class MatcherRepository(
+  MatcherRepositoryBuilder state,
+  ILoggerFactory loggerFactory
+) : BaseRepository<IMatcherRepository>(loggerFactory)
   , IMatcherRepository
 {
-  private readonly MatcherRepositoryBuilder _state;
-  private readonly Lazy<IEnumerable<ITypeMatcher>> _typeMatchers;
-
-  public MatcherRepository(MatcherRepositoryBuilder state, ILoggerFactory loggerFactory)
-    : base(loggerFactory)
-  {
-    _state = state;
-    _typeMatchers = new(()
-      => [.. state.TypeMatchers.Select(f => (ITypeMatcher)f(this))]);
-  }
-
-  public IEnumerable<ITypeMatcher> TypeMatchers => _typeMatchers.Value;
+  public IEnumerable<Factory<ITypeMatcher, IMatcherRepository>> TypeMatchers
+    => state.TypeMatchers.Select(MakeTypeMatcher);
 
   public Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "")
-    => () => Cached<T, Matcher<T>.I>(_state.Matchers, "matcher for " + callerName, this);
+    => () => Cached<T, Matcher<T>.I>(state.Matchers, "matcher for " + callerName, this);
+
+  private static Factory<ITypeMatcher, IMatcherRepository> MakeTypeMatcher(Factory<object, IMatcherRepository> factory)
+    => r => (ITypeMatcher)factory(r);
 }

@@ -8,7 +8,7 @@ internal sealed class DecoderRepoWrapper(
 ) : RepositoryWrapperBase<IDecoderRepository, DecoderRepoWrapper>(repo)
   , IDecoderRepository
 {
-  public override IDecoderRepository Wrapper => this;
+  protected override IDecoderRepository Wrapper => this;
 
   public ILoggerFactory LoggerFactory => repo.LoggerFactory;
 

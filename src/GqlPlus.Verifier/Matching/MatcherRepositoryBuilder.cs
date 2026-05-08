@@ -9,10 +9,6 @@ internal class MatcherRepositoryBuilder
   internal readonly FactoryDict Matchers = [];
   internal readonly FactoryList TypeMatchers = [];
 
-  public IEnumerable<KeyValuePair<Type, Factory<object, IMatcherRepository>>> AllFactories
-    => [..Matchers,
-      ..TypeMatchers.Select(FactoryKeyValue<ITypeMatcher>)];
-
   public IMatcherRepositoryBuilder AddMatcher<T>(Factory<Matcher<T>.I, IMatcherRepository> factory)
     => this.FluentAction(b => b.Matchers[typeof(T)] = factory);
 

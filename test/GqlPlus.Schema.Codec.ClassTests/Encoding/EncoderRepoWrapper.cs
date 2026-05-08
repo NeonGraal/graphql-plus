@@ -9,7 +9,7 @@ internal sealed class EncoderRepoWrapper(
 ) : RepositoryWrapperBase<IEncoderRepository, EncoderRepoWrapper>(repo)
   , IEncoderRepository
 {
-  public override IEncoderRepository Wrapper => this;
+  protected override IEncoderRepository Wrapper => this;
 
   public ILoggerFactory LoggerFactory => repo.LoggerFactory;
 

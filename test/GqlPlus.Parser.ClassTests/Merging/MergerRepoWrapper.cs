@@ -8,7 +8,7 @@ internal sealed class MergerRepoWrapper(
 ) : RepositoryWrapperBase<IMergerRepository, MergerRepoWrapper>(repo)
   , IMergerRepository
 {
-  public override IMergerRepository Wrapper => this;
+  protected override IMergerRepository Wrapper => this;
 
   public ILoggerFactory LoggerFactory => repo.LoggerFactory;
 

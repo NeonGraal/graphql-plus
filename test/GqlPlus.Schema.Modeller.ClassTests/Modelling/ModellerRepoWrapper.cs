@@ -8,7 +8,7 @@ internal sealed class ModellerRepoWrapper(
 ) : RepositoryWrapperBase<IModellerRepository, ModellerRepoWrapper>(repo)
   , IModellerRepository
 {
-  public override IModellerRepository Wrapper => this;
+  protected override IModellerRepository Wrapper => this;
 
   public ILoggerFactory LoggerFactory => repo.LoggerFactory;
 

@@ -12,7 +12,7 @@ internal class ParseSchema
 
   public ParseSchema(IParserRepository parsers)
   {
-    foreach (IParseDeclaration declaration in parsers.GetDeclarations()) {
+    foreach (IParseDeclaration declaration in parsers.GetDeclarations("declarations")) {
       _parsers.Add(declaration.Selector, declaration.Parser);
     }
   }

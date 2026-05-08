@@ -8,7 +8,7 @@ internal sealed class GeneratorRepoWrapper(
 ) : RepositoryWrapperBase<IGeneratorRepository, GeneratorRepoWrapper>(repo)
   , IGeneratorRepository
 {
-  public override IGeneratorRepository Wrapper => this;
+  protected override IGeneratorRepository Wrapper => this;
 
   public ILoggerFactory LoggerFactory => repo.LoggerFactory;
 

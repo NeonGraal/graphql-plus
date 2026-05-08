@@ -1,9 +1,11 @@
-﻿namespace GqlPlus.Matching;
+﻿using GqlPlus.Factories;
+
+namespace GqlPlus.Matching;
 
 public class AnyTypeMatcherTests
   : MatchTestsBase
 {
-  private readonly List<ITypeMatcher> _matchers = [];
+  private readonly List<Factory<ITypeMatcher, IMatcherRepository>> _matchers = [];
   private readonly AnyTypeMatcher _sut;
 
   private readonly ITypeMatcher _matcher = A.Of<ITypeMatcher>();
@@ -20,7 +22,7 @@ public class AnyTypeMatcherTests
     IAstType type = A.Named<IAstType>(constraint);
     _matcher.MatchesTypeConstraint(type, constraint, Context).Returns(true);
 
-    _matchers.Add(_matcher);
+    _matchers.Add(r => _matcher);
 
     // Act
     bool result = _sut.Matches(type, constraint, Context);
@@ -35,7 +37,7 @@ public class AnyTypeMatcherTests
     // Arrange
     IAstType type = A.Named<IAstType>(constraint);
     _matcher.MatchesTypeConstraint(type, constraint, Context).Returns(false);
-    _matchers.Add(_matcher);
+    _matchers.Add(r => _matcher);
 
     // Act
     bool result = _sut.Matches(type, constraint, Context);

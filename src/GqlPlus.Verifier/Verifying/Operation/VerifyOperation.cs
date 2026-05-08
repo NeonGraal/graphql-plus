@@ -2,7 +2,8 @@
 
 namespace GqlPlus.Verifying.Operation;
 
-internal class VerifyOperation(IVerifierRepository verifiers) : IVerify<IAstOperation>
+internal class VerifyOperation(IVerifierRepository verifiers)
+  : IVerify<IAstOperation>
 {
   private readonly IVerifyIdentified<IAstArg, IAstVariable> _usages = verifiers.IdentifiedFor<IAstArg, IAstVariable>();
   private readonly IVerifyIdentified<IAstSpread, IAstFragment> _spreads = verifiers.IdentifiedFor<IAstSpread, IAstFragment>();

@@ -115,8 +115,8 @@ internal abstract class FilterModelDecoder<TModel>
 
   public FilterModelDecoder(IDecoderRepository decoders)
   {
-    _boolean = decoders.DecoderFor<bool?>();
-    _nameFilter = decoders.DecoderFor<INameFilterDecoder, string>();
+    _boolean = decoders.DecoderFor<bool?>("_boolean");
+    _nameFilter = decoders.DecoderFor<INameFilterDecoder, string>("_nameFilter");
 
     Decoders.Add(DecodeNames);
   }

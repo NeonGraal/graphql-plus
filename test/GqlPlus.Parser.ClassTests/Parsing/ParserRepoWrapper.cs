@@ -9,7 +9,7 @@ internal sealed class ParserRepoWrapper(
 ) : RepositoryWrapperBase<IParserRepository, ParserRepoWrapper>(repo)
   , IParserRepository
 {
-  public override IParserRepository Wrapper => this;
+  protected override IParserRepository Wrapper => this;
 
   public ILoggerFactory LoggerFactory => repo.LoggerFactory;
 

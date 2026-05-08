@@ -2,7 +2,8 @@
 
 namespace GqlPlus.Verifying.Operation;
 
-internal class VerifyVariableUsage(IVerifierRepository verifiers) : IdentifiedVerifier<IAstArg, IAstVariable>(verifiers)
+internal class VerifyVariableUsage(IVerifierRepository verifiers)
+  : IdentifiedVerifier<IAstArg, IAstVariable>(verifiers)
 {
   public override string Label => "Variable";
 

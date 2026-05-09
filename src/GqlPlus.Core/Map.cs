@@ -5,6 +5,7 @@ namespace GqlPlus;
 public class Map<TMap>
   : SortedDictionary<string, TMap>
   , IMap<TMap>
+  , IReadOnlyMap<TMap>
 {
   public Map()
     : base()

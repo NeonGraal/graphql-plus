@@ -1,22 +1,17 @@
 ﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Parsing.Operation;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema;
 
-internal class ParseSchema
-  : Parser<IAstSchema>.I
+internal class ParseSchema(
+  IParserRepository parsers
+) : Parser<IAstSchema>.I
 {
   private delegate IResult<IAstDeclaration> Parser(ITokenizer tokens, string label);
-  private readonly Dictionary<string, Parser> _parsers = [];
-
-  public ParseSchema(IParserRepository parsers)
-  {
-    Defer<IParseDeclaration>.LA declarations = parsers.GetDeclarations("declarations");
-    foreach (IParseDeclaration declaration in declarations.IA) {
-      _parsers.Add(declaration.Selector, declaration.Parser);
-    }
-  }
+  private readonly Defer<Parser>.LM _parsers = parsers.GetDeclarations()
+    .ToMap<IParseDeclaration, Parser>(d => d.Selector, d => d.Parser);
 
   public IResult<IAstSchema> Parse(ITokenizer tokens, string label)
 

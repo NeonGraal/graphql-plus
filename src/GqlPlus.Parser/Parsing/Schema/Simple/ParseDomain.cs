@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
+using GqlPlus.Parsing.Operation;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
@@ -77,23 +78,13 @@ public class DomainDefinition
   internal IAstDomainRegex[] Regexes { get; set; } = [];
 }
 
-internal class ParseDomainDefinition
-  : SimpleDefinitionParser<DomainDefinition>
+internal class ParseDomainDefinition(
+      IParserRepository parsers
+) : SimpleDefinitionParser<DomainDefinition>(parsers)
 {
-  private readonly Parser<IEnumParser<DomainKind>, DomainKind>.L _kind;
-  private readonly Dictionary<DomainKind, ParseItems> _kindParsers = [];
-
-  public ParseDomainDefinition(
-      IParserRepository parsers)
-    : base(parsers)
-  {
-    _kind = parsers.ParserFor<IEnumParser<DomainKind>, DomainKind>("_kind");
-
-    Defer<IParseDomain>.LA domains = parsers.GetDomains("domains");
-    foreach (IParseDomain item in domains.IA) {
-      _kindParsers[item.Kind] = item.Parser;
-    }
-  }
+  private readonly Parser<IEnumParser<DomainKind>, DomainKind>.L _kind = parsers.ParserFor<IEnumParser<DomainKind>, DomainKind>();
+  private readonly Defer<ParseItems>.LD<DomainKind> _kindParsers = parsers.GetDomains()
+    .ToDictionary(item => item.Kind, item => item.Parser);
 
   public override IResult<DomainDefinition> Parse(ITokenizer tokens, string label)
   {

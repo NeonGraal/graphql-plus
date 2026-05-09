@@ -12,7 +12,8 @@ internal class ParseSchema
 
   public ParseSchema(IParserRepository parsers)
   {
-    foreach (IParseDeclaration declaration in parsers.GetDeclarations("declarations")) {
+    Defer<IParseDeclaration>.LA declarations = parsers.GetDeclarations("declarations");
+    foreach (IParseDeclaration declaration in declarations.IA) {
       _parsers.Add(declaration.Selector, declaration.Parser);
     }
   }

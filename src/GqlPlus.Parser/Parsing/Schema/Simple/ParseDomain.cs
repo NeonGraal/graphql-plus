@@ -89,7 +89,8 @@ internal class ParseDomainDefinition
   {
     _kind = parsers.ParserFor<IEnumParser<DomainKind>, DomainKind>("_kind");
 
-    foreach (IParseDomain item in parsers.GetDomains()) {
+    Defer<IParseDomain>.LA domains = parsers.GetDomains("domains");
+    foreach (IParseDomain item in domains.IA) {
       _kindParsers[item.Kind] = item.Parser;
     }
   }

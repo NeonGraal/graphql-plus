@@ -90,8 +90,7 @@ public abstract class ParseDomainClassTestBase<TItem>
       .ReturnsForAnyArgs(0.EmptyArray<TItem>());
     ItemsParser = itemsParser;
 
-    Parser<TItem>.LA itemsLazy = new(() => itemsParser);
-    _parsers.ArrayFor<TItem>().ReturnsForAnyArgs(itemsLazy);
+    _parsers.ArrayFor<TItem>().ReturnsForAnyArgs(() => itemsParser);
 
     _parser = new(() => MakeParser(_parsers));
   }

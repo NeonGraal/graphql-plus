@@ -22,28 +22,28 @@ internal sealed class ParserRepoWrapper(
     repo.WriteFactories(label + "Parser", repoBuilder.AllFactories);
   }
 
-  public Parser<T>.LA ArrayFor<T>([CallerMemberName] string callerName = "")
+  public Parser<T>.DA ArrayFor<T>([CallerMemberName] string callerName = "")
     => AddRelationship<T>(callerName)
       .ArrayFor<T>(callerName);
-  public IEnumerable<IParseDeclaration> GetDeclarations([CallerMemberName] string callerName = "")
+  public Defer<IParseDeclaration>.DA GetDeclarations([CallerMemberName] string callerName = "")
     => AddRelationship<IParseDeclaration>(callerName)
       .GetDeclarations(callerName);
-  public IEnumerable<IParseDomain> GetDomains([CallerMemberName] string callerName = "")
+  public Defer<IParseDomain>.DA GetDomains([CallerMemberName] string callerName = "")
     => repo // AddRelationship<IParseDomain>(callerName)
       .GetDomains(callerName);
-  public T GetName<T>([CallerMemberName] string callerName = "")
-    where T : INameParser
+  public Defer<T>.D GetName<T>([CallerMemberName] string callerName = "")
+    where T : class, INameParser
     => AddRelationship<T>(callerName)
       .GetName<T>(callerName);
-  public Parser<T>.L ParserFor<T>([CallerMemberName] string callerName = "")
+  public Parser<T>.D ParserFor<T>([CallerMemberName] string callerName = "")
     => AddRelationship<T>(callerName)
       .ParserFor<T>(callerName);
 
-  public ParserArray<TInterface, TFor>.LA ArrayFor<TInterface, TFor>(string callerName)
+  public ParserArray<TInterface, TFor>.DA ArrayFor<TInterface, TFor>(string callerName)
     where TInterface : class, Parser<TFor>.IA
     => AddRelationship<TInterface>(callerName)
       .ArrayFor<TInterface, TFor>(callerName);
-  public Parser<TInterface, TFor>.L ParserFor<TInterface, TFor>(string callerName)
+  public Parser<TInterface, TFor>.D ParserFor<TInterface, TFor>(string callerName)
     where TInterface : class, Parser<TFor>.I
     => AddRelationship<TInterface>(callerName)
       .ParserFor<TInterface, TFor>(callerName);

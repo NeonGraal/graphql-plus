@@ -3,14 +3,14 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing;
 
-internal interface IParser<TResult>
+internal interface IParser<T>
 {
-  IResult<TResult> Parse([NotNull] ITokenizer tokens);
+  IResult<T> Parse([NotNull] ITokenizer tokens, string label);
 }
 
-internal interface IParserArray<TResult>
+internal interface IParserArray<T>
 {
-  IResultArray<TResult> Parse([NotNull] ITokenizer tokens, string label);
+  IResultArray<T> Parse([NotNull] ITokenizer tokens, string label);
 }
 
 #pragma warning disable CA1034 // Nested types should not be visible

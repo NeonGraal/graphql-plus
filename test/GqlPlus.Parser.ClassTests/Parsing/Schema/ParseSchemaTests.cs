@@ -13,7 +13,7 @@ public class ParseSchemaTests
   public ParseSchemaTests()
   {
     _declarationParser.Selector.Returns("category");
-    _repo.GetDeclarations().Returns([_declarationParser]);
+    _repo.GetDeclarations().Returns(() => [_declarationParser]);
 
     _parser = new ParseSchema(_repo);
 

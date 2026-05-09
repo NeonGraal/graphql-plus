@@ -11,8 +11,7 @@ public class AliasesClassTestBase
     _aliases.Parse(default!, default!)
       .ReturnsForAnyArgs(0.EmptyArray<string>());
 
-    Parser<string>.LA aliasesLazy = new(() => _aliases);
-    Parsers.ArrayFor<string>().ReturnsForAnyArgs(aliasesLazy);
+    Parsers.ArrayFor<string>().ReturnsForAnyArgs(() => _aliases);
   }
 
   internal void ParseAliasesOk(string[] aliases)

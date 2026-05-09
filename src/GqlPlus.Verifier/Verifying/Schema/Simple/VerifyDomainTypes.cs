@@ -2,7 +2,8 @@
 
 namespace GqlPlus.Verifying.Schema.Simple;
 
-internal class VerifyDomainTypes(IVerifierRepository verifiers) : AstParentVerifier<IAstDomain, IAstTypeRef, EnumContext>(verifiers)
+internal class VerifyDomainTypes(IVerifierRepository verifiers)
+  : AstParentVerifier<IAstDomain, IAstTypeRef, EnumContext>(verifiers)
 {
   private readonly IEnumerable<IVerifyDomain> _domains = verifiers.GetDomains();
 

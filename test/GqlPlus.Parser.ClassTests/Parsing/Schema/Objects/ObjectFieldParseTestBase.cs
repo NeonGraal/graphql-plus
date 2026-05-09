@@ -15,8 +15,7 @@ public abstract class ObjectFieldParseTestBase<TField>
     _parseBase = A.Of<Parser<IAstObjBase>.I>();
     _parseBase.Parse(default!, default!)
       .ReturnsForAnyArgs(default(IAstObjBase).Empty());
-    Parser<IAstObjBase>.L parseBaseLazy = new(() => _parseBase);
-    Parsers.ParserFor<IAstObjBase>().ReturnsForAnyArgs(parseBaseLazy);
+    Parsers.ParserFor<IAstObjBase>().ReturnsForAnyArgs(() => _parseBase);
   }
 
   [Theory, RepeatData]

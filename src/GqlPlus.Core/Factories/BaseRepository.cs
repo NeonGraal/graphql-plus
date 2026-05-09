@@ -39,6 +39,16 @@ public class BaseFactory<TRepo>
   public class FactoryList : List<Factory<object, TRepo>>;
 #pragma warning restore CA1034 // Nested types should not be visible
 
+  protected IEnumerable<Factory<T, TRepo>> FactoriesFor<T>(FactoryList factories)
+    where T : class
+    => factories.Select(FactoryFor<T>);
+
+  protected Factory<T, TRepo> FactoryFor<T>(Factory<object, TRepo> factory)
+    where T : class
+    => factory is Factory<T, TRepo> typedFactory
+      ? typedFactory
+      : throw new InvalidOperationException($"Factory registration for type '{typeof(T).ExpandTypeName()}' is not of the expected type '{typeof(Factory<T, TRepo>).ExpandTypeName()}'.");
+
   protected KeyValuePair<Type, Factory<object, TRepo>> FactoryKeyValue<T>(Factory<object, TRepo> factory)
     => factory.ToKeyValue(typeof(T));
   protected KeyValuePair<Type, FactoryList> FactoriesKeyValue<T>(IEnumerable<Factory<T, TRepo>> factories)

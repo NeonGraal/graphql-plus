@@ -16,9 +16,9 @@ internal class CmptGnrcPrntStrDomDualEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptGnrcPrntStrDomDualObject>
 {
-  private readonly IEncoder<ICmptFieldGnrcPrntStrDomDualObject<ICmptDomGnrcPrntStrDomDual>> _fieldGnrcPrntStrDomDual = encoders.EncoderFor<ICmptFieldGnrcPrntStrDomDualObject<ICmptDomGnrcPrntStrDomDual>>();
+  private readonly DeferOne<IEncoder<ICmptFieldGnrcPrntStrDomDualObject<ICmptDomGnrcPrntStrDomDual>>> _fieldGnrcPrntStrDomDual = encoders.EncoderFor<ICmptFieldGnrcPrntStrDomDualObject<ICmptDomGnrcPrntStrDomDual>>();
   public Structured Encode(ICmptGnrcPrntStrDomDualObject input)
-    => _fieldGnrcPrntStrDomDual.Encode(input);
+    => _fieldGnrcPrntStrDomDual.I.Encode(input);
 
   internal static CmptGnrcPrntStrDomDualEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -27,10 +27,10 @@ internal class CmptFieldGnrcPrntStrDomDualEncoder<TRef>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptFieldGnrcPrntStrDomDualObject<TRef>>
 {
-  private readonly IEncoder<TRef> _ref = encoders.EncoderFor<TRef>();
+  private readonly DeferOne<IEncoder<TRef>> _ref = encoders.EncoderFor<TRef>();
   public Structured Encode(ICmptFieldGnrcPrntStrDomDualObject<TRef> input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field, _ref);
+      .AddEncoded("field", input.Field, _ref.I);
 }
 
 internal class CmptDomGnrcPrntStrDomDualEncoder : IEncoder<ICmptDomGnrcPrntStrDomDual>

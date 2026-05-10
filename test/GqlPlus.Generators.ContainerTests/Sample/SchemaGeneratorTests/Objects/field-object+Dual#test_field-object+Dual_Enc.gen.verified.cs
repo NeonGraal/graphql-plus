@@ -11,10 +11,10 @@ internal class testFieldObjDualEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestFieldObjDualObject>
 {
-  private readonly IEncoder<ItestFldFieldObjDual> _itestFldFieldObjDual = encoders.EncoderFor<ItestFldFieldObjDual>();
+  private readonly DeferOne<IEncoder<ItestFldFieldObjDual>> _itestFldFieldObjDual = encoders.EncoderFor<ItestFldFieldObjDual>();
   public Structured Encode(ItestFieldObjDualObject input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field, _itestFldFieldObjDual);
+      .AddEncoded("field", input.Field, _itestFldFieldObjDual.I);
 
   internal static testFieldObjDualEncoder Factory(IEncoderRepository r) => new(r);
 }

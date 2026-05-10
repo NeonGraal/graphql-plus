@@ -11,9 +11,9 @@ internal class testObjCnstOutpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestObjCnstOutpObject<TType>>
 {
-  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  private readonly DeferOne<IEncoder<TType>> _type = encoders.EncoderFor<TType>();
   public Structured Encode(ItestObjCnstOutpObject<TType> input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field, _type)
-      .AddEncoded("str", input.Str, _type);
+      .AddEncoded("field", input.Field, _type.I)
+      .AddEncoded("str", input.Str, _type.I);
 }

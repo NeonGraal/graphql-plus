@@ -11,9 +11,9 @@ internal class test_SchemaEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_SchemaObject>
 {
-  private readonly IEncoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
+  private readonly DeferOne<IEncoder<Itest_NamedObject>> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
   public Structured Encode(Itest_SchemaObject input)
-    => _itest_Named.Encode(input);
+    => _itest_Named.I.Encode(input);
 
   internal static test_SchemaEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -38,11 +38,11 @@ internal class test_AliasedEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_AliasedObject>
 {
-  private readonly IEncoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
-  private readonly IEncoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  private readonly DeferOne<IEncoder<Itest_NamedObject>> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
+  private readonly DeferOne<IEncoder<Itest_Name>> _itest_Name = encoders.EncoderFor<Itest_Name>();
   public Structured Encode(Itest_AliasedObject input)
-    => _itest_Named.Encode(input)
-      .AddList("aliases", input.Aliases, _itest_Name);
+    => _itest_Named.I.Encode(input)
+      .AddList("aliases", input.Aliases, _itest_Name.I);
 
   internal static test_AliasedEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -51,11 +51,11 @@ internal class test_NamedEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_NamedObject>
 {
-  private readonly IEncoder<Itest_DescribedObject> _itest_Described = encoders.EncoderFor<Itest_DescribedObject>();
-  private readonly IEncoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  private readonly DeferOne<IEncoder<Itest_DescribedObject>> _itest_Described = encoders.EncoderFor<Itest_DescribedObject>();
+  private readonly DeferOne<IEncoder<Itest_Name>> _itest_Name = encoders.EncoderFor<Itest_Name>();
   public Structured Encode(Itest_NamedObject input)
-    => _itest_Described.Encode(input)
-      .AddEncoded("name", input.Name, _itest_Name);
+    => _itest_Described.I.Encode(input)
+      .AddEncoded("name", input.Name, _itest_Name.I);
 
   internal static test_NamedEncoder Factory(IEncoderRepository r) => new(r);
 }

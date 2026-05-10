@@ -59,9 +59,9 @@ internal class Cmpt_SchemaEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_SchemaObject>
 {
-  private readonly IEncoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
+  private readonly DeferOne<IEncoder<ICmpt_NamedObject>> _named = encoders.EncoderFor<ICmpt_NamedObject>();
   public Structured Encode(ICmpt_SchemaObject input)
-    => _named.Encode(input);
+    => _named.I.Encode(input);
 
   internal static Cmpt_SchemaEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -86,11 +86,11 @@ internal class Cmpt_AliasedEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_AliasedObject>
 {
-  private readonly IEncoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
-  private readonly IEncoder<ICmpt_Name> _name = encoders.EncoderFor<ICmpt_Name>();
+  private readonly DeferOne<IEncoder<ICmpt_NamedObject>> _named = encoders.EncoderFor<ICmpt_NamedObject>();
+  private readonly DeferOne<IEncoder<ICmpt_Name>> _name = encoders.EncoderFor<ICmpt_Name>();
   public Structured Encode(ICmpt_AliasedObject input)
-    => _named.Encode(input)
-      .AddList("aliases", input.Aliases, _name);
+    => _named.I.Encode(input)
+      .AddList("aliases", input.Aliases, _name.I);
 
   internal static Cmpt_AliasedEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -99,11 +99,11 @@ internal class Cmpt_NamedEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_NamedObject>
 {
-  private readonly IEncoder<ICmpt_DescribedObject> _described = encoders.EncoderFor<ICmpt_DescribedObject>();
-  private readonly IEncoder<ICmpt_Name> _name = encoders.EncoderFor<ICmpt_Name>();
+  private readonly DeferOne<IEncoder<ICmpt_DescribedObject>> _described = encoders.EncoderFor<ICmpt_DescribedObject>();
+  private readonly DeferOne<IEncoder<ICmpt_Name>> _name = encoders.EncoderFor<ICmpt_Name>();
   public Structured Encode(ICmpt_NamedObject input)
-    => _described.Encode(input)
-      .AddEncoded("name", input.Name, _name);
+    => _described.I.Encode(input)
+      .AddEncoded("name", input.Name, _name.I);
 
   internal static Cmpt_NamedEncoder Factory(IEncoderRepository r) => new(r);
 }

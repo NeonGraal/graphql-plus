@@ -39,9 +39,9 @@ internal class CmptAltCnstAltObjDualEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptAltCnstAltObjDualObject>
 {
-  private readonly IEncoder<ICmptPrntCnstAltObjDualObject> _prntCnstAltObjDual = encoders.EncoderFor<ICmptPrntCnstAltObjDualObject>();
+  private readonly DeferOne<IEncoder<ICmptPrntCnstAltObjDualObject>> _prntCnstAltObjDual = encoders.EncoderFor<ICmptPrntCnstAltObjDualObject>();
   public Structured Encode(ICmptAltCnstAltObjDualObject input)
-    => _prntCnstAltObjDual.Encode(input)
+    => _prntCnstAltObjDual.I.Encode(input)
       .Add("alt", input.Alt.Encode());
 
   internal static CmptAltCnstAltObjDualEncoder Factory(IEncoderRepository r) => new(r);

@@ -19,10 +19,10 @@ internal class testRefCnstPrntEnumDualEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestRefCnstPrntEnumDualObject<TType>>
 {
-  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  private readonly DeferOne<IEncoder<TType>> _type = encoders.EncoderFor<TType>();
   public Structured Encode(ItestRefCnstPrntEnumDualObject<TType> input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field, _type);
+      .AddEncoded("field", input.Field, _type.I);
 }
 
 internal class testEnumCnstPrntEnumDualEncoder : IEncoder<testEnumCnstPrntEnumDual>

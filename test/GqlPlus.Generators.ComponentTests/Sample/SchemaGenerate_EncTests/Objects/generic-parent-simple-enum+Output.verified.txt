@@ -16,9 +16,9 @@ internal class CmptGnrcPrntSmplEnumOutpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptGnrcPrntSmplEnumOutpObject>
 {
-  private readonly IEncoder<ICmptFieldGnrcPrntSmplEnumOutpObject<CmptEnumGnrcPrntSmplEnumOutp>> _fieldGnrcPrntSmplEnumOutp = encoders.EncoderFor<ICmptFieldGnrcPrntSmplEnumOutpObject<CmptEnumGnrcPrntSmplEnumOutp>>();
+  private readonly DeferOne<IEncoder<ICmptFieldGnrcPrntSmplEnumOutpObject<CmptEnumGnrcPrntSmplEnumOutp>>> _fieldGnrcPrntSmplEnumOutp = encoders.EncoderFor<ICmptFieldGnrcPrntSmplEnumOutpObject<CmptEnumGnrcPrntSmplEnumOutp>>();
   public Structured Encode(ICmptGnrcPrntSmplEnumOutpObject input)
-    => _fieldGnrcPrntSmplEnumOutp.Encode(input);
+    => _fieldGnrcPrntSmplEnumOutp.I.Encode(input);
 
   internal static CmptGnrcPrntSmplEnumOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -27,10 +27,10 @@ internal class CmptFieldGnrcPrntSmplEnumOutpEncoder<TRef>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptFieldGnrcPrntSmplEnumOutpObject<TRef>>
 {
-  private readonly IEncoder<TRef> _ref = encoders.EncoderFor<TRef>();
+  private readonly DeferOne<IEncoder<TRef>> _ref = encoders.EncoderFor<TRef>();
   public Structured Encode(ICmptFieldGnrcPrntSmplEnumOutpObject<TRef> input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field, _ref);
+      .AddEncoded("field", input.Field, _ref.I);
 }
 
 internal class CmptEnumGnrcPrntSmplEnumOutpEncoder : IEncoder<CmptEnumGnrcPrntSmplEnumOutp>

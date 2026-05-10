@@ -17,9 +17,9 @@ internal class CmptCnstFieldDualDualEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptCnstFieldDualDualObject>
 {
-  private readonly IEncoder<ICmptRefCnstFieldDualDualObject<ICmptAltCnstFieldDualDual>> _refCnstFieldDualDual = encoders.EncoderFor<ICmptRefCnstFieldDualDualObject<ICmptAltCnstFieldDualDual>>();
+  private readonly DeferOne<IEncoder<ICmptRefCnstFieldDualDualObject<ICmptAltCnstFieldDualDual>>> _refCnstFieldDualDual = encoders.EncoderFor<ICmptRefCnstFieldDualDualObject<ICmptAltCnstFieldDualDual>>();
   public Structured Encode(ICmptCnstFieldDualDualObject input)
-    => _refCnstFieldDualDual.Encode(input);
+    => _refCnstFieldDualDual.I.Encode(input);
 
   internal static CmptCnstFieldDualDualEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -28,10 +28,10 @@ internal class CmptRefCnstFieldDualDualEncoder<TRef>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptRefCnstFieldDualDualObject<TRef>>
 {
-  private readonly IEncoder<TRef> _ref = encoders.EncoderFor<TRef>();
+  private readonly DeferOne<IEncoder<TRef>> _ref = encoders.EncoderFor<TRef>();
   public Structured Encode(ICmptRefCnstFieldDualDualObject<TRef> input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field, _ref);
+      .AddEncoded("field", input.Field, _ref.I);
 }
 
 internal class CmptPrntCnstFieldDualDualEncoder : IEncoder<ICmptPrntCnstFieldDualDualObject>
@@ -46,9 +46,9 @@ internal class CmptAltCnstFieldDualDualEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptAltCnstFieldDualDualObject>
 {
-  private readonly IEncoder<ICmptPrntCnstFieldDualDualObject> _prntCnstFieldDualDual = encoders.EncoderFor<ICmptPrntCnstFieldDualDualObject>();
+  private readonly DeferOne<IEncoder<ICmptPrntCnstFieldDualDualObject>> _prntCnstFieldDualDual = encoders.EncoderFor<ICmptPrntCnstFieldDualDualObject>();
   public Structured Encode(ICmptAltCnstFieldDualDualObject input)
-    => _prntCnstFieldDualDual.Encode(input)
+    => _prntCnstFieldDualDual.I.Encode(input)
       .Add("alt", input.Alt.Encode());
 
   internal static CmptAltCnstFieldDualDualEncoder Factory(IEncoderRepository r) => new(r);

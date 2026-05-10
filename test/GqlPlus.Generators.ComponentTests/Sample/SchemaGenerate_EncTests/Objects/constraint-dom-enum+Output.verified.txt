@@ -25,10 +25,10 @@ internal class CmptRefCnstDomEnumOutpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptRefCnstDomEnumOutpObject<TType>>
 {
-  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  private readonly DeferOne<IEncoder<TType>> _type = encoders.EncoderFor<TType>();
   public Structured Encode(ICmptRefCnstDomEnumOutpObject<TType> input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field, _type);
+      .AddEncoded("field", input.Field, _type.I);
 }
 
 internal class CmptEnumCnstDomEnumOutpEncoder : IEncoder<CmptEnumCnstDomEnumOutp>

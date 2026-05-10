@@ -15,9 +15,9 @@ internal class CmptGnrcPrntArgOutpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptGnrcPrntArgOutpObject<TType>>
 {
-  private readonly IEncoder<ICmptRefGnrcPrntArgOutpObject<TType>> _refGnrcPrntArgOutp = encoders.EncoderFor<ICmptRefGnrcPrntArgOutpObject<TType>>();
+  private readonly DeferOne<IEncoder<ICmptRefGnrcPrntArgOutpObject<TType>>> _refGnrcPrntArgOutp = encoders.EncoderFor<ICmptRefGnrcPrntArgOutpObject<TType>>();
   public Structured Encode(ICmptGnrcPrntArgOutpObject<TType> input)
-    => _refGnrcPrntArgOutp.Encode(input);
+    => _refGnrcPrntArgOutp.I.Encode(input);
 }
 
 internal class CmptRefGnrcPrntArgOutpEncoder<TRef> : IEncoder<ICmptRefGnrcPrntArgOutpObject<TRef>>

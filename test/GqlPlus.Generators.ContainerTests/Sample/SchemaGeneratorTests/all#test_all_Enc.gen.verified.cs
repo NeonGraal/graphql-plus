@@ -27,11 +27,11 @@ internal class testManyEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestMany>
 {
-  private readonly IEncoder<ItestGuid> _guid = encoders.EncoderFor<ItestGuid>();
-  private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
+  private readonly DeferOne<IEncoder<ItestGuid>> _guid = encoders.EncoderFor<ItestGuid>();
+  private readonly DeferOne<IEncoder<decimal>> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ItestMany input)
-    => input.HasA<ItestGuid>() ? _guid.Encode(input.AsA<ItestGuid>())
-     : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+    => input.HasA<ItestGuid>() ? _guid.I.Encode(input.AsA<ItestGuid>())
+     : input.HasA<decimal>() ? _number.I.Encode(input.AsA<decimal>())
      : Structured.Empty();
 
   internal static testManyEncoder Factory(IEncoderRepository r) => new(r);
@@ -50,10 +50,10 @@ internal class testAllEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestAllObject>
 {
-  private readonly IEncoder<ItestField> _itestField = encoders.EncoderFor<ItestField>();
+  private readonly DeferOne<IEncoder<ItestField>> _itestField = encoders.EncoderFor<ItestField>();
   public Structured Encode(ItestAllObject input)
     => Structured.Empty()
-      .AddEncoded("items", input.Items(), _itestField);
+      .AddEncoded("items", input.Items(), _itestField.I);
 
   internal static testAllEncoder Factory(IEncoderRepository r) => new(r);
 }

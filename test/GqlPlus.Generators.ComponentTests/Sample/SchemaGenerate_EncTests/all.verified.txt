@@ -54,11 +54,11 @@ internal class CmptManyEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptMany>
 {
-  private readonly IEncoder<ICmptGuid> _guid = encoders.EncoderFor<ICmptGuid>();
-  private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
+  private readonly DeferOne<IEncoder<ICmptGuid>> _guid = encoders.EncoderFor<ICmptGuid>();
+  private readonly DeferOne<IEncoder<decimal>> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ICmptMany input)
-    => input.HasA<ICmptGuid>() ? _guid.Encode(input.AsA<ICmptGuid>())
-     : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+    => input.HasA<ICmptGuid>() ? _guid.I.Encode(input.AsA<ICmptGuid>())
+     : input.HasA<decimal>() ? _number.I.Encode(input.AsA<decimal>())
      : Structured.Empty();
 
   internal static CmptManyEncoder Factory(IEncoderRepository r) => new(r);
@@ -77,10 +77,10 @@ internal class CmptAllEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptAllObject>
 {
-  private readonly IEncoder<ICmptField> _field = encoders.EncoderFor<ICmptField>();
+  private readonly DeferOne<IEncoder<ICmptField>> _field = encoders.EncoderFor<ICmptField>();
   public Structured Encode(ICmptAllObject input)
     => Structured.Empty()
-      .AddEncoded("items", input.Items(), _field);
+      .AddEncoded("items", input.Items(), _field.I);
 
   internal static CmptAllEncoder Factory(IEncoderRepository r) => new(r);
 }

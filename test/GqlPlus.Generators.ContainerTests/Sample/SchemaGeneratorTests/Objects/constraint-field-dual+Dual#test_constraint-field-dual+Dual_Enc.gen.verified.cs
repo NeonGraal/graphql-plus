@@ -11,9 +11,9 @@ internal class testCnstFieldDualDualEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestCnstFieldDualDualObject>
 {
-  private readonly IEncoder<ItestRefCnstFieldDualDualObject<ItestAltCnstFieldDualDual>> _itestRefCnstFieldDualDual = encoders.EncoderFor<ItestRefCnstFieldDualDualObject<ItestAltCnstFieldDualDual>>();
+  private readonly DeferOne<IEncoder<ItestRefCnstFieldDualDualObject<ItestAltCnstFieldDualDual>>> _itestRefCnstFieldDualDual = encoders.EncoderFor<ItestRefCnstFieldDualDualObject<ItestAltCnstFieldDualDual>>();
   public Structured Encode(ItestCnstFieldDualDualObject input)
-    => _itestRefCnstFieldDualDual.Encode(input);
+    => _itestRefCnstFieldDualDual.I.Encode(input);
 
   internal static testCnstFieldDualDualEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -22,10 +22,10 @@ internal class testRefCnstFieldDualDualEncoder<TRef>(
   IEncoderRepository encoders
 ) : IEncoder<ItestRefCnstFieldDualDualObject<TRef>>
 {
-  private readonly IEncoder<TRef> _ref = encoders.EncoderFor<TRef>();
+  private readonly DeferOne<IEncoder<TRef>> _ref = encoders.EncoderFor<TRef>();
   public Structured Encode(ItestRefCnstFieldDualDualObject<TRef> input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field, _ref);
+      .AddEncoded("field", input.Field, _ref.I);
 }
 
 internal class testPrntCnstFieldDualDualEncoder : IEncoder<ItestPrntCnstFieldDualDualObject>
@@ -40,9 +40,9 @@ internal class testAltCnstFieldDualDualEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestAltCnstFieldDualDualObject>
 {
-  private readonly IEncoder<ItestPrntCnstFieldDualDualObject> _itestPrntCnstFieldDualDual = encoders.EncoderFor<ItestPrntCnstFieldDualDualObject>();
+  private readonly DeferOne<IEncoder<ItestPrntCnstFieldDualDualObject>> _itestPrntCnstFieldDualDual = encoders.EncoderFor<ItestPrntCnstFieldDualDualObject>();
   public Structured Encode(ItestAltCnstFieldDualDualObject input)
-    => _itestPrntCnstFieldDualDual.Encode(input)
+    => _itestPrntCnstFieldDualDual.I.Encode(input)
       .Add("alt", input.Alt.Encode());
 
   internal static testAltCnstFieldDualDualEncoder Factory(IEncoderRepository r) => new(r);

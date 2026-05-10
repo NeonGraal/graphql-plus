@@ -16,9 +16,9 @@ internal class CmptUnionSamePrntEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptUnionSamePrnt>
 {
-  private readonly IEncoder<bool> _boolean = encoders.EncoderFor<bool>();
+  private readonly DeferOne<IEncoder<bool>> _boolean = encoders.EncoderFor<bool>();
   public Structured Encode(ICmptUnionSamePrnt input)
-    => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
+    => input.HasA<bool>() ? _boolean.I.Encode(input.AsA<bool>())
      : Structured.Empty();
 
   internal static CmptUnionSamePrntEncoder Factory(IEncoderRepository r) => new(r);
@@ -28,9 +28,9 @@ internal class CmptPrntUnionSamePrntEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptPrntUnionSamePrnt>
 {
-  private readonly IEncoder<string> _string = encoders.EncoderFor<string>();
+  private readonly DeferOne<IEncoder<string>> _string = encoders.EncoderFor<string>();
   public Structured Encode(ICmptPrntUnionSamePrnt input)
-    => input.HasA<string>() ? _string.Encode(input.AsA<string>())
+    => input.HasA<string>() ? _string.I.Encode(input.AsA<string>())
      : Structured.Empty();
 
   internal static CmptPrntUnionSamePrntEncoder Factory(IEncoderRepository r) => new(r);

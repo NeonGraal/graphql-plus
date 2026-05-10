@@ -15,10 +15,10 @@ internal class CmptFieldObjOutpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptFieldObjOutpObject>
 {
-  private readonly IEncoder<ICmptFldFieldObjOutp> _fldFieldObjOutp = encoders.EncoderFor<ICmptFldFieldObjOutp>();
+  private readonly DeferOne<IEncoder<ICmptFldFieldObjOutp>> _fldFieldObjOutp = encoders.EncoderFor<ICmptFldFieldObjOutp>();
   public Structured Encode(ICmptFieldObjOutpObject input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field, _fldFieldObjOutp);
+      .AddEncoded("field", input.Field, _fldFieldObjOutp.I);
 
   internal static CmptFieldObjOutpEncoder Factory(IEncoderRepository r) => new(r);
 }

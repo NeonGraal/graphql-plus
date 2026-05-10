@@ -14,8 +14,8 @@ internal class CmptGnrcDescrOutpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptGnrcDescrOutpObject<TType>>
 {
-  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  private readonly DeferOne<IEncoder<TType>> _type = encoders.EncoderFor<TType>();
   public Structured Encode(ICmptGnrcDescrOutpObject<TType> input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field, _type);
+      .AddEncoded("field", input.Field, _type.I);
 }

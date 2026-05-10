@@ -15,9 +15,9 @@ internal class CmptPrntDescrOutpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptPrntDescrOutpObject>
 {
-  private readonly IEncoder<ICmptRefPrntDescrOutpObject> _refPrntDescrOutp = encoders.EncoderFor<ICmptRefPrntDescrOutpObject>();
+  private readonly DeferOne<IEncoder<ICmptRefPrntDescrOutpObject>> _refPrntDescrOutp = encoders.EncoderFor<ICmptRefPrntDescrOutpObject>();
   public Structured Encode(ICmptPrntDescrOutpObject input)
-    => _refPrntDescrOutp.Encode(input);
+    => _refPrntDescrOutp.I.Encode(input);
 
   internal static CmptPrntDescrOutpEncoder Factory(IEncoderRepository r) => new(r);
 }

@@ -16,10 +16,10 @@ internal class CmptGnrcFieldParamDualEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptGnrcFieldParamDualObject>
 {
-  private readonly IEncoder<ICmptRefGnrcFieldParamDual<ICmptAltGnrcFieldParamDual>> _refGnrcFieldParamDual = encoders.EncoderFor<ICmptRefGnrcFieldParamDual<ICmptAltGnrcFieldParamDual>>();
+  private readonly DeferOne<IEncoder<ICmptRefGnrcFieldParamDual<ICmptAltGnrcFieldParamDual>>> _refGnrcFieldParamDual = encoders.EncoderFor<ICmptRefGnrcFieldParamDual<ICmptAltGnrcFieldParamDual>>();
   public Structured Encode(ICmptGnrcFieldParamDualObject input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field, _refGnrcFieldParamDual);
+      .AddEncoded("field", input.Field, _refGnrcFieldParamDual.I);
 
   internal static CmptGnrcFieldParamDualEncoder Factory(IEncoderRepository r) => new(r);
 }

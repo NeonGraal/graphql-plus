@@ -11,9 +11,9 @@ internal class testCnstFieldObjOutpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestCnstFieldObjOutpObject>
 {
-  private readonly IEncoder<ItestRefCnstFieldObjOutpObject<ItestAltCnstFieldObjOutp>> _itestRefCnstFieldObjOutp = encoders.EncoderFor<ItestRefCnstFieldObjOutpObject<ItestAltCnstFieldObjOutp>>();
+  private readonly DeferOne<IEncoder<ItestRefCnstFieldObjOutpObject<ItestAltCnstFieldObjOutp>>> _itestRefCnstFieldObjOutp = encoders.EncoderFor<ItestRefCnstFieldObjOutpObject<ItestAltCnstFieldObjOutp>>();
   public Structured Encode(ItestCnstFieldObjOutpObject input)
-    => _itestRefCnstFieldObjOutp.Encode(input);
+    => _itestRefCnstFieldObjOutp.I.Encode(input);
 
   internal static testCnstFieldObjOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -22,10 +22,10 @@ internal class testRefCnstFieldObjOutpEncoder<TRef>(
   IEncoderRepository encoders
 ) : IEncoder<ItestRefCnstFieldObjOutpObject<TRef>>
 {
-  private readonly IEncoder<TRef> _ref = encoders.EncoderFor<TRef>();
+  private readonly DeferOne<IEncoder<TRef>> _ref = encoders.EncoderFor<TRef>();
   public Structured Encode(ItestRefCnstFieldObjOutpObject<TRef> input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field, _ref);
+      .AddEncoded("field", input.Field, _ref.I);
 }
 
 internal class testPrntCnstFieldObjOutpEncoder : IEncoder<ItestPrntCnstFieldObjOutpObject>
@@ -40,9 +40,9 @@ internal class testAltCnstFieldObjOutpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestAltCnstFieldObjOutpObject>
 {
-  private readonly IEncoder<ItestPrntCnstFieldObjOutpObject> _itestPrntCnstFieldObjOutp = encoders.EncoderFor<ItestPrntCnstFieldObjOutpObject>();
+  private readonly DeferOne<IEncoder<ItestPrntCnstFieldObjOutpObject>> _itestPrntCnstFieldObjOutp = encoders.EncoderFor<ItestPrntCnstFieldObjOutpObject>();
   public Structured Encode(ItestAltCnstFieldObjOutpObject input)
-    => _itestPrntCnstFieldObjOutp.Encode(input)
+    => _itestPrntCnstFieldObjOutp.I.Encode(input)
       .Add("alt", input.Alt.Encode());
 
   internal static testAltCnstFieldObjOutpEncoder Factory(IEncoderRepository r) => new(r);

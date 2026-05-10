@@ -45,9 +45,9 @@ internal class Cmpt_SchemaEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_SchemaObject>
 {
-  private readonly IEncoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
+  private readonly DeferOne<IEncoder<ICmpt_NamedObject>> _named = encoders.EncoderFor<ICmpt_NamedObject>();
   public Structured Encode(ICmpt_SchemaObject input)
-    => _named.Encode(input);
+    => _named.I.Encode(input);
 
   internal static Cmpt_SchemaEncoder Factory(IEncoderRepository r) => new(r);
 }

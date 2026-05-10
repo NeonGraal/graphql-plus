@@ -11,11 +11,11 @@ internal class testPrntParamDiffOutpEncoder<TA>(
   IEncoderRepository encoders
 ) : IEncoder<ItestPrntParamDiffOutpObject<TA>>
 {
-  private readonly IEncoder<ItestRefPrntParamDiffOutpObject<TA>> _itestRefPrntParamDiffOutp = encoders.EncoderFor<ItestRefPrntParamDiffOutpObject<TA>>();
-  private readonly IEncoder<TA> _a = encoders.EncoderFor<TA>();
+  private readonly DeferOne<IEncoder<ItestRefPrntParamDiffOutpObject<TA>>> _itestRefPrntParamDiffOutp = encoders.EncoderFor<ItestRefPrntParamDiffOutpObject<TA>>();
+  private readonly DeferOne<IEncoder<TA>> _a = encoders.EncoderFor<TA>();
   public Structured Encode(ItestPrntParamDiffOutpObject<TA> input)
-    => _itestRefPrntParamDiffOutp.Encode(input)
-      .AddEncoded("field", input.Field, _a);
+    => _itestRefPrntParamDiffOutp.I.Encode(input)
+      .AddEncoded("field", input.Field, _a.I);
 }
 
 internal class testRefPrntParamDiffOutpEncoder<TB> : IEncoder<ItestRefPrntParamDiffOutpObject<TB>>

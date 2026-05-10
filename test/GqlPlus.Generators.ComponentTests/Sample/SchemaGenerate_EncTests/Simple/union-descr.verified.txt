@@ -14,9 +14,9 @@ internal class CmptUnionDescrEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptUnionDescr>
 {
-  private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
+  private readonly DeferOne<IEncoder<decimal>> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ICmptUnionDescr input)
-    => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
+    => input.HasA<decimal>() ? _number.I.Encode(input.AsA<decimal>())
      : Structured.Empty();
 
   internal static CmptUnionDescrEncoder Factory(IEncoderRepository r) => new(r);

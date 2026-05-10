@@ -15,9 +15,9 @@ internal class CmptUnionSameEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptUnionSame>
 {
-  private readonly IEncoder<bool> _boolean = encoders.EncoderFor<bool>();
+  private readonly DeferOne<IEncoder<bool>> _boolean = encoders.EncoderFor<bool>();
   public Structured Encode(ICmptUnionSame input)
-    => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
+    => input.HasA<bool>() ? _boolean.I.Encode(input.AsA<bool>())
      : Structured.Empty();
 
   internal static CmptUnionSameEncoder Factory(IEncoderRepository r) => new(r);

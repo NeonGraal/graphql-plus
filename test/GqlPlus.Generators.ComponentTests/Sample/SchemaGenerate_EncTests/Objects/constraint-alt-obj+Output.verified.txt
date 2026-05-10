@@ -39,9 +39,9 @@ internal class CmptAltCnstAltObjOutpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptAltCnstAltObjOutpObject>
 {
-  private readonly IEncoder<ICmptPrntCnstAltObjOutpObject> _prntCnstAltObjOutp = encoders.EncoderFor<ICmptPrntCnstAltObjOutpObject>();
+  private readonly DeferOne<IEncoder<ICmptPrntCnstAltObjOutpObject>> _prntCnstAltObjOutp = encoders.EncoderFor<ICmptPrntCnstAltObjOutpObject>();
   public Structured Encode(ICmptAltCnstAltObjOutpObject input)
-    => _prntCnstAltObjOutp.Encode(input)
+    => _prntCnstAltObjOutp.I.Encode(input)
       .Add("alt", input.Alt.Encode());
 
   internal static CmptAltCnstAltObjOutpEncoder Factory(IEncoderRepository r) => new(r);

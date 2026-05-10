@@ -11,10 +11,10 @@ internal class testGnrcFieldArgOutpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestGnrcFieldArgOutpObject<TType>>
 {
-  private readonly IEncoder<ItestRefGnrcFieldArgOutp<TType>> _itestRefGnrcFieldArgOutp = encoders.EncoderFor<ItestRefGnrcFieldArgOutp<TType>>();
+  private readonly DeferOne<IEncoder<ItestRefGnrcFieldArgOutp<TType>>> _itestRefGnrcFieldArgOutp = encoders.EncoderFor<ItestRefGnrcFieldArgOutp<TType>>();
   public Structured Encode(ItestGnrcFieldArgOutpObject<TType> input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field, _itestRefGnrcFieldArgOutp);
+      .AddEncoded("field", input.Field, _itestRefGnrcFieldArgOutp.I);
 }
 
 internal class testRefGnrcFieldArgOutpEncoder<TRef> : IEncoder<ItestRefGnrcFieldArgOutpObject<TRef>>

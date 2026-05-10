@@ -17,11 +17,11 @@ internal class Cmpt_SettingEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_SettingObject>
 {
-  private readonly IEncoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
-  private readonly IEncoder<GqlpValue> _gqlpValue = encoders.EncoderFor<GqlpValue>();
+  private readonly DeferOne<IEncoder<ICmpt_NamedObject>> _named = encoders.EncoderFor<ICmpt_NamedObject>();
+  private readonly DeferOne<IEncoder<GqlpValue>> _gqlpValue = encoders.EncoderFor<GqlpValue>();
   public Structured Encode(ICmpt_SettingObject input)
-    => _named.Encode(input)
-      .AddEncoded("value", input.Value, _gqlpValue);
+    => _named.I.Encode(input)
+      .AddEncoded("value", input.Value, _gqlpValue.I);
 
   internal static Cmpt_SettingEncoder Factory(IEncoderRepository r) => new(r);
 }

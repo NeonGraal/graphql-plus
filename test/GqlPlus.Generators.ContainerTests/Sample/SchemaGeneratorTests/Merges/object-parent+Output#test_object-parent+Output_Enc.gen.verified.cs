@@ -11,9 +11,9 @@ internal class testObjPrntOutpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestObjPrntOutpObject>
 {
-  private readonly IEncoder<ItestRefObjPrntOutpObject> _itestRefObjPrntOutp = encoders.EncoderFor<ItestRefObjPrntOutpObject>();
+  private readonly DeferOne<IEncoder<ItestRefObjPrntOutpObject>> _itestRefObjPrntOutp = encoders.EncoderFor<ItestRefObjPrntOutpObject>();
   public Structured Encode(ItestObjPrntOutpObject input)
-    => _itestRefObjPrntOutp.Encode(input);
+    => _itestRefObjPrntOutp.I.Encode(input);
 
   internal static testObjPrntOutpEncoder Factory(IEncoderRepository r) => new(r);
 }

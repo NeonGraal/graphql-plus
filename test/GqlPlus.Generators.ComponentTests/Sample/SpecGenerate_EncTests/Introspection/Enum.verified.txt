@@ -22,11 +22,11 @@ internal class Cmpt_EnumLabelEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_EnumLabelObject>
 {
-  private readonly IEncoder<ICmpt_AliasedObject> _aliased = encoders.EncoderFor<ICmpt_AliasedObject>();
-  private readonly IEncoder<ICmpt_Name> _name = encoders.EncoderFor<ICmpt_Name>();
+  private readonly DeferOne<IEncoder<ICmpt_AliasedObject>> _aliased = encoders.EncoderFor<ICmpt_AliasedObject>();
+  private readonly DeferOne<IEncoder<ICmpt_Name>> _name = encoders.EncoderFor<ICmpt_Name>();
   public Structured Encode(ICmpt_EnumLabelObject input)
-    => _aliased.Encode(input)
-      .AddEncoded("enumType", input.EnumType, _name);
+    => _aliased.I.Encode(input)
+      .AddEncoded("enumType", input.EnumType, _name.I);
 
   internal static Cmpt_EnumLabelEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -35,11 +35,11 @@ internal class Cmpt_EnumValueEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_EnumValueObject>
 {
-  private readonly IEncoder<ICmpt_TypeRefObject<ICmpt_TypeKind>> _typeRef = encoders.EncoderFor<ICmpt_TypeRefObject<ICmpt_TypeKind>>();
-  private readonly IEncoder<ICmpt_Name> _name = encoders.EncoderFor<ICmpt_Name>();
+  private readonly DeferOne<IEncoder<ICmpt_TypeRefObject<ICmpt_TypeKind>>> _typeRef = encoders.EncoderFor<ICmpt_TypeRefObject<ICmpt_TypeKind>>();
+  private readonly DeferOne<IEncoder<ICmpt_Name>> _name = encoders.EncoderFor<ICmpt_Name>();
   public Structured Encode(ICmpt_EnumValueObject input)
-    => _typeRef.Encode(input)
-      .AddEncoded("label", input.Label, _name);
+    => _typeRef.I.Encode(input)
+      .AddEncoded("label", input.Label, _name.I);
 
   internal static Cmpt_EnumValueEncoder Factory(IEncoderRepository r) => new(r);
 }

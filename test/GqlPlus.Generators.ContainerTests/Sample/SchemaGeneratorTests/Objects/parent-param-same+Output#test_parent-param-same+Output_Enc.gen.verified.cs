@@ -11,11 +11,11 @@ internal class testPrntParamSameOutpEncoder<TA>(
   IEncoderRepository encoders
 ) : IEncoder<ItestPrntParamSameOutpObject<TA>>
 {
-  private readonly IEncoder<ItestRefPrntParamSameOutpObject<TA>> _itestRefPrntParamSameOutp = encoders.EncoderFor<ItestRefPrntParamSameOutpObject<TA>>();
-  private readonly IEncoder<TA> _a = encoders.EncoderFor<TA>();
+  private readonly DeferOne<IEncoder<ItestRefPrntParamSameOutpObject<TA>>> _itestRefPrntParamSameOutp = encoders.EncoderFor<ItestRefPrntParamSameOutpObject<TA>>();
+  private readonly DeferOne<IEncoder<TA>> _a = encoders.EncoderFor<TA>();
   public Structured Encode(ItestPrntParamSameOutpObject<TA> input)
-    => _itestRefPrntParamSameOutp.Encode(input)
-      .AddEncoded("field", input.Field, _a);
+    => _itestRefPrntParamSameOutp.I.Encode(input)
+      .AddEncoded("field", input.Field, _a.I);
 }
 
 internal class testRefPrntParamSameOutpEncoder<TA> : IEncoder<ItestRefPrntParamSameOutpObject<TA>>

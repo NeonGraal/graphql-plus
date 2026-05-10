@@ -4,9 +4,9 @@ internal sealed class SchemaGenerator(
   IGeneratorRepository generators
 ) : IGenerator<IAstSchema>
 {
-  private readonly DeferOne<IGenerator<IAstSchemaCategory>> _categoryGenerator = generators.GeneratorFor<IAstSchemaCategory>();
-  private readonly DeferOne<IGenerator<IAstSchemaDirective>> _directiveGenerator = generators.GeneratorFor<IAstSchemaDirective>();
-  private readonly DeferOne<IGenerator<IAstSchemaOption>> _optionGenerator = generators.GeneratorFor<IAstSchemaOption>();
+  private readonly Generator<IAstSchemaCategory> _categoryGenerator = generators.GeneratorFor<IAstSchemaCategory>();
+  private readonly Generator<IAstSchemaDirective> _directiveGenerator = generators.GeneratorFor<IAstSchemaDirective>();
+  private readonly Generator<IAstSchemaOption> _optionGenerator = generators.GeneratorFor<IAstSchemaOption>();
 
   public void Generate(IAstSchema ast, GqlpGeneratorContext context)
   {
@@ -14,9 +14,9 @@ internal sealed class SchemaGenerator(
     context.AddTypes(types);
 
     context.WritePrefixLine("/*");
-    Typed<IAstSchemaCategory>(ast).Generate(_categoryGenerator.I, context);
-    Typed<IAstSchemaDirective>(ast).Generate(_directiveGenerator.I, context);
-    Typed<IAstSchemaOption>(ast).Generate(_optionGenerator.I, context);
+    Typed<IAstSchemaCategory>(ast).Generate(_categoryGenerator, context);
+    Typed<IAstSchemaDirective>(ast).Generate(_directiveGenerator, context);
+    Typed<IAstSchemaOption>(ast).Generate(_optionGenerator, context);
     context.WritePrefixLine("*/");
     context.WritePrefixLine("");
     string nameSpace = context.GeneratorOptions.NameSpace.IfWhiteSpace(context.ModelOptions.BaseNamespace);

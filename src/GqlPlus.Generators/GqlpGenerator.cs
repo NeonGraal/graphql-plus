@@ -129,7 +129,7 @@ public class GqlpGenerator : IIncrementalGenerator
 
     ParserOne<IAstSchema> schemaParser = services.GetRequiredService<IParserRepository>().ParserFor<IAstSchema>();
     MergerOne<IAstSchema> schemaMerger = services.GetRequiredService<IMergerRepository>().MergerFor<IAstSchema>();
-    DeferOne<IGenerator<IAstSchema>> schemaGenerator = services.GetRequiredService<IGeneratorRepository>().GeneratorFor<IAstSchema>();
+    Generator<IAstSchema> schemaGenerator = services.GetRequiredService<IGeneratorRepository>().GeneratorFor<IAstSchema>();
 
     Map<IAstSchema> schemas = [];
 
@@ -154,7 +154,7 @@ public class GqlpGenerator : IIncrementalGenerator
         }
       }
 
-      schemaGenerator.I.Generate(schemas[path], context);
+      schemaGenerator.Generate(schemas[path], context);
       string source = context.ToString();
 
       if (!string.IsNullOrWhiteSpace(source)) {

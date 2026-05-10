@@ -11,19 +11,19 @@ internal abstract class AstTypeMerger<TAst, TType, TParent, TItem>(
   where TParent : IAstDescribed, IEquatable<TParent>
   where TItem : IAstError
 {
-  private readonly DeferOne<IMerge<TItem>> _mergeItems = mergers.MergerFor<TItem>();
+  private readonly MergerOne<TItem> _mergeItems = mergers.MergerFor<TItem>();
 
   internal abstract IEnumerable<TItem> GetItems(TType type);
 
   protected override IMessages CanMergeGroup(IGrouping<string, TType> group)
     => base.CanMergeGroup(group)
-    .Add(group.ManyCanMerge(GetItems, _mergeItems.I));
+    .Add(group.ManyCanMerge(GetItems, _mergeItems));
 
   internal abstract TType SetItems(TType input, IEnumerable<TItem> items);
 
   protected override TType MergeGroup(IEnumerable<TType> group)
   {
-    IEnumerable<TItem> items = group.ManyMerge(GetItems, _mergeItems.I);
+    IEnumerable<TItem> items = group.ManyMerge(GetItems, _mergeItems);
 
     return SetItems(base.MergeGroup(group), items);
   }

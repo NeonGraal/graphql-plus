@@ -7,7 +7,7 @@ internal class MergeInputParams(
   IMergerRepository mergers
 ) : DistinctMerger<IAstInputParam>(mergers)
 {
-  private readonly DeferOne<IMerge<IAstConstant>> _defaultValue = mergers.MergerFor<IAstConstant>();
+  private readonly MergerOne<IAstConstant> _defaultValue = mergers.MergerFor<IAstConstant>();
 
   protected override string ItemGroupKey(IAstInputParam item)
     => item.Type.FullType;
@@ -18,7 +18,7 @@ internal class MergeInputParams(
 
   protected override IMessages CanMergeGroup(IGrouping<string, IAstInputParam> group)
     => base.CanMergeGroup(group)
-      .Add(group.CanMerge(item => item.DefaultValue, _defaultValue.I));
+      .Add(group.CanMerge(item => item.DefaultValue, _defaultValue));
 
   protected override IAstInputParam MergeGroup(IEnumerable<IAstInputParam> group)
   {
@@ -28,7 +28,7 @@ internal class MergeInputParams(
     }
 
     return first with {
-      DefaultValue = group.Merge(item => item.DefaultValue, _defaultValue.I).FirstOrDefault(),
+      DefaultValue = group.Merge(item => item.DefaultValue, _defaultValue).FirstOrDefault(),
     };
   }
 

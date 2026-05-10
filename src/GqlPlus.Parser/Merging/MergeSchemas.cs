@@ -6,10 +6,10 @@ internal class MergeSchemas(
   IMergerRepository mergers
 ) : GroupsMerger<IAstSchema>
 {
-  private readonly DeferOne<IMerge<IAstSchemaCategory>> _categories = mergers.MergerFor<IAstSchemaCategory>();
-  private readonly DeferOne<IMerge<IAstSchemaDirective>> _directives = mergers.MergerFor<IAstSchemaDirective>();
-  private readonly DeferOne<IMerge<IAstSchemaOption>> _options = mergers.MergerFor<IAstSchemaOption>();
-  private readonly DeferOne<IMerge<IAstType>> _astTypes = mergers.MergerFor<IAstType>();
+  private readonly MergerOne<IAstSchemaCategory> _categories = mergers.MergerFor<IAstSchemaCategory>();
+  private readonly MergerOne<IAstSchemaDirective> _directives = mergers.MergerFor<IAstSchemaDirective>();
+  private readonly MergerOne<IAstSchemaOption> _options = mergers.MergerFor<IAstSchemaOption>();
+  private readonly MergerOne<IAstType> _astTypes = mergers.MergerFor<IAstType>();
 
   protected override string ItemGroupKey(IAstSchema item)
     => "Schema";
@@ -21,10 +21,10 @@ internal class MergeSchemas(
     IAstSchemaOption[] options = Just<IAstSchemaOption>(group);
     IAstType[] astTypes = Just<IAstType>(group);
 
-    IMessages categoriesCanMerge = categories.Length > 0 ? _categories.I.CanMerge(categories) : Messages.New;
-    IMessages directivesCanMerge = directives.Length > 0 ? _directives.I.CanMerge(directives) : Messages.New;
-    IMessages optionsCanMerge = options.Length > 0 ? _options.I.CanMerge(options) : Messages.New;
-    IMessages astTypesCanMerge = astTypes.Length > 0 ? _astTypes.I.CanMerge(astTypes) : Messages.New;
+    IMessages categoriesCanMerge = categories.Length > 0 ? _categories.CanMerge(categories) : Messages.New;
+    IMessages directivesCanMerge = directives.Length > 0 ? _directives.CanMerge(directives) : Messages.New;
+    IMessages optionsCanMerge = options.Length > 0 ? _options.CanMerge(options) : Messages.New;
+    IMessages astTypesCanMerge = astTypes.Length > 0 ? _astTypes.CanMerge(astTypes) : Messages.New;
 
     return categoriesCanMerge
       .Add(directivesCanMerge)
@@ -42,11 +42,11 @@ internal class MergeSchemas(
     IAstSchemaOption[] options = Just<IAstSchemaOption>(group);
     IAstType[] astTypes = Just<IAstType>(group);
 
-    IEnumerable<AstDeclaration> declarations = _categories.I
+    IEnumerable<AstDeclaration> declarations = _categories
       .Merge(categories).Cast<IAstDeclaration>()
-      .Concat(_directives.I.Merge(directives))
-      .Concat(_options.I.Merge(options))
-      .Concat(_astTypes.I.Merge(astTypes))
+      .Concat(_directives.Merge(directives))
+      .Concat(_options.Merge(options))
+      .Concat(_astTypes.Merge(astTypes))
       .Cast<AstDeclaration>();
 
     SchemaAst ast = (SchemaAst)group.First();

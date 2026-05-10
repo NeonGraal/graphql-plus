@@ -7,7 +7,7 @@ internal class MergeOptions(
   IMergerRepository mergers
 ) : AstAliasedMerger<IAstSchemaOption>(mergers)
 {
-  private readonly DeferOne<IMerge<IAstSchemaSetting>> _setting = mergers.MergerFor<IAstSchemaSetting>();
+  private readonly MergerOne<IAstSchemaSetting> _setting = mergers.MergerFor<IAstSchemaSetting>();
 
   protected override string ItemGroupKey(IAstSchemaOption item) => "Option";
 
@@ -16,13 +16,13 @@ internal class MergeOptions(
 
   protected override IMessages CanMergeGroup(IGrouping<string, IAstSchemaOption> group)
     => base.CanMergeGroup(group)
-      .Add(group.ManyGroupCanMerge(d => d.Settings, s => s.Name, _setting.I));
+      .Add(group.ManyGroupCanMerge(d => d.Settings, s => s.Name, _setting));
 
   protected override IAstSchemaOption MergeGroup(IEnumerable<IAstSchemaOption> group)
   {
     OptionDeclAst ast = (OptionDeclAst)base.MergeGroup(group);
     return ast with {
-      Settings = group.ManyGroupMerger(d => d.Settings, s => s.Name, _setting.I).ArrayOf<OptionSettingAst>(),
+      Settings = group.ManyGroupMerger(d => d.Settings, s => s.Name, _setting).ArrayOf<OptionSettingAst>(),
     };
   }
 

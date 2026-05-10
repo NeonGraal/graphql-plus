@@ -7,18 +7,18 @@ internal class MergeOptionSettings(
   IMergerRepository mergers
 ) : GroupsMerger<IAstSchemaSetting>
 {
-  private readonly DeferOne<IMerge<IAstConstant>> _value = mergers.MergerFor<IAstConstant>();
+  private readonly MergerOne<IAstConstant> _value = mergers.MergerFor<IAstConstant>();
 
   protected override string ItemGroupKey(IAstSchemaSetting item) => item.Name;
 
   protected override IMessages CanMergeGroup(IGrouping<string, IAstSchemaSetting> group)
-    => group.CanMerge(item => item.Value, _value.I);
+    => group.CanMerge(item => item.Value, _value);
 
   protected override IAstSchemaSetting MergeGroup(IEnumerable<IAstSchemaSetting> group)
   {
     OptionSettingAst ast = (OptionSettingAst)group.First();
     return ast with {
-      Value = (ConstantAst)group.Combine(item => item.Value, _value.I)
+      Value = (ConstantAst)group.Combine(item => item.Value, _value)
     };
   }
 

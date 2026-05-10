@@ -2,97 +2,88 @@
 
 namespace GqlPlus;
 
-public static class Defer<T>
-  where T : class
+public class DeferOne<TValue>(
+  DeferOne<TValue>.D factory
+) : Lazy<TValue>(() => factory())
+  where TValue : class
 {
-  public delegate T D();
-  public delegate IEnumerable<T> DA();
-  public delegate IReadOnlyMap<T> DM();
-  public delegate IReadOnlyDictionary<TKey, T> DD<TKey>();
+  public delegate TValue D();
+  public static implicit operator DeferOne<TValue>(DeferOne<TValue>.D factory) => new(factory.ThrowIfNull());
+  public TValue I => Value;
+}
 
-#pragma warning disable CA1034 // Nested types should not be visible
-  public class L(D factory)
-    : Lazy<T>(() => factory())
-  {
-    public static implicit operator L(D factory)
-      => new(factory.ThrowIfNull());
+public class DeferList<TValue>(
+  DeferList<TValue>.D factory
+) : Lazy<IEnumerable<TValue>>(() => factory())
+  where TValue : class
+{
+  public delegate IEnumerable<TValue> D();
+  public static implicit operator DeferList<TValue>(DeferList<TValue>.D factory) => new(factory.ThrowIfNull());
+  public IEnumerable<TValue> I => Value;
 
-    public T I => Value;
-  }
+  public DeferMap<TValue> ToMap(Func<TValue, string> keySelector)
+    => new(() => Value.ToMap(keySelector));
+  public DeferMap<TOutput> ToMap<TOutput>(Func<TValue, string> keySelector, Func<TValue, TOutput> valueSelector)
+    where TOutput : class
+    => new(() => Value.ToMap(keySelector, valueSelector));
 
-  public class LA(DA factory)
-    : Lazy<IEnumerable<T>>(() => factory())
-  {
-    public static implicit operator LA(DA factory)
-      => new(factory.ThrowIfNull());
+  public DeferDict<TKey, TValue> ToDictionary<TKey>(Func<TValue, TKey> keySelector)
+    => new(() => Value.ToDictionary(keySelector));
+  public DeferDict<TKey, TOutput> ToDictionary<TOutput, TKey>(Func<TValue, TKey> keySelector, Func<TValue, TOutput> valueSelector)
+    where TOutput : class
+    => new(() => Value.ToDictionary(keySelector, valueSelector));
+}
 
-    public IEnumerable<T> IA => Value;
+public class DeferMap<TValue>(
+  DeferMap<TValue>.D factory
+) : Lazy<IReadOnlyMap<TValue>>(() => factory())
+  , IReadOnlyMap<TValue>
+{
+  public delegate IReadOnlyMap<TValue> D();
+  public IReadOnlyMap<TValue> I => Value;
+  public IEnumerable<string> Keys => I.Keys;
+  public IEnumerable<TValue> Values => I.Values;
+  public int Count => I.Count;
+  public TValue this[string key] => ((IReadOnlyDictionary<string, TValue>)I)[key];
+  public TValue? GetValueOr(string key) => I.GetValueOr(key);
+  public bool ContainsKey(string key) => I.ContainsKey(key);
+  public bool TryGetValue(string key, out TValue value) => I.TryGetValue(key, out value);
+  public IEnumerator<KeyValuePair<string, TValue>> GetEnumerator() => I.GetEnumerator();
+  IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)I).GetEnumerator();
+}
 
-    public LM ToMap(Func<T, string> keySelector)
-      => new(() => Value.ToMap(keySelector));
-    public Defer<TOutput>.LM ToMap<TOutput>(Func<T, string> keySelector, Func<T, TOutput> valueSelector)
-      where TOutput : class
-      => new(() => Value.ToMap(keySelector, valueSelector));
+public class DeferDict<TKey, TValue>(
+  DeferDict<TKey, TValue>.D factory
+) : Lazy<IReadOnlyDictionary<TKey, TValue>>(() => factory())
+  , IReadOnlyDictionary<TKey, TValue>
+{
+  public delegate IReadOnlyDictionary<TKey, TValue> D();
+  public IReadOnlyDictionary<TKey, TValue> I => Value;
 
-    public LD<TKey> ToDictionary<TKey>(Func<T, TKey> keySelector)
-      => new(() => Value.ToDictionary(keySelector));
-    public Defer<TOutput>.LD<TKey> ToDictionary<TOutput, TKey>(Func<T, TKey> keySelector, Func<T, TOutput> valueSelector)
-      where TOutput : class
-      => new(() => Value.ToDictionary(keySelector, valueSelector));
-  }
-
-  public class LM(DM factory)
-    : Lazy<IReadOnlyMap<T>>(() => factory())
-    , IReadOnlyMap<T>
-  {
-    public static implicit operator LM(DM factory)
-      => new(factory.ThrowIfNull());
-
-    public IReadOnlyMap<T> IM => Value;
-    public IEnumerable<string> Keys => IM.Keys;
-    public IEnumerable<T> Values => IM.Values;
-    public int Count => IM.Count;
-    public T this[string key] => ((IReadOnlyDictionary<string, T>)IM)[key];
-    public T? GetValueOr(string key) => IM.GetValueOr(key);
-    public bool ContainsKey(string key) => IM.ContainsKey(key);
-    public bool TryGetValue(string key, out T value) => IM.TryGetValue(key, out value);
-    public IEnumerator<KeyValuePair<string, T>> GetEnumerator() => IM.GetEnumerator();
-    IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)IM).GetEnumerator();
-  }
-
-  public class LD<TKey>(DD<TKey> factory)
-    : Lazy<IReadOnlyDictionary<TKey, T>>(() => factory())
-    , IReadOnlyDictionary<TKey, T>
-  {
-    public static implicit operator LD<TKey>(DD<TKey> factory)
-      => new(factory.ThrowIfNull());
-
-    public IReadOnlyDictionary<TKey, T> ID => Value;
-    public IEnumerable<TKey> Keys => ID.Keys;
-    public IEnumerable<T> Values => ID.Values;
-    public int Count => ID.Count;
-    public T this[TKey key] => ID[key];
-    public bool ContainsKey(TKey key) => ID.ContainsKey(key);
-    public bool TryGetValue(TKey key, out T value) => ID.TryGetValue(key, out value);
-    public IEnumerator<KeyValuePair<TKey, T>> GetEnumerator() => ID.GetEnumerator();
-    IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)ID).GetEnumerator();
-  }
+  public IEnumerable<TKey> Keys => I.Keys;
+  public IEnumerable<TValue> Values => I.Values;
+  public int Count => I.Count;
+  public TValue this[TKey key] => I[key];
+  public bool ContainsKey(TKey key) => I.ContainsKey(key);
+  public bool TryGetValue(TKey key, out TValue value) => I.TryGetValue(key, out value);
+  public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator() => I.GetEnumerator();
+  IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)I).GetEnumerator();
 }
 
 public static class DeferHelpers
 {
-  public static Defer<T>.LM ToMap<T>(this Defer<T>.DA items, Func<T, string> keySelector)
+  public static DeferMap<T> ToMap<T>(this DeferList<T>.D items, Func<T, string> keySelector)
     where T : class
     => new(() => items().ToMap(keySelector));
-  public static Defer<TOutput>.LM ToMap<TInput, TOutput>(this Defer<TInput>.DA items, Func<TInput, string> keySelector, Func<TInput, TOutput> valueSelector)
+  public static DeferMap<TOutput> ToMap<TInput, TOutput>(this DeferList<TInput>.D items, Func<TInput, string> keySelector, Func<TInput, TOutput> valueSelector)
     where TInput : class
     where TOutput : class
     => new(() => items().ToMap(keySelector, valueSelector));
 
-  public static Defer<T>.LD<TKey> ToDictionary<TKey, T>(this Defer<T>.DA items, Func<T, TKey> keySelector)
-    where T : class
+  public static DeferDict<TKey, TValue> ToDictionary<TKey, TValue>(this DeferList<TValue>.D items, Func<TValue, TKey> keySelector)
+    where TValue : class
     => new(() => items().ToDictionary(keySelector));
-  public static Defer<TOutput>.LD<TKey> ToDictionary<TKey, TInput, TOutput>(this Defer<TInput>.DA items, Func<TInput, TKey> keySelector, Func<TInput, TOutput> valueSelector)
+  public static DeferDict<TKey, TOutput> ToDictionary<TKey, TInput, TOutput>(this DeferList<TInput>.D items, Func<TInput, TKey> keySelector, Func<TInput, TOutput> valueSelector)
     where TInput : class
     where TOutput : class
     => new(() => items().ToDictionary(keySelector, valueSelector));

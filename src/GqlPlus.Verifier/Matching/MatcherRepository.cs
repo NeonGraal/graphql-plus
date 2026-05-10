@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 
 namespace GqlPlus.Matching;
 
@@ -8,7 +8,7 @@ internal class MatcherRepository(
 ) : BaseRepository<IMatcherRepository>(loggerFactory)
   , IMatcherRepository
 {
-  public Defer<ITypeMatcher>.DA TypeMatchers([CallerMemberName] string callerName = "")
+  public DeferList<ITypeMatcher>.D TypeMatchers([CallerMemberName] string callerName = "")
     => () => state.TypeMatchers.Select(MakeTypeMatcher);
 
   public Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "")

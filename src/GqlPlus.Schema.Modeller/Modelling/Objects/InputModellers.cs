@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Modelling.Objects;
+namespace GqlPlus.Modelling.Objects;
 
 internal class InputModeller(
   IModellerRepository modellers
@@ -20,7 +20,7 @@ internal class InputFieldModeller(
   IModellerRepository modellers
 ) : ModellerObjField<IAstInputField, InputFieldModel>(modellers)
 {
-  private readonly Defer<IModeller<IAstConstant, ConstantModel>>.L _constant = modellers.ModellerFor<IAstConstant, ConstantModel>();
+  private readonly DeferOne<IModeller<IAstConstant, ConstantModel>> _constant = modellers.ModellerFor<IAstConstant, ConstantModel>();
 
   protected override InputFieldModel FieldModel(IAstInputField ast, ObjBaseModel type, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, type with { Description = ast.Type.Description.IfWhiteSpace() }, ast.Description) {
@@ -34,8 +34,8 @@ internal class InputParamModeller(
   IModellerRepository modellers
 ) : ModellerBase<IAstInputParam, InputParamModel>
 {
-  private readonly Defer<IModifierModeller>.L _modifier = modellers.ModifierModeller();
-  private readonly Defer<IModeller<IAstConstant, ConstantModel>>.L _constant = modellers.ModellerFor<IAstConstant, ConstantModel>();
+  private readonly DeferOne<IModifierModeller> _modifier = modellers.ModifierModeller();
+  private readonly DeferOne<IModeller<IAstConstant, ConstantModel>> _constant = modellers.ModellerFor<IAstConstant, ConstantModel>();
 
   protected override InputParamModel ToModel(IAstInputParam ast, IMap<TypeKindModel> typeKinds)
   {

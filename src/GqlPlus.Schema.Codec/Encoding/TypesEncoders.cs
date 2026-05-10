@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Encoding;
+namespace GqlPlus.Encoding;
 
 internal class BaseTypeEncoder<TModel>
   : AliasedEncoder<TModel>
@@ -22,7 +22,7 @@ internal abstract class ChildTypeEncoder<TModel, TParent>(
   where TModel : ChildTypeModel<TParent>
   where TParent : IModelBase
 {
-  private readonly Defer<IEncoder<TParent>>.L _parent = encoders.EncoderFor<TParent>();
+  private readonly DeferOne<IEncoder<TParent>> _parent = encoders.EncoderFor<TParent>();
 
   internal override Structured Encode(TModel model)
     => base.Encode(model)
@@ -36,8 +36,8 @@ internal abstract class ParentTypeEncoder<TModel, TItem, TAll>(
   where TItem : IModelBase
   where TAll : IModelBase
 {
-  private readonly Defer<IEncoder<TItem>>.L _item = encoders.EncoderFor<TItem>();
-  private readonly Defer<IEncoder<TAll>>.L _all = encoders.EncoderFor<TAll>();
+  private readonly DeferOne<IEncoder<TItem>> _item = encoders.EncoderFor<TItem>();
+  private readonly DeferOne<IEncoder<TAll>> _all = encoders.EncoderFor<TAll>();
 
   internal override Structured Encode(TModel model)
     => base.Encode(model)
@@ -49,10 +49,10 @@ internal class AllTypesEncoder(
   IEncoderRepository encoders
 ) : IEncoder<BaseTypeModel>
 {
-  private readonly Defer<ITypeEncoder>.LA _typeEncoders = encoders.EncodersFor<ITypeEncoder>();
+  private readonly DeferList<ITypeEncoder> _typeEncoders = encoders.EncodersFor<ITypeEncoder>();
 
   Structured IEncoder<BaseTypeModel>.Encode(BaseTypeModel model)
-    => _typeEncoders.IA
+    => _typeEncoders.I
       .SingleOrDefault(t => t.ForType(model))
       ?.TypeEncode(model)
     ?? throw new InvalidOperationException("Unable to find Encoder for " + model.GetType().ExpandTypeName());

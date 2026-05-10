@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 
 namespace GqlPlus.Merging.Globals;
@@ -7,7 +7,7 @@ internal class MergeOptionSettings(
   IMergerRepository mergers
 ) : GroupsMerger<IAstSchemaSetting>
 {
-  private readonly Defer<IMerge<IAstConstant>>.L _value = mergers.MergerFor<IAstConstant>();
+  private readonly DeferOne<IMerge<IAstConstant>> _value = mergers.MergerFor<IAstConstant>();
 
   protected override string ItemGroupKey(IAstSchemaSetting item) => item.Name;
 

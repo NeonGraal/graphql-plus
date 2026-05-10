@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 using GqlPlus.Ast.Operation;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Matching;
@@ -17,30 +17,30 @@ internal class VerifierRepository(
 ) : BaseRepository<IVerifierRepository>(loggerFactory)
   , IVerifierRepository
 {
-  public Defer<IVerify<T>>.D VerifierFor<T>([CallerMemberName] string callerName = "")
+  public DeferOne<IVerify<T>>.D VerifierFor<T>([CallerMemberName] string callerName = "")
     => () => Cached<T, IVerify<T>>(state.Verifiers, "verify for " + callerName, this);
 
-  public Defer<IVerifyAliased<T>>.D AliasedFor<T>([CallerMemberName] string callerName = "")
+  public DeferOne<IVerifyAliased<T>>.D AliasedFor<T>([CallerMemberName] string callerName = "")
     where T : IAstAliased
     => () => Cached<T, IVerifyAliased<T>>(state.Aliased, "aliased for " + callerName, this);
-  public Defer<IVerifyUsage<T>>.D UsageFor<T>([CallerMemberName] string callerName = "")
+  public DeferOne<IVerifyUsage<T>>.D UsageFor<T>([CallerMemberName] string callerName = "")
     where T : IAstAliased
     => () => Cached<T, IVerifyUsage<T>>(state.Usages, "usage for " + callerName, this);
 
-  public Defer<IVerifyIdentified<TUsage, TIdentified>>.D IdentifiedFor<TUsage, TIdentified>([CallerMemberName] string callerName = "")
+  public DeferOne<IVerifyIdentified<TUsage, TIdentified>>.D IdentifiedFor<TUsage, TIdentified>([CallerMemberName] string callerName = "")
     where TUsage : IAstError
     where TIdentified : IAstIdentified
     => () => Cached<(TUsage, TIdentified), IVerifyIdentified<TUsage, TIdentified>>(
       state.Identified,
       "identified for " + callerName, this);
 
-  public Defer<IVerifyDomain>.DA GetDomains([CallerMemberName] string callerName = "")
+  public DeferList<IVerifyDomain>.D GetDomains([CallerMemberName] string callerName = "")
     => () => state.Domains.Select(f => (IVerifyDomain)f(this));
 
   public Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "")
     => matchers.MatcherFor<T>(callerName);
 
-  public Defer<IMerge<T>>.D MergerFor<T>([CallerMemberName] string callerName = "")
+  public DeferOne<IMerge<T>>.D MergerFor<T>([CallerMemberName] string callerName = "")
     where T : IAstError
     => mergers.MergerFor<T>(callerName);
 }

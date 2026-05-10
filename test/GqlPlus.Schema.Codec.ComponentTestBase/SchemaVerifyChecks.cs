@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Parsing;
 using GqlPlus.Resolving;
@@ -12,7 +12,7 @@ internal sealed class SchemaVerifyChecks(
 ) : SchemaParseChecks(parsers)
   , ISchemaVerifyChecks
 {
-  private readonly Defer<IMerge<IAstSchema>>.L _schemaMerger = mergers.MergerFor<IAstSchema>();
+  private readonly DeferOne<IMerge<IAstSchema>> _schemaMerger = mergers.MergerFor<IAstSchema>();
 
   public (SchemaModel, IModelsContext) Model_Asts(IEnumerable<IAstSchema> asts, bool withBuiltIns, bool addDescribed)
   {

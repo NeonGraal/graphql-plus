@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Merging;
 
 namespace GqlPlus.Verifying.Schema;
@@ -11,7 +11,7 @@ internal abstract class AstParentItemVerifier<TAst, TParent, TContext, TItem>(
   where TContext : UsageContext
   where TItem : IAstError
 {
-  private readonly Defer<IMerge<TItem>>.L _mergeItems = verifiers.MergerFor<TItem>();
+  private readonly DeferOne<IMerge<TItem>> _mergeItems = verifiers.MergerFor<TItem>();
 
   protected override void CheckMergeParent(SelfUsage<TAst> input, TContext context)
   {

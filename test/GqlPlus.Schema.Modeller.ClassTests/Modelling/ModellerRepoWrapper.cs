@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Modelling;
@@ -12,15 +12,15 @@ internal sealed class ModellerRepoWrapper(
 
   public ILoggerFactory LoggerFactory => repo.LoggerFactory;
 
-  public Defer<ITypeModeller>.DA TypeModellers([CallerMemberName] string callerName = "")
+  public DeferList<ITypeModeller>.D TypeModellers([CallerMemberName] string callerName = "")
     => AddRelationship<ITypeModeller>(callerName)
       .TypeModellers(callerName);
 
-  public Defer<IModifierModeller>.D ModifierModeller([CallerMemberName] string callerName = "")
+  public DeferOne<IModifierModeller>.D ModifierModeller([CallerMemberName] string callerName = "")
     => AddRelationship<IModifierModeller>(callerName)
       .ModifierModeller(callerName);
 
-  public Defer<ITypesModeller>.D TypesModeller([CallerMemberName] string callerName = "")
+  public DeferOne<ITypesModeller>.D TypesModeller([CallerMemberName] string callerName = "")
     => AddRelationship<ITypesModeller>(callerName)
       .TypesModeller(callerName);
 
@@ -34,7 +34,7 @@ internal sealed class ModellerRepoWrapper(
     repo.WriteFactories("Modeller", repoBuilder.AllFactories);
   }
 
-  public Defer<IModeller<TAst, TModel>>.D ModellerFor<TAst, TModel>([CallerMemberName] string callerName = "")
+  public DeferOne<IModeller<TAst, TModel>>.D ModellerFor<TAst, TModel>([CallerMemberName] string callerName = "")
     where TAst : IAstError
     where TModel : IModelBase
     => AddRelationship<TModel>(callerName)

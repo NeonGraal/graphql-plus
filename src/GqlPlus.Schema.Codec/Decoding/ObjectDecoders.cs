@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 
 namespace GqlPlus.Decoding;
 
@@ -110,8 +110,8 @@ internal abstract class FilterModelDecoder<TModel>
   : ObjectDecoder<TModel>
   where TModel : FilterModel
 {
-  private readonly Defer<IDecoder<bool?>>.L _boolean;
-  private readonly Defer<INameFilterDecoder>.L _nameFilter;
+  private readonly DeferOne<IDecoder<bool?>> _boolean;
+  private readonly DeferOne<INameFilterDecoder> _nameFilter;
 
   public FilterModelDecoder(IDecoderRepository decoders)
   {
@@ -177,7 +177,7 @@ internal class CategoryFilterModelDecoder(
   IDecoderRepository decoders
 ) : FilterModelDecoder<CategoryFilterModel>(decoders)
 {
-  private readonly Defer<IDecoder<CategoryOptionModel?>>.L _resolution = decoders.DecoderFor<CategoryOptionModel?>();
+  private readonly DeferOne<IDecoder<CategoryOptionModel?>> _resolution = decoders.DecoderFor<CategoryOptionModel?>();
 
   protected override IMessages DecodeMap(IMap<IValue> map, out CategoryFilterModel? output)
   {
@@ -208,7 +208,7 @@ internal class TypeFilterModelDecoder(
   IDecoderRepository decoders
 ) : FilterModelDecoder<TypeFilterModel>(decoders)
 {
-  private readonly Defer<IDecoder<TypeKindModel?>>.L _kind = decoders.DecoderFor<TypeKindModel?>();
+  private readonly DeferOne<IDecoder<TypeKindModel?>> _kind = decoders.DecoderFor<TypeKindModel?>();
 
   protected override IMessages DecodeMap(IMap<IValue> map, out TypeFilterModel? output)
   {

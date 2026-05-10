@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
@@ -7,7 +7,7 @@ internal class MergeInputParams(
   IMergerRepository mergers
 ) : DistinctMerger<IAstInputParam>(mergers)
 {
-  private readonly Defer<IMerge<IAstConstant>>.L _defaultValue = mergers.MergerFor<IAstConstant>();
+  private readonly DeferOne<IMerge<IAstConstant>> _defaultValue = mergers.MergerFor<IAstConstant>();
 
   protected override string ItemGroupKey(IAstInputParam item)
     => item.Type.FullType;

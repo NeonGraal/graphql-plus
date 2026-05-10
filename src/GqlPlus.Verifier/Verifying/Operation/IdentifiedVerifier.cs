@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Verifying.Operation;
 
@@ -8,8 +8,8 @@ internal abstract class IdentifiedVerifier<TUsage, TIdentified>(
   where TUsage : IAstError
   where TIdentified : IAstIdentified
 {
-  private readonly Defer<IVerify<TUsage>>.L _usage = verifiers.VerifierFor<TUsage>();
-  private readonly Defer<IVerify<TIdentified>>.L _definition = verifiers.VerifierFor<TIdentified>();
+  private readonly DeferOne<IVerify<TUsage>> _usage = verifiers.VerifierFor<TUsage>();
+  private readonly DeferOne<IVerify<TIdentified>> _definition = verifiers.VerifierFor<TIdentified>();
 
   public abstract string Label { get; }
   public abstract string UsageKey(TUsage item);

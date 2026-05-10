@@ -1,4 +1,4 @@
-﻿using System.Collections.Immutable;
+using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using GqlPlus;
 using GqlPlus.Generating;
@@ -128,8 +128,8 @@ public class GqlpGenerator : IIncrementalGenerator
       .BuildServiceProvider();
 
     Parser<IAstSchema>.L schemaParser = services.GetRequiredService<IParserRepository>().ParserFor<IAstSchema>();
-    Defer<IMerge<IAstSchema>>.L schemaMerger = services.GetRequiredService<IMergerRepository>().MergerFor<IAstSchema>();
-    Defer<IGenerator<IAstSchema>>.L schemaGenerator = services.GetRequiredService<IGeneratorRepository>().GeneratorFor<IAstSchema>();
+    DeferOne<IMerge<IAstSchema>> schemaMerger = services.GetRequiredService<IMergerRepository>().MergerFor<IAstSchema>();
+    DeferOne<IGenerator<IAstSchema>> schemaGenerator = services.GetRequiredService<IGeneratorRepository>().GeneratorFor<IAstSchema>();
 
     Map<IAstSchema> schemas = [];
 

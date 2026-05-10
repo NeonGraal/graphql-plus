@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Merging;
 
@@ -6,10 +6,10 @@ internal class MergeSchemas(
   IMergerRepository mergers
 ) : GroupsMerger<IAstSchema>
 {
-  private readonly Defer<IMerge<IAstSchemaCategory>>.L _categories = mergers.MergerFor<IAstSchemaCategory>();
-  private readonly Defer<IMerge<IAstSchemaDirective>>.L _directives = mergers.MergerFor<IAstSchemaDirective>();
-  private readonly Defer<IMerge<IAstSchemaOption>>.L _options = mergers.MergerFor<IAstSchemaOption>();
-  private readonly Defer<IMerge<IAstType>>.L _astTypes = mergers.MergerFor<IAstType>();
+  private readonly DeferOne<IMerge<IAstSchemaCategory>> _categories = mergers.MergerFor<IAstSchemaCategory>();
+  private readonly DeferOne<IMerge<IAstSchemaDirective>> _directives = mergers.MergerFor<IAstSchemaDirective>();
+  private readonly DeferOne<IMerge<IAstSchemaOption>> _options = mergers.MergerFor<IAstSchemaOption>();
+  private readonly DeferOne<IMerge<IAstType>> _astTypes = mergers.MergerFor<IAstType>();
 
   protected override string ItemGroupKey(IAstSchema item)
     => "Schema";

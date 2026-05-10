@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Modelling;
 using GqlPlus.Resolving;
 
@@ -11,9 +11,9 @@ internal sealed class ModelAndEncode(
   IEncoderRepository encoders
 ) : IModelAndEncode
 {
-  private readonly Defer<ITypesModeller>.L _types = modellers.TypesModeller();
-  private readonly Defer<IModeller<IAstSchema, SchemaModel>>.L _schema = modellers.ModellerFor<IAstSchema, SchemaModel>();
-  private readonly Defer<IResolver<SchemaModel>>.L _resolver = resolvers.ResolverFor<SchemaModel>();
+  private readonly DeferOne<ITypesModeller> _types = modellers.TypesModeller();
+  private readonly DeferOne<IModeller<IAstSchema, SchemaModel>> _schema = modellers.ModellerFor<IAstSchema, SchemaModel>();
+  private readonly DeferOne<IResolver<SchemaModel>> _resolver = resolvers.ResolverFor<SchemaModel>();
 
   public IModelsContext Context() => new TypesContext(_types.I);
 
@@ -36,7 +36,7 @@ internal sealed class ModelAndEncode(
 
   public Structured EncodeModel(SchemaModel model, IModelsContext? context)
   {
-    Defer<IEncoder<SchemaModel>>.L encoder = encoders.EncoderFor<SchemaModel>();
+    DeferOne<IEncoder<SchemaModel>> encoder = encoders.EncoderFor<SchemaModel>();
     Structured result = encoder.I.Encode(model);
     if (context?.Errors.Count > 0) {
       string key = result.Map.ContainsKey(new("_errors")) ? "_ctxErrors" : "errors";

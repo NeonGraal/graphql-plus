@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Modelling.Globals;
+namespace GqlPlus.Modelling.Globals;
 
 // ResolutionModel => CategoryOption
 
@@ -6,7 +6,7 @@ internal class CategoryModeller(
   IModellerRepository modellers
 ) : ModellerBase<IAstSchemaCategory, CategoryModel>
 {
-  private readonly Defer<IModeller<IAstModifier, ModifierModel>>.L _modifier = modellers.ModellerFor<IAstModifier, ModifierModel>();
+  private readonly DeferOne<IModeller<IAstModifier, ModifierModel>> _modifier = modellers.ModellerFor<IAstModifier, ModifierModel>();
 
   protected override CategoryModel ToModel(IAstSchemaCategory ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, ast.Output.TypeRef(TypeKindModel.Output), ast.Description) {

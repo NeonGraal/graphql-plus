@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 
 namespace GqlPlus.Resolving.Objects;
 
@@ -6,7 +6,7 @@ internal class TypeInputResolver(
   IResolverRepository resolvers
 ) : ResolverTypeObjectType<TypeInputModel, InputFieldModel>
 {
-  private readonly Defer<IResolver<TypeDualModel>>.L _dualResolver = resolvers.ResolverFor<TypeDualModel>();
+  private readonly DeferOne<IResolver<TypeDualModel>> _dualResolver = resolvers.ResolverFor<TypeDualModel>();
 
   protected override TResult Apply<TResult>(TResult result, ArgumentsContext arguments)
   {

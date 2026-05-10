@@ -1,12 +1,12 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 
 namespace GqlPlus.Resolving;
 
 internal interface IResolverRepository
   : IRepository
 {
-  Defer<IResolver<T>>.D ResolverFor<T>([CallerMemberName] string callerName = "")
+  DeferOne<IResolver<T>>.D ResolverFor<T>([CallerMemberName] string callerName = "")
     where T : IModelBase;
 
-  Defer<ITypeResolver>.DA TypeResolvers([CallerMemberName] string callerName = "");
+  DeferList<ITypeResolver>.D TypeResolvers([CallerMemberName] string callerName = "");
 }

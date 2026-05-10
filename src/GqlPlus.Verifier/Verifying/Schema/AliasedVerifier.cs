@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Verifying.Schema;
 
@@ -7,7 +7,7 @@ internal abstract class AliasedVerifier<TAliased>(
 ) : GroupedVerifier<TAliased>(verifiers)
  where TAliased : IAstAliased
 {
-  private readonly Defer<IVerify<TAliased>>.L _verifier = verifiers.VerifierFor<TAliased>();
+  private readonly DeferOne<IVerify<TAliased>> _verifier = verifiers.VerifierFor<TAliased>();
 
   public override void Verify(TAliased[] item, IMessages errors)
   {

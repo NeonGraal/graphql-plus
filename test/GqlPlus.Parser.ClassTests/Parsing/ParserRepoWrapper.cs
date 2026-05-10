@@ -1,4 +1,4 @@
-﻿using GqlPlus.Parsing.Schema;
+using GqlPlus.Parsing.Schema;
 using GqlPlus.Parsing.Schema.Simple;
 using Microsoft.Extensions.Logging;
 
@@ -25,13 +25,13 @@ internal sealed class ParserRepoWrapper(
   public Parser<T>.DA ArrayFor<T>([CallerMemberName] string callerName = "")
     => AddRelationship<T>(callerName)
       .ArrayFor<T>(callerName);
-  public Defer<IParseDeclaration>.DA GetDeclarations([CallerMemberName] string callerName = "")
+  public DeferList<IParseDeclaration>.D GetDeclarations([CallerMemberName] string callerName = "")
     => AddRelationship<IParseDeclaration>(callerName)
       .GetDeclarations(callerName);
-  public Defer<IParseDomain>.DA GetDomains([CallerMemberName] string callerName = "")
+  public DeferList<IParseDomain>.D GetDomains([CallerMemberName] string callerName = "")
     => repo // AddRelationship<IParseDomain>(callerName)
       .GetDomains(callerName);
-  public Defer<T>.D GetName<T>([CallerMemberName] string callerName = "")
+  public DeferOne<T>.D GetName<T>([CallerMemberName] string callerName = "")
     where T : class, INameParser
     => AddRelationship<T>(callerName)
       .GetName<T>(callerName);

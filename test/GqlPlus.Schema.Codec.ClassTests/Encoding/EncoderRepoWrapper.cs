@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 using GqlPlus.Decoding;
 using Microsoft.Extensions.Logging;
 
@@ -23,10 +23,10 @@ internal sealed class EncoderRepoWrapper(
     repo.WriteFactories("Encoder", repoBuilder.AllFactories);
   }
 
-  public Defer<IEncoder<T>>.D EncoderFor<T>([CallerMemberName] string callerName = "")
+  public DeferOne<IEncoder<T>>.D EncoderFor<T>([CallerMemberName] string callerName = "")
     => AddRelationship<T>(callerName)
       .EncoderFor<T>(callerName);
-  public Defer<TList>.DA EncodersFor<TList>([CallerMemberName] string callerName = "")
+  public DeferList<TList>.D EncodersFor<TList>([CallerMemberName] string callerName = "")
     where TList : class
     => AddRelationship<TList>(callerName)
       .EncodersFor<TList>(callerName);

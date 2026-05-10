@@ -1,11 +1,11 @@
-﻿namespace GqlPlus.Modelling.Objects;
+namespace GqlPlus.Modelling.Objects;
 
 internal class AlternateModeller(
   IModellerRepository modellers
 ) : ModellerBase<IAstAlternate, AlternateModel>
 {
-  private readonly Defer<IModeller<IAstModifier, CollectionModel>>.L _collection = modellers.ModellerFor<IAstModifier, CollectionModel>();
-  private readonly Defer<IModeller<IAstObjBase, ObjBaseModel>>.L _objBase = modellers.ModellerFor<IAstObjBase, ObjBaseModel>();
+  private readonly DeferOne<IModeller<IAstModifier, CollectionModel>> _collection = modellers.ModellerFor<IAstModifier, CollectionModel>();
+  private readonly DeferOne<IModeller<IAstObjBase, ObjBaseModel>> _objBase = modellers.ModellerFor<IAstObjBase, ObjBaseModel>();
 
   protected override AlternateModel ToModel(IAstAlternate ast, IMap<TypeKindModel> typeKinds)
   {

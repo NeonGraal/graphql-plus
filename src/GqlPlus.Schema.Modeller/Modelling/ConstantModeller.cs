@@ -1,10 +1,10 @@
-﻿namespace GqlPlus.Modelling;
+namespace GqlPlus.Modelling;
 
 internal class ConstantModeller(
   IModellerRepository modellers
 ) : ModellerBase<IAstConstant, ConstantModel>
 {
-  private readonly Defer<IModeller<IAstFieldKey, SimpleModel>>.L _value = modellers.ModellerFor<IAstFieldKey, SimpleModel>();
+  private readonly DeferOne<IModeller<IAstFieldKey, SimpleModel>> _value = modellers.ModellerFor<IAstFieldKey, SimpleModel>();
 
   protected override ConstantModel ToModel(IAstConstant ast, IMap<TypeKindModel> typeKinds)
     => ast.Fields.Count > 0 ? new(ToModel(ast.Fields, typeKinds))

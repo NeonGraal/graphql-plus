@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
@@ -10,7 +10,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
   where TName : class, INameParser
   where TOption : struct
 {
-  private readonly Defer<TName>.L _name = parsers.GetName<TName>();
+  private readonly DeferOne<TName> _name = parsers.GetName<TName>();
   private readonly Parser<TParam>.LA _param = parsers.ArrayFor<TParam>();
   private readonly Parser<IOptionParser<TOption>, TOption>.L _option = parsers.ParserFor<IOptionParser<TOption>, TOption>();
   private readonly Parser<TDefinition>.L _definition = parsers.ParserFor<TDefinition>();

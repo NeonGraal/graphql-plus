@@ -10,7 +10,7 @@ internal class ParseSchema(
 ) : Parser<IAstSchema>.I
 {
   private delegate IResult<IAstDeclaration> Parser(ITokenizer tokens, string label);
-  private readonly Defer<Parser>.LM _parsers = parsers.GetDeclarations()
+  private readonly DeferMap<Parser> _parsers = parsers.GetDeclarations()
     .ToMap<IParseDeclaration, Parser>(d => d.Selector, d => d.Parser);
 
   public IResult<IAstSchema> Parse(ITokenizer tokens, string label)

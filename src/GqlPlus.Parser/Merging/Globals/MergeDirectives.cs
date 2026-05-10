@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 
 namespace GqlPlus.Merging.Globals;
@@ -7,7 +7,7 @@ internal class MergeDirectives(
   IMergerRepository mergers
 ) : AstAliasedMerger<IAstSchemaDirective>(mergers)
 {
-  private readonly Defer<IMerge<IAstInputParam>>.L _inputParam = mergers.MergerFor<IAstInputParam>();
+  private readonly DeferOne<IMerge<IAstInputParam>> _inputParam = mergers.MergerFor<IAstInputParam>();
 
   protected override string ItemMatchName => "Option";
   protected override string ItemMatchKey(IAstSchemaDirective item)

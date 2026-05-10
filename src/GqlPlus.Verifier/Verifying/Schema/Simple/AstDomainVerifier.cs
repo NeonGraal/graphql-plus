@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Merging;
 
 namespace GqlPlus.Verifying.Schema.Simple;
@@ -8,7 +8,7 @@ internal class AstDomainVerifier<TItem>(
 ) : IVerifyDomain
   where TItem : IAstDomainItem
 {
-  private readonly Defer<IMerge<TItem>>.L _items = verifiers.MergerFor<TItem>();
+  private readonly DeferOne<IMerge<TItem>> _items = verifiers.MergerFor<TItem>();
 
   public IMessages CanMergeItems(IAstDomain usage, EnumContext context)
   {

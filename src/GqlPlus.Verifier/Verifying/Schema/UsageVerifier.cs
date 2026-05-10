@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Verifying.Schema;
 
@@ -8,7 +8,7 @@ internal abstract class UsageVerifier<TUsage, TContext>(
   where TUsage : IAstAliased
   where TContext : UsageContext
 {
-  private readonly Defer<IVerifyAliased<TUsage>>.L _aliased = verifiers.AliasedFor<TUsage>();
+  private readonly DeferOne<IVerifyAliased<TUsage>> _aliased = verifiers.AliasedFor<TUsage>();
 
   protected abstract void UsageValue(TUsage usage, TContext context);
   protected abstract TContext MakeContext(TUsage usage, IAstType[] aliased, IMessages errors);

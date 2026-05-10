@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Resolving;
+namespace GqlPlus.Resolving;
 
 internal class ResolverRepositoryBuilder
   : BaseFactory<IResolverRepository>, IResolverRepositoryBuilder
@@ -18,6 +18,6 @@ internal class ResolverRepositoryBuilder
     where TModel : IModelBase
     => this.FluentAction(b => {
       b.Resolvers[typeof(TModel)] = factory;
-      b.TypeResolverFactories.Add(r => ((Defer<IResolver<TModel>>.L)r.ResolverFor<TModel>()).I);
+      b.TypeResolverFactories.Add(r => ((DeferOne<IResolver<TModel>>)r.ResolverFor<TModel>()).I);
     });
 }

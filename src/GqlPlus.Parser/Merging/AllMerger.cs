@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Merging;
 
@@ -7,7 +7,7 @@ internal abstract class AllMerger<TItem>(
 ) : DistinctMerger<TItem>(mergers)
   where TItem : IAstType
 {
-  private readonly Defer<IMergeAll<TItem>>.LA _all = mergers.AllMergersFor<TItem>();
+  private readonly DeferList<IMergeAll<TItem>> _all = mergers.AllMergersFor<TItem>();
 
   protected override IMessages CanMergeGroup(IGrouping<string, TItem> group)
   {
@@ -16,7 +16,7 @@ internal abstract class AllMerger<TItem>(
       return result;
     }
 
-    List<(IMergeAll<TItem> domain, IMessages)> each = [.. _all.IA.Select(domain => (domain, domain.CanMerge(group)))];
+    List<(IMergeAll<TItem> domain, IMessages)> each = [.. _all.I.Select(domain => (domain, domain.CanMerge(group)))];
     result.Add(each.SelectMany(item => item.Item2));
     return result;
   }
@@ -24,5 +24,5 @@ internal abstract class AllMerger<TItem>(
   protected override string ItemGroupKey(TItem item) => item.Name;
 
   protected override TItem MergeGroup(IEnumerable<TItem> group)
-    => _all.IA.SelectMany(domain => domain.Merge(group)).First();
+    => _all.I.SelectMany(domain => domain.Merge(group)).First();
 }

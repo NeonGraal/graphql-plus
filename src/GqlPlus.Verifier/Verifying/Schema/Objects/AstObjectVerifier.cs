@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Matching;
 using GqlPlus.Merging;
@@ -13,7 +13,7 @@ internal class AstObjectVerifier<TObjField>(
   where TObjField : IAstObjField
 {
   private readonly Matcher<IAstTypeArg>.L _constraintMatcher = verifiers.MatcherFor<IAstTypeArg>();
-  private readonly Defer<IMerge<IAstAlternate>>.L _mergeAlternates = verifiers.MergerFor<IAstAlternate>();
+  private readonly DeferOne<IMerge<IAstAlternate>> _mergeAlternates = verifiers.MergerFor<IAstAlternate>();
 
   protected override void UsageValue(IAstObject<TObjField> usage, ObjectContext context)
   {

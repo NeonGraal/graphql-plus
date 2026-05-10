@@ -1,10 +1,10 @@
-﻿namespace GqlPlus.Modelling.Globals;
+namespace GqlPlus.Modelling.Globals;
 
 internal class SettingModeller(
   IModellerRepository modellers
 ) : ModellerBase<IAstSchemaSetting, SettingModel>
 {
-  private readonly Defer<IModeller<IAstConstant, ConstantModel>>.L _constant = modellers.ModellerFor<IAstConstant, ConstantModel>();
+  private readonly DeferOne<IModeller<IAstConstant, ConstantModel>> _constant = modellers.ModellerFor<IAstConstant, ConstantModel>();
 
   protected override SettingModel ToModel(IAstSchemaSetting ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, _constant.I.ToModel(ast.Value, typeKinds), ast.Description);

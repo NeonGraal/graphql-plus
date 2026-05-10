@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
@@ -8,8 +8,8 @@ internal class AstObjectsMerger<TObjField>(
 ) : AstTypeMerger<IAstType, IAstObject<TObjField>, IAstObjBase, TObjField>(mergers)
   where TObjField : IAstObjField
 {
-  private readonly Defer<IMerge<IAstTypeParam>>.L _typeParams = mergers.MergerFor<IAstTypeParam>();
-  private readonly Defer<IMerge<IAstAlternate>>.L _alternates = mergers.MergerFor<IAstAlternate>();
+  private readonly DeferOne<IMerge<IAstTypeParam>> _typeParams = mergers.MergerFor<IAstTypeParam>();
+  private readonly DeferOne<IMerge<IAstAlternate>> _alternates = mergers.MergerFor<IAstAlternate>();
 
   protected override string ItemMatchName => "Parent";
   protected override string ItemMatchKey(IAstObject<TObjField> item)

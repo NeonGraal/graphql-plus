@@ -1,4 +1,4 @@
-﻿using System.Collections.Concurrent;
+using System.Collections.Concurrent;
 using System.Runtime.CompilerServices;
 using GqlPlus.Ast;
 using Microsoft.Extensions.Logging;
@@ -13,11 +13,11 @@ internal class GeneratorRepository(
 {
   private readonly ConcurrentDictionary<GqlpGeneratorType, IEnumerable<ITypeGenerator>> _typeGenerators = [];
 
-  public Defer<IGenerator<TAst>>.D GeneratorFor<TAst>([CallerMemberName] string callerName = "")
+  public DeferOne<IGenerator<TAst>>.D GeneratorFor<TAst>([CallerMemberName] string callerName = "")
     where TAst : IAstError
     => () => Cached<TAst, IGenerator<TAst>>(builder.Generators, "generator for " + callerName, this);
 
-  public Defer<ITypeGenerator>.DA TypeGenerators(GqlpGeneratorType generatorType, [CallerMemberName] string callerName = "")
+  public DeferList<ITypeGenerator>.D TypeGenerators(GqlpGeneratorType generatorType, [CallerMemberName] string callerName = "")
     => () => _typeGenerators.GetOrAdd(
       generatorType,
       k => [.. builder.TypeGenerators

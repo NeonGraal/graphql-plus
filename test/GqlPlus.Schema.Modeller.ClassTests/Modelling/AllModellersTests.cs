@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Modelling;
 
@@ -11,7 +11,7 @@ public class AllModellersTests
 
   [Fact]
   public void AllModellers_ModellerForFieldKey_IsRegistered()
-    => ((Defer<IModeller<IAstFieldKey, SimpleModel>>.L)_services.GetRequiredService<IModellerRepository>()
+    => ((DeferOne<IModeller<IAstFieldKey, SimpleModel>>)_services.GetRequiredService<IModellerRepository>()
       .ModellerFor<IAstFieldKey, SimpleModel>()).I
       .ShouldNotBeNull();
 

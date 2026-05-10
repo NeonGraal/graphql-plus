@@ -1,10 +1,10 @@
-﻿namespace GqlPlus.Modelling.Globals;
+namespace GqlPlus.Modelling.Globals;
 
 internal class DirectiveModeller(
   IModellerRepository modellers
 ) : ModellerBase<IAstSchemaDirective, DirectiveModel>
 {
-  private readonly Defer<IModeller<IAstInputParam, InputParamModel>>.L _parameter = modellers.ModellerFor<IAstInputParam, InputParamModel>();
+  private readonly DeferOne<IModeller<IAstInputParam, InputParamModel>> _parameter = modellers.ModellerFor<IAstInputParam, InputParamModel>();
 
   protected override DirectiveModel ToModel(IAstSchemaDirective ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, ast.Description) {

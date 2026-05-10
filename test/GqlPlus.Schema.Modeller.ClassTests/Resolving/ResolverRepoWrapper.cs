@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Resolving;
@@ -12,7 +12,7 @@ internal sealed class ResolverRepoWrapper(
 
   public ILoggerFactory LoggerFactory => repo.LoggerFactory;
 
-  public Defer<ITypeResolver>.DA TypeResolvers([CallerMemberName] string callerName = "")
+  public DeferList<ITypeResolver>.D TypeResolvers([CallerMemberName] string callerName = "")
     => AddRelationship<ITypeResolver>(callerName)
       .TypeResolvers(callerName);
 
@@ -26,7 +26,7 @@ internal sealed class ResolverRepoWrapper(
     repo.WriteFactories("Resolver", repoBuilder.AllFactories);
   }
 
-  public Defer<IResolver<T>>.D ResolverFor<T>([CallerMemberName] string callerName = "")
+  public DeferOne<IResolver<T>>.D ResolverFor<T>([CallerMemberName] string callerName = "")
     where T : IModelBase
     => AddRelationship<T>(callerName)
       .ResolverFor<T>(callerName);

@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Matching;
@@ -12,7 +12,7 @@ internal sealed class MatcherRepoWrapper(
 
   public ILoggerFactory LoggerFactory => repo.LoggerFactory;
 
-  public Defer<ITypeMatcher>.DA TypeMatchers([CallerMemberName] string callerName = "")
+  public DeferList<ITypeMatcher>.D TypeMatchers([CallerMemberName] string callerName = "")
     => AddRelationship<ITypeMatcher>(callerName)
       .TypeMatchers(callerName);
 

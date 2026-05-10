@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
@@ -7,7 +7,7 @@ internal class MergeOutputFields(
   IMergerRepository mergers
 ) : AstObjectFieldsMerger<IAstOutputField>(mergers)
 {
-  private readonly Defer<IMerge<IAstInputParam>>.L _inputParam = mergers.MergerFor<IAstInputParam>();
+  private readonly DeferOne<IMerge<IAstInputParam>> _inputParam = mergers.MergerFor<IAstInputParam>();
 
   protected override IMessages CanMergeGroup(IGrouping<string, IAstOutputField> group)
     => base.CanMergeGroup(group)

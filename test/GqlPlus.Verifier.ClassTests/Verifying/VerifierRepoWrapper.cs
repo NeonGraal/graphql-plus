@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 using GqlPlus.Ast.Operation;
 using GqlPlus.Matching;
 using GqlPlus.Merging;
@@ -38,14 +38,14 @@ internal sealed class VerifierRepoWrapper(
     repo.WriteFactories(label + "Verifier", repoBuilder.AllFactories);
   }
 
-  public Defer<IVerifyAliased<T>>.D AliasedFor<T>([CallerMemberName] string callerName = "")
+  public DeferOne<IVerifyAliased<T>>.D AliasedFor<T>([CallerMemberName] string callerName = "")
     where T : IAstAliased
     => AddRelationship<T>(callerName)
       .AliasedFor<T>(callerName);
-  public Defer<IVerifyDomain>.DA GetDomains([CallerMemberName] string callerName = "")
+  public DeferList<IVerifyDomain>.D GetDomains([CallerMemberName] string callerName = "")
     => AddRelationship<IVerifyDomain>(callerName)
       .GetDomains(callerName);
-  public Defer<IVerifyIdentified<TUsage, TIdentified>>.D IdentifiedFor<TUsage, TIdentified>([CallerMemberName] string callerName = "")
+  public DeferOne<IVerifyIdentified<TUsage, TIdentified>>.D IdentifiedFor<TUsage, TIdentified>([CallerMemberName] string callerName = "")
     where TUsage : IAstError
     where TIdentified : IAstIdentified
   {
@@ -57,15 +57,15 @@ internal sealed class VerifierRepoWrapper(
   public Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "")
     => AddRelationship<T>(callerName)
       .MatcherFor<T>(callerName);
-  public Defer<IMerge<T>>.D MergerFor<T>([CallerMemberName] string callerName = "")
+  public DeferOne<IMerge<T>>.D MergerFor<T>([CallerMemberName] string callerName = "")
     where T : IAstError
     => AddRelationship<T>(callerName)
       .MergerFor<T>(callerName);
-  public Defer<IVerifyUsage<T>>.D UsageFor<T>([CallerMemberName] string callerName = "")
+  public DeferOne<IVerifyUsage<T>>.D UsageFor<T>([CallerMemberName] string callerName = "")
     where T : IAstAliased
     => AddRelationship<T>(callerName)
       .UsageFor<T>(callerName);
-  public Defer<IVerify<T>>.D VerifierFor<T>([CallerMemberName] string callerName = "")
+  public DeferOne<IVerify<T>>.D VerifierFor<T>([CallerMemberName] string callerName = "")
     => AddRelationship<T>(callerName)
       .VerifierFor<T>(callerName);
 }

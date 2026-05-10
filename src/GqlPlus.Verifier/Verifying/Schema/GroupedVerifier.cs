@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Merging;
 
 namespace GqlPlus.Verifying.Schema;
@@ -7,7 +7,7 @@ internal abstract class GroupedVerifier<TAliased> : IVerifyAliased<TAliased>
   where TAliased : IAstAliased
 {
   private readonly ILogger _logger;
-  private readonly Defer<IMerge<TAliased>>.L _merger;
+  private readonly DeferOne<IMerge<TAliased>> _merger;
 
   protected GroupedVerifier(IVerifierRepository verifiers)
   {

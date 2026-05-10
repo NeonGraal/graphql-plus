@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Modelling.Objects;
+namespace GqlPlus.Modelling.Objects;
 
 internal abstract class ModellerObject<TAst, TObjFieldAst, TModel, TObjField>(
   TypeKindModel kind,
@@ -9,10 +9,10 @@ internal abstract class ModellerObject<TAst, TObjFieldAst, TModel, TObjField>(
   where TModel : BaseTypeModel
   where TObjField : IObjFieldModel
 {
-  private readonly Defer<IModeller<IAstAlternate, AlternateModel>>.L _alternate = modellers.ModellerFor<IAstAlternate, AlternateModel>();
-  private readonly Defer<IModeller<TObjFieldAst, TObjField>>.L _field = modellers.ModellerFor<TObjFieldAst, TObjField>();
-  private readonly Defer<IModeller<IAstTypeParam, TypeParamModel>>.L _typeParams = modellers.ModellerFor<IAstTypeParam, TypeParamModel>();
-  private readonly Defer<IModeller<IAstObjBase, ObjBaseModel>>.L _base = modellers.ModellerFor<IAstObjBase, ObjBaseModel>();
+  private readonly DeferOne<IModeller<IAstAlternate, AlternateModel>> _alternate = modellers.ModellerFor<IAstAlternate, AlternateModel>();
+  private readonly DeferOne<IModeller<TObjFieldAst, TObjField>> _field = modellers.ModellerFor<TObjFieldAst, TObjField>();
+  private readonly DeferOne<IModeller<IAstTypeParam, TypeParamModel>> _typeParams = modellers.ModellerFor<IAstTypeParam, TypeParamModel>();
+  private readonly DeferOne<IModeller<IAstObjBase, ObjBaseModel>> _base = modellers.ModellerFor<IAstObjBase, ObjBaseModel>();
 
   internal ObjBaseModel? ParentModel(IAstObjBase? parent, IMap<TypeKindModel> typeKinds)
     => parent is null ? default : BaseModel(parent, typeKinds);

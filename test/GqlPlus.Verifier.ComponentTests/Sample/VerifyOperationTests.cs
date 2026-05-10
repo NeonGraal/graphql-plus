@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 using GqlPlus.Parsing;
 using GqlPlus.Parsing.Operation;
 using GqlPlus.Result;
@@ -12,7 +12,7 @@ public class VerifyOperationTests(
 ) : SampleChecks
 {
   private readonly Parser<IAstOperation>.L _parser = parsers.ParserFor<IAstOperation>();
-  private readonly Defer<IVerify<IAstOperation>>.L _operationVerifier = verifierRepository.VerifierFor<IAstOperation>();
+  private readonly DeferOne<IVerify<IAstOperation>> _operationVerifier = verifierRepository.VerifierFor<IAstOperation>();
 
   [Theory]
   [ClassData(typeof(SamplesOperationData))]

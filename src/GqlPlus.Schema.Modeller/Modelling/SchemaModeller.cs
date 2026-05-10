@@ -1,4 +1,4 @@
-﻿using GqlPlus.Resolving;
+using GqlPlus.Resolving;
 
 namespace GqlPlus.Modelling;
 
@@ -6,10 +6,10 @@ internal class SchemaModeller(
   IModellerRepository modellers
 ) : ModellerBase<IAstSchema, SchemaModel>
 {
-  private readonly Defer<IModeller<IAstSchemaCategory, CategoryModel>>.L _category = modellers.ModellerFor<IAstSchemaCategory, CategoryModel>();
-  private readonly Defer<IModeller<IAstSchemaDirective, DirectiveModel>>.L _directive = modellers.ModellerFor<IAstSchemaDirective, DirectiveModel>();
-  private readonly Defer<IModeller<IAstSchemaSetting, SettingModel>>.L _setting = modellers.ModellerFor<IAstSchemaSetting, SettingModel>();
-  private readonly Defer<ITypesModeller>.L _types = modellers.TypesModeller();
+  private readonly DeferOne<IModeller<IAstSchemaCategory, CategoryModel>> _category = modellers.ModellerFor<IAstSchemaCategory, CategoryModel>();
+  private readonly DeferOne<IModeller<IAstSchemaDirective, DirectiveModel>> _directive = modellers.ModellerFor<IAstSchemaDirective, DirectiveModel>();
+  private readonly DeferOne<IModeller<IAstSchemaSetting, SettingModel>> _setting = modellers.ModellerFor<IAstSchemaSetting, SettingModel>();
+  private readonly DeferOne<ITypesModeller> _types = modellers.TypesModeller();
 
   protected override SchemaModel ToModel(IAstSchema ast, IMap<TypeKindModel> typeKinds)
   {

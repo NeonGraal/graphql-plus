@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Resolving;
 
@@ -11,7 +11,7 @@ public class AllResolversTests
 
   [Fact]
   public void AllResolvers_ResolverForEnum_IsRegistered()
-    => ((Defer<IResolver<TypeEnumModel>>.L)_services.GetRequiredService<IResolverRepository>()
+    => ((DeferOne<IResolver<TypeEnumModel>>)_services.GetRequiredService<IResolverRepository>()
       .ResolverFor<TypeEnumModel>()).I
       .ShouldNotBeNull();
 

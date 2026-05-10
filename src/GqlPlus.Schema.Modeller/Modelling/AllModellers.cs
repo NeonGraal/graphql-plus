@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Modelling.Globals;
 using GqlPlus.Modelling.Objects;
 using GqlPlus.Modelling.Simple;
@@ -26,8 +26,8 @@ public static class AllModellers
       .AddModeller<IAstFieldKey, SimpleModel>(SimpleModeller.Factory)
       .AddModeller<IAstConstant, ConstantModel>(ConstantModeller.Factory)
       .AddModifierModeller(ModifierModeller.Factory)
-      .AddModeller<IAstModifier, ModifierModel>(r => ((Defer<IModifierModeller>.L)r.ModifierModeller()).I)
-      .AddModeller<IAstModifier, CollectionModel>(r => ((Defer<IModifierModeller>.L)r.ModifierModeller()).I)
+      .AddModeller<IAstModifier, ModifierModel>(r => ((DeferOne<IModifierModeller>)r.ModifierModeller()).I)
+      .AddModeller<IAstModifier, CollectionModel>(r => ((DeferOne<IModifierModeller>)r.ModifierModeller()).I)
       // Schema
       .AddModeller<IAstSchema, SchemaModel>(SchemaModeller.Factory)
       .AddModeller<IAstSchemaCategory, CategoryModel>(CategoryModeller.Factory)
@@ -35,7 +35,7 @@ public static class AllModellers
       .AddModeller<IAstSchemaSetting, SettingModel>(SettingModeller.Factory)
       // Types
       .AddTypesModeller(TypesModeller.Factory)
-      .AddModeller<IAstType, BaseTypeModel>(r => ((Defer<ITypesModeller>.L)r.TypesModeller()).I)
+      .AddModeller<IAstType, BaseTypeModel>(r => ((DeferOne<ITypesModeller>)r.TypesModeller()).I)
       .AddTypeModeller<IAstTypeSpecial, SpecialTypeModel>(SpecialTypeModeller.Factory)
       // Simple - Domain
       .AddTypeModeller<IAstDomain<IAstDomainLabel>, BaseDomainModel<DomainLabelModel>>(DomainEnumModeller.Factory)

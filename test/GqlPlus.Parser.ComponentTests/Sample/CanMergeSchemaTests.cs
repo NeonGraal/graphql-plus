@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Result;
 
@@ -9,7 +9,7 @@ public class CanMergeSchemaTests(
   IMergerRepository mergers
 ) : TestSchemaResult(checks)
 {
-  private readonly Defer<IMerge<IAstSchema>>.L _schemaMerger = mergers.MergerFor<IAstSchema>();
+  private readonly DeferOne<IMerge<IAstSchema>> _schemaMerger = mergers.MergerFor<IAstSchema>();
 
   protected override Task Result_Valid(IResult<IAstSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {

@@ -83,7 +83,7 @@ internal class ParseDomainDefinition(
 ) : SimpleDefinitionParser<DomainDefinition>(parsers)
 {
   private readonly Parser<IEnumParser<DomainKind>, DomainKind>.L _kind = parsers.ParserFor<IEnumParser<DomainKind>, DomainKind>();
-  private readonly Defer<ParseItems>.LD<DomainKind> _kindParsers = parsers.GetDomains()
+  private readonly DeferDict<DomainKind, ParseItems> _kindParsers = parsers.GetDomains()
     .ToDictionary(item => item.Kind, item => item.Parser);
 
   public override IResult<DomainDefinition> Parse(ITokenizer tokens, string label)

@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Result;
 using GqlPlus.Verifying;
@@ -12,8 +12,8 @@ public class VerifySchemaTests(
 ) : TestSchemaResult(checks)
 
 {
-  private readonly Defer<IMerge<IAstSchema>>.L _schemaMerger = mergers.MergerFor<IAstSchema>();
-  private readonly Defer<IVerify<IAstSchema>>.L _schemaVerifier = verifierRepository.VerifierFor<IAstSchema>();
+  private readonly DeferOne<IMerge<IAstSchema>> _schemaMerger = mergers.MergerFor<IAstSchema>();
+  private readonly DeferOne<IVerify<IAstSchema>> _schemaVerifier = verifierRepository.VerifierFor<IAstSchema>();
 
   protected override async Task Result_Valid(IResult<IAstSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {

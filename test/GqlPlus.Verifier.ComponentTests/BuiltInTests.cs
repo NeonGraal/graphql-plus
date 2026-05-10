@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Token;
 using GqlPlus.Verifying;
@@ -9,7 +9,7 @@ public class BuiltInTests(
   IVerifierRepository verifierRepository
 )
 {
-  private readonly Defer<IVerify<IAstSchema>>.L _verifier = verifierRepository.VerifierFor<IAstSchema>();
+  private readonly DeferOne<IVerify<IAstSchema>> _verifier = verifierRepository.VerifierFor<IAstSchema>();
   private readonly VerifySettings _settings = new VerifySettings().CheckAutoVerify();
 
   [Fact]

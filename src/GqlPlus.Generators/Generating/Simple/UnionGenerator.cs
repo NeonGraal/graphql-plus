@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Generating.Simple;
+namespace GqlPlus.Generating.Simple;
 
 internal abstract class UnionGeneratorBase
   : GenerateForSimple<IAstUnion>
@@ -95,7 +95,7 @@ internal sealed class UnionEncoderGenerator
     foreach (MapPair<string> member in members) {
       string memberCsType = context.TypeName(member.Value, "I");
       string varName = "_" + member.Key.Substring(2).ToLower(System.Globalization.CultureInfo.InvariantCulture);
-      context.Write($"  private readonly Defer<IEncoder<{memberCsType}>>.L {varName} = encoders.EncoderFor<{memberCsType}>();");
+      context.Write($"  private readonly DeferOne<IEncoder<{memberCsType}>> {varName} = encoders.EncoderFor<{memberCsType}>();");
     }
 
     context.Write($"  public Structured Encode({interfaceName} input)");

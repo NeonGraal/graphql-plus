@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Generating;
@@ -21,12 +21,12 @@ internal sealed class GeneratorRepoWrapper(
     repo.WriteFactories("Generator", repoBuilder.AllFactories);
   }
 
-  public Defer<IGenerator<TAst>>.D GeneratorFor<TAst>([CallerMemberName] string callerName = "")
+  public DeferOne<IGenerator<TAst>>.D GeneratorFor<TAst>([CallerMemberName] string callerName = "")
     where TAst : IAstError
     => AddRelationship<TAst>(callerName)
       .GeneratorFor<TAst>(callerName);
 
-  public Defer<ITypeGenerator>.DA TypeGenerators(GqlpGeneratorType generatorType, [CallerMemberName] string callerName = "")
+  public DeferList<ITypeGenerator>.D TypeGenerators(GqlpGeneratorType generatorType, [CallerMemberName] string callerName = "")
     => AddRelationship<ITypeGenerator>(callerName)
       .TypeGenerators(generatorType, callerName);
 }

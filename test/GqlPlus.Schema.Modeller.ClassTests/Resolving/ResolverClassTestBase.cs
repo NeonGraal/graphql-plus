@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Resolving;
+namespace GqlPlus.Resolving;
 
 public abstract class ResolverClassTestBase<TModel>
   : SubstituteBase
@@ -17,7 +17,7 @@ public abstract class ResolverClassTestBase<TModel>
   internal void ResolveForReturns<T>(IResolverRepository resolvers, IResolver<T> result)
     where T : IModelBase
   {
-    Defer<IResolver<T>>.D factory = () => result;
+    DeferOne<IResolver<T>>.D factory = () => result;
     resolvers.ResolverFor<T>().ReturnsForAnyArgs(factory);
   }
 }

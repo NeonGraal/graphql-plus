@@ -1,4 +1,4 @@
-﻿using GqlPlus.Factories;
+using GqlPlus.Factories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Decoding;
@@ -13,7 +13,7 @@ public class AllDecodersTests
   [Fact]
   public void AllDecoders_DecoderForCategoryFilterModel_IsRegistered()
   {
-    Defer<IDecoder<CategoryFilterModel>>.L decoder = _services.GetRequiredService<IDecoderRepository>()
+    DeferOne<IDecoder<CategoryFilterModel>> decoder = _services.GetRequiredService<IDecoderRepository>()
       .DecoderFor<CategoryFilterModel>();
 
     decoder.I.ShouldNotBeNull();

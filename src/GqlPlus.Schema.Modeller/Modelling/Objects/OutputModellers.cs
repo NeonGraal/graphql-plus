@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Modelling.Objects;
+namespace GqlPlus.Modelling.Objects;
 
 internal class OutputModeller(
   IModellerRepository modellers
@@ -20,7 +20,7 @@ internal class OutputFieldModeller(
   IModellerRepository modellers
 ) : ModellerObjField<IAstOutputField, OutputFieldModel>(modellers)
 {
-  private readonly Defer<IModeller<IAstInputParam, InputParamModel>>.L _parameter = modellers.ModellerFor<IAstInputParam, InputParamModel>();
+  private readonly DeferOne<IModeller<IAstInputParam, InputParamModel>> _parameter = modellers.ModellerFor<IAstInputParam, InputParamModel>();
 
   protected override OutputFieldModel FieldModel(IAstOutputField field, ObjBaseModel type, IMap<TypeKindModel> typeKinds)
     => field.EnumValue is null

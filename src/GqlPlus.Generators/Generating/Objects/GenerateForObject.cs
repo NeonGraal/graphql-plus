@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast;
+using GqlPlus.Ast;
 
 namespace GqlPlus.Generating.Objects;
 
@@ -187,7 +187,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
   private static void WriteEncoderFields(GqlpGeneratorContext context, Dictionary<string, string> encoderFields)
   {
     foreach (KeyValuePair<string, string> kv in encoderFields) {
-      context.Write($"  private readonly Defer<IEncoder<{kv.Key}>>.L {kv.Value} = encoders.EncoderFor<{kv.Key}>();");
+      context.Write($"  private readonly DeferOne<IEncoder<{kv.Key}>> {kv.Value} = encoders.EncoderFor<{kv.Key}>();");
     }
   }
 

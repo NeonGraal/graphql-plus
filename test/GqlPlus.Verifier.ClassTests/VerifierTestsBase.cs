@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 using GqlPlus.Matching;
 using GqlPlus.Merging;
 using GqlPlus.Verifying;
@@ -32,15 +32,15 @@ public class VerifierTestsBase
 
   protected void AliasedForReturns<T>(IVerifyAliased<T> result)
     where T : IAstAliased
-    => VerifierRepo.AliasedFor<T>().ReturnsForAnyArgs(new Defer<IVerifyAliased<T>>.D(() => result));
+    => VerifierRepo.AliasedFor<T>().ReturnsForAnyArgs(new DeferOne<IVerifyAliased<T>>.D(() => result));
 
   protected void GetDomainsReturns(params IVerifyDomain[] results)
-    => VerifierRepo.GetDomains().ReturnsForAnyArgs(new Defer<IVerifyDomain>.DA(() => results));
+    => VerifierRepo.GetDomains().ReturnsForAnyArgs(new DeferList<IVerifyDomain>.D(() => results));
 
   protected void IdentifiedForReturns<TUsage, TIdentified>(IVerifyIdentified<TUsage, TIdentified> result)
     where TUsage : IAstError
     where TIdentified : IAstIdentified
-    => VerifierRepo.IdentifiedFor<TUsage, TIdentified>().ReturnsForAnyArgs(new Defer<IVerifyIdentified<TUsage, TIdentified>>.D(() => result));
+    => VerifierRepo.IdentifiedFor<TUsage, TIdentified>().ReturnsForAnyArgs(new DeferOne<IVerifyIdentified<TUsage, TIdentified>>.D(() => result));
 
   protected void VerifierMatcherForReturns<T>(Matcher<T>.D result)
     where T : IAstError
@@ -48,14 +48,14 @@ public class VerifierTestsBase
 
   protected void MergerForReturns<T>(IMerge<T> result)
     where T : IAstError
-    => VerifierRepo.MergerFor<T>().ReturnsForAnyArgs(new Defer<IMerge<T>>.D(() => result));
+    => VerifierRepo.MergerFor<T>().ReturnsForAnyArgs(new DeferOne<IMerge<T>>.D(() => result));
 
   protected void UsageForReturns<T>(IVerifyUsage<T> result)
     where T : IAstAliased
-    => VerifierRepo.UsageFor<T>().ReturnsForAnyArgs(new Defer<IVerifyUsage<T>>.D(() => result));
+    => VerifierRepo.UsageFor<T>().ReturnsForAnyArgs(new DeferOne<IVerifyUsage<T>>.D(() => result));
 
   protected void VerifierForReturns<T>(IVerify<T> result)
-    => VerifierRepo.VerifierFor<T>().ReturnsForAnyArgs(new Defer<IVerify<T>>.D(() => result));
+    => VerifierRepo.VerifierFor<T>().ReturnsForAnyArgs(new DeferOne<IVerify<T>>.D(() => result));
 
   protected void LoggerCalled(LogLevel level, string message, int times = 1)
   {

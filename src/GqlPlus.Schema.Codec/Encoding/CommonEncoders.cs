@@ -1,10 +1,10 @@
-﻿namespace GqlPlus.Encoding;
+namespace GqlPlus.Encoding;
 
 internal class ConstantEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ConstantModel>
 {
-  private readonly Defer<IEncoder<SimpleModel>>.L _simple = encoders.EncoderFor<SimpleModel>();
+  private readonly DeferOne<IEncoder<SimpleModel>> _simple = encoders.EncoderFor<SimpleModel>();
 
   public Structured Encode(ConstantModel model)
     => model switch {

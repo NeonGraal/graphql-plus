@@ -1,13 +1,13 @@
-﻿namespace GqlPlus.Encoding;
+namespace GqlPlus.Encoding;
 
 internal class SchemaEncoder(
   IEncoderRepository encoders
 ) : AliasedEncoder<SchemaModel>
 {
-  private readonly Defer<IEncoder<CategoriesModel>>.L _categories = encoders.EncoderFor<CategoriesModel>();
-  private readonly Defer<IEncoder<DirectivesModel>>.L _directives = encoders.EncoderFor<DirectivesModel>();
-  private readonly Defer<IEncoder<BaseTypeModel>>.L _types = encoders.EncoderFor<BaseTypeModel>();
-  private readonly Defer<IEncoder<SettingModel>>.L _settings = encoders.EncoderFor<SettingModel>();
+  private readonly DeferOne<IEncoder<CategoriesModel>> _categories = encoders.EncoderFor<CategoriesModel>();
+  private readonly DeferOne<IEncoder<DirectivesModel>> _directives = encoders.EncoderFor<DirectivesModel>();
+  private readonly DeferOne<IEncoder<BaseTypeModel>> _types = encoders.EncoderFor<BaseTypeModel>();
+  private readonly DeferOne<IEncoder<SettingModel>> _settings = encoders.EncoderFor<SettingModel>();
 
   internal override Structured Encode(SchemaModel model)
     => base.Encode(model)

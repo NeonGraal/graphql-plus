@@ -1,10 +1,10 @@
-﻿namespace GqlPlus.Modelling.Objects;
+namespace GqlPlus.Modelling.Objects;
 
 internal class ObjBaseModeller(
   IModellerRepository modellers
 ) : ModellerBase<IAstObjBase, ObjBaseModel>
 {
-  private readonly Defer<IModeller<IAstTypeArg, TypeArgModel>>.L _objArg = modellers.ModellerFor<IAstTypeArg, TypeArgModel>();
+  private readonly DeferOne<IModeller<IAstTypeArg, TypeArgModel>> _objArg = modellers.ModellerFor<IAstTypeArg, TypeArgModel>();
 
   internal TypeArgModel[] ModelArgs(IAstObjBase ast, IMap<TypeKindModel> typeKinds)
     => [.. ast.Args.Select(a => _objArg.I.ToModel(a, typeKinds))];

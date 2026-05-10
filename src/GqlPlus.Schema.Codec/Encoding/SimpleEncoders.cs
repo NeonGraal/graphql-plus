@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Encoding;
+namespace GqlPlus.Encoding;
 
 internal class BaseDomainEncoder<TItem>(
   IEncoderRepository encoders
@@ -26,7 +26,7 @@ internal class DomainItemEncoder<TItem>(
 ) : BaseEncoder<DomainItemModel<TItem>>
   where TItem : BaseDomainItemModel
 {
-  private readonly Defer<IEncoder<TItem>>.L _item = encoders.EncoderFor<TItem>();
+  private readonly DeferOne<IEncoder<TItem>> _item = encoders.EncoderFor<TItem>();
 
   internal override Structured Encode(DomainItemModel<TItem> model)
     => base.Encode(model)
@@ -40,7 +40,7 @@ internal class DomainLabelEncoder(
   IEncoderRepository encoders
 ) : BaseDomainItemEncoder<DomainLabelModel>
 {
-  private readonly Defer<IEncoder<EnumValueModel>>.L _enumValue = encoders.EncoderFor<EnumValueModel>();
+  private readonly DeferOne<IEncoder<EnumValueModel>> _enumValue = encoders.EncoderFor<EnumValueModel>();
 
   internal override Structured Encode(DomainLabelModel model)
     => base.Encode(model)

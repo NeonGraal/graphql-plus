@@ -1,10 +1,10 @@
-﻿namespace GqlPlus.Modelling;
+namespace GqlPlus.Modelling;
 
 internal class SimpleModeller(
   IModellerRepository modellers
 ) : ModellerBase<IAstFieldKey, SimpleModel>
 {
-  private readonly Defer<IModeller<IAstEnumValue, EnumValueModel>>.L _enumValue = modellers.ModellerFor<IAstEnumValue, EnumValueModel>();
+  private readonly DeferOne<IModeller<IAstEnumValue, EnumValueModel>> _enumValue = modellers.ModellerFor<IAstEnumValue, EnumValueModel>();
 
   protected override SimpleModel ToModel(IAstFieldKey ast, IMap<TypeKindModel> typeKinds)
     => ast switch {

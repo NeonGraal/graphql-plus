@@ -1,4 +1,4 @@
-﻿using GqlPlus.Factories;
+using GqlPlus.Factories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Encoding;
@@ -13,7 +13,7 @@ public class AllEncodersTests
   [Fact]
   public void AllEncoders_EncoderForSimple_IsRegistered()
   {
-    Defer<IEncoder<SimpleModel>>.L encoder = _services.GetRequiredService<IEncoderRepository>()
+    DeferOne<IEncoder<SimpleModel>> encoder = _services.GetRequiredService<IEncoderRepository>()
       .EncoderFor<SimpleModel>();
 
     encoder.I.ShouldNotBeNull();
@@ -22,10 +22,10 @@ public class AllEncodersTests
   [Fact]
   public void AllEncoders_TypeEncoders_ReturnNotEmpty()
   {
-    Defer<ITypeEncoder>.LA encoders = _services.GetRequiredService<IEncoderRepository>()
+    DeferList<ITypeEncoder> encoders = _services.GetRequiredService<IEncoderRepository>()
       .EncodersFor<ITypeEncoder>();
 
-    encoders.IA.ShouldNotBeEmpty();
+    encoders.I.ShouldNotBeEmpty();
   }
 
   [Fact]
@@ -41,9 +41,9 @@ public class AllEncodersTests
   public void AllEncoders_EncodersForFactories_ReturnNotNull()
   {
     IEncoderRepository repo = _services.GetRequiredService<IEncoderRepository>();
-    Defer<ITypeEncoder>.LA encoders = repo.EncodersFor<ITypeEncoder>();
+    DeferList<ITypeEncoder> encoders = repo.EncodersFor<ITypeEncoder>();
 
-    repo.ShouldSatisfyAllConditions([.. encoders.IA.Select(CheckTypeEncoder)]);
+    repo.ShouldSatisfyAllConditions([.. encoders.I.Select(CheckTypeEncoder)]);
   }
 
   private static Action<IEncoderRepository> CheckEncoder(Factory<object, IEncoderRepository> factory)

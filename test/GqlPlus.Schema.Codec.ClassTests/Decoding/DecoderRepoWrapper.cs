@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Decoding;
@@ -22,10 +22,10 @@ internal sealed class DecoderRepoWrapper(
     repo.WriteFactories("Decoder", repoBuilder.AllFactories);
   }
 
-  public Defer<IDecoder<T>>.D DecoderFor<T>([CallerMemberName] string callerName = "")
+  public DeferOne<IDecoder<T>>.D DecoderFor<T>([CallerMemberName] string callerName = "")
     => AddRelationship<T>(callerName)
       .DecoderFor<T>(callerName);
-  public Defer<TDecoder>.D DecoderFor<TDecoder, TBase>(string callerName)
+  public DeferOne<TDecoder>.D DecoderFor<TDecoder, TBase>(string callerName)
     where TDecoder : class, IDecoder<TBase>
     => AddRelationship<TDecoder>(callerName)
     .DecoderFor<TDecoder, TBase>(callerName);

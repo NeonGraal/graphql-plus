@@ -1,12 +1,12 @@
-﻿namespace GqlPlus.Generating;
+namespace GqlPlus.Generating;
 
 internal sealed class SchemaGenerator(
   IGeneratorRepository generators
 ) : IGenerator<IAstSchema>
 {
-  private readonly Defer<IGenerator<IAstSchemaCategory>>.L _categoryGenerator = generators.GeneratorFor<IAstSchemaCategory>();
-  private readonly Defer<IGenerator<IAstSchemaDirective>>.L _directiveGenerator = generators.GeneratorFor<IAstSchemaDirective>();
-  private readonly Defer<IGenerator<IAstSchemaOption>>.L _optionGenerator = generators.GeneratorFor<IAstSchemaOption>();
+  private readonly DeferOne<IGenerator<IAstSchemaCategory>> _categoryGenerator = generators.GeneratorFor<IAstSchemaCategory>();
+  private readonly DeferOne<IGenerator<IAstSchemaDirective>> _directiveGenerator = generators.GeneratorFor<IAstSchemaDirective>();
+  private readonly DeferOne<IGenerator<IAstSchemaOption>> _optionGenerator = generators.GeneratorFor<IAstSchemaOption>();
 
   public void Generate(IAstSchema ast, GqlpGeneratorContext context)
   {
@@ -40,10 +40,10 @@ internal sealed class SchemaGenerator(
 
   private void GenerateTypesForGeneratorType(IAstType[] types, GqlpGeneratorType generatorType, GqlpGeneratorContext context)
   {
-    Defer<ITypeGenerator>.LA typeGenerators = generators.TypeGenerators(generatorType);
+    DeferList<ITypeGenerator> typeGenerators = generators.TypeGenerators(generatorType);
 
     foreach (IAstType type in types) {
-      GenerateTypeOrValidate(typeGenerators.IA, type, context);
+      GenerateTypeOrValidate(typeGenerators.I, type, context);
     }
   }
 
@@ -55,8 +55,8 @@ internal sealed class SchemaGenerator(
       return;
     }
 
-    Defer<ITypeGenerator>.LA interfaceGenerators = generators.TypeGenerators(GqlpGeneratorType.Interface);
-    if (!interfaceGenerators.IA.Any(tg => tg.ForType(type))) {
+    DeferList<ITypeGenerator> interfaceGenerators = generators.TypeGenerators(GqlpGeneratorType.Interface);
+    if (!interfaceGenerators.I.Any(tg => tg.ForType(type))) {
       throw new InvalidOperationException("No Generator for " + type.GetType().ExpandTypeName());
     }
   }

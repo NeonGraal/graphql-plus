@@ -1,12 +1,12 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Verifying.Operation;
 
 internal class VerifyOperation(IVerifierRepository verifiers)
   : IVerify<IAstOperation>
 {
-  private readonly Defer<IVerifyIdentified<IAstArg, IAstVariable>>.L _usages = verifiers.IdentifiedFor<IAstArg, IAstVariable>();
-  private readonly Defer<IVerifyIdentified<IAstSpread, IAstFragment>>.L _spreads = verifiers.IdentifiedFor<IAstSpread, IAstFragment>();
+  private readonly DeferOne<IVerifyIdentified<IAstArg, IAstVariable>> _usages = verifiers.IdentifiedFor<IAstArg, IAstVariable>();
+  private readonly DeferOne<IVerifyIdentified<IAstSpread, IAstFragment>> _spreads = verifiers.IdentifiedFor<IAstSpread, IAstFragment>();
 
   public void Verify(IAstOperation item, IMessages errors)
   {

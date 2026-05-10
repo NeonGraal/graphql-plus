@@ -1,10 +1,10 @@
-﻿namespace GqlPlus.Resolving;
+namespace GqlPlus.Resolving;
 
 internal class SchemaResolver(
   IResolverRepository resolvers
 ) : IResolver<SchemaModel>
 {
-  private readonly Defer<IResolver<BaseTypeModel>>.L _type = resolvers.ResolverFor<BaseTypeModel>();
+  private readonly DeferOne<IResolver<BaseTypeModel>> _type = resolvers.ResolverFor<BaseTypeModel>();
 
   public SchemaModel Resolve(SchemaModel model, IResolveContext context)
   {

@@ -1,4 +1,4 @@
-﻿using System.Collections.Concurrent;
+using System.Collections.Concurrent;
 using System.Runtime.CompilerServices;
 using Microsoft.Extensions.Logging;
 
@@ -10,12 +10,12 @@ internal class EncoderRepository(
 ) : BaseRepository<IEncoderRepository>(loggerFactory)
   , IEncoderRepository
 {
-  public Defer<IEncoder<T>>.D EncoderFor<T>([CallerMemberName] string callerName = "")
+  public DeferOne<IEncoder<T>>.D EncoderFor<T>([CallerMemberName] string callerName = "")
     => () => Cached<T, IEncoder<T>>(builder.Encoders, "encoder for " + callerName, this);
 
   private readonly ConcurrentDictionary<Type, IEnumerable<object>> _lists = new();
 
-  public Defer<TList>.DA EncodersFor<TList>([CallerMemberName] string callerName = "")
+  public DeferList<TList>.D EncodersFor<TList>([CallerMemberName] string callerName = "")
     where TList : class
     => () => (IEnumerable<TList>)_lists.GetOrAdd(
       typeof(TList),

@@ -1,10 +1,10 @@
-﻿namespace GqlPlus.Modelling.Objects;
+namespace GqlPlus.Modelling.Objects;
 
 internal class TypeArgModeller(
   IModellerRepository modellers
 ) : ModellerBase<IAstTypeArg, TypeArgModel>
 {
-  private readonly Defer<IModeller<IAstEnumValue, EnumValueModel>>.L _enumValue = modellers.ModellerFor<IAstEnumValue, EnumValueModel>();
+  private readonly DeferOne<IModeller<IAstEnumValue, EnumValueModel>> _enumValue = modellers.ModellerFor<IAstEnumValue, EnumValueModel>();
 
   protected override TypeArgModel ToModel(IAstTypeArg ast, IMap<TypeKindModel> typeKinds)
   {

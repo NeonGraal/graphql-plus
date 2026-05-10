@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Generating;
 using GqlPlus.Merging;
 using GqlPlus.Parsing;
@@ -27,8 +27,8 @@ internal sealed class SchemaGeneratorChecks(
 ) : SchemaParseChecks(parsers)
   , ISchemaGeneratorChecks
 {
-  private readonly Defer<IMerge<IAstSchema>>.L _schemaMerger = mergers.MergerFor<IAstSchema>();
-  private readonly Defer<IGenerator<IAstSchema>>.L _schemaGenerator = generators.GeneratorFor<IAstSchema>();
+  private readonly DeferOne<IMerge<IAstSchema>> _schemaMerger = mergers.MergerFor<IAstSchema>();
+  private readonly DeferOne<IGenerator<IAstSchema>> _schemaGenerator = generators.GeneratorFor<IAstSchema>();
 
   public string Generate_ForAsts(GqlpBaseType baseType, GqlpGeneratorType type, IEnumerable<IAstSchema> asts, string test, string label, string input = "")
   {

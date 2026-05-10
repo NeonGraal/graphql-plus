@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 using GqlPlus.Parsing.Schema;
 using GqlPlus.Parsing.Schema.Simple;
 
@@ -14,8 +14,8 @@ public interface IParserRepository
   ParserArray<TInterface, TFor>.DA ArrayFor<TInterface, TFor>([CallerMemberName] string callerName = "")
     where TInterface : class, Parser<TFor>.IA;
 
-  Defer<IParseDeclaration>.DA GetDeclarations([CallerMemberName] string callerName = "");
-  Defer<IParseDomain>.DA GetDomains([CallerMemberName] string callerName = "");
-  Defer<T>.D GetName<T>([CallerMemberName] string callerName = "")
+  DeferList<IParseDeclaration>.D GetDeclarations([CallerMemberName] string callerName = "");
+  DeferList<IParseDomain>.D GetDomains([CallerMemberName] string callerName = "");
+  DeferOne<T>.D GetName<T>([CallerMemberName] string callerName = "")
     where T : class, INameParser;
 }

@@ -1,4 +1,4 @@
-﻿using NSubstitute.ReceivedExtensions;
+using NSubstitute.ReceivedExtensions;
 
 namespace GqlPlus.Modelling;
 
@@ -16,7 +16,7 @@ public class TypesModellerTests
     modeller.ToTypeModel(ast, typeKinds).Returns(new SpecialTypeModel(name, string.Empty));
 
     IModellerRepository repo = A.Of<IModellerRepository>();
-    Defer<ITypeModeller>.DA typeModellers = () => [modeller];
+    DeferList<ITypeModeller>.D typeModellers = () => [modeller];
     repo.TypeModellers().ReturnsForAnyArgs(typeModellers);
     TypesModeller sut = new(repo);
 
@@ -38,7 +38,7 @@ public class TypesModellerTests
     modeller.Kind.Returns(TypeKindModel.Special);
 
     IModellerRepository repo = A.Of<IModellerRepository>();
-    Defer<ITypeModeller>.DA typeModellers = () => [modeller];
+    DeferList<ITypeModeller>.D typeModellers = () => [modeller];
     repo.TypeModellers().ReturnsForAnyArgs(typeModellers);
     TypesModeller sut = new(repo);
 

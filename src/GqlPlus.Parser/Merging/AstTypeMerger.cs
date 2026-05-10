@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Merging;
 
@@ -11,7 +11,7 @@ internal abstract class AstTypeMerger<TAst, TType, TParent, TItem>(
   where TParent : IAstDescribed, IEquatable<TParent>
   where TItem : IAstError
 {
-  private readonly Defer<IMerge<TItem>>.L _mergeItems = mergers.MergerFor<TItem>();
+  private readonly DeferOne<IMerge<TItem>> _mergeItems = mergers.MergerFor<TItem>();
 
   internal abstract IEnumerable<TItem> GetItems(TType type);
 

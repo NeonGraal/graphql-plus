@@ -7,11 +7,11 @@ namespace GqlPlus.Parsing.Schema.Globals;
 
 internal class ParseOptionSetting(
   IParserRepository parsers
-) : Parser<IAstSchemaSetting>.I
+) : IParser<IAstSchemaSetting>
 {
-  private readonly Parser<IParserDefault, IAstConstant>.L _default = parsers.ParserFor<IParserDefault, IAstConstant>();
+  private readonly Parser<IParserDefault, IAstConstant> _default = parsers.ParserFor<IParserDefault, IAstConstant>();
 
-  public IResult<IAstSchemaSetting> Parse(ITokenizer tokens, string label)
+  public IResult<IAstSchemaSetting> Parse([NotNull] ITokenizer tokens, string label)
   {
     Token.TokenAt at = tokens.At;
     string description = tokens.Description();

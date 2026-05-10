@@ -7,13 +7,13 @@ namespace GqlPlus.Parsing.Schema;
 
 internal class ParseSchema(
   IParserRepository parsers
-) : Parser<IAstSchema>.I
+) : IParser<IAstSchema>
 {
   private delegate IResult<IAstDeclaration> Parser(ITokenizer tokens, string label);
   private readonly DeferMap<Parser> _parsers = parsers.GetDeclarations()
     .ToMap<IParseDeclaration, Parser>(d => d.Selector, d => d.Parser);
 
-  public IResult<IAstSchema> Parse(ITokenizer tokens, string label)
+  public IResult<IAstSchema> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     if (tokens.AtStart) {

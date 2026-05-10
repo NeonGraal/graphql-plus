@@ -5,11 +5,11 @@ namespace GqlPlus.Parsing.Schema;
 
 internal class ArrayParser<TItem>(
   IParserRepository parsers
-) : Parser<TItem>.IA
+) : IParserArray<TItem>
 {
-  private readonly Parser<TItem>.L _itemParser = parsers.ParserFor<TItem>();
+  private readonly ParserOne<TItem> _itemParser = parsers.ParserFor<TItem>();
 
-  public IResultArray<TItem> Parse(ITokenizer tokens, string label)
+  public IResultArray<TItem> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     List<TItem> result = [];

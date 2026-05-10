@@ -82,11 +82,11 @@ internal class ParseDomainDefinition(
       IParserRepository parsers
 ) : SimpleDefinitionParser<DomainDefinition>(parsers)
 {
-  private readonly Parser<IEnumParser<DomainKind>, DomainKind>.L _kind = parsers.ParserFor<IEnumParser<DomainKind>, DomainKind>();
+  private readonly Parser<IEnumParser<DomainKind>, DomainKind> _kind = parsers.ParserFor<IEnumParser<DomainKind>, DomainKind>();
   private readonly DeferDict<DomainKind, ParseItems> _kindParsers = parsers.GetDomains()
     .ToDictionary(item => item.Kind, item => item.Parser);
 
-  public override IResult<DomainDefinition> Parse(ITokenizer tokens, string label)
+  public override IResult<DomainDefinition> Parse([NotNull] ITokenizer tokens, string label)
   {
     DomainDefinition result = new();
 

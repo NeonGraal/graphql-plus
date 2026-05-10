@@ -6,11 +6,11 @@ namespace GqlPlus.Parsing.Operation;
 
 internal class ParseDirectives(
   IParserRepository parsers
-) : Parser<IAstDirective>.IA
+) : IParserArray<IAstDirective>
 {
-  private readonly Parser<IParserArg, IAstArg>.L _argument = parsers.ParserFor<IParserArg, IAstArg>();
+  private readonly Parser<IParserArg, IAstArg> _argument = parsers.ParserFor<IParserArg, IAstArg>();
 
-  public IResultArray<IAstDirective> Parse(ITokenizer tokens, string label)
+  public IResultArray<IAstDirective> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     List<IAstDirective> result = [];

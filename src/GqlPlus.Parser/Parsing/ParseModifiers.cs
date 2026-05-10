@@ -5,11 +5,11 @@ namespace GqlPlus.Parsing;
 
 internal class ParseModifiers(
     IParserRepository parsers
-) : Parser<IAstModifier>.IA
+) : IParserArray<IAstModifier>
 {
-  private readonly ParserArray<IParserCollections, IAstModifier>.LA _collections = parsers.ArrayFor<IParserCollections, IAstModifier>();
+  private readonly ParserArray<IParserCollections, IAstModifier> _collections = parsers.ArrayFor<IParserCollections, IAstModifier>();
 
-  public IResultArray<IAstModifier> Parse(ITokenizer tokens, string label)
+  public IResultArray<IAstModifier> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     List<IAstModifier> list = [];

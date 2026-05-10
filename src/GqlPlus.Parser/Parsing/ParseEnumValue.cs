@@ -4,9 +4,9 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing;
 
 internal class ParseEnumValue
-  : Parser<IAstEnumValue>.I
+  : IParser<IAstEnumValue>
 {
-  public IResult<IAstEnumValue> Parse(ITokenizer tokens, string label)
+  public IResult<IAstEnumValue> Parse([NotNull] ITokenizer tokens, string label)
   {
     TokenAt at = tokens.At;
 

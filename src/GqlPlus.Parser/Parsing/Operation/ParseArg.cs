@@ -9,10 +9,10 @@ internal class ParseArg(
   IParserRepository parsers
 ) : IParserArg
 {
-  private readonly Parser<IAstFieldKey>.L _fieldKey = parsers.ParserFor<IAstFieldKey>();
-  private readonly Parser<IValueParser<IAstArg>, IAstArg>.L _argument = parsers.ParserFor<IValueParser<IAstArg>, IAstArg>();
+  private readonly ParserOne<IAstFieldKey> _fieldKey = parsers.ParserFor<IAstFieldKey>();
+  private readonly Parser<IValueParser<IAstArg>, IAstArg> _argument = parsers.ParserFor<IValueParser<IAstArg>, IAstArg>();
 
-  public IResult<IAstArg> Parse(ITokenizer tokens, string label)
+  public IResult<IAstArg> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     if (!tokens.Take('(')) {
@@ -104,5 +104,5 @@ internal class ParseArg(
 }
 
 public interface IParserArg
-  : Parser<IAstArg>.I
+  : IParser<IAstArg>
 { }

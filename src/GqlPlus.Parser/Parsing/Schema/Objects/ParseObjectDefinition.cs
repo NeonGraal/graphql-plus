@@ -6,14 +6,14 @@ namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseObjectDefinition<TObjField>(
   IParserRepository parsers
-) : Parser<ObjectDefinition<TObjField>>.I
+) : IParser<ObjectDefinition<TObjField>>
   where TObjField : IAstObjField
 {
-  private readonly Parser<IAstAlternate>.LA _alternates = parsers.ArrayFor<IAstAlternate>();
-  private readonly Parser<TObjField>.L _parseField = parsers.ParserFor<TObjField>();
-  private readonly Parser<IAstObjBase>.L _parseBase = parsers.ParserFor<IAstObjBase>();
+  private readonly ParserArray<IAstAlternate> _alternates = parsers.ArrayFor<IAstAlternate>();
+  private readonly ParserOne<TObjField> _parseField = parsers.ParserFor<TObjField>();
+  private readonly ParserOne<IAstObjBase> _parseBase = parsers.ParserFor<IAstObjBase>();
 
-  public IResult<ObjectDefinition<TObjField>> Parse(ITokenizer tokens, string label)
+  public IResult<ObjectDefinition<TObjField>> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     tokens.ThrowIfNull();

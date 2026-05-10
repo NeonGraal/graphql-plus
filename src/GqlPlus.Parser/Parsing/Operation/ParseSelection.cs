@@ -6,12 +6,12 @@ namespace GqlPlus.Parsing.Operation;
 
 internal class ParseSelection(
   IParserRepository parsers
-) : Parser<IAstSelection>.I
+) : IParser<IAstSelection>
 {
-  private readonly Parser<IAstDirective>.LA _directives = parsers.ArrayFor<IAstDirective>();
-  private readonly Parser<IAstSelection>.LA _object = parsers.ArrayFor<IAstSelection>();
+  private readonly ParserArray<IAstDirective> _directives = parsers.ArrayFor<IAstDirective>();
+  private readonly ParserArray<IAstSelection> _object = parsers.ArrayFor<IAstSelection>();
 
-  public IResult<IAstSelection> Parse(ITokenizer tokens, string label)
+  public IResult<IAstSelection> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     if (tokens.Take("...") || tokens.Take('|')) {

@@ -6,14 +6,14 @@ namespace GqlPlus.Parsing.Operation;
 
 internal class ParseVariable(
   IParserRepository parsers
-) : Parser<IAstVariable>.I
+) : IParser<IAstVariable>
 {
-  private readonly Parser<IAstModifier>.LA _modifiers = parsers.ArrayFor<IAstModifier>();
-  private readonly Parser<IAstDirective>.LA _directives = parsers.ArrayFor<IAstDirective>();
-  private readonly Parser<IParserDefault, IAstConstant>.L _default = parsers.ParserFor<IParserDefault, IAstConstant>();
-  private readonly Parser<IParserVarType, string>.L _varTypeParser = parsers.ParserFor<IParserVarType, string>();
+  private readonly ParserArray<IAstModifier> _modifiers = parsers.ArrayFor<IAstModifier>();
+  private readonly ParserArray<IAstDirective> _directives = parsers.ArrayFor<IAstDirective>();
+  private readonly Parser<IParserDefault, IAstConstant> _default = parsers.ParserFor<IParserDefault, IAstConstant>();
+  private readonly Parser<IParserVarType, string> _varTypeParser = parsers.ParserFor<IParserVarType, string>();
 
-  public IResult<IAstVariable> Parse(ITokenizer tokens, string label)
+  public IResult<IAstVariable> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     bool prefix = tokens.Prefix('$', out string? name, out TokenAt at);

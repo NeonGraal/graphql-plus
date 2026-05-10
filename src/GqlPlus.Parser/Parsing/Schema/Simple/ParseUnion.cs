@@ -33,9 +33,9 @@ internal class ParseUnionDefinition(
   IParserRepository parsers
 ) : SimpleDefinitionParser<UnionDefinition>(parsers)
 {
-  private readonly Parser<IAstUnionMember>.L _unionMember = parsers.ParserFor<IAstUnionMember>();
+  private readonly ParserOne<IAstUnionMember> _unionMember = parsers.ParserFor<IAstUnionMember>();
 
-  public override IResult<UnionDefinition> Parse(ITokenizer tokens, string label)
+  public override IResult<UnionDefinition> Parse([NotNull] ITokenizer tokens, string label)
   {
     UnionDefinition result = new();
 

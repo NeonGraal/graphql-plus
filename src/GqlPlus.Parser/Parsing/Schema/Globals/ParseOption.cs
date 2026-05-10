@@ -30,11 +30,11 @@ internal class OptionDefinition
 
 internal class ParseOptionDefinition(
   IParserRepository parsers
-) : Parser<OptionDefinition>.I
+) : IParser<OptionDefinition>
 {
-  private readonly Parser<IAstSchemaSetting>.L _setting = parsers.ParserFor<IAstSchemaSetting>();
+  private readonly ParserOne<IAstSchemaSetting> _setting = parsers.ParserFor<IAstSchemaSetting>();
 
-  public IResult<OptionDefinition> Parse(ITokenizer tokens, string label)
+  public IResult<OptionDefinition> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     OptionDefinition result = new();

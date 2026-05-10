@@ -7,13 +7,13 @@ namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseInputParams(
   IParserRepository parsers
-) : Parser<IAstInputParam>.IA
+) : IParserArray<IAstInputParam>
 {
-  private readonly Parser<IAstObjBase>.L _input = parsers.ParserFor<IAstObjBase>();
-  private readonly Parser<IAstModifier>.LA _modifiers = parsers.ArrayFor<IAstModifier>();
-  private readonly Parser<IParserDefault, IAstConstant>.L _default = parsers.ParserFor<IParserDefault, IAstConstant>();
+  private readonly ParserOne<IAstObjBase> _input = parsers.ParserFor<IAstObjBase>();
+  private readonly ParserArray<IAstModifier> _modifiers = parsers.ArrayFor<IAstModifier>();
+  private readonly Parser<IParserDefault, IAstConstant> _default = parsers.ParserFor<IParserDefault, IAstConstant>();
 
-  public IResultArray<IAstInputParam> Parse(ITokenizer tokens, string label)
+  public IResultArray<IAstInputParam> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     List<IAstInputParam> list = [];

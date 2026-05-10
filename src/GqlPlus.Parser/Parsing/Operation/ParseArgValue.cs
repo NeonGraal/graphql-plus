@@ -8,7 +8,7 @@ internal class ParseArgValue(
   IParserRepository parsers
 ) : ValueParser<IAstArg>(parsers)
 {
-  private readonly Parser<IAstConstant>.L _constant = parsers.ParserFor<IAstConstant>();
+  private readonly ParserOne<IAstConstant> _constant = parsers.ParserFor<IAstConstant>();
 
   public override IResult<IAstArg> Parse([NotNull] ITokenizer tokens, string label)
   {

@@ -5,11 +5,11 @@ namespace GqlPlus.Parsing;
 
 internal class ParseFieldKey(
   IParserRepository parsers
-) : Parser<IAstFieldKey>.I
+) : IParser<IAstFieldKey>
 {
-  private readonly Parser<IAstEnumValue>.L _parseEnumValue = parsers.ParserFor<IAstEnumValue>();
+  private readonly ParserOne<IAstEnumValue> _parseEnumValue = parsers.ParserFor<IAstEnumValue>();
 
-  public IResult<IAstFieldKey> Parse(ITokenizer tokens, string label)
+  public IResult<IAstFieldKey> Parse([NotNull] ITokenizer tokens, string label)
   {
     TokenAt at = tokens.At;
     if (tokens.Number(out decimal number)) {

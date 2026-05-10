@@ -5,13 +5,13 @@ namespace GqlPlus.Parsing;
 
 internal class ValueKeyValueParser<TValue>(
   IParserRepository parsers
-) : Parser<KeyValue<TValue>>.I
+) : IParser<KeyValue<TValue>>
   where TValue : IAstValue<TValue>
 {
-  private readonly Parser<IAstFieldKey>.L _key = parsers.ParserFor<IAstFieldKey>();
-  private readonly Parser<TValue>.L _value = parsers.ParserFor<TValue>();
+  private readonly ParserOne<IAstFieldKey> _key = parsers.ParserFor<IAstFieldKey>();
+  private readonly ParserOne<TValue> _value = parsers.ParserFor<TValue>();
 
-  public IResult<KeyValue<TValue>> Parse(ITokenizer tokens, string label)
+  public IResult<KeyValue<TValue>> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     tokens.ThrowIfNull();

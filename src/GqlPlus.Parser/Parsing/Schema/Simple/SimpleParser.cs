@@ -18,10 +18,10 @@ public class SimpleDefinition
 
 internal abstract class SimpleDefinitionParser<TDefinition>(
       IParserRepository parsers
-) : Parser<TDefinition>.I
+) : IParser<TDefinition>
   where TDefinition : SimpleDefinition
 {
-  private readonly Parser<IAstTypeRef>.L _typeRef = parsers.ParserFor<IAstTypeRef>();
+  private readonly ParserOne<IAstTypeRef> _typeRef = parsers.ParserFor<IAstTypeRef>();
 
   protected bool ParseParent(ITokenizer tokens, TDefinition result)
   {
@@ -33,5 +33,5 @@ internal abstract class SimpleDefinitionParser<TDefinition>(
     return true;
   }
 
-  public abstract IResult<TDefinition> Parse(ITokenizer tokens, string label);
+  public abstract IResult<TDefinition> Parse([NotNull] ITokenizer tokens, string label);
 }

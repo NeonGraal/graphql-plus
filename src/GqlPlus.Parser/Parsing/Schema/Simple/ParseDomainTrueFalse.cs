@@ -11,7 +11,7 @@ internal class ParseDomainTrueFalse(
 {
   public override DomainKind Kind => DomainKind.Boolean;
 
-  public override IResult<IAstDomainTrueFalse> Parse(ITokenizer tokens, string label)
+  public override IResult<IAstDomainTrueFalse> Parse([NotNull] ITokenizer tokens, string label)
   {
     string description = tokens.Description();
     TokenAt at = tokens.At;

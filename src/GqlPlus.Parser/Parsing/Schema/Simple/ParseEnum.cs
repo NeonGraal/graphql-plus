@@ -33,9 +33,9 @@ internal class ParseEnumDefinition(
   IParserRepository parsers
 ) : SimpleDefinitionParser<EnumDefinition>(parsers)
 {
-  private readonly Parser<IAstEnumLabel>.L _enumLabel = parsers.ParserFor<IAstEnumLabel>();
+  private readonly ParserOne<IAstEnumLabel> _enumLabel = parsers.ParserFor<IAstEnumLabel>();
 
-  public override IResult<EnumDefinition> Parse(ITokenizer tokens, string label)
+  public override IResult<EnumDefinition> Parse([NotNull] ITokenizer tokens, string label)
   {
     EnumDefinition result = new();
 

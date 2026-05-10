@@ -6,17 +6,17 @@ namespace GqlPlus.Parsing.Operation;
 
 internal class ParseOperation(
   IParserRepository parsers
-) : Parser<IAstOperation>.I
+) : IParser<IAstOperation>
 {
-  private readonly Parser<IParserArg, IAstArg>.L _argument = parsers.ParserFor<IParserArg, IAstArg>();
-  private readonly Parser<IAstDirective>.LA _directives = parsers.ArrayFor<IAstDirective>();
-  private readonly ParserArray<IParserStartFragments, IAstFragment>.LA _startFragments = parsers.ArrayFor<IParserStartFragments, IAstFragment>();
-  private readonly ParserArray<IParserEndFragments, IAstFragment>.LA _endFragments = parsers.ArrayFor<IParserEndFragments, IAstFragment>();
-  private readonly Parser<IAstModifier>.LA _modifiers = parsers.ArrayFor<IAstModifier>();
-  private readonly Parser<IAstSelection>.LA _object = parsers.ArrayFor<IAstSelection>();
-  private readonly Parser<IAstVariable>.LA _variables = parsers.ArrayFor<IAstVariable>();
+  private readonly Parser<IParserArg, IAstArg> _argument = parsers.ParserFor<IParserArg, IAstArg>();
+  private readonly ParserArray<IAstDirective> _directives = parsers.ArrayFor<IAstDirective>();
+  private readonly ParserArray<IParserStartFragments, IAstFragment> _startFragments = parsers.ArrayFor<IParserStartFragments, IAstFragment>();
+  private readonly ParserArray<IParserEndFragments, IAstFragment> _endFragments = parsers.ArrayFor<IParserEndFragments, IAstFragment>();
+  private readonly ParserArray<IAstModifier> _modifiers = parsers.ArrayFor<IAstModifier>();
+  private readonly ParserArray<IAstSelection> _object = parsers.ArrayFor<IAstSelection>();
+  private readonly ParserArray<IAstVariable> _variables = parsers.ArrayFor<IAstVariable>();
 
-  public IResult<IAstOperation> Parse(ITokenizer tokens, string label)
+  public IResult<IAstOperation> Parse([NotNull] ITokenizer tokens, string label)
   {
     if (tokens is not IOperationContext) {
       tokens = new OperationContext(tokens);

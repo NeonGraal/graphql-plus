@@ -7,11 +7,11 @@ namespace GqlPlus.Parsing.Schema.Simple;
 
 internal class ParseEnumLabel(
   IParserRepository parsers
-) : Parser<IAstEnumLabel>.I
+) : IParser<IAstEnumLabel>
 {
-  private readonly Parser<string>.LA _aliases = parsers.ArrayFor<string>();
+  private readonly ParserArray<string> _aliases = parsers.ArrayFor<string>();
 
-  public IResult<IAstEnumLabel> Parse(ITokenizer tokens, string label)
+  public IResult<IAstEnumLabel> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     string description = tokens.Description();

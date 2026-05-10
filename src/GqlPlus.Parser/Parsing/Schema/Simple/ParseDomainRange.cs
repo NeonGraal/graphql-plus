@@ -11,7 +11,7 @@ internal class ParseDomainRange(
 {
   public override DomainKind Kind => DomainKind.Number;
 
-  public override IResult<IAstDomainRange> Parse(ITokenizer tokens, string label)
+  public override IResult<IAstDomainRange> Parse([NotNull] ITokenizer tokens, string label)
   {
     string description = tokens.Description();
     TokenAt at = tokens.At;

@@ -55,12 +55,12 @@ internal interface ICategoryName : INameParser;
 
 internal class ParseCategoryDefinition(
   IParserRepository parsers
-) : Parser<CategoryOutput>.I
+) : IParser<CategoryOutput>
 {
-  private readonly Parser<IAstTypeRef>.L _typeRef = parsers.ParserFor<IAstTypeRef>();
-  private readonly Parser<IAstModifier>.LA _modifiers = parsers.ArrayFor<IAstModifier>();
+  private readonly ParserOne<IAstTypeRef> _typeRef = parsers.ParserFor<IAstTypeRef>();
+  private readonly ParserArray<IAstModifier> _modifiers = parsers.ArrayFor<IAstModifier>();
 
-  public IResult<CategoryOutput> Parse(ITokenizer tokens, string label)
+  public IResult<CategoryOutput> Parse([NotNull] ITokenizer tokens, string label)
   {
     IResult<IAstTypeRef> output = _typeRef.Parse(tokens, "Category Output");
     if (output.IsError()) {

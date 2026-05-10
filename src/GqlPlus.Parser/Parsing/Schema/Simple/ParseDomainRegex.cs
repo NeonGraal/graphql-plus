@@ -11,7 +11,7 @@ internal class ParseDomainRegex(
 {
   public override DomainKind Kind => DomainKind.String;
 
-  public override IResult<IAstDomainRegex> Parse(ITokenizer tokens, string label)
+  public override IResult<IAstDomainRegex> Parse([NotNull] ITokenizer tokens, string label)
   {
     string description = tokens.Description();
     TokenAt at = tokens.At;

@@ -9,7 +9,7 @@ internal class ParseOutputField(
   IParserRepository parsers
 ) : ObjectFieldParser<IAstOutputField, OutputFieldAst>(parsers)
 {
-  private readonly Parser<IAstInputParam>.LA _parameter = parsers.ArrayFor<IAstInputParam>();
+  private readonly ParserArray<IAstInputParam> _parameter = parsers.ArrayFor<IAstInputParam>();
 
   protected override void ApplyFieldParams(OutputFieldAst field, IAstInputParam[] parameters)
     => field.Parameter = parameters.FirstOrDefault();

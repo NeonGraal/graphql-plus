@@ -6,9 +6,9 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseTypeParams
-  : Parser<IAstTypeParam>.IA
+  : IParserArray<IAstTypeParam>
 {
-  public IResultArray<IAstTypeParam> Parse(ITokenizer tokens, string label)
+  public IResultArray<IAstTypeParam> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     List<IAstTypeParam> list = [];

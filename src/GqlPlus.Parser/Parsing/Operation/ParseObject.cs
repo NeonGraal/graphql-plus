@@ -6,12 +6,12 @@ namespace GqlPlus.Parsing.Operation;
 
 internal class ParseObject(
   IParserRepository parsers
-) : Parser<IAstSelection>.IA
+) : IParserArray<IAstSelection>
 {
-  private readonly Parser<IAstField>.L _field = parsers.ParserFor<IAstField>();
-  private readonly Parser<IAstSelection>.L _selection = parsers.ParserFor<IAstSelection>();
+  private readonly ParserOne<IAstField> _field = parsers.ParserFor<IAstField>();
+  private readonly ParserOne<IAstSelection> _selection = parsers.ParserFor<IAstSelection>();
 
-  public IResultArray<IAstSelection> Parse(ITokenizer tokens, string label)
+  public IResultArray<IAstSelection> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     List<IAstSelection> fields = [];

@@ -4,9 +4,9 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema;
 
-internal class ParseNulls : Parser<NullAst>.IA
+internal class ParseNulls : IParserArray<NullAst>
 {
-  public IResultArray<NullAst> Parse(ITokenizer tokens, string label)
+  public IResultArray<NullAst> Parse([NotNull] ITokenizer tokens, string label)
 
     => 0.EmptyArray<NullAst>();
 
@@ -17,7 +17,7 @@ internal enum NullOption { }
 
 internal class ParseNullOption : IEnumParser<NullOption>, IOptionParser<NullOption>
 {
-  public IResult<NullOption> Parse(ITokenizer tokens, string label)
+  public IResult<NullOption> Parse([NotNull] ITokenizer tokens, string label)
 
     => default(NullOption).Empty();
 

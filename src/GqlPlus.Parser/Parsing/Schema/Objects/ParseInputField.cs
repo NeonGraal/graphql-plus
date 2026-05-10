@@ -9,7 +9,7 @@ internal class ParseInputField(
   IParserRepository parsers
 ) : ObjectFieldParser<IAstInputField, InputFieldAst>(parsers)
 {
-  private readonly Parser<IParserDefault, IAstConstant>.L _default = parsers.ParserFor<IParserDefault, IAstConstant>();
+  private readonly Parser<IParserDefault, IAstConstant> _default = parsers.ParserFor<IParserDefault, IAstConstant>();
 
   [ExcludeFromCodeCoverage]
   protected override void ApplyFieldParams(InputFieldAst field, IAstInputParam[] parameters)

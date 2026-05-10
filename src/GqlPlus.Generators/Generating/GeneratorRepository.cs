@@ -13,7 +13,7 @@ internal class GeneratorRepository(
 {
   private readonly ConcurrentDictionary<GqlpGeneratorType, IEnumerable<ITypeGenerator>> _typeGenerators = [];
 
-  public DeferOne<IGenerator<TAst>>.D GeneratorFor<TAst>([CallerMemberName] string callerName = "")
+  public Generator<TAst>.D GeneratorFor<TAst>([CallerMemberName] string callerName = "")
     where TAst : IAstError
     => () => Cached<TAst, IGenerator<TAst>>(builder.Generators, "generator for " + callerName, this);
 

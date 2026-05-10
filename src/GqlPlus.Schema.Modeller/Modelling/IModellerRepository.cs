@@ -5,7 +5,7 @@ namespace GqlPlus.Modelling;
 internal interface IModellerRepository
   : IRepository
 {
-  DeferOne<IModeller<TAst, TModel>>.D ModellerFor<TAst, TModel>([CallerMemberName] string callerName = "")
+  Modeller<TAst, TModel>.D ModellerFor<TAst, TModel>([CallerMemberName] string callerName = "")
     where TAst : IAstError
     where TModel : IModelBase;
 

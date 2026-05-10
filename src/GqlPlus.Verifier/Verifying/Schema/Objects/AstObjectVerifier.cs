@@ -12,7 +12,7 @@ internal class AstObjectVerifier<TObjField>(
 ) : AstParentItemVerifier<IAstObject<TObjField>, IAstObjBase, ObjectContext, TObjField>(verifiers)
   where TObjField : IAstObjField
 {
-  private readonly Matcher<IAstTypeArg>.L _constraintMatcher = verifiers.MatcherFor<IAstTypeArg>();
+  private readonly MatcherOne<IAstTypeArg> _constraintMatcher = verifiers.MatcherFor<IAstTypeArg>();
   private readonly DeferOne<IMerge<IAstAlternate>> _mergeAlternates = verifiers.MergerFor<IAstAlternate>();
 
   protected override void UsageValue(IAstObject<TObjField> usage, ObjectContext context)

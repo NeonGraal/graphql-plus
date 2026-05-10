@@ -6,10 +6,10 @@ namespace GqlPlus.Matching;
 internal class DomainMatcher(
   IMatcherRepository matchers
 ) : MatchTypeBase<IAstDomain>(matchers)
-  , Matcher<IAstDomain>.I
+  , IMatcher<IAstDomain>
   , ITypeMatcher
 {
-  private readonly Matcher<IAstEnum>.L _enumMatcher = matchers.MatcherFor<IAstEnum>();
+  private readonly MatcherOne<IAstEnum> _enumMatcher = matchers.MatcherFor<IAstEnum>();
 
   public override bool Matches(IAstDomain type, string constraint, EnumContext context)
   {

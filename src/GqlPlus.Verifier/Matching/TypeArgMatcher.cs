@@ -7,9 +7,9 @@ namespace GqlPlus.Matching;
 internal class TypeArgMatcher(
   IMatcherRepository matchers
 ) : MatchLogger(matchers)
-  , Matcher<IAstTypeArg>.I
+  , IMatcher<IAstTypeArg>
 {
-  private readonly Matcher<IAstType>.L _anyTypeMatcher = matchers.MatcherFor<IAstType>();
+  private readonly MatcherOne<IAstType> _anyTypeMatcher = matchers.MatcherFor<IAstType>();
 
   public bool Matches(IAstTypeArg arg, string constraint, EnumContext context)
   {

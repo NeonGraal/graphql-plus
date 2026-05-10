@@ -28,7 +28,7 @@ internal sealed class SchemaGeneratorChecks(
   , ISchemaGeneratorChecks
 {
   private readonly Defer<IMerge<IAstSchema>>.L _schemaMerger = mergers.MergerFor<IAstSchema>();
-  private readonly IGenerator<IAstSchema> _schemaGenerator = generators.GeneratorFor<IAstSchema>();
+  private readonly Defer<IGenerator<IAstSchema>>.L _schemaGenerator = generators.GeneratorFor<IAstSchema>();
 
   public string Generate_ForAsts(GqlpBaseType baseType, GqlpGeneratorType type, IEnumerable<IAstSchema> asts, string test, string label, string input = "")
   {
@@ -38,7 +38,7 @@ internal sealed class SchemaGeneratorChecks(
       new($"Components.{label}_{test}", baseType, type),
       new GqlpModelOptions("ComponentTests", "Cmpt"));
 
-    _schemaGenerator.Generate(schema, context);
+    _schemaGenerator.I.Generate(schema, context);
 
     string result = context.ToString();
     if (!string.IsNullOrWhiteSpace(result) && !string.IsNullOrWhiteSpace(input)) {

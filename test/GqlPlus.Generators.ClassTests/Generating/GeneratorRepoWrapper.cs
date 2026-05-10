@@ -21,11 +21,12 @@ internal sealed class GeneratorRepoWrapper(
     repo.WriteFactories("Generator", repoBuilder.AllFactories);
   }
 
-  public IGenerator<TAst> GeneratorFor<TAst>([CallerMemberName] string callerName = "")
+  public Defer<IGenerator<TAst>>.D GeneratorFor<TAst>([CallerMemberName] string callerName = "")
     where TAst : IAstError
     => AddRelationship<TAst>(callerName)
       .GeneratorFor<TAst>(callerName);
-  public IEnumerable<ITypeGenerator> TypeGenerators(GqlpGeneratorType generatorType, [CallerMemberName] string callerName = "")
+
+  public Defer<ITypeGenerator>.DA TypeGenerators(GqlpGeneratorType generatorType, [CallerMemberName] string callerName = "")
     => AddRelationship<ITypeGenerator>(callerName)
       .TypeGenerators(generatorType, callerName);
 }

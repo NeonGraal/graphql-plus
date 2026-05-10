@@ -6,8 +6,8 @@ namespace GqlPlus.Generating;
 internal interface IGeneratorRepository
   : IRepository
 {
-  IGenerator<TAst> GeneratorFor<TAst>([CallerMemberName] string callerName = "")
+  Defer<IGenerator<TAst>>.D GeneratorFor<TAst>([CallerMemberName] string callerName = "")
     where TAst : IAstError;
 
-  IEnumerable<ITypeGenerator> TypeGenerators(GqlpGeneratorType generatorType, [CallerMemberName] string callerName = "");
+  Defer<ITypeGenerator>.DA TypeGenerators(GqlpGeneratorType generatorType, [CallerMemberName] string callerName = "");
 }

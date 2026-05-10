@@ -23,7 +23,10 @@ public class SchemaGeneratorTests
 
   private void GeneratorForReturns<T>(IGenerator<T> result)
     where T : IAstError
-    => _generators.GeneratorFor<T>().ReturnsForAnyArgs(result);
+  {
+    Defer<IGenerator<T>>.D factory = () => result;
+    _generators.GeneratorFor<T>().ReturnsForAnyArgs(factory);
+  }
 
   [Theory, RepeatData]
   public void Generate_WithValidSchema_CallsGeneratorsInOrder(string typeName)
@@ -36,7 +39,8 @@ public class SchemaGeneratorTests
 
     ITypeGenerator typeGenerator = A.Of<ITypeGenerator>();
     typeGenerator.ForType(type).Returns(true);
-    _generators.TypeGenerators(GqlpGeneratorType.Model, Arg.Any<string>()).Returns([typeGenerator]);
+    Defer<ITypeGenerator>.DA factory = () => [typeGenerator];
+    _generators.TypeGenerators(GqlpGeneratorType.Model, Arg.Any<string>()).Returns(factory);
 
     // Act
     _generator.Generate(schema, context);
@@ -56,7 +60,8 @@ public class SchemaGeneratorTests
 
     ITypeGenerator typeGenerator = A.Of<ITypeGenerator>();
     typeGenerator.ForType(type).Returns(true);
-    _generators.TypeGenerators(GqlpGeneratorType.Interface, Arg.Any<string>()).Returns([typeGenerator]);
+    Defer<ITypeGenerator>.DA factory = () => [typeGenerator];
+    _generators.TypeGenerators(GqlpGeneratorType.Interface, Arg.Any<string>()).Returns(factory);
 
     // Act & Assert
     Should.NotThrow(() => _generator.Generate(schema, context));

@@ -7,7 +7,7 @@ internal abstract class GroupedVerifier<TAliased> : IVerifyAliased<TAliased>
   where TAliased : IAstAliased
 {
   private readonly ILogger _logger;
-  private readonly DeferOne<IMerge<TAliased>> _merger;
+  private readonly MergerOne<TAliased> _merger;
 
   protected GroupedVerifier(IVerifierRepository verifiers)
   {
@@ -47,7 +47,7 @@ internal abstract class GroupedVerifier<TAliased> : IVerifyAliased<TAliased>
 
       _logger.VerifyingWithDefinitions(item.Key, item.Value.Length);
 
-      IMessages failures = _merger.I.CanMerge(item.Value);
+      IMessages failures = _merger.CanMerge(item.Value);
       if (failures.Any()) {
         errors.Add(item.Value.Last().MakeError($"Multiple {Label} with name '{item.Key}' can't be merged."));
         errors.Add(failures);

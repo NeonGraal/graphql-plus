@@ -8,7 +8,7 @@ internal class AstDomainVerifier<TItem>(
 ) : IVerifyDomain
   where TItem : IAstDomainItem
 {
-  private readonly DeferOne<IMerge<TItem>> _items = verifiers.MergerFor<TItem>();
+  private readonly MergerOne<TItem> _items = verifiers.MergerFor<TItem>();
 
   public IMessages CanMergeItems(IAstDomain usage, EnumContext context)
   {
@@ -29,7 +29,7 @@ internal class AstDomainVerifier<TItem>(
   { }
 
   protected virtual IMessages CanMergeDomain(IAstDomain<TItem> domain, IAstDomain<TItem> domainParent, EnumContext context)
-    => _items.I.CanMerge(domainParent.Items.Concat(domain.Items));
+    => _items.CanMerge(domainParent.Items.Concat(domain.Items));
 
   internal static AstDomainVerifier<TItem> Factory(IVerifierRepository v) => new(v);
 }

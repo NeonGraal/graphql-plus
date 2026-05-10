@@ -1,4 +1,4 @@
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Matching;
 using GqlPlus.Merging;
@@ -13,7 +13,7 @@ internal class AstObjectVerifier<TObjField>(
   where TObjField : IAstObjField
 {
   private readonly MatcherOne<IAstTypeArg> _constraintMatcher = verifiers.MatcherFor<IAstTypeArg>();
-  private readonly DeferOne<IMerge<IAstAlternate>> _mergeAlternates = verifiers.MergerFor<IAstAlternate>();
+  private readonly MergerOne<IAstAlternate> _mergeAlternates = verifiers.MergerFor<IAstAlternate>();
 
   protected override void UsageValue(IAstObject<TObjField> usage, ObjectContext context)
   {
@@ -325,7 +325,7 @@ internal class AstObjectVerifier<TObjField>(
 
     IAstAlternate[] alternates = [.. GetParentItems(input, input.Usage, context, ast => ast.Alternates)];
     if (alternates.Length > 0) {
-      IMessages failures = _mergeAlternates.I.CanMerge(alternates);
+      IMessages failures = _mergeAlternates.CanMerge(alternates);
       if (failures.Any()) {
         context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} alternates into Parent {input.Current} alternates");
         context.Add(failures);

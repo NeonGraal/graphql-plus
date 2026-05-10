@@ -128,7 +128,7 @@ public class GqlpGenerator : IIncrementalGenerator
       .BuildServiceProvider();
 
     ParserOne<IAstSchema> schemaParser = services.GetRequiredService<IParserRepository>().ParserFor<IAstSchema>();
-    DeferOne<IMerge<IAstSchema>> schemaMerger = services.GetRequiredService<IMergerRepository>().MergerFor<IAstSchema>();
+    MergerOne<IAstSchema> schemaMerger = services.GetRequiredService<IMergerRepository>().MergerFor<IAstSchema>();
     DeferOne<IGenerator<IAstSchema>> schemaGenerator = services.GetRequiredService<IGeneratorRepository>().GeneratorFor<IAstSchema>();
 
     Map<IAstSchema> schemas = [];
@@ -142,7 +142,7 @@ public class GqlpGenerator : IIncrementalGenerator
       string path = Path.GetFullPath(text.Path);
       Tokenizer tokens = new(lines);
       IAstSchema parsed = schemaParser.Parse(tokens, "Schema").Required();
-      schemas[path] = schemaMerger.I.Merge([parsed]).Single();
+      schemas[path] = schemaMerger.Merge([parsed]).Single();
     }
 
     foreach (string path in schemas.Keys) {

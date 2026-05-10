@@ -18,7 +18,7 @@ internal class CmptGnrcPrntStrDomOutpEncoder(
 {
   private readonly Encoder<ICmptFieldGnrcPrntStrDomOutpObject<ICmptDomGnrcPrntStrDomOutp>> _fieldGnrcPrntStrDomOutp = encoders.EncoderFor<ICmptFieldGnrcPrntStrDomOutpObject<ICmptDomGnrcPrntStrDomOutp>>();
   public Structured Encode(ICmptGnrcPrntStrDomOutpObject input)
-    => _fieldGnrcPrntStrDomOutp.I.Encode(input);
+    => _fieldGnrcPrntStrDomOutp.Encode(input);
 
   internal static CmptGnrcPrntStrDomOutpEncoder Factory(IEncoderRepository r) => new(r);
 }

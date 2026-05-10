@@ -46,7 +46,7 @@ internal class Cmpt_ModifierKeyedEncoder<TModifierKind>(
   private readonly Encoder<ICmpt_ModifierObject<TModifierKind>> _modifier = encoders.EncoderFor<ICmpt_ModifierObject<TModifierKind>>();
   private readonly Encoder<ICmpt_TypeSimple> _typeSimple = encoders.EncoderFor<ICmpt_TypeSimple>();
   public Structured Encode(ICmpt_ModifierKeyedObject<TModifierKind> input)
-    => _modifier.I.Encode(input)
+    => _modifier.Encode(input)
       .AddEncoded("by", input.By, _typeSimple)
       .Add("isOptional", input.IsOptional.Encode());
 }

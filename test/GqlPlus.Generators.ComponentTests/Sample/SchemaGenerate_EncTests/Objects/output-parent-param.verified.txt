@@ -21,7 +21,7 @@ internal class CmptOutpPrntParamEncoder(
   private readonly Encoder<ICmptPrntOutpPrntParamObject> _prntOutpPrntParam = encoders.EncoderFor<ICmptPrntOutpPrntParamObject>();
   private readonly Encoder<ICmptFldOutpPrntParam> _fldOutpPrntParam = encoders.EncoderFor<ICmptFldOutpPrntParam>();
   public Structured Encode(ICmptOutpPrntParamObject input)
-    => _prntOutpPrntParam.I.Encode(input)
+    => _prntOutpPrntParam.Encode(input)
       .AddEncoded("field", input.Field(), _fldOutpPrntParam);
 
   internal static CmptOutpPrntParamEncoder Factory(IEncoderRepository r) => new(r);

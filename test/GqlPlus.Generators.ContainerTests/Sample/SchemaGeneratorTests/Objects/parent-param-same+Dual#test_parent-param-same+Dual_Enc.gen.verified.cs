@@ -14,7 +14,7 @@ internal class testPrntParamSameDualEncoder<TA>(
   private readonly Encoder<ItestRefPrntParamSameDualObject<TA>> _itestRefPrntParamSameDual = encoders.EncoderFor<ItestRefPrntParamSameDualObject<TA>>();
   private readonly Encoder<TA> _a = encoders.EncoderFor<TA>();
   public Structured Encode(ItestPrntParamSameDualObject<TA> input)
-    => _itestRefPrntParamSameDual.I.Encode(input)
+    => _itestRefPrntParamSameDual.Encode(input)
       .AddEncoded("field", input.Field, _a);
 }
 

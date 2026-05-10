@@ -26,8 +26,8 @@ public static class AllModellers
       .AddModeller<IAstFieldKey, SimpleModel>(SimpleModeller.Factory)
       .AddModeller<IAstConstant, ConstantModel>(ConstantModeller.Factory)
       .AddModifierModeller(ModifierModeller.Factory)
-      .AddModeller<IAstModifier, ModifierModel>(r => ((DeferOne<IModifierModeller>)r.ModifierModeller()).I)
-      .AddModeller<IAstModifier, CollectionModel>(r => ((DeferOne<IModifierModeller>)r.ModifierModeller()).I)
+      .AddModeller<IAstModifier, ModifierModel>(ModifierModeller.Existing)
+      .AddModeller<IAstModifier, CollectionModel>(ModifierModeller.Existing)
       // Schema
       .AddModeller<IAstSchema, SchemaModel>(SchemaModeller.Factory)
       .AddModeller<IAstSchemaCategory, CategoryModel>(CategoryModeller.Factory)

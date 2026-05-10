@@ -19,7 +19,7 @@ internal class CmptGnrcPrntEnumPrntDualEncoder(
 {
   private readonly Encoder<ICmptFieldGnrcPrntEnumPrntDualObject<CmptEnumGnrcPrntEnumPrntDual>> _fieldGnrcPrntEnumPrntDual = encoders.EncoderFor<ICmptFieldGnrcPrntEnumPrntDualObject<CmptEnumGnrcPrntEnumPrntDual>>();
   public Structured Encode(ICmptGnrcPrntEnumPrntDualObject input)
-    => _fieldGnrcPrntEnumPrntDual.I.Encode(input);
+    => _fieldGnrcPrntEnumPrntDual.Encode(input);
 
   internal static CmptGnrcPrntEnumPrntDualEncoder Factory(IEncoderRepository r) => new(r);
 }

@@ -45,7 +45,7 @@ internal sealed class ManyChecksParser<TInterface, TResult>(
 
   public void TrueExpected(string input, params TResult[] expected)
   {
-    IResultArray<TResult> result = _parser.I.Parse(Tokens(input), _type);
+    IResultArray<TResult> result = _parser.Parse(Tokens(input), _type);
 
     result.ShouldSatisfyAllConditions(_type,
       r => r.IsOk().ShouldBeTrue(),
@@ -54,14 +54,14 @@ internal sealed class ManyChecksParser<TInterface, TResult>(
 
   public void FalseExpected(string input)
   {
-    IResultArray<TResult> result = _parser.I.Parse(Tokens(input), _type);
+    IResultArray<TResult> result = _parser.Parse(Tokens(input), _type);
 
     result.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).ShouldBeTrue(_type);
   }
 
   public void Count(string input, int count)
   {
-    IResultArray<TResult> result = _parser.I.Parse(Tokens(input), _type);
+    IResultArray<TResult> result = _parser.Parse(Tokens(input), _type);
 
     result.ShouldSatisfyAllConditions(_type,
       r => r.IsOk().ShouldBeTrue(),

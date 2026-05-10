@@ -13,7 +13,7 @@ internal class testPrntFieldOutpEncoder(
 {
   private readonly Encoder<ItestRefPrntFieldOutpObject> _itestRefPrntFieldOutp = encoders.EncoderFor<ItestRefPrntFieldOutpObject>();
   public Structured Encode(ItestPrntFieldOutpObject input)
-    => _itestRefPrntFieldOutp.I.Encode(input)
+    => _itestRefPrntFieldOutp.Encode(input)
       .Add("field", input.Field.Encode());
 
   internal static testPrntFieldOutpEncoder Factory(IEncoderRepository r) => new(r);

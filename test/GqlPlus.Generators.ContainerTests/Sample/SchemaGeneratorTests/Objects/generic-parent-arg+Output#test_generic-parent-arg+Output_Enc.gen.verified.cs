@@ -13,7 +13,7 @@ internal class testGnrcPrntArgOutpEncoder<TType>(
 {
   private readonly Encoder<ItestRefGnrcPrntArgOutpObject<TType>> _itestRefGnrcPrntArgOutp = encoders.EncoderFor<ItestRefGnrcPrntArgOutpObject<TType>>();
   public Structured Encode(ItestGnrcPrntArgOutpObject<TType> input)
-    => _itestRefGnrcPrntArgOutp.I.Encode(input);
+    => _itestRefGnrcPrntArgOutp.Encode(input);
 }
 
 internal class testRefGnrcPrntArgOutpEncoder<TRef> : IEncoder<ItestRefGnrcPrntArgOutpObject<TRef>>

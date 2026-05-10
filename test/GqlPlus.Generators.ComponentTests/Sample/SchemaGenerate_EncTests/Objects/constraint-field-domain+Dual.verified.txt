@@ -18,7 +18,7 @@ internal class CmptCnstFieldDmnDualEncoder(
 {
   private readonly Encoder<ICmptRefCnstFieldDmnDualObject<ICmptDomCnstFieldDmnDual>> _refCnstFieldDmnDual = encoders.EncoderFor<ICmptRefCnstFieldDmnDualObject<ICmptDomCnstFieldDmnDual>>();
   public Structured Encode(ICmptCnstFieldDmnDualObject input)
-    => _refCnstFieldDmnDual.I.Encode(input);
+    => _refCnstFieldDmnDual.Encode(input);
 
   internal static CmptCnstFieldDmnDualEncoder Factory(IEncoderRepository r) => new(r);
 }

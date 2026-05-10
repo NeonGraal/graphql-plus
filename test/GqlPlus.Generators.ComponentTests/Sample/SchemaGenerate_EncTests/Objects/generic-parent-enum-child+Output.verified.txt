@@ -19,7 +19,7 @@ internal class CmptGnrcPrntEnumChildOutpEncoder(
 {
   private readonly Encoder<ICmptFieldGnrcPrntEnumChildOutpObject<CmptParentGnrcPrntEnumChildOutp>> _fieldGnrcPrntEnumChildOutp = encoders.EncoderFor<ICmptFieldGnrcPrntEnumChildOutpObject<CmptParentGnrcPrntEnumChildOutp>>();
   public Structured Encode(ICmptGnrcPrntEnumChildOutpObject input)
-    => _fieldGnrcPrntEnumChildOutp.I.Encode(input);
+    => _fieldGnrcPrntEnumChildOutp.Encode(input);
 
   internal static CmptGnrcPrntEnumChildOutpEncoder Factory(IEncoderRepository r) => new(r);
 }

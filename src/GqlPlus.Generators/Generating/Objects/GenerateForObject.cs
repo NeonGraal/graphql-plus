@@ -201,7 +201,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
 
   private static string GetStartEncodeExpression(string? parentVarName)
     => parentVarName is not null
-      ? $"{parentVarName}.I.Encode(input)"
+      ? $"{parentVarName}.Encode(input)"
       : "Structured.Empty()";
 
   private static void WriteEncodeExpression(GqlpGeneratorContext context, List<string> encodeParts)

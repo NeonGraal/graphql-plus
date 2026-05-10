@@ -61,13 +61,12 @@ public class DocumentSchemaTests(
     IMap<BaseTypeModel> outputs = Just<TypeOutputModel>();
 
     Structured groups = "".Encode()
-      .AddMap("Domain", domains, Types.I, "_Type")
-      .AddMap("Enum", enums, Types.I, "_Type")
-      .AddMap("Union", unions, Types.I, "_Type")
-      .AddMap("Dual", duals, Types.I, "_Type")
-      .AddMap("Input", inputs, Types.I, "_Type")
-      .AddMap("Output", outputs, Types.I, "_Type");
-
+      .AddMap("Domain", domains, Types, "_Type")
+      .AddMap("Enum", enums, Types, "_Type")
+      .AddMap("Union", unions, Types, "_Type")
+      .AddMap("Dual", duals, Types, "_Type")
+      .AddMap("Input", inputs, Types, "_Type")
+      .AddMap("Output", outputs, Types, "_Type");
     IEnumerable<CategoryModel> categories = model.GetCategories(null).Values.Select(c => c.And).Where(c => c is not null).Cast<CategoryModel>();
     IEnumerable<DirectiveModel> directives = model.GetDirectives(null).Values.Select(c => c.And).Where(c => c is not null).Cast<DirectiveModel>();
     ICollection<SettingModel> settings = model.GetSettings(null).Values;

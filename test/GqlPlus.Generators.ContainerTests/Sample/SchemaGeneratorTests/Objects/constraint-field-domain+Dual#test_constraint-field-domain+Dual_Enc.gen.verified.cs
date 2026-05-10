@@ -13,7 +13,7 @@ internal class testCnstFieldDmnDualEncoder(
 {
   private readonly Encoder<ItestRefCnstFieldDmnDualObject<ItestDomCnstFieldDmnDual>> _itestRefCnstFieldDmnDual = encoders.EncoderFor<ItestRefCnstFieldDmnDualObject<ItestDomCnstFieldDmnDual>>();
   public Structured Encode(ItestCnstFieldDmnDualObject input)
-    => _itestRefCnstFieldDmnDual.I.Encode(input);
+    => _itestRefCnstFieldDmnDual.Encode(input);
 
   internal static testCnstFieldDmnDualEncoder Factory(IEncoderRepository r) => new(r);
 }

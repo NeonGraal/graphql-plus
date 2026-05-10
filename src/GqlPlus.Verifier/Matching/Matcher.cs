@@ -14,7 +14,7 @@ public class Matcher<T>(
   , IMatcher<T>
 {
   public bool Matches(T type, string constraint, EnumContext context)
-    => I.Matches(type, constraint, context);
+    => Value.Matches(type, constraint, context);
 
   public static implicit operator Matcher<T>(D factory)
     => new(factory.ThrowIfNull());

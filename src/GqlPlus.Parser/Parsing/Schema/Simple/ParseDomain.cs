@@ -94,7 +94,7 @@ internal class ParseDomainDefinition(
       return tokens.Error(label, "parent type after ':'", result);
     }
 
-    IResult<DomainKind> domainKind = _kind.I.Parse(tokens, label);
+    IResult<DomainKind> domainKind = _kind.Parse(tokens, label);
     if (!domainKind.Required(kind => result.Kind = kind)) {
       return result.Partial(domainKind.Message());
     } else {

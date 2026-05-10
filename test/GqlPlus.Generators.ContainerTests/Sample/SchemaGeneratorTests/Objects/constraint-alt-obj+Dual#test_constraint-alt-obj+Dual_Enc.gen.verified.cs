@@ -35,7 +35,7 @@ internal class testAltCnstAltObjDualEncoder(
 {
   private readonly Encoder<ItestPrntCnstAltObjDualObject> _itestPrntCnstAltObjDual = encoders.EncoderFor<ItestPrntCnstAltObjDualObject>();
   public Structured Encode(ItestAltCnstAltObjDualObject input)
-    => _itestPrntCnstAltObjDual.I.Encode(input)
+    => _itestPrntCnstAltObjDual.Encode(input)
       .Add("alt", input.Alt.Encode());
 
   internal static testAltCnstAltObjDualEncoder Factory(IEncoderRepository r) => new(r);

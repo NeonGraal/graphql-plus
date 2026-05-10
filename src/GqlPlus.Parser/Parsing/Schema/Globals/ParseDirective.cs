@@ -53,7 +53,7 @@ internal class ParseDirectiveDefinition(
     DirectiveLocation locations = DirectiveLocation.None;
 
     while (!tokens.Take('}')) {
-      IResult<DirectiveLocation> directiveLocation = _location.I.Parse(tokens, label);
+      IResult<DirectiveLocation> directiveLocation = _location.Parse(tokens, label);
       if (!directiveLocation.Required(value => locations |= value)) {
         return tokens.Partial(label, "location", () => locations);
       }

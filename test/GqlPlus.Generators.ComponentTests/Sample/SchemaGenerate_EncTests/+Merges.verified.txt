@@ -470,7 +470,7 @@ internal class CmptObjPrntDualEncoder(
 {
   private readonly Encoder<ICmptRefObjPrntDualObject> _refObjPrntDual = encoders.EncoderFor<ICmptRefObjPrntDualObject>();
   public Structured Encode(ICmptObjPrntDualObject input)
-    => _refObjPrntDual.I.Encode(input);
+    => _refObjPrntDual.Encode(input);
 
   internal static CmptObjPrntDualEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -489,7 +489,7 @@ internal class CmptObjPrntOutpEncoder(
 {
   private readonly Encoder<ICmptRefObjPrntOutpObject> _refObjPrntOutp = encoders.EncoderFor<ICmptRefObjPrntOutpObject>();
   public Structured Encode(ICmptObjPrntOutpObject input)
-    => _refObjPrntOutp.I.Encode(input);
+    => _refObjPrntOutp.Encode(input);
 
   internal static CmptObjPrntOutpEncoder Factory(IEncoderRepository r) => new(r);
 }

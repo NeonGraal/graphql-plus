@@ -15,7 +15,7 @@ internal class Generator<TAst>(
   where TAst : IAstError
 {
   public void Generate(TAst ast, GqlpGeneratorContext context)
-    => I.Generate(ast, context);
+    => Value.Generate(ast, context);
 
   public static implicit operator Generator<TAst>(D factory)
     => new(factory.ThrowIfNull());

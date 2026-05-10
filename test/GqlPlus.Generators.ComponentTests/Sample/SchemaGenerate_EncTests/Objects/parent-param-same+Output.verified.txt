@@ -18,7 +18,7 @@ internal class CmptPrntParamSameOutpEncoder<TA>(
   private readonly Encoder<ICmptRefPrntParamSameOutpObject<TA>> _refPrntParamSameOutp = encoders.EncoderFor<ICmptRefPrntParamSameOutpObject<TA>>();
   private readonly Encoder<TA> _a = encoders.EncoderFor<TA>();
   public Structured Encode(ICmptPrntParamSameOutpObject<TA> input)
-    => _refPrntParamSameOutp.I.Encode(input)
+    => _refPrntParamSameOutp.Encode(input)
       .AddEncoded("field", input.Field, _a);
 }
 

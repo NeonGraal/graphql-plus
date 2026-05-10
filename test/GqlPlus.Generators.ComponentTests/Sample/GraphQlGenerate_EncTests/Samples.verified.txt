@@ -169,7 +169,7 @@ internal class CmptFullUserEncoder(
   private readonly Encoder<ICmptUserObject> _user = encoders.EncoderFor<ICmptUserObject>();
   private readonly Encoder<ICmptUserList> _userList = encoders.EncoderFor<ICmptUserList>();
   public Structured Encode(ICmptFullUserObject input)
-    => _user.I.Encode(input)
+    => _user.Encode(input)
       .Add("profilePic", input.ProfilePic().Encode())
       .AddEncoded("friends", input.Friends(), _userList)
       .AddEncoded("mutualFriends", input.MutualFriends(), _userList);
@@ -243,7 +243,7 @@ internal class CmptProfileEncoder(
 {
   private readonly Encoder<ICmptUserObject> _user = encoders.EncoderFor<ICmptUserObject>();
   public Structured Encode(ICmptProfileObject input)
-    => _user.I.Encode(input)
+    => _user.Encode(input)
       .Add("handle", input.Handle.Encode());
 
   internal static CmptProfileEncoder Factory(IEncoderRepository r) => new(r);

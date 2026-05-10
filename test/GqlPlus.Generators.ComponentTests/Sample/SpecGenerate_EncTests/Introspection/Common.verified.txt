@@ -69,7 +69,7 @@ internal class Cmpt_BaseTypeEncoder<TTypeKind>(
   private readonly Encoder<ICmpt_AliasedObject> _aliased = encoders.EncoderFor<ICmpt_AliasedObject>();
   private readonly Encoder<TTypeKind> _typeKind = encoders.EncoderFor<TTypeKind>();
   public Structured Encode(ICmpt_BaseTypeObject<TTypeKind> input)
-    => _aliased.I.Encode(input)
+    => _aliased.Encode(input)
       .AddEncoded("typeKind", input.TypeKind, _typeKind);
 }
 
@@ -80,7 +80,7 @@ internal class Cmpt_ChildTypeEncoder<TTypeKind,TParent>(
   private readonly Encoder<ICmpt_BaseTypeObject<TTypeKind>> _baseType = encoders.EncoderFor<ICmpt_BaseTypeObject<TTypeKind>>();
   private readonly Encoder<TParent> _parent = encoders.EncoderFor<TParent>();
   public Structured Encode(ICmpt_ChildTypeObject<TTypeKind,TParent> input)
-    => _baseType.I.Encode(input)
+    => _baseType.Encode(input)
       .AddEncoded("parent", input.Parent, _parent);
 }
 
@@ -92,7 +92,7 @@ internal class Cmpt_ParentTypeEncoder<TTypeKind,TItem,TAllItem>(
   private readonly Encoder<TItem> _item = encoders.EncoderFor<TItem>();
   private readonly Encoder<TAllItem> _allItem = encoders.EncoderFor<TAllItem>();
   public Structured Encode(ICmpt_ParentTypeObject<TTypeKind,TItem,TAllItem> input)
-    => _childType.I.Encode(input)
+    => _childType.Encode(input)
       .AddList("items", input.Items, _item)
       .AddList("allItems", input.AllItems, _allItem);
 }
@@ -120,7 +120,7 @@ internal class Cmpt_TypeRefEncoder<TTypeKind>(
   private readonly Encoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
   private readonly Encoder<TTypeKind> _typeKind = encoders.EncoderFor<TTypeKind>();
   public Structured Encode(ICmpt_TypeRefObject<TTypeKind> input)
-    => _named.I.Encode(input)
+    => _named.Encode(input)
       .AddEncoded("typeKind", input.TypeKind, _typeKind);
 }
 

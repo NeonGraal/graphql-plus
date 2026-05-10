@@ -13,7 +13,7 @@ internal class ParseModifiers(
 
   {
     List<IAstModifier> list = [];
-    IResultArray<IAstModifier> collections = _collections.I.Parse(tokens, label);
+    IResultArray<IAstModifier> collections = _collections.Parse(tokens, label);
 
     if (!collections.Optional(list.AddRange)) {
       return collections.AsResultArray<IAstModifier>();

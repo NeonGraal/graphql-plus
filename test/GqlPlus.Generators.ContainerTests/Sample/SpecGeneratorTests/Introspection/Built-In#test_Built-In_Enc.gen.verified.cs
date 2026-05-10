@@ -22,7 +22,7 @@ internal class test_ModifierKeyedEncoder<TModifierKind>(
   private readonly Encoder<Itest_ModifierObject<TModifierKind>> _itest_Modifier = encoders.EncoderFor<Itest_ModifierObject<TModifierKind>>();
   private readonly Encoder<Itest_TypeSimple> _itest_TypeSimple = encoders.EncoderFor<Itest_TypeSimple>();
   public Structured Encode(Itest_ModifierKeyedObject<TModifierKind> input)
-    => _itest_Modifier.I.Encode(input)
+    => _itest_Modifier.Encode(input)
       .AddEncoded("by", input.By, _itest_TypeSimple)
       .Add("isOptional", input.IsOptional.Encode());
 }

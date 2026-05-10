@@ -40,7 +40,7 @@ internal class ParseOperation(
       return value;
     }
 
-    _endFragments.I.Parse(tokens, label).WithResult(value =>
+    _endFragments.Parse(tokens, label).WithResult(value =>
       ast.Fragments = [.. ast.Fragments.Concat(value)]);
 
     if (tokens.AtEnd) {
@@ -60,7 +60,7 @@ internal class ParseOperation(
 
     if (!string.IsNullOrWhiteSpace(result)) {
       ast.ResultType = result;
-      IResult<IAstArg> argument = _argument.I.Parse(tokens, "Arg");
+      IResult<IAstArg> argument = _argument.Parse(tokens, "Arg");
       if (!argument.Optional(arg => ast.Arg = arg)) {
         return argument.AsPartial(Final(tokens, ast));
       }
@@ -88,7 +88,7 @@ internal class ParseOperation(
 
     _directives.Parse(tokens, label).Required(directives => ast.Directives = [.. directives]);
 
-    _startFragments.I.Parse(tokens, label).WithResult(frags => ast.Fragments = [.. frags]);
+    _startFragments.Parse(tokens, label).WithResult(frags => ast.Fragments = [.. frags]);
     return null;
   }
 

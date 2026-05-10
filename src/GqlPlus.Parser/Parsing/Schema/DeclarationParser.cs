@@ -42,7 +42,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
       return tokens.Partial(label, "'{' before definition", () => ToResult(partial));
     }
 
-    IResult<TOption> option = _option.I.Parse(tokens, label);
+    IResult<TOption> option = _option.Parse(tokens, label);
     if (!option.Optional(value => partial.Option = value)) {
       return option.AsPartial(ToResult(partial));
     }

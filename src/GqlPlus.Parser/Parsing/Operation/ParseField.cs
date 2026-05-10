@@ -32,7 +32,7 @@ internal class ParseField(
       result = new FieldAst(at, name) { FieldAlias = alias };
     }
 
-    _argument.I.Parse(tokens, "Arg").Required(argument => result.Arg = argument);
+    _argument.Parse(tokens, "Arg").Required(argument => result.Arg = argument);
 
     IResultArray<IAstModifier> modifiers = _modifiers.Parse(tokens, label);
     if (!modifiers.Optional(value => result.Modifiers = [.. value])) {

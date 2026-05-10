@@ -37,7 +37,7 @@ internal class ParseInputParams(
       }
 
       modifiers.Optional(value => parameter.Modifiers = value.ArrayOf<ModifierAst>());
-      IResult<IAstConstant> constant = _default.I.Parse(tokens, "Default");
+      IResult<IAstConstant> constant = _default.Parse(tokens, "Default");
       if (constant.IsError()) {
         return constant.AsResultArray(list);
       }

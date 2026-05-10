@@ -13,7 +13,7 @@ internal class testGnrcPrntParamPrntOutpEncoder(
 {
   private readonly Encoder<ItestRefGnrcPrntParamPrntOutpObject<ItestAltGnrcPrntParamPrntOutp>> _itestRefGnrcPrntParamPrntOutp = encoders.EncoderFor<ItestRefGnrcPrntParamPrntOutpObject<ItestAltGnrcPrntParamPrntOutp>>();
   public Structured Encode(ItestGnrcPrntParamPrntOutpObject input)
-    => _itestRefGnrcPrntParamPrntOutp.I.Encode(input);
+    => _itestRefGnrcPrntParamPrntOutp.Encode(input);
 
   internal static testGnrcPrntParamPrntOutpEncoder Factory(IEncoderRepository r) => new(r);
 }

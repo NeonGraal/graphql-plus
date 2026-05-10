@@ -13,7 +13,7 @@ internal class test_SchemaEncoder(
 {
   private readonly Encoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
   public Structured Encode(Itest_SchemaObject input)
-    => _itest_Named.I.Encode(input);
+    => _itest_Named.Encode(input);
 
   internal static test_SchemaEncoder Factory(IEncoderRepository r) => new(r);
 }

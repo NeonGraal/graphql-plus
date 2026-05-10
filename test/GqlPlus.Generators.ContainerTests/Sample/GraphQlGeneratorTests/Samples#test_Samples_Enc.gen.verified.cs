@@ -68,7 +68,7 @@ internal class testFullUserEncoder(
   private readonly Encoder<ItestUserObject> _itestUser = encoders.EncoderFor<ItestUserObject>();
   private readonly Encoder<ItestUserList> _itestUserList = encoders.EncoderFor<ItestUserList>();
   public Structured Encode(ItestFullUserObject input)
-    => _itestUser.I.Encode(input)
+    => _itestUser.Encode(input)
       .Add("profilePic", input.ProfilePic().Encode())
       .AddEncoded("friends", input.Friends(), _itestUserList)
       .AddEncoded("mutualFriends", input.MutualFriends(), _itestUserList);
@@ -142,7 +142,7 @@ internal class testProfileEncoder(
 {
   private readonly Encoder<ItestUserObject> _itestUser = encoders.EncoderFor<ItestUserObject>();
   public Structured Encode(ItestProfileObject input)
-    => _itestUser.I.Encode(input)
+    => _itestUser.Encode(input)
       .Add("handle", input.Handle.Encode());
 
   internal static testProfileEncoder Factory(IEncoderRepository r) => new(r);

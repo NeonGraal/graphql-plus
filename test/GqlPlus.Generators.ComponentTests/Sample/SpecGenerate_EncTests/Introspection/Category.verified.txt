@@ -30,7 +30,7 @@ internal class Cmpt_CategoriesEncoder(
   private readonly Encoder<ICmpt_AndTypeObject> _andType = encoders.EncoderFor<ICmpt_AndTypeObject>();
   private readonly Encoder<ICmpt_Category> _category = encoders.EncoderFor<ICmpt_Category>();
   public Structured Encode(ICmpt_CategoriesObject input)
-    => _andType.I.Encode(input)
+    => _andType.Encode(input)
       .AddEncoded("category", input.Category, _category);
 
   internal static Cmpt_CategoriesEncoder Factory(IEncoderRepository r) => new(r);
@@ -44,7 +44,7 @@ internal class Cmpt_CategoryEncoder(
   private readonly Encoder<ICmpt_TypeRef<ICmpt_TypeKind>> _typeRef = encoders.EncoderFor<ICmpt_TypeRef<ICmpt_TypeKind>>();
   private readonly Encoder<ICmpt_Modifiers> _modifiers = encoders.EncoderFor<ICmpt_Modifiers>();
   public Structured Encode(ICmpt_CategoryObject input)
-    => _aliased.I.Encode(input)
+    => _aliased.Encode(input)
       .AddEnum("resolution", input.Resolution)
       .AddEncoded("output", input.Output, _typeRef)
       .AddList("modifiers", input.Modifiers, _modifiers);

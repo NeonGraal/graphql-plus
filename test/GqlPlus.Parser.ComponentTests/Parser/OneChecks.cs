@@ -74,7 +74,7 @@ internal sealed class OneChecksParser<TInterface, TResult>(
   public void TrueExpected(string input, TResult expected)
   {
     ITokenizer tokens = Tokens(input);
-    IResult<TResult> result = _parser.I.Parse(tokens, "Test");
+    IResult<TResult> result = _parser.Parse(tokens, "Test");
 
     result.ShouldSatisfyAllConditions(_type + " -> " + input,
       r => r.IsOk().ShouldBeTrue(),
@@ -84,7 +84,7 @@ internal sealed class OneChecksParser<TInterface, TResult>(
 
   public void FalseExpected(string input, Action<TResult?>? check = null)
   {
-    IResult<TResult> result = _parser.I.Parse(Tokens(input), "Test");
+    IResult<TResult> result = _parser.Parse(Tokens(input), "Test");
 
     result.ShouldSatisfyAllConditions(_type + " -> " + input,
       r => r.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).ShouldBeTrue(),
@@ -94,7 +94,7 @@ internal sealed class OneChecksParser<TInterface, TResult>(
   public void EmptyResult(string input)
   {
     ITokenizer tokens = Tokens(input);
-    IResult<TResult> result = _parser.I.Parse(tokens, "Test");
+    IResult<TResult> result = _parser.Parse(tokens, "Test");
 
     result.ShouldSatisfyAllConditions(_type + " -> " + input,
       r => r.IsEmpty().ShouldBeTrue(),

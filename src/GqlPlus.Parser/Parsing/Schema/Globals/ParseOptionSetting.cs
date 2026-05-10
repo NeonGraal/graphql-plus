@@ -19,7 +19,7 @@ internal class ParseOptionSetting(
       return default(IAstSchemaSetting).Empty();
     }
 
-    IResult<IAstConstant> constant = _default.I.Parse(tokens, label);
+    IResult<IAstConstant> constant = _default.Parse(tokens, label);
     return constant.SelectOk(
       value => new OptionSettingAst(at, name, description, value),
       () => tokens.Error<IAstSchemaSetting>(label, "Value"));

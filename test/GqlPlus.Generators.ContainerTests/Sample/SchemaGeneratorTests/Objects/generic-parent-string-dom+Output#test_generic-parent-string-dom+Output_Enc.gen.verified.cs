@@ -13,7 +13,7 @@ internal class testGnrcPrntStrDomOutpEncoder(
 {
   private readonly Encoder<ItestFieldGnrcPrntStrDomOutpObject<ItestDomGnrcPrntStrDomOutp>> _itestFieldGnrcPrntStrDomOutp = encoders.EncoderFor<ItestFieldGnrcPrntStrDomOutpObject<ItestDomGnrcPrntStrDomOutp>>();
   public Structured Encode(ItestGnrcPrntStrDomOutpObject input)
-    => _itestFieldGnrcPrntStrDomOutp.I.Encode(input);
+    => _itestFieldGnrcPrntStrDomOutp.Encode(input);
 
   internal static testGnrcPrntStrDomOutpEncoder Factory(IEncoderRepository r) => new(r);
 }

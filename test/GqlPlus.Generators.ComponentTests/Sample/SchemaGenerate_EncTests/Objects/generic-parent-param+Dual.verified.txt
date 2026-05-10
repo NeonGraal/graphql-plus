@@ -18,7 +18,7 @@ internal class CmptGnrcPrntParamDualEncoder(
 {
   private readonly Encoder<ICmptRefGnrcPrntParamDualObject<ICmptAltGnrcPrntParamDual>> _refGnrcPrntParamDual = encoders.EncoderFor<ICmptRefGnrcPrntParamDualObject<ICmptAltGnrcPrntParamDual>>();
   public Structured Encode(ICmptGnrcPrntParamDualObject input)
-    => _refGnrcPrntParamDual.I.Encode(input);
+    => _refGnrcPrntParamDual.Encode(input);
 
   internal static CmptGnrcPrntParamDualEncoder Factory(IEncoderRepository r) => new(r);
 }

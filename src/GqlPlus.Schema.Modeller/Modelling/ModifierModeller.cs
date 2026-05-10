@@ -38,6 +38,7 @@ internal class ModifierModeller
     => ToModels<CollectionModel>(asts, typeKinds);
 
   internal static ModifierModeller Factory(IModellerRepository _) => new();
+  internal static IModifierModeller Existing(IModellerRepository r) => ((DeferOne<IModifierModeller>)r.ModifierModeller()).Value;
 }
 
 public interface IModifierModeller

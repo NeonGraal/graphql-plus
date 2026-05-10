@@ -61,7 +61,7 @@ internal class Cmpt_SchemaEncoder(
 {
   private readonly Encoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
   public Structured Encode(ICmpt_SchemaObject input)
-    => _named.I.Encode(input);
+    => _named.Encode(input);
 
   internal static Cmpt_SchemaEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -89,7 +89,7 @@ internal class Cmpt_AliasedEncoder(
   private readonly Encoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
   private readonly Encoder<ICmpt_Name> _name = encoders.EncoderFor<ICmpt_Name>();
   public Structured Encode(ICmpt_AliasedObject input)
-    => _named.I.Encode(input)
+    => _named.Encode(input)
       .AddList("aliases", input.Aliases, _name);
 
   internal static Cmpt_AliasedEncoder Factory(IEncoderRepository r) => new(r);
@@ -102,7 +102,7 @@ internal class Cmpt_NamedEncoder(
   private readonly Encoder<ICmpt_DescribedObject> _described = encoders.EncoderFor<ICmpt_DescribedObject>();
   private readonly Encoder<ICmpt_Name> _name = encoders.EncoderFor<ICmpt_Name>();
   public Structured Encode(ICmpt_NamedObject input)
-    => _described.I.Encode(input)
+    => _described.Encode(input)
       .AddEncoded("name", input.Name, _name);
 
   internal static Cmpt_NamedEncoder Factory(IEncoderRepository r) => new(r);

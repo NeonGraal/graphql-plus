@@ -13,7 +13,7 @@ internal class testPrntDualDualEncoder(
 {
   private readonly Encoder<ItestRefPrntDualDualObject> _itestRefPrntDualDual = encoders.EncoderFor<ItestRefPrntDualDualObject>();
   public Structured Encode(ItestPrntDualDualObject input)
-    => _itestRefPrntDualDual.I.Encode(input);
+    => _itestRefPrntDualDual.Encode(input);
 
   internal static testPrntDualDualEncoder Factory(IEncoderRepository r) => new(r);
 }

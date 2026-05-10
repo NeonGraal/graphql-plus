@@ -21,9 +21,9 @@ public class MergerOne<T>(
   where T : IAstError
 {
   public IMessages CanMerge(IEnumerable<T> items)
-    => I.CanMerge(items);
+    => Value.CanMerge(items);
   public IEnumerable<T> Merge(IEnumerable<T> items)
-    => I.Merge(items);
+    => Value.Merge(items);
 
   public static implicit operator MergerOne<T>(D factory)
     => new(factory.ThrowIfNull());

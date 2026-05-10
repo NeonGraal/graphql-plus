@@ -13,7 +13,7 @@ internal class testCnstPrntDualGrndOutpEncoder(
 {
   private readonly Encoder<ItestRefCnstPrntDualGrndOutpObject<ItestAltCnstPrntDualGrndOutp>> _itestRefCnstPrntDualGrndOutp = encoders.EncoderFor<ItestRefCnstPrntDualGrndOutpObject<ItestAltCnstPrntDualGrndOutp>>();
   public Structured Encode(ItestCnstPrntDualGrndOutpObject input)
-    => _itestRefCnstPrntDualGrndOutp.I.Encode(input);
+    => _itestRefCnstPrntDualGrndOutp.Encode(input);
 
   internal static testCnstPrntDualGrndOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -38,7 +38,7 @@ internal class testPrntCnstPrntDualGrndOutpEncoder(
 {
   private readonly Encoder<ItestGrndCnstPrntDualGrndOutpObject> _itestGrndCnstPrntDualGrndOutp = encoders.EncoderFor<ItestGrndCnstPrntDualGrndOutpObject>();
   public Structured Encode(ItestPrntCnstPrntDualGrndOutpObject input)
-    => _itestGrndCnstPrntDualGrndOutp.I.Encode(input);
+    => _itestGrndCnstPrntDualGrndOutp.Encode(input);
 
   internal static testPrntCnstPrntDualGrndOutpEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -49,7 +49,7 @@ internal class testAltCnstPrntDualGrndOutpEncoder(
 {
   private readonly Encoder<ItestPrntCnstPrntDualGrndOutpObject> _itestPrntCnstPrntDualGrndOutp = encoders.EncoderFor<ItestPrntCnstPrntDualGrndOutpObject>();
   public Structured Encode(ItestAltCnstPrntDualGrndOutpObject input)
-    => _itestPrntCnstPrntDualGrndOutp.I.Encode(input)
+    => _itestPrntCnstPrntDualGrndOutp.Encode(input)
       .Add("alt", input.Alt.Encode());
 
   internal static testAltCnstPrntDualGrndOutpEncoder Factory(IEncoderRepository r) => new(r);

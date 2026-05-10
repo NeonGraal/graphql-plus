@@ -23,7 +23,7 @@ internal class ParseInputField(
   ) => new(at, name, description, typeBase);
 
   protected override IResult<IAstInputField> FieldDefault(ITokenizer tokens, InputFieldAst field)
-    => _default.I
+    => _default
     .Parse(tokens, "Default")
     .AsPartial<IAstInputField>(field, constant => field.DefaultValue = constant);
 

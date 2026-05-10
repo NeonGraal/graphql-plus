@@ -11,7 +11,7 @@ public class Encoder<TInput>(
   , IEncoder<TInput>
 {
   public Structured Encode(TInput input)
-    => I.Encode(input);
+    => Value.Encode(input);
 
   public static implicit operator Encoder<TInput>(D factory)
     => new(factory.ThrowIfNull());
@@ -28,7 +28,7 @@ public class Decoder<TOutput>(
   , IDecoder<TOutput>
 {
   public IMessages Decode(IValue input, out TOutput? output)
-    => I.Decode(input, out output);
+    => Value.Decode(input, out output);
 
   public static implicit operator Decoder<TOutput>(D factory)
     => new(factory.ThrowIfNull());

@@ -13,7 +13,7 @@ internal class testPrntOutpEncoder(
 {
   private readonly Encoder<ItestRefPrntOutpObject> _itestRefPrntOutp = encoders.EncoderFor<ItestRefPrntOutpObject>();
   public Structured Encode(ItestPrntOutpObject input)
-    => _itestRefPrntOutp.I.Encode(input);
+    => _itestRefPrntOutp.Encode(input);
 
   internal static testPrntOutpEncoder Factory(IEncoderRepository r) => new(r);
 }

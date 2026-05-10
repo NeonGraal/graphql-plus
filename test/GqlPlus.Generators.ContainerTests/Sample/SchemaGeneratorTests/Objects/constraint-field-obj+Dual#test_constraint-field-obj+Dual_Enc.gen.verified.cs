@@ -13,7 +13,7 @@ internal class testCnstFieldObjDualEncoder(
 {
   private readonly Encoder<ItestRefCnstFieldObjDualObject<ItestAltCnstFieldObjDual>> _itestRefCnstFieldObjDual = encoders.EncoderFor<ItestRefCnstFieldObjDualObject<ItestAltCnstFieldObjDual>>();
   public Structured Encode(ItestCnstFieldObjDualObject input)
-    => _itestRefCnstFieldObjDual.I.Encode(input);
+    => _itestRefCnstFieldObjDual.Encode(input);
 
   internal static testCnstFieldObjDualEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -42,7 +42,7 @@ internal class testAltCnstFieldObjDualEncoder(
 {
   private readonly Encoder<ItestPrntCnstFieldObjDualObject> _itestPrntCnstFieldObjDual = encoders.EncoderFor<ItestPrntCnstFieldObjDualObject>();
   public Structured Encode(ItestAltCnstFieldObjDualObject input)
-    => _itestPrntCnstFieldObjDual.I.Encode(input)
+    => _itestPrntCnstFieldObjDual.Encode(input)
       .Add("alt", input.Alt.Encode());
 
   internal static testAltCnstFieldObjDualEncoder Factory(IEncoderRepository r) => new(r);

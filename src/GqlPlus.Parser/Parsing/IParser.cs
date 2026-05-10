@@ -19,7 +19,7 @@ public class ParserOne<T>(
   , IParser<T>
 {
   public IResult<T> Parse([NotNull] ITokenizer tokens, string label)
-    => I.Parse(tokens, label);
+    => Value.Parse(tokens, label);
 
   public static implicit operator ParserOne<T>(D factory)
     => new(factory.ThrowIfNull());
@@ -31,7 +31,7 @@ public class ParserArray<T>(
   , IParserArray<T>
 {
   public IResultArray<T> Parse([NotNull] ITokenizer tokens, string label)
-    => I.Parse(tokens, label);
+    => Value.Parse(tokens, label);
 
   public static implicit operator ParserArray<T>(D factory)
     => new(factory.ThrowIfNull());
@@ -40,8 +40,12 @@ public class ParserArray<T>(
 public class ParserOne<TInterface, T>(
   ParserOne<TInterface, T>.D factory
 ) : DeferOne<TInterface>(factory)
+  , IParser<T>
   where TInterface : class, IParser<T>
 {
+  public IResult<T> Parse([NotNull] ITokenizer tokens, string label)
+    => Value.Parse(tokens, label);
+
   public static implicit operator ParserOne<TInterface, T>(D factory)
     => new(factory.ThrowIfNull());
 }
@@ -49,8 +53,12 @@ public class ParserOne<TInterface, T>(
 public class ParserArray<TInterface, T>(
   ParserArray<TInterface, T>.D factory
 ) : DeferOne<TInterface>(factory)
+  , IParserArray<T>
   where TInterface : class, IParserArray<T>
 {
+  public IResultArray<T> Parse([NotNull] ITokenizer tokens, string label)
+    => Value.Parse(tokens, label);
+
   public static implicit operator ParserArray<TInterface, T>(D factory)
     => new(factory.ThrowIfNull());
 }

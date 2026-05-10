@@ -5,7 +5,7 @@ namespace GqlPlus.Matching;
 public interface IMatcherRepository
   : IRepository
 {
-  IEnumerable<Factory<ITypeMatcher, IMatcherRepository>> TypeMatchers { get; }
+  Defer<ITypeMatcher>.DA TypeMatchers([CallerMemberName] string callerName = "");
 
   Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "");
 }

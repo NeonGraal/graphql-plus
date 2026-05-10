@@ -8,12 +8,12 @@ internal class MatcherRepository(
 ) : BaseRepository<IMatcherRepository>(loggerFactory)
   , IMatcherRepository
 {
-  public IEnumerable<Factory<ITypeMatcher, IMatcherRepository>> TypeMatchers
-    => state.TypeMatchers.Select(MakeTypeMatcher);
+  public Defer<ITypeMatcher>.DA TypeMatchers([CallerMemberName] string callerName = "")
+    => () => state.TypeMatchers.Select(MakeTypeMatcher);
 
   public Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "")
     => () => Cached<T, Matcher<T>.I>(state.Matchers, "matcher for " + callerName, this);
 
-  private static Factory<ITypeMatcher, IMatcherRepository> MakeTypeMatcher(Factory<object, IMatcherRepository> factory)
-    => r => (ITypeMatcher)factory(r);
+  private ITypeMatcher MakeTypeMatcher(Factory<object, IMatcherRepository> factory)
+    => (ITypeMatcher)factory(this);
 }

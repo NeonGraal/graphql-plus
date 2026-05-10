@@ -48,7 +48,7 @@ public class VerifierTestsBase
 
   protected void MergerForReturns<T>(IMerge<T> result)
     where T : IAstError
-    => VerifierRepo.MergerFor<T>().ReturnsForAnyArgs(result);
+    => VerifierRepo.MergerFor<T>().ReturnsForAnyArgs(new Defer<IMerge<T>>.D(() => result));
 
   protected void UsageForReturns<T>(IVerifyUsage<T> result)
     where T : IAstAliased

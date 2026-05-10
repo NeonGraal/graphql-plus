@@ -28,6 +28,6 @@ public interface IVerifierRepository
 
   Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "");
 
-  IMerge<T> MergerFor<T>([CallerMemberName] string callerName = "")
+  Defer<IMerge<T>>.D MergerFor<T>([CallerMemberName] string callerName = "")
     where T : IAstError;
 }

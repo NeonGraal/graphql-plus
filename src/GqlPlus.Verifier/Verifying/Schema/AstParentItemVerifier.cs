@@ -11,14 +11,14 @@ internal abstract class AstParentItemVerifier<TAst, TParent, TContext, TItem>(
   where TContext : UsageContext
   where TItem : IAstError
 {
-  private readonly IMerge<TItem> _mergeItems = verifiers.MergerFor<TItem>();
+  private readonly Defer<IMerge<TItem>>.L _mergeItems = verifiers.MergerFor<TItem>();
 
   protected override void CheckMergeParent(SelfUsage<TAst> input, TContext context)
   {
     TItem[] items = [.. GetParentItems(input, input.Usage, context, GetItems)];
 
     if (items.Length > 0) {
-      IMessages failures = _mergeItems.CanMerge(items);
+      IMessages failures = _mergeItems.I.CanMerge(items);
       if (failures.Any()) {
         context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} into Parent {input.Current}");
         context.Add(failures);

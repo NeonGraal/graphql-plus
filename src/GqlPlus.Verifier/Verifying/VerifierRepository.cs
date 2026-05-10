@@ -40,7 +40,7 @@ internal class VerifierRepository(
   public Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "")
     => matchers.MatcherFor<T>(callerName);
 
-  public IMerge<T> MergerFor<T>([CallerMemberName] string callerName = "")
+  public Defer<IMerge<T>>.D MergerFor<T>([CallerMemberName] string callerName = "")
     where T : IAstError
-    => mergers.MergerFor<T>(callerName)();
+    => mergers.MergerFor<T>(callerName);
 }

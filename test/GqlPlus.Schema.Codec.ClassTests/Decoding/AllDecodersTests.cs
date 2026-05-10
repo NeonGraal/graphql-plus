@@ -12,9 +12,12 @@ public class AllDecodersTests
 
   [Fact]
   public void AllDecoders_DecoderForCategoryFilterModel_IsRegistered()
-    => _services.GetRequiredService<IDecoderRepository>()
-      .DecoderFor<CategoryFilterModel>()
-      .ShouldNotBeNull();
+  {
+    Defer<IDecoder<CategoryFilterModel>>.L decoder = _services.GetRequiredService<IDecoderRepository>()
+      .DecoderFor<CategoryFilterModel>();
+
+    decoder.I.ShouldNotBeNull();
+  }
 
   [Fact]
   public void AllDecoders_DecoderFactories_ReturnNotNull()

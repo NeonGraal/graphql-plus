@@ -95,7 +95,7 @@ internal sealed class UnionEncoderGenerator
     foreach (MapPair<string> member in members) {
       string memberCsType = context.TypeName(member.Value, "I");
       string varName = "_" + member.Key.Substring(2).ToLower(System.Globalization.CultureInfo.InvariantCulture);
-      context.Write($"  private readonly IEncoder<{memberCsType}> {varName} = encoders.EncoderFor<{memberCsType}>();");
+      context.Write($"  private readonly Defer<IEncoder<{memberCsType}>>.L {varName} = encoders.EncoderFor<{memberCsType}>();");
     }
 
     context.Write($"  public Structured Encode({interfaceName} input)");
@@ -103,7 +103,7 @@ internal sealed class UnionEncoderGenerator
     foreach (MapPair<string> member in members) {
       string memberCsType = context.TypeName(member.Value, "I");
       string varName = "_" + member.Key.Substring(2).ToLower(System.Globalization.CultureInfo.InvariantCulture);
-      context.Write($"{encoderPrefix}input.HasA<{memberCsType}>() ? {varName}.Encode(input.AsA<{memberCsType}>())");
+      context.Write($"{encoderPrefix}input.HasA<{memberCsType}>() ? {varName}.I.Encode(input.AsA<{memberCsType}>())");
       encoderPrefix = "     : ";
     }
 

@@ -12,15 +12,21 @@ public class AllEncodersTests
 
   [Fact]
   public void AllEncoders_EncoderForSimple_IsRegistered()
-    => _services.GetRequiredService<IEncoderRepository>()
-      .EncoderFor<SimpleModel>()
-      .ShouldNotBeNull();
+  {
+    Defer<IEncoder<SimpleModel>>.L encoder = _services.GetRequiredService<IEncoderRepository>()
+      .EncoderFor<SimpleModel>();
+
+    encoder.I.ShouldNotBeNull();
+  }
 
   [Fact]
   public void AllEncoders_TypeEncoders_ReturnNotEmpty()
-    => _services.GetRequiredService<IEncoderRepository>()
-      .EncodersFor<ITypeEncoder>()
-      .ShouldNotBeEmpty();
+  {
+    Defer<ITypeEncoder>.LA encoders = _services.GetRequiredService<IEncoderRepository>()
+      .EncodersFor<ITypeEncoder>();
+
+    encoders.IA.ShouldNotBeEmpty();
+  }
 
   [Fact]
   public void AllEncoders_EncoderFactories_ReturnNotNull()
@@ -35,8 +41,9 @@ public class AllEncodersTests
   public void AllEncoders_EncodersForFactories_ReturnNotNull()
   {
     IEncoderRepository repo = _services.GetRequiredService<IEncoderRepository>();
+    Defer<ITypeEncoder>.LA encoders = repo.EncodersFor<ITypeEncoder>();
 
-    repo.ShouldSatisfyAllConditions([.. repo.EncodersFor<ITypeEncoder>().Select(CheckTypeEncoder)]);
+    repo.ShouldSatisfyAllConditions([.. encoders.IA.Select(CheckTypeEncoder)]);
   }
 
   private static Action<IEncoderRepository> CheckEncoder(Factory<object, IEncoderRepository> factory)

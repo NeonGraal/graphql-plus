@@ -5,7 +5,7 @@ namespace GqlPlus.Structures;
 public interface IEncoderRepository
   : IRepository
 {
-  IEncoder<T> EncoderFor<T>([CallerMemberName] string callerName = "");
-  IEnumerable<TList> EncodersFor<TList>([CallerMemberName] string callerName = "")
+  Defer<IEncoder<T>>.D EncoderFor<T>([CallerMemberName] string callerName = "");
+  Defer<TList>.DA EncodersFor<TList>([CallerMemberName] string callerName = "")
     where TList : class;
 }

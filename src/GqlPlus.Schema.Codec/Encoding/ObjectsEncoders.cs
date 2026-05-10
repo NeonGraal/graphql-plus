@@ -4,7 +4,7 @@ internal class TypeArgEncoder(
   IEncoderRepository encoders
 ) : DescribedEncoder<ITypeArgModel>
 {
-  private readonly IEncoder<EnumValueModel> _enumValue = encoders.EncoderFor<EnumValueModel>();
+  private readonly Defer<IEncoder<EnumValueModel>>.L _enumValue = encoders.EncoderFor<EnumValueModel>();
 
   internal override Structured Encode(ITypeArgModel model)
     => model.EnumValue is null
@@ -12,7 +12,7 @@ internal class TypeArgEncoder(
       .AddIf(model.IsTypeParam,
         t => t.Add("typeParam", model.Name?.Encode()),
         f => f.Add("name", model.Name?.Encode()))
-    : _enumValue.Encode(model.EnumValue);
+    : _enumValue.I.Encode(model.EnumValue);
 
   internal static new TypeArgEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -22,14 +22,14 @@ internal class ObjectBaseEncoder<TBase>(
 ) : DescribedEncoder<TBase>
   where TBase : ObjBaseModel
 {
-  private readonly IEncoder<ITypeArgModel> _objArg = encoders.EncoderFor<ITypeArgModel>();
+  private readonly Defer<IEncoder<ITypeArgModel>>.L _objArg = encoders.EncoderFor<ITypeArgModel>();
 
   internal override Structured Encode(TBase model)
     => base.Encode(model)
       .AddIf(model.IsTypeParam,
         t => t.Add("typeParam", model.Name?.Encode()),
         f => f.Add("name", model.Name?.Encode())
-          .AddList("typeArgs", model.Args, _objArg));
+          .AddList("typeArgs", model.Args, _objArg.I));
 
   internal static new ObjectBaseEncoder<TBase> Factory(IEncoderRepository r) => new(r);
 }
@@ -38,11 +38,11 @@ internal class TypeParamEncoder(
   IEncoderRepository encoders
 ) : NamedEncoder<TypeParamModel>
 {
-  private readonly IEncoder<TypeRefModel<TypeKindModel>> _typeKind = encoders.EncoderFor<TypeRefModel<TypeKindModel>>();
+  private readonly Defer<IEncoder<TypeRefModel<TypeKindModel>>>.L _typeKind = encoders.EncoderFor<TypeRefModel<TypeKindModel>>();
 
   internal override Structured Encode(TypeParamModel model)
     => base.Encode(model)
-      .AddEncoded("constraint", model.Constraint, _typeKind);
+      .AddEncoded("constraint", model.Constraint, _typeKind.I);
 
   internal static new TypeParamEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -53,26 +53,26 @@ internal class ObjectFieldEncoder<TField, TBase>(
   where TField : IObjFieldModel
   where TBase : class, IObjBaseModel
 {
-  private readonly IEncoder<ModifierModel> _modifier = encoders.EncoderFor<ModifierModel>();
-  private readonly IEncoder<TBase> _objBase = encoders.EncoderFor<TBase>();
+  private readonly Defer<IEncoder<ModifierModel>>.L _modifier = encoders.EncoderFor<ModifierModel>();
+  private readonly Defer<IEncoder<TBase>>.L _objBase = encoders.EncoderFor<TBase>();
 
   internal override Structured Encode(TField model)
     => base.Encode(model)
-      .AddList("modifiers", model.Modifiers, _modifier, flow: true)
-      .AddEncoded("type", model.BaseType as TBase, _objBase);
+      .AddList("modifiers", model.Modifiers, _modifier.I, flow: true)
+      .AddEncoded("type", model.BaseType as TBase, _objBase.I);
 }
 
 internal class ObjectAlternateEncoder(
   IEncoderRepository encoders
 ) : BaseEncoder<AlternateModel>()
 {
-  private readonly IEncoder<CollectionModel> _collection = encoders.EncoderFor<CollectionModel>();
-  private readonly IEncoder<ObjBaseModel> _objBase = encoders.EncoderFor<ObjBaseModel>();
+  private readonly Defer<IEncoder<CollectionModel>>.L _collection = encoders.EncoderFor<CollectionModel>();
+  private readonly Defer<IEncoder<ObjBaseModel>>.L _objBase = encoders.EncoderFor<ObjBaseModel>();
 
   internal override Structured Encode(AlternateModel model)
     => base.Encode(model)
-      .AddEncoded("type", model.Type, _objBase)
-      .AddList("collections", model.Collections, _collection);
+      .AddEncoded("type", model.Type, _objBase.I)
+      .AddList("collections", model.Collections, _collection.I);
 
   internal static ObjectAlternateEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -82,11 +82,11 @@ internal class ObjectForEncoder<TFor>(
 ) : BaseEncoder<ObjectForModel<TFor>>
   where TFor : IModelBase
 {
-  private readonly IEncoder<TFor> _encoder = encoders.EncoderFor<TFor>();
+  private readonly Defer<IEncoder<TFor>>.L _encoder = encoders.EncoderFor<TFor>();
 
   internal override Structured Encode(ObjectForModel<TFor> model)
     => base.Encode(model)
-      .IncludeEncoded(model.For, _encoder)
+      .IncludeEncoded(model.For, _encoder.I)
       .Add("object", model.Obj?.Encode());
 
   internal static ObjectForEncoder<TFor> Factory(IEncoderRepository r) => new(r);
@@ -98,13 +98,13 @@ internal abstract class TypeObjectEncoder<TObject, TField>(
   where TObject : TypeObjectModel<TField>
   where TField : IObjFieldModel
 {
-  private readonly IEncoder<TField> _field = encoders.EncoderFor<TField>();
-  private readonly IEncoder<ObjectForModel<TField>> _forField = encoders.EncoderFor<ObjectForModel<TField>>();
-  private readonly IEncoder<ObjectForModel<DualFieldModel>> _dualField = encoders.EncoderFor<ObjectForModel<DualFieldModel>>();
-  private readonly IEncoder<AlternateModel> _alternate = encoders.EncoderFor<AlternateModel>();
-  private readonly IEncoder<ObjectForModel<AlternateModel>> _forAlternate = encoders.EncoderFor<ObjectForModel<AlternateModel>>();
-  private readonly IEncoder<ObjectForModel<AlternateModel>> _dualAlternate = encoders.EncoderFor<ObjectForModel<AlternateModel>>();
-  private readonly IEncoder<TypeParamModel> _typeParam = encoders.EncoderFor<TypeParamModel>();
+  private readonly Defer<IEncoder<TField>>.L _field = encoders.EncoderFor<TField>();
+  private readonly Defer<IEncoder<ObjectForModel<TField>>>.L _forField = encoders.EncoderFor<ObjectForModel<TField>>();
+  private readonly Defer<IEncoder<ObjectForModel<DualFieldModel>>>.L _dualField = encoders.EncoderFor<ObjectForModel<DualFieldModel>>();
+  private readonly Defer<IEncoder<AlternateModel>>.L _alternate = encoders.EncoderFor<AlternateModel>();
+  private readonly Defer<IEncoder<ObjectForModel<AlternateModel>>>.L _forAlternate = encoders.EncoderFor<ObjectForModel<AlternateModel>>();
+  private readonly Defer<IEncoder<ObjectForModel<AlternateModel>>>.L _dualAlternate = encoders.EncoderFor<ObjectForModel<AlternateModel>>();
+  private readonly Defer<IEncoder<TypeParamModel>>.L _typeParam = encoders.EncoderFor<TypeParamModel>();
 
   internal override Structured Encode(TObject model)
   {
@@ -119,11 +119,11 @@ internal abstract class TypeObjectEncoder<TObject, TField>(
       }));
 
     return base.Encode(model)
-        .AddList("typeParams", model.TypeParams, _typeParam)
-        .AddList("fields", model.Fields, _field)
-        .Add("allFields", ObjEncode(model.AllFields, _forField, _dualField))
-        .AddList("alternates", model.Alternates, _alternate)
-        .Add("allAlternates", ObjEncode(model.AllAlternates, _forAlternate, _dualAlternate));
+        .AddList("typeParams", model.TypeParams, _typeParam.I)
+        .AddList("fields", model.Fields, _field.I)
+        .Add("allFields", ObjEncode(model.AllFields, _forField.I, _dualField.I))
+        .AddList("alternates", model.Alternates, _alternate.I)
+        .Add("allAlternates", ObjEncode(model.AllAlternates, _forAlternate.I, _dualAlternate.I));
   }
 }
 
@@ -147,11 +147,11 @@ internal class InputFieldEncoder(
   IEncoderRepository encoders
 ) : ObjectFieldEncoder<InputFieldModel, ObjBaseModel>(encoders)
 {
-  private readonly IEncoder<ConstantModel> _constant = encoders.EncoderFor<ConstantModel>();
+  private readonly Defer<IEncoder<ConstantModel>>.L _constant = encoders.EncoderFor<ConstantModel>();
 
   internal override Structured Encode(InputFieldModel model)
     => base.Encode(model)
-      .AddEncoded("default", model.Default, _constant);
+      .AddEncoded("default", model.Default, _constant.I);
 
   internal static new InputFieldEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -160,13 +160,13 @@ internal class InputParamEncoder(
   IEncoderRepository encoders
 ) : ObjectBaseEncoder<InputParamModel>(encoders)
 {
-  private readonly IEncoder<ModifierModel> _modifier = encoders.EncoderFor<ModifierModel>();
-  private readonly IEncoder<ConstantModel> _constant = encoders.EncoderFor<ConstantModel>();
+  private readonly Defer<IEncoder<ModifierModel>>.L _modifier = encoders.EncoderFor<ModifierModel>();
+  private readonly Defer<IEncoder<ConstantModel>>.L _constant = encoders.EncoderFor<ConstantModel>();
 
   internal override Structured Encode(InputParamModel model)
     => base.Encode(model)
-      .AddList("modifiers", model.Modifiers, _modifier, flow: true)
-      .AddEncoded("default", model.DefaultValue, _constant);
+      .AddList("modifiers", model.Modifiers, _modifier.I, flow: true)
+      .AddEncoded("default", model.DefaultValue, _constant.I);
 
   internal static new InputParamEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -194,14 +194,14 @@ internal class OutputFieldEncoder(
   IEncoderRepository encoders
 ) : ObjectFieldEncoder<OutputFieldModel, ObjBaseModel>(encoders)
 {
-  private readonly IEncoder<OutputEnumModel> _outputEnum = encoders.EncoderFor<OutputEnumModel>();
-  private readonly IEncoder<InputParamModel> _parameter = encoders.EncoderFor<InputParamModel>();
+  private readonly Defer<IEncoder<OutputEnumModel>>.L _outputEnum = encoders.EncoderFor<OutputEnumModel>();
+  private readonly Defer<IEncoder<InputParamModel>>.L _parameter = encoders.EncoderFor<InputParamModel>();
 
   internal override Structured Encode(OutputFieldModel model)
     => model.Enum is null
       ? base.Encode(model)
-        .AddEncoded("parameter", model.Parameter, _parameter)
-      : _outputEnum.Encode(model.Enum);
+        .AddEncoded("parameter", model.Parameter, _parameter.I)
+      : _outputEnum.I.Encode(model.Enum);
 
   internal static new OutputFieldEncoder Factory(IEncoderRepository r) => new(r);
 }

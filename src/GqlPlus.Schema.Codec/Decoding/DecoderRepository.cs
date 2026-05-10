@@ -11,9 +11,9 @@ internal class DecoderRepository(
 {
   private readonly DecoderRepositoryBuilder _builder = builder;
 
-  public IDecoder<T> DecoderFor<T>([CallerMemberName] string callerName = "")
-    => Cached<T, IDecoder<T>>(_builder.Decoders, "decoder for " + callerName, this);
-  public TDecoder DecoderFor<TDecoder, TBase>([CallerMemberName] string callerName = "")
+  public Defer<IDecoder<T>>.D DecoderFor<T>([CallerMemberName] string callerName = "")
+    => () => Cached<T, IDecoder<T>>(_builder.Decoders, "decoder for " + callerName, this);
+  public Defer<TDecoder>.D DecoderFor<TDecoder, TBase>([CallerMemberName] string callerName = "")
     where TDecoder : class, IDecoder<TBase>
-    => Cached<TDecoder, TDecoder>(_builder.Decoders, $"decoder for {callerName} ({typeof(TBase).TidyTypeName()})", this);
+    => () => Cached<TDecoder, TDecoder>(_builder.Decoders, $"decoder for {callerName} ({typeof(TBase).TidyTypeName()})", this);
 }

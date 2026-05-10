@@ -22,10 +22,10 @@ internal sealed class DecoderRepoWrapper(
     repo.WriteFactories("Decoder", repoBuilder.AllFactories);
   }
 
-  public IDecoder<T> DecoderFor<T>([CallerMemberName] string callerName = "")
+  public Defer<IDecoder<T>>.D DecoderFor<T>([CallerMemberName] string callerName = "")
     => AddRelationship<T>(callerName)
       .DecoderFor<T>(callerName);
-  public TDecoder DecoderFor<TDecoder, TBase>(string callerName)
+  public Defer<TDecoder>.D DecoderFor<TDecoder, TBase>(string callerName)
     where TDecoder : class, IDecoder<TBase>
     => AddRelationship<TDecoder>(callerName)
     .DecoderFor<TDecoder, TBase>(callerName);

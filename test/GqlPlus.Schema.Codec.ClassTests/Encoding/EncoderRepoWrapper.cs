@@ -23,10 +23,10 @@ internal sealed class EncoderRepoWrapper(
     repo.WriteFactories("Encoder", repoBuilder.AllFactories);
   }
 
-  public IEncoder<T> EncoderFor<T>([CallerMemberName] string callerName = "")
+  public Defer<IEncoder<T>>.D EncoderFor<T>([CallerMemberName] string callerName = "")
     => AddRelationship<T>(callerName)
       .EncoderFor<T>(callerName);
-  public IEnumerable<TList> EncodersFor<TList>([CallerMemberName] string callerName = "")
+  public Defer<TList>.DA EncodersFor<TList>([CallerMemberName] string callerName = "")
     where TList : class
     => AddRelationship<TList>(callerName)
       .EncodersFor<TList>(callerName);

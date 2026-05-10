@@ -9,7 +9,7 @@ public class TypeArgEncoderTests
   {
     _enumValue = RFor<EnumValueModel>();
     IEncoderRepository encoders = A.Of<IEncoderRepository>();
-    encoders.EncoderFor<EnumValueModel>().Returns(_enumValue);
+    encoders.EncoderForReturns(_enumValue);
     Encoder = new TypeArgEncoder(encoders);
   }
 

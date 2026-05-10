@@ -13,9 +13,9 @@ public class InputParamEncoderTests
     _modifier = RFor<ModifierModel>();
     _constant = RFor<ConstantModel>();
     IEncoderRepository encoders = A.Of<IEncoderRepository>();
-    encoders.EncoderFor<TypeArgModel>().Returns(_objArg);
-    encoders.EncoderFor<ModifierModel>().Returns(_modifier);
-    encoders.EncoderFor<ConstantModel>().Returns(_constant);
+    encoders.EncoderForReturns(_objArg);
+    encoders.EncoderForReturns(_modifier);
+    encoders.EncoderForReturns(_constant);
     Encoder = new InputParamEncoder(encoders);
   }
 

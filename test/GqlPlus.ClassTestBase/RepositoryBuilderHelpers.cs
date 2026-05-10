@@ -22,16 +22,28 @@ static public class RepositoryBuilderHelpers
   }
 
   public static void DecoderForReturns<T>([NotNull] this IDecoderRepository repo, IDecoder<T> result)
-    => repo.DecoderFor<T>().ReturnsForAnyArgs(result);
+  {
+    Defer<IDecoder<T>>.D factory = () => result;
+    repo.DecoderFor<T>().ReturnsForAnyArgs(factory);
+  }
 
   public static void DecoderForReturns<TDecoder, TBase>([NotNull] this IDecoderRepository repo, TDecoder result)
     where TDecoder : class, IDecoder<TBase>
-    => repo.DecoderFor<TDecoder, TBase>().ReturnsForAnyArgs(result);
+  {
+    Defer<TDecoder>.D factory = () => result;
+    repo.DecoderFor<TDecoder, TBase>().ReturnsForAnyArgs(factory);
+  }
 
   public static void EncoderForReturns<T>([NotNull] this IEncoderRepository repo, IEncoder<T> result)
-    => repo.EncoderFor<T>().ReturnsForAnyArgs(result);
+  {
+    Defer<IEncoder<T>>.D factory = () => result;
+    repo.EncoderFor<T>().ReturnsForAnyArgs(factory);
+  }
 
   public static void EncodersForReturns<TList>([NotNull] this IEncoderRepository repo, params TList[] results)
     where TList : class
-    => repo.EncodersFor<TList>().ReturnsForAnyArgs(results);
+  {
+    Defer<TList>.DA factory = () => results;
+    repo.EncodersFor<TList>().ReturnsForAnyArgs(factory);
+  }
 }

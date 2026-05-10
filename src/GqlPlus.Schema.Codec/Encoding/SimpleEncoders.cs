@@ -26,11 +26,11 @@ internal class DomainItemEncoder<TItem>(
 ) : BaseEncoder<DomainItemModel<TItem>>
   where TItem : BaseDomainItemModel
 {
-  private readonly IEncoder<TItem> _item = encoders.EncoderFor<TItem>();
+  private readonly Defer<IEncoder<TItem>>.L _item = encoders.EncoderFor<TItem>();
 
   internal override Structured Encode(DomainItemModel<TItem> model)
     => base.Encode(model)
-      .IncludeEncoded(model.Item, _item)
+      .IncludeEncoded(model.Item, _item.I)
       .Add("domain", model.Domain.Encode());
 
   internal static DomainItemEncoder<TItem> Factory(IEncoderRepository r) => new(r);
@@ -40,11 +40,11 @@ internal class DomainLabelEncoder(
   IEncoderRepository encoders
 ) : BaseDomainItemEncoder<DomainLabelModel>
 {
-  private readonly IEncoder<EnumValueModel> _enumValue = encoders.EncoderFor<EnumValueModel>();
+  private readonly Defer<IEncoder<EnumValueModel>>.L _enumValue = encoders.EncoderFor<EnumValueModel>();
 
   internal override Structured Encode(DomainLabelModel model)
     => base.Encode(model)
-      .AddEncoded("value", model.EnumValue, _enumValue);
+      .AddEncoded("value", model.EnumValue, _enumValue.I);
 
   internal static new DomainLabelEncoder Factory(IEncoderRepository r) => new(r);
 }

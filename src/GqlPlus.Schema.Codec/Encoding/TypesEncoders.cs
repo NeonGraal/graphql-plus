@@ -22,11 +22,11 @@ internal abstract class ChildTypeEncoder<TModel, TParent>(
   where TModel : ChildTypeModel<TParent>
   where TParent : IModelBase
 {
-  private readonly IEncoder<TParent> _parent = encoders.EncoderFor<TParent>();
+  private readonly Defer<IEncoder<TParent>>.L _parent = encoders.EncoderFor<TParent>();
 
   internal override Structured Encode(TModel model)
     => base.Encode(model)
-      .AddEncoded("parent", model.Parent, _parent);
+      .AddEncoded("parent", model.Parent, _parent.I);
 }
 
 internal abstract class ParentTypeEncoder<TModel, TItem, TAll>(
@@ -36,23 +36,25 @@ internal abstract class ParentTypeEncoder<TModel, TItem, TAll>(
   where TItem : IModelBase
   where TAll : IModelBase
 {
-  private readonly IEncoder<TItem> _item = encoders.EncoderFor<TItem>();
-  private readonly IEncoder<TAll> _all = encoders.EncoderFor<TAll>();
+  private readonly Defer<IEncoder<TItem>>.L _item = encoders.EncoderFor<TItem>();
+  private readonly Defer<IEncoder<TAll>>.L _all = encoders.EncoderFor<TAll>();
 
   internal override Structured Encode(TModel model)
     => base.Encode(model)
-        .AddList("items", model.Items, _item)
-        .AddList("allItems", model.AllItems, _all);
+        .AddList("items", model.Items, _item.I)
+        .AddList("allItems", model.AllItems, _all.I);
 }
 
 internal class AllTypesEncoder(
   IEncoderRepository encoders
 ) : IEncoder<BaseTypeModel>
 {
+  private readonly Defer<ITypeEncoder>.LA _typeEncoders = encoders.EncodersFor<ITypeEncoder>();
+
   Structured IEncoder<BaseTypeModel>.Encode(BaseTypeModel model)
-    => encoders.EncodersFor<ITypeEncoder>()
-    .SingleOrDefault(t => t.ForType(model))
-    ?.TypeEncode(model)
+    => _typeEncoders.IA
+      .SingleOrDefault(t => t.ForType(model))
+      ?.TypeEncode(model)
     ?? throw new InvalidOperationException("Unable to find Encoder for " + model.GetType().ExpandTypeName());
 
   internal static AllTypesEncoder Factory(IEncoderRepository r) => new(r);

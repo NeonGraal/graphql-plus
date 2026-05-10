@@ -12,11 +12,11 @@ internal sealed class SchemaVerifyChecks(
 ) : SchemaParseChecks(parsers)
   , ISchemaVerifyChecks
 {
-  private readonly IMerge<IAstSchema> _schemaMerger = mergers.MergerFor<IAstSchema>();
+  private readonly Defer<IMerge<IAstSchema>>.L _schemaMerger = mergers.MergerFor<IAstSchema>();
 
   public (SchemaModel, IModelsContext) Model_Asts(IEnumerable<IAstSchema> asts, bool withBuiltIns, bool addDescribed)
   {
-    IAstSchema schema = _schemaMerger.Merge(asts).First();
+    IAstSchema schema = _schemaMerger.I.Merge(asts).First();
 
     IModelsContext context = withBuiltIns ? schemaEncoder.WithBuiltIns() : schemaEncoder.Context();
     if (addDescribed) {

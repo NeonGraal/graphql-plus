@@ -42,5 +42,5 @@ internal class VerifierRepository(
 
   public IMerge<T> MergerFor<T>([CallerMemberName] string callerName = "")
     where T : IAstError
-    => mergers.MergerFor<T>();
+    => mergers.MergerFor<T>(callerName)();
 }

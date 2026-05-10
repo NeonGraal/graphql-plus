@@ -9,7 +9,7 @@ public class MergeSchemaTests(
   IMergerRepository mergers
 ) : TestSchemaResult(checks)
 {
-  private readonly IMerge<IAstSchema> _schemaMerger = mergers.MergerFor<IAstSchema>();
+  private readonly Defer<IMerge<IAstSchema>>.L _schemaMerger = mergers.MergerFor<IAstSchema>();
 
   protected override Task Result_Valid(IResult<IAstSchema> result, string test, string label, string[] dirs, string section, string input = "")
     => Check_Merges([result.Required()], test, label, section);
@@ -23,7 +23,7 @@ public class MergeSchemaTests(
 
   private async Task Check_Merges(IAstSchema[] schemas, string test, string label, string section)
   {
-    IEnumerable<IAstSchema> result = _schemaMerger.SkipIf(test == SchemaValidData.SpecDefinition).Merge(schemas);
+    IEnumerable<IAstSchema> result = _schemaMerger.I.SkipIf(test == SchemaValidData.SpecDefinition).Merge(schemas);
 
     await result.Select(s => s.Show()).AttachAndVerify("Output " + test, CustomSettings(label, "Merges", test, section));
   }

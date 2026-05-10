@@ -21,11 +21,11 @@ internal sealed class MergerRepoWrapper(
     repo.WriteFactories("Merger", repoBuilder.AllFactories);
   }
 
-  public IEnumerable<IMergeAll<T>> AllMergersFor<T>([CallerMemberName] string callerName = "")
+  public Defer<IMergeAll<T>>.DA AllMergersFor<T>([CallerMemberName] string callerName = "")
     where T : IAstType
     => AddRelationship<T>(callerName)
       .AllMergersFor<T>(callerName);
-  public IMerge<T> MergerFor<T>(string callerName)
+  public Defer<IMerge<T>>.D MergerFor<T>([CallerMemberName] string callerName = "")
     where T : IAstError
     => AddRelationship<T>(callerName)
       .MergerFor<T>(callerName);

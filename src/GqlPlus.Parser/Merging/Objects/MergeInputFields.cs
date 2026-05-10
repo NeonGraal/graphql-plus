@@ -7,13 +7,15 @@ internal class MergeInputFields(
   IMergerRepository mergers
 ) : AstObjectFieldsMerger<IAstInputField>(mergers)
 {
+  private readonly Defer<IMerge<IAstConstant>>.L _defaultValue = mergers.MergerFor<IAstConstant>();
+
   protected override IMessages CanMergeGroup(IGrouping<string, IAstInputField> group)
     => base.CanMergeGroup(group)
-      .Add(group.CanMerge(item => item.DefaultValue, mergers.MergerFor<IAstConstant>()));
+      .Add(group.CanMerge(item => item.DefaultValue, _defaultValue.I));
 
   protected override IAstInputField MergeGroup(IEnumerable<IAstInputField> group)
     => (InputFieldAst)base.MergeGroup(group) with {
-      DefaultValue = group.Merge(item => item.DefaultValue, mergers.MergerFor<IAstConstant>()).FirstOrDefault()
+      DefaultValue = group.Merge(item => item.DefaultValue, _defaultValue.I).FirstOrDefault()
     };
 
   internal static MergeInputFields Factory(IMergerRepository m) => new(m);

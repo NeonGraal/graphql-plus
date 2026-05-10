@@ -8,8 +8,8 @@ internal class AstObjectsMerger<TObjField>(
 ) : AstTypeMerger<IAstType, IAstObject<TObjField>, IAstObjBase, TObjField>(mergers)
   where TObjField : IAstObjField
 {
-  private readonly IMerge<IAstTypeParam> _typeParams = mergers.MergerFor<IAstTypeParam>();
-  private readonly IMerge<IAstAlternate> _alternates = mergers.MergerFor<IAstAlternate>();
+  private readonly Defer<IMerge<IAstTypeParam>>.L _typeParams = mergers.MergerFor<IAstTypeParam>();
+  private readonly Defer<IMerge<IAstAlternate>>.L _alternates = mergers.MergerFor<IAstAlternate>();
 
   protected override string ItemMatchName => "Parent";
   protected override string ItemMatchKey(IAstObject<TObjField> item)
@@ -18,16 +18,16 @@ internal class AstObjectsMerger<TObjField>(
   protected override IMessages CanMergeGroup(IGrouping<string, IAstObject<TObjField>> group)
   {
     IMessages baseCanMerge = base.CanMergeGroup(group);
-    IMessages typeParamsCanMerge = group.ManyCanMerge(item => item.TypeParams, _typeParams);
-    IMessages alternatesCanMerge = group.ManyGroupCanMerge(item => item.Alternates, a => a.FullType, _alternates);
+    IMessages typeParamsCanMerge = group.ManyCanMerge(item => item.TypeParams, _typeParams.I);
+    IMessages alternatesCanMerge = group.ManyGroupCanMerge(item => item.Alternates, a => a.FullType, _alternates.I);
 
     return baseCanMerge.Add(typeParamsCanMerge).Add(alternatesCanMerge);
   }
 
   protected override IAstObject<TObjField> MergeGroup(IEnumerable<IAstObject<TObjField>> group)
   {
-    IEnumerable<IAstTypeParam> typeParamsAsts = group.ManyMerge(item => item.TypeParams, _typeParams);
-    IEnumerable<IAstAlternate> alternateAsts = group.ManyMerge(item => item.Alternates, _alternates);
+    IEnumerable<IAstTypeParam> typeParamsAsts = group.ManyMerge(item => item.TypeParams, _typeParams.I);
+    IEnumerable<IAstAlternate> alternateAsts = group.ManyMerge(item => item.Alternates, _alternates.I);
 
     return SetAlternates(base.MergeGroup(group), typeParamsAsts, alternateAsts);
   }

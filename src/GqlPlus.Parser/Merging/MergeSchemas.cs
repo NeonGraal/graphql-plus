@@ -6,6 +6,11 @@ internal class MergeSchemas(
   IMergerRepository mergers
 ) : GroupsMerger<IAstSchema>
 {
+  private readonly Defer<IMerge<IAstSchemaCategory>>.L _categories = mergers.MergerFor<IAstSchemaCategory>();
+  private readonly Defer<IMerge<IAstSchemaDirective>>.L _directives = mergers.MergerFor<IAstSchemaDirective>();
+  private readonly Defer<IMerge<IAstSchemaOption>>.L _options = mergers.MergerFor<IAstSchemaOption>();
+  private readonly Defer<IMerge<IAstType>>.L _astTypes = mergers.MergerFor<IAstType>();
+
   protected override string ItemGroupKey(IAstSchema item)
     => "Schema";
 
@@ -16,10 +21,10 @@ internal class MergeSchemas(
     IAstSchemaOption[] options = Just<IAstSchemaOption>(group);
     IAstType[] astTypes = Just<IAstType>(group);
 
-    IMessages categoriesCanMerge = categories.Length > 0 ? mergers.MergerFor<IAstSchemaCategory>().CanMerge(categories) : Messages.New;
-    IMessages directivesCanMerge = directives.Length > 0 ? mergers.MergerFor<IAstSchemaDirective>().CanMerge(directives) : Messages.New;
-    IMessages optionsCanMerge = options.Length > 0 ? mergers.MergerFor<IAstSchemaOption>().CanMerge(options) : Messages.New;
-    IMessages astTypesCanMerge = astTypes.Length > 0 ? mergers.MergerFor<IAstType>().CanMerge(astTypes) : Messages.New;
+    IMessages categoriesCanMerge = categories.Length > 0 ? _categories.I.CanMerge(categories) : Messages.New;
+    IMessages directivesCanMerge = directives.Length > 0 ? _directives.I.CanMerge(directives) : Messages.New;
+    IMessages optionsCanMerge = options.Length > 0 ? _options.I.CanMerge(options) : Messages.New;
+    IMessages astTypesCanMerge = astTypes.Length > 0 ? _astTypes.I.CanMerge(astTypes) : Messages.New;
 
     return categoriesCanMerge
       .Add(directivesCanMerge)
@@ -37,11 +42,11 @@ internal class MergeSchemas(
     IAstSchemaOption[] options = Just<IAstSchemaOption>(group);
     IAstType[] astTypes = Just<IAstType>(group);
 
-    IEnumerable<AstDeclaration> declarations = mergers.MergerFor<IAstSchemaCategory>()
+    IEnumerable<AstDeclaration> declarations = _categories.I
       .Merge(categories).Cast<IAstDeclaration>()
-      .Concat(mergers.MergerFor<IAstSchemaDirective>().Merge(directives))
-      .Concat(mergers.MergerFor<IAstSchemaOption>().Merge(options))
-      .Concat(mergers.MergerFor<IAstType>().Merge(astTypes))
+      .Concat(_directives.I.Merge(directives))
+      .Concat(_options.I.Merge(options))
+      .Concat(_astTypes.I.Merge(astTypes))
       .Cast<AstDeclaration>();
 
     SchemaAst ast = (SchemaAst)group.First();

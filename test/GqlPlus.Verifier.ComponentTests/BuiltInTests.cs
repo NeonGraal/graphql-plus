@@ -39,7 +39,7 @@ public class BuiltInTests(
     IMessages result = Messages.New;
     TestSchema schema = new(type);
 
-    _verifier.I.Verify(schema, result);
+    _verifier.Verify(schema, result);
 
     result.ShouldBeEmpty(type?.Label);
   }

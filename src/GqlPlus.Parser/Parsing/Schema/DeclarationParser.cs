@@ -10,7 +10,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
   where TName : class, INameParser
   where TOption : struct
 {
-  private readonly DeferOne<TName> _name = parsers.GetName<TName>();
+  private readonly ParserName<TName> _name = parsers.GetName<TName>();
   private readonly ParserArray<TParam> _param = parsers.ArrayFor<TParam>();
   private readonly ParserOne<IOptionParser<TOption>, TOption> _option = parsers.ParserFor<IOptionParser<TOption>, TOption>();
   private readonly ParserOne<TDefinition> _definition = parsers.ParserFor<TDefinition>();
@@ -21,7 +21,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
 
   {
     string description = tokens.GetDescription();
-    bool hasName = _name.I.ParseName(tokens, out string? name, out TokenAt? at);
+    bool hasName = _name.ParseName(tokens, out string? name, out TokenAt? at);
     AstPartial<TParam, TOption> partial = new(at, name.IfWhiteSpace(), description);
 
     if (!hasName) {

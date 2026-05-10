@@ -25,7 +25,7 @@ public class VerifyOperationTests(
 
     IMessages result = Messages.New;
 
-    _operationVerifier.I.Verify(parse.Required(), result);
+    _operationVerifier.Verify(parse.Required(), result);
 
     result.ShouldBeEmpty();
   }
@@ -38,7 +38,7 @@ public class VerifyOperationTests(
 
     Messages result = Messages.Empty;
     if (parse.IsOk()) {
-      _operationVerifier.I.Verify(parse.Required(), result);
+      _operationVerifier.Verify(parse.Required(), result);
     } else {
       parse.IsError(result.Add);
     }

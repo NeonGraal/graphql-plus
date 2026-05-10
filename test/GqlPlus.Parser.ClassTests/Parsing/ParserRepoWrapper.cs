@@ -31,7 +31,7 @@ internal sealed class ParserRepoWrapper(
   public DeferList<IParseDomain>.D GetDomains([CallerMemberName] string callerName = "")
     => repo // AddRelationship<IParseDomain>(callerName)
       .GetDomains(callerName);
-  public DeferOne<T>.D GetName<T>([CallerMemberName] string callerName = "")
+  public ParserName<T> GetName<T>([CallerMemberName] string callerName = "")
     where T : class, INameParser
     => AddRelationship<T>(callerName)
       .GetName<T>(callerName);

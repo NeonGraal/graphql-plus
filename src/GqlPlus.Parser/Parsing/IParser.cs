@@ -1,4 +1,5 @@
-﻿using GqlPlus.Result;
+﻿using GqlPlus.Parsing.Schema;
+using GqlPlus.Result;
 using GqlPlus.Token;
 
 namespace GqlPlus.Parsing;
@@ -60,5 +61,18 @@ public class ParserArray<TInterface, T>(
     => Value.Parse(tokens, label);
 
   public static implicit operator ParserArray<TInterface, T>(D factory)
+    => new(factory.ThrowIfNull());
+}
+
+public class ParserName<T>(
+  ParserName<T>.D factory
+) : DeferOne<T>(factory)
+  , INameParser
+  where T : class, INameParser
+{
+  public bool ParseName([NotNull] ITokenizer tokens, [NotNullWhen(true)] out string? name, out TokenAt at)
+    => Value.ParseName(tokens, out name, out at);
+
+  public static implicit operator ParserName<T>(D factory)
     => new(factory.ThrowIfNull());
 }

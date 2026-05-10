@@ -27,7 +27,7 @@ public class VerifySchemaTests(
 
     IMessages errors = Messages.New;
 
-    _schemaVerifier.I.Verify(merged.First(), errors);
+    _schemaVerifier.Verify(merged.First(), errors);
 
     await CheckErrors(dirs, test, errors, "verify", "parse");
   }
@@ -36,7 +36,7 @@ public class VerifySchemaTests(
   {
     IMessages errors = Messages.New;
     if (result.IsOk()) {
-      _schemaVerifier.I.Verify(result.Required(), errors);
+      _schemaVerifier.Verify(result.Required(), errors);
     } else {
       result.IsError(e => errors.Add(e with { Message = "Parse Error: " + e.Message }));
     }

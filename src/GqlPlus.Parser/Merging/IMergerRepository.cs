@@ -6,6 +6,6 @@ namespace GqlPlus.Merging;
 public interface IMergerRepository
   : IRepository
 {
-  DeferOne<IMerge<T>>.D MergerFor<T>([CallerMemberName] string callerName = "") where T : IAstError;
-  DeferList<IMergeAll<T>>.D AllMergersFor<T>([CallerMemberName] string callerName = "") where T : IAstType;
+  MergerOne<T>.D MergerFor<T>([CallerMemberName] string callerName = "") where T : IAstError;
+  MergerList<T>.D AllMergersFor<T>([CallerMemberName] string callerName = "") where T : IAstType;
 }

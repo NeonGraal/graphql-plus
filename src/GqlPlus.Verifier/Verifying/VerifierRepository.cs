@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using GqlPlus.Ast.Operation;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Matching;
@@ -40,7 +40,7 @@ internal class VerifierRepository(
   public MatcherOne<T>.D MatcherFor<T>([CallerMemberName] string callerName = "")
     => matchers.MatcherFor<T>(callerName);
 
-  public DeferOne<IMerge<T>>.D MergerFor<T>([CallerMemberName] string callerName = "")
+  public MergerOne<T>.D MergerFor<T>([CallerMemberName] string callerName = "")
     where T : IAstError
     => mergers.MergerFor<T>(callerName);
 }

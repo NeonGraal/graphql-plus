@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using GqlPlus.Ast.Operation;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Matching;
@@ -28,6 +28,6 @@ public interface IVerifierRepository
 
   MatcherOne<T>.D MatcherFor<T>([CallerMemberName] string callerName = "");
 
-  DeferOne<IMerge<T>>.D MergerFor<T>([CallerMemberName] string callerName = "")
+  MergerOne<T>.D MergerFor<T>([CallerMemberName] string callerName = "")
     where T : IAstError;
 }

@@ -9,11 +9,11 @@ internal class MergerRepository(
 ) : BaseRepository<IMergerRepository>(loggerFactory)
   , IMergerRepository
 {
-  public DeferOne<IMerge<T>>.D MergerFor<T>([CallerMemberName] string callerName = "")
+  public MergerOne<T>.D MergerFor<T>([CallerMemberName] string callerName = "")
     where T : IAstError
     => () => Cached<T, IMerge<T>>(builder.Mergers, "merger for " + callerName, this);
 
-  public DeferList<IMergeAll<T>>.D AllMergersFor<T>([CallerMemberName] string callerName = "")
+  public MergerList<T>.D AllMergersFor<T>([CallerMemberName] string callerName = "")
     where T : IAstType
   {
     if (builder.AllMergerTypes.TryGetValue(typeof(T), out List<Type>? serviceTypes)) {

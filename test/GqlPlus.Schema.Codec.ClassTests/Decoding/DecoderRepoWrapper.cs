@@ -22,7 +22,7 @@ internal sealed class DecoderRepoWrapper(
     repo.WriteFactories("Decoder", repoBuilder.AllFactories);
   }
 
-  public DeferOne<IDecoder<T>>.D DecoderFor<T>([CallerMemberName] string callerName = "")
+  public Decoder<T>.D DecoderFor<T>([CallerMemberName] string callerName = "")
     => AddRelationship<T>(callerName)
       .DecoderFor<T>(callerName);
   public DeferOne<TDecoder>.D DecoderFor<TDecoder, TBase>(string callerName)

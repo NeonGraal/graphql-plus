@@ -23,7 +23,7 @@ static public class RepositoryBuilderHelpers
 
   public static void DecoderForReturns<T>([NotNull] this IDecoderRepository repo, IDecoder<T> result)
   {
-    DeferOne<IDecoder<T>>.D factory = () => result;
+    Decoder<T>.D factory = () => result;
     repo.DecoderFor<T>().ReturnsForAnyArgs(factory);
   }
 
@@ -36,7 +36,7 @@ static public class RepositoryBuilderHelpers
 
   public static void EncoderForReturns<T>([NotNull] this IEncoderRepository repo, IEncoder<T> result)
   {
-    DeferOne<IEncoder<T>>.D factory = () => result;
+    Encoder<T>.D factory = () => result;
     repo.EncoderFor<T>().ReturnsForAnyArgs(factory);
   }
 

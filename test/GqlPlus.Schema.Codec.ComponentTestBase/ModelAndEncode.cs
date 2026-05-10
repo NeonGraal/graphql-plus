@@ -36,8 +36,8 @@ internal sealed class ModelAndEncode(
 
   public Structured EncodeModel(SchemaModel model, IModelsContext? context)
   {
-    DeferOne<IEncoder<SchemaModel>> encoder = encoders.EncoderFor<SchemaModel>();
-    Structured result = encoder.I.Encode(model);
+    Encoder<SchemaModel> encoder = encoders.EncoderFor<SchemaModel>();
+    Structured result = encoder.Encode(model);
     if (context?.Errors.Count > 0) {
       string key = result.Map.ContainsKey(new("_errors")) ? "_ctxErrors" : "errors";
       result.Add(key, context.Errors.Encode());

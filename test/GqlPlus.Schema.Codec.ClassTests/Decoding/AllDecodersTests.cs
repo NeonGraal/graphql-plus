@@ -13,7 +13,7 @@ public class AllDecodersTests
   [Fact]
   public void AllDecoders_DecoderForCategoryFilterModel_IsRegistered()
   {
-    DeferOne<IDecoder<CategoryFilterModel>> decoder = _services.GetRequiredService<IDecoderRepository>()
+    Decoder<CategoryFilterModel> decoder = _services.GetRequiredService<IDecoderRepository>()
       .DecoderFor<CategoryFilterModel>();
 
     decoder.I.ShouldNotBeNull();

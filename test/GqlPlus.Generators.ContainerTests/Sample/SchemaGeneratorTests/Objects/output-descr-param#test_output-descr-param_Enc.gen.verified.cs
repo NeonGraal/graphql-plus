@@ -11,10 +11,10 @@ internal class testOutpDescrParamEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestOutpDescrParamObject>
 {
-  private readonly DeferOne<IEncoder<ItestFldOutpDescrParam>> _itestFldOutpDescrParam = encoders.EncoderFor<ItestFldOutpDescrParam>();
+  private readonly Encoder<ItestFldOutpDescrParam> _itestFldOutpDescrParam = encoders.EncoderFor<ItestFldOutpDescrParam>();
   public Structured Encode(ItestOutpDescrParamObject input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field(), _itestFldOutpDescrParam.I);
+      .AddEncoded("field", input.Field(), _itestFldOutpDescrParam);
 
   internal static testOutpDescrParamEncoder Factory(IEncoderRepository r) => new(r);
 }

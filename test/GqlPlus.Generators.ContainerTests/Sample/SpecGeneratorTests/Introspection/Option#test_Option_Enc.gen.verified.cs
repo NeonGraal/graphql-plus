@@ -11,11 +11,11 @@ internal class test_SettingEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_SettingObject>
 {
-  private readonly DeferOne<IEncoder<Itest_NamedObject>> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
-  private readonly DeferOne<IEncoder<GqlpValue>> _gqlpValue = encoders.EncoderFor<GqlpValue>();
+  private readonly Encoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
+  private readonly Encoder<GqlpValue> _gqlpValue = encoders.EncoderFor<GqlpValue>();
   public Structured Encode(Itest_SettingObject input)
     => _itest_Named.I.Encode(input)
-      .AddEncoded("value", input.Value, _gqlpValue.I);
+      .AddEncoded("value", input.Value, _gqlpValue);
 
   internal static test_SettingEncoder Factory(IEncoderRepository r) => new(r);
 }

@@ -11,9 +11,9 @@ internal class testUnionPrntDescrEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestUnionPrntDescr>
 {
-  private readonly DeferOne<IEncoder<decimal>> _number = encoders.EncoderFor<decimal>();
+  private readonly Encoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ItestUnionPrntDescr input)
-    => input.HasA<decimal>() ? _number.I.Encode(input.AsA<decimal>())
+    => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
      : Structured.Empty();
 
   internal static testUnionPrntDescrEncoder Factory(IEncoderRepository r) => new(r);
@@ -23,9 +23,9 @@ internal class testPrntUnionPrntDescrEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestPrntUnionPrntDescr>
 {
-  private readonly DeferOne<IEncoder<decimal>> _number = encoders.EncoderFor<decimal>();
+  private readonly Encoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ItestPrntUnionPrntDescr input)
-    => input.HasA<decimal>() ? _number.I.Encode(input.AsA<decimal>())
+    => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
      : Structured.Empty();
 
   internal static testPrntUnionPrntDescrEncoder Factory(IEncoderRepository r) => new(r);

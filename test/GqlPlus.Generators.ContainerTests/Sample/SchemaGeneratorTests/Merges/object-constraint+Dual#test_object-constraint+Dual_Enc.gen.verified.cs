@@ -11,9 +11,9 @@ internal class testObjCnstDualEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestObjCnstDualObject<TType>>
 {
-  private readonly DeferOne<IEncoder<TType>> _type = encoders.EncoderFor<TType>();
+  private readonly Encoder<TType> _type = encoders.EncoderFor<TType>();
   public Structured Encode(ItestObjCnstDualObject<TType> input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field, _type.I)
-      .AddEncoded("str", input.Str, _type.I);
+      .AddEncoded("field", input.Field, _type)
+      .AddEncoded("str", input.Str, _type);
 }

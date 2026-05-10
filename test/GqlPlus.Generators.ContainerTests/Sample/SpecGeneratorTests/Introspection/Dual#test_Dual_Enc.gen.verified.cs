@@ -11,7 +11,7 @@ internal class test_DualFieldEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_DualFieldObject>
 {
-  private readonly DeferOne<IEncoder<Itest_ObjFieldObject<Itest_ObjFieldType>>> _itest_ObjField = encoders.EncoderFor<Itest_ObjFieldObject<Itest_ObjFieldType>>();
+  private readonly Encoder<Itest_ObjFieldObject<Itest_ObjFieldType>> _itest_ObjField = encoders.EncoderFor<Itest_ObjFieldObject<Itest_ObjFieldType>>();
   public Structured Encode(Itest_DualFieldObject input)
     => _itest_ObjField.I.Encode(input);
 

@@ -19,29 +19,29 @@ internal class test_DomainRefEncoder<TDomainKind>(
   IEncoderRepository encoders
 ) : IEncoder<Itest_DomainRefObject<TDomainKind>>
 {
-  private readonly DeferOne<IEncoder<Itest_TypeRefObject<Itest_TypeKind>>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRefObject<Itest_TypeKind>>();
-  private readonly DeferOne<IEncoder<TDomainKind>> _domainKind = encoders.EncoderFor<TDomainKind>();
+  private readonly Encoder<Itest_TypeRefObject<Itest_TypeKind>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRefObject<Itest_TypeKind>>();
+  private readonly Encoder<TDomainKind> _domainKind = encoders.EncoderFor<TDomainKind>();
   public Structured Encode(Itest_DomainRefObject<TDomainKind> input)
     => _itest_TypeRef.I.Encode(input)
-      .AddEncoded("domainKind", input.DomainKind, _domainKind.I);
+      .AddEncoded("domainKind", input.DomainKind, _domainKind);
 }
 
 internal class test_BaseDomainEncoder<TDomainKind,TItem,TDomainItem>(
   IEncoderRepository encoders
 ) : IEncoder<Itest_BaseDomainObject<TDomainKind,TItem,TDomainItem>>
 {
-  private readonly DeferOne<IEncoder<Itest_ParentTypeObject<Itest_TypeKind, TItem, TDomainItem>>> _itest_ParentType = encoders.EncoderFor<Itest_ParentTypeObject<Itest_TypeKind, TItem, TDomainItem>>();
-  private readonly DeferOne<IEncoder<TDomainKind>> _domainKind = encoders.EncoderFor<TDomainKind>();
+  private readonly Encoder<Itest_ParentTypeObject<Itest_TypeKind, TItem, TDomainItem>> _itest_ParentType = encoders.EncoderFor<Itest_ParentTypeObject<Itest_TypeKind, TItem, TDomainItem>>();
+  private readonly Encoder<TDomainKind> _domainKind = encoders.EncoderFor<TDomainKind>();
   public Structured Encode(Itest_BaseDomainObject<TDomainKind,TItem,TDomainItem> input)
     => _itest_ParentType.I.Encode(input)
-      .AddEncoded("domainKind", input.DomainKind, _domainKind.I);
+      .AddEncoded("domainKind", input.DomainKind, _domainKind);
 }
 
 internal class test_BaseDomainItemEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_BaseDomainItemObject>
 {
-  private readonly DeferOne<IEncoder<Itest_DescribedObject>> _itest_Described = encoders.EncoderFor<Itest_DescribedObject>();
+  private readonly Encoder<Itest_DescribedObject> _itest_Described = encoders.EncoderFor<Itest_DescribedObject>();
   public Structured Encode(Itest_BaseDomainItemObject input)
     => _itest_Described.I.Encode(input)
       .Add("exclude", input.Exclude.Encode());
@@ -53,21 +53,21 @@ internal class test_DomainItemEncoder<TItem>(
   IEncoderRepository encoders
 ) : IEncoder<Itest_DomainItemObject<TItem>>
 {
-  private readonly DeferOne<IEncoder<Itest_Name>> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  private readonly Encoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
   public Structured Encode(Itest_DomainItemObject<TItem> input)
     => Structured.Empty()
-      .AddEncoded("domain", input.Domain, _itest_Name.I);
+      .AddEncoded("domain", input.Domain, _itest_Name);
 }
 
 internal class test_DomainValueEncoder<TDomainKind,TValue>(
   IEncoderRepository encoders
 ) : IEncoder<Itest_DomainValueObject<TDomainKind,TValue>>
 {
-  private readonly DeferOne<IEncoder<Itest_DomainRefObject<TDomainKind>>> _itest_DomainRef = encoders.EncoderFor<Itest_DomainRefObject<TDomainKind>>();
-  private readonly DeferOne<IEncoder<TValue>> _value = encoders.EncoderFor<TValue>();
+  private readonly Encoder<Itest_DomainRefObject<TDomainKind>> _itest_DomainRef = encoders.EncoderFor<Itest_DomainRefObject<TDomainKind>>();
+  private readonly Encoder<TValue> _value = encoders.EncoderFor<TValue>();
   public Structured Encode(Itest_DomainValueObject<TDomainKind,TValue> input)
     => _itest_DomainRef.I.Encode(input)
-      .AddEncoded("value", input.Value, _value.I);
+      .AddEncoded("value", input.Value, _value);
 }
 
 internal class test_BasicValueEncoder : IEncoder<Itest_BasicValueObject>
@@ -82,7 +82,7 @@ internal class test_DomainTrueFalseEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_DomainTrueFalseObject>
 {
-  private readonly DeferOne<IEncoder<Itest_BaseDomainItemObject>> _itest_BaseDomainItem = encoders.EncoderFor<Itest_BaseDomainItemObject>();
+  private readonly Encoder<Itest_BaseDomainItemObject> _itest_BaseDomainItem = encoders.EncoderFor<Itest_BaseDomainItemObject>();
   public Structured Encode(Itest_DomainTrueFalseObject input)
     => _itest_BaseDomainItem.I.Encode(input)
       .Add("value", input.Value.Encode());
@@ -94,7 +94,7 @@ internal class test_DomainItemTrueFalseEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_DomainItemTrueFalseObject>
 {
-  private readonly DeferOne<IEncoder<Itest_DomainItemObject<Itest_DomainTrueFalse>>> _itest_DomainItem = encoders.EncoderFor<Itest_DomainItemObject<Itest_DomainTrueFalse>>();
+  private readonly Encoder<Itest_DomainItemObject<Itest_DomainTrueFalse>> _itest_DomainItem = encoders.EncoderFor<Itest_DomainItemObject<Itest_DomainTrueFalse>>();
   public Structured Encode(Itest_DomainItemTrueFalseObject input)
     => _itest_DomainItem.I.Encode(input);
 
@@ -105,11 +105,11 @@ internal class test_DomainLabelEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_DomainLabelObject>
 {
-  private readonly DeferOne<IEncoder<Itest_BaseDomainItemObject>> _itest_BaseDomainItem = encoders.EncoderFor<Itest_BaseDomainItemObject>();
-  private readonly DeferOne<IEncoder<Itest_EnumValue>> _itest_EnumValue = encoders.EncoderFor<Itest_EnumValue>();
+  private readonly Encoder<Itest_BaseDomainItemObject> _itest_BaseDomainItem = encoders.EncoderFor<Itest_BaseDomainItemObject>();
+  private readonly Encoder<Itest_EnumValue> _itest_EnumValue = encoders.EncoderFor<Itest_EnumValue>();
   public Structured Encode(Itest_DomainLabelObject input)
     => _itest_BaseDomainItem.I.Encode(input)
-      .AddEncoded("label", input.Label, _itest_EnumValue.I);
+      .AddEncoded("label", input.Label, _itest_EnumValue);
 
   internal static test_DomainLabelEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -118,7 +118,7 @@ internal class test_DomainItemLabelEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_DomainItemLabelObject>
 {
-  private readonly DeferOne<IEncoder<Itest_DomainItemObject<Itest_DomainLabel>>> _itest_DomainItem = encoders.EncoderFor<Itest_DomainItemObject<Itest_DomainLabel>>();
+  private readonly Encoder<Itest_DomainItemObject<Itest_DomainLabel>> _itest_DomainItem = encoders.EncoderFor<Itest_DomainItemObject<Itest_DomainLabel>>();
   public Structured Encode(Itest_DomainItemLabelObject input)
     => _itest_DomainItem.I.Encode(input);
 
@@ -129,7 +129,7 @@ internal class test_DomainRangeEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_DomainRangeObject>
 {
-  private readonly DeferOne<IEncoder<Itest_BaseDomainItemObject>> _itest_BaseDomainItem = encoders.EncoderFor<Itest_BaseDomainItemObject>();
+  private readonly Encoder<Itest_BaseDomainItemObject> _itest_BaseDomainItem = encoders.EncoderFor<Itest_BaseDomainItemObject>();
   public Structured Encode(Itest_DomainRangeObject input)
     => _itest_BaseDomainItem.I.Encode(input)
       .AddIf(input.Lower is not null, onTrue: t => t.Add("lower", input.Lower!.Encode()))
@@ -142,7 +142,7 @@ internal class test_DomainItemRangeEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_DomainItemRangeObject>
 {
-  private readonly DeferOne<IEncoder<Itest_DomainItemObject<Itest_DomainRange>>> _itest_DomainItem = encoders.EncoderFor<Itest_DomainItemObject<Itest_DomainRange>>();
+  private readonly Encoder<Itest_DomainItemObject<Itest_DomainRange>> _itest_DomainItem = encoders.EncoderFor<Itest_DomainItemObject<Itest_DomainRange>>();
   public Structured Encode(Itest_DomainItemRangeObject input)
     => _itest_DomainItem.I.Encode(input);
 
@@ -153,7 +153,7 @@ internal class test_DomainRegexEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_DomainRegexObject>
 {
-  private readonly DeferOne<IEncoder<Itest_BaseDomainItemObject>> _itest_BaseDomainItem = encoders.EncoderFor<Itest_BaseDomainItemObject>();
+  private readonly Encoder<Itest_BaseDomainItemObject> _itest_BaseDomainItem = encoders.EncoderFor<Itest_BaseDomainItemObject>();
   public Structured Encode(Itest_DomainRegexObject input)
     => _itest_BaseDomainItem.I.Encode(input)
       .Add("pattern", input.Pattern.Encode());
@@ -165,7 +165,7 @@ internal class test_DomainItemRegexEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_DomainItemRegexObject>
 {
-  private readonly DeferOne<IEncoder<Itest_DomainItemObject<Itest_DomainRegex>>> _itest_DomainItem = encoders.EncoderFor<Itest_DomainItemObject<Itest_DomainRegex>>();
+  private readonly Encoder<Itest_DomainItemObject<Itest_DomainRegex>> _itest_DomainItem = encoders.EncoderFor<Itest_DomainItemObject<Itest_DomainRegex>>();
   public Structured Encode(Itest_DomainItemRegexObject input)
     => _itest_DomainItem.I.Encode(input);
 

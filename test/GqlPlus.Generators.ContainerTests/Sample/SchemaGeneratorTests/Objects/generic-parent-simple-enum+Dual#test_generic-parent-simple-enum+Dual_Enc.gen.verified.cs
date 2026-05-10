@@ -11,7 +11,7 @@ internal class testGnrcPrntSmplEnumDualEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestGnrcPrntSmplEnumDualObject>
 {
-  private readonly DeferOne<IEncoder<ItestFieldGnrcPrntSmplEnumDualObject<testEnumGnrcPrntSmplEnumDual>>> _itestFieldGnrcPrntSmplEnumDual = encoders.EncoderFor<ItestFieldGnrcPrntSmplEnumDualObject<testEnumGnrcPrntSmplEnumDual>>();
+  private readonly Encoder<ItestFieldGnrcPrntSmplEnumDualObject<testEnumGnrcPrntSmplEnumDual>> _itestFieldGnrcPrntSmplEnumDual = encoders.EncoderFor<ItestFieldGnrcPrntSmplEnumDualObject<testEnumGnrcPrntSmplEnumDual>>();
   public Structured Encode(ItestGnrcPrntSmplEnumDualObject input)
     => _itestFieldGnrcPrntSmplEnumDual.I.Encode(input);
 
@@ -22,10 +22,10 @@ internal class testFieldGnrcPrntSmplEnumDualEncoder<TRef>(
   IEncoderRepository encoders
 ) : IEncoder<ItestFieldGnrcPrntSmplEnumDualObject<TRef>>
 {
-  private readonly DeferOne<IEncoder<TRef>> _ref = encoders.EncoderFor<TRef>();
+  private readonly Encoder<TRef> _ref = encoders.EncoderFor<TRef>();
   public Structured Encode(ItestFieldGnrcPrntSmplEnumDualObject<TRef> input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field, _ref.I);
+      .AddEncoded("field", input.Field, _ref);
 }
 
 internal class testEnumGnrcPrntSmplEnumDualEncoder : IEncoder<testEnumGnrcPrntSmplEnumDual>

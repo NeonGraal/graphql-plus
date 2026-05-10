@@ -11,7 +11,7 @@ internal class testGnrcPrntDualPrntOutpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestGnrcPrntDualPrntOutpObject>
 {
-  private readonly DeferOne<IEncoder<ItestRefGnrcPrntDualPrntOutpObject<ItestAltGnrcPrntDualPrntOutp>>> _itestRefGnrcPrntDualPrntOutp = encoders.EncoderFor<ItestRefGnrcPrntDualPrntOutpObject<ItestAltGnrcPrntDualPrntOutp>>();
+  private readonly Encoder<ItestRefGnrcPrntDualPrntOutpObject<ItestAltGnrcPrntDualPrntOutp>> _itestRefGnrcPrntDualPrntOutp = encoders.EncoderFor<ItestRefGnrcPrntDualPrntOutpObject<ItestAltGnrcPrntDualPrntOutp>>();
   public Structured Encode(ItestGnrcPrntDualPrntOutpObject input)
     => _itestRefGnrcPrntDualPrntOutp.I.Encode(input);
 

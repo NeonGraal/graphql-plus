@@ -11,11 +11,11 @@ internal class test_CategoriesEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_CategoriesObject>
 {
-  private readonly DeferOne<IEncoder<Itest_AndTypeObject>> _itest_AndType = encoders.EncoderFor<Itest_AndTypeObject>();
-  private readonly DeferOne<IEncoder<Itest_Category>> _itest_Category = encoders.EncoderFor<Itest_Category>();
+  private readonly Encoder<Itest_AndTypeObject> _itest_AndType = encoders.EncoderFor<Itest_AndTypeObject>();
+  private readonly Encoder<Itest_Category> _itest_Category = encoders.EncoderFor<Itest_Category>();
   public Structured Encode(Itest_CategoriesObject input)
     => _itest_AndType.I.Encode(input)
-      .AddEncoded("category", input.Category, _itest_Category.I);
+      .AddEncoded("category", input.Category, _itest_Category);
 
   internal static test_CategoriesEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -24,14 +24,14 @@ internal class test_CategoryEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_CategoryObject>
 {
-  private readonly DeferOne<IEncoder<Itest_AliasedObject>> _itest_Aliased = encoders.EncoderFor<Itest_AliasedObject>();
-  private readonly DeferOne<IEncoder<Itest_TypeRef<Itest_TypeKind>>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRef<Itest_TypeKind>>();
-  private readonly DeferOne<IEncoder<Itest_Modifiers>> _itest_Modifiers = encoders.EncoderFor<Itest_Modifiers>();
+  private readonly Encoder<Itest_AliasedObject> _itest_Aliased = encoders.EncoderFor<Itest_AliasedObject>();
+  private readonly Encoder<Itest_TypeRef<Itest_TypeKind>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRef<Itest_TypeKind>>();
+  private readonly Encoder<Itest_Modifiers> _itest_Modifiers = encoders.EncoderFor<Itest_Modifiers>();
   public Structured Encode(Itest_CategoryObject input)
     => _itest_Aliased.I.Encode(input)
       .AddEnum("resolution", input.Resolution)
-      .AddEncoded("output", input.Output, _itest_TypeRef.I)
-      .AddList("modifiers", input.Modifiers, _itest_Modifiers.I);
+      .AddEncoded("output", input.Output, _itest_TypeRef)
+      .AddList("modifiers", input.Modifiers, _itest_Modifiers);
 
   internal static test_CategoryEncoder Factory(IEncoderRepository r) => new(r);
 }

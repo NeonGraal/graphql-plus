@@ -11,7 +11,7 @@ internal class testPrntFieldOutpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestPrntFieldOutpObject>
 {
-  private readonly DeferOne<IEncoder<ItestRefPrntFieldOutpObject>> _itestRefPrntFieldOutp = encoders.EncoderFor<ItestRefPrntFieldOutpObject>();
+  private readonly Encoder<ItestRefPrntFieldOutpObject> _itestRefPrntFieldOutp = encoders.EncoderFor<ItestRefPrntFieldOutpObject>();
   public Structured Encode(ItestPrntFieldOutpObject input)
     => _itestRefPrntFieldOutp.I.Encode(input)
       .Add("field", input.Field.Encode());

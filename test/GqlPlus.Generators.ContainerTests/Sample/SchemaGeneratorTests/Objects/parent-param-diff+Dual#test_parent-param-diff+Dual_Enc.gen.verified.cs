@@ -11,11 +11,11 @@ internal class testPrntParamDiffDualEncoder<TA>(
   IEncoderRepository encoders
 ) : IEncoder<ItestPrntParamDiffDualObject<TA>>
 {
-  private readonly DeferOne<IEncoder<ItestRefPrntParamDiffDualObject<TA>>> _itestRefPrntParamDiffDual = encoders.EncoderFor<ItestRefPrntParamDiffDualObject<TA>>();
-  private readonly DeferOne<IEncoder<TA>> _a = encoders.EncoderFor<TA>();
+  private readonly Encoder<ItestRefPrntParamDiffDualObject<TA>> _itestRefPrntParamDiffDual = encoders.EncoderFor<ItestRefPrntParamDiffDualObject<TA>>();
+  private readonly Encoder<TA> _a = encoders.EncoderFor<TA>();
   public Structured Encode(ItestPrntParamDiffDualObject<TA> input)
     => _itestRefPrntParamDiffDual.I.Encode(input)
-      .AddEncoded("field", input.Field, _a.I);
+      .AddEncoded("field", input.Field, _a);
 }
 
 internal class testRefPrntParamDiffDualEncoder<TB> : IEncoder<ItestRefPrntParamDiffDualObject<TB>>

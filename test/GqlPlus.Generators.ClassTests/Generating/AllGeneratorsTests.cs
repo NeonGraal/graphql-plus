@@ -1,4 +1,4 @@
-using GqlPlus.Factories;
+﻿using GqlPlus.Factories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Generating;
@@ -23,7 +23,7 @@ public class AllGeneratorsTests
   {
     DeferList<ITypeGenerator> lazy = _services.GetRequiredService<IGeneratorRepository>().TypeGenerators(generatorType);
 
-    lazy.I.ShouldNotBeEmpty();
+    lazy.ShouldNotBeEmpty();
   }
 
   [Fact]
@@ -41,7 +41,7 @@ public class AllGeneratorsTests
     IGeneratorRepository repo = _services.GetRequiredService<IGeneratorRepository>();
     DeferList<ITypeGenerator> lazy = repo.TypeGenerators(generatorType);
 
-    repo.ShouldSatisfyAllConditions([.. lazy.I.Select(CheckTypeGenerator)]);
+    repo.ShouldSatisfyAllConditions([.. lazy.Select(CheckTypeGenerator)]);
   }
 
   private static Action<IGeneratorRepository> CheckGenerator(Factory<object, IGeneratorRepository> factory)

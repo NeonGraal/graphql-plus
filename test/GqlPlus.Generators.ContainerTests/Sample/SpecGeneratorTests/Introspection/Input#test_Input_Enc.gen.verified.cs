@@ -11,7 +11,7 @@ internal class test_InputFieldEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_InputFieldObject>
 {
-  private readonly DeferOne<IEncoder<Itest_ObjFieldObject<Itest_InputFieldType>>> _itest_ObjField = encoders.EncoderFor<Itest_ObjFieldObject<Itest_InputFieldType>>();
+  private readonly Encoder<Itest_ObjFieldObject<Itest_InputFieldType>> _itest_ObjField = encoders.EncoderFor<Itest_ObjFieldObject<Itest_InputFieldType>>();
   public Structured Encode(Itest_InputFieldObject input)
     => _itest_ObjField.I.Encode(input);
 
@@ -22,11 +22,11 @@ internal class test_InputFieldTypeEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_InputFieldTypeObject>
 {
-  private readonly DeferOne<IEncoder<Itest_ObjFieldTypeObject>> _itest_ObjFieldType = encoders.EncoderFor<Itest_ObjFieldTypeObject>();
-  private readonly DeferOne<IEncoder<GqlpValue>> _gqlpValue = encoders.EncoderFor<GqlpValue>();
+  private readonly Encoder<Itest_ObjFieldTypeObject> _itest_ObjFieldType = encoders.EncoderFor<Itest_ObjFieldTypeObject>();
+  private readonly Encoder<GqlpValue> _gqlpValue = encoders.EncoderFor<GqlpValue>();
   public Structured Encode(Itest_InputFieldTypeObject input)
     => _itest_ObjFieldType.I.Encode(input)
-      .AddEncoded("defaultValue", input.DefaultValue, _gqlpValue.I);
+      .AddEncoded("defaultValue", input.DefaultValue, _gqlpValue);
 
   internal static test_InputFieldTypeEncoder Factory(IEncoderRepository r) => new(r);
 }

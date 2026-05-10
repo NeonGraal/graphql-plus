@@ -11,11 +11,11 @@ internal class testUnionAliasEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestUnionAlias>
 {
-  private readonly DeferOne<IEncoder<bool>> _boolean = encoders.EncoderFor<bool>();
-  private readonly DeferOne<IEncoder<decimal>> _number = encoders.EncoderFor<decimal>();
+  private readonly Encoder<bool> _boolean = encoders.EncoderFor<bool>();
+  private readonly Encoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ItestUnionAlias input)
-    => input.HasA<bool>() ? _boolean.I.Encode(input.AsA<bool>())
-     : input.HasA<decimal>() ? _number.I.Encode(input.AsA<decimal>())
+    => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
+     : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
      : Structured.Empty();
 
   internal static testUnionAliasEncoder Factory(IEncoderRepository r) => new(r);

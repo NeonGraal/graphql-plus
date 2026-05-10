@@ -11,10 +11,10 @@ internal class testGnrcFieldArgDualEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestGnrcFieldArgDualObject<TType>>
 {
-  private readonly DeferOne<IEncoder<ItestRefGnrcFieldArgDual<TType>>> _itestRefGnrcFieldArgDual = encoders.EncoderFor<ItestRefGnrcFieldArgDual<TType>>();
+  private readonly Encoder<ItestRefGnrcFieldArgDual<TType>> _itestRefGnrcFieldArgDual = encoders.EncoderFor<ItestRefGnrcFieldArgDual<TType>>();
   public Structured Encode(ItestGnrcFieldArgDualObject<TType> input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field, _itestRefGnrcFieldArgDual.I);
+      .AddEncoded("field", input.Field, _itestRefGnrcFieldArgDual);
 }
 
 internal class testRefGnrcFieldArgDualEncoder<TRef> : IEncoder<ItestRefGnrcFieldArgDualObject<TRef>>

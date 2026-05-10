@@ -11,10 +11,10 @@ internal class testOutpParamModParamEncoder<TMod>(
   IEncoderRepository encoders
 ) : IEncoder<ItestOutpParamModParamObject<TMod>>
 {
-  private readonly DeferOne<IEncoder<ItestDomOutpParamModParam>> _itestDomOutpParamModParam = encoders.EncoderFor<ItestDomOutpParamModParam>();
+  private readonly Encoder<ItestDomOutpParamModParam> _itestDomOutpParamModParam = encoders.EncoderFor<ItestDomOutpParamModParam>();
   public Structured Encode(ItestOutpParamModParamObject<TMod> input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field(), _itestDomOutpParamModParam.I);
+      .AddEncoded("field", input.Field(), _itestDomOutpParamModParam);
 }
 
 internal class testDomOutpParamModParamEncoder : IEncoder<ItestDomOutpParamModParam>

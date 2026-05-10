@@ -82,6 +82,19 @@ public interface IVerifyAliased<TAliased>
     where TAliased : IAstAliased
 { }
 
+public class AliasVerifier<TAliased>(
+  AliasVerifier<TAliased>.D factory
+) : DeferOne<IVerifyAliased<TAliased>>(factory)
+  , IVerifyAliased<TAliased>
+  where TAliased : IAstAliased
+{
+  public void Verify(TAliased[] item, IMessages errors)
+    => Value.Verify(item, errors);
+
+  public static implicit operator AliasVerifier<TAliased>(D factory)
+    => new(factory.ThrowIfNull());
+}
+
 internal static partial class GroupedVerifierLogging
 {
   [LoggerMessage(Level = LogLevel.Information, Message = "Group verifying of {Type}")]

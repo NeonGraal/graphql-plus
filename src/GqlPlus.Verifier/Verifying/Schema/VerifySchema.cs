@@ -4,11 +4,11 @@ namespace GqlPlus.Verifying.Schema;
 
 internal class VerifySchema(IVerifierRepository verifiers) : IVerify<IAstSchema>
 {
-  private readonly DeferOne<IVerifyUsage<IAstSchemaCategory>> _categoryOutputs = verifiers.UsageFor<IAstSchemaCategory>();
-  private readonly DeferOne<IVerifyUsage<IAstSchemaDirective>> _directiveInputs = verifiers.UsageFor<IAstSchemaDirective>();
-  private readonly DeferOne<IVerifyAliased<IAstSchemaOption>> _optionsAliased = verifiers.AliasedFor<IAstSchemaOption>();
-  private readonly DeferOne<IVerifyAliased<IAstType>> _typesAliased = verifiers.AliasedFor<IAstType>();
-  private readonly DeferOne<IVerify<IAstType[]>> _types = verifiers.VerifierFor<IAstType[]>();
+  private readonly UsageVerifier<IAstSchemaCategory> _categoryOutputs = verifiers.UsageFor<IAstSchemaCategory>();
+  private readonly UsageVerifier<IAstSchemaDirective> _directiveInputs = verifiers.UsageFor<IAstSchemaDirective>();
+  private readonly AliasVerifier<IAstSchemaOption> _optionsAliased = verifiers.AliasedFor<IAstSchemaOption>();
+  private readonly AliasVerifier<IAstType> _typesAliased = verifiers.AliasedFor<IAstType>();
+  private readonly Verifier<IAstType[]> _types = verifiers.VerifierFor<IAstType[]>();
 
   public void Verify(IAstSchema item, IMessages errors)
   {
@@ -20,12 +20,12 @@ internal class VerifySchema(IVerifierRepository verifiers) : IVerify<IAstSchema>
     IAstType[] outputTypes = [.. astTypes.Where(ObjectTypeIs<IAstOutputField>), .. BuiltIn.Basic, .. BuiltIn.Internal];
     IAstType[] inputTypes = [.. astTypes.Where(ObjectTypeIs<IAstInputField>), .. BuiltIn.Basic, .. BuiltIn.Internal];
 
-    _categoryOutputs.I.Verify(new(categories, outputTypes), errors);
-    _directiveInputs.I.Verify(new(directives, inputTypes), errors);
-    _optionsAliased.I.Verify(options, errors);
+    _categoryOutputs.Verify(new(categories, outputTypes), errors);
+    _directiveInputs.Verify(new(directives, inputTypes), errors);
+    _optionsAliased.Verify(options, errors);
 
-    _types.I.Verify(astTypes, errors);
-    _typesAliased.I.Verify(astTypes, errors);
+    _types.Verify(astTypes, errors);
+    _typesAliased.Verify(astTypes, errors);
 
     errors.Add(item.Errors);
 

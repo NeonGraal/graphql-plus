@@ -17,22 +17,22 @@ internal class VerifierRepository(
 ) : BaseRepository<IVerifierRepository>(loggerFactory)
   , IVerifierRepository
 {
-  public DeferOne<IVerify<T>>.D VerifierFor<T>([CallerMemberName] string callerName = "")
-    => () => Cached<T, IVerify<T>>(state.Verifiers, "verify for " + callerName, this);
+  public Verifier<T> VerifierFor<T>([CallerMemberName] string callerName = "")
+    => new(() => Cached<T, IVerify<T>>(state.Verifiers, "verify for " + callerName, this));
 
-  public DeferOne<IVerifyAliased<T>>.D AliasedFor<T>([CallerMemberName] string callerName = "")
+  public AliasVerifier<T> AliasedFor<T>([CallerMemberName] string callerName = "")
     where T : IAstAliased
-    => () => Cached<T, IVerifyAliased<T>>(state.Aliased, "aliased for " + callerName, this);
-  public DeferOne<IVerifyUsage<T>>.D UsageFor<T>([CallerMemberName] string callerName = "")
+    => new(() => Cached<T, IVerifyAliased<T>>(state.Aliased, "aliased for " + callerName, this));
+  public UsageVerifier<T> UsageFor<T>([CallerMemberName] string callerName = "")
     where T : IAstAliased
-    => () => Cached<T, IVerifyUsage<T>>(state.Usages, "usage for " + callerName, this);
+    => new(() => Cached<T, IVerifyUsage<T>>(state.Usages, "usage for " + callerName, this));
 
-  public DeferOne<IVerifyIdentified<TUsage, TIdentified>>.D IdentifiedFor<TUsage, TIdentified>([CallerMemberName] string callerName = "")
+  public IdentifiedVerifier<TUsage, TIdentified> IdentifiedFor<TUsage, TIdentified>([CallerMemberName] string callerName = "")
     where TUsage : IAstError
     where TIdentified : IAstIdentified
-    => () => Cached<(TUsage, TIdentified), IVerifyIdentified<TUsage, TIdentified>>(
+    => new(() => Cached<(TUsage, TIdentified), IVerifyIdentified<TUsage, TIdentified>>(
       state.Identified,
-      "identified for " + callerName, this);
+      "identified for " + callerName, this));
 
   public DeferList<IVerifyDomain>.D GetDomains([CallerMemberName] string callerName = "")
     => () => state.Domains.Select(f => (IVerifyDomain)f(this));

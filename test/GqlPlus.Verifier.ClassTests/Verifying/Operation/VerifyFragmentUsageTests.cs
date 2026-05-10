@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Verifying.Operation;
 
@@ -21,6 +21,6 @@ public class VerifyFragmentUsageTests
     return [usage];
   }
 
-  internal override IdentifiedVerifier<IAstSpread, IAstFragment> NewVerifier()
+  internal override IdentifiedVerifierBase<IAstSpread, IAstFragment> NewVerifier()
     => new VerifyFragmentUsage(VerifierRepo);
 }

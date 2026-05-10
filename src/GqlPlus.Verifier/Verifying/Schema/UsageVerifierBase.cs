@@ -2,13 +2,13 @@
 
 namespace GqlPlus.Verifying.Schema;
 
-internal abstract class UsageVerifier<TUsage, TContext>(
+internal abstract class UsageVerifierBase<TUsage, TContext>(
   IVerifierRepository verifiers
 ) : IVerifyUsage<TUsage>
   where TUsage : IAstAliased
   where TContext : UsageContext
 {
-  private readonly DeferOne<IVerifyAliased<TUsage>> _aliased = verifiers.AliasedFor<TUsage>();
+  private readonly AliasVerifier<TUsage> _aliased = verifiers.AliasedFor<TUsage>();
 
   protected abstract void UsageValue(TUsage usage, TContext context);
   protected abstract TContext MakeContext(TUsage usage, IAstType[] aliased, IMessages errors);
@@ -20,7 +20,7 @@ internal abstract class UsageVerifier<TUsage, TContext>(
       UsageValue(usage, context);
     }
 
-    _aliased.I.Verify(item.Usages, errors);
+    _aliased.Verify(item.Usages, errors);
   }
 
   protected static UsageContext MakeUsageContext(IAstType[] aliased, IMessages errors)
@@ -39,3 +39,16 @@ public interface IVerifyUsage<TUsage>
   : IVerify<UsageAliased<TUsage>>
   where TUsage : IAstError
 { }
+
+public class UsageVerifier<T>(
+  UsageVerifier<T>.D factory
+) : DeferOne<IVerifyUsage<T>>(factory)
+  , IVerifyUsage<T>
+  where T : IAstAliased
+{
+  public void Verify(UsageAliased<T> item, IMessages errors)
+    => Value.Verify(item, errors);
+
+  public static implicit operator UsageVerifier<T>(D factory)
+    => new(factory.ThrowIfNull());
+}

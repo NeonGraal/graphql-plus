@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifying.Operation;
 
 internal class VerifyFragmentUsage(IVerifierRepository verifiers)
-  : IdentifiedVerifier<IAstSpread, IAstFragment>(verifiers)
+  : IdentifiedVerifierBase<IAstSpread, IAstFragment>(verifiers)
 {
   public override string Label => "Spread";
 

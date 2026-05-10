@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Verifying.Operation;
 
@@ -20,6 +20,6 @@ public class VerifyVariableUsageTests
     return [usage];
   }
 
-  internal override IdentifiedVerifier<IAstArg, IAstVariable> NewVerifier()
+  internal override IdentifiedVerifierBase<IAstArg, IAstVariable> NewVerifier()
     => new VerifyVariableUsage(VerifierRepo);
 }

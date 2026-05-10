@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Verifying.Operation;
 
@@ -22,7 +22,7 @@ public abstract class IdentifiedVerifierTestsBase<TUsage, TIdentified>
   [Fact]
   public void Verify_WithNone()
   {
-    IdentifiedVerifier<TUsage, TIdentified> verifier = NewVerifier();
+    IdentifiedVerifierBase<TUsage, TIdentified> verifier = NewVerifier();
 
     UsageIdentified<TUsage, TIdentified> item = new([], []);
 
@@ -37,7 +37,7 @@ public abstract class IdentifiedVerifierTestsBase<TUsage, TIdentified>
   [Fact]
   public void Verify_WithDefinition()
   {
-    IdentifiedVerifier<TUsage, TIdentified> verifier = NewVerifier();
+    IdentifiedVerifierBase<TUsage, TIdentified> verifier = NewVerifier();
 
     UsageIdentified<TUsage, TIdentified> item = new([], OneDefinition("defined"));
 
@@ -52,7 +52,7 @@ public abstract class IdentifiedVerifierTestsBase<TUsage, TIdentified>
   [Fact]
   public void Verify_WithUsage()
   {
-    IdentifiedVerifier<TUsage, TIdentified> verifier = NewVerifier();
+    IdentifiedVerifierBase<TUsage, TIdentified> verifier = NewVerifier();
 
     UsageIdentified<TUsage, TIdentified> item = new(OneUsage("usage"), []);
 
@@ -67,7 +67,7 @@ public abstract class IdentifiedVerifierTestsBase<TUsage, TIdentified>
   [Fact]
   public void Verify_WithDifferent()
   {
-    IdentifiedVerifier<TUsage, TIdentified> verifier = NewVerifier();
+    IdentifiedVerifierBase<TUsage, TIdentified> verifier = NewVerifier();
 
     UsageIdentified<TUsage, TIdentified> item = new(OneUsage("usage"), OneDefinition("defined"));
 
@@ -82,7 +82,7 @@ public abstract class IdentifiedVerifierTestsBase<TUsage, TIdentified>
   [Fact]
   public void Verify_WithMatching()
   {
-    IdentifiedVerifier<TUsage, TIdentified> verifier = NewVerifier();
+    IdentifiedVerifierBase<TUsage, TIdentified> verifier = NewVerifier();
 
     UsageIdentified<TUsage, TIdentified> item = new(OneUsage("match"), OneDefinition("match"));
 
@@ -94,7 +94,7 @@ public abstract class IdentifiedVerifierTestsBase<TUsage, TIdentified>
       () => Errors.ShouldBeEmpty());
   }
 
-  internal abstract IdentifiedVerifier<TUsage, TIdentified> NewVerifier();
+  internal abstract IdentifiedVerifierBase<TUsage, TIdentified> NewVerifier();
   protected abstract IEnumerable<TIdentified> OneDefinition(string name);
   protected abstract IEnumerable<TUsage> OneUsage(string key);
 }

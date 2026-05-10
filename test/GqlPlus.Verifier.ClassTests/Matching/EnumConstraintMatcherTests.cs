@@ -8,7 +8,7 @@ public class EnumConstraintMatcherTests
 
   public EnumConstraintMatcherTests()
   {
-    MatcherOne<IAstEnum>.D enumMatcher = MatcherFor(out _enumMatcher);
+    Matcher<IAstEnum>.D enumMatcher = MatcherFor(out _enumMatcher);
     MatcherForReturns(enumMatcher);
     _sut = new(MatcherRepo);
   }

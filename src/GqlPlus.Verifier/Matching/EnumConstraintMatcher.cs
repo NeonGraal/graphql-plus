@@ -7,7 +7,7 @@ internal class EnumConstraintMatcher(
   IMatcherRepository matchers
 ) : MatchConstraintBase<IAstEnum>(matchers)
 {
-  private readonly MatcherOne<IAstEnum> _enumMatcher = matchers.MatcherFor<IAstEnum>();
+  private readonly Matcher<IAstEnum> _enumMatcher = matchers.MatcherFor<IAstEnum>();
 
   public override bool MatchesConstraint(IAstType type, IAstEnum constraint, EnumContext context)
     => base.MatchesConstraint(type, constraint, context)

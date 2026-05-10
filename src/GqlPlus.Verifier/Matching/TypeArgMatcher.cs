@@ -9,7 +9,7 @@ internal class TypeArgMatcher(
 ) : MatchLogger(matchers)
   , IMatcher<IAstTypeArg>
 {
-  private readonly MatcherOne<IAstType> _anyTypeMatcher = matchers.MatcherFor<IAstType>();
+  private readonly Matcher<IAstType> _anyTypeMatcher = matchers.MatcherFor<IAstType>();
 
   public bool Matches(IAstTypeArg arg, string constraint, EnumContext context)
   {

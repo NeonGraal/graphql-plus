@@ -7,7 +7,7 @@ internal class UnionConstraintMatcher(
   IMatcherRepository matchers
 ) : MatchConstraintBase<IAstUnion>(matchers)
 {
-  private readonly MatcherOne<IAstType> _anyTypeMatcher = matchers.MatcherFor<IAstType>();
+  private readonly Matcher<IAstType> _anyTypeMatcher = matchers.MatcherFor<IAstType>();
 
   public override bool MatchesConstraint(IAstType type, IAstUnion constraint, EnumContext context)
     => base.MatchesConstraint(type, constraint, context)

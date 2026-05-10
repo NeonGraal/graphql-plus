@@ -42,7 +42,7 @@ public class VerifierTestsBase
     where TIdentified : IAstIdentified
     => VerifierRepo.IdentifiedFor<TUsage, TIdentified>().ReturnsForAnyArgs(new DeferOne<IVerifyIdentified<TUsage, TIdentified>>.D(() => result));
 
-  protected void VerifierMatcherForReturns<T>(MatcherOne<T>.D result)
+  protected void VerifierMatcherForReturns<T>(Matcher<T>.D result)
     where T : IAstError
     => VerifierRepo.MatcherFor<T>().ReturnsForAnyArgs(result);
 

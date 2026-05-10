@@ -17,7 +17,7 @@ public abstract class ObjectVerifierTestsBase<TObjField>
 
     ArgMatcher = A.Of<IMatcher<IAstTypeArg>>();
 
-    ArgDelegate = A.Of<MatcherOne<IAstTypeArg>.D>();
+    ArgDelegate = A.Of<Matcher<IAstTypeArg>.D>();
     ArgDelegate().Returns(ArgMatcher);
 
     VerifierMatcherForReturns(ArgDelegate);
@@ -29,7 +29,7 @@ public abstract class ObjectVerifierTestsBase<TObjField>
   }
 
   protected IMatcher<IAstTypeArg> ArgMatcher { get; }
-  protected MatcherOne<IAstTypeArg>.D ArgDelegate { get; }
+  protected Matcher<IAstTypeArg>.D ArgDelegate { get; }
 
   protected sealed override IAstObject<TObjField> TheUsage => TheObject;
 

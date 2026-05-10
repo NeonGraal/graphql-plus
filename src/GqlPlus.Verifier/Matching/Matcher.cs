@@ -8,15 +8,15 @@ public interface IMatcher<T>
   bool Matches(T type, string constraint, EnumContext context);
 }
 
-public class MatcherOne<T>(
-  MatcherOne<T>.D factory
+public class Matcher<T>(
+  Matcher<T>.D factory
 ) : DeferOne<IMatcher<T>>(factory)
   , IMatcher<T>
 {
   public bool Matches(T type, string constraint, EnumContext context)
     => I.Matches(type, constraint, context);
 
-  public static implicit operator MatcherOne<T>(D factory)
+  public static implicit operator Matcher<T>(D factory)
     => new(factory.ThrowIfNull());
 }
 

@@ -12,7 +12,7 @@ public class TypeArgMatcherTests
 
   public TypeArgMatcherTests()
   {
-    MatcherOne<IAstType>.D anyDelegate = MatcherFor(out IMatcher<IAstType> anyInterface);
+    Matcher<IAstType>.D anyDelegate = MatcherFor(out IMatcher<IAstType> anyInterface);
     AnyType = anyInterface;
     MatcherForReturns(anyDelegate);
     Matcher = new(MatcherRepo);

@@ -16,17 +16,17 @@ public class MatchTestsBase
     MatcherRepo.LoggerFactory.Returns(LoggerFactory);
   }
 
-  protected static MatcherOne<T>.D MatcherFor<T>(out IMatcher<T> matcher)
+  protected static Matcher<T>.D MatcherFor<T>(out IMatcher<T> matcher)
   {
     matcher = A.Of<IMatcher<T>>();
 
-    MatcherOne<T>.D result = A.Of<MatcherOne<T>.D>();
+    Matcher<T>.D result = A.Of<Matcher<T>.D>();
     result().Returns(matcher);
 
     return result;
   }
 
-  protected void MatcherForReturns<T>(MatcherOne<T>.D result)
+  protected void MatcherForReturns<T>(Matcher<T>.D result)
     where T : IAstError
     => MatcherRepo.MatcherFor<T>().ReturnsForAnyArgs(result);
 }

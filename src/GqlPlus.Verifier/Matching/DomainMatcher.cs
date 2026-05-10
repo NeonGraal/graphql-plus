@@ -9,7 +9,7 @@ internal class DomainMatcher(
   , IMatcher<IAstDomain>
   , ITypeMatcher
 {
-  private readonly MatcherOne<IAstEnum> _enumMatcher = matchers.MatcherFor<IAstEnum>();
+  private readonly Matcher<IAstEnum> _enumMatcher = matchers.MatcherFor<IAstEnum>();
 
   public override bool Matches(IAstDomain type, string constraint, EnumContext context)
   {

@@ -3,7 +3,7 @@
 public class MatchAnyTypesTestsBase
   : MatchTestsBase
 {
-  protected MatcherOne<IAstType>.D AnyTypeMatcher { get; }
+  protected Matcher<IAstType>.D AnyTypeMatcher { get; }
 
   private readonly IMatcher<IAstType> _anyTypeMatcher;
 

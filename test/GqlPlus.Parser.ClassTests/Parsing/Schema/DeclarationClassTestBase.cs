@@ -5,7 +5,7 @@ namespace GqlPlus.Parsing.Schema;
 public class DeclarationClassTestBase
   : AliasesClassTestBase
 {
-  private readonly Parser<NullAst>.IA _nullParam;
+  private readonly IParserArray<NullAst> _nullParam;
   private readonly IOptionParser<NullOption> _option;
 
   internal INameParser NameParser { get; set; }
@@ -17,7 +17,7 @@ public class DeclarationClassTestBase
     NameParser = SimpleName;
     Parsers.GetName<ISimpleName>().ReturnsForAnyArgs(() => SimpleName);
 
-    _nullParam = A.Of<Parser<NullAst>.IA>();
+    _nullParam = A.Of<IParserArray<NullAst>>();
     _nullParam.Parse(default!, default!)
       .ReturnsForAnyArgs(0.EmptyArray<NullAst>());
     Parsers.ArrayFor<NullAst>().ReturnsForAnyArgs(() => _nullParam);
@@ -36,7 +36,7 @@ public class DeclarationClassTestBase
   internal void NameReturns(string? name)
     => NameParser.ParseName(default!, out string? _, out TokenAt _).ReturnsForAnyArgs(OutStringAt(name));
 
-  public void Check_ShouldReturnError_WhenNoName<T>([NotNull] Parser<T>.I parser)
+  public void Check_ShouldReturnError_WhenNoName<T>([NotNull] IParser<T> parser)
     where T : class, IAstError
   {
     // Arrange

@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -7,12 +7,12 @@ public abstract class ObjectFieldParseTestBase<TField>
   where TField : class, IAstObjField
 {
 
-  private readonly Parser<IAstObjBase>.I _parseBase;
-  protected abstract Parser<TField>.I Parser { get; }
+  private readonly IParser<IAstObjBase> _parseBase;
+  protected abstract IParser<TField> Parser { get; }
 
   protected ObjectFieldParseTestBase()
   {
-    _parseBase = A.Of<Parser<IAstObjBase>.I>();
+    _parseBase = A.Of<IParser<IAstObjBase>>();
     _parseBase.Parse(default!, default!)
       .ReturnsForAnyArgs(default(IAstObjBase).Empty());
     Parsers.ParserFor<IAstObjBase>().ReturnsForAnyArgs(() => _parseBase);

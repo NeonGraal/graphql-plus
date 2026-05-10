@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -7,7 +7,7 @@ public class ParseInputFieldTests
 {
   private readonly IParserDefault _parseDefault;
 
-  protected override Parser<IAstInputField>.I Parser { get; }
+  protected override IParser<IAstInputField> Parser { get; }
 
   public ParseInputFieldTests()
   {

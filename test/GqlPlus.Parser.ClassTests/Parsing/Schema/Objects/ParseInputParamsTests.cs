@@ -1,11 +1,11 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public class ParseInputParamsTests
   : ModifiersClassTestBase
 {
-  private readonly Parser<IAstObjBase>.I _input;
+  private readonly IParser<IAstObjBase> _input;
   private readonly IParserDefault _defaultParser;
   private readonly ParseInputParams _parser;
 

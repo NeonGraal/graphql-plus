@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -6,9 +6,9 @@ public class ParseObjectDefinitionTests
   : ParserClassTestBase
 {
 
-  private readonly Parser<IAstAlternate>.IA _alternates;
-  private readonly Parser<IAstObjField>.I _parseField;
-  private readonly Parser<IAstObjBase>.I _parseBase;
+  private readonly IParserArray<IAstAlternate> _alternates;
+  private readonly IParser<IAstObjField> _parseField;
+  private readonly IParser<IAstObjBase> _parseBase;
   private readonly ParseObjectDefinition<IAstObjField> _parser;
 
   public ParseObjectDefinitionTests()

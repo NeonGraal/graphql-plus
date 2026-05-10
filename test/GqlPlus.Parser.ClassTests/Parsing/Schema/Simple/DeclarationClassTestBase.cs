@@ -1,15 +1,15 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
 public class SimpleParserClassTestBase
   : DeclarationClassTestBase
 {
-  private readonly Parser<IAstTypeRef>.I _typeRef;
+  private readonly IParser<IAstTypeRef> _typeRef;
 
   public SimpleParserClassTestBase()
   {
-    _typeRef = A.Of<Parser<IAstTypeRef>.I>();
+    _typeRef = A.Of<IParser<IAstTypeRef>>();
     _typeRef.Parse(default!, default!)
       .ReturnsForAnyArgs(default(IAstTypeRef).Empty());
     Parsers.ParserFor<IAstTypeRef>().ReturnsForAnyArgs(() => _typeRef);

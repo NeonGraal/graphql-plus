@@ -7,11 +7,11 @@ public class ParseArgValueTests
 {
 
   private readonly ParseArgValue _parseArgValue;
-  private readonly Parser<IAstFieldKey>.I _fieldKeyParser;
-  private readonly Parser<KeyValue<IAstArg>>.I _keyValueParser;
-  private readonly Parser<IAstArg>.IA _listParser;
-  private readonly Parser<IAstFields<IAstArg>>.I _objectParser;
-  private readonly Parser<IAstConstant>.I _constantParser;
+  private readonly IParser<IAstFieldKey> _fieldKeyParser;
+  private readonly IParser<KeyValue<IAstArg>> _keyValueParser;
+  private readonly IParserArray<IAstArg> _listParser;
+  private readonly IParser<IAstFields<IAstArg>> _objectParser;
+  private readonly IParser<IAstConstant> _constantParser;
 
   public ParseArgValueTests()
     : base(A.Of<ITokenizer, IOperationContext>())

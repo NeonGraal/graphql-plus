@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
@@ -6,7 +6,7 @@ public class ParseDomainTests
   : DeclarationClassTestBase
 {
 
-  private readonly Parser<DomainDefinition>.I _definition;
+  private readonly IParser<DomainDefinition> _definition;
   private readonly ParseDomain _parser;
 
   public ParseDomainTests()

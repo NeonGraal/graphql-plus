@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -6,8 +6,8 @@ public class ParseDualTests
   : DeclarationClassTestBase
 {
 
-  private readonly Parser<IAstTypeParam>.IA _param;
-  private readonly Parser<ObjectDefinition<IAstDualField>>.I _definition;
+  private readonly IParserArray<IAstTypeParam> _param;
+  private readonly IParser<ObjectDefinition<IAstDualField>> _definition;
   private readonly ObjectParser<IAstDualField> _parser;
 
   public ParseDualTests()

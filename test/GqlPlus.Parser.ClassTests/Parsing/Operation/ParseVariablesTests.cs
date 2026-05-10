@@ -7,7 +7,7 @@ public class ParseVariablesTests
 {
 
   private readonly ParseVariables _parseVariables;
-  private readonly Parser<IAstVariable>.I _variableParser;
+  private readonly IParser<IAstVariable> _variableParser;
 
   public ParseVariablesTests()
   {

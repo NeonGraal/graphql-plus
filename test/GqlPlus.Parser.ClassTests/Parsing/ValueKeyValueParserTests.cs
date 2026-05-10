@@ -1,12 +1,12 @@
-﻿namespace GqlPlus.Parsing;
+namespace GqlPlus.Parsing;
 
 public class ValueKeyValueParserTests
   : ParserClassTestBase
 {
 
   private readonly ValueKeyValueParser<IAstConstant> _parser;
-  private readonly Parser<IAstFieldKey>.I _keyParser;
-  private readonly Parser<IAstConstant>.I _valueParser;
+  private readonly IParser<IAstFieldKey> _keyParser;
+  private readonly IParser<IAstConstant> _valueParser;
 
   public ValueKeyValueParserTests()
   {

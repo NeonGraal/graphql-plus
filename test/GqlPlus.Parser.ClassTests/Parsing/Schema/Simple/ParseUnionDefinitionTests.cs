@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
@@ -6,7 +6,7 @@ public class ParseUnionDefinitionTests
   : SimpleParserClassTestBase
 {
 
-  private readonly Parser<IAstUnionMember>.I _unionMemberParser;
+  private readonly IParser<IAstUnionMember> _unionMemberParser;
   private readonly ParseUnionDefinition _parser;
 
   public ParseUnionDefinitionTests()

@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -6,9 +6,9 @@ public class ParseOutputFieldTests
   : ObjectFieldParseTestBase<IAstOutputField>
 {
 
-  private readonly Parser<IAstInputParam>.IA _parameter;
+  private readonly IParserArray<IAstInputParam> _parameter;
 
-  protected override Parser<IAstOutputField>.I Parser { get; }
+  protected override IParser<IAstOutputField> Parser { get; }
 
   public ParseOutputFieldTests()
   {

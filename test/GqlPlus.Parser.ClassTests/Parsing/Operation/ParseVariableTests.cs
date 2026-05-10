@@ -7,7 +7,7 @@ public class ParseVariableTests
 {
 
   private readonly ParseVariable _parseVariable;
-  private readonly Parser<IAstDirective>.IA _directivesParser;
+  private readonly IParserArray<IAstDirective> _directivesParser;
   private readonly IParserDefault _defaultParser;
   private readonly IParserVarType _varTypeParser;
 

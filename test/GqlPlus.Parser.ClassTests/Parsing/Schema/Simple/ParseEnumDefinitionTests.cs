@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
@@ -6,7 +6,7 @@ public class ParseEnumDefinitionTests
   : SimpleParserClassTestBase
 {
 
-  private readonly Parser<IAstEnumLabel>.I _enumLabelParser;
+  private readonly IParser<IAstEnumLabel> _enumLabelParser;
   private readonly ParseEnumDefinition _parser;
 
   public ParseEnumDefinitionTests()

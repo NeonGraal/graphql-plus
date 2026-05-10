@@ -5,7 +5,7 @@ public class ParseDefaultTests
 {
 
   private readonly ParseDefault _parser;
-  private readonly Parser<IAstConstant>.I _constantParser;
+  private readonly IParser<IAstConstant> _constantParser;
 
   public ParseDefaultTests()
   {

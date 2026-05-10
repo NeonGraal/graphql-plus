@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
@@ -73,7 +73,7 @@ public abstract class ParseDomainClassTestBase<TItem>
     result.ShouldBeAssignableTo<IResultEmpty>();
   }
 
-  protected Parser<TItem>.IA ItemsParser { get; }
+  protected IParserArray<TItem> ItemsParser { get; }
   private readonly Lazy<ParseDomainItem<TItem>> _parser;
   private readonly DomainKind _kind;
   private readonly IParserRepository _parsers;
@@ -85,7 +85,7 @@ public abstract class ParseDomainClassTestBase<TItem>
     _kind = kind;
     _parsers = A.Of<IParserRepository>();
 
-    Parser<TItem>.IA itemsParser = A.Of<Parser<TItem>.IA>();
+    IParserArray<TItem> itemsParser = A.Of<IParserArray<TItem>>();
     itemsParser.Parse(default!, default!)
       .ReturnsForAnyArgs(0.EmptyArray<TItem>());
     ItemsParser = itemsParser;

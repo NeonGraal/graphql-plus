@@ -22,7 +22,7 @@ internal sealed class ParserRepoWrapper(
     repo.WriteFactories(label + "Parser", repoBuilder.AllFactories);
   }
 
-  public Parser<T>.DA ArrayFor<T>([CallerMemberName] string callerName = "")
+  public ParserArray<T>.D ArrayFor<T>([CallerMemberName] string callerName = "")
     => AddRelationship<T>(callerName)
       .ArrayFor<T>(callerName);
   public DeferList<IParseDeclaration>.D GetDeclarations([CallerMemberName] string callerName = "")
@@ -35,16 +35,16 @@ internal sealed class ParserRepoWrapper(
     where T : class, INameParser
     => AddRelationship<T>(callerName)
       .GetName<T>(callerName);
-  public Parser<T>.D ParserFor<T>([CallerMemberName] string callerName = "")
+  public ParserOne<T>.D ParserFor<T>([CallerMemberName] string callerName = "")
     => AddRelationship<T>(callerName)
       .ParserFor<T>(callerName);
 
-  public ParserArray<TInterface, TFor>.DA ArrayFor<TInterface, TFor>(string callerName)
-    where TInterface : class, Parser<TFor>.IA
+  public DeferOne<TInterface>.D ArrayFor<TInterface, TFor>(string callerName)
+    where TInterface : class, IParserArray<TFor>
     => AddRelationship<TInterface>(callerName)
       .ArrayFor<TInterface, TFor>(callerName);
   public Parser<TInterface, TFor>.D ParserFor<TInterface, TFor>(string callerName)
-    where TInterface : class, Parser<TFor>.I
+    where TInterface : class, IParser<TFor>
     => AddRelationship<TInterface>(callerName)
       .ParserFor<TInterface, TFor>(callerName);
 }

@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 using GqlPlus.Parsing.Operation;
 using GqlPlus.Result;
 
@@ -9,7 +9,7 @@ public class ParseOperationTests(
 ) : SampleChecks
 {
 
-  private readonly Parser<IAstOperation>.L _operation = parsers.ParserFor<IAstOperation>();
+  private readonly ParserOne<IAstOperation> _operation = parsers.ParserFor<IAstOperation>();
 
   [Theory]
   [ClassData(typeof(SamplesOperationData))]

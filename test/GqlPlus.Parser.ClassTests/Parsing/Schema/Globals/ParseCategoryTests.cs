@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Globals;
 
@@ -7,7 +7,7 @@ public class ParseCategoryTests
 {
 
   private readonly IOptionParser<CategoryOption> _option;
-  private readonly Parser<CategoryOutput>.I _definition;
+  private readonly IParser<CategoryOutput> _definition;
   private readonly ParseCategory _parser;
 
   public ParseCategoryTests()

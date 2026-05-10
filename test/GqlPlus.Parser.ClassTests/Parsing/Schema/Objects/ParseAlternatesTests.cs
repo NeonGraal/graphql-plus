@@ -1,12 +1,12 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public class ParseAlternatesTests
   : ModifiersClassTestBase
 {
-  private readonly Parser<IAstObjBase>.I _parseBase;
-  private readonly Parser<IAstEnumValue>.I _parseEnum;
+  private readonly IParser<IAstObjBase> _parseBase;
+  private readonly IParser<IAstEnumValue> _parseEnum;
   private readonly ParseAlternates _parser;
 
   public ParseAlternatesTests()

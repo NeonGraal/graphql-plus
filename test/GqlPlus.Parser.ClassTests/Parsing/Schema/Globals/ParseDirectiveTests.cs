@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema.Globals;
 
@@ -7,9 +7,9 @@ public class ParseDirectiveTests
 {
 
   private readonly ParseDirective _parser;
-  private readonly Parser<IAstInputParam>.IA _param;
+  private readonly IParserArray<IAstInputParam> _param;
   private readonly IOptionParser<DirectiveOption> _option;
-  private readonly Parser<DirectiveLocation>.I _definition;
+  private readonly IParser<DirectiveLocation> _definition;
 
   public ParseDirectiveTests()
   {

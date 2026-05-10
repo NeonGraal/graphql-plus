@@ -18,6 +18,6 @@ internal class ResolverRepositoryBuilder
     where TModel : IModelBase
     => this.FluentAction(b => {
       b.Resolvers[typeof(TModel)] = factory;
-      b.TypeResolverFactories.Add(r => ((DeferOne<IResolver<TModel>>)r.ResolverFor<TModel>()).I);
+      b.TypeResolverFactories.Add(r => ((Resolver<TModel>)r.ResolverFor<TModel>()).I);
     });
 }

@@ -11,7 +11,7 @@ public class AllResolversTests
 
   [Fact]
   public void AllResolvers_ResolverForEnum_IsRegistered()
-    => ((DeferOne<IResolver<TypeEnumModel>>)_services.GetRequiredService<IResolverRepository>()
+    => ((Resolver<TypeEnumModel>)_services.GetRequiredService<IResolverRepository>()
       .ResolverFor<TypeEnumModel>()).I
       .ShouldNotBeNull();
 

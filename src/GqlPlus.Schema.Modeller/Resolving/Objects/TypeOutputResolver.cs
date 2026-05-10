@@ -6,7 +6,7 @@ internal class TypeOutputResolver(
   IResolverRepository resolvers
 ) : ResolverTypeObjectType<TypeOutputModel, OutputFieldModel>
 {
-  private readonly DeferOne<IResolver<TypeDualModel>> _dualResolver = resolvers.ResolverFor<TypeDualModel>();
+  private readonly Resolver<TypeDualModel> _dualResolver = resolvers.ResolverFor<TypeDualModel>();
 
   protected override TResult Apply<TResult>(TResult result, ArgumentsContext arguments)
   {
@@ -56,7 +56,7 @@ internal class TypeOutputResolver(
   {
     if (model.ParentModel is null && model.Parent?.IsTypeParam == false) {
       if (context.TryGetType(model.Name, ParentName(model), out TypeDualModel? parentDual, canError: false)) {
-        model.ParentModel = _dualResolver.I.Resolve(parentDual, context);
+        model.ParentModel = _dualResolver.Resolve(parentDual, context);
       }
     }
 

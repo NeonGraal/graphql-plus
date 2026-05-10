@@ -26,7 +26,7 @@ internal sealed class ResolverRepoWrapper(
     repo.WriteFactories("Resolver", repoBuilder.AllFactories);
   }
 
-  public DeferOne<IResolver<T>>.D ResolverFor<T>([CallerMemberName] string callerName = "")
+  public Resolver<T>.D ResolverFor<T>([CallerMemberName] string callerName = "")
     where T : IModelBase
     => AddRelationship<T>(callerName)
       .ResolverFor<T>(callerName);

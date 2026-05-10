@@ -147,14 +147,14 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     string listAccess = fieldAccess.EndsWith("(null)", StringComparison.Ordinal)
       ? $"{fieldAccess} ?? []"
       : fieldAccess;
-    return $".AddList(\"{fieldKey}\", {listAccess}, {varName}.I)";
+    return $".AddList(\"{fieldKey}\", {listAccess}, {varName})";
   }
 
   private string BuildFieldCall(TObjField field, string fieldKey, string fieldAccess, Dictionary<string, string> encoderFields, string typePrefix, GqlpGeneratorContext context)
   {
     string encoderType2 = TypeString(field.Type, context, "I");
     string varName2 = GetOrAddEncoder(encoderFields, encoderType2, typePrefix);
-    return $".AddEncoded(\"{fieldKey}\", {fieldAccess}, {varName2}.I)";
+    return $".AddEncoded(\"{fieldKey}\", {fieldAccess}, {varName2})";
   }
 
   private static void WriteEncoderClass(IAstObject<TObjField> ast, GqlpGeneratorContext context, string typeName, string encoderInterface, Dictionary<string, string> encoderFields, List<string> fieldCalls, string? parentVarName)
@@ -187,7 +187,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
   private static void WriteEncoderFields(GqlpGeneratorContext context, Dictionary<string, string> encoderFields)
   {
     foreach (KeyValuePair<string, string> kv in encoderFields) {
-      context.Write($"  private readonly DeferOne<IEncoder<{kv.Key}>> {kv.Value} = encoders.EncoderFor<{kv.Key}>();");
+      context.Write($"  private readonly Encoder<{kv.Key}> {kv.Value} = encoders.EncoderFor<{kv.Key}>();");
     }
   }
 

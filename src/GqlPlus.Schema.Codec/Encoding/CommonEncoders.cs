@@ -4,18 +4,18 @@ internal class ConstantEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ConstantModel>
 {
-  private readonly DeferOne<IEncoder<SimpleModel>> _simple = encoders.EncoderFor<SimpleModel>();
+  private readonly Encoder<SimpleModel> _simple = encoders.EncoderFor<SimpleModel>();
 
   public Structured Encode(ConstantModel model)
     => model switch {
       { Map.Count: > 0 }
         => new Structured(model.Map.ToDictionary(
-          p => _simple.I.Encode(p.Key).Value!,
+          p => _simple.Encode(p.Key).Value!,
           p => Encode(p.Value)), "_ConstantMap"),
       { List.Count: > 0 }
         => new(model.List.Select(Encode), "_ConstantList"),
       { Value: not null }
-        => _simple.I.Encode(model.Value),
+        => _simple.Encode(model.Value),
       _ => "".Encode(),
     };
 

@@ -8,7 +8,8 @@ public class DeferOne<TValue>(
   where TValue : class
 {
   public delegate TValue D();
-  public static implicit operator DeferOne<TValue>(DeferOne<TValue>.D factory) => new(factory.ThrowIfNull());
+  public static implicit operator DeferOne<TValue>(D factory)
+    => new(factory.ThrowIfNull());
   public TValue I => Value;
 }
 
@@ -18,7 +19,8 @@ public class DeferList<TValue>(
   where TValue : class
 {
   public delegate IEnumerable<TValue> D();
-  public static implicit operator DeferList<TValue>(DeferList<TValue>.D factory) => new(factory.ThrowIfNull());
+  public static implicit operator DeferList<TValue>(D factory)
+    => new(factory.ThrowIfNull());
   public IEnumerable<TValue> I => Value;
 
   public DeferMap<TValue> ToMap(Func<TValue, string> keySelector)

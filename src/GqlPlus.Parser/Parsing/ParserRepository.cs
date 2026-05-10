@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using GqlPlus.Parsing.Schema;
 using GqlPlus.Parsing.Schema.Simple;
 
@@ -10,17 +10,17 @@ internal class ParserRepository(
 ) : BaseRepository<IParserRepository>(loggerFactory)
   , IParserRepository
 {
-  public Parser<T>.D ParserFor<T>([CallerMemberName] string callerName = "")
-    => () => Cached<T, Parser<T>.I>(builder.Singles, "single parser for " + callerName, this);
+  public ParserOne<T>.D ParserFor<T>([CallerMemberName] string callerName = "")
+    => () => Cached<T, IParser<T>>(builder.Singles, "single parser for " + callerName, this);
 
-  public Parser<T>.DA ArrayFor<T>([CallerMemberName] string callerName = "")
-    => () => Cached<T, Parser<T>.IA>(builder.Arrays, "array parser for " + callerName, this);
+  public ParserArray<T>.D ArrayFor<T>([CallerMemberName] string callerName = "")
+    => () => Cached<T, IParserArray<T>>(builder.Arrays, "array parser for " + callerName, this);
 
   public Parser<TInterface, TFor>.D ParserFor<TInterface, TFor>([CallerMemberName] string callerName = "")
-    where TInterface : class, Parser<TFor>.I
+    where TInterface : class, IParser<TFor>
     => () => Cached<TInterface, TInterface>(builder.InterfaceSingles, "interface parser for " + callerName, this);
-  public ParserArray<TInterface, TFor>.DA ArrayFor<TInterface, TFor>([CallerMemberName] string callerName = "")
-    where TInterface : class, Parser<TFor>.IA
+  public ParserArray<TInterface, TFor>.D ArrayFor<TInterface, TFor>([CallerMemberName] string callerName = "")
+    where TInterface : class, IParserArray<TFor>
     => () => Cached<TInterface, TInterface>(builder.InterfaceArrays, "interface array parser for " + callerName, this);
 
   public DeferList<IParseDeclaration>.D GetDeclarations([CallerMemberName] string callerName = "")

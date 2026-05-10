@@ -4,10 +4,10 @@ internal class SettingModeller(
   IModellerRepository modellers
 ) : ModellerBase<IAstSchemaSetting, SettingModel>
 {
-  private readonly DeferOne<IModeller<IAstConstant, ConstantModel>> _constant = modellers.ModellerFor<IAstConstant, ConstantModel>();
+  private readonly Modeller<IAstConstant, ConstantModel> _constant = modellers.ModellerFor<IAstConstant, ConstantModel>();
 
   protected override SettingModel ToModel(IAstSchemaSetting ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name, _constant.I.ToModel(ast.Value, typeKinds), ast.Description);
+    => new(ast.Name, _constant.ToModel(ast.Value, typeKinds), ast.Description);
 
   internal static SettingModeller Factory(IModellerRepository r) => new(r);
 }

@@ -4,10 +4,10 @@ internal class ObjBaseModeller(
   IModellerRepository modellers
 ) : ModellerBase<IAstObjBase, ObjBaseModel>
 {
-  private readonly DeferOne<IModeller<IAstTypeArg, TypeArgModel>> _objArg = modellers.ModellerFor<IAstTypeArg, TypeArgModel>();
+  private readonly Modeller<IAstTypeArg, TypeArgModel> _objArg = modellers.ModellerFor<IAstTypeArg, TypeArgModel>();
 
   internal TypeArgModel[] ModelArgs(IAstObjBase ast, IMap<TypeKindModel> typeKinds)
-    => [.. ast.Args.Select(a => _objArg.I.ToModel(a, typeKinds))];
+    => [.. ast.Args.Select(a => _objArg.ToModel(a, typeKinds))];
 
   protected override ObjBaseModel ToModel(IAstObjBase ast, IMap<TypeKindModel> typeKinds)
   => new(ast.Name, ast.Description) {

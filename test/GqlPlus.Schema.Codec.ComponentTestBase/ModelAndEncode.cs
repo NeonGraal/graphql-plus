@@ -12,7 +12,7 @@ internal sealed class ModelAndEncode(
 ) : IModelAndEncode
 {
   private readonly DeferOne<ITypesModeller> _types = modellers.TypesModeller();
-  private readonly DeferOne<IModeller<IAstSchema, SchemaModel>> _schema = modellers.ModellerFor<IAstSchema, SchemaModel>();
+  private readonly Modeller<IAstSchema, SchemaModel> _schema = modellers.ModellerFor<IAstSchema, SchemaModel>();
   private readonly DeferOne<IResolver<SchemaModel>> _resolver = resolvers.ResolverFor<SchemaModel>();
 
   public IModelsContext Context() => new TypesContext(_types.I);
@@ -24,11 +24,11 @@ internal sealed class ModelAndEncode(
   {
     _types.I.AddTypeKinds(schema.Declarations.ArrayOf<IAstType>(), context.TypeKinds);
     if (extras is not null) {
-      SchemaModel extraModel = _schema.I.ToModel(extras, context.TypeKinds);
+      SchemaModel extraModel = _schema.ToModel(extras, context.TypeKinds);
       context.AddModels(extraModel.Types.Values);
     }
 
-    SchemaModel model = _schema.I.ToModel(schema, context.TypeKinds);
+    SchemaModel model = _schema.ToModel(schema, context.TypeKinds);
     context.AddModels(model.Types.Values);
 
     return _resolver.I.Resolve(model, context);

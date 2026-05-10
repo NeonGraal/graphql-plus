@@ -9,23 +9,23 @@ internal abstract class ModellerObject<TAst, TObjFieldAst, TModel, TObjField>(
   where TModel : BaseTypeModel
   where TObjField : IObjFieldModel
 {
-  private readonly DeferOne<IModeller<IAstAlternate, AlternateModel>> _alternate = modellers.ModellerFor<IAstAlternate, AlternateModel>();
-  private readonly DeferOne<IModeller<TObjFieldAst, TObjField>> _field = modellers.ModellerFor<TObjFieldAst, TObjField>();
-  private readonly DeferOne<IModeller<IAstTypeParam, TypeParamModel>> _typeParams = modellers.ModellerFor<IAstTypeParam, TypeParamModel>();
-  private readonly DeferOne<IModeller<IAstObjBase, ObjBaseModel>> _base = modellers.ModellerFor<IAstObjBase, ObjBaseModel>();
+  private readonly Modeller<IAstAlternate, AlternateModel> _alternate = modellers.ModellerFor<IAstAlternate, AlternateModel>();
+  private readonly Modeller<TObjFieldAst, TObjField> _field = modellers.ModellerFor<TObjFieldAst, TObjField>();
+  private readonly Modeller<IAstTypeParam, TypeParamModel> _typeParams = modellers.ModellerFor<IAstTypeParam, TypeParamModel>();
+  private readonly Modeller<IAstObjBase, ObjBaseModel> _base = modellers.ModellerFor<IAstObjBase, ObjBaseModel>();
 
   internal ObjBaseModel? ParentModel(IAstObjBase? parent, IMap<TypeKindModel> typeKinds)
     => parent is null ? default : BaseModel(parent, typeKinds);
 
   internal AlternateModel[] AlternatesModels(IEnumerable<IAstAlternate> alternates, IMap<TypeKindModel> typeKinds)
-    => _alternate.I.ToModels(alternates, typeKinds);
+    => _alternate.ToModels(alternates, typeKinds);
 
   internal TObjField[] FieldsModels(IEnumerable<TObjFieldAst> fields, IMap<TypeKindModel> typeKinds)
-    => _field.I.ToModels(fields, typeKinds);
+    => _field.ToModels(fields, typeKinds);
 
   internal TypeParamModel[] TypeParamsModels(IEnumerable<IAstTypeParam> typeParams, IMap<TypeKindModel> typeKinds)
-    => _typeParams.I.ToModels(typeParams, typeKinds);
+    => _typeParams.ToModels(typeParams, typeKinds);
 
   protected ObjBaseModel BaseModel(IAstObjBase ast, IMap<TypeKindModel> typeKinds)
-    => _base.I.ToModel<ObjBaseModel>(ast, typeKinds);
+    => _base.ToModel<ObjBaseModel>(ast, typeKinds);
 }

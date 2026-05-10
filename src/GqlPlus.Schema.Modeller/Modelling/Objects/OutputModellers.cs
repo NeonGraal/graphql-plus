@@ -20,12 +20,12 @@ internal class OutputFieldModeller(
   IModellerRepository modellers
 ) : ModellerObjField<IAstOutputField, OutputFieldModel>(modellers)
 {
-  private readonly DeferOne<IModeller<IAstInputParam, InputParamModel>> _parameter = modellers.ModellerFor<IAstInputParam, InputParamModel>();
+  private readonly Modeller<IAstInputParam, InputParamModel> _parameter = modellers.ModellerFor<IAstInputParam, InputParamModel>();
 
   protected override OutputFieldModel FieldModel(IAstOutputField field, ObjBaseModel type, IMap<TypeKindModel> typeKinds)
     => field.EnumValue is null
       ? new(field.Name, type, field.Description) {
-        Parameter = _parameter.I.TryModel(field.Parameter, typeKinds),
+        Parameter = _parameter.TryModel(field.Parameter, typeKinds),
       }
       : new(field.Name, type, field.Description) {
         Enum = new(field.Name, type.Name, field.EnumValue.EnumLabel, type.Description)

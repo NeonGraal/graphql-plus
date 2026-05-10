@@ -4,7 +4,7 @@ internal class SimpleModeller(
   IModellerRepository modellers
 ) : ModellerBase<IAstFieldKey, SimpleModel>
 {
-  private readonly DeferOne<IModeller<IAstEnumValue, EnumValueModel>> _enumValue = modellers.ModellerFor<IAstEnumValue, EnumValueModel>();
+  private readonly Modeller<IAstEnumValue, EnumValueModel> _enumValue = modellers.ModellerFor<IAstEnumValue, EnumValueModel>();
 
   protected override SimpleModel ToModel(IAstFieldKey ast, IMap<TypeKindModel> typeKinds)
     => ast switch {
@@ -15,7 +15,7 @@ internal class SimpleModeller(
       { EnumValue: not null } when BuiltIn.BooleanType.Equals(ast.EnumValue.EnumType, StringComparison.OrdinalIgnoreCase)
         => SimpleModel.Bool(BuiltIn.BooleanTrue.Equals(ast.EnumValue.EnumLabel, StringComparison.OrdinalIgnoreCase)),
       { EnumValue: not null }
-        => SimpleModel.Enum(_enumValue.I.ToModel(ast.EnumValue, typeKinds)),
+        => SimpleModel.Enum(_enumValue.ToModel(ast.EnumValue, typeKinds)),
       _ => new("")
     };
 

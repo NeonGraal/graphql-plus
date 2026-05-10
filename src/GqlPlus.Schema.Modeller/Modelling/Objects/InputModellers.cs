@@ -20,11 +20,11 @@ internal class InputFieldModeller(
   IModellerRepository modellers
 ) : ModellerObjField<IAstInputField, InputFieldModel>(modellers)
 {
-  private readonly DeferOne<IModeller<IAstConstant, ConstantModel>> _constant = modellers.ModellerFor<IAstConstant, ConstantModel>();
+  private readonly Modeller<IAstConstant, ConstantModel> _constant = modellers.ModellerFor<IAstConstant, ConstantModel>();
 
   protected override InputFieldModel FieldModel(IAstInputField ast, ObjBaseModel type, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, type with { Description = ast.Type.Description.IfWhiteSpace() }, ast.Description) {
-      Default = _constant.I.TryModel(ast.DefaultValue, typeKinds),
+      Default = _constant.TryModel(ast.DefaultValue, typeKinds),
     };
 
   internal static InputFieldModeller Factory(IModellerRepository r) => new(r);
@@ -35,14 +35,14 @@ internal class InputParamModeller(
 ) : ModellerBase<IAstInputParam, InputParamModel>
 {
   private readonly DeferOne<IModifierModeller> _modifier = modellers.ModifierModeller();
-  private readonly DeferOne<IModeller<IAstConstant, ConstantModel>> _constant = modellers.ModellerFor<IAstConstant, ConstantModel>();
+  private readonly Modeller<IAstConstant, ConstantModel> _constant = modellers.ModellerFor<IAstConstant, ConstantModel>();
 
   protected override InputParamModel ToModel(IAstInputParam ast, IMap<TypeKindModel> typeKinds)
   {
     InputParamModel model = new(ast.Type.Name, ast.Description) {
       IsTypeParam = ast.Type.IsTypeParam,
       Modifiers = _modifier.I.ToModels<ModifierModel>(ast.Modifiers, typeKinds),
-      DefaultValue = _constant.I.TryModel(ast.DefaultValue, typeKinds),
+      DefaultValue = _constant.TryModel(ast.DefaultValue, typeKinds),
     };
     return model;
   }

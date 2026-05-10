@@ -27,7 +27,7 @@ internal sealed class MatcherRepoWrapper(
     // wrapper.FactoriesKeyValue<ITypeMatcher>());
   }
 
-  public Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "")
+  public MatcherOne<T>.D MatcherFor<T>([CallerMemberName] string callerName = "")
     => AddRelationship<T>(callerName)
       .MatcherFor<T>(callerName);
 }

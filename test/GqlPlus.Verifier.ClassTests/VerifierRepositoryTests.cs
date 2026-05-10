@@ -45,7 +45,7 @@ public class VerifierRepositoryTests(ITestOutputHelper outputHelper)
       .BuildServiceProvider();
 
     IMatcherRepository repository = services.GetService<IMatcherRepository>().ShouldNotBeNull();
-    Matcher<IAstEnum>.D enumFactory = repository.MatcherFor<IAstEnum>().ShouldNotBeNull();
+    MatcherOne<IAstEnum>.D enumFactory = repository.MatcherFor<IAstEnum>().ShouldNotBeNull();
     enumFactory.Invoke().ShouldNotBeNull();
   }
 

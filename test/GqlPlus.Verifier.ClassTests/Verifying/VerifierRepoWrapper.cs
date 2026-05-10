@@ -54,7 +54,7 @@ internal sealed class VerifierRepoWrapper(
         .IdentifiedFor<TUsage, TIdentified>(callerName);
   }
 
-  public Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "")
+  public MatcherOne<T>.D MatcherFor<T>([CallerMemberName] string callerName = "")
     => AddRelationship<T>(callerName)
       .MatcherFor<T>(callerName);
   public DeferOne<IMerge<T>>.D MergerFor<T>([CallerMemberName] string callerName = "")

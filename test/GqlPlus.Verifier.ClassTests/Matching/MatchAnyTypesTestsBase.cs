@@ -3,9 +3,9 @@
 public class MatchAnyTypesTestsBase
   : MatchTestsBase
 {
-  protected Matcher<IAstType>.D AnyTypeMatcher { get; }
+  protected MatcherOne<IAstType>.D AnyTypeMatcher { get; }
 
-  private readonly Matcher<IAstType>.I _anyTypeMatcher;
+  private readonly IMatcher<IAstType> _anyTypeMatcher;
 
   protected MatchAnyTypesTestsBase()
   {

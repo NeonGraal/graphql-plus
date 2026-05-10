@@ -37,12 +37,12 @@ public class ParserArray<T>(
     => new(factory.ThrowIfNull());
 }
 
-public class Parser<TInterface, T>(
-  Parser<TInterface, T>.D factory
+public class ParserOne<TInterface, T>(
+  ParserOne<TInterface, T>.D factory
 ) : DeferOne<TInterface>(factory)
   where TInterface : class, IParser<T>
 {
-  public static implicit operator Parser<TInterface, T>(D factory)
+  public static implicit operator ParserOne<TInterface, T>(D factory)
     => new(factory.ThrowIfNull());
 }
 

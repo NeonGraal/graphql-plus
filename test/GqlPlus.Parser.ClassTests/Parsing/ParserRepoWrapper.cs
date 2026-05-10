@@ -43,7 +43,7 @@ internal sealed class ParserRepoWrapper(
     where TInterface : class, IParserArray<TFor>
     => AddRelationship<TInterface>(callerName)
       .ArrayFor<TInterface, TFor>(callerName);
-  public Parser<TInterface, TFor>.D ParserFor<TInterface, TFor>(string callerName)
+  public ParserOne<TInterface, TFor>.D ParserFor<TInterface, TFor>(string callerName)
     where TInterface : class, IParser<TFor>
     => AddRelationship<TInterface>(callerName)
       .ParserFor<TInterface, TFor>(callerName);

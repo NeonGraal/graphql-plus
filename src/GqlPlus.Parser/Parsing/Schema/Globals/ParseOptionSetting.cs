@@ -9,7 +9,7 @@ internal class ParseOptionSetting(
   IParserRepository parsers
 ) : IParser<IAstSchemaSetting>
 {
-  private readonly Parser<IParserDefault, IAstConstant> _default = parsers.ParserFor<IParserDefault, IAstConstant>();
+  private readonly ParserOne<IParserDefault, IAstConstant> _default = parsers.ParserFor<IParserDefault, IAstConstant>();
 
   public IResult<IAstSchemaSetting> Parse([NotNull] ITokenizer tokens, string label)
   {

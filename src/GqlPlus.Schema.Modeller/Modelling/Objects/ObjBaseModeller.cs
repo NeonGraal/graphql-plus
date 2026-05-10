@@ -1,4 +1,4 @@
-namespace GqlPlus.Modelling.Objects;
+﻿namespace GqlPlus.Modelling.Objects;
 
 internal class ObjBaseModeller(
   IModellerRepository modellers

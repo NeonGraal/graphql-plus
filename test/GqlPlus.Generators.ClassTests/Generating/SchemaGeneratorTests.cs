@@ -1,4 +1,4 @@
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Structures;
 
 namespace GqlPlus.Generating;
@@ -24,7 +24,7 @@ public class SchemaGeneratorTests
   private void GeneratorForReturns<T>(IGenerator<T> result)
     where T : IAstError
   {
-    DeferOne<IGenerator<T>>.D factory = () => result;
+    IGenerator<T> factory() => result;
     _generators.GeneratorFor<T>().ReturnsForAnyArgs(factory);
   }
 
@@ -39,7 +39,7 @@ public class SchemaGeneratorTests
 
     ITypeGenerator typeGenerator = A.Of<ITypeGenerator>();
     typeGenerator.ForType(type).Returns(true);
-    DeferList<ITypeGenerator>.D factory = () => [typeGenerator];
+    IEnumerable<ITypeGenerator> factory() => [typeGenerator];
     _generators.TypeGenerators(GqlpGeneratorType.Model, Arg.Any<string>()).Returns(factory);
 
     // Act
@@ -60,7 +60,7 @@ public class SchemaGeneratorTests
 
     ITypeGenerator typeGenerator = A.Of<ITypeGenerator>();
     typeGenerator.ForType(type).Returns(true);
-    DeferList<ITypeGenerator>.D factory = () => [typeGenerator];
+    IEnumerable<ITypeGenerator> factory() => [typeGenerator];
     _generators.TypeGenerators(GqlpGeneratorType.Interface, Arg.Any<string>()).Returns(factory);
 
     // Act & Assert

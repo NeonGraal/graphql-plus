@@ -16,7 +16,7 @@ internal class ParserRepository(
   public ParserArray<T>.D ArrayFor<T>([CallerMemberName] string callerName = "")
     => () => Cached<T, IParserArray<T>>(builder.Arrays, "array parser for " + callerName, this);
 
-  public Parser<TInterface, TFor>.D ParserFor<TInterface, TFor>([CallerMemberName] string callerName = "")
+  public ParserOne<TInterface, TFor>.D ParserFor<TInterface, TFor>([CallerMemberName] string callerName = "")
     where TInterface : class, IParser<TFor>
     => () => Cached<TInterface, TInterface>(builder.InterfaceSingles, "interface parser for " + callerName, this);
   public ParserArray<TInterface, TFor>.D ArrayFor<TInterface, TFor>([CallerMemberName] string callerName = "")

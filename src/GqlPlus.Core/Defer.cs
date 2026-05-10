@@ -15,13 +15,13 @@ public class DeferOne<TValue>(
 
 public class DeferList<TValue>(
   DeferList<TValue>.D factory
-) : Lazy<IEnumerable<TValue>>(() => factory())
+) : Lazy<IEnumerable<TValue>>(() => [.. factory()])
+  , IEnumerable<TValue>
   where TValue : class
 {
   public delegate IEnumerable<TValue> D();
   public static implicit operator DeferList<TValue>(D factory)
     => new(factory.ThrowIfNull());
-  public IEnumerable<TValue> I => Value;
 
   public DeferMap<TValue> ToMap(Func<TValue, string> keySelector)
     => new(() => Value.ToMap(keySelector));
@@ -34,6 +34,9 @@ public class DeferList<TValue>(
   public DeferDict<TKey, TOutput> ToDictionary<TOutput, TKey>(Func<TValue, TKey> keySelector, Func<TValue, TOutput> valueSelector)
     where TOutput : class
     => new(() => Value.ToDictionary(keySelector, valueSelector));
+
+  public IEnumerator<TValue> GetEnumerator() => Value.GetEnumerator();
+  IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)Value).GetEnumerator();
 }
 
 public class DeferMap<TValue>(
@@ -42,16 +45,16 @@ public class DeferMap<TValue>(
   , IReadOnlyMap<TValue>
 {
   public delegate IReadOnlyMap<TValue> D();
-  public IReadOnlyMap<TValue> I => Value;
-  public IEnumerable<string> Keys => I.Keys;
-  public IEnumerable<TValue> Values => I.Values;
-  public int Count => I.Count;
-  public TValue this[string key] => ((IReadOnlyDictionary<string, TValue>)I)[key];
-  public TValue? GetValueOr(string key) => I.GetValueOr(key);
-  public bool ContainsKey(string key) => I.ContainsKey(key);
-  public bool TryGetValue(string key, out TValue value) => I.TryGetValue(key, out value);
-  public IEnumerator<KeyValuePair<string, TValue>> GetEnumerator() => I.GetEnumerator();
-  IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)I).GetEnumerator();
+
+  public IEnumerable<string> Keys => Value.Keys;
+  public IEnumerable<TValue> Values => Value.Values;
+  public int Count => Value.Count;
+  public TValue this[string key] => ((IReadOnlyDictionary<string, TValue>)Value)[key];
+  public TValue? GetValueOr(string key) => Value.GetValueOr(key);
+  public bool ContainsKey(string key) => Value.ContainsKey(key);
+  public bool TryGetValue(string key, out TValue value) => Value.TryGetValue(key, out value);
+  public IEnumerator<KeyValuePair<string, TValue>> GetEnumerator() => Value.GetEnumerator();
+  IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)Value).GetEnumerator();
 }
 
 public class DeferDict<TKey, TValue>(
@@ -60,16 +63,15 @@ public class DeferDict<TKey, TValue>(
   , IReadOnlyDictionary<TKey, TValue>
 {
   public delegate IReadOnlyDictionary<TKey, TValue> D();
-  public IReadOnlyDictionary<TKey, TValue> I => Value;
 
-  public IEnumerable<TKey> Keys => I.Keys;
-  public IEnumerable<TValue> Values => I.Values;
-  public int Count => I.Count;
-  public TValue this[TKey key] => I[key];
-  public bool ContainsKey(TKey key) => I.ContainsKey(key);
-  public bool TryGetValue(TKey key, out TValue value) => I.TryGetValue(key, out value);
-  public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator() => I.GetEnumerator();
-  IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)I).GetEnumerator();
+  public IEnumerable<TKey> Keys => Value.Keys;
+  public IEnumerable<TValue> Values => Value.Values;
+  public int Count => Value.Count;
+  public TValue this[TKey key] => Value[key];
+  public bool ContainsKey(TKey key) => Value.ContainsKey(key);
+  public bool TryGetValue(TKey key, out TValue value) => Value.TryGetValue(key, out value);
+  public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator() => Value.GetEnumerator();
+  IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)Value).GetEnumerator();
 }
 
 public static class DeferHelpers

@@ -1,4 +1,4 @@
-using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Verifying.Schema;
 
 namespace GqlPlus.Matching;
@@ -13,8 +13,8 @@ internal class AnyTypeMatcher(
   {
     TryingMatch(type, constraint);
 
-    if (_typeMatchers.I.Any()) {
-      return _typeMatchers.I.Any(m => m.MatchesTypeConstraint(type, constraint, context));
+    if (_typeMatchers.Any()) {
+      return _typeMatchers.Any(m => m.MatchesTypeConstraint(type, constraint, context));
     }
 
     throw new InvalidOperationException("No matchers available to match types.");

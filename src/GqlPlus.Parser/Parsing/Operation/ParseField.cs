@@ -10,7 +10,7 @@ internal class ParseField(
 {
   private readonly ParserArray<IAstModifier> _modifiers = parsers.ArrayFor<IAstModifier>();
   private readonly ParserArray<IAstDirective> _directives = parsers.ArrayFor<IAstDirective>();
-  private readonly Parser<IParserArg, IAstArg> _argument = parsers.ParserFor<IParserArg, IAstArg>();
+  private readonly ParserOne<IParserArg, IAstArg> _argument = parsers.ParserFor<IParserArg, IAstArg>();
   private readonly ParserArray<IAstSelection> _object = parsers.ArrayFor<IAstSelection>();
 
   public IResult<IAstField> Parse([NotNull] ITokenizer tokens, string label)

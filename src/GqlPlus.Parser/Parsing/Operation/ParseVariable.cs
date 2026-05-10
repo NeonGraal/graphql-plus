@@ -10,8 +10,8 @@ internal class ParseVariable(
 {
   private readonly ParserArray<IAstModifier> _modifiers = parsers.ArrayFor<IAstModifier>();
   private readonly ParserArray<IAstDirective> _directives = parsers.ArrayFor<IAstDirective>();
-  private readonly Parser<IParserDefault, IAstConstant> _default = parsers.ParserFor<IParserDefault, IAstConstant>();
-  private readonly Parser<IParserVarType, string> _varTypeParser = parsers.ParserFor<IParserVarType, string>();
+  private readonly ParserOne<IParserDefault, IAstConstant> _default = parsers.ParserFor<IParserDefault, IAstConstant>();
+  private readonly ParserOne<IParserVarType, string> _varTypeParser = parsers.ParserFor<IParserVarType, string>();
 
   public IResult<IAstVariable> Parse([NotNull] ITokenizer tokens, string label)
 

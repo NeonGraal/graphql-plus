@@ -11,7 +11,7 @@ internal class ParseInputParams(
 {
   private readonly ParserOne<IAstObjBase> _input = parsers.ParserFor<IAstObjBase>();
   private readonly ParserArray<IAstModifier> _modifiers = parsers.ArrayFor<IAstModifier>();
-  private readonly Parser<IParserDefault, IAstConstant> _default = parsers.ParserFor<IParserDefault, IAstConstant>();
+  private readonly ParserOne<IParserDefault, IAstConstant> _default = parsers.ParserFor<IParserDefault, IAstConstant>();
 
   public IResultArray<IAstInputParam> Parse([NotNull] ITokenizer tokens, string label)
 

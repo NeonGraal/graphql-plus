@@ -1,4 +1,4 @@
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus;
 using GqlPlus.Resolving;
 
@@ -10,7 +10,7 @@ public class DocumentSchemaTests(
   IEncoderRepository encoders
 ) : TestSchemaVerify(checks)
 {
-  private DeferOne<IEncoder<BaseTypeModel>> Types => encoders.EncoderFor<BaseTypeModel>();
+  private Encoder<BaseTypeModel> Types => encoders.EncoderFor<BaseTypeModel>();
 
   [Fact]
   public async Task Index_Schema()

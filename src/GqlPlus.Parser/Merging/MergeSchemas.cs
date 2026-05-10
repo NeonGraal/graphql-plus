@@ -1,4 +1,4 @@
-using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Merging;
 

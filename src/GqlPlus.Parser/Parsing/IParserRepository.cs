@@ -9,7 +9,7 @@ public interface IParserRepository
 {
   ParserOne<T>.D ParserFor<T>([CallerMemberName] string callerName = "");
   ParserArray<T>.D ArrayFor<T>([CallerMemberName] string callerName = "");
-  Parser<TInterface, TFor>.D ParserFor<TInterface, TFor>([CallerMemberName] string callerName = "")
+  ParserOne<TInterface, TFor>.D ParserFor<TInterface, TFor>([CallerMemberName] string callerName = "")
     where TInterface : class, IParser<TFor>;
   ParserArray<TInterface, TFor>.D ArrayFor<TInterface, TFor>([CallerMemberName] string callerName = "")
     where TInterface : class, IParserArray<TFor>;

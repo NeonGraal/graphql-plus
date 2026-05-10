@@ -10,7 +10,7 @@ internal class ParseArg(
 ) : IParserArg
 {
   private readonly ParserOne<IAstFieldKey> _fieldKey = parsers.ParserFor<IAstFieldKey>();
-  private readonly Parser<IValueParser<IAstArg>, IAstArg> _argument = parsers.ParserFor<IValueParser<IAstArg>, IAstArg>();
+  private readonly ParserOne<IValueParser<IAstArg>, IAstArg> _argument = parsers.ParserFor<IValueParser<IAstArg>, IAstArg>();
 
   public IResult<IAstArg> Parse([NotNull] ITokenizer tokens, string label)
 

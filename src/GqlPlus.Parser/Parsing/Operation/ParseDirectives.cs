@@ -8,7 +8,7 @@ internal class ParseDirectives(
   IParserRepository parsers
 ) : IParserArray<IAstDirective>
 {
-  private readonly Parser<IParserArg, IAstArg> _argument = parsers.ParserFor<IParserArg, IAstArg>();
+  private readonly ParserOne<IParserArg, IAstArg> _argument = parsers.ParserFor<IParserArg, IAstArg>();
 
   public IResultArray<IAstDirective> Parse([NotNull] ITokenizer tokens, string label)
 

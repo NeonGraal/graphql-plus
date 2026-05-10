@@ -12,7 +12,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
 {
   private readonly DeferOne<TName> _name = parsers.GetName<TName>();
   private readonly ParserArray<TParam> _param = parsers.ArrayFor<TParam>();
-  private readonly Parser<IOptionParser<TOption>, TOption> _option = parsers.ParserFor<IOptionParser<TOption>, TOption>();
+  private readonly ParserOne<IOptionParser<TOption>, TOption> _option = parsers.ParserFor<IOptionParser<TOption>, TOption>();
   private readonly ParserOne<TDefinition> _definition = parsers.ParserFor<TDefinition>();
 
   private readonly ParserArray<string> _aliases = parsers.ArrayFor<string>();

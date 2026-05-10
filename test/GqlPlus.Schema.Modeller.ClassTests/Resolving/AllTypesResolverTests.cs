@@ -1,4 +1,4 @@
-namespace GqlPlus.Resolving;
+﻿namespace GqlPlus.Resolving;
 
 public class AllTypesResolverTests
   : ResolverClassTestBase<BaseTypeModel>
@@ -11,7 +11,7 @@ public class AllTypesResolverTests
   {
     _typeResolvers = [];
     IResolverRepository resolvers = A.Of<IResolverRepository>();
-    DeferList<ITypeResolver>.D factory = () => _typeResolvers;
+    IEnumerable<ITypeResolver> factory() => _typeResolvers;
     resolvers.TypeResolvers().ReturnsForAnyArgs(factory);
     Resolver = new AllTypesResolver(resolvers);
   }

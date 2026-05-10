@@ -1,4 +1,4 @@
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Structures;
 
 namespace GqlPlus.Generating;
@@ -30,7 +30,7 @@ internal static class GeneratorClassTestHelpers
 
   public static void EncoderForReturns<T>([NotNull] this IEncoderRepository repo, IEncoder<T> result)
   {
-    DeferOne<IEncoder<T>>.D factory = () => result;
+    IEncoder<T> factory() => result;
     repo.EncoderFor<T>().ReturnsForAnyArgs(factory);
   }
 }

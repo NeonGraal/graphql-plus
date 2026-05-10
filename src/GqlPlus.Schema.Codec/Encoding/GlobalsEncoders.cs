@@ -1,4 +1,4 @@
-namespace GqlPlus.Encoding;
+﻿namespace GqlPlus.Encoding;
 
 internal class AndTypeEncoder<TModel, TAnd>(
   string field,

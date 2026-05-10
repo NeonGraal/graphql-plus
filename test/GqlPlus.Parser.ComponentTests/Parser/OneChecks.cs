@@ -1,4 +1,4 @@
-using GqlPlus.Result;
+﻿using GqlPlus.Result;
 using GqlPlus.Token;
 
 namespace GqlPlus.Parser;
@@ -68,7 +68,7 @@ internal sealed class OneChecksParser<TInterface, TResult>(
 ) : IOneChecksParser<TInterface, TResult>
   where TInterface : class, IParser<TResult>
 {
-  private readonly Parser<TInterface, TResult> _parser = parsers.ParserFor<TInterface, TResult>();
+  private readonly ParserOne<TInterface, TResult> _parser = parsers.ParserFor<TInterface, TResult>();
   private readonly string _type = typeof(TInterface).ToString();
 
   public void TrueExpected(string input, TResult expected)

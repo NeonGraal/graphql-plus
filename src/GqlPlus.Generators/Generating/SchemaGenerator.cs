@@ -1,4 +1,4 @@
-namespace GqlPlus.Generating;
+﻿namespace GqlPlus.Generating;
 
 internal sealed class SchemaGenerator(
   IGeneratorRepository generators
@@ -43,7 +43,7 @@ internal sealed class SchemaGenerator(
     DeferList<ITypeGenerator> typeGenerators = generators.TypeGenerators(generatorType);
 
     foreach (IAstType type in types) {
-      GenerateTypeOrValidate(typeGenerators.I, type, context);
+      GenerateTypeOrValidate(typeGenerators, type, context);
     }
   }
 
@@ -56,7 +56,7 @@ internal sealed class SchemaGenerator(
     }
 
     DeferList<ITypeGenerator> interfaceGenerators = generators.TypeGenerators(GqlpGeneratorType.Interface);
-    if (!interfaceGenerators.I.Any(tg => tg.ForType(type))) {
+    if (!interfaceGenerators.Any(tg => tg.ForType(type))) {
       throw new InvalidOperationException("No Generator for " + type.GetType().ExpandTypeName());
     }
   }

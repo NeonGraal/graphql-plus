@@ -8,7 +8,7 @@ internal class ParseOperation(
   IParserRepository parsers
 ) : IParser<IAstOperation>
 {
-  private readonly Parser<IParserArg, IAstArg> _argument = parsers.ParserFor<IParserArg, IAstArg>();
+  private readonly ParserOne<IParserArg, IAstArg> _argument = parsers.ParserFor<IParserArg, IAstArg>();
   private readonly ParserArray<IAstDirective> _directives = parsers.ArrayFor<IAstDirective>();
   private readonly ParserArray<IParserStartFragments, IAstFragment> _startFragments = parsers.ArrayFor<IParserStartFragments, IAstFragment>();
   private readonly ParserArray<IParserEndFragments, IAstFragment> _endFragments = parsers.ArrayFor<IParserEndFragments, IAstFragment>();

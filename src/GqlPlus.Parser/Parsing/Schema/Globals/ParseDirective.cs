@@ -45,7 +45,7 @@ internal class ParseDirectiveDefinition(
   IParserRepository parsers
 ) : IParser<DirectiveLocation>
 {
-  private readonly Parser<IEnumParser<DirectiveLocation>, DirectiveLocation> _location = parsers.ParserFor<IEnumParser<DirectiveLocation>, DirectiveLocation>();
+  private readonly ParserOne<IEnumParser<DirectiveLocation>, DirectiveLocation> _location = parsers.ParserFor<IEnumParser<DirectiveLocation>, DirectiveLocation>();
 
   public IResult<DirectiveLocation> Parse([NotNull] ITokenizer tokens, string label)
 

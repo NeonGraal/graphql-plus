@@ -1,4 +1,4 @@
-using GqlPlus.Ast;
+﻿using GqlPlus.Ast;
 
 namespace GqlPlus.Generating.Objects;
 

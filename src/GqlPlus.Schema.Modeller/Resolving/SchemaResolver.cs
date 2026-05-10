@@ -1,4 +1,4 @@
-namespace GqlPlus.Resolving;
+﻿namespace GqlPlus.Resolving;
 
 internal class SchemaResolver(
   IResolverRepository resolvers

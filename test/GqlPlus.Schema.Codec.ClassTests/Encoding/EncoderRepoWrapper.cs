@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using GqlPlus.Decoding;
 using Microsoft.Extensions.Logging;
 

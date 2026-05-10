@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using EmptyFiles;
 
 namespace GqlPlus.Modelling;
@@ -30,25 +30,25 @@ public abstract class ModellerClassTestBase<TAst, TModel>
     where TA : IAstError
     where TM : IModelBase
   {
-    DeferOne<IModeller<TA, TM>>.D factory = () => result;
+    IModeller<TA, TM> factory() => result;
     modellers.ModellerFor<TA, TM>().ReturnsForAnyArgs(factory);
   }
 
   internal void ModifierModellerReturns(IModellerRepository modellers, IModifierModeller result)
   {
-    DeferOne<IModifierModeller>.D factory = () => result;
+    IModifierModeller factory() => result;
     modellers.ModifierModeller().ReturnsForAnyArgs(factory);
   }
 
   internal void TypesModellerReturns(IModellerRepository modellers, ITypesModeller result)
   {
-    DeferOne<ITypesModeller>.D factory = () => result;
+    ITypesModeller factory() => result;
     modellers.TypesModeller().ReturnsForAnyArgs(factory);
   }
 
   internal void TypeModellersReturns(IModellerRepository modellers, IEnumerable<ITypeModeller> results)
   {
-    DeferList<ITypeModeller>.D factory = () => results;
+    IEnumerable<ITypeModeller> factory() => results;
     modellers.TypeModellers().ReturnsForAnyArgs(factory);
   }
 

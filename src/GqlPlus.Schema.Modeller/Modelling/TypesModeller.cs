@@ -1,4 +1,4 @@
-namespace GqlPlus.Modelling;
+﻿namespace GqlPlus.Modelling;
 
 internal class TypesModeller(
   IModellerRepository modellers
@@ -21,10 +21,10 @@ internal class TypesModeller(
   }
 
   public TypeKindModel GetTypeKind(IAstType ast)
-    => _typeModellers.I.Single(t => t.ForType(ast)).Kind;
+    => _typeModellers.Single(t => t.ForType(ast)).Kind;
 
   protected override BaseTypeModel ToModel(IAstType ast, IMap<TypeKindModel> typeKinds)
-    => _typeModellers.I.Single(t => t.ForType(ast)).ToTypeModel(ast, typeKinds);
+    => _typeModellers.Single(t => t.ForType(ast)).ToTypeModel(ast, typeKinds);
 
   internal static TypesModeller Factory(IModellerRepository r) => new(r);
 }

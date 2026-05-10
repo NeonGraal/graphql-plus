@@ -1,4 +1,4 @@
-namespace GqlPlus.Modelling.Objects;
+﻿namespace GqlPlus.Modelling.Objects;
 
 internal abstract class ModellerObjField<TObjFieldAst, TObjField>(
   IModellerRepository modellers

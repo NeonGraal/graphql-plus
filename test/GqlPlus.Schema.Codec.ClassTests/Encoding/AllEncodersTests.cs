@@ -13,7 +13,7 @@ public class AllEncodersTests
   [Fact]
   public void AllEncoders_EncoderForSimple_IsRegistered()
   {
-    DeferOne<IEncoder<SimpleModel>> encoder = _services.GetRequiredService<IEncoderRepository>()
+    Encoder<SimpleModel> encoder = _services.GetRequiredService<IEncoderRepository>()
       .EncoderFor<SimpleModel>();
 
     encoder.I.ShouldNotBeNull();

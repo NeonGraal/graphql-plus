@@ -222,14 +222,14 @@ public class ParserClassTestBase
     return new ParserArray<T>(() => p);
   }
 
-  protected static Parser<TInterface, T> LazyFor<TInterface, T>(out TInterface parser)
+  protected static ParserOne<TInterface, T> LazyFor<TInterface, T>(out TInterface parser)
     where TInterface : class, IParser<T>
   {
     TInterface p = Substitute.For<TInterface, IParser<T>>();
     p.Parse(default!, default!)
       .ReturnsForAnyArgs(default(T).Empty());
     parser = p;
-    return new Parser<TInterface, T>(() => p);
+    return new ParserOne<TInterface, T>(() => p);
   }
 
   protected static ParserArray<TInterface, T> LazyAFor<TInterface, T>(out TInterface parser)
@@ -304,14 +304,14 @@ public class ParserClassTestBase
     return result;
   }
 
-  protected static Parser<TInterface, T>.D ParserFor<TInterface, T>(out TInterface parser)
+  protected static ParserOne<TInterface, T>.D ParserFor<TInterface, T>(out TInterface parser)
     where TInterface : class, IParser<T>
   {
     parser = Substitute.For<TInterface, IParser<T>>();
     parser.Parse(default!, default!)
       .ReturnsForAnyArgs(default(T).Empty());
 
-    Parser<TInterface, T>.D result = A.Of<Parser<TInterface, T>.D>();
+    ParserOne<TInterface, T>.D result = A.Of<ParserOne<TInterface, T>.D>();
     result().Returns(parser);
 
     return result;
@@ -330,35 +330,35 @@ public class ParserClassTestBase
     return result;
   }
 
-  protected static Parser<IOptionParser<T>, T>.D OptionParserFor<T>()
+  protected static ParserOne<IOptionParser<T>, T>.D OptionParserFor<T>()
     where T : struct
     => OptionParserFor(out IOptionParser<T> _);
 
-  protected static Parser<IOptionParser<T>, T>.D OptionParserFor<T>(out IOptionParser<T> parser)
+  protected static ParserOne<IOptionParser<T>, T>.D OptionParserFor<T>(out IOptionParser<T> parser)
     where T : struct
   {
     parser = A.Of<IOptionParser<T>>();
     parser.Parse(default!, default!)
       .ReturnsForAnyArgs(default(T).Empty());
 
-    Parser<IOptionParser<T>, T>.D result = A.Of<Parser<IOptionParser<T>, T>.D>();
+    ParserOne<IOptionParser<T>, T>.D result = A.Of<ParserOne<IOptionParser<T>, T>.D>();
     result().Returns(parser);
 
     return result;
   }
 
-  protected static Parser<IEnumParser<T>, T>.D EnumParserFor<T>()
+  protected static ParserOne<IEnumParser<T>, T>.D EnumParserFor<T>()
     where T : struct
     => EnumParserFor(out IEnumParser<T> _);
 
-  protected static Parser<IEnumParser<T>, T>.D EnumParserFor<T>(out IEnumParser<T> parser)
+  protected static ParserOne<IEnumParser<T>, T>.D EnumParserFor<T>(out IEnumParser<T> parser)
     where T : struct
   {
     parser = A.Of<IEnumParser<T>>();
     parser.Parse(default!, default!)
       .ReturnsForAnyArgs(default(T).Empty());
 
-    Parser<IEnumParser<T>, T>.D result = A.Of<Parser<IEnumParser<T>, T>.D>();
+    ParserOne<IEnumParser<T>, T>.D result = A.Of<ParserOne<IEnumParser<T>, T>.D>();
     result().Returns(parser);
 
     return result;

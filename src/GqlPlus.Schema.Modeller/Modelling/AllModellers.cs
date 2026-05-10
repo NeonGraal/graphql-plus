@@ -1,4 +1,4 @@
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Modelling.Globals;
 using GqlPlus.Modelling.Objects;
 using GqlPlus.Modelling.Simple;

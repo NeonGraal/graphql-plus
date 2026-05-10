@@ -10,14 +10,14 @@ static public class RepositoryBuilderHelpers
   public static void AllMergersForReturns<T>([NotNull] this IMergerRepository repo, params IMergeAll<T>[] results)
     where T : IAstType
   {
-    DeferList<IMergeAll<T>>.D factory = () => results;
+    MergerList<T>.D factory = () => results;
     repo.AllMergersFor<T>().ReturnsForAnyArgs(factory);
   }
 
   public static void MergerForReturns<T>([NotNull] this IMergerRepository repo, IMerge<T> result)
     where T : IAstError
   {
-    DeferOne<IMerge<T>>.D factory = () => result;
+    MergerOne<T>.D factory = () => result;
     repo.MergerFor<T>().ReturnsForAnyArgs(factory);
   }
 

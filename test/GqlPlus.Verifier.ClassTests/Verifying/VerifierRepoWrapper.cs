@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using GqlPlus.Ast.Operation;
 using GqlPlus.Matching;
 using GqlPlus.Merging;
@@ -57,7 +57,7 @@ internal sealed class VerifierRepoWrapper(
   public MatcherOne<T>.D MatcherFor<T>([CallerMemberName] string callerName = "")
     => AddRelationship<T>(callerName)
       .MatcherFor<T>(callerName);
-  public DeferOne<IMerge<T>>.D MergerFor<T>([CallerMemberName] string callerName = "")
+  public MergerOne<T>.D MergerFor<T>([CallerMemberName] string callerName = "")
     where T : IAstError
     => AddRelationship<T>(callerName)
       .MergerFor<T>(callerName);

@@ -25,10 +25,10 @@ internal class CmptRefOutpPrntGnrcEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptRefOutpPrntGnrcObject<TType>>
 {
-  private readonly DeferOne<IEncoder<TType>> _type = encoders.EncoderFor<TType>();
+  private readonly Encoder<TType> _type = encoders.EncoderFor<TType>();
   public Structured Encode(ICmptRefOutpPrntGnrcObject<TType> input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field, _type.I);
+      .AddEncoded("field", input.Field, _type);
 }
 
 internal class CmptEnumOutpPrntGnrcEncoder : IEncoder<CmptEnumOutpPrntGnrc>

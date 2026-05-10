@@ -12,7 +12,7 @@ public class VerifySchemaTests(
 ) : TestSchemaResult(checks)
 
 {
-  private readonly DeferOne<IMerge<IAstSchema>> _schemaMerger = mergers.MergerFor<IAstSchema>();
+  private readonly MergerOne<IAstSchema> _schemaMerger = mergers.MergerFor<IAstSchema>();
   private readonly DeferOne<IVerify<IAstSchema>> _schemaVerifier = verifierRepository.VerifierFor<IAstSchema>();
 
   protected override async Task Result_Valid(IResult<IAstSchema> result, string test, string label, string[] dirs, string section, string input = "")
@@ -23,7 +23,7 @@ public class VerifySchemaTests(
       error.Message.ShouldBeNull(section.Prefixed(" ") + test);
     }
 
-    IEnumerable<IAstSchema> merged = _schemaMerger.I.Merge([result.Required()]);
+    IEnumerable<IAstSchema> merged = _schemaMerger.Merge([result.Required()]);
 
     IMessages errors = Messages.New;
 

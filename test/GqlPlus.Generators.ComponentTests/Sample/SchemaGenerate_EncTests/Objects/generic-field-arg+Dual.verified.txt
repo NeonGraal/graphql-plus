@@ -15,10 +15,10 @@ internal class CmptGnrcFieldArgDualEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptGnrcFieldArgDualObject<TType>>
 {
-  private readonly DeferOne<IEncoder<ICmptRefGnrcFieldArgDual<TType>>> _refGnrcFieldArgDual = encoders.EncoderFor<ICmptRefGnrcFieldArgDual<TType>>();
+  private readonly Encoder<ICmptRefGnrcFieldArgDual<TType>> _refGnrcFieldArgDual = encoders.EncoderFor<ICmptRefGnrcFieldArgDual<TType>>();
   public Structured Encode(ICmptGnrcFieldArgDualObject<TType> input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field, _refGnrcFieldArgDual.I);
+      .AddEncoded("field", input.Field, _refGnrcFieldArgDual);
 }
 
 internal class CmptRefGnrcFieldArgDualEncoder<TRef> : IEncoder<ICmptRefGnrcFieldArgDualObject<TRef>>

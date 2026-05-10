@@ -1,4 +1,4 @@
-using GqlPlus.Factories;
+﻿using GqlPlus.Factories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Encoding;
@@ -25,7 +25,7 @@ public class AllEncodersTests
     DeferList<ITypeEncoder> encoders = _services.GetRequiredService<IEncoderRepository>()
       .EncodersFor<ITypeEncoder>();
 
-    encoders.I.ShouldNotBeEmpty();
+    encoders.ShouldNotBeEmpty();
   }
 
   [Fact]
@@ -43,7 +43,7 @@ public class AllEncodersTests
     IEncoderRepository repo = _services.GetRequiredService<IEncoderRepository>();
     DeferList<ITypeEncoder> encoders = repo.EncodersFor<ITypeEncoder>();
 
-    repo.ShouldSatisfyAllConditions([.. encoders.I.Select(CheckTypeEncoder)]);
+    repo.ShouldSatisfyAllConditions([.. encoders.Select(CheckTypeEncoder)]);
   }
 
   private static Action<IEncoderRepository> CheckEncoder(Factory<object, IEncoderRepository> factory)

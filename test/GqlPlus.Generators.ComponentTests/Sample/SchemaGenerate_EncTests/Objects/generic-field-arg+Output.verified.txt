@@ -15,10 +15,10 @@ internal class CmptGnrcFieldArgOutpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptGnrcFieldArgOutpObject<TType>>
 {
-  private readonly DeferOne<IEncoder<ICmptRefGnrcFieldArgOutp<TType>>> _refGnrcFieldArgOutp = encoders.EncoderFor<ICmptRefGnrcFieldArgOutp<TType>>();
+  private readonly Encoder<ICmptRefGnrcFieldArgOutp<TType>> _refGnrcFieldArgOutp = encoders.EncoderFor<ICmptRefGnrcFieldArgOutp<TType>>();
   public Structured Encode(ICmptGnrcFieldArgOutpObject<TType> input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field, _refGnrcFieldArgOutp.I);
+      .AddEncoded("field", input.Field, _refGnrcFieldArgOutp);
 }
 
 internal class CmptRefGnrcFieldArgOutpEncoder<TRef> : IEncoder<ICmptRefGnrcFieldArgOutpObject<TRef>>

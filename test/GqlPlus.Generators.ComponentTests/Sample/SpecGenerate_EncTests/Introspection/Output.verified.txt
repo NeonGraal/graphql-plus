@@ -21,7 +21,7 @@ internal class Cmpt_OutputFieldEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_OutputFieldObject>
 {
-  private readonly DeferOne<IEncoder<ICmpt_ObjFieldObject<ICmpt_ObjFieldType>>> _objField = encoders.EncoderFor<ICmpt_ObjFieldObject<ICmpt_ObjFieldType>>();
+  private readonly Encoder<ICmpt_ObjFieldObject<ICmpt_ObjFieldType>> _objField = encoders.EncoderFor<ICmpt_ObjFieldObject<ICmpt_ObjFieldType>>();
   public Structured Encode(ICmpt_OutputFieldObject input)
     => _objField.I.Encode(input);
 
@@ -32,11 +32,11 @@ internal class Cmpt_OutputFieldTypeEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_OutputFieldTypeObject>
 {
-  private readonly DeferOne<IEncoder<ICmpt_ObjFieldTypeObject>> _objFieldType = encoders.EncoderFor<ICmpt_ObjFieldTypeObject>();
-  private readonly DeferOne<IEncoder<ICmpt_InputFieldType>> _inputFieldType = encoders.EncoderFor<ICmpt_InputFieldType>();
+  private readonly Encoder<ICmpt_ObjFieldTypeObject> _objFieldType = encoders.EncoderFor<ICmpt_ObjFieldTypeObject>();
+  private readonly Encoder<ICmpt_InputFieldType> _inputFieldType = encoders.EncoderFor<ICmpt_InputFieldType>();
   public Structured Encode(ICmpt_OutputFieldTypeObject input)
     => _objFieldType.I.Encode(input)
-      .AddEncoded("parameter", input.Parameter, _inputFieldType.I);
+      .AddEncoded("parameter", input.Parameter, _inputFieldType);
 
   internal static Cmpt_OutputFieldTypeEncoder Factory(IEncoderRepository r) => new(r);
 }

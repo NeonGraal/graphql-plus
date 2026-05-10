@@ -27,11 +27,11 @@ internal class Cmpt_DirectivesEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_DirectivesObject>
 {
-  private readonly DeferOne<IEncoder<ICmpt_AndTypeObject>> _andType = encoders.EncoderFor<ICmpt_AndTypeObject>();
-  private readonly DeferOne<IEncoder<ICmpt_Directive>> _directive = encoders.EncoderFor<ICmpt_Directive>();
+  private readonly Encoder<ICmpt_AndTypeObject> _andType = encoders.EncoderFor<ICmpt_AndTypeObject>();
+  private readonly Encoder<ICmpt_Directive> _directive = encoders.EncoderFor<ICmpt_Directive>();
   public Structured Encode(ICmpt_DirectivesObject input)
     => _andType.I.Encode(input)
-      .AddEncoded("directive", input.Directive, _directive.I);
+      .AddEncoded("directive", input.Directive, _directive);
 
   internal static Cmpt_DirectivesEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -40,11 +40,11 @@ internal class Cmpt_DirectiveEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_DirectiveObject>
 {
-  private readonly DeferOne<IEncoder<ICmpt_AliasedObject>> _aliased = encoders.EncoderFor<ICmpt_AliasedObject>();
-  private readonly DeferOne<IEncoder<ICmpt_InputFieldType>> _inputFieldType = encoders.EncoderFor<ICmpt_InputFieldType>();
+  private readonly Encoder<ICmpt_AliasedObject> _aliased = encoders.EncoderFor<ICmpt_AliasedObject>();
+  private readonly Encoder<ICmpt_InputFieldType> _inputFieldType = encoders.EncoderFor<ICmpt_InputFieldType>();
   public Structured Encode(ICmpt_DirectiveObject input)
     => _aliased.I.Encode(input)
-      .AddEncoded("parameter", input.Parameter, _inputFieldType.I)
+      .AddEncoded("parameter", input.Parameter, _inputFieldType)
       .Add("repeatable", input.Repeatable.Encode());
 
   internal static Cmpt_DirectiveEncoder Factory(IEncoderRepository r) => new(r);

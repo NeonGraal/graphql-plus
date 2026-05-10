@@ -9,7 +9,7 @@ public class CanMergeSchemaTests(
   IMergerRepository mergers
 ) : TestSchemaResult(checks)
 {
-  private readonly DeferOne<IMerge<IAstSchema>> _schemaMerger = mergers.MergerFor<IAstSchema>();
+  private readonly MergerOne<IAstSchema> _schemaMerger = mergers.MergerFor<IAstSchema>();
 
   protected override Task Result_Valid(IResult<IAstSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {
@@ -29,7 +29,7 @@ public class CanMergeSchemaTests(
 
   private void Check_CanMerge(IAstSchema[] schemas, string test)
   {
-    IMessages result = _schemaMerger.I.SkipIf(test == SchemaValidData.SpecDefinition).CanMerge(schemas);
+    IMessages result = _schemaMerger.SkipIf(test == SchemaValidData.SpecDefinition).CanMerge(schemas);
 
     result.ShouldBeEmpty(test);
   }

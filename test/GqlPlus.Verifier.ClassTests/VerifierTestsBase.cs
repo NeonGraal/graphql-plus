@@ -1,4 +1,4 @@
-using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Ast.Operation;
 using GqlPlus.Matching;
 using GqlPlus.Merging;
 using GqlPlus.Verifying;
@@ -48,7 +48,7 @@ public class VerifierTestsBase
 
   protected void MergerForReturns<T>(IMerge<T> result)
     where T : IAstError
-    => VerifierRepo.MergerFor<T>().ReturnsForAnyArgs(new DeferOne<IMerge<T>>.D(() => result));
+    => VerifierRepo.MergerFor<T>().ReturnsForAnyArgs(new MergerOne<T>.D(() => result));
 
   protected void UsageForReturns<T>(IVerifyUsage<T> result)
     where T : IAstAliased

@@ -16,10 +16,10 @@ internal class CmptOutpParamEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptOutpParamObject>
 {
-  private readonly DeferOne<IEncoder<ICmptFldOutpParam>> _fldOutpParam = encoders.EncoderFor<ICmptFldOutpParam>();
+  private readonly Encoder<ICmptFldOutpParam> _fldOutpParam = encoders.EncoderFor<ICmptFldOutpParam>();
   public Structured Encode(ICmptOutpParamObject input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field(), _fldOutpParam.I);
+      .AddEncoded("field", input.Field(), _fldOutpParam);
 
   internal static CmptOutpParamEncoder Factory(IEncoderRepository r) => new(r);
 }

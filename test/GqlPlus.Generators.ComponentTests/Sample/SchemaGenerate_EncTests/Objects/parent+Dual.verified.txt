@@ -15,7 +15,7 @@ internal class CmptPrntDualEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptPrntDualObject>
 {
-  private readonly DeferOne<IEncoder<ICmptRefPrntDualObject>> _refPrntDual = encoders.EncoderFor<ICmptRefPrntDualObject>();
+  private readonly Encoder<ICmptRefPrntDualObject> _refPrntDual = encoders.EncoderFor<ICmptRefPrntDualObject>();
   public Structured Encode(ICmptPrntDualObject input)
     => _refPrntDual.I.Encode(input);
 

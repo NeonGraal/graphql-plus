@@ -15,10 +15,10 @@ internal class CmptFieldDualOutpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptFieldDualOutpObject>
 {
-  private readonly DeferOne<IEncoder<ICmptFldFieldDualOutp>> _fldFieldDualOutp = encoders.EncoderFor<ICmptFldFieldDualOutp>();
+  private readonly Encoder<ICmptFldFieldDualOutp> _fldFieldDualOutp = encoders.EncoderFor<ICmptFldFieldDualOutp>();
   public Structured Encode(ICmptFieldDualOutpObject input)
     => Structured.Empty()
-      .AddEncoded("field", input.Field, _fldFieldDualOutp.I);
+      .AddEncoded("field", input.Field, _fldFieldDualOutp);
 
   internal static CmptFieldDualOutpEncoder Factory(IEncoderRepository r) => new(r);
 }

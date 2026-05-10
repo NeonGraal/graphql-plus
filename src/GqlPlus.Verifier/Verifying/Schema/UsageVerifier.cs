@@ -8,7 +8,7 @@ internal abstract class UsageVerifier<TUsage, TContext>(
   where TUsage : IAstAliased
   where TContext : UsageContext
 {
-  private readonly IVerifyAliased<TUsage> _aliased = verifiers.AliasedFor<TUsage>();
+  private readonly Defer<IVerifyAliased<TUsage>>.L _aliased = verifiers.AliasedFor<TUsage>();
 
   protected abstract void UsageValue(TUsage usage, TContext context);
   protected abstract TContext MakeContext(TUsage usage, IAstType[] aliased, IMessages errors);
@@ -20,7 +20,7 @@ internal abstract class UsageVerifier<TUsage, TContext>(
       UsageValue(usage, context);
     }
 
-    _aliased.Verify(item.Usages, errors);
+    _aliased.I.Verify(item.Usages, errors);
   }
 
   protected static UsageContext MakeUsageContext(IAstType[] aliased, IMessages errors)

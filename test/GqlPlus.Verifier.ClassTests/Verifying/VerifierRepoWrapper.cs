@@ -38,14 +38,14 @@ internal sealed class VerifierRepoWrapper(
     repo.WriteFactories(label + "Verifier", repoBuilder.AllFactories);
   }
 
-  public IVerifyAliased<T> AliasedFor<T>([CallerMemberName] string callerName = "")
+  public Defer<IVerifyAliased<T>>.D AliasedFor<T>([CallerMemberName] string callerName = "")
     where T : IAstAliased
     => AddRelationship<T>(callerName)
       .AliasedFor<T>(callerName);
-  public IEnumerable<IVerifyDomain> GetDomains([CallerMemberName] string callerName = "")
+  public Defer<IVerifyDomain>.DA GetDomains([CallerMemberName] string callerName = "")
     => AddRelationship<IVerifyDomain>(callerName)
       .GetDomains(callerName);
-  public IVerifyIdentified<TUsage, TIdentified> IdentifiedFor<TUsage, TIdentified>([CallerMemberName] string callerName = "")
+  public Defer<IVerifyIdentified<TUsage, TIdentified>>.D IdentifiedFor<TUsage, TIdentified>([CallerMemberName] string callerName = "")
     where TUsage : IAstError
     where TIdentified : IAstIdentified
   {
@@ -61,11 +61,11 @@ internal sealed class VerifierRepoWrapper(
     where T : IAstError
     => AddRelationship<T>(callerName)
       .MergerFor<T>(callerName);
-  public IVerifyUsage<T> UsageFor<T>([CallerMemberName] string callerName = "")
+  public Defer<IVerifyUsage<T>>.D UsageFor<T>([CallerMemberName] string callerName = "")
     where T : IAstAliased
     => AddRelationship<T>(callerName)
       .UsageFor<T>(callerName);
-  public IVerify<T> VerifierFor<T>([CallerMemberName] string callerName = "")
+  public Defer<IVerify<T>>.D VerifierFor<T>([CallerMemberName] string callerName = "")
     => AddRelationship<T>(callerName)
       .VerifierFor<T>(callerName);
 }

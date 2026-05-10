@@ -13,7 +13,7 @@ public class VerifySchemaTests(
 
 {
   private readonly Defer<IMerge<IAstSchema>>.L _schemaMerger = mergers.MergerFor<IAstSchema>();
-  private readonly IVerify<IAstSchema> _schemaVerifier = verifierRepository.VerifierFor<IAstSchema>();
+  private readonly Defer<IVerify<IAstSchema>>.L _schemaVerifier = verifierRepository.VerifierFor<IAstSchema>();
 
   protected override async Task Result_Valid(IResult<IAstSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {
@@ -27,7 +27,7 @@ public class VerifySchemaTests(
 
     IMessages errors = Messages.New;
 
-    _schemaVerifier.Verify(merged.First(), errors);
+    _schemaVerifier.I.Verify(merged.First(), errors);
 
     await CheckErrors(dirs, test, errors, "verify", "parse");
   }
@@ -36,7 +36,7 @@ public class VerifySchemaTests(
   {
     IMessages errors = Messages.New;
     if (result.IsOk()) {
-      _schemaVerifier.Verify(result.Required(), errors);
+      _schemaVerifier.I.Verify(result.Required(), errors);
     } else {
       result.IsError(e => errors.Add(e with { Message = "Parse Error: " + e.Message }));
     }

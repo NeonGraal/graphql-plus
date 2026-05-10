@@ -9,7 +9,7 @@ public class BuiltInTests(
   IVerifierRepository verifierRepository
 )
 {
-  private readonly IVerify<IAstSchema> _verifier = verifierRepository.VerifierFor<IAstSchema>();
+  private readonly Defer<IVerify<IAstSchema>>.L _verifier = verifierRepository.VerifierFor<IAstSchema>();
   private readonly VerifySettings _settings = new VerifySettings().CheckAutoVerify();
 
   [Fact]
@@ -39,7 +39,7 @@ public class BuiltInTests(
     IMessages result = Messages.New;
     TestSchema schema = new(type);
 
-    _verifier.Verify(schema, result);
+    _verifier.I.Verify(schema, result);
 
     result.ShouldBeEmpty(type?.Label);
   }

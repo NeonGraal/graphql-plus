@@ -32,15 +32,15 @@ public class VerifierTestsBase
 
   protected void AliasedForReturns<T>(IVerifyAliased<T> result)
     where T : IAstAliased
-    => VerifierRepo.AliasedFor<T>().ReturnsForAnyArgs(result);
+    => VerifierRepo.AliasedFor<T>().ReturnsForAnyArgs(new Defer<IVerifyAliased<T>>.D(() => result));
 
   protected void GetDomainsReturns(params IVerifyDomain[] results)
-    => VerifierRepo.GetDomains().ReturnsForAnyArgs(results);
+    => VerifierRepo.GetDomains().ReturnsForAnyArgs(new Defer<IVerifyDomain>.DA(() => results));
 
   protected void IdentifiedForReturns<TUsage, TIdentified>(IVerifyIdentified<TUsage, TIdentified> result)
     where TUsage : IAstError
     where TIdentified : IAstIdentified
-    => VerifierRepo.IdentifiedFor<TUsage, TIdentified>().ReturnsForAnyArgs(result);
+    => VerifierRepo.IdentifiedFor<TUsage, TIdentified>().ReturnsForAnyArgs(new Defer<IVerifyIdentified<TUsage, TIdentified>>.D(() => result));
 
   protected void VerifierMatcherForReturns<T>(Matcher<T>.D result)
     where T : IAstError
@@ -52,10 +52,10 @@ public class VerifierTestsBase
 
   protected void UsageForReturns<T>(IVerifyUsage<T> result)
     where T : IAstAliased
-    => VerifierRepo.UsageFor<T>().ReturnsForAnyArgs(result);
+    => VerifierRepo.UsageFor<T>().ReturnsForAnyArgs(new Defer<IVerifyUsage<T>>.D(() => result));
 
   protected void VerifierForReturns<T>(IVerify<T> result)
-    => VerifierRepo.VerifierFor<T>().ReturnsForAnyArgs(result);
+    => VerifierRepo.VerifierFor<T>().ReturnsForAnyArgs(new Defer<IVerify<T>>.D(() => result));
 
   protected void LoggerCalled(LogLevel level, string message, int times = 1)
   {

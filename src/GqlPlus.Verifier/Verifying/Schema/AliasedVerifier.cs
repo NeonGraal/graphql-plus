@@ -7,14 +7,14 @@ internal abstract class AliasedVerifier<TAliased>(
 ) : GroupedVerifier<TAliased>(verifiers)
  where TAliased : IAstAliased
 {
-  private readonly IVerify<TAliased> _verifier = verifiers.VerifierFor<TAliased>();
+  private readonly Defer<IVerify<TAliased>>.L _verifier = verifiers.VerifierFor<TAliased>();
 
   public override void Verify(TAliased[] item, IMessages errors)
   {
     base.Verify(item, errors);
 
     foreach (TAliased each in item) {
-      _verifier.Verify(each, errors);
+      _verifier.I.Verify(each, errors);
     }
   }
 }

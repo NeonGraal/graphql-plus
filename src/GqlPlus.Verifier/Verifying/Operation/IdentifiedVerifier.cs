@@ -8,8 +8,8 @@ internal abstract class IdentifiedVerifier<TUsage, TIdentified>(
   where TUsage : IAstError
   where TIdentified : IAstIdentified
 {
-  private readonly IVerify<TUsage> _usage = verifiers.VerifierFor<TUsage>();
-  private readonly IVerify<TIdentified> _definition = verifiers.VerifierFor<TIdentified>();
+  private readonly Defer<IVerify<TUsage>>.L _usage = verifiers.VerifierFor<TUsage>();
+  private readonly Defer<IVerify<TIdentified>>.L _definition = verifiers.VerifierFor<TIdentified>();
 
   public abstract string Label { get; }
   public abstract string UsageKey(TUsage item);
@@ -25,7 +25,7 @@ internal abstract class IdentifiedVerifier<TUsage, TIdentified>(
         errors.Add(use.Value.MakeError($"Invalid {Label} usage. {Label} not defined."));
       }
 
-      _usage?.Verify(use.Value, errors);
+      _usage.I.Verify(use.Value, errors);
     }
 
     foreach (MapPair<TIdentified> def in defined) {
@@ -33,7 +33,7 @@ internal abstract class IdentifiedVerifier<TUsage, TIdentified>(
         errors.Add(def.Value.MakeError($"Invalid {Label} definition. {Label} not used."));
       }
 
-      _definition?.Verify(def.Value, errors);
+      _definition.I.Verify(def.Value, errors);
     }
   }
 }

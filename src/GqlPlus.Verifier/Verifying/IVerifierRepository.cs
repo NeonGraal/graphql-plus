@@ -12,19 +12,19 @@ namespace GqlPlus.Verifying;
 public interface IVerifierRepository
   : IRepository
 {
-  IVerify<T> VerifierFor<T>([CallerMemberName] string callerName = "");
+  Defer<IVerify<T>>.D VerifierFor<T>([CallerMemberName] string callerName = "");
 
-  IVerifyAliased<T> AliasedFor<T>([CallerMemberName] string callerName = "")
+  Defer<IVerifyAliased<T>>.D AliasedFor<T>([CallerMemberName] string callerName = "")
     where T : IAstAliased;
 
-  IVerifyUsage<T> UsageFor<T>([CallerMemberName] string callerName = "")
+  Defer<IVerifyUsage<T>>.D UsageFor<T>([CallerMemberName] string callerName = "")
     where T : IAstAliased;
 
-  IVerifyIdentified<TUsage, TIdentified> IdentifiedFor<TUsage, TIdentified>([CallerMemberName] string callerName = "")
+  Defer<IVerifyIdentified<TUsage, TIdentified>>.D IdentifiedFor<TUsage, TIdentified>([CallerMemberName] string callerName = "")
     where TUsage : IAstError
     where TIdentified : IAstIdentified;
 
-  IEnumerable<IVerifyDomain> GetDomains([CallerMemberName] string callerName = "");
+  Defer<IVerifyDomain>.DA GetDomains([CallerMemberName] string callerName = "");
 
   Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "");
 

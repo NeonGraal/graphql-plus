@@ -17,25 +17,25 @@ internal class VerifierRepository(
 ) : BaseRepository<IVerifierRepository>(loggerFactory)
   , IVerifierRepository
 {
-  public IVerify<T> VerifierFor<T>([CallerMemberName] string callerName = "")
-    => Cached<T, IVerify<T>>(state.Verifiers, "verify for " + callerName, this);
+  public Defer<IVerify<T>>.D VerifierFor<T>([CallerMemberName] string callerName = "")
+    => () => Cached<T, IVerify<T>>(state.Verifiers, "verify for " + callerName, this);
 
-  public IVerifyAliased<T> AliasedFor<T>([CallerMemberName] string callerName = "")
+  public Defer<IVerifyAliased<T>>.D AliasedFor<T>([CallerMemberName] string callerName = "")
     where T : IAstAliased
-    => Cached<T, IVerifyAliased<T>>(state.Aliased, "aliased for " + callerName, this);
-  public IVerifyUsage<T> UsageFor<T>([CallerMemberName] string callerName = "")
+    => () => Cached<T, IVerifyAliased<T>>(state.Aliased, "aliased for " + callerName, this);
+  public Defer<IVerifyUsage<T>>.D UsageFor<T>([CallerMemberName] string callerName = "")
     where T : IAstAliased
-    => Cached<T, IVerifyUsage<T>>(state.Usages, "usage for " + callerName, this);
+    => () => Cached<T, IVerifyUsage<T>>(state.Usages, "usage for " + callerName, this);
 
-  public IVerifyIdentified<TUsage, TIdentified> IdentifiedFor<TUsage, TIdentified>([CallerMemberName] string callerName = "")
+  public Defer<IVerifyIdentified<TUsage, TIdentified>>.D IdentifiedFor<TUsage, TIdentified>([CallerMemberName] string callerName = "")
     where TUsage : IAstError
     where TIdentified : IAstIdentified
-    => Cached<(TUsage, TIdentified), IVerifyIdentified<TUsage, TIdentified>>(
+    => () => Cached<(TUsage, TIdentified), IVerifyIdentified<TUsage, TIdentified>>(
       state.Identified,
       "identified for " + callerName, this);
 
-  public IEnumerable<IVerifyDomain> GetDomains([CallerMemberName] string callerName = "")
-    => state.Domains.Select(f => (IVerifyDomain)f(this));
+  public Defer<IVerifyDomain>.DA GetDomains([CallerMemberName] string callerName = "")
+    => () => state.Domains.Select(f => (IVerifyDomain)f(this));
 
   public Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "")
     => matchers.MatcherFor<T>(callerName);

@@ -12,7 +12,7 @@ public class VerifyOperationTests(
 ) : SampleChecks
 {
   private readonly Parser<IAstOperation>.L _parser = parsers.ParserFor<IAstOperation>();
-  private readonly IVerify<IAstOperation> _operationVerifier = verifierRepository.VerifierFor<IAstOperation>();
+  private readonly Defer<IVerify<IAstOperation>>.L _operationVerifier = verifierRepository.VerifierFor<IAstOperation>();
 
   [Theory]
   [ClassData(typeof(SamplesOperationData))]
@@ -25,7 +25,7 @@ public class VerifyOperationTests(
 
     IMessages result = Messages.New;
 
-    _operationVerifier.Verify(parse.Required(), result);
+    _operationVerifier.I.Verify(parse.Required(), result);
 
     result.ShouldBeEmpty();
   }
@@ -38,7 +38,7 @@ public class VerifyOperationTests(
 
     Messages result = Messages.Empty;
     if (parse.IsOk()) {
-      _operationVerifier.Verify(parse.Required(), result);
+      _operationVerifier.I.Verify(parse.Required(), result);
     } else {
       parse.IsError(result.Add);
     }

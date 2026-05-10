@@ -5,7 +5,7 @@ namespace GqlPlus.Verifying.Schema.Simple;
 internal class VerifyDomainTypes(IVerifierRepository verifiers)
   : AstParentVerifier<IAstDomain, IAstTypeRef, EnumContext>(verifiers)
 {
-  private readonly IEnumerable<IVerifyDomain> _domains = verifiers.GetDomains();
+  private readonly Defer<IVerifyDomain>.LA _domains = verifiers.GetDomains();
 
   protected sealed override string GetParent(IAstType<IAstTypeRef> usage)
    => (usage.Parent?.Name).IfWhiteSpace();
@@ -21,7 +21,7 @@ internal class VerifyDomainTypes(IVerifierRepository verifiers)
   {
     base.UsageValue(usage, context);
 
-    foreach (IVerifyDomain domain in _domains) {
+    foreach (IVerifyDomain domain in _domains.IA) {
       domain.Verify(usage, context);
     }
   }
@@ -41,7 +41,7 @@ internal class VerifyDomainTypes(IVerifierRepository verifiers)
 
   protected override void CheckMergeParent(SelfUsage<IAstDomain> input, EnumContext context)
   {
-    IEnumerable<IMessage> failures = _domains.SelectMany(domain => domain.CanMergeItems(input.Usage, context));
+    IEnumerable<IMessage> failures = _domains.IA.SelectMany(domain => domain.CanMergeItems(input.Usage, context));
     if (failures.Any()) {
       context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} items into Parent {input.Current} items");
       context.Add(failures);

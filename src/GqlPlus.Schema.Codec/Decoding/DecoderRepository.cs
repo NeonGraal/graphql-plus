@@ -11,7 +11,7 @@ internal class DecoderRepository(
 {
   private readonly DecoderRepositoryBuilder _builder = builder;
 
-  public DeferOne<IDecoder<T>>.D DecoderFor<T>([CallerMemberName] string callerName = "")
+  public Decoder<T>.D DecoderFor<T>([CallerMemberName] string callerName = "")
     => () => Cached<T, IDecoder<T>>(_builder.Decoders, "decoder for " + callerName, this);
   public DeferOne<TDecoder>.D DecoderFor<TDecoder, TBase>([CallerMemberName] string callerName = "")
     where TDecoder : class, IDecoder<TBase>

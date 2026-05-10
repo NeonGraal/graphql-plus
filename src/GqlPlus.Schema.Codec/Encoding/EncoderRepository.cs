@@ -10,7 +10,7 @@ internal class EncoderRepository(
 ) : BaseRepository<IEncoderRepository>(loggerFactory)
   , IEncoderRepository
 {
-  public DeferOne<IEncoder<T>>.D EncoderFor<T>([CallerMemberName] string callerName = "")
+  public Encoder<T>.D EncoderFor<T>([CallerMemberName] string callerName = "")
     => () => Cached<T, IEncoder<T>>(builder.Encoders, "encoder for " + callerName, this);
 
   private readonly ConcurrentDictionary<Type, IEnumerable<object>> _lists = new();

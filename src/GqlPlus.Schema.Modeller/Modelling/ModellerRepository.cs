@@ -25,12 +25,15 @@ internal class ModellerRepository
     _typeModellers = new(() => [.. builder.TypeModellerFactories.Select(f => (ITypeModeller)f(this))]);
   }
 
-  public IModeller<TAst, TModel> ModellerFor<TAst, TModel>([CallerMemberName] string callerName = "")
+  public Defer<IModeller<TAst, TModel>>.D ModellerFor<TAst, TModel>([CallerMemberName] string callerName = "")
     where TAst : IAstError
     where TModel : IModelBase
-    => Cached<IModeller<TAst, TModel>, IModeller<TAst, TModel>>(_builder.Modellers, "modeller for " + callerName, this);
+    => () => Cached<IModeller<TAst, TModel>, IModeller<TAst, TModel>>(_builder.Modellers, "modeller for " + callerName, this);
 
-  public IModifierModeller ModifierModeller => _modifier.Value;
-  public ITypesModeller TypesModeller => _types.Value;
-  public IEnumerable<ITypeModeller> TypeModellers => _typeModellers.Value;
+  public Defer<IModifierModeller>.D ModifierModeller([CallerMemberName] string callerName = "")
+    => () => _modifier.Value;
+  public Defer<ITypesModeller>.D TypesModeller([CallerMemberName] string callerName = "")
+    => () => _types.Value;
+  public Defer<ITypeModeller>.DA TypeModellers([CallerMemberName] string callerName = "")
+    => () => _typeModellers.Value;
 }

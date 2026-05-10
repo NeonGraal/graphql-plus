@@ -4,12 +4,12 @@ internal class SchemaResolver(
   IResolverRepository resolvers
 ) : IResolver<SchemaModel>
 {
-  private readonly IResolver<BaseTypeModel> _type = resolvers.ResolverFor<BaseTypeModel>();
+  private readonly Defer<IResolver<BaseTypeModel>>.L _type = resolvers.ResolverFor<BaseTypeModel>();
 
   public SchemaModel Resolve(SchemaModel model, IResolveContext context)
   {
     IMap<BaseTypeModel> types = model.Types.Values.Select(
-      t => _type.Resolve(t, context))
+      t => _type.I.Resolve(t, context))
       .ToMap(t => t.Name);
 
     return model with { Types = types, };

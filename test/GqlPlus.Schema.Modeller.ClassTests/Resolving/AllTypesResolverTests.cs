@@ -11,7 +11,8 @@ public class AllTypesResolverTests
   {
     _typeResolvers = [];
     IResolverRepository resolvers = A.Of<IResolverRepository>();
-    resolvers.TypeResolvers.Returns(_typeResolvers);
+    Defer<ITypeResolver>.DA factory = () => _typeResolvers;
+    resolvers.TypeResolvers().ReturnsForAnyArgs(factory);
     Resolver = new AllTypesResolver(resolvers);
   }
 

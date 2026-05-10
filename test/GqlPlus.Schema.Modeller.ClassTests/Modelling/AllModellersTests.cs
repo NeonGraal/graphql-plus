@@ -11,8 +11,8 @@ public class AllModellersTests
 
   [Fact]
   public void AllModellers_ModellerForFieldKey_IsRegistered()
-    => _services.GetRequiredService<IModellerRepository>()
-      .ModellerFor<IAstFieldKey, SimpleModel>()
+    => ((Defer<IModeller<IAstFieldKey, SimpleModel>>.L)_services.GetRequiredService<IModellerRepository>()
+      .ModellerFor<IAstFieldKey, SimpleModel>()).I
       .ShouldNotBeNull();
 
   private readonly IServiceProvider _services = new ServiceCollection()

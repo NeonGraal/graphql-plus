@@ -10,7 +10,7 @@ public class OutputFieldModellerTests
     IModifierModeller modifier = A.Of<IModifierModeller>();
     IModeller<IAstInputParam, InputParamModel> parameter = MFor<IAstInputParam, InputParamModel>();
     IModellerRepository modellers = A.Of<IModellerRepository>();
-    modellers.ModifierModeller.Returns(modifier);
+    ModifierModellerReturns(modellers, modifier);
     ModellerForReturns(modellers, parameter);
     ModellerForReturns(modellers, ObjBase);
     Modeller = new OutputFieldModeller(modellers);

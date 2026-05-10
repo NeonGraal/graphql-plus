@@ -5,8 +5,8 @@ namespace GqlPlus.Resolving;
 internal interface IResolverRepository
   : IRepository
 {
-  IResolver<T> ResolverFor<T>([CallerMemberName] string callerName = "")
+  Defer<IResolver<T>>.D ResolverFor<T>([CallerMemberName] string callerName = "")
     where T : IModelBase;
 
-  IEnumerable<ITypeResolver> TypeResolvers { get; }
+  Defer<ITypeResolver>.DA TypeResolvers([CallerMemberName] string callerName = "");
 }

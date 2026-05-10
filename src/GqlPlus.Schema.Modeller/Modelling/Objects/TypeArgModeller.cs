@@ -4,7 +4,7 @@ internal class TypeArgModeller(
   IModellerRepository modellers
 ) : ModellerBase<IAstTypeArg, TypeArgModel>
 {
-  private readonly IModeller<IAstEnumValue, EnumValueModel> _enumValue = modellers.ModellerFor<IAstEnumValue, EnumValueModel>();
+  private readonly Defer<IModeller<IAstEnumValue, EnumValueModel>>.L _enumValue = modellers.ModellerFor<IAstEnumValue, EnumValueModel>();
 
   protected override TypeArgModel ToModel(IAstTypeArg ast, IMap<TypeKindModel> typeKinds)
   {
@@ -17,7 +17,7 @@ internal class TypeArgModeller(
 
     TypeKindModel enumKind = typeKinds.GetValueOr(ast.EnumValue.EnumType);
     return new(enumKind, ast.EnumValue.EnumType, ast.Description) {
-      EnumValue = _enumValue.ToModel(ast.EnumValue, typeKinds),
+      EnumValue = _enumValue.I.ToModel(ast.EnumValue, typeKinds),
     };
   }
 

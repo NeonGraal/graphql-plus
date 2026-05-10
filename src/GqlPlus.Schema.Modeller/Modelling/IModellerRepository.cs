@@ -5,11 +5,11 @@ namespace GqlPlus.Modelling;
 internal interface IModellerRepository
   : IRepository
 {
-  IModeller<TAst, TModel> ModellerFor<TAst, TModel>([CallerMemberName] string callerName = "")
+  Defer<IModeller<TAst, TModel>>.D ModellerFor<TAst, TModel>([CallerMemberName] string callerName = "")
     where TAst : IAstError
     where TModel : IModelBase;
 
-  IModifierModeller ModifierModeller { get; }
-  ITypesModeller TypesModeller { get; }
-  IEnumerable<ITypeModeller> TypeModellers { get; }
+  Defer<IModifierModeller>.D ModifierModeller([CallerMemberName] string callerName = "");
+  Defer<ITypesModeller>.D TypesModeller([CallerMemberName] string callerName = "");
+  Defer<ITypeModeller>.DA TypeModellers([CallerMemberName] string callerName = "");
 }

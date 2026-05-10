@@ -16,7 +16,8 @@ public class TypesModellerTests
     modeller.ToTypeModel(ast, typeKinds).Returns(new SpecialTypeModel(name, string.Empty));
 
     IModellerRepository repo = A.Of<IModellerRepository>();
-    repo.TypeModellers.Returns([modeller]);
+    Defer<ITypeModeller>.DA typeModellers = () => [modeller];
+    repo.TypeModellers().ReturnsForAnyArgs(typeModellers);
     TypesModeller sut = new(repo);
 
     BaseTypeModel result = sut.ToModel<BaseTypeModel>(ast, typeKinds);
@@ -37,7 +38,8 @@ public class TypesModellerTests
     modeller.Kind.Returns(TypeKindModel.Special);
 
     IModellerRepository repo = A.Of<IModellerRepository>();
-    repo.TypeModellers.Returns([modeller]);
+    Defer<ITypeModeller>.DA typeModellers = () => [modeller];
+    repo.TypeModellers().ReturnsForAnyArgs(typeModellers);
     TypesModeller sut = new(repo);
 
     sut.AddTypeKinds([ast], typeKinds);

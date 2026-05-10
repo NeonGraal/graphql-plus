@@ -25,7 +25,7 @@ internal class ModellerRepositoryBuilder
     where TModel : IModelBase
     => this.FluentAction(b => {
       b.Modellers[typeof(IModeller<TAst, TModel>)] = factory;
-      b.TypeModellerFactories.Add(r => (ITypeModeller)(object)r.ModellerFor<TAst, TModel>());
+      b.TypeModellerFactories.Add(r => (ITypeModeller)(object)((Defer<IModeller<TAst, TModel>>.L)r.ModellerFor<TAst, TModel>()).I);
     });
 
   public IModellerRepositoryBuilder AddModifierModeller(Factory<IModifierModeller, IModellerRepository> factory)

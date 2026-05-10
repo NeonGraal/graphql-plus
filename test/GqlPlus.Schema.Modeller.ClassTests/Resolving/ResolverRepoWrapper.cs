@@ -12,7 +12,9 @@ internal sealed class ResolverRepoWrapper(
 
   public ILoggerFactory LoggerFactory => repo.LoggerFactory;
 
-  public IEnumerable<ITypeResolver> TypeResolvers => repo.TypeResolvers;
+  public Defer<ITypeResolver>.DA TypeResolvers([CallerMemberName] string callerName = "")
+    => AddRelationship<ITypeResolver>(callerName)
+      .TypeResolvers(callerName);
 
   public static void WriteTree(ILoggerFactory loggerFactory,
     Action<IResolverRepositoryBuilder> configureResolvers)
@@ -24,7 +26,7 @@ internal sealed class ResolverRepoWrapper(
     repo.WriteFactories("Resolver", repoBuilder.AllFactories);
   }
 
-  public IResolver<T> ResolverFor<T>([CallerMemberName] string callerName = "")
+  public Defer<IResolver<T>>.D ResolverFor<T>([CallerMemberName] string callerName = "")
     where T : IModelBase
     => AddRelationship<T>(callerName)
       .ResolverFor<T>(callerName);

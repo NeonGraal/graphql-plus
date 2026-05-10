@@ -17,9 +17,10 @@ internal class ResolverRepository
     _typeResolvers = new(() => [.. builder.TypeResolverFactories.Select(f => (ITypeResolver)f(this))]);
   }
 
-  public IResolver<T> ResolverFor<T>([CallerMemberName] string callerName = "")
+  public Defer<IResolver<T>>.D ResolverFor<T>([CallerMemberName] string callerName = "")
     where T : IModelBase
-    => Cached<T, IResolver<T>>(_builder.Resolvers, "resolver for " + callerName, this);
+    => () => Cached<T, IResolver<T>>(_builder.Resolvers, "resolver for " + callerName, this);
 
-  public IEnumerable<ITypeResolver> TypeResolvers => _typeResolvers.Value;
+  public Defer<ITypeResolver>.DA TypeResolvers([CallerMemberName] string callerName = "")
+    => () => _typeResolvers.Value;
 }

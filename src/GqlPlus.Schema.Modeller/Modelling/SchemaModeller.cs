@@ -6,10 +6,10 @@ internal class SchemaModeller(
   IModellerRepository modellers
 ) : ModellerBase<IAstSchema, SchemaModel>
 {
-  private readonly IModeller<IAstSchemaCategory, CategoryModel> _category = modellers.ModellerFor<IAstSchemaCategory, CategoryModel>();
-  private readonly IModeller<IAstSchemaDirective, DirectiveModel> _directive = modellers.ModellerFor<IAstSchemaDirective, DirectiveModel>();
-  private readonly IModeller<IAstSchemaSetting, SettingModel> _setting = modellers.ModellerFor<IAstSchemaSetting, SettingModel>();
-  private readonly ITypesModeller _types = modellers.TypesModeller;
+  private readonly Defer<IModeller<IAstSchemaCategory, CategoryModel>>.L _category = modellers.ModellerFor<IAstSchemaCategory, CategoryModel>();
+  private readonly Defer<IModeller<IAstSchemaDirective, DirectiveModel>>.L _directive = modellers.ModellerFor<IAstSchemaDirective, DirectiveModel>();
+  private readonly Defer<IModeller<IAstSchemaSetting, SettingModel>>.L _setting = modellers.ModellerFor<IAstSchemaSetting, SettingModel>();
+  private readonly Defer<ITypesModeller>.L _types = modellers.TypesModeller();
 
   protected override SchemaModel ToModel(IAstSchema ast, IMap<TypeKindModel> typeKinds)
   {
@@ -21,18 +21,18 @@ internal class SchemaModeller(
       errors.Add(ast.Errors);
     }
 
-    _types.AddTypeKinds(typeDeclarations, typeKinds);
+    _types.I.AddTypeKinds(typeDeclarations, typeKinds);
 
     IAstSchemaOption[] options = ast.Declarations.ArrayOf<IAstSchemaOption>();
     string? name = options.LastOrDefault(options => !string.IsNullOrWhiteSpace(options.Name))?.Name;
     IEnumerable<string> aliases = options.SelectMany(a => a.Aliases);
-    IEnumerable<SettingModel> settings = options.SelectMany(o => _setting.ToModels(o.Settings, typeKinds));
+    IEnumerable<SettingModel> settings = options.SelectMany(o => _setting.I.ToModels(o.Settings, typeKinds));
 
     return new(name.IfWhiteSpace(),
-        DeclarationModel(ast, _category, typeKinds),
-        DeclarationModel(ast, _directive, typeKinds),
+        DeclarationModel(ast, _category.I, typeKinds),
+        DeclarationModel(ast, _directive.I, typeKinds),
         settings,
-        typeDeclarations.Select(t => _types.ToModel(t, typeKinds)),
+        typeDeclarations.Select(t => _types.I.ToModel(t, typeKinds)),
         errors
         ) { Aliases = [.. aliases] };
   }

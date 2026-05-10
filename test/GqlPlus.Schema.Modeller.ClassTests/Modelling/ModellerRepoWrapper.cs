@@ -12,17 +12,17 @@ internal sealed class ModellerRepoWrapper(
 
   public ILoggerFactory LoggerFactory => repo.LoggerFactory;
 
-  public IEnumerable<ITypeModeller> TypeModellers
-    => AddRelationship<ITypeModeller>(CallerName)
-      .TypeModellers;
+  public Defer<ITypeModeller>.DA TypeModellers([CallerMemberName] string callerName = "")
+    => AddRelationship<ITypeModeller>(callerName)
+      .TypeModellers(callerName);
 
-  public IModifierModeller ModifierModeller
-    => AddRelationship<IModifierModeller>(CallerName)
-      .ModifierModeller;
+  public Defer<IModifierModeller>.D ModifierModeller([CallerMemberName] string callerName = "")
+    => AddRelationship<IModifierModeller>(callerName)
+      .ModifierModeller(callerName);
 
-  public ITypesModeller TypesModeller
-    => AddRelationship<ITypesModeller>(CallerName)
-      .TypesModeller;
+  public Defer<ITypesModeller>.D TypesModeller([CallerMemberName] string callerName = "")
+    => AddRelationship<ITypesModeller>(callerName)
+      .TypesModeller(callerName);
 
   public static void WriteTree(ILoggerFactory loggerFactory,
     Action<IModellerRepositoryBuilder> configureModellers)
@@ -34,7 +34,7 @@ internal sealed class ModellerRepoWrapper(
     repo.WriteFactories("Modeller", repoBuilder.AllFactories);
   }
 
-  public IModeller<TAst, TModel> ModellerFor<TAst, TModel>([CallerMemberName] string callerName = "")
+  public Defer<IModeller<TAst, TModel>>.D ModellerFor<TAst, TModel>([CallerMemberName] string callerName = "")
     where TAst : IAstError
     where TModel : IModelBase
     => AddRelationship<TModel>(callerName)

@@ -37,7 +37,7 @@ internal class VerifierRepository(
   public DeferList<IVerifyDomain>.D GetDomains([CallerMemberName] string callerName = "")
     => () => state.Domains.Select(f => (IVerifyDomain)f(this));
 
-  public Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "")
+  public MatcherOne<T>.D MatcherFor<T>([CallerMemberName] string callerName = "")
     => matchers.MatcherFor<T>(callerName);
 
   public DeferOne<IMerge<T>>.D MergerFor<T>([CallerMemberName] string callerName = "")

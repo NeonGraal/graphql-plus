@@ -26,7 +26,7 @@ public interface IVerifierRepository
 
   DeferList<IVerifyDomain>.D GetDomains([CallerMemberName] string callerName = "");
 
-  Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "");
+  MatcherOne<T>.D MatcherFor<T>([CallerMemberName] string callerName = "");
 
   DeferOne<IMerge<T>>.D MergerFor<T>([CallerMemberName] string callerName = "")
     where T : IAstError;

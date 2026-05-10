@@ -11,8 +11,8 @@ internal class MatcherRepository(
   public DeferList<ITypeMatcher>.D TypeMatchers([CallerMemberName] string callerName = "")
     => () => state.TypeMatchers.Select(MakeTypeMatcher);
 
-  public Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "")
-    => () => Cached<T, Matcher<T>.I>(state.Matchers, "matcher for " + callerName, this);
+  public MatcherOne<T>.D MatcherFor<T>([CallerMemberName] string callerName = "")
+    => () => Cached<T, IMatcher<T>>(state.Matchers, "matcher for " + callerName, this);
 
   private ITypeMatcher MakeTypeMatcher(Factory<object, IMatcherRepository> factory)
     => (ITypeMatcher)factory(this);

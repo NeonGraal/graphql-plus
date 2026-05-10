@@ -3,24 +3,21 @@ using GqlPlus.Verifying.Schema;
 
 namespace GqlPlus.Matching;
 
-#pragma warning disable CA1034 // Nested types should not be visible
-public static class Matcher<T>
+public interface IMatcher<T>
 {
-  public interface I
-  {
-    bool Matches(T type, string constraint, EnumContext context);
-  }
+  bool Matches(T type, string constraint, EnumContext context);
+}
 
-  public delegate I D();
+public class MatcherOne<T>(
+  MatcherOne<T>.D factory
+) : DeferOne<IMatcher<T>>(factory)
+  , IMatcher<T>
+{
+  public bool Matches(T type, string constraint, EnumContext context)
+    => I.Matches(type, constraint, context);
 
-  public class L(D factory) : Lazy<I>(() => factory())
-  {
-    public static implicit operator L(D factory) => new(factory.ThrowIfNull());
-
-    public bool Matches(T type, string constraint, EnumContext context)
-
-      => Value.Matches(type, constraint, context);
-  }
+  public static implicit operator MatcherOne<T>(D factory)
+    => new(factory.ThrowIfNull());
 }
 
 public interface ITypeMatcher

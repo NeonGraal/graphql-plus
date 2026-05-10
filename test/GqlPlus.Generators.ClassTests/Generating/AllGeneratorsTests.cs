@@ -13,7 +13,7 @@ public class AllGeneratorsTests
   [Fact]
   public void AllGenerators_GeneratorForSchema_IsRegistered()
   {
-    DeferOne<IGenerator<IAstSchema>> lazy = _services.GetRequiredService<IGeneratorRepository>().GeneratorFor<IAstSchema>();
+    Generator<IAstSchema> lazy = _services.GetRequiredService<IGeneratorRepository>().GeneratorFor<IAstSchema>();
 
     lazy.I.ShouldNotBeNull();
   }

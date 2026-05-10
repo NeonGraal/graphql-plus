@@ -21,7 +21,7 @@ internal sealed class GeneratorRepoWrapper(
     repo.WriteFactories("Generator", repoBuilder.AllFactories);
   }
 
-  public DeferOne<IGenerator<TAst>>.D GeneratorFor<TAst>([CallerMemberName] string callerName = "")
+  public Generator<TAst>.D GeneratorFor<TAst>([CallerMemberName] string callerName = "")
     where TAst : IAstError
     => AddRelationship<TAst>(callerName)
       .GeneratorFor<TAst>(callerName);

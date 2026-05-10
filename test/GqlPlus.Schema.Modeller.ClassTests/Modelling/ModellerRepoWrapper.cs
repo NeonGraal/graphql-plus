@@ -34,7 +34,7 @@ internal sealed class ModellerRepoWrapper(
     repo.WriteFactories("Modeller", repoBuilder.AllFactories);
   }
 
-  public DeferOne<IModeller<TAst, TModel>>.D ModellerFor<TAst, TModel>([CallerMemberName] string callerName = "")
+  public Modeller<TAst, TModel>.D ModellerFor<TAst, TModel>([CallerMemberName] string callerName = "")
     where TAst : IAstError
     where TModel : IModelBase
     => AddRelationship<TModel>(callerName)

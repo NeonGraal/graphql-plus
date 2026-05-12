@@ -35,7 +35,7 @@ internal class VerifierRepository(
       "identified for " + callerName, this));
 
   public DeferList<IVerifyDomain>.D GetDomains([CallerMemberName] string callerName = "")
-    => () => state.Domains.Select(f => (IVerifyDomain)f(this));
+    => () => InstancesFor<IVerifyDomain>(state.Domains, this);
 
   public Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "")
     => matchers.MatcherFor<T>(callerName);

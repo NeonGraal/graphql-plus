@@ -10,7 +10,6 @@ internal class ModellerRepository
   private readonly ModellerRepositoryBuilder _builder;
   private readonly Lazy<IModifierModeller> _modifier;
   private readonly Lazy<ITypesModeller> _types;
-  private readonly Lazy<IEnumerable<ITypeModeller>> _typeModellers;
 
   public ModellerRepository(ModellerRepositoryBuilder builder, ILoggerFactory loggerFactory)
     : base(loggerFactory)
@@ -22,7 +21,6 @@ internal class ModellerRepository
     _types = new(() => builder._typesFactory is not null
       ? builder._typesFactory(this)
       : new TypesModeller(this));
-    _typeModellers = new(() => [.. builder.TypeModellerFactories.Select(f => (ITypeModeller)f(this))]);
   }
 
   public Modeller<TAst, TModel>.D ModellerFor<TAst, TModel>([CallerMemberName] string callerName = "")
@@ -35,5 +33,5 @@ internal class ModellerRepository
   public DeferOne<ITypesModeller>.D TypesModeller([CallerMemberName] string callerName = "")
     => () => _types.Value;
   public DeferList<ITypeModeller>.D TypeModellers([CallerMemberName] string callerName = "")
-    => () => _typeModellers.Value;
+    => () => InstancesFor<ITypeModeller>(_builder.TypeModellerFactories, this);
 }

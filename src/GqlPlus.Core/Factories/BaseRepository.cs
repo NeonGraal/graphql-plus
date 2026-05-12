@@ -19,7 +19,7 @@ public class BaseRepository<TRepo>(
       _ => factories
         .TryGetValue(factoryKey, out Factory<object, TRepo>? factory)
           ? factory.Invoke(repo)
-          : new InvalidOperationException($"No {label} registration found for type '{factoryKey.TidyTypeName()}'."));
+          : throw new InvalidOperationException($"No {label} registration found for type '{factoryKey.TidyTypeName()}'."));
 
   protected TResult Cached<TKey, TResult>(FactoryDict factories, string label, TRepo repo)
     => (TResult)Cached(factories, typeof(TKey), typeof(TResult), label, repo);

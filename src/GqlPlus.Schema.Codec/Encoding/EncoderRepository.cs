@@ -19,5 +19,5 @@ internal class EncoderRepository(
     where TList : class
     => () => (IEnumerable<TList>)_lists.GetOrAdd(
       typeof(TList),
-      _ => builder.FactoriesFor<TList>(callerName).Select(f => f(this)));
+      _ => InstancesFor<TList>(builder.FactoriesFor<TList>(callerName), this));
 }

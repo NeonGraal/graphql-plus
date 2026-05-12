@@ -2,6 +2,7 @@
 
 #pragma warning disable CA1052 // Static holder types should be Static or NotInheritable
 public class BaseFactory<TRepo>
+  where TRepo : IRepository
 #pragma warning restore CA1052 // Static holder types should be Static or NotInheritable
 {
 #pragma warning disable CA1034 // Nested types should not be visible
@@ -9,7 +10,10 @@ public class BaseFactory<TRepo>
   public class FactoryList : List<Factory<object, TRepo>>;
 #pragma warning restore CA1034 // Nested types should not be visible
 
-  protected IEnumerable<Factory<T, TRepo>> FactoriesFor<T>(FactoryList factories)
+  protected IEnumerable<T> InstancesFor<T>(IEnumerable<Factory<object, TRepo>> factories, TRepo repo)
+    where T : class
+    => factories.Select(f => (T)f.Invoke(repo));
+  protected IEnumerable<Factory<T, TRepo>> FactoriesFor<T>(IEnumerable<Factory<object, TRepo>> factories)
     where T : class
     => factories.Select(FactoryFor<T>);
 

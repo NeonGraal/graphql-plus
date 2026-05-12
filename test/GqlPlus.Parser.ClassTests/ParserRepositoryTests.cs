@@ -49,4 +49,27 @@ public class ParserRepositoryTests(ITestOutputHelper outputHelper)
     services.GetService<IParserRepository>()
         .ShouldNotBeNull();
   }
+
+  private const string TestSchema = """
+    domain TestDom { string /test/ }
+    dual TestDual { | TestDom }
+    """;
+
+  [Fact]
+  public void GetSchemaParser()
+  {
+    IServiceProvider services = new ServiceCollection()
+      .AddLogging()
+      .AddParsers(b => b
+        .AddCommonParsers()
+        .AddSchemaParsers())
+      .BuildServiceProvider();
+
+    ParserOne<IAstSchema> schemaParser = services.GetService<IParserRepository>()
+        .ShouldNotBeNull()
+        .ParserFor<IAstSchema>();
+
+    IResult<IAstSchema> result = schemaParser.Parse(new Tokenizer(TestSchema), "Test")
+        .ShouldNotBeNull();
+  }
 }

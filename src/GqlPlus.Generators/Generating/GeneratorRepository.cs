@@ -18,9 +18,8 @@ internal class GeneratorRepository(
     => () => Cached<TAst, IGenerator<TAst>>(builder.Generators, "generator for " + callerName, this);
 
   public DeferList<ITypeGenerator>.D TypeGenerators(GqlpGeneratorType generatorType, [CallerMemberName] string callerName = "")
-    => () => _typeGenerators.GetOrAdd(
-      generatorType,
-      k => [.. builder.TypeGenerators
-        .GetValueOr(k, [])
-        .Select(f => (ITypeGenerator)f(this))]);
+    => () => _typeGenerators.GetOrAdd(generatorType, k
+        => [.. InstancesFor<ITypeGenerator>(
+          builder.TypeGenerators.GetValueOr(k, []),
+          this)]);
 }

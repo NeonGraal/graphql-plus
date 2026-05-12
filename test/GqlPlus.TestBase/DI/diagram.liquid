@@ -27,7 +27,7 @@
         <header>
           {%- for svc in grp[1] -%}
           {%- unless svc.IsLink %}
-          <span id="{{ svc.Name }}" />
+          <span id="{{ svc.Safe }}" />
           {% endunless -%}
           {%- endfor %}
           <h3 id="{{ grp[0] }}">{{ grp[0] }}</h3>
@@ -36,8 +36,8 @@
           flowchart TD
           {%- for svc in grp[1] %}
           {% render 'node', type: svc -%}
-          {%- for prm in svc.Requires %}
-          {{ svc.Name }} -->|"{{ prm[0] }}"| {{ prm[1] }}
+          {%- for lnk in svc.Links %}
+          {{ lnk.FromKey }} -->|"{{ lnk.Style }}"| {{ lnk.ToKey }}
           {%- endfor -%}
           {%- endfor %}
         </pre>

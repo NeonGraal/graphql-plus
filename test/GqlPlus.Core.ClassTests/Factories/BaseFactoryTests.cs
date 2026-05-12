@@ -10,7 +10,7 @@ public class BaseFactoryTests
   [Fact]
   public void FactoryDict_Default_IsEmpty()
   {
-    BaseFactory<IRepository>.FactoryDict result = new();
+    BaseFactory<IRepository>.FactoryDict result = [];
 
     result.ShouldBeEmpty();
   }
@@ -18,7 +18,7 @@ public class BaseFactoryTests
   [Fact]
   public void FactoryList_Default_IsEmpty()
   {
-    BaseFactory<IRepository>.FactoryList result = new();
+    BaseFactory<IRepository>.FactoryList result = [];
 
     result.ShouldBeEmpty();
   }
@@ -26,8 +26,8 @@ public class BaseFactoryTests
   [Theory, RepeatData]
   public void FactoryFor_TypedFactory_ReturnsTypedFactory(string value)
   {
-    Factory<string, IRepository> typed = _ => value;
-    Factory<object, IRepository> asObject = typed;
+    string typed(IRepository _) => value;
+    Factory<object, IRepository> asObject = (Factory<string, IRepository>)typed;
 
     Factory<string, IRepository> result = _sut.ExposedFactoryFor<string>(asObject);
 
@@ -37,7 +37,7 @@ public class BaseFactoryTests
   [Fact]
   public void FactoryFor_WrongType_ThrowsInvalidOperationException()
   {
-    Factory<object, IRepository> wrong = _ => new object();
+    object wrong(IRepository _) => new object();
 
     Action result = () => _sut.ExposedFactoryFor<string>(wrong);
 
@@ -57,7 +57,7 @@ public class BaseFactoryTests
   [Fact]
   public void FactoriesFor_WrongType_ThrowsInvalidOperationException()
   {
-    Factory<object, IRepository> wrong = _ => new object();
+    object wrong(IRepository _) => new object();
     BaseFactory<IRepository>.FactoryList list = [wrong];
 
     Action result = () => {
@@ -109,8 +109,8 @@ public class BaseFactoryTests
 
   private static Factory<object, IRepository> TypedAsObject(string value)
   {
-    Factory<string, IRepository> typed = _ => value;
-    return typed;
+    string typed(IRepository _) => value;
+    return (Factory<string, IRepository>)typed;
   }
 
   private sealed class TestableFactory : BaseFactory<IRepository>

@@ -34,8 +34,6 @@ internal class ValueKeyValueParser<TValue>(
       value => new KeyValue<TValue>(fieldKey.Required(), value),
       () => tokens.Error<KeyValue<TValue>>(label, "value after ':'"));
   }
-
-  internal static ValueKeyValueParser<TValue> Factory(IParserRepository p) => new(p);
 }
 
 public record struct KeyValue<TValue>(

@@ -79,7 +79,7 @@ public static class DiFluid
       .OrderBy(s => (s.Requires.Count - s.RequiredBy, s.Name));
 
     foreach (DiTree di in withRequires) {
-      if (ids.Contains(di.Name)) {
+      if (ids.Contains(di.Safe)) {
         continue;
       }
 
@@ -89,10 +89,10 @@ public static class DiFluid
 
       if (group.Count > MaxGroupSize || group.Count > 0 && group.Count < subGroup.Count) {
         groups[name] = [.. group];
-        name = di.Name;
+        name = di.Safe;
         group.Clear();
       } else if (string.IsNullOrWhiteSpace(name)) {
-        name = di.Name;
+        name = di.Safe;
       }
 
       group.AddRange(subGroup);
@@ -112,19 +112,19 @@ public static class DiFluid
 
     void AddToGroup(DiTree di)
     {
-      if (subGroupIds.Contains(di.Name)) {
+      if (subGroupIds.Contains(di.Safe)) {
         return;
       }
 
       subGroup.Add(di);
-      subGroupIds.Add(di.Name);
+      subGroupIds.Add(di.Safe);
 
-      foreach ((string key, string prereq) in di.Requires) {
-        if (!subGroupIds.Contains(prereq)
-          && tree.TryGetValue(prereq, out DiTree? requires)) {
-          if (ids.Contains(prereq)) {
+      foreach (string safe in di.SafeRequires) {
+        if (!subGroupIds.Contains(safe)
+          && tree.TryGetValue(safe, out DiTree? requires)) {
+          if (ids.Contains(safe)) {
             subGroup.Add(new(requires) { Requires = requires.Requires });
-            subGroupIds.Add(requires.Name);
+            subGroupIds.Add(safe);
           } else {
             AddToGroup(requires);
           }
@@ -132,12 +132,6 @@ public static class DiFluid
       }
     }
   }
-
-  public static string SafeTypeName(this Type type)
-    => type
-      .ExpandTypeName()
-      .Replace('<', '(')
-      .Replace('>', ')');
 
   private static readonly string s_solutionDir = Assembly.GetAssembly(typeof(DiFluid))?.Location.Split("test")[0] ?? "";
 
@@ -201,7 +195,25 @@ public static class DiFluid
   }
 }
 
+public class DiBase
+{
+  protected static string SafeName(string name)
+    => name.ThrowIfNull()
+      .Replace('<', '(')
+      .Replace('>', ')');
+  protected static string KeyName(string name)
+    => name.ThrowIfNull()
+      .Replace('<', '_')
+      .Replace('>', '_')
+      .Replace('+', '_')
+      .Replace('.', '_')
+      .Replace(',', '_')
+      .Replace("::", "_", StringComparison.Ordinal)
+      .Replace("[]", "_Array_", StringComparison.Ordinal);
+}
+
 public sealed class DiTree(string name, bool isHref, int requiredBy)
+  : DiBase
 {
   public string Name { get; } = name;
   public bool IsHref { get; } = isHref;
@@ -212,8 +224,14 @@ public sealed class DiTree(string name, bool isHref, int requiredBy)
     : this(other.Name, other.IsHref, other.RequiredBy)
   { }
 
+  public IEnumerable<string> SafeRequires
+    => Requires.Select(r => r.Value).Distinct();
+
   public IEnumerable<DiLink> Links
     => Requires.Select(r => new DiLink(Name, r.Value, r.Key));
+
+  public string Safe => SafeName(Name);
+  public string Key => KeyName(Name);
 
   public override string? ToString()
     => Requires
@@ -223,9 +241,12 @@ public sealed class DiTree(string name, bool isHref, int requiredBy)
 }
 
 public sealed class DiLink(string from, string to, string style)
+  : DiBase
 {
   public string From { get; } = from;
+  public string FromKey => KeyName(From);
   public string To { get; } = to;
+  public string ToKey => KeyName(To);
   public string Style { get; } = style;
 }
 

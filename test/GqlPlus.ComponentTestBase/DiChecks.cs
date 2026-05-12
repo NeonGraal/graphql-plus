@@ -142,8 +142,8 @@ public abstract class DiChecks(IServiceCollection services)
 
   private IEnumerable<DiTree> ServicesTree
     => _diServices.Values
-      .Select(s => new DiTree(s.Service.Safe, s.IsLink, s.RequiredBy) {
-        Requires = s.Requires.ToMap(r => r.Key, r => r.Value.Safe)
+      .Select(s => new DiTree(s.Service.Name, s.IsLink, s.RequiredBy) {
+        Requires = s.Requires.ToMap(r => r.Key, r => r.Value.Name)
       });
 
   private static readonly HashSet<string> s_optionalTypes = [
@@ -170,17 +170,6 @@ public sealed record TypeIdName
     Id = id;
     NameSpace = nameSpace ?? "";
     Name = name;
-    Key = id
-      .Replace('<', '_')
-      .Replace('>', '_')
-      .Replace('+', '_')
-      .Replace('.', '_')
-      .Replace(',', '_')
-      .Replace("::", "_", StringComparison.Ordinal)
-      .Replace("[]", "_Array_", StringComparison.Ordinal);
-    Safe = name
-      .Replace('<', '(')
-      .Replace('>', ')');
 
     string[] strings = name.Split('<');
     if (strings.Length > 1) {
@@ -191,8 +180,6 @@ public sealed record TypeIdName
   public string Id { get; }
   public string NameSpace { get; }
   public string Name { get; }
-  public string Key { get; }
-  public string Safe { get; }
   public TypeIdName? BaseName { get; }
 }
 

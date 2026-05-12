@@ -7,17 +7,17 @@ namespace GqlPlus;
 
 public class VerifierRepositoryTests(ITestOutputHelper outputHelper)
 {
-  [Fact]
+  [Fact, Trait("Generate", "Html")]
   public void Matchers()
     => MatcherRepoWrapper.WriteTree(outputHelper.ToLoggerFactory(),
       v => v.AddSchemaMatchers());
 
-  [Fact]
+  [Fact, Trait("Generate", "Html")]
   public void OperationVerifiers()
     => VerifierRepoWrapper.WriteTree("Operation", outputHelper.ToLoggerFactory(),
       v => v.AddOperationVerifiers());
 
-  [Fact]
+  [Fact, Trait("Generate", "Html")]
   public void SchemaVerifiers()
     => VerifierRepoWrapper.WriteTree("Schema", outputHelper.ToLoggerFactory(),
       v => v.AddSchemaVerifiers(),

@@ -42,9 +42,9 @@ public abstract class RepositoryWrapperBase<TInterface, TClass>(
   }
   private void AddRelationship(string callerName, Type? callerType, Type targetType)
   {
-    string targetName = targetType.SafeTypeName();
+    string targetName = targetType.ExpandTypeName();
     if (callerType is not null) {
-      string name = callerType.SafeTypeName().Split('+')[0];
+      string name = callerType.ExpandTypeName().Split('+')[0];
       if (_relationships.TryGetValue(name, out DiTree? tree)) {
         tree.Requires.TryAdd(callerName, targetName);
       } else {
@@ -92,5 +92,5 @@ public abstract class RepositoryWrapperBase<TInterface, TClass>(
   }
 
   protected string CallerName
-    => ResolvedType()?.SafeTypeName() ?? "Unknown";
+    => ResolvedType()?.ExpandTypeName() ?? "Unknown";
 }

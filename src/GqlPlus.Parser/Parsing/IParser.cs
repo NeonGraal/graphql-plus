@@ -72,7 +72,4 @@ public class ParserName<T>(
 {
   public bool ParseName([NotNull] ITokenizer tokens, [NotNullWhen(true)] out string? name, out TokenAt at)
     => Value.ParseName(tokens, out name, out at);
-
-  public static implicit operator ParserName<T>(D factory)
-    => new(factory.ThrowIfNull());
 }

@@ -16,6 +16,6 @@ public interface IParserRepository
 
   DeferList<IParseDeclaration>.D GetDeclarations([CallerMemberName] string callerName = "");
   DeferList<IParseDomain>.D GetDomains([CallerMemberName] string callerName = "");
-  ParserName<T> GetName<T>([CallerMemberName] string callerName = "")
+  ParserName<T>.D GetName<T>([CallerMemberName] string callerName = "")
     where T : class, INameParser;
 }

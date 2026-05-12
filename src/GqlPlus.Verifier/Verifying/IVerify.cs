@@ -13,6 +13,6 @@ public class Verifier<T>(
   public void Verify(T item, IMessages errors)
     => Value.Verify(item, errors);
 
-  //public static implicit operator Verifier<T>(D factory)
-  //  => new(factory.ThrowIfNull());
+  public static implicit operator Verifier<T>(D factory)
+    => new(factory.ThrowIfNull());
 }

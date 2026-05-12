@@ -15,7 +15,7 @@ public class ParseDirectiveTests
   {
     IDirectiveName name = A.Of<IDirectiveName>();
     NameParser = name;
-    Parsers.GetName<IDirectiveName>().ReturnsForAnyArgs(new ParserName<IDirectiveName>(() => name));
+    Parsers.GetName<IDirectiveName>().ReturnsForAnyArgs(() => name);
     ConfigureRepoArray(Parsers, out _param);
     ConfigureRepoInterface<IOptionParser<DirectiveOption>, DirectiveOption>(Parsers, out _option);
     ConfigureRepo(Parsers, out _definition);

@@ -30,7 +30,7 @@ internal class ParserRepository(
   public DeferList<IParseDomain>.D GetDomains([CallerMemberName] string callerName = "")
     => () => builder.Domains.Select(t
       => (IParseDomain)Cached(builder.Singles, t.Key, t.Value, "domain parsers for " + callerName, this));
-  public ParserName<T> GetName<T>([CallerMemberName] string callerName = "")
+  public ParserName<T>.D GetName<T>([CallerMemberName] string callerName = "")
     where T : class, INameParser
-    => new(() => Cached<T, T>(builder.InterfaceSingles, "name parser for " + callerName, this));
+    => () => Cached<T, T>(builder.InterfaceSingles, "name parser for " + callerName, this);
 }

@@ -55,6 +55,6 @@ public class IdentifiedVerifier<TUsage, TIdentified>(
   public void Verify(UsageIdentified<TUsage, TIdentified> item, IMessages errors)
     => Value.Verify(item, errors);
 
-  //public static implicit operator IdentifiedVerifier<TUsage, TIdentified>(D factory)
-  //  => new(factory.ThrowIfNull());
+  public static implicit operator IdentifiedVerifier<TUsage, TIdentified>(D factory)
+    => new(factory.ThrowIfNull());
 }

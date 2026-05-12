@@ -49,6 +49,6 @@ public class UsageVerifier<T>(
   public void Verify(UsageAliased<T> item, IMessages errors)
     => Value.Verify(item, errors);
 
-  //public static implicit operator UsageVerifier<T>(D factory)
-  //  => new(factory.ThrowIfNull());
+  public static implicit operator UsageVerifier<T>(D factory)
+    => new(factory.ThrowIfNull());
 }

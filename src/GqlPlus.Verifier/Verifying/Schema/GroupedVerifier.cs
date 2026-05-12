@@ -91,8 +91,8 @@ public class AliasVerifier<TAliased>(
   public void Verify(TAliased[] item, IMessages errors)
     => Value.Verify(item, errors);
 
-  //public static implicit operator AliasVerifier<TAliased>(D factory)
-  //  => new(factory.ThrowIfNull());
+  public static implicit operator AliasVerifier<TAliased>(D factory)
+    => new(factory.ThrowIfNull());
 }
 
 internal static partial class GroupedVerifierLogging

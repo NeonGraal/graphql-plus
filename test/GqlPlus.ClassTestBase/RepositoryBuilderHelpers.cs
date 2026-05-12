@@ -5,6 +5,7 @@ using GqlPlus.Structures;
 
 namespace GqlPlus;
 
+#pragma warning disable IDE1006 // Naming Styles
 static public class RepositoryBuilderHelpers
 {
   public static void AllMergersForReturns<T>([NotNull] this IMergerRepository repo, params IMergeAll<T>[] results)

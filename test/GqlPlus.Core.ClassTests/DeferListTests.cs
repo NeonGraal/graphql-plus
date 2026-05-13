@@ -84,7 +84,7 @@ public class DeferListTests
     string[] distinct = [.. values.Distinct()];
     DeferList<string> defer = new(() => distinct);
 
-    DeferDict<string, string> result = defer.ToDictionary<string, string>(v => v, v => v.ToUpperInvariant());
+    DeferDict<string, string> result = defer.ToDictionary(v => v, v => v.ToUpperInvariant());
 
     result.Values.ShouldBe(distinct.Select(v => v.ToUpperInvariant()), ignoreOrder: true);
   }

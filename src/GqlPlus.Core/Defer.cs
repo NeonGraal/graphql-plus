@@ -31,7 +31,7 @@ public class DeferList<TValue>(
 
   public DeferDict<TKey, TValue> ToDictionary<TKey>(Func<TValue, TKey> keySelector)
     => new(() => Value.ToDictionary(keySelector));
-  public DeferDict<TKey, TOutput> ToDictionary<TOutput, TKey>(Func<TValue, TKey> keySelector, Func<TValue, TOutput> valueSelector)
+  public DeferDict<TKey, TOutput> ToDictionary<TKey, TOutput>(Func<TValue, TKey> keySelector, Func<TValue, TOutput> valueSelector)
     where TOutput : class
     => new(() => Value.ToDictionary(keySelector, valueSelector));
 

@@ -23,8 +23,8 @@ internal sealed class MatcherRepoWrapper(
     configureMatchers(repoBuilder);
 
     MatcherRepoWrapper wrapper = new(new MatcherRepository(repoBuilder, loggerFactory));
-    wrapper.WriteFactories("Matcher", repoBuilder.Matchers);
-    // wrapper.FactoriesKeyValue<ITypeMatcher>());
+    wrapper.WriteFactories("Matcher", repoBuilder.Matchers,
+      wrapper.FactoriesKeyValue<ITypeMatcher>(repoBuilder.TypeMatchers.Select(wrapper.FactoryFor<ITypeMatcher>)));
   }
 
   public Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "")

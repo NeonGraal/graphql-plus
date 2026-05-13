@@ -52,7 +52,7 @@ public class MergeDirectivesTests
     _parameters = Merger<IAstInputParam>();
 
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.MergerFor<IAstInputParam>().Returns(_parameters);
+    mergers.MergerForReturns(_parameters);
     _merger = new(mergers);
   }
 

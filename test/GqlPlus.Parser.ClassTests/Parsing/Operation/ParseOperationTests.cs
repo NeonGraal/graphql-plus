@@ -8,11 +8,11 @@ public class ParseOperationTests
 
   private readonly ParseOperation _parseOperation;
   private readonly IParserArg _argumentParser;
-  private readonly Parser<IAstDirective>.IA _directivesParser;
+  private readonly IParserArray<IAstDirective> _directivesParser;
   private readonly IParserStartFragments _startFragmentsParser;
   private readonly IParserEndFragments _endFragmentsParser;
-  private readonly Parser<IAstSelection>.IA _objectParser;
-  private readonly Parser<IAstVariable>.IA _variablesParser;
+  private readonly IParserArray<IAstSelection> _objectParser;
+  private readonly IParserArray<IAstVariable> _variablesParser;
 
   public ParseOperationTests()
     : base(A.Of<IOperationContext>())

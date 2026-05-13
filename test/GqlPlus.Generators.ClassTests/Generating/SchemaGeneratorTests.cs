@@ -1,4 +1,7 @@
-﻿namespace GqlPlus.Generating;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Structures;
+
+namespace GqlPlus.Generating;
 
 public class SchemaGeneratorTests
   : GenerateClassTestsBase
@@ -12,10 +15,17 @@ public class SchemaGeneratorTests
 
   public SchemaGeneratorTests()
   {
-    _generators.GeneratorFor<IAstSchemaCategory>().Returns(_categoryGenerator);
-    _generators.GeneratorFor<IAstSchemaDirective>().Returns(_directiveGenerator);
-    _generators.GeneratorFor<IAstSchemaOption>().Returns(_optionGenerator);
+    GeneratorForReturns(_categoryGenerator);
+    GeneratorForReturns(_directiveGenerator);
+    GeneratorForReturns(_optionGenerator);
     _generator = new SchemaGenerator(_generators);
+  }
+
+  private void GeneratorForReturns<T>(IGenerator<T> result)
+    where T : IAstError
+  {
+    IGenerator<T> factory() => result;
+    _generators.GeneratorFor<T>().ReturnsForAnyArgs(factory);
   }
 
   [Theory, RepeatData]
@@ -29,7 +39,8 @@ public class SchemaGeneratorTests
 
     ITypeGenerator typeGenerator = A.Of<ITypeGenerator>();
     typeGenerator.ForType(type).Returns(true);
-    _generators.TypeGenerators(GqlpGeneratorType.Model).Returns([typeGenerator]);
+    IEnumerable<ITypeGenerator> factory() => [typeGenerator];
+    _generators.TypeGenerators(GqlpGeneratorType.Model, Arg.Any<string>()).Returns(factory);
 
     // Act
     _generator.Generate(schema, context);
@@ -49,7 +60,8 @@ public class SchemaGeneratorTests
 
     ITypeGenerator typeGenerator = A.Of<ITypeGenerator>();
     typeGenerator.ForType(type).Returns(true);
-    _generators.TypeGenerators(GqlpGeneratorType.Interface).Returns([typeGenerator]);
+    IEnumerable<ITypeGenerator> factory() => [typeGenerator];
+    _generators.TypeGenerators(GqlpGeneratorType.Interface, Arg.Any<string>()).Returns(factory);
 
     // Act & Assert
     Should.NotThrow(() => _generator.Generate(schema, context));

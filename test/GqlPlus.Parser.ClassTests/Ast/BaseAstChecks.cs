@@ -1,6 +1,5 @@
 ﻿namespace GqlPlus.Ast;
 
-#pragma warning disable CA1822 // Mark members as static
 internal class BaseAstChecks<TAst>
 {
   internal delegate object? ObjCreator();

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using System.Runtime.CompilerServices;
+using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Modelling;
 
@@ -9,7 +10,6 @@ internal class ModellerRepository
   private readonly ModellerRepositoryBuilder _builder;
   private readonly Lazy<IModifierModeller> _modifier;
   private readonly Lazy<ITypesModeller> _types;
-  private readonly Lazy<IEnumerable<ITypeModeller>> _typeModellers;
 
   public ModellerRepository(ModellerRepositoryBuilder builder, ILoggerFactory loggerFactory)
     : base(loggerFactory)
@@ -21,15 +21,17 @@ internal class ModellerRepository
     _types = new(() => builder._typesFactory is not null
       ? builder._typesFactory(this)
       : new TypesModeller(this));
-    _typeModellers = new(() => [.. builder.TypeModellerFactories.Select(f => (ITypeModeller)f(this))]);
   }
 
-  public IModeller<TAst, TModel> ModellerFor<TAst, TModel>()
+  public Modeller<TAst, TModel>.D ModellerFor<TAst, TModel>([CallerMemberName] string callerName = "")
     where TAst : IAstError
     where TModel : IModelBase
-    => Cached<IModeller<TAst, TModel>, IModeller<TAst, TModel>>(_builder.Modellers, "modeller", this);
+    => () => Cached<IModeller<TAst, TModel>, IModeller<TAst, TModel>>(_builder.Modellers, "modeller for " + callerName, this);
 
-  public IModifierModeller ModifierModeller => _modifier.Value;
-  public ITypesModeller TypesModeller => _types.Value;
-  public IEnumerable<ITypeModeller> TypeModellers => _typeModellers.Value;
+  public DeferOne<IModifierModeller>.D ModifierModeller([CallerMemberName] string callerName = "")
+    => () => _modifier.Value;
+  public DeferOne<ITypesModeller>.D TypesModeller([CallerMemberName] string callerName = "")
+    => () => _types.Value;
+  public DeferList<ITypeModeller>.D TypeModellers([CallerMemberName] string callerName = "")
+    => () => InstancesFor<ITypeModeller>(_builder.TypeModellerFactories, this);
 }

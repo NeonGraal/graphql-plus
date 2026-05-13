@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace GqlPlus.Convert;
+namespace GqlPlus;
 
 public static class RenderSimpleYaml
 {

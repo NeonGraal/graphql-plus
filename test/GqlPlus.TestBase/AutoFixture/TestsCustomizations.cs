@@ -26,19 +26,15 @@ public sealed class TestsCustomizations
   private static readonly ConcurrentDictionary<bool, Fixture> s_fixtures = [];
 
   public static Func<IFixture> CreateFixture(bool localTests = false)
-    => () => {
-      if (!s_fixtures.TryGetValue(localTests, out Fixture? fixture)) {
-        fixture = new();
-        fixture.Customize(new TestsCustomizations());
-        if (localTests) {
-          fixture.Customizations.Insert(0, new FixedStringSpecimenBuilder());
-        }
-
-        s_fixtures[localTests] = fixture;
+    => () => s_fixtures.GetValueOrCreate(localTests, key => {
+      Fixture fixture = new();
+      fixture.Customize(new TestsCustomizations());
+      if (localTests) {
+        fixture.Customizations.Insert(0, new FixedStringSpecimenBuilder());
       }
 
       return fixture;
-    };
+    });
 
   private static readonly Lazy<bool> s_isCi = new(() =>
     bool.TryParse(Environment.GetEnvironmentVariable("CI"), out bool isCi) && isCi);

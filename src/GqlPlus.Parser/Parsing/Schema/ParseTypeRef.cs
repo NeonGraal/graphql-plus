@@ -5,9 +5,9 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema;
 
 internal class ParseTypeRef
-  : Parser<IAstTypeRef>.I
+  : IParser<IAstTypeRef>
 {
-  public IResult<IAstTypeRef> Parse(ITokenizer tokens, string label)
+  public IResult<IAstTypeRef> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     string description = tokens.Description();
@@ -19,4 +19,6 @@ internal class ParseTypeRef
       return tokens.Error<IAstTypeRef>(label, "type name");
     }
   }
+
+  internal static ParseTypeRef Factory(IParserRepository _) => new();
 }

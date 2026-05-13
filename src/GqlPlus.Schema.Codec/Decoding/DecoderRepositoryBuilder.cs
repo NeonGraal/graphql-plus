@@ -5,6 +5,9 @@ internal class DecoderRepositoryBuilder
 {
   internal readonly FactoryDict Decoders = [];
 
+  public IEnumerable<KeyValuePair<Type, Factory<object, IDecoderRepository>>> AllFactories
+    => Decoders;
+
   public IDecoderRepositoryBuilder AddDecoder<T>(Factory<IDecoder<T>, IDecoderRepository> factory)
     => this.FluentAction(b => b.Decoders[typeof(T)] = factory);
 

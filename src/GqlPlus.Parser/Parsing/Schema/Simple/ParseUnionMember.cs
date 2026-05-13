@@ -6,9 +6,9 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Simple;
 
 internal class ParseUnionMember
-  : Parser<IAstUnionMember>.I
+  : IParser<IAstUnionMember>
 {
-  public IResult<IAstUnionMember> Parse(ITokenizer tokens, string label)
+  public IResult<IAstUnionMember> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     string description = tokens.Description();
@@ -17,4 +17,6 @@ internal class ParseUnionMember
       ? new UnionMemberAst(at, value, description).Ok<IAstUnionMember>()
       : tokens.Error<IAstUnionMember>(label, "member");
   }
+
+  internal static ParseUnionMember Factory(IParserRepository _) => new();
 }

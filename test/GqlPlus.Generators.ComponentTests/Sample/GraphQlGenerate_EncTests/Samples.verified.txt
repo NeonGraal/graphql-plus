@@ -112,9 +112,9 @@ internal class CmptQueryEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptQueryObject>
 {
-  private readonly IEncoder<ICmptFullUser> _fullUser = encoders.EncoderFor<ICmptFullUser>();
-  private readonly IEncoder<ICmptStory> _story = encoders.EncoderFor<ICmptStory>();
-  private readonly IEncoder<ICmptProfile> _profile = encoders.EncoderFor<ICmptProfile>();
+  private readonly Encoder<ICmptFullUser> _fullUser = encoders.EncoderFor<ICmptFullUser>();
+  private readonly Encoder<ICmptStory> _story = encoders.EncoderFor<ICmptStory>();
+  private readonly Encoder<ICmptProfile> _profile = encoders.EncoderFor<ICmptProfile>();
   public Structured Encode(ICmptQueryObject input)
     => Structured.Empty()
       .AddEncoded("user", input.User(), _fullUser)
@@ -150,7 +150,7 @@ internal class CmptUserEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptUserObject>
 {
-  private readonly IEncoder<ICmptDate> _date = encoders.EncoderFor<ICmptDate>();
+  private readonly Encoder<ICmptDate> _date = encoders.EncoderFor<ICmptDate>();
   public Structured Encode(ICmptUserObject input)
     => Structured.Empty()
       .Add("id", input.Id.Encode())
@@ -166,8 +166,8 @@ internal class CmptFullUserEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptFullUserObject>
 {
-  private readonly IEncoder<ICmptUserObject> _user = encoders.EncoderFor<ICmptUserObject>();
-  private readonly IEncoder<ICmptUserList> _userList = encoders.EncoderFor<ICmptUserList>();
+  private readonly Encoder<ICmptUserObject> _user = encoders.EncoderFor<ICmptUserObject>();
+  private readonly Encoder<ICmptUserList> _userList = encoders.EncoderFor<ICmptUserList>();
   public Structured Encode(ICmptFullUserObject input)
     => _user.Encode(input)
       .Add("profilePic", input.ProfilePic().Encode())
@@ -181,7 +181,7 @@ internal class CmptUserListEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptUserListObject>
 {
-  private readonly IEncoder<ICmptUser> _user = encoders.EncoderFor<ICmptUser>();
+  private readonly Encoder<ICmptUser> _user = encoders.EncoderFor<ICmptUser>();
   public Structured Encode(ICmptUserListObject input)
     => Structured.Empty()
       .Add("count", input.Count.Encode())
@@ -241,7 +241,7 @@ internal class CmptProfileEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptProfileObject>
 {
-  private readonly IEncoder<ICmptUserObject> _user = encoders.EncoderFor<ICmptUserObject>();
+  private readonly Encoder<ICmptUserObject> _user = encoders.EncoderFor<ICmptUserObject>();
   public Structured Encode(ICmptProfileObject input)
     => _user.Encode(input)
       .Add("handle", input.Handle.Encode());
@@ -262,7 +262,7 @@ internal class CmptPageEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptPageObject>
 {
-  private readonly IEncoder<ICmptUserList> _userList = encoders.EncoderFor<ICmptUserList>();
+  private readonly Encoder<ICmptUserList> _userList = encoders.EncoderFor<ICmptUserList>();
   public Structured Encode(ICmptPageObject input)
     => Structured.Empty()
       .Add("handle", input.Handle.Encode())
@@ -293,7 +293,7 @@ internal class CmptThingFilterEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptThingFilterObject>
 {
-  private readonly IEncoder<ICmptLocation> _location = encoders.EncoderFor<ICmptLocation>();
+  private readonly Encoder<ICmptLocation> _location = encoders.EncoderFor<ICmptLocation>();
   public Structured Encode(ICmptThingFilterObject input)
     => Structured.Empty()
       .AddEncoded("location", input.Location, _location);

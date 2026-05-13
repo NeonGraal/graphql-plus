@@ -12,9 +12,8 @@ public class SamplesFilesGqlData
   ];
 
   public SamplesFilesGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Files/Gql";
   public const string Collected = "SubDirectoryAdditionalFiles";
@@ -28,9 +27,8 @@ public class SamplesFilesDeeperGqlData
   ];
 
   public SamplesFilesDeeperGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Files/DeeperGql";
   public const string Collected = "SubDirectoryAdditionalFiles";

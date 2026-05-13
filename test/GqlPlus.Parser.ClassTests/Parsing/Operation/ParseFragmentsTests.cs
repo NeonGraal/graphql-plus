@@ -8,16 +8,16 @@ public class ParseEndFragmentsTests
   public ParseEndFragmentsTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    ConfigureRepoArray<IAstDirective>(parsers, out Parser<IAstDirective>.IA directivesParser);
-    ConfigureRepoArray<IAstSelection>(parsers, out Parser<IAstSelection>.IA objectParser);
+    ConfigureRepoArray<IAstDirective>(parsers, out IParserArray<IAstDirective> directivesParser);
+    ConfigureRepoArray<IAstSelection>(parsers, out IParserArray<IAstSelection> objectParser);
     DirectivesParser = directivesParser;
     ObjectParser = objectParser;
     Parser = new ParseEndFragments(parsers);
   }
 
-  protected override Parser<IAstFragment>.IA Parser { get; }
-  protected override Parser<IAstDirective>.IA DirectivesParser { get; }
-  protected override Parser<IAstSelection>.IA ObjectParser { get; }
+  protected override IParserArray<IAstFragment> Parser { get; }
+  protected override IParserArray<IAstDirective> DirectivesParser { get; }
+  protected override IParserArray<IAstSelection> ObjectParser { get; }
 
   protected override void SetupFragmentPrefix(bool value)
     => TakeReturns("fragment", value, false);
@@ -32,16 +32,16 @@ public class ParseStartFragmentsTests
   public ParseStartFragmentsTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    ConfigureRepoArray<IAstDirective>(parsers, out Parser<IAstDirective>.IA directivesParser);
-    ConfigureRepoArray<IAstSelection>(parsers, out Parser<IAstSelection>.IA objectParser);
+    ConfigureRepoArray<IAstDirective>(parsers, out IParserArray<IAstDirective> directivesParser);
+    ConfigureRepoArray<IAstSelection>(parsers, out IParserArray<IAstSelection> objectParser);
     DirectivesParser = directivesParser;
     ObjectParser = objectParser;
     Parser = new ParseStartFragments(parsers);
   }
 
-  protected override Parser<IAstFragment>.IA Parser { get; }
-  protected override Parser<IAstDirective>.IA DirectivesParser { get; }
-  protected override Parser<IAstSelection>.IA ObjectParser { get; }
+  protected override IParserArray<IAstFragment> Parser { get; }
+  protected override IParserArray<IAstDirective> DirectivesParser { get; }
+  protected override IParserArray<IAstSelection> ObjectParser { get; }
 
   protected override void SetupFragmentPrefix(bool value)
     => TakeReturns('&', value, false);

@@ -6,7 +6,7 @@ public class ParseCategoryDefinitionTests
   : ModifiersClassTestBase
 {
 
-  private readonly Parser<IAstTypeRef>.I _typeRefParser;
+  private readonly IParser<IAstTypeRef> _typeRefParser;
   private readonly ParseCategoryDefinition _parser;
 
   public ParseCategoryDefinitionTests()

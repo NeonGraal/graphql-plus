@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
+using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Decoding;
 
@@ -10,9 +12,11 @@ internal class DecoderRepository(
 {
   private readonly DecoderRepositoryBuilder _builder = builder;
 
-  public IDecoder<T> DecoderFor<T>()
-    => Cached<T, IDecoder<T>>(_builder.Decoders, "decoder", this);
-  public TDecoder DecoderFor<TDecoder, TBase>()
+  public Decoder<T>.D DecoderFor<T>([CallerMemberName] string callerName = "")
+    => () => Cached<T, IDecoder<T>>(_builder.Decoders, "decoder for " + callerName, this);
+
+  [ExcludeFromCodeCoverage]
+  public DeferOne<TDecoder>.D DecoderFor<TDecoder, TBase>([CallerMemberName] string callerName = "")
     where TDecoder : class, IDecoder<TBase>
-    => Cached<TDecoder, TDecoder>(_builder.Decoders, $"decoder{typeof(TBase).TidyTypeName()}", this);
+    => () => Cached<TDecoder, TDecoder>(_builder.Decoders, $"decoder for {callerName} ({typeof(TBase).TidyTypeName()})", this);
 }

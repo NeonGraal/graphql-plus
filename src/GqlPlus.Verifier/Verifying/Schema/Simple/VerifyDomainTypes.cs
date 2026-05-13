@@ -2,9 +2,10 @@
 
 namespace GqlPlus.Verifying.Schema.Simple;
 
-internal class VerifyDomainTypes(IVerifierRepository verifiers) : AstParentVerifier<IAstDomain, IAstTypeRef, EnumContext>(verifiers)
+internal class VerifyDomainTypes(IVerifierRepository verifiers)
+  : AstParentVerifier<IAstDomain, IAstTypeRef, EnumContext>(verifiers)
 {
-  private readonly IEnumerable<IVerifyDomain> _domains = verifiers.GetDomains();
+  private readonly DeferList<IVerifyDomain> _domains = verifiers.GetDomains();
 
   protected sealed override string GetParent(IAstType<IAstTypeRef> usage)
    => (usage.Parent?.Name).IfWhiteSpace();

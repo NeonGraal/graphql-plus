@@ -4,9 +4,10 @@ namespace GqlPlus;
 
 public static class OperationBuilderHelpers
 {
-  public static IAstVariable Variable(this IMockBuilder builder, string name)
+  public static T Identified<T>(this IMockBuilder builder, string name)
+    where T : class, IAstIdentified
   {
-    IAstVariable result = builder.Error<IAstVariable>();
+    T result = builder.Error<T>();
     result.Identifier.Returns(name);
     return result;
   }

@@ -9,7 +9,7 @@ public class ParseOperationTests(
 ) : SampleChecks
 {
 
-  private readonly Parser<IAstOperation>.L _operation = parsers.ParserFor<IAstOperation>();
+  private readonly ParserOne<IAstOperation> _operation = parsers.ParserFor<IAstOperation>();
 
   [Theory]
   [ClassData(typeof(SamplesOperationData))]

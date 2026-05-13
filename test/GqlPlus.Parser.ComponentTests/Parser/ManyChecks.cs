@@ -6,7 +6,7 @@ internal class ManyChecksParser<TResult>(
   IParserRepository parsers
 ) : IManyChecksParser<TResult>
 {
-  private readonly Parser<TResult>.LA _parser = parsers.ArrayFor<TResult>();
+  private readonly ParserArray<TResult> _parser = parsers.ArrayFor<TResult>();
   private readonly string _type = typeof(TResult).ToString();
 
   public void TrueExpected(string input, params TResult[] expected)
@@ -38,14 +38,14 @@ internal class ManyChecksParser<TResult>(
 internal sealed class ManyChecksParser<TInterface, TResult>(
   IParserRepository parsers
 ) : IManyChecksParser<TInterface, TResult>
-  where TInterface : class, Parser<TResult>.IA
+  where TInterface : class, IParserArray<TResult>
 {
-  private readonly ParserArray<TInterface, TResult>.LA _parser = parsers.ArrayFor<TInterface, TResult>();
+  private readonly ParserArray<TInterface, TResult> _parser = parsers.ArrayFor<TInterface, TResult>();
   private readonly string _type = typeof(TInterface).ToString();
 
   public void TrueExpected(string input, params TResult[] expected)
   {
-    IResultArray<TResult> result = _parser.I.Parse(Tokens(input), _type);
+    IResultArray<TResult> result = _parser.Parse(Tokens(input), _type);
 
     result.ShouldSatisfyAllConditions(_type,
       r => r.IsOk().ShouldBeTrue(),
@@ -54,14 +54,14 @@ internal sealed class ManyChecksParser<TInterface, TResult>(
 
   public void FalseExpected(string input)
   {
-    IResultArray<TResult> result = _parser.I.Parse(Tokens(input), _type);
+    IResultArray<TResult> result = _parser.Parse(Tokens(input), _type);
 
     result.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).ShouldBeTrue(_type);
   }
 
   public void Count(string input, int count)
   {
-    IResultArray<TResult> result = _parser.I.Parse(Tokens(input), _type);
+    IResultArray<TResult> result = _parser.Parse(Tokens(input), _type);
 
     result.ShouldSatisfyAllConditions(_type,
       r => r.IsOk().ShouldBeTrue(),
@@ -78,5 +78,5 @@ public interface IManyChecksParser<T>
 
 public interface IManyChecksParser<TInterface, TResult>
   : IManyChecksParser<TResult>
-  where TInterface : class, Parser<TResult>.IA
+  where TInterface : class, IParserArray<TResult>
 { }

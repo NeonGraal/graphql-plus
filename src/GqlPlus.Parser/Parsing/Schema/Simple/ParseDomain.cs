@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
+using GqlPlus.Parsing.Operation;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
@@ -63,6 +64,8 @@ internal class ParseDomain(
       Aliases = partial.Aliases,
       Description = partial.Description,
     };
+
+  internal static ParseDomain Factory(IParserRepository p) => new(p);
 }
 
 public class DomainDefinition
@@ -75,24 +78,15 @@ public class DomainDefinition
   internal IAstDomainRegex[] Regexes { get; set; } = [];
 }
 
-internal class ParseDomainDefinition
-  : SimpleDefinitionParser<DomainDefinition>
+internal class ParseDomainDefinition(
+      IParserRepository parsers
+) : SimpleDefinitionParser<DomainDefinition>(parsers)
 {
-  private readonly Parser<IEnumParser<DomainKind>, DomainKind>.L _kind;
-  private readonly Dictionary<DomainKind, ParseItems> _kindParsers = [];
+  private readonly ParserOne<IEnumParser<DomainKind>, DomainKind> _kind = parsers.ParserFor<IEnumParser<DomainKind>, DomainKind>();
+  private readonly DeferDict<DomainKind, ParseItems> _kindParsers = parsers.GetDomains()
+    .ToDictionary(item => item.Kind, item => item.Parser);
 
-  public ParseDomainDefinition(
-      IParserRepository parsers)
-    : base(parsers)
-  {
-    _kind = parsers.ParserFor<IEnumParser<DomainKind>, DomainKind>();
-
-    foreach (IParseDomain item in parsers.GetDomains()) {
-      _kindParsers[item.Kind] = item.Parser;
-    }
-  }
-
-  public override IResult<DomainDefinition> Parse(ITokenizer tokens, string label)
+  public override IResult<DomainDefinition> Parse([NotNull] ITokenizer tokens, string label)
   {
     DomainDefinition result = new();
 
@@ -100,7 +94,7 @@ internal class ParseDomainDefinition
       return tokens.Error(label, "parent type after ':'", result);
     }
 
-    IResult<DomainKind> domainKind = _kind.I.Parse(tokens, label);
+    IResult<DomainKind> domainKind = _kind.Parse(tokens, label);
     if (!domainKind.Required(kind => result.Kind = kind)) {
       return result.Partial(domainKind.Message());
     } else {
@@ -111,4 +105,6 @@ internal class ParseDomainDefinition
       }
     }
   }
+
+  internal static ParseDomainDefinition Factory(IParserRepository p) => new(p);
 }

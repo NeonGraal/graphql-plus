@@ -13,10 +13,10 @@ public class OutputFieldEncoderTests
     _modifer = RFor<ModifierModel>();
     _parameter = RFor<InputParamModel>();
     IEncoderRepository encoders = A.Of<IEncoderRepository>();
-    encoders.EncoderFor<OutputEnumModel>().Returns(_outputEnum);
-    encoders.EncoderFor<ModifierModel>().Returns(_modifer);
-    encoders.EncoderFor<ObjBaseModel>().Returns(ObjBase);
-    encoders.EncoderFor<InputParamModel>().Returns(_parameter);
+    encoders.EncoderForReturns(_outputEnum);
+    encoders.EncoderForReturns(_modifer);
+    encoders.EncoderForReturns(ObjBase);
+    encoders.EncoderForReturns(_parameter);
     Encoder = new OutputFieldEncoder(encoders);
   }
 

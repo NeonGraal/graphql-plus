@@ -9,7 +9,7 @@ public class ObjectForEncoderTests
   {
     _typeParam = RFor<TypeParamModel>();
     IEncoderRepository repo = A.Of<IEncoderRepository>();
-    repo.EncoderFor<TypeParamModel>().Returns(_typeParam);
+    repo.EncoderForReturns(_typeParam);
     Encoder = new ObjectForEncoder<TypeParamModel>(repo);
   }
 

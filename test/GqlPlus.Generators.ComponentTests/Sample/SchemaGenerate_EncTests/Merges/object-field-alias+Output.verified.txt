@@ -16,7 +16,7 @@ internal class CmptObjFieldAliasOutpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptObjFieldAliasOutpObject>
 {
-  private readonly IEncoder<ICmptFldObjFieldAliasOutp> _fldObjFieldAliasOutp = encoders.EncoderFor<ICmptFldObjFieldAliasOutp>();
+  private readonly Encoder<ICmptFldObjFieldAliasOutp> _fldObjFieldAliasOutp = encoders.EncoderFor<ICmptFldObjFieldAliasOutp>();
   public Structured Encode(ICmptObjFieldAliasOutpObject input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _fldObjFieldAliasOutp);

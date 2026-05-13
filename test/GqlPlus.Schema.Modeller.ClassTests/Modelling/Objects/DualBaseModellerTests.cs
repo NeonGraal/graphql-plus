@@ -8,7 +8,7 @@ public class ObjBaseModellerTests
   public ObjBaseModellerTests()
   {
     IModellerRepository modellers = A.Of<IModellerRepository>();
-    modellers.ModellerFor<IAstTypeArg, TypeArgModel>().Returns(_objArg);
+    ModellerForReturns(modellers, _objArg);
     Modeller = new ObjBaseModeller(modellers);
   }
 

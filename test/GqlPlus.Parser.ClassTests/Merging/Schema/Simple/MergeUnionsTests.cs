@@ -12,7 +12,7 @@ public class MergeUnionsTests
   public MergeUnionsTests(ITestOutputHelper outputHelper)
   {
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.MergerFor<IAstUnionMember>().Returns(MergeItems);
+    mergers.MergerForReturns(MergeItems);
     _merger = new(mergers);
   }
 

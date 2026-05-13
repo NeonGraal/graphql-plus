@@ -16,6 +16,46 @@ public class GeneralHelpersTests
       r => r.ShouldBeEmpty());
   }
 
+  [Theory, RepeatData]
+  public void GetValueOr_Missing_ReturnDefault(string key)
+  {
+    Map<string> map = [];
+
+    string result = map.GetValueOr(key, key);
+
+    result.ShouldBe(key);
+  }
+
+  [Theory, RepeatData]
+  public void GetValueOr_PresentWithValue_ReturnValue(string key)
+  {
+    Map<string> map = [key.ToKeyValue(key)];
+
+    string result = map.GetValueOr(key, "error");
+
+    result.ShouldBe(key);
+  }
+
+  [Theory, RepeatData]
+  public void GetValueOr_Missing_ReturnDefaultFunction(string key)
+  {
+    Map<string> map = [];
+
+    string result = map.GetValueOr(key, k => k);
+
+    result.ShouldBe(key);
+  }
+
+  [Theory, RepeatData]
+  public void GetValueOr_PresentWithFunction_ReturnValue(string key)
+  {
+    Map<string> map = [key.ToKeyValue(key)];
+
+    string result = map.GetValueOr(key, k => "error");
+
+    result.ShouldBe(key);
+  }
+
   [Fact]
   public void Joined_NullInput_ReturnsEmptyString()
   {
@@ -86,27 +126,6 @@ public class GeneralHelpersTests
     string result = input.Quoted('"');
 
     result.ShouldBe(string.Empty);
-  }
-
-  [Fact]
-  public void Show_Null_ReturnsCorrect()
-  {
-    IAstAbbreviated? input = null;
-
-    string result = input.Show();
-
-    result.ShouldBe(string.Empty);
-  }
-
-  [Theory, RepeatData]
-  public void Show_Various_ReturnsCorrect(string field1, string field2, string field3)
-  {
-    IAstAbbreviated input = Substitute.For<IAstAbbreviated>();
-    input.GetFields().Returns([field1, "(", field2, ")", string.Empty, field3]);
-
-    string result = input.Show();
-
-    result.ToLines().ShouldBe([field1, "(", "  " + field2, ")", field3]);
   }
 
   [Theory, RepeatData]

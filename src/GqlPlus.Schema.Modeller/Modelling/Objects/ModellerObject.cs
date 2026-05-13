@@ -9,10 +9,10 @@ internal abstract class ModellerObject<TAst, TObjFieldAst, TModel, TObjField>(
   where TModel : BaseTypeModel
   where TObjField : IObjFieldModel
 {
-  private readonly IModeller<IAstAlternate, AlternateModel> _alternate = modellers.ModellerFor<IAstAlternate, AlternateModel>();
-  private readonly IModeller<TObjFieldAst, TObjField> _field = modellers.ModellerFor<TObjFieldAst, TObjField>();
-  private readonly IModeller<IAstTypeParam, TypeParamModel> _typeParams = modellers.ModellerFor<IAstTypeParam, TypeParamModel>();
-  private readonly IModeller<IAstObjBase, ObjBaseModel> _base = modellers.ModellerFor<IAstObjBase, ObjBaseModel>();
+  private readonly Modeller<IAstAlternate, AlternateModel> _alternate = modellers.ModellerFor<IAstAlternate, AlternateModel>();
+  private readonly Modeller<TObjFieldAst, TObjField> _field = modellers.ModellerFor<TObjFieldAst, TObjField>();
+  private readonly Modeller<IAstTypeParam, TypeParamModel> _typeParams = modellers.ModellerFor<IAstTypeParam, TypeParamModel>();
+  private readonly Modeller<IAstObjBase, ObjBaseModel> _base = modellers.ModellerFor<IAstObjBase, ObjBaseModel>();
 
   internal ObjBaseModel? ParentModel(IAstObjBase? parent, IMap<TypeKindModel> typeKinds)
     => parent is null ? default : BaseModel(parent, typeKinds);

@@ -8,8 +8,8 @@ internal class AndTypeEncoder<TModel, TAnd>(
   where TAnd : ModelBase
 {
   private readonly string _field = field;
-  private readonly IEncoder<TAnd> _and = encoders.EncoderFor<TAnd>();
-  private readonly IEncoder<BaseTypeModel> _type = encoders.EncoderFor<BaseTypeModel>();
+  private readonly Encoder<TAnd> _and = encoders.EncoderFor<TAnd>();
+  private readonly Encoder<BaseTypeModel> _type = encoders.EncoderFor<BaseTypeModel>();
 
   internal override Structured Encode(TModel model)
     => model.Type is null
@@ -35,8 +35,8 @@ internal class CategoryEncoder(
   IEncoderRepository encoders
 ) : AliasedEncoder<CategoryModel>
 {
-  private readonly IEncoder<ModifierModel> _modifiers = encoders.EncoderFor<ModifierModel>();
-  private readonly IEncoder<TypeRefModel<TypeKindModel>> _output = encoders.EncoderFor<TypeRefModel<TypeKindModel>>();
+  private readonly Encoder<ModifierModel> _modifiers = encoders.EncoderFor<ModifierModel>();
+  private readonly Encoder<TypeRefModel<TypeKindModel>> _output = encoders.EncoderFor<TypeRefModel<TypeKindModel>>();
 
   internal override Structured Encode(CategoryModel model)
     => base.Encode(model)
@@ -59,7 +59,7 @@ internal class DirectiveEncoder(
   IEncoderRepository encoders
 ) : AliasedEncoder<DirectiveModel>
 {
-  private readonly IEncoder<InputParamModel> _parameter = encoders.EncoderFor<InputParamModel>();
+  private readonly Encoder<InputParamModel> _parameter = encoders.EncoderFor<InputParamModel>();
 
   internal override Structured Encode(DirectiveModel model)
     => base.Encode(model)
@@ -74,7 +74,7 @@ internal class SettingEncoder(
   IEncoderRepository encoders
 ) : NamedEncoder<SettingModel>
 {
-  private readonly IEncoder<ConstantModel> _constant = encoders.EncoderFor<ConstantModel>();
+  private readonly Encoder<ConstantModel> _constant = encoders.EncoderFor<ConstantModel>();
 
   internal override Structured Encode(SettingModel model)
     => base.Encode(model)

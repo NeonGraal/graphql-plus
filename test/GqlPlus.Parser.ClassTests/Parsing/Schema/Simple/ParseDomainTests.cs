@@ -6,7 +6,7 @@ public class ParseDomainTests
   : DeclarationClassTestBase
 {
 
-  private readonly Parser<DomainDefinition>.I _definition;
+  private readonly IParser<DomainDefinition> _definition;
   private readonly ParseDomain _parser;
 
   public ParseDomainTests()

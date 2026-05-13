@@ -11,7 +11,7 @@ public class TypeArgModellerTests
   {
     _enumValue = MFor<IAstEnumValue, EnumValueModel>();
     IModellerRepository modellers = A.Of<IModellerRepository>();
-    modellers.ModellerFor<IAstEnumValue, EnumValueModel>().Returns(_enumValue);
+    ModellerForReturns(modellers, _enumValue);
     Modeller = new TypeArgModeller(modellers);
   }
 

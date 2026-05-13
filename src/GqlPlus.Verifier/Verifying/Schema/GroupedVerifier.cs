@@ -7,11 +7,11 @@ internal abstract class GroupedVerifier<TAliased> : IVerifyAliased<TAliased>
   where TAliased : IAstAliased
 {
   private readonly ILogger _logger;
-  private readonly IMerge<TAliased> _merger;
+  private readonly MergerOne<TAliased> _merger;
 
   protected GroupedVerifier(IVerifierRepository verifiers)
   {
-    _merger = verifiers.MergerFor<TAliased>();
+    _merger = verifiers.MergerFor<TAliased>("_merger");
     _logger = verifiers.LoggerFactory.CreateTypedLogger(this);
   }
 
@@ -81,6 +81,19 @@ public interface IVerifyAliased<TAliased>
   : IVerify<TAliased[]>
     where TAliased : IAstAliased
 { }
+
+public class AliasVerifier<TAliased>(
+  AliasVerifier<TAliased>.D factory
+) : DeferOne<IVerifyAliased<TAliased>>(factory)
+  , IVerifyAliased<TAliased>
+  where TAliased : IAstAliased
+{
+  public void Verify(TAliased[] item, IMessages errors)
+    => Value.Verify(item, errors);
+
+  public static implicit operator AliasVerifier<TAliased>(D factory)
+    => new(factory.ThrowIfNull());
+}
 
 internal static partial class GroupedVerifierLogging
 {

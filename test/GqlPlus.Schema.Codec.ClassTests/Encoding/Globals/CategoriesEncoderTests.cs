@@ -11,8 +11,8 @@ public class CategoriesEncoderTests
     _category = RFor<CategoryModel>();
     _baseType = RFor<BaseTypeModel>();
     IEncoderRepository repo = A.Of<IEncoderRepository>();
-    repo.EncoderFor<CategoryModel>().Returns(_category);
-    repo.EncoderFor<BaseTypeModel>().Returns(_baseType);
+    repo.EncoderForReturns(_category);
+    repo.EncoderForReturns(_baseType);
     Encoder = new CategoriesEncoder(repo);
   }
 

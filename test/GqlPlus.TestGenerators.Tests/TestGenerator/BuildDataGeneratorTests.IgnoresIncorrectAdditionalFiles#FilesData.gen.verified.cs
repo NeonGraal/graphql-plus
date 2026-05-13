@@ -12,9 +12,8 @@ public class SamplesFilesGqlData
   ];
 
   public SamplesFilesGqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Files/Gql";
   public const string Collected = "IgnoresIncorrectAdditionalFiles";
@@ -28,9 +27,8 @@ public class SamplesFilesGraphqlData
   ];
 
   public SamplesFilesGraphqlData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/Files/Graphql";
   public const string Collected = "IgnoresIncorrectAdditionalFiles";

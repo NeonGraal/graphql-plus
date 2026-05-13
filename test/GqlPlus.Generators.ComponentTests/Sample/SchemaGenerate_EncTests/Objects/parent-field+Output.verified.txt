@@ -15,7 +15,7 @@ internal class CmptPrntFieldOutpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptPrntFieldOutpObject>
 {
-  private readonly IEncoder<ICmptRefPrntFieldOutpObject> _refPrntFieldOutp = encoders.EncoderFor<ICmptRefPrntFieldOutpObject>();
+  private readonly Encoder<ICmptRefPrntFieldOutpObject> _refPrntFieldOutp = encoders.EncoderFor<ICmptRefPrntFieldOutpObject>();
   public Structured Encode(ICmptPrntFieldOutpObject input)
     => _refPrntFieldOutp.Encode(input)
       .Add("field", input.Field.Encode());

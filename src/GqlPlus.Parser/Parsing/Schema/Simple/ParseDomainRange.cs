@@ -11,7 +11,7 @@ internal class ParseDomainRange(
 {
   public override DomainKind Kind => DomainKind.Number;
 
-  public override IResult<IAstDomainRange> Parse(ITokenizer tokens, string label)
+  public override IResult<IAstDomainRange> Parse([NotNull] ITokenizer tokens, string label)
   {
     string description = tokens.Description();
     TokenAt at = tokens.At;
@@ -71,4 +71,6 @@ internal class ParseDomainRange(
     DomainDefinition result,
     IAstDomainRange[] items
   ) => result.Numbers = items.ArrayOf<DomainRangeAst>();
+
+  internal static ParseDomainRange Factory(IParserRepository p) => new(p);
 }

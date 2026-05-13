@@ -11,7 +11,7 @@ internal class test_SchemaEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_SchemaObject>
 {
-  private readonly IEncoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
+  private readonly Encoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
   public Structured Encode(Itest_SchemaObject input)
     => _itest_Named.Encode(input);
 
@@ -38,8 +38,8 @@ internal class test_AliasedEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_AliasedObject>
 {
-  private readonly IEncoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
-  private readonly IEncoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  private readonly Encoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
+  private readonly Encoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
   public Structured Encode(Itest_AliasedObject input)
     => _itest_Named.Encode(input)
       .AddList("aliases", input.Aliases, _itest_Name);
@@ -51,8 +51,8 @@ internal class test_NamedEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_NamedObject>
 {
-  private readonly IEncoder<Itest_DescribedObject> _itest_Described = encoders.EncoderFor<Itest_DescribedObject>();
-  private readonly IEncoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  private readonly Encoder<Itest_DescribedObject> _itest_Described = encoders.EncoderFor<Itest_DescribedObject>();
+  private readonly Encoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
   public Structured Encode(Itest_NamedObject input)
     => _itest_Described.Encode(input)
       .AddEncoded("name", input.Name, _itest_Name);

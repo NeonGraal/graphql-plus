@@ -7,7 +7,7 @@ public class ParseOptionTests
 {
 
   private readonly ParseOption _parser;
-  private readonly Parser<OptionDefinition>.I _definition;
+  private readonly IParser<OptionDefinition> _definition;
 
   public ParseOptionTests()
   {

@@ -11,28 +11,33 @@ internal sealed class ModelAndEncode(
   IEncoderRepository encoders
 ) : IModelAndEncode
 {
-  public IModelsContext Context() => new TypesContext(modellers.TypesModeller);
+  private readonly DeferOne<ITypesModeller> _types = modellers.TypesModeller();
+  private readonly Modeller<IAstSchema, SchemaModel> _schema = modellers.ModellerFor<IAstSchema, SchemaModel>();
+  private readonly Resolver<SchemaModel> _resolver = resolvers.ResolverFor<SchemaModel>();
+
+  public IModelsContext Context() => new TypesContext(_types.I);
 
   public Structured EncodeAst(IAstSchema schema, IModelsContext context, IAstSchema? extras = null)
     => EncodeModel(ModelAst(schema, context, extras), context);
 
   public SchemaModel ModelAst(IAstSchema schema, IModelsContext context, IAstSchema? extras = null)
   {
-    modellers.TypesModeller.AddTypeKinds(schema.Declarations.ArrayOf<IAstType>(), context.TypeKinds);
+    _types.I.AddTypeKinds(schema.Declarations.ArrayOf<IAstType>(), context.TypeKinds);
     if (extras is not null) {
-      SchemaModel extraModel = modellers.ModellerFor<IAstSchema, SchemaModel>().ToModel(extras, context.TypeKinds);
+      SchemaModel extraModel = _schema.ToModel(extras, context.TypeKinds);
       context.AddModels(extraModel.Types.Values);
     }
 
-    SchemaModel model = modellers.ModellerFor<IAstSchema, SchemaModel>().ToModel(schema, context.TypeKinds);
+    SchemaModel model = _schema.ToModel(schema, context.TypeKinds);
     context.AddModels(model.Types.Values);
 
-    return resolvers.ResolverFor<SchemaModel>().Resolve(model, context);
+    return _resolver.Resolve(model, context);
   }
 
   public Structured EncodeModel(SchemaModel model, IModelsContext? context)
   {
-    Structured result = encoders.EncoderFor<SchemaModel>().Encode(model);
+    Encoder<SchemaModel> encoder = encoders.EncoderFor<SchemaModel>();
+    Structured result = encoder.Encode(model);
     if (context?.Errors.Count > 0) {
       string key = result.Map.ContainsKey(new("_errors")) ? "_ctxErrors" : "errors";
       result.Add(key, context.Errors.Encode());
@@ -41,7 +46,7 @@ internal sealed class ModelAndEncode(
     return result;
   }
 
-  public IModelsContext WithBuiltIns() => TypesContext.WithBuiltins(modellers.TypesModeller);
+  public IModelsContext WithBuiltIns() => TypesContext.WithBuiltins(_types.I);
 }
 #pragma warning restore CA1812
 

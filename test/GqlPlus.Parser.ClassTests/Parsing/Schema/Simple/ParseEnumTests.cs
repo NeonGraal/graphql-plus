@@ -6,7 +6,7 @@ public class ParseEnumTests
   : DeclarationClassTestBase
 {
 
-  private readonly Parser<EnumDefinition>.I _definition;
+  private readonly IParser<EnumDefinition> _definition;
   private readonly ParseEnum _parser;
 
   public ParseEnumTests()

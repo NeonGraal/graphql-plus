@@ -10,7 +10,7 @@ public class SchemaParseChecks(
 ) : SampleChecks
   , ISchemaParseChecks
 {
-  private readonly Parser<IAstSchema>.L _schemaParser = parsers.ParserFor<IAstSchema>();
+  private readonly ParserOne<IAstSchema> _schemaParser = parsers.ParserFor<IAstSchema>();
 
   public IResult<IAstSchema> Parse(string schema, string label)
     => _schemaParser.Parse(new Tokenizer(schema), label);

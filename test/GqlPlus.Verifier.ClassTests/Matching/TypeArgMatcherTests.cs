@@ -8,13 +8,13 @@ public class TypeArgMatcherTests
 {
   internal TypeArgMatcher Matcher { get; set; }
 
-  internal Matcher<IAstType>.I AnyType { get; set; }
+  internal IMatcher<IAstType> AnyType { get; set; }
 
   public TypeArgMatcherTests()
   {
-    Matcher<IAstType>.D anyDelegate = MatcherFor(out Matcher<IAstType>.I anyInterface);
+    Matcher<IAstType>.D anyDelegate = MatcherFor(out IMatcher<IAstType> anyInterface);
     AnyType = anyInterface;
-    MatcherRepo.MatcherFor<IAstType>().Returns(anyDelegate);
+    MatcherForReturns(anyDelegate);
     Matcher = new(MatcherRepo);
   }
 

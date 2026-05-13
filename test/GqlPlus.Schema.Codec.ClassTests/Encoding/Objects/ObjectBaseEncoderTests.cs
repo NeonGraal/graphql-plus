@@ -6,7 +6,7 @@ public class ObjectBaseEncoderTests
   public ObjectBaseEncoderTests()
   {
     IEncoderRepository encoders = A.Of<IEncoderRepository>();
-    encoders.EncoderFor<TypeArgModel>().Returns(TypeArg);
+    encoders.EncoderForReturns(TypeArg);
     Encoder = new ObjectBaseEncoder<ObjBaseModel>(encoders);
   }
 

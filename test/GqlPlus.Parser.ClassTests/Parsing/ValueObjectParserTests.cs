@@ -5,7 +5,7 @@ public class ValueObjectParserTests
 {
 
   private readonly ValueObjectParser<IAstConstant> _parser;
-  private readonly Parser<KeyValue<IAstConstant>>.I _fieldParser;
+  private readonly IParser<KeyValue<IAstConstant>> _fieldParser;
 
   public ValueObjectParserTests()
   {

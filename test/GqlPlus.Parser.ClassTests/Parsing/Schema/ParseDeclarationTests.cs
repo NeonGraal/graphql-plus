@@ -7,7 +7,7 @@ public class ParseDeclarationTests
 {
 
   private readonly string _selector = "category";
-  private readonly Parser<IAstDeclaration>.I _declaration;
+  private readonly IParser<IAstDeclaration> _declaration;
   private readonly ParseDeclaration<IAstDeclaration> _parser;
   private readonly IParserRepository _parsers;
 

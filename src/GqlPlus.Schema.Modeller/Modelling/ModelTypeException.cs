@@ -1,5 +1,8 @@
-﻿namespace GqlPlus.Modelling;
+﻿using System.Diagnostics.CodeAnalysis;
 
+namespace GqlPlus.Modelling;
+
+[ExcludeFromCodeCoverage]
 public class ModelTypeException<TModel>
   : ModelException
 {

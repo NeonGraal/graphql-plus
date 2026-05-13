@@ -4,11 +4,11 @@ namespace GqlPlus.Verifying.Schema;
 
 internal class VerifySchema(IVerifierRepository verifiers) : IVerify<IAstSchema>
 {
-  private readonly IVerifyUsage<IAstSchemaCategory> _categoryOutputs = verifiers.UsageFor<IAstSchemaCategory>();
-  private readonly IVerifyUsage<IAstSchemaDirective> _directiveInputs = verifiers.UsageFor<IAstSchemaDirective>();
-  private readonly IVerifyAliased<IAstSchemaOption> _optionsAliased = verifiers.AliasedFor<IAstSchemaOption>();
-  private readonly IVerifyAliased<IAstType> _typesAliased = verifiers.AliasedFor<IAstType>();
-  private readonly IVerify<IAstType[]> _types = verifiers.VerifierFor<IAstType[]>();
+  private readonly UsageVerifier<IAstSchemaCategory> _categoryOutputs = verifiers.UsageFor<IAstSchemaCategory>();
+  private readonly UsageVerifier<IAstSchemaDirective> _directiveInputs = verifiers.UsageFor<IAstSchemaDirective>();
+  private readonly AliasVerifier<IAstSchemaOption> _optionsAliased = verifiers.AliasedFor<IAstSchemaOption>();
+  private readonly AliasVerifier<IAstType> _typesAliased = verifiers.AliasedFor<IAstType>();
+  private readonly Verifier<IAstType[]> _types = verifiers.VerifierFor<IAstType[]>();
 
   public void Verify(IAstSchema item, IMessages errors)
   {

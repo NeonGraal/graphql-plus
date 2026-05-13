@@ -3,7 +3,7 @@
 namespace GqlPlus.Merger;
 
 public class MergerDiTests(IServiceCollection services)
-  : DependencyInjectionChecks(services)
+  : DiChecks(services)
 {
   protected override string Label => "Merger";
 }

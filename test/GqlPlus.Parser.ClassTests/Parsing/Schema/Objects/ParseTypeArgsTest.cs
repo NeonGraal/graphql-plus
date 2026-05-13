@@ -5,7 +5,7 @@ namespace GqlPlus.Parsing.Schema.Objects;
 public class ParseTypeArgsTest
   : ParserClassTestBase
 {
-  protected Parser<IAstTypeArg>.IA Parser { get; } = new ParseTypeArgs();
+  protected IParserArray<IAstTypeArg> Parser { get; } = new ParseTypeArgs();
 
   public ParseTypeArgsTest()
     => PrefixReturns('$', OutPass);

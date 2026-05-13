@@ -6,7 +6,7 @@ public class ParseOptionDefinitionTests
   : ParserClassTestBase
 {
 
-  private readonly Parser<IAstSchemaSetting>.I _settingParser;
+  private readonly IParser<IAstSchemaSetting> _settingParser;
   private readonly ParseOptionDefinition _parser;
 
   public ParseOptionDefinitionTests()

@@ -6,10 +6,10 @@ public class ParseConstantTests
 
   private readonly ParseConstant _parseConstant;
 
-  private readonly Parser<IAstFieldKey>.I _fieldKeyParser;
-  private readonly Parser<KeyValue<IAstConstant>>.I _keyValueParser;
-  private readonly Parser<IAstConstant>.IA _listParser;
-  private readonly Parser<IAstFields<IAstConstant>>.I _objectParser;
+  private readonly IParser<IAstFieldKey> _fieldKeyParser;
+  private readonly IParser<KeyValue<IAstConstant>> _keyValueParser;
+  private readonly IParserArray<IAstConstant> _listParser;
+  private readonly IParser<IAstFields<IAstConstant>> _objectParser;
 
   public ParseConstantTests()
   {

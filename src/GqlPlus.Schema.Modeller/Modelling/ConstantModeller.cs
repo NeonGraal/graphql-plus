@@ -4,7 +4,7 @@ internal class ConstantModeller(
   IModellerRepository modellers
 ) : ModellerBase<IAstConstant, ConstantModel>
 {
-  private readonly IModeller<IAstFieldKey, SimpleModel> _value = modellers.ModellerFor<IAstFieldKey, SimpleModel>();
+  private readonly Modeller<IAstFieldKey, SimpleModel> _value = modellers.ModellerFor<IAstFieldKey, SimpleModel>();
 
   protected override ConstantModel ToModel(IAstConstant ast, IMap<TypeKindModel> typeKinds)
     => ast.Fields.Count > 0 ? new(ToModel(ast.Fields, typeKinds))

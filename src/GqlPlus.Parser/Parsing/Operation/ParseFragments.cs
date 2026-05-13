@@ -6,15 +6,15 @@ namespace GqlPlus.Parsing.Operation;
 
 internal abstract class ParseFragments(
   IParserRepository parsers
-) : Parser<IAstFragment>.IA
+) : IParserArray<IAstFragment>
 {
-  private readonly Parser<IAstDirective>.LA _directives = parsers.ArrayFor<IAstDirective>();
-  private readonly Parser<IAstSelection>.LA _object = parsers.ArrayFor<IAstSelection>();
+  private readonly ParserArray<IAstDirective> _directives = parsers.ArrayFor<IAstDirective>();
+  private readonly ParserArray<IAstSelection> _object = parsers.ArrayFor<IAstSelection>();
 
   protected abstract bool FragmentPrefix(ref ITokenizer tokens);
   protected abstract bool TypePrefix(ref ITokenizer tokens);
 
-  public IResultArray<IAstFragment> Parse(ITokenizer tokens, string label)
+  public IResultArray<IAstFragment> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     List<IAstFragment> definitions = [];
@@ -63,6 +63,8 @@ internal class ParseStartFragments(
     => tokens.Take('&');
   protected override bool TypePrefix(ref ITokenizer tokens)
     => tokens.Take(':');
+
+  internal static ParseStartFragments Factory(IParserRepository p) => new(p);
 }
 
 internal class ParseEndFragments(
@@ -73,12 +75,14 @@ internal class ParseEndFragments(
     => tokens.Take("fragment") || tokens.Take('&');
   protected override bool TypePrefix(ref ITokenizer tokens)
     => tokens.Take("on") || tokens.Take(':');
+
+  internal static ParseEndFragments Factory(IParserRepository p) => new(p);
 }
 
 public interface IParserStartFragments
-  : Parser<IAstFragment>.IA
+  : IParserArray<IAstFragment>
 { }
 
 public interface IParserEndFragments
-  : Parser<IAstFragment>.IA
+  : IParserArray<IAstFragment>
 { }

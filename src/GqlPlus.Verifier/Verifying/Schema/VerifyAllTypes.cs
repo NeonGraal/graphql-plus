@@ -4,12 +4,12 @@ namespace GqlPlus.Verifying.Schema;
 
 internal class VerifyAllTypes(IVerifierRepository verifiers) : IVerify<IAstType[]>
 {
-  private readonly IVerifyUsage<IAstObject<IAstDualField>> _dualAllTypes = verifiers.UsageFor<IAstObject<IAstDualField>>();
-  private readonly IVerifyUsage<IAstEnum> _enumAllTypes = verifiers.UsageFor<IAstEnum>();
-  private readonly IVerifyUsage<IAstObject<IAstInputField>> _inputAllTypes = verifiers.UsageFor<IAstObject<IAstInputField>>();
-  private readonly IVerifyUsage<IAstObject<IAstOutputField>> _outputAllTypes = verifiers.UsageFor<IAstObject<IAstOutputField>>();
-  private readonly IVerifyUsage<IAstDomain> _domainAllTypes = verifiers.UsageFor<IAstDomain>();
-  private readonly IVerifyUsage<IAstUnion> _unionAllTypes = verifiers.UsageFor<IAstUnion>();
+  private readonly UsageVerifier<IAstObject<IAstDualField>> _dualAllTypes = verifiers.UsageFor<IAstObject<IAstDualField>>();
+  private readonly UsageVerifier<IAstEnum> _enumAllTypes = verifiers.UsageFor<IAstEnum>();
+  private readonly UsageVerifier<IAstObject<IAstInputField>> _inputAllTypes = verifiers.UsageFor<IAstObject<IAstInputField>>();
+  private readonly UsageVerifier<IAstObject<IAstOutputField>> _outputAllTypes = verifiers.UsageFor<IAstObject<IAstOutputField>>();
+  private readonly UsageVerifier<IAstDomain> _domainAllTypes = verifiers.UsageFor<IAstDomain>();
+  private readonly UsageVerifier<IAstUnion> _unionAllTypes = verifiers.UsageFor<IAstUnion>();
 
   public void Verify(IAstType[] item, IMessages errors)
   {

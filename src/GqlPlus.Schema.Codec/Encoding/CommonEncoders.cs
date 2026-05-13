@@ -4,7 +4,7 @@ internal class ConstantEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ConstantModel>
 {
-  private readonly IEncoder<SimpleModel> _simple = encoders.EncoderFor<SimpleModel>();
+  private readonly Encoder<SimpleModel> _simple = encoders.EncoderFor<SimpleModel>();
 
   public Structured Encode(ConstantModel model)
     => model switch {

@@ -11,7 +11,7 @@ internal class ParseDomainTrueFalse(
 {
   public override DomainKind Kind => DomainKind.Boolean;
 
-  public override IResult<IAstDomainTrueFalse> Parse(ITokenizer tokens, string label)
+  public override IResult<IAstDomainTrueFalse> Parse([NotNull] ITokenizer tokens, string label)
   {
     string description = tokens.Description();
     TokenAt at = tokens.At;
@@ -39,4 +39,6 @@ internal class ParseDomainTrueFalse(
 
   private static DomainTrueFalseAst DefaultTrueFalse(ITokenizer tokens, bool value)
     => new(tokens.At, "", false, value);
+
+  internal static ParseDomainTrueFalse Factory(IParserRepository p) => new(p);
 }

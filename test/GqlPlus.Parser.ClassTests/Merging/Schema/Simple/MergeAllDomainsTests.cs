@@ -21,7 +21,7 @@ public class MergeAllDomainsTests
     result.Merge([]).ReturnsForAnyArgs(c => c.Arg<IEnumerable<IAstDomain>>());
 
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.AllMergersFor<IAstDomain>().Returns([result]);
+    mergers.AllMergersForReturns(result);
     _merger = new(mergers);
   }
 

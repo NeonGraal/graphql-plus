@@ -5,7 +5,7 @@ internal class TypesModeller(
 ) : ModellerBase<IAstType, BaseTypeModel>
   , ITypesModeller
 {
-  private readonly IModellerRepository _modellers = modellers;
+  private readonly DeferList<ITypeModeller> _typeModellers = modellers.TypeModellers();
 
   public void AddTypeKinds(IEnumerable<IAstType> asts, IMap<TypeKindModel> typeKinds)
   {
@@ -21,10 +21,10 @@ internal class TypesModeller(
   }
 
   public TypeKindModel GetTypeKind(IAstType ast)
-    => _modellers.TypeModellers.Single(t => t.ForType(ast)).Kind;
+    => _typeModellers.Single(t => t.ForType(ast)).Kind;
 
   protected override BaseTypeModel ToModel(IAstType ast, IMap<TypeKindModel> typeKinds)
-    => _modellers.TypeModellers.Single(t => t.ForType(ast)).ToTypeModel(ast, typeKinds);
+    => _typeModellers.Single(t => t.ForType(ast)).ToTypeModel(ast, typeKinds);
 
   internal static TypesModeller Factory(IModellerRepository r) => new(r);
 }

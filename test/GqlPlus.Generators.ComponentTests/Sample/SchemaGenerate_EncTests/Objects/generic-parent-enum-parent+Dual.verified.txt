@@ -17,7 +17,7 @@ internal class CmptGnrcPrntEnumPrntDualEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptGnrcPrntEnumPrntDualObject>
 {
-  private readonly IEncoder<ICmptFieldGnrcPrntEnumPrntDualObject<CmptEnumGnrcPrntEnumPrntDual>> _fieldGnrcPrntEnumPrntDual = encoders.EncoderFor<ICmptFieldGnrcPrntEnumPrntDualObject<CmptEnumGnrcPrntEnumPrntDual>>();
+  private readonly Encoder<ICmptFieldGnrcPrntEnumPrntDualObject<CmptEnumGnrcPrntEnumPrntDual>> _fieldGnrcPrntEnumPrntDual = encoders.EncoderFor<ICmptFieldGnrcPrntEnumPrntDualObject<CmptEnumGnrcPrntEnumPrntDual>>();
   public Structured Encode(ICmptGnrcPrntEnumPrntDualObject input)
     => _fieldGnrcPrntEnumPrntDual.Encode(input);
 
@@ -28,7 +28,7 @@ internal class CmptFieldGnrcPrntEnumPrntDualEncoder<TRef>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptFieldGnrcPrntEnumPrntDualObject<TRef>>
 {
-  private readonly IEncoder<TRef> _ref = encoders.EncoderFor<TRef>();
+  private readonly Encoder<TRef> _ref = encoders.EncoderFor<TRef>();
   public Structured Encode(ICmptFieldGnrcPrntEnumPrntDualObject<TRef> input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _ref);

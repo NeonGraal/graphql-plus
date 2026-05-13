@@ -32,7 +32,7 @@ public class MergeEnumsTests
   public MergeEnumsTests(ITestOutputHelper outputHelper)
   {
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.MergerFor<IAstEnumLabel>().Returns(MergeItems);
+    mergers.MergerForReturns(MergeItems);
     _merger = new(mergers);
   }
 

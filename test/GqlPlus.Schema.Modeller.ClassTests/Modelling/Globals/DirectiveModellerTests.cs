@@ -7,7 +7,7 @@ public class DirectiveModellerTests
   {
     IModeller<IAstInputParam, InputParamModel> parameter = MFor<IAstInputParam, InputParamModel>();
     IModellerRepository modellers = A.Of<IModellerRepository>();
-    modellers.ModellerFor<IAstInputParam, InputParamModel>().Returns(parameter);
+    ModellerForReturns(modellers, parameter);
     Modeller = new DirectiveModeller(modellers);
   }
 

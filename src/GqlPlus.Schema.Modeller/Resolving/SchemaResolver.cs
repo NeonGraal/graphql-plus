@@ -4,7 +4,7 @@ internal class SchemaResolver(
   IResolverRepository resolvers
 ) : IResolver<SchemaModel>
 {
-  private readonly IResolver<BaseTypeModel> _type = resolvers.ResolverFor<BaseTypeModel>();
+  private readonly Resolver<BaseTypeModel> _type = resolvers.ResolverFor<BaseTypeModel>();
 
   public SchemaModel Resolve(SchemaModel model, IResolveContext context)
   {

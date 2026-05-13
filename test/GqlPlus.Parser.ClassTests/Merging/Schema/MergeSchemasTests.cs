@@ -52,10 +52,10 @@ public class MergeSchemasTests
     _astTypes = Merger<IAstType>();
 
     IMergerRepository mergers = Substitute.For<IMergerRepository>();
-    mergers.MergerFor<IAstSchemaCategory>().Returns(_categories);
-    mergers.MergerFor<IAstSchemaDirective>().Returns(_directives);
-    mergers.MergerFor<IAstSchemaOption>().Returns(_options);
-    mergers.MergerFor<IAstType>().Returns(_astTypes);
+    mergers.MergerForReturns(_categories);
+    mergers.MergerForReturns(_directives);
+    mergers.MergerForReturns(_options);
+    mergers.MergerForReturns(_astTypes);
     _merger = new(mergers);
   }
 

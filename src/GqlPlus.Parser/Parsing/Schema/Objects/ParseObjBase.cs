@@ -7,11 +7,11 @@ namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseObjBase(
   IParserRepository parsers
-) : Parser<IAstObjBase>.I
+) : IParser<IAstObjBase>
 {
-  private readonly Parser<IAstTypeArg>.LA _parseArgs = parsers.ArrayFor<IAstTypeArg>();
+  private readonly ParserArray<IAstTypeArg> _parseArgs = parsers.ArrayFor<IAstTypeArg>();
 
-  public IResult<IAstObjBase> Parse(ITokenizer tokens, string label)
+  public IResult<IAstObjBase> Parse([NotNull] ITokenizer tokens, string label)
   {
     string description = tokens.Description();
     if (!tokens.Prefix('$', out string? param, out TokenAt at)) {
@@ -48,4 +48,6 @@ internal class ParseObjBase(
 
     return default(IAstObjBase).Empty();
   }
+
+  internal static ParseObjBase Factory(IParserRepository p) => new(p);
 }

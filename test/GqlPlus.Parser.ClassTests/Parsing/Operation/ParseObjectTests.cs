@@ -7,8 +7,8 @@ public class ParseObjectTests
 {
 
   private readonly ParseObject _parseObject;
-  private readonly Parser<IAstField>.I _fieldParser;
-  private readonly Parser<IAstSelection>.I _selectionParser;
+  private readonly IParser<IAstField> _fieldParser;
+  private readonly IParser<IAstSelection> _selectionParser;
 
   public ParseObjectTests()
   {

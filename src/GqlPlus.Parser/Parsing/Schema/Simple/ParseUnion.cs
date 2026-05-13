@@ -19,6 +19,8 @@ internal class ParseUnion(
     => new UnionDeclAst(partial.At, partial.Name, partial.Description, []) {
       Aliases = partial.Aliases,
     };
+
+  internal static ParseUnion Factory(IParserRepository p) => new(p);
 }
 
 internal class UnionDefinition
@@ -31,9 +33,9 @@ internal class ParseUnionDefinition(
   IParserRepository parsers
 ) : SimpleDefinitionParser<UnionDefinition>(parsers)
 {
-  private readonly Parser<IAstUnionMember>.L _unionMember = parsers.ParserFor<IAstUnionMember>();
+  private readonly ParserOne<IAstUnionMember> _unionMember = parsers.ParserFor<IAstUnionMember>();
 
-  public override IResult<UnionDefinition> Parse(ITokenizer tokens, string label)
+  public override IResult<UnionDefinition> Parse([NotNull] ITokenizer tokens, string label)
   {
     UnionDefinition result = new();
 
@@ -53,4 +55,6 @@ internal class ParseUnionDefinition(
     result.Values = members.ArrayOf<UnionMemberAst>();
     return result.Ok();
   }
+
+  internal static ParseUnionDefinition Factory(IParserRepository p) => new(p);
 }

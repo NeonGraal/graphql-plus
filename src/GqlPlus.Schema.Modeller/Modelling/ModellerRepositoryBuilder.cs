@@ -9,6 +9,12 @@ internal class ModellerRepositoryBuilder
   internal Factory<IModifierModeller, IModellerRepository>? _modifierFactory;
   internal Factory<ITypesModeller, IModellerRepository>? _typesFactory;
 
+  public IEnumerable<KeyValuePair<Type, Factory<object, IModellerRepository>>> AllFactories
+    => [.. Modellers,
+      FactoryKeyValue<IModifierModeller>(_modifierFactory!),
+      FactoryKeyValue<ITypesModeller>(_typesFactory!),
+      .. TypeModellerFactories.Select(FactoryKeyValue<ITypeModeller>)];
+
   public IModellerRepositoryBuilder AddModeller<TAst, TModel>(Factory<IModeller<TAst, TModel>, IModellerRepository> factory)
     where TAst : IAstError
     where TModel : IModelBase
@@ -19,7 +25,7 @@ internal class ModellerRepositoryBuilder
     where TModel : IModelBase
     => this.FluentAction(b => {
       b.Modellers[typeof(IModeller<TAst, TModel>)] = factory;
-      b.TypeModellerFactories.Add(r => (ITypeModeller)(object)r.ModellerFor<TAst, TModel>());
+      b.TypeModellerFactories.Add(TypeModellerFor<TAst, TModel>);
     });
 
   public IModellerRepositoryBuilder AddModifierModeller(Factory<IModifierModeller, IModellerRepository> factory)
@@ -27,4 +33,9 @@ internal class ModellerRepositoryBuilder
 
   public IModellerRepositoryBuilder AddTypesModeller(Factory<ITypesModeller, IModellerRepository> factory)
     => this.FluentAction(b => b._typesFactory = factory);
+
+  private ITypeModeller TypeModellerFor<TAst, TModel>(IModellerRepository repo)
+    where TAst : IAstError
+    where TModel : IModelBase
+    => (ITypeModeller)/*(object)*/repo.ModellerFor<TAst, TModel>()();
 }

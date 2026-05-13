@@ -11,9 +11,9 @@ internal class testQueryEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestQueryObject>
 {
-  private readonly IEncoder<ItestFullUser> _itestFullUser = encoders.EncoderFor<ItestFullUser>();
-  private readonly IEncoder<ItestStory> _itestStory = encoders.EncoderFor<ItestStory>();
-  private readonly IEncoder<ItestProfile> _itestProfile = encoders.EncoderFor<ItestProfile>();
+  private readonly Encoder<ItestFullUser> _itestFullUser = encoders.EncoderFor<ItestFullUser>();
+  private readonly Encoder<ItestStory> _itestStory = encoders.EncoderFor<ItestStory>();
+  private readonly Encoder<ItestProfile> _itestProfile = encoders.EncoderFor<ItestProfile>();
   public Structured Encode(ItestQueryObject input)
     => Structured.Empty()
       .AddEncoded("user", input.User(), _itestFullUser)
@@ -49,7 +49,7 @@ internal class testUserEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestUserObject>
 {
-  private readonly IEncoder<ItestDate> _itestDate = encoders.EncoderFor<ItestDate>();
+  private readonly Encoder<ItestDate> _itestDate = encoders.EncoderFor<ItestDate>();
   public Structured Encode(ItestUserObject input)
     => Structured.Empty()
       .Add("id", input.Id.Encode())
@@ -65,8 +65,8 @@ internal class testFullUserEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestFullUserObject>
 {
-  private readonly IEncoder<ItestUserObject> _itestUser = encoders.EncoderFor<ItestUserObject>();
-  private readonly IEncoder<ItestUserList> _itestUserList = encoders.EncoderFor<ItestUserList>();
+  private readonly Encoder<ItestUserObject> _itestUser = encoders.EncoderFor<ItestUserObject>();
+  private readonly Encoder<ItestUserList> _itestUserList = encoders.EncoderFor<ItestUserList>();
   public Structured Encode(ItestFullUserObject input)
     => _itestUser.Encode(input)
       .Add("profilePic", input.ProfilePic().Encode())
@@ -80,7 +80,7 @@ internal class testUserListEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestUserListObject>
 {
-  private readonly IEncoder<ItestUser> _itestUser = encoders.EncoderFor<ItestUser>();
+  private readonly Encoder<ItestUser> _itestUser = encoders.EncoderFor<ItestUser>();
   public Structured Encode(ItestUserListObject input)
     => Structured.Empty()
       .Add("count", input.Count.Encode())
@@ -140,7 +140,7 @@ internal class testProfileEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestProfileObject>
 {
-  private readonly IEncoder<ItestUserObject> _itestUser = encoders.EncoderFor<ItestUserObject>();
+  private readonly Encoder<ItestUserObject> _itestUser = encoders.EncoderFor<ItestUserObject>();
   public Structured Encode(ItestProfileObject input)
     => _itestUser.Encode(input)
       .Add("handle", input.Handle.Encode());
@@ -161,7 +161,7 @@ internal class testPageEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestPageObject>
 {
-  private readonly IEncoder<ItestUserList> _itestUserList = encoders.EncoderFor<ItestUserList>();
+  private readonly Encoder<ItestUserList> _itestUserList = encoders.EncoderFor<ItestUserList>();
   public Structured Encode(ItestPageObject input)
     => Structured.Empty()
       .Add("handle", input.Handle.Encode())
@@ -192,7 +192,7 @@ internal class testThingFilterEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestThingFilterObject>
 {
-  private readonly IEncoder<ItestLocation> _itestLocation = encoders.EncoderFor<ItestLocation>();
+  private readonly Encoder<ItestLocation> _itestLocation = encoders.EncoderFor<ItestLocation>();
   public Structured Encode(ItestThingFilterObject input)
     => Structured.Empty()
       .AddEncoded("location", input.Location, _itestLocation);

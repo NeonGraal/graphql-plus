@@ -6,14 +6,14 @@ namespace GqlPlus.Parsing.Operation;
 
 internal class ParseField(
   IParserRepository parsers
-) : Parser<IAstField>.I
+) : IParser<IAstField>
 {
-  private readonly Parser<IAstModifier>.LA _modifiers = parsers.ArrayFor<IAstModifier>();
-  private readonly Parser<IAstDirective>.LA _directives = parsers.ArrayFor<IAstDirective>();
-  private readonly Parser<IParserArg, IAstArg>.L _argument = parsers.ParserFor<IParserArg, IAstArg>();
-  private readonly Parser<IAstSelection>.LA _object = parsers.ArrayFor<IAstSelection>();
+  private readonly ParserArray<IAstModifier> _modifiers = parsers.ArrayFor<IAstModifier>();
+  private readonly ParserArray<IAstDirective> _directives = parsers.ArrayFor<IAstDirective>();
+  private readonly ParserOne<IParserArg, IAstArg> _argument = parsers.ParserFor<IParserArg, IAstArg>();
+  private readonly ParserArray<IAstSelection> _object = parsers.ArrayFor<IAstSelection>();
 
-  public IResult<IAstField> Parse(ITokenizer tokens, string label)
+  public IResult<IAstField> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     TokenAt at = tokens.At;
@@ -32,7 +32,7 @@ internal class ParseField(
       result = new FieldAst(at, name) { FieldAlias = alias };
     }
 
-    _argument.I.Parse(tokens, "Arg").Required(argument => result.Arg = argument);
+    _argument.Parse(tokens, "Arg").Required(argument => result.Arg = argument);
 
     IResultArray<IAstModifier> modifiers = _modifiers.Parse(tokens, label);
     if (!modifiers.Optional(value => result.Modifiers = [.. value])) {
@@ -49,4 +49,6 @@ internal class ParseField(
       ? selections.AsPartial<IAstField>(result)
       : result.Ok<IAstField>();
   }
+
+  internal static ParseField Factory(IParserRepository p) => new(p);
 }

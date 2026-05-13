@@ -4,12 +4,12 @@ public class EnumConstraintMatcherTests
   : MatchTestsBase
 {
   private readonly EnumConstraintMatcher _sut;
-  private readonly Matcher<IAstEnum>.I _enumMatcher;
+  private readonly IMatcher<IAstEnum> _enumMatcher;
 
   public EnumConstraintMatcherTests()
   {
     Matcher<IAstEnum>.D enumMatcher = MatcherFor(out _enumMatcher);
-    MatcherRepo.MatcherFor<IAstEnum>().Returns(enumMatcher);
+    MatcherForReturns(enumMatcher);
     _sut = new(MatcherRepo);
   }
 

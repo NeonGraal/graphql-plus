@@ -7,9 +7,9 @@ public class ParseFieldTests
 {
 
   private readonly ParseField _parseField;
-  private readonly Parser<IAstDirective>.IA _directivesParser;
+  private readonly IParserArray<IAstDirective> _directivesParser;
   private readonly IParserArg _argumentParser;
-  private readonly Parser<IAstSelection>.IA _objectParser;
+  private readonly IParserArray<IAstSelection> _objectParser;
 
   public ParseFieldTests()
   {

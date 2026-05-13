@@ -8,7 +8,7 @@ public class ParseSchemaTests(
   IParserRepository parsers
 )
 {
-  private readonly Parser<IAstSchema>.L _parser = parsers.ParserFor<IAstSchema>();
+  private readonly ParserOne<IAstSchema> _parser = parsers.ParserFor<IAstSchema>();
 
   [Theory]
   [InlineData("category { Query }")]

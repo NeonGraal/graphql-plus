@@ -59,7 +59,7 @@ internal class Cmpt_SchemaEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_SchemaObject>
 {
-  private readonly IEncoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
+  private readonly Encoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
   public Structured Encode(ICmpt_SchemaObject input)
     => _named.Encode(input);
 
@@ -86,8 +86,8 @@ internal class Cmpt_AliasedEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_AliasedObject>
 {
-  private readonly IEncoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
-  private readonly IEncoder<ICmpt_Name> _name = encoders.EncoderFor<ICmpt_Name>();
+  private readonly Encoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
+  private readonly Encoder<ICmpt_Name> _name = encoders.EncoderFor<ICmpt_Name>();
   public Structured Encode(ICmpt_AliasedObject input)
     => _named.Encode(input)
       .AddList("aliases", input.Aliases, _name);
@@ -99,8 +99,8 @@ internal class Cmpt_NamedEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_NamedObject>
 {
-  private readonly IEncoder<ICmpt_DescribedObject> _described = encoders.EncoderFor<ICmpt_DescribedObject>();
-  private readonly IEncoder<ICmpt_Name> _name = encoders.EncoderFor<ICmpt_Name>();
+  private readonly Encoder<ICmpt_DescribedObject> _described = encoders.EncoderFor<ICmpt_DescribedObject>();
+  private readonly Encoder<ICmpt_Name> _name = encoders.EncoderFor<ICmpt_Name>();
   public Structured Encode(ICmpt_NamedObject input)
     => _described.Encode(input)
       .AddEncoded("name", input.Name, _name);

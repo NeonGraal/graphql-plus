@@ -6,11 +6,11 @@ namespace GqlPlus.Parsing.Operation;
 
 internal class ParseVariables(
   IParserRepository parsers
-) : Parser<IAstVariable>.IA
+) : IParserArray<IAstVariable>
 {
-  private readonly Parser<IAstVariable>.L _variable = parsers.ParserFor<IAstVariable>();
+  private readonly ParserOne<IAstVariable> _variable = parsers.ParserFor<IAstVariable>();
 
-  public IResultArray<IAstVariable> Parse(ITokenizer tokens, string label)
+  public IResultArray<IAstVariable> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     List<IAstVariable> list = [];
@@ -37,4 +37,6 @@ internal class ParseVariables(
         ? list.OkArray()
         : tokens.PartialArray(label, "')'.", () => list);
   }
+
+  internal static ParseVariables Factory(IParserRepository p) => new(p);
 }

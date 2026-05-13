@@ -3,13 +3,13 @@
 public class DomainMatcherTests
   : MatchTestsBase
 {
-  private readonly Matcher<IAstEnum>.I _enumMatcher;
+  private readonly IMatcher<IAstEnum> _enumMatcher;
   private readonly DomainMatcher _sut;
 
   public DomainMatcherTests()
   {
     Matcher<IAstEnum>.D enumMatcher = MatcherFor(out _enumMatcher);
-    MatcherRepo.MatcherFor<IAstEnum>().Returns(enumMatcher);
+    MatcherForReturns(enumMatcher);
     _sut = new DomainMatcher(MatcherRepo);
   }
 

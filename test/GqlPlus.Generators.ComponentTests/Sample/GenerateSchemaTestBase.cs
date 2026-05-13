@@ -27,8 +27,8 @@ internal sealed class SchemaGeneratorChecks(
 ) : SchemaParseChecks(parsers)
   , ISchemaGeneratorChecks
 {
-  private readonly IMerge<IAstSchema> _schemaMerger = mergers.MergerFor<IAstSchema>();
-  private readonly IGenerator<IAstSchema> _schemaGenerator = generators.GeneratorFor<IAstSchema>();
+  private readonly MergerOne<IAstSchema> _schemaMerger = mergers.MergerFor<IAstSchema>();
+  private readonly Generator<IAstSchema> _schemaGenerator = generators.GeneratorFor<IAstSchema>();
 
   public string Generate_ForAsts(GqlpBaseType baseType, GqlpGeneratorType type, IEnumerable<IAstSchema> asts, string test, string label, string input = "")
   {

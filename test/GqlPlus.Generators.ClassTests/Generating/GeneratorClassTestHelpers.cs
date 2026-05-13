@@ -1,4 +1,7 @@
-﻿namespace GqlPlus.Generating;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Structures;
+
+namespace GqlPlus.Generating;
 
 internal static class GeneratorClassTestHelpers
 {
@@ -24,6 +27,12 @@ internal static class GeneratorClassTestHelpers
 
   private static Action<string> ContainsAction(string required)
     => result => result.ShouldContain(required);
+
+  public static void EncoderForReturns<T>([NotNull] this IEncoderRepository repo, IEncoder<T> result)
+  {
+    IEncoder<T> factory() => result;
+    repo.EncoderFor<T>().ReturnsForAnyArgs(factory);
+  }
 }
 
 internal delegate Action<string> ForType(GqlpGeneratorType forType);

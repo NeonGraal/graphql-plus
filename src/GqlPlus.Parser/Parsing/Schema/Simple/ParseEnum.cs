@@ -19,6 +19,8 @@ internal class ParseEnum(
     => new EnumDeclAst(partial.At, partial.Name, partial.Description, []) {
       Aliases = partial.Aliases,
     };
+
+  internal static ParseEnum Factory(IParserRepository p) => new(p);
 }
 
 internal class EnumDefinition
@@ -31,9 +33,9 @@ internal class ParseEnumDefinition(
   IParserRepository parsers
 ) : SimpleDefinitionParser<EnumDefinition>(parsers)
 {
-  private readonly Parser<IAstEnumLabel>.L _enumLabel = parsers.ParserFor<IAstEnumLabel>();
+  private readonly ParserOne<IAstEnumLabel> _enumLabel = parsers.ParserFor<IAstEnumLabel>();
 
-  public override IResult<EnumDefinition> Parse(ITokenizer tokens, string label)
+  public override IResult<EnumDefinition> Parse([NotNull] ITokenizer tokens, string label)
   {
     EnumDefinition result = new();
 
@@ -53,4 +55,6 @@ internal class ParseEnumDefinition(
     result.Values = labels.ArrayOf<EnumLabelAst>();
     return result.Ok();
   }
+
+  internal static ParseEnumDefinition Factory(IParserRepository p) => new(p);
 }

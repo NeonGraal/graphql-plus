@@ -1,4 +1,5 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 

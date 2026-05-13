@@ -10,9 +10,9 @@ public class MergeOutputObjectsTests
     : base(TypeKind.Output)
   {
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.MergerFor<IAstOutputField>().Returns(Fields);
-    mergers.MergerFor<IAstTypeParam>().Returns(TypeParams);
-    mergers.MergerFor<IAstAlternate>().Returns(Alternates);
+    mergers.MergerForReturns(Fields);
+    mergers.MergerForReturns(TypeParams);
+    mergers.MergerForReturns(Alternates);
     MergerObject = new(mergers);
   }
 

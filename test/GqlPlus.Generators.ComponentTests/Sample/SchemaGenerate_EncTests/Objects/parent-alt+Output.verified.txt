@@ -15,7 +15,7 @@ internal class CmptPrntAltOutpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptPrntAltOutpObject>
 {
-  private readonly IEncoder<ICmptRefPrntAltOutpObject> _refPrntAltOutp = encoders.EncoderFor<ICmptRefPrntAltOutpObject>();
+  private readonly Encoder<ICmptRefPrntAltOutpObject> _refPrntAltOutp = encoders.EncoderFor<ICmptRefPrntAltOutpObject>();
   public Structured Encode(ICmptPrntAltOutpObject input)
     => _refPrntAltOutp.Encode(input);
 

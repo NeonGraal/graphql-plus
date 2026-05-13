@@ -7,7 +7,7 @@ namespace GqlPlus.Matching;
 
 public static class AllMatchers
 {
-  public static IMatcherRepositoryBuilder AddConstraintTypeMatchers([NotNull] this IMatcherRepositoryBuilder builder)
+  public static IMatcherRepositoryBuilder AddSchemaMatchers([NotNull] this IMatcherRepositoryBuilder builder)
     => builder
           .AddMatcher(AnyTypeMatcher.Factory)
           .AddMatcher(TypeArgMatcher.Factory)
@@ -46,7 +46,7 @@ public static class AllMatchers
 
   private static IMatcherRepositoryBuilder AddObjectMatcher<TField, TMatcher>(this IMatcherRepositoryBuilder builder, Factory<TMatcher, IMatcherRepository> factory)
     where TField : IAstObjField
-    where TMatcher : class, Matcher<IAstObject<TField>>.I, ITypeMatcher
+    where TMatcher : class, IMatcher<IAstObject<TField>>, ITypeMatcher
     => builder.AddTypeMatcher<IAstObject<TField>, TMatcher>(factory);
 
   private static IMatcherRepositoryBuilder AddObjectDualMatcher<TField>(this IMatcherRepositoryBuilder builder)

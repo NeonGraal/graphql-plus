@@ -11,9 +11,7 @@ public class ParserNameTests
   {
     INameParser inner = A.Of<INameParser>();
     ITokenizer tokens = A.Of<ITokenizer>();
-    string? dummyName;
-    TokenAt dummyAt;
-    inner.ParseName(tokens, out dummyName, out dummyAt).ReturnsForAnyArgs(x => {
+    inner.ParseName(tokens, out string? dummyName, out TokenAt dummyAt).ReturnsForAnyArgs(x => {
       x[1] = name;
       x[2] = default(TokenAt);
       return true;
@@ -32,9 +30,7 @@ public class ParserNameTests
   {
     INameParser inner = A.Of<INameParser>();
     ITokenizer tokens = A.Of<ITokenizer>();
-    string? dummyName;
-    TokenAt dummyAt;
-    inner.ParseName(tokens, out dummyName, out dummyAt).ReturnsForAnyArgs(x => {
+    inner.ParseName(tokens, out string? dummyName, out TokenAt dummyAt).ReturnsForAnyArgs(x => {
       x[1] = name;
       x[2] = default(TokenAt);
       return true;

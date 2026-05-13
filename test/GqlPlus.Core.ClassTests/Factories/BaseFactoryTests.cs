@@ -37,7 +37,7 @@ public class BaseFactoryTests
   [Fact]
   public void FactoryFor_WrongType_ThrowsInvalidOperationException()
   {
-    object wrong(IRepository _) => new object();
+    static object wrong(IRepository _) => new();
 
     Action result = () => _sut.ExposedFactoryFor<string>(wrong);
 
@@ -57,7 +57,7 @@ public class BaseFactoryTests
   [Fact]
   public void FactoriesFor_WrongType_ThrowsInvalidOperationException()
   {
-    object wrong(IRepository _) => new object();
+    static object wrong(IRepository _) => new();
     BaseFactory<IRepository>.FactoryList list = [wrong];
 
     Action result = () => {

@@ -10,8 +10,7 @@ public class DecoderTests
   {
     IDecoder<string> inner = A.Of<IDecoder<string>>();
     IMessages messages = A.Of<IMessages>();
-    string? dummy;
-    inner.Decode(Arg.Any<IValue>(), out dummy).ReturnsForAnyArgs(x => {
+    inner.Decode(Arg.Any<IValue>(), out string? dummy).ReturnsForAnyArgs(x => {
       x[1] = output;
       return messages;
     });
@@ -29,8 +28,7 @@ public class DecoderTests
   {
     IDecoder<string> inner = A.Of<IDecoder<string>>();
     IMessages messages = A.Of<IMessages>();
-    string? dummy;
-    inner.Decode(Arg.Any<IValue>(), out dummy).ReturnsForAnyArgs(x => {
+    inner.Decode(Arg.Any<IValue>(), out string? dummy).ReturnsForAnyArgs(x => {
       x[1] = output;
       return messages;
     });

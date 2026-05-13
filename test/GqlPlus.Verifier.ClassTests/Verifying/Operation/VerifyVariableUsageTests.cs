@@ -7,7 +7,7 @@ public class VerifyVariableUsageTests
 {
   protected override IEnumerable<IAstVariable> OneDefinition(string name)
   {
-    IAstVariable definition = A.Variable(name);
+    IAstVariable definition = A.Identified<IAstVariable>(name);
 
     return [definition];
   }

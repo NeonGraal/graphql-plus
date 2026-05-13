@@ -12,15 +12,15 @@ namespace GqlPlus.Verifying;
 public interface IVerifierRepository
   : IRepository
 {
-  Verifier<T> VerifierFor<T>([CallerMemberName] string callerName = "");
+  Verifier<T>.D VerifierFor<T>([CallerMemberName] string callerName = "");
 
-  AliasVerifier<T> AliasedFor<T>([CallerMemberName] string callerName = "")
+  AliasVerifier<T>.D AliasedFor<T>([CallerMemberName] string callerName = "")
     where T : IAstAliased;
 
-  UsageVerifier<T> UsageFor<T>([CallerMemberName] string callerName = "")
+  UsageVerifier<T>.D UsageFor<T>([CallerMemberName] string callerName = "")
     where T : IAstAliased;
 
-  IdentifiedVerifier<TUsage, TIdentified> IdentifiedFor<TUsage, TIdentified>([CallerMemberName] string callerName = "")
+  IdentifiedVerifier<TUsage, TIdentified>.D IdentifiedFor<TUsage, TIdentified>([CallerMemberName] string callerName = "")
     where TUsage : IAstError
     where TIdentified : IAstIdentified;
 

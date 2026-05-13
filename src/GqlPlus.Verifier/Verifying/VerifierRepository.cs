@@ -17,22 +17,22 @@ internal class VerifierRepository(
 ) : BaseRepository<IVerifierRepository>(loggerFactory)
   , IVerifierRepository
 {
-  public Verifier<T> VerifierFor<T>([CallerMemberName] string callerName = "")
-    => new(() => Cached<T, IVerify<T>>(state.Verifiers, "verify for " + callerName, this));
+  public Verifier<T>.D VerifierFor<T>([CallerMemberName] string callerName = "")
+    => () => Cached<T, IVerify<T>>(state.Verifiers, "verify for " + callerName, this);
 
-  public AliasVerifier<T> AliasedFor<T>([CallerMemberName] string callerName = "")
+  public AliasVerifier<T>.D AliasedFor<T>([CallerMemberName] string callerName = "")
     where T : IAstAliased
-    => new(() => Cached<T, IVerifyAliased<T>>(state.Aliased, "aliased for " + callerName, this));
-  public UsageVerifier<T> UsageFor<T>([CallerMemberName] string callerName = "")
+    => () => Cached<T, IVerifyAliased<T>>(state.Aliased, "aliased for " + callerName, this);
+  public UsageVerifier<T>.D UsageFor<T>([CallerMemberName] string callerName = "")
     where T : IAstAliased
-    => new(() => Cached<T, IVerifyUsage<T>>(state.Usages, "usage for " + callerName, this));
+    => () => Cached<T, IVerifyUsage<T>>(state.Usages, "usage for " + callerName, this);
 
-  public IdentifiedVerifier<TUsage, TIdentified> IdentifiedFor<TUsage, TIdentified>([CallerMemberName] string callerName = "")
+  public IdentifiedVerifier<TUsage, TIdentified>.D IdentifiedFor<TUsage, TIdentified>([CallerMemberName] string callerName = "")
     where TUsage : IAstError
     where TIdentified : IAstIdentified
-    => new(() => Cached<(TUsage, TIdentified), IVerifyIdentified<TUsage, TIdentified>>(
+    => () => Cached<(TUsage, TIdentified), IVerifyIdentified<TUsage, TIdentified>>(
       state.Identified,
-      "identified for " + callerName, this));
+      "identified for " + callerName, this);
 
   public DeferList<IVerifyDomain>.D GetDomains([CallerMemberName] string callerName = "")
     => () => InstancesFor<IVerifyDomain>(state.Domains, this);

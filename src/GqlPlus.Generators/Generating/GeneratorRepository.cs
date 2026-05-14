@@ -13,14 +13,13 @@ internal class GeneratorRepository(
 {
   private readonly ConcurrentDictionary<GqlpGeneratorType, IEnumerable<ITypeGenerator>> _typeGenerators = [];
 
-  public IGenerator<TAst> GeneratorFor<TAst>([CallerMemberName] string callerName = "")
+  public Generator<TAst>.D GeneratorFor<TAst>([CallerMemberName] string callerName = "")
     where TAst : IAstError
-    => Cached<TAst, IGenerator<TAst>>(builder.Generators, "generator for " + callerName, this);
+    => () => Cached<TAst, IGenerator<TAst>>(builder.Generators, "generator for " + callerName, this);
 
-  public IEnumerable<ITypeGenerator> TypeGenerators(GqlpGeneratorType generatorType, [CallerMemberName] string callerName = "")
-    => _typeGenerators.GetOrAdd(
-      generatorType,
-      k => [.. builder.TypeGenerators
-        .GetValueOrDefault(k, [])
-        .Select(f => (ITypeGenerator)f(this))]);
+  public DeferList<ITypeGenerator>.D TypeGenerators(GqlpGeneratorType generatorType, [CallerMemberName] string callerName = "")
+    => () => _typeGenerators.GetOrAdd(generatorType, k
+        => [.. InstancesFor<ITypeGenerator>(
+          builder.TypeGenerators.GetValueOr(k, []),
+          this)]);
 }

@@ -1,75 +1,78 @@
-﻿using GqlPlus.Result;
+﻿using GqlPlus.Parsing.Schema;
+using GqlPlus.Result;
 using GqlPlus.Token;
 
 namespace GqlPlus.Parsing;
 
-internal interface IParser<TResult>
+public interface IParser<T>
 {
-  IResult<TResult> Parse([NotNull] ITokenizer tokens);
+  IResult<T> Parse([NotNull] ITokenizer tokens, string label);
 }
 
-internal interface IParserArray<TResult>
+public interface IParserArray<T>
 {
-  IResultArray<TResult> Parse([NotNull] ITokenizer tokens, string label);
+  IResultArray<T> Parse([NotNull] ITokenizer tokens, string label);
 }
 
-#pragma warning disable CA1034 // Nested types should not be visible
-public static class Parser<T>
+public class ParserOne<T>(
+  ParserOne<T>.D factory
+) : DeferOne<IParser<T>>(factory)
+  , IParser<T>
 {
-  public interface I
-  {
-    IResult<T> Parse(ITokenizer tokens, string label);
-  }
+  public IResult<T> Parse([NotNull] ITokenizer tokens, string label)
+    => Value.Parse(tokens, label);
 
-  public interface IA
-  {
-    IResultArray<T> Parse(ITokenizer tokens, string label);
-  }
-
-  public delegate I D();
-  public delegate IA DA();
-
-  public class L(D factory) : Lazy<I>(() => factory())
-  {
-    public static implicit operator L(D factory) => new(factory.ThrowIfNull());
-
-    public IResult<T> Parse(ITokenizer tokens, string label)
-
-      => Value.Parse(tokens, label);
-  }
-
-  public class LA(DA factory) : Lazy<IA>(() => factory())
-  {
-    public static implicit operator LA(DA factory) => new(factory.ThrowIfNull());
-
-    public IResultArray<T> Parse(ITokenizer tokens, string label)
-
-      => Value.Parse(tokens, label);
-  }
+  public static implicit operator ParserOne<T>(D factory)
+    => new(factory.ThrowIfNull());
 }
 
-public static class Parser<TInterface, T>
-  where TInterface : Parser<T>.I
+public class ParserArray<T>(
+  ParserArray<T>.D factory
+) : DeferOne<IParserArray<T>>(factory)
+  , IParserArray<T>
 {
-  public delegate TInterface D();
+  public IResultArray<T> Parse([NotNull] ITokenizer tokens, string label)
+    => Value.Parse(tokens, label);
 
-  public class L(D factory) : Lazy<TInterface>(() => factory())
-  {
-    public static implicit operator L(D factory) => new(factory.ThrowIfNull());
-
-    public TInterface I => Value;
-  }
+  public static implicit operator ParserArray<T>(D factory)
+    => new(factory.ThrowIfNull());
 }
 
-public static class ParserArray<TInterface, T>
-  where TInterface : Parser<T>.IA
+public class ParserOne<TInterface, T>(
+  ParserOne<TInterface, T>.D factory
+) : DeferOne<TInterface>(factory)
+  , IParser<T>
+  where TInterface : class, IParser<T>
 {
-  public delegate TInterface DA();
+  public IResult<T> Parse([NotNull] ITokenizer tokens, string label)
+    => Value.Parse(tokens, label);
 
-  public class LA(DA factory) : Lazy<TInterface>(() => factory())
-  {
-    public static implicit operator LA(DA factory) => new(factory.ThrowIfNull());
+  public static implicit operator ParserOne<TInterface, T>(D factory)
+    => new(factory.ThrowIfNull());
+}
 
-    public TInterface I => Value;
-  }
+public class ParserArray<TInterface, T>(
+  ParserArray<TInterface, T>.D factory
+) : DeferOne<TInterface>(factory)
+  , IParserArray<T>
+  where TInterface : class, IParserArray<T>
+{
+  public IResultArray<T> Parse([NotNull] ITokenizer tokens, string label)
+    => Value.Parse(tokens, label);
+
+  public static implicit operator ParserArray<TInterface, T>(D factory)
+    => new(factory.ThrowIfNull());
+}
+
+public class ParserName<T>(
+  ParserName<T>.D factory
+) : DeferOne<T>(factory)
+  , INameParser
+  where T : class, INameParser
+{
+  public bool ParseName([NotNull] ITokenizer tokens, [NotNullWhen(true)] out string? name, out TokenAt at)
+    => Value.ParseName(tokens, out name, out at);
+
+  public static implicit operator ParserName<T>(D factory)
+    => new(factory.ThrowIfNull());
 }

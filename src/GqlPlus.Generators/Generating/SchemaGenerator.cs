@@ -4,15 +4,19 @@ internal sealed class SchemaGenerator(
   IGeneratorRepository generators
 ) : IGenerator<IAstSchema>
 {
+  private readonly Generator<IAstSchemaCategory> _categoryGenerator = generators.GeneratorFor<IAstSchemaCategory>();
+  private readonly Generator<IAstSchemaDirective> _directiveGenerator = generators.GeneratorFor<IAstSchemaDirective>();
+  private readonly Generator<IAstSchemaOption> _optionGenerator = generators.GeneratorFor<IAstSchemaOption>();
+
   public void Generate(IAstSchema ast, GqlpGeneratorContext context)
   {
     IAstType[] types = Typed<IAstType>(ast);
     context.AddTypes(types);
 
     context.WritePrefixLine("/*");
-    Typed<IAstSchemaCategory>(ast).Generate(generators.GeneratorFor<IAstSchemaCategory>(), context);
-    Typed<IAstSchemaDirective>(ast).Generate(generators.GeneratorFor<IAstSchemaDirective>(), context);
-    Typed<IAstSchemaOption>(ast).Generate(generators.GeneratorFor<IAstSchemaOption>(), context);
+    Typed<IAstSchemaCategory>(ast).Generate(_categoryGenerator, context);
+    Typed<IAstSchemaDirective>(ast).Generate(_directiveGenerator, context);
+    Typed<IAstSchemaOption>(ast).Generate(_optionGenerator, context);
     context.WritePrefixLine("*/");
     context.WritePrefixLine("");
     string nameSpace = context.GeneratorOptions.NameSpace.IfWhiteSpace(context.ModelOptions.BaseNamespace);
@@ -36,7 +40,7 @@ internal sealed class SchemaGenerator(
 
   private void GenerateTypesForGeneratorType(IAstType[] types, GqlpGeneratorType generatorType, GqlpGeneratorContext context)
   {
-    IEnumerable<ITypeGenerator> typeGenerators = generators.TypeGenerators(generatorType);
+    DeferList<ITypeGenerator> typeGenerators = generators.TypeGenerators(generatorType);
 
     foreach (IAstType type in types) {
       GenerateTypeOrValidate(typeGenerators, type, context);
@@ -51,7 +55,7 @@ internal sealed class SchemaGenerator(
       return;
     }
 
-    IEnumerable<ITypeGenerator> interfaceGenerators = generators.TypeGenerators(GqlpGeneratorType.Interface);
+    DeferList<ITypeGenerator> interfaceGenerators = generators.TypeGenerators(GqlpGeneratorType.Interface);
     if (!interfaceGenerators.Any(tg => tg.ForType(type))) {
       throw new InvalidOperationException("No Generator for " + type.GetType().ExpandTypeName());
     }

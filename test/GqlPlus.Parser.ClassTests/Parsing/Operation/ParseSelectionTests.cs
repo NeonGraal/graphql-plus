@@ -7,8 +7,8 @@ public class ParseSelectionTests
 {
 
   private readonly ParseSelection _parseSelection;
-  private readonly Parser<IAstDirective>.IA _directivesParser;
-  private readonly Parser<IAstSelection>.IA _objectParser;
+  private readonly IParserArray<IAstDirective> _directivesParser;
+  private readonly IParserArray<IAstSelection> _objectParser;
 
   public ParseSelectionTests()
     : base(A.Of<ITokenizer, IOperationContext>())

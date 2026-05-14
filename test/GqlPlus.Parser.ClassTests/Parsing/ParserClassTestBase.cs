@@ -78,13 +78,13 @@ public class ParserClassTestBase
     Tokenizer.PartialArray<T>(string.Empty, string.Empty, () => [result]).ReturnsForAnyArgs(c => PartialA(c));
   }
 
-  protected void Parse<T>([NotNull] Parser<T>.I parser, IResult<T> first, params IResult<T>[] rest)
+  protected void Parse<T>([NotNull] IParser<T> parser, IResult<T> first, params IResult<T>[] rest)
     => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(first, rest);
 
-  protected void ParseA<T>([NotNull] Parser<T>.IA parser, IResultArray<T> first, params IResultArray<T>[] rest)
+  protected void ParseA<T>([NotNull] IParserArray<T> parser, IResultArray<T> first, params IResultArray<T>[] rest)
     => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(first, rest);
 
-  protected T ParseOk<T>([NotNull] Parser<T>.I parser, int n = 1)
+  protected T ParseOk<T>([NotNull] IParser<T> parser, int n = 1)
     where T : class, IAstError
   {
     ArgumentOutOfRangeException.ThrowIfLessThan(n, 1);
@@ -97,17 +97,17 @@ public class ParserClassTestBase
     return result;
   }
 
-  protected void ParseOk<T>([NotNull] Parser<T>.I parser, T result)
+  protected void ParseOk<T>([NotNull] IParser<T> parser, T result)
     => Parse(parser, result.Ok(), result.Empty());
 
-  protected void ParseEmpty<T>([NotNull] Parser<T>.I parser)
+  protected void ParseEmpty<T>([NotNull] IParser<T> parser)
     where T : class
     => Parse(parser, default(T).Empty());
 
-  protected void ParseError<T>([NotNull] Parser<T>.I parser, string? message = null)
+  protected void ParseError<T>([NotNull] IParser<T> parser, string? message = null)
     => Parse(parser, Error<T>(message.IfWhiteSpace("error for " + typeof(T).ExpandTypeName())));
 
-  protected T ParseOkError<T>([NotNull] Parser<T>.I parser, int n = 1, string? message = null)
+  protected T ParseOkError<T>([NotNull] IParser<T> parser, int n = 1, string? message = null)
     where T : class, IAstError
   {
     ArgumentOutOfRangeException.ThrowIfLessThan(n, 1);
@@ -124,7 +124,7 @@ public class ParserClassTestBase
     return result;
   }
 
-  protected T[] ParseOkA<T>([NotNull] Parser<T>.IA parser, int n = 1)
+  protected T[] ParseOkA<T>([NotNull] IParserArray<T> parser, int n = 1)
     where T : class, IAstError
   {
     ArgumentOutOfRangeException.ThrowIfLessThan(n, 1);
@@ -137,23 +137,23 @@ public class ParserClassTestBase
     return result;
   }
 
-  protected T[] ParseOkA<T>([NotNull] Parser<T>.IA parser, T item)
+  protected T[] ParseOkA<T>([NotNull] IParserArray<T> parser, T item)
   {
     T[] result = [item];
     ParseOkA(parser, result);
     return result;
   }
 
-  protected void ParseOkA<T>([NotNull] Parser<T>.IA parser, T[] result)
+  protected void ParseOkA<T>([NotNull] IParserArray<T> parser, T[] result)
     => ParseA(parser, result.OkArray(), result.EmptyArray());
 
-  protected void ParseEmptyA<T>([NotNull] Parser<T>.IA parser)
+  protected void ParseEmptyA<T>([NotNull] IParserArray<T> parser)
     => ParseA(parser, 0.EmptyArray<T>());
 
-  protected void ParseErrorA<T>([NotNull] Parser<T>.IA parser, string? message = null)
+  protected void ParseErrorA<T>([NotNull] IParserArray<T> parser, string? message = null)
     => ParseA(parser, ErrorA<T>(message.IfWhiteSpace("error for array of " + typeof(T).ExpandTypeName())));
 
-  protected T[] ParseOkErrorA<T>([NotNull] Parser<T>.IA parser, int n = 1, string? message = null)
+  protected T[] ParseOkErrorA<T>([NotNull] IParserArray<T> parser, int n = 1, string? message = null)
     where T : class, IAstError
   {
     ArgumentOutOfRangeException.ThrowIfLessThan(n, 1);
@@ -166,7 +166,7 @@ public class ParserClassTestBase
     return result;
   }
 
-  protected void ParseOkField<T>([NotNull] Parser<IAstFields<T>>.I parser, string fieldName)
+  protected void ParseOkField<T>([NotNull] IParser<IAstFields<T>> parser, string fieldName)
     where T : class, IAstError
   {
     T value = AtFor<T>();
@@ -204,165 +204,161 @@ public class ParserClassTestBase
     return result;
   }
 
-  protected static Parser<T>.L LazyFor<T>(out Parser<T>.I parser)
+  protected static ParserOne<T> LazyFor<T>(out IParser<T> parser)
   {
-    Parser<T>.I p = A.Of<Parser<T>.I>();
+    IParser<T> p = A.Of<IParser<T>>();
     p.Parse(default!, default!)
       .ReturnsForAnyArgs(default(T).Empty());
     parser = p;
-    return new Parser<T>.L(() => p);
+    return new ParserOne<T>(() => p);
   }
 
-  protected static Parser<T>.LA LazyAFor<T>(out Parser<T>.IA parser)
+  protected static ParserArray<T> LazyAFor<T>(out IParserArray<T> parser)
   {
-    Parser<T>.IA p = A.Of<Parser<T>.IA>();
+    IParserArray<T> p = A.Of<IParserArray<T>>();
     p.Parse(default!, default!)
       .ReturnsForAnyArgs(0.EmptyArray<T>());
     parser = p;
-    return new Parser<T>.LA(() => p);
+    return new ParserArray<T>(() => p);
   }
 
-  protected static Parser<TInterface, T>.L LazyFor<TInterface, T>(out TInterface parser)
-    where TInterface : class, Parser<T>.I
+  protected static ParserOne<TInterface, T> LazyFor<TInterface, T>(out TInterface parser)
+    where TInterface : class, IParser<T>
   {
-    TInterface p = Substitute.For<TInterface, Parser<T>.I>();
+    TInterface p = Substitute.For<TInterface, IParser<T>>();
     p.Parse(default!, default!)
       .ReturnsForAnyArgs(default(T).Empty());
     parser = p;
-    return new Parser<TInterface, T>.L(() => p);
+    return new ParserOne<TInterface, T>(() => p);
   }
 
-  protected static ParserArray<TInterface, T>.LA LazyAFor<TInterface, T>(out TInterface parser)
-    where TInterface : class, Parser<T>.IA
+  protected static ParserArray<TInterface, T> LazyAFor<TInterface, T>(out TInterface parser)
+    where TInterface : class, IParserArray<T>
   {
     TInterface p = A.Of<TInterface>();
     p.Parse(default!, default!)
       .ReturnsForAnyArgs(0.EmptyArray<T>());
     parser = p;
-    return new ParserArray<TInterface, T>.LA(() => p);
+    return new ParserArray<TInterface, T>(() => p);
   }
 
-  protected static void ConfigureRepo<T>([NotNull] IParserRepository repo, out Parser<T>.I parser)
+  protected static void ConfigureRepo<T>([NotNull] IParserRepository repo, out IParser<T> parser)
   {
-    Parser<T>.I p = A.Of<Parser<T>.I>();
+    IParser<T> p = A.Of<IParser<T>>();
     p.Parse(default!, default!)
       .ReturnsForAnyArgs(default(T).Empty());
-    Parser<T>.L lazy = new(() => p);
     parser = p;
-    repo.ParserFor<T>().ReturnsForAnyArgs(lazy);
+    repo.ParserFor<T>().ReturnsForAnyArgs(() => p);
   }
 
-  protected static void ConfigureRepoArray<T>([NotNull] IParserRepository repo, out Parser<T>.IA parser)
+  protected static void ConfigureRepoArray<T>([NotNull] IParserRepository repo, out IParserArray<T> parser)
   {
-    Parser<T>.IA p = A.Of<Parser<T>.IA>();
+    IParserArray<T> p = A.Of<IParserArray<T>>();
     p.Parse(default!, default!)
       .ReturnsForAnyArgs(0.EmptyArray<T>());
-    Parser<T>.LA lazy = new(() => p);
     parser = p;
-    repo.ArrayFor<T>().ReturnsForAnyArgs(lazy);
+    repo.ArrayFor<T>().ReturnsForAnyArgs(() => p);
   }
 
   protected static void ConfigureRepoInterface<TInterface, T>([NotNull] IParserRepository repo, out TInterface parser)
-    where TInterface : class, Parser<T>.I
+    where TInterface : class, IParser<T>
   {
-    TInterface p = Substitute.For<TInterface, Parser<T>.I>();
+    TInterface p = Substitute.For<TInterface, IParser<T>>();
     p.Parse(default!, default!)
       .ReturnsForAnyArgs(default(T).Empty());
-    Parser<TInterface, T>.L lazy = new(() => p);
     parser = p;
-    repo.ParserFor<TInterface, T>().ReturnsForAnyArgs(lazy);
+    repo.ParserFor<TInterface, T>().ReturnsForAnyArgs(() => p);
   }
 
   protected static void ConfigureRepoArrayInterface<TInterface, T>([NotNull] IParserRepository repo, out TInterface parser)
-    where TInterface : class, Parser<T>.IA
+    where TInterface : class, IParserArray<T>
   {
     TInterface p = A.Of<TInterface>();
     p.Parse(default!, default!)
       .ReturnsForAnyArgs(0.EmptyArray<T>());
-    ParserArray<TInterface, T>.LA lazy = new(() => p);
     parser = p;
-    repo.ArrayFor<TInterface, T>().ReturnsForAnyArgs(lazy);
+    repo.ArrayFor<TInterface, T>().ReturnsForAnyArgs(() => p);
   }
 
-  protected static Parser<T>.D ParserFor<T>(out Parser<T>.I parser)
+  protected static ParserOne<T>.D ParserFor<T>(out IParser<T> parser)
   {
-    parser = A.Of<Parser<T>.I>();
+    parser = A.Of<IParser<T>>();
     parser.Parse(default!, default!)
       .ReturnsForAnyArgs(default(T).Empty());
 
-    Parser<T>.D result = A.Of<Parser<T>.D>();
+    ParserOne<T>.D result = A.Of<ParserOne<T>.D>();
     result().Returns(parser);
 
     return result;
   }
 
-  protected static Parser<T>.DA ParserAFor<T>(out Parser<T>.IA parser)
+  protected static ParserArray<T>.D ParserAFor<T>(out IParserArray<T> parser)
   {
-    parser = A.Of<Parser<T>.IA>();
+    parser = A.Of<IParserArray<T>>();
     parser.Parse(default!, default!)
       .ReturnsForAnyArgs(0.EmptyArray<T>());
 
-    Parser<T>.DA result = A.Of<Parser<T>.DA>();
+    ParserArray<T>.D result = A.Of<ParserArray<T>.D>();
     result().Returns(parser);
 
     return result;
   }
 
-  protected static Parser<TInterface, T>.D ParserFor<TInterface, T>(out TInterface parser)
-    where TInterface : class, Parser<T>.I
+  protected static ParserOne<TInterface, T>.D ParserFor<TInterface, T>(out TInterface parser)
+    where TInterface : class, IParser<T>
   {
-    parser = Substitute.For<TInterface, Parser<T>.I>();
+    parser = Substitute.For<TInterface, IParser<T>>();
     parser.Parse(default!, default!)
       .ReturnsForAnyArgs(default(T).Empty());
 
-    Parser<TInterface, T>.D result = A.Of<Parser<TInterface, T>.D>();
+    ParserOne<TInterface, T>.D result = A.Of<ParserOne<TInterface, T>.D>();
     result().Returns(parser);
 
     return result;
   }
 
-  protected static ParserArray<TInterface, T>.DA ParserAFor<TInterface, T>(out TInterface parser)
-    where TInterface : class, Parser<T>.IA
+  protected static ParserArray<TInterface, T>.D ParserAFor<TInterface, T>(out TInterface parser)
+    where TInterface : class, IParserArray<T>
   {
     parser = A.Of<TInterface>();
     parser.Parse(default!, default!)
       .ReturnsForAnyArgs(0.EmptyArray<T>());
 
-    ParserArray<TInterface, T>.DA result = A.Of<ParserArray<TInterface, T>.DA>();
+    ParserArray<TInterface, T>.D result = A.Of<ParserArray<TInterface, T>.D>();
     result().Returns(parser);
 
     return result;
   }
 
-  protected static Parser<IOptionParser<T>, T>.D OptionParserFor<T>()
+  protected static ParserOne<IOptionParser<T>, T>.D OptionParserFor<T>()
     where T : struct
     => OptionParserFor(out IOptionParser<T> _);
 
-  protected static Parser<IOptionParser<T>, T>.D OptionParserFor<T>(out IOptionParser<T> parser)
+  protected static ParserOne<IOptionParser<T>, T>.D OptionParserFor<T>(out IOptionParser<T> parser)
     where T : struct
   {
     parser = A.Of<IOptionParser<T>>();
     parser.Parse(default!, default!)
       .ReturnsForAnyArgs(default(T).Empty());
 
-    Parser<IOptionParser<T>, T>.D result = A.Of<Parser<IOptionParser<T>, T>.D>();
+    ParserOne<IOptionParser<T>, T>.D result = A.Of<ParserOne<IOptionParser<T>, T>.D>();
     result().Returns(parser);
 
     return result;
   }
 
-  protected static Parser<IEnumParser<T>, T>.D EnumParserFor<T>()
+  protected static ParserOne<IEnumParser<T>, T>.D EnumParserFor<T>()
     where T : struct
     => EnumParserFor(out IEnumParser<T> _);
 
-  protected static Parser<IEnumParser<T>, T>.D EnumParserFor<T>(out IEnumParser<T> parser)
+  protected static ParserOne<IEnumParser<T>, T>.D EnumParserFor<T>(out IEnumParser<T> parser)
     where T : struct
   {
     parser = A.Of<IEnumParser<T>>();
     parser.Parse(default!, default!)
       .ReturnsForAnyArgs(default(T).Empty());
 
-    Parser<IEnumParser<T>, T>.D result = A.Of<Parser<IEnumParser<T>, T>.D>();
+    ParserOne<IEnumParser<T>, T>.D result = A.Of<ParserOne<IEnumParser<T>, T>.D>();
     result().Returns(parser);
 
     return result;

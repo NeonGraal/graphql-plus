@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus;
 
 namespace GqlPlus.Encoding;
 

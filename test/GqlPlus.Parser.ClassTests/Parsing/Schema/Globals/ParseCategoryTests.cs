@@ -7,14 +7,14 @@ public class ParseCategoryTests
 {
 
   private readonly IOptionParser<CategoryOption> _option;
-  private readonly Parser<CategoryOutput>.I _definition;
+  private readonly IParser<CategoryOutput> _definition;
   private readonly ParseCategory _parser;
 
   public ParseCategoryTests()
   {
     ICategoryName name = Substitute.For<ICategoryName>();
     NameParser = name;
-    Parsers.GetName<ICategoryName>().ReturnsForAnyArgs(name);
+    Parsers.GetName<ICategoryName>().ReturnsForAnyArgs(() => name);
     ConfigureRepoInterface<IOptionParser<CategoryOption>, CategoryOption>(Parsers, out _option);
     ConfigureRepo(Parsers, out _definition);
     _parser = new ParseCategory(Parsers);

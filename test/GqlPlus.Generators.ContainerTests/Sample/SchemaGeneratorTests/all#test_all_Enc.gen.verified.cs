@@ -27,8 +27,8 @@ internal class testManyEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestMany>
 {
-  private readonly IEncoder<ItestGuid> _guid = encoders.EncoderFor<ItestGuid>();
-  private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
+  private readonly Encoder<ItestGuid> _guid = encoders.EncoderFor<ItestGuid>();
+  private readonly Encoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ItestMany input)
     => input.HasA<ItestGuid>() ? _guid.Encode(input.AsA<ItestGuid>())
      : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
@@ -63,7 +63,7 @@ internal class testAllEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestAllObject>
 {
-  private readonly IEncoder<ItestField> _itestField = encoders.EncoderFor<ItestField>();
+  private readonly Encoder<ItestField> _itestField = encoders.EncoderFor<ItestField>();
   public Structured Encode(ItestAllObject input)
     => Structured.Empty()
       .AddEncoded("items", input.Items, _itestField);

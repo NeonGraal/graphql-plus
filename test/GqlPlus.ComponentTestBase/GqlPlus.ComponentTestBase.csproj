@@ -6,11 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="DI\*.liquid" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Fluid.Core" />
     <PackageReference Include="Xunit.DependencyInjection" />
     <PackageReference Include="Xunit.DependencyInjection.Logging" />
   </ItemGroup>

@@ -6,18 +6,18 @@ namespace GqlPlus.Parsing.Schema;
 
 internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, TResult>(
   IParserRepository parsers
-) : Parser<TResult>.I
-  where TName : INameParser
+) : IParser<TResult>
+  where TName : class, INameParser
   where TOption : struct
 {
-  private readonly TName _name = parsers.GetName<TName>();
-  private readonly Parser<TParam>.LA _param = parsers.ArrayFor<TParam>();
-  private readonly Parser<IOptionParser<TOption>, TOption>.L _option = parsers.ParserFor<IOptionParser<TOption>, TOption>();
-  private readonly Parser<TDefinition>.L _definition = parsers.ParserFor<TDefinition>();
+  private readonly ParserName<TName> _name = parsers.GetName<TName>();
+  private readonly ParserArray<TParam> _param = parsers.ArrayFor<TParam>();
+  private readonly ParserOne<IOptionParser<TOption>, TOption> _option = parsers.ParserFor<IOptionParser<TOption>, TOption>();
+  private readonly ParserOne<TDefinition> _definition = parsers.ParserFor<TDefinition>();
 
-  private readonly Parser<string>.LA _aliases = parsers.ArrayFor<string>();
+  private readonly ParserArray<string> _aliases = parsers.ArrayFor<string>();
 
-  public IResult<TResult> Parse(ITokenizer tokens, string label)
+  public IResult<TResult> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     string description = tokens.GetDescription();
@@ -42,7 +42,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
       return tokens.Partial(label, "'{' before definition", () => ToResult(partial));
     }
 
-    IResult<TOption> option = _option.I.Parse(tokens, label);
+    IResult<TOption> option = _option.Parse(tokens, label);
     if (!option.Optional(value => partial.Option = value)) {
       return option.AsPartial(ToResult(partial));
     }

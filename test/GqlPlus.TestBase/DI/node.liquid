@@ -1,0 +1,7 @@
+{{ type.Key }}
+{%- if type.IsHref -%}
+[["{{ type.Safe }}"]]
+click {{ type.Safe }} href "#{{ type.Safe }}" "- {{ type.Safe }}"
+{% else -%}
+("{{ type.Safe }}")
+{% endif -%}

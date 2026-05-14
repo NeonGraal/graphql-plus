@@ -7,7 +7,7 @@ public class ParseArgTests
 {
 
   private readonly ParseArg _parseArg;
-  private readonly Parser<IAstFieldKey>.I _fieldKeyParser;
+  private readonly IParser<IAstFieldKey> _fieldKeyParser;
   private readonly IValueParser<IAstArg> _argumentParser;
 
   private readonly IAstFieldKey _fieldKey = AtFor<IAstFieldKey>();
@@ -86,7 +86,7 @@ public class ParseArgTests
     ParseOk(_fieldKeyParser, _fieldKey);
     ParseOk(_argumentParser, _arg);
 
-    Parser<KeyValue<IAstArg>>.D keyValueDelegate = ParserFor(out Parser<KeyValue<IAstArg>>.I keyValueParser);
+    ParserOne<KeyValue<IAstArg>>.D keyValueDelegate = ParserFor(out IParser<KeyValue<IAstArg>> keyValueParser);
     _argumentParser.KeyValueParser.Returns(keyValueDelegate);
     ParseOk(keyValueParser, new KeyValue<IAstArg>(_fieldKey, _arg));
 
@@ -109,7 +109,7 @@ public class ParseArgTests
     ParseOk(_fieldKeyParser, _fieldKey);
     Parse(_argumentParser, _arg.Ok(), _arg.Ok(), _arg.Empty());
 
-    Parser<KeyValue<IAstArg>>.D keyValueDelegate = ParserFor(out Parser<KeyValue<IAstArg>>.I keyValueParser);
+    ParserOne<KeyValue<IAstArg>>.D keyValueDelegate = ParserFor(out IParser<KeyValue<IAstArg>> keyValueParser);
     _argumentParser.KeyValueParser.Returns(keyValueDelegate);
     ParseOk(keyValueParser, new KeyValue<IAstArg>(_fieldKey, _arg));
 
@@ -131,7 +131,7 @@ public class ParseArgTests
     ParseOk(_fieldKeyParser, _fieldKey);
     ParseOk(_argumentParser, _arg);
 
-    Parser<KeyValue<IAstArg>>.D keyValueDelegate = ParserFor(out Parser<KeyValue<IAstArg>>.I keyValueParser);
+    ParserOne<KeyValue<IAstArg>>.D keyValueDelegate = ParserFor(out IParser<KeyValue<IAstArg>> keyValueParser);
     _argumentParser.KeyValueParser.Returns(keyValueDelegate);
     ParseError(keyValueParser);
 

@@ -9,6 +9,10 @@ internal class EncoderRepositoryBuilder
   internal readonly FactoryDict Encoders = [];
   internal readonly Dictionary<Type, FactoryList> ListEncoders = [];
 
+  public IEnumerable<KeyValuePair<Type, Factory<object, IEncoderRepository>>> AllFactories
+    => [.. Encoders,
+      .. ListEncoders.SelectMany(kv => kv.Value.Select(f => f.ToKeyValue(kv.Key)))];
+
   public IEncoderRepositoryBuilder AddEncoder<TModel>(Factory<IEncoder<TModel>, IEncoderRepository> factory)
     => this.FluentAction(b => b.Encoders[typeof(TModel)] = factory);
 
@@ -16,7 +20,7 @@ internal class EncoderRepositoryBuilder
     => this.FluentAction(b => {
       b.Encoders[typeof(TModel)] = factory;
       FactoryList list = b.ListEncoders.GetValueOrCreate(typeof(TList), _ => []);
-      list.Add(r => r.EncoderFor<TModel>());
+      list.Add(r => r.EncoderFor<TModel>()());
     });
 
   internal IEnumerable<Factory<TList, IEncoderRepository>> FactoriesFor<TList>([CallerMemberName] string callerName = "")

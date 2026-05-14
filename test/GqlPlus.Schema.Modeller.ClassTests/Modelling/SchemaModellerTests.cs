@@ -16,7 +16,7 @@ public class SchemaModellerTests
     ModellerForReturns(modellers, _category);
     ModellerForReturns(modellers, _directive);
     ModellerForReturns(modellers, _setting);
-    modellers.TypesModeller.Returns(_types);
+    TypesModellerReturns(modellers, _types);
     Modeller = new SchemaModeller(modellers);
   }
 

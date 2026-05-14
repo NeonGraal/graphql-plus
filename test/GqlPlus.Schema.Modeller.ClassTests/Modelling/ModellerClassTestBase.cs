@@ -29,7 +29,28 @@ public abstract class ModellerClassTestBase<TAst, TModel>
   internal void ModellerForReturns<TA, TM>(IModellerRepository modellers, IModeller<TA, TM> result)
     where TA : IAstError
     where TM : IModelBase
-    => modellers.ModellerFor<TA, TM>().ReturnsForAnyArgs(result);
+  {
+    IModeller<TA, TM> factory() => result;
+    modellers.ModellerFor<TA, TM>().ReturnsForAnyArgs(factory);
+  }
+
+  internal void ModifierModellerReturns(IModellerRepository modellers, IModifierModeller result)
+  {
+    IModifierModeller factory() => result;
+    modellers.ModifierModeller().ReturnsForAnyArgs(factory);
+  }
+
+  internal void TypesModellerReturns(IModellerRepository modellers, ITypesModeller result)
+  {
+    ITypesModeller factory() => result;
+    modellers.TypesModeller().ReturnsForAnyArgs(factory);
+  }
+
+  internal void TypeModellersReturns(IModellerRepository modellers, IEnumerable<ITypeModeller> results)
+  {
+    IEnumerable<ITypeModeller> factory() => results;
+    modellers.TypeModellers().ReturnsForAnyArgs(factory);
+  }
 
   internal void ToModelReturns<TA, TM>(IModeller<TA, TM> modeller, TM result)
     where TA : IAstError

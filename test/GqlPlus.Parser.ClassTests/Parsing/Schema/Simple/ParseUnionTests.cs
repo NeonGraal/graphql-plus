@@ -6,7 +6,7 @@ public class ParseUnionTests
   : DeclarationClassTestBase
 {
 
-  private readonly Parser<UnionDefinition>.I _definition;
+  private readonly IParser<UnionDefinition> _definition;
   private readonly ParseUnion _parser;
 
   public ParseUnionTests()

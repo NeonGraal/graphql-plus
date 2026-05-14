@@ -7,7 +7,7 @@ internal class ObjectParser<TObjField>(
   TypeKind fieldKind,
   IParserRepository parsers
 ) : DeclarationParser<IAstTypeParam, ObjectDefinition<TObjField>, IAstObject<TObjField>>(parsers)
-  , Parser<IAstObject<TObjField>>.I
+  , IParser<IAstObject<TObjField>>
   where TObjField : IAstObjField
 
 {
@@ -25,6 +25,9 @@ internal class ObjectParser<TObjField>(
       Aliases = partial.Aliases,
       TypeParams = partial.Params,
     };
+
+  internal static Factory<ObjectParser<TObjField>, IParserRepository> Factory(TypeKind fieldKind)
+    => r => new(fieldKind, r);
 }
 
 internal class ObjectDefinition<TObjField>

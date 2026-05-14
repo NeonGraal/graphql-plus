@@ -9,7 +9,7 @@ internal class ParseInputField(
   IParserRepository parsers
 ) : ObjectFieldParser<IAstInputField, InputFieldAst>(parsers)
 {
-  private readonly Parser<IParserDefault, IAstConstant>.L _default = parsers.ParserFor<IParserDefault, IAstConstant>();
+  private readonly ParserOne<IParserDefault, IAstConstant> _default = parsers.ParserFor<IParserDefault, IAstConstant>();
 
   [ExcludeFromCodeCoverage]
   protected override void ApplyFieldParams(InputFieldAst field, IAstInputParam[] parameters)
@@ -23,10 +23,12 @@ internal class ParseInputField(
   ) => new(at, name, description, typeBase);
 
   protected override IResult<IAstInputField> FieldDefault(ITokenizer tokens, InputFieldAst field)
-    => _default.I
+    => _default
     .Parse(tokens, "Default")
     .AsPartial<IAstInputField>(field, constant => field.DefaultValue = constant);
 
   protected override IResultArray<IAstInputParam> FieldParam(ITokenizer tokens)
     => 0.EmptyArray<IAstInputParam>();
+
+  internal static ParseInputField Factory(IParserRepository p) => new(p);
 }

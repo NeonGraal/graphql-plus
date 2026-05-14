@@ -7,15 +7,15 @@ public class ParseDirectiveTests
 {
 
   private readonly ParseDirective _parser;
-  private readonly Parser<IAstInputParam>.IA _param;
+  private readonly IParserArray<IAstInputParam> _param;
   private readonly IOptionParser<DirectiveOption> _option;
-  private readonly Parser<DirectiveLocation>.I _definition;
+  private readonly IParser<DirectiveLocation> _definition;
 
   public ParseDirectiveTests()
   {
     IDirectiveName name = A.Of<IDirectiveName>();
     NameParser = name;
-    Parsers.GetName<IDirectiveName>().ReturnsForAnyArgs(name);
+    Parsers.GetName<IDirectiveName>().ReturnsForAnyArgs(() => name);
     ConfigureRepoArray(Parsers, out _param);
     ConfigureRepoInterface<IOptionParser<DirectiveOption>, DirectiveOption>(Parsers, out _option);
     ConfigureRepo(Parsers, out _definition);

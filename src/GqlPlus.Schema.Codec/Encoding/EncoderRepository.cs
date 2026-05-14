@@ -10,14 +10,14 @@ internal class EncoderRepository(
 ) : BaseRepository<IEncoderRepository>(loggerFactory)
   , IEncoderRepository
 {
-  public IEncoder<T> EncoderFor<T>([CallerMemberName] string callerName = "")
-    => Cached<T, IEncoder<T>>(builder.Encoders, "encoder for " + callerName, this);
+  public Encoder<T>.D EncoderFor<T>([CallerMemberName] string callerName = "")
+    => () => Cached<T, IEncoder<T>>(builder.Encoders, "encoder for " + callerName, this);
 
   private readonly ConcurrentDictionary<Type, IEnumerable<object>> _lists = new();
 
-  public IEnumerable<TList> EncodersFor<TList>([CallerMemberName] string callerName = "")
+  public DeferList<TList>.D EncodersFor<TList>([CallerMemberName] string callerName = "")
     where TList : class
-    => (IEnumerable<TList>)_lists.GetOrAdd(
+    => () => (IEnumerable<TList>)_lists.GetOrAdd(
       typeof(TList),
-      _ => builder.FactoriesFor<TList>(callerName).Select(f => f(this)));
+      _ => InstancesFor<TList>(builder.FactoriesFor<TList>(callerName), this));
 }

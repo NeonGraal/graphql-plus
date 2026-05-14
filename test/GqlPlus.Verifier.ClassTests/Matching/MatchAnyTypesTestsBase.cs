@@ -5,7 +5,7 @@ public class MatchAnyTypesTestsBase
 {
   protected Matcher<IAstType>.D AnyTypeMatcher { get; }
 
-  private readonly Matcher<IAstType>.I _anyTypeMatcher;
+  private readonly IMatcher<IAstType> _anyTypeMatcher;
 
   protected MatchAnyTypesTestsBase()
   {

@@ -4,7 +4,7 @@ internal class ObjBaseModeller(
   IModellerRepository modellers
 ) : ModellerBase<IAstObjBase, ObjBaseModel>
 {
-  private readonly IModeller<IAstTypeArg, TypeArgModel> _objArg = modellers.ModellerFor<IAstTypeArg, TypeArgModel>();
+  private readonly Modeller<IAstTypeArg, TypeArgModel> _objArg = modellers.ModellerFor<IAstTypeArg, TypeArgModel>();
 
   internal TypeArgModel[] ModelArgs(IAstObjBase ast, IMap<TypeKindModel> typeKinds)
     => [.. ast.Args.Select(a => _objArg.ToModel(a, typeKinds))];

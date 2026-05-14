@@ -3,7 +3,7 @@
 public class ModifiersClassTestBase
   : ParserClassTestBase
 {
-  private readonly Parser<IAstModifier>.IA _modifiers;
+  private readonly IParserArray<IAstModifier> _modifiers;
 
   protected IParserRepository Parsers { get; }
 
@@ -16,15 +16,13 @@ public class ModifiersClassTestBase
   {
     Parsers = A.Of<IParserRepository>();
 
-    _modifiers = A.Of<Parser<IAstModifier>.IA, IParserCollections>();
+    _modifiers = A.Of<IParserArray<IAstModifier>, IParserCollections>();
     _modifiers.Parse(default!, default!)
       .ReturnsForAnyArgs(0.EmptyArray<IAstModifier>());
 
-    Parser<IAstModifier>.LA modifiersLazy = new(() => _modifiers);
-    Parsers.ArrayFor<IAstModifier>().ReturnsForAnyArgs(modifiersLazy);
+    Parsers.ArrayFor<IAstModifier>().ReturnsForAnyArgs(() => _modifiers);
 
-    ParserArray<IParserCollections, IAstModifier>.LA collectionsLazy = new(() => (IParserCollections)_modifiers);
-    Parsers.ArrayFor<IParserCollections, IAstModifier>().ReturnsForAnyArgs(collectionsLazy);
+    Parsers.ArrayFor<IParserCollections, IAstModifier>().ReturnsForAnyArgs(() => (IParserCollections)_modifiers);
   }
 
   internal IAstModifier[] ParseAModifier()

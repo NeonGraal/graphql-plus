@@ -11,8 +11,8 @@ public class VerifyOperationTests(
     IVerifierRepository verifierRepository
 ) : SampleChecks
 {
-  private readonly Parser<IAstOperation>.L _parser = parsers.ParserFor<IAstOperation>();
-  private readonly IVerify<IAstOperation> _operationVerifier = verifierRepository.VerifierFor<IAstOperation>();
+  private readonly ParserOne<IAstOperation> _parser = parsers.ParserFor<IAstOperation>();
+  private readonly Verifier<IAstOperation> _operationVerifier = verifierRepository.VerifierFor<IAstOperation>();
 
   [Theory]
   [ClassData(typeof(SamplesOperationData))]

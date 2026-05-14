@@ -15,7 +15,7 @@ internal class CmptUnionPrntDupEncoder(
   IEncoderRepository encoders
 : CmptPrntUnionPrntDupEncoder, IEncoder<ICmptUnionPrntDup>
 {
-  private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
+  private readonly Encoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ICmptUnionPrntDup input)
     => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
      : base.Encode(input);
@@ -27,7 +27,7 @@ internal class CmptPrntUnionPrntDupEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptPrntUnionPrntDup>
 {
-  private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
+  private readonly Encoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ICmptPrntUnionPrntDup input)
     => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
      : Structured.Empty();

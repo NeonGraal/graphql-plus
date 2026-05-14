@@ -1,7 +1,8 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus;
+using GqlPlus.Ast.Schema;
 using NSubstitute;
 
-namespace GqlPlus.Helpers;
+namespace GqlPlus;
 
 public class SchemaAbstractionTests
 {

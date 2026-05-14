@@ -11,7 +11,7 @@ internal class testPrntDualOutpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestPrntDualOutpObject>
 {
-  private readonly IEncoder<ItestRefPrntDualOutpObject> _itestRefPrntDualOutp = encoders.EncoderFor<ItestRefPrntDualOutpObject>();
+  private readonly Encoder<ItestRefPrntDualOutpObject> _itestRefPrntDualOutp = encoders.EncoderFor<ItestRefPrntDualOutpObject>();
   public Structured Encode(ItestPrntDualOutpObject input)
     => _itestRefPrntDualOutp.Encode(input);
 

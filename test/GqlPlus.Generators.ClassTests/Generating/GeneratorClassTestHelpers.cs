@@ -44,7 +44,10 @@ internal static class GeneratorClassTestHelpers
     => result => result.ShouldContain(required);
 
   public static void EncoderForReturns<T>([NotNull] this IEncoderRepository repo, IEncoder<T> result)
-    => repo.EncoderFor<T>().ReturnsForAnyArgs(result);
+  {
+    IEncoder<T> factory() => result;
+    repo.EncoderFor<T>().ReturnsForAnyArgs(factory);
+  }
 }
 
 internal delegate Action<string> ForType(GqlpGeneratorType forType);

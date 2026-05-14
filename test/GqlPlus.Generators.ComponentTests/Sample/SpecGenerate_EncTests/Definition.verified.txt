@@ -90,10 +90,10 @@ internal class Cmpt_BasicEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_Basic>
 {
-  private readonly IEncoder<bool> _boolean = encoders.EncoderFor<bool>();
-  private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
-  private readonly IEncoder<string> _string = encoders.EncoderFor<string>();
-  private readonly IEncoder<GqlpUnit> _unit = encoders.EncoderFor<GqlpUnit>();
+  private readonly Encoder<bool> _boolean = encoders.EncoderFor<bool>();
+  private readonly Encoder<decimal> _number = encoders.EncoderFor<decimal>();
+  private readonly Encoder<string> _string = encoders.EncoderFor<string>();
+  private readonly Encoder<GqlpUnit> _unit = encoders.EncoderFor<GqlpUnit>();
   public Structured Encode(ICmpt_Basic input)
     => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
      : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
@@ -108,8 +108,8 @@ internal class Cmpt_InternalEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_Internal>
 {
-  private readonly IEncoder<GqlpNull> _null = encoders.EncoderFor<GqlpNull>();
-  private readonly IEncoder<void> _void = encoders.EncoderFor<void>();
+  private readonly Encoder<GqlpNull> _null = encoders.EncoderFor<GqlpNull>();
+  private readonly Encoder<void> _void = encoders.EncoderFor<void>();
   public Structured Encode(ICmpt_Internal input)
     => input.HasA<GqlpNull>() ? _null.Encode(input.AsA<GqlpNull>())
      : input.HasA<void>() ? _void.Encode(input.AsA<void>())
@@ -122,9 +122,9 @@ internal class Cmpt_KeyEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_Key>
 {
-  private readonly IEncoder<ICmpt_Basic> __basic = encoders.EncoderFor<ICmpt_Basic>();
-  private readonly IEncoder<ICmpt_Internal> __internal = encoders.EncoderFor<ICmpt_Internal>();
-  private readonly IEncoder<ICmpt_Simple> __simple = encoders.EncoderFor<ICmpt_Simple>();
+  private readonly Encoder<ICmpt_Basic> __basic = encoders.EncoderFor<ICmpt_Basic>();
+  private readonly Encoder<ICmpt_Internal> __internal = encoders.EncoderFor<ICmpt_Internal>();
+  private readonly Encoder<ICmpt_Simple> __simple = encoders.EncoderFor<ICmpt_Simple>();
   public Structured Encode(ICmpt_Key input)
     => input.HasA<ICmpt_Basic>() ? __basic.Encode(input.AsA<ICmpt_Basic>())
      : input.HasA<ICmpt_Internal>() ? __internal.Encode(input.AsA<ICmpt_Internal>())
@@ -194,9 +194,9 @@ internal class Cmpt_SimpleEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_Simple>
 {
-  private readonly IEncoder<ICmpt_Enum> __enum = encoders.EncoderFor<ICmpt_Enum>();
-  private readonly IEncoder<ICmpt_Domain> __domain = encoders.EncoderFor<ICmpt_Domain>();
-  private readonly IEncoder<ICmpt_Union> __union = encoders.EncoderFor<ICmpt_Union>();
+  private readonly Encoder<ICmpt_Enum> __enum = encoders.EncoderFor<ICmpt_Enum>();
+  private readonly Encoder<ICmpt_Domain> __domain = encoders.EncoderFor<ICmpt_Domain>();
+  private readonly Encoder<ICmpt_Union> __union = encoders.EncoderFor<ICmpt_Union>();
   public Structured Encode(ICmpt_Simple input)
     => input.HasA<ICmpt_Enum>() ? __enum.Encode(input.AsA<ICmpt_Enum>())
      : input.HasA<ICmpt_Domain>() ? __domain.Encode(input.AsA<ICmpt_Domain>())

@@ -16,9 +16,9 @@ public class MatchTestsBase
     MatcherRepo.LoggerFactory.Returns(LoggerFactory);
   }
 
-  protected static Matcher<T>.D MatcherFor<T>(out Matcher<T>.I matcher)
+  protected static Matcher<T>.D MatcherFor<T>(out IMatcher<T> matcher)
   {
-    matcher = A.Of<Matcher<T>.I>();
+    matcher = A.Of<IMatcher<T>>();
 
     Matcher<T>.D result = A.Of<Matcher<T>.D>();
     result().Returns(matcher);

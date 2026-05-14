@@ -10,10 +10,10 @@ public class OutputModellerTests
     IModeller<IAstOutputField, OutputFieldModel> objField = MFor<IAstOutputField, OutputFieldModel>();
 
     IModellerRepository modellers = A.Of<IModellerRepository>();
-    modellers.ModellerFor<IAstTypeParam, TypeParamModel>().Returns(typeParam);
-    modellers.ModellerFor<IAstAlternate, AlternateModel>().Returns(alternate);
-    modellers.ModellerFor<IAstOutputField, OutputFieldModel>().Returns(objField);
-    modellers.ModellerFor<IAstObjBase, ObjBaseModel>().Returns(ObjBase);
+    ModellerForReturns(modellers, typeParam);
+    ModellerForReturns(modellers, alternate);
+    ModellerForReturns(modellers, objField);
+    ModellerForReturns(modellers, ObjBase);
     Modeller = new OutputModeller(modellers);
   }
 

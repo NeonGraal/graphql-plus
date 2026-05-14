@@ -11,7 +11,7 @@ internal class test_SchemaEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_SchemaObject>
 {
-  private readonly IEncoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
+  private readonly Encoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
   public Structured Encode(Itest_SchemaObject input)
     => _itest_Named.Encode(input);
 

@@ -3,16 +3,15 @@
 public class AliasesClassTestBase
   : ModifiersClassTestBase
 {
-  private readonly Parser<string>.IA _aliases;
+  private readonly IParserArray<string> _aliases;
 
   public AliasesClassTestBase()
   {
-    _aliases = A.Of<Parser<string>.IA>();
+    _aliases = A.Of<IParserArray<string>>();
     _aliases.Parse(default!, default!)
       .ReturnsForAnyArgs(0.EmptyArray<string>());
 
-    Parser<string>.LA aliasesLazy = new(() => _aliases);
-    Parsers.ArrayFor<string>().ReturnsForAnyArgs(aliasesLazy);
+    Parsers.ArrayFor<string>().ReturnsForAnyArgs(() => _aliases);
   }
 
   internal void ParseAliasesOk(string[] aliases)

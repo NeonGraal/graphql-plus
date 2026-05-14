@@ -3,7 +3,7 @@
 public class DomainMatcherTests
   : MatchTestsBase
 {
-  private readonly Matcher<IAstEnum>.I _enumMatcher;
+  private readonly IMatcher<IAstEnum> _enumMatcher;
   private readonly DomainMatcher _sut;
 
   public DomainMatcherTests()

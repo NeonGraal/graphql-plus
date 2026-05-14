@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Operation;
+﻿using GqlPlus;
+using GqlPlus.Ast.Operation;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
@@ -8,10 +9,10 @@ internal class ParseArg(
   IParserRepository parsers
 ) : IParserArg
 {
-  private readonly Parser<IAstFieldKey>.L _fieldKey = parsers.ParserFor<IAstFieldKey>();
-  private readonly Parser<IValueParser<IAstArg>, IAstArg>.L _argument = parsers.ParserFor<IValueParser<IAstArg>, IAstArg>();
+  private readonly ParserOne<IAstFieldKey> _fieldKey = parsers.ParserFor<IAstFieldKey>();
+  private readonly ParserOne<IValueParser<IAstArg>, IAstArg> _argument = parsers.ParserFor<IValueParser<IAstArg>, IAstArg>();
 
-  public IResult<IAstArg> Parse(ITokenizer tokens, string label)
+  public IResult<IAstArg> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     if (!tokens.Take('(')) {
@@ -29,15 +30,14 @@ internal class ParseArg(
       if (fieldKey.IsOk()) {
         return fieldKey.Map(key =>
           tokens.Take(':')
-          ? _argument.I
-            .Parse(tokens, "Arg")
+          ? _argument.Parse(tokens, "Arg")
             .MapOk(
               item => ParseArgMid(tokens, at, new(key, item)),
               () => tokens.Error(label, "a value after field key separator", value))
           : ParseArgEnd(tokens, at, new ArgAst(key)));
       }
 
-      IResult<IAstArg> argValue = _argument.I.Parse(tokens, label);
+      IResult<IAstArg> argValue = _argument.Parse(tokens, label);
 
       return argValue.MapOk(value => ParseArgEnd(tokens, at, value), () => argValue);
     } finally {
@@ -50,7 +50,7 @@ internal class ParseArg(
     ITokenAt at = initial.At;
     List<IAstArg> values = [initial];
     while (tokens.Take(',')) {
-      _argument.I.Parse(tokens, "Arg").Required(values.Add);
+      _argument.Parse(tokens, "Arg").Required(values.Add);
     }
 
     return values.Count > 1
@@ -89,7 +89,7 @@ internal class ParseArg(
     }
 
     List<IAstArg> values = [value];
-    while (_argument.I.Parse(tokens, "Arg").Required(values.Add)) { }
+    while (_argument.Parse(tokens, "Arg").Required(values.Add)) { }
 
     if (tokens.Take(')')) {
       IAstArg argument = values.Count > 1 ? new ArgAst(at, values) : value;
@@ -98,8 +98,10 @@ internal class ParseArg(
 
     return tokens.Error("Arg", "a value", more);
   }
+
+  internal static ParseArg Factory(IParserRepository p) => new(p);
 }
 
 public interface IParserArg
-  : Parser<IAstArg>.I
+  : IParser<IAstArg>
 { }

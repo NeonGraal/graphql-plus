@@ -5,7 +5,7 @@ namespace GqlPlus.Parsing.Schema;
 public class DeclarationClassTestBase
   : AliasesClassTestBase
 {
-  private readonly Parser<NullAst>.IA _nullParam;
+  private readonly IParserArray<NullAst> _nullParam;
   private readonly IOptionParser<NullOption> _option;
 
   internal INameParser NameParser { get; set; }
@@ -15,19 +15,17 @@ public class DeclarationClassTestBase
   {
     SimpleName = A.Of<ISimpleName>();
     NameParser = SimpleName;
-    Parsers.GetName<ISimpleName>().ReturnsForAnyArgs(SimpleName);
+    Parsers.GetName<ISimpleName>().ReturnsForAnyArgs(() => SimpleName);
 
-    _nullParam = A.Of<Parser<NullAst>.IA>();
+    _nullParam = A.Of<IParserArray<NullAst>>();
     _nullParam.Parse(default!, default!)
       .ReturnsForAnyArgs(0.EmptyArray<NullAst>());
-    Parser<NullAst>.LA nullParamLazy = new(() => _nullParam);
-    Parsers.ArrayFor<NullAst>().ReturnsForAnyArgs(nullParamLazy);
+    Parsers.ArrayFor<NullAst>().ReturnsForAnyArgs(() => _nullParam);
 
     _option = A.Of<IOptionParser<NullOption>>();
     _option.Parse(default!, default!)
       .ReturnsForAnyArgs(default(NullOption).Empty());
-    Parser<IOptionParser<NullOption>, NullOption>.L optionLazy = new(() => _option);
-    Parsers.ParserFor<IOptionParser<NullOption>, NullOption>().ReturnsForAnyArgs(optionLazy);
+    Parsers.ParserFor<IOptionParser<NullOption>, NullOption>().ReturnsForAnyArgs(() => _option);
 
     TakeReturns('{', true);
   }
@@ -38,7 +36,7 @@ public class DeclarationClassTestBase
   internal void NameReturns(string? name)
     => NameParser.ParseName(default!, out string? _, out TokenAt _).ReturnsForAnyArgs(OutStringAt(name));
 
-  public void Check_ShouldReturnError_WhenNoName<T>([NotNull] Parser<T>.I parser)
+  public void Check_ShouldReturnError_WhenNoName<T>([NotNull] IParser<T> parser)
     where T : class, IAstError
   {
     // Arrange

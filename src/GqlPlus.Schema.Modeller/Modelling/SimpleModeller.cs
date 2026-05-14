@@ -4,7 +4,7 @@ internal class SimpleModeller(
   IModellerRepository modellers
 ) : ModellerBase<IAstFieldKey, SimpleModel>
 {
-  private readonly IModeller<IAstEnumValue, EnumValueModel> _enumValue = modellers.ModellerFor<IAstEnumValue, EnumValueModel>();
+  private readonly Modeller<IAstEnumValue, EnumValueModel> _enumValue = modellers.ModellerFor<IAstEnumValue, EnumValueModel>();
 
   protected override SimpleModel ToModel(IAstFieldKey ast, IMap<TypeKindModel> typeKinds)
     => ast switch {

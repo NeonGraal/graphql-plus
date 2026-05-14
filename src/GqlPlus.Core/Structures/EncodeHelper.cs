@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast;
-
-namespace GqlPlus.Structures;
+﻿namespace GqlPlus.Structures;
 
 public static class EncodeHelper
 {

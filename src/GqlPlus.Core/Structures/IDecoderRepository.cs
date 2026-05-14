@@ -3,8 +3,9 @@
 namespace GqlPlus.Structures;
 
 public interface IDecoderRepository
+  : IRepository
 {
-  IDecoder<T> DecoderFor<T>([CallerMemberName] string callerName = "");
-  TDecoder DecoderFor<TDecoder, TBase>([CallerMemberName] string callerName = "")
+  Decoder<T>.D DecoderFor<T>([CallerMemberName] string callerName = "");
+  DeferOne<TDecoder>.D DecoderFor<TDecoder, TBase>([CallerMemberName] string callerName = "")
     where TDecoder : class, IDecoder<TBase>;
 }

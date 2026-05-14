@@ -4,7 +4,7 @@ public class EnumConstraintMatcherTests
   : MatchTestsBase
 {
   private readonly EnumConstraintMatcher _sut;
-  private readonly Matcher<IAstEnum>.I _enumMatcher;
+  private readonly IMatcher<IAstEnum> _enumMatcher;
 
   public EnumConstraintMatcherTests()
   {

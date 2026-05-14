@@ -6,14 +6,14 @@ namespace GqlPlus.Parsing.Operation;
 
 internal class ParseVariable(
   IParserRepository parsers
-) : Parser<IAstVariable>.I
+) : IParser<IAstVariable>
 {
-  private readonly Parser<IAstModifier>.LA _modifiers = parsers.ArrayFor<IAstModifier>();
-  private readonly Parser<IAstDirective>.LA _directives = parsers.ArrayFor<IAstDirective>();
-  private readonly Parser<IParserDefault, IAstConstant>.L _default = parsers.ParserFor<IParserDefault, IAstConstant>();
-  private readonly Parser<IParserVarType, string>.L _varTypeParser = parsers.ParserFor<IParserVarType, string>();
+  private readonly ParserArray<IAstModifier> _modifiers = parsers.ArrayFor<IAstModifier>();
+  private readonly ParserArray<IAstDirective> _directives = parsers.ArrayFor<IAstDirective>();
+  private readonly ParserOne<IParserDefault, IAstConstant> _default = parsers.ParserFor<IParserDefault, IAstConstant>();
+  private readonly ParserOne<IParserVarType, string> _varTypeParser = parsers.ParserFor<IParserVarType, string>();
 
-  public IResult<IAstVariable> Parse(ITokenizer tokens, string label)
+  public IResult<IAstVariable> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     bool prefix = tokens.Prefix('$', out string? name, out TokenAt at);
@@ -27,7 +27,7 @@ internal class ParseVariable(
     }
 
     if (tokens.Take(':')) {
-      if (!_varTypeParser.I.Parse(tokens, "Variable Type").Required(varType => variable.Type = varType)) {
+      if (!_varTypeParser.Parse(tokens, "Variable Type").Required(varType => variable.Type = varType)) {
         return tokens.Partial<IAstVariable>(label, "type after ':'", () => variable);
       }
     }
@@ -37,7 +37,7 @@ internal class ParseVariable(
       return modifiers.AsResult<IAstVariable>(variable);
     }
 
-    IResult<IAstConstant> constant = _default.I.Parse(tokens, label);
+    IResult<IAstConstant> constant = _default.Parse(tokens, label);
     if (!constant.Optional(value => variable.DefaultValue = value)) {
       return constant.AsResult<IAstVariable>(variable);
     }
@@ -47,4 +47,6 @@ internal class ParseVariable(
       ? variable.Ok<IAstVariable>()
       : directives.AsResult<IAstVariable>(variable);
   }
+
+  internal static ParseVariable Factory(IParserRepository p) => new(p);
 }

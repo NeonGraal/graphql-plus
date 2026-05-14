@@ -5,7 +5,7 @@ public class ValueListParserTests
 {
 
   private readonly ValueListParser<IAstConstant> _parser;
-  private readonly Parser<IAstConstant>.I _valueParser;
+  private readonly IParser<IAstConstant> _valueParser;
 
   public ValueListParserTests()
   {

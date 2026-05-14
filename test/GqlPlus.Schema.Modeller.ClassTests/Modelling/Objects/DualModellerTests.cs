@@ -10,10 +10,10 @@ public class DualModellerTests
     IModeller<IAstDualField, DualFieldModel> objField = MFor<IAstDualField, DualFieldModel>();
 
     IModellerRepository modellers = A.Of<IModellerRepository>();
-    modellers.ModellerFor<IAstTypeParam, TypeParamModel>().Returns(typeParam);
-    modellers.ModellerFor<IAstAlternate, AlternateModel>().Returns(alternate);
-    modellers.ModellerFor<IAstDualField, DualFieldModel>().Returns(objField);
-    modellers.ModellerFor<IAstObjBase, ObjBaseModel>().Returns(ObjBase);
+    ModellerForReturns(modellers, typeParam);
+    ModellerForReturns(modellers, alternate);
+    ModellerForReturns(modellers, objField);
+    ModellerForReturns(modellers, ObjBase);
     Modeller = new DualModeller(modellers);
   }
 

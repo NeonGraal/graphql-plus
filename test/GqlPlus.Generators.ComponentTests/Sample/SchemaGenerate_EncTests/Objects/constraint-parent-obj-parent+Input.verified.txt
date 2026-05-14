@@ -17,7 +17,7 @@ internal class CmptCnstPrntObjPrntInpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptCnstPrntObjPrntInpObject>
 {
-  private readonly IEncoder<ICmptRefCnstPrntObjPrntInpObject<ICmptAltCnstPrntObjPrntInp>> _refCnstPrntObjPrntInp = encoders.EncoderFor<ICmptRefCnstPrntObjPrntInpObject<ICmptAltCnstPrntObjPrntInp>>();
+  private readonly Encoder<ICmptRefCnstPrntObjPrntInpObject<ICmptAltCnstPrntObjPrntInp>> _refCnstPrntObjPrntInp = encoders.EncoderFor<ICmptRefCnstPrntObjPrntInpObject<ICmptAltCnstPrntObjPrntInp>>();
   public Structured Encode(ICmptCnstPrntObjPrntInpObject input)
     => _refCnstPrntObjPrntInp.Encode(input);
 
@@ -42,7 +42,7 @@ internal class CmptAltCnstPrntObjPrntInpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptAltCnstPrntObjPrntInpObject>
 {
-  private readonly IEncoder<ICmptPrntCnstPrntObjPrntInpObject> _prntCnstPrntObjPrntInp = encoders.EncoderFor<ICmptPrntCnstPrntObjPrntInpObject>();
+  private readonly Encoder<ICmptPrntCnstPrntObjPrntInpObject> _prntCnstPrntObjPrntInp = encoders.EncoderFor<ICmptPrntCnstPrntObjPrntInpObject>();
   public Structured Encode(ICmptAltCnstPrntObjPrntInpObject input)
     => _prntCnstPrntObjPrntInp.Encode(input)
       .Add("alt", input.Alt.Encode());

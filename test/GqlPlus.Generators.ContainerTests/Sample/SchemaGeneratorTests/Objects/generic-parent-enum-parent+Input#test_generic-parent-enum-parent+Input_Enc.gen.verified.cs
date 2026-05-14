@@ -11,7 +11,7 @@ internal class testGnrcPrntEnumPrntInpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestGnrcPrntEnumPrntInpObject>
 {
-  private readonly IEncoder<ItestFieldGnrcPrntEnumPrntInpObject<testEnumGnrcPrntEnumPrntInp>> _itestFieldGnrcPrntEnumPrntInp = encoders.EncoderFor<ItestFieldGnrcPrntEnumPrntInpObject<testEnumGnrcPrntEnumPrntInp>>();
+  private readonly Encoder<ItestFieldGnrcPrntEnumPrntInpObject<testEnumGnrcPrntEnumPrntInp>> _itestFieldGnrcPrntEnumPrntInp = encoders.EncoderFor<ItestFieldGnrcPrntEnumPrntInpObject<testEnumGnrcPrntEnumPrntInp>>();
   public Structured Encode(ItestGnrcPrntEnumPrntInpObject input)
     => _itestFieldGnrcPrntEnumPrntInp.Encode(input);
 
@@ -22,7 +22,7 @@ internal class testFieldGnrcPrntEnumPrntInpEncoder<TRef>(
   IEncoderRepository encoders
 ) : IEncoder<ItestFieldGnrcPrntEnumPrntInpObject<TRef>>
 {
-  private readonly IEncoder<TRef> _ref = encoders.EncoderFor<TRef>();
+  private readonly Encoder<TRef> _ref = encoders.EncoderFor<TRef>();
   public Structured Encode(ItestFieldGnrcPrntEnumPrntInpObject<TRef> input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _ref);

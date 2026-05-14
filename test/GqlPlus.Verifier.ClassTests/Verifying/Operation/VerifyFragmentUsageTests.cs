@@ -37,6 +37,6 @@ public class VerifyFragmentUsageTests
     return [usage];
   }
 
-  internal override IdentifiedVerifier<IAstSpread, IAstFragment> NewVerifier()
+  internal override IdentifiedVerifierBase<IAstSpread, IAstFragment> NewVerifier()
     => new VerifyFragmentUsage(VerifierRepo);
 }

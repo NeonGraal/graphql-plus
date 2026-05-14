@@ -45,9 +45,9 @@ internal class Cmpt_RequestEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_RequestObject>
 {
-  private readonly IEncoder<ICmpt_Identifier> _identifier = encoders.EncoderFor<ICmpt_Identifier>();
-  private readonly IEncoder<ICmpt_Operation> _operation = encoders.EncoderFor<ICmpt_Operation>();
-  private readonly IEncoder<object> _object = encoders.EncoderFor<object>();
+  private readonly Encoder<ICmpt_Identifier> _identifier = encoders.EncoderFor<ICmpt_Identifier>();
+  private readonly Encoder<ICmpt_Operation> _operation = encoders.EncoderFor<ICmpt_Operation>();
+  private readonly Encoder<object> _object = encoders.EncoderFor<object>();
   public Structured Encode(ICmpt_RequestObject input)
     => Structured.Empty()
       .AddEncoded("category", input.Category, _identifier)
@@ -78,8 +78,8 @@ internal class Cmpt_ModifierKeyedEncoder<TModifierKind>(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_ModifierKeyedObject<TModifierKind>>
 {
-  private readonly IEncoder<ICmpt_ModifierObject<TModifierKind>> _modifier = encoders.EncoderFor<ICmpt_ModifierObject<TModifierKind>>();
-  private readonly IEncoder<ICmpt_Identifier> _identifier = encoders.EncoderFor<ICmpt_Identifier>();
+  private readonly Encoder<ICmpt_ModifierObject<TModifierKind>> _modifier = encoders.EncoderFor<ICmpt_ModifierObject<TModifierKind>>();
+  private readonly Encoder<ICmpt_Identifier> _identifier = encoders.EncoderFor<ICmpt_Identifier>();
   public Structured Encode(ICmpt_ModifierKeyedObject<TModifierKind> input)
     => _modifier.Encode(input)
       .AddEncoded("by", input.By, _identifier)
@@ -106,7 +106,7 @@ internal class Cmpt_ModifierEncoder<TModifierKind>(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_ModifierObject<TModifierKind>>
 {
-  private readonly IEncoder<TModifierKind> _modifierKind = encoders.EncoderFor<TModifierKind>();
+  private readonly Encoder<TModifierKind> _modifierKind = encoders.EncoderFor<TModifierKind>();
   public Structured Encode(ICmpt_ModifierObject<TModifierKind> input)
     => Structured.Empty()
       .AddEncoded("modifierKind", input.ModifierKind, _modifierKind);

@@ -1,4 +1,5 @@
-﻿using GqlPlus.Result;
+﻿using GqlPlus;
+using GqlPlus.Result;
 using GqlPlus.Token;
 
 namespace GqlPlus.Parsing;
@@ -6,14 +7,14 @@ namespace GqlPlus.Parsing;
 internal abstract class ValueParser<TValue>(
   IParserRepository parsers
 ) : IValueParser<TValue>
-  , Parser<TValue>.I
+  , IParser<TValue>
   where TValue : IAstValue<TValue>
 {
-  protected Parser<IAstFieldKey>.L FieldKey { get; } = parsers.ParserFor<IAstFieldKey>();
-  protected Parser<TValue>.LA ListParser { get; } = parsers.ArrayFor<TValue>();
-  protected Parser<IAstFields<TValue>>.L ObjectParser { get; } = parsers.ParserFor<IAstFields<TValue>>();
+  protected ParserOne<IAstFieldKey> FieldKey { get; } = parsers.ParserFor<IAstFieldKey>();
+  protected ParserArray<TValue> ListParser { get; } = parsers.ArrayFor<TValue>();
+  protected ParserOne<IAstFields<TValue>> ObjectParser { get; } = parsers.ParserFor<IAstFields<TValue>>();
 
-  public Parser<KeyValue<TValue>>.L KeyValueParser { get; } = parsers.ParserFor<KeyValue<TValue>>();
+  public ParserOne<KeyValue<TValue>> KeyValueParser { get; } = parsers.ParserFor<KeyValue<TValue>>();
 
   public virtual IResult<TValue> Parse([NotNull] ITokenizer tokens, string label)
   {
@@ -67,10 +68,19 @@ internal abstract class ValueParser<TValue>(
 }
 
 internal interface IValueParser<TValue>
-  : Parser<TValue>.I
+  : IParser<TValue>
   where TValue : IAstValue<TValue>
 {
-  Parser<KeyValue<TValue>>.L KeyValueParser { get; }
+  ParserOne<KeyValue<TValue>> KeyValueParser { get; }
 
   IResult<IAstFields<TValue>> ParseFieldValues(ITokenizer tokens, string label, char last, IAstFields<TValue> fields);
+}
+
+internal interface IValueParserFactories<TValue>
+  where TValue : IAstValue<TValue>
+{
+  ValueParser<TValue> Value(IParserRepository repo);
+  ValueKeyValueParser<TValue> ValueKey(IParserRepository repo);
+  ValueListParser<TValue> ValueList(IParserRepository repo);
+  ValueObjectParser<TValue> ValueObject(IParserRepository repo);
 }

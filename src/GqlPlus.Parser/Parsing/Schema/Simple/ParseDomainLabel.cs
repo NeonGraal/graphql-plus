@@ -11,7 +11,7 @@ internal class ParseDomainLabel(
 {
   public override DomainKind Kind => DomainKind.Enum;
 
-  public override IResult<IAstDomainLabel> Parse(ITokenizer tokens, string label)
+  public override IResult<IAstDomainLabel> Parse([NotNull] ITokenizer tokens, string label)
   {
     string description = tokens.Description();
     TokenAt at = tokens.At;
@@ -49,4 +49,6 @@ internal class ParseDomainLabel(
 
     result.Labels = items.ArrayOf<DomainLabelAst>();
   }
+
+  internal static ParseDomainLabel Factory(IParserRepository p) => new(p);
 }

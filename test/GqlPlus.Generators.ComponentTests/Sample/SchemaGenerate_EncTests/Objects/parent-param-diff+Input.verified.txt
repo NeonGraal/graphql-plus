@@ -15,8 +15,8 @@ internal class CmptPrntParamDiffInpEncoder<TA>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptPrntParamDiffInpObject<TA>>
 {
-  private readonly IEncoder<ICmptRefPrntParamDiffInpObject<TA>> _refPrntParamDiffInp = encoders.EncoderFor<ICmptRefPrntParamDiffInpObject<TA>>();
-  private readonly IEncoder<TA> _a = encoders.EncoderFor<TA>();
+  private readonly Encoder<ICmptRefPrntParamDiffInpObject<TA>> _refPrntParamDiffInp = encoders.EncoderFor<ICmptRefPrntParamDiffInpObject<TA>>();
+  private readonly Encoder<TA> _a = encoders.EncoderFor<TA>();
   public Structured Encode(ICmptPrntParamDiffInpObject<TA> input)
     => _refPrntParamDiffInp.Encode(input)
       .AddEncoded("field", input.Field, _a);

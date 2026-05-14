@@ -43,10 +43,10 @@ internal class Cmpt_OpFieldEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_OpFieldObject>
 {
-  private readonly IEncoder<ICmpt_OpDirectivesObject> _opDirectives = encoders.EncoderFor<ICmpt_OpDirectivesObject>();
-  private readonly IEncoder<ICmpt_Identifier> _identifier = encoders.EncoderFor<ICmpt_Identifier>();
-  private readonly IEncoder<ICmpt_OpArgument> _opArgument = encoders.EncoderFor<ICmpt_OpArgument>();
-  private readonly IEncoder<ICmpt_Modifiers> _modifiers = encoders.EncoderFor<ICmpt_Modifiers>();
+  private readonly Encoder<ICmpt_OpDirectivesObject> _opDirectives = encoders.EncoderFor<ICmpt_OpDirectivesObject>();
+  private readonly Encoder<ICmpt_Identifier> _identifier = encoders.EncoderFor<ICmpt_Identifier>();
+  private readonly Encoder<ICmpt_OpArgument> _opArgument = encoders.EncoderFor<ICmpt_OpArgument>();
+  private readonly Encoder<ICmpt_Modifiers> _modifiers = encoders.EncoderFor<ICmpt_Modifiers>();
   public Structured Encode(ICmpt_OpFieldObject input)
     => _opDirectives.Encode(input)
       .AddEncoded("fieldAlias", input.FieldAlias, _identifier)
@@ -60,8 +60,8 @@ internal class Cmpt_OpInlineEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_OpInlineObject>
 {
-  private readonly IEncoder<ICmpt_Identifier> _identifier = encoders.EncoderFor<ICmpt_Identifier>();
-  private readonly IEncoder<ICmpt_OpDirective> _opDirective = encoders.EncoderFor<ICmpt_OpDirective>();
+  private readonly Encoder<ICmpt_Identifier> _identifier = encoders.EncoderFor<ICmpt_Identifier>();
+  private readonly Encoder<ICmpt_OpDirective> _opDirective = encoders.EncoderFor<ICmpt_OpDirective>();
   public Structured Encode(ICmpt_OpInlineObject input)
     => Structured.Empty()
       .AddEncoded("type", input.Type, _identifier)
@@ -74,8 +74,8 @@ internal class Cmpt_OpSpreadEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_OpSpreadObject>
 {
-  private readonly IEncoder<ICmpt_Identifier> _identifier = encoders.EncoderFor<ICmpt_Identifier>();
-  private readonly IEncoder<ICmpt_OpDirective> _opDirective = encoders.EncoderFor<ICmpt_OpDirective>();
+  private readonly Encoder<ICmpt_Identifier> _identifier = encoders.EncoderFor<ICmpt_Identifier>();
+  private readonly Encoder<ICmpt_OpDirective> _opDirective = encoders.EncoderFor<ICmpt_OpDirective>();
   public Structured Encode(ICmpt_OpSpreadObject input)
     => Structured.Empty()
       .AddEncoded("fragment", input.Fragment, _identifier)

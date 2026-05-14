@@ -8,8 +8,8 @@ internal class AstObjectsMerger<TObjField>(
 ) : AstTypeMerger<IAstType, IAstObject<TObjField>, IAstObjBase, TObjField>(mergers)
   where TObjField : IAstObjField
 {
-  private readonly IMerge<IAstTypeParam> _typeParams = mergers.MergerFor<IAstTypeParam>();
-  private readonly IMerge<IAstAlternate> _alternates = mergers.MergerFor<IAstAlternate>();
+  private readonly MergerOne<IAstTypeParam> _typeParams = mergers.MergerFor<IAstTypeParam>();
+  private readonly MergerOne<IAstAlternate> _alternates = mergers.MergerFor<IAstAlternate>();
 
   protected override string ItemMatchName => "Parent";
   protected override string ItemMatchKey(IAstObject<TObjField> item)

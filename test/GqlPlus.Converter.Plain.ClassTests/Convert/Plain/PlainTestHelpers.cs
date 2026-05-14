@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Convert.Plain;
+﻿using GqlPlus;
+
+namespace GqlPlus.Convert.Plain;
 
 internal static class PlainTestHelpers
 {

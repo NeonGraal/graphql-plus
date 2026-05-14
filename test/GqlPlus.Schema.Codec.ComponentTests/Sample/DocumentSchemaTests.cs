@@ -10,7 +10,7 @@ public class DocumentSchemaTests(
   IEncoderRepository encoders
 ) : TestSchemaVerify(checks)
 {
-  private IEncoder<BaseTypeModel> Types => encoders.EncoderFor<BaseTypeModel>();
+  private Encoder<BaseTypeModel> Types => encoders.EncoderFor<BaseTypeModel>();
 
   [Fact]
   public async Task Index_Schema()
@@ -68,7 +68,6 @@ public class DocumentSchemaTests(
       .AddMap("Dual", duals, Types, "_Type")
       .AddMap("Input", inputs, Types, "_Type")
       .AddMap("Output", outputs, Types, "_Type");
-
     IEnumerable<CategoryModel> categories = model.GetCategories(null).Values.Select(c => c.And).Where(c => c is not null).Cast<CategoryModel>();
     IEnumerable<DirectiveModel> directives = model.GetDirectives(null).Values.Select(c => c.And).Where(c => c is not null).Cast<DirectiveModel>();
     ICollection<SettingModel> settings = model.GetSettings(null).Values;

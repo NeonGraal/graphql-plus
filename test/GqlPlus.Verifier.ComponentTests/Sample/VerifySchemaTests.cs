@@ -12,8 +12,8 @@ public class VerifySchemaTests(
 ) : TestSchemaResult(checks)
 
 {
-  private readonly IMerge<IAstSchema> _schemaMerger = mergers.MergerFor<IAstSchema>();
-  private readonly IVerify<IAstSchema> _schemaVerifier = verifierRepository.VerifierFor<IAstSchema>();
+  private readonly MergerOne<IAstSchema> _schemaMerger = mergers.MergerFor<IAstSchema>();
+  private readonly Verifier<IAstSchema> _schemaVerifier = verifierRepository.VerifierFor<IAstSchema>();
 
   protected override async Task Result_Valid(IResult<IAstSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {

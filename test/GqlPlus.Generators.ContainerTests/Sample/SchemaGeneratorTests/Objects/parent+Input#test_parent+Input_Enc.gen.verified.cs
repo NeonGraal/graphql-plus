@@ -11,7 +11,7 @@ internal class testPrntInpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestPrntInpObject>
 {
-  private readonly IEncoder<ItestRefPrntInpObject> _itestRefPrntInp = encoders.EncoderFor<ItestRefPrntInpObject>();
+  private readonly Encoder<ItestRefPrntInpObject> _itestRefPrntInp = encoders.EncoderFor<ItestRefPrntInpObject>();
   public Structured Encode(ItestPrntInpObject input)
     => _itestRefPrntInp.Encode(input);
 

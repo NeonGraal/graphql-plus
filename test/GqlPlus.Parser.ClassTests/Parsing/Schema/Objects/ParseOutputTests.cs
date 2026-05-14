@@ -6,8 +6,8 @@ public class ParseOutputTests
   : DeclarationClassTestBase
 {
 
-  private readonly Parser<IAstTypeParam>.IA _param;
-  private readonly Parser<ObjectDefinition<IAstOutputField>>.I _definition;
+  private readonly IParserArray<IAstTypeParam> _param;
+  private readonly IParser<ObjectDefinition<IAstOutputField>> _definition;
   private readonly ObjectParser<IAstOutputField> _parser;
 
   public ParseOutputTests()

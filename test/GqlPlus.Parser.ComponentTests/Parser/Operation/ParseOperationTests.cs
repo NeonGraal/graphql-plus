@@ -73,5 +73,5 @@ public class ParseOperationTests(
       a => a.ThrowIfNull().Errors.ShouldNotBeEmpty());
   }
 
-  private readonly Parser<IAstOperation>.L _parser = parsers.ParserFor<IAstOperation>();
+  private readonly ParserOne<IAstOperation> _parser = parsers.ParserFor<IAstOperation>();
 }

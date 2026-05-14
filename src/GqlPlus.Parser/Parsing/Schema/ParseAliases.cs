@@ -4,9 +4,9 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema;
 
 internal class ParseAliases
-  : Parser<string>.IA
+  : IParserArray<string>
 {
-  public IResultArray<string> Parse(ITokenizer tokens, string label)
+  public IResultArray<string> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     List<string> aliases = [];
@@ -24,6 +24,8 @@ internal class ParseAliases
 
     return aliases.OkArray();
   }
+
+  internal static ParseAliases Factory(IParserRepository _) => new();
 
   public static bool ParseAlias(ITokenizer tokens, [NotNullWhen(true)] out string? alias)
   {

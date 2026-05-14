@@ -13,4 +13,11 @@ public abstract class ResolverClassTestBase<TModel>
     IResolver<T> result = A.Of<IResolver<T>>();
     return result;
   }
+
+  internal void ResolveForReturns<T>(IResolverRepository resolvers, IResolver<T> result)
+    where T : IModelBase
+  {
+    IResolver<T> factory() => result;
+    resolvers.ResolverFor<T>().ReturnsForAnyArgs(factory);
+  }
 }

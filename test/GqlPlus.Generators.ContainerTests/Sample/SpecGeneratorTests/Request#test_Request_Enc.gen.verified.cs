@@ -11,9 +11,9 @@ internal class test_RequestEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_RequestObject>
 {
-  private readonly IEncoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
-  private readonly IEncoder<Itest_Operation> _itest_Operation = encoders.EncoderFor<Itest_Operation>();
-  private readonly IEncoder<object> _object = encoders.EncoderFor<object>();
+  private readonly Encoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
+  private readonly Encoder<Itest_Operation> _itest_Operation = encoders.EncoderFor<Itest_Operation>();
+  private readonly Encoder<object> _object = encoders.EncoderFor<object>();
   public Structured Encode(Itest_RequestObject input)
     => Structured.Empty()
       .AddEncoded("category", input.Category, _itest_Identifier)
@@ -44,8 +44,8 @@ internal class test_ModifierKeyedEncoder<TModifierKind>(
   IEncoderRepository encoders
 ) : IEncoder<Itest_ModifierKeyedObject<TModifierKind>>
 {
-  private readonly IEncoder<Itest_ModifierObject<TModifierKind>> _itest_Modifier = encoders.EncoderFor<Itest_ModifierObject<TModifierKind>>();
-  private readonly IEncoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
+  private readonly Encoder<Itest_ModifierObject<TModifierKind>> _itest_Modifier = encoders.EncoderFor<Itest_ModifierObject<TModifierKind>>();
+  private readonly Encoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
   public Structured Encode(Itest_ModifierKeyedObject<TModifierKind> input)
     => _itest_Modifier.Encode(input)
       .AddEncoded("by", input.By, _itest_Identifier)
@@ -72,7 +72,7 @@ internal class test_ModifierEncoder<TModifierKind>(
   IEncoderRepository encoders
 ) : IEncoder<Itest_ModifierObject<TModifierKind>>
 {
-  private readonly IEncoder<TModifierKind> _modifierKind = encoders.EncoderFor<TModifierKind>();
+  private readonly Encoder<TModifierKind> _modifierKind = encoders.EncoderFor<TModifierKind>();
   public Structured Encode(Itest_ModifierObject<TModifierKind> input)
     => Structured.Empty()
       .AddEncoded("modifierKind", input.ModifierKind, _modifierKind);
@@ -82,10 +82,10 @@ internal class test_OperationEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_OperationObject>
 {
-  private readonly IEncoder<Itest_OpVariable> _itest_OpVariable = encoders.EncoderFor<Itest_OpVariable>();
-  private readonly IEncoder<Itest_OpDirective> _itest_OpDirective = encoders.EncoderFor<Itest_OpDirective>();
-  private readonly IEncoder<Itest_OpFragment> _itest_OpFragment = encoders.EncoderFor<Itest_OpFragment>();
-  private readonly IEncoder<Itest_OpResult> _itest_OpResult = encoders.EncoderFor<Itest_OpResult>();
+  private readonly Encoder<Itest_OpVariable> _itest_OpVariable = encoders.EncoderFor<Itest_OpVariable>();
+  private readonly Encoder<Itest_OpDirective> _itest_OpDirective = encoders.EncoderFor<Itest_OpDirective>();
+  private readonly Encoder<Itest_OpFragment> _itest_OpFragment = encoders.EncoderFor<Itest_OpFragment>();
+  private readonly Encoder<Itest_OpResult> _itest_OpResult = encoders.EncoderFor<Itest_OpResult>();
   public Structured Encode(Itest_OperationObject input)
     => Structured.Empty()
       .AddList("variables", input.Variables, _itest_OpVariable)
@@ -108,8 +108,8 @@ internal class test_OpDirectivesEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_OpDirectivesObject>
 {
-  private readonly IEncoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
-  private readonly IEncoder<Itest_OpDirective> _itest_OpDirective = encoders.EncoderFor<Itest_OpDirective>();
+  private readonly Encoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
+  private readonly Encoder<Itest_OpDirective> _itest_OpDirective = encoders.EncoderFor<Itest_OpDirective>();
   public Structured Encode(Itest_OpDirectivesObject input)
     => Structured.Empty()
       .AddEncoded("name", input.Name, _itest_Identifier)
@@ -123,10 +123,10 @@ internal class test_OpVariableEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_OpVariableObject>
 {
-  private readonly IEncoder<Itest_OpDirectivesObject> _itest_OpDirectives = encoders.EncoderFor<Itest_OpDirectivesObject>();
-  private readonly IEncoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
-  private readonly IEncoder<Itest_Modifiers> _itest_Modifiers = encoders.EncoderFor<Itest_Modifiers>();
-  private readonly IEncoder<GqlpValue> _gqlpValue = encoders.EncoderFor<GqlpValue>();
+  private readonly Encoder<Itest_OpDirectivesObject> _itest_OpDirectives = encoders.EncoderFor<Itest_OpDirectivesObject>();
+  private readonly Encoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
+  private readonly Encoder<Itest_Modifiers> _itest_Modifiers = encoders.EncoderFor<Itest_Modifiers>();
+  private readonly Encoder<GqlpValue> _gqlpValue = encoders.EncoderFor<GqlpValue>();
   public Structured Encode(Itest_OpVariableObject input)
     => _itest_OpDirectives.Encode(input)
       .AddEncoded("type", input.Type, _itest_Identifier)
@@ -140,8 +140,8 @@ internal class test_OpDirectiveEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_OpDirectiveObject>
 {
-  private readonly IEncoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
-  private readonly IEncoder<Itest_OpArgument> _itest_OpArgument = encoders.EncoderFor<Itest_OpArgument>();
+  private readonly Encoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
+  private readonly Encoder<Itest_OpArgument> _itest_OpArgument = encoders.EncoderFor<Itest_OpArgument>();
   public Structured Encode(Itest_OpDirectiveObject input)
     => Structured.Empty()
       .AddEncoded("name", input.Name, _itest_Identifier)
@@ -154,8 +154,8 @@ internal class test_OpFragmentEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_OpFragmentObject>
 {
-  private readonly IEncoder<Itest_OpDirectivesObject> _itest_OpDirectives = encoders.EncoderFor<Itest_OpDirectivesObject>();
-  private readonly IEncoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
+  private readonly Encoder<Itest_OpDirectivesObject> _itest_OpDirectives = encoders.EncoderFor<Itest_OpDirectivesObject>();
+  private readonly Encoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
   public Structured Encode(Itest_OpFragmentObject input)
     => _itest_OpDirectives.Encode(input)
       .AddEncoded("type", input.Type, _itest_Identifier);
@@ -167,8 +167,8 @@ internal class test_OpResultEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_OpResultObject>
 {
-  private readonly IEncoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
-  private readonly IEncoder<Itest_OpArgument> _itest_OpArgument = encoders.EncoderFor<Itest_OpArgument>();
+  private readonly Encoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
+  private readonly Encoder<Itest_OpArgument> _itest_OpArgument = encoders.EncoderFor<Itest_OpArgument>();
   public Structured Encode(Itest_OpResultObject input)
     => Structured.Empty()
       .AddEncoded("domain", input.Domain, _itest_Identifier)
@@ -189,7 +189,7 @@ internal class test_OpArgValueEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_OpArgValueObject>
 {
-  private readonly IEncoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
+  private readonly Encoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
   public Structured Encode(Itest_OpArgValueObject input)
     => Structured.Empty()
       .AddEncoded("variable", input.Variable, _itest_Identifier);
@@ -209,8 +209,8 @@ internal class test_OpArgMapEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_OpArgMapObject>
 {
-  private readonly IEncoder<Itest_OpArgValue> _itest_OpArgValue = encoders.EncoderFor<Itest_OpArgValue>();
-  private readonly IEncoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
+  private readonly Encoder<Itest_OpArgValue> _itest_OpArgValue = encoders.EncoderFor<Itest_OpArgValue>();
+  private readonly Encoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
   public Structured Encode(Itest_OpArgMapObject input)
     => Structured.Empty()
       .AddEncoded("value", input.Value, _itest_OpArgValue)
@@ -231,10 +231,10 @@ internal class test_OpFieldEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_OpFieldObject>
 {
-  private readonly IEncoder<Itest_OpDirectivesObject> _itest_OpDirectives = encoders.EncoderFor<Itest_OpDirectivesObject>();
-  private readonly IEncoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
-  private readonly IEncoder<Itest_OpArgument> _itest_OpArgument = encoders.EncoderFor<Itest_OpArgument>();
-  private readonly IEncoder<Itest_Modifiers> _itest_Modifiers = encoders.EncoderFor<Itest_Modifiers>();
+  private readonly Encoder<Itest_OpDirectivesObject> _itest_OpDirectives = encoders.EncoderFor<Itest_OpDirectivesObject>();
+  private readonly Encoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
+  private readonly Encoder<Itest_OpArgument> _itest_OpArgument = encoders.EncoderFor<Itest_OpArgument>();
+  private readonly Encoder<Itest_Modifiers> _itest_Modifiers = encoders.EncoderFor<Itest_Modifiers>();
   public Structured Encode(Itest_OpFieldObject input)
     => _itest_OpDirectives.Encode(input)
       .AddEncoded("fieldAlias", input.FieldAlias, _itest_Identifier)
@@ -248,8 +248,8 @@ internal class test_OpInlineEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_OpInlineObject>
 {
-  private readonly IEncoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
-  private readonly IEncoder<Itest_OpDirective> _itest_OpDirective = encoders.EncoderFor<Itest_OpDirective>();
+  private readonly Encoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
+  private readonly Encoder<Itest_OpDirective> _itest_OpDirective = encoders.EncoderFor<Itest_OpDirective>();
   public Structured Encode(Itest_OpInlineObject input)
     => Structured.Empty()
       .AddEncoded("type", input.Type, _itest_Identifier)
@@ -262,8 +262,8 @@ internal class test_OpSpreadEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_OpSpreadObject>
 {
-  private readonly IEncoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
-  private readonly IEncoder<Itest_OpDirective> _itest_OpDirective = encoders.EncoderFor<Itest_OpDirective>();
+  private readonly Encoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
+  private readonly Encoder<Itest_OpDirective> _itest_OpDirective = encoders.EncoderFor<Itest_OpDirective>();
   public Structured Encode(Itest_OpSpreadObject input)
     => Structured.Empty()
       .AddEncoded("fragment", input.Fragment, _itest_Identifier)

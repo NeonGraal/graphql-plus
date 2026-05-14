@@ -19,6 +19,8 @@ internal class ParseOption(
     => new OptionDeclAst(partial.At, partial.Name, partial.Description) {
       Aliases = partial.Aliases,
     };
+
+  internal static ParseOption Factory(IParserRepository p) => new(p);
 }
 
 internal class OptionDefinition
@@ -28,11 +30,11 @@ internal class OptionDefinition
 
 internal class ParseOptionDefinition(
   IParserRepository parsers
-) : Parser<OptionDefinition>.I
+) : IParser<OptionDefinition>
 {
-  private readonly Parser<IAstSchemaSetting>.L _setting = parsers.ParserFor<IAstSchemaSetting>();
+  private readonly ParserOne<IAstSchemaSetting> _setting = parsers.ParserFor<IAstSchemaSetting>();
 
-  public IResult<OptionDefinition> Parse(ITokenizer tokens, string label)
+  public IResult<OptionDefinition> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     OptionDefinition result = new();
@@ -49,4 +51,6 @@ internal class ParseOptionDefinition(
     result.Settings = values.ArrayOf<OptionSettingAst>();
     return result.Ok();
   }
+
+  internal static ParseOptionDefinition Factory(IParserRepository p) => new(p);
 }

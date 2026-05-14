@@ -5,7 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="DI\*.liquid" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoFixture.Xunit3" />
+    <PackageReference Include="Fluid.Core" />
     <PackageReference Include="MartinCostello.Logging.XUnit.v3" />
     <PackageReference Include="OpenTelemetry.AutoInstrumentation" />
     <PackageReference Include="OpenTelemetry.Exporter.InMemory" />

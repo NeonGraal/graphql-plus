@@ -33,7 +33,7 @@ internal class testAltCnstAltObjInpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestAltCnstAltObjInpObject>
 {
-  private readonly IEncoder<ItestPrntCnstAltObjInpObject> _itestPrntCnstAltObjInp = encoders.EncoderFor<ItestPrntCnstAltObjInpObject>();
+  private readonly Encoder<ItestPrntCnstAltObjInpObject> _itestPrntCnstAltObjInp = encoders.EncoderFor<ItestPrntCnstAltObjInpObject>();
   public Structured Encode(ItestAltCnstAltObjInpObject input)
     => _itestPrntCnstAltObjInp.Encode(input)
       .Add("alt", input.Alt.Encode());

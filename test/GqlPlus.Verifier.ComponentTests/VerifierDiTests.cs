@@ -3,7 +3,7 @@
 namespace GqlPlus;
 
 public class VerifierDiTests(IServiceCollection services)
-  : DependencyInjectionChecks(services)
+  : DiChecks(services)
 {
   protected override string Label => "Verifier";
 }

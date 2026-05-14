@@ -18,8 +18,8 @@ internal class CmptOutpPrntParamEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptOutpPrntParamObject>
 {
-  private readonly IEncoder<ICmptPrntOutpPrntParamObject> _prntOutpPrntParam = encoders.EncoderFor<ICmptPrntOutpPrntParamObject>();
-  private readonly IEncoder<ICmptFldOutpPrntParam> _fldOutpPrntParam = encoders.EncoderFor<ICmptFldOutpPrntParam>();
+  private readonly Encoder<ICmptPrntOutpPrntParamObject> _prntOutpPrntParam = encoders.EncoderFor<ICmptPrntOutpPrntParamObject>();
+  private readonly Encoder<ICmptFldOutpPrntParam> _fldOutpPrntParam = encoders.EncoderFor<ICmptFldOutpPrntParam>();
   public Structured Encode(ICmptOutpPrntParamObject input)
     => _prntOutpPrntParam.Encode(input)
       .AddEncoded("field", input.Field(), _fldOutpPrntParam);
@@ -31,7 +31,7 @@ internal class CmptPrntOutpPrntParamEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptPrntOutpPrntParamObject>
 {
-  private readonly IEncoder<ICmptFldOutpPrntParam> _fldOutpPrntParam = encoders.EncoderFor<ICmptFldOutpPrntParam>();
+  private readonly Encoder<ICmptFldOutpPrntParam> _fldOutpPrntParam = encoders.EncoderFor<ICmptFldOutpPrntParam>();
   public Structured Encode(ICmptPrntOutpPrntParamObject input)
     => Structured.Empty()
       .AddEncoded("field", input.Field(), _fldOutpPrntParam);

@@ -3,7 +3,8 @@
 namespace GqlPlus.Parsing;
 
 internal class ParserRepositoryBuilder
-  : BaseFactory<IParserRepository>, IParserRepositoryBuilder
+  : BaseFactory<IParserRepository>
+  , IParserRepositoryBuilder
 {
   internal readonly FactoryDict Singles = [];
   internal readonly FactoryDict Arrays = [];
@@ -12,10 +13,13 @@ internal class ParserRepositoryBuilder
   internal readonly FactoryDict Declarations = [];
   internal readonly Dictionary<Type, Type> Domains = [];
 
-  public IParserRepositoryBuilder AddSingle<T>(Factory<Parser<T>.I, IParserRepository> factory)
+  internal IEnumerable<KeyValuePair<Type, Factory<object, IParserRepository>>> AllFactories
+    => [.. Singles, .. Arrays, .. InterfaceSingles, .. InterfaceArrays, .. Declarations];
+
+  public IParserRepositoryBuilder AddSingle<T>(Factory<IParser<T>, IParserRepository> factory)
     => this.FluentAction(b => b.Singles[typeof(T)] = factory);
 
-  public IParserRepositoryBuilder AddArray<T>(Factory<Parser<T>.IA, IParserRepository> factory)
+  public IParserRepositoryBuilder AddArray<T>(Factory<IParserArray<T>, IParserRepository> factory)
     => this.FluentAction(b => b.Arrays[typeof(T)] = factory);
 
   public IParserRepositoryBuilder AddInterfaceSingle<T>(Factory<T, IParserRepository> factory)
@@ -27,7 +31,7 @@ internal class ParserRepositoryBuilder
     => this.FluentAction(b => b.InterfaceArrays[typeof(T)] = factory);
 
   public IParserRepositoryBuilder AddDomain<T>()
-    => this.FluentAction(b => b.Domains[typeof(T)] = typeof(Parser<T>.I));
+    => this.FluentAction(b => b.Domains[typeof(T)] = typeof(IParser<T>));
 
   public IParserRepositoryBuilder AddDeclaration<T>(Factory<IParseDeclaration, IParserRepository> factory)
     => this.FluentAction(b => b.Declarations[typeof(T)] = factory);

@@ -6,6 +6,10 @@ internal class ResolverRepositoryBuilder
   internal readonly FactoryDict Resolvers = [];
   internal readonly FactoryList TypeResolverFactories = [];
 
+  public IEnumerable<KeyValuePair<Type, Factory<object, IResolverRepository>>> AllFactories
+    => [..Resolvers,
+    .. TypeResolverFactories.Select(FactoryKeyValue<ITypeResolver>)];
+
   public IResolverRepositoryBuilder AddResolver<TModel>(Factory<IResolver<TModel>, IResolverRepository> factory)
     where TModel : IModelBase
     => this.FluentAction(b => b.Resolvers[typeof(TModel)] = factory);
@@ -14,6 +18,6 @@ internal class ResolverRepositoryBuilder
     where TModel : IModelBase
     => this.FluentAction(b => {
       b.Resolvers[typeof(TModel)] = factory;
-      b.TypeResolverFactories.Add(r => r.ResolverFor<TModel>());
+      b.TypeResolverFactories.Add(r => ((Resolver<TModel>)r.ResolverFor<TModel>()).I);
     });
 }

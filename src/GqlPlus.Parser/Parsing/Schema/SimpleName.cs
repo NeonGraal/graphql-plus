@@ -10,6 +10,8 @@ internal class SimpleName
     at = tokens.At;
     return tokens.Identifier(out name);
   }
+
+  internal static SimpleName Factory(IParserRepository _) => new();
 }
 
 internal interface ISimpleName : INameParser;

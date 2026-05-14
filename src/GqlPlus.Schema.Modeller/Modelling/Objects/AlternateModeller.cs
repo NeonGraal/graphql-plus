@@ -4,8 +4,8 @@ internal class AlternateModeller(
   IModellerRepository modellers
 ) : ModellerBase<IAstAlternate, AlternateModel>
 {
-  private readonly IModeller<IAstModifier, CollectionModel> _collection = modellers.ModellerFor<IAstModifier, CollectionModel>();
-  private readonly IModeller<IAstObjBase, ObjBaseModel> _objBase = modellers.ModellerFor<IAstObjBase, ObjBaseModel>();
+  private readonly Modeller<IAstModifier, CollectionModel> _collection = modellers.ModellerFor<IAstModifier, CollectionModel>();
+  private readonly Modeller<IAstObjBase, ObjBaseModel> _objBase = modellers.ModellerFor<IAstObjBase, ObjBaseModel>();
 
   protected override AlternateModel ToModel(IAstAlternate ast, IMap<TypeKindModel> typeKinds)
   {

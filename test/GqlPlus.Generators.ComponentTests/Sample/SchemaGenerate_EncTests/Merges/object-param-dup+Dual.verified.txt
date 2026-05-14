@@ -15,7 +15,7 @@ internal class CmptObjParamDupDualEncoder<TTest>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptObjParamDupDualObject<TTest>>
 {
-  private readonly IEncoder<TTest> _test = encoders.EncoderFor<TTest>();
+  private readonly Encoder<TTest> _test = encoders.EncoderFor<TTest>();
   public Structured Encode(ICmptObjParamDupDualObject<TTest> input)
     => Structured.Empty()
       .AddEncoded("test", input.Test, _test)

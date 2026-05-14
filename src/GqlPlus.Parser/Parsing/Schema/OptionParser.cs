@@ -9,13 +9,13 @@ internal class OptionParser<TOption>(
 ) : IOptionParser<TOption>
   where TOption : struct
 {
-  private readonly Parser<IEnumParser<TOption>, TOption>.L _parser = parsers.ParserFor<IEnumParser<TOption>, TOption>();
+  private readonly ParserOne<IEnumParser<TOption>, TOption> _parser = parsers.ParserFor<IEnumParser<TOption>, TOption>();
 
-  public IResult<TOption> Parse(ITokenizer tokens, string label)
+  public IResult<TOption> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     if (tokens.Take('(')) {
-      IResult<TOption> enumResult = _parser.I.Parse(tokens, label);
+      IResult<TOption> enumResult = _parser.Parse(tokens, label);
 
       return enumResult.Map(result =>
         tokens.Take(')')
@@ -25,9 +25,11 @@ internal class OptionParser<TOption>(
 
     return default(TOption).Empty();
   }
+
+  internal static OptionParser<TOption> Factory(IParserRepository p) => new(p);
 }
 
 public interface IOptionParser<TOption>
-  : Parser<TOption>.I
+  : IParser<TOption>
   where TOption : struct
 { }

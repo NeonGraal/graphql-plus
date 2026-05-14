@@ -7,16 +7,15 @@ public abstract class ObjectFieldParseTestBase<TField>
   where TField : class, IAstObjField
 {
 
-  private readonly Parser<IAstObjBase>.I _parseBase;
-  protected abstract Parser<TField>.I Parser { get; }
+  private readonly IParser<IAstObjBase> _parseBase;
+  protected abstract IParser<TField> Parser { get; }
 
   protected ObjectFieldParseTestBase()
   {
-    _parseBase = A.Of<Parser<IAstObjBase>.I>();
+    _parseBase = A.Of<IParser<IAstObjBase>>();
     _parseBase.Parse(default!, default!)
       .ReturnsForAnyArgs(default(IAstObjBase).Empty());
-    Parser<IAstObjBase>.L parseBaseLazy = new(() => _parseBase);
-    Parsers.ParserFor<IAstObjBase>().Returns(parseBaseLazy);
+    Parsers.ParserFor<IAstObjBase>().ReturnsForAnyArgs(() => _parseBase);
   }
 
   [Theory, RepeatData]

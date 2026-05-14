@@ -20,7 +20,7 @@ internal class OutputFieldModeller(
   IModellerRepository modellers
 ) : ModellerObjField<IAstOutputField, OutputFieldModel>(modellers)
 {
-  private readonly IModeller<IAstInputParam, InputParamModel> _parameter = modellers.ModellerFor<IAstInputParam, InputParamModel>();
+  private readonly Modeller<IAstInputParam, InputParamModel> _parameter = modellers.ModellerFor<IAstInputParam, InputParamModel>();
 
   protected override OutputFieldModel FieldModel(IAstOutputField field, ObjBaseModel type, IMap<TypeKindModel> typeKinds)
     => field.EnumValue is null

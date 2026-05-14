@@ -11,8 +11,8 @@ internal class testPrntParamDiffInpEncoder<TA>(
   IEncoderRepository encoders
 ) : IEncoder<ItestPrntParamDiffInpObject<TA>>
 {
-  private readonly IEncoder<ItestRefPrntParamDiffInpObject<TA>> _itestRefPrntParamDiffInp = encoders.EncoderFor<ItestRefPrntParamDiffInpObject<TA>>();
-  private readonly IEncoder<TA> _a = encoders.EncoderFor<TA>();
+  private readonly Encoder<ItestRefPrntParamDiffInpObject<TA>> _itestRefPrntParamDiffInp = encoders.EncoderFor<ItestRefPrntParamDiffInpObject<TA>>();
+  private readonly Encoder<TA> _a = encoders.EncoderFor<TA>();
   public Structured Encode(ItestPrntParamDiffInpObject<TA> input)
     => _itestRefPrntParamDiffInp.Encode(input)
       .AddEncoded("field", input.Field, _a);

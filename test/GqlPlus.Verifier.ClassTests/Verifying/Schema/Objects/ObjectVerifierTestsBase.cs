@@ -15,20 +15,20 @@ public abstract class ObjectVerifierTestsBase<TObjField>
   {
     Kind = kind;
 
-    ArgMatcher = A.Of<Matcher<IAstTypeArg>.I>();
+    ArgMatcher = A.Of<IMatcher<IAstTypeArg>>();
 
     ArgDelegate = A.Of<Matcher<IAstTypeArg>.D>();
     ArgDelegate().Returns(ArgMatcher);
 
-    VerifierRepo.MatcherFor<IAstTypeArg>().Returns(ArgDelegate);
+    VerifierMatcherForReturns(ArgDelegate);
 
-    VerifierRepo.MergerFor<TObjField>().Returns(MergeFields.Intf);
-    VerifierRepo.MergerFor<IAstAlternate>().Returns(MergeAlternates.Intf);
+    MergerForReturns(MergeFields.Intf);
+    MergerForReturns(MergeAlternates.Intf);
 
     TheBuilder = new(kind.ToString(), kind);
   }
 
-  protected Matcher<IAstTypeArg>.I ArgMatcher { get; }
+  protected IMatcher<IAstTypeArg> ArgMatcher { get; }
   protected Matcher<IAstTypeArg>.D ArgDelegate { get; }
 
   protected sealed override IAstObject<TObjField> TheUsage => TheObject;

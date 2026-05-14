@@ -24,7 +24,7 @@ internal class CmptRefGnrcValueInpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptRefGnrcValueInpObject<TType>>
 {
-  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  private readonly Encoder<TType> _type = encoders.EncoderFor<TType>();
   public Structured Encode(ICmptRefGnrcValueInpObject<TType> input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _type);

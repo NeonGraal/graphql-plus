@@ -11,9 +11,9 @@ internal class test_RequestEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_RequestObject>
 {
-  private readonly IEncoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
-  private readonly IEncoder<Itest_Operation> _itest_Operation = encoders.EncoderFor<Itest_Operation>();
-  private readonly IEncoder<object> _object = encoders.EncoderFor<object>();
+  private readonly Encoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
+  private readonly Encoder<Itest_Operation> _itest_Operation = encoders.EncoderFor<Itest_Operation>();
+  private readonly Encoder<object> _object = encoders.EncoderFor<object>();
   public Structured Encode(Itest_RequestObject input)
     => Structured.Empty()
       .AddEncoded("category", input.Category, _itest_Identifier)
@@ -44,8 +44,8 @@ internal class test_ModifierKeyedEncoder<TModifierKind>(
   IEncoderRepository encoders
 ) : IEncoder<Itest_ModifierKeyedObject<TModifierKind>>
 {
-  private readonly IEncoder<Itest_ModifierObject<TModifierKind>> _itest_Modifier = encoders.EncoderFor<Itest_ModifierObject<TModifierKind>>();
-  private readonly IEncoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
+  private readonly Encoder<Itest_ModifierObject<TModifierKind>> _itest_Modifier = encoders.EncoderFor<Itest_ModifierObject<TModifierKind>>();
+  private readonly Encoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
   public Structured Encode(Itest_ModifierKeyedObject<TModifierKind> input)
     => _itest_Modifier.Encode(input)
       .AddEncoded("by", input.By, _itest_Identifier)
@@ -72,7 +72,7 @@ internal class test_ModifierEncoder<TModifierKind>(
   IEncoderRepository encoders
 ) : IEncoder<Itest_ModifierObject<TModifierKind>>
 {
-  private readonly IEncoder<TModifierKind> _modifierKind = encoders.EncoderFor<TModifierKind>();
+  private readonly Encoder<TModifierKind> _modifierKind = encoders.EncoderFor<TModifierKind>();
   public Structured Encode(Itest_ModifierObject<TModifierKind> input)
     => Structured.Empty()
       .AddEncoded("modifierKind", input.ModifierKind, _modifierKind);

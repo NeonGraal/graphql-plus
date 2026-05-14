@@ -8,7 +8,7 @@ internal class ParseArgValue(
   IParserRepository parsers
 ) : ValueParser<IAstArg>(parsers)
 {
-  private readonly Parser<IAstConstant>.L _constant = parsers.ParserFor<IAstConstant>();
+  private readonly ParserOne<IAstConstant> _constant = parsers.ParserFor<IAstConstant>();
 
   public override IResult<IAstArg> Parse([NotNull] ITokenizer tokens, string label)
   {
@@ -39,4 +39,19 @@ internal class ParseArgValue(
     => fields => new ArgAst(at, fields);
   protected override Func<IEnumerable<IAstArg>, IAstArg> NewList(ITokenAt at)
     => list => new ArgAst(at, list);
+
+  internal static IValueParserFactories<IAstArg> Factories { get; } = new ParseArgValueFactories();
+
+  private class ParseArgValueFactories
+    : IValueParserFactories<IAstArg>
+  {
+    public ValueParser<IAstArg> Value(IParserRepository repo)
+      => new ParseArgValue(repo);
+    public ValueKeyValueParser<IAstArg> ValueKey(IParserRepository repo)
+      => new(repo);
+    public ValueListParser<IAstArg> ValueList(IParserRepository repo)
+      => new(repo);
+    public ValueObjectParser<IAstArg> ValueObject(IParserRepository repo)
+      => new(repo);
+  }
 }

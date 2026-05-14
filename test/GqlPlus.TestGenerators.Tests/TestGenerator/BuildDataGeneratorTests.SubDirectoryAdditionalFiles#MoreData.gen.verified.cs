@@ -12,9 +12,8 @@ public class SamplesMoreData
   ];
 
   public SamplesMoreData()
-  {
-    foreach (string s in Strings) Add(s);
-  }
+    : base(Strings)
+  { }
 
   public const string From = "Samples/More/";
   public const string Collected = "SubDirectoryAdditionalFiles";

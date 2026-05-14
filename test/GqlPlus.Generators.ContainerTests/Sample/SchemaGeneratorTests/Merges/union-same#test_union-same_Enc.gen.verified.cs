@@ -11,7 +11,7 @@ internal class testUnionSameEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestUnionSame>
 {
-  private readonly IEncoder<bool> _boolean = encoders.EncoderFor<bool>();
+  private readonly Encoder<bool> _boolean = encoders.EncoderFor<bool>();
   public Structured Encode(ItestUnionSame input)
     => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
      : Structured.Empty();

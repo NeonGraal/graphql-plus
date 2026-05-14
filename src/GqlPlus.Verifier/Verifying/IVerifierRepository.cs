@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Operation;
+﻿using System.Runtime.CompilerServices;
+using GqlPlus.Ast.Operation;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Matching;
 using GqlPlus.Merging;
@@ -9,25 +10,24 @@ using GqlPlus.Verifying.Schema.Simple;
 namespace GqlPlus.Verifying;
 
 public interface IVerifierRepository
+  : IRepository
 {
-  IVerify<T> VerifierFor<T>();
+  Verifier<T>.D VerifierFor<T>([CallerMemberName] string callerName = "");
 
-  IVerifyAliased<T> AliasedFor<T>()
+  AliasVerifier<T>.D AliasedFor<T>([CallerMemberName] string callerName = "")
     where T : IAstAliased;
 
-  IVerifyUsage<T> UsageFor<T>()
+  UsageVerifier<T>.D UsageFor<T>([CallerMemberName] string callerName = "")
     where T : IAstAliased;
 
-  IVerifyIdentified<TUsage, TIdentified> IdentifiedFor<TUsage, TIdentified>()
+  IdentifiedVerifier<TUsage, TIdentified>.D IdentifiedFor<TUsage, TIdentified>([CallerMemberName] string callerName = "")
     where TUsage : IAstError
     where TIdentified : IAstIdentified;
 
-  IEnumerable<IVerifyDomain> GetDomains();
+  DeferList<IVerifyDomain>.D GetDomains([CallerMemberName] string callerName = "");
 
-  ILoggerFactory LoggerFactory { get; }
+  Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "");
 
-  Matcher<T>.D MatcherFor<T>();
-
-  IMerge<T> MergerFor<T>()
+  MergerOne<T>.D MergerFor<T>([CallerMemberName] string callerName = "")
     where T : IAstError;
 }

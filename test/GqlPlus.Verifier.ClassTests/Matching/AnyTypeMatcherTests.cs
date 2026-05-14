@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Matching;
+﻿using GqlPlus.Factories;
+
+namespace GqlPlus.Matching;
 
 public class AnyTypeMatcherTests
   : MatchTestsBase
@@ -9,7 +11,7 @@ public class AnyTypeMatcherTests
   private readonly ITypeMatcher _matcher = A.Of<ITypeMatcher>();
   public AnyTypeMatcherTests()
   {
-    MatcherRepo.TypeMatchers.Returns(_matchers);
+    MatcherRepo.TypeMatchers().ReturnsForAnyArgs(() => _matchers);
     _sut = new AnyTypeMatcher(MatcherRepo);
   }
 

@@ -11,7 +11,7 @@ internal class testUnionDescrEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestUnionDescr>
 {
-  private readonly IEncoder<decimal> _number = encoders.EncoderFor<decimal>();
+  private readonly Encoder<decimal> _number = encoders.EncoderFor<decimal>();
   public Structured Encode(ItestUnionDescr input)
     => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
      : Structured.Empty();

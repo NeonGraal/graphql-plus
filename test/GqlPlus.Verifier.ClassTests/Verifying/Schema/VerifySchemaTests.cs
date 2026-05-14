@@ -15,11 +15,11 @@ public class VerifySchemaTests
 
   public VerifySchemaTests()
   {
-    VerifierRepo.UsageFor<IAstSchemaCategory>().Returns(_categoryOutputs.Intf);
-    VerifierRepo.UsageFor<IAstSchemaDirective>().Returns(_directiveInputs.Intf);
-    VerifierRepo.AliasedFor<IAstSchemaOption>().Returns(_optionsAliased.Intf);
-    VerifierRepo.AliasedFor<IAstType>().Returns(_typesAliased.Intf);
-    VerifierRepo.VerifierFor<IAstType[]>().Returns(_types.Intf);
+    UsageForReturns(_categoryOutputs.Intf);
+    UsageForReturns(_directiveInputs.Intf);
+    AliasedForReturns(_optionsAliased.Intf);
+    AliasedForReturns(_typesAliased.Intf);
+    VerifierForReturns(_types.Intf);
     _verifier = new(VerifierRepo);
 
     _schema = A.Error<IAstSchema>();

@@ -1,8 +1,9 @@
 ﻿using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
+using GqlPlus;
 
-namespace GqlPlus.Convert;
+namespace GqlPlus;
 
 public static class RenderPlain
 {

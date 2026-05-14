@@ -43,8 +43,8 @@ internal class Cmpt_ModifierKeyedEncoder<TModifierKind>(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_ModifierKeyedObject<TModifierKind>>
 {
-  private readonly IEncoder<ICmpt_ModifierObject<TModifierKind>> _modifier = encoders.EncoderFor<ICmpt_ModifierObject<TModifierKind>>();
-  private readonly IEncoder<ICmpt_TypeSimple> _typeSimple = encoders.EncoderFor<ICmpt_TypeSimple>();
+  private readonly Encoder<ICmpt_ModifierObject<TModifierKind>> _modifier = encoders.EncoderFor<ICmpt_ModifierObject<TModifierKind>>();
+  private readonly Encoder<ICmpt_TypeSimple> _typeSimple = encoders.EncoderFor<ICmpt_TypeSimple>();
   public Structured Encode(ICmpt_ModifierKeyedObject<TModifierKind> input)
     => _modifier.Encode(input)
       .AddEncoded("by", input.By, _typeSimple)
@@ -71,7 +71,7 @@ internal class Cmpt_ModifierEncoder<TModifierKind>(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_ModifierObject<TModifierKind>>
 {
-  private readonly IEncoder<TModifierKind> _modifierKind = encoders.EncoderFor<TModifierKind>();
+  private readonly Encoder<TModifierKind> _modifierKind = encoders.EncoderFor<TModifierKind>();
   public Structured Encode(ICmpt_ModifierObject<TModifierKind> input)
     => Structured.Empty()
       .AddEncoded("modifierKind", input.ModifierKind, _modifierKind);

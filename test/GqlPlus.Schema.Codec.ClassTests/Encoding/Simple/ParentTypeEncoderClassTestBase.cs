@@ -21,9 +21,9 @@ public abstract class ParentTypeEncoderClassTestBase<TModel, TItem, TAll, TInput
     All = RFor<TAll>();
 
     IEncoderRepository encoders = A.Of<IEncoderRepository>();
-    encoders.EncoderFor<TypeRefModel<SimpleKindModel>>().Returns(Parent);
-    encoders.EncoderFor<TItem>().Returns(Item);
-    encoders.EncoderFor<TAll>().Returns(All);
+    encoders.EncoderForReturns(Parent);
+    encoders.EncoderForReturns(Item);
+    encoders.EncoderForReturns(All);
     Encoders = encoders;
   }
 

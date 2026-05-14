@@ -4,7 +4,7 @@ public class ArrayParserTests
   : ParserClassTestBase
 {
 
-  private readonly Parser<string>.I _itemParser;
+  private readonly IParser<string> _itemParser;
   private readonly ArrayParser<string> _parser;
 
   public ArrayParserTests()

@@ -3,13 +3,13 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing;
 
-internal sealed class ValueListParser<TValue>(
+internal class ValueListParser<TValue>(
   IParserRepository parsers
-) : Parser<TValue>.IA
+) : IParserArray<TValue>
 {
-  private readonly Parser<TValue>.L _value = parsers.ParserFor<TValue>();
+  private readonly ParserOne<TValue> _value = parsers.ParserFor<TValue>();
 
-  public IResultArray<TValue> Parse(ITokenizer tokens, string label)
+  public IResultArray<TValue> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     tokens.ThrowIfNull();

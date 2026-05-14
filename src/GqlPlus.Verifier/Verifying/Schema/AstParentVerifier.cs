@@ -5,7 +5,7 @@ namespace GqlPlus.Verifying.Schema;
 
 internal abstract class AstParentVerifier<TAst, TParent, TContext>(
   IVerifierRepository verifiers
-) : UsageVerifier<TAst, TContext>(verifiers)
+) : UsageVerifierBase<TAst, TContext>(verifiers)
   where TAst : IAstType<TParent>
   where TParent : IAstDescribed, IEquatable<TParent>
   where TContext : UsageContext

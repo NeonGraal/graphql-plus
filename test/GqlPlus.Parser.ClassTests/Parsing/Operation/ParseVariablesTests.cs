@@ -7,7 +7,7 @@ public class ParseVariablesTests
 {
 
   private readonly ParseVariables _parseVariables;
-  private readonly Parser<IAstVariable>.I _variableParser;
+  private readonly IParser<IAstVariable> _variableParser;
 
   public ParseVariablesTests()
   {
@@ -26,7 +26,7 @@ public class ParseVariablesTests
     TakeReturns('(', true);
     TakeReturns(')', true);
 
-    IAstVariable variable = A.Variable(name);
+    IAstVariable variable = A.Identified<IAstVariable>(name);
     variable.Equals(Arg.Any<IAstVariable>()).Returns(c => c[0] == variable);
     ParseOk(_variableParser, variable);
 
@@ -58,7 +58,7 @@ public class ParseVariablesTests
     // Arrange
     TakeReturns('(', true);
     TakeReturns(')', false);
-    IAstVariable variable = A.Variable(name);
+    IAstVariable variable = A.Identified<IAstVariable>(name);
     Parse(_variableParser, variable.Ok(), variable.Empty());
 
     // Act

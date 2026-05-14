@@ -13,12 +13,12 @@ public abstract class IdentifiedVerifierTestsBase<TUsage, TIdentified>
   protected IVerify<TUsage> Usage => _usage.Intf;
   protected IVerify<TIdentified> Definition => _definition.Intf;
 
-  private readonly Lazy<IdentifiedVerifier<TUsage, TIdentified>> _verifier;
+  private readonly Lazy<IdentifiedVerifierBase<TUsage, TIdentified>> _verifier;
 
   protected IdentifiedVerifierTestsBase()
   {
-    VerifierRepo.VerifierFor<TUsage>().Returns(Usage);
-    VerifierRepo.VerifierFor<TIdentified>().Returns(Definition);
+    VerifierRepo.VerifierFor<TUsage>().ReturnsForAnyArgs(() => Usage);
+    VerifierRepo.VerifierFor<TIdentified>().ReturnsForAnyArgs(() => Definition);
 
     _verifier = new(NewVerifier);
   }
@@ -98,7 +98,7 @@ public abstract class IdentifiedVerifierTestsBase<TUsage, TIdentified>
       () => Errors.Count.ShouldBe(count));
   }
 
-  internal abstract IdentifiedVerifier<TUsage, TIdentified> NewVerifier();
+  internal abstract IdentifiedVerifierBase<TUsage, TIdentified> NewVerifier();
   protected abstract IEnumerable<TIdentified> OneDefinition(string name);
   protected abstract IEnumerable<TUsage> OneUsage(string key);
 }

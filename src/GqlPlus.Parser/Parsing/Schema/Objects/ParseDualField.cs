@@ -25,4 +25,6 @@ internal class ParseDualField(
 
   protected override IResultArray<IAstInputParam> FieldParam(ITokenizer tokens)
     => 0.EmptyArray<IAstInputParam>();
+
+  internal static ParseDualField Factory(IParserRepository p) => new(p);
 }

@@ -13,7 +13,7 @@ public class MergeDomainAstBooleansTests
   public MergeDomainAstBooleansTests(ITestOutputHelper outputHelper)
   {
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.MergerFor<IAstDomainTrueFalse>().Returns(MergeItems);
+    mergers.MergerForReturns(MergeItems);
     MergeDomains<DomainTrueFalseAst, IAstDomainTrueFalse> merger = new(mergers);
     Merger = merger;
     MergerSimple = merger;

@@ -6,9 +6,9 @@ namespace GqlPlus.Parsing.Schema.Simple;
 
 internal abstract class ParseDomainItem<TItem>(
     IParserRepository parsers
-) : Parser<TItem>.I, IParseDomain
+) : IParser<TItem>, IParseDomain
 {
-  private readonly Parser<TItem>.LA _items = parsers.ArrayFor<TItem>();
+  private readonly ParserArray<TItem> _items = parsers.ArrayFor<TItem>();
 
   public abstract DomainKind Kind { get; }
   public ParseItems Parser => ParseItems;
@@ -28,5 +28,5 @@ internal abstract class ParseDomainItem<TItem>(
     TItem[] items
   );
 
-  public abstract IResult<TItem> Parse(ITokenizer tokens, string label);
+  public abstract IResult<TItem> Parse([NotNull] ITokenizer tokens, string label);
 }

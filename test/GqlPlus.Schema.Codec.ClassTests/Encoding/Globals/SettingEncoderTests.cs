@@ -7,7 +7,7 @@ public class SettingEncoderTests
   {
     _constant = RFor<ConstantModel>();
     IEncoderRepository encoders = A.Of<IEncoderRepository>();
-    encoders.EncoderFor<ConstantModel>().Returns(_constant);
+    encoders.EncoderForReturns(_constant);
     Encoder = new SettingEncoder(encoders);
   }
 

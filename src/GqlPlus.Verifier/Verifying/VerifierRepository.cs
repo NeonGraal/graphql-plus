@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Operation;
+﻿using System.Runtime.CompilerServices;
+using GqlPlus.Ast.Operation;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Matching;
 using GqlPlus.Merging;
@@ -8,55 +9,38 @@ using GqlPlus.Verifying.Schema.Simple;
 
 namespace GqlPlus.Verifying;
 
-internal class VerifierRepository
-  : BaseRepository<IVerifierRepository>
+internal class VerifierRepository(
+  VerifierRepositoryBuilder state,
+  ILoggerFactory loggerFactory,
+  IMatcherRepository matchers,
+  IMergerRepository mergers
+) : BaseRepository<IVerifierRepository>(loggerFactory)
   , IVerifierRepository
 {
-  private readonly VerifierRepositoryBuilder _state;
-  private readonly IMatcherRepository _matchers;
-  private readonly IMergerRepository _mergers;
-  private readonly Lazy<IEnumerable<IVerifyDomain>> _domains;
+  public Verifier<T>.D VerifierFor<T>([CallerMemberName] string callerName = "")
+    => () => Cached<T, IVerify<T>>(state.Verifiers, "verify for " + callerName, this);
 
-  public VerifierRepository(
-    VerifierRepositoryBuilder state,
-    ILoggerFactory loggerFactory,
-    IMatcherRepository matchers,
-    IMergerRepository mergers)
-    : base(loggerFactory)
-  {
-    _state = state;
-    _matchers = matchers;
-    _mergers = mergers;
-    _domains = new(()
-      => [.. state.Domains.Select(f
-        => (IVerifyDomain)f.Invoke(this))]);
-  }
-
-  public IVerify<T> VerifierFor<T>()
-    => Cached<T, IVerify<T>>(_state.Verifiers, "verify", this);
-
-  public IVerifyAliased<T> AliasedFor<T>()
+  public AliasVerifier<T>.D AliasedFor<T>([CallerMemberName] string callerName = "")
     where T : IAstAliased
-    => Cached<T, IVerifyAliased<T>>(_state.Aliased, "aliased", this);
-
-  public IVerifyUsage<T> UsageFor<T>()
+    => () => Cached<T, IVerifyAliased<T>>(state.Aliased, "aliased for " + callerName, this);
+  public UsageVerifier<T>.D UsageFor<T>([CallerMemberName] string callerName = "")
     where T : IAstAliased
-    => Cached<T, IVerifyUsage<T>>(_state.Usages, "usage", this);
+    => () => Cached<T, IVerifyUsage<T>>(state.Usages, "usage for " + callerName, this);
 
-  public IVerifyIdentified<TUsage, TIdentified> IdentifiedFor<TUsage, TIdentified>()
+  public IdentifiedVerifier<TUsage, TIdentified>.D IdentifiedFor<TUsage, TIdentified>([CallerMemberName] string callerName = "")
     where TUsage : IAstError
     where TIdentified : IAstIdentified
-    => Cached<(TUsage, TIdentified), IVerifyIdentified<TUsage, TIdentified>>(
-      _state.Identified,
-      "identified", this);
+    => () => Cached<(TUsage, TIdentified), IVerifyIdentified<TUsage, TIdentified>>(
+      state.Identified,
+      "identified for " + callerName, this);
 
-  public IEnumerable<IVerifyDomain> GetDomains()
-    => _domains.Value;
+  public DeferList<IVerifyDomain>.D GetDomains([CallerMemberName] string callerName = "")
+    => () => InstancesFor<IVerifyDomain>(state.Domains, this);
 
-  public Matcher<T>.D MatcherFor<T>()
-    => _matchers.MatcherFor<T>();
+  public Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "")
+    => matchers.MatcherFor<T>(callerName);
 
-  public IMerge<T> MergerFor<T>()
+  public MergerOne<T>.D MergerFor<T>([CallerMemberName] string callerName = "")
     where T : IAstError
-    => _mergers.MergerFor<T>();
+    => mergers.MergerFor<T>(callerName);
 }

@@ -11,11 +11,11 @@ internal class OperationEncoder(
   IEncoderRepository encoders
 ) : AliasedEncoder<OperationModel>()
 {
-  private readonly IEncoder<OpDirectiveModel> _directives = encoders.EncoderFor<OpDirectiveModel>();
-  private readonly IEncoder<OpFragmentModel> _fragments = encoders.EncoderFor<OpFragmentModel>();
-  private readonly IEncoder<OpResultModel> _result = encoders.EncoderFor<OpResultModel>();
+  private readonly Encoder<OpDirectiveModel> _directives = encoders.EncoderFor<OpDirectiveModel>();
+  private readonly Encoder<OpFragmentModel> _fragments = encoders.EncoderFor<OpFragmentModel>();
+  private readonly Encoder<OpResultModel> _result = encoders.EncoderFor<OpResultModel>();
   // private readonly IEncoder<OpSelectionModel> _selections = encoders.EncoderFor<OpSelectionModel>();
-  private readonly IEncoder<OpVariableModel> _variables = encoders.EncoderFor<OpVariableModel>();
+  private readonly Encoder<OpVariableModel> _variables = encoders.EncoderFor<OpVariableModel>();
 
   internal override Structured Encode(OperationModel model)
     => base.Encode(model)

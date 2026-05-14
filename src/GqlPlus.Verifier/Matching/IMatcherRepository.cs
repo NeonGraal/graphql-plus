@@ -1,10 +1,11 @@
-﻿namespace GqlPlus.Matching;
+﻿using System.Runtime.CompilerServices;
+
+namespace GqlPlus.Matching;
 
 public interface IMatcherRepository
+  : IRepository
 {
-  ILoggerFactory LoggerFactory { get; }
+  Matcher<T>.D MatcherFor<T>([CallerMemberName] string callerName = "");
 
-  IEnumerable<ITypeMatcher> TypeMatchers { get; }
-
-  Matcher<T>.D MatcherFor<T>();
+  DeferList<ITypeMatcher>.D TypeMatchers([CallerMemberName] string callerName = "");
 }

@@ -7,12 +7,12 @@ public static class CommonParsers
 {
   public static IParserRepositoryBuilder AddCommonParsers(this IParserRepositoryBuilder builder)
     => builder.ThrowIfNull()
-        .AddSingle(_ => new ParseEnumValue())
-        .AddSingle(p => new ParseFieldKey(p))
-        .AddArray(p => new ParseModifiers(p))
-        .AddInterfaceArray<IParserCollections>(_ => new ParseCollections())
-        .AddInterfaceSingle<IParserDefault>(p => new ParseDefault(p))
-        .AddValueParsers(p => new ParseConstant(p));
+        .AddSingle(ParseEnumValue.Factory)
+        .AddSingle(ParseFieldKey.Factory)
+        .AddArray(ParseModifiers.Factory)
+        .AddInterfaceArray<IParserCollections>(ParseCollections.Factory)
+        .AddInterfaceSingle<IParserDefault>(ParseDefault.Factory)
+        .AddValueParsers(ParseConstant.Factories);
 
   public static IServiceCollection AddParsers(this IServiceCollection services, Action<IParserRepositoryBuilder> config)
   {
@@ -27,12 +27,12 @@ public static class CommonParsers
     return services;
   }
 
-  internal static IParserRepositoryBuilder AddValueParsers<TValue>(this IParserRepositoryBuilder builder, Factory<ValueParser<TValue>, IParserRepository> factory)
+  internal static IParserRepositoryBuilder AddValueParsers<TValue>(this IParserRepositoryBuilder builder, IValueParserFactories<TValue> factories)
     where TValue : IAstValue<TValue>
     => builder
-      .AddSingle(factory)
-      .AddInterfaceSingle<IValueParser<TValue>>(factory)
-      .AddSingle(p => new ValueKeyValueParser<TValue>(p))
-      .AddArray(p => new ValueListParser<TValue>(p))
-      .AddSingle(p => new ValueObjectParser<TValue>(p));
+      .AddSingle(factories.Value)
+      .AddInterfaceSingle<IValueParser<TValue>>(factories.Value)
+      .AddSingle(factories.ValueKey)
+      .AddArray(factories.ValueList)
+      .AddSingle(factories.ValueObject);
 }

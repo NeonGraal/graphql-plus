@@ -11,8 +11,8 @@ internal class testObjParamDualEncoder<TTest,TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestObjParamDualObject<TTest,TType>>
 {
-  private readonly IEncoder<TTest> _test = encoders.EncoderFor<TTest>();
-  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  private readonly Encoder<TTest> _test = encoders.EncoderFor<TTest>();
+  private readonly Encoder<TType> _type = encoders.EncoderFor<TType>();
   public Structured Encode(ItestObjParamDualObject<TTest,TType> input)
     => Structured.Empty()
       .AddEncoded("test", input.Test, _test)

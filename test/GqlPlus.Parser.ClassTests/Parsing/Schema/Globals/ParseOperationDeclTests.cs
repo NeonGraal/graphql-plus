@@ -7,7 +7,7 @@ public class ParseOperationDeclTests
 {
 
   private readonly ParseOperationDecl _parser;
-  private readonly Parser<OperationDefinition>.I _definition;
+  private readonly IParser<OperationDefinition> _definition;
 
   public ParseOperationDeclTests()
   {

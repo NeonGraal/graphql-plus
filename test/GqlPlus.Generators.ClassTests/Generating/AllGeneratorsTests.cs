@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using GqlPlus.Factories;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Generating;
 
@@ -11,14 +12,19 @@ public class AllGeneratorsTests
 
   [Fact]
   public void AllGenerators_GeneratorForSchema_IsRegistered()
-    => _services.GetRequiredService<IGeneratorRepository>()
-      .GeneratorFor<IAstSchema>()
-      .ShouldNotBeNull();
+  {
+    Generator<IAstSchema> lazy = _services.GetRequiredService<IGeneratorRepository>().GeneratorFor<IAstSchema>();
+
+    lazy.I.ShouldNotBeNull();
+  }
 
   [Theory, ClassData<DefinedGeneratorTypes>]
   public void AllGenerators_TypeGenerators_ReturnNotEmpty(GqlpGeneratorType generatorType)
-    => _services.GetRequiredService<IGeneratorRepository>()
-    .TypeGenerators(generatorType).ShouldNotBeEmpty();
+  {
+    DeferList<ITypeGenerator> lazy = _services.GetRequiredService<IGeneratorRepository>().TypeGenerators(generatorType);
+
+    lazy.ShouldNotBeEmpty();
+  }
 
   [Fact]
   public void AllGenerators_GeneratorFactories_ReturnNotNull()
@@ -33,9 +39,9 @@ public class AllGeneratorsTests
   public void AllGenerators_TypeGeneratorFactories_ReturnNotNull(GqlpGeneratorType generatorType)
   {
     IGeneratorRepository repo = _services.GetRequiredService<IGeneratorRepository>();
+    DeferList<ITypeGenerator> lazy = repo.TypeGenerators(generatorType);
 
-    repo.ShouldSatisfyAllConditions([.. repo.TypeGenerators(generatorType)
-      .Select(CheckTypeGenerator)]);
+    repo.ShouldSatisfyAllConditions([.. lazy.Select(CheckTypeGenerator)]);
   }
 
   private static Action<IGeneratorRepository> CheckGenerator(Factory<object, IGeneratorRepository> factory)

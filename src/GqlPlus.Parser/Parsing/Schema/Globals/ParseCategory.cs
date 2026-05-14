@@ -26,6 +26,8 @@ internal class ParseCategory(
       Aliases = partial.Aliases,
       Option = partial.Option ?? CategoryOption.Parallel,
     };
+
+  internal static ParseCategory Factory(IParserRepository p) => new(p);
 }
 
 internal record CategoryOutput(IAstTypeRef Output)
@@ -45,18 +47,20 @@ internal class CategoryName
 
     return true;
   }
+
+  internal static CategoryName Factory(IParserRepository _) => new();
 }
 
 internal interface ICategoryName : INameParser;
 
 internal class ParseCategoryDefinition(
   IParserRepository parsers
-) : Parser<CategoryOutput>.I
+) : IParser<CategoryOutput>
 {
-  private readonly Parser<IAstTypeRef>.L _typeRef = parsers.ParserFor<IAstTypeRef>();
-  private readonly Parser<IAstModifier>.LA _modifiers = parsers.ArrayFor<IAstModifier>();
+  private readonly ParserOne<IAstTypeRef> _typeRef = parsers.ParserFor<IAstTypeRef>();
+  private readonly ParserArray<IAstModifier> _modifiers = parsers.ArrayFor<IAstModifier>();
 
-  public IResult<CategoryOutput> Parse(ITokenizer tokens, string label)
+  public IResult<CategoryOutput> Parse([NotNull] ITokenizer tokens, string label)
   {
     IResult<IAstTypeRef> output = _typeRef.Parse(tokens, "Category Output");
     if (output.IsError()) {
@@ -72,4 +76,6 @@ internal class ParseCategoryDefinition(
     modifiers.Optional(value => result.Modifiers = [.. value]);
     return tokens.End(label, () => result);
   }
+
+  internal static ParseCategoryDefinition Factory(IParserRepository p) => new(p);
 }

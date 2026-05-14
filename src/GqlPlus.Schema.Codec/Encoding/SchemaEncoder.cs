@@ -4,11 +4,11 @@ internal class SchemaEncoder(
   IEncoderRepository encoders
 ) : AliasedEncoder<SchemaModel>
 {
-  private readonly IEncoder<CategoriesModel> _categories = encoders.EncoderFor<CategoriesModel>();
-  private readonly IEncoder<DirectivesModel> _directives = encoders.EncoderFor<DirectivesModel>();
-  private readonly IEncoder<OperationsModel> _operations = encoders.EncoderFor<OperationsModel>();
-  private readonly IEncoder<BaseTypeModel> _types = encoders.EncoderFor<BaseTypeModel>();
-  private readonly IEncoder<SettingModel> _settings = encoders.EncoderFor<SettingModel>();
+  private readonly Encoder<CategoriesModel> _categories = encoders.EncoderFor<CategoriesModel>();
+  private readonly Encoder<DirectivesModel> _directives = encoders.EncoderFor<DirectivesModel>();
+  private readonly Encoder<OperationsModel> _operations = encoders.EncoderFor<OperationsModel>();
+  private readonly Encoder<BaseTypeModel> _types = encoders.EncoderFor<BaseTypeModel>();
+  private readonly Encoder<SettingModel> _settings = encoders.EncoderFor<SettingModel>();
 
   internal override Structured Encode(SchemaModel model)
     => base.Encode(model)

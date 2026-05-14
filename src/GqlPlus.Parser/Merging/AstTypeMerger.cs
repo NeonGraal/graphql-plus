@@ -11,7 +11,7 @@ internal abstract class AstTypeMerger<TAst, TType, TParent, TItem>(
   where TParent : IAstDescribed, IEquatable<TParent>
   where TItem : IAstError
 {
-  private readonly IMerge<TItem> _mergeItems = mergers.MergerFor<TItem>();
+  private readonly MergerOne<TItem> _mergeItems = mergers.MergerFor<TItem>();
 
   internal abstract IEnumerable<TItem> GetItems(TType type);
 

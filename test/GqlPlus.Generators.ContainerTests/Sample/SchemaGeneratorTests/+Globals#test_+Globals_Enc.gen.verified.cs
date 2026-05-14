@@ -123,7 +123,7 @@ internal class testCatOprTypeEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestCatOprTypeObject>
 {
-  private readonly IEncoder<ItestAddrOprType> _itestAddrOprType = encoders.EncoderFor<ItestAddrOprType>();
+  private readonly Encoder<ItestAddrOprType> _itestAddrOprType = encoders.EncoderFor<ItestAddrOprType>();
   public Structured Encode(ItestCatOprTypeObject input)
     => Structured.Empty()
       .Add("first", input.First.Encode())

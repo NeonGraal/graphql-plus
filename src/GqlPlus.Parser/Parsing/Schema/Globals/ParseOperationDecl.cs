@@ -21,6 +21,8 @@ internal class ParseOperationDecl(
     => new OperationDeclAst(partial.At, partial.Name, partial.Description, partial.Name) {
       Aliases = partial.Aliases,
     };
+
+  internal static ParseOperationDecl Factory(IParserRepository p) => new(p);
 }
 
 internal record OperationDefinition(string Category)
@@ -36,16 +38,16 @@ internal record OperationDefinition(string Category)
 
 internal class ParseOperationDefinition(
   IParserRepository parsers
-) : Parser<OperationDefinition>.I
+) : IParser<OperationDefinition>
 {
-  private readonly Parser<IParserArg, IAstArg>.L _argument = parsers.ParserFor<IParserArg, IAstArg>();
-  private readonly Parser<IAstDirective>.LA _directives = parsers.ArrayFor<IAstDirective>();
-  private readonly ParserArray<IParserStartFragments, IAstFragment>.LA _fragments = parsers.ArrayFor<IParserStartFragments, IAstFragment>();
-  private readonly Parser<IAstModifier>.LA _modifiers = parsers.ArrayFor<IAstModifier>();
-  private readonly Parser<IAstSelection>.LA _object = parsers.ArrayFor<IAstSelection>();
-  private readonly Parser<IAstVariable>.LA _variables = parsers.ArrayFor<IAstVariable>();
+  private readonly ParserOne<IParserArg, IAstArg> _argument = parsers.ParserFor<IParserArg, IAstArg>();
+  private readonly ParserArray<IAstDirective> _directives = parsers.ArrayFor<IAstDirective>();
+  private readonly ParserArray<IParserStartFragments, IAstFragment> _fragments = parsers.ArrayFor<IParserStartFragments, IAstFragment>();
+  private readonly ParserArray<IAstModifier> _modifiers = parsers.ArrayFor<IAstModifier>();
+  private readonly ParserArray<IAstSelection> _object = parsers.ArrayFor<IAstSelection>();
+  private readonly ParserArray<IAstVariable> _variables = parsers.ArrayFor<IAstVariable>();
 
-  public IResult<OperationDefinition> Parse(ITokenizer tokens, string label)
+  public IResult<OperationDefinition> Parse([NotNull] ITokenizer tokens, string label)
   {
     if (!tokens.Identifier(out string? category)) {
       return tokens.Error<OperationDefinition>(label, "category");
@@ -85,4 +87,6 @@ internal class ParseOperationDefinition(
 
     return tokens.End(label, () => result);
   }
+
+  internal static ParseOperationDefinition Factory(IParserRepository p) => new(p);
 }

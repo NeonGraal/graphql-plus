@@ -19,7 +19,7 @@ internal class testRefGnrcEnumOutpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestRefGnrcEnumOutpObject<TType>>
 {
-  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  private readonly Encoder<TType> _type = encoders.EncoderFor<TType>();
   public Structured Encode(ItestRefGnrcEnumOutpObject<TType> input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _type);

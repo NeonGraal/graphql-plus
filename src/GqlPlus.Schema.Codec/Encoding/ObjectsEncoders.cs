@@ -4,7 +4,7 @@ internal class TypeArgEncoder(
   IEncoderRepository encoders
 ) : DescribedEncoder<ITypeArgModel>
 {
-  private readonly IEncoder<EnumValueModel> _enumValue = encoders.EncoderFor<EnumValueModel>();
+  private readonly Encoder<EnumValueModel> _enumValue = encoders.EncoderFor<EnumValueModel>();
 
   internal override Structured Encode(ITypeArgModel model)
     => model.EnumValue is null
@@ -22,7 +22,7 @@ internal class ObjectBaseEncoder<TBase>(
 ) : DescribedEncoder<TBase>
   where TBase : ObjBaseModel
 {
-  private readonly IEncoder<ITypeArgModel> _objArg = encoders.EncoderFor<ITypeArgModel>();
+  private readonly Encoder<ITypeArgModel> _objArg = encoders.EncoderFor<ITypeArgModel>();
 
   internal override Structured Encode(TBase model)
     => base.Encode(model)
@@ -38,7 +38,7 @@ internal class TypeParamEncoder(
   IEncoderRepository encoders
 ) : NamedEncoder<TypeParamModel>
 {
-  private readonly IEncoder<TypeRefModel<TypeKindModel>> _typeKind = encoders.EncoderFor<TypeRefModel<TypeKindModel>>();
+  private readonly Encoder<TypeRefModel<TypeKindModel>> _typeKind = encoders.EncoderFor<TypeRefModel<TypeKindModel>>();
 
   internal override Structured Encode(TypeParamModel model)
     => base.Encode(model)
@@ -53,8 +53,8 @@ internal class ObjectFieldEncoder<TField, TBase>(
   where TField : IObjFieldModel
   where TBase : class, IObjBaseModel
 {
-  private readonly IEncoder<ModifierModel> _modifier = encoders.EncoderFor<ModifierModel>();
-  private readonly IEncoder<TBase> _objBase = encoders.EncoderFor<TBase>();
+  private readonly Encoder<ModifierModel> _modifier = encoders.EncoderFor<ModifierModel>();
+  private readonly Encoder<TBase> _objBase = encoders.EncoderFor<TBase>();
 
   internal override Structured Encode(TField model)
     => base.Encode(model)
@@ -66,8 +66,8 @@ internal class ObjectAlternateEncoder(
   IEncoderRepository encoders
 ) : BaseEncoder<AlternateModel>()
 {
-  private readonly IEncoder<CollectionModel> _collection = encoders.EncoderFor<CollectionModel>();
-  private readonly IEncoder<ObjBaseModel> _objBase = encoders.EncoderFor<ObjBaseModel>();
+  private readonly Encoder<CollectionModel> _collection = encoders.EncoderFor<CollectionModel>();
+  private readonly Encoder<ObjBaseModel> _objBase = encoders.EncoderFor<ObjBaseModel>();
 
   internal override Structured Encode(AlternateModel model)
     => base.Encode(model)
@@ -82,7 +82,7 @@ internal class ObjectForEncoder<TFor>(
 ) : BaseEncoder<ObjectForModel<TFor>>
   where TFor : IModelBase
 {
-  private readonly IEncoder<TFor> _encoder = encoders.EncoderFor<TFor>();
+  private readonly Encoder<TFor> _encoder = encoders.EncoderFor<TFor>();
 
   internal override Structured Encode(ObjectForModel<TFor> model)
     => base.Encode(model)
@@ -98,13 +98,13 @@ internal abstract class TypeObjectEncoder<TObject, TField>(
   where TObject : TypeObjectModel<TField>
   where TField : IObjFieldModel
 {
-  private readonly IEncoder<TField> _field = encoders.EncoderFor<TField>();
-  private readonly IEncoder<ObjectForModel<TField>> _forField = encoders.EncoderFor<ObjectForModel<TField>>();
-  private readonly IEncoder<ObjectForModel<DualFieldModel>> _dualField = encoders.EncoderFor<ObjectForModel<DualFieldModel>>();
-  private readonly IEncoder<AlternateModel> _alternate = encoders.EncoderFor<AlternateModel>();
-  private readonly IEncoder<ObjectForModel<AlternateModel>> _forAlternate = encoders.EncoderFor<ObjectForModel<AlternateModel>>();
-  private readonly IEncoder<ObjectForModel<AlternateModel>> _dualAlternate = encoders.EncoderFor<ObjectForModel<AlternateModel>>();
-  private readonly IEncoder<TypeParamModel> _typeParam = encoders.EncoderFor<TypeParamModel>();
+  private readonly Encoder<TField> _field = encoders.EncoderFor<TField>();
+  private readonly Encoder<ObjectForModel<TField>> _forField = encoders.EncoderFor<ObjectForModel<TField>>();
+  private readonly Encoder<ObjectForModel<DualFieldModel>> _dualField = encoders.EncoderFor<ObjectForModel<DualFieldModel>>();
+  private readonly Encoder<AlternateModel> _alternate = encoders.EncoderFor<AlternateModel>();
+  private readonly Encoder<ObjectForModel<AlternateModel>> _forAlternate = encoders.EncoderFor<ObjectForModel<AlternateModel>>();
+  private readonly Encoder<ObjectForModel<AlternateModel>> _dualAlternate = encoders.EncoderFor<ObjectForModel<AlternateModel>>();
+  private readonly Encoder<TypeParamModel> _typeParam = encoders.EncoderFor<TypeParamModel>();
 
   internal override Structured Encode(TObject model)
   {
@@ -147,7 +147,7 @@ internal class InputFieldEncoder(
   IEncoderRepository encoders
 ) : ObjectFieldEncoder<InputFieldModel, ObjBaseModel>(encoders)
 {
-  private readonly IEncoder<ConstantModel> _constant = encoders.EncoderFor<ConstantModel>();
+  private readonly Encoder<ConstantModel> _constant = encoders.EncoderFor<ConstantModel>();
 
   internal override Structured Encode(InputFieldModel model)
     => base.Encode(model)
@@ -160,8 +160,8 @@ internal class InputParamEncoder(
   IEncoderRepository encoders
 ) : ObjectBaseEncoder<InputParamModel>(encoders)
 {
-  private readonly IEncoder<ModifierModel> _modifier = encoders.EncoderFor<ModifierModel>();
-  private readonly IEncoder<ConstantModel> _constant = encoders.EncoderFor<ConstantModel>();
+  private readonly Encoder<ModifierModel> _modifier = encoders.EncoderFor<ModifierModel>();
+  private readonly Encoder<ConstantModel> _constant = encoders.EncoderFor<ConstantModel>();
 
   internal override Structured Encode(InputParamModel model)
     => base.Encode(model)
@@ -194,8 +194,8 @@ internal class OutputFieldEncoder(
   IEncoderRepository encoders
 ) : ObjectFieldEncoder<OutputFieldModel, ObjBaseModel>(encoders)
 {
-  private readonly IEncoder<OutputEnumModel> _outputEnum = encoders.EncoderFor<OutputEnumModel>();
-  private readonly IEncoder<InputParamModel> _parameter = encoders.EncoderFor<InputParamModel>();
+  private readonly Encoder<OutputEnumModel> _outputEnum = encoders.EncoderFor<OutputEnumModel>();
+  private readonly Encoder<InputParamModel> _parameter = encoders.EncoderFor<InputParamModel>();
 
   internal override Structured Encode(OutputFieldModel model)
     => model.Enum is null

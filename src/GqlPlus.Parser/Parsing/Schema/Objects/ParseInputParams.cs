@@ -7,13 +7,13 @@ namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseInputParams(
   IParserRepository parsers
-) : Parser<IAstInputParam>.IA
+) : IParserArray<IAstInputParam>
 {
-  private readonly Parser<IAstObjBase>.L _input = parsers.ParserFor<IAstObjBase>();
-  private readonly Parser<IAstModifier>.LA _modifiers = parsers.ArrayFor<IAstModifier>();
-  private readonly Parser<IParserDefault, IAstConstant>.L _default = parsers.ParserFor<IParserDefault, IAstConstant>();
+  private readonly ParserOne<IAstObjBase> _input = parsers.ParserFor<IAstObjBase>();
+  private readonly ParserArray<IAstModifier> _modifiers = parsers.ArrayFor<IAstModifier>();
+  private readonly ParserOne<IParserDefault, IAstConstant> _default = parsers.ParserFor<IParserDefault, IAstConstant>();
 
-  public IResultArray<IAstInputParam> Parse(ITokenizer tokens, string label)
+  public IResultArray<IAstInputParam> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     List<IAstInputParam> list = [];
@@ -37,7 +37,7 @@ internal class ParseInputParams(
       }
 
       modifiers.Optional(value => parameter.Modifiers = value.ArrayOf<ModifierAst>());
-      IResult<IAstConstant> constant = _default.I.Parse(tokens, "Default");
+      IResult<IAstConstant> constant = _default.Parse(tokens, "Default");
       if (constant.IsError()) {
         return constant.AsResultArray(list);
       }
@@ -47,4 +47,6 @@ internal class ParseInputParams(
 
     return list.Count == 0 ? tokens.ErrorArray(label, "at least one parameter after '('", list) : list.OkArray();
   }
+
+  internal static ParseInputParams Factory(IParserRepository p) => new(p);
 }

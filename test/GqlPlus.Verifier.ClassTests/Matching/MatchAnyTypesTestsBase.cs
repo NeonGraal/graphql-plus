@@ -5,12 +5,12 @@ public class MatchAnyTypesTestsBase
 {
   protected Matcher<IAstType>.D AnyTypeMatcher { get; }
 
-  private readonly Matcher<IAstType>.I _anyTypeMatcher;
+  private readonly IMatcher<IAstType> _anyTypeMatcher;
 
   protected MatchAnyTypesTestsBase()
   {
     AnyTypeMatcher = MatcherFor(out _anyTypeMatcher);
-    MatcherRepo.MatcherFor<IAstType>().Returns(AnyTypeMatcher);
+    MatcherForReturns(AnyTypeMatcher);
   }
 
   protected void AnyTypeMatches(bool result)

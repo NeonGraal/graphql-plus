@@ -8,7 +8,7 @@ public class CategoryModellerTests
   public CategoryModellerTests()
   {
     IModellerRepository modellers = A.Of<IModellerRepository>();
-    modellers.ModellerFor<IAstModifier, ModifierModel>().Returns(_modifier);
+    ModellerForReturns(modellers, _modifier);
     Modeller = new CategoryModeller(modellers);
   }
 

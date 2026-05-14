@@ -6,11 +6,11 @@ internal class SchemaModeller(
   IModellerRepository modellers
 ) : ModellerBase<IAstSchema, SchemaModel>
 {
-  private readonly IModeller<IAstSchemaCategory, CategoryModel> _category = modellers.ModellerFor<IAstSchemaCategory, CategoryModel>();
-  private readonly IModeller<IAstSchemaDirective, DirectiveModel> _directive = modellers.ModellerFor<IAstSchemaDirective, DirectiveModel>();
-  private readonly IModeller<IAstSchemaOperation, OperationModel> _operation = modellers.ModellerFor<IAstSchemaOperation, OperationModel>();
-  private readonly IModeller<IAstSchemaSetting, SettingModel> _setting = modellers.ModellerFor<IAstSchemaSetting, SettingModel>();
-  private readonly ITypesModeller _types = modellers.TypesModeller;
+  private readonly Modeller<IAstSchemaCategory, CategoryModel> _category = modellers.ModellerFor<IAstSchemaCategory, CategoryModel>();
+  private readonly Modeller<IAstSchemaDirective, DirectiveModel> _directive = modellers.ModellerFor<IAstSchemaDirective, DirectiveModel>();
+  private readonly Modeller<IAstSchemaOperation, OperationModel> _operation = modellers.ModellerFor<IAstSchemaOperation, OperationModel>();
+  private readonly Modeller<IAstSchemaSetting, SettingModel> _setting = modellers.ModellerFor<IAstSchemaSetting, SettingModel>();
+  private readonly DeferOne<ITypesModeller> _types = modellers.TypesModeller();
 
   protected override SchemaModel ToModel(IAstSchema ast, IMap<TypeKindModel> typeKinds)
   {
@@ -22,7 +22,7 @@ internal class SchemaModeller(
       errors.Add(ast.Errors);
     }
 
-    _types.AddTypeKinds(typeDeclarations, typeKinds);
+    _types.I.AddTypeKinds(typeDeclarations, typeKinds);
 
     IEnumerable<CategoryModel> categories = DeclarationModel(ast, _category, typeKinds);
     IEnumerable<DirectiveModel> directives = DeclarationModel(ast, _directive, typeKinds);
@@ -37,7 +37,7 @@ internal class SchemaModeller(
         directives,
         operations,
         settings,
-        typeDeclarations.Select(t => _types.ToModel(t, typeKinds)),
+        typeDeclarations.Select(t => _types.I.ToModel(t, typeKinds)),
         errors
         ) { Aliases = [.. aliases] };
   }

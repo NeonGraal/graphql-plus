@@ -9,7 +9,7 @@ public class BuiltInTests(
   IVerifierRepository verifierRepository
 )
 {
-  private readonly IVerify<IAstSchema> _verifier = verifierRepository.VerifierFor<IAstSchema>();
+  private readonly Verifier<IAstSchema> _verifier = verifierRepository.VerifierFor<IAstSchema>();
   private readonly VerifySettings _settings = new VerifySettings().CheckAutoVerify();
 
   [Fact]

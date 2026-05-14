@@ -8,10 +8,10 @@ public class ParseOperationDefinitionTests
 {
   private readonly ParseOperationDefinition _parser;
   private readonly IParserArg _argumentParser;
-  private readonly Parser<IAstDirective>.IA _directivesParser;
+  private readonly IParserArray<IAstDirective> _directivesParser;
   private readonly IParserStartFragments _fragmentsParser;
-  private readonly Parser<IAstSelection>.IA _objectParser;
-  private readonly Parser<IAstVariable>.IA _variablesParser;
+  private readonly IParserArray<IAstSelection> _objectParser;
+  private readonly IParserArray<IAstVariable> _variablesParser;
 
   public ParseOperationDefinitionTests()
   {

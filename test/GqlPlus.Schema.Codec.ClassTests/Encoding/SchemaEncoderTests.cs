@@ -19,11 +19,11 @@ public class SchemaEncoderTests
     _types = RFor<BaseTypeModel>();
     _settings = RFor<SettingModel>();
     IEncoderRepository encoders = A.Of<IEncoderRepository>();
-    encoders.EncoderFor<CategoriesModel>().Returns(_categories);
-    encoders.EncoderFor<DirectivesModel>().Returns(_directives);
-    encoders.EncoderFor<OperationsModel>().Returns(_operations);
-    encoders.EncoderFor<BaseTypeModel>().Returns(_types);
-    encoders.EncoderFor<SettingModel>().Returns(_settings);
+    encoders.EncoderForReturns(_categories);
+    encoders.EncoderForReturns(_directives);
+    encoders.EncoderForReturns(_operations);
+    encoders.EncoderForReturns(_types);
+    encoders.EncoderForReturns(_settings);
     Encoder = new SchemaEncoder(encoders);
   }
 

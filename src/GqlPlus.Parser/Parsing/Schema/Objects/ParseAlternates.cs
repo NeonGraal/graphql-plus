@@ -7,13 +7,13 @@ namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseAlternates(
   IParserRepository parsers
-) : Parser<IAstAlternate>.IA
+) : IParserArray<IAstAlternate>
 {
-  private readonly ParserArray<IParserCollections, IAstModifier>.LA _collections = parsers.ArrayFor<IParserCollections, IAstModifier>();
-  private readonly Parser<IAstObjBase>.L _parseBase = parsers.ParserFor<IAstObjBase>();
-  private readonly Parser<IAstEnumValue>.L _parseEnum = parsers.ParserFor<IAstEnumValue>();
+  private readonly ParserArray<IParserCollections, IAstModifier> _collections = parsers.ArrayFor<IParserCollections, IAstModifier>();
+  private readonly ParserOne<IAstObjBase> _parseBase = parsers.ParserFor<IAstObjBase>();
+  private readonly ParserOne<IAstEnumValue> _parseEnum = parsers.ParserFor<IAstEnumValue>();
 
-  public IResultArray<IAstAlternate> Parse(ITokenizer tokens, string label)
+  public IResultArray<IAstAlternate> Parse([NotNull] ITokenizer tokens, string label)
   {
     tokens.ThrowIfNull();
 
@@ -74,4 +74,6 @@ internal class ParseAlternates(
     result.Add(alternate);
     return null;
   }
+
+  internal static ParseAlternates Factory(IParserRepository p) => new(p);
 }

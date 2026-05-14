@@ -26,8 +26,8 @@ public static class AllModellers
       .AddModeller(SimpleModeller.Factory)
       .AddModeller(ConstantModeller.Factory)
       .AddModifierModeller(ModifierModeller.Factory)
-      .AddModeller<IAstModifier, ModifierModel>(r => r.ModifierModeller)
-      .AddModeller<IAstModifier, CollectionModel>(r => r.ModifierModeller)
+      .AddModeller<IAstModifier, ModifierModel>(ModifierModeller.Existing)
+      .AddModeller<IAstModifier, CollectionModel>(ModifierModeller.Existing)
       // Schema
       .AddModeller(SchemaModeller.Factory)
       .AddModeller(CategoryModeller.Factory)
@@ -36,7 +36,6 @@ public static class AllModellers
       .AddModeller(SettingModeller.Factory)
       // Types
       .AddTypesModeller(TypesModeller.Factory)
-      .AddModeller(r => r.TypesModeller)
       .AddTypeModeller(SpecialTypeModeller.Factory)
       // Simple - Domain
       .AddTypeModeller(DomainEnumModeller.Factory)

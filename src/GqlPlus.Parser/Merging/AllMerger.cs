@@ -7,7 +7,7 @@ internal abstract class AllMerger<TItem>(
 ) : DistinctMerger<TItem>(mergers)
   where TItem : IAstType
 {
-  private readonly IEnumerable<IMergeAll<TItem>> _all = mergers.AllMergersFor<TItem>();
+  private readonly MergerList<TItem> _all = mergers.AllMergersFor<TItem>();
 
   protected override IMessages CanMergeGroup(IGrouping<string, TItem> group)
   {

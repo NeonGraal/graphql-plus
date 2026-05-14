@@ -13,7 +13,7 @@ public static class Startup
       .AddParsers(b => b
         .AddOperationParsers())
       .AddMatchers(b => b
-        .AddConstraintTypeMatchers())
+        .AddSchemaMatchers())
       .AddVerifiers(b => b
         .AddSchemaVerifiers()
         .AddOperationVerifiers());

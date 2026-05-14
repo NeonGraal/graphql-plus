@@ -5,7 +5,7 @@ namespace GqlPlus.Parsing.Operation;
 
 internal class ParseVarType : IParserVarType
 {
-  public IResult<string> Parse(ITokenizer tokens, string label)
+  public IResult<string> Parse([NotNull] ITokenizer tokens, string label)
 
 => ParseVarNull(tokens).Select(nullType
       => tokens.Take('!') ? nullType + '!' : nullType);
@@ -24,6 +24,8 @@ internal class ParseVarType : IParserVarType
 
     return "".Empty();
   }
+
+  internal static ParseVarType Factory(IParserRepository _) => new();
 }
 
-public interface IParserVarType : Parser<string>.I;
+public interface IParserVarType : IParser<string>;

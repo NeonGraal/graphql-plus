@@ -10,9 +10,9 @@ public class MergeDualObjectsTests
     : base(TypeKind.Dual)
   {
     IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
-    mergers.MergerFor<IAstDualField>().Returns(Fields);
-    mergers.MergerFor<IAstTypeParam>().Returns(TypeParams);
-    mergers.MergerFor<IAstAlternate>().Returns(Alternates);
+    mergers.MergerForReturns(Fields);
+    mergers.MergerForReturns(TypeParams);
+    mergers.MergerForReturns(Alternates);
     MergerObject = new(mergers);
   }
 

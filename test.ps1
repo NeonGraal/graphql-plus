@@ -32,10 +32,12 @@ if ($LASTEXITCODE -ne 0) {
 
 Get-ChildItem test -Filter 'TestResults' -Recurse -Directory | Remove-Item -Recurse -Force -ErrorAction Ignore
 if ($Generate -eq "Html") {
-  Get-ChildItem test/Html -Exclude index.html | Remove-Item -Recurse -Force -ErrorAction Ignore
+  Get-ChildItem test/Html -Recurse -Exclude index.html | Remove-Item -Recurse -Force -ErrorAction Ignore
 }
 
 dotnet @test
+
+Write-Host ""
 
 if (-not $ClassTests) {
   ./check-links.ps1

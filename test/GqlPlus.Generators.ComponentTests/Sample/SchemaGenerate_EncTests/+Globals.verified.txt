@@ -122,7 +122,7 @@ internal class CmptCatOprTypeEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptCatOprTypeObject>
 {
-  private readonly IEncoder<ICmptAddrOprType> _addrOprType = encoders.EncoderFor<ICmptAddrOprType>();
+  private readonly Encoder<ICmptAddrOprType> _addrOprType = encoders.EncoderFor<ICmptAddrOprType>();
   public Structured Encode(ICmptCatOprTypeObject input)
     => Structured.Empty()
       .Add("first", input.First.Encode())

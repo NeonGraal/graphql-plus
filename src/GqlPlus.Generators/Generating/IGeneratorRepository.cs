@@ -1,11 +1,13 @@
-﻿using GqlPlus.Ast;
+﻿using System.Runtime.CompilerServices;
+using GqlPlus.Ast;
 
 namespace GqlPlus.Generating;
 
 internal interface IGeneratorRepository
+  : IRepository
 {
-  IGenerator<TAst> GeneratorFor<TAst>()
+  Generator<TAst>.D GeneratorFor<TAst>([CallerMemberName] string callerName = "")
     where TAst : IAstError;
 
-  IEnumerable<ITypeGenerator> TypeGenerators(GqlpGeneratorType generatorType);
+  DeferList<ITypeGenerator>.D TypeGenerators(GqlpGeneratorType generatorType, [CallerMemberName] string callerName = "");
 }

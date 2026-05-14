@@ -11,8 +11,8 @@ public class CategoryEncoderTests
     _modifiers = RFor<ModifierModel>();
     _output = RFor<TypeRefModel<TypeKindModel>>();
     IEncoderRepository encoders = A.Of<IEncoderRepository>();
-    encoders.EncoderFor<ModifierModel>().Returns(_modifiers);
-    encoders.EncoderFor<TypeRefModel<TypeKindModel>>().Returns(_output);
+    encoders.EncoderForReturns(_modifiers);
+    encoders.EncoderForReturns(_output);
     Encoder = new CategoryEncoder(encoders);
   }
 

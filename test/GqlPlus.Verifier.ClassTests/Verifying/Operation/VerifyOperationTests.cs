@@ -11,8 +11,8 @@ public class VerifyOperationTests
   {
     IVerifyIdentified<IAstArg, IAstVariable> usages = A.Of<IVerifyIdentified<IAstArg, IAstVariable>>();
     IVerifyIdentified<IAstSpread, IAstFragment> spreads = A.Of<IVerifyIdentified<IAstSpread, IAstFragment>>();
-    VerifierRepo.IdentifiedFor<IAstArg, IAstVariable>().Returns(usages);
-    VerifierRepo.IdentifiedFor<IAstSpread, IAstFragment>().Returns(spreads);
+    IdentifiedForReturns(usages);
+    IdentifiedForReturns(spreads);
     VerifyOperation verifier = new(VerifierRepo);
 
     IAstOperation item = A.Of<IAstOperation>();

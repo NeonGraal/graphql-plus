@@ -13,7 +13,7 @@ public class ConstantModellerTests
   {
     _fieldKeyModeller = MFor<IAstFieldKey, SimpleModel>();
     IModellerRepository modellers = A.Of<IModellerRepository>();
-    modellers.ModellerFor<IAstFieldKey, SimpleModel>().Returns(_fieldKeyModeller);
+    ModellerForReturns(modellers, _fieldKeyModeller);
     Modeller = new ConstantModeller(modellers);
   }
 

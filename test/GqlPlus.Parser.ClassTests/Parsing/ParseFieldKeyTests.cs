@@ -6,7 +6,7 @@ public class ParseFieldKeyTests
 
   private readonly ParseFieldKey _parseFieldKey;
 
-  private readonly Parser<IAstEnumValue>.I _parseEnumValue;
+  private readonly IParser<IAstEnumValue> _parseEnumValue;
 
   public ParseFieldKeyTests()
   {

@@ -9,7 +9,7 @@ public class TypeOutputResolverFieldTests
   {
     IResolver<TypeDualModel> dualResolver = RFor<TypeDualModel>();
     IResolverRepository resolvers = A.Of<IResolverRepository>();
-    resolvers.ResolverFor<TypeDualModel>().Returns(dualResolver);
+    ResolveForReturns(resolvers, dualResolver);
     Resolver = new TypeOutputResolver(resolvers);
   }
 

@@ -6,7 +6,7 @@ internal class TypeOutputResolver(
   IResolverRepository resolvers
 ) : ResolverTypeObjectType<TypeOutputModel, OutputFieldModel>
 {
-  private readonly IResolver<TypeDualModel> _dualResolver = resolvers.ResolverFor<TypeDualModel>();
+  private readonly Resolver<TypeDualModel> _dualResolver = resolvers.ResolverFor<TypeDualModel>();
 
   protected override TResult Apply<TResult>(TResult result, ArgumentsContext arguments)
   {

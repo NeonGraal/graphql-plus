@@ -11,9 +11,9 @@ public abstract class ParseFragmentsTestsBase
     SetupPartial<IAstFragment>();
   }
 
-  protected abstract Parser<IAstFragment>.IA Parser { get; }
-  protected abstract Parser<IAstDirective>.IA DirectivesParser { get; }
-  protected abstract Parser<IAstSelection>.IA ObjectParser { get; }
+  protected abstract IParserArray<IAstFragment> Parser { get; }
+  protected abstract IParserArray<IAstDirective> DirectivesParser { get; }
+  protected abstract IParserArray<IAstSelection> ObjectParser { get; }
 
   [Theory, RepeatData]
   public void Parse_ShouldReturnFragmentsArray_WhenFragmentsAreParsed(string fragmentName, string onType)

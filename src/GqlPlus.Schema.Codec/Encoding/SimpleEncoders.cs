@@ -26,7 +26,7 @@ internal class DomainItemEncoder<TItem>(
 ) : BaseEncoder<DomainItemModel<TItem>>
   where TItem : BaseDomainItemModel
 {
-  private readonly IEncoder<TItem> _item = encoders.EncoderFor<TItem>();
+  private readonly Encoder<TItem> _item = encoders.EncoderFor<TItem>();
 
   internal override Structured Encode(DomainItemModel<TItem> model)
     => base.Encode(model)
@@ -40,7 +40,7 @@ internal class DomainLabelEncoder(
   IEncoderRepository encoders
 ) : BaseDomainItemEncoder<DomainLabelModel>
 {
-  private readonly IEncoder<EnumValueModel> _enumValue = encoders.EncoderFor<EnumValueModel>();
+  private readonly Encoder<EnumValueModel> _enumValue = encoders.EncoderFor<EnumValueModel>();
 
   internal override Structured Encode(DomainLabelModel model)
     => base.Encode(model)

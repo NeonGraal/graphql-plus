@@ -9,6 +9,9 @@ internal class MergerRepositoryBuilder
   internal readonly FactoryDict AllMergers = [];
   internal readonly Dictionary<Type, List<Type>> AllMergerTypes = [];
 
+  public IEnumerable<KeyValuePair<Type, Factory<object, IMergerRepository>>> AllFactories
+    => [.. Mergers, .. AllMergers];
+
   public IMergerRepositoryBuilder AddMerge<T>(Factory<IMerge<T>, IMergerRepository> factory)
     where T : IAstError
     => this.FluentAction(b => b.Mergers[typeof(T)] = factory);
@@ -20,8 +23,7 @@ internal class MergerRepositoryBuilder
     => this.FluentAction(b => {
       b.Mergers[typeof(TAst)] = factory;
       b.AllMergers[typeof(TService)] = factory;
-      b.AllMergerTypes.TryGetValue(typeof(TType), out List<Type>? list);
-      list ??= [];
+      List<Type> list = b.AllMergerTypes.GetValueOr(typeof(TType), []);
       b.AllMergerTypes[typeof(TType)] = list;
       if (!list.Contains(typeof(TService))) {
         list.Add(typeof(TService));

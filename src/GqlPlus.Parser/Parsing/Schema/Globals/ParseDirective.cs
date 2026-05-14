@@ -24,6 +24,8 @@ internal class ParseDirective(
       Parameter = partial.Params.FirstOrDefault(),
       Option = partial.Option ?? DirectiveOption.Unique,
     };
+
+  internal static ParseDirective Factory(IParserRepository p) => new(p);
 }
 
 internal class DirectiveName
@@ -31,6 +33,8 @@ internal class DirectiveName
 {
   public bool ParseName(ITokenizer tokens, [NotNullWhen(true)] out string? name, out TokenAt at)
     => tokens.Prefix('@', out name, out at);
+
+  internal static DirectiveName Factory(IParserRepository _) => new();
 }
 
 internal interface IDirectiveName
@@ -39,17 +43,17 @@ internal interface IDirectiveName
 
 internal class ParseDirectiveDefinition(
   IParserRepository parsers
-) : Parser<DirectiveLocation>.I
+) : IParser<DirectiveLocation>
 {
-  private readonly Parser<IEnumParser<DirectiveLocation>, DirectiveLocation>.L _location = parsers.ParserFor<IEnumParser<DirectiveLocation>, DirectiveLocation>();
+  private readonly ParserOne<IEnumParser<DirectiveLocation>, DirectiveLocation> _location = parsers.ParserFor<IEnumParser<DirectiveLocation>, DirectiveLocation>();
 
-  public IResult<DirectiveLocation> Parse(ITokenizer tokens, string label)
+  public IResult<DirectiveLocation> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     DirectiveLocation locations = DirectiveLocation.None;
 
     while (!tokens.Take('}')) {
-      IResult<DirectiveLocation> directiveLocation = _location.I.Parse(tokens, label);
+      IResult<DirectiveLocation> directiveLocation = _location.Parse(tokens, label);
       if (!directiveLocation.Required(value => locations |= value)) {
         return tokens.Partial(label, "location", () => locations);
       }
@@ -59,4 +63,6 @@ internal class ParseDirectiveDefinition(
       ? tokens.Partial(label, "at least one location", () => locations)
       : locations.Ok();
   }
+
+  internal static ParseDirectiveDefinition Factory(IParserRepository p) => new(p);
 }

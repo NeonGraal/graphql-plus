@@ -27,8 +27,8 @@ internal class Cmpt_DirectivesEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_DirectivesObject>
 {
-  private readonly IEncoder<ICmpt_AndTypeObject> _andType = encoders.EncoderFor<ICmpt_AndTypeObject>();
-  private readonly IEncoder<ICmpt_Directive> _directive = encoders.EncoderFor<ICmpt_Directive>();
+  private readonly Encoder<ICmpt_AndTypeObject> _andType = encoders.EncoderFor<ICmpt_AndTypeObject>();
+  private readonly Encoder<ICmpt_Directive> _directive = encoders.EncoderFor<ICmpt_Directive>();
   public Structured Encode(ICmpt_DirectivesObject input)
     => _andType.Encode(input)
       .AddEncoded("directive", input.Directive, _directive);
@@ -40,8 +40,8 @@ internal class Cmpt_DirectiveEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_DirectiveObject>
 {
-  private readonly IEncoder<ICmpt_AliasedObject> _aliased = encoders.EncoderFor<ICmpt_AliasedObject>();
-  private readonly IEncoder<ICmpt_InputFieldType> _inputFieldType = encoders.EncoderFor<ICmpt_InputFieldType>();
+  private readonly Encoder<ICmpt_AliasedObject> _aliased = encoders.EncoderFor<ICmpt_AliasedObject>();
+  private readonly Encoder<ICmpt_InputFieldType> _inputFieldType = encoders.EncoderFor<ICmpt_InputFieldType>();
   public Structured Encode(ICmpt_DirectiveObject input)
     => _aliased.Encode(input)
       .AddEncoded("parameter", input.Parameter, _inputFieldType)

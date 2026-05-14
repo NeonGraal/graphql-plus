@@ -15,8 +15,8 @@ internal class CmptPrntParamSameDualEncoder<TA>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptPrntParamSameDualObject<TA>>
 {
-  private readonly IEncoder<ICmptRefPrntParamSameDualObject<TA>> _refPrntParamSameDual = encoders.EncoderFor<ICmptRefPrntParamSameDualObject<TA>>();
-  private readonly IEncoder<TA> _a = encoders.EncoderFor<TA>();
+  private readonly Encoder<ICmptRefPrntParamSameDualObject<TA>> _refPrntParamSameDual = encoders.EncoderFor<ICmptRefPrntParamSameDualObject<TA>>();
+  private readonly Encoder<TA> _a = encoders.EncoderFor<TA>();
   public Structured Encode(ICmptPrntParamSameDualObject<TA> input)
     => _refPrntParamSameDual.Encode(input)
       .AddEncoded("field", input.Field, _a);

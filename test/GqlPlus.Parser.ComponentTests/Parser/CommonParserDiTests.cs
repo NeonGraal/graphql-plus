@@ -3,7 +3,7 @@
 namespace GqlPlus.Parser;
 
 public class CommonParserDiTests(IServiceCollection services)
-  : DependencyInjectionChecks(services)
+  : DiChecks(services)
 {
   protected override string Label => "CommonParser";
 }

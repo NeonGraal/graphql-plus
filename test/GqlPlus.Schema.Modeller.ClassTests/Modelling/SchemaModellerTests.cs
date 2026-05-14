@@ -14,11 +14,11 @@ public class SchemaModellerTests
   public SchemaModellerTests()
   {
     IModellerRepository modellers = A.Of<IModellerRepository>();
-    modellers.ModellerFor<IAstSchemaCategory, CategoryModel>().Returns(_category);
-    modellers.ModellerFor<IAstSchemaDirective, DirectiveModel>().Returns(_directive);
-    modellers.ModellerFor<IAstSchemaOperation, OperationModel>().Returns(_operation);
-    modellers.ModellerFor<IAstSchemaSetting, SettingModel>().Returns(_setting);
-    modellers.TypesModeller.Returns(_types);
+    ModellerForReturns(modellers, _category);
+    ModellerForReturns(modellers, _directive);
+    ModellerForReturns(modellers, _operation);
+    ModellerForReturns(modellers, _setting);
+    TypesModellerReturns(modellers, _types);
     Modeller = new SchemaModeller(modellers);
   }
 

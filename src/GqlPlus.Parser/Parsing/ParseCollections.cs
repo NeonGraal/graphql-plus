@@ -6,7 +6,7 @@ namespace GqlPlus.Parsing;
 internal class ParseCollections
   : IParserCollections
 {
-  public IResultArray<IAstModifier> Parse(ITokenizer tokens, string label)
+  public IResultArray<IAstModifier> Parse([NotNull] ITokenizer tokens, string label)
 
   {
     List<IAstModifier> list = [];
@@ -42,8 +42,10 @@ internal class ParseCollections
     IEnumerable<IAstModifier> ReturnList()
       => list;
   }
+
+  internal static ParseCollections Factory(IParserRepository _) => new();
 }
 
 public interface IParserCollections
-  : Parser<IAstModifier>.IA
+  : IParserArray<IAstModifier>
 { }

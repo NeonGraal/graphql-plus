@@ -30,7 +30,7 @@ internal class test_FilterEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_FilterObject>
 {
-  private readonly IEncoder<Itest_NameFilter> _itest_NameFilter = encoders.EncoderFor<Itest_NameFilter>();
+  private readonly Encoder<Itest_NameFilter> _itest_NameFilter = encoders.EncoderFor<Itest_NameFilter>();
   public Structured Encode(Itest_FilterObject input)
     => Structured.Empty()
       .AddList("names", input.Names, _itest_NameFilter)
@@ -54,7 +54,7 @@ internal class test_CategoryFilterEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_CategoryFilterObject>
 {
-  private readonly IEncoder<Itest_FilterObject> _itest_Filter = encoders.EncoderFor<Itest_FilterObject>();
+  private readonly Encoder<Itest_FilterObject> _itest_Filter = encoders.EncoderFor<Itest_FilterObject>();
   public Structured Encode(Itest_CategoryFilterObject input)
     => _itest_Filter.Encode(input)
       .Add("resolutions", input.Resolutions.Encode());
@@ -66,7 +66,7 @@ internal class test_TypeFilterEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_TypeFilterObject>
 {
-  private readonly IEncoder<Itest_FilterObject> _itest_Filter = encoders.EncoderFor<Itest_FilterObject>();
+  private readonly Encoder<Itest_FilterObject> _itest_Filter = encoders.EncoderFor<Itest_FilterObject>();
   public Structured Encode(Itest_TypeFilterObject input)
     => _itest_Filter.Encode(input)
       .Add("kinds", input.Kinds.Encode());

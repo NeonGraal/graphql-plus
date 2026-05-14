@@ -15,7 +15,7 @@ internal class CmptGnrcFieldArgInpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptGnrcFieldArgInpObject<TType>>
 {
-  private readonly IEncoder<ICmptRefGnrcFieldArgInp<TType>> _refGnrcFieldArgInp = encoders.EncoderFor<ICmptRefGnrcFieldArgInp<TType>>();
+  private readonly Encoder<ICmptRefGnrcFieldArgInp<TType>> _refGnrcFieldArgInp = encoders.EncoderFor<ICmptRefGnrcFieldArgInp<TType>>();
   public Structured Encode(ICmptGnrcFieldArgInpObject<TType> input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _refGnrcFieldArgInp);

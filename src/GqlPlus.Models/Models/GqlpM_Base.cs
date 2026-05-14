@@ -8,7 +8,7 @@ public interface IGqlpM_Base
 public class GqlpM_ModelBase
 { }
 
-// Restore: [GqlpGenerator(GqlpGeneratorType.Encoder)]
+[GqlpGenerator(GqlpGeneratorType.Encoder)]
 public class GqlpM_EncoderBase
 { }
 

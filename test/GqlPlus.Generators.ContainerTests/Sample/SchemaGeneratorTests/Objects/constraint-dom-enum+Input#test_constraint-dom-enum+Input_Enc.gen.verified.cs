@@ -19,7 +19,7 @@ internal class testRefCnstDomEnumInpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestRefCnstDomEnumInpObject<TType>>
 {
-  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  private readonly Encoder<TType> _type = encoders.EncoderFor<TType>();
   public Structured Encode(ItestRefCnstDomEnumInpObject<TType> input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _type);

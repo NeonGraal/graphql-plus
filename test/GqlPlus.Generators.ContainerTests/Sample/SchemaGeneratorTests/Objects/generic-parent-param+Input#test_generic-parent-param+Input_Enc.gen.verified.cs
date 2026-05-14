@@ -11,7 +11,7 @@ internal class testGnrcPrntParamInpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestGnrcPrntParamInpObject>
 {
-  private readonly IEncoder<ItestRefGnrcPrntParamInpObject<ItestAltGnrcPrntParamInp>> _itestRefGnrcPrntParamInp = encoders.EncoderFor<ItestRefGnrcPrntParamInpObject<ItestAltGnrcPrntParamInp>>();
+  private readonly Encoder<ItestRefGnrcPrntParamInpObject<ItestAltGnrcPrntParamInp>> _itestRefGnrcPrntParamInp = encoders.EncoderFor<ItestRefGnrcPrntParamInpObject<ItestAltGnrcPrntParamInp>>();
   public Structured Encode(ItestGnrcPrntParamInpObject input)
     => _itestRefGnrcPrntParamInp.Encode(input);
 

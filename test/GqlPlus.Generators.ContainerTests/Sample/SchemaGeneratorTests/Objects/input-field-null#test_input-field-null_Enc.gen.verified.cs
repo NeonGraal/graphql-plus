@@ -11,7 +11,7 @@ internal class testInpFieldNullEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestInpFieldNullObject>
 {
-  private readonly IEncoder<ItestFldInpFieldNull> _itestFldInpFieldNull = encoders.EncoderFor<ItestFldInpFieldNull>();
+  private readonly Encoder<ItestFldInpFieldNull> _itestFldInpFieldNull = encoders.EncoderFor<ItestFldInpFieldNull>();
   public Structured Encode(ItestInpFieldNullObject input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _itestFldInpFieldNull);

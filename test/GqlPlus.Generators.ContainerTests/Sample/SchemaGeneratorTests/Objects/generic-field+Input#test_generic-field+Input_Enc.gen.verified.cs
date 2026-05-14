@@ -11,7 +11,7 @@ internal class testGnrcFieldInpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ItestGnrcFieldInpObject<TType>>
 {
-  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  private readonly Encoder<TType> _type = encoders.EncoderFor<TType>();
   public Structured Encode(ItestGnrcFieldInpObject<TType> input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _type);

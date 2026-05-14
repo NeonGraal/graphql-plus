@@ -25,7 +25,7 @@ internal class CmptRefCnstEnumPrntInpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptRefCnstEnumPrntInpObject<TType>>
 {
-  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  private readonly Encoder<TType> _type = encoders.EncoderFor<TType>();
   public Structured Encode(ICmptRefCnstEnumPrntInpObject<TType> input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _type);

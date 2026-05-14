@@ -16,7 +16,7 @@ internal class CmptGnrcPrntStrDomInpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptGnrcPrntStrDomInpObject>
 {
-  private readonly IEncoder<ICmptFieldGnrcPrntStrDomInpObject<ICmptDomGnrcPrntStrDomInp>> _fieldGnrcPrntStrDomInp = encoders.EncoderFor<ICmptFieldGnrcPrntStrDomInpObject<ICmptDomGnrcPrntStrDomInp>>();
+  private readonly Encoder<ICmptFieldGnrcPrntStrDomInpObject<ICmptDomGnrcPrntStrDomInp>> _fieldGnrcPrntStrDomInp = encoders.EncoderFor<ICmptFieldGnrcPrntStrDomInpObject<ICmptDomGnrcPrntStrDomInp>>();
   public Structured Encode(ICmptGnrcPrntStrDomInpObject input)
     => _fieldGnrcPrntStrDomInp.Encode(input);
 
@@ -27,7 +27,7 @@ internal class CmptFieldGnrcPrntStrDomInpEncoder<TRef>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptFieldGnrcPrntStrDomInpObject<TRef>>
 {
-  private readonly IEncoder<TRef> _ref = encoders.EncoderFor<TRef>();
+  private readonly Encoder<TRef> _ref = encoders.EncoderFor<TRef>();
   public Structured Encode(ICmptFieldGnrcPrntStrDomInpObject<TRef> input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _ref);

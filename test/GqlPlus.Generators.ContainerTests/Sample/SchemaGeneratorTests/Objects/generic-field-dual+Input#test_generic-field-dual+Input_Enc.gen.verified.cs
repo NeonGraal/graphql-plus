@@ -11,7 +11,7 @@ internal class testGnrcFieldDualInpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestGnrcFieldDualInpObject>
 {
-  private readonly IEncoder<ItestRefGnrcFieldDualInp<ItestAltGnrcFieldDualInp>> _itestRefGnrcFieldDualInp = encoders.EncoderFor<ItestRefGnrcFieldDualInp<ItestAltGnrcFieldDualInp>>();
+  private readonly Encoder<ItestRefGnrcFieldDualInp<ItestAltGnrcFieldDualInp>> _itestRefGnrcFieldDualInp = encoders.EncoderFor<ItestRefGnrcFieldDualInp<ItestAltGnrcFieldDualInp>>();
   public Structured Encode(ItestGnrcFieldDualInpObject input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _itestRefGnrcFieldDualInp);

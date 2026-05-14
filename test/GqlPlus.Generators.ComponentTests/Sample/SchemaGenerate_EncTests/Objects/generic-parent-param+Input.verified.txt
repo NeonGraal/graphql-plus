@@ -16,7 +16,7 @@ internal class CmptGnrcPrntParamInpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptGnrcPrntParamInpObject>
 {
-  private readonly IEncoder<ICmptRefGnrcPrntParamInpObject<ICmptAltGnrcPrntParamInp>> _refGnrcPrntParamInp = encoders.EncoderFor<ICmptRefGnrcPrntParamInpObject<ICmptAltGnrcPrntParamInp>>();
+  private readonly Encoder<ICmptRefGnrcPrntParamInpObject<ICmptAltGnrcPrntParamInp>> _refGnrcPrntParamInp = encoders.EncoderFor<ICmptRefGnrcPrntParamInpObject<ICmptAltGnrcPrntParamInp>>();
   public Structured Encode(ICmptGnrcPrntParamInpObject input)
     => _refGnrcPrntParamInp.Encode(input);
 

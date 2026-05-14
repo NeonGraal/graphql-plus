@@ -158,7 +158,7 @@ internal abstract class ObjectEncoderGeneratorBase<TField>
   private static void WriteEncoderFields(GqlpGeneratorContext context, Dictionary<string, string> encoderFields)
   {
     foreach (KeyValuePair<string, string> kv in encoderFields) {
-      context.Write($"  private readonly IEncoder<{kv.Key}> {kv.Value} = encoders.EncoderFor<{kv.Key}>();");
+      context.Write($"  private readonly Encoder<{kv.Key}> {kv.Value} = encoders.EncoderFor<{kv.Key}>();");
     }
   }
 

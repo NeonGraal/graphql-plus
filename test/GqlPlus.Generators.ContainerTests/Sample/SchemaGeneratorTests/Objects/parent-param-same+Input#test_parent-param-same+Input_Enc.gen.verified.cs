@@ -11,8 +11,8 @@ internal class testPrntParamSameInpEncoder<TA>(
   IEncoderRepository encoders
 ) : IEncoder<ItestPrntParamSameInpObject<TA>>
 {
-  private readonly IEncoder<ItestRefPrntParamSameInpObject<TA>> _itestRefPrntParamSameInp = encoders.EncoderFor<ItestRefPrntParamSameInpObject<TA>>();
-  private readonly IEncoder<TA> _a = encoders.EncoderFor<TA>();
+  private readonly Encoder<ItestRefPrntParamSameInpObject<TA>> _itestRefPrntParamSameInp = encoders.EncoderFor<ItestRefPrntParamSameInpObject<TA>>();
+  private readonly Encoder<TA> _a = encoders.EncoderFor<TA>();
   public Structured Encode(ItestPrntParamSameInpObject<TA> input)
     => _itestRefPrntParamSameInp.Encode(input)
       .AddEncoded("field", input.Field, _a);

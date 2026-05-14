@@ -1,5 +1,5 @@
 ﻿namespace GqlPlus.StarWars;
 
-// Restore: [GqlpGenerator(GqlpGeneratorType.Encoder)]
+[GqlpGenerator(GqlpGeneratorType.Encoder)]
 public class SwEncoderBase
   : ISwInterfaceBase;

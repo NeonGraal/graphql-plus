@@ -11,7 +11,7 @@ internal class testObjFieldAliasInpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestObjFieldAliasInpObject>
 {
-  private readonly IEncoder<ItestFldObjFieldAliasInp> _itestFldObjFieldAliasInp = encoders.EncoderFor<ItestFldObjFieldAliasInp>();
+  private readonly Encoder<ItestFldObjFieldAliasInp> _itestFldObjFieldAliasInp = encoders.EncoderFor<ItestFldObjFieldAliasInp>();
   public Structured Encode(ItestObjFieldAliasInpObject input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _itestFldObjFieldAliasInp);

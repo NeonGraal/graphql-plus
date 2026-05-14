@@ -50,7 +50,7 @@ internal class testParamEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestParamObject>
 {
-  private readonly IEncoder<ItestMany> _itestMany = encoders.EncoderFor<ItestMany>();
+  private readonly Encoder<ItestMany> _itestMany = encoders.EncoderFor<ItestMany>();
   public Structured Encode(ItestParamObject input)
     => Structured.Empty()
       .AddEncoded("afterId", input.AfterId, _itestMany)

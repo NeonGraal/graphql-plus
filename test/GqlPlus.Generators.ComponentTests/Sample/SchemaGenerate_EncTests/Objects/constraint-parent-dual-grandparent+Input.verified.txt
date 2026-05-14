@@ -18,7 +18,7 @@ internal class CmptCnstPrntDualGrndInpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptCnstPrntDualGrndInpObject>
 {
-  private readonly IEncoder<ICmptRefCnstPrntDualGrndInpObject<ICmptAltCnstPrntDualGrndInp>> _refCnstPrntDualGrndInp = encoders.EncoderFor<ICmptRefCnstPrntDualGrndInpObject<ICmptAltCnstPrntDualGrndInp>>();
+  private readonly Encoder<ICmptRefCnstPrntDualGrndInpObject<ICmptAltCnstPrntDualGrndInp>> _refCnstPrntDualGrndInp = encoders.EncoderFor<ICmptRefCnstPrntDualGrndInpObject<ICmptAltCnstPrntDualGrndInp>>();
   public Structured Encode(ICmptCnstPrntDualGrndInpObject input)
     => _refCnstPrntDualGrndInp.Encode(input);
 
@@ -54,7 +54,7 @@ internal class CmptAltCnstPrntDualGrndInpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptAltCnstPrntDualGrndInpObject>
 {
-  private readonly IEncoder<ICmptPrntCnstPrntDualGrndInpObject> _prntCnstPrntDualGrndInp = encoders.EncoderFor<ICmptPrntCnstPrntDualGrndInpObject>();
+  private readonly Encoder<ICmptPrntCnstPrntDualGrndInpObject> _prntCnstPrntDualGrndInp = encoders.EncoderFor<ICmptPrntCnstPrntDualGrndInpObject>();
   public Structured Encode(ICmptAltCnstPrntDualGrndInpObject input)
     => _prntCnstPrntDualGrndInp.Encode(input)
       .Add("alt", input.Alt.Encode());

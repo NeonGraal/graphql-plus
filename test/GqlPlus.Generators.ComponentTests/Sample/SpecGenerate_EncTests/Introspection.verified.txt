@@ -371,7 +371,7 @@ internal class Cmpt_FilterEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_FilterObject>
 {
-  private readonly IEncoder<ICmpt_NameFilter> _nameFilter = encoders.EncoderFor<ICmpt_NameFilter>();
+  private readonly Encoder<ICmpt_NameFilter> _nameFilter = encoders.EncoderFor<ICmpt_NameFilter>();
   public Structured Encode(ICmpt_FilterObject input)
     => Structured.Empty()
       .AddList("names", input.Names, _nameFilter)
@@ -395,7 +395,7 @@ internal class Cmpt_CategoryFilterEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_CategoryFilterObject>
 {
-  private readonly IEncoder<ICmpt_FilterObject> _filter = encoders.EncoderFor<ICmpt_FilterObject>();
+  private readonly Encoder<ICmpt_FilterObject> _filter = encoders.EncoderFor<ICmpt_FilterObject>();
   public Structured Encode(ICmpt_CategoryFilterObject input)
     => _filter.Encode(input)
       .Add("resolutions", input.Resolutions.Encode());
@@ -407,7 +407,7 @@ internal class Cmpt_TypeFilterEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_TypeFilterObject>
 {
-  private readonly IEncoder<ICmpt_FilterObject> _filter = encoders.EncoderFor<ICmpt_FilterObject>();
+  private readonly Encoder<ICmpt_FilterObject> _filter = encoders.EncoderFor<ICmpt_FilterObject>();
   public Structured Encode(ICmpt_TypeFilterObject input)
     => _filter.Encode(input)
       .Add("kinds", input.Kinds.Encode());

@@ -77,7 +77,7 @@ internal class CmptParamEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptParamObject>
 {
-  private readonly IEncoder<ICmptMany> _many = encoders.EncoderFor<ICmptMany>();
+  private readonly Encoder<ICmptMany> _many = encoders.EncoderFor<ICmptMany>();
   public Structured Encode(ICmptParamObject input)
     => Structured.Empty()
       .AddEncoded("afterId", input.AfterId, _many)

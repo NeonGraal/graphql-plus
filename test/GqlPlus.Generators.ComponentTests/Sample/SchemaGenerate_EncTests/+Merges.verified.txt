@@ -325,7 +325,7 @@ internal class CmptObjCnstInpEncoder<TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptObjCnstInpObject<TType>>
 {
-  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  private readonly Encoder<TType> _type = encoders.EncoderFor<TType>();
   public Structured Encode(ICmptObjCnstInpObject<TType> input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _type)
@@ -367,7 +367,7 @@ internal class CmptObjFieldInpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptObjFieldInpObject>
 {
-  private readonly IEncoder<ICmptFldObjFieldInp> _fldObjFieldInp = encoders.EncoderFor<ICmptFldObjFieldInp>();
+  private readonly Encoder<ICmptFldObjFieldInp> _fldObjFieldInp = encoders.EncoderFor<ICmptFldObjFieldInp>();
   public Structured Encode(ICmptObjFieldInpObject input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _fldObjFieldInp);
@@ -427,7 +427,7 @@ internal class CmptObjFieldAliasInpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptObjFieldAliasInpObject>
 {
-  private readonly IEncoder<ICmptFldObjFieldAliasInp> _fldObjFieldAliasInp = encoders.EncoderFor<ICmptFldObjFieldAliasInp>();
+  private readonly Encoder<ICmptFldObjFieldAliasInp> _fldObjFieldAliasInp = encoders.EncoderFor<ICmptFldObjFieldAliasInp>();
   public Structured Encode(ICmptObjFieldAliasInpObject input)
     => Structured.Empty()
       .AddEncoded("field", input.Field, _fldObjFieldAliasInp);
@@ -560,8 +560,8 @@ internal class CmptObjParamInpEncoder<TTest,TType>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptObjParamInpObject<TTest,TType>>
 {
-  private readonly IEncoder<TTest> _test = encoders.EncoderFor<TTest>();
-  private readonly IEncoder<TType> _type = encoders.EncoderFor<TType>();
+  private readonly Encoder<TTest> _test = encoders.EncoderFor<TTest>();
+  private readonly Encoder<TType> _type = encoders.EncoderFor<TType>();
   public Structured Encode(ICmptObjParamInpObject<TTest,TType> input)
     => Structured.Empty()
       .AddEncoded("test", input.Test, _test)
@@ -595,7 +595,7 @@ internal class CmptObjParamDupInpEncoder<TTest>(
   IEncoderRepository encoders
 ) : IEncoder<ICmptObjParamDupInpObject<TTest>>
 {
-  private readonly IEncoder<TTest> _test = encoders.EncoderFor<TTest>();
+  private readonly Encoder<TTest> _test = encoders.EncoderFor<TTest>();
   public Structured Encode(ICmptObjParamDupInpObject<TTest> input)
     => Structured.Empty()
       .AddEncoded("test", input.Test, _test)
@@ -636,7 +636,7 @@ internal class CmptObjPrntInpEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptObjPrntInpObject>
 {
-  private readonly IEncoder<ICmptRefObjPrntInpObject> _refObjPrntInp = encoders.EncoderFor<ICmptRefObjPrntInpObject>();
+  private readonly Encoder<ICmptRefObjPrntInpObject> _refObjPrntInp = encoders.EncoderFor<ICmptRefObjPrntInpObject>();
   public Structured Encode(ICmptObjPrntInpObject input)
     => _refObjPrntInp.Encode(input);
 

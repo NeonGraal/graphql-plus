@@ -1,0 +1,226 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name Character: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: id
+        object: Character
+        type: !_ObjBase
+          name: Id
+      - !_ObjectFor(_OutputField)
+        name: name
+        object: Character
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List},!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: friends
+        object: Character
+        type: !_ObjBase
+          name: Id
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: appearsIn
+        object: Character
+        type: !_ObjBase
+          name: Episode
+    fields:
+      - !_OutputField
+        name: id
+        type: !_ObjBase
+          name: Id
+      - !_OutputField
+        name: name
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List},!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: friends
+        type: !_ObjBase
+          name: Id
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: appearsIn
+        type: !_ObjBase
+          name: Episode
+    name: Character
+    typeKind: !_TypeKind Output
+  !_Name Droid: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: id
+        object: Character
+        type: !_ObjBase
+          name: Id
+      - !_ObjectFor(_OutputField)
+        name: name
+        object: Character
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List},!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: friends
+        object: Character
+        type: !_ObjBase
+          name: Id
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: appearsIn
+        object: Character
+        type: !_ObjBase
+          name: Episode
+      - !_ObjectFor(_OutputField)
+        name: primaryFunction
+        object: Droid
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_OutputField
+        name: primaryFunction
+        type: !_ObjBase
+          name: String
+    name: Droid
+    parent: !_ObjBase
+      name: Character
+    typeKind: !_TypeKind Output
+  !_Name Episode: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: Episode
+        name: NewHope
+      - !_EnumLabel
+        enum: Episode
+        name: Empire
+      - !_EnumLabel
+        enum: Episode
+        name: Jedi
+    items:
+      - !_Aliased
+        name: NewHope
+      - !_Aliased
+        name: Empire
+      - !_Aliased
+        name: Jedi
+    name: Episode
+    typeKind: !_TypeKind Enum
+  !_Name Human: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: id
+        object: Character
+        type: !_ObjBase
+          name: Id
+      - !_ObjectFor(_OutputField)
+        name: name
+        object: Character
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List},!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: friends
+        object: Character
+        type: !_ObjBase
+          name: Id
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: appearsIn
+        object: Character
+        type: !_ObjBase
+          name: Episode
+      - !_ObjectFor(_OutputField)
+        name: homePlanet
+        object: Human
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_OutputField
+        name: homePlanet
+        type: !_ObjBase
+          name: String
+    name: Human
+    parent: !_ObjBase
+      name: Character
+    typeKind: !_TypeKind Output
+  !_Name Id: !_DomainNumber
+    allItems:
+      - !_DomainItem(_DomainRange)
+        domain: Id
+        exclude: false
+        from: 0
+      - !_DomainItem(_DomainRange)
+        domain: Id
+        exclude: false
+        from: 1000
+    domainKind: !_DomainKind Number
+    items:
+      - !_DomainRange
+        exclude: false
+        from: 0
+      - !_DomainRange
+        exclude: false
+        from: 1000
+    name: Id
+    typeKind: !_TypeKind Domain
+  !_Name Query: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: hero
+        object: Query
+        parameter: !_InputParam
+          modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+          name: Episode
+        type: !_ObjBase
+          name: Character
+      - !_ObjectFor(_OutputField)
+        name: human
+        object: Query
+        parameter: !_InputParam
+          name: String
+        type: !_ObjBase
+          name: Human
+      - !_ObjectFor(_OutputField)
+        name: droid
+        object: Query
+        parameter: !_InputParam
+          name: Id
+        type: !_ObjBase
+          name: Droid
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: characters
+        object: Query
+        parameter: !_InputParam
+          modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+          name: Id
+        type: !_ObjBase
+          name: Character
+    fields:
+      - !_OutputField
+        name: hero
+        parameter: !_InputParam
+          modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+          name: Episode
+        type: !_ObjBase
+          name: Character
+      - !_OutputField
+        name: human
+        parameter: !_InputParam
+          name: String
+        type: !_ObjBase
+          name: Human
+      - !_OutputField
+        name: droid
+        parameter: !_InputParam
+          name: Id
+        type: !_ObjBase
+          name: Droid
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: characters
+        parameter: !_InputParam
+          modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+          name: Id
+        type: !_ObjBase
+          name: Character
+    name: Query
+    typeKind: !_TypeKind Output

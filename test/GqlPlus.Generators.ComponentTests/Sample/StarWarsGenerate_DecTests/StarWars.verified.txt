@@ -1,0 +1,66 @@
+﻿/* StarWars
+output Query {
+    hero(Episode?): Character
+    human(String): Human
+    droid(Id): Droid
+    characters(Id[]): Character[]
+}
+
+enum Episode {
+    NewHope
+    Empire
+    Jedi
+}
+
+domain Id { Number >0 }
+
+output Character {
+    id: Id
+    name: String
+    friends: Id[]?
+    appearsIn: Episode[]
+}
+
+domain Id { Number > 1000 }
+
+output Human {
+    :  Character
+    homePlanet: String
+}
+
+output Droid {
+    :  Character
+    primaryFunction: String
+}
+*/
+
+// Generated from StarWars StarWars
+//   with GeneratorOption: BaseType: Class, BaseName: StarWars_StarWars, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_StarWars_StarWars;
+
+internal class CmptEpisodeDecoder
+{
+  public string NewHope { get; set; }
+  public string Empire { get; set; }
+  public string Jedi { get; set; }
+
+  internal static CmptEpisodeDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class CmptIdDecoder
+{
+
+  internal static CmptIdDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal static class Cmpt_StarWars_StarWarsDecoders
+{
+  internal static IDecoderRepositoryBuilder AddCmpt_StarWars_StarWarsDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
+      .AddDecoder<CmptEpisode>(CmptEpisodeDecoder.Factory)
+      .AddDecoder<ICmptId>(CmptIdDecoder.Factory);
+}

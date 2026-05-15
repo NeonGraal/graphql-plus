@@ -1,1 +1,1 @@
-21ca828  (HEAD -> samples) 2026-04-19 Add GraphQl samples schema
+425b795  (HEAD -> star-wars-yaml, origin/star-wars-yaml) 2026-05-15 Correct Star Wars schema

@@ -1,0 +1,573 @@
+﻿{
+  "$mapTag": "_Schema",
+  "types": {
+    "$mapTag": "_Map(_Type)",
+    "Character": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "id",
+          "object": "Character",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Id"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "name",
+          "object": "Character",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            },
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "friends",
+          "object": "Character",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Id"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "appearsIn",
+          "object": "Character",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Episode"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "id",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Id"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "name",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            },
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "friends",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Id"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "appearsIn",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Episode"
+          }
+        }
+      ],
+      "name": "Character",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "Droid": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "id",
+          "object": "Character",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Id"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "name",
+          "object": "Character",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            },
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "friends",
+          "object": "Character",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Id"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "appearsIn",
+          "object": "Character",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Episode"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "primaryFunction",
+          "object": "Droid",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "primaryFunction",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "name": "Droid",
+      "parent": {
+        "$mapTag": "_ObjBase",
+        "name": "Character"
+      },
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "Episode": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeEnum",
+      "allItems": [
+        {
+          "$mapTag": "_EnumLabel",
+          "enum": "Episode",
+          "name": "NewHope"
+        },
+        {
+          "$mapTag": "_EnumLabel",
+          "enum": "Episode",
+          "name": "Empire"
+        },
+        {
+          "$mapTag": "_EnumLabel",
+          "enum": "Episode",
+          "name": "Jedi"
+        }
+      ],
+      "items": [
+        {
+          "$mapTag": "_Aliased",
+          "name": "NewHope"
+        },
+        {
+          "$mapTag": "_Aliased",
+          "name": "Empire"
+        },
+        {
+          "$mapTag": "_Aliased",
+          "name": "Jedi"
+        }
+      ],
+      "name": "Episode",
+      "typeKind": {
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "Human": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "id",
+          "object": "Character",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Id"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "name",
+          "object": "Character",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            },
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "friends",
+          "object": "Character",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Id"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "appearsIn",
+          "object": "Character",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Episode"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "homePlanet",
+          "object": "Human",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "homePlanet",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "name": "Human",
+      "parent": {
+        "$mapTag": "_ObjBase",
+        "name": "Character"
+      },
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "Id": {
+      "$keyTag": "_Name",
+      "$mapTag": "_DomainNumber",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainRange)",
+          "domain": "Id",
+          "exclude": false,
+          "from": 0
+        },
+        {
+          "$mapTag": "_DomainItem(_DomainRange)",
+          "domain": "Id",
+          "exclude": false,
+          "from": 1000
+        }
+      ],
+      "domainKind": {
+        "$value": "Number",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainRange",
+          "exclude": false,
+          "from": 0
+        },
+        {
+          "$mapTag": "_DomainRange",
+          "exclude": false,
+          "from": 1000
+        }
+      ],
+      "name": "Id",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "Query": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "hero",
+          "object": "Query",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_Modifier",
+                "modifierKind": {
+                  "$value": "Opt",
+                  "$valueTag": "_ModifierKind"
+                }
+              }
+            ],
+            "name": "Episode"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Character"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "human",
+          "object": "Query",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "String"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Human"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "droid",
+          "object": "Query",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "Id"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Droid"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "characters",
+          "object": "Query",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_Modifier",
+                "modifierKind": {
+                  "$value": "List",
+                  "$valueTag": "_ModifierKind"
+                }
+              }
+            ],
+            "name": "Id"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Character"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "hero",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_Modifier",
+                "modifierKind": {
+                  "$value": "Opt",
+                  "$valueTag": "_ModifierKind"
+                }
+              }
+            ],
+            "name": "Episode"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Character"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "human",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "String"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Human"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "droid",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "Id"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Droid"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "characters",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_Modifier",
+                "modifierKind": {
+                  "$value": "List",
+                  "$valueTag": "_ModifierKind"
+                }
+              }
+            ],
+            "name": "Id"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Character"
+          }
+        }
+      ],
+      "name": "Query",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    }
+  }
+}

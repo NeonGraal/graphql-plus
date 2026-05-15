@@ -1,0 +1,127 @@
+﻿/* StarWars
+output Query {
+    hero(Episode?): Character
+    human(String): Human
+    droid(Id): Droid
+    characters(Id[]): Character[]
+}
+
+enum Episode {
+    NewHope
+    Empire
+    Jedi
+}
+
+domain Id { Number >0 }
+
+output Character {
+    id: Id
+    name: String
+    friends: Id[]?
+    appearsIn: Episode[]
+}
+
+domain Id { Number > 1000 }
+
+output Human {
+    :  Character
+    homePlanet: String
+}
+
+output Droid {
+    :  Character
+    primaryFunction: String
+}
+*/
+
+// Generated from StarWars StarWars
+//   with GeneratorOption: BaseType: Class, BaseName: StarWars_StarWars, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_StarWars_StarWars;
+
+internal class CmptQueryEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptQueryObject>
+{
+  private readonly Encoder<ICmptCharacter> _character = encoders.EncoderFor<ICmptCharacter>();
+  private readonly Encoder<ICmptHuman> _human = encoders.EncoderFor<ICmptHuman>();
+  private readonly Encoder<ICmptDroid> _droid = encoders.EncoderFor<ICmptDroid>();
+  public Structured Encode(ICmptQueryObject input)
+    => Structured.Empty()
+      .AddEncoded("hero", input.Hero(), _character)
+      .AddEncoded("human", input.Human(), _human)
+      .AddEncoded("droid", input.Droid(), _droid)
+      .AddList("characters", input.Characters(), _character);
+
+  internal static CmptQueryEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptEpisodeEncoder : IEncoder<CmptEpisode>
+{
+  public Structured Encode(CmptEpisode input)
+    => input.EncodeEnum("Episode");
+
+  internal static CmptEpisodeEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptIdEncoder : IEncoder<ICmptId>
+{
+  public Structured Encode(ICmptId input)
+    => input.Value!.Encode();
+
+  internal static CmptIdEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptCharacterEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptCharacterObject>
+{
+  private readonly Encoder<ICmptId> _id = encoders.EncoderFor<ICmptId>();
+  public Structured Encode(ICmptCharacterObject input)
+    => Structured.Empty()
+      .AddEncoded("id", input.Id, _id)
+      .Add("name", input.Name.Encode())
+      .AddList("friends", input.Friends, _id)
+      .Add("appearsIn", input.AppearsIn.Encode());
+
+  internal static CmptCharacterEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptHumanEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptHumanObject>
+{
+  private readonly Encoder<ICmptCharacterObject> _character = encoders.EncoderFor<ICmptCharacterObject>();
+  public Structured Encode(ICmptHumanObject input)
+    => _character.Encode(input)
+      .Add("homePlanet", input.HomePlanet.Encode());
+
+  internal static CmptHumanEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptDroidEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptDroidObject>
+{
+  private readonly Encoder<ICmptCharacterObject> _character = encoders.EncoderFor<ICmptCharacterObject>();
+  public Structured Encode(ICmptDroidObject input)
+    => _character.Encode(input)
+      .Add("primaryFunction", input.PrimaryFunction.Encode());
+
+  internal static CmptDroidEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal static class Cmpt_StarWars_StarWarsEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_StarWars_StarWarsEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptQueryObject>(CmptQueryEncoder.Factory)
+      .AddEncoder<CmptEpisode>(CmptEpisodeEncoder.Factory)
+      .AddEncoder<ICmptId>(CmptIdEncoder.Factory)
+      .AddEncoder<ICmptCharacterObject>(CmptCharacterEncoder.Factory)
+      .AddEncoder<ICmptHumanObject>(CmptHumanEncoder.Factory)
+      .AddEncoder<ICmptDroidObject>(CmptDroidEncoder.Factory);
+}

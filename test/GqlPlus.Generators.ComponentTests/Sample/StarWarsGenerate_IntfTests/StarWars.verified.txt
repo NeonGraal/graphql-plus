@@ -1,0 +1,113 @@
+﻿/* StarWars
+output Query {
+    hero(Episode?): Character
+    human(String): Human
+    droid(Id): Droid
+    characters(Id[]): Character[]
+}
+
+enum Episode {
+    NewHope
+    Empire
+    Jedi
+}
+
+domain Id { Number >0 }
+
+output Character {
+    id: Id
+    name: String
+    friends: Id[]?
+    appearsIn: Episode[]
+}
+
+domain Id { Number > 1000 }
+
+output Human {
+    :  Character
+    homePlanet: String
+}
+
+output Droid {
+    :  Character
+    primaryFunction: String
+}
+*/
+
+// Generated from StarWars StarWars
+//   with GeneratorOption: BaseType: Interface, BaseName: StarWars_StarWars, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_StarWars_StarWars;
+
+public interface ICmptQuery
+  : StarWars_StarWars
+{
+  ICmptQueryObject? As_Query { get; }
+}
+
+public interface ICmptQueryObject
+  : StarWars_StarWars
+{
+  ICmptCharacter? Hero(CmptEpisode? parameter);
+  ICmptCharacter? Hero();
+  ICmptHuman? Human(string parameter);
+  ICmptHuman? Human();
+  ICmptDroid? Droid(ICmptId parameter);
+  ICmptDroid? Droid();
+  ICollection<ICmptCharacter>? Characters(ICollection<ICmptId> parameter);
+  ICollection<ICmptCharacter>? Characters();
+}
+
+public enum CmptEpisode
+{
+  NewHope,
+  Empire,
+  Jedi,
+}
+
+public interface ICmptId
+  : IGqlpDomainNumber
+{
+}
+
+public interface ICmptCharacter
+  : StarWars_StarWars
+{
+  ICmptCharacterObject? As_Character { get; }
+}
+
+public interface ICmptCharacterObject
+  : StarWars_StarWars
+{
+  ICmptId Id { get; }
+  string Name { get; }
+  ICollection<ICmptId>? Friends { get; }
+  ICollection<CmptEpisode> AppearsIn { get; }
+}
+
+public interface ICmptHuman
+  : ICmptCharacter
+{
+  ICmptHumanObject? As_Human { get; }
+}
+
+public interface ICmptHumanObject
+  : ICmptCharacterObject
+{
+  string HomePlanet { get; }
+}
+
+public interface ICmptDroid
+  : ICmptCharacter
+{
+  ICmptDroidObject? As_Droid { get; }
+}
+
+public interface ICmptDroidObject
+  : ICmptCharacterObject
+{
+  string PrimaryFunction { get; }
+}

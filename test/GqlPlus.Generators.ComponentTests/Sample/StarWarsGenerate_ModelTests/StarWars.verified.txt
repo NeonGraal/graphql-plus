@@ -1,0 +1,159 @@
+﻿/* StarWars
+output Query {
+    hero(Episode?): Character
+    human(String): Human
+    droid(Id): Droid
+    characters(Id[]): Character[]
+}
+
+enum Episode {
+    NewHope
+    Empire
+    Jedi
+}
+
+domain Id { Number >0 }
+
+output Character {
+    id: Id
+    name: String
+    friends: Id[]?
+    appearsIn: Episode[]
+}
+
+domain Id { Number > 1000 }
+
+output Human {
+    :  Character
+    homePlanet: String
+}
+
+output Droid {
+    :  Character
+    primaryFunction: String
+}
+*/
+
+// Generated from StarWars StarWars
+//   with GeneratorOption: BaseType: Class, BaseName: StarWars_StarWars, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_StarWars_StarWars;
+
+public class CmptQuery
+  : StarWars_StarWars
+  , ICmptQuery
+{
+  public ICmptQueryObject? As_Query { get; set; }
+}
+
+public class CmptQueryObject
+  : StarWars_StarWars
+  , ICmptQueryObject
+{
+  public ICmptCharacter? Hero(CmptEpisode? parameter)
+    => null;
+  public ICmptCharacter? Hero()
+    => null;
+  public ICmptHuman? Human(string parameter)
+    => null;
+  public ICmptHuman? Human()
+    => null;
+  public ICmptDroid? Droid(ICmptId parameter)
+    => null;
+  public ICmptDroid? Droid()
+    => null;
+  public ICollection<ICmptCharacter>? Characters(ICollection<ICmptId> parameter)
+    => null;
+  public ICollection<ICmptCharacter>? Characters()
+    => null;
+
+  public CmptQueryObject
+    ()
+  {
+  }
+}
+
+public class CmptId
+  : GqlpDomainNumber
+  , ICmptId
+{
+}
+
+public class CmptCharacter
+  : StarWars_StarWars
+  , ICmptCharacter
+{
+  public ICmptCharacterObject? As_Character { get; set; }
+}
+
+public class CmptCharacterObject
+  : StarWars_StarWars
+  , ICmptCharacterObject
+{
+  public ICmptId Id { get; set; }
+  public string Name { get; set; }
+  public ICollection<ICmptId>? Friends { get; set; }
+  public ICollection<CmptEpisode> AppearsIn { get; set; }
+
+  public CmptCharacterObject
+    ( ICmptId pid
+    , string pname
+    , ICollection<CmptEpisode> pappearsIn
+    )
+  {
+    Id = pid;
+    Name = pname;
+    AppearsIn = pappearsIn;
+  }
+}
+
+public class CmptHuman
+  : CmptCharacter
+  , ICmptHuman
+{
+  public ICmptHumanObject? As_Human { get; set; }
+}
+
+public class CmptHumanObject
+  : CmptCharacterObject
+  , ICmptHumanObject
+{
+  public string HomePlanet { get; set; }
+
+  public CmptHumanObject
+    ( ICmptId pid
+    , string pname
+    , ICollection<CmptEpisode> pappearsIn
+    , string phomePlanet
+    ) : base(pid, pname, pappearsIn)
+  {
+    HomePlanet = phomePlanet;
+  }
+}
+
+public class CmptDroid
+  : CmptCharacter
+  , ICmptDroid
+{
+  public ICmptDroidObject? As_Droid { get; set; }
+}
+
+public class CmptDroidObject
+  : CmptCharacterObject
+  , ICmptDroidObject
+{
+  public string PrimaryFunction { get; set; }
+
+  public CmptDroidObject
+    ( ICmptId pid
+    , string pname
+    , ICollection<CmptEpisode> pappearsIn
+    , string pprimaryFunction
+    ) : base(pid, pname, pappearsIn)
+  {
+    PrimaryFunction = pprimaryFunction;
+  }
+}

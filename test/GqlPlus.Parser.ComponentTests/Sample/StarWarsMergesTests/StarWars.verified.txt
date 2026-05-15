@@ -1,0 +1,129 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  Query
+  {
+    !OF I@005/0002
+    hero
+    (
+      !Pa
+      I@010/0002
+      Episode
+      ?
+    )
+    :
+    I@021/0002
+    Character
+    !OF I@005/0003
+    human
+    (
+      !Pa
+      I@011/0003
+      String
+    )
+    :
+    I@020/0003
+    Human
+    !OF I@005/0004
+    droid
+    (
+      !Pa
+      I@011/0004
+      Id
+    )
+    :
+    I@016/0004
+    Droid
+    !OF I@005/0005
+    characters
+    (
+      !Pa
+      I@016/0005
+      Id
+      []
+    )
+    :
+    I@023/0005
+    Character
+    []
+  }
+}
+{
+  !En I@006/0008
+  Episode
+  !EL I@005/0009
+  NewHope
+  !EL I@005/0010
+  Empire
+  !EL I@005/0011
+  Jedi
+}
+{
+  !Do I@008/0014
+  Id
+  Number
+  !DN P@020/0014
+  0<
+  !DN P@020/0023
+  1000<
+}
+{
+  !Ou I@008/0016
+  Character
+  {
+    !OF I@005/0017
+    id
+    :
+    I@009/0017
+    Id
+    !OF I@005/0018
+    name
+    :
+    I@011/0018
+    String
+    !OF I@005/0019
+    friends
+    :
+    I@014/0019
+    Id
+    []
+    ?
+    !OF I@005/0020
+    appearsIn
+    :
+    I@016/0020
+    Episode
+    []
+  }
+}
+{
+  !Ou I@008/0025
+  Human
+  :
+  I@008/0026
+  Character
+  {
+    !OF I@005/0027
+    homePlanet
+    :
+    I@017/0027
+    String
+  }
+}
+{
+  !Ou I@008/0030
+  Droid
+  :
+  I@008/0031
+  Character
+  {
+    !OF I@005/0032
+    primaryFunction
+    :
+    I@022/0032
+    String
+  }
+}
+]

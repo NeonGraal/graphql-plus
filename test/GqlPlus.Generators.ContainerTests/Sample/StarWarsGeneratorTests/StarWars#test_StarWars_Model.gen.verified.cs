@@ -30,7 +30,7 @@ public class testQueryObject
     => null;
   public ItestDroid? Droid()
     => null;
-  public ICollection<ItestCharacter>? Characters(ICollection<ItestId> parameter)
+  public ICollection<ItestCharacter>? Characters(ICollection<ItestId>? parameter)
     => null;
   public ICollection<ItestCharacter>? Characters()
     => null;
@@ -47,23 +47,22 @@ public class testId
 {
 }
 
-public class testCharacter
+public class testRole
   : GqlpModelBase
-  , ItestCharacter
+  , ItestRole
 {
-  public ItestCharacterObject? As_Character { get; set; }
+  public ItestRoleObject? As_Role { get; set; }
 }
 
-public class testCharacterObject
+public class testRoleObject
   : GqlpModelBase
-  , ItestCharacterObject
+  , ItestRoleObject
 {
   public ItestId Id { get; set; }
   public string Name { get; set; }
-  public ICollection<ItestId>? Friends { get; set; }
   public ICollection<testEpisode> AppearsIn { get; set; }
 
-  public testCharacterObject
+  public testRoleObject
     ( ItestId pid
     , string pname
     , ICollection<testEpisode> pappearsIn
@@ -75,15 +74,39 @@ public class testCharacterObject
   }
 }
 
+public class testAssociate
+  : testRole
+  , ItestAssociate
+{
+  public ItestAssociateObject? As_Associate { get; set; }
+}
+
+public class testAssociateObject
+  : testRoleObject
+  , ItestAssociateObject
+{
+  public ICollection<ItestRole> Friends { get; set; }
+
+  public testAssociateObject
+    ( ItestId pid
+    , string pname
+    , ICollection<testEpisode> pappearsIn
+    , ICollection<ItestRole> pfriends
+    ) : base(pid, pname, pappearsIn)
+  {
+    Friends = pfriends;
+  }
+}
+
 public class testHuman
-  : testCharacter
+  : testAssociate
   , ItestHuman
 {
   public ItestHumanObject? As_Human { get; set; }
 }
 
 public class testHumanObject
-  : testCharacterObject
+  : testAssociateObject
   , ItestHumanObject
 {
   public string HomePlanet { get; set; }
@@ -92,22 +115,23 @@ public class testHumanObject
     ( ItestId pid
     , string pname
     , ICollection<testEpisode> pappearsIn
+    , ICollection<ItestRole> pfriends
     , string phomePlanet
-    ) : base(pid, pname, pappearsIn)
+    ) : base(pid, pname, pappearsIn, pfriends)
   {
     HomePlanet = phomePlanet;
   }
 }
 
 public class testDroid
-  : testCharacter
+  : testAssociate
   , ItestDroid
 {
   public ItestDroidObject? As_Droid { get; set; }
 }
 
 public class testDroidObject
-  : testCharacterObject
+  : testAssociateObject
   , ItestDroidObject
 {
   public string PrimaryFunction { get; set; }
@@ -116,9 +140,30 @@ public class testDroidObject
     ( ItestId pid
     , string pname
     , ICollection<testEpisode> pappearsIn
+    , ICollection<ItestRole> pfriends
     , string pprimaryFunction
-    ) : base(pid, pname, pappearsIn)
+    ) : base(pid, pname, pappearsIn, pfriends)
   {
     PrimaryFunction = pprimaryFunction;
+  }
+}
+
+public class testCharacter
+  : GqlpModelBase
+  , ItestCharacter
+{
+  public ItestHuman? AsHuman { get; set; }
+  public ItestDroid? AsDroid { get; set; }
+  public ItestCharacterObject? As_Character { get; set; }
+}
+
+public class testCharacterObject
+  : GqlpModelBase
+  , ItestCharacterObject
+{
+
+  public testCharacterObject
+    ()
+  {
   }
 }

@@ -22,7 +22,7 @@ public interface ItestQueryObject
   ItestHuman? Human();
   ItestDroid? Droid(ItestId parameter);
   ItestDroid? Droid();
-  ICollection<ItestCharacter>? Characters(ICollection<ItestId> parameter);
+  ICollection<ItestCharacter>? Characters(ICollection<ItestId>? parameter);
   ICollection<ItestCharacter>? Characters();
 }
 
@@ -38,41 +38,65 @@ public interface ItestId
 {
 }
 
+public interface ItestRole
+  : IGqlpInterfaceBase
+{
+  ItestRoleObject? As_Role { get; }
+}
+
+public interface ItestRoleObject
+  : IGqlpInterfaceBase
+{
+  ItestId Id { get; }
+  string Name { get; }
+  ICollection<testEpisode> AppearsIn { get; }
+}
+
+public interface ItestAssociate
+  : ItestRole
+{
+  ItestAssociateObject? As_Associate { get; }
+}
+
+public interface ItestAssociateObject
+  : ItestRoleObject
+{
+  ICollection<ItestRole> Friends { get; }
+}
+
+public interface ItestHuman
+  : ItestAssociate
+{
+  ItestHumanObject? As_Human { get; }
+}
+
+public interface ItestHumanObject
+  : ItestAssociateObject
+{
+  string HomePlanet { get; }
+}
+
+public interface ItestDroid
+  : ItestAssociate
+{
+  ItestDroidObject? As_Droid { get; }
+}
+
+public interface ItestDroidObject
+  : ItestAssociateObject
+{
+  string PrimaryFunction { get; }
+}
+
 public interface ItestCharacter
   : IGqlpInterfaceBase
 {
+  ItestHuman? AsHuman { get; }
+  ItestDroid? AsDroid { get; }
   ItestCharacterObject? As_Character { get; }
 }
 
 public interface ItestCharacterObject
   : IGqlpInterfaceBase
 {
-  ItestId Id { get; }
-  string Name { get; }
-  ICollection<ItestId>? Friends { get; }
-  ICollection<testEpisode> AppearsIn { get; }
-}
-
-public interface ItestHuman
-  : ItestCharacter
-{
-  ItestHumanObject? As_Human { get; }
-}
-
-public interface ItestHumanObject
-  : ItestCharacterObject
-{
-  string HomePlanet { get; }
-}
-
-public interface ItestDroid
-  : ItestCharacter
-{
-  ItestDroidObject? As_Droid { get; }
-}
-
-public interface ItestDroidObject
-  : ItestCharacterObject
-{
-  string PrimaryFunction { get; }
 }

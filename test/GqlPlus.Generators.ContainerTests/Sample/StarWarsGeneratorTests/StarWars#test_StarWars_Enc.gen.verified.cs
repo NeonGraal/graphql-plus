@@ -40,28 +40,40 @@ internal class testIdEncoder : IEncoder<ItestId>
   internal static testIdEncoder Factory(IEncoderRepository _) => new();
 }
 
-internal class testCharacterEncoder(
+internal class testRoleEncoder(
   IEncoderRepository encoders
-) : IEncoder<ItestCharacterObject>
+) : IEncoder<ItestRoleObject>
 {
   private readonly Encoder<ItestId> _itestId = encoders.EncoderFor<ItestId>();
-  public Structured Encode(ItestCharacterObject input)
+  public Structured Encode(ItestRoleObject input)
     => Structured.Empty()
       .AddEncoded("id", input.Id, _itestId)
       .Add("name", input.Name.Encode())
-      .AddList("friends", input.Friends, _itestId)
       .Add("appearsIn", input.AppearsIn.Encode());
 
-  internal static testCharacterEncoder Factory(IEncoderRepository r) => new(r);
+  internal static testRoleEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class testAssociateEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestAssociateObject>
+{
+  private readonly Encoder<ItestRoleObject> _itestRole = encoders.EncoderFor<ItestRoleObject>();
+  private readonly Encoder<ItestRole> _itestRole2 = encoders.EncoderFor<ItestRole>();
+  public Structured Encode(ItestAssociateObject input)
+    => _itestRole.Encode(input)
+      .AddList("friends", input.Friends, _itestRole2);
+
+  internal static testAssociateEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testHumanEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestHumanObject>
 {
-  private readonly Encoder<ItestCharacterObject> _itestCharacter = encoders.EncoderFor<ItestCharacterObject>();
+  private readonly Encoder<ItestAssociateObject> _itestAssociate = encoders.EncoderFor<ItestAssociateObject>();
   public Structured Encode(ItestHumanObject input)
-    => _itestCharacter.Encode(input)
+    => _itestAssociate.Encode(input)
       .Add("homePlanet", input.HomePlanet.Encode());
 
   internal static testHumanEncoder Factory(IEncoderRepository r) => new(r);
@@ -71,12 +83,20 @@ internal class testDroidEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestDroidObject>
 {
-  private readonly Encoder<ItestCharacterObject> _itestCharacter = encoders.EncoderFor<ItestCharacterObject>();
+  private readonly Encoder<ItestAssociateObject> _itestAssociate = encoders.EncoderFor<ItestAssociateObject>();
   public Structured Encode(ItestDroidObject input)
-    => _itestCharacter.Encode(input)
+    => _itestAssociate.Encode(input)
       .Add("primaryFunction", input.PrimaryFunction.Encode());
 
   internal static testDroidEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class testCharacterEncoder : IEncoder<ItestCharacterObject>
+{
+  public Structured Encode(ItestCharacterObject input)
+    => Structured.Empty();
+
+  internal static testCharacterEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test_StarWarsEncoders
@@ -86,7 +106,9 @@ internal static class test_StarWarsEncoders
       .AddEncoder<ItestQueryObject>(testQueryEncoder.Factory)
       .AddEncoder<testEpisode>(testEpisodeEncoder.Factory)
       .AddEncoder<ItestId>(testIdEncoder.Factory)
-      .AddEncoder<ItestCharacterObject>(testCharacterEncoder.Factory)
+      .AddEncoder<ItestRoleObject>(testRoleEncoder.Factory)
+      .AddEncoder<ItestAssociateObject>(testAssociateEncoder.Factory)
       .AddEncoder<ItestHumanObject>(testHumanEncoder.Factory)
-      .AddEncoder<ItestDroidObject>(testDroidEncoder.Factory);
+      .AddEncoder<ItestDroidObject>(testDroidEncoder.Factory)
+      .AddEncoder<ItestCharacterObject>(testCharacterEncoder.Factory);
 }

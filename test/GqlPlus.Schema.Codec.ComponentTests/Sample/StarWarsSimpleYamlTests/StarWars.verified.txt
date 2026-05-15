@@ -1,74 +1,82 @@
 ﻿!_Schema
 types: !_Map(_Type)
-  !_Name Character: !_TypeOutput
+  !_Name Associate: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: id
-        object: Character
+        object: Role
         type: !_ObjBase
           name: Id
       - !_ObjectFor(_OutputField)
         name: name
-        object: Character
+        object: Role
         type: !_ObjBase
           name: String
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List},!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: friends
-        object: Character
-        type: !_ObjBase
-          name: Id
-      - !_ObjectFor(_OutputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: appearsIn
-        object: Character
+        object: Role
         type: !_ObjBase
           name: Episode
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: friends
+        object: Associate
+        type: !_ObjBase
+          name: Role
     fields:
       - !_OutputField
-        name: id
-        type: !_ObjBase
-          name: Id
-      - !_OutputField
-        name: name
-        type: !_ObjBase
-          name: String
-      - !_OutputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List},!_Modifier{modifierKind:!_ModifierKind Opt}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: friends
         type: !_ObjBase
-          name: Id
-      - !_OutputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: appearsIn
+          name: Role
+    name: Associate
+    parent: !_ObjBase
+      name: Role
+    typeKind: !_TypeKind Output
+  !_Name Character: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: Character
         type: !_ObjBase
-          name: Episode
+          name: Human
+      - !_ObjectFor(_Alternate)
+        object: Character
+        type: !_ObjBase
+          name: Droid
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: Human
+      - !_Alternate
+        type: !_ObjBase
+          name: Droid
     name: Character
     typeKind: !_TypeKind Output
   !_Name Droid: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: id
-        object: Character
+        object: Role
         type: !_ObjBase
           name: Id
       - !_ObjectFor(_OutputField)
         name: name
-        object: Character
+        object: Role
         type: !_ObjBase
           name: String
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List},!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: friends
-        object: Character
-        type: !_ObjBase
-          name: Id
-      - !_ObjectFor(_OutputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: appearsIn
-        object: Character
+        object: Role
         type: !_ObjBase
           name: Episode
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: friends
+        object: Associate
+        type: !_ObjBase
+          name: Role
       - !_ObjectFor(_OutputField)
         name: primaryFunction
         object: Droid
@@ -81,7 +89,7 @@ types: !_Map(_Type)
           name: String
     name: Droid
     parent: !_ObjBase
-      name: Character
+      name: Associate
     typeKind: !_TypeKind Output
   !_Name Episode: !_TypeEnum
     allItems:
@@ -107,26 +115,26 @@ types: !_Map(_Type)
     allFields:
       - !_ObjectFor(_OutputField)
         name: id
-        object: Character
+        object: Role
         type: !_ObjBase
           name: Id
       - !_ObjectFor(_OutputField)
         name: name
-        object: Character
+        object: Role
         type: !_ObjBase
           name: String
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List},!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: friends
-        object: Character
-        type: !_ObjBase
-          name: Id
-      - !_ObjectFor(_OutputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: appearsIn
-        object: Character
+        object: Role
         type: !_ObjBase
           name: Episode
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: friends
+        object: Associate
+        type: !_ObjBase
+          name: Role
       - !_ObjectFor(_OutputField)
         name: homePlanet
         object: Human
@@ -139,23 +147,16 @@ types: !_Map(_Type)
           name: String
     name: Human
     parent: !_ObjBase
-      name: Character
+      name: Associate
     typeKind: !_TypeKind Output
   !_Name Id: !_DomainNumber
     allItems:
       - !_DomainItem(_DomainRange)
         domain: Id
         exclude: false
-        from: 0
-      - !_DomainItem(_DomainRange)
-        domain: Id
-        exclude: false
         from: 1000
     domainKind: !_DomainKind Number
     items:
-      - !_DomainRange
-        exclude: false
-        from: 0
       - !_DomainRange
         exclude: false
         from: 1000
@@ -190,7 +191,7 @@ types: !_Map(_Type)
         name: characters
         object: Query
         parameter: !_InputParam
-          modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+          modifiers: [!_Modifier{modifierKind:!_ModifierKind List},!_Modifier{modifierKind:!_ModifierKind Opt}]
           name: Id
         type: !_ObjBase
           name: Character
@@ -218,9 +219,43 @@ types: !_Map(_Type)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: characters
         parameter: !_InputParam
-          modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+          modifiers: [!_Modifier{modifierKind:!_ModifierKind List},!_Modifier{modifierKind:!_ModifierKind Opt}]
           name: Id
         type: !_ObjBase
           name: Character
     name: Query
+    typeKind: !_TypeKind Output
+  !_Name Role: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: id
+        object: Role
+        type: !_ObjBase
+          name: Id
+      - !_ObjectFor(_OutputField)
+        name: name
+        object: Role
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: appearsIn
+        object: Role
+        type: !_ObjBase
+          name: Episode
+    fields:
+      - !_OutputField
+        name: id
+        type: !_ObjBase
+          name: Id
+      - !_OutputField
+        name: name
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: appearsIn
+        type: !_ObjBase
+          name: Episode
+    name: Role
     typeKind: !_TypeKind Output

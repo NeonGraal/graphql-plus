@@ -43,9 +43,10 @@ Success
       I@016/0005
       Id
       []
+      ?
     )
     :
-    I@023/0005
+    I@024/0005
     Character
     []
   }
@@ -65,13 +66,11 @@ Success
   Id
   Number
   !DN P@020/0014
-  0<
-  !DN P@020/0023
   1000<
 }
 {
   !Ou I@008/0016
-  Character
+  Role
   {
     !OF I@005/0017
     id
@@ -84,46 +83,63 @@ Success
     I@011/0018
     String
     !OF I@005/0019
-    friends
-    :
-    I@014/0019
-    Id
-    []
-    ?
-    !OF I@005/0020
     appearsIn
     :
-    I@016/0020
+    I@016/0019
     Episode
     []
   }
 }
 {
-  !Ou I@008/0025
+  !Ou I@008/0022
+  Associate
+  :
+  I@009/0023
+  Role
+  {
+    !OF I@005/0024
+    friends
+    :
+    I@014/0024
+    Role
+    []
+  }
+}
+{
+  !Ou I@008/0027
   Human
   :
-  I@008/0026
-  Character
+  I@008/0028
+  Associate
   {
-    !OF I@005/0027
+    !OF I@005/0029
     homePlanet
     :
-    I@017/0027
+    I@017/0029
     String
   }
 }
 {
-  !Ou I@008/0030
+  !Ou I@008/0032
   Droid
   :
-  I@008/0031
-  Character
+  I@008/0033
+  Associate
   {
-    !OF I@005/0032
+    !OF I@005/0034
     primaryFunction
     :
-    I@022/0032
+    I@022/0034
     String
   }
+}
+{
+  !Ou I@008/0037
+  Character
+  |
+  I@007/0038
+  Human
+  I@007/0039
+  Droid
 }
 ]

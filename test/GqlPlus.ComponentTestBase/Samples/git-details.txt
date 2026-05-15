@@ -1,1 +1,1 @@
-425b795  (HEAD -> star-wars-yaml, origin/star-wars-yaml) 2026-05-15 Correct Star Wars schema
+4ce90e6  (HEAD -> star-wars-yaml, origin/star-wars-yaml) 2026-05-16 Tweak Star wars schema

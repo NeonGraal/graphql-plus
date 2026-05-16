@@ -6,10 +6,12 @@ namespace GqlPlus.Encoding;
 
 public static class AllEncoders
 {
-  public static IServiceCollection AddEncoders(this IServiceCollection services)
+  public static IServiceCollection AddEncoders(this IServiceCollection services,
+    Action<IEncoderRepositoryBuilder>? configure = null)
   {
     EncoderRepositoryBuilder builder = new();
     builder.AddSchemaEncoders();
+    configure?.Invoke(builder);
     services.AddSingleton(builder);
     services.TryAddSingleton<IEncoderRepository, EncoderRepository>();
     return services;

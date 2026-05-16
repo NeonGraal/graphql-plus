@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\GqlPlus.Converter.Plain\GqlPlus.Converter.Plain.csproj" />
+    <ProjectReference Include="..\..\src\GqlPlus.Converter.Yaml\GqlPlus.Converter.Yaml.csproj" />
+    <ProjectReference Include="..\GqlPlus.Schema.Codec.ComponentTestBase\GqlPlus.Schema.Codec.ComponentTestBase.csproj" />
+    <ProjectReference Include="..\GqlPlus.Schema.GraphQlPlus\GqlPlus.Schema.GraphQlPlus.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -12,7 +12,7 @@ enum Episode {
     Jedi
 }
 
-domain Id { Number > 1000 }
+domain Id { Number > 999 }
 
 output Role {
     id: Id
@@ -21,17 +21,17 @@ output Role {
 }
 
 output Associate {
-    :   Role
+    : Role
     friends: Role[]
 }
 
 output Human {
-    :  Associate
-    homePlanet: String
+    : Associate
+    homePlanet: String?
 }
 
 output Droid {
-    :  Associate
+    : Associate
     primaryFunction: String
 }
 
@@ -115,7 +115,7 @@ public interface ICmptHuman
 public interface ICmptHumanObject
   : ICmptAssociateObject
 {
-  string HomePlanet { get; }
+  string? HomePlanet { get; }
 }
 
 public interface ICmptDroid

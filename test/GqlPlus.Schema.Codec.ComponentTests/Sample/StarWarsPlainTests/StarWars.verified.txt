@@ -73,9 +73,11 @@
 [_Schema]:types[_Map(_Type)]:[_Name]Human[_TypeOutput]:allFields.3[_ObjectFor(_OutputField)]:name=friends
 [_Schema]:types[_Map(_Type)]:[_Name]Human[_TypeOutput]:allFields.3[_ObjectFor(_OutputField)]:object=Associate
 [_Schema]:types[_Map(_Type)]:[_Name]Human[_TypeOutput]:allFields.3[_ObjectFor(_OutputField)]:type[_ObjBase]:name=Role
+[_Schema]:types[_Map(_Type)]:[_Name]Human[_TypeOutput]:allFields.4[_ObjectFor(_OutputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
 [_Schema]:types[_Map(_Type)]:[_Name]Human[_TypeOutput]:allFields.4[_ObjectFor(_OutputField)]:name=homePlanet
 [_Schema]:types[_Map(_Type)]:[_Name]Human[_TypeOutput]:allFields.4[_ObjectFor(_OutputField)]:object=Human
 [_Schema]:types[_Map(_Type)]:[_Name]Human[_TypeOutput]:allFields.4[_ObjectFor(_OutputField)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map(_Type)]:[_Name]Human[_TypeOutput]:fields.0[_OutputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
 [_Schema]:types[_Map(_Type)]:[_Name]Human[_TypeOutput]:fields.0[_OutputField]:name=homePlanet
 [_Schema]:types[_Map(_Type)]:[_Name]Human[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=String
 [_Schema]:types[_Map(_Type)]:[_Name]Human[_TypeOutput]:name=Human
@@ -83,10 +85,10 @@
 [_Schema]:types[_Map(_Type)]:[_Name]Human[_TypeOutput]:typeKind=[_TypeKind]Output
 [_Schema]:types[_Map(_Type)]:[_Name]Id[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:domain=Id
 [_Schema]:types[_Map(_Type)]:[_Name]Id[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:exclude=false
-[_Schema]:types[_Map(_Type)]:[_Name]Id[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:from=1000
+[_Schema]:types[_Map(_Type)]:[_Name]Id[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:from=999
 [_Schema]:types[_Map(_Type)]:[_Name]Id[_DomainNumber]:domainKind=[_DomainKind]Number
 [_Schema]:types[_Map(_Type)]:[_Name]Id[_DomainNumber]:items.0[_DomainRange]:exclude=false
-[_Schema]:types[_Map(_Type)]:[_Name]Id[_DomainNumber]:items.0[_DomainRange]:from=1000
+[_Schema]:types[_Map(_Type)]:[_Name]Id[_DomainNumber]:items.0[_DomainRange]:from=999
 [_Schema]:types[_Map(_Type)]:[_Name]Id[_DomainNumber]:name=Id
 [_Schema]:types[_Map(_Type)]:[_Name]Id[_DomainNumber]:typeKind=[_TypeKind]Domain
 [_Schema]:types[_Map(_Type)]:[_Name]Query[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=hero

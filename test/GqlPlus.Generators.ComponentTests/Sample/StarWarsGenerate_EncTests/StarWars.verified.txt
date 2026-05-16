@@ -12,7 +12,7 @@ enum Episode {
     Jedi
 }
 
-domain Id { Number > 1000 }
+domain Id { Number > 999 }
 
 output Role {
     id: Id
@@ -21,17 +21,17 @@ output Role {
 }
 
 output Associate {
-    :   Role
+    : Role
     friends: Role[]
 }
 
 output Human {
-    :  Associate
-    homePlanet: String
+    : Associate
+    homePlanet: String?
 }
 
 output Droid {
-    :  Associate
+    : Associate
     primaryFunction: String
 }
 
@@ -116,7 +116,7 @@ internal class CmptHumanEncoder(
   private readonly Encoder<ICmptAssociateObject> _associate = encoders.EncoderFor<ICmptAssociateObject>();
   public Structured Encode(ICmptHumanObject input)
     => _associate.Encode(input)
-      .Add("homePlanet", input.HomePlanet.Encode());
+      .AddIf(input.HomePlanet is not null, onTrue: t => t.Add("homePlanet", input.HomePlanet!.Encode()));
 
   internal static CmptHumanEncoder Factory(IEncoderRepository r) => new(r);
 }

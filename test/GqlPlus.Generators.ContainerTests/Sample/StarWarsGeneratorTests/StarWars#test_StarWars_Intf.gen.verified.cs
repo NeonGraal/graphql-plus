@@ -73,7 +73,7 @@ public interface ItestHuman
 public interface ItestHumanObject
   : ItestAssociateObject
 {
-  string HomePlanet { get; }
+  string? HomePlanet { get; }
 }
 
 public interface ItestDroid

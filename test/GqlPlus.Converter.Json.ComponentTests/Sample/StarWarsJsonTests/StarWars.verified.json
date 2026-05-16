@@ -321,6 +321,15 @@
         },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
           "name": "homePlanet",
           "object": "Human",
           "type": {
@@ -332,6 +341,15 @@
       "fields": [
         {
           "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
           "name": "homePlanet",
           "type": {
             "$mapTag": "_ObjBase",
@@ -357,7 +375,7 @@
           "$mapTag": "_DomainItem(_DomainRange)",
           "domain": "Id",
           "exclude": false,
-          "from": 1000
+          "from": 999
         }
       ],
       "domainKind": {
@@ -368,7 +386,7 @@
         {
           "$mapTag": "_DomainRange",
           "exclude": false,
-          "from": 1000
+          "from": 999
         }
       ],
       "name": "Id",

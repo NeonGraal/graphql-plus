@@ -136,12 +136,14 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: Role
       - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: homePlanet
         object: Human
         type: !_ObjBase
           name: String
     fields:
       - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: homePlanet
         type: !_ObjBase
           name: String
@@ -154,12 +156,12 @@ types: !_Map(_Type)
       - !_DomainItem(_DomainRange)
         domain: Id
         exclude: false
-        from: 1000
+        from: 999
     domainKind: !_DomainKind Number
     items:
       - !_DomainRange
         exclude: false
-        from: 1000
+        from: 999
     name: Id
     typeKind: !_TypeKind Domain
   !_Name Query: !_TypeOutput

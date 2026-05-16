@@ -109,17 +109,15 @@ public class testHumanObject
   : testAssociateObject
   , ItestHumanObject
 {
-  public string HomePlanet { get; set; }
+  public string? HomePlanet { get; set; }
 
   public testHumanObject
     ( ItestId pid
     , string pname
     , ICollection<testEpisode> pappearsIn
     , ICollection<ItestRole> pfriends
-    , string phomePlanet
     ) : base(pid, pname, pappearsIn, pfriends)
   {
-    HomePlanet = phomePlanet;
   }
 }
 

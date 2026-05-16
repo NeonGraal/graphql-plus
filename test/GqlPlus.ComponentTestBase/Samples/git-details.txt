@@ -1,1 +1,1 @@
-4ce90e6  (HEAD -> star-wars-yaml, origin/star-wars-yaml) 2026-05-16 Tweak Star wars schema
+37187f1  (HEAD -> star-wars-yaml) 2026-05-16 Fix review comments

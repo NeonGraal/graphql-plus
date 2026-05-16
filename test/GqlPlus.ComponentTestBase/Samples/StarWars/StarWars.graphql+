@@ -11,7 +11,7 @@ enum Episode {
     Jedi
 }
 
-domain Id { Number > 1000 }
+domain Id { Number > 999 }
 
 output Role {
     id: Id
@@ -20,17 +20,17 @@ output Role {
 }
 
 output Associate {
-    :   Role
+    : Role
     friends: Role[]
 }
 
 output Human {
-    :  Associate
-    homePlanet: String
+    : Associate
+    homePlanet: String?
 }
 
 output Droid {
-    :  Associate
+    : Associate
     primaryFunction: String
 }
 

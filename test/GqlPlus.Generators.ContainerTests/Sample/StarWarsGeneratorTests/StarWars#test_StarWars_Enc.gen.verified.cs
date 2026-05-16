@@ -74,7 +74,7 @@ internal class testHumanEncoder(
   private readonly Encoder<ItestAssociateObject> _itestAssociate = encoders.EncoderFor<ItestAssociateObject>();
   public Structured Encode(ItestHumanObject input)
     => _itestAssociate.Encode(input)
-      .Add("homePlanet", input.HomePlanet.Encode());
+      .AddIf(input.HomePlanet is not null, onTrue: t => t.Add("homePlanet", input.HomePlanet!.Encode()));
 
   internal static testHumanEncoder Factory(IEncoderRepository r) => new(r);
 }

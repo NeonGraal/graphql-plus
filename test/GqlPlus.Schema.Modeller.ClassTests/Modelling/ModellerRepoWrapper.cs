@@ -35,8 +35,8 @@ internal sealed class ModellerRepoWrapper(
   }
 
   public Modeller<TAst, TModel>.D ModellerFor<TAst, TModel>([CallerMemberName] string callerName = "")
-    where TAst : IAstError
-    where TModel : IModelBase
+    where TAst : class, IAstError
+    where TModel : class, IModelBase
     => AddRelationship<TModel>(callerName)
       .ModellerFor<TAst, TModel>(callerName);
 }

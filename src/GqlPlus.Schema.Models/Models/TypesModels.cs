@@ -37,20 +37,6 @@ public record class ParentTypeModel<TItem, TAll>(
 
 public enum SimpleKindModel { Basic, Enum, Internal, Domain, Union, LastSimple = 9 }
 
-public enum TypeKindModel
-{
-  Basic = SimpleKindModel.Basic,
-  Enum = SimpleKindModel.Enum,
-  Internal = SimpleKindModel.Internal,
-  Domain = SimpleKindModel.Domain,
-  Union = SimpleKindModel.Union,
-  LastSimple = SimpleKindModel.LastSimple,
-  Dual,
-  Input,
-  Output,
-  Special = 19,
-}
-
 public record class TypeRefModel<TKind>(
   TKind TypeKind,
   string Name,

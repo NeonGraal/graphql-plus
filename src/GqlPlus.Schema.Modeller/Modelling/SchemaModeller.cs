@@ -42,8 +42,8 @@ internal class SchemaModeller(
     IModeller<TAst, TModel> modeller,
     IMap<TypeKindModel> typeKinds
   )
-    where TAst : IAstError
-    where TModel : IModelBase
+    where TAst : class, IAstError
+    where TModel : class, IModelBase
     => ast.Declarations.OfType<TAst>().Select(m => modeller.ToModel(m, typeKinds));
 
   internal static SchemaModeller Factory(IModellerRepository r) => new(r);

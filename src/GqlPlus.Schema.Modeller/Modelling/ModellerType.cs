@@ -4,7 +4,7 @@ internal abstract class ModellerType<TAst, TParent, TModel>(
   TypeKindModel kind
 ) : ModellerBase<TAst, TModel>
   , ITypeModeller<TAst, TModel>
-  where TAst : IAstType<TParent>
+  where TAst : class, IAstType<TParent>
   where TParent : IAstDescribed, IEquatable<TParent>
   where TModel : BaseTypeModel
 {
@@ -27,6 +27,6 @@ internal interface ITypeModeller
 internal interface ITypeModeller<TAst, TModel>
   : IModeller<TAst, TModel>
   , ITypeModeller
-  where TAst : IAstError
-  where TModel : IModelBase
+  where TAst : class, IAstError
+  where TModel : class, IModelBase
 { }

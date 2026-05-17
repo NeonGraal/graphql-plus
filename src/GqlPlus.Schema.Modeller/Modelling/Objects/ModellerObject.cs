@@ -4,10 +4,10 @@ internal abstract class ModellerObject<TAst, TObjFieldAst, TModel, TObjField>(
   TypeKindModel kind,
   IModellerRepository modellers
 ) : ModellerType<TAst, IAstObjBase, TModel>(kind)
-  where TAst : IAstType<IAstObjBase>
-  where TObjFieldAst : IAstObjField
+  where TAst : class, IAstType<IAstObjBase>
+  where TObjFieldAst : class, IAstObjField
   where TModel : BaseTypeModel
-  where TObjField : IObjFieldModel
+  where TObjField : class, IObjFieldModel
 {
   private readonly Modeller<IAstAlternate, AlternateModel> _alternate = modellers.ModellerFor<IAstAlternate, AlternateModel>();
   private readonly Modeller<TObjFieldAst, TObjField> _field = modellers.ModellerFor<TObjFieldAst, TObjField>();

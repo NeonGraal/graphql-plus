@@ -3,7 +3,7 @@
 internal abstract class ModellerObjField<TObjFieldAst, TObjField>(
   IModellerRepository modellers
 ) : ModellerBase<TObjFieldAst, TObjField>
-  where TObjFieldAst : IAstObjField
+  where TObjFieldAst : class, IAstObjField
   where TObjField : ObjFieldModel
 {
   private readonly DeferOne<IModifierModeller> _modifier = modellers.ModifierModeller();

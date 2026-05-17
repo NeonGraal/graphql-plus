@@ -1,6 +1,6 @@
-using GqlPlus.Adapt;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Merging;
+using GqlPlus.Modelling;
 using GqlPlus.Parsing;
 using GqlPlus.Resolving;
 using GqlPlus.Schema;
@@ -20,7 +20,8 @@ internal sealed class SchGraphQlPlusVerifyChecks(
   IParserRepository parsers,
   IMergerRepository mergers,
   IModelAndEncode modelAndEncode,
-  IEncoderRepository encoders
+  IEncoderRepository encoders,
+  IModeller<IAstSchema, ISch_SchemaObject> schemaModeller
 ) : SchemaParseChecks(parsers)
   , ISchGraphQlPlusVerifyChecks
 {
@@ -36,11 +37,11 @@ internal sealed class SchGraphQlPlusVerifyChecks(
       context.TypeKinds.Add("_Described", TypeKindModel.Dual);
     }
 
-    SchemaModel model = modelAndEncode.ModelAst(schema, context);
+    ISch_SchemaObject schemaObject = schemaModeller.ToModel(schema, context.TypeKinds);
 
     context.Errors.Add(asts.SelectMany(a => a.Errors));
 
-    return (new SchSchemaAdapter(model), context);
+    return (schemaObject, context);
   }
 
   public Structured Encode_Schema(ISch_SchemaObject schema)

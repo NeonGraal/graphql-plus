@@ -6,8 +6,8 @@ internal interface IModellerRepository
   : IRepository
 {
   Modeller<TAst, TModel>.D ModellerFor<TAst, TModel>([CallerMemberName] string callerName = "")
-    where TAst : IAstError
-    where TModel : IModelBase;
+    where TAst : class, IAstError
+    where TModel : class, IModelBase;
 
   DeferOne<IModifierModeller>.D ModifierModeller([CallerMemberName] string callerName = "");
   DeferOne<ITypesModeller>.D TypesModeller([CallerMemberName] string callerName = "");

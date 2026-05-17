@@ -27,6 +27,7 @@
       "test\\GqlPlus.Parser.ClassTests\\GqlPlus.Parser.ClassTests.csproj",
       "test\\GqlPlus.Schema.Codec.ClassTests\\GqlPlus.Schema.Codec.ClassTests.csproj",
       "test\\GqlPlus.Schema.Modeller.ClassTests\\GqlPlus.Schema.Modeller.ClassTests.csproj",
+      "test\\GqlPlus.Schema.GraphQlPlus.ClassTests\\GqlPlus.Schema.GraphQlPlus.ClassTests.csproj",
       "test\\GqlPlus.TestBase\\GqlPlus.TestBase.csproj",
       "test\\GqlPlus.TestGenerators.Tests\\GqlPlus.TestGenerators.Tests.csproj",
       "test\\GqlPlus.TestGeneratorsBase\\GqlPlus.TestGeneratorsBase.csproj",

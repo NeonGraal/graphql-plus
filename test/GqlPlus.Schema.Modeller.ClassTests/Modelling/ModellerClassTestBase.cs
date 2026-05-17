@@ -5,8 +5,8 @@ namespace GqlPlus.Modelling;
 
 public abstract class ModellerClassTestBase<TAst, TModel>
   : SubstituteBase
-  where TAst : IAstError
-  where TModel : IModelBase
+  where TAst : class, IAstError
+  where TModel : class, IModelBase
 {
   [Fact]
   public void ToModel_WithNullAst_ThrowsModelTypeException()
@@ -22,13 +22,13 @@ public abstract class ModellerClassTestBase<TAst, TModel>
   protected IMap<TypeKindModel> TypeKinds { get; } = A.Of<IMap<TypeKindModel>>();
 
   internal static IModeller<TA, TM> MFor<TA, TM>()
-    where TA : IAstError
-    where TM : IModelBase
+    where TA : class, IAstError
+    where TM : class, IModelBase
     => A.Of<IModeller<TA, TM>>();
 
   internal void ModellerForReturns<TA, TM>(IModellerRepository modellers, IModeller<TA, TM> result)
-    where TA : IAstError
-    where TM : IModelBase
+    where TA : class, IAstError
+    where TM : class, IModelBase
   {
     IModeller<TA, TM> factory() => result;
     modellers.ModellerFor<TA, TM>().ReturnsForAnyArgs(factory);
@@ -53,24 +53,24 @@ public abstract class ModellerClassTestBase<TAst, TModel>
   }
 
   internal void ToModelReturns<TA, TM>(IModeller<TA, TM> modeller, TM result)
-    where TA : IAstError
-    where TM : IModelBase
+    where TA : class, IAstError
+    where TM : class, IModelBase
   {
     modeller.ToModel(default, TypeKinds).ReturnsForAnyArgs(result);
     modeller.ToModel<TM>(default, TypeKinds).ReturnsForAnyArgs(result);
   }
 
   internal void ToModelReturns<TA, TM>(IModeller<TA, TM> modeller, TA arg, TM result)
-    where TA : IAstError
-    where TM : IModelBase
+    where TA : class, IAstError
+    where TM : class, IModelBase
   {
     modeller.ToModel(arg, TypeKinds).Returns(result);
     modeller.ToModel<TM>(arg, TypeKinds).Returns(result);
   }
 
   internal void ToModelsReturns<TA, TM>(IModeller<TA, TM> modeller, TM[] results)
-    where TA : IAstError
-    where TM : IModelBase
+    where TA : class, IAstError
+    where TM : class, IModelBase
   {
     modeller.ToModels(default, TypeKinds).ReturnsForAnyArgs(results);
     modeller.ToModels<TM>(default, TypeKinds).ReturnsForAnyArgs(results);
@@ -78,21 +78,21 @@ public abstract class ModellerClassTestBase<TAst, TModel>
 
   internal void ToModelsReturns<TI, TA, TM>(TI modeller, IEnumerable<TA> args, TM[] results)
     where TI : IModeller<TA, TM>
-    where TA : IAstError
-    where TM : IModelBase
+    where TA : class, IAstError
+    where TM : class, IModelBase
   {
     modeller.ToModels(args, TypeKinds).Returns(results);
     modeller.ToModels<TM>(args, TypeKinds).Returns(results);
   }
 
   internal void TryModelReturns<TA, TM>(IModeller<TA, TM> modeller, TM result)
-    where TA : IAstError
-    where TM : IModelBase
+    where TA : class, IAstError
+    where TM : class, IModelBase
     => modeller.TryModel(default, TypeKinds).ReturnsForAnyArgs(result);
 
   internal void TryModelReturns<TA, TM>(IModeller<TA, TM> modeller, TA arg, TM result)
-    where TA : IAstError
-    where TM : IModelBase
+    where TA : class, IAstError
+    where TM : class, IModelBase
     => modeller.TryModel(arg, TypeKinds).Returns(result);
 
   internal void TypeKindIs(string key, TypeKindModel typeKind)

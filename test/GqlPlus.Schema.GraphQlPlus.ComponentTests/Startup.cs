@@ -1,7 +1,6 @@
 ﻿using DiffEngine;
-
+using GqlPlus.Schema.Modelling;
 using Microsoft.Extensions.DependencyInjection;
-
 namespace GqlPlus;
 
 public static class Startup
@@ -12,6 +11,7 @@ public static class Startup
   public static void ConfigureServices(IServiceCollection services)
   {
     services.AddModellerComponentTestBase(b => b.AddSchEncoders());
+    services.AddSchModellers();
     services.AddTransient<ISchGraphQlPlusVerifyChecks, SchGraphQlPlusVerifyChecks>();
   }
 }

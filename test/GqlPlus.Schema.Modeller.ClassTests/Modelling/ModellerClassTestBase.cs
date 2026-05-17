@@ -14,8 +14,9 @@ public abstract class ModellerClassTestBase<TAst, TModel>
     Action act = () => Modeller.ToModel(default, TypeKinds);
 
     // Act & Assert
-    act.ShouldThrow<ModelTypeException<TAst>>();
+    act.ShouldThrow<ModelTypeException<TModel>>();
   }
+
 
   protected abstract IModeller<TAst, TModel> Modeller { get; }
 

@@ -12,6 +12,7 @@ public static class TypeHelpers
     => type.ExpandTypeName()
       .Replace("IAst", "")
       .Replace("Ast", "")
+      .Replace("Gqlp", "")
       .Replace("Model", "");
 
   public static string ExpandTypeName(this Type? type)

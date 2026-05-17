@@ -79,7 +79,9 @@ public static class StructureHelper
 
   public static string TypeTag(this Type type)
   {
-    string result = "_" + type.ThrowIfNull().Name.Replace("Model", "");
+    string result = "_" + type.ThrowIfNull().Name
+      .Replace("Gqlp", "")
+      .Replace("Model", "");
 
     if (type.IsGenericType) {
       IEnumerable<string> typeParams = type.GetGenericArguments().Select(TypeTag);

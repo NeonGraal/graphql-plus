@@ -11,7 +11,7 @@ public class TypesContextTests
   public TypesContextTests()
   {
     Modeller = A.Of<IModeller<IAstType, BaseTypeModel>>();
-    Modeller.ToModel(null, TypeKinds).Throws<ModelTypeException<IAstType>>();
+    Modeller.ToModel(null, TypeKinds).Throws<ModelTypeException<BaseTypeModel>>();
   }
 
   [Fact]

@@ -1,4 +1,4 @@
-namespace GqlPlus.Modelling;
+﻿namespace GqlPlus.Modelling;
 
 public abstract class ModellerBase<TAst, TModel>
   : IModeller<TAst, TModel>
@@ -7,15 +7,14 @@ public abstract class ModellerBase<TAst, TModel>
 {
   public T ToModel<T>(TAst? ast, IMap<GqlpTypeKind> typeKinds)
     => TryModel<T>(ast, typeKinds)
-      ?? throw new InvalidOperationException(
-        $"Type '{ast?.GetType().TidyTypeName() ?? "null"}' Model is not '{typeof(T).TidyTypeName()}'");
+      ?? throw new ModelTypeException<T>(ast);
 
   public T[] ToModels<T>(IEnumerable<TAst>? asts, IMap<GqlpTypeKind> typeKinds)
     => [.. TryModels<T>(asts, typeKinds).Where(m => m is not null).Cast<T>()];
 
   TModel IModeller<TAst, TModel>.ToModel(TAst? ast, IMap<GqlpTypeKind> typeKinds)
     => ast is null
-      ? throw new InvalidOperationException($"Type '{typeof(TAst).TidyTypeName()}' ast is null")
+      ? throw new ModelTypeException<TModel>(ast)
       : ToModel(ast, typeKinds);
 
   TModel[] IModeller<TAst, TModel>.ToModels(IEnumerable<TAst>? asts, IMap<GqlpTypeKind> typeKinds)

@@ -3,6 +3,8 @@ namespace GqlPlus.Schema.Modelling;
 internal sealed class SchDomainEnumModeller
   : SchDomainModellerBase<IAstDomainLabel, ISch_DomainLabel, ISch_DomainItemLabel>
 {
+  internal static IModeller<IAstDomain<IAstDomainLabel>, ISch_Type> Factory(ISchModellerRepository _)
+    => new SchDomainEnumModeller();
   protected override Sch_DomainKind DomainKind => Sch_DomainKind.Enum;
 
   protected override ISch_Type WrapDomain(

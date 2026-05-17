@@ -1,9 +1,11 @@
 namespace GqlPlus.Schema.Modelling;
 
 internal sealed class SchOutputModeller(
-  IModeller<IAstModifier, ISch_Modifiers> modifierModeller
-) : SchObjectModellerBase<IAstOutputField, ISch_OutputField>(modifierModeller)
+  ISchModellerRepository repo
+) : SchObjectModellerBase<IAstOutputField, ISch_OutputField>(repo)
 {
+  internal static IModeller<IAstObject<IAstOutputField>, ISch_Type> Factory(ISchModellerRepository repo)
+    => new SchOutputModeller(repo);
   protected override Sch_TypeKind TypeKind => Sch_TypeKind.Output;
 
   protected override ISch_OutputField MakeField(IAstOutputField ast, IMap<GqlpTypeKind> typeKinds)

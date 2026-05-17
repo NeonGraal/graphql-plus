@@ -4,34 +4,25 @@ using System.Linq;
 namespace GqlPlus.Schema.Modelling;
 
 internal sealed class SchSchemaModeller(
-  IModeller<IAstSchemaCategory, ISch_Category> categoryModeller,
-  IModeller<IAstSchemaDirective, ISch_Directive> directiveModeller,
-  IModeller<IAstSchemaSetting, ISch_Setting> settingModeller,
-  IModeller<IAstTypeSpecial, ISch_Type> specialModeller,
-  IModeller<IAstEnum, ISch_Type> enumModeller,
-  IModeller<IAstUnion, ISch_Type> unionModeller,
-  IModeller<IAstDomain<IAstDomainTrueFalse>, ISch_Type> domainBooleanModeller,
-  IModeller<IAstDomain<IAstDomainLabel>, ISch_Type> domainEnumModeller,
-  IModeller<IAstDomain<IAstDomainRange>, ISch_Type> domainNumberModeller,
-  IModeller<IAstDomain<IAstDomainRegex>, ISch_Type> domainStringModeller,
-  IModeller<IAstObject<IAstDualField>, ISch_Type> dualModeller,
-  IModeller<IAstObject<IAstInputField>, ISch_Type> inputModeller,
-  IModeller<IAstObject<IAstOutputField>, ISch_Type> outputModeller
+  ISchModellerRepository repo
 ) : ModellerBase<IAstSchema, ISch_SchemaObject>
 {
-  private readonly IModeller<IAstSchemaCategory, ISch_Category> _categoryModeller = categoryModeller;
-  private readonly IModeller<IAstSchemaDirective, ISch_Directive> _directiveModeller = directiveModeller;
-  private readonly IModeller<IAstSchemaSetting, ISch_Setting> _settingModeller = settingModeller;
-  private readonly IModeller<IAstTypeSpecial, ISch_Type> _specialModeller = specialModeller;
-  private readonly IModeller<IAstEnum, ISch_Type> _enumModeller = enumModeller;
-  private readonly IModeller<IAstUnion, ISch_Type> _unionModeller = unionModeller;
-  private readonly IModeller<IAstDomain<IAstDomainTrueFalse>, ISch_Type> _domainBooleanModeller = domainBooleanModeller;
-  private readonly IModeller<IAstDomain<IAstDomainLabel>, ISch_Type> _domainEnumModeller = domainEnumModeller;
-  private readonly IModeller<IAstDomain<IAstDomainRange>, ISch_Type> _domainNumberModeller = domainNumberModeller;
-  private readonly IModeller<IAstDomain<IAstDomainRegex>, ISch_Type> _domainStringModeller = domainStringModeller;
-  private readonly IModeller<IAstObject<IAstDualField>, ISch_Type> _dualModeller = dualModeller;
-  private readonly IModeller<IAstObject<IAstInputField>, ISch_Type> _inputModeller = inputModeller;
-  private readonly IModeller<IAstObject<IAstOutputField>, ISch_Type> _outputModeller = outputModeller;
+  private readonly Modeller<IAstSchemaCategory, ISch_Category> _categoryModeller = repo.ModellerFor<IAstSchemaCategory, ISch_Category>();
+  private readonly Modeller<IAstSchemaDirective, ISch_Directive> _directiveModeller = repo.ModellerFor<IAstSchemaDirective, ISch_Directive>();
+  private readonly Modeller<IAstSchemaSetting, ISch_Setting> _settingModeller = repo.ModellerFor<IAstSchemaSetting, ISch_Setting>();
+  private readonly Modeller<IAstTypeSpecial, ISch_Type> _specialModeller = repo.ModellerFor<IAstTypeSpecial, ISch_Type>();
+  private readonly Modeller<IAstEnum, ISch_Type> _enumModeller = repo.ModellerFor<IAstEnum, ISch_Type>();
+  private readonly Modeller<IAstUnion, ISch_Type> _unionModeller = repo.ModellerFor<IAstUnion, ISch_Type>();
+  private readonly Modeller<IAstDomain<IAstDomainTrueFalse>, ISch_Type> _domainBooleanModeller = repo.ModellerFor<IAstDomain<IAstDomainTrueFalse>, ISch_Type>();
+  private readonly Modeller<IAstDomain<IAstDomainLabel>, ISch_Type> _domainEnumModeller = repo.ModellerFor<IAstDomain<IAstDomainLabel>, ISch_Type>();
+  private readonly Modeller<IAstDomain<IAstDomainRange>, ISch_Type> _domainNumberModeller = repo.ModellerFor<IAstDomain<IAstDomainRange>, ISch_Type>();
+  private readonly Modeller<IAstDomain<IAstDomainRegex>, ISch_Type> _domainStringModeller = repo.ModellerFor<IAstDomain<IAstDomainRegex>, ISch_Type>();
+  private readonly Modeller<IAstObject<IAstDualField>, ISch_Type> _dualModeller = repo.ModellerFor<IAstObject<IAstDualField>, ISch_Type>();
+  private readonly Modeller<IAstObject<IAstInputField>, ISch_Type> _inputModeller = repo.ModellerFor<IAstObject<IAstInputField>, ISch_Type>();
+  private readonly Modeller<IAstObject<IAstOutputField>, ISch_Type> _outputModeller = repo.ModellerFor<IAstObject<IAstOutputField>, ISch_Type>();
+
+  internal static IModeller<IAstSchema, ISch_SchemaObject> Factory(ISchModellerRepository repo)
+    => new SchSchemaModeller(repo);
 
   protected override ISch_SchemaObject ToModel(IAstSchema ast, IMap<GqlpTypeKind> typeKinds)
   {

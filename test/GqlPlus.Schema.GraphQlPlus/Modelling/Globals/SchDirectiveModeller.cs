@@ -3,6 +3,8 @@ namespace GqlPlus.Schema.Modelling;
 internal sealed class SchDirectiveModeller
   : ModellerBase<IAstSchemaDirective, ISch_Directive>
 {
+  internal static IModeller<IAstSchemaDirective, ISch_Directive> Factory(ISchModellerRepository _)
+    => new SchDirectiveModeller();
   protected override ISch_Directive ToModel(IAstSchemaDirective ast, IMap<GqlpTypeKind> typeKinds)
   {
     Sch_DirectiveObject directive = new(

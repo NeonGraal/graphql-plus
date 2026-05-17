@@ -1,9 +1,11 @@
 namespace GqlPlus.Schema.Modelling;
 
 internal sealed class SchInputModeller(
-  IModeller<IAstModifier, ISch_Modifiers> modifierModeller
-) : SchObjectModellerBase<IAstInputField, ISch_InputField>(modifierModeller)
+  ISchModellerRepository repo
+) : SchObjectModellerBase<IAstInputField, ISch_InputField>(repo)
 {
+  internal static IModeller<IAstObject<IAstInputField>, ISch_Type> Factory(ISchModellerRepository repo)
+    => new SchInputModeller(repo);
   protected override Sch_TypeKind TypeKind => Sch_TypeKind.Input;
 
   protected override ISch_InputField MakeField(IAstInputField ast, IMap<GqlpTypeKind> typeKinds)

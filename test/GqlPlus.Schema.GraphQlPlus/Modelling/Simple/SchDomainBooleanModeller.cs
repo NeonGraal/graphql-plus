@@ -3,6 +3,8 @@ namespace GqlPlus.Schema.Modelling;
 internal sealed class SchDomainBooleanModeller
   : SchDomainModellerBase<IAstDomainTrueFalse, ISch_DomainTrueFalse, ISch_DomainItemTrueFalse>
 {
+  internal static IModeller<IAstDomain<IAstDomainTrueFalse>, ISch_Type> Factory(ISchModellerRepository _)
+    => new SchDomainBooleanModeller();
   protected override Sch_DomainKind DomainKind => Sch_DomainKind.Boolean;
 
   protected override ISch_Type WrapDomain(

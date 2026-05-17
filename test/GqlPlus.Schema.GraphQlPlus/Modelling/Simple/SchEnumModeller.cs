@@ -3,6 +3,8 @@ namespace GqlPlus.Schema.Modelling;
 internal sealed class SchEnumModeller
   : SchParentTypeModellerBase<IAstEnum, IAstEnumLabel, ISch_Aliased, ISch_EnumLabel>
 {
+  internal static IModeller<IAstEnum, ISch_Type> Factory(ISchModellerRepository _)
+    => new SchEnumModeller();
   protected override Sch_TypeKind TypeKind => Sch_TypeKind.Enum;
 
   protected override ISch_Type WrapType(Sch_ParentType<Sch_TypeKind, ISch_Aliased, ISch_EnumLabel> parentType)

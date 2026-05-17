@@ -4,12 +4,12 @@ using System.Linq;
 namespace GqlPlus.Schema.Modelling;
 
 internal abstract class SchObjectModellerBase<TAstField, TSchField>(
-  IModeller<IAstModifier, ISch_Modifiers> modifierModeller
+  ISchModellerRepository repo
 ) : ModellerBase<IAstObject<TAstField>, ISch_Type>
   where TAstField : class, IAstObjField
   where TSchField : class
 {
-  private readonly IModeller<IAstModifier, ISch_Modifiers> _modifierModeller = modifierModeller;
+  private readonly Modeller<IAstModifier, ISch_Modifiers> _modifierModeller = repo.ModellerFor<IAstModifier, ISch_Modifiers>();
 
   protected abstract Sch_TypeKind TypeKind { get; }
 

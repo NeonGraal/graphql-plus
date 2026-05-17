@@ -3,6 +3,8 @@ namespace GqlPlus.Schema.Modelling;
 internal sealed class SchModifierModeller
   : ModellerBase<IAstModifier, ISch_Modifiers>
 {
+  internal static IModeller<IAstModifier, ISch_Modifiers> Factory(ISchModellerRepository _)
+    => new SchModifierModeller();
   protected override ISch_Modifiers ToModel(IAstModifier ast, IMap<GqlpTypeKind> typeKinds)
     => ast.ModifierKind switch {
       ModifierKind.Opt => MakeOptional(),

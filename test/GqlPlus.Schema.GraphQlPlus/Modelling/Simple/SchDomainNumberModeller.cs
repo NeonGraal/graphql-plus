@@ -3,6 +3,8 @@ namespace GqlPlus.Schema.Modelling;
 internal sealed class SchDomainNumberModeller
   : SchDomainModellerBase<IAstDomainRange, ISch_DomainRange, ISch_DomainItemRange>
 {
+  internal static IModeller<IAstDomain<IAstDomainRange>, ISch_Type> Factory(ISchModellerRepository _)
+    => new SchDomainNumberModeller();
   protected override Sch_DomainKind DomainKind => Sch_DomainKind.Number;
 
   protected override ISch_Type WrapDomain(

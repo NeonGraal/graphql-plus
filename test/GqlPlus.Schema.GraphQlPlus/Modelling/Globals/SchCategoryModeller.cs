@@ -3,10 +3,13 @@ using System.Linq;
 namespace GqlPlus.Schema.Modelling;
 
 internal sealed class SchCategoryModeller(
-  IModeller<IAstModifier, ISch_Modifiers> modifierModeller
+  ISchModellerRepository repo
 ) : ModellerBase<IAstSchemaCategory, ISch_Category>
 {
-  private readonly IModeller<IAstModifier, ISch_Modifiers> _modifierModeller = modifierModeller;
+  private readonly Modeller<IAstModifier, ISch_Modifiers> _modifierModeller = repo.ModellerFor<IAstModifier, ISch_Modifiers>();
+
+  internal static IModeller<IAstSchemaCategory, ISch_Category> Factory(ISchModellerRepository repo)
+    => new SchCategoryModeller(repo);
 
   protected override ISch_Category ToModel(IAstSchemaCategory ast, IMap<GqlpTypeKind> typeKinds)
   {

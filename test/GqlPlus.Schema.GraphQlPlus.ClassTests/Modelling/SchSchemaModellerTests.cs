@@ -3,20 +3,8 @@ namespace GqlPlus.Schema.Modelling;
 public class SchSchemaModellerTests
   : SchModellerClassTestBase<IAstSchema, ISch_SchemaObject>
 {
-  protected override IModeller<IAstSchema, ISch_SchemaObject> Modeller { get; } = new SchSchemaModeller(
-    new SchCategoryModeller(new SchModifierModeller()),
-    new SchDirectiveModeller(),
-    new SchSettingModeller(),
-    new SchSpecialModeller(),
-    new SchEnumModeller(),
-    new SchUnionModeller(),
-    new SchDomainBooleanModeller(),
-    new SchDomainEnumModeller(),
-    new SchDomainNumberModeller(),
-    new SchDomainStringModeller(),
-    new SchDualModeller(new SchModifierModeller()),
-    new SchInputModeller(new SchModifierModeller()),
-    new SchOutputModeller(new SchModifierModeller()));
+  protected override IModeller<IAstSchema, ISch_SchemaObject> Modeller { get; }
+    = AllSchModellers.CreateDefaultRepository().ModellerFor<IAstSchema, ISch_SchemaObject>()();
 
   [Fact]
   public void ToModel_ValidSchema_ReturnsSchemaData()

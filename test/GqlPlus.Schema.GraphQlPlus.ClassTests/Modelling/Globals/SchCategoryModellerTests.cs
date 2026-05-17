@@ -3,7 +3,8 @@ namespace GqlPlus.Schema.Modelling.Globals;
 public class SchCategoryModellerTests
   : SchModellerClassTestBase<IAstSchemaCategory, ISch_Category>
 {
-  protected override IModeller<IAstSchemaCategory, ISch_Category> Modeller { get; } = new SchCategoryModeller(new SchModifierModeller());
+  protected override IModeller<IAstSchemaCategory, ISch_Category> Modeller { get; }
+    = AllSchModellers.CreateDefaultRepository().ModellerFor<IAstSchemaCategory, ISch_Category>()();
 
   [Fact]
   public void ToModel_ValidCategory_ReturnsCategoryDiscriminator()

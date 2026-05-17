@@ -1,9 +1,11 @@
 namespace GqlPlus.Schema.Modelling;
 
 internal sealed class SchDualModeller(
-  IModeller<IAstModifier, ISch_Modifiers> modifierModeller
-) : SchObjectModellerBase<IAstDualField, ISch_DualField>(modifierModeller)
+  ISchModellerRepository repo
+) : SchObjectModellerBase<IAstDualField, ISch_DualField>(repo)
 {
+  internal static IModeller<IAstObject<IAstDualField>, ISch_Type> Factory(ISchModellerRepository repo)
+    => new SchDualModeller(repo);
   protected override Sch_TypeKind TypeKind => Sch_TypeKind.Dual;
 
   protected override ISch_DualField MakeField(IAstDualField ast, IMap<GqlpTypeKind> typeKinds)

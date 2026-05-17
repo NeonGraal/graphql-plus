@@ -3,6 +3,8 @@ namespace GqlPlus.Schema.Modelling;
 internal sealed class SchSpecialModeller
   : ModellerBase<IAstTypeSpecial, ISch_Type>
 {
+  internal static IModeller<IAstTypeSpecial, ISch_Type> Factory(ISchModellerRepository _)
+    => new SchSpecialModeller();
   protected override ISch_Type ToModel(IAstTypeSpecial ast, IMap<GqlpTypeKind> typeKinds)
   {
     Sch_TypeKind kind = ast.Kind == TypeKind.Internal ? Sch_TypeKind.Internal : Sch_TypeKind.Basic;

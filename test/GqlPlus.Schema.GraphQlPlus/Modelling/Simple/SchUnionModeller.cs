@@ -3,6 +3,8 @@ namespace GqlPlus.Schema.Modelling;
 internal sealed class SchUnionModeller
   : SchParentTypeModellerBase<IAstUnion, IAstUnionMember, ISch_UnionRef, ISch_UnionMember>
 {
+  internal static IModeller<IAstUnion, ISch_Type> Factory(ISchModellerRepository _)
+    => new SchUnionModeller();
   protected override Sch_TypeKind TypeKind => Sch_TypeKind.Union;
 
   protected override ISch_Type WrapType(Sch_ParentType<Sch_TypeKind, ISch_UnionRef, ISch_UnionMember> parentType)

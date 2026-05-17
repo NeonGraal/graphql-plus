@@ -1,33 +1,18 @@
-using System.Linq;
-
 namespace GqlPlus.Schema.Modelling;
 
 internal sealed class SchDomainBooleanModeller
-  : ModellerBase<IAstDomain<IAstDomainTrueFalse>, ISch_Type>
+  : SchDomainModellerBase<IAstDomainTrueFalse, ISch_DomainTrueFalse, ISch_DomainItemTrueFalse>
 {
-  protected override ISch_Type ToModel(IAstDomain<IAstDomainTrueFalse> ast, IMap<GqlpTypeKind> typeKinds)
-  {
-    ICollection<ISch_DomainTrueFalse> items = [.. ast.Items.Select(MakeItem)];
-    ICollection<ISch_DomainItemTrueFalse> allItems = [.. ast.Items.Select(item => MakeAllItem(ast.Name, item))];
+  protected override Sch_DomainKind DomainKind => Sch_DomainKind.Boolean;
 
-    Sch_BaseDomain<Sch_DomainKind, ISch_DomainTrueFalse, ISch_DomainItemTrueFalse> domain = new() {
-      As__BaseDomain = new Sch_BaseDomainObject<Sch_DomainKind, ISch_DomainTrueFalse, ISch_DomainItemTrueFalse>(
-        SchModellerHelpers.Desc(ast.Description),
-        SchModellerHelpers.MakeName(ast.Name),
-        SchModellerHelpers.MakeAliases(ast.Aliases),
-        SchModellerHelpers.MakeNamedParent(ast.Parent),
-        items,
-        allItems,
-        Sch_DomainKind.Boolean),
-    };
-
-    return new Sch_Type {
+  protected override ISch_Type WrapDomain(
+    Sch_BaseDomain<Sch_DomainKind, ISch_DomainTrueFalse, ISch_DomainItemTrueFalse> domain)
+    => new Sch_Type {
       As_DomainKindBoolean = domain,
       As__Type = new Sch_TypeObject(),
     };
-  }
 
-  private static ISch_DomainTrueFalse MakeItem(IAstDomainTrueFalse ast)
+  protected override ISch_DomainTrueFalse MakeItem(IAstDomainTrueFalse ast)
   {
     Sch_DomainTrueFalse result = new();
     result.As__DomainTrueFalse = new Sch_DomainTrueFalseObject(
@@ -37,7 +22,7 @@ internal sealed class SchDomainBooleanModeller
     return result;
   }
 
-  private static Sch_DomainItemTrueFalse MakeAllItem(string domainName, IAstDomainTrueFalse ast)
+  protected override ISch_DomainItemTrueFalse MakeAllItem(string domainName, IAstDomainTrueFalse ast)
   {
     ISch_DomainTrueFalse item = MakeItem(ast);
     return new Sch_DomainItemTrueFalse {

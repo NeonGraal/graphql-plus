@@ -1,33 +1,18 @@
-using System.Linq;
-
 namespace GqlPlus.Schema.Modelling;
 
 internal sealed class SchDomainNumberModeller
-  : ModellerBase<IAstDomain<IAstDomainRange>, ISch_Type>
+  : SchDomainModellerBase<IAstDomainRange, ISch_DomainRange, ISch_DomainItemRange>
 {
-  protected override ISch_Type ToModel(IAstDomain<IAstDomainRange> ast, IMap<GqlpTypeKind> typeKinds)
-  {
-    ICollection<ISch_DomainRange> items = [.. ast.Items.Select(MakeItem)];
-    ICollection<ISch_DomainItemRange> allItems = [.. ast.Items.Select(item => MakeAllItem(ast.Name, item))];
+  protected override Sch_DomainKind DomainKind => Sch_DomainKind.Number;
 
-    Sch_BaseDomain<Sch_DomainKind, ISch_DomainRange, ISch_DomainItemRange> domain = new() {
-      As__BaseDomain = new Sch_BaseDomainObject<Sch_DomainKind, ISch_DomainRange, ISch_DomainItemRange>(
-        SchModellerHelpers.Desc(ast.Description),
-        SchModellerHelpers.MakeName(ast.Name),
-        SchModellerHelpers.MakeAliases(ast.Aliases),
-        SchModellerHelpers.MakeNamedParent(ast.Parent),
-        items,
-        allItems,
-        Sch_DomainKind.Number),
-    };
-
-    return new Sch_Type {
+  protected override ISch_Type WrapDomain(
+    Sch_BaseDomain<Sch_DomainKind, ISch_DomainRange, ISch_DomainItemRange> domain)
+    => new Sch_Type {
       As_DomainKindNumber = domain,
       As__Type = new Sch_TypeObject(),
     };
-  }
 
-  private static ISch_DomainRange MakeItem(IAstDomainRange ast)
+  protected override ISch_DomainRange MakeItem(IAstDomainRange ast)
   {
     Sch_DomainRangeObject domainObject = new(
       SchModellerHelpers.Desc(ast.Description),
@@ -41,7 +26,7 @@ internal sealed class SchDomainNumberModeller
     return result;
   }
 
-  private static Sch_DomainItemRange MakeAllItem(string domainName, IAstDomainRange ast)
+  protected override ISch_DomainItemRange MakeAllItem(string domainName, IAstDomainRange ast)
   {
     ISch_DomainRange item = MakeItem(ast);
     return new Sch_DomainItemRange {

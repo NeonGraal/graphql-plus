@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace GqlPlus;
 
-internal sealed class GqlpGeneratorContext
+public sealed class GqlpGeneratorContext
   : GqlpGeneratorTypes
 {
   private readonly StringBuilder _builder = new();
@@ -72,4 +72,4 @@ internal sealed class GqlpGeneratorContext
     => _builder.ToString();
 }
 
-internal record struct CodecRegistration(string ServiceType, string ImplType, bool NeedsRepo);
+public record struct CodecRegistration(string ServiceType, string ImplType, bool NeedsRepo);

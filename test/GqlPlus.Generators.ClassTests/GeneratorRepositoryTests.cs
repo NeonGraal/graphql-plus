@@ -14,7 +14,7 @@ public class GeneratorRepositoryTests(ITestOutputHelper outputHelper)
   {
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
-      .AddGenerators()
+      .AddGenerators(b => b.AddSchemaGenerators())
       .BuildServiceProvider();
 
     services.GetService<IGeneratorRepository>()

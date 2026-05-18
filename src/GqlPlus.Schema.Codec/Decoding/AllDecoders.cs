@@ -6,14 +6,10 @@ namespace GqlPlus.Decoding;
 
 public static class AllDecoders
 {
-  public static IServiceCollection AddDecoders(this IServiceCollection services)
-  {
-    DecoderRepositoryBuilder builder = new();
-    builder.AddSchemaDecoders();
-    services.AddSingleton(builder);
-    services.TryAddSingleton<IDecoderRepository, DecoderRepository>();
-    return services;
-  }
+  public static IServiceCollection AddDecoders(this IServiceCollection services, Action<IDecoderRepositoryBuilder> config)
+    => services
+      .AddSingleton(new DecoderRepositoryBuilder().FluentAction(b => config(b)))
+      .AddSingleton<IDecoderRepository, DecoderRepository>();
 
   [ExcludeFromCodeCoverage]
   internal static IDecoderRepositoryBuilder AddSchemaDecoders(this IDecoderRepositoryBuilder builder)

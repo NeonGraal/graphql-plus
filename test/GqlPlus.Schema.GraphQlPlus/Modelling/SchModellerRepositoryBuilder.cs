@@ -1,13 +1,11 @@
-using System;
-using System.Collections.Generic;
-
-namespace GqlPlus.Schema.Modelling;
+﻿namespace GqlPlus.Schema.Modelling;
 
 internal class SchModellerRepositoryBuilder
+  : ISchModellerRepositoryBuilder
 {
   internal readonly Dictionary<Type, Func<ISchModellerRepository, object>> Factories = [];
 
-  internal SchModellerRepositoryBuilder AddModeller<TAst, TModel>(Func<ISchModellerRepository, IModeller<TAst, TModel>> factory)
+  public ISchModellerRepositoryBuilder AddModeller<TAst, TModel>(Func<ISchModellerRepository, IModeller<TAst, TModel>> factory)
     where TAst : class
     where TModel : class
   {

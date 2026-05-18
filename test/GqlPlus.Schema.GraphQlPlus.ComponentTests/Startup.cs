@@ -11,7 +11,7 @@ public static class Startup
   public static void ConfigureServices(IServiceCollection services)
   {
     services.AddModellerComponentTestBase(b => b.AddSchEncoders());
-    services.AddSchModellers();
+    services.AddSchModellers(b => b.AddSchSchemaModellers());
     services.AddTransient<ISchGraphQlPlusVerifyChecks, SchGraphQlPlusVerifyChecks>();
   }
 }

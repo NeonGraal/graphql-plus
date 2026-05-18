@@ -32,13 +32,9 @@ public static class AllMatchers
           .AddConstraintMatcher(UnionConstraintMatcher.Factory);
 
   public static IServiceCollection AddMatchers(this IServiceCollection services, Action<IMatcherRepositoryBuilder> config)
-  {
-    MatcherRepositoryBuilder builder = new();
-    config?.Invoke(builder);
-    services.AddSingleton(builder);
-    services.TryAddSingleton<IMatcherRepository, MatcherRepository>();
-    return services;
-  }
+    => services
+      .AddSingleton(new MatcherRepositoryBuilder().FluentAction(b => config?.Invoke(b)))
+      .AddSingleton<IMatcherRepository, MatcherRepository>();
 
   private static IMatcherRepositoryBuilder AddSimpleMatcher<TType>(this IMatcherRepositoryBuilder builder)
     where TType : IAstSimple

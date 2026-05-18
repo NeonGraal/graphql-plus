@@ -17,14 +17,14 @@ internal abstract class ModellerType<TAst, TParent, TModel>(
     => ToModel((TAst)ast, typeKinds);
 }
 
-internal interface ITypeModeller
+public interface ITypeModeller
 {
   bool ForType(IAstType ast);
   TypeKindModel Kind { get; }
   BaseTypeModel ToTypeModel(IAstType ast, IMap<TypeKindModel> typeKinds);
 }
 
-internal interface ITypeModeller<TAst, TModel>
+public interface ITypeModeller<TAst, TModel>
   : IModeller<TAst, TModel>
   , ITypeModeller
   where TAst : class, IAstError

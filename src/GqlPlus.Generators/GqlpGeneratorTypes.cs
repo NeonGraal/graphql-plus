@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus;
 
-internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
+public class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
 {
   private readonly Map<IAstType> _types = [];
   private readonly Map<IAstObjType> _args = [];

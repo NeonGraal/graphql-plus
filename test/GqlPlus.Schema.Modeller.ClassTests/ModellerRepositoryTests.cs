@@ -21,7 +21,7 @@ public class ModellerRepositoryTests(ITestOutputHelper outputHelper)
   {
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
-      .AddModellers()
+      .AddModellers(b => b.AddSchemaModellers())
       .BuildServiceProvider();
 
     services.GetService<IModellerRepository>()
@@ -33,7 +33,7 @@ public class ModellerRepositoryTests(ITestOutputHelper outputHelper)
   {
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
-      .AddResolvers()
+      .AddResolvers(b => b.AddSchemaResolvers())
       .BuildServiceProvider();
 
     services.GetService<IResolverRepository>()

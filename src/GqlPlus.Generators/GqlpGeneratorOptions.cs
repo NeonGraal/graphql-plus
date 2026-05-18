@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus;
 
-internal class GqlpGeneratorOptions
+public class GqlpGeneratorOptions
 {
   public string BaseName { get; }
   public string NameSpace { get; }
@@ -12,7 +12,7 @@ internal class GqlpGeneratorOptions
   public GqlpGeneratorOptions(string fullName, GqlpBaseType baseType, GqlpGeneratorType generatorType)
   {
     Warning = "";
-    string[] names = fullName.Split('.');
+    string[] names = fullName.IfWhiteSpace().Split('.');
 
     if (names.Length > 1) {
       BaseName = names.Last();

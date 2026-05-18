@@ -5,6 +5,8 @@ using DiffEngine;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 
+using GqlPlus.Encoding;
+
 namespace GqlPlus;
 
 public static class Startup
@@ -18,5 +20,5 @@ public static class Startup
   }
 
   public static void ConfigureServices(IServiceCollection services)
-    => services.AddModellerComponentTestBase();
+    => services.AddModellerComponentTestBase(b => b.AddSchemaEncoders());
 }

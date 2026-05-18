@@ -27,6 +27,7 @@ internal class TypesModeller(
     => _typeModellers.Single(t => t.ForType(ast)).ToTypeModel(ast, typeKinds);
 
   internal static TypesModeller Factory(IModellerRepository r) => new(r);
+  internal static ITypesModeller Existing(IModellerRepository r) => ((DeferOne<ITypesModeller>)r.TypesModeller()).Value;
 }
 
 public interface ITypesModeller

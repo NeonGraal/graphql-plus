@@ -2,20 +2,15 @@
 using GqlPlus.Generating.Objects;
 using GqlPlus.Generating.Simple;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace GqlPlus.Generating;
 
 public static class AllGenerators
 {
-  public static IServiceCollection AddGenerators(this IServiceCollection services)
-  {
-    GeneratorRepositoryBuilder builder = new();
-    builder.AddSchemaGenerators();
-    services.AddSingleton(builder);
-    services.TryAddSingleton<IGeneratorRepository, GeneratorRepository>();
-    return services;
-  }
+  public static IServiceCollection AddGenerators(this IServiceCollection services, Action<IGeneratorRepositoryBuilder> config)
+    => services
+      .AddSingleton(new GeneratorRepositoryBuilder().FluentAction(b => config(b)))
+      .AddSingleton<IGeneratorRepository, GeneratorRepository>();
 
   internal static IGeneratorRepositoryBuilder AddSchemaGenerators(this IGeneratorRepositoryBuilder builder)
     => builder.ThrowIfNull()

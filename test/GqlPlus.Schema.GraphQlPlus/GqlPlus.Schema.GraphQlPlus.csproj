@@ -12,8 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="..\GqlPlus.ComponentTestBase\Samples\Specification\Introspection\-*.graphql+"
-                     Link="Introspection\%(Filename)%(Extension)" />
+    <AdditionalFiles Include="..\GqlPlus.ComponentTestBase\Samples\Specification\Introspection\-*.graphql+" Link="Introspection\%(Filename)%(Extension)" />
 
     <CompilerVisibleProperty Include="GqlPlus_TypePrefix" />
     <CompilerVisibleProperty Include="GqlPlus_NamespaceIncludesBaseName" />
@@ -22,10 +21,9 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\GqlPlus.Core\GqlPlus.Core.csproj" />
     <ProjectReference Include="..\..\src\GqlPlus.Parser\GqlPlus.Parser.csproj" />
-    <ProjectReference Include="..\..\src\GqlPlus.Common\GqlPlus.Common.csproj"
-                      OutputItemType="Analyzer" />
-    <ProjectReference Include="..\..\src\GqlPlus.Generators\GqlPlus.Generators.csproj"
-                      OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\..\src\GqlPlus.Common\GqlPlus.Common.csproj" OutputItemType="Analyzer" />
+    <ProjectReference Include="..\..\src\GqlPlus.Generators\GqlPlus.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\..\src\GqlPlus.PolyFill\GqlPlus.PolyFill.csproj" />
   </ItemGroup>
 
 </Project>

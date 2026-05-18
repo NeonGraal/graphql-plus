@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Modelling;
 
-internal interface IModellerRepositoryBuilder
+public interface IModellerRepositoryBuilder
 {
   IModellerRepositoryBuilder AddModeller<TAst, TModel>(Factory<IModeller<TAst, TModel>, IModellerRepository> factory)
     where TAst : class, IAstError

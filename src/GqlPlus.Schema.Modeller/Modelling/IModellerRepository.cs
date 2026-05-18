@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Modelling;
 
-internal interface IModellerRepository
+public interface IModellerRepository
   : IRepository
 {
   Modeller<TAst, TModel>.D ModellerFor<TAst, TModel>([CallerMemberName] string callerName = "")

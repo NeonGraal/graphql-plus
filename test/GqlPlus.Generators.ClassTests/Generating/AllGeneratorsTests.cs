@@ -53,7 +53,7 @@ public class AllGeneratorsTests
 
   private readonly IServiceProvider _services = new ServiceCollection()
     .AddLogging()
-    .AddGenerators()
+    .AddGenerators(b => b.AddSchemaGenerators())
     .BuildServiceProvider();
 }
 

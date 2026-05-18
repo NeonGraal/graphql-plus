@@ -6,19 +6,13 @@ namespace GqlPlus.Encoding;
 
 public static class AllEncoders
 {
-  public static IServiceCollection AddEncoders(this IServiceCollection services,
-    Action<IEncoderRepositoryBuilder>? configure = null)
-  {
-    EncoderRepositoryBuilder builder = new();
-    builder.AddSchemaEncoders();
-    configure?.Invoke(builder);
-    services.AddSingleton(builder);
-    services.TryAddSingleton<IEncoderRepository, EncoderRepository>();
-    return services;
-  }
+  public static IServiceCollection AddEncoders(this IServiceCollection services, Action<IEncoderRepositoryBuilder> config)
+    => services
+      .AddSingleton(new EncoderRepositoryBuilder().FluentAction(b => config(b)))
+      .AddSingleton<IEncoderRepository, EncoderRepository>();
 
   [ExcludeFromCodeCoverage]
-  internal static IEncoderRepositoryBuilder AddSchemaEncoders(this IEncoderRepositoryBuilder builder)
+  public static IEncoderRepositoryBuilder AddSchemaEncoders(this IEncoderRepositoryBuilder builder)
     => builder.ThrowIfNull()
       // Common
       .AddEncoder(AliasedEncoder<AliasedModel>.Factory)

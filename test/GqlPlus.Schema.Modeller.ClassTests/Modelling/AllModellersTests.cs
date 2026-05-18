@@ -17,6 +17,6 @@ public class AllModellersTests
 
   private readonly IServiceProvider _services = new ServiceCollection()
     .AddLogging()
-    .AddModellers()
+    .AddModellers(b => b.AddSchemaModellers())
     .BuildServiceProvider();
 }

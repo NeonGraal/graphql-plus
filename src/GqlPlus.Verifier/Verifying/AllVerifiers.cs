@@ -67,13 +67,9 @@ public static class AllVerifiers
       .AddVerifyUsageIdentified(VerifyFragmentUsage.Factory);
 
   public static IServiceCollection AddVerifiers(this IServiceCollection services, Action<IVerifierRepositoryBuilder> config)
-  {
-    VerifierRepositoryBuilder builder = new();
-    config?.Invoke(builder);
-    services.AddSingleton(builder);
-    services.TryAddSingleton<IVerifierRepository, VerifierRepository>();
-    return services;
-  }
+    => services
+      .AddSingleton(new VerifierRepositoryBuilder().FluentAction(b => config?.Invoke(b)))
+      .AddSingleton<IVerifierRepository, VerifierRepository>();
 
   private static IVerifierRepositoryBuilder AddVerifyUsageIdentified<TUsage, TIdentified>(
     this IVerifierRepositoryBuilder builder,

@@ -8,15 +8,15 @@ namespace GqlPlus;
 public static class ConfigureModellerComponentTestBase
 {
   public static void AddModellerComponentTestBase(this IServiceCollection services,
-      Action<IEncoderRepositoryBuilder>? configureEncoders = null)
+      Action<IEncoderRepositoryBuilder> configureEncoders)
       => services
         .AddComponentParsers()
 
-        .AddModellers()
-        .AddResolvers()
+        .AddModellers(b => b.AddSchemaModellers())
+        .AddResolvers(b => b.AddSchemaResolvers())
         .AddEncoders(configureEncoders)
 
         // Test support
         .AddTransient<ISchemaVerifyChecks, SchemaVerifyChecks>()
         .AddSingleton<IModelAndEncode, ModelAndEncode>();
-  }
+}

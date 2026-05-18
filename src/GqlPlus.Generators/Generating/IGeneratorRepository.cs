@@ -3,7 +3,7 @@ using GqlPlus.Ast;
 
 namespace GqlPlus.Generating;
 
-internal interface IGeneratorRepository
+public interface IGeneratorRepository
   : IRepository
 {
   Generator<TAst>.D GeneratorFor<TAst>([CallerMemberName] string callerName = "")

@@ -124,7 +124,7 @@ public class GqlpGenerator : IIncrementalGenerator
         .AddCommonParsers()
         .AddSchemaParsers())
       .AddMergers(b => b.AddSchemaMergers())
-      .AddGenerators()
+      .AddGenerators(b => b.AddSchemaGenerators())
       .BuildServiceProvider();
 
     ParserOne<IAstSchema> schemaParser = services.GetRequiredService<IParserRepository>().ParserFor<IAstSchema>();

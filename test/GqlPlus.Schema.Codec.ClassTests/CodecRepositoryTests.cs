@@ -21,7 +21,7 @@ public class CodecRepositoryTests(ITestOutputHelper outputHelper)
   {
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
-      .AddDecoders()
+      .AddDecoders(b => b.AddSchemaDecoders())
       .BuildServiceProvider();
 
     services.GetService<IDecoderRepository>()
@@ -33,7 +33,7 @@ public class CodecRepositoryTests(ITestOutputHelper outputHelper)
   {
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
-      .AddEncoders()
+      .AddEncoders(b => b.AddSchemaEncoders())
       .BuildServiceProvider();
 
     services.GetService<IEncoderRepository>()

@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Resolving;
 
-internal interface IResolverRepository
+public interface IResolverRepository
   : IRepository
 {
   Resolver<T>.D ResolverFor<T>([CallerMemberName] string callerName = "")

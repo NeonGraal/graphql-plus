@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Generating;
 
-internal interface IGeneratorRepositoryBuilder
+public interface IGeneratorRepositoryBuilder
 {
   IGeneratorRepositoryBuilder AddGenerator<TAst>(Factory<IGenerator<TAst>, IGeneratorRepository> factory)
     where TAst : IAstError;

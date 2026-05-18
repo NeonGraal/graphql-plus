@@ -1,5 +1,6 @@
 ﻿using DiffEngine;
 
+using GqlPlus.Encoding;
 using GqlPlus.Generating;
 using GqlPlus.Sample;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,7 +14,7 @@ public static class Startup
 
   public static void ConfigureServices(IServiceCollection services)
     => services
-      .AddGenerators()
+      .AddGenerators(b => b.AddSchemaGenerators())
       .AddSingleton<ISchemaGeneratorChecks, SchemaGeneratorChecks>()
-      .AddModellerComponentTestBase();
+      .AddModellerComponentTestBase(b => b.AddSchemaEncoders());
 }

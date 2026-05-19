@@ -12,8 +12,8 @@ internal class testQueryEncoder(
 ) : IEncoder<ItestQueryObject>
 {
   private readonly Encoder<ItestCharacter> _itestCharacter = encoders.EncoderFor<ItestCharacter>();
-  private readonly Encoder<ItestHuman> _itestHuman = encoders.EncoderFor<ItestHuman>();
   private readonly Encoder<ItestDroid> _itestDroid = encoders.EncoderFor<ItestDroid>();
+  private readonly Encoder<ItestHuman> _itestHuman = encoders.EncoderFor<ItestHuman>();
   public Structured Encode(ItestQueryObject input)
     => Structured.Empty()
       .AddEncoded("hero", input.Hero(), _itestCharacter)
@@ -58,8 +58,8 @@ internal class testAssociateEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestAssociateObject>
 {
-  private readonly Encoder<ItestRoleObject> _itestRole = encoders.EncoderFor<ItestRoleObject>();
   private readonly Encoder<ItestRole> _itestRole2 = encoders.EncoderFor<ItestRole>();
+  private readonly Encoder<ItestRoleObject> _itestRole = encoders.EncoderFor<ItestRoleObject>();
   public Structured Encode(ItestAssociateObject input)
     => _itestRole.Encode(input)
       .AddList("friends", input.Friends, _itestRole2);

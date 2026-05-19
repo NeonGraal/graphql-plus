@@ -54,8 +54,8 @@ internal class CmptQueryEncoder(
 ) : IEncoder<ICmptQueryObject>
 {
   private readonly Encoder<ICmptCharacter> _character = encoders.EncoderFor<ICmptCharacter>();
-  private readonly Encoder<ICmptHuman> _human = encoders.EncoderFor<ICmptHuman>();
   private readonly Encoder<ICmptDroid> _droid = encoders.EncoderFor<ICmptDroid>();
+  private readonly Encoder<ICmptHuman> _human = encoders.EncoderFor<ICmptHuman>();
   public Structured Encode(ICmptQueryObject input)
     => Structured.Empty()
       .AddEncoded("hero", input.Hero(), _character)
@@ -100,8 +100,8 @@ internal class CmptAssociateEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptAssociateObject>
 {
-  private readonly Encoder<ICmptRoleObject> _role = encoders.EncoderFor<ICmptRoleObject>();
   private readonly Encoder<ICmptRole> _role2 = encoders.EncoderFor<ICmptRole>();
+  private readonly Encoder<ICmptRoleObject> _role = encoders.EncoderFor<ICmptRoleObject>();
   public Structured Encode(ICmptAssociateObject input)
     => _role.Encode(input)
       .AddList("friends", input.Friends, _role2);

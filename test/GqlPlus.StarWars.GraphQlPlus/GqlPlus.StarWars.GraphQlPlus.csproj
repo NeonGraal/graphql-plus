@@ -10,7 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="..\GqlPlus.ComponentTestBase\Samples\StarWars\StarWars.graphql+" />
+    <AdditionalFiles Include="..\GqlPlus.ComponentTestBase\Samples\StarWars\StarWars.graphql+"
+                     Link="StarWars\%(Filename)%(Extension)"  />
 
     <CompilerVisibleProperty Include="GqlPlus_TypePrefix" />
   </ItemGroup>

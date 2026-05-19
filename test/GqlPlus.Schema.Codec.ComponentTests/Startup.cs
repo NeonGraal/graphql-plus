@@ -1,11 +1,8 @@
 ﻿using System.Reflection;
-
 using DiffEngine;
-
+using GqlPlus.Encoding;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
-
-using GqlPlus.Encoding;
 
 namespace GqlPlus;
 

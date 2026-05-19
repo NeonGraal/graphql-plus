@@ -1,6 +1,4 @@
-using System.Collections.Generic;
-
-namespace GqlPlus.Schema.Modelling;
+﻿namespace GqlPlus.Schema.Modelling;
 
 internal sealed class SchSchemaImplementation(
   ICollection<string> description,

@@ -4,5 +4,5 @@ global using GqlPlus.Models;
 global using GqlPlus.Structures;
 global using NSubstitute;
 global using Shouldly;
-global using TypeKindModel = GqlPlus.GqlpTypeKind;
 global using Xunit;
+global using TypeKindModel = GqlPlus.GqlpTypeKind;

@@ -1,6 +1,4 @@
-﻿using NSubstitute;
-
-namespace GqlPlus;
+﻿namespace GqlPlus;
 
 public class GeneralHelpersTests
 {

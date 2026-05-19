@@ -1,7 +1,4 @@
-﻿using GqlPlus.Modelling;
-using GqlPlus.Models;
-
-namespace GqlPlus.Modelling;
+﻿namespace GqlPlus.Modelling;
 
 public class ModellerTests
   : SubstituteBase

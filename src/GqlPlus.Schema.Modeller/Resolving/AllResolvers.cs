@@ -2,7 +2,6 @@
 using GqlPlus.Resolving.Objects;
 using GqlPlus.Resolving.Simple;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace GqlPlus.Resolving;
 

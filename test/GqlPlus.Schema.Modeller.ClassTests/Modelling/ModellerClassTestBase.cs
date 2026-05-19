@@ -1,7 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using EmptyFiles;
-
-namespace GqlPlus.Modelling;
+﻿namespace GqlPlus.Modelling;
 
 public abstract class ModellerClassTestBase<TAst, TModel>
   : SubstituteBase
@@ -16,7 +13,6 @@ public abstract class ModellerClassTestBase<TAst, TModel>
     // Act & Assert
     act.ShouldThrow<ModelTypeException<TModel>>();
   }
-
 
   protected abstract IModeller<TAst, TModel> Modeller { get; }
 

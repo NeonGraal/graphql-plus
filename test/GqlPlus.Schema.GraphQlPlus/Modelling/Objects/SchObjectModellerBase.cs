@@ -1,7 +1,4 @@
-using System.Collections.Generic;
-using System.Linq;
-
-namespace GqlPlus.Schema.Modelling;
+﻿namespace GqlPlus.Schema.Modelling;
 
 internal abstract class SchObjectModellerBase<TAstField, TSchField>(
   ISchModellerRepository repo

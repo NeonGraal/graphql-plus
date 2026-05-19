@@ -1,8 +1,6 @@
 ﻿using DiffEngine;
-
-using Microsoft.Extensions.DependencyInjection;
-
 using GqlPlus.Encoding;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus;
 

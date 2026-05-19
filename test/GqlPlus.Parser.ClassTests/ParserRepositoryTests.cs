@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
-using GqlPlus.Building.Schema.Simple;
 using GqlPlus.Merging;
 using GqlPlus.Parsing;
 using Microsoft.Extensions.DependencyInjection;

@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Ast.Schema;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace GqlPlus.Matching;
 

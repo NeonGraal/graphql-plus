@@ -7,7 +7,6 @@ using GqlPlus.Verifying.Schema.Globals;
 using GqlPlus.Verifying.Schema.Objects;
 using GqlPlus.Verifying.Schema.Simple;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace GqlPlus.Verifying;
 

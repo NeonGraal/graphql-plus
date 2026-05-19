@@ -1,9 +1,8 @@
-using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Modelling;
 using GqlPlus.Parsing;
 using GqlPlus.Resolving;
-using GqlPlus.Schema;
 
 namespace GqlPlus;
 

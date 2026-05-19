@@ -5,12 +5,8 @@ public abstract class TestSchemaInputs
 {
   [Theory]
   [ClassData(typeof(SamplesGraphQlGraphqlData))]
-  public async Task Test_GraphQL(string sample)
-  {
-    string schema = await ReadFile(sample, "graphql+", "GraphQl");
-
-    await Test_Input("GraphQl", schema, ["GraphQl"], sample);
-  }
+  public Task Test_GraphQL(string sample)
+    => Schema_Input("GraphQl", sample);
 
   [Fact]
   public async Task Test_SchemaAll()
@@ -52,20 +48,30 @@ public abstract class TestSchemaInputs
 
   [Theory]
   [ClassData(typeof(SamplesSpecificationData))]
-  public async Task Test_Spec(string sample)
-  {
-    string spec = await ReadFile(sample, "graphql+", "Specification");
-
-    await Test_Input("Spec", spec, ["Specification"], sample);
-  }
+  public Task Test_Spec(string sample)
+    => Schema_Input("Spec", sample, "Specification");
 
   [Theory]
   [ClassData(typeof(SamplesSpecificationIntrospectionData))]
-  public async Task Test_SpecIntrospection(string sample)
-  {
-    string spec = await ReadFile(sample, "graphql+", "Specification", "Introspection");
+  public Task Test_SpecIntrospection(string sample)
+    => Schema_Input("Spec", sample, "Specification", "Introspection");
 
-    await Test_Input("Spec", spec, ["Specification", "Introspection"], sample, "Introspection");
+  [Theory]
+  [ClassData(typeof(SamplesStarWarsData))]
+  public Task Test_StarWars(string sample)
+    => Schema_Input("StarWars", sample);
+
+  private async Task Schema_Input(string label, string file, params string[] dirs)
+  {
+    if (dirs.Length == 0) {
+      dirs = [label];
+    }
+
+    string section = dirs.Length > 1 ? dirs.Last() : "";
+
+    string schema = await ReadFile(file, "graphql+", dirs);
+
+    await Test_Input(label, schema, dirs, file, section);
   }
 
   [Theory]

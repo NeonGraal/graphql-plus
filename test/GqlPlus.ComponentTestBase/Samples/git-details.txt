@@ -1,1 +1,1 @@
-c00af9f  (HEAD -> request) 2026-04-22 Improve Request Operation definition
+37187f1  (HEAD -> star-wars-yaml) 2026-05-16 Fix review comments

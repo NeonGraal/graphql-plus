@@ -1,0 +1,144 @@
+﻿/* StarWars
+output Query {
+    hero(Episode?): Character
+    human(String): Human
+    droid(Id): Droid
+    characters(Id[]?): Character[]
+}
+
+enum Episode {
+    NewHope
+    Empire
+    Jedi
+}
+
+domain Id { Number > 999 }
+
+output Role {
+    id: Id
+    name: String
+    appearsIn: Episode[]
+}
+
+output Associate {
+    : Role
+    friends: Role[]
+}
+
+output Human {
+    : Associate
+    homePlanet: String?
+}
+
+output Droid {
+    : Associate
+    primaryFunction: String
+}
+
+output Character {
+    | Human
+    | Droid
+}
+*/
+
+// Generated from StarWars StarWars
+//   with GeneratorOption: BaseType: Interface, BaseName: StarWars_StarWars, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_StarWars_StarWars;
+
+public interface ICmptQuery
+  : StarWars_StarWars
+{
+  ICmptQueryObject? As_Query { get; }
+}
+
+public interface ICmptQueryObject
+  : StarWars_StarWars
+{
+  ICmptCharacter Hero { get; }
+  ICmptCharacter? Call_Hero(CmptEpisode? parameter);
+  ICmptHuman Human { get; }
+  ICmptHuman? Call_Human(string parameter);
+  ICmptDroid Droid { get; }
+  ICmptDroid? Call_Droid(ICmptId parameter);
+  ICollection<ICmptCharacter> Characters { get; }
+  ICollection<ICmptCharacter>? Call_Characters(ICollection<ICmptId>? parameter);
+}
+
+public enum CmptEpisode
+{
+  NewHope,
+  Empire,
+  Jedi,
+}
+
+public interface ICmptId
+  : IGqlpDomainNumber
+{
+}
+
+public interface ICmptRole
+  : StarWars_StarWars
+{
+  ICmptRoleObject? As_Role { get; }
+}
+
+public interface ICmptRoleObject
+  : StarWars_StarWars
+{
+  ICmptId Id { get; }
+  string Name { get; }
+  ICollection<CmptEpisode> AppearsIn { get; }
+}
+
+public interface ICmptAssociate
+  : ICmptRole
+{
+  ICmptAssociateObject? As_Associate { get; }
+}
+
+public interface ICmptAssociateObject
+  : ICmptRoleObject
+{
+  ICollection<ICmptRole> Friends { get; }
+}
+
+public interface ICmptHuman
+  : ICmptAssociate
+{
+  ICmptHumanObject? As_Human { get; }
+}
+
+public interface ICmptHumanObject
+  : ICmptAssociateObject
+{
+  string? HomePlanet { get; }
+}
+
+public interface ICmptDroid
+  : ICmptAssociate
+{
+  ICmptDroidObject? As_Droid { get; }
+}
+
+public interface ICmptDroidObject
+  : ICmptAssociateObject
+{
+  string PrimaryFunction { get; }
+}
+
+public interface ICmptCharacter
+  : StarWars_StarWars
+{
+  ICmptHuman? AsHuman { get; }
+  ICmptDroid? AsDroid { get; }
+  ICmptCharacterObject? As_Character { get; }
+}
+
+public interface ICmptCharacterObject
+  : StarWars_StarWars
+{
+}

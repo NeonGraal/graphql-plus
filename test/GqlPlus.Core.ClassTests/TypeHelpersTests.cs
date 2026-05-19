@@ -17,7 +17,7 @@ public class ExpandTypeNameData
   {
     Add(typeof(int), "Int32");
     Add(typeof(List<string>), "List<String>");
-    Add(typeof(Dictionary<string, List<int>>), "Dictionary<String,List<Int32>>");
+    Add(typeof(Map<List<int>>), "Map<List<Int32>>");
     Add(typeof(Nullable<int>), "Nullable<Int32>");
   }
 }

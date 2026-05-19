@@ -16,9 +16,9 @@ internal abstract class IdentifiedVerifierBase<TUsage, TIdentified>(
 
   public void Verify(UsageIdentified<TUsage, TIdentified> item, IMessages errors)
   {
-    Dictionary<string, TUsage> used = item.Usages.ToDictionary(UsageKey);
+    Map<TUsage> used = item.Usages.ToMap(UsageKey);
 
-    Dictionary<string, TIdentified> defined = item.Definitions.ToDictionary(f => f.Identifier);
+    Map<TIdentified> defined = item.Definitions.ToMap(f => f.Identifier);
 
     foreach (MapPair<TUsage> use in used) {
       if (!defined.ContainsKey(use.Key)) {

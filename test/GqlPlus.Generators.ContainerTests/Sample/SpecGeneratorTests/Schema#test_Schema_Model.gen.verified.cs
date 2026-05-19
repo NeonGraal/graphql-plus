@@ -69,7 +69,7 @@ public class test_Map<TT>
   : GqlpModelBase
   , Itest_Map<TT>
 {
-  public IDictionary<string, TT>? AsT { get; set; }
+  public IMap<TT>? AsT { get; set; }
   public Itest_MapObject<TT>? As__Map { get; set; }
 }
 

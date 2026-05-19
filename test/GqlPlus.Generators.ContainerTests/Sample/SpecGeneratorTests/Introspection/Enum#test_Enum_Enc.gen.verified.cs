@@ -24,8 +24,8 @@ internal class test_EnumValueEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_EnumValueObject>
 {
-  private readonly Encoder<Itest_TypeRefObject<Itest_TypeKind>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRefObject<Itest_TypeKind>>();
   private readonly Encoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  private readonly Encoder<Itest_TypeRefObject<Itest_TypeKind>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRefObject<Itest_TypeKind>>();
   public Structured Encode(Itest_EnumValueObject input)
     => _itest_TypeRef.Encode(input)
       .AddEncoded("label", input.Label, _itest_Name);

@@ -68,7 +68,7 @@ public interface ICmpt_DictObject<TK,TT>
 public interface ICmpt_Map<TT>
   : Spec_Schema
 {
-  IDictionary<string, TT>? AsT { get; }
+  IMap<TT>? AsT { get; }
   ICmpt_MapObject<TT>? As__Map { get; }
 }
 

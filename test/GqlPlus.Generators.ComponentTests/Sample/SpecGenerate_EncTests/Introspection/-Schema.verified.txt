@@ -86,8 +86,8 @@ internal class Cmpt_AliasedEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_AliasedObject>
 {
-  private readonly Encoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
   private readonly Encoder<ICmpt_Name> _name = encoders.EncoderFor<ICmpt_Name>();
+  private readonly Encoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
   public Structured Encode(ICmpt_AliasedObject input)
     => _named.Encode(input)
       .AddList("aliases", input.Aliases, _name);

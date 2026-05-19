@@ -41,8 +41,8 @@ internal class Cmpt_CategoryEncoder(
 ) : IEncoder<ICmpt_CategoryObject>
 {
   private readonly Encoder<ICmpt_AliasedObject> _aliased = encoders.EncoderFor<ICmpt_AliasedObject>();
-  private readonly Encoder<ICmpt_TypeRef<ICmpt_TypeKind>> _typeRef = encoders.EncoderFor<ICmpt_TypeRef<ICmpt_TypeKind>>();
   private readonly Encoder<ICmpt_Modifiers> _modifiers = encoders.EncoderFor<ICmpt_Modifiers>();
+  private readonly Encoder<ICmpt_TypeRef<ICmpt_TypeKind>> _typeRef = encoders.EncoderFor<ICmpt_TypeRef<ICmpt_TypeKind>>();
   public Structured Encode(ICmpt_CategoryObject input)
     => _aliased.Encode(input)
       .AddEnum("resolution", input.Resolution)

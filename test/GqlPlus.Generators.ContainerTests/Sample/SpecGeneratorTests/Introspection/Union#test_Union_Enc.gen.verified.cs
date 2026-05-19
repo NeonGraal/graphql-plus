@@ -22,8 +22,8 @@ internal class test_UnionMemberEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_UnionMemberObject>
 {
-  private readonly Encoder<Itest_UnionRefObject> _itest_UnionRef = encoders.EncoderFor<Itest_UnionRefObject>();
   private readonly Encoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  private readonly Encoder<Itest_UnionRefObject> _itest_UnionRef = encoders.EncoderFor<Itest_UnionRefObject>();
   public Structured Encode(Itest_UnionMemberObject input)
     => _itest_UnionRef.Encode(input)
       .AddEncoded("union", input.Union, _itest_Name);

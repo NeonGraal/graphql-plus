@@ -4672,7 +4672,7 @@ public class CmptRefGnrcAltModStrDual<TRef>
   : Schema_+Objects
   , ICmptRefGnrcAltModStrDual<TRef>
 {
-  public IDictionary<string, TRef>? Asref { get; set; }
+  public IMap<TRef>? Asref { get; set; }
   public ICmptRefGnrcAltModStrDualObject<TRef>? As_RefGnrcAltModStrDual { get; set; }
 }
 
@@ -4691,7 +4691,7 @@ public class CmptRefGnrcAltModStrInp<TRef>
   : Schema_+Objects
   , ICmptRefGnrcAltModStrInp<TRef>
 {
-  public IDictionary<string, TRef>? Asref { get; set; }
+  public IMap<TRef>? Asref { get; set; }
   public ICmptRefGnrcAltModStrInpObject<TRef>? As_RefGnrcAltModStrInp { get; set; }
 }
 
@@ -4710,7 +4710,7 @@ public class CmptRefGnrcAltModStrOutp<TRef>
   : Schema_+Objects
   , ICmptRefGnrcAltModStrOutp<TRef>
 {
-  public IDictionary<string, TRef>? Asref { get; set; }
+  public IMap<TRef>? Asref { get; set; }
   public ICmptRefGnrcAltModStrOutpObject<TRef>? As_RefGnrcAltModStrOutp { get; set; }
 }
 

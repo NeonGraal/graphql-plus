@@ -312,6 +312,1314 @@ public class CmptInDrctParamOptObject
   }
 }
 
+public class CmptCtgr
+  : Schema_!ALL
+  , ICmptCtgr
+{
+  public ICmptCtgrObject? As_Ctgr { get; set; }
+}
+
+public class CmptCtgrObject
+  : Schema_!ALL
+  , ICmptCtgrObject
+{
+
+  public CmptCtgrObject
+    ()
+  {
+  }
+}
+
+public class CmptCtgrAlias
+  : Schema_!ALL
+  , ICmptCtgrAlias
+{
+  public ICmptCtgrAliasObject? As_CtgrAlias { get; set; }
+}
+
+public class CmptCtgrAliasObject
+  : Schema_!ALL
+  , ICmptCtgrAliasObject
+{
+
+  public CmptCtgrAliasObject
+    ()
+  {
+  }
+}
+
+public class CmptCtgrDescr
+  : Schema_!ALL
+  , ICmptCtgrDescr
+{
+  public ICmptCtgrDescrObject? As_CtgrDescr { get; set; }
+}
+
+public class CmptCtgrDescrObject
+  : Schema_!ALL
+  , ICmptCtgrDescrObject
+{
+
+  public CmptCtgrDescrObject
+    ()
+  {
+  }
+}
+
+public class CmptCtgrMod
+  : Schema_!ALL
+  , ICmptCtgrMod
+{
+  public ICmptCtgrModObject? As_CtgrMod { get; set; }
+}
+
+public class CmptCtgrModObject
+  : Schema_!ALL
+  , ICmptCtgrModObject
+{
+
+  public CmptCtgrModObject
+    ()
+  {
+  }
+}
+
+public class CmptInDrctParam
+  : Schema_!ALL
+  , ICmptInDrctParam
+{
+  public ICmptInDrctParamObject? As_InDrctParam { get; set; }
+}
+
+public class CmptInDrctParamObject
+  : Schema_!ALL
+  , ICmptInDrctParamObject
+{
+
+  public CmptInDrctParamObject
+    ()
+  {
+  }
+}
+
+public class CmptDmnAlias
+  : GqlpDomainNumber
+  , ICmptDmnAlias
+{
+}
+
+public class CmptDmnBool
+  : GqlpDomainBoolean
+  , ICmptDmnBool
+{
+}
+
+public class CmptDmnBoolDiff
+  : GqlpDomainBoolean
+  , ICmptDmnBoolDiff
+{
+}
+
+public class CmptDmnBoolSame
+  : GqlpDomainBoolean
+  , ICmptDmnBoolSame
+{
+}
+
+public class CmptDmnEnumDiff
+  : GqlpDomainEnum
+  , ICmptDmnEnumDiff
+{
+  public new bool? Value { get; set; }
+}
+
+public class CmptDmnEnumSame
+  : GqlpDomainEnum
+  , ICmptDmnEnumSame
+{
+  public new bool? Value { get; set; }
+}
+
+public class CmptDmnNmbr
+  : GqlpDomainNumber
+  , ICmptDmnNmbr
+{
+}
+
+public class CmptDmnNmbrDiff
+  : GqlpDomainNumber
+  , ICmptDmnNmbrDiff
+{
+}
+
+public class CmptDmnNmbrSame
+  : GqlpDomainNumber
+  , ICmptDmnNmbrSame
+{
+}
+
+public class CmptDmnStr
+  : GqlpDomainString
+  , ICmptDmnStr
+{
+}
+
+public class CmptDmnStrDiff
+  : GqlpDomainString
+  , ICmptDmnStrDiff
+{
+}
+
+public class CmptDmnStrSame
+  : GqlpDomainString
+  , ICmptDmnStrSame
+{
+}
+
+public class CmptObjDual
+  : Schema_!ALL
+  , ICmptObjDual
+{
+  public ICmptObjDualObject? As_ObjDual { get; set; }
+}
+
+public class CmptObjDualObject
+  : Schema_!ALL
+  , ICmptObjDualObject
+{
+
+  public CmptObjDualObject
+    ()
+  {
+  }
+}
+
+public class CmptObjInp
+  : Schema_!ALL
+  , ICmptObjInp
+{
+  public ICmptObjInpObject? As_ObjInp { get; set; }
+}
+
+public class CmptObjInpObject
+  : Schema_!ALL
+  , ICmptObjInpObject
+{
+
+  public CmptObjInpObject
+    ()
+  {
+  }
+}
+
+public class CmptObjOutp
+  : Schema_!ALL
+  , ICmptObjOutp
+{
+  public ICmptObjOutpObject? As_ObjOutp { get; set; }
+}
+
+public class CmptObjOutpObject
+  : Schema_!ALL
+  , ICmptObjOutpObject
+{
+
+  public CmptObjOutpObject
+    ()
+  {
+  }
+}
+
+public class CmptObjAliasDual
+  : Schema_!ALL
+  , ICmptObjAliasDual
+{
+  public ICmptObjAliasDualObject? As_ObjAliasDual { get; set; }
+}
+
+public class CmptObjAliasDualObject
+  : Schema_!ALL
+  , ICmptObjAliasDualObject
+{
+
+  public CmptObjAliasDualObject
+    ()
+  {
+  }
+}
+
+public class CmptObjAliasInp
+  : Schema_!ALL
+  , ICmptObjAliasInp
+{
+  public ICmptObjAliasInpObject? As_ObjAliasInp { get; set; }
+}
+
+public class CmptObjAliasInpObject
+  : Schema_!ALL
+  , ICmptObjAliasInpObject
+{
+
+  public CmptObjAliasInpObject
+    ()
+  {
+  }
+}
+
+public class CmptObjAliasOutp
+  : Schema_!ALL
+  , ICmptObjAliasOutp
+{
+  public ICmptObjAliasOutpObject? As_ObjAliasOutp { get; set; }
+}
+
+public class CmptObjAliasOutpObject
+  : Schema_!ALL
+  , ICmptObjAliasOutpObject
+{
+
+  public CmptObjAliasOutpObject
+    ()
+  {
+  }
+}
+
+public class CmptObjAltDual
+  : Schema_!ALL
+  , ICmptObjAltDual
+{
+  public ICmptObjAltDualType? AsObjAltDualType { get; set; }
+  public ICmptObjAltDualObject? As_ObjAltDual { get; set; }
+}
+
+public class CmptObjAltDualObject
+  : Schema_!ALL
+  , ICmptObjAltDualObject
+{
+
+  public CmptObjAltDualObject
+    ()
+  {
+  }
+}
+
+public class CmptObjAltDualType
+  : Schema_!ALL
+  , ICmptObjAltDualType
+{
+  public ICmptObjAltDualTypeObject? As_ObjAltDualType { get; set; }
+}
+
+public class CmptObjAltDualTypeObject
+  : Schema_!ALL
+  , ICmptObjAltDualTypeObject
+{
+
+  public CmptObjAltDualTypeObject
+    ()
+  {
+  }
+}
+
+public class CmptObjAltInp
+  : Schema_!ALL
+  , ICmptObjAltInp
+{
+  public ICmptObjAltInpType? AsObjAltInpType { get; set; }
+  public ICmptObjAltInpObject? As_ObjAltInp { get; set; }
+}
+
+public class CmptObjAltInpObject
+  : Schema_!ALL
+  , ICmptObjAltInpObject
+{
+
+  public CmptObjAltInpObject
+    ()
+  {
+  }
+}
+
+public class CmptObjAltInpType
+  : Schema_!ALL
+  , ICmptObjAltInpType
+{
+  public ICmptObjAltInpTypeObject? As_ObjAltInpType { get; set; }
+}
+
+public class CmptObjAltInpTypeObject
+  : Schema_!ALL
+  , ICmptObjAltInpTypeObject
+{
+
+  public CmptObjAltInpTypeObject
+    ()
+  {
+  }
+}
+
+public class CmptObjAltOutp
+  : Schema_!ALL
+  , ICmptObjAltOutp
+{
+  public ICmptObjAltOutpType? AsObjAltOutpType { get; set; }
+  public ICmptObjAltOutpObject? As_ObjAltOutp { get; set; }
+}
+
+public class CmptObjAltOutpObject
+  : Schema_!ALL
+  , ICmptObjAltOutpObject
+{
+
+  public CmptObjAltOutpObject
+    ()
+  {
+  }
+}
+
+public class CmptObjAltOutpType
+  : Schema_!ALL
+  , ICmptObjAltOutpType
+{
+  public ICmptObjAltOutpTypeObject? As_ObjAltOutpType { get; set; }
+}
+
+public class CmptObjAltOutpTypeObject
+  : Schema_!ALL
+  , ICmptObjAltOutpTypeObject
+{
+
+  public CmptObjAltOutpTypeObject
+    ()
+  {
+  }
+}
+
+public class CmptObjAltEnumDual
+  : Schema_!ALL
+  , ICmptObjAltEnumDual
+{
+  public bool? AsBooleantrue { get; set; }
+  public bool? AsBooleanfalse { get; set; }
+  public ICmptObjAltEnumDualObject? As_ObjAltEnumDual { get; set; }
+}
+
+public class CmptObjAltEnumDualObject
+  : Schema_!ALL
+  , ICmptObjAltEnumDualObject
+{
+
+  public CmptObjAltEnumDualObject
+    ()
+  {
+  }
+}
+
+public class CmptObjAltEnumInp
+  : Schema_!ALL
+  , ICmptObjAltEnumInp
+{
+  public bool? AsBooleantrue { get; set; }
+  public bool? AsBooleanfalse { get; set; }
+  public ICmptObjAltEnumInpObject? As_ObjAltEnumInp { get; set; }
+}
+
+public class CmptObjAltEnumInpObject
+  : Schema_!ALL
+  , ICmptObjAltEnumInpObject
+{
+
+  public CmptObjAltEnumInpObject
+    ()
+  {
+  }
+}
+
+public class CmptObjAltEnumOutp
+  : Schema_!ALL
+  , ICmptObjAltEnumOutp
+{
+  public bool? AsBooleantrue { get; set; }
+  public bool? AsBooleanfalse { get; set; }
+  public ICmptObjAltEnumOutpObject? As_ObjAltEnumOutp { get; set; }
+}
+
+public class CmptObjAltEnumOutpObject
+  : Schema_!ALL
+  , ICmptObjAltEnumOutpObject
+{
+
+  public CmptObjAltEnumOutpObject
+    ()
+  {
+  }
+}
+
+public class CmptObjCnstDual<TType>
+  : Schema_!ALL
+  , ICmptObjCnstDual<TType>
+{
+  public ICmptObjCnstDualObject<TType>? As_ObjCnstDual { get; set; }
+}
+
+public class CmptObjCnstDualObject<TType>
+  : Schema_!ALL
+  , ICmptObjCnstDualObject<TType>
+{
+  public TType Field { get; set; }
+  public TType Str { get; set; }
+
+  public CmptObjCnstDualObject
+    ( TType pfield
+    , TType pstr
+    )
+  {
+    Field = pfield;
+    Str = pstr;
+  }
+}
+
+public class CmptObjCnstInp<TType>
+  : Schema_!ALL
+  , ICmptObjCnstInp<TType>
+{
+  public ICmptObjCnstInpObject<TType>? As_ObjCnstInp { get; set; }
+}
+
+public class CmptObjCnstInpObject<TType>
+  : Schema_!ALL
+  , ICmptObjCnstInpObject<TType>
+{
+  public TType Field { get; set; }
+  public TType Str { get; set; }
+
+  public CmptObjCnstInpObject
+    ( TType pfield
+    , TType pstr
+    )
+  {
+    Field = pfield;
+    Str = pstr;
+  }
+}
+
+public class CmptObjCnstOutp<TType>
+  : Schema_!ALL
+  , ICmptObjCnstOutp<TType>
+{
+  public ICmptObjCnstOutpObject<TType>? As_ObjCnstOutp { get; set; }
+}
+
+public class CmptObjCnstOutpObject<TType>
+  : Schema_!ALL
+  , ICmptObjCnstOutpObject<TType>
+{
+  public TType Field { get; set; }
+  public TType Str { get; set; }
+
+  public CmptObjCnstOutpObject
+    ( TType pfield
+    , TType pstr
+    )
+  {
+    Field = pfield;
+    Str = pstr;
+  }
+}
+
+public class CmptObjFieldDual
+  : Schema_!ALL
+  , ICmptObjFieldDual
+{
+  public ICmptObjFieldDualObject? As_ObjFieldDual { get; set; }
+}
+
+public class CmptObjFieldDualObject
+  : Schema_!ALL
+  , ICmptObjFieldDualObject
+{
+  public ICmptFldObjFieldDual Field { get; set; }
+
+  public CmptObjFieldDualObject
+    ( ICmptFldObjFieldDual pfield
+    )
+  {
+    Field = pfield;
+  }
+}
+
+public class CmptFldObjFieldDual
+  : Schema_!ALL
+  , ICmptFldObjFieldDual
+{
+  public ICmptFldObjFieldDualObject? As_FldObjFieldDual { get; set; }
+}
+
+public class CmptFldObjFieldDualObject
+  : Schema_!ALL
+  , ICmptFldObjFieldDualObject
+{
+
+  public CmptFldObjFieldDualObject
+    ()
+  {
+  }
+}
+
+public class CmptObjFieldInp
+  : Schema_!ALL
+  , ICmptObjFieldInp
+{
+  public ICmptObjFieldInpObject? As_ObjFieldInp { get; set; }
+}
+
+public class CmptObjFieldInpObject
+  : Schema_!ALL
+  , ICmptObjFieldInpObject
+{
+  public ICmptFldObjFieldInp Field { get; set; }
+
+  public CmptObjFieldInpObject
+    ( ICmptFldObjFieldInp pfield
+    )
+  {
+    Field = pfield;
+  }
+}
+
+public class CmptFldObjFieldInp
+  : Schema_!ALL
+  , ICmptFldObjFieldInp
+{
+  public ICmptFldObjFieldInpObject? As_FldObjFieldInp { get; set; }
+}
+
+public class CmptFldObjFieldInpObject
+  : Schema_!ALL
+  , ICmptFldObjFieldInpObject
+{
+
+  public CmptFldObjFieldInpObject
+    ()
+  {
+  }
+}
+
+public class CmptObjFieldOutp
+  : Schema_!ALL
+  , ICmptObjFieldOutp
+{
+  public ICmptObjFieldOutpObject? As_ObjFieldOutp { get; set; }
+}
+
+public class CmptObjFieldOutpObject
+  : Schema_!ALL
+  , ICmptObjFieldOutpObject
+{
+  public ICmptFldObjFieldOutp Field { get; set; }
+
+  public CmptObjFieldOutpObject
+    ( ICmptFldObjFieldOutp pfield
+    )
+  {
+    Field = pfield;
+  }
+}
+
+public class CmptFldObjFieldOutp
+  : Schema_!ALL
+  , ICmptFldObjFieldOutp
+{
+  public ICmptFldObjFieldOutpObject? As_FldObjFieldOutp { get; set; }
+}
+
+public class CmptFldObjFieldOutpObject
+  : Schema_!ALL
+  , ICmptFldObjFieldOutpObject
+{
+
+  public CmptFldObjFieldOutpObject
+    ()
+  {
+  }
+}
+
+public class CmptObjFieldAliasDual
+  : Schema_!ALL
+  , ICmptObjFieldAliasDual
+{
+  public ICmptObjFieldAliasDualObject? As_ObjFieldAliasDual { get; set; }
+}
+
+public class CmptObjFieldAliasDualObject
+  : Schema_!ALL
+  , ICmptObjFieldAliasDualObject
+{
+  public ICmptFldObjFieldAliasDual Field { get; set; }
+
+  public CmptObjFieldAliasDualObject
+    ( ICmptFldObjFieldAliasDual pfield
+    )
+  {
+    Field = pfield;
+  }
+}
+
+public class CmptFldObjFieldAliasDual
+  : Schema_!ALL
+  , ICmptFldObjFieldAliasDual
+{
+  public ICmptFldObjFieldAliasDualObject? As_FldObjFieldAliasDual { get; set; }
+}
+
+public class CmptFldObjFieldAliasDualObject
+  : Schema_!ALL
+  , ICmptFldObjFieldAliasDualObject
+{
+
+  public CmptFldObjFieldAliasDualObject
+    ()
+  {
+  }
+}
+
+public class CmptObjFieldAliasInp
+  : Schema_!ALL
+  , ICmptObjFieldAliasInp
+{
+  public ICmptObjFieldAliasInpObject? As_ObjFieldAliasInp { get; set; }
+}
+
+public class CmptObjFieldAliasInpObject
+  : Schema_!ALL
+  , ICmptObjFieldAliasInpObject
+{
+  public ICmptFldObjFieldAliasInp Field { get; set; }
+
+  public CmptObjFieldAliasInpObject
+    ( ICmptFldObjFieldAliasInp pfield
+    )
+  {
+    Field = pfield;
+  }
+}
+
+public class CmptFldObjFieldAliasInp
+  : Schema_!ALL
+  , ICmptFldObjFieldAliasInp
+{
+  public ICmptFldObjFieldAliasInpObject? As_FldObjFieldAliasInp { get; set; }
+}
+
+public class CmptFldObjFieldAliasInpObject
+  : Schema_!ALL
+  , ICmptFldObjFieldAliasInpObject
+{
+
+  public CmptFldObjFieldAliasInpObject
+    ()
+  {
+  }
+}
+
+public class CmptObjFieldAliasOutp
+  : Schema_!ALL
+  , ICmptObjFieldAliasOutp
+{
+  public ICmptObjFieldAliasOutpObject? As_ObjFieldAliasOutp { get; set; }
+}
+
+public class CmptObjFieldAliasOutpObject
+  : Schema_!ALL
+  , ICmptObjFieldAliasOutpObject
+{
+  public ICmptFldObjFieldAliasOutp Field { get; set; }
+
+  public CmptObjFieldAliasOutpObject
+    ( ICmptFldObjFieldAliasOutp pfield
+    )
+  {
+    Field = pfield;
+  }
+}
+
+public class CmptFldObjFieldAliasOutp
+  : Schema_!ALL
+  , ICmptFldObjFieldAliasOutp
+{
+  public ICmptFldObjFieldAliasOutpObject? As_FldObjFieldAliasOutp { get; set; }
+}
+
+public class CmptFldObjFieldAliasOutpObject
+  : Schema_!ALL
+  , ICmptFldObjFieldAliasOutpObject
+{
+
+  public CmptFldObjFieldAliasOutpObject
+    ()
+  {
+  }
+}
+
+public class CmptObjFieldEnumAliasDual
+  : Schema_!ALL
+  , ICmptObjFieldEnumAliasDual
+{
+  public ICmptObjFieldEnumAliasDualObject? As_ObjFieldEnumAliasDual { get; set; }
+}
+
+public class CmptObjFieldEnumAliasDualObject
+  : Schema_!ALL
+  , ICmptObjFieldEnumAliasDualObject
+{
+  public bool Field { get; set; }
+
+  public CmptObjFieldEnumAliasDualObject
+    ( bool pfield
+    )
+  {
+    Field = pfield;
+  }
+}
+
+public class CmptObjFieldEnumAliasInp
+  : Schema_!ALL
+  , ICmptObjFieldEnumAliasInp
+{
+  public ICmptObjFieldEnumAliasInpObject? As_ObjFieldEnumAliasInp { get; set; }
+}
+
+public class CmptObjFieldEnumAliasInpObject
+  : Schema_!ALL
+  , ICmptObjFieldEnumAliasInpObject
+{
+  public bool Field { get; set; }
+
+  public CmptObjFieldEnumAliasInpObject
+    ( bool pfield
+    )
+  {
+    Field = pfield;
+  }
+}
+
+public class CmptObjFieldEnumAliasOutp
+  : Schema_!ALL
+  , ICmptObjFieldEnumAliasOutp
+{
+  public ICmptObjFieldEnumAliasOutpObject? As_ObjFieldEnumAliasOutp { get; set; }
+}
+
+public class CmptObjFieldEnumAliasOutpObject
+  : Schema_!ALL
+  , ICmptObjFieldEnumAliasOutpObject
+{
+  public bool Field { get; set; }
+
+  public CmptObjFieldEnumAliasOutpObject
+    ( bool pfield
+    )
+  {
+    Field = pfield;
+  }
+}
+
+public class CmptObjFieldEnumValueDual
+  : Schema_!ALL
+  , ICmptObjFieldEnumValueDual
+{
+  public ICmptObjFieldEnumValueDualObject? As_ObjFieldEnumValueDual { get; set; }
+}
+
+public class CmptObjFieldEnumValueDualObject
+  : Schema_!ALL
+  , ICmptObjFieldEnumValueDualObject
+{
+  public bool Field { get; set; }
+
+  public CmptObjFieldEnumValueDualObject
+    ( bool pfield
+    )
+  {
+    Field = pfield;
+  }
+}
+
+public class CmptObjFieldEnumValueInp
+  : Schema_!ALL
+  , ICmptObjFieldEnumValueInp
+{
+  public ICmptObjFieldEnumValueInpObject? As_ObjFieldEnumValueInp { get; set; }
+}
+
+public class CmptObjFieldEnumValueInpObject
+  : Schema_!ALL
+  , ICmptObjFieldEnumValueInpObject
+{
+  public bool Field { get; set; }
+
+  public CmptObjFieldEnumValueInpObject
+    ( bool pfield
+    )
+  {
+    Field = pfield;
+  }
+}
+
+public class CmptObjFieldEnumValueOutp
+  : Schema_!ALL
+  , ICmptObjFieldEnumValueOutp
+{
+  public ICmptObjFieldEnumValueOutpObject? As_ObjFieldEnumValueOutp { get; set; }
+}
+
+public class CmptObjFieldEnumValueOutpObject
+  : Schema_!ALL
+  , ICmptObjFieldEnumValueOutpObject
+{
+  public bool Field { get; set; }
+
+  public CmptObjFieldEnumValueOutpObject
+    ( bool pfield
+    )
+  {
+    Field = pfield;
+  }
+}
+
+public class CmptObjFieldTypeAliasDual
+  : Schema_!ALL
+  , ICmptObjFieldTypeAliasDual
+{
+  public ICmptObjFieldTypeAliasDualObject? As_ObjFieldTypeAliasDual { get; set; }
+}
+
+public class CmptObjFieldTypeAliasDualObject
+  : Schema_!ALL
+  , ICmptObjFieldTypeAliasDualObject
+{
+  public string Field { get; set; }
+
+  public CmptObjFieldTypeAliasDualObject
+    ( string pfield
+    )
+  {
+    Field = pfield;
+  }
+}
+
+public class CmptObjFieldTypeAliasInp
+  : Schema_!ALL
+  , ICmptObjFieldTypeAliasInp
+{
+  public ICmptObjFieldTypeAliasInpObject? As_ObjFieldTypeAliasInp { get; set; }
+}
+
+public class CmptObjFieldTypeAliasInpObject
+  : Schema_!ALL
+  , ICmptObjFieldTypeAliasInpObject
+{
+  public string Field { get; set; }
+
+  public CmptObjFieldTypeAliasInpObject
+    ( string pfield
+    )
+  {
+    Field = pfield;
+  }
+}
+
+public class CmptObjFieldTypeAliasOutp
+  : Schema_!ALL
+  , ICmptObjFieldTypeAliasOutp
+{
+  public ICmptObjFieldTypeAliasOutpObject? As_ObjFieldTypeAliasOutp { get; set; }
+}
+
+public class CmptObjFieldTypeAliasOutpObject
+  : Schema_!ALL
+  , ICmptObjFieldTypeAliasOutpObject
+{
+  public string Field { get; set; }
+
+  public CmptObjFieldTypeAliasOutpObject
+    ( string pfield
+    )
+  {
+    Field = pfield;
+  }
+}
+
+public class CmptObjParamDual<TTest,TType>
+  : Schema_!ALL
+  , ICmptObjParamDual<TTest,TType>
+{
+  public ICmptObjParamDualObject<TTest,TType>? As_ObjParamDual { get; set; }
+}
+
+public class CmptObjParamDualObject<TTest,TType>
+  : Schema_!ALL
+  , ICmptObjParamDualObject<TTest,TType>
+{
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
+
+  public CmptObjParamDualObject
+    ( TTest ptest
+    , TType ptype
+    )
+  {
+    Test = ptest;
+    Type = ptype;
+  }
+}
+
+public class CmptObjParamInp<TTest,TType>
+  : Schema_!ALL
+  , ICmptObjParamInp<TTest,TType>
+{
+  public ICmptObjParamInpObject<TTest,TType>? As_ObjParamInp { get; set; }
+}
+
+public class CmptObjParamInpObject<TTest,TType>
+  : Schema_!ALL
+  , ICmptObjParamInpObject<TTest,TType>
+{
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
+
+  public CmptObjParamInpObject
+    ( TTest ptest
+    , TType ptype
+    )
+  {
+    Test = ptest;
+    Type = ptype;
+  }
+}
+
+public class CmptObjParamOutp<TTest,TType>
+  : Schema_!ALL
+  , ICmptObjParamOutp<TTest,TType>
+{
+  public ICmptObjParamOutpObject<TTest,TType>? As_ObjParamOutp { get; set; }
+}
+
+public class CmptObjParamOutpObject<TTest,TType>
+  : Schema_!ALL
+  , ICmptObjParamOutpObject<TTest,TType>
+{
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
+
+  public CmptObjParamOutpObject
+    ( TTest ptest
+    , TType ptype
+    )
+  {
+    Test = ptest;
+    Type = ptype;
+  }
+}
+
+public class CmptObjParamDupDual<TTest>
+  : Schema_!ALL
+  , ICmptObjParamDupDual<TTest>
+{
+  public ICmptObjParamDupDualObject<TTest>? As_ObjParamDupDual { get; set; }
+}
+
+public class CmptObjParamDupDualObject<TTest>
+  : Schema_!ALL
+  , ICmptObjParamDupDualObject<TTest>
+{
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
+
+  public CmptObjParamDupDualObject
+    ( TTest ptest
+    , TTest ptype
+    )
+  {
+    Test = ptest;
+    Type = ptype;
+  }
+}
+
+public class CmptObjParamDupInp<TTest>
+  : Schema_!ALL
+  , ICmptObjParamDupInp<TTest>
+{
+  public ICmptObjParamDupInpObject<TTest>? As_ObjParamDupInp { get; set; }
+}
+
+public class CmptObjParamDupInpObject<TTest>
+  : Schema_!ALL
+  , ICmptObjParamDupInpObject<TTest>
+{
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
+
+  public CmptObjParamDupInpObject
+    ( TTest ptest
+    , TTest ptype
+    )
+  {
+    Test = ptest;
+    Type = ptype;
+  }
+}
+
+public class CmptObjParamDupOutp<TTest>
+  : Schema_!ALL
+  , ICmptObjParamDupOutp<TTest>
+{
+  public ICmptObjParamDupOutpObject<TTest>? As_ObjParamDupOutp { get; set; }
+}
+
+public class CmptObjParamDupOutpObject<TTest>
+  : Schema_!ALL
+  , ICmptObjParamDupOutpObject<TTest>
+{
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
+
+  public CmptObjParamDupOutpObject
+    ( TTest ptest
+    , TTest ptype
+    )
+  {
+    Test = ptest;
+    Type = ptype;
+  }
+}
+
+public class CmptObjPrntDual
+  : CmptRefObjPrntDual
+  , ICmptObjPrntDual
+{
+  public ICmptObjPrntDualObject? As_ObjPrntDual { get; set; }
+}
+
+public class CmptObjPrntDualObject
+  : CmptRefObjPrntDualObject
+  , ICmptObjPrntDualObject
+{
+
+  public CmptObjPrntDualObject
+    ()
+  {
+  }
+}
+
+public class CmptRefObjPrntDual
+  : Schema_!ALL
+  , ICmptRefObjPrntDual
+{
+  public ICmptRefObjPrntDualObject? As_RefObjPrntDual { get; set; }
+}
+
+public class CmptRefObjPrntDualObject
+  : Schema_!ALL
+  , ICmptRefObjPrntDualObject
+{
+
+  public CmptRefObjPrntDualObject
+    ()
+  {
+  }
+}
+
+public class CmptObjPrntInp
+  : CmptRefObjPrntInp
+  , ICmptObjPrntInp
+{
+  public ICmptObjPrntInpObject? As_ObjPrntInp { get; set; }
+}
+
+public class CmptObjPrntInpObject
+  : CmptRefObjPrntInpObject
+  , ICmptObjPrntInpObject
+{
+
+  public CmptObjPrntInpObject
+    ()
+  {
+  }
+}
+
+public class CmptRefObjPrntInp
+  : Schema_!ALL
+  , ICmptRefObjPrntInp
+{
+  public ICmptRefObjPrntInpObject? As_RefObjPrntInp { get; set; }
+}
+
+public class CmptRefObjPrntInpObject
+  : Schema_!ALL
+  , ICmptRefObjPrntInpObject
+{
+
+  public CmptRefObjPrntInpObject
+    ()
+  {
+  }
+}
+
+public class CmptObjPrntOutp
+  : CmptRefObjPrntOutp
+  , ICmptObjPrntOutp
+{
+  public ICmptObjPrntOutpObject? As_ObjPrntOutp { get; set; }
+}
+
+public class CmptObjPrntOutpObject
+  : CmptRefObjPrntOutpObject
+  , ICmptObjPrntOutpObject
+{
+
+  public CmptObjPrntOutpObject
+    ()
+  {
+  }
+}
+
+public class CmptRefObjPrntOutp
+  : Schema_!ALL
+  , ICmptRefObjPrntOutp
+{
+  public ICmptRefObjPrntOutpObject? As_RefObjPrntOutp { get; set; }
+}
+
+public class CmptRefObjPrntOutpObject
+  : Schema_!ALL
+  , ICmptRefObjPrntOutpObject
+{
+
+  public CmptRefObjPrntOutpObject
+    ()
+  {
+  }
+}
+
+public class CmptOutpFieldParam
+  : Schema_!ALL
+  , ICmptOutpFieldParam
+{
+  public ICmptOutpFieldParamObject? As_OutpFieldParam { get; set; }
+}
+
+public class CmptOutpFieldParamObject
+  : Schema_!ALL
+  , ICmptOutpFieldParamObject
+{
+  public ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter)
+    => null;
+  public ICmptFldOutpFieldParam? Field()
+    => null;
+
+  public CmptOutpFieldParamObject
+    ()
+  {
+  }
+}
+
+public class CmptOutpFieldParam1
+  : Schema_!ALL
+  , ICmptOutpFieldParam1
+{
+  public ICmptOutpFieldParam1Object? As_OutpFieldParam1 { get; set; }
+}
+
+public class CmptOutpFieldParam1Object
+  : Schema_!ALL
+  , ICmptOutpFieldParam1Object
+{
+
+  public CmptOutpFieldParam1Object
+    ()
+  {
+  }
+}
+
+public class CmptOutpFieldParam2
+  : Schema_!ALL
+  , ICmptOutpFieldParam2
+{
+  public ICmptOutpFieldParam2Object? As_OutpFieldParam2 { get; set; }
+}
+
+public class CmptOutpFieldParam2Object
+  : Schema_!ALL
+  , ICmptOutpFieldParam2Object
+{
+
+  public CmptOutpFieldParam2Object
+    ()
+  {
+  }
+}
+
+public class CmptFldOutpFieldParam
+  : Schema_!ALL
+  , ICmptFldOutpFieldParam
+{
+  public ICmptFldOutpFieldParamObject? As_FldOutpFieldParam { get; set; }
+}
+
+public class CmptFldOutpFieldParamObject
+  : Schema_!ALL
+  , ICmptFldOutpFieldParamObject
+{
+
+  public CmptFldOutpFieldParamObject
+    ()
+  {
+  }
+}
+
+public class CmptUnionAlias
+  : Schema_!ALL
+  , ICmptUnionAlias
+{
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
+}
+
+public class CmptUnionDiff
+  : Schema_!ALL
+  , ICmptUnionDiff
+{
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
+}
+
+public class CmptUnionSame
+  : Schema_!ALL
+  , ICmptUnionSame
+{
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
+}
+
+public class CmptUnionSamePrnt
+  : CmptPrntUnionSamePrnt
+  , ICmptUnionSamePrnt
+{
+}
+
+public class CmptPrntUnionSamePrnt
+  : Schema_!ALL
+  , ICmptPrntUnionSamePrnt
+{
+  private object? _value;
+  public bool HasA<T>() => _value is T;
+  public T AsA<T>() => (T)_value!;
+}
+
 public class CmptAltDual
   : Schema_!ALL
   , ICmptAltDual
@@ -4978,7 +6286,7 @@ public class CmptRefGnrcAltModStrDual<TRef>
   : Schema_!ALL
   , ICmptRefGnrcAltModStrDual<TRef>
 {
-  public IDictionary<string, TRef>? Asref { get; set; }
+  public IMap<TRef>? Asref { get; set; }
   public ICmptRefGnrcAltModStrDualObject<TRef>? As_RefGnrcAltModStrDual { get; set; }
 }
 
@@ -4997,7 +6305,7 @@ public class CmptRefGnrcAltModStrInp<TRef>
   : Schema_!ALL
   , ICmptRefGnrcAltModStrInp<TRef>
 {
-  public IDictionary<string, TRef>? Asref { get; set; }
+  public IMap<TRef>? Asref { get; set; }
   public ICmptRefGnrcAltModStrInpObject<TRef>? As_RefGnrcAltModStrInp { get; set; }
 }
 
@@ -5016,7 +6324,7 @@ public class CmptRefGnrcAltModStrOutp<TRef>
   : Schema_!ALL
   , ICmptRefGnrcAltModStrOutp<TRef>
 {
-  public IDictionary<string, TRef>? Asref { get; set; }
+  public IMap<TRef>? Asref { get; set; }
   public ICmptRefGnrcAltModStrOutpObject<TRef>? As_RefGnrcAltModStrOutp { get; set; }
 }
 
@@ -9256,1314 +10564,6 @@ public class CmptRefPrntParamSameOutpObject<TA>
     ()
   {
   }
-}
-
-public class CmptCtgr
-  : Schema_!ALL
-  , ICmptCtgr
-{
-  public ICmptCtgrObject? As_Ctgr { get; set; }
-}
-
-public class CmptCtgrObject
-  : Schema_!ALL
-  , ICmptCtgrObject
-{
-
-  public CmptCtgrObject
-    ()
-  {
-  }
-}
-
-public class CmptCtgrAlias
-  : Schema_!ALL
-  , ICmptCtgrAlias
-{
-  public ICmptCtgrAliasObject? As_CtgrAlias { get; set; }
-}
-
-public class CmptCtgrAliasObject
-  : Schema_!ALL
-  , ICmptCtgrAliasObject
-{
-
-  public CmptCtgrAliasObject
-    ()
-  {
-  }
-}
-
-public class CmptCtgrDescr
-  : Schema_!ALL
-  , ICmptCtgrDescr
-{
-  public ICmptCtgrDescrObject? As_CtgrDescr { get; set; }
-}
-
-public class CmptCtgrDescrObject
-  : Schema_!ALL
-  , ICmptCtgrDescrObject
-{
-
-  public CmptCtgrDescrObject
-    ()
-  {
-  }
-}
-
-public class CmptCtgrMod
-  : Schema_!ALL
-  , ICmptCtgrMod
-{
-  public ICmptCtgrModObject? As_CtgrMod { get; set; }
-}
-
-public class CmptCtgrModObject
-  : Schema_!ALL
-  , ICmptCtgrModObject
-{
-
-  public CmptCtgrModObject
-    ()
-  {
-  }
-}
-
-public class CmptInDrctParam
-  : Schema_!ALL
-  , ICmptInDrctParam
-{
-  public ICmptInDrctParamObject? As_InDrctParam { get; set; }
-}
-
-public class CmptInDrctParamObject
-  : Schema_!ALL
-  , ICmptInDrctParamObject
-{
-
-  public CmptInDrctParamObject
-    ()
-  {
-  }
-}
-
-public class CmptDmnAlias
-  : GqlpDomainNumber
-  , ICmptDmnAlias
-{
-}
-
-public class CmptDmnBool
-  : GqlpDomainBoolean
-  , ICmptDmnBool
-{
-}
-
-public class CmptDmnBoolDiff
-  : GqlpDomainBoolean
-  , ICmptDmnBoolDiff
-{
-}
-
-public class CmptDmnBoolSame
-  : GqlpDomainBoolean
-  , ICmptDmnBoolSame
-{
-}
-
-public class CmptDmnEnumDiff
-  : GqlpDomainEnum
-  , ICmptDmnEnumDiff
-{
-  public new bool? Value { get; set; }
-}
-
-public class CmptDmnEnumSame
-  : GqlpDomainEnum
-  , ICmptDmnEnumSame
-{
-  public new bool? Value { get; set; }
-}
-
-public class CmptDmnNmbr
-  : GqlpDomainNumber
-  , ICmptDmnNmbr
-{
-}
-
-public class CmptDmnNmbrDiff
-  : GqlpDomainNumber
-  , ICmptDmnNmbrDiff
-{
-}
-
-public class CmptDmnNmbrSame
-  : GqlpDomainNumber
-  , ICmptDmnNmbrSame
-{
-}
-
-public class CmptDmnStr
-  : GqlpDomainString
-  , ICmptDmnStr
-{
-}
-
-public class CmptDmnStrDiff
-  : GqlpDomainString
-  , ICmptDmnStrDiff
-{
-}
-
-public class CmptDmnStrSame
-  : GqlpDomainString
-  , ICmptDmnStrSame
-{
-}
-
-public class CmptObjDual
-  : Schema_!ALL
-  , ICmptObjDual
-{
-  public ICmptObjDualObject? As_ObjDual { get; set; }
-}
-
-public class CmptObjDualObject
-  : Schema_!ALL
-  , ICmptObjDualObject
-{
-
-  public CmptObjDualObject
-    ()
-  {
-  }
-}
-
-public class CmptObjInp
-  : Schema_!ALL
-  , ICmptObjInp
-{
-  public ICmptObjInpObject? As_ObjInp { get; set; }
-}
-
-public class CmptObjInpObject
-  : Schema_!ALL
-  , ICmptObjInpObject
-{
-
-  public CmptObjInpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjOutp
-  : Schema_!ALL
-  , ICmptObjOutp
-{
-  public ICmptObjOutpObject? As_ObjOutp { get; set; }
-}
-
-public class CmptObjOutpObject
-  : Schema_!ALL
-  , ICmptObjOutpObject
-{
-
-  public CmptObjOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjAliasDual
-  : Schema_!ALL
-  , ICmptObjAliasDual
-{
-  public ICmptObjAliasDualObject? As_ObjAliasDual { get; set; }
-}
-
-public class CmptObjAliasDualObject
-  : Schema_!ALL
-  , ICmptObjAliasDualObject
-{
-
-  public CmptObjAliasDualObject
-    ()
-  {
-  }
-}
-
-public class CmptObjAliasInp
-  : Schema_!ALL
-  , ICmptObjAliasInp
-{
-  public ICmptObjAliasInpObject? As_ObjAliasInp { get; set; }
-}
-
-public class CmptObjAliasInpObject
-  : Schema_!ALL
-  , ICmptObjAliasInpObject
-{
-
-  public CmptObjAliasInpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjAliasOutp
-  : Schema_!ALL
-  , ICmptObjAliasOutp
-{
-  public ICmptObjAliasOutpObject? As_ObjAliasOutp { get; set; }
-}
-
-public class CmptObjAliasOutpObject
-  : Schema_!ALL
-  , ICmptObjAliasOutpObject
-{
-
-  public CmptObjAliasOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjAltDual
-  : Schema_!ALL
-  , ICmptObjAltDual
-{
-  public ICmptObjAltDualType? AsObjAltDualType { get; set; }
-  public ICmptObjAltDualObject? As_ObjAltDual { get; set; }
-}
-
-public class CmptObjAltDualObject
-  : Schema_!ALL
-  , ICmptObjAltDualObject
-{
-
-  public CmptObjAltDualObject
-    ()
-  {
-  }
-}
-
-public class CmptObjAltDualType
-  : Schema_!ALL
-  , ICmptObjAltDualType
-{
-  public ICmptObjAltDualTypeObject? As_ObjAltDualType { get; set; }
-}
-
-public class CmptObjAltDualTypeObject
-  : Schema_!ALL
-  , ICmptObjAltDualTypeObject
-{
-
-  public CmptObjAltDualTypeObject
-    ()
-  {
-  }
-}
-
-public class CmptObjAltInp
-  : Schema_!ALL
-  , ICmptObjAltInp
-{
-  public ICmptObjAltInpType? AsObjAltInpType { get; set; }
-  public ICmptObjAltInpObject? As_ObjAltInp { get; set; }
-}
-
-public class CmptObjAltInpObject
-  : Schema_!ALL
-  , ICmptObjAltInpObject
-{
-
-  public CmptObjAltInpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjAltInpType
-  : Schema_!ALL
-  , ICmptObjAltInpType
-{
-  public ICmptObjAltInpTypeObject? As_ObjAltInpType { get; set; }
-}
-
-public class CmptObjAltInpTypeObject
-  : Schema_!ALL
-  , ICmptObjAltInpTypeObject
-{
-
-  public CmptObjAltInpTypeObject
-    ()
-  {
-  }
-}
-
-public class CmptObjAltOutp
-  : Schema_!ALL
-  , ICmptObjAltOutp
-{
-  public ICmptObjAltOutpType? AsObjAltOutpType { get; set; }
-  public ICmptObjAltOutpObject? As_ObjAltOutp { get; set; }
-}
-
-public class CmptObjAltOutpObject
-  : Schema_!ALL
-  , ICmptObjAltOutpObject
-{
-
-  public CmptObjAltOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjAltOutpType
-  : Schema_!ALL
-  , ICmptObjAltOutpType
-{
-  public ICmptObjAltOutpTypeObject? As_ObjAltOutpType { get; set; }
-}
-
-public class CmptObjAltOutpTypeObject
-  : Schema_!ALL
-  , ICmptObjAltOutpTypeObject
-{
-
-  public CmptObjAltOutpTypeObject
-    ()
-  {
-  }
-}
-
-public class CmptObjAltEnumDual
-  : Schema_!ALL
-  , ICmptObjAltEnumDual
-{
-  public bool? AsBooleantrue { get; set; }
-  public bool? AsBooleanfalse { get; set; }
-  public ICmptObjAltEnumDualObject? As_ObjAltEnumDual { get; set; }
-}
-
-public class CmptObjAltEnumDualObject
-  : Schema_!ALL
-  , ICmptObjAltEnumDualObject
-{
-
-  public CmptObjAltEnumDualObject
-    ()
-  {
-  }
-}
-
-public class CmptObjAltEnumInp
-  : Schema_!ALL
-  , ICmptObjAltEnumInp
-{
-  public bool? AsBooleantrue { get; set; }
-  public bool? AsBooleanfalse { get; set; }
-  public ICmptObjAltEnumInpObject? As_ObjAltEnumInp { get; set; }
-}
-
-public class CmptObjAltEnumInpObject
-  : Schema_!ALL
-  , ICmptObjAltEnumInpObject
-{
-
-  public CmptObjAltEnumInpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjAltEnumOutp
-  : Schema_!ALL
-  , ICmptObjAltEnumOutp
-{
-  public bool? AsBooleantrue { get; set; }
-  public bool? AsBooleanfalse { get; set; }
-  public ICmptObjAltEnumOutpObject? As_ObjAltEnumOutp { get; set; }
-}
-
-public class CmptObjAltEnumOutpObject
-  : Schema_!ALL
-  , ICmptObjAltEnumOutpObject
-{
-
-  public CmptObjAltEnumOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjCnstDual<TType>
-  : Schema_!ALL
-  , ICmptObjCnstDual<TType>
-{
-  public ICmptObjCnstDualObject<TType>? As_ObjCnstDual { get; set; }
-}
-
-public class CmptObjCnstDualObject<TType>
-  : Schema_!ALL
-  , ICmptObjCnstDualObject<TType>
-{
-  public TType Field { get; set; }
-  public TType Str { get; set; }
-
-  public CmptObjCnstDualObject
-    ( TType pfield
-    , TType pstr
-    )
-  {
-    Field = pfield;
-    Str = pstr;
-  }
-}
-
-public class CmptObjCnstInp<TType>
-  : Schema_!ALL
-  , ICmptObjCnstInp<TType>
-{
-  public ICmptObjCnstInpObject<TType>? As_ObjCnstInp { get; set; }
-}
-
-public class CmptObjCnstInpObject<TType>
-  : Schema_!ALL
-  , ICmptObjCnstInpObject<TType>
-{
-  public TType Field { get; set; }
-  public TType Str { get; set; }
-
-  public CmptObjCnstInpObject
-    ( TType pfield
-    , TType pstr
-    )
-  {
-    Field = pfield;
-    Str = pstr;
-  }
-}
-
-public class CmptObjCnstOutp<TType>
-  : Schema_!ALL
-  , ICmptObjCnstOutp<TType>
-{
-  public ICmptObjCnstOutpObject<TType>? As_ObjCnstOutp { get; set; }
-}
-
-public class CmptObjCnstOutpObject<TType>
-  : Schema_!ALL
-  , ICmptObjCnstOutpObject<TType>
-{
-  public TType Field { get; set; }
-  public TType Str { get; set; }
-
-  public CmptObjCnstOutpObject
-    ( TType pfield
-    , TType pstr
-    )
-  {
-    Field = pfield;
-    Str = pstr;
-  }
-}
-
-public class CmptObjFieldDual
-  : Schema_!ALL
-  , ICmptObjFieldDual
-{
-  public ICmptObjFieldDualObject? As_ObjFieldDual { get; set; }
-}
-
-public class CmptObjFieldDualObject
-  : Schema_!ALL
-  , ICmptObjFieldDualObject
-{
-  public ICmptFldObjFieldDual Field { get; set; }
-
-  public CmptObjFieldDualObject
-    ( ICmptFldObjFieldDual pfield
-    )
-  {
-    Field = pfield;
-  }
-}
-
-public class CmptFldObjFieldDual
-  : Schema_!ALL
-  , ICmptFldObjFieldDual
-{
-  public ICmptFldObjFieldDualObject? As_FldObjFieldDual { get; set; }
-}
-
-public class CmptFldObjFieldDualObject
-  : Schema_!ALL
-  , ICmptFldObjFieldDualObject
-{
-
-  public CmptFldObjFieldDualObject
-    ()
-  {
-  }
-}
-
-public class CmptObjFieldInp
-  : Schema_!ALL
-  , ICmptObjFieldInp
-{
-  public ICmptObjFieldInpObject? As_ObjFieldInp { get; set; }
-}
-
-public class CmptObjFieldInpObject
-  : Schema_!ALL
-  , ICmptObjFieldInpObject
-{
-  public ICmptFldObjFieldInp Field { get; set; }
-
-  public CmptObjFieldInpObject
-    ( ICmptFldObjFieldInp pfield
-    )
-  {
-    Field = pfield;
-  }
-}
-
-public class CmptFldObjFieldInp
-  : Schema_!ALL
-  , ICmptFldObjFieldInp
-{
-  public ICmptFldObjFieldInpObject? As_FldObjFieldInp { get; set; }
-}
-
-public class CmptFldObjFieldInpObject
-  : Schema_!ALL
-  , ICmptFldObjFieldInpObject
-{
-
-  public CmptFldObjFieldInpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjFieldOutp
-  : Schema_!ALL
-  , ICmptObjFieldOutp
-{
-  public ICmptObjFieldOutpObject? As_ObjFieldOutp { get; set; }
-}
-
-public class CmptObjFieldOutpObject
-  : Schema_!ALL
-  , ICmptObjFieldOutpObject
-{
-  public ICmptFldObjFieldOutp Field { get; set; }
-
-  public CmptObjFieldOutpObject
-    ( ICmptFldObjFieldOutp pfield
-    )
-  {
-    Field = pfield;
-  }
-}
-
-public class CmptFldObjFieldOutp
-  : Schema_!ALL
-  , ICmptFldObjFieldOutp
-{
-  public ICmptFldObjFieldOutpObject? As_FldObjFieldOutp { get; set; }
-}
-
-public class CmptFldObjFieldOutpObject
-  : Schema_!ALL
-  , ICmptFldObjFieldOutpObject
-{
-
-  public CmptFldObjFieldOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjFieldAliasDual
-  : Schema_!ALL
-  , ICmptObjFieldAliasDual
-{
-  public ICmptObjFieldAliasDualObject? As_ObjFieldAliasDual { get; set; }
-}
-
-public class CmptObjFieldAliasDualObject
-  : Schema_!ALL
-  , ICmptObjFieldAliasDualObject
-{
-  public ICmptFldObjFieldAliasDual Field { get; set; }
-
-  public CmptObjFieldAliasDualObject
-    ( ICmptFldObjFieldAliasDual pfield
-    )
-  {
-    Field = pfield;
-  }
-}
-
-public class CmptFldObjFieldAliasDual
-  : Schema_!ALL
-  , ICmptFldObjFieldAliasDual
-{
-  public ICmptFldObjFieldAliasDualObject? As_FldObjFieldAliasDual { get; set; }
-}
-
-public class CmptFldObjFieldAliasDualObject
-  : Schema_!ALL
-  , ICmptFldObjFieldAliasDualObject
-{
-
-  public CmptFldObjFieldAliasDualObject
-    ()
-  {
-  }
-}
-
-public class CmptObjFieldAliasInp
-  : Schema_!ALL
-  , ICmptObjFieldAliasInp
-{
-  public ICmptObjFieldAliasInpObject? As_ObjFieldAliasInp { get; set; }
-}
-
-public class CmptObjFieldAliasInpObject
-  : Schema_!ALL
-  , ICmptObjFieldAliasInpObject
-{
-  public ICmptFldObjFieldAliasInp Field { get; set; }
-
-  public CmptObjFieldAliasInpObject
-    ( ICmptFldObjFieldAliasInp pfield
-    )
-  {
-    Field = pfield;
-  }
-}
-
-public class CmptFldObjFieldAliasInp
-  : Schema_!ALL
-  , ICmptFldObjFieldAliasInp
-{
-  public ICmptFldObjFieldAliasInpObject? As_FldObjFieldAliasInp { get; set; }
-}
-
-public class CmptFldObjFieldAliasInpObject
-  : Schema_!ALL
-  , ICmptFldObjFieldAliasInpObject
-{
-
-  public CmptFldObjFieldAliasInpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjFieldAliasOutp
-  : Schema_!ALL
-  , ICmptObjFieldAliasOutp
-{
-  public ICmptObjFieldAliasOutpObject? As_ObjFieldAliasOutp { get; set; }
-}
-
-public class CmptObjFieldAliasOutpObject
-  : Schema_!ALL
-  , ICmptObjFieldAliasOutpObject
-{
-  public ICmptFldObjFieldAliasOutp Field { get; set; }
-
-  public CmptObjFieldAliasOutpObject
-    ( ICmptFldObjFieldAliasOutp pfield
-    )
-  {
-    Field = pfield;
-  }
-}
-
-public class CmptFldObjFieldAliasOutp
-  : Schema_!ALL
-  , ICmptFldObjFieldAliasOutp
-{
-  public ICmptFldObjFieldAliasOutpObject? As_FldObjFieldAliasOutp { get; set; }
-}
-
-public class CmptFldObjFieldAliasOutpObject
-  : Schema_!ALL
-  , ICmptFldObjFieldAliasOutpObject
-{
-
-  public CmptFldObjFieldAliasOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjFieldEnumAliasDual
-  : Schema_!ALL
-  , ICmptObjFieldEnumAliasDual
-{
-  public ICmptObjFieldEnumAliasDualObject? As_ObjFieldEnumAliasDual { get; set; }
-}
-
-public class CmptObjFieldEnumAliasDualObject
-  : Schema_!ALL
-  , ICmptObjFieldEnumAliasDualObject
-{
-  public bool Field { get; set; }
-
-  public CmptObjFieldEnumAliasDualObject
-    ( bool pfield
-    )
-  {
-    Field = pfield;
-  }
-}
-
-public class CmptObjFieldEnumAliasInp
-  : Schema_!ALL
-  , ICmptObjFieldEnumAliasInp
-{
-  public ICmptObjFieldEnumAliasInpObject? As_ObjFieldEnumAliasInp { get; set; }
-}
-
-public class CmptObjFieldEnumAliasInpObject
-  : Schema_!ALL
-  , ICmptObjFieldEnumAliasInpObject
-{
-  public bool Field { get; set; }
-
-  public CmptObjFieldEnumAliasInpObject
-    ( bool pfield
-    )
-  {
-    Field = pfield;
-  }
-}
-
-public class CmptObjFieldEnumAliasOutp
-  : Schema_!ALL
-  , ICmptObjFieldEnumAliasOutp
-{
-  public ICmptObjFieldEnumAliasOutpObject? As_ObjFieldEnumAliasOutp { get; set; }
-}
-
-public class CmptObjFieldEnumAliasOutpObject
-  : Schema_!ALL
-  , ICmptObjFieldEnumAliasOutpObject
-{
-  public bool Field { get; set; }
-
-  public CmptObjFieldEnumAliasOutpObject
-    ( bool pfield
-    )
-  {
-    Field = pfield;
-  }
-}
-
-public class CmptObjFieldEnumValueDual
-  : Schema_!ALL
-  , ICmptObjFieldEnumValueDual
-{
-  public ICmptObjFieldEnumValueDualObject? As_ObjFieldEnumValueDual { get; set; }
-}
-
-public class CmptObjFieldEnumValueDualObject
-  : Schema_!ALL
-  , ICmptObjFieldEnumValueDualObject
-{
-  public bool Field { get; set; }
-
-  public CmptObjFieldEnumValueDualObject
-    ( bool pfield
-    )
-  {
-    Field = pfield;
-  }
-}
-
-public class CmptObjFieldEnumValueInp
-  : Schema_!ALL
-  , ICmptObjFieldEnumValueInp
-{
-  public ICmptObjFieldEnumValueInpObject? As_ObjFieldEnumValueInp { get; set; }
-}
-
-public class CmptObjFieldEnumValueInpObject
-  : Schema_!ALL
-  , ICmptObjFieldEnumValueInpObject
-{
-  public bool Field { get; set; }
-
-  public CmptObjFieldEnumValueInpObject
-    ( bool pfield
-    )
-  {
-    Field = pfield;
-  }
-}
-
-public class CmptObjFieldEnumValueOutp
-  : Schema_!ALL
-  , ICmptObjFieldEnumValueOutp
-{
-  public ICmptObjFieldEnumValueOutpObject? As_ObjFieldEnumValueOutp { get; set; }
-}
-
-public class CmptObjFieldEnumValueOutpObject
-  : Schema_!ALL
-  , ICmptObjFieldEnumValueOutpObject
-{
-  public bool Field { get; set; }
-
-  public CmptObjFieldEnumValueOutpObject
-    ( bool pfield
-    )
-  {
-    Field = pfield;
-  }
-}
-
-public class CmptObjFieldTypeAliasDual
-  : Schema_!ALL
-  , ICmptObjFieldTypeAliasDual
-{
-  public ICmptObjFieldTypeAliasDualObject? As_ObjFieldTypeAliasDual { get; set; }
-}
-
-public class CmptObjFieldTypeAliasDualObject
-  : Schema_!ALL
-  , ICmptObjFieldTypeAliasDualObject
-{
-  public string Field { get; set; }
-
-  public CmptObjFieldTypeAliasDualObject
-    ( string pfield
-    )
-  {
-    Field = pfield;
-  }
-}
-
-public class CmptObjFieldTypeAliasInp
-  : Schema_!ALL
-  , ICmptObjFieldTypeAliasInp
-{
-  public ICmptObjFieldTypeAliasInpObject? As_ObjFieldTypeAliasInp { get; set; }
-}
-
-public class CmptObjFieldTypeAliasInpObject
-  : Schema_!ALL
-  , ICmptObjFieldTypeAliasInpObject
-{
-  public string Field { get; set; }
-
-  public CmptObjFieldTypeAliasInpObject
-    ( string pfield
-    )
-  {
-    Field = pfield;
-  }
-}
-
-public class CmptObjFieldTypeAliasOutp
-  : Schema_!ALL
-  , ICmptObjFieldTypeAliasOutp
-{
-  public ICmptObjFieldTypeAliasOutpObject? As_ObjFieldTypeAliasOutp { get; set; }
-}
-
-public class CmptObjFieldTypeAliasOutpObject
-  : Schema_!ALL
-  , ICmptObjFieldTypeAliasOutpObject
-{
-  public string Field { get; set; }
-
-  public CmptObjFieldTypeAliasOutpObject
-    ( string pfield
-    )
-  {
-    Field = pfield;
-  }
-}
-
-public class CmptObjParamDual<TTest,TType>
-  : Schema_!ALL
-  , ICmptObjParamDual<TTest,TType>
-{
-  public ICmptObjParamDualObject<TTest,TType>? As_ObjParamDual { get; set; }
-}
-
-public class CmptObjParamDualObject<TTest,TType>
-  : Schema_!ALL
-  , ICmptObjParamDualObject<TTest,TType>
-{
-  public TTest Test { get; set; }
-  public TType Type { get; set; }
-
-  public CmptObjParamDualObject
-    ( TTest ptest
-    , TType ptype
-    )
-  {
-    Test = ptest;
-    Type = ptype;
-  }
-}
-
-public class CmptObjParamInp<TTest,TType>
-  : Schema_!ALL
-  , ICmptObjParamInp<TTest,TType>
-{
-  public ICmptObjParamInpObject<TTest,TType>? As_ObjParamInp { get; set; }
-}
-
-public class CmptObjParamInpObject<TTest,TType>
-  : Schema_!ALL
-  , ICmptObjParamInpObject<TTest,TType>
-{
-  public TTest Test { get; set; }
-  public TType Type { get; set; }
-
-  public CmptObjParamInpObject
-    ( TTest ptest
-    , TType ptype
-    )
-  {
-    Test = ptest;
-    Type = ptype;
-  }
-}
-
-public class CmptObjParamOutp<TTest,TType>
-  : Schema_!ALL
-  , ICmptObjParamOutp<TTest,TType>
-{
-  public ICmptObjParamOutpObject<TTest,TType>? As_ObjParamOutp { get; set; }
-}
-
-public class CmptObjParamOutpObject<TTest,TType>
-  : Schema_!ALL
-  , ICmptObjParamOutpObject<TTest,TType>
-{
-  public TTest Test { get; set; }
-  public TType Type { get; set; }
-
-  public CmptObjParamOutpObject
-    ( TTest ptest
-    , TType ptype
-    )
-  {
-    Test = ptest;
-    Type = ptype;
-  }
-}
-
-public class CmptObjParamDupDual<TTest>
-  : Schema_!ALL
-  , ICmptObjParamDupDual<TTest>
-{
-  public ICmptObjParamDupDualObject<TTest>? As_ObjParamDupDual { get; set; }
-}
-
-public class CmptObjParamDupDualObject<TTest>
-  : Schema_!ALL
-  , ICmptObjParamDupDualObject<TTest>
-{
-  public TTest Test { get; set; }
-  public TTest Type { get; set; }
-
-  public CmptObjParamDupDualObject
-    ( TTest ptest
-    , TTest ptype
-    )
-  {
-    Test = ptest;
-    Type = ptype;
-  }
-}
-
-public class CmptObjParamDupInp<TTest>
-  : Schema_!ALL
-  , ICmptObjParamDupInp<TTest>
-{
-  public ICmptObjParamDupInpObject<TTest>? As_ObjParamDupInp { get; set; }
-}
-
-public class CmptObjParamDupInpObject<TTest>
-  : Schema_!ALL
-  , ICmptObjParamDupInpObject<TTest>
-{
-  public TTest Test { get; set; }
-  public TTest Type { get; set; }
-
-  public CmptObjParamDupInpObject
-    ( TTest ptest
-    , TTest ptype
-    )
-  {
-    Test = ptest;
-    Type = ptype;
-  }
-}
-
-public class CmptObjParamDupOutp<TTest>
-  : Schema_!ALL
-  , ICmptObjParamDupOutp<TTest>
-{
-  public ICmptObjParamDupOutpObject<TTest>? As_ObjParamDupOutp { get; set; }
-}
-
-public class CmptObjParamDupOutpObject<TTest>
-  : Schema_!ALL
-  , ICmptObjParamDupOutpObject<TTest>
-{
-  public TTest Test { get; set; }
-  public TTest Type { get; set; }
-
-  public CmptObjParamDupOutpObject
-    ( TTest ptest
-    , TTest ptype
-    )
-  {
-    Test = ptest;
-    Type = ptype;
-  }
-}
-
-public class CmptObjPrntDual
-  : CmptRefObjPrntDual
-  , ICmptObjPrntDual
-{
-  public ICmptObjPrntDualObject? As_ObjPrntDual { get; set; }
-}
-
-public class CmptObjPrntDualObject
-  : CmptRefObjPrntDualObject
-  , ICmptObjPrntDualObject
-{
-
-  public CmptObjPrntDualObject
-    ()
-  {
-  }
-}
-
-public class CmptRefObjPrntDual
-  : Schema_!ALL
-  , ICmptRefObjPrntDual
-{
-  public ICmptRefObjPrntDualObject? As_RefObjPrntDual { get; set; }
-}
-
-public class CmptRefObjPrntDualObject
-  : Schema_!ALL
-  , ICmptRefObjPrntDualObject
-{
-
-  public CmptRefObjPrntDualObject
-    ()
-  {
-  }
-}
-
-public class CmptObjPrntInp
-  : CmptRefObjPrntInp
-  , ICmptObjPrntInp
-{
-  public ICmptObjPrntInpObject? As_ObjPrntInp { get; set; }
-}
-
-public class CmptObjPrntInpObject
-  : CmptRefObjPrntInpObject
-  , ICmptObjPrntInpObject
-{
-
-  public CmptObjPrntInpObject
-    ()
-  {
-  }
-}
-
-public class CmptRefObjPrntInp
-  : Schema_!ALL
-  , ICmptRefObjPrntInp
-{
-  public ICmptRefObjPrntInpObject? As_RefObjPrntInp { get; set; }
-}
-
-public class CmptRefObjPrntInpObject
-  : Schema_!ALL
-  , ICmptRefObjPrntInpObject
-{
-
-  public CmptRefObjPrntInpObject
-    ()
-  {
-  }
-}
-
-public class CmptObjPrntOutp
-  : CmptRefObjPrntOutp
-  , ICmptObjPrntOutp
-{
-  public ICmptObjPrntOutpObject? As_ObjPrntOutp { get; set; }
-}
-
-public class CmptObjPrntOutpObject
-  : CmptRefObjPrntOutpObject
-  , ICmptObjPrntOutpObject
-{
-
-  public CmptObjPrntOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptRefObjPrntOutp
-  : Schema_!ALL
-  , ICmptRefObjPrntOutp
-{
-  public ICmptRefObjPrntOutpObject? As_RefObjPrntOutp { get; set; }
-}
-
-public class CmptRefObjPrntOutpObject
-  : Schema_!ALL
-  , ICmptRefObjPrntOutpObject
-{
-
-  public CmptRefObjPrntOutpObject
-    ()
-  {
-  }
-}
-
-public class CmptOutpFieldParam
-  : Schema_!ALL
-  , ICmptOutpFieldParam
-{
-  public ICmptOutpFieldParamObject? As_OutpFieldParam { get; set; }
-}
-
-public class CmptOutpFieldParamObject
-  : Schema_!ALL
-  , ICmptOutpFieldParamObject
-{
-  public ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter)
-    => null;
-  public ICmptFldOutpFieldParam? Field()
-    => null;
-
-  public CmptOutpFieldParamObject
-    ()
-  {
-  }
-}
-
-public class CmptOutpFieldParam1
-  : Schema_!ALL
-  , ICmptOutpFieldParam1
-{
-  public ICmptOutpFieldParam1Object? As_OutpFieldParam1 { get; set; }
-}
-
-public class CmptOutpFieldParam1Object
-  : Schema_!ALL
-  , ICmptOutpFieldParam1Object
-{
-
-  public CmptOutpFieldParam1Object
-    ()
-  {
-  }
-}
-
-public class CmptOutpFieldParam2
-  : Schema_!ALL
-  , ICmptOutpFieldParam2
-{
-  public ICmptOutpFieldParam2Object? As_OutpFieldParam2 { get; set; }
-}
-
-public class CmptOutpFieldParam2Object
-  : Schema_!ALL
-  , ICmptOutpFieldParam2Object
-{
-
-  public CmptOutpFieldParam2Object
-    ()
-  {
-  }
-}
-
-public class CmptFldOutpFieldParam
-  : Schema_!ALL
-  , ICmptFldOutpFieldParam
-{
-  public ICmptFldOutpFieldParamObject? As_FldOutpFieldParam { get; set; }
-}
-
-public class CmptFldOutpFieldParamObject
-  : Schema_!ALL
-  , ICmptFldOutpFieldParamObject
-{
-
-  public CmptFldOutpFieldParamObject
-    ()
-  {
-  }
-}
-
-public class CmptUnionAlias
-  : Schema_!ALL
-  , ICmptUnionAlias
-{
-  private object? _value;
-  public bool HasA<T>() => _value is T;
-  public T AsA<T>() => (T)_value!;
-}
-
-public class CmptUnionDiff
-  : Schema_!ALL
-  , ICmptUnionDiff
-{
-  private object? _value;
-  public bool HasA<T>() => _value is T;
-  public T AsA<T>() => (T)_value!;
-}
-
-public class CmptUnionSame
-  : Schema_!ALL
-  , ICmptUnionSame
-{
-  private object? _value;
-  public bool HasA<T>() => _value is T;
-  public T AsA<T>() => (T)_value!;
-}
-
-public class CmptUnionSamePrnt
-  : CmptPrntUnionSamePrnt
-  , ICmptUnionSamePrnt
-{
-}
-
-public class CmptPrntUnionSamePrnt
-  : Schema_!ALL
-  , ICmptPrntUnionSamePrnt
-{
-  private object? _value;
-  public bool HasA<T>() => _value is T;
-  public T AsA<T>() => (T)_value!;
 }
 
 public class CmptDmnBoolDescr

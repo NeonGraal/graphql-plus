@@ -81,8 +81,8 @@ internal class Cmpt_CategoryEncoder(
 ) : IEncoder<ICmpt_CategoryObject>
 {
   private readonly Encoder<ICmpt_AliasedObject> _aliased = encoders.EncoderFor<ICmpt_AliasedObject>();
-  private readonly Encoder<ICmpt_TypeRef<ICmpt_TypeKind>> _typeRef = encoders.EncoderFor<ICmpt_TypeRef<ICmpt_TypeKind>>();
   private readonly Encoder<ICmpt_Modifiers> _modifiers = encoders.EncoderFor<ICmpt_Modifiers>();
+  private readonly Encoder<ICmpt_TypeRef<ICmpt_TypeKind>> _typeRef = encoders.EncoderFor<ICmpt_TypeRef<ICmpt_TypeKind>>();
   public Structured Encode(ICmpt_CategoryObject input)
     => _aliased.Encode(input)
       .AddEnum("resolution", input.Resolution)
@@ -139,8 +139,8 @@ internal class Cmpt_SettingEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_SettingObject>
 {
-  private readonly Encoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
   private readonly Encoder<GqlpValue> _gqlpValue = encoders.EncoderFor<GqlpValue>();
+  private readonly Encoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
   public Structured Encode(ICmpt_SettingObject input)
     => _named.Encode(input)
       .AddEncoded("value", input.Value, _gqlpValue);

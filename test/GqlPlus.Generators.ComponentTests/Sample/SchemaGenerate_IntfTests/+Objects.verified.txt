@@ -3039,7 +3039,7 @@ public interface ICmptRefGnrcAltModParamOutpObject<TRef,TMod>
 public interface ICmptRefGnrcAltModStrDual<TRef>
   : Schema_+Objects
 {
-  IDictionary<string, TRef>? Asref { get; }
+  IMap<TRef>? Asref { get; }
   ICmptRefGnrcAltModStrDualObject<TRef>? As_RefGnrcAltModStrDual { get; }
 }
 
@@ -3051,7 +3051,7 @@ public interface ICmptRefGnrcAltModStrDualObject<TRef>
 public interface ICmptRefGnrcAltModStrInp<TRef>
   : Schema_+Objects
 {
-  IDictionary<string, TRef>? Asref { get; }
+  IMap<TRef>? Asref { get; }
   ICmptRefGnrcAltModStrInpObject<TRef>? As_RefGnrcAltModStrInp { get; }
 }
 
@@ -3063,7 +3063,7 @@ public interface ICmptRefGnrcAltModStrInpObject<TRef>
 public interface ICmptRefGnrcAltModStrOutp<TRef>
   : Schema_+Objects
 {
-  IDictionary<string, TRef>? Asref { get; }
+  IMap<TRef>? Asref { get; }
   ICmptRefGnrcAltModStrOutpObject<TRef>? As_RefGnrcAltModStrOutp { get; }
 }
 

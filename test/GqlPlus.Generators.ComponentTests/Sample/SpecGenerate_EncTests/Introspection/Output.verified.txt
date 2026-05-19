@@ -32,8 +32,8 @@ internal class Cmpt_OutputFieldTypeEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_OutputFieldTypeObject>
 {
-  private readonly Encoder<ICmpt_ObjFieldTypeObject> _objFieldType = encoders.EncoderFor<ICmpt_ObjFieldTypeObject>();
   private readonly Encoder<ICmpt_InputFieldType> _inputFieldType = encoders.EncoderFor<ICmpt_InputFieldType>();
+  private readonly Encoder<ICmpt_ObjFieldTypeObject> _objFieldType = encoders.EncoderFor<ICmpt_ObjFieldTypeObject>();
   public Structured Encode(ICmpt_OutputFieldTypeObject input)
     => _objFieldType.Encode(input)
       .AddEncoded("parameter", input.Parameter, _inputFieldType);

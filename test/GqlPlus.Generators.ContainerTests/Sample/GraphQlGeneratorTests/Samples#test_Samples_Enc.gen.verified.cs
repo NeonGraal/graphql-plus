@@ -12,8 +12,8 @@ internal class testQueryEncoder(
 ) : IEncoder<ItestQueryObject>
 {
   private readonly Encoder<ItestFullUser> _itestFullUser = encoders.EncoderFor<ItestFullUser>();
-  private readonly Encoder<ItestStory> _itestStory = encoders.EncoderFor<ItestStory>();
   private readonly Encoder<ItestProfile> _itestProfile = encoders.EncoderFor<ItestProfile>();
+  private readonly Encoder<ItestStory> _itestStory = encoders.EncoderFor<ItestStory>();
   public Structured Encode(ItestQueryObject input)
     => Structured.Empty()
       .AddEncoded("user", input.User(), _itestFullUser)
@@ -65,8 +65,8 @@ internal class testFullUserEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestFullUserObject>
 {
-  private readonly Encoder<ItestUserObject> _itestUser = encoders.EncoderFor<ItestUserObject>();
   private readonly Encoder<ItestUserList> _itestUserList = encoders.EncoderFor<ItestUserList>();
+  private readonly Encoder<ItestUserObject> _itestUser = encoders.EncoderFor<ItestUserObject>();
   public Structured Encode(ItestFullUserObject input)
     => _itestUser.Encode(input)
       .Add("profilePic", input.ProfilePic().Encode())

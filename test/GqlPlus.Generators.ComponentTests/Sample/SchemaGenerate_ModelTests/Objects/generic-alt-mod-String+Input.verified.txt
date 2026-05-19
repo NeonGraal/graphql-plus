@@ -14,7 +14,7 @@ public class CmptRefGnrcAltModStrInp<TRef>
   : Schema_generic-alt-mod-String+Input
   , ICmptRefGnrcAltModStrInp<TRef>
 {
-  public IDictionary<string, TRef>? Asref { get; set; }
+  public IMap<TRef>? Asref { get; set; }
   public ICmptRefGnrcAltModStrInpObject<TRef>? As_RefGnrcAltModStrInp { get; set; }
 }
 

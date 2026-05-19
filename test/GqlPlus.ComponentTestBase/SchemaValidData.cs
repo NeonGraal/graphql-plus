@@ -18,7 +18,7 @@ public class SchemaValidData
     .. SamplesSchemaSimpleData.Strings,
   ];
 
-  public static readonly Dictionary<string, IEnumerable<string>> Files = new() {
+  public static readonly Map<IEnumerable<string>> Files = new() {
     ["Globals"] = SamplesSchemaGlobalsData.Strings,
     ["Objects"] = SamplesSchemaObjectsData.Strings,
     ["Merges"] = SamplesSchemaMergesData.Strings,

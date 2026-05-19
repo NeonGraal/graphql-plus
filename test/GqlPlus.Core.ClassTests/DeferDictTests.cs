@@ -6,7 +6,7 @@ public class DeferDictTests
   public void Keys_WhenAccessed_ReturnsFactoryKeys(string[] values)
   {
     string[] distinct = [.. values.Distinct()];
-    Dictionary<string, string> dict = distinct.ToDictionary(v => v, v => v);
+    Map<string> dict = distinct.ToMap(v => v);
     DeferDict<string, string> defer = new(() => dict);
 
     IEnumerable<string> result = defer.Keys;
@@ -18,7 +18,7 @@ public class DeferDictTests
   public void Values_WhenAccessed_ReturnsFactoryValues(string[] values)
   {
     string[] distinct = [.. values.Distinct()];
-    Dictionary<string, string> dict = distinct.ToDictionary(v => v, v => v);
+    Map<string> dict = distinct.ToMap(v => v);
     DeferDict<string, string> defer = new(() => dict);
 
     IEnumerable<string> result = defer.Values;
@@ -30,7 +30,7 @@ public class DeferDictTests
   public void Count_WhenAccessed_ReturnsFactoryCount(string[] values)
   {
     string[] distinct = [.. values.Distinct()];
-    Dictionary<string, string> dict = distinct.ToDictionary(v => v, v => v);
+    Map<string> dict = distinct.ToMap(v => v);
     DeferDict<string, string> defer = new(() => dict);
 
     int result = defer.Count;
@@ -41,7 +41,7 @@ public class DeferDictTests
   [Theory, RepeatData]
   public void Indexer_GivenExistingKey_ReturnsCorrectValue(string key)
   {
-    Dictionary<string, string> dict = new() { { key, key } };
+    Map<string> dict = new() { { key, key } };
     DeferDict<string, string> defer = new(() => dict);
 
     string result = defer[key];
@@ -52,7 +52,7 @@ public class DeferDictTests
   [Theory, RepeatData]
   public void ContainsKey_WhenKeyExists_ReturnsTrue(string key)
   {
-    Dictionary<string, string> dict = new() { { key, key } };
+    Map<string> dict = new() { { key, key } };
     DeferDict<string, string> defer = new(() => dict);
 
     bool result = defer.ContainsKey(key);
@@ -63,7 +63,7 @@ public class DeferDictTests
   [Theory, RepeatData]
   public void ContainsKey_WhenKeyMissing_ReturnsFalse(string key)
   {
-    Dictionary<string, string> dict = [];
+    Map<string> dict = [];
     DeferDict<string, string> defer = new(() => dict);
 
     bool result = defer.ContainsKey(key);
@@ -74,7 +74,7 @@ public class DeferDictTests
   [Theory, RepeatData]
   public void TryGetValue_WhenKeyExists_ReturnsTrueAndValue(string key)
   {
-    Dictionary<string, string> dict = new() { { key, key } };
+    Map<string> dict = new() { { key, key } };
     DeferDict<string, string> defer = new(() => dict);
 
     bool result = defer.TryGetValue(key, out string value);
@@ -86,7 +86,7 @@ public class DeferDictTests
   [Theory, RepeatData]
   public void TryGetValue_WhenKeyMissing_ReturnsFalse(string key)
   {
-    Dictionary<string, string> dict = [];
+    Map<string> dict = [];
     DeferDict<string, string> defer = new(() => dict);
 
     bool result = defer.TryGetValue(key, out string _);
@@ -98,7 +98,7 @@ public class DeferDictTests
   public void GetEnumerator_WhenIterated_ReturnsKeyValuePairs(string[] values)
   {
     string[] distinct = [.. values.Distinct()];
-    Dictionary<string, string> dict = distinct.ToDictionary(v => v, v => v);
+    Map<string> dict = distinct.ToMap(v => v);
     DeferDict<string, string> defer = new(() => dict);
 
     IEnumerable<KeyValuePair<string, string>> result = defer;
@@ -110,7 +110,7 @@ public class DeferDictTests
   public void GetEnumerator_NonGeneric_WhenIterated_ReturnsKeyValuePairs(string[] values)
   {
     string[] distinct = [.. values.Distinct()];
-    Dictionary<string, string> dict = distinct.ToDictionary(v => v, v => v);
+    Map<string> dict = distinct.ToMap(v => v);
     DeferDict<string, string> defer = new(() => dict);
 
     System.Collections.IEnumerable enumerable = defer;

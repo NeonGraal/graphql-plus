@@ -47,7 +47,7 @@ public interface Itest_DictObject<TK,TT>
 public interface Itest_Map<TT>
   : IGqlpInterfaceBase
 {
-  IDictionary<string, TT>? AsT { get; }
+  IMap<TT>? AsT { get; }
   Itest_MapObject<TT>? As__Map { get; }
 }
 

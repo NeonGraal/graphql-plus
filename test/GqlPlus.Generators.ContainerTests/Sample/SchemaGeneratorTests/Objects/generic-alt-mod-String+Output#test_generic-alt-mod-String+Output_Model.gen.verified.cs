@@ -11,7 +11,7 @@ public class testRefGnrcAltModStrOutp<TRef>
   : GqlpModelBase
   , ItestRefGnrcAltModStrOutp<TRef>
 {
-  public IDictionary<string, TRef>? Asref { get; set; }
+  public IMap<TRef>? Asref { get; set; }
   public ItestRefGnrcAltModStrOutpObject<TRef>? As_RefGnrcAltModStrOutp { get; set; }
 }
 

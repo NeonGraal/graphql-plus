@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_generic_alt_mod_String_Output;
 public interface ICmptRefGnrcAltModStrOutp<TRef>
   : Schema_generic-alt-mod-String+Output
 {
-  IDictionary<string, TRef>? Asref { get; }
+  IMap<TRef>? Asref { get; }
   ICmptRefGnrcAltModStrOutpObject<TRef>? As_RefGnrcAltModStrOutp { get; }
 }
 

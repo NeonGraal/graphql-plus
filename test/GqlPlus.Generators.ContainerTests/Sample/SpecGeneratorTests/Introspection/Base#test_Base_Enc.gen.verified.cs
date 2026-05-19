@@ -20,11 +20,11 @@ internal class test_TypeObjectEncoder<TObjectKind,TField>(
 ) : IEncoder<Itest_TypeObjectObject<TObjectKind,TField>>
 {
   private readonly Encoder<Itest_ChildTypeObject<TObjectKind, Itest_ObjBase>> _itest_ChildType = encoders.EncoderFor<Itest_ChildTypeObject<TObjectKind, Itest_ObjBase>>();
+  private readonly Encoder<Itest_ObjAlternate> _itest_ObjAlternate = encoders.EncoderFor<Itest_ObjAlternate>();
+  private readonly Encoder<Itest_ObjectFor<Itest_ObjAlternate>> _itest_ObjectFor2 = encoders.EncoderFor<Itest_ObjectFor<Itest_ObjAlternate>>();
+  private readonly Encoder<Itest_ObjectFor<TField>> _itest_ObjectFor = encoders.EncoderFor<Itest_ObjectFor<TField>>();
   private readonly Encoder<Itest_ObjTypeParam> _itest_ObjTypeParam = encoders.EncoderFor<Itest_ObjTypeParam>();
   private readonly Encoder<TField> _field = encoders.EncoderFor<TField>();
-  private readonly Encoder<Itest_ObjAlternate> _itest_ObjAlternate = encoders.EncoderFor<Itest_ObjAlternate>();
-  private readonly Encoder<Itest_ObjectFor<TField>> _itest_ObjectFor = encoders.EncoderFor<Itest_ObjectFor<TField>>();
-  private readonly Encoder<Itest_ObjectFor<Itest_ObjAlternate>> _itest_ObjectFor2 = encoders.EncoderFor<Itest_ObjectFor<Itest_ObjAlternate>>();
   public Structured Encode(Itest_TypeObjectObject<TObjectKind,TField> input)
     => _itest_ChildType.Encode(input)
       .AddList("typeParams", input.TypeParams, _itest_ObjTypeParam)
@@ -64,8 +64,8 @@ internal class test_ObjTypeArgEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_ObjTypeArgObject>
 {
-  private readonly Encoder<Itest_TypeRefObject<Itest_TypeKind>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRefObject<Itest_TypeKind>>();
   private readonly Encoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  private readonly Encoder<Itest_TypeRefObject<Itest_TypeKind>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRefObject<Itest_TypeKind>>();
   public Structured Encode(Itest_ObjTypeArgObject input)
     => _itest_TypeRef.Encode(input)
       .AddEncoded("label", input.Label, _itest_Name);
@@ -90,8 +90,8 @@ internal class test_ObjAlternateEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_ObjAlternateObject>
 {
-  private readonly Encoder<Itest_ObjBase> _itest_ObjBase = encoders.EncoderFor<Itest_ObjBase>();
   private readonly Encoder<Itest_Collections> _itest_Collections = encoders.EncoderFor<Itest_Collections>();
+  private readonly Encoder<Itest_ObjBase> _itest_ObjBase = encoders.EncoderFor<Itest_ObjBase>();
   public Structured Encode(Itest_ObjAlternateObject input)
     => Structured.Empty()
       .AddEncoded("type", input.Type, _itest_ObjBase)
@@ -104,8 +104,8 @@ internal class test_ObjAlternateEnumEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_ObjAlternateEnumObject>
 {
-  private readonly Encoder<Itest_TypeRefObject<Itest_TypeKind>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRefObject<Itest_TypeKind>>();
   private readonly Encoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  private readonly Encoder<Itest_TypeRefObject<Itest_TypeKind>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRefObject<Itest_TypeKind>>();
   public Structured Encode(Itest_ObjAlternateEnumObject input)
     => _itest_TypeRef.Encode(input)
       .AddEncoded("label", input.Label, _itest_Name);
@@ -138,8 +138,8 @@ internal class test_ObjFieldTypeEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_ObjFieldTypeObject>
 {
-  private readonly Encoder<Itest_ObjBaseObject> _itest_ObjBase = encoders.EncoderFor<Itest_ObjBaseObject>();
   private readonly Encoder<Itest_Modifiers> _itest_Modifiers = encoders.EncoderFor<Itest_Modifiers>();
+  private readonly Encoder<Itest_ObjBaseObject> _itest_ObjBase = encoders.EncoderFor<Itest_ObjBaseObject>();
   public Structured Encode(Itest_ObjFieldTypeObject input)
     => _itest_ObjBase.Encode(input)
       .AddList("modifiers", input.Modifiers, _itest_Modifiers);
@@ -151,8 +151,8 @@ internal class test_ObjFieldEnumEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_ObjFieldEnumObject>
 {
-  private readonly Encoder<Itest_TypeRefObject<Itest_TypeKind>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRefObject<Itest_TypeKind>>();
   private readonly Encoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
+  private readonly Encoder<Itest_TypeRefObject<Itest_TypeKind>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRefObject<Itest_TypeKind>>();
   public Structured Encode(Itest_ObjFieldEnumObject input)
     => _itest_TypeRef.Encode(input)
       .AddEncoded("label", input.Label, _itest_Name);

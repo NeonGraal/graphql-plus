@@ -3040,7 +3040,7 @@ public interface ItestRefGnrcAltModParamOutpObject<TRef,TMod>
 public interface ItestRefGnrcAltModStrDual<TRef>
   : IGqlpInterfaceBase
 {
-  IDictionary<string, TRef>? Asref { get; }
+  IMap<TRef>? Asref { get; }
   ItestRefGnrcAltModStrDualObject<TRef>? As_RefGnrcAltModStrDual { get; }
 }
 
@@ -3052,7 +3052,7 @@ public interface ItestRefGnrcAltModStrDualObject<TRef>
 public interface ItestRefGnrcAltModStrInp<TRef>
   : IGqlpInterfaceBase
 {
-  IDictionary<string, TRef>? Asref { get; }
+  IMap<TRef>? Asref { get; }
   ItestRefGnrcAltModStrInpObject<TRef>? As_RefGnrcAltModStrInp { get; }
 }
 
@@ -3064,7 +3064,7 @@ public interface ItestRefGnrcAltModStrInpObject<TRef>
 public interface ItestRefGnrcAltModStrOutp<TRef>
   : IGqlpInterfaceBase
 {
-  IDictionary<string, TRef>? Asref { get; }
+  IMap<TRef>? Asref { get; }
   ItestRefGnrcAltModStrOutpObject<TRef>? As_RefGnrcAltModStrOutp { get; }
 }
 

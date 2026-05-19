@@ -26,7 +26,7 @@ internal sealed class SchSchemaModeller(
     IAstType[] typeDeclarations = [.. ast.Declarations.OfType<IAstType>()];
     AddTypeKinds(typeDeclarations, typeKinds);
 
-    Dictionary<string, ISch_Type> typesByName = [];
+    Map<ISch_Type> typesByName = [];
     Dictionary<ISch_Name, ISch_Type> types = [];
     foreach (IAstType declaration in typeDeclarations) {
       ISch_Type type = ToType(declaration, typeKinds);
@@ -106,7 +106,7 @@ internal sealed class SchSchemaModeller(
       _ => throw new InvalidOperationException($"Unsupported schema type '{declaration.GetType().Name}'."),
     };
 
-  private static ISch_Type ResolveType(string name, Dictionary<string, ISch_Type> typesByName, IMap<GqlpTypeKind> typeKinds)
+  private static ISch_Type ResolveType(string name, Map<ISch_Type> typesByName, IMap<GqlpTypeKind> typeKinds)
     => typesByName.TryGetValue(name, out ISch_Type? type)
       ? type
       : SchModellerHelpers.MakeTypeShell(name, typeKinds);

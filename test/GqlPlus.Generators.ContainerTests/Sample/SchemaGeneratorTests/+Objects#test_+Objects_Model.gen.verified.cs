@@ -4673,7 +4673,7 @@ public class testRefGnrcAltModStrDual<TRef>
   : GqlpModelBase
   , ItestRefGnrcAltModStrDual<TRef>
 {
-  public IDictionary<string, TRef>? Asref { get; set; }
+  public IMap<TRef>? Asref { get; set; }
   public ItestRefGnrcAltModStrDualObject<TRef>? As_RefGnrcAltModStrDual { get; set; }
 }
 
@@ -4692,7 +4692,7 @@ public class testRefGnrcAltModStrInp<TRef>
   : GqlpModelBase
   , ItestRefGnrcAltModStrInp<TRef>
 {
-  public IDictionary<string, TRef>? Asref { get; set; }
+  public IMap<TRef>? Asref { get; set; }
   public ItestRefGnrcAltModStrInpObject<TRef>? As_RefGnrcAltModStrInp { get; set; }
 }
 
@@ -4711,7 +4711,7 @@ public class testRefGnrcAltModStrOutp<TRef>
   : GqlpModelBase
   , ItestRefGnrcAltModStrOutp<TRef>
 {
-  public IDictionary<string, TRef>? Asref { get; set; }
+  public IMap<TRef>? Asref { get; set; }
   public ItestRefGnrcAltModStrOutpObject<TRef>? As_RefGnrcAltModStrOutp { get; set; }
 }
 

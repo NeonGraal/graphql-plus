@@ -90,7 +90,7 @@ public class Cmpt_Map<TT>
   : Spec_Schema
   , ICmpt_Map<TT>
 {
-  public IDictionary<string, TT>? AsT { get; set; }
+  public IMap<TT>? AsT { get; set; }
   public ICmpt_MapObject<TT>? As__Map { get; set; }
 }
 

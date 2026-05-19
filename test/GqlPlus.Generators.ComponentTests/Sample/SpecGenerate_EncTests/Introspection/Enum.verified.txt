@@ -35,8 +35,8 @@ internal class Cmpt_EnumValueEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_EnumValueObject>
 {
-  private readonly Encoder<ICmpt_TypeRefObject<ICmpt_TypeKind>> _typeRef = encoders.EncoderFor<ICmpt_TypeRefObject<ICmpt_TypeKind>>();
   private readonly Encoder<ICmpt_Name> _name = encoders.EncoderFor<ICmpt_Name>();
+  private readonly Encoder<ICmpt_TypeRefObject<ICmpt_TypeKind>> _typeRef = encoders.EncoderFor<ICmpt_TypeRefObject<ICmpt_TypeKind>>();
   public Structured Encode(ICmpt_EnumValueObject input)
     => _typeRef.Encode(input)
       .AddEncoded("label", input.Label, _name);

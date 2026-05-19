@@ -66,8 +66,8 @@ public static class RenderFluid
     if (model.List.Count > 0) {
       result = new ArrayValue([.. model.List.Select(RenderStructureConverter)]);
     } else if (model.Map.Count > 0) {
-      Dictionary<string, FluidValue> dict = model.Map
-        .ToDictionary(
+      Map<FluidValue> dict = model.Map
+        .ToMap(
           kv => kv.Key.AsString,
           kv => RenderStructureConverter(kv.Value)
         );

@@ -42,8 +42,8 @@ internal class test_ParentTypeEncoder<TTypeKind,TItem,TAllItem>(
 ) : IEncoder<Itest_ParentTypeObject<TTypeKind,TItem,TAllItem>>
 {
   private readonly Encoder<Itest_ChildTypeObject<TTypeKind, Itest_Named>> _itest_ChildType = encoders.EncoderFor<Itest_ChildTypeObject<TTypeKind, Itest_Named>>();
-  private readonly Encoder<TItem> _item = encoders.EncoderFor<TItem>();
   private readonly Encoder<TAllItem> _allItem = encoders.EncoderFor<TAllItem>();
+  private readonly Encoder<TItem> _item = encoders.EncoderFor<TItem>();
   public Structured Encode(Itest_ParentTypeObject<TTypeKind,TItem,TAllItem> input)
     => _itest_ChildType.Encode(input)
       .AddList("items", input.Items, _item)

@@ -89,8 +89,8 @@ internal class Cmpt_ParentTypeEncoder<TTypeKind,TItem,TAllItem>(
 ) : IEncoder<ICmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>>
 {
   private readonly Encoder<ICmpt_ChildTypeObject<TTypeKind, ICmpt_Named>> _childType = encoders.EncoderFor<ICmpt_ChildTypeObject<TTypeKind, ICmpt_Named>>();
-  private readonly Encoder<TItem> _item = encoders.EncoderFor<TItem>();
   private readonly Encoder<TAllItem> _allItem = encoders.EncoderFor<TAllItem>();
+  private readonly Encoder<TItem> _item = encoders.EncoderFor<TItem>();
   public Structured Encode(ICmpt_ParentTypeObject<TTypeKind,TItem,TAllItem> input)
     => _childType.Encode(input)
       .AddList("items", input.Items, _item)

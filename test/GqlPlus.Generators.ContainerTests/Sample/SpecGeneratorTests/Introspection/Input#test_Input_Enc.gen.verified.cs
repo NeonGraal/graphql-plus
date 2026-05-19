@@ -22,8 +22,8 @@ internal class test_InputFieldTypeEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_InputFieldTypeObject>
 {
-  private readonly Encoder<Itest_ObjFieldTypeObject> _itest_ObjFieldType = encoders.EncoderFor<Itest_ObjFieldTypeObject>();
   private readonly Encoder<GqlpValue> _gqlpValue = encoders.EncoderFor<GqlpValue>();
+  private readonly Encoder<Itest_ObjFieldTypeObject> _itest_ObjFieldType = encoders.EncoderFor<Itest_ObjFieldTypeObject>();
   public Structured Encode(Itest_InputFieldTypeObject input)
     => _itest_ObjFieldType.Encode(input)
       .AddEncoded("defaultValue", input.DefaultValue, _gqlpValue);

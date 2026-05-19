@@ -44,7 +44,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
       parentEncoderType = context.TypeName(ast.Parent, "I") + "Object" + TypeArgsString(ast.Parent.Args, context);
     }
 
-    Dictionary<string, string> encoderFields = [];
+    Map<string> encoderFields = [];
     List<string> fieldCalls = [];
 
     string? parentVarName = null;
@@ -59,7 +59,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     WriteEncoderClass(ast, context, typeName, encoderInterface, encoderFields, fieldCalls, parentVarName);
   }
 
-  private void AddEncoderFieldCall(TObjField field, Dictionary<string, string> encoderFields, List<string> fieldCalls, string typePrefix, GqlpGeneratorContext context)
+  private void AddEncoderFieldCall(TObjField field, Map<string> encoderFields, List<string> fieldCalls, string typePrefix, GqlpGeneratorContext context)
   {
     bool hasDictMod = field.Modifiers.Any(m => m.ModifierKind is ModifierKind.Dictionary or ModifierKind.Param);
     if (hasDictMod) {
@@ -140,7 +140,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     return hasOptional ? result + ")" : result;
   }
 
-  private string BuildFieldListCall(TObjField field, string fieldKey, string fieldAccess, Dictionary<string, string> encoderFields, string typePrefix, GqlpGeneratorContext context)
+  private string BuildFieldListCall(TObjField field, string fieldKey, string fieldAccess, Map<string> encoderFields, string typePrefix, GqlpGeneratorContext context)
   {
     string encoderType = TypeString(field.Type, context, "I");
     string varName = GetOrAddEncoder(encoderFields, encoderType, typePrefix);
@@ -150,14 +150,14 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     return $".AddList(\"{fieldKey}\", {listAccess}, {varName})";
   }
 
-  private string BuildFieldCall(TObjField field, string fieldKey, string fieldAccess, Dictionary<string, string> encoderFields, string typePrefix, GqlpGeneratorContext context)
+  private string BuildFieldCall(TObjField field, string fieldKey, string fieldAccess, Map<string> encoderFields, string typePrefix, GqlpGeneratorContext context)
   {
     string encoderType2 = TypeString(field.Type, context, "I");
     string varName2 = GetOrAddEncoder(encoderFields, encoderType2, typePrefix);
     return $".AddEncoded(\"{fieldKey}\", {fieldAccess}, {varName2})";
   }
 
-  private static void WriteEncoderClass(IAstObject<TObjField> ast, GqlpGeneratorContext context, string typeName, string encoderInterface, Dictionary<string, string> encoderFields, List<string> fieldCalls, string? parentVarName)
+  private static void WriteEncoderClass(IAstObject<TObjField> ast, GqlpGeneratorContext context, string typeName, string encoderInterface, Map<string> encoderFields, List<string> fieldCalls, string? parentVarName)
   {
     bool needsEncoders = encoderFields.Count > 0;
     string typeParams = TypeParamsString(ast);
@@ -184,7 +184,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     context.Write($") : IEncoder<{encoderInterface}>");
   }
 
-  private static void WriteEncoderFields(GqlpGeneratorContext context, Dictionary<string, string> encoderFields)
+  private static void WriteEncoderFields(GqlpGeneratorContext context, Map<string> encoderFields)
   {
     foreach (KeyValuePair<string, string> kv in encoderFields) {
       context.Write($"  private readonly Encoder<{kv.Key}> {kv.Value} = encoders.EncoderFor<{kv.Key}>();");
@@ -241,7 +241,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     context.RegisterEncoder(encoderInterface, typeName + "Encoder", needsEncoders);
   }
 
-  private static string GetOrAddEncoder(Dictionary<string, string> encoderFields, string encoderType, string typePrefix)
+  private static string GetOrAddEncoder(Map<string> encoderFields, string encoderType, string typePrefix)
     => encoderFields.GetValueOrCreate(encoderType, k => {
       string varName = GetEncoderVarName(encoderType, typePrefix);
       string baseName = varName;
@@ -388,7 +388,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
       ModifierKind.Optional => typeStr + "?",
       ModifierKind.List => $"ICollection<{typeStr}>",
       ModifierKind.Param => ModifyParamString(typeStr, modifier.Key, types),
-      ModifierKind.Dictionary => $"IDictionary<{types.TypeName(modifier.Key, "I")}, {typeStr}>",
+      ModifierKind.Dictionary => DictionaryTypeString(types.TypeName(modifier.Key, "I"), typeStr),
       _ => typeStr
     };
 
@@ -402,8 +402,11 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
       return ModifyParamString(typeStr, arg.Name, types);
     }
 
-    return $"IDictionary<{types.TypeName(arg.Name, "I")}, {typeStr}>";
+    return DictionaryTypeString(types.TypeName(arg.Name, "I"), typeStr);
   }
+
+  private static string DictionaryTypeString(string keyType, string valueType)
+    => keyType == "string" ? $"IMap<{valueType}>" : $"IDictionary<{keyType}, {valueType}>";
 
   protected string TypeString(IAstObjType type, GqlpGeneratorTypes types, string prefix = "")
   {

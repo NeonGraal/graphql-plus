@@ -494,3 +494,4 @@ runs-*.yml
 Html/
 format/
 summary.md
+*.lscache

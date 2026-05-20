@@ -1,0 +1,24 @@
+﻿/* operation-selection-mods
+operation OprSelectionMods { catOprSelectionMods { first last address { street city country } }[] }
+category { CatOprSelectionMods }
+output CatOprSelectionMods { 
+    first: String
+    last: String
+    address: AddrOprSelectionMods
+}
+output AddrOprSelectionMods {
+    street: String
+    city: String
+    country: String
+}
+*/
+
+// Generated from Schema operation-selection-mods
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_operation-selection-mods, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+
+Category catOprSelectionMods
+*/
+
+namespace Components.Gqlp_Schema_operation_selection_mods;

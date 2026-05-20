@@ -1,10 +1,10 @@
-﻿//HintName: test_operation-type_Static.gen.cs
-// Generated from {CurrentDirectory}operation-type.graphql+
+﻿//HintName: test_operation-selection_Static.gen.cs
+// Generated from {CurrentDirectory}operation-selection.graphql+
 //   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Static
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 
-Category catOprType
+Category catOprSelection
 */
 
-namespace GqlPlus.GeneratorTests.Gqlp_operation_type;
+namespace GqlPlus.GeneratorTests.Gqlp_operation_selection;

@@ -1,0 +1,76 @@
+﻿/* operation-selection-mods
+operation OprSelectionMods { catOprSelectionMods { first last address { street city country } }[] }
+category { CatOprSelectionMods }
+output CatOprSelectionMods { 
+    first: String
+    last: String
+    address: AddrOprSelectionMods
+}
+output AddrOprSelectionMods {
+    street: String
+    city: String
+    country: String
+}
+*/
+
+// Generated from Schema operation-selection-mods
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_operation-selection-mods, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_operation_selection_mods;
+
+public class CmptCatOprSelectionMods
+  : Schema_operation-selection-mods
+  , ICmptCatOprSelectionMods
+{
+  public ICmptCatOprSelectionModsObject? As_CatOprSelectionMods { get; set; }
+}
+
+public class CmptCatOprSelectionModsObject
+  : Schema_operation-selection-mods
+  , ICmptCatOprSelectionModsObject
+{
+  public string First { get; set; }
+  public string Last { get; set; }
+  public ICmptAddrOprSelectionMods Address { get; set; }
+
+  public CmptCatOprSelectionModsObject
+    ( string pfirst
+    , string plast
+    , ICmptAddrOprSelectionMods paddress
+    )
+  {
+    First = pfirst;
+    Last = plast;
+    Address = paddress;
+  }
+}
+
+public class CmptAddrOprSelectionMods
+  : Schema_operation-selection-mods
+  , ICmptAddrOprSelectionMods
+{
+  public ICmptAddrOprSelectionModsObject? As_AddrOprSelectionMods { get; set; }
+}
+
+public class CmptAddrOprSelectionModsObject
+  : Schema_operation-selection-mods
+  , ICmptAddrOprSelectionModsObject
+{
+  public string Street { get; set; }
+  public string City { get; set; }
+  public string Country { get; set; }
+
+  public CmptAddrOprSelectionModsObject
+    ( string pstreet
+    , string pcity
+    , string pcountry
+    )
+  {
+    Street = pstreet;
+    City = pcity;
+    Country = pcountry;
+  }
+}

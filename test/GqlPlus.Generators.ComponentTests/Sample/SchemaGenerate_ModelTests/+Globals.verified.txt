@@ -330,25 +330,25 @@ public class CmptCatOprCtgrObject
   }
 }
 
-public class CmptCatOprType
+public class CmptCatOprSelection
   : Schema_+Globals
-  , ICmptCatOprType
+  , ICmptCatOprSelection
 {
-  public ICmptCatOprTypeObject? As_CatOprType { get; set; }
+  public ICmptCatOprSelectionObject? As_CatOprSelection { get; set; }
 }
 
-public class CmptCatOprTypeObject
+public class CmptCatOprSelectionObject
   : Schema_+Globals
-  , ICmptCatOprTypeObject
+  , ICmptCatOprSelectionObject
 {
   public string First { get; set; }
   public string Last { get; set; }
-  public ICmptAddrOprType Address { get; set; }
+  public ICmptAddrOprSelection Address { get; set; }
 
-  public CmptCatOprTypeObject
+  public CmptCatOprSelectionObject
     ( string pfirst
     , string plast
-    , ICmptAddrOprType paddress
+    , ICmptAddrOprSelection paddress
     )
   {
     First = pfirst;
@@ -357,22 +357,76 @@ public class CmptCatOprTypeObject
   }
 }
 
-public class CmptAddrOprType
+public class CmptAddrOprSelection
   : Schema_+Globals
-  , ICmptAddrOprType
+  , ICmptAddrOprSelection
 {
-  public ICmptAddrOprTypeObject? As_AddrOprType { get; set; }
+  public ICmptAddrOprSelectionObject? As_AddrOprSelection { get; set; }
 }
 
-public class CmptAddrOprTypeObject
+public class CmptAddrOprSelectionObject
   : Schema_+Globals
-  , ICmptAddrOprTypeObject
+  , ICmptAddrOprSelectionObject
 {
   public string Street { get; set; }
   public string City { get; set; }
   public string Country { get; set; }
 
-  public CmptAddrOprTypeObject
+  public CmptAddrOprSelectionObject
+    ( string pstreet
+    , string pcity
+    , string pcountry
+    )
+  {
+    Street = pstreet;
+    City = pcity;
+    Country = pcountry;
+  }
+}
+
+public class CmptCatOprSelectionMods
+  : Schema_+Globals
+  , ICmptCatOprSelectionMods
+{
+  public ICmptCatOprSelectionModsObject? As_CatOprSelectionMods { get; set; }
+}
+
+public class CmptCatOprSelectionModsObject
+  : Schema_+Globals
+  , ICmptCatOprSelectionModsObject
+{
+  public string First { get; set; }
+  public string Last { get; set; }
+  public ICmptAddrOprSelectionMods Address { get; set; }
+
+  public CmptCatOprSelectionModsObject
+    ( string pfirst
+    , string plast
+    , ICmptAddrOprSelectionMods paddress
+    )
+  {
+    First = pfirst;
+    Last = plast;
+    Address = paddress;
+  }
+}
+
+public class CmptAddrOprSelectionMods
+  : Schema_+Globals
+  , ICmptAddrOprSelectionMods
+{
+  public ICmptAddrOprSelectionModsObject? As_AddrOprSelectionMods { get; set; }
+}
+
+public class CmptAddrOprSelectionModsObject
+  : Schema_+Globals
+  , ICmptAddrOprSelectionModsObject
+{
+  public string Street { get; set; }
+  public string City { get; set; }
+  public string Country { get; set; }
+
+  public CmptAddrOprSelectionModsObject
     ( string pstreet
     , string pcity
     , string pcountry

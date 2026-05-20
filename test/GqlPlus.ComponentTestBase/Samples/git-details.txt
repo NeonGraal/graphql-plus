@@ -1,1 +1,1 @@
-37187f1  (HEAD -> star-wars-yaml) 2026-05-16 Fix review comments
+d3bc5f2  (HEAD -> operation) 2026-05-21 More Schema operation samples

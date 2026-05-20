@@ -1,0 +1,2 @@
+operation Name { catName : Number }
+category { CatName }

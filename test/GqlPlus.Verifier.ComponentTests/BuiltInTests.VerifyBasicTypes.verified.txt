@@ -1,6 +1,0 @@
-﻿[
-  ( !En Boolean [ _Boolean ^ ] !EL false !EL true ),
-  ( !En Unit [ _ _Unit ] !EL _ ),
-  ( !Do Number [ _Number 0 ] Number ),
-  ( !Do String [ _String * ] String )
-]

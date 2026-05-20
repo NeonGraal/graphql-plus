@@ -1,0 +1,76 @@
+﻿!_Schema
+categories: !_Map(_Categories)
+  !_Name catOprSelection: !_Category
+    name: catOprSelection
+    output: !_TypeRef(_TypeKind)
+      name: CatOprSelection
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+operations: !_Map(_Operations)
+  !_Name OprSelection: !_Operation
+    name: OprSelection
+types: !_Map(_Type)
+  !_Name AddrOprSelection: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: street
+        object: AddrOprSelection
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: city
+        object: AddrOprSelection
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: country
+        object: AddrOprSelection
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_OutputField
+        name: street
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: city
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: country
+        type: !_ObjBase
+          name: String
+    name: AddrOprSelection
+    typeKind: !_TypeKind Output
+  !_Name CatOprSelection: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: first
+        object: CatOprSelection
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: last
+        object: CatOprSelection
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: address
+        object: CatOprSelection
+        type: !_ObjBase
+          name: AddrOprSelection
+    fields:
+      - !_OutputField
+        name: first
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: last
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: address
+        type: !_ObjBase
+          name: AddrOprSelection
+    name: CatOprSelection
+    typeKind: !_TypeKind Output

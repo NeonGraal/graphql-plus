@@ -48,14 +48,15 @@ public enum DirectiveLocation
 }
 
 public interface IAstSchemaOperation
-  : IAstDeclaration, IAstDirectives, IAstModifiers
+  : IAstDeclaration
+  , IAstDirectives
+  , IAstModifiers
+  , IAstSelections
 {
   string Category { get; }
 
   IEnumerable<IAstVariable> Variables { get; }
   IAstArg? Arg { get; }
-  IEnumerable<IAstSelection>? Selections { get; }
-
   IEnumerable<IAstFragment> Fragments { get; }
 }
 

@@ -204,27 +204,55 @@ public interface ICmptCatOprCtgrObject
 {
 }
 
-public interface ICmptCatOprType
+public interface ICmptCatOprSelection
   : Schema_!ALL
 {
-  ICmptCatOprTypeObject? As_CatOprType { get; }
+  ICmptCatOprSelectionObject? As_CatOprSelection { get; }
 }
 
-public interface ICmptCatOprTypeObject
+public interface ICmptCatOprSelectionObject
   : Schema_!ALL
 {
   string First { get; }
   string Last { get; }
-  ICmptAddrOprType Address { get; }
+  ICmptAddrOprSelection Address { get; }
 }
 
-public interface ICmptAddrOprType
+public interface ICmptAddrOprSelection
   : Schema_!ALL
 {
-  ICmptAddrOprTypeObject? As_AddrOprType { get; }
+  ICmptAddrOprSelectionObject? As_AddrOprSelection { get; }
 }
 
-public interface ICmptAddrOprTypeObject
+public interface ICmptAddrOprSelectionObject
+  : Schema_!ALL
+{
+  string Street { get; }
+  string City { get; }
+  string Country { get; }
+}
+
+public interface ICmptCatOprSelectionMods
+  : Schema_!ALL
+{
+  ICmptCatOprSelectionModsObject? As_CatOprSelectionMods { get; }
+}
+
+public interface ICmptCatOprSelectionModsObject
+  : Schema_!ALL
+{
+  string First { get; }
+  string Last { get; }
+  ICmptAddrOprSelectionMods Address { get; }
+}
+
+public interface ICmptAddrOprSelectionMods
+  : Schema_!ALL
+{
+  ICmptAddrOprSelectionModsObject? As_AddrOprSelectionMods { get; }
+}
+
+public interface ICmptAddrOprSelectionModsObject
   : Schema_!ALL
 {
   string Street { get; }

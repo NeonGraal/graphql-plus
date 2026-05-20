@@ -18,7 +18,7 @@ internal sealed record class OperationDeclAst(
   public string Category { get; } = Category;
   public IEnumerable<IAstVariable> Variables { get; } = [];
   public IAstArg? Arg { get; }
-  public IEnumerable<IAstSelection>? Selections { get; } = [];
+  public IEnumerable<IAstSelection> Selections { get; } = [];
   public IEnumerable<IAstFragment> Fragments { get; } = [];
   public IEnumerable<IAstDirective> Directives { get; init; } = [];
   public IEnumerable<IAstModifier> Modifiers { get; } = [];

@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Parsing.Operation;
 
 namespace GqlPlus.Parsing.Schema.Globals;
@@ -11,6 +12,7 @@ public class ParseOperationDefinitionTests
   private readonly IParserArray<IAstDirective> _directivesParser;
   private readonly IParserStartFragments _fragmentsParser;
   private readonly IParserArray<IAstSelection> _objectParser;
+  private readonly IParser<IAstTypeRef> _resultTypeParser;
   private readonly IParserArray<IAstVariable> _variablesParser;
 
   public ParseOperationDefinitionTests()
@@ -19,6 +21,7 @@ public class ParseOperationDefinitionTests
     ConfigureRepoArray(Parsers, out _directivesParser);
     ConfigureRepoArrayInterface<IParserStartFragments, IAstFragment>(Parsers, out _fragmentsParser);
     ConfigureRepoArray(Parsers, out _objectParser);
+    ConfigureRepo(Parsers, out _resultTypeParser);
     ConfigureRepoArray(Parsers, out _variablesParser);
     _parser = new ParseOperationDefinition(Parsers);
 
@@ -27,14 +30,15 @@ public class ParseOperationDefinitionTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnOk_WhenResultTypeParsed(string category, string resultType)
+  public void Parse_ShouldReturnOk_WhenResultTypeParsed(string category)
   {
     // Arrange
     IdentifierReturns(OutString(category));
     ParseOkA(_variablesParser);
     ParseOkA(_directivesParser);
     ParseOkA(_fragmentsParser);
-    PrefixReturns(':', OutStringAt(resultType));
+    TakeReturns(':', true);
+    ParseOk(_resultTypeParser);
     ParseOk(_argumentParser);
     ParseAModifier();
     TakeReturns('}', true);
@@ -46,7 +50,7 @@ public class ParseOperationDefinitionTests
     result.ShouldBeAssignableTo<IResultOk<OperationDefinition>>()
       .Required().ShouldSatisfyAllConditions(
         x => x.Category.ShouldBe(category),
-        x => x.ResultType.ShouldBe(resultType)
+        x => x.ResultType.ShouldNotBeNull()
       );
   }
 
@@ -58,7 +62,7 @@ public class ParseOperationDefinitionTests
     ParseOkA(_variablesParser);
     ParseOkA(_directivesParser);
     ParseOkA(_fragmentsParser);
-    PrefixReturns(':', OutStringAt(null));
+    TakeReturns(':', false);
     ParseOkA(_objectParser);
     ParseAModifier();
     TakeReturns('}', true);
@@ -96,12 +100,13 @@ public class ParseOperationDefinitionTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenPrefixColonMissing(string category)
+  public void Parse_ShouldReturnPartial_WhenResultTypeErrors(string category)
   {
     // Arrange
     IdentifierReturns(OutString(category));
     ParseOkA(_variablesParser);
-    PrefixReturns(':', OutFail);
+    TakeReturns(':', true);
+    ParseError(_resultTypeParser);
 
     // Act
     IResult<OperationDefinition> result = _parser.Parse(Tokenizer, TestLabel);
@@ -111,12 +116,13 @@ public class ParseOperationDefinitionTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenArgumentErrors(string category, string resultType)
+  public void Parse_ShouldReturnPartial_WhenArgumentErrors(string category)
   {
     // Arrange
     IdentifierReturns(OutString(category));
     ParseOkA(_variablesParser);
-    PrefixReturns(':', OutStringAt(resultType));
+    TakeReturns(':', true);
+    ParseOk(_resultTypeParser);
     ParseError(_argumentParser);
 
     // Act
@@ -132,7 +138,7 @@ public class ParseOperationDefinitionTests
     // Arrange
     IdentifierReturns(OutString(category));
     ParseOkA(_variablesParser);
-    PrefixReturns(':', OutStringAt(null));
+    TakeReturns(':', false);
     ParseErrorA(_objectParser);
 
     // Act
@@ -143,12 +149,13 @@ public class ParseOperationDefinitionTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenModifiersError(string category, string resultType)
+  public void Parse_ShouldReturnPartial_WhenModifiersError(string category)
   {
     // Arrange
     IdentifierReturns(OutString(category));
     ParseOkA(_variablesParser);
-    PrefixReturns(':', OutStringAt(resultType));
+    TakeReturns(':', true);
+    ParseOk(_resultTypeParser);
     ParseOk(_argumentParser);
     ParseModifiersError();
 

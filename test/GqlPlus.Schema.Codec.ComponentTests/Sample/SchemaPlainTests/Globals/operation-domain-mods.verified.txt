@@ -1,0 +1,7 @@
+﻿[_Schema]:categories[_Map(_Categories)]:[_Name]catOprDmnMods[_Category]:name=catOprDmnMods
+[_Schema]:categories[_Map(_Categories)]:[_Name]catOprDmnMods[_Category]:output[_TypeRef(_TypeKind)]:name=CatOprDmnMods
+[_Schema]:categories[_Map(_Categories)]:[_Name]catOprDmnMods[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map(_Categories)]:[_Name]catOprDmnMods[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:operations[_Map(_Operations)]:[_Name]OprDmnMods[_Operation]:name=OprDmnMods
+[_Schema]:types[_Map(_Type)]:[_Name]CatOprDmnMods[_TypeOutput]:name=CatOprDmnMods
+[_Schema]:types[_Map(_Type)]:[_Name]CatOprDmnMods[_TypeOutput]:typeKind=[_TypeKind]Output

@@ -1,30 +1,30 @@
 ﻿!_Schema
 categories: !_Map(_Categories)
-  !_Name catOprSelectionMods: !_Category
-    name: catOprSelectionMods
+  !_Name catOprSlctMods: !_Category
+    name: catOprSlctMods
     output: !_TypeRef(_TypeKind)
-      name: CatOprSelectionMods
+      name: CatOprSlctMods
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
 operations: !_Map(_Operations)
-  !_Name OprSelectionMods: !_Operation
-    name: OprSelectionMods
+  !_Name OprSlctMods: !_Operation
+    name: OprSlctMods
 types: !_Map(_Type)
-  !_Name AddrOprSelectionMods: !_TypeOutput
+  !_Name AddrOprSlctMods: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: street
-        object: AddrOprSelectionMods
+        object: AddrOprSlctMods
         type: !_ObjBase
           name: String
       - !_ObjectFor(_OutputField)
         name: city
-        object: AddrOprSelectionMods
+        object: AddrOprSlctMods
         type: !_ObjBase
           name: String
       - !_ObjectFor(_OutputField)
         name: country
-        object: AddrOprSelectionMods
+        object: AddrOprSlctMods
         type: !_ObjBase
           name: String
     fields:
@@ -40,25 +40,25 @@ types: !_Map(_Type)
         name: country
         type: !_ObjBase
           name: String
-    name: AddrOprSelectionMods
+    name: AddrOprSlctMods
     typeKind: !_TypeKind Output
-  !_Name CatOprSelectionMods: !_TypeOutput
+  !_Name CatOprSlctMods: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: first
-        object: CatOprSelectionMods
+        object: CatOprSlctMods
         type: !_ObjBase
           name: String
       - !_ObjectFor(_OutputField)
         name: last
-        object: CatOprSelectionMods
+        object: CatOprSlctMods
         type: !_ObjBase
           name: String
       - !_ObjectFor(_OutputField)
         name: address
-        object: CatOprSelectionMods
+        object: CatOprSlctMods
         type: !_ObjBase
-          name: AddrOprSelectionMods
+          name: AddrOprSlctMods
     fields:
       - !_OutputField
         name: first
@@ -71,6 +71,6 @@ types: !_Map(_Type)
       - !_OutputField
         name: address
         type: !_ObjBase
-          name: AddrOprSelectionMods
-    name: CatOprSelectionMods
+          name: AddrOprSlctMods
+    name: CatOprSlctMods
     typeKind: !_TypeKind Output

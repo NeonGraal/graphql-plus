@@ -3,19 +3,19 @@
 Success
 {
   !Ca P@010/0002
-  catOprSelectionMods
+  catOprSlctMods
   (Parallel)
   !Tr I@012/0002
-  CatOprSelectionMods
+  CatOprSlctMods
 }
 {
   !SO I@011/0001
-  OprSelectionMods
-  catOprSelectionMods
+  OprSlctMods
+  catOprSlctMods
 }
 {
   !Ou I@008/0003
-  CatOprSelectionMods
+  CatOprSlctMods
   {
     !OF I@005/0004
     first
@@ -31,12 +31,12 @@ Success
     address
     :
     I@014/0006
-    AddrOprSelectionMods
+    AddrOprSlctMods
   }
 }
 {
   !Ou I@008/0008
-  AddrOprSelectionMods
+  AddrOprSlctMods
   {
     !OF I@005/0009
     street

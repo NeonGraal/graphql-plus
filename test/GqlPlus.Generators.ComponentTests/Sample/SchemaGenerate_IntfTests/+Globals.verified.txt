@@ -204,27 +204,60 @@ public interface ICmptCatOprCtgrObject
 {
 }
 
-public interface ICmptCatOprSelection
+public interface ICmptCatOprDmn
   : Schema_+Globals
 {
-  ICmptCatOprSelectionObject? As_CatOprSelection { get; }
+  ICmptCatOprDmnObject? As_CatOprDmn { get; }
 }
 
-public interface ICmptCatOprSelectionObject
+public interface ICmptCatOprDmnObject
+  : Schema_+Globals
+{
+}
+
+public interface ICmptCatOprDmnArgs
+  : Schema_+Globals
+{
+  ICmptCatOprDmnArgsObject? As_CatOprDmnArgs { get; }
+}
+
+public interface ICmptCatOprDmnArgsObject
+  : Schema_+Globals
+{
+}
+
+public interface ICmptCatOprDmnMods
+  : Schema_+Globals
+{
+  ICmptCatOprDmnModsObject? As_CatOprDmnMods { get; }
+}
+
+public interface ICmptCatOprDmnModsObject
+  : Schema_+Globals
+{
+}
+
+public interface ICmptCatOprSlct
+  : Schema_+Globals
+{
+  ICmptCatOprSlctObject? As_CatOprSlct { get; }
+}
+
+public interface ICmptCatOprSlctObject
   : Schema_+Globals
 {
   string First { get; }
   string Last { get; }
-  ICmptAddrOprSelection Address { get; }
+  ICmptAddrOprSlct Address { get; }
 }
 
-public interface ICmptAddrOprSelection
+public interface ICmptAddrOprSlct
   : Schema_+Globals
 {
-  ICmptAddrOprSelectionObject? As_AddrOprSelection { get; }
+  ICmptAddrOprSlctObject? As_AddrOprSlct { get; }
 }
 
-public interface ICmptAddrOprSelectionObject
+public interface ICmptAddrOprSlctObject
   : Schema_+Globals
 {
   string Street { get; }
@@ -232,27 +265,27 @@ public interface ICmptAddrOprSelectionObject
   string Country { get; }
 }
 
-public interface ICmptCatOprSelectionMods
+public interface ICmptCatOprSlctMods
   : Schema_+Globals
 {
-  ICmptCatOprSelectionModsObject? As_CatOprSelectionMods { get; }
+  ICmptCatOprSlctModsObject? As_CatOprSlctMods { get; }
 }
 
-public interface ICmptCatOprSelectionModsObject
+public interface ICmptCatOprSlctModsObject
   : Schema_+Globals
 {
   string First { get; }
   string Last { get; }
-  ICmptAddrOprSelectionMods Address { get; }
+  ICmptAddrOprSlctMods Address { get; }
 }
 
-public interface ICmptAddrOprSelectionMods
+public interface ICmptAddrOprSlctMods
   : Schema_+Globals
 {
-  ICmptAddrOprSelectionModsObject? As_AddrOprSelectionMods { get; }
+  ICmptAddrOprSlctModsObject? As_AddrOprSlctMods { get; }
 }
 
-public interface ICmptAddrOprSelectionModsObject
+public interface ICmptAddrOprSlctModsObject
   : Schema_+Globals
 {
   string Street { get; }

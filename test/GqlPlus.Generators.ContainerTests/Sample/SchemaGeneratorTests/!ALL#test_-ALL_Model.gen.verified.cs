@@ -331,25 +331,79 @@ public class testCatOprCtgrObject
   }
 }
 
-public class testCatOprType
+public class testCatOprDmn
   : GqlpModelBase
-  , ItestCatOprType
+  , ItestCatOprDmn
 {
-  public ItestCatOprTypeObject? As_CatOprType { get; set; }
+  public ItestCatOprDmnObject? As_CatOprDmn { get; set; }
 }
 
-public class testCatOprTypeObject
+public class testCatOprDmnObject
   : GqlpModelBase
-  , ItestCatOprTypeObject
+  , ItestCatOprDmnObject
+{
+
+  public testCatOprDmnObject
+    ()
+  {
+  }
+}
+
+public class testCatOprDmnArgs
+  : GqlpModelBase
+  , ItestCatOprDmnArgs
+{
+  public ItestCatOprDmnArgsObject? As_CatOprDmnArgs { get; set; }
+}
+
+public class testCatOprDmnArgsObject
+  : GqlpModelBase
+  , ItestCatOprDmnArgsObject
+{
+
+  public testCatOprDmnArgsObject
+    ()
+  {
+  }
+}
+
+public class testCatOprDmnMods
+  : GqlpModelBase
+  , ItestCatOprDmnMods
+{
+  public ItestCatOprDmnModsObject? As_CatOprDmnMods { get; set; }
+}
+
+public class testCatOprDmnModsObject
+  : GqlpModelBase
+  , ItestCatOprDmnModsObject
+{
+
+  public testCatOprDmnModsObject
+    ()
+  {
+  }
+}
+
+public class testCatOprSlct
+  : GqlpModelBase
+  , ItestCatOprSlct
+{
+  public ItestCatOprSlctObject? As_CatOprSlct { get; set; }
+}
+
+public class testCatOprSlctObject
+  : GqlpModelBase
+  , ItestCatOprSlctObject
 {
   public string First { get; set; }
   public string Last { get; set; }
-  public ItestAddrOprType Address { get; set; }
+  public ItestAddrOprSlct Address { get; set; }
 
-  public testCatOprTypeObject
+  public testCatOprSlctObject
     ( string pfirst
     , string plast
-    , ItestAddrOprType paddress
+    , ItestAddrOprSlct paddress
     )
   {
     First = pfirst;
@@ -358,22 +412,76 @@ public class testCatOprTypeObject
   }
 }
 
-public class testAddrOprType
+public class testAddrOprSlct
   : GqlpModelBase
-  , ItestAddrOprType
+  , ItestAddrOprSlct
 {
-  public ItestAddrOprTypeObject? As_AddrOprType { get; set; }
+  public ItestAddrOprSlctObject? As_AddrOprSlct { get; set; }
 }
 
-public class testAddrOprTypeObject
+public class testAddrOprSlctObject
   : GqlpModelBase
-  , ItestAddrOprTypeObject
+  , ItestAddrOprSlctObject
 {
   public string Street { get; set; }
   public string City { get; set; }
   public string Country { get; set; }
 
-  public testAddrOprTypeObject
+  public testAddrOprSlctObject
+    ( string pstreet
+    , string pcity
+    , string pcountry
+    )
+  {
+    Street = pstreet;
+    City = pcity;
+    Country = pcountry;
+  }
+}
+
+public class testCatOprSlctMods
+  : GqlpModelBase
+  , ItestCatOprSlctMods
+{
+  public ItestCatOprSlctModsObject? As_CatOprSlctMods { get; set; }
+}
+
+public class testCatOprSlctModsObject
+  : GqlpModelBase
+  , ItestCatOprSlctModsObject
+{
+  public string First { get; set; }
+  public string Last { get; set; }
+  public ItestAddrOprSlctMods Address { get; set; }
+
+  public testCatOprSlctModsObject
+    ( string pfirst
+    , string plast
+    , ItestAddrOprSlctMods paddress
+    )
+  {
+    First = pfirst;
+    Last = plast;
+    Address = paddress;
+  }
+}
+
+public class testAddrOprSlctMods
+  : GqlpModelBase
+  , ItestAddrOprSlctMods
+{
+  public ItestAddrOprSlctModsObject? As_AddrOprSlctMods { get; set; }
+}
+
+public class testAddrOprSlctModsObject
+  : GqlpModelBase
+  , ItestAddrOprSlctModsObject
+{
+  public string Street { get; set; }
+  public string City { get; set; }
+  public string Country { get; set; }
+
+  public testAddrOprSlctModsObject
     ( string pstreet
     , string pcity
     , string pcountry

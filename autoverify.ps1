@@ -14,7 +14,7 @@ if (-not $NoBuild) {
 Get-ChildItem test -Filter "*.verified.*" -Recurse | Remove-Item -Force
 Get-ChildItem test/Html/* -Directory | Remove-Item -Recurse -Force
 
-$test = "-e","GQLPLUS_AUTOVERIFY=true","-","trx;LogFileName=TestResults-10.0.trx","-f","net10.0"
+$test = "-e","GQLPLUS_AUTOVERIFY=true","-l","trx;LogFileName=TestResults-10.0.trx","-f","net10.0"
 if ($NoBuild) {
   $test += "--no-build"
 }

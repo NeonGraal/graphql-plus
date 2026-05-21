@@ -1,12 +1,12 @@
 ﻿/* operation-selection-mods
-operation OprSelectionMods { catOprSelectionMods { first last address { street city country } }[] }
-category { CatOprSelectionMods }
-output CatOprSelectionMods { 
+operation OprSlctMods { catOprSlctMods { first last address { street city country } }[] }
+category { CatOprSlctMods }
+output CatOprSlctMods { 
     first: String
     last: String
-    address: AddrOprSelectionMods
+    address: AddrOprSlctMods
 }
-output AddrOprSelectionMods {
+output AddrOprSlctMods {
     street: String
     city: String
     country: String
@@ -21,35 +21,35 @@ output AddrOprSelectionMods {
 
 namespace Components.Gqlp_Schema_operation_selection_mods;
 
-internal class CmptCatOprSelectionModsEncoder(
+internal class CmptCatOprSlctModsEncoder(
   IEncoderRepository encoders
-) : IEncoder<ICmptCatOprSelectionModsObject>
+) : IEncoder<ICmptCatOprSlctModsObject>
 {
-  private readonly Encoder<ICmptAddrOprSelectionMods> _addrOprSelectionMods = encoders.EncoderFor<ICmptAddrOprSelectionMods>();
-  public Structured Encode(ICmptCatOprSelectionModsObject input)
+  private readonly Encoder<ICmptAddrOprSlctMods> _addrOprSlctMods = encoders.EncoderFor<ICmptAddrOprSlctMods>();
+  public Structured Encode(ICmptCatOprSlctModsObject input)
     => Structured.Empty()
       .Add("first", input.First.Encode())
       .Add("last", input.Last.Encode())
-      .AddEncoded("address", input.Address, _addrOprSelectionMods);
+      .AddEncoded("address", input.Address, _addrOprSlctMods);
 
-  internal static CmptCatOprSelectionModsEncoder Factory(IEncoderRepository r) => new(r);
+  internal static CmptCatOprSlctModsEncoder Factory(IEncoderRepository r) => new(r);
 }
 
-internal class CmptAddrOprSelectionModsEncoder : IEncoder<ICmptAddrOprSelectionModsObject>
+internal class CmptAddrOprSlctModsEncoder : IEncoder<ICmptAddrOprSlctModsObject>
 {
-  public Structured Encode(ICmptAddrOprSelectionModsObject input)
+  public Structured Encode(ICmptAddrOprSlctModsObject input)
     => Structured.Empty()
       .Add("street", input.Street.Encode())
       .Add("city", input.City.Encode())
       .Add("country", input.Country.Encode());
 
-  internal static CmptAddrOprSelectionModsEncoder Factory(IEncoderRepository _) => new();
+  internal static CmptAddrOprSlctModsEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class Cmpt_Schema_operation_selection_modsEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_operation_selection_modsEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptCatOprSelectionModsObject>(CmptCatOprSelectionModsEncoder.Factory)
-      .AddEncoder<ICmptAddrOprSelectionModsObject>(CmptAddrOprSelectionModsEncoder.Factory);
+      .AddEncoder<ICmptCatOprSlctModsObject>(CmptCatOprSlctModsEncoder.Factory)
+      .AddEncoder<ICmptAddrOprSlctModsObject>(CmptAddrOprSlctModsEncoder.Factory);
 }

@@ -1,12 +1,12 @@
 ﻿/* operation-selection
-operation OprSelection { catOprSelection { first last address { street city country } } }
-category { CatOprSelection }
-output CatOprSelection { 
+operation OprSlct { catOprSlct { first last address { street city country } } }
+category { CatOprSlct }
+output CatOprSlct { 
     first: String
     last: String
-    address: AddrOprSelection
+    address: AddrOprSlct
 }
-output AddrOprSelection {
+output AddrOprSlct {
     street: String
     city: String
     country: String
@@ -21,25 +21,25 @@ output AddrOprSelection {
 
 namespace Components.Gqlp_Schema_operation_selection;
 
-public class CmptCatOprSelection
+public class CmptCatOprSlct
   : Schema_operation-selection
-  , ICmptCatOprSelection
+  , ICmptCatOprSlct
 {
-  public ICmptCatOprSelectionObject? As_CatOprSelection { get; set; }
+  public ICmptCatOprSlctObject? As_CatOprSlct { get; set; }
 }
 
-public class CmptCatOprSelectionObject
+public class CmptCatOprSlctObject
   : Schema_operation-selection
-  , ICmptCatOprSelectionObject
+  , ICmptCatOprSlctObject
 {
   public string First { get; set; }
   public string Last { get; set; }
-  public ICmptAddrOprSelection Address { get; set; }
+  public ICmptAddrOprSlct Address { get; set; }
 
-  public CmptCatOprSelectionObject
+  public CmptCatOprSlctObject
     ( string pfirst
     , string plast
-    , ICmptAddrOprSelection paddress
+    , ICmptAddrOprSlct paddress
     )
   {
     First = pfirst;
@@ -48,22 +48,22 @@ public class CmptCatOprSelectionObject
   }
 }
 
-public class CmptAddrOprSelection
+public class CmptAddrOprSlct
   : Schema_operation-selection
-  , ICmptAddrOprSelection
+  , ICmptAddrOprSlct
 {
-  public ICmptAddrOprSelectionObject? As_AddrOprSelection { get; set; }
+  public ICmptAddrOprSlctObject? As_AddrOprSlct { get; set; }
 }
 
-public class CmptAddrOprSelectionObject
+public class CmptAddrOprSlctObject
   : Schema_operation-selection
-  , ICmptAddrOprSelectionObject
+  , ICmptAddrOprSlctObject
 {
   public string Street { get; set; }
   public string City { get; set; }
   public string Country { get; set; }
 
-  public CmptAddrOprSelectionObject
+  public CmptAddrOprSlctObject
     ( string pstreet
     , string pcity
     , string pcountry

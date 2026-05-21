@@ -17,7 +17,8 @@ internal sealed record class OperationDeclAst(
 
   public string Category { get; } = Category;
   public IEnumerable<IAstVariable> Variables { get; } = [];
-  public IAstArg? Arg { get; }
+  public IAstTypeRef? Domain { get; init; }
+  public IAstArg? Arg { get; init; }
   public IEnumerable<IAstSelection> Selections { get; } = [];
   public IEnumerable<IAstFragment> Fragments { get; } = [];
   public IEnumerable<IAstDirective> Directives { get; init; } = [];
@@ -36,5 +37,6 @@ internal sealed record class OperationDeclAst(
 
   internal override IEnumerable<string?> GetFields()
   => base.GetFields()
-      .Append(Category);
+      .Append(Category)
+      .Concat(Domain != null ? [.. Domain.GetFields(), .. Arg?.GetFields() ?? []] : []);
 }

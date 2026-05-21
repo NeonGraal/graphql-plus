@@ -22,6 +22,9 @@ public static class IEnumerableHelpers
       ? items.Select(formatter).Prepend(before).Append(after)
       : [];
 
+  public static IEnumerable<string?> AppendIf(this IEnumerable<string?>? items, bool test, IEnumerable<string?>? testValues, IEnumerable<string?>? elseValues = null)
+    => (items ?? []).Concat((test ? testValues : elseValues) ?? []);
+
   public static string Debug(this IEnumerable<string?>? items)
     => (items?.OrderBy(t => t, StringComparer.Ordinal)).Joined(i => $"'{i}'", ", ");
 

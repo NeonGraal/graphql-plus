@@ -2,13 +2,13 @@
   "$mapTag": "_Schema",
   "categories": {
     "$mapTag": "_Map(_Categories)",
-    "catOprSelectionMods": {
+    "catOprSlctMods": {
       "$keyTag": "_Name",
       "$mapTag": "_Category",
-      "name": "catOprSelectionMods",
+      "name": "catOprSlctMods",
       "output": {
         "$mapTag": "_TypeRef(_TypeKind)",
-        "name": "CatOprSelectionMods",
+        "name": "CatOprSlctMods",
         "typeKind": {
           "$value": "Output",
           "$valueTag": "_TypeKind"
@@ -22,22 +22,22 @@
   },
   "operations": {
     "$mapTag": "_Map(_Operations)",
-    "OprSelectionMods": {
+    "OprSlctMods": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
-      "name": "OprSelectionMods"
+      "name": "OprSlctMods"
     }
   },
   "types": {
     "$mapTag": "_Map(_Type)",
-    "AddrOprSelectionMods": {
+    "AddrOprSlctMods": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "street",
-          "object": "AddrOprSelectionMods",
+          "object": "AddrOprSlctMods",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "String"
@@ -46,7 +46,7 @@
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "city",
-          "object": "AddrOprSelectionMods",
+          "object": "AddrOprSlctMods",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "String"
@@ -55,7 +55,7 @@
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "country",
-          "object": "AddrOprSelectionMods",
+          "object": "AddrOprSlctMods",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "String"
@@ -88,20 +88,20 @@
           }
         }
       ],
-      "name": "AddrOprSelectionMods",
+      "name": "AddrOprSlctMods",
       "typeKind": {
         "$value": "Output",
         "$valueTag": "_TypeKind"
       }
     },
-    "CatOprSelectionMods": {
+    "CatOprSlctMods": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "first",
-          "object": "CatOprSelectionMods",
+          "object": "CatOprSlctMods",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "String"
@@ -110,7 +110,7 @@
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "last",
-          "object": "CatOprSelectionMods",
+          "object": "CatOprSlctMods",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "String"
@@ -119,10 +119,10 @@
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "address",
-          "object": "CatOprSelectionMods",
+          "object": "CatOprSlctMods",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "AddrOprSelectionMods"
+            "name": "AddrOprSlctMods"
           }
         }
       ],
@@ -148,11 +148,11 @@
           "name": "address",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "AddrOprSelectionMods"
+            "name": "AddrOprSlctMods"
           }
         }
       ],
-      "name": "CatOprSelectionMods",
+      "name": "CatOprSlctMods",
       "typeKind": {
         "$value": "Output",
         "$valueTag": "_TypeKind"

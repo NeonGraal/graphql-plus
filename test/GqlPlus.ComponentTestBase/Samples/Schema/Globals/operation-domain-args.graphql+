@@ -1,2 +1,3 @@
 operation Name { catName : String (String) }
 category { CatName }
+output CatName { }

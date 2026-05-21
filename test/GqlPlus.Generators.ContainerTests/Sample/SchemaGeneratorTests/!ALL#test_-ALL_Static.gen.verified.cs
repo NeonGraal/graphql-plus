@@ -12,7 +12,11 @@ Category ctgrOutpList
 Category ctgrOutpOptl
 Category descrBtwn
 Category catOprCtgr
-Category catOprType
+Category catOprDmn
+Category catOprDmnArgs
+Category catOprDmnMods
+Category catOprSlct
+Category catOprSlctMods
 Category ctgr
 Category ctgrAlias
 Category ctgrDescr

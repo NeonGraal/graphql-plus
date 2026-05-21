@@ -330,25 +330,79 @@ public class CmptCatOprCtgrObject
   }
 }
 
-public class CmptCatOprSelection
+public class CmptCatOprDmn
   : Schema_!ALL
-  , ICmptCatOprSelection
+  , ICmptCatOprDmn
 {
-  public ICmptCatOprSelectionObject? As_CatOprSelection { get; set; }
+  public ICmptCatOprDmnObject? As_CatOprDmn { get; set; }
 }
 
-public class CmptCatOprSelectionObject
+public class CmptCatOprDmnObject
   : Schema_!ALL
-  , ICmptCatOprSelectionObject
+  , ICmptCatOprDmnObject
+{
+
+  public CmptCatOprDmnObject
+    ()
+  {
+  }
+}
+
+public class CmptCatOprDmnArgs
+  : Schema_!ALL
+  , ICmptCatOprDmnArgs
+{
+  public ICmptCatOprDmnArgsObject? As_CatOprDmnArgs { get; set; }
+}
+
+public class CmptCatOprDmnArgsObject
+  : Schema_!ALL
+  , ICmptCatOprDmnArgsObject
+{
+
+  public CmptCatOprDmnArgsObject
+    ()
+  {
+  }
+}
+
+public class CmptCatOprDmnMods
+  : Schema_!ALL
+  , ICmptCatOprDmnMods
+{
+  public ICmptCatOprDmnModsObject? As_CatOprDmnMods { get; set; }
+}
+
+public class CmptCatOprDmnModsObject
+  : Schema_!ALL
+  , ICmptCatOprDmnModsObject
+{
+
+  public CmptCatOprDmnModsObject
+    ()
+  {
+  }
+}
+
+public class CmptCatOprSlct
+  : Schema_!ALL
+  , ICmptCatOprSlct
+{
+  public ICmptCatOprSlctObject? As_CatOprSlct { get; set; }
+}
+
+public class CmptCatOprSlctObject
+  : Schema_!ALL
+  , ICmptCatOprSlctObject
 {
   public string First { get; set; }
   public string Last { get; set; }
-  public ICmptAddrOprSelection Address { get; set; }
+  public ICmptAddrOprSlct Address { get; set; }
 
-  public CmptCatOprSelectionObject
+  public CmptCatOprSlctObject
     ( string pfirst
     , string plast
-    , ICmptAddrOprSelection paddress
+    , ICmptAddrOprSlct paddress
     )
   {
     First = pfirst;
@@ -357,22 +411,22 @@ public class CmptCatOprSelectionObject
   }
 }
 
-public class CmptAddrOprSelection
+public class CmptAddrOprSlct
   : Schema_!ALL
-  , ICmptAddrOprSelection
+  , ICmptAddrOprSlct
 {
-  public ICmptAddrOprSelectionObject? As_AddrOprSelection { get; set; }
+  public ICmptAddrOprSlctObject? As_AddrOprSlct { get; set; }
 }
 
-public class CmptAddrOprSelectionObject
+public class CmptAddrOprSlctObject
   : Schema_!ALL
-  , ICmptAddrOprSelectionObject
+  , ICmptAddrOprSlctObject
 {
   public string Street { get; set; }
   public string City { get; set; }
   public string Country { get; set; }
 
-  public CmptAddrOprSelectionObject
+  public CmptAddrOprSlctObject
     ( string pstreet
     , string pcity
     , string pcountry
@@ -384,25 +438,25 @@ public class CmptAddrOprSelectionObject
   }
 }
 
-public class CmptCatOprSelectionMods
+public class CmptCatOprSlctMods
   : Schema_!ALL
-  , ICmptCatOprSelectionMods
+  , ICmptCatOprSlctMods
 {
-  public ICmptCatOprSelectionModsObject? As_CatOprSelectionMods { get; set; }
+  public ICmptCatOprSlctModsObject? As_CatOprSlctMods { get; set; }
 }
 
-public class CmptCatOprSelectionModsObject
+public class CmptCatOprSlctModsObject
   : Schema_!ALL
-  , ICmptCatOprSelectionModsObject
+  , ICmptCatOprSlctModsObject
 {
   public string First { get; set; }
   public string Last { get; set; }
-  public ICmptAddrOprSelectionMods Address { get; set; }
+  public ICmptAddrOprSlctMods Address { get; set; }
 
-  public CmptCatOprSelectionModsObject
+  public CmptCatOprSlctModsObject
     ( string pfirst
     , string plast
-    , ICmptAddrOprSelectionMods paddress
+    , ICmptAddrOprSlctMods paddress
     )
   {
     First = pfirst;
@@ -411,22 +465,22 @@ public class CmptCatOprSelectionModsObject
   }
 }
 
-public class CmptAddrOprSelectionMods
+public class CmptAddrOprSlctMods
   : Schema_!ALL
-  , ICmptAddrOprSelectionMods
+  , ICmptAddrOprSlctMods
 {
-  public ICmptAddrOprSelectionModsObject? As_AddrOprSelectionMods { get; set; }
+  public ICmptAddrOprSlctModsObject? As_AddrOprSlctMods { get; set; }
 }
 
-public class CmptAddrOprSelectionModsObject
+public class CmptAddrOprSlctModsObject
   : Schema_!ALL
-  , ICmptAddrOprSelectionModsObject
+  , ICmptAddrOprSlctModsObject
 {
   public string Street { get; set; }
   public string City { get; set; }
   public string Country { get; set; }
 
-  public CmptAddrOprSelectionModsObject
+  public CmptAddrOprSlctModsObject
     ( string pstreet
     , string pcity
     , string pcountry

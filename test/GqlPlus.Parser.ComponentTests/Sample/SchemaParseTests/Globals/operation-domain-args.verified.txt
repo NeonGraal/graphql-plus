@@ -1,0 +1,18 @@
+﻿!Sc I@001/0001
+Success
+{
+  !SO I@011/0001
+  OprDmnArgs
+  catOprDmnArgs
+}
+{
+  !Ca P@010/0002
+  catOprDmnArgs
+  (Parallel)
+  !Tr I@012/0002
+  CatOprDmnArgs
+}
+{
+  !Ou I@008/0003
+  CatOprDmnArgs
+}

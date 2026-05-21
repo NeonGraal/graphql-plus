@@ -4,7 +4,7 @@
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test, NamespaceIncludesBaseName: True
 /*
 
-Category catOprSelectionMods
+Category catOprSlctMods
 */
 
 namespace GqlPlus.GeneratorTests.Gqlp_operation_selection_mods;

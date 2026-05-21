@@ -1,0 +1,15 @@
+﻿!_Schema
+categories: !_Map(_Categories)
+  !_Name catOprDmn: !_Category
+    name: catOprDmn
+    output: !_TypeRef(_TypeKind)
+      name: CatOprDmn
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+operations: !_Map(_Operations)
+  !_Name OprDmn: !_Operation
+    name: OprDmn
+types: !_Map(_Type)
+  !_Name CatOprDmn: !_TypeOutput
+    name: CatOprDmn
+    typeKind: !_TypeKind Output

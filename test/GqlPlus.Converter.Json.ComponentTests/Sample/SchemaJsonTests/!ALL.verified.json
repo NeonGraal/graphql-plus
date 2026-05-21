@@ -20,13 +20,81 @@
         "$valueTag": "_Resolution"
       }
     },
-    "catOprType": {
+    "catOprDmn": {
       "$keyTag": "_Name",
       "$mapTag": "_Category",
-      "name": "catOprType",
+      "name": "catOprDmn",
       "output": {
         "$mapTag": "_TypeRef(_TypeKind)",
-        "name": "CatOprType",
+        "name": "CatOprDmn",
+        "typeKind": {
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
+        }
+      },
+      "resolution": {
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
+      }
+    },
+    "catOprDmnArgs": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Category",
+      "name": "catOprDmnArgs",
+      "output": {
+        "$mapTag": "_TypeRef(_TypeKind)",
+        "name": "CatOprDmnArgs",
+        "typeKind": {
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
+        }
+      },
+      "resolution": {
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
+      }
+    },
+    "catOprDmnMods": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Category",
+      "name": "catOprDmnMods",
+      "output": {
+        "$mapTag": "_TypeRef(_TypeKind)",
+        "name": "CatOprDmnMods",
+        "typeKind": {
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
+        }
+      },
+      "resolution": {
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
+      }
+    },
+    "catOprSlct": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Category",
+      "name": "catOprSlct",
+      "output": {
+        "$mapTag": "_TypeRef(_TypeKind)",
+        "name": "CatOprSlct",
+        "typeKind": {
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
+        }
+      },
+      "resolution": {
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
+      }
+    },
+    "catOprSlctMods": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Category",
+      "name": "catOprSlctMods",
+      "output": {
+        "$mapTag": "_TypeRef(_TypeKind)",
+        "name": "CatOprSlctMods",
         "typeKind": {
           "$value": "Output",
           "$valueTag": "_TypeKind"
@@ -482,10 +550,30 @@
       "$mapTag": "_Operation",
       "name": "OprCtgr"
     },
-    "OprType": {
+    "OprDmn": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
-      "name": "OprType"
+      "name": "OprDmn"
+    },
+    "OprDmnArgs": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Operation",
+      "name": "OprDmnArgs"
+    },
+    "OprDmnMods": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Operation",
+      "name": "OprDmnMods"
+    },
+    "OprSlct": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Operation",
+      "name": "OprSlct"
+    },
+    "OprSlctMods": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Operation",
+      "name": "OprSlctMods"
     }
   },
   "settings": {
@@ -515,14 +603,14 @@
   },
   "types": {
     "$mapTag": "_Map(_Type)",
-    "AddrOprType": {
+    "AddrOprSlct": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "street",
-          "object": "AddrOprType",
+          "object": "AddrOprSlct",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "String"
@@ -531,7 +619,7 @@
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "city",
-          "object": "AddrOprType",
+          "object": "AddrOprSlct",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "String"
@@ -540,7 +628,7 @@
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "country",
-          "object": "AddrOprType",
+          "object": "AddrOprSlct",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "String"
@@ -573,7 +661,71 @@
           }
         }
       ],
-      "name": "AddrOprType",
+      "name": "AddrOprSlct",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "AddrOprSlctMods": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "street",
+          "object": "AddrOprSlctMods",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "city",
+          "object": "AddrOprSlctMods",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "country",
+          "object": "AddrOprSlctMods",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "street",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "city",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "country",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "name": "AddrOprSlctMods",
       "typeKind": {
         "$value": "Output",
         "$valueTag": "_TypeKind"
@@ -3909,14 +4061,41 @@
         "$valueTag": "_TypeKind"
       }
     },
-    "CatOprType": {
+    "CatOprDmn": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "name": "CatOprDmn",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "CatOprDmnArgs": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "name": "CatOprDmnArgs",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "CatOprDmnMods": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "name": "CatOprDmnMods",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "CatOprSlct": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "first",
-          "object": "CatOprType",
+          "object": "CatOprSlct",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "String"
@@ -3925,7 +4104,7 @@
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "last",
-          "object": "CatOprType",
+          "object": "CatOprSlct",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "String"
@@ -3934,10 +4113,10 @@
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "address",
-          "object": "CatOprType",
+          "object": "CatOprSlct",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "AddrOprType"
+            "name": "AddrOprSlct"
           }
         }
       ],
@@ -3963,11 +4142,75 @@
           "name": "address",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "AddrOprType"
+            "name": "AddrOprSlct"
           }
         }
       ],
-      "name": "CatOprType",
+      "name": "CatOprSlct",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "CatOprSlctMods": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "first",
+          "object": "CatOprSlctMods",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "last",
+          "object": "CatOprSlctMods",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "address",
+          "object": "CatOprSlctMods",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "AddrOprSlctMods"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "first",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "last",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "address",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "AddrOprSlctMods"
+          }
+        }
+      ],
+      "name": "CatOprSlctMods",
       "typeKind": {
         "$value": "Output",
         "$valueTag": "_TypeKind"

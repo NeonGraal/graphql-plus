@@ -1,12 +1,12 @@
 ﻿/* operation-selection-mods
-operation OprSelectionMods { catOprSelectionMods { first last address { street city country } }[] }
-category { CatOprSelectionMods }
-output CatOprSelectionMods { 
+operation OprSlctMods { catOprSlctMods { first last address { street city country } }[] }
+category { CatOprSlctMods }
+output CatOprSlctMods { 
     first: String
     last: String
-    address: AddrOprSelectionMods
+    address: AddrOprSlctMods
 }
-output AddrOprSelectionMods {
+output AddrOprSlctMods {
     street: String
     city: String
     country: String
@@ -21,25 +21,25 @@ output AddrOprSelectionMods {
 
 namespace Components.Gqlp_Schema_operation_selection_mods;
 
-public class CmptCatOprSelectionMods
+public class CmptCatOprSlctMods
   : Schema_operation-selection-mods
-  , ICmptCatOprSelectionMods
+  , ICmptCatOprSlctMods
 {
-  public ICmptCatOprSelectionModsObject? As_CatOprSelectionMods { get; set; }
+  public ICmptCatOprSlctModsObject? As_CatOprSlctMods { get; set; }
 }
 
-public class CmptCatOprSelectionModsObject
+public class CmptCatOprSlctModsObject
   : Schema_operation-selection-mods
-  , ICmptCatOprSelectionModsObject
+  , ICmptCatOprSlctModsObject
 {
   public string First { get; set; }
   public string Last { get; set; }
-  public ICmptAddrOprSelectionMods Address { get; set; }
+  public ICmptAddrOprSlctMods Address { get; set; }
 
-  public CmptCatOprSelectionModsObject
+  public CmptCatOprSlctModsObject
     ( string pfirst
     , string plast
-    , ICmptAddrOprSelectionMods paddress
+    , ICmptAddrOprSlctMods paddress
     )
   {
     First = pfirst;
@@ -48,22 +48,22 @@ public class CmptCatOprSelectionModsObject
   }
 }
 
-public class CmptAddrOprSelectionMods
+public class CmptAddrOprSlctMods
   : Schema_operation-selection-mods
-  , ICmptAddrOprSelectionMods
+  , ICmptAddrOprSlctMods
 {
-  public ICmptAddrOprSelectionModsObject? As_AddrOprSelectionMods { get; set; }
+  public ICmptAddrOprSlctModsObject? As_AddrOprSlctMods { get; set; }
 }
 
-public class CmptAddrOprSelectionModsObject
+public class CmptAddrOprSlctModsObject
   : Schema_operation-selection-mods
-  , ICmptAddrOprSelectionModsObject
+  , ICmptAddrOprSlctModsObject
 {
   public string Street { get; set; }
   public string City { get; set; }
   public string Country { get; set; }
 
-  public CmptAddrOprSelectionModsObject
+  public CmptAddrOprSlctModsObject
     ( string pstreet
     , string pcity
     , string pcountry

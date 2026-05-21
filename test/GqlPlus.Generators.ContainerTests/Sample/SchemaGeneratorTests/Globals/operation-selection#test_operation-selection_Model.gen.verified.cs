@@ -7,25 +7,25 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_operation_selection;
 
-public class testCatOprSelection
+public class testCatOprSlct
   : GqlpModelBase
-  , ItestCatOprSelection
+  , ItestCatOprSlct
 {
-  public ItestCatOprSelectionObject? As_CatOprSelection { get; set; }
+  public ItestCatOprSlctObject? As_CatOprSlct { get; set; }
 }
 
-public class testCatOprSelectionObject
+public class testCatOprSlctObject
   : GqlpModelBase
-  , ItestCatOprSelectionObject
+  , ItestCatOprSlctObject
 {
   public string First { get; set; }
   public string Last { get; set; }
-  public ItestAddrOprSelection Address { get; set; }
+  public ItestAddrOprSlct Address { get; set; }
 
-  public testCatOprSelectionObject
+  public testCatOprSlctObject
     ( string pfirst
     , string plast
-    , ItestAddrOprSelection paddress
+    , ItestAddrOprSlct paddress
     )
   {
     First = pfirst;
@@ -34,22 +34,22 @@ public class testCatOprSelectionObject
   }
 }
 
-public class testAddrOprSelection
+public class testAddrOprSlct
   : GqlpModelBase
-  , ItestAddrOprSelection
+  , ItestAddrOprSlct
 {
-  public ItestAddrOprSelectionObject? As_AddrOprSelection { get; set; }
+  public ItestAddrOprSlctObject? As_AddrOprSlct { get; set; }
 }
 
-public class testAddrOprSelectionObject
+public class testAddrOprSlctObject
   : GqlpModelBase
-  , ItestAddrOprSelectionObject
+  , ItestAddrOprSlctObject
 {
   public string Street { get; set; }
   public string City { get; set; }
   public string Country { get; set; }
 
-  public testAddrOprSelectionObject
+  public testAddrOprSlctObject
     ( string pstreet
     , string pcity
     , string pcountry

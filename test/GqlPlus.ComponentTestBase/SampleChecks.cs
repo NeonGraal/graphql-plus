@@ -29,6 +29,7 @@ public class SampleChecks
     ["Parent"] = "Prnt",
     ["Positive"] = "Pstv",
     ["Schema"] = "Schm",
+    ["Selection"] = "Slct",
     ["Setting"] = "Stng",
     ["Simple"] = "Smpl",
     ["Single"] = "Sngl",

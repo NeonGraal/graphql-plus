@@ -205,27 +205,88 @@ public interface ItestCatOprCtgrObject
 {
 }
 
-public interface ItestCatOprType
+public interface ItestCatOprDmn
   : IGqlpInterfaceBase
 {
-  ItestCatOprTypeObject? As_CatOprType { get; }
+  ItestCatOprDmnObject? As_CatOprDmn { get; }
 }
 
-public interface ItestCatOprTypeObject
+public interface ItestCatOprDmnObject
+  : IGqlpInterfaceBase
+{
+}
+
+public interface ItestCatOprDmnArgs
+  : IGqlpInterfaceBase
+{
+  ItestCatOprDmnArgsObject? As_CatOprDmnArgs { get; }
+}
+
+public interface ItestCatOprDmnArgsObject
+  : IGqlpInterfaceBase
+{
+}
+
+public interface ItestCatOprDmnMods
+  : IGqlpInterfaceBase
+{
+  ItestCatOprDmnModsObject? As_CatOprDmnMods { get; }
+}
+
+public interface ItestCatOprDmnModsObject
+  : IGqlpInterfaceBase
+{
+}
+
+public interface ItestCatOprSlct
+  : IGqlpInterfaceBase
+{
+  ItestCatOprSlctObject? As_CatOprSlct { get; }
+}
+
+public interface ItestCatOprSlctObject
   : IGqlpInterfaceBase
 {
   string First { get; }
   string Last { get; }
-  ItestAddrOprType Address { get; }
+  ItestAddrOprSlct Address { get; }
 }
 
-public interface ItestAddrOprType
+public interface ItestAddrOprSlct
   : IGqlpInterfaceBase
 {
-  ItestAddrOprTypeObject? As_AddrOprType { get; }
+  ItestAddrOprSlctObject? As_AddrOprSlct { get; }
 }
 
-public interface ItestAddrOprTypeObject
+public interface ItestAddrOprSlctObject
+  : IGqlpInterfaceBase
+{
+  string Street { get; }
+  string City { get; }
+  string Country { get; }
+}
+
+public interface ItestCatOprSlctMods
+  : IGqlpInterfaceBase
+{
+  ItestCatOprSlctModsObject? As_CatOprSlctMods { get; }
+}
+
+public interface ItestCatOprSlctModsObject
+  : IGqlpInterfaceBase
+{
+  string First { get; }
+  string Last { get; }
+  ItestAddrOprSlctMods Address { get; }
+}
+
+public interface ItestAddrOprSlctMods
+  : IGqlpInterfaceBase
+{
+  ItestAddrOprSlctModsObject? As_AddrOprSlctMods { get; }
+}
+
+public interface ItestAddrOprSlctModsObject
   : IGqlpInterfaceBase
 {
   string Street { get; }

@@ -44,12 +44,9 @@ internal sealed record class InputParamAst(
     => HashCode.Combine(base.GetHashCode(), Type.NullHashCode(), Modifiers.Length, EnumValue.NullHashCode(), DefaultValue.NullHashCode());
 
   internal override IEnumerable<string?> GetFields()
-    => string.IsNullOrWhiteSpace(EnumValue?.EnumLabel)
-        ? new[] { "!" + Abbr }
-          .Concat(Type.GetFields())
-          .Concat(Modifiers.AsString())
-          .Append(DefaultValue.Prefixed("="))
-        : new[] { "!" + Abbr }
-          .Concat(Type.GetFields())
-          .Append(EnumValue?.EnumLabel.Prefixed("."));
+    => new[] { "!" + Abbr }
+      .Concat(Type.GetFields())
+      .AppendIf(string.IsNullOrWhiteSpace(EnumValue?.EnumLabel),
+        Modifiers.AsString().Append(DefaultValue.Prefixed("=")),
+        [EnumValue?.EnumLabel.Prefixed(".")]);
 }

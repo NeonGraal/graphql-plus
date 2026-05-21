@@ -11,8 +11,11 @@ Category ctgrOutpList
 Category ctgrOutpOptl
 Category descrBtwn
 Category catOprCtgr
-Category catOprSelection
-Category catOprSelectionMods
+Category catOprDmn
+Category catOprDmnArgs
+Category catOprDmnMods
+Category catOprSlct
+Category catOprSlctMods
 Category ctgr
 Category ctgrAlias
 Category ctgrDescr

@@ -7,25 +7,25 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_operation_selection_mods;
 
-public class testCatOprSelectionMods
+public class testCatOprSlctMods
   : GqlpModelBase
-  , ItestCatOprSelectionMods
+  , ItestCatOprSlctMods
 {
-  public ItestCatOprSelectionModsObject? As_CatOprSelectionMods { get; set; }
+  public ItestCatOprSlctModsObject? As_CatOprSlctMods { get; set; }
 }
 
-public class testCatOprSelectionModsObject
+public class testCatOprSlctModsObject
   : GqlpModelBase
-  , ItestCatOprSelectionModsObject
+  , ItestCatOprSlctModsObject
 {
   public string First { get; set; }
   public string Last { get; set; }
-  public ItestAddrOprSelectionMods Address { get; set; }
+  public ItestAddrOprSlctMods Address { get; set; }
 
-  public testCatOprSelectionModsObject
+  public testCatOprSlctModsObject
     ( string pfirst
     , string plast
-    , ItestAddrOprSelectionMods paddress
+    , ItestAddrOprSlctMods paddress
     )
   {
     First = pfirst;
@@ -34,22 +34,22 @@ public class testCatOprSelectionModsObject
   }
 }
 
-public class testAddrOprSelectionMods
+public class testAddrOprSlctMods
   : GqlpModelBase
-  , ItestAddrOprSelectionMods
+  , ItestAddrOprSlctMods
 {
-  public ItestAddrOprSelectionModsObject? As_AddrOprSelectionMods { get; set; }
+  public ItestAddrOprSlctModsObject? As_AddrOprSlctMods { get; set; }
 }
 
-public class testAddrOprSelectionModsObject
+public class testAddrOprSlctModsObject
   : GqlpModelBase
-  , ItestAddrOprSelectionModsObject
+  , ItestAddrOprSlctModsObject
 {
   public string Street { get; set; }
   public string City { get; set; }
   public string Country { get; set; }
 
-  public testAddrOprSelectionModsObject
+  public testAddrOprSlctModsObject
     ( string pstreet
     , string pcity
     , string pcountry

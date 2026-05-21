@@ -7,27 +7,27 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_operation_selection;
 
-public interface ItestCatOprSelection
+public interface ItestCatOprSlct
   : IGqlpInterfaceBase
 {
-  ItestCatOprSelectionObject? As_CatOprSelection { get; }
+  ItestCatOprSlctObject? As_CatOprSlct { get; }
 }
 
-public interface ItestCatOprSelectionObject
+public interface ItestCatOprSlctObject
   : IGqlpInterfaceBase
 {
   string First { get; }
   string Last { get; }
-  ItestAddrOprSelection Address { get; }
+  ItestAddrOprSlct Address { get; }
 }
 
-public interface ItestAddrOprSelection
+public interface ItestAddrOprSlct
   : IGqlpInterfaceBase
 {
-  ItestAddrOprSelectionObject? As_AddrOprSelection { get; }
+  ItestAddrOprSlctObject? As_AddrOprSlct { get; }
 }
 
-public interface ItestAddrOprSelectionObject
+public interface ItestAddrOprSlctObject
   : IGqlpInterfaceBase
 {
   string Street { get; }

@@ -1,12 +1,12 @@
 ﻿/* operation-selection-mods
-operation OprSelectionMods { catOprSelectionMods { first last address { street city country } }[] }
-category { CatOprSelectionMods }
-output CatOprSelectionMods { 
+operation OprSlctMods { catOprSlctMods { first last address { street city country } }[] }
+category { CatOprSlctMods }
+output CatOprSlctMods { 
     first: String
     last: String
-    address: AddrOprSelectionMods
+    address: AddrOprSlctMods
 }
-output AddrOprSelectionMods {
+output AddrOprSlctMods {
     street: String
     city: String
     country: String
@@ -21,27 +21,27 @@ output AddrOprSelectionMods {
 
 namespace Components.Gqlp_Schema_operation_selection_mods;
 
-public interface ICmptCatOprSelectionMods
+public interface ICmptCatOprSlctMods
   : Schema_operation-selection-mods
 {
-  ICmptCatOprSelectionModsObject? As_CatOprSelectionMods { get; }
+  ICmptCatOprSlctModsObject? As_CatOprSlctMods { get; }
 }
 
-public interface ICmptCatOprSelectionModsObject
+public interface ICmptCatOprSlctModsObject
   : Schema_operation-selection-mods
 {
   string First { get; }
   string Last { get; }
-  ICmptAddrOprSelectionMods Address { get; }
+  ICmptAddrOprSlctMods Address { get; }
 }
 
-public interface ICmptAddrOprSelectionMods
+public interface ICmptAddrOprSlctMods
   : Schema_operation-selection-mods
 {
-  ICmptAddrOprSelectionModsObject? As_AddrOprSelectionMods { get; }
+  ICmptAddrOprSlctModsObject? As_AddrOprSlctMods { get; }
 }
 
-public interface ICmptAddrOprSelectionModsObject
+public interface ICmptAddrOprSlctModsObject
   : Schema_operation-selection-mods
 {
   string Street { get; }

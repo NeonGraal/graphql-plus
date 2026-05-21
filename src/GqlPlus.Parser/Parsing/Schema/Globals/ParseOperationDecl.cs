@@ -15,6 +15,7 @@ internal class ParseOperationDecl(
   protected override IAstSchemaOperation MakeResult(AstPartial<NullAst, NullOption> partial, OperationDefinition value)
         => new OperationDeclAst(partial.At, partial.Name, partial.Description, value.Category) {
           Aliases = partial.Aliases,
+          Arg = value.Argument,
         };
 
   protected override IAstSchemaOperation ToResult(AstPartial<NullAst, NullOption> partial)
@@ -29,7 +30,7 @@ internal record OperationDefinition(string Category)
 {
   public IEnumerable<IAstVariable> Variables { get; set; } = [];
   public IAstArg? Argument { get; set; }
-  public string? ResultType { get; set; }
+  public IAstTypeRef? ResultType { get; set; }
   public IEnumerable<IAstSelection>? ResultObject { get; set; } = [];
   public IEnumerable<IAstFragment> Fragments { get; set; } = [];
   public IEnumerable<IAstDirective> Directives { get; set; } = [];
@@ -45,6 +46,7 @@ internal class ParseOperationDefinition(
   private readonly ParserArray<IParserStartFragments, IAstFragment> _fragments = parsers.ArrayFor<IParserStartFragments, IAstFragment>();
   private readonly ParserArray<IAstModifier> _modifiers = parsers.ArrayFor<IAstModifier>();
   private readonly ParserArray<IAstSelection> _object = parsers.ArrayFor<IAstSelection>();
+  private readonly ParserOne<IAstTypeRef> _resultType = parsers.ParserFor<IAstTypeRef>();
   private readonly ParserArray<IAstVariable> _variables = parsers.ArrayFor<IAstVariable>();
 
   public IResult<OperationDefinition> Parse([NotNull] ITokenizer tokens, string label)
@@ -62,13 +64,13 @@ internal class ParseOperationDefinition(
 
     _directives.Parse(tokens, label).Required(directives => result.Directives = [.. directives]);
 
-    _fragments.I.Parse(tokens, label).WithResult(value => result.Fragments = [.. value]);
-    if (!tokens.Prefix(':', out string? resultType, out _)) {
-      return tokens.Partial(label, "identifier to follow ':'", () => result);
-    }
+    _fragments.Parse(tokens, label).WithResult(value => result.Fragments = [.. value]);
+    if (tokens.Take(':')) {
+      IResult<IAstTypeRef>? resultType = _resultType.Parse(tokens, label);
+      if (!resultType.Required(v => result.ResultType = v)) {
+        return resultType.AsPartial(result);
+      }
 
-    if (resultType is not null) {
-      result.ResultType = resultType;
       IResult<IAstArg> argument = _argument.I.Parse(tokens, "Arg");
       if (!argument.Optional(value => result.Argument = value)) {
         return argument.AsPartial(result);

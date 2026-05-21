@@ -1,12 +1,12 @@
 ﻿/* operation-selection
-operation OprSelection { catOprSelection { first last address { street city country } } }
-category { CatOprSelection }
-output CatOprSelection { 
+operation OprSlct { catOprSlct { first last address { street city country } } }
+category { CatOprSlct }
+output CatOprSlct { 
     first: String
     last: String
-    address: AddrOprSelection
+    address: AddrOprSlct
 }
-output AddrOprSelection {
+output AddrOprSlct {
     street: String
     city: String
     country: String
@@ -21,27 +21,27 @@ output AddrOprSelection {
 
 namespace Components.Gqlp_Schema_operation_selection;
 
-public interface ICmptCatOprSelection
+public interface ICmptCatOprSlct
   : Schema_operation-selection
 {
-  ICmptCatOprSelectionObject? As_CatOprSelection { get; }
+  ICmptCatOprSlctObject? As_CatOprSlct { get; }
 }
 
-public interface ICmptCatOprSelectionObject
+public interface ICmptCatOprSlctObject
   : Schema_operation-selection
 {
   string First { get; }
   string Last { get; }
-  ICmptAddrOprSelection Address { get; }
+  ICmptAddrOprSlct Address { get; }
 }
 
-public interface ICmptAddrOprSelection
+public interface ICmptAddrOprSlct
   : Schema_operation-selection
 {
-  ICmptAddrOprSelectionObject? As_AddrOprSelection { get; }
+  ICmptAddrOprSlctObject? As_AddrOprSlct { get; }
 }
 
-public interface ICmptAddrOprSelectionObject
+public interface ICmptAddrOprSlctObject
   : Schema_operation-selection
 {
   string Street { get; }

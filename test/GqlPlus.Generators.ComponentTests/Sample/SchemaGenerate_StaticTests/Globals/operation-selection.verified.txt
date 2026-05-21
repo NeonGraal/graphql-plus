@@ -1,12 +1,12 @@
 ﻿/* operation-selection
-operation OprSelection { catOprSelection { first last address { street city country } } }
-category { CatOprSelection }
-output CatOprSelection { 
+operation OprSlct { catOprSlct { first last address { street city country } } }
+category { CatOprSlct }
+output CatOprSlct { 
     first: String
     last: String
-    address: AddrOprSelection
+    address: AddrOprSlct
 }
-output AddrOprSelection {
+output AddrOprSlct {
     street: String
     city: String
     country: String
@@ -18,7 +18,7 @@ output AddrOprSelection {
 //   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 
-Category catOprSelection
+Category catOprSlct
 */
 
 namespace Components.Gqlp_Schema_operation_selection;

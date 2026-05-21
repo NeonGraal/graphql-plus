@@ -1,12 +1,12 @@
 ﻿/* operation-selection-mods
-operation OprSelectionMods { catOprSelectionMods { first last address { street city country } }[] }
-category { CatOprSelectionMods }
-output CatOprSelectionMods { 
+operation OprSlctMods { catOprSlctMods { first last address { street city country } }[] }
+category { CatOprSlctMods }
+output CatOprSlctMods { 
     first: String
     last: String
-    address: AddrOprSelectionMods
+    address: AddrOprSlctMods
 }
-output AddrOprSelectionMods {
+output AddrOprSlctMods {
     street: String
     city: String
     country: String
@@ -18,7 +18,7 @@ output AddrOprSelectionMods {
 //   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
 /*
 
-Category catOprSelectionMods
+Category catOprSlctMods
 */
 
 namespace Components.Gqlp_Schema_operation_selection_mods;

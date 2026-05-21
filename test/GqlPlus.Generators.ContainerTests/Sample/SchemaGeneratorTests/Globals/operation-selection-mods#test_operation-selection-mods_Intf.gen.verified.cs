@@ -7,27 +7,27 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_operation_selection_mods;
 
-public interface ItestCatOprSelectionMods
+public interface ItestCatOprSlctMods
   : IGqlpInterfaceBase
 {
-  ItestCatOprSelectionModsObject? As_CatOprSelectionMods { get; }
+  ItestCatOprSlctModsObject? As_CatOprSlctMods { get; }
 }
 
-public interface ItestCatOprSelectionModsObject
+public interface ItestCatOprSlctModsObject
   : IGqlpInterfaceBase
 {
   string First { get; }
   string Last { get; }
-  ItestAddrOprSelectionMods Address { get; }
+  ItestAddrOprSlctMods Address { get; }
 }
 
-public interface ItestAddrOprSelectionMods
+public interface ItestAddrOprSlctMods
   : IGqlpInterfaceBase
 {
-  ItestAddrOprSelectionModsObject? As_AddrOprSelectionMods { get; }
+  ItestAddrOprSlctModsObject? As_AddrOprSlctMods { get; }
 }
 
-public interface ItestAddrOprSelectionModsObject
+public interface ItestAddrOprSlctModsObject
   : IGqlpInterfaceBase
 {
   string Street { get; }

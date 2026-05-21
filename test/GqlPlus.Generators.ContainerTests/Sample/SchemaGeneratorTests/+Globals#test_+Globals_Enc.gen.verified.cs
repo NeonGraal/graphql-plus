@@ -119,29 +119,78 @@ internal class testCatOprCtgrEncoder : IEncoder<ItestCatOprCtgrObject>
   internal static testCatOprCtgrEncoder Factory(IEncoderRepository _) => new();
 }
 
-internal class testCatOprTypeEncoder(
-  IEncoderRepository encoders
-) : IEncoder<ItestCatOprTypeObject>
+internal class testCatOprDmnEncoder : IEncoder<ItestCatOprDmnObject>
 {
-  private readonly Encoder<ItestAddrOprType> _itestAddrOprType = encoders.EncoderFor<ItestAddrOprType>();
-  public Structured Encode(ItestCatOprTypeObject input)
+  public Structured Encode(ItestCatOprDmnObject input)
+    => Structured.Empty();
+
+  internal static testCatOprDmnEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class testCatOprDmnArgsEncoder : IEncoder<ItestCatOprDmnArgsObject>
+{
+  public Structured Encode(ItestCatOprDmnArgsObject input)
+    => Structured.Empty();
+
+  internal static testCatOprDmnArgsEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class testCatOprDmnModsEncoder : IEncoder<ItestCatOprDmnModsObject>
+{
+  public Structured Encode(ItestCatOprDmnModsObject input)
+    => Structured.Empty();
+
+  internal static testCatOprDmnModsEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class testCatOprSlctEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestCatOprSlctObject>
+{
+  private readonly Encoder<ItestAddrOprSlct> _itestAddrOprSlct = encoders.EncoderFor<ItestAddrOprSlct>();
+  public Structured Encode(ItestCatOprSlctObject input)
     => Structured.Empty()
       .Add("first", input.First.Encode())
       .Add("last", input.Last.Encode())
-      .AddEncoded("address", input.Address, _itestAddrOprType);
+      .AddEncoded("address", input.Address, _itestAddrOprSlct);
 
-  internal static testCatOprTypeEncoder Factory(IEncoderRepository r) => new(r);
+  internal static testCatOprSlctEncoder Factory(IEncoderRepository r) => new(r);
 }
 
-internal class testAddrOprTypeEncoder : IEncoder<ItestAddrOprTypeObject>
+internal class testAddrOprSlctEncoder : IEncoder<ItestAddrOprSlctObject>
 {
-  public Structured Encode(ItestAddrOprTypeObject input)
+  public Structured Encode(ItestAddrOprSlctObject input)
     => Structured.Empty()
       .Add("street", input.Street.Encode())
       .Add("city", input.City.Encode())
       .Add("country", input.Country.Encode());
 
-  internal static testAddrOprTypeEncoder Factory(IEncoderRepository _) => new();
+  internal static testAddrOprSlctEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class testCatOprSlctModsEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestCatOprSlctModsObject>
+{
+  private readonly Encoder<ItestAddrOprSlctMods> _itestAddrOprSlctMods = encoders.EncoderFor<ItestAddrOprSlctMods>();
+  public Structured Encode(ItestCatOprSlctModsObject input)
+    => Structured.Empty()
+      .Add("first", input.First.Encode())
+      .Add("last", input.Last.Encode())
+      .AddEncoded("address", input.Address, _itestAddrOprSlctMods);
+
+  internal static testCatOprSlctModsEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class testAddrOprSlctModsEncoder : IEncoder<ItestAddrOprSlctModsObject>
+{
+  public Structured Encode(ItestAddrOprSlctModsObject input)
+    => Structured.Empty()
+      .Add("street", input.Street.Encode())
+      .Add("city", input.City.Encode())
+      .Add("country", input.Country.Encode());
+
+  internal static testAddrOprSlctModsEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal static class test__GlobalsEncoders
@@ -162,6 +211,11 @@ internal static class test__GlobalsEncoders
       .AddEncoder<ItestDescrSnglObject>(testDescrSnglEncoder.Factory)
       .AddEncoder<ItestDscrsObject>(testDscrsEncoder.Factory)
       .AddEncoder<ItestCatOprCtgrObject>(testCatOprCtgrEncoder.Factory)
-      .AddEncoder<ItestCatOprTypeObject>(testCatOprTypeEncoder.Factory)
-      .AddEncoder<ItestAddrOprTypeObject>(testAddrOprTypeEncoder.Factory);
+      .AddEncoder<ItestCatOprDmnObject>(testCatOprDmnEncoder.Factory)
+      .AddEncoder<ItestCatOprDmnArgsObject>(testCatOprDmnArgsEncoder.Factory)
+      .AddEncoder<ItestCatOprDmnModsObject>(testCatOprDmnModsEncoder.Factory)
+      .AddEncoder<ItestCatOprSlctObject>(testCatOprSlctEncoder.Factory)
+      .AddEncoder<ItestAddrOprSlctObject>(testAddrOprSlctEncoder.Factory)
+      .AddEncoder<ItestCatOprSlctModsObject>(testCatOprSlctModsEncoder.Factory)
+      .AddEncoder<ItestAddrOprSlctModsObject>(testAddrOprSlctModsEncoder.Factory);
 }

@@ -239,8 +239,9 @@ public interface Itest_OperationObject
   IDictionary<Itest_Name, Itest_OpVariable> Variables { get; }
   ICollection<Itest_OpDirective> Directives { get; }
   IDictionary<Itest_Name, Itest_OpFragment> Fragments { get; }
-  Itest_OpResult Result { get; }
+  Itest_OpResult? Result { get; }
   IDictionary<Itest_Path, ICollection<Itest_OpSelection>> Selections { get; }
+  ICollection<Itest_Modifiers> Modifiers { get; }
 }
 
 public interface Itest_OpVariable
@@ -337,13 +338,13 @@ public interface Itest_OpArgMapObject
 public interface Itest_OpResult
   : IGqlpInterfaceBase
 {
-  Itest_TypeRef<test_SimpleKind>? As_TypeRef { get; }
   Itest_OpResultObject? As__OpResult { get; }
 }
 
 public interface Itest_OpResultObject
   : IGqlpInterfaceBase
 {
+  Itest_TypeRef<test_SimpleKind> Domain { get; }
   Itest_OpArgument? Argument { get; }
 }
 

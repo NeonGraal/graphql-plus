@@ -101,8 +101,9 @@ output _Operation {
         variables: _OpVariable[_Name]
         directives: _OpDirective[]
         fragments: _OpFragment[_Name]
-        result: _OpResult
+        result: _OpResult?
         selections: _OpSelection[][_Path]
+        modifiers: _Modifiers[]
 }
 
 output _OpVariable {
@@ -144,9 +145,9 @@ dual _OpArgMap {
     }
 
 output _OpResult {
+        domain: _TypeRef<_SimpleKind>
         argument: _OpArgument?
-    | _TypeRef<_SimpleKind>
-}
+    }
 
 domain _Path { String /(\$([A-Za-z]\w*)?|\.+)?\d+(\.\d+)*/ }
 
@@ -670,8 +671,9 @@ public interface ICmpt_OperationObject
   IDictionary<ICmpt_Name, ICmpt_OpVariable> Variables { get; }
   ICollection<ICmpt_OpDirective> Directives { get; }
   IDictionary<ICmpt_Name, ICmpt_OpFragment> Fragments { get; }
-  ICmpt_OpResult Result { get; }
+  ICmpt_OpResult? Result { get; }
   IDictionary<ICmpt_Path, ICollection<ICmpt_OpSelection>> Selections { get; }
+  ICollection<ICmpt_Modifiers> Modifiers { get; }
 }
 
 public interface ICmpt_OpVariable
@@ -768,13 +770,13 @@ public interface ICmpt_OpArgMapObject
 public interface ICmpt_OpResult
   : Spec_Introspection
 {
-  ICmpt_TypeRef<Cmpt_SimpleKind>? As_TypeRef { get; }
   ICmpt_OpResultObject? As__OpResult { get; }
 }
 
 public interface ICmpt_OpResultObject
   : Spec_Introspection
 {
+  ICmpt_TypeRef<Cmpt_SimpleKind> Domain { get; }
   ICmpt_OpArgument? Argument { get; }
 }
 

@@ -203,6 +203,7 @@ Success
     :
     I@017/0055
     _OpResult
+    ?
     !OF I@009/0056
     selections
     :
@@ -210,238 +211,246 @@ Success
     _OpSelection
     []
     [_Path]
+    !OF I@009/0057
+    modifiers
+    :
+    I@020/0057
+    _Modifiers
+    []
   }
 }
 {
-  !Ou I@008/0059
+  !Ou I@008/0060
   _OpVariable
   :
-  I@007/0060
+  I@007/0061
   _OpDirectives
   {
-    !OF I@009/0061
+    !OF I@009/0062
     type
     :
-    I@015/0061
+    I@015/0062
     _TypeRef
     <
-      I@024/0061
+      I@024/0062
       _TypeKind.Input
     >
-    !OF I@009/0062
+    !OF I@009/0063
     modifiers
     :
-    I@020/0062
+    I@020/0063
     _Modifiers
     []
-    !OF I@009/0063
+    !OF I@009/0064
     defaultValue
     :
-    I@023/0063
+    I@023/0064
     Value
     ?
   }
 }
 {
-  !Du I@006/0066
+  !Du I@006/0067
   _OpDirective
   :
-  I@007/0067
+  I@007/0068
   _Named
   {
-    !DF I@009/0068
+    !DF I@009/0069
     argument
     :
-    I@019/0068
+    I@019/0069
     _OpArgument
     ?
   }
 }
 {
-  !Ou I@008/0071
+  !Ou I@008/0072
   _OpFragment
   :
-  I@007/0072
+  I@007/0073
   _OpDirectives
   {
-    !OF I@009/0073
+    !OF I@009/0074
     type
     :
-    I@015/0073
+    I@015/0074
     _TypeRef
     <
-      I@024/0073
+      I@024/0074
       _TypeKind.Output
     >
   }
 }
 {
-  !Du I@006/0076
+  !Du I@006/0077
   _OpArgument
   |
-  I@009/0077
-  _OpArgValue
   I@009/0078
-  _OpArgList
+  _OpArgValue
   I@009/0079
+  _OpArgList
+  I@009/0080
   _OpArgMap
 }
 {
-  !Du I@006/0082
+  !Du I@006/0083
   _OpArgValue
   {
-    !DF I@009/0083
+    !DF I@009/0084
     variable
     :
-    I@019/0083
+    I@019/0084
     _Name
   }
   |
-  I@009/0084
+  I@009/0085
   Value
 }
 {
-  !Du I@006/0087
+  !Du I@006/0088
   _OpArgList
   |
-  I@007/0088
+  I@007/0089
   _OpArgValue
   []
 }
 {
-  !Du I@006/0091
+  !Du I@006/0092
   _OpArgMap
   {
-    !DF I@009/0092
+    !DF I@009/0093
     value
     :
-    I@016/0092
+    I@016/0093
     _OpArgValue
-    !DF I@009/0093
+    !DF I@009/0094
     byVariable
     :
-    I@021/0093
+    I@021/0094
     _Name
   }
   |
-  I@007/0094
+  I@007/0095
   _OpArgValue
   [Scalar]
 }
 {
-  !Ou I@008/0097
+  !Ou I@008/0098
   _OpResult
   {
-    !OF I@009/0098
+    !OF I@009/0099
+    domain
+    :
+    I@017/0099
+    _TypeRef
+    <
+      I@026/0099
+      _SimpleKind
+    >
+    !OF I@009/0100
     argument
     :
-    I@019/0098
+    I@019/0100
     _OpArgument
     ?
   }
-  |
-  I@007/0099
-  _TypeRef
-  <
-    I@016/0099
-    _SimpleKind
-  >
 }
 {
-  !Do I@008/0102
+  !Do I@008/0103
   _Path
   String
-  !DX R@023/0102
+  !DX R@023/0103
   /(\\$([A-Za-z]\\w*)?|\\.+)?\\d+(\\.\\d+)*/
 }
 {
-  !Ou I@008/0104
+  !Ou I@008/0105
   _OpSelection
   |
-  I@009/0105
-  _OpField
   I@009/0106
-  _OpSpread
+  _OpField
   I@009/0107
+  _OpSpread
+  I@009/0108
   _OpInline
 }
 {
-  !Ou I@008/0110
+  !Ou I@008/0111
   _OpField
   :
-  I@007/0111
+  I@007/0112
   _OpDirectives
   {
-    !OF I@009/0112
+    !OF I@009/0113
     fieldAlias
     :
-    I@021/0112
+    I@021/0113
     String
     ?
-    !OF I@009/0113
+    !OF I@009/0114
     argument
     :
-    I@019/0113
+    I@019/0114
     _OpArgument
     ?
-    !OF I@009/0114
+    !OF I@009/0115
     modifiers
     :
-    I@020/0114
+    I@020/0115
     _Modifiers
     []
   }
 }
 {
-  !Ou I@008/0117
+  !Ou I@008/0118
   _OpInline
   {
-    !OF I@009/0118
+    !OF I@009/0119
     type
     :
-    I@015/0118
+    I@015/0119
     _TypeRef
     <
-      I@024/0118
+      I@024/0119
       _TypeKind.Output
     >
     ?
-    !OF I@009/0119
+    !OF I@009/0120
     directives
     :
-    I@021/0119
+    I@021/0120
     _OpDirective
     []
   }
 }
 {
-  !Ou I@008/0122
+  !Ou I@008/0123
   _OpSpread
   {
-    !OF I@009/0123
+    !OF I@009/0124
     fragment
     :
-    I@019/0123
+    I@019/0124
     String
-    !OF I@009/0124
+    !OF I@009/0125
     directives
     :
-    I@021/0124
+    I@021/0125
     _OpDirective
     []
   }
 }
 {
-  !Ou I@008/0127
+  !Ou I@008/0128
   _Setting
   :
-  I@007/0128
+  I@007/0129
   _Named
   {
-    !OF I@009/0129
+    !OF I@009/0130
     value
     :
-    I@016/0129
+    I@016/0130
     Value
   }
 }

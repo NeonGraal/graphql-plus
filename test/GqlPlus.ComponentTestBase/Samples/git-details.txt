@@ -1,1 +1,1 @@
-040c80f  (HEAD -> operation) 2026-05-21 More Schema operation samples
+d2bd90d  (HEAD -> operation) 2026-05-23 Correct Schema Operation introspection

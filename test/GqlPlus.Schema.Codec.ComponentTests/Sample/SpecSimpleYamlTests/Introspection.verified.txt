@@ -2209,29 +2209,29 @@ types: !_Map(_Type)
     name: _OpInline
     typeKind: !_TypeKind Output
   !_Name _OpResult: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: domain
         object: _OpResult
         type: !_ObjBase
           name: _TypeRef
           typeArgs:
             - !_TypeArg
               name: _SimpleKind
-    allFields:
       - !_ObjectFor(_OutputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: argument
         object: _OpResult
         type: !_ObjBase
           name: _OpArgument
-    alternates:
-      - !_Alternate
+    fields:
+      - !_OutputField
+        name: domain
         type: !_ObjBase
           name: _TypeRef
           typeArgs:
             - !_TypeArg
               name: _SimpleKind
-    fields:
       - !_OutputField
         modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: argument
@@ -2398,6 +2398,7 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: _OpFragment
       - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: result
         object: _Operation
         type: !_ObjBase
@@ -2414,6 +2415,12 @@ types: !_Map(_Type)
         object: _Operation
         type: !_ObjBase
           name: _OpSelection
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        object: _Operation
+        type: !_ObjBase
+          name: _Modifiers
     fields:
       - !_OutputField
         name: category
@@ -2435,6 +2442,7 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: _OpFragment
       - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: result
         type: !_ObjBase
           name: _OpResult
@@ -2449,6 +2457,11 @@ types: !_Map(_Type)
         name: selections
         type: !_ObjBase
           name: _OpSelection
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        type: !_ObjBase
+          name: _Modifiers
     name: _Operation
     parent: !_ObjBase
       name: _Aliased

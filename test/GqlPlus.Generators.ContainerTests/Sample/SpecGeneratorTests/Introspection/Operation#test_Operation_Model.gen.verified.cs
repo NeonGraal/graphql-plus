@@ -69,24 +69,25 @@ public class test_OperationObject
   public IDictionary<Itest_Name, Itest_OpVariable> Variables { get; set; }
   public ICollection<Itest_OpDirective> Directives { get; set; }
   public IDictionary<Itest_Name, Itest_OpFragment> Fragments { get; set; }
-  public Itest_OpResult Result { get; set; }
+  public Itest_OpResult? Result { get; set; }
   public IDictionary<Itest_Path, ICollection<Itest_OpSelection>> Selections { get; set; }
+  public ICollection<Itest_Modifiers> Modifiers { get; set; }
 
   public test_OperationObject
     ( Itest_Name pcategory
     , IDictionary<Itest_Name, Itest_OpVariable> pvariables
     , ICollection<Itest_OpDirective> pdirectives
     , IDictionary<Itest_Name, Itest_OpFragment> pfragments
-    , Itest_OpResult presult
     , IDictionary<Itest_Path, ICollection<Itest_OpSelection>> pselections
+    , ICollection<Itest_Modifiers> pmodifiers
     )
   {
     Category = pcategory;
     Variables = pvariables;
     Directives = pdirectives;
     Fragments = pfragments;
-    Result = presult;
     Selections = pselections;
+    Modifiers = pmodifiers;
   }
 }
 
@@ -248,7 +249,6 @@ public class test_OpResult
   : GqlpModelBase
   , Itest_OpResult
 {
-  public Itest_TypeRef<Itest_SimpleKind>? As_TypeRef { get; set; }
   public Itest_OpResultObject? As__OpResult { get; set; }
 }
 
@@ -256,11 +256,14 @@ public class test_OpResultObject
   : GqlpModelBase
   , Itest_OpResultObject
 {
+  public Itest_TypeRef<Itest_SimpleKind> Domain { get; set; }
   public Itest_OpArgument? Argument { get; set; }
 
   public test_OpResultObject
-    ()
+    ( Itest_TypeRef<Itest_SimpleKind> pdomain
+    )
   {
+    Domain = pdomain;
   }
 }
 

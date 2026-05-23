@@ -101,8 +101,9 @@ output _Operation {
         variables: _OpVariable[_Name]
         directives: _OpDirective[]
         fragments: _OpFragment[_Name]
-        result: _OpResult
+        result: _OpResult?
         selections: _OpSelection[][_Path]
+        modifiers: _Modifiers[]
 }
 
 output _OpVariable {
@@ -144,9 +145,9 @@ dual _OpArgMap {
     }
 
 output _OpResult {
+        domain: _TypeRef<_SimpleKind>
         argument: _OpArgument?
-    | _TypeRef<_SimpleKind>
-}
+    }
 
 domain _Path { String /(\$([A-Za-z]\w*)?|\.+)?\d+(\.\d+)*/ }
 
@@ -826,8 +827,9 @@ public class Cmpt_OperationObject
   public IDictionary<ICmpt_Name, ICmpt_OpVariable> Variables { get; set; }
   public ICollection<ICmpt_OpDirective> Directives { get; set; }
   public IDictionary<ICmpt_Name, ICmpt_OpFragment> Fragments { get; set; }
-  public ICmpt_OpResult Result { get; set; }
+  public ICmpt_OpResult? Result { get; set; }
   public IDictionary<ICmpt_Path, ICollection<ICmpt_OpSelection>> Selections { get; set; }
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 
   public Cmpt_OperationObject
     ( ICollection<string> pdescription
@@ -837,16 +839,16 @@ public class Cmpt_OperationObject
     , IDictionary<ICmpt_Name, ICmpt_OpVariable> pvariables
     , ICollection<ICmpt_OpDirective> pdirectives
     , IDictionary<ICmpt_Name, ICmpt_OpFragment> pfragments
-    , ICmpt_OpResult presult
     , IDictionary<ICmpt_Path, ICollection<ICmpt_OpSelection>> pselections
+    , ICollection<ICmpt_Modifiers> pmodifiers
     ) : base(pdescription, pname, paliases)
   {
     Category = pcategory;
     Variables = pvariables;
     Directives = pdirectives;
     Fragments = pfragments;
-    Result = presult;
     Selections = pselections;
+    Modifiers = pmodifiers;
   }
 }
 
@@ -1014,7 +1016,6 @@ public class Cmpt_OpResult
   : Spec_Introspection
   , ICmpt_OpResult
 {
-  public ICmpt_TypeRef<Cmpt_SimpleKind>? As_TypeRef { get; set; }
   public ICmpt_OpResultObject? As__OpResult { get; set; }
 }
 
@@ -1022,11 +1023,14 @@ public class Cmpt_OpResultObject
   : Spec_Introspection
   , ICmpt_OpResultObject
 {
+  public ICmpt_TypeRef<Cmpt_SimpleKind> Domain { get; set; }
   public ICmpt_OpArgument? Argument { get; set; }
 
   public Cmpt_OpResultObject
-    ()
+    ( ICmpt_TypeRef<Cmpt_SimpleKind> pdomain
+    )
   {
+    Domain = pdomain;
   }
 }
 

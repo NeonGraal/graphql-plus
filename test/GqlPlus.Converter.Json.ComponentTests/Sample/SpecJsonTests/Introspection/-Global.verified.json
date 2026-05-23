@@ -1218,9 +1218,10 @@
     "_OpResult": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
-      "allAlternates": [
+      "allFields": [
         {
-          "$mapTag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "domain",
           "object": "_OpResult",
           "type": {
             "$mapTag": "_ObjBase",
@@ -1232,9 +1233,7 @@
               }
             ]
           }
-        }
-      ],
-      "allFields": [
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
@@ -1254,9 +1253,10 @@
           }
         }
       ],
-      "alternates": [
+      "fields": [
         {
-          "$mapTag": "_Alternate",
+          "$mapTag": "_OutputField",
+          "name": "domain",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_TypeRef",
@@ -1267,9 +1267,7 @@
               }
             ]
           }
-        }
-      ],
-      "fields": [
+        },
         {
           "$mapTag": "_OutputField",
           "modifiers": [
@@ -1632,6 +1630,15 @@
         },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
           "name": "result",
           "object": "_Operation",
           "type": {
@@ -1667,6 +1674,24 @@
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_OpSelection"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "object": "_Operation",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Modifiers"
           }
         }
       ],
@@ -1734,6 +1759,15 @@
         },
         {
           "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
           "name": "result",
           "type": {
             "$mapTag": "_ObjBase",
@@ -1767,6 +1801,23 @@
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_OpSelection"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Modifiers"
           }
         }
       ],

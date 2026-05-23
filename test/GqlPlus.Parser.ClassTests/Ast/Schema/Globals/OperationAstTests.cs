@@ -4,8 +4,6 @@ public partial class OperationDeclAstTests
 {
   private readonly OperationDeclAstChecks _checks = new();
 
-  private static OperationDeclAst CloneInput(OperationDeclAst original, OperationInput input)
-    => original with { Name = input.Name };
   internal static OperationDeclAst CreateOperation(OperationInput input)
     => new(AstNulls.At, input.Name, input.Category);
 

@@ -46,7 +46,7 @@ internal sealed record class InputParamAst(
   internal override IEnumerable<string?> GetFields()
     => new[] { "!" + Abbr }
       .Concat(Type.GetFields())
-      .AppendIf(string.IsNullOrWhiteSpace(EnumValue?.EnumLabel),
-        Modifiers.AsString().Append(DefaultValue.Prefixed("=")),
-        [EnumValue?.EnumLabel.Prefixed(".")]);
+      .ConcatIf(string.IsNullOrWhiteSpace(EnumValue?.EnumLabel),
+        () => Modifiers.AsString().Append(DefaultValue.Prefixed("=")),
+        () => [EnumValue?.EnumLabel.Prefixed(".")]);
 }

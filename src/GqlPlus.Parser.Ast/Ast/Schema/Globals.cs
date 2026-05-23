@@ -57,7 +57,7 @@ public interface IAstSchemaOperation
 
   IEnumerable<IAstVariable> Variables { get; }
   IAstTypeRef? Domain { get; }
-  IAstArg? Arg { get; }
+  IAstArg? Argument { get; }
   IEnumerable<IAstFragment> Fragments { get; }
 }
 

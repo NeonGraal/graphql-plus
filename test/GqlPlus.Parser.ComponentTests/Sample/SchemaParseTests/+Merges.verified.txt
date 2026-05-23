@@ -1285,11 +1285,15 @@ Success
   !SO I@011/0209
   Operation
   op
+  !Tr I@027/0209
+  String
 }
 {
   !SO I@011/0210
   Operation
   op
+  !Tr I@027/0210
+  String
 }
 {
   !Ca P@010/0211
@@ -1309,6 +1313,8 @@ Success
     Op1
   ]
   op
+  !Tr I@032/0214
+  String
 }
 {
   !SO I@011/0215
@@ -1317,6 +1323,8 @@ Success
     Op2
   ]
   op
+  !Tr I@032/0215
+  String
 }
 {
   !Ca P@010/0216

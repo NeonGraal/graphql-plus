@@ -16,9 +16,9 @@ internal sealed record class OperationAst(
   public IAstVariable[] Variables { get; set; } = [];
   public IAstArg[] Usages { get; init; } = [];
 
-  public string? ResultType { get; set; }
+  public string? Domain { get; set; }
   public IAstArg? Arg { get; set; }
-  public IAstSelection[]? ResultObject { get; set; }
+  public IAstSelection[] Selections { get; set; } = [];
   public IAstModifier[] Modifiers { get; set; } = [];
 
   public IAstFragment[] Fragments { get; set; } = [];
@@ -29,7 +29,7 @@ internal sealed record class OperationAst(
   IEnumerable<IAstModifier> IAstModifiers.Modifiers => Modifiers;
   IEnumerable<IAstVariable> IAstOperation.Variables => Variables;
   IAstArg? IAstOperation.Arg => Arg;
-  IEnumerable<IAstSelection>? IAstOperation.ResultObject => ResultObject;
+  IEnumerable<IAstSelection> IAstSelections.Selections => Selections;
   IEnumerable<IAstFragment> IAstOperation.Fragments => Fragments;
   IMessages IAstOperation.Errors => Errors;
 
@@ -49,14 +49,13 @@ internal sealed record class OperationAst(
     => HashCode.Combine(base.GetHashCode(), Result, Modifiers.Length);
 
   internal override IEnumerable<string?> GetFields()
-    => // base.GetFields()
-      new[] { AbbrAt, Category, Identifier, $"{Result}" }
+    => new[] { AbbrAt, Category, Identifier, $"{Result}" }
       .Concat(Errors.Bracket("<", ">", true))
       .Concat(Variables.Bracket("[", "]"))
       .Concat(Directives.AsString())
-      .Append(ResultType)
-      .Concat(Arg.Bracket("(", ")"))
-      .Concat(ResultObject.Bracket("{", "}"))
-      .Concat(Modifiers.AsString())
-      .Concat(Fragments.Bracket());
+      .Concat(Fragments.Bracket()
+      .ConcatIf(Domain.IsWhiteSpace(),
+        () => Selections.Bracket("{", "}"),
+        () => Arg.Bracket("(", ")").Prepend(Domain))
+      .Concat(Modifiers.AsString()));
 }

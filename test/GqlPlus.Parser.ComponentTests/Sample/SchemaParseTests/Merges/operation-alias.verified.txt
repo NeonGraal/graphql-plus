@@ -7,6 +7,8 @@ Success
     Op1
   ]
   op
+  !Tr I@032/0001
+  String
 }
 {
   !SO I@011/0002
@@ -15,6 +17,8 @@ Success
     Op2
   ]
   op
+  !Tr I@032/0002
+  String
 }
 {
   !Ca P@010/0003

@@ -4,6 +4,8 @@ Success
   !SO I@011/0001
   OprDmn
   catOprDmn
+  !Tr I@032/0001
+  Number
 }
 {
   !Ca P@010/0002

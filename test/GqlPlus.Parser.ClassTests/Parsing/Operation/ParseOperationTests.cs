@@ -61,7 +61,7 @@ public class ParseOperationTests
         x => x.Variables.ShouldBe(variables),
         x => x.Directives.ShouldBe(directives),
         // x => x.Fragments.ShouldContain(startFragments.Concat(endFragments)),
-        x => x.ResultType.ShouldBe(resultType),
+        x => x.Domain.ShouldBe(resultType),
         x => x.Arg.ShouldBe(argument),
         x => x.Modifiers.ShouldBe(modifiers)
       );
@@ -95,7 +95,7 @@ public class ParseOperationTests
         x => x.Variables.ShouldBe(variables),
         x => x.Directives.ShouldBe(directives),
         // x => x.Fragments.ShouldContain(startFragments.Concat(endFragments)),
-        x => x.ResultObject.ShouldBe(obj),
+        x => x.Selections.ShouldBe(obj),
         x => x.Modifiers.ShouldBe(modifiers)
       );
   }

@@ -4,11 +4,15 @@ Success
   !SO I@011/0001
   Operation
   op
+  !Tr I@027/0001
+  String
 }
 {
   !SO I@011/0002
   Operation
   op
+  !Tr I@027/0002
+  String
 }
 {
   !Ca P@010/0003

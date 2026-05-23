@@ -193,6 +193,8 @@ Success
   !SO I@011/0061
   OprCtgr
   catOprCtgr
+  !Tr I@033/0061
+  String
 }
 {
   !Ca P@010/0062
@@ -209,6 +211,8 @@ Success
   !SO I@011/0065
   OprDmn
   catOprDmn
+  !Tr I@032/0065
+  Number
 }
 {
   !Ca P@010/0066
@@ -225,6 +229,12 @@ Success
   !SO I@011/0069
   OprDmnArgs
   catOprDmnArgs
+  !Tr I@040/0069
+  String
+  (
+    !k I@048/0069
+    String
+  )
 }
 {
   !Ca P@010/0070
@@ -241,6 +251,9 @@ Success
   !SO I@011/0073
   OprDmnMods
   catOprDmnMods
+  !Tr I@040/0073
+  Boolean
+  [String]
 }
 {
   !Ca P@010/0074
@@ -257,6 +270,22 @@ Success
   !SO I@011/0077
   OprSlct
   catOprSlct
+  {
+    !f I@034/0077
+    first
+    !f I@040/0077
+    last
+    !f I@045/0077
+    address
+    {
+      !f I@055/0077
+      street
+      !f I@062/0077
+      city
+      !f I@067/0077
+      country
+    }
+  }
 }
 {
   !Ca P@010/0078
@@ -311,6 +340,23 @@ Success
   !SO I@011/0089
   OprSlctMods
   catOprSlctMods
+  {
+    !f I@042/0089
+    first
+    !f I@048/0089
+    last
+    !f I@053/0089
+    address
+    {
+      !f I@063/0089
+      street
+      !f I@070/0089
+      city
+      !f I@075/0089
+      country
+    }
+  }
+  []
 }
 {
   !Ca P@010/0090
@@ -7727,11 +7773,15 @@ Success
   !SO I@011/1048
   Operation
   op
+  !Tr I@027/1048
+  String
 }
 {
   !SO I@011/1049
   Operation
   op
+  !Tr I@027/1049
+  String
 }
 {
   !Ca P@010/1050
@@ -7751,6 +7801,8 @@ Success
     Op1
   ]
   op
+  !Tr I@032/1053
+  String
 }
 {
   !SO I@011/1054
@@ -7759,6 +7811,8 @@ Success
     Op2
   ]
   op
+  !Tr I@032/1054
+  String
 }
 {
   !Ca P@010/1055

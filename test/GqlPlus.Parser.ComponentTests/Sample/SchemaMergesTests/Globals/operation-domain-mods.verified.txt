@@ -12,6 +12,9 @@ Success
   !SO I@011/0001
   OprDmnMods
   catOprDmnMods
+  !Tr I@040/0001
+  Boolean
+  [String]
 }
 {
   !Ou I@008/0003

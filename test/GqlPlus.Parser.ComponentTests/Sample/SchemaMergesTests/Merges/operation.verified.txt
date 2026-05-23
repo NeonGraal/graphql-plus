@@ -12,6 +12,8 @@ Success
   !SO I@011/0001
   Operation
   op
+  !Tr I@027/0001
+  String
 }
 {
   !Ou I@008/0004

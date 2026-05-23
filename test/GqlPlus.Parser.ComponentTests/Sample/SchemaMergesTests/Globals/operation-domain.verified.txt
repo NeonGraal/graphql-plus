@@ -12,6 +12,8 @@ Success
   !SO I@011/0001
   OprDmn
   catOprDmn
+  !Tr I@032/0001
+  Number
 }
 {
   !Ou I@008/0003

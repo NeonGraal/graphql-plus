@@ -16,13 +16,13 @@ internal sealed record class OperationDeclAst(
   public override string Label => "Operation";
 
   public string Category { get; } = Category;
-  public IEnumerable<IAstVariable> Variables { get; } = [];
+  public IEnumerable<IAstVariable> Variables { get; init; } = [];
   public IAstTypeRef? Domain { get; init; }
-  public IAstArg? Arg { get; init; }
-  public IEnumerable<IAstSelection> Selections { get; } = [];
-  public IEnumerable<IAstFragment> Fragments { get; } = [];
+  public IAstArg? Argument { get; init; }
+  public IEnumerable<IAstSelection> Selections { get; init; } = [];
+  public IEnumerable<IAstFragment> Fragments { get; init; } = [];
   public IEnumerable<IAstDirective> Directives { get; init; } = [];
-  public IEnumerable<IAstModifier> Modifiers { get; } = [];
+  public IEnumerable<IAstModifier> Modifiers { get; init; } = [];
 
   public OperationDeclAst(TokenAt at, string name, string category)
     : this(at, name, "", category) { }
@@ -38,5 +38,11 @@ internal sealed record class OperationDeclAst(
   internal override IEnumerable<string?> GetFields()
   => base.GetFields()
       .Append(Category)
-      .Concat(Domain != null ? [.. Domain.GetFields(), .. Arg?.GetFields() ?? []] : []);
+      .Concat(Variables.Bracket())
+      .Concat(Directives.AsString())
+      .Concat(Fragments.Bracket()
+      .ConcatNull(Domain,
+        d => d.GetFields().Concat(Argument.Bracket("(", ")")),
+        () => Selections.Bracket("{", "}"))
+      .Concat(Modifiers.AsString()));
 }

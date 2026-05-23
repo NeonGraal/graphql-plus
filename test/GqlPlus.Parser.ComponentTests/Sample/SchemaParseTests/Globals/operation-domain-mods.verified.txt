@@ -4,6 +4,9 @@ Success
   !SO I@011/0001
   OprDmnMods
   catOprDmnMods
+  !Tr I@040/0001
+  Boolean
+  [String]
 }
 {
   !Ca P@010/0002

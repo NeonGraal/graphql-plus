@@ -15,7 +15,13 @@ internal class ParseOperationDecl(
   protected override IAstSchemaOperation MakeResult(AstPartial<NullAst, NullOption> partial, OperationDefinition value)
         => new OperationDeclAst(partial.At, partial.Name, partial.Description, value.Category) {
           Aliases = partial.Aliases,
-          Arg = value.Argument,
+          Variables = value.Variables ?? [],
+          Argument = value.Argument,
+          Directives = value.Directives,
+          Domain = value.Domain,
+          Fragments = value.Fragments,
+          Modifiers = value.Modifiers,
+          Selections = value.Selections ?? [],
         };
 
   protected override IAstSchemaOperation ToResult(AstPartial<NullAst, NullOption> partial)
@@ -30,8 +36,8 @@ internal record OperationDefinition(string Category)
 {
   public IEnumerable<IAstVariable> Variables { get; set; } = [];
   public IAstArg? Argument { get; set; }
-  public IAstTypeRef? ResultType { get; set; }
-  public IEnumerable<IAstSelection>? ResultObject { get; set; } = [];
+  public IAstTypeRef? Domain { get; set; }
+  public IEnumerable<IAstSelection> Selections { get; set; } = [];
   public IEnumerable<IAstFragment> Fragments { get; set; } = [];
   public IEnumerable<IAstDirective> Directives { get; set; } = [];
   public IEnumerable<IAstModifier> Modifiers { get; set; } = [];
@@ -67,7 +73,7 @@ internal class ParseOperationDefinition(
     _fragments.Parse(tokens, label).WithResult(value => result.Fragments = [.. value]);
     if (tokens.Take(':')) {
       IResult<IAstTypeRef>? resultType = _resultType.Parse(tokens, label);
-      if (!resultType.Required(v => result.ResultType = v)) {
+      if (!resultType.Required(v => result.Domain = v)) {
         return resultType.AsPartial(result);
       }
 
@@ -75,7 +81,7 @@ internal class ParseOperationDefinition(
       if (!argument.Optional(value => result.Argument = value)) {
         return argument.AsPartial(result);
       }
-    } else if (!_object.Parse(tokens, label).Required(selections => result.ResultObject = [.. selections])) {
+    } else if (!_object.Parse(tokens, label).Required(selections => result.Selections = [.. selections])) {
       return tokens.Partial(label, "Object or Type", () => result);
     }
 

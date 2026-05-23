@@ -161,31 +161,77 @@ Success
   !SO I@011/0001
   OprCtgr
   catOprCtgr
+  !Tr I@033/0001
+  String
 }
 {
   !SO I@011/0001
   OprDmn
   catOprDmn
+  !Tr I@032/0001
+  Number
 }
 {
   !SO I@011/0001
   OprDmnArgs
   catOprDmnArgs
+  !Tr I@040/0001
+  String
+  (
+    !k I@048/0001
+    String
+  )
 }
 {
   !SO I@011/0001
   OprDmnMods
   catOprDmnMods
+  !Tr I@040/0001
+  Boolean
+  [String]
 }
 {
   !SO I@011/0001
   OprSlct
   catOprSlct
+  {
+    !f I@034/0001
+    first
+    !f I@040/0001
+    last
+    !f I@045/0001
+    address
+    {
+      !f I@055/0001
+      street
+      !f I@062/0001
+      city
+      !f I@067/0001
+      country
+    }
+  }
 }
 {
   !SO I@011/0001
   OprSlctMods
   catOprSlctMods
+  {
+    !f I@042/0001
+    first
+    !f I@048/0001
+    last
+    !f I@053/0001
+    address
+    {
+      !f I@063/0001
+      street
+      !f I@070/0001
+      city
+      !f I@075/0001
+      country
+    }
+  }
+  []
 }
 {
   !Op I@008/0001

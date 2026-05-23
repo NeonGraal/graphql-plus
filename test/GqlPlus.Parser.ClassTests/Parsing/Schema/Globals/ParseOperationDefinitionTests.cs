@@ -50,7 +50,7 @@ public class ParseOperationDefinitionTests
     result.ShouldBeAssignableTo<IResultOk<OperationDefinition>>()
       .Required().ShouldSatisfyAllConditions(
         x => x.Category.ShouldBe(category),
-        x => x.ResultType.ShouldNotBeNull()
+        x => x.Domain.ShouldNotBeNull()
       );
   }
 

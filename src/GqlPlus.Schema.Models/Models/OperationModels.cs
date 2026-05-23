@@ -7,14 +7,15 @@ public record class OperationsModel()
 public record class OperationModel(
   string Name,
   string Category,
-  OpResultModel Result,
   string Description
 ) : AliasedModel(Name, Description)
 {
-  public IMap<OpVariableModel> Variables { get; } = new Map<OpVariableModel>();
-  public OpDirectiveModel[] Directives { get; set; } = [];
-  public IMap<OpFragmentModel> Fragments { get; } = new Map<OpFragmentModel>();
-  public IMap<OpSelectionModel[]> Selections { get; } = new Map<OpSelectionModel[]>();
+  public IMap<OpVariableModel> Variables { get; init; } = new Map<OpVariableModel>();
+  public OpDirectiveModel[] Directives { get; init; } = [];
+  public IMap<OpFragmentModel> Fragments { get; init; } = new Map<OpFragmentModel>();
+  public OpResultModel? Result { get; init; }
+  public IMap<OpSelectionModel[]> Selections { get; init; } = new Map<OpSelectionModel[]>();
+  public ModifierModel[] Modifiers { get; init; } = [];
 }
 
 public record class OpDirectivesModel(
@@ -22,7 +23,7 @@ public record class OpDirectivesModel(
   string Description
 ) : NamedModel(Name, Description)
 {
-  public OpDirectiveModel[] Directives { get; set; } = [];
+  public OpDirectiveModel[] Directives { get; init; } = [];
 }
 
 public record class OpDirectiveModel(
@@ -46,15 +47,18 @@ public record class OpFragmentModel(
 
 public record class OpVariableModel(
   string Name,
-  TypeRefModel<TypeKindModel> Type,
+  TypeRefModel<TypeKindModel>? Type,
   ConstantModel? DefaultValue,
   string Description
 ) : OpDirectivesModel(Name, Description)
 { }
 
-public record class OpResultModel
-  : ModelBase
-{ }
+public record class OpResultModel(
+  TypeRefModel<TypeKindModel> Domain
+) : ModelBase
+{
+  public OpArgumentModel? Argument { get; set; }
+}
 
 public record class OpSelectionModel
   : ModelBase

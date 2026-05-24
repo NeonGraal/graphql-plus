@@ -16,5 +16,5 @@ internal class DecoderRepository(
 
   public Decoder<TBase>.D DecoderFor<TDecoder, TBase>([CallerMemberName] string callerName = "")
     where TDecoder : class, IDecoder<TBase>
-    => () => Cached<TDecoder, IDecoder<TBase>>(_builder.Decoders, $"decoder for {callerName} ({typeof(TBase).TidyTypeName()})", this);
+    => () => Cached<TDecoder>(_builder.Decoders, $"decoder for {callerName} ({typeof(TBase).TidyTypeName()})", this);
 }

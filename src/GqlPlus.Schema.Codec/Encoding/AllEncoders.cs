@@ -1,19 +1,14 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace GqlPlus.Encoding;
 
 public static class AllEncoders
 {
-  public static IServiceCollection AddEncoders(this IServiceCollection services)
-  {
-    EncoderRepositoryBuilder builder = new();
-    builder.AddSchemaEncoders();
-    services.AddSingleton(builder);
-    services.TryAddSingleton<IEncoderRepository, EncoderRepository>();
-    return services;
-  }
+  public static IServiceCollection AddEncoders(this IServiceCollection services, Action<IEncoderRepositoryBuilder> config)
+    => services
+      .AddSingleton(new EncoderRepositoryBuilder().FluentInterface(config))
+      .AddSingleton<IEncoderRepository, EncoderRepository>();
 
   [ExcludeFromCodeCoverage]
   internal static IEncoderRepositoryBuilder AddSchemaEncoders(this IEncoderRepositoryBuilder builder)

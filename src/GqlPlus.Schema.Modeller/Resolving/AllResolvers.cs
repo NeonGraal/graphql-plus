@@ -8,14 +8,10 @@ namespace GqlPlus.Resolving;
 
 public static class AllResolvers
 {
-  public static IServiceCollection AddResolvers(this IServiceCollection services)
-  {
-    ResolverRepositoryBuilder builder = new();
-    builder.AddSchemaResolvers();
-    services.AddSingleton(builder);
-    services.TryAddSingleton<IResolverRepository, ResolverRepository>();
-    return services;
-  }
+  public static IServiceCollection AddResolvers(this IServiceCollection services, Action<IResolverRepositoryBuilder> config)
+    => services
+      .AddSingleton(new ResolverRepositoryBuilder().FluentInterface(config))
+      .AddSingleton<IResolverRepository, ResolverRepository>();
 
   [ExcludeFromCodeCoverage]
   internal static IResolverRepositoryBuilder AddSchemaResolvers(this IResolverRepositoryBuilder builder)

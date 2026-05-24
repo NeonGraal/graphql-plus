@@ -40,16 +40,30 @@ public class VerifierRepositoryTests(
   }
 
   [Fact]
-  public void EnumMatcherCreated()
+  public void MatchEnum()
   {
+    // Arrange
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
       .AddMatchers(b => b.AddSchemaMatchers())
       .BuildServiceProvider();
 
-    IMatcherRepository repository = services.GetService<IMatcherRepository>().ShouldNotBeNull();
-    Matcher<IAstEnum>.D enumFactory = repository.MatcherFor<IAstEnum>().ShouldNotBeNull();
-    enumFactory.Invoke().ShouldNotBeNull();
+    Matcher<IAstEnum> enumFactory = services
+      .GetService<IMatcherRepository>()
+      .ShouldNotBeNull()
+      .MatcherFor<IAstEnum>();
+
+    IAstEnum type = A.Of<IAstEnum>();
+    Map<IAstDescribed> types = [];
+    IMessages errors = Messages.New;
+    Map<string> enumValues = [];
+    EnumContext context = new(types, errors, enumValues);
+
+    // Act
+    bool result = enumFactory.Matches(type, "Constraint", context);
+
+    // Assert
+    result.ShouldBeFalse();
   }
 
   [Fact]
@@ -67,7 +81,7 @@ public class VerifierRepositoryTests(
   }
 
   [Fact]
-  public void GetOperationVerifier()
+  public void VerifyOperation()
   {
     // Arrange
     IServiceProvider services = new ServiceCollection()
@@ -77,12 +91,12 @@ public class VerifierRepositoryTests(
       .AddMergers(b => { })
       .BuildServiceProvider();
 
-    Verifier<IAstOperation> verifier = services.GetService<IVerifierRepository>()
-        .ShouldNotBeNull()
-        .VerifierFor<IAstOperation>();
+    Verifier<IAstOperation> verifier = services
+      .GetService<IVerifierRepository>()
+      .ShouldNotBeNull()
+      .VerifierFor<IAstOperation>();
 
     IAstOperation operation = A.Identified<IAstOperation>("operation");
-
     IMessages errors = Messages.New;
 
     // Act
@@ -93,7 +107,7 @@ public class VerifierRepositoryTests(
   }
 
   [Fact]
-  public void GetSchemaVerifier()
+  public void VerifySchema()
   {
     // Arrange
     IServiceProvider services = new ServiceCollection()
@@ -103,12 +117,12 @@ public class VerifierRepositoryTests(
       .AddMergers(b => { })
       .BuildServiceProvider();
 
-    Verifier<IAstSchema> verifier = services.GetService<IVerifierRepository>()
-        .ShouldNotBeNull()
-        .VerifierFor<IAstSchema>();
+    Verifier<IAstSchema> verifier = services
+      .GetService<IVerifierRepository>()
+      .ShouldNotBeNull()
+      .VerifierFor<IAstSchema>();
 
     IAstSchema schema = A.Error<IAstSchema>();
-
     IMessages errors = Messages.New;
 
     // Act

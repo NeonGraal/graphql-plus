@@ -126,12 +126,12 @@ internal class CmptCatOprDmnEncoder : IEncoder<ICmptCatOprDmnObject>
   internal static CmptCatOprDmnEncoder Factory(IEncoderRepository _) => new();
 }
 
-internal class CmptCatOprDmnArgsEncoder : IEncoder<ICmptCatOprDmnArgsObject>
+internal class CmptCatOprDmnArgEncoder : IEncoder<ICmptCatOprDmnArgObject>
 {
-  public Structured Encode(ICmptCatOprDmnArgsObject input)
+  public Structured Encode(ICmptCatOprDmnArgObject input)
     => Structured.Empty();
 
-  internal static CmptCatOprDmnArgsEncoder Factory(IEncoderRepository _) => new();
+  internal static CmptCatOprDmnArgEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptCatOprDmnModsEncoder : IEncoder<ICmptCatOprDmnModsObject>
@@ -140,6 +140,14 @@ internal class CmptCatOprDmnModsEncoder : IEncoder<ICmptCatOprDmnModsObject>
     => Structured.Empty();
 
   internal static CmptCatOprDmnModsEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptCatOprDmnVarEncoder : IEncoder<ICmptCatOprDmnVarObject>
+{
+  public Structured Encode(ICmptCatOprDmnVarObject input)
+    => Structured.Empty();
+
+  internal static CmptCatOprDmnVarEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptCatOprSlctEncoder(
@@ -165,6 +173,31 @@ internal class CmptAddrOprSlctEncoder : IEncoder<ICmptAddrOprSlctObject>
       .Add("country", input.Country.Encode());
 
   internal static CmptAddrOprSlctEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptCatOprSlctFragEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptCatOprSlctFragObject>
+{
+  private readonly Encoder<ICmptAddrOprSlctFrag> _addrOprSlctFrag = encoders.EncoderFor<ICmptAddrOprSlctFrag>();
+  public Structured Encode(ICmptCatOprSlctFragObject input)
+    => Structured.Empty()
+      .Add("first", input.First.Encode())
+      .Add("last", input.Last.Encode())
+      .AddEncoded("address", input.Address, _addrOprSlctFrag);
+
+  internal static CmptCatOprSlctFragEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptAddrOprSlctFragEncoder : IEncoder<ICmptAddrOprSlctFragObject>
+{
+  public Structured Encode(ICmptAddrOprSlctFragObject input)
+    => Structured.Empty()
+      .Add("street", input.Street.Encode())
+      .Add("city", input.City.Encode())
+      .Add("country", input.Country.Encode());
+
+  internal static CmptAddrOprSlctFragEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptCatOprSlctModsEncoder(
@@ -211,10 +244,13 @@ internal static class Cmpt_Schema_GlobalsEncoders
       .AddEncoder<ICmptDscrsObject>(CmptDscrsEncoder.Factory)
       .AddEncoder<ICmptCatOprCtgrObject>(CmptCatOprCtgrEncoder.Factory)
       .AddEncoder<ICmptCatOprDmnObject>(CmptCatOprDmnEncoder.Factory)
-      .AddEncoder<ICmptCatOprDmnArgsObject>(CmptCatOprDmnArgsEncoder.Factory)
+      .AddEncoder<ICmptCatOprDmnArgObject>(CmptCatOprDmnArgEncoder.Factory)
       .AddEncoder<ICmptCatOprDmnModsObject>(CmptCatOprDmnModsEncoder.Factory)
+      .AddEncoder<ICmptCatOprDmnVarObject>(CmptCatOprDmnVarEncoder.Factory)
       .AddEncoder<ICmptCatOprSlctObject>(CmptCatOprSlctEncoder.Factory)
       .AddEncoder<ICmptAddrOprSlctObject>(CmptAddrOprSlctEncoder.Factory)
+      .AddEncoder<ICmptCatOprSlctFragObject>(CmptCatOprSlctFragEncoder.Factory)
+      .AddEncoder<ICmptAddrOprSlctFragObject>(CmptAddrOprSlctFragEncoder.Factory)
       .AddEncoder<ICmptCatOprSlctModsObject>(CmptCatOprSlctModsEncoder.Factory)
       .AddEncoder<ICmptAddrOprSlctModsObject>(CmptAddrOprSlctModsEncoder.Factory);
 }

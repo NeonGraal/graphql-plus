@@ -2,13 +2,13 @@
   "$mapTag": "_Schema",
   "categories": {
     "$mapTag": "_Map(_Categories)",
-    "catOprDmnArgs": {
+    "catOprDmnArg": {
       "$keyTag": "_Name",
       "$mapTag": "_Category",
-      "name": "catOprDmnArgs",
+      "name": "catOprDmnArg",
       "output": {
         "$mapTag": "_TypeRef(_TypeKind)",
-        "name": "CatOprDmnArgs",
+        "name": "CatOprDmnArg",
         "typeKind": {
           "$value": "Output",
           "$valueTag": "_TypeKind"
@@ -22,18 +22,30 @@
   },
   "operations": {
     "$mapTag": "_Map(_Operations)",
-    "OprDmnArgs": {
+    "OprDmnArg": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
-      "name": "OprDmnArgs"
+      "category": "catOprDmnArg",
+      "name": "OprDmnArg",
+      "result": {
+        "$mapTag": "_OpResult",
+        "domain": {
+          "$mapTag": "_TypeRef(_TypeKind)",
+          "name": "String",
+          "typeKind": {
+            "$value": "Output",
+            "$valueTag": "_TypeKind"
+          }
+        }
+      }
     }
   },
   "types": {
     "$mapTag": "_Map(_Type)",
-    "CatOprDmnArgs": {
+    "CatOprDmnArg": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
-      "name": "CatOprDmnArgs",
+      "name": "CatOprDmnArg",
       "typeKind": {
         "$value": "Output",
         "$valueTag": "_TypeKind"

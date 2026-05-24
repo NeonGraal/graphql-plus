@@ -8,6 +8,8 @@ categories: !_Map(_Categories)
     resolution: !_Resolution Parallel
 operations: !_Map(_Operations)
   !_Name OprSlctMods: !_Operation
+    category: catOprSlctMods
+    modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
     name: OprSlctMods
 types: !_Map(_Type)
   !_Name AddrOprSlctMods: !_TypeOutput

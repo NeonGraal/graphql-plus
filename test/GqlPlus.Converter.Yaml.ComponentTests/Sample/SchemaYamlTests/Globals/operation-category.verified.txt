@@ -8,7 +8,12 @@ categories: !_Map(_Categories)
     resolution: !_Resolution Parallel
 operations: !_Map(_Operations)
   !_Name OprCtgr: !_Operation
+    category: catOprCtgr
     name: OprCtgr
+    result: !_OpResult
+      domain: !_TypeRef(_TypeKind)
+        name: String
+        typeKind: !_TypeKind Output
 types: !_Map(_Type)
   !_Name CatOprCtgr: !_TypeOutput
     name: CatOprCtgr

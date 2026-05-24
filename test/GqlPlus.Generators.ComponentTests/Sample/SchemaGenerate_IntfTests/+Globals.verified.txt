@@ -215,13 +215,13 @@ public interface ICmptCatOprDmnObject
 {
 }
 
-public interface ICmptCatOprDmnArgs
+public interface ICmptCatOprDmnArg
   : Schema_+Globals
 {
-  ICmptCatOprDmnArgsObject? As_CatOprDmnArgs { get; }
+  ICmptCatOprDmnArgObject? As_CatOprDmnArg { get; }
 }
 
-public interface ICmptCatOprDmnArgsObject
+public interface ICmptCatOprDmnArgObject
   : Schema_+Globals
 {
 }
@@ -233,6 +233,17 @@ public interface ICmptCatOprDmnMods
 }
 
 public interface ICmptCatOprDmnModsObject
+  : Schema_+Globals
+{
+}
+
+public interface ICmptCatOprDmnVar
+  : Schema_+Globals
+{
+  ICmptCatOprDmnVarObject? As_CatOprDmnVar { get; }
+}
+
+public interface ICmptCatOprDmnVarObject
   : Schema_+Globals
 {
 }
@@ -258,6 +269,34 @@ public interface ICmptAddrOprSlct
 }
 
 public interface ICmptAddrOprSlctObject
+  : Schema_+Globals
+{
+  string Street { get; }
+  string City { get; }
+  string Country { get; }
+}
+
+public interface ICmptCatOprSlctFrag
+  : Schema_+Globals
+{
+  ICmptCatOprSlctFragObject? As_CatOprSlctFrag { get; }
+}
+
+public interface ICmptCatOprSlctFragObject
+  : Schema_+Globals
+{
+  string First { get; }
+  string Last { get; }
+  ICmptAddrOprSlctFrag Address { get; }
+}
+
+public interface ICmptAddrOprSlctFrag
+  : Schema_+Globals
+{
+  ICmptAddrOprSlctFragObject? As_AddrOprSlctFrag { get; }
+}
+
+public interface ICmptAddrOprSlctFragObject
   : Schema_+Globals
 {
   string Street { get; }

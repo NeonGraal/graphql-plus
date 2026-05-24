@@ -25,7 +25,33 @@
     "OprDmnMods": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
-      "name": "OprDmnMods"
+      "category": "catOprDmnMods",
+      "modifiers": [
+        {
+          "$mapTag": "_ModifierDictionary",
+          "by": "String",
+          "modifierKind": {
+            "$value": "Dict",
+            "$valueTag": "_ModifierKind"
+          },
+          "typeKind": {
+            "$value": "Basic",
+            "$valueTag": "_SimpleKind"
+          }
+        }
+      ],
+      "name": "OprDmnMods",
+      "result": {
+        "$mapTag": "_OpResult",
+        "domain": {
+          "$mapTag": "_TypeRef(_TypeKind)",
+          "name": "Boolean",
+          "typeKind": {
+            "$value": "Output",
+            "$valueTag": "_TypeKind"
+          }
+        }
+      }
     }
   },
   "types": {

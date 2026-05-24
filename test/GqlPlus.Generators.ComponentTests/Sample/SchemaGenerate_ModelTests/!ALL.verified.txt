@@ -348,19 +348,19 @@ public class CmptCatOprDmnObject
   }
 }
 
-public class CmptCatOprDmnArgs
+public class CmptCatOprDmnArg
   : Schema_!ALL
-  , ICmptCatOprDmnArgs
+  , ICmptCatOprDmnArg
 {
-  public ICmptCatOprDmnArgsObject? As_CatOprDmnArgs { get; set; }
+  public ICmptCatOprDmnArgObject? As_CatOprDmnArg { get; set; }
 }
 
-public class CmptCatOprDmnArgsObject
+public class CmptCatOprDmnArgObject
   : Schema_!ALL
-  , ICmptCatOprDmnArgsObject
+  , ICmptCatOprDmnArgObject
 {
 
-  public CmptCatOprDmnArgsObject
+  public CmptCatOprDmnArgObject
     ()
   {
   }
@@ -379,6 +379,24 @@ public class CmptCatOprDmnModsObject
 {
 
   public CmptCatOprDmnModsObject
+    ()
+  {
+  }
+}
+
+public class CmptCatOprDmnVar
+  : Schema_!ALL
+  , ICmptCatOprDmnVar
+{
+  public ICmptCatOprDmnVarObject? As_CatOprDmnVar { get; set; }
+}
+
+public class CmptCatOprDmnVarObject
+  : Schema_!ALL
+  , ICmptCatOprDmnVarObject
+{
+
+  public CmptCatOprDmnVarObject
     ()
   {
   }
@@ -427,6 +445,60 @@ public class CmptAddrOprSlctObject
   public string Country { get; set; }
 
   public CmptAddrOprSlctObject
+    ( string pstreet
+    , string pcity
+    , string pcountry
+    )
+  {
+    Street = pstreet;
+    City = pcity;
+    Country = pcountry;
+  }
+}
+
+public class CmptCatOprSlctFrag
+  : Schema_!ALL
+  , ICmptCatOprSlctFrag
+{
+  public ICmptCatOprSlctFragObject? As_CatOprSlctFrag { get; set; }
+}
+
+public class CmptCatOprSlctFragObject
+  : Schema_!ALL
+  , ICmptCatOprSlctFragObject
+{
+  public string First { get; set; }
+  public string Last { get; set; }
+  public ICmptAddrOprSlctFrag Address { get; set; }
+
+  public CmptCatOprSlctFragObject
+    ( string pfirst
+    , string plast
+    , ICmptAddrOprSlctFrag paddress
+    )
+  {
+    First = pfirst;
+    Last = plast;
+    Address = paddress;
+  }
+}
+
+public class CmptAddrOprSlctFrag
+  : Schema_!ALL
+  , ICmptAddrOprSlctFrag
+{
+  public ICmptAddrOprSlctFragObject? As_AddrOprSlctFrag { get; set; }
+}
+
+public class CmptAddrOprSlctFragObject
+  : Schema_!ALL
+  , ICmptAddrOprSlctFragObject
+{
+  public string Street { get; set; }
+  public string City { get; set; }
+  public string Country { get; set; }
+
+  public CmptAddrOprSlctFragObject
     ( string pstreet
     , string pcity
     , string pcountry

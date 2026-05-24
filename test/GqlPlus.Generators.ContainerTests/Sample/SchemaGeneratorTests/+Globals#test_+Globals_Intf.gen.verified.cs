@@ -216,13 +216,13 @@ public interface ItestCatOprDmnObject
 {
 }
 
-public interface ItestCatOprDmnArgs
+public interface ItestCatOprDmnArg
   : IGqlpInterfaceBase
 {
-  ItestCatOprDmnArgsObject? As_CatOprDmnArgs { get; }
+  ItestCatOprDmnArgObject? As_CatOprDmnArg { get; }
 }
 
-public interface ItestCatOprDmnArgsObject
+public interface ItestCatOprDmnArgObject
   : IGqlpInterfaceBase
 {
 }
@@ -234,6 +234,17 @@ public interface ItestCatOprDmnMods
 }
 
 public interface ItestCatOprDmnModsObject
+  : IGqlpInterfaceBase
+{
+}
+
+public interface ItestCatOprDmnVar
+  : IGqlpInterfaceBase
+{
+  ItestCatOprDmnVarObject? As_CatOprDmnVar { get; }
+}
+
+public interface ItestCatOprDmnVarObject
   : IGqlpInterfaceBase
 {
 }
@@ -259,6 +270,34 @@ public interface ItestAddrOprSlct
 }
 
 public interface ItestAddrOprSlctObject
+  : IGqlpInterfaceBase
+{
+  string Street { get; }
+  string City { get; }
+  string Country { get; }
+}
+
+public interface ItestCatOprSlctFrag
+  : IGqlpInterfaceBase
+{
+  ItestCatOprSlctFragObject? As_CatOprSlctFrag { get; }
+}
+
+public interface ItestCatOprSlctFragObject
+  : IGqlpInterfaceBase
+{
+  string First { get; }
+  string Last { get; }
+  ItestAddrOprSlctFrag Address { get; }
+}
+
+public interface ItestAddrOprSlctFrag
+  : IGqlpInterfaceBase
+{
+  ItestAddrOprSlctFragObject? As_AddrOprSlctFrag { get; }
+}
+
+public interface ItestAddrOprSlctFragObject
   : IGqlpInterfaceBase
 {
   string Street { get; }

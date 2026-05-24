@@ -25,6 +25,7 @@
     "OprSlct": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
+      "category": "catOprSlct",
       "name": "OprSlct"
     }
   },

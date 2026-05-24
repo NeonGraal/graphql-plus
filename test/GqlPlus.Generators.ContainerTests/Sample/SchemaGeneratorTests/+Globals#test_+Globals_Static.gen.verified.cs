@@ -13,9 +13,11 @@ Category ctgrOutpOptl
 Category descrBtwn
 Category catOprCtgr
 Category catOprDmn
-Category catOprDmnArgs
+Category catOprDmnArg
 Category catOprDmnMods
+Category catOprDmnVar
 Category catOprSlct
+Category catOprSlctFrag
 Category catOprSlctMods
 Directive DrctDescr
 Directive DrctNoParam

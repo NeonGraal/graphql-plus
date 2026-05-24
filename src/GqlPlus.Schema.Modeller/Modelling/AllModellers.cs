@@ -19,6 +19,7 @@ public static class AllModellers
     => builder.ThrowIfNull()
       .CommonModellers()
       .SchemaModellers()
+      .OperationModellers()
       .TypesModellers()
       .SimpleModellers()
       .ObjectModellers()
@@ -40,8 +41,15 @@ public static class AllModellers
       .AddModeller(SchemaModeller.Factory)
       .AddModeller(CategoryModeller.Factory)
       .AddModeller(DirectiveModeller.Factory)
-      .AddModeller(OperationModeller.Factory)
       .AddModeller(SettingModeller.Factory);
+
+  private static IModellerRepositoryBuilder OperationModellers(this IModellerRepositoryBuilder builder)
+    => builder
+      .AddModeller(OperationModeller.Factory)
+      .AddModeller(OpDirectiveModeller.Factory)
+      .AddModeller(OpFragmentModeller.Factory)
+      .AddModeller(OpResultModeller.Factory)
+      .AddModeller(OpVariableModeller.Factory);
 
   private static IModellerRepositoryBuilder TypesModellers(this IModellerRepositoryBuilder builder)
     => builder

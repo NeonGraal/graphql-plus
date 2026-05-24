@@ -1,0 +1,55 @@
+﻿/* operation-selection-frag
+operation OprSlctFrag { catOprSlctFrag &firstLast:CatOprSlctFrag { first last } { |firstLast address { street city country } } }
+category { CatOprSlctFrag }
+output CatOprSlctFrag { 
+    first: String
+    last: String
+    address: AddrOprSlctFrag
+}
+output AddrOprSlctFrag {
+    street: String
+    city: String
+    country: String
+}
+*/
+
+// Generated from Schema operation-selection-frag
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_operation-selection-frag, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_operation_selection_frag;
+
+internal class CmptCatOprSlctFragEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptCatOprSlctFragObject>
+{
+  private readonly Encoder<ICmptAddrOprSlctFrag> _addrOprSlctFrag = encoders.EncoderFor<ICmptAddrOprSlctFrag>();
+  public Structured Encode(ICmptCatOprSlctFragObject input)
+    => Structured.Empty()
+      .Add("first", input.First.Encode())
+      .Add("last", input.Last.Encode())
+      .AddEncoded("address", input.Address, _addrOprSlctFrag);
+
+  internal static CmptCatOprSlctFragEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptAddrOprSlctFragEncoder : IEncoder<ICmptAddrOprSlctFragObject>
+{
+  public Structured Encode(ICmptAddrOprSlctFragObject input)
+    => Structured.Empty()
+      .Add("street", input.Street.Encode())
+      .Add("city", input.City.Encode())
+      .Add("country", input.Country.Encode());
+
+  internal static CmptAddrOprSlctFragEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_operation_selection_fragEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_operation_selection_fragEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptCatOprSlctFragObject>(CmptCatOprSlctFragEncoder.Factory)
+      .AddEncoder<ICmptAddrOprSlctFragObject>(CmptAddrOprSlctFragEncoder.Factory);
+}

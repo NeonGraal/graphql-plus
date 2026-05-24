@@ -25,7 +25,19 @@
     "OprDmn": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
-      "name": "OprDmn"
+      "category": "catOprDmn",
+      "name": "OprDmn",
+      "result": {
+        "$mapTag": "_OpResult",
+        "domain": {
+          "$mapTag": "_TypeRef(_TypeKind)",
+          "name": "Number",
+          "typeKind": {
+            "$value": "Output",
+            "$valueTag": "_TypeKind"
+          }
+        }
+      }
     }
   },
   "types": {

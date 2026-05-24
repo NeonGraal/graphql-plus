@@ -25,7 +25,19 @@
     "Operation": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
-      "name": "Operation"
+      "category": "op",
+      "name": "Operation",
+      "result": {
+        "$mapTag": "_OpResult",
+        "domain": {
+          "$mapTag": "_TypeRef(_TypeKind)",
+          "name": "String",
+          "typeKind": {
+            "$value": "Output",
+            "$valueTag": "_TypeKind"
+          }
+        }
+      }
     }
   },
   "types": {

@@ -227,25 +227,25 @@ Success
 }
 {
   !SO I@011/0069
-  OprDmnArgs
-  catOprDmnArgs
-  !Tr I@040/0069
+  OprDmnArg
+  catOprDmnArg
+  !Tr I@038/0069
   String
   (
-    !k I@048/0069
-    String
+    !k S@046/0069
+    'Value'
   )
 }
 {
   !Ca P@010/0070
-  catOprDmnArgs
+  catOprDmnArg
   (Parallel)
   !Tr I@012/0070
-  CatOprDmnArgs
+  CatOprDmnArg
 }
 {
   !Ou I@008/0071
-  CatOprDmnArgs
+  CatOprDmnArg
 }
 {
   !SO I@011/0073
@@ -268,168 +268,269 @@ Success
 }
 {
   !SO I@011/0077
+  OprDmnVar
+  catOprDmnVar
+  !v I@038/0077
+  arg
+  !Tr I@044/0077
+  String
+  (
+    !a I@053/0077
+    $arg
+  )
+}
+{
+  !Ca P@010/0078
+  catOprDmnVar
+  (Parallel)
+  !Tr I@012/0078
+  CatOprDmnVar
+}
+{
+  !Ou I@008/0079
+  CatOprDmnVar
+}
+{
+  !SO I@011/0081
   OprSlct
   catOprSlct
   {
-    !f I@034/0077
+    !f I@034/0081
     first
-    !f I@040/0077
+    !f I@040/0081
     last
-    !f I@045/0077
+    !f I@045/0081
     address
     {
-      !f I@055/0077
+      !f I@055/0081
       street
-      !f I@062/0077
+      !f I@062/0081
       city
-      !f I@067/0077
+      !f I@067/0081
       country
     }
   }
 }
 {
-  !Ca P@010/0078
+  !Ca P@010/0082
   catOprSlct
   (Parallel)
-  !Tr I@012/0078
+  !Tr I@012/0082
   CatOprSlct
 }
 {
-  !Ou I@008/0079
+  !Ou I@008/0083
   CatOprSlct
   {
-    !OF I@005/0080
+    !OF I@005/0084
     first
     :
-    I@012/0080
+    I@012/0084
     String
-    !OF I@005/0081
+    !OF I@005/0085
     last
     :
-    I@011/0081
+    I@011/0085
     String
-    !OF I@005/0082
+    !OF I@005/0086
     address
     :
-    I@014/0082
+    I@014/0086
     AddrOprSlct
   }
 }
 {
-  !Ou I@008/0084
+  !Ou I@008/0088
   AddrOprSlct
   {
-    !OF I@005/0085
+    !OF I@005/0089
     street
     :
-    I@013/0085
+    I@013/0089
     String
-    !OF I@005/0086
+    !OF I@005/0090
     city
     :
-    I@011/0086
+    I@011/0090
     String
-    !OF I@005/0087
+    !OF I@005/0091
     country
     :
-    I@014/0087
+    I@014/0091
     String
   }
 }
 {
-  !SO I@011/0089
+  !SO I@011/0093
+  OprSlctFrag
+  catOprSlctFrag
+  !t I@041/0093
+  firstLast
+  :CatOprSlctFrag
+  {
+    !f I@068/0093
+    first
+    !f I@074/0093
+    last
+  }
+  {
+    !s I@084/0093
+    firstLast
+    !f I@094/0093
+    address
+    {
+      !f I@104/0093
+      street
+      !f I@111/0093
+      city
+      !f I@116/0093
+      country
+    }
+  }
+}
+{
+  !Ca P@010/0094
+  catOprSlctFrag
+  (Parallel)
+  !Tr I@012/0094
+  CatOprSlctFrag
+}
+{
+  !Ou I@008/0095
+  CatOprSlctFrag
+  {
+    !OF I@005/0096
+    first
+    :
+    I@012/0096
+    String
+    !OF I@005/0097
+    last
+    :
+    I@011/0097
+    String
+    !OF I@005/0098
+    address
+    :
+    I@014/0098
+    AddrOprSlctFrag
+  }
+}
+{
+  !Ou I@008/0100
+  AddrOprSlctFrag
+  {
+    !OF I@005/0101
+    street
+    :
+    I@013/0101
+    String
+    !OF I@005/0102
+    city
+    :
+    I@011/0102
+    String
+    !OF I@005/0103
+    country
+    :
+    I@014/0103
+    String
+  }
+}
+{
+  !SO I@011/0105
   OprSlctMods
   catOprSlctMods
   {
-    !f I@042/0089
+    !f I@042/0105
     first
-    !f I@048/0089
+    !f I@048/0105
     last
-    !f I@053/0089
+    !f I@053/0105
     address
     {
-      !f I@063/0089
+      !f I@063/0105
       street
-      !f I@070/0089
+      !f I@070/0105
       city
-      !f I@075/0089
+      !f I@075/0105
       country
     }
   }
   []
 }
 {
-  !Ca P@010/0090
+  !Ca P@010/0106
   catOprSlctMods
   (Parallel)
-  !Tr I@012/0090
+  !Tr I@012/0106
   CatOprSlctMods
 }
 {
-  !Ou I@008/0091
+  !Ou I@008/0107
   CatOprSlctMods
   {
-    !OF I@005/0092
+    !OF I@005/0108
     first
     :
-    I@012/0092
+    I@012/0108
     String
-    !OF I@005/0093
+    !OF I@005/0109
     last
     :
-    I@011/0093
+    I@011/0109
     String
-    !OF I@005/0094
+    !OF I@005/0110
     address
     :
-    I@014/0094
+    I@014/0110
     AddrOprSlctMods
   }
 }
 {
-  !Ou I@008/0096
+  !Ou I@008/0112
   AddrOprSlctMods
   {
-    !OF I@005/0097
+    !OF I@005/0113
     street
     :
-    I@013/0097
+    I@013/0113
     String
-    !OF I@005/0098
+    !OF I@005/0114
     city
     :
-    I@011/0098
+    I@011/0114
     String
-    !OF I@005/0099
+    !OF I@005/0115
     country
     :
-    I@014/0099
+    I@014/0115
     String
   }
 }
 {
-  !Op I@008/0101
+  !Op I@008/0117
   Schema
   [
     Alias
   ]
 }
 {
-  !Op I@008/0103
+  !Op I@008/0119
   Schema
   {
-    !OS I@017/0103
+    !OS I@017/0119
     global
-    =( !k I@024/0103 Boolean.true )
+    =( !k I@024/0119 Boolean.true )
   }
 }
 {
-  !Op I@008/0105
+  !Op I@008/0121
   Schema
   {
     'Option Descr'
-    !OS S@017/0105
+    !OS S@017/0121
     descr
-    =( !k I@040/0105 Boolean.true )
+    =( !k I@040/0121 Boolean.true )
   }
 }

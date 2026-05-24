@@ -25,7 +25,19 @@
     "OprCtgr": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
-      "name": "OprCtgr"
+      "category": "catOprCtgr",
+      "name": "OprCtgr",
+      "result": {
+        "$mapTag": "_OpResult",
+        "domain": {
+          "$mapTag": "_TypeRef(_TypeKind)",
+          "name": "String",
+          "typeKind": {
+            "$value": "Output",
+            "$valueTag": "_TypeKind"
+          }
+        }
+      }
     }
   },
   "types": {

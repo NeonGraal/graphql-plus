@@ -55,7 +55,12 @@ name: Schema
 operations: !_Map(_Operations)
   !_Name Operation: !_Operation
     aliases: [Op1,Op2]
+    category: op
     name: Operation
+    result: !_OpResult
+      domain: !_TypeRef(_TypeKind)
+        name: String
+        typeKind: !_TypeKind Output
 settings: !_Map(_Setting)
   !_Name merged: !_Setting
     name: merged

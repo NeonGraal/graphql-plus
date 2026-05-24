@@ -149,7 +149,19 @@
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
       "aliases": ["Op1", "Op2"],
-      "name": "Operation"
+      "category": "op",
+      "name": "Operation",
+      "result": {
+        "$mapTag": "_OpResult",
+        "domain": {
+          "$mapTag": "_TypeRef(_TypeKind)",
+          "name": "String",
+          "typeKind": {
+            "$value": "Output",
+            "$valueTag": "_TypeKind"
+          }
+        }
+      }
     }
   },
   "settings": {

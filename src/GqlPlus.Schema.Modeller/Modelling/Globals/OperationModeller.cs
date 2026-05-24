@@ -20,12 +20,39 @@ internal class OperationModeller(
       Variables = _variables.ToModels(ast.Variables, typeKinds).ToMap(f => f.Name),
       Directives = _directives.ToModels(ast.Directives, typeKinds),
       Fragments = _fragments.ToModels(ast.Fragments, typeKinds).ToMap(f => f.Name),
-      Result = _result.ToModel(ast.Domain, typeKinds),
-      // Selections = _selections.ToModels(ast.Selections, typeKinds),
+      Result = ast.Domain?.Name.IsWhiteSpace() == false ? _result.ToModel(ast.Domain, typeKinds) : null,
+      // Todo: Selections = _selections.ToModels(ast.Selections, typeKinds),
       Modifiers = _modifiers.ToModels(ast.Modifiers, typeKinds),
     };
 
   internal static OperationModeller Factory(IModellerRepository repo) => new(repo);
+}
+
+internal class OpDirectiveModeller
+  : ModellerBase<IAstDirective, OpDirectiveModel>
+{
+  protected override OpDirectiveModel ToModel(IAstDirective ast, IMap<TypeKindModel> typeKinds)
+    => new(ast.Identifier, "");
+
+  internal static OpDirectiveModeller Factory(IModellerRepository _) => new();
+}
+
+internal class OpFragmentModeller
+  : ModellerBase<IAstFragment, OpFragmentModel>
+{
+  protected override OpFragmentModel ToModel(IAstFragment ast, IMap<TypeKindModel> typeKinds)
+    => new(ast.Identifier, ast.OnType.TypeRef(TypeKindModel.Output), "");
+
+  internal static OpFragmentModeller Factory(IModellerRepository _) => new();
+}
+
+internal class OpResultModeller
+  : ModellerBase<IAstTypeRef, OpResultModel>
+{
+  protected override OpResultModel ToModel(IAstTypeRef ast, IMap<TypeKindModel> typeKinds)
+    => new(ast.Name.TypeRef(TypeKindModel.Output));
+
+  internal static OpResultModeller Factory(IModellerRepository _) => new();
 }
 
 internal class OpVariableModeller
@@ -33,4 +60,6 @@ internal class OpVariableModeller
 {
   protected override OpVariableModel ToModel(IAstVariable ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Identifier, ast.Type.TypeRef(TypeKindModel.Input), null, "");
+
+  internal static OpVariableModeller Factory(IModellerRepository _) => new();
 }

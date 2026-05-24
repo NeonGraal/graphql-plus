@@ -349,19 +349,19 @@ public class testCatOprDmnObject
   }
 }
 
-public class testCatOprDmnArgs
+public class testCatOprDmnArg
   : GqlpModelBase
-  , ItestCatOprDmnArgs
+  , ItestCatOprDmnArg
 {
-  public ItestCatOprDmnArgsObject? As_CatOprDmnArgs { get; set; }
+  public ItestCatOprDmnArgObject? As_CatOprDmnArg { get; set; }
 }
 
-public class testCatOprDmnArgsObject
+public class testCatOprDmnArgObject
   : GqlpModelBase
-  , ItestCatOprDmnArgsObject
+  , ItestCatOprDmnArgObject
 {
 
-  public testCatOprDmnArgsObject
+  public testCatOprDmnArgObject
     ()
   {
   }
@@ -380,6 +380,24 @@ public class testCatOprDmnModsObject
 {
 
   public testCatOprDmnModsObject
+    ()
+  {
+  }
+}
+
+public class testCatOprDmnVar
+  : GqlpModelBase
+  , ItestCatOprDmnVar
+{
+  public ItestCatOprDmnVarObject? As_CatOprDmnVar { get; set; }
+}
+
+public class testCatOprDmnVarObject
+  : GqlpModelBase
+  , ItestCatOprDmnVarObject
+{
+
+  public testCatOprDmnVarObject
     ()
   {
   }
@@ -428,6 +446,60 @@ public class testAddrOprSlctObject
   public string Country { get; set; }
 
   public testAddrOprSlctObject
+    ( string pstreet
+    , string pcity
+    , string pcountry
+    )
+  {
+    Street = pstreet;
+    City = pcity;
+    Country = pcountry;
+  }
+}
+
+public class testCatOprSlctFrag
+  : GqlpModelBase
+  , ItestCatOprSlctFrag
+{
+  public ItestCatOprSlctFragObject? As_CatOprSlctFrag { get; set; }
+}
+
+public class testCatOprSlctFragObject
+  : GqlpModelBase
+  , ItestCatOprSlctFragObject
+{
+  public string First { get; set; }
+  public string Last { get; set; }
+  public ItestAddrOprSlctFrag Address { get; set; }
+
+  public testCatOprSlctFragObject
+    ( string pfirst
+    , string plast
+    , ItestAddrOprSlctFrag paddress
+    )
+  {
+    First = pfirst;
+    Last = plast;
+    Address = paddress;
+  }
+}
+
+public class testAddrOprSlctFrag
+  : GqlpModelBase
+  , ItestAddrOprSlctFrag
+{
+  public ItestAddrOprSlctFragObject? As_AddrOprSlctFrag { get; set; }
+}
+
+public class testAddrOprSlctFragObject
+  : GqlpModelBase
+  , ItestAddrOprSlctFragObject
+{
+  public string Street { get; set; }
+  public string City { get; set; }
+  public string Country { get; set; }
+
+  public testAddrOprSlctFragObject
     ( string pstreet
     , string pcity
     , string pcountry

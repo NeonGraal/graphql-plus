@@ -25,6 +25,16 @@
     "OprSlctMods": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
+      "category": "catOprSlctMods",
+      "modifiers": [
+        {
+          "$mapTag": "_Modifier",
+          "modifierKind": {
+            "$value": "List",
+            "$valueTag": "_ModifierKind"
+          }
+        }
+      ],
       "name": "OprSlctMods"
     }
   },

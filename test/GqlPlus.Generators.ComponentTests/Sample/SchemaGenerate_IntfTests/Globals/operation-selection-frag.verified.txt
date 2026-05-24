@@ -1,0 +1,50 @@
+﻿/* operation-selection-frag
+operation OprSlctFrag { catOprSlctFrag &firstLast:CatOprSlctFrag { first last } { |firstLast address { street city country } } }
+category { CatOprSlctFrag }
+output CatOprSlctFrag { 
+    first: String
+    last: String
+    address: AddrOprSlctFrag
+}
+output AddrOprSlctFrag {
+    street: String
+    city: String
+    country: String
+}
+*/
+
+// Generated from Schema operation-selection-frag
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_operation-selection-frag, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_operation_selection_frag;
+
+public interface ICmptCatOprSlctFrag
+  : Schema_operation-selection-frag
+{
+  ICmptCatOprSlctFragObject? As_CatOprSlctFrag { get; }
+}
+
+public interface ICmptCatOprSlctFragObject
+  : Schema_operation-selection-frag
+{
+  string First { get; }
+  string Last { get; }
+  ICmptAddrOprSlctFrag Address { get; }
+}
+
+public interface ICmptAddrOprSlctFrag
+  : Schema_operation-selection-frag
+{
+  ICmptAddrOprSlctFragObject? As_AddrOprSlctFrag { get; }
+}
+
+public interface ICmptAddrOprSlctFragObject
+  : Schema_operation-selection-frag
+{
+  string Street { get; }
+  string City { get; }
+  string Country { get; }
+}

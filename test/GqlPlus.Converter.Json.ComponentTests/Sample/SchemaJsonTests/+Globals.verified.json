@@ -37,13 +37,13 @@
         "$valueTag": "_Resolution"
       }
     },
-    "catOprDmnArgs": {
+    "catOprDmnArg": {
       "$keyTag": "_Name",
       "$mapTag": "_Category",
-      "name": "catOprDmnArgs",
+      "name": "catOprDmnArg",
       "output": {
         "$mapTag": "_TypeRef(_TypeKind)",
-        "name": "CatOprDmnArgs",
+        "name": "CatOprDmnArg",
         "typeKind": {
           "$value": "Output",
           "$valueTag": "_TypeKind"
@@ -71,6 +71,23 @@
         "$valueTag": "_Resolution"
       }
     },
+    "catOprDmnVar": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Category",
+      "name": "catOprDmnVar",
+      "output": {
+        "$mapTag": "_TypeRef(_TypeKind)",
+        "name": "CatOprDmnVar",
+        "typeKind": {
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
+        }
+      },
+      "resolution": {
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
+      }
+    },
     "catOprSlct": {
       "$keyTag": "_Name",
       "$mapTag": "_Category",
@@ -78,6 +95,23 @@
       "output": {
         "$mapTag": "_TypeRef(_TypeKind)",
         "name": "CatOprSlct",
+        "typeKind": {
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
+        }
+      },
+      "resolution": {
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
+      }
+    },
+    "catOprSlctFrag": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Category",
+      "name": "catOprSlctFrag",
+      "output": {
+        "$mapTag": "_TypeRef(_TypeKind)",
+        "name": "CatOprSlctFrag",
         "typeKind": {
           "$value": "Output",
           "$valueTag": "_TypeKind"
@@ -407,31 +441,151 @@
     "OprCtgr": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
-      "name": "OprCtgr"
+      "category": "catOprCtgr",
+      "name": "OprCtgr",
+      "result": {
+        "$mapTag": "_OpResult",
+        "domain": {
+          "$mapTag": "_TypeRef(_TypeKind)",
+          "name": "String",
+          "typeKind": {
+            "$value": "Output",
+            "$valueTag": "_TypeKind"
+          }
+        }
+      }
     },
     "OprDmn": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
-      "name": "OprDmn"
+      "category": "catOprDmn",
+      "name": "OprDmn",
+      "result": {
+        "$mapTag": "_OpResult",
+        "domain": {
+          "$mapTag": "_TypeRef(_TypeKind)",
+          "name": "Number",
+          "typeKind": {
+            "$value": "Output",
+            "$valueTag": "_TypeKind"
+          }
+        }
+      }
     },
-    "OprDmnArgs": {
+    "OprDmnArg": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
-      "name": "OprDmnArgs"
+      "category": "catOprDmnArg",
+      "name": "OprDmnArg",
+      "result": {
+        "$mapTag": "_OpResult",
+        "domain": {
+          "$mapTag": "_TypeRef(_TypeKind)",
+          "name": "String",
+          "typeKind": {
+            "$value": "Output",
+            "$valueTag": "_TypeKind"
+          }
+        }
+      }
     },
     "OprDmnMods": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
-      "name": "OprDmnMods"
+      "category": "catOprDmnMods",
+      "modifiers": [
+        {
+          "$mapTag": "_ModifierDictionary",
+          "by": "String",
+          "modifierKind": {
+            "$value": "Dict",
+            "$valueTag": "_ModifierKind"
+          },
+          "typeKind": {
+            "$value": "Basic",
+            "$valueTag": "_SimpleKind"
+          }
+        }
+      ],
+      "name": "OprDmnMods",
+      "result": {
+        "$mapTag": "_OpResult",
+        "domain": {
+          "$mapTag": "_TypeRef(_TypeKind)",
+          "name": "Boolean",
+          "typeKind": {
+            "$value": "Output",
+            "$valueTag": "_TypeKind"
+          }
+        }
+      }
+    },
+    "OprDmnVar": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Operation",
+      "category": "catOprDmnVar",
+      "name": "OprDmnVar",
+      "result": {
+        "$mapTag": "_OpResult",
+        "domain": {
+          "$mapTag": "_TypeRef(_TypeKind)",
+          "name": "String",
+          "typeKind": {
+            "$value": "Output",
+            "$valueTag": "_TypeKind"
+          }
+        }
+      },
+      "variables": {
+        "$mapTag": "_Map(_Variables)",
+        "arg": {
+          "$keyTag": "_Name",
+          "$mapTag": "_OpVariable",
+          "name": "arg"
+        }
+      }
     },
     "OprSlct": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
+      "category": "catOprSlct",
       "name": "OprSlct"
+    },
+    "OprSlctFrag": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Operation",
+      "category": "catOprSlctFrag",
+      "fragments": {
+        "$mapTag": "_Map(_Fragments)",
+        "firstLast": {
+          "$keyTag": "_Name",
+          "$mapTag": "_OpFragment",
+          "name": "firstLast",
+          "type": {
+            "$mapTag": "_TypeRef(_TypeKind)",
+            "name": "CatOprSlctFrag",
+            "typeKind": {
+              "$value": "Output",
+              "$valueTag": "_TypeKind"
+            }
+          }
+        }
+      },
+      "name": "OprSlctFrag"
     },
     "OprSlctMods": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
+      "category": "catOprSlctMods",
+      "modifiers": [
+        {
+          "$mapTag": "_Modifier",
+          "modifierKind": {
+            "$value": "List",
+            "$valueTag": "_ModifierKind"
+          }
+        }
+      ],
       "name": "OprSlctMods"
     }
   },
@@ -512,6 +666,70 @@
         }
       ],
       "name": "AddrOprSlct",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "AddrOprSlctFrag": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "street",
+          "object": "AddrOprSlctFrag",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "city",
+          "object": "AddrOprSlctFrag",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "country",
+          "object": "AddrOprSlctFrag",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "street",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "city",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "country",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "name": "AddrOprSlctFrag",
       "typeKind": {
         "$value": "Output",
         "$valueTag": "_TypeKind"
@@ -599,10 +817,10 @@
         "$valueTag": "_TypeKind"
       }
     },
-    "CatOprDmnArgs": {
+    "CatOprDmnArg": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
-      "name": "CatOprDmnArgs",
+      "name": "CatOprDmnArg",
       "typeKind": {
         "$value": "Output",
         "$valueTag": "_TypeKind"
@@ -612,6 +830,15 @@
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "name": "CatOprDmnMods",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "CatOprDmnVar": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "name": "CatOprDmnVar",
       "typeKind": {
         "$value": "Output",
         "$valueTag": "_TypeKind"
@@ -676,6 +903,70 @@
         }
       ],
       "name": "CatOprSlct",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "CatOprSlctFrag": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "first",
+          "object": "CatOprSlctFrag",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "last",
+          "object": "CatOprSlctFrag",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "address",
+          "object": "CatOprSlctFrag",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "AddrOprSlctFrag"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "first",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "last",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "address",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "AddrOprSlctFrag"
+          }
+        }
+      ],
+      "name": "CatOprSlctFrag",
       "typeKind": {
         "$value": "Output",
         "$valueTag": "_TypeKind"

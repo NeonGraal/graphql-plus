@@ -13,10 +13,10 @@ categories: !_Map(_Categories)
       name: CatOprDmn
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
-  !_Name catOprDmnArgs: !_Category
-    name: catOprDmnArgs
+  !_Name catOprDmnArg: !_Category
+    name: catOprDmnArg
     output: !_TypeRef(_TypeKind)
-      name: CatOprDmnArgs
+      name: CatOprDmnArg
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
   !_Name catOprDmnMods: !_Category
@@ -25,10 +25,22 @@ categories: !_Map(_Categories)
       name: CatOprDmnMods
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
+  !_Name catOprDmnVar: !_Category
+    name: catOprDmnVar
+    output: !_TypeRef(_TypeKind)
+      name: CatOprDmnVar
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
   !_Name catOprSlct: !_Category
     name: catOprSlct
     output: !_TypeRef(_TypeKind)
       name: CatOprSlct
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name catOprSlctFrag: !_Category
+    name: catOprSlctFrag
+    output: !_TypeRef(_TypeKind)
+      name: CatOprSlctFrag
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
   !_Name catOprSlctMods: !_Category
@@ -182,18 +194,67 @@ name: Schema
 operations: !_Map(_Operations)
   !_Name Operation: !_Operation
     aliases: [Op1, Op2]
+    category: op
     name: Operation
+    result: !_OpResult
+      domain: !_TypeRef(_TypeKind)
+        name: String
+        typeKind: !_TypeKind Output
   !_Name OprCtgr: !_Operation
+    category: catOprCtgr
     name: OprCtgr
+    result: !_OpResult
+      domain: !_TypeRef(_TypeKind)
+        name: String
+        typeKind: !_TypeKind Output
   !_Name OprDmn: !_Operation
+    category: catOprDmn
     name: OprDmn
-  !_Name OprDmnArgs: !_Operation
-    name: OprDmnArgs
+    result: !_OpResult
+      domain: !_TypeRef(_TypeKind)
+        name: Number
+        typeKind: !_TypeKind Output
+  !_Name OprDmnArg: !_Operation
+    category: catOprDmnArg
+    name: OprDmnArg
+    result: !_OpResult
+      domain: !_TypeRef(_TypeKind)
+        name: String
+        typeKind: !_TypeKind Output
   !_Name OprDmnMods: !_Operation
+    category: catOprDmnMods
+    modifiers: [!_ModifierDictionary {by: String, modifierKind: !_ModifierKind Dict,
+        typeKind: !_SimpleKind Basic}]
     name: OprDmnMods
+    result: !_OpResult
+      domain: !_TypeRef(_TypeKind)
+        name: Boolean
+        typeKind: !_TypeKind Output
+  !_Name OprDmnVar: !_Operation
+    category: catOprDmnVar
+    name: OprDmnVar
+    result: !_OpResult
+      domain: !_TypeRef(_TypeKind)
+        name: String
+        typeKind: !_TypeKind Output
+    variables: !_Map(_Variables)
+      !_Name arg: !_OpVariable
+        name: arg
   !_Name OprSlct: !_Operation
+    category: catOprSlct
     name: OprSlct
+  !_Name OprSlctFrag: !_Operation
+    category: catOprSlctFrag
+    fragments: !_Map(_Fragments)
+      !_Name firstLast: !_OpFragment
+        name: firstLast
+        type: !_TypeRef(_TypeKind)
+          name: CatOprSlctFrag
+          typeKind: !_TypeKind Output
+    name: OprSlctFrag
   !_Name OprSlctMods: !_Operation
+    category: catOprSlctMods
+    modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
     name: OprSlctMods
 settings: !_Map(_Setting)
   !_Name descr: !_Setting
@@ -240,6 +301,38 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: String
     name: AddrOprSlct
+    typeKind: !_TypeKind Output
+  !_Name AddrOprSlctFrag: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: street
+      object: AddrOprSlctFrag
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: city
+      object: AddrOprSlctFrag
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: country
+      object: AddrOprSlctFrag
+      type: !_ObjBase
+        name: String
+    fields:
+    - !_OutputField
+      name: street
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: city
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: country
+      type: !_ObjBase
+        name: String
+    name: AddrOprSlctFrag
     typeKind: !_TypeKind Output
   !_Name AddrOprSlctMods: !_TypeOutput
     allFields:
@@ -1809,11 +1902,14 @@ types: !_Map(_Type)
   !_Name CatOprDmn: !_TypeOutput
     name: CatOprDmn
     typeKind: !_TypeKind Output
-  !_Name CatOprDmnArgs: !_TypeOutput
-    name: CatOprDmnArgs
+  !_Name CatOprDmnArg: !_TypeOutput
+    name: CatOprDmnArg
     typeKind: !_TypeKind Output
   !_Name CatOprDmnMods: !_TypeOutput
     name: CatOprDmnMods
+    typeKind: !_TypeKind Output
+  !_Name CatOprDmnVar: !_TypeOutput
+    name: CatOprDmnVar
     typeKind: !_TypeKind Output
   !_Name CatOprSlct: !_TypeOutput
     allFields:
@@ -1846,6 +1942,38 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: AddrOprSlct
     name: CatOprSlct
+    typeKind: !_TypeKind Output
+  !_Name CatOprSlctFrag: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: first
+      object: CatOprSlctFrag
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: last
+      object: CatOprSlctFrag
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: address
+      object: CatOprSlctFrag
+      type: !_ObjBase
+        name: AddrOprSlctFrag
+    fields:
+    - !_OutputField
+      name: first
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: last
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: address
+      type: !_ObjBase
+        name: AddrOprSlctFrag
+    name: CatOprSlctFrag
     typeKind: !_TypeKind Output
   !_Name CatOprSlctMods: !_TypeOutput
     allFields:

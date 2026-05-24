@@ -2,23 +2,23 @@
 Success
 {
   !SO I@011/0001
-  OprDmnArgs
-  catOprDmnArgs
-  !Tr I@040/0001
+  OprDmnArg
+  catOprDmnArg
+  !Tr I@038/0001
   String
   (
-    !k I@048/0001
-    String
+    !k S@046/0001
+    'Value'
   )
 }
 {
   !Ca P@010/0002
-  catOprDmnArgs
+  catOprDmnArg
   (Parallel)
   !Tr I@012/0002
-  CatOprDmnArgs
+  CatOprDmnArg
 }
 {
   !Ou I@008/0003
-  CatOprDmnArgs
+  CatOprDmnArg
 }

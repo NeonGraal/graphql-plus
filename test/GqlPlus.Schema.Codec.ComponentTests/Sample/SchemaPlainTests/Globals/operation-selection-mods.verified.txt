@@ -2,6 +2,8 @@
 [_Schema]:categories[_Map(_Categories)]:[_Name]catOprSlctMods[_Category]:output[_TypeRef(_TypeKind)]:name=CatOprSlctMods
 [_Schema]:categories[_Map(_Categories)]:[_Name]catOprSlctMods[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
 [_Schema]:categories[_Map(_Categories)]:[_Name]catOprSlctMods[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:operations[_Map(_Operations)]:[_Name]OprSlctMods[_Operation]:category=catOprSlctMods
+[_Schema]:operations[_Map(_Operations)]:[_Name]OprSlctMods[_Operation]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
 [_Schema]:operations[_Map(_Operations)]:[_Name]OprSlctMods[_Operation]:name=OprSlctMods
 [_Schema]:types[_Map(_Type)]:[_Name]AddrOprSlctMods[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=street
 [_Schema]:types[_Map(_Type)]:[_Name]AddrOprSlctMods[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=AddrOprSlctMods

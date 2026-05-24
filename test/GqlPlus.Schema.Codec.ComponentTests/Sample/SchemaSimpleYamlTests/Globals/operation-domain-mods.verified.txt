@@ -8,7 +8,13 @@ categories: !_Map(_Categories)
     resolution: !_Resolution Parallel
 operations: !_Map(_Operations)
   !_Name OprDmnMods: !_Operation
+    category: catOprDmnMods
+    modifiers: [!_ModifierDictionary{by:String,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Basic}]
     name: OprDmnMods
+    result: !_OpResult
+      domain: !_TypeRef(_TypeKind)
+        name: Boolean
+        typeKind: !_TypeKind Output
 types: !_Map(_Type)
   !_Name CatOprDmnMods: !_TypeOutput
     name: CatOprDmnMods

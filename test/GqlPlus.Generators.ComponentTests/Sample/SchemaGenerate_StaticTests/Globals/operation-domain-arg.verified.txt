@@ -1,0 +1,15 @@
+﻿/* operation-domain-arg
+operation OprDmnArg { catOprDmnArg : String ("Value") }
+category { CatOprDmnArg }
+output CatOprDmnArg { }
+*/
+
+// Generated from Schema operation-domain-arg
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_operation-domain-arg, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+
+Category catOprDmnArg
+*/
+
+namespace Components.Gqlp_Schema_operation_domain_arg;

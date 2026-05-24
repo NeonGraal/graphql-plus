@@ -1,6 +1,4 @@
-﻿using GqlPlus.Merging;
-
-namespace GqlPlus.Merging;
+﻿namespace GqlPlus.Merging;
 
 public class MergerOneTests
   : SubstituteBase

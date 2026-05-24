@@ -13,7 +13,7 @@ internal abstract class ResolverType<TModel>
     => model is TModel;
 }
 
-internal interface ITypeResolver
+public interface ITypeResolver
 {
   bool ForType(BaseTypeModel model);
   BaseTypeModel ResolveType(BaseTypeModel model, IResolveContext context);

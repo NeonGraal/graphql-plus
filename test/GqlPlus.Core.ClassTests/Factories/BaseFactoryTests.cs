@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Factories;
 

@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
-using GqlPlus.Building.Schema.Simple;
 using GqlPlus.Merging;
 using GqlPlus.Parsing;
 using Microsoft.Extensions.DependencyInjection;
@@ -43,7 +42,7 @@ public class ParserRepositoryTests(
   }
 
   [Fact]
-  public void GetDomainMerger()
+  public void MergeDomains()
   {
     // Arrange
     IServiceProvider services = new ServiceCollection()
@@ -51,9 +50,10 @@ public class ParserRepositoryTests(
       .AddMergers(b => b.AddSchemaMergers())
       .BuildServiceProvider();
 
-    MergerOne<IAstDomain> merger = services.GetService<IMergerRepository>()
-        .ShouldNotBeNull()
-        .MergerFor<IAstDomain>();
+    MergerOne<IAstDomain> merger = services
+      .GetService<IMergerRepository>()
+      .ShouldNotBeNull()
+      .MergerFor<IAstDomain>();
 
     IAstDomainRegex domainRegex1 = A.ItemRegex("Test1");
     IAstDomainRegex domainRegex2 = A.ItemRegex("Test2");
@@ -88,7 +88,7 @@ public class ParserRepositoryTests(
     """;
 
   [Fact]
-  public void GetSchemaParser()
+  public void ParseSchema()
   {
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
@@ -97,9 +97,10 @@ public class ParserRepositoryTests(
         .AddSchemaParsers())
       .BuildServiceProvider();
 
-    ParserOne<IAstSchema> schemaParser = services.GetService<IParserRepository>()
-        .ShouldNotBeNull()
-        .ParserFor<IAstSchema>();
+    ParserOne<IAstSchema> schemaParser = services
+      .GetService<IParserRepository>()
+      .ShouldNotBeNull()
+      .ParserFor<IAstSchema>();
 
     IResult<IAstSchema> result = schemaParser.Parse(new Tokenizer(TestSchema), "Test")
         .ShouldNotBeNull();

@@ -26,7 +26,7 @@ internal class ModellerRepository
   public Modeller<TAst, TModel>.D ModellerFor<TAst, TModel>([CallerMemberName] string callerName = "")
     where TAst : IAstError
     where TModel : IModelBase
-    => () => Cached<IModeller<TAst, TModel>, IModeller<TAst, TModel>>(_builder.Modellers, "modeller for " + callerName, this);
+    => () => Cached<IModeller<TAst, TModel>>(_builder.Modellers, "modeller for " + callerName, this);
 
   public DeferOne<IModifierModeller>.D ModifierModeller([CallerMemberName] string callerName = "")
     => () => _modifier.Value;

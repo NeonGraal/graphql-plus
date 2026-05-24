@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Resolving;
 
-internal interface IResolverRepositoryBuilder
+public interface IResolverRepositoryBuilder
 {
   IResolverRepositoryBuilder AddResolver<TModel>(Factory<IResolver<TModel>, IResolverRepository> factory)
     where TModel : IModelBase;

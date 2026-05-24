@@ -18,10 +18,10 @@ internal class ParserRepository(
 
   public ParserOne<TInterface, TFor>.D ParserFor<TInterface, TFor>([CallerMemberName] string callerName = "")
     where TInterface : class, IParser<TFor>
-    => () => Cached<TInterface, TInterface>(builder.InterfaceSingles, "interface parser for " + callerName, this);
+    => () => Cached<TInterface>(builder.InterfaceSingles, "interface parser for " + callerName, this);
   public ParserArray<TInterface, TFor>.D ArrayFor<TInterface, TFor>([CallerMemberName] string callerName = "")
     where TInterface : class, IParserArray<TFor>
-    => () => Cached<TInterface, TInterface>(builder.InterfaceArrays, "interface array parser for " + callerName, this);
+    => () => Cached<TInterface>(builder.InterfaceArrays, "interface array parser for " + callerName, this);
 
   public DeferList<IParseDeclaration>.D GetDeclarations([CallerMemberName] string callerName = "")
     => () => builder.Declarations.Keys.Select(f
@@ -32,5 +32,5 @@ internal class ParserRepository(
       => (IParseDomain)Cached(builder.Singles, t.Key, t.Value, "domain parsers for " + callerName, this));
   public ParserName<T>.D GetName<T>([CallerMemberName] string callerName = "")
     where T : class, INameParser
-    => () => Cached<T, T>(builder.InterfaceSingles, "name parser for " + callerName, this);
+    => () => Cached<T>(builder.InterfaceSingles, "name parser for " + callerName, this);
 }

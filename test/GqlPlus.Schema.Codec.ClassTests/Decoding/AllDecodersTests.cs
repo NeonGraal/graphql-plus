@@ -34,6 +34,6 @@ public class AllDecodersTests
 
   private readonly IServiceProvider _services = new ServiceCollection()
     .AddLogging()
-    .AddDecoders()
+    .AddDecoders(b => b.AddSchemaDecoders())
     .BuildServiceProvider();
 }

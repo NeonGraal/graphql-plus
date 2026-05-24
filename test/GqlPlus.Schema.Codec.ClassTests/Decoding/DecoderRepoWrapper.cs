@@ -25,7 +25,7 @@ internal sealed class DecoderRepoWrapper(
   public Decoder<T>.D DecoderFor<T>([CallerMemberName] string callerName = "")
     => AddRelationship<T>(callerName)
       .DecoderFor<T>(callerName);
-  public DeferOne<TDecoder>.D DecoderFor<TDecoder, TBase>(string callerName)
+  public Decoder<TBase>.D DecoderFor<TDecoder, TBase>(string callerName)
     where TDecoder : class, IDecoder<TBase>
     => AddRelationship<TDecoder>(callerName)
     .DecoderFor<TDecoder, TBase>(callerName);

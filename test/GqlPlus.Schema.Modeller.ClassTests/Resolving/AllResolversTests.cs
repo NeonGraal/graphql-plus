@@ -17,6 +17,6 @@ public class AllResolversTests
 
   private readonly IServiceProvider _services = new ServiceCollection()
     .AddLogging()
-    .AddResolvers()
+    .AddResolvers(b => b.AddSchemaResolvers())
     .BuildServiceProvider();
 }

@@ -3,7 +3,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus;
 
-public class GeneratorRepositoryTests(ITestOutputHelper outputHelper)
+public class GeneratorRepositoryTests(
+  ITestOutputHelper outputHelper
+) : SubstituteBase
 {
   [Fact, Trait("Generate", "Html")]
   public void Generators()
@@ -19,5 +21,28 @@ public class GeneratorRepositoryTests(ITestOutputHelper outputHelper)
 
     services.GetService<IGeneratorRepository>()
         .ShouldNotBeNull();
+  }
+
+  [Fact]
+  public void GenerateSchema()
+  {
+    // Arrange
+    IServiceProvider services = new ServiceCollection()
+      .AddLogging()
+      .AddGenerators()
+      .BuildServiceProvider();
+
+    Generator<IAstSchema> factory = services
+      .GetService<IGeneratorRepository>()
+      .ShouldNotBeNull()
+      .GeneratorFor<IAstSchema>();
+
+    IAstSchema ast = A.Of<IAstSchema>();
+    GqlpGeneratorOptions generatorOptions = new("Test", GqlpBaseType.Interface, GqlpGeneratorType.Interface);
+    GqlpModelOptions modelOptions = new("Test.Test", "Test");
+    GqlpGeneratorContext context = new(".", generatorOptions, modelOptions);
+
+    // Act
+    factory.Generate(ast, context);
   }
 }

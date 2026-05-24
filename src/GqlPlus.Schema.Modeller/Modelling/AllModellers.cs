@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Modelling.Globals;
+﻿using GqlPlus.Modelling.Globals;
 using GqlPlus.Modelling.Objects;
 using GqlPlus.Modelling.Simple;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,54 +8,75 @@ namespace GqlPlus.Modelling;
 
 public static class AllModellers
 {
-  public static IServiceCollection AddModellers(this IServiceCollection services)
+  public static IServiceCollection AddModellers(this IServiceCollection services, Action<IModellerRepositoryBuilder> config)
   {
-    ModellerRepositoryBuilder builder = new();
-    builder.AddSchemaModellers();
-    services.AddSingleton(builder);
+    services.AddSingleton(new ModellerRepositoryBuilder().FluentInterface(config));
     services.TryAddSingleton<IModellerRepository, ModellerRepository>();
     return services;
   }
 
-  [ExcludeFromCodeCoverage]
   internal static IModellerRepositoryBuilder AddSchemaModellers(this IModellerRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      // Common
-      .AddModeller<IAstEnumValue, EnumValueModel>(EnumValueModeller.Factory)
-      .AddModeller<IAstFieldKey, SimpleModel>(SimpleModeller.Factory)
-      .AddModeller<IAstConstant, ConstantModel>(ConstantModeller.Factory)
+      .CommonModellers()
+      .SchemaModellers()
+      .TypesModellers()
+      .SimpleModellers()
+      .ObjectModellers()
+      .DualModellers()
+      .InputModellers()
+      .OutputModellers();
+
+  private static IModellerRepositoryBuilder CommonModellers(this IModellerRepositoryBuilder builder)
+    => builder
+      .AddModeller(EnumValueModeller.Factory)
+      .AddModeller(SimpleModeller.Factory)
+      .AddModeller(ConstantModeller.Factory)
       .AddModifierModeller(ModifierModeller.Factory)
       .AddModeller<IAstModifier, ModifierModel>(ModifierModeller.Existing)
-      .AddModeller<IAstModifier, CollectionModel>(ModifierModeller.Existing)
-      // Schema
-      .AddModeller<IAstSchema, SchemaModel>(SchemaModeller.Factory)
-      .AddModeller<IAstSchemaCategory, CategoryModel>(CategoryModeller.Factory)
-      .AddModeller<IAstSchemaDirective, DirectiveModel>(DirectiveModeller.Factory)
-      .AddModeller<IAstSchemaSetting, SettingModel>(SettingModeller.Factory)
-      // Types
+      .AddModeller<IAstModifier, CollectionModel>(ModifierModeller.Existing);
+
+  private static IModellerRepositoryBuilder SchemaModellers(this IModellerRepositoryBuilder builder)
+    => builder
+      .AddModeller(SchemaModeller.Factory)
+      .AddModeller(CategoryModeller.Factory)
+      .AddModeller(DirectiveModeller.Factory)
+      .AddModeller(SettingModeller.Factory);
+
+  private static IModellerRepositoryBuilder TypesModellers(this IModellerRepositoryBuilder builder)
+    => builder
       .AddTypesModeller(TypesModeller.Factory)
-      .AddModeller<IAstType, BaseTypeModel>(r => ((DeferOne<ITypesModeller>)r.TypesModeller()).I)
-      .AddTypeModeller<IAstTypeSpecial, SpecialTypeModel>(SpecialTypeModeller.Factory)
-      // Simple - Domain
-      .AddTypeModeller<IAstDomain<IAstDomainLabel>, BaseDomainModel<DomainLabelModel>>(DomainEnumModeller.Factory)
-      .AddTypeModeller<IAstDomain<IAstDomainRange>, BaseDomainModel<DomainRangeModel>>(DomainNumberModeller.Factory)
-      .AddTypeModeller<IAstDomain<IAstDomainRegex>, BaseDomainModel<DomainRegexModel>>(DomainStringModeller.Factory)
-      .AddTypeModeller<IAstDomain<IAstDomainTrueFalse>, BaseDomainModel<DomainTrueFalseModel>>(DomainBooleanModeller.Factory)
-      .AddTypeModeller<IAstEnum, TypeEnumModel>(EnumModeller.Factory)
-      .AddTypeModeller<IAstUnion, TypeUnionModel>(UnionModeller.Factory)
-      // Object
-      .AddModeller<IAstTypeParam, TypeParamModel>(TypeParamModeller.Factory)
-      .AddModeller<IAstTypeArg, TypeArgModel>(TypeArgModeller.Factory)
-      .AddModeller<IAstObjBase, ObjBaseModel>(ObjBaseModeller.Factory)
-      .AddModeller<IAstAlternate, AlternateModel>(AlternateModeller.Factory)
-      // Dual
-      .AddModeller<IAstDualField, DualFieldModel>(DualFieldModeller.Factory)
-      .AddTypeModeller<IAstObject<IAstDualField>, TypeDualModel>(DualModeller.Factory)
-      // Input
-      .AddModeller<IAstInputField, InputFieldModel>(InputFieldModeller.Factory)
-      .AddTypeModeller<IAstObject<IAstInputField>, TypeInputModel>(InputModeller.Factory)
-      .AddModeller<IAstInputParam, InputParamModel>(InputParamModeller.Factory)
-      // Output
-      .AddModeller<IAstOutputField, OutputFieldModel>(OutputFieldModeller.Factory)
-      .AddTypeModeller<IAstObject<IAstOutputField>, TypeOutputModel>(OutputModeller.Factory);
+      .AddModeller(r => ((DeferOne<ITypesModeller>)r.TypesModeller()).I)
+      .AddTypeModeller(SpecialTypeModeller.Factory);
+
+  private static IModellerRepositoryBuilder SimpleModellers(this IModellerRepositoryBuilder builder)
+    => builder
+      .AddTypeModeller(DomainEnumModeller.Factory)
+      .AddTypeModeller(DomainNumberModeller.Factory)
+      .AddTypeModeller(DomainStringModeller.Factory)
+      .AddTypeModeller(DomainBooleanModeller.Factory)
+      .AddTypeModeller(EnumModeller.Factory)
+      .AddTypeModeller(UnionModeller.Factory);
+
+  private static IModellerRepositoryBuilder ObjectModellers(this IModellerRepositoryBuilder builder)
+    => builder
+      .AddModeller(TypeParamModeller.Factory)
+      .AddModeller(TypeArgModeller.Factory)
+      .AddModeller(ObjBaseModeller.Factory)
+      .AddModeller(AlternateModeller.Factory);
+
+  private static IModellerRepositoryBuilder DualModellers(this IModellerRepositoryBuilder builder)
+    => builder
+      .AddModeller(DualFieldModeller.Factory)
+      .AddTypeModeller(DualModeller.Factory);
+
+  private static IModellerRepositoryBuilder InputModellers(this IModellerRepositoryBuilder builder)
+    => builder
+      .AddModeller(InputFieldModeller.Factory)
+      .AddTypeModeller(InputModeller.Factory)
+      .AddModeller(InputParamModeller.Factory);
+
+  private static IModellerRepositoryBuilder OutputModellers(this IModellerRepositoryBuilder builder)
+    => builder
+      .AddModeller(OutputFieldModeller.Factory)
+      .AddTypeModeller(OutputModeller.Factory);
 }

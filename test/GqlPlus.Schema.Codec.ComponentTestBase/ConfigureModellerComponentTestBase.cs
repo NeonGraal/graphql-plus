@@ -11,9 +11,9 @@ public static class ConfigureModellerComponentTestBase
     => services
       .AddComponentParsers()
 
-      .AddModellers()
-      .AddResolvers()
-      .AddEncoders()
+      .AddModellers(b => b.AddSchemaModellers())
+      .AddResolvers(b => b.AddSchemaResolvers())
+      .AddEncoders(b => b.AddSchemaEncoders())
 
       // Test support
       .AddTransient<ISchemaVerifyChecks, SchemaVerifyChecks>()

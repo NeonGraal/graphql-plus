@@ -1,30 +1,30 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Decoding;
 
 public static class AllDecoders
 {
-  public static IServiceCollection AddDecoders(this IServiceCollection services)
-  {
-    DecoderRepositoryBuilder builder = new();
-    builder.AddSchemaDecoders();
-    services.AddSingleton(builder);
-    services.TryAddSingleton<IDecoderRepository, DecoderRepository>();
-    return services;
-  }
+  public static IServiceCollection AddDecoders(this IServiceCollection services, Action<IDecoderRepositoryBuilder> config)
+    => services
+      .AddSingleton(new DecoderRepositoryBuilder().FluentInterface(config))
+      .AddSingleton<IDecoderRepository, DecoderRepository>();
 
-  [ExcludeFromCodeCoverage]
   internal static IDecoderRepositoryBuilder AddSchemaDecoders(this IDecoderRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      // Common
+      .CommonDecoders()
+      .SchemaDecoders();
+
+  private static IDecoderRepositoryBuilder CommonDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
       .AddDecoder(BooleanDecoder.Factory)
       .AddDecoder(NumberDecoder.Factory)
       .AddDecoder(StringDecoder.Factory)
       .AddDecoder(ConstantDecoder.Factory)
-      .AddDecoder(SimpleDecoder.Factory)
-      // Schema
+      .AddDecoder(SimpleDecoder.Factory);
+
+
+  private static IDecoderRepositoryBuilder SchemaDecoders(this IDecoderRepositoryBuilder builder)
+    => builder
       .AddDecoder(EnumDecoder<CategoryOptionModel>.Factory)
       .AddDecoder(EnumDecoder<TypeKindModel>.Factory)
       .AddDecoder<INameFilterDecoder, string>(NameFilterModelDecoder.Factory)

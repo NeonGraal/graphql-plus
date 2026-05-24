@@ -1,6 +1,4 @@
-﻿using GqlPlus.Factories;
-
-namespace GqlPlus.Matching;
+﻿namespace GqlPlus.Matching;
 
 public class AnyTypeMatcherTests
   : MatchTestsBase

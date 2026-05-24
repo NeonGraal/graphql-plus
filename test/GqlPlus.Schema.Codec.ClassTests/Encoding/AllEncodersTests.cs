@@ -56,6 +56,6 @@ public class AllEncodersTests
 
   private readonly IServiceProvider _services = new ServiceCollection()
     .AddLogging()
-    .AddEncoders()
+    .AddEncoders(b => b.AddSchemaEncoders())
     .BuildServiceProvider();
 }

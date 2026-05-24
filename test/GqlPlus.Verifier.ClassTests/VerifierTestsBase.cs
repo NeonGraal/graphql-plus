@@ -3,7 +3,6 @@ using GqlPlus.Matching;
 using GqlPlus.Merging;
 using GqlPlus.Verifying;
 using GqlPlus.Verifying.Operation;
-using GqlPlus.Verifying.Schema;
 using GqlPlus.Verifying.Schema.Simple;
 using Microsoft.Extensions.Logging;
 

@@ -111,7 +111,7 @@ internal abstract class FilterModelDecoder<TModel>
   where TModel : FilterModel
 {
   private readonly Decoder<bool?> _boolean;
-  private readonly DeferOne<INameFilterDecoder> _nameFilter;
+  private readonly Decoder<string> _nameFilter;
 
   public FilterModelDecoder(IDecoderRepository decoders)
   {
@@ -127,9 +127,9 @@ internal abstract class FilterModelDecoder<TModel>
   {
     IMessages messages = Messages.New;
 
-    DecodeClassListField(messages, _nameFilter.I, map, out IEnumerable<string>? names);
+    DecodeClassListField(messages, _nameFilter, map, out IEnumerable<string>? names);
     DecodeScalarField(messages, _boolean, map, out bool? matchAliases);
-    DecodeClassListField(messages, _nameFilter.I, map, out IEnumerable<string>? aliases);
+    DecodeClassListField(messages, _nameFilter, map, out IEnumerable<string>? aliases);
     DecodeScalarField(messages, _boolean, map, out bool? returnByAlias);
     DecodeScalarField(messages, _boolean, map, out bool? returnReferencedTypes);
 
@@ -151,7 +151,7 @@ internal abstract class FilterModelDecoder<TModel>
     if (input.TryGetText(out string? strValue)) {
       output = new FilterModel([strValue]);
     } else if (input.TryGetList(out IEnumerable<IValue>? list)) {
-      messages.Add(DecodeClassList(list, _nameFilter.I, out IEnumerable<string> names));
+      messages.Add(DecodeClassList(list, _nameFilter, out IEnumerable<string> names));
       if (names.Any()) {
         output = new FilterModel([.. names]);
       }

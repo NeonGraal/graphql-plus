@@ -6,6 +6,6 @@ public interface IDecoderRepository
   : IRepository
 {
   Decoder<T>.D DecoderFor<T>([CallerMemberName] string callerName = "");
-  DeferOne<TDecoder>.D DecoderFor<TDecoder, TBase>([CallerMemberName] string callerName = "")
+  Decoder<TBase>.D DecoderFor<TDecoder, TBase>([CallerMemberName] string callerName = "")
     where TDecoder : class, IDecoder<TBase>;
 }

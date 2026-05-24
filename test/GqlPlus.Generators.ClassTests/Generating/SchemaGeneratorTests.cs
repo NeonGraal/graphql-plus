@@ -1,7 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Structures;
-
-namespace GqlPlus.Generating;
+﻿namespace GqlPlus.Generating;
 
 public class SchemaGeneratorTests
   : GenerateClassTestsBase

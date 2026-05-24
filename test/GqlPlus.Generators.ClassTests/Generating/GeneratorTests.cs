@@ -1,6 +1,4 @@
-﻿using GqlPlus.Generating;
-
-namespace GqlPlus.Generating;
+﻿namespace GqlPlus.Generating;
 
 public class GeneratorTests
   : GenerateClassTestsBase

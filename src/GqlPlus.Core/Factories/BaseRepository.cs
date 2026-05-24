@@ -23,4 +23,7 @@ public class BaseRepository<TRepo>(
 
   protected TResult Cached<TKey, TResult>(FactoryDict factories, string label, TRepo repo)
     => (TResult)Cached(factories, typeof(TKey), typeof(TResult), label, repo);
+
+  protected TResult Cached<TResult>(FactoryDict factories, string label, TRepo repo)
+    => Cached<TResult, TResult>(factories, label, repo);
 }

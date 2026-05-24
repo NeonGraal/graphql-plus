@@ -76,7 +76,6 @@ public class SampleChecks
       () => extra.ShouldBeEmpty("Extra errors"));
   }
 
-  [ExcludeFromCodeCoverage]
   private static async Task WriteUnexpectedErrors(string file, IMessages errors, string path, string category)
   {
     if (errors is null || errors.Count < 1 || !AttributeReader.TryGetProjectDirectory(out string? project)) {

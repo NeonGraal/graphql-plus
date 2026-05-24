@@ -43,7 +43,15 @@ public static class GeneralHelpers
 
     return [.. result];
   }
+
   public static T FluentAction<T>(this T? target, Action<T>? action)
+  {
+    target.ThrowIfNull();
+    action?.Invoke(target);
+    return target;
+  }
+  public static TTarget FluentInterface<TTarget, TAction>(this TTarget? target, Action<TAction>? action)
+    where TTarget : TAction
   {
     target.ThrowIfNull();
     action?.Invoke(target);

@@ -1,7 +1,4 @@
-﻿using GqlPlus.Matching;
-using GqlPlus.Verifying.Schema;
-
-namespace GqlPlus.Matching;
+﻿namespace GqlPlus.Matching;
 
 public class MatcherTests
   : SubstituteBase

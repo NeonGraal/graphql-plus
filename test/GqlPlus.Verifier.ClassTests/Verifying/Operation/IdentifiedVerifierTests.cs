@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Ast.Operation;
-using GqlPlus.Verifying.Operation;
 
 namespace GqlPlus.Verifying.Operation;
 

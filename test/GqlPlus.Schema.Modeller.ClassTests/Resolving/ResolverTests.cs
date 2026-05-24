@@ -1,7 +1,4 @@
-﻿using GqlPlus.Models;
-using GqlPlus.Resolving;
-
-namespace GqlPlus.Resolving;
+﻿namespace GqlPlus.Resolving;
 
 public class ResolverTests
   : SubstituteBase

@@ -1,6 +1,4 @@
-﻿using GqlPlus.Verifying;
-
-namespace GqlPlus.Verifying;
+﻿namespace GqlPlus.Verifying;
 
 public class VerifierTests
   : SubstituteBase

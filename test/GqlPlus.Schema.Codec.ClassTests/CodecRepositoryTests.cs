@@ -43,6 +43,30 @@ public class CodecRepositoryTests(
   }
 
   [Fact]
+  public void DecodeNameFilter()
+  {
+    // Arrange
+    IServiceProvider services = new ServiceCollection()
+      .AddLogging()
+      .AddDecoders(b => b.AddSchemaDecoders())
+      .BuildServiceProvider();
+
+    Decoder<string> factory = services
+      .GetService<IDecoderRepository>()
+      .ShouldNotBeNull()
+      .DecoderFor<INameFilterDecoder, string>();
+
+    IValue input = "Test".Encode();
+
+    // Act
+    IMessages result = factory.Decode(input, out string? output);
+
+    // Assert
+    result.ShouldNotBeNull();
+    output.ShouldNotBeNull();
+  }
+
+  [Fact]
   public void DecodeTypeFilter()
   {
     // Arrange

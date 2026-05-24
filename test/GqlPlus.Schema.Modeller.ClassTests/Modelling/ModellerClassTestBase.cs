@@ -1,7 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using EmptyFiles;
-
-namespace GqlPlus.Modelling;
+﻿namespace GqlPlus.Modelling;
 
 public abstract class ModellerClassTestBase<TAst, TModel>
   : SubstituteBase

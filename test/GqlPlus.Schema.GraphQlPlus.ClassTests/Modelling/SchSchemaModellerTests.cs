@@ -1,4 +1,4 @@
-namespace GqlPlus.Schema.Modelling;
+﻿namespace GqlPlus.Schema.Modelling;
 
 public class SchSchemaModellerTests
   : SchModellerClassTestBase<IAstSchema, ISch_SchemaObject>

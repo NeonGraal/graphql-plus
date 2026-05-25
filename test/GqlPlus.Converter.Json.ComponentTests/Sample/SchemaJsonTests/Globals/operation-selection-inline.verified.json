@@ -2,13 +2,13 @@
   "$mapTag": "_Schema",
   "categories": {
     "$mapTag": "_Map(_Categories)",
-    "catOprSlctFrag": {
+    "catOprSlctInln": {
       "$keyTag": "_Name",
       "$mapTag": "_Category",
-      "name": "catOprSlctFrag",
+      "name": "catOprSlctInln",
       "output": {
         "$mapTag": "_TypeRef(_TypeKind)",
-        "name": "CatOprSlctFrag",
+        "name": "CatOprSlctInln",
         "typeKind": {
           "$value": "Output",
           "$valueTag": "_TypeKind"
@@ -22,103 +22,66 @@
   },
   "operations": {
     "$mapTag": "_Map(_Operations)",
-    "OprSlctFrag": {
+    "OprSlctInln": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
-      "category": "catOprSlctFrag",
-      "fragments": {
-        "$mapTag": "_Map(_Fragments)",
-        "firstLast": {
-          "$keyTag": "_Name",
-          "$mapTag": "_OpFragment",
-          "name": "firstLast",
-          "type": {
-            "$mapTag": "_TypeRef(_TypeKind)",
-            "name": "CatOprSlctFrag",
-            "typeKind": {
-              "$value": "Output",
-              "$valueTag": "_TypeKind"
-            }
-          }
-        }
-      },
-      "name": "OprSlctFrag"
+      "category": "catOprSlctInln",
+      "name": "OprSlctInln"
     }
   },
   "types": {
     "$mapTag": "_Map(_Type)",
-    "AddrOprSlctFrag": {
+    "AddrOprSlctInln": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
-      "allFields": [
+      "allAlternates": [
         {
-          "$mapTag": "_ObjectFor(_OutputField)",
-          "name": "street",
-          "object": "AddrOprSlctFrag",
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "AddrOprSlctInln",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "String"
+            "name": "FullOprSlctInln"
           }
         },
         {
-          "$mapTag": "_ObjectFor(_OutputField)",
-          "name": "city",
-          "object": "AddrOprSlctFrag",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "String"
-          }
-        },
-        {
-          "$mapTag": "_ObjectFor(_OutputField)",
-          "name": "country",
-          "object": "AddrOprSlctFrag",
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "AddrOprSlctInln",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "String"
           }
         }
       ],
-      "fields": [
+      "alternates": [
         {
-          "$mapTag": "_OutputField",
-          "name": "street",
+          "$mapTag": "_Alternate",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "String"
+            "name": "FullOprSlctInln"
           }
         },
         {
-          "$mapTag": "_OutputField",
-          "name": "city",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "String"
-          }
-        },
-        {
-          "$mapTag": "_OutputField",
-          "name": "country",
+          "$mapTag": "_Alternate",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "String"
           }
         }
       ],
-      "name": "AddrOprSlctFrag",
+      "name": "AddrOprSlctInln",
       "typeKind": {
         "$value": "Output",
         "$valueTag": "_TypeKind"
       }
     },
-    "CatOprSlctFrag": {
+    "CatOprSlctInln": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "first",
-          "object": "CatOprSlctFrag",
+          "object": "CatOprSlctInln",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "String"
@@ -127,7 +90,7 @@
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "last",
-          "object": "CatOprSlctFrag",
+          "object": "CatOprSlctInln",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "String"
@@ -136,10 +99,10 @@
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "address",
-          "object": "CatOprSlctFrag",
+          "object": "CatOprSlctInln",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "AddrOprSlctFrag"
+            "name": "AddrOprSlctInln"
           }
         }
       ],
@@ -165,11 +128,75 @@
           "name": "address",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "AddrOprSlctFrag"
+            "name": "AddrOprSlctInln"
           }
         }
       ],
-      "name": "CatOprSlctFrag",
+      "name": "CatOprSlctInln",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "FullOprSlctInln": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "street",
+          "object": "FullOprSlctInln",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "city",
+          "object": "FullOprSlctInln",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "country",
+          "object": "FullOprSlctInln",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "street",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "city",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "country",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "name": "FullOprSlctInln",
       "typeKind": {
         "$value": "Output",
         "$valueTag": "_TypeKind"

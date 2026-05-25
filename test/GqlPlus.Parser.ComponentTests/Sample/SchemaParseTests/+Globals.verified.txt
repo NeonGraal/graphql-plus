@@ -362,42 +362,39 @@ Success
 }
 {
   !SO I@011/0093
-  OprSlctFrag
-  catOprSlctFrag
-  !t I@041/0093
-  firstLast
-  :CatOprSlctFrag
+  OprSlctInln
+  catOprSlctInln
   {
-    !f I@068/0093
+    !f I@042/0093
     first
-    !f I@074/0093
+    !f I@048/0093
     last
-  }
-  {
-    !s I@084/0093
-    firstLast
-    !f I@094/0093
+    !f I@053/0093
     address
     {
-      !f I@104/0093
-      street
-      !f I@111/0093
-      city
-      !f I@116/0093
-      country
+      !i P@064/0093
+      :AddrOprSlctInln
+      {
+        !f I@083/0093
+        street
+        !f I@090/0093
+        city
+        !f I@095/0093
+        country
+      }
     }
   }
 }
 {
   !Ca P@010/0094
-  catOprSlctFrag
+  catOprSlctInln
   (Parallel)
   !Tr I@012/0094
-  CatOprSlctFrag
+  CatOprSlctInln
 }
 {
   !Ou I@008/0095
-  CatOprSlctFrag
+  CatOprSlctInln
   {
     !OF I@005/0096
     first
@@ -413,124 +410,210 @@ Success
     address
     :
     I@014/0098
-    AddrOprSlctFrag
+    AddrOprSlctInln
   }
 }
 {
   !Ou I@008/0100
-  AddrOprSlctFrag
+  AddrOprSlctInln
+  |
+  I@007/0101
+  FullOprSlctInln
+  I@007/0102
+  String
+}
+{
+  !Ou I@008/0104
+  FullOprSlctInln
   {
-    !OF I@005/0101
+    !OF I@005/0105
     street
     :
-    I@013/0101
+    I@013/0105
     String
-    !OF I@005/0102
+    !OF I@005/0106
     city
     :
-    I@011/0102
+    I@011/0106
     String
-    !OF I@005/0103
+    !OF I@005/0107
     country
     :
-    I@014/0103
+    I@014/0107
     String
   }
 }
 {
-  !SO I@011/0105
+  !SO I@011/0109
   OprSlctMods
   catOprSlctMods
   {
-    !f I@042/0105
+    !f I@042/0109
     first
-    !f I@048/0105
+    !f I@048/0109
     last
-    !f I@053/0105
+    !f I@053/0109
     address
     {
-      !f I@063/0105
+      !f I@063/0109
       street
-      !f I@070/0105
+      !f I@070/0109
       city
-      !f I@075/0105
+      !f I@075/0109
       country
     }
   }
   []
 }
 {
-  !Ca P@010/0106
+  !Ca P@010/0110
   catOprSlctMods
   (Parallel)
-  !Tr I@012/0106
+  !Tr I@012/0110
   CatOprSlctMods
 }
 {
-  !Ou I@008/0107
+  !Ou I@008/0111
   CatOprSlctMods
   {
-    !OF I@005/0108
+    !OF I@005/0112
     first
     :
-    I@012/0108
+    I@012/0112
     String
-    !OF I@005/0109
+    !OF I@005/0113
     last
     :
-    I@011/0109
+    I@011/0113
     String
-    !OF I@005/0110
+    !OF I@005/0114
     address
     :
-    I@014/0110
+    I@014/0114
     AddrOprSlctMods
   }
 }
 {
-  !Ou I@008/0112
+  !Ou I@008/0116
   AddrOprSlctMods
   {
-    !OF I@005/0113
+    !OF I@005/0117
     street
     :
-    I@013/0113
+    I@013/0117
     String
-    !OF I@005/0114
+    !OF I@005/0118
     city
     :
-    I@011/0114
+    I@011/0118
     String
-    !OF I@005/0115
+    !OF I@005/0119
     country
     :
-    I@014/0115
+    I@014/0119
     String
   }
 }
 {
-  !Op I@008/0117
+  !SO I@011/0121
+  OprSlctSprd
+  catOprSlctSprd
+  !t I@041/0121
+  firstLast
+  :CatOprSlctSprd
+  {
+    !f I@068/0121
+    first
+    !f I@074/0121
+    last
+  }
+  {
+    !s I@084/0121
+    firstLast
+    !f I@094/0121
+    address
+    {
+      !f I@104/0121
+      street
+      !f I@111/0121
+      city
+      !f I@116/0121
+      country
+    }
+  }
+}
+{
+  !Ca P@010/0122
+  catOprSlctSprd
+  (Parallel)
+  !Tr I@012/0122
+  CatOprSlctSprd
+}
+{
+  !Ou I@008/0123
+  CatOprSlctSprd
+  {
+    !OF I@005/0124
+    first
+    :
+    I@012/0124
+    String
+    !OF I@005/0125
+    last
+    :
+    I@011/0125
+    String
+    !OF I@005/0126
+    address
+    :
+    I@014/0126
+    AddrOprSlctSprd
+  }
+}
+{
+  !Ou I@008/0128
+  AddrOprSlctSprd
+  {
+    !OF I@005/0129
+    street
+    :
+    I@013/0129
+    String
+    !OF I@005/0130
+    city
+    :
+    I@011/0130
+    String
+    !OF I@005/0131
+    country
+    :
+    I@014/0131
+    String
+  }
+}
+{
+  !Op I@008/0133
   Schema
   [
     Alias
   ]
 }
 {
-  !Op I@008/0119
+  !Op I@008/0135
   Schema
   {
-    !OS I@017/0119
+    !OS I@017/0135
     global
-    =( !k I@024/0119 Boolean.true )
+    =( !k I@024/0135 Boolean.true )
   }
 }
 {
-  !Op I@008/0121
+  !Op I@008/0137
   Schema
   {
     'Option Descr'
-    !OS S@017/0121
+    !OS S@017/0137
     descr
-    =( !k I@040/0121 Boolean.true )
+    =( !k I@040/0137 Boolean.true )
   }
 }

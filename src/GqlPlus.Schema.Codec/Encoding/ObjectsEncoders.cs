@@ -14,7 +14,7 @@ internal class TypeArgEncoder(
         f => f.Add("name", model.Name?.Encode()))
     : _enumValue.Encode(model.EnumValue);
 
-  internal static new TypeArgEncoder Factory(IEncoderRepository r) => new(r);
+  internal static TypeArgEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class ObjectBaseEncoder<TBase>(
@@ -31,7 +31,7 @@ internal class ObjectBaseEncoder<TBase>(
         f => f.Add("name", model.Name?.Encode())
           .AddList("typeArgs", model.Args, _objArg));
 
-  internal static new ObjectBaseEncoder<TBase> Factory(IEncoderRepository r) => new(r);
+  internal static ObjectBaseEncoder<TBase> Factory(IEncoderRepository r) => new(r);
 }
 
 internal class TypeParamEncoder(
@@ -44,7 +44,7 @@ internal class TypeParamEncoder(
     => base.Encode(model)
       .AddEncoded("constraint", model.Constraint, _typeKind);
 
-  internal static new TypeParamEncoder Factory(IEncoderRepository r) => new(r);
+  internal static TypeParamEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class ObjectFieldEncoder<TField, TBase>(
@@ -111,12 +111,12 @@ internal abstract class TypeObjectEncoder<TObject, TField>(
     Structured ObjEncode<TModel, TDual>(ModelBase[] list, IEncoder<ObjectForModel<TModel>> encoder, IEncoder<ObjectForModel<TDual>> dual)
       where TModel : IModelBase
       where TDual : ModelBase
-      => new(list.Select(o => o switch {
+      => list.Encode(o => o switch {
         ObjectForModel<TModel> modelFor => encoder.Encode(modelFor),
         ObjectForModel<TDual> dualFor => dual.Encode(dualFor),
         _ => throw new InvalidCastException("Invalid ObjectFor " + o.GetType().ExpandTypeName() + " in " + model.Name
             + " expected " + typeof(TModel).ExpandTypeName() + " or " + typeof(TDual).ExpandTypeName())
-      }));
+      });
 
     return base.Encode(model)
         .AddList("typeParams", model.TypeParams, _typeParam)
@@ -132,7 +132,7 @@ internal class DualFieldEncoder(
 ) : ObjectFieldEncoder<DualFieldModel, ObjBaseModel>(encoders)
 
 {
-  internal static new DualFieldEncoder Factory(IEncoderRepository r) => new(r);
+  internal static DualFieldEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class TypeDualEncoder(
@@ -140,7 +140,7 @@ internal class TypeDualEncoder(
 ) : TypeObjectEncoder<TypeDualModel, DualFieldModel>(encoders)
 
 {
-  internal static new TypeDualEncoder Factory(IEncoderRepository r) => new(r);
+  internal static TypeDualEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class InputFieldEncoder(
@@ -153,7 +153,7 @@ internal class InputFieldEncoder(
     => base.Encode(model)
       .AddEncoded("default", model.Default, _constant);
 
-  internal static new InputFieldEncoder Factory(IEncoderRepository r) => new(r);
+  internal static InputFieldEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class InputParamEncoder(
@@ -176,7 +176,7 @@ internal class TypeInputEncoder(
 ) : TypeObjectEncoder<TypeInputModel, InputFieldModel>(encoders)
 
 {
-  internal static new TypeInputEncoder Factory(IEncoderRepository r) => new(r);
+  internal static TypeInputEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class OutputEnumEncoder
@@ -203,7 +203,7 @@ internal class OutputFieldEncoder(
         .AddEncoded("parameter", model.Parameter, _parameter)
       : _outputEnum.Encode(model.Enum);
 
-  internal static new OutputFieldEncoder Factory(IEncoderRepository r) => new(r);
+  internal static OutputFieldEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class TypeOutputEncoder(
@@ -211,5 +211,5 @@ internal class TypeOutputEncoder(
 ) : TypeObjectEncoder<TypeOutputModel, OutputFieldModel>(encoders)
 
 {
-  internal static new TypeOutputEncoder Factory(IEncoderRepository r) => new(r);
+  internal static TypeOutputEncoder Factory(IEncoderRepository r) => new(r);
 }

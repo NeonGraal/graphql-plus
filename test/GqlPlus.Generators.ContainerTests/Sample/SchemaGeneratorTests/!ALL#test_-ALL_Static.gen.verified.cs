@@ -17,8 +17,9 @@ Category catOprDmnArg
 Category catOprDmnMods
 Category catOprDmnVar
 Category catOprSlct
-Category catOprSlctFrag
+Category catOprSlctInln
 Category catOprSlctMods
+Category catOprSlctSprd
 Category ctgr
 Category ctgrAlias
 Category ctgrDescr

@@ -1,0 +1,16 @@
+operation Name { catName { first last address { |:AddrName { street city country } } } }
+category { CatName }
+output CatName { 
+    first: String
+    last: String
+    address: AddrName
+}
+output AddrName {
+    | FullName
+    | String
+}
+output FullName {
+    street: String
+    city: String
+    country: String
+}

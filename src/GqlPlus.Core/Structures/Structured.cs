@@ -61,7 +61,7 @@ public class Structured
     IEncoder<TValue> encoder,
     string? tag = null,
     bool flow = false
-  ) => values is null ? this : Add(key, new(values.Select(encoder.ThrowIfNull().Encode), tag, flow));
+  ) => values is null ? this : Add(key, values.Encode(encoder.ThrowIfNull().Encode, tag, flow));
   public Structured AddMap<TValue>(
     string key,
     IMap<TValue> values,
@@ -72,6 +72,17 @@ public class Structured
   ) => Add(key, new(values.ToDictionary(
         p => new StructureValue(p.Key, keyTag),
         p => encoder.Encode(p.Value)), dictTag.Surrounded("_Map(", ")"), flow));
+  public Structured AddMapList<TValue>(
+    string key,
+    IMap<TValue[]> values,
+    IEncoder<TValue> encoder,
+    string listTag,
+    bool flow = false,
+    string keyTag = "_Name"
+  ) => Add(key, new(values.ToDictionary(
+        p => new StructureValue(p.Key, keyTag),
+        (Func<KeyValuePair<string, TValue[]>, Structured>)(p => StructureHelper.Encode<TValue>(p.Value, (Func<TValue, Structured>)encoder.Encode, listTag, flow))),
+    listTag.Surrounded("_Map(", ")"), flow));
 
   public Structured AddIf(
     bool optional,

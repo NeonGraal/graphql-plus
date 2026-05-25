@@ -276,27 +276,40 @@ public interface ICmptAddrOprSlctObject
   string Country { get; }
 }
 
-public interface ICmptCatOprSlctFrag
+public interface ICmptCatOprSlctInln
   : Schema_!ALL
 {
-  ICmptCatOprSlctFragObject? As_CatOprSlctFrag { get; }
+  ICmptCatOprSlctInlnObject? As_CatOprSlctInln { get; }
 }
 
-public interface ICmptCatOprSlctFragObject
+public interface ICmptCatOprSlctInlnObject
   : Schema_!ALL
 {
   string First { get; }
   string Last { get; }
-  ICmptAddrOprSlctFrag Address { get; }
+  ICmptAddrOprSlctInln Address { get; }
 }
 
-public interface ICmptAddrOprSlctFrag
+public interface ICmptAddrOprSlctInln
   : Schema_!ALL
 {
-  ICmptAddrOprSlctFragObject? As_AddrOprSlctFrag { get; }
+  ICmptFullOprSlctInln? AsFullOprSlctInln { get; }
+  string? AsString { get; }
+  ICmptAddrOprSlctInlnObject? As_AddrOprSlctInln { get; }
 }
 
-public interface ICmptAddrOprSlctFragObject
+public interface ICmptAddrOprSlctInlnObject
+  : Schema_!ALL
+{
+}
+
+public interface ICmptFullOprSlctInln
+  : Schema_!ALL
+{
+  ICmptFullOprSlctInlnObject? As_FullOprSlctInln { get; }
+}
+
+public interface ICmptFullOprSlctInlnObject
   : Schema_!ALL
 {
   string Street { get; }
@@ -325,6 +338,34 @@ public interface ICmptAddrOprSlctMods
 }
 
 public interface ICmptAddrOprSlctModsObject
+  : Schema_!ALL
+{
+  string Street { get; }
+  string City { get; }
+  string Country { get; }
+}
+
+public interface ICmptCatOprSlctSprd
+  : Schema_!ALL
+{
+  ICmptCatOprSlctSprdObject? As_CatOprSlctSprd { get; }
+}
+
+public interface ICmptCatOprSlctSprdObject
+  : Schema_!ALL
+{
+  string First { get; }
+  string Last { get; }
+  ICmptAddrOprSlctSprd Address { get; }
+}
+
+public interface ICmptAddrOprSlctSprd
+  : Schema_!ALL
+{
+  ICmptAddrOprSlctSprdObject? As_AddrOprSlctSprd { get; }
+}
+
+public interface ICmptAddrOprSlctSprdObject
   : Schema_!ALL
 {
   string Street { get; }

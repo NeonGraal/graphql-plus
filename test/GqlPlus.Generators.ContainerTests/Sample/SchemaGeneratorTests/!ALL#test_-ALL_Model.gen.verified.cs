@@ -457,25 +457,25 @@ public class testAddrOprSlctObject
   }
 }
 
-public class testCatOprSlctFrag
+public class testCatOprSlctInln
   : GqlpModelBase
-  , ItestCatOprSlctFrag
+  , ItestCatOprSlctInln
 {
-  public ItestCatOprSlctFragObject? As_CatOprSlctFrag { get; set; }
+  public ItestCatOprSlctInlnObject? As_CatOprSlctInln { get; set; }
 }
 
-public class testCatOprSlctFragObject
+public class testCatOprSlctInlnObject
   : GqlpModelBase
-  , ItestCatOprSlctFragObject
+  , ItestCatOprSlctInlnObject
 {
   public string First { get; set; }
   public string Last { get; set; }
-  public ItestAddrOprSlctFrag Address { get; set; }
+  public ItestAddrOprSlctInln Address { get; set; }
 
-  public testCatOprSlctFragObject
+  public testCatOprSlctInlnObject
     ( string pfirst
     , string plast
-    , ItestAddrOprSlctFrag paddress
+    , ItestAddrOprSlctInln paddress
     )
   {
     First = pfirst;
@@ -484,22 +484,42 @@ public class testCatOprSlctFragObject
   }
 }
 
-public class testAddrOprSlctFrag
+public class testAddrOprSlctInln
   : GqlpModelBase
-  , ItestAddrOprSlctFrag
+  , ItestAddrOprSlctInln
 {
-  public ItestAddrOprSlctFragObject? As_AddrOprSlctFrag { get; set; }
+  public ItestFullOprSlctInln? AsFullOprSlctInln { get; set; }
+  public string? AsString { get; set; }
+  public ItestAddrOprSlctInlnObject? As_AddrOprSlctInln { get; set; }
 }
 
-public class testAddrOprSlctFragObject
+public class testAddrOprSlctInlnObject
   : GqlpModelBase
-  , ItestAddrOprSlctFragObject
+  , ItestAddrOprSlctInlnObject
+{
+
+  public testAddrOprSlctInlnObject
+    ()
+  {
+  }
+}
+
+public class testFullOprSlctInln
+  : GqlpModelBase
+  , ItestFullOprSlctInln
+{
+  public ItestFullOprSlctInlnObject? As_FullOprSlctInln { get; set; }
+}
+
+public class testFullOprSlctInlnObject
+  : GqlpModelBase
+  , ItestFullOprSlctInlnObject
 {
   public string Street { get; set; }
   public string City { get; set; }
   public string Country { get; set; }
 
-  public testAddrOprSlctFragObject
+  public testFullOprSlctInlnObject
     ( string pstreet
     , string pcity
     , string pcountry
@@ -554,6 +574,60 @@ public class testAddrOprSlctModsObject
   public string Country { get; set; }
 
   public testAddrOprSlctModsObject
+    ( string pstreet
+    , string pcity
+    , string pcountry
+    )
+  {
+    Street = pstreet;
+    City = pcity;
+    Country = pcountry;
+  }
+}
+
+public class testCatOprSlctSprd
+  : GqlpModelBase
+  , ItestCatOprSlctSprd
+{
+  public ItestCatOprSlctSprdObject? As_CatOprSlctSprd { get; set; }
+}
+
+public class testCatOprSlctSprdObject
+  : GqlpModelBase
+  , ItestCatOprSlctSprdObject
+{
+  public string First { get; set; }
+  public string Last { get; set; }
+  public ItestAddrOprSlctSprd Address { get; set; }
+
+  public testCatOprSlctSprdObject
+    ( string pfirst
+    , string plast
+    , ItestAddrOprSlctSprd paddress
+    )
+  {
+    First = pfirst;
+    Last = plast;
+    Address = paddress;
+  }
+}
+
+public class testAddrOprSlctSprd
+  : GqlpModelBase
+  , ItestAddrOprSlctSprd
+{
+  public ItestAddrOprSlctSprdObject? As_AddrOprSlctSprd { get; set; }
+}
+
+public class testAddrOprSlctSprdObject
+  : GqlpModelBase
+  , ItestAddrOprSlctSprdObject
+{
+  public string Street { get; set; }
+  public string City { get; set; }
+  public string Country { get; set; }
+
+  public testAddrOprSlctSprdObject
     ( string pstreet
     , string pcity
     , string pcountry

@@ -37,16 +37,22 @@ categories: !_Map(_Categories)
       name: CatOprSlct
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
-  !_Name catOprSlctFrag: !_Category
-    name: catOprSlctFrag
+  !_Name catOprSlctInln: !_Category
+    name: catOprSlctInln
     output: !_TypeRef(_TypeKind)
-      name: CatOprSlctFrag
+      name: CatOprSlctInln
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
   !_Name catOprSlctMods: !_Category
     name: catOprSlctMods
     output: !_TypeRef(_TypeKind)
       name: CatOprSlctMods
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name catOprSlctSprd: !_Category
+    name: catOprSlctSprd
+    output: !_TypeRef(_TypeKind)
+      name: CatOprSlctSprd
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
   !_Name ctgrDscrs: !_Category
@@ -177,19 +183,22 @@ operations: !_Map(_Operations)
   !_Name OprSlct: !_Operation
     category: catOprSlct
     name: OprSlct
-  !_Name OprSlctFrag: !_Operation
-    category: catOprSlctFrag
-    fragments: !_Map(_Fragments)
-      !_Name firstLast: !_OpFragment
-        name: firstLast
-        type: !_TypeRef(_TypeKind)
-          name: CatOprSlctFrag
-          typeKind: !_TypeKind Output
-    name: OprSlctFrag
+  !_Name OprSlctInln: !_Operation
+    category: catOprSlctInln
+    name: OprSlctInln
   !_Name OprSlctMods: !_Operation
     category: catOprSlctMods
     modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
     name: OprSlctMods
+  !_Name OprSlctSprd: !_Operation
+    category: catOprSlctSprd
+    fragments: !_Map(_Fragments)
+      !_Name firstLast: !_OpFragment
+        name: firstLast
+        type: !_TypeRef(_TypeKind)
+          name: CatOprSlctSprd
+          typeKind: !_TypeKind Output
+    name: OprSlctSprd
 settings: !_Map(_Setting)
   !_Name descr: !_Setting
     description: 'Option Descr'
@@ -231,37 +240,24 @@ types: !_Map(_Type)
           name: String
     name: AddrOprSlct
     typeKind: !_TypeKind Output
-  !_Name AddrOprSlctFrag: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: street
-        object: AddrOprSlctFrag
+  !_Name AddrOprSlctInln: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: AddrOprSlctInln
+        type: !_ObjBase
+          name: FullOprSlctInln
+      - !_ObjectFor(_Alternate)
+        object: AddrOprSlctInln
         type: !_ObjBase
           name: String
-      - !_ObjectFor(_OutputField)
-        name: city
-        object: AddrOprSlctFrag
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: FullOprSlctInln
+      - !_Alternate
         type: !_ObjBase
           name: String
-      - !_ObjectFor(_OutputField)
-        name: country
-        object: AddrOprSlctFrag
-        type: !_ObjBase
-          name: String
-    fields:
-      - !_OutputField
-        name: street
-        type: !_ObjBase
-          name: String
-      - !_OutputField
-        name: city
-        type: !_ObjBase
-          name: String
-      - !_OutputField
-        name: country
-        type: !_ObjBase
-          name: String
-    name: AddrOprSlctFrag
+    name: AddrOprSlctInln
     typeKind: !_TypeKind Output
   !_Name AddrOprSlctMods: !_TypeOutput
     allFields:
@@ -294,6 +290,38 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: String
     name: AddrOprSlctMods
+    typeKind: !_TypeKind Output
+  !_Name AddrOprSlctSprd: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: street
+        object: AddrOprSlctSprd
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: city
+        object: AddrOprSlctSprd
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: country
+        object: AddrOprSlctSprd
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_OutputField
+        name: street
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: city
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: country
+        type: !_ObjBase
+          name: String
+    name: AddrOprSlctSprd
     typeKind: !_TypeKind Output
   !_Name CatOprCtgr: !_TypeOutput
     name: CatOprCtgr
@@ -342,23 +370,23 @@ types: !_Map(_Type)
           name: AddrOprSlct
     name: CatOprSlct
     typeKind: !_TypeKind Output
-  !_Name CatOprSlctFrag: !_TypeOutput
+  !_Name CatOprSlctInln: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: first
-        object: CatOprSlctFrag
+        object: CatOprSlctInln
         type: !_ObjBase
           name: String
       - !_ObjectFor(_OutputField)
         name: last
-        object: CatOprSlctFrag
+        object: CatOprSlctInln
         type: !_ObjBase
           name: String
       - !_ObjectFor(_OutputField)
         name: address
-        object: CatOprSlctFrag
+        object: CatOprSlctInln
         type: !_ObjBase
-          name: AddrOprSlctFrag
+          name: AddrOprSlctInln
     fields:
       - !_OutputField
         name: first
@@ -371,8 +399,8 @@ types: !_Map(_Type)
       - !_OutputField
         name: address
         type: !_ObjBase
-          name: AddrOprSlctFrag
-    name: CatOprSlctFrag
+          name: AddrOprSlctInln
+    name: CatOprSlctInln
     typeKind: !_TypeKind Output
   !_Name CatOprSlctMods: !_TypeOutput
     allFields:
@@ -405,6 +433,38 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: AddrOprSlctMods
     name: CatOprSlctMods
+    typeKind: !_TypeKind Output
+  !_Name CatOprSlctSprd: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: first
+        object: CatOprSlctSprd
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: last
+        object: CatOprSlctSprd
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: address
+        object: CatOprSlctSprd
+        type: !_ObjBase
+          name: AddrOprSlctSprd
+    fields:
+      - !_OutputField
+        name: first
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: last
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: address
+        type: !_ObjBase
+          name: AddrOprSlctSprd
+    name: CatOprSlctSprd
     typeKind: !_TypeKind Output
   !_Name CtgrDscrs: !_TypeOutput
     name: CtgrDscrs
@@ -451,6 +511,38 @@ types: !_Map(_Type)
   !_Name Dscrs: !_TypeOutput
     description: 'A simple description With extra'
     name: Dscrs
+    typeKind: !_TypeKind Output
+  !_Name FullOprSlctInln: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: street
+        object: FullOprSlctInln
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: city
+        object: FullOprSlctInln
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: country
+        object: FullOprSlctInln
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_OutputField
+        name: street
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: city
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: country
+        type: !_ObjBase
+          name: String
+    name: FullOprSlctInln
     typeKind: !_TypeKind Output
   !_Name InDrctParamDict: !_TypeInput
     name: InDrctParamDict

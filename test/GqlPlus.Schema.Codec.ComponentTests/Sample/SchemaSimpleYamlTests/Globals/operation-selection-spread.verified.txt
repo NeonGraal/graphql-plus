@@ -1,37 +1,37 @@
 ﻿!_Schema
 categories: !_Map(_Categories)
-  !_Name catOprSlctFrag: !_Category
-    name: catOprSlctFrag
+  !_Name catOprSlctSprd: !_Category
+    name: catOprSlctSprd
     output: !_TypeRef(_TypeKind)
-      name: CatOprSlctFrag
+      name: CatOprSlctSprd
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
 operations: !_Map(_Operations)
-  !_Name OprSlctFrag: !_Operation
-    category: catOprSlctFrag
+  !_Name OprSlctSprd: !_Operation
+    category: catOprSlctSprd
     fragments: !_Map(_Fragments)
       !_Name firstLast: !_OpFragment
         name: firstLast
         type: !_TypeRef(_TypeKind)
-          name: CatOprSlctFrag
+          name: CatOprSlctSprd
           typeKind: !_TypeKind Output
-    name: OprSlctFrag
+    name: OprSlctSprd
 types: !_Map(_Type)
-  !_Name AddrOprSlctFrag: !_TypeOutput
+  !_Name AddrOprSlctSprd: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: street
-        object: AddrOprSlctFrag
+        object: AddrOprSlctSprd
         type: !_ObjBase
           name: String
       - !_ObjectFor(_OutputField)
         name: city
-        object: AddrOprSlctFrag
+        object: AddrOprSlctSprd
         type: !_ObjBase
           name: String
       - !_ObjectFor(_OutputField)
         name: country
-        object: AddrOprSlctFrag
+        object: AddrOprSlctSprd
         type: !_ObjBase
           name: String
     fields:
@@ -47,25 +47,25 @@ types: !_Map(_Type)
         name: country
         type: !_ObjBase
           name: String
-    name: AddrOprSlctFrag
+    name: AddrOprSlctSprd
     typeKind: !_TypeKind Output
-  !_Name CatOprSlctFrag: !_TypeOutput
+  !_Name CatOprSlctSprd: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: first
-        object: CatOprSlctFrag
+        object: CatOprSlctSprd
         type: !_ObjBase
           name: String
       - !_ObjectFor(_OutputField)
         name: last
-        object: CatOprSlctFrag
+        object: CatOprSlctSprd
         type: !_ObjBase
           name: String
       - !_ObjectFor(_OutputField)
         name: address
-        object: CatOprSlctFrag
+        object: CatOprSlctSprd
         type: !_ObjBase
-          name: AddrOprSlctFrag
+          name: AddrOprSlctSprd
     fields:
       - !_OutputField
         name: first
@@ -78,6 +78,6 @@ types: !_Map(_Type)
       - !_OutputField
         name: address
         type: !_ObjBase
-          name: AddrOprSlctFrag
-    name: CatOprSlctFrag
+          name: AddrOprSlctSprd
+    name: CatOprSlctSprd
     typeKind: !_TypeKind Output

@@ -3,18 +3,18 @@
 Success
 {
   !Ca P@010/0002
-  catOprSlctFrag
+  catOprSlctSprd
   (Parallel)
   !Tr I@012/0002
-  CatOprSlctFrag
+  CatOprSlctSprd
 }
 {
   !SO I@011/0001
-  OprSlctFrag
-  catOprSlctFrag
+  OprSlctSprd
+  catOprSlctSprd
   !t I@041/0001
   firstLast
-  :CatOprSlctFrag
+  :CatOprSlctSprd
   {
     !f I@068/0001
     first
@@ -38,7 +38,7 @@ Success
 }
 {
   !Ou I@008/0003
-  CatOprSlctFrag
+  CatOprSlctSprd
   {
     !OF I@005/0004
     first
@@ -54,12 +54,12 @@ Success
     address
     :
     I@014/0006
-    AddrOprSlctFrag
+    AddrOprSlctSprd
   }
 }
 {
   !Ou I@008/0008
-  AddrOprSlctFrag
+  AddrOprSlctSprd
   {
     !OF I@005/0009
     street

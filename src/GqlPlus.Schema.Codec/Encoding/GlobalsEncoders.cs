@@ -44,7 +44,7 @@ internal class CategoryEncoder(
       .AddEncoded("output", model.Output, _output)
       .AddList("modifiers", model.Modifiers, _modifiers, flow: true);
 
-  internal static new CategoryEncoder Factory(IEncoderRepository r) => new(r);
+  internal static CategoryEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class DirectivesEncoder(
@@ -67,7 +67,7 @@ internal class DirectiveEncoder(
       .AddEncoded("parameter", model.Parameter, _parameter)
       .Add("repeatable", model.Repeatable.Encode());
 
-  internal static new DirectiveEncoder Factory(IEncoderRepository r) => new(r);
+  internal static DirectiveEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class SettingEncoder(
@@ -80,5 +80,5 @@ internal class SettingEncoder(
     => base.Encode(model)
       .AddEncoded("value", model.Value, _constant);
 
-  internal static new SettingEncoder Factory(IEncoderRepository r) => new(r);
+  internal static SettingEncoder Factory(IEncoderRepository r) => new(r);
 }

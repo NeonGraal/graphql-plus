@@ -81,7 +81,7 @@ internal class TypeRefEncoder<TModel, TKind>
     => base.Encode(model)
       .AddEnum("typeKind", model.TypeKind);
 
-  internal static new TypeRefEncoder<TModel, TKind> Factory(IEncoderRepository _) => new();
+  internal static TypeRefEncoder<TModel, TKind> Factory(IEncoderRepository _) => new();
 }
 
 internal class DomainRefEncoder
@@ -98,5 +98,5 @@ internal class SpecialTypeEncoder
   : BaseTypeEncoder<SpecialTypeModel>
 
 {
-  internal static new SpecialTypeEncoder Factory(IEncoderRepository _) => new();
+  internal static SpecialTypeEncoder Factory(IEncoderRepository _) => new();
 }

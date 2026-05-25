@@ -19,5 +19,5 @@ internal class SchemaEncoder(
       .AddMap("settings", model.GetSettings(default), _settings, "_Setting")
       .Add("_errors", model.Errors.Encode());
 
-  internal static new SchemaEncoder Factory(IEncoderRepository r) => new(r);
+  internal static SchemaEncoder Factory(IEncoderRepository r) => new(r);
 }

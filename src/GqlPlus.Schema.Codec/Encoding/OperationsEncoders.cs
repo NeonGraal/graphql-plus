@@ -17,7 +17,7 @@ internal class OperationEncoder(
   private readonly Encoder<OpFragmentModel> _fragments = encoders.EncoderFor<OpFragmentModel>();
   private readonly Encoder<ModifierModel> _modifiers = encoders.EncoderFor<ModifierModel>();
   private readonly Encoder<OpResultModel> _result = encoders.EncoderFor<OpResultModel>();
-  // private readonly IEncoder<OpSelectionModel> _selections = encoders.EncoderFor<OpSelectionModel>();
+  private readonly Encoder<OpSelectionModel> _selections = encoders.EncoderFor<OpSelectionModel>();
   private readonly Encoder<OpVariableModel> _variables = encoders.EncoderFor<OpVariableModel>();
 
   internal override Structured Encode(OperationModel model)
@@ -27,15 +27,17 @@ internal class OperationEncoder(
       .AddMap("fragments", model.Fragments, _fragments, "_Fragments")
       .AddList("modifiers", model.Modifiers, _modifiers, flow: true)
       .AddEncoded("result", model.Result, _result)
-      // .AddList("selections", model.Selections, _selections)
+      .AddMapList("selections", model.Selections, _selections, "_Selections")
       .AddMap("variables", model.Variables, _variables, "_Variables");
 
-  internal new static OperationEncoder Factory(IEncoderRepository repo) => new(repo);
+  internal static OperationEncoder Factory(IEncoderRepository repo) => new(repo);
 }
 
 internal class OpDirectiveEncoder
   : NamedEncoder<OpDirectiveModel>
-{ }
+{
+  internal static OpDirectiveEncoder Factory(IEncoderRepository _) => new();
+}
 
 internal class OpDirectivesEncoder<TModel>(
   IEncoderRepository encoders
@@ -59,7 +61,7 @@ internal class OpFragmentEncoder(
     => base.Encode(model)
       .AddEncoded("type", model.Type, _type);
 
-  internal new static OpFragmentEncoder Factory(IEncoderRepository repo) => new(repo);
+  internal static OpFragmentEncoder Factory(IEncoderRepository repo) => new(repo);
 }
 
 internal class OpResultEncoder(
@@ -81,13 +83,6 @@ internal class OpSelectionEncoder
   internal static OpSelectionEncoder Factory(IEncoderRepository _) => new();
 }
 
-internal class OpSelectionsEncoder
-  : IEncoder<OpSelectionModel[]>
-{
-  public Structured Encode(OpSelectionModel[] input)
-    => Structured.Empty();
-}
-
 internal class OpVariableEncoder(
   IEncoderRepository encoders
 ) : OpDirectivesEncoder<OpVariableModel>(encoders)
@@ -100,5 +95,5 @@ internal class OpVariableEncoder(
       .AddEncoded("defaultValue", model.DefaultValue, _constant)
       .AddEncoded("type", model.Type, _type);
 
-  internal new static OpVariableEncoder Factory(IEncoderRepository repo) => new(repo);
+  internal static OpVariableEncoder Factory(IEncoderRepository repo) => new(repo);
 }

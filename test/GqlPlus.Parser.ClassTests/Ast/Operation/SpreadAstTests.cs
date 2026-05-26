@@ -7,6 +7,12 @@ public partial class SpreadAstTests
     = new AstDirectivesChecks<SpreadAst>(CreateSpread);
 
   [CheckTests]
+  internal IModifiersChecks<string> ModifiersChecks { get; }
+    = new ModifiersChecks<string, SpreadAst>(
+        CreateSpread,
+        ast => ast with { Modifiers = TestMods() });
+
+  [CheckTests]
   internal ICloneChecks<string> CloneChecks { get; } = new CloneChecks<string, SpreadAst>(
     CreateSpread,
     (original, input) => original with { Identifier = input });

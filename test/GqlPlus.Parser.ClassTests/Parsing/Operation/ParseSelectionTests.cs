@@ -3,7 +3,7 @@
 namespace GqlPlus.Parsing.Operation;
 
 public class ParseSelectionTests
-  : ParserClassTestBase
+  : ModifiersClassTestBase
 {
 
   private readonly ParseSelection _parseSelection;
@@ -13,10 +13,9 @@ public class ParseSelectionTests
   public ParseSelectionTests()
     : base(A.Of<ITokenizer, IOperationContext>())
   {
-    IParserRepository parsers = A.Of<IParserRepository>();
-    ConfigureRepoArray<IAstDirective>(parsers, out _directivesParser);
-    ConfigureRepoArray<IAstSelection>(parsers, out _objectParser);
-    _parseSelection = new ParseSelection(parsers);
+    ConfigureRepoArray<IAstDirective>(Parsers, out _directivesParser);
+    ConfigureRepoArray<IAstSelection>(Parsers, out _objectParser);
+    _parseSelection = new ParseSelection(Parsers);
 
     SetupError<IAstSelection>();
   }
@@ -28,6 +27,7 @@ public class ParseSelectionTests
     TakeReturns("...", true);
     IdentifierReturns(OutString(spreadName));
 
+    IAstModifier[] modifiers = ParseAModifier();
     IAstDirective[] directives = ParseOkA(_directivesParser);
 
     // Act
@@ -38,6 +38,7 @@ public class ParseSelectionTests
       .Required().ShouldBeAssignableTo<IAstSpread>()
       .ShouldSatisfyAllConditions(
         x => x.Identifier.ShouldBe(spreadName),
+        x => x.Modifiers.ShouldBe(modifiers),
         x => x.Directives.ShouldBe(directives)
       );
   }
@@ -50,6 +51,7 @@ public class ParseSelectionTests
     TakeReturns("on", true);
     IdentifierReturns(OutString(onType));
 
+    IAstModifier[] modifiers = ParseAModifier();
     IAstDirective[] directives = ParseOkA(_directivesParser);
     IAstSelection[] selections = ParseOkA(_objectParser);
 
@@ -61,6 +63,35 @@ public class ParseSelectionTests
       .Required().ShouldBeAssignableTo<IAstInline>()
       .ShouldSatisfyAllConditions(
         x => x.OnType.ShouldBe(onType),
+        x => x.Modifiers.ShouldBe(modifiers),
+        x => x.Directives.ShouldBe(directives),
+        x => x.Selections.ShouldBe(selections)
+      );
+  }
+
+  [Fact]
+  public void Parse_ShouldReturnInlineSelection_WhenInlineWithModifiersIsParsed()
+  {
+    // Arrange
+    TakeReturns("...", false);
+    TakeReturns('|', true);
+    TakeReturns("on", false);
+    TakeReturns(':', false);
+    IdentifierReturns(OutFail);
+
+    IAstModifier[] modifiers = ParseAModifier();
+    IAstDirective[] directives = ParseOkA(_directivesParser);
+    IAstSelection[] selections = ParseOkA(_objectParser);
+
+    // Act
+    IResult<IAstSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultOk<IAstSelection>>()
+      .Required().ShouldBeAssignableTo<IAstInline>()
+      .ShouldSatisfyAllConditions(
+        x => x.OnType.ShouldBeNull(),
+        x => x.Modifiers.ShouldBe(modifiers),
         x => x.Directives.ShouldBe(directives),
         x => x.Selections.ShouldBe(selections)
       );

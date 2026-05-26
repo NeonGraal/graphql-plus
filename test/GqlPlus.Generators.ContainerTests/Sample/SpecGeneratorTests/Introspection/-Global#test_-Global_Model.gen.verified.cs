@@ -65,12 +65,12 @@ public class test_CategoryObject
 {
   public test_Resolution Resolution { get; set; }
   public Itest_TypeRef<Itest_TypeKind> Output { get; set; }
-  public ICollection<Itest_Modifiers> Modifiers { get; set; }
+  public Itest_Modifiers Modifiers { get; set; }
 
   public test_CategoryObject
     ( test_Resolution presolution
     , Itest_TypeRef<Itest_TypeKind> poutput
-    , ICollection<Itest_Modifiers> pmodifiers
+    , Itest_Modifiers pmodifiers
     )
   {
     Resolution = presolution;

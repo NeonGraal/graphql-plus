@@ -198,6 +198,26 @@ types: !_Map(_Type)
         name: _Any
         typeKind: !_TypeKind Dual
       name: T
+  !_Name _Req: !_TypeDual
+    aliases: [Req]
+    allAlternates:
+    - !_ObjectFor(_Alternate)
+      object: _Req
+      type: !_ObjBase
+        typeParam: T
+    alternates:
+    - !_Alternate
+      type: !_ObjBase
+        typeParam: T
+    description: '$T!'
+    name: _Req
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _Any
+        typeKind: !_TypeKind Dual
+      name: T
   !_Name _Set: !_TypeDual
     aliases: [Set]
     allAlternates:

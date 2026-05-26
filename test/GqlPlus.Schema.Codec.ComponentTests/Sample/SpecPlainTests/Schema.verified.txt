@@ -94,6 +94,16 @@
 [_Schema]:types[_Map(_Type)]:[_Name]_Opt[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=_Any
 [_Schema]:types[_Map(_Type)]:[_Name]_Opt[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Dual
 [_Schema]:types[_Map(_Type)]:[_Name]_Opt[_TypeDual]:typeParams.0[_TypeParam]:name=T
+[_Schema]:types[_Map(_Type)]:[_Name]_Req[_TypeDual]:aliases.0=Req
+[_Schema]:types[_Map(_Type)]:[_Name]_Req[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=_Req
+[_Schema]:types[_Map(_Type)]:[_Name]_Req[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeParam=T
+[_Schema]:types[_Map(_Type)]:[_Name]_Req[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:typeParam=T
+[_Schema]:types[_Map(_Type)]:[_Name]_Req[_TypeDual]:description='$T!'
+[_Schema]:types[_Map(_Type)]:[_Name]_Req[_TypeDual]:name=_Req
+[_Schema]:types[_Map(_Type)]:[_Name]_Req[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map(_Type)]:[_Name]_Req[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=_Any
+[_Schema]:types[_Map(_Type)]:[_Name]_Req[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map(_Type)]:[_Name]_Req[_TypeDual]:typeParams.0[_TypeParam]:name=T
 [_Schema]:types[_Map(_Type)]:[_Name]_Set[_TypeDual]:aliases.0=Set
 [_Schema]:types[_Map(_Type)]:[_Name]_Set[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:collections.0[_ModifierTypeParam]:by=K
 [_Schema]:types[_Map(_Type)]:[_Name]_Set[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:collections.0[_ModifierTypeParam]:modifierKind=[_ModifierKind]Param

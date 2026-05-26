@@ -90,7 +90,7 @@ public interface Itest_ObjAlternateObject
   : IGqlpInterfaceBase
 {
   Itest_ObjBase Type { get; }
-  ICollection<Itest_Collections> Collections { get; }
+  Itest_Collections Collections { get; }
 }
 
 public interface Itest_ObjAlternateEnum
@@ -140,7 +140,7 @@ public interface Itest_ObjFieldType
 public interface Itest_ObjFieldTypeObject
   : Itest_ObjBaseObject
 {
-  ICollection<Itest_Modifiers> Modifiers { get; }
+  Itest_Modifiers Modifiers { get; }
 }
 
 public interface Itest_ObjFieldEnum

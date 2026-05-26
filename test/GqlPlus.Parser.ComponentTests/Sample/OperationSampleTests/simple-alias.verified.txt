@@ -1,0 +1,8 @@
+﻿!g P@001/0001
+query
+Success
+{
+  !f I@008/0001
+  alias:
+  simple
+}

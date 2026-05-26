@@ -7,6 +7,8 @@ internal sealed record class ModifierAst(
 ) : AstBase(At)
   , IAstModifier
 {
+  internal static ModifierAst Required(TokenAt at)
+    => new(at, ModifierKind.Required, "!");
   internal static ModifierAst Optional(TokenAt at)
     => new(at, ModifierKind.Optional, "?");
   internal static ModifierAst List(TokenAt at)

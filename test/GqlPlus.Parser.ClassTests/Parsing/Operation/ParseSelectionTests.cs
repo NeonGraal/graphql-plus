@@ -13,15 +13,15 @@ public class ParseSelectionTests
   public ParseSelectionTests()
     : base(A.Of<ITokenizer, IOperationContext>())
   {
-    ConfigureRepoArray<IAstDirective>(Parsers, out _directivesParser);
-    ConfigureRepoArray<IAstSelection>(Parsers, out _objectParser);
+    ConfigureRepoArray(Parsers, out _directivesParser);
+    ConfigureRepoArray(Parsers, out _objectParser);
     _parseSelection = new ParseSelection(Parsers);
 
     SetupError<IAstSelection>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnSpreadSelection_WhenSpreadIsParsed(string spreadName)
+  public void ParseSpread_ShouldReturnSelection_WhenSpreadIsParsed(string spreadName)
   {
     // Arrange
     TakeReturns("...", true);
@@ -44,7 +44,37 @@ public class ParseSelectionTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnInlineSelection_WhenInlineFragmentIsParsed(string onType)
+  public void ParseSpread_ShouldReturnError_WhenModifiersParsingFails(string spreadName)
+  {
+    // Arrange
+    TakeReturns("...", true);
+    IdentifierReturns(OutString(spreadName));
+    ParseModifiersError();
+
+    // Act
+    IResult<IAstSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultError>();
+  }
+
+  [Theory, RepeatData]
+  public void ParseSpread_ShouldReturnError_WhenDirectivesParsingFails(string spreadName)
+  {
+    // Arrange
+    TakeReturns("...", true);
+    IdentifierReturns(OutString(spreadName));
+    ParseErrorA(_directivesParser);
+
+    // Act
+    IResult<IAstSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultError>();
+  }
+
+  [Theory, RepeatData]
+  public void ParseInline_ShouldReturnSelection_WhenInlineFragmentIsParsed(string onType)
   {
     // Arrange
     TakeReturns("...", true);
@@ -70,7 +100,7 @@ public class ParseSelectionTests
   }
 
   [Fact]
-  public void Parse_ShouldReturnInlineSelection_WhenInlineWithModifiersIsParsed()
+  public void ParseInline_ShouldReturnSelection_WhenInlineWithModifiersIsParsed()
   {
     // Arrange
     TakeReturns("...", false);
@@ -98,7 +128,7 @@ public class ParseSelectionTests
   }
 
   [Fact]
-  public void Parse_ShouldReturnError_WhenTypeIsMissingAfterOn()
+  public void ParseInline_ShouldReturnError_WhenTypeIsMissingAfterOn()
   {
     // Arrange
     TakeReturns("...", true);
@@ -113,7 +143,41 @@ public class ParseSelectionTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenObjectParsingFails(string testType)
+  public void ParseInline_ShouldReturnError_WhenModifiersParsingFails(string testType)
+  {
+    // Arrange
+    TakeReturns("...", true);
+    TakeReturns("on", true);
+    IdentifierReturns(OutString(testType));
+    ParseModifiersError();
+    IAstSelection[] selections = ParseOkA(_objectParser);
+
+    // Act
+    IResult<IAstSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultError>();
+  }
+
+  [Theory, RepeatData]
+  public void ParseInline_ShouldReturnError_WhenDirectivesParsingFails(string testType)
+  {
+    // Arrange
+    TakeReturns("...", true);
+    TakeReturns("on", true);
+    IdentifierReturns(OutString(testType));
+    ParseErrorA(_directivesParser);
+    IAstSelection[] selections = ParseOkA(_objectParser);
+
+    // Act
+    IResult<IAstSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultError>();
+  }
+
+  [Theory, RepeatData]
+  public void ParseInline_ShouldReturnError_WhenObjectParsingFails(string testType)
   {
     // Arrange
     TakeReturns("...", true);

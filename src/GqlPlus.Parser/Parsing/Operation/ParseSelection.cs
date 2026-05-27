@@ -24,7 +24,15 @@ internal class ParseSelection(
       }
 
       IResultArray<IAstModifier> modifiers = _modifiers.Parse(tokens, "Inline");
+      if (modifiers.IsError()) {
+        return modifiers.AsResult<IAstSelection>();
+      }
+
       IResultArray<IAstDirective> directives = _directives.Parse(tokens, "Inline");
+      if (directives.IsError()) {
+        return directives.AsResult<IAstSelection>();
+      }
+
       IResultArray<IAstSelection> selections = _object.Parse(tokens, "Object");
       if (selections.IsOk()) {
         return selections.Select(MakeInline(at, modifiers, directives, onType));
@@ -55,8 +63,15 @@ internal class ParseSelection(
     } else {
       if (tokens.Identifier(out string? name)) {
         SpreadAst selection = new(at, name);
-        _modifiers.Parse(tokens, "Spread").Optional(modifiers => selection.Modifiers = [.. modifiers]);
-        _directives.Parse(tokens, "Spread").Optional(directives => selection.Directives = [.. directives]);
+        IResultArray<IAstModifier> modifiers = _modifiers.Parse(tokens, "Spread");
+        if (!modifiers.Optional(mods => selection.Modifiers = [.. mods])) {
+          return modifiers.AsResult<IAstSelection>();
+        }
+
+        IResultArray<IAstDirective> directives = _directives.Parse(tokens, "Spread");
+        if (!directives.Optional(dirs => selection.Directives = [.. dirs])) {
+          return directives.AsResult<IAstSelection>();
+        }
 
         if (tokens is IOperationContext context) {
           context.AddSpread(selection);

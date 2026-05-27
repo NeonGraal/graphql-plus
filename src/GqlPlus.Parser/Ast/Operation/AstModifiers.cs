@@ -13,7 +13,8 @@ internal abstract record class AstModifiers(
     => other is IAstModifiers modifiers && Equals(modifiers);
   public bool Equals(IAstModifiers? other)
     => Equals(other as IAstDirectives)
-    && Modifiers.SequenceEqual(other?.Modifiers);
+    && other is not null
+    && Modifiers.SequenceEqual(other.Modifiers);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Modifiers.Length);
 

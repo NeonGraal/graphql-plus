@@ -8,6 +8,7 @@ internal class ParseSelection(
   IParserRepository parsers
 ) : IParser<IAstSelection>
 {
+  private readonly ParserArray<IAstModifier> _modifiers = parsers.ArrayFor<IAstModifier>();
   private readonly ParserArray<IAstDirective> _directives = parsers.ArrayFor<IAstDirective>();
   private readonly ParserArray<IAstSelection> _object = parsers.ArrayFor<IAstSelection>();
 
@@ -22,10 +23,19 @@ internal class ParseSelection(
         return value;
       }
 
+      IResultArray<IAstModifier> modifiers = _modifiers.Parse(tokens, "Inline");
+      if (modifiers.IsError()) {
+        return modifiers.AsResult<IAstSelection>();
+      }
+
       IResultArray<IAstDirective> directives = _directives.Parse(tokens, "Inline");
+      if (directives.IsError()) {
+        return directives.AsResult<IAstSelection>();
+      }
+
       IResultArray<IAstSelection> selections = _object.Parse(tokens, "Object");
       if (selections.IsOk()) {
-        return selections.Select(MakeInline(at, directives, onType));
+        return selections.Select(MakeInline(at, modifiers, directives, onType));
       }
 
       return tokens.Error<IAstSelection>("Inline", "an object");
@@ -34,12 +44,13 @@ internal class ParseSelection(
     return default(IAstSelection).Empty();
   }
 
-  private Func<IEnumerable<IAstSelection>, IAstSelection> MakeInline(TokenAt at, IResultArray<IAstDirective> directives, string? onType)
+  private Func<IEnumerable<IAstSelection>, IAstSelection> MakeInline(TokenAt at, IResultArray<IAstModifier> modifiers, IResultArray<IAstDirective> directives, string? onType)
     => values => {
       InlineAst selection = new(at, [.. values]) {
         OnType = onType,
       };
-      directives.Optional(directives => selection.Directives = [.. directives]);
+      modifiers.Optional(mods => selection.Modifiers = [.. mods]);
+      directives.Optional(dirs => selection.Directives = [.. dirs]);
       return selection;
     };
 
@@ -52,7 +63,15 @@ internal class ParseSelection(
     } else {
       if (tokens.Identifier(out string? name)) {
         SpreadAst selection = new(at, name);
-        _directives.Parse(tokens, "Spread").Optional(directives => selection.Directives = [.. directives]);
+        IResultArray<IAstModifier> modifiers = _modifiers.Parse(tokens, "Spread");
+        if (!modifiers.Optional(mods => selection.Modifiers = [.. mods])) {
+          return modifiers.AsResult<IAstSelection>();
+        }
+
+        IResultArray<IAstDirective> directives = _directives.Parse(tokens, "Spread");
+        if (!directives.Optional(dirs => selection.Directives = [.. dirs])) {
+          return directives.AsResult<IAstSelection>();
+        }
 
         if (tokens is IOperationContext context) {
           context.AddSpread(selection);

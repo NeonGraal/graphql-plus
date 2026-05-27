@@ -3,8 +3,13 @@
 internal sealed record class SpreadAst(
   ITokenAt At,
   string Identifier
-) : AstDirectives(At, Identifier)
+) : AstModifiers(At, Identifier)
   , IAstSpread
 {
   internal override string Abbr => "s";
+
+  public bool Equals(SpreadAst? other)
+    => base.Equals(other);
+  public override int GetHashCode()
+    => base.GetHashCode();
 }

@@ -1,0 +1,8 @@
+﻿!g P@001/0001
+query
+Success
+{
+  !f I@002/0001
+  dict
+  [String]
+}

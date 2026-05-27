@@ -95,7 +95,7 @@ internal class test_ObjAlternateEncoder(
   public Structured Encode(Itest_ObjAlternateObject input)
     => Structured.Empty()
       .AddEncoded("type", input.Type, _itest_ObjBase)
-      .AddList("collections", input.Collections, _itest_Collections);
+      .AddEncoded("collections", input.Collections, _itest_Collections);
 
   internal static test_ObjAlternateEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -142,7 +142,7 @@ internal class test_ObjFieldTypeEncoder(
   private readonly Encoder<Itest_Modifiers> _itest_Modifiers = encoders.EncoderFor<Itest_Modifiers>();
   public Structured Encode(Itest_ObjFieldTypeObject input)
     => _itest_ObjBase.Encode(input)
-      .AddList("modifiers", input.Modifiers, _itest_Modifiers);
+      .AddEncoded("modifiers", input.Modifiers, _itest_Modifiers);
 
   internal static test_ObjFieldTypeEncoder Factory(IEncoderRepository r) => new(r);
 }

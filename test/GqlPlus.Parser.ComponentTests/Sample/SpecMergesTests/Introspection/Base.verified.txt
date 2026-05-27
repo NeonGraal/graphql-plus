@@ -162,7 +162,6 @@ Success
     :
     I@020/0036
     _Collections
-    []
   }
   |
   I@007/0037
@@ -236,7 +235,6 @@ Success
     :
     I@020/0056
     _Modifiers
-    []
   }
   |
   I@007/0057

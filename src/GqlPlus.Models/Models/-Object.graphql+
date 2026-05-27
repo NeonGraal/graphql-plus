@@ -33,7 +33,7 @@ output _TypeParam {
 
 output _ObjAlternate {
       type: _ObjBase
-      collections: _Collections[]
+      collections: _Collections
     | _ObjAlternateEnum
     }
 
@@ -53,7 +53,7 @@ output _ObjField<$type:_ObjFieldType> {
 
 output _ObjFieldType {
     : _ObjBase
-        modifiers: _Modifiers[]
+        modifiers: _Modifiers
     | _ObjFieldEnum
     }
 

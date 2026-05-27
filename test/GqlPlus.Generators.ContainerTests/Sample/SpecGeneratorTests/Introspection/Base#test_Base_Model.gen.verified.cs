@@ -144,11 +144,11 @@ public class test_ObjAlternateObject
   , Itest_ObjAlternateObject
 {
   public Itest_ObjBase Type { get; set; }
-  public ICollection<Itest_Collections> Collections { get; set; }
+  public Itest_Collections Collections { get; set; }
 
   public test_ObjAlternateObject
     ( Itest_ObjBase ptype
-    , ICollection<Itest_Collections> pcollections
+    , Itest_Collections pcollections
     )
   {
     Type = ptype;
@@ -232,11 +232,11 @@ public class test_ObjFieldTypeObject
   : test_ObjBaseObject
   , Itest_ObjFieldTypeObject
 {
-  public ICollection<Itest_Modifiers> Modifiers { get; set; }
+  public Itest_Modifiers Modifiers { get; set; }
 
   public test_ObjFieldTypeObject
     ( ICollection<Itest_ObjTypeArg> ptypeArgs
-    , ICollection<Itest_Modifiers> pmodifiers
+    , Itest_Modifiers pmodifiers
     ) : base(ptypeArgs)
   {
     Modifiers = pmodifiers;

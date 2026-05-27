@@ -1,4 +1,7 @@
 ﻿/* Schema
+"$T!"
+dual _Req<$T:_Any> [Req] { | $T }
+
 "$T?"
 dual _Opt<$T:_Any> [Opt] { | $T | Null }
 
@@ -27,6 +30,18 @@ dual _Any { }
 */
 
 namespace Components.Gqlp_Spec_Schema;
+
+public interface ICmpt_Req<TT>
+  : Spec_Schema
+{
+  TT? AsT { get; }
+  ICmpt_ReqObject<TT>? As__Req { get; }
+}
+
+public interface ICmpt_ReqObject<TT>
+  : Spec_Schema
+{
+}
 
 public interface ICmpt_Opt<TT>
   : Spec_Schema

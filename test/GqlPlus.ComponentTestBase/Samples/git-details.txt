@@ -1,1 +1,1 @@
-37187f1  (HEAD -> star-wars-yaml) 2026-05-16 Fix review comments
+b41c82c  (HEAD -> scalar-mod) 2026-05-26 Add Required to Modifiers and more Operation samples

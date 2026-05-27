@@ -206,6 +206,18 @@ internal class test_CollectionsDecoder : IDecoder<Itest_CollectionsObject>
   internal static test_CollectionsDecoder Factory(IDecoderRepository _) => new();
 }
 
+internal class test_ACollectionDecoder : IDecoder<Itest_ACollectionObject>
+{
+
+  public IMessages Decode(IValue input, out Itest_ACollectionObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
+
+  internal static test_ACollectionDecoder Factory(IDecoderRepository _) => new();
+}
+
 internal class test_ModifierKeyedDecoder<TModifierKind>
 {
   public Itest_TypeSimple? By { get; set; }
@@ -222,6 +234,18 @@ internal class test_ModifiersDecoder : IDecoder<Itest_ModifiersObject>
   }
 
   internal static test_ModifiersDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class test_AModifierDecoder : IDecoder<Itest_AModifierObject>
+{
+
+  public IMessages Decode(IValue input, out Itest_AModifierObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
+
+  internal static test_AModifierDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_ModifierKindDecoder : IDecoder<test_ModifierKind?>
@@ -358,7 +382,9 @@ internal static class test_IntrospectionDecoders
       .AddDecoder<test_TypeKind?>(test_TypeKindDecoder.Factory)
       .AddDecoder<Itest_TypeSimpleObject>(test_TypeSimpleDecoder.Factory)
       .AddDecoder<Itest_CollectionsObject>(test_CollectionsDecoder.Factory)
+      .AddDecoder<Itest_ACollectionObject>(test_ACollectionDecoder.Factory)
       .AddDecoder<Itest_ModifiersObject>(test_ModifiersDecoder.Factory)
+      .AddDecoder<Itest_AModifierObject>(test_AModifierDecoder.Factory)
       .AddDecoder<test_ModifierKind?>(test_ModifierKindDecoder.Factory)
       .AddDecoder<test_DomainKind?>(test_DomainKindDecoder.Factory)
       .AddDecoder<Itest_BaseDomainItemObject>(test_BaseDomainItemDecoder.Factory)

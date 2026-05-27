@@ -62,7 +62,7 @@ output _Category {
     : _Aliased
         resolution: _Resolution
         output: _TypeRef<_TypeKind.Output>
-        modifiers: _Modifiers[]
+        modifiers: _Modifiers
     }
 
 enum _Resolution { Parallel Sequential Single }
@@ -135,6 +135,10 @@ dual _TypeSimple {
     }
 
 dual _Collections {
+    | _ACollection[]
+    }
+
+dual _ACollection {
     | _Modifier<_ModifierKind.List>
     | _ModifierKeyed<_ModifierKind.Dictionary>
     | _ModifierKeyed<_ModifierKind.TypeParam>
@@ -147,11 +151,16 @@ dual _ModifierKeyed<$modifierKind:_ModifierKind> {
     }
 
 dual _Modifiers {
-    | _Modifier<_ModifierKind.Optional>
-    | _Collections
+    | _Modifier<_ModifierKind.Required>
+    | _AModifier[]
     }
 
-enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+dual _AModifier {
+    | _Modifier<_ModifierKind.Optional>
+    | _ACollection
+    }
+
+enum _ModifierKind { Req[Required] Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
 
 dual _Modifier<$modifierKind:_ModifierKind> {
         modifierKind: $modifierKind
@@ -283,7 +292,7 @@ output _TypeParam {
 
 output _ObjAlternate {
       type: _ObjBase
-      collections: _Collections[]
+      collections: _Collections
     | _ObjAlternateEnum
     }
 
@@ -303,7 +312,7 @@ output _ObjField<$type:_ObjFieldType> {
 
 output _ObjFieldType {
     : _ObjBase
-        modifiers: _Modifiers[]
+        modifiers: _Modifiers
     | _ObjFieldEnum
     }
 
@@ -487,7 +496,7 @@ internal class Cmpt_CategoryEncoder(
     => _aliased.Encode(input)
       .AddEnum("resolution", input.Resolution)
       .AddEncoded("output", input.Output, _typeRef)
-      .AddList("modifiers", input.Modifiers, _modifiers);
+      .AddEncoded("modifiers", input.Modifiers, _modifiers);
 
   internal static Cmpt_CategoryEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -634,6 +643,14 @@ internal class Cmpt_CollectionsEncoder : IEncoder<ICmpt_CollectionsObject>
   internal static Cmpt_CollectionsEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class Cmpt_ACollectionEncoder : IEncoder<ICmpt_ACollectionObject>
+{
+  public Structured Encode(ICmpt_ACollectionObject input)
+    => Structured.Empty();
+
+  internal static Cmpt_ACollectionEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class Cmpt_ModifierKeyedEncoder<TModifierKind>(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_ModifierKeyedObject<TModifierKind>>
@@ -652,6 +669,14 @@ internal class Cmpt_ModifiersEncoder : IEncoder<ICmpt_ModifiersObject>
     => Structured.Empty();
 
   internal static Cmpt_ModifiersEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class Cmpt_AModifierEncoder : IEncoder<ICmpt_AModifierObject>
+{
+  public Structured Encode(ICmpt_AModifierObject input)
+    => Structured.Empty();
+
+  internal static Cmpt_AModifierEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class Cmpt_ModifierKindEncoder : IEncoder<Cmpt_ModifierKind>
@@ -975,7 +1000,7 @@ internal class Cmpt_ObjAlternateEncoder(
   public Structured Encode(ICmpt_ObjAlternateObject input)
     => Structured.Empty()
       .AddEncoded("type", input.Type, _objBase)
-      .AddList("collections", input.Collections, _collections);
+      .AddEncoded("collections", input.Collections, _collections);
 
   internal static Cmpt_ObjAlternateEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -1022,7 +1047,7 @@ internal class Cmpt_ObjFieldTypeEncoder(
   private readonly Encoder<ICmpt_Modifiers> _modifiers = encoders.EncoderFor<ICmpt_Modifiers>();
   public Structured Encode(ICmpt_ObjFieldTypeObject input)
     => _objBase.Encode(input)
-      .AddList("modifiers", input.Modifiers, _modifiers);
+      .AddEncoded("modifiers", input.Modifiers, _modifiers);
 
   internal static Cmpt_ObjFieldTypeEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -1131,7 +1156,9 @@ internal static class Cmpt_Spec_IntrospectionEncoders
       .AddEncoder<Cmpt_TypeKind>(Cmpt_TypeKindEncoder.Factory)
       .AddEncoder<ICmpt_TypeSimpleObject>(Cmpt_TypeSimpleEncoder.Factory)
       .AddEncoder<ICmpt_CollectionsObject>(Cmpt_CollectionsEncoder.Factory)
+      .AddEncoder<ICmpt_ACollectionObject>(Cmpt_ACollectionEncoder.Factory)
       .AddEncoder<ICmpt_ModifiersObject>(Cmpt_ModifiersEncoder.Factory)
+      .AddEncoder<ICmpt_AModifierObject>(Cmpt_AModifierEncoder.Factory)
       .AddEncoder<Cmpt_ModifierKind>(Cmpt_ModifierKindEncoder.Factory)
       .AddEncoder<Cmpt_DomainKind>(Cmpt_DomainKindEncoder.Factory)
       .AddEncoder<ICmpt_BaseDomainItemObject>(Cmpt_BaseDomainItemEncoder.Factory)

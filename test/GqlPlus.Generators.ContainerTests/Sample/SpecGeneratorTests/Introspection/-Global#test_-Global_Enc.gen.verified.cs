@@ -44,7 +44,7 @@ internal class test_CategoryEncoder(
     => _itest_Aliased.Encode(input)
       .AddEnum("resolution", input.Resolution)
       .AddEncoded("output", input.Output, _itest_TypeRef)
-      .AddList("modifiers", input.Modifiers, _itest_Modifiers);
+      .AddEncoded("modifiers", input.Modifiers, _itest_Modifiers);
 
   internal static test_CategoryEncoder Factory(IEncoderRepository r) => new(r);
 }

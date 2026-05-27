@@ -17,6 +17,7 @@ public class ModifierAstTests
   [Fact]
   public void Text_Default_ReturnsExpectedStrings()
   {
+    _checks.Text(() => ModifierAst.Required(AstNulls.At), "!");
     _checks.Text(() => ModifierAst.Optional(AstNulls.At), "?");
     _checks.Text(() => ModifierAst.List(AstNulls.At), "[]");
   }
@@ -43,7 +44,11 @@ public class ModifierAstTests
   }
 
   [Fact]
-  public void Equality_WithOpti()
+  public void Equality_WithReq()
+    => _checks.Equality(() => ModifierAst.Required(AstNulls.At));
+
+  [Fact]
+  public void Equality_WithOpt()
     => _checks.Equality(() => ModifierAst.Optional(AstNulls.At));
 
   [Fact]
@@ -59,7 +64,13 @@ public class ModifierAstTests
     => _checks.Equality(() => ModifierAst.Param(AstNulls.At, key, optional));
 
   [Fact]
-  public void Inequality_DifferentModifiers_AreNotEqual()
+  public void Inequality_WithOpt()
+    => _checks.Inequality(
+      () => ModifierAst.Optional(AstNulls.At),
+      () => ModifierAst.Required(AstNulls.At));
+
+  [Fact]
+  public void Inequality_WithList()
     => _checks.Inequality(
       () => ModifierAst.Optional(AstNulls.At),
       () => ModifierAst.List(AstNulls.At));

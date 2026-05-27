@@ -7,6 +7,25 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Schema;
 
+public class test_Req<TT>
+  : GqlpModelBase
+  , Itest_Req<TT>
+{
+  public TT? AsT { get; set; }
+  public Itest_ReqObject<TT>? As__Req { get; set; }
+}
+
+public class test_ReqObject<TT>
+  : GqlpModelBase
+  , Itest_ReqObject<TT>
+{
+
+  public test_ReqObject
+    ()
+  {
+  }
+}
+
 public class test_Opt<TT>
   : GqlpModelBase
   , Itest_Opt<TT>

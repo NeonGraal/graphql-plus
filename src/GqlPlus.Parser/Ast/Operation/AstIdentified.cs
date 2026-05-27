@@ -16,5 +16,6 @@ internal abstract record class AstIdentified(
     => HashCode.Combine(base.GetHashCode(), Identifier);
 
   internal override IEnumerable<string?> GetFields()
-    => base.GetFields().Append(Identifier);
+    => base.GetFields()
+      .Append(Identifier);
 }

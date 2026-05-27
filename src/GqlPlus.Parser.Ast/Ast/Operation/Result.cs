@@ -19,6 +19,7 @@ public interface IAstInline
   : IAstAbbreviated
   , IAstSelection
   , IAstSelections
+  , IAstModifiers
   , IEquatable<IAstInline>
 {
   string? OnType { get; }
@@ -27,6 +28,7 @@ public interface IAstInline
 public interface IAstSpread
   : IAstIdentified
   , IAstSelection
+  , IAstModifiers
 { }
 
 public interface IAstArg

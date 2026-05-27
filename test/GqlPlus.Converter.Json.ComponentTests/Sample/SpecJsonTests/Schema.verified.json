@@ -467,6 +467,50 @@
         }
       ]
     },
+    "_Req": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeDual",
+      "aliases": ["Req"],
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "_Req",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "typeParam": "T"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$mapTag": "_Alternate",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "typeParam": "T"
+          }
+        }
+      ],
+      "description": "$T!",
+      "name": "_Req",
+      "typeKind": {
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
+      },
+      "typeParams": [
+        {
+          "$mapTag": "_TypeParam",
+          "constraint": {
+            "$mapTag": "_TypeRef(_TypeKind)",
+            "name": "_Any",
+            "typeKind": {
+              "$value": "Dual",
+              "$valueTag": "_TypeKind"
+            }
+          },
+          "name": "T"
+        }
+      ]
+    },
     "_Set": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeDual",

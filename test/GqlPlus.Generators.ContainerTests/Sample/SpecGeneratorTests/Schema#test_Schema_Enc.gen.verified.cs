@@ -7,6 +7,12 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Schema;
 
+internal class test_ReqEncoder<TT> : IEncoder<Itest_ReqObject<TT>>
+{
+  public Structured Encode(Itest_ReqObject<TT> input)
+    => Structured.Empty();
+}
+
 internal class test_OptEncoder<TT> : IEncoder<Itest_OptObject<TT>>
 {
   public Structured Encode(Itest_OptObject<TT> input)

@@ -1,4 +1,7 @@
 ﻿/* Schema
+"$T!"
+dual _Req<$T:_Any> [Req] { | $T }
+
 "$T?"
 dual _Opt<$T:_Any> [Opt] { | $T | Null }
 
@@ -27,6 +30,12 @@ dual _Any { }
 */
 
 namespace Components.Gqlp_Spec_Schema;
+
+internal class Cmpt_ReqEncoder<TT> : IEncoder<ICmpt_ReqObject<TT>>
+{
+  public Structured Encode(ICmpt_ReqObject<TT> input)
+    => Structured.Empty();
+}
 
 internal class Cmpt_OptEncoder<TT> : IEncoder<ICmpt_OptObject<TT>>
 {

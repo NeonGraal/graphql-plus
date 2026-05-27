@@ -7,6 +7,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Schema;
 
+internal class test_ReqDecoder<TT>
+{
+}
+
 internal class test_OptDecoder<TT>
 {
 }

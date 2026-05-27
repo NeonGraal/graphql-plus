@@ -59,6 +59,21 @@ public class ParseSelectionTests(
         $"|" + fragment + directives.Joined(s => "@" + s),
         new SpreadAst(AstNulls.At, fragment) { Directives = directives.Directives() });
 
+  [Theory, RepeatData]
+  public void WithSpreadModifier_ReturnsCorrectAst(string fragment)
+    => checks
+      .SkipWhitespace(fragment)
+      .SkipIf(fragment.StartsWith("on", StringComparison.OrdinalIgnoreCase))
+      .TrueExpected(
+        $"|" + fragment + "[]?",
+        new SpreadAst(AstNulls.At, fragment) { Modifiers = TestMods() });
+
+  [Theory, RepeatData]
+  public void WithInlineModifier_ReturnsCorrectAst(string[] fields)
+    => checks.TrueExpected(
+      "|[]?{" + fields.Joined() + "}",
+      new InlineAst(AstNulls.At, fields.Fields()) { Modifiers = TestMods() });
+
   [Fact]
   public void WithInvalidSelection_ReturnsFalse()
     => checks.FalseExpected("|?", CheckNull);

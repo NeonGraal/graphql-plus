@@ -1,4 +1,7 @@
 ﻿/* Schema
+"$T!"
+dual _Req<$T:_Any> [Req] { | $T }
+
 "$T?"
 dual _Opt<$T:_Any> [Opt] { | $T | Null }
 
@@ -27,6 +30,10 @@ dual _Any { }
 */
 
 namespace Components.Gqlp_Spec_Schema;
+
+internal class Cmpt_ReqDecoder<TT>
+{
+}
 
 internal class Cmpt_OptDecoder<TT>
 {

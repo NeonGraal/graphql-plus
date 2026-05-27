@@ -39,6 +39,21 @@ public class ParseModifiersTests
   }
 
   [Fact]
+  public void Parse_ShouldReturnRequiredModifier_WhenExclamationMarkIsPresent()
+  {
+    // Arrange
+    TakeReturns('!', true);
+
+    // Act
+    IResultArray<IAstModifier> result = _parseModifiers.Parse(Tokenizer, TestLabel);
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultArrayOk<IAstModifier>>()
+      .Required().ShouldHaveSingleItem()
+      .ModifierKind.ShouldBe(ModifierKind.Req);
+  }
+
+  [Fact]
   public void Parse_ShouldReturnError_WhenCollectionsParserFails()
   {
     // Arrange
@@ -56,7 +71,6 @@ public class ParseModifiersTests
   {
     // Arrange
     ParseModifiersEmpty();
-    TakeReturns('?', false);
 
     // Act
     IResultArray<IAstModifier> result = _parseModifiers.Parse(Tokenizer, TestLabel);

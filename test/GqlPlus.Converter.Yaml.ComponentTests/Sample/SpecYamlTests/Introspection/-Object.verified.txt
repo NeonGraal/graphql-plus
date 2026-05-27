@@ -102,7 +102,6 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: _ObjTypeArg
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
       object: _ObjFieldType
       type: !_ObjBase
@@ -136,7 +135,6 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: _ObjBase
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: collections
       object: _ObjAlternate
       type: !_ObjBase
@@ -151,7 +149,6 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: _ObjBase
     - !_OutputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: collections
       type: !_ObjBase
         name: _Collections
@@ -266,7 +263,6 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: _ObjTypeArg
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
       object: _ObjFieldType
       type: !_ObjBase
@@ -277,7 +273,6 @@ types: !_Map(_Type)
         name: _ObjFieldEnum
     fields:
     - !_OutputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
       type: !_ObjBase
         name: _Modifiers
@@ -436,7 +431,6 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: _ObjTypeArg
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
       object: _ObjFieldType
       type: !_ObjBase

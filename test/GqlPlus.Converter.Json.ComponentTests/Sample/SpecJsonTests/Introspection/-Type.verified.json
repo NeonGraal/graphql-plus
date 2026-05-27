@@ -23,6 +23,195 @@
   },
   "types": {
     "$mapTag": "_Map(_Type)",
+    "_ACollection": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "_ACollection",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Modifier",
+            "typeArgs": [
+              {
+                "$mapTag": "_EnumValue",
+                "label": "List",
+                "name": "_ModifierKind",
+                "typeKind": {
+                  "$value": "Enum",
+                  "$valueTag": "_SimpleKind"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "_ACollection",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_ModifierKeyed",
+            "typeArgs": [
+              {
+                "$mapTag": "_EnumValue",
+                "label": "Dictionary",
+                "name": "_ModifierKind",
+                "typeKind": {
+                  "$value": "Enum",
+                  "$valueTag": "_SimpleKind"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "_ACollection",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_ModifierKeyed",
+            "typeArgs": [
+              {
+                "$mapTag": "_EnumValue",
+                "label": "TypeParam",
+                "name": "_ModifierKind",
+                "typeKind": {
+                  "$value": "Enum",
+                  "$valueTag": "_SimpleKind"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$mapTag": "_Alternate",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Modifier",
+            "typeArgs": [
+              {
+                "$mapTag": "_EnumValue",
+                "label": "List",
+                "name": "_ModifierKind",
+                "typeKind": {
+                  "$value": "Enum",
+                  "$valueTag": "_SimpleKind"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$mapTag": "_Alternate",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_ModifierKeyed",
+            "typeArgs": [
+              {
+                "$mapTag": "_EnumValue",
+                "label": "Dictionary",
+                "name": "_ModifierKind",
+                "typeKind": {
+                  "$value": "Enum",
+                  "$valueTag": "_SimpleKind"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$mapTag": "_Alternate",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_ModifierKeyed",
+            "typeArgs": [
+              {
+                "$mapTag": "_EnumValue",
+                "label": "TypeParam",
+                "name": "_ModifierKind",
+                "typeKind": {
+                  "$value": "Enum",
+                  "$valueTag": "_SimpleKind"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "name": "_ACollection",
+      "typeKind": {
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "_AModifier": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "_AModifier",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Modifier",
+            "typeArgs": [
+              {
+                "$mapTag": "_EnumValue",
+                "label": "Optional",
+                "name": "_ModifierKind",
+                "typeKind": {
+                  "$value": "Enum",
+                  "$valueTag": "_SimpleKind"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "_AModifier",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_ACollection"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$mapTag": "_Alternate",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Modifier",
+            "typeArgs": [
+              {
+                "$mapTag": "_EnumValue",
+                "label": "Optional",
+                "name": "_ModifierKind",
+                "typeKind": {
+                  "$value": "Enum",
+                  "$valueTag": "_SimpleKind"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$mapTag": "_Alternate",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_ACollection"
+          }
+        }
+      ],
+      "name": "_AModifier",
+      "typeKind": {
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
+      }
+    },
     "_BaseType": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
@@ -152,115 +341,37 @@
       "allAlternates": [
         {
           "$mapTag": "_ObjectFor(_Alternate)",
+          "collections": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
           "object": "_Collections",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Modifier",
-            "typeArgs": [
-              {
-                "$mapTag": "_EnumValue",
-                "label": "List",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "$mapTag": "_ObjectFor(_Alternate)",
-          "object": "_Collections",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_ModifierKeyed",
-            "typeArgs": [
-              {
-                "$mapTag": "_EnumValue",
-                "label": "Dictionary",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "$mapTag": "_ObjectFor(_Alternate)",
-          "object": "_Collections",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_ModifierKeyed",
-            "typeArgs": [
-              {
-                "$mapTag": "_EnumValue",
-                "label": "TypeParam",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
-                }
-              }
-            ]
+            "name": "_ACollection"
           }
         }
       ],
       "alternates": [
         {
           "$mapTag": "_Alternate",
+          "collections": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Modifier",
-            "typeArgs": [
-              {
-                "$mapTag": "_EnumValue",
-                "label": "List",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "$mapTag": "_Alternate",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_ModifierKeyed",
-            "typeArgs": [
-              {
-                "$mapTag": "_EnumValue",
-                "label": "Dictionary",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "$mapTag": "_Alternate",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_ModifierKeyed",
-            "typeArgs": [
-              {
-                "$mapTag": "_EnumValue",
-                "label": "TypeParam",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
-                }
-              }
-            ]
+            "name": "_ACollection"
           }
         }
       ],
@@ -400,6 +511,12 @@
       "allItems": [
         {
           "$mapTag": "_EnumLabel",
+          "aliases": ["Required"],
+          "enum": "_ModifierKind",
+          "name": "Req"
+        },
+        {
+          "$mapTag": "_EnumLabel",
           "aliases": ["Optional"],
           "enum": "_ModifierKind",
           "name": "Opt"
@@ -423,6 +540,11 @@
         }
       ],
       "items": [
+        {
+          "$mapTag": "_Aliased",
+          "aliases": ["Required"],
+          "name": "Req"
+        },
         {
           "$mapTag": "_Aliased",
           "aliases": ["Optional"],
@@ -462,7 +584,7 @@
             "typeArgs": [
               {
                 "$mapTag": "_EnumValue",
-                "label": "Optional",
+                "label": "Required",
                 "name": "_ModifierKind",
                 "typeKind": {
                   "$value": "Enum",
@@ -474,10 +596,19 @@
         },
         {
           "$mapTag": "_ObjectFor(_Alternate)",
+          "collections": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
           "object": "_Modifiers",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Collections"
+            "name": "_AModifier"
           }
         }
       ],
@@ -490,7 +621,7 @@
             "typeArgs": [
               {
                 "$mapTag": "_EnumValue",
-                "label": "Optional",
+                "label": "Required",
                 "name": "_ModifierKind",
                 "typeKind": {
                   "$value": "Enum",
@@ -502,9 +633,18 @@
         },
         {
           "$mapTag": "_Alternate",
+          "collections": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Collections"
+            "name": "_AModifier"
           }
         }
       ],

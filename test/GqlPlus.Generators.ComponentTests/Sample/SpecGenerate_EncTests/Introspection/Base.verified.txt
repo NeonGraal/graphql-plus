@@ -34,7 +34,7 @@ output _TypeParam {
 
 output _ObjAlternate {
       type: _ObjBase
-      collections: _Collections
+      collections: _Collections[]
     | _ObjAlternateEnum
     }
 
@@ -54,7 +54,7 @@ output _ObjField<$type:_ObjFieldType> {
 
 output _ObjFieldType {
     : _ObjBase
-        modifiers: _Modifiers
+        modifiers: _Modifiers[]
     | _ObjFieldEnum
     }
 
@@ -165,7 +165,7 @@ internal class Cmpt_ObjAlternateEncoder(
   public Structured Encode(ICmpt_ObjAlternateObject input)
     => Structured.Empty()
       .AddEncoded("type", input.Type, _objBase)
-      .AddEncoded("collections", input.Collections, _collections);
+      .AddList("collections", input.Collections, _collections);
 
   internal static Cmpt_ObjAlternateEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -212,7 +212,7 @@ internal class Cmpt_ObjFieldTypeEncoder(
   private readonly Encoder<ICmpt_Modifiers> _modifiers = encoders.EncoderFor<ICmpt_Modifiers>();
   public Structured Encode(ICmpt_ObjFieldTypeObject input)
     => _objBase.Encode(input)
-      .AddEncoded("modifiers", input.Modifiers, _modifiers);
+      .AddList("modifiers", input.Modifiers, _modifiers);
 
   internal static Cmpt_ObjFieldTypeEncoder Factory(IEncoderRepository r) => new(r);
 }

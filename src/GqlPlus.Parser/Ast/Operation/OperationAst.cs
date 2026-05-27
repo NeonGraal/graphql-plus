@@ -5,7 +5,7 @@ namespace GqlPlus.Ast.Operation;
 internal sealed record class OperationAst(
   ITokenAt At,
   string Identifier
-) : AstDirectives(At, Identifier)
+) : AstModifiers(At, Identifier)
   , IAstOperation
 {
   public ParseResultKind Result { get; set; }
@@ -19,14 +19,11 @@ internal sealed record class OperationAst(
   public string? Domain { get; set; }
   public IAstArg? Arg { get; set; }
   public IAstSelection[] Selections { get; set; } = [];
-  public IAstModifier[] Modifiers { get; set; } = [];
-
   public IAstFragment[] Fragments { get; set; } = [];
   public IAstSpread[] Spreads { get; set; } = [];
 
   internal override string Abbr => "g";
 
-  IEnumerable<IAstModifier> IAstModifiers.Modifiers => Modifiers;
   IEnumerable<IAstVariable> IAstOperation.Variables => Variables;
   IAstArg? IAstOperation.Arg => Arg;
   IEnumerable<IAstSelection> IAstSelections.Selections => Selections;
@@ -43,10 +40,9 @@ internal sealed record class OperationAst(
     => other is IAstOperation operation && Equals(operation);
   public bool Equals(IAstOperation other)
     => base.Equals(other)
-    && Result == other.Result
-    && Modifiers.SequenceEqual(other.Modifiers);
+    && Result == other.Result;
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Result, Modifiers.Length);
+    => HashCode.Combine(base.GetHashCode(), Result);
 
   internal override IEnumerable<string?> GetFields()
     => new[] { AbbrAt, Category, Identifier, $"{Result}" }

@@ -46,6 +46,8 @@ public interface IAstModifier
 
 public enum ModifierKind
 {
+  Req,
+  Required = Req,
   Opt,
   Optional = Opt,
   List,

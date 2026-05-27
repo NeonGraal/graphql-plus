@@ -261,7 +261,7 @@ public class test_CategoryObject
 {
   public test_Resolution Resolution { get; set; }
   public Itest_TypeRef<test_TypeKind> Output { get; set; }
-  public ICollection<Itest_Modifiers> Modifiers { get; set; }
+  public Itest_Modifiers Modifiers { get; set; }
 
   public test_CategoryObject
     ( ICollection<string> pdescription
@@ -269,7 +269,7 @@ public class test_CategoryObject
     , ICollection<Itest_Name> paliases
     , test_Resolution presolution
     , Itest_TypeRef<test_TypeKind> poutput
-    , ICollection<Itest_Modifiers> pmodifiers
+    , Itest_Modifiers pmodifiers
     ) : base(pdescription, pname, paliases)
   {
     Resolution = presolution;
@@ -880,9 +880,7 @@ public class test_Collections
   : GqlpModelBase
   , Itest_Collections
 {
-  public Itest_Modifier<test_ModifierKind>? As_ModifierKindList { get; set; }
-  public Itest_ModifierKeyed<test_ModifierKind>? As_ModifierKindDictionary { get; set; }
-  public Itest_ModifierKeyed<test_ModifierKind>? As_ModifierKindTypeParam { get; set; }
+  public ICollection<Itest_ACollection>? As_ACollection { get; set; }
   public Itest_CollectionsObject? As__Collections { get; set; }
 }
 
@@ -892,6 +890,27 @@ public class test_CollectionsObject
 {
 
   public test_CollectionsObject
+    ()
+  {
+  }
+}
+
+public class test_ACollection
+  : GqlpModelBase
+  , Itest_ACollection
+{
+  public Itest_Modifier<test_ModifierKind>? As_ModifierKindList { get; set; }
+  public Itest_ModifierKeyed<test_ModifierKind>? As_ModifierKindDictionary { get; set; }
+  public Itest_ModifierKeyed<test_ModifierKind>? As_ModifierKindTypeParam { get; set; }
+  public Itest_ACollectionObject? As__ACollection { get; set; }
+}
+
+public class test_ACollectionObject
+  : GqlpModelBase
+  , Itest_ACollectionObject
+{
+
+  public test_ACollectionObject
     ()
   {
   }
@@ -926,8 +945,8 @@ public class test_Modifiers
   : GqlpModelBase
   , Itest_Modifiers
 {
-  public Itest_Modifier<test_ModifierKind>? As_ModifierKindOptional { get; set; }
-  public Itest_Collections? As_Collections { get; set; }
+  public Itest_Modifier<test_ModifierKind>? As_ModifierKindRequired { get; set; }
+  public ICollection<Itest_AModifier>? As_AModifier { get; set; }
   public Itest_ModifiersObject? As__Modifiers { get; set; }
 }
 
@@ -937,6 +956,26 @@ public class test_ModifiersObject
 {
 
   public test_ModifiersObject
+    ()
+  {
+  }
+}
+
+public class test_AModifier
+  : GqlpModelBase
+  , Itest_AModifier
+{
+  public Itest_Modifier<test_ModifierKind>? As_ModifierKindOptional { get; set; }
+  public Itest_ACollection? As_ACollection { get; set; }
+  public Itest_AModifierObject? As__AModifier { get; set; }
+}
+
+public class test_AModifierObject
+  : GqlpModelBase
+  , Itest_AModifierObject
+{
+
+  public test_AModifierObject
     ()
   {
   }
@@ -1513,11 +1552,11 @@ public class test_ObjAlternateObject
   , Itest_ObjAlternateObject
 {
   public Itest_ObjBase Type { get; set; }
-  public ICollection<Itest_Collections> Collections { get; set; }
+  public Itest_Collections Collections { get; set; }
 
   public test_ObjAlternateObject
     ( Itest_ObjBase ptype
-    , ICollection<Itest_Collections> pcollections
+    , Itest_Collections pcollections
     )
   {
     Type = ptype;
@@ -1606,13 +1645,13 @@ public class test_ObjFieldTypeObject
   : test_ObjBaseObject
   , Itest_ObjFieldTypeObject
 {
-  public ICollection<Itest_Modifiers> Modifiers { get; set; }
+  public Itest_Modifiers Modifiers { get; set; }
 
   public test_ObjFieldTypeObject
     ( ICollection<string> pdescription
     , Itest_Name pname
     , ICollection<Itest_ObjTypeArg> ptypeArgs
-    , ICollection<Itest_Modifiers> pmodifiers
+    , Itest_Modifiers pmodifiers
     ) : base(pdescription, pname, ptypeArgs)
   {
     Modifiers = pmodifiers;
@@ -1723,7 +1762,7 @@ public class test_InputFieldTypeObject
     ( ICollection<string> pdescription
     , Itest_Name pname
     , ICollection<Itest_ObjTypeArg> ptypeArgs
-    , ICollection<Itest_Modifiers> pmodifiers
+    , Itest_Modifiers pmodifiers
     ) : base(pdescription, pname, ptypeArgs, pmodifiers)
   {
   }
@@ -1768,7 +1807,7 @@ public class test_OutputFieldTypeObject
     ( ICollection<string> pdescription
     , Itest_Name pname
     , ICollection<Itest_ObjTypeArg> ptypeArgs
-    , ICollection<Itest_Modifiers> pmodifiers
+    , Itest_Modifiers pmodifiers
     ) : base(pdescription, pname, ptypeArgs, pmodifiers)
   {
   }

@@ -1,5 +1,9 @@
 ﻿/* Built-In
 dual _Collections {
+    | _ACollection[]
+    }
+
+dual _ACollection {
     | _Modifier<_ModifierKind.List>
     | _ModifierKeyed<_ModifierKind.Dictionary>
     | _ModifierKeyed<_ModifierKind.TypeParam>
@@ -12,11 +16,16 @@ dual _ModifierKeyed<$modifierKind:_ModifierKind> {
     }
 
 dual _Modifiers {
-    | _Modifier<_ModifierKind.Optional>
-    | _Collections
+    | _Modifier<_ModifierKind.Required>
+    | _AModifier[]
     }
 
-enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+dual _AModifier {
+    | _Modifier<_ModifierKind.Optional>
+    | _ACollection
+    }
+
+enum _ModifierKind { Req[Required] Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
 
 dual _Modifier<$modifierKind:_ModifierKind> {
         modifierKind: $modifierKind
@@ -37,6 +46,12 @@ internal class Cmpt_CollectionsDecoder
   internal static Cmpt_CollectionsDecoder Factory(IDecoderRepository _) => new();
 }
 
+internal class Cmpt_ACollectionDecoder
+{
+
+  internal static Cmpt_ACollectionDecoder Factory(IDecoderRepository _) => new();
+}
+
 internal class Cmpt_ModifierKeyedDecoder<TModifierKind>
 {
   public ICmpt_TypeSimple By { get; set; }
@@ -49,8 +64,16 @@ internal class Cmpt_ModifiersDecoder
   internal static Cmpt_ModifiersDecoder Factory(IDecoderRepository _) => new();
 }
 
+internal class Cmpt_AModifierDecoder
+{
+
+  internal static Cmpt_AModifierDecoder Factory(IDecoderRepository _) => new();
+}
+
 internal class Cmpt_ModifierKindDecoder
 {
+  public string Req { get; set; }
+  public string Required { get; set; }
   public string Opt { get; set; }
   public string Optional { get; set; }
   public string List { get; set; }
@@ -72,6 +95,8 @@ internal static class Cmpt_Spec_Built_InDecoders
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_Built_InDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmpt_CollectionsObject>(Cmpt_CollectionsDecoder.Factory)
+      .AddDecoder<ICmpt_ACollectionObject>(Cmpt_ACollectionDecoder.Factory)
       .AddDecoder<ICmpt_ModifiersObject>(Cmpt_ModifiersDecoder.Factory)
+      .AddDecoder<ICmpt_AModifierObject>(Cmpt_AModifierDecoder.Factory)
       .AddDecoder<Cmpt_ModifierKind>(Cmpt_ModifierKindDecoder.Factory);
 }

@@ -61,7 +61,6 @@ Success
     :
     I@020/0017
     _Modifiers
-    []
   }
 }
 {

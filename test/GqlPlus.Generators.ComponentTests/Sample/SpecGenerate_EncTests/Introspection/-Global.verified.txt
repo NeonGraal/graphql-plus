@@ -15,7 +15,7 @@ output _Category {
     : _Aliased
         resolution: _Resolution
         output: _TypeRef<_TypeKind.Output>
-        modifiers: _Modifiers[]
+        modifiers: _Modifiers
     }
 
 enum _Resolution { Parallel Sequential Single }
@@ -177,7 +177,7 @@ internal class Cmpt_CategoryEncoder(
     => _aliased.Encode(input)
       .AddEnum("resolution", input.Resolution)
       .AddEncoded("output", input.Output, _typeRef)
-      .AddList("modifiers", input.Modifiers, _modifiers);
+      .AddEncoded("modifiers", input.Modifiers, _modifiers);
 
   internal static Cmpt_CategoryEncoder Factory(IEncoderRepository r) => new(r);
 }

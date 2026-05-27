@@ -1,5 +1,90 @@
 ﻿!_Schema
 types: !_Map(_Type)
+  !_Name _ACollection: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _ACollection
+        type: !_ObjBase
+          name: _Modifier
+          typeArgs:
+            - !_EnumValue
+              label: List
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_Alternate)
+        object: _ACollection
+        type: !_ObjBase
+          name: _ModifierKeyed
+          typeArgs:
+            - !_EnumValue
+              label: Dictionary
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_Alternate)
+        object: _ACollection
+        type: !_ObjBase
+          name: _ModifierKeyed
+          typeArgs:
+            - !_EnumValue
+              label: TypeParam
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _Modifier
+          typeArgs:
+            - !_EnumValue
+              label: List
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_Alternate
+        type: !_ObjBase
+          name: _ModifierKeyed
+          typeArgs:
+            - !_EnumValue
+              label: Dictionary
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_Alternate
+        type: !_ObjBase
+          name: _ModifierKeyed
+          typeArgs:
+            - !_EnumValue
+              label: TypeParam
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+    name: _ACollection
+    typeKind: !_TypeKind Dual
+  !_Name _AModifier: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _AModifier
+        type: !_ObjBase
+          name: _Modifier
+          typeArgs:
+            - !_EnumValue
+              label: Optional
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_Alternate)
+        object: _AModifier
+        type: !_ObjBase
+          name: _ACollection
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _Modifier
+          typeArgs:
+            - !_EnumValue
+              label: Optional
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_Alternate
+        type: !_ObjBase
+          name: _ACollection
+    name: _AModifier
+    typeKind: !_TypeKind Dual
   !_Name _Aliased: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
@@ -319,7 +404,6 @@ types: !_Map(_Type)
               name: _TypeKind
               typeKind: !_SimpleKind Enum
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: modifiers
         object: _Category
         type: !_ObjBase
@@ -339,7 +423,6 @@ types: !_Map(_Type)
               name: _TypeKind
               typeKind: !_SimpleKind Enum
       - !_OutputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: modifiers
         type: !_ObjBase
           name: _Modifiers
@@ -461,57 +544,19 @@ types: !_Map(_Type)
   !_Name _Collections: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
+        collections:
+          - !_Modifier
+            modifierKind: !_ModifierKind List
         object: _Collections
         type: !_ObjBase
-          name: _Modifier
-          typeArgs:
-            - !_EnumValue
-              label: List
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
-      - !_ObjectFor(_Alternate)
-        object: _Collections
-        type: !_ObjBase
-          name: _ModifierKeyed
-          typeArgs:
-            - !_EnumValue
-              label: Dictionary
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
-      - !_ObjectFor(_Alternate)
-        object: _Collections
-        type: !_ObjBase
-          name: _ModifierKeyed
-          typeArgs:
-            - !_EnumValue
-              label: TypeParam
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
+          name: _ACollection
     alternates:
       - !_Alternate
+        collections:
+          - !_Modifier
+            modifierKind: !_ModifierKind List
         type: !_ObjBase
-          name: _Modifier
-          typeArgs:
-            - !_EnumValue
-              label: List
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
-      - !_Alternate
-        type: !_ObjBase
-          name: _ModifierKeyed
-          typeArgs:
-            - !_EnumValue
-              label: Dictionary
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
-      - !_Alternate
-        type: !_ObjBase
-          name: _ModifierKeyed
-          typeArgs:
-            - !_EnumValue
-              label: TypeParam
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
+          name: _ACollection
     name: _Collections
     typeKind: !_TypeKind Dual
   !_Name _Described: !_TypeDual
@@ -1301,7 +1346,6 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: _ObjTypeArg
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: modifiers
         object: _ObjFieldType
         type: !_ObjBase
@@ -1419,6 +1463,10 @@ types: !_Map(_Type)
   !_Name _ModifierKind: !_TypeEnum
     allItems:
       - !_EnumLabel
+        aliases: [Required]
+        enum: _ModifierKind
+        name: Req
+      - !_EnumLabel
         aliases: [Optional]
         enum: _ModifierKind
         name: Opt
@@ -1434,6 +1482,9 @@ types: !_Map(_Type)
         enum: _ModifierKind
         name: Param
     items:
+      - !_Aliased
+        aliases: [Required]
+        name: Req
       - !_Aliased
         aliases: [Optional]
         name: Opt
@@ -1455,25 +1506,31 @@ types: !_Map(_Type)
           name: _Modifier
           typeArgs:
             - !_EnumValue
-              label: Optional
+              label: Required
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
       - !_ObjectFor(_Alternate)
+        collections:
+          - !_Modifier
+            modifierKind: !_ModifierKind List
         object: _Modifiers
         type: !_ObjBase
-          name: _Collections
+          name: _AModifier
     alternates:
       - !_Alternate
         type: !_ObjBase
           name: _Modifier
           typeArgs:
             - !_EnumValue
-              label: Optional
+              label: Required
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
       - !_Alternate
+        collections:
+          - !_Modifier
+            modifierKind: !_ModifierKind List
         type: !_ObjBase
-          name: _Collections
+          name: _AModifier
     name: _Modifiers
     typeKind: !_TypeKind Dual
   !_Name _Name: !_DomainString
@@ -1538,7 +1595,6 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: _ObjBase
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: collections
         object: _ObjAlternate
         type: !_ObjBase
@@ -1553,7 +1609,6 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: _ObjBase
       - !_OutputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: collections
         type: !_ObjBase
           name: _Collections
@@ -1739,7 +1794,6 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: _ObjTypeArg
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: modifiers
         object: _ObjFieldType
         type: !_ObjBase
@@ -1750,7 +1804,6 @@ types: !_Map(_Type)
           name: _ObjFieldEnum
     fields:
       - !_OutputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: modifiers
         type: !_ObjBase
           name: _Modifiers
@@ -2565,7 +2618,6 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: _ObjTypeArg
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: modifiers
         object: _ObjFieldType
         type: !_ObjBase

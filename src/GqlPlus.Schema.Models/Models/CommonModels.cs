@@ -80,6 +80,8 @@ public class SimpleModel
 
 public enum ModifierKindModel
 {
+  Req,
+  Required = Req,
   Opt,
   Optional = Opt,
   List,

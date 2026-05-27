@@ -46,6 +46,10 @@ dual _TypeSimple {
     }
 
 dual _Collections {
+    | _ACollection[]
+    }
+
+dual _ACollection {
     | _Modifier<_ModifierKind.List>
     | _ModifierKeyed<_ModifierKind.Dictionary>
     | _ModifierKeyed<_ModifierKind.TypeParam>
@@ -58,11 +62,16 @@ dual _ModifierKeyed<$modifierKind:_ModifierKind> {
     }
 
 dual _Modifiers {
-    | _Modifier<_ModifierKind.Optional>
-    | _Collections
+    | _Modifier<_ModifierKind.Required>
+    | _AModifier[]
     }
 
-enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+dual _AModifier {
+    | _Modifier<_ModifierKind.Optional>
+    | _ACollection
+    }
+
+enum _ModifierKind { Req[Required] Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
 
 dual _Modifier<$modifierKind:_ModifierKind> {
         modifierKind: $modifierKind
@@ -187,13 +196,25 @@ public interface ICmpt_TypeSimpleObject
 public interface ICmpt_Collections
   : Spec_-Type
 {
-  ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindList { get; }
-  ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindDictionary { get; }
-  ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindTypeParam { get; }
+  ICollection<ICmpt_ACollection>? As_ACollection { get; }
   ICmpt_CollectionsObject? As__Collections { get; }
 }
 
 public interface ICmpt_CollectionsObject
+  : Spec_-Type
+{
+}
+
+public interface ICmpt_ACollection
+  : Spec_-Type
+{
+  ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindList { get; }
+  ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindDictionary { get; }
+  ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindTypeParam { get; }
+  ICmpt_ACollectionObject? As__ACollection { get; }
+}
+
+public interface ICmpt_ACollectionObject
   : Spec_-Type
 {
 }
@@ -214,8 +235,8 @@ public interface ICmpt_ModifierKeyedObject<TModifierKind>
 public interface ICmpt_Modifiers
   : Spec_-Type
 {
-  ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindOptional { get; }
-  ICmpt_Collections? As_Collections { get; }
+  ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindRequired { get; }
+  ICollection<ICmpt_AModifier>? As_AModifier { get; }
   ICmpt_ModifiersObject? As__Modifiers { get; }
 }
 
@@ -224,8 +245,23 @@ public interface ICmpt_ModifiersObject
 {
 }
 
+public interface ICmpt_AModifier
+  : Spec_-Type
+{
+  ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindOptional { get; }
+  ICmpt_ACollection? As_ACollection { get; }
+  ICmpt_AModifierObject? As__AModifier { get; }
+}
+
+public interface ICmpt_AModifierObject
+  : Spec_-Type
+{
+}
+
 public enum Cmpt_ModifierKind
 {
+  Req,
+  Required = Req,
   Opt,
   Optional = Opt,
   List,

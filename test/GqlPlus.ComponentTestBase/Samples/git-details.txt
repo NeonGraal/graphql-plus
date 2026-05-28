@@ -1,1 +1,1 @@
-f6b56ed  (HEAD -> main, origin/main, origin/HEAD) 2026-05-16 Merge pull request #57 from graphql-plus/star-wars-yaml
+a28466b  (HEAD -> main, origin/main, origin/HEAD) 2026-05-28 Merge pull request #59 from graphql-plus/correct-mods

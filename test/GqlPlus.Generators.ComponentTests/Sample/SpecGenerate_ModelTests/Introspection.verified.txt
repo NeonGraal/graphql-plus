@@ -62,7 +62,7 @@ output _Category {
     : _Aliased
         resolution: _Resolution
         output: _TypeRef<_TypeKind.Output>
-        modifiers: _Modifiers
+        modifiers: _Modifiers[]
     }
 
 enum _Resolution { Parallel Sequential Single }
@@ -135,10 +135,6 @@ dual _TypeSimple {
     }
 
 dual _Collections {
-    | _ACollection[]
-    }
-
-dual _ACollection {
     | _Modifier<_ModifierKind.List>
     | _ModifierKeyed<_ModifierKind.Dictionary>
     | _ModifierKeyed<_ModifierKind.TypeParam>
@@ -152,12 +148,8 @@ dual _ModifierKeyed<$modifierKind:_ModifierKind> {
 
 dual _Modifiers {
     | _Modifier<_ModifierKind.Required>
-    | _AModifier[]
-    }
-
-dual _AModifier {
     | _Modifier<_ModifierKind.Optional>
-    | _ACollection
+    | _Collections
     }
 
 enum _ModifierKind { Req[Required] Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
@@ -292,7 +284,7 @@ output _TypeParam {
 
 output _ObjAlternate {
       type: _ObjBase
-      collections: _Collections
+      collections: _Collections[]
     | _ObjAlternateEnum
     }
 
@@ -312,7 +304,7 @@ output _ObjField<$type:_ObjFieldType> {
 
 output _ObjFieldType {
     : _ObjBase
-        modifiers: _Modifiers
+        modifiers: _Modifiers[]
     | _ObjFieldEnum
     }
 
@@ -607,7 +599,7 @@ public class Cmpt_CategoryObject
 {
   public Cmpt_Resolution Resolution { get; set; }
   public ICmpt_TypeRef<Cmpt_TypeKind> Output { get; set; }
-  public ICmpt_Modifiers Modifiers { get; set; }
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 
   public Cmpt_CategoryObject
     ( ICollection<string> pdescription
@@ -615,7 +607,7 @@ public class Cmpt_CategoryObject
     , ICollection<ICmpt_Name> paliases
     , Cmpt_Resolution presolution
     , ICmpt_TypeRef<Cmpt_TypeKind> poutput
-    , ICmpt_Modifiers pmodifiers
+    , ICollection<ICmpt_Modifiers> pmodifiers
     ) : base(pdescription, pname, paliases)
   {
     Resolution = presolution;
@@ -856,7 +848,9 @@ public class Cmpt_Collections
   : Spec_Introspection
   , ICmpt_Collections
 {
-  public ICollection<ICmpt_ACollection>? As_ACollection { get; set; }
+  public ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindList { get; set; }
+  public ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindDictionary { get; set; }
+  public ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindTypeParam { get; set; }
   public ICmpt_CollectionsObject? As__Collections { get; set; }
 }
 
@@ -866,27 +860,6 @@ public class Cmpt_CollectionsObject
 {
 
   public Cmpt_CollectionsObject
-    ()
-  {
-  }
-}
-
-public class Cmpt_ACollection
-  : Spec_Introspection
-  , ICmpt_ACollection
-{
-  public ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindList { get; set; }
-  public ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindDictionary { get; set; }
-  public ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindTypeParam { get; set; }
-  public ICmpt_ACollectionObject? As__ACollection { get; set; }
-}
-
-public class Cmpt_ACollectionObject
-  : Spec_Introspection
-  , ICmpt_ACollectionObject
-{
-
-  public Cmpt_ACollectionObject
     ()
   {
   }
@@ -922,7 +895,8 @@ public class Cmpt_Modifiers
   , ICmpt_Modifiers
 {
   public ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindRequired { get; set; }
-  public ICollection<ICmpt_AModifier>? As_AModifier { get; set; }
+  public ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindOptional { get; set; }
+  public ICmpt_Collections? As_Collections { get; set; }
   public ICmpt_ModifiersObject? As__Modifiers { get; set; }
 }
 
@@ -932,26 +906,6 @@ public class Cmpt_ModifiersObject
 {
 
   public Cmpt_ModifiersObject
-    ()
-  {
-  }
-}
-
-public class Cmpt_AModifier
-  : Spec_Introspection
-  , ICmpt_AModifier
-{
-  public ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindOptional { get; set; }
-  public ICmpt_ACollection? As_ACollection { get; set; }
-  public ICmpt_AModifierObject? As__AModifier { get; set; }
-}
-
-public class Cmpt_AModifierObject
-  : Spec_Introspection
-  , ICmpt_AModifierObject
-{
-
-  public Cmpt_AModifierObject
     ()
   {
   }
@@ -1528,11 +1482,11 @@ public class Cmpt_ObjAlternateObject
   , ICmpt_ObjAlternateObject
 {
   public ICmpt_ObjBase Type { get; set; }
-  public ICmpt_Collections Collections { get; set; }
+  public ICollection<ICmpt_Collections> Collections { get; set; }
 
   public Cmpt_ObjAlternateObject
     ( ICmpt_ObjBase ptype
-    , ICmpt_Collections pcollections
+    , ICollection<ICmpt_Collections> pcollections
     )
   {
     Type = ptype;
@@ -1621,13 +1575,13 @@ public class Cmpt_ObjFieldTypeObject
   : Cmpt_ObjBaseObject
   , ICmpt_ObjFieldTypeObject
 {
-  public ICmpt_Modifiers Modifiers { get; set; }
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 
   public Cmpt_ObjFieldTypeObject
     ( ICollection<string> pdescription
     , ICmpt_Name pname
     , ICollection<ICmpt_ObjTypeArg> ptypeArgs
-    , ICmpt_Modifiers pmodifiers
+    , ICollection<ICmpt_Modifiers> pmodifiers
     ) : base(pdescription, pname, ptypeArgs)
   {
     Modifiers = pmodifiers;
@@ -1738,7 +1692,7 @@ public class Cmpt_InputFieldTypeObject
     ( ICollection<string> pdescription
     , ICmpt_Name pname
     , ICollection<ICmpt_ObjTypeArg> ptypeArgs
-    , ICmpt_Modifiers pmodifiers
+    , ICollection<ICmpt_Modifiers> pmodifiers
     ) : base(pdescription, pname, ptypeArgs, pmodifiers)
   {
   }
@@ -1783,7 +1737,7 @@ public class Cmpt_OutputFieldTypeObject
     ( ICollection<string> pdescription
     , ICmpt_Name pname
     , ICollection<ICmpt_ObjTypeArg> ptypeArgs
-    , ICmpt_Modifiers pmodifiers
+    , ICollection<ICmpt_Modifiers> pmodifiers
     ) : base(pdescription, pname, ptypeArgs, pmodifiers)
   {
   }

@@ -34,7 +34,7 @@ output _TypeParam {
 
 output _ObjAlternate {
       type: _ObjBase
-      collections: _Collections
+      collections: _Collections[]
     | _ObjAlternateEnum
     }
 
@@ -54,7 +54,7 @@ output _ObjField<$type:_ObjFieldType> {
 
 output _ObjFieldType {
     : _ObjBase
-        modifiers: _Modifiers
+        modifiers: _Modifiers[]
     | _ObjFieldEnum
     }
 
@@ -214,11 +214,11 @@ public class Cmpt_ObjAlternateObject
   , ICmpt_ObjAlternateObject
 {
   public ICmpt_ObjBase Type { get; set; }
-  public ICmpt_Collections Collections { get; set; }
+  public ICollection<ICmpt_Collections> Collections { get; set; }
 
   public Cmpt_ObjAlternateObject
     ( ICmpt_ObjBase ptype
-    , ICmpt_Collections pcollections
+    , ICollection<ICmpt_Collections> pcollections
     )
   {
     Type = ptype;
@@ -302,11 +302,11 @@ public class Cmpt_ObjFieldTypeObject
   : Cmpt_ObjBaseObject
   , ICmpt_ObjFieldTypeObject
 {
-  public ICmpt_Modifiers Modifiers { get; set; }
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 
   public Cmpt_ObjFieldTypeObject
     ( ICollection<ICmpt_ObjTypeArg> ptypeArgs
-    , ICmpt_Modifiers pmodifiers
+    , ICollection<ICmpt_Modifiers> pmodifiers
     ) : base(ptypeArgs)
   {
     Modifiers = pmodifiers;

@@ -9,7 +9,7 @@ output _Category {
     : _Aliased
         resolution: _Resolution
         output: _TypeRef<_TypeKind.Output>
-        modifiers: _Modifiers
+        modifiers: _Modifiers[]
     }
 
 enum _Resolution { Parallel Sequential Single }
@@ -58,12 +58,12 @@ public class Cmpt_CategoryObject
 {
   public Cmpt_Resolution Resolution { get; set; }
   public ICmpt_TypeRef<ICmpt_TypeKind> Output { get; set; }
-  public ICmpt_Modifiers Modifiers { get; set; }
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 
   public Cmpt_CategoryObject
     ( Cmpt_Resolution presolution
     , ICmpt_TypeRef<ICmpt_TypeKind> poutput
-    , ICmpt_Modifiers pmodifiers
+    , ICollection<ICmpt_Modifiers> pmodifiers
     )
   {
     Resolution = presolution;

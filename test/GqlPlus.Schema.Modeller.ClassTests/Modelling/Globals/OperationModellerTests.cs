@@ -58,6 +58,175 @@ public class OperationModellerTests
         r => r.Aliases.ShouldBeEquivalentTo(aliases)
       );
   }
+
+  [Theory, RepeatData]
+  public void ToModel_WithVariables_MapsVariablesByName(string name, string var1Name, string var2Name)
+  {
+    if (var1Name == var2Name) {
+      return; // skip degenerate case: duplicate names would cause a map key collision
+    }
+
+    // Arrange
+    IAstSchemaOperation ast = A.Named<IAstSchemaOperation>(name, "");
+    ast.Category.Returns("");
+    ast.Aliases.Returns([]);
+    IAstVariable var1Ast = A.Identified<IAstVariable>(var1Name);
+    IAstVariable var2Ast = A.Identified<IAstVariable>(var2Name);
+    ast.Variables.Returns(new IAstVariable[] { var1Ast, var2Ast });
+    ast.Directives.Returns([]);
+    ast.Fragments.Returns([]);
+    ast.Domain.Returns((IAstTypeRef?)null);
+    ast.Modifiers.Returns([]);
+    ast.Selections.Returns([]);
+
+    OpVariableModel varModel1 = new(var1Name, null, null, "");
+    OpVariableModel varModel2 = new(var2Name, null, null, "");
+    ToModelsReturns(_variable, [varModel1, varModel2]);
+    ToModelsReturns(_directive, []);
+    ToModelsReturns(_fragment, []);
+    ToModelsReturns(_modifier, []);
+
+    // Act
+    OperationModel result = Modeller.ToModel(ast, TypeKinds);
+
+    // Assert
+    result.Variables.ShouldSatisfyAllConditions(
+      v => v.ShouldContainKeyAndValue(var1Name, varModel1),
+      v => v.ShouldContainKeyAndValue(var2Name, varModel2)
+    );
+  }
+
+  [Theory, RepeatData]
+  public void ToModel_WithFragments_MapsFragmentsByName(string name, string fragName, string typeName)
+  {
+    // Arrange
+    IAstSchemaOperation ast = A.Named<IAstSchemaOperation>(name, "");
+    ast.Category.Returns("");
+    ast.Aliases.Returns([]);
+    ast.Variables.Returns([]);
+    ast.Directives.Returns([]);
+    IAstFragment fragAst = A.Identified<IAstFragment>(fragName);
+    fragAst.Selections.Returns([]);
+    ast.Fragments.Returns([fragAst]);
+    ast.Domain.Returns((IAstTypeRef?)null);
+    ast.Modifiers.Returns([]);
+    ast.Selections.Returns([]);
+
+    OpFragmentModel fragModel = new(fragName, typeName.TypeRef(TypeKindModel.Output), "");
+    ToModelsReturns(_fragment, [fragModel]);
+    ToModelsReturns(_directive, []);
+    ToModelsReturns(_modifier, []);
+    ToModelsReturns(_variable, []);
+
+    // Act
+    OperationModel result = Modeller.ToModel(ast, TypeKinds);
+
+    // Assert
+    result.Fragments.ShouldContainKeyAndValue(fragName, fragModel);
+  }
+
+  [Theory, RepeatData]
+  public void ToModel_WithAllSelectionTypesAtTwoLevels_ReturnsNestedSelections(
+    string name, string fieldName, string typeName, string spreadName,
+    string subFieldName, string subSpreadName)
+  {
+    // Arrange
+    IAstSchemaOperation ast = A.Named<IAstSchemaOperation>(name, "");
+    ast.Category.Returns("");
+    ast.Aliases.Returns([]);
+    ast.Variables.Returns([]);
+    ast.Directives.Returns([]);
+    ast.Fragments.Returns([]);
+    ast.Domain.Returns((IAstTypeRef?)null);
+    ast.Modifiers.Returns([]);
+
+    // Level 0: field (with sub-selections), inline, spread – all three types
+    IAstField field1Ast = A.Identified<IAstField>(fieldName);
+    IAstInline inline1Ast = A.Error<IAstInline>();
+    inline1Ast.OnType.Returns(typeName);
+    IAstSpread spread1Ast = A.Identified<IAstSpread>(spreadName);
+    ast.Selections.Returns(new IAstSelection[] { field1Ast, inline1Ast, spread1Ast });
+
+    // Level 1 sub-selections from field1: subField, subInline, subSpread – all three types
+    IAstField subFieldAst = A.Identified<IAstField>(subFieldName);
+    IAstInline subInlineAst = A.Error<IAstInline>();
+    subInlineAst.OnType.Returns(typeName);
+    IAstSpread subSpreadAst = A.Identified<IAstSpread>(subSpreadName);
+    field1Ast.Selections.Returns(new IAstSelection[] { subFieldAst, subInlineAst, subSpreadAst });
+    subFieldAst.Selections.Returns([]);
+    subInlineAst.Selections.Returns([]);
+    inline1Ast.Selections.Returns([]);
+
+    OpFieldSelectionModel field1Model = new(fieldName, "");
+    OpInlineSelectionModel inline1Model = new(null, "");
+    OpSpreadSelectionModel spread1Model = new(spreadName, "");
+    OpFieldSelectionModel subFieldModel = new(subFieldName, "");
+    OpInlineSelectionModel subInlineModel = new(null, "");
+    OpSpreadSelectionModel subSpreadModel = new(subSpreadName, "");
+
+    ToModelReturns(_selection, field1Ast, field1Model);
+    ToModelReturns(_selection, inline1Ast, inline1Model);
+    ToModelReturns(_selection, spread1Ast, spread1Model);
+    ToModelReturns(_selection, subFieldAst, subFieldModel);
+    ToModelReturns(_selection, subInlineAst, subInlineModel);
+    ToModelReturns(_selection, subSpreadAst, subSpreadModel);
+    ToModelsReturns(_directive, []);
+    ToModelsReturns(_fragment, []);
+    ToModelsReturns(_modifier, []);
+    ToModelsReturns(_variable, []);
+
+    // Act
+    OperationModel result = Modeller.ToModel(ast, TypeKinds);
+
+    // Assert
+    result.Selections.ShouldSatisfyAllConditions(
+      s => s[""].ShouldBe(new OpSelectionModel[] { field1Model, inline1Model, spread1Model }),
+      s => s[".1"].ShouldBe(new OpSelectionModel[] { subFieldModel, subInlineModel, subSpreadModel })
+    );
+  }
+
+  [Theory, RepeatData]
+  public void ToModel_WithInlineContainingSubSelections_ReturnsInlineTwoLevelSelections(
+    string name, string typeName, string spreadName)
+  {
+    // Arrange
+    IAstSchemaOperation ast = A.Named<IAstSchemaOperation>(name, "");
+    ast.Category.Returns("");
+    ast.Aliases.Returns([]);
+    ast.Variables.Returns([]);
+    ast.Directives.Returns([]);
+    ast.Fragments.Returns([]);
+    ast.Domain.Returns((IAstTypeRef?)null);
+    ast.Modifiers.Returns([]);
+
+    // Level 0: a single inline selection (IAstInline also implements IAstSelections)
+    IAstInline inlineAst = A.Error<IAstInline>();
+    inlineAst.OnType.Returns(typeName);
+    ast.Selections.Returns(new IAstSelection[] { inlineAst });
+
+    // Level 1 sub-selection from inline: a spread
+    IAstSpread spreadAst = A.Identified<IAstSpread>(spreadName);
+    inlineAst.Selections.Returns(new IAstSelection[] { spreadAst });
+
+    OpInlineSelectionModel inlineModel = new(null, "");
+    OpSpreadSelectionModel spreadModel = new(spreadName, "");
+
+    ToModelReturns(_selection, inlineAst, inlineModel);
+    ToModelReturns(_selection, spreadAst, spreadModel);
+    ToModelsReturns(_directive, []);
+    ToModelsReturns(_fragment, []);
+    ToModelsReturns(_modifier, []);
+    ToModelsReturns(_variable, []);
+
+    // Act
+    OperationModel result = Modeller.ToModel(ast, TypeKinds);
+
+    // Assert
+    result.Selections.ShouldSatisfyAllConditions(
+      s => s[""].ShouldBe(new OpSelectionModel[] { inlineModel }),
+      s => s[".1"].ShouldBe(new OpSelectionModel[] { spreadModel })
+    );
+  }
 }
 
 public class OpArgumentModellerTests

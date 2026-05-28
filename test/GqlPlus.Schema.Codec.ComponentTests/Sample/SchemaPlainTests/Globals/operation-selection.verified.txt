@@ -4,6 +4,12 @@
 [_Schema]:categories[_Map(_Categories)]:[_Name]catOprSlct[_Category]:resolution=[_Resolution]Parallel
 [_Schema]:operations[_Map(_Operations)]:[_Name]OprSlct[_Operation]:category=catOprSlct
 [_Schema]:operations[_Map(_Operations)]:[_Name]OprSlct[_Operation]:name=OprSlct
+=[_Schema]:operations[_Map(_Operations)]:[_Name]OprSlct[_Operation]:selections[_Map(_Selections)][_Selections].0[_OpFieldSelection]
+=[_Schema]:operations[_Map(_Operations)]:[_Name]OprSlct[_Operation]:selections[_Map(_Selections)][_Selections].1[_OpFieldSelection]
+=[_Schema]:operations[_Map(_Operations)]:[_Name]OprSlct[_Operation]:selections[_Map(_Selections)][_Selections].2[_OpFieldSelection]
+=[_Schema]:operations[_Map(_Operations)]:[_Name]OprSlct[_Operation]:selections[_Map(_Selections)]:[_Name]'.3'[_Selections].0[_OpFieldSelection]
+=[_Schema]:operations[_Map(_Operations)]:[_Name]OprSlct[_Operation]:selections[_Map(_Selections)]:[_Name]'.3'[_Selections].1[_OpFieldSelection]
+=[_Schema]:operations[_Map(_Operations)]:[_Name]OprSlct[_Operation]:selections[_Map(_Selections)]:[_Name]'.3'[_Selections].2[_OpFieldSelection]
 [_Schema]:types[_Map(_Type)]:[_Name]AddrOprSlct[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=street
 [_Schema]:types[_Map(_Type)]:[_Name]AddrOprSlct[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=AddrOprSlct
 [_Schema]:types[_Map(_Type)]:[_Name]AddrOprSlct[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=String

@@ -377,81 +377,92 @@ Success
 }
 {
   !Ou I@008/0111
-  _OpField
-  :
-  I@007/0112
-  _OpDirectives
+  OpSelectionBase
   {
+    !OF I@009/0112
+    directives
+    :
+    I@021/0112
+    _OpDirective
+    []
     !OF I@009/0113
-    fieldAlias
-    :
-    I@021/0113
-    String
-    ?
-    !OF I@009/0114
-    argument
-    :
-    I@019/0114
-    _OpArgument
-    ?
-    !OF I@009/0115
     modifiers
     :
-    I@020/0115
+    I@020/0113
     _Modifiers
     []
   }
 }
 {
-  !Ou I@008/0118
-  _OpInline
+  !Ou I@008/0116
+  _OpField
+  :
+  I@007/0117
+  OpSelectionBase
   {
-    !OF I@009/0119
-    type
+    !OF I@009/0118
+    name
     :
-    I@015/0119
-    _TypeRef
-    <
-      I@024/0119
-      _TypeKind.Output
-    >
+    I@015/0118
+    String
+    !OF I@009/0119
+    fieldAlias
+    :
+    I@021/0119
+    String
     ?
     !OF I@009/0120
-    directives
+    argument
     :
-    I@021/0120
-    _OpDirective
-    []
+    I@019/0120
+    _OpArgument
+    ?
   }
 }
 {
   !Ou I@008/0123
-  _OpSpread
+  _OpInline
+  :
+  I@007/0124
+  OpSelectionBase
   {
-    !OF I@009/0124
-    fragment
-    :
-    I@019/0124
-    String
     !OF I@009/0125
-    directives
+    type
     :
-    I@021/0125
-    _OpDirective
-    []
+    I@015/0125
+    _TypeRef
+    <
+      I@024/0125
+      _TypeKind.Output
+    >
+    ?
   }
 }
 {
   !Ou I@008/0128
-  _Setting
+  _OpSpread
   :
   I@007/0129
-  _Named
+  OpSelectionBase
   {
     !OF I@009/0130
+    fragment
+    :
+    I@019/0130
+    String
+  }
+}
+{
+  !Ou I@008/0133
+  _Setting
+  :
+  I@007/0134
+  _Named
+  {
+    !OF I@009/0135
     value
     :
-    I@016/0130
+    I@016/0135
     Value
   }
 }

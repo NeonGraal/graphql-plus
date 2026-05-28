@@ -31,6 +31,89 @@
   },
   "types": {
     "$mapTag": "_Map(_Type)",
+    "OpSelectionBase": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "object": "OpSelectionBase",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpDirective"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "object": "OpSelectionBase",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Modifiers"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpDirective"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Modifiers"
+          }
+        }
+      ],
+      "name": "OpSelectionBase",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
     "_OpArgList": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
@@ -398,7 +481,7 @@
             }
           ],
           "name": "directives",
-          "object": "_OpDirectives",
+          "object": "OpSelectionBase",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_OpDirective"
@@ -410,6 +493,33 @@
             {
               "$mapTag": "_Modifier",
               "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "object": "OpSelectionBase",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Modifiers"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "name",
+          "object": "_OpField",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
                 "$value": "Opt",
                 "$valueTag": "_ModifierKind"
               }
@@ -438,30 +548,20 @@
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_OpArgument"
-          }
-        },
-        {
-          "$mapTag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "List",
-                "$valueTag": "_ModifierKind"
-              }
-            }
-          ],
-          "name": "modifiers",
-          "object": "_OpField",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_Modifiers"
           }
         }
       ],
       "fields": [
         {
           "$mapTag": "_OutputField",
+          "name": "name",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
           "modifiers": [
             {
               "$mapTag": "_Modifier",
@@ -493,29 +593,12 @@
             "$mapTag": "_ObjBase",
             "name": "_OpArgument"
           }
-        },
-        {
-          "$mapTag": "_OutputField",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "List",
-                "$valueTag": "_ModifierKind"
-              }
-            }
-          ],
-          "name": "modifiers",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_Modifiers"
-          }
         }
       ],
       "name": "_OpField",
       "parent": {
         "$mapTag": "_ObjBase",
-        "name": "_OpDirectives"
+        "name": "OpSelectionBase"
       },
       "typeKind": {
         "$value": "Output",
@@ -606,6 +689,42 @@
             {
               "$mapTag": "_Modifier",
               "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "object": "OpSelectionBase",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpDirective"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "object": "OpSelectionBase",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Modifiers"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
                 "$value": "Opt",
                 "$valueTag": "_ModifierKind"
               }
@@ -627,24 +746,6 @@
                 }
               }
             ]
-          }
-        },
-        {
-          "$mapTag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "List",
-                "$valueTag": "_ModifierKind"
-              }
-            }
-          ],
-          "name": "directives",
-          "object": "_OpInline",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_OpDirective"
           }
         }
       ],
@@ -676,26 +777,13 @@
               }
             ]
           }
-        },
-        {
-          "$mapTag": "_OutputField",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "List",
-                "$valueTag": "_ModifierKind"
-              }
-            }
-          ],
-          "name": "directives",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_OpDirective"
-          }
         }
       ],
       "name": "_OpInline",
+      "parent": {
+        "$mapTag": "_ObjBase",
+        "name": "OpSelectionBase"
+      },
       "typeKind": {
         "$value": "Output",
         "$valueTag": "_TypeKind"
@@ -842,11 +930,20 @@
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
-          "name": "fragment",
-          "object": "_OpSpread",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "object": "OpSelectionBase",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "String"
+            "name": "_OpDirective"
           }
         },
         {
@@ -860,11 +957,20 @@
               }
             }
           ],
-          "name": "directives",
+          "name": "modifiers",
+          "object": "OpSelectionBase",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Modifiers"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "fragment",
           "object": "_OpSpread",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_OpDirective"
+            "name": "String"
           }
         }
       ],
@@ -876,26 +982,13 @@
             "$mapTag": "_ObjBase",
             "name": "String"
           }
-        },
-        {
-          "$mapTag": "_OutputField",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "List",
-                "$valueTag": "_ModifierKind"
-              }
-            }
-          ],
-          "name": "directives",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_OpDirective"
-          }
         }
       ],
       "name": "_OpSpread",
+      "parent": {
+        "$mapTag": "_ObjBase",
+        "name": "OpSelectionBase"
+      },
       "typeKind": {
         "$value": "Output",
         "$valueTag": "_TypeKind"

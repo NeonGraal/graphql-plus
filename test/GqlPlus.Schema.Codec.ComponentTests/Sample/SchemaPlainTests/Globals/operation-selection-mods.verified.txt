@@ -5,6 +5,12 @@
 [_Schema]:operations[_Map(_Operations)]:[_Name]OprSlctMods[_Operation]:category=catOprSlctMods
 [_Schema]:operations[_Map(_Operations)]:[_Name]OprSlctMods[_Operation]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
 [_Schema]:operations[_Map(_Operations)]:[_Name]OprSlctMods[_Operation]:name=OprSlctMods
+=[_Schema]:operations[_Map(_Operations)]:[_Name]OprSlctMods[_Operation]:selections[_Map(_Selections)][_Selections].0[_OpFieldSelection]
+=[_Schema]:operations[_Map(_Operations)]:[_Name]OprSlctMods[_Operation]:selections[_Map(_Selections)][_Selections].1[_OpFieldSelection]
+=[_Schema]:operations[_Map(_Operations)]:[_Name]OprSlctMods[_Operation]:selections[_Map(_Selections)][_Selections].2[_OpFieldSelection]
+=[_Schema]:operations[_Map(_Operations)]:[_Name]OprSlctMods[_Operation]:selections[_Map(_Selections)]:[_Name]'.3'[_Selections].0[_OpFieldSelection]
+=[_Schema]:operations[_Map(_Operations)]:[_Name]OprSlctMods[_Operation]:selections[_Map(_Selections)]:[_Name]'.3'[_Selections].1[_OpFieldSelection]
+=[_Schema]:operations[_Map(_Operations)]:[_Name]OprSlctMods[_Operation]:selections[_Map(_Selections)]:[_Name]'.3'[_Selections].2[_OpFieldSelection]
 [_Schema]:types[_Map(_Type)]:[_Name]AddrOprSlctMods[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=street
 [_Schema]:types[_Map(_Type)]:[_Name]AddrOprSlctMods[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=AddrOprSlctMods
 [_Schema]:types[_Map(_Type)]:[_Name]AddrOprSlctMods[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=String

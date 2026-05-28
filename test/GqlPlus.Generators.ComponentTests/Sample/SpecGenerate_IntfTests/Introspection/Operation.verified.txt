@@ -73,21 +73,26 @@ output _OpSelection {
     |   _OpInline
 }
 
-output _OpField {
-    : _OpDirectives
-        fieldAlias: String?
-        argument: _OpArgument?
+output OpSelectionBase {
+        directives: _OpDirective[]
         modifiers: _Modifiers[]
 }
 
+output _OpField {
+    : OpSelectionBase
+        name: String
+        fieldAlias: String?
+        argument: _OpArgument?
+}
+
 output _OpInline {
+    : OpSelectionBase
         type: _TypeRef<_TypeKind.Output>?
-        directives: _OpDirective[]
 }
 
 output _OpSpread {
+    : OpSelectionBase
         fragment: String
-        directives: _OpDirective[]
 }
 */
 
@@ -267,42 +272,53 @@ public interface ICmpt_OpSelectionObject
 {
 }
 
+public interface ICmptOpSelectionBase
+  : Spec_Operation
+{
+  ICmptOpSelectionBaseObject? As_OpSelectionBase { get; }
+}
+
+public interface ICmptOpSelectionBaseObject
+  : Spec_Operation
+{
+  ICollection<ICmpt_OpDirective> Directives { get; }
+  ICollection<ICmpt_Modifiers> Modifiers { get; }
+}
+
 public interface ICmpt_OpField
-  : ICmpt_OpDirectives
+  : ICmptOpSelectionBase
 {
   ICmpt_OpFieldObject? As__OpField { get; }
 }
 
 public interface ICmpt_OpFieldObject
-  : ICmpt_OpDirectivesObject
+  : ICmptOpSelectionBaseObject
 {
+  string Name { get; }
   string? FieldAlias { get; }
   ICmpt_OpArgument? Argument { get; }
-  ICollection<ICmpt_Modifiers> Modifiers { get; }
 }
 
 public interface ICmpt_OpInline
-  : Spec_Operation
+  : ICmptOpSelectionBase
 {
   ICmpt_OpInlineObject? As__OpInline { get; }
 }
 
 public interface ICmpt_OpInlineObject
-  : Spec_Operation
+  : ICmptOpSelectionBaseObject
 {
   ICmpt_TypeRef<ICmpt_TypeKind>? Type { get; }
-  ICollection<ICmpt_OpDirective> Directives { get; }
 }
 
 public interface ICmpt_OpSpread
-  : Spec_Operation
+  : ICmptOpSelectionBase
 {
   ICmpt_OpSpreadObject? As__OpSpread { get; }
 }
 
 public interface ICmpt_OpSpreadObject
-  : Spec_Operation
+  : ICmptOpSelectionBaseObject
 {
   string Fragment { get; }
-  ICollection<ICmpt_OpDirective> Directives { get; }
 }

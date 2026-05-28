@@ -42,7 +42,25 @@
           }
         }
       },
-      "name": "OprSlctSprd"
+      "name": "OprSlctSprd",
+      "selections": {
+        "$mapTag": "_Map(_Selections)",
+        "": {
+          "$keyTag": "_Name",
+          "$list": [],
+          "$listTag": "_Selections"
+        },
+        ".2": {
+          "$keyTag": "_Name",
+          "$list": [],
+          "$listTag": "_Selections"
+        },
+        "firstLast": {
+          "$keyTag": "_Name",
+          "$list": [],
+          "$listTag": "_Selections"
+        }
+      }
     }
   },
   "types": {

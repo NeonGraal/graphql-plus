@@ -10,6 +10,9 @@ operations: !_Map(_Operations)
   !_Name OprSlct: !_Operation
     category: catOprSlct
     name: OprSlct
+    selections: !_Map(_Selections)
+      : !_Selections
+      !_Name '.3': !_Selections
 types: !_Map(_Type)
   !_Name AddrOprSlct: !_TypeOutput
     allFields:

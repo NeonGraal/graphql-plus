@@ -11,6 +11,9 @@ operations: !_Map(_Operations)
     category: catOprSlctMods
     modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
     name: OprSlctMods
+    selections: !_Map(_Selections)
+      : !_Selections
+      !_Name '.3': !_Selections
 types: !_Map(_Type)
   !_Name AddrOprSlctMods: !_TypeOutput
     allFields:

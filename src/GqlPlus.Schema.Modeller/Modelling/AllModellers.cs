@@ -46,9 +46,11 @@ public static class AllModellers
   private static IModellerRepositoryBuilder OperationModellers(this IModellerRepositoryBuilder builder)
     => builder
       .AddModeller(OperationModeller.Factory)
+      .AddModeller(OpArgumentModeller.Factory)
       .AddModeller(OpDirectiveModeller.Factory)
       .AddModeller(OpFragmentModeller.Factory)
       .AddModeller(OpResultModeller.Factory)
+      .AddModeller(OpSelectionModeller.Factory)
       .AddModeller(OpVariableModeller.Factory);
 
   private static IModellerRepositoryBuilder TypesModellers(this IModellerRepositoryBuilder builder)

@@ -1,1 +1,1 @@
-ef0d04e  (HEAD -> operation) 2026-05-28 Merge branch 'main' into operation
+36b8815  (HEAD -> operation) 2026-05-28 Improve Schema Operation Selection introspection

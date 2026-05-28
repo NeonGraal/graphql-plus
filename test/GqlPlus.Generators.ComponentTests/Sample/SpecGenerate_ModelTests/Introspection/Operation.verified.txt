@@ -73,21 +73,26 @@ output _OpSelection {
     |   _OpInline
 }
 
-output _OpField {
-    : _OpDirectives
-        fieldAlias: String?
-        argument: _OpArgument?
+output OpSelectionBase {
+        directives: _OpDirective[]
         modifiers: _Modifiers[]
 }
 
+output _OpField {
+    : OpSelectionBase
+        name: String
+        fieldAlias: String?
+        argument: _OpArgument?
+}
+
 output _OpInline {
+    : OpSelectionBase
         type: _TypeRef<_TypeKind.Output>?
-        directives: _OpDirective[]
 }
 
 output _OpSpread {
+    : OpSelectionBase
         fragment: String
-        directives: _OpDirective[]
 }
 */
 
@@ -386,72 +391,95 @@ public class Cmpt_OpSelectionObject
   }
 }
 
+public class CmptOpSelectionBase
+  : Spec_Operation
+  , ICmptOpSelectionBase
+{
+  public ICmptOpSelectionBaseObject? As_OpSelectionBase { get; set; }
+}
+
+public class CmptOpSelectionBaseObject
+  : Spec_Operation
+  , ICmptOpSelectionBaseObject
+{
+  public ICollection<ICmpt_OpDirective> Directives { get; set; }
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
+
+  public CmptOpSelectionBaseObject
+    ( ICollection<ICmpt_OpDirective> pdirectives
+    , ICollection<ICmpt_Modifiers> pmodifiers
+    )
+  {
+    Directives = pdirectives;
+    Modifiers = pmodifiers;
+  }
+}
+
 public class Cmpt_OpField
-  : Cmpt_OpDirectives
+  : CmptOpSelectionBase
   , ICmpt_OpField
 {
   public ICmpt_OpFieldObject? As__OpField { get; set; }
 }
 
 public class Cmpt_OpFieldObject
-  : Cmpt_OpDirectivesObject
+  : CmptOpSelectionBaseObject
   , ICmpt_OpFieldObject
 {
+  public string Name { get; set; }
   public string? FieldAlias { get; set; }
   public ICmpt_OpArgument? Argument { get; set; }
-  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 
   public Cmpt_OpFieldObject
     ( ICollection<ICmpt_OpDirective> pdirectives
     , ICollection<ICmpt_Modifiers> pmodifiers
-    ) : base(pdirectives)
+    , string pname
+    ) : base(pdirectives, pmodifiers)
   {
-    Modifiers = pmodifiers;
+    Name = pname;
   }
 }
 
 public class Cmpt_OpInline
-  : Spec_Operation
+  : CmptOpSelectionBase
   , ICmpt_OpInline
 {
   public ICmpt_OpInlineObject? As__OpInline { get; set; }
 }
 
 public class Cmpt_OpInlineObject
-  : Spec_Operation
+  : CmptOpSelectionBaseObject
   , ICmpt_OpInlineObject
 {
   public ICmpt_TypeRef<ICmpt_TypeKind>? Type { get; set; }
-  public ICollection<ICmpt_OpDirective> Directives { get; set; }
 
   public Cmpt_OpInlineObject
     ( ICollection<ICmpt_OpDirective> pdirectives
-    )
+    , ICollection<ICmpt_Modifiers> pmodifiers
+    ) : base(pdirectives, pmodifiers)
   {
-    Directives = pdirectives;
   }
 }
 
 public class Cmpt_OpSpread
-  : Spec_Operation
+  : CmptOpSelectionBase
   , ICmpt_OpSpread
 {
   public ICmpt_OpSpreadObject? As__OpSpread { get; set; }
 }
 
 public class Cmpt_OpSpreadObject
-  : Spec_Operation
+  : CmptOpSelectionBaseObject
   , ICmpt_OpSpreadObject
 {
   public string Fragment { get; set; }
-  public ICollection<ICmpt_OpDirective> Directives { get; set; }
 
   public Cmpt_OpSpreadObject
-    ( string pfragment
-    , ICollection<ICmpt_OpDirective> pdirectives
-    )
+    ( ICollection<ICmpt_OpDirective> pdirectives
+    , ICollection<ICmpt_Modifiers> pmodifiers
+    , string pfragment
+    ) : base(pdirectives, pmodifiers)
   {
     Fragment = pfragment;
-    Directives = pdirectives;
   }
 }

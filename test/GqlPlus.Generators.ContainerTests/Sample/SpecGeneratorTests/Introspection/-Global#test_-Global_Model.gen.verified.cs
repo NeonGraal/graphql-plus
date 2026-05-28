@@ -414,73 +414,96 @@ public class test_OpSelectionObject
   }
 }
 
+public class testOpSelectionBase
+  : GqlpModelBase
+  , ItestOpSelectionBase
+{
+  public ItestOpSelectionBaseObject? As_OpSelectionBase { get; set; }
+}
+
+public class testOpSelectionBaseObject
+  : GqlpModelBase
+  , ItestOpSelectionBaseObject
+{
+  public ICollection<Itest_OpDirective> Directives { get; set; }
+  public ICollection<Itest_Modifiers> Modifiers { get; set; }
+
+  public testOpSelectionBaseObject
+    ( ICollection<Itest_OpDirective> pdirectives
+    , ICollection<Itest_Modifiers> pmodifiers
+    )
+  {
+    Directives = pdirectives;
+    Modifiers = pmodifiers;
+  }
+}
+
 public class test_OpField
-  : test_OpDirectives
+  : testOpSelectionBase
   , Itest_OpField
 {
   public Itest_OpFieldObject? As__OpField { get; set; }
 }
 
 public class test_OpFieldObject
-  : test_OpDirectivesObject
+  : testOpSelectionBaseObject
   , Itest_OpFieldObject
 {
+  public string Name { get; set; }
   public string? FieldAlias { get; set; }
   public Itest_OpArgument? Argument { get; set; }
-  public ICollection<Itest_Modifiers> Modifiers { get; set; }
 
   public test_OpFieldObject
     ( ICollection<Itest_OpDirective> pdirectives
     , ICollection<Itest_Modifiers> pmodifiers
-    ) : base(pdirectives)
+    , string pname
+    ) : base(pdirectives, pmodifiers)
   {
-    Modifiers = pmodifiers;
+    Name = pname;
   }
 }
 
 public class test_OpInline
-  : GqlpModelBase
+  : testOpSelectionBase
   , Itest_OpInline
 {
   public Itest_OpInlineObject? As__OpInline { get; set; }
 }
 
 public class test_OpInlineObject
-  : GqlpModelBase
+  : testOpSelectionBaseObject
   , Itest_OpInlineObject
 {
   public Itest_TypeRef<Itest_TypeKind>? Type { get; set; }
-  public ICollection<Itest_OpDirective> Directives { get; set; }
 
   public test_OpInlineObject
     ( ICollection<Itest_OpDirective> pdirectives
-    )
+    , ICollection<Itest_Modifiers> pmodifiers
+    ) : base(pdirectives, pmodifiers)
   {
-    Directives = pdirectives;
   }
 }
 
 public class test_OpSpread
-  : GqlpModelBase
+  : testOpSelectionBase
   , Itest_OpSpread
 {
   public Itest_OpSpreadObject? As__OpSpread { get; set; }
 }
 
 public class test_OpSpreadObject
-  : GqlpModelBase
+  : testOpSelectionBaseObject
   , Itest_OpSpreadObject
 {
   public string Fragment { get; set; }
-  public ICollection<Itest_OpDirective> Directives { get; set; }
 
   public test_OpSpreadObject
-    ( string pfragment
-    , ICollection<Itest_OpDirective> pdirectives
-    )
+    ( ICollection<Itest_OpDirective> pdirectives
+    , ICollection<Itest_Modifiers> pmodifiers
+    , string pfragment
+    ) : base(pdirectives, pmodifiers)
   {
     Fragment = pfragment;
-    Directives = pdirectives;
   }
 }
 

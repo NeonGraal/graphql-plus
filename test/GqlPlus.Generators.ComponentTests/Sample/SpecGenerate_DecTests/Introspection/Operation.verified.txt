@@ -73,21 +73,26 @@ output _OpSelection {
     |   _OpInline
 }
 
-output _OpField {
-    : _OpDirectives
-        fieldAlias: String?
-        argument: _OpArgument?
+output OpSelectionBase {
+        directives: _OpDirective[]
         modifiers: _Modifiers[]
 }
 
+output _OpField {
+    : OpSelectionBase
+        name: String
+        fieldAlias: String?
+        argument: _OpArgument?
+}
+
 output _OpInline {
+    : OpSelectionBase
         type: _TypeRef<_TypeKind.Output>?
-        directives: _OpDirective[]
 }
 
 output _OpSpread {
+    : OpSelectionBase
         fragment: String
-        directives: _OpDirective[]
 }
 */
 

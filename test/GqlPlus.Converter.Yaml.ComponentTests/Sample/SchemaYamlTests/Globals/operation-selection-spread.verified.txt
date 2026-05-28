@@ -16,6 +16,17 @@ operations: !_Map(_Operations)
           name: CatOprSlctSprd
           typeKind: !_TypeKind Output
     name: OprSlctSprd
+    selections: !_Map(_Selections)
+      !_Name '': !_Selections
+      - !_OpSpreadSelection ''
+      - !_OpFieldSelection ''
+      !_Name '.2': !_Selections
+      - !_OpFieldSelection ''
+      - !_OpFieldSelection ''
+      - !_OpFieldSelection ''
+      !_Name firstLast: !_Selections
+      - !_OpFieldSelection ''
+      - !_OpFieldSelection ''
 types: !_Map(_Type)
   !_Name AddrOprSlctSprd: !_TypeOutput
     allFields:

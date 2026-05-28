@@ -367,44 +367,55 @@ public interface Itest_OpSelectionObject
 {
 }
 
+public interface ItestOpSelectionBase
+  : IGqlpInterfaceBase
+{
+  ItestOpSelectionBaseObject? As_OpSelectionBase { get; }
+}
+
+public interface ItestOpSelectionBaseObject
+  : IGqlpInterfaceBase
+{
+  ICollection<Itest_OpDirective> Directives { get; }
+  ICollection<Itest_Modifiers> Modifiers { get; }
+}
+
 public interface Itest_OpField
-  : Itest_OpDirectives
+  : ItestOpSelectionBase
 {
   Itest_OpFieldObject? As__OpField { get; }
 }
 
 public interface Itest_OpFieldObject
-  : Itest_OpDirectivesObject
+  : ItestOpSelectionBaseObject
 {
+  string Name { get; }
   string? FieldAlias { get; }
   Itest_OpArgument? Argument { get; }
-  ICollection<Itest_Modifiers> Modifiers { get; }
 }
 
 public interface Itest_OpInline
-  : IGqlpInterfaceBase
+  : ItestOpSelectionBase
 {
   Itest_OpInlineObject? As__OpInline { get; }
 }
 
 public interface Itest_OpInlineObject
-  : IGqlpInterfaceBase
+  : ItestOpSelectionBaseObject
 {
   Itest_TypeRef<test_TypeKind>? Type { get; }
-  ICollection<Itest_OpDirective> Directives { get; }
 }
 
 public interface Itest_OpSpread
-  : IGqlpInterfaceBase
+  : ItestOpSelectionBase
 {
   Itest_OpSpreadObject? As__OpSpread { get; }
 }
 
 public interface Itest_OpSpreadObject
-  : IGqlpInterfaceBase
+  : ItestOpSelectionBaseObject
 {
   string Fragment { get; }
-  ICollection<Itest_OpDirective> Directives { get; }
 }
 
 public interface Itest_Setting

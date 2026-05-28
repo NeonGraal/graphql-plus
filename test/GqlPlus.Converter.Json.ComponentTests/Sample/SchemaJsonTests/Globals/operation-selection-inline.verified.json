@@ -26,7 +26,25 @@
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
       "category": "catOprSlctInln",
-      "name": "OprSlctInln"
+      "name": "OprSlctInln",
+      "selections": {
+        "$mapTag": "_Map(_Selections)",
+        "": {
+          "$keyTag": "_Name",
+          "$list": [],
+          "$listTag": "_Selections"
+        },
+        ".3": {
+          "$keyTag": "_Name",
+          "$list": [],
+          "$listTag": "_Selections"
+        },
+        ".3.1": {
+          "$keyTag": "_Name",
+          "$list": [],
+          "$listTag": "_Selections"
+        }
+      }
     }
   },
   "types": {

@@ -566,13 +566,44 @@
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
       "category": "catOprSlct",
-      "name": "OprSlct"
+      "name": "OprSlct",
+      "selections": {
+        "$mapTag": "_Map(_Selections)",
+        "": {
+          "$keyTag": "_Name",
+          "$list": [],
+          "$listTag": "_Selections"
+        },
+        ".3": {
+          "$keyTag": "_Name",
+          "$list": [],
+          "$listTag": "_Selections"
+        }
+      }
     },
     "OprSlctInln": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
       "category": "catOprSlctInln",
-      "name": "OprSlctInln"
+      "name": "OprSlctInln",
+      "selections": {
+        "$mapTag": "_Map(_Selections)",
+        "": {
+          "$keyTag": "_Name",
+          "$list": [],
+          "$listTag": "_Selections"
+        },
+        ".3": {
+          "$keyTag": "_Name",
+          "$list": [],
+          "$listTag": "_Selections"
+        },
+        ".3.1": {
+          "$keyTag": "_Name",
+          "$list": [],
+          "$listTag": "_Selections"
+        }
+      }
     },
     "OprSlctMods": {
       "$keyTag": "_Name",
@@ -587,7 +618,20 @@
           }
         }
       ],
-      "name": "OprSlctMods"
+      "name": "OprSlctMods",
+      "selections": {
+        "$mapTag": "_Map(_Selections)",
+        "": {
+          "$keyTag": "_Name",
+          "$list": [],
+          "$listTag": "_Selections"
+        },
+        ".3": {
+          "$keyTag": "_Name",
+          "$list": [],
+          "$listTag": "_Selections"
+        }
+      }
     },
     "OprSlctSprd": {
       "$keyTag": "_Name",
@@ -609,7 +653,25 @@
           }
         }
       },
-      "name": "OprSlctSprd"
+      "name": "OprSlctSprd",
+      "selections": {
+        "$mapTag": "_Map(_Selections)",
+        "": {
+          "$keyTag": "_Name",
+          "$list": [],
+          "$listTag": "_Selections"
+        },
+        ".2": {
+          "$keyTag": "_Name",
+          "$list": [],
+          "$listTag": "_Selections"
+        },
+        "firstLast": {
+          "$keyTag": "_Name",
+          "$list": [],
+          "$listTag": "_Selections"
+        }
+      }
     }
   },
   "settings": {

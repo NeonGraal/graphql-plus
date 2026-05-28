@@ -315,18 +315,31 @@ internal class test_OpSelectionEncoder : IEncoder<Itest_OpSelectionObject>
   internal static test_OpSelectionEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class testOpSelectionBaseEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestOpSelectionBaseObject>
+{
+  private readonly Encoder<Itest_OpDirective> _itest_OpDirective = encoders.EncoderFor<Itest_OpDirective>();
+  private readonly Encoder<Itest_Modifiers> _itest_Modifiers = encoders.EncoderFor<Itest_Modifiers>();
+  public Structured Encode(ItestOpSelectionBaseObject input)
+    => Structured.Empty()
+      .AddList("directives", input.Directives, _itest_OpDirective)
+      .AddList("modifiers", input.Modifiers, _itest_Modifiers);
+
+  internal static testOpSelectionBaseEncoder Factory(IEncoderRepository r) => new(r);
+}
+
 internal class test_OpFieldEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_OpFieldObject>
 {
-  private readonly Encoder<Itest_OpDirectivesObject> _itest_OpDirectives = encoders.EncoderFor<Itest_OpDirectivesObject>();
+  private readonly Encoder<ItestOpSelectionBaseObject> _itestOpSelectionBase = encoders.EncoderFor<ItestOpSelectionBaseObject>();
   private readonly Encoder<Itest_OpArgument> _itest_OpArgument = encoders.EncoderFor<Itest_OpArgument>();
-  private readonly Encoder<Itest_Modifiers> _itest_Modifiers = encoders.EncoderFor<Itest_Modifiers>();
   public Structured Encode(Itest_OpFieldObject input)
-    => _itest_OpDirectives.Encode(input)
+    => _itestOpSelectionBase.Encode(input)
+      .Add("name", input.Name.Encode())
       .AddIf(input.FieldAlias is not null, onTrue: t => t.Add("fieldAlias", input.FieldAlias!.Encode()))
-      .AddEncoded("argument", input.Argument, _itest_OpArgument)
-      .AddList("modifiers", input.Modifiers, _itest_Modifiers);
+      .AddEncoded("argument", input.Argument, _itest_OpArgument);
 
   internal static test_OpFieldEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -335,12 +348,11 @@ internal class test_OpInlineEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_OpInlineObject>
 {
+  private readonly Encoder<ItestOpSelectionBaseObject> _itestOpSelectionBase = encoders.EncoderFor<ItestOpSelectionBaseObject>();
   private readonly Encoder<Itest_TypeRef<test_TypeKind>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRef<test_TypeKind>>();
-  private readonly Encoder<Itest_OpDirective> _itest_OpDirective = encoders.EncoderFor<Itest_OpDirective>();
   public Structured Encode(Itest_OpInlineObject input)
-    => Structured.Empty()
-      .AddEncoded("type", input.Type, _itest_TypeRef)
-      .AddList("directives", input.Directives, _itest_OpDirective);
+    => _itestOpSelectionBase.Encode(input)
+      .AddEncoded("type", input.Type, _itest_TypeRef);
 
   internal static test_OpInlineEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -349,11 +361,10 @@ internal class test_OpSpreadEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_OpSpreadObject>
 {
-  private readonly Encoder<Itest_OpDirective> _itest_OpDirective = encoders.EncoderFor<Itest_OpDirective>();
+  private readonly Encoder<ItestOpSelectionBaseObject> _itestOpSelectionBase = encoders.EncoderFor<ItestOpSelectionBaseObject>();
   public Structured Encode(Itest_OpSpreadObject input)
-    => Structured.Empty()
-      .Add("fragment", input.Fragment.Encode())
-      .AddList("directives", input.Directives, _itest_OpDirective);
+    => _itestOpSelectionBase.Encode(input)
+      .Add("fragment", input.Fragment.Encode());
 
   internal static test_OpSpreadEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -958,6 +969,7 @@ internal static class test_IntrospectionEncoders
       .AddEncoder<Itest_OpResultObject>(test_OpResultEncoder.Factory)
       .AddEncoder<Itest_Path>(test_PathEncoder.Factory)
       .AddEncoder<Itest_OpSelectionObject>(test_OpSelectionEncoder.Factory)
+      .AddEncoder<ItestOpSelectionBaseObject>(testOpSelectionBaseEncoder.Factory)
       .AddEncoder<Itest_OpFieldObject>(test_OpFieldEncoder.Factory)
       .AddEncoder<Itest_OpInlineObject>(test_OpInlineEncoder.Factory)
       .AddEncoder<Itest_OpSpreadObject>(test_OpSpreadEncoder.Factory)

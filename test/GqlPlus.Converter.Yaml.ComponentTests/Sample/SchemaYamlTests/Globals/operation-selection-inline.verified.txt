@@ -10,6 +10,17 @@ operations: !_Map(_Operations)
   !_Name OprSlctInln: !_Operation
     category: catOprSlctInln
     name: OprSlctInln
+    selections: !_Map(_Selections)
+      !_Name '': !_Selections
+      - !_OpFieldSelection ''
+      - !_OpFieldSelection ''
+      - !_OpFieldSelection ''
+      !_Name '.3': !_Selections
+      - !_OpInlineSelection ''
+      !_Name '.3.1': !_Selections
+      - !_OpFieldSelection ''
+      - !_OpFieldSelection ''
+      - !_OpFieldSelection ''
 types: !_Map(_Type)
   !_Name AddrOprSlctInln: !_TypeOutput
     allAlternates:

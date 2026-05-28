@@ -60,6 +60,36 @@ public record class OpResultModel(
   public OpArgumentModel? Argument { get; set; }
 }
 
-public record class OpSelectionModel
+public abstract record class OpSelectionModel
   : ModelBase
-{ }
+{
+  public abstract string Key { get; }
+  public OpDirectiveModel[] Directives { get; init; } = [];
+  public ModifierModel[] Modifiers { get; init; } = [];
+}
+
+public record class OpFieldSelectionModel(
+  string Name,
+  string Description
+) : OpSelectionModel
+{
+  public override string Key => Name;
+  public string? Alias { get; init; }
+  public OpArgumentModel? Argument { get; init; }
+}
+
+public record class OpInlineSelectionModel(
+  TypeRefModel<TypeKindModel>? Type,
+  string Description
+) : OpSelectionModel
+{
+  public override string Key => "|" + Type?.Name.Prefixed(":");
+}
+
+public record class OpSpreadSelectionModel(
+  string Fragment,
+  string Description
+) : OpSelectionModel
+{
+  public override string Key => "|" + Fragment;
+}

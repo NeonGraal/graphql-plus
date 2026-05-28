@@ -192,13 +192,42 @@ operations: !_Map(_Operations)
   !_Name OprSlct: !_Operation
     category: catOprSlct
     name: OprSlct
+    selections: !_Map(_Selections)
+      !_Name '': !_Selections
+      - !_OpFieldSelection ''
+      - !_OpFieldSelection ''
+      - !_OpFieldSelection ''
+      !_Name '.3': !_Selections
+      - !_OpFieldSelection ''
+      - !_OpFieldSelection ''
+      - !_OpFieldSelection ''
   !_Name OprSlctInln: !_Operation
     category: catOprSlctInln
     name: OprSlctInln
+    selections: !_Map(_Selections)
+      !_Name '': !_Selections
+      - !_OpFieldSelection ''
+      - !_OpFieldSelection ''
+      - !_OpFieldSelection ''
+      !_Name '.3': !_Selections
+      - !_OpInlineSelection ''
+      !_Name '.3.1': !_Selections
+      - !_OpFieldSelection ''
+      - !_OpFieldSelection ''
+      - !_OpFieldSelection ''
   !_Name OprSlctMods: !_Operation
     category: catOprSlctMods
     modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
     name: OprSlctMods
+    selections: !_Map(_Selections)
+      !_Name '': !_Selections
+      - !_OpFieldSelection ''
+      - !_OpFieldSelection ''
+      - !_OpFieldSelection ''
+      !_Name '.3': !_Selections
+      - !_OpFieldSelection ''
+      - !_OpFieldSelection ''
+      - !_OpFieldSelection ''
   !_Name OprSlctSprd: !_Operation
     category: catOprSlctSprd
     fragments: !_Map(_Fragments)
@@ -208,6 +237,17 @@ operations: !_Map(_Operations)
           name: CatOprSlctSprd
           typeKind: !_TypeKind Output
     name: OprSlctSprd
+    selections: !_Map(_Selections)
+      !_Name '': !_Selections
+      - !_OpSpreadSelection ''
+      - !_OpFieldSelection ''
+      !_Name '.2': !_Selections
+      - !_OpFieldSelection ''
+      - !_OpFieldSelection ''
+      - !_OpFieldSelection ''
+      !_Name firstLast: !_Selections
+      - !_OpFieldSelection ''
+      - !_OpFieldSelection ''
 settings: !_Map(_Setting)
   !_Name descr: !_Setting
     description: 'Option Descr'

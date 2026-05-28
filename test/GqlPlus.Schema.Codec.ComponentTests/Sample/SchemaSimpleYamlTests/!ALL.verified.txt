@@ -240,13 +240,23 @@ operations: !_Map(_Operations)
   !_Name OprSlct: !_Operation
     category: catOprSlct
     name: OprSlct
+    selections: !_Map(_Selections)
+      : !_Selections
+      !_Name '.3': !_Selections
   !_Name OprSlctInln: !_Operation
     category: catOprSlctInln
     name: OprSlctInln
+    selections: !_Map(_Selections)
+      : !_Selections
+      !_Name '.3': !_Selections
+      !_Name '.3.1': !_Selections
   !_Name OprSlctMods: !_Operation
     category: catOprSlctMods
     modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
     name: OprSlctMods
+    selections: !_Map(_Selections)
+      : !_Selections
+      !_Name '.3': !_Selections
   !_Name OprSlctSprd: !_Operation
     category: catOprSlctSprd
     fragments: !_Map(_Fragments)
@@ -256,6 +266,10 @@ operations: !_Map(_Operations)
           name: CatOprSlctSprd
           typeKind: !_TypeKind Output
     name: OprSlctSprd
+    selections: !_Map(_Selections)
+      : !_Selections
+      !_Name '.2': !_Selections
+      !_Name firstLast: !_Selections
 settings: !_Map(_Setting)
   !_Name descr: !_Setting
     description: 'Option Descr'

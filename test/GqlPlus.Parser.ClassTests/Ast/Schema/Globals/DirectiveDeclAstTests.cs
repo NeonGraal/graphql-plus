@@ -71,7 +71,7 @@ public partial class DirectiveDeclAstTests
   private readonly DirectiveDeclAstChecks _checks = new();
 
   [CheckTests(Inherited = true)]
-  internal IAstDeclarationChecks AliasedChecks => _checks;
+  internal IAstDeclarationChecks<string> AliasedChecks => _checks;
 
   [CheckTests]
   internal ICloneChecks<string> CloneChecks { get; }

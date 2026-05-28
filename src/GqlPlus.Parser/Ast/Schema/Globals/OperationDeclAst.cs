@@ -30,8 +30,6 @@ internal sealed record class OperationDeclAst(
   public bool Equals(OperationDeclAst? other)
     => base.Equals(other)
     && Category == other.Category;
-  public bool Equals(IAstDirectives other)
-    => Equals(other as OperationDeclAst);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Category);
 

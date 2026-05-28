@@ -8,7 +8,7 @@ public partial class OperationDeclAstTests
     => new(AstNulls.At, input.Name, input.Category);
 
   [CheckTests(Inherited = true)]
-  internal IAstAliasedChecks<OperationInput> AliasedChecks => _checks;
+  internal IAstDeclarationChecks<OperationInput> AliasedChecks => _checks;
 
   [CheckTests]
   internal ICloneChecks<OperationInput> CloneChecks { get; }
@@ -18,7 +18,7 @@ public partial class OperationDeclAstTests
 }
 
 internal sealed class OperationDeclAstChecks()
-  : AstAliasedChecks<OperationInput, OperationDeclAst>(OperationDeclAstTests.CreateOperation)
+  : AstDeclarationChecks<OperationInput, OperationDeclAst>(OperationDeclAstTests.CreateOperation)
 {
   protected override string AliasesString(OperationInput input, string description, string aliases)
     => $"( {DescriptionNameString(input, description)}{aliases} {input.Category} )";

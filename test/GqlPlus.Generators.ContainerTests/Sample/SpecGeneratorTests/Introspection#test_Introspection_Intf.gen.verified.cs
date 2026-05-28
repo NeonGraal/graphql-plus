@@ -152,7 +152,7 @@ public interface Itest_CategoryObject
 {
   test_Resolution Resolution { get; }
   Itest_TypeRef<test_TypeKind> Output { get; }
-  Itest_Modifiers Modifiers { get; }
+  ICollection<Itest_Modifiers> Modifiers { get; }
 }
 
 public enum test_Resolution
@@ -529,25 +529,13 @@ public interface Itest_TypeSimpleObject
 public interface Itest_Collections
   : IGqlpInterfaceBase
 {
-  ICollection<Itest_ACollection>? As_ACollection { get; }
+  Itest_Modifier<test_ModifierKind>? As_ModifierKindList { get; }
+  Itest_ModifierKeyed<test_ModifierKind>? As_ModifierKindDictionary { get; }
+  Itest_ModifierKeyed<test_ModifierKind>? As_ModifierKindTypeParam { get; }
   Itest_CollectionsObject? As__Collections { get; }
 }
 
 public interface Itest_CollectionsObject
-  : IGqlpInterfaceBase
-{
-}
-
-public interface Itest_ACollection
-  : IGqlpInterfaceBase
-{
-  Itest_Modifier<test_ModifierKind>? As_ModifierKindList { get; }
-  Itest_ModifierKeyed<test_ModifierKind>? As_ModifierKindDictionary { get; }
-  Itest_ModifierKeyed<test_ModifierKind>? As_ModifierKindTypeParam { get; }
-  Itest_ACollectionObject? As__ACollection { get; }
-}
-
-public interface Itest_ACollectionObject
   : IGqlpInterfaceBase
 {
 }
@@ -569,24 +557,12 @@ public interface Itest_Modifiers
   : IGqlpInterfaceBase
 {
   Itest_Modifier<test_ModifierKind>? As_ModifierKindRequired { get; }
-  ICollection<Itest_AModifier>? As_AModifier { get; }
+  Itest_Modifier<test_ModifierKind>? As_ModifierKindOptional { get; }
+  Itest_Collections? As_Collections { get; }
   Itest_ModifiersObject? As__Modifiers { get; }
 }
 
 public interface Itest_ModifiersObject
-  : IGqlpInterfaceBase
-{
-}
-
-public interface Itest_AModifier
-  : IGqlpInterfaceBase
-{
-  Itest_Modifier<test_ModifierKind>? As_ModifierKindOptional { get; }
-  Itest_ACollection? As_ACollection { get; }
-  Itest_AModifierObject? As__AModifier { get; }
-}
-
-public interface Itest_AModifierObject
   : IGqlpInterfaceBase
 {
 }
@@ -924,7 +900,7 @@ public interface Itest_ObjAlternateObject
   : IGqlpInterfaceBase
 {
   Itest_ObjBase Type { get; }
-  Itest_Collections Collections { get; }
+  ICollection<Itest_Collections> Collections { get; }
 }
 
 public interface Itest_ObjAlternateEnum
@@ -974,7 +950,7 @@ public interface Itest_ObjFieldType
 public interface Itest_ObjFieldTypeObject
   : Itest_ObjBaseObject
 {
-  Itest_Modifiers Modifiers { get; }
+  ICollection<Itest_Modifiers> Modifiers { get; }
 }
 
 public interface Itest_ObjFieldEnum

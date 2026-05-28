@@ -221,6 +221,15 @@
         },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
           "name": "modifiers",
           "object": "_Category",
           "type": {
@@ -259,6 +268,15 @@
         },
         {
           "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
           "name": "modifiers",
           "type": {
             "$mapTag": "_ObjBase",

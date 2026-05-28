@@ -63,7 +63,7 @@ output _Category {
     : _Aliased
         resolution: _Resolution
         output: _TypeRef<_TypeKind.Output>
-        modifiers: _Modifiers
+        modifiers: _Modifiers[]
     }
 
 enum _Resolution { Parallel Sequential Single }
@@ -226,10 +226,6 @@ dual _TypeSimple {
     }
 
 dual _Collections {
-    | _ACollection[]
-    }
-
-dual _ACollection {
     | _Modifier<_ModifierKind.List>
     | _ModifierKeyed<_ModifierKind.Dictionary>
     | _ModifierKeyed<_ModifierKind.TypeParam>
@@ -243,12 +239,8 @@ dual _ModifierKeyed<$modifierKind:_ModifierKind> {
 
 dual _Modifiers {
     | _Modifier<_ModifierKind.Required>
-    | _AModifier[]
-    }
-
-dual _AModifier {
     | _Modifier<_ModifierKind.Optional>
-    | _ACollection
+    | _Collections
     }
 
 enum _ModifierKind { Req[Required] Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
@@ -383,7 +375,7 @@ output _TypeParam {
 
 output _ObjAlternate {
       type: _ObjBase
-      collections: _Collections
+      collections: _Collections[]
     | _ObjAlternateEnum
     }
 
@@ -403,7 +395,7 @@ output _ObjField<$type:_ObjFieldType> {
 
 output _ObjFieldType {
     : _ObjBase
-        modifiers: _Modifiers
+        modifiers: _Modifiers[]
     | _ObjFieldEnum
     }
 
@@ -593,7 +585,7 @@ public interface ICmpt_CategoryObject
 {
   Cmpt_Resolution Resolution { get; }
   ICmpt_TypeRef<Cmpt_TypeKind> Output { get; }
-  ICmpt_Modifiers Modifiers { get; }
+  ICollection<ICmpt_Modifiers> Modifiers { get; }
 }
 
 public enum Cmpt_Resolution
@@ -970,25 +962,13 @@ public interface ICmpt_TypeSimpleObject
 public interface ICmpt_Collections
   : Spec_Introspection
 {
-  ICollection<ICmpt_ACollection>? As_ACollection { get; }
+  ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindList { get; }
+  ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindDictionary { get; }
+  ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindTypeParam { get; }
   ICmpt_CollectionsObject? As__Collections { get; }
 }
 
 public interface ICmpt_CollectionsObject
-  : Spec_Introspection
-{
-}
-
-public interface ICmpt_ACollection
-  : Spec_Introspection
-{
-  ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindList { get; }
-  ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindDictionary { get; }
-  ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindTypeParam { get; }
-  ICmpt_ACollectionObject? As__ACollection { get; }
-}
-
-public interface ICmpt_ACollectionObject
   : Spec_Introspection
 {
 }
@@ -1010,24 +990,12 @@ public interface ICmpt_Modifiers
   : Spec_Introspection
 {
   ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindRequired { get; }
-  ICollection<ICmpt_AModifier>? As_AModifier { get; }
+  ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindOptional { get; }
+  ICmpt_Collections? As_Collections { get; }
   ICmpt_ModifiersObject? As__Modifiers { get; }
 }
 
 public interface ICmpt_ModifiersObject
-  : Spec_Introspection
-{
-}
-
-public interface ICmpt_AModifier
-  : Spec_Introspection
-{
-  ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindOptional { get; }
-  ICmpt_ACollection? As_ACollection { get; }
-  ICmpt_AModifierObject? As__AModifier { get; }
-}
-
-public interface ICmpt_AModifierObject
   : Spec_Introspection
 {
 }
@@ -1365,7 +1333,7 @@ public interface ICmpt_ObjAlternateObject
   : Spec_Introspection
 {
   ICmpt_ObjBase Type { get; }
-  ICmpt_Collections Collections { get; }
+  ICollection<ICmpt_Collections> Collections { get; }
 }
 
 public interface ICmpt_ObjAlternateEnum
@@ -1415,7 +1383,7 @@ public interface ICmpt_ObjFieldType
 public interface ICmpt_ObjFieldTypeObject
   : ICmpt_ObjBaseObject
 {
-  ICmpt_Modifiers Modifiers { get; }
+  ICollection<ICmpt_Modifiers> Modifiers { get; }
 }
 
 public interface ICmpt_ObjFieldEnum

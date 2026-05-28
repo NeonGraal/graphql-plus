@@ -1,1 +1,1 @@
-0315be1  (HEAD -> operation) 2026-05-26 Schema Operation Inline example
+ef0d04e  (HEAD -> operation) 2026-05-28 Merge branch 'main' into operation

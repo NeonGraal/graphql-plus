@@ -1,8 +1,4 @@
 dual _Collections {
-    | _ACollection[]
-    }
-
-dual _ACollection {
     | _Modifier<_ModifierKind.List>
     | _ModifierKeyed<_ModifierKind.Dictionary>
     | _ModifierKeyed<_ModifierKind.TypeParam>
@@ -16,12 +12,8 @@ dual _ModifierKeyed<$modifierKind:_ModifierKind> {
 
 dual _Modifiers {
     | _Modifier<_ModifierKind.Required>
-    | _AModifier[]
-    }
-
-dual _AModifier {
     | _Modifier<_ModifierKind.Optional>
-    | _ACollection
+    | _Collections
     }
 
 enum _ModifierKind { Req[Required] Opt[Optional] List Dict[Dictionary] Param[TypeParam] }

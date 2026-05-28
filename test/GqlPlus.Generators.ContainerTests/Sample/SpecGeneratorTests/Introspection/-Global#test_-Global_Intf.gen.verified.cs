@@ -44,7 +44,7 @@ public interface Itest_CategoryObject
 {
   test_Resolution Resolution { get; }
   Itest_TypeRef<Itest_TypeKind> Output { get; }
-  Itest_Modifiers Modifiers { get; }
+  ICollection<Itest_Modifiers> Modifiers { get; }
 }
 
 public enum test_Resolution

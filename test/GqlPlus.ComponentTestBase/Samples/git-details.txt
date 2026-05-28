@@ -1,1 +1,1 @@
-b41c82c  (HEAD -> scalar-mod) 2026-05-26 Add Required to Modifiers and more Operation samples
+ceca78e  (HEAD -> correct-mods) 2026-05-28 Correct verify-errors

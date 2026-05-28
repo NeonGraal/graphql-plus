@@ -46,10 +46,6 @@ dual _TypeSimple {
     }
 
 dual _Collections {
-    | _ACollection[]
-    }
-
-dual _ACollection {
     | _Modifier<_ModifierKind.List>
     | _ModifierKeyed<_ModifierKind.Dictionary>
     | _ModifierKeyed<_ModifierKind.TypeParam>
@@ -63,12 +59,8 @@ dual _ModifierKeyed<$modifierKind:_ModifierKind> {
 
 dual _Modifiers {
     | _Modifier<_ModifierKind.Required>
-    | _AModifier[]
-    }
-
-dual _AModifier {
     | _Modifier<_ModifierKind.Optional>
-    | _ACollection
+    | _Collections
     }
 
 enum _ModifierKind { Req[Required] Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
@@ -172,14 +164,6 @@ internal class Cmpt_CollectionsEncoder : IEncoder<ICmpt_CollectionsObject>
   internal static Cmpt_CollectionsEncoder Factory(IEncoderRepository _) => new();
 }
 
-internal class Cmpt_ACollectionEncoder : IEncoder<ICmpt_ACollectionObject>
-{
-  public Structured Encode(ICmpt_ACollectionObject input)
-    => Structured.Empty();
-
-  internal static Cmpt_ACollectionEncoder Factory(IEncoderRepository _) => new();
-}
-
 internal class Cmpt_ModifierKeyedEncoder<TModifierKind>(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_ModifierKeyedObject<TModifierKind>>
@@ -198,14 +182,6 @@ internal class Cmpt_ModifiersEncoder : IEncoder<ICmpt_ModifiersObject>
     => Structured.Empty();
 
   internal static Cmpt_ModifiersEncoder Factory(IEncoderRepository _) => new();
-}
-
-internal class Cmpt_AModifierEncoder : IEncoder<ICmpt_AModifierObject>
-{
-  public Structured Encode(ICmpt_AModifierObject input)
-    => Structured.Empty();
-
-  internal static Cmpt_AModifierEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class Cmpt_ModifierKindEncoder : IEncoder<Cmpt_ModifierKind>
@@ -235,8 +211,6 @@ internal static class Cmpt_Spec_TypeEncoders
       .AddEncoder<Cmpt_TypeKind>(Cmpt_TypeKindEncoder.Factory)
       .AddEncoder<ICmpt_TypeSimpleObject>(Cmpt_TypeSimpleEncoder.Factory)
       .AddEncoder<ICmpt_CollectionsObject>(Cmpt_CollectionsEncoder.Factory)
-      .AddEncoder<ICmpt_ACollectionObject>(Cmpt_ACollectionEncoder.Factory)
       .AddEncoder<ICmpt_ModifiersObject>(Cmpt_ModifiersEncoder.Factory)
-      .AddEncoder<ICmpt_AModifierObject>(Cmpt_AModifierEncoder.Factory)
       .AddEncoder<Cmpt_ModifierKind>(Cmpt_ModifierKindEncoder.Factory);
 }

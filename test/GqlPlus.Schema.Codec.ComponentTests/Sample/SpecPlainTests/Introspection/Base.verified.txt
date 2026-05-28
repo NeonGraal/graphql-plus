@@ -32,12 +32,14 @@
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternate[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=type
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternate[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=_ObjAlternate
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternate[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=_ObjBase
+[_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternate[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternate[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:name=collections
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternate[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:object=_ObjAlternate
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternate[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:type[_ObjBase]:name=_Collections
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternate[_TypeOutput]:alternates.0[_Alternate]:type[_ObjBase]:name=_ObjAlternateEnum
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternate[_TypeOutput]:fields.0[_OutputField]:name=type
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternate[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=_ObjBase
+[_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternate[_TypeOutput]:fields.1[_OutputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternate[_TypeOutput]:fields.1[_OutputField]:name=collections
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternate[_TypeOutput]:fields.1[_OutputField]:type[_ObjBase]:name=_Collections
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternate[_TypeOutput]:name=_ObjAlternate
@@ -96,10 +98,12 @@
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldType[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=typeArgs
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldType[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=_ObjBase
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldType[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=_ObjTypeArg
+[_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldType[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldType[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:name=modifiers
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldType[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:object=_ObjFieldType
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldType[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:type[_ObjBase]:name=_Modifiers
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldType[_TypeOutput]:alternates.0[_Alternate]:type[_ObjBase]:name=_ObjFieldEnum
+[_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldType[_TypeOutput]:fields.0[_OutputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldType[_TypeOutput]:fields.0[_OutputField]:name=modifiers
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldType[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=_Modifiers
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldType[_TypeOutput]:name=_ObjFieldType

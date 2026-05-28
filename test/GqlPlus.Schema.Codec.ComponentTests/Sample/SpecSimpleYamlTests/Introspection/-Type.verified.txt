@@ -7,91 +7,6 @@ errors: !_Errors
     _kind: !_TokenKind End
     _message: "In _TypeRef can't get model for type '_Named'"
 types: !_Map(_Type)
-  !_Name _ACollection: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: _ACollection
-        type: !_ObjBase
-          name: _Modifier
-          typeArgs:
-            - !_EnumValue
-              label: List
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
-      - !_ObjectFor(_Alternate)
-        object: _ACollection
-        type: !_ObjBase
-          name: _ModifierKeyed
-          typeArgs:
-            - !_EnumValue
-              label: Dictionary
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
-      - !_ObjectFor(_Alternate)
-        object: _ACollection
-        type: !_ObjBase
-          name: _ModifierKeyed
-          typeArgs:
-            - !_EnumValue
-              label: TypeParam
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: _Modifier
-          typeArgs:
-            - !_EnumValue
-              label: List
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
-      - !_Alternate
-        type: !_ObjBase
-          name: _ModifierKeyed
-          typeArgs:
-            - !_EnumValue
-              label: Dictionary
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
-      - !_Alternate
-        type: !_ObjBase
-          name: _ModifierKeyed
-          typeArgs:
-            - !_EnumValue
-              label: TypeParam
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
-    name: _ACollection
-    typeKind: !_TypeKind Dual
-  !_Name _AModifier: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: _AModifier
-        type: !_ObjBase
-          name: _Modifier
-          typeArgs:
-            - !_EnumValue
-              label: Optional
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
-      - !_ObjectFor(_Alternate)
-        object: _AModifier
-        type: !_ObjBase
-          name: _ACollection
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: _Modifier
-          typeArgs:
-            - !_EnumValue
-              label: Optional
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
-      - !_Alternate
-        type: !_ObjBase
-          name: _ACollection
-    name: _AModifier
-    typeKind: !_TypeKind Dual
   !_Name _BaseType: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
@@ -152,19 +67,57 @@ types: !_Map(_Type)
   !_Name _Collections: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
-        collections:
-          - !_Modifier
-            modifierKind: !_ModifierKind List
         object: _Collections
         type: !_ObjBase
-          name: _ACollection
+          name: _Modifier
+          typeArgs:
+            - !_EnumValue
+              label: List
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_Alternate)
+        object: _Collections
+        type: !_ObjBase
+          name: _ModifierKeyed
+          typeArgs:
+            - !_EnumValue
+              label: Dictionary
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_Alternate)
+        object: _Collections
+        type: !_ObjBase
+          name: _ModifierKeyed
+          typeArgs:
+            - !_EnumValue
+              label: TypeParam
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
     alternates:
       - !_Alternate
-        collections:
-          - !_Modifier
-            modifierKind: !_ModifierKind List
         type: !_ObjBase
-          name: _ACollection
+          name: _Modifier
+          typeArgs:
+            - !_EnumValue
+              label: List
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_Alternate
+        type: !_ObjBase
+          name: _ModifierKeyed
+          typeArgs:
+            - !_EnumValue
+              label: Dictionary
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_Alternate
+        type: !_ObjBase
+          name: _ModifierKeyed
+          typeArgs:
+            - !_EnumValue
+              label: TypeParam
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
     name: _Collections
     typeKind: !_TypeKind Dual
   !_Name _Modifier: !_TypeDual
@@ -276,12 +229,18 @@ types: !_Map(_Type)
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
       - !_ObjectFor(_Alternate)
-        collections:
-          - !_Modifier
-            modifierKind: !_ModifierKind List
         object: _Modifiers
         type: !_ObjBase
-          name: _AModifier
+          name: _Modifier
+          typeArgs:
+            - !_EnumValue
+              label: Optional
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_Alternate)
+        object: _Modifiers
+        type: !_ObjBase
+          name: _Collections
     alternates:
       - !_Alternate
         type: !_ObjBase
@@ -292,11 +251,16 @@ types: !_Map(_Type)
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
       - !_Alternate
-        collections:
-          - !_Modifier
-            modifierKind: !_ModifierKind List
         type: !_ObjBase
-          name: _AModifier
+          name: _Modifier
+          typeArgs:
+            - !_EnumValue
+              label: Optional
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_Alternate
+        type: !_ObjBase
+          name: _Collections
     name: _Modifiers
     typeKind: !_TypeKind Dual
   !_Name _ParentType: !_TypeOutput

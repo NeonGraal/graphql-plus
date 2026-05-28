@@ -34,7 +34,7 @@ output _TypeParam {
 
 output _ObjAlternate {
       type: _ObjBase
-      collections: _Collections
+      collections: _Collections[]
     | _ObjAlternateEnum
     }
 
@@ -54,7 +54,7 @@ output _ObjField<$type:_ObjFieldType> {
 
 output _ObjFieldType {
     : _ObjBase
-        modifiers: _Modifiers
+        modifiers: _Modifiers[]
     | _ObjFieldEnum
     }
 
@@ -182,7 +182,7 @@ public interface ICmpt_ObjAlternateObject
   : Spec_-Object
 {
   ICmpt_ObjBase Type { get; }
-  ICmpt_Collections Collections { get; }
+  ICollection<ICmpt_Collections> Collections { get; }
 }
 
 public interface ICmpt_ObjAlternateEnum
@@ -232,7 +232,7 @@ public interface ICmpt_ObjFieldType
 public interface ICmpt_ObjFieldTypeObject
   : ICmpt_ObjBaseObject
 {
-  ICmpt_Modifiers Modifiers { get; }
+  ICollection<ICmpt_Modifiers> Modifiers { get; }
 }
 
 public interface ICmpt_ObjFieldEnum

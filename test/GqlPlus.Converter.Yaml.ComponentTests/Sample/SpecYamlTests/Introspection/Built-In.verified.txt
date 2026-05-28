@@ -118,6 +118,10 @@ types: !_Map(_Type)
   !_Name _ModifierKind: !_TypeEnum
     allItems:
     - !_EnumLabel
+      aliases: [Required]
+      enum: _ModifierKind
+      name: Req
+    - !_EnumLabel
       aliases: [Optional]
       enum: _ModifierKind
       name: Opt
@@ -133,6 +137,9 @@ types: !_Map(_Type)
       enum: _ModifierKind
       name: Param
     items:
+    - !_Aliased
+      aliases: [Required]
+      name: Req
     - !_Aliased
       aliases: [Optional]
       name: Opt
@@ -154,6 +161,15 @@ types: !_Map(_Type)
         name: _Modifier
         typeArgs:
         - !_EnumValue
+          label: Required
+          name: _ModifierKind
+          typeKind: !_SimpleKind Enum
+    - !_ObjectFor(_Alternate)
+      object: _Modifiers
+      type: !_ObjBase
+        name: _Modifier
+        typeArgs:
+        - !_EnumValue
           label: Optional
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
@@ -162,6 +178,14 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: _Collections
     alternates:
+    - !_Alternate
+      type: !_ObjBase
+        name: _Modifier
+        typeArgs:
+        - !_EnumValue
+          label: Required
+          name: _ModifierKind
+          typeKind: !_SimpleKind Enum
     - !_Alternate
       type: !_ObjBase
         name: _Modifier

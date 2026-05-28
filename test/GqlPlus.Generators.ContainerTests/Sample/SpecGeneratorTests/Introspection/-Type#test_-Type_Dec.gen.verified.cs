@@ -63,6 +63,8 @@ internal class test_ModifiersDecoder
 
 internal class test_ModifierKindDecoder
 {
+  public string Req { get; set; }
+  public string Required { get; set; }
   public string Opt { get; set; }
   public string Optional { get; set; }
   public string List { get; set; }

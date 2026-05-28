@@ -198,6 +198,7 @@ public class test_Modifiers
   : GqlpModelBase
   , Itest_Modifiers
 {
+  public Itest_Modifier<test_ModifierKind>? As_ModifierKindRequired { get; set; }
   public Itest_Modifier<test_ModifierKind>? As_ModifierKindOptional { get; set; }
   public Itest_Collections? As_Collections { get; set; }
   public Itest_ModifiersObject? As__Modifiers { get; set; }

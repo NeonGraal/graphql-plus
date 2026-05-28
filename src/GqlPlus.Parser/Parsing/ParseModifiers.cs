@@ -13,13 +13,20 @@ internal class ParseModifiers(
 
   {
     List<IAstModifier> list = [];
+
+    TokenAt at = tokens.At;
+    if (tokens.Take('!')) {
+      list.Add(ModifierAst.Required(at));
+      return list.OkArray();
+    }
+
     IResultArray<IAstModifier> collections = _collections.Parse(tokens, label);
 
     if (!collections.Optional(list.AddRange)) {
       return collections.AsResultArray<IAstModifier>();
     }
 
-    TokenAt at = tokens.At;
+    at = tokens.At;
     if (tokens.Take('?')) {
       list.Add(ModifierAst.Optional(at));
     }

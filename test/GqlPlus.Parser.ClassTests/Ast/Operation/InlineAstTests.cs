@@ -28,13 +28,25 @@ public partial class InlineAstTests
   internal IAstDirectivesChecks<string[]> DirectivesChecks => _checks;
 
   [CheckTests]
+  internal IModifiersChecks<string[]> ModifiersChecks { get; } = new InlineModifiersChecks();
+
+  [CheckTests]
   internal ICloneChecks<string[]> CloneChecks { get; }
     = new CloneChecks<string[], InlineAst>(
       CreateInline,
       (original, input) => original with { Selections = input?.Fields() ?? [] });
 
-  private static InlineAst CreateInline(string[] input)
+  internal static InlineAst CreateInline(string[] input)
     => new(AstNulls.At, input?.Fields() ?? []);
+}
+
+internal sealed class InlineModifiersChecks()
+  : ModifiersChecks<string[], InlineAst>(
+      InlineAstTests.CreateInline,
+      ast => ast with { Modifiers = TestMods() })
+{
+  protected override string InputString(string[] input)
+    => $"( !i {{ {input.Joined(s => "!f " + s)} }} )";
 }
 
 internal sealed class InlineAstChecks()

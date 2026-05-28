@@ -12,11 +12,12 @@ dual _ModifierKeyed<$modifierKind:_ModifierKind> {
     }
 
 dual _Modifiers {
+    | _Modifier<_ModifierKind.Required>
     | _Modifier<_ModifierKind.Optional>
     | _Collections
     }
 
-enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+enum _ModifierKind { Req[Required] Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
 
 dual _Modifier<$modifierKind:_ModifierKind> {
         modifierKind: $modifierKind
@@ -81,6 +82,7 @@ public class Cmpt_Modifiers
   : Spec_Built-In
   , ICmpt_Modifiers
 {
+  public ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindRequired { get; set; }
   public ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindOptional { get; set; }
   public ICmpt_Collections? As_Collections { get; set; }
   public ICmpt_ModifiersObject? As__Modifiers { get; set; }

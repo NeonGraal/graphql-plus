@@ -346,6 +346,7 @@ public interface Itest_ModifierKeyedObject<TModifierKind>
 public interface Itest_Modifiers
   : IGqlpInterfaceBase
 {
+  Itest_Modifier<test_ModifierKind>? As_ModifierKindRequired { get; }
   Itest_Modifier<test_ModifierKind>? As_ModifierKindOptional { get; }
   Itest_Collections? As_Collections { get; }
   Itest_ModifiersObject? As__Modifiers { get; }
@@ -358,6 +359,8 @@ public interface Itest_ModifiersObject
 
 public enum test_ModifierKind
 {
+  Req,
+  Required = Req,
   Opt,
   Optional = Opt,
   List,

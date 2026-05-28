@@ -317,45 +317,56 @@ Success
   _Modifier
   <
     I@017/0060
-    _ModifierKind.Optional
+    _ModifierKind.Required
   >
   I@007/0061
+  _Modifier
+  <
+    I@017/0061
+    _ModifierKind.Optional
+  >
+  I@007/0062
   _Collections
 }
 {
-  !En I@006/0064
+  !En I@006/0065
   _ModifierKind
-  !EL I@022/0064
+  !EL I@022/0065
+  Req
+  [
+    Required
+  ]
+  !EL I@036/0065
   Opt
   [
     Optional
   ]
-  !EL I@036/0064
+  !EL I@050/0065
   List
-  !EL I@041/0064
+  !EL I@055/0065
   Dict
   [
     Dictionary
   ]
-  !EL I@058/0064
+  !EL I@072/0065
   Param
   [
     TypeParam
   ]
 }
 {
-  !Du I@006/0066
+  !Du I@006/0067
   _Modifier
   <
-    I@017/0066
+    I@017/0067
     $modifierKind
     :_ModifierKind
   >
   {
-    !DF I@009/0067
+    !DF I@009/0068
     modifierKind
     :
-    I@024/0067
+    I@024/0068
     $modifierKind
   }
 }

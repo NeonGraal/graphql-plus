@@ -14,11 +14,13 @@ internal class ModifierModeller
       IsOptional = ast.IsOptional,
     };
 
+  private readonly ModifierKind[] _collectionKinds = [ModifierKind.Dict, ModifierKind.List, ModifierKind.Param];
+
   protected override T? TryModel<T>(IAstModifier? ast, IMap<TypeKindModel> typeKinds)
     where T : default
   {
     if (typeof(T).Equals(typeof(CollectionModel))) {
-      if (ast is not null && ast.ModifierKind != ModifierKind.Optional) {
+      if (ast is not null && _collectionKinds.Contains(ast.ModifierKind)) {
         return (T?)(object)ToModel(ast, typeKinds);
       }
 

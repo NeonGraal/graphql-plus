@@ -7,6 +7,18 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Schema;
 
+public interface Itest_Req<TT>
+  : IGqlpInterfaceBase
+{
+  TT? AsT { get; }
+  Itest_ReqObject<TT>? As__Req { get; }
+}
+
+public interface Itest_ReqObject<TT>
+  : IGqlpInterfaceBase
+{
+}
+
 public interface Itest_Opt<TT>
   : IGqlpInterfaceBase
 {

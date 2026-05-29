@@ -23,7 +23,7 @@ internal sealed class AstPartialChecks()
   : AstDeclarationChecks<AstPartial<NullAst, NullOption>>(AstPartialTests.CreatePartial)
 {
   protected override string AliasesString(string input, string description, string aliases)
-    => $"( {DescriptionNameString(input, description)}{aliases} (Unique) None )";
+    => $"( {DescriptionNameString(input, description)}{aliases} )";
 
   protected override Func<string, string, bool> SameInput
     => (name1, name2) => name1.Camelize() == name2.Camelize();

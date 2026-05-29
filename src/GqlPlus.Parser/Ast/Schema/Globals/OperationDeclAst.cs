@@ -29,9 +29,18 @@ internal sealed record class OperationDeclAst(
 
   public bool Equals(OperationDeclAst? other)
     => base.Equals(other)
-    && Category == other.Category;
+    && Category.NullEqual(other.Category)
+    && Variables.SequenceEqual(other.Variables)
+    && Fragments.SequenceEqual(other.Fragments)
+    && ResultEqual(other);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Category);
+
+  private bool ResultEqual(OperationDeclAst other)
+    => Directives.SequenceEqual(other.Directives)
+    && Modifiers.SequenceEqual(other.Modifiers)
+    && Domain is null ? Selections.SequenceEqual(other.Selections)
+      : Domain.NullEqual(other.Domain) && Argument.NullEqual(other.Argument);
 
   internal override IEnumerable<string?> GetFields()
   => base.GetFields()

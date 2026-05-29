@@ -42,8 +42,7 @@ public record class UsageIdentified<TUsage, TIdentified>(IEnumerable<TUsage> Usa
   where TUsage : IAstError where TIdentified : IAstIdentified;
 
 public interface IVerifyIdentified<TUsage, TIdentified> : IVerify<UsageIdentified<TUsage, TIdentified>>
-    where TUsage : IAstError where TIdentified : IAstIdentified
-{ }
+    where TUsage : IAstError where TIdentified : IAstIdentified;
 
 public class IdentifiedVerifier<TUsage, TIdentified>(
   IdentifiedVerifier<TUsage, TIdentified>.D factory

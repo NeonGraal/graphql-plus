@@ -78,5 +78,4 @@ public interface IManyChecksParser<T>
 
 public interface IManyChecksParser<TInterface, TResult>
   : IManyChecksParser<TResult>
-  where TInterface : class, IParserArray<TResult>
-{ }
+  where TInterface : class, IParserArray<TResult>;

@@ -69,8 +69,7 @@ public interface ITypeEncoder
 public interface ITypeEncoder<TModel>
   : ITypeEncoder
   , IEncoder<TModel>
-  where TModel : IModelBase
-{ }
+  where TModel : IModelBase;
 
 internal class TypeRefEncoder<TModel, TKind>
   : NamedEncoder<TModel>

@@ -40,7 +40,8 @@ internal sealed record class OperationAst(
     => other is IAstOperation operation && Equals(operation);
   public bool Equals(IAstOperation other)
     => base.Equals(other)
-    && Result == other.Result;
+    && Result == other.Result
+    && Domain.NullEqual(other?.Domain);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Result);
 

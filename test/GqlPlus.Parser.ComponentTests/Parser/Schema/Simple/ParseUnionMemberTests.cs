@@ -5,8 +5,7 @@ namespace GqlPlus.Parser.Schema.Simple;
 
 public sealed class ParseUnionMemberTests(
   IBaseNamedChecks<string, IAstUnionMember> checks
-) : BaseNamedTests<string, IAstUnionMember>(checks)
-{ }
+) : BaseNamedTests<string, IAstUnionMember>(checks);
 
 internal sealed class ParseUnionMemberChecks(
   IParserRepository parsers

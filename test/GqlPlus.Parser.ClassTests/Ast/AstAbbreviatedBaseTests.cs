@@ -2,8 +2,7 @@
 namespace GqlPlus.Ast;
 
 public abstract class AstAbbreviatedBaseTests
-  : AstAbbreviatedBaseTests<string>
-{ }
+  : AstAbbreviatedBaseTests<string>;
 
 public abstract class AstAbbreviatedBaseTests<TInput>
   : AstBaseTests<TInput>
@@ -17,8 +16,7 @@ internal class AstAbbreviatedChecks<TAst>(
   BaseAstChecks<TAst>.CreateBy<string> createInput,
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
 ) : AstAbbreviatedChecks<string, TAst>(createInput, createExpression)
-  where TAst : IAstAbbreviated
-{ }
+  where TAst : IAstAbbreviated;
 
 internal class AstAbbreviatedChecks<TInput, TAst>(
   BaseAstChecks<TAst>.CreateBy<TInput> createInput,

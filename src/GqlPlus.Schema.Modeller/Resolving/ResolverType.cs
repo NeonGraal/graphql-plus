@@ -22,5 +22,4 @@ public interface ITypeResolver
 internal interface ITypeResolver<TModel>
   : ITypeResolver
   , IResolver<TModel>
-  where TModel : BaseTypeModel
-{ }
+  where TModel : BaseTypeModel;

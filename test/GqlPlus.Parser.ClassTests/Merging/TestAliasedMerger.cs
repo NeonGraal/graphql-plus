@@ -5,8 +5,7 @@ namespace GqlPlus.Merging;
 
 public abstract class TestAliasedMerger<TAst>
   : TestAliasedMerger<TAst, string>
-  where TAst : IAstAliased
-{ }
+  where TAst : IAstAliased;
 
 public abstract class TestAliasedMerger<TAst, TInput>
   : TestDescriptionsMerger<TAst, TInput>

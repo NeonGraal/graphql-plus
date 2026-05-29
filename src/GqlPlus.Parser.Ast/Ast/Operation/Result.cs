@@ -3,8 +3,7 @@
 public interface IAstSelection
   : IAstError
   , IAstDirectives
-  , IAstModifiers
-{ }
+  , IAstModifiers;
 
 public interface IAstField
   : IAstIdentified
@@ -28,8 +27,7 @@ public interface IAstInline
 public interface IAstSpread
   : IAstIdentified
   , IAstSelection
-  , IEquatable<IAstSpread>
-{ }
+  , IEquatable<IAstSpread>;
 
 public interface IAstArg
   : IAstValue<IAstArg>

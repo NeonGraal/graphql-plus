@@ -22,5 +22,4 @@ internal abstract class ModellerDomain<TItemAst, TItemModel>
 public interface IDomainModeller<TItemAst, TItemModel>
   : IModeller<IAstDomain<TItemAst>, BaseDomainModel<TItemModel>>
   where TItemAst : IAstDomainItem
-  where TItemModel : BaseDomainItemModel
-{ }
+  where TItemModel : BaseDomainItemModel;

@@ -45,5 +45,4 @@ internal class ModifierModeller
 
 public interface IModifierModeller
   : IModeller<IAstModifier, ModifierModel>
-  , IModeller<IAstModifier, CollectionModel>
-{ }
+  , IModeller<IAstModifier, CollectionModel>;

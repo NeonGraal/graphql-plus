@@ -1,8 +1,7 @@
 ﻿namespace GqlPlus.Models;
 
 public record class OperationsModel()
-  : AndTypeModel<OperationModel>
-{ }
+  : AndTypeModel<OperationModel>;
 
 public record class OperationModel(
   string Name,
@@ -35,23 +34,20 @@ public record class OpDirectiveModel(
 }
 
 public record class OpArgumentModel
-  : ModelBase
-{ }
+  : ModelBase;
 
 public record class OpFragmentModel(
   string Name,
   TypeRefModel<TypeKindModel> Type,
   string Description
-) : OpDirectivesModel(Name, Description)
-{ }
+) : OpDirectivesModel(Name, Description);
 
 public record class OpVariableModel(
   string Name,
   TypeRefModel<TypeKindModel>? Type,
   ConstantModel? DefaultValue,
   string Description
-) : OpDirectivesModel(Name, Description)
-{ }
+) : OpDirectivesModel(Name, Description);
 
 public record class OpResultModel(
   TypeRefModel<TypeKindModel> Domain
@@ -63,7 +59,6 @@ public record class OpResultModel(
 public abstract record class OpSelectionModel
   : ModelBase
 {
-  public abstract string Key { get; }
   public OpDirectiveModel[] Directives { get; init; } = [];
   public ModifierModel[] Modifiers { get; init; } = [];
 }
@@ -73,7 +68,6 @@ public record class OpFieldSelectionModel(
   string Description
 ) : OpSelectionModel
 {
-  public override string Key => Name;
   public string? Alias { get; init; }
   public OpArgumentModel? Argument { get; init; }
 }
@@ -81,15 +75,9 @@ public record class OpFieldSelectionModel(
 public record class OpInlineSelectionModel(
   TypeRefModel<TypeKindModel>? Type,
   string Description
-) : OpSelectionModel
-{
-  public override string Key => "|" + Type?.Name.Prefixed(":");
-}
+) : OpSelectionModel;
 
 public record class OpSpreadSelectionModel(
   string Fragment,
   string Description
-) : OpSelectionModel
-{
-  public override string Key => "|" + Fragment;
-}
+) : OpSelectionModel;

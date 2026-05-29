@@ -1,7 +1,41 @@
-﻿namespace GqlPlus.Ast.Schema.Globals;
+﻿using GqlPlus.Ast.Operation;
+
+namespace GqlPlus.Ast.Schema.Globals;
 
 public partial class OperationDeclAstTests
 {
+  [Theory, RepeatData]
+  public void HashCode_WithArgument(OperationInput input, string domain, string variable)
+    => _checks.HashCode(() => CreateOperation(input) with {
+      Domain = new TypeRefAst(AstNulls.At, domain),
+      Argument = new ArgAst(AstNulls.At, variable)
+    });
+
+  [Theory, RepeatData]
+  public void Text_WithArgument(OperationInput input, string domain, string variable)
+    => _checks.Text(
+      () => CreateOperation(input) with {
+        Domain = new TypeRefAst(AstNulls.At, domain),
+        Argument = new ArgAst(AstNulls.At, variable)
+      },
+      $"( !SO {input.Name} {input.Category} !Tr {domain} ( !a ${variable} ) )");
+
+  [Theory, RepeatData]
+  public void Equality_WithArgument(OperationInput input, string domain, string variable)
+    => _checks.Equality(
+      () => CreateOperation(input) with {
+        Domain = new TypeRefAst(AstNulls.At, domain),
+        Argument = new ArgAst(AstNulls.At, variable)
+      });
+
+  [Theory, RepeatData]
+  public void Inequality_WithArgument(OperationInput input, string domain, string variable)
+    => _checks.InequalityWith(input,
+      () => CreateOperation(input) with {
+        Domain = new TypeRefAst(AstNulls.At, domain),
+        Argument = new ArgAst(AstNulls.At, variable)
+      });
+
   private readonly OperationDeclAstChecks _checks = new();
 
   internal static OperationDeclAst CreateOperation(OperationInput input)

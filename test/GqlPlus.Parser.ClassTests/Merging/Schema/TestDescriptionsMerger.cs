@@ -4,8 +4,7 @@ namespace GqlPlus.Merging.Schema;
 
 public abstract class TestDescriptionsMerger<TAst>
   : TestDescriptionsMerger<TAst, string>
-  where TAst : IAstError, IAstDescribed
-{ }
+  where TAst : IAstError, IAstDescribed;
 
 public abstract class TestDescriptionsMerger<TAst, TInput>
   : TestGroupsMerger<TAst, TInput>

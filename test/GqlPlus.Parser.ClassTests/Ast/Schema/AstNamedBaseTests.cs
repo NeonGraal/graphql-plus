@@ -98,8 +98,7 @@ internal abstract class AstNamedChecks<TInput, TNamed>(
 }
 
 internal interface IAstNamedChecks
-  : IAstNamedChecks<string>
-{ }
+  : IAstNamedChecks<string>;
 
 internal interface IAstNamedChecks<TInput>
   : IAstAbbreviatedChecks<TInput>

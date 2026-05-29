@@ -80,5 +80,4 @@ public interface IAstValue<TValue>
 
 public interface IAstFields<TValue>
   : IImmutableDictionary<IAstFieldKey, TValue>
-  , IEquatable<IAstFields<TValue>>
-{ }
+  , IEquatable<IAstFields<TValue>>;

@@ -106,8 +106,7 @@ public interface IAliasedModel
 public record class DescribedModel(
   string Description
 ) : ModelBase
-  , IDescribedModel
-{ }
+  , IDescribedModel;
 
 public interface IDescribedModel
   : IModelBase
@@ -119,8 +118,7 @@ public record class NamedModel(
   string Name,
   string Description
 ) : DescribedModel(Description)
-  , INamedModel
-{ }
+  , INamedModel;
 
 public interface INamedModel
   : IDescribedModel

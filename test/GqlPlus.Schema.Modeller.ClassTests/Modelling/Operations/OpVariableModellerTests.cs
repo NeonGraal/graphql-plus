@@ -28,4 +28,18 @@ public class OpVariableModellerTests
         r => r.Type!.Name.ShouldBe(typeName)
       );
   }
+
+  [Theory, RepeatData]
+  public void ToModel_WithNullType_TypeIsNull(string name)
+  {
+    // Arrange
+    IAstVariable ast = A.Identified<IAstVariable>(name);
+    ast.Type.Returns((string?)null);
+
+    // Act
+    OpVariableModel result = Modeller.ToModel(ast, TypeKinds);
+
+    // Assert
+    result.Type.ShouldBeNull();
+  }
 }

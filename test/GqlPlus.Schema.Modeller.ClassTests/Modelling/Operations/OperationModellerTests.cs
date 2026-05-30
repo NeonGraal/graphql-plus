@@ -227,4 +227,178 @@ public class OperationModellerTests
       s => s[".1"].ShouldBe([spreadModel])
     );
   }
+
+  [Theory, RepeatData]
+  public void ToModel_WithDomain_SetsResult(string name, string domainName)
+  {
+    // Arrange
+    IAstTypeRef domain = A.Named<IAstTypeRef>(domainName);
+    IAstSchemaOperation ast = A.Named<IAstSchemaOperation>(name, "");
+    ast.Category.Returns("");
+    ast.Aliases.Returns([]);
+    ast.Variables.Returns([]);
+    ast.Directives.Returns([]);
+    ast.Fragments.Returns([]);
+    ast.Domain.Returns(domain);
+    ast.Modifiers.Returns([]);
+    ast.Selections.Returns([]);
+
+    OpResultModel resultModel = new(domainName.TypeRef(TypeKindModel.Output));
+    ToModelReturns(_result, domain, resultModel);
+    ToModelsReturns(_directive, []);
+    ToModelsReturns(_fragment, []);
+    ToModelsReturns(_modifier, []);
+    ToModelsReturns(_variable, []);
+
+    // Act
+    OperationModel result = Modeller.ToModel(ast, TypeKinds);
+
+    // Assert
+    result.Result.ShouldBe(resultModel);
+  }
+
+  [Theory, RepeatData]
+  public void ToModel_WithNullDomain_ResultIsNull(string name)
+  {
+    // Arrange
+    IAstSchemaOperation ast = A.Named<IAstSchemaOperation>(name, "");
+    ast.Category.Returns("");
+    ast.Aliases.Returns([]);
+    ast.Variables.Returns([]);
+    ast.Directives.Returns([]);
+    ast.Fragments.Returns([]);
+    ast.Domain.Returns((IAstTypeRef?)null);
+    ast.Modifiers.Returns([]);
+    ast.Selections.Returns([]);
+
+    ToModelsReturns(_directive, []);
+    ToModelsReturns(_fragment, []);
+    ToModelsReturns(_modifier, []);
+    ToModelsReturns(_variable, []);
+
+    // Act
+    OperationModel result = Modeller.ToModel(ast, TypeKinds);
+
+    // Assert
+    result.Result.ShouldBeNull();
+  }
+
+  [Theory, RepeatData]
+  public void ToModel_WithWhitespaceDomainName_ResultIsNull(string name)
+  {
+    // Arrange
+    IAstTypeRef domain = A.Named<IAstTypeRef>(" ");
+    IAstSchemaOperation ast = A.Named<IAstSchemaOperation>(name, "");
+    ast.Category.Returns("");
+    ast.Aliases.Returns([]);
+    ast.Variables.Returns([]);
+    ast.Directives.Returns([]);
+    ast.Fragments.Returns([]);
+    ast.Domain.Returns(domain);
+    ast.Modifiers.Returns([]);
+    ast.Selections.Returns([]);
+
+    ToModelsReturns(_directive, []);
+    ToModelsReturns(_fragment, []);
+    ToModelsReturns(_modifier, []);
+    ToModelsReturns(_variable, []);
+
+    // Act
+    OperationModel result = Modeller.ToModel(ast, TypeKinds);
+
+    // Assert
+    result.Result.ShouldBeNull();
+  }
+
+  [Theory, RepeatData]
+  public void ToModel_WithDirectives_MapsDirectives(string name, string directiveName)
+  {
+    // Arrange
+    IAstSchemaOperation ast = A.Named<IAstSchemaOperation>(name, "");
+    ast.Category.Returns("");
+    ast.Aliases.Returns([]);
+    ast.Variables.Returns([]);
+    ast.Directives.Returns([]);
+    ast.Fragments.Returns([]);
+    ast.Domain.Returns((IAstTypeRef?)null);
+    ast.Modifiers.Returns([]);
+    ast.Selections.Returns([]);
+
+    OpDirectiveModel directiveModel = new(directiveName, "");
+    ToModelsReturns(_directive, [directiveModel]);
+    ToModelsReturns(_fragment, []);
+    ToModelsReturns(_modifier, []);
+    ToModelsReturns(_variable, []);
+
+    // Act
+    OperationModel result = Modeller.ToModel(ast, TypeKinds);
+
+    // Assert
+    result.Directives.ShouldBe([directiveModel]);
+  }
+
+  [Theory, RepeatData]
+  public void ToModel_WithModifiers_MapsModifiers(string name)
+  {
+    // Arrange
+    IAstSchemaOperation ast = A.Named<IAstSchemaOperation>(name, "");
+    ast.Category.Returns("");
+    ast.Aliases.Returns([]);
+    ast.Variables.Returns([]);
+    ast.Directives.Returns([]);
+    ast.Fragments.Returns([]);
+    ast.Domain.Returns((IAstTypeRef?)null);
+    ast.Modifiers.Returns([]);
+    ast.Selections.Returns([]);
+
+    ModifierModel[] modifiers = [new(ModifierKindModel.List)];
+    ToModelsReturns(_directive, []);
+    ToModelsReturns(_fragment, []);
+    ToModelsReturns(_modifier, modifiers);
+    ToModelsReturns(_variable, []);
+
+    // Act
+    OperationModel result = Modeller.ToModel(ast, TypeKinds);
+
+    // Assert
+    result.Modifiers.ShouldBe(modifiers);
+  }
+
+  [Theory, RepeatData]
+  public void ToModel_WithFragmentSelections_MapsSelectionsUnderFragmentKey(
+    string name, string fragName, string fieldName)
+  {
+    // Arrange
+    IAstSchemaOperation ast = A.Named<IAstSchemaOperation>(name, "");
+    ast.Category.Returns("");
+    ast.Aliases.Returns([]);
+    ast.Variables.Returns([]);
+    ast.Directives.Returns([]);
+    ast.Domain.Returns((IAstTypeRef?)null);
+    ast.Modifiers.Returns([]);
+    ast.Selections.Returns([]);
+
+    IAstFragment fragAst = A.Identified<IAstFragment>(fragName);
+    IAstField fieldAst = A.Identified<IAstField>(fieldName);
+    fieldAst.Selections.Returns([]);
+    fragAst.Selections.Returns([fieldAst]);
+    ast.Fragments.Returns([fragAst]);
+
+    OpFieldSelectionModel fieldModel = new(fieldName, "");
+    OpFragmentModel fragModel = new(fragName, fragName.TypeRef(TypeKindModel.Output), "");
+    ToModelsReturns(_fragment, [fragModel]);
+    ToModelReturns(_selection, fieldAst, fieldModel);
+    ToModelsReturns(_directive, []);
+    ToModelsReturns(_modifier, []);
+    ToModelsReturns(_variable, []);
+
+    // Act
+    OperationModel result = Modeller.ToModel(ast, TypeKinds);
+
+    // Assert
+    result.Selections.ShouldSatisfyAllConditions(
+      s => s.ShouldContainKey(fragName),
+      s => s[fragName].ShouldBe([fieldModel])
+    );
+  }
 }

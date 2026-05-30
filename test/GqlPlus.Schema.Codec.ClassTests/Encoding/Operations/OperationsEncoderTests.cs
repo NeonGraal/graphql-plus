@@ -35,4 +35,37 @@ public class OperationsEncoderTests
         ":operation=[Operation]" + opName,
         ":type=[Input]" + name));
   }
+
+  [Theory, RepeatData]
+  public void Encode_WithTypeOnly_ReturnsTypeEncoding(string name)
+  {
+    // Arrange
+    BaseTypeModel type = new TypeInputModel(name, string.Empty);
+    _type.Encode(type).Returns(name.Encode("Input"));
+
+    // Act
+    EncodeAndCheck(new() { Type = type }, [
+        "=[Input]" + name,
+      ]);
+  }
+
+  [Theory, RepeatData]
+  public void Encode_WithOperationOnly_ReturnsOperationEncoding(string opName)
+  {
+    // Arrange
+    OperationModel operation = new(opName, "query", string.Empty);
+    _operation.Encode(operation).Returns(opName.Encode("Operation"));
+
+    // Act
+    EncodeAndCheck(new() { And = operation }, [
+        "=[Operation]" + opName,
+      ]);
+  }
+
+  [Fact]
+  public void Encode_WithNeitherTypeNorOperation_ReturnsEmpty()
+  {
+    // Act
+    EncodeAndCheck(new(), []);
+  }
 }

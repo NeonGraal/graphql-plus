@@ -216,7 +216,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
       context.Write($"      {encodePart}");
     }
 
-    context.Write($"      {encodeParts[encodeParts.Count - 1]};");
+    context.Write($"      {encodeParts[^1]};");
   }
 
   private static void WriteEncoderFactory(GqlpGeneratorContext context, string typeName, string typeParams, bool needsEncoders)
@@ -258,25 +258,25 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     string name = StripGenericArgs(encoderType);
     name = StripInterfaceOrUpperPrefix(name);
     name = StripTypePrefix(name, typePrefix);
-    name = name.StartsWith("_", StringComparison.Ordinal) ? name.Substring(1) : name;
-    name = name.EndsWith("Object", StringComparison.Ordinal) ? name.Substring(0, name.Length - "Object".Length) : name;
+    name = name.StartsWith("_", StringComparison.Ordinal) ? name[1..] : name;
+    name = name.EndsWith("Object", StringComparison.Ordinal) ? name[..^"Object".Length] : name;
     return "_" + (name.Camelize() ?? name.ToLower(System.Globalization.CultureInfo.InvariantCulture));
   }
 
   private static string StripGenericArgs(string name)
   {
     int genericStart = name.IndexOf('<');
-    return genericStart >= 0 ? name.Substring(0, genericStart) : name;
+    return genericStart >= 0 ? name[..genericStart] : name;
   }
 
   private static string StripInterfaceOrUpperPrefix(string name)
   {
     if (name.StartsWith("I", StringComparison.Ordinal) && name.Length > 1 && char.IsUpper(name[1])) {
-      return name.Substring(1);
+      return name[1..];
     }
 
     if (name.Length > 1 && char.IsUpper(name[0]) && char.IsUpper(name[1])) {
-      return name.Substring(1);
+      return name[1..];
     }
 
     return name;
@@ -286,11 +286,11 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
   {
     string prefixWithUnderscore = typePrefix + "_";
     if (name.StartsWith(prefixWithUnderscore, StringComparison.Ordinal)) {
-      return name.Substring(prefixWithUnderscore.Length);
+      return name[prefixWithUnderscore.Length..];
     }
 
     if (name.StartsWith(typePrefix, StringComparison.Ordinal)) {
-      return name.Substring(typePrefix.Length);
+      return name[typePrefix.Length..];
     }
 
     return name;

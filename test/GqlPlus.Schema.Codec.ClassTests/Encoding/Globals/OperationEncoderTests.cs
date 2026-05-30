@@ -1,4 +1,4 @@
-namespace GqlPlus.Encoding.Globals;
+﻿namespace GqlPlus.Encoding.Globals;
 
 public class OperationsEncoderTests
   : EncoderClassTestBase<OperationsModel>

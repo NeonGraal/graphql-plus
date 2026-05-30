@@ -1,4 +1,4 @@
-using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Modelling.Globals;
 
@@ -72,7 +72,7 @@ public class OperationModellerTests
     ast.Aliases.Returns([]);
     IAstVariable var1Ast = A.Identified<IAstVariable>(var1Name);
     IAstVariable var2Ast = A.Identified<IAstVariable>(var2Name);
-    ast.Variables.Returns(new IAstVariable[] { var1Ast, var2Ast });
+    ast.Variables.Returns([var1Ast, var2Ast]);
     ast.Directives.Returns([]);
     ast.Fragments.Returns([]);
     ast.Domain.Returns((IAstTypeRef?)null);
@@ -145,14 +145,14 @@ public class OperationModellerTests
     IAstInline inline1Ast = A.Error<IAstInline>();
     inline1Ast.OnType.Returns(typeName);
     IAstSpread spread1Ast = A.Identified<IAstSpread>(spreadName);
-    ast.Selections.Returns(new IAstSelection[] { field1Ast, inline1Ast, spread1Ast });
+    ast.Selections.Returns([field1Ast, inline1Ast, spread1Ast]);
 
     // Level 1 sub-selections from field1: subField, subInline, subSpread – all three types
     IAstField subFieldAst = A.Identified<IAstField>(subFieldName);
     IAstInline subInlineAst = A.Error<IAstInline>();
     subInlineAst.OnType.Returns(typeName);
     IAstSpread subSpreadAst = A.Identified<IAstSpread>(subSpreadName);
-    field1Ast.Selections.Returns(new IAstSelection[] { subFieldAst, subInlineAst, subSpreadAst });
+    field1Ast.Selections.Returns([subFieldAst, subInlineAst, subSpreadAst]);
     subFieldAst.Selections.Returns([]);
     subInlineAst.Selections.Returns([]);
     inline1Ast.Selections.Returns([]);
@@ -180,8 +180,8 @@ public class OperationModellerTests
 
     // Assert
     result.Selections.ShouldSatisfyAllConditions(
-      s => s[""].ShouldBe(new OpSelectionModel[] { field1Model, inline1Model, spread1Model }),
-      s => s[".1"].ShouldBe(new OpSelectionModel[] { subFieldModel, subInlineModel, subSpreadModel })
+      s => s[""].ShouldBe([field1Model, inline1Model, spread1Model]),
+      s => s[".1"].ShouldBe([subFieldModel, subInlineModel, subSpreadModel])
     );
   }
 
@@ -202,11 +202,11 @@ public class OperationModellerTests
     // Level 0: a single inline selection (IAstInline also implements IAstSelections)
     IAstInline inlineAst = A.Error<IAstInline>();
     inlineAst.OnType.Returns(typeName);
-    ast.Selections.Returns(new IAstSelection[] { inlineAst });
+    ast.Selections.Returns([inlineAst]);
 
     // Level 1 sub-selection from inline: a spread
     IAstSpread spreadAst = A.Identified<IAstSpread>(spreadName);
-    inlineAst.Selections.Returns(new IAstSelection[] { spreadAst });
+    inlineAst.Selections.Returns([spreadAst]);
 
     OpInlineSelectionModel inlineModel = new(null, "");
     OpSpreadSelectionModel spreadModel = new(spreadName, "");
@@ -223,8 +223,8 @@ public class OperationModellerTests
 
     // Assert
     result.Selections.ShouldSatisfyAllConditions(
-      s => s[""].ShouldBe(new OpSelectionModel[] { inlineModel }),
-      s => s[".1"].ShouldBe(new OpSelectionModel[] { spreadModel })
+      s => s[""].ShouldBe([inlineModel]),
+      s => s[".1"].ShouldBe([spreadModel])
     );
   }
 }

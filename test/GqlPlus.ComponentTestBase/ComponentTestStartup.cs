@@ -33,7 +33,7 @@ public static class ComponentTestStartup
       .AddComponentTest(checkEnv)
       .AddTransient<ISchemaParseChecks, SchemaParseChecks>()
       .AddParsers(b => b
-      	.AddSchemaParsers()
-      	.AddOperationParsers())
+        .AddSchemaParsers()
+        .AddOperationParsers())
       .AddMergers(b => b.AddSchemaMergers());
 }

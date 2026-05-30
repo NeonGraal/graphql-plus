@@ -1,6 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 
-namespace GqlPlus.Modelling.Objects;
+namespace GqlPlus.Modelling;
 
 public abstract class ModellerObjectBaseTestBase<TAst, TModel, TBaseModel>
   : ModellerClassTestBase<TAst, TModel>

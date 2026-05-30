@@ -1,6 +1,6 @@
-﻿using GqlPlus.Building.Schema.Objects;
+using GqlPlus.Building.Schema.Objects;
 
-namespace GqlPlus.Modelling.Objects;
+namespace GqlPlus.Modelling;
 
 public class TypeArgModellerTests
   : ModellerClassTestBase<IAstTypeArg, TypeArgModel>

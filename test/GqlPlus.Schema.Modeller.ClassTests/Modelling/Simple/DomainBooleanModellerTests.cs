@@ -1,6 +1,6 @@
-﻿using GqlPlus.Building.Schema.Simple;
+using GqlPlus.Building.Schema.Simple;
 
-namespace GqlPlus.Modelling.Simple;
+namespace GqlPlus.Modelling;
 
 public class DomainBooleanModellerTests
   : DomainModellerClassTestBase<IAstDomainTrueFalse, DomainTrueFalseModel>

@@ -1,5 +1,3 @@
-﻿using GqlPlus.Modelling.Simple;
-
 namespace GqlPlus.Modelling;
 
 public class SpecialTypeModellerTests

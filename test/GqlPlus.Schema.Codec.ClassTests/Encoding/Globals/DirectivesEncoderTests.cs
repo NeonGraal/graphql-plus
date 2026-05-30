@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Encoding.Globals;
+namespace GqlPlus.Encoding;
 
 public class DirectivesEncoderTests
   : EncoderClassTestBase<DirectivesModel>

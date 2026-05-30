@@ -1,7 +1,7 @@
-﻿using GqlPlus.Building;
+using GqlPlus.Building;
 using GqlPlus.Building.Schema;
 
-namespace GqlPlus.Modelling.Objects;
+namespace GqlPlus.Modelling;
 
 public class AlternateModellerTests
   : ModellerObjectBaseTestBase<IAstAlternate, AlternateModel, ObjBaseModel>

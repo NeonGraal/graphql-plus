@@ -1,8 +1,8 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Modelling;
 
-namespace GqlPlus.Schema.Globals;
+namespace GqlPlus.Schema;
 
 public class OperationsModelTests(
   IOperationsModelChecks checks

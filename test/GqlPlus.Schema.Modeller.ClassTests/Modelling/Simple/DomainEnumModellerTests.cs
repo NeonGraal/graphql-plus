@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Modelling.Simple;
+namespace GqlPlus.Modelling;
 
 public class DomainEnumModellerTests
   : DomainModellerClassTestBase<IAstDomainLabel, DomainLabelModel>

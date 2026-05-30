@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Modelling.Objects;
+namespace GqlPlus.Modelling;
 
 internal class OutputModeller(
   IModellerRepository modellers

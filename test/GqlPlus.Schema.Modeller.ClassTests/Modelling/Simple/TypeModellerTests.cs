@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Modelling.Simple;
+namespace GqlPlus.Modelling;
 
 public abstract class TypeModellerTests<TAst, TModel>(
   TypeKindModel kind

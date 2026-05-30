@@ -21,7 +21,7 @@ public class DomainBooleanModellerTests
     // Arrange
     ArgumentNullException.ThrowIfNull(boolValues);
     ArgumentNullException.ThrowIfNull(excludeValues);
-    this.SkipIf(boolValues.Length != excludeValues.Length);
+    this.SkipIf(boolValues.ThrowIfNull().Length != excludeValues.ThrowIfNull().Length);
 
     IAstDomainTrueFalse[] items = [.. boolValues.Zip(excludeValues, A.ItemTrueFalse)];
 
@@ -37,11 +37,11 @@ public class DomainBooleanModellerTests
         r => r.Name.ShouldBe(name),
         r => r.DomainKind.ShouldBe(DomainKindModel.Boolean),
         r => r.Parent.ShouldNotBeNull().Name.ShouldBe(parent),
-        r => r.Items.Length.ShouldBe(boolValues.Length),
-        r => r.AllItems.Length.ShouldBe(boolValues.Length));
+        r => r.Items.Length.ShouldBe(boolValues.ThrowIfNull().Length),
+        r => r.AllItems.Length.ShouldBe(boolValues.ThrowIfNull().Length));
 
     // Verify individual items
-    for (int i = 0; i < boolValues.Length; i++) {
+    for (int i = 0; i < boolValues.ThrowIfNull().Length; i++) {
       result.Items[i].ShouldSatisfyAllConditions(
         item => item.Value.ShouldBe(boolValues[i]),
         item => item.Exclude.ShouldBe(excludeValues[i]));

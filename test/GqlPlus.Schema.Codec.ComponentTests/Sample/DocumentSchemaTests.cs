@@ -67,11 +67,11 @@ public class DocumentSchemaTests(
       .AddMap("Dual", duals, Types, "_Type")
       .AddMap("Input", inputs, Types, "_Type")
       .AddMap("Output", outputs, Types, "_Type");
-    IEnumerable<CategoryModel> categories = model.GetCategories(null).Values.Select(c => c.And).Where(c => c is not null).Cast<CategoryModel>();
-    IEnumerable<DirectiveModel> directives = model.GetDirectives(null).Values.Select(c => c.And).Where(c => c is not null).Cast<DirectiveModel>();
-    IEnumerable<OperationModel> operations = model.GetOperations(null).Values.Select(c => c.And).Where(c => c is not null).Cast<OperationModel>();
-    ICollection<SettingModel> settings = model.GetSettings(null).Values;
-    SchemaModel newModel = new(model.Name, categories, directives, operations, settings, [], model.Errors);
+    IEnumerable<CategoryModel> categories = model.ThrowIfNull().GetCategories(null).Values.Select(c => c.And).Where(c => c is not null).Cast<CategoryModel>();
+    IEnumerable<DirectiveModel> directives = model.ThrowIfNull().GetDirectives(null).Values.Select(c => c.And).Where(c => c is not null).Cast<DirectiveModel>();
+    IEnumerable<OperationModel> operations = model.ThrowIfNull().GetOperations(null).Values.Select(c => c.And).Where(c => c is not null).Cast<OperationModel>();
+    ICollection<SettingModel> settings = model.ThrowIfNull().GetSettings(null).Values;
+    SchemaModel newModel = new(model.ThrowIfNull().Name, categories, directives, operations, settings, [], model.ThrowIfNull().Errors);
     Structured result = checks.Encode_Model(newModel, context)
       .Add("groups", groups)
       .Add("title", test.Encode());

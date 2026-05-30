@@ -47,17 +47,48 @@
         "$mapTag": "_Map(_Selections)",
         "": {
           "$keyTag": "_Name",
-          "$list": [],
+          "$list": [
+            {
+              "$mapTag": "_OpSpreadSelection",
+              "fragment": "firstLast"
+            },
+            {
+              "$mapTag": "_OpFieldSelection",
+              "name": "address"
+            }
+          ],
           "$listTag": "_Selections"
         },
         ".2": {
           "$keyTag": "_Name",
-          "$list": [],
+          "$list": [
+            {
+              "$mapTag": "_OpFieldSelection",
+              "name": "street"
+            },
+            {
+              "$mapTag": "_OpFieldSelection",
+              "name": "city"
+            },
+            {
+              "$mapTag": "_OpFieldSelection",
+              "name": "country"
+            }
+          ],
           "$listTag": "_Selections"
         },
         "firstLast": {
           "$keyTag": "_Name",
-          "$list": [],
+          "$list": [
+            {
+              "$mapTag": "_OpFieldSelection",
+              "name": "first"
+            },
+            {
+              "$mapTag": "_OpFieldSelection",
+              "name": "last"
+            }
+          ],
           "$listTag": "_Selections"
         }
       }

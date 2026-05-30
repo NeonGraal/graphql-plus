@@ -18,8 +18,22 @@ operations: !_Map(_Operations)
     name: OprSlctSprd
     selections: !_Map(_Selections)
       : !_Selections
+        - !_OpSpreadSelection
+          fragment: firstLast
+        - !_OpFieldSelection
+          name: address
       !_Name '.2': !_Selections
+        - !_OpFieldSelection
+          name: street
+        - !_OpFieldSelection
+          name: city
+        - !_OpFieldSelection
+          name: country
       !_Name firstLast: !_Selections
+        - !_OpFieldSelection
+          name: first
+        - !_OpFieldSelection
+          name: last
 types: !_Map(_Type)
   !_Name AddrOprSlctSprd: !_TypeOutput
     allFields:

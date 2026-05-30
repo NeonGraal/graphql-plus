@@ -12,7 +12,19 @@ operations: !_Map(_Operations)
     name: OprSlct
     selections: !_Map(_Selections)
       : !_Selections
+        - !_OpFieldSelection
+          name: first
+        - !_OpFieldSelection
+          name: last
+        - !_OpFieldSelection
+          name: address
       !_Name '.3': !_Selections
+        - !_OpFieldSelection
+          name: street
+        - !_OpFieldSelection
+          name: city
+        - !_OpFieldSelection
+          name: country
 types: !_Map(_Type)
   !_Name AddrOprSlct: !_TypeOutput
     allFields:

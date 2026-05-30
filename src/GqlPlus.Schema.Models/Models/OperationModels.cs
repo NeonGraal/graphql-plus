@@ -56,8 +56,9 @@ public record class OpResultModel(
   public OpArgumentModel? Argument { get; set; }
 }
 
-public abstract record class OpSelectionModel
-  : ModelBase
+public abstract record class OpSelectionModel(
+  string Description
+) : DescribedModel(Description)
 {
   public OpDirectiveModel[] Directives { get; init; } = [];
   public ModifierModel[] Modifiers { get; init; } = [];
@@ -66,7 +67,7 @@ public abstract record class OpSelectionModel
 public record class OpFieldSelectionModel(
   string Name,
   string Description
-) : OpSelectionModel
+) : OpSelectionModel(Description)
 {
   public string? Alias { get; init; }
   public OpArgumentModel? Argument { get; init; }
@@ -75,9 +76,9 @@ public record class OpFieldSelectionModel(
 public record class OpInlineSelectionModel(
   TypeRefModel<TypeKindModel>? Type,
   string Description
-) : OpSelectionModel;
+) : OpSelectionModel(Description);
 
 public record class OpSpreadSelectionModel(
   string Fragment,
   string Description
-) : OpSelectionModel;
+) : OpSelectionModel(Description);

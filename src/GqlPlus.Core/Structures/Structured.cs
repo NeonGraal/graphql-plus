@@ -92,6 +92,14 @@ public class Structured
       ? onTrue is not null ? onTrue(this) : this
       : onFalse is not null ? onFalse(this) : this;
 
+  public Structured AddNull<T>(
+    T? optional,
+    Func<Structured, Structured>? onValue = null,
+    Func<Structured, Structured>? onNull = null
+  ) => optional is null
+      ? onNull?.Invoke(this) ?? this
+      : onValue?.Invoke(this) ?? this;
+
   public Structured AddSet<TEnum>(string key, TEnum set, string? tag = null, bool flow = true)
     where TEnum : Enum
   {

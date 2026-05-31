@@ -1,4 +1,4 @@
-using GqlPlus.Building;
+﻿using GqlPlus.Building;
 using GqlPlus.Building.Schema;
 using GqlPlus.Building.Schema.Objects;
 

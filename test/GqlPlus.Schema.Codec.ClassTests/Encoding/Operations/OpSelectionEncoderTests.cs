@@ -1,4 +1,4 @@
-namespace GqlPlus.Encoding;
+﻿namespace GqlPlus.Encoding;
 
 public class OpSelectionEncoderTests
   : EncoderClassTestBase<OpSelectionModel>

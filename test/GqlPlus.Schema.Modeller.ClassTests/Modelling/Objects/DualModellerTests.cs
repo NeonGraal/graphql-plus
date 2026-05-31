@@ -1,4 +1,4 @@
-namespace GqlPlus.Modelling;
+﻿namespace GqlPlus.Modelling;
 
 public class DualModellerTests
   : ModellerObjectBaseTestBase<IAstObject<IAstDualField>, TypeDualModel, ObjBaseModel>

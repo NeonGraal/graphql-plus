@@ -1,1 +1,1 @@
-36b8815  (HEAD -> operation) 2026-05-28 Improve Schema Operation Selection introspection
+197853d  (HEAD -> operation) 2026-06-01 Fixup verification errors

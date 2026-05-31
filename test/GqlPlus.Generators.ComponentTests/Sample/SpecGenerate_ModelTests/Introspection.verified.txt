@@ -84,10 +84,10 @@ output _Directive {
 enum _Location { Operation Variable Field Inline Spread Fragment }
 
 output _Operations {
+    : _AndType
+
         operation: _Operation
-        type: _Type
     | _Operation
-    | _Type
 }
 
 output _OpDirectives {
@@ -770,28 +770,27 @@ public class Cmpt_DirectiveObject
 }
 
 public class Cmpt_Operations
-  : Spec_Introspection
+  : Cmpt_AndType
   , ICmpt_Operations
 {
   public ICmpt_Operation? As_Operation { get; set; }
-  public ICmpt_Type? As_Type { get; set; }
   public ICmpt_OperationsObject? As__Operations { get; set; }
 }
 
 public class Cmpt_OperationsObject
-  : Spec_Introspection
+  : Cmpt_AndTypeObject
   , ICmpt_OperationsObject
 {
   public ICmpt_Operation Operation { get; set; }
-  public ICmpt_Type Type { get; set; }
 
   public Cmpt_OperationsObject
-    ( ICmpt_Operation poperation
+    ( ICollection<string> pdescription
+    , ICmpt_Name pname
     , ICmpt_Type ptype
-    )
+    , ICmpt_Operation poperation
+    ) : base(pdescription, pname, ptype)
   {
     Operation = poperation;
-    Type = ptype;
   }
 }
 

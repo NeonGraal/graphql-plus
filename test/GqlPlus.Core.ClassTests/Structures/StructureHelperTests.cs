@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus;
-using Xunit.Runner.Common;
 
 namespace GqlPlus.Structures;
 

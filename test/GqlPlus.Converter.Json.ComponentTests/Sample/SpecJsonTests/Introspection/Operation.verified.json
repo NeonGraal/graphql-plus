@@ -13,6 +13,10 @@
       {
         "$mapTag": "_Error",
         "_message": "In _Operation can\u0027t get model for type \u0027_Aliased\u0027"
+      },
+      {
+        "$mapTag": "_Error",
+        "_message": "In _Operations can\u0027t get model for type \u0027_AndType\u0027"
       }
     ],
     "$listTag": "_Errors"
@@ -1427,14 +1431,6 @@
             "$mapTag": "_ObjBase",
             "name": "_Operation"
           }
-        },
-        {
-          "$mapTag": "_ObjectFor(_Alternate)",
-          "object": "_Operations",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_Type"
-          }
         }
       ],
       "allFields": [
@@ -1446,15 +1442,6 @@
             "$mapTag": "_ObjBase",
             "name": "_Operation"
           }
-        },
-        {
-          "$mapTag": "_ObjectFor(_OutputField)",
-          "name": "type",
-          "object": "_Operations",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_Type"
-          }
         }
       ],
       "alternates": [
@@ -1463,13 +1450,6 @@
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_Operation"
-          }
-        },
-        {
-          "$mapTag": "_Alternate",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_Type"
           }
         }
       ],
@@ -1481,17 +1461,13 @@
             "$mapTag": "_ObjBase",
             "name": "_Operation"
           }
-        },
-        {
-          "$mapTag": "_OutputField",
-          "name": "type",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_Type"
-          }
         }
       ],
       "name": "_Operations",
+      "parent": {
+        "$mapTag": "_ObjBase",
+        "name": "_AndType"
+      },
       "typeKind": {
         "$value": "Output",
         "$valueTag": "_TypeKind"

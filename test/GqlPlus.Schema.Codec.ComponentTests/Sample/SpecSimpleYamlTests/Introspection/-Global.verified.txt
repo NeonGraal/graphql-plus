@@ -765,41 +765,36 @@ types: !_Map(_Type)
   !_Name _Operations: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_Alternate)
-        object: _Operations
+        object: _AndType
         type: !_ObjBase
-          name: _Operation
+          name: _Type
       - !_ObjectFor(_Alternate)
         object: _Operations
         type: !_ObjBase
-          name: _Type
+          name: _Operation
     allFields:
+      - !_ObjectFor(_OutputField)
+        name: type
+        object: _AndType
+        type: !_ObjBase
+          name: _Type
       - !_ObjectFor(_OutputField)
         name: operation
         object: _Operations
         type: !_ObjBase
           name: _Operation
-      - !_ObjectFor(_OutputField)
-        name: type
-        object: _Operations
-        type: !_ObjBase
-          name: _Type
     alternates:
       - !_Alternate
         type: !_ObjBase
           name: _Operation
-      - !_Alternate
-        type: !_ObjBase
-          name: _Type
     fields:
       - !_OutputField
         name: operation
         type: !_ObjBase
           name: _Operation
-      - !_OutputField
-        name: type
-        type: !_ObjBase
-          name: _Type
     name: _Operations
+    parent: !_ObjBase
+      name: _AndType
     typeKind: !_TypeKind Output
   !_Name _Path: !_DomainString
     allItems:

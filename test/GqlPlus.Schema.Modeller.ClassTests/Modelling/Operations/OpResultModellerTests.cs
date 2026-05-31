@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast.Operation;
-
-namespace GqlPlus.Modelling;
+﻿namespace GqlPlus.Modelling;
 
 public class OpResultModellerTests
   : ModellerClassTestBase<IAstTypeRef, OpResultModel>

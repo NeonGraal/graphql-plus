@@ -84,10 +84,10 @@ output _Directive {
 enum _Location { Operation Variable Field Inline Spread Fragment }
 
 output _Operations {
+    : _AndType
+
         operation: _Operation
-        type: _Type
     | _Operation
-    | _Type
 }
 
 output _OpDirectives {
@@ -596,12 +596,11 @@ internal class Cmpt_OperationsEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmpt_OperationsObject>
 {
+  private readonly Encoder<ICmpt_AndTypeObject> _andType = encoders.EncoderFor<ICmpt_AndTypeObject>();
   private readonly Encoder<ICmpt_Operation> _operation = encoders.EncoderFor<ICmpt_Operation>();
-  private readonly Encoder<ICmpt_Type> _type = encoders.EncoderFor<ICmpt_Type>();
   public Structured Encode(ICmpt_OperationsObject input)
-    => Structured.Empty()
-      .AddEncoded("operation", input.Operation, _operation)
-      .AddEncoded("type", input.Type, _type);
+    => _andType.Encode(input)
+      .AddEncoded("operation", input.Operation, _operation);
 
   internal static Cmpt_OperationsEncoder Factory(IEncoderRepository r) => new(r);
 }

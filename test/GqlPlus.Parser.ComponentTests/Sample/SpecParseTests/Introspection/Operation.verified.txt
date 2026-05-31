@@ -3,23 +3,19 @@ Success
 {
   !Ou I@008/0001
   _Operations
+  :
+  I@007/0002
+  _AndType
   {
-    !OF I@009/0002
+    !OF I@009/0004
     operation
     :
-    I@020/0002
+    I@020/0004
     _Operation
-    !OF I@009/0003
-    type
-    :
-    I@015/0003
-    _Type
   }
   |
-  I@007/0004
-  _Operation
   I@007/0005
-  _Type
+  _Operation
 }
 {
   !Ou I@008/0008

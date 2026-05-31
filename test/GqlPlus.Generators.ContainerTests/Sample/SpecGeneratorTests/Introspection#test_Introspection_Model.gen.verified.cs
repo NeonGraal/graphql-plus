@@ -332,28 +332,27 @@ public class test_DirectiveObject
 }
 
 public class test_Operations
-  : GqlpModelBase
+  : test_AndType
   , Itest_Operations
 {
   public Itest_Operation? As_Operation { get; set; }
-  public Itest_Type? As_Type { get; set; }
   public Itest_OperationsObject? As__Operations { get; set; }
 }
 
 public class test_OperationsObject
-  : GqlpModelBase
+  : test_AndTypeObject
   , Itest_OperationsObject
 {
   public Itest_Operation Operation { get; set; }
-  public Itest_Type Type { get; set; }
 
   public test_OperationsObject
-    ( Itest_Operation poperation
+    ( ICollection<string> pdescription
+    , Itest_Name pname
     , Itest_Type ptype
-    )
+    , Itest_Operation poperation
+    ) : base(pdescription, pname, ptype)
   {
     Operation = poperation;
-    Type = ptype;
   }
 }
 

@@ -334,23 +334,19 @@ Success
 {
   !Ou I@008/0085
   _Operations
+  :
+  I@007/0086
+  _AndType
   {
-    !OF I@009/0086
+    !OF I@009/0088
     operation
     :
-    I@020/0086
+    I@020/0088
     _Operation
-    !OF I@009/0087
-    type
-    :
-    I@015/0087
-    _Type
   }
   |
-  I@007/0088
-  _Operation
   I@007/0089
-  _Type
+  _Operation
 }
 {
   !Ou I@008/0092

@@ -81,7 +81,7 @@ public class Structured
     string keyTag = "_Name"
   ) => Add(key, new(values.ToDictionary(
         p => new StructureValue(p.Key, keyTag),
-        (Func<KeyValuePair<string, TValue[]>, Structured>)(p => StructureHelper.Encode<TValue>(p.Value, (Func<TValue, Structured>)encoder.Encode, listTag, flow))),
+        p => StructureHelper.Encode<TValue>(p.Value, encoder.Encode, listTag, flow)),
     listTag.Surrounded("_Map(", ")"), flow));
 
   public Structured AddIf(

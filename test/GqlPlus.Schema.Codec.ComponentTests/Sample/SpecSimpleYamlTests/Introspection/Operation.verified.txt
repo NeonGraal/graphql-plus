@@ -6,6 +6,8 @@ errors: !_Errors
     _message: "In _OpDirectives can't get model for type '_Named'"
   - !_Error
     _message: "In _Operation can't get model for type '_Aliased'"
+  - !_Error
+    _message: "In _Operations can't get model for type '_AndType'"
 types: !_Map(_Type)
   !_Name OpSelectionBase: !_TypeOutput
     allFields:
@@ -546,38 +548,24 @@ types: !_Map(_Type)
         object: _Operations
         type: !_ObjBase
           name: _Operation
-      - !_ObjectFor(_Alternate)
-        object: _Operations
-        type: !_ObjBase
-          name: _Type
     allFields:
       - !_ObjectFor(_OutputField)
         name: operation
         object: _Operations
         type: !_ObjBase
           name: _Operation
-      - !_ObjectFor(_OutputField)
-        name: type
-        object: _Operations
-        type: !_ObjBase
-          name: _Type
     alternates:
       - !_Alternate
         type: !_ObjBase
           name: _Operation
-      - !_Alternate
-        type: !_ObjBase
-          name: _Type
     fields:
       - !_OutputField
         name: operation
         type: !_ObjBase
           name: _Operation
-      - !_OutputField
-        name: type
-        type: !_ObjBase
-          name: _Type
     name: _Operations
+    parent: !_ObjBase
+      name: _AndType
     typeKind: !_TypeKind Output
   !_Name _Path: !_DomainString
     allItems:

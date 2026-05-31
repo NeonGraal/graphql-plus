@@ -96,12 +96,11 @@ internal class test_OperationsEncoder(
   IEncoderRepository encoders
 ) : IEncoder<Itest_OperationsObject>
 {
+  private readonly Encoder<Itest_AndTypeObject> _itest_AndType = encoders.EncoderFor<Itest_AndTypeObject>();
   private readonly Encoder<Itest_Operation> _itest_Operation = encoders.EncoderFor<Itest_Operation>();
-  private readonly Encoder<Itest_Type> _itest_Type = encoders.EncoderFor<Itest_Type>();
   public Structured Encode(Itest_OperationsObject input)
-    => Structured.Empty()
-      .AddEncoded("operation", input.Operation, _itest_Operation)
-      .AddEncoded("type", input.Type, _itest_Type);
+    => _itest_AndType.Encode(input)
+      .AddEncoded("operation", input.Operation, _itest_Operation);
 
   internal static test_OperationsEncoder Factory(IEncoderRepository r) => new(r);
 }

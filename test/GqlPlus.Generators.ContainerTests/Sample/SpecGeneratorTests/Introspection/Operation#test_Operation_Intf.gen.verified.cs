@@ -8,18 +8,16 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Operation;
 
 public interface Itest_Operations
-  : IGqlpInterfaceBase
+  : Itest_AndType
 {
   Itest_Operation? As_Operation { get; }
-  Itest_Type? As_Type { get; }
   Itest_OperationsObject? As__Operations { get; }
 }
 
 public interface Itest_OperationsObject
-  : IGqlpInterfaceBase
+  : Itest_AndTypeObject
 {
   Itest_Operation Operation { get; }
-  Itest_Type Type { get; }
 }
 
 public interface Itest_OpDirectives

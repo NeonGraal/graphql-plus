@@ -20,5 +20,4 @@ internal class EnumParser<TEnum>
 
 public interface IEnumParser<TEnum>
   : IParser<TEnum>
-  where TEnum : struct
-{ }
+  where TEnum : struct;

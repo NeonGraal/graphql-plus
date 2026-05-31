@@ -1,0 +1,100 @@
+﻿/* operation-selection-inline
+operation OprSlctInln { catOprSlctInln { first last address { |:AddrOprSlctInln { street city country } } } }
+category { CatOprSlctInln }
+output CatOprSlctInln { 
+    first: String
+    last: String
+    address: AddrOprSlctInln
+}
+output AddrOprSlctInln {
+    | FullOprSlctInln
+    | String
+}
+output FullOprSlctInln {
+    street: String
+    city: String
+    country: String
+}
+*/
+
+// Generated from Schema operation-selection-inline
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_operation-selection-inline, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_operation_selection_inline;
+
+public class CmptCatOprSlctInln
+  : Schema_operation-selection-inline
+  , ICmptCatOprSlctInln
+{
+  public ICmptCatOprSlctInlnObject? As_CatOprSlctInln { get; set; }
+}
+
+public class CmptCatOprSlctInlnObject
+  : Schema_operation-selection-inline
+  , ICmptCatOprSlctInlnObject
+{
+  public string First { get; set; }
+  public string Last { get; set; }
+  public ICmptAddrOprSlctInln Address { get; set; }
+
+  public CmptCatOprSlctInlnObject
+    ( string pfirst
+    , string plast
+    , ICmptAddrOprSlctInln paddress
+    )
+  {
+    First = pfirst;
+    Last = plast;
+    Address = paddress;
+  }
+}
+
+public class CmptAddrOprSlctInln
+  : Schema_operation-selection-inline
+  , ICmptAddrOprSlctInln
+{
+  public ICmptFullOprSlctInln? AsFullOprSlctInln { get; set; }
+  public string? AsString { get; set; }
+  public ICmptAddrOprSlctInlnObject? As_AddrOprSlctInln { get; set; }
+}
+
+public class CmptAddrOprSlctInlnObject
+  : Schema_operation-selection-inline
+  , ICmptAddrOprSlctInlnObject
+{
+
+  public CmptAddrOprSlctInlnObject
+    ()
+  {
+  }
+}
+
+public class CmptFullOprSlctInln
+  : Schema_operation-selection-inline
+  , ICmptFullOprSlctInln
+{
+  public ICmptFullOprSlctInlnObject? As_FullOprSlctInln { get; set; }
+}
+
+public class CmptFullOprSlctInlnObject
+  : Schema_operation-selection-inline
+  , ICmptFullOprSlctInlnObject
+{
+  public string Street { get; set; }
+  public string City { get; set; }
+  public string Country { get; set; }
+
+  public CmptFullOprSlctInlnObject
+    ( string pstreet
+    , string pcity
+    , string pcountry
+    )
+  {
+    Street = pstreet;
+    City = pcity;
+    Country = pcountry;
+  }
+}

@@ -23,19 +23,21 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: RefOutpPrntGnrc
           typeArgs:
-            - !_EnumValue
-              label: prnt_outpPrntGnrc
-              name: EnumOutpPrntGnrc
-              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              enumValue: !_EnumValue
+                label: prnt_outpPrntGnrc
+                name: EnumOutpPrntGnrc
+                typeKind: !_SimpleKind Enum
     alternates:
       - !_Alternate
         type: !_ObjBase
           name: RefOutpPrntGnrc
           typeArgs:
-            - !_EnumValue
-              label: prnt_outpPrntGnrc
-              name: EnumOutpPrntGnrc
-              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              enumValue: !_EnumValue
+                label: prnt_outpPrntGnrc
+                name: EnumOutpPrntGnrc
+                typeKind: !_SimpleKind Enum
     name: OutpPrntGnrc
     typeKind: !_TypeKind Output
   !_Name PrntOutpPrntGnrc: !_TypeEnum

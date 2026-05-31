@@ -1,0 +1,3 @@
+operation Name { catName : String ("Value") }
+category { CatName }
+output CatName { }

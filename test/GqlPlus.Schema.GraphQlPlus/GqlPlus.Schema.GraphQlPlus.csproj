@@ -9,6 +9,7 @@
     <GqlPlus_NamespaceIncludesBaseName>false</GqlPlus_NamespaceIncludesBaseName>
 
     <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <GqlPlus_NamespaceIncludesBaseName>false</GqlPlus_NamespaceIncludesBaseName>
   </PropertyGroup>
 
   <ItemGroup>

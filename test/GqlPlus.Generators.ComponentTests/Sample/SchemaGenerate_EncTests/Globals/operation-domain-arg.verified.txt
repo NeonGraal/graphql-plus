@@ -1,0 +1,28 @@
+﻿/* operation-domain-arg
+operation OprDmnArg { catOprDmnArg : String ("Value") }
+category { CatOprDmnArg }
+output CatOprDmnArg { }
+*/
+
+// Generated from Schema operation-domain-arg
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_operation-domain-arg, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_operation_domain_arg;
+
+internal class CmptCatOprDmnArgEncoder : IEncoder<ICmptCatOprDmnArgObject>
+{
+  public Structured Encode(ICmptCatOprDmnArgObject input)
+    => Structured.Empty();
+
+  internal static CmptCatOprDmnArgEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_operation_domain_argEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_operation_domain_argEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptCatOprDmnArgObject>(CmptCatOprDmnArgEncoder.Factory);
+}

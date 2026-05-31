@@ -47,5 +47,4 @@ internal class ParseCollections
 }
 
 public interface IParserCollections
-  : IParserArray<IAstModifier>
-{ }
+  : IParserArray<IAstModifier>;

@@ -9,6 +9,7 @@ internal abstract record class AstDirectives(
   public IAstDirective[] Directives { get; set; } = [];
   IEnumerable<IAstDirective> IAstDirectives.Directives => Directives;
 
+  [ExcludeFromCodeCoverage]
   public virtual bool Equals(AstDirectives? other)
     => other is IAstDirectives directives && Equals(directives);
   public bool Equals(IAstDirectives? other)

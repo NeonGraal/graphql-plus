@@ -1,0 +1,3 @@
+operation Name { catName : Boolean[String] }
+category { CatName }
+output CatName { }

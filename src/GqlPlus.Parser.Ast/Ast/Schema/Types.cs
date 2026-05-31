@@ -15,13 +15,11 @@ public interface IAstType<TParent>
 }
 
 public interface IAstSimple
-  : IAstType<IAstTypeRef>
-{ }
+  : IAstType<IAstTypeRef>;
 
 public interface IAstTypeRef
   : IAstNamed
-  , IEquatable<IAstTypeRef>
-{ }
+  , IEquatable<IAstTypeRef>;
 
 public interface IAstTypeSpecial
   : IAstSimple

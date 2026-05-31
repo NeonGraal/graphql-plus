@@ -1,7 +1,6 @@
 ﻿!_Schema
 errors: !_Errors
   - !_Error
-    _kind: !_TokenKind End
     _message: "In _UnionRef can't get model for type '_TypeRef'"
 types: !_Map(_Type)
   !_Name _UnionMember: !_TypeOutput

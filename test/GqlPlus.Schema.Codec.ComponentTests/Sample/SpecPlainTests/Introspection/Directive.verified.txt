@@ -1,6 +1,4 @@
-﻿[_Schema]:errors[_Errors].0[_Error]:_kind=[_TokenKind]End
-[_Schema]:errors[_Errors].0[_Error]:_message="In _Directive can't get model for type '_Aliased'"
-[_Schema]:errors[_Errors].1[_Error]:_kind=[_TokenKind]End
+﻿[_Schema]:errors[_Errors].0[_Error]:_message="In _Directive can't get model for type '_Aliased'"
 [_Schema]:errors[_Errors].1[_Error]:_message="In _Directives can't get model for type '_AndType'"
 [_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
 [_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=parameter

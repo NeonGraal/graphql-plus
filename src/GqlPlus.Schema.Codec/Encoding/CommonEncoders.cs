@@ -13,7 +13,7 @@ internal class ConstantEncoder(
           p => _simple.Encode(p.Key).Value!,
           p => Encode(p.Value)), "_ConstantMap"),
       { List.Count: > 0 }
-        => new(model.List.Select(Encode), "_ConstantList"),
+        => model.List.Encode(Encode, "_ConstantList"),
       { Value: not null }
         => _simple.Encode(model.Value),
       _ => "".Encode(),

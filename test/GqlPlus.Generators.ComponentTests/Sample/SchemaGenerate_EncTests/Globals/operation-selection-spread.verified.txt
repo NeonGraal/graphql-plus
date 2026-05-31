@@ -1,0 +1,55 @@
+﻿/* operation-selection-spread
+operation OprSlctSprd { catOprSlctSprd &firstLast:CatOprSlctSprd { first last } { |firstLast address { street city country } } }
+category { CatOprSlctSprd }
+output CatOprSlctSprd { 
+    first: String
+    last: String
+    address: AddrOprSlctSprd
+}
+output AddrOprSlctSprd {
+    street: String
+    city: String
+    country: String
+}
+*/
+
+// Generated from Schema operation-selection-spread
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_operation-selection-spread, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_operation_selection_spread;
+
+internal class CmptCatOprSlctSprdEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptCatOprSlctSprdObject>
+{
+  private readonly Encoder<ICmptAddrOprSlctSprd> _addrOprSlctSprd = encoders.EncoderFor<ICmptAddrOprSlctSprd>();
+  public Structured Encode(ICmptCatOprSlctSprdObject input)
+    => Structured.Empty()
+      .Add("first", input.First.Encode())
+      .Add("last", input.Last.Encode())
+      .AddEncoded("address", input.Address, _addrOprSlctSprd);
+
+  internal static CmptCatOprSlctSprdEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptAddrOprSlctSprdEncoder : IEncoder<ICmptAddrOprSlctSprdObject>
+{
+  public Structured Encode(ICmptAddrOprSlctSprdObject input)
+    => Structured.Empty()
+      .Add("street", input.Street.Encode())
+      .Add("city", input.City.Encode())
+      .Add("country", input.Country.Encode());
+
+  internal static CmptAddrOprSlctSprdEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_operation_selection_spreadEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_operation_selection_spreadEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptCatOprSlctSprdObject>(CmptCatOprSlctSprdEncoder.Factory)
+      .AddEncoder<ICmptAddrOprSlctSprdObject>(CmptAddrOprSlctSprdEncoder.Factory);
+}

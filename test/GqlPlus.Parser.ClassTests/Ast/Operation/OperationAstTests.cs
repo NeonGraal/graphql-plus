@@ -15,8 +15,42 @@ public partial class OperationAstTests
       );
   }
 
+  [Theory, RepeatData]
+  public void HashCode_WithArgument(string input, string domain, string variable)
+    => _checks.HashCode(() => new OperationAst(AstNulls.At, input) {
+      Domain = domain,
+      Arg = new ArgAst(AstNulls.At, variable)
+    });
+
+  [Theory, RepeatData]
+  public void Text_WithArgument(string input, string domain, string variable)
+    => _checks.Text(
+      () => new OperationAst(AstNulls.At, input) {
+        Domain = domain,
+        Arg = new ArgAst(AstNulls.At, variable)
+      },
+      $"( !g query {input} Failure {domain} ( !a ${variable} ) )");
+
+  [Theory, RepeatData]
+  public void Equality_WithArgument(string input, string domain, string variable)
+    => _checks.Equality(
+      () => new OperationAst(AstNulls.At, input) {
+        Domain = domain,
+        Arg = new ArgAst(AstNulls.At, variable)
+      });
+
+  [Theory, RepeatData]
+  public void Inequality_WithArgument(string input, string domain, string variable)
+    => _checks.InequalityWith(variable,
+      () => new OperationAst(AstNulls.At, input) {
+        Domain = domain,
+        Arg = new ArgAst(AstNulls.At, variable)
+      });
+
+  internal OperationAstChecks _checks = new();
+
   [CheckTests(Inherited = true)]
-  internal IAstDirectivesChecks DirectivesChecks { get; } = new OperationAstChecks();
+  internal IAstDirectivesChecks DirectivesChecks => _checks;
 
   [CheckTests]
   internal IModifiersChecks<string> ModifiersChecks { get; } = new OperationModifiersChecks();

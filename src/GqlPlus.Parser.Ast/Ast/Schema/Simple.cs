@@ -26,8 +26,7 @@ public interface IAstDomain<TItem>
   : IAstDomain
   , IAstSimple<TItem>
   , IEquatable<IAstDomain<TItem>>
-  where TItem : IAstDomainItem
-{ }
+  where TItem : IAstDomainItem;
 
 public interface IAstDomainItem
   : IAstDescribed
@@ -81,17 +80,13 @@ public interface IAstDomainRegex
 }
 
 public interface IAstEnum
-  : IAstValued<IAstEnumLabel>
-{ }
+  : IAstValued<IAstEnumLabel>;
 
 public interface IAstEnumLabel
-  : IAstAliased
-{ }
+  : IAstAliased;
 
 public interface IAstUnion
-  : IAstValued<IAstUnionMember>
-{ }
+  : IAstValued<IAstUnionMember>;
 
 public interface IAstUnionMember
-  : IAstNamed
-{ }
+  : IAstNamed;

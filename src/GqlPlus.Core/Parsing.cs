@@ -26,5 +26,4 @@ public enum TokenKind
 }
 
 public interface ITokenMessage
-  : ITokenAt, IMessage
-{ }
+  : ITokenAt, IMessage;

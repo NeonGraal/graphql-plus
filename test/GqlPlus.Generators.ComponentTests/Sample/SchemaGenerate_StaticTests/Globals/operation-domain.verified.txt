@@ -1,0 +1,15 @@
+﻿/* operation-domain
+operation OprDmn { catOprDmn : Number }
+category { CatOprDmn }
+output CatOprDmn { }
+*/
+
+// Generated from Schema operation-domain
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_operation-domain, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+
+Category catOprDmn
+*/
+
+namespace Components.Gqlp_Schema_operation_domain;

@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Modelling.Globals;
+﻿namespace GqlPlus.Modelling;
 
 // ResolutionModel => CategoryOption
 

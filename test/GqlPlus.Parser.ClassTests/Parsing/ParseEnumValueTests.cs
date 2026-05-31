@@ -51,10 +51,10 @@ public class ParseEnumValueTests
   }
 
   [Theory]
-  [RepeatInlineData("true", "Boolean")]
-  [RepeatInlineData("false", "Boolean")]
-  [RepeatInlineData("null", "Null")]
-  [RepeatInlineData("_", "Unit")]
+  [RepeatInlineData(GqlpStrings.BoolTrue, "Boolean")]
+  [RepeatInlineData(GqlpStrings.BoolFalse, "Boolean")]
+  [RepeatInlineData(GqlpStrings.NullValue, "Null")]
+  [RepeatInlineData(GqlpStrings.UnitValue, "Unit")]
   public void Parse_ShouldReturnEnumValueResult_WhenBuiltInEnumLabelAreParsed(string enumLabel, string expectedType)
   {
     // Arrange
@@ -134,10 +134,10 @@ public class ParseEnumValueTests
   {
     (string, string)[] builtInValues =
     [
-      ("true", "Boolean"),
-      ("false", "Boolean"),
-      ("null", "Null"),
-      ("_", "Unit")
+      (GqlpStrings.BoolTrue, "Boolean"),
+      (GqlpStrings.BoolFalse, "Boolean"),
+      (GqlpStrings.NullValue, "Null"),
+      (GqlpStrings.UnitValue, "Unit")
     ];
 
     foreach ((string builtInLabel, string expectedType) in builtInValues) {

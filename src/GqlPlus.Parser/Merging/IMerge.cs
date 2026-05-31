@@ -11,8 +11,7 @@ public interface IMerge<TItem>
 
 public interface IMergeAll<TItem>
   : IMerge<TItem>
-  where TItem : IAstType
-{ }
+  where TItem : IAstType;
 
 public class MergerOne<T>(
   MergerOne<T>.D factory

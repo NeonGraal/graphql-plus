@@ -1,0 +1,24 @@
+﻿!Sc I@001/0001
+Success
+{
+  !SO I@011/0001
+  OprDmnArg
+  catOprDmnArg
+  !Tr I@038/0001
+  String
+  (
+    !k S@046/0001
+    'Value'
+  )
+}
+{
+  !Ca P@010/0002
+  catOprDmnArg
+  (Parallel)
+  !Tr I@012/0002
+  CatOprDmnArg
+}
+{
+  !Ou I@008/0003
+  CatOprDmnArg
+}

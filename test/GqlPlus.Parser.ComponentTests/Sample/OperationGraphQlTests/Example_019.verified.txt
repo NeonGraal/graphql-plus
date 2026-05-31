@@ -2,6 +2,23 @@
 query
 withFragments
 Success
+!t I@010/0012
+friendFields
+:User
+{
+  !f I@003/0013
+  id
+  !f I@003/0014
+  name
+  !f I@003/0015
+  profilePic
+  (
+    !a I@014/0015
+    {
+      ( !k I@014/0015 size ):( !k N@020/0015 50 )
+    }
+  )
+}
 {
   !f I@003/0002
   user
@@ -37,21 +54,4 @@ Success
       friendFields
     }
   }
-}
-!t I@010/0012
-friendFields
-:User
-{
-  !f I@003/0013
-  id
-  !f I@003/0014
-  name
-  !f I@003/0015
-  profilePic
-  (
-    !a I@014/0015
-    {
-      ( !k I@014/0015 size ):( !k N@020/0015 50 )
-    }
-  )
 }

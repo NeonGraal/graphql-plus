@@ -8,6 +8,7 @@ internal class MergeSchemas(
 {
   private readonly MergerOne<IAstSchemaCategory> _categories = mergers.MergerFor<IAstSchemaCategory>();
   private readonly MergerOne<IAstSchemaDirective> _directives = mergers.MergerFor<IAstSchemaDirective>();
+  private readonly MergerOne<IAstSchemaOperation> _operations = mergers.MergerFor<IAstSchemaOperation>();
   private readonly MergerOne<IAstSchemaOption> _options = mergers.MergerFor<IAstSchemaOption>();
   private readonly MergerOne<IAstType> _astTypes = mergers.MergerFor<IAstType>();
 
@@ -18,16 +19,19 @@ internal class MergeSchemas(
   {
     IAstSchemaCategory[] categories = Just<IAstSchemaCategory>(group);
     IAstSchemaDirective[] directives = Just<IAstSchemaDirective>(group);
+    IAstSchemaOperation[] operations = Just<IAstSchemaOperation>(group);
     IAstSchemaOption[] options = Just<IAstSchemaOption>(group);
     IAstType[] astTypes = Just<IAstType>(group);
 
     IMessages categoriesCanMerge = categories.Length > 0 ? _categories.CanMerge(categories) : Messages.New;
     IMessages directivesCanMerge = directives.Length > 0 ? _directives.CanMerge(directives) : Messages.New;
+    IMessages operationsCanMerge = operations.Length > 0 ? _operations.CanMerge(operations) : Messages.New;
     IMessages optionsCanMerge = options.Length > 0 ? _options.CanMerge(options) : Messages.New;
     IMessages astTypesCanMerge = astTypes.Length > 0 ? _astTypes.CanMerge(astTypes) : Messages.New;
 
     return categoriesCanMerge
       .Add(directivesCanMerge)
+      .Add(operationsCanMerge)
       .Add(optionsCanMerge)
       .Add(astTypesCanMerge);
   }
@@ -39,12 +43,14 @@ internal class MergeSchemas(
   {
     IAstSchemaCategory[] categories = Just<IAstSchemaCategory>(group);
     IAstSchemaDirective[] directives = Just<IAstSchemaDirective>(group);
+    IAstSchemaOperation[] operations = Just<IAstSchemaOperation>(group);
     IAstSchemaOption[] options = Just<IAstSchemaOption>(group);
     IAstType[] astTypes = Just<IAstType>(group);
 
     IEnumerable<AstDeclaration> declarations = _categories
       .Merge(categories).Cast<IAstDeclaration>()
       .Concat(_directives.Merge(directives))
+      .Concat(_operations.Merge(operations))
       .Concat(_options.Merge(options))
       .Concat(_astTypes.Merge(astTypes))
       .Cast<AstDeclaration>();

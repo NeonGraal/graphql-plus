@@ -8,8 +8,7 @@ public abstract record class BaseTypeModel(
   TypeKindModel TypeKind,
   string Name,
   string Description
-) : AliasedModel(Name, Description)
-{ }
+) : AliasedModel(Name, Description);
 
 public abstract record class ChildTypeModel<TParent>(
   TypeKindModel Kind,
@@ -57,8 +56,7 @@ public record class TypeRefModel<TKind>(
   string Description
 ) : NamedModel(Name, Description)
   , ITypeRefModel<TKind>
-  where TKind : Enum
-{ }
+  where TKind : Enum;
 
 internal interface ITypeRefModel<TKind>
   : INamedModel
@@ -70,8 +68,7 @@ internal interface ITypeRefModel<TKind>
 public record class SpecialTypeModel(
   string Name,
   string Description
-) : BaseTypeModel(TypeKindModel.Special, Name, Description)
-{ }
+) : BaseTypeModel(TypeKindModel.Special, Name, Description);
 
 internal static class ModelHelper
 {

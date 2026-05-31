@@ -1,0 +1,3 @@
+operation Name { catName ($arg): String ($arg) }
+category { CatName }
+output CatName { }

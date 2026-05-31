@@ -4,18 +4,10 @@
     "$list": [
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _Categories can\u0027t get model for type \u0027_AndType\u0027"
       },
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _Category can\u0027t get model for type \u0027_Aliased\u0027"
       }
     ],
@@ -98,12 +90,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Output",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Output",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -145,12 +140,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Output",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Output",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]

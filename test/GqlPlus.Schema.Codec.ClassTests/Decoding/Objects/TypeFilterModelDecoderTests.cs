@@ -35,7 +35,7 @@ public class TypeFilterModelDecoderTests
       .ShouldSatisfyAllConditions(
         () => result.Names.Length.ShouldBe(0),
         () => result.Kinds.Length.ShouldBe(kinds.Length),
-        DecoderCalled(Kind, kinds.Length),
+        DecoderCalled(Kind, kinds.ThrowIfNull().Length),
         MessagesEmpty(messages, result)
       );
   }
@@ -58,8 +58,8 @@ public class TypeFilterModelDecoderTests
       .ShouldSatisfyAllConditions(
         () => result.Names.Length.ShouldBe(names.Length),
         () => result.Kinds.Length.ShouldBe(kinds.Length),
-        DecoderCalled(NameFilter, names.Length),
-        DecoderCalled(Kind, kinds.Length),
+        DecoderCalled(NameFilter, names.ThrowIfNull().Length),
+        DecoderCalled(Kind, kinds.ThrowIfNull().Length),
         MessagesEmpty(messages, result)
       );
   }

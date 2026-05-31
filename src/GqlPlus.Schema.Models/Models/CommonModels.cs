@@ -110,5 +110,4 @@ public record class CollectionModel(
 
 public record class ModifierModel(
   ModifierKindModel Kind
-) : CollectionModel(Kind)
-{ }
+) : CollectionModel(Kind);

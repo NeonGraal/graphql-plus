@@ -79,10 +79,10 @@ public class ParserClassTestBase
   }
 
   protected void Parse<T>([NotNull] IParser<T> parser, IResult<T> first, params IResult<T>[] rest)
-    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(first, rest);
+    => parser.ThrowIfNull().Parse(Tokenizer, default!).ReturnsForAnyArgs(first, rest);
 
   protected void ParseA<T>([NotNull] IParserArray<T> parser, IResultArray<T> first, params IResultArray<T>[] rest)
-    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(first, rest);
+    => parser.ThrowIfNull().Parse(Tokenizer, default!).ReturnsForAnyArgs(first, rest);
 
   protected T ParseOk<T>([NotNull] IParser<T> parser, int n = 1)
     where T : class, IAstError
@@ -248,7 +248,7 @@ public class ParserClassTestBase
     p.Parse(default!, default!)
       .ReturnsForAnyArgs(default(T).Empty());
     parser = p;
-    repo.ParserFor<T>().ReturnsForAnyArgs(() => p);
+    repo.ThrowIfNull().ParserFor<T>().ReturnsForAnyArgs(() => p);
   }
 
   protected static void ConfigureRepoArray<T>([NotNull] IParserRepository repo, out IParserArray<T> parser)
@@ -257,7 +257,7 @@ public class ParserClassTestBase
     p.Parse(default!, default!)
       .ReturnsForAnyArgs(0.EmptyArray<T>());
     parser = p;
-    repo.ArrayFor<T>().ReturnsForAnyArgs(() => p);
+    repo.ThrowIfNull().ArrayFor<T>().ReturnsForAnyArgs(() => p);
   }
 
   protected static void ConfigureRepoInterface<TInterface, T>([NotNull] IParserRepository repo, out TInterface parser)
@@ -267,7 +267,7 @@ public class ParserClassTestBase
     p.Parse(default!, default!)
       .ReturnsForAnyArgs(default(T).Empty());
     parser = p;
-    repo.ParserFor<TInterface, T>().ReturnsForAnyArgs(() => p);
+    repo.ThrowIfNull().ParserFor<TInterface, T>().ReturnsForAnyArgs(() => p);
   }
 
   protected static void ConfigureRepoArrayInterface<TInterface, T>([NotNull] IParserRepository repo, out TInterface parser)
@@ -277,7 +277,7 @@ public class ParserClassTestBase
     p.Parse(default!, default!)
       .ReturnsForAnyArgs(0.EmptyArray<T>());
     parser = p;
-    repo.ArrayFor<TInterface, T>().ReturnsForAnyArgs(() => p);
+    repo.ThrowIfNull().ArrayFor<TInterface, T>().ReturnsForAnyArgs(() => p);
   }
 
   protected static ParserOne<T>.D ParserFor<T>(out IParser<T> parser)

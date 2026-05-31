@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\GqlPlus.Converter.Json\GqlPlus.Converter.Json.csproj" />
-    <ProjectReference Include="..\..\src\GqlPlus.Parser\GqlPlus.Parser.csproj" />
     <ProjectReference Include="..\GqlPlus.Converter.ClassTestBase\GqlPlus.Converter.ClassTestBase.csproj" />
   </ItemGroup>
 

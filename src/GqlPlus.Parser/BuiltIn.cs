@@ -11,7 +11,7 @@ public static class BuiltIn
   public const string BooleanFalse = GqlpStrings.BoolFalse;
   public const string BooleanTrue = GqlpStrings.BoolTrue;
   public const string NullType = "Null";
-  public const string NullValue = "null";
+  public const string NullValue = GqlpStrings.NullValue;
   public const string NumberType = "Number";
   public const string NumberAlias = "0";
   public const string ScalarType = "Scalar";

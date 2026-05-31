@@ -7,4 +7,5 @@ public static class GqlpStrings
 
   public const string BoolTrue = "true";
   public const string BoolFalse = "false";
+  public const string NullValue = "null";
 }

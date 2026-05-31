@@ -7,12 +7,13 @@ internal class TypeArgEncoder(
   private readonly Encoder<EnumValueModel> _enumValue = encoders.EncoderFor<EnumValueModel>();
 
   internal override Structured Encode(ITypeArgModel model)
-    => model.EnumValue is null
-    ? base.Encode(model)
-      .AddIf(model.IsTypeParam,
-        t => t.Add("typeParam", model.Name?.Encode()),
-        f => f.Add("name", model.Name?.Encode()))
-    : _enumValue.Encode(model.EnumValue);
+    => base.Encode(model)
+      .AddNull(model.EnumValue,
+        v => v.AddEncoded("enumValue", model.EnumValue, _enumValue),
+        f => f
+          .AddIf(model.IsTypeParam,
+            t => t.Add("typeParam", model.Name?.Encode()),
+            f => f.Add("name", model.Name?.Encode())));
 
   internal static TypeArgEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -198,10 +199,10 @@ internal class OutputFieldEncoder(
   private readonly Encoder<InputParamModel> _parameter = encoders.EncoderFor<InputParamModel>();
 
   internal override Structured Encode(OutputFieldModel model)
-    => model.Enum is null
-      ? base.Encode(model)
-        .AddEncoded("parameter", model.Parameter, _parameter)
-      : _outputEnum.Encode(model.Enum);
+    => base.Encode(model)
+     .AddNull(model.Enum,
+       v => v.AddEncoded("enum", model.Enum, _outputEnum),
+       f => f.AddEncoded("parameter", model.Parameter, _parameter));
 
   internal static OutputFieldEncoder Factory(IEncoderRepository r) => new(r);
 }

@@ -51,9 +51,9 @@
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternateEnum[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=_Name
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternateEnum[_TypeOutput]:name=_ObjAlternateEnum
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternateEnum[_TypeOutput]:parent[_ObjBase]:name=_TypeRef
-[_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternateEnum[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_EnumValue]:label=Enum
-[_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternateEnum[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_EnumValue]:name=_TypeKind
-[_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternateEnum[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternateEnum[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_TypeArg]:enumValue[_EnumValue]:label=Enum
+[_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternateEnum[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_TypeArg]:enumValue[_EnumValue]:name=_TypeKind
+[_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternateEnum[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_TypeArg]:enumValue[_EnumValue]:typeKind=[_SimpleKind]Enum
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjAlternateEnum[_TypeOutput]:typeKind=[_TypeKind]Output
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjBase[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:object=_ObjBase
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjBase[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=_TypeParam
@@ -86,9 +86,9 @@
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldEnum[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=_Name
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldEnum[_TypeOutput]:name=_ObjFieldEnum
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldEnum[_TypeOutput]:parent[_ObjBase]:name=_TypeRef
-[_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldEnum[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_EnumValue]:label=Enum
-[_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldEnum[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_EnumValue]:name=_TypeKind
-[_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldEnum[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldEnum[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_TypeArg]:enumValue[_EnumValue]:label=Enum
+[_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldEnum[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_TypeArg]:enumValue[_EnumValue]:name=_TypeKind
+[_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldEnum[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_TypeArg]:enumValue[_EnumValue]:typeKind=[_SimpleKind]Enum
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldEnum[_TypeOutput]:typeKind=[_TypeKind]Output
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldType[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:object=_ObjBase
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjFieldType[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=_TypeParam

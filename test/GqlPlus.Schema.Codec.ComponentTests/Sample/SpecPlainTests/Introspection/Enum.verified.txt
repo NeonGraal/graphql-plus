@@ -17,7 +17,7 @@
 [_Schema]:types[_Map(_Type)]:[_Name]_EnumValue[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=_Name
 [_Schema]:types[_Map(_Type)]:[_Name]_EnumValue[_TypeOutput]:name=_EnumValue
 [_Schema]:types[_Map(_Type)]:[_Name]_EnumValue[_TypeOutput]:parent[_ObjBase]:name=_TypeRef
-[_Schema]:types[_Map(_Type)]:[_Name]_EnumValue[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_EnumValue]:label=Enum
-[_Schema]:types[_Map(_Type)]:[_Name]_EnumValue[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_EnumValue]:name=_TypeKind
-[_Schema]:types[_Map(_Type)]:[_Name]_EnumValue[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map(_Type)]:[_Name]_EnumValue[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_TypeArg]:enumValue[_EnumValue]:label=Enum
+[_Schema]:types[_Map(_Type)]:[_Name]_EnumValue[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_TypeArg]:enumValue[_EnumValue]:name=_TypeKind
+[_Schema]:types[_Map(_Type)]:[_Name]_EnumValue[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_TypeArg]:enumValue[_EnumValue]:typeKind=[_SimpleKind]Enum
 [_Schema]:types[_Map(_Type)]:[_Name]_EnumValue[_TypeOutput]:typeKind=[_TypeKind]Output

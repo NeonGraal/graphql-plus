@@ -121,10 +121,11 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_EnumValue
-          label: Output
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: Output
+            name: _TypeKind
+            typeKind: !_SimpleKind Enum
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
@@ -141,10 +142,11 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_EnumValue
-          label: Output
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: Output
+            name: _TypeKind
+            typeKind: !_SimpleKind Enum
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
@@ -470,20 +472,22 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_EnumValue
-          label: Output
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: Output
+            name: _TypeKind
+            typeKind: !_SimpleKind Enum
     fields:
     - !_OutputField
       name: type
       type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_EnumValue
-          label: Output
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: Output
+            name: _TypeKind
+            typeKind: !_SimpleKind Enum
     name: _OpFragment
     parent: !_ObjBase
       name: _OpDirectives
@@ -509,10 +513,11 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_EnumValue
-          label: Output
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: Output
+            name: _TypeKind
+            typeKind: !_SimpleKind Enum
     fields:
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
@@ -520,10 +525,11 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_EnumValue
-          label: Output
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: Output
+            name: _TypeKind
+            typeKind: !_SimpleKind Enum
     name: _OpInline
     parent: !_ObjBase
       name: OpSelectionBase
@@ -627,10 +633,11 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_EnumValue
-          label: Input
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: Input
+            name: _TypeKind
+            typeKind: !_SimpleKind Enum
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
@@ -649,10 +656,11 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_EnumValue
-          label: Input
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: Input
+            name: _TypeKind
+            typeKind: !_SimpleKind Enum
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers

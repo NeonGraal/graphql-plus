@@ -14,12 +14,15 @@
             "name": "RefCnstEnumPrntInp",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "cnstEnumPrntInp",
-                "name": "EnumCnstEnumPrntInp",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "cnstEnumPrntInp",
+                  "name": "EnumCnstEnumPrntInp",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -34,12 +37,15 @@
             "name": "RefCnstEnumPrntInp",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "cnstEnumPrntInp",
-                "name": "EnumCnstEnumPrntInp",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "cnstEnumPrntInp",
+                  "name": "EnumCnstEnumPrntInp",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]

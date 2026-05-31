@@ -45,10 +45,11 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: _TypeRef
           typeArgs:
-            - !_EnumValue
-              label: Output
-              name: _TypeKind
-              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              enumValue: !_EnumValue
+                label: Output
+                name: _TypeKind
+                typeKind: !_SimpleKind Enum
       - !_ObjectFor(_OutputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: modifiers
@@ -65,10 +66,11 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: _TypeRef
           typeArgs:
-            - !_EnumValue
-              label: Output
-              name: _TypeKind
-              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              enumValue: !_EnumValue
+                label: Output
+                name: _TypeKind
+                typeKind: !_SimpleKind Enum
       - !_OutputField
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: modifiers

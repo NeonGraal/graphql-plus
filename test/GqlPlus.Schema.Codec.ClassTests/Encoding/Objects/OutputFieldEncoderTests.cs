@@ -36,4 +36,16 @@ public class OutputFieldEncoderTests
       ":name=" + name,
       ":type=" + output));
   }
+
+  [Theory, RepeatData]
+  public void Encode_WithEnumModel_ReturnsStructuredWithEnum(string name, string field, string enumType, string contents)
+  {
+    OutputEnumModel outputEnum = new(field, enumType, "", "");
+    _outputEnum.Encode(outputEnum).Returns(enumType.Encode());
+    EncodeAndCheck(new(name, null, contents) { Enum = outputEnum },
+      TagAll("_OutputField",
+      ":description=" + contents.QuotedIdentifier(),
+      ":enum=" + enumType,
+      ":name=" + name));
+  }
 }

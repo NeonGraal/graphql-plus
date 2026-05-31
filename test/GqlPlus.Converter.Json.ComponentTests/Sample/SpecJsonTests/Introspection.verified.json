@@ -373,12 +373,15 @@
         "name": "_ParentType",
         "typeArgs": [
           {
-            "$mapTag": "_EnumValue",
-            "label": "Domain",
-            "name": "_TypeKind",
-            "typeKind": {
-              "$value": "Enum",
-              "$valueTag": "_SimpleKind"
+            "$mapTag": "_TypeArg",
+            "enumValue": {
+              "$mapTag": "_EnumValue",
+              "label": "Domain",
+              "name": "_TypeKind",
+              "typeKind": {
+                "$value": "Enum",
+                "$valueTag": "_SimpleKind"
+              }
             }
           },
           {
@@ -816,12 +819,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Output",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Output",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -863,12 +869,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Output",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Output",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -1198,12 +1207,15 @@
             "name": "_Modifier",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "List",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "List",
+                  "name": "_ModifierKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -1217,12 +1229,15 @@
             "name": "_ModifierKeyed",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Dictionary",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Dictionary",
+                  "name": "_ModifierKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -1236,12 +1251,15 @@
             "name": "_ModifierKeyed",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "TypeParam",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "TypeParam",
+                  "name": "_ModifierKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -1256,12 +1274,15 @@
             "name": "_Modifier",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "List",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "List",
+                  "name": "_ModifierKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -1274,12 +1295,15 @@
             "name": "_ModifierKeyed",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Dictionary",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Dictionary",
+                  "name": "_ModifierKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -1292,12 +1316,15 @@
             "name": "_ModifierKeyed",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "TypeParam",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "TypeParam",
+                  "name": "_ModifierKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -2243,12 +2270,15 @@
         "name": "_TypeRef",
         "typeArgs": [
           {
-            "$mapTag": "_EnumValue",
-            "label": "Domain",
-            "name": "_TypeKind",
-            "typeKind": {
-              "$value": "Enum",
-              "$valueTag": "_SimpleKind"
+            "$mapTag": "_TypeArg",
+            "enumValue": {
+              "$mapTag": "_EnumValue",
+              "label": "Domain",
+              "name": "_TypeKind",
+              "typeKind": {
+                "$value": "Enum",
+                "$valueTag": "_SimpleKind"
+              }
             }
           }
         ]
@@ -2744,12 +2774,15 @@
         "name": "_TypeRef",
         "typeArgs": [
           {
-            "$mapTag": "_EnumValue",
-            "label": "Enum",
-            "name": "_TypeKind",
-            "typeKind": {
-              "$value": "Enum",
-              "$valueTag": "_SimpleKind"
+            "$mapTag": "_TypeArg",
+            "enumValue": {
+              "$mapTag": "_EnumValue",
+              "label": "Enum",
+              "name": "_TypeKind",
+              "typeKind": {
+                "$value": "Enum",
+                "$valueTag": "_SimpleKind"
+              }
             }
           }
         ]
@@ -3536,12 +3569,15 @@
             "name": "_Modifier",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Required",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Required",
+                  "name": "_ModifierKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -3555,12 +3591,15 @@
             "name": "_Modifier",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Optional",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Optional",
+                  "name": "_ModifierKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -3583,12 +3622,15 @@
             "name": "_Modifier",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Required",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Required",
+                  "name": "_ModifierKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -3601,12 +3643,15 @@
             "name": "_Modifier",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Optional",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Optional",
+                  "name": "_ModifierKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -3885,12 +3930,15 @@
         "name": "_TypeRef",
         "typeArgs": [
           {
-            "$mapTag": "_EnumValue",
-            "label": "Enum",
-            "name": "_TypeKind",
-            "typeKind": {
-              "$value": "Enum",
-              "$valueTag": "_SimpleKind"
+            "$mapTag": "_TypeArg",
+            "enumValue": {
+              "$mapTag": "_EnumValue",
+              "label": "Enum",
+              "name": "_TypeKind",
+              "typeKind": {
+                "$value": "Enum",
+                "$valueTag": "_SimpleKind"
+              }
             }
           }
         ]
@@ -4157,12 +4205,15 @@
         "name": "_TypeRef",
         "typeArgs": [
           {
-            "$mapTag": "_EnumValue",
-            "label": "Enum",
-            "name": "_TypeKind",
-            "typeKind": {
-              "$value": "Enum",
-              "$valueTag": "_SimpleKind"
+            "$mapTag": "_TypeArg",
+            "enumValue": {
+              "$mapTag": "_EnumValue",
+              "label": "Enum",
+              "name": "_TypeKind",
+              "typeKind": {
+                "$value": "Enum",
+                "$valueTag": "_SimpleKind"
+              }
             }
           }
         ]
@@ -5231,12 +5282,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Output",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Output",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -5252,12 +5306,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Output",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Output",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -5332,12 +5389,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Output",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Output",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -5362,12 +5422,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Output",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Output",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -5647,12 +5710,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Input",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Input",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -5704,12 +5770,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Input",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Input",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -7178,12 +7247,15 @@
             "name": "_BaseType",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Basic",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Basic",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -7197,12 +7269,15 @@
             "name": "_BaseType",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Internal",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Internal",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -7216,12 +7291,15 @@
             "name": "_BaseDomain",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Boolean",
-                "name": "_DomainKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Boolean",
+                  "name": "_DomainKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -7243,12 +7321,15 @@
             "name": "_BaseDomain",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Enum",
-                "name": "_DomainKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Enum",
+                  "name": "_DomainKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -7270,12 +7351,15 @@
             "name": "_BaseDomain",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Number",
-                "name": "_DomainKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Number",
+                  "name": "_DomainKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -7297,12 +7381,15 @@
             "name": "_BaseDomain",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "String",
-                "name": "_DomainKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "String",
+                  "name": "_DomainKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -7324,12 +7411,15 @@
             "name": "_ParentType",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Enum",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Enum",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -7351,12 +7441,15 @@
             "name": "_ParentType",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Union",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Union",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -7378,12 +7471,15 @@
             "name": "_TypeObject",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Dual",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Dual",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -7401,12 +7497,15 @@
             "name": "_TypeObject",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Input",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Input",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -7424,12 +7523,15 @@
             "name": "_TypeObject",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Output",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Output",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -7448,12 +7550,15 @@
             "name": "_BaseType",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Basic",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Basic",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -7466,12 +7571,15 @@
             "name": "_BaseType",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Internal",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Internal",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -7484,12 +7592,15 @@
             "name": "_BaseDomain",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Boolean",
-                "name": "_DomainKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Boolean",
+                  "name": "_DomainKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -7510,12 +7621,15 @@
             "name": "_BaseDomain",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Enum",
-                "name": "_DomainKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Enum",
+                  "name": "_DomainKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -7536,12 +7650,15 @@
             "name": "_BaseDomain",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Number",
-                "name": "_DomainKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Number",
+                  "name": "_DomainKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -7562,12 +7679,15 @@
             "name": "_BaseDomain",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "String",
-                "name": "_DomainKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "String",
+                  "name": "_DomainKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -7588,12 +7708,15 @@
             "name": "_ParentType",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Enum",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Enum",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -7614,12 +7737,15 @@
             "name": "_ParentType",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Union",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Union",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -7640,12 +7766,15 @@
             "name": "_TypeObject",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Dual",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Dual",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -7662,12 +7791,15 @@
             "name": "_TypeObject",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Input",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Input",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -7684,12 +7816,15 @@
             "name": "_TypeObject",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Output",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Output",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -8397,12 +8532,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Basic",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Basic",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -8416,12 +8554,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Enum",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Enum",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -8435,12 +8576,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Domain",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Domain",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -8454,12 +8598,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Union",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Union",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -8474,12 +8621,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Basic",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Basic",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -8492,12 +8642,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Enum",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Enum",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -8510,12 +8663,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Domain",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Domain",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -8528,12 +8684,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Union",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Union",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]

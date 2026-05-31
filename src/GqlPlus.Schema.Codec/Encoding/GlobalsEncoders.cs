@@ -12,15 +12,15 @@ internal class AndTypeEncoder<TModel, TAnd>(
   private readonly Encoder<BaseTypeModel> _type = encoders.EncoderFor<BaseTypeModel>();
 
   internal override Structured Encode(TModel model)
-    => model.Type is null
-      ? model.And is null
-        ? "".Encode()
-        : _and.Encode(model.And)
-      : model.And is null
-        ? _type.Encode(model.Type)
-        : base.Encode(model)
-          .AddEncoded(_field, model.And, _and)
-          .AddEncoded("type", model.Type, _type);
+    => base.Encode(model)
+      .AddNull(model.Type, t => t
+        .AddNull(model.And, b => b
+          .AddEncoded("type", model.Type, _type)
+          .AddEncoded(_field, model.And, _and),
+          t => _type.Encode(model.Type!)),
+        n => n.AddNull(model.And,
+          a => _and.Encode(model.And!),
+          e => "".Encode()));
 }
 
 internal class CategoriesEncoder(

@@ -39,8 +39,9 @@ types: !_Map(_Type)
     parent: !_ObjBase
       name: _TypeRef
       typeArgs:
-        - !_EnumValue
-          label: Enum
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: Enum
+            name: _TypeKind
+            typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Output

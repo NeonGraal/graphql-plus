@@ -13,16 +13,24 @@ types: !_Map(_Type)
   !_Name FieldEnumOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      field: field
-      label: fieldEnumOutp
-      name: EnumFieldEnumOutp
+      enum: !_OutputEnum
+        field: field
+        label: fieldEnumOutp
+        name: EnumFieldEnumOutp
+        typeKind: !_SimpleKind Enum
+      name: field
       object: FieldEnumOutp
-      typeKind: !_SimpleKind Enum
+      type: !_ObjBase
+        name: EnumFieldEnumOutp
     fields:
-    - !_OutputEnum
-      field: field
-      label: fieldEnumOutp
-      name: EnumFieldEnumOutp
-      typeKind: !_SimpleKind Enum
+    - !_OutputField
+      enum: !_OutputEnum
+        field: field
+        label: fieldEnumOutp
+        name: EnumFieldEnumOutp
+        typeKind: !_SimpleKind Enum
+      name: field
+      type: !_ObjBase
+        name: EnumFieldEnumOutp
     name: FieldEnumOutp
     typeKind: !_TypeKind Output

@@ -57,7 +57,7 @@ public record struct TypeInput(
     => Type;
 }
 
-internal interface ITypeInput
+public interface ITypeInput
 {
   string Type { get; }
   bool TypeParam { get; }

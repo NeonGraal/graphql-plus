@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\GqlPlus.Verifier\GqlPlus.Verifier.csproj" />
-    <ProjectReference Include="..\GqlPlus.ClassTestBase\GqlPlus.ClassTestBase.csproj" />
+    <ProjectReference Include="..\GqlPlus.Parser.ClassTestBase\GqlPlus.Parser.ClassTestBase.csproj" />
   </ItemGroup>
 
 </Project>

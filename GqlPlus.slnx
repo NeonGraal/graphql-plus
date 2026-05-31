@@ -75,8 +75,10 @@
     <Project Path="test/GqlPlus.Generators.ContainerTests/GqlPlus.Generators.ContainerTests.csproj" />
     <Project Path="test/GqlPlus.GeneratorsTestBase/GqlPlus.GeneratorsTestBase.csproj" />
     <Project Path="test/GqlPlus.Parser.Ast.ClassTests/GqlPlus.Parser.Ast.ClassTests.csproj" />
+    <Project Path="test/GqlPlus.Parser.ClassTestBase/GqlPlus.Parser.ClassTestBase.csproj" Id="be1f824c-f1b6-4921-b048-e7f93e253553" />
     <Project Path="test/GqlPlus.Parser.ClassTests/GqlPlus.Parser.ClassTests.csproj" />
     <Project Path="test/GqlPlus.Parser.ComponentTests/GqlPlus.Parser.ComponentTests.csproj" />
+    <Project Path="test/GqlPlus.Parser.TestBase/GqlPlus.Parser.TestBase.csproj" />
     <Project Path="test/GqlPlus.Samples.GraphQlPlus/GqlPlus.Samples.GraphQlPlus.csproj" />
     <Project Path="test/GqlPlus.Schema.Codec.ClassTests/GqlPlus.Schema.Codec.ClassTests.csproj" />
     <Project Path="test/GqlPlus.Schema.Codec.ComponentTestBase/GqlPlus.Schema.Codec.ComponentTestBase.csproj" />

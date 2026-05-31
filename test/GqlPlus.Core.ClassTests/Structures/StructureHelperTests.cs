@@ -1,10 +1,11 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus;
-using GqlPlus.Token;
+using Xunit.Runner.Common;
 
 namespace GqlPlus.Structures;
 
 public class StructureHelperTests
+  : SubstituteBase
 {
   [Theory, RepeatData]
   public void Encode_Text_IsCorrect(string value)
@@ -101,8 +102,7 @@ public class StructureHelperTests
   public void Encode_Errors_ReturnsCorrect([NotNull] string[] messages)
   {
     // Arrange
-    TokenAt at = new(TokenKind.Identifer, 1, 1, "id");
-    IMessages errors = new Messages([.. messages.Select(m => new TokenMessage(at, m))]);
+    IMessages errors = new Messages([.. messages.Select(m => new TestMessage(m))]);
 
     // Act
     Structured result = errors.Encode();
@@ -139,5 +139,13 @@ public class StructureHelperTests
     string result = type.TypeTag();
 
     result.ShouldBe("_Map(_String)");
+  }
+
+  internal sealed class TestMessage(
+    string text
+  ) : IMessage
+  {
+    public string Message { get; } = text;
+    public MessageLevel Level => MessageLevel.Info;
   }
 }

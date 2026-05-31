@@ -1,25 +1,18 @@
 ﻿!_Schema
 errors: !_Errors
 - !_Error
-  _kind: !_TokenKind End
   _message: "In _AndType can't get model for type '_Named'"
 - !_Error
-  _kind: !_TokenKind End
   _message: "In _Category can't get model for type '_Aliased'"
 - !_Error
-  _kind: !_TokenKind End
   _message: "In _Directive can't get model for type '_Aliased'"
 - !_Error
-  _kind: !_TokenKind End
   _message: "In _OpDirective can't get model for type '_Named'"
 - !_Error
-  _kind: !_TokenKind End
   _message: "In _OpDirectives can't get model for type '_Named'"
 - !_Error
-  _kind: !_TokenKind End
   _message: "In _Operation can't get model for type '_Aliased'"
 - !_Error
-  _kind: !_TokenKind End
   _message: "In _Setting can't get model for type '_Named'"
 types: !_Map(_Type)
   !_Name OpSelectionBase: !_TypeOutput

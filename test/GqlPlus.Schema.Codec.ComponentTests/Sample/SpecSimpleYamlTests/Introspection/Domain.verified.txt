@@ -1,13 +1,10 @@
 ﻿!_Schema
 errors: !_Errors
   - !_Error
-    _kind: !_TokenKind End
     _message: "In _BaseDomain can't get model for type '_ParentType'"
   - !_Error
-    _kind: !_TokenKind End
     _message: "In _BaseDomainItem can't get model for type '_Described'"
   - !_Error
-    _kind: !_TokenKind End
     _message: "In _DomainRef can't get model for type '_TypeRef'"
 types: !_Map(_Type)
   !_Name _BaseDomain: !_TypeOutput

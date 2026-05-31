@@ -4,66 +4,34 @@
     "$list": [
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _ObjField can\u0027t get model for type \u0027_Aliased\u0027"
       },
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _ObjBase can\u0027t get model for type \u0027_Named\u0027"
       },
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _ObjAlternateEnum can\u0027t get model for type \u0027_TypeRef\u0027"
       },
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _ObjFieldEnum can\u0027t get model for type \u0027_TypeRef\u0027"
       },
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _ObjTypeArg can\u0027t get model for type \u0027_TypeRef\u0027"
       },
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _ObjTypeParam can\u0027t get model for type \u0027_Named\u0027"
       },
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _TypeObject can\u0027t get model for type \u0027_ChildType\u0027"
       },
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _TypeParam can\u0027t get model for type \u0027_Described\u0027"
       }
     ],

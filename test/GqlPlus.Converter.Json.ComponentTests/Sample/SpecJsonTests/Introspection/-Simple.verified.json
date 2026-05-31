@@ -4,50 +4,26 @@
     "$list": [
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _BaseDomain can\u0027t get model for type \u0027_ParentType\u0027"
       },
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _BaseDomainItem can\u0027t get model for type \u0027_Described\u0027"
       },
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _DomainRef can\u0027t get model for type \u0027_TypeRef\u0027"
       },
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _EnumLabel can\u0027t get model for type \u0027_Aliased\u0027"
       },
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _EnumValue can\u0027t get model for type \u0027_TypeRef\u0027"
       },
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _UnionRef can\u0027t get model for type \u0027_TypeRef\u0027"
       }
     ],

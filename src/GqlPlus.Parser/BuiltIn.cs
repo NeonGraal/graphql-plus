@@ -8,23 +8,19 @@ public static class BuiltIn
 {
   public const string BooleanType = "Boolean";
   public const string BooleanAlias = "^";
-  public const string BooleanFalse = GqlpStrings.BoolFalse;
-  public const string BooleanTrue = GqlpStrings.BoolTrue;
   public const string NullType = "Null";
-  public const string NullValue = GqlpStrings.NullValue;
   public const string NumberType = "Number";
   public const string NumberAlias = "0";
   public const string ScalarType = "Scalar";
   public const string StringType = "String";
   public const string StringAlias = "*";
   public const string UnitType = "Unit";
-  public const string UnitValue = "_";
   public const string ValueType = "Value";
   public const string VoidType = "Void";
 
   public static IAstType[] Basic { get; } = [
-    Enum(BooleanType, [BooleanAlias, "_" + BooleanType], BooleanFalse, BooleanTrue),
-    Enum(UnitType, [UnitValue, "_" + UnitType], UnitValue),
+    Enum(BooleanType, [BooleanAlias, "_" + BooleanType], GqlpStrings.BoolFalse, GqlpStrings.BoolTrue),
+    Enum(UnitType, [GqlpStrings.UnitValue, "_" + UnitType], GqlpStrings.UnitValue),
 
     Domain<DomainRangeAst, IAstDomainRange>(NumberType, DomainKind.Number, NumberAlias, "_" + NumberType),
     Domain<DomainRegexAst, IAstDomainRegex>(StringType, DomainKind.String, StringAlias, "_" + StringType),
@@ -59,7 +55,7 @@ public static class BuiltIn
 
   internal static IAstType[] InternalSimple { get; } = [
     Enum(VoidType, ["_Void"]),
-    Enum(NullType, [NullValue, "_Null"], NullValue),
+    Enum(NullType, [GqlpStrings.NullValue, "_Null"], GqlpStrings.NullValue),
     new UnionDeclAst(AstNulls.At, "_Basic", s_basicMembers.UnionMembers()) { Aliases = ["Basic"]},
     new UnionDeclAst(AstNulls.At, "_Internal", s_internalMembers.UnionMembers()) { Aliases = ["Internal"]},
     new UnionDeclAst(AstNulls.At, "_Simple", s_simpleMembers.UnionMembers()) { Aliases = ["Simple"]},
@@ -90,10 +86,10 @@ public static class BuiltIn
   internal static IAstTypeSpecial[] Special { get; }
 
   internal static Map<string> EnumValues = new() {
-    [UnitValue] = UnitType,
-    [NullValue] = NullType,
-    [BooleanTrue] = BooleanType,
-    [BooleanFalse] = BooleanType,
+    [GqlpStrings.UnitValue] = UnitType,
+    [GqlpStrings.NullValue] = NullType,
+    [GqlpStrings.BoolTrue] = BooleanType,
+    [GqlpStrings.BoolFalse] = BooleanType,
   };
 
   private static AstObject<IAstDualField> DualObj(string label, ObjBaseAst parent, params string[] aliases)

@@ -190,28 +190,430 @@ Success
   InDrctParamOpt
 }
 {
-  !Op I@008/0061
+  !SO I@011/0061
+  OprCtgr
+  catOprCtgr
+  !Tr I@033/0061
+  String
+}
+{
+  !Ca P@010/0062
+  catOprCtgr
+  (Parallel)
+  !Tr I@012/0062
+  CatOprCtgr
+}
+{
+  !Ou I@008/0063
+  CatOprCtgr
+}
+{
+  !SO I@011/0065
+  OprDmn
+  catOprDmn
+  !Tr I@032/0065
+  Number
+}
+{
+  !Ca P@010/0066
+  catOprDmn
+  (Parallel)
+  !Tr I@012/0066
+  CatOprDmn
+}
+{
+  !Ou I@008/0067
+  CatOprDmn
+}
+{
+  !SO I@011/0069
+  OprDmnArg
+  catOprDmnArg
+  !Tr I@038/0069
+  String
+  (
+    !k S@046/0069
+    'Value'
+  )
+}
+{
+  !Ca P@010/0070
+  catOprDmnArg
+  (Parallel)
+  !Tr I@012/0070
+  CatOprDmnArg
+}
+{
+  !Ou I@008/0071
+  CatOprDmnArg
+}
+{
+  !SO I@011/0073
+  OprDmnMods
+  catOprDmnMods
+  !Tr I@040/0073
+  Boolean
+  [String]
+}
+{
+  !Ca P@010/0074
+  catOprDmnMods
+  (Parallel)
+  !Tr I@012/0074
+  CatOprDmnMods
+}
+{
+  !Ou I@008/0075
+  CatOprDmnMods
+}
+{
+  !SO I@011/0077
+  OprDmnVar
+  catOprDmnVar
+  !v I@038/0077
+  arg
+  !Tr I@044/0077
+  String
+  (
+    !a I@053/0077
+    $arg
+  )
+}
+{
+  !Ca P@010/0078
+  catOprDmnVar
+  (Parallel)
+  !Tr I@012/0078
+  CatOprDmnVar
+}
+{
+  !Ou I@008/0079
+  CatOprDmnVar
+}
+{
+  !SO I@011/0081
+  OprSlct
+  catOprSlct
+  {
+    !f I@034/0081
+    first
+    !f I@040/0081
+    last
+    !f I@045/0081
+    address
+    {
+      !f I@055/0081
+      street
+      !f I@062/0081
+      city
+      !f I@067/0081
+      country
+    }
+  }
+}
+{
+  !Ca P@010/0082
+  catOprSlct
+  (Parallel)
+  !Tr I@012/0082
+  CatOprSlct
+}
+{
+  !Ou I@008/0083
+  CatOprSlct
+  {
+    !OF I@005/0084
+    first
+    :
+    I@012/0084
+    String
+    !OF I@005/0085
+    last
+    :
+    I@011/0085
+    String
+    !OF I@005/0086
+    address
+    :
+    I@014/0086
+    AddrOprSlct
+  }
+}
+{
+  !Ou I@008/0088
+  AddrOprSlct
+  {
+    !OF I@005/0089
+    street
+    :
+    I@013/0089
+    String
+    !OF I@005/0090
+    city
+    :
+    I@011/0090
+    String
+    !OF I@005/0091
+    country
+    :
+    I@014/0091
+    String
+  }
+}
+{
+  !SO I@011/0093
+  OprSlctInln
+  catOprSlctInln
+  {
+    !f I@042/0093
+    first
+    !f I@048/0093
+    last
+    !f I@053/0093
+    address
+    {
+      !i P@064/0093
+      :AddrOprSlctInln
+      {
+        !f I@083/0093
+        street
+        !f I@090/0093
+        city
+        !f I@095/0093
+        country
+      }
+    }
+  }
+}
+{
+  !Ca P@010/0094
+  catOprSlctInln
+  (Parallel)
+  !Tr I@012/0094
+  CatOprSlctInln
+}
+{
+  !Ou I@008/0095
+  CatOprSlctInln
+  {
+    !OF I@005/0096
+    first
+    :
+    I@012/0096
+    String
+    !OF I@005/0097
+    last
+    :
+    I@011/0097
+    String
+    !OF I@005/0098
+    address
+    :
+    I@014/0098
+    AddrOprSlctInln
+  }
+}
+{
+  !Ou I@008/0100
+  AddrOprSlctInln
+  |
+  I@007/0101
+  FullOprSlctInln
+  I@007/0102
+  String
+}
+{
+  !Ou I@008/0104
+  FullOprSlctInln
+  {
+    !OF I@005/0105
+    street
+    :
+    I@013/0105
+    String
+    !OF I@005/0106
+    city
+    :
+    I@011/0106
+    String
+    !OF I@005/0107
+    country
+    :
+    I@014/0107
+    String
+  }
+}
+{
+  !SO I@011/0109
+  OprSlctMods
+  catOprSlctMods
+  {
+    !f I@042/0109
+    first
+    !f I@048/0109
+    last
+    !f I@053/0109
+    address
+    {
+      !f I@063/0109
+      street
+      !f I@070/0109
+      city
+      !f I@075/0109
+      country
+    }
+  }
+  []
+}
+{
+  !Ca P@010/0110
+  catOprSlctMods
+  (Parallel)
+  !Tr I@012/0110
+  CatOprSlctMods
+}
+{
+  !Ou I@008/0111
+  CatOprSlctMods
+  {
+    !OF I@005/0112
+    first
+    :
+    I@012/0112
+    String
+    !OF I@005/0113
+    last
+    :
+    I@011/0113
+    String
+    !OF I@005/0114
+    address
+    :
+    I@014/0114
+    AddrOprSlctMods
+  }
+}
+{
+  !Ou I@008/0116
+  AddrOprSlctMods
+  {
+    !OF I@005/0117
+    street
+    :
+    I@013/0117
+    String
+    !OF I@005/0118
+    city
+    :
+    I@011/0118
+    String
+    !OF I@005/0119
+    country
+    :
+    I@014/0119
+    String
+  }
+}
+{
+  !SO I@011/0121
+  OprSlctSprd
+  catOprSlctSprd
+  !t I@041/0121
+  firstLast
+  :CatOprSlctSprd
+  {
+    !f I@068/0121
+    first
+    !f I@074/0121
+    last
+  }
+  {
+    !s I@084/0121
+    firstLast
+    !f I@094/0121
+    address
+    {
+      !f I@104/0121
+      street
+      !f I@111/0121
+      city
+      !f I@116/0121
+      country
+    }
+  }
+}
+{
+  !Ca P@010/0122
+  catOprSlctSprd
+  (Parallel)
+  !Tr I@012/0122
+  CatOprSlctSprd
+}
+{
+  !Ou I@008/0123
+  CatOprSlctSprd
+  {
+    !OF I@005/0124
+    first
+    :
+    I@012/0124
+    String
+    !OF I@005/0125
+    last
+    :
+    I@011/0125
+    String
+    !OF I@005/0126
+    address
+    :
+    I@014/0126
+    AddrOprSlctSprd
+  }
+}
+{
+  !Ou I@008/0128
+  AddrOprSlctSprd
+  {
+    !OF I@005/0129
+    street
+    :
+    I@013/0129
+    String
+    !OF I@005/0130
+    city
+    :
+    I@011/0130
+    String
+    !OF I@005/0131
+    country
+    :
+    I@014/0131
+    String
+  }
+}
+{
+  !Op I@008/0133
   Schema
   [
     Alias
   ]
 }
 {
-  !Op I@008/0063
+  !Op I@008/0135
   Schema
   {
-    !OS I@017/0063
+    !OS I@017/0135
     global
-    =( !k I@024/0063 Boolean.true )
+    =( !k I@024/0135 Boolean.true )
   }
 }
 {
-  !Op I@008/0065
+  !Op I@008/0137
   Schema
   {
     'Option Descr'
-    !OS S@017/0065
+    !OS S@017/0137
     descr
-    =( !k I@040/0065 Boolean.true )
+    =( !k I@040/0137 Boolean.true )
   }
 }

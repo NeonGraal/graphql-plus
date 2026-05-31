@@ -5,8 +5,7 @@ internal abstract record class AstSimple(
   string Name,
   string Description
 ) : AstType<IAstTypeRef>(At, Name, Description)
-  , IAstSimple
-{ }
+  , IAstSimple;
 
 internal abstract record class AstSimple<TItemAst>(
   ITokenAt At,

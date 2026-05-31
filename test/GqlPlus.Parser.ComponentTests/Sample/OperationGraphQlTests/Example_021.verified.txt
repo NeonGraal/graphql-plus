@@ -2,24 +2,6 @@
 query
 FragmentTyping
 Success
-{
-  !f I@003/0002
-  profiles
-  (
-    !a I@012/0002
-    {
-      ( !k I@012/0002 handles ):( !a P@021/0002 [ !k S@022/0002 'zuck' !k S@030/0002 'coca-cola' ] )
-    }
-  )
-  {
-    !f I@005/0003
-    handle
-    !s I@008/0004
-    userFragment
-    !s I@008/0005
-    pageFragment
-  }
-}
 !t I@010/0009
 userFragment
 :User
@@ -40,5 +22,23 @@ pageFragment
   {
     !f I@005/0017
     count
+  }
+}
+{
+  !f I@003/0002
+  profiles
+  (
+    !a I@012/0002
+    {
+      ( !k I@012/0002 handles ):( !a P@021/0002 [ !k S@022/0002 'zuck' !k S@030/0002 'coca-cola' ] )
+    }
+  )
+  {
+    !f I@005/0003
+    handle
+    !s I@008/0004
+    userFragment
+    !s I@008/0005
+    pageFragment
   }
 }

@@ -55,7 +55,7 @@ public static class StructureHelper
   ) => groups.Encode(v => v, mapTag, keyTag, flow);
 
   public static Structured Encode(this IMessages errors)
-    => new(errors.Select(Encode), "_Errors");
+    => errors.Encode(Encode, "_Errors");
 
   private static Structured Encode(IMessage msg)
   {

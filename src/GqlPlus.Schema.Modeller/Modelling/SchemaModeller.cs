@@ -8,6 +8,7 @@ internal class SchemaModeller(
 {
   private readonly Modeller<IAstSchemaCategory, CategoryModel> _category = modellers.ModellerFor<IAstSchemaCategory, CategoryModel>();
   private readonly Modeller<IAstSchemaDirective, DirectiveModel> _directive = modellers.ModellerFor<IAstSchemaDirective, DirectiveModel>();
+  private readonly Modeller<IAstSchemaOperation, OperationModel> _operation = modellers.ModellerFor<IAstSchemaOperation, OperationModel>();
   private readonly Modeller<IAstSchemaSetting, SettingModel> _setting = modellers.ModellerFor<IAstSchemaSetting, SettingModel>();
   private readonly DeferOne<ITypesModeller> _types = modellers.TypesModeller();
 
@@ -23,14 +24,18 @@ internal class SchemaModeller(
 
     _types.I.AddTypeKinds(typeDeclarations, typeKinds);
 
+    IEnumerable<CategoryModel> categories = DeclarationModel(ast, _category, typeKinds);
+    IEnumerable<DirectiveModel> directives = DeclarationModel(ast, _directive, typeKinds);
+    IEnumerable<OperationModel> operations = DeclarationModel(ast, _operation, typeKinds);
     IAstSchemaOption[] options = ast.Declarations.ArrayOf<IAstSchemaOption>();
-    string? name = options.LastOrDefault(options => !string.IsNullOrWhiteSpace(options.Name))?.Name;
+    string name = options.LastOrDefault(options => !string.IsNullOrWhiteSpace(options.Name))?.Name ?? "";
     IEnumerable<string> aliases = options.SelectMany(a => a.Aliases);
     IEnumerable<SettingModel> settings = options.SelectMany(o => _setting.ToModels(o.Settings, typeKinds));
 
-    return new(name.IfWhiteSpace(),
-        DeclarationModel(ast, _category, typeKinds),
-        DeclarationModel(ast, _directive, typeKinds),
+    return new(name,
+        categories,
+        directives,
+        operations,
         settings,
         typeDeclarations.Select(t => _types.I.ToModel(t, typeKinds)),
         errors

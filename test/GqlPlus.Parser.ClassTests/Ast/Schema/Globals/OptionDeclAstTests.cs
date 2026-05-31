@@ -27,7 +27,7 @@ public partial class OptionDeclAstTests
   private readonly AstDeclarationChecks<OptionDeclAst> _checks = new(CreateOption);
 
   [CheckTests(Inherited = true)]
-  internal IAstDeclarationChecks AliasedChecks => _checks;
+  internal IAstDeclarationChecks<string> AliasedChecks => _checks;
 
   [CheckTests]
   internal ICloneChecks<string> CloneChecks { get; }

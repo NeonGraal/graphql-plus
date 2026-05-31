@@ -110,6 +110,154 @@ internal class CmptDscrsEncoder : IEncoder<ICmptDscrsObject>
   internal static CmptDscrsEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptCatOprCtgrEncoder : IEncoder<ICmptCatOprCtgrObject>
+{
+  public Structured Encode(ICmptCatOprCtgrObject input)
+    => Structured.Empty();
+
+  internal static CmptCatOprCtgrEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptCatOprDmnEncoder : IEncoder<ICmptCatOprDmnObject>
+{
+  public Structured Encode(ICmptCatOprDmnObject input)
+    => Structured.Empty();
+
+  internal static CmptCatOprDmnEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptCatOprDmnArgEncoder : IEncoder<ICmptCatOprDmnArgObject>
+{
+  public Structured Encode(ICmptCatOprDmnArgObject input)
+    => Structured.Empty();
+
+  internal static CmptCatOprDmnArgEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptCatOprDmnModsEncoder : IEncoder<ICmptCatOprDmnModsObject>
+{
+  public Structured Encode(ICmptCatOprDmnModsObject input)
+    => Structured.Empty();
+
+  internal static CmptCatOprDmnModsEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptCatOprDmnVarEncoder : IEncoder<ICmptCatOprDmnVarObject>
+{
+  public Structured Encode(ICmptCatOprDmnVarObject input)
+    => Structured.Empty();
+
+  internal static CmptCatOprDmnVarEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptCatOprSlctEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptCatOprSlctObject>
+{
+  private readonly Encoder<ICmptAddrOprSlct> _addrOprSlct = encoders.EncoderFor<ICmptAddrOprSlct>();
+  public Structured Encode(ICmptCatOprSlctObject input)
+    => Structured.Empty()
+      .Add("first", input.First.Encode())
+      .Add("last", input.Last.Encode())
+      .AddEncoded("address", input.Address, _addrOprSlct);
+
+  internal static CmptCatOprSlctEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptAddrOprSlctEncoder : IEncoder<ICmptAddrOprSlctObject>
+{
+  public Structured Encode(ICmptAddrOprSlctObject input)
+    => Structured.Empty()
+      .Add("street", input.Street.Encode())
+      .Add("city", input.City.Encode())
+      .Add("country", input.Country.Encode());
+
+  internal static CmptAddrOprSlctEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptCatOprSlctInlnEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptCatOprSlctInlnObject>
+{
+  private readonly Encoder<ICmptAddrOprSlctInln> _addrOprSlctInln = encoders.EncoderFor<ICmptAddrOprSlctInln>();
+  public Structured Encode(ICmptCatOprSlctInlnObject input)
+    => Structured.Empty()
+      .Add("first", input.First.Encode())
+      .Add("last", input.Last.Encode())
+      .AddEncoded("address", input.Address, _addrOprSlctInln);
+
+  internal static CmptCatOprSlctInlnEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptAddrOprSlctInlnEncoder : IEncoder<ICmptAddrOprSlctInlnObject>
+{
+  public Structured Encode(ICmptAddrOprSlctInlnObject input)
+    => Structured.Empty();
+
+  internal static CmptAddrOprSlctInlnEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptFullOprSlctInlnEncoder : IEncoder<ICmptFullOprSlctInlnObject>
+{
+  public Structured Encode(ICmptFullOprSlctInlnObject input)
+    => Structured.Empty()
+      .Add("street", input.Street.Encode())
+      .Add("city", input.City.Encode())
+      .Add("country", input.Country.Encode());
+
+  internal static CmptFullOprSlctInlnEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptCatOprSlctModsEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptCatOprSlctModsObject>
+{
+  private readonly Encoder<ICmptAddrOprSlctMods> _addrOprSlctMods = encoders.EncoderFor<ICmptAddrOprSlctMods>();
+  public Structured Encode(ICmptCatOprSlctModsObject input)
+    => Structured.Empty()
+      .Add("first", input.First.Encode())
+      .Add("last", input.Last.Encode())
+      .AddEncoded("address", input.Address, _addrOprSlctMods);
+
+  internal static CmptCatOprSlctModsEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptAddrOprSlctModsEncoder : IEncoder<ICmptAddrOprSlctModsObject>
+{
+  public Structured Encode(ICmptAddrOprSlctModsObject input)
+    => Structured.Empty()
+      .Add("street", input.Street.Encode())
+      .Add("city", input.City.Encode())
+      .Add("country", input.Country.Encode());
+
+  internal static CmptAddrOprSlctModsEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptCatOprSlctSprdEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptCatOprSlctSprdObject>
+{
+  private readonly Encoder<ICmptAddrOprSlctSprd> _addrOprSlctSprd = encoders.EncoderFor<ICmptAddrOprSlctSprd>();
+  public Structured Encode(ICmptCatOprSlctSprdObject input)
+    => Structured.Empty()
+      .Add("first", input.First.Encode())
+      .Add("last", input.Last.Encode())
+      .AddEncoded("address", input.Address, _addrOprSlctSprd);
+
+  internal static CmptCatOprSlctSprdEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptAddrOprSlctSprdEncoder : IEncoder<ICmptAddrOprSlctSprdObject>
+{
+  public Structured Encode(ICmptAddrOprSlctSprdObject input)
+    => Structured.Empty()
+      .Add("street", input.Street.Encode())
+      .Add("city", input.City.Encode())
+      .Add("country", input.Country.Encode());
+
+  internal static CmptAddrOprSlctSprdEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptAltDualEncoder : IEncoder<ICmptAltDualObject>
 {
   public Structured Encode(ICmptAltDualObject input)
@@ -3959,6 +4107,14 @@ internal class CmptRefObjPrntOutpEncoder : IEncoder<ICmptRefObjPrntOutpObject>
   internal static CmptRefObjPrntOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptOpEncoder : IEncoder<ICmptOpObject>
+{
+  public Structured Encode(ICmptOpObject input)
+    => Structured.Empty();
+
+  internal static CmptOpEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptOutpFieldParamEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ICmptOutpFieldParamObject>
@@ -4632,6 +4788,20 @@ internal static class Cmpt_Schema_ALLEncoders
       .AddEncoder<ICmptDescrDblObject>(CmptDescrDblEncoder.Factory)
       .AddEncoder<ICmptDescrSnglObject>(CmptDescrSnglEncoder.Factory)
       .AddEncoder<ICmptDscrsObject>(CmptDscrsEncoder.Factory)
+      .AddEncoder<ICmptCatOprCtgrObject>(CmptCatOprCtgrEncoder.Factory)
+      .AddEncoder<ICmptCatOprDmnObject>(CmptCatOprDmnEncoder.Factory)
+      .AddEncoder<ICmptCatOprDmnArgObject>(CmptCatOprDmnArgEncoder.Factory)
+      .AddEncoder<ICmptCatOprDmnModsObject>(CmptCatOprDmnModsEncoder.Factory)
+      .AddEncoder<ICmptCatOprDmnVarObject>(CmptCatOprDmnVarEncoder.Factory)
+      .AddEncoder<ICmptCatOprSlctObject>(CmptCatOprSlctEncoder.Factory)
+      .AddEncoder<ICmptAddrOprSlctObject>(CmptAddrOprSlctEncoder.Factory)
+      .AddEncoder<ICmptCatOprSlctInlnObject>(CmptCatOprSlctInlnEncoder.Factory)
+      .AddEncoder<ICmptAddrOprSlctInlnObject>(CmptAddrOprSlctInlnEncoder.Factory)
+      .AddEncoder<ICmptFullOprSlctInlnObject>(CmptFullOprSlctInlnEncoder.Factory)
+      .AddEncoder<ICmptCatOprSlctModsObject>(CmptCatOprSlctModsEncoder.Factory)
+      .AddEncoder<ICmptAddrOprSlctModsObject>(CmptAddrOprSlctModsEncoder.Factory)
+      .AddEncoder<ICmptCatOprSlctSprdObject>(CmptCatOprSlctSprdEncoder.Factory)
+      .AddEncoder<ICmptAddrOprSlctSprdObject>(CmptAddrOprSlctSprdEncoder.Factory)
       .AddEncoder<ICmptAltDualObject>(CmptAltDualEncoder.Factory)
       .AddEncoder<ICmptAltAltDualObject>(CmptAltAltDualEncoder.Factory)
       .AddEncoder<ICmptAltOutpObject>(CmptAltOutpEncoder.Factory)
@@ -4963,6 +5133,7 @@ internal static class Cmpt_Schema_ALLEncoders
       .AddEncoder<ICmptRefObjPrntDualObject>(CmptRefObjPrntDualEncoder.Factory)
       .AddEncoder<ICmptObjPrntOutpObject>(CmptObjPrntOutpEncoder.Factory)
       .AddEncoder<ICmptRefObjPrntOutpObject>(CmptRefObjPrntOutpEncoder.Factory)
+      .AddEncoder<ICmptOpObject>(CmptOpEncoder.Factory)
       .AddEncoder<ICmptOutpFieldParamObject>(CmptOutpFieldParamEncoder.Factory)
       .AddEncoder<ICmptFldOutpFieldParamObject>(CmptFldOutpFieldParamEncoder.Factory)
       .AddEncoder<ICmptUnionAlias>(CmptUnionAliasEncoder.Factory)

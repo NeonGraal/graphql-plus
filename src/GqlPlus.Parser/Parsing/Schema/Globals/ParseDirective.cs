@@ -38,8 +38,7 @@ internal class DirectiveName
 }
 
 internal interface IDirectiveName
-  : INameParser
-{ }
+  : INameParser;
 
 internal class ParseDirectiveDefinition(
   IParserRepository parsers

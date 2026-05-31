@@ -10,7 +10,7 @@ public abstract class VerifierTypeTestsBase
 
   protected void AddTypes([NotNull] params IAstNamed[] types)
   {
-    foreach (IAstNamed type in types) {
+    foreach (IAstNamed type in types.ThrowIfNull()) {
       Types[type.Name] = type;
     }
   }

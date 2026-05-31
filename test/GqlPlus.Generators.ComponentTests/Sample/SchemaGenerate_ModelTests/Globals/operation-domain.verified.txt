@@ -1,0 +1,31 @@
+﻿/* operation-domain
+operation OprDmn { catOprDmn : Number }
+category { CatOprDmn }
+output CatOprDmn { }
+*/
+
+// Generated from Schema operation-domain
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_operation-domain, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_operation_domain;
+
+public class CmptCatOprDmn
+  : Schema_operation-domain
+  , ICmptCatOprDmn
+{
+  public ICmptCatOprDmnObject? As_CatOprDmn { get; set; }
+}
+
+public class CmptCatOprDmnObject
+  : Schema_operation-domain
+  , ICmptCatOprDmnObject
+{
+
+  public CmptCatOprDmnObject
+    ()
+  {
+  }
+}

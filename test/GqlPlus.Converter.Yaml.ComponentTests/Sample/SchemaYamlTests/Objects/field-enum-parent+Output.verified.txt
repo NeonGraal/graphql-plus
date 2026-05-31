@@ -19,17 +19,25 @@ types: !_Map(_Type)
   !_Name FieldEnumPrntOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      field: field
-      label: prnt_fieldEnumPrntOutp
-      name: EnumFieldEnumPrntOutp
+      enum: !_OutputEnum
+        field: field
+        label: prnt_fieldEnumPrntOutp
+        name: EnumFieldEnumPrntOutp
+        typeKind: !_SimpleKind Enum
+      name: field
       object: FieldEnumPrntOutp
-      typeKind: !_SimpleKind Enum
+      type: !_ObjBase
+        name: EnumFieldEnumPrntOutp
     fields:
-    - !_OutputEnum
-      field: field
-      label: prnt_fieldEnumPrntOutp
-      name: EnumFieldEnumPrntOutp
-      typeKind: !_SimpleKind Enum
+    - !_OutputField
+      enum: !_OutputEnum
+        field: field
+        label: prnt_fieldEnumPrntOutp
+        name: EnumFieldEnumPrntOutp
+        typeKind: !_SimpleKind Enum
+      name: field
+      type: !_ObjBase
+        name: EnumFieldEnumPrntOutp
     name: FieldEnumPrntOutp
     typeKind: !_TypeKind Output
   !_Name PrntFieldEnumPrntOutp: !_TypeEnum

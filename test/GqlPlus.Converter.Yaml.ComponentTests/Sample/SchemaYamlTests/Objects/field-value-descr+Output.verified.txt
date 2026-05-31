@@ -13,18 +13,28 @@ types: !_Map(_Type)
   !_Name FieldValueDescrOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      description: 'Test Descr'
-      field: field
-      label: fieldValueDescrOutp
-      name: EnumFieldValueDescrOutp
+      enum: !_OutputEnum
+        description: 'Test Descr'
+        field: field
+        label: fieldValueDescrOutp
+        name: EnumFieldValueDescrOutp
+        typeKind: !_SimpleKind Enum
+      name: field
       object: FieldValueDescrOutp
-      typeKind: !_SimpleKind Enum
+      type: !_ObjBase
+        description: 'Test Descr'
+        name: EnumFieldValueDescrOutp
     fields:
-    - !_OutputEnum
-      description: 'Test Descr'
-      field: field
-      label: fieldValueDescrOutp
-      name: EnumFieldValueDescrOutp
-      typeKind: !_SimpleKind Enum
+    - !_OutputField
+      enum: !_OutputEnum
+        description: 'Test Descr'
+        field: field
+        label: fieldValueDescrOutp
+        name: EnumFieldValueDescrOutp
+        typeKind: !_SimpleKind Enum
+      name: field
+      type: !_ObjBase
+        description: 'Test Descr'
+        name: EnumFieldValueDescrOutp
     name: FieldValueDescrOutp
     typeKind: !_TypeKind Output

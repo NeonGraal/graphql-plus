@@ -1,8 +1,6 @@
 ﻿namespace GqlPlus;
 
 public class GqlpScalar
-  : IGqlpScalar
-{ }
+  : IGqlpScalar;
 
-public interface IGqlpScalar
-{ }
+public interface IGqlpScalar;

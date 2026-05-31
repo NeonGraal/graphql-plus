@@ -37,8 +37,7 @@ public record class UsageAliased<TUsage>(
 
 public interface IVerifyUsage<TUsage>
   : IVerify<UsageAliased<TUsage>>
-  where TUsage : IAstError
-{ }
+  where TUsage : IAstError;
 
 public class UsageVerifier<T>(
   UsageVerifier<T>.D factory

@@ -1,0 +1,24 @@
+﻿/* operation-selection
+operation OprSlct { catOprSlct { first last address { street city country } } }
+category { CatOprSlct }
+output CatOprSlct { 
+    first: String
+    last: String
+    address: AddrOprSlct
+}
+output AddrOprSlct {
+    street: String
+    city: String
+    country: String
+}
+*/
+
+// Generated from Schema operation-selection
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_operation-selection, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+
+Category catOprSlct
+*/
+
+namespace Components.Gqlp_Schema_operation_selection;

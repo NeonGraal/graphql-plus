@@ -1,0 +1,202 @@
+﻿{
+  "$mapTag": "_Schema",
+  "categories": {
+    "$mapTag": "_Map(_Categories)",
+    "catOprSlct": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Category",
+      "name": "catOprSlct",
+      "output": {
+        "$mapTag": "_TypeRef(_TypeKind)",
+        "name": "CatOprSlct",
+        "typeKind": {
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
+        }
+      },
+      "resolution": {
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
+      }
+    }
+  },
+  "operations": {
+    "$mapTag": "_Map(_Operations)",
+    "OprSlct": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Operation",
+      "category": "catOprSlct",
+      "name": "OprSlct",
+      "selections": {
+        "$mapTag": "_Map(_Selections)",
+        "": {
+          "$keyTag": "_Name",
+          "$list": [
+            {
+              "$mapTag": "_OpFieldSelection",
+              "name": "first"
+            },
+            {
+              "$mapTag": "_OpFieldSelection",
+              "name": "last"
+            },
+            {
+              "$mapTag": "_OpFieldSelection",
+              "name": "address"
+            }
+          ],
+          "$listTag": "_Selections"
+        },
+        ".3": {
+          "$keyTag": "_Name",
+          "$list": [
+            {
+              "$mapTag": "_OpFieldSelection",
+              "name": "street"
+            },
+            {
+              "$mapTag": "_OpFieldSelection",
+              "name": "city"
+            },
+            {
+              "$mapTag": "_OpFieldSelection",
+              "name": "country"
+            }
+          ],
+          "$listTag": "_Selections"
+        }
+      }
+    }
+  },
+  "types": {
+    "$mapTag": "_Map(_Type)",
+    "AddrOprSlct": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "street",
+          "object": "AddrOprSlct",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "city",
+          "object": "AddrOprSlct",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "country",
+          "object": "AddrOprSlct",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "street",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "city",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "country",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "name": "AddrOprSlct",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "CatOprSlct": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "first",
+          "object": "CatOprSlct",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "last",
+          "object": "CatOprSlct",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "address",
+          "object": "CatOprSlct",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "AddrOprSlct"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "first",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "last",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "address",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "AddrOprSlct"
+          }
+        }
+      ],
+      "name": "CatOprSlct",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    }
+  }
+}

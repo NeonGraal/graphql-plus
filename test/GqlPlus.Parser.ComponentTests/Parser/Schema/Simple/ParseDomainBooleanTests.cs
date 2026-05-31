@@ -5,8 +5,7 @@ namespace GqlPlus.Parser.Schema.Simple;
 
 public sealed class ParseDomainBooleanTests(
   IBaseDomainChecks<string, IAstDomain<IAstDomainTrueFalse>> domainChecks
-) : BaseDomainTests<string, IAstDomain<IAstDomainTrueFalse>>(domainChecks)
-{ }
+) : BaseDomainTests<string, IAstDomain<IAstDomainTrueFalse>>(domainChecks);
 
 internal sealed class ParseDomainBooleanChecks(
   IParserRepository parsers

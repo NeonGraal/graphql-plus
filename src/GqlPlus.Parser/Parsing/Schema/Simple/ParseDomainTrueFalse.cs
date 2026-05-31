@@ -17,9 +17,9 @@ internal class ParseDomainTrueFalse(
     TokenAt at = tokens.At;
     bool excluded = tokens.Take('!');
     bool hasType = tokens.Identifier(out string? type);
-    IAstDomainTrueFalse result = new DomainTrueFalseAst(at, description, excluded, BuiltIn.BooleanTrue.Equals(type, StringComparison.Ordinal));
+    IAstDomainTrueFalse result = new DomainTrueFalseAst(at, description, excluded, GqlpStrings.BoolTrue.Equals(type, StringComparison.Ordinal));
 
-    return hasType && (result.IsTrue || BuiltIn.BooleanFalse.Equals(type, StringComparison.Ordinal))
+    return hasType && (result.IsTrue || GqlpStrings.BoolFalse.Equals(type, StringComparison.Ordinal))
       ? result.Ok()
       : excluded
         ? tokens.Partial(label, "boolean after '!'", () => result)

@@ -38,8 +38,7 @@ public interface IAstObjEnum
 public interface IAstTypeArg
   : IAstObjType
   , IAstObjEnum
-  , IEquatable<IAstTypeArg>
-{ }
+  , IEquatable<IAstTypeArg>;
 
 public interface IAstObjBase
   : IAstObjType
@@ -61,14 +60,12 @@ public interface IAstObjFieldType
 
 public interface IAstObjField
   : IAstAliased
-  , IAstObjFieldType
-{ }
+  , IAstObjFieldType;
 
 public interface IAstAlternate
   : IAstObjBase
   , IAstModifiers
-  , IAstObjEnum
-{ }
+  , IAstObjEnum;
 
 public interface IAstTypeParam
   : IAstNamed
@@ -77,8 +74,7 @@ public interface IAstTypeParam
 }
 
 public interface IAstDualField
-  : IAstObjField
-{ }
+  : IAstObjField;
 
 public interface IAstInputFieldType
   : IAstObjFieldType
@@ -89,8 +85,7 @@ public interface IAstInputFieldType
 public interface IAstInputField
   : IAstObjField
   , IAstInputFieldType
-  , IEquatable<IAstInputField>
-{ }
+  , IEquatable<IAstInputField>;
 
 public interface IAstOutputField
   : IAstObjField
@@ -102,5 +97,4 @@ public interface IAstOutputField
 public interface IAstInputParam
   : IAstDescribed
   , IAstInputFieldType
-  , IEquatable<IAstInputParam>
-{ }
+  , IEquatable<IAstInputParam>;

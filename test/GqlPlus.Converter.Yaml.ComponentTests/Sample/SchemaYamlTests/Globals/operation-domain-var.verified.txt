@@ -1,0 +1,23 @@
+﻿!_Schema
+categories: !_Map(_Categories)
+  !_Name catOprDmnVar: !_Category
+    name: catOprDmnVar
+    output: !_TypeRef(_TypeKind)
+      name: CatOprDmnVar
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+operations: !_Map(_Operations)
+  !_Name OprDmnVar: !_Operation
+    category: catOprDmnVar
+    name: OprDmnVar
+    result: !_OpResult
+      domain: !_TypeRef(_TypeKind)
+        name: String
+        typeKind: !_TypeKind Output
+    variables: !_Map(_Variables)
+      !_Name arg: !_OpVariable
+        name: arg
+types: !_Map(_Type)
+  !_Name CatOprDmnVar: !_TypeOutput
+    name: CatOprDmnVar
+    typeKind: !_TypeKind Output

@@ -1,0 +1,13 @@
+﻿[_Schema]:categories[_Map(_Categories)]:[_Name]catOprDmnMods[_Category]:name=catOprDmnMods
+[_Schema]:categories[_Map(_Categories)]:[_Name]catOprDmnMods[_Category]:output[_TypeRef(_TypeKind)]:name=CatOprDmnMods
+[_Schema]:categories[_Map(_Categories)]:[_Name]catOprDmnMods[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map(_Categories)]:[_Name]catOprDmnMods[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:operations[_Map(_Operations)]:[_Name]OprDmnMods[_Operation]:category=catOprDmnMods
+[_Schema]:operations[_Map(_Operations)]:[_Name]OprDmnMods[_Operation]:modifiers.0[_ModifierDictionary]:by=String
+[_Schema]:operations[_Map(_Operations)]:[_Name]OprDmnMods[_Operation]:modifiers.0[_ModifierDictionary]:modifierKind=[_ModifierKind]Dict
+[_Schema]:operations[_Map(_Operations)]:[_Name]OprDmnMods[_Operation]:modifiers.0[_ModifierDictionary]:typeKind=[_SimpleKind]Basic
+[_Schema]:operations[_Map(_Operations)]:[_Name]OprDmnMods[_Operation]:name=OprDmnMods
+[_Schema]:operations[_Map(_Operations)]:[_Name]OprDmnMods[_Operation]:result[_OpResult]:domain[_TypeRef(_TypeKind)]:name=Boolean
+[_Schema]:operations[_Map(_Operations)]:[_Name]OprDmnMods[_Operation]:result[_OpResult]:domain[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map(_Type)]:[_Name]CatOprDmnMods[_TypeOutput]:name=CatOprDmnMods
+[_Schema]:types[_Map(_Type)]:[_Name]CatOprDmnMods[_TypeOutput]:typeKind=[_TypeKind]Output

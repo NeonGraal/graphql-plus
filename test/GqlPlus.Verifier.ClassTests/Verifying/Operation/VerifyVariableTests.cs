@@ -11,7 +11,7 @@ public class VerifyVariableTests
   private readonly IAstConstant _constant = A.Constant("constant");
 
   private readonly IAstVariable _item = A.Identified<IAstVariable>("item");
-  private readonly IAstFieldKey _keyField = A.EnumFieldKey(BuiltIn.NullType, BuiltIn.NullValue);
+  private readonly IAstFieldKey _keyField = A.EnumFieldKey(BuiltIn.NullType, GqlpStrings.NullValue);
 
   private readonly VerifyVariable _verifier = new();
   private readonly List<IAstModifier> _modifiers = [];

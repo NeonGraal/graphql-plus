@@ -30,27 +30,45 @@
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
-          "description": "Test Descr",
-          "field": "field",
-          "label": "fieldValueDescrOutp",
-          "name": "EnumFieldValueDescrOutp",
+          "enum": {
+            "$mapTag": "_OutputEnum",
+            "description": "Test Descr",
+            "field": "field",
+            "label": "fieldValueDescrOutp",
+            "name": "EnumFieldValueDescrOutp",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          },
+          "name": "field",
           "object": "FieldValueDescrOutp",
-          "typeKind": {
-            "$value": "Enum",
-            "$valueTag": "_SimpleKind"
+          "type": {
+            "$mapTag": "_ObjBase",
+            "description": "Test Descr",
+            "name": "EnumFieldValueDescrOutp"
           }
         }
       ],
       "fields": [
         {
-          "$mapTag": "_OutputEnum",
-          "description": "Test Descr",
-          "field": "field",
-          "label": "fieldValueDescrOutp",
-          "name": "EnumFieldValueDescrOutp",
-          "typeKind": {
-            "$value": "Enum",
-            "$valueTag": "_SimpleKind"
+          "$mapTag": "_OutputField",
+          "enum": {
+            "$mapTag": "_OutputEnum",
+            "description": "Test Descr",
+            "field": "field",
+            "label": "fieldValueDescrOutp",
+            "name": "EnumFieldValueDescrOutp",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          },
+          "name": "field",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "description": "Test Descr",
+            "name": "EnumFieldValueDescrOutp"
           }
         }
       ],

@@ -79,8 +79,7 @@ internal abstract class GroupedVerifier<TAliased> : IVerifyAliased<TAliased>
 
 public interface IVerifyAliased<TAliased>
   : IVerify<TAliased[]>
-    where TAliased : IAstAliased
-{ }
+    where TAliased : IAstAliased;
 
 public class AliasVerifier<TAliased>(
   AliasVerifier<TAliased>.D factory

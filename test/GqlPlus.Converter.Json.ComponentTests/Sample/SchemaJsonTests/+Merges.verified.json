@@ -82,6 +82,23 @@
         "$value": "Parallel",
         "$valueTag": "_Resolution"
       }
+    },
+    "op": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Category",
+      "name": "op",
+      "output": {
+        "$mapTag": "_TypeRef(_TypeKind)",
+        "name": "Op",
+        "typeKind": {
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
+        }
+      },
+      "resolution": {
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
+      }
     }
   },
   "directives": {
@@ -126,6 +143,27 @@
     }
   },
   "name": "Schema",
+  "operations": {
+    "$mapTag": "_Map(_Operations)",
+    "Operation": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Operation",
+      "aliases": ["Op1", "Op2"],
+      "category": "op",
+      "name": "Operation",
+      "result": {
+        "$mapTag": "_OpResult",
+        "domain": {
+          "$mapTag": "_TypeRef(_TypeKind)",
+          "name": "String",
+          "typeKind": {
+            "$value": "Output",
+            "$valueTag": "_TypeKind"
+          }
+        }
+      }
+    }
+  },
   "settings": {
     "$mapTag": "_Map(_Setting)",
     "merged": {
@@ -1418,25 +1456,43 @@
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
-          "field": "field",
-          "label": "true",
-          "name": "Boolean",
+          "aliases": ["field1", "field2"],
+          "enum": {
+            "$mapTag": "_OutputEnum",
+            "field": "field",
+            "label": "true",
+            "name": "Boolean",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          },
+          "name": "field",
           "object": "ObjFieldEnumAliasOutp",
-          "typeKind": {
-            "$value": "Enum",
-            "$valueTag": "_SimpleKind"
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Boolean"
           }
         }
       ],
       "fields": [
         {
-          "$mapTag": "_OutputEnum",
-          "field": "field",
-          "label": "true",
-          "name": "Boolean",
-          "typeKind": {
-            "$value": "Enum",
-            "$valueTag": "_SimpleKind"
+          "$mapTag": "_OutputField",
+          "aliases": ["field1", "field2"],
+          "enum": {
+            "$mapTag": "_OutputEnum",
+            "field": "field",
+            "label": "true",
+            "name": "Boolean",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          },
+          "name": "field",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Boolean"
           }
         }
       ],
@@ -1512,25 +1568,41 @@
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
-          "field": "field",
-          "label": "true",
-          "name": "Boolean",
+          "enum": {
+            "$mapTag": "_OutputEnum",
+            "field": "field",
+            "label": "true",
+            "name": "Boolean",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          },
+          "name": "field",
           "object": "ObjFieldEnumValueOutp",
-          "typeKind": {
-            "$value": "Enum",
-            "$valueTag": "_SimpleKind"
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Boolean"
           }
         }
       ],
       "fields": [
         {
-          "$mapTag": "_OutputEnum",
-          "field": "field",
-          "label": "true",
-          "name": "Boolean",
-          "typeKind": {
-            "$value": "Enum",
-            "$valueTag": "_SimpleKind"
+          "$mapTag": "_OutputField",
+          "enum": {
+            "$mapTag": "_OutputEnum",
+            "field": "field",
+            "label": "true",
+            "name": "Boolean",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          },
+          "name": "field",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Boolean"
           }
         }
       ],
@@ -2144,6 +2216,15 @@
         "$mapTag": "_ObjBase",
         "name": "RefObjPrntOutp"
       },
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "Op": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "name": "Op",
       "typeKind": {
         "$value": "Output",
         "$valueTag": "_TypeKind"

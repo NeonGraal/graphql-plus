@@ -4,18 +4,10 @@
     "$list": [
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _EnumLabel can\u0027t get model for type \u0027_Aliased\u0027"
       },
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _EnumValue can\u0027t get model for type \u0027_TypeRef\u0027"
       }
     ],
@@ -87,12 +79,15 @@
         "name": "_TypeRef",
         "typeArgs": [
           {
-            "$mapTag": "_EnumValue",
-            "label": "Enum",
-            "name": "_TypeKind",
-            "typeKind": {
-              "$value": "Enum",
-              "$valueTag": "_SimpleKind"
+            "$mapTag": "_TypeArg",
+            "enumValue": {
+              "$mapTag": "_EnumValue",
+              "label": "Enum",
+              "name": "_TypeKind",
+              "typeKind": {
+                "$value": "Enum",
+                "$valueTag": "_SimpleKind"
+              }
             }
           }
         ]

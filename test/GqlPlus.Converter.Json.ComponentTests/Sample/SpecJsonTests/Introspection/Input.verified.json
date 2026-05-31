@@ -4,18 +4,10 @@
     "$list": [
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _InputField can\u0027t get model for type \u0027_ObjField\u0027"
       },
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _InputFieldType can\u0027t get model for type \u0027_ObjFieldType\u0027"
       }
     ],

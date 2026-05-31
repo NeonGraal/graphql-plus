@@ -1,6 +1,4 @@
-﻿[_Schema]:errors[_Errors].0[_Error]:_kind=[_TokenKind]End
-[_Schema]:errors[_Errors].0[_Error]:_message="In _OutputField can't get model for type '_ObjField'"
-[_Schema]:errors[_Errors].1[_Error]:_kind=[_TokenKind]End
+﻿[_Schema]:errors[_Errors].0[_Error]:_message="In _OutputField can't get model for type '_ObjField'"
 [_Schema]:errors[_Errors].1[_Error]:_message="In _OutputFieldType can't get model for type '_ObjFieldType'"
 [_Schema]:types[_Map(_Type)]:[_Name]_OutputField[_TypeOutput]:name=_OutputField
 [_Schema]:types[_Map(_Type)]:[_Name]_OutputField[_TypeOutput]:parent[_ObjBase]:name=_ObjField

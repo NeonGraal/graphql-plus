@@ -3,8 +3,7 @@
 public record class TypeInputModel(
   string Name,
   string Description
-) : TypeObjectModel<InputFieldModel>(TypeKindModel.Input, Name, Description)
-{ }
+) : TypeObjectModel<InputFieldModel>(TypeKindModel.Input, Name, Description);
 
 public record class InputFieldModel(
   string Name,

@@ -7,19 +7,21 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: RefCnstEnumPrntInp
         typeArgs:
-        - !_EnumValue
-          label: cnstEnumPrntInp
-          name: EnumCnstEnumPrntInp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: cnstEnumPrntInp
+            name: EnumCnstEnumPrntInp
+            typeKind: !_SimpleKind Enum
     alternates:
     - !_Alternate
       type: !_ObjBase
         name: RefCnstEnumPrntInp
         typeArgs:
-        - !_EnumValue
-          label: cnstEnumPrntInp
-          name: EnumCnstEnumPrntInp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: cnstEnumPrntInp
+            name: EnumCnstEnumPrntInp
+            typeKind: !_SimpleKind Enum
     name: CnstEnumPrntInp
     typeKind: !_TypeKind Input
   !_Name EnumCnstEnumPrntInp: !_TypeEnum

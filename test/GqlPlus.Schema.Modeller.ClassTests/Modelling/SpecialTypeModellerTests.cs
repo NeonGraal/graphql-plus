@@ -1,6 +1,4 @@
-﻿using GqlPlus.Modelling.Simple;
-
-namespace GqlPlus.Modelling;
+﻿namespace GqlPlus.Modelling;
 
 public class SpecialTypeModellerTests
   : TypeModellerTests<IAstTypeSpecial, SpecialTypeModel>

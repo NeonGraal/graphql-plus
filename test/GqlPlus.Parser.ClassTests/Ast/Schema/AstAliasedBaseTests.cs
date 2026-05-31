@@ -1,8 +1,7 @@
 ﻿namespace GqlPlus.Ast.Schema;
 
 public abstract class AstAliasedBaseTests
-  : AstAliasedBaseTests<string>
-{ }
+  : AstAliasedBaseTests<string>;
 
 public abstract class AstAliasedBaseTests<TInput>
   : AstNamedBaseTests<TInput>
@@ -119,8 +118,7 @@ internal abstract class AstAliasedChecks<TInput, TAliased>(
 }
 
 internal interface IAstAliasedChecks
-  : IAstAliasedChecks<string>
-{ }
+  : IAstAliasedChecks<string>;
 
 internal interface IAstAliasedChecks<TInput>
   : IAstNamedChecks<TInput>

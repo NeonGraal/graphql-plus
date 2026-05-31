@@ -41,7 +41,7 @@ public class VerifyInputFieldsTests
   {
     DefineObject(fieldType);
 
-    IAstFieldKey nullLabel = A.EnumFieldKey(BuiltIn.NullType, BuiltIn.NullValue);
+    IAstFieldKey nullLabel = A.EnumFieldKey(BuiltIn.NullType, GqlpStrings.NullValue);
     IAstConstant nullValue = A.Constant(nullLabel);
 
     IAstInputField field = A.InputField(fieldName, fieldType).WithDefault(nullValue).AsInputField;
@@ -55,7 +55,7 @@ public class VerifyInputFieldsTests
   {
     DefineObject(fieldType);
 
-    IAstFieldKey nullLabel = A.EnumFieldKey(BuiltIn.NullType, BuiltIn.NullValue);
+    IAstFieldKey nullLabel = A.EnumFieldKey(BuiltIn.NullType, GqlpStrings.NullValue);
     IAstConstant nullValue = A.Constant(nullLabel);
 
     IAstInputField field = A.InputField(fieldName, fieldType)

@@ -6,8 +6,7 @@ public record class DomainRefModel(
   string Name,
   DomainKindModel DomainKind,
   string Description
-) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Domain, Name, Description)
-{ }
+) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Domain, Name, Description);
 
 public sealed record class BaseDomainModel<TItem>(
   DomainKindModel DomainKind,
@@ -30,8 +29,7 @@ public interface ITypeDomainModel
 public record class BaseDomainItemModel(
   bool Exclude,
   string Description
-) : DescribedModel(Description)
-{ }
+) : DescribedModel(Description);
 
 public record class DomainLabelModel(
   EnumValueModel EnumValue,
@@ -53,60 +51,51 @@ public record class DomainTrueFalseModel(
   bool Value,
   bool Exclude,
   string Description
-) : BaseDomainItemModel(Exclude, Description)
-{ }
+) : BaseDomainItemModel(Exclude, Description);
 
 public record class DomainRangeModel(
   decimal? From,
   decimal? To,
   bool Exclude,
   string Description
-) : BaseDomainItemModel(Exclude, Description)
-{ }
+) : BaseDomainItemModel(Exclude, Description);
 
 public record class DomainRegexModel(
   string Pattern,
   bool Exclude,
   string Description
-) : BaseDomainItemModel(Exclude, Description)
-{ }
+) : BaseDomainItemModel(Exclude, Description);
 
 public record class DomainItemModel<TItem>(
   TItem Item,
   string Domain
 ) : ModelBase
-  where TItem : BaseDomainItemModel
-{ }
+  where TItem : BaseDomainItemModel;
 
 public record class TypeEnumModel(
   string Name,
   string Description
-) : ParentTypeModel<AliasedModel, EnumLabelModel>(TypeKindModel.Enum, Name, Description)
-{ }
+) : ParentTypeModel<AliasedModel, EnumLabelModel>(TypeKindModel.Enum, Name, Description);
 
 public record class EnumLabelModel(
   string Name,
   string OfEnum,
   string Description
-) : AliasedModel(Name, Description)
-{ }
+) : AliasedModel(Name, Description);
 
 public record class EnumValueModel(
   string Name,
   string Label,
   string Description
-) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Name, Description)
-{ }
+) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Name, Description);
 
 public record class TypeUnionModel(
   string Name,
   string Description
-) : ParentTypeModel<NamedModel, UnionMemberModel>(TypeKindModel.Union, Name, Description)
-{ }
+) : ParentTypeModel<NamedModel, UnionMemberModel>(TypeKindModel.Union, Name, Description);
 
 public record class UnionMemberModel(
   string Name,
   string OfUnion,
   string Description
-) : NamedModel(Name, Description)
-{ }
+) : NamedModel(Name, Description);

@@ -1,10 +1,8 @@
 ﻿!_Schema
 errors: !_Errors
 - !_Error
-  _kind: !_TokenKind End
   _message: "In _Categories can't get model for type '_AndType'"
 - !_Error
-  _kind: !_TokenKind End
   _message: "In _Category can't get model for type '_Aliased'"
 types: !_Map(_Type)
   !_Name _Categories: !_TypeOutput
@@ -45,10 +43,11 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_EnumValue
-          label: Output
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: Output
+            name: _TypeKind
+            typeKind: !_SimpleKind Enum
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
@@ -65,10 +64,11 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_EnumValue
-          label: Output
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: Output
+            name: _TypeKind
+            typeKind: !_SimpleKind Enum
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers

@@ -19,7 +19,7 @@ public sealed class ParseEnumTests(
   public void WithEnumLabelsBad_ReturnsFalse(string name, string[] labels)
     => checks
     .SkipNull(labels)
-    .SkipIf(labels.Length < 2)
+    .SkipIf(labels.ThrowIfNull().Length < 2)
     .FalseExpected(name + "{" + string.Join("|", labels) + "}");
 
   [Theory, RepeatData]

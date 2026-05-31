@@ -29,6 +29,12 @@ categories: !_Map(_Categories)
       name: CtgrMod
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
+  !_Name op: !_Category
+    name: op
+    output: !_TypeRef(_TypeKind)
+      name: Op
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
 directives: !_Map(_Directives)
   !_Name Drct: !_Directive
     locations: !_Set(_Location) {Inline: _, Spread: _}
@@ -46,6 +52,15 @@ directives: !_Map(_Directives)
       name: InDrctParam
     repeatable: false
 name: Schema
+operations: !_Map(_Operations)
+  !_Name Operation: !_Operation
+    aliases: [Op1, Op2]
+    category: op
+    name: Operation
+    result: !_OpResult
+      domain: !_TypeRef(_TypeKind)
+        name: String
+        typeKind: !_TypeKind Output
 settings: !_Map(_Setting)
   !_Name merged: !_Setting
     name: merged
@@ -627,17 +642,27 @@ types: !_Map(_Type)
   !_Name ObjFieldEnumAliasOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      field: field
-      label: true
-      name: Boolean
+      aliases: [field1, field2]
+      enum: !_OutputEnum
+        field: field
+        label: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+      name: field
       object: ObjFieldEnumAliasOutp
-      typeKind: !_SimpleKind Enum
+      type: !_ObjBase
+        name: Boolean
     fields:
-    - !_OutputEnum
-      field: field
-      label: true
-      name: Boolean
-      typeKind: !_SimpleKind Enum
+    - !_OutputField
+      aliases: [field1, field2]
+      enum: !_OutputEnum
+        field: field
+        label: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+      name: field
+      type: !_ObjBase
+        name: Boolean
     name: ObjFieldEnumAliasOutp
     typeKind: !_TypeKind Output
   !_Name ObjFieldEnumValueDual: !_TypeDual
@@ -671,17 +696,25 @@ types: !_Map(_Type)
   !_Name ObjFieldEnumValueOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      field: field
-      label: true
-      name: Boolean
+      enum: !_OutputEnum
+        field: field
+        label: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+      name: field
       object: ObjFieldEnumValueOutp
-      typeKind: !_SimpleKind Enum
+      type: !_ObjBase
+        name: Boolean
     fields:
-    - !_OutputEnum
-      field: field
-      label: true
-      name: Boolean
-      typeKind: !_SimpleKind Enum
+    - !_OutputField
+      enum: !_OutputEnum
+        field: field
+        label: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+      name: field
+      type: !_ObjBase
+        name: Boolean
     name: ObjFieldEnumValueOutp
     typeKind: !_TypeKind Output
   !_Name ObjFieldInp: !_TypeInput
@@ -963,6 +996,9 @@ types: !_Map(_Type)
     name: ObjPrntOutp
     parent: !_ObjBase
       name: RefObjPrntOutp
+    typeKind: !_TypeKind Output
+  !_Name Op: !_TypeOutput
+    name: Op
     typeKind: !_TypeKind Output
   !_Name OutpFieldParam: !_TypeOutput
     allFields:

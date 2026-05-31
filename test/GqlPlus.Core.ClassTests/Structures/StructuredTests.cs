@@ -427,6 +427,16 @@ public class StructuredTests
   }
 
   [Theory, RepeatData]
+  public void AddMapList_IsCorrect(string key, string[] values)
+  {
+    Structured result = new Map<Structured>().Encode();
+
+    result.AddMapList(key, values.ToMap<string, string[]>(k => k, v => [v]), new EncodeString(), "", keyTag: "");
+
+    CheckMap(result, key, values.ToMap(k => k, v => new Structured([v.Encode()])).Encode());
+  }
+
+  [Theory, RepeatData]
   public void AddEncoded_IsCorrect(string key, string value)
   {
     Structured result = new Map<Structured>().Encode();
@@ -461,7 +471,7 @@ public class StructuredTests
   public void AddSet_WithFlags_IsCorrect(string key, FlagsForTesting check)
   {
     Structured value = new Map<Structured>().Encode();
-    Map<string> flags = check.FlagNames().ToMap(k => k, v => BuiltIn.UnitValue);
+    Map<string> flags = check.FlagNames().ToMap(k => k, v => "_");
 
     value.AddSet(key, check);
 
@@ -472,7 +482,7 @@ public class StructuredTests
   public void AddSet_WithTagFlags_IsCorrect(string key, FlagsForTesting check, string tag)
   {
     Structured value = new Map<Structured>().Encode();
-    Map<string> flags = check.FlagNames().ToMap(k => k, v => BuiltIn.UnitValue);
+    Map<string> flags = check.FlagNames().ToMap(k => k, v => "_");
 
     value.AddSet(key, check, tag);
 

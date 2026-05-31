@@ -1,0 +1,50 @@
+﻿/* operation-selection
+operation OprSlct { catOprSlct { first last address { street city country } } }
+category { CatOprSlct }
+output CatOprSlct { 
+    first: String
+    last: String
+    address: AddrOprSlct
+}
+output AddrOprSlct {
+    street: String
+    city: String
+    country: String
+}
+*/
+
+// Generated from Schema operation-selection
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_operation-selection, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_operation_selection;
+
+public interface ICmptCatOprSlct
+  : Schema_operation-selection
+{
+  ICmptCatOprSlctObject? As_CatOprSlct { get; }
+}
+
+public interface ICmptCatOprSlctObject
+  : Schema_operation-selection
+{
+  string First { get; }
+  string Last { get; }
+  ICmptAddrOprSlct Address { get; }
+}
+
+public interface ICmptAddrOprSlct
+  : Schema_operation-selection
+{
+  ICmptAddrOprSlctObject? As_AddrOprSlct { get; }
+}
+
+public interface ICmptAddrOprSlctObject
+  : Schema_operation-selection
+{
+  string Street { get; }
+  string City { get; }
+  string Country { get; }
+}

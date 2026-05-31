@@ -1,0 +1,28 @@
+﻿/* operation-domain-var
+operation OprDmnVar { catOprDmnVar ($arg): String ($arg) }
+category { CatOprDmnVar }
+output CatOprDmnVar { }
+*/
+
+// Generated from Schema operation-domain-var
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_operation-domain-var, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_operation_domain_var;
+
+internal class CmptCatOprDmnVarEncoder : IEncoder<ICmptCatOprDmnVarObject>
+{
+  public Structured Encode(ICmptCatOprDmnVarObject input)
+    => Structured.Empty();
+
+  internal static CmptCatOprDmnVarEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_operation_domain_varEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_operation_domain_varEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptCatOprDmnVarObject>(CmptCatOprDmnVarEncoder.Factory);
+}

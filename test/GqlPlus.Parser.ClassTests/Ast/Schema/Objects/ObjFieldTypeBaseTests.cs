@@ -72,8 +72,7 @@ internal sealed class ObjFieldModifiersChecks<TInput, TObjType>(
   [CallerArgumentExpression(nameof(createType))] string createExpression = ""
 ) : ModifiersChecks<TInput, TObjType>(ObjFieldTypeChecks<TInput, TObjType>.ToCreateBy(createType), addModifiers, createExpression)
   where TObjType : IAstObjFieldType
-  where TInput : ITypeInput
-{ }
+  where TInput : ITypeInput;
 
 internal sealed class ObjFieldCloneChecks<TInput, TObjType>(
   TypeBy<TInput, TObjType> createType,
@@ -82,8 +81,7 @@ internal sealed class ObjFieldCloneChecks<TInput, TObjType>(
   [CallerArgumentExpression(nameof(cloneInput))] string cloneExpression = ""
 ) : CloneChecks<TInput, TObjType>(ObjFieldTypeChecks<TInput, TObjType>.ToCreateBy(createType), cloneInput, createExpression, cloneExpression)
   where TObjType : IAstObjFieldType
-  where TInput : ITypeInput
-{ }
+  where TInput : ITypeInput;
 
 internal delegate TObjType TypeBy<TInput, TObjType>(TInput input, IAstObjBase objBase)
   where TObjType : IAstObjFieldType

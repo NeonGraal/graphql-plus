@@ -1,0 +1,69 @@
+﻿{
+  "$mapTag": "_Schema",
+  "categories": {
+    "$mapTag": "_Map(_Categories)",
+    "catOprDmnMods": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Category",
+      "name": "catOprDmnMods",
+      "output": {
+        "$mapTag": "_TypeRef(_TypeKind)",
+        "name": "CatOprDmnMods",
+        "typeKind": {
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
+        }
+      },
+      "resolution": {
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
+      }
+    }
+  },
+  "operations": {
+    "$mapTag": "_Map(_Operations)",
+    "OprDmnMods": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Operation",
+      "category": "catOprDmnMods",
+      "modifiers": [
+        {
+          "$mapTag": "_ModifierDictionary",
+          "by": "String",
+          "modifierKind": {
+            "$value": "Dict",
+            "$valueTag": "_ModifierKind"
+          },
+          "typeKind": {
+            "$value": "Basic",
+            "$valueTag": "_SimpleKind"
+          }
+        }
+      ],
+      "name": "OprDmnMods",
+      "result": {
+        "$mapTag": "_OpResult",
+        "domain": {
+          "$mapTag": "_TypeRef(_TypeKind)",
+          "name": "Boolean",
+          "typeKind": {
+            "$value": "Output",
+            "$valueTag": "_TypeKind"
+          }
+        }
+      }
+    }
+  },
+  "types": {
+    "$mapTag": "_Map(_Type)",
+    "CatOprDmnMods": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "name": "CatOprDmnMods",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    }
+  }
+}

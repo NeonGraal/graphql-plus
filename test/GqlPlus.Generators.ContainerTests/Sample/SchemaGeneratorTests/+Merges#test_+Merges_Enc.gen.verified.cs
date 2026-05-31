@@ -671,6 +671,14 @@ internal class testRefObjPrntOutpEncoder : IEncoder<ItestRefObjPrntOutpObject>
   internal static testRefObjPrntOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class testOpEncoder : IEncoder<ItestOpObject>
+{
+  public Structured Encode(ItestOpObject input)
+    => Structured.Empty();
+
+  internal static testOpEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class testOutpFieldParamEncoder(
   IEncoderRepository encoders
 ) : IEncoder<ItestOutpFieldParamObject>
@@ -840,6 +848,7 @@ internal static class test__MergesEncoders
       .AddEncoder<ItestRefObjPrntInpObject>(testRefObjPrntInpEncoder.Factory)
       .AddEncoder<ItestObjPrntOutpObject>(testObjPrntOutpEncoder.Factory)
       .AddEncoder<ItestRefObjPrntOutpObject>(testRefObjPrntOutpEncoder.Factory)
+      .AddEncoder<ItestOpObject>(testOpEncoder.Factory)
       .AddEncoder<ItestOutpFieldParamObject>(testOutpFieldParamEncoder.Factory)
       .AddEncoder<ItestOutpFieldParam1Object>(testOutpFieldParam1Encoder.Factory)
       .AddEncoder<ItestOutpFieldParam2Object>(testOutpFieldParam2Encoder.Factory)

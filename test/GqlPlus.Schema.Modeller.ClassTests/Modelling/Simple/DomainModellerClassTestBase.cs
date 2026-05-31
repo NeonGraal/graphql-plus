@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Building.Schema;
 using GqlPlus.Building.Schema.Simple;
 
-namespace GqlPlus.Modelling.Simple;
+namespace GqlPlus.Modelling;
 
 public abstract class DomainModellerClassTestBase<TItemAst, TItemModel>
   : TypeModellerTests<IAstDomain<TItemAst>, BaseDomainModel<TItemModel>>

@@ -1,0 +1,99 @@
+<Solution>
+  <Folder Name="/common/">
+    <File Path="common/SolutionSuppressions.cs" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".config/dotnet-tools.json" />
+    <File Path=".editorconfig" />
+    <File Path=".github/dependabot.yml" />
+    <File Path=".github/workflows/dotnet-test.yml" />
+    <File Path=".gitignore" />
+    <File Path=".prettierrc.yml" />
+    <File Path="autoverify.ps1" />
+    <File Path="collect-samples.ps1" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="format.ps1" />
+    <File Path="make-summary.ps1" />
+    <File Path="test.ps1" />
+    <File Path="update.ps1" />
+  </Folder>
+  <Folder Name="/Solution Items/Coverage/">
+    <File Path="class-combine.ps1" />
+    <File Path="class-coverage.ps1" />
+    <File Path="class.runsettings" />
+    <File Path="coverage.ps1" />
+    <File Path="coverage.runsettings" />
+    <File Path="just-coverage.ps1" />
+    <File Path="report.ps1" />
+    <File Path="tests-coverage.runsettings" />
+  </Folder>
+  <Folder Name="/Solution Items/Docs/">
+    <File Path=".github/copilot-instructions.md" />
+    <File Path="AGENTS.md" />
+    <File Path="Conventions.md" />
+    <File Path="README.md" />
+    <File Path="Style-Guide.md" />
+  </Folder>
+  <Folder Name="/Solution Items/Otel/">
+    <File Path="otel-tests.ps1" />
+    <File Path="otel.runsettings" />
+  </Folder>
+  <Folder Name="/src/">
+    <File Path="src/Directory.Build.props" />
+    <File Path="src/SourceSuppressions.cs" />
+    <Project Path="src/GqlPlus.Common/GqlPlus.Common.csproj" />
+    <Project Path="src/GqlPlus.Converter.Json/GqlPlus.Converter.Json.csproj" />
+    <Project Path="src/GqlPlus.Converter.Plain/GqlPlus.Converter.Plain.csproj" />
+    <Project Path="src/GqlPlus.Converter.Yaml/GqlPlus.Converter.Yaml.csproj" />
+    <Project Path="src/GqlPlus.Core/GqlPlus.Core.csproj" />
+    <Project Path="src/GqlPlus.Generators/GqlPlus.Generators.csproj" />
+    <Project Path="src/GqlPlus.Parser.Ast/GqlPlus.Parser.Ast.csproj" />
+    <Project Path="src/GqlPlus.Parser/GqlPlus.Parser.csproj" />
+    <Project Path="src/GqlPlus.Schema.Codec/GqlPlus.Schema.Codec.csproj" />
+    <Project Path="src/GqlPlus.Schema.Modeller/GqlPlus.Schema.Modeller.csproj" />
+    <Project Path="src/GqlPlus.Schema.Models/GqlPlus.Schema.Models.csproj" />
+    <Project Path="src/GqlPlus.Verifier/GqlPlus.Verifier.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <File Path="test/Directory.Build.props" />
+    <File Path="test/Directory.Build.targets" />
+    <File Path="test/Html/index.html" />
+    <File Path="test/TestSuppressions.cs" />
+    <Project Path="test/GqlPlus.ClassTestBase/GqlPlus.ClassTestBase.csproj" />
+    <Project Path="test/GqlPlus.ComponentTestBase/GqlPlus.ComponentTestBase.csproj" />
+    <Project Path="test/GqlPlus.Converter.ClassTestBase/GqlPlus.Converter.ClassTestBase.csproj" />
+    <Project Path="test/GqlPlus.Converter.Json.ClassTests/GqlPlus.Converter.Json.ClassTests.csproj" />
+    <Project Path="test/GqlPlus.Converter.Json.ComponentTests/GqlPlus.Converter.Json.ComponentTests.csproj" />
+    <Project Path="test/GqlPlus.Converter.Plain.ClassTests/GqlPlus.Converter.Plain.ClassTests.csproj" />
+    <Project Path="test/GqlPlus.Converter.Yaml.ClassTests/GqlPlus.Converter.Yaml.ClassTests.csproj" />
+    <Project Path="test/GqlPlus.Converter.Yaml.ComponentTests/GqlPlus.Converter.Yaml.ComponentTests.csproj" />
+    <Project Path="test/GqlPlus.Core.ClassTests/GqlPlus.Core.ClassTests.csproj" />
+    <Project Path="test/GqlPlus.Generators.ClassTests/GqlPlus.Generators.ClassTests.csproj" />
+    <Project Path="test/GqlPlus.Generators.ComponentTests/GqlPlus.Generators.ComponentTests.csproj" />
+    <Project Path="test/GqlPlus.Generators.ContainerTests/GqlPlus.Generators.ContainerTests.csproj" />
+    <Project Path="test/GqlPlus.GeneratorsTestBase/GqlPlus.GeneratorsTestBase.csproj" />
+    <Project Path="test/GqlPlus.Parser.Ast.ClassTests/GqlPlus.Parser.Ast.ClassTests.csproj" />
+    <Project Path="test/GqlPlus.Parser.ClassTestBase/GqlPlus.Parser.ClassTestBase.csproj" Id="be1f824c-f1b6-4921-b048-e7f93e253553" />
+    <Project Path="test/GqlPlus.Parser.ClassTests/GqlPlus.Parser.ClassTests.csproj" />
+    <Project Path="test/GqlPlus.Parser.ComponentTests/GqlPlus.Parser.ComponentTests.csproj" />
+    <Project Path="test/GqlPlus.Parser.TestBase/GqlPlus.Parser.TestBase.csproj" />
+    <Project Path="test/GqlPlus.Samples.GraphQlPlus/GqlPlus.Samples.GraphQlPlus.csproj" />
+    <Project Path="test/GqlPlus.Schema.Codec.ClassTests/GqlPlus.Schema.Codec.ClassTests.csproj" />
+    <Project Path="test/GqlPlus.Schema.Codec.ComponentTestBase/GqlPlus.Schema.Codec.ComponentTestBase.csproj" />
+    <Project Path="test/GqlPlus.Schema.Codec.ComponentTests/GqlPlus.Schema.Codec.ComponentTests.csproj" />
+    <Project Path="test/GqlPlus.Schema.GraphQlPlus/GqlPlus.Schema.GraphQlPlus.csproj" />
+    <Project Path="test/GqlPlus.Schema.Modeller.ClassTests/GqlPlus.Schema.Modeller.ClassTests.csproj" />
+    <Project Path="test/GqlPlus.Schema.Modeller.ComponentTests/GqlPlus.Schema.Modeller.ComponentTests.csproj" />
+    <Project Path="test/GqlPlus.StarWars.Api/GqlPlus.StarWars.Api.csproj" />
+    <Project Path="test/GqlPlus.StarWars.ContainerTests/GqlPlus.StarWars.ContainerTests.csproj" />
+    <Project Path="test/GqlPlus.StarWars.GraphQlPlus/GqlPlus.StarWars.GraphQlPlus.csproj" />
+    <Project Path="test/GqlPlus.TestBase/GqlPlus.TestBase.csproj" />
+    <Project Path="test/GqlPlus.TestGenerators.Tests/GqlPlus.TestGenerators.Tests.csproj" />
+    <Project Path="test/GqlPlus.TestGenerators/GqlPlus.TestGenerators.csproj" />
+    <Project Path="test/GqlPlus.TestGeneratorsBase/GqlPlus.TestGeneratorsBase.csproj" />
+    <Project Path="test/GqlPlus.Verifier.ClassTests/GqlPlus.Verifier.ClassTests.csproj" />
+    <Project Path="test/GqlPlus.Verifier.ComponentTests/GqlPlus.Verifier.ComponentTests.csproj" />
+    <Project Path="test/GqlPlus.VerifyTestBase/GqlPlus.VerifyTestBase.csproj" />
+  </Folder>
+</Solution>

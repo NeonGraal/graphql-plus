@@ -47,10 +47,10 @@ public class ParseFieldKeyTests(
       enumValue.FieldKey());
 
   [Theory]
-  [InlineData("true", "Boolean", "true")]
-  [InlineData("false", "Boolean", "false")]
-  [InlineData("null", "Null", "null")]
-  [InlineData("_", "Unit", "_")]
+  [InlineData(GqlpStrings.BoolTrue, "Boolean", GqlpStrings.BoolTrue)]
+  [InlineData(GqlpStrings.BoolFalse, "Boolean", GqlpStrings.BoolFalse)]
+  [InlineData(GqlpStrings.NullValue, "Null", GqlpStrings.NullValue)]
+  [InlineData(GqlpStrings.UnitValue, "Unit", GqlpStrings.UnitValue)]
   public void WithSpecificValues_ReturnsCorrectAst(string value, string enumType, string enumValue)
     => checks.TrueExpected(
       value,

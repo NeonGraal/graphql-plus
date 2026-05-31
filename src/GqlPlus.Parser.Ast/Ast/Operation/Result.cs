@@ -3,13 +3,13 @@
 public interface IAstSelection
   : IAstError
   , IAstDirectives
-{ }
+  , IAstModifiers;
 
 public interface IAstField
   : IAstIdentified
   , IAstSelection
-  , IAstModifiers
   , IAstSelections
+  , IEquatable<IAstField>
 {
   string? FieldAlias { get; }
   IAstArg? Arg { get; }
@@ -19,7 +19,6 @@ public interface IAstInline
   : IAstAbbreviated
   , IAstSelection
   , IAstSelections
-  , IAstModifiers
   , IEquatable<IAstInline>
 {
   string? OnType { get; }
@@ -28,8 +27,7 @@ public interface IAstInline
 public interface IAstSpread
   : IAstIdentified
   , IAstSelection
-  , IAstModifiers
-{ }
+  , IEquatable<IAstSpread>;
 
 public interface IAstArg
   : IAstValue<IAstArg>

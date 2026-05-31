@@ -87,5 +87,4 @@ public class ParseOutputFieldTests(
 
 internal sealed class ParseOutputFieldChecks(
   IParserRepository parsers
-) : CheckObjectField<IAstOutputField, OutputFieldAst>(new OutputFactories(), parsers)
-{ }
+) : CheckObjectField<IAstOutputField, OutputFieldAst>(new OutputFactories(), parsers);

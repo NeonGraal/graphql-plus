@@ -28,4 +28,15 @@ public class TypeArgEncoderTests
       TagAll("_TypeArg",
       ":description=" + contents.QuotedIdentifier(),
       ":name=" + output));
+
+  [Theory, RepeatData]
+  public void Encode_WithEnumValue_ReturnsStructuredWithEnumValue(string output, string enumType, string label, string contents)
+  {
+    EnumValueModel enumValue = new(enumType, label, "");
+    _enumValue.Encode(enumValue).Returns(enumType.Encode());
+    EncodeAndCheck(new TypeArgModel(TypeKindModel.Output, output, contents) { EnumValue = enumValue },
+      TagAll("_TypeArg",
+      ":description=" + contents.QuotedIdentifier(),
+      ":enumValue=" + enumType));
+  }
 }

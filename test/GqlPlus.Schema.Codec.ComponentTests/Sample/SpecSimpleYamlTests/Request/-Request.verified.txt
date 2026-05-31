@@ -7,53 +7,59 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: _Modifier
           typeArgs:
-            - !_EnumValue
-              label: List
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              enumValue: !_EnumValue
+                label: List
+                name: _ModifierKind
+                typeKind: !_SimpleKind Enum
       - !_ObjectFor(_Alternate)
         object: _Collections
         type: !_ObjBase
           name: _ModifierKeyed
           typeArgs:
-            - !_EnumValue
-              label: Dictionary
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              enumValue: !_EnumValue
+                label: Dictionary
+                name: _ModifierKind
+                typeKind: !_SimpleKind Enum
       - !_ObjectFor(_Alternate)
         object: _Collections
         type: !_ObjBase
           name: _ModifierKeyed
           typeArgs:
-            - !_EnumValue
-              label: TypeParam
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              enumValue: !_EnumValue
+                label: TypeParam
+                name: _ModifierKind
+                typeKind: !_SimpleKind Enum
     alternates:
       - !_Alternate
         type: !_ObjBase
           name: _Modifier
           typeArgs:
-            - !_EnumValue
-              label: List
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              enumValue: !_EnumValue
+                label: List
+                name: _ModifierKind
+                typeKind: !_SimpleKind Enum
       - !_Alternate
         type: !_ObjBase
           name: _ModifierKeyed
           typeArgs:
-            - !_EnumValue
-              label: Dictionary
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              enumValue: !_EnumValue
+                label: Dictionary
+                name: _ModifierKind
+                typeKind: !_SimpleKind Enum
       - !_Alternate
         type: !_ObjBase
           name: _ModifierKeyed
           typeArgs:
-            - !_EnumValue
-              label: TypeParam
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              enumValue: !_EnumValue
+                label: TypeParam
+                name: _ModifierKind
+                typeKind: !_SimpleKind Enum
     name: _Collections
     typeKind: !_TypeKind Dual
   !_Name _Identifier: !_DomainString
@@ -166,10 +172,11 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: _Modifier
           typeArgs:
-            - !_EnumValue
-              label: Optional
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              enumValue: !_EnumValue
+                label: Optional
+                name: _ModifierKind
+                typeKind: !_SimpleKind Enum
       - !_ObjectFor(_Alternate)
         object: _Modifiers
         type: !_ObjBase
@@ -179,10 +186,11 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: _Modifier
           typeArgs:
-            - !_EnumValue
-              label: Optional
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              enumValue: !_EnumValue
+                label: Optional
+                name: _ModifierKind
+                typeKind: !_SimpleKind Enum
       - !_Alternate
         type: !_ObjBase
           name: _Collections

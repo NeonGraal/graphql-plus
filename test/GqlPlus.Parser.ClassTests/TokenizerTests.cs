@@ -242,8 +242,8 @@ public class TokenizerTests
     [NotNull, RegularExpression(PunctuationPattern + "{2}")] string one)
   {
     ITokenizer tokens = PrepareTokens(one);
-    char expected = one.Last();
-    this.SkipIf(one[0] == expected);
+    char expected = one.ThrowIfNull().Last();
+    this.SkipIf(one.ThrowIfNull().First() == expected);
 
     tokens.Take(expected).ShouldBeFalse();
   }

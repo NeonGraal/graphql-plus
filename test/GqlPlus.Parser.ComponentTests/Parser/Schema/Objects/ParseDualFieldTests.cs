@@ -6,10 +6,8 @@ namespace GqlPlus.Parser.Schema.Objects;
 
 public class ParseDualFieldTests(
   ICheckObjectField<IAstDualField> checks
-) : TestObjectField<IAstDualField>(checks)
-{ }
+) : TestObjectField<IAstDualField>(checks);
 
 internal sealed class ParseDualFieldChecks(
   IParserRepository parsers
-) : CheckObjectField<IAstDualField, DualFieldAst>(new DualFactories(), parsers)
-{ }
+) : CheckObjectField<IAstDualField, DualFieldAst>(new DualFactories(), parsers);

@@ -22,7 +22,6 @@ public static class AllDecoders
       .AddDecoder(ConstantDecoder.Factory)
       .AddDecoder(SimpleDecoder.Factory);
 
-
   private static IDecoderRepositoryBuilder SchemaDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder(EnumDecoder<CategoryOptionModel>.Factory)

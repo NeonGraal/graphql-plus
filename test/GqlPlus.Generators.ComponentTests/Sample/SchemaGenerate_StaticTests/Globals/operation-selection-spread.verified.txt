@@ -1,0 +1,24 @@
+﻿/* operation-selection-spread
+operation OprSlctSprd { catOprSlctSprd &firstLast:CatOprSlctSprd { first last } { |firstLast address { street city country } } }
+category { CatOprSlctSprd }
+output CatOprSlctSprd { 
+    first: String
+    last: String
+    address: AddrOprSlctSprd
+}
+output AddrOprSlctSprd {
+    street: String
+    city: String
+    country: String
+}
+*/
+
+// Generated from Schema operation-selection-spread
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_operation-selection-spread, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+
+Category catOprSlctSprd
+*/
+
+namespace Components.Gqlp_Schema_operation_selection_spread;

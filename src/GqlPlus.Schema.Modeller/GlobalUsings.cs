@@ -2,4 +2,3 @@
 global using GqlPlus.Ast.Schema;
 global using GqlPlus.Factories;
 global using GqlPlus.Models;
-global using GqlPlus.Token;

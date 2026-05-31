@@ -13,6 +13,7 @@ public static class AllEncoders
     => builder.ThrowIfNull()
       .CommonEncoders()
       .SchemaEncoders()
+      .OperationEncoders()
       .TypesEncoders()
       .SimpleEncoders()
       .ObjectEncoders()
@@ -27,9 +28,9 @@ public static class AllEncoders
 
   private static IEncoderRepositoryBuilder CommonEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder(AliasedEncoder<AliasedModel>.Factory)
-      .AddEncoder(DescribedEncoder<DescribedModel>.Factory)
-      .AddEncoder(NamedEncoder<NamedModel>.Factory)
+      .AddEncoder(AliasedEncoder<AliasedModel>.FactoryAliased)
+      .AddEncoder(DescribedEncoder<DescribedModel>.FactoryDescribed)
+      .AddEncoder(NamedEncoder<NamedModel>.FactoryNamed)
       .AddEncoder(ConstantEncoder.Factory)
       .AddEncoder(SimpleEncoder.Factory)
       .AddEncoder(CollectionEncoder.Factory)
@@ -43,6 +44,18 @@ public static class AllEncoders
       .AddEncoder(DirectivesEncoder.Factory)
       .AddEncoder(DirectiveEncoder.Factory)
       .AddEncoder(SettingEncoder.Factory);
+
+  private static IEncoderRepositoryBuilder OperationEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder(OperationsEncoder.Factory)
+      .AddEncoder(OperationEncoder.Factory)
+      // .AddSingleton<AndBaseTypeEncoders<OperationModel>>()
+      .AddEncoder(OpDirectiveEncoder.Factory)
+      .AddEncoder(OpFragmentEncoder.Factory)
+      .AddEncoder(OpResultEncoder.Factory)
+      .AddEncoder(OpSelectionEncoder.Factory)
+      // .AddEncoder(OpSelectionsEncoder.Factory)
+      .AddEncoder(OpVariableEncoder.Factory);
 
   private static IEncoderRepositoryBuilder TypesEncoders(this IEncoderRepositoryBuilder builder)
     => builder

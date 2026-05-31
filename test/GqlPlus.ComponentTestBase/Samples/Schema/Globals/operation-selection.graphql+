@@ -1,0 +1,12 @@
+operation Name { catName { first last address { street city country } } }
+category { CatName }
+output CatName { 
+    first: String
+    last: String
+    address: AddrName
+}
+output AddrName {
+    street: String
+    city: String
+    country: String
+}

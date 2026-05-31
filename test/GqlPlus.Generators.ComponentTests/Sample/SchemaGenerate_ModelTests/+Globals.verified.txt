@@ -311,3 +311,329 @@ public class CmptInDrctParamOptObject
   {
   }
 }
+
+public class CmptCatOprCtgr
+  : Schema_+Globals
+  , ICmptCatOprCtgr
+{
+  public ICmptCatOprCtgrObject? As_CatOprCtgr { get; set; }
+}
+
+public class CmptCatOprCtgrObject
+  : Schema_+Globals
+  , ICmptCatOprCtgrObject
+{
+
+  public CmptCatOprCtgrObject
+    ()
+  {
+  }
+}
+
+public class CmptCatOprDmn
+  : Schema_+Globals
+  , ICmptCatOprDmn
+{
+  public ICmptCatOprDmnObject? As_CatOprDmn { get; set; }
+}
+
+public class CmptCatOprDmnObject
+  : Schema_+Globals
+  , ICmptCatOprDmnObject
+{
+
+  public CmptCatOprDmnObject
+    ()
+  {
+  }
+}
+
+public class CmptCatOprDmnArg
+  : Schema_+Globals
+  , ICmptCatOprDmnArg
+{
+  public ICmptCatOprDmnArgObject? As_CatOprDmnArg { get; set; }
+}
+
+public class CmptCatOprDmnArgObject
+  : Schema_+Globals
+  , ICmptCatOprDmnArgObject
+{
+
+  public CmptCatOprDmnArgObject
+    ()
+  {
+  }
+}
+
+public class CmptCatOprDmnMods
+  : Schema_+Globals
+  , ICmptCatOprDmnMods
+{
+  public ICmptCatOprDmnModsObject? As_CatOprDmnMods { get; set; }
+}
+
+public class CmptCatOprDmnModsObject
+  : Schema_+Globals
+  , ICmptCatOprDmnModsObject
+{
+
+  public CmptCatOprDmnModsObject
+    ()
+  {
+  }
+}
+
+public class CmptCatOprDmnVar
+  : Schema_+Globals
+  , ICmptCatOprDmnVar
+{
+  public ICmptCatOprDmnVarObject? As_CatOprDmnVar { get; set; }
+}
+
+public class CmptCatOprDmnVarObject
+  : Schema_+Globals
+  , ICmptCatOprDmnVarObject
+{
+
+  public CmptCatOprDmnVarObject
+    ()
+  {
+  }
+}
+
+public class CmptCatOprSlct
+  : Schema_+Globals
+  , ICmptCatOprSlct
+{
+  public ICmptCatOprSlctObject? As_CatOprSlct { get; set; }
+}
+
+public class CmptCatOprSlctObject
+  : Schema_+Globals
+  , ICmptCatOprSlctObject
+{
+  public string First { get; set; }
+  public string Last { get; set; }
+  public ICmptAddrOprSlct Address { get; set; }
+
+  public CmptCatOprSlctObject
+    ( string pfirst
+    , string plast
+    , ICmptAddrOprSlct paddress
+    )
+  {
+    First = pfirst;
+    Last = plast;
+    Address = paddress;
+  }
+}
+
+public class CmptAddrOprSlct
+  : Schema_+Globals
+  , ICmptAddrOprSlct
+{
+  public ICmptAddrOprSlctObject? As_AddrOprSlct { get; set; }
+}
+
+public class CmptAddrOprSlctObject
+  : Schema_+Globals
+  , ICmptAddrOprSlctObject
+{
+  public string Street { get; set; }
+  public string City { get; set; }
+  public string Country { get; set; }
+
+  public CmptAddrOprSlctObject
+    ( string pstreet
+    , string pcity
+    , string pcountry
+    )
+  {
+    Street = pstreet;
+    City = pcity;
+    Country = pcountry;
+  }
+}
+
+public class CmptCatOprSlctInln
+  : Schema_+Globals
+  , ICmptCatOprSlctInln
+{
+  public ICmptCatOprSlctInlnObject? As_CatOprSlctInln { get; set; }
+}
+
+public class CmptCatOprSlctInlnObject
+  : Schema_+Globals
+  , ICmptCatOprSlctInlnObject
+{
+  public string First { get; set; }
+  public string Last { get; set; }
+  public ICmptAddrOprSlctInln Address { get; set; }
+
+  public CmptCatOprSlctInlnObject
+    ( string pfirst
+    , string plast
+    , ICmptAddrOprSlctInln paddress
+    )
+  {
+    First = pfirst;
+    Last = plast;
+    Address = paddress;
+  }
+}
+
+public class CmptAddrOprSlctInln
+  : Schema_+Globals
+  , ICmptAddrOprSlctInln
+{
+  public ICmptFullOprSlctInln? AsFullOprSlctInln { get; set; }
+  public string? AsString { get; set; }
+  public ICmptAddrOprSlctInlnObject? As_AddrOprSlctInln { get; set; }
+}
+
+public class CmptAddrOprSlctInlnObject
+  : Schema_+Globals
+  , ICmptAddrOprSlctInlnObject
+{
+
+  public CmptAddrOprSlctInlnObject
+    ()
+  {
+  }
+}
+
+public class CmptFullOprSlctInln
+  : Schema_+Globals
+  , ICmptFullOprSlctInln
+{
+  public ICmptFullOprSlctInlnObject? As_FullOprSlctInln { get; set; }
+}
+
+public class CmptFullOprSlctInlnObject
+  : Schema_+Globals
+  , ICmptFullOprSlctInlnObject
+{
+  public string Street { get; set; }
+  public string City { get; set; }
+  public string Country { get; set; }
+
+  public CmptFullOprSlctInlnObject
+    ( string pstreet
+    , string pcity
+    , string pcountry
+    )
+  {
+    Street = pstreet;
+    City = pcity;
+    Country = pcountry;
+  }
+}
+
+public class CmptCatOprSlctMods
+  : Schema_+Globals
+  , ICmptCatOprSlctMods
+{
+  public ICmptCatOprSlctModsObject? As_CatOprSlctMods { get; set; }
+}
+
+public class CmptCatOprSlctModsObject
+  : Schema_+Globals
+  , ICmptCatOprSlctModsObject
+{
+  public string First { get; set; }
+  public string Last { get; set; }
+  public ICmptAddrOprSlctMods Address { get; set; }
+
+  public CmptCatOprSlctModsObject
+    ( string pfirst
+    , string plast
+    , ICmptAddrOprSlctMods paddress
+    )
+  {
+    First = pfirst;
+    Last = plast;
+    Address = paddress;
+  }
+}
+
+public class CmptAddrOprSlctMods
+  : Schema_+Globals
+  , ICmptAddrOprSlctMods
+{
+  public ICmptAddrOprSlctModsObject? As_AddrOprSlctMods { get; set; }
+}
+
+public class CmptAddrOprSlctModsObject
+  : Schema_+Globals
+  , ICmptAddrOprSlctModsObject
+{
+  public string Street { get; set; }
+  public string City { get; set; }
+  public string Country { get; set; }
+
+  public CmptAddrOprSlctModsObject
+    ( string pstreet
+    , string pcity
+    , string pcountry
+    )
+  {
+    Street = pstreet;
+    City = pcity;
+    Country = pcountry;
+  }
+}
+
+public class CmptCatOprSlctSprd
+  : Schema_+Globals
+  , ICmptCatOprSlctSprd
+{
+  public ICmptCatOprSlctSprdObject? As_CatOprSlctSprd { get; set; }
+}
+
+public class CmptCatOprSlctSprdObject
+  : Schema_+Globals
+  , ICmptCatOprSlctSprdObject
+{
+  public string First { get; set; }
+  public string Last { get; set; }
+  public ICmptAddrOprSlctSprd Address { get; set; }
+
+  public CmptCatOprSlctSprdObject
+    ( string pfirst
+    , string plast
+    , ICmptAddrOprSlctSprd paddress
+    )
+  {
+    First = pfirst;
+    Last = plast;
+    Address = paddress;
+  }
+}
+
+public class CmptAddrOprSlctSprd
+  : Schema_+Globals
+  , ICmptAddrOprSlctSprd
+{
+  public ICmptAddrOprSlctSprdObject? As_AddrOprSlctSprd { get; set; }
+}
+
+public class CmptAddrOprSlctSprdObject
+  : Schema_+Globals
+  , ICmptAddrOprSlctSprdObject
+{
+  public string Street { get; set; }
+  public string City { get; set; }
+  public string Country { get; set; }
+
+  public CmptAddrOprSlctSprdObject
+    ( string pstreet
+    , string pcity
+    , string pcountry
+    )
+  {
+    Street = pstreet;
+    City = pcity;
+    Country = pcountry;
+  }
+}

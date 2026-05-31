@@ -6,7 +6,6 @@ internal abstract record class AstIdentified(
 ) : AstAbbreviated(At)
   , IAstIdentified
 {
-
   public virtual bool Equals(AstIdentified? other)
     => other is IAstIdentified identified && Equals(identified);
   public bool Equals(IAstIdentified? other)

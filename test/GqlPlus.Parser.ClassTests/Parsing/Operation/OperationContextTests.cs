@@ -36,6 +36,7 @@ public class OperationContextTests
     // Arrange
     IAstSpread spread = AtFor<IAstSpread>();
     spread.Identifier.Returns(name);
+    spread.Equals(Arg.Any<IAstSpread>()).Returns(c => c[0] == spread);
 
     // Act
     _context.AddSpread(spread);

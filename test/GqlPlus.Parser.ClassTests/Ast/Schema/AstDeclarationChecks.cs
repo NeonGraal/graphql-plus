@@ -3,11 +3,19 @@
 internal class AstDeclarationChecks<TDeclaration>(
   BaseAstChecks<TDeclaration>.CreateBy<string> createInput,
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
-) : AstAliasedChecks<TDeclaration>(createInput, createExpression)
-  , IAstDeclarationChecks
+) : AstDeclarationChecks<string, TDeclaration>(createInput, createExpression)
   where TDeclaration : AstDeclaration
 {
-  public void Label_IsExpected(string input)
+  protected override string InputName(string input) => input;
+}
+internal abstract class AstDeclarationChecks<TInput, TDeclaration>(
+  BaseAstChecks<TDeclaration>.CreateBy<TInput> createInput,
+  [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
+) : AstAliasedChecks<TInput, TDeclaration>(createInput, createExpression)
+  , IAstDeclarationChecks<TInput>
+  where TDeclaration : AstDeclaration
+{
+  public void Label_IsExpected(TInput input)
   {
     TDeclaration instance = CreateInput(input);
 
@@ -20,7 +28,8 @@ internal class AstDeclarationChecks<TDeclaration>(
   }
 }
 
-internal interface IAstDeclarationChecks
+internal interface IAstDeclarationChecks<TInput>
+  : IAstAliasedChecks<TInput>
 {
-  void Label_IsExpected(string input);
+  void Label_IsExpected(TInput input);
 }

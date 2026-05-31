@@ -1,0 +1,28 @@
+﻿/* operation-selection-inline
+operation OprSlctInln { catOprSlctInln { first last address { |:AddrOprSlctInln { street city country } } } }
+category { CatOprSlctInln }
+output CatOprSlctInln { 
+    first: String
+    last: String
+    address: AddrOprSlctInln
+}
+output AddrOprSlctInln {
+    | FullOprSlctInln
+    | String
+}
+output FullOprSlctInln {
+    street: String
+    city: String
+    country: String
+}
+*/
+
+// Generated from Schema operation-selection-inline
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_operation-selection-inline, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+
+Category catOprSlctInln
+*/
+
+namespace Components.Gqlp_Schema_operation_selection_inline;

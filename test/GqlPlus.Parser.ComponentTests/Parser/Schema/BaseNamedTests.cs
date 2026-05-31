@@ -18,8 +18,7 @@ public abstract class BaseNamedTests<TInput, TParsed>(
 internal abstract class BaseNamedChecks<TInput, TNamed>(
   IParserRepository parsers
 ) : BaseNamedChecks<TInput, TNamed, TNamed>(parsers)
-  where TNamed : AstNamed
-{ }
+  where TNamed : AstNamed;
 
 internal abstract class BaseNamedChecks<TInput, TNamed, TParsed>(
   IParserRepository parsers

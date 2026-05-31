@@ -1,0 +1,87 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ca P@010/0002
+  catOprSlctInln
+  (Parallel)
+  !Tr I@012/0002
+  CatOprSlctInln
+}
+{
+  !SO I@011/0001
+  OprSlctInln
+  catOprSlctInln
+  {
+    !f I@042/0001
+    first
+    !f I@048/0001
+    last
+    !f I@053/0001
+    address
+    {
+      !i P@064/0001
+      :AddrOprSlctInln
+      {
+        !f I@083/0001
+        street
+        !f I@090/0001
+        city
+        !f I@095/0001
+        country
+      }
+    }
+  }
+}
+{
+  !Ou I@008/0003
+  CatOprSlctInln
+  {
+    !OF I@005/0004
+    first
+    :
+    I@012/0004
+    String
+    !OF I@005/0005
+    last
+    :
+    I@011/0005
+    String
+    !OF I@005/0006
+    address
+    :
+    I@014/0006
+    AddrOprSlctInln
+  }
+}
+{
+  !Ou I@008/0008
+  AddrOprSlctInln
+  |
+  I@007/0009
+  FullOprSlctInln
+  I@007/0010
+  String
+}
+{
+  !Ou I@008/0012
+  FullOprSlctInln
+  {
+    !OF I@005/0013
+    street
+    :
+    I@013/0013
+    String
+    !OF I@005/0014
+    city
+    :
+    I@011/0014
+    String
+    !OF I@005/0015
+    country
+    :
+    I@014/0015
+    String
+  }
+}
+]

@@ -22,6 +22,17 @@ public static class IEnumerableHelpers
       ? items.Select(formatter).Prepend(before).Append(after)
       : [];
 
+  public static IEnumerable<string?> ConcatIf(this IEnumerable<string?>? items, bool test,
+    Func<IEnumerable<string?>?>? testValues = null, Func<IEnumerable<string?>?>? elseValues = null)
+    => (items ?? []).Concat((test ? testValues?.Invoke() : elseValues?.Invoke()) ?? []);
+
+  public static IEnumerable<string?> ConcatNull<T>(
+      this IEnumerable<string?>? items,
+      T? value,
+      Func<T, IEnumerable<string?>?>? testValues = null,
+      Func<IEnumerable<string?>?>? nullValues = null)
+    => (items ?? []).Concat((value is null ? nullValues?.Invoke() : testValues?.Invoke(value)) ?? []);
+
   public static string Debug(this IEnumerable<string?>? items)
     => (items?.OrderBy(t => t, StringComparer.Ordinal)).Joined(i => $"'{i}'", ", ");
 

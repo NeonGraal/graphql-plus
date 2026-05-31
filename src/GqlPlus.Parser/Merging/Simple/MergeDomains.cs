@@ -25,5 +25,4 @@ internal class MergeDomains<TItemAst, TItem>(
 
 internal interface IDomainMerger<TItem>
   : IMerge<IAstDomain<TItem>>
-  where TItem : IAstDomainItem
-{ }
+  where TItem : IAstDomainItem;

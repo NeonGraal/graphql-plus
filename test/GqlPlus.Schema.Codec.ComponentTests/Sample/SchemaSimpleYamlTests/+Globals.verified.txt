@@ -1,6 +1,60 @@
 ﻿!_Schema
 aliases: [Alias]
 categories: !_Map(_Categories)
+  !_Name catOprCtgr: !_Category
+    name: catOprCtgr
+    output: !_TypeRef(_TypeKind)
+      name: CatOprCtgr
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name catOprDmn: !_Category
+    name: catOprDmn
+    output: !_TypeRef(_TypeKind)
+      name: CatOprDmn
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name catOprDmnArg: !_Category
+    name: catOprDmnArg
+    output: !_TypeRef(_TypeKind)
+      name: CatOprDmnArg
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name catOprDmnMods: !_Category
+    name: catOprDmnMods
+    output: !_TypeRef(_TypeKind)
+      name: CatOprDmnMods
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name catOprDmnVar: !_Category
+    name: catOprDmnVar
+    output: !_TypeRef(_TypeKind)
+      name: CatOprDmnVar
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name catOprSlct: !_Category
+    name: catOprSlct
+    output: !_TypeRef(_TypeKind)
+      name: CatOprSlct
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name catOprSlctInln: !_Category
+    name: catOprSlctInln
+    output: !_TypeRef(_TypeKind)
+      name: CatOprSlctInln
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name catOprSlctMods: !_Category
+    name: catOprSlctMods
+    output: !_TypeRef(_TypeKind)
+      name: CatOprSlctMods
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name catOprSlctSprd: !_Category
+    name: catOprSlctSprd
+    output: !_TypeRef(_TypeKind)
+      name: CatOprSlctSprd
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
   !_Name ctgrDscrs: !_Category
     description: 'A Category described'
     name: ctgrDscrs
@@ -86,6 +140,133 @@ directives: !_Map(_Directives)
       name: InDrctParamOpt
     repeatable: false
 name: Schema
+operations: !_Map(_Operations)
+  !_Name OprCtgr: !_Operation
+    category: catOprCtgr
+    name: OprCtgr
+    result: !_OpResult
+      domain: !_TypeRef(_TypeKind)
+        name: String
+        typeKind: !_TypeKind Output
+  !_Name OprDmn: !_Operation
+    category: catOprDmn
+    name: OprDmn
+    result: !_OpResult
+      domain: !_TypeRef(_TypeKind)
+        name: Number
+        typeKind: !_TypeKind Output
+  !_Name OprDmnArg: !_Operation
+    category: catOprDmnArg
+    name: OprDmnArg
+    result: !_OpResult
+      domain: !_TypeRef(_TypeKind)
+        name: String
+        typeKind: !_TypeKind Output
+  !_Name OprDmnMods: !_Operation
+    category: catOprDmnMods
+    modifiers: [!_ModifierDictionary{by:String,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Basic}]
+    name: OprDmnMods
+    result: !_OpResult
+      domain: !_TypeRef(_TypeKind)
+        name: Boolean
+        typeKind: !_TypeKind Output
+  !_Name OprDmnVar: !_Operation
+    category: catOprDmnVar
+    name: OprDmnVar
+    result: !_OpResult
+      domain: !_TypeRef(_TypeKind)
+        name: String
+        typeKind: !_TypeKind Output
+    variables: !_Map(_Variables)
+      !_Name arg: !_OpVariable
+        name: arg
+  !_Name OprSlct: !_Operation
+    category: catOprSlct
+    name: OprSlct
+    selections: !_Map(_Selections)
+      : !_Selections
+        - !_OpFieldSelection
+          name: first
+        - !_OpFieldSelection
+          name: last
+        - !_OpFieldSelection
+          name: address
+      !_Name '.3': !_Selections
+        - !_OpFieldSelection
+          name: street
+        - !_OpFieldSelection
+          name: city
+        - !_OpFieldSelection
+          name: country
+  !_Name OprSlctInln: !_Operation
+    category: catOprSlctInln
+    name: OprSlctInln
+    selections: !_Map(_Selections)
+      : !_Selections
+        - !_OpFieldSelection
+          name: first
+        - !_OpFieldSelection
+          name: last
+        - !_OpFieldSelection
+          name: address
+      !_Name '.3': !_Selections
+        - !_OpInlineSelection
+          onType: !_TypeRef(_TypeKind)
+            name: AddrOprSlctInln
+            typeKind: !_TypeKind Output
+      !_Name '.3.1': !_Selections
+        - !_OpFieldSelection
+          name: street
+        - !_OpFieldSelection
+          name: city
+        - !_OpFieldSelection
+          name: country
+  !_Name OprSlctMods: !_Operation
+    category: catOprSlctMods
+    modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+    name: OprSlctMods
+    selections: !_Map(_Selections)
+      : !_Selections
+        - !_OpFieldSelection
+          name: first
+        - !_OpFieldSelection
+          name: last
+        - !_OpFieldSelection
+          name: address
+      !_Name '.3': !_Selections
+        - !_OpFieldSelection
+          name: street
+        - !_OpFieldSelection
+          name: city
+        - !_OpFieldSelection
+          name: country
+  !_Name OprSlctSprd: !_Operation
+    category: catOprSlctSprd
+    fragments: !_Map(_Fragments)
+      !_Name firstLast: !_OpFragment
+        name: firstLast
+        type: !_TypeRef(_TypeKind)
+          name: CatOprSlctSprd
+          typeKind: !_TypeKind Output
+    name: OprSlctSprd
+    selections: !_Map(_Selections)
+      : !_Selections
+        - !_OpSpreadSelection
+          fragment: firstLast
+        - !_OpFieldSelection
+          name: address
+      !_Name '.2': !_Selections
+        - !_OpFieldSelection
+          name: street
+        - !_OpFieldSelection
+          name: city
+        - !_OpFieldSelection
+          name: country
+      !_Name firstLast: !_Selections
+        - !_OpFieldSelection
+          name: first
+        - !_OpFieldSelection
+          name: last
 settings: !_Map(_Setting)
   !_Name descr: !_Setting
     description: 'Option Descr'
@@ -95,6 +276,264 @@ settings: !_Map(_Setting)
     name: global
     value: true
 types: !_Map(_Type)
+  !_Name AddrOprSlct: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: street
+        object: AddrOprSlct
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: city
+        object: AddrOprSlct
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: country
+        object: AddrOprSlct
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_OutputField
+        name: street
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: city
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: country
+        type: !_ObjBase
+          name: String
+    name: AddrOprSlct
+    typeKind: !_TypeKind Output
+  !_Name AddrOprSlctInln: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: AddrOprSlctInln
+        type: !_ObjBase
+          name: FullOprSlctInln
+      - !_ObjectFor(_Alternate)
+        object: AddrOprSlctInln
+        type: !_ObjBase
+          name: String
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: FullOprSlctInln
+      - !_Alternate
+        type: !_ObjBase
+          name: String
+    name: AddrOprSlctInln
+    typeKind: !_TypeKind Output
+  !_Name AddrOprSlctMods: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: street
+        object: AddrOprSlctMods
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: city
+        object: AddrOprSlctMods
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: country
+        object: AddrOprSlctMods
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_OutputField
+        name: street
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: city
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: country
+        type: !_ObjBase
+          name: String
+    name: AddrOprSlctMods
+    typeKind: !_TypeKind Output
+  !_Name AddrOprSlctSprd: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: street
+        object: AddrOprSlctSprd
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: city
+        object: AddrOprSlctSprd
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: country
+        object: AddrOprSlctSprd
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_OutputField
+        name: street
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: city
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: country
+        type: !_ObjBase
+          name: String
+    name: AddrOprSlctSprd
+    typeKind: !_TypeKind Output
+  !_Name CatOprCtgr: !_TypeOutput
+    name: CatOprCtgr
+    typeKind: !_TypeKind Output
+  !_Name CatOprDmn: !_TypeOutput
+    name: CatOprDmn
+    typeKind: !_TypeKind Output
+  !_Name CatOprDmnArg: !_TypeOutput
+    name: CatOprDmnArg
+    typeKind: !_TypeKind Output
+  !_Name CatOprDmnMods: !_TypeOutput
+    name: CatOprDmnMods
+    typeKind: !_TypeKind Output
+  !_Name CatOprDmnVar: !_TypeOutput
+    name: CatOprDmnVar
+    typeKind: !_TypeKind Output
+  !_Name CatOprSlct: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: first
+        object: CatOprSlct
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: last
+        object: CatOprSlct
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: address
+        object: CatOprSlct
+        type: !_ObjBase
+          name: AddrOprSlct
+    fields:
+      - !_OutputField
+        name: first
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: last
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: address
+        type: !_ObjBase
+          name: AddrOprSlct
+    name: CatOprSlct
+    typeKind: !_TypeKind Output
+  !_Name CatOprSlctInln: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: first
+        object: CatOprSlctInln
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: last
+        object: CatOprSlctInln
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: address
+        object: CatOprSlctInln
+        type: !_ObjBase
+          name: AddrOprSlctInln
+    fields:
+      - !_OutputField
+        name: first
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: last
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: address
+        type: !_ObjBase
+          name: AddrOprSlctInln
+    name: CatOprSlctInln
+    typeKind: !_TypeKind Output
+  !_Name CatOprSlctMods: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: first
+        object: CatOprSlctMods
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: last
+        object: CatOprSlctMods
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: address
+        object: CatOprSlctMods
+        type: !_ObjBase
+          name: AddrOprSlctMods
+    fields:
+      - !_OutputField
+        name: first
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: last
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: address
+        type: !_ObjBase
+          name: AddrOprSlctMods
+    name: CatOprSlctMods
+    typeKind: !_TypeKind Output
+  !_Name CatOprSlctSprd: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: first
+        object: CatOprSlctSprd
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: last
+        object: CatOprSlctSprd
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: address
+        object: CatOprSlctSprd
+        type: !_ObjBase
+          name: AddrOprSlctSprd
+    fields:
+      - !_OutputField
+        name: first
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: last
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: address
+        type: !_ObjBase
+          name: AddrOprSlctSprd
+    name: CatOprSlctSprd
+    typeKind: !_TypeKind Output
   !_Name CtgrDscrs: !_TypeOutput
     name: CtgrDscrs
     typeKind: !_TypeKind Output
@@ -140,6 +579,38 @@ types: !_Map(_Type)
   !_Name Dscrs: !_TypeOutput
     description: 'A simple description With extra'
     name: Dscrs
+    typeKind: !_TypeKind Output
+  !_Name FullOprSlctInln: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: street
+        object: FullOprSlctInln
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: city
+        object: FullOprSlctInln
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: country
+        object: FullOprSlctInln
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_OutputField
+        name: street
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: city
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: country
+        type: !_ObjBase
+          name: String
+    name: FullOprSlctInln
     typeKind: !_TypeKind Output
   !_Name InDrctParamDict: !_TypeInput
     name: InDrctParamDict

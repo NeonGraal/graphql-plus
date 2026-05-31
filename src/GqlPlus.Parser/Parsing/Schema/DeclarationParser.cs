@@ -74,13 +74,11 @@ public interface INameParser
 
 internal abstract class DeclarationParser<TParam, TDefinition, TResult>(
   IParserRepository parsers
-) : DeclarationParser<ISimpleName, TParam, NullOption, TDefinition, TResult>(parsers)
-{ }
+) : DeclarationParser<ISimpleName, TParam, NullOption, TDefinition, TResult>(parsers);
 
 internal abstract class DeclarationParser<TDefinition, TResult>(
   IParserRepository parsers
-) : DeclarationParser<NullAst, TDefinition, TResult>(parsers)
-{ }
+) : DeclarationParser<NullAst, TDefinition, TResult>(parsers);
 
 internal record class AstPartial<TParam, TOption>(
   ITokenAt At,

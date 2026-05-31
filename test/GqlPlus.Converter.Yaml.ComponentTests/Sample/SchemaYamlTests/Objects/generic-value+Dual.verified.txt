@@ -17,19 +17,21 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: RefGnrcValueDual
         typeArgs:
-        - !_EnumValue
-          label: gnrcValueDual
-          name: EnumGnrcValueDual
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: gnrcValueDual
+            name: EnumGnrcValueDual
+            typeKind: !_SimpleKind Enum
     alternates:
     - !_Alternate
       type: !_ObjBase
         name: RefGnrcValueDual
         typeArgs:
-        - !_EnumValue
-          label: gnrcValueDual
-          name: EnumGnrcValueDual
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: gnrcValueDual
+            name: EnumGnrcValueDual
+            typeKind: !_SimpleKind Enum
     name: GnrcValueDual
     typeKind: !_TypeKind Dual
   !_Name RefGnrcValueDual: !_TypeDual

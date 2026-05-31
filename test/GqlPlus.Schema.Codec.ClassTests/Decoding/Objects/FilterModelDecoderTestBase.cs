@@ -28,21 +28,21 @@ public abstract class FilterModelDecoderTestBase<TModel>
     bool returnByAlias)
   {
     Map<Structured> input = new() {
-      ["names"] = names.Encode(),
-      ["matchAliases"] = matchAliases.Encode(),
-      ["aliases"] = aliases.Encode(),
-      ["returnReferencedTypes"] = returnReferencedTypes.Encode(),
-      ["returnByAlias"] = returnByAlias.Encode()
+      ["names"] = names.ThrowIfNull().Encode(),
+      ["matchAliases"] = matchAliases.ThrowIfNull().Encode(),
+      ["aliases"] = aliases.ThrowIfNull().Encode(),
+      ["returnReferencedTypes"] = returnReferencedTypes.ThrowIfNull().Encode(),
+      ["returnByAlias"] = returnByAlias.ThrowIfNull().Encode()
     };
 
-    IMessages messages = Decoder.Decode(input.Encode(), out TModel? result);
+    IMessages messages = Decoder.ThrowIfNull().Decode(input.ThrowIfNull().Encode(), out TModel? result);
 
-    result.ShouldNotBeNull()
+    result.ThrowIfNull().ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
-        () => result.Names.Length.ShouldBe(names.Length),
-        () => result.Aliases.Length.ShouldBe(aliases.Length),
+        () => result.ThrowIfNull().Names.Length.ShouldBe(names.ThrowIfNull().Length),
+        () => result.ThrowIfNull().Aliases.Length.ShouldBe(aliases.ThrowIfNull().Length),
         DecoderCalled(Boolean, 3),
-        DecoderCalled(NameFilter, names.Length + aliases.Length),
+        DecoderCalled(NameFilter, names.ThrowIfNull().Length + aliases.ThrowIfNull().Length),
         MessagesEmpty(messages, result)
       );
   }
@@ -50,9 +50,9 @@ public abstract class FilterModelDecoderTestBase<TModel>
   [Theory, RepeatData]
   public void Decode_Name_ReturnsExpected(string name)
   {
-    IMessages messages = Decoder.Decode(new[] { name }.Encode(), out TModel? result);
+    IMessages messages = Decoder.ThrowIfNull().Decode(new[] { name }.Encode(), out TModel? result);
 
-    result.ShouldNotBeNull()
+    result.ThrowIfNull().ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
         () => result.Names.Length.ShouldBe(1),
         DecoderCalled(NameFilter, 1),
@@ -63,12 +63,12 @@ public abstract class FilterModelDecoderTestBase<TModel>
   [Theory, RepeatData]
   public void Decode_Names_ReturnsExpected([NotNull] string[] names)
   {
-    IMessages messages = Decoder.Decode(names.Encode(), out TModel? result);
+    IMessages messages = Decoder.ThrowIfNull().Decode(names.ThrowIfNull().Encode(), out TModel? result);
 
-    result.ShouldNotBeNull()
+    result.ThrowIfNull().ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
         () => result.Names.Length.ShouldBe(names.Length),
-        DecoderCalled(NameFilter, names.Length),
+        DecoderCalled(NameFilter, names.ThrowIfNull().Length),
         MessagesEmpty(messages, result)
       );
   }

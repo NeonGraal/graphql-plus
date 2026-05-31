@@ -19,5 +19,4 @@ internal class ParseDefault(
 }
 
 public interface IParserDefault
-  : IParser<IAstConstant>
-{ }
+  : IParser<IAstConstant>;

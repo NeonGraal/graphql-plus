@@ -40,7 +40,7 @@ dotnet build
 
 - [AutoFixture](https://github.com/AutoFixture/AutoFixture?tab=readme-ov-file#readme) [nuget](https://www.nuget.org/packages/AutoFixture.Xunit3)
 - [Fluid](https://github.com/sebastienros/fluid?tab=readme-ov-file#readme) [nuget](https://www.nuget.org/packages/Fluid.Core)
-- [PolySharp]() [nuget](https://www.nuget.org/packages/PolySharp)
+- [PolySharp](https://github.com/Sergio0694/PolySharp) [nuget](https://www.nuget.org/packages/PolySharp)
 - [Shouldly](https://docs.shouldly.org/) [nuget](https://www.nuget.org/packages/Shouldly)
 - [Verify](https://github.com/VerifyTests/Verify) [nuget](https://www.nuget.org/packages/Verify.XunitV3)
   - [Verify.SourceGenerators](https://github.com/VerifyTests/Verify.SourceGenerators) [nuget](https://www.nuget.org/packages/Verify.SourceGenerators)

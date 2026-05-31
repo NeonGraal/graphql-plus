@@ -59,12 +59,12 @@ internal class ParseOperation(
     }
 
     if (!string.IsNullOrWhiteSpace(result)) {
-      ast.ResultType = result;
+      ast.Domain = result;
       IResult<IAstArg> argument = _argument.Parse(tokens, "Arg");
       if (!argument.Optional(arg => ast.Arg = arg)) {
         return argument.AsPartial(Final(tokens, ast));
       }
-    } else if (!_object.Parse(tokens, label).Required(selections => ast.ResultObject = [.. selections])) {
+    } else if (!_object.Parse(tokens, label).Required(selections => ast.Selections = [.. selections])) {
       return tokens.Partial(label, "Object or Type", () => Final(tokens, ast));
     }
 

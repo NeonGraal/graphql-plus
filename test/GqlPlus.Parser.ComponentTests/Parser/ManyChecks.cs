@@ -11,7 +11,7 @@ internal class ManyChecksParser<TResult>(
 
   public void TrueExpected(string input, params TResult[] expected)
   {
-    IResultArray<TResult> result = _parser.Parse(Tokens(input), _type);
+    IResultArray<TResult> result = _parser.Parse(input.Tokens(), _type);
 
     result.ShouldSatisfyAllConditions(_type,
       r => r.IsOk().ShouldBeTrue(),
@@ -20,14 +20,14 @@ internal class ManyChecksParser<TResult>(
 
   public void FalseExpected(string input)
   {
-    IResultArray<TResult> result = _parser.Parse(Tokens(input), _type);
+    IResultArray<TResult> result = _parser.Parse(input.Tokens(), _type);
 
     result.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).ShouldBeTrue(_type);
   }
 
   public void Count(string input, int count)
   {
-    IResultArray<TResult> result = _parser.Parse(Tokens(input), _type);
+    IResultArray<TResult> result = _parser.Parse(input.Tokens(), _type);
 
     result.ShouldSatisfyAllConditions(_type,
       r => r.IsOk().ShouldBeTrue(),
@@ -45,7 +45,7 @@ internal sealed class ManyChecksParser<TInterface, TResult>(
 
   public void TrueExpected(string input, params TResult[] expected)
   {
-    IResultArray<TResult> result = _parser.Parse(Tokens(input), _type);
+    IResultArray<TResult> result = _parser.Parse(input.Tokens(), _type);
 
     result.ShouldSatisfyAllConditions(_type,
       r => r.IsOk().ShouldBeTrue(),
@@ -54,14 +54,14 @@ internal sealed class ManyChecksParser<TInterface, TResult>(
 
   public void FalseExpected(string input)
   {
-    IResultArray<TResult> result = _parser.Parse(Tokens(input), _type);
+    IResultArray<TResult> result = _parser.Parse(input.Tokens(), _type);
 
     result.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).ShouldBeTrue(_type);
   }
 
   public void Count(string input, int count)
   {
-    IResultArray<TResult> result = _parser.Parse(Tokens(input), _type);
+    IResultArray<TResult> result = _parser.Parse(input.Tokens(), _type);
 
     result.ShouldSatisfyAllConditions(_type,
       r => r.IsOk().ShouldBeTrue(),
@@ -78,5 +78,4 @@ public interface IManyChecksParser<T>
 
 public interface IManyChecksParser<TInterface, TResult>
   : IManyChecksParser<TResult>
-  where TInterface : class, IParserArray<TResult>
-{ }
+  where TInterface : class, IParserArray<TResult>;

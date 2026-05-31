@@ -20,6 +20,8 @@ public interface Itest_SchemaObject
   IDictionary<Itest_Name, Itest_Categories>? Call_Categories(Itest_CategoryFilter? parameter);
   IDictionary<Itest_Name, Itest_Directives> Directives { get; }
   IDictionary<Itest_Name, Itest_Directives>? Call_Directives(Itest_Filter? parameter);
+  IDictionary<Itest_Name, Itest_Operations> Operations { get; }
+  IDictionary<Itest_Name, Itest_Operations>? Call_Operations(Itest_Filter? parameter);
   IDictionary<Itest_Name, Itest_Type> Types { get; }
   IDictionary<Itest_Name, Itest_Type>? Call_Types(Itest_TypeFilter? parameter);
   IDictionary<Itest_Name, Itest_Setting> Settings { get; }

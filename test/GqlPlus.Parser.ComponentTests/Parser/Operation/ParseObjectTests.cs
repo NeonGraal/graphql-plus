@@ -8,32 +8,32 @@ public class ParseObjectTests(
 {
   [Theory, RepeatData]
   public void WithJustField_ReturnsCorrectAst(string field)
-    => checks.TrueExpected("{" + field + "}",
+    => checks.ThrowIfNull().TrueExpected("{" + field + "}",
     new FieldAst(AstNulls.At, field));
 
   [Theory, RepeatData]
   public void WithBadField_ReturnsCorrectAst(string field)
-    => checks.FalseExpected("{" + field + "{}}");
+    => checks.ThrowIfNull().FalseExpected("{" + field + "{}}");
 
   [Theory, RepeatData]
   public void WithJustInline_ReturnsCorrectAst(string inline)
-    => checks.TrueExpected("{|{" + inline + "}}",
+    => checks.ThrowIfNull().TrueExpected("{|{" + inline + "}}",
       new InlineAst(AstNulls.At, new FieldAst(AstNulls.At, inline)));
 
   [Theory, RepeatData]
   public void WithJustSpread_ReturnsCorrectAst(string spread)
-    => checks
+    => checks.ThrowIfNull()
       .SkipWhitespace(spread)
-      .SkipIf(spread.StartsWith("on", StringComparison.OrdinalIgnoreCase))
+      .SkipIf(spread.ThrowIfNull().StartsWith("on", StringComparison.OrdinalIgnoreCase))
       .TrueExpected(
         "{|" + spread + "}",
         new SpreadAst(AstNulls.At, spread ?? ""));
 
   [Theory, RepeatData]
   public void WithAll_ReturnsCorrectAst(string field, string inline, string spread)
-    => checks
+    => checks.ThrowIfNull()
       .SkipWhitespace(spread)
-      .SkipIf(spread.StartsWith("on", StringComparison.OrdinalIgnoreCase))
+      .SkipIf(spread.ThrowIfNull().StartsWith("on", StringComparison.OrdinalIgnoreCase))
       .TrueExpected(
         "{" + field + "|{" + inline + "}|" + spread + "}",
         new FieldAst(AstNulls.At, field),
@@ -42,13 +42,13 @@ public class ParseObjectTests(
 
   [Fact]
   public void WithNoFields_ReturnsFalse()
-    => checks.FalseExpected("{}");
+    => checks.ThrowIfNull().FalseExpected("{}");
 
   [Fact]
   public void WithNotField_ReturnsFalse()
-    => checks.FalseExpected("{9");
+    => checks.ThrowIfNull().FalseExpected("{9");
 
   [Fact]
   public void WithBadSelection_ReturnsFalse()
-    => checks.FalseExpected("{|}");
+    => checks.ThrowIfNull().FalseExpected("{|}");
 }

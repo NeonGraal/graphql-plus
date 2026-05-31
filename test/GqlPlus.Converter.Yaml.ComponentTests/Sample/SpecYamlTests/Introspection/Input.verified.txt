@@ -1,10 +1,8 @@
 ﻿!_Schema
 errors: !_Errors
 - !_Error
-  _kind: !_TokenKind End
   _message: "In _InputField can't get model for type '_ObjField'"
 - !_Error
-  _kind: !_TokenKind End
   _message: "In _InputFieldType can't get model for type '_ObjFieldType'"
 types: !_Map(_Type)
   !_Name _InputField: !_TypeOutput

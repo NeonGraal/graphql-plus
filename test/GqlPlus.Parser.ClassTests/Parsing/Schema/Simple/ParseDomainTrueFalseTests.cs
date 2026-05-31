@@ -61,5 +61,5 @@ public class ParseDomainTrueFalseTests
     => new DomainTrueFalseAst(AstNulls.At, string.Empty, false, false);
 
   protected override void ArrangeValidItem()
-    => IdentifierReturns(OutString(BuiltIn.BooleanTrue));
+    => IdentifierReturns(OutString(GqlpStrings.BoolTrue));
 }

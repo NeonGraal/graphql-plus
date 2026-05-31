@@ -1,0 +1,28 @@
+﻿/* operation-category
+operation OprCtgr { catOprCtgr :String }
+category { CatOprCtgr }
+output CatOprCtgr { }
+*/
+
+// Generated from Schema operation-category
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_operation-category, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_operation_category;
+
+internal class CmptCatOprCtgrEncoder : IEncoder<ICmptCatOprCtgrObject>
+{
+  public Structured Encode(ICmptCatOprCtgrObject input)
+    => Structured.Empty();
+
+  internal static CmptCatOprCtgrEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_operation_categoryEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_operation_categoryEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptCatOprCtgrObject>(CmptCatOprCtgrEncoder.Factory);
+}

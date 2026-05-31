@@ -4,8 +4,7 @@ namespace GqlPlus.Merging.Schema;
 
 public abstract class TestAbbreviatedMerger<TAst>
   : TestAbbreviatedMerger<TAst, string>
-  where TAst : IAstError
-{ }
+  where TAst : IAstError;
 
 [TracePerTest]
 public abstract class TestAbbreviatedMerger<TAst, TInput>

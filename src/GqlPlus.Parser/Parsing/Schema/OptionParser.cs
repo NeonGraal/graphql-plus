@@ -31,5 +31,4 @@ internal class OptionParser<TOption>(
 
 public interface IOptionParser<TOption>
   : IParser<TOption>
-  where TOption : struct
-{ }
+  where TOption : struct;

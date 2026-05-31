@@ -1,0 +1,55 @@
+﻿{
+  "$mapTag": "_Schema",
+  "categories": {
+    "$mapTag": "_Map(_Categories)",
+    "catOprDmn": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Category",
+      "name": "catOprDmn",
+      "output": {
+        "$mapTag": "_TypeRef(_TypeKind)",
+        "name": "CatOprDmn",
+        "typeKind": {
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
+        }
+      },
+      "resolution": {
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
+      }
+    }
+  },
+  "operations": {
+    "$mapTag": "_Map(_Operations)",
+    "OprDmn": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Operation",
+      "category": "catOprDmn",
+      "name": "OprDmn",
+      "result": {
+        "$mapTag": "_OpResult",
+        "domain": {
+          "$mapTag": "_TypeRef(_TypeKind)",
+          "name": "Number",
+          "typeKind": {
+            "$value": "Output",
+            "$valueTag": "_TypeKind"
+          }
+        }
+      }
+    }
+  },
+  "types": {
+    "$mapTag": "_Map(_Type)",
+    "CatOprDmn": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "name": "CatOprDmn",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    }
+  }
+}

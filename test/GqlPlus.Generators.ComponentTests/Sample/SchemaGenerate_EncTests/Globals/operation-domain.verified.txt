@@ -1,0 +1,28 @@
+﻿/* operation-domain
+operation OprDmn { catOprDmn : Number }
+category { CatOprDmn }
+output CatOprDmn { }
+*/
+
+// Generated from Schema operation-domain
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_operation-domain, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_operation_domain;
+
+internal class CmptCatOprDmnEncoder : IEncoder<ICmptCatOprDmnObject>
+{
+  public Structured Encode(ICmptCatOprDmnObject input)
+    => Structured.Empty();
+
+  internal static CmptCatOprDmnEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_operation_domainEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_operation_domainEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptCatOprDmnObject>(CmptCatOprDmnEncoder.Factory);
+}

@@ -3,8 +3,7 @@
 namespace GqlPlus.Decoding;
 
 internal interface INameFilterDecoder
-  : IDecoder<string>
-{ }
+  : IDecoder<string>;
 
 internal class NameFilterModelDecoder
   : ScalarDecoder<string>, INameFilterDecoder

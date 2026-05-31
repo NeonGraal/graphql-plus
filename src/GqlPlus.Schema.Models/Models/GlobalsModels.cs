@@ -31,8 +31,7 @@ public record class AndTypeModel<TModel>
 }
 
 public record class CategoriesModel()
-  : AndTypeModel<CategoryModel>
-{ }
+  : AndTypeModel<CategoryModel>;
 
 public record class CategoryModel(
   string Name,
@@ -45,8 +44,7 @@ public record class CategoryModel(
 }
 
 public record class DirectivesModel()
-  : AndTypeModel<DirectiveModel>
-{ }
+  : AndTypeModel<DirectiveModel>;
 
 public record class DirectiveModel(
   string Name,
@@ -62,5 +60,4 @@ public record class SettingModel(
   string Name,
   ConstantModel Value,
   string Description
-) : NamedModel(Name, Description)
-{ }
+) : NamedModel(Name, Description);

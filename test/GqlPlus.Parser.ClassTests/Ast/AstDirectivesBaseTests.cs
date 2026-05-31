@@ -38,8 +38,7 @@ internal class AstDirectivesChecks<TAst>(
   AstDirectivesChecks<string, TAst>.CreateDirectives<string> createDirectives
 ) : AstDirectivesChecks<string, TAst>(createDirectives)
   , IAstDirectivesChecks
-  where TAst : IAstDirectives
-{ }
+  where TAst : IAstDirectives;
 
 internal class AstDirectivesChecks<TInput, TAst>(
   AstDirectivesChecks<TInput, TAst>.CreateDirectives<TInput> createDirectives
@@ -112,8 +111,7 @@ internal class AstDirectivesChecks<TInput, TAst>(
 }
 
 internal interface IAstDirectivesChecks
-  : IAstDirectivesChecks<string>
-{ }
+  : IAstDirectivesChecks<string>;
 
 internal interface IAstDirectivesChecks<TInput>
   : IAstAbbreviatedChecks<TInput>

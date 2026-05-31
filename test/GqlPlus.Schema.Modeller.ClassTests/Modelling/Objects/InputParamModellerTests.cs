@@ -2,7 +2,7 @@
 using GqlPlus.Building.Schema;
 using GqlPlus.Building.Schema.Objects;
 
-namespace GqlPlus.Modelling.Objects;
+namespace GqlPlus.Modelling;
 
 public class InputParamModellerTests
   : ModellerClassTestBase<IAstInputParam, InputParamModel>

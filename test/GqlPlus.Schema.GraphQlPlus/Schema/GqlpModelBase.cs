@@ -1,5 +1,4 @@
 ﻿namespace GqlPlus.Schema;
 
 [GqlpGenerator(GqlpGeneratorType.Model)]
-public class GqlpModelBase
-{ }
+public class GqlpModelBase;

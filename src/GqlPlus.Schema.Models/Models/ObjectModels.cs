@@ -46,8 +46,7 @@ public record class TypeParamModel(
   string Description,
   TypeRefModel<TypeKindModel> Constraint
 ) : NamedModel(Name, Description)
-  , ITypeParamModel
-{ }
+  , ITypeParamModel;
 
 public interface ITypeParamModel
   : INamedModel
@@ -74,15 +73,13 @@ public interface IObjBaseModel
 
 public record class ObjectForModel(
   string Obj
-) : ModelBase
-{ }
+) : ModelBase;
 
 public record class ObjectForModel<TFor>(
   TFor For,
   string Obj
 ) : ObjectForModel(Obj)
-  where TFor : IModelBase
-{ }
+  where TFor : IModelBase;
 
 public record class ObjFieldModel(
   string Name,

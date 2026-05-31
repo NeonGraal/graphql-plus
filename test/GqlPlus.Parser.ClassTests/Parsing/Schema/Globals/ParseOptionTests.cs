@@ -11,7 +11,7 @@ public class ParseOptionTests
 
   public ParseOptionTests()
   {
-    ConfigureRepo<OptionDefinition>(Parsers, out _definition);
+    ConfigureRepo(Parsers, out _definition);
     _parser = new ParseOption(Parsers);
   }
 

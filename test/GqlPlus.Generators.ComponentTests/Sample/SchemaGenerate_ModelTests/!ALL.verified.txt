@@ -312,6 +312,332 @@ public class CmptInDrctParamOptObject
   }
 }
 
+public class CmptCatOprCtgr
+  : Schema_!ALL
+  , ICmptCatOprCtgr
+{
+  public ICmptCatOprCtgrObject? As_CatOprCtgr { get; set; }
+}
+
+public class CmptCatOprCtgrObject
+  : Schema_!ALL
+  , ICmptCatOprCtgrObject
+{
+
+  public CmptCatOprCtgrObject
+    ()
+  {
+  }
+}
+
+public class CmptCatOprDmn
+  : Schema_!ALL
+  , ICmptCatOprDmn
+{
+  public ICmptCatOprDmnObject? As_CatOprDmn { get; set; }
+}
+
+public class CmptCatOprDmnObject
+  : Schema_!ALL
+  , ICmptCatOprDmnObject
+{
+
+  public CmptCatOprDmnObject
+    ()
+  {
+  }
+}
+
+public class CmptCatOprDmnArg
+  : Schema_!ALL
+  , ICmptCatOprDmnArg
+{
+  public ICmptCatOprDmnArgObject? As_CatOprDmnArg { get; set; }
+}
+
+public class CmptCatOprDmnArgObject
+  : Schema_!ALL
+  , ICmptCatOprDmnArgObject
+{
+
+  public CmptCatOprDmnArgObject
+    ()
+  {
+  }
+}
+
+public class CmptCatOprDmnMods
+  : Schema_!ALL
+  , ICmptCatOprDmnMods
+{
+  public ICmptCatOprDmnModsObject? As_CatOprDmnMods { get; set; }
+}
+
+public class CmptCatOprDmnModsObject
+  : Schema_!ALL
+  , ICmptCatOprDmnModsObject
+{
+
+  public CmptCatOprDmnModsObject
+    ()
+  {
+  }
+}
+
+public class CmptCatOprDmnVar
+  : Schema_!ALL
+  , ICmptCatOprDmnVar
+{
+  public ICmptCatOprDmnVarObject? As_CatOprDmnVar { get; set; }
+}
+
+public class CmptCatOprDmnVarObject
+  : Schema_!ALL
+  , ICmptCatOprDmnVarObject
+{
+
+  public CmptCatOprDmnVarObject
+    ()
+  {
+  }
+}
+
+public class CmptCatOprSlct
+  : Schema_!ALL
+  , ICmptCatOprSlct
+{
+  public ICmptCatOprSlctObject? As_CatOprSlct { get; set; }
+}
+
+public class CmptCatOprSlctObject
+  : Schema_!ALL
+  , ICmptCatOprSlctObject
+{
+  public string First { get; set; }
+  public string Last { get; set; }
+  public ICmptAddrOprSlct Address { get; set; }
+
+  public CmptCatOprSlctObject
+    ( string pfirst
+    , string plast
+    , ICmptAddrOprSlct paddress
+    )
+  {
+    First = pfirst;
+    Last = plast;
+    Address = paddress;
+  }
+}
+
+public class CmptAddrOprSlct
+  : Schema_!ALL
+  , ICmptAddrOprSlct
+{
+  public ICmptAddrOprSlctObject? As_AddrOprSlct { get; set; }
+}
+
+public class CmptAddrOprSlctObject
+  : Schema_!ALL
+  , ICmptAddrOprSlctObject
+{
+  public string Street { get; set; }
+  public string City { get; set; }
+  public string Country { get; set; }
+
+  public CmptAddrOprSlctObject
+    ( string pstreet
+    , string pcity
+    , string pcountry
+    )
+  {
+    Street = pstreet;
+    City = pcity;
+    Country = pcountry;
+  }
+}
+
+public class CmptCatOprSlctInln
+  : Schema_!ALL
+  , ICmptCatOprSlctInln
+{
+  public ICmptCatOprSlctInlnObject? As_CatOprSlctInln { get; set; }
+}
+
+public class CmptCatOprSlctInlnObject
+  : Schema_!ALL
+  , ICmptCatOprSlctInlnObject
+{
+  public string First { get; set; }
+  public string Last { get; set; }
+  public ICmptAddrOprSlctInln Address { get; set; }
+
+  public CmptCatOprSlctInlnObject
+    ( string pfirst
+    , string plast
+    , ICmptAddrOprSlctInln paddress
+    )
+  {
+    First = pfirst;
+    Last = plast;
+    Address = paddress;
+  }
+}
+
+public class CmptAddrOprSlctInln
+  : Schema_!ALL
+  , ICmptAddrOprSlctInln
+{
+  public ICmptFullOprSlctInln? AsFullOprSlctInln { get; set; }
+  public string? AsString { get; set; }
+  public ICmptAddrOprSlctInlnObject? As_AddrOprSlctInln { get; set; }
+}
+
+public class CmptAddrOprSlctInlnObject
+  : Schema_!ALL
+  , ICmptAddrOprSlctInlnObject
+{
+
+  public CmptAddrOprSlctInlnObject
+    ()
+  {
+  }
+}
+
+public class CmptFullOprSlctInln
+  : Schema_!ALL
+  , ICmptFullOprSlctInln
+{
+  public ICmptFullOprSlctInlnObject? As_FullOprSlctInln { get; set; }
+}
+
+public class CmptFullOprSlctInlnObject
+  : Schema_!ALL
+  , ICmptFullOprSlctInlnObject
+{
+  public string Street { get; set; }
+  public string City { get; set; }
+  public string Country { get; set; }
+
+  public CmptFullOprSlctInlnObject
+    ( string pstreet
+    , string pcity
+    , string pcountry
+    )
+  {
+    Street = pstreet;
+    City = pcity;
+    Country = pcountry;
+  }
+}
+
+public class CmptCatOprSlctMods
+  : Schema_!ALL
+  , ICmptCatOprSlctMods
+{
+  public ICmptCatOprSlctModsObject? As_CatOprSlctMods { get; set; }
+}
+
+public class CmptCatOprSlctModsObject
+  : Schema_!ALL
+  , ICmptCatOprSlctModsObject
+{
+  public string First { get; set; }
+  public string Last { get; set; }
+  public ICmptAddrOprSlctMods Address { get; set; }
+
+  public CmptCatOprSlctModsObject
+    ( string pfirst
+    , string plast
+    , ICmptAddrOprSlctMods paddress
+    )
+  {
+    First = pfirst;
+    Last = plast;
+    Address = paddress;
+  }
+}
+
+public class CmptAddrOprSlctMods
+  : Schema_!ALL
+  , ICmptAddrOprSlctMods
+{
+  public ICmptAddrOprSlctModsObject? As_AddrOprSlctMods { get; set; }
+}
+
+public class CmptAddrOprSlctModsObject
+  : Schema_!ALL
+  , ICmptAddrOprSlctModsObject
+{
+  public string Street { get; set; }
+  public string City { get; set; }
+  public string Country { get; set; }
+
+  public CmptAddrOprSlctModsObject
+    ( string pstreet
+    , string pcity
+    , string pcountry
+    )
+  {
+    Street = pstreet;
+    City = pcity;
+    Country = pcountry;
+  }
+}
+
+public class CmptCatOprSlctSprd
+  : Schema_!ALL
+  , ICmptCatOprSlctSprd
+{
+  public ICmptCatOprSlctSprdObject? As_CatOprSlctSprd { get; set; }
+}
+
+public class CmptCatOprSlctSprdObject
+  : Schema_!ALL
+  , ICmptCatOprSlctSprdObject
+{
+  public string First { get; set; }
+  public string Last { get; set; }
+  public ICmptAddrOprSlctSprd Address { get; set; }
+
+  public CmptCatOprSlctSprdObject
+    ( string pfirst
+    , string plast
+    , ICmptAddrOprSlctSprd paddress
+    )
+  {
+    First = pfirst;
+    Last = plast;
+    Address = paddress;
+  }
+}
+
+public class CmptAddrOprSlctSprd
+  : Schema_!ALL
+  , ICmptAddrOprSlctSprd
+{
+  public ICmptAddrOprSlctSprdObject? As_AddrOprSlctSprd { get; set; }
+}
+
+public class CmptAddrOprSlctSprdObject
+  : Schema_!ALL
+  , ICmptAddrOprSlctSprdObject
+{
+  public string Street { get; set; }
+  public string City { get; set; }
+  public string Country { get; set; }
+
+  public CmptAddrOprSlctSprdObject
+    ( string pstreet
+    , string pcity
+    , string pcountry
+    )
+  {
+    Street = pstreet;
+    City = pcity;
+    Country = pcountry;
+  }
+}
+
 public class CmptAltDual
   : Schema_!ALL
   , ICmptAltDual
@@ -10452,6 +10778,24 @@ public class CmptRefObjPrntOutpObject
 {
 
   public CmptRefObjPrntOutpObject
+    ()
+  {
+  }
+}
+
+public class CmptOp
+  : Schema_!ALL
+  , ICmptOp
+{
+  public ICmptOpObject? As_Op { get; set; }
+}
+
+public class CmptOpObject
+  : Schema_!ALL
+  , ICmptOpObject
+{
+
+  public CmptOpObject
     ()
   {
   }

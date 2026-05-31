@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Modelling.Globals;
+﻿namespace GqlPlus.Modelling;
 
 public class CategoryModellerTests
   : ModellerClassTestBase<IAstSchemaCategory, CategoryModel>

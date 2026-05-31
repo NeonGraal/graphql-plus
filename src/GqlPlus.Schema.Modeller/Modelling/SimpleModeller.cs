@@ -13,7 +13,7 @@ internal class SimpleModeller(
       { Text: not null } when !string.IsNullOrEmpty(ast.Text)
         => SimpleModel.Str(ast.Text),
       { EnumValue: not null } when BuiltIn.BooleanType.Equals(ast.EnumValue.EnumType, StringComparison.OrdinalIgnoreCase)
-        => SimpleModel.Bool(BuiltIn.BooleanTrue.Equals(ast.EnumValue.EnumLabel, StringComparison.OrdinalIgnoreCase)),
+        => SimpleModel.Bool(GqlpStrings.BoolTrue.Equals(ast.EnumValue.EnumLabel, StringComparison.OrdinalIgnoreCase)),
       { EnumValue: not null }
         => SimpleModel.Enum(_enumValue.ToModel(ast.EnumValue, typeKinds)),
       _ => new("")

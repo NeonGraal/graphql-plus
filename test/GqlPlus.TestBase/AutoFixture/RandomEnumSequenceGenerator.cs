@@ -3,7 +3,7 @@ using GqlPlus.Structures;
 
 namespace GqlPlus.AutoFixture;
 
-internal class RandomEnumSequenceGenerator : ISpecimenBuilder
+internal sealed class RandomEnumSequenceGenerator : ISpecimenBuilder
 {
   private static readonly Random s_random = new();
 

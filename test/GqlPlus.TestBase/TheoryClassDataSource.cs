@@ -3,7 +3,7 @@ using Xunit;
 
 namespace GqlPlus;
 
-internal class TheoryClassDataSource(
+public class TheoryClassDataSource(
   Type type,
   object[] parameters
 ) : DataSource

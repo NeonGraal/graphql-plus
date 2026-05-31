@@ -1,5 +1,4 @@
 ﻿namespace GqlPlus.Samples;
 
 [GqlpGenerator(GqlpGeneratorType.Encoder)]
-public class SmplEncoderBase
-{ }
+public class SmplEncoderBase;

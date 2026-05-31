@@ -145,6 +145,82 @@ internal class test_LocationDecoder : IDecoder<test_Location?>
   internal static test_LocationDecoder Factory(IDecoderRepository _) => new();
 }
 
+internal class test_OpDirectiveDecoder : IDecoder<Itest_OpDirectiveObject>
+{
+  public Itest_OpArgument? Argument { get; set; }
+
+  public IMessages Decode(IValue input, out Itest_OpDirectiveObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
+
+  internal static test_OpDirectiveDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class test_OpArgumentDecoder : IDecoder<Itest_OpArgumentObject>
+{
+
+  public IMessages Decode(IValue input, out Itest_OpArgumentObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
+
+  internal static test_OpArgumentDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class test_OpArgValueDecoder : IDecoder<Itest_OpArgValueObject>
+{
+  public Itest_Name? Variable { get; set; }
+
+  public IMessages Decode(IValue input, out Itest_OpArgValueObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
+
+  internal static test_OpArgValueDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class test_OpArgListDecoder : IDecoder<Itest_OpArgListObject>
+{
+
+  public IMessages Decode(IValue input, out Itest_OpArgListObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
+
+  internal static test_OpArgListDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class test_OpArgMapDecoder : IDecoder<Itest_OpArgMapObject>
+{
+  public Itest_OpArgValue? Value { get; set; }
+  public Itest_Name? ByVariable { get; set; }
+
+  public IMessages Decode(IValue input, out Itest_OpArgMapObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
+
+  internal static test_OpArgMapDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class test_PathDecoder : IDecoder<Itest_Path>
+{
+
+  public IMessages Decode(IValue input, out Itest_Path? output)
+  {
+    output = null;
+    return Messages.New;
+  }
+
+  internal static test_PathDecoder Factory(IDecoderRepository _) => new();
+}
+
 internal class test_SimpleKindDecoder : IDecoder<test_SimpleKind?>
 {
   public IMessages Decode(IValue input, out test_SimpleKind? output)
@@ -354,6 +430,12 @@ internal static class test_IntrospectionDecoders
       .AddDecoder<Itest_DescribedObject>(test_DescribedDecoder.Factory)
       .AddDecoder<test_Resolution?>(test_ResolutionDecoder.Factory)
       .AddDecoder<test_Location?>(test_LocationDecoder.Factory)
+      .AddDecoder<Itest_OpDirectiveObject>(test_OpDirectiveDecoder.Factory)
+      .AddDecoder<Itest_OpArgumentObject>(test_OpArgumentDecoder.Factory)
+      .AddDecoder<Itest_OpArgValueObject>(test_OpArgValueDecoder.Factory)
+      .AddDecoder<Itest_OpArgListObject>(test_OpArgListDecoder.Factory)
+      .AddDecoder<Itest_OpArgMapObject>(test_OpArgMapDecoder.Factory)
+      .AddDecoder<Itest_Path>(test_PathDecoder.Factory)
       .AddDecoder<test_SimpleKind?>(test_SimpleKindDecoder.Factory)
       .AddDecoder<test_TypeKind?>(test_TypeKindDecoder.Factory)
       .AddDecoder<Itest_TypeSimpleObject>(test_TypeSimpleDecoder.Factory)

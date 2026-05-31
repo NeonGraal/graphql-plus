@@ -10,9 +10,9 @@ public class ParseSelectionTests(
   [RepeatInlineData("...")]
   [RepeatInlineData("|")]
   public void WithInline_ReturnsCorrectAst(string prefix, string[] fields)
-    => checks.TrueExpected(
-      prefix + " {" + fields.Joined() + "}",
-      new InlineAst(AstNulls.At, fields.Fields()));
+    => checks.ThrowIfNull().TrueExpected(
+      prefix + " {" + fields.ThrowIfNull().Joined() + "}",
+      new InlineAst(AstNulls.At, fields.ThrowIfNull().Fields()));
 
   [Theory]
   [RepeatInlineData("...", " on ")]
@@ -20,68 +20,68 @@ public class ParseSelectionTests(
   [RepeatInlineData("...", ":")]
   [RepeatInlineData("|", ":")]
   public void WithInlineType_ReturnsCorrectAst(string inlinePrefix, string typePrefix, string[] fields, string inlineType)
-    => checks.TrueExpected(
-      inlinePrefix + typePrefix + inlineType + "{" + fields.Joined() + "}",
-      new InlineAst(AstNulls.At, fields.Fields()) { OnType = inlineType });
+    => checks.ThrowIfNull().TrueExpected(
+      inlinePrefix + typePrefix + inlineType + "{" + fields.ThrowIfNull().Joined() + "}",
+      new InlineAst(AstNulls.At, fields.ThrowIfNull().Fields()) { OnType = inlineType });
 
   [Theory, RepeatData]
   public void WithInlineDirective_ReturnsCorrectAst(string[] directives, string[] fields)
-    => checks.TrueExpected(
-      "|" + directives.Joined(s => "@" + s) + "{" + fields.Joined() + "}",
-      new InlineAst(AstNulls.At, fields.Fields()) { Directives = directives.Directives() });
+    => checks.ThrowIfNull().TrueExpected(
+      "|" + directives.ThrowIfNull().Joined(s => "@" + s) + "{" + fields.ThrowIfNull().Joined() + "}",
+      new InlineAst(AstNulls.At, fields.ThrowIfNull().Fields()) { Directives = directives.ThrowIfNull().Directives() });
 
   [Theory, RepeatData]
   public void WithInlineAll_ReturnsCorrectAst(string inlineType, string[] directives, string[] fields)
-    => checks.TrueExpected(
-      $"|:" + inlineType + directives.Joined(s => "@" + s) + "{" + fields.Joined() + "}",
-      new InlineAst(AstNulls.At, fields.Fields()) {
+    => checks.ThrowIfNull().TrueExpected(
+      $"|:" + inlineType + directives.ThrowIfNull().Joined(s => "@" + s) + "{" + fields.ThrowIfNull().Joined() + "}",
+      new InlineAst(AstNulls.At, fields.ThrowIfNull().Fields()) {
         OnType = inlineType,
-        Directives = directives.Directives(),
+        Directives = directives.ThrowIfNull().Directives(),
       });
 
   [Theory]
   [RepeatInlineData("...")]
   [RepeatInlineData("|")]
   public void WithSpread_ReturnsCorrectAst(string prefix, string fragment)
-    => checks
+    => checks.ThrowIfNull()
       .SkipWhitespace(fragment)
-      .SkipIf(fragment.StartsWith("on", StringComparison.OrdinalIgnoreCase))
+      .SkipIf(fragment.ThrowIfNull().StartsWith("on", StringComparison.OrdinalIgnoreCase))
       .TrueExpected(
         prefix + fragment,
         new SpreadAst(AstNulls.At, fragment));
 
   [Theory, RepeatData]
   public void WithSpreadDirective_ReturnsCorrectAst(string fragment, string[] directives)
-    => checks
+    => checks.ThrowIfNull()
       .SkipWhitespace(fragment)
-      .SkipIf(fragment.StartsWith("on", StringComparison.OrdinalIgnoreCase))
+      .SkipIf(fragment.ThrowIfNull().StartsWith("on", StringComparison.OrdinalIgnoreCase))
       .TrueExpected(
-        $"|" + fragment + directives.Joined(s => "@" + s),
-        new SpreadAst(AstNulls.At, fragment) { Directives = directives.Directives() });
+        $"|" + fragment + directives.ThrowIfNull().Joined(s => "@" + s),
+        new SpreadAst(AstNulls.At, fragment) { Directives = directives.ThrowIfNull().Directives() });
 
   [Theory, RepeatData]
   public void WithSpreadModifier_ReturnsCorrectAst(string fragment)
-    => checks
+    => checks.ThrowIfNull()
       .SkipWhitespace(fragment)
-      .SkipIf(fragment.StartsWith("on", StringComparison.OrdinalIgnoreCase))
+      .SkipIf(fragment.ThrowIfNull().StartsWith("on", StringComparison.OrdinalIgnoreCase))
       .TrueExpected(
         $"|" + fragment + "[]?",
         new SpreadAst(AstNulls.At, fragment) { Modifiers = TestMods() });
 
   [Theory, RepeatData]
   public void WithInlineModifier_ReturnsCorrectAst(string[] fields)
-    => checks.TrueExpected(
-      "|[]?{" + fields.Joined() + "}",
-      new InlineAst(AstNulls.At, fields.Fields()) { Modifiers = TestMods() });
+    => checks.ThrowIfNull().TrueExpected(
+      "|[]?{" + fields.ThrowIfNull().Joined() + "}",
+      new InlineAst(AstNulls.At, fields.ThrowIfNull().Fields()) { Modifiers = TestMods() });
 
   [Fact]
   public void WithInvalidSelection_ReturnsFalse()
-    => checks.FalseExpected("|?", CheckNull);
+    => checks.ThrowIfNull().FalseExpected("|?", CheckNull);
 
   [Fact]
   public void WithInvalidSpread_ReturnsFalse()
-    => checks.FalseExpected("|:?", CheckNull);
+    => checks.ThrowIfNull().FalseExpected("|:?", CheckNull);
 
   private void CheckNull(IAstSelection? result)
-    => result.ShouldBeNull();
+    => result.ThrowIfNull().ShouldBeNull();
 }

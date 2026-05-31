@@ -1,0 +1,24 @@
+﻿/* operation-domain-arg
+operation OprDmnArg { catOprDmnArg : String ("Value") }
+category { CatOprDmnArg }
+output CatOprDmnArg { }
+*/
+
+// Generated from Schema operation-domain-arg
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_operation-domain-arg, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_operation_domain_arg;
+
+public interface ICmptCatOprDmnArg
+  : Schema_operation-domain-arg
+{
+  ICmptCatOprDmnArgObject? As_CatOprDmnArg { get; }
+}
+
+public interface ICmptCatOprDmnArgObject
+  : Schema_operation-domain-arg
+{
+}

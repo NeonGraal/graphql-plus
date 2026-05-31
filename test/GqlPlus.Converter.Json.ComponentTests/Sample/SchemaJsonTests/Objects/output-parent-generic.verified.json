@@ -49,12 +49,15 @@
             "name": "RefOutpPrntGnrc",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "prnt_outpPrntGnrc",
-                "name": "EnumOutpPrntGnrc",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "prnt_outpPrntGnrc",
+                  "name": "EnumOutpPrntGnrc",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -69,12 +72,15 @@
             "name": "RefOutpPrntGnrc",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "prnt_outpPrntGnrc",
-                "name": "EnumOutpPrntGnrc",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "prnt_outpPrntGnrc",
+                  "name": "EnumOutpPrntGnrc",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]

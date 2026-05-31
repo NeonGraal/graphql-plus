@@ -16,11 +16,11 @@ public abstract class EncoderClassTestBase<TModel>
     where T : IModelBase
   {
     Map<Structured> returns = new() { ["value"] = $"{value}".Encode(tag) };
-    encoder.Encode(default!).ReturnsForAnyArgs(returns.Encode());
+    encoder.ThrowIfNull().Encode(default!).ReturnsForAnyArgs(returns.Encode());
   }
   public void EncodeReturns<T>([NotNull] IEncoder<T> encoder, T model, Structured returns)
     where T : IModelBase
-    => encoder.Encode(model).ReturnsForAnyArgs(returns);
+    => encoder.ThrowIfNull().Encode(model).ReturnsForAnyArgs(returns);
 
   internal void EncodeAndCheck(TModel model, string[] expected)
     => Encoder.Encode(model)

@@ -112,8 +112,7 @@ public class ComplexValue<TValue, TObject>
 
   public interface IDict
     : IDictionary<TValue, TObject>
-    , IEquatable<IDict>
-  { }
+    , IEquatable<IDict>;
 
   public TValue? Value { get; }
   public IList<TObject> List { get; } = [];

@@ -3,16 +3,24 @@ types: !_Map(_Type)
   !_Name ObjFieldEnumValueOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      field: field
-      label: true
-      name: Boolean
+      enum: !_OutputEnum
+        field: field
+        label: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+      name: field
       object: ObjFieldEnumValueOutp
-      typeKind: !_SimpleKind Enum
+      type: !_ObjBase
+        name: Boolean
     fields:
-    - !_OutputEnum
-      field: field
-      label: true
-      name: Boolean
-      typeKind: !_SimpleKind Enum
+    - !_OutputField
+      enum: !_OutputEnum
+        field: field
+        label: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+      name: field
+      type: !_ObjBase
+        name: Boolean
     name: ObjFieldEnumValueOutp
     typeKind: !_TypeKind Output

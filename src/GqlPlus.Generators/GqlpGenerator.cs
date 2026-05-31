@@ -83,7 +83,7 @@ public class GqlpGenerator : IIncrementalGenerator
     string baseNamespace = GlobalOptionOrDefault(provider, "GqlPlus_BaseNamespace", "GqlPlus");
     string typePrefix = GlobalOptionOrDefault(provider, "GqlPlus_TypePrefix", "Gqlp");
 
-    string includesBaseNameString = GlobalOptionOrDefault(provider, "GqlPlus_NamespaceIncludesBaseName", "true");
+    string includesBaseNameString = GlobalOptionOrDefault(provider, "GqlPlus_NamespaceIncludesBaseName", GqlpStrings.BoolTrue);
     bool namespaceIncludesBaseName = !bool.TryParse(includesBaseNameString, out bool includesBaseName) || includesBaseName;
 
     return new GqlpModelOptions(baseNamespace, typePrefix, namespaceIncludesBaseName);
@@ -160,7 +160,8 @@ public class GqlpGenerator : IIncrementalGenerator
       .AddSingleton<ILoggerFactory, NullLoggerFactory>()
       .AddParsers(p => p
         .AddCommonParsers()
-        .AddSchemaParsers())
+        .AddSchemaParsers()
+        .AddOperationParsers())
       .AddMergers(b => b.AddSchemaMergers())
       .AddGenerators()
       .BuildServiceProvider();

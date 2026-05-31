@@ -1,6 +1,60 @@
 ﻿!_Schema
 aliases: [Alias, Opt1, Opt2]
 categories: !_Map(_Categories)
+  !_Name catOprCtgr: !_Category
+    name: catOprCtgr
+    output: !_TypeRef(_TypeKind)
+      name: CatOprCtgr
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name catOprDmn: !_Category
+    name: catOprDmn
+    output: !_TypeRef(_TypeKind)
+      name: CatOprDmn
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name catOprDmnArg: !_Category
+    name: catOprDmnArg
+    output: !_TypeRef(_TypeKind)
+      name: CatOprDmnArg
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name catOprDmnMods: !_Category
+    name: catOprDmnMods
+    output: !_TypeRef(_TypeKind)
+      name: CatOprDmnMods
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name catOprDmnVar: !_Category
+    name: catOprDmnVar
+    output: !_TypeRef(_TypeKind)
+      name: CatOprDmnVar
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name catOprSlct: !_Category
+    name: catOprSlct
+    output: !_TypeRef(_TypeKind)
+      name: CatOprSlct
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name catOprSlctInln: !_Category
+    name: catOprSlctInln
+    output: !_TypeRef(_TypeKind)
+      name: CatOprSlctInln
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name catOprSlctMods: !_Category
+    name: catOprSlctMods
+    output: !_TypeRef(_TypeKind)
+      name: CatOprSlctMods
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name catOprSlctSprd: !_Category
+    name: catOprSlctSprd
+    output: !_TypeRef(_TypeKind)
+      name: CatOprSlctSprd
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
   !_Name ctgr: !_Category
     name: ctgr
     output: !_TypeRef(_TypeKind)
@@ -77,6 +131,12 @@ categories: !_Map(_Categories)
       name: DescrBtwn
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
+  !_Name op: !_Category
+    name: op
+    output: !_TypeRef(_TypeKind)
+      name: Op
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
 directives: !_Map(_Directives)
   !_Name Drct: !_Directive
     locations: !_Set(_Location) {Inline: _, Spread: _}
@@ -137,6 +197,142 @@ directives: !_Map(_Directives)
       name: InDrctParamOpt
     repeatable: false
 name: Schema
+operations: !_Map(_Operations)
+  !_Name Operation: !_Operation
+    aliases: [Op1, Op2]
+    category: op
+    name: Operation
+    result: !_OpResult
+      domain: !_TypeRef(_TypeKind)
+        name: String
+        typeKind: !_TypeKind Output
+  !_Name OprCtgr: !_Operation
+    category: catOprCtgr
+    name: OprCtgr
+    result: !_OpResult
+      domain: !_TypeRef(_TypeKind)
+        name: String
+        typeKind: !_TypeKind Output
+  !_Name OprDmn: !_Operation
+    category: catOprDmn
+    name: OprDmn
+    result: !_OpResult
+      domain: !_TypeRef(_TypeKind)
+        name: Number
+        typeKind: !_TypeKind Output
+  !_Name OprDmnArg: !_Operation
+    category: catOprDmnArg
+    name: OprDmnArg
+    result: !_OpResult
+      domain: !_TypeRef(_TypeKind)
+        name: String
+        typeKind: !_TypeKind Output
+  !_Name OprDmnMods: !_Operation
+    category: catOprDmnMods
+    modifiers: [!_ModifierDictionary {by: String, modifierKind: !_ModifierKind Dict,
+        typeKind: !_SimpleKind Basic}]
+    name: OprDmnMods
+    result: !_OpResult
+      domain: !_TypeRef(_TypeKind)
+        name: Boolean
+        typeKind: !_TypeKind Output
+  !_Name OprDmnVar: !_Operation
+    category: catOprDmnVar
+    name: OprDmnVar
+    result: !_OpResult
+      domain: !_TypeRef(_TypeKind)
+        name: String
+        typeKind: !_TypeKind Output
+    variables: !_Map(_Variables)
+      !_Name arg: !_OpVariable
+        name: arg
+  !_Name OprSlct: !_Operation
+    category: catOprSlct
+    name: OprSlct
+    selections: !_Map(_Selections)
+      !_Name '': !_Selections
+      - !_OpFieldSelection
+        name: first
+      - !_OpFieldSelection
+        name: last
+      - !_OpFieldSelection
+        name: address
+      !_Name '.3': !_Selections
+      - !_OpFieldSelection
+        name: street
+      - !_OpFieldSelection
+        name: city
+      - !_OpFieldSelection
+        name: country
+  !_Name OprSlctInln: !_Operation
+    category: catOprSlctInln
+    name: OprSlctInln
+    selections: !_Map(_Selections)
+      !_Name '': !_Selections
+      - !_OpFieldSelection
+        name: first
+      - !_OpFieldSelection
+        name: last
+      - !_OpFieldSelection
+        name: address
+      !_Name '.3': !_Selections
+      - !_OpInlineSelection
+        onType: !_TypeRef(_TypeKind)
+          name: AddrOprSlctInln
+          typeKind: !_TypeKind Output
+      !_Name '.3.1': !_Selections
+      - !_OpFieldSelection
+        name: street
+      - !_OpFieldSelection
+        name: city
+      - !_OpFieldSelection
+        name: country
+  !_Name OprSlctMods: !_Operation
+    category: catOprSlctMods
+    modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+    name: OprSlctMods
+    selections: !_Map(_Selections)
+      !_Name '': !_Selections
+      - !_OpFieldSelection
+        name: first
+      - !_OpFieldSelection
+        name: last
+      - !_OpFieldSelection
+        name: address
+      !_Name '.3': !_Selections
+      - !_OpFieldSelection
+        name: street
+      - !_OpFieldSelection
+        name: city
+      - !_OpFieldSelection
+        name: country
+  !_Name OprSlctSprd: !_Operation
+    category: catOprSlctSprd
+    fragments: !_Map(_Fragments)
+      !_Name firstLast: !_OpFragment
+        name: firstLast
+        type: !_TypeRef(_TypeKind)
+          name: CatOprSlctSprd
+          typeKind: !_TypeKind Output
+    name: OprSlctSprd
+    selections: !_Map(_Selections)
+      !_Name '': !_Selections
+      - !_OpSpreadSelection
+        fragment: firstLast
+      - !_OpFieldSelection
+        name: address
+      !_Name '.2': !_Selections
+      - !_OpFieldSelection
+        name: street
+      - !_OpFieldSelection
+        name: city
+      - !_OpFieldSelection
+        name: country
+      !_Name firstLast: !_Selections
+      - !_OpFieldSelection
+        name: first
+      - !_OpFieldSelection
+        name: last
 settings: !_Map(_Setting)
   !_Name descr: !_Setting
     description: 'Option Descr'
@@ -151,6 +347,121 @@ settings: !_Map(_Setting)
     - true
     - 0
 types: !_Map(_Type)
+  !_Name AddrOprSlct: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: street
+      object: AddrOprSlct
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: city
+      object: AddrOprSlct
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: country
+      object: AddrOprSlct
+      type: !_ObjBase
+        name: String
+    fields:
+    - !_OutputField
+      name: street
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: city
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: country
+      type: !_ObjBase
+        name: String
+    name: AddrOprSlct
+    typeKind: !_TypeKind Output
+  !_Name AddrOprSlctInln: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate)
+      object: AddrOprSlctInln
+      type: !_ObjBase
+        name: FullOprSlctInln
+    - !_ObjectFor(_Alternate)
+      object: AddrOprSlctInln
+      type: !_ObjBase
+        name: String
+    alternates:
+    - !_Alternate
+      type: !_ObjBase
+        name: FullOprSlctInln
+    - !_Alternate
+      type: !_ObjBase
+        name: String
+    name: AddrOprSlctInln
+    typeKind: !_TypeKind Output
+  !_Name AddrOprSlctMods: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: street
+      object: AddrOprSlctMods
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: city
+      object: AddrOprSlctMods
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: country
+      object: AddrOprSlctMods
+      type: !_ObjBase
+        name: String
+    fields:
+    - !_OutputField
+      name: street
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: city
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: country
+      type: !_ObjBase
+        name: String
+    name: AddrOprSlctMods
+    typeKind: !_TypeKind Output
+  !_Name AddrOprSlctSprd: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: street
+      object: AddrOprSlctSprd
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: city
+      object: AddrOprSlctSprd
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: country
+      object: AddrOprSlctSprd
+      type: !_ObjBase
+        name: String
+    fields:
+    - !_OutputField
+      name: street
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: city
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: country
+      type: !_ObjBase
+        name: String
+    name: AddrOprSlctSprd
+    typeKind: !_TypeKind Output
   !_Name AltAltDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
@@ -1681,6 +1992,149 @@ types: !_Map(_Type)
         name: String
     name: AltSmplOutp
     typeKind: !_TypeKind Output
+  !_Name CatOprCtgr: !_TypeOutput
+    name: CatOprCtgr
+    typeKind: !_TypeKind Output
+  !_Name CatOprDmn: !_TypeOutput
+    name: CatOprDmn
+    typeKind: !_TypeKind Output
+  !_Name CatOprDmnArg: !_TypeOutput
+    name: CatOprDmnArg
+    typeKind: !_TypeKind Output
+  !_Name CatOprDmnMods: !_TypeOutput
+    name: CatOprDmnMods
+    typeKind: !_TypeKind Output
+  !_Name CatOprDmnVar: !_TypeOutput
+    name: CatOprDmnVar
+    typeKind: !_TypeKind Output
+  !_Name CatOprSlct: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: first
+      object: CatOprSlct
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: last
+      object: CatOprSlct
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: address
+      object: CatOprSlct
+      type: !_ObjBase
+        name: AddrOprSlct
+    fields:
+    - !_OutputField
+      name: first
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: last
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: address
+      type: !_ObjBase
+        name: AddrOprSlct
+    name: CatOprSlct
+    typeKind: !_TypeKind Output
+  !_Name CatOprSlctInln: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: first
+      object: CatOprSlctInln
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: last
+      object: CatOprSlctInln
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: address
+      object: CatOprSlctInln
+      type: !_ObjBase
+        name: AddrOprSlctInln
+    fields:
+    - !_OutputField
+      name: first
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: last
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: address
+      type: !_ObjBase
+        name: AddrOprSlctInln
+    name: CatOprSlctInln
+    typeKind: !_TypeKind Output
+  !_Name CatOprSlctMods: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: first
+      object: CatOprSlctMods
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: last
+      object: CatOprSlctMods
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: address
+      object: CatOprSlctMods
+      type: !_ObjBase
+        name: AddrOprSlctMods
+    fields:
+    - !_OutputField
+      name: first
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: last
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: address
+      type: !_ObjBase
+        name: AddrOprSlctMods
+    name: CatOprSlctMods
+    typeKind: !_TypeKind Output
+  !_Name CatOprSlctSprd: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: first
+      object: CatOprSlctSprd
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: last
+      object: CatOprSlctSprd
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: address
+      object: CatOprSlctSprd
+      type: !_ObjBase
+        name: AddrOprSlctSprd
+    fields:
+    - !_OutputField
+      name: first
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: last
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: address
+      type: !_ObjBase
+        name: AddrOprSlctSprd
+    name: CatOprSlctSprd
+    typeKind: !_TypeKind Output
   !_Name CnstAltDmnDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
@@ -1904,19 +2358,21 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: RefCnstDomEnumDual
         typeArgs:
-        - !_EnumValue
-          label: cnstDomEnumDual
-          name: EnumCnstDomEnumDual
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: cnstDomEnumDual
+            name: EnumCnstDomEnumDual
+            typeKind: !_SimpleKind Enum
     alternates:
     - !_Alternate
       type: !_ObjBase
         name: RefCnstDomEnumDual
         typeArgs:
-        - !_EnumValue
-          label: cnstDomEnumDual
-          name: EnumCnstDomEnumDual
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: cnstDomEnumDual
+            name: EnumCnstDomEnumDual
+            typeKind: !_SimpleKind Enum
     name: CnstDomEnumDual
     typeKind: !_TypeKind Dual
   !_Name CnstDomEnumInp: !_TypeInput
@@ -1926,19 +2382,21 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: RefCnstDomEnumInp
         typeArgs:
-        - !_EnumValue
-          label: cnstDomEnumInp
-          name: EnumCnstDomEnumInp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: cnstDomEnumInp
+            name: EnumCnstDomEnumInp
+            typeKind: !_SimpleKind Enum
     alternates:
     - !_Alternate
       type: !_ObjBase
         name: RefCnstDomEnumInp
         typeArgs:
-        - !_EnumValue
-          label: cnstDomEnumInp
-          name: EnumCnstDomEnumInp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: cnstDomEnumInp
+            name: EnumCnstDomEnumInp
+            typeKind: !_SimpleKind Enum
     name: CnstDomEnumInp
     typeKind: !_TypeKind Input
   !_Name CnstDomEnumOutp: !_TypeOutput
@@ -1948,19 +2406,21 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: RefCnstDomEnumOutp
         typeArgs:
-        - !_EnumValue
-          label: cnstDomEnumOutp
-          name: EnumCnstDomEnumOutp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: cnstDomEnumOutp
+            name: EnumCnstDomEnumOutp
+            typeKind: !_SimpleKind Enum
     alternates:
     - !_Alternate
       type: !_ObjBase
         name: RefCnstDomEnumOutp
         typeArgs:
-        - !_EnumValue
-          label: cnstDomEnumOutp
-          name: EnumCnstDomEnumOutp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: cnstDomEnumOutp
+            name: EnumCnstDomEnumOutp
+            typeKind: !_SimpleKind Enum
     name: CnstDomEnumOutp
     typeKind: !_TypeKind Output
   !_Name CnstEnumDual: !_TypeDual
@@ -1970,19 +2430,21 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: RefCnstEnumDual
         typeArgs:
-        - !_EnumValue
-          label: cnstEnumDual
-          name: EnumCnstEnumDual
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: cnstEnumDual
+            name: EnumCnstEnumDual
+            typeKind: !_SimpleKind Enum
     alternates:
     - !_Alternate
       type: !_ObjBase
         name: RefCnstEnumDual
         typeArgs:
-        - !_EnumValue
-          label: cnstEnumDual
-          name: EnumCnstEnumDual
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: cnstEnumDual
+            name: EnumCnstEnumDual
+            typeKind: !_SimpleKind Enum
     name: CnstEnumDual
     typeKind: !_TypeKind Dual
   !_Name CnstEnumInp: !_TypeInput
@@ -1992,19 +2454,21 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: RefCnstEnumInp
         typeArgs:
-        - !_EnumValue
-          label: cnstEnumInp
-          name: EnumCnstEnumInp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: cnstEnumInp
+            name: EnumCnstEnumInp
+            typeKind: !_SimpleKind Enum
     alternates:
     - !_Alternate
       type: !_ObjBase
         name: RefCnstEnumInp
         typeArgs:
-        - !_EnumValue
-          label: cnstEnumInp
-          name: EnumCnstEnumInp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: cnstEnumInp
+            name: EnumCnstEnumInp
+            typeKind: !_SimpleKind Enum
     name: CnstEnumInp
     typeKind: !_TypeKind Input
   !_Name CnstEnumOutp: !_TypeOutput
@@ -2014,19 +2478,21 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: RefCnstEnumOutp
         typeArgs:
-        - !_EnumValue
-          label: cnstEnumOutp
-          name: EnumCnstEnumOutp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: cnstEnumOutp
+            name: EnumCnstEnumOutp
+            typeKind: !_SimpleKind Enum
     alternates:
     - !_Alternate
       type: !_ObjBase
         name: RefCnstEnumOutp
         typeArgs:
-        - !_EnumValue
-          label: cnstEnumOutp
-          name: EnumCnstEnumOutp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: cnstEnumOutp
+            name: EnumCnstEnumOutp
+            typeKind: !_SimpleKind Enum
     name: CnstEnumOutp
     typeKind: !_TypeKind Output
   !_Name CnstEnumPrntDual: !_TypeDual
@@ -2036,19 +2502,21 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: RefCnstEnumPrntDual
         typeArgs:
-        - !_EnumValue
-          label: cnstEnumPrntDual
-          name: EnumCnstEnumPrntDual
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: cnstEnumPrntDual
+            name: EnumCnstEnumPrntDual
+            typeKind: !_SimpleKind Enum
     alternates:
     - !_Alternate
       type: !_ObjBase
         name: RefCnstEnumPrntDual
         typeArgs:
-        - !_EnumValue
-          label: cnstEnumPrntDual
-          name: EnumCnstEnumPrntDual
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: cnstEnumPrntDual
+            name: EnumCnstEnumPrntDual
+            typeKind: !_SimpleKind Enum
     name: CnstEnumPrntDual
     typeKind: !_TypeKind Dual
   !_Name CnstEnumPrntInp: !_TypeInput
@@ -2058,19 +2526,21 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: RefCnstEnumPrntInp
         typeArgs:
-        - !_EnumValue
-          label: cnstEnumPrntInp
-          name: EnumCnstEnumPrntInp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: cnstEnumPrntInp
+            name: EnumCnstEnumPrntInp
+            typeKind: !_SimpleKind Enum
     alternates:
     - !_Alternate
       type: !_ObjBase
         name: RefCnstEnumPrntInp
         typeArgs:
-        - !_EnumValue
-          label: cnstEnumPrntInp
-          name: EnumCnstEnumPrntInp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: cnstEnumPrntInp
+            name: EnumCnstEnumPrntInp
+            typeKind: !_SimpleKind Enum
     name: CnstEnumPrntInp
     typeKind: !_TypeKind Input
   !_Name CnstEnumPrntOutp: !_TypeOutput
@@ -2080,19 +2550,21 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: RefCnstEnumPrntOutp
         typeArgs:
-        - !_EnumValue
-          label: cnstEnumPrntOutp
-          name: EnumCnstEnumPrntOutp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: cnstEnumPrntOutp
+            name: EnumCnstEnumPrntOutp
+            typeKind: !_SimpleKind Enum
     alternates:
     - !_Alternate
       type: !_ObjBase
         name: RefCnstEnumPrntOutp
         typeArgs:
-        - !_EnumValue
-          label: cnstEnumPrntOutp
-          name: EnumCnstEnumPrntOutp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: cnstEnumPrntOutp
+            name: EnumCnstEnumPrntOutp
+            typeKind: !_SimpleKind Enum
     name: CnstEnumPrntOutp
     typeKind: !_TypeKind Output
   !_Name CnstFieldDmnDual: !_TypeDual
@@ -2342,19 +2814,21 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: RefCnstPrntEnumDual
         typeArgs:
-        - !_EnumValue
-          label: parentCnstPrntEnumDual
-          name: ParentCnstPrntEnumDual
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: parentCnstPrntEnumDual
+            name: ParentCnstPrntEnumDual
+            typeKind: !_SimpleKind Enum
     alternates:
     - !_Alternate
       type: !_ObjBase
         name: RefCnstPrntEnumDual
         typeArgs:
-        - !_EnumValue
-          label: parentCnstPrntEnumDual
-          name: ParentCnstPrntEnumDual
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: parentCnstPrntEnumDual
+            name: ParentCnstPrntEnumDual
+            typeKind: !_SimpleKind Enum
     name: CnstPrntEnumDual
     typeKind: !_TypeKind Dual
   !_Name CnstPrntEnumInp: !_TypeInput
@@ -2364,19 +2838,21 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: RefCnstPrntEnumInp
         typeArgs:
-        - !_EnumValue
-          label: parentCnstPrntEnumInp
-          name: ParentCnstPrntEnumInp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: parentCnstPrntEnumInp
+            name: ParentCnstPrntEnumInp
+            typeKind: !_SimpleKind Enum
     alternates:
     - !_Alternate
       type: !_ObjBase
         name: RefCnstPrntEnumInp
         typeArgs:
-        - !_EnumValue
-          label: parentCnstPrntEnumInp
-          name: ParentCnstPrntEnumInp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: parentCnstPrntEnumInp
+            name: ParentCnstPrntEnumInp
+            typeKind: !_SimpleKind Enum
     name: CnstPrntEnumInp
     typeKind: !_TypeKind Input
   !_Name CnstPrntEnumOutp: !_TypeOutput
@@ -2386,19 +2862,21 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: RefCnstPrntEnumOutp
         typeArgs:
-        - !_EnumValue
-          label: parentCnstPrntEnumOutp
-          name: ParentCnstPrntEnumOutp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: parentCnstPrntEnumOutp
+            name: ParentCnstPrntEnumOutp
+            typeKind: !_SimpleKind Enum
     alternates:
     - !_Alternate
       type: !_ObjBase
         name: RefCnstPrntEnumOutp
         typeArgs:
-        - !_EnumValue
-          label: parentCnstPrntEnumOutp
-          name: ParentCnstPrntEnumOutp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: parentCnstPrntEnumOutp
+            name: ParentCnstPrntEnumOutp
+            typeKind: !_SimpleKind Enum
     name: CnstPrntEnumOutp
     typeKind: !_TypeKind Output
   !_Name CnstPrntObjPrntDual: !_TypeDual
@@ -4723,17 +5201,25 @@ types: !_Map(_Type)
   !_Name FieldEnumOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      field: field
-      label: fieldEnumOutp
-      name: EnumFieldEnumOutp
+      enum: !_OutputEnum
+        field: field
+        label: fieldEnumOutp
+        name: EnumFieldEnumOutp
+        typeKind: !_SimpleKind Enum
+      name: field
       object: FieldEnumOutp
-      typeKind: !_SimpleKind Enum
+      type: !_ObjBase
+        name: EnumFieldEnumOutp
     fields:
-    - !_OutputEnum
-      field: field
-      label: fieldEnumOutp
-      name: EnumFieldEnumOutp
-      typeKind: !_SimpleKind Enum
+    - !_OutputField
+      enum: !_OutputEnum
+        field: field
+        label: fieldEnumOutp
+        name: EnumFieldEnumOutp
+        typeKind: !_SimpleKind Enum
+      name: field
+      type: !_ObjBase
+        name: EnumFieldEnumOutp
     name: FieldEnumOutp
     typeKind: !_TypeKind Output
   !_Name FieldEnumPrntDual: !_TypeDual
@@ -4767,17 +5253,25 @@ types: !_Map(_Type)
   !_Name FieldEnumPrntOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      field: field
-      label: prnt_fieldEnumPrntOutp
-      name: EnumFieldEnumPrntOutp
+      enum: !_OutputEnum
+        field: field
+        label: prnt_fieldEnumPrntOutp
+        name: EnumFieldEnumPrntOutp
+        typeKind: !_SimpleKind Enum
+      name: field
       object: FieldEnumPrntOutp
-      typeKind: !_SimpleKind Enum
+      type: !_ObjBase
+        name: EnumFieldEnumPrntOutp
     fields:
-    - !_OutputEnum
-      field: field
-      label: prnt_fieldEnumPrntOutp
-      name: EnumFieldEnumPrntOutp
-      typeKind: !_SimpleKind Enum
+    - !_OutputField
+      enum: !_OutputEnum
+        field: field
+        label: prnt_fieldEnumPrntOutp
+        name: EnumFieldEnumPrntOutp
+        typeKind: !_SimpleKind Enum
+      name: field
+      type: !_ObjBase
+        name: EnumFieldEnumPrntOutp
     name: FieldEnumPrntOutp
     typeKind: !_TypeKind Output
   !_Name FieldGnrcPrntEnumChildDual: !_TypeDual
@@ -5395,19 +5889,29 @@ types: !_Map(_Type)
   !_Name FieldValueDescrOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      description: 'Test Descr'
-      field: field
-      label: fieldValueDescrOutp
-      name: EnumFieldValueDescrOutp
+      enum: !_OutputEnum
+        description: 'Test Descr'
+        field: field
+        label: fieldValueDescrOutp
+        name: EnumFieldValueDescrOutp
+        typeKind: !_SimpleKind Enum
+      name: field
       object: FieldValueDescrOutp
-      typeKind: !_SimpleKind Enum
+      type: !_ObjBase
+        description: 'Test Descr'
+        name: EnumFieldValueDescrOutp
     fields:
-    - !_OutputEnum
-      description: 'Test Descr'
-      field: field
-      label: fieldValueDescrOutp
-      name: EnumFieldValueDescrOutp
-      typeKind: !_SimpleKind Enum
+    - !_OutputField
+      enum: !_OutputEnum
+        description: 'Test Descr'
+        field: field
+        label: fieldValueDescrOutp
+        name: EnumFieldValueDescrOutp
+        typeKind: !_SimpleKind Enum
+      name: field
+      type: !_ObjBase
+        description: 'Test Descr'
+        name: EnumFieldValueDescrOutp
     name: FieldValueDescrOutp
     typeKind: !_TypeKind Output
   !_Name FieldValueDual: !_TypeDual
@@ -5441,17 +5945,25 @@ types: !_Map(_Type)
   !_Name FieldValueOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      field: field
-      label: fieldValueOutp
-      name: EnumFieldValueOutp
+      enum: !_OutputEnum
+        field: field
+        label: fieldValueOutp
+        name: EnumFieldValueOutp
+        typeKind: !_SimpleKind Enum
+      name: field
       object: FieldValueOutp
-      typeKind: !_SimpleKind Enum
+      type: !_ObjBase
+        name: EnumFieldValueOutp
     fields:
-    - !_OutputEnum
-      field: field
-      label: fieldValueOutp
-      name: EnumFieldValueOutp
-      typeKind: !_SimpleKind Enum
+    - !_OutputField
+      enum: !_OutputEnum
+        field: field
+        label: fieldValueOutp
+        name: EnumFieldValueOutp
+        typeKind: !_SimpleKind Enum
+      name: field
+      type: !_ObjBase
+        name: EnumFieldValueOutp
     name: FieldValueOutp
     typeKind: !_TypeKind Output
   !_Name FldFieldDualDual: !_TypeDual
@@ -5700,6 +6212,38 @@ types: !_Map(_Type)
   !_Name FldOutpPrntParam: !_TypeDual
     name: FldOutpPrntParam
     typeKind: !_TypeKind Dual
+  !_Name FullOprSlctInln: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: street
+      object: FullOprSlctInln
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: city
+      object: FullOprSlctInln
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: country
+      object: FullOprSlctInln
+      type: !_ObjBase
+        name: String
+    fields:
+    - !_OutputField
+      name: street
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: city
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: country
+      type: !_ObjBase
+        name: String
+    name: FullOprSlctInln
+    typeKind: !_TypeKind Output
   !_Name GnrcAltArgDescrDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
@@ -6136,19 +6680,21 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: RefGnrcEnumDual
         typeArgs:
-        - !_EnumValue
-          label: gnrcEnumDual
-          name: EnumGnrcEnumDual
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: gnrcEnumDual
+            name: EnumGnrcEnumDual
+            typeKind: !_SimpleKind Enum
     alternates:
     - !_Alternate
       type: !_ObjBase
         name: RefGnrcEnumDual
         typeArgs:
-        - !_EnumValue
-          label: gnrcEnumDual
-          name: EnumGnrcEnumDual
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: gnrcEnumDual
+            name: EnumGnrcEnumDual
+            typeKind: !_SimpleKind Enum
     name: GnrcEnumDual
     typeKind: !_TypeKind Dual
   !_Name GnrcEnumInp: !_TypeInput
@@ -6158,19 +6704,21 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: RefGnrcEnumInp
         typeArgs:
-        - !_EnumValue
-          label: gnrcEnumInp
-          name: EnumGnrcEnumInp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: gnrcEnumInp
+            name: EnumGnrcEnumInp
+            typeKind: !_SimpleKind Enum
     alternates:
     - !_Alternate
       type: !_ObjBase
         name: RefGnrcEnumInp
         typeArgs:
-        - !_EnumValue
-          label: gnrcEnumInp
-          name: EnumGnrcEnumInp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: gnrcEnumInp
+            name: EnumGnrcEnumInp
+            typeKind: !_SimpleKind Enum
     name: GnrcEnumInp
     typeKind: !_TypeKind Input
   !_Name GnrcEnumOutp: !_TypeOutput
@@ -6180,19 +6728,21 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: RefGnrcEnumOutp
         typeArgs:
-        - !_EnumValue
-          label: gnrcEnumOutp
-          name: EnumGnrcEnumOutp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: gnrcEnumOutp
+            name: EnumGnrcEnumOutp
+            typeKind: !_SimpleKind Enum
     alternates:
     - !_Alternate
       type: !_ObjBase
         name: RefGnrcEnumOutp
         typeArgs:
-        - !_EnumValue
-          label: gnrcEnumOutp
-          name: EnumGnrcEnumOutp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: gnrcEnumOutp
+            name: EnumGnrcEnumOutp
+            typeKind: !_SimpleKind Enum
     name: GnrcEnumOutp
     typeKind: !_TypeKind Output
   !_Name GnrcFieldArgDual: !_TypeDual
@@ -6988,19 +7538,21 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: RefGnrcValueDual
         typeArgs:
-        - !_EnumValue
-          label: gnrcValueDual
-          name: EnumGnrcValueDual
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: gnrcValueDual
+            name: EnumGnrcValueDual
+            typeKind: !_SimpleKind Enum
     alternates:
     - !_Alternate
       type: !_ObjBase
         name: RefGnrcValueDual
         typeArgs:
-        - !_EnumValue
-          label: gnrcValueDual
-          name: EnumGnrcValueDual
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: gnrcValueDual
+            name: EnumGnrcValueDual
+            typeKind: !_SimpleKind Enum
     name: GnrcValueDual
     typeKind: !_TypeKind Dual
   !_Name GnrcValueInp: !_TypeInput
@@ -7010,19 +7562,21 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: RefGnrcValueInp
         typeArgs:
-        - !_EnumValue
-          label: gnrcValueInp
-          name: EnumGnrcValueInp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: gnrcValueInp
+            name: EnumGnrcValueInp
+            typeKind: !_SimpleKind Enum
     alternates:
     - !_Alternate
       type: !_ObjBase
         name: RefGnrcValueInp
         typeArgs:
-        - !_EnumValue
-          label: gnrcValueInp
-          name: EnumGnrcValueInp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: gnrcValueInp
+            name: EnumGnrcValueInp
+            typeKind: !_SimpleKind Enum
     name: GnrcValueInp
     typeKind: !_TypeKind Input
   !_Name GnrcValueOutp: !_TypeOutput
@@ -7032,19 +7586,21 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: RefGnrcValueOutp
         typeArgs:
-        - !_EnumValue
-          label: gnrcValueOutp
-          name: EnumGnrcValueOutp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: gnrcValueOutp
+            name: EnumGnrcValueOutp
+            typeKind: !_SimpleKind Enum
     alternates:
     - !_Alternate
       type: !_ObjBase
         name: RefGnrcValueOutp
         typeArgs:
-        - !_EnumValue
-          label: gnrcValueOutp
-          name: EnumGnrcValueOutp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: gnrcValueOutp
+            name: EnumGnrcValueOutp
+            typeKind: !_SimpleKind Enum
     name: GnrcValueOutp
     typeKind: !_TypeKind Output
   !_Name GrndCnstPrntDualGrndDual: !_TypeDual
@@ -7788,17 +8344,27 @@ types: !_Map(_Type)
   !_Name ObjFieldEnumAliasOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      field: field
-      label: true
-      name: Boolean
+      aliases: [field1, field2]
+      enum: !_OutputEnum
+        field: field
+        label: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+      name: field
       object: ObjFieldEnumAliasOutp
-      typeKind: !_SimpleKind Enum
+      type: !_ObjBase
+        name: Boolean
     fields:
-    - !_OutputEnum
-      field: field
-      label: true
-      name: Boolean
-      typeKind: !_SimpleKind Enum
+    - !_OutputField
+      aliases: [field1, field2]
+      enum: !_OutputEnum
+        field: field
+        label: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+      name: field
+      type: !_ObjBase
+        name: Boolean
     name: ObjFieldEnumAliasOutp
     typeKind: !_TypeKind Output
   !_Name ObjFieldEnumValueDual: !_TypeDual
@@ -7832,17 +8398,25 @@ types: !_Map(_Type)
   !_Name ObjFieldEnumValueOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      field: field
-      label: true
-      name: Boolean
+      enum: !_OutputEnum
+        field: field
+        label: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+      name: field
       object: ObjFieldEnumValueOutp
-      typeKind: !_SimpleKind Enum
+      type: !_ObjBase
+        name: Boolean
     fields:
-    - !_OutputEnum
-      field: field
-      label: true
-      name: Boolean
-      typeKind: !_SimpleKind Enum
+    - !_OutputField
+      enum: !_OutputEnum
+        field: field
+        label: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+      name: field
+      type: !_ObjBase
+        name: Boolean
     name: ObjFieldEnumValueOutp
     typeKind: !_TypeKind Output
   !_Name ObjFieldInp: !_TypeInput
@@ -8125,6 +8699,9 @@ types: !_Map(_Type)
     parent: !_ObjBase
       name: RefObjPrntOutp
     typeKind: !_TypeKind Output
+  !_Name Op: !_TypeOutput
+    name: Op
+    typeKind: !_TypeKind Output
   !_Name OutpDescrParam: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -8282,19 +8859,21 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: RefOutpPrntGnrc
         typeArgs:
-        - !_EnumValue
-          label: prnt_outpPrntGnrc
-          name: EnumOutpPrntGnrc
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: prnt_outpPrntGnrc
+            name: EnumOutpPrntGnrc
+            typeKind: !_SimpleKind Enum
     alternates:
     - !_Alternate
       type: !_ObjBase
         name: RefOutpPrntGnrc
         typeArgs:
-        - !_EnumValue
-          label: prnt_outpPrntGnrc
-          name: EnumOutpPrntGnrc
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: prnt_outpPrntGnrc
+            name: EnumOutpPrntGnrc
+            typeKind: !_SimpleKind Enum
     name: OutpPrntGnrc
     typeKind: !_TypeKind Output
   !_Name OutpPrntParam: !_TypeOutput

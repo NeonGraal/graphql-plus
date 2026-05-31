@@ -35,6 +35,101 @@ output _Directive {
 
 enum _Location { Operation Variable Field Inline Spread Fragment }
 
+output _Operations {
+    : _AndType
+
+        operation: _Operation
+    | _Operation
+}
+
+output _OpDirectives {
+    : _Named
+        directives: _OpDirective[]
+}
+
+output _Operation {
+    : _Aliased
+        category: _Name
+        variables: _OpVariable[_Name]
+        directives: _OpDirective[]
+        fragments: _OpFragment[_Name]
+        result: _OpResult?
+        selections: _OpSelection[][_Path]
+        modifiers: _Modifiers[]
+}
+
+output _OpVariable {
+    : _OpDirectives
+        type: _TypeRef<_TypeKind.Input>
+        modifiers: _Modifiers[]
+        defaultValue: Value?
+}
+
+dual _OpDirective {
+    : _Named
+        argument: _OpArgument?
+}
+
+output _OpFragment {
+    : _OpDirectives
+        type: _TypeRef<_TypeKind.Output>
+}
+
+dual _OpArgument {
+    |   _OpArgValue
+    |   _OpArgList
+    |   _OpArgMap
+    }
+
+dual _OpArgValue {
+        variable: _Name
+    |   Value
+    }
+
+dual _OpArgList {
+    | _OpArgValue[]
+    }
+
+dual _OpArgMap {
+        value: _OpArgValue
+        byVariable: _Name
+    | _OpArgValue[Scalar]
+    }
+
+output _OpResult {
+        domain: _TypeRef<_SimpleKind>
+        argument: _OpArgument?
+    }
+
+domain _Path { String /(\$([A-Za-z]\w*)?|\.+)?\d+(\.\d+)*/ }
+
+output _OpSelection {
+    |   _OpField
+    |   _OpSpread
+    |   _OpInline
+}
+
+output OpSelectionBase {
+        directives: _OpDirective[]
+        modifiers: _Modifiers[]
+}
+
+output _OpField {
+    : OpSelectionBase
+        name: String
+        fieldAlias: String?
+        argument: _OpArgument?
+}
+
+output _OpInline {
+    : OpSelectionBase
+        type: _TypeRef<_TypeKind.Output>?
+}
+
+output _OpSpread {
+    : OpSelectionBase
+        fragment: String
+}
 
 output _Setting {
     : _Named
@@ -82,10 +177,92 @@ internal class Cmpt_LocationDecoder : IDecoder<Cmpt_Location?>
   internal static Cmpt_LocationDecoder Factory(IDecoderRepository _) => new();
 }
 
+internal class Cmpt_OpDirectiveDecoder : IDecoder<ICmpt_OpDirectiveObject>
+{
+  public ICmpt_OpArgument? Argument { get; set; }
+
+  public IMessages Decode(IValue input, out ICmpt_OpDirectiveObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
+
+  internal static Cmpt_OpDirectiveDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class Cmpt_OpArgumentDecoder : IDecoder<ICmpt_OpArgumentObject>
+{
+
+  public IMessages Decode(IValue input, out ICmpt_OpArgumentObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
+
+  internal static Cmpt_OpArgumentDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class Cmpt_OpArgValueDecoder : IDecoder<ICmpt_OpArgValueObject>
+{
+  public ICmpt_Name? Variable { get; set; }
+
+  public IMessages Decode(IValue input, out ICmpt_OpArgValueObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
+
+  internal static Cmpt_OpArgValueDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class Cmpt_OpArgListDecoder : IDecoder<ICmpt_OpArgListObject>
+{
+
+  public IMessages Decode(IValue input, out ICmpt_OpArgListObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
+
+  internal static Cmpt_OpArgListDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class Cmpt_OpArgMapDecoder : IDecoder<ICmpt_OpArgMapObject>
+{
+  public ICmpt_OpArgValue? Value { get; set; }
+  public ICmpt_Name? ByVariable { get; set; }
+
+  public IMessages Decode(IValue input, out ICmpt_OpArgMapObject? output)
+  {
+    output = null;
+    return Messages.New;
+  }
+
+  internal static Cmpt_OpArgMapDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class Cmpt_PathDecoder : IDecoder<ICmpt_Path>
+{
+
+  public IMessages Decode(IValue input, out ICmpt_Path? output)
+  {
+    output = null;
+    return Messages.New;
+  }
+
+  internal static Cmpt_PathDecoder Factory(IDecoderRepository _) => new();
+}
+
 internal static class Cmpt_Spec_GlobalDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Spec_GlobalDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<Cmpt_Resolution?>(Cmpt_ResolutionDecoder.Factory)
-      .AddDecoder<Cmpt_Location?>(Cmpt_LocationDecoder.Factory);
+      .AddDecoder<Cmpt_Location?>(Cmpt_LocationDecoder.Factory)
+      .AddDecoder<ICmpt_OpDirectiveObject>(Cmpt_OpDirectiveDecoder.Factory)
+      .AddDecoder<ICmpt_OpArgumentObject>(Cmpt_OpArgumentDecoder.Factory)
+      .AddDecoder<ICmpt_OpArgValueObject>(Cmpt_OpArgValueDecoder.Factory)
+      .AddDecoder<ICmpt_OpArgListObject>(Cmpt_OpArgListDecoder.Factory)
+      .AddDecoder<ICmpt_OpArgMapObject>(Cmpt_OpArgMapDecoder.Factory)
+      .AddDecoder<ICmpt_Path>(Cmpt_PathDecoder.Factory);
 }

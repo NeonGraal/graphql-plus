@@ -1,0 +1,55 @@
+﻿/* operation-selection
+operation OprSlct { catOprSlct { first last address { street city country } } }
+category { CatOprSlct }
+output CatOprSlct { 
+    first: String
+    last: String
+    address: AddrOprSlct
+}
+output AddrOprSlct {
+    street: String
+    city: String
+    country: String
+}
+*/
+
+// Generated from Schema operation-selection
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_operation-selection, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_operation_selection;
+
+internal class CmptCatOprSlctEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptCatOprSlctObject>
+{
+  private readonly Encoder<ICmptAddrOprSlct> _addrOprSlct = encoders.EncoderFor<ICmptAddrOprSlct>();
+  public Structured Encode(ICmptCatOprSlctObject input)
+    => Structured.Empty()
+      .Add("first", input.First.Encode())
+      .Add("last", input.Last.Encode())
+      .AddEncoded("address", input.Address, _addrOprSlct);
+
+  internal static CmptCatOprSlctEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptAddrOprSlctEncoder : IEncoder<ICmptAddrOprSlctObject>
+{
+  public Structured Encode(ICmptAddrOprSlctObject input)
+    => Structured.Empty()
+      .Add("street", input.Street.Encode())
+      .Add("city", input.City.Encode())
+      .Add("country", input.Country.Encode());
+
+  internal static CmptAddrOprSlctEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_operation_selectionEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_operation_selectionEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptCatOprSlctObject>(CmptCatOprSlctEncoder.Factory)
+      .AddEncoder<ICmptAddrOprSlctObject>(CmptAddrOprSlctEncoder.Factory);
+}

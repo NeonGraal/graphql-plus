@@ -33,6 +33,7 @@ public static class AllMergers
     => builder.ThrowIfNull()
       .AddMerge(MergeCategories.Factory)
       .AddMerge(MergeDirectives.Factory)
+      .AddMerge(MergeOperations.Factory)
       .AddMerge(MergeOptions.Factory)
       .AddMerge(MergeOptionSettings.Factory);
 

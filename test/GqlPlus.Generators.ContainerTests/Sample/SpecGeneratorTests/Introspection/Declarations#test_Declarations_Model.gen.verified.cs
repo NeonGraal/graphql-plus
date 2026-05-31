@@ -24,6 +24,9 @@ public class test_SchemaObject
   public IDictionary<Itest_Name, Itest_Directives> Directives { get; set; }
   public IDictionary<Itest_Name, Itest_Directives>? Call_Directives(Itest_Filter? parameter)
     => null;
+  public IDictionary<Itest_Name, Itest_Operations> Operations { get; set; }
+  public IDictionary<Itest_Name, Itest_Operations>? Call_Operations(Itest_Filter? parameter)
+    => null;
   public IDictionary<Itest_Name, Itest_Type> Types { get; set; }
   public IDictionary<Itest_Name, Itest_Type>? Call_Types(Itest_TypeFilter? parameter)
     => null;
@@ -34,12 +37,14 @@ public class test_SchemaObject
   public test_SchemaObject
     ( IDictionary<Itest_Name, Itest_Categories> pcategories
     , IDictionary<Itest_Name, Itest_Directives> pdirectives
+    , IDictionary<Itest_Name, Itest_Operations> poperations
     , IDictionary<Itest_Name, Itest_Type> ptypes
     , IDictionary<Itest_Name, Itest_Setting> psettings
     )
   {
     Categories = pcategories;
     Directives = pdirectives;
+    Operations = poperations;
     Types = ptypes;
     Settings = psettings;
   }

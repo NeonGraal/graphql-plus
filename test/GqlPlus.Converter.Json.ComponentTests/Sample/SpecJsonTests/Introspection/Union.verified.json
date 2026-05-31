@@ -4,10 +4,6 @@
     "$list": [
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _UnionRef can\u0027t get model for type \u0027_TypeRef\u0027"
       }
     ],

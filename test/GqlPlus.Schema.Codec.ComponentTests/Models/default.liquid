@@ -76,6 +76,14 @@
         {%- render 'directive' for directives as directive %}
       </article>
       {%- endif -%}
+      {%- if operations %}
+      <article>
+        <header>
+          <h1>Operations</h1>
+        </header>
+        {%- render 'operation' for operations as operation %}
+      </article>
+      {%- endif -%}
       {%- if settings %}
       <article>
         <header>

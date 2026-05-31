@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Building.Schema.Simple;
 
-namespace GqlPlus.Modelling.Simple;
+namespace GqlPlus.Modelling;
 
 public class EnumModellerTests
   : TypeModellerTests<IAstEnum, TypeEnumModel>

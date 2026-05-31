@@ -28,5 +28,4 @@ public interface ITypeModeller<TAst, TModel>
   : IModeller<TAst, TModel>
   , ITypeModeller
   where TAst : IAstError
-  where TModel : IModelBase
-{ }
+  where TModel : IModelBase;

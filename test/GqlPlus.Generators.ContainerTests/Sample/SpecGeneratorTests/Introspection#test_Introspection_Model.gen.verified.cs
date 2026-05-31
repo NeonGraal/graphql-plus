@@ -24,6 +24,9 @@ public class test_SchemaObject
   public IDictionary<Itest_Name, Itest_Directives> Directives { get; set; }
   public IDictionary<Itest_Name, Itest_Directives>? Call_Directives(Itest_Filter? parameter)
     => null;
+  public IDictionary<Itest_Name, Itest_Operations> Operations { get; set; }
+  public IDictionary<Itest_Name, Itest_Operations>? Call_Operations(Itest_Filter? parameter)
+    => null;
   public IDictionary<Itest_Name, Itest_Type> Types { get; set; }
   public IDictionary<Itest_Name, Itest_Type>? Call_Types(Itest_TypeFilter? parameter)
     => null;
@@ -36,12 +39,14 @@ public class test_SchemaObject
     , Itest_Name pname
     , IDictionary<Itest_Name, Itest_Categories> pcategories
     , IDictionary<Itest_Name, Itest_Directives> pdirectives
+    , IDictionary<Itest_Name, Itest_Operations> poperations
     , IDictionary<Itest_Name, Itest_Type> ptypes
     , IDictionary<Itest_Name, Itest_Setting> psettings
     ) : base(pdescription, pname)
   {
     Categories = pcategories;
     Directives = pdirectives;
+    Operations = poperations;
     Types = ptypes;
     Settings = psettings;
   }
@@ -328,6 +333,396 @@ public class test_DirectiveObject
   {
     Repeatable = prepeatable;
     Locations = plocations;
+  }
+}
+
+public class test_Operations
+  : test_AndType
+  , Itest_Operations
+{
+  public Itest_Operation? As_Operation { get; set; }
+  public Itest_OperationsObject? As__Operations { get; set; }
+}
+
+public class test_OperationsObject
+  : test_AndTypeObject
+  , Itest_OperationsObject
+{
+  public Itest_Operation Operation { get; set; }
+
+  public test_OperationsObject
+    ( ICollection<string> pdescription
+    , Itest_Name pname
+    , Itest_Type ptype
+    , Itest_Operation poperation
+    ) : base(pdescription, pname, ptype)
+  {
+    Operation = poperation;
+  }
+}
+
+public class test_OpDirectives
+  : test_Named
+  , Itest_OpDirectives
+{
+  public Itest_OpDirectivesObject? As__OpDirectives { get; set; }
+}
+
+public class test_OpDirectivesObject
+  : test_NamedObject
+  , Itest_OpDirectivesObject
+{
+  public ICollection<Itest_OpDirective> Directives { get; set; }
+
+  public test_OpDirectivesObject
+    ( ICollection<string> pdescription
+    , Itest_Name pname
+    , ICollection<Itest_OpDirective> pdirectives
+    ) : base(pdescription, pname)
+  {
+    Directives = pdirectives;
+  }
+}
+
+public class test_Operation
+  : test_Aliased
+  , Itest_Operation
+{
+  public Itest_OperationObject? As__Operation { get; set; }
+}
+
+public class test_OperationObject
+  : test_AliasedObject
+  , Itest_OperationObject
+{
+  public Itest_Name Category { get; set; }
+  public IDictionary<Itest_Name, Itest_OpVariable> Variables { get; set; }
+  public ICollection<Itest_OpDirective> Directives { get; set; }
+  public IDictionary<Itest_Name, Itest_OpFragment> Fragments { get; set; }
+  public Itest_OpResult? Result { get; set; }
+  public IDictionary<Itest_Path, ICollection<Itest_OpSelection>> Selections { get; set; }
+  public ICollection<Itest_Modifiers> Modifiers { get; set; }
+
+  public test_OperationObject
+    ( ICollection<string> pdescription
+    , Itest_Name pname
+    , ICollection<Itest_Name> paliases
+    , Itest_Name pcategory
+    , IDictionary<Itest_Name, Itest_OpVariable> pvariables
+    , ICollection<Itest_OpDirective> pdirectives
+    , IDictionary<Itest_Name, Itest_OpFragment> pfragments
+    , IDictionary<Itest_Path, ICollection<Itest_OpSelection>> pselections
+    , ICollection<Itest_Modifiers> pmodifiers
+    ) : base(pdescription, pname, paliases)
+  {
+    Category = pcategory;
+    Variables = pvariables;
+    Directives = pdirectives;
+    Fragments = pfragments;
+    Selections = pselections;
+    Modifiers = pmodifiers;
+  }
+}
+
+public class test_OpVariable
+  : test_OpDirectives
+  , Itest_OpVariable
+{
+  public Itest_OpVariableObject? As__OpVariable { get; set; }
+}
+
+public class test_OpVariableObject
+  : test_OpDirectivesObject
+  , Itest_OpVariableObject
+{
+  public Itest_TypeRef<test_TypeKind> Type { get; set; }
+  public ICollection<Itest_Modifiers> Modifiers { get; set; }
+  public GqlpValue? DefaultValue { get; set; }
+
+  public test_OpVariableObject
+    ( ICollection<string> pdescription
+    , Itest_Name pname
+    , ICollection<Itest_OpDirective> pdirectives
+    , Itest_TypeRef<test_TypeKind> ptype
+    , ICollection<Itest_Modifiers> pmodifiers
+    ) : base(pdescription, pname, pdirectives)
+  {
+    Type = ptype;
+    Modifiers = pmodifiers;
+  }
+}
+
+public class test_OpDirective
+  : test_Named
+  , Itest_OpDirective
+{
+  public Itest_OpDirectiveObject? As__OpDirective { get; set; }
+}
+
+public class test_OpDirectiveObject
+  : test_NamedObject
+  , Itest_OpDirectiveObject
+{
+  public Itest_OpArgument? Argument { get; set; }
+
+  public test_OpDirectiveObject
+    ( ICollection<string> pdescription
+    , Itest_Name pname
+    ) : base(pdescription, pname)
+  {
+  }
+}
+
+public class test_OpFragment
+  : test_OpDirectives
+  , Itest_OpFragment
+{
+  public Itest_OpFragmentObject? As__OpFragment { get; set; }
+}
+
+public class test_OpFragmentObject
+  : test_OpDirectivesObject
+  , Itest_OpFragmentObject
+{
+  public Itest_TypeRef<test_TypeKind> Type { get; set; }
+
+  public test_OpFragmentObject
+    ( ICollection<string> pdescription
+    , Itest_Name pname
+    , ICollection<Itest_OpDirective> pdirectives
+    , Itest_TypeRef<test_TypeKind> ptype
+    ) : base(pdescription, pname, pdirectives)
+  {
+    Type = ptype;
+  }
+}
+
+public class test_OpArgument
+  : GqlpModelBase
+  , Itest_OpArgument
+{
+  public Itest_OpArgValue? As_OpArgValue { get; set; }
+  public Itest_OpArgList? As_OpArgList { get; set; }
+  public Itest_OpArgMap? As_OpArgMap { get; set; }
+  public Itest_OpArgumentObject? As__OpArgument { get; set; }
+}
+
+public class test_OpArgumentObject
+  : GqlpModelBase
+  , Itest_OpArgumentObject
+{
+
+  public test_OpArgumentObject
+    ()
+  {
+  }
+}
+
+public class test_OpArgValue
+  : GqlpModelBase
+  , Itest_OpArgValue
+{
+  public GqlpValue? AsValue { get; set; }
+  public Itest_OpArgValueObject? As__OpArgValue { get; set; }
+}
+
+public class test_OpArgValueObject
+  : GqlpModelBase
+  , Itest_OpArgValueObject
+{
+  public Itest_Name Variable { get; set; }
+
+  public test_OpArgValueObject
+    ( Itest_Name pvariable
+    )
+  {
+    Variable = pvariable;
+  }
+}
+
+public class test_OpArgList
+  : GqlpModelBase
+  , Itest_OpArgList
+{
+  public ICollection<Itest_OpArgValue>? As_OpArgValue { get; set; }
+  public Itest_OpArgListObject? As__OpArgList { get; set; }
+}
+
+public class test_OpArgListObject
+  : GqlpModelBase
+  , Itest_OpArgListObject
+{
+
+  public test_OpArgListObject
+    ()
+  {
+  }
+}
+
+public class test_OpArgMap
+  : GqlpModelBase
+  , Itest_OpArgMap
+{
+  public IDictionary<GqlpScalar, Itest_OpArgValue>? As_OpArgValue { get; set; }
+  public Itest_OpArgMapObject? As__OpArgMap { get; set; }
+}
+
+public class test_OpArgMapObject
+  : GqlpModelBase
+  , Itest_OpArgMapObject
+{
+  public Itest_OpArgValue Value { get; set; }
+  public Itest_Name ByVariable { get; set; }
+
+  public test_OpArgMapObject
+    ( Itest_OpArgValue pvalue
+    , Itest_Name pbyVariable
+    )
+  {
+    Value = pvalue;
+    ByVariable = pbyVariable;
+  }
+}
+
+public class test_OpResult
+  : GqlpModelBase
+  , Itest_OpResult
+{
+  public Itest_OpResultObject? As__OpResult { get; set; }
+}
+
+public class test_OpResultObject
+  : GqlpModelBase
+  , Itest_OpResultObject
+{
+  public Itest_TypeRef<test_SimpleKind> Domain { get; set; }
+  public Itest_OpArgument? Argument { get; set; }
+
+  public test_OpResultObject
+    ( Itest_TypeRef<test_SimpleKind> pdomain
+    )
+  {
+    Domain = pdomain;
+  }
+}
+
+public class test_Path
+  : GqlpDomainString
+  , Itest_Path
+{
+}
+
+public class test_OpSelection
+  : GqlpModelBase
+  , Itest_OpSelection
+{
+  public Itest_OpField? As_OpField { get; set; }
+  public Itest_OpSpread? As_OpSpread { get; set; }
+  public Itest_OpInline? As_OpInline { get; set; }
+  public Itest_OpSelectionObject? As__OpSelection { get; set; }
+}
+
+public class test_OpSelectionObject
+  : GqlpModelBase
+  , Itest_OpSelectionObject
+{
+
+  public test_OpSelectionObject
+    ()
+  {
+  }
+}
+
+public class testOpSelectionBase
+  : GqlpModelBase
+  , ItestOpSelectionBase
+{
+  public ItestOpSelectionBaseObject? As_OpSelectionBase { get; set; }
+}
+
+public class testOpSelectionBaseObject
+  : GqlpModelBase
+  , ItestOpSelectionBaseObject
+{
+  public ICollection<Itest_OpDirective> Directives { get; set; }
+  public ICollection<Itest_Modifiers> Modifiers { get; set; }
+
+  public testOpSelectionBaseObject
+    ( ICollection<Itest_OpDirective> pdirectives
+    , ICollection<Itest_Modifiers> pmodifiers
+    )
+  {
+    Directives = pdirectives;
+    Modifiers = pmodifiers;
+  }
+}
+
+public class test_OpField
+  : testOpSelectionBase
+  , Itest_OpField
+{
+  public Itest_OpFieldObject? As__OpField { get; set; }
+}
+
+public class test_OpFieldObject
+  : testOpSelectionBaseObject
+  , Itest_OpFieldObject
+{
+  public string Name { get; set; }
+  public string? FieldAlias { get; set; }
+  public Itest_OpArgument? Argument { get; set; }
+
+  public test_OpFieldObject
+    ( ICollection<Itest_OpDirective> pdirectives
+    , ICollection<Itest_Modifiers> pmodifiers
+    , string pname
+    ) : base(pdirectives, pmodifiers)
+  {
+    Name = pname;
+  }
+}
+
+public class test_OpInline
+  : testOpSelectionBase
+  , Itest_OpInline
+{
+  public Itest_OpInlineObject? As__OpInline { get; set; }
+}
+
+public class test_OpInlineObject
+  : testOpSelectionBaseObject
+  , Itest_OpInlineObject
+{
+  public Itest_TypeRef<test_TypeKind>? Type { get; set; }
+
+  public test_OpInlineObject
+    ( ICollection<Itest_OpDirective> pdirectives
+    , ICollection<Itest_Modifiers> pmodifiers
+    ) : base(pdirectives, pmodifiers)
+  {
+  }
+}
+
+public class test_OpSpread
+  : testOpSelectionBase
+  , Itest_OpSpread
+{
+  public Itest_OpSpreadObject? As__OpSpread { get; set; }
+}
+
+public class test_OpSpreadObject
+  : testOpSelectionBaseObject
+  , Itest_OpSpreadObject
+{
+  public string Fragment { get; set; }
+
+  public test_OpSpreadObject
+    ( ICollection<Itest_OpDirective> pdirectives
+    , ICollection<Itest_Modifiers> pmodifiers
+    , string pfragment
+    ) : base(pdirectives, pmodifiers)
+  {
+    Fragment = pfragment;
   }
 }
 

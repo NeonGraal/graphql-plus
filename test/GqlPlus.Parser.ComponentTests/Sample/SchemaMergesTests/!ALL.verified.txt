@@ -56,6 +56,69 @@ Success
   DescrBtwn
 }
 {
+  !Ca P@010/0002
+  catOprCtgr
+  (Parallel)
+  !Tr I@012/0002
+  CatOprCtgr
+}
+{
+  !Ca P@010/0002
+  catOprDmn
+  (Parallel)
+  !Tr I@012/0002
+  CatOprDmn
+}
+{
+  !Ca P@010/0002
+  catOprDmnArg
+  (Parallel)
+  !Tr I@012/0002
+  CatOprDmnArg
+}
+{
+  !Ca P@010/0002
+  catOprDmnMods
+  (Parallel)
+  !Tr I@012/0002
+  CatOprDmnMods
+}
+{
+  !Ca P@010/0002
+  catOprDmnVar
+  (Parallel)
+  !Tr I@012/0002
+  CatOprDmnVar
+}
+{
+  !Ca P@010/0002
+  catOprSlct
+  (Parallel)
+  !Tr I@012/0002
+  CatOprSlct
+}
+{
+  !Ca P@010/0002
+  catOprSlctInln
+  (Parallel)
+  !Tr I@012/0002
+  CatOprSlctInln
+}
+{
+  !Ca P@010/0002
+  catOprSlctMods
+  (Parallel)
+  !Tr I@012/0002
+  CatOprSlctMods
+}
+{
+  !Ca P@010/0002
+  catOprSlctSprd
+  (Parallel)
+  !Tr I@012/0002
+  CatOprSlctSprd
+}
+{
   !Ca P@010/0001
   ctgr
   (Parallel)
@@ -92,6 +155,13 @@ Success
   !Tr I@020/0001
   CtgrMod
   ?
+}
+{
+  !Ca P@010/0003
+  op
+  (Parallel)
+  !Tr I@012/0003
+  Op
 }
 {
   'A directive described'
@@ -179,6 +249,159 @@ Success
   )
   (Unique)
   Operation, Fragment
+}
+{
+  !SO I@011/0001
+  OprCtgr
+  catOprCtgr
+  !Tr I@033/0001
+  String
+}
+{
+  !SO I@011/0001
+  OprDmn
+  catOprDmn
+  !Tr I@032/0001
+  Number
+}
+{
+  !SO I@011/0001
+  OprDmnArg
+  catOprDmnArg
+  !Tr I@038/0001
+  String
+  (
+    !k S@046/0001
+    'Value'
+  )
+}
+{
+  !SO I@011/0001
+  OprDmnMods
+  catOprDmnMods
+  !Tr I@040/0001
+  Boolean
+  [String]
+}
+{
+  !SO I@011/0001
+  OprDmnVar
+  catOprDmnVar
+  !v I@038/0001
+  arg
+  !Tr I@044/0001
+  String
+  (
+    !a I@053/0001
+    $arg
+  )
+}
+{
+  !SO I@011/0001
+  OprSlct
+  catOprSlct
+  {
+    !f I@034/0001
+    first
+    !f I@040/0001
+    last
+    !f I@045/0001
+    address
+    {
+      !f I@055/0001
+      street
+      !f I@062/0001
+      city
+      !f I@067/0001
+      country
+    }
+  }
+}
+{
+  !SO I@011/0001
+  OprSlctInln
+  catOprSlctInln
+  {
+    !f I@042/0001
+    first
+    !f I@048/0001
+    last
+    !f I@053/0001
+    address
+    {
+      !i P@064/0001
+      :AddrOprSlctInln
+      {
+        !f I@083/0001
+        street
+        !f I@090/0001
+        city
+        !f I@095/0001
+        country
+      }
+    }
+  }
+}
+{
+  !SO I@011/0001
+  OprSlctMods
+  catOprSlctMods
+  {
+    !f I@042/0001
+    first
+    !f I@048/0001
+    last
+    !f I@053/0001
+    address
+    {
+      !f I@063/0001
+      street
+      !f I@070/0001
+      city
+      !f I@075/0001
+      country
+    }
+  }
+  []
+}
+{
+  !SO I@011/0001
+  OprSlctSprd
+  catOprSlctSprd
+  !t I@041/0001
+  firstLast
+  :CatOprSlctSprd
+  {
+    !f I@068/0001
+    first
+    !f I@074/0001
+    last
+  }
+  {
+    !s I@084/0001
+    firstLast
+    !f I@094/0001
+    address
+    {
+      !f I@104/0001
+      street
+      !f I@111/0001
+      city
+      !f I@116/0001
+      country
+    }
+  }
+}
+{
+  !SO I@011/0001
+  Operation
+  [
+    Op1
+    Op2
+  ]
+  op
+  !Tr I@027/0001
+  String
 }
 {
   !Op I@008/0001
@@ -275,6 +498,203 @@ Success
 {
   !In I@007/0002
   InDrctParamOpt
+}
+{
+  !Ou I@008/0003
+  CatOprCtgr
+}
+{
+  !Ou I@008/0003
+  CatOprDmn
+}
+{
+  !Ou I@008/0003
+  CatOprDmnArg
+}
+{
+  !Ou I@008/0003
+  CatOprDmnMods
+}
+{
+  !Ou I@008/0003
+  CatOprDmnVar
+}
+{
+  !Ou I@008/0003
+  CatOprSlct
+  {
+    !OF I@005/0004
+    first
+    :
+    I@012/0004
+    String
+    !OF I@005/0005
+    last
+    :
+    I@011/0005
+    String
+    !OF I@005/0006
+    address
+    :
+    I@014/0006
+    AddrOprSlct
+  }
+}
+{
+  !Ou I@008/0008
+  AddrOprSlct
+  {
+    !OF I@005/0009
+    street
+    :
+    I@013/0009
+    String
+    !OF I@005/0010
+    city
+    :
+    I@011/0010
+    String
+    !OF I@005/0011
+    country
+    :
+    I@014/0011
+    String
+  }
+}
+{
+  !Ou I@008/0003
+  CatOprSlctInln
+  {
+    !OF I@005/0004
+    first
+    :
+    I@012/0004
+    String
+    !OF I@005/0005
+    last
+    :
+    I@011/0005
+    String
+    !OF I@005/0006
+    address
+    :
+    I@014/0006
+    AddrOprSlctInln
+  }
+}
+{
+  !Ou I@008/0008
+  AddrOprSlctInln
+  |
+  I@007/0009
+  FullOprSlctInln
+  I@007/0010
+  String
+}
+{
+  !Ou I@008/0012
+  FullOprSlctInln
+  {
+    !OF I@005/0013
+    street
+    :
+    I@013/0013
+    String
+    !OF I@005/0014
+    city
+    :
+    I@011/0014
+    String
+    !OF I@005/0015
+    country
+    :
+    I@014/0015
+    String
+  }
+}
+{
+  !Ou I@008/0003
+  CatOprSlctMods
+  {
+    !OF I@005/0004
+    first
+    :
+    I@012/0004
+    String
+    !OF I@005/0005
+    last
+    :
+    I@011/0005
+    String
+    !OF I@005/0006
+    address
+    :
+    I@014/0006
+    AddrOprSlctMods
+  }
+}
+{
+  !Ou I@008/0008
+  AddrOprSlctMods
+  {
+    !OF I@005/0009
+    street
+    :
+    I@013/0009
+    String
+    !OF I@005/0010
+    city
+    :
+    I@011/0010
+    String
+    !OF I@005/0011
+    country
+    :
+    I@014/0011
+    String
+  }
+}
+{
+  !Ou I@008/0003
+  CatOprSlctSprd
+  {
+    !OF I@005/0004
+    first
+    :
+    I@012/0004
+    String
+    !OF I@005/0005
+    last
+    :
+    I@011/0005
+    String
+    !OF I@005/0006
+    address
+    :
+    I@014/0006
+    AddrOprSlctSprd
+  }
+}
+{
+  !Ou I@008/0008
+  AddrOprSlctSprd
+  {
+    !OF I@005/0009
+    street
+    :
+    I@013/0009
+    String
+    !OF I@005/0010
+    city
+    :
+    I@011/0010
+    String
+    !OF I@005/0011
+    country
+    :
+    I@014/0011
+    String
+  }
 }
 {
   !Du I@006/0001
@@ -7043,6 +7463,10 @@ Success
 {
   !Ou I@008/0003
   RefObjPrntOutp
+}
+{
+  !Ou I@008/0004
+  Op
 }
 {
   !Ou I@008/0001

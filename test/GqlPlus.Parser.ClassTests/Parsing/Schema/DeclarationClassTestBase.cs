@@ -44,7 +44,7 @@ public class DeclarationClassTestBase
     SetupError<T>();
 
     // Act
-    IResult<T> result = parser.Parse(Tokenizer, "testLabel");
+    IResult<T> result = parser.ThrowIfNull().Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

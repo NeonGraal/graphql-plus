@@ -4,26 +4,14 @@
     "$list": [
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _BaseDomain can\u0027t get model for type \u0027_ParentType\u0027"
       },
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _BaseDomainItem can\u0027t get model for type \u0027_Described\u0027"
       },
       {
         "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _DomainRef can\u0027t get model for type \u0027_TypeRef\u0027"
       }
     ],
@@ -61,12 +49,15 @@
         "name": "_ParentType",
         "typeArgs": [
           {
-            "$mapTag": "_EnumValue",
-            "label": "Domain",
-            "name": "_TypeKind",
-            "typeKind": {
-              "$value": "Enum",
-              "$valueTag": "_SimpleKind"
+            "$mapTag": "_TypeArg",
+            "enumValue": {
+              "$mapTag": "_EnumValue",
+              "label": "Domain",
+              "name": "_TypeKind",
+              "typeKind": {
+                "$value": "Enum",
+                "$valueTag": "_SimpleKind"
+              }
             }
           },
           {
@@ -714,12 +705,15 @@
         "name": "_TypeRef",
         "typeArgs": [
           {
-            "$mapTag": "_EnumValue",
-            "label": "Domain",
-            "name": "_TypeKind",
-            "typeKind": {
-              "$value": "Enum",
-              "$valueTag": "_SimpleKind"
+            "$mapTag": "_TypeArg",
+            "enumValue": {
+              "$mapTag": "_EnumValue",
+              "label": "Domain",
+              "name": "_TypeKind",
+              "typeKind": {
+                "$value": "Enum",
+                "$valueTag": "_SimpleKind"
+              }
             }
           }
         ]

@@ -1,0 +1,11 @@
+﻿[_Schema]:categories[_Map(_Categories)]:[_Name]catOprDmnVar[_Category]:name=catOprDmnVar
+[_Schema]:categories[_Map(_Categories)]:[_Name]catOprDmnVar[_Category]:output[_TypeRef(_TypeKind)]:name=CatOprDmnVar
+[_Schema]:categories[_Map(_Categories)]:[_Name]catOprDmnVar[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map(_Categories)]:[_Name]catOprDmnVar[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:operations[_Map(_Operations)]:[_Name]OprDmnVar[_Operation]:category=catOprDmnVar
+[_Schema]:operations[_Map(_Operations)]:[_Name]OprDmnVar[_Operation]:name=OprDmnVar
+[_Schema]:operations[_Map(_Operations)]:[_Name]OprDmnVar[_Operation]:result[_OpResult]:domain[_TypeRef(_TypeKind)]:name=String
+[_Schema]:operations[_Map(_Operations)]:[_Name]OprDmnVar[_Operation]:result[_OpResult]:domain[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:operations[_Map(_Operations)]:[_Name]OprDmnVar[_Operation]:variables[_Map(_Variables)]:[_Name]arg[_OpVariable]:name=arg
+[_Schema]:types[_Map(_Type)]:[_Name]CatOprDmnVar[_TypeOutput]:name=CatOprDmnVar
+[_Schema]:types[_Map(_Type)]:[_Name]CatOprDmnVar[_TypeOutput]:typeKind=[_TypeKind]Output

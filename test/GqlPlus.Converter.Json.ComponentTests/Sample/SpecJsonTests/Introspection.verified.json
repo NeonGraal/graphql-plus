@@ -2,6 +2,89 @@
   "$mapTag": "_Schema",
   "types": {
     "$mapTag": "_Map(_Type)",
+    "OpSelectionBase": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "object": "OpSelectionBase",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpDirective"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "object": "OpSelectionBase",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Modifiers"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpDirective"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Modifiers"
+          }
+        }
+      ],
+      "name": "OpSelectionBase",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
     "_Aliased": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
@@ -290,12 +373,15 @@
         "name": "_ParentType",
         "typeArgs": [
           {
-            "$mapTag": "_EnumValue",
-            "label": "Domain",
-            "name": "_TypeKind",
-            "typeKind": {
-              "$value": "Enum",
-              "$valueTag": "_SimpleKind"
+            "$mapTag": "_TypeArg",
+            "enumValue": {
+              "$mapTag": "_EnumValue",
+              "label": "Domain",
+              "name": "_TypeKind",
+              "typeKind": {
+                "$value": "Enum",
+                "$valueTag": "_SimpleKind"
+              }
             }
           },
           {
@@ -733,12 +819,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Output",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Output",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -780,12 +869,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Output",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Output",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -1115,12 +1207,15 @@
             "name": "_Modifier",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "List",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "List",
+                  "name": "_ModifierKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -1134,12 +1229,15 @@
             "name": "_ModifierKeyed",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Dictionary",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Dictionary",
+                  "name": "_ModifierKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -1153,12 +1251,15 @@
             "name": "_ModifierKeyed",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "TypeParam",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "TypeParam",
+                  "name": "_ModifierKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -1173,12 +1274,15 @@
             "name": "_Modifier",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "List",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "List",
+                  "name": "_ModifierKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -1191,12 +1295,15 @@
             "name": "_ModifierKeyed",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Dictionary",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Dictionary",
+                  "name": "_ModifierKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -1209,12 +1316,15 @@
             "name": "_ModifierKeyed",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "TypeParam",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "TypeParam",
+                  "name": "_ModifierKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -2160,12 +2270,15 @@
         "name": "_TypeRef",
         "typeArgs": [
           {
-            "$mapTag": "_EnumValue",
-            "label": "Domain",
-            "name": "_TypeKind",
-            "typeKind": {
-              "$value": "Enum",
-              "$valueTag": "_SimpleKind"
+            "$mapTag": "_TypeArg",
+            "enumValue": {
+              "$mapTag": "_EnumValue",
+              "label": "Domain",
+              "name": "_TypeKind",
+              "typeKind": {
+                "$value": "Enum",
+                "$valueTag": "_SimpleKind"
+              }
             }
           }
         ]
@@ -2661,12 +2774,15 @@
         "name": "_TypeRef",
         "typeArgs": [
           {
-            "$mapTag": "_EnumValue",
-            "label": "Enum",
-            "name": "_TypeKind",
-            "typeKind": {
-              "$value": "Enum",
-              "$valueTag": "_SimpleKind"
+            "$mapTag": "_TypeArg",
+            "enumValue": {
+              "$mapTag": "_EnumValue",
+              "label": "Enum",
+              "name": "_TypeKind",
+              "typeKind": {
+                "$value": "Enum",
+                "$valueTag": "_SimpleKind"
+              }
             }
           }
         ]
@@ -3453,12 +3569,15 @@
             "name": "_Modifier",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Required",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Required",
+                  "name": "_ModifierKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -3472,12 +3591,15 @@
             "name": "_Modifier",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Optional",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Optional",
+                  "name": "_ModifierKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -3500,12 +3622,15 @@
             "name": "_Modifier",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Required",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Required",
+                  "name": "_ModifierKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -3518,12 +3643,15 @@
             "name": "_Modifier",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Optional",
-                "name": "_ModifierKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Optional",
+                  "name": "_ModifierKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -3551,7 +3679,7 @@
           "$mapTag": "_DomainItem(_DomainRegex)",
           "domain": "_Name",
           "exclude": false,
-          "pattern": "[A-Za-z_][A-Za-z0-9_]*"
+          "pattern": "[A-Za-z_]\\w*"
         }
       ],
       "domainKind": {
@@ -3562,7 +3690,7 @@
         {
           "$mapTag": "_DomainRegex",
           "exclude": false,
-          "pattern": "[A-Za-z_][A-Za-z0-9_]*"
+          "pattern": "[A-Za-z_]\\w*"
         }
       ],
       "name": "_Name",
@@ -3579,7 +3707,7 @@
           "$mapTag": "_DomainItem(_DomainRegex)",
           "domain": "_NameFilter",
           "exclude": false,
-          "pattern": "[A-Za-z_.*]\u002B"
+          "pattern": "[\\w.*]\u002B"
         }
       ],
       "description": "_NameFilter is a simple match expression against _Name where \u0027.\u0027 matches any single character and \u0027*\u0027 matches zero or more of any character.",
@@ -3591,7 +3719,7 @@
         {
           "$mapTag": "_DomainRegex",
           "exclude": false,
-          "pattern": "[A-Za-z_.*]\u002B"
+          "pattern": "[\\w.*]\u002B"
         }
       ],
       "name": "_NameFilter",
@@ -3802,12 +3930,15 @@
         "name": "_TypeRef",
         "typeArgs": [
           {
-            "$mapTag": "_EnumValue",
-            "label": "Enum",
-            "name": "_TypeKind",
-            "typeKind": {
-              "$value": "Enum",
-              "$valueTag": "_SimpleKind"
+            "$mapTag": "_TypeArg",
+            "enumValue": {
+              "$mapTag": "_EnumValue",
+              "label": "Enum",
+              "name": "_TypeKind",
+              "typeKind": {
+                "$value": "Enum",
+                "$valueTag": "_SimpleKind"
+              }
             }
           }
         ]
@@ -4074,12 +4205,15 @@
         "name": "_TypeRef",
         "typeArgs": [
           {
-            "$mapTag": "_EnumValue",
-            "label": "Enum",
-            "name": "_TypeKind",
-            "typeKind": {
-              "$value": "Enum",
-              "$valueTag": "_SimpleKind"
+            "$mapTag": "_TypeArg",
+            "enumValue": {
+              "$mapTag": "_EnumValue",
+              "label": "Enum",
+              "name": "_TypeKind",
+              "typeKind": {
+                "$value": "Enum",
+                "$valueTag": "_SimpleKind"
+              }
             }
           }
         ]
@@ -4545,6 +4679,1586 @@
         "$valueTag": "_TypeKind"
       }
     },
+    "_OpArgList": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "collections": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "object": "_OpArgList",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpArgValue"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$mapTag": "_Alternate",
+          "collections": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpArgValue"
+          }
+        }
+      ],
+      "name": "_OpArgList",
+      "typeKind": {
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "_OpArgMap": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "collections": [
+            {
+              "$mapTag": "_ModifierDictionary",
+              "by": "Scalar",
+              "modifierKind": {
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
+              },
+              "typeKind": {
+                "$value": "Internal",
+                "$valueTag": "_SimpleKind"
+              }
+            }
+          ],
+          "object": "_OpArgMap",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpArgValue"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "value",
+          "object": "_OpArgMap",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpArgValue"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "byVariable",
+          "object": "_OpArgMap",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$mapTag": "_Alternate",
+          "collections": [
+            {
+              "$mapTag": "_ModifierDictionary",
+              "by": "Scalar",
+              "modifierKind": {
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
+              },
+              "typeKind": {
+                "$value": "Internal",
+                "$valueTag": "_SimpleKind"
+              }
+            }
+          ],
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpArgValue"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_DualField",
+          "name": "value",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpArgValue"
+          }
+        },
+        {
+          "$mapTag": "_DualField",
+          "name": "byVariable",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        }
+      ],
+      "name": "_OpArgMap",
+      "typeKind": {
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "_OpArgValue": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "_OpArgValue",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Value"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "variable",
+          "object": "_OpArgValue",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$mapTag": "_Alternate",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Value"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_DualField",
+          "name": "variable",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        }
+      ],
+      "name": "_OpArgValue",
+      "typeKind": {
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "_OpArgument": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "_OpArgument",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpArgValue"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "_OpArgument",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpArgList"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "_OpArgument",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpArgMap"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$mapTag": "_Alternate",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpArgValue"
+          }
+        },
+        {
+          "$mapTag": "_Alternate",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpArgList"
+          }
+        },
+        {
+          "$mapTag": "_Alternate",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpArgMap"
+          }
+        }
+      ],
+      "name": "_OpArgument",
+      "typeKind": {
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "_OpDirective": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeDual",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "argument",
+          "object": "_OpDirective",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpArgument"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_DualField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "argument",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpArgument"
+          }
+        }
+      ],
+      "name": "_OpDirective",
+      "parent": {
+        "$mapTag": "_ObjBase",
+        "name": "_Named"
+      },
+      "typeKind": {
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "_OpDirectives": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "object": "_OpDirectives",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpDirective"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpDirective"
+          }
+        }
+      ],
+      "name": "_OpDirectives",
+      "parent": {
+        "$mapTag": "_ObjBase",
+        "name": "_Named"
+      },
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "_OpField": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "object": "OpSelectionBase",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpDirective"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "object": "OpSelectionBase",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Modifiers"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "name",
+          "object": "_OpField",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "fieldAlias",
+          "object": "_OpField",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "argument",
+          "object": "_OpField",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpArgument"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "name",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "fieldAlias",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "argument",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpArgument"
+          }
+        }
+      ],
+      "name": "_OpField",
+      "parent": {
+        "$mapTag": "_ObjBase",
+        "name": "OpSelectionBase"
+      },
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "_OpFragment": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "object": "_OpDirectives",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpDirective"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "_OpFragment",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_TypeRef",
+            "typeArgs": [
+              {
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Output",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "type",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_TypeRef",
+            "typeArgs": [
+              {
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Output",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "name": "_OpFragment",
+      "parent": {
+        "$mapTag": "_ObjBase",
+        "name": "_OpDirectives"
+      },
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "_OpInline": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "object": "OpSelectionBase",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpDirective"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "object": "OpSelectionBase",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Modifiers"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "type",
+          "object": "_OpInline",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_TypeRef",
+            "typeArgs": [
+              {
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Output",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "type",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_TypeRef",
+            "typeArgs": [
+              {
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Output",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "name": "_OpInline",
+      "parent": {
+        "$mapTag": "_ObjBase",
+        "name": "OpSelectionBase"
+      },
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "_OpResult": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "domain",
+          "object": "_OpResult",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_TypeRef",
+            "typeArgs": [
+              {
+                "$mapTag": "_TypeArg",
+                "name": "_SimpleKind"
+              }
+            ]
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "argument",
+          "object": "_OpResult",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpArgument"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "domain",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_TypeRef",
+            "typeArgs": [
+              {
+                "$mapTag": "_TypeArg",
+                "name": "_SimpleKind"
+              }
+            ]
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "argument",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpArgument"
+          }
+        }
+      ],
+      "name": "_OpResult",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "_OpSelection": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "_OpSelection",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpField"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "_OpSelection",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpSpread"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "_OpSelection",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpInline"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$mapTag": "_Alternate",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpField"
+          }
+        },
+        {
+          "$mapTag": "_Alternate",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpSpread"
+          }
+        },
+        {
+          "$mapTag": "_Alternate",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpInline"
+          }
+        }
+      ],
+      "name": "_OpSelection",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "_OpSpread": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "object": "OpSelectionBase",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpDirective"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "object": "OpSelectionBase",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Modifiers"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "fragment",
+          "object": "_OpSpread",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "fragment",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "name": "_OpSpread",
+      "parent": {
+        "$mapTag": "_ObjBase",
+        "name": "OpSelectionBase"
+      },
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "_OpVariable": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "object": "_OpDirectives",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpDirective"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "_OpVariable",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_TypeRef",
+            "typeArgs": [
+              {
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Input",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "object": "_OpVariable",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Modifiers"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "defaultValue",
+          "object": "_OpVariable",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Value"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "type",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_TypeRef",
+            "typeArgs": [
+              {
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Input",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Modifiers"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "defaultValue",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Value"
+          }
+        }
+      ],
+      "name": "_OpVariable",
+      "parent": {
+        "$mapTag": "_ObjBase",
+        "name": "_OpDirectives"
+      },
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "_Operation": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "aliases",
+          "object": "_Aliased",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "category",
+          "object": "_Operation",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_ModifierDictionary",
+              "by": "_Name",
+              "modifierKind": {
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
+              },
+              "typeKind": {
+                "$value": "Domain",
+                "$valueTag": "_SimpleKind"
+              }
+            }
+          ],
+          "name": "variables",
+          "object": "_Operation",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpVariable"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "object": "_Operation",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpDirective"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_ModifierDictionary",
+              "by": "_Name",
+              "modifierKind": {
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
+              },
+              "typeKind": {
+                "$value": "Domain",
+                "$valueTag": "_SimpleKind"
+              }
+            }
+          ],
+          "name": "fragments",
+          "object": "_Operation",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpFragment"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "result",
+          "object": "_Operation",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpResult"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            },
+            {
+              "$mapTag": "_ModifierDictionary",
+              "by": "_Path",
+              "modifierKind": {
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
+              },
+              "typeKind": {
+                "$value": "Domain",
+                "$valueTag": "_SimpleKind"
+              }
+            }
+          ],
+          "name": "selections",
+          "object": "_Operation",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpSelection"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "object": "_Operation",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Modifiers"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "category",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_ModifierDictionary",
+              "by": "_Name",
+              "modifierKind": {
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
+              },
+              "typeKind": {
+                "$value": "Domain",
+                "$valueTag": "_SimpleKind"
+              }
+            }
+          ],
+          "name": "variables",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpVariable"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpDirective"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_ModifierDictionary",
+              "by": "_Name",
+              "modifierKind": {
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
+              },
+              "typeKind": {
+                "$value": "Domain",
+                "$valueTag": "_SimpleKind"
+              }
+            }
+          ],
+          "name": "fragments",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpFragment"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "result",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpResult"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            },
+            {
+              "$mapTag": "_ModifierDictionary",
+              "by": "_Path",
+              "modifierKind": {
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
+              },
+              "typeKind": {
+                "$value": "Domain",
+                "$valueTag": "_SimpleKind"
+              }
+            }
+          ],
+          "name": "selections",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpSelection"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Modifiers"
+          }
+        }
+      ],
+      "name": "_Operation",
+      "parent": {
+        "$mapTag": "_ObjBase",
+        "name": "_Aliased"
+      },
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "_Operations": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "_AndType",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Type"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "_Operations",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Operation"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "_AndType",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Type"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "operation",
+          "object": "_Operations",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Operation"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$mapTag": "_Alternate",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Operation"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "operation",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Operation"
+          }
+        }
+      ],
+      "name": "_Operations",
+      "parent": {
+        "$mapTag": "_ObjBase",
+        "name": "_AndType"
+      },
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
     "_OutputField": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
@@ -4951,6 +6665,34 @@
         }
       ]
     },
+    "_Path": {
+      "$keyTag": "_Name",
+      "$mapTag": "_DomainString",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainRegex)",
+          "domain": "_Path",
+          "exclude": false,
+          "pattern": "(\\$([A-Za-z]\\w*)?|\\.\u002B)?\\d\u002B(\\.\\d\u002B)*"
+        }
+      ],
+      "domainKind": {
+        "$value": "String",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "(\\$([A-Za-z]\\w*)?|\\.\u002B)?\\d\u002B(\\.\\d\u002B)*"
+        }
+      ],
+      "name": "_Path",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
+    },
     "_Resolution": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
@@ -5110,6 +6852,42 @@
               }
             }
           ],
+          "name": "operations",
+          "object": "_Schema",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_Modifier",
+                "modifierKind": {
+                  "$value": "Opt",
+                  "$valueTag": "_ModifierKind"
+                }
+              }
+            ],
+            "name": "_Filter"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Operations"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_ModifierDictionary",
+              "by": "_Name",
+              "modifierKind": {
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
+              },
+              "typeKind": {
+                "$value": "Domain",
+                "$valueTag": "_SimpleKind"
+              }
+            }
+          ],
           "name": "types",
           "object": "_Schema",
           "parameter": {
@@ -5236,6 +7014,41 @@
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_Directives"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_ModifierDictionary",
+              "by": "_Name",
+              "modifierKind": {
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
+              },
+              "typeKind": {
+                "$value": "Domain",
+                "$valueTag": "_SimpleKind"
+              }
+            }
+          ],
+          "name": "operations",
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_Modifier",
+                "modifierKind": {
+                  "$value": "Opt",
+                  "$valueTag": "_ModifierKind"
+                }
+              }
+            ],
+            "name": "_Filter"
+          },
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Operations"
           }
         },
         {
@@ -5450,12 +7263,15 @@
             "name": "_BaseType",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Basic",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Basic",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -5469,12 +7285,15 @@
             "name": "_BaseType",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Internal",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Internal",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -5488,12 +7307,15 @@
             "name": "_BaseDomain",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Boolean",
-                "name": "_DomainKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Boolean",
+                  "name": "_DomainKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -5515,12 +7337,15 @@
             "name": "_BaseDomain",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Enum",
-                "name": "_DomainKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Enum",
+                  "name": "_DomainKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -5542,12 +7367,15 @@
             "name": "_BaseDomain",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Number",
-                "name": "_DomainKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Number",
+                  "name": "_DomainKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -5569,12 +7397,15 @@
             "name": "_BaseDomain",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "String",
-                "name": "_DomainKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "String",
+                  "name": "_DomainKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -5596,12 +7427,15 @@
             "name": "_ParentType",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Enum",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Enum",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -5623,12 +7457,15 @@
             "name": "_ParentType",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Union",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Union",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -5650,12 +7487,15 @@
             "name": "_TypeObject",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Dual",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Dual",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -5673,12 +7513,15 @@
             "name": "_TypeObject",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Input",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Input",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -5696,12 +7539,15 @@
             "name": "_TypeObject",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Output",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Output",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -5720,12 +7566,15 @@
             "name": "_BaseType",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Basic",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Basic",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -5738,12 +7587,15 @@
             "name": "_BaseType",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Internal",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Internal",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -5756,12 +7608,15 @@
             "name": "_BaseDomain",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Boolean",
-                "name": "_DomainKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Boolean",
+                  "name": "_DomainKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -5782,12 +7637,15 @@
             "name": "_BaseDomain",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Enum",
-                "name": "_DomainKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Enum",
+                  "name": "_DomainKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -5808,12 +7666,15 @@
             "name": "_BaseDomain",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Number",
-                "name": "_DomainKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Number",
+                  "name": "_DomainKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -5834,12 +7695,15 @@
             "name": "_BaseDomain",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "String",
-                "name": "_DomainKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "String",
+                  "name": "_DomainKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -5860,12 +7724,15 @@
             "name": "_ParentType",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Enum",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Enum",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -5886,12 +7753,15 @@
             "name": "_ParentType",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Union",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Union",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -5912,12 +7782,15 @@
             "name": "_TypeObject",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Dual",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Dual",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -5934,12 +7807,15 @@
             "name": "_TypeObject",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Input",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Input",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -5956,12 +7832,15 @@
             "name": "_TypeObject",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Output",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Output",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               },
               {
@@ -6669,12 +8548,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Basic",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Basic",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -6688,12 +8570,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Enum",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Enum",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -6707,12 +8592,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Domain",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Domain",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -6726,12 +8614,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Union",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Union",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -6746,12 +8637,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Basic",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Basic",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -6764,12 +8658,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Enum",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Enum",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -6782,12 +8679,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Domain",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Domain",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -6800,12 +8700,15 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "Union",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "Union",
+                  "name": "_TypeKind",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]

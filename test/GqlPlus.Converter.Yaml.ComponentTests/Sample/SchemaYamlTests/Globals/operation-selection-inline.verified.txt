@@ -1,0 +1,116 @@
+﻿!_Schema
+categories: !_Map(_Categories)
+  !_Name catOprSlctInln: !_Category
+    name: catOprSlctInln
+    output: !_TypeRef(_TypeKind)
+      name: CatOprSlctInln
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+operations: !_Map(_Operations)
+  !_Name OprSlctInln: !_Operation
+    category: catOprSlctInln
+    name: OprSlctInln
+    selections: !_Map(_Selections)
+      !_Name '': !_Selections
+      - !_OpFieldSelection
+        name: first
+      - !_OpFieldSelection
+        name: last
+      - !_OpFieldSelection
+        name: address
+      !_Name '.3': !_Selections
+      - !_OpInlineSelection
+        onType: !_TypeRef(_TypeKind)
+          name: AddrOprSlctInln
+          typeKind: !_TypeKind Output
+      !_Name '.3.1': !_Selections
+      - !_OpFieldSelection
+        name: street
+      - !_OpFieldSelection
+        name: city
+      - !_OpFieldSelection
+        name: country
+types: !_Map(_Type)
+  !_Name AddrOprSlctInln: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate)
+      object: AddrOprSlctInln
+      type: !_ObjBase
+        name: FullOprSlctInln
+    - !_ObjectFor(_Alternate)
+      object: AddrOprSlctInln
+      type: !_ObjBase
+        name: String
+    alternates:
+    - !_Alternate
+      type: !_ObjBase
+        name: FullOprSlctInln
+    - !_Alternate
+      type: !_ObjBase
+        name: String
+    name: AddrOprSlctInln
+    typeKind: !_TypeKind Output
+  !_Name CatOprSlctInln: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: first
+      object: CatOprSlctInln
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: last
+      object: CatOprSlctInln
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: address
+      object: CatOprSlctInln
+      type: !_ObjBase
+        name: AddrOprSlctInln
+    fields:
+    - !_OutputField
+      name: first
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: last
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: address
+      type: !_ObjBase
+        name: AddrOprSlctInln
+    name: CatOprSlctInln
+    typeKind: !_TypeKind Output
+  !_Name FullOprSlctInln: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: street
+      object: FullOprSlctInln
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: city
+      object: FullOprSlctInln
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: country
+      object: FullOprSlctInln
+      type: !_ObjBase
+        name: String
+    fields:
+    - !_OutputField
+      name: street
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: city
+      type: !_ObjBase
+        name: String
+    - !_OutputField
+      name: country
+      type: !_ObjBase
+        name: String
+    name: FullOprSlctInln
+    typeKind: !_TypeKind Output

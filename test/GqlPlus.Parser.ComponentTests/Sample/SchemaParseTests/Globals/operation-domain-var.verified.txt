@@ -1,0 +1,26 @@
+﻿!Sc I@001/0001
+Success
+{
+  !SO I@011/0001
+  OprDmnVar
+  catOprDmnVar
+  !v I@038/0001
+  arg
+  !Tr I@044/0001
+  String
+  (
+    !a I@053/0001
+    $arg
+  )
+}
+{
+  !Ca P@010/0002
+  catOprDmnVar
+  (Parallel)
+  !Tr I@012/0002
+  CatOprDmnVar
+}
+{
+  !Ou I@008/0003
+  CatOprDmnVar
+}

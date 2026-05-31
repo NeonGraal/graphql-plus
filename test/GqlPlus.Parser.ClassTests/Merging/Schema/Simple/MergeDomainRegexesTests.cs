@@ -17,4 +17,6 @@ public class MergeDomainRegexesTests(ITestOutputHelper outputHelper)
 
   protected override IAstDomainRegex MakeItem(string input, bool excludes)
     => new DomainRegexAst(AstNulls.At, "", excludes, input);
+  protected override bool InputEquals(string? input1, string? input2)
+    => string.Equals(input1, input2, StringComparison.Ordinal);
 }

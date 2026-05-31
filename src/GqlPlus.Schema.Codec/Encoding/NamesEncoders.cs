@@ -6,9 +6,9 @@ internal class AliasedEncoder<TModel>
 {
   internal override Structured Encode(TModel model)
     => base.Encode(model)
-      .Add("aliases", new(model.Aliases.Select(a => new Structured(new StructureValue(a))), flow: true));
+      .Add("aliases", model.Aliases.Encode(flow: true));
 
-  internal static new AliasedEncoder<TModel> Factory(IEncoderRepository _) => new();
+  internal static AliasedEncoder<TModel> FactoryAliased(IEncoderRepository _) => new();
 }
 
 internal class DescribedEncoder<TModel>
@@ -23,7 +23,7 @@ internal class DescribedEncoder<TModel>
   internal override Structured Encode(TModel model)
     => Described(base.Encode(model), model);
 
-  internal static DescribedEncoder<TModel> Factory(IEncoderRepository _) => new();
+  internal static DescribedEncoder<TModel> FactoryDescribed(IEncoderRepository _) => new();
 }
 
 internal class NamedEncoder<TModel>
@@ -34,5 +34,5 @@ internal class NamedEncoder<TModel>
     => base.Encode(model)
       .Add("name", model.Name?.Encode());
 
-  internal static new NamedEncoder<TModel> Factory(IEncoderRepository _) => new();
+  internal static NamedEncoder<TModel> FactoryNamed(IEncoderRepository _) => new();
 }

@@ -1,6 +1,6 @@
 {
   "solution": {
-    "path": "GqlPlus.sln",
+    "path": "GqlPlus.slnx",
     "projects": [
       "src\\GqlPlus.Common\\GqlPlus.Common.csproj",
       "src\\GqlPlus.Converter.Json\\GqlPlus.Converter.Json.csproj",
@@ -10,7 +10,6 @@
       "src\\GqlPlus.Generators\\GqlPlus.Generators.csproj",
       "src\\GqlPlus.Parser.Ast\\GqlPlus.Parser.Ast.csproj",
       "src\\GqlPlus.Parser\\GqlPlus.Parser.csproj",
-      "src\\GqlPlus.PolyFill\\GqlPlus.PolyFill.csproj",
       "src\\GqlPlus.Schema.Codec\\GqlPlus.Schema.Codec.csproj",
       "src\\GqlPlus.Schema.Modeller\\GqlPlus.Schema.Modeller.csproj",
       "src\\GqlPlus.Schema.Models\\GqlPlus.Schema.Models.csproj",

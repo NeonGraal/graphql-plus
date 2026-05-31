@@ -19,5 +19,4 @@ public class ParseInputFieldTests(
 
 internal sealed class ParseInputFieldChecks(
   IParserRepository parsers
-) : CheckObjectField<IAstInputField, InputFieldAst>(new InputFactories(), parsers)
-{ }
+) : CheckObjectField<IAstInputField, InputFieldAst>(new InputFactories(), parsers);

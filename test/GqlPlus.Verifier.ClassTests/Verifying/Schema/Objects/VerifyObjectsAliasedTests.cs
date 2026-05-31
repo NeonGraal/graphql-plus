@@ -11,15 +11,12 @@ public abstract class VerifyObjectsAliasedTests<TObjField>(
 
 [TracePerTest]
 public class VerifyDualsAliasedTests()
-  : VerifyObjectsAliasedTests<IAstDualField>(TypeKind.Dual)
-{ }
+  : VerifyObjectsAliasedTests<IAstDualField>(TypeKind.Dual);
 
 [TracePerTest]
 public class VerifyInputsAliasedTests()
-  : VerifyObjectsAliasedTests<IAstInputField>(TypeKind.Input)
-{ }
+  : VerifyObjectsAliasedTests<IAstInputField>(TypeKind.Input);
 
 [TracePerTest]
 public class VerifyOutputsAliasedTests()
-  : VerifyObjectsAliasedTests<IAstOutputField>(TypeKind.Output)
-{ }
+  : VerifyObjectsAliasedTests<IAstOutputField>(TypeKind.Output);

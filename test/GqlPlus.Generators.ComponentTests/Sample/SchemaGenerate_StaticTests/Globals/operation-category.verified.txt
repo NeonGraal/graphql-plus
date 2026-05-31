@@ -1,0 +1,15 @@
+﻿/* operation-category
+operation OprCtgr { catOprCtgr :String }
+category { CatOprCtgr }
+output CatOprCtgr { }
+*/
+
+// Generated from Schema operation-category
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_operation-category, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+
+Category catOprCtgr
+*/
+
+namespace Components.Gqlp_Schema_operation_category;

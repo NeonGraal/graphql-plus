@@ -1,0 +1,31 @@
+﻿/* operation-domain-mods
+operation OprDmnMods { catOprDmnMods : Boolean[String] }
+category { CatOprDmnMods }
+output CatOprDmnMods { }
+*/
+
+// Generated from Schema operation-domain-mods
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_operation-domain-mods, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_operation_domain_mods;
+
+public class CmptCatOprDmnMods
+  : Schema_operation-domain-mods
+  , ICmptCatOprDmnMods
+{
+  public ICmptCatOprDmnModsObject? As_CatOprDmnMods { get; set; }
+}
+
+public class CmptCatOprDmnModsObject
+  : Schema_operation-domain-mods
+  , ICmptCatOprDmnModsObject
+{
+
+  public CmptCatOprDmnModsObject
+    ()
+  {
+  }
+}

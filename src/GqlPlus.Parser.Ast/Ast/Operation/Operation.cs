@@ -4,15 +4,15 @@ public interface IAstOperation
   : IAstIdentified
   , IAstDirectives
   , IAstModifiers
+  , IAstSelections
   , IEquatable<IAstOperation>
 {
   string Category { get; }
 
   IEnumerable<IAstVariable> Variables { get; }
 
-  string? ResultType { get; }
+  string? Domain { get; }
   IAstArg? Arg { get; }
-  IEnumerable<IAstSelection>? ResultObject { get; }
 
   IEnumerable<IAstFragment> Fragments { get; }
 

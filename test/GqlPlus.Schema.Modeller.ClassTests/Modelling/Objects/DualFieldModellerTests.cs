@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Building.Schema;
 
-namespace GqlPlus.Modelling.Objects;
+namespace GqlPlus.Modelling;
 
 public class DualFieldModellerTests
   : ModellerObjectBaseTestBase<IAstDualField, DualFieldModel, ObjBaseModel>

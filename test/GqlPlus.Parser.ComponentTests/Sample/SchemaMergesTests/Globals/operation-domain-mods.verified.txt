@@ -1,0 +1,23 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ca P@010/0002
+  catOprDmnMods
+  (Parallel)
+  !Tr I@012/0002
+  CatOprDmnMods
+}
+{
+  !SO I@011/0001
+  OprDmnMods
+  catOprDmnMods
+  !Tr I@040/0001
+  Boolean
+  [String]
+}
+{
+  !Ou I@008/0003
+  CatOprDmnMods
+}
+]

@@ -80,9 +80,7 @@ internal class ParseEndFragments(
 }
 
 public interface IParserStartFragments
-  : IParserArray<IAstFragment>
-{ }
+  : IParserArray<IAstFragment>;
 
 public interface IParserEndFragments
-  : IParserArray<IAstFragment>
-{ }
+  : IParserArray<IAstFragment>;

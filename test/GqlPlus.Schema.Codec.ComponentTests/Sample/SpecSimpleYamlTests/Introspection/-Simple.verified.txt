@@ -1,22 +1,16 @@
 ﻿!_Schema
 errors: !_Errors
   - !_Error
-    _kind: !_TokenKind End
     _message: "In _BaseDomain can't get model for type '_ParentType'"
   - !_Error
-    _kind: !_TokenKind End
     _message: "In _BaseDomainItem can't get model for type '_Described'"
   - !_Error
-    _kind: !_TokenKind End
     _message: "In _DomainRef can't get model for type '_TypeRef'"
   - !_Error
-    _kind: !_TokenKind End
     _message: "In _EnumLabel can't get model for type '_Aliased'"
   - !_Error
-    _kind: !_TokenKind End
     _message: "In _EnumValue can't get model for type '_TypeRef'"
   - !_Error
-    _kind: !_TokenKind End
     _message: "In _UnionRef can't get model for type '_TypeRef'"
 types: !_Map(_Type)
   !_Name _BaseDomain: !_TypeOutput
@@ -35,10 +29,11 @@ types: !_Map(_Type)
     parent: !_ObjBase
       name: _ParentType
       typeArgs:
-        - !_EnumValue
-          label: Domain
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: Domain
+            name: _TypeKind
+            typeKind: !_SimpleKind Enum
         - !_TypeArg
           typeParam: item
         - !_TypeArg
@@ -330,10 +325,11 @@ types: !_Map(_Type)
     parent: !_ObjBase
       name: _TypeRef
       typeArgs:
-        - !_EnumValue
-          label: Domain
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: Domain
+            name: _TypeKind
+            typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Output
     typeParams:
       - !_TypeParam
@@ -459,10 +455,11 @@ types: !_Map(_Type)
     parent: !_ObjBase
       name: _TypeRef
       typeArgs:
-        - !_EnumValue
-          label: Enum
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: Enum
+            name: _TypeKind
+            typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Output
   !_Name _UnionMember: !_TypeOutput
     allFields:

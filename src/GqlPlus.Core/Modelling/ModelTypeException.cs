@@ -7,7 +7,7 @@ public class ModelTypeException<TModel>
   : ModelException
 {
   private static string ModelTypeMessage(object? type)
-    => $"Type '{type?.GetType().TidyTypeName().IfWhiteSpace("null")}' Model is not '{typeof(TModel).TidyTypeName()}'";
+    => $"Type '{type?.GetType().TidyTypeName().IfWhiteSpace(GqlpStrings.NullValue)}' Model is not '{typeof(TModel).TidyTypeName()}'";
 
   public ModelTypeException(object? type)
     : base(ModelTypeMessage(type))

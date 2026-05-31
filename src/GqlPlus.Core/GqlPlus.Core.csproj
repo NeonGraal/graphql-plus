@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" />
-    <ProjectReference Include="..\GqlPlus.PolyFill\GqlPlus.PolyFill.csproj" />
   </ItemGroup>
 
 </Project>

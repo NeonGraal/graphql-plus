@@ -9,6 +9,7 @@
     <GqlPlus_NamespaceIncludesBaseName>false</GqlPlus_NamespaceIncludesBaseName>
 
     <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <GqlPlus_NamespaceIncludesBaseName>false</GqlPlus_NamespaceIncludesBaseName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,7 +24,6 @@
     <ProjectReference Include="..\..\src\GqlPlus.Parser\GqlPlus.Parser.csproj" />
     <ProjectReference Include="..\..\src\GqlPlus.Common\GqlPlus.Common.csproj" OutputItemType="Analyzer" />
     <ProjectReference Include="..\..\src\GqlPlus.Generators\GqlPlus.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-    <ProjectReference Include="..\..\src\GqlPlus.PolyFill\GqlPlus.PolyFill.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,93 @@
+﻿!_Schema
+categories: !_Map(_Categories)
+  !_Name catOprSlctMods: !_Category
+    name: catOprSlctMods
+    output: !_TypeRef(_TypeKind)
+      name: CatOprSlctMods
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+operations: !_Map(_Operations)
+  !_Name OprSlctMods: !_Operation
+    category: catOprSlctMods
+    modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+    name: OprSlctMods
+    selections: !_Map(_Selections)
+      : !_Selections
+        - !_OpFieldSelection
+          name: first
+        - !_OpFieldSelection
+          name: last
+        - !_OpFieldSelection
+          name: address
+      !_Name '.3': !_Selections
+        - !_OpFieldSelection
+          name: street
+        - !_OpFieldSelection
+          name: city
+        - !_OpFieldSelection
+          name: country
+types: !_Map(_Type)
+  !_Name AddrOprSlctMods: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: street
+        object: AddrOprSlctMods
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: city
+        object: AddrOprSlctMods
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: country
+        object: AddrOprSlctMods
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_OutputField
+        name: street
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: city
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: country
+        type: !_ObjBase
+          name: String
+    name: AddrOprSlctMods
+    typeKind: !_TypeKind Output
+  !_Name CatOprSlctMods: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: first
+        object: CatOprSlctMods
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: last
+        object: CatOprSlctMods
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: address
+        object: CatOprSlctMods
+        type: !_ObjBase
+          name: AddrOprSlctMods
+    fields:
+      - !_OutputField
+        name: first
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: last
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: address
+        type: !_ObjBase
+          name: AddrOprSlctMods
+    name: CatOprSlctMods
+    typeKind: !_TypeKind Output

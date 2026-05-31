@@ -8,25 +8,43 @@
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
-          "field": "field",
-          "label": "true",
-          "name": "Boolean",
+          "aliases": ["field1", "field2"],
+          "enum": {
+            "$mapTag": "_OutputEnum",
+            "field": "field",
+            "label": "true",
+            "name": "Boolean",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          },
+          "name": "field",
           "object": "ObjFieldEnumAliasOutp",
-          "typeKind": {
-            "$value": "Enum",
-            "$valueTag": "_SimpleKind"
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Boolean"
           }
         }
       ],
       "fields": [
         {
-          "$mapTag": "_OutputEnum",
-          "field": "field",
-          "label": "true",
-          "name": "Boolean",
-          "typeKind": {
-            "$value": "Enum",
-            "$valueTag": "_SimpleKind"
+          "$mapTag": "_OutputField",
+          "aliases": ["field1", "field2"],
+          "enum": {
+            "$mapTag": "_OutputEnum",
+            "field": "field",
+            "label": "true",
+            "name": "Boolean",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          },
+          "name": "field",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Boolean"
           }
         }
       ],

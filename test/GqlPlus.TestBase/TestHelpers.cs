@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
-using GqlPlus.Token;
 using Shouldly;
 using Xunit;
 
@@ -42,13 +41,6 @@ public static class TestHelpers
 
     contents = contents.Replace(TripleQuote, '\\' + TripleQuote, StringComparison.Ordinal);
     return TripleQuote + contents + TripleQuote;
-  }
-
-  public static ITokenizer Tokens(string input)
-  {
-    Tokenizer tokens = new(input);
-    tokens.Read();
-    return tokens;
   }
 
   public static TCheck SkipIf<TCheck>(this TCheck check, bool skipIf, [CallerArgumentExpression(nameof(skipIf))] string? skipExpression = null)

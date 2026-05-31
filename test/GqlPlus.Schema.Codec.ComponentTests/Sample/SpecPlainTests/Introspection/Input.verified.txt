@@ -1,6 +1,4 @@
-﻿[_Schema]:errors[_Errors].0[_Error]:_kind=[_TokenKind]End
-[_Schema]:errors[_Errors].0[_Error]:_message="In _InputField can't get model for type '_ObjField'"
-[_Schema]:errors[_Errors].1[_Error]:_kind=[_TokenKind]End
+﻿[_Schema]:errors[_Errors].0[_Error]:_message="In _InputField can't get model for type '_ObjField'"
 [_Schema]:errors[_Errors].1[_Error]:_message="In _InputFieldType can't get model for type '_ObjFieldType'"
 [_Schema]:types[_Map(_Type)]:[_Name]_InputField[_TypeOutput]:name=_InputField
 [_Schema]:types[_Map(_Type)]:[_Name]_InputField[_TypeOutput]:parent[_ObjBase]:name=_ObjField

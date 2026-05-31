@@ -99,8 +99,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.TestGenerators", "t
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.TestGenerators.Tests", "test\GqlPlus.TestGenerators.Tests\GqlPlus.TestGenerators.Tests.csproj", "{BB113C8C-1B2C-4815-A4DF-051F9237AF0E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.PolyFill", "src\GqlPlus.PolyFill\GqlPlus.PolyFill.csproj", "{44D55F97-4EBA-48C8-A72C-7FBC12A44719}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.VerifyTestBase", "test\GqlPlus.VerifyTestBase\GqlPlus.VerifyTestBase.csproj", "{14F619F3-163D-43D5-B3A4-14817438274E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Generators", "src\GqlPlus.Generators\GqlPlus.Generators.csproj", "{B5DD5781-B8AF-459C-9A70-7C2B8F36F2F0}"

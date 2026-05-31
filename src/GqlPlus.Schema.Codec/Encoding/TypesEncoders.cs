@@ -69,8 +69,7 @@ public interface ITypeEncoder
 public interface ITypeEncoder<TModel>
   : ITypeEncoder
   , IEncoder<TModel>
-  where TModel : IModelBase
-{ }
+  where TModel : IModelBase;
 
 internal class TypeRefEncoder<TModel, TKind>
   : NamedEncoder<TModel>
@@ -81,7 +80,7 @@ internal class TypeRefEncoder<TModel, TKind>
     => base.Encode(model)
       .AddEnum("typeKind", model.TypeKind);
 
-  internal static new TypeRefEncoder<TModel, TKind> Factory(IEncoderRepository _) => new();
+  internal static TypeRefEncoder<TModel, TKind> Factory(IEncoderRepository _) => new();
 }
 
 internal class DomainRefEncoder
@@ -98,5 +97,5 @@ internal class SpecialTypeEncoder
   : BaseTypeEncoder<SpecialTypeModel>
 
 {
-  internal static new SpecialTypeEncoder Factory(IEncoderRepository _) => new();
+  internal static SpecialTypeEncoder Factory(IEncoderRepository _) => new();
 }

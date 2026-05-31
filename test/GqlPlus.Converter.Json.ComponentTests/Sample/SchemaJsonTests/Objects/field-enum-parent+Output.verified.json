@@ -43,25 +43,41 @@
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
-          "field": "field",
-          "label": "prnt_fieldEnumPrntOutp",
-          "name": "EnumFieldEnumPrntOutp",
+          "enum": {
+            "$mapTag": "_OutputEnum",
+            "field": "field",
+            "label": "prnt_fieldEnumPrntOutp",
+            "name": "EnumFieldEnumPrntOutp",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          },
+          "name": "field",
           "object": "FieldEnumPrntOutp",
-          "typeKind": {
-            "$value": "Enum",
-            "$valueTag": "_SimpleKind"
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "EnumFieldEnumPrntOutp"
           }
         }
       ],
       "fields": [
         {
-          "$mapTag": "_OutputEnum",
-          "field": "field",
-          "label": "prnt_fieldEnumPrntOutp",
-          "name": "EnumFieldEnumPrntOutp",
-          "typeKind": {
-            "$value": "Enum",
-            "$valueTag": "_SimpleKind"
+          "$mapTag": "_OutputField",
+          "enum": {
+            "$mapTag": "_OutputEnum",
+            "field": "field",
+            "label": "prnt_fieldEnumPrntOutp",
+            "name": "EnumFieldEnumPrntOutp",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          },
+          "name": "field",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "EnumFieldEnumPrntOutp"
           }
         }
       ],

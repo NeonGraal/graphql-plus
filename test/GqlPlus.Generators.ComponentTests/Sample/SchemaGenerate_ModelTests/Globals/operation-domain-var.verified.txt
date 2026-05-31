@@ -1,0 +1,31 @@
+﻿/* operation-domain-var
+operation OprDmnVar { catOprDmnVar ($arg): String ($arg) }
+category { CatOprDmnVar }
+output CatOprDmnVar { }
+*/
+
+// Generated from Schema operation-domain-var
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_operation-domain-var, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_operation_domain_var;
+
+public class CmptCatOprDmnVar
+  : Schema_operation-domain-var
+  , ICmptCatOprDmnVar
+{
+  public ICmptCatOprDmnVarObject? As_CatOprDmnVar { get; set; }
+}
+
+public class CmptCatOprDmnVarObject
+  : Schema_operation-domain-var
+  , ICmptCatOprDmnVarObject
+{
+
+  public CmptCatOprDmnVarObject
+    ()
+  {
+  }
+}

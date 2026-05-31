@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace GqlPlus.Modelling.Objects;
+namespace GqlPlus.Modelling;
 
 public abstract class ModellerObjectBaseTestBase<TAst, TModel, TBaseModel>
   : ModellerClassTestBase<TAst, TModel>
@@ -13,7 +13,7 @@ public abstract class ModellerObjectBaseTestBase<TAst, TModel, TBaseModel>
   protected IAstObjBase BaseReturns(string contents, [NotNull] Action<IAstObjBase> astName, TBaseModel baseModel)
   {
     IAstObjBase baseAst = A.Descr<IAstObjBase>(contents);
-    astName(baseAst);
+    astName.ThrowIfNull()(baseAst);
 
     ObjBase.ToModel(baseAst, TypeKinds).Returns(baseModel);
 

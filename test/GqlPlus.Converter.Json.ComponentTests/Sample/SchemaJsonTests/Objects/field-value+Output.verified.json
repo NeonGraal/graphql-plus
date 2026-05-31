@@ -30,25 +30,41 @@
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
-          "field": "field",
-          "label": "fieldValueOutp",
-          "name": "EnumFieldValueOutp",
+          "enum": {
+            "$mapTag": "_OutputEnum",
+            "field": "field",
+            "label": "fieldValueOutp",
+            "name": "EnumFieldValueOutp",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          },
+          "name": "field",
           "object": "FieldValueOutp",
-          "typeKind": {
-            "$value": "Enum",
-            "$valueTag": "_SimpleKind"
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "EnumFieldValueOutp"
           }
         }
       ],
       "fields": [
         {
-          "$mapTag": "_OutputEnum",
-          "field": "field",
-          "label": "fieldValueOutp",
-          "name": "EnumFieldValueOutp",
-          "typeKind": {
-            "$value": "Enum",
-            "$valueTag": "_SimpleKind"
+          "$mapTag": "_OutputField",
+          "enum": {
+            "$mapTag": "_OutputEnum",
+            "field": "field",
+            "label": "fieldValueOutp",
+            "name": "EnumFieldValueOutp",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          },
+          "name": "field",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "EnumFieldValueOutp"
           }
         }
       ],

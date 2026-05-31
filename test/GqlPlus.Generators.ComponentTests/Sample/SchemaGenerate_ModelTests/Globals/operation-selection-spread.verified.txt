@@ -1,0 +1,76 @@
+﻿/* operation-selection-spread
+operation OprSlctSprd { catOprSlctSprd &firstLast:CatOprSlctSprd { first last } { |firstLast address { street city country } } }
+category { CatOprSlctSprd }
+output CatOprSlctSprd { 
+    first: String
+    last: String
+    address: AddrOprSlctSprd
+}
+output AddrOprSlctSprd {
+    street: String
+    city: String
+    country: String
+}
+*/
+
+// Generated from Schema operation-selection-spread
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_operation-selection-spread, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_operation_selection_spread;
+
+public class CmptCatOprSlctSprd
+  : Schema_operation-selection-spread
+  , ICmptCatOprSlctSprd
+{
+  public ICmptCatOprSlctSprdObject? As_CatOprSlctSprd { get; set; }
+}
+
+public class CmptCatOprSlctSprdObject
+  : Schema_operation-selection-spread
+  , ICmptCatOprSlctSprdObject
+{
+  public string First { get; set; }
+  public string Last { get; set; }
+  public ICmptAddrOprSlctSprd Address { get; set; }
+
+  public CmptCatOprSlctSprdObject
+    ( string pfirst
+    , string plast
+    , ICmptAddrOprSlctSprd paddress
+    )
+  {
+    First = pfirst;
+    Last = plast;
+    Address = paddress;
+  }
+}
+
+public class CmptAddrOprSlctSprd
+  : Schema_operation-selection-spread
+  , ICmptAddrOprSlctSprd
+{
+  public ICmptAddrOprSlctSprdObject? As_AddrOprSlctSprd { get; set; }
+}
+
+public class CmptAddrOprSlctSprdObject
+  : Schema_operation-selection-spread
+  , ICmptAddrOprSlctSprdObject
+{
+  public string Street { get; set; }
+  public string City { get; set; }
+  public string Country { get; set; }
+
+  public CmptAddrOprSlctSprdObject
+    ( string pstreet
+    , string pcity
+    , string pcountry
+    )
+  {
+    Street = pstreet;
+    City = pcity;
+    Country = pcountry;
+  }
+}

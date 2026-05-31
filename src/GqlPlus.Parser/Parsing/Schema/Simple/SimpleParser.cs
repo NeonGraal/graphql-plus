@@ -8,8 +8,7 @@ internal abstract class SimpleParser<TDefinition, TResult>(
   IParserRepository parsers
 ) : DeclarationParser<TDefinition, TResult>(parsers)
   where TDefinition : SimpleDefinition
-  where TResult : IAstSimple
-{ }
+  where TResult : IAstSimple;
 
 public class SimpleDefinition
 {

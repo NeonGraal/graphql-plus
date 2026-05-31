@@ -9,7 +9,7 @@ internal class BaseDomainEncoder<TItem>(
     => base.Encode(model)
       .Add("domainKind", model.DomainKind.EncodeEnum());
 
-  internal static new BaseDomainEncoder<TItem> Factory(IEncoderRepository r) => new(r);
+  internal static BaseDomainEncoder<TItem> Factory(IEncoderRepository r) => new(r);
 }
 
 internal class BaseDomainItemEncoder<TItem>
@@ -46,7 +46,7 @@ internal class DomainLabelEncoder(
     => base.Encode(model)
       .AddEncoded("value", model.EnumValue, _enumValue);
 
-  internal static new DomainLabelEncoder Factory(IEncoderRepository r) => new(r);
+  internal static DomainLabelEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class DomainRangeEncoder
@@ -57,7 +57,7 @@ internal class DomainRangeEncoder
       .Add("from", model.From.Encode())
       .Add("to", model.To.Encode());
 
-  internal static new DomainRangeEncoder Factory(IEncoderRepository _) => new();
+  internal static DomainRangeEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class DomainRegexEncoder
@@ -67,7 +67,7 @@ internal class DomainRegexEncoder
     => base.Encode(model)
       .Add("pattern", model.Pattern.Encode());
 
-  internal static new DomainRegexEncoder Factory(IEncoderRepository _) => new();
+  internal static DomainRegexEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class DomainTrueFalseEncoder
@@ -77,7 +77,7 @@ internal class DomainTrueFalseEncoder
     => base.Encode(model)
       .Add("value", model.Value.Encode());
 
-  internal static new DomainTrueFalseEncoder Factory(IEncoderRepository _) => new();
+  internal static DomainTrueFalseEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class TypeEnumEncoder(
@@ -85,7 +85,7 @@ internal class TypeEnumEncoder(
 ) : ParentTypeEncoder<TypeEnumModel, AliasedModel, EnumLabelModel>(encoders)
 
 {
-  internal static new TypeEnumEncoder Factory(IEncoderRepository r) => new(r);
+  internal static TypeEnumEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class EnumLabelEncoder
@@ -95,7 +95,7 @@ internal class EnumLabelEncoder
     => base.Encode(model)
       .Add("enum", model.OfEnum.Encode());
 
-  internal static new EnumLabelEncoder Factory(IEncoderRepository _) => new();
+  internal static EnumLabelEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class EnumValueEncoder
@@ -113,7 +113,7 @@ internal class TypeUnionEncoder(
 ) : ParentTypeEncoder<TypeUnionModel, NamedModel, UnionMemberModel>(encoders)
 
 {
-  internal static new TypeUnionEncoder Factory(IEncoderRepository r) => new(r);
+  internal static TypeUnionEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class UnionMemberEncoder
@@ -123,5 +123,5 @@ internal class UnionMemberEncoder
     => base.Encode(model)
       .Add("union", model.OfUnion.Encode());
 
-  internal static new UnionMemberEncoder Factory(IEncoderRepository _) => new();
+  internal static UnionMemberEncoder Factory(IEncoderRepository _) => new();
 }

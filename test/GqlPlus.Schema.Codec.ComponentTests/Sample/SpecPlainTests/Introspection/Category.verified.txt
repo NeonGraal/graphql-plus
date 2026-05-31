@@ -1,6 +1,4 @@
-﻿[_Schema]:errors[_Errors].0[_Error]:_kind=[_TokenKind]End
-[_Schema]:errors[_Errors].0[_Error]:_message="In _Categories can't get model for type '_AndType'"
-[_Schema]:errors[_Errors].1[_Error]:_kind=[_TokenKind]End
+﻿[_Schema]:errors[_Errors].0[_Error]:_message="In _Categories can't get model for type '_AndType'"
 [_Schema]:errors[_Errors].1[_Error]:_message="In _Category can't get model for type '_Aliased'"
 [_Schema]:types[_Map(_Type)]:[_Name]_Categories[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:object=_Categories
 [_Schema]:types[_Map(_Type)]:[_Name]_Categories[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=_Category
@@ -19,9 +17,9 @@
 [_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:name=output
 [_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:object=_Category
 [_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:type[_ObjBase]:name=_TypeRef
-[_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:type[_ObjBase]:typeArgs.0[_EnumValue]:label=Output
-[_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:type[_ObjBase]:typeArgs.0[_EnumValue]:name=_TypeKind
-[_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:type[_ObjBase]:typeArgs.0[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:type[_ObjBase]:typeArgs.0[_TypeArg]:enumValue[_EnumValue]:label=Output
+[_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:type[_ObjBase]:typeArgs.0[_TypeArg]:enumValue[_EnumValue]:name=_TypeKind
+[_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:type[_ObjBase]:typeArgs.0[_TypeArg]:enumValue[_EnumValue]:typeKind=[_SimpleKind]Enum
 [_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
 [_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:name=modifiers
 [_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:object=_Category
@@ -30,9 +28,9 @@
 [_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=_Resolution
 [_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:fields.1[_OutputField]:name=output
 [_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:fields.1[_OutputField]:type[_ObjBase]:name=_TypeRef
-[_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:fields.1[_OutputField]:type[_ObjBase]:typeArgs.0[_EnumValue]:label=Output
-[_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:fields.1[_OutputField]:type[_ObjBase]:typeArgs.0[_EnumValue]:name=_TypeKind
-[_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:fields.1[_OutputField]:type[_ObjBase]:typeArgs.0[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:fields.1[_OutputField]:type[_ObjBase]:typeArgs.0[_TypeArg]:enumValue[_EnumValue]:label=Output
+[_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:fields.1[_OutputField]:type[_ObjBase]:typeArgs.0[_TypeArg]:enumValue[_EnumValue]:name=_TypeKind
+[_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:fields.1[_OutputField]:type[_ObjBase]:typeArgs.0[_TypeArg]:enumValue[_EnumValue]:typeKind=[_SimpleKind]Enum
 [_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:fields.2[_OutputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
 [_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:fields.2[_OutputField]:name=modifiers
 [_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:fields.2[_OutputField]:type[_ObjBase]:name=_Modifiers

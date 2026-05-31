@@ -16,7 +16,7 @@ public abstract class DecoderClassTestBase<TOutput>
     => A.Of<TDecoder, IDecoder<T>>();
   public void DecodeReturns<T>([NotNull] IDecoder<T> decoder, T returns)
   {
-    decoder.Decode(null!, out T? output).ReturnsForAnyArgs(x => {
+    decoder.ThrowIfNull().Decode(null!, out T? output).ReturnsForAnyArgs(x => {
       x[1] = returns;
       return Messages.New;
     });
@@ -24,7 +24,7 @@ public abstract class DecoderClassTestBase<TOutput>
   public void DecodeReturns<TDecoder, T>([NotNull] TDecoder decoder, T returns)
     where TDecoder : class, IDecoder<T>
   {
-    decoder.Decode(null!, out T? output).ReturnsForAnyArgs(x => {
+    decoder.ThrowIfNull().Decode(null!, out T? output).ReturnsForAnyArgs(x => {
       x[1] = returns;
       return Messages.New;
     });

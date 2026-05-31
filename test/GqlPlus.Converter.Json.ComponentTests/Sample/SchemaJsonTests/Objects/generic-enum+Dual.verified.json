@@ -36,12 +36,15 @@
             "name": "RefGnrcEnumDual",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "gnrcEnumDual",
-                "name": "EnumGnrcEnumDual",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "gnrcEnumDual",
+                  "name": "EnumGnrcEnumDual",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]
@@ -56,12 +59,15 @@
             "name": "RefGnrcEnumDual",
             "typeArgs": [
               {
-                "$mapTag": "_EnumValue",
-                "label": "gnrcEnumDual",
-                "name": "EnumGnrcEnumDual",
-                "typeKind": {
-                  "$value": "Enum",
-                  "$valueTag": "_SimpleKind"
+                "$mapTag": "_TypeArg",
+                "enumValue": {
+                  "$mapTag": "_EnumValue",
+                  "label": "gnrcEnumDual",
+                  "name": "EnumGnrcEnumDual",
+                  "typeKind": {
+                    "$value": "Enum",
+                    "$valueTag": "_SimpleKind"
+                  }
                 }
               }
             ]

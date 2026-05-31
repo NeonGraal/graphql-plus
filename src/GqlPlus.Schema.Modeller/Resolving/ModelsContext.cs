@@ -36,7 +36,7 @@ internal class ModelsContext
       }
 
       if (canError) {
-        Errors.Add(new TokenMessage(TokenKind.End, 0, 0, "", $"In {label} can't get model for type '{name}'"));
+        Errors.Add($"In {label} can't get model for type '{name}'".Error());
       }
     }
 

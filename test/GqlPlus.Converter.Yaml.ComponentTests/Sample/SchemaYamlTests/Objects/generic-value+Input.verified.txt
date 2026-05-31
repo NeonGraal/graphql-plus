@@ -17,19 +17,21 @@ types: !_Map(_Type)
       type: !_ObjBase
         name: RefGnrcValueInp
         typeArgs:
-        - !_EnumValue
-          label: gnrcValueInp
-          name: EnumGnrcValueInp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: gnrcValueInp
+            name: EnumGnrcValueInp
+            typeKind: !_SimpleKind Enum
     alternates:
     - !_Alternate
       type: !_ObjBase
         name: RefGnrcValueInp
         typeArgs:
-        - !_EnumValue
-          label: gnrcValueInp
-          name: EnumGnrcValueInp
-          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          enumValue: !_EnumValue
+            label: gnrcValueInp
+            name: EnumGnrcValueInp
+            typeKind: !_SimpleKind Enum
     name: GnrcValueInp
     typeKind: !_TypeKind Input
   !_Name RefGnrcValueInp: !_TypeInput

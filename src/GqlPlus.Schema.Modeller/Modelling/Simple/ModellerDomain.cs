@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Modelling.Simple;
+﻿namespace GqlPlus.Modelling;
 
 internal abstract class ModellerDomain<TItemAst, TItemModel>
   : ModellerType<IAstDomain<TItemAst>, IAstTypeRef, BaseDomainModel<TItemModel>>
@@ -22,5 +22,4 @@ internal abstract class ModellerDomain<TItemAst, TItemModel>
 public interface IDomainModeller<TItemAst, TItemModel>
   : IModeller<IAstDomain<TItemAst>, BaseDomainModel<TItemModel>>
   where TItemAst : IAstDomainItem
-  where TItemModel : BaseDomainItemModel
-{ }
+  where TItemModel : BaseDomainItemModel;

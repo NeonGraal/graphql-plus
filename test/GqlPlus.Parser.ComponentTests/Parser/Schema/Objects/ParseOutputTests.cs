@@ -6,10 +6,8 @@ namespace GqlPlus.Parser.Schema.Objects;
 
 public class ParseOutputTests(
   ICheckObject<IAstOutputField> objectChecks
-) : TestObject<IAstOutputField>(objectChecks)
-{ }
+) : TestObject<IAstOutputField>(objectChecks);
 
 internal sealed class ParseOutputChecks(
   IParserRepository parsers
-) : CheckObject<IAstOutputField, OutputFieldAst>(new OutputFactories(), parsers)
-{ }
+) : CheckObject<IAstOutputField, OutputFieldAst>(new OutputFactories(), parsers);

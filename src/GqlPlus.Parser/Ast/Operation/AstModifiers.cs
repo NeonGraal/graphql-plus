@@ -9,6 +9,7 @@ internal abstract record class AstModifiers(
   public IAstModifier[] Modifiers { get; set; } = [];
   IEnumerable<IAstModifier> IAstModifiers.Modifiers => Modifiers;
 
+  [ExcludeFromCodeCoverage]
   public virtual bool Equals(AstModifiers? other)
     => other is IAstModifiers modifiers && Equals(modifiers);
   public bool Equals(IAstModifiers? other)

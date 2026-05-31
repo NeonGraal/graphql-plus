@@ -1196,6 +1196,24 @@ public class CmptRefObjPrntOutpObject
   }
 }
 
+public class CmptOp
+  : Schema_+Merges
+  , ICmptOp
+{
+  public ICmptOpObject? As_Op { get; set; }
+}
+
+public class CmptOpObject
+  : Schema_+Merges
+  , ICmptOpObject
+{
+
+  public CmptOpObject
+    ()
+  {
+  }
+}
+
 public class CmptOutpFieldParam
   : Schema_+Merges
   , ICmptOutpFieldParam

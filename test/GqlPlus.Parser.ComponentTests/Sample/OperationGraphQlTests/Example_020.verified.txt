@@ -2,6 +2,30 @@
 query
 withNestedFragments
 Success
+!t I@010/0012
+friendFields
+:User
+{
+  !f I@003/0013
+  id
+  !f I@003/0014
+  name
+  !s I@006/0015
+  standardProfilePic
+}
+!t I@010/0018
+standardProfilePic
+:User
+{
+  !f I@003/0019
+  profilePic
+  (
+    !a I@014/0019
+    {
+      ( !k I@014/0019 size ):( !k N@020/0019 50 )
+    }
+  )
+}
 {
   !f I@003/0002
   user
@@ -37,28 +61,4 @@ Success
       friendFields
     }
   }
-}
-!t I@010/0012
-friendFields
-:User
-{
-  !f I@003/0013
-  id
-  !f I@003/0014
-  name
-  !s I@006/0015
-  standardProfilePic
-}
-!t I@010/0018
-standardProfilePic
-:User
-{
-  !f I@003/0019
-  profilePic
-  (
-    !a I@014/0019
-    {
-      ( !k I@014/0019 size ):( !k N@020/0019 50 )
-    }
-  )
 }

@@ -103,5 +103,4 @@ internal class ParseArg(
 }
 
 public interface IParserArg
-  : IParser<IAstArg>
-{ }
+  : IParser<IAstArg>;

@@ -5,12 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Schema\**" />
-    <EmbeddedResource Remove="Schema\**" />
-    <None Remove="Schema\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\src\GqlPlus.Verifier\GqlPlus.Verifier.csproj" />
     <ProjectReference Include="..\GqlPlus.Parser.ClassTestBase\GqlPlus.Parser.ClassTestBase.csproj" />
   </ItemGroup>

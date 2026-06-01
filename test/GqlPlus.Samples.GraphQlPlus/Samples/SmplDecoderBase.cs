@@ -1,4 +1,4 @@
 ﻿namespace GqlPlus.Samples;
 
-// Todo: [GqlpGenerator(GqlpGeneratorType.Decoder)]
+[GqlpGenerator(GqlpGeneratorType.Decoder)]
 public class SmplDecoderBase;

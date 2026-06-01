@@ -184,4 +184,93 @@ public class SchemaModelFilterTests
   // Minimal concrete type for testing (Enum kind)
   private sealed record class TestEnumType(string Name)
     : BaseTypeModel(TypeKindModel.Enum, Name, "");
+
+  // GetDirectives tests
+
+  private static DirectiveModel MakeDirective(string name, string[]? aliases = null)
+  {
+    DirectiveModel d = new(name, "");
+    if (aliases is not null) {
+      d.Aliases = aliases;
+    }
+
+    return d;
+  }
+
+  [Fact]
+  public void GetDirectives_NullFilter_ReturnsAll()
+  {
+    SchemaModel schema = BuildSchema(directives: [MakeDirective("Dir1"), MakeDirective("Dir2")]);
+
+    schema.GetDirectives(null).Keys.ShouldBe(["Dir1", "Dir2"], ignoreOrder: true);
+  }
+
+  [Fact]
+  public void GetDirectives_NameFilter_ReturnsOnlyMatchingNames()
+  {
+    SchemaModel schema = BuildSchema(directives: [MakeDirective("MatchDir"), MakeDirective("OtherDir")]);
+    FilterModel filter = new(["Match*"]);
+
+    schema.GetDirectives(filter).Keys.ShouldBe(["MatchDir"]);
+  }
+
+  [Fact]
+  public void GetDirectives_EmptyFilter_ReturnsAll()
+  {
+    SchemaModel schema = BuildSchema(directives: [MakeDirective("Dir1"), MakeDirective("Dir2")]);
+
+    schema.GetDirectives(new FilterModel([])).Keys.ShouldBe(["Dir1", "Dir2"], ignoreOrder: true);
+  }
+
+  // GetOperations tests
+
+  private static OperationModel MakeOperation(string name)
+    => new(name, "", "");
+
+  [Fact]
+  public void GetOperations_NullFilter_ReturnsAll()
+  {
+    SchemaModel schema = BuildSchema(operations: [MakeOperation("Op1"), MakeOperation("Op2")]);
+
+    schema.GetOperations(null).Keys.ShouldBe(["Op1", "Op2"], ignoreOrder: true);
+  }
+
+  [Fact]
+  public void GetOperations_NameFilter_ReturnsOnlyMatchingNames()
+  {
+    SchemaModel schema = BuildSchema(operations: [MakeOperation("MyOp"), MakeOperation("OtherOp")]);
+    FilterModel filter = new(["My*"]);
+
+    schema.GetOperations(filter).Keys.ShouldBe(["MyOp"]);
+  }
+
+  // GetSettings tests
+
+  private static SettingModel MakeSetting(string name)
+    => new(name, new(new SimpleModel("val")), "");
+
+  [Fact]
+  public void GetSettings_NullFilter_ReturnsAll()
+  {
+    SchemaModel schema = BuildSchema(settings: [MakeSetting("Set1"), MakeSetting("Set2")]);
+
+    schema.GetSettings(null).Keys.ShouldBe(["Set1", "Set2"], ignoreOrder: true);
+  }
+
+  [Fact]
+  public void GetSettings_NameFilter_ReturnsOnlyMatchingNames()
+  {
+    SchemaModel schema = BuildSchema(settings: [MakeSetting("MatchSetting"), MakeSetting("OtherSetting")]);
+    FilterModel filter = new(["Match*"]);
+
+    schema.GetSettings(filter).Keys.ShouldBe(["MatchSetting"]);
+  }
+
+  [Fact]
+  public void GetSettings_EmptyFilter_ReturnsAll()
+  {
+    SchemaModel schema = BuildSchema(settings: [MakeSetting("Set1"), MakeSetting("Set2")]);
+
+    schema.GetSettings(new FilterModel([])).Keys.ShouldBe(["Set1", "Set2"], ignoreOrder: true);
+  }
 }

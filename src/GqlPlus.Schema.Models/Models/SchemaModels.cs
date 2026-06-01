@@ -33,7 +33,6 @@ public record class SchemaModel(
   internal IMap<SettingModel> Settings { get; init; } = new Map<SettingModel>();
   public IMessages Errors { get; } = new Messages();
 
-#pragma warning disable IDE0060 // Remove unused parameter
   public IMap<CategoriesModel> GetCategories(CategoryFilterModel? filter)
   {
     if (filter is null) {
@@ -55,19 +54,41 @@ public record class SchemaModel(
   }
 
   public IMap<DirectivesModel> GetDirectives(FilterModel? filter)
-    => Directives.ToMap(d => d.Key,
-      d => new DirectivesModel() {
-        And = d.Value,
-        Type = Types.GetValueOr(d.Key),
-      });
-  public IMap<OperationsModel> GetOperations(FilterModel? filter)
-    => Operations.ToMap(o => o.Key,
-      o => new OperationsModel() {
-        And = o.Value,
-        Type = Types.TryGetValue(o.Key, out BaseTypeModel? type) ? type : null,
-      });
+  {
+    IEnumerable<KeyValuePair<string, DirectiveModel>> source = Directives;
+    if (filter is not null) {
+      source = source.Where(d => filter.Matches(d.Value.Name, d.Value.Aliases));
+    }
 
-  public IMap<SettingModel> GetSettings(FilterModel? filter) => Settings;
+    return source.ToMap(d => d.Key, d => new DirectivesModel() {
+      And = d.Value,
+      Type = Types.GetValueOr(d.Key),
+    });
+  }
+
+  public IMap<OperationsModel> GetOperations(FilterModel? filter)
+  {
+    IEnumerable<KeyValuePair<string, OperationModel>> source = Operations;
+    if (filter is not null) {
+      source = source.Where(o => filter.Matches(o.Value.Name, o.Value.Aliases));
+    }
+
+    return source.ToMap(o => o.Key, o => new OperationsModel() {
+      And = o.Value,
+      Type = Types.TryGetValue(o.Key, out BaseTypeModel? type) ? type : null,
+    });
+  }
+
+  public IMap<SettingModel> GetSettings(FilterModel? filter)
+  {
+    if (filter is null) {
+      return Settings;
+    }
+
+    return Settings
+      .Where(s => filter.Matches(s.Value.Name, []))
+      .ToMap(s => s.Key, s => s.Value);
+  }
 
   public IMap<BaseTypeModel> GetTypes(TypeFilterModel? filter)
   {
@@ -82,7 +103,6 @@ public record class SchemaModel(
       .ToMap(kv => kv.Key, kv => kv.Value);
   }
 
-#pragma warning restore IDE0060
 }
 
 internal static partial class SchemaModelHelpers

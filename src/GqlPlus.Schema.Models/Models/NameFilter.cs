@@ -15,4 +15,26 @@ internal static class NameFilter
 
     return Regex.IsMatch(name, "^" + escaped + "$");
   }
+
+  internal static bool Matches(string[] patterns, string name)
+  {
+    foreach (string pattern in patterns) {
+      if (Matches(pattern, name)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  internal static bool MatchesAny(string[] patterns, string[] names)
+  {
+    foreach (string name in names) {
+      if (Matches(patterns, name)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
 }

@@ -68,6 +68,30 @@ public record class FilterModel(
   public string[] Aliases { get; set; } = [];
   public bool ReturnReferencedTypes { get; set; }
   public bool ReturnByAlias { get; set; }
+
+  public bool Matches(string name, string[] aliases)
+  {
+    if (aliases is null) {
+      throw new ArgumentNullException(nameof(aliases));
+    }
+
+    bool hasNameFilter = Names.Length > 0;
+    bool hasAliasFilter = Aliases.Length > 0;
+
+    if (!hasNameFilter && !hasAliasFilter) {
+      return true;
+    }
+
+    if (hasNameFilter && NameFilter.Matches(Names, name)) {
+      return true;
+    }
+
+    if (MatchAliases && hasNameFilter && NameFilter.MatchesAny(Names, aliases)) {
+      return true;
+    }
+
+    return hasAliasFilter && NameFilter.MatchesAny(Aliases, aliases);
+  }
 }
 
 public record class CategoryFilterModel

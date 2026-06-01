@@ -35,11 +35,24 @@ public record class SchemaModel(
 
 #pragma warning disable IDE0060 // Remove unused parameter
   public IMap<CategoriesModel> GetCategories(CategoryFilterModel? filter)
-    => Categories.ToMap(c => c.Key,
-      c => new CategoriesModel() {
+  {
+    if (filter is null) {
+      return Categories.ToMap(c => c.Key,
+        c => new CategoriesModel() {
+          And = c.Value,
+          Type = Types.GetValueOr(c.Key),
+        });
+    }
+
+    return Categories
+      .Where(c =>
+        filter.Matches(c.Value.Name, c.Value.Aliases)
+        && (filter.Resolutions.Length == 0 || SchemaModelHelpers.ContainsResolution(filter.Resolutions, c.Value.Resolution)))
+      .ToMap(c => c.Key, c => new CategoriesModel() {
         And = c.Value,
         Type = Types.GetValueOr(c.Key),
       });
+  }
 
   public IMap<DirectivesModel> GetDirectives(FilterModel? filter)
     => Directives.ToMap(d => d.Key,
@@ -78,6 +91,17 @@ internal static partial class SchemaModelHelpers
   {
     foreach (TypeKindModel k in kinds) {
       if (k == kind) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  internal static bool ContainsResolution(CategoryOptionModel[] resolutions, CategoryOptionModel resolution)
+  {
+    foreach (CategoryOptionModel r in resolutions) {
+      if (r == resolution) {
         return true;
       }
     }

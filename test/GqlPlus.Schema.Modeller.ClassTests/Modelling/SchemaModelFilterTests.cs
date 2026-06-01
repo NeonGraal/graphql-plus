@@ -102,6 +102,85 @@ public class SchemaModelFilterTests
     result.Keys.ShouldBe(["MyEnum"]);
   }
 
+  // GetCategories tests
+
+  private static CategoryModel MakeCategory(string name, CategoryOptionModel resolution = CategoryOptionModel.Parallel, string[]? aliases = null)
+  {
+    CategoryModel cat = new(name, new(TypeKindModel.Output, "Out", ""), "");
+    cat.Resolution = resolution;
+    if (aliases is not null) {
+      cat.Aliases = aliases;
+    }
+
+    return cat;
+  }
+
+  [Fact]
+  public void GetCategories_NullFilter_ReturnsAll()
+  {
+    SchemaModel schema = BuildSchema(categories: [
+      MakeCategory("Cat1"),
+      MakeCategory("Cat2"),
+    ]);
+
+    schema.GetCategories(null).Keys.ShouldBe(["Cat1", "Cat2"], ignoreOrder: true);
+  }
+
+  [Fact]
+  public void GetCategories_EmptyFilter_ReturnsAll()
+  {
+    SchemaModel schema = BuildSchema(categories: [
+      MakeCategory("Cat1"),
+      MakeCategory("Cat2"),
+    ]);
+    CategoryFilterModel filter = new(new FilterModel([]));
+
+    schema.GetCategories(filter).Keys.ShouldBe(["Cat1", "Cat2"], ignoreOrder: true);
+  }
+
+  [Fact]
+  public void GetCategories_ResolutionFilter_ReturnsOnlyMatchingResolution()
+  {
+    SchemaModel schema = BuildSchema(categories: [
+      MakeCategory("ParallelCat", CategoryOptionModel.Parallel),
+      MakeCategory("SingleCat", CategoryOptionModel.Single),
+    ]);
+    CategoryFilterModel filter = new(new FilterModel([])) { Resolutions = [CategoryOptionModel.Parallel] };
+
+    IMap<CategoriesModel> result = schema.GetCategories(filter);
+
+    result.Keys.ShouldBe(["ParallelCat"]);
+  }
+
+  [Fact]
+  public void GetCategories_NameFilter_ReturnsOnlyMatchingNames()
+  {
+    SchemaModel schema = BuildSchema(categories: [
+      MakeCategory("SchemaCat"),
+      MakeCategory("OtherCat"),
+    ]);
+    CategoryFilterModel filter = new(new FilterModel(["Schema*"]));
+
+    IMap<CategoriesModel> result = schema.GetCategories(filter);
+
+    result.Keys.ShouldBe(["SchemaCat"]);
+  }
+
+  [Fact]
+  public void GetCategories_NameAndResolutionFilter_ReturnsBothApplied()
+  {
+    SchemaModel schema = BuildSchema(categories: [
+      MakeCategory("SchemaCat", CategoryOptionModel.Parallel),
+      MakeCategory("SchemaSequential", CategoryOptionModel.Sequential),
+      MakeCategory("OtherCat", CategoryOptionModel.Parallel),
+    ]);
+    CategoryFilterModel filter = new(new FilterModel(["Schema*"])) { Resolutions = [CategoryOptionModel.Parallel] };
+
+    IMap<CategoriesModel> result = schema.GetCategories(filter);
+
+    result.Keys.ShouldBe(["SchemaCat"]);
+  }
+
   // Minimal concrete type for testing (Enum kind)
   private sealed record class TestEnumType(string Name)
     : BaseTypeModel(TypeKindModel.Enum, Name, "");

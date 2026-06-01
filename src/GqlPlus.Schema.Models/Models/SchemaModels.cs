@@ -55,9 +55,35 @@ public record class SchemaModel(
       });
 
   public IMap<SettingModel> GetSettings(FilterModel? filter) => Settings;
-  public IMap<BaseTypeModel> GetTypes(TypeFilterModel? filter) => Types;
+
+  public IMap<BaseTypeModel> GetTypes(TypeFilterModel? filter)
+  {
+    if (filter is null) {
+      return Types;
+    }
+
+    return Types
+      .Where(kv =>
+        filter.Matches(kv.Value.Name, kv.Value.Aliases)
+        && (filter.Kinds.Length == 0 || SchemaModelHelpers.ContainsKind(filter.Kinds, kv.Value.TypeKind)))
+      .ToMap(kv => kv.Key, kv => kv.Value);
+  }
 
 #pragma warning restore IDE0060
+}
+
+internal static partial class SchemaModelHelpers
+{
+  internal static bool ContainsKind(TypeKindModel[] kinds, TypeKindModel kind)
+  {
+    foreach (TypeKindModel k in kinds) {
+      if (k == kind) {
+        return true;
+      }
+    }
+
+    return false;
+  }
 }
 
 public record class FilterModel(

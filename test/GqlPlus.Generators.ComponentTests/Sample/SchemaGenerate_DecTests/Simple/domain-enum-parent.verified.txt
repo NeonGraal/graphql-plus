@@ -12,22 +12,22 @@ enum EnumDmnEnumPrnt { enum_dmnEnumPrnt prnt_dmnEnumPrnt }
 
 namespace Components.Gqlp_Schema_domain_enum_parent;
 
-internal class CmptDmnEnumPrntDecoder
+internal class CmptDmnEnumPrntDecoder : NullDecoder<ICmptDmnEnumPrnt>
 {
 
   internal static CmptDmnEnumPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntDmnEnumPrntDecoder
+internal class CmptPrntDmnEnumPrntDecoder : NullDecoder<ICmptPrntDmnEnumPrnt>
 {
 
   internal static CmptPrntDmnEnumPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEnumDmnEnumPrntDecoder
+internal class CmptEnumDmnEnumPrntDecoder : NullDecoder<CmptEnumDmnEnumPrnt>
 {
-  public string enum_dmnEnumPrnt { get; set; }
-  public string prnt_dmnEnumPrnt { get; set; }
+  public string enum_dmnEnumPrnt { get; set; } = default!;
+  public string prnt_dmnEnumPrnt { get; set; } = default!;
 
   internal static CmptEnumDmnEnumPrntDecoder Factory(IDecoderRepository _) => new();
 }

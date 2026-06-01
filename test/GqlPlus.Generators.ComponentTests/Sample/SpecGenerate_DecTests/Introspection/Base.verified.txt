@@ -77,7 +77,7 @@ output _ForParam<$type:_ObjFieldType> {
 
 namespace Components.Gqlp_Spec_Base;
 
-internal class Cmpt_ObjectKindDecoder
+internal class Cmpt_ObjectKindDecoder : NullDecoder<ICmpt_ObjectKind>
 {
 
   internal static Cmpt_ObjectKindDecoder Factory(IDecoderRepository _) => new();

@@ -67,13 +67,13 @@ internal class Cmpt_MaskDecoder<TK>
 {
 }
 
-internal class Cmpt_KeyDecoder
+internal class Cmpt_KeyDecoder : NullDecoder<ICmpt_Key>
 {
 
   internal static Cmpt_KeyDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class objectDecoder
+internal class objectDecoder : NullDecoder<objectObject>
 {
 
   internal static objectDecoder Factory(IDecoderRepository _) => new();

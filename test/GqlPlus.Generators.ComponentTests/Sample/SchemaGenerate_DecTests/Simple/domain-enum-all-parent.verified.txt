@@ -12,26 +12,26 @@ enum PrntDmnEnumAllPrnt { prnt_dmnEnumAllPrnt dmnEnumAllPrntPrnt }
 
 namespace Components.Gqlp_Schema_domain_enum_all_parent;
 
-internal class CmptDmnEnumAllPrntDecoder
+internal class CmptDmnEnumAllPrntDecoder : NullDecoder<ICmptDmnEnumAllPrnt>
 {
 
   internal static CmptDmnEnumAllPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEnumDmnEnumAllPrntDecoder
+internal class CmptEnumDmnEnumAllPrntDecoder : NullDecoder<CmptEnumDmnEnumAllPrnt>
 {
-  public string prnt_dmnEnumAllPrnt { get; set; }
-  public string dmnEnumAllPrntPrnt { get; set; }
-  public string dmnEnumAllPrnt { get; set; }
-  public string dmnEnumAllPrntValue { get; set; }
+  public string prnt_dmnEnumAllPrnt { get; set; } = default!;
+  public string dmnEnumAllPrntPrnt { get; set; } = default!;
+  public string dmnEnumAllPrnt { get; set; } = default!;
+  public string dmnEnumAllPrntValue { get; set; } = default!;
 
   internal static CmptEnumDmnEnumAllPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntDmnEnumAllPrntDecoder
+internal class CmptPrntDmnEnumAllPrntDecoder : NullDecoder<CmptPrntDmnEnumAllPrnt>
 {
-  public string prnt_dmnEnumAllPrnt { get; set; }
-  public string dmnEnumAllPrntPrnt { get; set; }
+  public string prnt_dmnEnumAllPrnt { get; set; } = default!;
+  public string dmnEnumAllPrntPrnt { get; set; } = default!;
 
   internal static CmptPrntDmnEnumAllPrntDecoder Factory(IDecoderRepository _) => new();
 }

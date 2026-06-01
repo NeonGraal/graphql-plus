@@ -7,23 +7,23 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Full;
 
-internal class test_RequestDecoder
+internal class test_RequestDecoder : NullDecoder<Itest_RequestObject>
 {
-  public Itest_Identifier? Category { get; set; }
-  public Itest_Identifier? Operation { get; set; }
-  public Itest_Operation Definition { get; set; }
-  public object? Parameters { get; set; }
+  public Itest_Identifier? Category { get; set; } = default!;
+  public Itest_Identifier? Operation { get; set; } = default!;
+  public Itest_Operation Definition { get; set; } = default!;
+  public object? Parameters { get; set; } = default!;
 
   internal static test_RequestDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_IdentifierDecoder
+internal class test_IdentifierDecoder : NullDecoder<Itest_Identifier>
 {
 
   internal static test_IdentifierDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_CollectionsDecoder
+internal class test_CollectionsDecoder : NullDecoder<Itest_CollectionsObject>
 {
 
   internal static test_CollectionsDecoder Factory(IDecoderRepository _) => new();
@@ -31,32 +31,32 @@ internal class test_CollectionsDecoder
 
 internal class test_ModifierKeyedDecoder<TModifierKind>
 {
-  public Itest_Identifier By { get; set; }
-  public bool IsOptional { get; set; }
+  public Itest_Identifier By { get; set; } = default!;
+  public bool IsOptional { get; set; } = default!;
 }
 
-internal class test_ModifiersDecoder
+internal class test_ModifiersDecoder : NullDecoder<Itest_ModifiersObject>
 {
 
   internal static test_ModifiersDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_ModifierKindDecoder
+internal class test_ModifierKindDecoder : NullDecoder<test_ModifierKind>
 {
-  public string Opt { get; set; }
-  public string Optional { get; set; }
-  public string List { get; set; }
-  public string Dict { get; set; }
-  public string Dictionary { get; set; }
-  public string Param { get; set; }
-  public string TypeParam { get; set; }
+  public string Opt { get; set; } = default!;
+  public string Optional { get; set; } = default!;
+  public string List { get; set; } = default!;
+  public string Dict { get; set; } = default!;
+  public string Dictionary { get; set; } = default!;
+  public string Param { get; set; } = default!;
+  public string TypeParam { get; set; } = default!;
 
   internal static test_ModifierKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_ModifierDecoder<TModifierKind>
 {
-  public TModifierKind ModifierKind { get; set; }
+  public TModifierKind ModifierKind { get; set; } = default!;
 }
 
 internal static class test_FullDecoders

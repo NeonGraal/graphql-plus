@@ -13,7 +13,7 @@ dual AltCnstPrntObjPrntDual { :PrntCnstPrntObjPrntDual alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Dual;
 
-internal class CmptCnstPrntObjPrntDualDecoder
+internal class CmptCnstPrntObjPrntDualDecoder : NullDecoder<ICmptCnstPrntObjPrntDualObject>
 {
 
   internal static CmptCnstPrntObjPrntDualDecoder Factory(IDecoderRepository _) => new();
@@ -23,15 +23,15 @@ internal class CmptRefCnstPrntObjPrntDualDecoder<TRef>
 {
 }
 
-internal class CmptPrntCnstPrntObjPrntDualDecoder
+internal class CmptPrntCnstPrntObjPrntDualDecoder : NullDecoder<ICmptPrntCnstPrntObjPrntDualObject>
 {
 
   internal static CmptPrntCnstPrntObjPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptAltCnstPrntObjPrntDualDecoder
+internal class CmptAltCnstPrntObjPrntDualDecoder : NullDecoder<ICmptAltCnstPrntObjPrntDualObject>
 {
-  public decimal Alt { get; set; }
+  public decimal Alt { get; set; } = default!;
 
   internal static CmptAltCnstPrntObjPrntDualDecoder Factory(IDecoderRepository _) => new();
 }

@@ -11,7 +11,7 @@ dual ObjAliasDual [Dual2] { }
 
 namespace Components.Gqlp_Schema_object_alias_Dual;
 
-internal class CmptObjAliasDualDecoder
+internal class CmptObjAliasDualDecoder : NullDecoder<ICmptObjAliasDualObject>
 {
 
   internal static CmptObjAliasDualDecoder Factory(IDecoderRepository _) => new();

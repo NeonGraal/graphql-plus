@@ -7,14 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Directive;
 
-internal class test_LocationDecoder
+internal class test_LocationDecoder : NullDecoder<test_Location>
 {
-  public string Operation { get; set; }
-  public string Variable { get; set; }
-  public string Field { get; set; }
-  public string Inline { get; set; }
-  public string Spread { get; set; }
-  public string Fragment { get; set; }
+  public string Operation { get; set; } = default!;
+  public string Variable { get; set; } = default!;
+  public string Field { get; set; } = default!;
+  public string Inline { get; set; } = default!;
+  public string Spread { get; set; } = default!;
+  public string Fragment { get; set; } = default!;
 
   internal static test_LocationDecoder Factory(IDecoderRepository _) => new();
 }

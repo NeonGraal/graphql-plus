@@ -12,13 +12,13 @@ input ObjAltInpType { }
 
 namespace Components.Gqlp_Schema_object_alt_Input;
 
-internal class CmptObjAltInpDecoder
+internal class CmptObjAltInpDecoder : NullDecoder<ICmptObjAltInpObject>
 {
 
   internal static CmptObjAltInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptObjAltInpTypeDecoder
+internal class CmptObjAltInpTypeDecoder : NullDecoder<ICmptObjAltInpTypeObject>
 {
 
   internal static CmptObjAltInpTypeDecoder Factory(IDecoderRepository _) => new();

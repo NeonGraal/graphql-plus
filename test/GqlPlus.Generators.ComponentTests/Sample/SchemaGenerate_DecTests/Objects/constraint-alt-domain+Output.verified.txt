@@ -12,7 +12,7 @@ domain DomCnstAltDmnOutp { String /\w+/ }
 
 namespace Components.Gqlp_Schema_constraint_alt_domain_Output;
 
-internal class CmptDomCnstAltDmnOutpDecoder
+internal class CmptDomCnstAltDmnOutpDecoder : NullDecoder<ICmptDomCnstAltDmnOutp>
 {
 
   internal static CmptDomCnstAltDmnOutpDecoder Factory(IDecoderRepository _) => new();

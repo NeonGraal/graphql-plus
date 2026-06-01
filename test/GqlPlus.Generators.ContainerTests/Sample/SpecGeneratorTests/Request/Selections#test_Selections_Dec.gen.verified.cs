@@ -7,33 +7,33 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Selections;
 
-internal class test_OpSelectionDecoder
+internal class test_OpSelectionDecoder : NullDecoder<Itest_OpSelectionObject>
 {
 
   internal static test_OpSelectionDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_OpFieldDecoder
+internal class test_OpFieldDecoder : NullDecoder<Itest_OpFieldObject>
 {
-  public Itest_Identifier? FieldAlias { get; set; }
-  public Itest_OpArgument? Argument { get; set; }
-  public ICollection<Itest_Modifiers> Modifiers { get; set; }
+  public Itest_Identifier? FieldAlias { get; set; } = default!;
+  public Itest_OpArgument? Argument { get; set; } = default!;
+  public ICollection<Itest_Modifiers> Modifiers { get; set; } = default!;
 
   internal static test_OpFieldDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_OpInlineDecoder
+internal class test_OpInlineDecoder : NullDecoder<Itest_OpInlineObject>
 {
-  public Itest_Identifier? Type { get; set; }
-  public ICollection<Itest_OpDirective> Directives { get; set; }
+  public Itest_Identifier? Type { get; set; } = default!;
+  public ICollection<Itest_OpDirective> Directives { get; set; } = default!;
 
   internal static test_OpInlineDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_OpSpreadDecoder
+internal class test_OpSpreadDecoder : NullDecoder<Itest_OpSpreadObject>
 {
-  public Itest_Identifier Fragment { get; set; }
-  public ICollection<Itest_OpDirective> Directives { get; set; }
+  public Itest_Identifier Fragment { get; set; } = default!;
+  public ICollection<Itest_OpDirective> Directives { get; set; } = default!;
 
   internal static test_OpSpreadDecoder Factory(IDecoderRepository _) => new();
 }

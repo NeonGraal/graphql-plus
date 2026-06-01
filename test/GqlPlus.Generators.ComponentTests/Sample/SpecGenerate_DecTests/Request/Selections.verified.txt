@@ -31,33 +31,33 @@ dual _OpSpread {
 
 namespace Components.Gqlp_Spec_Selections;
 
-internal class Cmpt_OpSelectionDecoder
+internal class Cmpt_OpSelectionDecoder : NullDecoder<ICmpt_OpSelectionObject>
 {
 
   internal static Cmpt_OpSelectionDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_OpFieldDecoder
+internal class Cmpt_OpFieldDecoder : NullDecoder<ICmpt_OpFieldObject>
 {
-  public ICmpt_Identifier? FieldAlias { get; set; }
-  public ICmpt_OpArgument? Argument { get; set; }
-  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
+  public ICmpt_Identifier? FieldAlias { get; set; } = default!;
+  public ICmpt_OpArgument? Argument { get; set; } = default!;
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; } = default!;
 
   internal static Cmpt_OpFieldDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_OpInlineDecoder
+internal class Cmpt_OpInlineDecoder : NullDecoder<ICmpt_OpInlineObject>
 {
-  public ICmpt_Identifier? Type { get; set; }
-  public ICollection<ICmpt_OpDirective> Directives { get; set; }
+  public ICmpt_Identifier? Type { get; set; } = default!;
+  public ICollection<ICmpt_OpDirective> Directives { get; set; } = default!;
 
   internal static Cmpt_OpInlineDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_OpSpreadDecoder
+internal class Cmpt_OpSpreadDecoder : NullDecoder<ICmpt_OpSpreadObject>
 {
-  public ICmpt_Identifier Fragment { get; set; }
-  public ICollection<ICmpt_OpDirective> Directives { get; set; }
+  public ICmpt_Identifier Fragment { get; set; } = default!;
+  public ICollection<ICmpt_OpDirective> Directives { get; set; } = default!;
 
   internal static Cmpt_OpSpreadDecoder Factory(IDecoderRepository _) => new();
 }

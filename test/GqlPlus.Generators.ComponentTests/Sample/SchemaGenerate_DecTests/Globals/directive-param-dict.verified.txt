@@ -11,7 +11,7 @@ input InDrctParamDict { }
 
 namespace Components.Gqlp_Schema_directive_param_dict;
 
-internal class CmptInDrctParamDictDecoder
+internal class CmptInDrctParamDictDecoder : NullDecoder<ICmptInDrctParamDictObject>
 {
 
   internal static CmptInDrctParamDictDecoder Factory(IDecoderRepository _) => new();

@@ -41,23 +41,23 @@ dual _Modifier<$modifierKind:_ModifierKind> {
 
 namespace Components.Gqlp_Spec_Full;
 
-internal class Cmpt_RequestDecoder
+internal class Cmpt_RequestDecoder : NullDecoder<ICmpt_RequestObject>
 {
-  public ICmpt_Identifier? Category { get; set; }
-  public ICmpt_Identifier? Operation { get; set; }
-  public ICmpt_Operation Definition { get; set; }
-  public object? Parameters { get; set; }
+  public ICmpt_Identifier? Category { get; set; } = default!;
+  public ICmpt_Identifier? Operation { get; set; } = default!;
+  public ICmpt_Operation Definition { get; set; } = default!;
+  public object? Parameters { get; set; } = default!;
 
   internal static Cmpt_RequestDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_IdentifierDecoder
+internal class Cmpt_IdentifierDecoder : NullDecoder<ICmpt_Identifier>
 {
 
   internal static Cmpt_IdentifierDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_CollectionsDecoder
+internal class Cmpt_CollectionsDecoder : NullDecoder<ICmpt_CollectionsObject>
 {
 
   internal static Cmpt_CollectionsDecoder Factory(IDecoderRepository _) => new();
@@ -65,32 +65,32 @@ internal class Cmpt_CollectionsDecoder
 
 internal class Cmpt_ModifierKeyedDecoder<TModifierKind>
 {
-  public ICmpt_Identifier By { get; set; }
-  public bool IsOptional { get; set; }
+  public ICmpt_Identifier By { get; set; } = default!;
+  public bool IsOptional { get; set; } = default!;
 }
 
-internal class Cmpt_ModifiersDecoder
+internal class Cmpt_ModifiersDecoder : NullDecoder<ICmpt_ModifiersObject>
 {
 
   internal static Cmpt_ModifiersDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_ModifierKindDecoder
+internal class Cmpt_ModifierKindDecoder : NullDecoder<Cmpt_ModifierKind>
 {
-  public string Opt { get; set; }
-  public string Optional { get; set; }
-  public string List { get; set; }
-  public string Dict { get; set; }
-  public string Dictionary { get; set; }
-  public string Param { get; set; }
-  public string TypeParam { get; set; }
+  public string Opt { get; set; } = default!;
+  public string Optional { get; set; } = default!;
+  public string List { get; set; } = default!;
+  public string Dict { get; set; } = default!;
+  public string Dictionary { get; set; } = default!;
+  public string Param { get; set; } = default!;
+  public string TypeParam { get; set; } = default!;
 
   internal static Cmpt_ModifierKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_ModifierDecoder<TModifierKind>
 {
-  public TModifierKind ModifierKind { get; set; }
+  public TModifierKind ModifierKind { get; set; } = default!;
 }
 
 internal static class Cmpt_Spec_FullDecoders

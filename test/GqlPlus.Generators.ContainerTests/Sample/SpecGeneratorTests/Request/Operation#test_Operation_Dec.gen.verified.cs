@@ -7,87 +7,87 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Operation;
 
-internal class test_OperationDecoder
+internal class test_OperationDecoder : NullDecoder<Itest_OperationObject>
 {
-  public ICollection<Itest_OpVariable> Variables { get; set; }
-  public ICollection<Itest_OpDirective> Directives { get; set; }
-  public ICollection<Itest_OpFragment> Fragments { get; set; }
-  public Itest_OpResult Result { get; set; }
-  public IDictionary<Itest_Path, ICollection<Itest_OpSelection>> Selections { get; set; }
+  public ICollection<Itest_OpVariable> Variables { get; set; } = default!;
+  public ICollection<Itest_OpDirective> Directives { get; set; } = default!;
+  public ICollection<Itest_OpFragment> Fragments { get; set; } = default!;
+  public Itest_OpResult Result { get; set; } = default!;
+  public IDictionary<Itest_Path, ICollection<Itest_OpSelection>> Selections { get; set; } = default!;
 
   internal static test_OperationDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_PathDecoder
+internal class test_PathDecoder : NullDecoder<Itest_Path>
 {
 
   internal static test_PathDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_OpDirectivesDecoder
+internal class test_OpDirectivesDecoder : NullDecoder<Itest_OpDirectivesObject>
 {
-  public Itest_Identifier Name { get; set; }
-  public ICollection<string> Description { get; set; }
-  public ICollection<Itest_OpDirective> Directives { get; set; }
+  public Itest_Identifier Name { get; set; } = default!;
+  public ICollection<string> Description { get; set; } = default!;
+  public ICollection<Itest_OpDirective> Directives { get; set; } = default!;
 
   internal static test_OpDirectivesDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_OpVariableDecoder
+internal class test_OpVariableDecoder : NullDecoder<Itest_OpVariableObject>
 {
-  public Itest_Identifier? Type { get; set; }
-  public ICollection<Itest_Modifiers> Modifiers { get; set; }
-  public GqlpValue? DefaultValue { get; set; }
+  public Itest_Identifier? Type { get; set; } = default!;
+  public ICollection<Itest_Modifiers> Modifiers { get; set; } = default!;
+  public GqlpValue? DefaultValue { get; set; } = default!;
 
   internal static test_OpVariableDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_OpDirectiveDecoder
+internal class test_OpDirectiveDecoder : NullDecoder<Itest_OpDirectiveObject>
 {
-  public Itest_Identifier Name { get; set; }
-  public Itest_OpArgument? Argument { get; set; }
+  public Itest_Identifier Name { get; set; } = default!;
+  public Itest_OpArgument? Argument { get; set; } = default!;
 
   internal static test_OpDirectiveDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_OpFragmentDecoder
+internal class test_OpFragmentDecoder : NullDecoder<Itest_OpFragmentObject>
 {
-  public Itest_Identifier? Type { get; set; }
+  public Itest_Identifier? Type { get; set; } = default!;
 
   internal static test_OpFragmentDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_OpResultDecoder
+internal class test_OpResultDecoder : NullDecoder<Itest_OpResultObject>
 {
-  public Itest_Identifier? Domain { get; set; }
-  public Itest_OpArgument? Argument { get; set; }
+  public Itest_Identifier? Domain { get; set; } = default!;
+  public Itest_OpArgument? Argument { get; set; } = default!;
 
   internal static test_OpResultDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_OpArgumentDecoder
+internal class test_OpArgumentDecoder : NullDecoder<Itest_OpArgumentObject>
 {
 
   internal static test_OpArgumentDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_OpArgValueDecoder
+internal class test_OpArgValueDecoder : NullDecoder<Itest_OpArgValueObject>
 {
-  public Itest_Identifier Variable { get; set; }
+  public Itest_Identifier Variable { get; set; } = default!;
 
   internal static test_OpArgValueDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_OpArgListDecoder
+internal class test_OpArgListDecoder : NullDecoder<Itest_OpArgListObject>
 {
 
   internal static test_OpArgListDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_OpArgMapDecoder
+internal class test_OpArgMapDecoder : NullDecoder<Itest_OpArgMapObject>
 {
-  public Itest_OpArgValue Value { get; set; }
-  public Itest_Identifier ByVariable { get; set; }
+  public Itest_OpArgValue Value { get; set; } = default!;
+  public Itest_Identifier ByVariable { get; set; } = default!;
 
   internal static test_OpArgMapDecoder Factory(IDecoderRepository _) => new();
 }

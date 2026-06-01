@@ -13,12 +13,12 @@ namespace Components.Gqlp_Schema_field_mod_param_Dual;
 
 internal class CmptFieldModParamDualDecoder<TMod>
 {
-  public IDictionary<TMod, ICmptFldFieldModParamDual> Field { get; set; }
+  public IDictionary<TMod, ICmptFldFieldModParamDual> Field { get; set; } = default!;
 }
 
-internal class CmptFldFieldModParamDualDecoder
+internal class CmptFldFieldModParamDualDecoder : NullDecoder<ICmptFldFieldModParamDualObject>
 {
-  public decimal Field { get; set; }
+  public decimal Field { get; set; } = default!;
 
   internal static CmptFldFieldModParamDualDecoder Factory(IDecoderRepository _) => new();
 }

@@ -11,16 +11,16 @@ enum EnumFieldValueDescrDual { fieldValueDescrDual }
 
 namespace Components.Gqlp_Schema_field_value_descr_Dual;
 
-internal class CmptFieldValueDescrDualDecoder
+internal class CmptFieldValueDescrDualDecoder : NullDecoder<ICmptFieldValueDescrDualObject>
 {
-  public CmptEnumFieldValueDescrDual Field { get; set; }
+  public CmptEnumFieldValueDescrDual Field { get; set; } = default!;
 
   internal static CmptFieldValueDescrDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEnumFieldValueDescrDualDecoder
+internal class CmptEnumFieldValueDescrDualDecoder : NullDecoder<CmptEnumFieldValueDescrDual>
 {
-  public string fieldValueDescrDual { get; set; }
+  public string fieldValueDescrDual { get; set; } = default!;
 
   internal static CmptEnumFieldValueDescrDualDecoder Factory(IDecoderRepository _) => new();
 }

@@ -7,37 +7,37 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_unique_parent;
 
-internal class testDmnEnumUnqPrntDecoder
+internal class testDmnEnumUnqPrntDecoder : NullDecoder<ItestDmnEnumUnqPrnt>
 {
 
   internal static testDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDmnEnumUnqPrntDecoder
+internal class testEnumDmnEnumUnqPrntDecoder : NullDecoder<testEnumDmnEnumUnqPrnt>
 {
-  public string dmnEnumUnqPrnt { get; set; }
-  public string prnt_dmnEnumUnqPrnt { get; set; }
-  public string dmnEnumUnqPrntPrnt { get; set; }
-  public string enum_dmnEnumUnqPrnt { get; set; }
-  public string dmnEnumUnqPrntValue { get; set; }
+  public string dmnEnumUnqPrnt { get; set; } = default!;
+  public string prnt_dmnEnumUnqPrnt { get; set; } = default!;
+  public string dmnEnumUnqPrntPrnt { get; set; } = default!;
+  public string enum_dmnEnumUnqPrnt { get; set; } = default!;
+  public string dmnEnumUnqPrntValue { get; set; } = default!;
 
   internal static testEnumDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntDmnEnumUnqPrntDecoder
+internal class testPrntDmnEnumUnqPrntDecoder : NullDecoder<testPrntDmnEnumUnqPrnt>
 {
-  public string dmnEnumUnqPrnt { get; set; }
-  public string prnt_dmnEnumUnqPrnt { get; set; }
-  public string dmnEnumUnqPrntPrnt { get; set; }
+  public string dmnEnumUnqPrnt { get; set; } = default!;
+  public string prnt_dmnEnumUnqPrnt { get; set; } = default!;
+  public string dmnEnumUnqPrntPrnt { get; set; } = default!;
 
   internal static testPrntDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDupDmnEnumUnqPrntDecoder
+internal class testDupDmnEnumUnqPrntDecoder : NullDecoder<testDupDmnEnumUnqPrnt>
 {
-  public string dmnEnumUnqPrnt { get; set; }
-  public string dup_dmnEnumUnqPrnt { get; set; }
-  public string dmnEnumUnqPrntDup { get; set; }
+  public string dmnEnumUnqPrnt { get; set; } = default!;
+  public string dup_dmnEnumUnqPrnt { get; set; } = default!;
+  public string dmnEnumUnqPrntDup { get; set; } = default!;
 
   internal static testDupDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }

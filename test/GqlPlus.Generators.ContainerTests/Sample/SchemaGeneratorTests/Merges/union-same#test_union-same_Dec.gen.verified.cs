@@ -7,9 +7,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_same;
 
-internal class testUnionSameDecoder
+internal class testUnionSameDecoder : NullDecoder<ItestUnionSame>
 {
-  public Boolean AsBoolean { get; set; }
+  public Boolean AsBoolean { get; set; } = default!;
 
   internal static testUnionSameDecoder Factory(IDecoderRepository _) => new();
 }

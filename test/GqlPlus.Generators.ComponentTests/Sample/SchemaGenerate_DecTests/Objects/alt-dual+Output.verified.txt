@@ -11,9 +11,9 @@ dual ObjDualAltDualOutp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_dual_Output;
 
-internal class CmptObjDualAltDualOutpDecoder
+internal class CmptObjDualAltDualOutpDecoder : NullDecoder<ICmptObjDualAltDualOutpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal Alt { get; set; } = default!;
 
   internal static CmptObjDualAltDualOutpDecoder Factory(IDecoderRepository _) => new();
 }

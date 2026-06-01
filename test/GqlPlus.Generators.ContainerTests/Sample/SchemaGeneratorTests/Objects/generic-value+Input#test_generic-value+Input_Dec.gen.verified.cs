@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_value_Input;
 
-internal class testGnrcValueInpDecoder
+internal class testGnrcValueInpDecoder : NullDecoder<ItestGnrcValueInpObject>
 {
 
   internal static testGnrcValueInpDecoder Factory(IDecoderRepository _) => new();
@@ -15,12 +15,12 @@ internal class testGnrcValueInpDecoder
 
 internal class testRefGnrcValueInpDecoder<TType>
 {
-  public TType Field { get; set; }
+  public TType Field { get; set; } = default!;
 }
 
-internal class testEnumGnrcValueInpDecoder
+internal class testEnumGnrcValueInpDecoder : NullDecoder<testEnumGnrcValueInp>
 {
-  public string gnrcValueInp { get; set; }
+  public string gnrcValueInp { get; set; } = default!;
 
   internal static testEnumGnrcValueInpDecoder Factory(IDecoderRepository _) => new();
 }

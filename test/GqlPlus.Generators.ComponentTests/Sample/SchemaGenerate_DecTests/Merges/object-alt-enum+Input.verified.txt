@@ -11,7 +11,7 @@ input ObjAltEnumInp { ! false }
 
 namespace Components.Gqlp_Schema_object_alt_enum_Input;
 
-internal class CmptObjAltEnumInpDecoder
+internal class CmptObjAltEnumInpDecoder : NullDecoder<ICmptObjAltEnumInpObject>
 {
 
   internal static CmptObjAltEnumInpDecoder Factory(IDecoderRepository _) => new();

@@ -43,13 +43,13 @@ internal class test_MaskDecoder<TK>
 {
 }
 
-internal class test_KeyDecoder
+internal class test_KeyDecoder : NullDecoder<Itest_Key>
 {
 
   internal static test_KeyDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class objectDecoder
+internal class objectDecoder : NullDecoder<objectObject>
 {
 
   internal static objectDecoder Factory(IDecoderRepository _) => new();

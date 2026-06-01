@@ -7,9 +7,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_dual_parent_Output;
 
-internal class testAltGnrcPrntDualPrntOutpDecoder
+internal class testAltGnrcPrntDualPrntOutpDecoder : NullDecoder<ItestAltGnrcPrntDualPrntOutpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal Alt { get; set; } = default!;
 
   internal static testAltGnrcPrntDualPrntOutpDecoder Factory(IDecoderRepository _) => new();
 }

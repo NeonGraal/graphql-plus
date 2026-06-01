@@ -78,43 +78,43 @@ dual _Modifier<$modifierKind:_ModifierKind> {
 
 namespace Components.Gqlp_Spec_Type;
 
-internal class Cmpt_SimpleKindDecoder
+internal class Cmpt_SimpleKindDecoder : NullDecoder<Cmpt_SimpleKind>
 {
-  public string Basic { get; set; }
-  public string Enum { get; set; }
-  public string Internal { get; set; }
-  public string Domain { get; set; }
-  public string Union { get; set; }
+  public string Basic { get; set; } = default!;
+  public string Enum { get; set; } = default!;
+  public string Internal { get; set; } = default!;
+  public string Domain { get; set; } = default!;
+  public string Union { get; set; } = default!;
 
   internal static Cmpt_SimpleKindDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_TypeKindDecoder
+internal class Cmpt_TypeKindDecoder : NullDecoder<Cmpt_TypeKind>
 {
-  public string Basic { get; set; }
-  public string Enum { get; set; }
-  public string Internal { get; set; }
-  public string Domain { get; set; }
-  public string Union { get; set; }
-  public string Dual { get; set; }
-  public string Input { get; set; }
-  public string Output { get; set; }
+  public string Basic { get; set; } = default!;
+  public string Enum { get; set; } = default!;
+  public string Internal { get; set; } = default!;
+  public string Domain { get; set; } = default!;
+  public string Union { get; set; } = default!;
+  public string Dual { get; set; } = default!;
+  public string Input { get; set; } = default!;
+  public string Output { get; set; } = default!;
 
   internal static Cmpt_TypeKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_TypeRefDecoder<TTypeKind>
 {
-  public TTypeKind TypeKind { get; set; }
+  public TTypeKind TypeKind { get; set; } = default!;
 }
 
-internal class Cmpt_TypeSimpleDecoder
+internal class Cmpt_TypeSimpleDecoder : NullDecoder<ICmpt_TypeSimpleObject>
 {
 
   internal static Cmpt_TypeSimpleDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_CollectionsDecoder
+internal class Cmpt_CollectionsDecoder : NullDecoder<ICmpt_CollectionsObject>
 {
 
   internal static Cmpt_CollectionsDecoder Factory(IDecoderRepository _) => new();
@@ -122,34 +122,34 @@ internal class Cmpt_CollectionsDecoder
 
 internal class Cmpt_ModifierKeyedDecoder<TModifierKind>
 {
-  public ICmpt_TypeSimple By { get; set; }
-  public bool IsOptional { get; set; }
+  public ICmpt_TypeSimple By { get; set; } = default!;
+  public bool IsOptional { get; set; } = default!;
 }
 
-internal class Cmpt_ModifiersDecoder
+internal class Cmpt_ModifiersDecoder : NullDecoder<ICmpt_ModifiersObject>
 {
 
   internal static Cmpt_ModifiersDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_ModifierKindDecoder
+internal class Cmpt_ModifierKindDecoder : NullDecoder<Cmpt_ModifierKind>
 {
-  public string Req { get; set; }
-  public string Required { get; set; }
-  public string Opt { get; set; }
-  public string Optional { get; set; }
-  public string List { get; set; }
-  public string Dict { get; set; }
-  public string Dictionary { get; set; }
-  public string Param { get; set; }
-  public string TypeParam { get; set; }
+  public string Req { get; set; } = default!;
+  public string Required { get; set; } = default!;
+  public string Opt { get; set; } = default!;
+  public string Optional { get; set; } = default!;
+  public string List { get; set; } = default!;
+  public string Dict { get; set; } = default!;
+  public string Dictionary { get; set; } = default!;
+  public string Param { get; set; } = default!;
+  public string TypeParam { get; set; } = default!;
 
   internal static Cmpt_ModifierKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_ModifierDecoder<TModifierKind>
 {
-  public TModifierKind ModifierKind { get; set; }
+  public TModifierKind ModifierKind { get; set; } = default!;
 }
 
 internal static class Cmpt_Spec_TypeDecoders

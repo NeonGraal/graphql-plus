@@ -1,0 +1,13 @@
+﻿Category: _Schema
+ParsedOperation:
+!g I@001/0001
+_Schema
+Success
+{
+  !f I@011/0001
+  categories
+  {
+    !f I@024/0001
+    name
+  }
+}

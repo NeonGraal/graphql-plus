@@ -51,6 +51,7 @@
     <Project Path="src/GqlPlus.Parser.Ast/GqlPlus.Parser.Ast.csproj" />
     <Project Path="src/GqlPlus.Parser/GqlPlus.Parser.csproj" />
     <Project Path="src/GqlPlus.Request/GqlPlus.Request.csproj" />
+    <Project Path="src/GqlPlus.Schema/GqlPlus.Schema.csproj" />
     <Project Path="src/GqlPlus.Schema.Codec/GqlPlus.Schema.Codec.csproj" />
     <Project Path="src/GqlPlus.Schema.Modeller/GqlPlus.Schema.Modeller.csproj" />
     <Project Path="src/GqlPlus.Schema.Models/GqlPlus.Schema.Models.csproj" />

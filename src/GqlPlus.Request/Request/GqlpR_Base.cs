@@ -12,6 +12,6 @@ public class GqlpR_ModelBase
 public class GqlpR_EncoderBase
 { }
 
-// Todo: [GqlpGenerator(GqlpGeneratorType.Decoder)]
+[GqlpGenerator(GqlpGeneratorType.Decoder)]
 public class GqlpR_DecoderBase
 { }

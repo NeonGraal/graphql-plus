@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Request.Reading;
+﻿using GqlPlus.Reading;
+
+namespace GqlPlus.Request.Reading;
 
 public class GqReqReaderTests
 {

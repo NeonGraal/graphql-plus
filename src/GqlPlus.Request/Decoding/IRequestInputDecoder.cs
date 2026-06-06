@@ -1,4 +1,4 @@
-namespace GqlPlus.Request.Decoding;
+﻿namespace GqlPlus.Decoding;
 
 public interface IRequestInputDecoder
 {

@@ -1,6 +1,4 @@
-﻿using GqlPlus.Structures;
-
-namespace GqlPlus.Request.Reading;
+﻿namespace GqlPlus.Reading;
 
 public static class ParameterBuilder
 {

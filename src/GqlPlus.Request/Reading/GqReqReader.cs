@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Request.Reading;
+﻿namespace GqlPlus.Reading;
 
 public static class GqReqReader
 {

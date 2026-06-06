@@ -1,10 +1,10 @@
-using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Ast.Operation;
 using GqlPlus.Parsing;
 using GqlPlus.Parsing.Operation;
-using GqlPlus.Request.Reading;
+using GqlPlus.Reading;
 using GqlPlus.Result;
 
-namespace GqlPlus.Request.Decoding;
+namespace GqlPlus.Decoding;
 
 public class RequestInputDecoder(IParserRepository parsers) : IRequestInputDecoder
 {

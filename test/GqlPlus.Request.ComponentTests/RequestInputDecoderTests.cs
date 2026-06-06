@@ -1,3 +1,5 @@
+﻿using GqlPlus.Decoding;
+
 namespace GqlPlus.Request;
 
 public class RequestInputDecoderTests(

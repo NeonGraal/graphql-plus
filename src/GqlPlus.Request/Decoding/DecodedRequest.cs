@@ -1,6 +1,6 @@
-using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Ast.Operation;
 
-namespace GqlPlus.Request.Decoding;
+namespace GqlPlus.Decoding;
 
 public record DecodedRequest(
     string? Category,

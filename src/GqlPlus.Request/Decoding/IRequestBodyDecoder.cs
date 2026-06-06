@@ -1,6 +1,4 @@
-﻿using GqlPlus.Structures;
-
-namespace GqlPlus.Request.Decoding;
+﻿namespace GqlPlus.Decoding;
 
 public interface IRequestBodyDecoder
 {

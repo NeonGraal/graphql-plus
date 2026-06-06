@@ -1,5 +1,5 @@
+﻿using GqlPlus.Decoding;
 using GqlPlus.Parsing;
-using GqlPlus.Request.Decoding;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus;

@@ -1,5 +1,5 @@
 Write-Host "GitHub Actions ..."
-npx actions-up --mode minor --yes
+npx actions-up --mode minor --style preserve --yes
 
 Write-Host "Nuget ..."
 $clean = -not (git status -s)
@@ -26,4 +26,4 @@ Write-Host "  -  Update with 'dotnet tool update (<tool> | --all)'"
 
 Write-Host "GitHub Actions ..."
 npx actions-up --dry-run
-Write-Host "  -  Update with 'npx actions-up'"
+Write-Host "  -  Update with 'npx actions-up --style preserve'"

@@ -11,6 +11,11 @@
       "version": "5.5.10",
       "commands": ["reportgenerator"],
       "rollForward": false
+    },
+    "dotnet-tools-outdated": {
+      "version": "0.8.0",
+      "commands": ["dotnet-tools-outdated"],
+      "rollForward": false
     }
   }
 }

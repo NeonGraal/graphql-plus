@@ -1,5 +1,4 @@
-Write-Host "GitHub Actions ..."
-npx actions-up --mode minor --style preserve --yes
+dotnet tool restore
 
 Write-Host "Nuget ..."
 $clean = -not (git status -s)
@@ -14,6 +13,9 @@ if ($clean) {
     dotnet outdated .\ -vl major @exclusions
 }
 
+Write-Host "GitHub Actions ..."
+npx --yes actions-up --mode minor --style preserve --yes
+
 dotnet list package --deprecated
 dotnet list package --vulnerable --include-transitive
 
@@ -25,5 +27,5 @@ dotnet tools-outdated
 Write-Host "  -  Update with 'dotnet tool update (<tool> | --all)'"
 
 Write-Host "GitHub Actions ..."
-npx actions-up --dry-run
+npx actions-up --style preserve --dry-run
 Write-Host "  -  Update with 'npx actions-up --style preserve'"

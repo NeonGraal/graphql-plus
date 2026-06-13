@@ -11,15 +11,15 @@ enum EnumAltEnumInp { altEnumInp }
 
 namespace Components.Gqlp_Schema_alt_enum_Input;
 
-internal class CmptAltEnumInpDecoder
+internal class CmptAltEnumInpDecoder : NullDecoder<ICmptAltEnumInpObject>
 {
 
   internal static CmptAltEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEnumAltEnumInpDecoder
+internal class CmptEnumAltEnumInpDecoder : NullDecoder<CmptEnumAltEnumInp>
 {
-  public string altEnumInp { get; set; }
+  public string altEnumInp { get; set; } = default!;
 
   internal static CmptEnumAltEnumInpDecoder Factory(IDecoderRepository _) => new();
 }

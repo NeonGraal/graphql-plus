@@ -7,114 +7,114 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Definition;
 
-internal class boolDecoder
+internal class boolDecoder : NullDecoder<bool>
 {
-  public string false { get; set; }
-  public string true { get; set; }
+  public string false { get; set; } = default!;
+  public string true { get; set; } = default!;
 
   internal static boolDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class GqlpNullDecoder
+internal class GqlpNullDecoder : NullDecoder<GqlpNull>
 {
-  public string null { get; set; }
+  public string null { get; set; } = default!;
 
   internal static GqlpNullDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class GqlpUnitDecoder
+internal class GqlpUnitDecoder : NullDecoder<GqlpUnit>
 {
-  public string _ { get; set; }
+  public string _ { get; set; } = default!;
 
   internal static GqlpUnitDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class voidDecoder
+internal class voidDecoder : NullDecoder<void>
 {
 
   internal static voidDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class decimalDecoder
+internal class decimalDecoder : NullDecoder<decimal>
 {
 
   internal static decimalDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class stringDecoder
+internal class stringDecoder : NullDecoder<string>
 {
 
   internal static stringDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_BasicDecoder
+internal class test_BasicDecoder : NullDecoder<Itest_Basic>
 {
-  public Boolean AsBoolean { get; set; }
-  public Number AsNumber { get; set; }
-  public String AsString { get; set; }
-  public Unit AsUnit { get; set; }
+  public Boolean AsBoolean { get; set; } = default!;
+  public Number AsNumber { get; set; } = default!;
+  public String AsString { get; set; } = default!;
+  public Unit AsUnit { get; set; } = default!;
 
   internal static test_BasicDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_InternalDecoder
+internal class test_InternalDecoder : NullDecoder<Itest_Internal>
 {
-  public Null AsNull { get; set; }
-  public Void AsVoid { get; set; }
+  public Null AsNull { get; set; } = default!;
+  public Void AsVoid { get; set; } = default!;
 
   internal static test_InternalDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_KeyDecoder
+internal class test_KeyDecoder : NullDecoder<Itest_Key>
 {
-  public _Basic As_Basic { get; set; }
-  public _Internal As_Internal { get; set; }
-  public _Simple As_Simple { get; set; }
+  public _Basic As_Basic { get; set; } = default!;
+  public _Internal As_Internal { get; set; } = default!;
+  public _Simple As_Simple { get; set; } = default!;
 
   internal static test_KeyDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_ObjectDecoder
+internal class test_ObjectDecoder : NullDecoder<Itest_ObjectObject>
 {
 
   internal static test_ObjectDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_DomainDecoder
+internal class test_DomainDecoder : NullDecoder<Itest_Domain>
 {
 
   internal static test_DomainDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_DualDecoder
+internal class test_DualDecoder : NullDecoder<Itest_DualObject>
 {
 
   internal static test_DualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_EnumDecoder
+internal class test_EnumDecoder : NullDecoder<Itest_Enum>
 {
 
   internal static test_EnumDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_InputDecoder
+internal class test_InputDecoder : NullDecoder<Itest_InputObject>
 {
 
   internal static test_InputDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_UnionDecoder
+internal class test_UnionDecoder : NullDecoder<Itest_Union>
 {
 
   internal static test_UnionDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_SimpleDecoder
+internal class test_SimpleDecoder : NullDecoder<Itest_Simple>
 {
-  public _Enum As_Enum { get; set; }
-  public _Domain As_Domain { get; set; }
-  public _Union As_Union { get; set; }
+  public _Enum As_Enum { get; set; } = default!;
+  public _Domain As_Domain { get; set; } = default!;
+  public _Union As_Union { get; set; } = default!;
 
   internal static test_SimpleDecoder Factory(IDecoderRepository _) => new();
 }

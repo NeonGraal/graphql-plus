@@ -13,7 +13,7 @@ domain JustCnstDomEnumDual { enum EnumCnstDomEnumDual.cnstDomEnumDual }
 
 namespace Components.Gqlp_Schema_constraint_dom_enum_Dual;
 
-internal class CmptCnstDomEnumDualDecoder
+internal class CmptCnstDomEnumDualDecoder : NullDecoder<ICmptCnstDomEnumDualObject>
 {
 
   internal static CmptCnstDomEnumDualDecoder Factory(IDecoderRepository _) => new();
@@ -21,18 +21,18 @@ internal class CmptCnstDomEnumDualDecoder
 
 internal class CmptRefCnstDomEnumDualDecoder<TType>
 {
-  public TType Field { get; set; }
+  public TType Field { get; set; } = default!;
 }
 
-internal class CmptEnumCnstDomEnumDualDecoder
+internal class CmptEnumCnstDomEnumDualDecoder : NullDecoder<CmptEnumCnstDomEnumDual>
 {
-  public string cnstDomEnumDual { get; set; }
-  public string other { get; set; }
+  public string cnstDomEnumDual { get; set; } = default!;
+  public string other { get; set; } = default!;
 
   internal static CmptEnumCnstDomEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptJustCnstDomEnumDualDecoder
+internal class CmptJustCnstDomEnumDualDecoder : NullDecoder<ICmptJustCnstDomEnumDual>
 {
 
   internal static CmptJustCnstDomEnumDualDecoder Factory(IDecoderRepository _) => new();

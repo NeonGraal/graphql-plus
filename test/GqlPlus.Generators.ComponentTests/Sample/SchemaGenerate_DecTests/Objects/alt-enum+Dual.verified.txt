@@ -11,15 +11,15 @@ enum EnumAltEnumDual { altEnumDual }
 
 namespace Components.Gqlp_Schema_alt_enum_Dual;
 
-internal class CmptAltEnumDualDecoder
+internal class CmptAltEnumDualDecoder : NullDecoder<ICmptAltEnumDualObject>
 {
 
   internal static CmptAltEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEnumAltEnumDualDecoder
+internal class CmptEnumAltEnumDualDecoder : NullDecoder<CmptEnumAltEnumDual>
 {
-  public string altEnumDual { get; set; }
+  public string altEnumDual { get; set; } = default!;
 
   internal static CmptEnumAltEnumDualDecoder Factory(IDecoderRepository _) => new();
 }

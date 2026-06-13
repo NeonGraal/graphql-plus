@@ -7,17 +7,17 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_enum_Output;
 
-internal class testEnumCnstPrntEnumOutpDecoder
+internal class testEnumCnstPrntEnumOutpDecoder : NullDecoder<testEnumCnstPrntEnumOutp>
 {
-  public string parentCnstPrntEnumOutp { get; set; }
-  public string cnstPrntEnumOutp { get; set; }
+  public string parentCnstPrntEnumOutp { get; set; } = default!;
+  public string cnstPrntEnumOutp { get; set; } = default!;
 
   internal static testEnumCnstPrntEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testParentCnstPrntEnumOutpDecoder
+internal class testParentCnstPrntEnumOutpDecoder : NullDecoder<testParentCnstPrntEnumOutp>
 {
-  public string parentCnstPrntEnumOutp { get; set; }
+  public string parentCnstPrntEnumOutp { get; set; } = default!;
 
   internal static testParentCnstPrntEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }

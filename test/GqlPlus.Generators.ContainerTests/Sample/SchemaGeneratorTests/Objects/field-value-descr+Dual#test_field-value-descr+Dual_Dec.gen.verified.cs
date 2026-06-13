@@ -7,16 +7,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_value_descr_Dual;
 
-internal class testFieldValueDescrDualDecoder
+internal class testFieldValueDescrDualDecoder : NullDecoder<ItestFieldValueDescrDualObject>
 {
-  public testEnumFieldValueDescrDual Field { get; set; }
+  public testEnumFieldValueDescrDual Field { get; set; } = default!;
 
   internal static testFieldValueDescrDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumFieldValueDescrDualDecoder
+internal class testEnumFieldValueDescrDualDecoder : NullDecoder<testEnumFieldValueDescrDual>
 {
-  public string fieldValueDescrDual { get; set; }
+  public string fieldValueDescrDual { get; set; } = default!;
 
   internal static testEnumFieldValueDescrDualDecoder Factory(IDecoderRepository _) => new();
 }

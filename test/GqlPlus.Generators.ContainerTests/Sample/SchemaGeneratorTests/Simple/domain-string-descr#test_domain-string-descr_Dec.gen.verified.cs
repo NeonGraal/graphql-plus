@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_string_descr;
 
-internal class testDmnStrDescrDecoder
+internal class testDmnStrDescrDecoder : NullDecoder<ItestDmnStrDescr>
 {
 
   internal static testDmnStrDescrDecoder Factory(IDecoderRepository _) => new();

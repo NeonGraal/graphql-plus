@@ -13,7 +13,7 @@ input AltCnstFieldObjInp { :PrntCnstFieldObjInp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_field_obj_Input;
 
-internal class CmptCnstFieldObjInpDecoder
+internal class CmptCnstFieldObjInpDecoder : NullDecoder<ICmptCnstFieldObjInpObject>
 {
 
   internal static CmptCnstFieldObjInpDecoder Factory(IDecoderRepository _) => new();
@@ -21,18 +21,18 @@ internal class CmptCnstFieldObjInpDecoder
 
 internal class CmptRefCnstFieldObjInpDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef Field { get; set; } = default!;
 }
 
-internal class CmptPrntCnstFieldObjInpDecoder
+internal class CmptPrntCnstFieldObjInpDecoder : NullDecoder<ICmptPrntCnstFieldObjInpObject>
 {
 
   internal static CmptPrntCnstFieldObjInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptAltCnstFieldObjInpDecoder
+internal class CmptAltCnstFieldObjInpDecoder : NullDecoder<ICmptAltCnstFieldObjInpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal Alt { get; set; } = default!;
 
   internal static CmptAltCnstFieldObjInpDecoder Factory(IDecoderRepository _) => new();
 }

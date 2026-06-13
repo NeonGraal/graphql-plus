@@ -1,0 +1,3 @@
+&fragA:Message{...fragB}
+&fragB:Message{...fragA}
+{...fragA}

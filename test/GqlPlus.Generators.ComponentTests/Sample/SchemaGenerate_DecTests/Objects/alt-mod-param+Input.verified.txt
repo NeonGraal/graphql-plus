@@ -15,9 +15,9 @@ internal class CmptAltModParamInpDecoder<TMod>
 {
 }
 
-internal class CmptAltAltModParamInpDecoder
+internal class CmptAltAltModParamInpDecoder : NullDecoder<ICmptAltAltModParamInpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal Alt { get; set; } = default!;
 
   internal static CmptAltAltModParamInpDecoder Factory(IDecoderRepository _) => new();
 }

@@ -7,482 +7,482 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp__Simple;
 
-internal class testDmnBoolDescrDecoder
+internal class testDmnBoolDescrDecoder : NullDecoder<ItestDmnBoolDescr>
 {
 
   internal static testDmnBoolDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnBoolPrntDecoder
+internal class testDmnBoolPrntDecoder : NullDecoder<ItestDmnBoolPrnt>
 {
 
   internal static testDmnBoolPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntDmnBoolPrntDecoder
+internal class testPrntDmnBoolPrntDecoder : NullDecoder<ItestPrntDmnBoolPrnt>
 {
 
   internal static testPrntDmnBoolPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnBoolPrntDescrDecoder
+internal class testDmnBoolPrntDescrDecoder : NullDecoder<ItestDmnBoolPrntDescr>
 {
 
   internal static testDmnBoolPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntDmnBoolPrntDescrDecoder
+internal class testPrntDmnBoolPrntDescrDecoder : NullDecoder<ItestPrntDmnBoolPrntDescr>
 {
 
   internal static testPrntDmnBoolPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnEnumAllDecoder
+internal class testDmnEnumAllDecoder : NullDecoder<ItestDmnEnumAll>
 {
 
   internal static testDmnEnumAllDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDmnEnumAllDecoder
+internal class testEnumDmnEnumAllDecoder : NullDecoder<testEnumDmnEnumAll>
 {
-  public string dmnEnumAll { get; set; }
-  public string enum_dmnEnumAll { get; set; }
-  public string dmnEnumAllValue { get; set; }
+  public string dmnEnumAll { get; set; } = default!;
+  public string enum_dmnEnumAll { get; set; } = default!;
+  public string dmnEnumAllValue { get; set; } = default!;
 
   internal static testEnumDmnEnumAllDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnEnumAllDescrDecoder
+internal class testDmnEnumAllDescrDecoder : NullDecoder<ItestDmnEnumAllDescr>
 {
 
   internal static testDmnEnumAllDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDmnEnumAllDescrDecoder
+internal class testEnumDmnEnumAllDescrDecoder : NullDecoder<testEnumDmnEnumAllDescr>
 {
-  public string dmnEnumAllDescr { get; set; }
-  public string enum_dmnEnumAllDescr { get; set; }
-  public string dmnEnumAllDescrValue { get; set; }
+  public string dmnEnumAllDescr { get; set; } = default!;
+  public string enum_dmnEnumAllDescr { get; set; } = default!;
+  public string dmnEnumAllDescrValue { get; set; } = default!;
 
   internal static testEnumDmnEnumAllDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnEnumAllPrntDecoder
+internal class testDmnEnumAllPrntDecoder : NullDecoder<ItestDmnEnumAllPrnt>
 {
 
   internal static testDmnEnumAllPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDmnEnumAllPrntDecoder
+internal class testEnumDmnEnumAllPrntDecoder : NullDecoder<testEnumDmnEnumAllPrnt>
 {
-  public string prnt_dmnEnumAllPrnt { get; set; }
-  public string dmnEnumAllPrntPrnt { get; set; }
-  public string dmnEnumAllPrnt { get; set; }
-  public string dmnEnumAllPrntValue { get; set; }
+  public string prnt_dmnEnumAllPrnt { get; set; } = default!;
+  public string dmnEnumAllPrntPrnt { get; set; } = default!;
+  public string dmnEnumAllPrnt { get; set; } = default!;
+  public string dmnEnumAllPrntValue { get; set; } = default!;
 
   internal static testEnumDmnEnumAllPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntDmnEnumAllPrntDecoder
+internal class testPrntDmnEnumAllPrntDecoder : NullDecoder<testPrntDmnEnumAllPrnt>
 {
-  public string prnt_dmnEnumAllPrnt { get; set; }
-  public string dmnEnumAllPrntPrnt { get; set; }
+  public string prnt_dmnEnumAllPrnt { get; set; } = default!;
+  public string dmnEnumAllPrntPrnt { get; set; } = default!;
 
   internal static testPrntDmnEnumAllPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnEnumDescrDecoder
+internal class testDmnEnumDescrDecoder : NullDecoder<ItestDmnEnumDescr>
 {
 
   internal static testDmnEnumDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDmnEnumDescrDecoder
+internal class testEnumDmnEnumDescrDecoder : NullDecoder<testEnumDmnEnumDescr>
 {
-  public string dmnEnumDescr { get; set; }
+  public string dmnEnumDescr { get; set; } = default!;
 
   internal static testEnumDmnEnumDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnEnumExclDecoder
+internal class testDmnEnumExclDecoder : NullDecoder<ItestDmnEnumExcl>
 {
 
   internal static testDmnEnumExclDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDmnEnumExclDecoder
+internal class testEnumDmnEnumExclDecoder : NullDecoder<testEnumDmnEnumExcl>
 {
-  public string dmnEnumExcl { get; set; }
-  public string enum_dmnEnumExcl { get; set; }
-  public string dmnEnumExclValue { get; set; }
+  public string dmnEnumExcl { get; set; } = default!;
+  public string enum_dmnEnumExcl { get; set; } = default!;
+  public string dmnEnumExclValue { get; set; } = default!;
 
   internal static testEnumDmnEnumExclDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnEnumExclPrntDecoder
+internal class testDmnEnumExclPrntDecoder : NullDecoder<ItestDmnEnumExclPrnt>
 {
 
   internal static testDmnEnumExclPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDmnEnumExclPrntDecoder
+internal class testEnumDmnEnumExclPrntDecoder : NullDecoder<testEnumDmnEnumExclPrnt>
 {
-  public string prnt_dmnEnumExclPrnt { get; set; }
-  public string dmnEnumExclPrntPrnt { get; set; }
-  public string dmnEnumExclPrnt { get; set; }
-  public string dmnEnumExclPrntValue { get; set; }
+  public string prnt_dmnEnumExclPrnt { get; set; } = default!;
+  public string dmnEnumExclPrntPrnt { get; set; } = default!;
+  public string dmnEnumExclPrnt { get; set; } = default!;
+  public string dmnEnumExclPrntValue { get; set; } = default!;
 
   internal static testEnumDmnEnumExclPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntDmnEnumExclPrntDecoder
+internal class testPrntDmnEnumExclPrntDecoder : NullDecoder<testPrntDmnEnumExclPrnt>
 {
-  public string prnt_dmnEnumExclPrnt { get; set; }
-  public string dmnEnumExclPrntPrnt { get; set; }
+  public string prnt_dmnEnumExclPrnt { get; set; } = default!;
+  public string dmnEnumExclPrntPrnt { get; set; } = default!;
 
   internal static testPrntDmnEnumExclPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnEnumLabelDecoder
+internal class testDmnEnumLabelDecoder : NullDecoder<ItestDmnEnumLabel>
 {
 
   internal static testDmnEnumLabelDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDmnEnumLabelDecoder
+internal class testEnumDmnEnumLabelDecoder : NullDecoder<testEnumDmnEnumLabel>
 {
-  public string dmnEnumLabel { get; set; }
+  public string dmnEnumLabel { get; set; } = default!;
 
   internal static testEnumDmnEnumLabelDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnEnumPrntDecoder
+internal class testDmnEnumPrntDecoder : NullDecoder<ItestDmnEnumPrnt>
 {
 
   internal static testDmnEnumPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntDmnEnumPrntDecoder
+internal class testPrntDmnEnumPrntDecoder : NullDecoder<ItestPrntDmnEnumPrnt>
 {
 
   internal static testPrntDmnEnumPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDmnEnumPrntDecoder
+internal class testEnumDmnEnumPrntDecoder : NullDecoder<testEnumDmnEnumPrnt>
 {
-  public string enum_dmnEnumPrnt { get; set; }
-  public string prnt_dmnEnumPrnt { get; set; }
+  public string enum_dmnEnumPrnt { get; set; } = default!;
+  public string prnt_dmnEnumPrnt { get; set; } = default!;
 
   internal static testEnumDmnEnumPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnEnumPrntDescrDecoder
+internal class testDmnEnumPrntDescrDecoder : NullDecoder<ItestDmnEnumPrntDescr>
 {
 
   internal static testDmnEnumPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntDmnEnumPrntDescrDecoder
+internal class testPrntDmnEnumPrntDescrDecoder : NullDecoder<ItestPrntDmnEnumPrntDescr>
 {
 
   internal static testPrntDmnEnumPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDmnEnumPrntDescrDecoder
+internal class testEnumDmnEnumPrntDescrDecoder : NullDecoder<testEnumDmnEnumPrntDescr>
 {
-  public string enum_dmnEnumPrntDescr { get; set; }
-  public string prnt_dmnEnumPrntDescr { get; set; }
+  public string enum_dmnEnumPrntDescr { get; set; } = default!;
+  public string prnt_dmnEnumPrntDescr { get; set; } = default!;
 
   internal static testEnumDmnEnumPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnEnumUnqDecoder
+internal class testDmnEnumUnqDecoder : NullDecoder<ItestDmnEnumUnq>
 {
 
   internal static testDmnEnumUnqDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDmnEnumUnqDecoder
+internal class testEnumDmnEnumUnqDecoder : NullDecoder<testEnumDmnEnumUnq>
 {
-  public string enum_dmnEnumUnq { get; set; }
-  public string dmnEnumUnq { get; set; }
-  public string dmnEnumUnqValue { get; set; }
+  public string enum_dmnEnumUnq { get; set; } = default!;
+  public string dmnEnumUnq { get; set; } = default!;
+  public string dmnEnumUnqValue { get; set; } = default!;
 
   internal static testEnumDmnEnumUnqDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDupDmnEnumUnqDecoder
+internal class testDupDmnEnumUnqDecoder : NullDecoder<testDupDmnEnumUnq>
 {
-  public string dmnEnumUnq { get; set; }
-  public string dup_dmnEnumUnq { get; set; }
-  public string dmnEnumUnqDup { get; set; }
+  public string dmnEnumUnq { get; set; } = default!;
+  public string dup_dmnEnumUnq { get; set; } = default!;
+  public string dmnEnumUnqDup { get; set; } = default!;
 
   internal static testDupDmnEnumUnqDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnEnumUnqPrntDecoder
+internal class testDmnEnumUnqPrntDecoder : NullDecoder<ItestDmnEnumUnqPrnt>
 {
 
   internal static testDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDmnEnumUnqPrntDecoder
+internal class testEnumDmnEnumUnqPrntDecoder : NullDecoder<testEnumDmnEnumUnqPrnt>
 {
-  public string dmnEnumUnqPrnt { get; set; }
-  public string prnt_dmnEnumUnqPrnt { get; set; }
-  public string dmnEnumUnqPrntPrnt { get; set; }
-  public string enum_dmnEnumUnqPrnt { get; set; }
-  public string dmnEnumUnqPrntValue { get; set; }
+  public string dmnEnumUnqPrnt { get; set; } = default!;
+  public string prnt_dmnEnumUnqPrnt { get; set; } = default!;
+  public string dmnEnumUnqPrntPrnt { get; set; } = default!;
+  public string enum_dmnEnumUnqPrnt { get; set; } = default!;
+  public string dmnEnumUnqPrntValue { get; set; } = default!;
 
   internal static testEnumDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntDmnEnumUnqPrntDecoder
+internal class testPrntDmnEnumUnqPrntDecoder : NullDecoder<testPrntDmnEnumUnqPrnt>
 {
-  public string dmnEnumUnqPrnt { get; set; }
-  public string prnt_dmnEnumUnqPrnt { get; set; }
-  public string dmnEnumUnqPrntPrnt { get; set; }
+  public string dmnEnumUnqPrnt { get; set; } = default!;
+  public string prnt_dmnEnumUnqPrnt { get; set; } = default!;
+  public string dmnEnumUnqPrntPrnt { get; set; } = default!;
 
   internal static testPrntDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDupDmnEnumUnqPrntDecoder
+internal class testDupDmnEnumUnqPrntDecoder : NullDecoder<testDupDmnEnumUnqPrnt>
 {
-  public string dmnEnumUnqPrnt { get; set; }
-  public string dup_dmnEnumUnqPrnt { get; set; }
-  public string dmnEnumUnqPrntDup { get; set; }
+  public string dmnEnumUnqPrnt { get; set; } = default!;
+  public string dup_dmnEnumUnqPrnt { get; set; } = default!;
+  public string dmnEnumUnqPrntDup { get; set; } = default!;
 
   internal static testDupDmnEnumUnqPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnEnumValueDecoder
+internal class testDmnEnumValueDecoder : NullDecoder<ItestDmnEnumValue>
 {
 
   internal static testDmnEnumValueDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDmnEnumValueDecoder
+internal class testEnumDmnEnumValueDecoder : NullDecoder<testEnumDmnEnumValue>
 {
-  public string dmnEnumValue { get; set; }
+  public string dmnEnumValue { get; set; } = default!;
 
   internal static testEnumDmnEnumValueDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnEnumValuePrntDecoder
+internal class testDmnEnumValuePrntDecoder : NullDecoder<ItestDmnEnumValuePrnt>
 {
 
   internal static testDmnEnumValuePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDmnEnumValuePrntDecoder
+internal class testEnumDmnEnumValuePrntDecoder : NullDecoder<testEnumDmnEnumValuePrnt>
 {
-  public string prnt_dmnEnumValuePrnt { get; set; }
-  public string dmnEnumValuePrnt { get; set; }
+  public string prnt_dmnEnumValuePrnt { get; set; } = default!;
+  public string dmnEnumValuePrnt { get; set; } = default!;
 
   internal static testEnumDmnEnumValuePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntDmnEnumValuePrntDecoder
+internal class testPrntDmnEnumValuePrntDecoder : NullDecoder<testPrntDmnEnumValuePrnt>
 {
-  public string prnt_dmnEnumValuePrnt { get; set; }
+  public string prnt_dmnEnumValuePrnt { get; set; } = default!;
 
   internal static testPrntDmnEnumValuePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnNmbrDescrDecoder
+internal class testDmnNmbrDescrDecoder : NullDecoder<ItestDmnNmbrDescr>
 {
 
   internal static testDmnNmbrDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnNmbrPrntDecoder
+internal class testDmnNmbrPrntDecoder : NullDecoder<ItestDmnNmbrPrnt>
 {
 
   internal static testDmnNmbrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntDmnNmbrPrntDecoder
+internal class testPrntDmnNmbrPrntDecoder : NullDecoder<ItestPrntDmnNmbrPrnt>
 {
 
   internal static testPrntDmnNmbrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnNmbrPrntDescrDecoder
+internal class testDmnNmbrPrntDescrDecoder : NullDecoder<ItestDmnNmbrPrntDescr>
 {
 
   internal static testDmnNmbrPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntDmnNmbrPrntDescrDecoder
+internal class testPrntDmnNmbrPrntDescrDecoder : NullDecoder<ItestPrntDmnNmbrPrntDescr>
 {
 
   internal static testPrntDmnNmbrPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnNmbrPstvDecoder
+internal class testDmnNmbrPstvDecoder : NullDecoder<ItestDmnNmbrPstv>
 {
 
   internal static testDmnNmbrPstvDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnNmbrRangeDecoder
+internal class testDmnNmbrRangeDecoder : NullDecoder<ItestDmnNmbrRange>
 {
 
   internal static testDmnNmbrRangeDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnStrDescrDecoder
+internal class testDmnStrDescrDecoder : NullDecoder<ItestDmnStrDescr>
 {
 
   internal static testDmnStrDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnStrNonEmptyDecoder
+internal class testDmnStrNonEmptyDecoder : NullDecoder<ItestDmnStrNonEmpty>
 {
 
   internal static testDmnStrNonEmptyDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnStrPrntDecoder
+internal class testDmnStrPrntDecoder : NullDecoder<ItestDmnStrPrnt>
 {
 
   internal static testDmnStrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntDmnStrPrntDecoder
+internal class testPrntDmnStrPrntDecoder : NullDecoder<ItestPrntDmnStrPrnt>
 {
 
   internal static testPrntDmnStrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnStrPrntDescrDecoder
+internal class testDmnStrPrntDescrDecoder : NullDecoder<ItestDmnStrPrntDescr>
 {
 
   internal static testDmnStrPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntDmnStrPrntDescrDecoder
+internal class testPrntDmnStrPrntDescrDecoder : NullDecoder<ItestPrntDmnStrPrntDescr>
 {
 
   internal static testPrntDmnStrPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDescrDecoder
+internal class testEnumDescrDecoder : NullDecoder<testEnumDescr>
 {
-  public string enumDescr { get; set; }
+  public string enumDescr { get; set; } = default!;
 
   internal static testEnumDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumPrntDecoder
+internal class testEnumPrntDecoder : NullDecoder<testEnumPrnt>
 {
-  public string prnt_enumPrnt { get; set; }
-  public string enumPrnt { get; set; }
+  public string prnt_enumPrnt { get; set; } = default!;
+  public string enumPrnt { get; set; } = default!;
 
   internal static testEnumPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntEnumPrntDecoder
+internal class testPrntEnumPrntDecoder : NullDecoder<testPrntEnumPrnt>
 {
-  public string prnt_enumPrnt { get; set; }
+  public string prnt_enumPrnt { get; set; } = default!;
 
   internal static testPrntEnumPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumPrntAliasDecoder
+internal class testEnumPrntAliasDecoder : NullDecoder<testEnumPrntAlias>
 {
-  public string prnt_enumPrntAlias { get; set; }
-  public string val_enumPrntAlias { get; set; }
-  public string prnt_enumPrntAlias { get; set; }
-  public string enumPrntAlias { get; set; }
+  public string prnt_enumPrntAlias { get; set; } = default!;
+  public string val_enumPrntAlias { get; set; } = default!;
+  public string prnt_enumPrntAlias { get; set; } = default!;
+  public string enumPrntAlias { get; set; } = default!;
 
   internal static testEnumPrntAliasDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntEnumPrntAliasDecoder
+internal class testPrntEnumPrntAliasDecoder : NullDecoder<testPrntEnumPrntAlias>
 {
-  public string prnt_enumPrntAlias { get; set; }
+  public string prnt_enumPrntAlias { get; set; } = default!;
 
   internal static testPrntEnumPrntAliasDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumPrntDescrDecoder
+internal class testEnumPrntDescrDecoder : NullDecoder<testEnumPrntDescr>
 {
-  public string prnt_enumPrntDescr { get; set; }
-  public string enumPrntDescr { get; set; }
+  public string prnt_enumPrntDescr { get; set; } = default!;
+  public string enumPrntDescr { get; set; } = default!;
 
   internal static testEnumPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntEnumPrntDescrDecoder
+internal class testPrntEnumPrntDescrDecoder : NullDecoder<testPrntEnumPrntDescr>
 {
-  public string prnt_enumPrntDescr { get; set; }
+  public string prnt_enumPrntDescr { get; set; } = default!;
 
   internal static testPrntEnumPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumPrntDupDecoder
+internal class testEnumPrntDupDecoder : NullDecoder<testEnumPrntDup>
 {
-  public string prnt_enumPrntDup { get; set; }
-  public string enumPrntDup { get; set; }
-  public string enumPrntDup { get; set; }
+  public string prnt_enumPrntDup { get; set; } = default!;
+  public string enumPrntDup { get; set; } = default!;
+  public string enumPrntDup { get; set; } = default!;
 
   internal static testEnumPrntDupDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntEnumPrntDupDecoder
+internal class testPrntEnumPrntDupDecoder : NullDecoder<testPrntEnumPrntDup>
 {
-  public string prnt_enumPrntDup { get; set; }
-  public string enumPrntDup { get; set; }
+  public string prnt_enumPrntDup { get; set; } = default!;
+  public string enumPrntDup { get; set; } = default!;
 
   internal static testPrntEnumPrntDupDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testUnionDescrDecoder
+internal class testUnionDescrDecoder : NullDecoder<ItestUnionDescr>
 {
-  public Number AsNumber { get; set; }
+  public Number AsNumber { get; set; } = default!;
 
   internal static testUnionDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testUnionPrntDecoder
+internal class testUnionPrntDecoder : NullDecoder<ItestUnionPrnt>
 {
-  public String AsString { get; set; }
+  public String AsString { get; set; } = default!;
 
   internal static testUnionPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntUnionPrntDecoder
+internal class testPrntUnionPrntDecoder : NullDecoder<ItestPrntUnionPrnt>
 {
-  public Number AsNumber { get; set; }
+  public Number AsNumber { get; set; } = default!;
 
   internal static testPrntUnionPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testUnionPrntDescrDecoder
+internal class testUnionPrntDescrDecoder : NullDecoder<ItestUnionPrntDescr>
 {
-  public Number AsNumber { get; set; }
+  public Number AsNumber { get; set; } = default!;
 
   internal static testUnionPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntUnionPrntDescrDecoder
+internal class testPrntUnionPrntDescrDecoder : NullDecoder<ItestPrntUnionPrntDescr>
 {
-  public Number AsNumber { get; set; }
+  public Number AsNumber { get; set; } = default!;
 
   internal static testPrntUnionPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testUnionPrntDupDecoder
+internal class testUnionPrntDupDecoder : NullDecoder<ItestUnionPrntDup>
 {
-  public Number AsNumber { get; set; }
+  public Number AsNumber { get; set; } = default!;
 
   internal static testUnionPrntDupDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntUnionPrntDupDecoder
+internal class testPrntUnionPrntDupDecoder : NullDecoder<ItestPrntUnionPrntDup>
 {
-  public Number AsNumber { get; set; }
+  public Number AsNumber { get; set; } = default!;
 
   internal static testPrntUnionPrntDupDecoder Factory(IDecoderRepository _) => new();
 }

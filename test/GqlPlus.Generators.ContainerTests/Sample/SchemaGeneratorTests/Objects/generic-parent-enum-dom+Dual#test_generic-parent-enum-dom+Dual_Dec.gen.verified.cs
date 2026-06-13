@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_dom_Dual;
 
-internal class testGnrcPrntEnumDomDualDecoder
+internal class testGnrcPrntEnumDomDualDecoder : NullDecoder<ItestGnrcPrntEnumDomDualObject>
 {
 
   internal static testGnrcPrntEnumDomDualDecoder Factory(IDecoderRepository _) => new();
@@ -15,18 +15,18 @@ internal class testGnrcPrntEnumDomDualDecoder
 
 internal class testFieldGnrcPrntEnumDomDualDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef Field { get; set; } = default!;
 }
 
-internal class testEnumGnrcPrntEnumDomDualDecoder
+internal class testEnumGnrcPrntEnumDomDualDecoder : NullDecoder<testEnumGnrcPrntEnumDomDual>
 {
-  public string gnrcPrntEnumDomDualLabel { get; set; }
-  public string gnrcPrntEnumDomDualOther { get; set; }
+  public string gnrcPrntEnumDomDualLabel { get; set; } = default!;
+  public string gnrcPrntEnumDomDualOther { get; set; } = default!;
 
   internal static testEnumGnrcPrntEnumDomDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDomGnrcPrntEnumDomDualDecoder
+internal class testDomGnrcPrntEnumDomDualDecoder : NullDecoder<ItestDomGnrcPrntEnumDomDual>
 {
 
   internal static testDomGnrcPrntEnumDomDualDecoder Factory(IDecoderRepository _) => new();

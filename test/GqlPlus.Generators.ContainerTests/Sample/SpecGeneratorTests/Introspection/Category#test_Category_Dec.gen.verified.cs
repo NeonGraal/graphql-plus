@@ -7,11 +7,11 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Category;
 
-internal class test_ResolutionDecoder
+internal class test_ResolutionDecoder : NullDecoder<test_Resolution>
 {
-  public string Parallel { get; set; }
-  public string Sequential { get; set; }
-  public string Single { get; set; }
+  public string Parallel { get; set; } = default!;
+  public string Sequential { get; set; } = default!;
+  public string Single { get; set; } = default!;
 
   internal static test_ResolutionDecoder Factory(IDecoderRepository _) => new();
 }

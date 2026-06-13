@@ -7,9 +7,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_value_Output;
 
-internal class testEnumGnrcValueOutpDecoder
+internal class testEnumGnrcValueOutpDecoder : NullDecoder<testEnumGnrcValueOutp>
 {
-  public string gnrcValueOutp { get; set; }
+  public string gnrcValueOutp { get; set; } = default!;
 
   internal static testEnumGnrcValueOutpDecoder Factory(IDecoderRepository _) => new();
 }

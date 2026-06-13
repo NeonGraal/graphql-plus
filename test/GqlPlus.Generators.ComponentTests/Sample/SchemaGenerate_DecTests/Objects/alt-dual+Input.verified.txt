@@ -11,15 +11,15 @@ dual ObjDualAltDualInp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_dual_Input;
 
-internal class CmptAltDualInpDecoder
+internal class CmptAltDualInpDecoder : NullDecoder<ICmptAltDualInpObject>
 {
 
   internal static CmptAltDualInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptObjDualAltDualInpDecoder
+internal class CmptObjDualAltDualInpDecoder : NullDecoder<ICmptObjDualAltDualInpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal Alt { get; set; } = default!;
 
   internal static CmptObjDualAltDualInpDecoder Factory(IDecoderRepository _) => new();
 }

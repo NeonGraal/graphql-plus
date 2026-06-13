@@ -1,0 +1,86 @@
+﻿/* Selections
+input _OpSelection {
+    |   _OpField
+    |   _OpSpread
+    |   _OpInline
+    }
+
+input _OpField {
+    : _OpDirectives
+        fieldAlias: _Identifier? = null
+        argument: _OpArgument?
+        modifiers: _Modifiers[]
+    }
+
+input _OpInline {
+        type: _Identifier? = null
+        directives: _OpDirective[]
+    }
+
+dual _OpSpread {
+        fragment: _Identifier
+        directives: _OpDirective[]
+    }
+*/
+
+// Generated from Spec Selections
+//   with GeneratorOption: BaseType: Interface, BaseName: Spec_Selections, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Spec_Selections;
+
+public interface ICmpt_OpSelection
+  : Spec_Selections
+{
+  ICmpt_OpField? As_OpField { get; }
+  ICmpt_OpSpread? As_OpSpread { get; }
+  ICmpt_OpInline? As_OpInline { get; }
+  ICmpt_OpSelectionObject? As__OpSelection { get; }
+}
+
+public interface ICmpt_OpSelectionObject
+  : Spec_Selections
+{
+}
+
+public interface ICmpt_OpField
+  : ICmpt_OpDirectives
+{
+  ICmpt_OpFieldObject? As__OpField { get; }
+}
+
+public interface ICmpt_OpFieldObject
+  : ICmpt_OpDirectivesObject
+{
+  ICmpt_Identifier? FieldAlias { get; }
+  ICmpt_OpArgument? Argument { get; }
+  ICollection<ICmpt_Modifiers> Modifiers { get; }
+}
+
+public interface ICmpt_OpInline
+  : Spec_Selections
+{
+  ICmpt_OpInlineObject? As__OpInline { get; }
+}
+
+public interface ICmpt_OpInlineObject
+  : Spec_Selections
+{
+  ICmpt_Identifier? Type { get; }
+  ICollection<ICmpt_OpDirective> Directives { get; }
+}
+
+public interface ICmpt_OpSpread
+  : Spec_Selections
+{
+  ICmpt_OpSpreadObject? As__OpSpread { get; }
+}
+
+public interface ICmpt_OpSpreadObject
+  : Spec_Selections
+{
+  ICmpt_Identifier Fragment { get; }
+  ICollection<ICmpt_OpDirective> Directives { get; }
+}

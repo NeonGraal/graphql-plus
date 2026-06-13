@@ -1,0 +1,33 @@
+﻿/* generic-alt-simple+Input
+input GnrcAltSmplInp { | RefGnrcAltSmplInp<String> }
+input RefGnrcAltSmplInp<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-alt-simple+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-simple+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_simple_Input;
+
+internal class CmptGnrcAltSmplInpEncoder : IEncoder<ICmptGnrcAltSmplInpObject>
+{
+  public Structured Encode(ICmptGnrcAltSmplInpObject input)
+    => Structured.Empty();
+
+  internal static CmptGnrcAltSmplInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptRefGnrcAltSmplInpEncoder<TRef> : IEncoder<ICmptRefGnrcAltSmplInpObject<TRef>>
+{
+  public Structured Encode(ICmptRefGnrcAltSmplInpObject<TRef> input)
+    => Structured.Empty();
+}
+
+internal static class Cmpt_Schema_generic_alt_simple_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_alt_simple_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptGnrcAltSmplInpObject>(CmptGnrcAltSmplInpEncoder.Factory);
+}

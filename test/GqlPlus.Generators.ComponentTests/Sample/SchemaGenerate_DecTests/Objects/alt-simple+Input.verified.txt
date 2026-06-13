@@ -10,7 +10,7 @@ input AltSmplInp { | String }
 
 namespace Components.Gqlp_Schema_alt_simple_Input;
 
-internal class CmptAltSmplInpDecoder
+internal class CmptAltSmplInpDecoder : NullDecoder<ICmptAltSmplInpObject>
 {
 
   internal static CmptAltSmplInpDecoder Factory(IDecoderRepository _) => new();

@@ -10,7 +10,7 @@ dual AltDescrDual { | "Test" "Descr" String }
 
 namespace Components.Gqlp_Schema_alt_descr_Dual;
 
-internal class CmptAltDescrDualDecoder
+internal class CmptAltDescrDualDecoder : NullDecoder<ICmptAltDescrDualObject>
 {
 
   internal static CmptAltDescrDualDecoder Factory(IDecoderRepository _) => new();

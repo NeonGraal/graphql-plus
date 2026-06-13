@@ -12,14 +12,14 @@ dual FldObjFieldAliasDual { }
 
 namespace Components.Gqlp_Schema_object_field_alias_Dual;
 
-internal class CmptObjFieldAliasDualDecoder
+internal class CmptObjFieldAliasDualDecoder : NullDecoder<ICmptObjFieldAliasDualObject>
 {
-  public ICmptFldObjFieldAliasDual Field { get; set; }
+  public ICmptFldObjFieldAliasDual Field { get; set; } = default!;
 
   internal static CmptObjFieldAliasDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptFldObjFieldAliasDualDecoder
+internal class CmptFldObjFieldAliasDualDecoder : NullDecoder<ICmptFldObjFieldAliasDualObject>
 {
 
   internal static CmptFldObjFieldAliasDualDecoder Factory(IDecoderRepository _) => new();

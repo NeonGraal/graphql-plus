@@ -20,6 +20,7 @@ build-all:
     - dotnet restore
     - dotnet build
     - tar -czf ${BUILD_OUTPUT_FILE} ./src ./test
+    - echo (${BUILD_OUTPUT_ARGS})
     - curl --upload-file build-output.tar.gz ${BUILD_OUTPUT_ARGS}
 
 test-each:

@@ -10,8 +10,8 @@ variables:
   DOTNET_NOLOGO: "1"
 
 build-all:
-  image: mercy-u:5050/mercy/ci-cd-runners/dotnet:$DOTNET_VERSION
   stage: build
+  image: mercy-u:5050/mercy/ci-cd-runners/dotnet:$DOTNET_VERSION
   script:
     - dotnet restore
     - dotnet build
@@ -71,7 +71,6 @@ test-each:
 
 deploy-test-pages:
   stage: deploy
-  image: mercy-u:5050/mercy/ci-cd-runners/dotnet:$DOTNET_VERSION
   parallel:
     matrix:
       - DOTNET_VERSION:
@@ -87,5 +86,7 @@ deploy-test-pages:
               - $[[ matrix.DOTNET_VERSION ]]
             CLASS_TESTS:
               - $[[ matrix.CLASS_TESTS ]]
+  script:
+    - echo Publishing
   pages:
-    publish: test/Html
+    publish: test/Html/

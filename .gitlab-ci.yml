@@ -1,0 +1,95 @@
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+    - when: never
+
+stages:
+  - build
+  - test
+  - pages
+
+variables:
+  DOTNET_VERSION: "10.0"
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: "1"
+  DOTNET_NOLOGO: "1"
+
+build:
+  image: mercy-u:5050/mercy/ci-cd-runners/dotnet:10.0
+  stage: build
+  script:
+    - dotnet restore
+    - dotnet build
+  artifacts:
+    name: build
+    paths:
+      - src/
+      - test/
+    expire_in: 1 day
+
+test:
+  stage: test
+  parallel:
+    matrix:
+      - DOTNET_VERSION:
+          - "8.0"
+          - "9.0"
+          - "10.0"
+        CLASS_TESTS:
+          - "true"
+          - "false"
+  needs:
+    - job: build
+      artifacts: true
+  script:
+    - |
+      if [ "$CLASS_TESTS" = "true" ]; then
+        pwsh -NoLogo -NoProfile -File ./just-coverage.ps1 -Framework "$DOTNET_VERSION" -ClassTests
+      else
+        pwsh -NoLogo -NoProfile -File ./just-coverage.ps1 -Framework "$DOTNET_VERSION"
+      fi
+    - dotnet tool restore --tool-manifest .config/dotnet-tools.json
+    - >
+      dotnet reportgenerator
+      -reports:"$CI_PROJECT_DIR/coverage/Coverage-$DOTNET_VERSION.xml"
+      -targetdir:"$CI_PROJECT_DIR/coverage/"
+      -reporttypes:'MarkdownSummaryGithub;Html'
+    - |
+      if [ "$CLASS_TESTS" = "true" ]; then
+        pwsh -NoLogo -NoProfile -File ./make-summary.ps1 -Framework "$DOTNET_VERSION" -ClassTests
+      else
+        pwsh -NoLogo -NoProfile -File ./make-summary.ps1 -Framework "$DOTNET_VERSION"
+      fi
+    - |
+      if [ "$CLASS_TESTS" = "false" ]; then
+        pwsh -NoLogo -NoProfile -File ./check-links.ps1
+      fi
+  artifacts:
+    when: always
+    expire_in: 1 day
+    paths:
+      - coverage/
+      - summary.md
+      - test/Html/
+      - "**/TestResults-*.trx"
+
+pages:
+  stage: pages
+  before_script: []
+  parallel:
+    matrix:
+      - DOTNET_VERSION:
+          - "10.0"
+        CLASS_TESTS:
+          - "false"
+  needs:
+    - job: test
+      artifacts: true
+      parallel:
+        matrix:
+          - DOTNET_VERSION:
+              - $[[ matrix.DOTNET_VERSION ]]
+            CLASS_TESTS:
+              - $[[ matrix.CLASS_TESTS ]]
+  pages:
+    publish: test/Html

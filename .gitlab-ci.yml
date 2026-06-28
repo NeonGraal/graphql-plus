@@ -8,6 +8,7 @@ variables:
   DOTNET_VERSION: "10.0"
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: "1"
   DOTNET_NOLOGO: "1"
+  BUILD_OUTPUT_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/my-build/${CI_COMMIT_SHA}"
 
 build-all:
   stage: build
@@ -15,12 +16,11 @@ build-all:
   script:
     - dotnet restore
     - dotnet build
-  artifacts:
-    name: build
-    paths:
-      - src/
-      - test/
-    expire_in: 1 day
+    - tar -czf build-output.tar.gz ./src ./test
+    - >
+      curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}"
+           --upload-file build-output.tar.gz
+           "${BUILD_OUTPUT_URL}/build-output.tar.gz"
 
 test-each:
   stage: test
@@ -36,8 +36,11 @@ test-each:
   image: mercy-u:5050/mercy/ci-cd-runners/dotnet:$DOTNET_VERSION
   needs:
     - job: build-all
-      artifacts: true
   script:
+    - >
+      curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}"
+           -O "${BUILD_OUTPUT_URL}/build-output.tar.gz"
+    - tar -xzf build-output.tar.gz
     - |
       if [ "$CLASS_TESTS" = "true" ]; then
         pwsh -NoLogo -NoProfile -File ./just-coverage.ps1 -Framework "$DOTNET_VERSION" -ClassTests
@@ -47,9 +50,9 @@ test-each:
     - dotnet tool restore --tool-manifest .config/dotnet-tools.json
     - >
       dotnet reportgenerator
-      -reports:"$CI_PROJECT_DIR/coverage/Coverage-$DOTNET_VERSION.xml"
-      -targetdir:"$CI_PROJECT_DIR/coverage/"
-      -reporttypes:'MarkdownSummaryGithub;Html'
+        -reports:"$CI_PROJECT_DIR/coverage/Coverage-$DOTNET_VERSION.xml"
+        -targetdir:"$CI_PROJECT_DIR/coverage/"
+        -reporttypes:'MarkdownSummaryGithub;Html'
     - |
       if [ "$CLASS_TESTS" = "true" ]; then
         pwsh -NoLogo -NoProfile -File ./make-summary.ps1 -Framework "$DOTNET_VERSION" -ClassTests

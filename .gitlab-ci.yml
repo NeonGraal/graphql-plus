@@ -9,7 +9,7 @@ variables:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: "1"
   DOTNET_NOLOGO: "1"
 
-build:
+build-all:
   image: mercy-u:5050/mercy/ci-cd-runners/dotnet:$DOTNET_VERSION
   stage: build
   script:
@@ -22,7 +22,7 @@ build:
       - test/
     expire_in: 1 day
 
-test:
+test-each:
   stage: test
   parallel:
     matrix:
@@ -35,7 +35,7 @@ test:
           - "false"
   image: mercy-u:5050/mercy/ci-cd-runners/dotnet:$DOTNET_VERSION
   needs:
-    - job: build
+    - job: build-all
       artifacts: true
   script:
     - |
@@ -69,7 +69,7 @@ test:
       - test/Html/
       - "**/TestResults-*.trx"
 
-deploy:
+deploy-test-pages:
   stage: deploy
   image: mercy-u:5050/mercy/ci-cd-runners/dotnet:$DOTNET_VERSION
   parallel:
@@ -79,7 +79,7 @@ deploy:
         CLASS_TESTS:
           - "false"
   needs:
-    - job: test
+    - job: test-each
       artifacts: true
       parallel:
         matrix:

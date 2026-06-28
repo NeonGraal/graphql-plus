@@ -9,7 +9,7 @@ variables:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: "1"
   DOTNET_NOLOGO: "1"
   BUILD_FILE: "build-output.tar.gz"
-  BUILD_TOKEN: "--header='JOB-TOKEN: ${CI_JOB_TOKEN}'"
+  BUILD_TOKEN: "--header 'JOB-TOKEN: ${CI_JOB_TOKEN}'"
   BUILD_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/my-build/${CI_COMMIT_SHA}/${BUILD_FILE}"
 
 build-all:

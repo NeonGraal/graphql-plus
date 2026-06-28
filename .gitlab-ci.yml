@@ -4,18 +4,13 @@ workflow:
     - if: '$CI_PIPELINE_SOURCE == "web"'
     - when: never
 
-stages:
-  - build
-  - test
-  - pages
-
 variables:
   DOTNET_VERSION: "10.0"
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: "1"
   DOTNET_NOLOGO: "1"
 
 build:
-  image: mercy-u:5050/mercy/ci-cd-runners/dotnet:10.0
+  image: mercy-u:5050/mercy/ci-cd-runners/dotnet:$DOTNET_VERSION
   stage: build
   script:
     - dotnet restore
@@ -38,6 +33,7 @@ test:
         CLASS_TESTS:
           - "true"
           - "false"
+  image: mercy-u:5050/mercy/ci-cd-runners/dotnet:$DOTNET_VERSION
   needs:
     - job: build
       artifacts: true
@@ -73,9 +69,9 @@ test:
       - test/Html/
       - "**/TestResults-*.trx"
 
-pages:
-  stage: pages
-  before_script: []
+deploy:
+  stage: deploy
+  image: mercy-u:5050/mercy/ci-cd-runners/dotnet:$DOTNET_VERSION
   parallel:
     matrix:
       - DOTNET_VERSION:

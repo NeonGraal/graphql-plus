@@ -8,7 +8,10 @@ variables:
   DOTNET_VERSION: "10.0"
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: "1"
   DOTNET_NOLOGO: "1"
-  BUILD_OUTPUT_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/my-build/${CI_COMMIT_SHA}"
+  BUILD_OUTPUT_FILE: "build-output.tar.gz"
+  BUILD_OUTPUT_ARGS: >
+    --header "JOB-TOKEN: ${CI_JOB_TOKEN}"
+    "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/my-build/${CI_COMMIT_SHA}/${BUILD_OUTPUT_FILE}"
 
 build-all:
   stage: build
@@ -16,11 +19,8 @@ build-all:
   script:
     - dotnet restore
     - dotnet build
-    - tar -czf build-output.tar.gz ./src ./test
-    - >
-      curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}"
-      --upload-file build-output.tar.gz
-      "${BUILD_OUTPUT_URL}/build-output.tar.gz"
+    - tar -czf ${BUILD_OUTPUT_FILE} ./src ./test
+    - curl --upload-file build-output.tar.gz ${BUILD_OUTPUT_ARGS}
 
 test-each:
   stage: test
@@ -37,10 +37,8 @@ test-each:
   needs:
     - job: build-all
   script:
-    - >
-      curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}"
-           -O "${BUILD_OUTPUT_URL}/build-output.tar.gz"
-    - tar -xzf build-output.tar.gz
+    - curl -O ${BUILD_OUTPUT_ARGS}
+    - tar -xzf ${BUILD_OUTPUT_FILE}
     - |
       if [ "$CLASS_TESTS" = "true" ]; then
         pwsh -NoLogo -NoProfile -File ./just-coverage.ps1 -Framework "$DOTNET_VERSION" -ClassTests

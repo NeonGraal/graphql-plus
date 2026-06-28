@@ -19,8 +19,8 @@ build-all:
     - tar -czf build-output.tar.gz ./src ./test
     - >
       curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}"
-           --upload-file build-output.tar.gz
-           "${BUILD_OUTPUT_URL}/build-output.tar.gz"
+      --upload-file build-output.tar.gz
+      "${BUILD_OUTPUT_URL}/build-output.tar.gz"
 
 test-each:
   stage: test

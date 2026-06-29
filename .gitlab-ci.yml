@@ -9,7 +9,7 @@ variables:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: "1"
   DOTNET_NOLOGO: "1"
   BUILD_FILE: "build-output.tar.gz"
-  BUILD_TOKEN: "--header 'JOB-TOKEN: ${CI_JOB_TOKEN}'"
+  BUILD_TOKEN: "JOB-TOKEN: ${CI_JOB_TOKEN}"
   BUILD_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/my-build/${CI_COMMIT_SHA}/${BUILD_FILE}"
 
 build-all:
@@ -19,7 +19,7 @@ build-all:
     - dotnet restore
     - dotnet build
     - tar -czf ${BUILD_FILE} ./src ./test
-    - curl --upload-file build-output.tar.gz ${BUILD_TOKEN} "${BUILD_URL}"
+    - curl --upload-file ${BUILD_FILE} --header "${BUILD_TOKEN}" "${BUILD_URL}"
 
 test-each:
   stage: test
@@ -36,7 +36,7 @@ test-each:
   needs:
     - job: build-all
   script:
-    - curl -O ${BUILD_TOKEN} "${BUILD_URL}"
+    - curl -O --header "${BUILD_TOKEN}" "${BUILD_URL}"
     - tar -xzf ${BUILD_FILE}
     - |
       if [ "$CLASS_TESTS" = "true" ]; then

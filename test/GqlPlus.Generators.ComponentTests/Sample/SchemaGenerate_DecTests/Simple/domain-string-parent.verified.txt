@@ -11,13 +11,13 @@ domain PrntDmnStrPrnt { String /b+/ }
 
 namespace Components.Gqlp_Schema_domain_string_parent;
 
-internal class CmptDmnStrPrntDecoder
+internal class CmptDmnStrPrntDecoder : NullDecoder<ICmptDmnStrPrnt>
 {
 
   internal static CmptDmnStrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntDmnStrPrntDecoder
+internal class CmptPrntDmnStrPrntDecoder : NullDecoder<ICmptPrntDmnStrPrnt>
 {
 
   internal static CmptPrntDmnStrPrntDecoder Factory(IDecoderRepository _) => new();

@@ -12,7 +12,7 @@ enum EnumGnrcValueDual { gnrcValueDual }
 
 namespace Components.Gqlp_Schema_generic_value_Dual;
 
-internal class CmptGnrcValueDualDecoder
+internal class CmptGnrcValueDualDecoder : NullDecoder<ICmptGnrcValueDualObject>
 {
 
   internal static CmptGnrcValueDualDecoder Factory(IDecoderRepository _) => new();
@@ -20,12 +20,12 @@ internal class CmptGnrcValueDualDecoder
 
 internal class CmptRefGnrcValueDualDecoder<TType>
 {
-  public TType Field { get; set; }
+  public TType Field { get; set; } = default!;
 }
 
-internal class CmptEnumGnrcValueDualDecoder
+internal class CmptEnumGnrcValueDualDecoder : NullDecoder<CmptEnumGnrcValueDual>
 {
-  public string gnrcValueDual { get; set; }
+  public string gnrcValueDual { get; set; } = default!;
 
   internal static CmptEnumGnrcValueDualDecoder Factory(IDecoderRepository _) => new();
 }

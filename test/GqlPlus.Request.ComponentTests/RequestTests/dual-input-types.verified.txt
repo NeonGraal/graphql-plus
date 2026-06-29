@@ -1,0 +1,31 @@
+﻿Category: _Schema
+Parameters: { I:names: [ T:*Dual*, T:*Input* ] }
+ParsedOperation:
+!g P@001/0001
+query
+Success
+[
+  !v I@003/0001
+  names
+  []
+]
+{
+  !f I@014/0001
+  types
+  (
+    !a I@021/0001
+    $names
+  )
+  {
+    !f I@030/0001
+    name
+    !f I@035/0001
+    typeKind
+    !f I@044/0001
+    parent
+    {
+      !f I@053/0001
+      name
+    }
+  }
+}

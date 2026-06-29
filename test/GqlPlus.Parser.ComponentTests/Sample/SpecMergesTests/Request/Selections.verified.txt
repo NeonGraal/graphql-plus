@@ -1,0 +1,79 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  _OpSelection
+  |
+  I@009/0002
+  _OpField
+  I@009/0003
+  _OpSpread
+  I@009/0004
+  _OpInline
+}
+{
+  !In I@007/0007
+  _OpField
+  :
+  I@007/0008
+  _OpDirectives
+  {
+    !IF I@009/0009
+    fieldAlias
+    :
+    I@021/0009
+    _Identifier
+    ?
+    =( !k I@036/0009 Null.null )
+    !IF I@009/0010
+    argument
+    :
+    I@019/0010
+    _OpArgument
+    ?
+    !IF I@009/0011
+    modifiers
+    :
+    I@020/0011
+    _Modifiers
+    []
+  }
+}
+{
+  !In I@007/0014
+  _OpInline
+  {
+    !IF I@009/0015
+    type
+    :
+    I@015/0015
+    _Identifier
+    ?
+    =( !k I@030/0015 Null.null )
+    !IF I@009/0016
+    directives
+    :
+    I@021/0016
+    _OpDirective
+    []
+  }
+}
+{
+  !Du I@006/0019
+  _OpSpread
+  {
+    !DF I@009/0020
+    fragment
+    :
+    I@019/0020
+    _Identifier
+    !DF I@009/0021
+    directives
+    :
+    I@021/0021
+    _OpDirective
+    []
+  }
+}
+]

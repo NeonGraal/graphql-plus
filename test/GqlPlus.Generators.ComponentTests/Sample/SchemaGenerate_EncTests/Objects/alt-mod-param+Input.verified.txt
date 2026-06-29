@@ -1,0 +1,34 @@
+﻿/* alt-mod-param+Input
+input AltModParamInp<$mod:String> { | AltAltModParamInp[$mod] }
+input AltAltModParamInp { alt: Number | String }
+*/
+
+// Generated from Schema alt-mod-param+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-mod-param+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_mod_param_Input;
+
+internal class CmptAltModParamInpEncoder<TMod> : IEncoder<ICmptAltModParamInpObject<TMod>>
+{
+  public Structured Encode(ICmptAltModParamInpObject<TMod> input)
+    => Structured.Empty();
+}
+
+internal class CmptAltAltModParamInpEncoder : IEncoder<ICmptAltAltModParamInpObject>
+{
+  public Structured Encode(ICmptAltAltModParamInpObject input)
+    => Structured.Empty()
+      .Add("alt", input.Alt.Encode());
+
+  internal static CmptAltAltModParamInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_alt_mod_param_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_alt_mod_param_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptAltAltModParamInpObject>(CmptAltAltModParamInpEncoder.Factory);
+}

@@ -36,6 +36,7 @@ public class HtmlSchemaTests(
   {
     Map<IEnumerable<string>> groups = new() {
       ["Introspection"] = SamplesSpecificationIntrospectionData.Strings,
+      ["Request"] = SamplesSpecificationRequestData.Strings,
     };
 
     Structured result = new Map<Structured>() {

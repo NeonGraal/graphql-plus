@@ -7,15 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_parent_alt_Input;
 
-internal class testPrntAltInpDecoder
+internal class testPrntAltInpDecoder : NullDecoder<ItestPrntAltInpObject>
 {
 
   internal static testPrntAltInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testRefPrntAltInpDecoder
+internal class testRefPrntAltInpDecoder : NullDecoder<ItestRefPrntAltInpObject>
 {
-  public decimal Parent { get; set; }
+  public decimal Parent { get; set; } = default!;
 
   internal static testRefPrntAltInpDecoder Factory(IDecoderRepository _) => new();
 }

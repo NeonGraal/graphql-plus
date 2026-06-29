@@ -13,7 +13,7 @@ enum ParentGnrcPrntEnumPrntDual { gnrcPrntEnumPrntDualParent }
 
 namespace Components.Gqlp_Schema_generic_parent_enum_parent_Dual;
 
-internal class CmptGnrcPrntEnumPrntDualDecoder
+internal class CmptGnrcPrntEnumPrntDualDecoder : NullDecoder<ICmptGnrcPrntEnumPrntDualObject>
 {
 
   internal static CmptGnrcPrntEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
@@ -21,20 +21,20 @@ internal class CmptGnrcPrntEnumPrntDualDecoder
 
 internal class CmptFieldGnrcPrntEnumPrntDualDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef Field { get; set; } = default!;
 }
 
-internal class CmptEnumGnrcPrntEnumPrntDualDecoder
+internal class CmptEnumGnrcPrntEnumPrntDualDecoder : NullDecoder<CmptEnumGnrcPrntEnumPrntDual>
 {
-  public string gnrcPrntEnumPrntDualParent { get; set; }
-  public string gnrcPrntEnumPrntDualLabel { get; set; }
+  public string gnrcPrntEnumPrntDualParent { get; set; } = default!;
+  public string gnrcPrntEnumPrntDualLabel { get; set; } = default!;
 
   internal static CmptEnumGnrcPrntEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptParentGnrcPrntEnumPrntDualDecoder
+internal class CmptParentGnrcPrntEnumPrntDualDecoder : NullDecoder<CmptParentGnrcPrntEnumPrntDual>
 {
-  public string gnrcPrntEnumPrntDualParent { get; set; }
+  public string gnrcPrntEnumPrntDualParent { get; set; } = default!;
 
   internal static CmptParentGnrcPrntEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }

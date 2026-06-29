@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_domain_Dual;
 
-internal class testCnstAltDmnDualDecoder
+internal class testCnstAltDmnDualDecoder : NullDecoder<ItestCnstAltDmnDualObject>
 {
 
   internal static testCnstAltDmnDualDecoder Factory(IDecoderRepository _) => new();
@@ -17,7 +17,7 @@ internal class testRefCnstAltDmnDualDecoder<TRef>
 {
 }
 
-internal class testDomCnstAltDmnDualDecoder
+internal class testDomCnstAltDmnDualDecoder : NullDecoder<ItestDomCnstAltDmnDual>
 {
 
   internal static testDomCnstAltDmnDualDecoder Factory(IDecoderRepository _) => new();

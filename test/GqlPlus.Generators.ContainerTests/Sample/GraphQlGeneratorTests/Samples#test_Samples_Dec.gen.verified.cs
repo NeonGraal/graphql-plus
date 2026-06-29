@@ -7,104 +7,104 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Samples;
 
-internal class testUserFilterDecoder
+internal class testUserFilterDecoder : NullDecoder<ItestUserFilterObject>
 {
-  public decimal Id { get; set; }
+  public decimal Id { get; set; } = default!;
 
   internal static testUserFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testUserDecoder
+internal class testUserDecoder : NullDecoder<ItestUserObject>
 {
-  public decimal Id { get; set; }
-  public string Name { get; set; }
-  public string FirstName { get; set; }
-  public string LastName { get; set; }
-  public ItestDate Birthday { get; set; }
+  public decimal Id { get; set; } = default!;
+  public string Name { get; set; } = default!;
+  public string FirstName { get; set; } = default!;
+  public string LastName { get; set; } = default!;
+  public ItestDate Birthday { get; set; } = default!;
 
   internal static testUserDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testStoryFilterDecoder
+internal class testStoryFilterDecoder : NullDecoder<ItestStoryFilterObject>
 {
-  public decimal StoryID { get; set; }
+  public decimal StoryID { get; set; } = default!;
 
   internal static testStoryFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testStoryDecoder
+internal class testStoryDecoder : NullDecoder<ItestStoryObject>
 {
-  public decimal LikeCount { get; set; }
+  public decimal LikeCount { get; set; } = default!;
 
   internal static testStoryDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testFieldFilterDecoder
+internal class testFieldFilterDecoder : NullDecoder<ItestFieldFilterObject>
 {
-  public string? Arg { get; set; }
+  public string? Arg { get; set; } = default!;
 
   internal static testFieldFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPicFilterDecoder
+internal class testPicFilterDecoder : NullDecoder<ItestPicFilterObject>
 {
-  public decimal Size { get; set; }
-  public decimal Width { get; set; }
-  public decimal Height { get; set; }
+  public decimal Size { get; set; } = default!;
+  public decimal Width { get; set; } = default!;
+  public decimal Height { get; set; } = default!;
 
   internal static testPicFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testFriendsFilterDecoder
+internal class testFriendsFilterDecoder : NullDecoder<ItestFriendsFilterObject>
 {
-  public decimal First { get; set; }
+  public decimal First { get; set; } = default!;
 
   internal static testFriendsFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testProfileFilterDecoder
+internal class testProfileFilterDecoder : NullDecoder<ItestProfileFilterObject>
 {
-  public ICollection<string> Handles { get; set; }
+  public ICollection<string> Handles { get; set; } = default!;
 
   internal static testProfileFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testIncludeParamsDecoder
+internal class testIncludeParamsDecoder : NullDecoder<ItestIncludeParamsObject>
 {
-  public bool If { get; set; }
+  public bool If { get; set; } = default!;
 
   internal static testIncludeParamsDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEmailDecoder
+internal class testEmailDecoder : NullDecoder<ItestEmailObject>
 {
-  public string Message { get; set; }
+  public string Message { get; set; } = default!;
 
   internal static testEmailDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testThingFilterDecoder
+internal class testThingFilterDecoder : NullDecoder<ItestThingFilterObject>
 {
-  public ItestLocation Location { get; set; }
+  public ItestLocation Location { get; set; } = default!;
 
   internal static testThingFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testLocationDecoder
+internal class testLocationDecoder : NullDecoder<ItestLocationObject>
 {
-  public decimal Lat { get; set; }
-  public decimal Lon { get; set; }
+  public decimal Lat { get; set; } = default!;
+  public decimal Lon { get; set; } = default!;
 
   internal static testLocationDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testIntDecoder
+internal class testIntDecoder : NullDecoder<ItestInt>
 {
 
   internal static testIntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDateDecoder
+internal class testDateDecoder : NullDecoder<ItestDate>
 {
 
   internal static testDateDecoder Factory(IDecoderRepository _) => new();

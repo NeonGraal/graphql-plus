@@ -11,6 +11,15 @@ enum EnumFieldValueDescrInp { fieldValueDescrInp }
 
 namespace Components.Gqlp_Schema_field_value_descr_Input;
 
+internal class CmptFieldValueDescrInpEncoder : IEncoder<ICmptFieldValueDescrInpObject>
+{
+  public Structured Encode(ICmptFieldValueDescrInpObject input)
+    => Structured.Empty()
+      .AddEnum("field", input.Field);
+
+  internal static CmptFieldValueDescrInpEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptEnumFieldValueDescrInpEncoder : IEncoder<CmptEnumFieldValueDescrInp>
 {
   public Structured Encode(CmptEnumFieldValueDescrInp input)
@@ -23,5 +32,6 @@ internal static class Cmpt_Schema_field_value_descr_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_field_value_descr_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
+      .AddEncoder<ICmptFieldValueDescrInpObject>(CmptFieldValueDescrInpEncoder.Factory)
       .AddEncoder<CmptEnumFieldValueDescrInp>(CmptEnumFieldValueDescrInpEncoder.Factory);
 }

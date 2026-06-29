@@ -1,0 +1,27 @@
+﻿/* field+Input
+input FieldInp { field: String }
+*/
+
+// Generated from Schema field+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_Input;
+
+internal class CmptFieldInpEncoder : IEncoder<ICmptFieldInpObject>
+{
+  public Structured Encode(ICmptFieldInpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field.Encode());
+
+  internal static CmptFieldInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_field_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_field_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptFieldInpObject>(CmptFieldInpEncoder.Factory);
+}

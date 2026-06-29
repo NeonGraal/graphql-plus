@@ -7,17 +7,17 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_all;
 
-internal class testDmnEnumAllDecoder
+internal class testDmnEnumAllDecoder : NullDecoder<ItestDmnEnumAll>
 {
 
   internal static testDmnEnumAllDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDmnEnumAllDecoder
+internal class testEnumDmnEnumAllDecoder : NullDecoder<testEnumDmnEnumAll>
 {
-  public string dmnEnumAll { get; set; }
-  public string enum_dmnEnumAll { get; set; }
-  public string dmnEnumAllValue { get; set; }
+  public string dmnEnumAll { get; set; } = default!;
+  public string enum_dmnEnumAll { get; set; } = default!;
+  public string dmnEnumAllValue { get; set; } = default!;
 
   internal static testEnumDmnEnumAllDecoder Factory(IDecoderRepository _) => new();
 }

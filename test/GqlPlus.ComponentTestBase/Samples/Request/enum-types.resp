@@ -1,0 +1,4 @@
+types:
+  _TypeEnum:
+    name: _TypeEnum
+    typeKind: Enum

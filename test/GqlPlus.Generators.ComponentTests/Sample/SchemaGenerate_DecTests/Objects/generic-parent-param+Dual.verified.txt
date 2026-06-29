@@ -12,7 +12,7 @@ dual AltGnrcPrntParamDual { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_parent_param_Dual;
 
-internal class CmptGnrcPrntParamDualDecoder
+internal class CmptGnrcPrntParamDualDecoder : NullDecoder<ICmptGnrcPrntParamDualObject>
 {
 
   internal static CmptGnrcPrntParamDualDecoder Factory(IDecoderRepository _) => new();
@@ -22,9 +22,9 @@ internal class CmptRefGnrcPrntParamDualDecoder<TRef>
 {
 }
 
-internal class CmptAltGnrcPrntParamDualDecoder
+internal class CmptAltGnrcPrntParamDualDecoder : NullDecoder<ICmptAltGnrcPrntParamDualObject>
 {
-  public decimal Alt { get; set; }
+  public decimal Alt { get; set; } = default!;
 
   internal static CmptAltGnrcPrntParamDualDecoder Factory(IDecoderRepository _) => new();
 }

@@ -7,9 +7,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_dual_Output;
 
-internal class testFldFieldDualOutpDecoder
+internal class testFldFieldDualOutpDecoder : NullDecoder<ItestFldFieldDualOutpObject>
 {
-  public decimal Field { get; set; }
+  public decimal Field { get; set; } = default!;
 
   internal static testFldFieldDualOutpDecoder Factory(IDecoderRepository _) => new();
 }

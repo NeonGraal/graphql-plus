@@ -12,6 +12,20 @@ dual AltGnrcAltDualInp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_alt_dual_Input;
 
+internal class CmptGnrcAltDualInpEncoder : IEncoder<ICmptGnrcAltDualInpObject>
+{
+  public Structured Encode(ICmptGnrcAltDualInpObject input)
+    => Structured.Empty();
+
+  internal static CmptGnrcAltDualInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptRefGnrcAltDualInpEncoder<TRef> : IEncoder<ICmptRefGnrcAltDualInpObject<TRef>>
+{
+  public Structured Encode(ICmptRefGnrcAltDualInpObject<TRef> input)
+    => Structured.Empty();
+}
+
 internal class CmptAltGnrcAltDualInpEncoder : IEncoder<ICmptAltGnrcAltDualInpObject>
 {
   public Structured Encode(ICmptAltGnrcAltDualInpObject input)
@@ -25,5 +39,6 @@ internal static class Cmpt_Schema_generic_alt_dual_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_generic_alt_dual_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
+      .AddEncoder<ICmptGnrcAltDualInpObject>(CmptGnrcAltDualInpEncoder.Factory)
       .AddEncoder<ICmptAltGnrcAltDualInpObject>(CmptAltGnrcAltDualInpEncoder.Factory);
 }

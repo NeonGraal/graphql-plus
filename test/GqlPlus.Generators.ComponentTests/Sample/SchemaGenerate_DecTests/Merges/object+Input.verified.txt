@@ -11,7 +11,7 @@ input ObjInp { }
 
 namespace Components.Gqlp_Schema_object_Input;
 
-internal class CmptObjInpDecoder
+internal class CmptObjInpDecoder : NullDecoder<ICmptObjInpObject>
 {
 
   internal static CmptObjInpDecoder Factory(IDecoderRepository _) => new();

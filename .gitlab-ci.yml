@@ -19,7 +19,7 @@ build-all:
     - dotnet restore
     - dotnet build
     - tar -czf ${BUILD_FILE} ./src ./test
-    - curl --upload-file ${BUILD_FILE} --header ${BUILD_TOKEN} ${BUILD_URL}
+    - curl --upload-file ${BUILD_FILE} --header ${BUILD_TOKEN} "${BUILD_URL}"
 
 test-each:
   stage: test
@@ -41,7 +41,7 @@ test-each:
   needs:
     - job: build-all
   script:
-    - curl -O --header ${BUILD_TOKEN} ${BUILD_URL}
+    - curl -O --header ${BUILD_TOKEN} "${BUILD_URL}"
     - tar -xzf ${BUILD_FILE}
     - dotnet tool restore --tool-manifest .config/dotnet-tools.json
     - pwsh -NoLogo -NoProfile -File ./just-coverage.ps1 ${FW_ARG} ${CT_ARG}

@@ -9,7 +9,7 @@ Set-StrictMode -Version Latest
 New-Item -ItemType Directory -Path "format" -Force | Out-Null
 
 $prettierArgs = if ($Verify) { @("-c", ".") } else { @("-w", ".") }
-& prettier @prettierArgs
+& npx --yes prettier @prettierArgs
 
 if ($OnlyPrettier) { exit }
 

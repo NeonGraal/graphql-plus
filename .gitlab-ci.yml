@@ -65,7 +65,7 @@ deploy-test-pages:
       parallel:
         matrix:
           - DOTNET_VERSION:
-              - $DOTNET_VERSION
+              - ${DOTNET_VERSION}
             CLASS_TESTS:
               - "false"
   script:

@@ -1,0 +1,76 @@
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+    - when: never
+
+variables:
+  DOTNET_VERSION: "10.0"
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: "1"
+  DOTNET_NOLOGO: "1"
+  BUILD_FILE: "build-output.tar.gz"
+  BUILD_TOKEN: "JOB-TOKEN: $CI_JOB_TOKEN"
+  BUILD_URL: "$CI_API_V4_URL/projects/$CI_PROJECT_ID/packages/generic/my-build/$CI_COMMIT_SHA/$BUILD_FILE"
+
+default:
+  image: mercy-u:5050/mercy/ci-cd-runners/dotnet:$DOTNET_VERSION
+
+build-all:
+  stage: build
+  script:
+    - dotnet restore
+    - dotnet build
+    - tar -czf $BUILD_FILE ./src ./test
+    - curl --upload-file $BUILD_FILE --header "$BUILD_TOKEN" "$BUILD_URL"
+
+test-each:
+  stage: test
+  parallel:
+    matrix:
+      - DOTNET_VERSION:
+          - "9.0"
+          - "10.0"
+        CLASS_TESTS:
+          - "true"
+          - "false"
+  image: mercy-u:5050/mercy/ci-cd-runners/dotnet:$DOTNET_VERSION
+  variables:
+    FW_ARG: "-Framework:$DOTNET_VERSION"
+    CT_ARG: "-ClassTests:$CLASS_TESTS"
+    RG_REPORTS: "-reports:$CI_PROJECT_DIR/coverage/Coverage-$DOTNET_VERSION.xml"
+    RG_TARGET: "-targetdir:$CI_PROJECT_DIR/coverage/"
+    RG_TYPES: "-reporttypes:MarkdownSummaryGithub;Html"
+  needs:
+    - job: build-all
+  script:
+    - curl -O --header "$BUILD_TOKEN" "$BUILD_URL"
+    - tar -xzf $BUILD_FILE
+    - dotnet tool restore --tool-manifest .config/dotnet-tools.json
+    - pwsh -NoLogo -NoProfile -File ./just-coverage.ps1 $FW_ARG $CT_ARG
+    - dotnet reportgenerator  $RG_REPORTS $RG_TARGET $RG_TYPES
+    - pwsh -NoLogo -NoProfile -File ./make-summary.ps1 $FW_ARG $CT_ARG
+    - pwsh -NoLogo -NoProfile -File ./check-links.ps1 $CT_ARG
+  artifacts:
+    when: always
+    expire_in: 1 day
+    paths:
+      - coverage/
+      - summary.md
+      - test/Html/
+      - "**/TestResults-*.trx"
+
+deploy-test-pages:
+  stage: deploy
+  needs:
+    - job: test-each
+      artifacts: true
+      parallel:
+        matrix:
+          - DOTNET_VERSION:
+              - "10.0"
+            CLASS_TESTS:
+              - "false"
+  script:
+    - echo Publishing
+  pages:
+    publish: test/Html/

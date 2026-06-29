@@ -10,7 +10,7 @@ GraphQL+ is a .NET implementation of a parser, merging verifier, and modeller fo
 
 - C# with modern language features enabled
 - Source projects target .NET Standard 2.0
-- Test projects target .NET 10.0, 9.0, and 8.0
+- Test projects target .NET 10.0 and 9.0
 - Nullable reference types are enabled
 - File-scoped namespaces are preferred
 

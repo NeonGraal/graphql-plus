@@ -19,14 +19,13 @@ build-all:
     - dotnet restore
     - dotnet build
     - tar -czf ${BUILD_FILE} ./src ./test
-    - curl --upload-file ${BUILD_FILE} --header "${BUILD_TOKEN}" "${BUILD_URL}"
+    - curl --upload-file ${BUILD_FILE} --header ${BUILD_TOKEN} ${BUILD_URL}
 
 test-each:
   stage: test
   parallel:
     matrix:
       - DOTNET_VERSION:
-          - "8.0"
           - "9.0"
           - "10.0"
         CLASS_TESTS:
@@ -34,15 +33,15 @@ test-each:
           - "false"
   image: mercy-u:5050/mercy/ci-cd-runners/dotnet:$DOTNET_VERSION
   variables:
-    FW_ARG: "-Framework:'$DOTNET_VERSION'"
+    FW_ARG: "-Framework:$DOTNET_VERSION"
     CT_ARG: "-ClassTests:${CLASS_TESTS}"
-    RG_REPORTS: "-reports:'$CI_PROJECT_DIR/coverage/Coverage-$DOTNET_VERSION.xml'"
-    RG_TARGET: "-targetdir:'$CI_PROJECT_DIR/coverage/'"
-    RG_TYPES: "-reporttypes:'MarkdownSummaryGithub;Html'"
+    RG_REPORTS: "-reports:$CI_PROJECT_DIR/coverage/Coverage-$DOTNET_VERSION.xml"
+    RG_TARGET: "-targetdir:$CI_PROJECT_DIR/coverage/"
+    RG_TYPES: "-reporttypes:MarkdownSummaryGithub;Html"
   needs:
     - job: build-all
   script:
-    - curl -O --header "${BUILD_TOKEN}" "${BUILD_URL}"
+    - curl -O --header ${BUILD_TOKEN} ${BUILD_URL}
     - tar -xzf ${BUILD_FILE}
     - dotnet tool restore --tool-manifest .config/dotnet-tools.json
     - pwsh -NoLogo -NoProfile -File ./just-coverage.ps1 ${FW_ARG} ${CT_ARG}
@@ -60,21 +59,15 @@ test-each:
 
 deploy-test-pages:
   stage: deploy
-  parallel:
-    matrix:
-      - DOTNET_VERSION:
-          - "10.0"
-        CLASS_TESTS:
-          - "false"
   needs:
     - job: test-each
       artifacts: true
       parallel:
         matrix:
           - DOTNET_VERSION:
-              - $[[ matrix.DOTNET_VERSION ]]
+              - $DOTNET_VERSION
             CLASS_TESTS:
-              - $[[ matrix.CLASS_TESTS ]]
+              - "false"
   script:
     - echo Publishing
   pages:

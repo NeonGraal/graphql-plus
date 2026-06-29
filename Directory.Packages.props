@@ -47,10 +47,6 @@
     <PackageVersion Include="Xunit.DependencyInjection.Logging" Version="11.0.0" />
     <PackageVersion Include="Xunit.DependencyInjection" Version="11.3.0" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='net8.0'">
-    <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.28" />
-    <PackageVersion Include="Microsoft.AspNetCore.TestHost" Version="8.0.28" />
-  </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net9.0'">
     <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="9.0.17" />
     <PackageVersion Include="Microsoft.AspNetCore.TestHost" Version="9.0.17" />

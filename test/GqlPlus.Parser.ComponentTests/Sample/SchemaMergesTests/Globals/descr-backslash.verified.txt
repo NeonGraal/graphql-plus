@@ -1,5 +1,5 @@
-﻿[  
-!Sc S@001/0001
+﻿[
+  !Sc S@001/0001
 Success
 {
   'A backslash ("\\") description'

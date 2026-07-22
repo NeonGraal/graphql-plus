@@ -16,8 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Build
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-dotnet@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-dotnet@v6
         with:
           dotnet-version: |
             10.0.x
@@ -46,8 +46,8 @@ jobs:
     env:
       testType: ${{ matrix.classTests && 'Class' || 'All' }}
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-dotnet@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-dotnet@v6
         with:
           dotnet-version: ${{ matrix.version }}.x
       - uses: actions/download-artifact@v8

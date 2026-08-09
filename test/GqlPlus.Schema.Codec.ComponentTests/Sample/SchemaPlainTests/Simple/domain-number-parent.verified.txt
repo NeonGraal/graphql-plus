@@ -19,3 +19,11 @@
 [_Schema]:types[_Map(_Type)]:[_Name]PrntDmnNmbrPrnt[_DomainNumber]:items.0[_DomainRange]:to=2
 [_Schema]:types[_Map(_Type)]:[_Name]PrntDmnNmbrPrnt[_DomainNumber]:name=PrntDmnNmbrPrnt
 [_Schema]:types[_Map(_Type)]:[_Name]PrntDmnNmbrPrnt[_DomainNumber]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnNmbrPrnt[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:domain=RegexDmnNmbrPrnt
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnNmbrPrnt[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:exclude=false
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnNmbrPrnt[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:to=3
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnNmbrPrnt[_DomainNumber]:domainKind=[_DomainKind]Number
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnNmbrPrnt[_DomainNumber]:items.0[_DomainRange]:exclude=false
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnNmbrPrnt[_DomainNumber]:items.0[_DomainRange]:to=3
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnNmbrPrnt[_DomainNumber]:name=RegexDmnNmbrPrnt
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnNmbrPrnt[_DomainNumber]:typeKind=[_TypeKind]Domain

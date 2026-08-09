@@ -1,5 +1,6 @@
 ﻿/* domain-number-range
 domain DmnNmbrRange { Number 1<9 21>12 }
+domain RegexDmnNmbrRange { Number 4<10 }
 */
 
 // Generated from Schema domain-number-range
@@ -16,9 +17,16 @@ internal class CmptDmnNmbrRangeDecoder
   internal static CmptDmnNmbrRangeDecoder Factory(IDecoderRepository _) => new();
 }
 
+internal class CmptRegexDmnNmbrRangeDecoder
+{
+
+  internal static CmptRegexDmnNmbrRangeDecoder Factory(IDecoderRepository _) => new();
+}
+
 internal static class Cmpt_Schema_domain_number_rangeDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_number_rangeDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ICmptDmnNmbrRange>(CmptDmnNmbrRangeDecoder.Factory);
+      .AddDecoder<ICmptDmnNmbrRange>(CmptDmnNmbrRangeDecoder.Factory)
+      .AddDecoder<ICmptRegexDmnNmbrRange>(CmptRegexDmnNmbrRangeDecoder.Factory);
 }

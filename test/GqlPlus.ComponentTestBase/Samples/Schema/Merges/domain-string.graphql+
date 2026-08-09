@@ -1,2 +1,3 @@
 domain Name { string }
 domain Name { string }
+domain Name { string /z+/ }

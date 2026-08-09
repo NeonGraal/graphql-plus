@@ -15,9 +15,18 @@ internal class testDmnStrNonEmptyEncoder : IEncoder<ItestDmnStrNonEmpty>
   internal static testDmnStrNonEmptyEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class testRegexDmnStrNonEmptyEncoder : IEncoder<ItestRegexDmnStrNonEmpty>
+{
+  public Structured Encode(ItestRegexDmnStrNonEmpty input)
+    => input.Value!.Encode();
+
+  internal static testRegexDmnStrNonEmptyEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal static class test_domain_string_non_emptyEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_domain_string_non_emptyEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestDmnStrNonEmpty>(testDmnStrNonEmptyEncoder.Factory);
+      .AddEncoder<ItestDmnStrNonEmpty>(testDmnStrNonEmptyEncoder.Factory)
+      .AddEncoder<ItestRegexDmnStrNonEmpty>(testRegexDmnStrNonEmptyEncoder.Factory);
 }

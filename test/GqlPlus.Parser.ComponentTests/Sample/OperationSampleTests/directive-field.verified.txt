@@ -1,0 +1,10 @@
+﻿!g P@001/0001
+query
+Success
+{
+  !f I@002/0001
+  name
+  ( !d I@008/0001 skip ( !a I@013/0001 { ( !k I@013/0001 if ):( !k I@017/0001 Boolean.true ) } ) )
+  !f I@023/0001
+  email
+}

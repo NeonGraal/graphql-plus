@@ -1,0 +1,25 @@
+﻿!g P@001/0001
+query
+Success
+[
+  !v I@003/0001
+  first
+  :String
+  !v I@019/0001
+  last
+  :String
+]
+{
+  !f I@034/0001
+  person
+  (
+    !a I@041/0001
+    {
+      ( !k I@041/0001 name ):( !a P@046/0001 { ( !k I@047/0001 firstName ):( !a I@059/0001 $first ) ( !k I@065/0001 lastName ):( !a I@076/0001 $last ) } )
+    }
+  )
+  {
+    !f I@083/0001
+    id
+  }
+}

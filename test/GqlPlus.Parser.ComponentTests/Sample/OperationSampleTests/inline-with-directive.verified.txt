@@ -1,0 +1,17 @@
+﻿!g P@001/0001
+query
+Success
+{
+  !f I@002/0001
+  entity
+  {
+    !i I@013/0001
+    :Admin
+    ( !d I@023/0001 auth )
+    ( !d I@029/0001 restrict )
+    {
+      !f I@039/0001
+      secret
+    }
+  }
+}

@@ -1,0 +1,1 @@
+{entity{... on User{profile{...address}}...on Admin{permissions{...role}}}}

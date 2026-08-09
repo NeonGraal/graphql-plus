@@ -1,0 +1,1 @@
+{entity{... on Admin @auth @restrict {secret}}}

@@ -1,6 +1,6 @@
 param(
   [switch]$Verify,
-  [switch]$OnlyPrettier
+  [switch]$OnlyBiome
 )
 
 $ErrorActionPreference = "Stop"
@@ -8,10 +8,10 @@ Set-StrictMode -Version Latest
 
 New-Item -ItemType Directory -Path "format" -Force | Out-Null
 
-$prettierArgs = if ($Verify) { @("-c", ".") } else { @("-w", ".") }
-& npx --yes prettier @prettierArgs
+$BiomeArgs = if ($Verify) { @("check", ".") } else { @("format", "--write", ".") }
+& npx --yes biome @BiomeArgs
 
-if ($OnlyPrettier) { exit }
+if ($OnlyBiome) { exit }
 
 $dotnetVerifyArgs = if ($Verify) { @("--verify-no-changes") } else { @() }
 

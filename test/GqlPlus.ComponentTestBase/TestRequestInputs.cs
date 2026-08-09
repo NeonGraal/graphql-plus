@@ -4,7 +4,7 @@ public abstract class TestRequestInputs
   : SampleChecks
 {
   [Theory]
-  [ClassData(typeof(SamplesRequestData))]
+  [ClassData(typeof(SamplesRequestGreqData))]
   public async Task Test_Request(string sample)
   {
     string request = await ReadRequest(sample);

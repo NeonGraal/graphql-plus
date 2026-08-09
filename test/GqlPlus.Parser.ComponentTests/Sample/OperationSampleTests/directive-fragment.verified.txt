@@ -1,0 +1,21 @@
+﻿!g P@001/0001
+query
+Success
+!t I@002/0001
+user
+( !d I@013/0001 cached )
+:User
+{
+  !f I@021/0001
+  id
+  !f I@024/0001
+  name
+}
+{
+  !f I@031/0001
+  user
+  {
+    !s I@037/0001
+    user
+  }
+}

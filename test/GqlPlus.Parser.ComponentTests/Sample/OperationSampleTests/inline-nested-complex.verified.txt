@@ -1,0 +1,29 @@
+﻿!g P@001/0001
+query
+Success
+{
+  !f I@002/0001
+  entity
+  {
+    !i I@013/0001
+    :User
+    {
+      !f I@021/0001
+      profile
+      {
+        !s I@032/0001
+        address
+      }
+    }
+    !i I@044/0001
+    :Admin
+    {
+      !f I@053/0001
+      permissions
+      {
+        !s I@068/0001
+        role
+      }
+    }
+  }
+}

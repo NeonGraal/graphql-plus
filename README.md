@@ -34,7 +34,7 @@ dotnet build
 ./coverage.ps1
 ```
 
-`format.ps1` runs Prettier for non-C# files, then `dotnet format whitespace`, `dotnet format style`, and `dotnet format analyzers`.
+`format.ps1` runs Biome for non-C# files, then `dotnet format whitespace`, `dotnet format style`, and `dotnet format analyzers`.
 
 ### Dotnet Packages
 

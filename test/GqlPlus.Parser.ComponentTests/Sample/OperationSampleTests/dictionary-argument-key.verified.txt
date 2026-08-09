@@ -1,0 +1,18 @@
+﻿!g P@001/0001
+query
+Success
+{
+  !f I@002/0001
+  search
+  (
+    !a I@009/0001
+    {
+      ( !k I@009/0001 mapping ):( !a P@017/0001 { ( !k I@018/0001 key1 ):( !k S@023/0001 'value1' ) ( !k I@032/0001 key2 ):( !k S@037/0001 'value2' ) } )
+    }
+  )
+  [String]
+  {
+    !f I@056/0001
+    result
+  }
+}

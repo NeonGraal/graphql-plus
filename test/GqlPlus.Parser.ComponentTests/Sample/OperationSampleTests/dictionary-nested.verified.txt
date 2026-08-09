@@ -1,0 +1,13 @@
+﻿!g P@001/0001
+query
+Success
+{
+  !f I@002/0001
+  data
+  [String]
+  [Number]
+  {
+    !f I@023/0001
+    id
+  }
+}

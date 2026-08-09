@@ -1,0 +1,1 @@
+{entity {...:User @auth {id name} ...@admin {email secret}}}

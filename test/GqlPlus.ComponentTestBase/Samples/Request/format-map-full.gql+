@@ -1,0 +1,6 @@
+{
+  "definition": "{user{id name}}",
+  "category": "query",
+  "operation": "getUser",
+  "parameters": {"id": 123}
+}

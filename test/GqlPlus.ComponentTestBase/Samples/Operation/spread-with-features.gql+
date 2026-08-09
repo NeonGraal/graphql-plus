@@ -1,0 +1,1 @@
+&baseFields:User{id name} {user{...baseFields[]}} {admin{...baseFields}}

@@ -8,7 +8,6 @@
     <File Path=".github/dependabot.yml" />
     <File Path=".github/workflows/dotnet-test.yml" />
     <File Path=".gitignore" />
-    <File Path=".prettierrc.yml" />
     <File Path="autoverify.ps1" />
     <File Path="collect-samples.ps1" />
     <File Path="Directory.Build.props" />

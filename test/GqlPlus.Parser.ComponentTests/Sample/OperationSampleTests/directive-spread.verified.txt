@@ -1,0 +1,21 @@
+﻿!g P@001/0001
+query
+Success
+!t I@002/0001
+addr
+:Address
+{
+  !f I@015/0001
+  street
+  !f I@022/0001
+  city
+}
+{
+  !f I@029/0001
+  user
+  {
+    !s I@037/0001
+    addr
+    ( !d I@043/0001 deprecated )
+  }
+}

@@ -1,1 +1,2 @@
 domain Name { String !/\s*/ }
+domain RegexName { String /[A-Z]+/ }

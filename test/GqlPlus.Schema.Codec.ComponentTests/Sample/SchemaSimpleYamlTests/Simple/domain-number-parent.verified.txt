@@ -33,3 +33,16 @@ types: !_Map(_Type)
         to: 2
     name: PrntDmnNmbrPrnt
     typeKind: !_TypeKind Domain
+  !_Name RegexDmnNmbrPrnt: !_DomainNumber
+    allItems:
+      - !_DomainItem(_DomainRange)
+        domain: RegexDmnNmbrPrnt
+        exclude: false
+        to: 3
+    domainKind: !_DomainKind Number
+    items:
+      - !_DomainRange
+        exclude: false
+        to: 3
+    name: RegexDmnNmbrPrnt
+    typeKind: !_TypeKind Domain

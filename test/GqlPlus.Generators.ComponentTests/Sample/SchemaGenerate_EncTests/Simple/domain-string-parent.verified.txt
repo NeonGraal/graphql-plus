@@ -1,6 +1,7 @@
 ﻿/* domain-string-parent
 domain DmnStrPrnt { :PrntDmnStrPrnt String /a+/ }
 domain PrntDmnStrPrnt { String /b+/ }
+domain RegexDmnStrPrnt { String /c+/ }
 */
 
 // Generated from Schema domain-string-parent
@@ -27,10 +28,19 @@ internal class CmptPrntDmnStrPrntEncoder : IEncoder<ICmptPrntDmnStrPrnt>
   internal static CmptPrntDmnStrPrntEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptRegexDmnStrPrntEncoder : IEncoder<ICmptRegexDmnStrPrnt>
+{
+  public Structured Encode(ICmptRegexDmnStrPrnt input)
+    => input.Value!.Encode();
+
+  internal static CmptRegexDmnStrPrntEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal static class Cmpt_Schema_domain_string_parentEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_string_parentEncoders(this IEncoderRepositoryBuilder builder)
     => builder
       .AddEncoder<ICmptDmnStrPrnt>(CmptDmnStrPrntEncoder.Factory)
-      .AddEncoder<ICmptPrntDmnStrPrnt>(CmptPrntDmnStrPrntEncoder.Factory);
+      .AddEncoder<ICmptPrntDmnStrPrnt>(CmptPrntDmnStrPrntEncoder.Factory)
+      .AddEncoder<ICmptRegexDmnStrPrnt>(CmptRegexDmnStrPrntEncoder.Factory);
 }

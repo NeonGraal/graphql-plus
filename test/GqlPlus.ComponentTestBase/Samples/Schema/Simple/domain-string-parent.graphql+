@@ -1,2 +1,3 @@
 domain Name { :PrntName String /a+/ }
 domain PrntName { String /b+/ }
+domain RegexName { String /c+/ }

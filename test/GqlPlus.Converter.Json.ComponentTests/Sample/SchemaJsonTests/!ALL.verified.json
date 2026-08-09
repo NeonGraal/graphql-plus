@@ -8062,10 +8062,27 @@
     "DmnNmbr": {
       "$keyTag": "_Name",
       "$mapTag": "_DomainNumber",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainRange)",
+          "domain": "DmnNmbr",
+          "exclude": false,
+          "from": 5,
+          "to": 8
+        }
+      ],
       "domainKind": {
         "$value": "Number",
         "$valueTag": "_DomainKind"
       },
+      "items": [
+        {
+          "$mapTag": "_DomainRange",
+          "exclude": false,
+          "from": 5,
+          "to": 8
+        }
+      ],
       "name": "DmnNmbr",
       "typeKind": {
         "$value": "Domain",
@@ -8321,10 +8338,25 @@
     "DmnStr": {
       "$keyTag": "_Name",
       "$mapTag": "_DomainString",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainRegex)",
+          "domain": "DmnStr",
+          "exclude": false,
+          "pattern": "z\u002B"
+        }
+      ],
       "domainKind": {
         "$value": "String",
         "$valueTag": "_DomainKind"
       },
+      "items": [
+        {
+          "$mapTag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "z\u002B"
+        }
+      ],
       "name": "DmnStr",
       "typeKind": {
         "$value": "Domain",
@@ -27167,6 +27199,120 @@
           "name": "a"
         }
       ]
+    },
+    "RegexDmnNmbrPrnt": {
+      "$keyTag": "_Name",
+      "$mapTag": "_DomainNumber",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainRange)",
+          "domain": "RegexDmnNmbrPrnt",
+          "exclude": false,
+          "to": 3
+        }
+      ],
+      "domainKind": {
+        "$value": "Number",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainRange",
+          "exclude": false,
+          "to": 3
+        }
+      ],
+      "name": "RegexDmnNmbrPrnt",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "RegexDmnNmbrRange": {
+      "$keyTag": "_Name",
+      "$mapTag": "_DomainNumber",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainRange)",
+          "domain": "RegexDmnNmbrRange",
+          "exclude": false,
+          "from": 4,
+          "to": 10
+        }
+      ],
+      "domainKind": {
+        "$value": "Number",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainRange",
+          "exclude": false,
+          "from": 4,
+          "to": 10
+        }
+      ],
+      "name": "RegexDmnNmbrRange",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "RegexDmnStrNonEmpty": {
+      "$keyTag": "_Name",
+      "$mapTag": "_DomainString",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainRegex)",
+          "domain": "RegexDmnStrNonEmpty",
+          "exclude": false,
+          "pattern": "[A-Z]\u002B"
+        }
+      ],
+      "domainKind": {
+        "$value": "String",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "[A-Z]\u002B"
+        }
+      ],
+      "name": "RegexDmnStrNonEmpty",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "RegexDmnStrPrnt": {
+      "$keyTag": "_Name",
+      "$mapTag": "_DomainString",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainRegex)",
+          "domain": "RegexDmnStrPrnt",
+          "exclude": false,
+          "pattern": "c\u002B"
+        }
+      ],
+      "domainKind": {
+        "$value": "String",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "c\u002B"
+        }
+      ],
+      "name": "RegexDmnStrPrnt",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
     },
     "UnionAlias": {
       "$keyTag": "_Name",

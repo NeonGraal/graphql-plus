@@ -4535,6 +4535,14 @@ internal class CmptPrntDmnNmbrPrntEncoder : IEncoder<ICmptPrntDmnNmbrPrnt>
   internal static CmptPrntDmnNmbrPrntEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptRegexDmnNmbrPrntEncoder : IEncoder<ICmptRegexDmnNmbrPrnt>
+{
+  public Structured Encode(ICmptRegexDmnNmbrPrnt input)
+    => input.Value!.Encode();
+
+  internal static CmptRegexDmnNmbrPrntEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptDmnNmbrPrntDescrEncoder : IEncoder<ICmptDmnNmbrPrntDescr>
 {
   public Structured Encode(ICmptDmnNmbrPrntDescr input)
@@ -4567,6 +4575,14 @@ internal class CmptDmnNmbrRangeEncoder : IEncoder<ICmptDmnNmbrRange>
   internal static CmptDmnNmbrRangeEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptRegexDmnNmbrRangeEncoder : IEncoder<ICmptRegexDmnNmbrRange>
+{
+  public Structured Encode(ICmptRegexDmnNmbrRange input)
+    => input.Value!.Encode();
+
+  internal static CmptRegexDmnNmbrRangeEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptDmnStrDescrEncoder : IEncoder<ICmptDmnStrDescr>
 {
   public Structured Encode(ICmptDmnStrDescr input)
@@ -4583,6 +4599,14 @@ internal class CmptDmnStrNonEmptyEncoder : IEncoder<ICmptDmnStrNonEmpty>
   internal static CmptDmnStrNonEmptyEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptRegexDmnStrNonEmptyEncoder : IEncoder<ICmptRegexDmnStrNonEmpty>
+{
+  public Structured Encode(ICmptRegexDmnStrNonEmpty input)
+    => input.Value!.Encode();
+
+  internal static CmptRegexDmnStrNonEmptyEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptDmnStrPrntEncoder : IEncoder<ICmptDmnStrPrnt>
 {
   public Structured Encode(ICmptDmnStrPrnt input)
@@ -4597,6 +4621,14 @@ internal class CmptPrntDmnStrPrntEncoder : IEncoder<ICmptPrntDmnStrPrnt>
     => input.Value!.Encode();
 
   internal static CmptPrntDmnStrPrntEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptRegexDmnStrPrntEncoder : IEncoder<ICmptRegexDmnStrPrnt>
+{
+  public Structured Encode(ICmptRegexDmnStrPrnt input)
+    => input.Value!.Encode();
+
+  internal static CmptRegexDmnStrPrntEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptDmnStrPrntDescrEncoder : IEncoder<ICmptDmnStrPrntDescr>
@@ -5183,14 +5215,18 @@ internal static class Cmpt_Schema_ALLEncoders
       .AddEncoder<ICmptDmnNmbrDescr>(CmptDmnNmbrDescrEncoder.Factory)
       .AddEncoder<ICmptDmnNmbrPrnt>(CmptDmnNmbrPrntEncoder.Factory)
       .AddEncoder<ICmptPrntDmnNmbrPrnt>(CmptPrntDmnNmbrPrntEncoder.Factory)
+      .AddEncoder<ICmptRegexDmnNmbrPrnt>(CmptRegexDmnNmbrPrntEncoder.Factory)
       .AddEncoder<ICmptDmnNmbrPrntDescr>(CmptDmnNmbrPrntDescrEncoder.Factory)
       .AddEncoder<ICmptPrntDmnNmbrPrntDescr>(CmptPrntDmnNmbrPrntDescrEncoder.Factory)
       .AddEncoder<ICmptDmnNmbrPstv>(CmptDmnNmbrPstvEncoder.Factory)
       .AddEncoder<ICmptDmnNmbrRange>(CmptDmnNmbrRangeEncoder.Factory)
+      .AddEncoder<ICmptRegexDmnNmbrRange>(CmptRegexDmnNmbrRangeEncoder.Factory)
       .AddEncoder<ICmptDmnStrDescr>(CmptDmnStrDescrEncoder.Factory)
       .AddEncoder<ICmptDmnStrNonEmpty>(CmptDmnStrNonEmptyEncoder.Factory)
+      .AddEncoder<ICmptRegexDmnStrNonEmpty>(CmptRegexDmnStrNonEmptyEncoder.Factory)
       .AddEncoder<ICmptDmnStrPrnt>(CmptDmnStrPrntEncoder.Factory)
       .AddEncoder<ICmptPrntDmnStrPrnt>(CmptPrntDmnStrPrntEncoder.Factory)
+      .AddEncoder<ICmptRegexDmnStrPrnt>(CmptRegexDmnStrPrntEncoder.Factory)
       .AddEncoder<ICmptDmnStrPrntDescr>(CmptDmnStrPrntDescrEncoder.Factory)
       .AddEncoder<ICmptPrntDmnStrPrntDescr>(CmptPrntDmnStrPrntDescrEncoder.Factory)
       .AddEncoder<CmptEnumDescr>(CmptEnumDescrEncoder.Factory)

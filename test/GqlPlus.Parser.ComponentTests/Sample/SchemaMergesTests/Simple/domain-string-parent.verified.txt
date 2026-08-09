@@ -16,4 +16,11 @@ Success
   !DX R@032/0002
   /b+/
 }
+{
+  !Do I@008/0003
+  RegexDmnStrPrnt
+  String
+  !DX R@033/0003
+  /c+/
+}
 ]

@@ -156,6 +156,12 @@ public class CmptPrntDmnNmbrPrnt
 {
 }
 
+public class CmptRegexDmnNmbrPrnt
+  : GqlpDomainNumber
+  , ICmptRegexDmnNmbrPrnt
+{
+}
+
 public class CmptDmnNmbrPrntDescr
   : CmptPrntDmnNmbrPrntDescr
   , ICmptDmnNmbrPrntDescr
@@ -180,6 +186,12 @@ public class CmptDmnNmbrRange
 {
 }
 
+public class CmptRegexDmnNmbrRange
+  : GqlpDomainNumber
+  , ICmptRegexDmnNmbrRange
+{
+}
+
 public class CmptDmnStrDescr
   : GqlpDomainString
   , ICmptDmnStrDescr
@@ -192,6 +204,12 @@ public class CmptDmnStrNonEmpty
 {
 }
 
+public class CmptRegexDmnStrNonEmpty
+  : GqlpDomainString
+  , ICmptRegexDmnStrNonEmpty
+{
+}
+
 public class CmptDmnStrPrnt
   : CmptPrntDmnStrPrnt
   , ICmptDmnStrPrnt
@@ -201,6 +219,12 @@ public class CmptDmnStrPrnt
 public class CmptPrntDmnStrPrnt
   : GqlpDomainString
   , ICmptPrntDmnStrPrnt
+{
+}
+
+public class CmptRegexDmnStrPrnt
+  : GqlpDomainString
+  , ICmptRegexDmnStrPrnt
 {
 }
 

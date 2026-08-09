@@ -16,4 +16,11 @@ Success
   !DN P@033/0002
   <2
 }
+{
+  !Do I@008/0003
+  RegexDmnNmbrPrnt
+  Number
+  !DN N@034/0003
+  <3
+}
 ]

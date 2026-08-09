@@ -16,3 +16,8 @@ public interface ItestPrntDmnStrPrnt
   : IGqlpDomainString
 {
 }
+
+public interface ItestRegexDmnStrPrnt
+  : IGqlpDomainString
+{
+}

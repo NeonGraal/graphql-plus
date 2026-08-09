@@ -1,5 +1,6 @@
 ﻿/* domain-number-range
 domain DmnNmbrRange { Number 1<9 21>12 }
+domain RegexDmnNmbrRange { Number 4<10 }
 */
 
 // Generated from Schema domain-number-range
@@ -13,5 +14,11 @@ namespace Components.Gqlp_Schema_domain_number_range;
 public class CmptDmnNmbrRange
   : GqlpDomainNumber
   , ICmptDmnNmbrRange
+{
+}
+
+public class CmptRegexDmnNmbrRange
+  : GqlpDomainNumber
+  , ICmptRegexDmnNmbrRange
 {
 }

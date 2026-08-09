@@ -29,6 +29,34 @@
         "$value": "Domain",
         "$valueTag": "_TypeKind"
       }
+    },
+    "RegexDmnStrNonEmpty": {
+      "$keyTag": "_Name",
+      "$mapTag": "_DomainString",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainRegex)",
+          "domain": "RegexDmnStrNonEmpty",
+          "exclude": false,
+          "pattern": "[A-Z]\u002B"
+        }
+      ],
+      "domainKind": {
+        "$value": "String",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "[A-Z]\u002B"
+        }
+      ],
+      "name": "RegexDmnStrNonEmpty",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
     }
   }
 }

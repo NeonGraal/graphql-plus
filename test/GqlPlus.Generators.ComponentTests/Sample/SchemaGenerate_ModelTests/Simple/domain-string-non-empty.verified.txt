@@ -1,5 +1,6 @@
 ﻿/* domain-string-non-empty
 domain DmnStrNonEmpty { String !/\s*/ }
+domain RegexDmnStrNonEmpty { String /[A-Z]+/ }
 */
 
 // Generated from Schema domain-string-non-empty
@@ -13,5 +14,11 @@ namespace Components.Gqlp_Schema_domain_string_non_empty;
 public class CmptDmnStrNonEmpty
   : GqlpDomainString
   , ICmptDmnStrNonEmpty
+{
+}
+
+public class CmptRegexDmnStrNonEmpty
+  : GqlpDomainString
+  , ICmptRegexDmnStrNonEmpty
 {
 }

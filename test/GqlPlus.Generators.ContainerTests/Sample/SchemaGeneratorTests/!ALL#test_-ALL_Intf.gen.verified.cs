@@ -7023,6 +7023,11 @@ public interface ItestPrntDmnNmbrPrnt
 {
 }
 
+public interface ItestRegexDmnNmbrPrnt
+  : IGqlpDomainNumber
+{
+}
+
 public interface ItestDmnNmbrPrntDescr
   : ItestPrntDmnNmbrPrntDescr
 {
@@ -7043,6 +7048,11 @@ public interface ItestDmnNmbrRange
 {
 }
 
+public interface ItestRegexDmnNmbrRange
+  : IGqlpDomainNumber
+{
+}
+
 public interface ItestDmnStrDescr
   : IGqlpDomainString
 {
@@ -7053,12 +7063,22 @@ public interface ItestDmnStrNonEmpty
 {
 }
 
+public interface ItestRegexDmnStrNonEmpty
+  : IGqlpDomainString
+{
+}
+
 public interface ItestDmnStrPrnt
   : ItestPrntDmnStrPrnt
 {
 }
 
 public interface ItestPrntDmnStrPrnt
+  : IGqlpDomainString
+{
+}
+
+public interface ItestRegexDmnStrPrnt
   : IGqlpDomainString
 {
 }

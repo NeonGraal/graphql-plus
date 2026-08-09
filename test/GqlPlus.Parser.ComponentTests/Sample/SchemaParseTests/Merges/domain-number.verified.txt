@@ -10,3 +10,10 @@ Success
   DmnNmbr
   Number
 }
+{
+  !Do I@008/0003
+  DmnNmbr
+  Number
+  !DN N@025/0003
+  5<8
+}

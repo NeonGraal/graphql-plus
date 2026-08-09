@@ -1,5 +1,5 @@
-﻿[  
-!Sc I@001/0001
+﻿[
+  !Sc I@001/0001
 Success
 {
   !Ca P@010/0001
@@ -174,6 +174,8 @@ Success
   !Do I@008/0001
   DmnNmbr
   Number
+  !DN N@025/0003
+  5<8
 }
 {
   !Do I@008/0001
@@ -193,6 +195,8 @@ Success
   !Do I@008/0001
   DmnStr
   String
+  !DX R@024/0003
+  /z+/
 }
 {
   !Do I@008/0001

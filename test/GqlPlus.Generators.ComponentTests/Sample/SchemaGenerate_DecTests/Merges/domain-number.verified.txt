@@ -1,6 +1,7 @@
 ﻿/* domain-number
 domain DmnNmbr { number }
 domain DmnNmbr { number }
+domain DmnNmbr { number 5<8 }
 */
 
 // Generated from Schema domain-number

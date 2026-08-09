@@ -71,6 +71,34 @@
         "$value": "Domain",
         "$valueTag": "_TypeKind"
       }
+    },
+    "RegexDmnNmbrPrnt": {
+      "$keyTag": "_Name",
+      "$mapTag": "_DomainNumber",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainRange)",
+          "domain": "RegexDmnNmbrPrnt",
+          "exclude": false,
+          "to": 3
+        }
+      ],
+      "domainKind": {
+        "$value": "Number",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainRange",
+          "exclude": false,
+          "to": 3
+        }
+      ],
+      "name": "RegexDmnNmbrPrnt",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
     }
   }
 }

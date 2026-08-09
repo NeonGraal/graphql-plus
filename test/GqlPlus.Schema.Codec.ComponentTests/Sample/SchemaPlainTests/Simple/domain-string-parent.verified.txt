@@ -19,3 +19,11 @@
 [_Schema]:types[_Map(_Type)]:[_Name]PrntDmnStrPrnt[_DomainString]:items.0[_DomainRegex]:pattern='b+'
 [_Schema]:types[_Map(_Type)]:[_Name]PrntDmnStrPrnt[_DomainString]:name=PrntDmnStrPrnt
 [_Schema]:types[_Map(_Type)]:[_Name]PrntDmnStrPrnt[_DomainString]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnStrPrnt[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:domain=RegexDmnStrPrnt
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnStrPrnt[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:exclude=false
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnStrPrnt[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:pattern='c+'
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnStrPrnt[_DomainString]:domainKind=[_DomainKind]String
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnStrPrnt[_DomainString]:items.0[_DomainRegex]:exclude=false
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnStrPrnt[_DomainString]:items.0[_DomainRegex]:pattern='c+'
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnStrPrnt[_DomainString]:name=RegexDmnStrPrnt
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnStrPrnt[_DomainString]:typeKind=[_TypeKind]Domain

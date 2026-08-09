@@ -11,3 +11,8 @@ public interface ItestDmnNmbrRange
   : IGqlpDomainNumber
 {
 }
+
+public interface ItestRegexDmnNmbrRange
+  : IGqlpDomainNumber
+{
+}

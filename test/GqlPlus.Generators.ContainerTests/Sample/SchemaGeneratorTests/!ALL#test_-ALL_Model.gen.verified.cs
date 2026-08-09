@@ -10717,6 +10717,12 @@ public class testPrntDmnNmbrPrnt
 {
 }
 
+public class testRegexDmnNmbrPrnt
+  : GqlpDomainNumber
+  , ItestRegexDmnNmbrPrnt
+{
+}
+
 public class testDmnNmbrPrntDescr
   : testPrntDmnNmbrPrntDescr
   , ItestDmnNmbrPrntDescr
@@ -10741,6 +10747,12 @@ public class testDmnNmbrRange
 {
 }
 
+public class testRegexDmnNmbrRange
+  : GqlpDomainNumber
+  , ItestRegexDmnNmbrRange
+{
+}
+
 public class testDmnStrDescr
   : GqlpDomainString
   , ItestDmnStrDescr
@@ -10753,6 +10765,12 @@ public class testDmnStrNonEmpty
 {
 }
 
+public class testRegexDmnStrNonEmpty
+  : GqlpDomainString
+  , ItestRegexDmnStrNonEmpty
+{
+}
+
 public class testDmnStrPrnt
   : testPrntDmnStrPrnt
   , ItestDmnStrPrnt
@@ -10762,6 +10780,12 @@ public class testDmnStrPrnt
 public class testPrntDmnStrPrnt
   : GqlpDomainString
   , ItestPrntDmnStrPrnt
+{
+}
+
+public class testRegexDmnStrPrnt
+  : GqlpDomainString
+  , ItestRegexDmnStrPrnt
 {
 }
 

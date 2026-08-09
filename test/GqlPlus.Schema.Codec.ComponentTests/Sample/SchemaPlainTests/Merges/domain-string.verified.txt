@@ -1,3 +1,8 @@
-﻿[_Schema]:types[_Map(_Type)]:[_Name]DmnStr[_DomainString]:domainKind=[_DomainKind]String
+﻿[_Schema]:types[_Map(_Type)]:[_Name]DmnStr[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:domain=DmnStr
+[_Schema]:types[_Map(_Type)]:[_Name]DmnStr[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:exclude=false
+[_Schema]:types[_Map(_Type)]:[_Name]DmnStr[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:pattern='z+'
+[_Schema]:types[_Map(_Type)]:[_Name]DmnStr[_DomainString]:domainKind=[_DomainKind]String
+[_Schema]:types[_Map(_Type)]:[_Name]DmnStr[_DomainString]:items.0[_DomainRegex]:exclude=false
+[_Schema]:types[_Map(_Type)]:[_Name]DmnStr[_DomainString]:items.0[_DomainRegex]:pattern='z+'
 [_Schema]:types[_Map(_Type)]:[_Name]DmnStr[_DomainString]:name=DmnStr
 [_Schema]:types[_Map(_Type)]:[_Name]DmnStr[_DomainString]:typeKind=[_TypeKind]Domain

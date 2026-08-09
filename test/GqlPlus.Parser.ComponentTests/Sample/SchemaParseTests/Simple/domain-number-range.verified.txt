@@ -9,3 +9,10 @@ Success
   !DN N@034/0001
   12<21
 }
+{
+  !Do I@008/0002
+  RegexDmnNmbrRange
+  Number
+  !DN N@035/0002
+  4<10
+}

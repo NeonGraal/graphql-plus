@@ -31,10 +31,23 @@ internal class testPrntDmnNmbrPrntDecoder : IDecoder<ItestPrntDmnNmbrPrnt>
   internal static testPrntDmnNmbrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
+internal class testRegexDmnNmbrPrntDecoder : IDecoder<ItestRegexDmnNmbrPrnt>
+{
+
+  public IMessages Decode(IValue input, out ItestRegexDmnNmbrPrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
+
+  internal static testRegexDmnNmbrPrntDecoder Factory(IDecoderRepository _) => new();
+}
+
 internal static class test_domain_number_parentDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_domain_number_parentDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestDmnNmbrPrnt>(testDmnNmbrPrntDecoder.Factory)
-      .AddDecoder<ItestPrntDmnNmbrPrnt>(testPrntDmnNmbrPrntDecoder.Factory);
+      .AddDecoder<ItestPrntDmnNmbrPrnt>(testPrntDmnNmbrPrntDecoder.Factory)
+      .AddDecoder<ItestRegexDmnNmbrPrnt>(testRegexDmnNmbrPrntDecoder.Factory);
 }

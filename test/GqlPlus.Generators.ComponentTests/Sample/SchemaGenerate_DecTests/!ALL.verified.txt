@@ -5650,6 +5650,18 @@ internal class CmptPrntDmnNmbrPrntDecoder : IDecoder<ICmptPrntDmnNmbrPrnt>
   internal static CmptPrntDmnNmbrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
+internal class CmptRegexDmnNmbrPrntDecoder : IDecoder<ICmptRegexDmnNmbrPrnt>
+{
+
+  public IMessages Decode(IValue input, out ICmptRegexDmnNmbrPrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
+
+  internal static CmptRegexDmnNmbrPrntDecoder Factory(IDecoderRepository _) => new();
+}
+
 internal class CmptDmnNmbrPrntDescrDecoder : IDecoder<ICmptDmnNmbrPrntDescr>
 {
 
@@ -5698,6 +5710,18 @@ internal class CmptDmnNmbrRangeDecoder : IDecoder<ICmptDmnNmbrRange>
   internal static CmptDmnNmbrRangeDecoder Factory(IDecoderRepository _) => new();
 }
 
+internal class CmptRegexDmnNmbrRangeDecoder : IDecoder<ICmptRegexDmnNmbrRange>
+{
+
+  public IMessages Decode(IValue input, out ICmptRegexDmnNmbrRange? output)
+  {
+    output = null;
+    return Messages.New;
+  }
+
+  internal static CmptRegexDmnNmbrRangeDecoder Factory(IDecoderRepository _) => new();
+}
+
 internal class CmptDmnStrDescrDecoder : IDecoder<ICmptDmnStrDescr>
 {
 
@@ -5722,6 +5746,18 @@ internal class CmptDmnStrNonEmptyDecoder : IDecoder<ICmptDmnStrNonEmpty>
   internal static CmptDmnStrNonEmptyDecoder Factory(IDecoderRepository _) => new();
 }
 
+internal class CmptRegexDmnStrNonEmptyDecoder : IDecoder<ICmptRegexDmnStrNonEmpty>
+{
+
+  public IMessages Decode(IValue input, out ICmptRegexDmnStrNonEmpty? output)
+  {
+    output = null;
+    return Messages.New;
+  }
+
+  internal static CmptRegexDmnStrNonEmptyDecoder Factory(IDecoderRepository _) => new();
+}
+
 internal class CmptDmnStrPrntDecoder : IDecoder<ICmptDmnStrPrnt>
 {
 
@@ -5744,6 +5780,18 @@ internal class CmptPrntDmnStrPrntDecoder : IDecoder<ICmptPrntDmnStrPrnt>
   }
 
   internal static CmptPrntDmnStrPrntDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class CmptRegexDmnStrPrntDecoder : IDecoder<ICmptRegexDmnStrPrnt>
+{
+
+  public IMessages Decode(IValue input, out ICmptRegexDmnStrPrnt? output)
+  {
+    output = null;
+    return Messages.New;
+  }
+
+  internal static CmptRegexDmnStrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class CmptDmnStrPrntDescrDecoder : IDecoder<ICmptDmnStrPrntDescr>
@@ -6397,14 +6445,18 @@ internal static class Cmpt_Schema_ALLDecoders
       .AddDecoder<ICmptDmnNmbrDescr>(CmptDmnNmbrDescrDecoder.Factory)
       .AddDecoder<ICmptDmnNmbrPrnt>(CmptDmnNmbrPrntDecoder.Factory)
       .AddDecoder<ICmptPrntDmnNmbrPrnt>(CmptPrntDmnNmbrPrntDecoder.Factory)
+      .AddDecoder<ICmptRegexDmnNmbrPrnt>(CmptRegexDmnNmbrPrntDecoder.Factory)
       .AddDecoder<ICmptDmnNmbrPrntDescr>(CmptDmnNmbrPrntDescrDecoder.Factory)
       .AddDecoder<ICmptPrntDmnNmbrPrntDescr>(CmptPrntDmnNmbrPrntDescrDecoder.Factory)
       .AddDecoder<ICmptDmnNmbrPstv>(CmptDmnNmbrPstvDecoder.Factory)
       .AddDecoder<ICmptDmnNmbrRange>(CmptDmnNmbrRangeDecoder.Factory)
+      .AddDecoder<ICmptRegexDmnNmbrRange>(CmptRegexDmnNmbrRangeDecoder.Factory)
       .AddDecoder<ICmptDmnStrDescr>(CmptDmnStrDescrDecoder.Factory)
       .AddDecoder<ICmptDmnStrNonEmpty>(CmptDmnStrNonEmptyDecoder.Factory)
+      .AddDecoder<ICmptRegexDmnStrNonEmpty>(CmptRegexDmnStrNonEmptyDecoder.Factory)
       .AddDecoder<ICmptDmnStrPrnt>(CmptDmnStrPrntDecoder.Factory)
       .AddDecoder<ICmptPrntDmnStrPrnt>(CmptPrntDmnStrPrntDecoder.Factory)
+      .AddDecoder<ICmptRegexDmnStrPrnt>(CmptRegexDmnStrPrntDecoder.Factory)
       .AddDecoder<ICmptDmnStrPrntDescr>(CmptDmnStrPrntDescrDecoder.Factory)
       .AddDecoder<ICmptPrntDmnStrPrntDescr>(CmptPrntDmnStrPrntDescrDecoder.Factory)
       .AddDecoder<CmptEnumDescr?>(CmptEnumDescrDecoder.Factory)

@@ -19,9 +19,22 @@ internal class testDmnNmbrRangeDecoder : IDecoder<ItestDmnNmbrRange>
   internal static testDmnNmbrRangeDecoder Factory(IDecoderRepository _) => new();
 }
 
+internal class testRegexDmnNmbrRangeDecoder : IDecoder<ItestRegexDmnNmbrRange>
+{
+
+  public IMessages Decode(IValue input, out ItestRegexDmnNmbrRange? output)
+  {
+    output = null;
+    return Messages.New;
+  }
+
+  internal static testRegexDmnNmbrRangeDecoder Factory(IDecoderRepository _) => new();
+}
+
 internal static class test_domain_number_rangeDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_domain_number_rangeDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestDmnNmbrRange>(testDmnNmbrRangeDecoder.Factory);
+      .AddDecoder<ItestDmnNmbrRange>(testDmnNmbrRangeDecoder.Factory)
+      .AddDecoder<ItestRegexDmnNmbrRange>(testRegexDmnNmbrRangeDecoder.Factory);
 }

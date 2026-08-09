@@ -1,6 +1,7 @@
 ﻿/* domain-number-parent
 domain DmnNmbrPrnt { :PrntDmnNmbrPrnt Number 2>}
 domain PrntDmnNmbrPrnt { Number <2 }
+domain RegexDmnNmbrPrnt { Number 3> }
 */
 
 // Generated from Schema domain-number-parent
@@ -27,10 +28,19 @@ internal class CmptPrntDmnNmbrPrntEncoder : IEncoder<ICmptPrntDmnNmbrPrnt>
   internal static CmptPrntDmnNmbrPrntEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptRegexDmnNmbrPrntEncoder : IEncoder<ICmptRegexDmnNmbrPrnt>
+{
+  public Structured Encode(ICmptRegexDmnNmbrPrnt input)
+    => input.Value!.Encode();
+
+  internal static CmptRegexDmnNmbrPrntEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal static class Cmpt_Schema_domain_number_parentEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_number_parentEncoders(this IEncoderRepositoryBuilder builder)
     => builder
       .AddEncoder<ICmptDmnNmbrPrnt>(CmptDmnNmbrPrntEncoder.Factory)
-      .AddEncoder<ICmptPrntDmnNmbrPrnt>(CmptPrntDmnNmbrPrntEncoder.Factory);
+      .AddEncoder<ICmptPrntDmnNmbrPrnt>(CmptPrntDmnNmbrPrntEncoder.Factory)
+      .AddEncoder<ICmptRegexDmnNmbrPrnt>(CmptRegexDmnNmbrPrntEncoder.Factory);
 }

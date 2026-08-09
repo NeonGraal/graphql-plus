@@ -3576,7 +3576,18 @@ types: !_Map(_Type)
     name: DmnEnumValuePrnt
     typeKind: !_TypeKind Domain
   !_Name DmnNmbr: !_DomainNumber
+    allItems:
+      - !_DomainItem(_DomainRange)
+        domain: DmnNmbr
+        exclude: false
+        from: 5
+        to: 8
     domainKind: !_DomainKind Number
+    items:
+      - !_DomainRange
+        exclude: false
+        from: 5
+        to: 8
     name: DmnNmbr
     typeKind: !_TypeKind Domain
   !_Name DmnNmbrDescr: !_DomainNumber
@@ -3703,7 +3714,16 @@ types: !_Map(_Type)
     name: DmnNmbrSame
     typeKind: !_TypeKind Domain
   !_Name DmnStr: !_DomainString
+    allItems:
+      - !_DomainItem(_DomainRegex)
+        domain: DmnStr
+        exclude: false
+        pattern: 'z+'
     domainKind: !_DomainKind String
+    items:
+      - !_DomainRegex
+        exclude: false
+        pattern: 'z+'
     name: DmnStr
     typeKind: !_TypeKind Domain
   !_Name DmnStrDescr: !_DomainString
@@ -12196,6 +12216,60 @@ types: !_Map(_Type)
           name: String
           typeKind: !_TypeKind Basic
         name: a
+  !_Name RegexDmnNmbrPrnt: !_DomainNumber
+    allItems:
+      - !_DomainItem(_DomainRange)
+        domain: RegexDmnNmbrPrnt
+        exclude: false
+        to: 3
+    domainKind: !_DomainKind Number
+    items:
+      - !_DomainRange
+        exclude: false
+        to: 3
+    name: RegexDmnNmbrPrnt
+    typeKind: !_TypeKind Domain
+  !_Name RegexDmnNmbrRange: !_DomainNumber
+    allItems:
+      - !_DomainItem(_DomainRange)
+        domain: RegexDmnNmbrRange
+        exclude: false
+        from: 4
+        to: 10
+    domainKind: !_DomainKind Number
+    items:
+      - !_DomainRange
+        exclude: false
+        from: 4
+        to: 10
+    name: RegexDmnNmbrRange
+    typeKind: !_TypeKind Domain
+  !_Name RegexDmnStrNonEmpty: !_DomainString
+    allItems:
+      - !_DomainItem(_DomainRegex)
+        domain: RegexDmnStrNonEmpty
+        exclude: false
+        pattern: '[A-Z]+'
+    domainKind: !_DomainKind String
+    items:
+      - !_DomainRegex
+        exclude: false
+        pattern: '[A-Z]+'
+    name: RegexDmnStrNonEmpty
+    typeKind: !_TypeKind Domain
+  !_Name RegexDmnStrPrnt: !_DomainString
+    allItems:
+      - !_DomainItem(_DomainRegex)
+        domain: RegexDmnStrPrnt
+        exclude: false
+        pattern: 'c+'
+    domainKind: !_DomainKind String
+    items:
+      - !_DomainRegex
+        exclude: false
+        pattern: 'c+'
+    name: RegexDmnStrPrnt
+    typeKind: !_TypeKind Domain
   !_Name UnionAlias: !_TypeUnion
     aliases: [UnA1,UnA2]
     allItems:

@@ -12,3 +12,9 @@ public class testDmnNmbrRange
   , ItestDmnNmbrRange
 {
 }
+
+public class testRegexDmnNmbrRange
+  : GqlpDomainNumber
+  , ItestRegexDmnNmbrRange
+{
+}

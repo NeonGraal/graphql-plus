@@ -33,3 +33,16 @@ types: !_Map(_Type)
       pattern: 'b+'
     name: PrntDmnStrPrnt
     typeKind: !_TypeKind Domain
+  !_Name RegexDmnStrPrnt: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: RegexDmnStrPrnt
+      exclude: false
+      pattern: 'c+'
+    domainKind: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      pattern: 'c+'
+    name: RegexDmnStrPrnt
+    typeKind: !_TypeKind Domain

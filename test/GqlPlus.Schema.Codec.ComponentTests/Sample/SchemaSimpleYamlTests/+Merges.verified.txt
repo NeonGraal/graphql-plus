@@ -190,7 +190,18 @@ types: !_Map(_Type)
     name: DmnEnumSame
     typeKind: !_TypeKind Domain
   !_Name DmnNmbr: !_DomainNumber
+    allItems:
+      - !_DomainItem(_DomainRange)
+        domain: DmnNmbr
+        exclude: false
+        from: 5
+        to: 8
     domainKind: !_DomainKind Number
+    items:
+      - !_DomainRange
+        exclude: false
+        from: 5
+        to: 8
     name: DmnNmbr
     typeKind: !_TypeKind Domain
   !_Name DmnNmbrDiff: !_DomainNumber
@@ -224,7 +235,16 @@ types: !_Map(_Type)
     name: DmnNmbrSame
     typeKind: !_TypeKind Domain
   !_Name DmnStr: !_DomainString
+    allItems:
+      - !_DomainItem(_DomainRegex)
+        domain: DmnStr
+        exclude: false
+        pattern: 'z+'
     domainKind: !_DomainKind String
+    items:
+      - !_DomainRegex
+        exclude: false
+        pattern: 'z+'
     name: DmnStr
     typeKind: !_TypeKind Domain
   !_Name DmnStrDiff: !_DomainString

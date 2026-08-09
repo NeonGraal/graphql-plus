@@ -1,5 +1,5 @@
-﻿[  
-!Sc I@001/0001
+﻿[
+  !Sc I@001/0001
 Success
 {
   !Do I@008/0001
@@ -7,5 +7,12 @@ Success
   String
   !DX P@032/0001
   !/\\s*/
+}
+{
+  !Do I@008/0002
+  RegexDmnStrNonEmpty
+  String
+  !DX R@037/0002
+  /[A-Z]+/
 }
 ]

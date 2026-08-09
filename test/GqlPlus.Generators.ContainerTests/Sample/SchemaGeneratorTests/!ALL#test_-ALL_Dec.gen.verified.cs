@@ -3085,6 +3085,12 @@ internal class testPrntDmnNmbrPrntDecoder : NullDecoder<ItestPrntDmnNmbrPrnt>
   internal static testPrntDmnNmbrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
+internal class testRegexDmnNmbrPrntDecoder : NullDecoder<ItestRegexDmnNmbrPrnt>
+{
+
+  internal static testRegexDmnNmbrPrntDecoder Factory(IDecoderRepository _) => new();
+}
+
 internal class testDmnNmbrPrntDescrDecoder : NullDecoder<ItestDmnNmbrPrntDescr>
 {
 
@@ -3109,6 +3115,12 @@ internal class testDmnNmbrRangeDecoder : NullDecoder<ItestDmnNmbrRange>
   internal static testDmnNmbrRangeDecoder Factory(IDecoderRepository _) => new();
 }
 
+internal class testRegexDmnNmbrRangeDecoder : NullDecoder<ItestRegexDmnNmbrRange>
+{
+
+  internal static testRegexDmnNmbrRangeDecoder Factory(IDecoderRepository _) => new();
+}
+
 internal class testDmnStrDescrDecoder : NullDecoder<ItestDmnStrDescr>
 {
 
@@ -3121,6 +3133,12 @@ internal class testDmnStrNonEmptyDecoder : NullDecoder<ItestDmnStrNonEmpty>
   internal static testDmnStrNonEmptyDecoder Factory(IDecoderRepository _) => new();
 }
 
+internal class testRegexDmnStrNonEmptyDecoder : NullDecoder<ItestRegexDmnStrNonEmpty>
+{
+
+  internal static testRegexDmnStrNonEmptyDecoder Factory(IDecoderRepository _) => new();
+}
+
 internal class testDmnStrPrntDecoder : NullDecoder<ItestDmnStrPrnt>
 {
 
@@ -3131,6 +3149,12 @@ internal class testPrntDmnStrPrntDecoder : NullDecoder<ItestPrntDmnStrPrnt>
 {
 
   internal static testPrntDmnStrPrntDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class testRegexDmnStrPrntDecoder : NullDecoder<ItestRegexDmnStrPrnt>
+{
+
+  internal static testRegexDmnStrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testDmnStrPrntDescrDecoder : NullDecoder<ItestDmnStrPrntDescr>
@@ -3657,14 +3681,18 @@ internal static class test__ALLDecoders
       .AddDecoder<ItestDmnNmbrDescr>(testDmnNmbrDescrDecoder.Factory)
       .AddDecoder<ItestDmnNmbrPrnt>(testDmnNmbrPrntDecoder.Factory)
       .AddDecoder<ItestPrntDmnNmbrPrnt>(testPrntDmnNmbrPrntDecoder.Factory)
+      .AddDecoder<ItestRegexDmnNmbrPrnt>(testRegexDmnNmbrPrntDecoder.Factory)
       .AddDecoder<ItestDmnNmbrPrntDescr>(testDmnNmbrPrntDescrDecoder.Factory)
       .AddDecoder<ItestPrntDmnNmbrPrntDescr>(testPrntDmnNmbrPrntDescrDecoder.Factory)
       .AddDecoder<ItestDmnNmbrPstv>(testDmnNmbrPstvDecoder.Factory)
       .AddDecoder<ItestDmnNmbrRange>(testDmnNmbrRangeDecoder.Factory)
+      .AddDecoder<ItestRegexDmnNmbrRange>(testRegexDmnNmbrRangeDecoder.Factory)
       .AddDecoder<ItestDmnStrDescr>(testDmnStrDescrDecoder.Factory)
       .AddDecoder<ItestDmnStrNonEmpty>(testDmnStrNonEmptyDecoder.Factory)
+      .AddDecoder<ItestRegexDmnStrNonEmpty>(testRegexDmnStrNonEmptyDecoder.Factory)
       .AddDecoder<ItestDmnStrPrnt>(testDmnStrPrntDecoder.Factory)
       .AddDecoder<ItestPrntDmnStrPrnt>(testPrntDmnStrPrntDecoder.Factory)
+      .AddDecoder<ItestRegexDmnStrPrnt>(testRegexDmnStrPrntDecoder.Factory)
       .AddDecoder<ItestDmnStrPrntDescr>(testDmnStrPrntDescrDecoder.Factory)
       .AddDecoder<ItestPrntDmnStrPrntDescr>(testPrntDmnStrPrntDescrDecoder.Factory)
       .AddDecoder<testEnumDescr>(testEnumDescrDecoder.Factory)

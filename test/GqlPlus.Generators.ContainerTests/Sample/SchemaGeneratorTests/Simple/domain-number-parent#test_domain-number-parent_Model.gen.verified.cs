@@ -18,3 +18,9 @@ public class testPrntDmnNmbrPrnt
   , ItestPrntDmnNmbrPrnt
 {
 }
+
+public class testRegexDmnNmbrPrnt
+  : GqlpDomainNumber
+  , ItestRegexDmnNmbrPrnt
+{
+}

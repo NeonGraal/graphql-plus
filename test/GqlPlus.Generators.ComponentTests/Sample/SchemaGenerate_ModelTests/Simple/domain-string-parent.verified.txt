@@ -1,6 +1,7 @@
 ﻿/* domain-string-parent
 domain DmnStrPrnt { :PrntDmnStrPrnt String /a+/ }
 domain PrntDmnStrPrnt { String /b+/ }
+domain RegexDmnStrPrnt { String /c+/ }
 */
 
 // Generated from Schema domain-string-parent
@@ -20,5 +21,11 @@ public class CmptDmnStrPrnt
 public class CmptPrntDmnStrPrnt
   : GqlpDomainString
   , ICmptPrntDmnStrPrnt
+{
+}
+
+public class CmptRegexDmnStrPrnt
+  : GqlpDomainString
+  , ICmptRegexDmnStrPrnt
 {
 }

@@ -1,5 +1,6 @@
 ﻿/* domain-string-non-empty
 domain DmnStrNonEmpty { String !/\s*/ }
+domain RegexDmnStrNonEmpty { String /[A-Z]+/ }
 */
 
 // Generated from Schema domain-string-non-empty
@@ -18,9 +19,18 @@ internal class CmptDmnStrNonEmptyEncoder : IEncoder<ICmptDmnStrNonEmpty>
   internal static CmptDmnStrNonEmptyEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptRegexDmnStrNonEmptyEncoder : IEncoder<ICmptRegexDmnStrNonEmpty>
+{
+  public Structured Encode(ICmptRegexDmnStrNonEmpty input)
+    => input.Value!.Encode();
+
+  internal static CmptRegexDmnStrNonEmptyEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal static class Cmpt_Schema_domain_string_non_emptyEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_domain_string_non_emptyEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptDmnStrNonEmpty>(CmptDmnStrNonEmptyEncoder.Factory);
+      .AddEncoder<ICmptDmnStrNonEmpty>(CmptDmnStrNonEmptyEncoder.Factory)
+      .AddEncoder<ICmptRegexDmnStrNonEmpty>(CmptRegexDmnStrNonEmptyEncoder.Factory);
 }

@@ -12,3 +12,9 @@ public class testDmnStrNonEmpty
   , ItestDmnStrNonEmpty
 {
 }
+
+public class testRegexDmnStrNonEmpty
+  : GqlpDomainString
+  , ItestRegexDmnStrNonEmpty
+{
+}

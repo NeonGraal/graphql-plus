@@ -1251,6 +1251,60 @@ types: !_Map(_Type)
       name: Number
     name: PrntUnionPrntDup
     typeKind: !_TypeKind Union
+  !_Name RegexDmnNmbrPrnt: !_DomainNumber
+    allItems:
+    - !_DomainItem(_DomainRange)
+      domain: RegexDmnNmbrPrnt
+      exclude: false
+      to: 3
+    domainKind: !_DomainKind Number
+    items:
+    - !_DomainRange
+      exclude: false
+      to: 3
+    name: RegexDmnNmbrPrnt
+    typeKind: !_TypeKind Domain
+  !_Name RegexDmnNmbrRange: !_DomainNumber
+    allItems:
+    - !_DomainItem(_DomainRange)
+      domain: RegexDmnNmbrRange
+      exclude: false
+      from: 4
+      to: 10
+    domainKind: !_DomainKind Number
+    items:
+    - !_DomainRange
+      exclude: false
+      from: 4
+      to: 10
+    name: RegexDmnNmbrRange
+    typeKind: !_TypeKind Domain
+  !_Name RegexDmnStrNonEmpty: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: RegexDmnStrNonEmpty
+      exclude: false
+      pattern: '[A-Z]+'
+    domainKind: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      pattern: '[A-Z]+'
+    name: RegexDmnStrNonEmpty
+    typeKind: !_TypeKind Domain
+  !_Name RegexDmnStrPrnt: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: RegexDmnStrPrnt
+      exclude: false
+      pattern: 'c+'
+    domainKind: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      pattern: 'c+'
+    name: RegexDmnStrPrnt
+    typeKind: !_TypeKind Domain
   !_Name UnionDescr: !_TypeUnion
     allItems:
     - !_UnionMember

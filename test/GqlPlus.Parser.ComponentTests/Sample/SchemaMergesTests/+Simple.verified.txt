@@ -361,6 +361,13 @@ Success
   <2
 }
 {
+  !Do I@008/0003
+  RegexDmnNmbrPrnt
+  Number
+  !DN N@034/0003
+  <3
+}
+{
   !Do I@008/0001
   DmnNmbrPrntDescr
   Number
@@ -392,6 +399,13 @@ Success
   12<21
 }
 {
+  !Do I@008/0002
+  RegexDmnNmbrRange
+  Number
+  !DN N@035/0002
+  4<10
+}
+{
   !Do I@008/0001
   DmnStrDescr
   String
@@ -404,6 +418,13 @@ Success
   String
   !DX P@032/0001
   !/\\s*/
+}
+{
+  !Do I@008/0002
+  RegexDmnStrNonEmpty
+  String
+  !DX R@037/0002
+  /[A-Z]+/
 }
 {
   !Do I@008/0001
@@ -419,6 +440,13 @@ Success
   String
   !DX R@032/0002
   /b+/
+}
+{
+  !Do I@008/0003
+  RegexDmnStrPrnt
+  String
+  !DX R@033/0003
+  /c+/
 }
 {
   !Do I@008/0001

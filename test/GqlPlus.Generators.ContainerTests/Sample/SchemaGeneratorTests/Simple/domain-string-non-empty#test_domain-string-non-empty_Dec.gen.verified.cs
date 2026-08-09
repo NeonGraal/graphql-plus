@@ -13,9 +13,16 @@ internal class testDmnStrNonEmptyDecoder : NullDecoder<ItestDmnStrNonEmpty>
   internal static testDmnStrNonEmptyDecoder Factory(IDecoderRepository _) => new();
 }
 
+internal class testRegexDmnStrNonEmptyDecoder : NullDecoder<ItestRegexDmnStrNonEmpty>
+{
+
+  internal static testRegexDmnStrNonEmptyDecoder Factory(IDecoderRepository _) => new();
+}
+
 internal static class test_domain_string_non_emptyDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_domain_string_non_emptyDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestDmnStrNonEmpty>(testDmnStrNonEmptyDecoder.Factory);
+      .AddDecoder<ItestDmnStrNonEmpty>(testDmnStrNonEmptyDecoder.Factory)
+      .AddDecoder<ItestRegexDmnStrNonEmpty>(testRegexDmnStrNonEmptyDecoder.Factory);
 }

@@ -1,6 +1,7 @@
 ﻿/* domain-string
 domain DmnStr { string }
 domain DmnStr { string }
+domain DmnStr { string /z+/ }
 */
 
 // Generated from Schema domain-string

@@ -452,10 +452,27 @@
     "DmnNmbr": {
       "$keyTag": "_Name",
       "$mapTag": "_DomainNumber",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainRange)",
+          "domain": "DmnNmbr",
+          "exclude": false,
+          "from": 5,
+          "to": 8
+        }
+      ],
       "domainKind": {
         "$value": "Number",
         "$valueTag": "_DomainKind"
       },
+      "items": [
+        {
+          "$mapTag": "_DomainRange",
+          "exclude": false,
+          "from": 5,
+          "to": 8
+        }
+      ],
       "name": "DmnNmbr",
       "typeKind": {
         "$value": "Domain",
@@ -525,10 +542,25 @@
     "DmnStr": {
       "$keyTag": "_Name",
       "$mapTag": "_DomainString",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainRegex)",
+          "domain": "DmnStr",
+          "exclude": false,
+          "pattern": "z\u002B"
+        }
+      ],
       "domainKind": {
         "$value": "String",
         "$valueTag": "_DomainKind"
       },
+      "items": [
+        {
+          "$mapTag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "z\u002B"
+        }
+      ],
       "name": "DmnStr",
       "typeKind": {
         "$value": "Domain",

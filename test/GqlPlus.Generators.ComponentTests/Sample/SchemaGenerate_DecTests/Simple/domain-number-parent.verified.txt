@@ -1,6 +1,7 @@
 ﻿/* domain-number-parent
 domain DmnNmbrPrnt { :PrntDmnNmbrPrnt Number 2>}
 domain PrntDmnNmbrPrnt { Number <2 }
+domain RegexDmnNmbrPrnt { Number 3> }
 */
 
 // Generated from Schema domain-number-parent
@@ -23,10 +24,17 @@ internal class CmptPrntDmnNmbrPrntDecoder : NullDecoder<ICmptPrntDmnNmbrPrnt>
   internal static CmptPrntDmnNmbrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
+internal class CmptRegexDmnNmbrPrntDecoder : NullDecoder<ICmptRegexDmnNmbrPrnt>
+{
+
+  internal static CmptRegexDmnNmbrPrntDecoder Factory(IDecoderRepository _) => new();
+}
+
 internal static class Cmpt_Schema_domain_number_parentDecoders
 {
   internal static IDecoderRepositoryBuilder AddCmpt_Schema_domain_number_parentDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ICmptDmnNmbrPrnt>(CmptDmnNmbrPrntDecoder.Factory)
-      .AddDecoder<ICmptPrntDmnNmbrPrnt>(CmptPrntDmnNmbrPrntDecoder.Factory);
+      .AddDecoder<ICmptPrntDmnNmbrPrnt>(CmptPrntDmnNmbrPrntDecoder.Factory)
+      .AddDecoder<ICmptRegexDmnNmbrPrnt>(CmptRegexDmnNmbrPrntDecoder.Factory);
 }

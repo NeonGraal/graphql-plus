@@ -1,2 +1,3 @@
 domain Name { :PrntName Number 2>}
 domain PrntName { Number <2 }
+domain RegexName { Number 3> }

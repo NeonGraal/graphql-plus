@@ -353,190 +353,218 @@ Success
   <2
 }
 {
-  !Do I@008/0061
-  DmnNmbrPrntDescr
+  !Do I@008/0060
+  RegexDmnNmbrPrnt
   Number
-  :( 'Parent comment' !Tr I@044/0061 PrntDmnNmbrPrntDescr )
-  !DN N@072/0061
-  2<
+  !DN N@034/0060
+  <3
 }
 {
   !Do I@008/0062
+  DmnNmbrPrntDescr
+  Number
+  :( 'Parent comment' !Tr I@044/0062 PrntDmnNmbrPrntDescr )
+  !DN N@072/0062
+  2<
+}
+{
+  !Do I@008/0063
   PrntDmnNmbrPrntDescr
   Number
-  !DN P@038/0062
+  !DN P@038/0063
   <2
 }
 {
-  !Do I@008/0064
+  !Do I@008/0065
   DmnNmbrPstv
   Number
-  !DN P@029/0064
+  !DN P@029/0065
   !<0
 }
 {
-  !Do I@008/0066
+  !Do I@008/0067
   DmnNmbrRange
   Number
-  !DN N@030/0066
+  !DN N@030/0067
   1<9
-  !DN N@034/0066
+  !DN N@034/0067
   12<21
 }
 {
   !Do I@008/0068
-  DmnStrDescr
-  String
-  !DX R@049/0068
-  /a+/
+  RegexDmnNmbrRange
+  Number
+  !DN N@035/0068
+  4<10
 }
 {
   !Do I@008/0070
-  DmnStrNonEmpty
+  DmnStrDescr
   String
-  !DX P@032/0070
-  !/\\s*/
-}
-{
-  !Do I@008/0072
-  DmnStrPrnt
-  String
-  :( !Tr I@022/0072 PrntDmnStrPrnt )
-  !DX R@044/0072
+  !DX R@049/0070
   /a+/
 }
 {
-  !Do I@008/0073
-  PrntDmnStrPrnt
+  !Do I@008/0072
+  DmnStrNonEmpty
   String
-  !DX R@032/0073
-  /b+/
+  !DX P@032/0072
+  !/\\s*/
+}
+{
+  !Do I@008/0073
+  RegexDmnStrNonEmpty
+  String
+  !DX R@037/0073
+  /[A-Z]+/
 }
 {
   !Do I@008/0075
-  DmnStrPrntDescr
+  DmnStrPrnt
   String
-  :( 'Parent comment' !Tr I@043/0075 PrntDmnStrPrntDescr )
-  !DX R@070/0075
+  :( !Tr I@022/0075 PrntDmnStrPrnt )
+  !DX R@044/0075
   /a+/
 }
 {
   !Do I@008/0076
-  PrntDmnStrPrntDescr
+  PrntDmnStrPrnt
   String
-  !DX R@037/0076
+  !DX R@032/0076
   /b+/
 }
 {
-  !En I@006/0078
+  !Do I@008/0077
+  RegexDmnStrPrnt
+  String
+  !DX R@033/0077
+  /c+/
+}
+{
+  !Do I@008/0079
+  DmnStrPrntDescr
+  String
+  :( 'Parent comment' !Tr I@043/0079 PrntDmnStrPrntDescr )
+  !DX R@070/0079
+  /a+/
+}
+{
+  !Do I@008/0080
+  PrntDmnStrPrntDescr
+  String
+  !DX R@037/0080
+  /b+/
+}
+{
+  !En I@006/0082
   EnumDescr
   'Enum Descr'
-  !EL I@033/0078
+  !EL I@033/0082
   enumDescr
 }
 {
-  !En I@006/0080
+  !En I@006/0084
   EnumPrnt
-  :( !Tr I@018/0080 PrntEnumPrnt )
-  !EL I@031/0080
+  :( !Tr I@018/0084 PrntEnumPrnt )
+  !EL I@031/0084
   enumPrnt
 }
 {
-  !En I@006/0081
+  !En I@006/0085
   PrntEnumPrnt
-  !EL I@021/0081
+  !EL I@021/0085
   prnt_enumPrnt
 }
 {
-  !En I@006/0083
+  !En I@006/0087
   EnumPrntAlias
-  :( !Tr I@023/0083 PrntEnumPrntAlias )
-  !EL I@041/0083
+  :( !Tr I@023/0087 PrntEnumPrntAlias )
+  !EL I@041/0087
   val_enumPrntAlias
-  !EL I@059/0083
+  !EL I@059/0087
   prnt_enumPrntAlias
   [
     enumPrntAlias
   ]
 }
 {
-  !En I@006/0084
+  !En I@006/0088
   PrntEnumPrntAlias
-  !EL I@026/0084
+  !EL I@026/0088
   prnt_enumPrntAlias
 }
 {
-  !En I@006/0086
+  !En I@006/0090
   EnumPrntDescr
-  :( 'Parent comment' !Tr I@041/0086 PrntEnumPrntDescr )
-  !EL I@059/0086
+  :( 'Parent comment' !Tr I@041/0090 PrntEnumPrntDescr )
+  !EL I@059/0090
   enumPrntDescr
 }
 {
-  !En I@006/0087
+  !En I@006/0091
   PrntEnumPrntDescr
-  !EL I@026/0087
+  !EL I@026/0091
   prnt_enumPrntDescr
 }
 {
-  !En I@006/0089
+  !En I@006/0093
   EnumPrntDup
-  :( !Tr I@021/0089 PrntEnumPrntDup )
-  !EL I@037/0089
+  :( !Tr I@021/0093 PrntEnumPrntDup )
+  !EL I@037/0093
   enumPrntDup
 }
 {
-  !En I@006/0090
+  !En I@006/0094
   PrntEnumPrntDup
-  !EL I@024/0090
+  !EL I@024/0094
   prnt_enumPrntDup
   [
     enumPrntDup
   ]
 }
 {
-  !Un I@007/0092
+  !Un I@007/0096
   UnionDescr
   'Union Descr'
-  !UM I@036/0092
-  Number
-}
-{
-  !Un I@007/0094
-  UnionPrnt
-  :( !Tr I@020/0094 PrntUnionPrnt )
-  !UM I@034/0094
-  String
-}
-{
-  !Un I@007/0095
-  PrntUnionPrnt
-  !UM I@023/0095
-  Number
-}
-{
-  !Un I@007/0097
-  UnionPrntDescr
-  :( 'Parent comment' !Tr I@041/0097 PrntUnionPrntDescr )
-  !UM I@060/0097
+  !UM I@036/0096
   Number
 }
 {
   !Un I@007/0098
-  PrntUnionPrntDescr
-  !UM I@028/0098
-  Number
+  UnionPrnt
+  :( !Tr I@020/0098 PrntUnionPrnt )
+  !UM I@034/0098
+  String
 }
 {
-  !Un I@007/0100
-  UnionPrntDup
-  :( !Tr I@023/0100 PrntUnionPrntDup )
-  !UM I@040/0100
+  !Un I@007/0099
+  PrntUnionPrnt
+  !UM I@023/0099
   Number
 }
 {
   !Un I@007/0101
+  UnionPrntDescr
+  :( 'Parent comment' !Tr I@041/0101 PrntUnionPrntDescr )
+  !UM I@060/0101
+  Number
+}
+{
+  !Un I@007/0102
+  PrntUnionPrntDescr
+  !UM I@028/0102
+  Number
+}
+{
+  !Un I@007/0104
+  UnionPrntDup
+  :( !Tr I@023/0104 PrntUnionPrntDup )
+  !UM I@040/0104
+  Number
+}
+{
+  !Un I@007/0105
   PrntUnionPrntDup
-  !UM I@026/0101
+  !UM I@026/0105
   Number
 }

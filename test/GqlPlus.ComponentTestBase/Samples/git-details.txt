@@ -1,1 +1,1 @@
-197853d  (HEAD -> operation) 2026-06-01 Fixup verification errors
+6c8606c  (HEAD -> regex-values) 2026-08-09 Improve samples and note REGEX constant only used in Schema String Domain definition

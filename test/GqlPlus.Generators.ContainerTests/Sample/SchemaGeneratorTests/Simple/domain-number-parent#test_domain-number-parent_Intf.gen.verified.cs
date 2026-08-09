@@ -16,3 +16,8 @@ public interface ItestPrntDmnNmbrPrnt
   : IGqlpDomainNumber
 {
 }
+
+public interface ItestRegexDmnNmbrPrnt
+  : IGqlpDomainNumber
+{
+}

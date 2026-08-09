@@ -6,3 +6,11 @@
 [_Schema]:types[_Map(_Type)]:[_Name]DmnStrNonEmpty[_DomainString]:items.0[_DomainRegex]:pattern='\\s*'
 [_Schema]:types[_Map(_Type)]:[_Name]DmnStrNonEmpty[_DomainString]:name=DmnStrNonEmpty
 [_Schema]:types[_Map(_Type)]:[_Name]DmnStrNonEmpty[_DomainString]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnStrNonEmpty[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:domain=RegexDmnStrNonEmpty
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnStrNonEmpty[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:exclude=false
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnStrNonEmpty[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:pattern='[A-Z]+'
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnStrNonEmpty[_DomainString]:domainKind=[_DomainKind]String
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnStrNonEmpty[_DomainString]:items.0[_DomainRegex]:exclude=false
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnStrNonEmpty[_DomainString]:items.0[_DomainRegex]:pattern='[A-Z]+'
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnStrNonEmpty[_DomainString]:name=RegexDmnStrNonEmpty
+[_Schema]:types[_Map(_Type)]:[_Name]RegexDmnStrNonEmpty[_DomainString]:typeKind=[_TypeKind]Domain

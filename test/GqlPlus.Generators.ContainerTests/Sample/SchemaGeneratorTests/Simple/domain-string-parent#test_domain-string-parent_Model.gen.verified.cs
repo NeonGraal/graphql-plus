@@ -18,3 +18,9 @@ public class testPrntDmnStrPrnt
   , ItestPrntDmnStrPrnt
 {
 }
+
+public class testRegexDmnStrPrnt
+  : GqlpDomainString
+  , ItestRegexDmnStrPrnt
+{
+}

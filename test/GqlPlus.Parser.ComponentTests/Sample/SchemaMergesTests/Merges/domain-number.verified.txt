@@ -5,5 +5,7 @@ Success
   !Do I@008/0001
   DmnNmbr
   Number
+  !DN N@025/0003
+  5<8
 }
 ]

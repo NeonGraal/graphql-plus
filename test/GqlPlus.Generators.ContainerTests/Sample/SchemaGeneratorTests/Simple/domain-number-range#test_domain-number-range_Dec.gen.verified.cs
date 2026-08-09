@@ -13,9 +13,16 @@ internal class testDmnNmbrRangeDecoder
   internal static testDmnNmbrRangeDecoder Factory(IDecoderRepository _) => new();
 }
 
+internal class testRegexDmnNmbrRangeDecoder
+{
+
+  internal static testRegexDmnNmbrRangeDecoder Factory(IDecoderRepository _) => new();
+}
+
 internal static class test_domain_number_rangeDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_domain_number_rangeDecoders(this IDecoderRepositoryBuilder builder)
     => builder
-      .AddDecoder<ItestDmnNmbrRange>(testDmnNmbrRangeDecoder.Factory);
+      .AddDecoder<ItestDmnNmbrRange>(testDmnNmbrRangeDecoder.Factory)
+      .AddDecoder<ItestRegexDmnNmbrRange>(testRegexDmnNmbrRangeDecoder.Factory);
 }

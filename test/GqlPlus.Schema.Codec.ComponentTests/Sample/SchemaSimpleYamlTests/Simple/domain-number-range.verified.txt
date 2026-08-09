@@ -24,3 +24,18 @@ types: !_Map(_Type)
         to: 21
     name: DmnNmbrRange
     typeKind: !_TypeKind Domain
+  !_Name RegexDmnNmbrRange: !_DomainNumber
+    allItems:
+      - !_DomainItem(_DomainRange)
+        domain: RegexDmnNmbrRange
+        exclude: false
+        from: 4
+        to: 10
+    domainKind: !_DomainKind Number
+    items:
+      - !_DomainRange
+        exclude: false
+        from: 4
+        to: 10
+    name: RegexDmnNmbrRange
+    typeKind: !_TypeKind Domain

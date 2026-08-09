@@ -15,9 +15,18 @@ internal class testDmnNmbrRangeEncoder : IEncoder<ItestDmnNmbrRange>
   internal static testDmnNmbrRangeEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class testRegexDmnNmbrRangeEncoder : IEncoder<ItestRegexDmnNmbrRange>
+{
+  public Structured Encode(ItestRegexDmnNmbrRange input)
+    => input.Value!.Encode();
+
+  internal static testRegexDmnNmbrRangeEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal static class test_domain_number_rangeEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_domain_number_rangeEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestDmnNmbrRange>(testDmnNmbrRangeEncoder.Factory);
+      .AddEncoder<ItestDmnNmbrRange>(testDmnNmbrRangeEncoder.Factory)
+      .AddEncoder<ItestRegexDmnNmbrRange>(testRegexDmnNmbrRangeEncoder.Factory);
 }

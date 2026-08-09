@@ -10,3 +10,10 @@ Success
   DmnStr
   String
 }
+{
+  !Do I@008/0003
+  DmnStr
+  String
+  !DX R@024/0003
+  /z+/
+}

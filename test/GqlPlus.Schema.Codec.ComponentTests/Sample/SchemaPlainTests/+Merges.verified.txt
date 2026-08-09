@@ -131,7 +131,14 @@
 [_Schema]:types[_Map(_Type)]:[_Name]DmnEnumSame[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
 [_Schema]:types[_Map(_Type)]:[_Name]DmnEnumSame[_DomainEnum]:name=DmnEnumSame
 [_Schema]:types[_Map(_Type)]:[_Name]DmnEnumSame[_DomainEnum]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map(_Type)]:[_Name]DmnNmbr[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:domain=DmnNmbr
+[_Schema]:types[_Map(_Type)]:[_Name]DmnNmbr[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:exclude=false
+[_Schema]:types[_Map(_Type)]:[_Name]DmnNmbr[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:from=5
+[_Schema]:types[_Map(_Type)]:[_Name]DmnNmbr[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:to=8
 [_Schema]:types[_Map(_Type)]:[_Name]DmnNmbr[_DomainNumber]:domainKind=[_DomainKind]Number
+[_Schema]:types[_Map(_Type)]:[_Name]DmnNmbr[_DomainNumber]:items.0[_DomainRange]:exclude=false
+[_Schema]:types[_Map(_Type)]:[_Name]DmnNmbr[_DomainNumber]:items.0[_DomainRange]:from=5
+[_Schema]:types[_Map(_Type)]:[_Name]DmnNmbr[_DomainNumber]:items.0[_DomainRange]:to=8
 [_Schema]:types[_Map(_Type)]:[_Name]DmnNmbr[_DomainNumber]:name=DmnNmbr
 [_Schema]:types[_Map(_Type)]:[_Name]DmnNmbr[_DomainNumber]:typeKind=[_TypeKind]Domain
 [_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrDiff[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:domain=DmnNmbrDiff
@@ -154,7 +161,12 @@
 [_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrSame[_DomainNumber]:items.0[_DomainRange]:to=1
 [_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrSame[_DomainNumber]:name=DmnNmbrSame
 [_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrSame[_DomainNumber]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map(_Type)]:[_Name]DmnStr[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:domain=DmnStr
+[_Schema]:types[_Map(_Type)]:[_Name]DmnStr[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:exclude=false
+[_Schema]:types[_Map(_Type)]:[_Name]DmnStr[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:pattern='z+'
 [_Schema]:types[_Map(_Type)]:[_Name]DmnStr[_DomainString]:domainKind=[_DomainKind]String
+[_Schema]:types[_Map(_Type)]:[_Name]DmnStr[_DomainString]:items.0[_DomainRegex]:exclude=false
+[_Schema]:types[_Map(_Type)]:[_Name]DmnStr[_DomainString]:items.0[_DomainRegex]:pattern='z+'
 [_Schema]:types[_Map(_Type)]:[_Name]DmnStr[_DomainString]:name=DmnStr
 [_Schema]:types[_Map(_Type)]:[_Name]DmnStr[_DomainString]:typeKind=[_TypeKind]Domain
 [_Schema]:types[_Map(_Type)]:[_Name]DmnStrDiff[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:domain=DmnStrDiff

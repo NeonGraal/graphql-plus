@@ -4,14 +4,12 @@ Success
 {
   !f I@002/0001
   entity
+  !i P@009/0001
+  :Admin
+  ( !d I@017/0001 auth )
+  ( !d I@023/0001 restrict )
   {
-    !i I@013/0001
-    :Admin
-    ( !d I@023/0001 auth )
-    ( !d I@029/0001 restrict )
-    {
-      !f I@039/0001
-      secret
-    }
+    !f I@033/0001
+    secret
   }
 }

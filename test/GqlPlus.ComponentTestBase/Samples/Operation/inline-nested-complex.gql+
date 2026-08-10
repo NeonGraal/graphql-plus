@@ -1,1 +1,3 @@
-{entity{... on User{profile{...address}}...on Admin{permissions{...role}}}}
+&address:Profile{email website}
+&role:Permission{name}
+{entity{|:User{profile{|address}}|:Admin{permissions{|role}}}}

@@ -1,1 +1,1 @@
-{entity{... on User []{id name}}}
+{entity|:User []{id name}}

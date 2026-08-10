@@ -14,8 +14,8 @@ addr
   !f I@029/0001
   user
   {
-    !s I@037/0001
+    !s I@035/0001
     addr
-    ( !d I@043/0001 deprecated )
+    ( !d I@041/0001 deprecated )
   }
 }

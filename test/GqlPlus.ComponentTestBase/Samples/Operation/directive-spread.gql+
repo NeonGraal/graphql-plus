@@ -1,1 +1,1 @@
-&addr:Address{street city} {user{...addr @deprecated}}
+&addr:Address{street city} {user{|addr @deprecated}}

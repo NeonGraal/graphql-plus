@@ -1,1 +1,1 @@
-d5e7c10  (HEAD -> request) 2026-08-10 More Operation samples improvement
+eb685b0  (HEAD -> request) 2026-08-12 Improve Request samples

@@ -1,0 +1,4 @@
+Content-Type: application/yaml
+
+- !String "{id name}"
+- !String "data"

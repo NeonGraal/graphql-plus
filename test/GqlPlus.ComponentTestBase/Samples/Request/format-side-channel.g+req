@@ -1,0 +1,3 @@
+GQL-Category: Sample
+
+{id name email address{street city}}

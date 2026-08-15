@@ -1,2 +1,11 @@
-﻿Errors:
-  Invalid Operation. Expected Object or Type.
+﻿Category: query
+ParsedOperation:
+!g P@001/0001
+query
+Success
+{
+  !f I@002/0001
+  id
+  !f I@005/0001
+  name
+}

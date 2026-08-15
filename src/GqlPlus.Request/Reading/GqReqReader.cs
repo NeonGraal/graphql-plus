@@ -16,9 +16,7 @@ public static class GqReqReader
       return new GqReqInput(null, null, "", []);
     }
 
-    bool hasKeyValueFormat = lines[0].IndexOf('=') >= 0;
-
-    if (!hasKeyValueFormat) {
+    if (lines[0].IndexOf('=') < 0) {
       return new GqReqInput(null, null, input.Trim(), []);
     }
 

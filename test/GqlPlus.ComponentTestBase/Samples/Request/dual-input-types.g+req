@@ -1,6 +1,4 @@
-Content-Type: application/x-simple
-
 category = _Schema
 definition = ($names[]) { types($names) { name typeKind parent { name } } }
-parameters.names = *Dual*
-parameters.names = *Input*
+parameters.names = Dual
+parameters.names = Input

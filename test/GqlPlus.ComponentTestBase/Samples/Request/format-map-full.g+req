@@ -1,8 +1,4 @@
-Content-Type: application/json
-
-{
-  "category": "Sample",
-  "definition": "{user{id name}}",
-  "operation": "getUser",
-  "parameters": {"id": 123}
-}
+category = Sample
+operation = getUser
+definition = {user{id name}}
+parameters.id = 123

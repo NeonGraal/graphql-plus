@@ -1,4 +1,2 @@
-Content-Type: application/yaml
-
-- !String "{id name}"
-- !String "data"
+definition = {id name}
+parameters = data

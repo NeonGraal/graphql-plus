@@ -1,7 +1,2 @@
-Content-Type: application/json
-
-[
-    "Sample {user{id name email}}",
-    {"userId": 42},
-    "additional_param"
-]
+definition = Sample {user{id name email}}
+parameters.userId = 42

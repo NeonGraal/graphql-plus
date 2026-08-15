@@ -1,2 +1,17 @@
-﻿Errors:
-  Invalid Operation. Expected Object or Type.
+﻿Category: Sample
+Operation: getUser
+Parameters: { I:id: I:123 }
+ParsedOperation:
+!g P@001/0001
+query
+Success
+{
+  !f I@002/0001
+  user
+  {
+    !f I@007/0001
+    id
+    !f I@010/0001
+    name
+  }
+}

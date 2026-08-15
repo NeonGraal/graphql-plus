@@ -1,1 +1,1 @@
-cb71fc4  (HEAD -> request) 2026-08-15 Make Request samples all be simple or string
+1918ea7  (HEAD -> request) 2026-08-16 Improve Operation samples

@@ -2,36 +2,6 @@
 query
 Success
 {
-  !f I@003/0002
-  user
-  (
-    !a I@008/0002
-    {
-      ( !k I@008/0002 id ):( !k N@012/0002 4 )
-    }
-  )
-  {
-    !f I@005/0003
-    id
-    !f I@005/0004
-    name
-    !f I@015/0005
-    smallPic:
-    profilePic
-    (
-      !a I@026/0005
-      {
-        ( !k I@026/0005 size ):( !k N@032/0005 64 )
-      }
-    )
-    !f I@013/0006
-    bigPic:
-    profilePic
-    (
-      !a I@024/0006
-      {
-        ( !k I@024/0006 size ):( !k N@030/0006 1024 )
-      }
-    )
-  }
+  : ( !f I@003/0002 user ( !a I@008/0002 { ( !k I@008/0002 id ):( !k N@012/0002 4 ) } ) { !f I@005/0003 id !f I@005/0004 name !f I@015/0005 smallPic: profilePic ( !a I@026/0005 { ( !k I@026/0005 size ):( !k N@032/0005 64 ) } ) !f I@013/0006 bigPic: profilePic ( !a I@024/0006 { ( !k I@024/0006 size ):( !k N@030/0006 1024 ) } ) } )
+  .1: ( !f I@005/0003 id ) ( !f I@005/0004 name ) ( !f I@015/0005 smallPic: profilePic ( !a I@026/0005 { ( !k I@026/0005 size ):( !k N@032/0005 64 ) } ) ) ( !f I@013/0006 bigPic: profilePic ( !a I@024/0006 { ( !k I@024/0006 size ):( !k N@030/0006 1024 ) } ) )
 }

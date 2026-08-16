@@ -4,7 +4,6 @@ public interface IAstOperation
   : IAstIdentified
   , IAstDirectives
   , IAstModifiers
-  , IAstSelections
   , IEquatable<IAstOperation>
 {
   string Category { get; }
@@ -16,12 +15,41 @@ public interface IAstOperation
 
   IEnumerable<IAstFragment> Fragments { get; }
 
+  IMap<IAstOpSelection[]> Selections { get; }
+
   ParseResultKind Result { get; }
   IMessages Errors { get; }
 
   IEnumerable<IAstArg> Usages { get; }
   IEnumerable<IAstSpread> Spreads { get; }
 }
+
+public interface IAstOpSelection
+  : IAstError
+  , IAstDirectives
+  , IAstModifiers;
+
+public interface IAstOpField
+  : IAstIdentified
+  , IAstOpSelection
+  , IEquatable<IAstOpField>
+{
+  string? FieldAlias { get; }
+  IAstArg? Arg { get; }
+}
+
+public interface IAstOpInline
+  : IAstAbbreviated
+  , IAstOpSelection
+  , IEquatable<IAstOpInline>
+{
+  string? OnType { get; }
+}
+
+public interface IAstOpSpread
+  : IAstIdentified
+  , IAstOpSelection
+  , IEquatable<IAstOpSpread>;
 
 public interface IAstIdentified
   : IAstAbbreviated

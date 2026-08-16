@@ -64,7 +64,7 @@ internal class ParseOperation(
       if (!argument.Optional(arg => ast.Arg = arg)) {
         return argument.AsPartial(Final(tokens, ast));
       }
-    } else if (!_object.Parse(tokens, label).Required(selections => ast.Selections = [.. selections])) {
+    } else if (!_object.Parse(tokens, label).Required(selections => ast.Selections = ParseSelections(selections))) {
       return tokens.Partial(label, "Object or Type", () => Final(tokens, ast));
     }
 
@@ -77,6 +77,35 @@ internal class ParseOperation(
     modifiers.WithResult(mods => ast.Modifiers = [.. mods]);
 
     return null;
+  }
+
+  private Map<IAstOpSelection[]> ParseSelections(IEnumerable<IAstSelection> selections)
+  {
+    Map<IAstOpSelection[]> result = [];
+    ParseSelections(selections, "", result);
+    return result;
+  }
+
+  private void ParseSelections(IEnumerable<IAstSelection> selections, string prefix, Map<IAstOpSelection[]> result)
+  {
+    int i = 0;
+    List<IAstOpSelection> list = [];
+    foreach (IAstSelection selection in selections) {
+      i++;
+      if (selection is IAstSelections sub) {
+        string key = $"{prefix}.{i}";
+        ParseSelections(sub.Selections, key, result);
+      }
+
+      if (selection is IAstOpSelection op) {
+        list.Add(op);
+      }
+    }
+
+    if (list.Count > 0) {
+      result[prefix] = [.. list];
+    }
+
   }
 
   private IResult<IAstOperation>? ErrorParsingStart(ITokenizer tokens, string label, OperationAst ast)

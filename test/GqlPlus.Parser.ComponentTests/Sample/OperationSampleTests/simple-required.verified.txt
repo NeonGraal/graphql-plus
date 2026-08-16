@@ -2,7 +2,5 @@
 query
 Success
 {
-  !f I@002/0001
-  simple
-  !
+  : ( !f I@002/0001 simple ! )
 }

@@ -9,6 +9,5 @@ named
   name
 }
 {
-  !s I@021/0001
-  named
+  : ( !s I@021/0001 named )
 }

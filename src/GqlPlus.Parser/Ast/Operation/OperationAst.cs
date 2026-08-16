@@ -18,7 +18,7 @@ internal sealed record class OperationAst(
 
   public string? Domain { get; set; }
   public IAstArg? Arg { get; set; }
-  public IAstSelection[] Selections { get; set; } = [];
+  public IMap<IAstOpSelection[]> Selections { get; set; } = new Map<IAstOpSelection[]>();
   public IAstFragment[] Fragments { get; set; } = [];
   public IAstSpread[] Spreads { get; set; } = [];
 
@@ -26,7 +26,6 @@ internal sealed record class OperationAst(
 
   IEnumerable<IAstVariable> IAstOperation.Variables => Variables;
   IAstArg? IAstOperation.Arg => Arg;
-  IEnumerable<IAstSelection> IAstSelections.Selections => Selections;
   IEnumerable<IAstFragment> IAstOperation.Fragments => Fragments;
   IMessages IAstOperation.Errors => Errors;
 
@@ -52,7 +51,7 @@ internal sealed record class OperationAst(
       .Concat(Directives.AsString())
       .Concat(Fragments.Bracket()
       .ConcatIf(Domain.IsWhiteSpace(),
-        () => Selections.Bracket("{", "}"),
+        () => Selections.Bracket("{", "}", p => p.Key + ": " + p.Value.Joined(v => $"{v}")),
         () => Arg.Bracket("(", ")").Prepend(Domain))
       .Concat(Modifiers.AsString()));
 }

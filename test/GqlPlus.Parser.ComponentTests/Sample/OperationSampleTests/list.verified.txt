@@ -2,5 +2,5 @@
 query
 Success
 {
-  : ( !f I@002/0001 list [] )
+  : ( !of I@002/0001 list [] )
 }

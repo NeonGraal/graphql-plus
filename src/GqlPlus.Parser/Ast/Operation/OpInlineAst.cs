@@ -6,6 +6,14 @@ internal record class OpInlineAst(
 ) : AstAbbreviated(At)
   , IAstOpInline
 {
+  public OpInlineAst(IAstOpInline inline)
+    : this(inline.At, inline.OnType)
+  {
+    OpInlineAst mods = (OpInlineAst)inline;
+    Modifiers = mods.Modifiers;
+    Directives = mods.Directives;
+  }
+
   public IAstDirective[] Directives { get; set; } = [];
   public IAstModifier[] Modifiers { get; set; } = [];
 

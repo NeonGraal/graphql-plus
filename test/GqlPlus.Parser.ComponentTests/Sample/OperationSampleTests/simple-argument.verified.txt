@@ -2,5 +2,5 @@
 query
 Success
 {
-  : ( !f I@002/0001 simple ( !k I@009/0001 Boolean.true ) )
+  : ( !of I@002/0001 simple ( !k I@009/0001 Boolean.true ) )
 }

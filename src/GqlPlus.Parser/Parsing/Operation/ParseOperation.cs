@@ -97,8 +97,16 @@ internal class ParseOperation(
         ParseSelections(sub.Selections, key, result);
       }
 
-      if (selection is IAstOpSelection op) {
-        list.Add(op);
+      switch (selection) {
+        case IAstOpField field:
+          list.Add(new OpFieldAst(field));
+          break;
+        case IAstOpInline inline:
+          list.Add(new OpInlineAst(inline));
+          break;
+        case IAstOpSpread spread:
+          list.Add(spread);
+          break;
       }
     }
 

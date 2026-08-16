@@ -13,6 +13,15 @@ internal record class OpFieldAst(
 
   IAstArg? IAstOpField.Arg => Arg;
 
+  internal OpFieldAst(IAstOpField field)
+    : this(field.At, field.Identifier)
+  {
+    FieldAlias = field.FieldAlias;
+    Arg = field.Arg;
+    AstModifiers mods = (AstModifiers)field;
+    Modifiers = mods.Modifiers;
+    Directives = mods.Directives;
+  }
 
   public virtual bool Equals(OpFieldAst? other)
     => other is IAstOpField field && Equals(field);

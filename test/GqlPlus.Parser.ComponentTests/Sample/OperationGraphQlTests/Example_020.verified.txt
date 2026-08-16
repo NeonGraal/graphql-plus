@@ -27,8 +27,8 @@ standardProfilePic
   )
 }
 {
-  : ( !f I@003/0002 user ( !a I@008/0002 { ( !k I@008/0002 id ):( !k N@012/0002 4 ) } ) { !f I@005/0003 friends ( !a I@013/0003 { ( !k I@013/0003 first ):( !k N@020/0003 10 ) } ) { !s I@010/0004 friendFields } !f I@005/0006 mutualFriends ( !a I@019/0006 { ( !k I@019/0006 first ):( !k N@026/0006 10 ) } ) { !s I@010/0007 friendFields } } )
-  .1: ( !f I@005/0003 friends ( !a I@013/0003 { ( !k I@013/0003 first ):( !k N@020/0003 10 ) } ) { !s I@010/0004 friendFields } ) ( !f I@005/0006 mutualFriends ( !a I@019/0006 { ( !k I@019/0006 first ):( !k N@026/0006 10 ) } ) { !s I@010/0007 friendFields } )
+  : ( !of I@003/0002 user ( !a I@008/0002 { ( !k I@008/0002 id ):( !k N@012/0002 4 ) } ) )
+  .1: ( !of I@005/0003 friends ( !a I@013/0003 { ( !k I@013/0003 first ):( !k N@020/0003 10 ) } ) ) ( !of I@005/0006 mutualFriends ( !a I@019/0006 { ( !k I@019/0006 first ):( !k N@026/0006 10 ) } ) )
   .1.1: ( !s I@010/0004 friendFields )
   .1.2: ( !s I@010/0007 friendFields )
 }

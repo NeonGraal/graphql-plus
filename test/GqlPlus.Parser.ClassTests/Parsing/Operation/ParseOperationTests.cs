@@ -83,7 +83,8 @@ public class ParseOperationTests
 
     PrefixReturns(':', OutStringAt(null));
 
-    IAstSelection[] obj = ParseOkA(_objectParser);
+    IAstSpread spread = A.Selection<IAstSpread>();
+    IAstSelection[] obj = ParseOkA(_objectParser, spread);
 
     IAstModifier[] modifiers = ParseAModifier();
     IAstFragment[] endFragments = ParseOkA(_endFragmentsParser);

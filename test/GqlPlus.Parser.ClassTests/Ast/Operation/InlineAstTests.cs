@@ -4,23 +4,23 @@ public partial class InlineAstTests
 {
   [Theory, RepeatData]
   public void HashCode_WithOnType(string onType, string[] fields)
-    => _checks.HashCode(() => new InlineAst(AstNulls.At, fields.Fields()) { OnType = onType });
+    => _checks.HashCode(() => new InlineAst(AstNulls.At, onType, fields.Fields()));
 
   [Theory, RepeatData]
   public void Text_WithOnType(string onType, string[] fields)
     => _checks.Text(
-      () => new InlineAst(AstNulls.At, fields.Fields()) { OnType = onType },
+      () => new InlineAst(AstNulls.At, onType, fields.Fields()),
       $"( !i :{onType} {{ {fields.Joined(s => "!f " + s)} }} )");
 
   [Theory, RepeatData]
   public void Equality_WithOnType(string onType, string[] fields)
     => _checks.Equality(
-      () => new InlineAst(AstNulls.At, fields.Fields()) { OnType = onType });
+      () => new InlineAst(AstNulls.At, onType, fields.Fields()));
 
   [Theory, RepeatData]
   public void Inequality_WithOnType(string onType, string[] fields)
     => _checks.InequalityWith(fields,
-      () => new InlineAst(AstNulls.At, fields.Fields()) { OnType = onType });
+      () => new InlineAst(AstNulls.At, onType, fields.Fields()));
 
   private readonly InlineAstChecks _checks = new();
 
@@ -37,7 +37,7 @@ public partial class InlineAstTests
       (original, input) => original with { Selections = input?.Fields() ?? [] });
 
   internal static InlineAst CreateInline(string[] input)
-    => new(AstNulls.At, input?.Fields() ?? []);
+    => new(AstNulls.At, null, input?.Fields() ?? []);
 }
 
 internal sealed class InlineModifiersChecks()
@@ -47,6 +47,8 @@ internal sealed class InlineModifiersChecks()
 {
   protected override string InputString(string[] input)
     => $"( !i {{ {input.Joined(s => "!f " + s)} }} )";
+  protected override string ModifiersString(string[] input)
+    => $"( !i [] ? {{ {input.Joined(s => "!f " + s)} }} )";
 }
 
 internal sealed class InlineAstChecks()
@@ -56,5 +58,5 @@ internal sealed class InlineAstChecks()
     => $"( !i{directives} {{ {input.Joined(s => "!f " + s)} }} )";
 
   internal static InlineAst CreateInline(string[] input, string[] directives)
-    => new(AstNulls.At, input?.Fields() ?? []) { Directives = directives.Directives() };
+    => new(AstNulls.At, null, input?.Fields() ?? []) { Directives = directives.Directives() };
 }

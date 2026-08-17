@@ -2,12 +2,6 @@
 query
 Success
 {
-  !f I@002/0001
-  simple
-  !i P@010/0001
-  :Extra
-  {
-    !f I@017/0001
-    extra
-  }
+  : ( !of I@002/0001 simple ) ( !oi P@010/0001 :Extra )
+  .2: ( !of I@017/0001 extra )
 }

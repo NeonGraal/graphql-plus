@@ -2,6 +2,5 @@
 query
 Success
 {
-  !f I@003/0002
-  field
+  : ( !of I@003/0002 field )
 }

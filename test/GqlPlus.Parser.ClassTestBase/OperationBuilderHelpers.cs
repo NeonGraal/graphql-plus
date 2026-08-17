@@ -11,4 +11,11 @@ public static class OperationBuilderHelpers
     result.Identifier.Returns(name);
     return result;
   }
+
+  public static T Selection<T>(this IMockBuilder builder)
+    where T : class, IAstSelection
+  {
+    T result = builder.Error<T, IAstSelection, IAstOpSelection>();
+    return result;
+  }
 }

@@ -2,12 +2,6 @@
 query
 Success
 {
-  !f I@002/0001
-  complex
-  {
-    !f I@010/0001
-    first
-    !f I@016/0001
-    last
-  }
+  : ( !of I@002/0001 complex )
+  .1: ( !of I@010/0001 first ) ( !of I@016/0001 last )
 }

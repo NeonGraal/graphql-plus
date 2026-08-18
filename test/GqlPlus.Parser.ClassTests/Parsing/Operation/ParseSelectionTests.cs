@@ -94,8 +94,7 @@ public class ParseSelectionTests
       .ShouldSatisfyAllConditions(
         x => x.OnType.ShouldBe(onType),
         x => x.Modifiers.ShouldBe(modifiers),
-        x => x.Directives.ShouldBe(directives),
-        x => x.Selections.ShouldBe(selections)
+        x => x.Directives.ShouldBe(directives)
       );
   }
 
@@ -122,8 +121,7 @@ public class ParseSelectionTests
       .ShouldSatisfyAllConditions(
         x => x.OnType.ShouldBeNull(),
         x => x.Modifiers.ShouldBe(modifiers),
-        x => x.Directives.ShouldBe(directives),
-        x => x.Selections.ShouldBe(selections)
+        x => x.Directives.ShouldBe(directives)
       );
   }
 

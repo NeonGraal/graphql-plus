@@ -6,40 +6,36 @@ public partial class OperationDeclAstTests
 {
   [Theory, RepeatData]
   public void HashCode_WithArgument(OperationInput input, string domain, string variable)
-    => _checks.HashCode(() => CreateOperation(input) with {
-      Domain = new TypeRefAst(AstNulls.At, domain),
-      Argument = new ArgAst(AstNulls.At, variable)
-    });
+    => _checks.HashCode(() => CreateOperation(input, domain, variable));
 
   [Theory, RepeatData]
   public void Text_WithArgument(OperationInput input, string domain, string variable)
     => _checks.Text(
-      () => CreateOperation(input) with {
-        Domain = new TypeRefAst(AstNulls.At, domain),
-        Argument = new ArgAst(AstNulls.At, variable)
-      },
+      () => CreateOperation(input, domain, variable),
       $"( !SO {input.Name} {input.Category} !Tr {domain} ( !a ${variable} ) )");
 
   [Theory, RepeatData]
   public void Equality_WithArgument(OperationInput input, string domain, string variable)
-    => _checks.Equality(
-      () => CreateOperation(input) with {
-        Domain = new TypeRefAst(AstNulls.At, domain),
-        Argument = new ArgAst(AstNulls.At, variable)
-      });
+    => _checks.Equality(() => CreateOperation(input, domain, variable));
 
   [Theory, RepeatData]
   public void Inequality_WithArgument(OperationInput input, string domain, string variable)
-    => _checks.InequalityWith(input,
-      () => CreateOperation(input) with {
-        Domain = new TypeRefAst(AstNulls.At, domain),
-        Argument = new ArgAst(AstNulls.At, variable)
-      });
+    => _checks.InequalityWith(input, () => CreateOperation(input, domain, variable));
 
   private readonly OperationDeclAstChecks _checks = new();
 
   internal static OperationDeclAst CreateOperation(OperationInput input)
-    => new(AstNulls.At, input.Name, input.Category);
+    => new(AstNulls.At, input.Name, b
+      => b.Category = input.Category);
+
+  internal static OperationDeclAst CreateOperation(OperationInput input, string domain, string variable)
+    => new(AstNulls.At, input.Name, b
+      => {
+        b.Category = input.Category;
+        b.Argument = new ArgAst(AstNulls.At, variable);
+      }) {
+      Domain = new TypeRefAst(AstNulls.At, domain)
+    };
 
   [CheckTests(Inherited = true)]
   internal IAstDeclarationChecks<OperationInput> AliasedChecks => _checks;

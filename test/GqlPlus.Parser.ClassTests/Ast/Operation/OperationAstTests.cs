@@ -17,35 +17,23 @@ public partial class OperationAstTests
 
   [Theory, RepeatData]
   public void HashCode_WithArgument(string input, string domain, string variable)
-    => _checks.HashCode(() => new OperationAst(AstNulls.At, input) {
-      Domain = domain,
-      Arg = new ArgAst(AstNulls.At, variable)
-    });
+    => _checks.HashCode(() => CreateOperation(input, domain, variable));
 
   [Theory, RepeatData]
   public void Text_WithArgument(string input, string domain, string variable)
     => _checks.Text(
-      () => new OperationAst(AstNulls.At, input) {
-        Domain = domain,
-        Arg = new ArgAst(AstNulls.At, variable)
-      },
+      () => CreateOperation(input, domain, variable),
       $"( !g query {input} Failure {domain} ( !a ${variable} ) )");
 
   [Theory, RepeatData]
   public void Equality_WithArgument(string input, string domain, string variable)
     => _checks.Equality(
-      () => new OperationAst(AstNulls.At, input) {
-        Domain = domain,
-        Arg = new ArgAst(AstNulls.At, variable)
-      });
+      () => CreateOperation(input, domain, variable));
 
   [Theory, RepeatData]
   public void Inequality_WithArgument(string input, string domain, string variable)
     => _checks.InequalityWith(variable,
-      () => new OperationAst(AstNulls.At, input) {
-        Domain = domain,
-        Arg = new ArgAst(AstNulls.At, variable)
-      });
+      () => CreateOperation(input, domain, variable));
 
   internal OperationAstChecks _checks = new();
 
@@ -62,6 +50,13 @@ public partial class OperationAstTests
 
   internal static OperationAst CreateOperation(string input)
     => new(AstNulls.At, input);
+
+  internal static OperationAst CreateOperation(string input, string domain, string variable)
+  {
+    OperationAst operationAst = new(AstNulls.At, input) { Domain = domain };
+    operationAst._operationBase.Argument = new ArgAst(AstNulls.At, variable);
+    return operationAst;
+  }
 }
 
 internal sealed class OperationAstChecks()

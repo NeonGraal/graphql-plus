@@ -2,6 +2,6 @@
 query
 Success
 {
-  : ( !of I@002/0001 simple ) ( !oi P@010/0001 [] )
-  .2: ( !of I@013/0001 extra )
+  : [ ( !f I@002/0001 simple ) ( !i P@010/0001 [] ) ]
+  .2: [ ( !f I@013/0001 extra ) ]
 }

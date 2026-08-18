@@ -7,6 +7,7 @@ internal sealed record class FragmentAst(
   params IAstSelection[] Selections
 ) : AstDirectives(At, Identifier)
   , IAstFragment
+  , IAstSelections
 {
   internal override string Abbr => "t";
 
@@ -16,13 +17,11 @@ internal sealed record class FragmentAst(
     => other is IAstFragment fragment && Equals(fragment);
   public bool Equals(IAstFragment? other)
     => base.Equals(other)
-    && OnType.NullEqual(other?.OnType)
-    && Selections.SequenceEqual(other?.Selections);
+    && OnType.NullEqual(other?.OnType);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), OnType, Selections.Length);
+    => HashCode.Combine(base.GetHashCode(), OnType);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Append(OnType.Prefixed(":"))
-      .Concat(Selections.Bracket("{", "}"));
+      .Append(OnType.Prefixed(":"));
 }

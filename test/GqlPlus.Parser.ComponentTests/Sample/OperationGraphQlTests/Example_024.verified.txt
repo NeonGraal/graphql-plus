@@ -8,7 +8,7 @@ Success
   :Boolean
 ]
 {
-  : ( !of I@003/0002 user ( !a I@008/0002 { ( !k I@008/0002 handle ):( !k S@016/0002 'zuck' ) } ) )
-  .1: ( !of I@005/0003 id ) ( !of I@005/0004 name ) ( !oi P@009/0005 ( !d I@010/0005 include ( !a I@018/0005 { ( !k I@018/0005 if ):( !a I@023/0005 $expandedInfo ) } ) ) )
-  .1.3: ( !of I@007/0006 firstName ) ( !of I@007/0007 lastName ) ( !of I@007/0008 birthday )
+  : [ ( !f I@003/0002 user ( !a I@008/0002 { ( !k I@008/0002 handle ):( !k S@016/0002 'zuck' ) } ) ) ]
+  .1: [ ( !f I@005/0003 id ) ( !f I@005/0004 name ) ( !i P@009/0005 ( !d I@010/0005 include ( !a I@018/0005 { ( !k I@018/0005 if ):( !a I@023/0005 $expandedInfo ) } ) ) ) ]
+  .1.3: [ ( !f I@007/0006 firstName ) ( !f I@007/0007 lastName ) ( !f I@007/0008 birthday ) ]
 }

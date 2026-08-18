@@ -42,6 +42,10 @@ public static class IEnumerableHelpers
   public static string Joined<T>(this IEnumerable<T?>? items, Func<T?, string> mapping, string by = " ")
     => (items?.Select(mapping).Joined(by)).IfWhiteSpace();
 
+  public static bool NullEqual<T>(this IEnumerable<T>? left, IEnumerable<T>? right)
+    => left is null && right is null
+    || left is not null && right is not null && left.SequenceEqual(right);
+
   public static bool OrderedEqual<T>(this IEnumerable<T> left, IEnumerable<T> right, IComparer<T>? comparer = null)
     => left.OrderBy(l => l, comparer).SequenceEqual(right.OrderBy(r => r, comparer));
 

@@ -64,7 +64,7 @@ public class ParseOperationTests
         x => x.Directives.ShouldBe(directives),
         x => x.Fragments.ShouldBe(fragments),
         x => x.Domain.ShouldBe(resultType),
-        x => x.Arg.ShouldBe(argument),
+        x => x.Argument.ShouldBe(argument),
         x => x.Modifiers.ShouldBe(modifiers)
       );
   }
@@ -90,7 +90,7 @@ public class ParseOperationTests
     IAstFragment[] endFragments = ParseOkA(_endFragmentsParser);
     IEnumerable<IAstFragment> fragments = startFragments.Concat(endFragments);
 
-    Map<IAstOpSelection[]> selections = new() { [""] = [obj[0] as IAstOpSelection] };
+    Map<IAstSelection[]> selections = new() { [""] = [obj[0] as IAstSelection] };
 
     // Act
     IResult<IAstOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);

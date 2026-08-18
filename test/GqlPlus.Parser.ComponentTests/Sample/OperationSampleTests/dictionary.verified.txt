@@ -2,5 +2,5 @@
 query
 Success
 {
-  : ( !of I@002/0001 dict [String] )
+  : [ ( !f I@002/0001 dict [String] ) ]
 }

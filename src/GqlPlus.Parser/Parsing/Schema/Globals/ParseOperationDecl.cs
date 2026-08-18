@@ -12,20 +12,28 @@ internal class ParseOperationDecl(
 ) : DeclarationParser<OperationDefinition, IAstSchemaOperation>(parsers)
 {
   protected override IAstSchemaOperation MakeResult(AstPartial<NullAst, NullOption> partial, OperationDefinition value)
-        => new OperationDeclAst(partial.At, partial.Name, partial.Description, value.Category) {
-          Aliases = partial.Aliases,
-          Variables = value.Variables ?? [],
-          Argument = value.Argument,
-          Directives = value.Directives,
-          Domain = value.Domain,
-          Fragments = value.Fragments,
-          Modifiers = value.Modifiers,
-          Selections = value.Selections ?? [],
-        };
+  {
+    OperationDeclAst result = new(partial.At, partial.Name, b => {
+      b.Category = value.Category;
+      b.Variables = [.. value.Variables];
+      b.Argument = value.Argument;
+      b.SetFragments(value.Fragments);
+      b.SetSelections(value.Selections);
+    }) {
+      Aliases = partial.Aliases,
+      Description = partial.Description,
+      Directives = value.Directives,
+      Domain = value.Domain,
+      Modifiers = value.Modifiers,
+    };
+
+    return result;
+  }
 
   protected override IAstSchemaOperation ToResult(AstPartial<NullAst, NullOption> partial)
-    => new OperationDeclAst(partial.At, partial.Name, partial.Description, partial.Name) {
+    => new OperationDeclAst(partial.At, partial.Name, b => b.Category = partial.Name) {
       Aliases = partial.Aliases,
+      Description = partial.Description,
     };
 
   internal static ParseOperationDecl Factory(IParserRepository p) => new(p);

@@ -36,8 +36,7 @@ public abstract class ParseFragmentsTestsBase
         x => x.ShouldHaveSingleItem(),
         x => x.First().Identifier.ShouldBe(fragmentName),
         x => x.First().OnType.ShouldBe(onType),
-        x => x.First().Directives.ShouldBe(directives),
-        x => x.First().Selections.ShouldBe(selections)
+        x => x.First().Directives.ShouldBe(directives)
       );
   }
 

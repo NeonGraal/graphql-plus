@@ -51,14 +51,9 @@ public interface IAstSchemaOperation
   : IAstDeclaration
   , IAstDirectives
   , IAstModifiers
-  , IAstSelections
+  , IAstOperationBase
 {
-  string Category { get; }
-
-  IEnumerable<IAstVariable> Variables { get; }
   IAstTypeRef? Domain { get; }
-  IAstArg? Argument { get; }
-  IEnumerable<IAstFragment> Fragments { get; }
 }
 
 public interface IAstSchemaOption

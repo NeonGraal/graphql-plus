@@ -15,7 +15,7 @@ public static class OperationBuilderHelpers
   public static T Selection<T>(this IMockBuilder builder)
     where T : class, IAstSelection
   {
-    T result = builder.Error<T, IAstSelection, IAstOpSelection>();
+    T result = builder.Error<T, IAstSelection, IAstSelection>();
     return result;
   }
 }

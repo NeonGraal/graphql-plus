@@ -14,11 +14,6 @@ public partial class FieldAstTests
       () => CreateField(name) with { Arg = new ArgAst(AstNulls.At, variable) });
 
   [Theory, RepeatData]
-  public void HashCode_WithSelection(string name, string[] fields)
-  => _checks.HashCode(
-    () => CreateField(name) with { Selections = fields.Fields() });
-
-  [Theory, RepeatData]
   public void Text_WithAlias(string name, string alias)
     => _checks.Text(
       () => CreateField(name) with { FieldAlias = alias },
@@ -29,12 +24,6 @@ public partial class FieldAstTests
     => _checks.Text(
       () => CreateField(name) with { Arg = new ArgAst(AstNulls.At, variable) },
       $"( !f {name} ( !a ${variable} ) )");
-
-  [Theory, RepeatData]
-  public void Text_WithSelection(string name, string[] fields)
-  => _checks.Text(
-      () => CreateField(name) with { Selections = fields.Fields() },
-      $"( !f {name} {{ {fields.Joined(s => "!f " + s)} }} )");
 
   [Theory, RepeatData]
   public void Equality_WithAlias(string name, string alias)
@@ -55,16 +44,6 @@ public partial class FieldAstTests
   public void Inequality_WithArg(string variable, string name)
     => _checks.InequalityWith(name,
       () => CreateField(name) with { Arg = new ArgAst(AstNulls.At, variable) });
-
-  [Theory, RepeatData]
-  public void Equality_WithSelection(string name, string[] fields)
-    => _checks.Equality(
-      () => CreateField(name) with { Selections = fields.Fields() });
-
-  [Theory, RepeatData]
-  public void Inequality_WithSelection(string name, string[] fields)
-    => _checks.InequalityWith(name,
-      () => CreateField(name) with { Selections = fields.Fields() });
 
   private readonly AstDirectivesChecks<FieldAst> _checks = new(CreateField);
 

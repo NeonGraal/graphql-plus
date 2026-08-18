@@ -8,24 +8,9 @@ Success
   firstLast
   :CatOprSlctSprd
   {
-    !f I@068/0001
-    first
-    !f I@074/0001
-    last
-  }
-  {
-    !s I@084/0001
-    firstLast
-    !f I@094/0001
-    address
-    {
-      !f I@104/0001
-      street
-      !f I@111/0001
-      city
-      !f I@116/0001
-      country
-    }
+    : [ ( !s I@084/0001 firstLast ) ( !f I@094/0001 address ) ]
+    .2: [ ( !f I@104/0001 street ) ( !f I@111/0001 city ) ( !f I@116/0001 country ) ]
+    firstLast: [ ( !f I@068/0001 first ) ( !f I@074/0001 last ) ]
   }
 }
 {

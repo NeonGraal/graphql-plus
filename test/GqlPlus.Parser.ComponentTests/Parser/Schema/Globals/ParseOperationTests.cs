@@ -12,7 +12,7 @@ internal sealed class ParseOperationChecks(
 ) : BaseAliasedChecks<OperationInput, OperationDeclAst, IAstSchemaOperation>(parsers)
 {
   protected internal override OperationDeclAst NamedFactory(OperationInput input)
-    => new(AstNulls.At, input.Name, input.Category) {
+    => new(AstNulls.At, input.Name, b => b.Category = input.Category) {
       Domain = new TypeRefAst(AstNulls.At, "Boolean")
     };
 

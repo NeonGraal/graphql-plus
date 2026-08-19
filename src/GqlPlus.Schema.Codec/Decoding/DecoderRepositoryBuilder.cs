@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Decoding;
+namespace GqlPlus.Decoding;
 
 internal class DecoderRepositoryBuilder
   : BaseFactory<IDecoderRepository>, IDecoderRepositoryBuilder

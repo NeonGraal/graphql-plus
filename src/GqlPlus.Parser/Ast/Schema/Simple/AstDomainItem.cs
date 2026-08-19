@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast.Schema.Simple;
+namespace GqlPlus.Ast.Schema.Simple;
 
 internal abstract record class AstDomainItem(
   ITokenAt At,

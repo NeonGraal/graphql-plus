@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Result;
+namespace GqlPlus.Result;
 
 [TracePerTest]
 public abstract class TestResultBase

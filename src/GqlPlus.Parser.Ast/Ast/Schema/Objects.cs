@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast.Schema;
+namespace GqlPlus.Ast.Schema;
 
 public interface IAstObject
   : IAstType<IAstObjBase>

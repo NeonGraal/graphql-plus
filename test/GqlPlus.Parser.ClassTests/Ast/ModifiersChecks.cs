@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast;
+namespace GqlPlus.Ast;
 
 internal class ModifiersChecks<TInput, TAst>(
   BaseAstChecks<TAst>.CreateBy<TInput> createInput,

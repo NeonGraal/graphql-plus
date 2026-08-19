@@ -1,4 +1,4 @@
-﻿
+
 using Fluid;
 using Fluid.Values;
 using GqlPlus;

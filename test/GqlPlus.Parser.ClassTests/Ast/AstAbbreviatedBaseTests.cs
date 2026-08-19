@@ -1,4 +1,4 @@
-﻿
+
 namespace GqlPlus.Ast;
 
 public abstract class AstAbbreviatedBaseTests

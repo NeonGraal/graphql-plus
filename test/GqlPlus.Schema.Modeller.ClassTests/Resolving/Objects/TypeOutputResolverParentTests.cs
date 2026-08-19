@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Resolving.Objects;
+namespace GqlPlus.Resolving.Objects;
 
 public class TypeOutputResolverParentTests
   : ResolverTypeObjectParentTestBase<TypeOutputModel, OutputFieldModel>

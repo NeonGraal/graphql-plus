@@ -41,7 +41,7 @@ end_of_line = lf
 # Code files
 [*.{cs,csx,vb,vbx}]
 end_of_line = crlf
-charset = utf-8-bom
+charset = utf-8
 
 # Sort using and Import directives with System.* appearing first
 dotnet_sort_system_directives_first = true

@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast.Operation;
+namespace GqlPlus.Ast.Operation;
 
 internal record class InlineAst(
   ITokenAt At,

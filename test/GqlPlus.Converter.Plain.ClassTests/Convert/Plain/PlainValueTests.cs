@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Convert.Plain;
+namespace GqlPlus.Convert.Plain;
 
 public class PlainValueTests()
   : ValueConvertTestsBase(PlainTestHelpers.Converters)

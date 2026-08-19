@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast;
+namespace GqlPlus.Ast;
 
 internal abstract record class AstValue<TValue>(
   ITokenAt At

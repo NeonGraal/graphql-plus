@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Encoding.Simple;
+namespace GqlPlus.Encoding.Simple;
 
 public class DomainLabelEncoderTests
   : DomainItemEncoderTestBase<DomainLabelModel, EnumLabelInput>

@@ -1,4 +1,4 @@
-﻿
+
 namespace GqlPlus.Resolving.Simple;
 
 public abstract class ResolverParentTypeTestBase<TModel, TAll>

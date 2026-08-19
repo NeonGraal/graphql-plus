@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Matching;
 using GqlPlus.Merging;

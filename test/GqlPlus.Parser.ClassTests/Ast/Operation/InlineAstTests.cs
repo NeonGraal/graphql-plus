@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast.Operation;
+namespace GqlPlus.Ast.Operation;
 
 public partial class InlineAstTests
 {

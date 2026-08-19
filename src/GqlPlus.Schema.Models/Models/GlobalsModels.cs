@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Models;
+namespace GqlPlus.Models;
 
 public enum CategoryOptionModel
 {

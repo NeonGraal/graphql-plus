@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Decoding.Objects;
+namespace GqlPlus.Decoding.Objects;
 
 public class FilterModelDecoderTests
   : FilterModelDecoderTestBase<FilterModel>

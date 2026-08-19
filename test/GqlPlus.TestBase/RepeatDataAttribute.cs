@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using AutoFixture.Xunit3;
 using AutoFixture.Xunit3.Internal;
 using GqlPlus.AutoFixture;

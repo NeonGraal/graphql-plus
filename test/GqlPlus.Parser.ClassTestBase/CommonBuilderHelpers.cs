@@ -1,4 +1,4 @@
-﻿using GqlPlus.Building;
+using GqlPlus.Building;
 using GqlPlus.Token;
 
 namespace GqlPlus;

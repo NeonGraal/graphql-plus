@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Sample;
+namespace GqlPlus.Sample;
 
 [Trait("Generate", "Plain")]
 public class PlainSchemaTests(

@@ -6,12 +6,6 @@ ParsedOperation:
 query
 Success
 {
-  !f I@002/0001
-  user
-  {
-    !f I@007/0001
-    id
-    !f I@010/0001
-    name
-  }
+  : [ ( !f I@002/0001 user ) ]
+  .1: [ ( !f I@007/0001 id ) ( !f I@010/0001 name ) ]
 }

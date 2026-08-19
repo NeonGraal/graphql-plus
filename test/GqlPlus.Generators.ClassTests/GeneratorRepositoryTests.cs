@@ -1,4 +1,4 @@
-﻿using GqlPlus.Generating;
+using GqlPlus.Generating;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus;

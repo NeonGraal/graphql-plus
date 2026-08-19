@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Verifying.Operation;
 
@@ -12,9 +12,9 @@ public class VerifyFragmentUsageTests
     IEnumerable<IAstSpread> usage2 = OneUsage("frag2");
 
     IAstFragment definition1 = OneDefinition("frag1").First();
-    definition1.Selections.Returns(usage2.Cast<IAstSelection>());
+    (definition1 as IAstSelections)?.Selections.Returns(usage2.Cast<IAstSelection>());
     IAstFragment definition2 = OneDefinition("frag2").First();
-    definition2.Selections.Returns(usage1.Cast<IAstSelection>());
+    (definition2 as IAstSelections)?.Selections.Returns(usage1.Cast<IAstSelection>());
 
     UsageIdentified<IAstSpread, IAstFragment> item = new(usage1.Concat(usage2), [definition1, definition2]);
 
@@ -23,7 +23,7 @@ public class VerifyFragmentUsageTests
 
   protected override IEnumerable<IAstFragment> OneDefinition(string name)
   {
-    IAstFragment definition = A.Error<IAstFragment>();
+    IAstFragment definition = A.Error<IAstFragment, IAstSelections>();
     definition.Identifier.Returns(name);
 
     return [definition];

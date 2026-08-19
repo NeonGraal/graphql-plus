@@ -2,14 +2,6 @@
 query
 Success
 {
-  !f I@002/0001
-  user
-  {
-    !f I@007/0001
-    id
-    ( !d I@011/0001 include ( !a I@019/0001 { ( !k I@019/0001 if ):( !k I@023/0001 Boolean.true ) } ) )
-    !f I@029/0001
-    name
-    ( !d I@035/0001 skip ( !a I@040/0001 { ( !k I@040/0001 if ):( !k I@044/0001 Boolean.false ) } ) )
-  }
+  : [ ( !f I@002/0001 user ) ]
+  .1: [ ( !f I@007/0001 id ( !d I@011/0001 include ( !a I@019/0001 { ( !k I@019/0001 if ):( !k I@023/0001 Boolean.true ) } ) ) ) ( !f I@029/0001 name ( !d I@035/0001 skip ( !a I@040/0001 { ( !k I@040/0001 if ):( !k I@044/0001 Boolean.false ) } ) ) ) ]
 }

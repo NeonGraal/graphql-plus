@@ -6,16 +6,7 @@ user
 ( !d I@013/0001 cached )
 :User
 {
-  !f I@021/0001
-  id
-  !f I@024/0001
-  name
-}
-{
-  !f I@031/0001
-  user
-  {
-    !s I@037/0001
-    user
-  }
+  : [ ( !f I@031/0001 user ) ]
+  .1: [ ( !s I@037/0001 user ) ]
+  user: [ ( !f I@021/0001 id ) ( !f I@024/0001 name ) ]
 }

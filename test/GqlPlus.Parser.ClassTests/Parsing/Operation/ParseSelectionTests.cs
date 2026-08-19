@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
@@ -94,8 +94,7 @@ public class ParseSelectionTests
       .ShouldSatisfyAllConditions(
         x => x.OnType.ShouldBe(onType),
         x => x.Modifiers.ShouldBe(modifiers),
-        x => x.Directives.ShouldBe(directives),
-        x => x.Selections.ShouldBe(selections)
+        x => x.Directives.ShouldBe(directives)
       );
   }
 
@@ -121,7 +120,7 @@ public class ParseSelectionTests
       .ShouldSatisfyAllConditions(
         x => x.Modifiers.ShouldBe(modifiers),
         x => x.Directives.ShouldBe(directives),
-        x => x.Selections.ShouldBe(selections)
+        x => x.ShouldBeAssignableTo<IAstSelections>().Selections.ShouldBe(selections)
       );
   }
 
@@ -148,8 +147,7 @@ public class ParseSelectionTests
       .ShouldSatisfyAllConditions(
         x => x.OnType.ShouldBeNull(),
         x => x.Modifiers.ShouldBe(modifiers),
-        x => x.Directives.ShouldBe(directives),
-        x => x.Selections.ShouldBe(selections)
+        x => x.Directives.ShouldBe(directives)
       );
   }
 

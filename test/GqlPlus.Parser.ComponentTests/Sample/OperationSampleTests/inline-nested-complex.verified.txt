@@ -4,42 +4,16 @@ Success
 !t I@002/0001
 address
 :Profile
-{
-  !f I@018/0001
-  email
-  !f I@024/0001
-  website
-}
 !t I@002/0002
 role
 :Permission
 {
-  !f I@018/0002
-  name
-}
-{
-  !f I@002/0003
-  entity
-  {
-    !i P@010/0003
-    :User
-    {
-      !f I@016/0003
-      profile
-      {
-        !s I@025/0003
-        address
-      }
-    }
-    !i P@035/0003
-    :Admin
-    {
-      !f I@042/0003
-      permissions
-      {
-        !s I@055/0003
-        role
-      }
-    }
-  }
+  : [ ( !f I@002/0003 entity ) ]
+  .1: [ ( !i P@010/0003 :User ) ( !i P@035/0003 :Admin ) ]
+  .1.1: [ ( !f I@016/0003 profile ) ]
+  .1.1.1: [ ( !s I@025/0003 address ) ]
+  .1.2: [ ( !f I@042/0003 permissions ) ]
+  .1.2.1: [ ( !s I@055/0003 role ) ]
+  address: [ ( !f I@018/0001 email ) ( !f I@024/0001 website ) ]
+  role: [ ( !f I@018/0002 name ) ]
 }

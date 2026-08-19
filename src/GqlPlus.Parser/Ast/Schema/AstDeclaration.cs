@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast.Schema;
+namespace GqlPlus.Ast.Schema;
 
 internal abstract record class AstDeclaration(
   ITokenAt At,

@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Convert.Json;
+namespace GqlPlus.Convert.Json;
 
 public class JsonStructureIndentedTests()
   : StructureConvertTestsBase(JsonTestHelpers.Indented)

@@ -4,10 +4,6 @@ ParsedOperation:
 _Schema
 Success
 {
-  !f I@011/0001
-  categories
-  {
-    !f I@024/0001
-    name
-  }
+  : [ ( !f I@011/0001 categories ) ]
+  .1: [ ( !f I@024/0001 name ) ]
 }

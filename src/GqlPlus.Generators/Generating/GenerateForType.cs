@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Generating;
+namespace GqlPlus.Generating;
 
 internal abstract class GenerateForType<TType>
   : ITypeGenerator

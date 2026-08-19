@@ -1,4 +1,4 @@
-﻿using GqlPlus.Resolving.Objects;
+using GqlPlus.Resolving.Objects;
 using GqlPlus.Resolving.Simple;
 using Microsoft.Extensions.DependencyInjection;
 

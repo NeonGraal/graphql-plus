@@ -5,10 +5,6 @@ Success
 named
 :Named
 {
-  !f I@033/0001
-  name
-}
-{
-  !s I@003/0001
-  named
+  : [ ( !s I@003/0001 named ) ]
+  named: [ ( !f I@033/0001 name ) ]
 }

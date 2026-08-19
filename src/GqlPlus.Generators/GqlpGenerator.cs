@@ -1,4 +1,4 @@
-﻿using System.Collections.Immutable;
+using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using GqlPlus;
 using GqlPlus.Generating;
@@ -71,7 +71,7 @@ public class GqlpGenerator : IIncrementalGenerator
     }) {
       return (GqlpGeneratorType)argument.Value;
     } else if (argument is { Value: string typeString }
-        && Enum.TryParse(typeString, out GqlpGeneratorType type)) {
+            && Enum.TryParse(typeString, out GqlpGeneratorType type)) {
       return type;
     }
 

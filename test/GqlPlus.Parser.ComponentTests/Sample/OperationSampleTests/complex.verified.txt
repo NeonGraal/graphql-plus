@@ -11,49 +11,11 @@ Success
 named
 :Named
 {
-  !f I@014/0003
-  firstName
-  !f I@024/0003
-  lastName
-}
-{
-  !f I@002/0004
-  complex
-  (
-    !a I@010/0004
-    {
-      ( !k I@010/0004 arg ):( !a I@016/0004 $arg )
-    }
-  )
-  {
-    !f I@003/0005
-    id
-    !s I@004/0006
-    named
-    !f I@003/0007
-    relations
-    [String]
-    {
-      !s I@022/0007
-      named
-    }
-    !f I@003/0008
-    emails
-    []
-    {
-      !i P@014/0008
-      :String
-      {
-        !f I@022/0008
-        address
-      }
-      !i P@032/0008
-      {
-        !f I@033/0008
-        userName
-        !f I@042/0008
-        domain
-      }
-    }
-  }
+  : [ ( !f I@002/0004 complex ( !a I@010/0004 { ( !k I@010/0004 arg ):( !a I@016/0004 $arg ) } ) ) ]
+  .1: [ ( !f I@003/0005 id ) ( !s I@004/0006 named ) ( !f I@003/0007 relations [String] ) ( !f I@003/0008 emails [] ) ]
+  .1.3: [ ( !s I@022/0007 named ) ]
+  .1.4: [ ( !i P@014/0008 :String ) ( !i P@032/0008 ) ]
+  .1.4.1: [ ( !f I@022/0008 address ) ]
+  .1.4.2: [ ( !f I@033/0008 userName ) ( !f I@042/0008 domain ) ]
+  named: [ ( !f I@014/0003 firstName ) ( !f I@024/0003 lastName ) ]
 }

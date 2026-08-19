@@ -5,40 +5,14 @@ Success
 !t I@010/0009
 userFragment
 :User
-{
-  !f I@003/0010
-  friends
-  {
-    !f I@005/0011
-    count
-  }
-}
 !t I@010/0015
 pageFragment
 :Page
 {
-  !f I@003/0016
-  likers
-  {
-    !f I@005/0017
-    count
-  }
-}
-{
-  !f I@003/0002
-  profiles
-  (
-    !a I@012/0002
-    {
-      ( !k I@012/0002 handles ):( !a P@021/0002 [ !k S@022/0002 'zuck' !k S@030/0002 'coca-cola' ] )
-    }
-  )
-  {
-    !f I@005/0003
-    handle
-    !s I@008/0004
-    userFragment
-    !s I@008/0005
-    pageFragment
-  }
+  : [ ( !f I@003/0002 profiles ( !a I@012/0002 { ( !k I@012/0002 handles ):( !a P@021/0002 [ !k S@022/0002 'zuck' !k S@030/0002 'coca-cola' ] ) } ) ) ]
+  .1: [ ( !f I@005/0003 handle ) ( !s I@008/0004 userFragment ) ( !s I@008/0005 pageFragment ) ]
+  pageFragment: [ ( !f I@003/0016 likers ) ]
+  pageFragment.1: [ ( !f I@005/0017 count ) ]
+  userFragment: [ ( !f I@003/0010 friends ) ]
+  userFragment.1: [ ( !f I@005/0011 count ) ]
 }

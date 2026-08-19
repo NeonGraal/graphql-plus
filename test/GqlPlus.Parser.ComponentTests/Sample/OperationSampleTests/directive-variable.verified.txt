@@ -8,7 +8,5 @@ Success
   =( !k I@019/0001 Boolean.false )
 ]
 {
-  !f I@027/0001
-  name
-  ( !d I@033/0001 include ( !a I@041/0001 { ( !k I@041/0001 if ):( !a I@046/0001 $skip ) } ) )
+  : [ ( !f I@027/0001 name ( !d I@033/0001 include ( !a I@041/0001 { ( !k I@041/0001 if ):( !a I@046/0001 $skip ) } ) ) ) ]
 }

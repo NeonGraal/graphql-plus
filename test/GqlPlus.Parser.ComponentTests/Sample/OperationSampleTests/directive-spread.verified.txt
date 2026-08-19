@@ -5,17 +5,7 @@ Success
 addr
 :Address
 {
-  !f I@015/0001
-  street
-  !f I@022/0001
-  city
-}
-{
-  !f I@029/0001
-  user
-  {
-    !s I@035/0001
-    addr
-    ( !d I@041/0001 deprecated )
-  }
+  : [ ( !f I@029/0001 user ) ]
+  .1: [ ( !s I@035/0001 addr ( !d I@041/0001 deprecated ) ) ]
+  addr: [ ( !f I@015/0001 street ) ( !f I@022/0001 city ) ]
 }

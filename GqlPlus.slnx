@@ -12,6 +12,7 @@
     <File Path="collect-samples.ps1" />
     <File Path="Directory.Build.props" />
     <File Path="Directory.Packages.props" />
+    <File Path="dprint.json" />
     <File Path="format.ps1" />
     <File Path="make-summary.ps1" />
     <File Path="test.ps1" />

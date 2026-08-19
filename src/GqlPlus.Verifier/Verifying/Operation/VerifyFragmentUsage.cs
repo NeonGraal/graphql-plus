@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Verifying.Operation;
 
@@ -21,7 +21,11 @@ internal class VerifyFragmentUsage(IVerifierRepository verifiers)
 
   private bool HasCycle(IAstFragment value, Map<IAstFragment> defined, HashSet<string> visited)
   {
-    foreach (IAstSpread spread in value.Selections.OfType<IAstSpread>()) {
+    if (value is not IAstSelections selections) {
+      return false;
+    }
+
+    foreach (IAstSpread spread in selections.Selections.OfType<IAstSpread>()) {
       if (visited.Contains(spread.Identifier)) {
         return true;
       }

@@ -4,8 +4,5 @@ ParsedOperation:
 query
 Success
 {
-  !f I@002/0001
-  id
-  !f I@005/0001
-  name
+  : [ ( !f I@002/0001 id ) ( !f I@005/0001 name ) ]
 }

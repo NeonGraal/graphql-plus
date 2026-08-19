@@ -5,16 +5,7 @@ Success
 baseFields
 :User
 {
-  !f I@018/0001
-  id
-  !f I@021/0001
-  name
-}
-{
-  !f I@028/0001
-  user
-  {
-    !s I@034/0001
-    baseFields
-  }
+  : [ ( !f I@028/0001 user ) ]
+  .1: [ ( !s I@034/0001 baseFields ) ]
+  baseFields: [ ( !f I@018/0001 id ) ( !f I@021/0001 name ) ]
 }

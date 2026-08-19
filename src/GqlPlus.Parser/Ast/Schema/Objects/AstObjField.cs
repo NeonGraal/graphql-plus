@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast.Schema.Objects;
+namespace GqlPlus.Ast.Schema.Objects;
 
 internal abstract record class AstObjField(
   ITokenAt At,

@@ -1,4 +1,4 @@
-﻿namespace GqlPlus;
+namespace GqlPlus;
 
 internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
 {

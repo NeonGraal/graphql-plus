@@ -9,22 +9,7 @@ Success
   filter
 ]
 {
-  !f I@013/0001
-  types
-  (
-    !a I@020/0001
-    $filter
-  )
-  {
-    !f I@030/0001
-    name
-    !f I@035/0001
-    typeKind
-    !f I@044/0001
-    parent
-    {
-      !f I@053/0001
-      name
-    }
-  }
+  : [ ( !f I@013/0001 types ( !a I@020/0001 $filter ) ) ]
+  .1: [ ( !f I@030/0001 name ) ( !f I@035/0001 typeKind ) ( !f I@044/0001 parent ) ]
+  .1.3: [ ( !f I@053/0001 name ) ]
 }

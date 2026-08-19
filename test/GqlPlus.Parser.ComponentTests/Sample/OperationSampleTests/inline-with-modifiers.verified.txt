@@ -2,15 +2,6 @@
 query
 Success
 {
-  !f I@002/0001
-  entity
-  !i P@009/0001
-  :User
-  {
-    !f I@018/0001
-    id
-    !f I@021/0001
-    name
-  }
-  []
+  : [ ( !f I@002/0001 entity ) ( !i P@009/0001 :User [] ) ]
+  .2: [ ( !f I@018/0001 id ) ( !f I@021/0001 name ) ]
 }

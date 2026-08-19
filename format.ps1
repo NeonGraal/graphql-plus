@@ -1,6 +1,6 @@
 param(
   [switch]$Verify,
-  [switch]$OnlyBiome
+  [switch]$OnlyDprint
 )
 
 $ErrorActionPreference = "Stop"
@@ -8,10 +8,10 @@ Set-StrictMode -Version Latest
 
 New-Item -ItemType Directory -Path "format" -Force | Out-Null
 
-$BiomeArgs = if ($Verify) { @("check", ".") } else { @("format", "--write", ".") }
-& npx --yes biome @BiomeArgs
+$DprintArgs = if ($Verify) { @("check", "--list-different") } else { @("fmt", ".") }
+& dprint @DprintArgs
 
-if ($OnlyBiome) { exit }
+if ($OnlyDprint) { exit }
 
 $dotnetVerifyArgs = if ($Verify) { @("--verify-no-changes") } else { @() }
 

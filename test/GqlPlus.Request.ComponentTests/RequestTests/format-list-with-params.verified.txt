@@ -5,14 +5,6 @@ ParsedOperation:
 Sample
 Success
 {
-  !f I@009/0001
-  user
-  {
-    !f I@014/0001
-    id
-    !f I@017/0001
-    name
-    !f I@022/0001
-    email
-  }
+  : [ ( !f I@009/0001 user ) ]
+  .1: [ ( !f I@014/0001 id ) ( !f I@017/0001 name ) ( !f I@022/0001 email ) ]
 }

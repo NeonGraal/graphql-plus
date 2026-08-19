@@ -48,14 +48,14 @@ All new and updated test methods should follow the **`MethodUnderTest_StateUnder
 [Fact]
 public void MethodName_Scenario_ExpectedBehavior()
 {
-    // Arrange
-    var input = /* setup test data */;
+  // Arrange
+  var input = /* setup test data */;
 
-    // Act
-    var result = _systemUnderTest.MethodName(input);
+  // Act
+  var result = _systemUnderTest.MethodName(input);
 
-    // Assert
-    result.ShouldBe(expectedValue);
+  // Assert
+  result.ShouldBe(expectedValue);
 }
 ```
 

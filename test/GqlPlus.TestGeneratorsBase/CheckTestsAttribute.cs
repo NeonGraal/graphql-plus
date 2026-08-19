@@ -1,4 +1,4 @@
-﻿namespace GqlPlus;
+namespace GqlPlus;
 
 [AttributeUsage(AttributeTargets.Property, AllowMultiple = true, Inherited = false)]
 public sealed class CheckTestsAttribute(

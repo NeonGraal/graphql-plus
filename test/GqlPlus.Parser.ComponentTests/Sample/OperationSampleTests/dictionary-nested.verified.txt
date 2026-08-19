@@ -2,12 +2,6 @@
 query
 Success
 {
-  !f I@002/0001
-  data
-  [String]
-  [Number]
-  {
-    !f I@023/0001
-    id
-  }
+  : [ ( !f I@002/0001 data [String] [Number] ) ]
+  .1: [ ( !f I@023/0001 id ) ]
 }

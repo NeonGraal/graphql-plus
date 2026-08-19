@@ -5,6 +5,7 @@
   "typescript": {
   },
   "json": {
+    "array.preferSingleLine": true
   },
   "markdown": {
   },
@@ -40,12 +41,10 @@
   },
   "exec": {
     "cwd": "${configDir}",
-    "commands": [
-      {
-        "command": "shfmt",
-        "exts": ["sh", "bash"]
-      }
-    ]
+    "commands": [{
+      "command": "shfmt",
+      "exts": ["sh", "bash"]
+    }]
   },
   "excludes": ["**/node_modules", "**/*-lock.json", "**/*.verified.*"],
   "plugins": [

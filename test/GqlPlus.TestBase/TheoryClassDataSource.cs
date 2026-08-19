@@ -1,4 +1,4 @@
-﻿using AutoFixture.Xunit3.Internal;
+using AutoFixture.Xunit3.Internal;
 using Xunit;
 
 namespace GqlPlus;

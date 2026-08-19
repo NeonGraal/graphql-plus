@@ -1,4 +1,4 @@
-﻿using GqlPlus;
+using GqlPlus;
 using Xunit.Sdk;
 
 namespace GqlPlus.Convert.SimpleYaml;

@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast.Schema.Simple;
+namespace GqlPlus.Ast.Schema.Simple;
 
 public class DomainAstStringTests
   : AstDomainBaseTests<string>

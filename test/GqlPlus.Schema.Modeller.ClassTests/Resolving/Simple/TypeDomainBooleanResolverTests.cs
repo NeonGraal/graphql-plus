@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Resolving.Simple;
+namespace GqlPlus.Resolving.Simple;
 
 public class TypeDomainBooleanResolverTests
   : ResolverParentTypeTestBase<BaseDomainModel<DomainTrueFalseModel>, bool, DomainTrueFalseModel, DomainItemModel<DomainTrueFalseModel>>

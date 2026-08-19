@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Sample;
+namespace GqlPlus.Sample;
 
 public class GenerateSchemaStaticTests(
   ISchemaGeneratorChecks checks

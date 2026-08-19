@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Resolving;
+namespace GqlPlus.Resolving;
 
 public abstract class ResolverClassTestBase<TModel>
   : SubstituteBase

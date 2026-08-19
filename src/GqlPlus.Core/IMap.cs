@@ -1,4 +1,4 @@
-﻿namespace GqlPlus;
+namespace GqlPlus;
 
 public interface IMap<TMap>
   : IDictionary<string, TMap>

@@ -1,4 +1,4 @@
-﻿using GqlPlus.Modelling;
+using GqlPlus.Modelling;
 
 namespace GqlPlus.Resolving;
 

@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Parser;
+namespace GqlPlus.Parser;
 
 public class ParseKeyValueTests(
   IOneChecksParser<KeyValue<IAstConstant>> checks

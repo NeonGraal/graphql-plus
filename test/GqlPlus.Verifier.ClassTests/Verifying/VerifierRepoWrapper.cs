@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 using GqlPlus.Ast.Operation;
 using GqlPlus.Matching;
 using GqlPlus.Merging;

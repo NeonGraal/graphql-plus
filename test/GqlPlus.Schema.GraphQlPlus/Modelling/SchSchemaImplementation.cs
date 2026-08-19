@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Schema.Modelling;
+namespace GqlPlus.Schema.Modelling;
 
 internal sealed class SchSchemaImplementation(
   ICollection<string> description,
@@ -6,7 +6,8 @@ internal sealed class SchSchemaImplementation(
   IDictionary<ISch_Name, ISch_Categories>? categories,
   IDictionary<ISch_Name, ISch_Directives>? directives,
   IDictionary<ISch_Name, ISch_Type>? types,
-  IDictionary<ISch_Name, ISch_Setting>? settings
+  IDictionary<ISch_Name, ISch_Setting>? settings,
+  IDictionary<ISch_Name, ISch_Operations>? operations
 ) : ISch_SchemaObject
 {
   public ICollection<string> Description { get; } = description;
@@ -28,4 +29,6 @@ internal sealed class SchSchemaImplementation(
   public IDictionary<ISch_Name, ISch_Setting>? Settings(ISch_Filter? parameter) => settings;
 
   public IDictionary<ISch_Name, ISch_Setting>? Settings() => settings;
+  public IDictionary<ISch_Name, ISch_Operations>? Operations(ISch_Filter? parameter) => operations;
+  public IDictionary<ISch_Name, ISch_Operations>? Operations() => operations;
 }

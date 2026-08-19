@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Modelling;
+namespace GqlPlus.Modelling;
 
 internal abstract class ModellerType<TAst, TParent, TModel>(
   TypeKindModel kind
@@ -27,5 +27,5 @@ public interface ITypeModeller
 public interface ITypeModeller<TAst, TModel>
   : IModeller<TAst, TModel>
   , ITypeModeller
-  where TAst : IAstError
-  where TModel : IModelBase;
+  where TAst : class, IAstError
+  where TModel : class, IModelBase;

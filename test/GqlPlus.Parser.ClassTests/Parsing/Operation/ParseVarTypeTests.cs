@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Parsing.Operation;
+namespace GqlPlus.Parsing.Operation;
 
 public class ParseVarTypeTests
   : ParserClassTestBase

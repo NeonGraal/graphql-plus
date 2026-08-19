@@ -1,4 +1,4 @@
-﻿using DiffEngine;
+using DiffEngine;
 
 using GqlPlus.Encoding;
 using GqlPlus.Generating;
@@ -16,5 +16,5 @@ public static class Startup
     => services
       .AddGenerators(b => b.AddSchemaGenerators())
       .AddSingleton<ISchemaGeneratorChecks, SchemaGeneratorChecks>()
-      .AddModellerComponentTestBase(b => b.AddSchemaEncoders());
+      .AddModellerComponentTestBase();
 }

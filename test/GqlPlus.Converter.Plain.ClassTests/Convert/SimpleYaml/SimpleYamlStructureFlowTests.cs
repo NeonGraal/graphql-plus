@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Convert.SimpleYaml;
+namespace GqlPlus.Convert.SimpleYaml;
 
 public class SimpleYamlStructureFlowTests()
   : StructureConvertToTestsBase(SimpleYamlTestHelpers.Converters)

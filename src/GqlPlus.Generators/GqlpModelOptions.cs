@@ -1,4 +1,4 @@
-﻿
+
 namespace GqlPlus;
 
 public sealed class GqlpModelOptions(

@@ -2,17 +2,10 @@
 mutation
 Success
 {
-  !f I@003/0002
-  sendEmail
-  (
-    !a I@005/0003
-    {
-      ( !k I@005/0003 message ):( !k S@014/0003 '
+  : [ ( !f I@003/0002 sendEmail ( !a I@005/0003 { ( !k I@005/0003 message ):( !k S@014/0003 '
     Hello,
       World!
     Yours,
       GraphQL.
-    ' )
-    }
-  )
+    ' ) } ) ) ]
 }

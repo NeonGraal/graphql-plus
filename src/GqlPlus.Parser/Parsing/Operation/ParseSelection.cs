@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
@@ -46,9 +46,7 @@ internal class ParseSelection(
 
   private Func<IEnumerable<IAstSelection>, IAstSelection> MakeInline(TokenAt at, IResultArray<IAstModifier> modifiers, IResultArray<IAstDirective> directives, string? onType)
     => values => {
-      InlineAst selection = new(at, [.. values]) {
-        OnType = onType,
-      };
+      InlineAst selection = new(at, onType) { Selections = [.. values] };
       modifiers.Optional(mods => selection.Modifiers = [.. mods]);
       directives.Optional(dirs => selection.Directives = [.. dirs]);
       return selection;

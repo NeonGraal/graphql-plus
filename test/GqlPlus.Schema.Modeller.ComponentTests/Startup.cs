@@ -1,4 +1,4 @@
-﻿using DiffEngine;
+using DiffEngine;
 using GqlPlus.Encoding;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,5 +10,5 @@ public static class Startup
     => DiffRunner.MaxInstancesToLaunch(20);
 
   public static void ConfigureServices(IServiceCollection services)
-    => services.AddModellerComponentTestBase(b => b.AddSchemaEncoders());
+    => services.AddModellerComponentTestBase();
 }

@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Schema.Modelling;
+namespace GqlPlus.Schema.Modelling;
 
 internal sealed class SchSchemaModeller(
   ISchModellerRepository repo
@@ -6,6 +6,7 @@ internal sealed class SchSchemaModeller(
 {
   private readonly Modeller<IAstSchemaCategory, ISch_Category> _categoryModeller = repo.ModellerFor<IAstSchemaCategory, ISch_Category>();
   private readonly Modeller<IAstSchemaDirective, ISch_Directive> _directiveModeller = repo.ModellerFor<IAstSchemaDirective, ISch_Directive>();
+  private readonly Modeller<IAstSchemaOperation, ISch_Operation> _operationModeller = repo.ModellerFor<IAstSchemaOperation, ISch_Operation>();
   private readonly Modeller<IAstSchemaSetting, ISch_Setting> _settingModeller = repo.ModellerFor<IAstSchemaSetting, ISch_Setting>();
   private readonly Modeller<IAstTypeSpecial, ISch_Type> _specialModeller = repo.ModellerFor<IAstTypeSpecial, ISch_Type>();
   private readonly Modeller<IAstEnum, ISch_Type> _enumModeller = repo.ModellerFor<IAstEnum, ISch_Type>();
@@ -54,13 +55,21 @@ internal sealed class SchSchemaModeller(
       settings[SchModellerHelpers.MakeName(setting.Name)] = _settingModeller.ToModel(setting, typeKinds);
     }
 
+    Dictionary<ISch_Name, ISch_Operations> operations = [];
+    foreach (IAstSchemaOperation operation in ast.Declarations.OfType<IAstSchemaOperation>()) {
+      ISch_Operation op = _operationModeller.ToModel(operation, typeKinds);
+      string typeName = operation.Category;
+      ISch_Type type = ResolveType(typeName, typesByName, typeKinds);
+      operations[SchModellerHelpers.MakeName(operation.Name)] = MakeOperations(operation, type, op);
+    }
+
     string schemaName = ast.Declarations
       .OfType<IAstSchemaOption>()
       .Select(option => option.Name)
       .LastOrDefault(name => !string.IsNullOrWhiteSpace(name))
       ?? string.Empty;
 
-    return new SchSchemaImplementation([], SchModellerHelpers.MakeName(schemaName), categories, directives, types, settings);
+    return new SchSchemaImplementation([], SchModellerHelpers.MakeName(schemaName), categories, directives, types, settings, operations);
   }
 
   private static void AddTypeKinds(IEnumerable<IAstType> declarations, IMap<GqlpTypeKind> typeKinds)
@@ -131,5 +140,16 @@ internal sealed class SchSchemaModeller(
         SchModellerHelpers.MakeName(ast.Name),
         type,
         directive),
+    };
+
+  private static Sch_Operations MakeOperations(IAstSchemaOperation ast, ISch_Type type, ISch_Operation Operation)
+    => new Sch_Operations {
+      As_Type = type,
+      As_Operation = Operation,
+      As__Operations = new Sch_OperationsObject(
+        SchModellerHelpers.Desc(ast.Description),
+        SchModellerHelpers.MakeName(ast.Name),
+        type,
+        Operation),
     };
 }

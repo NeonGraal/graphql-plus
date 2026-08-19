@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Generating.Simple;
+namespace GqlPlus.Generating.Simple;
 
 internal abstract class DomainEnumGeneratorBase()
   : GenerateBaseDomain<IAstDomainLabel>(DomainKind.Enum)

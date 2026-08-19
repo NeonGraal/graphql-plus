@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 
 namespace GqlPlus;
 
@@ -7,6 +7,8 @@ public class Map<TMap>
   , IMap<TMap>
   , IReadOnlyMap<TMap>
 {
+  internal static Map<TMap>? _empty;
+
   public Map()
     : base()
   { }
@@ -37,6 +39,12 @@ public class Map<TMap>
       Add(item);
     }
   }
+}
+
+public static class Map
+{
+  public static Map<TMap> Empty<TMap>()
+    => Map<TMap>._empty ??= [];
 }
 
 public record struct MapPair<TMap>(string Key, TMap Value)

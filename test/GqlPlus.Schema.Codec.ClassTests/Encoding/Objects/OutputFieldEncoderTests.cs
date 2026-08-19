@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Encoding.Objects;
+namespace GqlPlus.Encoding.Objects;
 
 public class OutputFieldEncoderTests
   : ObjectBaseEncoderBase<OutputFieldModel, ObjBaseModel>

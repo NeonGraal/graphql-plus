@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast.Schema.Simple;
+namespace GqlPlus.Ast.Schema.Simple;
 
 internal sealed record class DomainLabelAst(
   ITokenAt At,

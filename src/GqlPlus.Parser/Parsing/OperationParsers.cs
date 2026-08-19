@@ -1,4 +1,4 @@
-﻿using GqlPlus.Parsing.Operation;
+using GqlPlus.Parsing.Operation;
 
 namespace GqlPlus.Parsing;
 

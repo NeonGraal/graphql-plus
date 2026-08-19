@@ -1,15 +1,23 @@
-﻿namespace GqlPlus.Ast.Operation;
+namespace GqlPlus.Ast.Operation;
 
-internal sealed record class InlineAst(
+internal record class InlineAst(
   ITokenAt At,
-  params IAstSelection[] Selections
+  string? OnType
 ) : AstAbbreviated(At)
   , IAstInline
+  , IAstSelections
 {
-  public string? OnType { get; set; }
+  public InlineAst(IAstInline inline)
+    : this(inline.At, inline.OnType)
+  {
+    InlineAst mods = (InlineAst)inline;
+    Modifiers = mods.Modifiers;
+    Directives = mods.Directives;
+  }
 
   public IAstDirective[] Directives { get; set; } = [];
   public IAstModifier[] Modifiers { get; set; } = [];
+  public IAstSelection[] Selections { get; set; } = [];
 
   internal override string Abbr => "i";
 
@@ -17,21 +25,19 @@ internal sealed record class InlineAst(
   IEnumerable<IAstModifier> IAstModifiers.Modifiers => Modifiers;
   IEnumerable<IAstSelection> IAstSelections.Selections => Selections;
 
-  public bool Equals(InlineAst? other)
+  public virtual bool Equals(InlineAst? other)
     => other is IAstInline inline && Equals(inline);
   public bool Equals(IAstInline? other)
     => base.Equals(other)
     && Directives.SequenceEqual(other.Directives)
     && Modifiers.SequenceEqual(other.Modifiers)
-    && OnType.NullEqual(other.OnType)
-    && Selections.SequenceEqual(other.Selections);
+    && OnType.NullEqual(other.OnType);
   public override int GetHashCode()
-    => HashCode.Combine(OnType, Selections?.Length, Directives.Length, Modifiers.Length);
+    => HashCode.Combine(OnType, Directives.Length, Modifiers.Length);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Append(OnType.Prefixed(":"))
       .Concat(Directives.AsString())
-      .Concat(Selections.Bracket("{", "}"))
       .Concat(Modifiers.AsString());
 }

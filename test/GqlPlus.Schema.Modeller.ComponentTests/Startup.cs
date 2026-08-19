@@ -1,4 +1,5 @@
-﻿using DiffEngine;
+using System.Runtime.CompilerServices;
+using DiffEngine;
 
 using Microsoft.Extensions.DependencyInjection;
 

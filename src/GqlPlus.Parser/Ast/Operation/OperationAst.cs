@@ -1,4 +1,4 @@
-﻿using GqlPlus.Token;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Operation;
 
@@ -10,24 +10,21 @@ internal sealed record class OperationAst(
 {
   public ParseResultKind Result { get; set; }
   internal IMessages Errors { get; set; } = Messages.New;
+  public string? Domain { get; set; }
 
-  public string Category { get; set; } = "query";
-
-  public IAstVariable[] Variables { get; set; } = [];
+  public IAstSpread[] Spreads { get; set; } = [];
   public IAstArg[] Usages { get; init; } = [];
 
-  public string? Domain { get; set; }
-  public IAstArg? Arg { get; set; }
-  public IAstSelection[] Selections { get; set; } = [];
-  public IAstFragment[] Fragments { get; set; } = [];
-  public IAstSpread[] Spreads { get; set; } = [];
+  internal OperationBaseAst _operationBase = new();
 
   internal override string Abbr => "g";
 
-  IEnumerable<IAstVariable> IAstOperation.Variables => Variables;
-  IAstArg? IAstOperation.Arg => Arg;
-  IEnumerable<IAstSelection> IAstSelections.Selections => Selections;
-  IEnumerable<IAstFragment> IAstOperation.Fragments => Fragments;
+  string IAstOperationBase.Category => _operationBase.Category;
+  IEnumerable<IAstVariable> IAstOperationBase.Variables => _operationBase.Variables;
+  IAstArg? IAstOperationBase.Argument => _operationBase.Argument;
+  IEnumerable<IAstFragment> IAstOperationBase.Fragments => _operationBase.Fragments;
+  IMap<IAstSelection[]> IAstOperationBase.Selections => _operationBase.Selections;
+
   IMessages IAstOperation.Errors => Errors;
 
   IEnumerable<IAstArg> IAstOperation.Usages => Usages;
@@ -46,13 +43,13 @@ internal sealed record class OperationAst(
     => HashCode.Combine(base.GetHashCode(), Result);
 
   internal override IEnumerable<string?> GetFields()
-    => new[] { AbbrAt, Category, Identifier, $"{Result}" }
+    => new[] { AbbrAt, _operationBase.Category, Identifier, $"{Result}" }
       .Concat(Errors.Bracket("<", ">", true))
-      .Concat(Variables.Bracket("[", "]"))
+      .Concat(_operationBase.Variables.Bracket("[", "]"))
       .Concat(Directives.AsString())
-      .Concat(Fragments.Bracket()
+      .Concat(_operationBase.Fragments.Bracket()
       .ConcatIf(Domain.IsWhiteSpace(),
-        () => Selections.Bracket("{", "}"),
-        () => Arg.Bracket("(", ")").Prepend(Domain))
+        () => _operationBase.SelectionsFields(),
+        () => _operationBase.Argument.Bracket("(", ")").Prepend(Domain))
       .Concat(Modifiers.AsString()));
 }

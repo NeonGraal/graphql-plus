@@ -1,4 +1,4 @@
-﻿using DiffEngine;
+using DiffEngine;
 
 using GqlPlus.Generating;
 using GqlPlus.Sample;

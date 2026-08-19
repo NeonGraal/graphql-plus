@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast;
+namespace GqlPlus.Ast;
 
 [TracePerTest]
 public abstract class AstBaseTests<TInput>

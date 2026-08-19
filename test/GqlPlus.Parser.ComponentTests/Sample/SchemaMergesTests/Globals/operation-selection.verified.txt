@@ -13,20 +13,8 @@ Success
   OprSlct
   catOprSlct
   {
-    !f I@034/0001
-    first
-    !f I@040/0001
-    last
-    !f I@045/0001
-    address
-    {
-      !f I@055/0001
-      street
-      !f I@062/0001
-      city
-      !f I@067/0001
-      country
-    }
+    : [ ( !f I@034/0001 first ) ( !f I@040/0001 last ) ( !f I@045/0001 address ) ]
+    .3: [ ( !f I@055/0001 street ) ( !f I@062/0001 city ) ( !f I@067/0001 country ) ]
   }
 }
 {

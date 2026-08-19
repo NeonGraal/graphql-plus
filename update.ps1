@@ -33,3 +33,5 @@ npx actions-up --style preserve --dry-run
 if ($LASTEXITCODE -ne 0) {
   Write-Host "  -  Update with 'npx actions-up --style preserve'"
 }
+
+dprint fmt

@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("GqlPlus.Generators.ClassTests")]
 [assembly: InternalsVisibleTo("GqlPlus.Generators.ComponentTests")]

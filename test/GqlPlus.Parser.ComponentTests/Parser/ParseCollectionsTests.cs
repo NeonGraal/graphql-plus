@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Parser;
+namespace GqlPlus.Parser;
 
 public class ParseCollectionsTests(
   IManyChecksParser<IParserCollections, IAstModifier> checks

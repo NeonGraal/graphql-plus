@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus;
 
@@ -9,6 +9,13 @@ public static class OperationBuilderHelpers
   {
     T result = builder.Error<T>();
     result.Identifier.Returns(name);
+    return result;
+  }
+
+  public static T Selection<T>(this IMockBuilder builder)
+    where T : class, IAstSelection
+  {
+    T result = builder.Error<T, IAstSelection, IAstSelection>();
     return result;
   }
 }

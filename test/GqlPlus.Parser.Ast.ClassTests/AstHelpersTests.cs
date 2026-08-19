@@ -1,4 +1,4 @@
-﻿using NSubstitute;
+using NSubstitute;
 
 namespace GqlPlus;
 

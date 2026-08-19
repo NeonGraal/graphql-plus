@@ -2,28 +2,8 @@
 query
 Success
 {
-  !f I@003/0002
-  me
-  {
-    !f I@005/0003
-    id
-    !f I@005/0004
-    firstName
-    !f I@005/0005
-    lastName
-    !f I@005/0006
-    birthday
-    {
-      !f I@007/0007
-      month
-      !f I@007/0008
-      day
-    }
-    !f I@005/0010
-    friends
-    {
-      !f I@007/0011
-      name
-    }
-  }
+  : [ ( !f I@003/0002 me ) ]
+  .1: [ ( !f I@005/0003 id ) ( !f I@005/0004 firstName ) ( !f I@005/0005 lastName ) ( !f I@005/0006 birthday ) ( !f I@005/0010 friends ) ]
+  .1.4: [ ( !f I@007/0007 month ) ( !f I@007/0008 day ) ]
+  .1.5: [ ( !f I@007/0011 name ) ]
 }

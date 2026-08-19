@@ -1,4 +1,4 @@
-﻿using GqlPlus.Parsing.Schema;
+using GqlPlus.Parsing.Schema;
 
 namespace GqlPlus.Ast.Schema;
 

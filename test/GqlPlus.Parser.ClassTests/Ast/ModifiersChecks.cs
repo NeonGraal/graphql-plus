@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast;
+namespace GqlPlus.Ast;
 
 internal class ModifiersChecks<TInput, TAst>(
   BaseAstChecks<TAst>.CreateBy<TInput> createInput,
@@ -17,7 +17,7 @@ internal class ModifiersChecks<TInput, TAst>(
   public void Text_WithModifiers(TInput input)
     => Text(() => addModifiers(CreateInput(input)), ModifiersString(input));
 
-  private string ModifiersString(TInput input)
+  protected virtual string ModifiersString(TInput input)
     => InputString(input)
     .Replace(" )", " [] ? )", StringComparison.Ordinal);
 }

@@ -1,4 +1,4 @@
-﻿using GqlPlus.Parsing.Schema.Simple;
+using GqlPlus.Parsing.Schema.Simple;
 using GqlPlus.Result;
 using GqlPlus.Token;
 

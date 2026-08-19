@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast.Schema.Globals;
+namespace GqlPlus.Ast.Schema.Globals;
 
 internal sealed record class OptionDeclAst(
   ITokenAt At,

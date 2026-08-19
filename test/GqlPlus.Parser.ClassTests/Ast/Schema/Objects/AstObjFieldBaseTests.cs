@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast.Schema.Objects;
+namespace GqlPlus.Ast.Schema.Objects;
 
 internal class AstObjectFieldChecks<TObjField>(
   TypeBy<FieldInput, TObjField> createField

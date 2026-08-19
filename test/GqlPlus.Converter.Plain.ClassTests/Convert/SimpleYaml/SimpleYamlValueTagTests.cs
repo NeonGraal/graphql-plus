@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Convert.SimpleYaml;
+namespace GqlPlus.Convert.SimpleYaml;
 
 public class SimpleYamlValueTagTests
   : ValueConvertToTestsBase

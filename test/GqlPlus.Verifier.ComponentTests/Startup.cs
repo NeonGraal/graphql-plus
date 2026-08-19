@@ -1,4 +1,5 @@
-﻿using GqlPlus.Matching;
+using System.Runtime.CompilerServices;
+using GqlPlus.Matching;
 using GqlPlus.Parsing;
 using GqlPlus.Verifying;
 using Microsoft.Extensions.DependencyInjection;

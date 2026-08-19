@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Convert;
+namespace GqlPlus.Convert;
 
 internal abstract class RenderJsonConverter<T>
   : JsonConverter<T>

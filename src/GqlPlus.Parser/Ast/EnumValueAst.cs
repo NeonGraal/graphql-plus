@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast;
+namespace GqlPlus.Ast;
 
 internal sealed record class EnumValueAst(
   ITokenAt At,

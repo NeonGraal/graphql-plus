@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Encoding.Simple;
+namespace GqlPlus.Encoding.Simple;
 
 public abstract class DomainEncoderTestBase<TItem, TInput>
   : ParentTypeEncoderClassTestBase<BaseDomainModel<TItem>, TItem, DomainItemModel<TItem>, TInput>

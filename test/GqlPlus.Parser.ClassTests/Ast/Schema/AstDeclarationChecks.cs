@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast.Schema;
+namespace GqlPlus.Ast.Schema;
 
 internal class AstDeclarationChecks<TDeclaration>(
   BaseAstChecks<TDeclaration>.CreateBy<string> createInput,

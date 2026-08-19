@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+using System.Globalization;
 using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;

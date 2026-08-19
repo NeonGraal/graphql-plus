@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Encoding.Simple;
+namespace GqlPlus.Encoding.Simple;
 
 public abstract class ParentTypeEncoderClassTestBase<TModel, TItem, TAll, TInput>
   : EncoderClassTestBase<TModel>

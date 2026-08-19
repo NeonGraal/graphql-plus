@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Decoding;
+namespace GqlPlus.Decoding;
 
 public abstract class ScalarDecoderClassTestBase<TModel, TInput>
   : DecoderClassTestBase<TModel>

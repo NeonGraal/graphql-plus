@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Generating;
+namespace GqlPlus.Generating;
 
 internal sealed class SchemaGenerator(
   IGeneratorRepository generators

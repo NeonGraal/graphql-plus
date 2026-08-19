@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast.Operation;
+namespace GqlPlus.Ast.Operation;
 
 public interface IAstSelection
   : IAstError
@@ -8,7 +8,6 @@ public interface IAstSelection
 public interface IAstField
   : IAstIdentified
   , IAstSelection
-  , IAstSelections
   , IEquatable<IAstField>
 {
   string? FieldAlias { get; }
@@ -18,7 +17,6 @@ public interface IAstField
 public interface IAstInline
   : IAstAbbreviated
   , IAstSelection
-  , IAstSelections
   , IEquatable<IAstInline>
 {
   string? OnType { get; }

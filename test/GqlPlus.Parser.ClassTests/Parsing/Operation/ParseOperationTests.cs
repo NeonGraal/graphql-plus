@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
@@ -52,6 +52,8 @@ public class ParseOperationTests
     IAstModifier[] modifiers = ParseAModifier();
     IAstFragment[] endFragments = ParseOkA(_endFragmentsParser);
 
+    IEnumerable<IAstFragment> fragments = startFragments.Concat(endFragments);
+
     // Act
     IResult<IAstOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
@@ -60,9 +62,9 @@ public class ParseOperationTests
       .Required().ShouldSatisfyAllConditions(
         x => x.Variables.ShouldBe(variables),
         x => x.Directives.ShouldBe(directives),
-        // x => x.Fragments.ShouldContain(startFragments.Concat(endFragments)),
+        x => x.Fragments.ShouldBe(fragments),
         x => x.Domain.ShouldBe(resultType),
-        x => x.Arg.ShouldBe(argument),
+        x => x.Argument.ShouldBe(argument),
         x => x.Modifiers.ShouldBe(modifiers)
       );
   }
@@ -81,10 +83,14 @@ public class ParseOperationTests
 
     PrefixReturns(':', OutStringAt(null));
 
-    IAstSelection[] obj = ParseOkA(_objectParser);
+    IAstSpread spread = A.Selection<IAstSpread>();
+    IAstSelection[] obj = ParseOkA(_objectParser, spread);
 
     IAstModifier[] modifiers = ParseAModifier();
     IAstFragment[] endFragments = ParseOkA(_endFragmentsParser);
+    IEnumerable<IAstFragment> fragments = startFragments.Concat(endFragments);
+
+    Map<IAstSelection[]> selections = new() { [""] = [obj[0] as IAstSelection] };
 
     // Act
     IResult<IAstOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
@@ -94,8 +100,9 @@ public class ParseOperationTests
       .Required().ShouldSatisfyAllConditions(
         x => x.Variables.ShouldBe(variables),
         x => x.Directives.ShouldBe(directives),
-        // x => x.Fragments.ShouldContain(startFragments.Concat(endFragments)),
-        x => x.Selections.ShouldBe(obj),
+        x => x.Fragments.ShouldBe(fragments),
+        x => x.Selections.Keys.ShouldBe(selections.Keys),
+        x => x.Selections.Values.ShouldBe(selections.Values),
         x => x.Modifiers.ShouldBe(modifiers)
       );
   }

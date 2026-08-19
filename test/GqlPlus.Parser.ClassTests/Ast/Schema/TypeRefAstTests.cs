@@ -1,4 +1,4 @@
-﻿
+
 namespace GqlPlus.Ast.Schema;
 
 public class TypeRefAstTests

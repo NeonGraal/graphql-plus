@@ -1,4 +1,4 @@
-﻿namespace GqlPlus;
+namespace GqlPlus;
 
 public record struct EnumLabelInput(string EnumType, string Label)
   : IComparable<EnumLabelInput>

@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Parsing.Schema.Globals;
+namespace GqlPlus.Parsing.Schema.Globals;
 
 public class DirectiveNameTests
   : ParserClassTestBase

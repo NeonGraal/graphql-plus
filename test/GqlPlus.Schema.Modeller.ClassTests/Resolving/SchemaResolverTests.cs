@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Resolving;
+namespace GqlPlus.Resolving;
 
 public class SchemaResolverTests
   : ResolverClassTestBase<SchemaModel>

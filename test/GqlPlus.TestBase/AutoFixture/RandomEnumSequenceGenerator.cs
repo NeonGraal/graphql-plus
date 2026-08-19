@@ -1,4 +1,4 @@
-﻿using AutoFixture.Kernel;
+using AutoFixture.Kernel;
 using GqlPlus.Structures;
 
 namespace GqlPlus.AutoFixture;

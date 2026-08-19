@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.StarWars;
+namespace GqlPlus.StarWars;
 
 [GqlpGenerator(GqlpGeneratorType.Model)]
 public class SwModelBase

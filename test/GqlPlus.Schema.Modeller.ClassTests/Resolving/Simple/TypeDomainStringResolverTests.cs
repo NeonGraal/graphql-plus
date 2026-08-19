@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Resolving.Simple;
+namespace GqlPlus.Resolving.Simple;
 
 public class TypeDomainStringResolverTests
   : ResolverParentTypeTestBase<BaseDomainModel<DomainRegexModel>, string, DomainRegexModel, DomainItemModel<DomainRegexModel>>

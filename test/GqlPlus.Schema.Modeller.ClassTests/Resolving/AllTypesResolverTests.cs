@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Resolving;
+namespace GqlPlus.Resolving;
 
 public class AllTypesResolverTests
   : ResolverClassTestBase<BaseTypeModel>

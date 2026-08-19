@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Factories;
+namespace GqlPlus.Factories;
 
 #pragma warning disable CA1052 // Static holder types should be Static or NotInheritable
 public class BaseFactory<TRepo>

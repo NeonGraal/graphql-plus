@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Result;
+namespace GqlPlus.Result;
 
 internal interface IResultValue<T> : IResult<T>
 {

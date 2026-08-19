@@ -1,4 +1,4 @@
-﻿using GqlPlus.Modelling;
+using GqlPlus.Modelling;
 using GqlPlus.Resolving;
 using Microsoft.Extensions.DependencyInjection;
 

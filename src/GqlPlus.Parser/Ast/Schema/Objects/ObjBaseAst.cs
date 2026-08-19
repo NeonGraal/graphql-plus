@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast.Schema.Objects;
+namespace GqlPlus.Ast.Schema.Objects;
 
 internal record class ObjBaseAst(
   ITokenAt At,

@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Modelling;
 
@@ -14,24 +14,18 @@ internal class OperationModeller(
   private readonly Modeller<IAstVariable, OpVariableModel> _variable = modellers.ModellerFor<IAstVariable, OpVariableModel>();
 
   protected override OperationModel ToModel(IAstSchemaOperation ast, IMap<TypeKindModel> typeKinds)
-  {
-    Map<OpSelectionModel[]> selections = [];
-    AddSelections(selections, "", [.. ast.Selections], typeKinds);
-    foreach (IAstFragment fragment in ast.Fragments) {
-      AddSelections(selections, fragment.Identifier, [.. fragment.Selections], typeKinds);
-    }
-
-    return new(ast.Name, ast.Category, "") {
+    => new(ast.Name, ast.Category, "") {
       Aliases = [.. ast.Aliases],
       Description = ast.Description,
       Variables = _variable.ToModels(ast.Variables, typeKinds).ToMap(f => f.Name),
       Directives = _directive.ToModels(ast.Directives, typeKinds),
       Fragments = _fragment.ToModels(ast.Fragments, typeKinds).ToMap(f => f.Name),
       Result = ast.Domain?.Name.IsWhiteSpace() == false ? _result.ToModel(ast.Domain, typeKinds) : null,
-      Selections = selections,
+      Selections = ast.Selections.ToMap(
+        k => k.Key,
+        v => _selection.ToModels(v.Value, typeKinds)),
       Modifiers = _modifier.ToModels(ast.Modifiers, typeKinds),
     };
-  }
 
   private void AddSelections(Map<OpSelectionModel[]> models, string path, IAstSelection[] ast, IMap<TypeKindModel> typeKinds)
   {

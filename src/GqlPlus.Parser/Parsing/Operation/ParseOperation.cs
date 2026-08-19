@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
@@ -41,7 +41,7 @@ internal class ParseOperation(
     }
 
     _endFragments.Parse(tokens, label).WithResult(value =>
-      ast.Fragments = [.. ast.Fragments.Concat(value)]);
+      ast._operationBase.SetFragments(ast._operationBase.Fragments.Concat(value)));
 
     if (tokens.AtEnd) {
       ast.Result = ParseResultKind.Success;
@@ -61,10 +61,10 @@ internal class ParseOperation(
     if (!string.IsNullOrWhiteSpace(result)) {
       ast.Domain = result;
       IResult<IAstArg> argument = _argument.Parse(tokens, "Arg");
-      if (!argument.Optional(arg => ast.Arg = arg)) {
+      if (!argument.Optional(arg => ast._operationBase.Argument = arg)) {
         return argument.AsPartial(Final(tokens, ast));
       }
-    } else if (!_object.Parse(tokens, label).Required(selections => ast.Selections = ParseSelections(selections))) {
+    } else if (!_object.Parse(tokens, label).Required(selections => ast._operationBase.SetSelections(selections))) {
       return tokens.Partial(label, "Object or Type", () => Final(tokens, ast));
     }
 
@@ -79,53 +79,16 @@ internal class ParseOperation(
     return null;
   }
 
-  private Map<IAstOpSelection[]> ParseSelections(IEnumerable<IAstSelection> selections)
-  {
-    Map<IAstOpSelection[]> result = [];
-    ParseSelections(selections, "", result);
-    return result;
-  }
-
-  private void ParseSelections(IEnumerable<IAstSelection> selections, string prefix, Map<IAstOpSelection[]> result)
-  {
-    int i = 0;
-    List<IAstOpSelection> list = [];
-    foreach (IAstSelection selection in selections) {
-      i++;
-      if (selection is IAstSelections sub) {
-        string key = $"{prefix}.{i}";
-        ParseSelections(sub.Selections, key, result);
-      }
-
-      switch (selection) {
-        case IAstOpField field:
-          list.Add(new OpFieldAst(field));
-          break;
-        case IAstOpInline inline:
-          list.Add(new OpInlineAst(inline));
-          break;
-        case IAstOpSpread spread:
-          list.Add(spread);
-          break;
-      }
-    }
-
-    if (list.Count > 0) {
-      result[prefix] = [.. list];
-    }
-
-  }
-
   private IResult<IAstOperation>? ErrorParsingStart(ITokenizer tokens, string label, OperationAst ast)
   {
     IResultArray<IAstVariable> variables = _variables.Parse(tokens, label);
-    if (!variables.Optional(vars => ast.Variables = [.. vars])) {
+    if (!variables.Optional(vars => ast._operationBase.Variables = [.. vars])) {
       return variables.AsPartial(Final(tokens, ast));
     }
 
     _directives.Parse(tokens, label).Required(directives => ast.Directives = [.. directives]);
 
-    _startFragments.Parse(tokens, label).WithResult(frags => ast.Fragments = [.. frags]);
+    _startFragments.Parse(tokens, label).WithResult(frags => ast._operationBase.Fragments = [.. frags]);
     return null;
   }
 
@@ -142,11 +105,16 @@ internal class ParseOperation(
 
   {
     TokenAt at = tokens.At;
-    return tokens.Identifier(out string? category)
-      ? tokens.Identifier(out string? name)
-        ? new(at, name) { Category = category }
-        : new(at) { Category = category }
-      : new(at);
+    OperationAst result = new(tokens.At);
+    if (tokens.Identifier(out string? category)) {
+      if (tokens.Identifier(out string? name)) {
+        result = result with { Identifier = name };
+      }
+
+      result._operationBase.Category = category;
+    }
+
+    return result;
   }
 
   internal static ParseOperation Factory(IParserRepository p) => new(p);

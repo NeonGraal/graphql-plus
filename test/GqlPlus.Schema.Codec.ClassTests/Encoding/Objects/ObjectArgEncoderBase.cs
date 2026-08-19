@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Encoding.Objects;
+namespace GqlPlus.Encoding.Objects;
 
 public abstract class ObjectArgEncoderBase<TModel>
   : EncoderClassTestBase<TModel>

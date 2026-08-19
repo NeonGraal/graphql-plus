@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Schema;
+namespace GqlPlus.Schema;
 
 [GqlpGenerator(GqlpGeneratorType.Static)]
 [GqlpGenerator(GqlpGeneratorType.Interface)]

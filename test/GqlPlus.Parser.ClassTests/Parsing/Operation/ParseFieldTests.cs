@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
@@ -44,8 +44,7 @@ public class ParseFieldTests
         x => x.Identifier.ShouldBe(name),
         x => x.Arg.ShouldBe(argument),
         x => x.Modifiers.ShouldBe(modifiers),
-        x => x.Directives.ShouldBe(directives),
-        x => x.Selections.ShouldBe(selections)
+        x => x.Directives.ShouldBe(directives)
       );
   }
 

@@ -2,5 +2,5 @@
 query
 Success
 {
-  : ( !of I@008/0001 alias: simple )
+  : [ ( !f I@008/0001 alias: simple ) ]
 }

@@ -1,22 +1,29 @@
-﻿namespace GqlPlus.Ast.Operation;
+namespace GqlPlus.Ast.Operation;
 
 public interface IAstSelection
-  : IAstOpSelection;
+  : IAstError
+  , IAstDirectives
+  , IAstModifiers;
 
 public interface IAstField
-  : IAstOpField
+  : IAstIdentified
   , IAstSelection
-  , IAstSelections
-  , IEquatable<IAstField>;
+  , IEquatable<IAstField>
+{
+  string? FieldAlias { get; }
+  IAstArg? Arg { get; }
+}
 
 public interface IAstInline
-  : IAstOpInline
+  : IAstAbbreviated
   , IAstSelection
-  , IAstSelections
-  , IEquatable<IAstInline>;
+  , IEquatable<IAstInline>
+{
+  string? OnType { get; }
+}
 
 public interface IAstSpread
-  : IAstOpSpread
+  : IAstIdentified
   , IAstSelection
   , IEquatable<IAstSpread>;
 

@@ -2,24 +2,64 @@
   "lineWidth": 150,
   "indentWidth": 2,
   "useTabs": false,
-  "typescript": {},
-  "json": {},
-  "markdown": {},
-  "toml": {},
-  "malva": {},
-  "markup": {},
-  "yaml": {},
-  "graphql": {},
-  "excludes": ["**/node_modules", "**/*-lock.json"],
+  "typescript": {
+  },
+  "json": {
+    "array.preferSingleLine": true
+  },
+  "markdown": {
+  },
+  "toml": {
+  },
+  "mago": {
+  },
+  "malva": {
+  },
+  "markup": {
+  },
+  "yaml": {
+  },
+  "graphql": {
+  },
+  "panache": {
+  },
+  "prettier": {
+  },
+  "roslyn": {
+    "csharp.newLinesForBracesInTypes": true,
+    "csharp.newLinesForBracesInMethods": true,
+    "csharp.newLinesForBracesInProperties": true,
+    "csharp.newLinesForBracesInAccessors": false,
+    "csharp.newLinesForBracesInAnonymousMethods": false,
+    "csharp.newLinesForBracesInControlBlocks": false,
+    "csharp.newLinesForBracesInAnonymousTypes": false,
+    "csharp.newLinesForBracesInObjectCollectionArrayInitializers": false,
+    "csharp.newLinesForBracesInLambdaExpressionBody": false,
+    "csharp.newLineForCatch": false,
+    "csharp.newLineForElse": false,
+    "csharp.newLineForFinally": false
+  },
+  "exec": {
+    "cwd": "${configDir}",
+    "commands": [{
+      "command": "shfmt",
+      "exts": ["sh", "bash"]
+    }]
+  },
+  "excludes": ["**/node_modules", "**/*-lock.json", "**/*.verified.*"],
   "plugins": [
-    "https://plugins.dprint.dev/typescript-0.94.0.wasm",
-    "https://plugins.dprint.dev/json-0.20.0.wasm",
-    "https://plugins.dprint.dev/markdown-0.18.0.wasm",
-    "https://plugins.dprint.dev/toml-0.7.0.wasm",
-    "https://plugins.dprint.dev/g-plane/malva-v0.11.2.wasm",
-    "https://plugins.dprint.dev/g-plane/markup_fmt-v0.19.0.wasm",
-    "https://plugins.dprint.dev/g-plane/pretty_yaml-v0.5.0.wasm",
-    "https://plugins.dprint.dev/g-plane/pretty_graphql-v0.2.1.wasm"
-    //    "https://plugins.dprint.dev/roslyn-0.18.0.json@9586754a7e586ccda5dba4e694c0f225aabde63720c905dd85e02453b6f5e5de"
+    "https://plugins.dprint.dev/typescript-0.96.1.wasm",
+    "https://plugins.dprint.dev/json-0.23.0.wasm",
+    "https://plugins.dprint.dev/markdown-0.22.1.wasm",
+    "https://plugins.dprint.dev/toml-0.8.0.wasm",
+    "https://plugins.dprint.dev/mago-0.24.0.wasm",
+    "https://plugins.dprint.dev/g-plane/malva-v0.16.0.wasm",
+    "https://plugins.dprint.dev/g-plane/markup_fmt-v0.27.3.wasm",
+    "https://plugins.dprint.dev/g-plane/pretty_yaml-v0.6.0.wasm",
+    "https://plugins.dprint.dev/g-plane/pretty_graphql-v0.2.3.wasm",
+    "https://plugins.dprint.dev/jolars/panache-v0.6.0.wasm",
+    "https://plugins.dprint.dev/roslyn-0.22.0.json@837990f855208e1ebcfe5cf6682d2b63d0d0ba95c4680b95c314c389d1428862",
+    "https://plugins.dprint.dev/prettier-0.72.0.json@6e7af2cb2182a5a11358d3adde9ae0ef3b94b7d2e5dcfdd252e3f7c3916541fe",
+    "https://plugins.dprint.dev/exec-0.7.3.json@a7898d5f1897e77bff474cec3d948c3ec3a7f455e32de2cc60c8adb9a5dd24aa"
   ]
 }

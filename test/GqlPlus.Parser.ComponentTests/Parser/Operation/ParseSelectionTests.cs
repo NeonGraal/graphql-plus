@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parser.Operation;
 
@@ -12,7 +12,7 @@ public class ParseSelectionTests(
   public void WithInline_ReturnsCorrectAst(string prefix, string[] fields)
     => checks.ThrowIfNull().TrueExpected(
       prefix + " {" + fields.ThrowIfNull().Joined() + "}",
-      new InlineAst(AstNulls.At, null, fields.ThrowIfNull().Fields()));
+      new InlineAst(AstNulls.At, null) { Selections = fields.ThrowIfNull().Fields() });
 
   [Theory]
   [RepeatInlineData("...", " on ")]
@@ -22,20 +22,24 @@ public class ParseSelectionTests(
   public void WithInlineType_ReturnsCorrectAst(string inlinePrefix, string typePrefix, string[] fields, string inlineType)
     => checks.ThrowIfNull().TrueExpected(
       inlinePrefix + typePrefix + inlineType + "{" + fields.ThrowIfNull().Joined() + "}",
-      new InlineAst(AstNulls.At, inlineType, fields.ThrowIfNull().Fields()));
+      new InlineAst(AstNulls.At, inlineType) { Selections = fields.ThrowIfNull().Fields() });
 
   [Theory, RepeatData]
   public void WithInlineDirective_ReturnsCorrectAst(string[] directives, string[] fields)
     => checks.ThrowIfNull().TrueExpected(
       "|" + directives.ThrowIfNull().Joined(s => "@" + s) + "{" + fields.ThrowIfNull().Joined() + "}",
-      new InlineAst(AstNulls.At, null, fields.ThrowIfNull().Fields()) { Directives = directives.ThrowIfNull().Directives() });
+      new InlineAst(AstNulls.At, null) {
+        Directives = directives.ThrowIfNull().Directives(),
+        Selections = fields.ThrowIfNull().Fields()
+      });
 
   [Theory, RepeatData]
   public void WithInlineAll_ReturnsCorrectAst(string inlineType, string[] directives, string[] fields)
     => checks.ThrowIfNull().TrueExpected(
       $"|:" + inlineType + directives.ThrowIfNull().Joined(s => "@" + s) + "{" + fields.ThrowIfNull().Joined() + "}",
-      new InlineAst(AstNulls.At, inlineType, fields.ThrowIfNull().Fields()) {
+      new InlineAst(AstNulls.At, inlineType) {
         Directives = directives.ThrowIfNull().Directives(),
+        Selections = fields.ThrowIfNull().Fields()
       });
 
   [Theory]
@@ -71,7 +75,10 @@ public class ParseSelectionTests(
   public void WithInlineModifier_ReturnsCorrectAst(string[] fields)
     => checks.ThrowIfNull().TrueExpected(
       "|[]?{" + fields.ThrowIfNull().Joined() + "}",
-      new InlineAst(AstNulls.At, null, fields.ThrowIfNull().Fields()) { Modifiers = TestMods() });
+      new InlineAst(AstNulls.At, null) {
+        Modifiers = TestMods(),
+        Selections = fields.ThrowIfNull().Fields()
+      });
 
   [Fact]
   public void WithInvalidSelection_ReturnsFalse()

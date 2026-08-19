@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Decoding;
+namespace GqlPlus.Decoding;
 
 internal abstract class BaseDecoder<TOutput>
   : IDecoder<TOutput>

@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Resolving.Simple;
+namespace GqlPlus.Resolving.Simple;
 
 public class TypeUnionResolverTests
   : ResolverParentTypeTestBase<TypeUnionModel, string, NamedModel, UnionMemberModel>

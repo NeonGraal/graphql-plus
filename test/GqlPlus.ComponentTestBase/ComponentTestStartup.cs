@@ -1,4 +1,4 @@
-﻿using DiffEngine;
+using DiffEngine;
 using GqlPlus.Merging;
 using GqlPlus.Parsing;
 using Microsoft.Extensions.DependencyInjection;

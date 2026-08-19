@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Result;
+namespace GqlPlus.Result;
 
 internal readonly struct ResultArrayOk<TValue>(
   IEnumerable<TValue> result

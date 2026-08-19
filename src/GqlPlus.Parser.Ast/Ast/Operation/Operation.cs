@@ -1,21 +1,22 @@
-﻿namespace GqlPlus.Ast.Operation;
+namespace GqlPlus.Ast.Operation;
+
+public interface IAstOperationBase
+{
+  string Category { get; }
+  IEnumerable<IAstVariable> Variables { get; }
+  IAstArg? Argument { get; }
+  IMap<IAstSelection[]> Selections { get; }
+  IEnumerable<IAstFragment> Fragments { get; }
+}
 
 public interface IAstOperation
   : IAstIdentified
   , IAstDirectives
   , IAstModifiers
+  , IAstOperationBase
   , IEquatable<IAstOperation>
 {
-  string Category { get; }
-
-  IEnumerable<IAstVariable> Variables { get; }
-
   string? Domain { get; }
-  IAstArg? Arg { get; }
-
-  IEnumerable<IAstFragment> Fragments { get; }
-
-  IMap<IAstOpSelection[]> Selections { get; }
 
   ParseResultKind Result { get; }
   IMessages Errors { get; }
@@ -23,33 +24,6 @@ public interface IAstOperation
   IEnumerable<IAstArg> Usages { get; }
   IEnumerable<IAstSpread> Spreads { get; }
 }
-
-public interface IAstOpSelection
-  : IAstError
-  , IAstDirectives
-  , IAstModifiers;
-
-public interface IAstOpField
-  : IAstIdentified
-  , IAstOpSelection
-  , IEquatable<IAstOpField>
-{
-  string? FieldAlias { get; }
-  IAstArg? Arg { get; }
-}
-
-public interface IAstOpInline
-  : IAstAbbreviated
-  , IAstOpSelection
-  , IEquatable<IAstOpInline>
-{
-  string? OnType { get; }
-}
-
-public interface IAstOpSpread
-  : IAstIdentified
-  , IAstOpSelection
-  , IEquatable<IAstOpSpread>;
 
 public interface IAstIdentified
   : IAstAbbreviated
@@ -88,7 +62,6 @@ public interface IAstSelections
 public interface IAstFragment
   : IAstIdentified
   , IAstDirectives
-  , IAstSelections
   , IEquatable<IAstFragment>
 {
   string OnType { get; }

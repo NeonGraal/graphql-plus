@@ -1,4 +1,4 @@
-﻿using System.Data;
+using System.Data;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Merging.Objects;

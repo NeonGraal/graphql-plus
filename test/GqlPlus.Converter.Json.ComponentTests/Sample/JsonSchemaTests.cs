@@ -1,4 +1,4 @@
-﻿using GqlPlus.Convert;
+using GqlPlus.Convert;
 
 namespace GqlPlus.Sample;
 

@@ -1,4 +1,4 @@
-﻿using GqlPlus.Verifying.Schema;
+using GqlPlus.Verifying.Schema;
 
 namespace GqlPlus.Matching;
 

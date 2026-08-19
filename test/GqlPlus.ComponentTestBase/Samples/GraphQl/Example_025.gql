@@ -1,4 +1,4 @@
-﻿mutation {
+mutation {
   sendEmail(
     message: """
     Hello,

@@ -1,4 +1,4 @@
-﻿
+
 namespace GqlPlus.Decoding;
 
 public class StringDecoderTests

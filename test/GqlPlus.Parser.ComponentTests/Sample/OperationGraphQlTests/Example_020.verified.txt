@@ -5,30 +5,14 @@ Success
 !t I@010/0012
 friendFields
 :User
-{
-  !f I@003/0013
-  id
-  !f I@003/0014
-  name
-  !s I@006/0015
-  standardProfilePic
-}
 !t I@010/0018
 standardProfilePic
 :User
 {
-  !f I@003/0019
-  profilePic
-  (
-    !a I@014/0019
-    {
-      ( !k I@014/0019 size ):( !k N@020/0019 50 )
-    }
-  )
-}
-{
-  : ( !of I@003/0002 user ( !a I@008/0002 { ( !k I@008/0002 id ):( !k N@012/0002 4 ) } ) )
-  .1: ( !of I@005/0003 friends ( !a I@013/0003 { ( !k I@013/0003 first ):( !k N@020/0003 10 ) } ) ) ( !of I@005/0006 mutualFriends ( !a I@019/0006 { ( !k I@019/0006 first ):( !k N@026/0006 10 ) } ) )
-  .1.1: ( !s I@010/0004 friendFields )
-  .1.2: ( !s I@010/0007 friendFields )
+  : [ ( !f I@003/0002 user ( !a I@008/0002 { ( !k I@008/0002 id ):( !k N@012/0002 4 ) } ) ) ]
+  .1: [ ( !f I@005/0003 friends ( !a I@013/0003 { ( !k I@013/0003 first ):( !k N@020/0003 10 ) } ) ) ( !f I@005/0006 mutualFriends ( !a I@019/0006 { ( !k I@019/0006 first ):( !k N@026/0006 10 ) } ) ) ]
+  .1.1: [ ( !s I@010/0004 friendFields ) ]
+  .1.2: [ ( !s I@010/0007 friendFields ) ]
+  friendFields: [ ( !f I@003/0013 id ) ( !f I@003/0014 name ) ( !s I@006/0015 standardProfilePic ) ]
+  standardProfilePic: [ ( !f I@003/0019 profilePic ( !a I@014/0019 { ( !k I@014/0019 size ):( !k N@020/0019 50 ) } ) ) ]
 }

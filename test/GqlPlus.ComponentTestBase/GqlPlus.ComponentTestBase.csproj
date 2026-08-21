@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MartinCostello.Logging.XUnit.v3" />
     <PackageReference Include="Xunit.DependencyInjection" />
     <PackageReference Include="Xunit.DependencyInjection.Logging" />
   </ItemGroup>

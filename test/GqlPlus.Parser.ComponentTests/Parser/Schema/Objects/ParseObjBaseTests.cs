@@ -3,8 +3,8 @@ using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parser.Schema.Objects;
 
-public class ParseObjBaseTests(ComponentFixture<Startup> fixture)
-  : IClassFixture<ComponentFixture<Startup>>
+public class ParseObjBaseTests(ComponentFixture<SchemaParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<SchemaParserTestServices>>
 {
   private readonly IParseObjBaseChecks objectBaseChecks = fixture.GetService<IParseObjBaseChecks>();
 

@@ -1,5 +1,4 @@
 using System.Reflection;
-using System.Runtime.CompilerServices;
 
 using DiffEngine;
 
@@ -8,9 +7,9 @@ using Microsoft.Extensions.FileProviders;
 
 namespace GqlPlus;
 
-public sealed class Startup : IConfiguresServices
+public sealed class SchemaCodecTestServices : IConfiguresServices
 {
-  static Startup()
+  static SchemaCodecTestServices()
   {
     DiffRunner.MaxInstancesToLaunch(20);
     RenderFluid.Setup(

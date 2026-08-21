@@ -3,8 +3,8 @@ using GqlPlus.Parsing.Operation;
 
 namespace GqlPlus.Parser.Operation;
 
-public class ParseFragmentsTests(ComponentFixture<Startup> fixture)
-  : IClassFixture<ComponentFixture<Startup>>
+public class ParseFragmentsTests(ComponentFixture<OperationParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<OperationParserTestServices>>
 {
   private readonly IManyChecksParser<IParserStartFragments, IAstFragment> startChecks
     = fixture.GetService<IManyChecksParser<IParserStartFragments, IAstFragment>>();

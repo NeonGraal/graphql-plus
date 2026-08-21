@@ -2,8 +2,8 @@ using System.Globalization;
 
 namespace GqlPlus.Parser;
 
-public class ParseFieldKeyTests(ComponentFixture<Startup> fixture)
-  : IClassFixture<ComponentFixture<Startup>>
+public class ParseFieldKeyTests(ComponentFixture<ParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<ParserTestServices>>
 {
   private readonly IOneChecksParser<IAstFieldKey> checks = fixture.GetService<IOneChecksParser<IAstFieldKey>>();
 

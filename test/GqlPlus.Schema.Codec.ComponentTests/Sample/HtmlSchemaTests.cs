@@ -5,8 +5,8 @@ using GqlPlus.Resolving;
 namespace GqlPlus.Sample;
 
 [Trait("Generate", "Html")]
-public class HtmlSchemaTests(ComponentFixture<Startup> fixture)
-  : TestSchemaVerify(fixture.GetService<ISchemaVerifyChecks>()), IClassFixture<ComponentFixture<Startup>>
+public class HtmlSchemaTests(ComponentFixture<SchemaCodecTestServices> fixture)
+  : TestSchemaVerify(fixture.GetService<ISchemaVerifyChecks>()), IClassFixture<ComponentFixture<SchemaCodecTestServices>>
 {
   private readonly ISchemaVerifyChecks checks = fixture.GetService<ISchemaVerifyChecks>();
 

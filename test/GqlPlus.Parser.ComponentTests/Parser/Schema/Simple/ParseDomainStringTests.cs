@@ -3,9 +3,9 @@ using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parser.Schema.Simple;
 
-public sealed class ParseDomainStringTests(ComponentFixture<Startup> fixture)
+public sealed class ParseDomainStringTests(ComponentFixture<SchemaParserTestServices> fixture)
   : BaseDomainTests<DomainStringInput, IAstDomain<IAstDomainRegex>>(fixture.GetService<IBaseDomainChecks<DomainStringInput, IAstDomain<IAstDomainRegex>>>())
-  , IClassFixture<ComponentFixture<Startup>>
+  , IClassFixture<ComponentFixture<SchemaParserTestServices>>
 {
   private readonly IBaseDomainChecks<DomainStringInput, IAstDomain<IAstDomainRegex>> checks
     = fixture.GetService<IBaseDomainChecks<DomainStringInput, IAstDomain<IAstDomainRegex>>>();

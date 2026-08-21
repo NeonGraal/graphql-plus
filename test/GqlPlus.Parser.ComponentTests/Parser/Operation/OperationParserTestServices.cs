@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Parser.Operation;
 
-public sealed class Startup : IConfiguresServices
+public sealed class OperationParserTestServices : IConfiguresServices
 {
   public static IServiceCollection Configure(IServiceCollection services)
     => services

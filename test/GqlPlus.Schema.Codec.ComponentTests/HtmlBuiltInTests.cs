@@ -5,8 +5,8 @@ using GqlPlus.Resolving;
 namespace GqlPlus;
 
 [Trait("Generate", "Html")]
-public class HtmlBuiltInTests(ComponentFixture<Startup> fixture)
-  : IClassFixture<ComponentFixture<Startup>>
+public class HtmlBuiltInTests(ComponentFixture<SchemaCodecTestServices> fixture)
+  : IClassFixture<ComponentFixture<SchemaCodecTestServices>>
 {
   private readonly IModelAndEncode encoder = fixture.GetService<IModelAndEncode>();
 

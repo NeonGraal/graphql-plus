@@ -3,9 +3,9 @@ using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parser.Schema.Simple;
 
-public sealed class ParseDomainBooleanTests(ComponentFixture<Startup> fixture)
+public sealed class ParseDomainBooleanTests(ComponentFixture<SchemaParserTestServices> fixture)
   : BaseDomainTests<string, IAstDomain<IAstDomainTrueFalse>>(fixture.GetService<IBaseDomainChecks<string, IAstDomain<IAstDomainTrueFalse>>>())
-  , IClassFixture<ComponentFixture<Startup>>;
+  , IClassFixture<ComponentFixture<SchemaParserTestServices>>;
 
 internal sealed class ParseDomainBooleanChecks(
   IParserRepository parsers

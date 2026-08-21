@@ -4,8 +4,8 @@ using GqlPlus.Result;
 
 namespace GqlPlus.Sample;
 
-public class ParseOperationTests(ComponentFixture<Startup> fixture)
-  : SampleChecks, IClassFixture<ComponentFixture<Startup>>
+public class ParseOperationTests(ComponentFixture<SampleParserTestServices> fixture)
+  : SampleChecks, IClassFixture<ComponentFixture<SampleParserTestServices>>
 {
 
   private readonly ParserOne<IAstOperation> _operation = fixture.GetService<IParserRepository>().ParserFor<IAstOperation>();

@@ -2,7 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Parser;
 
-public sealed class Startup : IConfiguresServices
+public sealed class ParserTestServices : IConfiguresServices
 {
   public static IServiceCollection Configure(IServiceCollection services)
     => services

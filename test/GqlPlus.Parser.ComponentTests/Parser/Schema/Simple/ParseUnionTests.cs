@@ -3,9 +3,9 @@ using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parser.Schema.Simple;
 
-public sealed class ParseUnionTests(ComponentFixture<Startup> fixture)
+public sealed class ParseUnionTests(ComponentFixture<SchemaParserTestServices> fixture)
   : BaseSimpleTests<UnionInput, IAstUnion>(fixture.GetService<IBaseSimpleChecks<UnionInput, IAstUnion>>())
-  , IClassFixture<ComponentFixture<Startup>>
+  , IClassFixture<ComponentFixture<SchemaParserTestServices>>
 {
   private readonly IBaseSimpleChecks<UnionInput, IAstUnion> checks = fixture.GetService<IBaseSimpleChecks<UnionInput, IAstUnion>>();
 

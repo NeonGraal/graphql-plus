@@ -1,13 +1,12 @@
-using System.Runtime.CompilerServices;
 using DiffEngine;
 
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus;
 
-public sealed class Startup : IConfiguresServices
+public sealed class YamlConverterTestServices : IConfiguresServices
 {
-  static Startup()
+  static YamlConverterTestServices()
     => DiffRunner.MaxInstancesToLaunch(20);
 
   public static IServiceCollection Configure(IServiceCollection services)

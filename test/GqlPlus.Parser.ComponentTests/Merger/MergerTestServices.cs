@@ -2,7 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Merger;
 
-public sealed class Startup : IConfiguresServices
+public sealed class MergerTestServices : IConfiguresServices
 {
   public static IServiceCollection Configure(IServiceCollection services)
     => services

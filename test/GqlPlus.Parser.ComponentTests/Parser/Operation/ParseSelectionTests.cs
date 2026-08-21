@@ -2,8 +2,8 @@ using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parser.Operation;
 
-public class ParseSelectionTests(ComponentFixture<Startup> fixture)
-  : IClassFixture<ComponentFixture<Startup>>
+public class ParseSelectionTests(ComponentFixture<OperationParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<OperationParserTestServices>>
 {
   private readonly IOneChecksParser<IAstSelection> checks = fixture.GetService<IOneChecksParser<IAstSelection>>();
 

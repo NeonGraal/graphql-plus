@@ -4,9 +4,9 @@ using GqlPlus.Result;
 
 namespace GqlPlus.Sample;
 
-public class MergeSchemaTests(ComponentFixture<Startup> fixture)
+public class MergeSchemaTests(ComponentFixture<SampleParserTestServices> fixture)
   : TestSchemaResult(fixture.GetService<ISchemaParseChecks>())
-  , IClassFixture<ComponentFixture<Startup>>
+  , IClassFixture<ComponentFixture<SampleParserTestServices>>
 {
   private readonly ISchemaParseChecks checks = fixture.GetService<ISchemaParseChecks>();
   private readonly MergerOne<IAstSchema> _schemaMerger = fixture.GetService<IMergerRepository>().MergerFor<IAstSchema>();

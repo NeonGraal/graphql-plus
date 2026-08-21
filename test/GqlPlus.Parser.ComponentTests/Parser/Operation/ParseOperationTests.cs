@@ -4,8 +4,8 @@ using GqlPlus.Result;
 
 namespace GqlPlus.Parser.Operation;
 
-public class ParseOperationTests(ComponentFixture<Startup> fixture)
-  : IClassFixture<ComponentFixture<Startup>>
+public class ParseOperationTests(ComponentFixture<OperationParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<OperationParserTestServices>>
 {
   [Theory]
   [InlineData(":Boolean")]

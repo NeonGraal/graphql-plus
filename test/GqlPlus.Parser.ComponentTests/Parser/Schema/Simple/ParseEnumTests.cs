@@ -3,9 +3,9 @@ using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parser.Schema.Simple;
 
-public sealed class ParseEnumTests(ComponentFixture<Startup> fixture)
+public sealed class ParseEnumTests(ComponentFixture<SchemaParserTestServices> fixture)
   : BaseSimpleTests<EnumInput, IAstEnum>(fixture.GetService<IBaseSimpleChecks<EnumInput, IAstEnum>>())
-  , IClassFixture<ComponentFixture<Startup>>
+  , IClassFixture<ComponentFixture<SchemaParserTestServices>>
 {
   private readonly IBaseSimpleChecks<EnumInput, IAstEnum> checks = fixture.GetService<IBaseSimpleChecks<EnumInput, IAstEnum>>();
 

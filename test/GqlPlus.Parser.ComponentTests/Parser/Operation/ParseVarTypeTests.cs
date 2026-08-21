@@ -2,8 +2,8 @@ using GqlPlus.Parsing.Operation;
 
 namespace GqlPlus.Parser.Operation;
 
-public class ParseVarTypeTests(ComponentFixture<Startup> fixture)
-  : IClassFixture<ComponentFixture<Startup>>
+public class ParseVarTypeTests(ComponentFixture<OperationParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<OperationParserTestServices>>
 {
   private readonly IOneChecksParser<IParserVarType, string> checks
     = fixture.GetService<IOneChecksParser<IParserVarType, string>>();

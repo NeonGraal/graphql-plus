@@ -2,8 +2,8 @@ using System.Globalization;
 
 namespace GqlPlus.Parser;
 
-public class ParseConstantTests(ComponentFixture<Startup> fixture)
-  : IClassFixture<ComponentFixture<Startup>>
+public class ParseConstantTests(ComponentFixture<ParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<ParserTestServices>>
 {
   private readonly IOneChecksParser<IAstConstant> checks = fixture.GetService<IOneChecksParser<IAstConstant>>();
 

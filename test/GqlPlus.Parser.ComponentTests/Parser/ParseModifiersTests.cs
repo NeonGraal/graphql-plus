@@ -1,7 +1,7 @@
 namespace GqlPlus.Parser;
 
-public class ParseModifiersTests(ComponentFixture<Startup> fixture)
-  : IClassFixture<ComponentFixture<Startup>>
+public class ParseModifiersTests(ComponentFixture<ParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<ParserTestServices>>
 {
   private readonly IManyChecksParser<IAstModifier> checks = fixture.GetService<IManyChecksParser<IAstModifier>>();
 

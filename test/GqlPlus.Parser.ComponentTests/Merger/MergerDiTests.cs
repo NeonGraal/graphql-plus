@@ -1,7 +1,7 @@
 namespace GqlPlus.Merger;
 
-public class MergerDiTests(ComponentFixture<Startup> fixture)
-  : DiChecks(fixture.ServiceCollection), IClassFixture<ComponentFixture<Startup>>
+public class MergerDiTests(ComponentFixture<MergerTestServices> fixture)
+  : DiChecks(fixture.ServiceCollection), IClassFixture<ComponentFixture<MergerTestServices>>
 {
   protected override string Label => "Merger";
 }

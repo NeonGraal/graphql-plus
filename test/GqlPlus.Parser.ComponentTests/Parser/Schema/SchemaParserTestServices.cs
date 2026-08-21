@@ -1,20 +1,19 @@
 using GqlPlus.Ast.Schema;
-using GqlPlus.Parser;
-using GqlPlus.Parser.Schema;
 using GqlPlus.Parser.Schema.Globals;
 using GqlPlus.Parser.Schema.Objects;
 using GqlPlus.Parser.Schema.Simple;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace GqlPlus.Sample;
+namespace GqlPlus.Parser.Schema;
 
-public sealed class Startup : IConfiguresServices
+public sealed class SchemaParserTestServices : IConfiguresServices
 {
   public static IServiceCollection Configure(IServiceCollection services)
     => services
       .AddTransient<IBaseAliasedChecks<string, IAstSchemaCategory>, ParseCategoryChecks>()
 
       .AddTransient<IBaseAliasedChecks<string, IAstSchemaDirective>, ParseDirectiveChecks>()
+      .AddTransient<IBaseAliasedChecks<OperationInput, IAstSchemaOperation>, ParseOperationChecks>()
       .AddOneChecks<IAstSchemaSetting>()
       .AddTransient<IBaseAliasedChecks<string, IAstSchemaOption>, ParseOptionChecks>()
 
@@ -40,8 +39,5 @@ public sealed class Startup : IConfiguresServices
       .AddTransient<ICheckObjectField<IAstOutputField>, ParseOutputFieldChecks>()
       .AddTransient<ICheckObject<IAstOutputField>, ParseOutputChecks>()
 
-      .AddTransient<ISchemaParseChecks, SchemaParseChecks>()
-
-      .AddComponentParsers()
-      .AddParsers(b => b.AddOperationParsers());
+      .AddComponentParsers();
 }

@@ -5,8 +5,8 @@ using GqlPlus.Verifying;
 
 namespace GqlPlus.Sample;
 
-public class VerifySchemaTests(ComponentFixture<Startup> fixture)
-  : TestSchemaResult(fixture.GetService<ISchemaParseChecks>()), IClassFixture<ComponentFixture<Startup>>
+public class VerifySchemaTests(ComponentFixture<VerifierTestServices> fixture)
+  : TestSchemaResult(fixture.GetService<ISchemaParseChecks>()), IClassFixture<ComponentFixture<VerifierTestServices>>
 
 {
   private readonly MergerOne<IAstSchema> _schemaMerger = fixture.GetService<IMergerRepository>().MergerFor<IAstSchema>();

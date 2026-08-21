@@ -6,8 +6,8 @@ using GqlPlus.Verifying;
 
 namespace GqlPlus.Sample;
 
-public class VerifyOperationTests(ComponentFixture<Startup> fixture)
-  : SampleChecks, IClassFixture<ComponentFixture<Startup>>
+public class VerifyOperationTests(ComponentFixture<VerifierTestServices> fixture)
+  : SampleChecks, IClassFixture<ComponentFixture<VerifierTestServices>>
 {
   private readonly ParserOne<IAstOperation> _parser = fixture.GetService<IParserRepository>().ParserFor<IAstOperation>();
   private readonly Verifier<IAstOperation> _operationVerifier = fixture.GetService<IVerifierRepository>().VerifierFor<IAstOperation>();

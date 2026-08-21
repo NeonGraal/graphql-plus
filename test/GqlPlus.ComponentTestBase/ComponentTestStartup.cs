@@ -4,8 +4,6 @@ using GqlPlus.Parsing;
 using MartinCostello.Logging.XUnit;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Xunit;
-using Xunit.Sdk;
 
 namespace GqlPlus;
 
@@ -15,7 +13,8 @@ namespace GqlPlus;
 // into every fixture-built service.
 internal sealed class AmbientTestOutputHelperAccessor : ITestOutputHelperAccessor
 {
-  public ITestOutputHelper? OutputHelper {
+  public ITestOutputHelper? OutputHelper
+  {
     get => TestContext.Current?.TestOutputHelper;
     set { }
   }

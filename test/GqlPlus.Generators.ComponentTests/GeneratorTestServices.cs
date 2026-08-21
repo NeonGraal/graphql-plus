@@ -6,9 +6,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus;
 
-public sealed class Startup : IConfiguresServices
+public sealed class GeneratorTestServices : IConfiguresServices
 {
-  static Startup()
+  static GeneratorTestServices()
     => DiffRunner.MaxInstancesToLaunch(20);
 
   public static IServiceCollection Configure(IServiceCollection services)

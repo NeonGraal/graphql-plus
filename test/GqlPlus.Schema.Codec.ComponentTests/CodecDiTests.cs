@@ -1,7 +1,7 @@
 namespace GqlPlus;
 
-public class CodecDiTests(ComponentFixture<Startup> fixture)
-  : DiChecks(fixture.ServiceCollection), IClassFixture<ComponentFixture<Startup>>
+public class CodecDiTests(ComponentFixture<SchemaCodecTestServices> fixture)
+  : DiChecks(fixture.ServiceCollection), IClassFixture<ComponentFixture<SchemaCodecTestServices>>
 {
   protected override string Label => "Codec";
 }

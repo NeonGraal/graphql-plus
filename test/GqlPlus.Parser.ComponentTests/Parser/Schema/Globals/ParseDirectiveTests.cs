@@ -3,9 +3,9 @@ using GqlPlus.Ast.Schema.Globals;
 
 namespace GqlPlus.Parser.Schema.Globals;
 
-public sealed class ParseDirectiveTests(ComponentFixture<Startup> fixture)
+public sealed class ParseDirectiveTests(ComponentFixture<SchemaParserTestServices> fixture)
   : BaseAliasedTests<string, IAstSchemaDirective>(fixture.GetService<IBaseAliasedChecks<string, IAstSchemaDirective>>())
-  , IClassFixture<ComponentFixture<Startup>>
+  , IClassFixture<ComponentFixture<SchemaParserTestServices>>
 {
   private readonly IBaseAliasedChecks<string, IAstSchemaDirective> checks
     = fixture.GetService<IBaseAliasedChecks<string, IAstSchemaDirective>>();

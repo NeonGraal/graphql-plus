@@ -2,8 +2,8 @@ namespace GqlPlus.Sample;
 
 [Trait("Generate", "Yaml")]
 [Trait("Generate", "SimpleYaml")]
-public class SimpleYamlSchemaTests(ComponentFixture<Startup> fixture)
-  : TestSchemaVerify(fixture.GetService<ISchemaVerifyChecks>()), IClassFixture<ComponentFixture<Startup>>
+public class SimpleYamlSchemaTests(ComponentFixture<SchemaCodecTestServices> fixture)
+  : TestSchemaVerify(fixture.GetService<ISchemaVerifyChecks>()), IClassFixture<ComponentFixture<SchemaCodecTestServices>>
 {
   public override string ResultGroup => "SimpleYaml";
   protected override Task CheckResultErrors(string[] dirs, string test, IMessages errors)

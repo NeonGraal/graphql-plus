@@ -3,8 +3,8 @@ using GqlPlus.Ast.Schema.Globals;
 
 namespace GqlPlus.Parser.Schema.Globals;
 
-public class ParseOptionSettingTests(ComponentFixture<Startup> fixture)
-  : IClassFixture<ComponentFixture<Startup>>
+public class ParseOptionSettingTests(ComponentFixture<SchemaParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<SchemaParserTestServices>>
 {
   private readonly IOneChecksParser<IAstSchemaSetting> checks = fixture.GetService<IOneChecksParser<IAstSchemaSetting>>();
 

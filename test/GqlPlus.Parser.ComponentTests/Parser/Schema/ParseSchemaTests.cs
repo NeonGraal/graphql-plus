@@ -4,8 +4,8 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parser.Schema;
 
-public class ParseSchemaTests(ComponentFixture<Startup> fixture)
-  : IClassFixture<ComponentFixture<Startup>>
+public class ParseSchemaTests(ComponentFixture<SchemaParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<SchemaParserTestServices>>
 {
   private readonly ParserOne<IAstSchema> _parser = fixture.GetService<IParserRepository>().ParserFor<IAstSchema>();
 

@@ -1,9 +1,7 @@
-using Microsoft.Extensions.DependencyInjection;
-
 namespace GqlPlus.Parser.Operation;
 
-public class OperationParserDiTests(IServiceCollection services)
-  : DiChecks(services)
+public class OperationParserDiTests(ComponentFixture<Startup> fixture)
+  : DiChecks(fixture.ServiceCollection), IClassFixture<ComponentFixture<Startup>>
 {
   protected override string Label => "OperationParser";
 }

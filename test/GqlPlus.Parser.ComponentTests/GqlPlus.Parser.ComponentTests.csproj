@@ -9,4 +9,12 @@
     <ProjectReference Include="..\GqlPlus.ComponentTestBase\GqlPlus.ComponentTestBase.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <!-- This project uses ComponentFixture<TStartup> + IClassFixture<> instead of
+         Xunit.DependencyInjection's constructor injection, so opt out of the
+         Xunit.DependencyInjection assets that flow transitively from GqlPlus.ComponentTestBase. -->
+    <PackageReference Include="Xunit.DependencyInjection" ExcludeAssets="all" />
+    <PackageReference Include="Xunit.DependencyInjection.Logging" ExcludeAssets="all" />
+  </ItemGroup>
+
 </Project>

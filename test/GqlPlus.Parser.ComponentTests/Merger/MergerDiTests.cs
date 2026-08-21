@@ -1,9 +1,7 @@
-using Microsoft.Extensions.DependencyInjection;
-
 namespace GqlPlus.Merger;
 
-public class MergerDiTests(IServiceCollection services)
-  : DiChecks(services)
+public class MergerDiTests(ComponentFixture<Startup> fixture)
+  : DiChecks(fixture.ServiceCollection), IClassFixture<ComponentFixture<Startup>>
 {
   protected override string Label => "Merger";
 }

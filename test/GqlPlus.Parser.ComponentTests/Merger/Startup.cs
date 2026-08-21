@@ -2,9 +2,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Merger;
 
-public static class Startup
+public sealed class Startup : IConfiguresServices
 {
-  public static void ConfigureServices(IServiceCollection services)
+  public static IServiceCollection Configure(IServiceCollection services)
     => services
       .AddComponentParsers();
 }

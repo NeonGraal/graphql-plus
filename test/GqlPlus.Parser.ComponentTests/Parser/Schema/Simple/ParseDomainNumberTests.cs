@@ -3,10 +3,13 @@ using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parser.Schema.Simple;
 
-public sealed class ParseDomainNumberTests(
-  IBaseDomainChecks<string, IAstDomain<IAstDomainRange>> checks
-) : BaseDomainTests<string, IAstDomain<IAstDomainRange>>(checks)
+public sealed class ParseDomainNumberTests(ComponentFixture<Startup> fixture)
+  : BaseDomainTests<string, IAstDomain<IAstDomainRange>>(fixture.GetService<IBaseDomainChecks<string, IAstDomain<IAstDomainRange>>>())
+  , IClassFixture<ComponentFixture<Startup>>
 {
+  private readonly IBaseDomainChecks<string, IAstDomain<IAstDomainRange>> checks
+    = fixture.GetService<IBaseDomainChecks<string, IAstDomain<IAstDomainRange>>>();
+
   [Theory, RepeatData]
   public void WithRangeNoBounds_ReturnsFalse(string name)
     => checks.FalseExpected(name + "{number <}");

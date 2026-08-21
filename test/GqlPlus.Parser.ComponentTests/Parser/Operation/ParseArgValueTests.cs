@@ -2,10 +2,11 @@ using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parser.Operation;
 
-public class ParseArgValueTests(
-  IOneChecksParser<IAstArg> checks
-)
+public class ParseArgValueTests(ComponentFixture<Startup> fixture)
+  : IClassFixture<ComponentFixture<Startup>>
 {
+  private readonly IOneChecksParser<IAstArg> checks = fixture.GetService<IOneChecksParser<IAstArg>>();
+
   [Theory, RepeatData]
   public void WithVariable_ReturnsCorrectAst(string variable)
     => checks.TrueExpected(

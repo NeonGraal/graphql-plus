@@ -4,12 +4,12 @@ using GqlPlus.Result;
 
 namespace GqlPlus.Sample;
 
-public class MergeSchemaTests(
-  ISchemaParseChecks checks,
-  IMergerRepository mergers
-) : TestSchemaResult(checks)
+public class MergeSchemaTests(ComponentFixture<Startup> fixture)
+  : TestSchemaResult(fixture.GetService<ISchemaParseChecks>())
+  , IClassFixture<ComponentFixture<Startup>>
 {
-  private readonly MergerOne<IAstSchema> _schemaMerger = mergers.MergerFor<IAstSchema>();
+  private readonly ISchemaParseChecks checks = fixture.GetService<ISchemaParseChecks>();
+  private readonly MergerOne<IAstSchema> _schemaMerger = fixture.GetService<IMergerRepository>().MergerFor<IAstSchema>();
 
   protected override Task Result_Valid(IResult<IAstSchema> result, string test, string label, string[] dirs, string section, string input = "")
     => Check_Merges([result.Required()], test, label, section);

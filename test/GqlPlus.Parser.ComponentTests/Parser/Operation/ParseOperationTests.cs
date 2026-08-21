@@ -4,9 +4,8 @@ using GqlPlus.Result;
 
 namespace GqlPlus.Parser.Operation;
 
-public class ParseOperationTests(
-  IParserRepository parsers
-)
+public class ParseOperationTests(ComponentFixture<Startup> fixture)
+  : IClassFixture<ComponentFixture<Startup>>
 {
   [Theory]
   [InlineData(":Boolean")]
@@ -73,5 +72,5 @@ public class ParseOperationTests(
       a => a.ThrowIfNull().Errors.ShouldNotBeEmpty());
   }
 
-  private readonly ParserOne<IAstOperation> _parser = parsers.ParserFor<IAstOperation>();
+  private readonly ParserOne<IAstOperation> _parser = fixture.GetService<IParserRepository>().ParserFor<IAstOperation>();
 }

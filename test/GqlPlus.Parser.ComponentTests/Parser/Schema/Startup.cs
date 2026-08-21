@@ -6,9 +6,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Parser.Schema;
 
-public static class Startup
+public sealed class Startup : IConfiguresServices
 {
-  public static void ConfigureServices(IServiceCollection services)
+  public static IServiceCollection Configure(IServiceCollection services)
     => services
       .AddTransient<IBaseAliasedChecks<string, IAstSchemaCategory>, ParseCategoryChecks>()
 

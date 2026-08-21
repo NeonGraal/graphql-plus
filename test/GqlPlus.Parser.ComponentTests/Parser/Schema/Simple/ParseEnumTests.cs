@@ -3,10 +3,12 @@ using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parser.Schema.Simple;
 
-public sealed class ParseEnumTests(
-  IBaseSimpleChecks<EnumInput, IAstEnum> checks
-) : BaseSimpleTests<EnumInput, IAstEnum>(checks)
+public sealed class ParseEnumTests(ComponentFixture<Startup> fixture)
+  : BaseSimpleTests<EnumInput, IAstEnum>(fixture.GetService<IBaseSimpleChecks<EnumInput, IAstEnum>>())
+  , IClassFixture<ComponentFixture<Startup>>
 {
+  private readonly IBaseSimpleChecks<EnumInput, IAstEnum> checks = fixture.GetService<IBaseSimpleChecks<EnumInput, IAstEnum>>();
+
   [Theory, RepeatData]
   public void WithEnumLabels_ReturnsCorrectAst(string name, string[] labels)
     => checks.TrueExpected(

@@ -3,10 +3,12 @@ using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parser.Schema.Simple;
 
-public sealed class ParseUnionTests(
-  IBaseSimpleChecks<UnionInput, IAstUnion> checks
-) : BaseSimpleTests<UnionInput, IAstUnion>(checks)
+public sealed class ParseUnionTests(ComponentFixture<Startup> fixture)
+  : BaseSimpleTests<UnionInput, IAstUnion>(fixture.GetService<IBaseSimpleChecks<UnionInput, IAstUnion>>())
+  , IClassFixture<ComponentFixture<Startup>>
 {
+  private readonly IBaseSimpleChecks<UnionInput, IAstUnion> checks = fixture.GetService<IBaseSimpleChecks<UnionInput, IAstUnion>>();
+
   [Theory, RepeatData]
   public void WithUnionMembers_ReturnsCorrectAst(string name, string[] members)
     => checks.TrueExpected(

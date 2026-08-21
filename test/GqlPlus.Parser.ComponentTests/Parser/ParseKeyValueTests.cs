@@ -1,9 +1,11 @@
 namespace GqlPlus.Parser;
 
-public class ParseKeyValueTests(
-  IOneChecksParser<KeyValue<IAstConstant>> checks
-)
+public class ParseKeyValueTests(ComponentFixture<Startup> fixture)
+  : IClassFixture<ComponentFixture<Startup>>
 {
+  private readonly IOneChecksParser<KeyValue<IAstConstant>> checks
+    = fixture.GetService<IOneChecksParser<KeyValue<IAstConstant>>>();
+
   [Theory, RepeatData]
   public void WithKeyValueValid_ReturnsCorrectAst(string key, string value)
     => checks.TrueExpected(

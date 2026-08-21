@@ -4,12 +4,11 @@ using GqlPlus.Result;
 
 namespace GqlPlus.Sample;
 
-public class ParseOperationTests(
-    IParserRepository parsers
-) : SampleChecks
+public class ParseOperationTests(ComponentFixture<Startup> fixture)
+  : SampleChecks, IClassFixture<ComponentFixture<Startup>>
 {
 
-  private readonly ParserOne<IAstOperation> _operation = parsers.ParserFor<IAstOperation>();
+  private readonly ParserOne<IAstOperation> _operation = fixture.GetService<IParserRepository>().ParserFor<IAstOperation>();
 
   [Theory]
   [ClassData(typeof(SamplesOperationData))]

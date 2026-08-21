@@ -3,10 +3,13 @@ using GqlPlus.Ast.Schema.Globals;
 
 namespace GqlPlus.Parser.Schema.Globals;
 
-public sealed class ParseDirectiveTests(
-  IBaseAliasedChecks<string, IAstSchemaDirective> checks
-) : BaseAliasedTests<string, IAstSchemaDirective>(checks)
+public sealed class ParseDirectiveTests(ComponentFixture<Startup> fixture)
+  : BaseAliasedTests<string, IAstSchemaDirective>(fixture.GetService<IBaseAliasedChecks<string, IAstSchemaDirective>>())
+  , IClassFixture<ComponentFixture<Startup>>
 {
+  private readonly IBaseAliasedChecks<string, IAstSchemaDirective> checks
+    = fixture.GetService<IBaseAliasedChecks<string, IAstSchemaDirective>>();
+
   [Theory, RepeatData]
   public void WithRepeatable_ReturnsCorrectAst(string name)
     => checks.TrueExpected(

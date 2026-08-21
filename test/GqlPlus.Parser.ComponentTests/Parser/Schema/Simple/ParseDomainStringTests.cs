@@ -3,10 +3,13 @@ using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parser.Schema.Simple;
 
-public sealed class ParseDomainStringTests(
-  IBaseDomainChecks<DomainStringInput, IAstDomain<IAstDomainRegex>> checks
-) : BaseDomainTests<DomainStringInput, IAstDomain<IAstDomainRegex>>(checks)
+public sealed class ParseDomainStringTests(ComponentFixture<Startup> fixture)
+  : BaseDomainTests<DomainStringInput, IAstDomain<IAstDomainRegex>>(fixture.GetService<IBaseDomainChecks<DomainStringInput, IAstDomain<IAstDomainRegex>>>())
+  , IClassFixture<ComponentFixture<Startup>>
 {
+  private readonly IBaseDomainChecks<DomainStringInput, IAstDomain<IAstDomainRegex>> checks
+    = fixture.GetService<IBaseDomainChecks<DomainStringInput, IAstDomain<IAstDomainRegex>>>();
+
   [Theory, RepeatData]
   public void WithRegexes_ReturnsCorrectAst(DomainStringInput input, string regex)
     => checks.TrueExpected(

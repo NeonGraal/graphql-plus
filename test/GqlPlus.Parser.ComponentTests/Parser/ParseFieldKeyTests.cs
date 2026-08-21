@@ -2,10 +2,11 @@ using System.Globalization;
 
 namespace GqlPlus.Parser;
 
-public class ParseFieldKeyTests(
-  IOneChecksParser<IAstFieldKey> checks
-)
+public class ParseFieldKeyTests(ComponentFixture<Startup> fixture)
+  : IClassFixture<ComponentFixture<Startup>>
 {
+  private readonly IOneChecksParser<IAstFieldKey> checks = fixture.GetService<IOneChecksParser<IAstFieldKey>>();
+
   [Theory, RepeatData]
   public void WithNumber_ReturnsCorrectAst(decimal number)
     => checks.TrueExpected(

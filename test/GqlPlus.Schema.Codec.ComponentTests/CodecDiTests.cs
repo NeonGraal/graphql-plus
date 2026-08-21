@@ -1,9 +1,7 @@
-using Microsoft.Extensions.DependencyInjection;
-
 namespace GqlPlus;
 
-public class CodecDiTests(IServiceCollection services)
-  : DiChecks(services)
+public class CodecDiTests(ComponentFixture<Startup> fixture)
+  : DiChecks(fixture.ServiceCollection), IClassFixture<ComponentFixture<Startup>>
 {
   protected override string Label => "Codec";
 }

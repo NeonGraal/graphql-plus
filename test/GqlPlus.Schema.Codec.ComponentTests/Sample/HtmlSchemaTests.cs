@@ -5,10 +5,11 @@ using GqlPlus.Resolving;
 namespace GqlPlus.Sample;
 
 [Trait("Generate", "Html")]
-public class HtmlSchemaTests(
-  ISchemaVerifyChecks checks
-) : TestSchemaVerify(checks)
+public class HtmlSchemaTests(ComponentFixture<Startup> fixture)
+  : TestSchemaVerify(fixture.GetService<ISchemaVerifyChecks>()), IClassFixture<ComponentFixture<Startup>>
 {
+  private readonly ISchemaVerifyChecks checks = fixture.GetService<ISchemaVerifyChecks>();
+
   [Fact]
   public async Task Index_Schema()
   {

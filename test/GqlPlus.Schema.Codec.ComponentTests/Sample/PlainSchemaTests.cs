@@ -1,9 +1,8 @@
 namespace GqlPlus.Sample;
 
 [Trait("Generate", "Plain")]
-public class PlainSchemaTests(
-  ISchemaVerifyChecks checks
-) : TestSchemaVerify(checks)
+public class PlainSchemaTests(ComponentFixture<Startup> fixture)
+  : TestSchemaVerify(fixture.GetService<ISchemaVerifyChecks>()), IClassFixture<ComponentFixture<Startup>>
 {
   public override string ResultGroup => "Plain";
   protected override Task CheckResultErrors(string[] dirs, string test, IMessages errors)

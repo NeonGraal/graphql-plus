@@ -8,7 +8,7 @@ using Microsoft.Extensions.FileProviders;
 
 namespace GqlPlus;
 
-public static class Startup
+public sealed class Startup : IConfiguresServices
 {
   static Startup()
   {
@@ -18,6 +18,6 @@ public static class Startup
           "GqlPlus.Models"));
   }
 
-  public static void ConfigureServices(IServiceCollection services)
+  public static IServiceCollection Configure(IServiceCollection services)
     => services.AddModellerComponentTestBase();
 }

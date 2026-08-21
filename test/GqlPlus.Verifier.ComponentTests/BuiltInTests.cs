@@ -5,11 +5,10 @@ using GqlPlus.Verifying;
 
 namespace GqlPlus;
 
-public class BuiltInTests(
-  IVerifierRepository verifierRepository
-)
+public class BuiltInTests(ComponentFixture<Startup> fixture)
+  : IClassFixture<ComponentFixture<Startup>>
 {
-  private readonly Verifier<IAstSchema> _verifier = verifierRepository.VerifierFor<IAstSchema>();
+  private readonly Verifier<IAstSchema> _verifier = fixture.GetService<IVerifierRepository>().VerifierFor<IAstSchema>();
   private readonly VerifySettings _settings = new VerifySettings().CheckAutoVerify();
 
   [Fact]

@@ -6,13 +6,11 @@ using GqlPlus.Verifying;
 
 namespace GqlPlus.Sample;
 
-public class VerifyOperationTests(
-    IParserRepository parsers,
-    IVerifierRepository verifierRepository
-) : SampleChecks
+public class VerifyOperationTests(ComponentFixture<Startup> fixture)
+  : SampleChecks, IClassFixture<ComponentFixture<Startup>>
 {
-  private readonly ParserOne<IAstOperation> _parser = parsers.ParserFor<IAstOperation>();
-  private readonly Verifier<IAstOperation> _operationVerifier = verifierRepository.VerifierFor<IAstOperation>();
+  private readonly ParserOne<IAstOperation> _parser = fixture.GetService<IParserRepository>().ParserFor<IAstOperation>();
+  private readonly Verifier<IAstOperation> _operationVerifier = fixture.GetService<IVerifierRepository>().VerifierFor<IAstOperation>();
 
   [Theory]
   [ClassData(typeof(SamplesOperationData))]

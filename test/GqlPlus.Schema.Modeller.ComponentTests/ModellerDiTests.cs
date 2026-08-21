@@ -1,9 +1,7 @@
-using Microsoft.Extensions.DependencyInjection;
-
 namespace GqlPlus;
 
-public class ModellerDiTests(IServiceCollection services)
-  : DiChecks(services)
+public class ModellerDiTests(ComponentFixture<Startup> fixture)
+  : DiChecks(fixture.ServiceCollection), IClassFixture<ComponentFixture<Startup>>
 {
   protected override string Label => "Modeller";
 }

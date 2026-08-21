@@ -3,9 +3,8 @@ using GqlPlus.Convert;
 namespace GqlPlus.Sample;
 
 [Trait("Generate", "Yaml")]
-public class YamlSchemaTests(
-  ISchemaVerifyChecks checks
-) : TestSchemaVerify(checks)
+public class YamlSchemaTests(ComponentFixture<Startup> fixture)
+  : TestSchemaVerify(fixture.GetService<ISchemaVerifyChecks>()), IClassFixture<ComponentFixture<Startup>>
 {
   public override string ResultGroup => "Yaml";
   public override string EncodeResult(Structured result, string section)

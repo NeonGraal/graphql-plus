@@ -27,22 +27,5 @@ internal class OperationModeller(
       Modifiers = _modifier.ToModels(ast.Modifiers, typeKinds),
     };
 
-  private void AddSelections(Map<OpSelectionModel[]> models, string path, IAstSelection[] ast, IMap<TypeKindModel> typeKinds)
-  {
-    if (ast.Length == 0) {
-      return;
-    }
-
-    List<OpSelectionModel> list = [];
-    for (int i = 0; i < ast.Length; i++) {
-      list.Add(_selection.ToModel(ast[i], typeKinds));
-      if (ast[i] is IAstSelections selections) {
-        AddSelections(models, $"{path}.{i + 1}", [.. selections.Selections], typeKinds);
-      }
-    }
-
-    models[path] = [.. list];
-  }
-
   internal static OperationModeller Factory(IModellerRepository repo) => new(repo);
 }

@@ -46,6 +46,7 @@ test-each:
     - curl -O --header "$BUILD_TOKEN" "$BUILD_URL"
     - tar -xzf $BUILD_FILE
     - dotnet tool restore --tool-manifest .config/dotnet-tools.json
+    - dotnet build -f "net$DOTNET_VERSION"
     - pwsh -NoLogo -NoProfile -File ./just-coverage.ps1 $FW_ARG $CT_ARG
     - dotnet reportgenerator  $RG_REPORTS $RG_TARGET $RG_TYPES
     - pwsh -NoLogo -NoProfile -File ./make-summary.ps1 $FW_ARG $CT_ARG

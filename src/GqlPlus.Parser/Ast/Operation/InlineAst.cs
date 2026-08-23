@@ -7,14 +7,6 @@ internal record class InlineAst(
   , IAstInline
   , IAstSelections
 {
-  public InlineAst(IAstInline inline)
-    : this(inline.At, inline.OnType)
-  {
-    InlineAst mods = (InlineAst)inline;
-    Modifiers = mods.Modifiers;
-    Directives = mods.Directives;
-  }
-
   public IAstDirective[] Directives { get; set; } = [];
   public IAstModifier[] Modifiers { get; set; } = [];
   public IAstSelection[] Selections { get; set; } = [];

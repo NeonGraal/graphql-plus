@@ -1,70 +1,21 @@
 namespace GqlPlus.Ast.Schema.Objects;
 
-public class ObjBaseAstTests
-  : AstAbbreviatedBaseTests<string>
+public partial class ObjBaseAstTests
 {
-  [Theory, RepeatData]
-  public void HashCode_WithIsTypeParam(string input)
-      => ObjBaseChecks.HashCode_WithIsTypeParam(input);
+  [CheckTests(Inherited = true)]
+  internal IObjBaseAstChecks BaseAstChecks { get; }
+    = new ObjBaseAstChecks();
 
-  [Theory, RepeatData]
-  public void Text_WithIsTypeParam(string input)
-    => ObjBaseChecks.Text_WithIsTypeParam(input);
-
-  [Theory, RepeatData]
-  public void Equality_WithIsTypeParam(string input)
-    => ObjBaseChecks.Equality_WithIsTypeParam(input);
-
-  [Theory, RepeatData]
-  public void Inequality_BetweenIsTypeParams(string input, bool isTypeParam1)
-    => ObjBaseChecks.Inequality_BetweenIsTypeParams(input, isTypeParam1);
-
-  [Theory, RepeatData]
-  public void HashCode_WithArgs(string input, string[] arguments)
-    => ObjBaseChecks.HashCode_WithArgs(input, arguments);
-
-  [Theory, RepeatData]
-  public void Text_WithArgs(string input, string[] arguments)
-    => ObjBaseChecks.Text_WithArgs(input, arguments);
-
-  [Theory, RepeatData]
-  public void Equality_WithArgs(string input, string[] arguments)
-    => ObjBaseChecks.Equality_WithArgs(input, arguments);
-
-  [Theory, RepeatData]
-  public void Inequality_BetweenArgs(string input, string[] arguments1, string[] arguments2)
-    => ObjBaseChecks.Inequality_BetweenArgs(input, arguments1, arguments2);
-
-  [Theory, RepeatData]
-  public void FullType_WithDefault(string input)
-    => ObjBaseChecks.FullType_WithDefault(input);
-
-  [Theory, RepeatData]
-  public void FullType_WithIsTypeParam(string input)
-    => ObjBaseChecks.FullType_WithIsTypeParam(input);
-
-  [Theory, RepeatData]
-  public void FullType_WithArgs(string input, string[] arguments)
-    => ObjBaseChecks.FullType_WithArgs(input, arguments);
-
-  [Theory, RepeatData]
-  public void FullType_WithIsTypeParamAndArgs(string input, string[] arguments)
-    => ObjBaseChecks.FullType_WithIsTypeParamAndArgs(input, arguments);
-
-  internal sealed override IAstAbbreviatedChecks<string> AbbreviatedChecks => ObjBaseChecks;
-
-  protected override string InputString(string input)
-    => $"( {input} )";
-
-  internal ObjBaseAstChecks ObjBaseChecks { get; } = new();
+  [CheckTests]
+  internal ICloneChecks<string> BaseAstCloneChecks { get; } = new CloneChecks<string, ObjBaseAst>(
+    ObjBaseAstChecks.CreateBase,
+    (original, input) => original with { Name = input });
 }
 
 internal sealed class ObjBaseAstChecks()
   : AstAbbreviatedChecks<string, ObjBaseAst>(CreateBase)
   , IObjBaseAstChecks
 {
-  private static ObjBaseAst CloneBase(ObjBaseAst original, string input)
-    => original with { Name = input };
   internal static ObjBaseAst CreateBase(string input)
     => new(AstNulls.At, input, string.Empty);
 

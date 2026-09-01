@@ -5,6 +5,20 @@ namespace GqlPlus.Ast.Schema.Globals;
 public partial class OperationDeclAstTests
 {
   [Theory, RepeatData]
+  public void Base_Lists_Empty(OperationInput input)
+  {
+    IAstOperationBase ast = CreateOperation(input);
+
+    ast.ShouldSatisfyAllConditions(
+      a => a.Argument.ShouldBeNull(),
+      a => a.Category.ShouldBe(input.Category),
+      a => a.Fragments.ShouldBeEmpty(),
+      a => a.Selections.ShouldBeEmpty(),
+      a => a.Variables.ShouldBeEmpty()
+      );
+  }
+
+  [Theory, RepeatData]
   public void HashCode_WithArgument(OperationInput input, string domain, string variable)
     => _checks.HashCode(() => CreateOperation(input, domain, variable));
 

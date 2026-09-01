@@ -13,17 +13,17 @@ public static class CommonBuilderHelpers
     return result;
   }
   public static T Error<T, T1>(this IMockBuilder builder)
-    where T : class, T1
-    where T1 : class, IAstError
+    where T : class, IAstError
+    where T1 : class
   {
     T result = builder.Of<T, T1>();
     result.MakeError("").ReturnsForAnyArgs(c => MakeMessages(c.ThrowIfNull().Arg<string>()));
     return result;
   }
   public static T Error<T, T1, T2>(this IMockBuilder builder)
-    where T : class, T1
-    where T1 : class, T2
-    where T2 : class, IAstError
+    where T : class, IAstError
+    where T1 : class
+    where T2 : class
   {
     T result = builder.Of<T, T1, T2>();
     result.MakeError("").ReturnsForAnyArgs(c => MakeMessages(c.ThrowIfNull().Arg<string>()));

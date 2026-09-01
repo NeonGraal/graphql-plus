@@ -3,10 +3,13 @@ using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parser.Schema.Simple;
 
-public sealed class ParseDomainEnumTests(
-  IBaseDomainChecks<DomainEnumInput, IAstDomain<IAstDomainLabel>> checks
-) : BaseDomainTests<DomainEnumInput, IAstDomain<IAstDomainLabel>>(checks)
+public sealed class ParseDomainEnumTests(ComponentFixture<SchemaParserTestServices> fixture)
+  : BaseDomainTests<DomainEnumInput, IAstDomain<IAstDomainLabel>>(fixture.GetService<IBaseDomainChecks<DomainEnumInput, IAstDomain<IAstDomainLabel>>>())
+  , IClassFixture<ComponentFixture<SchemaParserTestServices>>
 {
+  private readonly IBaseDomainChecks<DomainEnumInput, IAstDomain<IAstDomainLabel>> checks
+    = fixture.GetService<IBaseDomainChecks<DomainEnumInput, IAstDomain<IAstDomainLabel>>>();
+
   [Theory, RepeatData]
   public void WithEnumType_ReturnsCorrectAst(DomainEnumInput input, string enumType)
     => checks.TrueExpected(

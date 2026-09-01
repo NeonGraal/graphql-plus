@@ -4,9 +4,9 @@ using GqlPlus.Parsing.Schema.Objects;
 
 namespace GqlPlus.Parser.Schema.Objects;
 
-public class ParseOutputTests(
-  ICheckObject<IAstOutputField> objectChecks
-) : TestObject<IAstOutputField>(objectChecks);
+public class ParseOutputTests(ComponentFixture<SchemaParserTestServices> fixture)
+  : TestObject<IAstOutputField>(fixture.GetService<ICheckObject<IAstOutputField>>())
+  , IClassFixture<ComponentFixture<SchemaParserTestServices>>;
 
 internal sealed class ParseOutputChecks(
   IParserRepository parsers

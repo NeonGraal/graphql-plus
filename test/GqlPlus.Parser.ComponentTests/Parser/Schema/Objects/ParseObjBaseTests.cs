@@ -3,10 +3,11 @@ using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parser.Schema.Objects;
 
-public class ParseObjBaseTests(
-  IParseObjBaseChecks objectBaseChecks
-)
+public class ParseObjBaseTests(ComponentFixture<SchemaParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<SchemaParserTestServices>>
 {
+  private readonly IParseObjBaseChecks objectBaseChecks = fixture.GetService<IParseObjBaseChecks>();
+
   [Theory, RepeatData]
   public void WithMinimum_ReturnsCorrectAst(string name)
   => objectBaseChecks.WithMinimum(name);

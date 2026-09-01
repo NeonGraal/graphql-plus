@@ -10,5 +10,5 @@ internal sealed class FixedStringSpecimenBuilder : ISpecimenBuilder
         && !paramInfo.GetCustomAttributes<RegularExpressionAttribute>().Any()
         && paramInfo.ParameterType == typeof(string)
       ? "AbcdeFghij"
-      : new NoSpecimen();
+      : NoSpecimen.Instance;
 }

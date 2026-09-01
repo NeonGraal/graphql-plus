@@ -4,9 +4,9 @@ using GqlPlus.Parsing.Schema.Objects;
 
 namespace GqlPlus.Parser.Schema.Objects;
 
-public class ParseDualFieldTests(
-  ICheckObjectField<IAstDualField> checks
-) : TestObjectField<IAstDualField>(checks);
+public class ParseDualFieldTests(ComponentFixture<SchemaParserTestServices> fixture)
+  : TestObjectField<IAstDualField>(fixture.GetService<ICheckObjectField<IAstDualField>>())
+  , IClassFixture<ComponentFixture<SchemaParserTestServices>>;
 
 internal sealed class ParseDualFieldChecks(
   IParserRepository parsers

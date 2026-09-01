@@ -90,7 +90,7 @@ public class ParseOperationTests
     IAstFragment[] endFragments = ParseOkA(_endFragmentsParser);
     IEnumerable<IAstFragment> fragments = startFragments.Concat(endFragments);
 
-    Map<IAstSelection[]> selections = new() { [""] = [obj[0] as IAstSelection] };
+    Map<IAstSelection[]> selections = new() { [""] = [obj[0]] };
 
     // Act
     IResult<IAstOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);

@@ -2,10 +2,12 @@ using System.Globalization;
 
 namespace GqlPlus.Parser;
 
-public class ParseDefaultTests(
-  IOneChecksParser<IParserDefault, IAstConstant> checks
-)
+public class ParseDefaultTests(ComponentFixture<ParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<ParserTestServices>>
 {
+  private readonly IOneChecksParser<IParserDefault, IAstConstant> checks
+    = fixture.GetService<IOneChecksParser<IParserDefault, IAstConstant>>();
+
   [Fact]
   public void WithEmpty_ReturnsEmpty()
     => checks.EmptyResult("");

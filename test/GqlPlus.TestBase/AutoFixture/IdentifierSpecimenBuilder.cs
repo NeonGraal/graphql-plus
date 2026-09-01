@@ -9,11 +9,11 @@ internal sealed class IdentifierSpecimenBuilder : ISpecimenBuilder
     => request switch {
       ParameterInfo paramInfo
         => paramInfo.GetCustomAttributes<RegularExpressionAttribute>().Any()
-          ? new NoSpecimen()
+          ? NoSpecimen.Instance
           : ResolveType(paramInfo.ParameterType, paramInfo.Name!, context),
       PropertyInfo propInfo
         => ResolveType(propInfo.PropertyType, propInfo.Name, context),
-      _ => new NoSpecimen()
+      _ => NoSpecimen.Instance
     };
 
   private static object ResolveType(Type type, string name, ISpecimenContext context)
@@ -22,5 +22,5 @@ internal sealed class IdentifierSpecimenBuilder : ISpecimenBuilder
           || name.StartsWith("text", StringComparison.Ordinal)
         ? context.Resolve(new RegularExpressionRequest(".{9,999}"))
         : context.Resolve(new RegularExpressionRequest(IdentifierPattern))
-      : new NoSpecimen();
+      : NoSpecimen.Instance;
 }

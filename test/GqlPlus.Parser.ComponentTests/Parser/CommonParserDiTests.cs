@@ -1,9 +1,7 @@
-using Microsoft.Extensions.DependencyInjection;
-
 namespace GqlPlus.Parser;
 
-public class CommonParserDiTests(IServiceCollection services)
-  : DiChecks(services)
+public class CommonParserDiTests(ComponentFixture<ParserTestServices> fixture)
+  : DiChecks(fixture.ServiceCollection), IClassFixture<ComponentFixture<ParserTestServices>>
 {
   protected override string Label => "CommonParser";
 }

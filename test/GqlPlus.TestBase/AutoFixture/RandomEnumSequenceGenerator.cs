@@ -10,7 +10,7 @@ internal sealed class RandomEnumSequenceGenerator : ISpecimenBuilder
   public object Create(object request, ISpecimenContext context)
   {
     if (!(request is Type type && type.IsEnum)) {
-      return new NoSpecimen();
+      return NoSpecimen.Instance;
     }
 
     Array values = Enum.GetValues(type);

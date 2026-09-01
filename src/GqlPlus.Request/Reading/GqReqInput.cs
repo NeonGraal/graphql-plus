@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Reading;
+namespace GqlPlus.Reading;
 
 public record GqReqInput(
   string? Category,

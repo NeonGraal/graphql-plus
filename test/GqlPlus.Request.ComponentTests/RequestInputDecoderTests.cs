@@ -1,14 +1,17 @@
-﻿using GqlPlus.Decoding;
+using GqlPlus.Decoding;
 
 namespace GqlPlus.Request;
 
 public class RequestInputDecoderTests(
-    IRequestInputDecoder decoder
+    ComponentFixture<RequestTestServices> fixture
 ) : TestRequestInputs
+  , IClassFixture<ComponentFixture<RequestTestServices>>
 {
+  private readonly IRequestInputDecoder _decoder = fixture.GetService<IRequestInputDecoder>();
+
   protected override async Task Label_Input(string label, string input, string[] dirs, string test, string section = "")
   {
-    DecodedRequest decoded = decoder.Decode(input);
+    DecodedRequest decoded = _decoder.Decode(input);
 
     string? operationShow = decoded.ParsedOperation?.Show();
     List<string> lines = [];

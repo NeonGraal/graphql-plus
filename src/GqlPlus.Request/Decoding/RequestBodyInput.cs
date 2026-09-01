@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Decoding;
+namespace GqlPlus.Decoding;
 
 public record RequestBodyInput(
   string? Category,

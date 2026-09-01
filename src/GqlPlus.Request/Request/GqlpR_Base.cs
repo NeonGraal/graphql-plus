@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Request;
+namespace GqlPlus.Request;
 
 [GqlpGenerator(GqlpGeneratorType.Interface)]
 public interface IGqlpR_Base

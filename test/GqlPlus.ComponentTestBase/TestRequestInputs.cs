@@ -1,4 +1,4 @@
-﻿namespace GqlPlus;
+namespace GqlPlus;
 
 public abstract class TestRequestInputs
   : SampleChecks

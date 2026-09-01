@@ -1,4 +1,4 @@
-﻿using GqlPlus.Reading;
+using GqlPlus.Reading;
 using GqlPlus.Structures;
 
 namespace GqlPlus.Request.Reading;

@@ -358,7 +358,7 @@ public class OperationModellerTests
     result.Modifiers.ShouldBe(modifiers);
   }
 
-  [Theory(Skip = "WIP"), RepeatData]
+  [Theory, RepeatData]
   public void ToModel_WithFragmentSelections_MapsSelectionsUnderFragmentKey(
     string name, string fragName, string fieldName)
   {
@@ -370,27 +370,26 @@ public class OperationModellerTests
     ast.Directives.Returns([]);
     ast.Domain.Returns((IAstTypeRef?)null);
     ast.Modifiers.Returns([]);
-    ast.Selections.Returns(Map.Empty<IAstSelection[]>());
+
+    IAstSelection fieldAst = A.Identified<IAstField, IAstSelection>(fieldName);
+    Map<IAstSelection[]> selections = new() { [fragName] = [fieldAst] };
+    ast.Selections.Returns(selections);
 
     IAstFragment fragAst = A.Identified<IAstFragment>(fragName);
-    IAstField fieldAst = A.Identified<IAstField>(fieldName);
     ast.Fragments.Returns([fragAst]);
 
-    OpFieldSelectionModel fieldModel = new(fieldName, "");
-    OpFragmentModel fragModel = new(fragName, fragName.TypeRef(TypeKindModel.Output), "");
-    ToModelsReturns(_fragment, [fragModel]);
-    ToModelReturns(_selection, fieldAst, fieldModel);
+    OpSelectionModel[] fieldModels = [new OpFieldSelectionModel(fieldName, "")];
+    OpFragmentModel[] fragModels = [new(fragName, fragName.TypeRef(TypeKindModel.Output), "")];
+    ToModelsReturns(_fragment, fragModels);
     ToModelsReturns(_directive, []);
     ToModelsReturns(_modifier, []);
     ToModelsReturns(_variable, []);
+    ToModelsReturns(_selection, fieldModels);
 
     // Act
     OperationModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
-    result.Selections.ShouldSatisfyAllConditions(
-      s => s.ShouldContainKey(fragName),
-      s => s[fragName].ShouldBe([fieldModel])
-    );
+    result.Selections.ShouldContainKeyAndValue(fragName, fieldModels);
   }
 }

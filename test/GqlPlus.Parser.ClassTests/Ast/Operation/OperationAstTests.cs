@@ -8,10 +8,27 @@ public partial class OperationAstTests
     IAstOperation ast = CreateOperation(input);
 
     ast.ShouldSatisfyAllConditions(
-      a => a.Fragments.ShouldBeEmpty(),
+      a => a.Argument.ShouldBeNull(),
       a => a.Errors.ShouldBeEmpty(),
+      a => a.Fragments.ShouldBeEmpty(),
+      a => a.Selections.ShouldBeEmpty(),
+      a => a.Spreads.ShouldBeEmpty(),
       a => a.Usages.ShouldBeEmpty(),
-      a => a.Spreads.ShouldBeEmpty()
+      a => a.Variables.ShouldBeEmpty()
+      );
+  }
+
+  [Theory, RepeatData]
+  public void Base_Lists_Empty(string input)
+  {
+    IAstOperationBase ast = CreateOperation(input);
+
+    ast.ShouldSatisfyAllConditions(
+      a => a.Argument.ShouldBeNull(),
+      a => a.Category.ShouldBe("query"),
+      a => a.Fragments.ShouldBeEmpty(),
+      a => a.Selections.ShouldBeEmpty(),
+      a => a.Variables.ShouldBeEmpty()
       );
   }
 

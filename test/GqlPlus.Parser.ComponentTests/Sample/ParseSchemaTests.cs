@@ -3,9 +3,9 @@ using GqlPlus.Result;
 
 namespace GqlPlus.Sample;
 
-public class ParseSchemaTests(
-  ISchemaParseChecks checks
-) : TestSchemaResult(checks)
+public class ParseSchemaTests(ComponentFixture<SampleParserTestServices> fixture)
+  : TestSchemaResult(fixture.GetService<ISchemaParseChecks>())
+  , IClassFixture<ComponentFixture<SampleParserTestServices>>
 {
 
   protected override async Task Result_Valid(IResult<IAstSchema> result, string test, string label, string[] dirs, string section, string input = "")

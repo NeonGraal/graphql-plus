@@ -7,10 +7,9 @@ param (
 )
 
 $coverageFile = "$PWD/coverage/Coverage-$Framework.xml"
-$testResults = "TestResults-$Framework.trx"
 $collect = "collect","-o",$coverageFile,"-f","cobertura"
 $settings = "coverage.runsettings"
-$test = "test","--no-build","--logger","trx;LogFileName=$testResults","--framework","net$Framework"
+$test = "test","--no-build","--framework","net$Framework"
 
 if ($Project)
 {
@@ -24,6 +23,7 @@ if ($IncludeTests)
 {
   $settings = "tests-coverage.runsettings"
 }
+$test += "--","--report-xunit-trx","--report-xunit-trx-filename","TestResults-{tfm}.trx"
 
 Get-ChildItem coverage -File -ErrorAction Ignore | Remove-Item -Recurse -Force -ErrorAction Ignore
 Get-ChildItem test -Filter 'TestResults' -Recurse -Directory | Remove-Item -Recurse -Force -ErrorAction Ignore

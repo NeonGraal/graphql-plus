@@ -46,7 +46,6 @@ dotnet build
   - [Verify.SourceGenerators](https://github.com/VerifyTests/Verify.SourceGenerators) [nuget](https://www.nuget.org/packages/Verify.SourceGenerators)
 - [XUnit v3](https://xunit.net/) [nuget](https://www.nuget.org/packages/xunit.v3)
   - [XUnit SkippableFact](https://github.com/AArnott/Xunit.SkippableFact?tab=readme-ov-file#readme) [nuget](https://www.nuget.org/packages/Xunit.SkippableFact)
-  - [XUnit DependencyInjection](https://github.com/pengweiqhca/Xunit.DependencyInjection?tab=readme-ov-file#readme) [nuget](https://www.nuget.org/packages/Xunit.DependencyInjection)
 - [YamlDotNet](https://github.com/aaubry/YamlDotNet/wiki) [nuget](https://www.nuget.org/packages/YamlDotNet)
 
 ## Dotnet local tools

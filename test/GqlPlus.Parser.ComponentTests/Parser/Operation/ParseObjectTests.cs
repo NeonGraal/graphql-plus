@@ -2,10 +2,11 @@ using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parser.Operation;
 
-public class ParseObjectTests(
-  IManyChecksParser<IAstSelection> checks
-)
+public class ParseObjectTests(ComponentFixture<OperationParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<OperationParserTestServices>>
 {
+  private readonly IManyChecksParser<IAstSelection> checks = fixture.GetService<IManyChecksParser<IAstSelection>>();
+
   [Theory, RepeatData]
   public void WithJustField_ReturnsCorrectAst(string field)
     => checks.ThrowIfNull().TrueExpected("{" + field + "}",

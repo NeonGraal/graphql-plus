@@ -5,12 +5,11 @@ using GqlPlus.Resolving;
 namespace GqlPlus.Sample;
 
 [Trait("Generate", "Html")]
-public class DocumentSchemaTests(
-  ISchemaVerifyChecks checks,
-  IEncoderRepository encoders
-) : TestSchemaVerify(checks)
+public class DocumentSchemaTests(ComponentFixture<SchemaCodecTestServices> fixture)
+  : TestSchemaVerify(fixture.GetService<ISchemaVerifyChecks>()), IClassFixture<ComponentFixture<SchemaCodecTestServices>>
 {
-  private Encoder<BaseTypeModel> Types => encoders.EncoderFor<BaseTypeModel>();
+  private readonly ISchemaVerifyChecks checks = fixture.GetService<ISchemaVerifyChecks>();
+  private Encoder<BaseTypeModel> Types => fixture.GetService<IEncoderRepository>().EncoderFor<BaseTypeModel>();
 
   [Fact]
   public async Task Index_Schema()

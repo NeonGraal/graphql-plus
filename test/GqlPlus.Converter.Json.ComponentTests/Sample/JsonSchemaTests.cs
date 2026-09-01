@@ -3,9 +3,8 @@ using GqlPlus.Convert;
 namespace GqlPlus.Sample;
 
 [Trait("Generate", "Json")]
-public class JsonSchemaTests(
-  ISchemaVerifyChecks checks
-) : TestSchemaVerify(checks)
+public class JsonSchemaTests(ComponentFixture<JsonConverterTestServices> fixture)
+  : TestSchemaVerify(fixture.GetService<ISchemaVerifyChecks>()), IClassFixture<ComponentFixture<JsonConverterTestServices>>
 {
   public override string ResultGroup => "Json";
   public override string EncodeResult(Structured result, string section)

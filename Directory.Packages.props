@@ -43,8 +43,8 @@
     <PackageVersion Include="OpenTelemetry.Exporter.InMemory" Version="1.18.0" />
     <PackageVersion Include="Shouldly" Version="4.3.0" />
     <PackageVersion Include="Verify.SourceGenerators" Version="2.5.0" />
-    <PackageVersion Include="Verify.XunitV3" Version="31.28.0" />
-    <PackageVersion Include="Xunit.Combinatorial" Version="2.0.24" />
+    <PackageVersion Include="Verify.XunitV3" Version="32.0.0" />
+    <PackageVersion Include="Xunit.Combinatorial" Version="2.1.41" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net9.0'">
     <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="9.0.19" />

@@ -3,9 +3,9 @@ using GqlPlus.Ast.Schema.Globals;
 
 namespace GqlPlus.Parser.Schema.Globals;
 
-public sealed class ParseOperationTests(
-  IBaseAliasedChecks<OperationInput, IAstSchemaOperation> checks
-) : BaseAliasedTests<OperationInput, IAstSchemaOperation>(checks);
+public sealed class ParseOperationTests(ComponentFixture<SchemaParserTestServices> fixture)
+  : BaseAliasedTests<OperationInput, IAstSchemaOperation>(fixture.GetService<IBaseAliasedChecks<OperationInput, IAstSchemaOperation>>())
+  , IClassFixture<ComponentFixture<SchemaParserTestServices>>;
 
 internal sealed class ParseOperationChecks(
   IParserRepository parsers

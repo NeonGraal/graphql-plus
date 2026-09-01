@@ -2,9 +2,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Parser;
 
-public static class Startup
+public sealed class ParserTestServices : IConfiguresServices
 {
-  public static void ConfigureServices(IServiceCollection services)
+  public static IServiceCollection Configure(IServiceCollection services)
     => services
       .AddManyChecks<IParserCollections, IAstModifier>()
       .AddOneChecks<IAstConstant>()

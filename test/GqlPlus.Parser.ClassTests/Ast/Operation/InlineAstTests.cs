@@ -24,8 +24,8 @@ public partial class InlineAstTests
 
   private readonly InlineAstChecks _checks = new();
 
-  [CheckTests]
-  internal IAstDirectivesChecks<string?> DirectivesChecks => _checks;
+  [CheckTests(Inherited = true)]
+  internal IAstSelectionsChecks<string?> SelectionsChecks => _checks;
 
   [CheckTests]
   internal IModifiersChecks<string?> ModifiersChecks { get; } = new InlineModifiersChecks();
@@ -50,13 +50,14 @@ internal sealed class InlineModifiersChecks()
 }
 
 internal sealed class InlineAstChecks()
-  : AstDirectivesChecks<string?, InlineAst>(CreateInline)
+  : AstSelectionsChecks<string?, InlineAst>(CreateInline)
 {
   protected override string DirectiveString(string? input, string directives)
     => input.IsWhiteSpace() ? $"( !i{directives} )" : $"( !i :{input}{directives} )";
 
-  internal static InlineAst CreateInline(string? input, string[] directives)
+  internal static InlineAst CreateInline(string? input, string[] directives, IAstSelection[] fields)
     => new(AstNulls.At, input) {
-      Directives = directives.Directives()
+      Directives = directives.Directives(),
+      Selections = fields
     };
 }

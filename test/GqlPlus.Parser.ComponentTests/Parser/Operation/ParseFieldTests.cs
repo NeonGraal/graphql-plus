@@ -2,10 +2,11 @@ using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parser.Operation;
 
-public class ParseFieldTests(
-  IOneChecksParser<IAstField> checks
-)
+public class ParseFieldTests(ComponentFixture<OperationParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<OperationParserTestServices>>
 {
+  private readonly IOneChecksParser<IAstField> checks = fixture.GetService<IOneChecksParser<IAstField>>();
+
   [Theory, RepeatData]
   public void WithMinimum_ReturnsCorrectAst(string field)
     => checks.TrueExpected(

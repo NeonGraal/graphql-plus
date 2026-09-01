@@ -1,33 +1,5 @@
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract class ObjEnumBaseTests<TInput>
-  : AstAbbreviatedBaseTests<TInput>
-{
-
-  [Theory, RepeatData]
-  public void HashCode_WithEnumValue(TInput input, string enumLabel)
-      => EnumChecks.HashCode_WithEnumValue(input, enumLabel);
-
-  [Theory, RepeatData]
-  public void Text_WithEnumValue(TInput input, string enumLabel)
-    => EnumChecks.Text_WithEnumValue(input, enumLabel);
-
-  [Theory, RepeatData]
-  public void Equality_WithEnumValue(TInput input, string enumLabel)
-    => EnumChecks.Equality_WithEnumValue(input, enumLabel);
-
-  [Theory, RepeatData]
-  public void Inequality_WithEnumValue(TInput input, string enumLabel)
-    => EnumChecks.Inequality_WithEnumValue(input, enumLabel);
-
-  [Theory, RepeatData]
-  public void Inequality_BetweenEnumValues(TInput input, string enumValue1, string enumValue2)
-    => EnumChecks.Inequality_BetweenEnumValues(input, enumValue1, enumValue2);
-
-  internal abstract IObjEnumChecks<TInput> EnumChecks { get; }
-  internal override IAstAbbreviatedChecks<TInput> AbbreviatedChecks => EnumChecks;
-}
-
 internal abstract class ObjEnumChecks<TInput, TObjType>(
   BaseAstChecks<TObjType>.CreateBy<TInput> createInput
 ) : AstAbbreviatedChecks<TInput, TObjType>(createInput)

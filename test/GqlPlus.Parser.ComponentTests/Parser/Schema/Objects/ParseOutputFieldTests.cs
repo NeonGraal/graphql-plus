@@ -4,10 +4,12 @@ using GqlPlus.Parsing.Schema.Objects;
 
 namespace GqlPlus.Parser.Schema.Objects;
 
-public class ParseOutputFieldTests(
-  ICheckObjectField<IAstOutputField> checks
-) : TestObjectField<IAstOutputField>(checks)
+public class ParseOutputFieldTests(ComponentFixture<SchemaParserTestServices> fixture)
+  : TestObjectField<IAstOutputField>(fixture.GetService<ICheckObjectField<IAstOutputField>>())
+  , IClassFixture<ComponentFixture<SchemaParserTestServices>>
 {
+  private readonly ICheckObjectField<IAstOutputField> checks = fixture.GetService<ICheckObjectField<IAstOutputField>>();
+
   [Theory, RepeatData]
   public void WithParams_ReturnsCorrectAst(string name, string fieldType, string parameter)
     => checks.TrueExpected(

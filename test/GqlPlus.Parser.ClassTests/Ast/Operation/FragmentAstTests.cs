@@ -20,8 +20,8 @@ public partial class FragmentAstTests
 
   internal FragmentAstChecks _checks = new();
 
-  [CheckTests]
-  internal IAstDirectivesChecks<FragmentInput> DirectivesChecks => _checks;
+  [CheckTests(Inherited = true)]
+  internal IAstSelectionsChecks<FragmentInput> SelectionsChecks => _checks;
 
   [CheckTests]
   internal ICloneChecks<FragmentInput> CloneChecks { get; }
@@ -34,15 +34,16 @@ public partial class FragmentAstTests
 }
 
 internal sealed class FragmentAstChecks()
-  : AstDirectivesChecks<FragmentInput, FragmentAst>(CreateFragment)
-  , IAstDirectivesChecks<FragmentInput>
+  : AstSelectionsChecks<FragmentInput, FragmentAst>(CreateFragment)
+  , IAstSelectionsChecks<FragmentInput>
 {
   protected override string DirectiveString(FragmentInput input, string directives)
     => $"( !t {input.Name}{directives} :{input.OnType} )";
 
-  private static FragmentAst CreateFragment(FragmentInput input, string[] directives)
+  private static FragmentAst CreateFragment(FragmentInput input, string[] directives, IAstSelection[] fields)
     => new(AstNulls.At, input.Name, input.OnType, new[] { input.Field }.Fields()) {
-      Directives = directives.Directives()
+      Directives = directives.Directives(),
+      Selections = fields
     };
 }
 

@@ -10,8 +10,8 @@ public static class BuilderHelpers
     where T1 : class
     => Substitute.For<T, T1>();
   public static T Of<T, T1, T2>(this IMockBuilder _)
-    where T : class, T1
-    where T1 : class, T2
+    where T : class
+    where T1 : class
     where T2 : class
     => Substitute.For<T, T1, T2>();
 

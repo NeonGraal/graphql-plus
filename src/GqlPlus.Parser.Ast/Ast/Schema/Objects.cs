@@ -37,8 +37,7 @@ public interface IAstObjEnum
 
 public interface IAstTypeArg
   : IAstObjType
-  , IAstObjEnum
-  , IEquatable<IAstTypeArg>;
+  , IAstObjEnum;
 
 public interface IAstObjBase
   : IAstObjType

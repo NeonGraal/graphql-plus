@@ -3,9 +3,9 @@ using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parser.Schema.Simple;
 
-public sealed class ParseUnionMemberTests(
-  IBaseNamedChecks<string, IAstUnionMember> checks
-) : BaseNamedTests<string, IAstUnionMember>(checks);
+public sealed class ParseUnionMemberTests(ComponentFixture<SchemaParserTestServices> fixture)
+  : BaseNamedTests<string, IAstUnionMember>(fixture.GetService<IBaseNamedChecks<string, IAstUnionMember>>())
+  , IClassFixture<ComponentFixture<SchemaParserTestServices>>;
 
 internal sealed class ParseUnionMemberChecks(
   IParserRepository parsers

@@ -2,10 +2,11 @@ using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parser.Operation;
 
-public class ParseSelectionTests(
-  IOneChecksParser<IAstSelection> checks
-)
+public class ParseSelectionTests(ComponentFixture<OperationParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<OperationParserTestServices>>
 {
+  private readonly IOneChecksParser<IAstSelection> checks = fixture.GetService<IOneChecksParser<IAstSelection>>();
+
   [Theory]
   [RepeatInlineData("...")]
   [RepeatInlineData("|")]

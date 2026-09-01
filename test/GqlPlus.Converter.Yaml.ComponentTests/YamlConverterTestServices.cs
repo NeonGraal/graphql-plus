@@ -4,11 +4,11 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus;
 
-public static class Startup
+public sealed class YamlConverterTestServices : IConfiguresServices
 {
-  static Startup()
+  static YamlConverterTestServices()
     => DiffRunner.MaxInstancesToLaunch(20);
 
-  public static void ConfigureServices(IServiceCollection services)
+  public static IServiceCollection Configure(IServiceCollection services)
     => services.AddModellerComponentTestBase();
 }

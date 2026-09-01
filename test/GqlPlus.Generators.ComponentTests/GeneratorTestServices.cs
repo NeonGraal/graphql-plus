@@ -7,12 +7,12 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus;
 
-public static class Startup
+public sealed class GeneratorTestServices : IConfiguresServices
 {
-  static Startup()
+  static GeneratorTestServices()
     => DiffRunner.MaxInstancesToLaunch(20);
 
-  public static void ConfigureServices(IServiceCollection services)
+  public static IServiceCollection Configure(IServiceCollection services)
     => services
       .AddGenerators(b => b.AddSchemaGenerators())
       .AddSingleton<ISchemaGeneratorChecks, SchemaGeneratorChecks>()

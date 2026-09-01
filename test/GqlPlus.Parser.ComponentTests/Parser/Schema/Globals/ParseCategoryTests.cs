@@ -3,10 +3,13 @@ using GqlPlus.Ast.Schema.Globals;
 
 namespace GqlPlus.Parser.Schema.Globals;
 
-public sealed class ParseCategoryTests(
-  IBaseAliasedChecks<string, IAstSchemaCategory> checks
-) : BaseAliasedTests<string, IAstSchemaCategory>(checks)
+public sealed class ParseCategoryTests(ComponentFixture<SchemaParserTestServices> fixture)
+  : BaseAliasedTests<string, IAstSchemaCategory>(fixture.GetService<IBaseAliasedChecks<string, IAstSchemaCategory>>())
+  , IClassFixture<ComponentFixture<SchemaParserTestServices>>
 {
+  private readonly IBaseAliasedChecks<string, IAstSchemaCategory> checks
+    = fixture.GetService<IBaseAliasedChecks<string, IAstSchemaCategory>>();
+
   [Theory, RepeatData]
   public void WithOption_ReturnsCorrectAst(string output, CategoryOption option)
     => checks.OkResult(

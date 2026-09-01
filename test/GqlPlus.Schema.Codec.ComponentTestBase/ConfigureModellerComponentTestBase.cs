@@ -7,9 +7,9 @@ namespace GqlPlus;
 
 public static class ConfigureModellerComponentTestBase
 {
-  public static void AddModellerComponentTestBase(this IServiceCollection services)
-      => services
-        .AddComponentParsers()
+  public static IServiceCollection AddModellerComponentTestBase(this IServiceCollection services)
+    => services
+      .AddComponentParsers()
 
         .AddModellers(b => b.AddSchemaModellers())
         .AddResolvers(b => b.AddSchemaResolvers())

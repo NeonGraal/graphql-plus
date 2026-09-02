@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Schema.Modelling;
+namespace GqlPlus.Schema.Modelling;
 
 internal abstract class SchDomainModellerBase<TAstItem, TSchItem, TSchAllItem>
   : ModellerBase<IAstDomain<TAstItem>, ISch_Type>

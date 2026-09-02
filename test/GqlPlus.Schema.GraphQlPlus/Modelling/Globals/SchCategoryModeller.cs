@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Schema.Modelling;
+namespace GqlPlus.Schema.Modelling;
 
 internal sealed class SchCategoryModeller(
   ISchModellerRepository repo

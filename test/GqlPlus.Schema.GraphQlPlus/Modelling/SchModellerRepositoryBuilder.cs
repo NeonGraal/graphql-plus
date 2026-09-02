@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Schema.Modelling;
+namespace GqlPlus.Schema.Modelling;
 
 internal class SchModellerRepositoryBuilder
   : ISchModellerRepositoryBuilder

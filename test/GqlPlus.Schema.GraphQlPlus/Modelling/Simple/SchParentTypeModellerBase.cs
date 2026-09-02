@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Schema.Modelling;
+namespace GqlPlus.Schema.Modelling;
 
 internal abstract class SchParentTypeModellerBase<TAst, TAstItem, TSchItem, TSchAllItem>
   : ModellerBase<TAst, ISch_Type>

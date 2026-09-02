@@ -1,9 +1,10 @@
-﻿namespace GqlPlus.Sample;
+namespace GqlPlus.Sample;
 
 [Trait("Generate", "Plain")]
 public class PlainSchGraphQlPlusTests(
-  ISchGraphQlPlusVerifyChecks checks
-) : TestSchGraphQlPlusVerify(checks)
+  ComponentFixture<SchemaGraphQlTestServices> fixture
+) : TestSchGraphQlPlusVerify(fixture.GetService<ISchGraphQlPlusVerifyChecks>())
+  , IClassFixture<ComponentFixture<SchemaGraphQlTestServices>>
 {
   public override string ResultGroup => "Plain";
   protected override Task VerifyResult(string target, VerifySettings settings)

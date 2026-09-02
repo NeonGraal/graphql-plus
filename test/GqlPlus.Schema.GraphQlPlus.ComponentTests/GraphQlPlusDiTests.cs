@@ -1,9 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
 namespace GqlPlus;
 
-public class GraphQlPlusDiTests(IServiceCollection services)
-  : DiChecks(services)
+public class GraphQlPlusDiTests(ComponentFixture<SchemaGraphQlTestServices> fixture)
+  : DiChecks(fixture.ServiceCollection)
+  , IClassFixture<ComponentFixture<SchemaGraphQlTestServices>>
 {
   protected override string Label => "GraphQlPlus";
 }

@@ -11,7 +11,7 @@ input RefGnrcAltSmplInp<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_alt_simple_Input;
 
-internal class CmptGnrcAltSmplInpDecoder
+internal class CmptGnrcAltSmplInpDecoder : NullDecoder<ICmptGnrcAltSmplInpObject>
 {
 
   internal static CmptGnrcAltSmplInpDecoder Factory(IDecoderRepository _) => new();

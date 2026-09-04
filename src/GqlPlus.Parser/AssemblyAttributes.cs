@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("GqlPlus.Parser.ClassTests")]
 [assembly: InternalsVisibleTo("GqlPlus.Parser.ComponentTests")]

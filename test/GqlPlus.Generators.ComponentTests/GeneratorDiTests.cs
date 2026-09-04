@@ -1,9 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
 namespace GqlPlus;
 
-public class GeneratorDiTests(IServiceCollection services)
-  : DiChecks(services)
+public class GeneratorDiTests(ComponentFixture<GeneratorTestServices> fixture)
+  : DiChecks(fixture.ServiceCollection), IClassFixture<ComponentFixture<GeneratorTestServices>>
 {
   protected override string Label => "Generator";
 }

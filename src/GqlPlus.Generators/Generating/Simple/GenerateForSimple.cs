@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Generating.Simple;
+namespace GqlPlus.Generating.Simple;
 
 internal abstract class GenerateForSimple<TSimple>
   : GenerateForClass<TSimple, MapPair<string>>
@@ -6,6 +6,9 @@ internal abstract class GenerateForSimple<TSimple>
 {
   protected override void ClassMember(MapPair<string> item, GqlpGeneratorContext context)
     => context.Write($"  public {item.Value} {item.Key} {{ get; set; }}");
+
+  protected void DecoderClassMember(MapPair<string> item, GqlpGeneratorContext context)
+    => context.Write($"  public {item.Value} {item.Key} {{ get; set; }} = default!;");
 
   protected abstract bool HasDefaultParent(out string? defaultParent);
 

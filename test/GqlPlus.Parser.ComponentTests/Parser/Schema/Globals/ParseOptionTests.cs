@@ -1,12 +1,15 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 
 namespace GqlPlus.Parser.Schema.Globals;
 
-public sealed class ParseOptionTests(
-  IBaseAliasedChecks<string, IAstSchemaOption> checks
-) : BaseAliasedTests<string, IAstSchemaOption>(checks)
+public sealed class ParseOptionTests(ComponentFixture<SchemaParserTestServices> fixture)
+  : BaseAliasedTests<string, IAstSchemaOption>(fixture.GetService<IBaseAliasedChecks<string, IAstSchemaOption>>())
+  , IClassFixture<ComponentFixture<SchemaParserTestServices>>
 {
+  private readonly IBaseAliasedChecks<string, IAstSchemaOption> checks
+    = fixture.GetService<IBaseAliasedChecks<string, IAstSchemaOption>>();
+
   [Theory, RepeatData]
   public void WithSettings_ReturnsCorrectAst(string name)
     => checks.TrueExpected(

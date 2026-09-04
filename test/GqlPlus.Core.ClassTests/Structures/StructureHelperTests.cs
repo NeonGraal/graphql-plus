@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using GqlPlus;
 
 namespace GqlPlus.Structures;
@@ -115,6 +115,23 @@ public class StructureHelperTests
   }
 
   [Theory, RepeatData]
+  public void Encode_ErrorsToken_ReturnsCorrect([NotNull] string[] messages)
+  {
+    // Arrange
+    IMessages errors = new Messages([.. messages.Select(m => new TestTokenMessage(m) { Kind = TokenKind.Identifer })]);
+
+    // Act
+    Structured result = errors.Encode();
+
+    // Assert
+    result.ShouldSatisfyAllConditions(
+      r => r.Tag.ShouldBe("_Errors"),
+      r => r.Flow.ShouldBe(false),
+      r => r.List.Count.ShouldBe(messages.Length)
+    );
+  }
+
+  [Theory, RepeatData]
   public void EncodeEnum_ReturnsCorrect([NotNull] TokenKind value)
   {
     //Arrange
@@ -146,5 +163,18 @@ public class StructureHelperTests
   {
     public string Message { get; } = text;
     public MessageLevel Level => MessageLevel.Info;
+  }
+
+  internal sealed class TestTokenMessage(
+    string text
+  ) : ITokenMessage
+  {
+    public string Message { get; } = text;
+    public MessageLevel Level => MessageLevel.Info;
+
+    public TokenKind Kind { get; init; }
+    public int Column { get; }
+    public int Line { get; }
+    public string After { get; } = "";
   }
 }

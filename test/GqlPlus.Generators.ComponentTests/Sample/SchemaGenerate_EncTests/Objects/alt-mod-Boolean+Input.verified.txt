@@ -1,0 +1,37 @@
+﻿/* alt-mod-Boolean+Input
+input AltModBoolInp { | AltAltModBoolInp[^] }
+input AltAltModBoolInp { alt: Number | String }
+*/
+
+// Generated from Schema alt-mod-Boolean+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-mod-Boolean+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_mod_Boolean_Input;
+
+internal class CmptAltModBoolInpEncoder : IEncoder<ICmptAltModBoolInpObject>
+{
+  public Structured Encode(ICmptAltModBoolInpObject input)
+    => Structured.Empty();
+
+  internal static CmptAltModBoolInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptAltAltModBoolInpEncoder : IEncoder<ICmptAltAltModBoolInpObject>
+{
+  public Structured Encode(ICmptAltAltModBoolInpObject input)
+    => Structured.Empty()
+      .Add("alt", input.Alt.Encode());
+
+  internal static CmptAltAltModBoolInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_alt_mod_Boolean_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_alt_mod_Boolean_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptAltModBoolInpObject>(CmptAltModBoolInpEncoder.Factory)
+      .AddEncoder<ICmptAltAltModBoolInpObject>(CmptAltAltModBoolInpEncoder.Factory);
+}

@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifying.Schema.Globals;
+namespace GqlPlus.Verifying.Schema.Globals;
 
 [TracePerTest]
 public class VerifyDirectiveAliasedTests

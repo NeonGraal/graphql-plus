@@ -7,16 +7,22 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_string_parent;
 
-internal class testDmnStrPrntDecoder
+internal class testDmnStrPrntDecoder : NullDecoder<ItestDmnStrPrnt>
 {
 
   internal static testDmnStrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntDmnStrPrntDecoder
+internal class testPrntDmnStrPrntDecoder : NullDecoder<ItestPrntDmnStrPrnt>
 {
 
   internal static testPrntDmnStrPrntDecoder Factory(IDecoderRepository _) => new();
+}
+
+internal class testRegexDmnStrPrntDecoder : NullDecoder<ItestRegexDmnStrPrnt>
+{
+
+  internal static testRegexDmnStrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal static class test_domain_string_parentDecoders
@@ -24,5 +30,6 @@ internal static class test_domain_string_parentDecoders
   internal static IDecoderRepositoryBuilder Addtest_domain_string_parentDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestDmnStrPrnt>(testDmnStrPrntDecoder.Factory)
-      .AddDecoder<ItestPrntDmnStrPrnt>(testPrntDmnStrPrntDecoder.Factory);
+      .AddDecoder<ItestPrntDmnStrPrnt>(testPrntDmnStrPrntDecoder.Factory)
+      .AddDecoder<ItestRegexDmnStrPrnt>(testRegexDmnStrPrntDecoder.Factory);
 }

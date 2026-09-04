@@ -1,5 +1,5 @@
-﻿[  
-!Sc S@001/0001
+﻿[
+  !Sc S@001/0001
 Success
 {
   'A Category described'
@@ -301,20 +301,8 @@ Success
   OprSlct
   catOprSlct
   {
-    !f I@034/0001
-    first
-    !f I@040/0001
-    last
-    !f I@045/0001
-    address
-    {
-      !f I@055/0001
-      street
-      !f I@062/0001
-      city
-      !f I@067/0001
-      country
-    }
+    : [ ( !f I@034/0001 first ) ( !f I@040/0001 last ) ( !f I@045/0001 address ) ]
+    .3: [ ( !f I@055/0001 street ) ( !f I@062/0001 city ) ( !f I@067/0001 country ) ]
   }
 }
 {
@@ -322,24 +310,9 @@ Success
   OprSlctInln
   catOprSlctInln
   {
-    !f I@042/0001
-    first
-    !f I@048/0001
-    last
-    !f I@053/0001
-    address
-    {
-      !i P@064/0001
-      :AddrOprSlctInln
-      {
-        !f I@083/0001
-        street
-        !f I@090/0001
-        city
-        !f I@095/0001
-        country
-      }
-    }
+    : [ ( !f I@042/0001 first ) ( !f I@048/0001 last ) ( !f I@053/0001 address ) ]
+    .3: [ ( !i P@064/0001 :AddrOprSlctInln ) ]
+    .3.1: [ ( !f I@083/0001 street ) ( !f I@090/0001 city ) ( !f I@095/0001 country ) ]
   }
 }
 {
@@ -347,20 +320,8 @@ Success
   OprSlctMods
   catOprSlctMods
   {
-    !f I@042/0001
-    first
-    !f I@048/0001
-    last
-    !f I@053/0001
-    address
-    {
-      !f I@063/0001
-      street
-      !f I@070/0001
-      city
-      !f I@075/0001
-      country
-    }
+    : [ ( !f I@042/0001 first ) ( !f I@048/0001 last ) ( !f I@053/0001 address ) ]
+    .3: [ ( !f I@063/0001 street ) ( !f I@070/0001 city ) ( !f I@075/0001 country ) ]
   }
   []
 }
@@ -372,24 +333,9 @@ Success
   firstLast
   :CatOprSlctSprd
   {
-    !f I@068/0001
-    first
-    !f I@074/0001
-    last
-  }
-  {
-    !s I@084/0001
-    firstLast
-    !f I@094/0001
-    address
-    {
-      !f I@104/0001
-      street
-      !f I@111/0001
-      city
-      !f I@116/0001
-      country
-    }
+    : [ ( !s I@084/0001 firstLast ) ( !f I@094/0001 address ) ]
+    .2: [ ( !f I@104/0001 street ) ( !f I@111/0001 city ) ( !f I@116/0001 country ) ]
+    firstLast: [ ( !f I@068/0001 first ) ( !f I@074/0001 last ) ]
   }
 }
 {
@@ -6837,6 +6783,8 @@ Success
   !Do I@008/0001
   DmnNmbr
   Number
+  !DN N@025/0003
+  5<8
 }
 {
   !Do I@008/0001
@@ -6856,6 +6804,8 @@ Success
   !Do I@008/0001
   DmnStr
   String
+  !DX R@024/0003
+  /z+/
 }
 {
   !Do I@008/0001
@@ -7895,6 +7845,13 @@ Success
   <2
 }
 {
+  !Do I@008/0003
+  RegexDmnNmbrPrnt
+  Number
+  !DN N@034/0003
+  <3
+}
+{
   !Do I@008/0001
   DmnNmbrPrntDescr
   Number
@@ -7926,6 +7883,13 @@ Success
   12<21
 }
 {
+  !Do I@008/0002
+  RegexDmnNmbrRange
+  Number
+  !DN N@035/0002
+  4<10
+}
+{
   !Do I@008/0001
   DmnStrDescr
   String
@@ -7938,6 +7902,13 @@ Success
   String
   !DX P@032/0001
   !/\\s*/
+}
+{
+  !Do I@008/0002
+  RegexDmnStrNonEmpty
+  String
+  !DX R@037/0002
+  /[A-Z]+/
 }
 {
   !Do I@008/0001
@@ -7953,6 +7924,13 @@ Success
   String
   !DX R@032/0002
   /b+/
+}
+{
+  !Do I@008/0003
+  RegexDmnStrPrnt
+  String
+  !DX R@033/0003
+  /c+/
 }
 {
   !Do I@008/0001

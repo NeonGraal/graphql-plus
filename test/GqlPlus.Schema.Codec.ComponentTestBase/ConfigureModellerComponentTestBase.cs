@@ -1,4 +1,4 @@
-﻿using GqlPlus.Encoding;
+using GqlPlus.Encoding;
 using GqlPlus.Modelling;
 using GqlPlus.Resolving;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,7 +7,7 @@ namespace GqlPlus;
 
 public static class ConfigureModellerComponentTestBase
 {
-  public static void AddModellerComponentTestBase(this IServiceCollection services)
+  public static IServiceCollection AddModellerComponentTestBase(this IServiceCollection services)
     => services
       .AddComponentParsers()
 

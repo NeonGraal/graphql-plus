@@ -13,17 +13,17 @@ enum ParentGnrcPrntEnumPrntOutp { gnrcPrntEnumPrntOutpParent }
 
 namespace Components.Gqlp_Schema_generic_parent_enum_parent_Output;
 
-internal class CmptEnumGnrcPrntEnumPrntOutpDecoder
+internal class CmptEnumGnrcPrntEnumPrntOutpDecoder : NullDecoder<CmptEnumGnrcPrntEnumPrntOutp>
 {
-  public string gnrcPrntEnumPrntOutpParent { get; set; }
-  public string gnrcPrntEnumPrntOutpLabel { get; set; }
+  public string gnrcPrntEnumPrntOutpParent { get; set; } = default!;
+  public string gnrcPrntEnumPrntOutpLabel { get; set; } = default!;
 
   internal static CmptEnumGnrcPrntEnumPrntOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptParentGnrcPrntEnumPrntOutpDecoder
+internal class CmptParentGnrcPrntEnumPrntOutpDecoder : NullDecoder<CmptParentGnrcPrntEnumPrntOutp>
 {
-  public string gnrcPrntEnumPrntOutpParent { get; set; }
+  public string gnrcPrntEnumPrntOutpParent { get; set; } = default!;
 
   internal static CmptParentGnrcPrntEnumPrntOutpDecoder Factory(IDecoderRepository _) => new();
 }

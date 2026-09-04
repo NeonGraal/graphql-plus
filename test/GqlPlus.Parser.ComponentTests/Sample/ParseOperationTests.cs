@@ -1,15 +1,14 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 using GqlPlus.Parsing.Operation;
 using GqlPlus.Result;
 
 namespace GqlPlus.Sample;
 
-public class ParseOperationTests(
-    IParserRepository parsers
-) : SampleChecks
+public class ParseOperationTests(ComponentFixture<SampleParserTestServices> fixture)
+  : SampleChecks, IClassFixture<ComponentFixture<SampleParserTestServices>>
 {
 
-  private readonly ParserOne<IAstOperation> _operation = parsers.ParserFor<IAstOperation>();
+  private readonly ParserOne<IAstOperation> _operation = fixture.GetService<IParserRepository>().ParserFor<IAstOperation>();
 
   [Theory]
   [ClassData(typeof(SamplesOperationData))]
@@ -31,6 +30,7 @@ public class ParseOperationTests(
   private async Task<IAstOperation?> ParseSampleOperation(string dir, string sample, string extn)
   {
     string operation = await ReadFile(sample, extn, dir);
+    TestContext.Current.AddAttachment("Input " + sample, operation);
 
     OperationContext tokens = new(operation);
     return _operation.Parse(tokens, "Operation").Optional();

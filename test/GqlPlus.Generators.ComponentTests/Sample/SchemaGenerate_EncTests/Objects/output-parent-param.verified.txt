@@ -47,11 +47,31 @@ internal class CmptFldOutpPrntParamEncoder : IEncoder<ICmptFldOutpPrntParamObjec
   internal static CmptFldOutpPrntParamEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptInOutpPrntParamEncoder : IEncoder<ICmptInOutpPrntParamObject>
+{
+  public Structured Encode(ICmptInOutpPrntParamObject input)
+    => Structured.Empty()
+      .Add("param", input.Param.Encode());
+
+  internal static CmptInOutpPrntParamEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptPrntOutpPrntParamInEncoder : IEncoder<ICmptPrntOutpPrntParamInObject>
+{
+  public Structured Encode(ICmptPrntOutpPrntParamInObject input)
+    => Structured.Empty()
+      .Add("parent", input.Parent.Encode());
+
+  internal static CmptPrntOutpPrntParamInEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal static class Cmpt_Schema_output_parent_paramEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_output_parent_paramEncoders(this IEncoderRepositoryBuilder builder)
     => builder
       .AddEncoder<ICmptOutpPrntParamObject>(CmptOutpPrntParamEncoder.Factory)
       .AddEncoder<ICmptPrntOutpPrntParamObject>(CmptPrntOutpPrntParamEncoder.Factory)
-      .AddEncoder<ICmptFldOutpPrntParamObject>(CmptFldOutpPrntParamEncoder.Factory);
+      .AddEncoder<ICmptFldOutpPrntParamObject>(CmptFldOutpPrntParamEncoder.Factory)
+      .AddEncoder<ICmptInOutpPrntParamObject>(CmptInOutpPrntParamEncoder.Factory)
+      .AddEncoder<ICmptPrntOutpPrntParamInObject>(CmptPrntOutpPrntParamInEncoder.Factory);
 }

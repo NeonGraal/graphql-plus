@@ -23,10 +23,19 @@ internal class testPrntDmnNmbrPrntEncoder : IEncoder<ItestPrntDmnNmbrPrnt>
   internal static testPrntDmnNmbrPrntEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class testRegexDmnNmbrPrntEncoder : IEncoder<ItestRegexDmnNmbrPrnt>
+{
+  public Structured Encode(ItestRegexDmnNmbrPrnt input)
+    => input.Value!.Encode();
+
+  internal static testRegexDmnNmbrPrntEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal static class test_domain_number_parentEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_domain_number_parentEncoders(this IEncoderRepositoryBuilder builder)
     => builder
       .AddEncoder<ItestDmnNmbrPrnt>(testDmnNmbrPrntEncoder.Factory)
-      .AddEncoder<ItestPrntDmnNmbrPrnt>(testPrntDmnNmbrPrntEncoder.Factory);
+      .AddEncoder<ItestPrntDmnNmbrPrnt>(testPrntDmnNmbrPrntEncoder.Factory)
+      .AddEncoder<ItestRegexDmnNmbrPrnt>(testRegexDmnNmbrPrntEncoder.Factory);
 }

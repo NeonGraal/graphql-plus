@@ -7,9 +7,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_dual_Dual;
 
-internal class testGnrcFieldDualDualDecoder
+internal class testGnrcFieldDualDualDecoder : NullDecoder<ItestGnrcFieldDualDualObject>
 {
-  public ItestRefGnrcFieldDualDual<ItestAltGnrcFieldDualDual> Field { get; set; }
+  public ItestRefGnrcFieldDualDual<ItestAltGnrcFieldDualDual> Field { get; set; } = default!;
 
   internal static testGnrcFieldDualDualDecoder Factory(IDecoderRepository _) => new();
 }
@@ -18,9 +18,9 @@ internal class testRefGnrcFieldDualDualDecoder<TRef>
 {
 }
 
-internal class testAltGnrcFieldDualDualDecoder
+internal class testAltGnrcFieldDualDualDecoder : NullDecoder<ItestAltGnrcFieldDualDualObject>
 {
-  public decimal Alt { get; set; }
+  public decimal Alt { get; set; } = default!;
 
   internal static testAltGnrcFieldDualDualDecoder Factory(IDecoderRepository _) => new();
 }

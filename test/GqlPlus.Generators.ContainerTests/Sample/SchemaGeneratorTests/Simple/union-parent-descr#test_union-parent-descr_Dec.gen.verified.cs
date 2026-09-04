@@ -7,16 +7,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_parent_descr;
 
-internal class testUnionPrntDescrDecoder
+internal class testUnionPrntDescrDecoder : NullDecoder<ItestUnionPrntDescr>
 {
-  public Number AsNumber { get; set; }
+  public Number AsNumber { get; set; } = default!;
 
   internal static testUnionPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntUnionPrntDescrDecoder
+internal class testPrntUnionPrntDescrDecoder : NullDecoder<ItestPrntUnionPrntDescr>
 {
-  public Number AsNumber { get; set; }
+  public Number AsNumber { get; set; } = default!;
 
   internal static testPrntUnionPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }

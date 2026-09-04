@@ -1,0 +1,28 @@
+﻿/* object-field-enum-alias+Input
+input ObjFieldEnumAliasInp { field [field1] = Boolean.true }
+input ObjFieldEnumAliasInp { field [field2] = true }
+*/
+
+// Generated from Schema object-field-enum-alias+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field-enum-alias+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_enum_alias_Input;
+
+internal class CmptObjFieldEnumAliasInpEncoder : IEncoder<ICmptObjFieldEnumAliasInpObject>
+{
+  public Structured Encode(ICmptObjFieldEnumAliasInpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field.Encode());
+
+  internal static CmptObjFieldEnumAliasInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_object_field_enum_alias_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_object_field_enum_alias_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptObjFieldEnumAliasInpObject>(CmptObjFieldEnumAliasInpEncoder.Factory);
+}

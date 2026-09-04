@@ -1,6 +1,7 @@
 ﻿/* domain-number-parent
 domain DmnNmbrPrnt { :PrntDmnNmbrPrnt Number 2>}
 domain PrntDmnNmbrPrnt { Number <2 }
+domain RegexDmnNmbrPrnt { Number 3> }
 */
 
 // Generated from Schema domain-number-parent
@@ -17,6 +18,11 @@ public interface ICmptDmnNmbrPrnt
 }
 
 public interface ICmptPrntDmnNmbrPrnt
+  : IGqlpDomainNumber
+{
+}
+
+public interface ICmptRegexDmnNmbrPrnt
   : IGqlpDomainNumber
 {
 }

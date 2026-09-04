@@ -38,114 +38,114 @@ union _Simple [Simple] { _Enum _Domain _Union }
 
 namespace Components.Gqlp_Spec_Definition;
 
-internal class boolDecoder
+internal class boolDecoder : NullDecoder<bool>
 {
-  public string false { get; set; }
-  public string true { get; set; }
+  public string false { get; set; } = default!;
+  public string true { get; set; } = default!;
 
   internal static boolDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class GqlpNullDecoder
+internal class GqlpNullDecoder : NullDecoder<GqlpNull>
 {
-  public string null { get; set; }
+  public string null { get; set; } = default!;
 
   internal static GqlpNullDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class GqlpUnitDecoder
+internal class GqlpUnitDecoder : NullDecoder<GqlpUnit>
 {
-  public string _ { get; set; }
+  public string _ { get; set; } = default!;
 
   internal static GqlpUnitDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class voidDecoder
+internal class voidDecoder : NullDecoder<void>
 {
 
   internal static voidDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class decimalDecoder
+internal class decimalDecoder : NullDecoder<decimal>
 {
 
   internal static decimalDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class stringDecoder
+internal class stringDecoder : NullDecoder<string>
 {
 
   internal static stringDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_BasicDecoder
+internal class Cmpt_BasicDecoder : NullDecoder<ICmpt_Basic>
 {
-  public Boolean AsBoolean { get; set; }
-  public Number AsNumber { get; set; }
-  public String AsString { get; set; }
-  public Unit AsUnit { get; set; }
+  public Boolean AsBoolean { get; set; } = default!;
+  public Number AsNumber { get; set; } = default!;
+  public String AsString { get; set; } = default!;
+  public Unit AsUnit { get; set; } = default!;
 
   internal static Cmpt_BasicDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_InternalDecoder
+internal class Cmpt_InternalDecoder : NullDecoder<ICmpt_Internal>
 {
-  public Null AsNull { get; set; }
-  public Void AsVoid { get; set; }
+  public Null AsNull { get; set; } = default!;
+  public Void AsVoid { get; set; } = default!;
 
   internal static Cmpt_InternalDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_KeyDecoder
+internal class Cmpt_KeyDecoder : NullDecoder<ICmpt_Key>
 {
-  public _Basic As_Basic { get; set; }
-  public _Internal As_Internal { get; set; }
-  public _Simple As_Simple { get; set; }
+  public _Basic As_Basic { get; set; } = default!;
+  public _Internal As_Internal { get; set; } = default!;
+  public _Simple As_Simple { get; set; } = default!;
 
   internal static Cmpt_KeyDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_ObjectDecoder
+internal class Cmpt_ObjectDecoder : NullDecoder<ICmpt_ObjectObject>
 {
 
   internal static Cmpt_ObjectDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_DomainDecoder
+internal class Cmpt_DomainDecoder : NullDecoder<ICmpt_Domain>
 {
 
   internal static Cmpt_DomainDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_DualDecoder
+internal class Cmpt_DualDecoder : NullDecoder<ICmpt_DualObject>
 {
 
   internal static Cmpt_DualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_EnumDecoder
+internal class Cmpt_EnumDecoder : NullDecoder<ICmpt_Enum>
 {
 
   internal static Cmpt_EnumDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_InputDecoder
+internal class Cmpt_InputDecoder : NullDecoder<ICmpt_InputObject>
 {
 
   internal static Cmpt_InputDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_UnionDecoder
+internal class Cmpt_UnionDecoder : NullDecoder<ICmpt_Union>
 {
 
   internal static Cmpt_UnionDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_SimpleDecoder
+internal class Cmpt_SimpleDecoder : NullDecoder<ICmpt_Simple>
 {
-  public _Enum As_Enum { get; set; }
-  public _Domain As_Domain { get; set; }
-  public _Union As_Union { get; set; }
+  public _Enum As_Enum { get; set; } = default!;
+  public _Domain As_Domain { get; set; } = default!;
+  public _Union As_Union { get; set; } = default!;
 
   internal static Cmpt_SimpleDecoder Factory(IDecoderRepository _) => new();
 }

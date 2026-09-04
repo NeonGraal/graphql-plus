@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Schema;
+namespace GqlPlus.Schema;
 
 [GqlpGenerator(GqlpGeneratorType.Encoder)]
 public class GqlpEncoderBase;

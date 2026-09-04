@@ -9,7 +9,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_parent_param_diff_Input;
 
 internal class testPrntParamDiffInpDecoder<TA>
 {
-  public TA Field { get; set; }
+  public TA Field { get; set; } = default!;
 }
 
 internal class testRefPrntParamDiffInpDecoder<TB>

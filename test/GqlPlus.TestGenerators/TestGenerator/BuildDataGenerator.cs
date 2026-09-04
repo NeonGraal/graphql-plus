@@ -1,4 +1,4 @@
-﻿using System.Collections.Immutable;
+using System.Collections.Immutable;
 using System.Text;
 using Microsoft.CodeAnalysis;
 
@@ -40,7 +40,7 @@ public class BuildDataGenerator : IIncrementalGenerator
     int first = Array.IndexOf(path, "Samples") + 1;
     int last = path.Length - 1;
     string filename = Path.GetFileNameWithoutExtension(path[last]);
-    string extension = Path.GetExtension(path[last]);
+    string extension = Path.GetExtension(path[last]).Replace("+", "");
     string[] dir = [];
     if (first + 1 < last) {
       dir = [.. path.Skip(first + 1).Take(last - first - 1)];

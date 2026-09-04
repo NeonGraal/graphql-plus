@@ -18,9 +18,9 @@ output _EnumValue {
 
 namespace Components.Gqlp_Spec_Enum;
 
-internal class Cmpt_EnumLabelDecoder
+internal class Cmpt_EnumLabelDecoder : NullDecoder<ICmpt_EnumLabelObject>
 {
-  public ICmpt_Name EnumType { get; set; }
+  public ICmpt_Name EnumType { get; set; } = default!;
 
   internal static Cmpt_EnumLabelDecoder Factory(IDecoderRepository _) => new();
 }

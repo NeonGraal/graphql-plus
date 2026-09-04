@@ -1,11 +1,12 @@
-﻿using System.Globalization;
+using System.Globalization;
 
 namespace GqlPlus.Parser;
 
-public class ParseConstantTests(
-  IOneChecksParser<IAstConstant> checks
-)
+public class ParseConstantTests(ComponentFixture<ParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<ParserTestServices>>
 {
+  private readonly IOneChecksParser<IAstConstant> checks = fixture.GetService<IOneChecksParser<IAstConstant>>();
+
   [Theory, RepeatData]
   public void WithNumber_ReturnsCorrectAst(decimal number)
     => checks.TrueExpected(

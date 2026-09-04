@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Generating.Globals;
+namespace GqlPlus.Generating.Globals;
 
 internal class DirectiveGenerator
   : IGenerator<IAstSchemaDirective>

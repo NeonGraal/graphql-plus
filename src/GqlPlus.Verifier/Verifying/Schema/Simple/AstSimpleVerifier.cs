@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Verifying.Schema.Simple;
@@ -16,6 +16,10 @@ internal abstract class AstSimpleVerifier<TAst, TContext, TItem>(
   protected override void UsageValue(TAst usage, TContext context)
   {
     base.UsageValue(usage, context);
+
+    if (!GetItems(usage).Any()) {
+      context.AddError(usage, usage.Label, "Must have at least one member");
+    }
 
     if (GetParentType(usage.Name, usage, context, out TAst? parentType)) {
       CheckSelfMember(usage.Name, parentType, context);

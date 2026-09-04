@@ -145,62 +145,62 @@ output _Setting {
 
 namespace Components.Gqlp_Spec_Global;
 
-internal class Cmpt_ResolutionDecoder
+internal class Cmpt_ResolutionDecoder : NullDecoder<Cmpt_Resolution>
 {
-  public string Parallel { get; set; }
-  public string Sequential { get; set; }
-  public string Single { get; set; }
+  public string Parallel { get; set; } = default!;
+  public string Sequential { get; set; } = default!;
+  public string Single { get; set; } = default!;
 
   internal static Cmpt_ResolutionDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_LocationDecoder
+internal class Cmpt_LocationDecoder : NullDecoder<Cmpt_Location>
 {
-  public string Operation { get; set; }
-  public string Variable { get; set; }
-  public string Field { get; set; }
-  public string Inline { get; set; }
-  public string Spread { get; set; }
-  public string Fragment { get; set; }
+  public string Operation { get; set; } = default!;
+  public string Variable { get; set; } = default!;
+  public string Field { get; set; } = default!;
+  public string Inline { get; set; } = default!;
+  public string Spread { get; set; } = default!;
+  public string Fragment { get; set; } = default!;
 
   internal static Cmpt_LocationDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_OpDirectiveDecoder
+internal class Cmpt_OpDirectiveDecoder : NullDecoder<ICmpt_OpDirectiveObject>
 {
-  public ICmpt_OpArgument? Argument { get; set; }
+  public ICmpt_OpArgument? Argument { get; set; } = default!;
 
   internal static Cmpt_OpDirectiveDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_OpArgumentDecoder
+internal class Cmpt_OpArgumentDecoder : NullDecoder<ICmpt_OpArgumentObject>
 {
 
   internal static Cmpt_OpArgumentDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_OpArgValueDecoder
+internal class Cmpt_OpArgValueDecoder : NullDecoder<ICmpt_OpArgValueObject>
 {
-  public ICmpt_Name Variable { get; set; }
+  public ICmpt_Name Variable { get; set; } = default!;
 
   internal static Cmpt_OpArgValueDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_OpArgListDecoder
+internal class Cmpt_OpArgListDecoder : NullDecoder<ICmpt_OpArgListObject>
 {
 
   internal static Cmpt_OpArgListDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_OpArgMapDecoder
+internal class Cmpt_OpArgMapDecoder : NullDecoder<ICmpt_OpArgMapObject>
 {
-  public ICmpt_OpArgValue Value { get; set; }
-  public ICmpt_Name ByVariable { get; set; }
+  public ICmpt_OpArgValue Value { get; set; } = default!;
+  public ICmpt_Name ByVariable { get; set; } = default!;
 
   internal static Cmpt_OpArgMapDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_PathDecoder
+internal class Cmpt_PathDecoder : NullDecoder<ICmpt_Path>
 {
 
   internal static Cmpt_PathDecoder Factory(IDecoderRepository _) => new();

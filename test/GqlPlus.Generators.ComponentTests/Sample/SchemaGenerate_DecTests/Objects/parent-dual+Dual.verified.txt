@@ -11,15 +11,15 @@ dual RefPrntDualDual { parent: Number | String }
 
 namespace Components.Gqlp_Schema_parent_dual_Dual;
 
-internal class CmptPrntDualDualDecoder
+internal class CmptPrntDualDualDecoder : NullDecoder<ICmptPrntDualDualObject>
 {
 
   internal static CmptPrntDualDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptRefPrntDualDualDecoder
+internal class CmptRefPrntDualDualDecoder : NullDecoder<ICmptRefPrntDualDualObject>
 {
-  public decimal Parent { get; set; }
+  public decimal Parent { get; set; } = default!;
 
   internal static CmptRefPrntDualDualDecoder Factory(IDecoderRepository _) => new();
 }

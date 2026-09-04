@@ -11,9 +11,9 @@ enum EnumFieldEnumOutp { fieldEnumOutp }
 
 namespace Components.Gqlp_Schema_field_enum_Output;
 
-internal class CmptEnumFieldEnumOutpDecoder
+internal class CmptEnumFieldEnumOutpDecoder : NullDecoder<CmptEnumFieldEnumOutp>
 {
-  public string fieldEnumOutp { get; set; }
+  public string fieldEnumOutp { get; set; } = default!;
 
   internal static CmptEnumFieldEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }

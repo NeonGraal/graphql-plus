@@ -54,37 +54,37 @@ dual _TypeSimple {
 
 namespace Components.Gqlp_Spec_Common;
 
-internal class Cmpt_SimpleKindDecoder
+internal class Cmpt_SimpleKindDecoder : NullDecoder<Cmpt_SimpleKind>
 {
-  public string Basic { get; set; }
-  public string Enum { get; set; }
-  public string Internal { get; set; }
-  public string Domain { get; set; }
-  public string Union { get; set; }
+  public string Basic { get; set; } = default!;
+  public string Enum { get; set; } = default!;
+  public string Internal { get; set; } = default!;
+  public string Domain { get; set; } = default!;
+  public string Union { get; set; } = default!;
 
   internal static Cmpt_SimpleKindDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_TypeKindDecoder
+internal class Cmpt_TypeKindDecoder : NullDecoder<Cmpt_TypeKind>
 {
-  public string Basic { get; set; }
-  public string Enum { get; set; }
-  public string Internal { get; set; }
-  public string Domain { get; set; }
-  public string Union { get; set; }
-  public string Dual { get; set; }
-  public string Input { get; set; }
-  public string Output { get; set; }
+  public string Basic { get; set; } = default!;
+  public string Enum { get; set; } = default!;
+  public string Internal { get; set; } = default!;
+  public string Domain { get; set; } = default!;
+  public string Union { get; set; } = default!;
+  public string Dual { get; set; } = default!;
+  public string Input { get; set; } = default!;
+  public string Output { get; set; } = default!;
 
   internal static Cmpt_TypeKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_TypeRefDecoder<TTypeKind>
 {
-  public TTypeKind TypeKind { get; set; }
+  public TTypeKind TypeKind { get; set; } = default!;
 }
 
-internal class Cmpt_TypeSimpleDecoder
+internal class Cmpt_TypeSimpleDecoder : NullDecoder<ICmpt_TypeSimpleObject>
 {
 
   internal static Cmpt_TypeSimpleDecoder Factory(IDecoderRepository _) => new();

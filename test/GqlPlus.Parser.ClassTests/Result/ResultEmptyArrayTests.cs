@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Result;
+namespace GqlPlus.Result;
 
 public class ResultEmptyArrayTests : TestResultBase
 {

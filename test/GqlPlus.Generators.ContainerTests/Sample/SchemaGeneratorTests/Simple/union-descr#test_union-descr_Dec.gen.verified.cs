@@ -7,9 +7,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_descr;
 
-internal class testUnionDescrDecoder
+internal class testUnionDescrDecoder : NullDecoder<ItestUnionDescr>
 {
-  public Number AsNumber { get; set; }
+  public Number AsNumber { get; set; } = default!;
 
   internal static testUnionDescrDecoder Factory(IDecoderRepository _) => new();
 }

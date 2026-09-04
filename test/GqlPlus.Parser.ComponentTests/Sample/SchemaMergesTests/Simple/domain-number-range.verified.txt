@@ -1,5 +1,5 @@
-﻿[  
-!Sc I@001/0001
+﻿[
+  !Sc I@001/0001
 Success
 {
   !Do I@008/0001
@@ -9,5 +9,12 @@ Success
   1<9
   !DN N@034/0001
   12<21
+}
+{
+  !Do I@008/0002
+  RegexDmnNmbrRange
+  Number
+  !DN N@035/0002
+  4<10
 }
 ]

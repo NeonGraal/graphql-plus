@@ -1,4 +1,4 @@
-﻿using GqlPlus;
+using GqlPlus;
 
 namespace GqlPlus.Convert.Plain;
 

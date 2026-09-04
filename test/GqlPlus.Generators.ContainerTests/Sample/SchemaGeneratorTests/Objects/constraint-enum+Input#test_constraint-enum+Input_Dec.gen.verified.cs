@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_enum_Input;
 
-internal class testCnstEnumInpDecoder
+internal class testCnstEnumInpDecoder : NullDecoder<ItestCnstEnumInpObject>
 {
 
   internal static testCnstEnumInpDecoder Factory(IDecoderRepository _) => new();
@@ -15,12 +15,12 @@ internal class testCnstEnumInpDecoder
 
 internal class testRefCnstEnumInpDecoder<TType>
 {
-  public TType Field { get; set; }
+  public TType Field { get; set; } = default!;
 }
 
-internal class testEnumCnstEnumInpDecoder
+internal class testEnumCnstEnumInpDecoder : NullDecoder<testEnumCnstEnumInp>
 {
-  public string cnstEnumInp { get; set; }
+  public string cnstEnumInp { get; set; } = default!;
 
   internal static testEnumCnstEnumInpDecoder Factory(IDecoderRepository _) => new();
 }

@@ -1,4 +1,4 @@
-﻿namespace GqlPlus;
+namespace GqlPlus;
 
 public abstract class TestSchemaInputs
   : SampleChecks
@@ -72,6 +72,15 @@ public abstract class TestSchemaInputs
     string schema = await ReadFile(file, "graphql+", dirs);
 
     await Test_Input(label, schema, dirs, file, section);
+  }
+
+  [Theory]
+  [ClassData(typeof(SamplesSpecificationRequestData))]
+  public async Task Test_SpecRequest(string sample)
+  {
+    string spec = await ReadSpecification(sample, "Request");
+
+    await Test_Input("Spec", spec, ["Specification", "Request"], sample, "Request");
   }
 
   protected abstract Task Label_Input(string label, string input, string[] dirs, string test, string section = "");

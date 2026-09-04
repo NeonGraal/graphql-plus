@@ -7,13 +7,13 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_alt_Input;
 
-internal class testObjAltInpDecoder
+internal class testObjAltInpDecoder : NullDecoder<ItestObjAltInpObject>
 {
 
   internal static testObjAltInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testObjAltInpTypeDecoder
+internal class testObjAltInpTypeDecoder : NullDecoder<ItestObjAltInpTypeObject>
 {
 
   internal static testObjAltInpTypeDecoder Factory(IDecoderRepository _) => new();

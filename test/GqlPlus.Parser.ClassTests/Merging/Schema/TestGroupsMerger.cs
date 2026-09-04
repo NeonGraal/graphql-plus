@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Merging.Schema;
+namespace GqlPlus.Merging.Schema;
 
 public abstract class TestGroupsMerger<TAst>
   : TestGroupsMerger<TAst, string>

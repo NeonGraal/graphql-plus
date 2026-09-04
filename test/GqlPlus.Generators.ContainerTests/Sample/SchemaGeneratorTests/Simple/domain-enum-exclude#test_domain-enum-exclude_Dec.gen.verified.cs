@@ -7,17 +7,17 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_exclude;
 
-internal class testDmnEnumExclDecoder
+internal class testDmnEnumExclDecoder : NullDecoder<ItestDmnEnumExcl>
 {
 
   internal static testDmnEnumExclDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDmnEnumExclDecoder
+internal class testEnumDmnEnumExclDecoder : NullDecoder<testEnumDmnEnumExcl>
 {
-  public string dmnEnumExcl { get; set; }
-  public string enum_dmnEnumExcl { get; set; }
-  public string dmnEnumExclValue { get; set; }
+  public string dmnEnumExcl { get; set; } = default!;
+  public string enum_dmnEnumExcl { get; set; } = default!;
+  public string dmnEnumExclValue { get; set; } = default!;
 
   internal static testEnumDmnEnumExclDecoder Factory(IDecoderRepository _) => new();
 }

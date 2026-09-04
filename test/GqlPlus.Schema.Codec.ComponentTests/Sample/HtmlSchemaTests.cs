@@ -1,14 +1,15 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using GqlPlus;
 using GqlPlus.Resolving;
 
 namespace GqlPlus.Sample;
 
 [Trait("Generate", "Html")]
-public class HtmlSchemaTests(
-  ISchemaVerifyChecks checks
-) : TestSchemaVerify(checks)
+public class HtmlSchemaTests(ComponentFixture<SchemaCodecTestServices> fixture)
+  : TestSchemaVerify(fixture.GetService<ISchemaVerifyChecks>()), IClassFixture<ComponentFixture<SchemaCodecTestServices>>
 {
+  private readonly ISchemaVerifyChecks checks = fixture.GetService<ISchemaVerifyChecks>();
+
   [Fact]
   public async Task Index_Schema()
   {
@@ -36,6 +37,7 @@ public class HtmlSchemaTests(
   {
     Map<IEnumerable<string>> groups = new() {
       ["Introspection"] = SamplesSpecificationIntrospectionData.Strings,
+      ["Request"] = SamplesSpecificationRequestData.Strings,
     };
 
     Structured result = new Map<Structured>() {

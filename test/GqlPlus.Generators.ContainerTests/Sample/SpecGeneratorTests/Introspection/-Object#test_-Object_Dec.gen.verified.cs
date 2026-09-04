@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp__Object;
 
-internal class test_ObjectKindDecoder
+internal class test_ObjectKindDecoder : NullDecoder<Itest_ObjectKind>
 {
 
   internal static test_ObjectKindDecoder Factory(IDecoderRepository _) => new();

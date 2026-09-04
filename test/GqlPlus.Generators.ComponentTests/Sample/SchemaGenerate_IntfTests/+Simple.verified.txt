@@ -257,6 +257,11 @@ public interface ICmptPrntDmnNmbrPrnt
 {
 }
 
+public interface ICmptRegexDmnNmbrPrnt
+  : IGqlpDomainNumber
+{
+}
+
 public interface ICmptDmnNmbrPrntDescr
   : ICmptPrntDmnNmbrPrntDescr
 {
@@ -277,6 +282,11 @@ public interface ICmptDmnNmbrRange
 {
 }
 
+public interface ICmptRegexDmnNmbrRange
+  : IGqlpDomainNumber
+{
+}
+
 public interface ICmptDmnStrDescr
   : IGqlpDomainString
 {
@@ -287,12 +297,22 @@ public interface ICmptDmnStrNonEmpty
 {
 }
 
+public interface ICmptRegexDmnStrNonEmpty
+  : IGqlpDomainString
+{
+}
+
 public interface ICmptDmnStrPrnt
   : ICmptPrntDmnStrPrnt
 {
 }
 
 public interface ICmptPrntDmnStrPrnt
+  : IGqlpDomainString
+{
+}
+
+public interface ICmptRegexDmnStrPrnt
   : IGqlpDomainString
 {
 }

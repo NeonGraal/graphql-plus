@@ -1,15 +1,14 @@
-﻿using GqlPlus.Ast;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Token;
 using GqlPlus.Verifying;
 
 namespace GqlPlus;
 
-public class BuiltInTests(
-  IVerifierRepository verifierRepository
-)
+public class BuiltInTests(ComponentFixture<VerifierTestServices> fixture)
+  : IClassFixture<ComponentFixture<VerifierTestServices>>
 {
-  private readonly Verifier<IAstSchema> _verifier = verifierRepository.VerifierFor<IAstSchema>();
+  private readonly Verifier<IAstSchema> _verifier = fixture.GetService<IVerifierRepository>().VerifierFor<IAstSchema>();
   private readonly VerifySettings _settings = new VerifySettings().CheckAutoVerify();
 
   [Fact]

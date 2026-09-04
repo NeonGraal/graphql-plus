@@ -1,4 +1,4 @@
-﻿
+
 namespace GqlPlus.Ast.Schema.Objects;
 
 public class ParamAstTests : AstAbbreviatedBaseTests

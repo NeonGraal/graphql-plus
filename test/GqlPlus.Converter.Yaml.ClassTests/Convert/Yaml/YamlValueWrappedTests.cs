@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Convert.Yaml;
+namespace GqlPlus.Convert.Yaml;
 
 public class YamlValueWrappedTests()
   : ValueConvertTestsBase(YamlTestHelpers.Wrapped)

@@ -1,11 +1,12 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parser.Operation;
 
-public class ParseObjectTests(
-  IManyChecksParser<IAstSelection> checks
-)
+public class ParseObjectTests(ComponentFixture<OperationParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<OperationParserTestServices>>
 {
+  private readonly IManyChecksParser<IAstSelection> checks = fixture.GetService<IManyChecksParser<IAstSelection>>();
+
   [Theory, RepeatData]
   public void WithJustField_ReturnsCorrectAst(string field)
     => checks.ThrowIfNull().TrueExpected("{" + field + "}",
@@ -18,7 +19,7 @@ public class ParseObjectTests(
   [Theory, RepeatData]
   public void WithJustInline_ReturnsCorrectAst(string inline)
     => checks.ThrowIfNull().TrueExpected("{|{" + inline + "}}",
-      new InlineAst(AstNulls.At, new FieldAst(AstNulls.At, inline)));
+      new InlineAst(AstNulls.At, null));
 
   [Theory, RepeatData]
   public void WithJustSpread_ReturnsCorrectAst(string spread)
@@ -37,7 +38,7 @@ public class ParseObjectTests(
       .TrueExpected(
         "{" + field + "|{" + inline + "}|" + spread + "}",
         new FieldAst(AstNulls.At, field),
-        new InlineAst(AstNulls.At, new FieldAst(AstNulls.At, inline)),
+        new InlineAst(AstNulls.At, null),
         new SpreadAst(AstNulls.At, spread ?? ""));
 
   [Fact]

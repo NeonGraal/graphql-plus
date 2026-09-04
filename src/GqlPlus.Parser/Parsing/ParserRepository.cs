@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 using GqlPlus.Parsing.Schema;
 using GqlPlus.Parsing.Schema.Simple;
 

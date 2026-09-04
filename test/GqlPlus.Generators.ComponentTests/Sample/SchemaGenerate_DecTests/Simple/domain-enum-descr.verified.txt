@@ -11,15 +11,15 @@ enum EnumDmnEnumDescr { dmnEnumDescr }
 
 namespace Components.Gqlp_Schema_domain_enum_descr;
 
-internal class CmptDmnEnumDescrDecoder
+internal class CmptDmnEnumDescrDecoder : NullDecoder<ICmptDmnEnumDescr>
 {
 
   internal static CmptDmnEnumDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEnumDmnEnumDescrDecoder
+internal class CmptEnumDmnEnumDescrDecoder : NullDecoder<CmptEnumDmnEnumDescr>
 {
-  public string dmnEnumDescr { get; set; }
+  public string dmnEnumDescr { get; set; } = default!;
 
   internal static CmptEnumDmnEnumDescrDecoder Factory(IDecoderRepository _) => new();
 }

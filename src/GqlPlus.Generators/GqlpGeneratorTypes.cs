@@ -1,4 +1,4 @@
-﻿namespace GqlPlus;
+namespace GqlPlus;
 
 internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
 {
@@ -37,6 +37,8 @@ internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
     ["_" + BuiltIn.BooleanType] = "bool",
     [BuiltIn.BooleanType] = "bool",
     [BuiltIn.BooleanAlias] = "bool",
+    ["_" + BuiltIn.AnyType] = "object",
+    [BuiltIn.AnyType] = "object",
   };
 
   internal void AddArgs(IEnumerable<IAstTypeArg> typeArgs, IEnumerable<IAstTypeParam> typeParams)

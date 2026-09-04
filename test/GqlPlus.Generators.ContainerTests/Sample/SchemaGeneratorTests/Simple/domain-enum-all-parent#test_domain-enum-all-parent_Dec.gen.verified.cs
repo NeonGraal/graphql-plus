@@ -7,26 +7,26 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_all_parent;
 
-internal class testDmnEnumAllPrntDecoder
+internal class testDmnEnumAllPrntDecoder : NullDecoder<ItestDmnEnumAllPrnt>
 {
 
   internal static testDmnEnumAllPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDmnEnumAllPrntDecoder
+internal class testEnumDmnEnumAllPrntDecoder : NullDecoder<testEnumDmnEnumAllPrnt>
 {
-  public string prnt_dmnEnumAllPrnt { get; set; }
-  public string dmnEnumAllPrntPrnt { get; set; }
-  public string dmnEnumAllPrnt { get; set; }
-  public string dmnEnumAllPrntValue { get; set; }
+  public string prnt_dmnEnumAllPrnt { get; set; } = default!;
+  public string dmnEnumAllPrntPrnt { get; set; } = default!;
+  public string dmnEnumAllPrnt { get; set; } = default!;
+  public string dmnEnumAllPrntValue { get; set; } = default!;
 
   internal static testEnumDmnEnumAllPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntDmnEnumAllPrntDecoder
+internal class testPrntDmnEnumAllPrntDecoder : NullDecoder<testPrntDmnEnumAllPrnt>
 {
-  public string prnt_dmnEnumAllPrnt { get; set; }
-  public string dmnEnumAllPrntPrnt { get; set; }
+  public string prnt_dmnEnumAllPrnt { get; set; } = default!;
+  public string dmnEnumAllPrntPrnt { get; set; } = default!;
 
   internal static testPrntDmnEnumAllPrntDecoder Factory(IDecoderRepository _) => new();
 }

@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("GqlPlus.Schema.Modeller")]
 [assembly: InternalsVisibleTo("GqlPlus.Schema.Codec.ClassTests")]

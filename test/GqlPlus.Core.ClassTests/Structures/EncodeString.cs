@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Structures;
+namespace GqlPlus.Structures;
 
 internal sealed class EncodeString
   : IEncoder<string>

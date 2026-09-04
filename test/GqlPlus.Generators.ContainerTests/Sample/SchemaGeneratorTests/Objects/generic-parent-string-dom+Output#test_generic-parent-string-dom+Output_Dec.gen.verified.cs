@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_string_dom_Output;
 
-internal class testDomGnrcPrntStrDomOutpDecoder
+internal class testDomGnrcPrntStrDomOutpDecoder : NullDecoder<ItestDomGnrcPrntStrDomOutp>
 {
 
   internal static testDomGnrcPrntStrDomOutpDecoder Factory(IDecoderRepository _) => new();

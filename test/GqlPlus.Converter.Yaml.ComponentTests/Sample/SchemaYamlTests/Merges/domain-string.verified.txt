@@ -1,6 +1,15 @@
 ﻿!_Schema
 types: !_Map(_Type)
   !_Name DmnStr: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: DmnStr
+      exclude: false
+      pattern: 'z+'
     domainKind: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      pattern: 'z+'
     name: DmnStr
     typeKind: !_TypeKind Domain

@@ -1,11 +1,12 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parser.Operation;
 
-public class ParseDirectivesTests(
-  IManyChecksParser<IAstDirective> checks
-)
+public class ParseDirectivesTests(ComponentFixture<OperationParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<OperationParserTestServices>>
 {
+  private readonly IManyChecksParser<IAstDirective> checks = fixture.GetService<IManyChecksParser<IAstDirective>>();
+
   [Theory, RepeatData]
   public void WithMinimum_ReturnsCorrectAst(string directives)
     => checks.TrueExpected(

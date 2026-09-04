@@ -1,6 +1,6 @@
 param(
   [switch]$Verify,
-  [switch]$OnlyPrettier
+  [switch]$OnlyDprint
 )
 
 $ErrorActionPreference = "Stop"
@@ -8,10 +8,10 @@ Set-StrictMode -Version Latest
 
 New-Item -ItemType Directory -Path "format" -Force | Out-Null
 
-$prettierArgs = if ($Verify) { @("-c", ".") } else { @("-w", ".") }
-& npx --yes prettier @prettierArgs
+$DprintArgs = if ($Verify) { @("check", "--list-different") } else { @("fmt", ".") }
+& dprint @DprintArgs
 
-if ($OnlyPrettier) { exit }
+if ($OnlyDprint) { exit }
 
 $dotnetVerifyArgs = if ($Verify) { @("--verify-no-changes") } else { @() }
 

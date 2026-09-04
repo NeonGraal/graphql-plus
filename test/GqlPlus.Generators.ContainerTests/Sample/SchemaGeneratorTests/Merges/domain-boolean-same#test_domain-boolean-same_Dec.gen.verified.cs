@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_boolean_same;
 
-internal class testDmnBoolSameDecoder
+internal class testDmnBoolSameDecoder : NullDecoder<ItestDmnBoolSame>
 {
 
   internal static testDmnBoolSameDecoder Factory(IDecoderRepository _) => new();

@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast.Schema;
+namespace GqlPlus.Ast.Schema;
 
 public abstract class AstNamedBaseTests<TInput>
   : AstAbbreviatedBaseTests<TInput>

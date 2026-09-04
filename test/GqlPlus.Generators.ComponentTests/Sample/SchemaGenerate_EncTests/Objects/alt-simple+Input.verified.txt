@@ -1,0 +1,26 @@
+﻿/* alt-simple+Input
+input AltSmplInp { | String }
+*/
+
+// Generated from Schema alt-simple+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-simple+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_simple_Input;
+
+internal class CmptAltSmplInpEncoder : IEncoder<ICmptAltSmplInpObject>
+{
+  public Structured Encode(ICmptAltSmplInpObject input)
+    => Structured.Empty();
+
+  internal static CmptAltSmplInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_alt_simple_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_alt_simple_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptAltSmplInpObject>(CmptAltSmplInpEncoder.Factory);
+}

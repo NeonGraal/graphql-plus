@@ -7,14 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_alias_Dual;
 
-internal class testObjFieldAliasDualDecoder
+internal class testObjFieldAliasDualDecoder : NullDecoder<ItestObjFieldAliasDualObject>
 {
-  public ItestFldObjFieldAliasDual Field { get; set; }
+  public ItestFldObjFieldAliasDual Field { get; set; } = default!;
 
   internal static testObjFieldAliasDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testFldObjFieldAliasDualDecoder
+internal class testFldObjFieldAliasDualDecoder : NullDecoder<ItestFldObjFieldAliasDualObject>
 {
 
   internal static testFldObjFieldAliasDualDecoder Factory(IDecoderRepository _) => new();

@@ -1,2 +1,3 @@
 domain Name { number }
 domain Name { number }
+domain Name { number 5<8 }

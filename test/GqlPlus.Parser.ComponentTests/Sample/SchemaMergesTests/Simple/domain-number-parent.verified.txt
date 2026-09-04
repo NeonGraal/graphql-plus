@@ -1,5 +1,5 @@
-﻿[  
-!Sc I@001/0001
+﻿[
+  !Sc I@001/0001
 Success
 {
   !Do I@008/0001
@@ -15,5 +15,12 @@ Success
   Number
   !DN P@033/0002
   <2
+}
+{
+  !Do I@008/0003
+  RegexDmnNmbrPrnt
+  Number
+  !DN N@034/0003
+  <3
 }
 ]

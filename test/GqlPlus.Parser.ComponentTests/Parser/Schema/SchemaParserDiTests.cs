@@ -1,9 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
 namespace GqlPlus.Parser.Schema;
 
-public class SchemaParserDiTests(IServiceCollection services)
-  : DiChecks(services)
+public class SchemaParserDiTests(ComponentFixture<SchemaParserTestServices> fixture)
+  : DiChecks(fixture.ServiceCollection), IClassFixture<ComponentFixture<SchemaParserTestServices>>
 {
   protected override string Label => "SchemaParser";
 }

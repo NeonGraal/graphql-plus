@@ -7,17 +7,17 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_enum_parent_Output;
 
-internal class testEnumFieldEnumPrntOutpDecoder
+internal class testEnumFieldEnumPrntOutpDecoder : NullDecoder<testEnumFieldEnumPrntOutp>
 {
-  public string prnt_fieldEnumPrntOutp { get; set; }
-  public string fieldEnumPrntOutp { get; set; }
+  public string prnt_fieldEnumPrntOutp { get; set; } = default!;
+  public string fieldEnumPrntOutp { get; set; } = default!;
 
   internal static testEnumFieldEnumPrntOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntFieldEnumPrntOutpDecoder
+internal class testPrntFieldEnumPrntOutpDecoder : NullDecoder<testPrntFieldEnumPrntOutp>
 {
-  public string prnt_fieldEnumPrntOutp { get; set; }
+  public string prnt_fieldEnumPrntOutp { get; set; } = default!;
 
   internal static testPrntFieldEnumPrntOutpDecoder Factory(IDecoderRepository _) => new();
 }

@@ -1,12 +1,15 @@
-﻿using GqlPlus;
+using GqlPlus;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Resolving;
 
 namespace GqlPlus;
 
 [Trait("Generate", "Html")]
-public class HtmlBuiltInTests(IModelAndEncode encoder)
+public class HtmlBuiltInTests(ComponentFixture<SchemaCodecTestServices> fixture)
+  : IClassFixture<ComponentFixture<SchemaCodecTestServices>>
 {
+  private readonly IModelAndEncode encoder = fixture.GetService<IModelAndEncode>();
+
   [Theory]
   [ClassData(typeof(BuiltInBasicData))]
   public async Task HtmlBasicTypes(string type)

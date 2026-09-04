@@ -1,0 +1,60 @@
+input _Operation {
+        variables: _OpVariable[]
+        directives: _OpDirective[]
+        fragments: _OpFragment[]
+        result: _OpResult
+        selections: _OpSelection[][_Path]
+    | "Parsed into above fields, plus Request category and operation" String
+    }
+
+domain _Path { String /(\$([A-Za-z]\w*)?|\.+)?\d+(\.\d+)*/ }
+
+dual _OpDirectives {
+        name: _Identifier
+        description: String[]
+        directives: _OpDirective[]
+
+}
+input _OpVariable {
+    : _OpDirectives
+        type: _Identifier? = null
+        modifiers: _Modifiers[]
+        defaultValue: Value?
+    }
+
+dual _OpDirective {
+        name: _Identifier
+        argument: _OpArgument?
+    }
+
+input _OpFragment {
+    : _OpDirectives
+        type: _Identifier? = null
+    }
+
+input _OpResult {
+        domain: _Identifier? = null
+        argument: _OpArgument?
+    }
+
+dual _OpArgument {
+    |   _OpArgValue
+    |   _OpArgList
+    |   _OpArgMap
+    }
+
+dual _OpArgValue {
+        variable: _Identifier
+    |   Value
+    }
+
+dual _OpArgList {
+    | _OpArgValue[]
+    }
+
+dual _OpArgMap {
+        value: _OpArgValue
+        byVariable: _Identifier
+    | _OpArgValue[Scalar]
+    }
+

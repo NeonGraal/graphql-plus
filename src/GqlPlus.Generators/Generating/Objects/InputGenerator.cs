@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Generating.Objects;
+namespace GqlPlus.Generating.Objects;
 
 internal sealed class InputInterfaceGenerator
   : GenerateForObject<IAstInputField>
@@ -25,5 +25,5 @@ internal sealed class InputEncoderGenerator
   : GenerateForObject<IAstInputField>
 {
   protected override void Generate(IAstObject<IAstInputField> ast, GqlpGeneratorContext context)
-  { }
+    => GenerateEncoderBlock(ast, context);
 }

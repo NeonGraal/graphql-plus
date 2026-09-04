@@ -1,4 +1,4 @@
-﻿using GqlPlus.Resolving.Simple;
+using GqlPlus.Resolving.Simple;
 
 namespace GqlPlus.Resolving;
 

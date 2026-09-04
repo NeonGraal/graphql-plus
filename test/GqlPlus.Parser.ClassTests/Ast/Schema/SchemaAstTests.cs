@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema.Globals;
+using GqlPlus.Ast.Schema.Globals;
 
 namespace GqlPlus.Ast.Schema;
 

@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
@@ -94,8 +94,33 @@ public class ParseSelectionTests
       .ShouldSatisfyAllConditions(
         x => x.OnType.ShouldBe(onType),
         x => x.Modifiers.ShouldBe(modifiers),
+        x => x.Directives.ShouldBe(directives)
+      );
+  }
+
+  [Fact]
+  public void ParseInline_ShouldReturnSelection_WhenInlineWithDirectivesAreParsed()
+  {
+    // Arrange
+    TakeReturns("...", true);
+    TakeReturns("on", false);
+    TakeReturns(':', false);
+    IdentifierReturns(OutFail);
+
+    IAstModifier[] modifiers = ParseAModifier();
+    IAstDirective[] directives = ParseOkA(_directivesParser, 2);
+    IAstSelection[] selections = ParseOkA(_objectParser);
+
+    // Act
+    IResult<IAstSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultOk<IAstSelection>>()
+      .Required().ShouldBeAssignableTo<IAstInline>()
+      .ShouldSatisfyAllConditions(
+        x => x.Modifiers.ShouldBe(modifiers),
         x => x.Directives.ShouldBe(directives),
-        x => x.Selections.ShouldBe(selections)
+        x => x.ShouldBeAssignableTo<IAstSelections>().Selections.ShouldBe(selections)
       );
   }
 
@@ -122,8 +147,7 @@ public class ParseSelectionTests
       .ShouldSatisfyAllConditions(
         x => x.OnType.ShouldBeNull(),
         x => x.Modifiers.ShouldBe(modifiers),
-        x => x.Directives.ShouldBe(directives),
-        x => x.Selections.ShouldBe(selections)
+        x => x.Directives.ShouldBe(directives)
       );
   }
 

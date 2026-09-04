@@ -218,8 +218,12 @@ public sealed class DiService
           && paramType.GetGenericTypeDefinition() == typeof(IEnumerable<>)) {
           Requires.Add(prefix + parameter.Name + "[]", new(paramType.GetGenericArguments()[0]));
         } else if (paramType != typeof(ILoggerFactory)) {
-          if (!Requires.TryAdd(prefix + parameter.Name, new(paramType))) {
-            throw new ArgumentException(prefix + parameter.Name + " duplicate in " + provider.ExpandTypeName());
+          TypeIdName typeName = new(paramType);
+          if (!Requires.TryAdd(prefix + parameter.Name, typeName)) {
+            TypeIdName existing = Requires[prefix + parameter.Name];
+            if (existing != typeName) {
+              throw new ArgumentException(prefix + parameter.Name + " duplicate in " + provider.ExpandTypeName() + " : " + existing + " vs " + typeName);
+            }
           }
         }
       }

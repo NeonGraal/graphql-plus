@@ -18,6 +18,7 @@ public static class AllSchModellers
       .AddModeller(SchModifierModeller.Factory)
       .AddModeller(SchCategoryModeller.Factory)
       .AddModeller(SchDirectiveModeller.Factory)
+      .AddModeller(SchOperationModeller.Factory)
       .AddModeller(SchSettingModeller.Factory)
       .AddModeller(SchEnumModeller.Factory)
       .AddModeller(SchUnionModeller.Factory)

@@ -8,14 +8,11 @@ param (
   $Framework = "10.0"
 )
 
-dotnet tool restore
+Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force
 
-dotnet build
+Restore-DotnetTools
 
-if ($LASTEXITCODE -ne 0) {
-  Write-Host "Build failed, exiting."
-  exit $LASTEXITCODE
-}
+Invoke-DotnetBuild
 
 if ($Project) {
   $ClassTests = $true

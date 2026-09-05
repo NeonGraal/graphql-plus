@@ -78,36 +78,26 @@ function New-DotnetTestArguments {
   param (
     [string]$Framework = "10.0",
     [string[]]$EnvironmentVariables = @(),
-    [switch]$NoBuild = $false,
     [string]$Project = "",
     [switch]$ClassTests = $false
   )
 
-  $test = [System.Collections.Generic.List[string]]::new()
-  $test.Add("test")
+  $test = @("test") + @(
+      $EnvironmentVariables | ForEach-Object { "-e", $_ }
+  )
 
-  foreach ($variable in $EnvironmentVariables) {
-    $test.Add("-e")
-    $test.Add($variable)
-  }
-
-  $test.Add("--framework")
-  $test.Add("net$Framework")
-
-  if ($NoBuild) {
-    $test.Add("--no-build")
-  }
+  $test += "--framework", "net$Framework", "--no-build"
 
   if ($Project) {
     $projectName = "GqlPlus.$Project.ClassTests"
-    $test.Add("test/$projectName/$projectName.csproj")
+    $test += @("test/$projectName/$projectName.csproj")
   } elseif ($ClassTests) {
-    $test.Add("GqlPlus.ClassTests.slnf")
+    $test += @("GqlPlus.ClassTests.slnf")
   }
 
-  $test.AddRange([string[]]("--", "--output", "minimal", "--report-xunit-trx"))
+  $test += "--", "--output", "minimal", "--report-xunit-trx"
 
-  $test.ToArray()
+  $test
 }
 
 function Invoke-InLocation {

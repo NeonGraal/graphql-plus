@@ -11,7 +11,7 @@ if (-not $NoBuild) {
 Get-ChildItem test -Filter "*.verified.*" -Recurse | Remove-Item -Force
 Get-ChildItem test/Html/* -Directory | Remove-Item -Recurse -Force
 
-$test = New-DotnetTestArguments -Framework "10.0" -EnvironmentVariables "GQLPLUS_AUTOVERIFY=true" -NoBuild:$NoBuild
+$test = New-DotnetTestArguments -Framework "10.0" -EnvironmentVariables "GQLPLUS_AUTOVERIFY=true"
 
 dotnet @test
 

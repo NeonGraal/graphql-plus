@@ -11,7 +11,7 @@ Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force
 $coverageFile = "$PWD/coverage/Coverage-$Framework.xml"
 $collect = "collect","-o",$coverageFile,"-f","cobertura"
 $settings = "coverage.runsettings"
-$test = New-DotnetTestArguments -Framework $Framework -NoBuild -Project $Project -ClassTests:$ClassTests
+$test = New-DotnetTestArguments -Framework $Framework -Project $Project -ClassTests:$ClassTests
 
 if ($IncludeTests)
 {

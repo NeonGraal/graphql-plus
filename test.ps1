@@ -12,7 +12,7 @@ param (
 
 Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force
 
-$test = New-DotnetTestArguments -Framework $Framework -EnvironmentVariables "GQLPLUS_TEST_LOGGING=1" -NoBuild -ClassTests:$ClassTests
+$test = New-DotnetTestArguments -Framework $Framework -EnvironmentVariables "GQLPLUS_TEST_LOGGING=1" -ClassTests:$ClassTests
 
 if ($Generate) {
   $test += "--trait-filter", "Generate=$Generate"

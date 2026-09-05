@@ -16,7 +16,7 @@ if ($ClassTests) {
   $test += @("GqlPlus.ClassTests.slnf")
 }
 
-$test += "--","--report-xunit-trx","--report-xunit-trx-filename","TestResults-{tfm}.trx"
+$test += "--","--output","minimal","--report-xunit-trx"
 
 if ($Generate) {
   $test += "--trait-filter", "Generate=$Generate"

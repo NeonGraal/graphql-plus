@@ -18,7 +18,7 @@ $test = "-e","GQLPLUS_AUTOVERIFY=true","-f","net10.0"
 if ($NoBuild) {
   $test += "--no-build"
 }
-$test += "--","--report-xunit-trx","--report-xunit-trx-filename","TestResults-{tfm}.trx"
+$test += "--","--output","minimal","--report-xunit-trx"
 
 dotnet test @test
 

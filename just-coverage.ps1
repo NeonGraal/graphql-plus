@@ -23,7 +23,7 @@ if ($IncludeTests)
 {
   $settings = "tests-coverage.runsettings"
 }
-$test += "--","--report-xunit-trx","--report-xunit-trx-filename","TestResults-{tfm}.trx"
+$test += "--","--output","minimal","--report-xunit-trx"
 
 Get-ChildItem coverage -File -ErrorAction Ignore | Remove-Item -Recurse -Force -ErrorAction Ignore
 Get-ChildItem test -Filter 'TestResults' -Recurse -Directory | Remove-Item -Recurse -Force -ErrorAction Ignore

@@ -66,6 +66,50 @@ function Get-TestSetLabel {
   }
 }
 
+function New-DotnetTestArguments {
+  <#
+    Builds the common `dotnet test` argument array used by test.ps1,
+    autoverify.ps1 and just-coverage.ps1: environment variables, the
+    target framework, an optional project or ClassTests solution
+    filter, whether to skip the build, and the shared xUnit runner
+    arguments after the `--` separator.
+  #>
+  [CmdletBinding()]
+  param (
+    [string]$Framework = "10.0",
+    [string[]]$EnvironmentVariables = @(),
+    [switch]$NoBuild = $false,
+    [string]$Project = "",
+    [switch]$ClassTests = $false
+  )
+
+  $test = [System.Collections.Generic.List[string]]::new()
+  $test.Add("test")
+
+  foreach ($variable in $EnvironmentVariables) {
+    $test.Add("-e")
+    $test.Add($variable)
+  }
+
+  $test.Add("--framework")
+  $test.Add("net$Framework")
+
+  if ($NoBuild) {
+    $test.Add("--no-build")
+  }
+
+  if ($Project) {
+    $projectName = "GqlPlus.$Project.ClassTests"
+    $test.Add("test/$projectName/$projectName.csproj")
+  } elseif ($ClassTests) {
+    $test.Add("GqlPlus.ClassTests.slnf")
+  }
+
+  $test.AddRange([string[]]("--", "--output", "minimal", "--report-xunit-trx"))
+
+  $test.ToArray()
+}
+
 function Invoke-InLocation {
   <#
     Runs a script block after pushing the given location, guaranteeing
@@ -88,4 +132,4 @@ function Invoke-InLocation {
   }
 }
 
-Export-ModuleMember -Function Invoke-DotnetBuild, Restore-DotnetTools, Clear-TestResults, Get-TestSetLabel, Invoke-InLocation
+Export-ModuleMember -Function Invoke-DotnetBuild, Restore-DotnetTools, Clear-TestResults, Get-TestSetLabel, New-DotnetTestArguments, Invoke-InLocation

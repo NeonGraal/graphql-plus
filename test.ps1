@@ -12,13 +12,7 @@ param (
 
 Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force
 
-$test = "test","-e","GQLPLUS_TEST_LOGGING=1","--framework","net$Framework","--no-build"
-# $test += "--logger","trx;LogFileName=TestResults-$Framework.trx","--framework","net$Framework"
-if ($ClassTests) {
-  $test += @("GqlPlus.ClassTests.slnf")
-}
-
-$test += "--","--output","minimal","--report-xunit-trx"
+$test = New-DotnetTestArguments -Framework $Framework -EnvironmentVariables "GQLPLUS_TEST_LOGGING=1" -NoBuild -ClassTests:$ClassTests
 
 if ($Generate) {
   $test += "--trait-filter", "Generate=$Generate"

@@ -6,6 +6,8 @@ param (
   $Framework = "10.0"
 )
 
+Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force
+
 $coverageFile = "$PWD/coverage/Coverage-$Framework.xml"
 $collect = "collect","-o",$coverageFile,"-f","cobertura"
 $settings = "coverage.runsettings"
@@ -26,6 +28,6 @@ if ($IncludeTests)
 $test += "--","--output","minimal","--report-xunit-trx"
 
 Get-ChildItem coverage -File -ErrorAction Ignore | Remove-Item -Recurse -Force -ErrorAction Ignore
-Get-ChildItem test -Filter 'TestResults' -Recurse -Directory | Remove-Item -Recurse -Force -ErrorAction Ignore
+Clear-TestResults
 
 dotnet coverage @collect -s $settings -- dotnet @test

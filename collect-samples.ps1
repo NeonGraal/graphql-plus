@@ -8,13 +8,9 @@ $source = Join-Path $SpecPath "samples"
 $dest = "test/GqlPlus.ComponentTestBase/Samples"
 $models = "src/GqlPlus.Models/Models"
 
-Push-Location $source
-try {
-  $gitDetails = git show -s --format="%h %d %as %s"
-}
-finally {
-  Pop-Location
-}
+Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force
+
+$gitDetails = Invoke-InLocation $source { git show -s --format="%h %d %as %s" }
 
 Remove-Item $dest -Recurse -Force -ErrorAction Ignore
 Remove-Item "$models/*.graphql+" -Recurse -Force -ErrorAction Ignore

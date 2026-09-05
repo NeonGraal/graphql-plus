@@ -2,13 +2,10 @@ param(
   [switch]$NoBuild
 )
 
-if (-not $NoBuild) {
-  dotnet build
+Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force
 
-  if ($LASTEXITCODE -ne 0) {
-    Write-Host "Build failed, exiting."
-    exit $LASTEXITCODE
-  }
+if (-not $NoBuild) {
+  Invoke-DotnetBuild
 }
 
 Get-ChildItem test -Filter "*.verified.*" -Recurse | Remove-Item -Force

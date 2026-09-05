@@ -10,6 +10,8 @@ param (
   $Framework = "10.0"
 )
 
+Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force
+
 $test = "test","-e","GQLPLUS_TEST_LOGGING=1","--framework","net$Framework","--no-build"
 # $test += "--logger","trx;LogFileName=TestResults-$Framework.trx","--framework","net$Framework"
 if ($ClassTests) {
@@ -29,15 +31,10 @@ if ($Filter) {
 }
 
 if (-not $NoBuild) {
-  dotnet build
-
-  if ($LASTEXITCODE -ne 0) {
-    Write-Host "Build failed, exiting."
-    exit $LASTEXITCODE
-  }
+  Invoke-DotnetBuild
 }
 
-Get-ChildItem test -Filter 'TestResults' -Recurse -Directory | Remove-Item -Recurse -Force -ErrorAction Ignore
+Clear-TestResults
 if ($Generate -eq "Html") {
   Get-ChildItem test/Html -Recurse -Exclude index.html | Remove-Item -Recurse -Force -ErrorAction Ignore
 }

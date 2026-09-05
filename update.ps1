@@ -1,7 +1,9 @@
 Write-Host "GitHub Actions ..."
 npx --yes actions-up --mode minor --style preserve --yes
 
-dotnet tool restore
+Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force
+
+Restore-DotnetTools
 
 Write-Host "Nuget ..."
 $clean = -not (git status -s)

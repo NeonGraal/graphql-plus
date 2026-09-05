@@ -9,13 +9,9 @@ $dest = "test/GqlPlus.ComponentTestBase/Samples"
 $models = "src/GqlPlus.Schema/Schema"
 $request = "src/GqlPlus.Request/Request"
 
-Push-Location $source
-try {
-  $gitDetails = git show -s --format="%h %d %as %s"
-}
-finally {
-  Pop-Location
-}
+Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force
+
+$gitDetails = Invoke-InLocation $source { git show -s --format="%h %d %as %s" }
 
 Remove-Item $dest -Recurse -Force -ErrorAction Ignore
 Get-ChildItem src/ -Filter "*.graphql+" -Recurse | Remove-Item -Force -ErrorAction Ignore

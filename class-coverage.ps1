@@ -1,16 +1,16 @@
 Install-Module -Name powershell-yaml
 
-dotnet tool restore
+Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force
+
+Restore-DotnetTools
 dotnet build --disable-build-servers
 
 New-Item per-class -ItemType Directory -ErrorAction Ignore | Out-Null
 
-Push-Location .\test\GqlPlus.Parser.ClassTests
+Invoke-InLocation .\test\GqlPlus.Parser.ClassTests {
+  $base = "-s","coverage.runsettings","-f","cobertura","-o"
+  $dotnet = "--","dotnet","test","--no-build","--verbosity","quiet","--disable-build-servers","--filter"
 
-$base = "-s","coverage.runsettings","-f","cobertura","-o"
-$dotnet = "--","dotnet","test","--no-build","--verbosity","quiet","--disable-build-servers","--filter"
-
-try {
   $classes = dotnet test --list-tests --no-build | `
     Select-String "    GqlPlus.Verifier" -Raw | `
     ForEach-Object {
@@ -53,9 +53,6 @@ try {
     $ymlFile = "../../per-class/$run.yml"
     $xmlClasses | ConvertTo-Yaml -Options DisableAliases | Set-Content $ymlFile
   }
-}
-finally {
-  Pop-Location
 }
 
 Write-Progress "Test run" -Completed

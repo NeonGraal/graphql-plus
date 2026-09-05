@@ -6,26 +6,19 @@ param (
   $Framework = "10.0"
 )
 
+Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force
+
 $coverageFile = "$PWD/coverage/Coverage-$Framework.xml"
 $collect = "collect","-o",$coverageFile,"-f","cobertura"
 $settings = "coverage.runsettings"
-$test = "test","--no-build","--framework","net$Framework"
+$test = New-DotnetTestArguments -Framework $Framework -Project $Project -ClassTests:$ClassTests
 
-if ($Project)
-{
-  $project = "GqlPlus.$Project.ClassTests"
-  $test += @("test/$project/$project.csproj")
-} elseif ($ClassTests)
-{
-  $test += @("GqlPlus.ClassTests.slnf")
-}
 if ($IncludeTests)
 {
   $settings = "tests-coverage.runsettings"
 }
-$test += "--","--report-xunit-trx","--report-xunit-trx-filename","TestResults-{tfm}.trx"
 
 Get-ChildItem coverage -File -ErrorAction Ignore | Remove-Item -Recurse -Force -ErrorAction Ignore
-Get-ChildItem test -Filter 'TestResults' -Recurse -Directory | Remove-Item -Recurse -Force -ErrorAction Ignore
+Clear-TestResults
 
 dotnet coverage @collect -s $settings -- dotnet @test

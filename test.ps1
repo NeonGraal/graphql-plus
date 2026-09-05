@@ -10,13 +10,9 @@ param (
   $Framework = "10.0"
 )
 
-$test = "test","-e","GQLPLUS_TEST_LOGGING=1","--framework","net$Framework","--no-build"
-# $test += "--logger","trx;LogFileName=TestResults-$Framework.trx","--framework","net$Framework"
-if ($ClassTests) {
-  $test += @("GqlPlus.ClassTests.slnf")
-}
+Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force
 
-$test += "--","--report-xunit-trx","--report-xunit-trx-filename","TestResults-{tfm}.trx"
+$test = New-DotnetTestArguments -Framework $Framework -EnvironmentVariables "GQLPLUS_TEST_LOGGING=1" -ClassTests:$ClassTests
 
 if ($Generate) {
   $test += "--trait-filter", "Generate=$Generate"
@@ -29,15 +25,10 @@ if ($Filter) {
 }
 
 if (-not $NoBuild) {
-  dotnet build
-
-  if ($LASTEXITCODE -ne 0) {
-    Write-Host "Build failed, exiting."
-    exit $LASTEXITCODE
-  }
+  Invoke-DotnetBuild
 }
 
-Get-ChildItem test -Filter 'TestResults' -Recurse -Directory | Remove-Item -Recurse -Force -ErrorAction Ignore
+Clear-TestResults
 if ($Generate -eq "Html") {
   Get-ChildItem test/Html -Recurse -Exclude index.html | Remove-Item -Recurse -Force -ErrorAction Ignore
 }

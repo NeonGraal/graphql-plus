@@ -1,14 +1,13 @@
 using DiffEngine;
-
 using Microsoft.Extensions.DependencyInjection;
 
-namespace GqlPlus;
+namespace GqlPlus.Resolving;
 
-public sealed class ModellerTestServices : IConfiguresServices
+public sealed class ResolverTestServices : IConfiguresServices
 {
-  static ModellerTestServices()
+  static ResolverTestServices()
     => DiffRunner.MaxInstancesToLaunch(20);
 
   public static IServiceCollection Configure(IServiceCollection services)
-    => services.AddModellerComponentTestBase();
+    => services.AddModellerComponentTestBase(true, true);
 }

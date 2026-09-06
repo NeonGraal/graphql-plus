@@ -1,5 +1,4 @@
 using GqlPlus.Decoding;
-using GqlPlus.Structures;
 
 namespace GqlPlus.Request.Decoding;
 

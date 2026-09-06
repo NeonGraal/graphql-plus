@@ -7,15 +7,23 @@ namespace GqlPlus;
 
 public static class ConfigureModellerComponentTestBase
 {
-  public static IServiceCollection AddModellerComponentTestBase(this IServiceCollection services)
-    => services
-      .AddComponentParsers()
+  public static IServiceCollection AddModellerComponentTestBase(this IServiceCollection services, bool includeResolvers, bool includeEncoders)
+  {
+    services.AddComponentParsers();
 
-      .AddModellers(b => b.AddSchemaModellers())
-      .AddResolvers(b => b.AddSchemaResolvers())
-      .AddEncoders(b => b.AddSchemaEncoders())
+    services.AddModellers(b => b.AddSchemaModellers());
+    if (includeResolvers) {
+      services.AddResolvers(b => b.AddSchemaResolvers());
+    }
 
-      // Test support
-      .AddTransient<ISchemaVerifyChecks, SchemaVerifyChecks>()
-      .AddSingleton<IModelAndEncode, ModelAndEncode>();
+    if (includeEncoders) {
+      services
+        .AddEncoders(b => b.AddSchemaEncoders())
+        .AddSingleton<IModelAndEncode, ModelAndEncode>()
+        .AddTransient<ISchemaVerifyChecks, SchemaVerifyChecks>();
+    }
+
+    // Test support
+    return services;
+  }
 }

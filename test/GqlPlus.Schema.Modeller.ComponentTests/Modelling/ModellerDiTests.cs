@@ -1,4 +1,4 @@
-namespace GqlPlus;
+namespace GqlPlus.Modelling;
 
 public class ModellerDiTests(ComponentFixture<ModellerTestServices> fixture)
   : DiChecks(fixture.ServiceCollection), IClassFixture<ComponentFixture<ModellerTestServices>>

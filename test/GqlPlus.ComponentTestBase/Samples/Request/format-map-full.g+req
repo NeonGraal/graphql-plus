@@ -1,4 +1,0 @@
-category = Sample
-operation = getUser
-definition = {user{id name}}
-parameters.id = 123

@@ -1,6 +1,4 @@
-using GqlPlus.Decoding;
-
-namespace GqlPlus.Request.Decoding;
+namespace GqlPlus.Decoding;
 
 public class RequestBodyDecoderTests
 {

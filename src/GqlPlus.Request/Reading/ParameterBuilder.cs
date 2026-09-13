@@ -47,7 +47,7 @@ public static class ParameterBuilder
       node[key] = childDict;
     }
 
-    InsertPath(childDict, segments.Skip(1).ToArray(), values);
+    InsertPath(childDict, [.. segments.Skip(1)], values);
   }
 
   private static Structured ConvertToStructured(Dictionary<string, object> tree)
@@ -55,6 +55,7 @@ public static class ParameterBuilder
     Dictionary<StructureValue, Structured> map = [];
 
     foreach (KeyValuePair<string, object> entry in tree) {
+
       Structured value = entry.Value switch {
         List<string> values when values.Count == 1 => values[0].Encode(),
         List<string> values => values.Encode(),

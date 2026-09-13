@@ -1,6 +1,4 @@
-using GqlPlus.Reading;
-
-namespace GqlPlus.Request.Reading;
+namespace GqlPlus.Reading;
 
 public class ParameterBuilderTests
 {
@@ -12,36 +10,46 @@ public class ParameterBuilderTests
     result.IsEmpty.ShouldBeTrue();
   }
 
-  [Fact]
-  public void Build_SingleValue_ReturnsSingleEntry()
+  [Theory, RepeatData]
+  public void Build_SingleValue_ReturnsSingleEntry(string key, string value)
   {
-    Structured result = ParameterBuilder.Build([("kinds", "Enum")]);
+    StructureValue theKey = new(key);
+    Structured theValue = value.Encode();
 
-    result.Map.ShouldContainKey(new StructureValue("kinds"));
-    result.Map[new StructureValue("kinds")].Value?.Text.ShouldBe("Enum");
+    Structured result = ParameterBuilder.Build([(key, value)]);
+
+    result.Map.ShouldSatisfyAllConditions(
+      m => m.ShouldContainKey(theKey),
+      m => m[theKey].ShouldBe(theValue));
   }
 
-  [Fact]
-  public void Build_MultipleValuesForPath_ReturnsList()
+  [Theory, RepeatData]
+  public void Build_MultipleValuesForPath_ReturnsList(string key, string[] list)
   {
-    Structured result = ParameterBuilder.Build([("names", "*Dual*"), ("names", "*Input*")]);
+    this.SkipShortArray(list);
 
-    result.Map.ShouldContainKey(new StructureValue("names"));
-    Structured names = result.Map[new StructureValue("names")];
-    names.List.Count.ShouldBe(2);
-    names.List[0].Value?.Text.ShouldBe("*Dual*");
-    names.List[1].Value?.Text.ShouldBe("*Input*");
+    StructureValue theKey = new(key);
+    Structured theValue = list.Encode();
+
+    Structured result = ParameterBuilder.Build([.. list.Select(v => (key, v))]);
+
+    result.Map.ShouldSatisfyAllConditions(
+      m => m.ShouldContainKey(theKey),
+      m => m[theKey].ShouldBe(theValue));
   }
 
-  [Fact]
-  public void Build_NestedPath_ReturnsNestedMap()
+  [Theory, RepeatData]
+  public void Build_NestedPath_ReturnsNestedMap(string top, string key, string value)
   {
-    Structured result = ParameterBuilder.Build([("filter.kinds", "Enum")]);
+    StructureValue theTop = new(top);
+    StructureValue theKey = new(key);
+    Structured theValue = new(theKey.DictWith(value.Encode()));
 
-    result.Map.ShouldContainKey(new StructureValue("filter"));
-    Structured filter = result.Map[new StructureValue("filter")];
-    filter.Map.ShouldContainKey(new StructureValue("kinds"));
-    filter.Map[new StructureValue("kinds")].Value?.Text.ShouldBe("Enum");
+    Structured result = ParameterBuilder.Build([(top + "." + key, value)]);
+
+    result.Map.ShouldSatisfyAllConditions(
+      m => m.ShouldContainKey(theTop),
+      m => m[theTop].ShouldBe(theValue));
   }
 
   [Fact]

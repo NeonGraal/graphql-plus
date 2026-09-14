@@ -1,14 +1,13 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
 namespace GqlPlus.Parser.Schema;
 
-public class ParseSchemaTests(
-  IParserRepository parsers
-)
+public class ParseSchemaTests(ComponentFixture<SchemaParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<SchemaParserTestServices>>
 {
-  private readonly ParserOne<IAstSchema> _parser = parsers.ParserFor<IAstSchema>();
+  private readonly ParserOne<IAstSchema> _parser = fixture.GetService<IParserRepository>().ParserFor<IAstSchema>();
 
   [Theory]
   [InlineData("category { Query }")]

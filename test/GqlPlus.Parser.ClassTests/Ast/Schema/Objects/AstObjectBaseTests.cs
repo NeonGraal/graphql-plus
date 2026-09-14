@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast.Schema.Objects;
+namespace GqlPlus.Ast.Schema.Objects;
 
 public abstract class AstObjectBaseTests
   : AstTypeBaseTests

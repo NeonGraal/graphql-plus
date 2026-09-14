@@ -1,23 +1,4 @@
-﻿namespace GqlPlus.Ast.Schema.Objects;
-
-public abstract class ObjFieldTypeBaseTests<TInput>
-  : ObjEnumBaseTests<TInput>
-{
-  [Theory, RepeatData]
-  public void ModifiedType_WithArgs(TInput input, string[] arguments)
-    => FieldChecks.ModifiedType_WithArgs(input, arguments);
-
-  [Theory, RepeatData]
-  public void ModifiedType_WithModifiers(TInput input)
-    => FieldChecks.ModifiedType_WithModifiers(input);
-
-  [Theory, RepeatData]
-  public void ModifiedType_WithModifiersAndArgs(TInput input, string[] arguments)
-    => FieldChecks.ModifiedType_WithModifiersAndArgs(input, arguments);
-
-  internal abstract IObjFieldTypeChecks<TInput> FieldChecks { get; }
-  internal sealed override IObjEnumChecks<TInput> EnumChecks => FieldChecks;
-}
+namespace GqlPlus.Ast.Schema.Objects;
 
 internal abstract class ObjFieldTypeChecks<TInput, TObjType>(
   TypeBy<TInput, TObjType> createType

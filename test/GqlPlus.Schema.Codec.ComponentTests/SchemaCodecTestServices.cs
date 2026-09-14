@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 
 using DiffEngine;
 
@@ -7,9 +7,9 @@ using Microsoft.Extensions.FileProviders;
 
 namespace GqlPlus;
 
-public static class Startup
+public sealed class SchemaCodecTestServices : IConfiguresServices
 {
-  static Startup()
+  static SchemaCodecTestServices()
   {
     DiffRunner.MaxInstancesToLaunch(20);
     RenderFluid.Setup(
@@ -17,6 +17,6 @@ public static class Startup
           "GqlPlus.Models"));
   }
 
-  public static void ConfigureServices(IServiceCollection services)
+  public static IServiceCollection Configure(IServiceCollection services)
     => services.AddModellerComponentTestBase();
 }

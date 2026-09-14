@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Generating;
+namespace GqlPlus.Generating;
 
 public abstract class GenerateTypeClassTestsBase<TType, TParent, TMember>
   : GenerateTypeClassTestsBase

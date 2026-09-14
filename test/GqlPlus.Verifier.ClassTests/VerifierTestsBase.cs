@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 using GqlPlus.Matching;
 using GqlPlus.Merging;
 using GqlPlus.Verifying;

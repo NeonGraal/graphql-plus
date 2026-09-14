@@ -1,13 +1,16 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 using GqlPlus.Parsing.Operation;
 
 namespace GqlPlus.Parser.Operation;
 
-public class ParseFragmentsTests(
-  IManyChecksParser<IParserStartFragments, IAstFragment> startChecks,
-  IManyChecksParser<IParserEndFragments, IAstFragment> endChecks
-)
+public class ParseFragmentsTests(ComponentFixture<OperationParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<OperationParserTestServices>>
 {
+  private readonly IManyChecksParser<IParserStartFragments, IAstFragment> startChecks
+    = fixture.GetService<IManyChecksParser<IParserStartFragments, IAstFragment>>();
+  private readonly IManyChecksParser<IParserEndFragments, IAstFragment> endChecks
+    = fixture.GetService<IManyChecksParser<IParserEndFragments, IAstFragment>>();
+
   [Theory, RepeatData]
   public void Start_WithMinimum_ReturnsCorrectAst(string fragment, string onType, string[] fields)
     => startChecks.TrueExpected(

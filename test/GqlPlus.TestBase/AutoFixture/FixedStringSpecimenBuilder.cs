@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using AutoFixture.Kernel;
 
 namespace GqlPlus.AutoFixture;
@@ -10,5 +10,5 @@ internal sealed class FixedStringSpecimenBuilder : ISpecimenBuilder
         && !paramInfo.GetCustomAttributes<RegularExpressionAttribute>().Any()
         && paramInfo.ParameterType == typeof(string)
       ? "AbcdeFghij"
-      : new NoSpecimen();
+      : NoSpecimen.Instance;
 }

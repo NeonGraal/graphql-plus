@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Decoding.Simple;
+namespace GqlPlus.Decoding.Simple;
 
 public abstract class SimpleDecoderClassTestBase<TModel, TInput>
   : DecoderClassTestBase<TModel>

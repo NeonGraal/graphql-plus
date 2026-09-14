@@ -1,11 +1,12 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parser.Operation;
 
-public class ParseVariablesTests(
-  IManyChecksParser<IAstVariable> checks
-)
+public class ParseVariablesTests(ComponentFixture<OperationParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<OperationParserTestServices>>
 {
+  private readonly IManyChecksParser<IAstVariable> checks = fixture.GetService<IManyChecksParser<IAstVariable>>();
+
   private static VariableAst TestVar(string variable)
     => new(AstNulls.At, variable);
 

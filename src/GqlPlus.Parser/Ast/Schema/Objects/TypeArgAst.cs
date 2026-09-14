@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast.Schema.Objects;
+namespace GqlPlus.Ast.Schema.Objects;
 
 internal sealed record class TypeArgAst(
   ITokenAt At,
@@ -28,8 +28,6 @@ internal sealed record class TypeArgAst(
     ? base.GetFields()
     : DescriptionAt.Append(EnumValue.EnumValue);
 
-  bool IEquatable<IAstTypeArg>.Equals(IAstTypeArg? other)
-    => Equals(other as AstObjType);
   public bool Equals(TypeArgAst? other)
     => base.Equals(other)
     && EnumValue.NullEqual(other.EnumValue);

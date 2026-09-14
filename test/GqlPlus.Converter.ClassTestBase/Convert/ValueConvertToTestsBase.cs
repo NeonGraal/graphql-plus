@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Convert;
+namespace GqlPlus.Convert;
 
 public abstract class ValueConvertToTestsBase(IConvertTestsBase converters)
   : ConvertTestsBase(converters)

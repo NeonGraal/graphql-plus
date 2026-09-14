@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast.Operation;
+namespace GqlPlus.Ast.Operation;
 
 internal abstract record class AstModifiers(
   ITokenAt At,

@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast.Operation;
+namespace GqlPlus.Ast.Operation;
 
 public partial class FragmentAstTests
 {
@@ -18,16 +18,10 @@ public partial class FragmentAstTests
       onType => new FragmentAst(AstNulls.At, name, onType, fields.Fields()),
       onType1 == onType2);
 
-  [Theory, RepeatData]
-  public void Inequality_BetweenFields(string name, string onType, string[] fields1, string[] fields2)
-    => _checks.InequalityBetween(fields1, fields2,
-      field => new FragmentAst(AstNulls.At, name, onType, field.Fields()),
-      fields1.SequenceEqual(fields2));
-
   internal FragmentAstChecks _checks = new();
 
-  [CheckTests]
-  internal IAstDirectivesChecks<FragmentInput> DirectivesChecks => _checks;
+  [CheckTests(Inherited = true)]
+  internal IAstSelectionsChecks<FragmentInput> SelectionsChecks => _checks;
 
   [CheckTests]
   internal ICloneChecks<FragmentInput> CloneChecks { get; }
@@ -40,15 +34,16 @@ public partial class FragmentAstTests
 }
 
 internal sealed class FragmentAstChecks()
-  : AstDirectivesChecks<FragmentInput, FragmentAst>(CreateFragment)
-  , IAstDirectivesChecks<FragmentInput>
+  : AstSelectionsChecks<FragmentInput, FragmentAst>(CreateFragment)
+  , IAstSelectionsChecks<FragmentInput>
 {
   protected override string DirectiveString(FragmentInput input, string directives)
-    => $"( !t {input.Name}{directives} :{input.OnType} {{ !f {input.Field} }} )";
+    => $"( !t {input.Name}{directives} :{input.OnType} )";
 
-  private static FragmentAst CreateFragment(FragmentInput input, string[] directives)
+  private static FragmentAst CreateFragment(FragmentInput input, string[] directives, IAstSelection[] fields)
     => new(AstNulls.At, input.Name, input.OnType, new[] { input.Field }.Fields()) {
-      Directives = directives.Directives()
+      Directives = directives.Directives(),
+      Selections = fields
     };
 }
 

@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Convert;
+namespace GqlPlus.Convert;
 
 public static class RenderJson
 {

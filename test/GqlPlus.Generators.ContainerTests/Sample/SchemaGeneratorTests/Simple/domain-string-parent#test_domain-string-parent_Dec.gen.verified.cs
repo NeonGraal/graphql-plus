@@ -19,10 +19,17 @@ internal class testPrntDmnStrPrntDecoder
   internal static testPrntDmnStrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
+internal class testRegexDmnStrPrntDecoder
+{
+
+  internal static testRegexDmnStrPrntDecoder Factory(IDecoderRepository _) => new();
+}
+
 internal static class test_domain_string_parentDecoders
 {
   internal static IDecoderRepositoryBuilder Addtest_domain_string_parentDecoders(this IDecoderRepositoryBuilder builder)
     => builder
       .AddDecoder<ItestDmnStrPrnt>(testDmnStrPrntDecoder.Factory)
-      .AddDecoder<ItestPrntDmnStrPrnt>(testPrntDmnStrPrntDecoder.Factory);
+      .AddDecoder<ItestPrntDmnStrPrnt>(testPrntDmnStrPrntDecoder.Factory)
+      .AddDecoder<ItestRegexDmnStrPrnt>(testRegexDmnStrPrntDecoder.Factory);
 }

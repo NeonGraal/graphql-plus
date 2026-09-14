@@ -1,7 +1,6 @@
-﻿namespace GqlPlus.Ast.Operation;
+namespace GqlPlus.Ast.Operation;
 
 public partial class FieldAstTests
-  : AstDirectivesBaseTests<string>
 {
   [Theory, RepeatData]
   public void HashCode_WithAlias(string name, string alias)
@@ -14,11 +13,6 @@ public partial class FieldAstTests
       () => CreateField(name) with { Arg = new ArgAst(AstNulls.At, variable) });
 
   [Theory, RepeatData]
-  public void HashCode_WithSelection(string name, string[] fields)
-  => _checks.HashCode(
-    () => CreateField(name) with { Selections = fields.Fields() });
-
-  [Theory, RepeatData]
   public void Text_WithAlias(string name, string alias)
     => _checks.Text(
       () => CreateField(name) with { FieldAlias = alias },
@@ -29,12 +23,6 @@ public partial class FieldAstTests
     => _checks.Text(
       () => CreateField(name) with { Arg = new ArgAst(AstNulls.At, variable) },
       $"( !f {name} ( !a ${variable} ) )");
-
-  [Theory, RepeatData]
-  public void Text_WithSelection(string name, string[] fields)
-  => _checks.Text(
-      () => CreateField(name) with { Selections = fields.Fields() },
-      $"( !f {name} {{ {fields.Joined(s => "!f " + s)} }} )");
 
   [Theory, RepeatData]
   public void Equality_WithAlias(string name, string alias)
@@ -56,19 +44,10 @@ public partial class FieldAstTests
     => _checks.InequalityWith(name,
       () => CreateField(name) with { Arg = new ArgAst(AstNulls.At, variable) });
 
-  [Theory, RepeatData]
-  public void Equality_WithSelection(string name, string[] fields)
-    => _checks.Equality(
-      () => CreateField(name) with { Selections = fields.Fields() });
+  private readonly AstSelectionsChecks<string, FieldAst> _checks = new(CreateField);
 
-  [Theory, RepeatData]
-  public void Inequality_WithSelection(string name, string[] fields)
-    => _checks.InequalityWith(name,
-      () => CreateField(name) with { Selections = fields.Fields() });
-
-  private readonly AstDirectivesChecks<FieldAst> _checks = new(CreateField);
-
-  internal override IAstDirectivesChecks DirectivesChecks => _checks;
+  [CheckTests(Inherited = true)]
+  internal IAstSelectionsChecks<string> SelectionsChecks => _checks;
 
   [CheckTests]
   internal IModifiersChecks<string> ModifiersChecks { get; } = new ModifiersChecks<string, FieldAst>(
@@ -83,6 +62,6 @@ public partial class FieldAstTests
 
   private static FieldAst CreateField(string name)
     => new(AstNulls.At, name);
-  private static FieldAst CreateField(string name, string[] directives)
-    => new(AstNulls.At, name) { Directives = directives.Directives() };
+  private static FieldAst CreateField(string name, string[] directives, IAstSelection[] fields)
+    => new(AstNulls.At, name) { Directives = directives.Directives(), Selections = fields };
 }

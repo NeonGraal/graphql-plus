@@ -1,19 +1,16 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Result;
 using GqlPlus.Verifying;
 
 namespace GqlPlus.Sample;
 
-public class VerifySchemaTests(
-  ISchemaParseChecks checks,
-  IMergerRepository mergers,
-  IVerifierRepository verifierRepository
-) : TestSchemaResult(checks)
+public class VerifySchemaTests(ComponentFixture<VerifierTestServices> fixture)
+  : TestSchemaResult(fixture.GetService<ISchemaParseChecks>()), IClassFixture<ComponentFixture<VerifierTestServices>>
 
 {
-  private readonly MergerOne<IAstSchema> _schemaMerger = mergers.MergerFor<IAstSchema>();
-  private readonly Verifier<IAstSchema> _schemaVerifier = verifierRepository.VerifierFor<IAstSchema>();
+  private readonly MergerOne<IAstSchema> _schemaMerger = fixture.GetService<IMergerRepository>().MergerFor<IAstSchema>();
+  private readonly Verifier<IAstSchema> _schemaVerifier = fixture.GetService<IVerifierRepository>().VerifierFor<IAstSchema>();
 
   protected override async Task Result_Valid(IResult<IAstSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {

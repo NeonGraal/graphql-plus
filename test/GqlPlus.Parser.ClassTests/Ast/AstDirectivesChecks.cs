@@ -1,38 +1,6 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Ast;
-
-public abstract class AstDirectivesBaseTests<TInput>
-  : AstAbbreviatedBaseTests<TInput>
-{
-  [Theory, RepeatData]
-  public void HashCode_WithDirectives(TInput input, string[] directives)
-  => DirectivesChecks.HashCode_WithDirectives(input, directives);
-
-  [Theory, RepeatData]
-  public void Text_WithDirectives(TInput input, string[] directives)
-    => DirectivesChecks.Text_WithDirectives(input, directives);
-
-  [Theory, RepeatData]
-  public void Equality_WithDirectives(TInput input, string[] directives)
-    => DirectivesChecks.Equality_WithDirectives(input, directives);
-
-  [Theory, RepeatData]
-  public void Inequality_WithDirectives(TInput input, string[] directives)
-    => DirectivesChecks.Inequality_WithDirectives(input, directives);
-
-  [Theory, RepeatData]
-  public void Inequality_ByDirectives_WithInput(TInput input, string[] directives1, string[] directives2)
-    => DirectivesChecks.Inequality_ByDirectives_WithInput(input, directives1, directives2);
-
-  [Theory, RepeatData]
-  public void Inequality_ByInputs_WithDirectives(TInput input1, TInput input2, string[] directives)
-    => DirectivesChecks.Inequality_ByInputs_WithDirectives(input1, input2, directives);
-
-  internal sealed override IAstAbbreviatedChecks<TInput> AbbreviatedChecks => DirectivesChecks;
-
-  internal abstract IAstDirectivesChecks<TInput> DirectivesChecks { get; }
-}
 
 internal class AstDirectivesChecks<TAst>(
   AstDirectivesChecks<string, TAst>.CreateDirectives<string> createDirectives

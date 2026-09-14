@@ -8,10 +8,9 @@ param (
   $Framework = "10.0"
 )
 
-$testSet = "All"
-if ($ClassTests) {
-  $testSet = "Class"
-}
+Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force
+
+$testSet = Get-TestSetLabel -ClassTests:$ClassTests
 
 function Get-Badge($params, $label, $body, $colour, $prefix = "") {
   $labelText = $label -f $params

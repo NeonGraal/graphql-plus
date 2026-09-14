@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Convert.Yaml;
+namespace GqlPlus.Convert.Yaml;
 
 public class YamlStructureWrappedTagTests()
   : StructureConvertTestsBase(YamlTestHelpers.Wrapped)

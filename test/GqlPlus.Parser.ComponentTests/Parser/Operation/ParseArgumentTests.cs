@@ -1,12 +1,14 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 using GqlPlus.Parsing.Operation;
 
 namespace GqlPlus.Parser.Operation;
 
-public class ParseArgTests(
-  IOneChecksParser<IParserArg, IAstArg> checks
-)
+public class ParseArgTests(ComponentFixture<OperationParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<OperationParserTestServices>>
 {
+  private readonly IOneChecksParser<IParserArg, IAstArg> checks
+    = fixture.GetService<IOneChecksParser<IParserArg, IAstArg>>();
+
   [Theory, RepeatData]
   public void WithVariable_ReturnsCorrectAst(string variable)
     => checks

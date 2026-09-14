@@ -1,12 +1,13 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parser.Schema.Objects;
 
-public class ParseTypeArgTests(
-  IParseTypeArgChecks objectArgChecks
-)
+public class ParseTypeArgTests(ComponentFixture<SchemaParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<SchemaParserTestServices>>
 {
+  private readonly IParseTypeArgChecks objectArgChecks = fixture.GetService<IParseTypeArgChecks>();
+
   [Theory, RepeatData]
   public void WithMinimum_ReturnsCorrectAst(string name)
   => objectArgChecks.WithMinimum(name);

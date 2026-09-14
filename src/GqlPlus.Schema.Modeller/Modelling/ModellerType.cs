@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Modelling;
+namespace GqlPlus.Modelling;
 
 internal abstract class ModellerType<TAst, TParent, TModel>(
   TypeKindModel kind

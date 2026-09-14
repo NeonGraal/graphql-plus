@@ -1,9 +1,10 @@
-﻿namespace GqlPlus.Parser;
+namespace GqlPlus.Parser;
 
-public class ParseModifiersTests(
-  IManyChecksParser<IAstModifier> checks
-)
+public class ParseModifiersTests(ComponentFixture<ParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<ParserTestServices>>
 {
+  private readonly IManyChecksParser<IAstModifier> checks = fixture.GetService<IManyChecksParser<IAstModifier>>();
+
   [Theory]
   [InlineData("", 0)]
   [InlineData("?", 1)]

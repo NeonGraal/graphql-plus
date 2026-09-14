@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Encoding.Simple;
+namespace GqlPlus.Encoding.Simple;
 
 public class TypeEnumEncoderTests
   : ParentTypeEncoderClassTestBase<TypeEnumModel, AliasedModel, EnumLabelModel, string>

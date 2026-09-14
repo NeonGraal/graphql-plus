@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Ast.Schema;
+namespace GqlPlus.Ast.Schema;
 
 public interface IAstObject
   : IAstType<IAstObjBase>
@@ -37,8 +37,7 @@ public interface IAstObjEnum
 
 public interface IAstTypeArg
   : IAstObjType
-  , IAstObjEnum
-  , IEquatable<IAstTypeArg>;
+  , IAstObjEnum;
 
 public interface IAstObjBase
   : IAstObjType

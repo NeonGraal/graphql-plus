@@ -11,3 +11,8 @@ public interface ItestDmnStrNonEmpty
   : IGqlpDomainString
 {
 }
+
+public interface ItestRegexDmnStrNonEmpty
+  : IGqlpDomainString
+{
+}

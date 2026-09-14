@@ -4,33 +4,31 @@ param (
   $Filter = "",
   [ValidateSet('Html', 'Plain', 'Yaml', 'Json')]
   $Generate = "",
+  [switch]$NoBuild = $false,
   [switch]$ClassTests = $false,
   [switch]$Html = $false,
   $Framework = "10.0"
 )
 
-$test = "test","-e","GQLPLUS_TEST_LOGGING=1","--no-build"
-$test += "--logger","trx;LogFileName=TestResults-$Framework.trx","--framework","net$Framework"
+Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force
+
+$test = New-DotnetTestArguments -Framework $Framework -EnvironmentVariables "GQLPLUS_TEST_LOGGING=1" -ClassTests:$ClassTests
 
 if ($Generate) {
-  $test += "--filter", "Generate=$Generate"
-} elseif ($Section) {
-  $test += "--filter", ".$Section."
-} elseif ($Filter) {
-  $test += "--filter", $Filter
+  $test += "--trait-filter", "Generate=$Generate"
 }
-if ($ClassTests) {
-  $test += @("GqlPlus.ClassTests.slnf")
+if ($Section) {
+  $test += "--namespace-filter", "*$Section*"
 }
-
-dotnet build
-
-if ($LASTEXITCODE -ne 0) {
-  Write-Host "Build failed, exiting."
-  exit $LASTEXITCODE
+if ($Filter) {
+  $test += "--method-filter", "*$Filter*"
 }
 
-Get-ChildItem test -Filter 'TestResults' -Recurse -Directory | Remove-Item -Recurse -Force -ErrorAction Ignore
+if (-not $NoBuild) {
+  Invoke-DotnetBuild
+}
+
+Clear-TestResults
 if ($Generate -eq "Html") {
   Get-ChildItem test/Html -Recurse -Exclude index.html | Remove-Item -Recurse -Force -ErrorAction Ignore
 }

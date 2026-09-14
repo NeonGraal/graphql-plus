@@ -1,12 +1,13 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 
 namespace GqlPlus.Parser.Schema.Globals;
 
-public class ParseOptionSettingTests(
-  IOneChecksParser<IAstSchemaSetting> checks
-)
+public class ParseOptionSettingTests(ComponentFixture<SchemaParserTestServices> fixture)
+  : IClassFixture<ComponentFixture<SchemaParserTestServices>>
 {
+  private readonly IOneChecksParser<IAstSchemaSetting> checks = fixture.GetService<IOneChecksParser<IAstSchemaSetting>>();
+
   [Theory, RepeatData]
   public void WithValid_ReturnsCorrectAst(string name, string value)
     => checks.TrueExpected(

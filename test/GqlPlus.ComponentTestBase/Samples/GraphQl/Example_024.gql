@@ -1,4 +1,4 @@
-﻿query inlineFragmentNoType($expandedInfo: Boolean) {
+query inlineFragmentNoType($expandedInfo: Boolean) {
   user(handle: "zuck") {
     id
     name

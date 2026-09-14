@@ -1,11 +1,11 @@
-﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parser.Schema.Simple;
 
-public sealed class ParseDomainBooleanTests(
-  IBaseDomainChecks<string, IAstDomain<IAstDomainTrueFalse>> domainChecks
-) : BaseDomainTests<string, IAstDomain<IAstDomainTrueFalse>>(domainChecks);
+public sealed class ParseDomainBooleanTests(ComponentFixture<SchemaParserTestServices> fixture)
+  : BaseDomainTests<string, IAstDomain<IAstDomainTrueFalse>>(fixture.GetService<IBaseDomainChecks<string, IAstDomain<IAstDomainTrueFalse>>>())
+  , IClassFixture<ComponentFixture<SchemaParserTestServices>>;
 
 internal sealed class ParseDomainBooleanChecks(
   IParserRepository parsers

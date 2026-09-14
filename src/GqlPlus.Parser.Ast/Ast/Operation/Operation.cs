@@ -1,20 +1,22 @@
-﻿namespace GqlPlus.Ast.Operation;
+namespace GqlPlus.Ast.Operation;
+
+public interface IAstOperationBase
+{
+  string Category { get; }
+  IEnumerable<IAstVariable> Variables { get; }
+  IAstArg? Argument { get; }
+  IMap<IAstSelection[]> Selections { get; }
+  IEnumerable<IAstFragment> Fragments { get; }
+}
 
 public interface IAstOperation
   : IAstIdentified
   , IAstDirectives
   , IAstModifiers
-  , IAstSelections
+  , IAstOperationBase
   , IEquatable<IAstOperation>
 {
-  string Category { get; }
-
-  IEnumerable<IAstVariable> Variables { get; }
-
   string? Domain { get; }
-  IAstArg? Arg { get; }
-
-  IEnumerable<IAstFragment> Fragments { get; }
 
   ParseResultKind Result { get; }
   IMessages Errors { get; }
@@ -60,7 +62,6 @@ public interface IAstSelections
 public interface IAstFragment
   : IAstIdentified
   , IAstDirectives
-  , IAstSelections
   , IEquatable<IAstFragment>
 {
   string OnType { get; }

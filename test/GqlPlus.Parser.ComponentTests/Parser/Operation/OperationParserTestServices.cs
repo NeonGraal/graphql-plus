@@ -1,12 +1,12 @@
-﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Operation;
 using GqlPlus.Parsing.Operation;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Parser.Operation;
 
-public static class Startup
+public sealed class OperationParserTestServices : IConfiguresServices
 {
-  public static void ConfigureServices(IServiceCollection services)
+  public static IServiceCollection Configure(IServiceCollection services)
     => services
       .AddOneChecks<IParserArg, IAstArg>()
       .AddOneChecks<IAstArg>()

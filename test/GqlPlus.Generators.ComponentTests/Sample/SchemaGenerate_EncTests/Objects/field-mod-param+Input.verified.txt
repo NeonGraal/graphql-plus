@@ -1,0 +1,34 @@
+﻿/* field-mod-param+Input
+input FieldModParamInp<$mod:String> { field: FldFieldModParamInp[$mod] }
+input FldFieldModParamInp { field: Number | String }
+*/
+
+// Generated from Schema field-mod-param+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-mod-param+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_mod_param_Input;
+
+internal class CmptFieldModParamInpEncoder<TMod> : IEncoder<ICmptFieldModParamInpObject<TMod>>
+{
+  public Structured Encode(ICmptFieldModParamInpObject<TMod> input)
+    => Structured.Empty();
+}
+
+internal class CmptFldFieldModParamInpEncoder : IEncoder<ICmptFldFieldModParamInpObject>
+{
+  public Structured Encode(ICmptFldFieldModParamInpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field.Encode());
+
+  internal static CmptFldFieldModParamInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_field_mod_param_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_field_mod_param_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptFldFieldModParamInpObject>(CmptFldFieldModParamInpEncoder.Factory);
+}

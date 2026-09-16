@@ -14,7 +14,7 @@ input AltCnstPrntDualGrndInp { :PrntCnstPrntDualGrndInp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Input;
 
-internal class CmptCnstPrntDualGrndInpDecoder
+internal class CmptCnstPrntDualGrndInpDecoder : NullDecoder<ICmptCnstPrntDualGrndInpObject>
 {
 
   internal static CmptCnstPrntDualGrndInpDecoder Factory(IDecoderRepository _) => new();
@@ -24,21 +24,21 @@ internal class CmptRefCnstPrntDualGrndInpDecoder<TRef>
 {
 }
 
-internal class CmptGrndCnstPrntDualGrndInpDecoder
+internal class CmptGrndCnstPrntDualGrndInpDecoder : NullDecoder<ICmptGrndCnstPrntDualGrndInpObject>
 {
 
   internal static CmptGrndCnstPrntDualGrndInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntCnstPrntDualGrndInpDecoder
+internal class CmptPrntCnstPrntDualGrndInpDecoder : NullDecoder<ICmptPrntCnstPrntDualGrndInpObject>
 {
 
   internal static CmptPrntCnstPrntDualGrndInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptAltCnstPrntDualGrndInpDecoder
+internal class CmptAltCnstPrntDualGrndInpDecoder : NullDecoder<ICmptAltCnstPrntDualGrndInpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal Alt { get; set; } = default!;
 
   internal static CmptAltCnstPrntDualGrndInpDecoder Factory(IDecoderRepository _) => new();
 }

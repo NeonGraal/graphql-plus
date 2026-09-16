@@ -12,24 +12,24 @@ enum PrntFieldEnumPrntDual { prnt_fieldEnumPrntDual }
 
 namespace Components.Gqlp_Schema_field_enum_parent_Dual;
 
-internal class CmptFieldEnumPrntDualDecoder
+internal class CmptFieldEnumPrntDualDecoder : NullDecoder<ICmptFieldEnumPrntDualObject>
 {
-  public CmptEnumFieldEnumPrntDual Field { get; set; }
+  public CmptEnumFieldEnumPrntDual Field { get; set; } = default!;
 
   internal static CmptFieldEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEnumFieldEnumPrntDualDecoder
+internal class CmptEnumFieldEnumPrntDualDecoder : NullDecoder<CmptEnumFieldEnumPrntDual>
 {
-  public string prnt_fieldEnumPrntDual { get; set; }
-  public string fieldEnumPrntDual { get; set; }
+  public string prnt_fieldEnumPrntDual { get; set; } = default!;
+  public string fieldEnumPrntDual { get; set; } = default!;
 
   internal static CmptEnumFieldEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntFieldEnumPrntDualDecoder
+internal class CmptPrntFieldEnumPrntDualDecoder : NullDecoder<CmptPrntFieldEnumPrntDual>
 {
-  public string prnt_fieldEnumPrntDual { get; set; }
+  public string prnt_fieldEnumPrntDual { get; set; } = default!;
 
   internal static CmptPrntFieldEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }

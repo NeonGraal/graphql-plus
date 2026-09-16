@@ -12,7 +12,7 @@ domain DomGnrcPrntStrDomDual { string /\w+/ }
 
 namespace Components.Gqlp_Schema_generic_parent_string_dom_Dual;
 
-internal class CmptGnrcPrntStrDomDualDecoder
+internal class CmptGnrcPrntStrDomDualDecoder : NullDecoder<ICmptGnrcPrntStrDomDualObject>
 {
 
   internal static CmptGnrcPrntStrDomDualDecoder Factory(IDecoderRepository _) => new();
@@ -20,10 +20,10 @@ internal class CmptGnrcPrntStrDomDualDecoder
 
 internal class CmptFieldGnrcPrntStrDomDualDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef Field { get; set; } = default!;
 }
 
-internal class CmptDomGnrcPrntStrDomDualDecoder
+internal class CmptDomGnrcPrntStrDomDualDecoder : NullDecoder<ICmptDomGnrcPrntStrDomDual>
 {
 
   internal static CmptDomGnrcPrntStrDomDualDecoder Factory(IDecoderRepository _) => new();

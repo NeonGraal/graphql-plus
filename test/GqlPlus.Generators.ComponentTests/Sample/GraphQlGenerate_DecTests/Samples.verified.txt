@@ -108,104 +108,104 @@ domain Date { String /\d{4}-\d{2}-\d{2}/ }
 
 namespace Components.Gqlp_GraphQl_Samples;
 
-internal class CmptUserFilterDecoder
+internal class CmptUserFilterDecoder : NullDecoder<ICmptUserFilterObject>
 {
-  public decimal Id { get; set; }
+  public decimal Id { get; set; } = default!;
 
   internal static CmptUserFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptUserDecoder
+internal class CmptUserDecoder : NullDecoder<ICmptUserObject>
 {
-  public decimal Id { get; set; }
-  public string Name { get; set; }
-  public string FirstName { get; set; }
-  public string LastName { get; set; }
-  public ICmptDate Birthday { get; set; }
+  public decimal Id { get; set; } = default!;
+  public string Name { get; set; } = default!;
+  public string FirstName { get; set; } = default!;
+  public string LastName { get; set; } = default!;
+  public ICmptDate Birthday { get; set; } = default!;
 
   internal static CmptUserDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptStoryFilterDecoder
+internal class CmptStoryFilterDecoder : NullDecoder<ICmptStoryFilterObject>
 {
-  public decimal StoryID { get; set; }
+  public decimal StoryID { get; set; } = default!;
 
   internal static CmptStoryFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptStoryDecoder
+internal class CmptStoryDecoder : NullDecoder<ICmptStoryObject>
 {
-  public decimal LikeCount { get; set; }
+  public decimal LikeCount { get; set; } = default!;
 
   internal static CmptStoryDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptFieldFilterDecoder
+internal class CmptFieldFilterDecoder : NullDecoder<ICmptFieldFilterObject>
 {
-  public string? Arg { get; set; }
+  public string? Arg { get; set; } = default!;
 
   internal static CmptFieldFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPicFilterDecoder
+internal class CmptPicFilterDecoder : NullDecoder<ICmptPicFilterObject>
 {
-  public decimal Size { get; set; }
-  public decimal Width { get; set; }
-  public decimal Height { get; set; }
+  public decimal Size { get; set; } = default!;
+  public decimal Width { get; set; } = default!;
+  public decimal Height { get; set; } = default!;
 
   internal static CmptPicFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptFriendsFilterDecoder
+internal class CmptFriendsFilterDecoder : NullDecoder<ICmptFriendsFilterObject>
 {
-  public decimal First { get; set; }
+  public decimal First { get; set; } = default!;
 
   internal static CmptFriendsFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptProfileFilterDecoder
+internal class CmptProfileFilterDecoder : NullDecoder<ICmptProfileFilterObject>
 {
-  public ICollection<string> Handles { get; set; }
+  public ICollection<string> Handles { get; set; } = default!;
 
   internal static CmptProfileFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptIncludeParamsDecoder
+internal class CmptIncludeParamsDecoder : NullDecoder<ICmptIncludeParamsObject>
 {
-  public bool If { get; set; }
+  public bool If { get; set; } = default!;
 
   internal static CmptIncludeParamsDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEmailDecoder
+internal class CmptEmailDecoder : NullDecoder<ICmptEmailObject>
 {
-  public string Message { get; set; }
+  public string Message { get; set; } = default!;
 
   internal static CmptEmailDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptThingFilterDecoder
+internal class CmptThingFilterDecoder : NullDecoder<ICmptThingFilterObject>
 {
-  public ICmptLocation Location { get; set; }
+  public ICmptLocation Location { get; set; } = default!;
 
   internal static CmptThingFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptLocationDecoder
+internal class CmptLocationDecoder : NullDecoder<ICmptLocationObject>
 {
-  public decimal Lat { get; set; }
-  public decimal Lon { get; set; }
+  public decimal Lat { get; set; } = default!;
+  public decimal Lon { get; set; } = default!;
 
   internal static CmptLocationDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptIntDecoder
+internal class CmptIntDecoder : NullDecoder<ICmptInt>
 {
 
   internal static CmptIntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDateDecoder
+internal class CmptDateDecoder : NullDecoder<ICmptDate>
 {
 
   internal static CmptDateDecoder Factory(IDecoderRepository _) => new();

@@ -11,9 +11,9 @@ enum EnumSame { enumSame }
 
 namespace Components.Gqlp_Schema_enum_same;
 
-internal class CmptEnumSameDecoder
+internal class CmptEnumSameDecoder : NullDecoder<CmptEnumSame>
 {
-  public string enumSame { get; set; }
+  public string enumSame { get; set; } = default!;
 
   internal static CmptEnumSameDecoder Factory(IDecoderRepository _) => new();
 }

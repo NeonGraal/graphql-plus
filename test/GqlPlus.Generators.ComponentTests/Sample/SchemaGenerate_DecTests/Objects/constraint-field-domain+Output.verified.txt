@@ -12,7 +12,7 @@ domain DomCnstFieldDmnOutp { String /\w+/ }
 
 namespace Components.Gqlp_Schema_constraint_field_domain_Output;
 
-internal class CmptDomCnstFieldDmnOutpDecoder
+internal class CmptDomCnstFieldDmnOutpDecoder : NullDecoder<ICmptDomCnstFieldDmnOutp>
 {
 
   internal static CmptDomCnstFieldDmnOutpDecoder Factory(IDecoderRepository _) => new();

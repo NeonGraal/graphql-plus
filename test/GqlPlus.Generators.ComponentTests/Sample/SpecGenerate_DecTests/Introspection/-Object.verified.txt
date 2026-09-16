@@ -99,7 +99,7 @@ output _OutputFieldType {
 
 namespace Components.Gqlp_Spec_Object;
 
-internal class Cmpt_ObjectKindDecoder
+internal class Cmpt_ObjectKindDecoder : NullDecoder<ICmpt_ObjectKind>
 {
 
   internal static Cmpt_ObjectKindDecoder Factory(IDecoderRepository _) => new();

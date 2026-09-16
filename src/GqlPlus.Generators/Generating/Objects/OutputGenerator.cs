@@ -17,6 +17,18 @@ internal abstract class OutputGeneratorBase
     }
   }
 
+  protected override void DecoderClassMember(OutputField item, GqlpGeneratorContext context)
+  {
+    if (string.IsNullOrEmpty(item.Param)) {
+      context.Write("  public " + item.Type + " " + item.Name + " { get; set; } = default!;");
+    } else {
+      context.Write($"  public {item.Type.Trim('?')}? {item.Name}({item.Param} parameter)");
+      context.Write("    => null;");
+      context.Write($"  public {item.Type.Trim('?')}? {item.Name}()");
+      context.Write("    => null;");
+    }
+  }
+
   protected override void InterfaceMember(OutputField item, GqlpGeneratorContext context)
   {
     if (string.IsNullOrEmpty(item.Param)) {

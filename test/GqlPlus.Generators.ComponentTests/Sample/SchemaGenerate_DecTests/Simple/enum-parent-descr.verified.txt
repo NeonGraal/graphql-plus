@@ -11,17 +11,17 @@ enum PrntEnumPrntDescr { prnt_enumPrntDescr }
 
 namespace Components.Gqlp_Schema_enum_parent_descr;
 
-internal class CmptEnumPrntDescrDecoder
+internal class CmptEnumPrntDescrDecoder : NullDecoder<CmptEnumPrntDescr>
 {
-  public string prnt_enumPrntDescr { get; set; }
-  public string enumPrntDescr { get; set; }
+  public string prnt_enumPrntDescr { get; set; } = default!;
+  public string enumPrntDescr { get; set; } = default!;
 
   internal static CmptEnumPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntEnumPrntDescrDecoder
+internal class CmptPrntEnumPrntDescrDecoder : NullDecoder<CmptPrntEnumPrntDescr>
 {
-  public string prnt_enumPrntDescr { get; set; }
+  public string prnt_enumPrntDescr { get; set; } = default!;
 
   internal static CmptPrntEnumPrntDescrDecoder Factory(IDecoderRepository _) => new();
 }

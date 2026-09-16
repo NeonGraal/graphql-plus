@@ -11,16 +11,16 @@ enum EnumFieldValueInp { fieldValueInp }
 
 namespace Components.Gqlp_Schema_field_value_Input;
 
-internal class CmptFieldValueInpDecoder
+internal class CmptFieldValueInpDecoder : NullDecoder<ICmptFieldValueInpObject>
 {
-  public CmptEnumFieldValueInp Field { get; set; }
+  public CmptEnumFieldValueInp Field { get; set; } = default!;
 
   internal static CmptFieldValueInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEnumFieldValueInpDecoder
+internal class CmptEnumFieldValueInpDecoder : NullDecoder<CmptEnumFieldValueInp>
 {
-  public string fieldValueInp { get; set; }
+  public string fieldValueInp { get; set; } = default!;
 
   internal static CmptEnumFieldValueInpDecoder Factory(IDecoderRepository _) => new();
 }

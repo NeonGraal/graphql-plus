@@ -99,6 +99,32 @@ public class ParseSelectionTests
   }
 
   [Fact]
+  public void ParseInline_ShouldReturnSelection_WhenInlineWithDirectivesAreParsed()
+  {
+    // Arrange
+    TakeReturns("...", true);
+    TakeReturns("on", false);
+    TakeReturns(':', false);
+    IdentifierReturns(OutFail);
+
+    IAstModifier[] modifiers = ParseAModifier();
+    IAstDirective[] directives = ParseOkA(_directivesParser, 2);
+    IAstSelection[] selections = ParseOkA(_objectParser);
+
+    // Act
+    IResult<IAstSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultOk<IAstSelection>>()
+      .Required().ShouldBeAssignableTo<IAstInline>()
+      .ShouldSatisfyAllConditions(
+        x => x.Modifiers.ShouldBe(modifiers),
+        x => x.Directives.ShouldBe(directives),
+        x => x.ShouldBeAssignableTo<IAstSelections>().Selections.ShouldBe(selections)
+      );
+  }
+
+  [Fact]
   public void ParseInline_ShouldReturnSelection_WhenInlineWithModifiersIsParsed()
   {
     // Arrange

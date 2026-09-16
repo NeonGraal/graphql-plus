@@ -12,17 +12,17 @@ enum PrntEnumSamePrnt { prnt_enumSamePrnt }
 
 namespace Components.Gqlp_Schema_enum_same_parent;
 
-internal class CmptEnumSamePrntDecoder
+internal class CmptEnumSamePrntDecoder : NullDecoder<CmptEnumSamePrnt>
 {
-  public string prnt_enumSamePrnt { get; set; }
-  public string enumSamePrnt { get; set; }
+  public string prnt_enumSamePrnt { get; set; } = default!;
+  public string enumSamePrnt { get; set; } = default!;
 
   internal static CmptEnumSamePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntEnumSamePrntDecoder
+internal class CmptPrntEnumSamePrntDecoder : NullDecoder<CmptPrntEnumSamePrnt>
 {
-  public string prnt_enumSamePrnt { get; set; }
+  public string prnt_enumSamePrnt { get; set; } = default!;
 
   internal static CmptPrntEnumSamePrntDecoder Factory(IDecoderRepository _) => new();
 }

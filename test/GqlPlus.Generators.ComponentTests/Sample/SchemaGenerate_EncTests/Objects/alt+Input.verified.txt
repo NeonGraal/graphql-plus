@@ -1,0 +1,37 @@
+﻿/* alt+Input
+input AltInp { | AltAltInp }
+input AltAltInp { alt: Number | String }
+*/
+
+// Generated from Schema alt+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_Input;
+
+internal class CmptAltInpEncoder : IEncoder<ICmptAltInpObject>
+{
+  public Structured Encode(ICmptAltInpObject input)
+    => Structured.Empty();
+
+  internal static CmptAltInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptAltAltInpEncoder : IEncoder<ICmptAltAltInpObject>
+{
+  public Structured Encode(ICmptAltAltInpObject input)
+    => Structured.Empty()
+      .Add("alt", input.Alt.Encode());
+
+  internal static CmptAltAltInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_alt_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_alt_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptAltInpObject>(CmptAltInpEncoder.Factory)
+      .AddEncoder<ICmptAltAltInpObject>(CmptAltAltInpEncoder.Factory);
+}

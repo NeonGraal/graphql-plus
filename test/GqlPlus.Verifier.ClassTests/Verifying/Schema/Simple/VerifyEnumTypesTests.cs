@@ -35,13 +35,13 @@ public class VerifyEnumTypesTests
   }
 
   [Fact]
-  public void Verify_Enum_ReturnsNoErrors()
+  public void Verify_EnumWithNoLabels_ReturnsError()
   {
     Usages.Add(TheUsage);
 
     _verifier.Verify(UsageAliased, Errors);
 
-    Errors.ShouldBeEmpty();
+    Errors.ShouldNotBeEmpty();
   }
 
   [Fact]
@@ -67,7 +67,12 @@ public class VerifyEnumTypesTests
 
     Define(A.Enum(parentName).AsEnum);
 
-    IAstEnum anEnum = A.Enum(name).WithParent(parentName).AsEnum;
+    IAstEnumLabel[] labels = A.NamedArray<IAstEnumLabel>("Label1", "Label2");
+    IAstEnum anEnum = A.Enum(name)
+      .WithParent(parentName)
+      .WithLabels(labels)
+      .AsEnum;
+
     Usages.Add(anEnum);
 
     _verifier.Verify(UsageAliased, Errors);

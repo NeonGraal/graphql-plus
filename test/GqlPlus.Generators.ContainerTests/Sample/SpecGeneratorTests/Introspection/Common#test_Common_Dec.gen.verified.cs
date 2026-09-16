@@ -7,37 +7,37 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Common;
 
-internal class test_SimpleKindDecoder
+internal class test_SimpleKindDecoder : NullDecoder<test_SimpleKind>
 {
-  public string Basic { get; set; }
-  public string Enum { get; set; }
-  public string Internal { get; set; }
-  public string Domain { get; set; }
-  public string Union { get; set; }
+  public string Basic { get; set; } = default!;
+  public string Enum { get; set; } = default!;
+  public string Internal { get; set; } = default!;
+  public string Domain { get; set; } = default!;
+  public string Union { get; set; } = default!;
 
   internal static test_SimpleKindDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_TypeKindDecoder
+internal class test_TypeKindDecoder : NullDecoder<test_TypeKind>
 {
-  public string Basic { get; set; }
-  public string Enum { get; set; }
-  public string Internal { get; set; }
-  public string Domain { get; set; }
-  public string Union { get; set; }
-  public string Dual { get; set; }
-  public string Input { get; set; }
-  public string Output { get; set; }
+  public string Basic { get; set; } = default!;
+  public string Enum { get; set; } = default!;
+  public string Internal { get; set; } = default!;
+  public string Domain { get; set; } = default!;
+  public string Union { get; set; } = default!;
+  public string Dual { get; set; } = default!;
+  public string Input { get; set; } = default!;
+  public string Output { get; set; } = default!;
 
   internal static test_TypeKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class test_TypeRefDecoder<TTypeKind>
 {
-  public TTypeKind TypeKind { get; set; }
+  public TTypeKind TypeKind { get; set; } = default!;
 }
 
-internal class test_TypeSimpleDecoder
+internal class test_TypeSimpleDecoder : NullDecoder<Itest_TypeSimpleObject>
 {
 
   internal static test_TypeSimpleDecoder Factory(IDecoderRepository _) => new();

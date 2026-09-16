@@ -7,13 +7,13 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_string_non_empty;
 
-internal class testDmnStrNonEmptyDecoder
+internal class testDmnStrNonEmptyDecoder : NullDecoder<ItestDmnStrNonEmpty>
 {
 
   internal static testDmnStrNonEmptyDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testRegexDmnStrNonEmptyDecoder
+internal class testRegexDmnStrNonEmptyDecoder : NullDecoder<ItestRegexDmnStrNonEmpty>
 {
 
   internal static testRegexDmnStrNonEmptyDecoder Factory(IDecoderRepository _) => new();

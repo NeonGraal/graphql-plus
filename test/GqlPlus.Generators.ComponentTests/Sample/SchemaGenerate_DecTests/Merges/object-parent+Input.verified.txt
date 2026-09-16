@@ -12,13 +12,13 @@ input RefObjPrntInp { }
 
 namespace Components.Gqlp_Schema_object_parent_Input;
 
-internal class CmptObjPrntInpDecoder
+internal class CmptObjPrntInpDecoder : NullDecoder<ICmptObjPrntInpObject>
 {
 
   internal static CmptObjPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptRefObjPrntInpDecoder
+internal class CmptRefObjPrntInpDecoder : NullDecoder<ICmptRefObjPrntInpObject>
 {
 
   internal static CmptRefObjPrntInpDecoder Factory(IDecoderRepository _) => new();

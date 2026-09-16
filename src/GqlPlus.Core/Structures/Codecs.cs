@@ -33,3 +33,12 @@ public class Decoder<TOutput>(
   public static implicit operator Decoder<TOutput>(D factory)
     => new(factory.ThrowIfNull());
 }
+
+public class NullDecoder<T> : IDecoder<T>
+{
+  public virtual IMessages Decode(IValue input, out T? output)
+  {
+    output = default;
+    return Messages.New;
+  }
+}

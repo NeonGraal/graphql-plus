@@ -24,6 +24,15 @@ internal class CmptOutpParamModDmnEncoder(
   internal static CmptOutpParamModDmnEncoder Factory(IEncoderRepository r) => new(r);
 }
 
+internal class CmptInOutpParamModDmnEncoder : IEncoder<ICmptInOutpParamModDmnObject>
+{
+  public Structured Encode(ICmptInOutpParamModDmnObject input)
+    => Structured.Empty()
+      .Add("param", input.Param.Encode());
+
+  internal static CmptInOutpParamModDmnEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptDomOutpParamModDmnEncoder : IEncoder<ICmptDomOutpParamModDmn>
 {
   public Structured Encode(ICmptDomOutpParamModDmn input)
@@ -37,5 +46,6 @@ internal static class Cmpt_Schema_output_param_mod_DomainEncoders
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_output_param_mod_DomainEncoders(this IEncoderRepositoryBuilder builder)
     => builder
       .AddEncoder<ICmptOutpParamModDmnObject>(CmptOutpParamModDmnEncoder.Factory)
+      .AddEncoder<ICmptInOutpParamModDmnObject>(CmptInOutpParamModDmnEncoder.Factory)
       .AddEncoder<ICmptDomOutpParamModDmn>(CmptDomOutpParamModDmnEncoder.Factory);
 }

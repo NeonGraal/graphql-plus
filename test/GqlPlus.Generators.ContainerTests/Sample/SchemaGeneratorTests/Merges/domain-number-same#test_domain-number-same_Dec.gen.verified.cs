@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_number_same;
 
-internal class testDmnNmbrSameDecoder
+internal class testDmnNmbrSameDecoder : NullDecoder<ItestDmnNmbrSame>
 {
 
   internal static testDmnNmbrSameDecoder Factory(IDecoderRepository _) => new();

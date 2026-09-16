@@ -34,39 +34,39 @@ output All {
 
 namespace Components.Gqlp_Schema_all;
 
-internal class CmptGuidDecoder
+internal class CmptGuidDecoder : NullDecoder<ICmptGuid>
 {
 
   internal static CmptGuidDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptOneDecoder
+internal class CmptOneDecoder : NullDecoder<CmptOne>
 {
-  public string Two { get; set; }
-  public string Three { get; set; }
+  public string Two { get; set; } = default!;
+  public string Three { get; set; } = default!;
 
   internal static CmptOneDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptManyDecoder
+internal class CmptManyDecoder : NullDecoder<ICmptMany>
 {
-  public Guid AsGuid { get; set; }
-  public Number AsNumber { get; set; }
+  public Guid AsGuid { get; set; } = default!;
+  public Number AsNumber { get; set; } = default!;
 
   internal static CmptManyDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptFieldDecoder
+internal class CmptFieldDecoder : NullDecoder<ICmptFieldObject>
 {
-  public ICollection<string> Strings { get; set; }
+  public ICollection<string> Strings { get; set; } = default!;
 
   internal static CmptFieldDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptParamDecoder
+internal class CmptParamDecoder : NullDecoder<ICmptParamObject>
 {
-  public ICmptMany? AfterId { get; set; }
-  public ICmptMany BeforeId { get; set; }
+  public ICmptMany? AfterId { get; set; } = default!;
+  public ICmptMany BeforeId { get; set; } = default!;
 
   internal static CmptParamDecoder Factory(IDecoderRepository _) => new();
 }

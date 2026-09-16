@@ -6,6 +6,7 @@ namespace GqlPlus;
 
 public static class BuiltIn
 {
+  public const string AnyType = "Any";
   public const string BooleanType = "Boolean";
   public const string BooleanAlias = "^";
   public const string NullType = "Null";
@@ -37,7 +38,7 @@ public static class BuiltIn
     SpecialTypeAst value = new(ValueType, t => t == Scalar || t == Value);
 
     Special = [
-      new SpecialTypeAst("Any"),
+      new SpecialTypeAst(AnyType),
       new SpecialTypeAst("Domain", TypeKind.Domain, t => t is IAstDomain),
       new SpecialTypeAst("Union", TypeKind.Union, t => t is IAstUnion),
       new SpecialTypeAst("Enum", TypeKind.Enum, t => t is IAstEnum),
@@ -161,6 +162,6 @@ public static class BuiltIn
   private static TypeParamAst KeyParam()
       => new(AstNulls.At, "K", "_Key");
 
-  private static TypeParamAst TypeParam(string constraint = "_Any")
+  private static TypeParamAst TypeParam(string constraint = "_" + AnyType)
     => new(AstNulls.At, "T", constraint);
 }

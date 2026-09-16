@@ -7,9 +7,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_input_field_Number;
 
-internal class testInpFieldNmbrDecoder
+internal class testInpFieldNmbrDecoder : NullDecoder<ItestInpFieldNmbrObject>
 {
-  public decimal Field { get; set; }
+  public decimal Field { get; set; } = default!;
 
   internal static testInpFieldNmbrDecoder Factory(IDecoderRepository _) => new();
 }

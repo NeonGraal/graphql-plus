@@ -33,31 +33,101 @@ public record class SchemaModel(
   internal IMap<SettingModel> Settings { get; init; } = new Map<SettingModel>();
   public IMessages Errors { get; } = new Messages();
 
-#pragma warning disable IDE0060 // Remove unused parameter
   public IMap<CategoriesModel> GetCategories(CategoryFilterModel? filter)
-    => Categories.ToMap(c => c.Key,
-      c => new CategoriesModel() {
+  {
+    if (filter is null) {
+      return Categories.ToMap(c => c.Key,
+        c => new CategoriesModel() {
+          And = c.Value,
+          Type = Types.GetValueOr(c.Key),
+        });
+    }
+
+    return Categories
+      .Where(c =>
+        filter.Matches(c.Value.Name, c.Value.Aliases)
+        && (filter.Resolutions.Length == 0 || SchemaModelHelpers.ContainsResolution(filter.Resolutions, c.Value.Resolution)))
+      .ToMap(c => c.Key, c => new CategoriesModel() {
         And = c.Value,
         Type = Types.GetValueOr(c.Key),
       });
+  }
 
   public IMap<DirectivesModel> GetDirectives(FilterModel? filter)
-    => Directives.ToMap(d => d.Key,
-      d => new DirectivesModel() {
-        And = d.Value,
-        Type = Types.GetValueOr(d.Key),
-      });
+  {
+    IEnumerable<KeyValuePair<string, DirectiveModel>> source = Directives;
+    if (filter is not null) {
+      source = source.Where(d => filter.Matches(d.Value.Name, d.Value.Aliases));
+    }
+
+    return source.ToMap(d => d.Key, d => new DirectivesModel() {
+      And = d.Value,
+      Type = Types.GetValueOr(d.Key),
+    });
+  }
+
   public IMap<OperationsModel> GetOperations(FilterModel? filter)
-    => Operations.ToMap(o => o.Key,
-      o => new OperationsModel() {
-        And = o.Value,
-        Type = Types.TryGetValue(o.Key, out BaseTypeModel? type) ? type : null,
-      });
+  {
+    IEnumerable<KeyValuePair<string, OperationModel>> source = Operations;
+    if (filter is not null) {
+      source = source.Where(o => filter.Matches(o.Value.Name, o.Value.Aliases));
+    }
 
-  public IMap<SettingModel> GetSettings(FilterModel? filter) => Settings;
-  public IMap<BaseTypeModel> GetTypes(TypeFilterModel? filter) => Types;
+    return source.ToMap(o => o.Key, o => new OperationsModel() {
+      And = o.Value,
+      Type = Types.TryGetValue(o.Key, out BaseTypeModel? type) ? type : null,
+    });
+  }
 
-#pragma warning restore IDE0060
+  public IMap<SettingModel> GetSettings(FilterModel? filter)
+  {
+    if (filter is null) {
+      return Settings;
+    }
+
+    return Settings
+      .Where(s => filter.Matches(s.Value.Name, []))
+      .ToMap(s => s.Key, s => s.Value);
+  }
+
+  public IMap<BaseTypeModel> GetTypes(TypeFilterModel? filter)
+  {
+    if (filter is null) {
+      return Types;
+    }
+
+    return Types
+      .Where(kv =>
+        filter.Matches(kv.Value.Name, kv.Value.Aliases)
+        && (filter.Kinds.Length == 0 || SchemaModelHelpers.ContainsKind(filter.Kinds, kv.Value.TypeKind)))
+      .ToMap(kv => kv.Key, kv => kv.Value);
+  }
+
+}
+
+internal static partial class SchemaModelHelpers
+{
+  internal static bool ContainsKind(TypeKindModel[] kinds, TypeKindModel kind)
+  {
+    foreach (TypeKindModel k in kinds) {
+      if (k == kind) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  internal static bool ContainsResolution(CategoryOptionModel[] resolutions, CategoryOptionModel resolution)
+  {
+    foreach (CategoryOptionModel r in resolutions) {
+      if (r == resolution) {
+        return true;
+      }
+    }
+
+    return false;
+  }
 }
 
 public record class FilterModel(
@@ -68,6 +138,30 @@ public record class FilterModel(
   public string[] Aliases { get; set; } = [];
   public bool ReturnReferencedTypes { get; set; }
   public bool ReturnByAlias { get; set; }
+
+  public bool Matches(string name, string[] aliases)
+  {
+    if (aliases is null) {
+      throw new ArgumentNullException(nameof(aliases));
+    }
+
+    bool hasNameFilter = Names.Length > 0;
+    bool hasAliasFilter = Aliases.Length > 0;
+
+    if (!hasNameFilter && !hasAliasFilter) {
+      return true;
+    }
+
+    if (hasNameFilter && NameFilter.Matches(Names, name)) {
+      return true;
+    }
+
+    if (MatchAliases && hasNameFilter && NameFilter.MatchesAny(Names, aliases)) {
+      return true;
+    }
+
+    return hasAliasFilter && NameFilter.MatchesAny(Aliases, aliases);
+  }
 }
 
 public record class CategoryFilterModel

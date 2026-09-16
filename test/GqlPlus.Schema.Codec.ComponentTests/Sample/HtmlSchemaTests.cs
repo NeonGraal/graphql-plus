@@ -37,6 +37,7 @@ public class HtmlSchemaTests(ComponentFixture<SchemaCodecTestServices> fixture)
   {
     Map<IEnumerable<string>> groups = new() {
       ["Introspection"] = SamplesSpecificationIntrospectionData.Strings,
+      ["Request"] = SamplesSpecificationRequestData.Strings,
     };
 
     Structured result = new Map<Structured>() {

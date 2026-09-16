@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_param_parent_Input;
 
-internal class testGnrcPrntParamPrntInpDecoder
+internal class testGnrcPrntParamPrntInpDecoder : NullDecoder<ItestGnrcPrntParamPrntInpObject>
 {
 
   internal static testGnrcPrntParamPrntInpDecoder Factory(IDecoderRepository _) => new();
@@ -17,9 +17,9 @@ internal class testRefGnrcPrntParamPrntInpDecoder<TRef>
 {
 }
 
-internal class testAltGnrcPrntParamPrntInpDecoder
+internal class testAltGnrcPrntParamPrntInpDecoder : NullDecoder<ItestAltGnrcPrntParamPrntInpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal Alt { get; set; } = default!;
 
   internal static testAltGnrcPrntParamPrntInpDecoder Factory(IDecoderRepository _) => new();
 }

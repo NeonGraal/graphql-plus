@@ -7,19 +7,19 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_enum_parent_dup;
 
-internal class testEnumPrntDupDecoder
+internal class testEnumPrntDupDecoder : NullDecoder<testEnumPrntDup>
 {
-  public string prnt_enumPrntDup { get; set; }
-  public string enumPrntDup { get; set; }
-  public string enumPrntDup { get; set; }
+  public string prnt_enumPrntDup { get; set; } = default!;
+  public string enumPrntDup { get; set; } = default!;
+  public string enumPrntDup { get; set; } = default!;
 
   internal static testEnumPrntDupDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntEnumPrntDupDecoder
+internal class testPrntEnumPrntDupDecoder : NullDecoder<testPrntEnumPrntDup>
 {
-  public string prnt_enumPrntDup { get; set; }
-  public string enumPrntDup { get; set; }
+  public string prnt_enumPrntDup { get; set; } = default!;
+  public string enumPrntDup { get; set; } = default!;
 
   internal static testPrntEnumPrntDupDecoder Factory(IDecoderRepository _) => new();
 }

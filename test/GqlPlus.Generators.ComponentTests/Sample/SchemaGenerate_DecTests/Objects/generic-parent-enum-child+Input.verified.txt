@@ -13,7 +13,7 @@ enum ParentGnrcPrntEnumChildInp { gnrcPrntEnumChildInpParent }
 
 namespace Components.Gqlp_Schema_generic_parent_enum_child_Input;
 
-internal class CmptGnrcPrntEnumChildInpDecoder
+internal class CmptGnrcPrntEnumChildInpDecoder : NullDecoder<ICmptGnrcPrntEnumChildInpObject>
 {
 
   internal static CmptGnrcPrntEnumChildInpDecoder Factory(IDecoderRepository _) => new();
@@ -21,20 +21,20 @@ internal class CmptGnrcPrntEnumChildInpDecoder
 
 internal class CmptFieldGnrcPrntEnumChildInpDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef Field { get; set; } = default!;
 }
 
-internal class CmptEnumGnrcPrntEnumChildInpDecoder
+internal class CmptEnumGnrcPrntEnumChildInpDecoder : NullDecoder<CmptEnumGnrcPrntEnumChildInp>
 {
-  public string gnrcPrntEnumChildInpParent { get; set; }
-  public string gnrcPrntEnumChildInpLabel { get; set; }
+  public string gnrcPrntEnumChildInpParent { get; set; } = default!;
+  public string gnrcPrntEnumChildInpLabel { get; set; } = default!;
 
   internal static CmptEnumGnrcPrntEnumChildInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptParentGnrcPrntEnumChildInpDecoder
+internal class CmptParentGnrcPrntEnumChildInpDecoder : NullDecoder<CmptParentGnrcPrntEnumChildInp>
 {
-  public string gnrcPrntEnumChildInpParent { get; set; }
+  public string gnrcPrntEnumChildInpParent { get; set; } = default!;
 
   internal static CmptParentGnrcPrntEnumChildInpDecoder Factory(IDecoderRepository _) => new();
 }

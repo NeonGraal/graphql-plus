@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_dual_Dual;
 
-internal class testGnrcAltDualDualDecoder
+internal class testGnrcAltDualDualDecoder : NullDecoder<ItestGnrcAltDualDualObject>
 {
 
   internal static testGnrcAltDualDualDecoder Factory(IDecoderRepository _) => new();
@@ -17,9 +17,9 @@ internal class testRefGnrcAltDualDualDecoder<TRef>
 {
 }
 
-internal class testAltGnrcAltDualDualDecoder
+internal class testAltGnrcAltDualDualDecoder : NullDecoder<ItestAltGnrcAltDualDualObject>
 {
-  public decimal Alt { get; set; }
+  public decimal Alt { get; set; } = default!;
 
   internal static testAltGnrcAltDualDualDecoder Factory(IDecoderRepository _) => new();
 }

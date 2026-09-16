@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_same;
 
-internal class testDmnEnumSameDecoder
+internal class testDmnEnumSameDecoder : NullDecoder<ItestDmnEnumSame>
 {
 
   internal static testDmnEnumSameDecoder Factory(IDecoderRepository _) => new();

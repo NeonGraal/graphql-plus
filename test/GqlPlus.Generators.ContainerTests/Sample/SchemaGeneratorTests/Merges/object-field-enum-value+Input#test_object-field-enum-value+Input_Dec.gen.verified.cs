@@ -7,9 +7,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_enum_value_Input;
 
-internal class testObjFieldEnumValueInpDecoder
+internal class testObjFieldEnumValueInpDecoder : NullDecoder<ItestObjFieldEnumValueInpObject>
 {
-  public bool Field { get; set; }
+  public bool Field { get; set; } = default!;
 
   internal static testObjFieldEnumValueInpDecoder Factory(IDecoderRepository _) => new();
 }

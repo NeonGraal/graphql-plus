@@ -4,6 +4,8 @@
   <PropertyGroup>
     <TargetFrameworks>net10.0;net9.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
+    <Verify_SponsorshipLicenseIgnored>true</Verify_SponsorshipLicenseIgnored>
+    <NoWarn>$(NoWarn);SC023</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

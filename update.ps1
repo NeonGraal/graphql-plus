@@ -1,25 +1,34 @@
-Write-Host "GitHub Actions ..."
-npx --yes actions-up --mode minor --style preserve --yes
-
-Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force
-
-Restore-DotnetTools
-
-Write-Host "Nuget ..."
-$clean = -not (git status -s)
-dotnet outdated .\ -vl minor -u
+[CmdletBinding()]
+param (
+  [switch]$DryRun = $false
+)
 
 $exclusions = "-exc","Basic.Reference.Assemblies","-exc","CodeAnalysis.CSharp"
 
-if ($clean) {
-    git commit -a -m "Update packages to latest patch version"
-    dotnet outdated .\ -vl major -u @exclusions
-} else {
-    dotnet outdated .\ -vl major @exclusions
-}
+if (-not $DryRun) {
+  Write-Host "GitHub Actions ..."
+    npx --yes actions-up --mode minor --style preserve --yes
 
-dotnet list package --deprecated
-dotnet list package --vulnerable --include-transitive
+    Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force
+
+    Restore-DotnetTools
+
+    Write-Host "Nuget ..."
+    $clean = -not (git status -s)
+    dotnet outdated .\ -vl minor -u
+
+    if ($clean) {
+        git commit -a -m "Update packages to latest patch version"
+        dotnet outdated .\ -vl major -u @exclusions
+    } else {
+        dotnet outdated .\ -vl major @exclusions
+    }
+
+    dotnet list package --deprecated
+    dotnet list package --vulnerable --include-transitive
+
+dprint fmt
+}
 
 Write-Host "Nuget ..."
 dotnet outdated .\ @exclusions
@@ -35,5 +44,3 @@ npx actions-up --style preserve --dry-run
 if ($LASTEXITCODE -ne 0) {
   Write-Host "  -  Update with 'npx actions-up --style preserve'"
 }
-
-dprint fmt

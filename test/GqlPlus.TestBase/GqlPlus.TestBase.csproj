@@ -12,8 +12,11 @@
     <PackageReference Include="AutoFixture.Xunit3" />
     <PackageReference Include="Fluid.Core" />
     <PackageReference Include="MartinCostello.Logging.XUnit.v3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Microsoft.Extensions.Logging" />
     <PackageReference Include="OpenTelemetry.AutoInstrumentation" />
     <PackageReference Include="OpenTelemetry.Exporter.InMemory" />
+    <PackageReference Include="OpenTelemetry.Resources.Host" />
     <PackageReference Include="Shouldly" />
     <PackageReference Include="Xunit.Combinatorial" />
   </ItemGroup>

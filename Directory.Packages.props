@@ -41,10 +41,10 @@
     <PackageVersion Include="NSubstitute" Version="6.2.0" />
     <PackageVersion Include="OpenTelemetry.AutoInstrumentation" Version="1.16.0" />
     <PackageVersion Include="OpenTelemetry.Exporter.InMemory" Version="1.19.0" />
-    <PackageVersion Include="OpenTelemetry.Resources.Host" Version="1.18.0-beta.1" />
+    <PackageVersion Include="OpenTelemetry.Resources.Host" Version="1.19.0-beta.1" />
     <PackageVersion Include="Shouldly" Version="4.3.0" />
     <PackageVersion Include="Verify.SourceGenerators" Version="2.5.0" />
-    <PackageVersion Include="Verify.XunitV3" Version="33.0.2" />
+    <PackageVersion Include="Verify.XunitV3" Version="33.1.0" />
     <PackageVersion Include="Xunit.Combinatorial" Version="2.1.41" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net9.0'">

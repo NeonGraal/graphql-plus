@@ -7,9 +7,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_enum_Output;
 
-internal class testEnumCnstEnumOutpDecoder
+internal class testEnumCnstEnumOutpDecoder : NullDecoder<testEnumCnstEnumOutp>
 {
-  public string cnstEnumOutp { get; set; }
+  public string cnstEnumOutp { get; set; } = default!;
 
   internal static testEnumCnstEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }

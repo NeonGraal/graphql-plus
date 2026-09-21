@@ -11,7 +11,7 @@ domain DmnStrDiff { string }
 
 namespace Components.Gqlp_Schema_domain_string_diff;
 
-internal class CmptDmnStrDiffDecoder
+internal class CmptDmnStrDiffDecoder : NullDecoder<ICmptDmnStrDiff>
 {
 
   internal static CmptDmnStrDiffDecoder Factory(IDecoderRepository _) => new();

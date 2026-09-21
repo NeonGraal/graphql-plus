@@ -1,0 +1,2 @@
+definition = Sample {user{id name email}}
+parameters.userId = 42

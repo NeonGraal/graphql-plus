@@ -1,0 +1,27 @@
+﻿/* object-alias+Input
+input ObjAliasInp [Input1] { }
+input ObjAliasInp [Input2] { }
+*/
+
+// Generated from Schema object-alias+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alias+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alias_Input;
+
+internal class CmptObjAliasInpEncoder : IEncoder<ICmptObjAliasInpObject>
+{
+  public Structured Encode(ICmptObjAliasInpObject input)
+    => Structured.Empty();
+
+  internal static CmptObjAliasInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_object_alias_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_object_alias_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptObjAliasInpObject>(CmptObjAliasInpEncoder.Factory);
+}

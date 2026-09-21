@@ -1,0 +1,27 @@
+﻿/* input-field-Number-descr
+input InpFieldNmbrDescr { field: "Test" "Descr" Number = 42 }
+*/
+
+// Generated from Schema input-field-Number-descr
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_input-field-Number-descr, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_input_field_Number_descr;
+
+internal class CmptInpFieldNmbrDescrEncoder : IEncoder<ICmptInpFieldNmbrDescrObject>
+{
+  public Structured Encode(ICmptInpFieldNmbrDescrObject input)
+    => Structured.Empty()
+      .Add("field", input.Field.Encode());
+
+  internal static CmptInpFieldNmbrDescrEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_input_field_Number_descrEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_input_field_Number_descrEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptInpFieldNmbrDescrObject>(CmptInpFieldNmbrDescrEncoder.Factory);
+}

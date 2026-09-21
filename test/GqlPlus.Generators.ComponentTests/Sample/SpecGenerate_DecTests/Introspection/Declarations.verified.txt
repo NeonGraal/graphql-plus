@@ -42,39 +42,39 @@ input _TypeFilter {
 
 namespace Components.Gqlp_Spec_Declarations;
 
-internal class Cmpt_NameDecoder
+internal class Cmpt_NameDecoder : NullDecoder<ICmpt_Name>
 {
 
   internal static Cmpt_NameDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_FilterDecoder
+internal class Cmpt_FilterDecoder : NullDecoder<ICmpt_FilterObject>
 {
-  public ICollection<ICmpt_NameFilter> Names { get; set; }
-  public bool? MatchAliases { get; set; }
-  public ICollection<ICmpt_NameFilter> Aliases { get; set; }
-  public bool? ReturnByAlias { get; set; }
-  public bool? ReturnReferencedTypes { get; set; }
+  public ICollection<ICmpt_NameFilter> Names { get; set; } = default!;
+  public bool? MatchAliases { get; set; } = default!;
+  public ICollection<ICmpt_NameFilter> Aliases { get; set; } = default!;
+  public bool? ReturnByAlias { get; set; } = default!;
+  public bool? ReturnReferencedTypes { get; set; } = default!;
 
   internal static Cmpt_FilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_NameFilterDecoder
+internal class Cmpt_NameFilterDecoder : NullDecoder<ICmpt_NameFilter>
 {
 
   internal static Cmpt_NameFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_CategoryFilterDecoder
+internal class Cmpt_CategoryFilterDecoder : NullDecoder<ICmpt_CategoryFilterObject>
 {
-  public ICollection<ICmpt_Resolution> Resolutions { get; set; }
+  public ICollection<ICmpt_Resolution> Resolutions { get; set; } = default!;
 
   internal static Cmpt_CategoryFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_TypeFilterDecoder
+internal class Cmpt_TypeFilterDecoder : NullDecoder<ICmpt_TypeFilterObject>
 {
-  public ICollection<ICmpt_TypeKind> Kinds { get; set; }
+  public ICollection<ICmpt_TypeKind> Kinds { get; set; } = default!;
 
   internal static Cmpt_TypeFilterDecoder Factory(IDecoderRepository _) => new();
 }

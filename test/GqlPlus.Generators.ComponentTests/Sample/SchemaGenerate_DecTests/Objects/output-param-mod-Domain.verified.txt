@@ -12,14 +12,14 @@ domain DomOutpParamModDmn { number 1 < 10 }
 
 namespace Components.Gqlp_Schema_output_param_mod_Domain;
 
-internal class CmptInOutpParamModDmnDecoder
+internal class CmptInOutpParamModDmnDecoder : NullDecoder<ICmptInOutpParamModDmnObject>
 {
-  public decimal Param { get; set; }
+  public decimal Param { get; set; } = default!;
 
   internal static CmptInOutpParamModDmnDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDomOutpParamModDmnDecoder
+internal class CmptDomOutpParamModDmnDecoder : NullDecoder<ICmptDomOutpParamModDmn>
 {
 
   internal static CmptDomOutpParamModDmnDecoder Factory(IDecoderRepository _) => new();

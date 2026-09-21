@@ -12,7 +12,7 @@ enum EnumCnstEnumInp { cnstEnumInp }
 
 namespace Components.Gqlp_Schema_constraint_enum_Input;
 
-internal class CmptCnstEnumInpDecoder
+internal class CmptCnstEnumInpDecoder : NullDecoder<ICmptCnstEnumInpObject>
 {
 
   internal static CmptCnstEnumInpDecoder Factory(IDecoderRepository _) => new();
@@ -20,12 +20,12 @@ internal class CmptCnstEnumInpDecoder
 
 internal class CmptRefCnstEnumInpDecoder<TType>
 {
-  public TType Field { get; set; }
+  public TType Field { get; set; } = default!;
 }
 
-internal class CmptEnumCnstEnumInpDecoder
+internal class CmptEnumCnstEnumInpDecoder : NullDecoder<CmptEnumCnstEnumInp>
 {
-  public string cnstEnumInp { get; set; }
+  public string cnstEnumInp { get; set; } = default!;
 
   internal static CmptEnumCnstEnumInpDecoder Factory(IDecoderRepository _) => new();
 }

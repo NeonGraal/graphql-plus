@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_obj_parent_Input;
 
-internal class testCnstPrntObjPrntInpDecoder
+internal class testCnstPrntObjPrntInpDecoder : NullDecoder<ItestCnstPrntObjPrntInpObject>
 {
 
   internal static testCnstPrntObjPrntInpDecoder Factory(IDecoderRepository _) => new();
@@ -17,15 +17,15 @@ internal class testRefCnstPrntObjPrntInpDecoder<TRef>
 {
 }
 
-internal class testPrntCnstPrntObjPrntInpDecoder
+internal class testPrntCnstPrntObjPrntInpDecoder : NullDecoder<ItestPrntCnstPrntObjPrntInpObject>
 {
 
   internal static testPrntCnstPrntObjPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testAltCnstPrntObjPrntInpDecoder
+internal class testAltCnstPrntObjPrntInpDecoder : NullDecoder<ItestAltCnstPrntObjPrntInpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal Alt { get; set; } = default!;
 
   internal static testAltCnstPrntObjPrntInpDecoder Factory(IDecoderRepository _) => new();
 }

@@ -9,7 +9,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_parent_param_same_Input;
 
 internal class testPrntParamSameInpDecoder<TA>
 {
-  public TA Field { get; set; }
+  public TA Field { get; set; } = default!;
 }
 
 internal class testRefPrntParamSameInpDecoder<TA>

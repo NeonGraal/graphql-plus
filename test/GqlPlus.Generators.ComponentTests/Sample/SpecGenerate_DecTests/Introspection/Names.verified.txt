@@ -28,23 +28,23 @@ output _AndType {
 
 namespace Components.Gqlp_Spec_Names;
 
-internal class Cmpt_AliasedDecoder
+internal class Cmpt_AliasedDecoder : NullDecoder<ICmpt_AliasedObject>
 {
-  public ICollection<ICmpt_Name> Aliases { get; set; }
+  public ICollection<ICmpt_Name> Aliases { get; set; } = default!;
 
   internal static Cmpt_AliasedDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_NamedDecoder
+internal class Cmpt_NamedDecoder : NullDecoder<ICmpt_NamedObject>
 {
-  public ICmpt_Name Name { get; set; }
+  public ICmpt_Name Name { get; set; } = default!;
 
   internal static Cmpt_NamedDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_DescribedDecoder
+internal class Cmpt_DescribedDecoder : NullDecoder<ICmpt_DescribedObject>
 {
-  public ICollection<string> Description { get; set; }
+  public ICollection<string> Description { get; set; } = default!;
 
   internal static Cmpt_DescribedDecoder Factory(IDecoderRepository _) => new();
 }

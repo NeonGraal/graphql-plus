@@ -11,15 +11,15 @@ enum EnumDmnEnumLabel { dmnEnumLabel }
 
 namespace Components.Gqlp_Schema_domain_enum_label;
 
-internal class CmptDmnEnumLabelDecoder
+internal class CmptDmnEnumLabelDecoder : NullDecoder<ICmptDmnEnumLabel>
 {
 
   internal static CmptDmnEnumLabelDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEnumDmnEnumLabelDecoder
+internal class CmptEnumDmnEnumLabelDecoder : NullDecoder<CmptEnumDmnEnumLabel>
 {
-  public string dmnEnumLabel { get; set; }
+  public string dmnEnumLabel { get; set; } = default!;
 
   internal static CmptEnumDmnEnumLabelDecoder Factory(IDecoderRepository _) => new();
 }

@@ -1,0 +1,27 @@
+﻿/* directive-param-list
+directive @DrctParamList(InDrctParamList[]) { all }
+input InDrctParamList { }
+*/
+
+// Generated from Schema directive-param-list
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_directive-param-list, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_directive_param_list;
+
+internal class CmptInDrctParamListEncoder : IEncoder<ICmptInDrctParamListObject>
+{
+  public Structured Encode(ICmptInDrctParamListObject input)
+    => Structured.Empty();
+
+  internal static CmptInDrctParamListEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_directive_param_listEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_directive_param_listEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptInDrctParamListObject>(CmptInDrctParamListEncoder.Factory);
+}

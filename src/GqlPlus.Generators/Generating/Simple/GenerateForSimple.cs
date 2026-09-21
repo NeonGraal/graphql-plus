@@ -7,6 +7,9 @@ internal abstract class GenerateForSimple<TSimple>
   protected override void ClassMember(MapPair<string> item, GqlpGeneratorContext context)
     => context.Write($"  public {item.Value} {item.Key} {{ get; set; }}");
 
+  protected void DecoderClassMember(MapPair<string> item, GqlpGeneratorContext context)
+    => context.Write($"  public {item.Value} {item.Key} {{ get; set; }} = default!;");
+
   protected abstract bool HasDefaultParent(out string? defaultParent);
 
   protected override string TypeHeader(TSimple ast, GqlpGeneratorContext context, string type, string prefix, GqlpBaseType baseType)

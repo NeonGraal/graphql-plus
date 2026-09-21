@@ -1,0 +1,28 @@
+﻿/* directive-param
+directive @DrctParam(InDrctParam) { operation }
+directive @DrctParam { fragment }
+input InDrctParam { }
+*/
+
+// Generated from Schema directive-param
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_directive-param, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_directive_param;
+
+internal class CmptInDrctParamEncoder : IEncoder<ICmptInDrctParamObject>
+{
+  public Structured Encode(ICmptInDrctParamObject input)
+    => Structured.Empty();
+
+  internal static CmptInDrctParamEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_directive_paramEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_directive_paramEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptInDrctParamObject>(CmptInDrctParamEncoder.Factory);
+}

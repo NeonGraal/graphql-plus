@@ -30,6 +30,7 @@ public class ParseOperationTests(ComponentFixture<SampleParserTestServices> fixt
   private async Task<IAstOperation?> ParseSampleOperation(string dir, string sample, string extn)
   {
     string operation = await ReadFile(sample, extn, dir);
+    TestContext.Current.AddAttachment("Input " + sample, operation);
 
     OperationContext tokens = new(operation);
     return _operation.Parse(tokens, "Operation").Optional();

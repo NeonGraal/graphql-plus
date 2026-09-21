@@ -13,7 +13,7 @@ domain JustCnstDomEnumInp { enum EnumCnstDomEnumInp.cnstDomEnumInp }
 
 namespace Components.Gqlp_Schema_constraint_dom_enum_Input;
 
-internal class CmptCnstDomEnumInpDecoder
+internal class CmptCnstDomEnumInpDecoder : NullDecoder<ICmptCnstDomEnumInpObject>
 {
 
   internal static CmptCnstDomEnumInpDecoder Factory(IDecoderRepository _) => new();
@@ -21,18 +21,18 @@ internal class CmptCnstDomEnumInpDecoder
 
 internal class CmptRefCnstDomEnumInpDecoder<TType>
 {
-  public TType Field { get; set; }
+  public TType Field { get; set; } = default!;
 }
 
-internal class CmptEnumCnstDomEnumInpDecoder
+internal class CmptEnumCnstDomEnumInpDecoder : NullDecoder<CmptEnumCnstDomEnumInp>
 {
-  public string cnstDomEnumInp { get; set; }
-  public string other { get; set; }
+  public string cnstDomEnumInp { get; set; } = default!;
+  public string other { get; set; } = default!;
 
   internal static CmptEnumCnstDomEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptJustCnstDomEnumInpDecoder
+internal class CmptJustCnstDomEnumInpDecoder : NullDecoder<ICmptJustCnstDomEnumInp>
 {
 
   internal static CmptJustCnstDomEnumInpDecoder Factory(IDecoderRepository _) => new();

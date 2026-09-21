@@ -445,162 +445,162 @@ output _OutputFieldType {
 
 namespace Components.Gqlp_Spec_Introspection;
 
-internal class Cmpt_NameDecoder
+internal class Cmpt_NameDecoder : NullDecoder<ICmpt_Name>
 {
 
   internal static Cmpt_NameDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_FilterDecoder
+internal class Cmpt_FilterDecoder : NullDecoder<ICmpt_FilterObject>
 {
-  public ICollection<ICmpt_NameFilter> Names { get; set; }
-  public bool? MatchAliases { get; set; }
-  public ICollection<ICmpt_NameFilter> Aliases { get; set; }
-  public bool? ReturnByAlias { get; set; }
-  public bool? ReturnReferencedTypes { get; set; }
+  public ICollection<ICmpt_NameFilter> Names { get; set; } = default!;
+  public bool? MatchAliases { get; set; } = default!;
+  public ICollection<ICmpt_NameFilter> Aliases { get; set; } = default!;
+  public bool? ReturnByAlias { get; set; } = default!;
+  public bool? ReturnReferencedTypes { get; set; } = default!;
 
   internal static Cmpt_FilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_NameFilterDecoder
+internal class Cmpt_NameFilterDecoder : NullDecoder<ICmpt_NameFilter>
 {
 
   internal static Cmpt_NameFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_CategoryFilterDecoder
+internal class Cmpt_CategoryFilterDecoder : NullDecoder<ICmpt_CategoryFilterObject>
 {
-  public ICollection<Cmpt_Resolution> Resolutions { get; set; }
+  public ICollection<Cmpt_Resolution> Resolutions { get; set; } = default!;
 
   internal static Cmpt_CategoryFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_TypeFilterDecoder
+internal class Cmpt_TypeFilterDecoder : NullDecoder<ICmpt_TypeFilterObject>
 {
-  public ICollection<Cmpt_TypeKind> Kinds { get; set; }
+  public ICollection<Cmpt_TypeKind> Kinds { get; set; } = default!;
 
   internal static Cmpt_TypeFilterDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_AliasedDecoder
+internal class Cmpt_AliasedDecoder : NullDecoder<ICmpt_AliasedObject>
 {
-  public ICollection<ICmpt_Name> Aliases { get; set; }
+  public ICollection<ICmpt_Name> Aliases { get; set; } = default!;
 
   internal static Cmpt_AliasedDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_NamedDecoder
+internal class Cmpt_NamedDecoder : NullDecoder<ICmpt_NamedObject>
 {
-  public ICmpt_Name Name { get; set; }
+  public ICmpt_Name Name { get; set; } = default!;
 
   internal static Cmpt_NamedDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_DescribedDecoder
+internal class Cmpt_DescribedDecoder : NullDecoder<ICmpt_DescribedObject>
 {
-  public ICollection<string> Description { get; set; }
+  public ICollection<string> Description { get; set; } = default!;
 
   internal static Cmpt_DescribedDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_ResolutionDecoder
+internal class Cmpt_ResolutionDecoder : NullDecoder<Cmpt_Resolution>
 {
-  public string Parallel { get; set; }
-  public string Sequential { get; set; }
-  public string Single { get; set; }
+  public string Parallel { get; set; } = default!;
+  public string Sequential { get; set; } = default!;
+  public string Single { get; set; } = default!;
 
   internal static Cmpt_ResolutionDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_LocationDecoder
+internal class Cmpt_LocationDecoder : NullDecoder<Cmpt_Location>
 {
-  public string Operation { get; set; }
-  public string Variable { get; set; }
-  public string Field { get; set; }
-  public string Inline { get; set; }
-  public string Spread { get; set; }
-  public string Fragment { get; set; }
+  public string Operation { get; set; } = default!;
+  public string Variable { get; set; } = default!;
+  public string Field { get; set; } = default!;
+  public string Inline { get; set; } = default!;
+  public string Spread { get; set; } = default!;
+  public string Fragment { get; set; } = default!;
 
   internal static Cmpt_LocationDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_OpDirectiveDecoder
+internal class Cmpt_OpDirectiveDecoder : NullDecoder<ICmpt_OpDirectiveObject>
 {
-  public ICmpt_OpArgument? Argument { get; set; }
+  public ICmpt_OpArgument? Argument { get; set; } = default!;
 
   internal static Cmpt_OpDirectiveDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_OpArgumentDecoder
+internal class Cmpt_OpArgumentDecoder : NullDecoder<ICmpt_OpArgumentObject>
 {
 
   internal static Cmpt_OpArgumentDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_OpArgValueDecoder
+internal class Cmpt_OpArgValueDecoder : NullDecoder<ICmpt_OpArgValueObject>
 {
-  public ICmpt_Name Variable { get; set; }
+  public ICmpt_Name Variable { get; set; } = default!;
 
   internal static Cmpt_OpArgValueDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_OpArgListDecoder
+internal class Cmpt_OpArgListDecoder : NullDecoder<ICmpt_OpArgListObject>
 {
 
   internal static Cmpt_OpArgListDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_OpArgMapDecoder
+internal class Cmpt_OpArgMapDecoder : NullDecoder<ICmpt_OpArgMapObject>
 {
-  public ICmpt_OpArgValue Value { get; set; }
-  public ICmpt_Name ByVariable { get; set; }
+  public ICmpt_OpArgValue Value { get; set; } = default!;
+  public ICmpt_Name ByVariable { get; set; } = default!;
 
   internal static Cmpt_OpArgMapDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_PathDecoder
+internal class Cmpt_PathDecoder : NullDecoder<ICmpt_Path>
 {
 
   internal static Cmpt_PathDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_SimpleKindDecoder
+internal class Cmpt_SimpleKindDecoder : NullDecoder<Cmpt_SimpleKind>
 {
-  public string Basic { get; set; }
-  public string Enum { get; set; }
-  public string Internal { get; set; }
-  public string Domain { get; set; }
-  public string Union { get; set; }
+  public string Basic { get; set; } = default!;
+  public string Enum { get; set; } = default!;
+  public string Internal { get; set; } = default!;
+  public string Domain { get; set; } = default!;
+  public string Union { get; set; } = default!;
 
   internal static Cmpt_SimpleKindDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_TypeKindDecoder
+internal class Cmpt_TypeKindDecoder : NullDecoder<Cmpt_TypeKind>
 {
-  public string Basic { get; set; }
-  public string Enum { get; set; }
-  public string Internal { get; set; }
-  public string Domain { get; set; }
-  public string Union { get; set; }
-  public string Dual { get; set; }
-  public string Input { get; set; }
-  public string Output { get; set; }
+  public string Basic { get; set; } = default!;
+  public string Enum { get; set; } = default!;
+  public string Internal { get; set; } = default!;
+  public string Domain { get; set; } = default!;
+  public string Union { get; set; } = default!;
+  public string Dual { get; set; } = default!;
+  public string Input { get; set; } = default!;
+  public string Output { get; set; } = default!;
 
   internal static Cmpt_TypeKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_TypeRefDecoder<TTypeKind>
 {
-  public TTypeKind TypeKind { get; set; }
+  public TTypeKind TypeKind { get; set; } = default!;
 }
 
-internal class Cmpt_TypeSimpleDecoder
+internal class Cmpt_TypeSimpleDecoder : NullDecoder<ICmpt_TypeSimpleObject>
 {
 
   internal static Cmpt_TypeSimpleDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_CollectionsDecoder
+internal class Cmpt_CollectionsDecoder : NullDecoder<ICmpt_CollectionsObject>
 {
 
   internal static Cmpt_CollectionsDecoder Factory(IDecoderRepository _) => new();
@@ -608,83 +608,83 @@ internal class Cmpt_CollectionsDecoder
 
 internal class Cmpt_ModifierKeyedDecoder<TModifierKind>
 {
-  public ICmpt_TypeSimple By { get; set; }
-  public bool IsOptional { get; set; }
+  public ICmpt_TypeSimple By { get; set; } = default!;
+  public bool IsOptional { get; set; } = default!;
 }
 
-internal class Cmpt_ModifiersDecoder
+internal class Cmpt_ModifiersDecoder : NullDecoder<ICmpt_ModifiersObject>
 {
 
   internal static Cmpt_ModifiersDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_ModifierKindDecoder
+internal class Cmpt_ModifierKindDecoder : NullDecoder<Cmpt_ModifierKind>
 {
-  public string Req { get; set; }
-  public string Required { get; set; }
-  public string Opt { get; set; }
-  public string Optional { get; set; }
-  public string List { get; set; }
-  public string Dict { get; set; }
-  public string Dictionary { get; set; }
-  public string Param { get; set; }
-  public string TypeParam { get; set; }
+  public string Req { get; set; } = default!;
+  public string Required { get; set; } = default!;
+  public string Opt { get; set; } = default!;
+  public string Optional { get; set; } = default!;
+  public string List { get; set; } = default!;
+  public string Dict { get; set; } = default!;
+  public string Dictionary { get; set; } = default!;
+  public string Param { get; set; } = default!;
+  public string TypeParam { get; set; } = default!;
 
   internal static Cmpt_ModifierKindDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class Cmpt_ModifierDecoder<TModifierKind>
 {
-  public TModifierKind ModifierKind { get; set; }
+  public TModifierKind ModifierKind { get; set; } = default!;
 }
 
-internal class Cmpt_DomainKindDecoder
+internal class Cmpt_DomainKindDecoder : NullDecoder<Cmpt_DomainKind>
 {
-  public string Boolean { get; set; }
-  public string Enum { get; set; }
-  public string Number { get; set; }
-  public string String { get; set; }
+  public string Boolean { get; set; } = default!;
+  public string Enum { get; set; } = default!;
+  public string Number { get; set; } = default!;
+  public string String { get; set; } = default!;
 
   internal static Cmpt_DomainKindDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_BaseDomainItemDecoder
+internal class Cmpt_BaseDomainItemDecoder : NullDecoder<ICmpt_BaseDomainItemObject>
 {
-  public bool Exclude { get; set; }
+  public bool Exclude { get; set; } = default!;
 
   internal static Cmpt_BaseDomainItemDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_DomainTrueFalseDecoder
+internal class Cmpt_DomainTrueFalseDecoder : NullDecoder<ICmpt_DomainTrueFalseObject>
 {
-  public bool Value { get; set; }
+  public bool Value { get; set; } = default!;
 
   internal static Cmpt_DomainTrueFalseDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_DomainRangeDecoder
+internal class Cmpt_DomainRangeDecoder : NullDecoder<ICmpt_DomainRangeObject>
 {
-  public decimal? Lower { get; set; }
-  public decimal? Upper { get; set; }
+  public decimal? Lower { get; set; } = default!;
+  public decimal? Upper { get; set; } = default!;
 
   internal static Cmpt_DomainRangeDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_DomainRegexDecoder
+internal class Cmpt_DomainRegexDecoder : NullDecoder<ICmpt_DomainRegexObject>
 {
-  public string Pattern { get; set; }
+  public string Pattern { get; set; } = default!;
 
   internal static Cmpt_DomainRegexDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_EnumLabelDecoder
+internal class Cmpt_EnumLabelDecoder : NullDecoder<ICmpt_EnumLabelObject>
 {
-  public ICmpt_Name EnumType { get; set; }
+  public ICmpt_Name EnumType { get; set; } = default!;
 
   internal static Cmpt_EnumLabelDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_ObjectKindDecoder
+internal class Cmpt_ObjectKindDecoder : NullDecoder<ICmpt_ObjectKind>
 {
 
   internal static Cmpt_ObjectKindDecoder Factory(IDecoderRepository _) => new();

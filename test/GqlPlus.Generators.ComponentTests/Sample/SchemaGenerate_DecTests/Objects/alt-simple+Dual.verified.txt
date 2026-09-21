@@ -10,7 +10,7 @@ dual AltSmplDual { | String }
 
 namespace Components.Gqlp_Schema_alt_simple_Dual;
 
-internal class CmptAltSmplDualDecoder
+internal class CmptAltSmplDualDecoder : NullDecoder<ICmptAltSmplDualObject>
 {
 
   internal static CmptAltSmplDualDecoder Factory(IDecoderRepository _) => new();

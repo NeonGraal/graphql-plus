@@ -40,11 +40,31 @@ internal class testFldOutpPrntParamEncoder : IEncoder<ItestFldOutpPrntParamObjec
   internal static testFldOutpPrntParamEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class testInOutpPrntParamEncoder : IEncoder<ItestInOutpPrntParamObject>
+{
+  public Structured Encode(ItestInOutpPrntParamObject input)
+    => Structured.Empty()
+      .Add("param", input.Param.Encode());
+
+  internal static testInOutpPrntParamEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class testPrntOutpPrntParamInEncoder : IEncoder<ItestPrntOutpPrntParamInObject>
+{
+  public Structured Encode(ItestPrntOutpPrntParamInObject input)
+    => Structured.Empty()
+      .Add("parent", input.Parent.Encode());
+
+  internal static testPrntOutpPrntParamInEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal static class test_output_parent_paramEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_output_parent_paramEncoders(this IEncoderRepositoryBuilder builder)
     => builder
       .AddEncoder<ItestOutpPrntParamObject>(testOutpPrntParamEncoder.Factory)
       .AddEncoder<ItestPrntOutpPrntParamObject>(testPrntOutpPrntParamEncoder.Factory)
-      .AddEncoder<ItestFldOutpPrntParamObject>(testFldOutpPrntParamEncoder.Factory);
+      .AddEncoder<ItestFldOutpPrntParamObject>(testFldOutpPrntParamEncoder.Factory)
+      .AddEncoder<ItestInOutpPrntParamObject>(testInOutpPrntParamEncoder.Factory)
+      .AddEncoder<ItestPrntOutpPrntParamInObject>(testPrntOutpPrntParamInEncoder.Factory);
 }

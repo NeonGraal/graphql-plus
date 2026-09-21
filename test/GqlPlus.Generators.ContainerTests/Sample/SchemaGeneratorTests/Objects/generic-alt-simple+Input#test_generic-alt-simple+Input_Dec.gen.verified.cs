@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_simple_Input;
 
-internal class testGnrcAltSmplInpDecoder
+internal class testGnrcAltSmplInpDecoder : NullDecoder<ItestGnrcAltSmplInpObject>
 {
 
   internal static testGnrcAltSmplInpDecoder Factory(IDecoderRepository _) => new();

@@ -13,7 +13,7 @@ dual AltCnstFieldDualDual { :PrntCnstFieldDualDual alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_field_dual_Dual;
 
-internal class CmptCnstFieldDualDualDecoder
+internal class CmptCnstFieldDualDualDecoder : NullDecoder<ICmptCnstFieldDualDualObject>
 {
 
   internal static CmptCnstFieldDualDualDecoder Factory(IDecoderRepository _) => new();
@@ -21,18 +21,18 @@ internal class CmptCnstFieldDualDualDecoder
 
 internal class CmptRefCnstFieldDualDualDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef Field { get; set; } = default!;
 }
 
-internal class CmptPrntCnstFieldDualDualDecoder
+internal class CmptPrntCnstFieldDualDualDecoder : NullDecoder<ICmptPrntCnstFieldDualDualObject>
 {
 
   internal static CmptPrntCnstFieldDualDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptAltCnstFieldDualDualDecoder
+internal class CmptAltCnstFieldDualDualDecoder : NullDecoder<ICmptAltCnstFieldDualDualObject>
 {
-  public decimal Alt { get; set; }
+  public decimal Alt { get; set; } = default!;
 
   internal static CmptAltCnstFieldDualDualDecoder Factory(IDecoderRepository _) => new();
 }

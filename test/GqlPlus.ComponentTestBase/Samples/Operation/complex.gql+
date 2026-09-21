@@ -1,1 +1,9 @@
-﻿{complex{first last}}
+query Complex
+($arg:String)
+&named:Named{firstName lastName}
+{complex(arg: $arg) {
+  id
+  |named
+  relations[String]{|named}
+  emails[] {|:String{address} |{userName domain}}
+}}

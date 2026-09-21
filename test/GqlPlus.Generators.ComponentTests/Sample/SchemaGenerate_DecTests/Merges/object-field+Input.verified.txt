@@ -12,14 +12,14 @@ input FldObjFieldInp { }
 
 namespace Components.Gqlp_Schema_object_field_Input;
 
-internal class CmptObjFieldInpDecoder
+internal class CmptObjFieldInpDecoder : NullDecoder<ICmptObjFieldInpObject>
 {
-  public ICmptFldObjFieldInp Field { get; set; }
+  public ICmptFldObjFieldInp Field { get; set; } = default!;
 
   internal static CmptObjFieldInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptFldObjFieldInpDecoder
+internal class CmptFldObjFieldInpDecoder : NullDecoder<ICmptFldObjFieldInpObject>
 {
 
   internal static CmptFldObjFieldInpDecoder Factory(IDecoderRepository _) => new();

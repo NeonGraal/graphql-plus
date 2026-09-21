@@ -6,25 +6,25 @@
 
 namespace Components.Gqlp_Schema_Globals;
 
-internal class CmptInDrctParamDictDecoder
+internal class CmptInDrctParamDictDecoder : NullDecoder<ICmptInDrctParamDictObject>
 {
 
   internal static CmptInDrctParamDictDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptInDrctParamInDecoder
+internal class CmptInDrctParamInDecoder : NullDecoder<ICmptInDrctParamInObject>
 {
 
   internal static CmptInDrctParamInDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptInDrctParamListDecoder
+internal class CmptInDrctParamListDecoder : NullDecoder<ICmptInDrctParamListObject>
 {
 
   internal static CmptInDrctParamListDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptInDrctParamOptDecoder
+internal class CmptInDrctParamOptDecoder : NullDecoder<ICmptInDrctParamOptObject>
 {
 
   internal static CmptInDrctParamOptDecoder Factory(IDecoderRepository _) => new();

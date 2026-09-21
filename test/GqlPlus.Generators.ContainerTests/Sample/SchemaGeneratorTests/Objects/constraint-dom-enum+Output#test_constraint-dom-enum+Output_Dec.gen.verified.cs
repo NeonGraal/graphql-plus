@@ -7,15 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_dom_enum_Output;
 
-internal class testEnumCnstDomEnumOutpDecoder
+internal class testEnumCnstDomEnumOutpDecoder : NullDecoder<testEnumCnstDomEnumOutp>
 {
-  public string cnstDomEnumOutp { get; set; }
-  public string other { get; set; }
+  public string cnstDomEnumOutp { get; set; } = default!;
+  public string other { get; set; } = default!;
 
   internal static testEnumCnstDomEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testJustCnstDomEnumOutpDecoder
+internal class testJustCnstDomEnumOutpDecoder : NullDecoder<ItestJustCnstDomEnumOutp>
 {
 
   internal static testJustCnstDomEnumOutpDecoder Factory(IDecoderRepository _) => new();

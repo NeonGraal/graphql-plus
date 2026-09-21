@@ -24,7 +24,7 @@ internal class ValueObjectParser<TValue>(
     FieldsAst<TValue> result = [];
     while (!tokens.Take('}')) {
       IResult<KeyValue<TValue>> field = _field.Parse(tokens, label);
-      if (!field.Required(value => result.Add(value.Key, value.Value))) {
+      if (!field.Required(value => result.GetValueOrCreate(value.Key, _ => value.Value))) {
         return tokens.Error<IAstFields<TValue>>(label, "a field in object", result);
       }
 

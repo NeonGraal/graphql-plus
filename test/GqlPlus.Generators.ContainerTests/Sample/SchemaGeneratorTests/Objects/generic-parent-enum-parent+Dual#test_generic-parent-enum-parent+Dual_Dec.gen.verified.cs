@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_parent_Dual;
 
-internal class testGnrcPrntEnumPrntDualDecoder
+internal class testGnrcPrntEnumPrntDualDecoder : NullDecoder<ItestGnrcPrntEnumPrntDualObject>
 {
 
   internal static testGnrcPrntEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
@@ -15,20 +15,20 @@ internal class testGnrcPrntEnumPrntDualDecoder
 
 internal class testFieldGnrcPrntEnumPrntDualDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef Field { get; set; } = default!;
 }
 
-internal class testEnumGnrcPrntEnumPrntDualDecoder
+internal class testEnumGnrcPrntEnumPrntDualDecoder : NullDecoder<testEnumGnrcPrntEnumPrntDual>
 {
-  public string gnrcPrntEnumPrntDualParent { get; set; }
-  public string gnrcPrntEnumPrntDualLabel { get; set; }
+  public string gnrcPrntEnumPrntDualParent { get; set; } = default!;
+  public string gnrcPrntEnumPrntDualLabel { get; set; } = default!;
 
   internal static testEnumGnrcPrntEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testParentGnrcPrntEnumPrntDualDecoder
+internal class testParentGnrcPrntEnumPrntDualDecoder : NullDecoder<testParentGnrcPrntEnumPrntDual>
 {
-  public string gnrcPrntEnumPrntDualParent { get; set; }
+  public string gnrcPrntEnumPrntDualParent { get; set; } = default!;
 
   internal static testParentGnrcPrntEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }

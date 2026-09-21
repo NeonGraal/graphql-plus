@@ -1,0 +1,17 @@
+﻿/* constraint-alt+Input
+input CnstAltInp<$type:Number> { | $type }
+*/
+
+// Generated from Schema constraint-alt+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-alt+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_Input;
+
+internal class CmptCnstAltInpEncoder<TType> : IEncoder<ICmptCnstAltInpObject<TType>>
+{
+  public Structured Encode(ICmptCnstAltInpObject<TType> input)
+    => Structured.Empty();
+}

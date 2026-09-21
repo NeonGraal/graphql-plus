@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_dual_grandparent_Dual;
 
-internal class testCnstPrntDualGrndDualDecoder
+internal class testCnstPrntDualGrndDualDecoder : NullDecoder<ItestCnstPrntDualGrndDualObject>
 {
 
   internal static testCnstPrntDualGrndDualDecoder Factory(IDecoderRepository _) => new();
@@ -17,21 +17,21 @@ internal class testRefCnstPrntDualGrndDualDecoder<TRef>
 {
 }
 
-internal class testGrndCnstPrntDualGrndDualDecoder
+internal class testGrndCnstPrntDualGrndDualDecoder : NullDecoder<ItestGrndCnstPrntDualGrndDualObject>
 {
 
   internal static testGrndCnstPrntDualGrndDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntCnstPrntDualGrndDualDecoder
+internal class testPrntCnstPrntDualGrndDualDecoder : NullDecoder<ItestPrntCnstPrntDualGrndDualObject>
 {
 
   internal static testPrntCnstPrntDualGrndDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testAltCnstPrntDualGrndDualDecoder
+internal class testAltCnstPrntDualGrndDualDecoder : NullDecoder<ItestAltCnstPrntDualGrndDualObject>
 {
-  public decimal Alt { get; set; }
+  public decimal Alt { get; set; } = default!;
 
   internal static testAltCnstPrntDualGrndDualDecoder Factory(IDecoderRepository _) => new();
 }

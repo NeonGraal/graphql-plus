@@ -7,10 +7,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_enum_diff;
 
-internal class testEnumDiffDecoder
+internal class testEnumDiffDecoder : NullDecoder<testEnumDiff>
 {
-  public string one { get; set; }
-  public string two { get; set; }
+  public string one { get; set; } = default!;
+  public string two { get; set; } = default!;
 
   internal static testEnumDiffDecoder Factory(IDecoderRepository _) => new();
 }

@@ -7,15 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_parent_descr_Input;
 
-internal class testPrntDescrInpDecoder
+internal class testPrntDescrInpDecoder : NullDecoder<ItestPrntDescrInpObject>
 {
 
   internal static testPrntDescrInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testRefPrntDescrInpDecoder
+internal class testRefPrntDescrInpDecoder : NullDecoder<ItestRefPrntDescrInpObject>
 {
-  public decimal Parent { get; set; }
+  public decimal Parent { get; set; } = default!;
 
   internal static testRefPrntDescrInpDecoder Factory(IDecoderRepository _) => new();
 }

@@ -7,24 +7,24 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_enum_parent_Input;
 
-internal class testFieldEnumPrntInpDecoder
+internal class testFieldEnumPrntInpDecoder : NullDecoder<ItestFieldEnumPrntInpObject>
 {
-  public testEnumFieldEnumPrntInp Field { get; set; }
+  public testEnumFieldEnumPrntInp Field { get; set; } = default!;
 
   internal static testFieldEnumPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumFieldEnumPrntInpDecoder
+internal class testEnumFieldEnumPrntInpDecoder : NullDecoder<testEnumFieldEnumPrntInp>
 {
-  public string prnt_fieldEnumPrntInp { get; set; }
-  public string fieldEnumPrntInp { get; set; }
+  public string prnt_fieldEnumPrntInp { get; set; } = default!;
+  public string fieldEnumPrntInp { get; set; } = default!;
 
   internal static testEnumFieldEnumPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntFieldEnumPrntInpDecoder
+internal class testPrntFieldEnumPrntInpDecoder : NullDecoder<testPrntFieldEnumPrntInp>
 {
-  public string prnt_fieldEnumPrntInp { get; set; }
+  public string prnt_fieldEnumPrntInp { get; set; } = default!;
 
   internal static testPrntFieldEnumPrntInpDecoder Factory(IDecoderRepository _) => new();
 }

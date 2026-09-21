@@ -12,9 +12,9 @@ enum EnumGnrcPrntSmplEnumOutp { gnrcPrntSmplEnumOutp }
 
 namespace Components.Gqlp_Schema_generic_parent_simple_enum_Output;
 
-internal class CmptEnumGnrcPrntSmplEnumOutpDecoder
+internal class CmptEnumGnrcPrntSmplEnumOutpDecoder : NullDecoder<CmptEnumGnrcPrntSmplEnumOutp>
 {
-  public string gnrcPrntSmplEnumOutp { get; set; }
+  public string gnrcPrntSmplEnumOutp { get; set; } = default!;
 
   internal static CmptEnumGnrcPrntSmplEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }

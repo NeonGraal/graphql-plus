@@ -16,6 +16,9 @@ internal class EnumGenerator
   internal static void EnumClassMember(MapPair<string> item, GqlpGeneratorContext context)
     => context.Write($"  public string {item.Key} {{ get; set; }}");
 
+  internal static void EnumDecoderClassMember(MapPair<string> item, GqlpGeneratorContext context)
+    => context.Write($"  public string {item.Key} {{ get; set; }} = default!;");
+
   private static IEnumerable<MapPair<string>> ParentItems(string? parent, GqlpGeneratorTypes types)
   {
     if (!types.GetTypeAst(parent, out IAstEnum ast)) {
@@ -48,14 +51,16 @@ internal sealed class EnumDecoderGenerator
 {
   protected override void Generate(IAstEnum ast, GqlpGeneratorContext context)
   {
-    string typeName = context.TypeName(ast, "") + "Decoder";
-    GenerateBlock(ast, context, DecoderHeader, EnumMembers, EnumClassMember,
+    string baseName = context.TypeName(ast, "");
+    string typeName = baseName + "Decoder";
+    GenerateBlock(ast, context,
+      (_, c) => c.Write($"internal class {typeName} : NullDecoder<{baseName}>"),
+      EnumMembers, EnumDecoderClassMember,
       (_, c) => {
         c.Write("");
         c.Write($"  internal static {typeName} Factory(IDecoderRepository _) => new();");
       });
 
-    string baseName = context.TypeName(ast, "");
     context.RegisterDecoder(baseName, typeName);
   }
 }

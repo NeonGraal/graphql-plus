@@ -12,14 +12,14 @@ input FldObjFieldAliasInp { }
 
 namespace Components.Gqlp_Schema_object_field_alias_Input;
 
-internal class CmptObjFieldAliasInpDecoder
+internal class CmptObjFieldAliasInpDecoder : NullDecoder<ICmptObjFieldAliasInpObject>
 {
-  public ICmptFldObjFieldAliasInp Field { get; set; }
+  public ICmptFldObjFieldAliasInp Field { get; set; } = default!;
 
   internal static CmptObjFieldAliasInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptFldObjFieldAliasInpDecoder
+internal class CmptFldObjFieldAliasInpDecoder : NullDecoder<ICmptFldObjFieldAliasInpObject>
 {
 
   internal static CmptFldObjFieldAliasInpDecoder Factory(IDecoderRepository _) => new();

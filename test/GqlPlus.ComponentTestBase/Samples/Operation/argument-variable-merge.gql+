@@ -1,0 +1,1 @@
+($first: String, $last: String) {person(name:{firstName: $first lastName: $last}){id}}

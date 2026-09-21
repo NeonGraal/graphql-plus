@@ -12,7 +12,7 @@ domain DomGnrcPrntStrDomOutp { string /\w+/ }
 
 namespace Components.Gqlp_Schema_generic_parent_string_dom_Output;
 
-internal class CmptDomGnrcPrntStrDomOutpDecoder
+internal class CmptDomGnrcPrntStrDomOutpDecoder : NullDecoder<ICmptDomGnrcPrntStrDomOutp>
 {
 
   internal static CmptDomGnrcPrntStrDomOutpDecoder Factory(IDecoderRepository _) => new();

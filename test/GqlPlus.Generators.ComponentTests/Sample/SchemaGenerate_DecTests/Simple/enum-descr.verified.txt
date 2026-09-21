@@ -10,9 +10,9 @@ enum EnumDescr { "Enum" "Descr" enumDescr }
 
 namespace Components.Gqlp_Schema_enum_descr;
 
-internal class CmptEnumDescrDecoder
+internal class CmptEnumDescrDecoder : NullDecoder<CmptEnumDescr>
 {
-  public string enumDescr { get; set; }
+  public string enumDescr { get; set; } = default!;
 
   internal static CmptEnumDescrDecoder Factory(IDecoderRepository _) => new();
 }

@@ -1,0 +1,27 @@
+﻿/* object+Input
+input ObjInp { }
+input ObjInp { }
+*/
+
+// Generated from Schema object+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_Input;
+
+internal class CmptObjInpEncoder : IEncoder<ICmptObjInpObject>
+{
+  public Structured Encode(ICmptObjInpObject input)
+    => Structured.Empty();
+
+  internal static CmptObjInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_object_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_object_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptObjInpObject>(CmptObjInpEncoder.Factory);
+}

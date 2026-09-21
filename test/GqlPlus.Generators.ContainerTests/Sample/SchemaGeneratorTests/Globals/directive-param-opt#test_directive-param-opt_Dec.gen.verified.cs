@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_directive_param_opt;
 
-internal class testInDrctParamOptDecoder
+internal class testInDrctParamOptDecoder : NullDecoder<ItestInDrctParamOptObject>
 {
 
   internal static testInDrctParamOptDecoder Factory(IDecoderRepository _) => new();

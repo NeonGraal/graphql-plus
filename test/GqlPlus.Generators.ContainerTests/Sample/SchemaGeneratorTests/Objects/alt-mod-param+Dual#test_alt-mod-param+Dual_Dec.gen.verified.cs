@@ -11,9 +11,9 @@ internal class testAltModParamDualDecoder<TMod>
 {
 }
 
-internal class testAltAltModParamDualDecoder
+internal class testAltAltModParamDualDecoder : NullDecoder<ItestAltAltModParamDualObject>
 {
-  public decimal Alt { get; set; }
+  public decimal Alt { get; set; } = default!;
 
   internal static testAltAltModParamDualDecoder Factory(IDecoderRepository _) => new();
 }

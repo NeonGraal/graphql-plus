@@ -11,15 +11,15 @@ dual AltAltModBoolDual { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_mod_Boolean_Dual;
 
-internal class CmptAltModBoolDualDecoder
+internal class CmptAltModBoolDualDecoder : NullDecoder<ICmptAltModBoolDualObject>
 {
 
   internal static CmptAltModBoolDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptAltAltModBoolDualDecoder
+internal class CmptAltAltModBoolDualDecoder : NullDecoder<ICmptAltAltModBoolDualObject>
 {
-  public decimal Alt { get; set; }
+  public decimal Alt { get; set; } = default!;
 
   internal static CmptAltAltModBoolDualDecoder Factory(IDecoderRepository _) => new();
 }

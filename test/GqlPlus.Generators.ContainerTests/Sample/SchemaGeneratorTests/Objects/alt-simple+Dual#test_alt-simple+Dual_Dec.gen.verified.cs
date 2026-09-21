@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_simple_Dual;
 
-internal class testAltSmplDualDecoder
+internal class testAltSmplDualDecoder : NullDecoder<ItestAltSmplDualObject>
 {
 
   internal static testAltSmplDualDecoder Factory(IDecoderRepository _) => new();

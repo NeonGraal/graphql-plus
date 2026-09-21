@@ -35,13 +35,13 @@ public class VerifyUnionTypesTests
   }
 
   [Fact]
-  public void Verify_Union_ReturnsNoErrors()
+  public void Verify_UnionWithNoMembers_ReturnsError()
   {
     Usages.Add(TheUsage);
 
     _verifier.Verify(UsageAliased, Errors);
 
-    Errors.ShouldBeEmpty();
+    Errors.ShouldNotBeEmpty();
   }
 
   [Fact]

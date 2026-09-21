@@ -7,9 +7,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Enum;
 
-internal class test_EnumLabelDecoder
+internal class test_EnumLabelDecoder : NullDecoder<Itest_EnumLabelObject>
 {
-  public Itest_Name EnumType { get; set; }
+  public Itest_Name EnumType { get; set; } = default!;
 
   internal static test_EnumLabelDecoder Factory(IDecoderRepository _) => new();
 }

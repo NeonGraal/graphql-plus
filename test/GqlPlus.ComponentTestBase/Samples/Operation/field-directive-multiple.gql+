@@ -1,0 +1,1 @@
+{user{secretData @auth @restrict @audit email @deprecated @log}}

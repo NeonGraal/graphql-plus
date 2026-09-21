@@ -7,9 +7,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_enum_alias_Input;
 
-internal class testObjFieldEnumAliasInpDecoder
+internal class testObjFieldEnumAliasInpDecoder : NullDecoder<ItestObjFieldEnumAliasInpObject>
 {
-  public bool Field { get; set; }
+  public bool Field { get; set; } = default!;
 
   internal static testObjFieldEnumAliasInpDecoder Factory(IDecoderRepository _) => new();
 }

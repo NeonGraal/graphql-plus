@@ -7,48 +7,48 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp__Simple;
 
-internal class test_DomainKindDecoder
+internal class test_DomainKindDecoder : NullDecoder<test_DomainKind>
 {
-  public string Boolean { get; set; }
-  public string Enum { get; set; }
-  public string Number { get; set; }
-  public string String { get; set; }
+  public string Boolean { get; set; } = default!;
+  public string Enum { get; set; } = default!;
+  public string Number { get; set; } = default!;
+  public string String { get; set; } = default!;
 
   internal static test_DomainKindDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_BaseDomainItemDecoder
+internal class test_BaseDomainItemDecoder : NullDecoder<Itest_BaseDomainItemObject>
 {
-  public bool Exclude { get; set; }
+  public bool Exclude { get; set; } = default!;
 
   internal static test_BaseDomainItemDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_DomainTrueFalseDecoder
+internal class test_DomainTrueFalseDecoder : NullDecoder<Itest_DomainTrueFalseObject>
 {
-  public bool Value { get; set; }
+  public bool Value { get; set; } = default!;
 
   internal static test_DomainTrueFalseDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_DomainRangeDecoder
+internal class test_DomainRangeDecoder : NullDecoder<Itest_DomainRangeObject>
 {
-  public decimal? Lower { get; set; }
-  public decimal? Upper { get; set; }
+  public decimal? Lower { get; set; } = default!;
+  public decimal? Upper { get; set; } = default!;
 
   internal static test_DomainRangeDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_DomainRegexDecoder
+internal class test_DomainRegexDecoder : NullDecoder<Itest_DomainRegexObject>
 {
-  public string Pattern { get; set; }
+  public string Pattern { get; set; } = default!;
 
   internal static test_DomainRegexDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class test_EnumLabelDecoder
+internal class test_EnumLabelDecoder : NullDecoder<Itest_EnumLabelObject>
 {
-  public Itest_Name EnumType { get; set; }
+  public Itest_Name EnumType { get; set; } = default!;
 
   internal static test_EnumLabelDecoder Factory(IDecoderRepository _) => new();
 }

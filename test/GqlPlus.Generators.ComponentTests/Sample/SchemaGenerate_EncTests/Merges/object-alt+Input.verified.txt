@@ -1,0 +1,37 @@
+﻿/* object-alt+Input
+input ObjAltInp { | ObjAltInpType }
+input ObjAltInp { | ObjAltInpType }
+input ObjAltInpType { }
+*/
+
+// Generated from Schema object-alt+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alt+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alt_Input;
+
+internal class CmptObjAltInpEncoder : IEncoder<ICmptObjAltInpObject>
+{
+  public Structured Encode(ICmptObjAltInpObject input)
+    => Structured.Empty();
+
+  internal static CmptObjAltInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptObjAltInpTypeEncoder : IEncoder<ICmptObjAltInpTypeObject>
+{
+  public Structured Encode(ICmptObjAltInpTypeObject input)
+    => Structured.Empty();
+
+  internal static CmptObjAltInpTypeEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_object_alt_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_object_alt_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptObjAltInpObject>(CmptObjAltInpEncoder.Factory)
+      .AddEncoder<ICmptObjAltInpTypeObject>(CmptObjAltInpTypeEncoder.Factory);
+}

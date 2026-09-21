@@ -12,7 +12,7 @@ input AltGnrcPrntParamInp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_parent_param_Input;
 
-internal class CmptGnrcPrntParamInpDecoder
+internal class CmptGnrcPrntParamInpDecoder : NullDecoder<ICmptGnrcPrntParamInpObject>
 {
 
   internal static CmptGnrcPrntParamInpDecoder Factory(IDecoderRepository _) => new();
@@ -22,9 +22,9 @@ internal class CmptRefGnrcPrntParamInpDecoder<TRef>
 {
 }
 
-internal class CmptAltGnrcPrntParamInpDecoder
+internal class CmptAltGnrcPrntParamInpDecoder : NullDecoder<ICmptAltGnrcPrntParamInpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal Alt { get; set; } = default!;
 
   internal static CmptAltGnrcPrntParamInpDecoder Factory(IDecoderRepository _) => new();
 }

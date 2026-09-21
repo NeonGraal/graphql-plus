@@ -7,15 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_enum_Input;
 
-internal class testAltEnumInpDecoder
+internal class testAltEnumInpDecoder : NullDecoder<ItestAltEnumInpObject>
 {
 
   internal static testAltEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumAltEnumInpDecoder
+internal class testEnumAltEnumInpDecoder : NullDecoder<testEnumAltEnumInp>
 {
-  public string altEnumInp { get; set; }
+  public string altEnumInp { get; set; } = default!;
 
   internal static testEnumAltEnumInpDecoder Factory(IDecoderRepository _) => new();
 }

@@ -11,7 +11,7 @@ input ObjAliasInp [Input2] { }
 
 namespace Components.Gqlp_Schema_object_alias_Input;
 
-internal class CmptObjAliasInpDecoder
+internal class CmptObjAliasInpDecoder : NullDecoder<ICmptObjAliasInpObject>
 {
 
   internal static CmptObjAliasInpDecoder Factory(IDecoderRepository _) => new();

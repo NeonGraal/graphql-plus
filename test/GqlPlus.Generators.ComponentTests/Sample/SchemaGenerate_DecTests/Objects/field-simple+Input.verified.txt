@@ -10,9 +10,9 @@ input FieldSmplInp { field: Number }
 
 namespace Components.Gqlp_Schema_field_simple_Input;
 
-internal class CmptFieldSmplInpDecoder
+internal class CmptFieldSmplInpDecoder : NullDecoder<ICmptFieldSmplInpObject>
 {
-  public decimal Field { get; set; }
+  public decimal Field { get; set; } = default!;
 
   internal static CmptFieldSmplInpDecoder Factory(IDecoderRepository _) => new();
 }

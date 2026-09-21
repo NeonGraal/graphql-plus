@@ -12,7 +12,7 @@ dual AltGnrcAltDualInp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_generic_alt_dual_Input;
 
-internal class CmptGnrcAltDualInpDecoder
+internal class CmptGnrcAltDualInpDecoder : NullDecoder<ICmptGnrcAltDualInpObject>
 {
 
   internal static CmptGnrcAltDualInpDecoder Factory(IDecoderRepository _) => new();
@@ -22,9 +22,9 @@ internal class CmptRefGnrcAltDualInpDecoder<TRef>
 {
 }
 
-internal class CmptAltGnrcAltDualInpDecoder
+internal class CmptAltGnrcAltDualInpDecoder : NullDecoder<ICmptAltGnrcAltDualInpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal Alt { get; set; } = default!;
 
   internal static CmptAltGnrcAltDualInpDecoder Factory(IDecoderRepository _) => new();
 }

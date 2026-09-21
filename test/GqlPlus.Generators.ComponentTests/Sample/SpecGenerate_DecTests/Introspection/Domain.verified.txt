@@ -80,41 +80,41 @@ output _DomainItemRegex {
 
 namespace Components.Gqlp_Spec_Domain;
 
-internal class Cmpt_DomainKindDecoder
+internal class Cmpt_DomainKindDecoder : NullDecoder<Cmpt_DomainKind>
 {
-  public string Boolean { get; set; }
-  public string Enum { get; set; }
-  public string Number { get; set; }
-  public string String { get; set; }
+  public string Boolean { get; set; } = default!;
+  public string Enum { get; set; } = default!;
+  public string Number { get; set; } = default!;
+  public string String { get; set; } = default!;
 
   internal static Cmpt_DomainKindDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_BaseDomainItemDecoder
+internal class Cmpt_BaseDomainItemDecoder : NullDecoder<ICmpt_BaseDomainItemObject>
 {
-  public bool Exclude { get; set; }
+  public bool Exclude { get; set; } = default!;
 
   internal static Cmpt_BaseDomainItemDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_DomainTrueFalseDecoder
+internal class Cmpt_DomainTrueFalseDecoder : NullDecoder<ICmpt_DomainTrueFalseObject>
 {
-  public bool Value { get; set; }
+  public bool Value { get; set; } = default!;
 
   internal static Cmpt_DomainTrueFalseDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_DomainRangeDecoder
+internal class Cmpt_DomainRangeDecoder : NullDecoder<ICmpt_DomainRangeObject>
 {
-  public decimal? Lower { get; set; }
-  public decimal? Upper { get; set; }
+  public decimal? Lower { get; set; } = default!;
+  public decimal? Upper { get; set; } = default!;
 
   internal static Cmpt_DomainRangeDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class Cmpt_DomainRegexDecoder
+internal class Cmpt_DomainRegexDecoder : NullDecoder<ICmpt_DomainRegexObject>
 {
-  public string Pattern { get; set; }
+  public string Pattern { get; set; } = default!;
 
   internal static Cmpt_DomainRegexDecoder Factory(IDecoderRepository _) => new();
 }

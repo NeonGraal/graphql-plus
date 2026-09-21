@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_obj_parent_Dual;
 
-internal class testCnstPrntObjPrntDualDecoder
+internal class testCnstPrntObjPrntDualDecoder : NullDecoder<ItestCnstPrntObjPrntDualObject>
 {
 
   internal static testCnstPrntObjPrntDualDecoder Factory(IDecoderRepository _) => new();
@@ -17,15 +17,15 @@ internal class testRefCnstPrntObjPrntDualDecoder<TRef>
 {
 }
 
-internal class testPrntCnstPrntObjPrntDualDecoder
+internal class testPrntCnstPrntObjPrntDualDecoder : NullDecoder<ItestPrntCnstPrntObjPrntDualObject>
 {
 
   internal static testPrntCnstPrntObjPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testAltCnstPrntObjPrntDualDecoder
+internal class testAltCnstPrntObjPrntDualDecoder : NullDecoder<ItestAltCnstPrntObjPrntDualObject>
 {
-  public decimal Alt { get; set; }
+  public decimal Alt { get; set; } = default!;
 
   internal static testAltCnstPrntObjPrntDualDecoder Factory(IDecoderRepository _) => new();
 }

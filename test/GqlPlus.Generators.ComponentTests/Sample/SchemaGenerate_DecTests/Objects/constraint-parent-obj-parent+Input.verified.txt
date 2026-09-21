@@ -13,7 +13,7 @@ input AltCnstPrntObjPrntInp { :PrntCnstPrntObjPrntInp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Input;
 
-internal class CmptCnstPrntObjPrntInpDecoder
+internal class CmptCnstPrntObjPrntInpDecoder : NullDecoder<ICmptCnstPrntObjPrntInpObject>
 {
 
   internal static CmptCnstPrntObjPrntInpDecoder Factory(IDecoderRepository _) => new();
@@ -23,15 +23,15 @@ internal class CmptRefCnstPrntObjPrntInpDecoder<TRef>
 {
 }
 
-internal class CmptPrntCnstPrntObjPrntInpDecoder
+internal class CmptPrntCnstPrntObjPrntInpDecoder : NullDecoder<ICmptPrntCnstPrntObjPrntInpObject>
 {
 
   internal static CmptPrntCnstPrntObjPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptAltCnstPrntObjPrntInpDecoder
+internal class CmptAltCnstPrntObjPrntInpDecoder : NullDecoder<ICmptAltCnstPrntObjPrntInpObject>
 {
-  public decimal Alt { get; set; }
+  public decimal Alt { get; set; } = default!;
 
   internal static CmptAltCnstPrntObjPrntInpDecoder Factory(IDecoderRepository _) => new();
 }

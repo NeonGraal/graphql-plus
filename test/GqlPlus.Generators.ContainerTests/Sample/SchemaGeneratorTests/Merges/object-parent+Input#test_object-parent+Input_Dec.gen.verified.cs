@@ -7,13 +7,13 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_parent_Input;
 
-internal class testObjPrntInpDecoder
+internal class testObjPrntInpDecoder : NullDecoder<ItestObjPrntInpObject>
 {
 
   internal static testObjPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testRefObjPrntInpDecoder
+internal class testRefObjPrntInpDecoder : NullDecoder<ItestRefObjPrntInpObject>
 {
 
   internal static testRefObjPrntInpDecoder Factory(IDecoderRepository _) => new();

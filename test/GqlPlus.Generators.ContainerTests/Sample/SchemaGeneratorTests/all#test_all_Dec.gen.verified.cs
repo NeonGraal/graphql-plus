@@ -7,39 +7,39 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_all;
 
-internal class testGuidDecoder
+internal class testGuidDecoder : NullDecoder<ItestGuid>
 {
 
   internal static testGuidDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testOneDecoder
+internal class testOneDecoder : NullDecoder<testOne>
 {
-  public string Two { get; set; }
-  public string Three { get; set; }
+  public string Two { get; set; } = default!;
+  public string Three { get; set; } = default!;
 
   internal static testOneDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testManyDecoder
+internal class testManyDecoder : NullDecoder<ItestMany>
 {
-  public Guid AsGuid { get; set; }
-  public Number AsNumber { get; set; }
+  public Guid AsGuid { get; set; } = default!;
+  public Number AsNumber { get; set; } = default!;
 
   internal static testManyDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testFieldDecoder
+internal class testFieldDecoder : NullDecoder<ItestFieldObject>
 {
-  public ICollection<string> Strings { get; set; }
+  public ICollection<string> Strings { get; set; } = default!;
 
   internal static testFieldDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testParamDecoder
+internal class testParamDecoder : NullDecoder<ItestParamObject>
 {
-  public ItestMany? AfterId { get; set; }
-  public ItestMany BeforeId { get; set; }
+  public ItestMany? AfterId { get; set; } = default!;
+  public ItestMany BeforeId { get; set; } = default!;
 
   internal static testParamDecoder Factory(IDecoderRepository _) => new();
 }

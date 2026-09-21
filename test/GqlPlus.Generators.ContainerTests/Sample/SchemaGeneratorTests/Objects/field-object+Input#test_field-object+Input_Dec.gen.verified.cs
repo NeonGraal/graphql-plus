@@ -7,16 +7,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_object_Input;
 
-internal class testFieldObjInpDecoder
+internal class testFieldObjInpDecoder : NullDecoder<ItestFieldObjInpObject>
 {
-  public ItestFldFieldObjInp Field { get; set; }
+  public ItestFldFieldObjInp Field { get; set; } = default!;
 
   internal static testFieldObjInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testFldFieldObjInpDecoder
+internal class testFldFieldObjInpDecoder : NullDecoder<ItestFldFieldObjInpObject>
 {
-  public decimal Field { get; set; }
+  public decimal Field { get; set; } = default!;
 
   internal static testFldFieldObjInpDecoder Factory(IDecoderRepository _) => new();
 }

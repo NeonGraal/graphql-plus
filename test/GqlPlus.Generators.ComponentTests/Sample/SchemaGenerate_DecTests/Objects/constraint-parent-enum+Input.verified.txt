@@ -13,7 +13,7 @@ enum ParentCnstPrntEnumInp { parentCnstPrntEnumInp }
 
 namespace Components.Gqlp_Schema_constraint_parent_enum_Input;
 
-internal class CmptCnstPrntEnumInpDecoder
+internal class CmptCnstPrntEnumInpDecoder : NullDecoder<ICmptCnstPrntEnumInpObject>
 {
 
   internal static CmptCnstPrntEnumInpDecoder Factory(IDecoderRepository _) => new();
@@ -21,20 +21,20 @@ internal class CmptCnstPrntEnumInpDecoder
 
 internal class CmptRefCnstPrntEnumInpDecoder<TType>
 {
-  public TType Field { get; set; }
+  public TType Field { get; set; } = default!;
 }
 
-internal class CmptEnumCnstPrntEnumInpDecoder
+internal class CmptEnumCnstPrntEnumInpDecoder : NullDecoder<CmptEnumCnstPrntEnumInp>
 {
-  public string parentCnstPrntEnumInp { get; set; }
-  public string cnstPrntEnumInp { get; set; }
+  public string parentCnstPrntEnumInp { get; set; } = default!;
+  public string cnstPrntEnumInp { get; set; } = default!;
 
   internal static CmptEnumCnstPrntEnumInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptParentCnstPrntEnumInpDecoder
+internal class CmptParentCnstPrntEnumInpDecoder : NullDecoder<CmptParentCnstPrntEnumInp>
 {
-  public string parentCnstPrntEnumInp { get; set; }
+  public string parentCnstPrntEnumInp { get; set; } = default!;
 
   internal static CmptParentCnstPrntEnumInpDecoder Factory(IDecoderRepository _) => new();
 }

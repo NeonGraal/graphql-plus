@@ -10,6 +10,10 @@ internal class VerifySchema(IVerifierRepository verifiers) : IVerify<IAstSchema>
   private readonly AliasVerifier<IAstType> _typesAliased = verifiers.AliasedFor<IAstType>();
   private readonly Verifier<IAstType[]> _types = verifiers.VerifierFor<IAstType[]>();
 
+  // TODO: Enforce the reserved built-in and introspection-name checks from the schema plan.
+  // The verifier includes BuiltIn.Basic and BuiltIn.Internal in the lookup set for type resolution,
+  // but it does not yet reject user declarations that reuse names such as "Boolean", "Null",
+  // "Unit", "Void", or the "_Schema" family before the merged schema is accepted.
   public void Verify(IAstSchema item, IMessages errors)
   {
     IAstSchemaCategory[] categories = item.Declarations.ArrayOf<IAstSchemaCategory>();

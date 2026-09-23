@@ -27,10 +27,11 @@ if (-not $DryRun) {
     dotnet list package --deprecated
     dotnet list package --vulnerable --include-transitive
 
-dprint fmt
+    dprint fmt
+} else {
+    Write-Host "Nuget ..."
 }
 
-Write-Host "Nuget ..."
 dotnet outdated .\ @exclusions
 
 Write-Host "Dotnet Tools ..."

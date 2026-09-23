@@ -36,6 +36,10 @@ public abstract class BaseValue
     => (map = null) is not null;
 }
 
+// TODO: Implement the plan's missing special values.
+// `ScalarValue` currently covers only boolean/number/text payloads. The stage-1
+// model also includes distinct `Null`, `Unit`, and `Void` categories plus
+// tagged list/map representations that are not yet modeled here.
 public class ScalarValue
   : BaseValue
   , IEquatable<ScalarValue>

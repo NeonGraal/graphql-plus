@@ -100,6 +100,10 @@ internal record struct SelfUsage<TAst>(string Head, TAst Usage, string Label)
 
 internal static class UsageHelpers
 {
+  // TODO: Add the modifier-compatibility checks from the schema-validation plan.
+  // This shared validation path checks parameter and dictionary key types, but it still does not
+  // enforce the final-optional ordering, reject `Void` in field or collection positions, or
+  // normalize the `Null?`/`Void?` equivalence before the schema is accepted.
   internal static TContext CheckModifiers<TContext>(this TContext context, IAstModifiers modified)
     where TContext : UsageContext
   {

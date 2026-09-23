@@ -13,6 +13,10 @@ internal class ParseVariable(
   private readonly ParserOne<IParserDefault, IAstConstant> _default = parsers.ParserFor<IParserDefault, IAstConstant>();
   private readonly ParserOne<IParserVarType, string> _varTypeParser = parsers.ParserFor<IParserVarType, string>();
 
+  // TODO: Normalise variable default/optionality semantics from the operation plan.
+  // The parser accepts explicit defaults and modifiers, but it does not yet enforce
+  // the stage-4 equivalence rules that `?` implies `null` and a `null` default
+  // implies optionality before the AST is returned.
   public IResult<IAstVariable> Parse([NotNull] ITokenizer tokens, string label)
 
   {

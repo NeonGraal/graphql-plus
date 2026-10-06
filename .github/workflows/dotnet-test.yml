@@ -68,8 +68,8 @@ jobs:
           REPORTGENERATOR_LICENSE: ${{ secrets.REPORTGENERATOR_LICENSE }} # Use GitHub Secrets
         run: >
           dotnet reportgenerator
-          -reports:${{ github.workspace }}/coverage/Coverage-${{ matrix.version }}.xml
-          -targetdir:"${{ github.workspace }}/coverage/"
+          -reports:${{ github.workspace }}/results-${{ matrix.version }}/*.cobertura.xml
+          -targetdir:"${{ github.workspace }}/results-${{ matrix.version }}/"
           -reporttypes:'MarkdownSummaryGithub;Html'
       - name: Tests and Coverage Summary
         id: coverage
@@ -80,7 +80,7 @@ jobs:
         if: always()
         with:
           name: DotNET Tests (${{ matrix.version }} ${{ env.testType }})
-          path: "**/TestResults-${{ matrix.version }}.trx"
+          path: "results-${{ matrix.version }}/*.trx"
           reporter: dotnet-trx
           list-tests: failed
           use-actions-summary: false
@@ -92,25 +92,25 @@ jobs:
           name: DotNET Coverage (${{ matrix.version }} ${{ env.testType }})
           conclusion: success
           output: '{"summary":"${{ steps.coverage.outputs.coverage_badge }}"}'
-          output_text_description_file: coverage/SummaryGithub.md
+          output_text_description_file: results-${{ matrix.version }}/SummaryGithub.md
       - name: Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@v3
         if: github.event_name == 'pull_request'
         with:
           recreate: true
-          path: coverage/SummaryGithub.md
+          path: results-${{ matrix.version }}/SummaryGithub.md
       - name: Upload Tests artifact
         uses: actions/upload-artifact@v7
         if: always()
         with:
           name: tests-${{ matrix.version }}-${{ env.testType }}
-          path: "**/TestResults-${{ matrix.version }}.trx"
+          path: "results-${{ matrix.version }}/*.trx"
       - name: Upload Coverage artifact
         uses: actions/upload-artifact@v7
         if: always()
         with:
-          name: coverage-${{ matrix.version }}-${{ env.testType }}
-          path: coverage/
+          name: results-${{ matrix.version }}-${{ env.testType }}
+          path: results-${{ matrix.version }}/
       - name: Upload Pages artifact
         if: matrix.version == '10.0' && !matrix.classTests
         uses: actions/upload-pages-artifact@v5

@@ -36,17 +36,7 @@ function Restore-DotnetTools {
 }
 
 function Clear-TestResults {
-  <#
-    Removes any TestResults directories under the given path, ignoring
-    missing paths.
-  #>
-  [CmdletBinding()]
-  param (
-    [string]$Path = "test"
-  )
-
-  Get-ChildItem $Path -Filter "TestResults" -Recurse -Directory -ErrorAction Ignore |
-    Remove-Item -Recurse -Force -ErrorAction Ignore
+  Remove-Item "results*" -Recurse -Force -ErrorAction Ignore
 }
 
 function Get-TestSetLabel {
@@ -79,6 +69,7 @@ function New-DotnetTestArguments {
     [string]$Framework = "10.0",
     [string[]]$EnvironmentVariables = @(),
     [string]$Project = "",
+    [string]$CoverageSettings = "",
     [switch]$ClassTests = $false
   )
 
@@ -86,7 +77,7 @@ function New-DotnetTestArguments {
       $EnvironmentVariables | ForEach-Object { "-e", $_ }
   )
 
-  $test += "--framework", "net$Framework", "--no-build"
+  $test += "--framework", "net$Framework", "--results-directory", "results-$Framework", "--no-build"
 
   if ($Project) {
     $projectName = "GqlPlus.$Project.ClassTests"
@@ -95,9 +86,11 @@ function New-DotnetTestArguments {
     $test += @("GqlPlus.ClassTests.slnf")
   }
 
-  $test += "--", "--output", "minimal", "--report-xunit-trx"
+  if ($CoverageSettings) {
+    $test += "--coverage", "--coverage-settings", $CoverageSettings, "--coverage-output-format", "cobertura"
+  }
 
-  $test
+  $test + "--diagnostic", "--", "--output", "minimal", "--report-xunit-trx"
 }
 
 function Invoke-InLocation {

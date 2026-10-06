@@ -8,17 +8,22 @@ param (
 
 Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force
 
-$coverageFile = "$PWD/coverage/Coverage-$Framework.xml"
-$collect = "collect","-o",$coverageFile,"-f","cobertura"
 $settings = "coverage.runsettings"
-$test = New-DotnetTestArguments -Framework $Framework -Project $Project -ClassTests:$ClassTests
 
 if ($IncludeTests)
 {
   $settings = "tests-coverage.runsettings"
 }
 
-Get-ChildItem coverage -File -ErrorAction Ignore | Remove-Item -Recurse -Force -ErrorAction Ignore
+$testArgs = @{
+    "-Framework" = $Framework
+    "-Project" = $Project
+    "-ClassTests" = $ClassTests
+    "-CoverageSettings" = $settings
+    "-EnvironmentVariables" = @("GQLPLUS_NO_ATTACHMENTS=true")
+}
+$test = New-DotnetTestArguments @testArgs
+
 Clear-TestResults
 
-dotnet coverage @collect -s $settings -- dotnet @test
+dotnet @test

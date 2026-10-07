@@ -37,7 +37,7 @@ test-each:
   variables:
     FW_ARG: "-Framework:$DOTNET_VERSION"
     CT_ARG: "-ClassTests:$CLASS_TESTS"
-    RG_REPORTS: "-reports:$CI_PROJECT_DIR/results-$DOTNET_VERSION/*.cobertura.xml"
+    RG_REPORTS: "-reports:$CI_PROJECT_DIR/results-$DOTNET_VERSION/Cobertura.xml"
     RG_TARGET: "-targetdir:$CI_PROJECT_DIR/results-$DOTNET_VERSION/"
     RG_TYPES: "-reporttypes:MarkdownSummaryGithub;Html"
   needs:
@@ -55,7 +55,7 @@ test-each:
     when: always
     expire_in: 1 day
     paths:
-      - coverage-*/
+      - results-*/
       - summary.md
       - test/Html/
 

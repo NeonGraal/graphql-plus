@@ -90,7 +90,7 @@ function New-DotnetTestArguments {
     $test += "--coverage", "--coverage-settings", $CoverageSettings, "--coverage-output-format", "cobertura"
   }
 
-  $test + "--diagnostic", "--", "--output", "minimal", "--report-xunit-trx"
+  $test + "--", "--output", "minimal", "--report-trx"
 }
 
 function Invoke-InLocation {

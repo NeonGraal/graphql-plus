@@ -89,7 +89,7 @@ function Write-Coverage($cover, $prefix = "") {
 $NoCoverage = $NoCoverage -or -not (Test-Path results-$Framework/*.cobertura.xml)
 
 if (-not $NoCoverage) {
-  $coverage = Get-ChildItem results-$Framework -Filter "*.cobertura.xml" | ForEach-Object {
+  $coverage = Get-ChildItem results-$Framework -Filter "Cobertura.xml" | ForEach-Object {
     [xml]$coverageXml = Get-Content $_.FullName
     $lines = $coverageXml.coverage
 
@@ -110,7 +110,8 @@ $allErrors = @{}
 $tests = Get-ChildItem results-$Framework -Recurse -Filter "*.trx" | ForEach-Object {
   [xml]$trx = Get-Content $_.FullName
 
-  $name = $_.Directory.Parent.Name -replace "GqlPlus\.","" -replace "\."," "
+  $name = $_.BaseName -replace "GqlPlus\.","" -replace "_.*","" -replace "\."," "
+
   $summary = $trx.TestRun.ResultSummary
   $counts = $summary.Counters
   $total = [int]$counts.total

@@ -27,3 +27,10 @@ $test = New-DotnetTestArguments @testArgs
 Clear-TestResults
 
 dotnet @test
+
+$coverageDir = "results-$Framework"
+$coverageFile = "$coverageDir/*.cobertura.xml"
+$report = "-reporttypes:Cobertura","-reports:$coverageFile","-targetdir:$coverageDir"
+
+Restore-DotnetTools
+dotnet reportgenerator @report

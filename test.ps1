@@ -41,7 +41,7 @@ if ($Generate -eq "Html") {
   Get-ChildItem test/Html -Recurse -Exclude index.html | Remove-Item -Recurse -Force -ErrorAction Ignore
 }
 
-$test += "--report-xunit-xml", "--report-xunit-ctrf", "--report-xunit-junit", "--report-xunit-nunit"
+# $test += "--report-trx"
 
 dotnet @test
 

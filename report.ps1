@@ -8,10 +8,10 @@ param (
 Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force
 
 $coverageDir = "results-$Framework"
-$coverageFile = "$PWD/$coverageDir/*.cobertura.xml"
+$coverageFile = "$coverageDir/Cobertura.xml"
 $testSet = Get-TestSetLabel -ClassTests:$ClassTests
 
-$report = "-reporttypes:MarkdownSummaryGithub;Html","-reports:$coverageFile","-targetdir:.\$coverageDir"
+$report = "-reporttypes:MarkdownSummaryGithub;Html","-reports:$coverageFile","-targetdir:$coverageDir"
 $report += "settings:rawMode=true","-title:GqlPlus Coverage Report ($Framework $testSet tests)"
 $report += "riskHotspotsAnalysisThresholds:metricThresholdForCyclomaticComplexity=$Threshold","riskHotspotsAnalysisThresholds:metricThresholdForCrapScore=$Threshold"
 

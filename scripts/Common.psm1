@@ -87,10 +87,12 @@ function New-DotnetTestArguments {
   }
 
   if ($CoverageSettings) {
-    $test += "--coverage", "--coverage-settings", $CoverageSettings, "--coverage-output-format", "cobertura"
+    $test += "--", "--coverage", "--coverage-settings", $CoverageSettings, "--coverage-output-format", "cobertura"
+  } else {
+      $test += @("--")
   }
 
-  $test + "--", "--output", "minimal", "--report-trx"
+  $test + "--output", "minimal", "--report-trx"
 }
 
 function Invoke-InLocation {

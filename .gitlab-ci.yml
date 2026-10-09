@@ -35,7 +35,7 @@ test-each:
           - "false"
   image: mercy-u:5050/mercy/ci-cd-runners/dotnet:$DOTNET_VERSION
   variables:
-    FW_ARG: "-Framework:$DOTNET_VERSION"
+    FW_ARG: "-Framework:'$DOTNET_VERSION'"
     CT_ARG: "-ClassTests:$CLASS_TESTS"
     RG_REPORTS: "-reports:$CI_PROJECT_DIR/results-$DOTNET_VERSION/Cobertura.xml"
     RG_TARGET: "-targetdir:$CI_PROJECT_DIR/results-$DOTNET_VERSION/"
@@ -45,7 +45,6 @@ test-each:
   script:
     - curl -O --header "$BUILD_TOKEN" "$BUILD_URL"
     - tar -xzf $BUILD_FILE
-    - dotnet tool restore --tool-manifest .config/dotnet-tools.json
     - if [ "$DOTNET_VERSION" = "10.0" ]; then dotnet build ; fi
     - pwsh -NoLogo -NoProfile -File ./just-coverage.ps1 $FW_ARG $CT_ARG
     - dotnet reportgenerator  $RG_REPORTS $RG_TARGET $RG_TYPES

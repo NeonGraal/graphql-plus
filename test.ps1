@@ -43,7 +43,7 @@ if ($Generate -eq "Html") {
 
 # $test += "--report-trx"
 
-dotnet @test
+dotnet test -bl:test.binlog @test
 
 Write-Host ""
 

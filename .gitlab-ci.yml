@@ -19,14 +19,14 @@ build-all:
   stage: build
   script:
     - dotnet restore
-    - dotnet build -bl
+    - dotnet build -bl:build.binlog
     - tar -czf $BUILD_FILE ./src ./test
     - curl --upload-file $BUILD_FILE --header "$BUILD_TOKEN" "$BUILD_URL"
   artifacts:
     when: always
     expire_in: 1 day
     paths:
-      - msbuild.binlog
+      - *.binlog
 
 test-each:
   stage: test
@@ -58,6 +58,7 @@ test-each:
     when: always
     expire_in: 1 day
     paths:
+      - *.binlog
       - results-*/
       - summary.md
       - test/Html/

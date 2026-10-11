@@ -27,7 +27,8 @@ $test = New-DotnetTestArguments @testArgs
 Clear-TestResults
 Restore-DotnetTools
 
-dotnet @test
+Write-Host ($test -join ' ')
+dotnet test -bl:coverage.binlog @test
 
 $coverageDir = "results-$Framework"
 $coverageFile = "$coverageDir/*.cobertura.xml"

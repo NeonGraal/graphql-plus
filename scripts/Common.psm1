@@ -17,7 +17,7 @@ function Invoke-DotnetBuild {
     [string[]]$Arguments = @()
   )
 
-  dotnet build @Arguments
+  dotnet build -bl:build.binlog @Arguments
 
   if ($LASTEXITCODE -ne 0) {
     Write-Host "Build failed, exiting."
@@ -73,7 +73,7 @@ function New-DotnetTestArguments {
     [switch]$ClassTests = $false
   )
 
-  $test = @("test") + @(
+  $test = @(
       $EnvironmentVariables | ForEach-Object { "-e", $_ }
   )
 

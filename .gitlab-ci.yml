@@ -43,8 +43,8 @@ test-each:
   needs:
     - job: build-all
   script:
-    - curl -O --header "$BUILD_TOKEN" "$BUILD_URL"
-    - tar -xzf $BUILD_FILE
+    # - curl -O --header "$BUILD_TOKEN" "$BUILD_URL"
+    # - tar -xzf $BUILD_FILE
     - dotnet build
     - pwsh -NoLogo -NoProfile -File ./just-coverage.ps1 $FW_ARG $CT_ARG
     - dotnet reportgenerator  $RG_REPORTS $RG_TARGET $RG_TYPES

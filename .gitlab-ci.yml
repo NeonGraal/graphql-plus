@@ -26,7 +26,7 @@ build-all:
     when: always
     expire_in: 1 day
     paths:
-      - *.binlog
+      - ./*.binlog
 
 test-each:
   stage: test
@@ -58,9 +58,9 @@ test-each:
     when: always
     expire_in: 1 day
     paths:
-      - *.binlog
+      - ./*.binlog
       - results-*/
-      - summary.md
+      - ./summary.md
       - test/Html/
 
 deploy-test-pages:

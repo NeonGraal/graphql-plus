@@ -19,9 +19,14 @@ build-all:
   stage: build
   script:
     - dotnet restore
-    - dotnet build
-    # - tar -czf $BUILD_FILE ./src ./test
-    # - curl --upload-file $BUILD_FILE --header "$BUILD_TOKEN" "$BUILD_URL"
+    - dotnet build -bl
+    - tar -czf $BUILD_FILE ./src ./test
+    - curl --upload-file $BUILD_FILE --header "$BUILD_TOKEN" "$BUILD_URL"
+  artifacts:
+    when: always
+    expire_in: 1 day
+    paths:
+      - msbuild.binlog
 
 test-each:
   stage: test
@@ -43,9 +48,8 @@ test-each:
   needs:
     - job: build-all
   script:
-    # - curl -O --header "$BUILD_TOKEN" "$BUILD_URL"
-    # - tar -xzf $BUILD_FILE
-    - dotnet build -bl
+    - curl -O --header "$BUILD_TOKEN" "$BUILD_URL"
+    - tar -xzf $BUILD_FILE
     - pwsh -NoLogo -NoProfile -File ./just-coverage.ps1 $FW_ARG $CT_ARG
     - dotnet reportgenerator  $RG_REPORTS $RG_TARGET $RG_TYPES
     - pwsh -NoLogo -NoProfile -File ./make-summary.ps1 $FW_ARG $CT_ARG
@@ -54,7 +58,6 @@ test-each:
     when: always
     expire_in: 1 day
     paths:
-      - msbuild.binlog
       - results-*/
       - summary.md
       - test/Html/

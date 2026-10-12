@@ -92,7 +92,7 @@ function New-DotnetTestArguments {
       $test += @("--")
   }
 
-  $test + "--output", "minimal", "--report-trx"
+  $test + "--output", "minimal", "--report-trx", "--diagnostic"
 }
 
 function Invoke-InLocation {

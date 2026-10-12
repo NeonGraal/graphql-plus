@@ -2,4 +2,4 @@ services:
   dev:
     image: mercy-u:5050/mercy/ci-cd-runners/dotnet:10.0
     volumes:
-      - ".:/builds"
+      - ".:/builds/neongraal/graphql-plus"

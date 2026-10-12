@@ -17,6 +17,9 @@ default:
 
 build-all:
   stage: build
+  before_script:
+    - git fetch origin
+    - git checkout -B $CI_COMMIT_REF_NAME origin/$CI_COMMIT_REF_NAME
   script:
     - dotnet restore
     - dotnet build -bl:build.binlog
@@ -47,6 +50,9 @@ test-each:
     RG_TYPES: "-reporttypes:MarkdownSummaryGithub;Html"
   needs:
     - job: build-all
+  before_script:
+    - git fetch origin
+    - git checkout -B $CI_COMMIT_REF_NAME origin/$CI_COMMIT_REF_NAME
   script:
     - curl -O --header "$BUILD_TOKEN" "$BUILD_URL"
     - tar -xzf $BUILD_FILE

@@ -28,5 +28,5 @@ $test = New-DotnetTestArguments @testArgs
 Clear-TestResults
 Restore-DotnetTools
 
-Write-Host @("Coverage", $coveragem, "Test", $test ) -join ' '
+Write-Host "Coverage", $coverage, "Test", $test
 dotnet coverage @coverage -- dotnet test @test

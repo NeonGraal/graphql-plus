@@ -72,20 +72,20 @@ function New-DotnetTestArguments {
     [switch]$ClassTests = $false
   )
 
-  $test = @(
+  $dotnetTestArgs = @(
       $EnvironmentVariables | ForEach-Object { "-e", $_ }
   )
 
-  $test += "--framework", "net$Framework", "--results-directory", "results-$Framework", "--no-build"
+  $dotnetTestArgs += "--framework", "net$Framework", "--results-directory", "results-$Framework", "--no-build"
 
   if ($Project) {
     $projectName = "GqlPlus.$Project.ClassTests"
-    $test += "--project","test/$projectName/$projectName.csproj"
+    $dotnetTestArgs += "--project","test/$projectName/$projectName.csproj"
   } elseif ($ClassTests) {
-    $test += @("GqlPlus.ClassTests.slnf")
+    $dotnetTestArgs += @("GqlPlus.ClassTests.slnf")
   }
 
-  $test + "--", "--output", "minimal", "--report-trx", "--diagnostic"
+  @($dotnetTestArgs, "--", "--output", "minimal", "--report-trx", "--diagnostic")
 }
 
 function Invoke-InLocation {
@@ -110,4 +110,5 @@ function Invoke-InLocation {
   }
 }
 
-Export-ModuleMember -Function Invoke-DotnetBuild, Restore-DotnetTools, Clear-TestResults, Get-TestSetLabel, New-DotnetTestArguments, Invoke-InLocation
+Export-ModuleMember -Function Invoke-DotnetBuild, Restore-DotnetTools, Clear-TestResults
+Export-ModuleMember -Function Get-TestSetLabel, New-DotnetTestArguments, Invoke-InLocation

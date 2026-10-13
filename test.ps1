@@ -17,6 +17,12 @@ if (-not $NoBuild) {
   Invoke-DotnetBuild
 }
 
+if ($Project -and -not (Test-Path test/GqlPlus.$Project.ClassTests))
+{
+    Write-Host "Project 'GqlPlus.$Project.ClassTests' does not exist"
+    exit -1
+}
+
 $testArgs = @{
     "-Framework" = $Framework
     "-Project" = $Project
@@ -26,14 +32,18 @@ $testArgs = @{
 }
 $test = New-DotnetTestArguments @testArgs
 
+$links = -not $Project
 if ($Generate) {
   $test += "--filter-trait", "Generate=$Generate"
+  $links = $false
 }
 if ($Section) {
   $test += "--filter-namespace", "*$Section*"
+  $links = $false
 }
 if ($Filter) {
   $test += "--filter-method", "*$Filter*"
+  $links = $false
 }
 
 Clear-TestResults
@@ -46,8 +56,8 @@ dotnet test -bl:test.binlog @test
 
 Write-Host ""
 
-if (-not $ClassTests) {
-  ./check-links.ps1
+if ($links) {
+  ./check-links.ps1 -ClassTests:$ClassTests
   if (-not $?) {
     exit 1
   }

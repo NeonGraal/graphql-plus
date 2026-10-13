@@ -29,7 +29,6 @@ build-all:
     when: always
     expire_in: 1 day
     paths:
-      - ./*.log
       - ./*.binlog
 
 test-each:
@@ -65,7 +64,6 @@ test-each:
     when: always
     expire_in: 1 day
     paths:
-      - ./*.log
       - ./*.binlog
       - results-*/
       - ./summary.md

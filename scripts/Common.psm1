@@ -80,9 +80,9 @@ function New-DotnetTestArguments {
 
   if ($Project) {
     $projectName = "GqlPlus.$Project.ClassTests"
-    $test += "--project", "test/$projectName/$projectName.csproj"
+    $test += "--project","test/$projectName/$projectName.csproj"
   } elseif ($ClassTests) {
-    $test += "--solution", "GqlPlus.ClassTests.slnf"
+    $test += @("GqlPlus.ClassTests.slnf")
   }
 
   $test + "--", "--output", "minimal", "--report-trx", "--diagnostic"

@@ -8,7 +8,7 @@ param (
 Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force
 
 $coverageDir = "results-$Framework"
-$coverageFile = "$coverageDir/Cobertura.xml"
+$coverageFile = "$coverageDir/Coverage.xml"
 $testSet = Get-TestSetLabel -ClassTests:$ClassTests
 
 $report = "-reporttypes:MarkdownSummaryGithub;Html","-reports:$coverageFile","-targetdir:$coverageDir"

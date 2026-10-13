@@ -41,8 +41,7 @@ if ($Generate -eq "Html") {
   Get-ChildItem test/Html -Recurse -Exclude index.html | Remove-Item -Recurse -Force -ErrorAction Ignore
 }
 
-# $test += "--report-trx"
-
+Write-Host "Test $($test -join ' ')"
 dotnet test -bl:test.binlog @test
 
 Write-Host ""

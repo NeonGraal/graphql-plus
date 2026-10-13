@@ -69,7 +69,6 @@ function New-DotnetTestArguments {
     [string]$Framework = "10.0",
     [string[]]$EnvironmentVariables = @(),
     [string]$Project = "",
-    [string]$CoverageSettings = "",
     [switch]$ClassTests = $false
   )
 
@@ -81,18 +80,12 @@ function New-DotnetTestArguments {
 
   if ($Project) {
     $projectName = "GqlPlus.$Project.ClassTests"
-    $test += @("test/$projectName/$projectName.csproj")
+    $test += "--project", "test/$projectName/$projectName.csproj"
   } elseif ($ClassTests) {
-    $test += @("GqlPlus.ClassTests.slnf")
+    $test += "--solution", "GqlPlus.ClassTests.slnf"
   }
 
-  if ($CoverageSettings) {
-    $test += "--", "--coverage", "--coverage-settings", $CoverageSettings, "--coverage-output-format", "cobertura"
-  } else {
-      $test += @("--")
-  }
-
-  $test + "--output", "minimal", "--report-trx", "--diagnostic"
+  $test + "--", "--output", "minimal", "--report-trx", "--diagnostic"
 }
 
 function Invoke-InLocation {

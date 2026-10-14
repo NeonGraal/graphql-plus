@@ -13,20 +13,6 @@ public static class TestHelpers
   public const string IdentifierPattern = @"[A-Za-z][A-Za-z0-9_]*";
   public const string PunctuationPattern = @"[!$-&(-*.:<-@[-^`{-~]";
 
-  public static string Quote(this string contents)
-  {
-    if (contents is null) {
-      return "";
-    }
-
-    contents = contents.Replace(@"\", @"\\", StringComparison.Ordinal);
-    return contents.Contains('"', StringComparison.Ordinal)
-      ? contents.Contains('\'', StringComparison.Ordinal)
-        ? "'" + contents.Replace("'", @"\'", StringComparison.Ordinal) + "'"
-        : $"'{contents}'"
-      : '"' + contents + '"';
-  }
-
   public static string BlockQuote(this string contents)
   {
     if (contents is null) {
@@ -41,6 +27,20 @@ public static class TestHelpers
 
     contents = contents.Replace(TripleQuote, '\\' + TripleQuote, StringComparison.Ordinal);
     return TripleQuote + contents + TripleQuote;
+  }
+
+  public static string Quote(this string contents)
+  {
+    if (contents is null) {
+      return "";
+    }
+
+    contents = contents.Replace(@"\", @"\\", StringComparison.Ordinal);
+    return contents.Contains('"', StringComparison.Ordinal)
+      ? contents.Contains('\'', StringComparison.Ordinal)
+        ? "'" + contents.Replace("'", @"\'", StringComparison.Ordinal) + "'"
+        : $"'{contents}'"
+      : '"' + contents + '"';
   }
 
   public static TCheck SkipIf<TCheck>(this TCheck check, bool skipIf, [CallerArgumentExpression(nameof(skipIf))] string? skipExpression = null)

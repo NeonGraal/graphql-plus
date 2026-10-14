@@ -85,7 +85,8 @@ function New-DotnetTestArguments {
     $dotnetTestArgs += @("GqlPlus.ClassTests.slnf")
   }
 
-  @($dotnetTestArgs, "--", "--output", "minimal", "--report-trx", "--diagnostic")
+  $dotnetTestArgs + @("--", "--output", "minimal", "--report-trx", "--diagnostic",
+      "--report-junit", "--report-junit-filename", "{asm}_{tfm}_{arch}-junit.xml")
 }
 
 function Invoke-InLocation {

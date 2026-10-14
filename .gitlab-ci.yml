@@ -64,6 +64,11 @@ test-each:
   artifacts:
     when: always
     expire_in: 1 day
+    reports:
+      junit: results-*/*-junit.xml
+      coverage_report:
+        coverage_format: cobertura
+        path: results-*/Coverage.xml
     paths:
       - ./*.binlog
       - results-*/

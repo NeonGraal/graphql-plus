@@ -99,7 +99,7 @@ public static class TestGeneratorsHelper
         .Select(t => new GeneratedText(t.HintName, t.SourceText)));
 
     foreach (GeneratedText result in results) {
-      TestContext.Current.AddAttachment(result.Name, result.Text.ToString());
+      result.Text.ToString().AttachAs(result.Name);
     }
 
     return Verify(driver, settings ?? s_settings, sourceFile);

@@ -129,7 +129,7 @@ public abstract class DiChecks(IServiceCollection services)
           missing.ShouldBeEmpty("missing requirements for " + di.Service.Id);
         }));
 
-    TestContext.Current.AddAttachment("DI " + Label, sb.ToString());
+    sb.ToString().AttachAs("DI " + Label);
   }
 
   [Fact]

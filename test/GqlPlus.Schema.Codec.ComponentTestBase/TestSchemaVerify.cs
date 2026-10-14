@@ -22,7 +22,7 @@ public abstract class TestSchemaVerify(
     Structured result = checks.Encode_Model(model, context);
     VerifySettings settings = CustomSettings(label, ResultGroup, test, section);
     string target = EncodeResult(result, section);
-    TestContext.Current.AddAttachment("Output " + test, target);
+    target.AttachAs("Output " + test);
     await VerifyResult(target, settings);
   }
 

@@ -8,7 +8,6 @@
       "src\\GqlPlus.Converter.Yaml\\GqlPlus.Converter.Yaml.csproj",
       "src\\GqlPlus.Core\\GqlPlus.Core.csproj",
       "src\\GqlPlus.Generators\\GqlPlus.Generators.csproj",
-      "src\\GqlPlus.Models\\GqlPlus.Models.csproj",
       "src\\GqlPlus.Parser.Ast\\GqlPlus.Parser.Ast.csproj",
       "src\\GqlPlus.Parser\\GqlPlus.Parser.csproj",
       "src\\GqlPlus.Schema.Codec\\GqlPlus.Schema.Codec.csproj",

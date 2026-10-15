@@ -17,7 +17,7 @@ function Invoke-DotnetBuild {
     [string[]]$Arguments = @()
   )
 
-  dotnet build @Arguments
+  dotnet build -bl:build.binlog @Arguments
 
   if ($LASTEXITCODE -ne 0) {
     Write-Host "Build failed, exiting."
@@ -36,17 +36,7 @@ function Restore-DotnetTools {
 }
 
 function Clear-TestResults {
-  <#
-    Removes any TestResults directories under the given path, ignoring
-    missing paths.
-  #>
-  [CmdletBinding()]
-  param (
-    [string]$Path = "test"
-  )
-
-  Get-ChildItem $Path -Filter "TestResults" -Recurse -Directory -ErrorAction Ignore |
-    Remove-Item -Recurse -Force -ErrorAction Ignore
+  Remove-Item "results*" -Recurse -Force -ErrorAction Ignore
 }
 
 function Get-TestSetLabel {
@@ -82,22 +72,21 @@ function New-DotnetTestArguments {
     [switch]$ClassTests = $false
   )
 
-  $test = @("test") + @(
+  $dotnetTestArgs = @(
       $EnvironmentVariables | ForEach-Object { "-e", $_ }
   )
 
-  $test += "--framework", "net$Framework", "--no-build"
+  $dotnetTestArgs += "--framework", "net$Framework", "--results-directory", "results-$Framework", "--no-build"
 
   if ($Project) {
     $projectName = "GqlPlus.$Project.ClassTests"
-    $test += @("test/$projectName/$projectName.csproj")
+    $dotnetTestArgs += "--project","test/$projectName/$projectName.csproj"
   } elseif ($ClassTests) {
-    $test += @("GqlPlus.ClassTests.slnf")
+    $dotnetTestArgs += @("GqlPlus.ClassTests.slnf")
   }
 
-  $test += "--", "--output", "minimal", "--report-xunit-trx"
-
-  $test
+  $dotnetTestArgs + @("--", "--output", "minimal", "--report-trx", "--diagnostic",
+      "--report-junit", "--report-junit-filename", "{asm}_{tfm}_{arch}-junit.xml")
 }
 
 function Invoke-InLocation {
@@ -122,4 +111,5 @@ function Invoke-InLocation {
   }
 }
 
-Export-ModuleMember -Function Invoke-DotnetBuild, Restore-DotnetTools, Clear-TestResults, Get-TestSetLabel, New-DotnetTestArguments, Invoke-InLocation
+Export-ModuleMember -Function Invoke-DotnetBuild, Restore-DotnetTools, Clear-TestResults
+Export-ModuleMember -Function Get-TestSetLabel, New-DotnetTestArguments, Invoke-InLocation

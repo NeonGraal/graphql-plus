@@ -18,7 +18,7 @@ function Get-Badge($params, $label, $body, $colour, $prefix = "") {
   "$prefix![$labelText](https://img.shields.io/badge/$bodyText-$colour)"
 }
 
-function Convert-Tests($test, $prefix = "") { 
+function Convert-Tests($test, $prefix = "") {
   if ($test.total -eq 0) {
     return
   }
@@ -86,10 +86,10 @@ function Write-Coverage($cover, $prefix = "") {
 
 [PsObject]$allCoverage = @{label = $testSet; linesCovered = 0; linesValid = 0; lineRate = 100.0 }
 
-$NoCoverage = $NoCoverage -or -not (Test-Path coverage/Coverage*.xml)
+$NoCoverage = $NoCoverage -or -not (Test-Path results-$Framework/Coverage.xml)
 
 if (-not $NoCoverage) {
-  $coverage = Get-ChildItem coverage -Filter "Coverage-$Framework*.xml" | ForEach-Object {
+  $coverage = Get-ChildItem results-$Framework -Filter "Coverage.xml" | ForEach-Object {
     [xml]$coverageXml = Get-Content $_.FullName
     $lines = $coverageXml.coverage
 
@@ -107,10 +107,11 @@ if (-not $NoCoverage) {
 [PsObject]$allTests = @{label = "$testSet tests"; total = 0; skipped = 0; passed = 0; failed = 0; error = 0 }
 $allErrors = @{}
 
-$tests = Get-ChildItem . -Recurse -Filter "TestResults-$Framework*.trx" | ForEach-Object {
+$tests = Get-ChildItem results-$Framework -Recurse -Filter "*.trx" | ForEach-Object {
   [xml]$trx = Get-Content $_.FullName
 
-  $name = $_.Directory.Parent.Name -replace "GqlPlus\.","" -replace "\."," "
+  $name = $_.BaseName -replace "GqlPlus\.","" -replace "_.*","" -replace "\."," "
+
   $summary = $trx.TestRun.ResultSummary
   $counts = $summary.Counters
   $total = [int]$counts.total
@@ -125,8 +126,8 @@ $tests = Get-ChildItem . -Recurse -Filter "TestResults-$Framework*.trx" | ForEac
   if ($NoCoverage -and $summary.outcome -eq "Failed") {
     $allErrors[$name] = $summary.RunInfos.RunInfo | Where-Object {
       $_.outcome -eq "Failed" -or $_.outcome -eq "Error"
-    } | ForEach-Object { 
-      ($_.Text -split '     ')[1].Trim() 
+    } | ForEach-Object {
+      ($_.Text -split '     ')[1].Trim()
     }
   }
 
@@ -177,7 +178,7 @@ if ($ShowGithub) {
   Write-Host (Convert-Coverage $allCoverage "`n")
   if ($coverage.Count -gt 1) {
     $coverage | ForEach-Object { Write-Host (Convert-Coverage $_ "- ") }
-  }  
+  }
 }
 
 if ($env:GITHUB_STEP_SUMMARY) {
@@ -188,7 +189,7 @@ if ($env:GITHUB_STEP_SUMMARY) {
   Convert-Coverage $allCoverage "`n" | Add-Content $env:GITHUB_STEP_SUMMARY
   if ($coverage.Count -gt 1) {
     $coverage | ForEach-Object { Convert-Coverage $_ "- " } | Add-Content $env:GITHUB_STEP_SUMMARY
-  }  
+  }
 }
 
 if ($env:GITHUB_OUTPUT) {

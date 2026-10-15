@@ -29,7 +29,7 @@ dotnet restore
 dotnet build
 ./test.ps1
 ./test.ps1 -ClassTests
-./test.ps1 -Framework "10.0"
+./test.ps1 -Framework '10.0'
 ./format.ps1
 ./coverage.ps1
 ```

@@ -13,7 +13,7 @@ Get-ChildItem test/Html/* -Directory | Remove-Item -Recurse -Force
 
 $test = New-DotnetTestArguments -Framework '10.0' -EnvironmentVariables "GQLPLUS_AUTOVERIFY=true"
 
-dotnet @test
+dotnet test @test
 
 Write-Host "`n"
 ./make-summary.ps1 -NoCoverage -Framework '10.0'

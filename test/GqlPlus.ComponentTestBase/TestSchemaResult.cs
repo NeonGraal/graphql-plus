@@ -30,7 +30,7 @@ public abstract class TestSchemaResult(
 
   protected virtual async Task SampleInvalid_Input(string input, string section, string test)
   {
-    TestContext.Current.AddAttachment("Input " + test, input);
+    input.AttachAs("Input " + test);
 
     IResult<IAstSchema> parse = checks.Parse(input, "Schema");
     if (parse.Required(s => s.Errors.ShouldBeEmpty())) {

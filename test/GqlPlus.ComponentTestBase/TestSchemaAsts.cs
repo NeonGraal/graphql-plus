@@ -16,7 +16,7 @@ public abstract class TestSchemaAsts(
 
   protected override async Task Label_Inputs(string label, IEnumerable<string> inputs, string test)
   {
-    TestContext.Current.AddAttachment("Inputs " + test, inputs.Joined(Environment.NewLine));
+    inputs.Joined(Environment.NewLine).AttachAs("Inputs " + test);
 
     IEnumerable<IAstSchema> asts = inputs.Select(input => checks.ParseInput(input, label));
 

@@ -4,11 +4,20 @@ namespace GqlPlus;
 
 public static class VerifyHelpers
 {
+  private static readonly bool s_autoVerify = EnvironmentVariableExists("GQLPLUS_AUTOVERIFY");
+  private static readonly bool s_attachments = !EnvironmentVariableExists("GQLPLUS_NO_ATTACHMENTS");
+
+  private static bool EnvironmentVariableExists(string variableName)
+  {
+    string? value = Environment.GetEnvironmentVariable(variableName);
+    return !string.IsNullOrWhiteSpace(value);
+  }
+
   public static VerifySettings CheckAutoVerify(this VerifySettings settings)
   {
     ArgumentNullException.ThrowIfNull(settings);
 
-    if (!string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("GQLPLUS_AUTOVERIFY"))) {
+    if (s_autoVerify) {
       settings.AutoVerify();
     }
 
@@ -25,7 +34,7 @@ public static class VerifyHelpers
       return Task.CompletedTask;
     }
 
-    TestContext.Current.AddAttachment(name, result);
+    result.AttachAs(name);
 
     return Verify(result, settings, sourceFile);
   }
@@ -40,8 +49,19 @@ public static class VerifyHelpers
       return Task.CompletedTask;
     }
 
-    TestContext.Current.AddAttachment(name, string.Join(Environment.NewLine, result));
+    string.Join(Environment.NewLine, result).AttachAs(name);
 
     return Verify(result, settings, sourceFile);
+  }
+
+  public static void AttachAs(this string contents, string name)
+  {
+    if (string.IsNullOrWhiteSpace(contents)) {
+      return;
+    }
+
+    if (s_attachments) {
+      TestContext.Current.AddAttachment(name, contents);
+    }
   }
 }

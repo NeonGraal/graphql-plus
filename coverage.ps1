@@ -2,6 +2,7 @@
 param (
   $Project = "",
   [switch]$IncludeTests = $false,
+  [switch]$NoBuild = $false,
   [switch]$ClassTests = $false,
   [switch]$Html = $false,
   [switch]$Report = $false,
@@ -10,9 +11,9 @@ param (
 
 Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force
 
-Restore-DotnetTools
-
-Invoke-DotnetBuild
+if (-not $NoBuild) {
+  Invoke-DotnetBuild
+}
 
 if ($Project) {
   $ClassTests = $true

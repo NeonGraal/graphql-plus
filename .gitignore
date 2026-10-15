@@ -154,9 +154,7 @@ coverage*.info
 *.coverage
 *.coveragexml
 
-output.cobertura.xml
-coverage*/
-cobertura*/
+results*/
 
 
 # NCrunch

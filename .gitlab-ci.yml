@@ -17,11 +17,19 @@ default:
 
 build-all:
   stage: build
+  before_script:
+    - git fetch origin
+    - git checkout -B $CI_COMMIT_REF_NAME origin/$CI_COMMIT_REF_NAME
   script:
     - dotnet restore
-    - dotnet build
+    - dotnet build -bl:build.binlog
     - tar -czf $BUILD_FILE ./src ./test
     - curl --upload-file $BUILD_FILE --header "$BUILD_TOKEN" "$BUILD_URL"
+  artifacts:
+    when: always
+    expire_in: 1 day
+    paths:
+      - ./*.binlog
 
 test-each:
   stage: test
@@ -37,15 +45,17 @@ test-each:
   variables:
     FW_ARG: "-Framework:$DOTNET_VERSION"
     CT_ARG: "-ClassTests:$CLASS_TESTS"
-    RG_REPORTS: "-reports:$CI_PROJECT_DIR/coverage/Coverage-$DOTNET_VERSION.xml"
-    RG_TARGET: "-targetdir:$CI_PROJECT_DIR/coverage/"
+    RG_REPORTS: "-reports:$CI_PROJECT_DIR/results-$DOTNET_VERSION/Coverage.xml"
+    RG_TARGET: "-targetdir:$CI_PROJECT_DIR/results-$DOTNET_VERSION/"
     RG_TYPES: "-reporttypes:MarkdownSummaryGithub;Html"
   needs:
     - job: build-all
+  before_script:
+    - git fetch origin
+    - git checkout -B $CI_COMMIT_REF_NAME origin/$CI_COMMIT_REF_NAME
   script:
     - curl -O --header "$BUILD_TOKEN" "$BUILD_URL"
     - tar -xzf $BUILD_FILE
-    - dotnet tool restore --tool-manifest .config/dotnet-tools.json
     - if [ "$DOTNET_VERSION" = "10.0" ]; then dotnet build ; fi
     - pwsh -NoLogo -NoProfile -File ./just-coverage.ps1 $FW_ARG $CT_ARG
     - dotnet reportgenerator  $RG_REPORTS $RG_TARGET $RG_TYPES
@@ -54,11 +64,16 @@ test-each:
   artifacts:
     when: always
     expire_in: 1 day
+    reports:
+      junit: results-*/*-junit.xml
+      coverage_report:
+        coverage_format: cobertura
+        path: results-*/Coverage.xml
     paths:
-      - coverage/
-      - summary.md
+      - ./*.binlog
+      - results-*/
+      - ./summary.md
       - test/Html/
-      - "**/TestResults-*.trx"
 
 deploy-test-pages:
   stage: deploy

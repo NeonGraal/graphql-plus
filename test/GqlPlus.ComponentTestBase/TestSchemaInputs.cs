@@ -97,7 +97,7 @@ public abstract class TestSchemaInputs
 
   protected async Task Test_Input(string label, string input, string[] dirs, string test, string section = "")
   {
-    TestContext.Current.AddAttachment("Input " + test, input);
+    input.AttachAs("Input " + test);
 
     await Label_Input(label, input, dirs, test, section);
   }

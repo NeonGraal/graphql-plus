@@ -16,11 +16,42 @@ public static class GqReqReader
       return new GqReqInput(null, null, "", []);
     }
 
+    if (IsListInput(lines[0])) {
+      return ParseListLines(lines);
+    }
+
     if (lines[0].IndexOf('=') < 0) {
       return new GqReqInput(null, null, input.Trim(), []);
     }
 
     return ParseKeyValueLines(lines);
+  }
+
+  private static bool IsListInput(string line)
+  {
+    string trimmed = line.TrimStart();
+    return trimmed == "-" || trimmed.StartsWith("- ", StringComparison.Ordinal);
+  }
+
+  private static GqReqInput ParseListLines(string[] lines)
+  {
+    List<string> values = [];
+
+    foreach (string line in lines) {
+      string item = line.TrimStart();
+
+      if (item == "-") {
+        values.Add("");
+      } else if (item.StartsWith("- ", StringComparison.Ordinal)) {
+        values.Add(item[2..].Trim());
+      } else {
+        return new GqReqInput(null, null, string.Join(Environment.NewLine, lines).Trim(), []);
+      }
+    }
+
+    return new GqReqInput(null, null, values[0], []) {
+      PositionalParameters = values.Skip(1).ToArray(),
+    };
   }
 
   private static GqReqInput ParseKeyValueLines(string[] lines)

@@ -5,4 +5,7 @@ public record GqReqInput(
   string? Operation,
   string Definition,
   IReadOnlyList<(string Path, string Value)> Parameters
-);
+)
+{
+  public IReadOnlyList<string>? PositionalParameters { get; init; }
+}

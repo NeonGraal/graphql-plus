@@ -17,7 +17,13 @@ public class RequestInputDecoder(IParserRepository parsers) : IRequestInputDecod
     }
 
     GqReqInput reqInput = GqReqReader.Read(input);
-    Structured parameters = ParameterBuilder.Build(reqInput.Parameters);
+    Structured parameters = reqInput.PositionalParameters is { } positional
+      ? positional.Count switch {
+        1 => positional[0].Encode(),
+        > 1 => new Structured(positional.Select(value => value.Encode())),
+        _ => Structured.Empty(),
+      }
+      : ParameterBuilder.Build(reqInput.Parameters);
     IMessages errors = Messages.New;
 
     OperationContext tokens = new(reqInput.Definition);

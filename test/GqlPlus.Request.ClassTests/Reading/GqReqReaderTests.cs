@@ -64,6 +64,25 @@ public class GqReqReaderTests
   }
 
   [Fact]
+  public void Read_ListSample_ExtractsDefinitionAndPositionalParameters()
+  {
+    string input = """
+      - _Schema { categories { name } }
+      - Dual
+      - Input
+      """;
+
+    GqReqInput result = GqReqReader.Read(input);
+
+    result.ShouldSatisfyAllConditions(
+      () => result.Definition.ShouldBe("_Schema { categories { name } }"),
+      () => result.Category.ShouldBeNull(),
+      () => result.Operation.ShouldBeNull(),
+      () => result.Parameters.ShouldBeEmpty(),
+      () => result.PositionalParameters.ShouldBe(["Dual", "Input"]));
+  }
+
+  [Fact]
   public void Read_WithOperation_ExtractsOperationField()
   {
     string input = """

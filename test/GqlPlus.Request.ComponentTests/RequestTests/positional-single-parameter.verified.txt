@@ -1,4 +1,4 @@
-Category: query
+﻿Category: query
 Parameters: I:Dual
 ParsedOperation:
 !g P@001/0001

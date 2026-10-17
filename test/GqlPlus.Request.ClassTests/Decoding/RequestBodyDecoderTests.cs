@@ -32,6 +32,48 @@ public class RequestBodyDecoderTests
   }
 
   [Fact]
+  public void Decode_EmptyListBody_ReturnsError()
+  {
+    Structured body = new(Array.Empty<Structured>());
+
+    RequestBodyInput result = _decoder.Decode(body);
+
+    result.Errors.ShouldContain(m => m.Level == MessageLevel.Error);
+  }
+
+  [Fact]
+  public void Decode_ListBodyWithoutStringDefinition_ReturnsError()
+  {
+    Structured body = new([
+      new Structured(new StructureValue(42m)),
+      "_Schema { categories }".Encode(),
+    ]);
+
+    RequestBodyInput result = _decoder.Decode(body);
+
+    result.Errors.ShouldContain(m => m.Level == MessageLevel.Error);
+  }
+
+  [Fact]
+  public void Decode_ListBodyWithMultipleParameters_RetainsAllParameters()
+  {
+    Structured firstParameter = "first".Encode();
+    Structured secondParameter = "second".Encode();
+    Structured body = new([
+      "_Schema { categories }".Encode(),
+      firstParameter,
+      secondParameter,
+    ]);
+
+    RequestBodyInput result = _decoder.Decode(body);
+
+    result.ShouldSatisfyAllConditions(
+      () => result.Definition.ShouldBe("_Schema { categories }"),
+      () => result.Parameters.ShouldBe(new([firstParameter, secondParameter])),
+      () => result.Errors.ShouldNotContain(m => m.Level == MessageLevel.Error));
+  }
+
+  [Fact]
   public void Decode_MapBody_ExtractsAllFields()
   {
     Structured body = new(new Dictionary<StructureValue, Structured> {

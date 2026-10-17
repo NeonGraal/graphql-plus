@@ -30,23 +30,19 @@ public class RequestBodyDecoder
 
   private static RequestBodyInput DecodeList(IList<Structured> list)
   {
-    string? definition = null;
-    Structured? parameters = null;
+    string? definition = list.Count > 0 ? list[0].Value?.Text : null;
 
-    foreach (Structured item in list) {
-      if (definition is null && item.Value is { } val && !string.IsNullOrEmpty(val.Text)) {
-        definition = val.Text;
-      } else if (definition is not null) {
-        parameters = item;
-        break;
-      }
-    }
-
-    if (definition is null) {
+    if (definition is null || definition.Length == 0) {
       return new RequestBodyInput(null, null, "", null) {
         Errors = Messages.New.Add("List request body must have a string definition as first element.".Error()),
       };
     }
+
+    Structured? parameters = list.Count switch {
+      2 => list[1],
+      > 2 => new Structured(list.Skip(1)),
+      _ => null,
+    };
 
     return new RequestBodyInput(null, null, definition, parameters);
   }

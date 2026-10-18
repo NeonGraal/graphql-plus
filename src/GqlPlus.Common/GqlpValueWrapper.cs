@@ -4,21 +4,21 @@ public static class GqlpValueWrapper
 {
   public static IGqlpValue ToGqlpValue(this Structured structured)
   {
-    structured.ThrowIfNull();
+    Structured input = structured.ThrowIfNull();
 
-    string tag = structured.Tag;
-    if (structured.List.Count > 0) {
-      return new GqlpList(structured.List.Select(ToGqlpValue), tag, structured.Flow);
+    string tag = input.Tag;
+    if (input.List.Count > 0) {
+      return new GqlpList(input.List.Select(ToGqlpValue), tag, input.Flow);
     }
 
-    if (structured.Map.Count > 0) {
+    if (input.Map.Count > 0) {
       return new GqlpMap(
-        structured.Map.Select(p => new KeyValuePair<string, IGqlpValue>(p.Key.AsString, p.Value.ToGqlpValue())),
+        input.Map.Select(p => new KeyValuePair<string, IGqlpValue>(p.Key.AsString, p.Value.ToGqlpValue())),
         tag,
-        structured.Flow);
+        input.Flow);
     }
 
-    StructureValue? value = structured.Value;
+    StructureValue? value = input.Value;
     return value switch {
       { Boolean: not null } => new GqlpScalar(value.Boolean.Value, tag),
       { Number: not null } => new GqlpScalar(value.Number.Value, tag),
@@ -29,7 +29,9 @@ public static class GqlpValueWrapper
   }
 
   public static Structured ToStructured(this IGqlpValue value)
-    => value.ThrowIfNull() switch {
+  {
+    IGqlpValue input = value.ThrowIfNull();
+    return input switch {
       GqlpScalar { Kind: GqlpScalarKind.Boolean } s => new(new StructureValue(s.Boolean, s.Tag)),
       GqlpScalar { Kind: GqlpScalarKind.Number } s => new(new StructureValue(s.Number, s.Tag)),
       GqlpScalar s => new(new StructureValue(s.Text, s.Tag)),
@@ -38,8 +40,9 @@ public static class GqlpValueWrapper
         m.Entries.ToDictionary(e => new StructureValue(e.Key), e => e.Value.ToStructured()),
         m.Tag,
         m.Flow),
-      _ => Structured.Empty(value.Tag),
+      _ => Structured.Empty(input.Tag),
     };
+  }
 
   private static IGqlpValue EmptyValue(string tag)
     => tag switch {

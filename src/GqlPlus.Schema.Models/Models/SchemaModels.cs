@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace GqlPlus.Models;
 
 public record class SchemaModel(
@@ -139,24 +141,22 @@ public record class FilterModel(
   public bool ReturnReferencedTypes { get; set; }
   public bool ReturnByAlias { get; set; }
 
+  [SuppressMessage("Design", "CA1062:Validate arguments of public methods", Justification = "<Pending>")]
   public bool Matches(string name, string[] aliases)
   {
-    if (aliases is null) {
-      throw new ArgumentNullException(nameof(aliases));
-    }
+    aliases.ThrowIfNull();
 
-    bool hasNameFilter = Names.Length > 0;
     bool hasAliasFilter = Aliases.Length > 0;
 
-    if (!hasNameFilter && !hasAliasFilter) {
-      return true;
-    }
+    if (Names.Length > 0) {
+      if (NameFilter.Matches(Names, name)) {
+        return true;
+      }
 
-    if (hasNameFilter && NameFilter.Matches(Names, name)) {
-      return true;
-    }
-
-    if (MatchAliases && hasNameFilter && NameFilter.MatchesAny(Names, aliases)) {
+      if (MatchAliases && NameFilter.MatchesAny(Names, aliases)) {
+        return true;
+      }
+    } else if (!hasAliasFilter) {
       return true;
     }
 

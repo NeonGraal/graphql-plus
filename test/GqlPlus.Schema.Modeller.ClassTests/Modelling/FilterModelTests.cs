@@ -11,6 +11,16 @@ public class FilterModelTests
   }
 
   [Fact]
+  public void Matches_NullAliases_ThrowsException()
+  {
+    FilterModel filter = new([]);
+
+    Action act = () => filter.Matches("AnyName", null!);
+
+    act.ShouldThrow<ArgumentNullException>();
+  }
+
+  [Fact]
   public void Matches_NoFilter_WithAliases_ReturnsTrue()
   {
     FilterModel filter = new([]);

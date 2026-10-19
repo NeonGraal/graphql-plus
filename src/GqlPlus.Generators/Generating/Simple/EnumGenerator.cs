@@ -13,9 +13,6 @@ internal class EnumGenerator
   private void EnumMember(MapPair<string> item, GqlpGeneratorContext context)
     => context.Write("  " + item.Key + item.Value + ",");
 
-  internal static void EnumClassMember(MapPair<string> item, GqlpGeneratorContext context)
-    => context.Write($"  public string {item.Key} {{ get; set; }}");
-
   internal static void EnumDecoderClassMember(MapPair<string> item, GqlpGeneratorContext context)
     => context.Write($"  public string {item.Key} {{ get; set; }} = default!;");
 

@@ -53,6 +53,8 @@ jobs:
       - uses: actions/download-artifact@v8
         with:
           name: build
+      - name: Install dependencies
+        run: dotnet restore
       - name: Install tools
         run: |
           chmod 777 -R .

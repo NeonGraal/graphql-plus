@@ -9,7 +9,7 @@ internal static class GeneratorClassTestHelpers
   {
     string result = context.ToString();
     if (!string.IsNullOrWhiteSpace(result)) {
-      TestContext.Current.AddAttachment(context.FileName, result);
+      result.AttachAs(context.FileName);
     }
 
     result.ShouldSatisfyAllConditions(checks);

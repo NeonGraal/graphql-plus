@@ -14,6 +14,9 @@ internal abstract class ParseFragments(
   protected abstract bool FragmentPrefix(ref ITokenizer tokens);
   protected abstract bool TypePrefix(ref ITokenizer tokens);
 
+  // TODO: Add the remaining fragment semantic validation described in the operation plan.
+  // The parser recognises fragments, but it still needs to reject duplicate names,
+  // resolve spreads, detect cycles, and catch alias collisions before the operation is accepted.
   public IResultArray<IAstFragment> Parse([NotNull] ITokenizer tokens, string label)
 
   {

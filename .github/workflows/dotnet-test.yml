@@ -68,7 +68,7 @@ jobs:
           REPORTGENERATOR_LICENSE: ${{ secrets.REPORTGENERATOR_LICENSE }} # Use GitHub Secrets
         run: >
           dotnet reportgenerator
-          -reports:${{ github.workspace }}/results-${{ matrix.version }}/*.cobertura.xml
+          -reports:${{ github.workspace }}/results-${{ matrix.version }}/Coverage.xml
           -targetdir:"${{ github.workspace }}/results-${{ matrix.version }}/"
           -reporttypes:'MarkdownSummaryGithub;Html'
       - name: Tests and Coverage Summary

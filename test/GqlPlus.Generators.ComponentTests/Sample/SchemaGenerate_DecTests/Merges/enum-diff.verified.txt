@@ -11,10 +11,10 @@ enum EnumDiff { two }
 
 namespace Components.Gqlp_Schema_enum_diff;
 
-internal class CmptEnumDiffDecoder
+internal class CmptEnumDiffDecoder : NullDecoder<CmptEnumDiff>
 {
-  public string one { get; set; }
-  public string two { get; set; }
+  public string one { get; set; } = default!;
+  public string two { get; set; } = default!;
 
   internal static CmptEnumDiffDecoder Factory(IDecoderRepository _) => new();
 }

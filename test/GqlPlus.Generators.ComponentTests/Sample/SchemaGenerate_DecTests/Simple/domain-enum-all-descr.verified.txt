@@ -11,17 +11,17 @@ enum EnumDmnEnumAllDescr { dmnEnumAllDescr enum_dmnEnumAllDescr dmnEnumAllDescrV
 
 namespace Components.Gqlp_Schema_domain_enum_all_descr;
 
-internal class CmptDmnEnumAllDescrDecoder
+internal class CmptDmnEnumAllDescrDecoder : NullDecoder<ICmptDmnEnumAllDescr>
 {
 
   internal static CmptDmnEnumAllDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEnumDmnEnumAllDescrDecoder
+internal class CmptEnumDmnEnumAllDescrDecoder : NullDecoder<CmptEnumDmnEnumAllDescr>
 {
-  public string dmnEnumAllDescr { get; set; }
-  public string enum_dmnEnumAllDescr { get; set; }
-  public string dmnEnumAllDescrValue { get; set; }
+  public string dmnEnumAllDescr { get; set; } = default!;
+  public string enum_dmnEnumAllDescr { get; set; } = default!;
+  public string dmnEnumAllDescrValue { get; set; } = default!;
 
   internal static CmptEnumDmnEnumAllDescrDecoder Factory(IDecoderRepository _) => new();
 }

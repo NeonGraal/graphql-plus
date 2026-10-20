@@ -1,0 +1,27 @@
+﻿/* input-field-Number
+input InpFieldNmbr { field: Number = 42 }
+*/
+
+// Generated from Schema input-field-Number
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_input-field-Number, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_input_field_Number;
+
+internal class CmptInpFieldNmbrEncoder : IEncoder<ICmptInpFieldNmbrObject>
+{
+  public Structured Encode(ICmptInpFieldNmbrObject input)
+    => Structured.Empty()
+      .Add("field", input.Field.Encode());
+
+  internal static CmptInpFieldNmbrEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_input_field_NumberEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_input_field_NumberEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptInpFieldNmbrObject>(CmptInpFieldNmbrEncoder.Factory);
+}

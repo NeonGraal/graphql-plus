@@ -7,26 +7,26 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_unique;
 
-internal class testDmnEnumUnqDecoder
+internal class testDmnEnumUnqDecoder : NullDecoder<ItestDmnEnumUnq>
 {
 
   internal static testDmnEnumUnqDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDmnEnumUnqDecoder
+internal class testEnumDmnEnumUnqDecoder : NullDecoder<testEnumDmnEnumUnq>
 {
-  public string enum_dmnEnumUnq { get; set; }
-  public string dmnEnumUnq { get; set; }
-  public string dmnEnumUnqValue { get; set; }
+  public string enum_dmnEnumUnq { get; set; } = default!;
+  public string dmnEnumUnq { get; set; } = default!;
+  public string dmnEnumUnqValue { get; set; } = default!;
 
   internal static testEnumDmnEnumUnqDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDupDmnEnumUnqDecoder
+internal class testDupDmnEnumUnqDecoder : NullDecoder<testDupDmnEnumUnq>
 {
-  public string dmnEnumUnq { get; set; }
-  public string dup_dmnEnumUnq { get; set; }
-  public string dmnEnumUnqDup { get; set; }
+  public string dmnEnumUnq { get; set; } = default!;
+  public string dup_dmnEnumUnq { get; set; } = default!;
+  public string dmnEnumUnqDup { get; set; } = default!;
 
   internal static testDupDmnEnumUnqDecoder Factory(IDecoderRepository _) => new();
 }

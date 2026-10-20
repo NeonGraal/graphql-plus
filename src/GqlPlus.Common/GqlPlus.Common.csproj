@@ -4,4 +4,8 @@
     <IsRoslynComponent>true</IsRoslynComponent>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GqlPlus.Core\GqlPlus.Core.csproj" />
+  </ItemGroup>
+
 </Project>

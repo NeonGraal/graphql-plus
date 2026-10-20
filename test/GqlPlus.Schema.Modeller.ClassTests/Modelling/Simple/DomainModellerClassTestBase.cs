@@ -45,6 +45,31 @@ public abstract class DomainModellerClassTestBase<TItemAst, TItemModel>
   }
 
   [Theory, RepeatData]
+  public void ToModel_WithItemDescription_ReturnsExpectedModel(
+    string name,
+    string contents)
+  {
+    // Arrange
+    TItemAst item = A.Descr<TItemAst>(contents);
+    IAstDomain<TItemAst> ast = A.Domain<TItemAst>(name, Kind)
+      .WithDescr(contents)
+      .WithItems(item)
+      .AsDomain;
+
+    // Act
+    BaseDomainModel<TItemModel> result = Modeller.ToModel(ast, TypeKinds);
+
+    // Assert
+    result.ShouldNotBeNull()
+      .ShouldSatisfyAllConditions(
+        r => r.Name.ShouldBe(name),
+        r => r.DomainKind.ShouldBe(KindModel),
+        r => r.Parent.ShouldBeNull(),
+        r => r.Items.ShouldContain(m => m.Description == contents),
+        r => r.AllItems.ShouldNotBeEmpty());
+  }
+
+  [Theory, RepeatData]
   public void ToModel_WithNullParent_ReturnsBaseDomainModelWithNullParent(string name)
   {
     // Arrange

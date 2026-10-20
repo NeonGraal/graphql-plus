@@ -11,11 +11,11 @@ enum EnumValueAlias { enumValueAlias [val2] }
 
 namespace Components.Gqlp_Schema_enum_value_alias;
 
-internal class CmptEnumValueAliasDecoder
+internal class CmptEnumValueAliasDecoder : NullDecoder<CmptEnumValueAlias>
 {
-  public string enumValueAlias { get; set; }
-  public string val1 { get; set; }
-  public string val2 { get; set; }
+  public string enumValueAlias { get; set; } = default!;
+  public string val1 { get; set; } = default!;
+  public string val2 { get; set; } = default!;
 
   internal static CmptEnumValueAliasDecoder Factory(IDecoderRepository _) => new();
 }

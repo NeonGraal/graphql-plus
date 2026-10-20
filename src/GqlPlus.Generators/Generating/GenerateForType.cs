@@ -16,9 +16,6 @@ internal abstract class GenerateForType<TType>
 
   protected abstract void Generate(TType ast, GqlpGeneratorContext context);
 
-  protected virtual void DecoderHeader(TType ast, GqlpGeneratorContext context)
-    => context.Write("internal class " + context.TypeName(ast, "") + "Decoder");
-
   protected delegate void GenerateDelegate(TType ast, GqlpGeneratorContext context);
   protected delegate IEnumerable<TItem> GenerateMembers<TItem>(TType ast, GqlpGeneratorContext context);
   protected delegate void GenerateMember<TItem>(TItem item, GqlpGeneratorContext context);

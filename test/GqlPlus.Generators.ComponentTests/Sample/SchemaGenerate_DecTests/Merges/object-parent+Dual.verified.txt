@@ -12,13 +12,13 @@ dual RefObjPrntDual { }
 
 namespace Components.Gqlp_Schema_object_parent_Dual;
 
-internal class CmptObjPrntDualDecoder
+internal class CmptObjPrntDualDecoder : NullDecoder<ICmptObjPrntDualObject>
 {
 
   internal static CmptObjPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptRefObjPrntDualDecoder
+internal class CmptRefObjPrntDualDecoder : NullDecoder<ICmptRefObjPrntDualObject>
 {
 
   internal static CmptRefObjPrntDualDecoder Factory(IDecoderRepository _) => new();

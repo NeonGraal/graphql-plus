@@ -1,0 +1,6 @@
+categories:
+  _TypeInput:
+    name: _TypeInput
+    typeKind: Input
+    parent:
+      name: _TypeObject

@@ -166,6 +166,14 @@ internal class Cmpt_EnumEncoder : IEncoder<ICmpt_Enum>
   internal static Cmpt_EnumEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class Cmpt_InputEncoder : IEncoder<ICmpt_InputObject>
+{
+  public Structured Encode(ICmpt_InputObject input)
+    => Structured.Empty();
+
+  internal static Cmpt_InputEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class Cmpt_OutputEncoder : IEncoder<ICmpt_OutputObject>
 {
   public Structured Encode(ICmpt_OutputObject input)
@@ -215,6 +223,7 @@ internal static class Cmpt_Spec_DefinitionEncoders
       .AddEncoder<ICmpt_Domain>(Cmpt_DomainEncoder.Factory)
       .AddEncoder<ICmpt_DualObject>(Cmpt_DualEncoder.Factory)
       .AddEncoder<ICmpt_Enum>(Cmpt_EnumEncoder.Factory)
+      .AddEncoder<ICmpt_InputObject>(Cmpt_InputEncoder.Factory)
       .AddEncoder<ICmpt_OutputObject>(Cmpt_OutputEncoder.Factory)
       .AddEncoder<ICmpt_Union>(Cmpt_UnionEncoder.Factory)
       .AddEncoder<ICmpt_Simple>(Cmpt_SimpleEncoder.Factory);

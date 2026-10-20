@@ -12,7 +12,7 @@ enum EnumGnrcPrntSmplEnumInp { gnrcPrntSmplEnumInp }
 
 namespace Components.Gqlp_Schema_generic_parent_simple_enum_Input;
 
-internal class CmptGnrcPrntSmplEnumInpDecoder
+internal class CmptGnrcPrntSmplEnumInpDecoder : NullDecoder<ICmptGnrcPrntSmplEnumInpObject>
 {
 
   internal static CmptGnrcPrntSmplEnumInpDecoder Factory(IDecoderRepository _) => new();
@@ -20,12 +20,12 @@ internal class CmptGnrcPrntSmplEnumInpDecoder
 
 internal class CmptFieldGnrcPrntSmplEnumInpDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef Field { get; set; } = default!;
 }
 
-internal class CmptEnumGnrcPrntSmplEnumInpDecoder
+internal class CmptEnumGnrcPrntSmplEnumInpDecoder : NullDecoder<CmptEnumGnrcPrntSmplEnumInp>
 {
-  public string gnrcPrntSmplEnumInp { get; set; }
+  public string gnrcPrntSmplEnumInp { get; set; } = default!;
 
   internal static CmptEnumGnrcPrntSmplEnumInpDecoder Factory(IDecoderRepository _) => new();
 }

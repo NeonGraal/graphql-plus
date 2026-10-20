@@ -1,10 +1,33 @@
 namespace GqlPlus;
 
-public class GqlpValue
-  : IGqlpValue;
+public interface IGqlpValue
+{
+  string Tag { get; }
+}
 
-// TODO: Finish the plan's discriminated value model.
-// The stage-1 design expects distinct `Null`, `Unit`, and `Void` variants plus
-// concrete tagged list/map/value wrappers, but the current API is still a marker
-// abstraction without those concrete value implementations.
-public interface IGqlpValue;
+public abstract class GqlpValue(string? tag = null)
+  : IGqlpValue
+{
+  public string Tag { get; } = tag ?? "";
+
+  public override bool Equals(object? obj)
+    => obj is GqlpValue other
+      && GetType() == other.GetType()
+      && string.Equals(Tag, other.Tag, StringComparison.Ordinal)
+      && ValueEquals(other);
+
+  public override int GetHashCode()
+    => Combine(GetType().GetHashCode(), StringComparer.Ordinal.GetHashCode(Tag), ValueHash());
+
+  protected static int Combine(params int[] hashes)
+    => hashes.Aggregate(17, (h, v) => unchecked((h * 31) + v));
+
+  protected virtual bool ValueEquals(GqlpValue other) => true;
+  protected virtual int ValueHash() => 0;
+}
+
+public sealed class GqlpNull(string? tag = null)
+  : GqlpValue(tag ?? "Null");
+
+public sealed class GqlpVoid(string? tag = null)
+  : GqlpValue(tag ?? "Void");

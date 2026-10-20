@@ -21,13 +21,15 @@ internal abstract class GenerateBaseDomain<TItem>(
   protected void GenerateDomainDecoder(IAstDomain<TItem> ast, GqlpGeneratorContext context)
   {
     string decoderName = context.TypeName(ast, "") + "Decoder";
-    GenerateBlock(ast, context, DecoderHeader, TypeMembers, ClassMember,
+    string interfaceType = context.TypeName(ast, "I");
+    GenerateBlock(ast, context,
+      (_, c) => c.Write($"internal class {decoderName} : NullDecoder<{interfaceType}>"),
+      TypeMembers, ClassMember,
       (_, c) => {
         c.Write("");
         c.Write($"  internal static {decoderName} Factory(IDecoderRepository _) => new();");
       });
 
-    string interfaceType = context.TypeName(ast, "I");
     context.RegisterDecoder(interfaceType, decoderName);
   }
 

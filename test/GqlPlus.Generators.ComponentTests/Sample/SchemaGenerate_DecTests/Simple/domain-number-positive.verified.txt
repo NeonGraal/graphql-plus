@@ -10,7 +10,7 @@ domain DmnNmbrPstv { Number !<0 }
 
 namespace Components.Gqlp_Schema_domain_number_positive;
 
-internal class CmptDmnNmbrPstvDecoder
+internal class CmptDmnNmbrPstvDecoder : NullDecoder<ICmptDmnNmbrPstv>
 {
 
   internal static CmptDmnNmbrPstvDecoder Factory(IDecoderRepository _) => new();

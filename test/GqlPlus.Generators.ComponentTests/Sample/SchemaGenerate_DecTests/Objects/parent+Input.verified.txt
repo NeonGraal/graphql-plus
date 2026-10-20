@@ -11,15 +11,15 @@ input RefPrntInp { parent: Number | String }
 
 namespace Components.Gqlp_Schema_parent_Input;
 
-internal class CmptPrntInpDecoder
+internal class CmptPrntInpDecoder : NullDecoder<ICmptPrntInpObject>
 {
 
   internal static CmptPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptRefPrntInpDecoder
+internal class CmptRefPrntInpDecoder : NullDecoder<ICmptRefPrntInpObject>
 {
-  public decimal Parent { get; set; }
+  public decimal Parent { get; set; } = default!;
 
   internal static CmptRefPrntInpDecoder Factory(IDecoderRepository _) => new();
 }

@@ -7,15 +7,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_output_param_type_descr;
 
-internal class testFldOutpParamTypeDescrDecoder
+internal class testFldOutpParamTypeDescrDecoder : NullDecoder<ItestFldOutpParamTypeDescrObject>
 {
 
   internal static testFldOutpParamTypeDescrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testInOutpParamTypeDescrDecoder
+internal class testInOutpParamTypeDescrDecoder : NullDecoder<ItestInOutpParamTypeDescrObject>
 {
-  public decimal Param { get; set; }
+  public decimal Param { get; set; } = default!;
 
   internal static testInOutpParamTypeDescrDecoder Factory(IDecoderRepository _) => new();
 }

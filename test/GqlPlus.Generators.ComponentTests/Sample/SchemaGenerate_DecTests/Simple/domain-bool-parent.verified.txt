@@ -11,13 +11,13 @@ domain PrntDmnBoolPrnt { Boolean true }
 
 namespace Components.Gqlp_Schema_domain_bool_parent;
 
-internal class CmptDmnBoolPrntDecoder
+internal class CmptDmnBoolPrntDecoder : NullDecoder<ICmptDmnBoolPrnt>
 {
 
   internal static CmptDmnBoolPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntDmnBoolPrntDecoder
+internal class CmptPrntDmnBoolPrntDecoder : NullDecoder<ICmptPrntDmnBoolPrnt>
 {
 
   internal static CmptPrntDmnBoolPrntDecoder Factory(IDecoderRepository _) => new();

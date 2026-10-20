@@ -1,6 +1,7 @@
 namespace GqlPlus;
 
-public class GqlpUnit
-  : IGqlpUnit;
+public sealed class GqlpUnit(string? tag = null)
+  : GqlpValue(tag ?? "Unit")
+  , IGqlpUnit;
 
-public interface IGqlpUnit;
+public interface IGqlpUnit : IGqlpValue;

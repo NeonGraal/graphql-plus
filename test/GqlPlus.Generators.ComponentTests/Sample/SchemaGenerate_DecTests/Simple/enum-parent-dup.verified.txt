@@ -11,19 +11,19 @@ enum PrntEnumPrntDup { prnt_enumPrntDup[enumPrntDup] }
 
 namespace Components.Gqlp_Schema_enum_parent_dup;
 
-internal class CmptEnumPrntDupDecoder
+internal class CmptEnumPrntDupDecoder : NullDecoder<CmptEnumPrntDup>
 {
-  public string prnt_enumPrntDup { get; set; }
-  public string enumPrntDup { get; set; }
-  public string enumPrntDup { get; set; }
+  public string prnt_enumPrntDup { get; set; } = default!;
+  public string enumPrntDup { get; set; } = default!;
+  public string enumPrntDup { get; set; } = default!;
 
   internal static CmptEnumPrntDupDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntEnumPrntDupDecoder
+internal class CmptPrntEnumPrntDupDecoder : NullDecoder<CmptPrntEnumPrntDup>
 {
-  public string prnt_enumPrntDup { get; set; }
-  public string enumPrntDup { get; set; }
+  public string prnt_enumPrntDup { get; set; } = default!;
+  public string enumPrntDup { get; set; } = default!;
 
   internal static CmptPrntEnumPrntDupDecoder Factory(IDecoderRepository _) => new();
 }

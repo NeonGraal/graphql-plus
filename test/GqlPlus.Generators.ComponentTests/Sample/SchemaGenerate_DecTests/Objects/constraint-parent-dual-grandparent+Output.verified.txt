@@ -14,13 +14,13 @@ output AltCnstPrntDualGrndOutp { :PrntCnstPrntDualGrndOutp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Output;
 
-internal class CmptGrndCnstPrntDualGrndOutpDecoder
+internal class CmptGrndCnstPrntDualGrndOutpDecoder : NullDecoder<ICmptGrndCnstPrntDualGrndOutpObject>
 {
 
   internal static CmptGrndCnstPrntDualGrndOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntCnstPrntDualGrndOutpDecoder
+internal class CmptPrntCnstPrntDualGrndOutpDecoder : NullDecoder<ICmptPrntCnstPrntDualGrndOutpObject>
 {
 
   internal static CmptPrntCnstPrntDualGrndOutpDecoder Factory(IDecoderRepository _) => new();

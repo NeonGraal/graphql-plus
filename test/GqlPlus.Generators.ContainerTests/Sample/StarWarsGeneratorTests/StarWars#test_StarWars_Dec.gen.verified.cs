@@ -7,16 +7,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_StarWars;
 
-internal class testEpisodeDecoder
+internal class testEpisodeDecoder : NullDecoder<testEpisode>
 {
-  public string NewHope { get; set; }
-  public string Empire { get; set; }
-  public string Jedi { get; set; }
+  public string NewHope { get; set; } = default!;
+  public string Empire { get; set; } = default!;
+  public string Jedi { get; set; } = default!;
 
   internal static testEpisodeDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testIdDecoder
+internal class testIdDecoder : NullDecoder<ItestId>
 {
 
   internal static testIdDecoder Factory(IDecoderRepository _) => new();

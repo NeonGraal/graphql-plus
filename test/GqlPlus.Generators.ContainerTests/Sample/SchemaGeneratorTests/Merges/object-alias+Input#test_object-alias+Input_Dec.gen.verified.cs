@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_alias_Input;
 
-internal class testObjAliasInpDecoder
+internal class testObjAliasInpDecoder : NullDecoder<ItestObjAliasInpObject>
 {
 
   internal static testObjAliasInpDecoder Factory(IDecoderRepository _) => new();

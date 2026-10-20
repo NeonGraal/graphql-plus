@@ -1,0 +1,27 @@
+﻿/* field-descr+Input
+input FieldDescrInp { "Test" "Descr" field: String }
+*/
+
+// Generated from Schema field-descr+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-descr+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_descr_Input;
+
+internal class CmptFieldDescrInpEncoder : IEncoder<ICmptFieldDescrInpObject>
+{
+  public Structured Encode(ICmptFieldDescrInpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field.Encode());
+
+  internal static CmptFieldDescrInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_field_descr_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_field_descr_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptFieldDescrInpObject>(CmptFieldDescrInpEncoder.Factory);
+}

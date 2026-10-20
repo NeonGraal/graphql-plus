@@ -11,7 +11,7 @@ input InDrctParamList { }
 
 namespace Components.Gqlp_Schema_directive_param_list;
 
-internal class CmptInDrctParamListDecoder
+internal class CmptInDrctParamListDecoder : NullDecoder<ICmptInDrctParamListObject>
 {
 
   internal static CmptInDrctParamListDecoder Factory(IDecoderRepository _) => new();

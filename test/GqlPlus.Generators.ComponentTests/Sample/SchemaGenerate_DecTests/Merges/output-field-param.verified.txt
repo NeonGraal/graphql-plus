@@ -14,19 +14,19 @@ dual FldOutpFieldParam { }
 
 namespace Components.Gqlp_Schema_output_field_param;
 
-internal class CmptOutpFieldParam1Decoder
+internal class CmptOutpFieldParam1Decoder : NullDecoder<ICmptOutpFieldParam1Object>
 {
 
   internal static CmptOutpFieldParam1Decoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptOutpFieldParam2Decoder
+internal class CmptOutpFieldParam2Decoder : NullDecoder<ICmptOutpFieldParam2Object>
 {
 
   internal static CmptOutpFieldParam2Decoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptFldOutpFieldParamDecoder
+internal class CmptFldOutpFieldParamDecoder : NullDecoder<ICmptFldOutpFieldParamObject>
 {
 
   internal static CmptFldOutpFieldParamDecoder Factory(IDecoderRepository _) => new();

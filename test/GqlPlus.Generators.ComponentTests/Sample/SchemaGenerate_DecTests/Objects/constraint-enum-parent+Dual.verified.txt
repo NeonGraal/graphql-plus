@@ -13,7 +13,7 @@ enum ParentCnstEnumPrntDual { parentCnstEnumPrntDual }
 
 namespace Components.Gqlp_Schema_constraint_enum_parent_Dual;
 
-internal class CmptCnstEnumPrntDualDecoder
+internal class CmptCnstEnumPrntDualDecoder : NullDecoder<ICmptCnstEnumPrntDualObject>
 {
 
   internal static CmptCnstEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
@@ -21,20 +21,20 @@ internal class CmptCnstEnumPrntDualDecoder
 
 internal class CmptRefCnstEnumPrntDualDecoder<TType>
 {
-  public TType Field { get; set; }
+  public TType Field { get; set; } = default!;
 }
 
-internal class CmptEnumCnstEnumPrntDualDecoder
+internal class CmptEnumCnstEnumPrntDualDecoder : NullDecoder<CmptEnumCnstEnumPrntDual>
 {
-  public string parentCnstEnumPrntDual { get; set; }
-  public string cnstEnumPrntDual { get; set; }
+  public string parentCnstEnumPrntDual { get; set; } = default!;
+  public string cnstEnumPrntDual { get; set; } = default!;
 
   internal static CmptEnumCnstEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptParentCnstEnumPrntDualDecoder
+internal class CmptParentCnstEnumPrntDualDecoder : NullDecoder<CmptParentCnstEnumPrntDual>
 {
-  public string parentCnstEnumPrntDual { get; set; }
+  public string parentCnstEnumPrntDual { get; set; } = default!;
 
   internal static CmptParentCnstEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }

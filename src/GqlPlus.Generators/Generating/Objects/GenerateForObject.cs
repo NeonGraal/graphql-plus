@@ -12,6 +12,9 @@ internal abstract class GenerateForObject<TObjField>
   protected override void ClassMember(MapPair<string> item, GqlpGeneratorContext context)
     => context.Write($"  public {item.Value} {item.Key} {{ get; set; }}");
 
+  protected override void DecoderClassMember(MapPair<string> item, GqlpGeneratorContext context)
+    => context.Write($"  public {item.Value} {item.Key} {{ get; set; }} = default!;");
+
   protected override void InterfaceMember(MapPair<string> item, GqlpGeneratorContext context)
     => context.Write($"  {item.Value} {item.Key} {{ get; }}");
 }
@@ -32,6 +35,8 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     GenerateBlock(ast, context, InterfaceHeader, TypeMembers, InterfaceMember);
   }
   protected abstract void InterfaceMember(TFieldItem item, GqlpGeneratorContext context);
+
+  protected abstract void DecoderClassMember(TFieldItem item, GqlpGeneratorContext context);
 
   protected void GenerateEncoderBlock(IAstObject<TObjField> ast, GqlpGeneratorContext context)
   {
@@ -349,15 +354,16 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     context.Write("  " + interfaceSep + " " + context.TypeName(ast, "I") + TypeParamsString(ast));
   }
 
-  protected override void DecoderHeader(IAstObject<TObjField> ast, GqlpGeneratorContext context)
-    => context.Write("internal class " + context.TypeName(ast, "") + "Decoder" + TypeParamsString(ast));
-
   protected void GenerateObjectDecoder(IAstObject<TObjField> ast, GqlpGeneratorContext context)
   {
     bool hasTypeParams = ast.TypeParams.Any();
     string decoderName = context.TypeName(ast, "") + "Decoder";
 
-    GenerateBlock(ast, context, DecoderHeader, TypeMembers, ClassMember,
+    string header = hasTypeParams
+      ? $"internal class {decoderName}{TypeParamsString(ast)}"
+      : $"internal class {decoderName} : NullDecoder<{context.TypeName(ast, "I")}Object>";
+
+    GenerateBlock(ast, context, (_, c) => c.Write(header), TypeMembers, DecoderClassMember,
       hasTypeParams ? null : (_, c) => {
         c.Write("");
         c.Write($"  internal static {decoderName} Factory(IDecoderRepository _) => new();");

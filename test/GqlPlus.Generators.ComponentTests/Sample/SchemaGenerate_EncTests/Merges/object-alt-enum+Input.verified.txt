@@ -1,0 +1,27 @@
+﻿/* object-alt-enum+Input
+input ObjAltEnumInp { ! true }
+input ObjAltEnumInp { ! false }
+*/
+
+// Generated from Schema object-alt-enum+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alt-enum+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alt_enum_Input;
+
+internal class CmptObjAltEnumInpEncoder : IEncoder<ICmptObjAltEnumInpObject>
+{
+  public Structured Encode(ICmptObjAltEnumInpObject input)
+    => Structured.Empty();
+
+  internal static CmptObjAltEnumInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_object_alt_enum_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_object_alt_enum_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptObjAltEnumInpObject>(CmptObjAltEnumInpEncoder.Factory);
+}

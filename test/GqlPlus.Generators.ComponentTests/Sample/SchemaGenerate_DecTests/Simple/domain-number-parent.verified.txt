@@ -12,19 +12,19 @@ domain RegexDmnNmbrPrnt { Number 3> }
 
 namespace Components.Gqlp_Schema_domain_number_parent;
 
-internal class CmptDmnNmbrPrntDecoder
+internal class CmptDmnNmbrPrntDecoder : NullDecoder<ICmptDmnNmbrPrnt>
 {
 
   internal static CmptDmnNmbrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntDmnNmbrPrntDecoder
+internal class CmptPrntDmnNmbrPrntDecoder : NullDecoder<ICmptPrntDmnNmbrPrnt>
 {
 
   internal static CmptPrntDmnNmbrPrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptRegexDmnNmbrPrntDecoder
+internal class CmptRegexDmnNmbrPrntDecoder : NullDecoder<ICmptRegexDmnNmbrPrnt>
 {
 
   internal static CmptRegexDmnNmbrPrntDecoder Factory(IDecoderRepository _) => new();

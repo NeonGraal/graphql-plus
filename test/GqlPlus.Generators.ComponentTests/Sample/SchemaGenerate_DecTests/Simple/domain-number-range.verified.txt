@@ -11,13 +11,13 @@ domain RegexDmnNmbrRange { Number 4<10 }
 
 namespace Components.Gqlp_Schema_domain_number_range;
 
-internal class CmptDmnNmbrRangeDecoder
+internal class CmptDmnNmbrRangeDecoder : NullDecoder<ICmptDmnNmbrRange>
 {
 
   internal static CmptDmnNmbrRangeDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptRegexDmnNmbrRangeDecoder
+internal class CmptRegexDmnNmbrRangeDecoder : NullDecoder<ICmptRegexDmnNmbrRange>
 {
 
   internal static CmptRegexDmnNmbrRangeDecoder Factory(IDecoderRepository _) => new();

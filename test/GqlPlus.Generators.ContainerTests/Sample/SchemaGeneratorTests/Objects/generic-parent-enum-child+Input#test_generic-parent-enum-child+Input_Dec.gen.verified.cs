@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_child_Input;
 
-internal class testGnrcPrntEnumChildInpDecoder
+internal class testGnrcPrntEnumChildInpDecoder : NullDecoder<ItestGnrcPrntEnumChildInpObject>
 {
 
   internal static testGnrcPrntEnumChildInpDecoder Factory(IDecoderRepository _) => new();
@@ -15,20 +15,20 @@ internal class testGnrcPrntEnumChildInpDecoder
 
 internal class testFieldGnrcPrntEnumChildInpDecoder<TRef>
 {
-  public TRef Field { get; set; }
+  public TRef Field { get; set; } = default!;
 }
 
-internal class testEnumGnrcPrntEnumChildInpDecoder
+internal class testEnumGnrcPrntEnumChildInpDecoder : NullDecoder<testEnumGnrcPrntEnumChildInp>
 {
-  public string gnrcPrntEnumChildInpParent { get; set; }
-  public string gnrcPrntEnumChildInpLabel { get; set; }
+  public string gnrcPrntEnumChildInpParent { get; set; } = default!;
+  public string gnrcPrntEnumChildInpLabel { get; set; } = default!;
 
   internal static testEnumGnrcPrntEnumChildInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testParentGnrcPrntEnumChildInpDecoder
+internal class testParentGnrcPrntEnumChildInpDecoder : NullDecoder<testParentGnrcPrntEnumChildInp>
 {
-  public string gnrcPrntEnumChildInpParent { get; set; }
+  public string gnrcPrntEnumChildInpParent { get; set; } = default!;
 
   internal static testParentGnrcPrntEnumChildInpDecoder Factory(IDecoderRepository _) => new();
 }

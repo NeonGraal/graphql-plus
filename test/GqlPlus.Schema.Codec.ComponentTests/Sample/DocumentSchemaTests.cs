@@ -38,6 +38,7 @@ public class DocumentSchemaTests(ComponentFixture<SchemaCodecTestServices> fixtu
   {
     Map<IEnumerable<string>> groups = new() {
       ["Introspection"] = SamplesSpecificationIntrospectionData.Strings,
+      ["Request"] = SamplesSpecificationRequestData.Strings,
     };
 
     Structured result = new Map<Structured>() {

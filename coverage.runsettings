@@ -17,6 +17,8 @@
                 <ModulePath>.*\\GqlPlus\.Converter\.Yaml\.dll$</ModulePath>
                 <ModulePath>.*\\GqlPlus\.Generators\.dll$</ModulePath>
                 <ModulePath>.*\\GqlPlus\.Parser\.dll$</ModulePath>
+                <ModulePath>.*\\GqlPlus\.Request\.dll$</ModulePath>
+                <ModulePath>.*\\GqlPlus\.Schema\.dll$</ModulePath>
                 <ModulePath>.*\\GqlPlus\.Schema\.Codec\.dll$</ModulePath>
                 <ModulePath>.*\\GqlPlus\.Schema\.Models\.dll$</ModulePath>
                 <ModulePath>.*\\GqlPlus\.Schema\.Modeller\.dll$</ModulePath>

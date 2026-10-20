@@ -12,7 +12,7 @@ domain DmnStr { string /z+/ }
 
 namespace Components.Gqlp_Schema_domain_string;
 
-internal class CmptDmnStrDecoder
+internal class CmptDmnStrDecoder : NullDecoder<ICmptDmnStr>
 {
 
   internal static CmptDmnStrDecoder Factory(IDecoderRepository _) => new();

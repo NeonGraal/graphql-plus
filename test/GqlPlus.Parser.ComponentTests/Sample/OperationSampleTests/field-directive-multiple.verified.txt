@@ -1,0 +1,7 @@
+﻿!g P@001/0001
+query
+Success
+{
+  : [ ( !f I@002/0001 user ) ]
+  .1: [ ( !f I@007/0001 secretData ( !d I@019/0001 auth ) ( !d I@025/0001 restrict ) ( !d I@035/0001 audit ) ) ( !f I@041/0001 email ( !d I@048/0001 deprecated ) ( !d I@060/0001 log ) ) ]
+}

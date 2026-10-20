@@ -135,6 +135,14 @@ internal class test_EnumEncoder : IEncoder<Itest_Enum>
   internal static test_EnumEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class test_InputEncoder : IEncoder<Itest_InputObject>
+{
+  public Structured Encode(Itest_InputObject input)
+    => Structured.Empty();
+
+  internal static test_InputEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class test_OutputEncoder : IEncoder<Itest_OutputObject>
 {
   public Structured Encode(Itest_OutputObject input)
@@ -184,6 +192,7 @@ internal static class test_DefinitionEncoders
       .AddEncoder<Itest_Domain>(test_DomainEncoder.Factory)
       .AddEncoder<Itest_DualObject>(test_DualEncoder.Factory)
       .AddEncoder<Itest_Enum>(test_EnumEncoder.Factory)
+      .AddEncoder<Itest_InputObject>(test_InputEncoder.Factory)
       .AddEncoder<Itest_OutputObject>(test_OutputEncoder.Factory)
       .AddEncoder<Itest_Union>(test_UnionEncoder.Factory)
       .AddEncoder<Itest_Simple>(test_SimpleEncoder.Factory);

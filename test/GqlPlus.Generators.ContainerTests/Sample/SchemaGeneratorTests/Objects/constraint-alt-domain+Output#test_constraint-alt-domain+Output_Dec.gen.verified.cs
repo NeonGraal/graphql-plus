@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_domain_Output;
 
-internal class testDomCnstAltDmnOutpDecoder
+internal class testDomCnstAltDmnOutpDecoder : NullDecoder<ItestDomCnstAltDmnOutp>
 {
 
   internal static testDomCnstAltDmnOutpDecoder Factory(IDecoderRepository _) => new();

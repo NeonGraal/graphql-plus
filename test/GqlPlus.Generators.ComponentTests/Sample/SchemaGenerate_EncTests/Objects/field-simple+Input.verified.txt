@@ -1,0 +1,27 @@
+﻿/* field-simple+Input
+input FieldSmplInp { field: Number }
+*/
+
+// Generated from Schema field-simple+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-simple+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_simple_Input;
+
+internal class CmptFieldSmplInpEncoder : IEncoder<ICmptFieldSmplInpObject>
+{
+  public Structured Encode(ICmptFieldSmplInpObject input)
+    => Structured.Empty()
+      .Add("field", input.Field.Encode());
+
+  internal static CmptFieldSmplInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal static class Cmpt_Schema_field_simple_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_field_simple_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptFieldSmplInpObject>(CmptFieldSmplInpEncoder.Factory);
+}

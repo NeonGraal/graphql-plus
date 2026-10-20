@@ -13,15 +13,15 @@ domain DomGnrcPrntEnumDomOutp { enum gnrcPrntEnumDomOutpLabel }
 
 namespace Components.Gqlp_Schema_generic_parent_enum_dom_Output;
 
-internal class CmptEnumGnrcPrntEnumDomOutpDecoder
+internal class CmptEnumGnrcPrntEnumDomOutpDecoder : NullDecoder<CmptEnumGnrcPrntEnumDomOutp>
 {
-  public string gnrcPrntEnumDomOutpLabel { get; set; }
-  public string gnrcPrntEnumDomOutpOther { get; set; }
+  public string gnrcPrntEnumDomOutpLabel { get; set; } = default!;
+  public string gnrcPrntEnumDomOutpOther { get; set; } = default!;
 
   internal static CmptEnumGnrcPrntEnumDomOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptDomGnrcPrntEnumDomOutpDecoder
+internal class CmptDomGnrcPrntEnumDomOutpDecoder : NullDecoder<ICmptDomGnrcPrntEnumDomOutp>
 {
 
   internal static CmptDomGnrcPrntEnumDomOutpDecoder Factory(IDecoderRepository _) => new();

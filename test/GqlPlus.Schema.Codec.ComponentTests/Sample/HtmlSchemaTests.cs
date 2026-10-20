@@ -37,6 +37,7 @@ public class HtmlSchemaTests(ComponentFixture<SchemaCodecTestServices> fixture)
   {
     Map<IEnumerable<string>> groups = new() {
       ["Introspection"] = SamplesSpecificationIntrospectionData.Strings,
+      ["Request"] = SamplesSpecificationRequestData.Strings,
     };
 
     Structured result = new Map<Structured>() {
@@ -51,21 +52,10 @@ public class HtmlSchemaTests(ComponentFixture<SchemaCodecTestServices> fixture)
   [Fact]
   public async Task Index_DI()
   {
-    string[] files = [
-      "Codec", "DecoderRepository", "EncoderRepository",
-      "CommonParser", "CommonParserRepository",
-      "Generator", "GeneratorRepository",
-      "MatcherRepository",
-      "Merger", "MergerRepository",
-      "ModellerRepository", "ResolverRepository",
-      "OperationParser", "OperationParserRepository",
-      "SchemaParser", "SchemaParserRepository",
-      "Verifier", "OperationVerifierRepository", "SchemaVerifierRepository"];
-
     Map<IEnumerable<string>> groups = new() {
-      ["Table"] = files,
-      ["Diagram"] = files,
-      ["Force-3D"] = files,
+      ["Table"] = DiFluid.KnownTrees,
+      ["Diagram"] = DiFluid.KnownTrees,
+      ["Force-3D"] = DiFluid.KnownTrees,
     };
 
     Structured result = new Map<Structured>() {

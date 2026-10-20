@@ -13,15 +13,15 @@ domain JustCnstDomEnumOutp { enum EnumCnstDomEnumOutp.cnstDomEnumOutp }
 
 namespace Components.Gqlp_Schema_constraint_dom_enum_Output;
 
-internal class CmptEnumCnstDomEnumOutpDecoder
+internal class CmptEnumCnstDomEnumOutpDecoder : NullDecoder<CmptEnumCnstDomEnumOutp>
 {
-  public string cnstDomEnumOutp { get; set; }
-  public string other { get; set; }
+  public string cnstDomEnumOutp { get; set; } = default!;
+  public string other { get; set; } = default!;
 
   internal static CmptEnumCnstDomEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptJustCnstDomEnumOutpDecoder
+internal class CmptJustCnstDomEnumOutpDecoder : NullDecoder<ICmptJustCnstDomEnumOutp>
 {
 
   internal static CmptJustCnstDomEnumOutpDecoder Factory(IDecoderRepository _) => new();

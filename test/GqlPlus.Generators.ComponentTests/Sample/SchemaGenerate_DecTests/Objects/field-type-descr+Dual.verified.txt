@@ -10,9 +10,9 @@ dual FieldTypeDescrDual { field: "Test" "Descr" Number }
 
 namespace Components.Gqlp_Schema_field_type_descr_Dual;
 
-internal class CmptFieldTypeDescrDualDecoder
+internal class CmptFieldTypeDescrDualDecoder : NullDecoder<ICmptFieldTypeDescrDualObject>
 {
-  public decimal Field { get; set; }
+  public decimal Field { get; set; } = default!;
 
   internal static CmptFieldTypeDescrDualDecoder Factory(IDecoderRepository _) => new();
 }

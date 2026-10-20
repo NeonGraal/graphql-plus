@@ -7,24 +7,24 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_enum_parent_Dual;
 
-internal class testFieldEnumPrntDualDecoder
+internal class testFieldEnumPrntDualDecoder : NullDecoder<ItestFieldEnumPrntDualObject>
 {
-  public testEnumFieldEnumPrntDual Field { get; set; }
+  public testEnumFieldEnumPrntDual Field { get; set; } = default!;
 
   internal static testFieldEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumFieldEnumPrntDualDecoder
+internal class testEnumFieldEnumPrntDualDecoder : NullDecoder<testEnumFieldEnumPrntDual>
 {
-  public string prnt_fieldEnumPrntDual { get; set; }
-  public string fieldEnumPrntDual { get; set; }
+  public string prnt_fieldEnumPrntDual { get; set; } = default!;
+  public string fieldEnumPrntDual { get; set; } = default!;
 
   internal static testEnumFieldEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntFieldEnumPrntDualDecoder
+internal class testPrntFieldEnumPrntDualDecoder : NullDecoder<testPrntFieldEnumPrntDual>
 {
-  public string prnt_fieldEnumPrntDual { get; set; }
+  public string prnt_fieldEnumPrntDual { get; set; } = default!;
 
   internal static testPrntFieldEnumPrntDualDecoder Factory(IDecoderRepository _) => new();
 }

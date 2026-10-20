@@ -12,13 +12,13 @@ dual ObjAltDualType { }
 
 namespace Components.Gqlp_Schema_object_alt_Dual;
 
-internal class CmptObjAltDualDecoder
+internal class CmptObjAltDualDecoder : NullDecoder<ICmptObjAltDualObject>
 {
 
   internal static CmptObjAltDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptObjAltDualTypeDecoder
+internal class CmptObjAltDualTypeDecoder : NullDecoder<ICmptObjAltDualTypeObject>
 {
 
   internal static CmptObjAltDualTypeDecoder Factory(IDecoderRepository _) => new();

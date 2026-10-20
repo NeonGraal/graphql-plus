@@ -54,7 +54,7 @@ jobs:
         with:
           name: build
       - name: Install dependencies
-        run: dotnet restore
+        run: dotnet restore /p:TargetFramework=net${{ matrix.version }}
       - name: Install tools
         run: |
           chmod 777 -R .

@@ -13,7 +13,7 @@ public static class GqlpValueWrapper
 
     if (input.Map.Count > 0) {
       return new GqlpMap(
-        input.Map.Select(p => new KeyValuePair<string, IGqlpValue>(p.Key.AsString, p.Value.ToGqlpValue())),
+        input.Map.Select(p => new KeyValuePair<IGqlpScalar, IGqlpValue>(ToGqlpScalar(p.Key), p.Value.ToGqlpValue())),
         tag,
         input.Flow);
     }
@@ -37,12 +37,29 @@ public static class GqlpValueWrapper
       GqlpScalar s => new(new StructureValue(s.Text, s.Tag)),
       GqlpList l => new(l.Items.Select(ToStructured), l.Tag, l.Flow),
       GqlpMap m => new(
-        m.Entries.ToDictionary(e => new StructureValue(e.Key), e => e.Value.ToStructured()),
+        m.Entries.ToDictionary(e => ToStructureValue(e.Key), e => e.Value.ToStructured()),
         m.Tag,
         m.Flow),
       _ => Structured.Empty(input.Tag),
     };
   }
+
+  private static GqlpScalar ToGqlpScalar(StructureValue value)
+    => value switch {
+      { Boolean: not null } => new GqlpScalar(value.Boolean.Value, value.Tag),
+      { Number: not null } => new GqlpScalar(value.Number.Value, value.Tag),
+      { Identifier: not null } => new GqlpScalar(value.Identifier, value.Tag, isIdentifier: true),
+      { Text: not null } => new GqlpScalar(value.Text, value.Tag),
+      _ => new GqlpScalar("", value.Tag),
+    };
+
+  private static StructureValue ToStructureValue(IGqlpScalar value)
+    => value.Kind switch {
+      GqlpScalarKind.Boolean => new(value.BooleanValue, value.Tag),
+      GqlpScalarKind.Number => new(value.Number, value.Tag),
+      GqlpScalarKind.Identifier or GqlpScalarKind.Text => new(value.Text, value.Tag),
+      _ => StructureValue.Empty(value.Tag),
+    };
 
   private static IGqlpValue EmptyValue(string tag)
     => tag switch {

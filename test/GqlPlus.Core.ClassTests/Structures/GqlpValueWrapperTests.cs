@@ -31,15 +31,35 @@ public class GqlpValueWrapperTests
   public void RoundTrip_Map()
   {
     Structured structured = new(new Dictionary<StructureValue, Structured> {
-      [new("a")] = new(new StructureValue(true)),
-      [new("b")] = new([new Structured(new StructureValue("x"))]),
+      [new(1.5m, "Key")] = new(new StructureValue(true)),
+      [new(2.5m, "Key")] = new([new Structured(new StructureValue("x"))]),
     }, "M");
 
     RoundTrip(structured)
       .ShouldBe(new GqlpMap([
-        new("a", new GqlpScalar(true)),
-        new("b", new GqlpList([new GqlpScalar("x", isIdentifier: true)])),
+        new(new GqlpScalar(1.5m, "Key"), new GqlpScalar(true)),
+        new(new GqlpScalar(2.5m, "Key"), new GqlpList([new GqlpScalar("x", isIdentifier: true)])),
       ], "M"));
+  }
+
+  [Fact]
+  public void ToGqlpValue_MapWithDifferentScalarKeyTypes_KeepsScalarKeys()
+  {
+    Structured structured = new(new Dictionary<StructureValue, Structured> {
+      [new("a", "Key")] = new(new StructureValue(true)),
+      [new(1.5m)] = new([new Structured(new StructureValue("x"))]),
+    }, "M");
+
+    IGqlpValue result = structured.ToGqlpValue();
+
+    result.ShouldBe(new GqlpMap([
+      new(new GqlpScalar("a", "Key", isIdentifier: true), new GqlpScalar(true)),
+      new(new GqlpScalar(1.5m), new GqlpList([new GqlpScalar("x", isIdentifier: true)])),
+    ], "M"));
+
+    Structured converted = result.ToStructured();
+    converted.Map[new StructureValue("a", "Key")].ShouldBe(new StructureValue(true).Encode());
+    converted.Map[new StructureValue(1.5m)].ShouldBe(new([new Structured(new StructureValue("x"))]));
   }
 
   [Fact]

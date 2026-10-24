@@ -13,11 +13,11 @@ public sealed class GqlpList(IEnumerable<IGqlpValue> items, string? tag = null, 
     => Items.Aggregate(Items.Count, (h, i) => Combine(h, i.GetHashCode()));
 }
 
-public sealed class GqlpMap(IEnumerable<KeyValuePair<string, IGqlpValue>> entries, string? tag = null, bool flow = false)
+public sealed class GqlpMap(IEnumerable<KeyValuePair<IGqlpScalar, IGqlpValue>> entries, string? tag = null, bool flow = false)
   : GqlpValue(tag)
 {
-  public IReadOnlyDictionary<string, IGqlpValue> Entries { get; }
-    = entries.ToDictionary(e => e.Key, e => e.Value, StringComparer.Ordinal);
+  public IReadOnlyDictionary<IGqlpScalar, IGqlpValue> Entries { get; }
+    = entries.ToDictionary(e => e.Key, e => e.Value);
   public bool Flow { get; } = flow;
 
   protected override bool ValueEquals(GqlpValue other)
@@ -26,5 +26,5 @@ public sealed class GqlpMap(IEnumerable<KeyValuePair<string, IGqlpValue>> entrie
       && Entries.All(e => map.Entries.TryGetValue(e.Key, out IGqlpValue? v) && e.Value.Equals(v));
 
   protected override int ValueHash()
-    => Entries.Aggregate(Entries.Count, (h, e) => h ^ Combine(StringComparer.Ordinal.GetHashCode(e.Key), e.Value.GetHashCode()));
+    => Entries.Aggregate(Entries.Count, (h, e) => h ^ Combine(e.Key.GetHashCode(), e.Value.GetHashCode()));
 }

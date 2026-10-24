@@ -14,6 +14,7 @@ public sealed class GqlpScalar
 {
   public GqlpScalarKind Kind { get; }
   public bool? Boolean { get; }
+  public bool? BooleanValue => Boolean;
   public decimal? Number { get; }
   public string? Text { get; }
 
@@ -42,4 +43,10 @@ public sealed class GqlpScalar
     };
 }
 
-public interface IGqlpScalar : IGqlpValue;
+public interface IGqlpScalar : IGqlpValue
+{
+  GqlpScalarKind Kind { get; }
+  bool? BooleanValue { get; }
+  decimal? Number { get; }
+  string? Text { get; }
+}

@@ -12,7 +12,7 @@ internal class testGnrcPrntDualDualEncoder(
 ) : IEncoder<ItestGnrcPrntDualDualObject>
 {
   private readonly Encoder<ItestRefGnrcPrntDualDualObject<ItestAltGnrcPrntDualDual>> _itestRefGnrcPrntDualDual = encoders.EncoderFor<ItestRefGnrcPrntDualDualObject<ItestAltGnrcPrntDualDual>>();
-  public Structured Encode(ItestGnrcPrntDualDualObject input)
+  public IGqlpValue Encode(ItestGnrcPrntDualDualObject input)
     => _itestRefGnrcPrntDualDual.Encode(input);
 
   internal static testGnrcPrntDualDualEncoder Factory(IEncoderRepository r) => new(r);
@@ -20,14 +20,14 @@ internal class testGnrcPrntDualDualEncoder(
 
 internal class testRefGnrcPrntDualDualEncoder<TRef> : IEncoder<ItestRefGnrcPrntDualDualObject<TRef>>
 {
-  public Structured Encode(ItestRefGnrcPrntDualDualObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestRefGnrcPrntDualDualObject<TRef> input)
+    => new GqlpUnit();
 }
 
 internal class testAltGnrcPrntDualDualEncoder : IEncoder<ItestAltGnrcPrntDualDualObject>
 {
-  public Structured Encode(ItestAltGnrcPrntDualDualObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestAltGnrcPrntDualDualObject input)
+    => new GqlpUnit()
       .Add("alt", input.Alt.Encode());
 
   internal static testAltGnrcPrntDualDualEncoder Factory(IEncoderRepository _) => new();

@@ -15,8 +15,8 @@ namespace Components.Gqlp_Schema_constraint_enum_parent_Output;
 
 internal class CmptCnstEnumPrntOutpEncoder : IEncoder<ICmptCnstEnumPrntOutpObject>
 {
-  public Structured Encode(ICmptCnstEnumPrntOutpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCnstEnumPrntOutpObject input)
+    => new GqlpUnit();
 
   internal static CmptCnstEnumPrntOutpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -26,14 +26,14 @@ internal class CmptRefCnstEnumPrntOutpEncoder<TType>(
 ) : IEncoder<ICmptRefCnstEnumPrntOutpObject<TType>>
 {
   private readonly Encoder<TType> _type = encoders.EncoderFor<TType>();
-  public Structured Encode(ICmptRefCnstEnumPrntOutpObject<TType> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptRefCnstEnumPrntOutpObject<TType> input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _type);
 }
 
 internal class CmptEnumCnstEnumPrntOutpEncoder : IEncoder<CmptEnumCnstEnumPrntOutp>
 {
-  public Structured Encode(CmptEnumCnstEnumPrntOutp input)
+  public IGqlpValue Encode(CmptEnumCnstEnumPrntOutp input)
     => input.EncodeEnum("EnumCnstEnumPrntOutp");
 
   internal static CmptEnumCnstEnumPrntOutpEncoder Factory(IEncoderRepository _) => new();
@@ -41,7 +41,7 @@ internal class CmptEnumCnstEnumPrntOutpEncoder : IEncoder<CmptEnumCnstEnumPrntOu
 
 internal class CmptParentCnstEnumPrntOutpEncoder : IEncoder<CmptParentCnstEnumPrntOutp>
 {
-  public Structured Encode(CmptParentCnstEnumPrntOutp input)
+  public IGqlpValue Encode(CmptParentCnstEnumPrntOutp input)
     => input.EncodeEnum("ParentCnstEnumPrntOutp");
 
   internal static CmptParentCnstEnumPrntOutpEncoder Factory(IEncoderRepository _) => new();

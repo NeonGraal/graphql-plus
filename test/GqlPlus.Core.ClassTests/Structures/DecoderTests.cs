@@ -47,4 +47,15 @@ public class DecoderTests
 
     result.ShouldThrow<ArgumentNullException>();
   }
+
+  [Fact]
+  public void NullDecoder_Decode_ReturnsNull()
+  {
+    NullDecoder<string> decoder = new();
+
+    IMessages result = decoder.Decode(A.Of<IValue>(), out string? decoded);
+
+    result.ShouldBeEmpty();
+    decoded.ShouldBeNull();
+  }
 }

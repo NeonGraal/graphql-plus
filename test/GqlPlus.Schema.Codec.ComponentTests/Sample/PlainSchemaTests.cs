@@ -9,6 +9,6 @@ public class PlainSchemaTests(ComponentFixture<SchemaCodecTestServices> fixture)
     => CheckErrors(dirs, test, errors);
   protected override Task VerifyResult(string target, VerifySettings settings)
     => Verify(target, settings);
-  public override string EncodeResult(Structured result, string section)
+  public override string EncodeResult(IGqlpValue result, string section)
     => result.ToPlain(true).Joined(Environment.NewLine);
 }

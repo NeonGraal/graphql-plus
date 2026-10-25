@@ -14,8 +14,8 @@ namespace Components.Gqlp_Schema_generic_value_Dual;
 
 internal class CmptGnrcValueDualEncoder : IEncoder<ICmptGnrcValueDualObject>
 {
-  public Structured Encode(ICmptGnrcValueDualObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptGnrcValueDualObject input)
+    => new GqlpUnit();
 
   internal static CmptGnrcValueDualEncoder Factory(IEncoderRepository _) => new();
 }
@@ -25,14 +25,14 @@ internal class CmptRefGnrcValueDualEncoder<TType>(
 ) : IEncoder<ICmptRefGnrcValueDualObject<TType>>
 {
   private readonly Encoder<TType> _type = encoders.EncoderFor<TType>();
-  public Structured Encode(ICmptRefGnrcValueDualObject<TType> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptRefGnrcValueDualObject<TType> input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _type);
 }
 
 internal class CmptEnumGnrcValueDualEncoder : IEncoder<CmptEnumGnrcValueDual>
 {
-  public Structured Encode(CmptEnumGnrcValueDual input)
+  public IGqlpValue Encode(CmptEnumGnrcValueDual input)
     => input.EncodeEnum("EnumGnrcValueDual");
 
   internal static CmptEnumGnrcValueDualEncoder Factory(IEncoderRepository _) => new();

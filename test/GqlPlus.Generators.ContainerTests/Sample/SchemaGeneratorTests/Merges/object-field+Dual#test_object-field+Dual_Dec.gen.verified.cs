@@ -7,14 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_Dual;
 
-internal class testObjFieldDualDecoder
+internal class testObjFieldDualDecoder : NullDecoder<ItestObjFieldDualObject>
 {
-  public ItestFldObjFieldDual Field { get; set; }
+  public ItestFldObjFieldDual Field { get; set; } = default!;
 
   internal static testObjFieldDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testFldObjFieldDualDecoder
+internal class testFldObjFieldDualDecoder : NullDecoder<ItestFldObjFieldDualObject>
 {
 
   internal static testFldObjFieldDualDecoder Factory(IDecoderRepository _) => new();

@@ -9,12 +9,12 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_mod_param_Dual;
 
 internal class testFieldModParamDualDecoder<TMod>
 {
-  public IDictionary<TMod, ItestFldFieldModParamDual> Field { get; set; }
+  public IDictionary<TMod, ItestFldFieldModParamDual> Field { get; set; } = default!;
 }
 
-internal class testFldFieldModParamDualDecoder
+internal class testFldFieldModParamDualDecoder : NullDecoder<ItestFldFieldModParamDualObject>
 {
-  public decimal Field { get; set; }
+  public decimal Field { get; set; } = default!;
 
   internal static testFldFieldModParamDualDecoder Factory(IDecoderRepository _) => new();
 }

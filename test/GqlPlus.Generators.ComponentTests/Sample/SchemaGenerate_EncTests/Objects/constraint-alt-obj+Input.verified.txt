@@ -1,0 +1,57 @@
+﻿/* constraint-alt-obj+Input
+input CnstAltObjInp { | RefCnstAltObjInp<AltCnstAltObjInp> }
+input RefCnstAltObjInp<$ref:PrntCnstAltObjInp> { | $ref }
+input PrntCnstAltObjInp { | String }
+input AltCnstAltObjInp { :PrntCnstAltObjInp alt: Number }
+*/
+
+// Generated from Schema constraint-alt-obj+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-alt-obj+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt, NamespaceIncludesBaseName: True
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_obj_Input;
+
+internal class CmptCnstAltObjInpEncoder : IEncoder<ICmptCnstAltObjInpObject>
+{
+  public IGqlpValue Encode(ICmptCnstAltObjInpObject input)
+    => new GqlpUnit();
+
+  internal static CmptCnstAltObjInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptRefCnstAltObjInpEncoder<TRef> : IEncoder<ICmptRefCnstAltObjInpObject<TRef>>
+{
+  public IGqlpValue Encode(ICmptRefCnstAltObjInpObject<TRef> input)
+    => new GqlpUnit();
+}
+
+internal class CmptPrntCnstAltObjInpEncoder : IEncoder<ICmptPrntCnstAltObjInpObject>
+{
+  public IGqlpValue Encode(ICmptPrntCnstAltObjInpObject input)
+    => new GqlpUnit();
+
+  internal static CmptPrntCnstAltObjInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptAltCnstAltObjInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptAltCnstAltObjInpObject>
+{
+  private readonly Encoder<ICmptPrntCnstAltObjInpObject> _prntCnstAltObjInp = encoders.EncoderFor<ICmptPrntCnstAltObjInpObject>();
+  public IGqlpValue Encode(ICmptAltCnstAltObjInpObject input)
+    => _prntCnstAltObjInp.Encode(input)
+      .Add("alt", input.Alt.Encode());
+
+  internal static CmptAltCnstAltObjInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal static class Cmpt_Schema_constraint_alt_obj_InputEncoders
+{
+  internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_alt_obj_InputEncoders(this IEncoderRepositoryBuilder builder)
+    => builder
+      .AddEncoder<ICmptCnstAltObjInpObject>(CmptCnstAltObjInpEncoder.Factory)
+      .AddEncoder<ICmptPrntCnstAltObjInpObject>(CmptPrntCnstAltObjInpEncoder.Factory)
+      .AddEncoder<ICmptAltCnstAltObjInpObject>(CmptAltCnstAltObjInpEncoder.Factory);
+}

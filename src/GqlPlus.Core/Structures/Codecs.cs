@@ -2,7 +2,7 @@ namespace GqlPlus.Structures;
 
 public interface IEncoder<TInput>
 {
-  Structured Encode(TInput input);
+  IGqlpValue Encode(TInput input);
 }
 
 public class Encoder<TInput>(
@@ -10,7 +10,7 @@ public class Encoder<TInput>(
 ) : DeferOne<IEncoder<TInput>>(factory)
   , IEncoder<TInput>
 {
-  public Structured Encode(TInput input)
+  public IGqlpValue Encode(TInput input)
     => Value.Encode(input);
 
   public static implicit operator Encoder<TInput>(D factory)
@@ -32,4 +32,13 @@ public class Decoder<TOutput>(
 
   public static implicit operator Decoder<TOutput>(D factory)
     => new(factory.ThrowIfNull());
+}
+
+public class NullDecoder<T> : IDecoder<T>
+{
+  public virtual IMessages Decode(IValue input, out T? output)
+  {
+    output = default;
+    return Messages.New;
+  }
 }

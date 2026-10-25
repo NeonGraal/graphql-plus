@@ -9,7 +9,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_boolean_diff;
 
 internal class testDmnBoolDiffEncoder : IEncoder<ItestDmnBoolDiff>
 {
-  public Structured Encode(ItestDmnBoolDiff input)
+  public IGqlpValue Encode(ItestDmnBoolDiff input)
     => input.Value!.Encode();
 
   internal static testDmnBoolDiffEncoder Factory(IEncoderRepository _) => new();

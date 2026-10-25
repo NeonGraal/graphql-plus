@@ -12,8 +12,8 @@ namespace Components.Gqlp_Schema_field_Dual;
 
 internal class CmptFieldDualEncoder : IEncoder<ICmptFieldDualObject>
 {
-  public Structured Encode(ICmptFieldDualObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptFieldDualObject input)
+    => new GqlpUnit()
       .Add("field", input.Field.Encode());
 
   internal static CmptFieldDualEncoder Factory(IEncoderRepository _) => new();

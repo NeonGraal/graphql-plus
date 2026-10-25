@@ -23,13 +23,13 @@ public class TypeFilterModelDecoderTests
   public void Decode_Kinds_ReturnsExpected(
     [NotNull] TypeKindModel[] kinds)
   {
-    Map<Structured> input = new() {
-      ["kinds"] = kinds.Encode()
-    };
+    IValue input = DecoderTestValue.FromMap([
+      new("kinds", DecoderTestValue.FromList(kinds.Select(kind => (IValue)new ScalarValue(kind.ToString())))),
+    ]);
 
     DecodeReturns(Kind, TypeKindModel.Internal);
 
-    IMessages messages = Decoder.Decode(input.Encode(), out TypeFilterModel? result);
+    IMessages messages = Decoder.Decode(input, out TypeFilterModel? result);
 
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
@@ -45,14 +45,14 @@ public class TypeFilterModelDecoderTests
     [NotNull] string[] names,
     [NotNull] TypeKindModel[] kinds)
   {
-    Map<Structured> input = new() {
-      ["names"] = names.Encode(),
-      ["kinds"] = kinds.Encode()
-    };
+    IValue input = DecoderTestValue.FromMap([
+      new("names", DecoderTestValue.FromList(names.Select(name => (IValue)new ScalarValue(name)))),
+      new("kinds", DecoderTestValue.FromList(kinds.Select(kind => (IValue)new ScalarValue(kind.ToString())))),
+    ]);
 
     DecodeReturns(Kind, TypeKindModel.Internal);
 
-    IMessages messages = Decoder.Decode(input.Encode(), out TypeFilterModel? result);
+    IMessages messages = Decoder.Decode(input, out TypeFilterModel? result);
 
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(

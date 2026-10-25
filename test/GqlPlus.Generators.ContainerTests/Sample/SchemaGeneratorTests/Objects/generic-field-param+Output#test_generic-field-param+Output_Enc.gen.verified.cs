@@ -12,8 +12,8 @@ internal class testGnrcFieldParamOutpEncoder(
 ) : IEncoder<ItestGnrcFieldParamOutpObject>
 {
   private readonly Encoder<ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp>> _itestRefGnrcFieldParamOutp = encoders.EncoderFor<ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp>>();
-  public Structured Encode(ItestGnrcFieldParamOutpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestGnrcFieldParamOutpObject input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _itestRefGnrcFieldParamOutp);
 
   internal static testGnrcFieldParamOutpEncoder Factory(IEncoderRepository r) => new(r);
@@ -21,14 +21,14 @@ internal class testGnrcFieldParamOutpEncoder(
 
 internal class testRefGnrcFieldParamOutpEncoder<TRef> : IEncoder<ItestRefGnrcFieldParamOutpObject<TRef>>
 {
-  public Structured Encode(ItestRefGnrcFieldParamOutpObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestRefGnrcFieldParamOutpObject<TRef> input)
+    => new GqlpUnit();
 }
 
 internal class testAltGnrcFieldParamOutpEncoder : IEncoder<ItestAltGnrcFieldParamOutpObject>
 {
-  public Structured Encode(ItestAltGnrcFieldParamOutpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestAltGnrcFieldParamOutpObject input)
+    => new GqlpUnit()
       .Add("alt", input.Alt.Encode());
 
   internal static testAltGnrcFieldParamOutpEncoder Factory(IEncoderRepository _) => new();

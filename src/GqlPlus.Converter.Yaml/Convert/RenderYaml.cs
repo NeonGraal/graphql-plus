@@ -38,8 +38,8 @@ public static class RenderYaml
       settings);
   }
 
-  public static string ToYaml(this Structured model, bool wrapped)
+  public static string ToYaml(this IGqlpValue model, bool wrapped)
     => (wrapped ? YamlWrapped : YamlFull).Serialize(model);
-  public static Structured FromYaml(this IEnumerable<string> yaml)
-    => YamlDeserializer.Deserialize<Structured>(yaml.Joined(Environment.NewLine));
+  public static IGqlpValue FromYaml(this IEnumerable<string> yaml)
+    => YamlDeserializer.Deserialize<IGqlpValue>(yaml.Joined(Environment.NewLine));
 }

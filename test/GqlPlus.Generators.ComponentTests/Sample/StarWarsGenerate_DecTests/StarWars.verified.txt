@@ -49,16 +49,16 @@ output Character {
 
 namespace Components.Gqlp_StarWars_StarWars;
 
-internal class CmptEpisodeDecoder
+internal class CmptEpisodeDecoder : NullDecoder<CmptEpisode>
 {
-  public string NewHope { get; set; }
-  public string Empire { get; set; }
-  public string Jedi { get; set; }
+  public string NewHope { get; set; } = default!;
+  public string Empire { get; set; } = default!;
+  public string Jedi { get; set; } = default!;
 
   internal static CmptEpisodeDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptIdDecoder
+internal class CmptIdDecoder : NullDecoder<ICmptId>
 {
 
   internal static CmptIdDecoder Factory(IDecoderRepository _) => new();

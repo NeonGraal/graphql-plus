@@ -7,9 +7,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_enum_descr;
 
-internal class testEnumDescrDecoder
+internal class testEnumDescrDecoder : NullDecoder<testEnumDescr>
 {
-  public string enumDescr { get; set; }
+  public string enumDescr { get; set; } = default!;
 
   internal static testEnumDescrDecoder Factory(IDecoderRepository _) => new();
 }

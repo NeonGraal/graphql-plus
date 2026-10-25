@@ -12,9 +12,23 @@ domain DomCnstAltDmnInp { String /\w+/ }
 
 namespace Components.Gqlp_Schema_constraint_alt_domain_Input;
 
+internal class CmptCnstAltDmnInpEncoder : IEncoder<ICmptCnstAltDmnInpObject>
+{
+  public IGqlpValue Encode(ICmptCnstAltDmnInpObject input)
+    => new GqlpUnit();
+
+  internal static CmptCnstAltDmnInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptRefCnstAltDmnInpEncoder<TRef> : IEncoder<ICmptRefCnstAltDmnInpObject<TRef>>
+{
+  public IGqlpValue Encode(ICmptRefCnstAltDmnInpObject<TRef> input)
+    => new GqlpUnit();
+}
+
 internal class CmptDomCnstAltDmnInpEncoder : IEncoder<ICmptDomCnstAltDmnInp>
 {
-  public Structured Encode(ICmptDomCnstAltDmnInp input)
+  public IGqlpValue Encode(ICmptDomCnstAltDmnInp input)
     => input.Value!.Encode();
 
   internal static CmptDomCnstAltDmnInpEncoder Factory(IEncoderRepository _) => new();
@@ -24,5 +38,6 @@ internal static class Cmpt_Schema_constraint_alt_domain_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_alt_domain_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
+      .AddEncoder<ICmptCnstAltDmnInpObject>(CmptCnstAltDmnInpEncoder.Factory)
       .AddEncoder<ICmptDomCnstAltDmnInp>(CmptDomCnstAltDmnInpEncoder.Factory);
 }

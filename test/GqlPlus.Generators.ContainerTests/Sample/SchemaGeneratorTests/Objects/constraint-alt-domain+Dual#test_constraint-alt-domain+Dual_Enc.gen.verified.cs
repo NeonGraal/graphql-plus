@@ -9,21 +9,21 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_domain_Dual;
 
 internal class testCnstAltDmnDualEncoder : IEncoder<ItestCnstAltDmnDualObject>
 {
-  public Structured Encode(ItestCnstAltDmnDualObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCnstAltDmnDualObject input)
+    => new GqlpUnit();
 
   internal static testCnstAltDmnDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testRefCnstAltDmnDualEncoder<TRef> : IEncoder<ItestRefCnstAltDmnDualObject<TRef>>
 {
-  public Structured Encode(ItestRefCnstAltDmnDualObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestRefCnstAltDmnDualObject<TRef> input)
+    => new GqlpUnit();
 }
 
 internal class testDomCnstAltDmnDualEncoder : IEncoder<ItestDomCnstAltDmnDual>
 {
-  public Structured Encode(ItestDomCnstAltDmnDual input)
+  public IGqlpValue Encode(ItestDomCnstAltDmnDual input)
     => input.Value!.Encode();
 
   internal static testDomCnstAltDmnDualEncoder Factory(IEncoderRepository _) => new();

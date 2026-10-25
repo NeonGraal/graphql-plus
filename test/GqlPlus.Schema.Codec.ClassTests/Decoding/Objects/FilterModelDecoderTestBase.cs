@@ -17,7 +17,7 @@ public abstract class FilterModelDecoderTestBase<TModel>
 
   [Fact]
   public void Decode_Empty_ReturnsNull()
-    => DecodeAndCheck("".Encode(), null);
+    => DecodeAndCheck(new ScalarValue(""), null);
 
   [Theory, RepeatData]
   public void Decode_All_ReturnsExpected(
@@ -27,15 +27,15 @@ public abstract class FilterModelDecoderTestBase<TModel>
     bool returnReferencedTypes,
     bool returnByAlias)
   {
-    Map<Structured> input = new() {
-      ["names"] = names.ThrowIfNull().Encode(),
-      ["matchAliases"] = matchAliases.ThrowIfNull().Encode(),
-      ["aliases"] = aliases.ThrowIfNull().Encode(),
-      ["returnReferencedTypes"] = returnReferencedTypes.ThrowIfNull().Encode(),
-      ["returnByAlias"] = returnByAlias.ThrowIfNull().Encode()
-    };
+    IValue input = DecoderTestValue.FromMap([
+      new("names", DecoderTestValue.FromList(names.Select(name => (IValue)new ScalarValue(name)))),
+      new("matchAliases", new ScalarValue(matchAliases)),
+      new("aliases", DecoderTestValue.FromList(aliases.Select(alias => (IValue)new ScalarValue(alias)))),
+      new("returnReferencedTypes", new ScalarValue(returnReferencedTypes)),
+      new("returnByAlias", new ScalarValue(returnByAlias)),
+    ]);
 
-    IMessages messages = Decoder.ThrowIfNull().Decode(input.ThrowIfNull().Encode(), out TModel? result);
+    IMessages messages = Decoder.ThrowIfNull().Decode(input.ThrowIfNull(), out TModel? result);
 
     result.ThrowIfNull().ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
@@ -50,7 +50,7 @@ public abstract class FilterModelDecoderTestBase<TModel>
   [Theory, RepeatData]
   public void Decode_Name_ReturnsExpected(string name)
   {
-    IMessages messages = Decoder.ThrowIfNull().Decode(new[] { name }.Encode(), out TModel? result);
+    IMessages messages = Decoder.ThrowIfNull().Decode(DecoderTestValue.FromList([new ScalarValue(name)]), out TModel? result);
 
     result.ThrowIfNull().ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
@@ -63,7 +63,8 @@ public abstract class FilterModelDecoderTestBase<TModel>
   [Theory, RepeatData]
   public void Decode_Names_ReturnsExpected([NotNull] string[] names)
   {
-    IMessages messages = Decoder.ThrowIfNull().Decode(names.ThrowIfNull().Encode(), out TModel? result);
+    IMessages messages = Decoder.ThrowIfNull().Decode(
+      DecoderTestValue.FromList(names.Select(name => (IValue)new ScalarValue(name))), out TModel? result);
 
     result.ThrowIfNull().ShouldNotBeNull()
       .ShouldSatisfyAllConditions(

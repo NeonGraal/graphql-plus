@@ -13,17 +13,48 @@ input AltCnstPrntDualPrntInp { :PrntCnstPrntDualPrntInp alt: Number }
 
 namespace Components.Gqlp_Schema_constraint_parent_dual_parent_Input;
 
+internal class CmptCnstPrntDualPrntInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptCnstPrntDualPrntInpObject>
+{
+  private readonly Encoder<ICmptRefCnstPrntDualPrntInpObject<ICmptAltCnstPrntDualPrntInp>> _refCnstPrntDualPrntInp = encoders.EncoderFor<ICmptRefCnstPrntDualPrntInpObject<ICmptAltCnstPrntDualPrntInp>>();
+  public IGqlpValue Encode(ICmptCnstPrntDualPrntInpObject input)
+    => _refCnstPrntDualPrntInp.Encode(input);
+
+  internal static CmptCnstPrntDualPrntInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class CmptRefCnstPrntDualPrntInpEncoder<TRef> : IEncoder<ICmptRefCnstPrntDualPrntInpObject<TRef>>
+{
+  public IGqlpValue Encode(ICmptRefCnstPrntDualPrntInpObject<TRef> input)
+    => new GqlpUnit();
+}
+
 internal class CmptPrntCnstPrntDualPrntInpEncoder : IEncoder<ICmptPrntCnstPrntDualPrntInpObject>
 {
-  public Structured Encode(ICmptPrntCnstPrntDualPrntInpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptPrntCnstPrntDualPrntInpObject input)
+    => new GqlpUnit();
 
   internal static CmptPrntCnstPrntDualPrntInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptAltCnstPrntDualPrntInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptAltCnstPrntDualPrntInpObject>
+{
+  private readonly Encoder<ICmptPrntCnstPrntDualPrntInpObject> _prntCnstPrntDualPrntInp = encoders.EncoderFor<ICmptPrntCnstPrntDualPrntInpObject>();
+  public IGqlpValue Encode(ICmptAltCnstPrntDualPrntInpObject input)
+    => _prntCnstPrntDualPrntInp.Encode(input)
+      .Add("alt", input.Alt.Encode());
+
+  internal static CmptAltCnstPrntDualPrntInpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class Cmpt_Schema_constraint_parent_dual_parent_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_parent_dual_parent_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ICmptPrntCnstPrntDualPrntInpObject>(CmptPrntCnstPrntDualPrntInpEncoder.Factory);
+      .AddEncoder<ICmptCnstPrntDualPrntInpObject>(CmptCnstPrntDualPrntInpEncoder.Factory)
+      .AddEncoder<ICmptPrntCnstPrntDualPrntInpObject>(CmptPrntCnstPrntDualPrntInpEncoder.Factory)
+      .AddEncoder<ICmptAltCnstPrntDualPrntInpObject>(CmptAltCnstPrntDualPrntInpEncoder.Factory);
 }

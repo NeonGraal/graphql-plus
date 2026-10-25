@@ -18,5 +18,5 @@ public sealed class SchemaCodecTestServices : IConfiguresServices
   }
 
   public static IServiceCollection Configure(IServiceCollection services)
-    => services.AddModellerComponentTestBase();
+    => services.AddModellerComponentTestBase(true, true);
 }

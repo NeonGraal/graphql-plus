@@ -12,7 +12,7 @@ internal class testGnrcPrntParamPrntOutpEncoder(
 ) : IEncoder<ItestGnrcPrntParamPrntOutpObject>
 {
   private readonly Encoder<ItestRefGnrcPrntParamPrntOutpObject<ItestAltGnrcPrntParamPrntOutp>> _itestRefGnrcPrntParamPrntOutp = encoders.EncoderFor<ItestRefGnrcPrntParamPrntOutpObject<ItestAltGnrcPrntParamPrntOutp>>();
-  public Structured Encode(ItestGnrcPrntParamPrntOutpObject input)
+  public IGqlpValue Encode(ItestGnrcPrntParamPrntOutpObject input)
     => _itestRefGnrcPrntParamPrntOutp.Encode(input);
 
   internal static testGnrcPrntParamPrntOutpEncoder Factory(IEncoderRepository r) => new(r);
@@ -20,14 +20,14 @@ internal class testGnrcPrntParamPrntOutpEncoder(
 
 internal class testRefGnrcPrntParamPrntOutpEncoder<TRef> : IEncoder<ItestRefGnrcPrntParamPrntOutpObject<TRef>>
 {
-  public Structured Encode(ItestRefGnrcPrntParamPrntOutpObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestRefGnrcPrntParamPrntOutpObject<TRef> input)
+    => new GqlpUnit();
 }
 
 internal class testAltGnrcPrntParamPrntOutpEncoder : IEncoder<ItestAltGnrcPrntParamPrntOutpObject>
 {
-  public Structured Encode(ItestAltGnrcPrntParamPrntOutpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestAltGnrcPrntParamPrntOutpObject input)
+    => new GqlpUnit()
       .Add("alt", input.Alt.Encode());
 
   internal static testAltGnrcPrntParamPrntOutpEncoder Factory(IEncoderRepository _) => new();

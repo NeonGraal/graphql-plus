@@ -14,21 +14,21 @@ namespace Components.Gqlp_Schema_constraint_alt_domain_Output;
 
 internal class CmptCnstAltDmnOutpEncoder : IEncoder<ICmptCnstAltDmnOutpObject>
 {
-  public Structured Encode(ICmptCnstAltDmnOutpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCnstAltDmnOutpObject input)
+    => new GqlpUnit();
 
   internal static CmptCnstAltDmnOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptRefCnstAltDmnOutpEncoder<TRef> : IEncoder<ICmptRefCnstAltDmnOutpObject<TRef>>
 {
-  public Structured Encode(ICmptRefCnstAltDmnOutpObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptRefCnstAltDmnOutpObject<TRef> input)
+    => new GqlpUnit();
 }
 
 internal class CmptDomCnstAltDmnOutpEncoder : IEncoder<ICmptDomCnstAltDmnOutp>
 {
-  public Structured Encode(ICmptDomCnstAltDmnOutp input)
+  public IGqlpValue Encode(ICmptDomCnstAltDmnOutp input)
     => input.Value!.Encode();
 
   internal static CmptDomCnstAltDmnOutpEncoder Factory(IEncoderRepository _) => new();

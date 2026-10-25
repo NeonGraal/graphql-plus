@@ -38,7 +38,7 @@ public class SpecialTypeEncoderTests
   {
     SpecialTypeModel model = new(name, content);
 
-    Structured result = _special.TypeEncode(model);
+    IGqlpValue result = _special.TypeEncode(model);
 
     result.ShouldNotBeNull()
       .ToPlain(false)

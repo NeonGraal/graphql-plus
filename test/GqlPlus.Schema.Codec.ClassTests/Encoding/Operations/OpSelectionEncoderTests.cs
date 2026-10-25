@@ -9,6 +9,7 @@ public class OpSelectionEncoderTests
     _directive = RFor<OpDirectiveModel>();
     _modifier = RFor<ModifierModel>();
     _type = RFor<TypeRefModel<TypeKindModel>>();
+    _type.Encode(Arg.Any<TypeRefModel<TypeKindModel>>()).Returns(new GqlpUnit());
     IEncoderRepository repo = A.Of<IEncoderRepository>();
     repo.EncoderForReturns(_argument);
     repo.EncoderForReturns(_directive);

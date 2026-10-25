@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_domain_string;
 
 internal class CmptDmnStrEncoder : IEncoder<ICmptDmnStr>
 {
-  public Structured Encode(ICmptDmnStr input)
+  public IGqlpValue Encode(ICmptDmnStr input)
     => input.Value!.Encode();
 
   internal static CmptDmnStrEncoder Factory(IEncoderRepository _) => new();

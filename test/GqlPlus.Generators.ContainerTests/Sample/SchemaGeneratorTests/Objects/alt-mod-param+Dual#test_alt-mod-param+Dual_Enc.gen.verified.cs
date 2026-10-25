@@ -9,14 +9,14 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_param_Dual;
 
 internal class testAltModParamDualEncoder<TMod> : IEncoder<ItestAltModParamDualObject<TMod>>
 {
-  public Structured Encode(ItestAltModParamDualObject<TMod> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestAltModParamDualObject<TMod> input)
+    => new GqlpUnit();
 }
 
 internal class testAltAltModParamDualEncoder : IEncoder<ItestAltAltModParamDualObject>
 {
-  public Structured Encode(ItestAltAltModParamDualObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestAltAltModParamDualObject input)
+    => new GqlpUnit()
       .Add("alt", input.Alt.Encode());
 
   internal static testAltAltModParamDualEncoder Factory(IEncoderRepository _) => new();

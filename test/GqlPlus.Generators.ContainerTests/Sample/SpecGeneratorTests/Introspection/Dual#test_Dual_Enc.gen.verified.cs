@@ -12,7 +12,7 @@ internal class test_DualFieldEncoder(
 ) : IEncoder<Itest_DualFieldObject>
 {
   private readonly Encoder<Itest_ObjFieldObject<Itest_ObjFieldType>> _itest_ObjField = encoders.EncoderFor<Itest_ObjFieldObject<Itest_ObjFieldType>>();
-  public Structured Encode(Itest_DualFieldObject input)
+  public IGqlpValue Encode(Itest_DualFieldObject input)
     => _itest_ObjField.Encode(input);
 
   internal static test_DualFieldEncoder Factory(IEncoderRepository r) => new(r);

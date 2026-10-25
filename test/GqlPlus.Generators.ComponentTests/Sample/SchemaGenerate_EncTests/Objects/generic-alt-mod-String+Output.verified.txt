@@ -12,6 +12,6 @@ namespace Components.Gqlp_Schema_generic_alt_mod_String_Output;
 
 internal class CmptRefGnrcAltModStrOutpEncoder<TRef> : IEncoder<ICmptRefGnrcAltModStrOutpObject<TRef>>
 {
-  public Structured Encode(ICmptRefGnrcAltModStrOutpObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptRefGnrcAltModStrOutpObject<TRef> input)
+    => new GqlpUnit();
 }

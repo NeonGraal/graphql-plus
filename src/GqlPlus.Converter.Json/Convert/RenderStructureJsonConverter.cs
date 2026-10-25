@@ -1,113 +1,95 @@
 namespace GqlPlus.Convert;
 
 internal sealed class RenderStructureJsonConverter
-  : RenderJsonConverter<Structured>
+  : RenderJsonConverter<IGqlpValue>
 {
-  public override Structured? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+  public override IGqlpValue? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     => new ReadJson().ReadStructured(ref reader).Result;
-  public override void Write(Utf8JsonWriter writer, Structured value, JsonSerializerOptions options)
-    => WriteStructureTagged(writer, value, "");
+  public override void Write(Utf8JsonWriter writer, IGqlpValue value, JsonSerializerOptions options)
+    => WriteValueNode(writer, value, "");
 
-  private void WriteStructureTagged(Utf8JsonWriter writer, Structured value, string keyTag)
+  private void WriteValueNode(Utf8JsonWriter writer, IGqlpValue value, string keyTag)
   {
-    bool plain = string.IsNullOrWhiteSpace(value.Tag);
+    switch (value) {
+      case IGqlpScalar scalar:
+        base.WriteValueTagged(writer, scalar, keyTag);
+        break;
+      case GqlpList list:
+        WriteList(writer, list, keyTag);
+        break;
+      case GqlpMap map:
+        WriteMap(writer, map, keyTag);
+        break;
+      case GqlpNull:
+      case GqlpVoid:
+        writer.WriteNullValue();
+        break;
+      case GqlpUnit unit:
+        base.WriteValueTagged(writer, new GqlpScalar("", unit.Tag), keyTag);
+        break;
+    }
+  }
 
-    if (value.List.Count > 0) {
-      WriteList(writer, value.List, value.Tag, keyTag);
+  private void WriteMap(Utf8JsonWriter writer, GqlpMap map, string keyTag)
+  {
+    KeyValuePair<IGqlpScalar, IGqlpValue> first = map.Entries.FirstOrDefault();
+    if (map.Entries.Count == 1 && !string.IsNullOrWhiteSpace(map.Tag)
+        && string.IsNullOrWhiteSpace(first.Value.Tag) && first.Value is IGqlpScalar) {
+      writer.WriteStartObject();
+      WriteTag(writer, keyTag, "keyTag");
+      WriteTag(writer, map.Tag, "mapTag");
+      writer.WritePropertyName(ScalarText(first.Key));
+      WriteValueNode(writer, first.Value, first.Key.Tag);
+      writer.WriteEndObject();
       return;
     }
 
-    if (value.Map.Count > 0) {
-      WriteMap(writer, value, keyTag, plain);
-      return;
-    }
-
-    if (value.Value is not null) {
-      WriteValueTagged(writer, value.Value, keyTag);
-    }
-  }
-
-  private void WriteMap(
-    Utf8JsonWriter writer,
-    Structured value,
-    string keyTag,
-    bool plain)
-  {
-    KeyValuePair<StructureValue, Structured> first = value.Map.First();
-    if (value.Map.Count == 1 && !plain && string.IsNullOrWhiteSpace(first.Value.Tag) && first.Value.Value is not null) {
-      WriteSingleMap(writer, value.Tag, keyTag, first);
-    } else {
-      WriteFullMap(writer, value.Map, value.Tag, keyTag);
-    }
-  }
-
-  private void WriteSingleMap(Utf8JsonWriter writer, string valueTag, string keyTag, KeyValuePair<StructureValue, Structured> first)
-  {
     writer.WriteStartObject();
     WriteTag(writer, keyTag, "keyTag");
-    WriteTag(writer, valueTag, "mapTag");
-    writer.WritePropertyName(first.Key.AsString);
-    WriteStructureTagged(writer, first.Value?.Value.Encode() ?? Structured.Empty(), first.Key.Tag);
-    writer.WriteEndObject();
-  }
-
-  private void WriteFullMap(
-    Utf8JsonWriter writer,
-    ComplexValue<StructureValue, Structured>.IDict map,
-    string mapTag,
-    string keyTag)
-  {
-    writer.WriteStartObject();
-    WriteTag(writer, keyTag, "keyTag");
-    WriteTag(writer, mapTag, "mapTag");
-    IEnumerable<(StructureValue, Structured)> ordered = map
-      .Select(kv => (key: kv.Key, kv.Value))
-      .OrderBy(kv => kv.key.AsString, StringComparer.Ordinal);
-
-    foreach ((StructureValue key, Structured value) in ordered) {
-      writer.WritePropertyName(key.AsString);
-      WriteStructureTagged(writer, value, key.Tag);
+    WriteTag(writer, map.Tag, "mapTag");
+    foreach (KeyValuePair<IGqlpScalar, IGqlpValue> entry in map.Entries.OrderBy(kv => ScalarText(kv.Key), StringComparer.Ordinal)) {
+      writer.WritePropertyName(ScalarText(entry.Key));
+      WriteValueNode(writer, entry.Value, entry.Key.Tag);
     }
 
     writer.WriteEndObject();
   }
 
-  private void WriteList(
-    Utf8JsonWriter writer,
-    IList<Structured> list,
-    string listTag,
-    string keyTag = "")
+  private void WriteList(Utf8JsonWriter writer, GqlpList list, string keyTag)
   {
-    if (string.IsNullOrWhiteSpace(listTag) && string.IsNullOrWhiteSpace(keyTag)) {
-      WriteFlowList();
+    if (string.IsNullOrWhiteSpace(list.Tag) && string.IsNullOrWhiteSpace(keyTag)) {
+      WriteItems();
       return;
     }
 
     writer.WriteStartObject();
     WriteTag(writer, keyTag, "keyTag");
     writer.WritePropertyName("$list");
-    WriteFlowList();
-    WriteTag(writer, listTag, "listTag");
+    WriteItems();
+    WriteTag(writer, list.Tag, "listTag");
     writer.WriteEndObject();
 
-    void WriteFlowList()
+    void WriteItems()
     {
-      if (list.All(i => i.Value is not null)) {
-        string result = JsonSerializer.Serialize(list, RenderJson.Unindented);
-        writer.WriteRawValue(result.Replace(",", ", "));
+      if (list.Items.All(item => item is IGqlpScalar)) {
+        string json = JsonSerializer.Serialize(list.Items, RenderJson.Unindented);
+        writer.WriteRawValue(json.Replace(",", ", "));
         return;
       }
 
-      WriteList(writer, list);
-    }
-  }
-  private void WriteList(Utf8JsonWriter writer, IList<Structured> list)
-  {
-    writer.WriteStartArray();
-    foreach (Structured item in list) {
-      WriteStructureTagged(writer, item, "");
-    }
+      writer.WriteStartArray();
+      foreach (IGqlpValue item in list.Items) {
+        WriteValueNode(writer, item, "");
+      }
 
-    writer.WriteEndArray();
+      writer.WriteEndArray();
+    }
   }
+
+  private static string ScalarText(IGqlpScalar scalar)
+    => scalar.Kind switch {
+      GqlpScalarKind.Boolean => scalar.BooleanValue!.Value.TrueFalse(),
+      GqlpScalarKind.Number => $"{scalar.Number:0.#####}",
+      _ => scalar.Text ?? "",
+    };
 }

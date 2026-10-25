@@ -9,7 +9,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_string_parent;
 
 internal class testDmnStrPrntEncoder : IEncoder<ItestDmnStrPrnt>
 {
-  public Structured Encode(ItestDmnStrPrnt input)
+  public IGqlpValue Encode(ItestDmnStrPrnt input)
     => input.Value!.Encode();
 
   internal static testDmnStrPrntEncoder Factory(IEncoderRepository _) => new();
@@ -17,7 +17,7 @@ internal class testDmnStrPrntEncoder : IEncoder<ItestDmnStrPrnt>
 
 internal class testPrntDmnStrPrntEncoder : IEncoder<ItestPrntDmnStrPrnt>
 {
-  public Structured Encode(ItestPrntDmnStrPrnt input)
+  public IGqlpValue Encode(ItestPrntDmnStrPrnt input)
     => input.Value!.Encode();
 
   internal static testPrntDmnStrPrntEncoder Factory(IEncoderRepository _) => new();
@@ -25,7 +25,7 @@ internal class testPrntDmnStrPrntEncoder : IEncoder<ItestPrntDmnStrPrnt>
 
 internal class testRegexDmnStrPrntEncoder : IEncoder<ItestRegexDmnStrPrnt>
 {
-  public Structured Encode(ItestRegexDmnStrPrnt input)
+  public IGqlpValue Encode(ItestRegexDmnStrPrnt input)
     => input.Value!.Encode();
 
   internal static testRegexDmnStrPrntEncoder Factory(IEncoderRepository _) => new();

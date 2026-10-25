@@ -13,8 +13,8 @@ namespace Components.Gqlp_Schema_category_output_dict;
 
 internal class CmptCtgrOutpDictEncoder : IEncoder<ICmptCtgrOutpDictObject>
 {
-  public Structured Encode(ICmptCtgrOutpDictObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCtgrOutpDictObject input)
+    => new GqlpUnit();
 
   internal static CmptCtgrOutpDictEncoder Factory(IEncoderRepository _) => new();
 }

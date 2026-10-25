@@ -12,9 +12,27 @@ enum EnumCnstEnumInp { cnstEnumInp }
 
 namespace Components.Gqlp_Schema_constraint_enum_Input;
 
+internal class CmptCnstEnumInpEncoder : IEncoder<ICmptCnstEnumInpObject>
+{
+  public IGqlpValue Encode(ICmptCnstEnumInpObject input)
+    => new GqlpUnit();
+
+  internal static CmptCnstEnumInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptRefCnstEnumInpEncoder<TType>(
+  IEncoderRepository encoders
+) : IEncoder<ICmptRefCnstEnumInpObject<TType>>
+{
+  private readonly Encoder<TType> _type = encoders.EncoderFor<TType>();
+  public IGqlpValue Encode(ICmptRefCnstEnumInpObject<TType> input)
+    => new GqlpUnit()
+      .AddEncoded("field", input.Field, _type);
+}
+
 internal class CmptEnumCnstEnumInpEncoder : IEncoder<CmptEnumCnstEnumInp>
 {
-  public Structured Encode(CmptEnumCnstEnumInp input)
+  public IGqlpValue Encode(CmptEnumCnstEnumInp input)
     => input.EncodeEnum("EnumCnstEnumInp");
 
   internal static CmptEnumCnstEnumInpEncoder Factory(IEncoderRepository _) => new();
@@ -24,5 +42,6 @@ internal static class Cmpt_Schema_constraint_enum_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_constraint_enum_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
+      .AddEncoder<ICmptCnstEnumInpObject>(CmptCnstEnumInpEncoder.Factory)
       .AddEncoder<CmptEnumCnstEnumInp>(CmptEnumCnstEnumInpEncoder.Factory);
 }

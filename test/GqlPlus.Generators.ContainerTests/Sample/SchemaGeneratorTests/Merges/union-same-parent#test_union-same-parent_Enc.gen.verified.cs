@@ -12,9 +12,9 @@ internal class testUnionSamePrntEncoder(
 ) : IEncoder<ItestUnionSamePrnt>
 {
   private readonly Encoder<bool> _boolean = encoders.EncoderFor<bool>();
-  public Structured Encode(ItestUnionSamePrnt input)
+  public IGqlpValue Encode(ItestUnionSamePrnt input)
     => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
-     : Structured.Empty();
+     : new GqlpUnit();
 
   internal static testUnionSamePrntEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -24,9 +24,9 @@ internal class testPrntUnionSamePrntEncoder(
 ) : IEncoder<ItestPrntUnionSamePrnt>
 {
   private readonly Encoder<string> _string = encoders.EncoderFor<string>();
-  public Structured Encode(ItestPrntUnionSamePrnt input)
+  public IGqlpValue Encode(ItestPrntUnionSamePrnt input)
     => input.HasA<string>() ? _string.Encode(input.AsA<string>())
-     : Structured.Empty();
+     : new GqlpUnit();
 
   internal static testPrntUnionSamePrntEncoder Factory(IEncoderRepository r) => new(r);
 }

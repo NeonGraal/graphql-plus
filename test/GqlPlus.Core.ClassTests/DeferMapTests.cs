@@ -41,7 +41,7 @@ public class DeferMapTests
   [Theory, RepeatData]
   public void Indexer_GivenExistingKey_ReturnsCorrectValue(string key)
   {
-    Map<string> map = new() { { key, key } };
+    Map<string> map = key.MapWith(key);
     DeferMap<string> defer = new(() => map);
 
     string result = defer[key];
@@ -52,7 +52,7 @@ public class DeferMapTests
   [Theory, RepeatData]
   public void GetValueOr_WhenKeyExists_ReturnsValue(string key)
   {
-    Map<string> map = new() { { key, key } };
+    Map<string> map = key.MapWith(key);
     DeferMap<string> defer = new(() => map);
 
     string? result = defer.GetValueOr(key);
@@ -74,7 +74,7 @@ public class DeferMapTests
   [Theory, RepeatData]
   public void ContainsKey_WhenKeyExists_ReturnsTrue(string key)
   {
-    Map<string> map = new() { { key, key } };
+    Map<string> map = key.MapWith(key);
     DeferMap<string> defer = new(() => map);
 
     bool result = defer.ContainsKey(key);
@@ -96,7 +96,7 @@ public class DeferMapTests
   [Theory, RepeatData]
   public void TryGetValue_WhenKeyExists_ReturnsTrueAndValue(string key)
   {
-    Map<string> map = new() { { key, key } };
+    Map<string> map = key.MapWith(key);
     DeferMap<string> defer = new(() => map);
 
     bool result = defer.TryGetValue(key, out string value);

@@ -7,9 +7,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_input_field_String;
 
-internal class testInpFieldStrDecoder
+internal class testInpFieldStrDecoder : NullDecoder<ItestInpFieldStrObject>
 {
-  public string Field { get; set; }
+  public string Field { get; set; } = default!;
 
   internal static testInpFieldStrDecoder Factory(IDecoderRepository _) => new();
 }

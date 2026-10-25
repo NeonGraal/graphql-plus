@@ -11,16 +11,16 @@ input FldFieldObjInp { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_object_Input;
 
-internal class CmptFieldObjInpDecoder
+internal class CmptFieldObjInpDecoder : NullDecoder<ICmptFieldObjInpObject>
 {
-  public ICmptFldFieldObjInp Field { get; set; }
+  public ICmptFldFieldObjInp Field { get; set; } = default!;
 
   internal static CmptFieldObjInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptFldFieldObjInpDecoder
+internal class CmptFldFieldObjInpDecoder : NullDecoder<ICmptFldFieldObjInpObject>
 {
-  public decimal Field { get; set; }
+  public decimal Field { get; set; } = default!;
 
   internal static CmptFldFieldObjInpDecoder Factory(IDecoderRepository _) => new();
 }

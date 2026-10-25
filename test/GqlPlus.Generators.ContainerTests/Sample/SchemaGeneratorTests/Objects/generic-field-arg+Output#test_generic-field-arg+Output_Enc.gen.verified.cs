@@ -12,13 +12,13 @@ internal class testGnrcFieldArgOutpEncoder<TType>(
 ) : IEncoder<ItestGnrcFieldArgOutpObject<TType>>
 {
   private readonly Encoder<ItestRefGnrcFieldArgOutp<TType>> _itestRefGnrcFieldArgOutp = encoders.EncoderFor<ItestRefGnrcFieldArgOutp<TType>>();
-  public Structured Encode(ItestGnrcFieldArgOutpObject<TType> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestGnrcFieldArgOutpObject<TType> input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _itestRefGnrcFieldArgOutp);
 }
 
 internal class testRefGnrcFieldArgOutpEncoder<TRef> : IEncoder<ItestRefGnrcFieldArgOutpObject<TRef>>
 {
-  public Structured Encode(ItestRefGnrcFieldArgOutpObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestRefGnrcFieldArgOutpObject<TRef> input)
+    => new GqlpUnit();
 }

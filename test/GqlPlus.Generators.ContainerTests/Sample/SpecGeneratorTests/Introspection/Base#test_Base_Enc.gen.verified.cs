@@ -9,7 +9,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_Base;
 
 internal class test_ObjectKindEncoder : IEncoder<Itest_ObjectKind>
 {
-  public Structured Encode(Itest_ObjectKind input)
+  public IGqlpValue Encode(Itest_ObjectKind input)
     => input.Value?.EncodeEnum("test_TypeKind")!;
 
   internal static test_ObjectKindEncoder Factory(IEncoderRepository _) => new();
@@ -25,7 +25,7 @@ internal class test_TypeObjectEncoder<TObjectKind,TField>(
   private readonly Encoder<Itest_ObjAlternate> _itest_ObjAlternate = encoders.EncoderFor<Itest_ObjAlternate>();
   private readonly Encoder<Itest_ObjectFor<TField>> _itest_ObjectFor = encoders.EncoderFor<Itest_ObjectFor<TField>>();
   private readonly Encoder<Itest_ObjectFor<Itest_ObjAlternate>> _itest_ObjectFor2 = encoders.EncoderFor<Itest_ObjectFor<Itest_ObjAlternate>>();
-  public Structured Encode(Itest_TypeObjectObject<TObjectKind,TField> input)
+  public IGqlpValue Encode(Itest_TypeObjectObject<TObjectKind,TField> input)
     => _itest_ChildType.Encode(input)
       .AddList("typeParams", input.TypeParams, _itest_ObjTypeParam)
       .AddList("fields", input.Fields, _field)
@@ -40,7 +40,7 @@ internal class test_ObjTypeParamEncoder(
 {
   private readonly Encoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
   private readonly Encoder<Itest_TypeRef<Itest_TypeKind>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRef<Itest_TypeKind>>();
-  public Structured Encode(Itest_ObjTypeParamObject input)
+  public IGqlpValue Encode(Itest_ObjTypeParamObject input)
     => _itest_Named.Encode(input)
       .AddEncoded("constraint", input.Constraint, _itest_TypeRef);
 
@@ -53,7 +53,7 @@ internal class test_ObjBaseEncoder(
 {
   private readonly Encoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
   private readonly Encoder<Itest_ObjTypeArg> _itest_ObjTypeArg = encoders.EncoderFor<Itest_ObjTypeArg>();
-  public Structured Encode(Itest_ObjBaseObject input)
+  public IGqlpValue Encode(Itest_ObjBaseObject input)
     => _itest_Named.Encode(input)
       .AddList("typeArgs", input.TypeArgs, _itest_ObjTypeArg);
 
@@ -66,7 +66,7 @@ internal class test_ObjTypeArgEncoder(
 {
   private readonly Encoder<Itest_TypeRefObject<Itest_TypeKind>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRefObject<Itest_TypeKind>>();
   private readonly Encoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
-  public Structured Encode(Itest_ObjTypeArgObject input)
+  public IGqlpValue Encode(Itest_ObjTypeArgObject input)
     => _itest_TypeRef.Encode(input)
       .AddEncoded("label", input.Label, _itest_Name);
 
@@ -79,7 +79,7 @@ internal class test_TypeParamEncoder(
 {
   private readonly Encoder<Itest_DescribedObject> _itest_Described = encoders.EncoderFor<Itest_DescribedObject>();
   private readonly Encoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
-  public Structured Encode(Itest_TypeParamObject input)
+  public IGqlpValue Encode(Itest_TypeParamObject input)
     => _itest_Described.Encode(input)
       .AddEncoded("typeParam", input.TypeParam, _itest_Name);
 
@@ -92,8 +92,8 @@ internal class test_ObjAlternateEncoder(
 {
   private readonly Encoder<Itest_ObjBase> _itest_ObjBase = encoders.EncoderFor<Itest_ObjBase>();
   private readonly Encoder<Itest_Collections> _itest_Collections = encoders.EncoderFor<Itest_Collections>();
-  public Structured Encode(Itest_ObjAlternateObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(Itest_ObjAlternateObject input)
+    => new GqlpUnit()
       .AddEncoded("type", input.Type, _itest_ObjBase)
       .AddList("collections", input.Collections, _itest_Collections);
 
@@ -106,7 +106,7 @@ internal class test_ObjAlternateEnumEncoder(
 {
   private readonly Encoder<Itest_TypeRefObject<Itest_TypeKind>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRefObject<Itest_TypeKind>>();
   private readonly Encoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
-  public Structured Encode(Itest_ObjAlternateEnumObject input)
+  public IGqlpValue Encode(Itest_ObjAlternateEnumObject input)
     => _itest_TypeRef.Encode(input)
       .AddEncoded("label", input.Label, _itest_Name);
 
@@ -118,8 +118,8 @@ internal class test_ObjectForEncoder<TFor>(
 ) : IEncoder<Itest_ObjectForObject<TFor>>
 {
   private readonly Encoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
-  public Structured Encode(Itest_ObjectForObject<TFor> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(Itest_ObjectForObject<TFor> input)
+    => new GqlpUnit()
       .AddEncoded("objectType", input.ObjectType, _itest_Name);
 }
 
@@ -129,7 +129,7 @@ internal class test_ObjFieldEncoder<TType>(
 {
   private readonly Encoder<Itest_AliasedObject> _itest_Aliased = encoders.EncoderFor<Itest_AliasedObject>();
   private readonly Encoder<TType> _type = encoders.EncoderFor<TType>();
-  public Structured Encode(Itest_ObjFieldObject<TType> input)
+  public IGqlpValue Encode(Itest_ObjFieldObject<TType> input)
     => _itest_Aliased.Encode(input)
       .AddEncoded("type", input.Type, _type);
 }
@@ -140,7 +140,7 @@ internal class test_ObjFieldTypeEncoder(
 {
   private readonly Encoder<Itest_ObjBaseObject> _itest_ObjBase = encoders.EncoderFor<Itest_ObjBaseObject>();
   private readonly Encoder<Itest_Modifiers> _itest_Modifiers = encoders.EncoderFor<Itest_Modifiers>();
-  public Structured Encode(Itest_ObjFieldTypeObject input)
+  public IGqlpValue Encode(Itest_ObjFieldTypeObject input)
     => _itest_ObjBase.Encode(input)
       .AddList("modifiers", input.Modifiers, _itest_Modifiers);
 
@@ -153,7 +153,7 @@ internal class test_ObjFieldEnumEncoder(
 {
   private readonly Encoder<Itest_TypeRefObject<Itest_TypeKind>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRefObject<Itest_TypeKind>>();
   private readonly Encoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
-  public Structured Encode(Itest_ObjFieldEnumObject input)
+  public IGqlpValue Encode(Itest_ObjFieldEnumObject input)
     => _itest_TypeRef.Encode(input)
       .AddEncoded("label", input.Label, _itest_Name);
 
@@ -162,8 +162,8 @@ internal class test_ObjFieldEnumEncoder(
 
 internal class test_ForParamEncoder<TType> : IEncoder<Itest_ForParamObject<TType>>
 {
-  public Structured Encode(Itest_ForParamObject<TType> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(Itest_ForParamObject<TType> input)
+    => new GqlpUnit();
 }
 
 internal static class test_BaseEncoders

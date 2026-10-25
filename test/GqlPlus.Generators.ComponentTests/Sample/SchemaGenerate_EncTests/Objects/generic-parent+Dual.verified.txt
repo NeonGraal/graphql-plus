@@ -12,6 +12,6 @@ namespace Components.Gqlp_Schema_generic_parent_Dual;
 
 internal class CmptGnrcPrntDualEncoder<TType> : IEncoder<ICmptGnrcPrntDualObject<TType>>
 {
-  public Structured Encode(ICmptGnrcPrntDualObject<TType> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptGnrcPrntDualObject<TType> input)
+    => new GqlpUnit();
 }

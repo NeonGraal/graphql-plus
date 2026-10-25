@@ -14,8 +14,8 @@ namespace Components.Gqlp_Schema_descr_between;
 
 internal class CmptDescrBtwnEncoder : IEncoder<ICmptDescrBtwnObject>
 {
-  public Structured Encode(ICmptDescrBtwnObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptDescrBtwnObject input)
+    => new GqlpUnit();
 
   internal static CmptDescrBtwnEncoder Factory(IEncoderRepository _) => new();
 }

@@ -36,7 +36,7 @@ namespace Components.Gqlp_Schema_all;
 
 internal class CmptGuidEncoder : IEncoder<ICmptGuid>
 {
-  public Structured Encode(ICmptGuid input)
+  public IGqlpValue Encode(ICmptGuid input)
     => input.Value!.Encode();
 
   internal static CmptGuidEncoder Factory(IEncoderRepository _) => new();
@@ -44,7 +44,7 @@ internal class CmptGuidEncoder : IEncoder<ICmptGuid>
 
 internal class CmptOneEncoder : IEncoder<CmptOne>
 {
-  public Structured Encode(CmptOne input)
+  public IGqlpValue Encode(CmptOne input)
     => input.EncodeEnum("One");
 
   internal static CmptOneEncoder Factory(IEncoderRepository _) => new();
@@ -56,21 +56,34 @@ internal class CmptManyEncoder(
 {
   private readonly Encoder<ICmptGuid> _guid = encoders.EncoderFor<ICmptGuid>();
   private readonly Encoder<decimal> _number = encoders.EncoderFor<decimal>();
-  public Structured Encode(ICmptMany input)
+  public IGqlpValue Encode(ICmptMany input)
     => input.HasA<ICmptGuid>() ? _guid.Encode(input.AsA<ICmptGuid>())
      : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
-     : Structured.Empty();
+     : new GqlpUnit();
 
   internal static CmptManyEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class CmptFieldEncoder : IEncoder<ICmptFieldObject>
 {
-  public Structured Encode(ICmptFieldObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptFieldObject input)
+    => new GqlpUnit()
       .Add("strings", input.Strings.Encode());
 
   internal static CmptFieldEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptParamEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ICmptParamObject>
+{
+  private readonly Encoder<ICmptMany> _many = encoders.EncoderFor<ICmptMany>();
+  public IGqlpValue Encode(ICmptParamObject input)
+    => new GqlpUnit()
+      .AddEncoded("afterId", input.AfterId, _many)
+      .AddEncoded("beforeId", input.BeforeId, _many);
+
+  internal static CmptParamEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class CmptAllEncoder(
@@ -78,8 +91,8 @@ internal class CmptAllEncoder(
 ) : IEncoder<ICmptAllObject>
 {
   private readonly Encoder<ICmptField> _field = encoders.EncoderFor<ICmptField>();
-  public Structured Encode(ICmptAllObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptAllObject input)
+    => new GqlpUnit()
       .AddEncoded("items", input.Items(), _field);
 
   internal static CmptAllEncoder Factory(IEncoderRepository r) => new(r);
@@ -93,5 +106,6 @@ internal static class Cmpt_Schema_allEncoders
       .AddEncoder<CmptOne>(CmptOneEncoder.Factory)
       .AddEncoder<ICmptMany>(CmptManyEncoder.Factory)
       .AddEncoder<ICmptFieldObject>(CmptFieldEncoder.Factory)
+      .AddEncoder<ICmptParamObject>(CmptParamEncoder.Factory)
       .AddEncoder<ICmptAllObject>(CmptAllEncoder.Factory);
 }

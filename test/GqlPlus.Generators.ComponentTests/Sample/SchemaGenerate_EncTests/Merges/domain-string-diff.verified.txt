@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_domain_string_diff;
 
 internal class CmptDmnStrDiffEncoder : IEncoder<ICmptDmnStrDiff>
 {
-  public Structured Encode(ICmptDmnStrDiff input)
+  public IGqlpValue Encode(ICmptDmnStrDiff input)
     => input.Value!.Encode();
 
   internal static CmptDmnStrDiffEncoder Factory(IEncoderRepository _) => new();

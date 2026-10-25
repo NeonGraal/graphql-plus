@@ -9,8 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_enum_parent_Output;
 
 internal class testFieldEnumPrntOutpEncoder : IEncoder<ItestFieldEnumPrntOutpObject>
 {
-  public Structured Encode(ItestFieldEnumPrntOutpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestFieldEnumPrntOutpObject input)
+    => new GqlpUnit()
       .AddEnum("field", input.Field);
 
   internal static testFieldEnumPrntOutpEncoder Factory(IEncoderRepository _) => new();
@@ -18,7 +18,7 @@ internal class testFieldEnumPrntOutpEncoder : IEncoder<ItestFieldEnumPrntOutpObj
 
 internal class testEnumFieldEnumPrntOutpEncoder : IEncoder<testEnumFieldEnumPrntOutp>
 {
-  public Structured Encode(testEnumFieldEnumPrntOutp input)
+  public IGqlpValue Encode(testEnumFieldEnumPrntOutp input)
     => input.EncodeEnum("EnumFieldEnumPrntOutp");
 
   internal static testEnumFieldEnumPrntOutpEncoder Factory(IEncoderRepository _) => new();
@@ -26,7 +26,7 @@ internal class testEnumFieldEnumPrntOutpEncoder : IEncoder<testEnumFieldEnumPrnt
 
 internal class testPrntFieldEnumPrntOutpEncoder : IEncoder<testPrntFieldEnumPrntOutp>
 {
-  public Structured Encode(testPrntFieldEnumPrntOutp input)
+  public IGqlpValue Encode(testPrntFieldEnumPrntOutp input)
     => input.EncodeEnum("PrntFieldEnumPrntOutp");
 
   internal static testPrntFieldEnumPrntOutpEncoder Factory(IEncoderRepository _) => new();

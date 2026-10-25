@@ -9,15 +9,15 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_mod_Enum_Output;
 
 internal class testFieldModEnumOutpEncoder : IEncoder<ItestFieldModEnumOutpObject>
 {
-  public Structured Encode(ItestFieldModEnumOutpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestFieldModEnumOutpObject input)
+    => new GqlpUnit();
 
   internal static testFieldModEnumOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testEnumFieldModEnumOutpEncoder : IEncoder<testEnumFieldModEnumOutp>
 {
-  public Structured Encode(testEnumFieldModEnumOutp input)
+  public IGqlpValue Encode(testEnumFieldModEnumOutp input)
     => input.EncodeEnum("EnumFieldModEnumOutp");
 
   internal static testEnumFieldModEnumOutpEncoder Factory(IEncoderRepository _) => new();

@@ -16,8 +16,8 @@ namespace Components.Gqlp_Schema_category_descr;
 
 internal class CmptCtgrDescrEncoder : IEncoder<ICmptCtgrDescrObject>
 {
-  public Structured Encode(ICmptCtgrDescrObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCtgrDescrObject input)
+    => new GqlpUnit();
 
   internal static CmptCtgrDescrEncoder Factory(IEncoderRepository _) => new();
 }

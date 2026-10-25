@@ -6,12 +6,12 @@ internal class ConstantEncoder(
 {
   private readonly Encoder<SimpleModel> _simple = encoders.EncoderFor<SimpleModel>();
 
-  public Structured Encode(ConstantModel model)
+  public IGqlpValue Encode(ConstantModel model)
     => model switch {
       { Map.Count: > 0 }
-        => new Structured(model.Map.ToDictionary(
-          p => _simple.Encode(p.Key).Value!,
-          p => Encode(p.Value)), "_ConstantMap"),
+        => new GqlpMap(model.Map.Select(p => new KeyValuePair<IGqlpScalar, IGqlpValue>(
+          (IGqlpScalar)_simple.Encode(p.Key),
+          Encode(p.Value))), "_ConstantMap"),
       { List.Count: > 0 }
         => model.List.Encode(Encode, "_ConstantList"),
       { Value: not null }
@@ -25,7 +25,7 @@ internal class ConstantEncoder(
 internal class SimpleEncoder
   : IEncoder<SimpleModel>
 {
-  Structured IEncoder<SimpleModel>.Encode(SimpleModel model)
+  IGqlpValue IEncoder<SimpleModel>.Encode(SimpleModel model)
     => model switch {
       { EnumValue: not null } => model.EnumValue.Label.Encode(model.TypeName.IfWhiteSpace(model.EnumValue.Name)),
       { Boolean: not null } => model.Boolean.Encode(model.TypeName)!,
@@ -41,7 +41,7 @@ internal class SimpleEncoder
 internal class CollectionEncoder
   : BaseEncoder<CollectionModel>
 {
-  internal override Structured Encode(CollectionModel model)
+  internal override IGqlpValue Encode(CollectionModel model)
     => base.Encode(model)
         .AddEnum("modifierKind", model.ModifierKind)
         .AddIf(model.ModifierKind is ModifierKindModel.Dict or ModifierKindModel.Param,
@@ -58,7 +58,7 @@ internal class ModifierEncoder
   : CollectionEncoder
   , IEncoder<ModifierModel>
 {
-  Structured IEncoder<ModifierModel>.Encode(ModifierModel model)
+  IGqlpValue IEncoder<ModifierModel>.Encode(ModifierModel model)
     => Encode(model);
 
   internal static new ModifierEncoder Factory(IEncoderRepository _) => new();

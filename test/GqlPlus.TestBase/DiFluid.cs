@@ -45,8 +45,23 @@ public static class DiFluid
       c => c.ShouldContain(fi => fi.Name == "pico.liquid"));
   }
 
+  public static string[] KnownTrees { get; } = [
+      "Codec", "DecoderRepository", "EncoderRepository",
+      "CommonParser", "CommonParserRepository",
+      "Generator", "GeneratorRepository",
+      "MatcherRepository",
+      "Merger", "MergerRepository",
+      "Modeller", "ModellerRepository",
+      "Request",
+      "Resolver", "ResolverRepository",
+      "OperationParser", "OperationParserRepository",
+      "SchemaParser", "SchemaParserRepository",
+      "Verifier", "OperationVerifierRepository", "SchemaVerifierRepository"];
+
   public static void WriteTree(string label, [NotNull] IMap<DiTree> tree)
   {
+    KnownTrees.ShouldContain(label);
+
     TemplateContext context = new(s_options);
     context.SetValue("name", label);
     context.SetValue("services", tree.Values.OrderBy(s => (s.RequiredBy, s.Name)));

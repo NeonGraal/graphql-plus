@@ -9,8 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_Dual;
 
 internal class testObjDualEncoder : IEncoder<ItestObjDualObject>
 {
-  public Structured Encode(ItestObjDualObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestObjDualObject input)
+    => new GqlpUnit();
 
   internal static testObjDualEncoder Factory(IEncoderRepository _) => new();
 }

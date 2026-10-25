@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_domain_Output;
 
-internal class testDomCnstFieldDmnOutpDecoder
+internal class testDomCnstFieldDmnOutpDecoder : NullDecoder<ItestDomCnstFieldDmnOutp>
 {
 
   internal static testDomCnstFieldDmnOutpDecoder Factory(IDecoderRepository _) => new();

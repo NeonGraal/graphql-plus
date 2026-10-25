@@ -10,5 +10,5 @@ public sealed class YamlConverterTestServices : IConfiguresServices
     => DiffRunner.MaxInstancesToLaunch(20);
 
   public static IServiceCollection Configure(IServiceCollection services)
-    => services.AddModellerComponentTestBase();
+    => services.AddModellerComponentTestBase(true, true);
 }

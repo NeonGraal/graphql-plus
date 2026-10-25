@@ -7,10 +7,22 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_dual_Input;
 
+internal class testFieldDualInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestFieldDualInpObject>
+{
+  private readonly Encoder<ItestFldFieldDualInp> _itestFldFieldDualInp = encoders.EncoderFor<ItestFldFieldDualInp>();
+  public IGqlpValue Encode(ItestFieldDualInpObject input)
+    => new GqlpUnit()
+      .AddEncoded("field", input.Field, _itestFldFieldDualInp);
+
+  internal static testFieldDualInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
 internal class testFldFieldDualInpEncoder : IEncoder<ItestFldFieldDualInpObject>
 {
-  public Structured Encode(ItestFldFieldDualInpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestFldFieldDualInpObject input)
+    => new GqlpUnit()
       .Add("field", input.Field.Encode());
 
   internal static testFldFieldDualInpEncoder Factory(IEncoderRepository _) => new();
@@ -20,5 +32,6 @@ internal static class test_field_dual_InputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_field_dual_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
+      .AddEncoder<ItestFieldDualInpObject>(testFieldDualInpEncoder.Factory)
       .AddEncoder<ItestFldFieldDualInpObject>(testFldFieldDualInpEncoder.Factory);
 }

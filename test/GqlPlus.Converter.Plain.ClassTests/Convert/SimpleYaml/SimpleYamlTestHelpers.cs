@@ -74,9 +74,9 @@ internal static class SimpleYamlTestHelpers
   private sealed class SimpleYamlConverters
     : IConvertTestsBase
   {
-    public Structured ConvertFrom(string[] input)
+    public IGqlpValue ConvertFrom(string[] input)
       => throw SkipException.ForSkip("SimpleYaml Deserialize not required");
-    public string[] ConvertTo(Structured model)
+    public string[] ConvertTo(IGqlpValue model)
       => model.ToSimpleYaml(false);
   }
 }

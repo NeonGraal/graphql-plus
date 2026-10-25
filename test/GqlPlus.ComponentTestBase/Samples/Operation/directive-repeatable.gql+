@@ -1,0 +1,1 @@
+{user(id: 1) @log(level: "debug") @metrics @cache(ttl: 300)}

@@ -7,17 +7,48 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_dual_parent_Input;
 
+internal class testCnstPrntDualPrntInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestCnstPrntDualPrntInpObject>
+{
+  private readonly Encoder<ItestRefCnstPrntDualPrntInpObject<ItestAltCnstPrntDualPrntInp>> _itestRefCnstPrntDualPrntInp = encoders.EncoderFor<ItestRefCnstPrntDualPrntInpObject<ItestAltCnstPrntDualPrntInp>>();
+  public IGqlpValue Encode(ItestCnstPrntDualPrntInpObject input)
+    => _itestRefCnstPrntDualPrntInp.Encode(input);
+
+  internal static testCnstPrntDualPrntInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class testRefCnstPrntDualPrntInpEncoder<TRef> : IEncoder<ItestRefCnstPrntDualPrntInpObject<TRef>>
+{
+  public IGqlpValue Encode(ItestRefCnstPrntDualPrntInpObject<TRef> input)
+    => new GqlpUnit();
+}
+
 internal class testPrntCnstPrntDualPrntInpEncoder : IEncoder<ItestPrntCnstPrntDualPrntInpObject>
 {
-  public Structured Encode(ItestPrntCnstPrntDualPrntInpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestPrntCnstPrntDualPrntInpObject input)
+    => new GqlpUnit();
 
   internal static testPrntCnstPrntDualPrntInpEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class testAltCnstPrntDualPrntInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestAltCnstPrntDualPrntInpObject>
+{
+  private readonly Encoder<ItestPrntCnstPrntDualPrntInpObject> _itestPrntCnstPrntDualPrntInp = encoders.EncoderFor<ItestPrntCnstPrntDualPrntInpObject>();
+  public IGqlpValue Encode(ItestAltCnstPrntDualPrntInpObject input)
+    => _itestPrntCnstPrntDualPrntInp.Encode(input)
+      .Add("alt", input.Alt.Encode());
+
+  internal static testAltCnstPrntDualPrntInpEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal static class test_constraint_parent_dual_parent_InputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_constraint_parent_dual_parent_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
-      .AddEncoder<ItestPrntCnstPrntDualPrntInpObject>(testPrntCnstPrntDualPrntInpEncoder.Factory);
+      .AddEncoder<ItestCnstPrntDualPrntInpObject>(testCnstPrntDualPrntInpEncoder.Factory)
+      .AddEncoder<ItestPrntCnstPrntDualPrntInpObject>(testPrntCnstPrntDualPrntInpEncoder.Factory)
+      .AddEncoder<ItestAltCnstPrntDualPrntInpObject>(testAltCnstPrntDualPrntInpEncoder.Factory);
 }

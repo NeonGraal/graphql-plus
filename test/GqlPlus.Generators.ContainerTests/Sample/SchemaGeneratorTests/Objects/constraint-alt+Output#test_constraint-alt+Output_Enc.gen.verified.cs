@@ -9,6 +9,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_Output;
 
 internal class testCnstAltOutpEncoder<TType> : IEncoder<ItestCnstAltOutpObject<TType>>
 {
-  public Structured Encode(ItestCnstAltOutpObject<TType> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCnstAltOutpObject<TType> input)
+    => new GqlpUnit();
 }

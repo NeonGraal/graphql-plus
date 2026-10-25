@@ -1,0 +1,1 @@
+{user(filter:{address:{city:"NYC" state:"NY" zipRange:{min:10000 max:10999}}}){id}}

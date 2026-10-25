@@ -7,12 +7,12 @@ public class EncoderTests
   public void Encode_WhenCalled_DelegatesToValue(string input)
   {
     IEncoder<string> inner = A.Of<IEncoder<string>>();
-    Structured encoded = input.Encode();
+    IGqlpValue encoded = input.Encode();
     inner.Encode(input).Returns(encoded);
 
     Encoder<string> encoder = new(() => inner);
 
-    Structured result = encoder.Encode(input);
+    IGqlpValue result = encoder.Encode(input);
 
     result.ShouldBe(encoded);
   }
@@ -21,7 +21,7 @@ public class EncoderTests
   public void ImplicitConvert_FromDelegate_ReturnsEncoder(string input)
   {
     IEncoder<string> inner = A.Of<IEncoder<string>>();
-    Structured encoded = input.Encode();
+    IGqlpValue encoded = input.Encode();
     inner.Encode(input).Returns(encoded);
 
     Encoder<string>.D factory = () => inner;

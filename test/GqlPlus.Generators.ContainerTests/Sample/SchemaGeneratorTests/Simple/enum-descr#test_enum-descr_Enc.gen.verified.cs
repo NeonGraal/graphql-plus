@@ -9,7 +9,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_enum_descr;
 
 internal class testEnumDescrEncoder : IEncoder<testEnumDescr>
 {
-  public Structured Encode(testEnumDescr input)
+  public IGqlpValue Encode(testEnumDescr input)
     => input.EncodeEnum("EnumDescr");
 
   internal static testEnumDescrEncoder Factory(IEncoderRepository _) => new();

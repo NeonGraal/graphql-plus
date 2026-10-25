@@ -7,9 +7,30 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_child_Input;
 
+internal class testGnrcPrntEnumChildInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestGnrcPrntEnumChildInpObject>
+{
+  private readonly Encoder<ItestFieldGnrcPrntEnumChildInpObject<testParentGnrcPrntEnumChildInp>> _itestFieldGnrcPrntEnumChildInp = encoders.EncoderFor<ItestFieldGnrcPrntEnumChildInpObject<testParentGnrcPrntEnumChildInp>>();
+  public IGqlpValue Encode(ItestGnrcPrntEnumChildInpObject input)
+    => _itestFieldGnrcPrntEnumChildInp.Encode(input);
+
+  internal static testGnrcPrntEnumChildInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class testFieldGnrcPrntEnumChildInpEncoder<TRef>(
+  IEncoderRepository encoders
+) : IEncoder<ItestFieldGnrcPrntEnumChildInpObject<TRef>>
+{
+  private readonly Encoder<TRef> _ref = encoders.EncoderFor<TRef>();
+  public IGqlpValue Encode(ItestFieldGnrcPrntEnumChildInpObject<TRef> input)
+    => new GqlpUnit()
+      .AddEncoded("field", input.Field, _ref);
+}
+
 internal class testEnumGnrcPrntEnumChildInpEncoder : IEncoder<testEnumGnrcPrntEnumChildInp>
 {
-  public Structured Encode(testEnumGnrcPrntEnumChildInp input)
+  public IGqlpValue Encode(testEnumGnrcPrntEnumChildInp input)
     => input.EncodeEnum("EnumGnrcPrntEnumChildInp");
 
   internal static testEnumGnrcPrntEnumChildInpEncoder Factory(IEncoderRepository _) => new();
@@ -17,7 +38,7 @@ internal class testEnumGnrcPrntEnumChildInpEncoder : IEncoder<testEnumGnrcPrntEn
 
 internal class testParentGnrcPrntEnumChildInpEncoder : IEncoder<testParentGnrcPrntEnumChildInp>
 {
-  public Structured Encode(testParentGnrcPrntEnumChildInp input)
+  public IGqlpValue Encode(testParentGnrcPrntEnumChildInp input)
     => input.EncodeEnum("ParentGnrcPrntEnumChildInp");
 
   internal static testParentGnrcPrntEnumChildInpEncoder Factory(IEncoderRepository _) => new();
@@ -27,6 +48,7 @@ internal static class test_generic_parent_enum_child_InputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_generic_parent_enum_child_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
+      .AddEncoder<ItestGnrcPrntEnumChildInpObject>(testGnrcPrntEnumChildInpEncoder.Factory)
       .AddEncoder<testEnumGnrcPrntEnumChildInp>(testEnumGnrcPrntEnumChildInpEncoder.Factory)
       .AddEncoder<testParentGnrcPrntEnumChildInp>(testParentGnrcPrntEnumChildInpEncoder.Factory);
 }

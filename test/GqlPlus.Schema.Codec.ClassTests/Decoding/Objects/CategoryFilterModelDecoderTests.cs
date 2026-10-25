@@ -24,14 +24,14 @@ public class CategoryFilterModelDecoderTests
     [NotNull] string[] names,
     [NotNull] CategoryOption[] resolutions)
   {
-    Map<Structured> input = new() {
-      ["names"] = names.Encode(),
-      ["resolutions"] = resolutions.Encode()
-    };
+    IValue input = DecoderTestValue.FromMap([
+      new("names", DecoderTestValue.FromList(names.Select(name => (IValue)new ScalarValue(name)))),
+      new("resolutions", DecoderTestValue.FromList(resolutions.Select(value => (IValue)new ScalarValue(value.ToString())))),
+    ]);
 
     DecodeReturns(Resolution, CategoryOptionModel.Parallel);
 
-    IMessages messages = Decoder.Decode(input.Encode(), out CategoryFilterModel? result);
+    IMessages messages = Decoder.Decode(input, out CategoryFilterModel? result);
 
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(

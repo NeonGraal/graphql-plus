@@ -14,8 +14,8 @@ namespace Components.Gqlp_Schema_operation_domain_arg;
 
 internal class CmptCatOprDmnArgEncoder : IEncoder<ICmptCatOprDmnArgObject>
 {
-  public Structured Encode(ICmptCatOprDmnArgObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCatOprDmnArgObject input)
+    => new GqlpUnit();
 
   internal static CmptCatOprDmnArgEncoder Factory(IEncoderRepository _) => new();
 }

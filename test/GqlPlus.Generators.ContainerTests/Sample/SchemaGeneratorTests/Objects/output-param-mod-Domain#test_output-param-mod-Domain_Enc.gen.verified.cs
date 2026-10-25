@@ -12,16 +12,25 @@ internal class testOutpParamModDmnEncoder(
 ) : IEncoder<ItestOutpParamModDmnObject>
 {
   private readonly Encoder<ItestDomOutpParamModDmn> _itestDomOutpParamModDmn = encoders.EncoderFor<ItestDomOutpParamModDmn>();
-  public Structured Encode(ItestOutpParamModDmnObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestOutpParamModDmnObject input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field(), _itestDomOutpParamModDmn);
 
   internal static testOutpParamModDmnEncoder Factory(IEncoderRepository r) => new(r);
 }
 
+internal class testInOutpParamModDmnEncoder : IEncoder<ItestInOutpParamModDmnObject>
+{
+  public IGqlpValue Encode(ItestInOutpParamModDmnObject input)
+    => new GqlpUnit()
+      .Add("param", input.Param.Encode());
+
+  internal static testInOutpParamModDmnEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class testDomOutpParamModDmnEncoder : IEncoder<ItestDomOutpParamModDmn>
 {
-  public Structured Encode(ItestDomOutpParamModDmn input)
+  public IGqlpValue Encode(ItestDomOutpParamModDmn input)
     => input.Value!.Encode();
 
   internal static testDomOutpParamModDmnEncoder Factory(IEncoderRepository _) => new();
@@ -32,5 +41,6 @@ internal static class test_output_param_mod_DomainEncoders
   internal static IEncoderRepositoryBuilder Addtest_output_param_mod_DomainEncoders(this IEncoderRepositoryBuilder builder)
     => builder
       .AddEncoder<ItestOutpParamModDmnObject>(testOutpParamModDmnEncoder.Factory)
+      .AddEncoder<ItestInOutpParamModDmnObject>(testInOutpParamModDmnEncoder.Factory)
       .AddEncoder<ItestDomOutpParamModDmn>(testDomOutpParamModDmnEncoder.Factory);
 }

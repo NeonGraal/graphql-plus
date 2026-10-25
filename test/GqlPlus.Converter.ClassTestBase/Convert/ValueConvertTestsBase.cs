@@ -7,9 +7,9 @@ public abstract class ValueConvertTestsBase(IConvertTestsBase converters)
   public void ConvertFrom_Empty()
   {
     string[] input = Expected_Empty();
-    Structured expected = Structured.Empty(Tag);
+    IGqlpValue expected = string.IsNullOrWhiteSpace(Tag) ? new GqlpUnit() : new GqlpUnit(Tag);
 
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -20,9 +20,9 @@ public abstract class ValueConvertTestsBase(IConvertTestsBase converters)
     this.SkipIf(contents.ThrowIfNull().Contains('\\', StringComparison.Ordinal));
 
     string[] input = Expected_String(contents);
-    Structured expected = contents.Encode(Tag);
+    IGqlpValue expected = contents.Encode(Tag);
 
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -31,9 +31,9 @@ public abstract class ValueConvertTestsBase(IConvertTestsBase converters)
   public void ConvertFrom_Identifier(string value)
   {
     string[] input = Expected_Identifier(value);
-    Structured expected = value.Encode(Tag);
+    IGqlpValue expected = value.Encode(Tag);
 
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -42,9 +42,9 @@ public abstract class ValueConvertTestsBase(IConvertTestsBase converters)
   public void ConvertFrom_Punctuation(string value)
   {
     string[] input = Expected_Punctuation(value);
-    Structured expected = value.Encode(Tag);
+    IGqlpValue expected = value.Encode(Tag);
 
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -54,9 +54,9 @@ public abstract class ValueConvertTestsBase(IConvertTestsBase converters)
   {
     value = decimal.Round(value, 5); // Ensure precision consistency
     string[] input = Expected_Decimal(value);
-    Structured expected = value.Encode(Tag);
+    IGqlpValue expected = value.Encode(Tag);
 
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -65,9 +65,9 @@ public abstract class ValueConvertTestsBase(IConvertTestsBase converters)
   public void ConvertFrom_Bool(bool value)
   {
     string[] input = Expected_Bool(value);
-    Structured expected = value.Encode(Tag);
+    IGqlpValue expected = value.Encode(Tag);
 
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -75,10 +75,10 @@ public abstract class ValueConvertTestsBase(IConvertTestsBase converters)
   [Fact]
   public void RoundTrip_Empty()
   {
-    Structured expected = Structured.Empty();
+    IGqlpValue expected = string.IsNullOrWhiteSpace(Tag) ? new GqlpUnit() : new GqlpUnit(Tag);
 
     string[] input = Converters.ConvertTo(expected);
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -88,10 +88,10 @@ public abstract class ValueConvertTestsBase(IConvertTestsBase converters)
   {
     this.SkipIf(contents.ThrowIfNull().Contains('\\', StringComparison.Ordinal));
 
-    Structured expected = contents.Encode(Tag);
+    IGqlpValue expected = contents.Encode(Tag);
 
     string[] input = Converters.ConvertTo(expected);
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -99,10 +99,10 @@ public abstract class ValueConvertTestsBase(IConvertTestsBase converters)
   [Theory, RepeatData]
   public void RoundTrip_Identifier(string value)
   {
-    Structured expected = value.Encode(Tag);
+    IGqlpValue expected = value.Encode(Tag);
 
     string[] input = Converters.ConvertTo(expected);
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -110,10 +110,10 @@ public abstract class ValueConvertTestsBase(IConvertTestsBase converters)
   [Theory, ClassData<PunctuationData>]
   public void RoundTrip_Punctuation(string value)
   {
-    Structured expected = value.Encode(Tag);
+    IGqlpValue expected = value.Encode(Tag);
 
     string[] input = Converters.ConvertTo(expected);
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -122,10 +122,10 @@ public abstract class ValueConvertTestsBase(IConvertTestsBase converters)
   public void RoundTrip_Decimal(decimal value)
   {
     value = decimal.Round(value, 5); // Ensure precision consistency
-    Structured expected = value.Encode(Tag);
+    IGqlpValue expected = value.Encode(Tag);
 
     string[] input = Converters.ConvertTo(expected);
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -133,10 +133,10 @@ public abstract class ValueConvertTestsBase(IConvertTestsBase converters)
   [Theory, RepeatData]
   public void RoundTrip_Bool(bool value)
   {
-    Structured expected = value.Encode(Tag);
+    IGqlpValue expected = value.Encode(Tag);
 
     string[] input = Converters.ConvertTo(expected);
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }

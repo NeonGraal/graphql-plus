@@ -16,13 +16,13 @@ internal class CmptGnrcFieldArgDualEncoder<TType>(
 ) : IEncoder<ICmptGnrcFieldArgDualObject<TType>>
 {
   private readonly Encoder<ICmptRefGnrcFieldArgDual<TType>> _refGnrcFieldArgDual = encoders.EncoderFor<ICmptRefGnrcFieldArgDual<TType>>();
-  public Structured Encode(ICmptGnrcFieldArgDualObject<TType> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptGnrcFieldArgDualObject<TType> input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _refGnrcFieldArgDual);
 }
 
 internal class CmptRefGnrcFieldArgDualEncoder<TRef> : IEncoder<ICmptRefGnrcFieldArgDualObject<TRef>>
 {
-  public Structured Encode(ICmptRefGnrcFieldArgDualObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptRefGnrcFieldArgDualObject<TRef> input)
+    => new GqlpUnit();
 }

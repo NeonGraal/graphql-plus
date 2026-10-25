@@ -1,0 +1,43 @@
+using GqlPlus.Ast.Operation;
+using GqlPlus.Parsing;
+using GqlPlus.Parsing.Operation;
+using GqlPlus.Reading;
+using GqlPlus.Result;
+
+namespace GqlPlus.Decoding;
+
+public class RequestInputDecoder(IParserRepository parsers) : IRequestInputDecoder
+{
+  private readonly ParserOne<IAstOperation> _parser = parsers.ParserFor<IAstOperation>();
+
+  public DecodedRequest Decode(string input)
+  {
+    if (input is null) {
+      throw new ArgumentNullException(nameof(input));
+    }
+
+    GqReqInput reqInput = GqReqReader.Read(input);
+    IGqlpValue parameters = reqInput.PositionalParameters is { } positional
+      ? positional.Count switch {
+        1 => positional[0].Encode(),
+        > 1 => new GqlpList(positional.Select(value => value.Encode())),
+        _ => new GqlpUnit(),
+      }
+      : ParameterBuilder.Build(reqInput.Parameters);
+    IMessages errors = Messages.New;
+
+    OperationContext tokens = new(reqInput.Definition);
+    IResult<IAstOperation> result = _parser.Parse(tokens, "Operation");
+
+    IAstOperation? operation = null;
+
+    result.Required(op => {
+      operation = op;
+      errors = errors.Add(op.Errors);
+    });
+    result.WithMessage(msg => errors = errors.Add(msg));
+
+    string? category = reqInput.Category ?? operation?.Category;
+    return new DecodedRequest(category, reqInput.Operation, operation, parameters, errors);
+  }
+}

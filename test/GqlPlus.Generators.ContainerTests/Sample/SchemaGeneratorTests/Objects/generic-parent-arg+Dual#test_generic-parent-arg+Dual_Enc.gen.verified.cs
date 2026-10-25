@@ -12,12 +12,12 @@ internal class testGnrcPrntArgDualEncoder<TType>(
 ) : IEncoder<ItestGnrcPrntArgDualObject<TType>>
 {
   private readonly Encoder<ItestRefGnrcPrntArgDualObject<TType>> _itestRefGnrcPrntArgDual = encoders.EncoderFor<ItestRefGnrcPrntArgDualObject<TType>>();
-  public Structured Encode(ItestGnrcPrntArgDualObject<TType> input)
+  public IGqlpValue Encode(ItestGnrcPrntArgDualObject<TType> input)
     => _itestRefGnrcPrntArgDual.Encode(input);
 }
 
 internal class testRefGnrcPrntArgDualEncoder<TRef> : IEncoder<ItestRefGnrcPrntArgDualObject<TRef>>
 {
-  public Structured Encode(ItestRefGnrcPrntArgDualObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestRefGnrcPrntArgDualObject<TRef> input)
+    => new GqlpUnit();
 }

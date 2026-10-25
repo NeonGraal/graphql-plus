@@ -14,13 +14,13 @@ public static class RenderJson
       WriteIndented = indented,
     };
 
-  public static string ToJson(this Structured model, JsonSerializerOptions? options = null)
+  public static string ToJson(this IGqlpValue model, JsonSerializerOptions? options = null)
     => JsonSerializer.Serialize(model, options ?? Indented);
-  public static Structured FromJson(this IEnumerable<string> json, JsonSerializerOptions? options = null)
+  public static IGqlpValue FromJson(this IEnumerable<string> json, JsonSerializerOptions? options = null)
   {
     string joined = json.Joined(Environment.NewLine);
-    Structured? result = string.IsNullOrWhiteSpace(joined) ? null
-      : JsonSerializer.Deserialize<Structured>(joined, options ?? Indented);
-    return result ?? Structured.Empty();
+    IGqlpValue? result = string.IsNullOrWhiteSpace(joined) ? null
+      : JsonSerializer.Deserialize<IGqlpValue>(joined, options ?? Indented);
+    return result ?? new GqlpUnit();
   }
 }

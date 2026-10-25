@@ -13,10 +13,10 @@ internal class testUnionAliasEncoder(
 {
   private readonly Encoder<bool> _boolean = encoders.EncoderFor<bool>();
   private readonly Encoder<decimal> _number = encoders.EncoderFor<decimal>();
-  public Structured Encode(ItestUnionAlias input)
+  public IGqlpValue Encode(ItestUnionAlias input)
     => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
      : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
-     : Structured.Empty();
+     : new GqlpUnit();
 
   internal static testUnionAliasEncoder Factory(IEncoderRepository r) => new(r);
 }

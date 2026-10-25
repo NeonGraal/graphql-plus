@@ -12,9 +12,9 @@ enum EnumCnstEnumOutp { cnstEnumOutp }
 
 namespace Components.Gqlp_Schema_constraint_enum_Output;
 
-internal class CmptEnumCnstEnumOutpDecoder
+internal class CmptEnumCnstEnumOutpDecoder : NullDecoder<CmptEnumCnstEnumOutp>
 {
-  public string cnstEnumOutp { get; set; }
+  public string cnstEnumOutp { get; set; } = default!;
 
   internal static CmptEnumCnstEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }

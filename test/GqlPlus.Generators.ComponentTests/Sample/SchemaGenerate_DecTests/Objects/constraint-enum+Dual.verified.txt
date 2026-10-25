@@ -12,7 +12,7 @@ enum EnumCnstEnumDual { cnstEnumDual }
 
 namespace Components.Gqlp_Schema_constraint_enum_Dual;
 
-internal class CmptCnstEnumDualDecoder
+internal class CmptCnstEnumDualDecoder : NullDecoder<ICmptCnstEnumDualObject>
 {
 
   internal static CmptCnstEnumDualDecoder Factory(IDecoderRepository _) => new();
@@ -20,12 +20,12 @@ internal class CmptCnstEnumDualDecoder
 
 internal class CmptRefCnstEnumDualDecoder<TType>
 {
-  public TType Field { get; set; }
+  public TType Field { get; set; } = default!;
 }
 
-internal class CmptEnumCnstEnumDualDecoder
+internal class CmptEnumCnstEnumDualDecoder : NullDecoder<CmptEnumCnstEnumDual>
 {
-  public string cnstEnumDual { get; set; }
+  public string cnstEnumDual { get; set; } = default!;
 
   internal static CmptEnumCnstEnumDualDecoder Factory(IDecoderRepository _) => new();
 }

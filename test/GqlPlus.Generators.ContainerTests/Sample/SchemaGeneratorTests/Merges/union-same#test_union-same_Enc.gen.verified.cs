@@ -12,9 +12,9 @@ internal class testUnionSameEncoder(
 ) : IEncoder<ItestUnionSame>
 {
   private readonly Encoder<bool> _boolean = encoders.EncoderFor<bool>();
-  public Structured Encode(ItestUnionSame input)
+  public IGqlpValue Encode(ItestUnionSame input)
     => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
-     : Structured.Empty();
+     : new GqlpUnit();
 
   internal static testUnionSameEncoder Factory(IEncoderRepository r) => new(r);
 }

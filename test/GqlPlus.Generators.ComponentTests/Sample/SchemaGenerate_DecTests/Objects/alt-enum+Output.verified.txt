@@ -11,9 +11,9 @@ enum EnumAltEnumOutp { altEnumOutp }
 
 namespace Components.Gqlp_Schema_alt_enum_Output;
 
-internal class CmptEnumAltEnumOutpDecoder
+internal class CmptEnumAltEnumOutpDecoder : NullDecoder<CmptEnumAltEnumOutp>
 {
-  public string altEnumOutp { get; set; }
+  public string altEnumOutp { get; set; } = default!;
 
   internal static CmptEnumAltEnumOutpDecoder Factory(IDecoderRepository _) => new();
 }

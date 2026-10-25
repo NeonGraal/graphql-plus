@@ -12,8 +12,8 @@ namespace Components.Gqlp_Schema_alt_descr_Output;
 
 internal class CmptAltDescrOutpEncoder : IEncoder<ICmptAltDescrOutpObject>
 {
-  public Structured Encode(ICmptAltDescrOutpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptAltDescrOutpObject input)
+    => new GqlpUnit();
 
   internal static CmptAltDescrOutpEncoder Factory(IEncoderRepository _) => new();
 }

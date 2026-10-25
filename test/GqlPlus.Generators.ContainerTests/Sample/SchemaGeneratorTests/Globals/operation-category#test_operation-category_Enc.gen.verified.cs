@@ -9,8 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_operation_category;
 
 internal class testCatOprCtgrEncoder : IEncoder<ItestCatOprCtgrObject>
 {
-  public Structured Encode(ItestCatOprCtgrObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCatOprCtgrObject input)
+    => new GqlpUnit();
 
   internal static testCatOprCtgrEncoder Factory(IEncoderRepository _) => new();
 }

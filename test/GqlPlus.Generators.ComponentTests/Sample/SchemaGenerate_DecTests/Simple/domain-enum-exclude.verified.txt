@@ -11,17 +11,17 @@ enum EnumDmnEnumExcl { dmnEnumExcl enum_dmnEnumExcl dmnEnumExclValue }
 
 namespace Components.Gqlp_Schema_domain_enum_exclude;
 
-internal class CmptDmnEnumExclDecoder
+internal class CmptDmnEnumExclDecoder : NullDecoder<ICmptDmnEnumExcl>
 {
 
   internal static CmptDmnEnumExclDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEnumDmnEnumExclDecoder
+internal class CmptEnumDmnEnumExclDecoder : NullDecoder<CmptEnumDmnEnumExcl>
 {
-  public string dmnEnumExcl { get; set; }
-  public string enum_dmnEnumExcl { get; set; }
-  public string dmnEnumExclValue { get; set; }
+  public string dmnEnumExcl { get; set; } = default!;
+  public string enum_dmnEnumExcl { get; set; } = default!;
+  public string dmnEnumExclValue { get; set; } = default!;
 
   internal static CmptEnumDmnEnumExclDecoder Factory(IDecoderRepository _) => new();
 }

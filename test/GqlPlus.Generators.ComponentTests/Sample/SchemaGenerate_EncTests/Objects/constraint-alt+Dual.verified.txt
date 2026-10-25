@@ -12,6 +12,6 @@ namespace Components.Gqlp_Schema_constraint_alt_Dual;
 
 internal class CmptCnstAltDualEncoder<TType> : IEncoder<ICmptCnstAltDualObject<TType>>
 {
-  public Structured Encode(ICmptCnstAltDualObject<TType> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCnstAltDualObject<TType> input)
+    => new GqlpUnit();
 }

@@ -7,6 +7,6 @@ public class ConvertTestsBase(IConvertTestsBase converters)
 
 public interface IConvertTestsBase
 {
-  string[] ConvertTo(Structured model);
-  Structured ConvertFrom(string[] input);
+  string[] ConvertTo(IGqlpValue model);
+  IGqlpValue ConvertFrom(string[] input);
 }

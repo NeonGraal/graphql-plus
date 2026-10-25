@@ -1,0 +1,2 @@
+- ($names[]) { types($names) { name typeKind parent { name } } }
+- Dual

@@ -9,8 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_descr_Dual;
 
 internal class testAltDescrDualEncoder : IEncoder<ItestAltDescrDualObject>
 {
-  public Structured Encode(ItestAltDescrDualObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestAltDescrDualObject input)
+    => new GqlpUnit();
 
   internal static testAltDescrDualEncoder Factory(IEncoderRepository _) => new();
 }

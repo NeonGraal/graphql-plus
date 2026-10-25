@@ -9,144 +9,176 @@ namespace GqlPlus.GeneratorTests.Gqlp__Globals;
 
 internal class testCtgrDscrsEncoder : IEncoder<ItestCtgrDscrsObject>
 {
-  public Structured Encode(ItestCtgrDscrsObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCtgrDscrsObject input)
+    => new GqlpUnit();
 
   internal static testCtgrDscrsEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testCtgrOutpEncoder : IEncoder<ItestCtgrOutpObject>
 {
-  public Structured Encode(ItestCtgrOutpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCtgrOutpObject input)
+    => new GqlpUnit();
 
   internal static testCtgrOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testCtgrOutpDescrEncoder : IEncoder<ItestCtgrOutpDescrObject>
 {
-  public Structured Encode(ItestCtgrOutpDescrObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCtgrOutpDescrObject input)
+    => new GqlpUnit();
 
   internal static testCtgrOutpDescrEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testCtgrOutpDictEncoder : IEncoder<ItestCtgrOutpDictObject>
 {
-  public Structured Encode(ItestCtgrOutpDictObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCtgrOutpDictObject input)
+    => new GqlpUnit();
 
   internal static testCtgrOutpDictEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testCtgrOutpListEncoder : IEncoder<ItestCtgrOutpListObject>
 {
-  public Structured Encode(ItestCtgrOutpListObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCtgrOutpListObject input)
+    => new GqlpUnit();
 
   internal static testCtgrOutpListEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testCtgrOutpOptlEncoder : IEncoder<ItestCtgrOutpOptlObject>
 {
-  public Structured Encode(ItestCtgrOutpOptlObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCtgrOutpOptlObject input)
+    => new GqlpUnit();
 
   internal static testCtgrOutpOptlEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testDescrEncoder : IEncoder<ItestDescrObject>
 {
-  public Structured Encode(ItestDescrObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestDescrObject input)
+    => new GqlpUnit();
 
   internal static testDescrEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testDescrBcksEncoder : IEncoder<ItestDescrBcksObject>
 {
-  public Structured Encode(ItestDescrBcksObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestDescrBcksObject input)
+    => new GqlpUnit();
 
   internal static testDescrBcksEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testDescrBtwnEncoder : IEncoder<ItestDescrBtwnObject>
 {
-  public Structured Encode(ItestDescrBtwnObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestDescrBtwnObject input)
+    => new GqlpUnit();
 
   internal static testDescrBtwnEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testDescrCmplEncoder : IEncoder<ItestDescrCmplObject>
 {
-  public Structured Encode(ItestDescrCmplObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestDescrCmplObject input)
+    => new GqlpUnit();
 
   internal static testDescrCmplEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testDescrDblEncoder : IEncoder<ItestDescrDblObject>
 {
-  public Structured Encode(ItestDescrDblObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestDescrDblObject input)
+    => new GqlpUnit();
 
   internal static testDescrDblEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testDescrSnglEncoder : IEncoder<ItestDescrSnglObject>
 {
-  public Structured Encode(ItestDescrSnglObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestDescrSnglObject input)
+    => new GqlpUnit();
 
   internal static testDescrSnglEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testDscrsEncoder : IEncoder<ItestDscrsObject>
 {
-  public Structured Encode(ItestDscrsObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestDscrsObject input)
+    => new GqlpUnit();
 
   internal static testDscrsEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class testInDrctParamDictEncoder : IEncoder<ItestInDrctParamDictObject>
+{
+  public IGqlpValue Encode(ItestInDrctParamDictObject input)
+    => new GqlpUnit();
+
+  internal static testInDrctParamDictEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class testInDrctParamInEncoder : IEncoder<ItestInDrctParamInObject>
+{
+  public IGqlpValue Encode(ItestInDrctParamInObject input)
+    => new GqlpUnit();
+
+  internal static testInDrctParamInEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class testInDrctParamListEncoder : IEncoder<ItestInDrctParamListObject>
+{
+  public IGqlpValue Encode(ItestInDrctParamListObject input)
+    => new GqlpUnit();
+
+  internal static testInDrctParamListEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class testInDrctParamOptEncoder : IEncoder<ItestInDrctParamOptObject>
+{
+  public IGqlpValue Encode(ItestInDrctParamOptObject input)
+    => new GqlpUnit();
+
+  internal static testInDrctParamOptEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class testCatOprCtgrEncoder : IEncoder<ItestCatOprCtgrObject>
 {
-  public Structured Encode(ItestCatOprCtgrObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCatOprCtgrObject input)
+    => new GqlpUnit();
 
   internal static testCatOprCtgrEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testCatOprDmnEncoder : IEncoder<ItestCatOprDmnObject>
 {
-  public Structured Encode(ItestCatOprDmnObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCatOprDmnObject input)
+    => new GqlpUnit();
 
   internal static testCatOprDmnEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testCatOprDmnArgEncoder : IEncoder<ItestCatOprDmnArgObject>
 {
-  public Structured Encode(ItestCatOprDmnArgObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCatOprDmnArgObject input)
+    => new GqlpUnit();
 
   internal static testCatOprDmnArgEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testCatOprDmnModsEncoder : IEncoder<ItestCatOprDmnModsObject>
 {
-  public Structured Encode(ItestCatOprDmnModsObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCatOprDmnModsObject input)
+    => new GqlpUnit();
 
   internal static testCatOprDmnModsEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testCatOprDmnVarEncoder : IEncoder<ItestCatOprDmnVarObject>
 {
-  public Structured Encode(ItestCatOprDmnVarObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCatOprDmnVarObject input)
+    => new GqlpUnit();
 
   internal static testCatOprDmnVarEncoder Factory(IEncoderRepository _) => new();
 }
@@ -156,8 +188,8 @@ internal class testCatOprSlctEncoder(
 ) : IEncoder<ItestCatOprSlctObject>
 {
   private readonly Encoder<ItestAddrOprSlct> _itestAddrOprSlct = encoders.EncoderFor<ItestAddrOprSlct>();
-  public Structured Encode(ItestCatOprSlctObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestCatOprSlctObject input)
+    => new GqlpUnit()
       .Add("first", input.First.Encode())
       .Add("last", input.Last.Encode())
       .AddEncoded("address", input.Address, _itestAddrOprSlct);
@@ -167,8 +199,8 @@ internal class testCatOprSlctEncoder(
 
 internal class testAddrOprSlctEncoder : IEncoder<ItestAddrOprSlctObject>
 {
-  public Structured Encode(ItestAddrOprSlctObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestAddrOprSlctObject input)
+    => new GqlpUnit()
       .Add("street", input.Street.Encode())
       .Add("city", input.City.Encode())
       .Add("country", input.Country.Encode());
@@ -181,8 +213,8 @@ internal class testCatOprSlctInlnEncoder(
 ) : IEncoder<ItestCatOprSlctInlnObject>
 {
   private readonly Encoder<ItestAddrOprSlctInln> _itestAddrOprSlctInln = encoders.EncoderFor<ItestAddrOprSlctInln>();
-  public Structured Encode(ItestCatOprSlctInlnObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestCatOprSlctInlnObject input)
+    => new GqlpUnit()
       .Add("first", input.First.Encode())
       .Add("last", input.Last.Encode())
       .AddEncoded("address", input.Address, _itestAddrOprSlctInln);
@@ -192,16 +224,16 @@ internal class testCatOprSlctInlnEncoder(
 
 internal class testAddrOprSlctInlnEncoder : IEncoder<ItestAddrOprSlctInlnObject>
 {
-  public Structured Encode(ItestAddrOprSlctInlnObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestAddrOprSlctInlnObject input)
+    => new GqlpUnit();
 
   internal static testAddrOprSlctInlnEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testFullOprSlctInlnEncoder : IEncoder<ItestFullOprSlctInlnObject>
 {
-  public Structured Encode(ItestFullOprSlctInlnObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestFullOprSlctInlnObject input)
+    => new GqlpUnit()
       .Add("street", input.Street.Encode())
       .Add("city", input.City.Encode())
       .Add("country", input.Country.Encode());
@@ -214,8 +246,8 @@ internal class testCatOprSlctModsEncoder(
 ) : IEncoder<ItestCatOprSlctModsObject>
 {
   private readonly Encoder<ItestAddrOprSlctMods> _itestAddrOprSlctMods = encoders.EncoderFor<ItestAddrOprSlctMods>();
-  public Structured Encode(ItestCatOprSlctModsObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestCatOprSlctModsObject input)
+    => new GqlpUnit()
       .Add("first", input.First.Encode())
       .Add("last", input.Last.Encode())
       .AddEncoded("address", input.Address, _itestAddrOprSlctMods);
@@ -225,8 +257,8 @@ internal class testCatOprSlctModsEncoder(
 
 internal class testAddrOprSlctModsEncoder : IEncoder<ItestAddrOprSlctModsObject>
 {
-  public Structured Encode(ItestAddrOprSlctModsObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestAddrOprSlctModsObject input)
+    => new GqlpUnit()
       .Add("street", input.Street.Encode())
       .Add("city", input.City.Encode())
       .Add("country", input.Country.Encode());
@@ -239,8 +271,8 @@ internal class testCatOprSlctSprdEncoder(
 ) : IEncoder<ItestCatOprSlctSprdObject>
 {
   private readonly Encoder<ItestAddrOprSlctSprd> _itestAddrOprSlctSprd = encoders.EncoderFor<ItestAddrOprSlctSprd>();
-  public Structured Encode(ItestCatOprSlctSprdObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestCatOprSlctSprdObject input)
+    => new GqlpUnit()
       .Add("first", input.First.Encode())
       .Add("last", input.Last.Encode())
       .AddEncoded("address", input.Address, _itestAddrOprSlctSprd);
@@ -250,8 +282,8 @@ internal class testCatOprSlctSprdEncoder(
 
 internal class testAddrOprSlctSprdEncoder : IEncoder<ItestAddrOprSlctSprdObject>
 {
-  public Structured Encode(ItestAddrOprSlctSprdObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestAddrOprSlctSprdObject input)
+    => new GqlpUnit()
       .Add("street", input.Street.Encode())
       .Add("city", input.City.Encode())
       .Add("country", input.Country.Encode());
@@ -276,6 +308,10 @@ internal static class test__GlobalsEncoders
       .AddEncoder<ItestDescrDblObject>(testDescrDblEncoder.Factory)
       .AddEncoder<ItestDescrSnglObject>(testDescrSnglEncoder.Factory)
       .AddEncoder<ItestDscrsObject>(testDscrsEncoder.Factory)
+      .AddEncoder<ItestInDrctParamDictObject>(testInDrctParamDictEncoder.Factory)
+      .AddEncoder<ItestInDrctParamInObject>(testInDrctParamInEncoder.Factory)
+      .AddEncoder<ItestInDrctParamListObject>(testInDrctParamListEncoder.Factory)
+      .AddEncoder<ItestInDrctParamOptObject>(testInDrctParamOptEncoder.Factory)
       .AddEncoder<ItestCatOprCtgrObject>(testCatOprCtgrEncoder.Factory)
       .AddEncoder<ItestCatOprDmnObject>(testCatOprDmnEncoder.Factory)
       .AddEncoder<ItestCatOprDmnArgObject>(testCatOprDmnArgEncoder.Factory)

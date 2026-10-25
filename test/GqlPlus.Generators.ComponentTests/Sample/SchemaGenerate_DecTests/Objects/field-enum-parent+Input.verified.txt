@@ -12,24 +12,24 @@ enum PrntFieldEnumPrntInp { prnt_fieldEnumPrntInp }
 
 namespace Components.Gqlp_Schema_field_enum_parent_Input;
 
-internal class CmptFieldEnumPrntInpDecoder
+internal class CmptFieldEnumPrntInpDecoder : NullDecoder<ICmptFieldEnumPrntInpObject>
 {
-  public CmptEnumFieldEnumPrntInp Field { get; set; }
+  public CmptEnumFieldEnumPrntInp Field { get; set; } = default!;
 
   internal static CmptFieldEnumPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptEnumFieldEnumPrntInpDecoder
+internal class CmptEnumFieldEnumPrntInpDecoder : NullDecoder<CmptEnumFieldEnumPrntInp>
 {
-  public string prnt_fieldEnumPrntInp { get; set; }
-  public string fieldEnumPrntInp { get; set; }
+  public string prnt_fieldEnumPrntInp { get; set; } = default!;
+  public string fieldEnumPrntInp { get; set; } = default!;
 
   internal static CmptEnumFieldEnumPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptPrntFieldEnumPrntInpDecoder
+internal class CmptPrntFieldEnumPrntInpDecoder : NullDecoder<CmptPrntFieldEnumPrntInp>
 {
-  public string prnt_fieldEnumPrntInp { get; set; }
+  public string prnt_fieldEnumPrntInp { get; set; } = default!;
 
   internal static CmptPrntFieldEnumPrntInpDecoder Factory(IDecoderRepository _) => new();
 }

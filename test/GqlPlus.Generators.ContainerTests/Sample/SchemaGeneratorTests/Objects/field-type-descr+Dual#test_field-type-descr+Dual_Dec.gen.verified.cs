@@ -7,9 +7,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_type_descr_Dual;
 
-internal class testFieldTypeDescrDualDecoder
+internal class testFieldTypeDescrDualDecoder : NullDecoder<ItestFieldTypeDescrDualObject>
 {
-  public decimal Field { get; set; }
+  public decimal Field { get; set; } = default!;
 
   internal static testFieldTypeDescrDualDecoder Factory(IDecoderRepository _) => new();
 }

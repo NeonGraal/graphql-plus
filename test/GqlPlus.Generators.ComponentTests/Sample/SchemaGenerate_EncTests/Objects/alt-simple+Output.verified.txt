@@ -12,8 +12,8 @@ namespace Components.Gqlp_Schema_alt_simple_Output;
 
 internal class CmptAltSmplOutpEncoder : IEncoder<ICmptAltSmplOutpObject>
 {
-  public Structured Encode(ICmptAltSmplOutpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptAltSmplOutpObject input)
+    => new GqlpUnit();
 
   internal static CmptAltSmplOutpEncoder Factory(IEncoderRepository _) => new();
 }

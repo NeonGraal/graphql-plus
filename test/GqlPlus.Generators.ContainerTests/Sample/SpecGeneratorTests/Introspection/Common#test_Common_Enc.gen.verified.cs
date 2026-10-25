@@ -9,8 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_Common;
 
 internal class test_TypeEncoder : IEncoder<Itest_TypeObject>
 {
-  public Structured Encode(Itest_TypeObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(Itest_TypeObject input)
+    => new GqlpUnit();
 
   internal static test_TypeEncoder Factory(IEncoderRepository _) => new();
 }
@@ -21,7 +21,7 @@ internal class test_BaseTypeEncoder<TTypeKind>(
 {
   private readonly Encoder<Itest_AliasedObject> _itest_Aliased = encoders.EncoderFor<Itest_AliasedObject>();
   private readonly Encoder<TTypeKind> _typeKind = encoders.EncoderFor<TTypeKind>();
-  public Structured Encode(Itest_BaseTypeObject<TTypeKind> input)
+  public IGqlpValue Encode(Itest_BaseTypeObject<TTypeKind> input)
     => _itest_Aliased.Encode(input)
       .AddEncoded("typeKind", input.TypeKind, _typeKind);
 }
@@ -32,7 +32,7 @@ internal class test_ChildTypeEncoder<TTypeKind,TParent>(
 {
   private readonly Encoder<Itest_BaseTypeObject<TTypeKind>> _itest_BaseType = encoders.EncoderFor<Itest_BaseTypeObject<TTypeKind>>();
   private readonly Encoder<TParent> _parent = encoders.EncoderFor<TParent>();
-  public Structured Encode(Itest_ChildTypeObject<TTypeKind,TParent> input)
+  public IGqlpValue Encode(Itest_ChildTypeObject<TTypeKind,TParent> input)
     => _itest_BaseType.Encode(input)
       .AddEncoded("parent", input.Parent, _parent);
 }
@@ -44,7 +44,7 @@ internal class test_ParentTypeEncoder<TTypeKind,TItem,TAllItem>(
   private readonly Encoder<Itest_ChildTypeObject<TTypeKind, Itest_Named>> _itest_ChildType = encoders.EncoderFor<Itest_ChildTypeObject<TTypeKind, Itest_Named>>();
   private readonly Encoder<TItem> _item = encoders.EncoderFor<TItem>();
   private readonly Encoder<TAllItem> _allItem = encoders.EncoderFor<TAllItem>();
-  public Structured Encode(Itest_ParentTypeObject<TTypeKind,TItem,TAllItem> input)
+  public IGqlpValue Encode(Itest_ParentTypeObject<TTypeKind,TItem,TAllItem> input)
     => _itest_ChildType.Encode(input)
       .AddList("items", input.Items, _item)
       .AddList("allItems", input.AllItems, _allItem);
@@ -52,7 +52,7 @@ internal class test_ParentTypeEncoder<TTypeKind,TItem,TAllItem>(
 
 internal class test_SimpleKindEncoder : IEncoder<test_SimpleKind>
 {
-  public Structured Encode(test_SimpleKind input)
+  public IGqlpValue Encode(test_SimpleKind input)
     => input.EncodeEnum("_SimpleKind");
 
   internal static test_SimpleKindEncoder Factory(IEncoderRepository _) => new();
@@ -60,7 +60,7 @@ internal class test_SimpleKindEncoder : IEncoder<test_SimpleKind>
 
 internal class test_TypeKindEncoder : IEncoder<test_TypeKind>
 {
-  public Structured Encode(test_TypeKind input)
+  public IGqlpValue Encode(test_TypeKind input)
     => input.EncodeEnum("_TypeKind");
 
   internal static test_TypeKindEncoder Factory(IEncoderRepository _) => new();
@@ -72,15 +72,15 @@ internal class test_TypeRefEncoder<TTypeKind>(
 {
   private readonly Encoder<Itest_NamedObject> _itest_Named = encoders.EncoderFor<Itest_NamedObject>();
   private readonly Encoder<TTypeKind> _typeKind = encoders.EncoderFor<TTypeKind>();
-  public Structured Encode(Itest_TypeRefObject<TTypeKind> input)
+  public IGqlpValue Encode(Itest_TypeRefObject<TTypeKind> input)
     => _itest_Named.Encode(input)
       .AddEncoded("typeKind", input.TypeKind, _typeKind);
 }
 
 internal class test_TypeSimpleEncoder : IEncoder<Itest_TypeSimpleObject>
 {
-  public Structured Encode(Itest_TypeSimpleObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(Itest_TypeSimpleObject input)
+    => new GqlpUnit();
 
   internal static test_TypeSimpleEncoder Factory(IEncoderRepository _) => new();
 }

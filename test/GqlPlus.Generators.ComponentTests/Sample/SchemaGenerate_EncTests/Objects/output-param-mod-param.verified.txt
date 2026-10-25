@@ -17,14 +17,23 @@ internal class CmptOutpParamModParamEncoder<TMod>(
 ) : IEncoder<ICmptOutpParamModParamObject<TMod>>
 {
   private readonly Encoder<ICmptDomOutpParamModParam> _domOutpParamModParam = encoders.EncoderFor<ICmptDomOutpParamModParam>();
-  public Structured Encode(ICmptOutpParamModParamObject<TMod> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptOutpParamModParamObject<TMod> input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field(), _domOutpParamModParam);
+}
+
+internal class CmptInOutpParamModParamEncoder : IEncoder<ICmptInOutpParamModParamObject>
+{
+  public IGqlpValue Encode(ICmptInOutpParamModParamObject input)
+    => new GqlpUnit()
+      .Add("param", input.Param.Encode());
+
+  internal static CmptInOutpParamModParamEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptDomOutpParamModParamEncoder : IEncoder<ICmptDomOutpParamModParam>
 {
-  public Structured Encode(ICmptDomOutpParamModParam input)
+  public IGqlpValue Encode(ICmptDomOutpParamModParam input)
     => input.Value!.Encode();
 
   internal static CmptDomOutpParamModParamEncoder Factory(IEncoderRepository _) => new();
@@ -34,5 +43,6 @@ internal static class Cmpt_Schema_output_param_mod_paramEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_output_param_mod_paramEncoders(this IEncoderRepositoryBuilder builder)
     => builder
+      .AddEncoder<ICmptInOutpParamModParamObject>(CmptInOutpParamModParamEncoder.Factory)
       .AddEncoder<ICmptDomOutpParamModParam>(CmptDomOutpParamModParamEncoder.Factory);
 }

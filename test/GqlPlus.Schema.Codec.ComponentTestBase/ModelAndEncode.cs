@@ -17,7 +17,7 @@ internal sealed class ModelAndEncode(
 
   public IModelsContext Context() => new TypesContext(_types.I);
 
-  public Structured EncodeAst(IAstSchema schema, IModelsContext context, IAstSchema? extras = null)
+  public IGqlpValue EncodeAst(IAstSchema schema, IModelsContext context, IAstSchema? extras = null)
     => EncodeModel(ModelAst(schema, context, extras), context);
 
   public SchemaModel ModelAst(IAstSchema schema, IModelsContext context, IAstSchema? extras = null)
@@ -34,13 +34,15 @@ internal sealed class ModelAndEncode(
     return _resolver.Resolve(model, context);
   }
 
-  public Structured EncodeModel(SchemaModel model, IModelsContext? context)
+  public IGqlpValue EncodeModel(SchemaModel model, IModelsContext? context)
   {
     Encoder<SchemaModel> encoder = encoders.EncoderFor<SchemaModel>();
-    Structured result = encoder.Encode(model);
+    IGqlpValue result = encoder.Encode(model);
     if (context?.Errors.Count > 0) {
-      string key = result.Map.ContainsKey(new("_errors")) ? "_ctxErrors" : "errors";
-      result.Add(key, context.Errors.Encode());
+      bool hasErrors = result is GqlpMap map
+        && map.Entries.Keys.Any(k => k.Text == "_errors");
+      string key = hasErrors ? "_ctxErrors" : "errors";
+      result = result.Add(key, context.Errors.Encode());
     }
 
     return result;
@@ -54,7 +56,7 @@ public interface IModelAndEncode
 {
   IModelsContext Context();
   IModelsContext WithBuiltIns();
-  Structured EncodeAst(IAstSchema schema, IModelsContext context, IAstSchema? extras = null);
+  IGqlpValue EncodeAst(IAstSchema schema, IModelsContext context, IAstSchema? extras = null);
   SchemaModel ModelAst(IAstSchema schema, IModelsContext context, IAstSchema? extras = null);
-  Structured EncodeModel(SchemaModel model, IModelsContext context);
+  IGqlpValue EncodeModel(SchemaModel model, IModelsContext context);
 }

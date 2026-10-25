@@ -8,10 +8,10 @@ internal class BaseTypeEncoder<TModel>
   public bool ForType(BaseTypeModel model)
     => model is TModel;
 
-  public Structured TypeEncode(BaseTypeModel model)
+  public IGqlpValue TypeEncode(BaseTypeModel model)
     => Encode((TModel)model);
 
-  internal override Structured Encode(TModel model)
+  internal override IGqlpValue Encode(TModel model)
     => base.Encode(model)
     .Add("typeKind", model.TypeKind.EncodeEnum());
 }
@@ -24,7 +24,7 @@ internal abstract class ChildTypeEncoder<TModel, TParent>(
 {
   private readonly Encoder<TParent> _parent = encoders.EncoderFor<TParent>();
 
-  internal override Structured Encode(TModel model)
+  internal override IGqlpValue Encode(TModel model)
     => base.Encode(model)
       .AddEncoded("parent", model.Parent, _parent);
 }
@@ -39,7 +39,7 @@ internal abstract class ParentTypeEncoder<TModel, TItem, TAll>(
   private readonly Encoder<TItem> _item = encoders.EncoderFor<TItem>();
   private readonly Encoder<TAll> _all = encoders.EncoderFor<TAll>();
 
-  internal override Structured Encode(TModel model)
+  internal override IGqlpValue Encode(TModel model)
     => base.Encode(model)
         .AddList("items", model.Items, _item)
         .AddList("allItems", model.AllItems, _all);
@@ -51,7 +51,7 @@ internal class AllTypesEncoder(
 {
   private readonly DeferList<ITypeEncoder> _typeEncoders = encoders.EncodersFor<ITypeEncoder>();
 
-  Structured IEncoder<BaseTypeModel>.Encode(BaseTypeModel model)
+  IGqlpValue IEncoder<BaseTypeModel>.Encode(BaseTypeModel model)
     => _typeEncoders
       .SingleOrDefault(t => t.ForType(model))
       ?.TypeEncode(model)
@@ -63,7 +63,7 @@ internal class AllTypesEncoder(
 public interface ITypeEncoder
 {
   bool ForType(BaseTypeModel model);
-  Structured TypeEncode(BaseTypeModel model);
+  IGqlpValue TypeEncode(BaseTypeModel model);
 }
 
 public interface ITypeEncoder<TModel>
@@ -76,7 +76,7 @@ internal class TypeRefEncoder<TModel, TKind>
   where TModel : TypeRefModel<TKind>
   where TKind : Enum
 {
-  internal override Structured Encode(TModel model)
+  internal override IGqlpValue Encode(TModel model)
     => base.Encode(model)
       .AddEnum("typeKind", model.TypeKind);
 
@@ -86,7 +86,7 @@ internal class TypeRefEncoder<TModel, TKind>
 internal class DomainRefEncoder
   : TypeRefEncoder<DomainRefModel, SimpleKindModel>
 {
-  internal override Structured Encode(DomainRefModel model)
+  internal override IGqlpValue Encode(DomainRefModel model)
     => base.Encode(model)
       .AddEnum("domainKind", model.DomainKind);
 

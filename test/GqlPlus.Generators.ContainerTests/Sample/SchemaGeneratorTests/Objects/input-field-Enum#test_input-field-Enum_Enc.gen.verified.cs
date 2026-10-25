@@ -7,9 +7,18 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_input_field_Enum;
 
+internal class testInpFieldEnumEncoder : IEncoder<ItestInpFieldEnumObject>
+{
+  public IGqlpValue Encode(ItestInpFieldEnumObject input)
+    => new GqlpUnit()
+      .AddEnum("field", input.Field);
+
+  internal static testInpFieldEnumEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class testEnumInpFieldEnumEncoder : IEncoder<testEnumInpFieldEnum>
 {
-  public Structured Encode(testEnumInpFieldEnum input)
+  public IGqlpValue Encode(testEnumInpFieldEnum input)
     => input.EncodeEnum("EnumInpFieldEnum");
 
   internal static testEnumInpFieldEnumEncoder Factory(IEncoderRepository _) => new();
@@ -19,5 +28,6 @@ internal static class test_input_field_EnumEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_input_field_EnumEncoders(this IEncoderRepositoryBuilder builder)
     => builder
+      .AddEncoder<ItestInpFieldEnumObject>(testInpFieldEnumEncoder.Factory)
       .AddEncoder<testEnumInpFieldEnum>(testEnumInpFieldEnumEncoder.Factory);
 }

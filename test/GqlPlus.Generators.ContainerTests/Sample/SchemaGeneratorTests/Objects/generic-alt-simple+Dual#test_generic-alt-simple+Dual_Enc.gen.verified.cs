@@ -9,16 +9,16 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_simple_Dual;
 
 internal class testGnrcAltSmplDualEncoder : IEncoder<ItestGnrcAltSmplDualObject>
 {
-  public Structured Encode(ItestGnrcAltSmplDualObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestGnrcAltSmplDualObject input)
+    => new GqlpUnit();
 
   internal static testGnrcAltSmplDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testRefGnrcAltSmplDualEncoder<TRef> : IEncoder<ItestRefGnrcAltSmplDualObject<TRef>>
 {
-  public Structured Encode(ItestRefGnrcAltSmplDualObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestRefGnrcAltSmplDualObject<TRef> input)
+    => new GqlpUnit();
 }
 
 internal static class test_generic_alt_simple_DualEncoders

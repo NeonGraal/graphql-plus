@@ -12,17 +12,33 @@ internal class testOutpFieldParamEncoder(
 ) : IEncoder<ItestOutpFieldParamObject>
 {
   private readonly Encoder<ItestFldOutpFieldParam> _itestFldOutpFieldParam = encoders.EncoderFor<ItestFldOutpFieldParam>();
-  public Structured Encode(ItestOutpFieldParamObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestOutpFieldParamObject input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field(), _itestFldOutpFieldParam);
 
   internal static testOutpFieldParamEncoder Factory(IEncoderRepository r) => new(r);
 }
 
+internal class testOutpFieldParam1Encoder : IEncoder<ItestOutpFieldParam1Object>
+{
+  public IGqlpValue Encode(ItestOutpFieldParam1Object input)
+    => new GqlpUnit();
+
+  internal static testOutpFieldParam1Encoder Factory(IEncoderRepository _) => new();
+}
+
+internal class testOutpFieldParam2Encoder : IEncoder<ItestOutpFieldParam2Object>
+{
+  public IGqlpValue Encode(ItestOutpFieldParam2Object input)
+    => new GqlpUnit();
+
+  internal static testOutpFieldParam2Encoder Factory(IEncoderRepository _) => new();
+}
+
 internal class testFldOutpFieldParamEncoder : IEncoder<ItestFldOutpFieldParamObject>
 {
-  public Structured Encode(ItestFldOutpFieldParamObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestFldOutpFieldParamObject input)
+    => new GqlpUnit();
 
   internal static testFldOutpFieldParamEncoder Factory(IEncoderRepository _) => new();
 }
@@ -32,5 +48,7 @@ internal static class test_output_field_paramEncoders
   internal static IEncoderRepositoryBuilder Addtest_output_field_paramEncoders(this IEncoderRepositoryBuilder builder)
     => builder
       .AddEncoder<ItestOutpFieldParamObject>(testOutpFieldParamEncoder.Factory)
+      .AddEncoder<ItestOutpFieldParam1Object>(testOutpFieldParam1Encoder.Factory)
+      .AddEncoder<ItestOutpFieldParam2Object>(testOutpFieldParam2Encoder.Factory)
       .AddEncoder<ItestFldOutpFieldParamObject>(testFldOutpFieldParamEncoder.Factory);
 }

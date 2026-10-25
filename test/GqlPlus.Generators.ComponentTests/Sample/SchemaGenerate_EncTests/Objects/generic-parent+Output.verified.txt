@@ -12,6 +12,6 @@ namespace Components.Gqlp_Schema_generic_parent_Output;
 
 internal class CmptGnrcPrntOutpEncoder<TType> : IEncoder<ICmptGnrcPrntOutpObject<TType>>
 {
-  public Structured Encode(ICmptGnrcPrntOutpObject<TType> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptGnrcPrntOutpObject<TType> input)
+    => new GqlpUnit();
 }

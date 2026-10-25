@@ -8,144 +8,176 @@ namespace Components.Gqlp_Schema_Globals;
 
 internal class CmptCtgrDscrsEncoder : IEncoder<ICmptCtgrDscrsObject>
 {
-  public Structured Encode(ICmptCtgrDscrsObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCtgrDscrsObject input)
+    => new GqlpUnit();
 
   internal static CmptCtgrDscrsEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptCtgrOutpEncoder : IEncoder<ICmptCtgrOutpObject>
 {
-  public Structured Encode(ICmptCtgrOutpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCtgrOutpObject input)
+    => new GqlpUnit();
 
   internal static CmptCtgrOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptCtgrOutpDescrEncoder : IEncoder<ICmptCtgrOutpDescrObject>
 {
-  public Structured Encode(ICmptCtgrOutpDescrObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCtgrOutpDescrObject input)
+    => new GqlpUnit();
 
   internal static CmptCtgrOutpDescrEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptCtgrOutpDictEncoder : IEncoder<ICmptCtgrOutpDictObject>
 {
-  public Structured Encode(ICmptCtgrOutpDictObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCtgrOutpDictObject input)
+    => new GqlpUnit();
 
   internal static CmptCtgrOutpDictEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptCtgrOutpListEncoder : IEncoder<ICmptCtgrOutpListObject>
 {
-  public Structured Encode(ICmptCtgrOutpListObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCtgrOutpListObject input)
+    => new GqlpUnit();
 
   internal static CmptCtgrOutpListEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptCtgrOutpOptlEncoder : IEncoder<ICmptCtgrOutpOptlObject>
 {
-  public Structured Encode(ICmptCtgrOutpOptlObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCtgrOutpOptlObject input)
+    => new GqlpUnit();
 
   internal static CmptCtgrOutpOptlEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptDescrEncoder : IEncoder<ICmptDescrObject>
 {
-  public Structured Encode(ICmptDescrObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptDescrObject input)
+    => new GqlpUnit();
 
   internal static CmptDescrEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptDescrBcksEncoder : IEncoder<ICmptDescrBcksObject>
 {
-  public Structured Encode(ICmptDescrBcksObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptDescrBcksObject input)
+    => new GqlpUnit();
 
   internal static CmptDescrBcksEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptDescrBtwnEncoder : IEncoder<ICmptDescrBtwnObject>
 {
-  public Structured Encode(ICmptDescrBtwnObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptDescrBtwnObject input)
+    => new GqlpUnit();
 
   internal static CmptDescrBtwnEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptDescrCmplEncoder : IEncoder<ICmptDescrCmplObject>
 {
-  public Structured Encode(ICmptDescrCmplObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptDescrCmplObject input)
+    => new GqlpUnit();
 
   internal static CmptDescrCmplEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptDescrDblEncoder : IEncoder<ICmptDescrDblObject>
 {
-  public Structured Encode(ICmptDescrDblObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptDescrDblObject input)
+    => new GqlpUnit();
 
   internal static CmptDescrDblEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptDescrSnglEncoder : IEncoder<ICmptDescrSnglObject>
 {
-  public Structured Encode(ICmptDescrSnglObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptDescrSnglObject input)
+    => new GqlpUnit();
 
   internal static CmptDescrSnglEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptDscrsEncoder : IEncoder<ICmptDscrsObject>
 {
-  public Structured Encode(ICmptDscrsObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptDscrsObject input)
+    => new GqlpUnit();
 
   internal static CmptDscrsEncoder Factory(IEncoderRepository _) => new();
 }
 
+internal class CmptInDrctParamDictEncoder : IEncoder<ICmptInDrctParamDictObject>
+{
+  public IGqlpValue Encode(ICmptInDrctParamDictObject input)
+    => new GqlpUnit();
+
+  internal static CmptInDrctParamDictEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptInDrctParamInEncoder : IEncoder<ICmptInDrctParamInObject>
+{
+  public IGqlpValue Encode(ICmptInDrctParamInObject input)
+    => new GqlpUnit();
+
+  internal static CmptInDrctParamInEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptInDrctParamListEncoder : IEncoder<ICmptInDrctParamListObject>
+{
+  public IGqlpValue Encode(ICmptInDrctParamListObject input)
+    => new GqlpUnit();
+
+  internal static CmptInDrctParamListEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class CmptInDrctParamOptEncoder : IEncoder<ICmptInDrctParamOptObject>
+{
+  public IGqlpValue Encode(ICmptInDrctParamOptObject input)
+    => new GqlpUnit();
+
+  internal static CmptInDrctParamOptEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptCatOprCtgrEncoder : IEncoder<ICmptCatOprCtgrObject>
 {
-  public Structured Encode(ICmptCatOprCtgrObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCatOprCtgrObject input)
+    => new GqlpUnit();
 
   internal static CmptCatOprCtgrEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptCatOprDmnEncoder : IEncoder<ICmptCatOprDmnObject>
 {
-  public Structured Encode(ICmptCatOprDmnObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCatOprDmnObject input)
+    => new GqlpUnit();
 
   internal static CmptCatOprDmnEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptCatOprDmnArgEncoder : IEncoder<ICmptCatOprDmnArgObject>
 {
-  public Structured Encode(ICmptCatOprDmnArgObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCatOprDmnArgObject input)
+    => new GqlpUnit();
 
   internal static CmptCatOprDmnArgEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptCatOprDmnModsEncoder : IEncoder<ICmptCatOprDmnModsObject>
 {
-  public Structured Encode(ICmptCatOprDmnModsObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCatOprDmnModsObject input)
+    => new GqlpUnit();
 
   internal static CmptCatOprDmnModsEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptCatOprDmnVarEncoder : IEncoder<ICmptCatOprDmnVarObject>
 {
-  public Structured Encode(ICmptCatOprDmnVarObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCatOprDmnVarObject input)
+    => new GqlpUnit();
 
   internal static CmptCatOprDmnVarEncoder Factory(IEncoderRepository _) => new();
 }
@@ -155,8 +187,8 @@ internal class CmptCatOprSlctEncoder(
 ) : IEncoder<ICmptCatOprSlctObject>
 {
   private readonly Encoder<ICmptAddrOprSlct> _addrOprSlct = encoders.EncoderFor<ICmptAddrOprSlct>();
-  public Structured Encode(ICmptCatOprSlctObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptCatOprSlctObject input)
+    => new GqlpUnit()
       .Add("first", input.First.Encode())
       .Add("last", input.Last.Encode())
       .AddEncoded("address", input.Address, _addrOprSlct);
@@ -166,8 +198,8 @@ internal class CmptCatOprSlctEncoder(
 
 internal class CmptAddrOprSlctEncoder : IEncoder<ICmptAddrOprSlctObject>
 {
-  public Structured Encode(ICmptAddrOprSlctObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptAddrOprSlctObject input)
+    => new GqlpUnit()
       .Add("street", input.Street.Encode())
       .Add("city", input.City.Encode())
       .Add("country", input.Country.Encode());
@@ -180,8 +212,8 @@ internal class CmptCatOprSlctInlnEncoder(
 ) : IEncoder<ICmptCatOprSlctInlnObject>
 {
   private readonly Encoder<ICmptAddrOprSlctInln> _addrOprSlctInln = encoders.EncoderFor<ICmptAddrOprSlctInln>();
-  public Structured Encode(ICmptCatOprSlctInlnObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptCatOprSlctInlnObject input)
+    => new GqlpUnit()
       .Add("first", input.First.Encode())
       .Add("last", input.Last.Encode())
       .AddEncoded("address", input.Address, _addrOprSlctInln);
@@ -191,16 +223,16 @@ internal class CmptCatOprSlctInlnEncoder(
 
 internal class CmptAddrOprSlctInlnEncoder : IEncoder<ICmptAddrOprSlctInlnObject>
 {
-  public Structured Encode(ICmptAddrOprSlctInlnObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptAddrOprSlctInlnObject input)
+    => new GqlpUnit();
 
   internal static CmptAddrOprSlctInlnEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptFullOprSlctInlnEncoder : IEncoder<ICmptFullOprSlctInlnObject>
 {
-  public Structured Encode(ICmptFullOprSlctInlnObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptFullOprSlctInlnObject input)
+    => new GqlpUnit()
       .Add("street", input.Street.Encode())
       .Add("city", input.City.Encode())
       .Add("country", input.Country.Encode());
@@ -213,8 +245,8 @@ internal class CmptCatOprSlctModsEncoder(
 ) : IEncoder<ICmptCatOprSlctModsObject>
 {
   private readonly Encoder<ICmptAddrOprSlctMods> _addrOprSlctMods = encoders.EncoderFor<ICmptAddrOprSlctMods>();
-  public Structured Encode(ICmptCatOprSlctModsObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptCatOprSlctModsObject input)
+    => new GqlpUnit()
       .Add("first", input.First.Encode())
       .Add("last", input.Last.Encode())
       .AddEncoded("address", input.Address, _addrOprSlctMods);
@@ -224,8 +256,8 @@ internal class CmptCatOprSlctModsEncoder(
 
 internal class CmptAddrOprSlctModsEncoder : IEncoder<ICmptAddrOprSlctModsObject>
 {
-  public Structured Encode(ICmptAddrOprSlctModsObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptAddrOprSlctModsObject input)
+    => new GqlpUnit()
       .Add("street", input.Street.Encode())
       .Add("city", input.City.Encode())
       .Add("country", input.Country.Encode());
@@ -238,8 +270,8 @@ internal class CmptCatOprSlctSprdEncoder(
 ) : IEncoder<ICmptCatOprSlctSprdObject>
 {
   private readonly Encoder<ICmptAddrOprSlctSprd> _addrOprSlctSprd = encoders.EncoderFor<ICmptAddrOprSlctSprd>();
-  public Structured Encode(ICmptCatOprSlctSprdObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptCatOprSlctSprdObject input)
+    => new GqlpUnit()
       .Add("first", input.First.Encode())
       .Add("last", input.Last.Encode())
       .AddEncoded("address", input.Address, _addrOprSlctSprd);
@@ -249,8 +281,8 @@ internal class CmptCatOprSlctSprdEncoder(
 
 internal class CmptAddrOprSlctSprdEncoder : IEncoder<ICmptAddrOprSlctSprdObject>
 {
-  public Structured Encode(ICmptAddrOprSlctSprdObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptAddrOprSlctSprdObject input)
+    => new GqlpUnit()
       .Add("street", input.Street.Encode())
       .Add("city", input.City.Encode())
       .Add("country", input.Country.Encode());
@@ -275,6 +307,10 @@ internal static class Cmpt_Schema_GlobalsEncoders
       .AddEncoder<ICmptDescrDblObject>(CmptDescrDblEncoder.Factory)
       .AddEncoder<ICmptDescrSnglObject>(CmptDescrSnglEncoder.Factory)
       .AddEncoder<ICmptDscrsObject>(CmptDscrsEncoder.Factory)
+      .AddEncoder<ICmptInDrctParamDictObject>(CmptInDrctParamDictEncoder.Factory)
+      .AddEncoder<ICmptInDrctParamInObject>(CmptInDrctParamInEncoder.Factory)
+      .AddEncoder<ICmptInDrctParamListObject>(CmptInDrctParamListEncoder.Factory)
+      .AddEncoder<ICmptInDrctParamOptObject>(CmptInDrctParamOptEncoder.Factory)
       .AddEncoder<ICmptCatOprCtgrObject>(CmptCatOprCtgrEncoder.Factory)
       .AddEncoder<ICmptCatOprDmnObject>(CmptCatOprDmnEncoder.Factory)
       .AddEncoder<ICmptCatOprDmnArgObject>(CmptCatOprDmnArgEncoder.Factory)

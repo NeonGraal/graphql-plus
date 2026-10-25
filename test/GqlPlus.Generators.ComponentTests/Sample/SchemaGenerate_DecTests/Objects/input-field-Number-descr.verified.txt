@@ -10,9 +10,9 @@ input InpFieldNmbrDescr { field: "Test" "Descr" Number = 42 }
 
 namespace Components.Gqlp_Schema_input_field_Number_descr;
 
-internal class CmptInpFieldNmbrDescrDecoder
+internal class CmptInpFieldNmbrDescrDecoder : NullDecoder<ICmptInpFieldNmbrDescrObject>
 {
-  public decimal Field { get; set; }
+  public decimal Field { get; set; } = default!;
 
   internal static CmptInpFieldNmbrDescrDecoder Factory(IDecoderRepository _) => new();
 }

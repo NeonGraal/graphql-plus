@@ -11,9 +11,9 @@ enum EnumAlias [En2] { enumAlias }
 
 namespace Components.Gqlp_Schema_enum_alias;
 
-internal class CmptEnumAliasDecoder
+internal class CmptEnumAliasDecoder : NullDecoder<CmptEnumAlias>
 {
-  public string enumAlias { get; set; }
+  public string enumAlias { get; set; } = default!;
 
   internal static CmptEnumAliasDecoder Factory(IDecoderRepository _) => new();
 }

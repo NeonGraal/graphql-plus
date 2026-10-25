@@ -13,16 +13,16 @@ namespace Components.Gqlp_Schema_alt_Output;
 
 internal class CmptAltOutpEncoder : IEncoder<ICmptAltOutpObject>
 {
-  public Structured Encode(ICmptAltOutpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptAltOutpObject input)
+    => new GqlpUnit();
 
   internal static CmptAltOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptAltAltOutpEncoder : IEncoder<ICmptAltAltOutpObject>
 {
-  public Structured Encode(ICmptAltAltOutpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptAltAltOutpObject input)
+    => new GqlpUnit()
       .Add("alt", input.Alt.Encode());
 
   internal static CmptAltAltOutpEncoder Factory(IEncoderRepository _) => new();

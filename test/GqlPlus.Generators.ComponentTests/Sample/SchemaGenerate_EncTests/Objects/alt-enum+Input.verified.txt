@@ -11,9 +11,17 @@ enum EnumAltEnumInp { altEnumInp }
 
 namespace Components.Gqlp_Schema_alt_enum_Input;
 
+internal class CmptAltEnumInpEncoder : IEncoder<ICmptAltEnumInpObject>
+{
+  public IGqlpValue Encode(ICmptAltEnumInpObject input)
+    => new GqlpUnit();
+
+  internal static CmptAltEnumInpEncoder Factory(IEncoderRepository _) => new();
+}
+
 internal class CmptEnumAltEnumInpEncoder : IEncoder<CmptEnumAltEnumInp>
 {
-  public Structured Encode(CmptEnumAltEnumInp input)
+  public IGqlpValue Encode(CmptEnumAltEnumInp input)
     => input.EncodeEnum("EnumAltEnumInp");
 
   internal static CmptEnumAltEnumInpEncoder Factory(IEncoderRepository _) => new();
@@ -23,5 +31,6 @@ internal static class Cmpt_Schema_alt_enum_InputEncoders
 {
   internal static IEncoderRepositoryBuilder AddCmpt_Schema_alt_enum_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
+      .AddEncoder<ICmptAltEnumInpObject>(CmptAltEnumInpEncoder.Factory)
       .AddEncoder<CmptEnumAltEnumInp>(CmptEnumAltEnumInpEncoder.Factory);
 }

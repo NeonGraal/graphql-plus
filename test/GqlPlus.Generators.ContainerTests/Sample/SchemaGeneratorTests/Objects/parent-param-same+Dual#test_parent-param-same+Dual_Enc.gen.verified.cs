@@ -13,13 +13,13 @@ internal class testPrntParamSameDualEncoder<TA>(
 {
   private readonly Encoder<ItestRefPrntParamSameDualObject<TA>> _itestRefPrntParamSameDual = encoders.EncoderFor<ItestRefPrntParamSameDualObject<TA>>();
   private readonly Encoder<TA> _a = encoders.EncoderFor<TA>();
-  public Structured Encode(ItestPrntParamSameDualObject<TA> input)
+  public IGqlpValue Encode(ItestPrntParamSameDualObject<TA> input)
     => _itestRefPrntParamSameDual.Encode(input)
       .AddEncoded("field", input.Field, _a);
 }
 
 internal class testRefPrntParamSameDualEncoder<TA> : IEncoder<ItestRefPrntParamSameDualObject<TA>>
 {
-  public Structured Encode(ItestRefPrntParamSameDualObject<TA> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestRefPrntParamSameDualObject<TA> input)
+    => new GqlpUnit();
 }

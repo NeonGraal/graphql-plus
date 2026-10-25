@@ -7,7 +7,7 @@ public class JsonSchemaTests(ComponentFixture<JsonConverterTestServices> fixture
   : TestSchemaVerify(fixture.GetService<ISchemaVerifyChecks>()), IClassFixture<ComponentFixture<JsonConverterTestServices>>
 {
   public override string ResultGroup => "Json";
-  public override string EncodeResult(Structured result, string section)
+  public override string EncodeResult(IGqlpValue result, string section)
     => result.ToJson() + Environment.NewLine;
   protected override Task VerifyResult(string target, VerifySettings settings)
     => Verify(target, "json", settings);

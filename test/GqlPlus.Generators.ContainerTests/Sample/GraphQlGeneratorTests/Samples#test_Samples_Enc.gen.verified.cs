@@ -14,8 +14,8 @@ internal class testQueryEncoder(
   private readonly Encoder<ItestFullUser> _itestFullUser = encoders.EncoderFor<ItestFullUser>();
   private readonly Encoder<ItestStory> _itestStory = encoders.EncoderFor<ItestStory>();
   private readonly Encoder<ItestProfile> _itestProfile = encoders.EncoderFor<ItestProfile>();
-  public Structured Encode(ItestQueryObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestQueryObject input)
+    => new GqlpUnit()
       .AddEncoded("user", input.User(), _itestFullUser)
       .AddEncoded("likeStory", input.LikeStory(), _itestStory)
       .Add("field", input.Field().Encode())
@@ -29,8 +29,8 @@ internal class testQueryEncoder(
 
 internal class testMutationEncoder : IEncoder<ItestMutationObject>
 {
-  public Structured Encode(ItestMutationObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestMutationObject input)
+    => new GqlpUnit()
       .Add("sendEmail", input.SendEmail().Encode());
 
   internal static testMutationEncoder Factory(IEncoderRepository _) => new();
@@ -38,8 +38,8 @@ internal class testMutationEncoder : IEncoder<ItestMutationObject>
 
 internal class testUserFilterEncoder : IEncoder<ItestUserFilterObject>
 {
-  public Structured Encode(ItestUserFilterObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestUserFilterObject input)
+    => new GqlpUnit()
       .Add("id", input.Id.Encode());
 
   internal static testUserFilterEncoder Factory(IEncoderRepository _) => new();
@@ -50,8 +50,8 @@ internal class testUserEncoder(
 ) : IEncoder<ItestUserObject>
 {
   private readonly Encoder<ItestDate> _itestDate = encoders.EncoderFor<ItestDate>();
-  public Structured Encode(ItestUserObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestUserObject input)
+    => new GqlpUnit()
       .Add("id", input.Id.Encode())
       .Add("name", input.Name.Encode())
       .Add("firstName", input.FirstName.Encode())
@@ -67,7 +67,7 @@ internal class testFullUserEncoder(
 {
   private readonly Encoder<ItestUserObject> _itestUser = encoders.EncoderFor<ItestUserObject>();
   private readonly Encoder<ItestUserList> _itestUserList = encoders.EncoderFor<ItestUserList>();
-  public Structured Encode(ItestFullUserObject input)
+  public IGqlpValue Encode(ItestFullUserObject input)
     => _itestUser.Encode(input)
       .Add("profilePic", input.ProfilePic().Encode())
       .AddEncoded("friends", input.Friends(), _itestUserList)
@@ -81,8 +81,8 @@ internal class testUserListEncoder(
 ) : IEncoder<ItestUserListObject>
 {
   private readonly Encoder<ItestUser> _itestUser = encoders.EncoderFor<ItestUser>();
-  public Structured Encode(ItestUserListObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestUserListObject input)
+    => new GqlpUnit()
       .Add("count", input.Count.Encode())
       .AddList("users", input.Users, _itestUser);
 
@@ -91,8 +91,8 @@ internal class testUserListEncoder(
 
 internal class testStoryFilterEncoder : IEncoder<ItestStoryFilterObject>
 {
-  public Structured Encode(ItestStoryFilterObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestStoryFilterObject input)
+    => new GqlpUnit()
       .Add("storyID", input.StoryID.Encode());
 
   internal static testStoryFilterEncoder Factory(IEncoderRepository _) => new();
@@ -100,8 +100,8 @@ internal class testStoryFilterEncoder : IEncoder<ItestStoryFilterObject>
 
 internal class testStoryEncoder : IEncoder<ItestStoryObject>
 {
-  public Structured Encode(ItestStoryObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestStoryObject input)
+    => new GqlpUnit()
       .Add("likeCount", input.LikeCount.Encode());
 
   internal static testStoryEncoder Factory(IEncoderRepository _) => new();
@@ -109,8 +109,8 @@ internal class testStoryEncoder : IEncoder<ItestStoryObject>
 
 internal class testFieldFilterEncoder : IEncoder<ItestFieldFilterObject>
 {
-  public Structured Encode(ItestFieldFilterObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestFieldFilterObject input)
+    => new GqlpUnit()
       .AddIf(input.Arg is not null, onTrue: t => t.Add("arg", input.Arg!.Encode()));
 
   internal static testFieldFilterEncoder Factory(IEncoderRepository _) => new();
@@ -118,8 +118,8 @@ internal class testFieldFilterEncoder : IEncoder<ItestFieldFilterObject>
 
 internal class testPicFilterEncoder : IEncoder<ItestPicFilterObject>
 {
-  public Structured Encode(ItestPicFilterObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestPicFilterObject input)
+    => new GqlpUnit()
       .Add("size", input.Size.Encode())
       .Add("width", input.Width.Encode())
       .Add("height", input.Height.Encode());
@@ -129,8 +129,8 @@ internal class testPicFilterEncoder : IEncoder<ItestPicFilterObject>
 
 internal class testFriendsFilterEncoder : IEncoder<ItestFriendsFilterObject>
 {
-  public Structured Encode(ItestFriendsFilterObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestFriendsFilterObject input)
+    => new GqlpUnit()
       .Add("first", input.First.Encode());
 
   internal static testFriendsFilterEncoder Factory(IEncoderRepository _) => new();
@@ -141,7 +141,7 @@ internal class testProfileEncoder(
 ) : IEncoder<ItestProfileObject>
 {
   private readonly Encoder<ItestUserObject> _itestUser = encoders.EncoderFor<ItestUserObject>();
-  public Structured Encode(ItestProfileObject input)
+  public IGqlpValue Encode(ItestProfileObject input)
     => _itestUser.Encode(input)
       .Add("handle", input.Handle.Encode());
 
@@ -150,8 +150,8 @@ internal class testProfileEncoder(
 
 internal class testProfileFilterEncoder : IEncoder<ItestProfileFilterObject>
 {
-  public Structured Encode(ItestProfileFilterObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestProfileFilterObject input)
+    => new GqlpUnit()
       .Add("handles", input.Handles.Encode());
 
   internal static testProfileFilterEncoder Factory(IEncoderRepository _) => new();
@@ -162,8 +162,8 @@ internal class testPageEncoder(
 ) : IEncoder<ItestPageObject>
 {
   private readonly Encoder<ItestUserList> _itestUserList = encoders.EncoderFor<ItestUserList>();
-  public Structured Encode(ItestPageObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestPageObject input)
+    => new GqlpUnit()
       .Add("handle", input.Handle.Encode())
       .AddEncoded("likers", input.Likers, _itestUserList);
 
@@ -172,8 +172,8 @@ internal class testPageEncoder(
 
 internal class testIncludeParamsEncoder : IEncoder<ItestIncludeParamsObject>
 {
-  public Structured Encode(ItestIncludeParamsObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestIncludeParamsObject input)
+    => new GqlpUnit()
       .Add("if", input.If.Encode());
 
   internal static testIncludeParamsEncoder Factory(IEncoderRepository _) => new();
@@ -181,8 +181,8 @@ internal class testIncludeParamsEncoder : IEncoder<ItestIncludeParamsObject>
 
 internal class testEmailEncoder : IEncoder<ItestEmailObject>
 {
-  public Structured Encode(ItestEmailObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestEmailObject input)
+    => new GqlpUnit()
       .Add("message", input.Message.Encode());
 
   internal static testEmailEncoder Factory(IEncoderRepository _) => new();
@@ -193,8 +193,8 @@ internal class testThingFilterEncoder(
 ) : IEncoder<ItestThingFilterObject>
 {
   private readonly Encoder<ItestLocation> _itestLocation = encoders.EncoderFor<ItestLocation>();
-  public Structured Encode(ItestThingFilterObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestThingFilterObject input)
+    => new GqlpUnit()
       .AddEncoded("location", input.Location, _itestLocation);
 
   internal static testThingFilterEncoder Factory(IEncoderRepository r) => new(r);
@@ -202,8 +202,8 @@ internal class testThingFilterEncoder(
 
 internal class testLocationEncoder : IEncoder<ItestLocationObject>
 {
-  public Structured Encode(ItestLocationObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestLocationObject input)
+    => new GqlpUnit()
       .Add("lat", input.Lat.Encode())
       .Add("lon", input.Lon.Encode());
 
@@ -212,7 +212,7 @@ internal class testLocationEncoder : IEncoder<ItestLocationObject>
 
 internal class testIntEncoder : IEncoder<ItestInt>
 {
-  public Structured Encode(ItestInt input)
+  public IGqlpValue Encode(ItestInt input)
     => input.Value!.Encode();
 
   internal static testIntEncoder Factory(IEncoderRepository _) => new();
@@ -220,7 +220,7 @@ internal class testIntEncoder : IEncoder<ItestInt>
 
 internal class testDateEncoder : IEncoder<ItestDate>
 {
-  public Structured Encode(ItestDate input)
+  public IGqlpValue Encode(ItestDate input)
     => input.Value!.Encode();
 
   internal static testDateEncoder Factory(IEncoderRepository _) => new();

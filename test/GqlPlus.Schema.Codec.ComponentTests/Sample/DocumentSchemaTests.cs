@@ -21,10 +21,10 @@ public class DocumentSchemaTests(ComponentFixture<SchemaCodecTestServices> fixtu
       ["Simple"] = SamplesSchemaSimpleData.Strings,
     };
 
-    Map<Structured> groups = mostGroups.Links();
+    Map<IGqlpValue> groups = mostGroups.Links();
     groups["All"] = SchemaValidData.AllGroups.Links(v => v[1..]);
 
-    Structured result = new Map<Structured>() {
+    IGqlpValue result = new Map<IGqlpValue>() {
       ["title"] = "Schema".Encode(),
       ["items"] = SamplesSchemaData.Strings.Links(),
       ["groups"] = groups.Encode()
@@ -38,9 +38,10 @@ public class DocumentSchemaTests(ComponentFixture<SchemaCodecTestServices> fixtu
   {
     Map<IEnumerable<string>> groups = new() {
       ["Introspection"] = SamplesSpecificationIntrospectionData.Strings,
+      ["Request"] = SamplesSpecificationRequestData.Strings,
     };
 
-    Structured result = new Map<Structured>() {
+    IGqlpValue result = new Map<IGqlpValue>() {
       ["title"] = "Specification".Encode(),
       ["items"] = SamplesSpecificationData.Strings.Links(),
       ["groups"] = groups.Links().Encode()
@@ -59,7 +60,7 @@ public class DocumentSchemaTests(ComponentFixture<SchemaCodecTestServices> fixtu
     IMap<BaseTypeModel> inputs = Just<TypeInputModel>();
     IMap<BaseTypeModel> outputs = Just<TypeOutputModel>();
 
-    Structured groups = "".Encode()
+    IGqlpValue groups = "".Encode()
       .AddMap("Domain", domains, Types, "_Type")
       .AddMap("Enum", enums, Types, "_Type")
       .AddMap("Union", unions, Types, "_Type")
@@ -71,7 +72,7 @@ public class DocumentSchemaTests(ComponentFixture<SchemaCodecTestServices> fixtu
     IEnumerable<OperationModel> operations = model.ThrowIfNull().GetOperations(null).Values.Select(c => c.And).Where(c => c is not null).Cast<OperationModel>();
     ICollection<SettingModel> settings = model.ThrowIfNull().GetSettings(null).Values;
     SchemaModel newModel = new(model.ThrowIfNull().Name, categories, directives, operations, settings, [], model.ThrowIfNull().Errors);
-    Structured result = checks.Encode_Model(newModel, context)
+    IGqlpValue result = checks.Encode_Model(newModel, context)
       .Add("groups", groups)
       .Add("title", test.Encode());
 
@@ -84,5 +85,5 @@ public class DocumentSchemaTests(ComponentFixture<SchemaCodecTestServices> fixtu
   protected override Task VerifyResult(string target, VerifySettings settings)
     => Task.CompletedTask;  // No verification needed for this test}
   public override string ResultGroup => "Docs";
-  public override string EncodeResult(Structured result, string section) => "";
+  public override string EncodeResult(IGqlpValue result, string section) => "";
 }

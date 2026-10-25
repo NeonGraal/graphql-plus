@@ -12,12 +12,12 @@ internal class testGnrcPrntArgOutpEncoder<TType>(
 ) : IEncoder<ItestGnrcPrntArgOutpObject<TType>>
 {
   private readonly Encoder<ItestRefGnrcPrntArgOutpObject<TType>> _itestRefGnrcPrntArgOutp = encoders.EncoderFor<ItestRefGnrcPrntArgOutpObject<TType>>();
-  public Structured Encode(ItestGnrcPrntArgOutpObject<TType> input)
+  public IGqlpValue Encode(ItestGnrcPrntArgOutpObject<TType> input)
     => _itestRefGnrcPrntArgOutp.Encode(input);
 }
 
 internal class testRefGnrcPrntArgOutpEncoder<TRef> : IEncoder<ItestRefGnrcPrntArgOutpObject<TRef>>
 {
-  public Structured Encode(ItestRefGnrcPrntArgOutpObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestRefGnrcPrntArgOutpObject<TRef> input)
+    => new GqlpUnit();
 }

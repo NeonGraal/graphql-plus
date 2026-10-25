@@ -7,7 +7,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_domain_string_diff;
 
-internal class testDmnStrDiffDecoder
+internal class testDmnStrDiffDecoder : NullDecoder<ItestDmnStrDiff>
 {
 
   internal static testDmnStrDiffDecoder Factory(IDecoderRepository _) => new();

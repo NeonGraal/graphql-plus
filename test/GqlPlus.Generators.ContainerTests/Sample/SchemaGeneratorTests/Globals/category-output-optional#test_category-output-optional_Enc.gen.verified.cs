@@ -9,8 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_category_output_optional;
 
 internal class testCtgrOutpOptlEncoder : IEncoder<ItestCtgrOutpOptlObject>
 {
-  public Structured Encode(ItestCtgrOutpOptlObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCtgrOutpOptlObject input)
+    => new GqlpUnit();
 
   internal static testCtgrOutpOptlEncoder Factory(IEncoderRepository _) => new();
 }

@@ -13,8 +13,8 @@ namespace Components.Gqlp_Schema_object_alt_enum_Dual;
 
 internal class CmptObjAltEnumDualEncoder : IEncoder<ICmptObjAltEnumDualObject>
 {
-  public Structured Encode(ICmptObjAltEnumDualObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptObjAltEnumDualObject input)
+    => new GqlpUnit();
 
   internal static CmptObjAltEnumDualEncoder Factory(IEncoderRepository _) => new();
 }

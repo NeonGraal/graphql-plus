@@ -17,6 +17,11 @@ operations: !_Map(_Operations)
           typeKind: !_TypeKind Output
     name: OprSlctSprd
     selections: !_Map(_Selections)
+      !_Name firstLast: !_Selections
+      - !_OpFieldSelection
+        name: first
+      - !_OpFieldSelection
+        name: last
       !_Name '': !_Selections
       - !_OpSpreadSelection
         fragment: firstLast
@@ -29,11 +34,6 @@ operations: !_Map(_Operations)
         name: city
       - !_OpFieldSelection
         name: country
-      !_Name firstLast: !_Selections
-      - !_OpFieldSelection
-        name: first
-      - !_OpFieldSelection
-        name: last
 types: !_Map(_Type)
   !_Name AddrOprSlctSprd: !_TypeOutput
     allFields:

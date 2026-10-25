@@ -15,5 +15,5 @@ public sealed class GeneratorTestServices : IConfiguresServices
     => services
       .AddGenerators()
       .AddSingleton<ISchemaGeneratorChecks, SchemaGeneratorChecks>()
-      .AddModellerComponentTestBase();
+      .AddModellerComponentTestBase(false, false);
 }

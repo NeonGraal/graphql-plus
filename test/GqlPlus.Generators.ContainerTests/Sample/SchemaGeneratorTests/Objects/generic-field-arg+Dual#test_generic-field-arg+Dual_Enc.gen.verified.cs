@@ -12,13 +12,13 @@ internal class testGnrcFieldArgDualEncoder<TType>(
 ) : IEncoder<ItestGnrcFieldArgDualObject<TType>>
 {
   private readonly Encoder<ItestRefGnrcFieldArgDual<TType>> _itestRefGnrcFieldArgDual = encoders.EncoderFor<ItestRefGnrcFieldArgDual<TType>>();
-  public Structured Encode(ItestGnrcFieldArgDualObject<TType> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestGnrcFieldArgDualObject<TType> input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _itestRefGnrcFieldArgDual);
 }
 
 internal class testRefGnrcFieldArgDualEncoder<TRef> : IEncoder<ItestRefGnrcFieldArgDualObject<TRef>>
 {
-  public Structured Encode(ItestRefGnrcFieldArgDualObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestRefGnrcFieldArgDualObject<TRef> input)
+    => new GqlpUnit();
 }

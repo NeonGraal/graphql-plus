@@ -13,8 +13,8 @@ namespace Components.Gqlp_Schema_descr_backslash;
 
 internal class CmptDescrBcksEncoder : IEncoder<ICmptDescrBcksObject>
 {
-  public Structured Encode(ICmptDescrBcksObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptDescrBcksObject input)
+    => new GqlpUnit();
 
   internal static CmptDescrBcksEncoder Factory(IEncoderRepository _) => new();
 }

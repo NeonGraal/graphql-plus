@@ -31,9 +31,9 @@ internal static class PlainTestHelpers
   private sealed class PlainConverters
     : IConvertTestsBase
   {
-    public Structured ConvertFrom(string[] input)
+    public IGqlpValue ConvertFrom(string[] input)
       => input.FromPlain();
-    public string[] ConvertTo(Structured model)
+    public string[] ConvertTo(IGqlpValue model)
       => model.ToPlain(false);
   }
 }

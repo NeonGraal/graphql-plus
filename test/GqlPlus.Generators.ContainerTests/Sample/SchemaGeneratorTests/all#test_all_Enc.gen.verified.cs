@@ -9,7 +9,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_all;
 
 internal class testGuidEncoder : IEncoder<ItestGuid>
 {
-  public Structured Encode(ItestGuid input)
+  public IGqlpValue Encode(ItestGuid input)
     => input.Value!.Encode();
 
   internal static testGuidEncoder Factory(IEncoderRepository _) => new();
@@ -17,7 +17,7 @@ internal class testGuidEncoder : IEncoder<ItestGuid>
 
 internal class testOneEncoder : IEncoder<testOne>
 {
-  public Structured Encode(testOne input)
+  public IGqlpValue Encode(testOne input)
     => input.EncodeEnum("One");
 
   internal static testOneEncoder Factory(IEncoderRepository _) => new();
@@ -29,21 +29,34 @@ internal class testManyEncoder(
 {
   private readonly Encoder<ItestGuid> _guid = encoders.EncoderFor<ItestGuid>();
   private readonly Encoder<decimal> _number = encoders.EncoderFor<decimal>();
-  public Structured Encode(ItestMany input)
+  public IGqlpValue Encode(ItestMany input)
     => input.HasA<ItestGuid>() ? _guid.Encode(input.AsA<ItestGuid>())
      : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
-     : Structured.Empty();
+     : new GqlpUnit();
 
   internal static testManyEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testFieldEncoder : IEncoder<ItestFieldObject>
 {
-  public Structured Encode(ItestFieldObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestFieldObject input)
+    => new GqlpUnit()
       .Add("strings", input.Strings.Encode());
 
   internal static testFieldEncoder Factory(IEncoderRepository _) => new();
+}
+
+internal class testParamEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestParamObject>
+{
+  private readonly Encoder<ItestMany> _itestMany = encoders.EncoderFor<ItestMany>();
+  public IGqlpValue Encode(ItestParamObject input)
+    => new GqlpUnit()
+      .AddEncoded("afterId", input.AfterId, _itestMany)
+      .AddEncoded("beforeId", input.BeforeId, _itestMany);
+
+  internal static testParamEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class testAllEncoder(
@@ -51,8 +64,8 @@ internal class testAllEncoder(
 ) : IEncoder<ItestAllObject>
 {
   private readonly Encoder<ItestField> _itestField = encoders.EncoderFor<ItestField>();
-  public Structured Encode(ItestAllObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestAllObject input)
+    => new GqlpUnit()
       .AddEncoded("items", input.Items(), _itestField);
 
   internal static testAllEncoder Factory(IEncoderRepository r) => new(r);
@@ -66,5 +79,6 @@ internal static class test_allEncoders
       .AddEncoder<testOne>(testOneEncoder.Factory)
       .AddEncoder<ItestMany>(testManyEncoder.Factory)
       .AddEncoder<ItestFieldObject>(testFieldEncoder.Factory)
+      .AddEncoder<ItestParamObject>(testParamEncoder.Factory)
       .AddEncoder<ItestAllObject>(testAllEncoder.Factory);
 }

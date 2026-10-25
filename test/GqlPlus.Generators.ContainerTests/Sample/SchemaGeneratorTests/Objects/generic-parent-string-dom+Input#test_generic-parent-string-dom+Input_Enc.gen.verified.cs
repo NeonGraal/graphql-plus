@@ -7,9 +7,30 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_string_dom_Input;
 
+internal class testGnrcPrntStrDomInpEncoder(
+  IEncoderRepository encoders
+) : IEncoder<ItestGnrcPrntStrDomInpObject>
+{
+  private readonly Encoder<ItestFieldGnrcPrntStrDomInpObject<ItestDomGnrcPrntStrDomInp>> _itestFieldGnrcPrntStrDomInp = encoders.EncoderFor<ItestFieldGnrcPrntStrDomInpObject<ItestDomGnrcPrntStrDomInp>>();
+  public IGqlpValue Encode(ItestGnrcPrntStrDomInpObject input)
+    => _itestFieldGnrcPrntStrDomInp.Encode(input);
+
+  internal static testGnrcPrntStrDomInpEncoder Factory(IEncoderRepository r) => new(r);
+}
+
+internal class testFieldGnrcPrntStrDomInpEncoder<TRef>(
+  IEncoderRepository encoders
+) : IEncoder<ItestFieldGnrcPrntStrDomInpObject<TRef>>
+{
+  private readonly Encoder<TRef> _ref = encoders.EncoderFor<TRef>();
+  public IGqlpValue Encode(ItestFieldGnrcPrntStrDomInpObject<TRef> input)
+    => new GqlpUnit()
+      .AddEncoded("field", input.Field, _ref);
+}
+
 internal class testDomGnrcPrntStrDomInpEncoder : IEncoder<ItestDomGnrcPrntStrDomInp>
 {
-  public Structured Encode(ItestDomGnrcPrntStrDomInp input)
+  public IGqlpValue Encode(ItestDomGnrcPrntStrDomInp input)
     => input.Value!.Encode();
 
   internal static testDomGnrcPrntStrDomInpEncoder Factory(IEncoderRepository _) => new();
@@ -19,5 +40,6 @@ internal static class test_generic_parent_string_dom_InputEncoders
 {
   internal static IEncoderRepositoryBuilder Addtest_generic_parent_string_dom_InputEncoders(this IEncoderRepositoryBuilder builder)
     => builder
+      .AddEncoder<ItestGnrcPrntStrDomInpObject>(testGnrcPrntStrDomInpEncoder.Factory)
       .AddEncoder<ItestDomGnrcPrntStrDomInp>(testDomGnrcPrntStrDomInpEncoder.Factory);
 }

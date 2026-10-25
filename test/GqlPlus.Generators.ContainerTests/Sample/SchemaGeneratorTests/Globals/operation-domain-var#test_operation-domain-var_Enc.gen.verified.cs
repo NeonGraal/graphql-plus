@@ -9,8 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_operation_domain_var;
 
 internal class testCatOprDmnVarEncoder : IEncoder<ItestCatOprDmnVarObject>
 {
-  public Structured Encode(ItestCatOprDmnVarObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCatOprDmnVarObject input)
+    => new GqlpUnit();
 
   internal static testCatOprDmnVarEncoder Factory(IEncoderRepository _) => new();
 }

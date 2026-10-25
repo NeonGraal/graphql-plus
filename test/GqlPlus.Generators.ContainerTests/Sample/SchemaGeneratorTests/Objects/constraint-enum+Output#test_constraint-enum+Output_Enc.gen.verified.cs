@@ -9,8 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_enum_Output;
 
 internal class testCnstEnumOutpEncoder : IEncoder<ItestCnstEnumOutpObject>
 {
-  public Structured Encode(ItestCnstEnumOutpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCnstEnumOutpObject input)
+    => new GqlpUnit();
 
   internal static testCnstEnumOutpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -20,14 +20,14 @@ internal class testRefCnstEnumOutpEncoder<TType>(
 ) : IEncoder<ItestRefCnstEnumOutpObject<TType>>
 {
   private readonly Encoder<TType> _type = encoders.EncoderFor<TType>();
-  public Structured Encode(ItestRefCnstEnumOutpObject<TType> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestRefCnstEnumOutpObject<TType> input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _type);
 }
 
 internal class testEnumCnstEnumOutpEncoder : IEncoder<testEnumCnstEnumOutp>
 {
-  public Structured Encode(testEnumCnstEnumOutp input)
+  public IGqlpValue Encode(testEnumCnstEnumOutp input)
     => input.EncodeEnum("EnumCnstEnumOutp");
 
   internal static testEnumCnstEnumOutpEncoder Factory(IEncoderRepository _) => new();

@@ -7,185 +7,185 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp__Merges;
 
-internal class testInDrctParamDecoder
+internal class testInDrctParamDecoder : NullDecoder<ItestInDrctParamObject>
 {
 
   internal static testInDrctParamDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnAliasDecoder
+internal class testDmnAliasDecoder : NullDecoder<ItestDmnAlias>
 {
 
   internal static testDmnAliasDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnBoolDecoder
+internal class testDmnBoolDecoder : NullDecoder<ItestDmnBool>
 {
 
   internal static testDmnBoolDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnBoolDiffDecoder
+internal class testDmnBoolDiffDecoder : NullDecoder<ItestDmnBoolDiff>
 {
 
   internal static testDmnBoolDiffDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnBoolSameDecoder
+internal class testDmnBoolSameDecoder : NullDecoder<ItestDmnBoolSame>
 {
 
   internal static testDmnBoolSameDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnEnumDiffDecoder
+internal class testDmnEnumDiffDecoder : NullDecoder<ItestDmnEnumDiff>
 {
 
   internal static testDmnEnumDiffDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnEnumSameDecoder
+internal class testDmnEnumSameDecoder : NullDecoder<ItestDmnEnumSame>
 {
 
   internal static testDmnEnumSameDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnNmbrDecoder
+internal class testDmnNmbrDecoder : NullDecoder<ItestDmnNmbr>
 {
 
   internal static testDmnNmbrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnNmbrDiffDecoder
+internal class testDmnNmbrDiffDecoder : NullDecoder<ItestDmnNmbrDiff>
 {
 
   internal static testDmnNmbrDiffDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnNmbrSameDecoder
+internal class testDmnNmbrSameDecoder : NullDecoder<ItestDmnNmbrSame>
 {
 
   internal static testDmnNmbrSameDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnStrDecoder
+internal class testDmnStrDecoder : NullDecoder<ItestDmnStr>
 {
 
   internal static testDmnStrDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnStrDiffDecoder
+internal class testDmnStrDiffDecoder : NullDecoder<ItestDmnStrDiff>
 {
 
   internal static testDmnStrDiffDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testDmnStrSameDecoder
+internal class testDmnStrSameDecoder : NullDecoder<ItestDmnStrSame>
 {
 
   internal static testDmnStrSameDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumAliasDecoder
+internal class testEnumAliasDecoder : NullDecoder<testEnumAlias>
 {
-  public string enumAlias { get; set; }
+  public string enumAlias { get; set; } = default!;
 
   internal static testEnumAliasDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumDiffDecoder
+internal class testEnumDiffDecoder : NullDecoder<testEnumDiff>
 {
-  public string one { get; set; }
-  public string two { get; set; }
+  public string one { get; set; } = default!;
+  public string two { get; set; } = default!;
 
   internal static testEnumDiffDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumSameDecoder
+internal class testEnumSameDecoder : NullDecoder<testEnumSame>
 {
-  public string enumSame { get; set; }
+  public string enumSame { get; set; } = default!;
 
   internal static testEnumSameDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumSamePrntDecoder
+internal class testEnumSamePrntDecoder : NullDecoder<testEnumSamePrnt>
 {
-  public string prnt_enumSamePrnt { get; set; }
-  public string enumSamePrnt { get; set; }
+  public string prnt_enumSamePrnt { get; set; } = default!;
+  public string enumSamePrnt { get; set; } = default!;
 
   internal static testEnumSamePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntEnumSamePrntDecoder
+internal class testPrntEnumSamePrntDecoder : NullDecoder<testPrntEnumSamePrnt>
 {
-  public string prnt_enumSamePrnt { get; set; }
+  public string prnt_enumSamePrnt { get; set; } = default!;
 
   internal static testPrntEnumSamePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumValueAliasDecoder
+internal class testEnumValueAliasDecoder : NullDecoder<testEnumValueAlias>
 {
-  public string enumValueAlias { get; set; }
-  public string val1 { get; set; }
-  public string val2 { get; set; }
+  public string enumValueAlias { get; set; } = default!;
+  public string val1 { get; set; } = default!;
+  public string val2 { get; set; } = default!;
 
   internal static testEnumValueAliasDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testObjDualDecoder
+internal class testObjDualDecoder : NullDecoder<ItestObjDualObject>
 {
 
   internal static testObjDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testObjInpDecoder
+internal class testObjInpDecoder : NullDecoder<ItestObjInpObject>
 {
 
   internal static testObjInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testObjAliasDualDecoder
+internal class testObjAliasDualDecoder : NullDecoder<ItestObjAliasDualObject>
 {
 
   internal static testObjAliasDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testObjAliasInpDecoder
+internal class testObjAliasInpDecoder : NullDecoder<ItestObjAliasInpObject>
 {
 
   internal static testObjAliasInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testObjAltDualDecoder
+internal class testObjAltDualDecoder : NullDecoder<ItestObjAltDualObject>
 {
 
   internal static testObjAltDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testObjAltDualTypeDecoder
+internal class testObjAltDualTypeDecoder : NullDecoder<ItestObjAltDualTypeObject>
 {
 
   internal static testObjAltDualTypeDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testObjAltInpDecoder
+internal class testObjAltInpDecoder : NullDecoder<ItestObjAltInpObject>
 {
 
   internal static testObjAltInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testObjAltInpTypeDecoder
+internal class testObjAltInpTypeDecoder : NullDecoder<ItestObjAltInpTypeObject>
 {
 
   internal static testObjAltInpTypeDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testObjAltEnumDualDecoder
+internal class testObjAltEnumDualDecoder : NullDecoder<ItestObjAltEnumDualObject>
 {
 
   internal static testObjAltEnumDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testObjAltEnumInpDecoder
+internal class testObjAltEnumInpDecoder : NullDecoder<ItestObjAltEnumInpObject>
 {
 
   internal static testObjAltEnumInpDecoder Factory(IDecoderRepository _) => new();
@@ -193,209 +193,209 @@ internal class testObjAltEnumInpDecoder
 
 internal class testObjCnstDualDecoder<TType>
 {
-  public TType Field { get; set; }
-  public TType Str { get; set; }
+  public TType Field { get; set; } = default!;
+  public TType Str { get; set; } = default!;
 }
 
 internal class testObjCnstInpDecoder<TType>
 {
-  public TType Field { get; set; }
-  public TType Str { get; set; }
+  public TType Field { get; set; } = default!;
+  public TType Str { get; set; } = default!;
 }
 
-internal class testObjFieldDualDecoder
+internal class testObjFieldDualDecoder : NullDecoder<ItestObjFieldDualObject>
 {
-  public ItestFldObjFieldDual Field { get; set; }
+  public ItestFldObjFieldDual Field { get; set; } = default!;
 
   internal static testObjFieldDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testFldObjFieldDualDecoder
+internal class testFldObjFieldDualDecoder : NullDecoder<ItestFldObjFieldDualObject>
 {
 
   internal static testFldObjFieldDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testObjFieldInpDecoder
+internal class testObjFieldInpDecoder : NullDecoder<ItestObjFieldInpObject>
 {
-  public ItestFldObjFieldInp Field { get; set; }
+  public ItestFldObjFieldInp Field { get; set; } = default!;
 
   internal static testObjFieldInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testFldObjFieldInpDecoder
+internal class testFldObjFieldInpDecoder : NullDecoder<ItestFldObjFieldInpObject>
 {
 
   internal static testFldObjFieldInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testObjFieldAliasDualDecoder
+internal class testObjFieldAliasDualDecoder : NullDecoder<ItestObjFieldAliasDualObject>
 {
-  public ItestFldObjFieldAliasDual Field { get; set; }
+  public ItestFldObjFieldAliasDual Field { get; set; } = default!;
 
   internal static testObjFieldAliasDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testFldObjFieldAliasDualDecoder
+internal class testFldObjFieldAliasDualDecoder : NullDecoder<ItestFldObjFieldAliasDualObject>
 {
 
   internal static testFldObjFieldAliasDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testObjFieldAliasInpDecoder
+internal class testObjFieldAliasInpDecoder : NullDecoder<ItestObjFieldAliasInpObject>
 {
-  public ItestFldObjFieldAliasInp Field { get; set; }
+  public ItestFldObjFieldAliasInp Field { get; set; } = default!;
 
   internal static testObjFieldAliasInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testFldObjFieldAliasInpDecoder
+internal class testFldObjFieldAliasInpDecoder : NullDecoder<ItestFldObjFieldAliasInpObject>
 {
 
   internal static testFldObjFieldAliasInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testObjFieldEnumAliasDualDecoder
+internal class testObjFieldEnumAliasDualDecoder : NullDecoder<ItestObjFieldEnumAliasDualObject>
 {
-  public bool Field { get; set; }
+  public bool Field { get; set; } = default!;
 
   internal static testObjFieldEnumAliasDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testObjFieldEnumAliasInpDecoder
+internal class testObjFieldEnumAliasInpDecoder : NullDecoder<ItestObjFieldEnumAliasInpObject>
 {
-  public bool Field { get; set; }
+  public bool Field { get; set; } = default!;
 
   internal static testObjFieldEnumAliasInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testObjFieldEnumValueDualDecoder
+internal class testObjFieldEnumValueDualDecoder : NullDecoder<ItestObjFieldEnumValueDualObject>
 {
-  public bool Field { get; set; }
+  public bool Field { get; set; } = default!;
 
   internal static testObjFieldEnumValueDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testObjFieldEnumValueInpDecoder
+internal class testObjFieldEnumValueInpDecoder : NullDecoder<ItestObjFieldEnumValueInpObject>
 {
-  public bool Field { get; set; }
+  public bool Field { get; set; } = default!;
 
   internal static testObjFieldEnumValueInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testObjFieldTypeAliasDualDecoder
+internal class testObjFieldTypeAliasDualDecoder : NullDecoder<ItestObjFieldTypeAliasDualObject>
 {
-  public string Field { get; set; }
+  public string Field { get; set; } = default!;
 
   internal static testObjFieldTypeAliasDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testObjFieldTypeAliasInpDecoder
+internal class testObjFieldTypeAliasInpDecoder : NullDecoder<ItestObjFieldTypeAliasInpObject>
 {
-  public string Field { get; set; }
+  public string Field { get; set; } = default!;
 
   internal static testObjFieldTypeAliasInpDecoder Factory(IDecoderRepository _) => new();
 }
 
 internal class testObjParamDualDecoder<TTest,TType>
 {
-  public TTest Test { get; set; }
-  public TType Type { get; set; }
+  public TTest Test { get; set; } = default!;
+  public TType Type { get; set; } = default!;
 }
 
 internal class testObjParamInpDecoder<TTest,TType>
 {
-  public TTest Test { get; set; }
-  public TType Type { get; set; }
+  public TTest Test { get; set; } = default!;
+  public TType Type { get; set; } = default!;
 }
 
 internal class testObjParamDupDualDecoder<TTest>
 {
-  public TTest Test { get; set; }
-  public TTest Type { get; set; }
+  public TTest Test { get; set; } = default!;
+  public TTest Type { get; set; } = default!;
 }
 
 internal class testObjParamDupInpDecoder<TTest>
 {
-  public TTest Test { get; set; }
-  public TTest Type { get; set; }
+  public TTest Test { get; set; } = default!;
+  public TTest Type { get; set; } = default!;
 }
 
-internal class testObjPrntDualDecoder
+internal class testObjPrntDualDecoder : NullDecoder<ItestObjPrntDualObject>
 {
 
   internal static testObjPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testRefObjPrntDualDecoder
+internal class testRefObjPrntDualDecoder : NullDecoder<ItestRefObjPrntDualObject>
 {
 
   internal static testRefObjPrntDualDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testObjPrntInpDecoder
+internal class testObjPrntInpDecoder : NullDecoder<ItestObjPrntInpObject>
 {
 
   internal static testObjPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testRefObjPrntInpDecoder
+internal class testRefObjPrntInpDecoder : NullDecoder<ItestRefObjPrntInpObject>
 {
 
   internal static testRefObjPrntInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testOutpFieldParam1Decoder
+internal class testOutpFieldParam1Decoder : NullDecoder<ItestOutpFieldParam1Object>
 {
 
   internal static testOutpFieldParam1Decoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testOutpFieldParam2Decoder
+internal class testOutpFieldParam2Decoder : NullDecoder<ItestOutpFieldParam2Object>
 {
 
   internal static testOutpFieldParam2Decoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testFldOutpFieldParamDecoder
+internal class testFldOutpFieldParamDecoder : NullDecoder<ItestFldOutpFieldParamObject>
 {
 
   internal static testFldOutpFieldParamDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testUnionAliasDecoder
+internal class testUnionAliasDecoder : NullDecoder<ItestUnionAlias>
 {
-  public Boolean AsBoolean { get; set; }
-  public Number AsNumber { get; set; }
+  public Boolean AsBoolean { get; set; } = default!;
+  public Number AsNumber { get; set; } = default!;
 
   internal static testUnionAliasDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testUnionDiffDecoder
+internal class testUnionDiffDecoder : NullDecoder<ItestUnionDiff>
 {
-  public Boolean AsBoolean { get; set; }
-  public Number AsNumber { get; set; }
+  public Boolean AsBoolean { get; set; } = default!;
+  public Number AsNumber { get; set; } = default!;
 
   internal static testUnionDiffDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testUnionSameDecoder
+internal class testUnionSameDecoder : NullDecoder<ItestUnionSame>
 {
-  public Boolean AsBoolean { get; set; }
+  public Boolean AsBoolean { get; set; } = default!;
 
   internal static testUnionSameDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testUnionSamePrntDecoder
+internal class testUnionSamePrntDecoder : NullDecoder<ItestUnionSamePrnt>
 {
-  public Boolean AsBoolean { get; set; }
+  public Boolean AsBoolean { get; set; } = default!;
 
   internal static testUnionSamePrntDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testPrntUnionSamePrntDecoder
+internal class testPrntUnionSamePrntDecoder : NullDecoder<ItestPrntUnionSamePrnt>
 {
-  public String AsString { get; set; }
+  public String AsString { get; set; } = default!;
 
   internal static testPrntUnionSamePrntDecoder Factory(IDecoderRepository _) => new();
 }

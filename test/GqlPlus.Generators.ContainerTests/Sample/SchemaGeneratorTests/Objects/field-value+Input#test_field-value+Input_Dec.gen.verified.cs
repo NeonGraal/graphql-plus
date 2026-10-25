@@ -7,16 +7,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_value_Input;
 
-internal class testFieldValueInpDecoder
+internal class testFieldValueInpDecoder : NullDecoder<ItestFieldValueInpObject>
 {
-  public testEnumFieldValueInp Field { get; set; }
+  public testEnumFieldValueInp Field { get; set; } = default!;
 
   internal static testFieldValueInpDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class testEnumFieldValueInpDecoder
+internal class testEnumFieldValueInpDecoder : NullDecoder<testEnumFieldValueInp>
 {
-  public string fieldValueInp { get; set; }
+  public string fieldValueInp { get; set; } = default!;
 
   internal static testEnumFieldValueInpDecoder Factory(IDecoderRepository _) => new();
 }

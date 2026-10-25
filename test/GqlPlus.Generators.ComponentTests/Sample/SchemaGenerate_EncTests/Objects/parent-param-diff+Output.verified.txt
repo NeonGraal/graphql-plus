@@ -17,13 +17,13 @@ internal class CmptPrntParamDiffOutpEncoder<TA>(
 {
   private readonly Encoder<ICmptRefPrntParamDiffOutpObject<TA>> _refPrntParamDiffOutp = encoders.EncoderFor<ICmptRefPrntParamDiffOutpObject<TA>>();
   private readonly Encoder<TA> _a = encoders.EncoderFor<TA>();
-  public Structured Encode(ICmptPrntParamDiffOutpObject<TA> input)
+  public IGqlpValue Encode(ICmptPrntParamDiffOutpObject<TA> input)
     => _refPrntParamDiffOutp.Encode(input)
       .AddEncoded("field", input.Field, _a);
 }
 
 internal class CmptRefPrntParamDiffOutpEncoder<TB> : IEncoder<ICmptRefPrntParamDiffOutpObject<TB>>
 {
-  public Structured Encode(ICmptRefPrntParamDiffOutpObject<TB> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptRefPrntParamDiffOutpObject<TB> input)
+    => new GqlpUnit();
 }

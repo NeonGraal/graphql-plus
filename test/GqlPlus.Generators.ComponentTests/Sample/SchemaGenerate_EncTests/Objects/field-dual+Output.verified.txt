@@ -16,8 +16,8 @@ internal class CmptFieldDualOutpEncoder(
 ) : IEncoder<ICmptFieldDualOutpObject>
 {
   private readonly Encoder<ICmptFldFieldDualOutp> _fldFieldDualOutp = encoders.EncoderFor<ICmptFldFieldDualOutp>();
-  public Structured Encode(ICmptFieldDualOutpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptFieldDualOutpObject input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _fldFieldDualOutp);
 
   internal static CmptFieldDualOutpEncoder Factory(IEncoderRepository r) => new(r);
@@ -25,8 +25,8 @@ internal class CmptFieldDualOutpEncoder(
 
 internal class CmptFldFieldDualOutpEncoder : IEncoder<ICmptFldFieldDualOutpObject>
 {
-  public Structured Encode(ICmptFldFieldDualOutpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptFldFieldDualOutpObject input)
+    => new GqlpUnit()
       .Add("field", input.Field.Encode());
 
   internal static CmptFldFieldDualOutpEncoder Factory(IEncoderRepository _) => new();

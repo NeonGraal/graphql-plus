@@ -13,14 +13,14 @@ namespace Components.Gqlp_Schema_alt_mod_param_Dual;
 
 internal class CmptAltModParamDualEncoder<TMod> : IEncoder<ICmptAltModParamDualObject<TMod>>
 {
-  public Structured Encode(ICmptAltModParamDualObject<TMod> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptAltModParamDualObject<TMod> input)
+    => new GqlpUnit();
 }
 
 internal class CmptAltAltModParamDualEncoder : IEncoder<ICmptAltAltModParamDualObject>
 {
-  public Structured Encode(ICmptAltAltModParamDualObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptAltAltModParamDualObject input)
+    => new GqlpUnit()
       .Add("alt", input.Alt.Encode());
 
   internal static CmptAltAltModParamDualEncoder Factory(IEncoderRepository _) => new();

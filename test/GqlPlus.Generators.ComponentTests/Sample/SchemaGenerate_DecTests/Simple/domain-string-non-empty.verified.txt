@@ -11,13 +11,13 @@ domain RegexDmnStrNonEmpty { String /[A-Z]+/ }
 
 namespace Components.Gqlp_Schema_domain_string_non_empty;
 
-internal class CmptDmnStrNonEmptyDecoder
+internal class CmptDmnStrNonEmptyDecoder : NullDecoder<ICmptDmnStrNonEmpty>
 {
 
   internal static CmptDmnStrNonEmptyDecoder Factory(IDecoderRepository _) => new();
 }
 
-internal class CmptRegexDmnStrNonEmptyDecoder
+internal class CmptRegexDmnStrNonEmptyDecoder : NullDecoder<ICmptRegexDmnStrNonEmpty>
 {
 
   internal static CmptRegexDmnStrNonEmptyDecoder Factory(IDecoderRepository _) => new();

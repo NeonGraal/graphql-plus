@@ -371,8 +371,8 @@ public class OperationModellerTests
     ast.Domain.Returns((IAstTypeRef?)null);
     ast.Modifiers.Returns([]);
 
-    IAstSelection fieldAst = A.Identified<IAstField, IAstSelection>(fieldName);
-    Map<IAstSelection[]> selections = new() { [fragName] = [fieldAst] };
+    IAstSelection[] fieldAsts = [A.Identified<IAstField, IAstSelection>(fieldName)];
+    Map<IAstSelection[]> selections = fragName.MapWith(fieldAsts);
     ast.Selections.Returns(selections);
 
     IAstFragment fragAst = A.Identified<IAstFragment>(fragName);

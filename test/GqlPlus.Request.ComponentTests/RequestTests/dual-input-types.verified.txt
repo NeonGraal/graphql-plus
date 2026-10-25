@@ -1,5 +1,5 @@
 ﻿Category: _Schema
-Parameters: { I:names: [ I:Dual, I:Input ] }
+Parameters: GqlPlus.GqlpMap
 ParsedOperation:
 !g P@001/0001
 query

@@ -6,7 +6,7 @@ internal class TypeArgEncoder(
 {
   private readonly Encoder<EnumValueModel> _enumValue = encoders.EncoderFor<EnumValueModel>();
 
-  internal override Structured Encode(ITypeArgModel model)
+  internal override IGqlpValue Encode(ITypeArgModel model)
     => base.Encode(model)
       .AddNull(model.EnumValue,
         v => v.AddEncoded("enumValue", model.EnumValue, _enumValue),
@@ -25,7 +25,7 @@ internal class ObjectBaseEncoder<TBase>(
 {
   private readonly Encoder<ITypeArgModel> _objArg = encoders.EncoderFor<ITypeArgModel>();
 
-  internal override Structured Encode(TBase model)
+  internal override IGqlpValue Encode(TBase model)
     => base.Encode(model)
       .AddIf(model.IsTypeParam,
         t => t.Add("typeParam", model.Name?.Encode()),
@@ -41,7 +41,7 @@ internal class TypeParamEncoder(
 {
   private readonly Encoder<TypeRefModel<TypeKindModel>> _typeKind = encoders.EncoderFor<TypeRefModel<TypeKindModel>>();
 
-  internal override Structured Encode(TypeParamModel model)
+  internal override IGqlpValue Encode(TypeParamModel model)
     => base.Encode(model)
       .AddEncoded("constraint", model.Constraint, _typeKind);
 
@@ -57,7 +57,7 @@ internal class ObjectFieldEncoder<TField, TBase>(
   private readonly Encoder<ModifierModel> _modifier = encoders.EncoderFor<ModifierModel>();
   private readonly Encoder<TBase> _objBase = encoders.EncoderFor<TBase>();
 
-  internal override Structured Encode(TField model)
+  internal override IGqlpValue Encode(TField model)
     => base.Encode(model)
       .AddList("modifiers", model.Modifiers, _modifier, flow: true)
       .AddEncoded("type", model.BaseType as TBase, _objBase);
@@ -70,7 +70,7 @@ internal class ObjectAlternateEncoder(
   private readonly Encoder<CollectionModel> _collection = encoders.EncoderFor<CollectionModel>();
   private readonly Encoder<ObjBaseModel> _objBase = encoders.EncoderFor<ObjBaseModel>();
 
-  internal override Structured Encode(AlternateModel model)
+  internal override IGqlpValue Encode(AlternateModel model)
     => base.Encode(model)
       .AddEncoded("type", model.Type, _objBase)
       .AddList("collections", model.Collections, _collection);
@@ -85,7 +85,7 @@ internal class ObjectForEncoder<TFor>(
 {
   private readonly Encoder<TFor> _encoder = encoders.EncoderFor<TFor>();
 
-  internal override Structured Encode(ObjectForModel<TFor> model)
+  internal override IGqlpValue Encode(ObjectForModel<TFor> model)
     => base.Encode(model)
       .IncludeEncoded(model.For, _encoder)
       .Add("object", model.Obj?.Encode());
@@ -107,9 +107,9 @@ internal abstract class TypeObjectEncoder<TObject, TField>(
   private readonly Encoder<ObjectForModel<AlternateModel>> _dualAlternate = encoders.EncoderFor<ObjectForModel<AlternateModel>>();
   private readonly Encoder<TypeParamModel> _typeParam = encoders.EncoderFor<TypeParamModel>();
 
-  internal override Structured Encode(TObject model)
+  internal override IGqlpValue Encode(TObject model)
   {
-    Structured ObjEncode<TModel, TDual>(ModelBase[] list, IEncoder<ObjectForModel<TModel>> encoder, IEncoder<ObjectForModel<TDual>> dual)
+    IGqlpValue ObjEncode<TModel, TDual>(ModelBase[] list, IEncoder<ObjectForModel<TModel>> encoder, IEncoder<ObjectForModel<TDual>> dual)
       where TModel : IModelBase
       where TDual : ModelBase
       => list.Encode(o => o switch {
@@ -150,7 +150,7 @@ internal class InputFieldEncoder(
 {
   private readonly Encoder<ConstantModel> _constant = encoders.EncoderFor<ConstantModel>();
 
-  internal override Structured Encode(InputFieldModel model)
+  internal override IGqlpValue Encode(InputFieldModel model)
     => base.Encode(model)
       .AddEncoded("default", model.Default, _constant);
 
@@ -164,7 +164,7 @@ internal class InputParamEncoder(
   private readonly Encoder<ModifierModel> _modifier = encoders.EncoderFor<ModifierModel>();
   private readonly Encoder<ConstantModel> _constant = encoders.EncoderFor<ConstantModel>();
 
-  internal override Structured Encode(InputParamModel model)
+  internal override IGqlpValue Encode(InputParamModel model)
     => base.Encode(model)
       .AddList("modifiers", model.Modifiers, _modifier, flow: true)
       .AddEncoded("default", model.DefaultValue, _constant);
@@ -183,7 +183,7 @@ internal class TypeInputEncoder(
 internal class OutputEnumEncoder
   : TypeRefEncoder<OutputEnumModel, SimpleKindModel>
 {
-  internal override Structured Encode(OutputEnumModel model)
+  internal override IGqlpValue Encode(OutputEnumModel model)
     => base.Encode(model)
       .Add("field", model.Field?.Encode())
       .Add("label", model.EnumLabel?.Encode());
@@ -198,7 +198,7 @@ internal class OutputFieldEncoder(
   private readonly Encoder<OutputEnumModel> _outputEnum = encoders.EncoderFor<OutputEnumModel>();
   private readonly Encoder<InputParamModel> _parameter = encoders.EncoderFor<InputParamModel>();
 
-  internal override Structured Encode(OutputFieldModel model)
+  internal override IGqlpValue Encode(OutputFieldModel model)
     => base.Encode(model)
      .AddNull(model.Enum,
        v => v.AddEncoded("enum", model.Enum, _outputEnum),

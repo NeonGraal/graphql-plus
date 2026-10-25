@@ -56,8 +56,8 @@ internal class CmptQueryEncoder(
   private readonly Encoder<ICmptCharacter> _character = encoders.EncoderFor<ICmptCharacter>();
   private readonly Encoder<ICmptHuman> _human = encoders.EncoderFor<ICmptHuman>();
   private readonly Encoder<ICmptDroid> _droid = encoders.EncoderFor<ICmptDroid>();
-  public Structured Encode(ICmptQueryObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptQueryObject input)
+    => new GqlpUnit()
       .AddEncoded("hero", input.Hero(), _character)
       .AddEncoded("human", input.Human(), _human)
       .AddEncoded("droid", input.Droid(), _droid)
@@ -68,7 +68,7 @@ internal class CmptQueryEncoder(
 
 internal class CmptEpisodeEncoder : IEncoder<CmptEpisode>
 {
-  public Structured Encode(CmptEpisode input)
+  public IGqlpValue Encode(CmptEpisode input)
     => input.EncodeEnum("Episode");
 
   internal static CmptEpisodeEncoder Factory(IEncoderRepository _) => new();
@@ -76,7 +76,7 @@ internal class CmptEpisodeEncoder : IEncoder<CmptEpisode>
 
 internal class CmptIdEncoder : IEncoder<ICmptId>
 {
-  public Structured Encode(ICmptId input)
+  public IGqlpValue Encode(ICmptId input)
     => input.Value!.Encode();
 
   internal static CmptIdEncoder Factory(IEncoderRepository _) => new();
@@ -87,8 +87,8 @@ internal class CmptRoleEncoder(
 ) : IEncoder<ICmptRoleObject>
 {
   private readonly Encoder<ICmptId> _id = encoders.EncoderFor<ICmptId>();
-  public Structured Encode(ICmptRoleObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptRoleObject input)
+    => new GqlpUnit()
       .AddEncoded("id", input.Id, _id)
       .Add("name", input.Name.Encode())
       .Add("appearsIn", input.AppearsIn.Encode());
@@ -102,7 +102,7 @@ internal class CmptAssociateEncoder(
 {
   private readonly Encoder<ICmptRoleObject> _role = encoders.EncoderFor<ICmptRoleObject>();
   private readonly Encoder<ICmptRole> _role2 = encoders.EncoderFor<ICmptRole>();
-  public Structured Encode(ICmptAssociateObject input)
+  public IGqlpValue Encode(ICmptAssociateObject input)
     => _role.Encode(input)
       .AddList("friends", input.Friends, _role2);
 
@@ -114,7 +114,7 @@ internal class CmptHumanEncoder(
 ) : IEncoder<ICmptHumanObject>
 {
   private readonly Encoder<ICmptAssociateObject> _associate = encoders.EncoderFor<ICmptAssociateObject>();
-  public Structured Encode(ICmptHumanObject input)
+  public IGqlpValue Encode(ICmptHumanObject input)
     => _associate.Encode(input)
       .AddIf(input.HomePlanet is not null, onTrue: t => t.Add("homePlanet", input.HomePlanet!.Encode()));
 
@@ -126,7 +126,7 @@ internal class CmptDroidEncoder(
 ) : IEncoder<ICmptDroidObject>
 {
   private readonly Encoder<ICmptAssociateObject> _associate = encoders.EncoderFor<ICmptAssociateObject>();
-  public Structured Encode(ICmptDroidObject input)
+  public IGqlpValue Encode(ICmptDroidObject input)
     => _associate.Encode(input)
       .Add("primaryFunction", input.PrimaryFunction.Encode());
 
@@ -135,8 +135,8 @@ internal class CmptDroidEncoder(
 
 internal class CmptCharacterEncoder : IEncoder<ICmptCharacterObject>
 {
-  public Structured Encode(ICmptCharacterObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCharacterObject input)
+    => new GqlpUnit();
 
   internal static CmptCharacterEncoder Factory(IEncoderRepository _) => new();
 }

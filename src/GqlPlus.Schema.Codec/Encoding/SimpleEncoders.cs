@@ -5,7 +5,7 @@ internal class BaseDomainEncoder<TItem>(
 ) : ParentTypeEncoder<BaseDomainModel<TItem>, TItem, DomainItemModel<TItem>>(encoders)
   where TItem : BaseDomainItemModel
 {
-  internal override Structured Encode(BaseDomainModel<TItem> model)
+  internal override IGqlpValue Encode(BaseDomainModel<TItem> model)
     => base.Encode(model)
       .Add("domainKind", model.DomainKind.EncodeEnum());
 
@@ -16,7 +16,7 @@ internal class BaseDomainItemEncoder<TItem>
   : DescribedEncoder<TItem>
   where TItem : BaseDomainItemModel
 {
-  internal override Structured Encode(TItem model)
+  internal override IGqlpValue Encode(TItem model)
     => base.Encode(model)
       .Add("exclude", model.Exclude.Encode());
 }
@@ -28,7 +28,7 @@ internal class DomainItemEncoder<TItem>(
 {
   private readonly Encoder<TItem> _item = encoders.EncoderFor<TItem>();
 
-  internal override Structured Encode(DomainItemModel<TItem> model)
+  internal override IGqlpValue Encode(DomainItemModel<TItem> model)
     => base.Encode(model)
       .IncludeEncoded(model.Item, _item)
       .Add("domain", model.Domain.Encode());
@@ -42,7 +42,7 @@ internal class DomainLabelEncoder(
 {
   private readonly Encoder<EnumValueModel> _enumValue = encoders.EncoderFor<EnumValueModel>();
 
-  internal override Structured Encode(DomainLabelModel model)
+  internal override IGqlpValue Encode(DomainLabelModel model)
     => base.Encode(model)
       .AddEncoded("value", model.EnumValue, _enumValue);
 
@@ -52,7 +52,7 @@ internal class DomainLabelEncoder(
 internal class DomainRangeEncoder
   : BaseDomainItemEncoder<DomainRangeModel>
 {
-  internal override Structured Encode(DomainRangeModel model)
+  internal override IGqlpValue Encode(DomainRangeModel model)
     => base.Encode(model)
       .Add("from", model.From.Encode())
       .Add("to", model.To.Encode());
@@ -63,7 +63,7 @@ internal class DomainRangeEncoder
 internal class DomainRegexEncoder
   : BaseDomainItemEncoder<DomainRegexModel>
 {
-  internal override Structured Encode(DomainRegexModel model)
+  internal override IGqlpValue Encode(DomainRegexModel model)
     => base.Encode(model)
       .Add("pattern", model.Pattern.Encode());
 
@@ -73,7 +73,7 @@ internal class DomainRegexEncoder
 internal class DomainTrueFalseEncoder
   : BaseDomainItemEncoder<DomainTrueFalseModel>
 {
-  internal override Structured Encode(DomainTrueFalseModel model)
+  internal override IGqlpValue Encode(DomainTrueFalseModel model)
     => base.Encode(model)
       .Add("value", model.Value.Encode());
 
@@ -91,7 +91,7 @@ internal class TypeEnumEncoder(
 internal class EnumLabelEncoder
   : AliasedEncoder<EnumLabelModel>
 {
-  internal override Structured Encode(EnumLabelModel model)
+  internal override IGqlpValue Encode(EnumLabelModel model)
     => base.Encode(model)
       .Add("enum", model.OfEnum.Encode());
 
@@ -101,7 +101,7 @@ internal class EnumLabelEncoder
 internal class EnumValueEncoder
   : TypeRefEncoder<EnumValueModel, SimpleKindModel>
 {
-  internal override Structured Encode(EnumValueModel model)
+  internal override IGqlpValue Encode(EnumValueModel model)
     => base.Encode(model)
       .Add("label", model.Label.Encode());
 
@@ -119,7 +119,7 @@ internal class TypeUnionEncoder(
 internal class UnionMemberEncoder
   : NamedEncoder<UnionMemberModel>
 {
-  internal override Structured Encode(UnionMemberModel model)
+  internal override IGqlpValue Encode(UnionMemberModel model)
     => base.Encode(model)
       .Add("union", model.OfUnion.Encode());
 

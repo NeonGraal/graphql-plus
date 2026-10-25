@@ -29,7 +29,7 @@ internal class Cmpt_DirectivesEncoder(
 {
   private readonly Encoder<ICmpt_AndTypeObject> _andType = encoders.EncoderFor<ICmpt_AndTypeObject>();
   private readonly Encoder<ICmpt_Directive> _directive = encoders.EncoderFor<ICmpt_Directive>();
-  public Structured Encode(ICmpt_DirectivesObject input)
+  public IGqlpValue Encode(ICmpt_DirectivesObject input)
     => _andType.Encode(input)
       .AddEncoded("directive", input.Directive, _directive);
 
@@ -42,7 +42,7 @@ internal class Cmpt_DirectiveEncoder(
 {
   private readonly Encoder<ICmpt_AliasedObject> _aliased = encoders.EncoderFor<ICmpt_AliasedObject>();
   private readonly Encoder<ICmpt_InputFieldType> _inputFieldType = encoders.EncoderFor<ICmpt_InputFieldType>();
-  public Structured Encode(ICmpt_DirectiveObject input)
+  public IGqlpValue Encode(ICmpt_DirectiveObject input)
     => _aliased.Encode(input)
       .AddEncoded("parameter", input.Parameter, _inputFieldType)
       .Add("repeatable", input.Repeatable.Encode());
@@ -52,7 +52,7 @@ internal class Cmpt_DirectiveEncoder(
 
 internal class Cmpt_LocationEncoder : IEncoder<Cmpt_Location>
 {
-  public Structured Encode(Cmpt_Location input)
+  public IGqlpValue Encode(Cmpt_Location input)
     => input.EncodeEnum("_Location");
 
   internal static Cmpt_LocationEncoder Factory(IEncoderRepository _) => new();

@@ -19,8 +19,8 @@ internal class CmptOutpFieldParamEncoder(
 ) : IEncoder<ICmptOutpFieldParamObject>
 {
   private readonly Encoder<ICmptFldOutpFieldParam> _fldOutpFieldParam = encoders.EncoderFor<ICmptFldOutpFieldParam>();
-  public Structured Encode(ICmptOutpFieldParamObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptOutpFieldParamObject input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field(), _fldOutpFieldParam);
 
   internal static CmptOutpFieldParamEncoder Factory(IEncoderRepository r) => new(r);
@@ -28,24 +28,24 @@ internal class CmptOutpFieldParamEncoder(
 
 internal class CmptOutpFieldParam1Encoder : IEncoder<ICmptOutpFieldParam1Object>
 {
-  public Structured Encode(ICmptOutpFieldParam1Object input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptOutpFieldParam1Object input)
+    => new GqlpUnit();
 
   internal static CmptOutpFieldParam1Encoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptOutpFieldParam2Encoder : IEncoder<ICmptOutpFieldParam2Object>
 {
-  public Structured Encode(ICmptOutpFieldParam2Object input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptOutpFieldParam2Object input)
+    => new GqlpUnit();
 
   internal static CmptOutpFieldParam2Encoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptFldOutpFieldParamEncoder : IEncoder<ICmptFldOutpFieldParamObject>
 {
-  public Structured Encode(ICmptFldOutpFieldParamObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptFldOutpFieldParamObject input)
+    => new GqlpUnit();
 
   internal static CmptFldOutpFieldParamEncoder Factory(IEncoderRepository _) => new();
 }

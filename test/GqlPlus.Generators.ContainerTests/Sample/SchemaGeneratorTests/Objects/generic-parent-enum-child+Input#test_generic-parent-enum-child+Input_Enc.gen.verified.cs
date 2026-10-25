@@ -12,7 +12,7 @@ internal class testGnrcPrntEnumChildInpEncoder(
 ) : IEncoder<ItestGnrcPrntEnumChildInpObject>
 {
   private readonly Encoder<ItestFieldGnrcPrntEnumChildInpObject<testParentGnrcPrntEnumChildInp>> _itestFieldGnrcPrntEnumChildInp = encoders.EncoderFor<ItestFieldGnrcPrntEnumChildInpObject<testParentGnrcPrntEnumChildInp>>();
-  public Structured Encode(ItestGnrcPrntEnumChildInpObject input)
+  public IGqlpValue Encode(ItestGnrcPrntEnumChildInpObject input)
     => _itestFieldGnrcPrntEnumChildInp.Encode(input);
 
   internal static testGnrcPrntEnumChildInpEncoder Factory(IEncoderRepository r) => new(r);
@@ -23,14 +23,14 @@ internal class testFieldGnrcPrntEnumChildInpEncoder<TRef>(
 ) : IEncoder<ItestFieldGnrcPrntEnumChildInpObject<TRef>>
 {
   private readonly Encoder<TRef> _ref = encoders.EncoderFor<TRef>();
-  public Structured Encode(ItestFieldGnrcPrntEnumChildInpObject<TRef> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestFieldGnrcPrntEnumChildInpObject<TRef> input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _ref);
 }
 
 internal class testEnumGnrcPrntEnumChildInpEncoder : IEncoder<testEnumGnrcPrntEnumChildInp>
 {
-  public Structured Encode(testEnumGnrcPrntEnumChildInp input)
+  public IGqlpValue Encode(testEnumGnrcPrntEnumChildInp input)
     => input.EncodeEnum("EnumGnrcPrntEnumChildInp");
 
   internal static testEnumGnrcPrntEnumChildInpEncoder Factory(IEncoderRepository _) => new();
@@ -38,7 +38,7 @@ internal class testEnumGnrcPrntEnumChildInpEncoder : IEncoder<testEnumGnrcPrntEn
 
 internal class testParentGnrcPrntEnumChildInpEncoder : IEncoder<testParentGnrcPrntEnumChildInp>
 {
-  public Structured Encode(testParentGnrcPrntEnumChildInp input)
+  public IGqlpValue Encode(testParentGnrcPrntEnumChildInp input)
     => input.EncodeEnum("ParentGnrcPrntEnumChildInp");
 
   internal static testParentGnrcPrntEnumChildInpEncoder Factory(IEncoderRepository _) => new();

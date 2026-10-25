@@ -9,7 +9,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_alias;
 
 internal class testDmnAliasEncoder : IEncoder<ItestDmnAlias>
 {
-  public Structured Encode(ItestDmnAlias input)
+  public IGqlpValue Encode(ItestDmnAlias input)
     => input.Value!.Encode();
 
   internal static testDmnAliasEncoder Factory(IEncoderRepository _) => new();

@@ -12,6 +12,6 @@ namespace Components.Gqlp_Schema_constraint_alt_Output;
 
 internal class CmptCnstAltOutpEncoder<TType> : IEncoder<ICmptCnstAltOutpObject<TType>>
 {
-  public Structured Encode(ICmptCnstAltOutpObject<TType> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCnstAltOutpObject<TType> input)
+    => new GqlpUnit();
 }

@@ -20,10 +20,10 @@ public class HtmlSchemaTests(ComponentFixture<SchemaCodecTestServices> fixture)
       ["Simple"] = SamplesSchemaSimpleData.Strings,
     };
 
-    Map<Structured> groups = mostGroups.Links();
+    Map<IGqlpValue> groups = mostGroups.Links();
     groups["All"] = SchemaValidData.AllGroups.Links(v => v[1..]);
 
-    Structured result = new Map<Structured>() {
+    IGqlpValue result = new Map<IGqlpValue>() {
       ["title"] = "Schema".Encode(),
       ["items"] = SamplesSchemaData.Strings.Links(),
       ["groups"] = groups.Encode()
@@ -40,7 +40,7 @@ public class HtmlSchemaTests(ComponentFixture<SchemaCodecTestServices> fixture)
       ["Request"] = SamplesSpecificationRequestData.Strings,
     };
 
-    Structured result = new Map<Structured>() {
+    IGqlpValue result = new Map<IGqlpValue>() {
       ["title"] = "Specification".Encode(),
       ["items"] = SamplesSpecificationData.Strings.Links(),
       ["groups"] = groups.Links().Encode()
@@ -58,7 +58,7 @@ public class HtmlSchemaTests(ComponentFixture<SchemaCodecTestServices> fixture)
       ["Force-3D"] = DiFluid.KnownTrees,
     };
 
-    Structured result = new Map<Structured>() {
+    IGqlpValue result = new Map<IGqlpValue>() {
       ["title"] = "Dependency Injection".Encode(),
       ["groups"] = groups.Links().Encode()
     }.Encode("");
@@ -68,7 +68,7 @@ public class HtmlSchemaTests(ComponentFixture<SchemaCodecTestServices> fixture)
 
   protected override async Task EncodeModel([NotNull] SchemaModel model, IModelsContext context, string test, string label, string[] dirs, string section)
   {
-    Structured result = checks.Encode_Model(model, context);
+    IGqlpValue result = checks.Encode_Model(model, context);
     await result.ThrowIfNull()
       .Add("title", label.Encode())
       .WriteHtmlFileAsync(new string[] { label, section }.Joined("/"), test);
@@ -76,6 +76,6 @@ public class HtmlSchemaTests(ComponentFixture<SchemaCodecTestServices> fixture)
   public override string ResultGroup => "Html";
   protected override Task VerifyResult(string target, VerifySettings settings)
     => throw new NotImplementedException();
-  public override string EncodeResult(Structured result, string section)
+  public override string EncodeResult(IGqlpValue result, string section)
     => throw new NotImplementedException();
 }

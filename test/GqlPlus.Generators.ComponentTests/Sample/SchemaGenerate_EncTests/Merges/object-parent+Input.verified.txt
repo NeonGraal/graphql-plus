@@ -17,7 +17,7 @@ internal class CmptObjPrntInpEncoder(
 ) : IEncoder<ICmptObjPrntInpObject>
 {
   private readonly Encoder<ICmptRefObjPrntInpObject> _refObjPrntInp = encoders.EncoderFor<ICmptRefObjPrntInpObject>();
-  public Structured Encode(ICmptObjPrntInpObject input)
+  public IGqlpValue Encode(ICmptObjPrntInpObject input)
     => _refObjPrntInp.Encode(input);
 
   internal static CmptObjPrntInpEncoder Factory(IEncoderRepository r) => new(r);
@@ -25,8 +25,8 @@ internal class CmptObjPrntInpEncoder(
 
 internal class CmptRefObjPrntInpEncoder : IEncoder<ICmptRefObjPrntInpObject>
 {
-  public Structured Encode(ICmptRefObjPrntInpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptRefObjPrntInpObject input)
+    => new GqlpUnit();
 
   internal static CmptRefObjPrntInpEncoder Factory(IEncoderRepository _) => new();
 }

@@ -9,7 +9,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_number_range;
 
 internal class testDmnNmbrRangeEncoder : IEncoder<ItestDmnNmbrRange>
 {
-  public Structured Encode(ItestDmnNmbrRange input)
+  public IGqlpValue Encode(ItestDmnNmbrRange input)
     => input.Value!.Encode();
 
   internal static testDmnNmbrRangeEncoder Factory(IEncoderRepository _) => new();
@@ -17,7 +17,7 @@ internal class testDmnNmbrRangeEncoder : IEncoder<ItestDmnNmbrRange>
 
 internal class testRegexDmnNmbrRangeEncoder : IEncoder<ItestRegexDmnNmbrRange>
 {
-  public Structured Encode(ItestRegexDmnNmbrRange input)
+  public IGqlpValue Encode(ItestRegexDmnNmbrRange input)
     => input.Value!.Encode();
 
   internal static testRegexDmnNmbrRangeEncoder Factory(IEncoderRepository _) => new();

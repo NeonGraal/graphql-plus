@@ -14,8 +14,8 @@ namespace Components.Gqlp_Schema_field_enum_parent_Input;
 
 internal class CmptFieldEnumPrntInpEncoder : IEncoder<ICmptFieldEnumPrntInpObject>
 {
-  public Structured Encode(ICmptFieldEnumPrntInpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptFieldEnumPrntInpObject input)
+    => new GqlpUnit()
       .AddEnum("field", input.Field);
 
   internal static CmptFieldEnumPrntInpEncoder Factory(IEncoderRepository _) => new();
@@ -23,7 +23,7 @@ internal class CmptFieldEnumPrntInpEncoder : IEncoder<ICmptFieldEnumPrntInpObjec
 
 internal class CmptEnumFieldEnumPrntInpEncoder : IEncoder<CmptEnumFieldEnumPrntInp>
 {
-  public Structured Encode(CmptEnumFieldEnumPrntInp input)
+  public IGqlpValue Encode(CmptEnumFieldEnumPrntInp input)
     => input.EncodeEnum("EnumFieldEnumPrntInp");
 
   internal static CmptEnumFieldEnumPrntInpEncoder Factory(IEncoderRepository _) => new();
@@ -31,7 +31,7 @@ internal class CmptEnumFieldEnumPrntInpEncoder : IEncoder<CmptEnumFieldEnumPrntI
 
 internal class CmptPrntFieldEnumPrntInpEncoder : IEncoder<CmptPrntFieldEnumPrntInp>
 {
-  public Structured Encode(CmptPrntFieldEnumPrntInp input)
+  public IGqlpValue Encode(CmptPrntFieldEnumPrntInp input)
     => input.EncodeEnum("PrntFieldEnumPrntInp");
 
   internal static CmptPrntFieldEnumPrntInpEncoder Factory(IEncoderRepository _) => new();

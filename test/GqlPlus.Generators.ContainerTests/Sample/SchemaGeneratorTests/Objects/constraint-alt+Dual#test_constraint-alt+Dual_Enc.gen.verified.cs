@@ -9,6 +9,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_Dual;
 
 internal class testCnstAltDualEncoder<TType> : IEncoder<ItestCnstAltDualObject<TType>>
 {
-  public Structured Encode(ItestCnstAltDualObject<TType> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCnstAltDualObject<TType> input)
+    => new GqlpUnit();
 }

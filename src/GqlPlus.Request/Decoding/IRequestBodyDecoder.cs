@@ -2,5 +2,5 @@ namespace GqlPlus.Decoding;
 
 public interface IRequestBodyDecoder
 {
-  RequestBodyInput Decode(Structured body);
+  RequestBodyInput Decode(IGqlpValue body);
 }

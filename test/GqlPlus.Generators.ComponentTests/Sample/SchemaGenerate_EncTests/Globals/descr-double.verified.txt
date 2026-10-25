@@ -13,8 +13,8 @@ namespace Components.Gqlp_Schema_descr_double;
 
 internal class CmptDescrDblEncoder : IEncoder<ICmptDescrDblObject>
 {
-  public Structured Encode(ICmptDescrDblObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptDescrDblObject input)
+    => new GqlpUnit();
 
   internal static CmptDescrDblEncoder Factory(IEncoderRepository _) => new();
 }

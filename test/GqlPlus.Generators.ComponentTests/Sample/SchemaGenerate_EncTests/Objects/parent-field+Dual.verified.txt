@@ -16,7 +16,7 @@ internal class CmptPrntFieldDualEncoder(
 ) : IEncoder<ICmptPrntFieldDualObject>
 {
   private readonly Encoder<ICmptRefPrntFieldDualObject> _refPrntFieldDual = encoders.EncoderFor<ICmptRefPrntFieldDualObject>();
-  public Structured Encode(ICmptPrntFieldDualObject input)
+  public IGqlpValue Encode(ICmptPrntFieldDualObject input)
     => _refPrntFieldDual.Encode(input)
       .Add("field", input.Field.Encode());
 
@@ -25,8 +25,8 @@ internal class CmptPrntFieldDualEncoder(
 
 internal class CmptRefPrntFieldDualEncoder : IEncoder<ICmptRefPrntFieldDualObject>
 {
-  public Structured Encode(ICmptRefPrntFieldDualObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptRefPrntFieldDualObject input)
+    => new GqlpUnit()
       .Add("parent", input.Parent.Encode());
 
   internal static CmptRefPrntFieldDualEncoder Factory(IEncoderRepository _) => new();

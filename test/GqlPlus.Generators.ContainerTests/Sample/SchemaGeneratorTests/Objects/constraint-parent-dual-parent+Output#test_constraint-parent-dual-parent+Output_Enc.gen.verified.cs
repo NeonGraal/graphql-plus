@@ -12,7 +12,7 @@ internal class testCnstPrntDualPrntOutpEncoder(
 ) : IEncoder<ItestCnstPrntDualPrntOutpObject>
 {
   private readonly Encoder<ItestRefCnstPrntDualPrntOutpObject<ItestAltCnstPrntDualPrntOutp>> _itestRefCnstPrntDualPrntOutp = encoders.EncoderFor<ItestRefCnstPrntDualPrntOutpObject<ItestAltCnstPrntDualPrntOutp>>();
-  public Structured Encode(ItestCnstPrntDualPrntOutpObject input)
+  public IGqlpValue Encode(ItestCnstPrntDualPrntOutpObject input)
     => _itestRefCnstPrntDualPrntOutp.Encode(input);
 
   internal static testCnstPrntDualPrntOutpEncoder Factory(IEncoderRepository r) => new(r);
@@ -20,14 +20,14 @@ internal class testCnstPrntDualPrntOutpEncoder(
 
 internal class testRefCnstPrntDualPrntOutpEncoder<TRef> : IEncoder<ItestRefCnstPrntDualPrntOutpObject<TRef>>
 {
-  public Structured Encode(ItestRefCnstPrntDualPrntOutpObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestRefCnstPrntDualPrntOutpObject<TRef> input)
+    => new GqlpUnit();
 }
 
 internal class testPrntCnstPrntDualPrntOutpEncoder : IEncoder<ItestPrntCnstPrntDualPrntOutpObject>
 {
-  public Structured Encode(ItestPrntCnstPrntDualPrntOutpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestPrntCnstPrntDualPrntOutpObject input)
+    => new GqlpUnit();
 
   internal static testPrntCnstPrntDualPrntOutpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -37,7 +37,7 @@ internal class testAltCnstPrntDualPrntOutpEncoder(
 ) : IEncoder<ItestAltCnstPrntDualPrntOutpObject>
 {
   private readonly Encoder<ItestPrntCnstPrntDualPrntOutpObject> _itestPrntCnstPrntDualPrntOutp = encoders.EncoderFor<ItestPrntCnstPrntDualPrntOutpObject>();
-  public Structured Encode(ItestAltCnstPrntDualPrntOutpObject input)
+  public IGqlpValue Encode(ItestAltCnstPrntDualPrntOutpObject input)
     => _itestPrntCnstPrntDualPrntOutp.Encode(input)
       .Add("alt", input.Alt.Encode());
 

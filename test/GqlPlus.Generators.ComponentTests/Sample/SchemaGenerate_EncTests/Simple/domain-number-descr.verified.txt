@@ -12,7 +12,7 @@ namespace Components.Gqlp_Schema_domain_number_descr;
 
 internal class CmptDmnNmbrDescrEncoder : IEncoder<ICmptDmnNmbrDescr>
 {
-  public Structured Encode(ICmptDmnNmbrDescr input)
+  public IGqlpValue Encode(ICmptDmnNmbrDescr input)
     => input.Value!.Encode();
 
   internal static CmptDmnNmbrDescrEncoder Factory(IEncoderRepository _) => new();

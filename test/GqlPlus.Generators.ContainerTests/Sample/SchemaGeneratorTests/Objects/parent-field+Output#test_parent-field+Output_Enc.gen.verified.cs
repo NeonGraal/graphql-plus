@@ -12,7 +12,7 @@ internal class testPrntFieldOutpEncoder(
 ) : IEncoder<ItestPrntFieldOutpObject>
 {
   private readonly Encoder<ItestRefPrntFieldOutpObject> _itestRefPrntFieldOutp = encoders.EncoderFor<ItestRefPrntFieldOutpObject>();
-  public Structured Encode(ItestPrntFieldOutpObject input)
+  public IGqlpValue Encode(ItestPrntFieldOutpObject input)
     => _itestRefPrntFieldOutp.Encode(input)
       .Add("field", input.Field.Encode());
 
@@ -21,8 +21,8 @@ internal class testPrntFieldOutpEncoder(
 
 internal class testRefPrntFieldOutpEncoder : IEncoder<ItestRefPrntFieldOutpObject>
 {
-  public Structured Encode(ItestRefPrntFieldOutpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestRefPrntFieldOutpObject input)
+    => new GqlpUnit()
       .Add("parent", input.Parent.Encode());
 
   internal static testRefPrntFieldOutpEncoder Factory(IEncoderRepository _) => new();

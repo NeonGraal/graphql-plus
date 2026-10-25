@@ -6,11 +6,11 @@ public class BooleanDecoderTests
 {
   [Theory, InlineData(0, false, "Mapped"), InlineData(1, true, "Mapped"), InlineData(2, null, "Unable")]
   public void Decode_Specific_Number(decimal value, bool? expected, string message)
-    => DecodeAndCheck(value.Encode(), expected, message);
+    => DecodeAndCheck(new ScalarValue(value), expected, message);
 
   [Theory, InlineData(GqlpStrings.BoolTrue, true, "Parsed"), InlineData(GqlpStrings.BoolFalse, false, "Parsed"), InlineData("", null, "Unable")]
   public void Decode_Specific_Text(string value, bool? expected, string message)
-    => DecodeAndCheck(value.Encode(), expected, message);
+    => DecodeAndCheck(new ScalarValue(value), expected, message);
 
   protected override IDecoder<bool?> Decoder { get; }
     = new BooleanDecoder();
@@ -30,5 +30,5 @@ public class BooleanDecoderTests
     };
   protected override bool? ExpectedList(bool value) => value;
   protected override bool? ExpectedDict(string key, bool value) => null;
-  protected override Structured Value(bool value) => value.Encode();
+  protected override IValue Value(bool value) => new ScalarValue(value);
 }

@@ -9,6 +9,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_mod_String_Output;
 
 internal class testRefGnrcAltModStrOutpEncoder<TRef> : IEncoder<ItestRefGnrcAltModStrOutpObject<TRef>>
 {
-  public Structured Encode(ItestRefGnrcAltModStrOutpObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestRefGnrcAltModStrOutpObject<TRef> input)
+    => new GqlpUnit();
 }

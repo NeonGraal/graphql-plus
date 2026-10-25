@@ -13,8 +13,8 @@ namespace Components.Gqlp_Schema_directive_param_list;
 
 internal class CmptInDrctParamListEncoder : IEncoder<ICmptInDrctParamListObject>
 {
-  public Structured Encode(ICmptInDrctParamListObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptInDrctParamListObject input)
+    => new GqlpUnit();
 
   internal static CmptInDrctParamListEncoder Factory(IEncoderRepository _) => new();
 }

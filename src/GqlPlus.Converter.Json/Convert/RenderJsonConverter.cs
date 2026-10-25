@@ -10,7 +10,7 @@ internal abstract class RenderJsonConverter<T>
     }
   }
 
-  protected void WriteValueTagged(Utf8JsonWriter writer, StructureValue value, string keyTag = "")
+  protected void WriteValueTagged(Utf8JsonWriter writer, IGqlpScalar value, string keyTag = "")
   {
     if (string.IsNullOrWhiteSpace(value.Tag) && string.IsNullOrWhiteSpace(keyTag)) {
       WriteValue(writer, value);
@@ -25,18 +25,23 @@ internal abstract class RenderJsonConverter<T>
     writer.WriteEndObject();
   }
 
-  protected void WriteValue(Utf8JsonWriter writer, StructureValue value)
+  protected void WriteValue(Utf8JsonWriter writer, IGqlpScalar value)
   {
-    if (!string.IsNullOrWhiteSpace(value.Identifier)) {
-      writer.WriteStringValue(value.Identifier);
-    } else if (value.Boolean is not null) {
-      writer.WriteBooleanValue(value.Boolean.Value);
-    } else if (value.Number is not null) {
-      writer.WriteNumberValue(value.Number.Value);
-    } else if (!string.IsNullOrEmpty(value.Text)) {
-      writer.WriteStringValue(value.Text);
-    } else {
-      writer.WriteNullValue();
+    switch (value.Kind) {
+      case GqlpScalarKind.Boolean:
+        writer.WriteBooleanValue(value.BooleanValue!.Value);
+        break;
+      case GqlpScalarKind.Number:
+        writer.WriteNumberValue(value.Number!.Value);
+        break;
+      case GqlpScalarKind.Identifier:
+      case GqlpScalarKind.Text:
+        if (string.IsNullOrEmpty(value.Text)) {
+          writer.WriteNullValue();
+        } else {
+          writer.WriteStringValue(value.Text);
+        }
+        break;
     }
   }
 }

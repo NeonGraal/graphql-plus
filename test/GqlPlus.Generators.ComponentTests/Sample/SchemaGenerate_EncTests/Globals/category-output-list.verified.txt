@@ -13,8 +13,8 @@ namespace Components.Gqlp_Schema_category_output_list;
 
 internal class CmptCtgrOutpListEncoder : IEncoder<ICmptCtgrOutpListObject>
 {
-  public Structured Encode(ICmptCtgrOutpListObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCtgrOutpListObject input)
+    => new GqlpUnit();
 
   internal static CmptCtgrOutpListEncoder Factory(IEncoderRepository _) => new();
 }

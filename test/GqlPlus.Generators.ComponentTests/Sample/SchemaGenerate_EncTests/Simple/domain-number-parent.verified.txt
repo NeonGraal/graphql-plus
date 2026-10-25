@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_domain_number_parent;
 
 internal class CmptDmnNmbrPrntEncoder : IEncoder<ICmptDmnNmbrPrnt>
 {
-  public Structured Encode(ICmptDmnNmbrPrnt input)
+  public IGqlpValue Encode(ICmptDmnNmbrPrnt input)
     => input.Value!.Encode();
 
   internal static CmptDmnNmbrPrntEncoder Factory(IEncoderRepository _) => new();
@@ -22,7 +22,7 @@ internal class CmptDmnNmbrPrntEncoder : IEncoder<ICmptDmnNmbrPrnt>
 
 internal class CmptPrntDmnNmbrPrntEncoder : IEncoder<ICmptPrntDmnNmbrPrnt>
 {
-  public Structured Encode(ICmptPrntDmnNmbrPrnt input)
+  public IGqlpValue Encode(ICmptPrntDmnNmbrPrnt input)
     => input.Value!.Encode();
 
   internal static CmptPrntDmnNmbrPrntEncoder Factory(IEncoderRepository _) => new();
@@ -30,7 +30,7 @@ internal class CmptPrntDmnNmbrPrntEncoder : IEncoder<ICmptPrntDmnNmbrPrnt>
 
 internal class CmptRegexDmnNmbrPrntEncoder : IEncoder<ICmptRegexDmnNmbrPrnt>
 {
-  public Structured Encode(ICmptRegexDmnNmbrPrnt input)
+  public IGqlpValue Encode(ICmptRegexDmnNmbrPrnt input)
     => input.Value!.Encode();
 
   internal static CmptRegexDmnNmbrPrntEncoder Factory(IEncoderRepository _) => new();

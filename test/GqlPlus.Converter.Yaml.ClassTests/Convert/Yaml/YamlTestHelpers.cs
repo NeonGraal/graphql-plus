@@ -76,9 +76,9 @@ internal static class YamlTestHelpers
     bool wrapped
   ) : IConvertTestsBase
   {
-    public Structured ConvertFrom(string[] input)
+    public IGqlpValue ConvertFrom(string[] input)
       => input.FromYaml();
-    public string[] ConvertTo(Structured model)
+    public string[] ConvertTo(IGqlpValue model)
       => model.ToYaml(wrapped).ToLines();
   }
 }

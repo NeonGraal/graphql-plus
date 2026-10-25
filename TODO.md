@@ -8,5 +8,4 @@ A second follow-up item is a final stage-by-stage verification pass against the 
 
 - Add a unified request-envelope path that applies side-channel overrides and preserves compatibility with the legacy key/value format.
 - Add pluggable raw-body deserialization, starting with JSON and leaving YAML as an optional add-on; test malformed bodies and unsupported content types.
-- Define the request value and result contracts. `Structured` and `IGqlpValue`/`Gqlp*` values are now interconvertible via `GqlpValueWrapper` (`ToGqlpValue`/`ToStructured`), so Request can use either; decide which is primary.
 - Implement schema-directed parameter decoding incrementally, beginning with scalar coercions and variable defaults, then adding modifiers, structured types, tags, and unions/alternates.

@@ -14,8 +14,8 @@ namespace Components.Gqlp_Schema_operation_domain_mods;
 
 internal class CmptCatOprDmnModsEncoder : IEncoder<ICmptCatOprDmnModsObject>
 {
-  public Structured Encode(ICmptCatOprDmnModsObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCatOprDmnModsObject input)
+    => new GqlpUnit();
 
   internal static CmptCatOprDmnModsEncoder Factory(IEncoderRepository _) => new();
 }

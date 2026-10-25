@@ -13,13 +13,13 @@ internal class testPrntParamSameOutpEncoder<TA>(
 {
   private readonly Encoder<ItestRefPrntParamSameOutpObject<TA>> _itestRefPrntParamSameOutp = encoders.EncoderFor<ItestRefPrntParamSameOutpObject<TA>>();
   private readonly Encoder<TA> _a = encoders.EncoderFor<TA>();
-  public Structured Encode(ItestPrntParamSameOutpObject<TA> input)
+  public IGqlpValue Encode(ItestPrntParamSameOutpObject<TA> input)
     => _itestRefPrntParamSameOutp.Encode(input)
       .AddEncoded("field", input.Field, _a);
 }
 
 internal class testRefPrntParamSameOutpEncoder<TA> : IEncoder<ItestRefPrntParamSameOutpObject<TA>>
 {
-  public Structured Encode(ItestRefPrntParamSameOutpObject<TA> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestRefPrntParamSameOutpObject<TA> input)
+    => new GqlpUnit();
 }

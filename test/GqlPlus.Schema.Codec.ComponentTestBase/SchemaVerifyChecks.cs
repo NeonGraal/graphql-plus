@@ -30,7 +30,7 @@ internal sealed class SchemaVerifyChecks(
     return (model, context);
   }
 
-  public Structured Encode_Model(SchemaModel model, IModelsContext context)
+  public IGqlpValue Encode_Model(SchemaModel model, IModelsContext context)
     => schemaEncoder.EncodeModel(model, context);
 }
 
@@ -38,5 +38,5 @@ public interface ISchemaVerifyChecks
   : ISchemaParseChecks
 {
   (SchemaModel, IModelsContext) Model_Asts(IEnumerable<IAstSchema> asts, bool withBuiltIns, bool addDescribed);
-  Structured Encode_Model(SchemaModel model, IModelsContext context);
+  IGqlpValue Encode_Model(SchemaModel model, IModelsContext context);
 }

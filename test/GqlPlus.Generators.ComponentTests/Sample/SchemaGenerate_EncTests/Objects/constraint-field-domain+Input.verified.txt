@@ -17,7 +17,7 @@ internal class CmptCnstFieldDmnInpEncoder(
 ) : IEncoder<ICmptCnstFieldDmnInpObject>
 {
   private readonly Encoder<ICmptRefCnstFieldDmnInpObject<ICmptDomCnstFieldDmnInp>> _refCnstFieldDmnInp = encoders.EncoderFor<ICmptRefCnstFieldDmnInpObject<ICmptDomCnstFieldDmnInp>>();
-  public Structured Encode(ICmptCnstFieldDmnInpObject input)
+  public IGqlpValue Encode(ICmptCnstFieldDmnInpObject input)
     => _refCnstFieldDmnInp.Encode(input);
 
   internal static CmptCnstFieldDmnInpEncoder Factory(IEncoderRepository r) => new(r);
@@ -28,14 +28,14 @@ internal class CmptRefCnstFieldDmnInpEncoder<TRef>(
 ) : IEncoder<ICmptRefCnstFieldDmnInpObject<TRef>>
 {
   private readonly Encoder<TRef> _ref = encoders.EncoderFor<TRef>();
-  public Structured Encode(ICmptRefCnstFieldDmnInpObject<TRef> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptRefCnstFieldDmnInpObject<TRef> input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _ref);
 }
 
 internal class CmptDomCnstFieldDmnInpEncoder : IEncoder<ICmptDomCnstFieldDmnInp>
 {
-  public Structured Encode(ICmptDomCnstFieldDmnInp input)
+  public IGqlpValue Encode(ICmptDomCnstFieldDmnInp input)
     => input.Value!.Encode();
 
   internal static CmptDomCnstFieldDmnInpEncoder Factory(IEncoderRepository _) => new();

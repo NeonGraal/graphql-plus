@@ -1,5 +1,5 @@
 ﻿Category: _Schema
-Parameters: { I:filter: { I:kinds: I:Enum } }
+Parameters: GqlPlus.GqlpMap
 ParsedOperation:
 !g P@001/0001
 query

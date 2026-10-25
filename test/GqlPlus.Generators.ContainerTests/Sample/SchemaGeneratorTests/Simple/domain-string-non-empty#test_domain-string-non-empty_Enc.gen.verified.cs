@@ -9,7 +9,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_string_non_empty;
 
 internal class testDmnStrNonEmptyEncoder : IEncoder<ItestDmnStrNonEmpty>
 {
-  public Structured Encode(ItestDmnStrNonEmpty input)
+  public IGqlpValue Encode(ItestDmnStrNonEmpty input)
     => input.Value!.Encode();
 
   internal static testDmnStrNonEmptyEncoder Factory(IEncoderRepository _) => new();
@@ -17,7 +17,7 @@ internal class testDmnStrNonEmptyEncoder : IEncoder<ItestDmnStrNonEmpty>
 
 internal class testRegexDmnStrNonEmptyEncoder : IEncoder<ItestRegexDmnStrNonEmpty>
 {
-  public Structured Encode(ItestRegexDmnStrNonEmpty input)
+  public IGqlpValue Encode(ItestRegexDmnStrNonEmpty input)
     => input.Value!.Encode();
 
   internal static testRegexDmnStrNonEmptyEncoder Factory(IEncoderRepository _) => new();

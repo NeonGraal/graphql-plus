@@ -9,16 +9,16 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_alt_Output;
 
 internal class testObjAltOutpEncoder : IEncoder<ItestObjAltOutpObject>
 {
-  public Structured Encode(ItestObjAltOutpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestObjAltOutpObject input)
+    => new GqlpUnit();
 
   internal static testObjAltOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testObjAltOutpTypeEncoder : IEncoder<ItestObjAltOutpTypeObject>
 {
-  public Structured Encode(ItestObjAltOutpTypeObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestObjAltOutpTypeObject input)
+    => new GqlpUnit();
 
   internal static testObjAltOutpTypeEncoder Factory(IEncoderRepository _) => new();
 }

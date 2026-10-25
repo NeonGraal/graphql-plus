@@ -17,11 +17,11 @@ public class RequestInputDecoder(IParserRepository parsers) : IRequestInputDecod
     }
 
     GqReqInput reqInput = GqReqReader.Read(input);
-    Structured parameters = reqInput.PositionalParameters is { } positional
+    IGqlpValue parameters = reqInput.PositionalParameters is { } positional
       ? positional.Count switch {
         1 => positional[0].Encode(),
-        > 1 => new Structured(positional.Select(value => value.Encode())),
-        _ => Structured.Empty(),
+        > 1 => new GqlpList(positional.Select(value => value.Encode())),
+        _ => new GqlpUnit(),
       }
       : ParameterBuilder.Build(reqInput.Parameters);
     IMessages errors = Messages.New;

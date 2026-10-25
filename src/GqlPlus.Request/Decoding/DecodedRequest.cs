@@ -6,5 +6,5 @@ public record DecodedRequest(
     string? Category,
     string? Operation,
     IAstOperation? ParsedOperation,
-    Structured Parameters,
+    IGqlpValue Parameters,
     IMessages Errors);

@@ -12,9 +12,9 @@ internal class testUnionDescrEncoder(
 ) : IEncoder<ItestUnionDescr>
 {
   private readonly Encoder<decimal> _number = encoders.EncoderFor<decimal>();
-  public Structured Encode(ItestUnionDescr input)
+  public IGqlpValue Encode(ItestUnionDescr input)
     => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
-     : Structured.Empty();
+     : new GqlpUnit();
 
   internal static testUnionDescrEncoder Factory(IEncoderRepository r) => new(r);
 }

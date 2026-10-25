@@ -6,75 +6,64 @@ public static class RenderSimpleYaml
 {
   public const int MaxLineLength = 120;
 
-  public static string[] ToSimpleYaml(this Structured model, bool _)
-    => model is null || model.IsEmpty ? []
+  public static string[] ToSimpleYaml(this IGqlpValue model, bool _)
+    => model is null || model is GqlpUnit && string.IsNullOrEmpty(model.Tag) ? []
       : [.. WriteStructure(model).RemoveEmpty()];
 
-  private static string[] WriteStructure(Structured item)
+  private static string[] WriteStructure(IGqlpValue item)
   {
-    if (item.Value?.IsEmpty == false) {
+    if (item is IGqlpScalar scalar && !ScalarIsEmpty(scalar)) {
       StringBuilder sb = new();
-      WriteValue(sb, item.Value);
+      WriteValue(sb, scalar);
       return [sb.ToString()];
     }
 
-    string[] result = [];
+    string[] result = item switch {
+      GqlpList list when list.Items.Count > 0 => [.. WriteList(item.Tag, list.Items)],
+      GqlpMap map when map.Entries.Count > 0 => [.. WriteMap(item.Tag, map.Entries)],
+      _ => [],
+    };
 
-    if (item.List.Any()) {
-      result = [.. WriteList(item.Tag, item.List)];
-    }
-
-    if (item.Map.Any()) {
-      result = [.. WriteMap(item.Tag, item.Map)];
-    }
-
-    return WriteStructureFlow(item, result);
+    return IsFlow(item) ? WriteStructureFlow(item, result) : result;
   }
 
-  private static string[] WriteStructureFlow(Structured item, string[] result)
+  private static string[] WriteStructureFlow(IGqlpValue item, string[] result)
   {
-    if (item.Flow) {
-      int maxLength = MaxLineLength * 3 / 2;
-      int totalLength = 0;
-      foreach (string line in result) {
-        totalLength += line.Length;
-        if (totalLength > maxLength) {
-          return result;
-        }
-      }
-
-      StringBuilder flow = new();
-      WriteFlowStructure(flow, item);
-
-      if (flow.Length is > 0 and < MaxLineLength) {
-        result = [flow.ToString()];
-        flow.Clear();
+    int maxLength = MaxLineLength * 3 / 2;
+    int totalLength = 0;
+    foreach (string line in result) {
+      totalLength += line.Length;
+      if (totalLength > maxLength) {
+        return result;
       }
     }
 
-    return result;
+    StringBuilder flow = new();
+    WriteFlowStructure(flow, item);
+
+    return flow.Length is > 0 and < MaxLineLength ? [flow.ToString()] : result;
   }
 
-  private static void WriteFlowStructure(StringBuilder flow, Structured item)
+  private static void WriteFlowStructure(StringBuilder flow, IGqlpValue item)
   {
-    if (item.Value?.IsEmpty == false) {
-      WriteValue(flow, item.Value);
+    if (item is IGqlpScalar scalar && !ScalarIsEmpty(scalar)) {
+      WriteValue(flow, scalar);
       return;
     }
 
-    if (item.List.Any()) {
-      WriteFlowBlock(flow, item.Tag.Prefixed("!") + "[", "]", item.List, item => WriteFlowStructure(flow, item));
+    if (item is GqlpList list && list.Items.Count > 0) {
+      WriteFlowBlock(flow, item.Tag.Prefixed("!") + "[", "]", list.Items, child => WriteFlowStructure(flow, child));
       return;
     }
 
-    if (item.Map.Any()) {
+    if (item is GqlpMap map && map.Entries.Count > 0) {
       WriteFlowBlock(flow,
         item.Tag.Prefixed("!") + "{", "}",
-        item.Map.OrderBy(kv => kv.Key.AsString, StringComparer.Ordinal),
-        item => {
-          WriteValue(flow, item.Key);
+        map.Entries.OrderBy(kv => ScalarText(kv.Key), StringComparer.Ordinal),
+        entry => {
+          WriteValue(flow, entry.Key);
           flow.Append(':');
-          WriteFlowStructure(flow, item.Value);
+          WriteFlowStructure(flow, entry.Value);
         });
     }
   }
@@ -97,21 +86,21 @@ public static class RenderSimpleYaml
     flow.Append(after);
   }
 
-  private static IEnumerable<string> WriteList(string tag, IList<Structured> list)
+  private static IEnumerable<string> WriteList(string tag, IReadOnlyList<IGqlpValue> list)
   {
     if (list.Count == 0) {
       yield break;
     }
 
     yield return tag.Prefixed("!");
-    foreach (Structured item in list) {
+    foreach (IGqlpValue item in list) {
       foreach (string line in WriteItem(item, "-")) {
         yield return line;
       }
     }
   }
 
-  private static IEnumerable<string> WriteItem(Structured item, string prefix)
+  private static IEnumerable<string> WriteItem(IGqlpValue item, string prefix)
   {
     List<string> newLines = [.. WriteStructure(item)];
     if (newLines.Count == 0) {
@@ -134,14 +123,14 @@ public static class RenderSimpleYaml
     }
   }
 
-  private static IEnumerable<string> WriteMap(string tag, ComplexValue<StructureValue, Structured>.IDict map)
+  private static IEnumerable<string> WriteMap(string tag, IReadOnlyDictionary<IGqlpScalar, IGqlpValue> map)
   {
     if (map.Count == 0) {
       yield break;
     }
 
     yield return tag.Prefixed("!");
-    foreach (KeyValuePair<StructureValue, Structured> item in map.OrderBy(kv => kv.Key.AsString, StringComparer.Ordinal)) {
+    foreach (KeyValuePair<IGqlpScalar, IGqlpValue> item in map.OrderBy(kv => ScalarText(kv.Key), StringComparer.Ordinal)) {
       StringBuilder sb = new("");
       WriteValue(sb, item.Key);
       sb.Append(':');
@@ -152,9 +141,9 @@ public static class RenderSimpleYaml
     }
   }
 
-  private static void WriteValue(StringBuilder sb, StructureValue value)
+  private static void WriteValue(StringBuilder sb, IGqlpScalar value)
   {
-    if (value is null || value.IsEmpty) {
+    if (ScalarIsEmpty(value)) {
       return;
     }
 
@@ -162,14 +151,27 @@ public static class RenderSimpleYaml
       sb.Append($"!{value.Tag} ");
     }
 
-    if (value.Boolean is not null) {
-      sb.Append(value.Boolean.ToString().ToLowerInvariant());
-    } else if (value.Number is not null) {
+    if (value.Kind == GqlpScalarKind.Boolean) {
+      sb.Append(value.BooleanValue!.Value.ToString().ToLowerInvariant());
+    } else if (value.Kind == GqlpScalarKind.Number) {
       sb.Append($"{value.Number:0.#####}");
-    } else if (!string.IsNullOrWhiteSpace(value.Identifier)) {
-      sb.Append(value.Identifier);
+    } else if (value.Kind == GqlpScalarKind.Identifier) {
+      sb.Append(value.Text);
     } else if (!string.IsNullOrEmpty(value.Text)) {
       sb.Append(value.Text.QuotedIdentifier());
     }
   }
+
+  private static bool IsFlow(IGqlpValue value)
+    => value is GqlpList { Flow: true } or GqlpMap { Flow: true };
+
+  private static bool ScalarIsEmpty(IGqlpScalar value)
+    => (value.Kind is GqlpScalarKind.Text or GqlpScalarKind.Identifier) && string.IsNullOrEmpty(value.Text);
+
+  private static string ScalarText(IGqlpScalar value)
+    => value.Kind switch {
+      GqlpScalarKind.Boolean => value.BooleanValue!.Value.TrueFalse(),
+      GqlpScalarKind.Number => $"{value.Number:0.#####}",
+      _ => value.Text ?? "",
+    };
 }

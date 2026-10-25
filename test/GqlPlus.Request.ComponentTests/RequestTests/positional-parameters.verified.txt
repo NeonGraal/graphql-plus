@@ -1,5 +1,5 @@
 ﻿Category: query
-Parameters: [ I:Dual, I:Input ]
+Parameters: GqlPlus.GqlpList
 ParsedOperation:
 !g P@001/0001
 query

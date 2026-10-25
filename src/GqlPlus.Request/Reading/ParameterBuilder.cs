@@ -2,10 +2,10 @@ namespace GqlPlus.Reading;
 
 public static class ParameterBuilder
 {
-  public static Structured Build(IReadOnlyList<(string Path, string Value)> parameters)
+  public static IGqlpValue Build(IReadOnlyList<(string Path, string Value)> parameters)
   {
     if (parameters is null || parameters.Count == 0) {
-      return Structured.Empty();
+      return new GqlpUnit();
     }
 
     Dictionary<string, List<string>> grouped = [];
@@ -22,7 +22,7 @@ public static class ParameterBuilder
     return BuildMap(grouped);
   }
 
-  private static Structured BuildMap(Dictionary<string, List<string>> grouped)
+  private static GqlpMap BuildMap(Dictionary<string, List<string>> grouped)
   {
     Dictionary<string, object> tree = [];
 
@@ -30,7 +30,7 @@ public static class ParameterBuilder
       InsertPath(tree, entry.Key.Split('.'), entry.Value);
     }
 
-    return ConvertToStructured(tree);
+    return ConvertToGqlpMap(tree);
   }
 
   private static void InsertPath(Dictionary<string, object> node, string[] segments, List<string> values)
@@ -50,22 +50,22 @@ public static class ParameterBuilder
     InsertPath(childDict, [.. segments.Skip(1)], values);
   }
 
-  private static Structured ConvertToStructured(Dictionary<string, object> tree)
+  private static GqlpMap ConvertToGqlpMap(Dictionary<string, object> tree)
   {
-    Dictionary<StructureValue, Structured> map = [];
+    List<KeyValuePair<IGqlpScalar, IGqlpValue>> map = [];
 
     foreach (KeyValuePair<string, object> entry in tree) {
 
-      Structured value = entry.Value switch {
+      IGqlpValue value = entry.Value switch {
         List<string> values when values.Count == 1 => values[0].Encode(),
         List<string> values => values.Encode(),
-        Dictionary<string, object> nested => ConvertToStructured(nested),
-        _ => Structured.Empty(),
+        Dictionary<string, object> nested => ConvertToGqlpMap(nested),
+        _ => new GqlpUnit(),
       };
 
-      map[new StructureValue(entry.Key)] = value;
+      map.Add(new(new GqlpScalar(entry.Key, isIdentifier: entry.Key.IsIdentifier()), value));
     }
 
-    return new Structured(map);
+    return new GqlpMap(map);
   }
 }

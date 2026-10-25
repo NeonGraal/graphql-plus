@@ -33,7 +33,7 @@ public abstract class DecoderClassTestBase<TOutput>
   public Action DecoderCalled<T>([NotNull] IDecoder<T> decoder, int count, [CallerArgumentExpression(nameof(decoder))] string? name = "")
     => () => decoder.ReceivedWithAnyArgs(new NamedQuantity(count, name)).Decode(null!, out T? _);
 
-  internal void DecodeAndCheck(Structured input, TOutput? expected)
+  internal void DecodeAndCheck(IValue input, TOutput? expected)
   {
     IMessages messages = Decoder.Decode(input, out TOutput? result);
 
@@ -47,7 +47,7 @@ public abstract class DecoderClassTestBase<TOutput>
       ? () => messages.ShouldContain(m => m.Level == MessageLevel.Error)
       : () => messages.ShouldNotContain(m => m.Level == MessageLevel.Error);
 
-  internal void DecodeAndCheck(Structured input, TOutput? expected, string message)
+  internal void DecodeAndCheck(IValue input, TOutput? expected, string message)
   {
     IMessages messages = Decoder.Decode(input, out TOutput? result);
 

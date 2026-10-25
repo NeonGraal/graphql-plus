@@ -26,8 +26,8 @@ internal class CmptCatOprSlctModsEncoder(
 ) : IEncoder<ICmptCatOprSlctModsObject>
 {
   private readonly Encoder<ICmptAddrOprSlctMods> _addrOprSlctMods = encoders.EncoderFor<ICmptAddrOprSlctMods>();
-  public Structured Encode(ICmptCatOprSlctModsObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptCatOprSlctModsObject input)
+    => new GqlpUnit()
       .Add("first", input.First.Encode())
       .Add("last", input.Last.Encode())
       .AddEncoded("address", input.Address, _addrOprSlctMods);
@@ -37,8 +37,8 @@ internal class CmptCatOprSlctModsEncoder(
 
 internal class CmptAddrOprSlctModsEncoder : IEncoder<ICmptAddrOprSlctModsObject>
 {
-  public Structured Encode(ICmptAddrOprSlctModsObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptAddrOprSlctModsObject input)
+    => new GqlpUnit()
       .Add("street", input.Street.Encode())
       .Add("city", input.City.Encode())
       .Add("country", input.Country.Encode());

@@ -9,54 +9,57 @@ public static class RenderPlain
 {
   public const int MaxLineLength = 120;
 
-  public static string[] ToPlain(this Structured model, bool _)
+  public static string[] ToPlain(this IGqlpValue model, bool _)
     => model is null ? []
       : [.. WriteStructure(model).RemoveEmpty()];
-  public static Structured FromPlain(this string[] input)
+  public static IGqlpValue FromPlain(this string[] input)
     => ReadStructure(input);
 
-  private static Structured ReadStructure(IEnumerable<string> lines)
+  private static IGqlpValue ReadStructure(IEnumerable<string> lines)
   {
     IEnumerable<IGrouping<LineKey, string>> groups = lines
       .Select(SplitLine)
       .GroupBy(kv => kv.Key, kv => kv.Remain);
 
-    StructureValue? result = null;
-    List<Structured> items = [];
-    Dictionary<StructureValue, Structured> fields = [];
+    IGqlpValue? result = null;
+    List<IGqlpValue> items = [];
+    List<KeyValuePair<IGqlpScalar, IGqlpValue>> fields = [];
     string tag = string.Empty;
 
     foreach (IGrouping<LineKey, string> group in groups) {
       tag = ReadLineGroup(ref result, items, fields, group);
     }
 
-    return items.Count > 0 ? new(items) { Tag = tag }
-    : fields.Count > 0 ? new(fields) { Tag = tag }
-    : result is null ? Structured.Empty(tag)
-    : new(result);
+    return items.Count > 0 ? new GqlpList(items, tag)
+    : fields.Count > 0 ? new GqlpMap(fields, tag)
+    : result is null ? string.IsNullOrWhiteSpace(tag) ? new GqlpUnit() : new GqlpUnit(tag)
+    : result;
   }
 
   private static string ReadLineGroup(
-    ref StructureValue? result,
-    List<Structured> items,
-    Dictionary<StructureValue, Structured> fields,
+    ref IGqlpValue? result,
+    List<IGqlpValue> items,
+    List<KeyValuePair<IGqlpScalar, IGqlpValue>> fields,
     IGrouping<LineKey, string> group
   )
   {
     string tag = group.Key.Tag;
     if (group.Key.Type == ':') {
-      StructureValue key = ReadValue(group.Key.Key);
-      Structured value = ReadStructure(group);
-      fields[key] = value;
+      IGqlpScalar key = ReadValue(group.Key.Key);
+      IGqlpValue value = ReadStructure(group);
+      fields.Add(new(key, value));
     } else if (group.Key.Type == '.') {
-      Structured value = ReadStructure(group);
+      IGqlpValue value = ReadStructure(group);
       while (items.Count <= group.Key.Index) {
-        items.Add(Structured.Empty(tag));
+        items.Add(new GqlpUnit(tag));
       }
 
       items[group.Key.Index!.Value] = value;
     } else if (group.Key.Type == '=') {
-      result = ReadValue(group.First());
+      GqlpScalar value = ReadValue(group.First());
+      result = ScalarIsEmpty(value)
+        ? string.IsNullOrWhiteSpace(value.Tag) ? new GqlpUnit() : new GqlpUnit(value.Tag)
+        : value;
     }
 
     return tag;
@@ -86,35 +89,29 @@ public static class RenderPlain
 
     return (result, line);
   }
-  private static string[] WriteStructure(Structured item, string prefix = "")
+  private static string[] WriteStructure(IGqlpValue item, string prefix = "")
   {
-    if (item.Value?.IsEmpty == false) {
+    if (item is IGqlpScalar scalar && !ScalarIsEmpty(scalar)) {
       StringBuilder sb = new();
-      WriteValue(sb, item.Value);
+      WriteValue(sb, scalar);
       return [prefix + sb.ToString()];
     }
 
     prefix += item.Tag.Surrounded("[", "]");
-    string[] result = [];
-
-    if (item.List.Any()) {
-      return WriteList(item.List, prefix);
-    }
-
-    if (item.Map.Any()) {
-      return WriteMap(item.Map, prefix);
-    }
-
-    return string.IsNullOrWhiteSpace(prefix) ? [] : ["=" + prefix];
+    return item switch {
+      GqlpList list when list.Items.Count > 0 => WriteList(list.Items, prefix),
+      GqlpMap map when map.Entries.Count > 0 => WriteMap(map.Entries, prefix),
+      _ => string.IsNullOrWhiteSpace(prefix) ? [] : ["=" + prefix],
+    };
   }
 
-  private static string[] WriteList(IList<Structured> list, string prefix = "")
+  private static string[] WriteList(IReadOnlyList<IGqlpValue> list, string prefix = "")
     => [.. list.SelectMany((item, idx)
       => WriteStructure(item, prefix + $".{idx}"))];
 
-  private static string[] WriteMap(ComplexValue<StructureValue, Structured>.IDict map, string prefix = "")
+  private static string[] WriteMap(IReadOnlyDictionary<IGqlpScalar, IGqlpValue> map, string prefix = "")
     => [.. map
-      .OrderBy(kv => kv.Key.AsString, StringComparer.Ordinal)
+      .OrderBy(kv => ScalarText(kv.Key), StringComparer.Ordinal)
       .SelectMany(item => {
         StringBuilder sb = new(prefix);
         WriteValue(sb, item.Key, ":");
@@ -123,29 +120,29 @@ public static class RenderPlain
       })];
 
   private static readonly char[] s_quotes = ['"', '\''];
-  private static StructureValue ReadValue(string line)
+  private static GqlpScalar ReadValue(string line)
   {
     Match tagMatch = s_tag.Match(line);
     string tag = tagMatch.Success ? tagMatch.Groups[1].Value : string.Empty;
     line = line[tagMatch.Length..];
 
     if (string.IsNullOrEmpty(line)) {
-      return StructureValue.Empty(tag);
+      return new GqlpScalar("", tag);
     } else if (decimal.TryParse(line, out decimal num)) {
-      return new(num, tag);
+      return new GqlpScalar(num, tag);
     } else if (bool.TryParse(line, out bool trueFalse)) {
-      return new StructureValue(trueFalse, tag);
+      return new GqlpScalar(trueFalse, tag);
     } else if (s_quotes.Contains(line[0]) && line[^1] == line[0]) {
-      string quote = line[0..0];
+      string quote = line[..1];
       string value = line[1..^1].Replace("\\" + quote, quote).Replace("\\\\", "\\");
-      return new(value, tag);
+      return new GqlpScalar(value, tag);
     }
 
-    return new(line, tag);
+    return new GqlpScalar(line, tag, isIdentifier: line.IsIdentifier());
   }
-  private static void WriteValue(StringBuilder sb, StructureValue value, string prefix = "=")
+  private static void WriteValue(StringBuilder sb, IGqlpScalar value, string prefix = "=")
   {
-    if (value is null || value.IsEmpty) {
+    if (ScalarIsEmpty(value)) {
       return;
     }
 
@@ -154,16 +151,26 @@ public static class RenderPlain
       sb.Append($"[{value.Tag}]");
     }
 
-    if (value.Boolean is not null) {
-      sb.Append(value.Boolean.ToString().ToLowerInvariant());
-    } else if (value.Number is not null) {
+    if (value.Kind == GqlpScalarKind.Boolean) {
+      sb.Append(value.BooleanValue!.Value.ToString().ToLowerInvariant());
+    } else if (value.Kind == GqlpScalarKind.Number) {
       sb.Append($"{value.Number:0.#####}");
-    } else if (!string.IsNullOrWhiteSpace(value.Identifier)) {
-      sb.Append(value.Identifier);
+    } else if (value.Kind == GqlpScalarKind.Identifier) {
+      sb.Append(value.Text);
     } else if (!string.IsNullOrEmpty(value.Text)) {
       sb.Append(value.Text.QuotedIdentifier());
     }
   }
+
+  private static bool ScalarIsEmpty(IGqlpScalar value)
+    => (value.Kind is GqlpScalarKind.Text or GqlpScalarKind.Identifier) && string.IsNullOrEmpty(value.Text);
+
+  private static string ScalarText(IGqlpScalar value)
+    => value.Kind switch {
+      GqlpScalarKind.Boolean => value.BooleanValue!.Value.TrueFalse(),
+      GqlpScalarKind.Number => $"{value.Number:0.#####}",
+      _ => value.Text ?? "",
+    };
 
   internal record struct LineKey(char Type, string Tag)
   {

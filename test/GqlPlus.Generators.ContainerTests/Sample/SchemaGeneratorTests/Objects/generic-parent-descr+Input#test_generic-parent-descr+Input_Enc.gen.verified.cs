@@ -9,6 +9,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_descr_Input;
 
 internal class testGnrcPrntDescrInpEncoder<TType> : IEncoder<ItestGnrcPrntDescrInpObject<TType>>
 {
-  public Structured Encode(ItestGnrcPrntDescrInpObject<TType> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestGnrcPrntDescrInpObject<TType> input)
+    => new GqlpUnit();
 }

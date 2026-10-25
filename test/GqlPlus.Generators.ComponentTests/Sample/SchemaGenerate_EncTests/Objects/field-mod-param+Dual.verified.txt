@@ -13,14 +13,14 @@ namespace Components.Gqlp_Schema_field_mod_param_Dual;
 
 internal class CmptFieldModParamDualEncoder<TMod> : IEncoder<ICmptFieldModParamDualObject<TMod>>
 {
-  public Structured Encode(ICmptFieldModParamDualObject<TMod> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptFieldModParamDualObject<TMod> input)
+    => new GqlpUnit();
 }
 
 internal class CmptFldFieldModParamDualEncoder : IEncoder<ICmptFldFieldModParamDualObject>
 {
-  public Structured Encode(ICmptFldFieldModParamDualObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptFldFieldModParamDualObject input)
+    => new GqlpUnit()
       .Add("field", input.Field.Encode());
 
   internal static CmptFldFieldModParamDualEncoder Factory(IEncoderRepository _) => new();

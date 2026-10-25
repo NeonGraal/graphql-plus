@@ -9,8 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_Input;
 
 internal class testObjInpEncoder : IEncoder<ItestObjInpObject>
 {
-  public Structured Encode(ItestObjInpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestObjInpObject input)
+    => new GqlpUnit();
 
   internal static testObjInpEncoder Factory(IEncoderRepository _) => new();
 }

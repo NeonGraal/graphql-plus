@@ -9,8 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_dom_enum_Input;
 
 internal class testCnstDomEnumInpEncoder : IEncoder<ItestCnstDomEnumInpObject>
 {
-  public Structured Encode(ItestCnstDomEnumInpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCnstDomEnumInpObject input)
+    => new GqlpUnit();
 
   internal static testCnstDomEnumInpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -20,14 +20,14 @@ internal class testRefCnstDomEnumInpEncoder<TType>(
 ) : IEncoder<ItestRefCnstDomEnumInpObject<TType>>
 {
   private readonly Encoder<TType> _type = encoders.EncoderFor<TType>();
-  public Structured Encode(ItestRefCnstDomEnumInpObject<TType> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestRefCnstDomEnumInpObject<TType> input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _type);
 }
 
 internal class testEnumCnstDomEnumInpEncoder : IEncoder<testEnumCnstDomEnumInp>
 {
-  public Structured Encode(testEnumCnstDomEnumInp input)
+  public IGqlpValue Encode(testEnumCnstDomEnumInp input)
     => input.EncodeEnum("EnumCnstDomEnumInp");
 
   internal static testEnumCnstDomEnumInpEncoder Factory(IEncoderRepository _) => new();
@@ -35,7 +35,7 @@ internal class testEnumCnstDomEnumInpEncoder : IEncoder<testEnumCnstDomEnumInp>
 
 internal class testJustCnstDomEnumInpEncoder : IEncoder<ItestJustCnstDomEnumInp>
 {
-  public Structured Encode(ItestJustCnstDomEnumInp input)
+  public IGqlpValue Encode(ItestJustCnstDomEnumInp input)
     => input.Value?.EncodeEnum("testEnumCnstDomEnumInp")!;
 
   internal static testJustCnstDomEnumInpEncoder Factory(IEncoderRepository _) => new();

@@ -17,8 +17,8 @@ internal class CmptObjFieldAliasInpEncoder(
 ) : IEncoder<ICmptObjFieldAliasInpObject>
 {
   private readonly Encoder<ICmptFldObjFieldAliasInp> _fldObjFieldAliasInp = encoders.EncoderFor<ICmptFldObjFieldAliasInp>();
-  public Structured Encode(ICmptObjFieldAliasInpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptObjFieldAliasInpObject input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _fldObjFieldAliasInp);
 
   internal static CmptObjFieldAliasInpEncoder Factory(IEncoderRepository r) => new(r);
@@ -26,8 +26,8 @@ internal class CmptObjFieldAliasInpEncoder(
 
 internal class CmptFldObjFieldAliasInpEncoder : IEncoder<ICmptFldObjFieldAliasInpObject>
 {
-  public Structured Encode(ICmptFldObjFieldAliasInpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptFldObjFieldAliasInpObject input)
+    => new GqlpUnit();
 
   internal static CmptFldObjFieldAliasInpEncoder Factory(IEncoderRepository _) => new();
 }

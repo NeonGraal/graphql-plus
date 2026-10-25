@@ -9,8 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_field_type_alias_Output;
 
 internal class testObjFieldTypeAliasOutpEncoder : IEncoder<ItestObjFieldTypeAliasOutpObject>
 {
-  public Structured Encode(ItestObjFieldTypeAliasOutpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestObjFieldTypeAliasOutpObject input)
+    => new GqlpUnit()
       .Add("field", input.Field.Encode());
 
   internal static testObjFieldTypeAliasOutpEncoder Factory(IEncoderRepository _) => new();

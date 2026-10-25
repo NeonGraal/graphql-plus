@@ -1,5 +1,5 @@
 ﻿Category: query
-Parameters: I:Dual
+Parameters: Dual
 ParsedOperation:
 !g P@001/0001
 query

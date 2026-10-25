@@ -13,8 +13,8 @@ namespace Components.Gqlp_Schema_object_alias_Input;
 
 internal class CmptObjAliasInpEncoder : IEncoder<ICmptObjAliasInpObject>
 {
-  public Structured Encode(ICmptObjAliasInpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptObjAliasInpObject input)
+    => new GqlpUnit();
 
   internal static CmptObjAliasInpEncoder Factory(IEncoderRepository _) => new();
 }

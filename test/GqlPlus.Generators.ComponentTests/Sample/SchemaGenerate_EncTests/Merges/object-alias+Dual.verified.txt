@@ -13,8 +13,8 @@ namespace Components.Gqlp_Schema_object_alias_Dual;
 
 internal class CmptObjAliasDualEncoder : IEncoder<ICmptObjAliasDualObject>
 {
-  public Structured Encode(ICmptObjAliasDualObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptObjAliasDualObject input)
+    => new GqlpUnit();
 
   internal static CmptObjAliasDualEncoder Factory(IEncoderRepository _) => new();
 }

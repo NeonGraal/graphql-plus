@@ -12,8 +12,8 @@ internal class testObjCnstOutpEncoder<TType>(
 ) : IEncoder<ItestObjCnstOutpObject<TType>>
 {
   private readonly Encoder<TType> _type = encoders.EncoderFor<TType>();
-  public Structured Encode(ItestObjCnstOutpObject<TType> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestObjCnstOutpObject<TType> input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _type)
       .AddEncoded("str", input.Str, _type);
 }

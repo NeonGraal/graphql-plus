@@ -15,22 +15,22 @@ namespace Components.Gqlp_Schema_constraint_alt_obj_Input;
 
 internal class CmptCnstAltObjInpEncoder : IEncoder<ICmptCnstAltObjInpObject>
 {
-  public Structured Encode(ICmptCnstAltObjInpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCnstAltObjInpObject input)
+    => new GqlpUnit();
 
   internal static CmptCnstAltObjInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptRefCnstAltObjInpEncoder<TRef> : IEncoder<ICmptRefCnstAltObjInpObject<TRef>>
 {
-  public Structured Encode(ICmptRefCnstAltObjInpObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptRefCnstAltObjInpObject<TRef> input)
+    => new GqlpUnit();
 }
 
 internal class CmptPrntCnstAltObjInpEncoder : IEncoder<ICmptPrntCnstAltObjInpObject>
 {
-  public Structured Encode(ICmptPrntCnstAltObjInpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptPrntCnstAltObjInpObject input)
+    => new GqlpUnit();
 
   internal static CmptPrntCnstAltObjInpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -40,7 +40,7 @@ internal class CmptAltCnstAltObjInpEncoder(
 ) : IEncoder<ICmptAltCnstAltObjInpObject>
 {
   private readonly Encoder<ICmptPrntCnstAltObjInpObject> _prntCnstAltObjInp = encoders.EncoderFor<ICmptPrntCnstAltObjInpObject>();
-  public Structured Encode(ICmptAltCnstAltObjInpObject input)
+  public IGqlpValue Encode(ICmptAltCnstAltObjInpObject input)
     => _prntCnstAltObjInp.Encode(input)
       .Add("alt", input.Alt.Encode());
 

@@ -13,7 +13,7 @@ internal class test_EnumLabelEncoder(
 {
   private readonly Encoder<Itest_AliasedObject> _itest_Aliased = encoders.EncoderFor<Itest_AliasedObject>();
   private readonly Encoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
-  public Structured Encode(Itest_EnumLabelObject input)
+  public IGqlpValue Encode(Itest_EnumLabelObject input)
     => _itest_Aliased.Encode(input)
       .AddEncoded("enumType", input.EnumType, _itest_Name);
 
@@ -26,7 +26,7 @@ internal class test_EnumValueEncoder(
 {
   private readonly Encoder<Itest_TypeRefObject<Itest_TypeKind>> _itest_TypeRef = encoders.EncoderFor<Itest_TypeRefObject<Itest_TypeKind>>();
   private readonly Encoder<Itest_Name> _itest_Name = encoders.EncoderFor<Itest_Name>();
-  public Structured Encode(Itest_EnumValueObject input)
+  public IGqlpValue Encode(Itest_EnumValueObject input)
     => _itest_TypeRef.Encode(input)
       .AddEncoded("label", input.Label, _itest_Name);
 

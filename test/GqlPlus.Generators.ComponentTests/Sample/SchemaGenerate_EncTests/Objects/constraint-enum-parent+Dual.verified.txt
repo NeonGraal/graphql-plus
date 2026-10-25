@@ -15,8 +15,8 @@ namespace Components.Gqlp_Schema_constraint_enum_parent_Dual;
 
 internal class CmptCnstEnumPrntDualEncoder : IEncoder<ICmptCnstEnumPrntDualObject>
 {
-  public Structured Encode(ICmptCnstEnumPrntDualObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCnstEnumPrntDualObject input)
+    => new GqlpUnit();
 
   internal static CmptCnstEnumPrntDualEncoder Factory(IEncoderRepository _) => new();
 }
@@ -26,14 +26,14 @@ internal class CmptRefCnstEnumPrntDualEncoder<TType>(
 ) : IEncoder<ICmptRefCnstEnumPrntDualObject<TType>>
 {
   private readonly Encoder<TType> _type = encoders.EncoderFor<TType>();
-  public Structured Encode(ICmptRefCnstEnumPrntDualObject<TType> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptRefCnstEnumPrntDualObject<TType> input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _type);
 }
 
 internal class CmptEnumCnstEnumPrntDualEncoder : IEncoder<CmptEnumCnstEnumPrntDual>
 {
-  public Structured Encode(CmptEnumCnstEnumPrntDual input)
+  public IGqlpValue Encode(CmptEnumCnstEnumPrntDual input)
     => input.EncodeEnum("EnumCnstEnumPrntDual");
 
   internal static CmptEnumCnstEnumPrntDualEncoder Factory(IEncoderRepository _) => new();
@@ -41,7 +41,7 @@ internal class CmptEnumCnstEnumPrntDualEncoder : IEncoder<CmptEnumCnstEnumPrntDu
 
 internal class CmptParentCnstEnumPrntDualEncoder : IEncoder<CmptParentCnstEnumPrntDual>
 {
-  public Structured Encode(CmptParentCnstEnumPrntDual input)
+  public IGqlpValue Encode(CmptParentCnstEnumPrntDual input)
     => input.EncodeEnum("ParentCnstEnumPrntDual");
 
   internal static CmptParentCnstEnumPrntDualEncoder Factory(IEncoderRepository _) => new();

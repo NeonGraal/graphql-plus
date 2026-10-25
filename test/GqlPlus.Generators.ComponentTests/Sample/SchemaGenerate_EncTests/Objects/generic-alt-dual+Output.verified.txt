@@ -14,22 +14,22 @@ namespace Components.Gqlp_Schema_generic_alt_dual_Output;
 
 internal class CmptGnrcAltDualOutpEncoder : IEncoder<ICmptGnrcAltDualOutpObject>
 {
-  public Structured Encode(ICmptGnrcAltDualOutpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptGnrcAltDualOutpObject input)
+    => new GqlpUnit();
 
   internal static CmptGnrcAltDualOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptRefGnrcAltDualOutpEncoder<TRef> : IEncoder<ICmptRefGnrcAltDualOutpObject<TRef>>
 {
-  public Structured Encode(ICmptRefGnrcAltDualOutpObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptRefGnrcAltDualOutpObject<TRef> input)
+    => new GqlpUnit();
 }
 
 internal class CmptAltGnrcAltDualOutpEncoder : IEncoder<ICmptAltGnrcAltDualOutpObject>
 {
-  public Structured Encode(ICmptAltGnrcAltDualOutpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptAltGnrcAltDualOutpObject input)
+    => new GqlpUnit()
       .Add("alt", input.Alt.Encode());
 
   internal static CmptAltGnrcAltDualOutpEncoder Factory(IEncoderRepository _) => new();

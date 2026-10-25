@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_enum_parent_alias;
 
 internal class CmptEnumPrntAliasEncoder : IEncoder<CmptEnumPrntAlias>
 {
-  public Structured Encode(CmptEnumPrntAlias input)
+  public IGqlpValue Encode(CmptEnumPrntAlias input)
     => input.EncodeEnum("EnumPrntAlias");
 
   internal static CmptEnumPrntAliasEncoder Factory(IEncoderRepository _) => new();
@@ -21,7 +21,7 @@ internal class CmptEnumPrntAliasEncoder : IEncoder<CmptEnumPrntAlias>
 
 internal class CmptPrntEnumPrntAliasEncoder : IEncoder<CmptPrntEnumPrntAlias>
 {
-  public Structured Encode(CmptPrntEnumPrntAlias input)
+  public IGqlpValue Encode(CmptPrntEnumPrntAlias input)
     => input.EncodeEnum("PrntEnumPrntAlias");
 
   internal static CmptPrntEnumPrntAliasEncoder Factory(IEncoderRepository _) => new();

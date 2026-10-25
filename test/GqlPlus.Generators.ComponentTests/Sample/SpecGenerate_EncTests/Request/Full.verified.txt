@@ -48,8 +48,8 @@ internal class Cmpt_RequestEncoder(
   private readonly Encoder<ICmpt_Identifier> _identifier = encoders.EncoderFor<ICmpt_Identifier>();
   private readonly Encoder<ICmpt_Operation> _operation = encoders.EncoderFor<ICmpt_Operation>();
   private readonly Encoder<object> _object = encoders.EncoderFor<object>();
-  public Structured Encode(ICmpt_RequestObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmpt_RequestObject input)
+    => new GqlpUnit()
       .AddEncoded("category", input.Category, _identifier)
       .AddEncoded("operation", input.Operation, _identifier)
       .AddEncoded("definition", input.Definition, _operation)
@@ -60,7 +60,7 @@ internal class Cmpt_RequestEncoder(
 
 internal class Cmpt_IdentifierEncoder : IEncoder<ICmpt_Identifier>
 {
-  public Structured Encode(ICmpt_Identifier input)
+  public IGqlpValue Encode(ICmpt_Identifier input)
     => input.Value!.Encode();
 
   internal static Cmpt_IdentifierEncoder Factory(IEncoderRepository _) => new();
@@ -68,8 +68,8 @@ internal class Cmpt_IdentifierEncoder : IEncoder<ICmpt_Identifier>
 
 internal class Cmpt_CollectionsEncoder : IEncoder<ICmpt_CollectionsObject>
 {
-  public Structured Encode(ICmpt_CollectionsObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmpt_CollectionsObject input)
+    => new GqlpUnit();
 
   internal static Cmpt_CollectionsEncoder Factory(IEncoderRepository _) => new();
 }
@@ -80,7 +80,7 @@ internal class Cmpt_ModifierKeyedEncoder<TModifierKind>(
 {
   private readonly Encoder<ICmpt_ModifierObject<TModifierKind>> _modifier = encoders.EncoderFor<ICmpt_ModifierObject<TModifierKind>>();
   private readonly Encoder<ICmpt_Identifier> _identifier = encoders.EncoderFor<ICmpt_Identifier>();
-  public Structured Encode(ICmpt_ModifierKeyedObject<TModifierKind> input)
+  public IGqlpValue Encode(ICmpt_ModifierKeyedObject<TModifierKind> input)
     => _modifier.Encode(input)
       .AddEncoded("by", input.By, _identifier)
       .Add("isOptional", input.IsOptional.Encode());
@@ -88,15 +88,15 @@ internal class Cmpt_ModifierKeyedEncoder<TModifierKind>(
 
 internal class Cmpt_ModifiersEncoder : IEncoder<ICmpt_ModifiersObject>
 {
-  public Structured Encode(ICmpt_ModifiersObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmpt_ModifiersObject input)
+    => new GqlpUnit();
 
   internal static Cmpt_ModifiersEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class Cmpt_ModifierKindEncoder : IEncoder<Cmpt_ModifierKind>
 {
-  public Structured Encode(Cmpt_ModifierKind input)
+  public IGqlpValue Encode(Cmpt_ModifierKind input)
     => input.EncodeEnum("_ModifierKind");
 
   internal static Cmpt_ModifierKindEncoder Factory(IEncoderRepository _) => new();
@@ -107,8 +107,8 @@ internal class Cmpt_ModifierEncoder<TModifierKind>(
 ) : IEncoder<ICmpt_ModifierObject<TModifierKind>>
 {
   private readonly Encoder<TModifierKind> _modifierKind = encoders.EncoderFor<TModifierKind>();
-  public Structured Encode(ICmpt_ModifierObject<TModifierKind> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmpt_ModifierObject<TModifierKind> input)
+    => new GqlpUnit()
       .AddEncoded("modifierKind", input.ModifierKind, _modifierKind);
 }
 

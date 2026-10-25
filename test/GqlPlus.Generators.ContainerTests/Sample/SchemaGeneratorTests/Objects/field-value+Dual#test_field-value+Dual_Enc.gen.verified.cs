@@ -9,8 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_value_Dual;
 
 internal class testFieldValueDualEncoder : IEncoder<ItestFieldValueDualObject>
 {
-  public Structured Encode(ItestFieldValueDualObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestFieldValueDualObject input)
+    => new GqlpUnit()
       .AddEnum("field", input.Field);
 
   internal static testFieldValueDualEncoder Factory(IEncoderRepository _) => new();
@@ -18,7 +18,7 @@ internal class testFieldValueDualEncoder : IEncoder<ItestFieldValueDualObject>
 
 internal class testEnumFieldValueDualEncoder : IEncoder<testEnumFieldValueDual>
 {
-  public Structured Encode(testEnumFieldValueDual input)
+  public IGqlpValue Encode(testEnumFieldValueDual input)
     => input.EncodeEnum("EnumFieldValueDual");
 
   internal static testEnumFieldValueDualEncoder Factory(IEncoderRepository _) => new();

@@ -19,7 +19,7 @@ public abstract class TestSchemaVerify(
 
   protected virtual async Task EncodeModel([NotNull] SchemaModel model, IModelsContext context, string test, string label, string[] dirs, string section)
   {
-    Structured result = checks.Encode_Model(model, context);
+    IGqlpValue result = checks.Encode_Model(model, context);
     VerifySettings settings = CustomSettings(label, ResultGroup, test, section);
     string target = EncodeResult(result, section);
     target.AttachAs("Output " + test);
@@ -31,5 +31,5 @@ public abstract class TestSchemaVerify(
 
   protected abstract Task VerifyResult(string target, VerifySettings settings);
   public abstract string ResultGroup { get; }
-  public abstract string EncodeResult(Structured result, string section);
+  public abstract string EncodeResult(IGqlpValue result, string section);
 }

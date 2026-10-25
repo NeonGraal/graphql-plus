@@ -16,13 +16,13 @@ internal class CmptGnrcFieldArgInpEncoder<TType>(
 ) : IEncoder<ICmptGnrcFieldArgInpObject<TType>>
 {
   private readonly Encoder<ICmptRefGnrcFieldArgInp<TType>> _refGnrcFieldArgInp = encoders.EncoderFor<ICmptRefGnrcFieldArgInp<TType>>();
-  public Structured Encode(ICmptGnrcFieldArgInpObject<TType> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptGnrcFieldArgInpObject<TType> input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _refGnrcFieldArgInp);
 }
 
 internal class CmptRefGnrcFieldArgInpEncoder<TRef> : IEncoder<ICmptRefGnrcFieldArgInpObject<TRef>>
 {
-  public Structured Encode(ICmptRefGnrcFieldArgInpObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptRefGnrcFieldArgInpObject<TRef> input)
+    => new GqlpUnit();
 }

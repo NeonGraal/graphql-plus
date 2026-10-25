@@ -9,14 +9,14 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_mod_param_Dual;
 
 internal class testFieldModParamDualEncoder<TMod> : IEncoder<ItestFieldModParamDualObject<TMod>>
 {
-  public Structured Encode(ItestFieldModParamDualObject<TMod> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestFieldModParamDualObject<TMod> input)
+    => new GqlpUnit();
 }
 
 internal class testFldFieldModParamDualEncoder : IEncoder<ItestFldFieldModParamDualObject>
 {
-  public Structured Encode(ItestFldFieldModParamDualObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestFldFieldModParamDualObject input)
+    => new GqlpUnit()
       .Add("field", input.Field.Encode());
 
   internal static testFldFieldModParamDualEncoder Factory(IEncoderRepository _) => new();

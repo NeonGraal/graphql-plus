@@ -13,8 +13,8 @@ namespace Components.Gqlp_Schema_object_alt_enum_Input;
 
 internal class CmptObjAltEnumInpEncoder : IEncoder<ICmptObjAltEnumInpObject>
 {
-  public Structured Encode(ICmptObjAltEnumInpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptObjAltEnumInpObject input)
+    => new GqlpUnit();
 
   internal static CmptObjAltEnumInpEncoder Factory(IEncoderRepository _) => new();
 }

@@ -33,8 +33,8 @@ namespace Components.Gqlp_Spec_Selections;
 
 internal class Cmpt_OpSelectionEncoder : IEncoder<ICmpt_OpSelectionObject>
 {
-  public Structured Encode(ICmpt_OpSelectionObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmpt_OpSelectionObject input)
+    => new GqlpUnit();
 
   internal static Cmpt_OpSelectionEncoder Factory(IEncoderRepository _) => new();
 }
@@ -47,7 +47,7 @@ internal class Cmpt_OpFieldEncoder(
   private readonly Encoder<ICmpt_Identifier> _identifier = encoders.EncoderFor<ICmpt_Identifier>();
   private readonly Encoder<ICmpt_OpArgument> _opArgument = encoders.EncoderFor<ICmpt_OpArgument>();
   private readonly Encoder<ICmpt_Modifiers> _modifiers = encoders.EncoderFor<ICmpt_Modifiers>();
-  public Structured Encode(ICmpt_OpFieldObject input)
+  public IGqlpValue Encode(ICmpt_OpFieldObject input)
     => _opDirectives.Encode(input)
       .AddEncoded("fieldAlias", input.FieldAlias, _identifier)
       .AddEncoded("argument", input.Argument, _opArgument)
@@ -62,8 +62,8 @@ internal class Cmpt_OpInlineEncoder(
 {
   private readonly Encoder<ICmpt_Identifier> _identifier = encoders.EncoderFor<ICmpt_Identifier>();
   private readonly Encoder<ICmpt_OpDirective> _opDirective = encoders.EncoderFor<ICmpt_OpDirective>();
-  public Structured Encode(ICmpt_OpInlineObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmpt_OpInlineObject input)
+    => new GqlpUnit()
       .AddEncoded("type", input.Type, _identifier)
       .AddList("directives", input.Directives, _opDirective);
 
@@ -76,8 +76,8 @@ internal class Cmpt_OpSpreadEncoder(
 {
   private readonly Encoder<ICmpt_Identifier> _identifier = encoders.EncoderFor<ICmpt_Identifier>();
   private readonly Encoder<ICmpt_OpDirective> _opDirective = encoders.EncoderFor<ICmpt_OpDirective>();
-  public Structured Encode(ICmpt_OpSpreadObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmpt_OpSpreadObject input)
+    => new GqlpUnit()
       .AddEncoded("fragment", input.Fragment, _identifier)
       .AddList("directives", input.Directives, _opDirective);
 

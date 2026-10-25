@@ -9,8 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_directive_param_list;
 
 internal class testInDrctParamListEncoder : IEncoder<ItestInDrctParamListObject>
 {
-  public Structured Encode(ItestInDrctParamListObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestInDrctParamListObject input)
+    => new GqlpUnit();
 
   internal static testInDrctParamListEncoder Factory(IEncoderRepository _) => new();
 }

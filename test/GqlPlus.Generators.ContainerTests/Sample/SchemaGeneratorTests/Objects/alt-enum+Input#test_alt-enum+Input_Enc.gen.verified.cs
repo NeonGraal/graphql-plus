@@ -9,15 +9,15 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_enum_Input;
 
 internal class testAltEnumInpEncoder : IEncoder<ItestAltEnumInpObject>
 {
-  public Structured Encode(ItestAltEnumInpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestAltEnumInpObject input)
+    => new GqlpUnit();
 
   internal static testAltEnumInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testEnumAltEnumInpEncoder : IEncoder<testEnumAltEnumInp>
 {
-  public Structured Encode(testEnumAltEnumInp input)
+  public IGqlpValue Encode(testEnumAltEnumInp input)
     => input.EncodeEnum("EnumAltEnumInp");
 
   internal static testEnumAltEnumInpEncoder Factory(IEncoderRepository _) => new();

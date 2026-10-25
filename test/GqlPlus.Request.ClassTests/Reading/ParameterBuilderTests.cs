@@ -3,24 +3,21 @@ namespace GqlPlus.Reading;
 public class ParameterBuilderTests
 {
   [Fact]
-  public void Build_Empty_ReturnsEmptyStructured()
+  public void Build_Empty_ReturnsEmptyUnit()
   {
-    Structured result = ParameterBuilder.Build([]);
+    IGqlpValue result = ParameterBuilder.Build([]);
 
-    result.IsEmpty.ShouldBeTrue();
+    result.ShouldBeOfType<GqlpUnit>();
   }
 
   [Theory, RepeatData]
   public void Build_SingleValue_ReturnsSingleEntry(string key, string value)
   {
-    StructureValue theKey = new(key);
-    Structured theValue = value.Encode();
+    IGqlpValue expected = value.Encode();
 
-    Structured result = ParameterBuilder.Build([(key, value)]);
+    IGqlpValue result = ParameterBuilder.Build([(key, value)]);
 
-    result.Map.ShouldSatisfyAllConditions(
-      m => m.ShouldContainKey(theKey),
-      m => m[theKey].ShouldBe(theValue));
+    result.ShouldBe(new GqlpMap([Field(key, expected)]));
   }
 
   [Theory, RepeatData]
@@ -28,38 +25,32 @@ public class ParameterBuilderTests
   {
     this.SkipShortArray(list);
 
-    StructureValue theKey = new(key);
-    Structured theValue = list.Encode();
+    IGqlpValue result = ParameterBuilder.Build([.. list.Select(v => (key, v))]);
 
-    Structured result = ParameterBuilder.Build([.. list.Select(v => (key, v))]);
-
-    result.Map.ShouldSatisfyAllConditions(
-      m => m.ShouldContainKey(theKey),
-      m => m[theKey].ShouldBe(theValue));
+    result.ShouldBe(new GqlpMap([Field(key, list.Encode())]));
   }
 
   [Theory, RepeatData]
   public void Build_NestedPath_ReturnsNestedMap(string top, string key, string value)
   {
-    StructureValue theTop = new(top);
-    StructureValue theKey = new(key);
-    Structured theValue = new(theKey.DictWith(value.Encode()));
+    IGqlpValue result = ParameterBuilder.Build([(top + "." + key, value)]);
 
-    Structured result = ParameterBuilder.Build([(top + "." + key, value)]);
-
-    result.Map.ShouldSatisfyAllConditions(
-      m => m.ShouldContainKey(theTop),
-      m => m[theTop].ShouldBe(theValue));
+    result.ShouldBe(new GqlpMap([
+      Field(top, new GqlpMap([Field(key, value.Encode())])),
+    ]));
   }
 
   [Fact]
   public void Build_MixedPaths_ReturnsCorrectTree()
   {
-    Structured result = ParameterBuilder.Build([("filter.kinds", "Enum"), ("filter.names", "Foo")]);
+    GqlpMap result = (GqlpMap)ParameterBuilder.Build([("filter.kinds", "Enum"), ("filter.names", "Foo")]);
 
-    result.Map.ShouldContainKey(new StructureValue("filter"));
-    Structured filter = result.Map[new StructureValue("filter")];
-    filter.Map.ShouldContainKey(new StructureValue("kinds"));
-    filter.Map.ShouldContainKey(new StructureValue("names"));
+    result.Entries.Count.ShouldBe(1);
+    GqlpMap filter = result.Entries[new GqlpScalar("filter", isIdentifier: true)] as GqlpMap
+      ?? throw new InvalidOperationException("Expected filter map.");
+    filter.Entries.Keys.Select(k => k.Text).ShouldBe(["kinds", "names"]);
   }
+
+  private static KeyValuePair<IGqlpScalar, IGqlpValue> Field(string key, IGqlpValue value)
+    => new(new GqlpScalar(key, isIdentifier: key.IsIdentifier()), value);
 }

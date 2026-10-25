@@ -9,22 +9,22 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_param_Input;
 
 internal class testGnrcAltParamInpEncoder : IEncoder<ItestGnrcAltParamInpObject>
 {
-  public Structured Encode(ItestGnrcAltParamInpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestGnrcAltParamInpObject input)
+    => new GqlpUnit();
 
   internal static testGnrcAltParamInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testRefGnrcAltParamInpEncoder<TRef> : IEncoder<ItestRefGnrcAltParamInpObject<TRef>>
 {
-  public Structured Encode(ItestRefGnrcAltParamInpObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestRefGnrcAltParamInpObject<TRef> input)
+    => new GqlpUnit();
 }
 
 internal class testAltGnrcAltParamInpEncoder : IEncoder<ItestAltGnrcAltParamInpObject>
 {
-  public Structured Encode(ItestAltGnrcAltParamInpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestAltGnrcAltParamInpObject input)
+    => new GqlpUnit()
       .Add("alt", input.Alt.Encode());
 
   internal static testAltGnrcAltParamInpEncoder Factory(IEncoderRepository _) => new();

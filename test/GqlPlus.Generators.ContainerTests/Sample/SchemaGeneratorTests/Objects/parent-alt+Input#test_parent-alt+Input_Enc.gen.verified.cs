@@ -12,7 +12,7 @@ internal class testPrntAltInpEncoder(
 ) : IEncoder<ItestPrntAltInpObject>
 {
   private readonly Encoder<ItestRefPrntAltInpObject> _itestRefPrntAltInp = encoders.EncoderFor<ItestRefPrntAltInpObject>();
-  public Structured Encode(ItestPrntAltInpObject input)
+  public IGqlpValue Encode(ItestPrntAltInpObject input)
     => _itestRefPrntAltInp.Encode(input);
 
   internal static testPrntAltInpEncoder Factory(IEncoderRepository r) => new(r);
@@ -20,8 +20,8 @@ internal class testPrntAltInpEncoder(
 
 internal class testRefPrntAltInpEncoder : IEncoder<ItestRefPrntAltInpObject>
 {
-  public Structured Encode(ItestRefPrntAltInpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestRefPrntAltInpObject input)
+    => new GqlpUnit()
       .Add("parent", input.Parent.Encode());
 
   internal static testRefPrntAltInpEncoder Factory(IEncoderRepository _) => new();

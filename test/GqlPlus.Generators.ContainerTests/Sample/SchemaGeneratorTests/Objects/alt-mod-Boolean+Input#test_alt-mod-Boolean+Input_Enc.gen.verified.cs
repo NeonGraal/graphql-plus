@@ -9,16 +9,16 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_Boolean_Input;
 
 internal class testAltModBoolInpEncoder : IEncoder<ItestAltModBoolInpObject>
 {
-  public Structured Encode(ItestAltModBoolInpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestAltModBoolInpObject input)
+    => new GqlpUnit();
 
   internal static testAltModBoolInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testAltAltModBoolInpEncoder : IEncoder<ItestAltAltModBoolInpObject>
 {
-  public Structured Encode(ItestAltAltModBoolInpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestAltAltModBoolInpObject input)
+    => new GqlpUnit()
       .Add("alt", input.Alt.Encode());
 
   internal static testAltAltModBoolInpEncoder Factory(IEncoderRepository _) => new();

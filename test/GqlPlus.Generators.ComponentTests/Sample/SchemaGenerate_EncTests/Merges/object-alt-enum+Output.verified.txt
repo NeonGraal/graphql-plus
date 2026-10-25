@@ -13,8 +13,8 @@ namespace Components.Gqlp_Schema_object_alt_enum_Output;
 
 internal class CmptObjAltEnumOutpEncoder : IEncoder<ICmptObjAltEnumOutpObject>
 {
-  public Structured Encode(ICmptObjAltEnumOutpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptObjAltEnumOutpObject input)
+    => new GqlpUnit();
 
   internal static CmptObjAltEnumOutpEncoder Factory(IEncoderRepository _) => new();
 }

@@ -13,16 +13,16 @@ namespace Components.Gqlp_Schema_alt_mod_Boolean_Input;
 
 internal class CmptAltModBoolInpEncoder : IEncoder<ICmptAltModBoolInpObject>
 {
-  public Structured Encode(ICmptAltModBoolInpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptAltModBoolInpObject input)
+    => new GqlpUnit();
 
   internal static CmptAltModBoolInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptAltAltModBoolInpEncoder : IEncoder<ICmptAltAltModBoolInpObject>
 {
-  public Structured Encode(ICmptAltAltModBoolInpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptAltAltModBoolInpObject input)
+    => new GqlpUnit()
       .Add("alt", input.Alt.Encode());
 
   internal static CmptAltAltModBoolInpEncoder Factory(IEncoderRepository _) => new();

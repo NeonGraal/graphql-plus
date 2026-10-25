@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_domain_enum_exclude_parent;
 
 internal class CmptDmnEnumExclPrntEncoder : IEncoder<ICmptDmnEnumExclPrnt>
 {
-  public Structured Encode(ICmptDmnEnumExclPrnt input)
+  public IGqlpValue Encode(ICmptDmnEnumExclPrnt input)
     => input.Value?.EncodeEnum("DmnEnumExclPrnt")!;
 
   internal static CmptDmnEnumExclPrntEncoder Factory(IEncoderRepository _) => new();
@@ -22,7 +22,7 @@ internal class CmptDmnEnumExclPrntEncoder : IEncoder<ICmptDmnEnumExclPrnt>
 
 internal class CmptEnumDmnEnumExclPrntEncoder : IEncoder<CmptEnumDmnEnumExclPrnt>
 {
-  public Structured Encode(CmptEnumDmnEnumExclPrnt input)
+  public IGqlpValue Encode(CmptEnumDmnEnumExclPrnt input)
     => input.EncodeEnum("EnumDmnEnumExclPrnt");
 
   internal static CmptEnumDmnEnumExclPrntEncoder Factory(IEncoderRepository _) => new();
@@ -30,7 +30,7 @@ internal class CmptEnumDmnEnumExclPrntEncoder : IEncoder<CmptEnumDmnEnumExclPrnt
 
 internal class CmptPrntDmnEnumExclPrntEncoder : IEncoder<CmptPrntDmnEnumExclPrnt>
 {
-  public Structured Encode(CmptPrntDmnEnumExclPrnt input)
+  public IGqlpValue Encode(CmptPrntDmnEnumExclPrnt input)
     => input.EncodeEnum("PrntDmnEnumExclPrnt");
 
   internal static CmptPrntDmnEnumExclPrntEncoder Factory(IEncoderRepository _) => new();

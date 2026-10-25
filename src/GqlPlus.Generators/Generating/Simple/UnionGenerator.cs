@@ -80,8 +80,8 @@ internal sealed class UnionEncoderGenerator
     if (members.Length == 0) {
       context.Write($"internal class {typeName}Encoder : IEncoder<{interfaceName}>");
       context.Write("{");
-      context.Write($"  public Structured Encode({interfaceName} input)");
-      context.Write("    => Structured.Empty();");
+      context.Write($"  public IGqlpValue Encode({interfaceName} input)");
+      context.Write("    => new GqlpUnit();");
       context.Write("");
       context.Write($"  internal static {typeName}Encoder Factory(IEncoderRepository _) => new();");
       context.Write("}");
@@ -100,7 +100,7 @@ internal sealed class UnionEncoderGenerator
       context.Write($"  private readonly Encoder<{memberCsType}> {varName} = encoders.EncoderFor<{memberCsType}>();");
     }
 
-    context.Write($"  public Structured Encode({interfaceName} input)");
+    context.Write($"  public IGqlpValue Encode({interfaceName} input)");
     string encoderPrefix = "    => ";
     foreach (MapPair<string> member in members) {
       string memberCsType = context.TypeName(member.Value, "I");
@@ -109,7 +109,7 @@ internal sealed class UnionEncoderGenerator
       encoderPrefix = "     : ";
     }
 
-    context.Write("     : Structured.Empty();");
+    context.Write("     : new GqlpUnit();");
     context.Write("");
     context.Write($"  internal static {typeName}Encoder Factory(IEncoderRepository r) => new(r);");
     context.Write("}");

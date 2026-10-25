@@ -124,9 +124,9 @@ internal static class JsonTestHelpers
     JsonSerializerOptions? options = null
   ) : IConvertTestsBase
   {
-    public Structured ConvertFrom(string[] input)
+    public IGqlpValue ConvertFrom(string[] input)
       => input.FromJson();
-    public string[] ConvertTo(Structured model)
+    public string[] ConvertTo(IGqlpValue model)
       => model.ToJson(options).ToLines();
   }
 }

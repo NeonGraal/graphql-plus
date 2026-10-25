@@ -12,8 +12,8 @@ internal class testObjCnstDualEncoder<TType>(
 ) : IEncoder<ItestObjCnstDualObject<TType>>
 {
   private readonly Encoder<TType> _type = encoders.EncoderFor<TType>();
-  public Structured Encode(ItestObjCnstDualObject<TType> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestObjCnstDualObject<TType> input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _type)
       .AddEncoded("str", input.Str, _type);
 }

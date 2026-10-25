@@ -56,7 +56,7 @@ public class CodecRepositoryTests(
       .ShouldNotBeNull()
       .DecoderFor<INameFilterDecoder, string>();
 
-    IValue input = "Test".Encode();
+    IValue input = new ScalarValue("Test");
 
     // Act
     IMessages result = factory.Decode(input, out string? output);
@@ -80,7 +80,7 @@ public class CodecRepositoryTests(
       .ShouldNotBeNull()
       .DecoderFor<TypeFilterModel>();
 
-    IValue input = "Test".Encode();
+    IValue input = new ScalarValue("Test");
 
     // Act
     IMessages result = factory.Decode(input, out TypeFilterModel? output);
@@ -107,7 +107,7 @@ public class CodecRepositoryTests(
     SchemaModel input = new("Test", "");
 
     // Act
-    Structured result = factory.Encode(input);
+    IGqlpValue result = factory.Encode(input);
 
     // Assert
     result.ShouldNotBeNull();

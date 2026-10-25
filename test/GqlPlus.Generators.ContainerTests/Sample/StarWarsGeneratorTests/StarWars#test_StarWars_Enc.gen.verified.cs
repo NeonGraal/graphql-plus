@@ -14,8 +14,8 @@ internal class testQueryEncoder(
   private readonly Encoder<ItestCharacter> _itestCharacter = encoders.EncoderFor<ItestCharacter>();
   private readonly Encoder<ItestHuman> _itestHuman = encoders.EncoderFor<ItestHuman>();
   private readonly Encoder<ItestDroid> _itestDroid = encoders.EncoderFor<ItestDroid>();
-  public Structured Encode(ItestQueryObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestQueryObject input)
+    => new GqlpUnit()
       .AddEncoded("hero", input.Hero(), _itestCharacter)
       .AddEncoded("human", input.Human(), _itestHuman)
       .AddEncoded("droid", input.Droid(), _itestDroid)
@@ -26,7 +26,7 @@ internal class testQueryEncoder(
 
 internal class testEpisodeEncoder : IEncoder<testEpisode>
 {
-  public Structured Encode(testEpisode input)
+  public IGqlpValue Encode(testEpisode input)
     => input.EncodeEnum("Episode");
 
   internal static testEpisodeEncoder Factory(IEncoderRepository _) => new();
@@ -34,7 +34,7 @@ internal class testEpisodeEncoder : IEncoder<testEpisode>
 
 internal class testIdEncoder : IEncoder<ItestId>
 {
-  public Structured Encode(ItestId input)
+  public IGqlpValue Encode(ItestId input)
     => input.Value!.Encode();
 
   internal static testIdEncoder Factory(IEncoderRepository _) => new();
@@ -45,8 +45,8 @@ internal class testRoleEncoder(
 ) : IEncoder<ItestRoleObject>
 {
   private readonly Encoder<ItestId> _itestId = encoders.EncoderFor<ItestId>();
-  public Structured Encode(ItestRoleObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestRoleObject input)
+    => new GqlpUnit()
       .AddEncoded("id", input.Id, _itestId)
       .Add("name", input.Name.Encode())
       .Add("appearsIn", input.AppearsIn.Encode());
@@ -60,7 +60,7 @@ internal class testAssociateEncoder(
 {
   private readonly Encoder<ItestRoleObject> _itestRole = encoders.EncoderFor<ItestRoleObject>();
   private readonly Encoder<ItestRole> _itestRole2 = encoders.EncoderFor<ItestRole>();
-  public Structured Encode(ItestAssociateObject input)
+  public IGqlpValue Encode(ItestAssociateObject input)
     => _itestRole.Encode(input)
       .AddList("friends", input.Friends, _itestRole2);
 
@@ -72,7 +72,7 @@ internal class testHumanEncoder(
 ) : IEncoder<ItestHumanObject>
 {
   private readonly Encoder<ItestAssociateObject> _itestAssociate = encoders.EncoderFor<ItestAssociateObject>();
-  public Structured Encode(ItestHumanObject input)
+  public IGqlpValue Encode(ItestHumanObject input)
     => _itestAssociate.Encode(input)
       .AddIf(input.HomePlanet is not null, onTrue: t => t.Add("homePlanet", input.HomePlanet!.Encode()));
 
@@ -84,7 +84,7 @@ internal class testDroidEncoder(
 ) : IEncoder<ItestDroidObject>
 {
   private readonly Encoder<ItestAssociateObject> _itestAssociate = encoders.EncoderFor<ItestAssociateObject>();
-  public Structured Encode(ItestDroidObject input)
+  public IGqlpValue Encode(ItestDroidObject input)
     => _itestAssociate.Encode(input)
       .Add("primaryFunction", input.PrimaryFunction.Encode());
 
@@ -93,8 +93,8 @@ internal class testDroidEncoder(
 
 internal class testCharacterEncoder : IEncoder<ItestCharacterObject>
 {
-  public Structured Encode(ItestCharacterObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCharacterObject input)
+    => new GqlpUnit();
 
   internal static testCharacterEncoder Factory(IEncoderRepository _) => new();
 }

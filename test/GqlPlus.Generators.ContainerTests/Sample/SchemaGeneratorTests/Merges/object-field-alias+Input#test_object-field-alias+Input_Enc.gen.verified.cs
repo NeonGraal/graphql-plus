@@ -12,8 +12,8 @@ internal class testObjFieldAliasInpEncoder(
 ) : IEncoder<ItestObjFieldAliasInpObject>
 {
   private readonly Encoder<ItestFldObjFieldAliasInp> _itestFldObjFieldAliasInp = encoders.EncoderFor<ItestFldObjFieldAliasInp>();
-  public Structured Encode(ItestObjFieldAliasInpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestObjFieldAliasInpObject input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _itestFldObjFieldAliasInp);
 
   internal static testObjFieldAliasInpEncoder Factory(IEncoderRepository r) => new(r);
@@ -21,8 +21,8 @@ internal class testObjFieldAliasInpEncoder(
 
 internal class testFldObjFieldAliasInpEncoder : IEncoder<ItestFldObjFieldAliasInpObject>
 {
-  public Structured Encode(ItestFldObjFieldAliasInpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestFldObjFieldAliasInpObject input)
+    => new GqlpUnit();
 
   internal static testFldObjFieldAliasInpEncoder Factory(IEncoderRepository _) => new();
 }

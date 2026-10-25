@@ -12,9 +12,9 @@ internal class testUnionPrntEncoder(
 ) : IEncoder<ItestUnionPrnt>
 {
   private readonly Encoder<string> _string = encoders.EncoderFor<string>();
-  public Structured Encode(ItestUnionPrnt input)
+  public IGqlpValue Encode(ItestUnionPrnt input)
     => input.HasA<string>() ? _string.Encode(input.AsA<string>())
-     : Structured.Empty();
+     : new GqlpUnit();
 
   internal static testUnionPrntEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -24,9 +24,9 @@ internal class testPrntUnionPrntEncoder(
 ) : IEncoder<ItestPrntUnionPrnt>
 {
   private readonly Encoder<decimal> _number = encoders.EncoderFor<decimal>();
-  public Structured Encode(ItestPrntUnionPrnt input)
+  public IGqlpValue Encode(ItestPrntUnionPrnt input)
     => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
-     : Structured.Empty();
+     : new GqlpUnit();
 
   internal static testPrntUnionPrntEncoder Factory(IEncoderRepository r) => new(r);
 }

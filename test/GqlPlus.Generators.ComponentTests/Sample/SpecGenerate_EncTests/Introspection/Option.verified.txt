@@ -19,7 +19,7 @@ internal class Cmpt_SettingEncoder(
 {
   private readonly Encoder<ICmpt_NamedObject> _named = encoders.EncoderFor<ICmpt_NamedObject>();
   private readonly Encoder<GqlpValue> _gqlpValue = encoders.EncoderFor<GqlpValue>();
-  public Structured Encode(ICmpt_SettingObject input)
+  public IGqlpValue Encode(ICmpt_SettingObject input)
     => _named.Encode(input)
       .AddEncoded("value", input.Value, _gqlpValue);
 

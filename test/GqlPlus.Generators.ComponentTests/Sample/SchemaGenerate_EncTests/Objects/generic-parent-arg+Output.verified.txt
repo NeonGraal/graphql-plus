@@ -16,12 +16,12 @@ internal class CmptGnrcPrntArgOutpEncoder<TType>(
 ) : IEncoder<ICmptGnrcPrntArgOutpObject<TType>>
 {
   private readonly Encoder<ICmptRefGnrcPrntArgOutpObject<TType>> _refGnrcPrntArgOutp = encoders.EncoderFor<ICmptRefGnrcPrntArgOutpObject<TType>>();
-  public Structured Encode(ICmptGnrcPrntArgOutpObject<TType> input)
+  public IGqlpValue Encode(ICmptGnrcPrntArgOutpObject<TType> input)
     => _refGnrcPrntArgOutp.Encode(input);
 }
 
 internal class CmptRefGnrcPrntArgOutpEncoder<TRef> : IEncoder<ICmptRefGnrcPrntArgOutpObject<TRef>>
 {
-  public Structured Encode(ICmptRefGnrcPrntArgOutpObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptRefGnrcPrntArgOutpObject<TRef> input)
+    => new GqlpUnit();
 }

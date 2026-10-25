@@ -9,8 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_enum_Dual;
 
 internal class testCnstEnumDualEncoder : IEncoder<ItestCnstEnumDualObject>
 {
-  public Structured Encode(ItestCnstEnumDualObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCnstEnumDualObject input)
+    => new GqlpUnit();
 
   internal static testCnstEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
@@ -20,14 +20,14 @@ internal class testRefCnstEnumDualEncoder<TType>(
 ) : IEncoder<ItestRefCnstEnumDualObject<TType>>
 {
   private readonly Encoder<TType> _type = encoders.EncoderFor<TType>();
-  public Structured Encode(ItestRefCnstEnumDualObject<TType> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestRefCnstEnumDualObject<TType> input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _type);
 }
 
 internal class testEnumCnstEnumDualEncoder : IEncoder<testEnumCnstEnumDual>
 {
-  public Structured Encode(testEnumCnstEnumDual input)
+  public IGqlpValue Encode(testEnumCnstEnumDual input)
     => input.EncodeEnum("EnumCnstEnumDual");
 
   internal static testEnumCnstEnumDualEncoder Factory(IEncoderRepository _) => new();

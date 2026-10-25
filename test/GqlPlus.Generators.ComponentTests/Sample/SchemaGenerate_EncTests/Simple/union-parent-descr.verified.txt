@@ -16,9 +16,9 @@ internal class CmptUnionPrntDescrEncoder(
 ) : IEncoder<ICmptUnionPrntDescr>
 {
   private readonly Encoder<decimal> _number = encoders.EncoderFor<decimal>();
-  public Structured Encode(ICmptUnionPrntDescr input)
+  public IGqlpValue Encode(ICmptUnionPrntDescr input)
     => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
-     : Structured.Empty();
+     : new GqlpUnit();
 
   internal static CmptUnionPrntDescrEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -28,9 +28,9 @@ internal class CmptPrntUnionPrntDescrEncoder(
 ) : IEncoder<ICmptPrntUnionPrntDescr>
 {
   private readonly Encoder<decimal> _number = encoders.EncoderFor<decimal>();
-  public Structured Encode(ICmptPrntUnionPrntDescr input)
+  public IGqlpValue Encode(ICmptPrntUnionPrntDescr input)
     => input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
-     : Structured.Empty();
+     : new GqlpUnit();
 
   internal static CmptPrntUnionPrntDescrEncoder Factory(IEncoderRepository r) => new(r);
 }

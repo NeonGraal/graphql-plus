@@ -9,7 +9,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_boolean_same;
 
 internal class testDmnBoolSameEncoder : IEncoder<ItestDmnBoolSame>
 {
-  public Structured Encode(ItestDmnBoolSame input)
+  public IGqlpValue Encode(ItestDmnBoolSame input)
     => input.Value!.Encode();
 
   internal static testDmnBoolSameEncoder Factory(IEncoderRepository _) => new();

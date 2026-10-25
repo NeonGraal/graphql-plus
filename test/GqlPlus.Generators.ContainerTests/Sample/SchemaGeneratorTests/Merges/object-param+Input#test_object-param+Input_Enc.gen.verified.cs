@@ -13,8 +13,8 @@ internal class testObjParamInpEncoder<TTest,TType>(
 {
   private readonly Encoder<TTest> _test = encoders.EncoderFor<TTest>();
   private readonly Encoder<TType> _type = encoders.EncoderFor<TType>();
-  public Structured Encode(ItestObjParamInpObject<TTest,TType> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestObjParamInpObject<TTest,TType> input)
+    => new GqlpUnit()
       .AddEncoded("test", input.Test, _test)
       .AddEncoded("type", input.Type, _type);
 }

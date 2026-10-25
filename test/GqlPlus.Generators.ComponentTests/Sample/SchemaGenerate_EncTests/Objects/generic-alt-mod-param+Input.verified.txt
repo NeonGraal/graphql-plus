@@ -12,6 +12,6 @@ namespace Components.Gqlp_Schema_generic_alt_mod_param_Input;
 
 internal class CmptRefGnrcAltModParamInpEncoder<TRef,TMod> : IEncoder<ICmptRefGnrcAltModParamInpObject<TRef,TMod>>
 {
-  public Structured Encode(ICmptRefGnrcAltModParamInpObject<TRef,TMod> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptRefGnrcAltModParamInpObject<TRef,TMod> input)
+    => new GqlpUnit();
 }

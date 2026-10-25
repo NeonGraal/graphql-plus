@@ -12,7 +12,7 @@ internal class testCnstPrntDualGrndInpEncoder(
 ) : IEncoder<ItestCnstPrntDualGrndInpObject>
 {
   private readonly Encoder<ItestRefCnstPrntDualGrndInpObject<ItestAltCnstPrntDualGrndInp>> _itestRefCnstPrntDualGrndInp = encoders.EncoderFor<ItestRefCnstPrntDualGrndInpObject<ItestAltCnstPrntDualGrndInp>>();
-  public Structured Encode(ItestCnstPrntDualGrndInpObject input)
+  public IGqlpValue Encode(ItestCnstPrntDualGrndInpObject input)
     => _itestRefCnstPrntDualGrndInp.Encode(input);
 
   internal static testCnstPrntDualGrndInpEncoder Factory(IEncoderRepository r) => new(r);
@@ -20,14 +20,14 @@ internal class testCnstPrntDualGrndInpEncoder(
 
 internal class testRefCnstPrntDualGrndInpEncoder<TRef> : IEncoder<ItestRefCnstPrntDualGrndInpObject<TRef>>
 {
-  public Structured Encode(ItestRefCnstPrntDualGrndInpObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestRefCnstPrntDualGrndInpObject<TRef> input)
+    => new GqlpUnit();
 }
 
 internal class testGrndCnstPrntDualGrndInpEncoder : IEncoder<ItestGrndCnstPrntDualGrndInpObject>
 {
-  public Structured Encode(ItestGrndCnstPrntDualGrndInpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestGrndCnstPrntDualGrndInpObject input)
+    => new GqlpUnit();
 
   internal static testGrndCnstPrntDualGrndInpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -37,7 +37,7 @@ internal class testPrntCnstPrntDualGrndInpEncoder(
 ) : IEncoder<ItestPrntCnstPrntDualGrndInpObject>
 {
   private readonly Encoder<ItestGrndCnstPrntDualGrndInpObject> _itestGrndCnstPrntDualGrndInp = encoders.EncoderFor<ItestGrndCnstPrntDualGrndInpObject>();
-  public Structured Encode(ItestPrntCnstPrntDualGrndInpObject input)
+  public IGqlpValue Encode(ItestPrntCnstPrntDualGrndInpObject input)
     => _itestGrndCnstPrntDualGrndInp.Encode(input);
 
   internal static testPrntCnstPrntDualGrndInpEncoder Factory(IEncoderRepository r) => new(r);
@@ -48,7 +48,7 @@ internal class testAltCnstPrntDualGrndInpEncoder(
 ) : IEncoder<ItestAltCnstPrntDualGrndInpObject>
 {
   private readonly Encoder<ItestPrntCnstPrntDualGrndInpObject> _itestPrntCnstPrntDualGrndInp = encoders.EncoderFor<ItestPrntCnstPrntDualGrndInpObject>();
-  public Structured Encode(ItestAltCnstPrntDualGrndInpObject input)
+  public IGqlpValue Encode(ItestAltCnstPrntDualGrndInpObject input)
     => _itestPrntCnstPrntDualGrndInp.Encode(input)
       .Add("alt", input.Alt.Encode());
 

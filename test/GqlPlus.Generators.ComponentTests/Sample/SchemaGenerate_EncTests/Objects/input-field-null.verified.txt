@@ -16,8 +16,8 @@ internal class CmptInpFieldNullEncoder(
 ) : IEncoder<ICmptInpFieldNullObject>
 {
   private readonly Encoder<ICmptFldInpFieldNull> _fldInpFieldNull = encoders.EncoderFor<ICmptFldInpFieldNull>();
-  public Structured Encode(ICmptInpFieldNullObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptInpFieldNullObject input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _fldInpFieldNull);
 
   internal static CmptInpFieldNullEncoder Factory(IEncoderRepository r) => new(r);
@@ -25,8 +25,8 @@ internal class CmptInpFieldNullEncoder(
 
 internal class CmptFldInpFieldNullEncoder : IEncoder<ICmptFldInpFieldNullObject>
 {
-  public Structured Encode(ICmptFldInpFieldNullObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptFldInpFieldNullObject input)
+    => new GqlpUnit();
 
   internal static CmptFldInpFieldNullEncoder Factory(IEncoderRepository _) => new();
 }

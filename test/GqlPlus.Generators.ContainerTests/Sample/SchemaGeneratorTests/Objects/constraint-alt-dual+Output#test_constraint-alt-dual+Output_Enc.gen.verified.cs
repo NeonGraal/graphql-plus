@@ -9,22 +9,22 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_dual_Output;
 
 internal class testCnstAltDualOutpEncoder : IEncoder<ItestCnstAltDualOutpObject>
 {
-  public Structured Encode(ItestCnstAltDualOutpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCnstAltDualOutpObject input)
+    => new GqlpUnit();
 
   internal static testCnstAltDualOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testRefCnstAltDualOutpEncoder<TRef> : IEncoder<ItestRefCnstAltDualOutpObject<TRef>>
 {
-  public Structured Encode(ItestRefCnstAltDualOutpObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestRefCnstAltDualOutpObject<TRef> input)
+    => new GqlpUnit();
 }
 
 internal class testPrntCnstAltDualOutpEncoder : IEncoder<ItestPrntCnstAltDualOutpObject>
 {
-  public Structured Encode(ItestPrntCnstAltDualOutpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestPrntCnstAltDualOutpObject input)
+    => new GqlpUnit();
 
   internal static testPrntCnstAltDualOutpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -34,7 +34,7 @@ internal class testAltCnstAltDualOutpEncoder(
 ) : IEncoder<ItestAltCnstAltDualOutpObject>
 {
   private readonly Encoder<ItestPrntCnstAltDualOutpObject> _itestPrntCnstAltDualOutp = encoders.EncoderFor<ItestPrntCnstAltDualOutpObject>();
-  public Structured Encode(ItestAltCnstAltDualOutpObject input)
+  public IGqlpValue Encode(ItestAltCnstAltDualOutpObject input)
     => _itestPrntCnstAltDualOutp.Encode(input)
       .Add("alt", input.Alt.Encode());
 

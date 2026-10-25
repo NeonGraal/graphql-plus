@@ -12,7 +12,7 @@ internal class testPrntDualInpEncoder(
 ) : IEncoder<ItestPrntDualInpObject>
 {
   private readonly Encoder<ItestRefPrntDualInpObject> _itestRefPrntDualInp = encoders.EncoderFor<ItestRefPrntDualInpObject>();
-  public Structured Encode(ItestPrntDualInpObject input)
+  public IGqlpValue Encode(ItestPrntDualInpObject input)
     => _itestRefPrntDualInp.Encode(input);
 
   internal static testPrntDualInpEncoder Factory(IEncoderRepository r) => new(r);
@@ -20,8 +20,8 @@ internal class testPrntDualInpEncoder(
 
 internal class testRefPrntDualInpEncoder : IEncoder<ItestRefPrntDualInpObject>
 {
-  public Structured Encode(ItestRefPrntDualInpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestRefPrntDualInpObject input)
+    => new GqlpUnit()
       .Add("parent", input.Parent.Encode());
 
   internal static testRefPrntDualInpEncoder Factory(IEncoderRepository _) => new();

@@ -10,7 +10,7 @@ internal class SchemaEncoder(
   private readonly Encoder<BaseTypeModel> _types = encoders.EncoderFor<BaseTypeModel>();
   private readonly Encoder<SettingModel> _settings = encoders.EncoderFor<SettingModel>();
 
-  internal override Structured Encode(SchemaModel model)
+  internal override IGqlpValue Encode(SchemaModel model)
     => base.Encode(model)
       .AddMap("categories", model.GetCategories(default), _categories, "_Categories")
       .AddMap("directives", model.GetDirectives(default), _directives, "_Directives")

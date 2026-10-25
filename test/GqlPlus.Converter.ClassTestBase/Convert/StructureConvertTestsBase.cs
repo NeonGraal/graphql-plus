@@ -11,9 +11,9 @@ public abstract class StructureConvertTestsBase(IConvertTestsBase converters)
   public void ConvertFrom_List(string[] value)
   {
     string[] input = Expected_List(value);
-    Structured expected = AsList(value, AsValue);
+    IGqlpValue expected = AsList(value, AsValue);
 
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -28,9 +28,9 @@ public abstract class StructureConvertTestsBase(IConvertTestsBase converters)
     Assert.SkipWhen(value is null || MapDups(value), "Duplicate Keys in map");
 
     string[] input = Expected_Map(value);
-    Structured expected = AsMap(value, AsValue);
+    IGqlpValue expected = AsMap(value, AsValue);
 
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -45,9 +45,9 @@ public abstract class StructureConvertTestsBase(IConvertTestsBase converters)
     Assert.SkipWhen(value is null || MapDups(value), "Duplicate Keys in map");
 
     string[] input = Expected_MapUntagged(value);
-    Structured expected = AsMap(value, v => v.Encode());
+    IGqlpValue expected = AsMap(value, v => v.Encode());
 
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -60,9 +60,9 @@ public abstract class StructureConvertTestsBase(IConvertTestsBase converters)
   public void ConvertFrom_ListOfLists(string[][] value)
   {
     string[] input = Expected_ListOfLists(value);
-    Structured expected = AsList(value, v => AsList(v, AsValue));
+    IGqlpValue expected = AsList(value, v => AsList(v, AsValue));
 
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -77,9 +77,9 @@ public abstract class StructureConvertTestsBase(IConvertTestsBase converters)
     Assert.SkipWhen(value is null || MapDups(value), "Duplicate Keys in map");
 
     string[] input = Expected_MapOfLists(value);
-    Structured expected = AsMap(value, v => AsList(v, AsValue));
+    IGqlpValue expected = AsMap(value, v => AsList(v, AsValue));
 
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -94,9 +94,9 @@ public abstract class StructureConvertTestsBase(IConvertTestsBase converters)
     Assert.SkipWhen(value is null || value.Any(v => MapDups(v)), "Duplicate Keys in map");
 
     string[] input = Expected_ListOfMaps(value);
-    Structured expected = AsList(value, v => AsMap(v, AsValue));
+    IGqlpValue expected = AsList(value, v => AsMap(v, AsValue));
 
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -111,9 +111,9 @@ public abstract class StructureConvertTestsBase(IConvertTestsBase converters)
     Assert.SkipWhen(value is null || MapDups(value) || value.Any(v => MapDups(v.Value)), "Duplicate Keys in map");
 
     string[] input = Expected_MapOfMaps(value);
-    Structured expected = AsMap(value, v => AsMap(v, AsValue));
+    IGqlpValue expected = AsMap(value, v => AsMap(v, AsValue));
 
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -125,10 +125,10 @@ public abstract class StructureConvertTestsBase(IConvertTestsBase converters)
   [Theory, RepeatData]
   public void RoundTrip_List(string[] value)
   {
-    Structured expected = AsList(value, AsValue);
+    IGqlpValue expected = AsList(value, AsValue);
 
     string[] input = Converters.ConvertTo(expected);
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -142,10 +142,10 @@ public abstract class StructureConvertTestsBase(IConvertTestsBase converters)
   {
     Assert.SkipWhen(value is null || MapDups(value), "Duplicate Keys in map");
 
-    Structured expected = AsMap(value, AsValue);
+    IGqlpValue expected = AsMap(value, AsValue);
 
     string[] input = Converters.ConvertTo(expected);
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -159,10 +159,10 @@ public abstract class StructureConvertTestsBase(IConvertTestsBase converters)
   {
     Assert.SkipWhen(value is null || MapDups(value), "Duplicate Keys in map");
 
-    Structured expected = AsMap(value, v => v.Encode());
+    IGqlpValue expected = AsMap(value, v => v.Encode());
 
     string[] input = Converters.ConvertTo(expected);
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -174,10 +174,10 @@ public abstract class StructureConvertTestsBase(IConvertTestsBase converters)
   [Theory, RepeatData]
   public void RoundTrip_ListOfLists(string[][] value)
   {
-    Structured expected = AsList(value, v => AsList(v, AsValue));
+    IGqlpValue expected = AsList(value, v => AsList(v, AsValue));
 
     string[] input = Converters.ConvertTo(expected);
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -191,10 +191,10 @@ public abstract class StructureConvertTestsBase(IConvertTestsBase converters)
   {
     Assert.SkipWhen(value is null || MapDups(value), "Duplicate Keys in map");
 
-    Structured expected = AsMap(value, v => AsList(v, AsValue));
+    IGqlpValue expected = AsMap(value, v => AsList(v, AsValue));
 
     string[] input = Converters.ConvertTo(expected);
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -208,10 +208,10 @@ public abstract class StructureConvertTestsBase(IConvertTestsBase converters)
   {
     Assert.SkipWhen(value is null || value.Any(v => MapDups(v)), "Duplicate Keys in map");
 
-    Structured expected = AsList(value, v => AsMap(v, AsValue));
+    IGqlpValue expected = AsList(value, v => AsMap(v, AsValue));
 
     string[] input = Converters.ConvertTo(expected);
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }
@@ -225,10 +225,10 @@ public abstract class StructureConvertTestsBase(IConvertTestsBase converters)
   {
     Assert.SkipWhen(value is null || MapDups(value) || value.Any(v => MapDups(v.Value)), "Duplicate Keys in map");
 
-    Structured expected = AsMap(value, v => AsMap(v, AsValue));
+    IGqlpValue expected = AsMap(value, v => AsMap(v, AsValue));
 
     string[] input = Converters.ConvertTo(expected);
-    Structured result = Converters.ConvertFrom(input);
+    IGqlpValue result = Converters.ConvertFrom(input);
 
     result.ShouldBe(expected);
   }

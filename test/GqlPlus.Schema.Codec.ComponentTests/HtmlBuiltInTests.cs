@@ -42,7 +42,7 @@ public class HtmlBuiltInTests(ComponentFixture<SchemaCodecTestServices> fixture)
       ["Internal"] = BuiltIn.Internal.Select(t => t.Name),
     };
 
-    Structured result = new Map<Structured>() {
+    IGqlpValue result = new Map<IGqlpValue>() {
       ["title"] = "BuiltIn".Encode(),
       ["items"] = _sections.Links("!"),
       ["groups"] = groups.Links().Encode(),
@@ -65,7 +65,7 @@ public class HtmlBuiltInTests(ComponentFixture<SchemaCodecTestServices> fixture)
   public void ModelAllBasicTypes_Default_SucceedsWithoutErrors()
   {
     IModelsContext context = encoder.Context();
-    Structured result = encoder.EncodeAst(_basicSchema, context);
+    IGqlpValue result = encoder.EncodeAst(_basicSchema, context);
 
     context.Errors.ShouldBeEmpty();
   }
@@ -74,7 +74,7 @@ public class HtmlBuiltInTests(ComponentFixture<SchemaCodecTestServices> fixture)
   public void ModelAllInternalTypes_Default_SucceedsWithoutErrors()
   {
     IModelsContext context = encoder.Context();
-    Structured result = encoder.EncodeAst(_internalSchema, context, _basicSchema);
+    IGqlpValue result = encoder.EncodeAst(_internalSchema, context, _basicSchema);
 
     context.Errors.ShouldBeEmpty();
   }
@@ -92,7 +92,7 @@ public class HtmlBuiltInTests(ComponentFixture<SchemaCodecTestServices> fixture)
     IAstSchema extrasSchema = extras.Where(e => e != type).Schema();
 
     IModelsContext context = encoder.Context();
-    Structured result = encoder.EncodeAst(schema, context, extrasSchema);
+    IGqlpValue result = encoder.EncodeAst(schema, context, extrasSchema);
 
     context.Errors.ShouldBeEmpty(type?.Label);
   }
@@ -110,7 +110,7 @@ public class HtmlBuiltInTests(ComponentFixture<SchemaCodecTestServices> fixture)
 
   private async Task RenderSchemaHtml(IAstSchema schema, string filename, string section = "", IAstSchema? extras = null)
   {
-    Structured result = encoder.EncodeAst(schema, encoder.Context(), extras);
+    IGqlpValue result = encoder.EncodeAst(schema, encoder.Context(), extras);
 
     await result.ThrowIfNull().Add("title", filename.Encode()).WriteHtmlFileAsync("BuiltIn" + section.Prefixed("/"), filename);
   }

@@ -12,7 +12,7 @@ internal class testGnrcDescrInpEncoder<TType>(
 ) : IEncoder<ItestGnrcDescrInpObject<TType>>
 {
   private readonly Encoder<TType> _type = encoders.EncoderFor<TType>();
-  public Structured Encode(ItestGnrcDescrInpObject<TType> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestGnrcDescrInpObject<TType> input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _type);
 }

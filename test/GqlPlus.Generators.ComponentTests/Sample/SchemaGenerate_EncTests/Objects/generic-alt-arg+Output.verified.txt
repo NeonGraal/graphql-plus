@@ -13,12 +13,12 @@ namespace Components.Gqlp_Schema_generic_alt_arg_Output;
 
 internal class CmptGnrcAltArgOutpEncoder<TType> : IEncoder<ICmptGnrcAltArgOutpObject<TType>>
 {
-  public Structured Encode(ICmptGnrcAltArgOutpObject<TType> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptGnrcAltArgOutpObject<TType> input)
+    => new GqlpUnit();
 }
 
 internal class CmptRefGnrcAltArgOutpEncoder<TRef> : IEncoder<ICmptRefGnrcAltArgOutpObject<TRef>>
 {
-  public Structured Encode(ICmptRefGnrcAltArgOutpObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptRefGnrcAltArgOutpObject<TRef> input)
+    => new GqlpUnit();
 }

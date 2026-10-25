@@ -9,22 +9,22 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_obj_Input;
 
 internal class testCnstAltObjInpEncoder : IEncoder<ItestCnstAltObjInpObject>
 {
-  public Structured Encode(ItestCnstAltObjInpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCnstAltObjInpObject input)
+    => new GqlpUnit();
 
   internal static testCnstAltObjInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testRefCnstAltObjInpEncoder<TRef> : IEncoder<ItestRefCnstAltObjInpObject<TRef>>
 {
-  public Structured Encode(ItestRefCnstAltObjInpObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestRefCnstAltObjInpObject<TRef> input)
+    => new GqlpUnit();
 }
 
 internal class testPrntCnstAltObjInpEncoder : IEncoder<ItestPrntCnstAltObjInpObject>
 {
-  public Structured Encode(ItestPrntCnstAltObjInpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestPrntCnstAltObjInpObject input)
+    => new GqlpUnit();
 
   internal static testPrntCnstAltObjInpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -34,7 +34,7 @@ internal class testAltCnstAltObjInpEncoder(
 ) : IEncoder<ItestAltCnstAltObjInpObject>
 {
   private readonly Encoder<ItestPrntCnstAltObjInpObject> _itestPrntCnstAltObjInp = encoders.EncoderFor<ItestPrntCnstAltObjInpObject>();
-  public Structured Encode(ItestAltCnstAltObjInpObject input)
+  public IGqlpValue Encode(ItestAltCnstAltObjInpObject input)
     => _itestPrntCnstAltObjInp.Encode(input)
       .Add("alt", input.Alt.Encode());
 

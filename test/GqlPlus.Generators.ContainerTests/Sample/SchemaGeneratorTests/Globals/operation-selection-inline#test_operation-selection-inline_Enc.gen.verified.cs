@@ -12,8 +12,8 @@ internal class testCatOprSlctInlnEncoder(
 ) : IEncoder<ItestCatOprSlctInlnObject>
 {
   private readonly Encoder<ItestAddrOprSlctInln> _itestAddrOprSlctInln = encoders.EncoderFor<ItestAddrOprSlctInln>();
-  public Structured Encode(ItestCatOprSlctInlnObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestCatOprSlctInlnObject input)
+    => new GqlpUnit()
       .Add("first", input.First.Encode())
       .Add("last", input.Last.Encode())
       .AddEncoded("address", input.Address, _itestAddrOprSlctInln);
@@ -23,16 +23,16 @@ internal class testCatOprSlctInlnEncoder(
 
 internal class testAddrOprSlctInlnEncoder : IEncoder<ItestAddrOprSlctInlnObject>
 {
-  public Structured Encode(ItestAddrOprSlctInlnObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestAddrOprSlctInlnObject input)
+    => new GqlpUnit();
 
   internal static testAddrOprSlctInlnEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testFullOprSlctInlnEncoder : IEncoder<ItestFullOprSlctInlnObject>
 {
-  public Structured Encode(ItestFullOprSlctInlnObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestFullOprSlctInlnObject input)
+    => new GqlpUnit()
       .Add("street", input.Street.Encode())
       .Add("city", input.City.Encode())
       .Add("country", input.Country.Encode());

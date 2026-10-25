@@ -16,8 +16,8 @@ internal class CmptObjParamDupDualEncoder<TTest>(
 ) : IEncoder<ICmptObjParamDupDualObject<TTest>>
 {
   private readonly Encoder<TTest> _test = encoders.EncoderFor<TTest>();
-  public Structured Encode(ICmptObjParamDupDualObject<TTest> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptObjParamDupDualObject<TTest> input)
+    => new GqlpUnit()
       .AddEncoded("test", input.Test, _test)
       .AddEncoded("type", input.Type, _test);
 }

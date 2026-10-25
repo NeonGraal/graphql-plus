@@ -14,8 +14,8 @@ namespace Components.Gqlp_Schema_category_alias;
 
 internal class CmptCtgrAliasEncoder : IEncoder<ICmptCtgrAliasObject>
 {
-  public Structured Encode(ICmptCtgrAliasObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCtgrAliasObject input)
+    => new GqlpUnit();
 
   internal static CmptCtgrAliasEncoder Factory(IEncoderRepository _) => new();
 }

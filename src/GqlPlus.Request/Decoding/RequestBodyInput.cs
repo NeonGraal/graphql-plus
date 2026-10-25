@@ -4,7 +4,7 @@ public record RequestBodyInput(
   string? Category,
   string? Operation,
   string Definition,
-  Structured? Parameters
+  IGqlpValue? Parameters
 )
 {
   public IMessages Errors { get; init; } = Messages.New;

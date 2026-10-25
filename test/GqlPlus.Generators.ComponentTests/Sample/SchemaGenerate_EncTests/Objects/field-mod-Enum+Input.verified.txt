@@ -13,15 +13,15 @@ namespace Components.Gqlp_Schema_field_mod_Enum_Input;
 
 internal class CmptFieldModEnumInpEncoder : IEncoder<ICmptFieldModEnumInpObject>
 {
-  public Structured Encode(ICmptFieldModEnumInpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptFieldModEnumInpObject input)
+    => new GqlpUnit();
 
   internal static CmptFieldModEnumInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptEnumFieldModEnumInpEncoder : IEncoder<CmptEnumFieldModEnumInp>
 {
-  public Structured Encode(CmptEnumFieldModEnumInp input)
+  public IGqlpValue Encode(CmptEnumFieldModEnumInp input)
     => input.EncodeEnum("EnumFieldModEnumInp");
 
   internal static CmptEnumFieldModEnumInpEncoder Factory(IEncoderRepository _) => new();

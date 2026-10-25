@@ -12,7 +12,7 @@ internal class testObjPrntOutpEncoder(
 ) : IEncoder<ItestObjPrntOutpObject>
 {
   private readonly Encoder<ItestRefObjPrntOutpObject> _itestRefObjPrntOutp = encoders.EncoderFor<ItestRefObjPrntOutpObject>();
-  public Structured Encode(ItestObjPrntOutpObject input)
+  public IGqlpValue Encode(ItestObjPrntOutpObject input)
     => _itestRefObjPrntOutp.Encode(input);
 
   internal static testObjPrntOutpEncoder Factory(IEncoderRepository r) => new(r);
@@ -20,8 +20,8 @@ internal class testObjPrntOutpEncoder(
 
 internal class testRefObjPrntOutpEncoder : IEncoder<ItestRefObjPrntOutpObject>
 {
-  public Structured Encode(ItestRefObjPrntOutpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestRefObjPrntOutpObject input)
+    => new GqlpUnit();
 
   internal static testRefObjPrntOutpEncoder Factory(IEncoderRepository _) => new();
 }

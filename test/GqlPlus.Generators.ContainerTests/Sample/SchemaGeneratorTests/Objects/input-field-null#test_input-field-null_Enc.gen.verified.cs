@@ -12,8 +12,8 @@ internal class testInpFieldNullEncoder(
 ) : IEncoder<ItestInpFieldNullObject>
 {
   private readonly Encoder<ItestFldInpFieldNull> _itestFldInpFieldNull = encoders.EncoderFor<ItestFldInpFieldNull>();
-  public Structured Encode(ItestInpFieldNullObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestInpFieldNullObject input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _itestFldInpFieldNull);
 
   internal static testInpFieldNullEncoder Factory(IEncoderRepository r) => new(r);
@@ -21,8 +21,8 @@ internal class testInpFieldNullEncoder(
 
 internal class testFldInpFieldNullEncoder : IEncoder<ItestFldInpFieldNullObject>
 {
-  public Structured Encode(ItestFldInpFieldNullObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestFldInpFieldNullObject input)
+    => new GqlpUnit();
 
   internal static testFldInpFieldNullEncoder Factory(IEncoderRepository _) => new();
 }

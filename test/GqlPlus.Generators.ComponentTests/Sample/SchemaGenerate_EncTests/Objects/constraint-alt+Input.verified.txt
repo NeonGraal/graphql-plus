@@ -12,6 +12,6 @@ namespace Components.Gqlp_Schema_constraint_alt_Input;
 
 internal class CmptCnstAltInpEncoder<TType> : IEncoder<ICmptCnstAltInpObject<TType>>
 {
-  public Structured Encode(ICmptCnstAltInpObject<TType> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCnstAltInpObject<TType> input)
+    => new GqlpUnit();
 }

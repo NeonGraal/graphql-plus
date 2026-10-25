@@ -12,8 +12,8 @@ namespace Components.Gqlp_Schema_field_simple_Input;
 
 internal class CmptFieldSmplInpEncoder : IEncoder<ICmptFieldSmplInpObject>
 {
-  public Structured Encode(ICmptFieldSmplInpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptFieldSmplInpObject input)
+    => new GqlpUnit()
       .Add("field", input.Field.Encode());
 
   internal static CmptFieldSmplInpEncoder Factory(IEncoderRepository _) => new();

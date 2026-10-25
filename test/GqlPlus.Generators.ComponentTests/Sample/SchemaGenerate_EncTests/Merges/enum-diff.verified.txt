@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_enum_diff;
 
 internal class CmptEnumDiffEncoder : IEncoder<CmptEnumDiff>
 {
-  public Structured Encode(CmptEnumDiff input)
+  public IGqlpValue Encode(CmptEnumDiff input)
     => input.EncodeEnum("EnumDiff");
 
   internal static CmptEnumDiffEncoder Factory(IEncoderRepository _) => new();

@@ -13,15 +13,15 @@ namespace Components.Gqlp_Schema_field_mod_Enum_Dual;
 
 internal class CmptFieldModEnumDualEncoder : IEncoder<ICmptFieldModEnumDualObject>
 {
-  public Structured Encode(ICmptFieldModEnumDualObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptFieldModEnumDualObject input)
+    => new GqlpUnit();
 
   internal static CmptFieldModEnumDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptEnumFieldModEnumDualEncoder : IEncoder<CmptEnumFieldModEnumDual>
 {
-  public Structured Encode(CmptEnumFieldModEnumDual input)
+  public IGqlpValue Encode(CmptEnumFieldModEnumDual input)
     => input.EncodeEnum("EnumFieldModEnumDual");
 
   internal static CmptEnumFieldModEnumDualEncoder Factory(IEncoderRepository _) => new();

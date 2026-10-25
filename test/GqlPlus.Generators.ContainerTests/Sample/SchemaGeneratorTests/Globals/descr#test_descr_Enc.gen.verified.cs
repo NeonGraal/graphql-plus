@@ -9,8 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_descr;
 
 internal class testDescrEncoder : IEncoder<ItestDescrObject>
 {
-  public Structured Encode(ItestDescrObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestDescrObject input)
+    => new GqlpUnit();
 
   internal static testDescrEncoder Factory(IEncoderRepository _) => new();
 }

@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_enum_same_parent;
 
 internal class CmptEnumSamePrntEncoder : IEncoder<CmptEnumSamePrnt>
 {
-  public Structured Encode(CmptEnumSamePrnt input)
+  public IGqlpValue Encode(CmptEnumSamePrnt input)
     => input.EncodeEnum("EnumSamePrnt");
 
   internal static CmptEnumSamePrntEncoder Factory(IEncoderRepository _) => new();
@@ -22,7 +22,7 @@ internal class CmptEnumSamePrntEncoder : IEncoder<CmptEnumSamePrnt>
 
 internal class CmptPrntEnumSamePrntEncoder : IEncoder<CmptPrntEnumSamePrnt>
 {
-  public Structured Encode(CmptPrntEnumSamePrnt input)
+  public IGqlpValue Encode(CmptPrntEnumSamePrnt input)
     => input.EncodeEnum("PrntEnumSamePrnt");
 
   internal static CmptPrntEnumSamePrntEncoder Factory(IEncoderRepository _) => new();

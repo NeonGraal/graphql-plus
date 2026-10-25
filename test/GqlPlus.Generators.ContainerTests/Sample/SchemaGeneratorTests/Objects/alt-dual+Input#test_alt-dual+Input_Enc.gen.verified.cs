@@ -9,16 +9,16 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_dual_Input;
 
 internal class testAltDualInpEncoder : IEncoder<ItestAltDualInpObject>
 {
-  public Structured Encode(ItestAltDualInpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestAltDualInpObject input)
+    => new GqlpUnit();
 
   internal static testAltDualInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testObjDualAltDualInpEncoder : IEncoder<ItestObjDualAltDualInpObject>
 {
-  public Structured Encode(ItestObjDualAltDualInpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestObjDualAltDualInpObject input)
+    => new GqlpUnit()
       .Add("alt", input.Alt.Encode());
 
   internal static testObjDualAltDualInpEncoder Factory(IEncoderRepository _) => new();

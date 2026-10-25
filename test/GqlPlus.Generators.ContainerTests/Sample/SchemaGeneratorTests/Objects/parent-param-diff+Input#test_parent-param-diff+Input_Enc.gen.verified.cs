@@ -13,13 +13,13 @@ internal class testPrntParamDiffInpEncoder<TA>(
 {
   private readonly Encoder<ItestRefPrntParamDiffInpObject<TA>> _itestRefPrntParamDiffInp = encoders.EncoderFor<ItestRefPrntParamDiffInpObject<TA>>();
   private readonly Encoder<TA> _a = encoders.EncoderFor<TA>();
-  public Structured Encode(ItestPrntParamDiffInpObject<TA> input)
+  public IGqlpValue Encode(ItestPrntParamDiffInpObject<TA> input)
     => _itestRefPrntParamDiffInp.Encode(input)
       .AddEncoded("field", input.Field, _a);
 }
 
 internal class testRefPrntParamDiffInpEncoder<TB> : IEncoder<ItestRefPrntParamDiffInpObject<TB>>
 {
-  public Structured Encode(ItestRefPrntParamDiffInpObject<TB> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestRefPrntParamDiffInpObject<TB> input)
+    => new GqlpUnit();
 }

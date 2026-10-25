@@ -3,76 +3,71 @@ namespace GqlPlus.Decoding;
 public class RequestBodyDecoder
   : IRequestBodyDecoder
 {
-  public RequestBodyInput Decode(Structured body)
+  public RequestBodyInput Decode(IGqlpValue body)
   {
-    if (body is null || body.IsEmpty || body.Value?.Boolean is not null || body.Value?.Number is not null) {
-      return new RequestBodyInput(null, null, "", null) {
-        Errors = Messages.New.Add("Request body must be a string, list, or map with a definition.".Error()),
-      };
+    if (body is null || body is GqlpNull or GqlpVoid or GqlpUnit
+        || body is GqlpScalar { Kind: GqlpScalarKind.Boolean or GqlpScalarKind.Number }) {
+      return InvalidBody();
     }
 
-    if (body.Value is { } value && !string.IsNullOrEmpty(value.Text)) {
-      return new RequestBodyInput(null, null, value.Text!, null);
+    if (body is GqlpScalar { Text: not null } scalar) {
+      return new RequestBodyInput(null, null, scalar.Text, null);
     }
 
-    if (body.List.Count > 0) {
-      return DecodeList(body.List);
+    if (body is GqlpList list) {
+      return DecodeList(list.Items);
     }
 
-    if (body.Map.Count > 0) {
-      return DecodeMap(body.Map);
+    if (body is GqlpMap map) {
+      return DecodeMap(map);
     }
 
-    return new RequestBodyInput(null, null, "", null) {
-      Errors = Messages.New.Add("Request body must be a string, list, or map with a definition.".Error()),
-    };
+    return InvalidBody();
   }
 
-  private static RequestBodyInput DecodeList(IList<Structured> list)
+  private static RequestBodyInput DecodeList(IReadOnlyList<IGqlpValue> list)
   {
-    string? definition = list.Count > 0 ? list[0].Value?.Text : null;
+    string? definition = list.Count > 0 && list[0] is GqlpScalar { Text: not null } first ? first.Text : null;
 
-    if (definition is null || definition.Length == 0) {
+    if (string.IsNullOrEmpty(definition)) {
       return new RequestBodyInput(null, null, "", null) {
         Errors = Messages.New.Add("List request body must have a string definition as first element.".Error()),
       };
     }
 
-    Structured? parameters = list.Count switch {
+    IGqlpValue? parameters = list.Count switch {
       2 => list[1],
-      > 2 => new Structured(list.Skip(1)),
+      > 2 => new GqlpList(list.Skip(1)),
       _ => null,
     };
 
-    return new RequestBodyInput(null, null, definition, parameters);
+    return new RequestBodyInput(null, null, definition!, parameters);
   }
 
-  private static RequestBodyInput DecodeMap(IDictionary<StructureValue, Structured> map)
+  private static RequestBodyInput DecodeMap(GqlpMap map)
   {
     string? definition = GetStringValue(map, "definition");
-
     if (definition is null) {
       return new RequestBodyInput(null, null, "", null) {
         Errors = Messages.New.Add("Map request body must have a 'definition' key.".Error()),
       };
     }
 
-    string? category = GetStringValue(map, "category");
-    string? operation = GetStringValue(map, "operation");
-    Structured? parameters = GetValue(map, "parameters");
-
-    return new RequestBodyInput(category, operation, definition, parameters);
+    return new RequestBodyInput(
+      GetStringValue(map, "category"),
+      GetStringValue(map, "operation"),
+      definition,
+      GetValue(map, "parameters"));
   }
 
-  private static string? GetStringValue(IDictionary<StructureValue, Structured> map, string key)
-  {
-    Structured? value = GetValue(map, key);
-    return value?.Value?.Text;
-  }
+  private static string? GetStringValue(GqlpMap map, string key)
+    => GetValue(map, key) is GqlpScalar { Text: not null } value ? value.Text : null;
 
-  private static Structured? GetValue(IDictionary<StructureValue, Structured> map, string key)
-  {
-    StructureValue mapKey = new(key);
-    return map.TryGetValue(mapKey, out Structured? value) ? value : null;
-  }
+  private static IGqlpValue? GetValue(GqlpMap map, string key)
+    => map.Entries.FirstOrDefault(e => e.Key.Text == key).Value;
+
+  private static RequestBodyInput InvalidBody()
+    => new(null, null, "", null) {
+      Errors = Messages.New.Add("Request body must be a string, list, or map with a definition.".Error()),
+    };
 }

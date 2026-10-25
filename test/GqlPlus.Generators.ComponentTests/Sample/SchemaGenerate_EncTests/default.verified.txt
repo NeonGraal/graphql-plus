@@ -21,32 +21,32 @@ namespace Components.Gqlp_Schema_default;
 
 internal class CmptQueryEncoder : IEncoder<ICmptQueryObject>
 {
-  public Structured Encode(ICmptQueryObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptQueryObject input)
+    => new GqlpUnit();
 
   internal static CmptQueryEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptMutationEncoder : IEncoder<ICmptMutationObject>
 {
-  public Structured Encode(ICmptMutationObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptMutationObject input)
+    => new GqlpUnit();
 
   internal static CmptMutationEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptSubscriptionEncoder : IEncoder<ICmptSubscriptionObject>
 {
-  public Structured Encode(ICmptSubscriptionObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptSubscriptionObject input)
+    => new GqlpUnit();
 
   internal static CmptSubscriptionEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class Cmpt_SchemaEncoder : IEncoder<ICmpt_SchemaObject>
 {
-  public Structured Encode(ICmpt_SchemaObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmpt_SchemaObject input)
+    => new GqlpUnit();
 
   internal static Cmpt_SchemaEncoder Factory(IEncoderRepository _) => new();
 }

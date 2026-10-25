@@ -13,7 +13,7 @@ internal class testOutpPrntParamEncoder(
 {
   private readonly Encoder<ItestPrntOutpPrntParamObject> _itestPrntOutpPrntParam = encoders.EncoderFor<ItestPrntOutpPrntParamObject>();
   private readonly Encoder<ItestFldOutpPrntParam> _itestFldOutpPrntParam = encoders.EncoderFor<ItestFldOutpPrntParam>();
-  public Structured Encode(ItestOutpPrntParamObject input)
+  public IGqlpValue Encode(ItestOutpPrntParamObject input)
     => _itestPrntOutpPrntParam.Encode(input)
       .AddEncoded("field", input.Field(), _itestFldOutpPrntParam);
 
@@ -25,8 +25,8 @@ internal class testPrntOutpPrntParamEncoder(
 ) : IEncoder<ItestPrntOutpPrntParamObject>
 {
   private readonly Encoder<ItestFldOutpPrntParam> _itestFldOutpPrntParam = encoders.EncoderFor<ItestFldOutpPrntParam>();
-  public Structured Encode(ItestPrntOutpPrntParamObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestPrntOutpPrntParamObject input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field(), _itestFldOutpPrntParam);
 
   internal static testPrntOutpPrntParamEncoder Factory(IEncoderRepository r) => new(r);
@@ -34,16 +34,16 @@ internal class testPrntOutpPrntParamEncoder(
 
 internal class testFldOutpPrntParamEncoder : IEncoder<ItestFldOutpPrntParamObject>
 {
-  public Structured Encode(ItestFldOutpPrntParamObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestFldOutpPrntParamObject input)
+    => new GqlpUnit();
 
   internal static testFldOutpPrntParamEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class testInOutpPrntParamEncoder : IEncoder<ItestInOutpPrntParamObject>
 {
-  public Structured Encode(ItestInOutpPrntParamObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestInOutpPrntParamObject input)
+    => new GqlpUnit()
       .Add("param", input.Param.Encode());
 
   internal static testInOutpPrntParamEncoder Factory(IEncoderRepository _) => new();
@@ -51,8 +51,8 @@ internal class testInOutpPrntParamEncoder : IEncoder<ItestInOutpPrntParamObject>
 
 internal class testPrntOutpPrntParamInEncoder : IEncoder<ItestPrntOutpPrntParamInObject>
 {
-  public Structured Encode(ItestPrntOutpPrntParamInObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestPrntOutpPrntParamInObject input)
+    => new GqlpUnit()
       .Add("parent", input.Parent.Encode());
 
   internal static testPrntOutpPrntParamInEncoder Factory(IEncoderRepository _) => new();

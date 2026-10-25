@@ -13,14 +13,14 @@ namespace Components.Gqlp_Schema_alt_mod_param_Output;
 
 internal class CmptAltModParamOutpEncoder<TMod> : IEncoder<ICmptAltModParamOutpObject<TMod>>
 {
-  public Structured Encode(ICmptAltModParamOutpObject<TMod> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptAltModParamOutpObject<TMod> input)
+    => new GqlpUnit();
 }
 
 internal class CmptAltAltModParamOutpEncoder : IEncoder<ICmptAltAltModParamOutpObject>
 {
-  public Structured Encode(ICmptAltAltModParamOutpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptAltAltModParamOutpObject input)
+    => new GqlpUnit()
       .Add("alt", input.Alt.Encode());
 
   internal static CmptAltAltModParamOutpEncoder Factory(IEncoderRepository _) => new();

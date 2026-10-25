@@ -12,7 +12,7 @@ internal class testCnstFieldDualOutpEncoder(
 ) : IEncoder<ItestCnstFieldDualOutpObject>
 {
   private readonly Encoder<ItestRefCnstFieldDualOutpObject<ItestAltCnstFieldDualOutp>> _itestRefCnstFieldDualOutp = encoders.EncoderFor<ItestRefCnstFieldDualOutpObject<ItestAltCnstFieldDualOutp>>();
-  public Structured Encode(ItestCnstFieldDualOutpObject input)
+  public IGqlpValue Encode(ItestCnstFieldDualOutpObject input)
     => _itestRefCnstFieldDualOutp.Encode(input);
 
   internal static testCnstFieldDualOutpEncoder Factory(IEncoderRepository r) => new(r);
@@ -23,15 +23,15 @@ internal class testRefCnstFieldDualOutpEncoder<TRef>(
 ) : IEncoder<ItestRefCnstFieldDualOutpObject<TRef>>
 {
   private readonly Encoder<TRef> _ref = encoders.EncoderFor<TRef>();
-  public Structured Encode(ItestRefCnstFieldDualOutpObject<TRef> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestRefCnstFieldDualOutpObject<TRef> input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _ref);
 }
 
 internal class testPrntCnstFieldDualOutpEncoder : IEncoder<ItestPrntCnstFieldDualOutpObject>
 {
-  public Structured Encode(ItestPrntCnstFieldDualOutpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestPrntCnstFieldDualOutpObject input)
+    => new GqlpUnit();
 
   internal static testPrntCnstFieldDualOutpEncoder Factory(IEncoderRepository _) => new();
 }
@@ -41,7 +41,7 @@ internal class testAltCnstFieldDualOutpEncoder(
 ) : IEncoder<ItestAltCnstFieldDualOutpObject>
 {
   private readonly Encoder<ItestPrntCnstFieldDualOutpObject> _itestPrntCnstFieldDualOutp = encoders.EncoderFor<ItestPrntCnstFieldDualOutpObject>();
-  public Structured Encode(ItestAltCnstFieldDualOutpObject input)
+  public IGqlpValue Encode(ItestAltCnstFieldDualOutpObject input)
     => _itestPrntCnstFieldDualOutp.Encode(input)
       .Add("alt", input.Alt.Encode());
 

@@ -200,14 +200,14 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
   {
     List<string> encodeParts = [GetStartEncodeExpression(parentVarName), .. fieldCalls];
 
-    context.Write($"  public Structured Encode({encoderInterface} input)");
+    context.Write($"  public IGqlpValue Encode({encoderInterface} input)");
     WriteEncodeExpression(context, encodeParts);
   }
 
   private static string GetStartEncodeExpression(string? parentVarName)
     => parentVarName is not null
       ? $"{parentVarName}.Encode(input)"
-      : "Structured.Empty()";
+      : "new GqlpUnit()";
 
   private static void WriteEncodeExpression(GqlpGeneratorContext context, List<string> encodeParts)
   {

@@ -18,7 +18,7 @@ internal class OperationEncoder(
   private readonly Encoder<OpSelectionModel> _selection = encoders.EncoderFor<OpSelectionModel>();
   private readonly Encoder<OpVariableModel> _variable = encoders.EncoderFor<OpVariableModel>();
 
-  internal override Structured Encode(OperationModel model)
+  internal override IGqlpValue Encode(OperationModel model)
     => base.Encode(model)
       .Add("category", model.Category.Encode())
       .AddList("directives", model.Directives, _directive)
@@ -44,7 +44,7 @@ internal class OpDirectivesEncoder<TModel>(
 {
   private readonly Encoder<OpDirectiveModel> _directive = encoders.EncoderFor<OpDirectiveModel>();
 
-  internal override Structured Encode(TModel model)
+  internal override IGqlpValue Encode(TModel model)
     => base.Encode(model)
       .AddList("directives", model.Directives, _directive);
 }
@@ -55,7 +55,7 @@ internal class OpFragmentEncoder(
 {
   private readonly Encoder<TypeRefModel<TypeKindModel>> _type = encoders.EncoderFor<TypeRefModel<TypeKindModel>>();
 
-  internal override Structured Encode(OpFragmentModel model)
+  internal override IGqlpValue Encode(OpFragmentModel model)
     => base.Encode(model)
       .AddEncoded("type", model.Type, _type);
 
@@ -69,7 +69,7 @@ internal class OpResultEncoder(
   private readonly Encoder<OpArgumentModel> _argument = encoders.EncoderFor<OpArgumentModel>();
   private readonly Encoder<TypeRefModel<TypeKindModel>> _domain = encoders.EncoderFor<TypeRefModel<TypeKindModel>>();
 
-  internal override Structured Encode(OpResultModel model)
+  internal override IGqlpValue Encode(OpResultModel model)
     => base.Encode(model)
       .AddEncoded("domain", model.Domain, _domain)
       .AddEncoded("argument", model.Argument, _argument);
@@ -86,27 +86,23 @@ internal class OpSelectionEncoder(
   private readonly Encoder<ModifierModel> _modifier = encoders.EncoderFor<ModifierModel>();
   private readonly Encoder<TypeRefModel<TypeKindModel>> _type = encoders.EncoderFor<TypeRefModel<TypeKindModel>>();
 
-  internal override Structured Encode(OpSelectionModel model)
-    => base.Encode(model)
+  internal override IGqlpValue Encode(OpSelectionModel model)
+  {
+    IGqlpValue encoded = base.Encode(model)
     .Add("description", model.Description.Encode())
     .AddList("directives", model.Directives, _directive)
-    .AddList("modifiers", model.Modifiers, _modifier)
-    .FluentAction(s
-      => {
-        switch (model) {
-          case OpFieldSelectionModel field:
-            s.Add("name", field.Name.Encode())
-             .Add("alias", field.Alias?.Encode())
-             .AddEncoded("argument", field.Argument, _argument);
-            break;
-          case OpSpreadSelectionModel spread:
-            s.Add("fragment", spread.Fragment.Encode());
-            break;
-          case OpInlineSelectionModel inline:
-            s.AddEncoded("onType", inline.Type, _type);
-            break;
-        }
-      });
+    .AddList("modifiers", model.Modifiers, _modifier);
+
+    return model switch {
+      OpFieldSelectionModel field => encoded
+        .Add("name", field.Name.Encode())
+        .Add("alias", field.Alias?.Encode())
+        .AddEncoded("argument", field.Argument, _argument),
+      OpSpreadSelectionModel spread => encoded.Add("fragment", spread.Fragment.Encode()),
+      OpInlineSelectionModel inline => encoded.AddEncoded("onType", inline.Type, _type),
+      _ => encoded,
+    };
+  }
 
   internal static OpSelectionEncoder Factory(IEncoderRepository repo) => new(repo);
 }
@@ -118,7 +114,7 @@ internal class OpVariableEncoder(
   private readonly Encoder<ConstantModel> _constant = encoders.EncoderFor<ConstantModel>();
   private readonly Encoder<TypeRefModel<TypeKindModel>> _type = encoders.EncoderFor<TypeRefModel<TypeKindModel>>();
 
-  internal override Structured Encode(OpVariableModel model)
+  internal override IGqlpValue Encode(OpVariableModel model)
     => base.Encode(model)
       .AddEncoded("defaultValue", model.DefaultValue, _constant)
       .AddEncoded("type", model.Type, _type);

@@ -40,7 +40,7 @@ internal abstract class GenerateBaseDomain<TItem>(
     context.Write("");
     context.Write($"internal class {typeName}Encoder : IEncoder<{interfaceName}>");
     context.Write("{");
-    context.Write($"  public Structured Encode({interfaceName} input)");
+    context.Write($"  public IGqlpValue Encode({interfaceName} input)");
     context.Write($"    => {encodeBody};");
     context.Write("");
     context.Write($"  internal static {typeName}Encoder Factory(IEncoderRepository _) => new();");

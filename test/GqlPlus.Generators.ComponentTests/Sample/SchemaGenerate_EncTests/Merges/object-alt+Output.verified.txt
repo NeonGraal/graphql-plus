@@ -14,16 +14,16 @@ namespace Components.Gqlp_Schema_object_alt_Output;
 
 internal class CmptObjAltOutpEncoder : IEncoder<ICmptObjAltOutpObject>
 {
-  public Structured Encode(ICmptObjAltOutpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptObjAltOutpObject input)
+    => new GqlpUnit();
 
   internal static CmptObjAltOutpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptObjAltOutpTypeEncoder : IEncoder<ICmptObjAltOutpTypeObject>
 {
-  public Structured Encode(ICmptObjAltOutpTypeObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptObjAltOutpTypeObject input)
+    => new GqlpUnit();
 
   internal static CmptObjAltOutpTypeEncoder Factory(IEncoderRepository _) => new();
 }

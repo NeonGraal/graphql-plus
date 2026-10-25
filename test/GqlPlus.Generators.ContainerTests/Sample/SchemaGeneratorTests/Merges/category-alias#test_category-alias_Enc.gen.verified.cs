@@ -9,8 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_category_alias;
 
 internal class testCtgrAliasEncoder : IEncoder<ItestCtgrAliasObject>
 {
-  public Structured Encode(ItestCtgrAliasObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ItestCtgrAliasObject input)
+    => new GqlpUnit();
 
   internal static testCtgrAliasEncoder Factory(IEncoderRepository _) => new();
 }

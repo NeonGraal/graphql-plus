@@ -14,16 +14,16 @@ namespace Components.Gqlp_Schema_object_alt_Dual;
 
 internal class CmptObjAltDualEncoder : IEncoder<ICmptObjAltDualObject>
 {
-  public Structured Encode(ICmptObjAltDualObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptObjAltDualObject input)
+    => new GqlpUnit();
 
   internal static CmptObjAltDualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptObjAltDualTypeEncoder : IEncoder<ICmptObjAltDualTypeObject>
 {
-  public Structured Encode(ICmptObjAltDualTypeObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptObjAltDualTypeObject input)
+    => new GqlpUnit();
 
   internal static CmptObjAltDualTypeEncoder Factory(IEncoderRepository _) => new();
 }

@@ -9,7 +9,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_Definition;
 
 internal class boolEncoder : IEncoder<bool>
 {
-  public Structured Encode(bool input)
+  public IGqlpValue Encode(bool input)
     => input.EncodeEnum("Boolean");
 
   internal static boolEncoder Factory(IEncoderRepository _) => new();
@@ -17,7 +17,7 @@ internal class boolEncoder : IEncoder<bool>
 
 internal class GqlpNullEncoder : IEncoder<GqlpNull>
 {
-  public Structured Encode(GqlpNull input)
+  public IGqlpValue Encode(GqlpNull input)
     => input.EncodeEnum("Null");
 
   internal static GqlpNullEncoder Factory(IEncoderRepository _) => new();
@@ -25,7 +25,7 @@ internal class GqlpNullEncoder : IEncoder<GqlpNull>
 
 internal class GqlpUnitEncoder : IEncoder<GqlpUnit>
 {
-  public Structured Encode(GqlpUnit input)
+  public IGqlpValue Encode(GqlpUnit input)
     => input.EncodeEnum("Unit");
 
   internal static GqlpUnitEncoder Factory(IEncoderRepository _) => new();
@@ -33,7 +33,7 @@ internal class GqlpUnitEncoder : IEncoder<GqlpUnit>
 
 internal class voidEncoder : IEncoder<void>
 {
-  public Structured Encode(void input)
+  public IGqlpValue Encode(void input)
     => input.EncodeEnum("Void");
 
   internal static voidEncoder Factory(IEncoderRepository _) => new();
@@ -41,7 +41,7 @@ internal class voidEncoder : IEncoder<void>
 
 internal class decimalEncoder : IEncoder<decimal>
 {
-  public Structured Encode(decimal input)
+  public IGqlpValue Encode(decimal input)
     => input.Value!.Encode();
 
   internal static decimalEncoder Factory(IEncoderRepository _) => new();
@@ -49,7 +49,7 @@ internal class decimalEncoder : IEncoder<decimal>
 
 internal class stringEncoder : IEncoder<string>
 {
-  public Structured Encode(string input)
+  public IGqlpValue Encode(string input)
     => input.Value!.Encode();
 
   internal static stringEncoder Factory(IEncoderRepository _) => new();
@@ -63,12 +63,12 @@ internal class test_BasicEncoder(
   private readonly Encoder<decimal> _number = encoders.EncoderFor<decimal>();
   private readonly Encoder<string> _string = encoders.EncoderFor<string>();
   private readonly Encoder<GqlpUnit> _unit = encoders.EncoderFor<GqlpUnit>();
-  public Structured Encode(Itest_Basic input)
+  public IGqlpValue Encode(Itest_Basic input)
     => input.HasA<bool>() ? _boolean.Encode(input.AsA<bool>())
      : input.HasA<decimal>() ? _number.Encode(input.AsA<decimal>())
      : input.HasA<string>() ? _string.Encode(input.AsA<string>())
      : input.HasA<GqlpUnit>() ? _unit.Encode(input.AsA<GqlpUnit>())
-     : Structured.Empty();
+     : new GqlpUnit();
 
   internal static test_BasicEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -79,10 +79,10 @@ internal class test_InternalEncoder(
 {
   private readonly Encoder<GqlpNull> _null = encoders.EncoderFor<GqlpNull>();
   private readonly Encoder<void> _void = encoders.EncoderFor<void>();
-  public Structured Encode(Itest_Internal input)
+  public IGqlpValue Encode(Itest_Internal input)
     => input.HasA<GqlpNull>() ? _null.Encode(input.AsA<GqlpNull>())
      : input.HasA<void>() ? _void.Encode(input.AsA<void>())
-     : Structured.Empty();
+     : new GqlpUnit();
 
   internal static test_InternalEncoder Factory(IEncoderRepository r) => new(r);
 }
@@ -94,67 +94,67 @@ internal class test_KeyEncoder(
   private readonly Encoder<Itest_Basic> __basic = encoders.EncoderFor<Itest_Basic>();
   private readonly Encoder<Itest_Internal> __internal = encoders.EncoderFor<Itest_Internal>();
   private readonly Encoder<Itest_Simple> __simple = encoders.EncoderFor<Itest_Simple>();
-  public Structured Encode(Itest_Key input)
+  public IGqlpValue Encode(Itest_Key input)
     => input.HasA<Itest_Basic>() ? __basic.Encode(input.AsA<Itest_Basic>())
      : input.HasA<Itest_Internal>() ? __internal.Encode(input.AsA<Itest_Internal>())
      : input.HasA<Itest_Simple>() ? __simple.Encode(input.AsA<Itest_Simple>())
-     : Structured.Empty();
+     : new GqlpUnit();
 
   internal static test_KeyEncoder Factory(IEncoderRepository r) => new(r);
 }
 
 internal class test_ObjectEncoder : IEncoder<Itest_ObjectObject>
 {
-  public Structured Encode(Itest_ObjectObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(Itest_ObjectObject input)
+    => new GqlpUnit();
 
   internal static test_ObjectEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_DomainEncoder : IEncoder<Itest_Domain>
 {
-  public Structured Encode(Itest_Domain input)
-    => Structured.Empty();
+  public IGqlpValue Encode(Itest_Domain input)
+    => new GqlpUnit();
 
   internal static test_DomainEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_DualEncoder : IEncoder<Itest_DualObject>
 {
-  public Structured Encode(Itest_DualObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(Itest_DualObject input)
+    => new GqlpUnit();
 
   internal static test_DualEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_EnumEncoder : IEncoder<Itest_Enum>
 {
-  public Structured Encode(Itest_Enum input)
-    => Structured.Empty();
+  public IGqlpValue Encode(Itest_Enum input)
+    => new GqlpUnit();
 
   internal static test_EnumEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_InputEncoder : IEncoder<Itest_InputObject>
 {
-  public Structured Encode(Itest_InputObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(Itest_InputObject input)
+    => new GqlpUnit();
 
   internal static test_InputEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_OutputEncoder : IEncoder<Itest_OutputObject>
 {
-  public Structured Encode(Itest_OutputObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(Itest_OutputObject input)
+    => new GqlpUnit();
 
   internal static test_OutputEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class test_UnionEncoder : IEncoder<Itest_Union>
 {
-  public Structured Encode(Itest_Union input)
-    => Structured.Empty();
+  public IGqlpValue Encode(Itest_Union input)
+    => new GqlpUnit();
 
   internal static test_UnionEncoder Factory(IEncoderRepository _) => new();
 }
@@ -166,11 +166,11 @@ internal class test_SimpleEncoder(
   private readonly Encoder<Itest_Enum> __enum = encoders.EncoderFor<Itest_Enum>();
   private readonly Encoder<Itest_Domain> __domain = encoders.EncoderFor<Itest_Domain>();
   private readonly Encoder<Itest_Union> __union = encoders.EncoderFor<Itest_Union>();
-  public Structured Encode(Itest_Simple input)
+  public IGqlpValue Encode(Itest_Simple input)
     => input.HasA<Itest_Enum>() ? __enum.Encode(input.AsA<Itest_Enum>())
      : input.HasA<Itest_Domain>() ? __domain.Encode(input.AsA<Itest_Domain>())
      : input.HasA<Itest_Union>() ? __union.Encode(input.AsA<Itest_Union>())
-     : Structured.Empty();
+     : new GqlpUnit();
 
   internal static test_SimpleEncoder Factory(IEncoderRepository r) => new(r);
 }

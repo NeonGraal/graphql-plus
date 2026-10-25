@@ -13,12 +13,12 @@ namespace Components.Gqlp_Schema_generic_alt_arg_descr_Dual;
 
 internal class CmptGnrcAltArgDescrDualEncoder<TType> : IEncoder<ICmptGnrcAltArgDescrDualObject<TType>>
 {
-  public Structured Encode(ICmptGnrcAltArgDescrDualObject<TType> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptGnrcAltArgDescrDualObject<TType> input)
+    => new GqlpUnit();
 }
 
 internal class CmptRefGnrcAltArgDescrDualEncoder<TRef> : IEncoder<ICmptRefGnrcAltArgDescrDualObject<TRef>>
 {
-  public Structured Encode(ICmptRefGnrcAltArgDescrDualObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptRefGnrcAltArgDescrDualObject<TRef> input)
+    => new GqlpUnit();
 }

@@ -12,7 +12,7 @@ internal class testCnstFieldDmnInpEncoder(
 ) : IEncoder<ItestCnstFieldDmnInpObject>
 {
   private readonly Encoder<ItestRefCnstFieldDmnInpObject<ItestDomCnstFieldDmnInp>> _itestRefCnstFieldDmnInp = encoders.EncoderFor<ItestRefCnstFieldDmnInpObject<ItestDomCnstFieldDmnInp>>();
-  public Structured Encode(ItestCnstFieldDmnInpObject input)
+  public IGqlpValue Encode(ItestCnstFieldDmnInpObject input)
     => _itestRefCnstFieldDmnInp.Encode(input);
 
   internal static testCnstFieldDmnInpEncoder Factory(IEncoderRepository r) => new(r);
@@ -23,14 +23,14 @@ internal class testRefCnstFieldDmnInpEncoder<TRef>(
 ) : IEncoder<ItestRefCnstFieldDmnInpObject<TRef>>
 {
   private readonly Encoder<TRef> _ref = encoders.EncoderFor<TRef>();
-  public Structured Encode(ItestRefCnstFieldDmnInpObject<TRef> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestRefCnstFieldDmnInpObject<TRef> input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field, _ref);
 }
 
 internal class testDomCnstFieldDmnInpEncoder : IEncoder<ItestDomCnstFieldDmnInp>
 {
-  public Structured Encode(ItestDomCnstFieldDmnInp input)
+  public IGqlpValue Encode(ItestDomCnstFieldDmnInp input)
     => input.Value!.Encode();
 
   internal static testDomCnstFieldDmnInpEncoder Factory(IEncoderRepository _) => new();

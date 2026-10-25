@@ -9,70 +9,70 @@ namespace GqlPlus.GeneratorTests.Gqlp_Schema;
 
 internal class test_ReqEncoder<TT> : IEncoder<Itest_ReqObject<TT>>
 {
-  public Structured Encode(Itest_ReqObject<TT> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(Itest_ReqObject<TT> input)
+    => new GqlpUnit();
 }
 
 internal class test_OptEncoder<TT> : IEncoder<Itest_OptObject<TT>>
 {
-  public Structured Encode(Itest_OptObject<TT> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(Itest_OptObject<TT> input)
+    => new GqlpUnit();
 }
 
 internal class test_ListEncoder<TT> : IEncoder<Itest_ListObject<TT>>
 {
-  public Structured Encode(Itest_ListObject<TT> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(Itest_ListObject<TT> input)
+    => new GqlpUnit();
 }
 
 internal class test_DictEncoder<TK,TT> : IEncoder<Itest_DictObject<TK,TT>>
 {
-  public Structured Encode(Itest_DictObject<TK,TT> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(Itest_DictObject<TK,TT> input)
+    => new GqlpUnit();
 }
 
 internal class test_MapEncoder<TT> : IEncoder<Itest_MapObject<TT>>
 {
-  public Structured Encode(Itest_MapObject<TT> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(Itest_MapObject<TT> input)
+    => new GqlpUnit();
 }
 
 internal class test_ArrayEncoder<TT> : IEncoder<Itest_ArrayObject<TT>>
 {
-  public Structured Encode(Itest_ArrayObject<TT> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(Itest_ArrayObject<TT> input)
+    => new GqlpUnit();
 }
 
 internal class test_IfElseEncoder<TT> : IEncoder<Itest_IfElseObject<TT>>
 {
-  public Structured Encode(Itest_IfElseObject<TT> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(Itest_IfElseObject<TT> input)
+    => new GqlpUnit();
 }
 
 internal class test_SetEncoder<TK> : IEncoder<Itest_SetObject<TK>>
 {
-  public Structured Encode(Itest_SetObject<TK> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(Itest_SetObject<TK> input)
+    => new GqlpUnit();
 }
 
 internal class test_MaskEncoder<TK> : IEncoder<Itest_MaskObject<TK>>
 {
-  public Structured Encode(Itest_MaskObject<TK> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(Itest_MaskObject<TK> input)
+    => new GqlpUnit();
 }
 
 internal class test_KeyEncoder : IEncoder<Itest_Key>
 {
-  public Structured Encode(Itest_Key input)
-    => Structured.Empty();
+  public IGqlpValue Encode(Itest_Key input)
+    => new GqlpUnit();
 
   internal static test_KeyEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class objectEncoder : IEncoder<objectObject>
 {
-  public Structured Encode(objectObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(objectObject input)
+    => new GqlpUnit();
 
   internal static objectEncoder Factory(IEncoderRepository _) => new();
 }

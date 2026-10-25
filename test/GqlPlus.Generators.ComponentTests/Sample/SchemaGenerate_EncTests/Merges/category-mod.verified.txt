@@ -14,8 +14,8 @@ namespace Components.Gqlp_Schema_category_mod;
 
 internal class CmptCtgrModEncoder : IEncoder<ICmptCtgrModObject>
 {
-  public Structured Encode(ICmptCtgrModObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptCtgrModObject input)
+    => new GqlpUnit();
 
   internal static CmptCtgrModEncoder Factory(IEncoderRepository _) => new();
 }

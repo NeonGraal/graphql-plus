@@ -12,15 +12,15 @@ internal class testOutpParamModParamEncoder<TMod>(
 ) : IEncoder<ItestOutpParamModParamObject<TMod>>
 {
   private readonly Encoder<ItestDomOutpParamModParam> _itestDomOutpParamModParam = encoders.EncoderFor<ItestDomOutpParamModParam>();
-  public Structured Encode(ItestOutpParamModParamObject<TMod> input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestOutpParamModParamObject<TMod> input)
+    => new GqlpUnit()
       .AddEncoded("field", input.Field(), _itestDomOutpParamModParam);
 }
 
 internal class testInOutpParamModParamEncoder : IEncoder<ItestInOutpParamModParamObject>
 {
-  public Structured Encode(ItestInOutpParamModParamObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ItestInOutpParamModParamObject input)
+    => new GqlpUnit()
       .Add("param", input.Param.Encode());
 
   internal static testInOutpParamModParamEncoder Factory(IEncoderRepository _) => new();
@@ -28,7 +28,7 @@ internal class testInOutpParamModParamEncoder : IEncoder<ItestInOutpParamModPara
 
 internal class testDomOutpParamModParamEncoder : IEncoder<ItestDomOutpParamModParam>
 {
-  public Structured Encode(ItestDomOutpParamModParam input)
+  public IGqlpValue Encode(ItestDomOutpParamModParam input)
     => input.Value!.Encode();
 
   internal static testDomOutpParamModParamEncoder Factory(IEncoderRepository _) => new();

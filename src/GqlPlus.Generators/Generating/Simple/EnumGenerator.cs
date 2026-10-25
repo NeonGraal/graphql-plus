@@ -71,7 +71,7 @@ internal sealed class EnumEncoderGenerator
     context.Write("");
     context.Write($"internal class {typeName}Encoder : IEncoder<{typeName}>");
     context.Write("{");
-    context.Write($"  public Structured Encode({typeName} input)");
+    context.Write($"  public IGqlpValue Encode({typeName} input)");
     context.Write($"    => input.EncodeEnum(\"{ast.Name}\");");
     context.Write("");
     context.Write($"  internal static {typeName}Encoder Factory(IEncoderRepository _) => new();");

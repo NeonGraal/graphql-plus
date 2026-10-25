@@ -14,22 +14,22 @@ namespace Components.Gqlp_Schema_generic_alt_param_Input;
 
 internal class CmptGnrcAltParamInpEncoder : IEncoder<ICmptGnrcAltParamInpObject>
 {
-  public Structured Encode(ICmptGnrcAltParamInpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptGnrcAltParamInpObject input)
+    => new GqlpUnit();
 
   internal static CmptGnrcAltParamInpEncoder Factory(IEncoderRepository _) => new();
 }
 
 internal class CmptRefGnrcAltParamInpEncoder<TRef> : IEncoder<ICmptRefGnrcAltParamInpObject<TRef>>
 {
-  public Structured Encode(ICmptRefGnrcAltParamInpObject<TRef> input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptRefGnrcAltParamInpObject<TRef> input)
+    => new GqlpUnit();
 }
 
 internal class CmptAltGnrcAltParamInpEncoder : IEncoder<ICmptAltGnrcAltParamInpObject>
 {
-  public Structured Encode(ICmptAltGnrcAltParamInpObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptAltGnrcAltParamInpObject input)
+    => new GqlpUnit()
       .Add("alt", input.Alt.Encode());
 
   internal static CmptAltGnrcAltParamInpEncoder Factory(IEncoderRepository _) => new();

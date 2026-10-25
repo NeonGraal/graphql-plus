@@ -24,7 +24,7 @@ public class RequestInputDecoderTests(
       lines.Add($"Operation: {decoded.Operation}");
     }
 
-    if (!decoded.Parameters.IsEmpty) {
+    if (decoded.Parameters is not GqlpUnit) {
       lines.Add($"Parameters: {decoded.Parameters}");
     }
 

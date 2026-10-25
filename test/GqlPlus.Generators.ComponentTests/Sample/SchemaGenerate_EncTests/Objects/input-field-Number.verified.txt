@@ -12,8 +12,8 @@ namespace Components.Gqlp_Schema_input_field_Number;
 
 internal class CmptInpFieldNmbrEncoder : IEncoder<ICmptInpFieldNmbrObject>
 {
-  public Structured Encode(ICmptInpFieldNmbrObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(ICmptInpFieldNmbrObject input)
+    => new GqlpUnit()
       .Add("field", input.Field.Encode());
 
   internal static CmptInpFieldNmbrEncoder Factory(IEncoderRepository _) => new();

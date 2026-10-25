@@ -9,8 +9,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_Selections;
 
 internal class test_OpSelectionEncoder : IEncoder<Itest_OpSelectionObject>
 {
-  public Structured Encode(Itest_OpSelectionObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(Itest_OpSelectionObject input)
+    => new GqlpUnit();
 
   internal static test_OpSelectionEncoder Factory(IEncoderRepository _) => new();
 }
@@ -23,7 +23,7 @@ internal class test_OpFieldEncoder(
   private readonly Encoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
   private readonly Encoder<Itest_OpArgument> _itest_OpArgument = encoders.EncoderFor<Itest_OpArgument>();
   private readonly Encoder<Itest_Modifiers> _itest_Modifiers = encoders.EncoderFor<Itest_Modifiers>();
-  public Structured Encode(Itest_OpFieldObject input)
+  public IGqlpValue Encode(Itest_OpFieldObject input)
     => _itest_OpDirectives.Encode(input)
       .AddEncoded("fieldAlias", input.FieldAlias, _itest_Identifier)
       .AddEncoded("argument", input.Argument, _itest_OpArgument)
@@ -38,8 +38,8 @@ internal class test_OpInlineEncoder(
 {
   private readonly Encoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
   private readonly Encoder<Itest_OpDirective> _itest_OpDirective = encoders.EncoderFor<Itest_OpDirective>();
-  public Structured Encode(Itest_OpInlineObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(Itest_OpInlineObject input)
+    => new GqlpUnit()
       .AddEncoded("type", input.Type, _itest_Identifier)
       .AddList("directives", input.Directives, _itest_OpDirective);
 
@@ -52,8 +52,8 @@ internal class test_OpSpreadEncoder(
 {
   private readonly Encoder<Itest_Identifier> _itest_Identifier = encoders.EncoderFor<Itest_Identifier>();
   private readonly Encoder<Itest_OpDirective> _itest_OpDirective = encoders.EncoderFor<Itest_OpDirective>();
-  public Structured Encode(Itest_OpSpreadObject input)
-    => Structured.Empty()
+  public IGqlpValue Encode(Itest_OpSpreadObject input)
+    => new GqlpUnit()
       .AddEncoded("fragment", input.Fragment, _itest_Identifier)
       .AddList("directives", input.Directives, _itest_OpDirective);
 

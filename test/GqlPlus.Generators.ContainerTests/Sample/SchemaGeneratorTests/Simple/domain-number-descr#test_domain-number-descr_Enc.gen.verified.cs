@@ -9,7 +9,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_number_descr;
 
 internal class testDmnNmbrDescrEncoder : IEncoder<ItestDmnNmbrDescr>
 {
-  public Structured Encode(ItestDmnNmbrDescr input)
+  public IGqlpValue Encode(ItestDmnNmbrDescr input)
     => input.Value!.Encode();
 
   internal static testDmnNmbrDescrEncoder Factory(IEncoderRepository _) => new();

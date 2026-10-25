@@ -11,7 +11,7 @@ internal class AndTypeEncoder<TModel, TAnd>(
   private readonly Encoder<TAnd> _and = encoders.EncoderFor<TAnd>();
   private readonly Encoder<BaseTypeModel> _type = encoders.EncoderFor<BaseTypeModel>();
 
-  internal override Structured Encode(TModel model)
+  internal override IGqlpValue Encode(TModel model)
     => base.Encode(model)
       .AddNull(model.Type, t => t
         .AddNull(model.And, b => b
@@ -38,7 +38,7 @@ internal class CategoryEncoder(
   private readonly Encoder<ModifierModel> _modifiers = encoders.EncoderFor<ModifierModel>();
   private readonly Encoder<TypeRefModel<TypeKindModel>> _output = encoders.EncoderFor<TypeRefModel<TypeKindModel>>();
 
-  internal override Structured Encode(CategoryModel model)
+  internal override IGqlpValue Encode(CategoryModel model)
     => base.Encode(model)
       .AddEnum("resolution", model.Resolution, "_Resolution")
       .AddEncoded("output", model.Output, _output)
@@ -61,7 +61,7 @@ internal class DirectiveEncoder(
 {
   private readonly Encoder<InputParamModel> _parameter = encoders.EncoderFor<InputParamModel>();
 
-  internal override Structured Encode(DirectiveModel model)
+  internal override IGqlpValue Encode(DirectiveModel model)
     => base.Encode(model)
       .AddSet("locations", model.Locations, "_Location")
       .AddEncoded("parameter", model.Parameter, _parameter)
@@ -76,7 +76,7 @@ internal class SettingEncoder(
 {
   private readonly Encoder<ConstantModel> _constant = encoders.EncoderFor<ConstantModel>();
 
-  internal override Structured Encode(SettingModel model)
+  internal override IGqlpValue Encode(SettingModel model)
     => base.Encode(model)
       .AddEncoded("value", model.Value, _constant);
 

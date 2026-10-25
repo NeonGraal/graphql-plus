@@ -12,8 +12,8 @@ namespace Components.Gqlp_Schema_alt_simple_Input;
 
 internal class CmptAltSmplInpEncoder : IEncoder<ICmptAltSmplInpObject>
 {
-  public Structured Encode(ICmptAltSmplInpObject input)
-    => Structured.Empty();
+  public IGqlpValue Encode(ICmptAltSmplInpObject input)
+    => new GqlpUnit();
 
   internal static CmptAltSmplInpEncoder Factory(IEncoderRepository _) => new();
 }

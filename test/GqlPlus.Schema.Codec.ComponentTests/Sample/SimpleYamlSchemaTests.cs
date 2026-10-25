@@ -11,6 +11,6 @@ public class SimpleYamlSchemaTests(ComponentFixture<SchemaCodecTestServices> fix
     => CheckErrors(dirs, test, errors, ["encode", "parse"]);
   protected override Task VerifyResult(string target, VerifySettings settings)
     => Verify(target, settings);
-  public override string EncodeResult(Structured result, string section)
+  public override string EncodeResult(IGqlpValue result, string section)
     => result.ToSimpleYaml(true).Joined(Environment.NewLine);
 }

@@ -67,7 +67,7 @@ public class OperationEncoderTests
 
     // Act
     EncodeAndCheck(new(name, category, string.Empty) {
-      Fragments = new Map<OpFragmentModel> { [fragName] = fragModel }
+      Fragments = fragName.MapWith(fragModel)
     }, [
         "[_Operation]:category=" + category,
         "[_Operation]:fragments[_Map(_Fragments)]:[_Name]" + fragName + "=[_OpFragment]" + fragName,
@@ -84,7 +84,7 @@ public class OperationEncoderTests
 
     // Act
     EncodeAndCheck(new(name, category, string.Empty) {
-      Variables = new Map<OpVariableModel> { [varName] = varModel }
+      Variables = varName.MapWith(varModel)
     }, [
         "[_Operation]:category=" + category,
         "[_Operation]:name=" + name,
@@ -135,7 +135,7 @@ public class OperationEncoderTests
 
     // Act
     EncodeAndCheck(new(name, category, string.Empty) {
-      Selections = new Map<OpSelectionModel[]> { [""] = [selectionModel] }
+      Selections = "".MapWith<OpSelectionModel[]>([selectionModel])
     }, [
         "[_Operation]:category=" + category,
         "[_Operation]:name=" + name,

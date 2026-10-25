@@ -35,6 +35,13 @@ public sealed class GqlpScalar
   protected override int ValueHash()
     => Combine((int)Kind, Boolean.GetHashCode(), Number.GetHashCode(), Text is null ? 0 : StringComparer.Ordinal.GetHashCode(Text));
 
+  public override bool IsEmpty()
+    => Kind switch {
+      GqlpScalarKind.Boolean => Boolean is null,
+      GqlpScalarKind.Number => Number is null,
+      _ => string.IsNullOrEmpty(Text),
+    };
+
   public override string ToString()
     => Kind switch {
       GqlpScalarKind.Boolean => $"{Boolean}",

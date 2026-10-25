@@ -15,7 +15,7 @@ public abstract class EncoderClassTestBase<TModel>
   public void EncodeReturnsMap<T>([NotNull] IEncoder<T> encoder, string tag, object? value)
     where T : IModelBase
   {
-    Map<IGqlpValue> returns = new() { ["value"] = $"{value}".Encode(tag) };
+    Map<IGqlpValue> returns = "value".MapWith($"{value}".Encode(tag));
     encoder.ThrowIfNull().Encode(default!).ReturnsForAnyArgs(returns.Encode());
   }
   public void EncodeReturns<T>([NotNull] IEncoder<T> encoder, T model, IGqlpValue returns)

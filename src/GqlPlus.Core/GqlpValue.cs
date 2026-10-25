@@ -3,6 +3,7 @@ namespace GqlPlus;
 public interface IGqlpValue
 {
   string Tag { get; }
+  bool IsEmpty();
 }
 
 public abstract class GqlpValue(string? tag = null)
@@ -24,6 +25,7 @@ public abstract class GqlpValue(string? tag = null)
 
   protected virtual bool ValueEquals(GqlpValue other) => true;
   protected virtual int ValueHash() => 0;
+  public virtual bool IsEmpty() => true;
 }
 
 public sealed class GqlpNull(string? tag = null)

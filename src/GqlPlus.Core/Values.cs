@@ -140,7 +140,11 @@ public class ComplexValue<TValue, TObject>
   public override bool TryGetList([NotNullWhen(true)] out IEnumerable<IValue>? list)
     => TryGet(out list, () => List.Count > 0 ? List : null);
   public override bool TryGetMap([NotNullWhen(true)] out IMap<IValue>? map)
-    => TryGet(out map, () => Map.Count > 0 ? Map.ToMap(k => k.Key.TryGetText(out string? text) ? text : "", v => v.Value as IValue) : null);
+    => TryGet(out map, () => Map.Count > 0
+        ? Map.ToMap(
+          k => k.Key.TryGetText(out string? text) ? text : "",
+          v => v.Value as IValue)
+        : null);
 
   public override bool Equals(object obj)
     => Equals(obj as ComplexValue<TValue, TObject>);

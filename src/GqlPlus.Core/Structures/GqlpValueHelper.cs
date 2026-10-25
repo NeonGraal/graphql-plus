@@ -183,15 +183,6 @@ public static class GqlpValueHelper
   public static IGqlpValue ToGqlpMap(this IEnumerable<KeyValuePair<IGqlpScalar, IGqlpValue>> entries, string? tag = null, bool flow = false)
     => new GqlpMap(entries, tag, flow);
 
-  private static bool IsEmpty(this IGqlpValue value)
-    => value switch {
-      GqlpNull or GqlpVoid or GqlpUnit => true,
-      IGqlpScalar { Kind: GqlpScalarKind.Text or GqlpScalarKind.Identifier, Text: null or "" } => true,
-      GqlpList { Items.Count: 0 } => true,
-      GqlpMap { Entries.Count: 0 } => true,
-      _ => false,
-    };
-
   public static string TypeTag(this Type type)
   {
     string result = "_" + type.ThrowIfNull().Name.Replace("Model", "");
@@ -208,9 +199,6 @@ public static class GqlpValueHelper
   public static IGqlpValue EncodeEnum<TEnum>(this TEnum value, string? tag = null)
     where TEnum : struct
     => value.ToString().Encode(tag ?? value.GetType().TypeTag());
-
-  public static bool BothValued<T>([NotNullWhen(true)] this T? left, [NotNullWhen(true)] T? right)
-    => left is not null && right is not null;
 
   public static readonly Regex IdentifierRegex = new(@"^[\w_][\w\d_]*$");
 

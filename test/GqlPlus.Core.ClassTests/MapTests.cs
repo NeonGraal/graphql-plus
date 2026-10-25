@@ -6,7 +6,7 @@ public class MapTests
   public void GetValueOrDefault_ReturnsValue_WhenKeyExists(string key)
   {
     // Arrange
-    Map<int> map = new() { { key, 1 } };
+    Map<int> map = key.MapWith(1);
 
     // Act
     int result = map.GetValueOr(key, 0);
@@ -46,7 +46,7 @@ public class MapTests
   public void TryAdd_DoesNotAddValue_WhenKeyExists(string key)
   {
     // Arrange
-    Map<int> map = new() { { key, 1 } };
+    Map<int> map = key.MapWith(1);
 
     // Act
     bool result = map.TryAdd(key, 2);

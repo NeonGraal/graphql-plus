@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Text.Json" />
     <ProjectReference Include="..\GqlPlus.Parser.ClassTestBase\GqlPlus.Parser.ClassTestBase.csproj" />
   </ItemGroup>
 

@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Text.Json" />
     <ProjectReference Include="..\..\src\GqlPlus.Converter.Yaml\GqlPlus.Converter.Yaml.csproj" />
     <ProjectReference Include="..\GqlPlus.Converter.ClassTestBase\GqlPlus.Converter.ClassTestBase.csproj" />
   </ItemGroup>

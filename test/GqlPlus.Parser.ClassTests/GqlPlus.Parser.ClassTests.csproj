@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Text.Json" />
     <ProjectReference Include="..\GqlPlus.Parser.ClassTestBase\GqlPlus.Parser.ClassTestBase.csproj" />
     <ProjectReference Include="..\GqlPlus.TestGeneratorsBase\GqlPlus.TestGeneratorsBase.csproj" />
     <ProjectReference Include="..\GqlPlus.TestGenerators\GqlPlus.TestGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />

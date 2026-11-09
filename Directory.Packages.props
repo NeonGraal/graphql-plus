@@ -28,10 +28,10 @@
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.11.0" />
     <PackageVersion Include="Microsoft.Testing.Platform.MSBuild" Version="2.5.2" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="4.0.1" />
-    <PackageVersion Include="xunit.v3.assert" Version="4.0.2" />
-    <PackageVersion Include="xunit.v3.common" Version="4.0.2" />
-    <PackageVersion Include="xunit.v3.extensibility.core" Version="4.0.2" />
-    <PackageVersion Include="xunit.v3" Version="4.0.2" />
+    <PackageVersion Include="xunit.v3.assert" Version="4.0.3" />
+    <PackageVersion Include="xunit.v3.common" Version="4.0.3" />
+    <PackageVersion Include="xunit.v3.extensibility.core" Version="4.0.3" />
+    <PackageVersion Include="xunit.v3" Version="4.0.3" />
   </ItemGroup>
   <!-- Test utility packages -->
   <ItemGroup>

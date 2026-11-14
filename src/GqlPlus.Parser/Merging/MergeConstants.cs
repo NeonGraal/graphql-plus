@@ -20,7 +20,7 @@ internal class MergeConstants
   private IAstConstant CombineConstants(IAstConstant a, IAstConstant b)
     => a.Values.Any() || b.Values.Any()
       ? MergeValues(a, b)
-      : a.Fields.Any() && b.Fields.Any()
+      : a.Fields.Count != 0 && b.Fields.Count != 0
         ? MergeFields(a, b)
         : b;
 

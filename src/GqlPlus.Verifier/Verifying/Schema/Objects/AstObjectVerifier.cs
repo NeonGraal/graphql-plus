@@ -326,7 +326,7 @@ internal class AstObjectVerifier<TObjField>(
     IAstAlternate[] alternates = [.. GetParentItems(input, input.Usage, context, ast => ast.Alternates)];
     if (alternates.Length > 0) {
       IMessages failures = _mergeAlternates.CanMerge(alternates);
-      if (failures.Any()) {
+      if (failures.Count != 0) {
         context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} alternates into Parent {input.Current} alternates");
         context.Add(failures);
       }

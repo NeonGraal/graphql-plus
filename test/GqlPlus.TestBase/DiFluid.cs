@@ -90,7 +90,7 @@ public static class DiFluid
     HashSet<string> subGroupIds = [];
 
     IOrderedEnumerable<DiTree> withRequires = tree.Values
-      .Where(s => s.Requires.Any())
+      .Where(s => s.Requires.Count != 0)
       .OrderBy(s => (s.Requires.Count - s.RequiredBy, s.Name));
 
     foreach (DiTree di in withRequires) {

@@ -107,7 +107,7 @@ if (-not $NoCoverage) {
 [PsObject]$allTests = @{label = "$testSet tests"; total = 0; skipped = 0; passed = 0; failed = 0; error = 0 }
 $allErrors = @{}
 
-$tests = Get-ChildItem results-$Framework -Recurse -Filter "*.trx" | ForEach-Object {
+$tests = Get-ChildItem results-$Framework -Recurse -Filter "*.trx" -Exclude "merged-*" | ForEach-Object {
   [xml]$trx = Get-Content $_.FullName
 
   $name = $_.BaseName -replace "GqlPlus\.","" -replace "_.*","" -replace "\."," "

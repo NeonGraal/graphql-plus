@@ -14,10 +14,17 @@ if (-not $DryRun) {
     Restore-DotnetTools
 
     Write-Host "Nuget ..."
-    $clean = -not (git status -s)
+    $status = @(git status -sb)
+    $branch = ($status[0] -split ' |\.')[1]
+    $clean = $status.Length -eq 1
     dotnet outdated .\ -vl minor -u
 
     if ($clean) {
+        if ($branch -eq 'main') {
+            $date = Get-Date -Format 'dd-MM-yy'
+            git switch -c "updates-$date"
+        }
+
         git commit -a -m "Update packages to latest patch version"
         dotnet outdated .\ -vl major -u @exclusions
     } else {

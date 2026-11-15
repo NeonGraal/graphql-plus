@@ -5,7 +5,7 @@ param (
   [Switch]$ShowGithub = $false,
   [switch]$ClassTests = $false,
   [switch]$ShowFailures = $false,
-  $Framework = "10.0"
+  $Framework = "11.0"
 )
 
 Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force

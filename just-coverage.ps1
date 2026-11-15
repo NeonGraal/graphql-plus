@@ -3,7 +3,7 @@ param (
   $Project = "",
   [switch]$IncludeTests = $false,
   [switch]$ClassTests = $false,
-  $Framework = "10.0"
+  $Framework = "11.0"
 )
 
 Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force

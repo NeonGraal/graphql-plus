@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace GqlPlus.Convert.Yaml;
 
 internal static class YamlTestHelpers
@@ -55,6 +57,7 @@ internal static class YamlTestHelpers
       .Prepend(mapPrefix)
       .RemoveEmpty()];
 
+  [SuppressMessage("Globalization", "CA1307:Specify StringComparison for clarity", Justification = "Still supporting .Net 9 and 10")]
   private static string[] BlockFirst<T>(this T value, Func<T?, string[]> mapper, string prefix)
   {
     string[] item = mapper(value);

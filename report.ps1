@@ -2,7 +2,7 @@
 param (
   [int]$Threshold = 15,
   [switch]$ClassTests = $false,
-  $Framework = "10.0"
+  $Framework = "11.0"
 )
 
 Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force

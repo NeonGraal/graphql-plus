@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using GqlPlus;
 using Xunit.Sdk;
 
@@ -54,6 +55,7 @@ internal static class SimpleYamlTestHelpers
       .Prepend(mapPrefix)
       .RemoveEmpty()];
 
+  [SuppressMessage("Globalization", "CA1307:Specify StringComparison for clarity", Justification = "Still supporting .Net 9 and 10")]
   private static string[] BlockFirst<T>(this T value, Func<T?, string[]> mapper, string prefix, string indent = "")
   {
     string[] item = mapper(value);

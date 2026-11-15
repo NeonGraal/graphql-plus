@@ -5,7 +5,7 @@ workflow:
     - when: never
 
 variables:
-  DOTNET_VERSION: "10.0"
+  DOTNET_VERSION: "11.0"
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: "1"
   DOTNET_NOLOGO: "1"
   BUILD_FILE: "build-output.tar.gz"
@@ -38,6 +38,7 @@ test-each:
       - DOTNET_VERSION:
           - "9.0"
           - "10.0"
+          - "11.0"
         CLASS_TESTS:
           - "true"
           - "false"
@@ -83,7 +84,7 @@ deploy-test-pages:
       parallel:
         matrix:
           - DOTNET_VERSION:
-              - "10.0"
+              - "11.0"
             CLASS_TESTS:
               - "false"
   script:

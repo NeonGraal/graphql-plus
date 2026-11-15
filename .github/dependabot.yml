@@ -13,15 +13,12 @@ updates:
           - patch
       minor:
         applies-to: version-updates
-        exclude-patterns:
-          - Microsoft.CodeAnalysis.CSharp
-          - Basic.Reference.Assemblies
         update-types:
           - minor
       major:
         applies-to: version-updates
         exclude-patterns:
-          - Microsoft.CodeAnalysis.CSharp
+          - Microsoft.CodeAnalysis
           - Basic.Reference.Assemblies
         update-types:
           - major

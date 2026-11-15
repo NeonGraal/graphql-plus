@@ -3,7 +3,7 @@ param (
   [switch]$DryRun = $false
 )
 
-$exclusions = "-exc","Basic.Reference.Assemblies","-exc","CodeAnalysis.CSharp"
+$exclusions = "-exc","Basic.Reference.Assemblies","-exc","Microsoft.CodeAnalysis"
 
 if (-not $DryRun) {
   Write-Host "GitHub Actions ..."
@@ -26,9 +26,9 @@ if (-not $DryRun) {
         }
 
         git commit -a -m "Update packages to latest patch version"
-        dotnet outdated .\ -vl major -u @exclusions
+        dotnet outdated .\ -vl major -u
     } else {
-        dotnet outdated .\ -vl major @exclusions
+        dotnet outdated .\ -vl major
     }
 
     dotnet list package --deprecated

@@ -4,8 +4,7 @@
   </PropertyGroup>
   <!-- Global packages defined in root Directory.Build.props -->
   <ItemGroup>
-    <PackageVersion Include="Basic.Reference.Assemblies" Version="1.6.0" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="5.9.0" />
+    <PackageVersion Include="Basic.Reference.Assemblies" Version="1.8.15" />
     <PackageVersion Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" Version="5.6.0" />
     <PackageVersion Include="Microsoft.Testing.Extensions.JUnitReport" Version="1.0.0-alpha.26561.10" />
     <PackageVersion Include="Microsoft.Testing.Extensions.TrxReport" Version="2.5.3" />
@@ -41,7 +40,7 @@
     <PackageVersion Include="AutoFixture.Xunit3" Version="5.0.0-rc.1" />
     <PackageVersion Include="Fluid.Core" Version="2.41.1" />
     <PackageVersion Include="MartinCostello.Logging.XUnit.v3" Version="0.7.1" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.9.2" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="5.12.0" />
     <PackageVersion Include="NSubstitute" Version="6.2.0" />
     <PackageVersion Include="OpenTelemetry.AutoInstrumentation" Version="1.19.1" />
     <PackageVersion Include="Shouldly" Version="4.3.0" />

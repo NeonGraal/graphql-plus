@@ -8,7 +8,7 @@ param (
   [switch]$NoBuild = $false,
   [switch]$ClassTests = $false,
   [switch]$Html = $false,
-  $Framework = "10.0"
+  $Framework = "11.0"
 )
 
 Import-Module "$PSScriptRoot\scripts\Common.psm1" -Force

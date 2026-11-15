@@ -20,8 +20,8 @@ jobs:
       - uses: actions/setup-dotnet@v6
         with:
           dotnet-version: |
+            11.0.x
             10.0.x
-            9.0.x
       - name: Install dependencies
         run: dotnet restore
       - name: Build
@@ -39,7 +39,7 @@ jobs:
     needs: build
     strategy:
       matrix:
-        version: ["9.0", "10.0"]
+        version: ["10.0", "11.0"]
         classTests: [true, false]
     name: ${{ matrix.classTests && 'Class' || 'All' }} tests for ${{ matrix.version }}
 
@@ -114,7 +114,7 @@ jobs:
           name: results-${{ matrix.version }}-${{ env.testType }}
           path: results-${{ matrix.version }}/
       - name: Upload Pages artifact
-        if: matrix.version == '10.0' && !matrix.classTests
+        if: matrix.version == '11.0' && !matrix.classTests
         uses: actions/upload-pages-artifact@v5
         with:
           path: test/Html

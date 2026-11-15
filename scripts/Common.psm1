@@ -66,7 +66,7 @@ function New-DotnetTestArguments {
   #>
   [CmdletBinding()]
   param (
-    [string]$Framework = "10.0",
+    [string]$Framework = "11.0",
     [string[]]$EnvironmentVariables = @(),
     [string]$Project = "",
     [switch]$ClassTests = $false

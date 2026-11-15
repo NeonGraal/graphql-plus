@@ -7,8 +7,5 @@
     <IncludeBuildOutput>false</IncludeBuildOutput>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'!='net10.0'">
-    <PackageReference Include="System.Collections.Immutable" />
-  </ItemGroup>
 
 </Project>

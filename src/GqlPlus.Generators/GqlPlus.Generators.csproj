@@ -15,13 +15,14 @@
 
     <!-- From GqlPlus.Abstractions -->
     <PackageReference Include="Microsoft.Bcl.HashCode" GeneratePathProperty="true" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" GeneratePathProperty="true" />
+  </ItemGroup>
 
-    <!-- From GqlPlus.Parser -->
+  <ItemGroup Condition="'$(TargetFramework)' != 'net11.0'">
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" GeneratePathProperty="true" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" GeneratePathProperty="true" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'!='net10.0'">
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="System.Collections.Immutable" GeneratePathProperty="true" />
   </ItemGroup>
 

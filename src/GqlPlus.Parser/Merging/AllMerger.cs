@@ -12,7 +12,7 @@ internal abstract class AllMerger<TItem>(
   protected override IMessages CanMergeGroup(IGrouping<string, TItem> group)
   {
     IMessages result = base.CanMergeGroup(group);
-    if (result.Any()) {
+    if (result.Count != 0) {
       return result;
     }
 
